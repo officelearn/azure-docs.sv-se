@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database DTU-baserade resurs gränser elastiska pooler | Microsoft Docs
-description: På den här sidan beskrivs några vanliga DTU-baserade resurs gränser för elastiska pooler i Azure SQL Database.
+title: Azure SQL Database DTU-resurs begränsar elastiska pooler | Microsoft Docs
+description: På den här sidan beskrivs några vanliga värden för DTU-resurser för elastiska pooler i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
@@ -11,20 +11,20 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 03/14/2019
-ms.openlocfilehash: 2bd193c53ee85a1423dc63bf669021de954231c8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 08e6c27b359e8fcf48caed6faf21c0aed8fad224
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568807"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73521027"
 ---
-# <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Resurs begränsningar för elastiska pooler med hjälp av den DTU-baserade inköps modellen
+# <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Resurs begränsningar för elastiska pooler med inköps modellen DTU
 
-Den här artikeln innehåller detaljerade resurs gränser för Azure SQL Database elastiska pooler och databaser i pooler med hjälp av den DTU-baserade inköps modellen.
+Den här artikeln innehåller detaljerade resurs gränser för Azure SQL Database elastiska pooler och databaser i pooler med hjälp av inköps modellen DTU.
 
-För DTU-baserade inköps modell gränser för enskilda databaser, se [DTU-baserade resurs gränser – enkla databaser](sql-database-vcore-resource-limits-elastic-pools.md). För vCore resurs gränser, se [vCore resurs gränser – enkla databaser](sql-database-vcore-resource-limits-single-databases.md) och [vCore resurs gränser-elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).
+För resurs gränser för DTU-inköps modeller för enskilda databaser, se [gränser för DTU-resurs – enkla databaser](sql-database-vcore-resource-limits-elastic-pools.md). För vCore resurs gränser, se [vCore-resurs gränser – enkla databaser](sql-database-vcore-resource-limits-single-databases.md) och [vCore resurs gränser – elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).
 
-## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Elastisk pool: Lagrings storlekar och beräknings storlekar
+## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Elastisk pool: lagrings storlekar och beräknings storlekar
 
 För SQL Database elastiska pooler visar följande tabeller de resurser som är tillgängliga på varje tjänst nivå och beräknings storlek. Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av [Azure Portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [POWERSHELL](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases)eller [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
@@ -39,7 +39,7 @@ För SQL Database elastiska pooler visar följande tabeller de resurser som är 
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
 | Inkluderat lagrings utrymme per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Max lagrings alternativ per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Högsta minnes intern OLTP-lagring per pool (GB) | Gäller inte | Saknas | Saknas | Saknas | Saknas | Saknas | Saknas | Gäller inte |
+| Högsta minnes intern OLTP-lagring per pool (GB) | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte |
 | Maximalt antal databaser per pool | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Maximalt antal samtidiga arbetare (begäranden) per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Maximalt antal samtidiga sessioner per pool | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
@@ -54,7 +54,7 @@ För SQL Database elastiska pooler visar följande tabeller de resurser som är 
 |:---|---:|---:|---:| ---: | ---: | ---: |
 | Inkluderat lagrings utrymme per pool (GB) | 50 | 100 | 200 | 300 | 400 | 800 |
 | Max lagrings alternativ per pool (GB) | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1024 | 300, 500, 750, 1024, 1280 | 400, 500, 750, 1024, 1280, 1536 | 800, 1024, 1280, 1536, 1792, 2048 |
-| Högsta minnes intern OLTP-lagring per pool (GB) | Gäller inte | Saknas | Saknas | Saknas | Saknas | Gäller inte |
+| Högsta minnes intern OLTP-lagring per pool (GB) | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte |
 | Maximalt antal databaser per pool | 100 | 200 | 500 | 500 | 500 | 500 |
 | Maximalt antal samtidiga arbetare (begäranden) per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Maximalt antal samtidiga sessioner per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
@@ -69,7 +69,7 @@ För SQL Database elastiska pooler visar följande tabeller de resurser som är 
 |:---|---:|---:|---:| ---: | ---: |
 | Inkluderat lagrings utrymme per pool (GB) | 1200 | 1600 | 2000 | 2500 | 3000 |
 | Max lagrings alternativ per pool (GB) | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
-| Högsta minnes intern OLTP-lagring per pool (GB) | Gäller inte | Saknas | Saknas | Saknas | Gäller inte |
+| Högsta minnes intern OLTP-lagring per pool (GB) | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte |
 | Maximalt antal databaser per pool | 500 | 500 | 500 | 500 | 500 |
 | Maximalt antal samtidiga arbetare (begäranden) per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
 | Maximalt antal samtidiga sessioner per pool | 30000 | 30000 | 30000 | 30000 | 30000 |
@@ -109,7 +109,7 @@ För SQL Database elastiska pooler visar följande tabeller de resurser som är 
 |||||||
 
 > [!IMPORTANT]
-> Mer än 1 TB lagringsutrymme på Premium-nivån är för närvarande tillgängligt i alla regioner förutom: Kina, östra; Kina, norra; Tyskland, centrala; Tyskland, nordöstra; USA, västra centrala; US DoD-regioner samt US Government Central. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB.  Mer information finns i [Aktuella begränsningar för P11–P15](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).
+> Mer än 1 TB lagrings utrymme på Premium-nivån är för närvarande tillgängligt i alla regioner utom: Kina, östra, Kina, norra, Tyskland, centrala, Tyskland nordöstra, västra centrala USA, US DoD regioner och USA, centrala. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB.  Mer information finns i [Aktuella begränsningar för P11–P15](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).
 
 Om alla DTU:er för en elastisk pool används får varje databas i poolen lika många resurser för att bearbeta frågor. SQL Database-tjänsten tillhandahåller rättvis resursdelning mellan databaser genom att tilldela lika mycket beräkningstid till dem. En rättvis resursdelning i elastiska pooler tillämpas utöver den mängd resurser som varje databas är garanterad om det minsta antalet DTU:er per databas har angetts till ett annat värde än noll.
 
@@ -129,9 +129,9 @@ I följande tabell beskrivs egenskaperna för databaser i pooler.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- För vCore resurs gränser för en enskild databas, se [resurs gränser för enskilda databaser med den vCore-baserade inköps modellen](sql-database-vcore-resource-limits-single-databases.md)
-- För resurs gränser för DTU för en enskild databas, se [resurs gränser för enskilda databaser med hjälp av den DTU-baserade inköps modellen](sql-database-dtu-resource-limits-single-databases.md)
-- VCore resurs gränser för elastiska pooler finns i [resurs gränser för elastiska pooler med hjälp av vCore-baserad inköps modell](sql-database-vcore-resource-limits-elastic-pools.md)
-- Resurs begränsningar för hanterade instanser finns i [resurs gränser](sql-database-managed-instance-resource-limits.md)för hanterade instanser.
+- För vCore resurs gränser för en enskild databas, se [resurs gränser för enskilda databaser med vCore inköps modell](sql-database-vcore-resource-limits-single-databases.md)
+- För resurs gränser för DTU för en enskild databas, se [resurs gränser för enskilda databaser med inköps modellen DTU](sql-database-dtu-resource-limits-single-databases.md)
+- VCore resurs gränser för elastiska pooler finns i [resurs gränser för elastiska pooler med hjälp av vCore inköps modell](sql-database-vcore-resource-limits-elastic-pools.md)
+- Resurs begränsningar för hanterade instanser finns i [resurs gränser för hanterade](sql-database-managed-instance-resource-limits.md)instanser.
 - Information om allmänna Azure-gränser finns i [Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md).
 - Information om resurs gränser på en databas server finns i [Översikt över resurs gränser på en SQL Database-Server](sql-database-resource-limits-database-server.md) för information om begränsningar på Server-och prenumerations nivåer.

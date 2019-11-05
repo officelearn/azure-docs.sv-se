@@ -9,20 +9,21 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
-ms.date: 06/20/2019
-ms.openlocfilehash: 3cec6ee9368b1d9d1f2c9a627108aaf41c6da3c3
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.openlocfilehash: d9a879e92f78275f2366ccfc008068afbe208e5a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819847"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497384"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatisk träna en tids serie prognos modell
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 I den här artikeln får du lära dig hur du tränar en uppskattnings Regressions modell i Time Series med hjälp av automatisk maskin inlärning i Azure Machine Learning. Att konfigurera en prognos modell liknar att konfigurera en standard Regressions modell med hjälp av automatisk maskin inlärning, men vissa konfigurations alternativ och för bearbetnings steg finns för att arbeta med Time Series-data. I följande exempel visas hur du:
 
 * Förbereda data för tids serie modellering
-* Konfigurera angivna parametrar för tids serier i ett [`AutoMLConfig`-](/python/api/azureml-train-automl/azureml.train.automl.automlconfig) objekt
+* Konfigurera angivna parametrar för tids serier i ett [`AutoMLConfig`](/python/api/azureml-train-automl/azureml.train.automl.automlconfig) -objekt
 * Köra förutsägelser med Time Series-data
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
@@ -50,13 +51,13 @@ Djup inlärnings modeller har tre inbyggda capbailities:
 1. De stöder flera indata och utdata
 1. De kan automatiskt extrahera mönster i indata som sträcker sig över långa sekvenser
 
-Med större data kan djup inlärnings modeller, till exempel Microsofts "ForecasTCN, förbättra poängen i den resulterande modellen. 
+Med större data kan djup inlärnings modeller, till exempel Microsofts "ForecastTCN, förbättra poängen i den resulterande modellen. 
 
 Interna Time Series-läraare tillhandahålls också som en del av automatiserad ML. Prophet fungerar bäst med tids serier som har starka säsongs effekter och flera säsonger av historiska data. Prophet är korrekt & snabbt, robust för att kunna avvika, saknade data och dramatiska ändringar i din tids serie. 
 
 Autoregressivt Integrated glidande medelvärde (ARIMA) är en populär statistisk metod för tids serie prognoser. Den här metoden för Prognosticering används ofta på kort sikts scenarier där data visar bevis på trender, till exempel cykler, som kan vara oförutsägbara och svåra för modeller eller prognoser. AutoARIMA omvandlar dina data till station ära data för att få konsekventa, pålitliga resultat.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure Machine Learning-arbetsyta. Information om hur du skapar arbets ytan finns i [skapa en Azure Machine Learning arbets yta](how-to-manage-workspace.md).
 * I den här artikeln förutsätter vi att du har konfigurerat ett automatiserat experiment för maskin inlärning. Följ [själv studie kursen](tutorial-auto-train-models.md) eller [anvisningar](how-to-configure-auto-train.md) för att se design mönster för det grundläggande automatiserade maskin inlärnings experimentet.
@@ -110,7 +111,7 @@ För prognos uppgifter använder automatisk maskin inlärning för bearbetning o
 * Skapa tidsbaserade funktioner för att hjälpa till med utbildnings säsongs mönster
 * Koda kategoriska-variabler till numeriska kvantiteter
 
-Objektet `AutoMLConfig` definierar de inställningar och data som krävs för en automatiserad maskin inlärnings uppgift. Precis som med ett Regressions problem definierar du standard utbildnings parametrar som aktivitets typ, antal iterationer, tränings data och antalet kors valideringar. För prognos uppgifter finns det ytterligare parametrar som måste anges som påverkar experimentet. I följande tabell beskrivs varje parameter och dess användning.
+`AutoMLConfig`-objektet definierar de inställningar och data som krävs för en automatiserad maskin inlärnings uppgift. Precis som med ett Regressions problem definierar du standard utbildnings parametrar som aktivitets typ, antal iterationer, tränings data och antalet kors valideringar. För prognos uppgifter finns det ytterligare parametrar som måste anges som påverkar experimentet. I följande tabell beskrivs varje parameter och dess användning.
 
 | EntryPointName | Beskrivning | Krävs |
 |-------|-------|-------|
@@ -119,6 +120,7 @@ Objektet `AutoMLConfig` definierar de inställningar och data som krävs för en
 |`max_horizon`|Definierar den högsta önskade prognos horisonten i enheter för tids serie frekvens. Enheter baseras på tidsintervallet för dina utbildnings data, t. ex. varje månad, varje vecka att prognosen ska förutsäga.|✓|
 |`target_lags`|Antal rader att ange för fördröjning av målvärdena baserat på data frekvensen. Detta representeras som en lista eller ett enda heltal. Fördröjning ska användas när relationen mellan de oberoende variablerna och den underordnade variabeln inte matchar eller korrelerar som standard. När du till exempel försöker prognostisera efter frågan för en produkt kan efter frågan i någon månad bero på priset för vissa råvaruer 3 månader tidigare. I det här exemplet kanske du vill ange ett negativt värde för målet (efter frågan) med tre månader, så att modellen är en utbildning på rätt relation.||
 |`target_rolling_window_size`|*n* historiska perioder som ska användas för att generera prognostiserade värden < = storlek för tränings uppsättning. Om det utelämnas är *n* den fullständiga inlärnings uppsättningens storlek. Ange den här parametern när du bara vill ta hänsyn till en viss mängd historik när du tränar modellen.||
+|`enable_dnn`|Aktivera Prognosticering av Hyperoptimerade.||
 
 Mer information finns i [referens dokumentationen](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py) .
 
@@ -140,7 +142,7 @@ time_series_settings = {
 
 Genom att definiera `grain_column_names` i kodfragmentet ovan skapar AutoML två separata Time-Series-grupper, även kallat flera tids serier. Om ingen kornig het har definierats kommer AutoML att anta att data uppsättningen är en enda tids serie. Mer information om engångs-serien finns i [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
 
-Skapa nu ett standard-`AutoMLConfig`-objekt, ange aktivitets typen `forecasting` och skicka experimentet. När modellen har slutförts hämtar du den bästa körnings iterationen.
+Skapa nu ett standard `AutoMLConfig`-objekt, ange aktivitets typen `forecasting` och skicka experimentet. När modellen har slutförts hämtar du den bästa körnings iterationen.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -150,7 +152,8 @@ import logging
 
 automl_config = AutoMLConfig(task='forecasting',
                              primary_metric='normalized_root_mean_squared_error',
-                             iterations=10,
+                             experiment_timeout_minutes=15,
+                             enable_early_stopping=True,
                              training_data=train_data,
                              label_column_name=label,
                              n_cross_validations=5,
@@ -170,6 +173,17 @@ Se [antecknings boken för energi förbrukning](https://github.com/Azure/Machine
 * kors validering av rullande ursprung
 * konfigurerbar lags
 * mängd funktioner för rullande fönster
+
+### <a name="configure-a-dnn-enable-forecasting-experiment"></a>Konfigurera en DNN aktivera prognos experiment
+
+> [!NOTE]
+> DNN-stöd för Prognosticering i automatiserade Machine Learning är en för hands version.
+
+För att kunna utnyttja Hyperoptimerade för prognostisering måste du ange parametern `enable_dnn` i AutoMLConfig till true. 
+
+För att kunna använda Hyperoptimerade rekommenderar vi att du använder ett AML beräknings kluster med GPU SKU: er och minst 2 noder som beräknings mål. Mer information finns i [AML Compute-dokumentationen](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute) . Se [GPU-optimerade storlekar på virtuella datorer](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-gpu) för mer information om VM-storlekar som innehåller GPU: er.
+
+För att få tillräckligt med tid för att DNN-utbildningen ska slutföras rekommenderar vi att du ställer in experiment tids gränsen på minst ett par timmar.
 
 ### <a name="view-feature-engineering-summary"></a>Visa sammanfattning av funktions teknik
 
@@ -194,7 +208,7 @@ predict_labels = fitted_model.predict(test_data)
 actual_labels = test_labels.flatten()
 ```
 
-Du kan också använda funktionen `forecast()` i stället för `predict()`, vilket gör det möjligt att ange när förutsägelserna ska starta. I följande exempel ersätter du först alla värden i `y_pred` med `NaN`. Prognosens ursprung är i slutet av tränings data i det här fallet, eftersom det normalt skulle vara när du använder `predict()`. Men om du bara ersatte den andra halvan av `y_pred` med `NaN`, lämnar funktionen de numeriska värdena i den första halvan oförändrade, men prognoserar `NaN` värdena i den andra halvan. Funktionen returnerar både de beräknade värdena och de justerade funktionerna.
+Du kan också använda funktionen `forecast()` i stället för `predict()`, vilket gör det möjligt att ange specifikationer för när förutsägelserna ska starta. I följande exempel ersätter du först alla värden i `y_pred` med `NaN`. Prognosens ursprung är i slutet av tränings data i det här fallet, eftersom det normalt skulle vara när `predict()`används. Men om du bara ersatte den andra halvan av `y_pred` med `NaN`, lämnar funktionen de numeriska värdena i den första halvan oförändrade, men prognoserar `NaN` värdena i den andra halvan. Funktionen returnerar både de beräknade värdena och de justerade funktionerna.
 
 Du kan också använda parametern `forecast_destination` i `forecast()`-funktionen för att beräkna värden fram till ett visst datum.
 

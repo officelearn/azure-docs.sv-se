@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: overview
 ms.service: resource-graph
-ms.openlocfilehash: 45853e3c8986cec58f27d785af31f174aff21b2e
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: c113719d304aa4ed9c13df1fe0264d22aacb5002
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755874"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499145"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Översikt över Azure Resource Graph-tjänsten
 
@@ -25,7 +25,7 @@ Azure Resource Graph är en tjänst i Azure som är utformad för att utöka Azu
 I den här dokumentationen går vi igenom varje funktion i detalj.
 
 > [!NOTE]
-> Azure Resource Graph-befogenheter Azure Portal Sök fältet, den nya webbläsaren "alla resurser" och Azure Policy [ändrings historik](../policy/how-to/determine-non-compliance.md#change-history-preview) 
+> Azure Resource Graph-befogenheter Azure Portal Sök fältet, den nya webbläsaren "alla resurser" och Azure Policy [ändrings historik](../policy/how-to/determine-non-compliance.md#change-history-preview)
 > _visuellt diff_. Den är utformad för att hjälpa kunder att hantera storskaliga miljöer.
 
 [!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
@@ -92,7 +92,9 @@ Resurs diagram stöder Azure CLI, Azure PowerShell, Azure SDK för .NET och mer.
 
 ## <a name="next-steps"></a>Nästa steg
 
+- Kör din första fråga i [Azure Portal](first-query-portal.md).
 - Kör din första fråga med [Azure CLI](first-query-azurecli.md).
 - Kör din första fråga med [Azure PowerShell](first-query-powershell.md).
+- Få mer information om [frågespråket](./concepts/query-language.md).
 - Börja med [Start frågor](./samples/starter.md).
 - Förbättra din förståelse med [avancerade frågor](./samples/advanced.md).

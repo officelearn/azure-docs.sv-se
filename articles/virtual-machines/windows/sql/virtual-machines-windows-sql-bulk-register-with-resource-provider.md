@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 80a1ac3ebe5f49d6a63f47e08e0b16114d75e91f
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 97541484501a3ecdd1bd5998314c1ee9e7a4e3a5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199215"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489077"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Mass registrering av virtuella SQL-datorer i Azure med providern för SQL VM-resurs
 
@@ -30,14 +30,14 @@ Registrerings processen har ingen risk, har ingen stillestånds tid och kommer i
 
 Mer information om resurs leverantören finns i [SQL VM Resource Provider](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att kunna registrera SQL Server VM med resurs leverantören: 
 
 - En [Azure-prenumeration](https://azure.microsoft.com/free/) som har [registrerats med resurs leverantören](virtual-machines-windows-sql-register-with-resource-provider.md#register-subscription-with-rp) och innehåller oregistrerade SQL Server virtuella datorer. 
 - De klientautentiseringsuppgifter som används för att registrera de virtuella datorerna finns i någon av följande RBAC-roller: **virtuell dator**, **deltagare**eller **ägare**. 
 - Den senaste versionen av [AZ PowerShell](/powershell/azure/new-azureps-module-az). 
-- Den senaste versionen av [AZ. SqlVirtualMachine] (https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0.
+- Den senaste versionen av [AZ. SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -214,7 +214,7 @@ Rapporten skapas som en `.txt` fil med namnet `RegisterSqlVMScriptReport<Timesta
 | Antal virtuella datorer som hoppades över eftersom de inte körs SQL Server på Windows | Antal virtuella datorer som hoppades över eftersom de inte körs SQL Server eller inte är en virtuell Windows-dator. De virtuella datorerna visas i formatet `SubscriptionID, Resource Group, Virtual Machine`. | 
 | &nbsp; | &nbsp; |
 
-### <a name="log"></a>Logg 
+### <a name="log"></a>Logga 
 
 Fel loggas i logg filen med namnet `VMsNotRegisteredDueToError<Timestamp>.log` där tidsstämpel är den tid då skriptet startades. Om felet finns på prenumerations nivån innehåller loggen det kommaavgränsade SubscriptionID och fel meddelandet. Om felet är med den virtuella dator registreringen innehåller loggen prenumerations-ID, resurs gruppens namn, namn på virtuell dator, felkod och meddelande avgränsade med kommatecken. 
 

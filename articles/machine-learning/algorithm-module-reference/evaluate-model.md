@@ -1,7 +1,7 @@
 ---
 title: 'Utvärdera modell: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen utvärdera modell i Azure Machine Learning-tjänsten för att mäta noggrannheten i en utbildad modell.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen utvärdera modell i Azure Machine Learning för att mäta noggrannheten i en utbildad modell.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 0ad4ceedf9c1d65339c9e4aabebc0a47475ed568
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: ddc6a35d5959a2d1f85c151a6f229223db9ba566
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693806"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497910"
 ---
 # <a name="evaluate-model-module"></a>Utvärdera modell modul
 
-I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd den här modulen för att mäta noggrannheten för en utbildad modell. Du anger en data uppsättning som innehåller resultat som genererats från en modell, och modulen **utvärdera modell** beräknar en uppsättning utvärderings mått som är bransch standard.
   
@@ -69,7 +69,7 @@ Den här funktionen är användbar eftersom du enkelt kan jämföra resultat fr�
 När du har kört **utvärdera modell**högerklickar du på modulen och väljer **utvärderings resultat** för att se resultatet. Du kan:
 
 + Spara resultatet som en data uppsättning för enklare analys med andra verktyg
-+ Generera en visualisering i gränssnittet
++ Generera en visualisering i designern
 
 Om du ansluter data uppsättningar till båda indata för **utvärdera modell**kommer resultatet att innehålla mått för båda data uppsättningarna eller båda modellerna.
 Modellen eller data som är kopplade till den vänstra porten visas först i rapporten följt av måtten för data uppsättningen eller modellen som är kopplad till rätt port.  
@@ -126,4 +126,4 @@ Mät värdena som returneras för Regressions modeller är vanligt vis utformade
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

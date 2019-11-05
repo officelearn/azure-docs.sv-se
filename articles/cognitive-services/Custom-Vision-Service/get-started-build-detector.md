@@ -10,14 +10,14 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: anroth
-ms.openlocfilehash: 40f30ddece9881f565f45f4ef6c9d0e2ad85fe95
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0ca849e75f01573bbb356105b281f03d267836e6
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561138"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "73520466"
 ---
-# <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Snabbstart: Så här skapar du en objekt detektor med Custom Vision
+# <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Snabb start: så här skapar du en objekt detektor med Custom Vision
 
 I den här snabb starten får du lära dig hur du skapar en objekt detektor via Custom Vision webbplats. När du har skapat en detektor modell kan du använda tjänsten Custom Vision för objekt identifiering.
 
@@ -29,7 +29,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Skapa Custom Vision resurser i Azure Portal
 
-Om du vill använda Custom Vision Service måste du skapa Custom Vision utbildning och förutsägelse resurser i Azure Portal. Fyll i dialog rutan på sidan [skapa Custom vision](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) för att skapa både en utbildnings-och förutsägelse resurs. 
+[!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## <a name="create-a-new-project"></a>Skapa ett nytt projekt
 
@@ -75,7 +75,7 @@ I det här avsnittet ska du ladda upp och tagga bilder manuellt för att träna 
 
     ![Överförda bilder, i otaggade avsnitt](./media/get-started-build-detector/images-untagged.png)
 
-1. Klicka och dra en rektangel runt objektet i bilden. Ange sedan ett nytt taggnamn med **+** knappen eller Välj en befintlig tagg i list rutan. Det är mycket viktigt att tagga varje instans av de objekt som du vill identifiera, eftersom detektorn använder det otaggade bakgrunds områden som ett negativt exempel i träning. När du är klar med taggning klickar du på pilen till höger för att spara taggarna och gå vidare till nästa bild.
+1. Klicka och dra en rektangel runt objektet i bilden. Ange sedan ett nytt taggnamn med knappen **+** eller Välj en befintlig tagg i list rutan. Det är mycket viktigt att tagga varje instans av de objekt som du vill identifiera, eftersom detektorn använder det otaggade bakgrunds områden som ett negativt exempel i träning. När du är klar med taggning klickar du på pilen till höger för att spara taggarna och gå vidare till nästa bild.
 
     ![Tagga ett objekt med ett rektangulärt val](./media/get-started-build-detector/image-tagging.png)
 

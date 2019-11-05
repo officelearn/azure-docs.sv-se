@@ -1,25 +1,25 @@
 ---
-title: Krav för behållaren offentlig förhandsversion
+title: Krav för förhands granskning av behållare
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
-description: Vanliga krav för behållare i offentlig förhandsversion
+description: Den gemensamma förutsättningen för offentliga för hands behållare
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 7/5/2019
 ms.author: dapine
 ms.openlocfilehash: e5d40c9ffd32320ba685e2bdbd3095b4eeec3484
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717115"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73523939"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Använda en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][free-account] innan du börjar.
-* Installera den [Azure CLI][azure-cli] (az).
-* [Docker-motorn][docker-engine] och verifiera att Docker CLI fungerar i ett konsolfönster.
+* Använd en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][free-account] innan du börjar.
+* Installera [Azure CLI][azure-cli] (AZ).
+* [Docker-motorn][docker-engine] och kontrollerar att Docker CLI fungerar i ett konsol fönster.
 
 [free-account]: https://azure.microsoft.com/free
 [azure-cli]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest

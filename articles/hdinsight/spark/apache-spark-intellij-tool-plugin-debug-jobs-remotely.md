@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit for IntelliJ: Felsöka program via fjärr anslutning i HDInsight Spark '
+title: 'Azure Toolkit: Felsöka Apache Spark appar via fjärr anslutning – Azure HDInsight'
 description: Lär dig hur du använder HDInsight-verktyg i Azure Toolkit for IntelliJ för att fjärrfelsöka Spark-program som körs på HDInsight-kluster via VPN.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: a558c0e767610f1fefdf29ca461a476c7bfcee59
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: ac8ef620948048ae26ef6f408b4bc86b2a2bfbdc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327325"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494578"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Använd Azure Toolkit for IntelliJ för att felsöka Apache Spark program via fjärr anslutning i HDInsight via VPN
 
@@ -29,7 +29,7 @@ Den här artikeln innehåller stegvisa instruktioner om hur du använder HDInsig
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **En Azure-prenumeration**. Mer information finns i [få en kostnads fri utvärderings version av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **en Azure-prenumeration**. Mer information finns i [få en kostnads fri utvärderings version av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Ett Apache Spark kluster i HDInsight**. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 * **Oracle Java Development Kit**. Du kan installera det från [Oracle-webbplatsen](https://aka.ms/azure-jdks).
 * **INTELLIJ idé**. Den här artikeln använder version 2017,1. Du kan installera det från [JetBrains-webbplatsen](https://www.jetbrains.com/idea/download/).
@@ -37,7 +37,7 @@ Den här artikeln innehåller stegvisa instruktioner om hur du använder HDInsig
 * **Logga in på din Azure-prenumeration från IntelliJ-idén**. Följ anvisningarna i [använda Azure Toolkit for IntelliJ för att skapa Apache Spark-program för ett HDInsight-kluster](apache-spark-intellij-tool-plugin.md).
 * **Undantags lösning**. När du kör Spark Scala-programmet för fjärrfelsökning på en Windows-dator kan du få ett undantag. Detta undantag beskrivs i [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356) och inträffar på grund av en WinUtils. exe-fil som saknas i Windows. För att undvika det här felet måste du [Ladda ned den körbara filen](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) till en plats, till exempel **C:\WinUtils\bin**. Lägg till en **HADOOP_HOME** -miljö variabel och ange sedan värdet för variabeln till **C\WinUtils**.
 
-## <a name="step-1-create-an-azure-virtual-network"></a>Steg 1: Skapa ett virtuellt Azure-nätverk
+## <a name="step-1-create-an-azure-virtual-network"></a>Steg 1: skapa ett virtuellt Azure-nätverk
 
 Följ instruktionerna från följande länkar för att skapa ett virtuellt Azure-nätverk och kontrol lera anslutningen mellan din station ära dator och det virtuella nätverket:
 
@@ -45,11 +45,11 @@ Följ instruktionerna från följande länkar för att skapa ett virtuellt Azure
 * [Skapa ett VNet med en plats-till-plats-VPN-anslutning med PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 * [Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
-## <a name="step-2-create-an-hdinsight-spark-cluster"></a>Steg 2: Skapa ett HDInsight Spark-kluster
+## <a name="step-2-create-an-hdinsight-spark-cluster"></a>Steg 2: skapa ett HDInsight Spark-kluster
 
 Vi rekommenderar att du även skapar ett Apache Spark kluster i Azure HDInsight som är en del av det virtuella Azure-nätverket som du har skapat. Använd den information som är tillgänglig i [skapa Linux-baserade kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Som en del av valfri konfiguration väljer du det virtuella Azure-nätverk som du skapade i föregående steg.
 
-## <a name="step-3-verify-the-connectivity-between-the-cluster-head-node-and-your-desktop"></a>Steg 3: Kontrol lera anslutningen mellan kluster huvud noden och skriv bordet
+## <a name="step-3-verify-the-connectivity-between-the-cluster-head-node-and-your-desktop"></a>Steg 3: kontrol lera anslutningen mellan kluster huvud noden och skriv bordet
 
 1. Hämta IP-adressen för Head-noden. Öppna Ambari-ANVÄNDARGRÄNSSNITTET för klustret. Välj **instrument panel**på kluster bladet.
 
@@ -59,7 +59,7 @@ Vi rekommenderar att du även skapar ett Apache Spark kluster i Azure HDInsight 
 
     ![Välj värdar i Apache Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/apache-ambari-hosts1.png)
 
-1. Du ser en lista över Head-noder, arbetsnoder och Zookeeper-noder. Huvudnoderna har ett **HN**\*-prefix. Välj den första Head-noden.
+1. Du ser en lista över Head-noder, arbetsnoder och Zookeeper-noder. Huvudnoderna har ett **HN***-prefix. Välj den första Head-noden.
 
     ![Hitta Head-noden i Apache Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-cluster-headnodes.png)
 
@@ -92,7 +92,7 @@ Vi rekommenderar att du även skapar ett Apache Spark kluster i Azure HDInsight 
 
 1. Upprepa stegen för den andra Head-noden.
 
-## <a name="step-4-create-an-apache-spark-scala-application-by-using-hdinsight-tools-in-azure-toolkit-for-intellij-and-configure-it-for-remote-debugging"></a>Steg 4: Skapa ett Apache Spark Scala-program med hjälp av HDInsight-verktyg i Azure Toolkit for IntelliJ och konfigurera det för fjärrfelsökning
+## <a name="step-4-create-an-apache-spark-scala-application-by-using-hdinsight-tools-in-azure-toolkit-for-intellij-and-configure-it-for-remote-debugging"></a>Steg 4: skapa ett Apache Spark Scala-program med hjälp av HDInsight-verktyg i Azure Toolkit for IntelliJ och konfigurera det för fjärrfelsökning
 
 1. Öppna IntelliJ-idé och skapa ett nytt projekt. Gör följande i dialogrutan **Nytt projekt**:
 
@@ -132,13 +132,13 @@ Vi rekommenderar att du även skapar ett Apache Spark kluster i Azure HDInsight 
    * `org.scalatest:scalatest_2.10:2.2.1`
    * `org.apache.hadoop:hadoop-azure:2.7.1`
 
-1. Kopiera `yarn-site.xml` och`core-site.xml` från kluster huvud-noden och Lägg till dem i projektet. Använd följande kommandon för att kopiera filerna. Du kan använda [Cygwin](https://cygwin.com/install.html) för att köra följande `scp` kommandon för att kopiera filerna från klustrets huvud noder:
+1. Kopiera `yarn-site.xml` och `core-site.xml` från kluster Head-noden och Lägg till dem i projektet. Använd följande kommandon för att kopiera filerna. Du kan använda [Cygwin](https://cygwin.com/install.html) för att köra följande `scp`-kommandon för att kopiera filerna från klustrets huvud-noder:
 
     ```bash
     scp <ssh user name>@<headnode IP address or host name>://etc/hadoop/conf/core-site.xml .
     ```
 
-    Eftersom vi redan har lagt till IP-adressen och värd namnen för kluster Head-noden för värd filen på Skriv bordet kan vi `scp` använda kommandona på följande sätt:
+    Eftersom vi redan har lagt till IP-adressen och värd namnen för kluster Head-noden för värd filen på Skriv bordet kan vi använda `scp`-kommandon på följande sätt:
 
     ```bash
     scp sshuser@hn0-nitinp:/etc/hadoop/conf/core-site.xml .
@@ -147,9 +147,9 @@ Vi rekommenderar att du även skapar ett Apache Spark kluster i Azure HDInsight 
 
     Om du vill lägga till filerna i projektet kopierar du dem under mappen **/src** i projekt trädet, till exempel `<your project directory>\src`.
 
-1. `core-site.xml` Uppdatera filen för att göra följande ändringar:
+1. Uppdatera `core-site.xml`-filen och gör följande ändringar:
 
-   a. Ersätt den krypterade nyckeln. `core-site.xml` Filen innehåller den krypterade nyckeln till det lagrings konto som är associerat med klustret. I den `core-site.xml` fil som du har lagt till i projektet ersätter du den krypterade nyckeln med den faktiska lagrings nyckeln som är kopplad till standard lagrings kontot. Mer information finns i [Hantera dina lagrings åtkomst nycklar](../../storage/common/storage-account-manage.md#access-keys).
+   a. Ersätt den krypterade nyckeln. `core-site.xml`-filen innehåller den krypterade nyckeln till det lagrings konto som är associerat med klustret. I `core-site.xml`-filen som du lade till i projektet ersätter du den krypterade nyckeln med den faktiska lagrings nyckeln som är kopplad till standard lagrings kontot. Mer information finns i [Hantera dina lagrings åtkomst nycklar](../../storage/common/storage-account-manage.md#access-keys).
 
     ```xml
     <property>
@@ -187,7 +187,7 @@ Vi rekommenderar att du även skapar ett Apache Spark kluster i Azure HDInsight 
 
     ![IntelliJ idé skapa ny Scala-klass](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code-object.png)
 
-1. `MyClusterAppMain.scala` I filen klistrar du in följande kod. Den här koden skapar Spark-kontexten och `executeJob` öppnar en metod `SparkSample` från objektet.
+1. I `MyClusterAppMain.scala`-filen klistrar du in följande kod. Den här koden skapar Spark-kontexten och öppnar en `executeJob`-metod från `SparkSample`-objektet.
 
     ```scala
     import org.apache.spark.{SparkConf, SparkContext}
@@ -226,7 +226,7 @@ Vi rekommenderar att du även skapar ett Apache Spark kluster i Azure HDInsight 
     }
     ```
 
-1. Upprepa steg 8 och 9 för att lägga till en ny `RemoteClusterDebugging`klass som heter. Den här klassen implementerar Spark test ramverket som används för att felsöka programmen. Lägg till följande kod i `RemoteClusterDebugging` klassen:
+1. Upprepa steg 8 och 9 om du vill lägga till en ny klass som heter `RemoteClusterDebugging`. Den här klassen implementerar Spark test ramverket som används för att felsöka programmen. Lägg till följande kod i `RemoteClusterDebugging`-klassen:
 
     ```scala
         import org.apache.spark.{SparkConf, SparkContext}
@@ -252,10 +252,10 @@ Vi rekommenderar att du även skapar ett Apache Spark kluster i Azure HDInsight 
 
      Det finns några viktiga saker att tänka på:
 
-      * För `.set("spark.yarn.jar", "wasb:///hdp/apps/2.4.2.0-258/spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar")`kontrollerar du att Spark Assembly jar är tillgänglig på kluster lagringen på den angivna sökvägen.
-      * För `setJars`anger du den plats där artefakt burken ska skapas. Normalt är `<Your IntelliJ project directory>\out\<project name>_DefaultArtifact\default_artifact.jar`det.
+      * För `.set("spark.yarn.jar", "wasb:///hdp/apps/2.4.2.0-258/spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar")`kontrollerar du att Spark Assembly JAR är tillgängligt på kluster lagringen på den angivna sökvägen.
+      * För `setJars`anger du den plats där artefakt BURKen skapas. Vanligt vis är det `<Your IntelliJ project directory>\out\<project name>_DefaultArtifact\default_artifact.jar`.
 
-1. I- `test` klassen högerklickar du på nyckelordet och väljer sedan **skapa RemoteClusterDebugging-konfiguration.** `*RemoteClusterDebugging`
+1. Högerklicka på nyckelordet `test` i`*RemoteClusterDebugging`-klassen och välj sedan **skapa RemoteClusterDebugging-konfiguration**.
 
     ![IntelliJ idé att skapa en fjärran sluten konfiguration](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-remote-config.png)
 
@@ -267,9 +267,9 @@ Vi rekommenderar att du även skapar ett Apache Spark kluster i Azure HDInsight 
 
     ![IntelliJ den nedrullningsbara listan fjärrkörning](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-config-remote-run.png)
 
-## <a name="step-5-run-the-application-in-debug-mode"></a>Steg 5: Kör programmet i fel söknings läge
+## <a name="step-5-run-the-application-in-debug-mode"></a>Steg 5: kör programmet i fel söknings läge
 
-1. Öppna `SparkSample.scala` och skapa en Bryt punkt `val rdd1`bredvid i ditt IntelliJ-idé projekt. På popup-menyn **skapa Bryt punkt för** väljer du **rad i funktionen executeJob**.
+1. I ditt IntelliJ idé-projekt öppnar du `SparkSample.scala` och skapar en Bryt punkt bredvid `val rdd1`. På popup-menyn **skapa Bryt punkt för** väljer du **rad i funktionen executeJob**.
 
     ![IntelliJ idé Lägg till en Bryt punkt](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-create-breakpoint.png)
 
@@ -281,7 +281,7 @@ Vi rekommenderar att du även skapar ett Apache Spark kluster i Azure HDInsight 
 
     ![IntelliJ idé Visa fliken fel sökare](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-debugger-tab.png)
 
-1. Om du vill lägga till en Watch väljer **+** du ikonen ().
+1. Om du vill lägga till en Watch väljer du ikonen ( **+** ).
 
     ![IntelliJ-felsökning – Lägg till Watch-variabel](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable.png)
 
@@ -301,18 +301,18 @@ Vi rekommenderar att du även skapar ett Apache Spark kluster i Azure HDInsight 
 
 ## <a name="seealso"></a>Nästa steg
 
-* [: Apache Spark på Azure HDInsight](apache-spark-overview.md)
+* [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="demo"></a>Demo
 
-* Skapa Scala-projekt (video): [Skapa Apache Spark Scala-program](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
-* Fjärrfelsökning (video): [Använd Azure Toolkit for IntelliJ för att felsöka Apache Spark program via fjärr anslutning i ett HDInsight-kluster](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
+* Skapa Scala-projekt (video): [skapa Apache Spark Scala-program](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
+* Fjärrfelsökning (video): [använd Azure Toolkit for IntelliJ för att felsöka Apache Spark program via fjärr anslutning i ett HDInsight-kluster](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
 
 ### <a name="scenarios"></a>Scenarier
 
-* [Apache Spark med BI: Utföra interaktiv data analys med hjälp av spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
-* [Apache Spark med Machine Learning: Använda spark i HDInsight för att analysera skapande temperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark med Machine Learning: Använd spark i HDInsight för att förutsäga resultatet av livsmedels inspektionen](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark med BI: utföra interaktiv data analys med hjälp av spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
+* [Apache Spark med Machine Learning: använda spark i HDInsight för att analysera skapande temperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: använda spark i HDInsight för att förutsäga resultatet av livsmedels inspektionen](apache-spark-machine-learning-mllib-ipython.md)
 * [Webbplats logg analys med Apache Spark i HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Skapa och köra program

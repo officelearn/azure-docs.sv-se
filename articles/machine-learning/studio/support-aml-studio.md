@@ -1,7 +1,7 @@
 ---
-title: Få support och utbildning
-titleSuffix: Azure Machine Learning Studio
-description: Få support och utbildning och ge feedback för Azure Machine Learning Studio
+title: Få support & utbildning
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Få support och utbildning och ge feedback för Azure Machine Learning Studio (klassisk)
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -9,36 +9,36 @@ ms.topic: conceptual
 author: peterclu
 ms.author: amlstudiodocs
 ms.date: 01/18/2019
-ms.openlocfilehash: f7e5881b5b046379b4c79252489a4b3dd8eb1cad
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c2919a77e66603883f993ff19f2f397e3eb5e8d6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502119"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496744"
 ---
-# <a name="get-support-and-training-for-azure-machine-learning-studio"></a>Få support och utbildning för Azure Machine Learning Studio
+# <a name="get-support-and-training-for-azure-machine-learning-studio-classic"></a>Få support och utbildning för Azure Machine Learning Studio (klassisk)
 
-Den här artikeln innehåller information om hur du lär dig mer om Azure Machine Learning Studio och få support för dina problem och frågor.
+Den här artikeln innehåller information om hur du kan lära dig mer om Azure Machine Learning Studio (klassisk) och få support för dina problem och frågor.
 
-## <a name="learn-more-about-studio"></a>Läs mer om Studio
+## <a name="learn-more-about-studio-classic"></a>Läs mer om Studio (klassisk)
 
-Se våra inlärningsresurser:
-+ [Självstudier och instruktionsartiklar](../studio/index.yml) 
-+ [Nybörjare data science-videor](../studio/data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) 
-+ [Algoritmen facit](../studio/algorithm-cheat-sheet.md) 
+Se våra utbildnings resurser:
++ [Självstudier och instruktions artiklar](../studio/index.yml) 
++ [Videor om data vetenskap för nybörjare](../studio/data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) 
++ [Algoritm lathund blad](../studio/algorithm-cheat-sheet.md) 
 
-## <a name="submit-doc-feedback"></a>Skicka dokumentationsfeedback
+## <a name="submit-doc-feedback"></a>Skicka dokument feedback
 
-Du kan **skicka förfrågningar** för ytterligare material med hjälp av den **innehåll feedback** knappen i slutet av varje artikel.
+Du kan **Skicka begär Anden** om ytterligare inlärnings material med hjälp av knappen **feedback om innehåll** i slutet av varje artikel.
 
-## <a name="get-service-support"></a>Få support för tjänsten
+## <a name="get-service-support"></a>Hämta tjänst support
 
-Kolla in dessa Supportresurser:
+Kolla ut följande support resurser:
 
-+ **Teknisk support för Azure-kunder**: [Skicka in och hantera supportförfrågningar](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) via Azure portal.
++ **Teknisk support för Azure-kunder**: [skicka och hantera support förfrågningar](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) via Azure Portal.
 
-+ **Användarforum**: Ställ frågor, besvara frågor, och ansluter till andra användare i den [Azure Machine Learning Studio Supportforum på MSDN](https://aka.ms/aml-forum-studio).
++ **Användar forum**: Ställ frågor, besvara frågor och Anslut till andra användare i det [Azure Machine Learning Studio (klassiska) support forum på MSDN](https://aka.ms/aml-forum-studio).
 
-+ **Stack Overflow**: Besök Azure Machine Learning-communityn på [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) märkta med ”Azure-Machine Learning”.
++ **Stack Overflow**: besök Azure Machine Learning community på [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) taggade med "Azure-Machine-Learning".
 
-+ **Dela produktförslag** och funktioner begäranden i vår [Feedbackkanal för Azure Machine Learning](https://feedback.azure.com/forums/257792-machine-learning). Om du vill dela din feedback, Välj den **produktfeedback** knappen i slutet av varje artikel.
++ **Dela produkt förslag** och funktions förfrågningar i vår [Azure Machine Learning feedback-kanal](https://feedback.azure.com/forums/257792-machine-learning). Om du vill dela din feedback väljer du knappen **produkt feedback** i slutet av varje artikel.

@@ -1,7 +1,7 @@
 ---
 title: 'Koppla data: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen Anslut till data i Azure Machine Learning-tjänsten för att sammanfoga data uppsättningar.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen Anslut till data i Azure Machine Learning för att sammanfoga data uppsättningar.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
-ms.openlocfilehash: ec9de6975931219ae45543833421234c4d71e6af
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 587490284b2886764c137a01e0eb4b3c9c755d41
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693093"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495082"
 ---
 # <a name="join-data"></a>Koppla data
 
-Den här artikeln beskriver hur du använder modulen **koppla data** i det visuella gränssnittet i Azure Machine Learning tjänsten för att slå samman två data uppsättningar med en kopplings åtgärd i databas format.  
+Den här artikeln beskriver hur du använder modulen **koppla data** i Azure Machine Learning designer (för hands version) för att slå samman två data uppsättningar med en kopplings åtgärd i databas format.  
 
 ## <a name="how-to-configure-join-data"></a>Så här konfigurerar du kopplings data
 
@@ -64,8 +64,8 @@ Om du vill utföra en koppling på två data uppsättningar ska de relateras av 
 
 1. Kör pipelinen eller Välj modulen koppla data och vald **körning vald** för att utföra kopplingen.
 
-1. Om du vill visa resultaten högerklickar du på data uppsättningen för att **ansluta Data**  > **resultat**  > **visualisera**.
+1. Om du vill visa resultaten högerklickar du på data uppsättningen för att **ansluta Data** > **resultat** > **visualisera**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

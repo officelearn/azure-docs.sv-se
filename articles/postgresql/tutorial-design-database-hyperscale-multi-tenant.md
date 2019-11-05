@@ -1,6 +1,6 @@
 ---
-title: Utforma en databas för flera innehavare med Azure Database for PostgreSQL – citus (för hands version) – självstudie
-description: Den här självstudien visar hur du skapar, fyller i och frågar distribuerade tabeller på Azure Database for PostgreSQL citus (för hands version).
+title: Utforma en databas för flera klient organisationer med Azure Database for PostgreSQL – citus-självstudie
+description: Den här självstudien visar hur du skapar, fyller i och frågar distribuerade tabeller på Azure Database for PostgreSQL citus.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -9,16 +9,16 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: ba20a048faecc9e37a2bfbe750de0fbeba88d538
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 130c3e9f5abb24ffcc4e0c4ad6b96af5fca62090
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70163991"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496537"
 ---
-# <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Självstudie: utforma en databas med flera innehavare med hjälp av Azure Database for PostgreSQL – storskalig (citus) (för hands version)
+# <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Självstudie: utforma en databas med flera innehavare med Azure Database for PostgreSQL – storskalig (citus)
 
-I den här självstudien använder du Azure Database for PostgreSQL-förhandsgranskning (citus) (för hands version) för att lära dig att:
+I den här självstudien använder du Azure Database for PostgreSQL-storskalig skalning (citus) för att lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en Hyperscale-servergrupp (Citus)
@@ -29,13 +29,13 @@ I den här självstudien använder du Azure Database for PostgreSQL-förhandsgra
 > * Dela data mellan klienter
 > * Anpassa schemat per klient
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
 ## <a name="use-psql-utility-to-create-a-schema"></a>Använd psql-verktyget för att skapa ett schema
 
-När du är ansluten till Azure Database for PostgreSQL-förhandsgranskning (citus) (för hands version) med psql kan du utföra några grundläggande uppgifter. Den här självstudien vägleder dig genom att skapa en webbapp som gör att annonsörer kan spåra sina kampanjer.
+När du har anslutit till Azure Database for PostgreSQL skala (citus) med psql kan du utföra några grundläggande uppgifter. Den här självstudien vägleder dig genom att skapa en webbapp som gör att annonsörer kan spåra sina kampanjer.
 
 Flera företag kan använda appen så vi skapar en tabell för att lagra företag och en annan för deras kampanjer. I psql-konsolen kör du följande kommandon:
 
@@ -130,7 +130,7 @@ Program med flera klienter kan endast framtvinga unik användning per klient, vi
 
 En storskalig distribution lagrar tabell rader på olika noder baserat på värdet för en användardefinierad kolumn. Denna "distributions kolumn" markerar vilken klient som äger vilka rader.
 
-Vi anger att distributions kolumnen ska vara företags \_id, klient-ID. I psql kör du följande funktioner:
+Vi anger att distributions kolumnen ska vara företags\_-ID, klient-ID. I psql kör du följande funktioner:
 
 ```sql
 SELECT create_distributed_table('companies',   'id');
@@ -211,7 +211,7 @@ Läs in den med exempel data. Kom ihåg att köra det här kommandot i psql inif
 \copy geo_ips from 'geo_ips.csv' with csv
 ```
 
-Att gå med i klicknings tabellen med geo \_ips är effektiv på alla noder.
+Att gå med i klicknings tabellen med geo\_IP-adresser är effektiva på alla noder.
 Här är en koppling för att hitta platserna för alla som klickar på AD
 290. Prova att köra frågan i psql.
 

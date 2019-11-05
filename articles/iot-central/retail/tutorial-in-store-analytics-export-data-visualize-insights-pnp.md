@@ -5,17 +5,17 @@ services: iot-central
 ms.service: iot-central
 ms.topic: tutorial
 ms.custom:
-- iot-storeAnalytics-conditionMonitor
+- iot-storeAnalytics-checkout
 - iot-p0-scenario
 ms.author: dobett
 author: dominicbetts
 ms.date: 10/22/2019
-ms.openlocfilehash: 057602e9a595f1cb76927810801bd87e4f124d31
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 913a87df47121c18fcd4f83aa8d5a24b4041ce19
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73026382"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495129"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Självstudie: exportera data från Azure IoT Central och visualisera insikter i Power BI
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Använd Logic Apps för att skicka data från en händelsehubben till en Power BI strömmande data uppsättning.
 > * Skapa en instrument panel för Power BI för att visualisera data i den strömmande data uppsättningen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 

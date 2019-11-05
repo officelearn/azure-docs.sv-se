@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Mönster roller – LUIS'
+title: 'Självstudie: mönster roller – LUIS'
 titleSuffix: Azure Cognitive Services
 description: Mönster extraherar data från välformaterad mall yttranden. Mallyttranden använder en enkel entitet och roller för att extrahera relaterade data, till exempel ursprungsplatsen och målplatsen.
 ms.custom: seodec18
@@ -9,19 +9,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 7b95dcf6a93c9abdeab9520f0a0fd80eb17dccff
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 13a1589a6cc6ed48f159f361ff69a5a3ba8f0f80
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70387642"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499452"
 ---
-# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Självstudier: Extrahera sammanhangsbaserade relaterade mönster med hjälp av roller
+# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Självstudie: extrahera sammanhangsbaserade relaterade mönster med hjälp av roller
 
 I den här självstudien använder du ett mönster för att extrahera data från ett välformaterat mallyttrande. Mallen uttryck använder en [enkel entitet](luis-concept-entity-types.md#simple-entity) och [roller](luis-concept-roles.md) för att extrahera relaterade data, till exempel ursprungs plats och målplats.  När du använder mönster behövs färre exempelyttranden för avsikten.
 
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **I den här självstudiekursen får du lära du dig att:**
 
@@ -31,10 +32,10 @@ I den här självstudien använder du ett mönster för att extrahera data från
 > * Skapa ny avsikt
 > * Träna
 > * Publicera
-> * Hämta avsikter och entiteter från en slutpunkt
+> * Hämta avsikter och entiteter från slutpunkt
 > * Skapa mönster med roller
 > * Skapa en fraslista över städer
-> * Hämta avsikter och entiteter från en slutpunkt
+> * Hämta avsikter och entiteter från slutpunkt
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 

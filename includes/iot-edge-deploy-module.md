@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/04/2019
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: c20a14ef2bc74d73b93ab39ee52fe1be8a5f984f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 12661c77c6a950b482187b09e4465c964e6d6652
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187461"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494060"
 ---
 En av de viktigaste funktionerna i Azure IoT Edge är möjligheten att distribuera kod till IoT Edge-enheter från molnet. **IoT Edge-moduler** är körbara paket som implementeras som containrar. I det här avsnittet distribuerar du en färdig modul från [avsnittet IoT Edge-moduler i Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). 
 
@@ -37,7 +37,7 @@ Använd följande steg för att distribuera din första modul från Azure Market
 
 3. När du har valt en IoT Edge-modul från Azure Marketplace samt valt den IoT Edge-enhet som ska ta emot modulen kommer du till en trestegsguide som hjälper dig att definiera exakt hur modulen ska distribueras. I steget **Lägg till moduler** i guiden ska du observera att modulen **SimulatedTemperatureSensor** är automatiskt ifylld. I självstudierna använder du den här sidan för att lägga till ytterligare moduler i distributionen. I den här snabbstarten distribuerar du enbart den här modulen. Välj **Nästa** för att fortsätta till nästa steg i guiden.
 
-4. I steget **Ange vägar** i guiden definierar du hur meddelanden skickas mellan moduler och IoT Hub. I snabbstarten vill du att alla meddelanden från alla moduler går till IoT Hub (`$upstream`). Om det inte fyllts i automatiskt lägger du till följande kod och väljer **Nästa**:
+4. I steget **Ange vägar** i guiden definierar du hur meddelanden skickas mellan moduler och IoT Hub. I snabbstarten vill du att alla meddelanden från alla moduler går till IoT Hub (`$upstream`). Om den inte fylls i automatiskt lägger du till följande kod:
 
    ```json
     {
@@ -46,6 +46,7 @@ Använd följande steg för att distribuera din första modul från Azure Market
         }
     }
    ```
+   Välj sedan **Nästa**.
 
 5. I steget **Granska distribution** i guiden kan du förhandsgranska JSON-filen som definierar alla moduler som distribueras till din IoT Edge-enhet. Observera att modulen **SimulatedTemperatureSensor** innefattas samt två ytterligare systemmoduler som kallas **edgeAgent** och **edgeHub**. Välj **Skicka** när du är klar med granskningen.
 

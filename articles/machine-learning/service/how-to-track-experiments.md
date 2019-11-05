@@ -12,14 +12,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: c72de809dc5818cced95be2cbd6b47308bad4f22
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
-ms.translationtype: MT
+ms.openlocfilehash: 2d8bf44f5e5e7a3f8c328a47480599f9dd18b845
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045210"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489512"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Övervaka körningar och mått för Azure ML-experiment
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Förbättra skapande processen för modeller genom att spåra experiment och övervaka körnings mått. I den här artikeln lär du dig att lägga till loggnings kod i ditt utbildnings skript, skicka in en experiment körning, Övervakare som körs och granska resultaten i Azure Machine Learning.
 
@@ -261,7 +262,7 @@ print(run.get_portal_url())
    ![Jupyter Notebook-widget för automatiserad Machine Learning](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
 
 
-Om du vill visa mer information om en pipeline klickar du på den pipeline som du vill utforska i tabellen och diagrammen återges i ett popup-fönster från Azure Portal.
+Om du vill visa mer information om en pipeline klickar du på pipelinen som du vill utforska i tabellen och diagrammet visas i ett popup-fönster från Azure Machine Learning Studio.
 
 ### <a name="get-log-results-upon-completion"></a>Hämta loggresultat när åtgärden har slutförts
 
@@ -273,27 +274,24 @@ Modell träning och övervakning sker i bakgrunden så att du kan köra andra up
 Du kan visa måtten för en tränad modell med ```run.get_metrics()```. Nu kan du hämta alla mått som loggades i exemplet ovan för att fastställa den bästa modellen.
 
 <a name="view-the-experiment-in-the-web-portal"></a>
-## <a name="view-the-experiment-in-the-azure-portal-or-your-workspace-landing-page-previewhttpsmlazurecom"></a>Visa experimentet i Azure Portal eller din [landnings sida för arbets ytan (för hands version)](https://ml.azure.com)
+## <a name="view-the-experiment-in-your-workspace-in-azure-machine-learning-studiohttpsmlazurecom"></a>Visa experimentet i din arbets yta i [Azure Machine Learning Studio](https://ml.azure.com)
 
-När ett experiment har körts kan du bläddra till den registrerade experiment körnings posten. Du kan komma åt historiken på två sätt:
+När ett experiment har körts kan du bläddra till den registrerade experiment körnings posten. Du kan komma åt historiken från [Azure Machine Learning Studio](https://ml.azure.com).
 
-* Hämta URL: en till kommandot kör direkt ```print(run.get_portal_url())```
-* Visa körnings informationen genom att skicka namnet på körningen (i det här fallet ```run```). På det här sättet pekar du på sidan experiment namn, ID, typ, status, information, en länk till Azure Portal och en länk till dokumentationen.
+Gå till fliken experiment och välj experimentet. Du kommer till experiment körnings instrument panelen där du kan se spårade mått och diagram som loggas för varje körning. I det här fallet loggade vi MSE och alpha-värdena.
 
-Länken för körningen leder dig direkt till sidan körnings information i Azure Portal. Här kan du se egenskaper, spårade mått, bilder och diagram som loggas i experimentet. I det här fallet loggade vi MSE och alpha-värdena.
+  ![Kör information i Azure Machine Learning Studio](./media/how-to-track-experiments/experiment-dashboard.png)
 
-  ![Kör information i Azure Portal](./media/how-to-track-experiments/run-details-page.png)
-
-Du kan också visa utdata eller loggar för körningen eller ladda ned ögonblicks bilden av experimentet som du har skickat så att du kan dela experiment-mappen med andra.
+Du kan öka detalj nivån till en speciell körning för att visa dess utdata eller loggar, eller ladda ned ögonblicks bilden av experimentet som du har skickat så att du kan dela experiment-mappen med andra.
 
 ### <a name="viewing-charts-in-run-details"></a>Visa diagram i körnings information
 
-Det finns olika sätt att använda loggnings-API: er för att registrera olika typer av mått under en körning och visa dem som diagram i Azure Portal. 
+Det finns olika sätt att använda loggnings-API: er för att registrera olika typer av mått under en körning och visa dem som diagram i Azure Machine Learning Studio.
 
 |Loggat värde|Exempel kod| Visa i portalen|
 |----|----|----|
 |Logga en matris med numeriska värden| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|linje diagram med en variabel|
-|Logga ett enkelt numeriskt värde med samma mått namn som används upprepade gånger (som i en for-slinga)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Linje diagram med en variabel|
+|Logga ett enkelt numeriskt värde med samma mått namn som används upprepade gånger (som i en for-slinga)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| linje diagram med en variabel|
 |Logga en rad med två numeriska kolumner upprepade gånger|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Linje diagram med två variabler|
 |Logg tabell med 2 numeriska kolumner|`run.log_table(name='Sine Wave', value=sines)`|Linje diagram med två variabler|
 

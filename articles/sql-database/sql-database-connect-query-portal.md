@@ -1,6 +1,6 @@
 ---
 title: 'Azure-portalen: Fråga Azure SQL Database med frågeredigeraren | Microsoft Docs'
-description: Lär dig hur du ansluter till SQL Database i Azure Portal med hjälp av SQL-frågeredigeraren. Kör sedan Transact-SQL-uttryck (T-SQL) för att söka i och redigera data.
+description: Lär dig hur du ansluter till SQL Database i Azure Portal med hjälp av SQL-frågeredigeraren. Kör sedan Transact-SQL-uttryck (T-SQL) för att skicka frågor och redigera data.
 keywords: connect to sql database,azure portal, portal, query editor
 services: sql-database
 ms.service: sql-database
@@ -11,15 +11,15 @@ ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
-ms.date: 06/28/2019
-ms.openlocfilehash: 3702c88d0a5cdc7aa1f854f71e3aee8a42d9c22c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 10/24/2019
+ms.openlocfilehash: 433f2a190cf24a7e59dcd1d5a5aba0d3aa4e8588
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569168"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492086"
 ---
-# <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Snabbstart: Använda SQL-frågeredigeraren på Azure-portalen för att ansluta och fråga efter data
+# <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Snabb start: Använd Azure Portal SQL-Frågeredigeraren för att ansluta och fråga efter data
 
 SQL-frågeredigeraren är ett webbläsarverktyg på Azure-portalen som ger ett enkelt sätt att köra SQL-frågor på Azure SQL Database eller Azure SQL Data Warehouse. I den här snabbstarten kommer du att använda frågeredigeraren för att ansluta till en SQL-databas och sedan köra Transact-SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data.
 
@@ -42,45 +42,51 @@ För att slutföra den här kursen behöver du:
 
 ## <a name="sign-in-the-azure-portal"></a>Logga in på Azure-portalen
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="connect-using-sql-authentication"></a>Anslut med SQL-autentisering
 
-1. Välj **SQL-databaser** på menyn till vänster och välj sedan **mySampleDatabase**.
+1. Gå till Azure Portal för att ansluta till en SQL-databas. Sök efter och välj **SQL-databaser**.
 
-2. På menyn till vänster hittar och väljer du **Frågeredigeraren (förhandsversion)** . Sidan **Inloggning** visas.
+    ![Gå till listan SQL Database, Azure Portal](./media/sql-database-connect-query-portal/search-for-sql-databases.png)
+
+2. Välj din SQL-databas.
+
+    ![Välj en SQL-databas Azure Portal](./media/sql-database-connect-query-portal/select-a-sql-database.png)
+
+3. I menyn **SQL-databas** väljer du **Frågeredigeraren (för hands version)** .
 
     ![hitta frågeredigerare](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
-3. Välj **Auktoriseringstyp** på den nedrullningsbara menyn, välj **SQL Server-autentisering** och ange användar-ID och lösenord för det serveradministratörskonto som används för att skapa databasen.
+4. På **inloggnings** sidan under etiketten **SQL Server-autentisering** anger du **inloggnings** -ID och **lösen ord** för det Server administratörs konto som användes för att skapa databasen. Välj sedan **OK**.
 
     ![logga in](./media/sql-database-connect-query-portal/login-menu.png)
 
-4. Välj **OK**.
-
-
 ## <a name="connect-using-azure-active-directory"></a>Ansluta med Azure Active Directory
 
-Genom att konfigurera en Active Directory-administratör (AD) kan du använda en enda identitet för att logga in på Azure-portalen och SQL-databasen. Konfigurera en AD-administratör för SQL-servern genom att följa stegen nedan.
+Genom att konfigurera en Azure Active Directory (Azure AD)-administratör kan du använda en enda identitet för att logga in på Azure Portal och SQL-databasen. Följ stegen nedan om du vill konfigurera en Azure AD-administratör för din SQL Server.
 
 > [!NOTE]
-> * E-postkonton (t.ex. outlook.com, gmail.com och yahoo.com) stöds inte än som AD-administratörer. Se till att välja en användare som skapats internt i Azure AD eller som federerats till Azure AD.
+> * E-postkonton (till exempel outlook.com, gmail.com, yahoo.com och så vidare) stöds ännu inte som Azure AD-administratörer. Se till att välja en användare som skapats internt i Azure AD eller som federerats till Azure AD.
 > * Azure AD-administratörsinloggning fungerar inte med konton som har tvåfaktorautentisering aktiverat.
 
-1. Välj **Alla resurser** på menyn till vänster och välj sedan SQL-servern.
+1. På Azure Portal-menyn eller på **Start** sidan väljer du **alla resurser**.
 
-2. På SQL-serverns meny **Inställningar** väljer du **Active Directory-administratör**.
+2. Välj din SQL Server.
 
-3. I verktygsfältet för AD-administratörssidan väljer du **Konfigurera administratör** och väljer användarens eller gruppen som AD-administratör.
+3. Välj **Active Directory administratör**på **SQL Server** -menyn under **Inställningar**.
+
+4. I verktygsfältet för SQL Server **Active Directory admin** väljer du **Ange administratör** och väljer användaren eller gruppen som din Azure AD-administratör.
 
     ![Välj active directory](./media/sql-database-connect-query-portal/select-active-directory.png)
 
-4. Välj **Spara** på AD-administratörssidan.
+5. På sidan **Lägg till administratör** , i sökrutan, anger du en användare eller grupp som du vill söka efter, väljer den som administratör och väljer sedan knappen **Välj** .
 
-5. Gå till databasen **mySampleDatabase** och välj **Frågeredigeraren (förhandsversion)** på menyn till vänster. Sidan **Inloggning** visas. Om du är AD-administratör visas ett meddelande till höger under **Active Directory – enkel inloggning** om att du har loggats in.
+6. Gå tillbaka till verktygsfältet för SQL Server **Active Directory admin** och välj **Spara**.
 
-6. Välj **OK**.
+7. Välj **SQL-databaser**på **SQL Server** -menyn och välj sedan din SQL-databas.
 
+8. I menyn **SQL-databas** väljer du **Frågeredigeraren (för hands version)** . På **inloggnings** sidan, under etiketten **Active Directory autentisering** , visas ett meddelande om att du har loggat in om du är en Azure AD-administratör. Välj sedan knappen **Fortsätt som** *\<ditt användar-eller grupp-ID >* .
 
 ## <a name="view-data"></a>Visa data
 
@@ -95,7 +101,7 @@ Genom att konfigurera en Active Directory-administratör (AD) kan du använda en
 
 2. Välj **Kör** i verktygsfältet och granska utdata i fönstret **Resultat**.
 
-![resultat från frågeredigeraren](./media/sql-database-connect-query-portal/query-editor-results.png)
+   ![resultat från frågeredigeraren](./media/sql-database-connect-query-portal/query-editor-results.png)
 
 ## <a name="insert-data"></a>Infoga data
 
@@ -103,8 +109,8 @@ Kör följande [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transa
 
 1. Ersätt den tidigare frågan med denna.
 
-   ```sql
-   INSERT INTO [SalesLT].[Product]
+    ```sql
+    INSERT INTO [SalesLT].[Product]
            ( [Name]
            , [ProductNumber]
            , [Color]
@@ -113,7 +119,7 @@ Kör följande [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transa
            , [ListPrice]
            , [SellStartDate]
            )
-     VALUES
+    VALUES
            ('myNewProduct'
            ,123456789
            ,'NewColor'
@@ -124,7 +130,7 @@ Kör följande [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transa
    ```
 
 
-2. Välj **Kör** för att infoga en ny rad i tabellen `Product`. I fönstret **Meddelande** visas **Frågan slutförd: Berörda rader: 1**.
+2. Välj **Kör** för att infoga en ny rad i tabellen `Product`. I fönstret **meddelanden** visas **frågan lyckades: rader som påverkas: 1**.
 
 
 ## <a name="update-data"></a>Uppdatera data
@@ -139,7 +145,7 @@ Kör följande [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transa
    WHERE Name = 'myNewProduct';
    ```
 
-2. Välj **Kör** för att uppdatera den angivna raden i tabellen `Product`. I fönstret **Meddelande** visas **Frågan slutförd: Berörda rader: 1**.
+2. Välj **Kör** för att uppdatera den angivna raden i tabellen `Product`. I fönstret **meddelanden** visas **frågan lyckades: rader som påverkas: 1**.
 
 ## <a name="delete-data"></a>Ta bort data
 
@@ -152,7 +158,7 @@ Kör följande [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transa
    WHERE Name = 'myNewProduct';
    ```
 
-2. Välj **Kör** för att ta bort den angivna raden i tabellen `Product`. I fönstret **Meddelande** visas **Frågan slutförd: Berörda rader: 1**.
+2. Välj **Kör** för att ta bort den angivna raden i tabellen `Product`. I fönstret **meddelanden** visas **frågan lyckades: rader som påverkas: 1**.
 
 
 ## <a name="query-editor-considerations"></a>Överväganden för frågeredigeraren

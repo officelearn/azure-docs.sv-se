@@ -5,85 +5,92 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 06/10/2019
+ms.date: 10/24/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: edf5e04b7cf9b5c79666c54fbeca49858cf21079
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ad86280eab3041667bf9d1713ae2b4bc82a4c9e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077513"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491470"
 ---
-# <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Självstudier: Skapa en ExpressRoute-association med hjälp av Azure Virtual WAN (förhandsversion)
+# <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Självstudie: skapa en ExpressRoute-Association med Azure Virtual WAN
 
-Den här självstudien visar hur du använder Virtual WAN för att ansluta dina resurser i Azure via en ExpressRoute-krets och en association. Mer information om virtuella WAN-nätverk finns i [översikten om virtuellt WAN](virtual-wan-about.md)
+Den här självstudien visar hur du använder Virtual WAN för att ansluta till dina resurser i Azure över en ExpressRoute-krets. Mer information om virtuella WAN-och virtuella WAN-resurser finns i [Översikt över virtuella WAN-nätverk](virtual-wan-about.md).
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Skapa ett vWAN
-> * Skapa en hubb
-> * Hitta och associera en krets med hubben
-> * Associera kretsen med en hubb
+> * Skapa ett virtuellt WAN
+> * Skapa en hubb och en gateway
 > * Ansluta ett virtuellt nätverk till en hubb
-> * Visa virtuellt WAN
-> * Visa information om resurshälsa
-> * Övervaka en anslutning
-
-> [!IMPORTANT]
-> Den offentliga förhandsversionen tillhandahålls utan serviceavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
+> * Ansluta en krets till en hubb-Gateway
+> * Testa anslutning
+> * Ändra en gateway-storlek
+> * Annonsera en standard väg
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurationen:
 
-[!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
+* Du har ett virtuellt nätverk som du vill ansluta till. Kontrol lera att inget av under näten i dina lokala nätverk överlappar de virtuella nätverk som du vill ansluta till. Information om hur du skapar ett virtuellt nätverk i Azure Portal finns i [snabb](../virtual-network/quick-create-portal.md)starten.
 
-## <a name="register"></a>Registrera funktionen
+* Det virtuella nätverket har inga virtuella Nätverksgatewayen. Om ditt virtuella nätverk har en gateway (antingen VPN eller ExpressRoute) måste du ta bort alla gatewayer. Den här konfigurationen kräver att virtuella nätverk är anslutna i stället till den virtuella WAN Hub-gatewayen.
 
-Du måste registrera din prenumeration i förhandsversionen innan du kan konfigurera Virtual WAN. Annars kan du inte arbeta med Virtual WAN på portalen. Om du vill registrera, skicka ett e- **azurevirtualwan\@microsoft.com** med ditt prenumerations-ID. Du får ett e-postmeddelande tillbaka när din prenumeration har registrerats.
+* Hämta ett IP-adressintervall för din hubbregion. Hubben är ett virtuellt nätverk som skapas och används av virtuellt WAN-nätverk. Det adress intervall som du anger för hubben får inte överlappa något av dina befintliga virtuella nätverk som du ansluter till. Det får inte heller överlappa det adressintervall som du ansluter till lokalt. Om du inte känner till IP-adressintervall som finns i din lokala nätverks konfiguration, koordinerar du med någon som kan ge den informationen åt dig.
 
-**Överväganden för förhandsversion:**
+* Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-  * ExpressRoute-kretsen måste vara aktiverat i ett land/en region som har stöd för [ExpressRoute Global räckvidd](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported).
-  * ExpressRoute-kretsen måste vara en Premium-krets för att kunna ansluta till virtuella WAN-hubb. 
+## <a name="openvwan"></a>Skapa ett virtuellt WAN
 
-## <a name="vnet"></a>1. Skapa ett virtuellt nätverk
+Öppna en webbläsare, navigera till [Azure Portal](https://portal.azure.com) och logga in med ditt Azure-konto.
 
-[!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
+1. Gå till den virtuella WAN-sidan. Klicka på **+Skapa en resurs** i portalen. Skriv det **virtuella WAN-nätverket** i sökrutan och välj RETUR.
+2. Välj **virtuellt WAN** från resultaten. På den virtuella WAN-sidan klickar du på **skapa** för att öppna sidan Skapa WAN.
+3. På sidan **skapa WAN** , på fliken **grundläggande** , fyller du i följande fält:
 
-## <a name="openvwan"></a>2. Skapa ett virtuellt WAN
+   ![Skapa WAN](./media/virtual-wan-expressroute-portal/createwan.png)
 
-Öppna en webbläsare, navigera till [Azure-portalen (förhandsversion)](https://aka.ms/azurevirtualwanpreviewfeatures) och logga in med ditt Azure-konto.
+   * **Prenumeration** – Välj vilken prenumeration du vill använda.
+   * **Resursgrupp** – Skapa ny eller använd befintlig.
+   * **Resurs grupps plats** – Välj en resurs plats i list rutan. Ett WAN är en global resurs och är inte kopplad till en viss region. Du måste dock välja en region för att lättare att hantera och leta upp WAN-resursen som du skapar.
+   * **Namn** – ange det namn som du vill anropa ditt WAN.
+   * **Typ** – Välj **standard**. Du kan inte skapa en ExpressRoute-Gateway med Basic SKU.
+4. När du har fyllt i fälten väljer du **Granska + skapa**.
+5. När verifieringen har godkänts väljer du **skapa** för att skapa det virtuella WAN-nätverket.
 
-[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
+## <a name="hub"></a>Skapa en virtuell hubb och gateway
 
-### <a name="getting-started-page"></a>Sida för att komma igång
+En virtuell hubb är ett virtuellt nätverk som skapas och används av virtuellt WAN. Den kan innehålla olika gatewayer, till exempel VPN-och ExpressRoute. I det här avsnittet ska du skapa en ExpressRoute-Gateway för din virtuella hubb. Du kan antingen skapa gatewayen när du [skapar en ny virtuell hubb](#newhub), eller så kan du skapa en gateway i ett [befintligt nav](#existinghub) genom att redigera den. 
 
-[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-gettingstarted-include.md)]
+ExpressRoute-gatewayer har tillhandahållits i enheter om 2 Gbit/s. 1 skalnings enhet = 2 Gbit/s med stöd för upp till 10 skalnings enheter = 20 Gbit/s. Det tar cirka 30 minuter för en virtuell hubb och gateway att helt skapa.
 
-## <a name="hub"></a>3. Skapa en hubb
+### <a name="newhub"></a>Så här skapar du en ny virtuell hubb och en gateway
 
-[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-hub-include.md)]
+Skapa en ny virtuell hubb. När du har skapat en hubb debiteras du för hubben, även om du inte kopplar några platser.
 
-## <a name="hub"></a>4. Hitta och associera en krets med hubben
+[!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-er-hub-include.md)]
 
-1. Välj din vWAN och under **virtuellt WAN arkitektur**väljer **ExpressRoute-kretsar**.
-1. Om ExpressRoute-kretsen i samma prenumeration som din vWAN klickar du på **Välj ExpressRoute-krets** från dina prenumerationer. 
-1. Använd listrutan och välj den ExpressRoute som du vill associera med hubben.
-1. Om ExpressRoute-kretsen inte är i samma prenumeration eller om du har fått [en auktoriseringsnyckel och ett peer-ID](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md) väljer du **Find a circuit redeeming an authorization key** (Hitta en krets som löser in en auktoriseringsnyckel)
-1. Ange följande uppgifter:
-1. **Auktoriseringsnyckel** – genereras av kretsägaren enligt beskrivningen ovan
-1. **Peer-kretsens URI** – krets-URI som tillhandahålls av kretsägaren och är den unika identifieraren för kretsen
-1. **Routningsvikt** - [Routningsvikt](../expressroute/expressroute-optimize-routing.md) gör att du kan föredra vissa vägar när flera kretsar från olika peeringplatser är anslutna till samma hubb
-1. Klicka på **hitta kretsens** och välj kretsen om hittades.
-1. Välj 1 eller flera hubbar i listrutan ned och klicka på **spara**.
+### <a name="existinghub"></a>Så här skapar du en gateway i ett befintligt nav
 
-## <a name="vnet"></a>5. Ansluta ett virtuellt nätverk till en hubb
+Du kan också skapa en gateway i ett befintligt nav genom att redigera den.
 
-I det här steget skapar du peeringanslutningen mellan hubben och ett virtuellt nätverk. Upprepa de här stegen för varje virtuellt nätverk du vill ansluta.
+1. Navigera till det virtuella hubb som du vill redigera och markera det.
+2. Markera kryss rutan **Inkludera ExpressRoute Gateway**på sidan **Redigera virtuellt nav** .
+3. Välj **Bekräfta** för att bekräfta ändringarna. Det tar cirka 30 minuter för nav-och nav resurserna att helt skapa.
+
+   ![befintlig hubb](./media/virtual-wan-expressroute-portal/edithub.png "Redigera en hubb")
+
+### <a name="to-view-a-gateway"></a>Så här visar du en gateway
+
+När du har skapat en ExpressRoute-Gateway kan du Visa information om gatewayen. Navigera till hubben, Välj **ExpressRoute**och Visa gatewayen.
+
+![Visa Gateway](./media/virtual-wan-expressroute-portal/viewgw.png "Visa Gateway")
+
+## <a name="connectvnet"></a>Anslut ditt VNet till hubben
+
+I det här avsnittet skapar du peering-anslutningen mellan hubben och ett VNet. Upprepa de här stegen för varje virtuellt nätverk du vill ansluta.
 
 1. På sidan för det virtuella WAN-nätverket klickar du på **virtuell nätverksanslutning**.
 2. På sidan för virtuell nätverksanslutning klickar du på **+Lägg till anslutning**.
@@ -92,44 +99,58 @@ I det här steget skapar du peeringanslutningen mellan hubben och ett virtuellt 
     * **Anslutningsnamn** – Namnge anslutningen.
     * **Hubbar** – Välj den hubb du vill koppla till anslutningen.
     * **Prenumeration** – Kontrollera prenumerationen.
-    * **Virtuellt nätverk** – Välj det virtuella nätverk du vill ansluta till hubben. Det virtuella nätverket får inte ha någon befintlig gateway för virtuellt nätverk.
+    * **Virtuellt nätverk** – Välj det virtuella nätverk du vill ansluta till hubben. Det virtuella nätverket kan inte ha en befintlig virtuell nätverksgateway (varken VPN eller ExpressRoute).
 
+## <a name="connectcircuit"></a>Anslut din krets till hubb-gatewayen
 
-## <a name="viewwan"></a>6. Visa virtuellt WAN
+När gatewayen har skapats kan du ansluta en [ExpressRoute-krets](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) till den. Observera att ExpressRoute Premium-kretsar som finns på ExpressRoute-Global Reach-platser som stöds kan ansluta till en virtuell WAN-ExpressRoute-Gateway.
 
-1. Navigera till det virtuella WAN-nätverket.
-2. Varje punkt på kartan på sidan Översikt motsvarar en hubb. För muspekaren över en punkt så visas en sammanfattning av hubbens hälsotillstånd.
-3. I avsnittet om hubbar och anslutningar kan du visa hubbstatus, plats, region, VPN-anslutningsstatus och byte in och ut.
+### <a name="to-connect-the-circuit-to-the-hub-gateway"></a>Så här ansluter du kretsen till Hub Gateway
 
-## <a name="viewhealth"></a>7. Visa resurshälsa
+I portalen går du till sidan **virtuell hubb-> anslutning-> ExpressRoute** . Om du har åtkomst till en ExpressRoute-krets visas den krets som du vill använda i listan över kretsar. Om du inte ser några kretsar, men har fått en nyckel för auktorisering och peer-krets, kan du lösa in och ansluta en krets. Se [för att ansluta genom att lösa in en auktoriseringsregel](#authkey).
 
-1. Navigera till ditt WAN.
-2. Öppna WAN-sidan. I avsnittet **SUPPORT + felsökning** klickar du på **Hälsa** och visar resursen.
+1. Välj kretsen.
+2. Välj **Anslut krets (er)** .
 
-## <a name="connectmon"></a>8. Övervaka en anslutning
+   ![ansluta kretsar](./media/virtual-wan-expressroute-portal/cktconnect.png "ansluta kretsar")
 
-Skapa en anslutning för att övervaka kommunikation mellan en virtuell Azure-dator och en fjärrplats. Information om hur du ställer in en anslutningsövervakare finns i dokumentationen om att [övervaka nätverkskommunikation](~/articles/network-watcher/connection-monitor.md). Källfältet är IP för den virtuella datorn i Azure och mål-IP är plats-IP-adressen.
+### <a name="authkey"></a>Så här ansluter du genom att lösa in en auktoriseringsregel
 
-## <a name="cleanup"></a>9. Rensa resurser
+Använd den autentiseringsregel och den krets-URI du angav för att ansluta.
 
-När du inte längre behöver dessa resurser kan du använda [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) att ta bort resursgruppen och alla resurser den innehåller. Ersätt myResourceGroup med namnet på resursgruppen och kör följande PowerShell-kommando:
+1. På sidan ExpressRoute klickar du på **+ Lös in nyckel för autentisering**
 
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroup -Force
-```
+   ![löst](./media/virtual-wan-expressroute-portal/redeem.png "löst")
+2. Fyll i värdena på sidan Lös in Authorization Key.
+
+   ![Lös in nyckel värden](./media/virtual-wan-expressroute-portal/redeemkey2.png "Lös in nyckel värden")
+3. Välj **Lägg till** för att lägga till nyckeln.
+4. Visa kretsen. En avbruten krets visar bara namnet (utan typ, Provider och annan information) eftersom den finns i en annan prenumeration än användaren.
+
+## <a name="to-test-connectivity"></a>Så här testar du anslutningen
+
+När krets anslutningen har upprättats visar hubbens anslutnings status "denna hubb", vilket innebär att anslutningen upprättas till Hub ExpressRoute-gatewayen. Vänta ungefär 5 minuter innan du testar anslutningen från en klient bakom din ExpressRoute-krets, till exempel en virtuell dator i det virtuella nätverk som du skapade tidigare.
+
+Om du har platser som är anslutna till en virtuell WAN-gateway i samma hubb som ExpressRoute-gatewayen kan du använda dubbelriktad anslutning mellan VPN-och ExpressRoute-slutpunkter. Dynamisk routning (BGP) stöds. ASN för gatewayerna i hubben är fast och kan inte redige ras just nu.
+
+## <a name="to-change-the-size-of-a-gateway"></a>Ändra storleken på en gateway
+
+Om du vill ändra storleken på din ExpressRoute-Gateway letar du reda på ExpressRoute-gatewayen i hubben och väljer skalnings enheter i list rutan. Spara ändringen. Det tar cirka 30 minuter att uppdatera hubb-gatewayen.
+
+![ändra Gateway-storlek](./media/virtual-wan-expressroute-portal/changescale.png "ändra Gateway-storlek")
+
+## <a name="to-advertise-default-route-00000-to-endpoints"></a>Så här annonserar du standard vägen 0.0.0.0/0 till slut punkter
+
+Om du vill att den virtuella Azure-hubben ska annonsera standard vägen 0.0.0.0/0 till dina ExpressRoute-slutpunkter måste du aktivera spridning av standard väg.
+
+1. Välj din **krets->...-> Redigera anslutning**.
+
+   ![Redigera anslutning](./media/virtual-wan-expressroute-portal/defaultroute1.png "Redigera anslutning")
+
+2. Välj **Aktivera** för att sprida standard vägen.
+
+   ![Sprid standard väg](./media/virtual-wan-expressroute-portal/defaultroute2.png "Sprid standard väg")
 
 ## <a name="next-steps"></a>Nästa steg
-
-I den här självstudiekursen lärde du dig att:
-
-> [!div class="checklist"]
-> * Skapa ett vWAN
-> * Skapa en hubb
-> * Hitta och associera en krets med hubben
-> * Associera kretsen med en hubb
-> * Ansluta ett virtuellt nätverk till en hubb
-> * Visa virtuellt WAN
-> * Visa information om resurshälsa
-> * Övervaka en anslutning
 
 Du hittar mer information om virtuellt WAN i [översikten om virtuellt WAN](virtual-wan-about.md).

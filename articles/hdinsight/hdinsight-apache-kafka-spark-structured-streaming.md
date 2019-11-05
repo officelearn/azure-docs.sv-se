@@ -1,5 +1,5 @@
 ---
-title: Självstudie Apache Spark strukturerad strömning med Apache Kafka – Azure HDInsight
+title: 'Självstudie: Apache Spark streaming & Apache Kafka – Azure HDInsight'
 description: Lär dig använda Apache Spark-strömning till att hämta data till eller från Apache Kafka. I den här självstudien strömmas data med hjälp av en Jupyter Notebook från Apache Spark på HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 10/08/2019
-ms.openlocfilehash: db2174451f01ef38dc69e4e14561175203e075c3
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 96420a3ea4ddc8c3d8210f1b35d6606257eba5ff
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264254"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494383"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Självstudie: Använda Apache Spark Structured Streaming med Apache Kafka i HDInsight
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 
 Kom ihåg att ta bort klustren för att undvika onödiga avgifter när du är klar med stegen i det här dokumentet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * JQ, en JSON-processor med kommando rad.  Se [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
@@ -37,7 +37,7 @@ Kom ihåg att ta bort klustren för att undvika onödiga avgifter när du är kl
 
 * Kunskaper i programmeringsspråket [Scala](https://www.scala-lang.org/). Koden som används i den här självstudien är skriven i Scala.
 
-* Känna till hur man skapar Kafka-ämnen. Mer information finns i dokumentet [Snabbstart för Apache Kafka i HDInsight](kafka/apache-kafka-get-started.md).
+* Om du vet hur man skapar Kafka-avsnitt. Mer information finns i dokumentet [Snabbstart för Apache Kafka i HDInsight](kafka/apache-kafka-get-started.md).
 
 > [!IMPORTANT]  
 > Stegen i det här dokumentet kräver en Azure-resursgrupp som innehåller både en Apache Spark på HDInsight och en Kafka på HDInsight-klustret. Båda dessa kluster finns i ett virtuellt Azure-nätverk, vilket innebär att Apache Spark-klustret kan kommunicera direkt med Kafka-klustret.
@@ -199,7 +199,7 @@ Det här exemplet visar hur du använder Spark Structured streaming med Kafka p�
     }
     ```
 
-5. Skapa Kafka-avsnittet. Redigera kommandot nedan genom att ersätta `YOUR_ZOOKEEPER_HOSTS` med Zookeeper-värd informationen som extraherades i det första steget. Ange det redigerade kommandot i Jupyter Notebook för att skapa `tripdata`-avsnittet.
+5. Skapa Kafka-avsnittet. Redigera kommandot nedan genom att ersätta `YOUR_ZOOKEEPER_HOSTS` med Zookeeper värd information som extraherats i det första steget. Skapa `tripdata` avsnittet genom att ange det redigerade kommandot i Jupyter Notebook.
 
     ```scala
     %%bash
@@ -291,7 +291,7 @@ Det här exemplet visar hur du använder Spark Structured streaming med Kafka p�
     println("Wrote data to file")
     ```
 
-11. Du kan kontrol lera att filerna har skapats genom att ange kommandot i nästa Jupyter-cell. Den listar filerna i katalogen `/example/batchtripdata`.
+11. Du kan kontrol lera att filerna har skapats genom att ange kommandot i nästa Jupyter-cell. Den listar filerna i `/example/batchtripdata`-katalogen.
 
     ```scala
     %%bash

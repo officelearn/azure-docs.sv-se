@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database utan server (för hands version) | Microsoft Docs
+title: Azure SQL Database utan Server | Microsoft Docs
 description: Den här artikeln beskriver den nya server lös beräknings nivån och jämför den med den befintliga allokerade beräknings nivån
 services: sql-database
 ms.service: sql-database
@@ -10,17 +10,17 @@ ms.topic: conceptual
 author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 09/06/2019
-ms.openlocfilehash: 3b2cc5c0b5deab084c6fdae9435ea3a90b2dd8a6
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 11/04/2019
+ms.openlocfilehash: e8629baa3487795349844229b26d80321c1316ee
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173406"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496258"
 ---
-# <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database utan server (för hands version)
+# <a name="azure-sql-database-serverless"></a>Azure SQL Database Serverless
 
-Azure SQL Database utan server (för hands version) är en beräknings nivå för enskilda databaser som automatiskt skalar beräkning baserat på arbets belastnings behov och räkningar för mängden data bearbetning som används per sekund. Server lös beräknings nivån pausar också automatiskt databaser under inaktiva perioder när endast lagring faktureras och återupptar automatiskt databaser när aktiviteten returnerar.
+Azure SQL Database utan server är en beräknings nivå för enskilda databaser som automatiskt skalar beräkning baserat på arbets belastnings behov och räkningar för mängden data bearbetning som används per sekund. Server lös beräknings nivån pausar också automatiskt databaser under inaktiva perioder när endast lagring faktureras och återupptar automatiskt databaser när aktiviteten returnerar.
 
 ## <a name="serverless-compute-tier"></a>Serverlös beräkningsnivå
 
@@ -67,7 +67,7 @@ I följande tabell sammanfattas skillnader mellan server lös beräknings nivå 
 |:---|:---|:---|
 |**Användnings mönster för databas**| Intermittent, oförutsägbar användning med lägre genomsnittlig beräknings användning över tid. |  Vanliga användnings mönster med högre genomsnittlig beräknings användning över tid, eller flera databaser med elastiska pooler.|
 | **Prestanda hanterings ansträngning** |sämre|Högre|
-|**Beräknings skalning**|Automatisk|Manuellt|
+|**Beräknings skalning**|Automatisk|Manuell|
 |**Beräknings svars tid**|Lägre efter inaktiva perioder|Direkt|
 |**Fakturerings precision**|Per sekund|Per timme|
 
@@ -126,7 +126,7 @@ Autoåterupptagande utlöses om något av följande villkor är uppfyllt när so
 
 |Funktion|Autoresume-utlösare|
 |---|---|
-|Autentisering och auktorisering|Logga in|
+|Autentisering och auktorisering|Inloggning|
 |Hotidentifiering|Aktivera/inaktivera inställningar för hot identifiering på databas-eller server nivå.<br>Ändra inställningarna för hot identifiering på databas-eller server nivå.|
 |Dataidentifiering och -klassificering|Lägga till, ändra, ta bort eller Visa känslighets etiketter|
 |Granskning|Visa gransknings poster.<br>Uppdaterar eller visar gransknings principen.|
@@ -155,23 +155,23 @@ Att skapa en ny databas eller flytta en befintlig databas till en server lös be
 
 1. Ange namnet på tjänst målet. Tjänst målet föreskriver tjänst nivån, maskin varu genereringen och Max virtuella kärnor. I följande tabell visas alternativen för tjänst målet:
 
-   |Namn på tjänst målet|Tjänstnivå|Maskin varu generering|Max virtuella kärnor|
+   |Namn på tjänst målet|Tjänstenivå|Maskin varu generering|Max virtuella kärnor|
    |---|---|---|---|
-   |GP_S_Gen5_1|Generellt syfte|Gen5|1|
-   |GP_S_Gen5_2|Generellt syfte|Gen5|2|
-   |GP_S_Gen5_4|Generellt syfte|Gen5|4|
-   |GP_S_Gen5_6|Generellt syfte|Gen5|6|
-   |GP_S_Gen5_8|Generellt syfte|Gen5|8|
-   |GP_S_Gen5_10|Generellt syfte|Gen5|10|
-   |GP_S_Gen5_12|Generellt syfte|Gen5|12|
-   |GP_S_Gen5_14|Generellt syfte|Gen5|14|
-   |GP_S_Gen5_16|Generellt syfte|Gen5|16|
+   |GP_S_Gen5_1|Generell användning|Gen5|1|
+   |GP_S_Gen5_2|Generell användning|Gen5|2|
+   |GP_S_Gen5_4|Generell användning|Gen5|4|
+   |GP_S_Gen5_6|Generell användning|Gen5|6|
+   |GP_S_Gen5_8|Generell användning|Gen5|8|
+   |GP_S_Gen5_10|Generell användning|Gen5|10|
+   |GP_S_Gen5_12|Generell användning|Gen5|12|
+   |GP_S_Gen5_14|Generell användning|Gen5|14|
+   |GP_S_Gen5_16|Generell användning|Gen5|16|
 
 2. Alternativt kan du ange den minsta virtuella kärnor och den automatiskt paus fördröjningen för att ändra standardvärdena. I följande tabell visas de tillgängliga värdena för dessa parametrar.
 
    |Parameter|Värde alternativ|Standardvärde|
    |---|---|---|---|
-   |Minsta virtuella kärnor|Är beroende av Max virtuella kärnor konfigurerade – se [resurs gränser](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).|0,5 virtuella kärnor|
+   |Minsta virtuella kärnor|Är beroende av Max virtuella kärnor konfigurerade – se [resurs gränser](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).|0,5 virtuella kärnor|
    |Pausa fördröjning|Minst: 60 minuter (1 timme)<br>Max: 10080 minuter (7 dagar)<br>Steg: 60 minuter<br>Inaktivera autopausen:-1|60 minuter|
 
 > [!NOTE]
@@ -179,7 +179,7 @@ Att skapa en ny databas eller flytta en befintlig databas till en server lös be
 
 ### <a name="create-new-database-in-serverless-compute-tier"></a>Skapa ny databas i Server lös beräknings nivå 
 
-#### <a name="use-azure-portal"></a>Använd Azure Portal
+#### <a name="use-azure-portal"></a>Använda Azure-portalen
 
 Se [snabb start: skapa en enda databas i Azure SQL Database med hjälp av Azure Portal](sql-database-single-database-get-started.md).
 
@@ -229,19 +229,19 @@ En server lös databas kan flyttas till en allokerad beräknings nivå på samma
 
 #### <a name="use-powershell"></a>Använd PowerShell
 
-Att ändra Max virtuella kärnor utförs med kommandot [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) i PowerShell med argumentet `MaxVcore`.
+Att ändra Max virtuella kärnor utförs med kommandot [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) i PowerShell med hjälp av argumentet `MaxVcore`.
 
 ### <a name="minimum-vcores"></a>Lägsta antal virtuella kärnor
 
 #### <a name="use-powershell"></a>Använd PowerShell
 
-Att ändra den minsta virtuella kärnor utförs med kommandot [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) i PowerShell med argumentet `MinVcore`.
+Att ändra den minsta virtuella kärnor utförs med kommandot [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) i PowerShell med hjälp av argumentet `MinVcore`.
 
 ### <a name="autopause-delay"></a>Pausa fördröjning
 
 #### <a name="use-powershell"></a>Använd PowerShell
 
-Ändring av paus fördröjningen utförs med kommandot [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) i PowerShell med argumentet `AutoPauseDelayInMinutes`.
+Ändring av paus fördröjningen utförs med hjälp av kommandot [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) i PowerShell med hjälp av argumentet `AutoPauseDelayInMinutes`.
 
 ## <a name="monitoring"></a>Övervakning
 
@@ -261,7 +261,7 @@ Resurspoolen är den inre resurs hanterings gränserna för en databas, oavsett 
 
 Mät värden för att övervaka resursanvändningen för Appaketet och poolen för en server lös databas visas i följande tabell:
 
-|Enhet|Mått|Beskrivning|Enheter|
+|Entitet|Mått|Beskrivning|Enheter|
 |---|---|---|---|
 |Appaket|app_cpu_percent|Procent andelen av virtuella kärnor som används av appen i förhållande till högsta tillåtna virtuella kärnor för appen.|Procent|
 |Appaket|app_cpu_billed|Mängden data som debiteras för appen under rapporterings perioden. Det belopp som betalas under perioden är produkten av det här måttet och vCore enhets pris. <br><br>Värdena för det här måttet bestäms genom agg regering över tid för maximalt CPU-använt och minne som används varje sekund. Om det använda beloppet är mindre än det lägsta belopp som har angetts som den lägsta virtuella kärnor och minsta mängden minne, faktureras det lägsta mängd som har allokerats. För att kunna jämföra CPU med minne i fakturerings syfte normaliseras minnet till enheter av virtuella kärnor genom att skala om mängden minne i GB med 3 GB per vCore.|vCore sekunder|
@@ -288,7 +288,7 @@ Get-AzSqlDatabase `
 
 ## <a name="resource-limits"></a>Resursbegränsningar
 
-För resurs gränser, se [Server lös beräknings nivå](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).
+För resurs gränser, se [Server lös beräknings nivå](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).
 
 ## <a name="billing"></a>Fakturering
 
@@ -331,4 +331,4 @@ Server lös beräknings nivån är tillgänglig över hela världen utom följan
 ## <a name="next-steps"></a>Nästa steg
 
 - Information om hur du kommer igång finns i [snabb start: skapa en enda databas i Azure SQL Database med hjälp av Azure Portal](sql-database-single-database-get-started.md).
-- För resurs gränser, se [resurs gränser för Server lös beräknings nivå](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).
+- För resurs gränser, se [resurs gränser för Server lös beräknings nivå](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).

@@ -11,15 +11,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.openlocfilehash: 77f816400709262fab8cb9bd351bdcde73377e09
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 11/04/2019
+ms.openlocfilehash: 41b2602e57d295cfd7e475f4b3aa5657bd4e24d7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034300"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489607"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Var du ska spara och skriva filer för Azure Machine Learning experiment
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 I den här artikeln får du lära dig var du sparar indatafiler och var du kan skriva utdatafiler från experimenten för att förhindra lagrings gräns fel och experiment svars tid.
 
@@ -35,7 +36,7 @@ Därför rekommenderar vi följande:
 
 * **Lagra filerna i ett Azure Machine Learning [data lager](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py).** Detta förhindrar problem med experiment latens och har fördelarna med att komma åt data från ett fjärrberäknings mål, vilket innebär att autentisering och montering hanteras av Azure Machine Learning. Läs mer om hur du anger ett data lager som käll katalog och laddar upp filer till ditt data lager i artikeln [åtkomst data från dina data lager](how-to-access-data.md) .
 
-* **Om du bara behöver ett par datafiler och beroende skript och inte kan använda ett data lager,** placerar du filerna i samma katalog katalog som ditt utbildnings skript. Ange den här mappen som `source_directory` din direkt i utbildnings skriptet eller i koden som anropar ditt utbildnings skript.
+* **Om du bara behöver ett par datafiler och beroende skript och inte kan använda ett data lager,** placerar du filerna i samma katalog katalog som ditt utbildnings skript. Ange den här mappen som `source_directory` direkt i utbildnings skriptet eller i koden som anropar ditt utbildnings skript.
 
 <a name="limits"></a>
 
@@ -50,12 +51,12 @@ Your total snapshot size exceeds the limit of 300.0 MB
 
 Lös problemet genom att lagra dina experiment-filer på ett data lager. Om du inte kan använda ett data lager erbjuder tabellen nedan möjliga alternativa lösningar.
 
-Experiment&nbsp;Beskrivning|Lösning för lagrings gräns
+Beskrivning av experiment&nbsp;|Lösning för lagrings gräns
 ---|---
 Mindre än 2000 filer & kan inte använda ett data lager| Åsidosätt storleks gräns för ögonblicks bild med <br> `azureml._restclient.snapshots_client.SNAPSHOT_MAX_SIZE_BYTES = 'insert_desired_size'`<br> Detta kan ta flera minuter beroende på antalet filer och filernas storlek.
-Måste använda en speciell skript katalog| Skapa en `.amlignore` fil för att undanta filer från din ögonblicks bild av experimentet som inte ingår i käll koden. Lägg till fil namnen `.amlignore` i filen och placera den i samma katalog som ditt utbildnings skript. Filen använder samma [syntax och mönster](https://git-scm.com/docs/gitignore) som en `.gitignore` fil. `.amlignore`
+Måste använda en speciell skript katalog| Gör en `.amlignore`-fil för att undanta filer från din ögonblicks bild av experimentet som inte ingår i käll koden. Lägg till fil namnen i `.amlignore`-filen och placera den i samma katalog som ditt utbildnings skript. `.amlignore`-filen använder samma [syntax och mönster](https://git-scm.com/docs/gitignore) som en `.gitignore` fil.
 Pipeline|Använd en annan under katalog för varje steg
-Jupyter Notebooks| Skapa en `.amlignore` fil eller flytta din antecknings bok till en ny, tom, under katalog och kör koden igen.
+Jupyter Notebooks| Skapa en `.amlignore`-fil eller flytta antecknings boken till en ny, tom, under katalog och kör koden igen.
 
 ## <a name="where-to-write-files"></a>Var du kan skriva filer
 
@@ -63,14 +64,14 @@ På grund av isolering av övnings experiment behålls inte ändringarna i filer
 
 När du skriver ändringar rekommenderar vi att du skriver filer till ett Azure Machine Learning data lager. Se [få åtkomst till data från dina data lager](how-to-access-data.md).
 
-Om du inte behöver ett data lager, skriver du filer `./outputs` till mappen och `./logs` /eller.
+Om du inte behöver ett data lager skriver du filer till mappen `./outputs` och/eller `./logs`.
 
 >[!Important]
-> Två mappar, *utdata* och *loggar*, tar emot särskild behandling av Azure Machine Learning. När du skriver filer till`./outputs` och`./logs` mappar under träning överförs filerna automatiskt till din körnings historik, så att du har åtkomst till dem när körningen är färdig.
+> Två mappar, *utdata* och *loggar*, tar emot särskild behandling av Azure Machine Learning. När du skriver filer till`./outputs` och`./logs` mappar under utbildningen överförs filerna automatiskt till din körnings historik, så att du har åtkomst till dem när körningen är färdig.
 
-* **För utdata, t. ex. status meddelanden eller resultat,** kan du `./outputs` skriva filer till mappen så att de är beständiga som artefakter i körnings historiken. Var mindful av antalet och storleken på filer som skrivs till den här mappen, eftersom svars tiden kan uppstå när innehållet laddas upp till körnings historiken. Om det är ett problem med fördröjningen rekommenderas att skriva filer till ett data lager.
+* **För utdata, t. ex. status meddelanden eller resultat,** skriver du filer till mappen `./outputs`, så att de är kvar som artefakter i körnings historiken. Var mindful av antalet och storleken på filer som skrivs till den här mappen, eftersom svars tiden kan uppstå när innehållet laddas upp till körnings historiken. Om det är ett problem med fördröjningen rekommenderas att skriva filer till ett data lager.
 
-* **Spara skrivna filer som loggar i körnings historiken genom** att skriva `./logs` filer till mappen. Loggarna laddas upp i real tid, så den här metoden är lämplig för strömning av direktsända uppdateringar från en fjärrkörning.
+* **Om du vill spara skrivna filer som loggar i körnings historiken** skriver du filer till `./logs` mapp. Loggarna laddas upp i real tid, så den här metoden är lämplig för strömning av direktsända uppdateringar från en fjärrkörning.
 
 ## <a name="next-steps"></a>Nästa steg
 

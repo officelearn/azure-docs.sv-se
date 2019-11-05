@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie om bildklassificering: Distribuera modeller'
+title: 'Själv studie kurs om bild klassificering: Distribuera modeller'
 titleSuffix: Azure Machine Learning
 description: Den här självstudien visar hur du använder Azure Machine Learning för att distribuera en bild klassificerings modell med scikit – lära dig i en python Jupyter Notebook. Den här självstudien är den andra delen i en serie med två delar.
 services: machine-learning
@@ -10,14 +10,15 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 08/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 988f91d9ab644df4ecb375114abf4245440cbf13
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: ae657daca86c979495ca14d9df845e2a7a769e0a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162530"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476161"
 ---
-# <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Självstudier: Distribuera en bildklassificeringsmodell i Azure Container Instances
+# <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Självstudie: Distribuera en bild klassificerings modell i Azure Container Instances
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Självstudien är **del två i en självstudieserie i två delar**. I den [föregående självstudien](tutorial-train-models-with-aml.md) tränade du maskininlärningsmodeller och registrerade sedan en modell på din arbetsyta i molnet.  
 
@@ -39,9 +40,15 @@ Container Instances är en bra lösning för testning och för att förstå arbe
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill köra anteckningsboken slutför du först modellträningen i [Självstudie (del 1): Träna en bild klassificerings](tutorial-train-models-with-aml.md)modell.   Öppna sedan **självstudierna/img-Classification-part2-Deploy. ipynb** Notebook med samma Notebook-Server.
+Om du vill köra antecknings boken börjar du med att slutföra modell utbildningen i [Självstudier (del 1): träna en bild klassificerings modell](tutorial-train-models-with-aml.md).   Öppna antecknings boken **img-klassificering-part2-Deploy. ipynb** i mappen med klonade **självstudier** .
 
-Den här själv studie kursen finns också på [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) om du vill använda den i din egen [lokala miljö](how-to-configure-environment.md#local).  Kontrol lera att du har `matplotlib` installerat `scikit-learn` och i din miljö. 
+Den här själv studie kursen finns också på [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) om du vill använda den i din egen [lokala miljö](how-to-configure-environment.md#local).  Kontrol lera att du har installerat `matplotlib` och `scikit-learn` i din miljö. 
+
+> [!Important]
+> Resten av den här artikeln innehåller samma innehåll som du ser i antecknings boken.  
+>
+> Växla till antecknings boken för Jupyter nu om du vill läsa den samtidigt som du kör koden.
+> Om du vill köra en enda kod cell i en bärbar dator klickar du på cellen kod och trycker på **SKIFT + RETUR**. Du kan också köra hela antecknings boken genom att välja **Kör alla** från det översta verktygsfältet.
 
 ## <a name="start"></a>Konfigurera miljön
 

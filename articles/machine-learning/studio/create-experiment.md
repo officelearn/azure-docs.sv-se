@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Skapa ett dataexperiment'
-titleSuffix: Azure Machine Learning Studio
+title: 'Snabb start: skapa ett data vetenskaps experiment'
+titleSuffix: Azure Machine Learning Studio (classic)
 description: Den här snabbstarten om maskininlärning vägleder dig genom ett enkelt dataexperiment. Vi kommer förutsäga priset för en bil med hjälp av en regressionsalgoritm.
 services: machine-learning
 ms.service: machine-learning
@@ -10,16 +10,18 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: e5c004b69f24b50ed2eb3a10dbd0a7915c0773ce
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: c95954bbe96b947312a952ebaab4e6bfc2b2f5a8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515118"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493291"
 ---
-# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Snabbstart: Skapa ditt första dataexperiment i Azure Machine Learning Studio
+# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Snabb start: skapa ditt första data vetenskaps experiment i Azure Machine Learning Studio (klassisk)
 
-I den här snabbstarten skapar du ett maskininlärningsexperiment i [Azure Machine Learning Studio](what-is-ml-studio.md) som förutsäger priset på en bil utifrån olika variabler såsom märke och tekniska specifikationer.
+[!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
+
+I den här snabb starten skapar du ett Machine Learning-experiment i [Azure Machine Learning Studio (klassisk)](what-is-ml-studio.md) som förutsäger priset på en bil baserat på olika variabler, till exempel tekniska specifikationer.
 
 Om maskininlärning är nytt för dig är videoserien [Datavetenskap för nybörjare](data-science-for-beginners-the-5-questions-data-science-answers.md) en bra introduktion som med enkelt språk förklarar vad maskininlärning är.
 
@@ -40,20 +42,18 @@ Den här snabbstarten följer standardarbetsflödet för ett experiment:
 [Välja och tillämpa en algoritm]: #choose-and-apply-an-algorithm
 [Förutsäga nya bilpriser]: #predict-new-automobile-prices
 
-Om du inte har en Studio-konto går du till [startsidan för Studio](https://studio.azureml.net) och väljer **Registrera dig här** och skapar ett kostnadsfritt konto. Den kostnadsfria arbetsytan har alla de funktioner som du behöver för den här snabbstarten.
-
 ## <a name="get-the-data"></a>Hämta data
 
 Det första du behöver för maskininlärning är data.
-Du kan använda någon av flera exempeldatamängder som ingår i Studio, eller så kan du importera data från flera källor. I det här exemplet kommer vi att använda exempeluppsättningen **Automobile price data (Raw)** , som ingår i arbetsytan.
+Det finns flera exempel data uppsättningar som ingår i den klassiska versionen av Studio som du kan använda, eller så kan du importera data från flera källor. I det här exemplet kommer vi att använda exempeluppsättningen **Automobile price data (Raw)** , som ingår i arbetsytan.
 Den här datauppsättningen innehåller poster för ett antal olika bilar, inklusive uppgifter om modell, tekniska specifikationer och pris.
 
 > [!TIP]
-> En arbetskopia av följande experiment finns i [Azure AI-galleriet](https://gallery.azure.ai). Gå till **[ditt första datavetenskapsexperiment – Förutsägelse av bilpriser](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** och klicka på **Open in Studio** (Öppna i Studio) för att hämta en kopia av experimentet till din Machine Learning Studio-arbetsyta.
+> En arbetskopia av följande experiment finns i [Azure AI-galleriet](https://gallery.azure.ai). Gå till **[ditt första data vetenskaps experiment – pris förutsägelse för bilbilar](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** och klicka på **Öppna i Studio** för att ladda ned en kopia av experimentet i arbets ytan Machine Learning Studio (klassisk).
 
 Så här gör du för att få datauppsättningen till experimentet.
 
-1. Skapa ett nytt experiment genom att klicka på **+Nytt** längst ned i Machine Learning Studio-fönstret. Välj **EXPERIMENT** >  **Tomt experiment**.
+1. Skapa ett nytt experiment genom att klicka på **+ ny** längst ned i fönstret Machine Learning Studio (klassisk). Välj **EXPERIMENT** >  **Tomt experiment**.
 
 1. Experimentet får ett standardnamn som visas överst i arbetsytan. Markera texten och byt namn på den till ett mer beskrivande namn, exempelvis **Förutsägelse av bilpriser**. Namnet behöver inte vara unikt.
 
@@ -181,7 +181,7 @@ Vi använder våra data både för träning och testning av modellen genom att d
 
 1. Kör experimentet. När experimentet körs skickar du kolumn definitionerna [Välj kolumner i data uppsättning][select-columns] och [dela data][split] till de moduler som vi ska lägga till härnäst.  
 
-1. Välj inlärningsalgoritmen genom att expandera kategorin **Machine Learning** på modulpaletten till vänster om arbetsytan och expandera **Initiera modell**. Nu visas flera kategorier av moduler som kan användas för att initiera algoritmer för Machine Learning. För det här experimentet väljer du modulen [linjär regression][linear-regression] under **Regressions** kategorin och drar den till experimentets arbets yta. (Du kan också hitta modulen genom att skriva "linjär regression" i rutan Sök på paletten.)
+1. Välj inlärningsalgoritmen genom att expandera kategorin **Machine Learning** på modulpaletten till vänster om arbetsytan och expandera **Initiera modell**. Nu visas flera kategorier av moduler som kan användas för att initiera algoritmer för maskininlärning. För det här experimentet väljer du modulen [linjär regression][linear-regression] under **Regressions** kategorin och drar den till experimentets arbets yta. (Du kan också hitta modulen genom att skriva "linjär regression" i rutan Sök på paletten.)
 
 1. Leta upp och dra modulen [träna modell][train-model] till arbets ytan för experimentet. Anslut utdataporten för modulen [linjär regression][linear-regression] till vänster indata för modulen [träna modell][train-model] och Anslut utbildnings data utmatningen (den vänstra porten) för modulen [dela data][split] till rätt indata för modulen [träna modell][train-model] .
 
@@ -224,8 +224,8 @@ Du visar utdata från modulen [utvärdera modell][evaluate-model] genom att klic
 För vår modell visas följande statistik:
 
 - **Medelabsolutfel** (MAE): Medelvärdet av absoluta fel (ett *fel* är skillnaden mellan det förväntade och faktiska värdet).
-- **Medelkvadratsfel** (RMSE): Kvadratroten av genomsnittet av kvadratfel i förutsägelser som görs mot testdatauppsättningen.
-- **Relativt absolutfel**: Medelvärdet av absoluta fel i förhållande till den absoluta skillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
+- **Medelkvadratfel**  (RMSE): Kvadratroten av genomsnittet av kvadratfel i förutsägelser som görs mot testdatauppsättningen.
+- **Relativa absoluta fel**: Medelvärdet av absoluta fel i förhållande till den absoluta skillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
 - **Relativa kvadratfel**: Medelvärdet av kvadratfel i förhållande till kvadratskillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
 - **Bestämningskoefficient**: Kallas också för **R-kvadratvärdet** och är ett statistiskt mått som anger hur väl en modell passar data.
 
@@ -240,7 +240,7 @@ För all felstatistik gäller att mindre är bättre. Ett mindre värde anger at
 I den här snabbstarten skapade du ett enkelt experiment med hjälp av en exempeldatamängd. Fortsätt till självstudien om en förutsägande lösning för att utforska processen med att skapa och distribuera en modell i närmare detalj.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Utveckla en förutsägande lösning i Studio](tutorial-part1-credit-risk.md)
+> [Självstudie: utveckla en förutsägelse lösning i Studio (klassisk)](tutorial-part1-credit-risk.md)
 
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/

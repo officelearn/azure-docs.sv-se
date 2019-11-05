@@ -1,29 +1,28 @@
 ---
-title: Användnings analys av kognitiva Sök kunskaper – Azure Search
-description: Extrahera semantisk text via bild analys med hjälp av ImageAnalysis kognitiva kunskaper i en Azure Search anriknings pipeline.
-services: search
+title: Inlärnings kunskap för bild analys
+titleSuffix: Azure Cognitive Search
+description: Extrahera semantisk text via bild analys med hjälp av funktionen för inlärning av bild analys i en AI-pipeline i Azure Kognitiv sökning.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 08/28/2019
 ms.author: luisca
-ms.openlocfilehash: e2c8f0519ffcbdbc2445d1fed2725b6f6b948cd1
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 4819f34e16efebcdab734270988382e086c44e36
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064076"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73479716"
 ---
-#   <a name="image-analysis-cognitive-skill"></a>Inlärnings kunskap för bild analys
+# <a name="image-analysis-cognitive-skill"></a>Inlärnings kunskap för bild analys
 
 I **bild analysens** kunskap extraheras en omfattande uppsättning visuella funktioner baserat på avbildningens innehåll. Du kan till exempel generera en under text från en bild, generera taggar eller identifiera kändisar och landmärken. Den här kunskapen använder Machine Learning-modeller som tillhandahålls av [visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) i Cognitive Services. 
 
 > [!NOTE]
-> Små volymer (under 20 transaktioner) kan utföras kostnads fritt i Azure Search, men större arbets belastningar kräver att du [kopplar en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av dokument-cracking-fasen i Azure Search. Det finns inga kostnader för text extrahering från dokument.
+> Små volymer (under 20 transaktioner) kan utföras kostnads fritt i Azure Kognitiv sökning, men större arbets belastningar kräver att du [kopplar en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av stadiet för dokument sprickor i Azure Kognitiv sökning. Det finns inga kostnader för text extrahering från dokument.
 >
-> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan Azure Search priser](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan med priser för Azure kognitiv sökning](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -43,7 +42,7 @@ Parametrar är Skift läges känsliga.
 
 | Inmatat namn      | Beskrivning                                          |
 |---------------|------------------------------------------------------|
-| mallar         | Komplex typ. För närvarande fungerar det bara med fältet "/Document/normalized_images" som skapas av Azure Blob-indexeraren när ```imageAction``` har ett annat värde än ```none```. Se [exemplet](#sample-output) för mer information.|
+| image         | Komplex typ. För närvarande fungerar det bara med fältet "/Document/normalized_images" som skapas av Azure Blob-indexeraren när ```imageAction``` har ett annat värde än ```none```. Se [exemplet](#sample-output) för mer information.|
 
 
 
@@ -519,8 +518,8 @@ Om du får det fel som liknar `"One or more skills are invalid. Details: Error i
             ]
 ```
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-+ [Fördefinierade kunskaper](cognitive-search-predefined-skills.md)
++ [Inbyggda kunskaper](cognitive-search-predefined-skills.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
 + [Skapa indexerare (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

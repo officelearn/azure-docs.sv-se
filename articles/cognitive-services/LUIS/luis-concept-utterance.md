@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 10/15/2019
 ms.author: diberry
-ms.openlocfilehash: 3c3c54faa882a38fb6c55c9fc0476a569f25cb98
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 8069b3b9c9a226e29a3eae3261948ee92291726d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638325"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486638"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Förstå vilka bra yttranden är för din LUIS-app
 
@@ -90,7 +90,7 @@ Dia kritiska tecken markeras eller signeras i texten, t. ex.:
 
 Om din app aktiverar normalisering på, kommer resultat i **test** fönstret, batch-test och slut punkts frågor att ändras för alla yttranden med dia kritiska tecken eller skiljetecken.
 
-Aktivera uttryck-normalisering för dia kritiska tecken eller interpunktion till din Luis JSON-app-fil i `settings` parametern.
+Aktivera uttryck-normalisering för dia kritiska tecken eller skiljetecken till din LUIS JSON-app-fil i `settings`-parametern.
 
 ```JSON
 "settings": [
@@ -101,32 +101,32 @@ Aktivera uttryck-normalisering för dia kritiska tecken eller interpunktion till
 
 Normalisera **interpunktion** innebär att innan dina modeller blir utbildade och innan dina slut punkts frågor hämtas, tas skiljetecken bort från yttranden. 
 
-Normaliserar **dia kritiska** tecken ersätter tecknen med dia kritiska tecken i yttranden med vanliga tecken. Till exempel: `Je parle français` blir `Je parle francais`. 
+Normaliserar **dia kritiska** tecken ersätter tecknen med dia kritiska tecken i yttranden med vanliga tecken. Exempel: `Je parle français` blir `Je parle francais`. 
 
 Normalisering innebär inte att du inte ser interpunktion och dia kritiska tecken i dina exempel yttranden eller förutsägelse svar, bara att de kommer att ignoreras vid inlärning och förutsägelse.
 
 
 ### <a name="punctuation-marks"></a>Skiljetecken
 
-Skiljetecken är en separat token i LUIS. En uttryck som innehåller en period i slutet jämfört med en uttryck som inte innehåller en period i slutet är två separata yttranden och kan få två olika förutsägelser. 
+Interpunktion är en separat token i LUIS. En uttryck som innehåller en period i slutet jämfört med en uttryck som inte innehåller en period i slutet är två separata yttranden och kan få två olika förutsägelser. 
 
 Om interpunktion inte är normaliserad ignorerar LUIS inte skiljetecken som standard eftersom vissa klient program kan placera signifikans på dessa märken. Se till att ditt exempel yttranden använder både skiljetecken och ingen interpunktion för att båda formaten ska returnera samma relativa resultat. 
 
-Kontrollera att modellen hanterar skiljetecken antingen i den [exempel yttranden](luis-concept-utterance.md) (med och inte har något skiljetecken) eller i den [mönster](luis-concept-patterns.md) där det är enklare att Ignorera skiljetecken med särskild syntax: `I am applying for the {Job} position[.]`
+Se till att modellen hanterar skiljetecken antingen i [exemplet yttranden](luis-concept-utterance.md) (med och utan interpunktion) eller i [mönstren](luis-concept-patterns.md) där det är enklare att ignorera interpunktion med den särskilda syntaxen: `I am applying for the {Job} position[.]`
 
 Om interpunktionen inte har någon specifik betydelse i klient programmet, bör du överväga att [Ignorera interpunktion](#utterance-normalization) genom normalisera interpunktion. 
 
 ### <a name="ignoring-words-and-punctuation"></a>Ignorerar ord och interpunktion
 
-Om du vill ignorera vissa ord eller interpunktion i mönster, använder du ett [mönster](luis-concept-patterns.md#pattern-syntax) med kommandot _Ignore_ för hakparenteser `[]`. 
+Om du vill ignorera vissa ord eller interpunktion i mönster, använder du ett [mönster](luis-concept-patterns.md#pattern-syntax) _med syntaxen för_ hakparenteser, `[]`. 
 
 ## <a name="training-utterances"></a>Utbildning yttranden
 
-Träning är vanligt vis icke-deterministiskt: uttryck förutsägelse kan variera något mellan versioner eller appar. Du kan ta bort icke-deterministisk utbildning genom att uppdatera [](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) API för versions inställningar `UseAllTrainingData` med namn/värde-paret för att använda alla tränings data.
+Träning är vanligt vis icke-deterministiskt: uttryck förutsägelse kan variera något mellan versioner eller appar. Du kan ta bort icke-deterministisk utbildning genom att uppdatera API för [versions inställningar](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) med `UseAllTrainingData` namn/värde-par för att använda alla tränings data.
 
 ## <a name="testing-utterances"></a>Testa yttranden 
 
-Utvecklare bör börja testa sitt LUIS-program med verklig trafik genom att skicka yttranden till [förutsägelse slut punktens](luis-how-to-azure-subscription.md) URL. Dessa yttranden används för att förbättra prestanda för avsikter och entiteter med gransknings [yttranden](luis-how-to-review-endpoint-utterances.md). Tester som skickats med LUIS webbplats test panel skickas inte via slut punkten och bidrar därför inte till aktiv inlärning. 
+Utvecklare bör börja testa sitt LUIS-program med verklig trafik genom att skicka yttranden till [förutsägelse slut punktens](luis-how-to-azure-subscription.md) URL. Dessa yttranden används för att förbättra prestanda för avsikter och entiteter med [gransknings yttranden](luis-how-to-review-endpoint-utterances.md). Tester som skickats med LUIS webbplats test panel skickas inte via slut punkten och bidrar därför inte till aktiv inlärning. 
 
 ## <a name="review-utterances"></a>Granska yttranden
 
@@ -135,6 +135,20 @@ När din modell har tränat, publicerat och tagit emot [slut punkts](luis-glossa
 ## <a name="best-practices"></a>Bästa praxis
 
 Granska [metod tips](luis-concept-best-practices.md) och Använd dem som en del av din vanliga redigerings cykel.
+
+## <a name="label-for-word-meaning"></a>Etikett för ord betydelse
+
+Om Word-valet eller ord ordningen är detsamma, men inte samma sak, ska du inte märka det med entiteten. 
+
+Följande yttranden är ordet `fair` ett homograph. Den har stavats likadan men har en annan betydelse:
+
+|Yttrande|
+|--|
+|Vilken typ av regions mässor sker i Seattle-arean på sommaren?|
+|Är det aktuella omdömet för översynen i Stockholm?|
+
+Om du vill att en händelse entitet ska hitta alla händelse data kan du märka ordet `fair` i den första uttryck, men inte i den andra.
+
 
 ## <a name="next-steps"></a>Nästa steg
 Se [Lägg till exempel yttranden](luis-how-to-add-example-utterances.md) för information om hur du tränar en Luis-app för att förstå användar yttranden.

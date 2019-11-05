@@ -1,5 +1,5 @@
 ---
-title: Migrera lokala Apache Hadoop-kluster till Azure HDInsight – datamigrering
+title: 'Datamigrering: lokala Apache Hadoop till Azure HDInsight'
 description: Lär dig metod tips för datamigrering för migrering av lokala Hadoop-kluster till Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: hrasheed
-ms.openlocfilehash: 567edca422237c71f0d69c862a17fbc0d2a72795
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 30f7ae2eeb928e3f8dc71baed20d9c9b2129d1f9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735915"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494995"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight – metod tips för data migrering
 
@@ -24,8 +24,8 @@ Den här artikeln innehåller rekommendationer för datamigrering till Azure HDI
 Det finns två huvud alternativ för att migrera data från lokala datorer till Azure-miljön:
 
 1.  Överföra data över nätverk med TLS
-    1. Via Internet kan du överföra data till Azure Storage via en vanlig Internet anslutning med hjälp av ett av flera verktyg som: Azure Storage Explorer, AzCopy, Azure PowerShell och Azure CLI.  Mer information finns i [Flytta data till och från Azure Storage](../../storage/common/storage-moving-data.md) .
-    2. Express Route-ExpressRoute är en Azure-tjänst som gör att du kan skapa privata anslutningar mellan Microsoft-datacenter och infrastruktur som finns lokalt eller i en samplacerings anläggning. ExpressRoute-anslutningar inte går via det offentliga Internet och är högre säkerhet, tillförlitlighet och hastighet med kortare svarstider än vanliga anslutningar via Internet. Mer information finns i [skapa och ändra en ExpressRoute-krets](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
+    1. Via Internet kan du överföra data till Azure Storage via en vanlig Internet anslutning med något av flera verktyg som: Azure Storage Explorer, AzCopy, Azure PowerShell och Azure CLI.  Mer information finns i [Flytta data till och från Azure Storage](../../storage/common/storage-moving-data.md) .
+    2. Express Route-ExpressRoute är en Azure-tjänst som gör att du kan skapa privata anslutningar mellan Microsoft-datacenter och infrastruktur som finns lokalt eller i en samplacerings anläggning. ExpressRoute-anslutningar går inte via det offentliga Internet och ger högre säkerhet, tillförlitlighet och hastighet med lägre fördröjning än vanliga anslutningar via Internet. Mer information finns i [skapa och ändra en ExpressRoute-krets](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
     1. Data Box-enhet data överföring online – Data Box Edge och Data Box Gateway är data överförings produkter online som fungerar som nätverks lagrings-gatewayer för att hantera data mellan din plats och Azure. Data Box Edge, en lokal nätverksenhet, överför data till och från Azure och använder AI-aktiverad (artificiell intelligens) gränsdatabearbetning för att bearbeta data. Data Box Gateway är en virtuell installation med lagringsgatewayfunktioner. Mer information finns i [Azure Data Box dokumentation – online-överföring](https://docs.microsoft.com/azure/databox-online/).
 1.  Leverera data offline
     1. Data Box-enhet data överföring offline – Data Box-enhet, Data Box Disk och Data Box Heavy enheter kan du överföra stora mängder data till Azure när nätverket inte är ett alternativ. Dessa offlineenheter för dataöverföring skickas mellan din organisation och Azure-datacentret. De använder AES-kryptering för att skydda dina data i transit, och de genomgår en noggrann sanering efter uppladdning för att ta bort dina data från enheten. Mer information om Data Box-enhet frånkopplade överförings enheter finns i [Azure Data Box dokumentation – offline-överföring](https://docs.microsoft.com/azure/databox/). Mer information om migrering av Hadoop-kluster finns i [använda Azure Data box för att migrera från en lokal HDFS-lagring till Azure Storage](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
@@ -58,7 +58,7 @@ DistCp är ett Apache-projekt som använder ett MapReduce-kart jobb för att öv
 DistCp försöker skapa kart aktiviteter så att var och en kopierar ungefär samma antal byte. Som standard använder DistCp-jobb 20 mapper. Om du använder fler Mapper för Distcp (med parametern ' x på kommando raden) ökar parallellitet under data överförings processen och minskar data överföringens längd. Det finns dock två saker att tänka på när du ökar antalet mappningar:
 
 1. DistCp för den lägsta precisionen är en enskild fil. Om du anger ett antal Mapper fler än antalet källfiler går det inte att använda och de tillgängliga kluster resurserna tas bort.
-1. Överväg det tillgängliga garn minnet på klustret för att fastställa antalet mappningar. Varje kart aktivitet startas som en garn behållare. Förutsatt att inga andra tunga arbets belastningar körs i klustret, kan antalet Mapper bestämmas av följande formel: m = (antalet arbetsnoder \* garn minne för varje arbetsnod)/storlek på garn behållare. Men om andra program använder minne väljer du att bara använda en del av garn minnet för DistCp-jobb.
+1. Överväg det tillgängliga garn minnet på klustret för att fastställa antalet mappningar. Varje kart aktivitet startas som en garn behållare. Förutsatt att inga andra tunga arbets belastningar körs i klustret, kan antalet Mapper bestämmas av följande formel: m = (antalet arbetsnoder \* garn minne för varje arbetsnod)/storlek för garn behållare. Men om andra program använder minne väljer du att bara använda en del av garn minnet för DistCp-jobb.
 
 ### <a name="use-more-than-one-distcp-job"></a>Använd mer än ett DistCp-jobb
 
@@ -70,15 +70,15 @@ Om det finns ett litet antal stora filer kan du överväga att dela upp dem i 25
 
 ### <a name="use-the-strategy-command-line-parameter"></a>Använda kommando rads parametern "strategi"
 
-Överväg att `strategy = dynamic` använda parameter på kommando raden. Standardvärdet för `strategy` parametern är `uniform size`, i vilket fall varje karta kopierar ungefär samma antal byte. När den här parametern ändras till `dynamic`delas list filen upp i flera "segment-filer". Antalet segment-filer är en multipel av antalet kartor. Varje kart aktivitet tilldelas en av segment-filerna. När alla sökvägar i ett segment har bearbetats raderas det aktuella segmentet och ett nytt segment förvärvas. Processen fortsätter tills inga fler segment är tillgängliga. Med den här metoden "dynamisk" kan du snabbare mappa aktiviteter för att förbruka fler sökvägar än långsammare, vilket påskyndar DistCp-jobbet.
+Överväg att använda `strategy = dynamic` parameter på kommando raden. Standardvärdet för parametern `strategy` är `uniform size`, vilket innebär att varje karta kopierar ungefär samma antal byte. När den här parametern ändras till `dynamic`delas list filen upp i flera "segment-filer". Antalet segment-filer är en multipel av antalet kartor. Varje kart aktivitet tilldelas en av segment-filerna. När alla sökvägar i ett segment har bearbetats raderas det aktuella segmentet och ett nytt segment förvärvas. Processen fortsätter tills inga fler segment är tillgängliga. Med den här metoden "dynamisk" kan du snabbare mappa aktiviteter för att förbruka fler sökvägar än långsammare, vilket påskyndar DistCp-jobbet.
 
 ### <a name="increase-the-number-of-threads"></a>Öka antalet trådar
 
-Se om ökningen `-numListstatusThreads` av parametern ger bättre prestanda. Den här parametern styr antalet trådar som ska användas för att skapa fil listor och 40 är det maximala värdet.
+Läs om du ökar prestanda genom att öka `-numListstatusThreads`-parametern. Den här parametern styr antalet trådar som ska användas för att skapa fil listor och 40 är det maximala värdet.
 
 ### <a name="use-the-output-committer-algorithm"></a>Använda committer-algoritmen för utdata
 
-Se om du överför parametern `-Dmapreduce.fileoutputcommitter.algorithm.version=2` förbättrar DistCp-prestanda. Den här utdata committer-algoritmen har optimeringar för att skriva utdatafilerna till målet. Följande kommando är ett exempel som visar användningen av olika parametrar:
+Se om du skickar parametern `-Dmapreduce.fileoutputcommitter.algorithm.version=2` förbättrar prestanda för DistCp. Den här utdata committer-algoritmen har optimeringar för att skriva utdatafilerna till målet. Följande kommando är ett exempel som visar användningen av olika parametrar:
 
 ```bash
 hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatusThreads 30 -m 100 -strategy dynamic hdfs://nn1:8020/foo/bar wasb://<container_name>@<storage_account_name>.blob.core.windows.net/foo/

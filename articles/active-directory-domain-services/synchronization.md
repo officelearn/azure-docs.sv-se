@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 88a5e5fa1267e834a04c46ed38868cf74acd9bb0
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 7d4546a6d2de01575825154ab30a909b76b3fc89
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70171934"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474483"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Hur objekt och autentiseringsuppgifter synkroniseras i en Azure AD Domain Services hanterad domän
 
-Objekt och autentiseringsuppgifter i en Azure Active Directory Domain Services (AD DS)-hanterad domän kan antingen skapas lokalt i domänen eller synkroniseras från en Azure Active Directory AD-klient. När du först distribuerar Azure AD DS konfigureras en automatisk enkelriktad synkronisering och startas för att replikera objekten från Azure AD. Den här enkelriktade synkroniseringen fortsätter att köras i bakgrunden för att hålla den hanterade Azure AD DS-domänen uppdaterad med eventuella ändringar från Azure AD.
+Objekt och autentiseringsuppgifter i en Azure Active Directory Domain Services (AD DS)-hanterad domän kan antingen skapas lokalt i domänen eller synkroniseras från en Azure Active Directory (Azure AD)-klient. När du först distribuerar Azure AD DS konfigureras en automatisk enkelriktad synkronisering och startas för att replikera objekten från Azure AD. Den här enkelriktade synkroniseringen fortsätter att köras i bakgrunden för att hålla den hanterade Azure AD DS-domänen uppdaterad med eventuella ändringar från Azure AD. Ingen synkronisering sker från Azure AD DS tillbaka till Azure AD.
 
 I en hybrid miljö kan objekt och autentiseringsuppgifter från en lokal AD DS-domän synkroniseras till Azure AD med hjälp av Azure AD Connect. När de här objekten har synkroniserats till Azure AD, gör den automatiska bakgrundssynkroniseringen de objekt och autentiseringsuppgifter som är tillgängliga för program med hjälp av Azure AD DS-hanterad domän.
 
@@ -38,16 +38,18 @@ Synkroniseringsprocessen är enkelriktad/enkelriktad genom design. Det finns ing
 
 I följande tabell visas några vanliga attribut och hur de synkroniseras till Azure AD DS.
 
-| Attribut i Azure AD DS | Source | Anteckningar |
+| Attribut i Azure AD DS | Källa | Anteckningar |
 |:--- |:--- |:--- |
 | UPN | Användarens *UPN* -attribut i Azure AD-klienten | UPN-attributet från Azure AD-klienten synkroniseras med Azure AD DS. Det mest pålitliga sättet att logga in på en hanterad Azure AD DS-domän använder UPN. |
-| SAMAccountName | Användarens *smek namn* -attribut i Azure AD-klient eller automatiskt genererad | Attributet *sAMAccountName* hämtas från attributet *smek namn* i Azure AD-klienten. Om flera användar konton har samma *startalias* -attribut skapas *sAMAccountName* automatiskt. Om användarens *smek namn* eller *UPN* -prefix är längre än 20 tecken genereras *sAMAccountName* automatiskt för att uppfylla gränsen på 20 tecken i *sAMAccountName* -attribut. |
+| Sam | Användarens *smek namn* -attribut i Azure AD-klient eller automatiskt genererad | Attributet *sAMAccountName* hämtas från attributet *smek namn* i Azure AD-klienten. Om flera användar konton har samma *startalias* -attribut skapas *sAMAccountName* automatiskt. Om användarens *smek namn* eller *UPN* -prefix är längre än 20 tecken genereras *sAMAccountName* automatiskt för att uppfylla gränsen på 20 tecken i *sAMAccountName* -attribut. |
 | Lösenord | Användarens lösen ord från Azure AD-klienten | Äldre hashvärden för lösen ord krävs för NTLM-eller Kerberos-autentiseringen synkroniseras från Azure AD-klienten. Om Azure AD-klienten har kon figurer ATS för Hybrid synkronisering med Azure AD Connect, kommer dessa lösen ords hashs från den lokala AD DS-miljön. |
 | Primär användare/grupp-SID | Automatiskt skapade texter | Huvud-SID för användare/grupp-konton skapas automatiskt i Azure AD DS. Det här attributet matchar inte det primära användare/grupp-SID för objektet i en lokal AD DS-miljö. Detta matchnings fel beror på att den hanterade domänen i Azure AD DS har ett annat SID-namnområde än den lokala AD DS-domänen. |
 | SID-historik för användare och grupper | Lokal primär användare och grupp-SID | Attributet *SidHistory* för användare och grupper i Azure AD DS är inställt på att matcha motsvarande primära användare eller grupp-sid i en lokal AD DS-miljö. Den här funktionen gör det lättare att lyfta och byta lokala program till Azure AD DS eftersom du inte behöver göra en ny ACL-resurs. |
 
 > [!TIP]
-> **Logga in på den hanterade domänen med UPN-formatet** Attributet *sAMAccountName* , till exempel `CONTOSO\driley`, kan genereras automatiskt för vissa användar konton i en Azure AD DS-hanterad domän. Användarens automatiskt genererade *sAMAccountName* kan skilja sig från sina UPN-prefix, så det är inte alltid ett tillförlitligt sätt att logga in. Om t. ex. flera användare har samma *smek namn* -attribut eller om användarna har över långa UPN-prefix, kan *sAMAccountName* för dessa användare genereras automatiskt. Använd UPN-formatet, till exempel `driley@contoso.com`, för att logga in på en Azure AD DS-hanterad domän på ett tillförlitligt sätt.
+> **Logga in på den hanterade domänen med UPN-formatet** Attributet *sAMAccountName* , till exempel `CONTOSO\driley`, kan genereras automatiskt för vissa användar konton i en Azure AD DS-hanterad domän. Användarens automatiskt genererade *sAMAccountName* kan skilja sig från sina UPN-prefix, så det är inte alltid ett tillförlitligt sätt att logga in.
+>
+> Om t. ex. flera användare har samma *smek namn* -attribut eller om användarna har över långa UPN-prefix, kan *sAMAccountName* för dessa användare genereras automatiskt. Använd UPN-formatet, till exempel `driley@contoso.com`, för att logga in på en Azure AD DS-hanterad domän på ett tillförlitligt sätt.
 
 ### <a name="attribute-mapping-for-user-accounts"></a>Mappning av attribut för användar konton
 
@@ -55,28 +57,28 @@ I följande tabell visas hur särskilda attribut för användar objekt i Azure A
 
 | Användarattribut i Azure AD | Användarattribut i Azure AD DS |
 |:--- |:--- |
-| accountEnabled |userAccountControl (anger eller tar bort ACCOUNT_DISABLED-biten) |
+| AccountEnabled |userAccountControl (anger eller tar bort ACCOUNT_DISABLED-biten) |
 | city |L |
-| ursprungslandet |CO |
-| Avdelning |Avdelning |
+| Ursprungslandet |företag |
+| avdelning |avdelning |
 | displayName |displayName |
 | facsimileTelephoneNumber |facsimileTelephoneNumber |
-| givenName |givenName |
-| jobTitle |rubrik |
+| GivenName |GivenName |
+| Befattning |title |
 | e-post |e-post |
-| mailNickname |msDS-AzureADMailNickname |
-| mailNickname |SAMAccountName (kan ibland skapas automatiskt) |
-| mobila |mobila |
+| MailNickname |msDS-AzureADMailNickname |
+| MailNickname |SAMAccountName (kan ibland skapas automatiskt) |
+| enheter |enheter |
 | objectID |msDS-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
 | passwordPolicies |userAccountControl (anger eller tar bort DONT_EXPIRE_PASSWORD-biten) |
 | physicalDeliveryOfficeName |physicalDeliveryOfficeName |
-| Postnummer |Postnummer |
+| Post nummer |Post nummer |
 | preferredLanguage |preferredLanguage |
 | state |St |
 | streetAddress |streetAddress |
-| Efternamn |SN |
-| telephoneNumber |telephoneNumber |
+| surname |SN |
+| TelephoneNumber |TelephoneNumber |
 | userPrincipalName |userPrincipalName |
 
 ### <a name="attribute-mapping-for-groups"></a>Attributmappning för grupper
@@ -88,7 +90,7 @@ I följande tabell visas hur särskilda attribut för grupp objekt i Azure AD sy
 | displayName |displayName |
 | displayName |SAMAccountName (kan ibland skapas automatiskt) |
 | e-post |e-post |
-| mailNickname |msDS-AzureADMailNickname |
+| MailNickname |msDS-AzureADMailNickname |
 | objectID |msDS-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
 | securityEnabled |groupType |
@@ -112,7 +114,7 @@ Som tidigare beskrivs finns det ingen synkronisering från Azure AD DS tillbaka 
 
 ## <a name="what-isnt-synchronized-to-azure-ad-ds"></a>Vad är inte synkroniserat med Azure AD DS
 
-Följande objekt eller attribut synkroniseras inte med Azure AD eller Azure AD DS:
+Följande objekt eller attribut synkroniseras inte från en lokal AD DS-miljö till Azure AD eller Azure AD DS:
 
 * **Exkluderade attribut:** Du kan välja att undanta vissa attribut från synkronisering till Azure AD från en lokal AD DS-miljö med hjälp av Azure AD Connect. De uteslutna attributen är inte tillgängliga i Azure AD DS.
 * **Grup principer:** Grup principer som kon figurer ATS i en lokal AD DS-miljö synkroniseras inte med Azure AD DS.

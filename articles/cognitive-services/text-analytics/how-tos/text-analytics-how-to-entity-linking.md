@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 07/30/2019
+ms.date: 10/21/2019
 ms.author: aahi
-ms.openlocfilehash: 642b21624ce3ffc993d5f29a413845044d703fd7
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: e51e5945df8b08ec81db0c85416b31b3ec788ffd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984270"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488632"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Använda namngiven enhets igenkänning i Textanalys
 
@@ -23,47 +23,109 @@ Det [namngivna identifierings-API: et för entiteten](https://westcentralus.dev.
 
 ## <a name="entity-linking-and-named-entity-recognition"></a>Enhets länkning och identifiering av namngiven entitet
 
-`entities` Slut punkten för textanalys stöder både ner-och entitets igenkänning.
+Textanalyss `entities`-slutpunkt stöder både NER-och entitets igenkänning.
 
-### <a name="entity-linking"></a>Entity Linking
-Enhets länkning är möjligheten att identifiera och disambiguate identiteten för en entitet som påträffas i text (till exempel att avgöra om "mars" används som planet eller som den romerska god). Den här processen kräver att det finns en kunskaps bas där kända entiteter är länkade – Wikipedia används som kunskaps bas för `entities` slut punkten textanalys.
+### <a name="entity-linking"></a>Länkning av entiteter
+Enhets länkning är möjligheten att identifiera och disambiguate identiteten för en entitet som påträffas i text (till exempel att avgöra om "mars" används som planet eller som den romerska god). Den här processen kräver att det finns en kunskaps bas för vilka kända entiteter är länkade – Wikipedia används som kunskaps bas för `entities` slut punkts Textanalys.
 
 ### <a name="named-entity-recognition-ner"></a>Igenkänning av namngivna enheter (NER)
-Med namngiven enhets igenkänning (NER) kan du identifiera olika entiteter i text och kategorisera dem i fördefinierade klasser. De klasser av entiteter som stöds visas nedan.
+Med namngiven enhets igenkänning (NER) kan du identifiera olika entiteter i text och kategorisera dem i fördefinierade klasser, eller typer. 
 
-I Textanalys [Version 2,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)är både enhets länkning och namngiven entitets IGENKÄNNING (ner) tillgängliga för flera språk. Mer information finns i artikeln om [språk support](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) .
+## <a name="named-entity-recognition-v3-public-preview"></a>Namngiven enhets igenkänning v3 offentlig för hands version
+
+[Nästa version av namngiven enhets igenkänning](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/56f30ceeeda5650db055a3c7/console) är nu tillgänglig för offentlig för hands version. Den ger uppdateringar för både entitets-och enhets identifiering. 
+
+:::row:::
+    :::column span="":::
+        **Funktion**
+    :::column-end:::
+    ::: column span="":::
+        **Beskrivning** 
+    :::column-end:::
+:::row-end:::
+<!-- expanded types and subtypes row-->
+:::row:::
+    :::column span="":::
+        Expanderade entitetstyper och under typer
+    :::column-end:::
+    :::column span="":::
+     Utökad klassificering och identifiering för flera namngivna enhets typer.
+    :::column-end:::
+:::row-end:::
+<!-- separate endpoints row-->
+:::row:::
+    :::column span="":::
+        Separata slut punkter för begäran 
+    :::column-end:::
+    :::column span="":::
+        Separata slut punkter för att skicka enhets länknings-och NER-begäranden.
+    :::column-end:::
+:::row-end:::
+<!-- model-version row -->
+:::row:::
+    :::column span="":::
+        `model-version` parameter
+    :::column-end:::
+    :::column span="":::
+        En valfri parameter för att välja en version av Textanalyss modellen. För närvarande är standard modellen tillgänglig för användning.
+    :::column-end:::
+:::row-end:::
+
+### <a name="entity-types"></a>Entitetstyper
+
+Med namnet entitets igenkänning v3 får du utökad identifiering över flera typer. För närvarande kan NER v3 identifiera följande kategorier av entiteter. En detaljerad lista över vilka entiteter och språk som stöds finns i artikeln [namngivna enhets typer](../named-entity-types.md) .
+
+* Allmänt
+* Personlig information 
+
+### <a name="request-endpoints"></a>Begär slut punkter
+
+Med namnet entitets igenkänning v3 används separata slut punkter för NER och begär Anden om att länka entiteter. Använd ett URL-format nedan baserat på din begäran:
+
+NER
+* Allmänna entiteter – `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/general`
+
+* Entiteter med personlig information – `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/pii`
+
+Länkning av entitet
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
+
+### <a name="model-versioning"></a>Modell version
+
+[!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
+
+## <a name="supported-types-for-named-entity-recognition-v2"></a>Typer som stöds för namngiven entitets igenkänning v2
+
+> [!NOTE]
+> Följande entiteter stöds av den namngivna enhets igenkänningen (NER) version 2. [Ner v3](#named-entity-recognition-v3-public-preview) finns i en offentlig för hands version och utökar avsevärt antalet och djupet i entiteterna som identifieras i text.   
+
+| Typ  | Undertyp | Exempel |
+|:-----------   |:------------- |:---------|
+| Person        | Ej tillämpligt\*         | "Jeff", "Bill Gates"     |
+| Plats      | Ej tillämpligt\*         | ”Redmond, Washington”, ”Paris”  |
+| Organisation  | Ej tillämpligt\*         | ”Microsoft”   |
+| Kvantitet      | Tal        | ”6”, ”sex”     |
+| Kvantitet      | Procent    | ”50 %”, ”femtio procent”|
+| Kvantitet      | Ordningstal       | ”2:a”, ”andra”     |
+| Kvantitet      | Ålder           | "90 dag gammal", "30 år gammal"    |
+| Kvantitet      | Valuta      | ”10,99 USD”     |
+| Kvantitet      | Dimension     | ”10 miles”, ”40 cm”     |
+| Kvantitet      | Temperatur   | ”32 grader”    |
+| DateTime      | Ej tillämpligt\*         | ”18.30 den 4 februari 2012”      |
+| DateTime      | Date          | ”2 maj 2017”, ”2017-05-02”   |
+| DateTime      | Tid          | "8.00", "8:00"  |
+| DateTime      | DateRange     | ”2 maj till 5 maj”    |
+| DateTime      | TimeRange     | ”18 till 19”     |
+| DateTime      | Varaktighet      | ”1 minut och 45 sekunder”   |
+| DateTime      | Ange           | ”varje tisdag”     |
+| URL           | Ej tillämpligt\*         | "https:\//www.bing.com"    |
+| E-post         | Ej tillämpligt\*         | "support@contoso.com" |
+
+\* beroende på inmatade och extraherade entiteter kan vissa entiteter utelämna `SubType`.  Alla entitetstyper som stöds visas endast på engelska, kinesiska (förenklad), franska, tyska och spanska språk.
 
 ### <a name="language-support"></a>Stöd för språk
 
-Om du använder enhets länkning på olika språk måste du använda en motsvarande kunskaps bas på varje språk. För entitets länkning i textanalys innebär detta att varje språk som stöds av `entities` slut punkten länkar till motsvarande Wikipedia-sökkorpus på det språket. Eftersom storleken på Korpus varierar mellan olika språk, förväntas det att återställningen av enhetens länknings funktion också kan variera.
-
-## <a name="supported-types-for-named-entity-recognition"></a>Typer som stöds för identifiering av namngiven entitet
-
-| type  | Undertyp | Exempel |
-|:-----------   |:------------- |:---------|
-| Person        | EJ TILLÄMPLIGT\*         | "Jeff", "Bill Gates"     |
-| Location      | EJ TILLÄMPLIGT\*         | ”Redmond, Washington”, ”Paris”  |
-| Organisation  | EJ TILLÄMPLIGT\*         | "Microsoft"   |
-| Antal      | Tal        | "6", "six"     |
-| Antal      | Procent    | ”50 %”, ”femtio procent”|
-| Antal      | Ordningstal       | ”2:a”, ”andra”     |
-| Antal      | Ålder           | "90 dag gammal", "30 år gammal"    |
-| Antal      | Currency      | ”10,99 USD”     |
-| Antal      | Dimension     | ”10 miles”, ”40 cm”     |
-| Antal      | Temperatur   | ”32 grader”    |
-| DateTime      | EJ TILLÄMPLIGT\*         | ”18.30 den 4 februari 2012”      |
-| DateTime      | Date          | ”2 maj 2017”, ”2017-05-02”   |
-| DateTime      | Time          | "8.00", "8:00"  |
-| DateTime      | DateRange     | ”2 maj till 5 maj”    |
-| DateTime      | TimeRange     | ”18 till 19”     |
-| DateTime      | Duration      | ”1 minut och 45 sekunder”   |
-| DateTime      | Ange           | ”varje tisdag”     |
-| URL           | EJ TILLÄMPLIGT\*         | "https:\//www.Bing.com"    |
-| Email         | EJ TILLÄMPLIGT\*         | "support@contoso.com" |
-
-\*Beroende på inmatade och extraherade entiteter kan vissa entiteter `SubType`utelämna.  Alla entitetstyper som stöds visas bara för de engelska, kinesiska, kinesiska, franska, tyska och spanska språken.
-
-
+Om du använder enhets länkning på olika språk måste du använda en motsvarande kunskaps bas på varje språk. För entitets länkning i Textanalys innebär detta att varje språk som stöds av `entities` slut punkten länkar till motsvarande Wikipedia-sökkorpus på det språket. Eftersom storleken på Korpus varierar mellan olika språk, förväntas det att återställningen av enhetens länknings funktion också kan variera. Mer information finns i artikeln om [språk support](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) .
 
 ## <a name="preparation"></a>Förberedelse
 
@@ -94,7 +156,7 @@ Dokumentstorleken måste vara under 5 120 tecken per dokument, och du kan ha up
 
 Information om begäransdefinitionen finns i [Hur anropar man textanalys API:et](text-analytics-how-to-call-api.md). Följande punkter har anges på nytt för enkelhetens skull:
 
-+ Skicka en **POST**-begäran. Läs API-dokumentationen för denna begäran: [Entitets-API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
++ Skicka en **POST**-begäran. Läs API-dokumentationen för denna begäran: [entitets-API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
 + Ange HTTP-slutpunkten för extrahering av nyckel fraser genom att antingen använda en Textanalys-resurs på Azure eller en instansierad [textanalys-behållare](text-analytics-how-to-install-containers.md). Du måste inkludera `/text/analytics/v2.1/entities`. Till exempel: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`.
 

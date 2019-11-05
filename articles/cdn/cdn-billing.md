@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: magattus
-ms.openlocfilehash: 8704d715a20b94dc170f232b07a0acd54bb1e6f1
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: e2827a11f4ec2a5c0467c3699cd9990aaf7ae97a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996812"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495482"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Så här fungerar fakturering för Azure CDN
 
@@ -34,7 +34,7 @@ En fakturerings region är ett geografiskt område som används för att avgöra
 
 - Zon 3: Sydamerika
 
-- Zon 4: Australien och Nya Zeeland
+- Zon 4: Australien och nya Zeeland
 
 - Zon 5: Indien
 
@@ -55,11 +55,11 @@ Om du använder Azure CDN uppstår även några användnings kostnader för de t
 
 Om du använder Azure Blob Storage som ursprung för ditt innehåll, kommer du även att debiteras följande lagrings avgifter för cache-fyllningar:
 
-- Faktiskt använt GB: Det faktiska lagrings utrymmet för dina käll objekt.
+- Faktiskt använt GB: den faktiska lagringen av dina käll objekt.
 
-- Transaktioner Vid behov för att fylla cacheminnet.
+- Transaktioner: vid behov för att fylla cacheminnet.
 
-- Överföringar i GB: Mängden data som överförs för att fylla CDN-cacheminnen.
+- Överföringar i GB: mängden data som överförs för att fylla CDN-cacheminnen.
 
 > [!NOTE]
 > Från och med den 2019 oktober, om du använder Azure CDN från Microsoft, är kostnaden för data överföring från ursprung som finns i Azure till CDN pop kostnads fri. Azure CDN från Verizon och Azure CDN från Akamai omfattas de priser som beskrivs nedan.
@@ -68,9 +68,9 @@ Mer information om Azure Storage fakturering finns i [förstå Azure Storage fak
 
 Om du använder *värdbaserad tjänst leverans*debiteras du följande:
 
-- Beräknings tid i Azure: De beräknings instanser som fungerar som ursprung.
+- Azure Compute Time: de beräknings instanser som fungerar som ursprung.
 
-- Azure-beräknings överföring: Data överförs från beräknings instanserna för att fylla Azure CDN cacheminnen.
+- Azure Compute transfer: data överföringar från beräknings instanserna för att fylla Azure CDN cacheminnen.
 
 Om klienten använder byte intervall begär Anden (oavsett ursprungs tjänst) gäller följande aspekter:
 
@@ -81,19 +81,19 @@ Om klienten använder byte intervall begär Anden (oavsett ursprungs tjänst) g�
 ## <a name="how-much-transfer-activity-occurs-to-support-the-cache"></a>Hur mycket överförings aktivitet sker för att stödja cachen?
 Varje gång en CDN-POP måste fylla sin cache, gör den en begäran till ursprunget för objektet som cachelagras. Det innebär att ursprunget ådrar sig en fakturerbar transaktion på varje cache missar. Antalet Cachemissar beror på ett antal faktorer:
 
-- Så här cachelagrar du innehållet: Om innehållet har höga TTL-värden (Time-to-Live)/expiration och används ofta så att det förblir populärt i cachen, hanteras den stora delen av belastningen av CDN. En typisk bra kvot för cache-träff är väl över 90%, vilket innebär att mindre än 10% av klient begär Anden måste gå tillbaka till ursprunget, antingen för ett cacheminne som missar eller objekt uppdatering.
+- Hur cacheable innehållet är: om innehållet har höga TTL-värden (Time-to-Live)/expiration och används ofta så att det förblir populärt i cachen, kommer den stora delen av belastningen att hanteras av CDN. En typisk bra kvot för cache-träff är väl över 90%, vilket innebär att mindre än 10% av klient begär Anden måste gå tillbaka till ursprunget, antingen för ett cacheminne som missar eller objekt uppdatering.
 
-- Hur många noder som behöver läsa in objektet: Varje gång en nod läser in ett objekt från ursprunget, påförs en fakturerbar transaktion. Det innebär att mer globalt innehåll (som nås från fler noder) resulterar i mer fakturerbara transaktioner.
+- Hur många noder som behöver läsa in objektet: varje gång en nod läser in ett objekt från ursprunget påförs en fakturerbar transaktion. Det innebär att mer globalt innehåll (som nås från fler noder) resulterar i mer fakturerbara transaktioner.
 
-- TTL-påverkan: Ett högt TTL-värde för ett-objekt innebär att det måste hämtas från ursprunget mindre ofta. Det innebär också att klienter, till exempel webbläsare, kan cachelagra objektet längre, vilket kan minska transaktionerna till CDN.
+- TTL-påverkan: ett högre TTL-värde för ett objekt innebär att det måste hämtas från ursprunget mindre ofta. Det innebär också att klienter, till exempel webbläsare, kan cachelagra objektet längre, vilket kan minska transaktionerna till CDN.
 
 ## <a name="which-origin-services-are-eligible-for-free-data-transfer-with-azure-cdn-from-microsoft"></a>Vilka ursprungs tjänster är berättigade till kostnads fri data överföring med Azure CDN från Microsoft? 
 Om du använder någon av följande Azure-tjänster som ditt CDN-ursprung kommer du inte att debiteras från data överföring från ursprunget till CDN pop. 
 
 - Azure Storage
 - Azure Media Services
-- Azure virtuella maskiner
-- Virtuellt nätverk
+- Azure Virtual Machines
+- Virtual Network
 - Lastbalanserare
 - Application Gateway
 - Azure DNS
@@ -113,7 +113,7 @@ Om du använder någon av följande Azure-tjänster som ditt CDN-ursprung kommer
 - HDInsight
 - Azure Cosmos DB
 - Azure Data Lake Store
-- Azure Machine Learning-tjänst 
+- Azure Machine Learning 
 - Azure SQL-databas
 - Azure Cache for Redis
 

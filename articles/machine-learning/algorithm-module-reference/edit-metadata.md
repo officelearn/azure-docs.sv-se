@@ -1,24 +1,24 @@
 ---
 title: 'Redigera metadata: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen redigera metadata i Azure Machine Learning-tjänsten för att ändra metadata som är associerade med kolumner i en data uppsättning.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen redigera metadata i Azure Machine Learning för att ändra metadata som är associerade med kolumner i en data uppsättning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: b6e28577fefe4892d719e211e16edafed1504e87
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 2c8224edbe95c8185e390c2ce48cbb4263f97586
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693815"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497945"
 ---
 # <a name="edit-metadata-module"></a>Redigera metadata-modul
 
-I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learnings tjänsten.
+I den här artikeln beskrivs en modul som ingår i Azure Machine Learning designer (för hands version).
 
 Använd modulen redigera data om du vill ändra metadata som är associerade med kolumner i en data uppsättning. Data uppsättningens värde och datatyp ändras efter användningen av modulen redigera metadata.
 
@@ -98,4 +98,4 @@ Typiska metadata-ändringar kan innehålla:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se de [moduler som är tillgängliga](module-reference.md) för tjänsten Azure Machine Learning.
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning.

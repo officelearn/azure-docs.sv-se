@@ -10,14 +10,15 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: 24ec49a0f23516638d1f525341ea44e204653fea
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: b0d7286d96d2fbfa35eb7ce9079413dfd186288c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034600"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496970"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Distribuera en maskin inlärnings modell till Azure App Service (för hands version)
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Lär dig hur du distribuerar en modell från Azure Machine Learning som en webbapp i Azure App Service.
 
@@ -28,7 +29,7 @@ Med Azure Machine Learning kan du skapa Docker-avbildningar från tränade maski
 
 * Avancerad [autentisering](/azure/app-service/configure-authentication-provider-aad) för förbättrad säkerhet. Autentiseringsmetoder omfattar både Azure Active Directory och Multi-factor auth.
 * [Skala](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json) utan att behöva distribuera igen.
-* [SSL-stöd](/azure/app-service/app-service-web-ssl-cert-load) för säker kommunikation mellan klienter och tjänsten.
+* [SSL-stöd](/azure/app-service/configure-ssl-certificate-in-code) för säker kommunikation mellan klienter och tjänsten.
 
 Mer information om funktioner som tillhandahålls av Azure App Service finns i [Översikt över App Service](/azure/app-service/overview).
 
@@ -38,15 +39,15 @@ Mer information om funktioner som tillhandahålls av Azure App Service finns i [
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
-* Den [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * En utbildad Machine Learning-modell som registrerats i din arbets yta. Om du inte har någon modell använder du [själv studie kursen om bild klassificering: träna modell](tutorial-train-models-with-aml.md) att träna och registrera en.
 
     > [!IMPORTANT]
     > Kodfragmenten i den här artikeln förutsätter att du har angett följande variabler:
     >
-    > * `ws`– Din Azure Machine Learning-arbetsyta.
-    > * `model`– Den registrerade modellen som ska distribueras.
-    > * `inference_config`– Den här modellens konfigurations konfiguration.
+    > * `ws` – din Azure Machine Learning-arbetsyta.
+    > * `model` – den registrerade modell som ska distribueras.
+    > * `inference_config` – konfigurationens konfigurations härledning.
     >
     > Mer information om hur du ställer in dessa variabler finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
@@ -64,7 +65,7 @@ Innan du distribuerar måste du definiera vad som behövs för att köra modelle
     > [!IMPORTANT]
     > Azure Machine Learning SDK tillhandahåller inte något sätt för webb tjänsten att komma åt dina data lager eller data uppsättningar. Om du behöver distribuerad modell för att komma åt data som lagras utanför distributionen, t. ex. i ett Azure Storage konto, måste du utveckla en anpassad kod med hjälp av relevant SDK. Till exempel [Azure Storage SDK för python](https://github.com/Azure/azure-storage-python).
     >
-    > Ett annat alternativ som kan fungera för ditt scenario är [batch](how-to-run-batch-predictions.md)-förutsägelser, vilket ger åtkomst till data lager när poäng.
+    > Ett annat alternativ som kan fungera för ditt scenario är [batch-förutsägelser](how-to-run-batch-predictions.md), vilket ger åtkomst till data lager när poäng.
 
     Mer information om Entry-skript finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
@@ -99,7 +100,7 @@ Mer information om konfiguration av konfiguration finns i [Distribuera modeller 
 Om du vill skapa Docker-avbildningen som distribueras till Azure App Service använder du [modell. Package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config--generate-dockerfile-false-). Följande kodfragment visar hur du skapar en ny avbildning från modellen och konfigurationen för konfigurations härledning:
 
 > [!NOTE]
-> Kodfragmentet förutsätter att `model` innehåller en registrerad modell och att `inference_config` den innehåller konfigurationen för härlednings miljön. Mer information finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
+> Kodfragmentet förutsätter att `model` innehåller en registrerad modell och att `inference_config` innehåller konfigurationen för härlednings miljön. Mer information finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
 ```python
 from azureml.core import Model
@@ -110,14 +111,14 @@ package.wait_for_creation(show_output=True)
 print(package.location)
 ```
 
-När `show_output=True`visas utdata från Docker-build-processen. När processen har slutförts har avbildningen skapats i Azure Container Registry för din arbets yta. När avbildningen har skapats visas platsen i Azure Container Registry. Den plats som returnerades är i `<acrinstance>.azurecr.io/package:<imagename>`formatet. Till exempel `myml08024f78fd10.azurecr.io/package:20190827151241`.
+När `show_output=True`visas utdata från Docker-build-processen. När processen har slutförts har avbildningen skapats i Azure Container Registry för din arbets yta. När avbildningen har skapats visas platsen i Azure Container Registry. Den plats som returnerades är i formatet `<acrinstance>.azurecr.io/package:<imagename>`. Till exempel `myml08024f78fd10.azurecr.io/package:20190827151241`.
 
 > [!IMPORTANT]
 > Spara plats informationen som används när avbildningen distribueras.
 
 ## <a name="deploy-image-as-a-web-app"></a>Distribuera avbildning som en webbapp
 
-1. Använd följande kommando för att hämta inloggnings uppgifterna för den Azure Container Registry som innehåller avbildningen. Ersätt `<acrinstance>` med det e-värde som returnerades tidigare från `package.location`: 
+1. Använd följande kommando för att hämta inloggnings uppgifterna för den Azure Container Registry som innehåller avbildningen. Ersätt `<acrinstance>` med e-postvärdet som returnerades tidigare från `package.location`: 
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -150,12 +151,12 @@ När `show_output=True`visas utdata från Docker-build-processen. När processen
     az appservice plan create --name myplanname --resource-group myresourcegroup --sku B1 --is-linux
     ```
 
-    I det här exemplet används en __grundläggande__ pris nivå`--sku B1`().
+    I det här exemplet används en __grundläggande__ pris nivå (`--sku B1`).
 
     > [!IMPORTANT]
-    > Avbildningar som skapats av Azure Machine Learning använda Linux, så du måste `--is-linux` använda parametern.
+    > Avbildningar som skapats av Azure Machine Learning använda Linux, så du måste använda `--is-linux`-parametern.
 
-1. Använd följande kommando för att skapa en webbapp. Ersätt `<app-name>` med det namn som du vill använda. Ersätt `<acrinstance>` `package.location` och `<imagename>` med värdena från returnerade tidigare:
+1. Använd följande kommando för att skapa en webbapp. Ersätt `<app-name>` med det namn som du vill använda. Ersätt `<acrinstance>` och `<imagename>` med värdena från returnerade `package.location` tidigare:
 
     ```azurecli-interactive
     az webapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename>
@@ -184,7 +185,7 @@ När `show_output=True`visas utdata från Docker-build-processen. När processen
     > [!IMPORTANT]
     > Nu har webbappen skapats. Eftersom du inte har angett autentiseringsuppgifterna för Azure Container Registry som innehåller avbildningen är webbappen inte aktiv. I nästa steg anger du autentiseringsinformation för behållar registret.
 
-1. Använd följande kommando för att tillhandahålla webbappen med de autentiseringsuppgifter som krävs för att komma åt behållar registret. Ersätt `<app-name>` med det namn som du vill använda. Ersätt `<acrinstance>` `package.location` och `<imagename>` med värdena från returnerade tidigare. Ersätt `<username>` och`<password>` med ACR-inloggnings informationen som hämtades tidigare:
+1. Använd följande kommando för att tillhandahålla webbappen med de autentiseringsuppgifter som krävs för att komma åt behållar registret. Ersätt `<app-name>` med det namn som du vill använda. Ersätt `<acrinstance>` och `<imagename>` med värdena från returnerade `package.location` tidigare. Ersätt `<username>` och `<password>` med ACR-inloggnings informationen som hämtades tidigare:
 
     ```azurecli-interactive
     az webapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package:<imagename> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
@@ -230,7 +231,7 @@ Nu börjar webbappen läsa in avbildningen.
 > az webapp log tail --name <app-name> --resource-group myresourcegroup
 > ```
 >
-> När avbildningen har lästs in och platsen är aktiv, visar loggen ett meddelande om tillstånd `Container <container name> for site <app-name> initialized successfully and is ready to serve requests`.
+> När avbildningen har lästs in och platsen är aktiv, visar loggen ett meddelande om att tillstånd `Container <container name> for site <app-name> initialized successfully and is ready to serve requests`.
 
 När avbildningen har distribuerats kan du hitta värd namnet med hjälp av följande kommando:
 
@@ -238,7 +239,7 @@ När avbildningen har distribuerats kan du hitta värd namnet med hjälp av föl
 az webapp show --name <app-name> --resource-group myresourcegroup
 ```
 
-Det här kommandot returnerar information som liknar följande hostname- `<app-name>.azurewebsites.net`. Använd det här värdet som en del av tjänstens __grundläggande URL__ .
+Det här kommandot returnerar information som liknar följande hostname-`<app-name>.azurewebsites.net`. Använd det här värdet som en del av tjänstens __grundläggande URL__ .
 
 ## <a name="use-the-web-app"></a>Använda webbapp
 
@@ -267,6 +268,6 @@ print(response.json())
 
 * Lär dig hur du konfigurerar din webbapp i [App Service i Linux](/azure/app-service/containers/) -dokumentationen.
 * Lär dig mer om skalning i [Kom igång med automatisk skalning i Azure](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json).
-* [Använd ett SSL-certifikat i Azure App Service](/azure/app-service/app-service-web-ssl-cert-load).
+* [Använd ett SSL-certifikat i Azure App Service](/azure/app-service/configure-ssl-certificate-in-code).
 * [Konfigurera App Service-appen så att den använder Azure Active Directory inloggning](/azure/app-service/configure-authentication-provider-aad).
-* [Använd en ML-modell som distribueras som en webbtjänst](how-to-consume-web-service.md)
+* [Använda en ML-modell som distribueras som en webb tjänst](how-to-consume-web-service.md)

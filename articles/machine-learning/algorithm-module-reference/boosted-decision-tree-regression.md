@@ -1,24 +1,24 @@
 ---
 title: 'Förstärkt besluts träds regression: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder den förstärkta besluts träds Regressions modulen i Azure Machine Learning-tjänsten för att skapa en ensemble med Regressions träd med förstärkning.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder Regressions modulen för besluts träd i Azure Machine Learning för att skapa en ensemble med Regressions träd med förstärkning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 4b8ff1c9f5b0f0b04448b950d3ba904ba76927c9
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: b04a44a82f793f39b24ffd94083ca8fd5e66cfb8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693839"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493884"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Regressions modul för besluts träd
 
-I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd den här modulen för att skapa en ensemble of Regressions träd med förstärkning. *Förstärkning* innebär att varje träd är beroende av föregående träd. Algoritmen lär sig genom att anpassa resten av de träd som föregår det. Därför är det bättre att öka noggrannheten i besluts trädets ensemblen för att förbättra noggrannheten med liten risk för mindre täckning.  
   
@@ -97,6 +97,8 @@ När utbildningen är klar:
 
 + Om du vill använda modellen för poängsättning ansluter du den till [Poäng modellen](./score-model.md)och förutsäger värdena för nya ingångs exempel.
 
++ Om du vill spara en ögonblicks bild av den tränade modellen högerklickar du på den **tränade modellens** utdata i modulen utbildning och väljer **Spara som**. Kopian av den tränade modellen som du sparar uppdateras inte vid efterföljande körningar av pipelinen.
+
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

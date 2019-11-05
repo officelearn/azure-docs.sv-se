@@ -1,24 +1,24 @@
 ---
 title: 'Dela data: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen dela data i Azure Machine Learning-tjänsten för att dela upp en data uppsättning i två distinkta mängder.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen dela data i Azure Machine Learning för att dela upp en data uppsättning i två distinkta mängder.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 3fa6b61b1b1761756339d6a7f05c74eb4a968777
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 0f6ba3c608c90d8634309a1843dc803b98be3d6d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692658"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492642"
 ---
 # <a name="split-data-module"></a>Modulen dela data
 
-I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd den här modulen för att dela upp en data uppsättning i två distinkta mängder.
 
@@ -30,7 +30,7 @@ Den här modulen är särskilt användbar när du behöver separera data i utbil
 > Innan du väljer delnings läget kan du läsa alla alternativ för att avgöra vilken typ av delning du behöver.
 > Om du ändrar delnings läget kan alla andra alternativ återställas.
 
-1. Lägg till modulen **dela data** till din pipeline i gränssnittet. Du hittar den här modulen under **data omvandling**, i kategorin **exempel och Split** .
+1. Lägg till modulen **dela data** i din pipeline i designern. Du hittar den här modulen under **data omvandling**, i kategorin **exempel och Split** .
 
 2. **Delnings läge**: Välj något av följande lägen, beroende på vilken typ av data du har och hur du vill dela upp det. Varje delnings läge har olika alternativ. Klicka på följande avsnitt om du vill ha detaljerade instruktioner och exempel. 
 
@@ -45,7 +45,8 @@ Den här modulen är särskilt användbar när du behöver separera data i utbil
     - **Delning av relativt uttryck**: Använd det här alternativet när du vill tillämpa ett villkor för en tal kolumn. Talet kan vara ett datum/tid-fält, en kolumn som innehåller ålders-eller dollar belopp eller till och med en procent andel. Du kanske t. ex. vill dela upp din data uppsättning beroende på kostnaden för objekten, gruppera personer efter ålders intervall eller dela data efter kalender datum.
 
 ### <a name="split-rows"></a>Dela rader
-1.  Lägg till modulen [dela data](./split-data.md) i din pipeline i gränssnittet och Anslut den data uppsättning som du vill dela.
+
+1.  Lägg till modulen [dela data](./split-data.md) i din pipeline i designern och Anslut den data uppsättning som du vill dela.
   
 2.  För **delnings läge**väljer du **dela upp rader**. 
 
@@ -104,7 +105,7 @@ Den här modulen är särskilt användbar när du behöver separera data i utbil
     - Du kan inte gruppera åtgärder med hjälp av `(` och `)`.
 
  - Sträng kolumn: 
-    - Följande operatorer stöds: `==` `!=`
+    - Följande operatorer stöds: `==``!=`
 
 
 
@@ -114,4 +115,4 @@ Den här modulen är särskilt användbar när du behöver separera data i utbil
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

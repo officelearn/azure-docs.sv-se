@@ -1,75 +1,75 @@
 ---
-title: Definiera erbjudandet inställningar för en konsult tjänsterbjudande | Azure Marketplace
-description: Definiera erbjudandet inställningar i en Azure- eller Dynamics 365-konsult tjänsteerbjudanden i Cloud Partner Portal för Azure Marketplace.
+title: Definiera erbjudande inställningar för ett konsult tjänst erbjudande | Azure Marketplace
+description: Definiera erbjudande inställningar i ett Azure-eller Dynamics 365 konsult tjänst erbjudande i Cloud Partner Portal för Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 601ad62bddd1373742b0cab5a388a55cfd52f4bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a89c1c548469b568a34521b240683af285c2342
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942773"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73485194"
 ---
 # <a name="offer-settings-tab"></a>Fliken Erbjudandeinställningar
 
-På den **nytt erbjudande** skärmen det första steget är att skapa erbjudandet identiteten. Erbjudandet identiteten består av tre delar: **ID för erbjudande**, **Publicerings-ID**, och **namn**. De olika delarna beskrivs i följande avsnitt.
+På den **nya erbjudande** skärmen är det första steget att skapa erbjudande identiteten. Erbjudande identiteten består av tre delar: **erbjudande-ID**, **utgivar-ID**och **namn**. Var och en av dessa delar beskrivs i följande avsnitt.
 
-![Skapa en ny konsult tjänsterbjudande – erbjuder fliken Inställningar](media/consultingoffer-settings-tab.png)
-
-
-### <a name="offer-id"></a>Erbjudande -ID *
-
-Den här identifieraren är ett unikt namn som du skapar när du skickar in erbjudandet. Den måste bestå enbart av gemena alfanumeriska tecken, bindestreck eller understreck. Den **erbjudande-ID** syns i URL: en och påverkar sökresultat. Ett exempel är *yourcompanyname_exampleservice*.
-
-Som visas i exemplet är den **erbjudande-ID** läggs till Publicerings-ID för att skapa en unik identifierare. Den här unika identifieraren visas som en permanent länk som kan belasta och indexeras av de olika sökmotorer.
-
->[!Note]
->När ett erbjudande är aktiv, kan inte dess identifierare uppdateras.
+![Skapa en ny konsult tjänst inställning fliken Inställningar](media/consultingoffer-settings-tab.png)
 
 
-### <a name="publisher-id"></a>Publisher -ID *
+### <a name="offer-id"></a>Erbjudande-ID *
 
-Den här identifieraren är relaterat till ditt konto. När du har loggat in med ditt organisationskonto din **Publicerings-ID** visas i den nedrullningsbara menyn.
+Den här identifieraren är ett unikt namn som du skapar när du först skickar erbjudandet. Det får bara bestå av gemena alfanumeriska tecken, bindestreck eller under streck. **Erbjudande-ID** visas i URL: en och påverkar Sök motorns resultat. Ett exempel är *yourcompanyname_exampleservice*.
 
-
-### <a name="name"></a>Namn på *
-
-Den här strängen visas som erbjudandenamn på AppSource eller på Azure Marketplace. Den **namn** rutan är begränsad till 50 tecken. Granskaren kan behöva redigera din rubrik för att lägga till varaktighet och erbjudandetyp till namnet på ditt erbjudande.
-
-I följande exempel visas hur erbjudandenamn är klar. 
-
-![Skapa en ny konsult tjänsterbjudande](media/cppsampleconsultingoffer.png)
-
-Erbjudandenamn består av fyra delar:
-
--   **Varaktighet:** Definierade på den **Storefront information** fliken i redigeraren. Varaktighet kan uttryckas i timmar, dagar eller veckor.
--   **Typ av tjänst:** Definierade på den **Storefront information** fliken i redigeraren. Typer av tjänster är `Assessment`, `Briefing`, `Implementation`, `Proof of concept`, och `Workshop`.
--   **Preposition:** Infogas av den.
--   **Namn:** Definierade på den **erbjuder inställningar** sidan.
+Som du ser i exemplet läggs **erbjudande-ID: t** till ditt UTGIVAR-ID för att skapa en unik identifierare. Den här unika identifieraren visas som en permanent länk som kan bokas och indexeras av sökmotorer.
 
 >[!Note]
->Den **namn** rutan är begränsad till 50 tecken. Granskaren kan behöva redigera din rubrik för att lägga till varaktighet och erbjudandetyp till namnet på ditt erbjudande.
+>När ett erbjudande är aktivt går det inte att uppdatera dess identifierare.
 
-Följande lista innehåller flera väl namngivna erbjudandet namn:
 
--   Essentials för professionella tjänster: Genomgång för 1 tim
--   Molnplattform för migrering: Genomgång för 1 tim
--   PowerApps och Microsoft Flow: 1-dagars Workshop
--   Azure Machine Learning-tjänster: 3 veckor PoC
--   Bricka och klicka på Retail-lösningen: Genomgång för 1 tim
--   Hämta dina egna Data: 1 vecka Workshop
--   Cloud Analytics: 3 dagars Workshop
--   Utbildning för Power BI: 3 dagars Workshop
--   Försäljning hanteringslösning: 1 vecka implementering
--   CRM-Snabbstart: 1-dagars Workshop
--   Dynamics 365 for Sales: 2-dagars utvärdering
+### <a name="publisher-id"></a>Utgivar-ID *
 
-När du fyller i **erbjuder inställningar** fliken Spara ditt bidrag. Erbjudandenamn nu visas ovanför redigeraren och du hittar den i **alla erbjuder**.
+Den här identifieraren är relaterad till ditt konto. När du har loggat in med ditt organisations konto visas ditt **utgivar-ID** i den nedrullningsbara menyn.
+
+
+### <a name="name"></a>Ändrat
+
+Den här strängen visas som erbjudande namn på AppSource eller på Azure Marketplace. **Namn** rutan är begränsad till 50 tecken. Granskaren kan behöva redigera titeln för att lägga till varaktighet och erbjudande typ till namnet på erbjudandet.
+
+I följande exempel visas hur namnet på erbjudandet monteras. 
+
+![Skapa ett nytt konsult tjänst erbjudande](media/cppsampleconsultingoffer.png)
+
+Namnet på erbjudandet består av fyra delar:
+
+-   **Varaktighet:** Definieras på fliken **butik information** i redigeraren. Varaktigheten kan uttryckas i timmar, dagar eller veckor.
+-   **Typ av tjänst:** Definieras på fliken **butik information** i redigeraren. Typer av tjänster är `Assessment`, `Briefing`, `Implementation`, `Proof of concept`och `Workshop`.
+-   **Förposition:** Infogas av granskaren.
+-   **Namn:** Definieras på sidan **erbjudande inställningar** .
+
+>[!Note]
+>**Namn** rutan är begränsad till 50 tecken. Granskaren kan behöva redigera titeln för att lägga till varaktighet och erbjudande typ till namnet på erbjudandet.
+
+Följande lista innehåller flera namn på välkända erbjudanden:
+
+-   Grundläggande för professionella tjänster: 1 – personal-kort
+-   Molnmigrering plattform: 1 – HR-kort
+-   PowerApps och Microsoft Flow: 1 dags workshop
+-   Azure Machine Learning: 3 – veckor PoC
+-   Bricka och klicka på detalj handels lösning: 1 – personal-kort
+-   Ta med dina egna data: 1 – veckor workshop
+-   Cloud Analytics: tre dagars workshop
+-   Power BI utbildning: 3 dagars workshop
+-   Lösning för försäljnings hantering: en veckas implementering
+-   Snabb start för CRM: 1 – dags workshop
+-   Dynamics 365 för försäljning: 2 dagars utvärdering
+
+När du har fyllt i fliken **erbjudande inställningar** sparar du ditt bidrag. Namnet på erbjudandet visas nu ovanför redigeraren och du hittar det i **alla erbjudanden**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu kan du ange [storefront information och avgöra om du vill publicera på Azure Marketplace eller på AppSource](./cpp-consulting-service-storefront-details.md).
+Nu kan du ange [butik information och avgöra om du ska publicera på Azure Marketplace eller på AppSource](./cpp-consulting-service-storefront-details.md).

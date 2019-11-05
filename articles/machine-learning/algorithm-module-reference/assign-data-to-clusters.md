@@ -1,7 +1,7 @@
 ---
 title: 'Tilldela data till kluster: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen tilldela data till kluster i Azure Machine Learning tjänst för att Visa kluster modellen.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen tilldela data till kluster i Azure Machine Learning till Poäng kluster modell.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,23 +9,23 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 3caf568590beb5b1f9d346d472c93f134a4f3a5f
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 75a547a26057ad05444753253666dceea160d714
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693234"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493859"
 ---
 # <a name="module-assign-data-to-clusters"></a>Modul: tilldela data till kluster
 
-Den här artikeln beskriver hur du använder modulen *tilldela data till kluster* i Azure Machine Learning Visual Interface. Modulen genererar förutsägelser genom en kluster modell som har tränats med algoritmen *K-metod* .
+Den här artikeln beskriver hur du använder modulen *tilldela data till kluster* i Azure Machine Learning designer (för hands version). Modulen genererar förutsägelser genom en kluster modell som har tränats med algoritmen *K-metod* .
 
 Modulen tilldela data till kluster returnerar en data uppsättning som innehåller de sannolika tilldelningarna för varje ny data punkt. 
 
 
 ## <a name="how-to-use-assign-data-to-clusters"></a>Så här använder du tilldela data till kluster
   
-1. Leta upp en tidigare tränad kluster modell i Azure Machine Learning Visual Interface. Du kan skapa och träna en kluster modell genom att använda någon av följande metoder:  
+1. Leta upp en tidigare tränad kluster modell i Azure Machine Learning designer. Du kan skapa och träna en kluster modell genom att använda någon av följande metoder:  
   
     - Konfigurera den N:te klustrade algoritmen med hjälp av modulen [K-betyder-kluster](k-means-clustering.md) och träna modellen med hjälp av en data uppsättning och modulen träna kluster modell (den här artikeln).  
   
@@ -38,7 +38,7 @@ Modulen tilldela data till kluster returnerar en data uppsättning som innehåll
    I den här data uppsättningen är etiketter valfria. I allmänhet är klustring en oövervakad inlärnings metod. Du förväntas inte känna till kategorierna i förväg. Inmatade kolumner måste dock vara samma som de kolumner som användes i träna kluster modellen, eller ett fel uppstår.
 
     > [!TIP]
-    > Om du vill minska antalet kolumner som skrivs till gränssnittet från kluster förutsägelserna använder du [Välj kolumner i data uppsättningen](select-columns-in-dataset.md)och väljer en delmängd av kolumnerna. 
+    > Om du vill minska antalet kolumner som skrivs till designern från kluster förutsägelserna använder du [Välj kolumner i data uppsättningen](select-columns-in-dataset.md)och väljer en delmängd av kolumnerna. 
     
 4. Lämna kryss rutan **Markera för Lägg till eller ta bort kontroll för endast resultat** markerad om du vill att resultatet ska innehålla den fullständiga data uppsättningen, inklusive en kolumn som visar resultatet (kluster tilldelningar).
   

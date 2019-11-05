@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 5cc033787e1045926ff4fece6826e41f430d48fd
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 69ff1a5681fbb0b434d7114b069610ed34d9e843
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744457"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492196"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Översikt över affärskontinuitet med Azure SQL Database
 
@@ -53,7 +53,7 @@ SQL Database innehåller också flera funktioner för verksamhets kontinuitet, s
 
 ## <a name="recover-a-database-within-the-same-azure-region"></a>Återställ en databas inom samma Azure-region
 
-Du kan använda automatiska databas säkerhets kopieringar för att återställa en databas till en tidpunkt tidigare. På så sätt kan du återställa från skadade data som orsakas av mänskliga fel. Med med programinformation-in-Time-återställning kan du skapa en ny databas på samma server som representerar data statusen innan händelsen skadas. För de flesta databaser tar återställnings åtgärderna i mindre än 12 timmar. Det kan ta längre tid att återställa en mycket stor eller mycket aktiv databas. Mer information om återställnings tid finns i [databasens återställnings tid](sql-database-recovery-using-backups.md#recovery-time). 
+Du kan använda automatiska databas säkerhets kopieringar för att återställa en databas till en tidpunkt tidigare. På så sätt kan du återställa från skadade data som orsakas av mänskliga fel. Med den dagliga återställningen kan du skapa en ny databas på samma server som representerar data statusen innan händelsen skadas. För de flesta databaser tar återställnings åtgärderna i mindre än 12 timmar. Det kan ta längre tid att återställa en mycket stor eller mycket aktiv databas. Mer information om återställnings tid finns i [databasens återställnings tid](sql-database-recovery-using-backups.md#recovery-time). 
 
 Om den högsta kvarhållningsperioden för kvarhållning av säkerhets kopior för PITR (Point-in-Time Restore) inte räcker för ditt program kan du utöka det genom att konfigurera en princip för långsiktig kvarhållning (brv) för databaserna. Mer information finns i [långsiktig kvarhållning av säkerhets kopior](sql-database-long-term-retention.md).
 
@@ -85,10 +85,10 @@ När du utvecklar din affärskontinuitetsplan är det viktigt att du känner til
 
 Olika återställnings metoder erbjuder olika nivåer av återställnings-och RTO. Du kan välja en specifik återställnings metod eller använda en kombination av metoder för att uppnå fullständig program återställning. I följande tabell jämförs återställnings-och RTO för varje återställnings alternativ. Grupper för automatisk redundans fören klar distributionen och användningen av geo-replikering och lägger till ytterligare funktioner enligt beskrivningen i följande tabell.
 
-| Återställnings metod | RTO | Mål för återställningspunkt |
+| Återställnings metod | RTO | BEGÄRT |
 | --- | --- | --- | 
-| Geo-återställning från geo-replikerade säkerhets kopieringar | 12 h | 1 tim |
-| Automatiska redundansgrupper | 1 tim | 5 s |
+| Geo-återställning från geo-replikerade säkerhets kopieringar | 12 h | 1 h |
+| Automatiska redundansgrupper | 1 h | 5 s |
 | Manuell databas växling vid fel | 30 s | 5 s |
 
 > [!NOTE]

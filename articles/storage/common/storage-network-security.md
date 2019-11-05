@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: af5b2a8c6894846ec529763f80c78bc50debabe6
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: e7f4d58ceab78aea7031d2c706504bdcb99434c6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965513"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73520644"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage brand väggar och virtuella nätverk
 
@@ -60,7 +60,7 @@ Som standard accepterar lagrings konton anslutningar från klienter i ett nätve
 
 Du kan hantera standard regler för nätverks åtkomst för lagrings konton via Azure Portal, PowerShell eller CLIv2.
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Azure Portal
 
 1. Gå till det lagrings konto som du vill skydda.
 
@@ -144,7 +144,7 @@ Lagrings kontot och de virtuella nätverk som beviljats åtkomst kan finnas i ol
 
 Du kan hantera virtuella nätverks regler för lagrings konton via Azure Portal, PowerShell eller CLIv2.
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Azure Portal
 
 1. Gå till det lagrings konto som du vill skydda.
 
@@ -262,13 +262,13 @@ Varje lagrings konto har stöd för upp till 100 IP-nätverksanslutningar.
 
 Om du vill bevilja åtkomst från dina lokala nätverk till ditt lagrings konto med en IP-nätverks regel måste du identifiera de Internet adresser som IP-adresser används i nätverket. Kontakta nätverks administratören om du behöver hjälp.
 
-Om du använder [ExpressRoute](/azure/expressroute/expressroute-introduction) lokalt för offentlig peering eller Microsoft-peering, måste du identifiera de NAT IP-adresser som används. För offentlig peering, använder varje ExpressRoute-krets som standard två NAT IP-adresser, som används för Azure-tjänsttrafik när trafiken kommer till Microsoft Azure-stamnätverket. För Microsoft-peering är de NAT IP-adresser som används antingen tillhandahållna av kunden eller av tjänsteleverantören. Om du vill tillåta åtkomst till dina tjänstresurser måste du tillåta dessa offentliga IP-adresser i resursens IP-brandväggsinställning. För att kunna hitta ExpressRoute-kretsens IP-adresser för offentlig peering [öppnar du ett supportärende hos ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via Azure-portalen. Lär dig mer om [NAT för ExpressRoute offentliga peering och Microsoft-peering.](/azure/expressroute/expressroute-nat#nat-requirements-for-azure-public-peering)
+Om du använder [ExpressRoute](/azure/expressroute/expressroute-introduction) lokalt för offentlig peering eller Microsoft-peering, måste du identifiera de NAT IP-adresser som används. För offentlig peering, använder varje ExpressRoute-krets som standard två NAT IP-adresser, som används för Azure-tjänsttrafik när trafiken kommer till Microsoft Azure-stamnätverket. För Microsoft-peering används de NAT-IP-adresser som används antingen för kunden eller tillhandahålls av tjänst leverantören. Om du vill tillåta åtkomst till dina tjänstresurser måste du tillåta dessa offentliga IP-adresser i resursens IP-brandväggsinställning. För att kunna hitta ExpressRoute-kretsens IP-adresser för offentlig peering [öppnar du ett supportärende hos ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via Azure-portalen. Lär dig mer om [NAT för ExpressRoute offentliga peering och Microsoft-peering.](/azure/expressroute/expressroute-nat#nat-requirements-for-azure-public-peering)
 
 ### <a name="managing-ip-network-rules"></a>Hantera IP-nätverks regler
 
 Du kan hantera IP-nätverks regler för lagrings konton via Azure Portal, PowerShell eller CLIv2.
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Azure Portal
 
 1. Gå till det lagrings konto som du vill skydda.
 
@@ -362,36 +362,37 @@ Nätverks regler hjälper till att skapa en säker miljö för anslutningar mell
 
 ### <a name="trusted-microsoft-services"></a>Betrodda Microsoft-tjänster
 
-Vissa Microsoft-tjänster körs från nätverk som inte kan ingå i dina nätverks regler. Du kan tillåta att en delmängd av dessa betrodda Microsoft-tjänster har åtkomst till lagrings kontot, samtidigt som du behåller nätverks regler för andra appar. Dessa tjänster kan sedan använda stark autentisering för att ansluta till ditt lagrings konto på ett säkert sätt. Vi aktiverar två typer av betrodd åtkomst för Microsoft-tjänster.
+Vissa Microsoft-tjänster körs från nätverk som inte kan ingå i dina nätverks regler. Du kan ge en delmängd av dessa betrodda Microsoft-tjänster åtkomst till lagrings kontot, samtidigt som nätverks reglerna för andra appar upprätthålls. Dessa betrodda tjänster kan sedan använda stark autentisering för att ansluta till ditt lagrings konto på ett säkert sätt. Vi aktiverar två typer av betrodd åtkomst för Microsoft-tjänster.
 
-- Resurser för vissa tjänster kan beviljas åtkomst för urvals åtgärder, till exempel skriva loggar eller för säkerhets kopiering.
-- En viss instans av vissa tjänster kan beviljas åtkomst genom att [tilldela en RBAC-roll](storage-auth-aad.md#assign-rbac-roles-for-access-rights) till resurs instansen.
+- Resurser för vissa tjänster, **om de är registrerade i din prenumeration**, kan komma åt lagrings konton **i samma prenumeration** enbart för Select-åtgärder, till exempel skriva loggar eller för säkerhets kopiering.
+- Resurs instanser av vissa tjänster kan beviljas explicit åtkomst till ditt lagrings konto genom att [**tilldela en RBAC-roll**](storage-auth-aad.md#assign-rbac-roles-for-access-rights) till resurs instansen.
 
 
-När du aktiverar undantaget **betrodda Microsoft-tjänster...** undantag beviljas följande tjänster (när de registreras i din prenumeration) åtkomst till lagrings kontot för Välj åtgärder enligt beskrivningen:
+När du aktiverar undantaget **betrodda Microsoft-tjänster...** , beviljas dessa tjänster (om de är registrerade i din prenumeration) åtkomst till lagrings kontot för Välj åtgärder enligt beskrivningen:
 
 | Tjänst                  | Namn på resurs leverantör     | Syfte                            |
 |:------------------------ |:-------------------------- |:---------------------------------- |
 | Azure Backup             | Microsoft. RecoveryServices | Kör säkerhets kopiering och återställning av ohanterade diskar i virtuella IAAS-datorer. (krävs inte för Managed Disks). [Läs mer](/azure/backup/backup-introduction-to-azure-backup). |
 | Azure Data Box           | Microsoft. data-          | Gör det möjligt att importera data till Azure med hjälp av Data Box-enhet. [Läs mer](/azure/databox/data-box-overview). |
-| Labb för utveckling och testning i Azure       | Microsoft. DevTestLab       | Skapande av anpassad avbildning och artefakt installation. [Läs mer](/azure/devtest-lab/devtest-lab-overview). |
+| Azure DevTest Labs       | Microsoft. DevTestLab       | Skapande av anpassad avbildning och artefakt installation. [Läs mer](/azure/devtest-lab/devtest-lab-overview). |
 | Azure Event Grid         | Microsoft. EventGrid        | Aktivera Blob Storage händelse publicering och Tillåt Event Grid att publicera till lagrings köer. Lär dig mer om [Blob Storage-händelser](/azure/event-grid/event-sources) och [publicering till köer](/azure/event-grid/event-handlers). |
-| Azure Event Hubs         | Microsoft. EventHub         | Arkivera data med Event Hubs avbildning. [Läs mer](/azure/event-hubs/event-hubs-capture-overview). |
+| Azure Event Hubs         | Microsoft. EventHub         | Arkivera data med Event Hubs avbildning. [Mer information](/azure/event-hubs/event-hubs-capture-overview). |
 | Azure File Sync          | Microsoft. StorageSync      | Gör att du kan omvandla din lokal fil server till ett cacheminne för Azure-filresurser. Tillåter synkronisering av flera platser, snabb katastrof återställning och säkerhets kopiering på moln sidan. [Läs mer](../files/storage-sync-files-planning.md) |
 | Azure HDInsight          | Microsoft. HDInsight        | Etablera det inledande innehållet i standard fil systemet för ett nytt HDInsight-kluster. [Läs mer](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/). |
-| Azure Machine Learning-tjänsten | Microsoft.MachineLearningServices | Auktoriserade Azure Machine Learning arbets ytor Skriv experiment, modeller och loggar till Blob Storage. [Läs mer](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
+| Azure Machine Learning | Microsoft.MachineLearningServices | Auktoriserade Azure Machine Learning arbets ytor Skriv experiment, modeller och loggar till Blob Storage. [Läs mer](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace).   
 | Azure Monitor            | Microsoft. Insights         | Tillåter skrivning av övervaknings data till ett skyddat lagrings konto [Mer information](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
 | Azure-nätverk         | Microsoft.Network          | Lagra och analysera nätverks trafik loggar. [Läs mer](/azure/network-watcher/network-watcher-packet-capture-overview). |
 | Azure Site Recovery      | Microsoft. SiteRecovery     | Aktivera replikering för haveri beredskap för virtuella Azure IaaS-datorer när du använder brand Väggs-aktiverade cache-, käll-eller mål lagrings konton.  [Läs mer](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 
-Med undantaget **betrodda Microsoft-tjänster...** kan vissa instanser av dessa tjänster komma åt lagrings kontot, om den [systemtilldelade hanterade identiteten](../../active-directory/managed-identities-azure-resources/overview.md) för instansen har tilldelats en RBAC-roll.
+Undantaget **betrodda Microsoft-tjänster...** gör att en viss instans av tjänsterna nedan kan komma åt lagrings kontot, om du uttryckligen tilldelar en RBAC-roll till den [systemtilldelade hanterade identiteten](../../active-directory/managed-identities-azure-resources/overview.md) för den resurs instansen.
 
-| Tjänst                  | Namn på resurs leverantör          | Syfte                            |
-| :----------------------- | :------------------------------ | :--------------------------------- |
-| Azure Data Factory       | Microsoft. DataFactory/fabriker | Ger åtkomst till lagrings konton via ADF-körningen. |
-| Azure Logic Apps         | Microsoft. Logic/arbets flöden       | Gör att Logic Apps kan komma åt lagrings konton. |
-| Azure SQL Data Warehouse | Microsoft.Sql                   | Tillåter import och export av data från vissa SQL Database instanser med PolyBase. [Läs mer](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
-| Azure Stream Analytics   | Microsoft. StreamAnalytics       | Tillåter att data från ett strömmande jobb skrivs till Blob Storage. Den här funktionen är för närvarande en förhandsversion. [Läs mer](../../stream-analytics/blob-output-managed-identity.md). |
+| Tjänst                        | Namn på resurs leverantör          | Syfte                            |
+| :----------------------------- | :------------------------------ | :--------------------------------- |
+| Azure Data Factory             | Microsoft. DataFactory/fabriker | Ger åtkomst till lagrings konton via ADF-körningen. |
+| Azure Logic Apps               | Microsoft. Logic/arbets flöden       | Gör att Logic Apps kan komma åt lagrings konton. |
+| Azure Machine Learning-tjänsten | Microsoft.MachineLearningServices | Auktoriserade Azure Machine Learning arbets ytor Skriv experiment, modeller och loggar till Blob Storage. [Läs mer](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
+| Azure SQL Data Warehouse       | Microsoft.Sql                   | Tillåter import och export av data från vissa SQL Database instanser med PolyBase. [Läs mer](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
+| Azure Stream Analytics         | Microsoft. StreamAnalytics       | Tillåter att data från ett strömmande jobb skrivs till Blob Storage. Den här funktionen är för närvarande en förhandsversion. [Läs mer](../../stream-analytics/blob-output-managed-identity.md). |
 
 
 ### <a name="storage-analytics-data-access"></a>Åtkomst till Storage Analytics-data
@@ -402,7 +403,7 @@ I vissa fall krävs åtkomst till läsa diagnostikloggar och mått utanför nät
 
 Du kan hantera nätverks regel undantag via Azure Portal, PowerShell eller Azure CLI v2.
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Azure Portal
 
 1. Gå till det lagrings konto som du vill skydda.
 

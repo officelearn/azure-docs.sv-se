@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: memildin
-ms.openlocfilehash: 116f295365084e7570ed9afc493d9179ea2dfb5a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 0e7ef558ec75622b804aef96781b549f1a833e21
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202137"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73518870"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Jämför bas linjer med hjälp av File Integrity Monitoring (FIM)
 
@@ -48,19 +48,19 @@ FIM-slutpunkter börjar genom att identifiera egenskaper för ett tillförlitlig
 
 |Principnamn                 | Register inställning|
 |---------------------------------------|-------------|
-|Domänkontrollant: Neka ändringar av lösen ord för dator konton| MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RefusePasswordChange|
+|Domänkontrollant: neka ändringar av lösen ord för dator konton| MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RefusePasswordChange|
 |Domän medlem: Kryptera eller signera data för säkra kanaler digitalt (alltid)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RequireSignOrSeal|
-|Domän medlem: Kryptera data för säkra kanaler digitalt (om möjligt)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\SealSecureChannel|
-|Domän medlem: Signera säkra data för säkra kanaler digitalt (om möjligt)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\SignSecureChannel|
-|Domän medlem: Inaktivera ändringar av lösen ord för dator konton|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\DisablePasswordChange|
-|Domän medlem: Högsta ålder för lösen ord för dator konton|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\MaximumPasswordAge|
+|Domän medlem: kryptera data för säkra kanaler digitalt (om möjligt)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\SealSecureChannel|
+|Domän medlem: signera data för säkra kanaler digitalt (om möjligt)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\SignSecureChannel|
+|Domän medlem: inaktivera ändringar av lösen ord för dator konton|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\DisablePasswordChange|
+|Domän medlem: högsta ålder för lösen ord för dator konto|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\MaximumPasswordAge|
 |Domän medlem: Kräv stark (Windows 2000 eller senare) sessionsnyckel|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RequireStrongKey|
-|Nätverks säkerhet: Begränsa NTLM:  NTLM-autentisering i den här domänen|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RestrictNTLMInDomain|
+|Nätverks säkerhet: Begränsa NTLM: NTLM-autentisering i den här domänen|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RestrictNTLMInDomain|
 |Nätverks säkerhet: Begränsa NTLM: Lägg till Server undantag i den här domänen|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\DCAllowedNTLMServers|
 |Nätverks säkerhet: Begränsa NTLM: Granska NTLM-autentisering i den här domänen|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\AuditNTLMInDomain|
 
 > [!NOTE]
-> Mer information om register inställningar som stöds av olika operativ system versioner finns i [kalkyl bladet grupprincip inställningar referens](https://www.microsoft.com/en-us/download/confirmation.aspx?id=25250).
+> Mer information om register inställningar som stöds av olika operativ system versioner finns i [kalkyl bladet grupprincip inställningar referens](https://www.microsoft.com/download/confirmation.aspx?id=25250).
 
 *Konfigurera FIM för att övervaka register bas linjer:*
 

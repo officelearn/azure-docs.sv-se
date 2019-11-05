@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: cfecea6a64301d86aa657420dc300c26d4ed6f1e
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 0b69c1fb070431ad61858322dce461f6496c35d7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663400"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490821"
 ---
 # <a name="exploration-and-exploitation"></a>Utforskning och utnyttjande
 
@@ -25,22 +25,15 @@ När en Personanpassare får ett rang anrop, returnerar den en RewardActionID so
 * Använder utnyttjande för att matcha det mest sannolika användar beteendet baserat på den aktuella Machine Learning-modellen.
 * Använder utforskning, som inte matchar den åtgärd som har högst sannolikhet i rangordningen.
 
-<!--
-Returning the most probable action is called *exploit* behavior. Returning a different action is called *exploration*.
--->
 I en personanpassare används en algoritm som heter *Epsilon girig* för att utforska. 
 
 ## <a name="choosing-an-exploration-setting"></a>Välja en utforsknings inställning
 
-Du konfigurerar den procent andel av trafiken som ska användas för utforskning på Azure Portals inställnings sida för personanpassare. Den här inställningen anger procent andelen rang anrop som utför utforskning. 
+Du konfigurerar den procent andel av trafiken som ska användas för utforskning på Azure Portalens **konfigurations** sida för personanpassaren. Den här inställningen anger procent andelen rang anrop som utför utforskning. 
 
 Personanpassaren bestämmer om du vill utforska eller utnyttja sannolikheten för varje rang anrop. Detta skiljer sig från beteendet i vissa A/B-ramverk som låser en behandling på vissa användar-ID: n.
 
 ## <a name="best-practices-for-choosing-an-exploration-setting"></a>Metod tips för att välja en utforsknings inställning
-
-<!--
-@edjez - you say what not to do, but make no recommendations of what **to** do. 
--->
 
 Att välja en utforsknings inställning är ett affärs beslut om den andel av användar interaktioner som kan utforskas med, för att förbättra modellen. 
 

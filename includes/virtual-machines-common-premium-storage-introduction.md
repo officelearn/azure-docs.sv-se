@@ -9,24 +9,24 @@ ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: b1287f9c7e946c7b4d035b2ad6301947ffad3cea
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717134"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73523987"
 ---
-# <a name="azure-premium-storage-design-for-high-performance"></a>Azure premium storage: design för hög prestanda
+# <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium-lagring: design för hög prestanda
 
-Den här artikeln innehåller riktlinjer för att skapa program med hög prestanda med hjälp av Azure Premium Storage. Du kan använda instruktionerna i det här dokumentet som kombineras med bästa praxis för prestanda gäller för tekniker som används av ditt program. För att visa riktlinjerna kan använda vi SQL Server på Premium Storage som ett exempel i hela dokumentet.
+Den här artikeln innehåller rikt linjer för att skapa högpresterande program med Azure Premium Storage. Du kan använda instruktionerna i det här dokumentet tillsammans med bästa metoder för prestanda som gäller för tekniker som används av ditt program. För att illustrera rikt linjerna har vi använt SQL Server som körs på Premium Storage som ett exempel i det här dokumentet.
 
-Medan vi bemöter prestanda scenarier för Storage-skiktet i den här artikeln behöver du optimera programnivån. Om du är värd för en SharePoint-servergrupp i Azure Premium Storage, kan du till exempel använda SQL Server-exempel från den här artikeln för att optimera databasservern. Dessutom kan optimera SharePoint-servergruppen webbserver och programserver att få de flesta prestanda.
+Vi hanterar prestanda scenarier för lagrings skiktet i den här artikeln, men du måste optimera program skiktet. Om du till exempel är värd för en SharePoint-grupp på Azure Premium Storage kan du använda SQL Server-exemplen i den här artikeln för att optimera databas servern. Optimera dessutom SharePoint-servergruppens webb server och program Server för att få ut mesta möjliga prestanda.
 
-Den här artikeln kommer att besvara följande vanliga frågor om hur du optimerar programprestanda på Azure Premium Storage
+Den här artikeln hjälper dig att besvara vanliga frågor om hur du optimerar program prestanda på Azure Premium Storage
 
-* Så här att mäta programprestanda?  
-* Varför inte ser du hög prestanda?  
-* Vilka faktorer påverkar programprestanda på Premium Storage?  
-* Hur dessa faktorer påverkar prestanda för ditt program i Premium Storage?  
+* Hur mäter du program prestanda?  
+* Varför ser du inte förväntad hög prestanda?  
+* Vilka faktorer påverkar programmets prestanda på Premium Storage?  
+* Hur påverkar dessa faktorer prestanda för ditt program på Premium Storage?  
 * Hur kan du optimera för IOPS, bandbredd och latens?  
 
-Vi har angett dessa riktlinjer specifikt för Premium Storage eftersom arbetsbelastningar som körs på Premium-lagring med hög prestanda som är känsliga. Vi har lagt till exempel där det är lämpligt. Du kan också använda några av dessa riktlinjer för program som körs på virtuella IaaS-datorer med Standard Storage-diskar.
+Vi har tillhandahållit dessa rikt linjer specifikt för Premium Storage eftersom arbets belastningar som körs på Premium Storage är mycket prestanda känsliga. Vi har fått exempel där det är lämpligt. Du kan också använda vissa av dessa rikt linjer för program som körs på virtuella IaaS-datorer med standard lagrings diskar.

@@ -18,15 +18,15 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24f2d43455ff15089accc2463db83349abcea564
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 273a8b06b3bd3bf299b47a1cc52fd4660353cec3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802882"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473738"
 ---
 # <a name="active-directory-federation-services-support-in-msalnet"></a>Active Directory Federation Services (AD FS) stöd i MSAL.NET
-Med Active Directory Federation Services (AD FS) (AD FS) i Windows Server kan du lägga till OpenID Connect och OAuth 2,0-baserad autentisering och auktorisering för program som du utvecklar. Dessa program kan sedan autentisera användare direkt mot AD FS. Mer information finns [i AD FS scenarier för utvecklare](/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers).
+Med Active Directory Federation Services (AD FS) (AD FS) i Windows Server kan du lägga till OpenID Connect och OAuth 2,0-baserad autentisering och auktorisering för program som du utvecklar. Dessa program kan sedan autentisera användare direkt mot AD FS. Mer information finns [i AD FS scenarier för utvecklare](/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios).
 
 Microsoft Authentication Library för .NET (MSAL.NET) stöder två scenarier för autentisering mot AD FS:
 
@@ -61,6 +61,6 @@ För närvarande finns det inga planer på att stödja en direkt anslutning till
 
  Om du behöver stöd för scenarier som kräver en direkt anslutning till AD FS 2016 använder du den senaste versionen av [Azure Active Directory autentiseringspaket](active-directory-authentication-libraries.md#microsoft-supported-client-libraries). När du har uppgraderat ditt lokala system till AD FS 2019 kan du använda MSAL.NET.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 För det federerade fallet, se [konfigurera Azure Active Directory inloggnings beteende för ett program med hjälp av en princip för identifiering av start sfär](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal)

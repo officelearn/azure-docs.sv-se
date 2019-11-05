@@ -1,7 +1,7 @@
 ---
 title: Fördefinierad enhet för LUIS
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln innehåller keyphrase fördefinierade entitetsinformation i Språkförståelse (LUIS).
+description: Den här artikeln innehåller fördefinierad enhets information för en fras i Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,117 +11,90 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: e55c0453c117c51e5a8e4986631516d3e61ed10b
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 51d1bd515651824545d486207ad4a74476aa7092
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677596"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491274"
 ---
 # <a name="keyphrase-prebuilt-entity-for-a-luis-app"></a>fördefinierad enhets fras för en LUIS-app
 Entiteten nyckel fras extraherar en rad olika nyckel fraser från en uttryck. Du behöver inte lägga till exempel yttranden som innehåller en-fras till programmet. Entiteten för en funktions fras stöds i [många kulturer](luis-language-support.md#languages-supported) som en del av funktionerna för [text analys](../text-analytics/overview.md) . 
 
-## <a name="resolution-for-prebuilt-keyphrase-entity"></a>Lösning för fördefinierade keyPhrase entitet
+## <a name="resolution-for-prebuilt-keyphrase-entity"></a>Lösning för fördefinierad enhet för en enhets fras
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
+Följande enhets objekt returneras för frågan:
 
-I följande exempel visas av lösningen på den **builtin.keyPhrase** entitet.
+`where is the educational requirements form for the development and engineering group`
+
+#### <a name="v3-responsetabv3"></a>[V3-svar](#tab/V3)
+
+Följande JSON är med parametern `verbose` som har angetts till `false`:
 
 ```json
-{
-  "query": "where is the educational requirements form for the development and engineering group",
-  "topScoringIntent": {
-    "intent": "GetJobInformation",
-    "score": 0.182757929
-  },
-  "entities": [
-    {
-      "entity": "development",
-      "type": "builtin.keyPhrase",
-      "startIndex": 51,
-      "endIndex": 61
-    },
-    {
-      "entity": "educational requirements",
-      "type": "builtin.keyPhrase",
-      "startIndex": 13,
-      "endIndex": 36
-    }
-  ]
+"entities": {
+    "keyPhrase": [
+        "educational requirements",
+        "development"
+    ]
 }
 ```
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
-
-Följande JSON är med parametern `verbose` inställd på `false`:
-
-```json
-{
-    "query": "where is the educational requirements form for the development and engineering group",
-    "prediction": {
-        "normalizedQuery": "where is the educational requirements form for the development and engineering group",
-        "topIntent": "GetJobInformation",
-        "intents": {
-            "GetJobInformation": {
-                "score": 0.157861546
-            }
-        },
-        "entities": {
-            "keyPhrase": [
-                "educational requirements",
-                "development"
-            ]
-        }
-    }
-}
-```
-
-Följande JSON är med parametern `verbose` inställd på `true`:
+#### <a name="v3-verbose-responsetabv3-verbose"></a>[V3 utförlig Response](#tab/V3-verbose)
+Följande JSON är med parametern `verbose` som har angetts till `true`:
 
 ```json
-{
-    "query": "where is the educational requirements form for the development and engineering group",
-    "prediction": {
-        "normalizedQuery": "where is the educational requirements form for the development and engineering group",
-        "topIntent": "GetJobInformation",
-        "intents": {
-            "GetJobInformation": {
-                "score": 0.157861546
-            }
-        },
-        "entities": {
-            "keyPhrase": [
-                "educational requirements",
-                "development"
-            ],
-            "$instance": {
-                "keyPhrase": [
-                    {
-                        "type": "builtin.keyPhrase",
-                        "text": "educational requirements",
-                        "startIndex": 13,
-                        "length": 24,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor",
-                        "recognitionSources": [
-                            "model"
-                        ]
-                    },
-                    {
-                        "type": "builtin.keyPhrase",
-                        "text": "development",
-                        "startIndex": 51,
-                        "length": 11,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor",
-                        "recognitionSources": [
-                            "model"
-                        ]
-                    }
+"entities": {
+    "keyPhrase": [
+        "educational requirements",
+        "development"
+    ],
+    "$instance": {
+        "keyPhrase": [
+            {
+                "type": "builtin.keyPhrase",
+                "text": "educational requirements",
+                "startIndex": 13,
+                "length": 24,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            },
+            {
+                "type": "builtin.keyPhrase",
+                "text": "development",
+                "startIndex": 51,
+                "length": 11,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
                 ]
             }
-        }
+        ]
     }
 }
+```
+#### <a name="v2-responsetabv2"></a>[V2-svar](#tab/V2)
+
+I följande exempel visas upplösningen för entiteten **Builtin.**
+
+```json
+"entities": [
+    {
+        "entity": "development",
+        "type": "builtin.keyPhrase",
+        "startIndex": 51,
+        "endIndex": 61
+    },
+    {
+        "entity": "educational requirements",
+        "type": "builtin.keyPhrase",
+        "startIndex": 13,
+        "endIndex": 36
+    }
+]
 ```
 * * * 
 
@@ -129,4 +102,4 @@ Följande JSON är med parametern `verbose` inställd på `true`:
 
 Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
-Lär dig mer om den [procent](luis-reference-prebuilt-percentage.md), [nummer](luis-reference-prebuilt-number.md), och [ålder](luis-reference-prebuilt-age.md) entiteter.
+Lär dig mer om enheterna [procent](luis-reference-prebuilt-percentage.md), [antal](luis-reference-prebuilt-number.md)och [ålder](luis-reference-prebuilt-age.md) .

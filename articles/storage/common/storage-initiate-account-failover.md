@@ -9,12 +9,12 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d94f6297f27eb3ea130b443ccf94052d391eb46d
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 2bac51a86c8acdba0f6c2f03e5a24ab2b133aa8e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985325"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73521011"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Initiera en redundans för lagrings konto (för hands version)
 
@@ -31,20 +31,20 @@ Den här artikeln visar hur du startar en konto redundansväxling för ditt lagr
 
 Innan du kan utföra en redundansväxling på ditt lagrings konto måste du kontrol lera att du har utfört följande steg:
 
-- Registrera dig för för hands versionen av konto redundansväxling. Information om hur du registrerar finns i [om](storage-disaster-recovery-guidance.md#about-the-preview)förhands granskningen.
-- Kontrol lera att ditt lagrings konto har kon figurer ATS för att använda antingen Geo-redundant lagring (GRS) eller Geo-redundant lagring med Läs behörighet (RA-GRS). Mer information om Geo-redundant lagring finns i [Geo-redundant lagring (GRS): Replikering mellan regioner för Azure Storage](storage-redundancy-grs.md). 
+- Registrera dig för för hands versionen av konto redundansväxling. Information om hur du registrerar finns i [om förhands granskningen](storage-disaster-recovery-guidance.md#about-the-preview).
+- Kontrol lera att ditt lagrings konto har kon figurer ATS för att använda antingen Geo-redundant lagring (GRS) eller Geo-redundant lagring med Läs behörighet (RA-GRS). Mer information om Geo-redundant lagring finns i [Geo-redundant lagring (GRS): replikering mellan flera regioner för Azure Storage](storage-redundancy-grs.md). 
 
 ## <a name="important-implications-of-account-failover"></a>Viktiga följder vid redundansväxling av konto
 
 När du initierar ett konto för redundans för ditt lagrings konto uppdateras DNS-posterna för den sekundära slut punkten så att den sekundära slut punkten blir den primära slut punkten. Se till att du förstår de potentiella konsekvenserna av ditt lagrings konto innan du påbörjar en redundansväxling.
 
-Om du vill beräkna omfattningen av sannolik data förlust innan du påbörjar en redundansväxling, kontrollerar du den `-IncludeGeoReplicationStats` **senaste synkroniseringstid** - `Get-AzStorageAccount` egenskapen med PowerShell-cmdleten och inkluderar parametern. Kontrol lera `GeoReplicationStats` sedan egenskapen för ditt konto. 
+Om du vill beräkna omfattningen av sannolik data förlust innan du påbörjar en redundansväxling, kontrollerar du den **senaste synkroniseringstid** -egenskapen med hjälp av `Get-AzStorageAccount` PowerShell-cmdleten och inkluderar parametern `-IncludeGeoReplicationStats`. Kontrol lera sedan `GeoReplicationStats` egenskapen för ditt konto. 
 
 Efter redundansväxlingen konverteras lagrings konto typen automatiskt till lokalt redundant lagring (LRS) i den nya primära regionen. Du kan återaktivera Geo-redundant lagring (GRS) eller Geo-redundant lagring med Läs behörighet (RA-GRS) för kontot. Observera att konvertering från LRS till GRS eller RA-GRS ådrar sig en ytterligare kostnad. Mer information finns i [pris information om bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
 När du har aktiverat GRS för ditt lagrings konto börjar Microsoft replikera data i ditt konto till den nya sekundära regionen. Replikerings tiden beror på mängden data som replikeras.  
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Följ dessa steg om du vill starta en redundansväxling av ett konto från Azure Portal:
 
@@ -60,14 +60,14 @@ Följ dessa steg om du vill starta en redundansväxling av ett konto från Azure
 
     ![Skärm bild som visar bekräftelse dialog ruta för redundans av konto](media/storage-initiate-account-failover/portal-failover-confirm.png)
 
-## <a name="powershell"></a>PowerShell
+## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Om du vill använda PowerShell för att initiera en redundansväxling av ett konto måste du först installera 6.0.1 Preview-modulen. Följ de här stegen för att installera modulen:
 
 1. Avinstallera tidigare installationer av Azure PowerShell:
 
     - Ta bort alla tidigare installationer av Azure PowerShell från Windows med hjälp av inställningen **appar & funktioner** under **Inställningar**.
-    - Ta bort alla **Azure** - `%Program Files%\WindowsPowerShell\Modules`moduler från.
+    - Ta bort alla **Azure** -moduler från `%Program Files%\WindowsPowerShell\Modules`.
 
 1. Kontrol lera att du har den senaste versionen av PowerShellGet installerad. Öppna ett Windows PowerShell-fönster och kör följande kommando för att installera den senaste versionen:
 
@@ -97,7 +97,7 @@ Kör följande kommando för att starta en redundansväxling av ett konto från 
 Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name> 
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Kör följande kommandon om du vill använda Azure CLI för att initiera en konto växling vid fel:
 
@@ -106,8 +106,10 @@ az storage account show \ --name accountName \ --expand geoReplicationStats
 az storage account failover \ --name accountName
 ```
 
+---
+
 ## <a name="next-steps"></a>Nästa steg
 
 - [Haveri beredskap och konto redundans (för hands version) i Azure Storage](storage-disaster-recovery-guidance.md)
 - [Utforma högtillgängliga program med hjälp av RA GRS](storage-designing-ha-apps-with-ragrs.md)
-- [Självstudier: Bygg ett program med hög tillgänglighet med Blob Storage](../blobs/storage-create-geo-redundant-storage.md) 
+- [Självstudie: Bygg ett program med hög tillgänglighet med Blob Storage](../blobs/storage-create-geo-redundant-storage.md) 

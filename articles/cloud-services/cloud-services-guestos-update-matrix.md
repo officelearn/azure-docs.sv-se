@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/7/2019
+ms.date: 11/1/2019
 ms.author: raiye
-ms.openlocfilehash: 1a3945569002ea0ec88a9e23a6f02e7833d7690a
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: fa6f3e77a49afc5b16d11cb0c7d434f967c7cd53
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035145"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500244"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure gäst operativ system versioner och SDK-kompatibilitet mat ris
 Innehåller uppdaterad information om de senaste Azure Guest OS-versionerna för Cloud Services. Den här informationen hjälper dig att planera uppgraderings vägen innan ett gäst operativ system är inaktiverat. Om du konfigurerar dina roller så att de använder *automatiska* uppdateringar av gäst operativ system enligt beskrivningen i [Azures uppdaterings inställningar för gäst operativ system][Azure Guest OS Update Settings]är det inte viktigt att du läser den här sidan.
@@ -41,6 +41,9 @@ Innehåller uppdaterad information om de senaste Azure Guest OS-versionerna för
 Är du osäker på hur du uppdaterar ditt gäst operativ system? Kolla [här][cloud updates] .
 
 ## <a name="news-updates"></a>Diskussions grupps uppdateringar
+
+###### <a name="november-1-2019"></a>**1 november 2019**
+Gäst operativ systemet i oktober har släppts.
 
 ###### <a name="october-7-2019"></a>**7 oktober 2019**
 Gäst operativ systemet i september har släppts.
@@ -106,17 +109,18 @@ Gäst operativ systemet i september har släppts.
 
 | Konfigurations sträng | Utgivningsdatum | Inaktive rings datum |
 | --- | --- | --- |
-| WA – GÄST-OS-6.11 _201909-01 | 7 oktober 2019 |  Publicera 6,13  |  
-| WA – GÄST-OS-6.10-_201908 – 01 | 4 augusti 2019 |  Publicera 6,12  |  
+| WA – GÄST-OS-6,12 _201910-01 | 1 november 2019 | Publicera 6,14 |  
+| WA – GÄST-OS-6.11 _201909-01 | 7 oktober 2019 | Publicera 6,13 |  
+|~~WA – GÄST-OS-6.10-_201908 – 01~~| 4 augusti 2019 | 1 november 2019  |  
 |~~WA – GÄST-OS-6,9-_201907 – 0~~|26 juli 2019 | 7 oktober 2019 |
 |~~WA – GÄST-OS-6,8 _201906 – 01~~|8 juli 2019 |4 augusti 2019 |
 |~~WA – GÄST-OS-6.7 _201905 – 01~~ |6 juni 2019 |26 juli 2019 |
-|~~WA-GUEST-OS-6.6_201904-01~~ |7 maj 2019 |8 juli 2019 |
-|~~WA-GUEST-OS-6.5_201903-01~~ |26 mars 2019 |6 juni 2019 |
-|~~WA-GUEST-OS-6.4_201902-01~~ |12 mars 2019 |7 maj 2019 |
-|~~WA-GUEST-OS-6.3_201901-01~~ |5 februari 2019 |26 mars 2019 |
-|~~WA-GUEST-OS-6.2_201812-01~~ |24 januari 2019 |12 mars 2019 |
-|~~WA-GUEST-OS-6.1_201811-01~~ |24 januari 2019 |5 februari 2019 |
+|~~WA – GÄST-OS-6.6 _201904 – 01~~ |7 maj 2019 |8 juli 2019 |
+|~~WA – GÄST-OS-6.5 _201903 – 01~~ |26 mars 2019 |6 juni 2019 |
+|~~WA – GÄST-OS – 6.4 _201902 – 01~~ |12 mars 2019 |7 maj 2019 |
+|~~WA – GÄST-OS-6.3 _201901 – 01~~ |5 februari 2019 |26 mars 2019 |
+|~~WA – GÄST-OS-6.2 _201812 – 01~~ |24 januari 2019 |12 mars 2019 |
+|~~WA – GÄST-OS-6.1 _201811 – 01~~ |24 januari 2019 |5 februari 2019 |
 
 ## <a name="family-5-releases"></a>Family 5-versioner
 **Windows Server 2016**
@@ -130,19 +134,20 @@ Gäst operativ systemet i september har släppts.
 
 | Konfigurations sträng | Utgivningsdatum | Inaktive rings datum |
 | --- | --- | --- |
+| WA – GÄST-OS-5.36 _201910-01 | 1 november 2019 | Publicera 5,38 |  
 | WA – GÄST-OS-5.35 _201909-01 | 7 oktober 2019 | Publicera 5,37 |  
-| WA – GÄST-OS-5.34 _201908-01  |  4 augusti 2019  |  Publicera 5,36 |  
+|~~WA – GÄST-OS-5.34 _201908-01~~|  4 augusti 2019  |  Publicera 5,36 |  
 |~~WA – GÄST-OS-5.33 _201907-01~~| 26 juli 2019 | 7 oktober 2019 |  
 |~~WA – GÄST-OS-5.32 _201906-01~~|8 juli 2019 |4 augusti 2019 |
 |~~WA – GÄST-OS-5.31 _201905-01~~ |6 juni 2019 |26 juli 2019 |
-|~~WA-GUEST-OS-5.30_201904-01~~ |7 maj 2019 |8 juli 2019 |
-|~~WA-GUEST-OS-5.29_201903-01~~ |26 mars 2019 |6 juni 2019 |
-|~~WA-GUEST-OS-5.28_201902-01~~ |12 mars 2019 |7 maj 2019 |
-|~~WA-GUEST-OS-5.27_201901-01~~ |5 februari 2019 |26 mars 2019 |
-|~~WA-GUEST-OS-5.26_201812-01~~ |7 januari 2019 |12 mars 2019 |
-|~~WA-GUEST-OS-5.25_201811-01~~ |14 december 2018 |5 februari 2019 |
-|~~WA-GUEST-OS-5.24_201810-01~~ |8 november 2018 |7 januari 2019 |
-|~~WA-GUEST-OS-5.23_201809-01~~ |12 oktober 2018 |14 december 2018 |
+|~~WA – GÄST-OS-5.30 _201904-01~~ |7 maj 2019 |8 juli 2019 |
+|~~WA – GÄST-OS-5.29 _201903-01~~ |26 mars 2019 |6 juni 2019 |
+|~~WA – GÄST-OS-5.28 _201902-01~~ |12 mars 2019 |7 maj 2019 |
+|~~WA – GÄST-OS-5.27 _201901-01~~ |5 februari 2019 |26 mars 2019 |
+|~~WA – GÄST-OS-5.26 _201812-01~~ |7 januari 2019 |12 mars 2019 |
+|~~WA – GÄST-OS-5,25-_201811 – 01~~ |14 december 2018 |5 februari 2019 |
+|~~WA – GÄST-OS-5.24 _201810-01~~ |8 november 2018 |7 januari 2019 |
+|~~WA – GÄST-OS-5.23 _201809-01~~ |12 oktober 2018 |14 december 2018 |
 
 ## <a name="family-4-releases"></a>Family 4-versioner
 **Windows Server 2012 R2**
@@ -151,19 +156,20 @@ Gäst operativ systemet i september har släppts.
 
 | Konfigurations sträng | Utgivningsdatum | Inaktive rings datum |
 | --- | --- | --- |
+| WA – GÄST-OS-4.71 _201910-01 | 1 november 2019 | Publicera 4,73 |  
 | WA – GÄST-OS-4.70 _201909-01 | 7 oktober 2019 | Publicera 4,72 |  
-| WA – GÄST-OS-4.69 _201908-01 | 4 augusti 2019 | Publicera 4,71 |  
+|~~WA – GÄST-OS-4.69 _201908-01~~| 4 augusti 2019 | 1 november 2019 |  
 |~~WA – GÄST-OS-4.68 _201907-01~~| 26 juli 2019  | 7 oktober 2019 |
 |~~WA – GÄST-OS-4.67 _201906-01~~| 8 juli 2019 |4 augusti 2019 |
 |~~WA – GÄST-OS-4.66 _201905-01~~ |6 juni 2019 |26 juli 2019 |
-|~~WA-GUEST-OS-4.65_201904-01~~ |7 maj 2019 |8 juli 2019 |
-|~~WA-GUEST-OS-4.64_201903-01~~ |26 mars 2019 |6 juni 2019 |
-|~~WA-GUEST-OS-4.63_201902-01~~ |12 mars 2019 |7 maj 2019 |
-|~~WA-GUEST-OS-4.62_201901-01~~ |5 februari 2019 |26 mars 2019 |
-|~~WA-GUEST-OS-4.61_201812-01~~ |7 januari 2019 |12 mars 2019 |
-|~~WA-GUEST-OS-4.60_201811-01~~ |14 december 2018 |5 februari 2019 |
-|~~WA-GUEST-OS-4.59_201810-01~~ |8 november 2018 |7 januari 2019 |
-|~~WA-GUEST-OS-4.58_201809-01~~ |12 oktober 2018 |14 december 2018 |
+|~~WA – GÄST-OS-4.65 _201904-01~~ |7 maj 2019 |8 juli 2019 |
+|~~WA – GÄST-OS-4.64 _201903-01~~ |26 mars 2019 |6 juni 2019 |
+|~~WA – GÄST-OS-4.63 _201902-01~~ |12 mars 2019 |7 maj 2019 |
+|~~WA – GÄST-OS-4.62 _201901-01~~ |5 februari 2019 |26 mars 2019 |
+|~~WA – GÄST-OS-4.61 _201812-01~~ |7 januari 2019 |12 mars 2019 |
+|~~WA – GÄST-OS-4.60 _201811-01~~ |14 december 2018 |5 februari 2019 |
+|~~WA – GÄST-OS-4.59 _201810-01~~ |8 november 2018 |7 januari 2019 |
+|~~WA – GÄST-OS-4.58 _201809-01~~ |12 oktober 2018 |14 december 2018 |
 
 ## <a name="family-3-releases"></a>Family 3-versioner
 **Windows Server 2012**
@@ -172,19 +178,20 @@ Gäst operativ systemet i september har släppts.
 
 | Konfigurations sträng | Utgivningsdatum | Inaktive rings datum |
 | --- | --- | --- |
+| WA – GÄST-OS-3.78 _201910-01 | 1 november 2019 | Publicera 3,80 |  
 | WA – GÄST-OS-3.77 _201909-01 | 7 oktober 2019 | Publicera 3,79 |  
-| WA – GÄST-OS-3.76 _201908-01 |  4 augusti 2019  |  Publicera 3,78  |  
+|~~WA – GÄST-OS-3.76 _201908-01~~|  4 augusti 2019  |  1 november 2019  |  
 |~~WA – GÄST-OS-3,75 _201907-01~~| 26 juli 2019 | 7 oktober 2019 |
 |~~WA – GÄST-OS-3.74 _201906-01~~| 8 juli 2019 |4 augusti 2019 |
 |~~WA – GÄST-OS-3.73 _201905-01~~ |6 juni 2019 |26 juli 2019 |
-|~~WA-GUEST-OS-3.72_201904-01~~ |7 maj 2019 |8 juli 2019 |
-|~~WA-GUEST-OS-3.71_201903-01~~ |26 mars 2019 |6 juni 2019 |
-|~~WA-GUEST-OS-3.70_201902-01~~ |12 mars 2019 |7 maj 2019 |
-|~~WA-GUEST-OS-3.69_201901-01~~ |5 februari 2019 |26 mars 2019 |
-|~~WA-GUEST-OS-3.68_201812-01~~ |7 januari 2019 |12 mars 2019 |
-|~~WA-GUEST-OS-3.67_201811-01~~ |14 december 2018 |5 februari 2019 |
-|~~WA-GUEST-OS-3.66_201810-01~~ |8 november 2018 |7 januari 2019 |
-|~~WA-GUEST-OS-3.65_201809-01~~ |12 oktober 2018 |14 december 2018 |
+|~~WA – GÄST-OS-3.72 _201904-01~~ |7 maj 2019 |8 juli 2019 |
+|~~WA – GÄST-OS-3.71 _201903-01~~ |26 mars 2019 |6 juni 2019 |
+|~~WA – GÄST-OS-3.70 _201902-01~~ |12 mars 2019 |7 maj 2019 |
+|~~WA – GÄST-OS-3.69 _201901-01~~ |5 februari 2019 |26 mars 2019 |
+|~~WA – GÄST-OS-3.68 _201812-01~~ |7 januari 2019 |12 mars 2019 |
+|~~WA – GÄST-OS-3.67 _201811-01~~ |14 december 2018 |5 februari 2019 |
+|~~WA – GÄST-OS-3.66 _201810-01~~ |8 november 2018 |7 januari 2019 |
+|~~WA – GÄST-OS-3.65 _201809-01~~ |12 oktober 2018 |14 december 2018 |
 
 ## <a name="family-2-releases"></a>Family 2-versioner
 **Windows Server 2008 R2 SP1**
@@ -193,19 +200,20 @@ Gäst operativ systemet i september har släppts.
 
 | Konfigurations sträng | Utgivningsdatum | Inaktive rings datum |
 | --- | --- | --- |
+| WA – GÄST-OS-2.91 _201910-01 | 1 november 2019 | Publicera 2,93 |  
 | WA – GÄST-OS-2.90 _201909-01 | 7 oktober 2019 | Publicera 2,92 |  
-| WA – GÄST-OS-2.89 _201908-01 | 4 augusti 2019 | Publicera 2,91 |  
+|~~WA – GÄST-OS-2.89 _201908-01~~| 4 augusti 2019 | 1 november 2019 |  
 |~~WA – GÄST-OS-2,88 _201907-01~~| 26 juli 2019 | 7 oktober 2019 |
 |~~WA – GÄST-OS-2.87 _201906-01~~|8 juli 2019 | 4 augusti 2019 |
 |~~WA – GÄST-OS-2.86 _201905-01~~ |6 juni 2019 |26 juli 2019 |
-|~~WA-GUEST-OS-2.85_201904-01~~ |7 maj 2019 |8 juli 2019 |
-|~~WA-GUEST-OS-2.84_201903-01~~ |26 mars 2019 |6 juni 2019 |
-|~~WA-GUEST-OS-2.83_201902-01~~ |12 mars 2019 |7 maj 2019 |
-|~~WA-GUEST-OS-2.82_201901-01~~ |5 februari 2019 |26 mars 2019 |
-|~~WA-GUEST-OS-2.81_201812-01~~ |7 januari 2019 |12 mars 2019 |
-|~~WA-GUEST-OS-2.80_201811-01~~ |14 december 2018 |5 februari 2019 |
-|~~WA-GUEST-OS-2.79_201810-01~~ |8 november 2018 |7 januari 2019 |
-|~~WA-GUEST-OS-2.78_201809-01~~ |12 oktober 2018 |14 december 2018 |
+|~~WA – GÄST-OS-2.85 _201904-01~~ |7 maj 2019 |8 juli 2019 |
+|~~WA – GÄST-OS-2.84 _201903-01~~ |26 mars 2019 |6 juni 2019 |
+|~~WA – GÄST-OS-2.83 _201902-01~~ |12 mars 2019 |7 maj 2019 |
+|~~WA – GÄST-OS-2.82 _201901-01~~ |5 februari 2019 |26 mars 2019 |
+|~~WA – GÄST-OS-2.81 _201812-01~~ |7 januari 2019 |12 mars 2019 |
+|~~WA – GÄST-OS-2,80 _201811 – 01~~ |14 december 2018 |5 februari 2019 |
+|~~WA – GÄST-OS-2.79 _201810-01~~ |8 november 2018 |7 januari 2019 |
+|~~WA – GÄST-OS-2.78 _201809-01~~ |12 oktober 2018 |14 december 2018 |
 
 ## <a name="msrc-patch-updates"></a>Uppdateringar av MSRC-uppdatering
 Listan över korrigeringar som ingår i varje månads gäst operativ system version finns [här][patches].
@@ -215,12 +223,12 @@ Listan över korrigeringar som ingår i varje månads gäst operativ system vers
 
 | Gäst operativ system familj | Kompatibla SDK-versioner |
 | --- | --- |
-| 6 |Version 2.9.6+ |
-| 5 |Version 2.9.5.1+ |
-| 4 |Version 2.1+ |
-| 3 |Version 1.8+ |
-| 2 |Version 1.3+ |
-| 1 |Version 1.0+ |
+| 6 |Version 2.9.6 + |
+| 5 |Version 2.9.5.1 + |
+| 4 |Version 2.1 + |
+| 3 |Version 1.8 + |
+| 2 |Version 1.3 + |
+| 1 |Version 1.0 + |
 
 ## <a name="guest-os-release-information"></a>Information om gäst operativ system version
 Det finns tre datum som är viktiga för gäst OS-versioner: **utgivnings** datum, **inaktiverat** datum och **utgångs** datum. Ett gäst operativ system anses tillgängligt när det finns i portalen och kan väljas som mål gäst operativ system. När ett gäst operativ system når det **inaktiverade** datumet tas det bort från Azure. Alla moln tjänster som är riktade till gäst operativ systemet kommer dock fortfarande att fungera som vanligt.

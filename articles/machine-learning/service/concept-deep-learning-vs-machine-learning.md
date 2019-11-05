@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 08/07/2019
-ms.openlocfilehash: ffc71cf8b2f60568e3c4bc63a3751bc44be66e58
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.date: 11/04/2019
+ms.openlocfilehash: cc98e620194c5bf67d2efa12d61af44d5527bafc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063127"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497498"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Djup inlärning eller Machine Learning
 
@@ -113,6 +113,11 @@ Ett (convolutional neurala-nätverk är ett särskilt effektivt artificiellt neu
 I följande artiklar visas hur du använder djup inlärnings teknik i [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/?WT.mc_id=docs-article-lazzeri):
 
 - [Klassificera handskrivna siffror med hjälp av en TensorFlow-modell](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
+
 - [Klassificera handskrivna siffror med en TensorFlow-uppskattning och keras](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
+
 - [Klassificera bilder med hjälp av en Pytorch-modell](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
+
 - [Klassificera handskrivna siffror med hjälp av en kedje modell](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-chainer?WT.mc_id=docs-article-lazzeri)
+
+Använd också lathund-mallen [Machine Learning algorithm](../algorithm-cheat-sheet.md) för att välja algoritmer för din modell.

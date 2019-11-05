@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 08e9656e3b899cbb6d4de733696175e8f31b0e66
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 559d8cb25624c1d8bebb2969fbeeb80bdcc020e6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792012"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73479750"
 ---
 #   <a name="entity-recognition-cognitive-skill"></a>Kognitiv kunskap om entitets igenkänning
 
@@ -39,9 +39,8 @@ Parametrar är Skift läges känsliga och alla är valfria.
 |--------------------|-------------|
 | kategorier    | Matris med kategorier som ska extraheras.  Möjliga kategori typer: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Om ingen kategori anges returneras alla typer.|
 |defaultLanguageCode |  Språk koden för inmatad text. Följande språk stöds: `de, en, es, fr, it`|
-|minimumPrecision | Outnyttja. Reserverad för framtida användning. |
-|includeTypelessEntities | När det är inställt på sant om texten innehåller en välkänd entitet, men inte kan kategoriseras i någon av de kategorier som stöds, returneras den som en del av fältet `"entities"` komplex utmatning. 
-Detta är entiteter som är välkända men inte klassificerade som en del av de aktuella "kategorierna" som stöds. Till exempel "Windows 10" är en välkänd entitet (en produkt), men "produkter" finns inte i de kategorier som stöds idag. Standardvärdet är `false` |
+|minimumPrecision | Ett värde mellan 0 och 1. Om förtroende poängen (i `namedEntities` utdata) är lägre än det här värdet returneras inte entiteten. Standardvärdet är 0. |
+|includeTypelessEntities | Ange till `true` om du vill identifiera välkända entiteter som inte passar de aktuella kategorierna. Identifierade entiteter returneras i fältet `entities` komplext utdata. Till exempel är "Windows 10" en välkänd entitet (en produkt), men eftersom "produkter" inte är en kategori som stöds, skulle den här enheten inkluderas i fältet entiteter-utdata. Standardvärdet är `false` |
 
 
 ## <a name="skill-inputs"></a>Kompetens inmatningar
@@ -65,7 +64,7 @@ Detta är entiteter som är välkända men inte klassificerade som en del av de 
 | Slutdatum  | En sträng mat ris där varje sträng representerar ett DateTime-värde (som det visas i texten). |
 | er | En sträng mat ris där varje sträng representerar en URL |
 | e-postmeddelanden | En sträng mat ris där varje sträng representerar ett e-postmeddelande |
-| namedEntities | En matris med komplexa typer som innehåller följande fält: <ul><li>category</li> <li>värde (namnet på den faktiska entiteten)</li><li>offset (platsen där den hittades i texten)</li><li>förtroende (används inte för tillfället. Anges till värdet-1)</li></ul> |
+| namedEntities | En matris med komplexa typer som innehåller följande fält: <ul><li>category</li> <li>värde (namnet på den faktiska entiteten)</li><li>offset (platsen där den hittades i texten)</li><li>förtroende (högre värde innebär att det är mer att vara en riktig entitet)</li></ul> |
 | poster | En matris med komplexa typer som innehåller omfattande information om de entiteter som extraheras från text, med följande fält <ul><li> namn (namnet på den faktiska entiteten. Detta representerar en "normaliserad" form)</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (en länk till Wikipedia-sidan för entiteten)</li><li>bingId</li><li>typ (den enhets kategori som identifieras)</li><li>Undertyp (endast tillgängligt för vissa kategorier, detta ger en mer detaljerad vy av entitetstypen)</li><li> matchningar (en komplex samling som innehåller)<ul><li>text (den råa texten för entiteten)</li><li>förskjutning (platsen där den hittades)</li><li>längd (längden på texten i den obearbetade entiteten)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>Exempel definition
@@ -76,6 +75,7 @@ Detta är entiteter som är välkända men inte klassificerade som en del av de 
     "categories": [ "Person", "Email"],
     "defaultLanguageCode": "en",
     "includeTypelessEntities": true,
+    "minimumPrecision": 0.5,
     "inputs": [
       {
         "name": "text",
@@ -131,7 +131,7 @@ Detta är entiteter som är välkända men inte klassificerade som en del av de 
             "category":"Person",
             "value": "John Smith",
             "offset": 35,
-            "confidence": -1
+            "confidence": 0.98
           }
         ],
         "entities":  
@@ -191,7 +191,7 @@ Detta är entiteter som är välkända men inte klassificerade som en del av de 
 ## <a name="error-cases"></a>Fel fall
 Om språk koden för dokumentet inte stöds returneras ett fel och inga entiteter extraheras.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 + [Inbyggda kunskaper](cognitive-search-predefined-skills.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)

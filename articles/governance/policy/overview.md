@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
-ms.openlocfilehash: b8628d60110818fe64e5b09b400a1396213147b6
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 46d78ca9f82017e1a11642af6e5dcdc68e239c8a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980772"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498279"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Översikt över Azure Policy tjänsten
 
@@ -46,16 +46,15 @@ Om ingen av de inbyggda rollerna har de behörigheter som krävs skapar du en [a
 
 Resan med att skapa och implementera en princip i Azure Policy börjar med skapandet av en principdefinition. Varje principdefinition har villkor för när den ska tillämpas. Och den har en definierad effekt som träder ikraft om villkoren är uppfyllda.
 
-Vi erbjuder flera inbyggda principer som är tillgängliga för dig som standard i Azure Policy. Exempel:
+Vi erbjuder flera inbyggda principer som är tillgängliga för dig som standard i Azure Policy. Till exempel:
 
-- **Kräv SQL Server 12.0**: Kontrollerar att alla SQL-servrar använder version 12.0. Dess effekt är att neka alla servrar som inte uppfyller dessa villkor.
-- **Tillåtna SKU:er för lagringskonto**: Anger om ett lagringskonto som distribueras befinner sig inom en uppsättning SKU-storlekar. Effekten är att neka alla lagringskonton som inte överensstämmer med uppsättningen definierade SKU-storlekar.
-- **Tillåtna resurstyper**: Definierar de resurstyper som du kan distribuera. Effekten är att neka alla resurser som inte finns på den definierade listan.
-- **Tillåtna platser**: Begränsar de tillgängliga platserna för nya resurser. Effekten används för att genomdriva kraven på geo-efterlevnad.
-- **Tillåtna SKU:er för virtuella datorer**: Anger en uppsättning SKU:erför virtuella datorer som du kan distribuera.
-- **Använd taggen och dess standardvärde**: Lägger till en nödvändig tagg och dess standardvärde om den inte har angetts med distributionsbegäran.
-- **Framtvinga tagg och dess värde**: Lägger till en nödvändig tagg och dess värde till en resurs.
-- **Otillåtna resurstyper**: Förhindrar en lista över resurstyper från att distribueras.
+- **Tillåtna lagrings konto SKU: er**: avgör om ett lagrings konto som distribueras är inom en uppsättning SKU-storlekar. Effekten är att neka alla lagringskonton som inte överensstämmer med uppsättningen definierade SKU-storlekar.
+- **Tillåten resurs typ**: definierar de resurs typer som du kan distribuera. Effekten är att neka alla resurser som inte finns på den definierade listan.
+- **Tillåtna platser**: begränsar de tillgängliga platserna för nya resurser. Effekten används för att genomdriva kraven på geo-efterlevnad.
+- **Tillåtna SKU: er för virtuella datorer**: anger en uppsättning SKU: er för virtuella datorer som du kan distribuera.
+- **Lägg till en tagg till resurser**: tillämpar en obligatorisk tagg och dess standardvärde om den inte anges i distributions förfrågan.
+- **Framtvinga tagg och dess värde**: tillämpar en obligatorisk tagg och dess värde för en resurs.
+- **Ej tillåtna resurs typer**: förhindrar att en lista över resurs typer distribueras.
 
 För att implementera dessa principdefinitioner (både inbyggda och anpassade definitioner) måste du tilldela dem. Du kan tilldela de här principerna via Azure Portal, PowerShell eller Azure CLI.
 
@@ -110,7 +109,7 @@ Ta till exempel scenariot där du har en initiativdefinition, **initiativeC**, m
 
 I det här scenariot, när du definierar initiativparametrar för **initiativC**, har du tre alternativ:
 
-- Använd parametrarna för principdefinitionerna i det här initiativet: I det här exemplet blir *allowedLocations* och *allowedSingleLocation* initiativparametrar för **initiativeC**.
+- Använd parametrarna för principdefinitionerna i det här initiativet. I det här exemplet blir *allowedLocations* och *allowedSingleLocation* initiativparametrar för **initiativC**.
 - Ange värden för parametrarna för principdefinitionerna i den här initiativdefinitionen. I det här exemplet kan du ange en lista över platser som ska användas för att ställa in **parameter-allowedLocations** och **Principb parameter – allowedSingleLocation**. Du kan också ange värden när du tilldelar det här initiativet.
 - Ange en lista med alternativ *värden* som kan användas när du tilldelar det här initiativet. När du tilldelar det här initiativet kan ärvda parametrarna från principdefinitionerna inom initiativet endast ha värden från den här listan.
 

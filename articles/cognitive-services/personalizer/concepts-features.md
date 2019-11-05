@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 2147ca2565d5977e3e47d5182627483aa3d8d1b2
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 9a7599cd71c087201b54c594954a6fff377b3e45
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756112"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490761"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Funktioner är information om åtgärder och kontext
 
@@ -26,7 +26,7 @@ I personanpassaren används **funktioner**, som innehåller information om den *
 Du kan till exempel ha en **funktion** om:
 
 * _Användar personen_ , till exempel en `Sports_Shopper`. Detta bör inte vara ett enskilt användar-ID. 
-* _Innehållet_ , till exempel om en video är en `Documentary`, en `Movie` eller en `TV Series` eller om en butiks artikel är tillgänglig i butiken.
+* _Innehållet_ , till exempel om en video är en `Documentary`, en `Movie`eller en `TV Series`eller om en butiks artikel är tillgänglig i butiken.
 * Den _aktuella_ tids perioden, till exempel vilken veckodag det är.
 
 Personanpassaren anger inte, begränsar eller åtgärdar vilka funktioner du kan skicka för åtgärder och kontext:
@@ -61,7 +61,7 @@ Följande är exempel på funktions namn rymder som används av program:
 * http_user_agent
 * VideoResolution
 * UserDeviceInfo
-* Baserad
+* Väder
 * Product_Recommendation_Ratings
 * current_time
 * NewsArticle_TextAnalytics
@@ -69,7 +69,10 @@ Följande är exempel på funktions namn rymder som används av program:
 Du kan namnge funktions namn rymder efter dina egna konventioner så länge de är giltiga JSON-nycklar. Namn områden används för att organisera funktioner i olika uppsättningar och för att disambiguate funktioner med liknande namn. Du kan tänka på namn områden som "prefix" som läggs till i funktions namn. Det går inte att kapsla namn områden.
 
 
-I följande JSON, `user`, `state` och `device` är funktions namn rymder. Allmän förhands gransknings anteckning: för närvarande rekommenderar vi starkt att du använder namn på funktions namn rymder som är UTF-8-baserade och börjar med olika bokstäver. Till exempel `user`, `state` och `device` börjar med `u`, `s` och `d`. För närvarande har namn rymder med samma första tecken kan leda till konflikter i index som används för maskin inlärning.
+I följande JSON, `user`, `state`och `device` är funktions namn rymder. 
+
+> [!Note]
+> För närvarande rekommenderar vi starkt att du använder namn för funktions namn rymder som är UTF-8-baserade och börjar med olika bokstäver. Till exempel `user`, `state`och `device` börjar med `u`, `s`och `d`. För närvarande har namn rymder med samma första tecken kan leda till konflikter i index som används för maskin inlärning.
 
 JSON-objekt kan innehålla kapslade JSON-objekt och enkla egenskaper/värden. En matris kan bara tas med om mat ris elementen är siffror. 
 
@@ -140,7 +143,7 @@ Artificiell intelligens och klar att köra Cognitive Services kan vara ett mycke
 
 Genom att Förbearbeta dina objekt med hjälp av artificiell intelligens-tjänster kan du automatiskt extrahera information som troligen är relevant för anpassning.
 
-Exempel:
+Till exempel:
 
 * Du kan köra en filmfil via [video Indexer](https://azure.microsoft.com/services/media-services/video-indexer/) för att extrahera scen element, text, sentiment och många andra attribut. Dessa attribut kan sedan göras mer kompakta för att avspegla egenskaper som det ursprungliga objektets metadata inte hade. 
 * Avbildningar kan köras genom objekt identifiering, ansikten genom sentiment osv.

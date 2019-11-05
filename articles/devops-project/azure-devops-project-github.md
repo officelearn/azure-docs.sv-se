@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: Skapa en CI/CD-pipeline för din befintliga kod med hjälp av Azure DevOps Projects'
-description: Azure DevOps-projekt gör det enkelt att komma igång med Azure. DevOps Projects hjälper dig att använda egen kod och din GitHub-lagringsplats för att lansera en app på en Azure-tjänst med några enkla få steg.
+description: Azure DevOps Projects gör det enkelt att komma igång med Azure. DevOps Projects hjälper dig att använda egen kod och din GitHub-lagringsplats för att lansera en app på en Azure-tjänst med några enkla få steg.
 services: vsts
 documentationcenter: vs-devops-build
 ms.author: mlearned
@@ -16,12 +16,12 @@ ms.date: 06/27/2019
 author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 4a48b5c413f6dfb58a1ba3f896ded49250cde306
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 15ac201a078864717d8e0079801507cf5fc0fe3b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286291"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481118"
 ---
 # <a name="tutorial-create-a-cicd-pipeline-for-your-existing-code-by-using-azure-devops-projects"></a>Självstudie: Skapa en CI/CD-pipeline för din befintliga kod med hjälp av Azure DevOps Projects
 
@@ -37,9 +37,9 @@ Du kommer att:
 > * Granska Azure Pipelines-CI/CD-pipelinen
 > * Rensa resurser
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Du kan få en kostnadsfri [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
+* En Azure-prenumeration. Du kan få en kostnadsfritt med [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 * Åtkomst till en GitHub eller en extern Git-lagringsplats som innehåller .NET, Java, PHP, Node, Python eller statisk webbkod.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
@@ -48,7 +48,11 @@ Azure DevOps Projects skapar en CI/CD-pipeline i Azure Pipelines. Du kan skapa e
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. I det vänstra fönstret väljer du **+ skapa en resurs** i det vänstra navigerings fältet. Sök sedan efter **DevOps Projects**och välj **skapa**.
+2. Från Azure Portal-menyn väljer du **skapa en resurs**.
+
+   ![Azure Portal-menyn – skapa en resurs](_img/azure-devops-project-github/createaresource.png)
+
+3. Välj **DevOps > DevOps-projekt**.
 
    ![DevOps Projects-instrumentpanelen](_img/azure-devops-project-github/azuredashboard.png)
 
@@ -56,7 +60,7 @@ Azure DevOps Projects skapar en CI/CD-pipeline i Azure Pipelines. Du kan skapa e
 
 ## <a name="configure-access-to-your-github-repo-and-choose-a-framework"></a>Konfigurera åtkomst till din GitHub-lagringsplats och välja ett ramverk
 
-1. Välj antingen **GitHub** eller en extern **git** Code-lagringsplats. I den här självstudien väljer du **GitHub**. Du kan behöva autentisera med GitHub första gången för att tillåta Azure åtkomst till din GitHub-lagringsplats.
+1. Välj antingen **GitHub** eller en extern **git** Code-lagringsplats. I den här självstudien väljer du **GitHub**. Du kan behöva autentisera med GitHub första gången så att Azure kan komma åt din GitHub-lagringsplats.
 
 2. Slutför genom att välja **databasen** och **grenen**, Välj **Nästa**.
 

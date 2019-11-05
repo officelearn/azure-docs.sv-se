@@ -1,25 +1,25 @@
 ---
-title: Återkalla en resurs prenumeration i för hands versionen av Azure Data reshare
-description: Lär dig hur du återkallar en resurs prenumeration från en mottagare med hjälp av Azure Data Share Preview.
+title: Återkalla en resurs prenumeration i Azure Data Share
+description: Lär dig hur du återkallar en resurs prenumeration från en mottagare med Azure Data Share.
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: bd8ef23ead500acb9e403b38fd52a2d980d12bf4
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 97f672b266c2df6956282aea6dec8d5207944943
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169061"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476387"
 ---
-# <a name="how-to-revoke-a-consumers-share-subscription-in-azure-data-share-preview"></a>Återkalla en konsuments resurs prenumeration i Azure Data repreview
+# <a name="how-to-revoke-a-consumers-share-subscription-in-azure-data-share"></a>Återkalla en konsuments resurs prenumeration i Azure Data Share
 
-Den här artikeln förklarar hur du återkallar en resurs prenumeration från en eller flera av dina användare med hjälp av Azure Data Share Preview. Detta förhindrar en konsument från att utlösa fler ögonblicks bilder. Om konsumenten ännu inte har utlöst en ögonblicks bild, kommer de aldrig att ta emot data när resurs prenumerationen har återkallats. Om de tidigare har utlöst en ögonblicks bild, kommer de senaste data som de har kvar i sitt konto.
+Den här artikeln förklarar hur du återkallar en resurs prenumeration från en eller flera av dina användare med hjälp av Azure Data Share. Detta förhindrar en konsument från att utlösa fler ögonblicks bilder. Om konsumenten ännu inte har utlöst en ögonblicks bild, kommer de aldrig att ta emot data när resurs prenumerationen har återkallats. Om de tidigare har utlöst en ögonblicks bild, kommer de senaste data som de har kvar i sitt konto.
 
 ## <a name="navigate-to-a-sent-data-share"></a>Navigera till en data resurs som skickats
 
-I för hands versionen av Azure Data Share navigerar du till den skickade resursen och väljer fliken **dela prenumerationer** .
+I Azure Data Share navigerar du till den skickade resursen och väljer fliken **dela prenumerationer** .
 
 ![Återkalla resurs prenumeration](./media/how-to/how-to-revoke-share-subscription/revoke-share-subscription.png) 
 

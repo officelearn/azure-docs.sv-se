@@ -1,5 +1,5 @@
 ---
-title: Integrera Apache Spark och Apache Hive med Hive-lagrets koppling
+title: Apache Spark & Hive – Hive lager koppling – Azure HDInsight
 description: Lär dig hur du integrerar Apache Spark och Apache Hive med Hive Warehouse Connector på Azure HDInsight.
 author: nakhanha
 ms.author: nakhanha
@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 440820b7772d8edeb43ce328b8393789d7ba2973
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 2448550cf35f92bc8d91bc6ad9d5b22cc90b5ae0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264311"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494308"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Integrera Apache Spark och Apache Hive med Hive-lagrets koppling
 
@@ -56,15 +56,15 @@ Kopiera Node-informationen från `/etc/hosts`-filen på headnode0 av ditt intera
 
 1. Gå till klustrets start sida för Apache-Ambari med `https://LLAPCLUSTERNAME.azurehdinsight.net` där `LLAPCLUSTERNAME` är namnet på ditt interaktiva fråga-kluster.
 
-1. Navigera till **Hive** > **config** > **Advanced** > **Avancerad Hive-site** > **Hive. Zookeeper. kvorum** och anteckna värdet. Värdet kan vara ungefär så här: `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`.
+1. Navigera till **Hive** - > **konfiguration** > **Avancerad** > **Avancerad Hive-site** > **Hive. Zookeeper. kvorum** och anteckna värdet. Värdet kan vara ungefär så här: `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`.
 
-1. Gå till **hive** > **config** > **Advanced** > **General** > **Hive. metaarkiv. URI: er** och anteckna värdet. Värdet kan vara ungefär så här: `thrift://hn0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`.
+1. Navigera till **Hive** - > **config** > **Advanced** > **General** > **Hive. metaarkiv. URI: er** och anteckna värdet. Värdet kan vara ungefär så här: `thrift://hn0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`.
 
 #### <a name="from-your-apache-spark-cluster"></a>Från Apache Spark-klustret
 
 1. Gå till klustrets start sida för Apache-Ambari med `https://SPARKCLUSTERNAME.azurehdinsight.net` där `SPARKCLUSTERNAME` är namnet på ditt Apache Spark-kluster.
 
-1. Navigera till **Hive**- > **konfigurationerna** > **Advanced** > **Avancerad Hive – interaktiv plats** > **Hive. LLAP. daemon. service. hosts** och noterar värdet. Värdet kan vara ungefär så här: `@llap0`.
+1. Navigera till **Hive** - > **konfigurations** > **Avancerad** > **Avancerad Hive – interaktiv plats** > **Hive. LLAP. daemon. service. hosts** och anteckna värdet. Värdet kan vara ungefär så här: `@llap0`.
 
 ### <a name="configure-spark-cluster-settings"></a>Konfigurera inställningar för Spark-kluster
 
@@ -80,7 +80,7 @@ Välj **Lägg till egenskap...** vid behov för att lägga till/uppdatera följa
 |`spark.sql.hive.hiveserver2.jdbc.url`|`jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2`. Anges till anslutnings strängen JDBC, som ansluter till Hiveserver2 i det interaktiva fråga klustret. Ersätt `LLAPCLUSTERNAME` med namnet på ditt interaktiva fråga-kluster. Ersätt `PWD` med det faktiska lösen ordet.|
 |`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`. Ange en lämplig HDFS-kompatibel uppsamlings katalog. Om du har två olika kluster bör mellanlagringsplatsen vara en mapp i uppsamlings katalogen för LLAP-klustrets lagrings konto så att HiveServer2 har åtkomst till den.  Ersätt `STORAGE_ACCOUNT_NAME` med namnet på det lagrings konto som används av klustret och `STORAGE_CONTAINER_NAME` med namnet på lagrings behållaren.|
 |`spark.datasource.hive.warehouse.metastoreUri`|Det värde som du hämtade tidigare från **Hive. metaarkiv. URI: er**.|
-|`spark.security.credentials.hiveserver2.enabled`|`false` för ett GARNs klient distributions läge.|
+|`spark.security.credentials.hiveserver2.enabled`|`false` för garn för klient distributions läge.|
 |`spark.hadoop.hive.zookeeper.quorum`|Värdet som du hämtade tidigare från **Hive. Zookeeper. kvorum**.|
 
 Spara ändringar och starta om komponenter efter behov.
@@ -111,7 +111,7 @@ Gör så här för att starta en spark-Shell-session:
     --conf spark.security.credentials.hiveserver2.enabled=false
     ```
 
-    Ett välkomst meddelande visas och en `scala>`-prompt där du kan ange kommandon.
+    Ett välkomst meddelande visas och en `scala>` fråga där du kan ange kommandon.
 
 1. När du har startat Spark-Shell kan du starta en Hive-instans med hjälp av följande kommandon:
 
@@ -193,7 +193,7 @@ Följ stegen nedan för att skapa ett Hive-exempel för Hive-anslutning som mata
 
 1. Generera data för Spark-dataströmmen som du skapade genom att utföra följande steg:
     1. Öppna en andra SSH-session i samma Spark-kluster.
-    1. Skriv `nc -lk 9999` i kommando tolken. Det här kommandot använder verktyget netcat för att skicka data från kommando raden till den angivna porten.
+    1. Skriv `nc -lk 9999`i kommando tolken. Det här kommandot använder verktyget netcat för att skicka data från kommando raden till den angivna porten.
 
 1. Gå tillbaka till den första SSH-sessionen och skapa en ny Hive-tabell för att lagra strömmande data. I Spark-Shell anger du följande kommando:
 
@@ -224,7 +224,7 @@ Följ stegen nedan för att skapa ett Hive-exempel för Hive-anslutning som mata
     hive.table("stream_table").show()
     ```
 
-Använd **CTRL + C** för att stoppa netcat på den andra SSH-sessionen. Använd `:q` om du vill avsluta Spark-Shell på den första SSH-sessionen.
+Använd **CTRL + C** för att stoppa netcat på den andra SSH-sessionen. Använd `:q` för att avsluta Spark-Shell på den första SSH-sessionen.
 
 ### <a name="securing-data-on-spark-esp-clusters"></a>Skydda data i Spark ESP-kluster
 
@@ -237,7 +237,7 @@ Använd **CTRL + C** för att stoppa netcat på den andra SSH-sessionen. Använd
     INSERT INTO demo VALUES ('InteractiveQuery');
     ```
 
-1. Visa tabellens innehåll med följande kommando. Innan du tillämpar principen visas den fullständiga kolumnen i tabellen `demo`.
+1. Visa tabellens innehåll med följande kommando. Innan du tillämpar principen visas den fullständiga kolumnen i `demo`s tabellen.
 
     ```scala
     hive.executeQuery("SELECT * FROM demo").show()
@@ -248,13 +248,13 @@ Använd **CTRL + C** för att stoppa netcat på den andra SSH-sessionen. Använd
 1. Använd en kolumn Maskerings princip som bara visar de sista fyra tecknen i kolumnen.  
     1. Gå till gränssnittet Ranger admin på `https://CLUSTERNAME.azurehdinsight.net/ranger/`.
     1. Klicka på Hive-tjänsten för klustret under **Hive**.
-        ![ranger Service Manager @ no__t-1
+        ![Ranger Service Manager](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
     1. Klicka på fliken **maskering** och **Lägg sedan till ny princip**
 
         ![Hive-princip lista för Hive-lager kopplings Ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
 
     a. Ange ett önskat princip namn. Välj databas: **standard**, Hive-tabell: **demo**, Hive-kolumn: **namn**, användare: **Rsadmin2**, åtkomst typer: **Select**och **partiell mask: Visa sista 4** från menyn **Välj masknings alternativ** . Klicka på **Lägg till**.
-                ![create-princip @ no__t-1
+                ![skapa princip](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. Visa tabellens innehåll igen. När du har tillämpat Ranger-principen ser vi bara de sista fyra tecknen i kolumnen.
 
     ![demo tabell efter användning av Ranger-policy](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png)

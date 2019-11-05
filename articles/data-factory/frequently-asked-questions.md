@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 764a4dd31125dad20f6ef23e3628d7710dba2b85
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 7ebcf865ad23e75b2aa9070fe14fc3ee8f1397c7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72880142"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481139"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory vanliga frågor och svar
 Den här artikeln innehåller svar på vanliga frågor om Azure Data Factory.  
@@ -168,13 +168,13 @@ Ja, parametrarna är ett första klass koncept på översta nivån i Data Factor
 Ja. Du kan definiera standardvärden för parametrarna i pipelinen. 
 
 ### <a name="can-an-activity-in-a-pipeline-consume-arguments-that-are-passed-to-a-pipeline-run"></a>Kan en aktivitet i en pipeline förbruka argument som skickas till en pipeline-körning? 
-Ja. Varje aktivitet i pipelinen kan använda det parameter värde som skickas till pipelinen och köras med `@parameter`-konstruktionen. 
+Ja. Varje aktivitet i pipelinen kan använda det parameter värde som skickas till pipelinen och köras med `@parameter` konstruktion. 
 
 ### <a name="can-an-activity-output-property-be-consumed-in-another-activity"></a>Kan en aktivitets utmatnings egenskap användas i en annan aktivitet? 
-Ja. En aktivitets utdata kan förbrukas i en efterföljande aktivitet med `@activity`-konstruktionen.
+Ja. En aktivitets utdata kan förbrukas i en efterföljande aktivitet med `@activity` konstruktion.
  
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>Hur gör jag för att hantera null-värden korrekt i en aktivitets utdata? 
-Du kan använda konstruktionen `@coalesce` i uttrycken för att hantera null-värden på ett smidigt sätt. 
+Du kan använda `@coalesce` konstruktion i uttrycken för att hantera null-värden på ett smidigt sätt. 
 
 ## <a name="mapping-data-flows"></a>Mappa dataflöden
 
@@ -191,6 +191,82 @@ Använd kopierings aktiviteten till att mellanlagra data från någon av de andr
 ### <a name="is-the-self-hosted-integration-runtime-available-for-data-flows"></a>Är den egna värdbaserade integrerings körningen tillgänglig för data flöden?
 
 IR med egen värd är en ADF-baserad pipeline-konstruktion som du kan använda med kopierings aktiviteten för att hämta eller flytta data till och från lokal eller VM-baserade data källor och mottagare. Mellanlagra data först med en kopia, sedan data flöde för omvandling och sedan en senare kopia om du behöver flytta transformerade data tillbaka till lokal Store.
+
+## <a name="wrangling-data-flows"></a>Datatransformering data flöden
+
+### <a name="what-are-the-supported-regions-for-wrangling-data-flow"></a>Vilka regioner stöds för datatransformering Data Flow?
+
+Datatransformering Data Flow stöds för närvarande i data fabriker som skapats i följande regioner:
+
+* Östra Australien
+* Kanada, centrala
+* Indien, centrala
+* Centrala USA
+* USA, östra
+* USA, östra 2
+* Japan, östra
+* Norra Europa
+* Sydostasien
+* Södra centrala USA
+* Storbritannien, södra
+* Västra centrala USA
+* Västra Europa
+* USA, västra
+* Västra USA 2
+
+### <a name="what-are-the-limitations-and-constraints-with-wrangling-data-flow"></a>Vad är begränsningarna och begränsningarna med datatransformering Data Flow?
+
+Data uppsättnings namn får bara innehålla alfanumeriska tecken. Följande data lager stöds:
+
+* DelimitedText data uppsättning i Azure Blob Storage att använda konto nyckel autentisering
+* DelimitedText-datauppsättning i Azure Data Lake Storage Gen2 med hjälp av konto nyckel eller tjänstens huvud namns autentisering
+* DelimitedText-datauppsättning i Azure Data Lake Storage gen1 med tjänstens huvud namns autentisering
+* Azure SQL Database och informations lager med SQL-autentisering. Se SQL-typer som stöds nedan. Det finns inget PolyBase-eller mellanlagrings stöd för informations lagret.
+
+För närvarande stöds inte den länkade tjänst Key Vaults integreringen i datatransformering data flöden.
+
+### <a name="what-is-the-difference-between-mapping-and-wrangling-data-flows"></a>Vad är skillnaden mellan mappnings-och datatransformering data flöden?
+
+Att mappa data flöden är ett sätt att transformera data i skala utan att behöva koda. Du kan utforma ett datatransformerings jobb på data flödets arbets yta genom att skapa en serie med transformeringar. Börja med ett valfritt antal käll omvandlingar följt av data omvandlings steg. Slutför ditt data flöde med en mottagare för att få dina resultat i ett mål. Kart data flöde är bra vid mappning och omvandling av data med både kända och okända scheman i mottagare och källor.
+
+Med datatransformering data flöden kan du göra smidig data förberedelse och utforskning med Power Query online mashup-redigeraren i stor skala via Spark-körning. Med Rise of data sjöar behöver du ibland bara utforska en data uppsättning eller skapa en data uppsättning i sjön. Du mappar inte till ett känt mål. Datatransformering data flöden används för mindre formella och modellbaserade analys scenarier.
+
+### <a name="what-is-the-difference-between-power-platform-dataflows-and-wrangling-data-flows"></a>Vad är skillnaden mellan Power Platform-data flöden och datatransformering data flöden?
+
+Med Power Platform-data flöden kan användare importera och transformera data från en mängd olika data källor till Common Data Service och Azure Data Lake för att bygga PowerApps-program, Power BI rapporter eller flödes automatiseringar. Power Platform-data flöden använder etablerade Power Query data förberedelse upplevelser, ungefär som Power BI och Excel. Power Platform-data flöden möjliggör också enkel åter användning inom en organisation och hanterar dirigering automatiskt (t. ex. automatisk uppdatering av data flöden som är beroende av ett annat data flöde när den tidigare uppdateringen uppdateras).
+
+Azure Data Factory (ADF) är en hanterad data integrerings tjänst som gör det möjligt för data tekniker och medborgarna att kunna skapa komplexa hybrid-och ELT-arbetsflöden. Datatransformering data flöde i ADF ger användare en kostnads fri, Server fri miljö som fören klar förberedelsen av data i molnet och skalar till vilken data storlek som helst utan att någon infrastruktur hantering krävs. Den använder teknik för Power Query data bearbetning (som också används i Power Platform data flöden, Excel Power BI) för att förbereda och forma data. Datatransformering data flöden har utformats för att hantera alla komplexa och skala utmaningar med stor data integrering och gör det möjligt för användare att snabbt förbereda data i skala via Spark-körning. Användare kan bygga elastiska datapipeliner i en tillgänglig visuell miljö med vårt webbläsarbaserat gränssnitt och låta ADF hantera de komplexa körningarna av Spark. Bygg scheman för dina pipelines och övervaka dina data flödes körningar från den automatiska övervaknings portalen. Du kan enkelt hantera data tillgänglighets service avtal med ADF: s omfattande tillgänglighets övervakning och aviseringar och utnyttja inbyggda funktioner för kontinuerlig integrering och distribution för att spara och hantera dina flöden i en hanterad miljö. Upprätta aviseringar och Visa körnings planer för att kontrol lera att din logik presterar enligt planeringen när du finjusterar dina data flöden.
+
+### <a name="supported-sql-types"></a>SQL-typer som stöds
+
+Datatransformering Data Flow stöder följande data typer i SQL. Du får ett verifierings fel för att använda en datatyp som inte stöds.
+
+* blank
+* double
+* verkligen
+* flyt
+* hängande
+* nchar
+* varchar
+* nvarchar
+* heltal
+* int
+* bitmask
+* boolesk
+* smallint
+* tinyint
+* bigint
+* som
+* text
+* datum
+* datetime
+* datetime2
+* datatyp
+* tidsstämpel
+* uniqueidentifier
+* xml
+
+Andra data typer kommer att stödjas i framtiden.
 
 ## <a name="next-steps"></a>Nästa steg
 Steg-för-steg-instruktioner för att skapa en data fabrik finns i följande Självstudier:

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c34f59c3e9f679adf8ae410f648cb7de6dba6447
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: daaced0aae595e839f2b2476562fc5caffb63640
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430053"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473938"
 ---
 #  <a name="adopting-azure-ad-conditional-access"></a>Anta villkorlig åtkomst för Azure AD
 
@@ -86,7 +86,7 @@ Se även följande länkar för vägledning för att skydda åtkomsten till alla
 **Aktivera Azure Active Directory för villkorlig åtkomst för säker användar åtkomst**
    > [!VIDEO https://www.youtube.com/embed/eLAYBwjCGoA]
 
-### <a name="online-courses"></a>Onlinekurser
+### <a name="online-courses"></a>Nätbaserade kurser
 
 Se följande kurser för villkorlig åtkomst med mera på [Pluralsight.com](https://www.pluralsight.com/):
 
@@ -104,10 +104,10 @@ Se följande kurser för villkorlig åtkomst med mera på [Pluralsight.com](http
 * O ' Reilly – [implementera Azure-lösningar – andra utgåvan.](https://www.oreilly.com/library/view/implementing-azure-solutions/9781789343045/b7ead3db-eb1c-4ace-897e-86ee25ea86be.xhtml)
    * "Kom igång med Azure-tjänster och lär dig hur du implementerar dem i din organisation. Villkorlig åtkomst för Azure AD beskrivs i kapitlet [distribuera och synkronisera Azure Active Directory](https://learning.oreilly.com/library/view/implementing-azure-solutions/9781789343045/02ca8bba-08cf-4691-a7d0-1b96e286e7ea.xhtml). "
 
-* Wiley- [mastering Microsoft Azure infrastruktur tjänster](https://www.wiley.com/Mastering+Microsoft+Azure+Infrastructure+Services-p-9781119003298)
+* Wiley- [Microsoft Azure infrastruktur tjänster för arkitekter: utforma moln lösningar](https://www.wiley.com/Microsoft+Azure+Infrastructure+Services+for+Architects%3A+Designing+Cloud+Solutions-p-9781119596547)
    * "Här är allt du behöver för att förstå, utvärdera, distribuera och underhålla miljöer som använder Microsoft Azure."
 
-## <a name="white-papers"></a>Whitepapers
+## <a name="white-papers"></a>White paper-faktablad
 
 * Publicerad den 18 december 2018, [skapa en elastisk åtkomst kontroll hanterings strategi med Azure Active Directory](../authentication/concept-resilient-controls.md)
    * Det här dokumentet ger vägledning om strategier som en organisation kan anta för att ge återhämtning för att minska risken för utelåsning under oförutsedda avbrott.

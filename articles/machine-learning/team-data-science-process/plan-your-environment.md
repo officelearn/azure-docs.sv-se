@@ -1,6 +1,6 @@
 ---
-title: Identifiera scenarier och planera analytics-process - Team Data Science Process | Azure Machine Learning
-description: Identifiera scenarier och planerar för avancerade analyser vid databearbetning genom att fundera över ett antal viktiga frågor.
+title: Identifiera scenarier och planera analys processen – team data science-processen | Azure Machine Learning
+description: Identifiera scenarier och planera för avancerad analys av data behandling genom att beakta en serie viktiga frågor.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -11,156 +11,154 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d8eed4f2425cdbfec7d3addad11ddaba57e5370e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46d0e8aa1fa934f778e950f0187a853ba46772d1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704488"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495034"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Så här identifierar du scenarier och planerar för avancerade analyser vid databearbetning
 
-Vilka resurser som krävs att skapa en miljö som kan utföra avancerad analysbehandling på en datauppsättning? Den här artikeln föreslår ett antal frågor som kan hjälpa dig att identifiera aktiviteter och resurser som är relevanta ditt scenario.
+Vilka resurser krävs för att du ska kunna skapa en miljö som kan utföra avancerad analys bearbetning på en data uppsättning? Den här artikeln föreslår en rad frågor som kan hjälpa dig att identifiera uppgifter och resurser som är relevanta för ditt scenario.
 
-Läs om anvisningar för förutsägande analyser i [vad är Team Data Science Process (TDSP)](overview.md). Varje steg kräver specifika resurser för uppgifterna som är relevanta för din specifika scenario.
+Läs mer om ordningen på de övergripande stegen för förutsägelse analys i [Vad är TDSP (Team data science process)](overview.md). Varje steg kräver specifika resurser för de uppgifter som är relevanta för ditt specifika scenario.
 
-Svarar på viktiga frågor inom följande områden att identifiera ditt scenario:
+Besvara viktiga frågor i följande områden för att identifiera ditt scenario:
 
-* datalogistik
-* dataegenskaper
-* datauppsättningen kvalitet
-* föredragna verktyg och språk
+* data logistik
+* data egenskaper
+* data mängds kvalitet
+* prioriterade verktyg och språk
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+## <a name="logistic-questions-data-locations-and-movement"></a>Logistiska frågor: data platser och transport
 
-## <a name="logistic-questions-data-locations-and-movement"></a>Logistic frågor: dataplatserna och dataförflyttning
+Logistik frågorna avser följande objekt:
 
-Logistic frågor omfattar följande:
+* plats för data Källa
+* mål mål i Azure
+* krav för att flytta data, inklusive schema, mängd och resurser som ingår
 
-* Datakällans plats
-* målområdet i Azure
-* krav för att flytta data, inklusive den schema och mängden resurser som är inblandade
+Du kan behöva flytta data flera gånger under analys processen. Ett vanligt scenario är att flytta lokala data till någon form av lagring på Azure och sedan till Machine Learning Studio.
 
-Du kan behöva flytta data flera gånger under analytics-processen. Ett vanligt scenario är att flytta lokala data till någon form av lagring på Azure och sedan till Machine Learning Studio.
+### <a name="what-is-your-data-source"></a>Vad är din data Källa?
 
-### <a name="what-is-your-data-source"></a>Vad är din datakälla?
-
-Är dina data lokalt eller i molnet? Det är möjligt platser:
+Är dina data lokalt eller i molnet? Möjliga platser är:
 
 * en offentligt tillgänglig HTTP-adress
-* en lokal eller platsen för filen
-* en SQL Server-databas
-* en Azure storage-behållare
+* en lokal plats eller nätverks fil plats
+* en SQL Server databas
+* en Azure Storage-behållare
 
-### <a name="what-is-the-azure-destination"></a>Vad är Azure-mål?
+### <a name="what-is-the-azure-destination"></a>Vad är Azure-målet?
 
-Där dina data behöver vara bearbetning eller modellering? 
+Var måste dina data vara för bearbetning eller modellering? 
 
 * Azure Blob Storage
-* SQL Azure-databaser
+* SQL Azure databaser
 * SQL Server på virtuella Azure-datorer
 * HDInsight (Hadoop på Azure) eller Hive-tabeller
 * Azure Machine Learning
-* Montera Azure virtuella hårddiskar
+* Monterings bara virtuella hård diskar i Azure
 
-### <a name="how-are-you-going-to-move-the-data"></a>Hur ska du flytta data?
+### <a name="how-are-you-going-to-move-the-data"></a>Hur kommer du att flytta data?
 
-Procedurer och resurser för att mata in eller läsa in data i en mängd olika lagring och bearbetning av miljöer finns:
+Procedurer och resurser för att mata in eller läsa in data i en mängd olika lagrings-och bearbetnings miljöer finns i:
 
-* [Läs in data i lagringsmiljöer för analys](ingest-data.md)
-* [Importera dina utbildningsdata till Azure Machine Learning Studio från olika datakällor](../studio/import-data.md)
+* [Läs in data i lagrings miljöer för analys](ingest-data.md)
+* [Importera dina utbildnings data till Azure Machine Learning Studio (klassisk) från olika data källor](../studio/import-data.md)
 
-### <a name="does-the-data-need-to-be-moved-on-a-regular-schedule-or-modified-during-migration"></a>Behöver data flyttas enligt ett schema eller ändras under migreringen?
+### <a name="does-the-data-need-to-be-moved-on-a-regular-schedule-or-modified-during-migration"></a>Måste data flyttas enligt ett reguljärt schema eller ändras under migreringen?
 
-Överväg att använda Azure Data Factory (ADF) när data ska migreras kontinuerligt. ADF kan vara användbart för att:
+Överväg att använda Azure Data Factory (ADF) när data måste migreras kontinuerligt. ADF kan vara till hjälp för att:
 
-* ett scenario med hybridanvändning som omfattar både lokalt och i molnresurser
-* ett scenario där data överförda, ändras eller ändras av affärslogik under migreras
+* ett hybrid scenario som omfattar både lokala och molnbaserade resurser
+* ett scenario där data har överförts, modifierats eller ändrats av affärs logik i samband med migreringen
 
-Mer information finns i [flytta data från en lokal SQLServer till SQL Azure med Azure Data Factory](move-sql-azure-adf.md).
+Mer information finns i [Flytta data från en lokal SQL Server till SQL Azure med Azure Data Factory](move-sql-azure-adf.md).
 
-### <a name="how-much-of-the-data-is-to-be-moved-to-azure"></a>Hur mycket data som flyttas till Azure?
+### <a name="how-much-of-the-data-is-to-be-moved-to-azure"></a>Hur mycket data ska flyttas till Azure?
 
-Mycket stora datamängder kan överskrida lagringskapaciteten för vissa miljöer. Exempelvis finns i avsnittet om storleksgränser för Machine Learning Studio i nästa avsnitt. I sådana fall kan du använda ett exempel på data under analysen. Mer information om hur du nedåtsampla en datauppsättning i olika Azure-miljöer finns i [exempeldata i Team Data Science Process](sample-data.md).
+Extremt stora data uppsättningar kan överstiga lagrings kapaciteten för vissa miljöer. Ett exempel finns i diskussionen om storleks gränser för Machine Learning Studio (klassisk) i nästa avsnitt. I sådana fall kan du använda ett exempel på data under analysen. Mer information om hur du desamplar en data uppsättning i olika Azure-miljöer finns i [exempel data i team data science process](sample-data.md).
 
-## <a name="data-characteristics-questions-type-format-and-size"></a>Egenskaper för datafrågor: typ, format och storlek
+## <a name="data-characteristics-questions-type-format-and-size"></a>Frågor om data egenskaper: typ, format och storlek
 
-Dessa frågor är att planera din lagring och bearbetning av miljöer. De hjälper dig att välja rätt scenario för din datatyp av och förstå några begränsningar.
+Dessa frågor är viktiga för att planera lagrings-och bearbetnings miljöer. De hjälper dig att välja rätt scenario för din datatyp och förstå eventuella begränsningar.
 
-### <a name="what-are-the-data-types"></a>Vilka är datatyperna som?
+### <a name="what-are-the-data-types"></a>Vilka är data typerna?
 
-* Numeriskt
+* Numeriska
 * Kategoriska
 * Strängar
-* Binär
+* binär
 
 ### <a name="how-is-your-data-formatted"></a>Hur formateras dina data?
 
-* .Csv-fil (CSV) eller tabbavgränsade (TSV) flata filer
+* Kommaavgränsade (CSV) eller tabbavgränsade (tabbavgränsade) flata filer
 * Komprimerad eller okomprimerad
-* Azure-blobar
+* Azure-blobbar
 * Hadoop Hive-tabeller
-* SQL Server-tabeller
+* SQL Server tabeller
 
 ### <a name="how-large-is-your-data"></a>Hur stora är dina data?
 
-* Små: Mindre än 2 GB
-* Medium: Större än 2 GB och mindre än 10 GB
-* Stora: Större än 10 GB
+* Liten: mindre än 2 GB
+* Medel: större än 2 GB och mindre än 10 GB
+* Stor: större än 10 GB
 
-Ta till exempel Azure Machine Learning Studio-miljön:
+Ta den Azure Machine Learning Studio (klassiska) miljön till exempel:
 
-* En lista över dataformat och typer som stöds av Azure Machine Learning Studio finns i [dataformat och datatyper som stöds](../studio/import-data.md#supported-data-formats-and-data-types) avsnittet.
-* Information om begränsningarna i andra Azure-tjänster används i analytics-processen finns i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../../azure-subscription-service-limits.md).
+* En lista över de data format och typer som stöds av Azure Machine Learning Studio finns i avsnittet [data format och data typer som stöds](../studio/import-data.md#supported-data-formats-and-data-types) .
+* Information om begränsningarna för andra Azure-tjänster som används i analys processen finns i [Azure-prenumerationer, tjänst gränser, kvoter och begränsningar](../../azure-subscription-service-limits.md).
 
-## <a name="data-quality-questions-exploration-and-pre-processing"></a>Data quality frågor: utforskning och bearbeta data i förväg
+## <a name="data-quality-questions-exploration-and-pre-processing"></a>Data kvalitets frågor: utforskning och för bearbetning
 
 ### <a name="what-do-you-know-about-your-data"></a>Vad vet du om dina data?
 
-Förstå de grundläggande egenskaperna om dina data:
+Förstå grundläggande egenskaper för dina data:
 
-* Vad mönster eller trender det uppvisar
-* Vilka extremvärden som den innehåller
+* Vilka mönster eller trender som det visar
+* Vad avviker
 * Hur många värden som saknas
 
-Det här steget är viktigt att hjälpa dig att:
+Det här steget är viktigt för att hjälpa dig:
 
-* Avgöra hur mycket förbearbetning krävs
-* Formulera hypoteser som föreslår den mest lämpliga funktioner eller typen av analyser
-* Formulera planer för insamling av ytterligare data
+* Ta reda på hur mycket för bearbetning som behövs
+* Formulera Hypotheses som föreslår de lämpligaste funktionerna eller typen av analys
+* Formulera planer för ytterligare data insamling
 
-Bra metoder för granskning av data är beskrivande statistik beräkning och visualisering ritar. Mer information om hur du utforskar en datauppsättning i olika Azure-miljöer finns i [utforska data i Team Data Science Process](explore-data.md).
+Användbara tekniker för data granskning innehåller beskrivande statistik beräkning och visualiserings områden. Mer information om hur du utforskar en data uppsättning i olika Azure-miljöer finns i [utforska data i team data science process](explore-data.md).
 
-### <a name="does-the-data-require-preprocessing-or-cleaning"></a>Kräver data Förbearbeta eller rensning?
+### <a name="does-the-data-require-preprocessing-or-cleaning"></a>Kräver data för bearbetning eller rensning?
 
-Du kan behöva Förbearbeta och rensa data innan du kan använda datauppsättningen effektivt för machine learning. Rådata är ofta bort störande och otillförlitliga. Det kanske saknar värden. Med hjälp av sådana data för modellering kan ge vilseledande resultat. En beskrivning finns i [uppgifter för att förbereda data för förbättrad machine learning](prepare-data.md).
+Du kan behöva Förbearbeta och rensa dina data innan du kan använda data uppsättningen effektivt för Machine Learning. Rå data är ofta störningar och är otillförlitliga. Det kan vara saknade värden. Att använda sådana data för modellering kan producera missvisande resultat. För en beskrivning, se [uppgifter för att förbereda data för förbättrad maskin inlärning](prepare-data.md).
 
-## <a name="tools-and-languages-questions"></a>Verktyg och språk-frågor
+## <a name="tools-and-languages-questions"></a>Frågor om verktyg och språk
 
-Det finns många alternativ för språk, utvecklingsmiljöer och verktyg. Tänk på dina behov och önskemål.
+Det finns många alternativ för språk, utvecklings miljöer och verktyg. Tänk på dina behov och önskemål.
 
-### <a name="what-languages-do-you-prefer-to-use-for-analysis"></a>Vilka språk du vill använda för analys?
+### <a name="what-languages-do-you-prefer-to-use-for-analysis"></a>Vilka språk vill du använda för analys?
 
 * R
 * Python
 * SQL
 
-### <a name="what-tools-should-you-use-for-data-analysis"></a>Vilka verktyg för analys av data ska du använda?
+### <a name="what-tools-should-you-use-for-data-analysis"></a>Vilka verktyg bör du använda för data analys?
 
-* [Microsoft Azure Powershell](/powershell/azure/overview) -ett skriptspråk som används för att administrera dina Azure-resurser i ett skriptspråk
+* [Microsoft Azure PowerShell](/powershell/azure/overview) – ett skript språk som används för att administrera dina Azure-resurser i ett skript språk
 * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
-* [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
+* [Revolution analys](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)
 * [Python Tools för Visual Studio](https://aka.ms/ptvsdocs)
 * [Anaconda](https://www.continuum.io/why-anaconda)
 * [Jupyter-anteckningsböcker](https://jupyter.org/)
 * [Microsoft Power BI](https://powerbi.microsoft.com)
 
-## <a name="identify-your-advanced-analytics-scenario"></a>Identifiera ditt scenario för avancerad analys
+## <a name="identify-your-advanced-analytics-scenario"></a>Identifiera ditt avancerade analys scenario
 
-När du har besvarat frågor i föregående avsnitt, är det dags att fastställa vilket scenario som bäst passar ditt ärende. Exempelscenarier beskrivs i [scenarier för avancerade analyser i Azure Machine Learning](plan-sample-scenarios.md).
+När du har besvarat frågorna i föregående avsnitt är du redo att avgöra vilket scenario som passar bäst för ditt ärende. Exempel scenarierna beskrivs i [scenarier för avancerad analys i Azure Machine Learning](plan-sample-scenarios.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Vad är Team Data Science Process (TDSP)?](overview.md)
+> [Vad är TDSP (Team data science process)?](overview.md)

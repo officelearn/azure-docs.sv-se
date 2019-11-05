@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 7c163dacae24749dbe309bca33bac016a3be7aa5
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 902bf84ebf090cf9f0f886ad1e774ff7bdfeca93
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002897"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490752"
 ---
 # <a name="how-personalizer-works"></a>Så här fungerar Personanpassning
 
@@ -27,13 +27,13 @@ För varje slinga **anropar du rang-API: et med** baserat på aktuell kontext, m
 
 **Ranknings** -API: et bestämmer att du vill använda antingen:
 
-* _Sårbarhet_: Den aktuella modellen för att avgöra den bästa åtgärden baserat på tidigare data.
+* _Sårbarhet_: den aktuella modellen för att avgöra den bästa åtgärden baserat på tidigare data.
 * _Utforska_: Välj en annan åtgärd i stället för den översta åtgärden.
 
 **Belönings** -API: et:
 
 * Samlar in data för att träna modellen genom att registrera funktionerna och belönings poängen för varje rang samtal.
-* Använder dessa data för att uppdatera modellen baserat på inställningarna som anges i _inlärnings principen_.
+* Använder dessa data för att uppdatera modellen baserat på konfigurationen som anges i _inlärnings principen_.
 
 ## <a name="architecture"></a>Arkitektur
 
@@ -55,11 +55,11 @@ Personanpassan är baserad på vetenskaps-och forsknings verksamhet i området f
 
 ## <a name="terminology"></a>Terminologi
 
-* **Inlärnings slinga**: Du kan skapa en inlärnings slinga för varje del av ditt program som kan dra nytta av anpassning. Om du har mer än en upplevelse att anpassa, skapar du en slinga för var och en. 
+* **Inlärnings slinga**: du kan skapa en inlärnings slinga för varje del av ditt program som kan dra nytta av anpassning. Om du har mer än en upplevelse att anpassa, skapar du en slinga för var och en. 
 
-* **Åtgärder**: Åtgärder är innehålls objekt, till exempel produkter eller kampanjer, för att välja bland. Personanpassare väljer den främsta åtgärden som ska visas för dina användare, som kallas _belönings åtgärd_, via rang-API: et. Varje åtgärd kan ha funktioner som skickas med rang-begäran.
+* **Åtgärder**: åtgärder är innehålls objekt, till exempel produkter eller kampanjer, för att välja bland. Personanpassare väljer den främsta åtgärden som ska visas för dina användare, som kallas _belönings åtgärd_, via rang-API: et. Varje åtgärd kan ha funktioner som skickas med rang-begäran.
 
-* **Kontext**: Om du vill ha en mer exakt rangordning, anger du information om din kontext, till exempel:
+* **Kontext**: Ange en mer exakt rangordning genom att ange information om din kontext, till exempel:
     * Användaren.
     * Enheten som de är på. 
     * Aktuell tid.
@@ -68,19 +68,19 @@ Personanpassan är baserad på vetenskaps-och forsknings verksamhet i området f
 
     Ditt specifika program kan ha annan Sammanhangs information. 
 
-* **[Funktioner](concepts-features.md)** : En informations enhet om ett innehålls objekt eller en användar kontext.
+* **[Funktioner](concepts-features.md)** : en enhet med information om ett innehålls objekt eller en användar kontext.
 
-* **Utmärkelse**: Ett mått på hur användaren svarade på åtgärden rang-API som returnerades, som ett resultat mellan 0 och 1. Värdet 0 till 1 anges av din affärs logik, baserat på hur valet hjälpte dig att uppnå dina affärs mål för anpassning. 
+* **Belöning**: ett mått på hur användaren svarade på den ranknings-API som returnerade åtgärden, som ett resultat mellan 0 och 1. Värdet 0 till 1 anges av din affärs logik, baserat på hur valet hjälpte dig att uppnå dina affärs mål för anpassning. 
 
-* **Undersökning**: Tjänsten personanpassa undersöker när den bästa åtgärden används i stället för att välja en annan åtgärd för användaren. Tjänsten personanpassa förhindrar drift, stagnation och kan anpassas till pågående användar beteende genom att utforska. 
+* **Utforskning**: tjänsten personanpassa är en utforskande av när du i stället för att returnera den bästa åtgärden väljer en annan åtgärd för användaren. Tjänsten personanpassa förhindrar drift, stagnation och kan anpassas till pågående användar beteende genom att utforska. 
 
-* **Experimentets varaktighet**: Hur lång tid som tjänsten personanpassa förväntar sig för en belöning, med början från det ögonblick då rang samtalet inträffade för händelsen.
+* **Experimentets varaktighet**: den tid som tjänsten personanpassa förväntar sig en belöning, med början från det ögonblick då rang samtalet inträffade för händelsen.
 
-* **Inaktiva händelser**: En inaktiv händelse är en där du anropade rang, men du är inte säker på att användaren någonsin kommer att se resultatet, på grund av klient programs beslut. Inaktiva händelser gör att du kan skapa och lagra anpassnings resultat och sedan välja att ta bort dem senare utan att påverka Machine Learning-modellen.
+* **Inaktiva händelser**: en inaktiv händelse är en där du anropade rang, men du är inte säker på att användaren någonsin kommer att se resultatet, på grund av klient programs beslut. Inaktiva händelser gör att du kan skapa och lagra anpassnings resultat och sedan välja att ta bort dem senare utan att påverka Machine Learning-modellen.
 
-* **Modell**: En personanpassa modell fångar alla data som har lärts om användarens beteende, hämtar tränings data från kombinationen av argument som du skickar till ranknings-och belönings samtal och med ett inlärnings beteende som fastställs av inlärnings principen. 
+* **Modell**: en personanpassa modell som samlar in alla data som lärts om användarens beteende, hämtar tränings data från kombinationen av argument som du skickar till ranknings-och belönings samtal och med ett inlärnings beteende som fastställs av inlärnings principen. 
 
-* **Utbildnings princip**: Hur personanpassa tågen en modell i varje händelse kommer att fastställas av vissa meta-parametrar som påverkar hur Machine Learning-algoritmer fungerar. Nya inlärnings slingor börjar med en standard inlärnings princip som kan ge måttliga prestanda. När du [](concepts-offline-evaluation.md)kör utvärderingarna kan du skapa nya inlärnings principer som är specifikt optimerade för loopens användnings fall. Personanpassaren kommer att utföra avsevärt bättre med principer som är optimerade för varje enskild slinga, som genereras under utvärderingen.
+* **Inlärnings princip**: hur personanpassa tågen en modell i varje händelse kommer att fastställas av vissa meta-parametrar som påverkar hur Machine Learning-algoritmer fungerar. Nya inlärnings slingor börjar med en standard inlärnings princip som kan ge måttliga prestanda. När du kör [utvärderingarna](concepts-offline-evaluation.md)kan du skapa nya inlärnings principer som är specifikt optimerade för loopens användnings fall. Personanpassaren kommer att utföra avsevärt bättre med principer som är optimerade för varje enskild slinga, som genereras under utvärderingen.
 
 ## <a name="example-use-cases-for-personalizer"></a>Exempel på användnings fall för Personanpassare
 
@@ -125,7 +125,7 @@ Använd rekommendations motorn för att filtrera ned en stor katalog till några
 
 Du kan använda rekommendations motorer med Personanpassare:
 
-* Konfigurera rekommendations [lösningen](https://github.com/Microsoft/Recommenders/). 
+* Konfigurera [rekommendations lösningen](https://github.com/Microsoft/Recommenders/). 
 * När du visar en sida, anropar du rekommendations modellen för att få en kort lista över rekommendationer.
 * Ring upp anpassningen för att rangordna utdata från rekommendations lösningen.
 * Skicka feedback om din användar åtgärd med belönings-API-anropet.
@@ -154,9 +154,9 @@ I vissa arkitekturer kan ordningen ovan vara svår att implementera. I så fall 
 
 ## <a name="verifying-adequate-effectiveness-of-personalizer"></a>Verifierar tillräcklig effektivitet hos Personanpassaren
 
-Du kan övervaka effektiviteten för Personanpassare regelbundet genom att utföra [offline](how-to-offline-evaluation.md) -utvärderingar
+Du kan övervaka effektiviteten för Personanpassare regelbundet genom att utföra [offline-utvärderingar](how-to-offline-evaluation.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
 Förstå [var du kan använda personanpassare](where-can-you-use-personalizer.md).
-Utföra [offline](how-to-offline-evaluation.md) -utvärderingar
+Utföra [offline-utvärderingar](how-to-offline-evaluation.md)

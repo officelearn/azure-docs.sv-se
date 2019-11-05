@@ -8,27 +8,30 @@ ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 7852eda849dfb05343829875ba5a66fa47970e7e
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
-ms.translationtype: MT
+ms.openlocfilehash: 03f28cb40708b7ec77a0a342b5ec1b6faeaa8e3b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790075"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73485157"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Anslut ett kunskaps lager med Power BI
 
 > [!Note]
-> Kunskaps lagret är i för hands version och bör inte användas i produktionen. [Azure Kognitiv sökning REST API version 2019-05-06 – för hands version](search-api-preview.md) innehåller den här funktionen. Det finns för närvarande inget stöd för .NET SDK.
+> Kunskaps lagret är i för hands version och bör inte användas i produktionen. Portalen och [sök REST API version 2019-05-06 – för hands version](search-api-preview.md) innehåller den här funktionen. Det finns för närvarande inget stöd för .NET SDK.
 >
-I den här artikeln får du lära dig hur du ansluter och utforskar ett kunskaps lager med hjälp av Power Query i Power BI Desktop-appen. Om du vill skapa ett kunskaps lager exempel som används i den här genom gången, se [skapa ett kunskaps lager i Azure Portal](knowledge-store-create-portal.md).
 
-## <a name="prerequisites"></a>Krav
+I den här artikeln får du lära dig hur du ansluter till och utforskar ett kunskaps lager med hjälp av Power Query i Power BI Desktop-appen. Du kan komma igång snabbare med mallar eller skapa en anpassad instrument panel från grunden.
 
-+ Följ stegen i [skapa ett kunskaps lager i Azure Portal](knowledge-store-create-portal.md) för att skapa det exempel kunskaps arkiv som används i den här genom gången. Du kommer också att behöva namnet på det Azure Storage-konto som du använde för att skapa kunskaps lagret, tillsammans med dess åtkomst nyckel från Azure Portal.
+## <a name="prerequisites"></a>Förutsättningar
 
 + [Installera Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 
-## <a name="connect-with-power-bi"></a>Anslut med Power BI
++ Du behöver ett kunskaps lager med en projektion i Azure Table Storage. Du kommer också att behöva namnet på det Azure Storage konto som används för att skapa kunskaps lagret, tillsammans med dess åtkomst nyckel från Azure Portal.
+
+Om du vill arbeta med ett exempel på kunskaps lager följer du anvisningarna för att [skapa ett kunskaps lager](knowledge-store-create-portal.md).
+
+## <a name="create-a-custom-report"></a>Skapa en anpassad rapport
 
 1. Starta Power BI Desktop och klicka på **Hämta data**.
 

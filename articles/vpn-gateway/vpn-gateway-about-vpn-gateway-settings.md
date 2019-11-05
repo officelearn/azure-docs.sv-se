@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: fa08ea44722b2def684c269c3f9a0a30a4890a12
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 64a162b9d2f83b4bc703f5912116fd302fcb601c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970910"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495730"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Om konfigurations inställningar för VPN Gateway
 
@@ -39,7 +39,7 @@ De tillgängliga värdena för-GatewayType är:
 * Vpn
 * ExpressRoute
 
-En VPN-Gateway kräver *VPN*-`-GatewayType`.
+En VPN-Gateway kräver `-GatewayType` *VPN*.
 
 Exempel:
 
@@ -79,9 +79,9 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 
 Om du har en VPN-gateway och vill använda en annan gateway-SKU, måste du antingen ändra storlek på Gateway-SKU: n eller ändra till en annan SKU. När du byter till en annan gateway-SKU tar du bort den befintliga gatewayen helt och skapar en ny. Det kan ta upp till 45 minuter att skapa en gateway. När du ändrar storlek på en gateway-SKU finns det inte mycket avbrott eftersom du inte behöver ta bort och återskapa gatewayen. Om du har möjlighet att ändra storlek på Gateway-SKU: n, i stället för att ändra den, ska du göra det. Det finns dock regler för storleks ändring:
 
-1. Du kan ändra storlek mellan VpnGw1, VpnGw2 och VpnGw3 SKU: er.
+1. Med undantag för Basic SKU kan du ändra storlek på en VPN gateway-SKU till en annan VPN gateway-SKU i samma generation (Generation1 eller Generation2). Till exempel kan VpnGw1 av Generation1 ändras till VpnGw2 för Generation1, men inte till VpnGw2 Generation2.
 2. När du arbetar med gamla gatewayen-SKU: er, kan du ändra storlek mellan Basic, Standard och HighPerformance SKU: er.
-3. Du **kan inte** ändra från HighPerformance-Basic/Standard SKU: er till nya VpnGw3-VpnGw1/VpnGw2 SKU: er. Du måste i stället [ändra](#change) till de nya SKU: erna.
+3. Du **kan inte** ändra storlek från Basic/standard/HighPerformance SKU: er till VpnGw SKU: er. Du måste i stället [ändra](#change) till de nya SKU: erna.
 
 #### <a name="resizegwsku"></a>Ändra storlek på en gateway
 
@@ -172,7 +172,7 @@ För ytterligare tekniska resurser och särskilda syntax krav för att använda 
 | **Klassisk** | **Resource Manager** |
 | --- | --- |
 | [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
-| [REST-API](https://msdn.microsoft.com/library/jj154113) |[REST-API](/rest/api/network/virtualnetworkgateways) |
+| [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |
 | Stöds inte | [Azure CLI](/cli/azure/network/vnet-gateway)|
 
 ## <a name="next-steps"></a>Nästa steg

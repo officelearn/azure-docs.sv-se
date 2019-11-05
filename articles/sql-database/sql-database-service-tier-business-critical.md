@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 12/04/2018
-ms.openlocfilehash: 9e398fd7d370d30fac87035b27a218834b4fab22
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: ef1f420e4c4dbd38ad703eb0573fae36af078edb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899720"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496229"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Affärskritisk nivå – Azure SQL Database
 
@@ -26,7 +26,7 @@ ms.locfileid: "70899720"
 Azure SQL Database baseras på SQL Server databas motor arkitektur som justeras för moln miljön för att säkerställa 99,99% tillgänglighet även i händelse av infrastruktur haverier. Det finns tre arkitektur modeller som används i Azure SQL Database:
 - Generell användning/standard 
 - Affärskritisk/Premium
-- Storskalig
+- Hyperskala
 
 Premium-/Affärskritisk tjänst nivå modellen är baserad på ett kluster med databas motor processer. Den här arkitektur modellen bygger på ett faktum att det alltid finns ett kvorum med tillgängliga databas motor noder och har minimal påverkan på din arbets belastning även under underhålls aktiviteter.
 
@@ -49,7 +49,7 @@ Affärskritisk tjänst nivå är utformad för program som kräver svar med låg
 Den viktigaste anledningen till varför du bör välja Affärskritisk tjänst nivå i stället för Generell användning nivå är:
 -   Krav för låg IO-latens – arbets belastningar som kräver snabba svar från lagrings skiktet (1-2 millisekunder i genomsnitt) bör använda Affärskritisk nivån. 
 -   Frekvent kommunikation mellan program och databas. Program som inte kan utnyttja cachelagring av program lager eller [begära batchbearbetning](sql-database-use-batching-to-improve-performance.md) och behöver skicka många SQL-frågor som måste bearbetas snabbt är bra kandidater för affärskritisk nivå.
--   Stort antal uppdateringar – INSERT-, Update-och Delete-åtgärder ändra data sidorna i minnet (skadad sida) som måste sparas till datafiler med `CHECKPOINT` åtgärd. Eventuell databas motor process krasch eller en redundansväxling av databasen med ett stort antal skadade sidor kan öka återställnings tiden i Generell användning nivån. Använd Affärskritisk nivå om du har en arbets belastning som orsakar många minnes ändringar. 
+-   Ett stort antal uppdateringar – INSERT-, Update-och Delete-åtgärder ändrar data sidorna i minnet (skadad sida) som måste sparas till datafiler med `CHECKPOINT` åtgärden. Eventuell databas motor process krasch eller en redundansväxling av databasen med ett stort antal skadade sidor kan öka återställnings tiden i Generell användning nivån. Använd Affärskritisk nivå om du har en arbets belastning som orsakar många minnes ändringar. 
 -   Tids krävande transaktioner som ändrar data. Transaktioner som öppnas under en längre tid förhindrar trunkering av logg filen som kan öka logg storleken och antalet [virtuella loggfiler (VLF)](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide#physical_arch). Ett stort antal VLF kan sakta ned återställning av databasen efter redundansväxlingen.
 -   Arbets belastning med rapporterings-och analys frågor som kan omdirigeras till den kostnads fria sekundära skrivskyddade repliken.
 - Högre återhämtning och snabbare återställning från felen. Om det uppstår systemfel kommer databasen på den primära instansen att inaktive ras och en av de sekundära replikerna kommer omedelbart att bli en ny skrivskyddad primär databas som är redo att bearbeta frågorna. Databas motorn behöver inte analysera och göra om transaktioner från logg filen och läsa in alla data i minnesbufferten.
@@ -59,7 +59,7 @@ Den viktigaste anledningen till varför du bör välja Affärskritisk tjänst ni
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Hitta resurs egenskaper (antal kärnor, IO, minne) för Affärskritisk nivå i [hanterad instans](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), enkel databas i [vCore-modell](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) eller [DTU-modell](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier)eller elastisk pool i [vCore-modellen](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes) och DTU- [modellen](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
+- Hitta resurs egenskaper (antal kärnor, IO, minne) för Affärskritisk nivå i [hanterad instans](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), enkel databas i [vCore-modell](sql-database-vcore-resource-limits-single-databases.md#business-critical---provisioned-compute---gen4) eller [DTU-modell](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier)eller elastisk pool i [vCore-modellen](sql-database-vcore-resource-limits-elastic-pools.md#business-critical---provisioned-compute---gen4) och DTU- [modellen](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
 - Lär dig mer om [generell användning](sql-database-service-tier-general-purpose.md) -och [skalnings](sql-database-service-tier-hyperscale.md) nivåer.
 - Läs mer om [Service Fabric](../service-fabric/service-fabric-overview.md).
 - Fler alternativ för hög tillgänglighet och haveri beredskap finns i [affärs kontinuitet](sql-database-business-continuity.md).

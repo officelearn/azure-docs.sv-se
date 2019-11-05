@@ -7,14 +7,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 11/04/2019
 ms.author: sstein
-ms.openlocfilehash: f1450399dc027a6977f4c99507e2e15b301272c4
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 62ec5d4e85a6e72982b49872af59e7b579c4fd77
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249392"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496259"
 ---
 # <a name="sql-database-release-notes"></a>Viktig information om SQL Database
 
@@ -26,6 +26,7 @@ Den här artikeln innehåller SQL Database funktioner som för närvarande finns
 
 | Funktion | Information |
 | ---| --- |
+| Nya maskin varu generationer i Fsv2-serien och M-serien| Mer information finns i [maskin varu generationer](sql-database-service-tiers-vcore.md#hardware-generations).|
 | [Privat Azure-länk](https://azure.microsoft.com/updates/private-link-now-available-in-preview/)| Private Link förenklar nätverksarkitekturen och skyddar anslutningen mellan slutpunkter i Azure genom att behålla data på Azure-nätverket, vilket eliminerar exponeringen på Internet. Med Private Link kan du även skapa och återge dina egna tjänster på Azure. |
 | Accelererad databas återställning med enkla databaser och elastiska pooler | Mer information finns i [accelererad databas återställning](sql-database-accelerated-database-recovery.md).|
 |Ungefärligt antal distinkta|Mer information finns i [Ungefärlig Count DISTINCT](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing).|
@@ -37,7 +38,6 @@ Den här artikeln innehåller SQL Database funktioner som för närvarande finns
 |Feedback om minnes tilldelning (rad läge) (under kompatibilitetsnivå 150)|Mer information finns i [minnes beviljande feedback (rad läge)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback).|
 | Frågeredigeraren i Azure Portal |Mer information finns i [använda Azure Portal SQL-Frågeredigeraren för att ansluta och fråga efter data](sql-database-connect-query-portal.md).|
 | R Services/Machine Learning med enkla databaser och elastiska pooler |Mer information finns i [Machine Learning Services i Azure SQL Database](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|
-| Serverlös beräkningsnivå | Mer information finns i [SQL Database utan server (för hands version)](sql-database-serverless.md).|
 |SQL-analys|Mer information finns i [Azure SQL-analys](../azure-monitor/insights/azure-sql.md).|
 |Uppskjuten tabell variabel (under kompatibilitetsnivå 150)|Mer information finns i [tabell variabel uppskjuten kompilering](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation).|
 | &nbsp; |

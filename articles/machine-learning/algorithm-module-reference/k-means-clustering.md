@@ -1,7 +1,7 @@
 ---
 title: 'K-innebär klustring: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: 'Lär dig hur du använder modulen K-: Clustering i Azure Machine Learning-tjänsten för att träna kluster modeller.'
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen K-betyder kluster i Azure Machine Learning för att träna kluster modeller.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: bb39a57f565a542e5106b7ba14e58bc39041f53d
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 4634519f55582a3184472d28acfd98fa849be86a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693113"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497758"
 ---
 # <a name="module-k-means-clustering"></a>Modul: K-innebär klustring
 
-Den här artikeln beskriver hur du använder modulen *k-: kluster* modul i Azure Machine Learning Studio för att skapa en modell modell med en modell som inte är tränad k: 
+Den här artikeln beskriver hur du använder modulen *K-: Clustering* i Azure Machine Learning designer (för hands version) för att skapa en modell som inte är tränad k-: 
  
 K-betyder en av de enklaste och bästa kända, ej *övervakade* inlärnings algoritmerna. Du kan använda algoritmen för en mängd olika Machine Learning-uppgifter, till exempel: 
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/10/2019
-ms.openlocfilehash: fe60b740312ee49510ea931bba1346ceaef9f31a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.openlocfilehash: c3791946ee31183e4b3c5131a8e62934bf87dfee
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035523"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497482"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Vad är beräknings mål i Azure Machine Learning? 
 
@@ -46,16 +46,31 @@ Lär dig [hur och hur du distribuerar din modell till ett beräknings mål](how-
 <a name="amlcompute"></a>
 ## <a name="azure-machine-learning-compute-managed"></a>Azure Machine Learning Compute (hanterad)
 
-En hanterad beräknings resurs skapas och hanteras av Azure Machine Learning. Den här beräkningen är optimerad för Machine Learning-arbetsbelastningar. Azure Machine Learning Compute är den enda hanterade beräkningen från och med den 30 maj 2019. Ytterligare hanterade beräknings resurser kan läggas till i framtiden.
+En hanterad beräknings resurs skapas och hanteras av Azure Machine Learning. Den här beräkningen är optimerad för Machine Learning-arbetsbelastningar. Azure Machine Learning beräknings kluster och [beräknings instanser](concept-compute-instance.md) är de enda hanterade beräkningarna. Ytterligare hanterade beräknings resurser kan läggas till i framtiden.
 
-Du kan använda Azure Machine Learning Compute for Training och batch-inferencing (för hands version).  Med den här beräknings resursen har du:
+Du kan skapa Azure Machine Learning beräknings instanser eller beräknings kluster i:
+
+| | Azure Machine Learning-studio | Azure Portal | SDK | Resource Manager-mall | CLI |
+|---| ----- | ----- | ----- | ----- | ----- |
+| Beräknings instans | ja | ja | ja | ja |  |
+| Beräknings kluster | ja | ja | ja | ja | ja |
+
+När du skapar de här beräknings resurserna sker en del av din arbets yta automatiskt till skillnad från andra typer av beräknings mål.
+
+> [!NOTE]
+> Beräknings instanser är endast tillgängliga för arbets ytor med en region i **norra centrala USA** eller **Storbritannien, södra**.
+>Om din arbets yta finns i en annan region kan du fortsätta att skapa och använda en [virtuell dator](concept-compute-instance.md#notebookvm) i stället. 
+
+### <a name="compute-clusters"></a>Beräknings kluster
+
+Du kan använda Azure Machine Learning beräknings kluster för utbildning och för batch-inferencing (för hands version).  Med den här beräknings resursen har du:
 
 * Kluster med en eller flera noder
 * Autoskalar varje gången du skickar en körning 
 * Automatisk kluster hantering och schemaläggning av jobb 
 * Stöd för både CPU-och GPU-resurser
 
-Du kan skapa Azure Machine Learning beräknings instanser i Azure Portal eller din [landnings sida för arbets ytan (för hands version)](https://ml.azure.com), med SDK eller med cli. När den skapas är den automatiskt en del av din arbets yta till skillnad från andra typer av beräknings mål.
+
 
 ## <a name="unmanaged-compute"></a>Ohanterad beräkning
 

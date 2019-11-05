@@ -1,5 +1,5 @@
 ---
-title: Apache Spark arbets belastnings prestanda med Azure HDInsight IO-cache (för hands version)
+title: Apache Spark prestanda – Azure HDInsight IO-cache (för hands version)
 description: Lär dig mer om Azure HDInsight IO-cache och hur du använder den för att förbättra Apache Spark prestanda.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/29/2019
-ms.openlocfilehash: b60906df01f640877e90281812acf64082ffad01
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 3ef2def6329dc31eb1b175133b4525f87de9181c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162833"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494654"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Förbättra prestanda för Apache Spark arbets belastningar med Azure HDInsight IO-cache
 
@@ -49,7 +49,7 @@ Azure HDInsight IO-cachen inaktive ras som standard i för hands versionen. I/o-
 >[!NOTE]  
 > Även om förlopps indikatorn visar aktive rad aktive ras inte IO-cache förrän du startar om de andra berörda tjänsterna.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
   
 Du kan få disk utrymmes fel som kör Spark-jobb när du har aktiverat IO-cache. Felen uppstår eftersom Spark också använder lokal disk lagring för att lagra data under blandning åtgärder. Spark-utrymmet kan ta slut i SSD när IO-cache är aktiverat och utrymmet för Spark-lagring minskas. Mängden utrymme som används av IO-cache-standardvärdet är hälften av det totala SSD-utrymmet. Disk utrymmes användningen för IO-cache kan konfigureras i Ambari. Om du får disk utrymmes fel minskar du mängden SSD-utrymme som används för IO-cache och startar om tjänsten. Gör så här om du vill ändra utrymmes uppsättningen för IO-cache:
 
@@ -69,7 +69,7 @@ Du kan få disk utrymmes fel som kör Spark-jobb när du har aktiverat IO-cache.
 
 1. Välj **Spara** längst upp till höger.
 
-1. Välj **starta om**  > **starta om alla berörda**.
+1. Välj **starta om** > **starta om alla berörda**.
 
     ![Apache Ambari-omstart alla påverkade](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Starta om alla berörda")
 

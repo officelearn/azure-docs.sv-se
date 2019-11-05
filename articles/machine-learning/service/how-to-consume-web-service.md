@@ -11,14 +11,15 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: fda6c72504a75d600931185e224bb46db03e23ed
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: e9d262380a8e0769b1191673a7e00eed770f7ab2
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374296"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497086"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Använda en Azure Machine Learning modell som distribueras som en webb tjänst
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Om du distribuerar en Azure Machine Learning-modell som en webb tjänst skapas en REST API. Du kan skicka data till det här API: et och ta emot den förutsägelse som returneras av modellen. I det här dokumentet lär du dig hur du skapar klienter för webb tjänsten med C#hjälp av, go, Java och python.
 
@@ -38,12 +39,12 @@ Det allmänna arbets flödet för att skapa en klient som använder en Machine L
 > [!NOTE]
 > Använd Azure Machine Learning SDK för att hämta information om webb tjänsten. Det här är en python SDK. Du kan använda valfritt språk för att skapa en klient för tjänsten.
 
-[Azureml. Core. WebService-](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) klassen innehåller den information du behöver för att skapa en-klient. Följande `Webservice`-egenskaper är användbara när du skapar ett klient program:
+[Azureml. Core. WebService-](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) klassen innehåller den information du behöver för att skapa en-klient. Följande `Webservice` egenskaper är användbara när du skapar ett klient program:
 
-* `auth_enabled` – om autentisering av nycklar är aktiverat `True`; Annars, `False`.
-* `token_auth_enabled` – om token-autentisering är aktiverat `True`; Annars, `False`.
-* `scoring_uri`-REST API adressen.
-* `swagger_uri`-adressen till OpenAPI-specifikationen. Denna URI är tillgänglig om du har aktiverat automatiskt skapande av schema. Mer information finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md#schema).
+* `auth_enabled` – om autentisering av nycklar är aktiverat `True`; annars `False`.
+* `token_auth_enabled` – om token-autentisering är aktiverat `True`; annars `False`.
+* `scoring_uri` – REST API adressen.
+* `swagger_uri`-adressen för OpenAPI-specifikationen. Denna URI är tillgänglig om du har aktiverat automatiskt skapande av schema. Mer information finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md#schema).
 
 Det finns tre sätt att hämta den här informationen för distribuerade webb tjänster:
 
@@ -64,7 +65,7 @@ Det finns tre sätt att hämta den här informationen för distribuerade webb tj
     print(services[0].swagger_uri)
     ```
 
-* Om du känner till namnet på den distribuerade tjänsten kan du skapa en ny instans av `Webservice` och ange arbets ytan och tjänstens namn som parametrar. Det nya objektet innehåller information om den distribuerade tjänsten.
+* Om du känner till namnet på den distribuerade tjänsten kan du skapa en ny instans av `Webservice`och ange arbets ytan och tjänstens namn som parametrar. Det nya objektet innehåller information om den distribuerade tjänsten.
 
     ```python
     service = Webservice(workspace=ws, name='myservice')
@@ -119,7 +120,7 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> Du måste begära en ny token efter det att token har `refresh_by` tid. 
+> Du måste begära en ny token efter det att token `refresh_by` tid. 
 
 ## <a name="request-data"></a>Begär data
 

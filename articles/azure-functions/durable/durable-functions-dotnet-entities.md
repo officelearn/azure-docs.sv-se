@@ -206,7 +206,7 @@ Förutom att tillhandahålla typ kontroll är gränssnitten användbara för en 
 
 ### <a name="example-client-signals-entity-through-interface"></a>Exempel: klient Signals-entitet via gränssnitt
 
-Klient koden kan använda `SignalEntityAsync<TEntityInterface>` för att skicka signaler till entiteter som implementerar `TEntityInterface`. Exempel:
+Klient koden kan använda `SignalEntityAsync<TEntityInterface>` för att skicka signaler till entiteter som implementerar `TEntityInterface`. Till exempel:
 
 ```csharp
 [FunctionName("DeleteCounter")]

@@ -1,40 +1,40 @@
 ---
 title: Lär dig hur körningen hanterar enheter – Azure IoT Edge | Microsoft Docs
-description: Lär dig hur moduler, säkerhet, kommunikation och rapportering på dina enheter hanteras av Azure IoT Edge runtime
+description: Lär dig hur IoT Edge runtime hanterar moduler, säkerhet, kommunikation och rapportering på dina enheter
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/06/2019
+ms.date: 11/01/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 49abd9e5ecee8637d830604028463650071c0198
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 94e33c855327e70f486746bcd781491823324dec
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163157"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490431"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Förstå Azure IoT Edge Runtime och dess arkitektur
 
-IoT Edge runtime är en samling program som omvandlar en enhet till en IoT Edge enhet. Samlings IoT Edge Runtime-komponenter gör det möjligt för IoT Edge enheter att ta emot kod som ska köras vid gränsen och förmedla resultatet. 
+IoT Edge runtime är en samling program som omvandlar en enhet till en IoT Edge enhet. IoT Edges körnings komponenter gör det möjligt för IoT Edge enheter att ta emot kod som ska köras vid gränsen och förmedla resultatet. 
 
-IoT Edge runtime utför följande funktioner på IoT Edge enheter:
+IoT Edge runtime ansvarar för följande funktioner på IoT Edge enheter:
 
 * Installerar och uppdaterar arbetsbelastningar på enheten.
 * Upprätthåller Azure IoT Edge-säkerhetsstandarder på enheten.
 * Se till att [IoT Edge moduler](iot-edge-modules.md) alltid körs.
 * Rapporterar modulens hälsa till molnet för fjärrövervakning.
-* Under lätta kommunikationen mellan underordnade löv enheter och IoT Edge enheter.
-* Under lätta kommunikationen mellan moduler på den IoT Edge enheten.
-* Under lätta kommunikationen mellan IoT Edge-enheten och molnet.
+* Hantera kommunikation mellan underordnade enheter och IoT Edge enheter.
+* Hantera kommunikation mellan moduler på den IoT Edge enheten.
+* Hantera kommunikationen mellan IoT Edge-enheten och molnet.
 
 ![Körningen kommunicerar insikter och modulens hälso tillstånd för att IoT Hub](./media/iot-edge-runtime/Pipeline.png)
 
 Ansvars områdena för IoT Edge runtime finns i två kategorier: kommunikation och modul hantering. Dessa två roller utförs av två komponenter som ingår i IoT Edge Runtime. *IoT Edge Hub* ansvarar för kommunikation, medan *IoT Edge agent* distribuerar och övervakar modulerna. 
 
-Både IoT Edge Hub och IoT Edge agent är moduler, precis som andra moduler som körs på en IoT Edge enhet. 
+Både IoT Edge Hub och IoT Edge agent är moduler, precis som andra moduler som körs på en IoT Edge enhet. De kallas ibland för *körnings moduler*. 
 
 ## <a name="iot-edge-hub"></a>IoT Edge hubb
 
@@ -45,7 +45,7 @@ IoT Edge Hub är en av två moduler som utgör Azure IoT Edge Runtime. Den funge
 
 IoT Edge Hub är inte en fullständig version av IoT Hub som körs lokalt. Det finns vissa saker som IoT Edge hubben delegerar tyst till IoT Hub. IoT Edge hubben vidarebefordrar till exempel autentiseringsbegäranden till IoT Hub när en enhet först försöker ansluta. När den första anslutningen har upprättats cachelagras säkerhets informationen lokalt av IoT Edge Hub. Efterföljande anslutningar från enheten tillåts utan att behöva autentisera till molnet. 
 
-För att minska bandbredden som IoT Edge-lösningen använder, optimerar IoT Edge Hub hur många faktiska anslutningar som görs till molnet. IoT Edge hub tar logiska anslutningar från klienter som moduler eller löv enheter och kombinerar dem för en enda fysisk anslutning till molnet. Informationen om den här processen är transparent för resten av lösningen. Klienterna tror att de har sin egen anslutning till molnet även om de skickas över samma anslutning. 
+För att minska bandbredden som IoT Edge-lösningen använder, optimerar IoT Edge Hub hur många faktiska anslutningar som görs till molnet. IoT Edge hub tar logiska anslutningar från klienter som moduler eller underordnade enheter och kombinerar dem för en enda fysisk anslutning till molnet. Informationen om den här processen är transparent för resten av lösningen. Klienterna tror att de har sin egen anslutning till molnet även om de skickas över samma anslutning. 
 
 ![IoT Edge Hub är en gateway mellan fysiska enheter och IoT Hub](./media/iot-edge-runtime/Gateway.png)
 
@@ -73,13 +73,13 @@ Om du vill ta emot ett meddelande registrerar du ett återanrop som bearbetar me
 
 Mer information om klassen ModuleClient och dess kommunikations metoder finns i API-referensen för ditt prioriterade SDK-språk: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [python](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?view=azure-python), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable)eller [Node. js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
 
-Lösnings utvecklaren ansvarar för att ange regler som avgör hur IoT Edge Hub skickar meddelanden mellan moduler. Routningsregler definieras i molnet och flyttas ned till IoT Edge hubben på enheten. Samma syntax för IoT Hub vägar används för att definiera vägar mellan moduler i Azure IoT Edge. Mer information finns i [Lär dig hur du distribuerar moduler och etablerar vägar i IoT Edge](module-composition.md).   
+Lösnings utvecklaren ansvarar för att ange regler som avgör hur IoT Edge Hub skickar meddelanden mellan moduler. Routningsregler definieras i molnet och flyttas ned till IoT Edge Hub i sin modul. Samma syntax för IoT Hub vägar används för att definiera vägar mellan moduler i Azure IoT Edge. Mer information finns i [Lär dig hur du distribuerar moduler och etablerar vägar i IoT Edge](module-composition.md).   
 
 ![Vägar mellan moduler går till IoT Edge hubb](./media/iot-edge-runtime/module-endpoints-with-routes.png)
 
 ## <a name="iot-edge-agent"></a>IoT Edge agent
 
-IoT Edge agent är den andra modulen som utgör Azure IoT Edge Runtime. De är ansvariga för att instansiera moduler, se till att de fortsätter att köras och rapportera status för modulerna tillbaka till IoT Hub. Precis som vilken annan modul som helst använder IoT Edge-agentens modul för att lagra konfigurations data. 
+IoT Edge agent är den andra modulen som utgör Azure IoT Edge Runtime. De är ansvariga för att instansiera moduler, se till att de fortsätter att köras och rapportera status för modulerna tillbaka till IoT Hub. Den här konfigurations informationen skrivs som en egenskap för den IoT Edge agent-modulen. 
 
 [IoT Edge Security daemon](iot-edge-security-manager.md) startar IoT Edge agent vid enhets start. Agenten hämtar sin modul från IoT Hub och kontrollerar distributions manifestet. Distributions manifestet är en JSON-fil som deklarerar moduler som behöver startas. 
 

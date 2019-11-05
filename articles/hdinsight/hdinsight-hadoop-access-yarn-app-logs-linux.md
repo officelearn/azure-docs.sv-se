@@ -1,5 +1,5 @@
 ---
-title: Åtkomst Apache Hadoop garn program loggar på Linux-baserade HDInsight – Azure
+title: Åtkomst Apache Hadoop garn program loggar – Azure HDInsight
 description: Lär dig hur du kommer åt garn program loggar i ett Linux-baserat HDInsight-kluster (Apache Hadoop) med både kommando raden och en webbläsare.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.openlocfilehash: 6eb24e85d1d7ffa4f3377d4c2fe8b168303c15f0
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 263456769ab391cbc0588eed1a714a1ea5788154
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091513"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494883"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Åtkomst Apache Hadoop garn program loggar på Linux-baserade HDInsight
 
@@ -40,7 +40,7 @@ Program loggar (och tillhör ande behållar loggar) är viktiga vid fel sökning
 
     /app-logs/<user>/logs/<applicationId>
 
-I sökvägen `user` är namnet på den användare som startade programmet. `applicationId` Är den unika identifierare som tilldelas ett program av garn RM.
+I sökvägen är `user` namnet på den användare som startade programmet. `applicationId` är den unika identifierare som tilldelats ett program av garn RM.
 
 De sammanställda loggarna kan inte läsas direkt, eftersom de skrivs i ett [TFile][T-file], [binärt format][binary-format] som indexeras av container. Använd garn-ResourceManager-loggarna eller CLI-verktygen för att visa dessa loggar som oformaterad text för program eller behållare av intresse.
 
@@ -53,13 +53,13 @@ Du kan visa dessa loggar som oformaterad text genom att köra något av följand
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 
-Ange applicationId->, &lt;användare-som-startat-program >, &lt;containerId > och &lt;Work-Node-address > information när du kör dessa kommandon. &lt;
+Ange &lt;applicationId->, &lt;användare-som-startat-program >, &lt;containerId > och &lt;information om Work-Node-address > information när du kör dessa kommandon.
 
 ## <a name="yarn-resourcemanager-ui"></a>GARN-ResourceManager-gränssnitt
 
 Användar gränssnittet för garn-ResourceManager körs på klustrets huvudnoden. Den nås via Ambari-webbgränssnittet. Använd följande steg för att Visa garn loggarna:
 
-1. Navigera till https://CLUSTERNAME.azurehdinsight.net i webbläsaren. Ersätt kluster namn med namnet på ditt HDInsight-kluster.
+1. Navigera till https://CLUSTERNAME.azurehdinsight.neti webbläsaren. Ersätt kluster namn med namnet på ditt HDInsight-kluster.
 2. I listan över tjänster till vänster väljer du **garn**.
 
     ![Apache Ambari garn-tjänsten vald](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)

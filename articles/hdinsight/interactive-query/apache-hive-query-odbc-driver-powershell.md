@@ -1,5 +1,5 @@
 ---
-title: Fråga Apache Hive med ODBC-drivrutin och PowerShell – Azure HDInsight
+title: Fråga Apache Hive med ODBC-drivrutin & PowerShell – Azure HDInsight
 description: Använd Microsoft Hive ODBC-drivrutin och PowerShell för att fråga Apache Hive kluster på Azure HDInsight.
 keywords: Hive, Hive ODBC, PowerShell
 author: hrasheed-msft
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
-ms.openlocfilehash: 4ec580c3d4c30fa4d86c24defb7eaded464dea3b
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: f6139bb98fa0272e43c8e180d4ec029f7a7538bb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177327"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494331"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Självstudie: fråga Apache Hive med ODBC och PowerShell
 
@@ -28,7 +28,7 @@ I den här självstudien ska du utföra följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar den här självstudiekursen behöver du följande:
 

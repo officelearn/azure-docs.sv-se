@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b6f122abff1ac75bb1cb836f3389c96dfcdf60e0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 07dbbb956dcf6f1204bef2af3a28a0af3eeb5226
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074107"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470098"
 ---
 # <a name="security-in-azure-app-service"></a>Säkerhet i Azure App Service
 
@@ -40,16 +40,20 @@ I följande avsnitt visas hur du skyddar din App Service-app ytterligare från h
 
 ## <a name="https-and-certificates"></a>HTTPS och certifikat
 
-Med App Service kan du skydda dina appar med [https](https://wikipedia.org/wiki/HTTPS). När din app skapas, är dess standard domän namn (\<APP_NAME >. azurewebsites. net) redan tillgängligt via https. Om du [konfigurerar en anpassad domän för din app](app-service-web-tutorial-custom-domain.md)bör du även [skydda den med ett anpassat certifikat](app-service-web-tutorial-custom-ssl.md) så att klient webbläsare kan göra säkra HTTPS-anslutningar till din anpassade domän. Det finns två sätt att göra det:
+Med App Service kan du skydda dina appar med [https](https://wikipedia.org/wiki/HTTPS). När din app skapas, är dess standard domän namn (\<APP_NAME >. azurewebsites. net) redan tillgängligt via HTTPS. Om du [konfigurerar en anpassad domän för din app](app-service-web-tutorial-custom-domain.md)bör du även [skydda den med ett SSL-certifikat](configure-ssl-bindings.md) så att klient webbläsare kan göra säkra HTTPS-anslutningar till din anpassade domän. Det finns flera typer av certifikat som stöds av App Service:
 
-- **App service certifikat** – skapa ett certifikat direkt i Azure. Certifikatet skyddas i [Azure Key Vault](/azure/key-vault/)och kan importeras till din app service-app. Mer information finns i [köpa och konfigurera ett SSL-certifikat för din Azure App Service](web-sites-purchase-ssl-web-site.md).
-- **Certifikat från tredje part** – Ladda upp ett anpassat SSL-certifikat som du har köpt från en betrodd certifikat utfärdare och bind det till din app service-app. App Service stöder både certifikat med enkel domän och jokertecken. Den har också stöd för självsignerade certifikat i test syfte. Mer information finns i [BIND ett befintligt anpassat SSL-certifikat till Azure App Service](app-service-web-tutorial-custom-ssl.md).
+- App Service – kostnadsfri hanterat certifikat
+- App Service certifikat
+- Certifikat från tredje part
+- Certifikat importerat från Azure Key Vault
+
+Mer information finns i [lägga till ett SSL-certifikat i Azure App Service](configure-ssl-certificate.md).
 
 ## <a name="insecure-protocols-http-tls-10-ftp"></a>Osäkra protokoll (HTTP, TLS 1,0, FTP)
 
-För att skydda din app mot alla okrypterade anslutningar (HTTP), App Service tillhandahålla konfiguration med ett klick för att använda HTTPS. Oskyddade förfrågningar är inaktiverade innan de når program koden. Mer information finns i [FRAMTVINGA https](app-service-web-tutorial-custom-ssl.md#enforce-https).
+För att skydda din app mot alla okrypterade anslutningar (HTTP), App Service tillhandahålla konfiguration med ett klick för att använda HTTPS. Oskyddade förfrågningar är inaktiverade innan de når program koden. Mer information finns i [FRAMTVINGA https](configure-ssl-bindings.md#enforce-https).
 
-[TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1,0 anses inte längre vara säkert av bransch standarder, t. ex. [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). Med App Service kan du inaktivera inaktuella protokoll genom att [FRAMTVINGA TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions).
+[TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1,0 anses inte längre vara säkert av bransch standarder, t. ex. [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). Med App Service kan du inaktivera inaktuella protokoll genom att [FRAMTVINGA TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions).
 
 App Service stöder både FTP-och FTPS för att distribuera dina filer. FTPS bör dock användas i stället för FTP, om det är möjligt. När ett eller båda av dessa protokoll inte används bör du [inaktivera dem](deploy-ftp.md#enforce-ftps).
 
@@ -57,7 +61,7 @@ App Service stöder både FTP-och FTPS för att distribuera dina filer. FTPS bö
 
 Som standard godkänner din App Service-app begär Anden från alla IP-adresser från Internet, men du kan begränsa åtkomsten till en liten delmängd av IP-adresser. App Service i Windows kan du definiera en lista med IP-adresser som får åtkomst till din app. Listan över tillåtna kan innehålla enskilda IP-adresser eller ett intervall med IP-adresser som definieras av en under nät mask. Mer information finns i [Azure App Service statiska IP-begränsningar](app-service-ip-restrictions.md).
 
-För App Service i Windows kan du också begränsa IP-adresser dynamiskt genom att konfigurera _Web. config_. Mer information finns i [dynamisk IP-säkerhet \<dynamicIpSecurity >](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+För App Service i Windows kan du också begränsa IP-adresser dynamiskt genom att konfigurera _Web. config_. Mer information finns i avsnittet om [dynamisk IP-säkerhet \<dynamicIpSecurity >](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 ## <a name="client-authentication-and-authorization"></a>Klientautentisering och-auktorisering
 
@@ -104,7 +108,7 @@ Du kan få säker åtkomst till lokala resurser, till exempel databaser, på tre
 
 ## <a name="application-secrets"></a>Program hemligheter
 
-Lagra inte program hemligheter, t. ex. autentiseringsuppgifter för databaser, API-token och privata nycklar i koden eller konfigurationsfilerna. Den vanligaste metoden är att få åtkomst till dem [](https://wikipedia.org/wiki/Environment_variable) som miljövariabler som använder standard mönstret på det språk som du väljer. I App Service kan du definiera miljövariabler genom att ange [appinställningar](configure-common.md#configure-app-settings) (och särskilt för .NET-program, [anslutnings strängar](configure-common.md#configure-connection-strings)). App-inställningar och anslutnings strängar lagras krypterade i Azure och de dekrypteras bara innan de matas in i appens process minne när appen startas. Krypterings nycklarna roteras regelbundet.
+Lagra inte program hemligheter, t. ex. autentiseringsuppgifter för databaser, API-token och privata nycklar i koden eller konfigurationsfilerna. Den vanligaste metoden är att få åtkomst till dem som [miljövariabler](https://wikipedia.org/wiki/Environment_variable) som använder standard mönstret på det språk som du väljer. I App Service kan du definiera miljövariabler genom att ange [appinställningar](configure-common.md#configure-app-settings) (och särskilt för .NET-program, [anslutnings strängar](configure-common.md#configure-connection-strings)). App-inställningar och anslutnings strängar lagras krypterade i Azure och de dekrypteras bara innan de matas in i appens process minne när appen startas. Krypterings nycklarna roteras regelbundet.
 
 Du kan också integrera din App Service-app med [Azure Key Vault](/azure/key-vault/) för hantering av avancerade hemligheter. Genom att [komma åt Key Vault med en hanterad identitet](../key-vault/tutorial-web-application-keyvault.md)kan din app service-app på ett säkert sätt komma åt de hemligheter du behöver.
 

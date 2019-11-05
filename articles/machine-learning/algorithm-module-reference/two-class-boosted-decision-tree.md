@@ -1,24 +1,24 @@
 ---
 title: 'Besluts träd med två klasser: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen för besluts träd med två klasser i Azure Machine Learning service för att skapa en maskin inlärnings modell som baseras på algoritmen för besluts fattare.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder den två klassbaserade modulen för besluts träd i Azure Machine Learning för att skapa en maskin inlärnings modell som baseras på algoritmen för bättre besluts träd.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 5795dc994872ac5da37a1226524dddd35aa35126
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 7590cab00670c92e8a5b90006778542ec44bf83f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692634"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490165"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Modul för besluts träd med två klasser
 
-I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd den här modulen för att skapa en Machine Learning-modell som baseras på algoritmen för besluts träd. 
 
@@ -75,4 +75,4 @@ När modell träningen är klar högerklickar du på resultatet av [träna model
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

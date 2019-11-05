@@ -19,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1184d210f5b7ea25b9f73cbd70b5f960402126a1
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 3fca872d639ab5c2d4053656cdd3e68a59fdc1e6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803534"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473959"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Autentiseringsuppgifter för program-autentisering
 
@@ -133,5 +133,8 @@ I Azure App-registreringen för klient programmet:
    Egenskapen `keyCredentials` har flera värden, så du kan ladda upp flera certifikat för bättre nyckel hantering.
    
 ## <a name="code-sample"></a>Kodexempel
+
+> [!NOTE]
+> Du måste beräkna X5T-rubriken genom att använda certifikatets hash och konvertera det till en Base64-sträng. I C# det skulle det se ut ungefär så här: `System.Convert.ToBase64String(cert.GetCertHash());`
 
 Kod exemplet vid [autentisering till Azure AD i daemon-appar med certifikat](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) visar hur ett program använder sina egna autentiseringsuppgifter för autentisering. Det visar också hur du kan [skapa ett självsignerat certifikat](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) med hjälp av `New-SelfSignedCertificate` PowerShell-kommandot. Du kan också dra nytta av och använda [appens skapande skript](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md) för att skapa certifikat, beräkna tumavtryck och så vidare.

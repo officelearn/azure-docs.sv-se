@@ -5,18 +5,18 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 12/14/2018
+ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 36b3fcfa90b5b1de9c9d3262da1f3e519cc99c19
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 57e8905fd9722d5b8a8b0ab76dbcea5b91c6d30a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187166"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495855"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>Stöds anpassade IPsec/IKE-principer på alla Azure VPN Gateway-SKU: er?
-Anpassade IPsec/IKE-principer stöds på Azure **VpnGw1, VpnGw2, VpnGw3, Standard** och **HighPerformance** VPN-gatewayer. **Basic** SKU stöds **inte**.
+Anpassad IPsec/IKE-princip stöds på **alla Azure SKU: er förutom Basic SKU**.
 
 ### <a name="how-many-policies-can-i-specify-on-a-connection"></a>Hur många principer kan jag ställa in för en anslutning?
 Du kan bara ange ***en*** principkombination för en viss anslutning.
@@ -103,5 +103,5 @@ Ja. En VNet-till-VNet-tunnel består av två anslutningsresurser i Azure, en fö
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>Fungerar en anpassad IPsec/IKE-princip på ExpressRoute-anslutningen?
 Nej. IPSec-/ princip fungerar bara på S2S VPN- och VNet-till-VNet-anslutningar via Azure VPN-gatewayer.
 
-### <a name="where-can-i-find-more-configuration-information-for-ipsec"></a>Var hittar jag mer information om IPsec?
-Se [konfigurera IPsec/IKE-principer för S2S eller VNet-till-VNet-anslutningar](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md)
+### <a name="where-can-i-find-more-configuration-information-for-ipsec"></a>Var kan jag hitta mer konfigurations information för IPsec?
+Se [Konfigurera IPSec/IKE-princip för S2S-eller VNet-till-VNet-anslutningar](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md)

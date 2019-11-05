@@ -1,24 +1,24 @@
 ---
 title: 'Tillämpa omvandling: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen Använd omvandling i Azure Machine Learning-tjänsten för att ändra en indata-datauppsättning baserat på en tidigare beräknad omvandling.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen Använd omvandling i Azure Machine Learning om du vill ändra en indata-datauppsättning baserat på en tidigare beräknad omvandling.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: adb2477fe2b7eea0dd0a98c7240843d90411d832
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 19385870d184654d902cd40b45d4be3646c87b46
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693868"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493908"
 ---
 # <a name="apply-transformation-module"></a>Använd omvandlings modul
 
-I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd den här modulen för att ändra en data uppsättning som baseras på en tidigare beräknad omvandling.  
   
@@ -46,4 +46,4 @@ Azure Machine Learning ger stöd för att skapa och använda många olika typer 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

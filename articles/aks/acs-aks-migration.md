@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
-ms.openlocfilehash: 66f76a8a706f60df786786cbd1ce00b7eafd8d7e
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 84e0af89e2b3247bc922ab84286a79a0934323a8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097888"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472991"
 ---
 # <a name="migrate-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>Migrera från Azure Container Service (ACS) till Azure Kubernetes service (AKS)
 
@@ -27,8 +27,8 @@ ACS och AKS skiljer sig åt i vissa viktiga områden som påverkar migreringen. 
 * AKS-noder använder [hanterade diskar](../virtual-machines/windows/managed-disks-overview.md).
     * Ohanterade diskar måste konverteras innan du kan koppla dem till AKS-noder.
     * Anpassade `StorageClass` objekt för Azure-diskar måste ändras från `unmanaged` till `managed`.
-    * Alla `PersistentVolumes` ska använda `kind: Managed`.
-* AKS stöder [flera resurspooler](https://docs.microsoft.com/azure/aks/use-multiple-node-pools) (för närvarande i för hands version).
+    * Alla `PersistentVolumes` bör använda `kind: Managed`.
+* AKS stöder [flera noder](https://docs.microsoft.com/azure/aks/use-multiple-node-pools)i en pool.
 * Noder som baseras på Windows Server är för närvarande för [hands versioner i AKS](https://azure.microsoft.com/blog/kubernetes-on-azure/).
 * AKS stöder en begränsad uppsättning [regioner](https://docs.microsoft.com/azure/aks/quotas-skus-regions).
 * AKS är en hanterad tjänst med ett kontroll plan för värdbaserade Kubernetes. Du kan behöva ändra dina program om du tidigare har ändrat konfigurationen av ACS-huvud.
@@ -41,13 +41,13 @@ Om du migrerar till en nyare version av Kubernetes kan du läsa följande resurs
 
 ## <a name="migration-considerations"></a>Överväganden vid migrering
 
-### <a name="agent-pools"></a>Agentpooler
+### <a name="agent-pools"></a>Agent-pooler
 
 Även om AKS hanterar Kubernetes-kontroll planet definierar du fortfarande storlek och antal noder som ska ingå i det nya klustret. Förutsatt att du vill ha en 1:1-mappning från ACS till AKS, ska du samla in din befintliga information om ACS-noden. Använd dessa data när du skapar ditt nya AKS-kluster.
 
 Exempel:
 
-| Name | Count | Storlek på virtuell dator | Operativsystem |
+| Namn | Antal | Storlek på virtuell dator | Operativsystem |
 | --- | --- | --- | --- |
 | agentpool0 | 3 | Standard_D8_v2 | Linux |
 | agentpool1 | 1 | Standard_D2_v2 | Windows |
@@ -112,11 +112,11 @@ Om ditt program kan vara värd för flera repliker som pekar på samma fil resur
 4. Kontrollerar.
 5. Peka trafik till AKS-klustret.
 
-Om du vill börja med en tom resurs och göra en kopia av data källan kan du använda [`az storage file copy`](https://docs.microsoft.com/cli/azure/storage/file/copy?view=azure-cli-latest) kommandona för att migrera dina data.
+Om du vill börja med en tom resurs och göra en kopia av data källan kan du migrera dina data med hjälp av [`az storage file copy`](https://docs.microsoft.com/cli/azure/storage/file/copy?view=azure-cli-latest) -kommandon.
 
 ### <a name="deployment-strategy"></a>Distributions strategi
 
-Vi rekommenderar att du använder din befintliga CI/CD-pipeline för att distribuera en fungerande konfiguration till AKS. Klona dina befintliga distributions uppgifter och `kubeconfig` se till att de pekar på det nya AKS-klustret.
+Vi rekommenderar att du använder din befintliga CI/CD-pipeline för att distribuera en fungerande konfiguration till AKS. Klona dina befintliga distributions uppgifter och se till att `kubeconfig` pekar på det nya AKS-klustret.
 
 Om detta inte är möjligt exporterar du resurs definitioner från ACS och tillämpar dem sedan på AKS. Du kan använda `kubectl` för att exportera objekt.
 
@@ -126,7 +126,7 @@ kubectl get deployment -o=yaml --export > deployments.yaml
 
 Flera verktyg med öppen källkod kan hjälpa, beroende på dina distributions behov:
 
-* [Velero](https://github.com/heptio/ark) (Det här verktyget kräver Kubernetes 1,7.)
+* [Velero](https://github.com/heptio/ark) (det här verktyget kräver Kubernetes 1,7.)
 * [Azure Kube CLI-tillägg](https://github.com/yaron2/azure-kube-cli)
 * [Flytta om](https://github.com/mhausenblas/reshifter)
 
@@ -137,7 +137,7 @@ Flera verktyg med öppen källkod kan hjälpa, beroende på dina distributions b
    > [!NOTE]
    > Hitta exempel Azure Resource Manager mallar för AKS på [Azure/AKS-](https://github.com/Azure/AKS/tree/master/examples/vnet) lagringsplatsen på GitHub.
 
-2. Gör nödvändiga ändringar i YAML-definitionerna. Ersätt `apps/v1beta1` till exempel med `apps/v1` for `Deployments`.
+2. Gör nödvändiga ändringar i YAML-definitionerna. Ersätt till exempel `apps/v1beta1` med `apps/v1` för `Deployments`.
 
 3. [Migrera volymer](#migrating-persistent-volumes) (valfritt) från ACS-klustret till ditt AKS-kluster.
 

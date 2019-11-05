@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 7ae3eb74b0d0c3f0bd6124362608e14555179697
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 7e341cf8a4ff2a18e44e36d73ad5dbc642582802
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710151"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496280"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Vanliga frågor och svar om SQL Database Managed instance
 
@@ -58,7 +58,7 @@ Du kan [Exportera databasen till BACPAC](sql-database-export.md) och sedan [Impo
 
 Transaktionsreplikering kan användas om alla tabeller i databasen har primära nycklar.
 
-Det `COPY_ONLY` går inte att återställa inbyggda säkerhets kopior från hanterade instanser till SQL Server eftersom den hanterade instansen har en högre databas version jämfört med SQL Server.
+Det går inte att återställa interna `COPY_ONLY` säkerhets kopieringar från hanterade instanser till SQL Server eftersom den hanterade instansen har en högre databas version jämfört med SQL Server.
 
 ## <a name="how-can-i-migrate-my-instance-database-to-a-single-azure-sql-database"></a>Hur kan jag migrera min instans databas till en enda Azure SQL Database?
 
@@ -134,8 +134,8 @@ Fallstudier av hanterade instanser:
 - [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
 - [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
 - [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
-- [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)  
-För att få en bättre förståelse för de fördelar, kostnader och risker som är kopplade till distribution av Azure SQL Database hanterade instansen, finns det också en Forrester-undersökning: [Den totala ekonomiska effekten av mi](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
+- [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)   
+För att få en bättre förståelse för de fördelar, kostnader och risker som är kopplade till distribution av Azure SQL Database hanterade instansen, finns det också en Forrester-undersökning: den [totala ekonomiska effekten av mi](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
 
 
 ## <a name="can-i-do-dns-refresh"></a>Kan jag göra DNS-uppdatering? 
@@ -178,8 +178,8 @@ Data inläsning är ofta långsammare på den hanterade instansen än i SQL Serv
 
 Ja, du behöver inte dekryptera databasen för att kunna återställa den till en hanterad instans. Du måste ange ett certifikat/en nyckel som används som ett krypterings nyckel skydd i käll systemet till den hanterade instansen för att kunna läsa data från den krypterade säkerhets kopierings filen. Det finns två möjliga sätt att göra det:
 
-- *Ladda upp certifikat skydd till den hanterade*instansen. Det kan bara göras med PowerShell. I [exempel skriptet](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate-tde-certificate) beskrivs hela processen.
-- *Överför asymmetrisk nyckel-skydd till Azure Key Vault (AKV) och Point-hanterad instans till den*. Den här metoden liknar BYOK-TDE, som också använder AKV-integrering för att lagra krypterings nyckeln. Om du inte vill använda nyckeln som krypterings nyckel skydd och bara vill göra nyckeln tillgänglig för hanterad instans för att återställa krypterade databaser, följ instruktionerna för att [Konfigurera BYOK TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption-in-the-azure-portal)och markera inte kryss rutan *gör den markerade nyckeln standard skyddet för TDE*.
+- *Ladda upp certifikat skydd till den hanterade instansen*. Det kan bara göras med PowerShell. I [exempel skriptet](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate-tde-certificate) beskrivs hela processen.
+- *Överför asymmetrisk nyckel-skydd till Azure Key Vault (AKV) och Point-hanterad instans till den*. Den här metoden liknar BYOK-TDE, som också använder AKV-integrering för att lagra krypterings nyckeln. Om du inte vill använda nyckeln som krypterings nyckel skydd och bara vill göra nyckeln tillgänglig för hanterad instans för att återställa krypterade databaser, följ instruktionerna för att [Konfigurera BYOK TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption)och markera inte kryss rutan *gör den markerade nyckeln standard skyddet för TDE*.
 
 När du har gjort krypterings skyddet tillgängligt för en hanterad instans kan du fortsätta med standard proceduren för databas återställning.
 

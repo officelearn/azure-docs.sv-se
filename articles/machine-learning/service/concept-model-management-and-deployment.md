@@ -1,7 +1,7 @@
 ---
-title: 'MLOps: Hantera, distribuera & övervaka ML-modeller'
+title: 'MLOps: hantera, distribuera, & övervaka ML-modeller'
 titleSuffix: Azure Machine Learning
-description: 'Lär dig hur du använder Azure Machine Learning för MLOps: distribuera, hantera och övervaka dina modeller för att kontinuerligt förbättra dem. Du kan distribuera modeller som du tränas med Azure Machine Learning, på din lokala dator eller från andra källor.'
+description: 'Lär dig hur du använder Azure Machine Learning för MLOps: distribuera, hantera och övervaka dina modeller för att kontinuerligt förbättra dem. Du kan distribuera de modeller som du har tränat med Azure Machine Learning, på den lokala datorn eller från andra källor.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: jpe316
 ms.author: jordane
-ms.date: 06/24/2019
+ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98a3102d47504b40a6b62eb329b508468947ca79
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 8741a9a362a10dfdb0150c9dc0dfddeed54594a7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035473"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497443"
 ---
-# <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning"></a>MLOps: Hantera, distribuera och övervaka modeller med Azure Machine Learning
+# <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning"></a>MLOps: hantera, distribuera och övervaka modeller med Azure Machine Learning
 
 I den här artikeln får du lära dig hur du använder Azure Machine Learning för att hantera livs cykeln för dina modeller. Azure Machine Learning använder en metod för Machine Learning åtgärder (MLOps) som förbättrar kvaliteten och konsekvensen för dina maskin inlärnings lösningar. 
 
@@ -47,7 +47,7 @@ Med modell registreringen kan du lagra och version av dina modeller i Azure-moln
 > [!TIP]
 > En registrerad modell är en logisk behållare för en eller flera filer som utgör din modell. Om du till exempel har en modell som lagras i flera filer kan du registrera dem som en enskild modell i Azure Machine Learning arbets ytan. Efter registreringen kan du ladda ned eller distribuera den registrerade modellen och ta emot alla filer som har registrerats.
  
-Registrerade modeller identifieras med namn och version. Varje gång som du registrerar en modell med samma namn som en befintlig ökas registret versionen. Du kan också ange ytterligare metadatataggar under registreringen som kan användas när du söker för modeller. Azure Machine Learning stöder alla modeller som kan läsas in med python-3.5.2 eller högre.
+Registrerade modeller identifieras med namn och version. Varje gången du registrerar en modell med samma namn som en befintlig, kommer registret att öka versionen. Du kan också lägga till ytterligare metadata-Taggar under registreringen som kan användas när du söker efter modeller. Azure Machine Learning stöder alla modeller som kan läsas in med python-3.5.2 eller högre.
 
 > [!TIP]
 > Du kan också registrera modeller som har tränats utanför Azure Machine Learning.
@@ -88,9 +88,9 @@ Dessa till gångar paketeras i en Docker-avbildning och distribueras som en webb
 
 Alternativt kan du använda följande parametrar för att ytterligare finjustera distributionen:
 
-* Aktivera GPU: Används för att aktivera GPU-stöd i Docker-avbildningen. Avbildningen måste användas på Microsoft Azure tjänster som Azure Container Instances, Azure Kubernetes service, Azure Machine Learning Compute eller Azure Virtual Machines.
-* Ytterligare steg i Docker-filen: En fil som innehåller ytterligare Docker-steg att köra när du skapar Docker-avbildningen.
-* Bas avbildning: En anpassad bild som ska användas som bas avbildning. Om du inte använder en anpassad avbildning tillhandahålls bas avbildningen av Azure Machine Learning.
+* Aktivera GPU: används för att aktivera GPU-stöd i Docker-avbildningen. Avbildningen måste användas på Microsoft Azure tjänster som Azure Container Instances, Azure Kubernetes service, Azure Machine Learning Compute eller Azure Virtual Machines.
+* Ytterligare Docker-fil steg: en fil som innehåller ytterligare Docker-steg att köra när du skapar Docker-avbildningen.
+* Bas avbildning: en anpassad bild som ska användas som bas avbildning. Om du inte använder en anpassad avbildning tillhandahålls bas avbildningen av Azure Machine Learning.
 
 Du anger också konfigurationen för mål distributions plattformen. Till exempel typ av VM-familj, tillgängligt minne och antal kärnor vid distribution till Azure Kubernetes-tjänsten.
 
@@ -115,13 +115,13 @@ Om du vill distribuera modellen som en webb tjänst måste du tillhandahålla f�
 
 Mer information finns i [Distribuera modeller](how-to-deploy-and-where.md).
 
-#### <a name="iot-edge-devices"></a>IoT Edge-enheter
+#### <a name="iot-edge-devices"></a>IoT Edge enheter
 
 Du kan använda modeller med IoT-enheter via **Azure IoT Edge moduler**. IoT Edge moduler distribueras till en maskin varu enhet, vilket möjliggör en härledning eller modell beräkning på enheten.
 
 Mer information finns i [Distribuera modeller](how-to-deploy-and-where.md).
 
-### <a name="analytics"></a>Analytics
+### <a name="analytics"></a>Analys
 
 Microsoft Power BI stöder användning av Machine Learning-modeller för data analys. Mer information finns i [Azure Machine Learning integration i Power BI (för hands version)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
@@ -157,7 +157,7 @@ Mer information om hur du använder Azure-pipeliner med Azure Machine Learning f
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [hur och var du kan distribuera modeller](how-to-deploy-and-where.md) med Azure Machine Learning. Ett exempel på distribution finns i [Självstudier: Distribuera en modell för bild klassificering i](tutorial-deploy-models-with-aml.md)Azure Container instances.
+Läs mer om [hur och var du kan distribuera modeller](how-to-deploy-and-where.md) med Azure Machine Learning. Ett exempel på distribution finns i [Självstudier: Distribuera en bild klassificerings modell i Azure Container instances](tutorial-deploy-models-with-aml.md).
 
 Lär dig hur du skapar [kontinuerlig integrering och distribution av ml-modeller med Azure-pipelines](/azure/devops/pipelines/targets/azure-machine-learning). 
 

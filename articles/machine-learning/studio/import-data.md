@@ -1,7 +1,7 @@
 ---
-title: Importera data från olika datakällor
-titleSuffix: Azure Machine Learning Studio
-description: Hur du importerar dina data till Azure Machine Learning Studio från olika datakällor. Lär dig vilka datatyper och dataformat stöds.
+title: Importera data från olika data källor
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Så här importerar du data till Azure Machine Learning Studio (klassisk) från olika data källor. Lär dig mer om vilka data typer och data format som stöds.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,77 +10,77 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: 41cc1d6638871f26ae942e724a402e17f52150fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e84f5c8cab6323234b81126ad3e8b1299e10171
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60811060"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492899"
 ---
-# <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importera dina utbildningsdata till Azure Machine Learning Studio från olika datakällor
+# <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>Importera dina utbildnings data till Azure Machine Learning Studio (klassisk) från olika data källor
 
-Om du vill använda dina egna data i Machine Learning Studio för att utveckla och träna en lösning för förutsägelseanalys, kan du använda data från: 
+Om du vill använda dina egna data i Machine Learning Studio (klassisk) för att utveckla och träna en förutsägelse analys lösning kan du använda data från: 
 
-* **Lokal fil** – Läs in lokala data i tid från hårddisken för att skapa en datauppsättning-modulen i din arbetsyta
-* **Online-datakällor** – Använd den [importera Data] [ import-data] modul för att komma åt data från en av flera onlinekällor när experimentet körs
-* **Machine Learning Studio-experiment** -använder data som har sparats som en datauppsättning i Machine Learning Studio
-* [**En lokal SQL Server-databas** ](use-data-from-an-on-premises-sql-server.md) -använda data från en lokal SQL Server-databas utan att behöva kopiera data manuellt
+* **Lokal fil** – Läs in lokala data i förväg från hård disken för att skapa en data uppsättnings modul i din arbets yta
+* **Online-datakällor** – Använd modulen [Importera data][import-data] för att få åtkomst till data från en av flera onlinekällor medan experimentet körs
+* **Machine Learning Studio (klassisk) experiment** -Använd data som sparats som en data uppsättning i den klassiska versionen av Machine Learning Studio
+* [**Lokal SQL Server databas**](use-data-from-an-on-premises-sql-server.md) – Använd data från en lokal SQL Server databas utan att behöva kopiera data manuellt
 
 > [!NOTE]
-> Det finns ett antal provdatauppsättningar i Machine Learning Studio som du kan använda för träningsdata. Information om dessa finns i [Använd exemplen på datauppsättningar i Azure Machine Learning Studio](use-sample-datasets.md).
+> Det finns ett antal exempel data uppsättningar som är tillgängliga i den klassiska versionen av Machine Learning Studio som du kan använda för tränings data. Information om dessa finns i [använda exempel data uppsättningar i Azure Machine Learning Studio (klassisk)](use-sample-datasets.md).
 
 ## <a name="prepare-data"></a>Förbereda data
 
-Machine Learning Studio är utformad för att arbeta med rektangulär eller tabular data, till exempel textdata som har avgränsade eller strukturerade data från en databas, men i vissa fall icke-rektangulär data kan användas.
+Den klassiska versionen av Machine Learning Studio är utformad för att fungera med rektangulära eller tabell data, till exempel text data som är avgränsade eller strukturerade data från en databas, men i vissa fall kan icke-rektangulära data användas.
 
-Det är bäst om dina data är relativt ren innan du importerar den till Studio. Exempelvis bör du ta hand om problem som till exempel ociterade strängar.
+Det är bäst om dina data är relativt rena innan du importerar dem till den klassiska versionen av Studio. Till exempel vill du kunna ta hand om problem som strängar som inte är citerade.
 
-Det finns dock moduler som är tillgängliga i Studio som gör att vissa manipulation av data i experimentet när du har importerat dina data. Beroende på de machine learning-algoritmer som du ska använda, kanske måste du bestämma hur du ska hantera strukturella problem med till exempel värden som saknas och null-optimerade data och det finns moduler som kan hjälpa dig med som. Titta i den **Dataomvandling** avsnittet på modulpaletten för moduler som utför dessa funktioner.
+Det finns dock moduler som är tillgängliga i den klassiska versionen av Studio som möjliggör viss manipulering av data i experimentet när du har importerat dina data. Beroende på vilka Machine Learning-algoritmer du kommer att använda kan du behöva bestämma hur du ska hantera problem med data struktur, till exempel saknade värden och sparse-data, och det finns moduler som kan hjälpa dig med det. Titta i avsnittet **datatransformering** i modulen modul för moduler som utför dessa funktioner.
 
-Du kan visa eller ladda ned de data som produceras av en modul genom att klicka på utdataporten när som helst i experimentet. Det kan finnas olika hämtningsalternativ beroende på modulen eller du kan visualisera data i din webbläsare i Studio.
+Du kan när som helst i experimentet Visa eller hämta de data som skapas av en modul genom att klicka på utdataporten. Beroende på modulen kan det finnas olika tillgängliga nedladdnings alternativ, eller så kan du visualisera data i webbläsaren i den klassiska versionen av Studio.
 
-## <a name="supported-data-formats-and-data-types"></a>Stöds dataformat och datatyper
+## <a name="supported-data-formats-and-data-types"></a>Data format och data typer som stöds
 
-Du kan importera en rad olika datatyper till ditt experiment, beroende på vilken metod du använder för att importera data och där det kommer från:
+Du kan importera ett antal data typer till experimentet, beroende på vilken mekanism du använder för att importera data och var de kommer från:
 
-* Oformaterad text (.txt)
-* Fil med kommaavgränsade värden (CSV med en rubrik (.csv) eller utan) (. nh.csv)
-* Tabbavgränsade värden (TVS med en rubrik (TSV) eller utan) (. nh.tsv)
+* Oformaterad text (. txt)
+* Kommaavgränsade värden (CSV) med ett sidhuvud (. csv) eller utan (. NH. csv)
+* Tabbavgränsade värden (TSV) med ett sidhuvud (. tsv) eller utan (. NH. tsv)
 * Excel-fil
 * Azure-tabell
 * Hive-tabell
-* SQL-databastabell
+* SQL Database-tabell
 * OData-värden
-* SVMLight data (.svmlight) (se den [SVMLight definition](http://svmlight.joachims.org/) information format)
-* Attributet ARFF Relation File Format ()-data (.arff) (se den [ARFF definition](https://weka.wikispaces.com/ARFF) information format)
-* ZIP-filen (.zip)
-* R-objekt eller arbetsyta-fil (. RData)
+* SVMLight-data (. SVMLight) (se [SVMLight-definitionen](http://svmlight.joachims.org/) för format information)
+* ARFF-data (Attribute Relations fil format) (. arff) (se [arff-definitionen](https://weka.wikispaces.com/ARFF) för format information)
+* Zip-fil (. zip)
+* R-objekt eller arbetsytefil (. RData
 
-Om du importerar data i ett format till exempel ARFF som innehåller metadata använder Studio dessa metadata för att definiera rubrik och datatypen för varje kolumn.
+Om du importerar data i ett format, till exempel ARFF som innehåller metadata, använder den klassiska versionen av Studio dessa metadata för att definiera rubriken och data typen för varje kolumn.
 
-Om du importerar data, till exempel TSV- eller CSV-format som inte innehåller metadata härleder Studio datatypen för varje kolumn genom att samlar data. Om data inte också har kolumnrubriker, har Studio standardnamn.
+Om du importerar data, till exempel TSV-eller CSV-format som inte innehåller dessa metadata, härleds den klassiska versionen av Studio data typen för varje kolumn genom att data samplas. Om data inte heller har kolumn rubriker, innehåller den klassiska versionen av Studio Standard namn.
 
-Du kan uttryckligen ange eller ändra rubriker och datatyper för kolumner med hjälp av den [redigera Metadata] [ edit-metadata] modulen.
+Du kan uttryckligen ange eller ändra rubriker och data typer för kolumner med hjälp av modulen [Redigera metadata][edit-metadata] .
 
-Följande datatyper som identifieras av Studio:
+Följande data typer kan identifieras av den klassiska versionen av Studio:
 
-* String
+* Sträng
 * Integer
-* Double
-* Boolean
+* Dubbelklicka
+* Boolesk
 * DateTime
-* TimeSpan
+* Intervall
 
-Studio använder en intern datatyp som kallas ***datatabell*** att överföra data mellan moduler. Du kan uttryckligen omvandla dina data till data tabellen format med den [konvertera till datauppsättningen] [ convert-to-dataset] modulen.
+Studio använder en intern datatyp som kallas ***data tabell*** för att skicka data mellan moduler. Du kan uttryckligen konvertera dina data till data tabell format med hjälp av modulen [konvertera till data uppsättning][convert-to-dataset] .
 
-Alla moduler som format än datatabell konverterar data till datatabellen tyst vidare till nästa modul.
+Alla moduler som accepterar andra format än data tabeller kommer att konvertera data till data tabellen tyst innan de skickas till nästa modul.
 
-Om det behövs kan du konvertera data tabellformat tillbaka till CSV, TVS, ARFF eller SVMLight format med hjälp av andra moduler för konvertering.
-Titta i den **Format datakonvertering** avsnittet på modulpaletten för moduler som utför dessa funktioner.
+Vid behov kan du konvertera data tabell format tillbaka till CSV-, TSV-, ARFF-eller SVMLight-format med andra konverterings moduler.
+Titta i avsnittet **data format konverteringar** i modulen modul för moduler som utför dessa funktioner.
 
-## <a name="data-capacities"></a>Datakapaciteter
+## <a name="data-capacities"></a>Data kapaciteter
 
-Modulerna i Machine Learning Studio stöder datauppsättningar på upp till 10 GB med kompakta numeriska data för vanliga användningsfall. Om en modul hämtar indata från mer än ett ställe är värdet 10 GB summan av alla indata. Du kan ta prov på större datauppsättningar med frågor från Hive eller Azure SQL Database eller använda inlärning med antal Förbearbeta innan du importerar data.  
+Moduler i den klassiska versionen av Machine Learning Studio stöder data uppsättningar på upp till 10 GB tätare numeriska data för vanliga användnings fall. Om en modul hämtar indata från mer än ett ställe är värdet 10 GB summan av alla indata. Du kan prova större data uppsättningar genom att använda frågor från Hive eller Azure SQL Database, eller så kan du använda för bearbetning av antal inlärnings data innan du importerar data.  
 
 Följande typer av data kan expanderas till större datauppsättningar under funktionsnormalisering och är begränsade till mindre än 10 GB:
 
@@ -97,89 +97,89 @@ Följande moduler är begränsade till datauppsättningar som är mindre än 10�
 * Moduler där den utgående datastorleken kan vara större än den inkommande datastorleken, till exempel kopplings- eller funktions-hashning
 * Korsvalidering, hyperparametrar för justeringsmodeller, ordningstalsregression och ”en eller alla”-multiklasser, om antalet iterationer är mycket stort
 
-För datauppsättningar som är större än ett par GB, ladda upp data till Azure Storage eller Azure SQL Database eller använda Azure HDInsight i stället för att ladda upp direkt från en lokal fil.
+För data uppsättningar som är större än ett par GB laddar du upp data till Azure Storage eller Azure SQL Database eller använder Azure HDInsight, i stället för att ladda upp direkt från en lokal fil.
 
-Du kan hitta information om avbildningsdata i den [bildimport](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/import-images#bkmk_Notes) modulreferens.
+Du kan hitta information om bilddata i modulen [Importera avbildningar](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/import-images#bkmk_Notes) .
 
 ## <a name="import-from-a-local-file"></a>Importera från en lokal fil
 
-Du kan överföra en datafil från hårddisken ska användas som träningsdata i Studio. När du importerar en fil, skapar du en datauppsättning till modulen redo för användning i experiment i din arbetsyta.
+Du kan ladda upp en datafil från hård disken och använda den som utbildnings data i den klassiska versionen av Studio. När du importerar en datafil skapar du en data uppsättnings modul som är redo att användas i experiment i din arbets yta.
 
-Om du vill importera data från en lokal hårddisk, gör du följande:
+Om du vill importera data från en lokal hård disk gör du följande:
 
-1. Klicka på **+ ny** längst ned i fönstret Studio.
-2. Välj **DATAUPPSÄTTNING** och **från lokal fil**.
-3. I den **ladda upp en ny datauppsättning** dialogrutan, bläddra till den fil som du vill ladda upp.
-4. Ange ett namn, identifiera datatypen och även ange en beskrivning. En beskrivning rekommenderas – du kan registrera alla egenskaper om de data som du vill komma ihåg när du använder data i framtiden.
-5. Kryssrutan **det här är den nya versionen av en befintlig datamängd** gör att du kan uppdatera en befintlig datamängd med nya data. Om du vill göra det klickar du på den här kryssrutan och ange namnet på en befintlig datamängd.
+1. Klicka på **+ ny** längst ned i Studio-fönstret (klassisk).
+2. Välj **data uppsättning** och **från lokal fil**.
+3. I dialog rutan **Ladda upp en ny data uppsättning** bläddrar du till den fil som du vill ladda upp.
+4. Ange ett namn, identifiera data typen och ange en beskrivning om du vill. En beskrivning rekommenderas – den gör att du kan registrera egenskaper för de data som du vill komma ihåg när du använder data i framtiden.
+5. Kryss rutan **det här är den nya versionen av en befintlig data uppsättning** gör det möjligt att uppdatera en befintlig data uppsättning med nya data. Det gör du genom att klicka på den här kryss rutan och sedan ange namnet på en befintlig data uppsättning.
 
-![Ladda upp en ny datauppsättning](./media/import-data/upload-dataset-from-local-file.png)
+![Ladda upp en ny data uppsättning](./media/import-data/upload-dataset-from-local-file.png)
 
-Ladda upp tiden beror på storleken på dina data och hastigheten på din anslutning till tjänsten. Om du vet att filen tar lång tid, kan du göra andra saker i Studio medan du väntar. Dock gör stängt webbläsaren innan data överföringen är klar att överföringen kommer att misslyckas.
+Uppladdnings tiden beror på storleken på dina data och anslutnings hastigheten till tjänsten. Om du vet att filen tar lång tid kan du göra andra saker i den klassiska versionen av Studio medan du väntar. Men om du stänger webbläsaren innan data överföringen är klar orsakar överföringen att Miss lyckas.
 
-När dina data har överförts, lagras i en datauppsättning modul och är tillgänglig för alla experiment på arbetsytan.
+När dina data har laddats upp lagras de i en data uppsättnings modul och är tillgängliga för alla experiment i din arbets yta.
 
-När du redigerar ett experiment, hittar du de datauppsättningar som du har laddat upp i den **Mina datauppsättningar** listan den **sparade datauppsättningar** lista på modulpaletten. Du kan dra och släpp datauppsättningen till experimentets arbetsyta när du vill använda datauppsättningen för ytterligare analys och maskininlärning.
+När du redigerar ett experiment kan du hitta de data uppsättningar som du har laddat upp i listan **mina data uppsättningar** under listan **sparade data uppsättningar** i modulen modul. Du kan dra och släppa data uppsättningen till experiment arbets ytan när du vill använda data uppsättningen för ytterligare analys och maskin inlärning.
 
-## <a name="import-from-online-data-sources"></a>Importera från online-datakällor
+## <a name="import-from-online-data-sources"></a>Importera från data källor online
 
-Med hjälp av den [importera Data] [ import-data] modulen experimentet kan importera data från olika datakällor för online när experimentet körs.
+Med hjälp av modulen [Importera data][import-data] kan experimentet importera data från olika data källor online medan experimentet körs.
 
 > [!NOTE]
-> Den här artikeln innehåller allmän information om den [importdata] [ import-data] modulen. Mer detaljerad information om vilka typer av data som du kan komma åt format, parametrar och svar på vanliga frågor finns i avsnittet med modulen referens för den [importdata] [ import-data] modulen.
+> Den här artikeln innehåller allmän information om modulen [Importera data][import-data] . Mer detaljerad information om vilka typer av data som du kan komma åt, format, parametrar och svar på vanliga frågor finns i avsnittet modulreferens i modulen [Importera data][import-data] .
 
-Med hjälp av den [importdata] [ import-data] modulen, du kan komma åt data från en av flera datakällor som online när experimentet körs:
+Med hjälp av modulen [Importera data][import-data] kan du komma åt data från en av flera data källor online medan experimentet körs:
 
-* En URL med HTTP
+* En webb adress med HTTP
 * Hadoop med HiveQL
-* Azure blobblagring
+* Azure Blob Storage
 * Azure-tabell
-* Azure SQL database eller SQL Server på Azure VM
-* En lokal SQL Server-databas
-* En provider, för närvarande OData-datafeed
+* Azure SQL Database eller SQL Server på Azure VM
+* Lokal SQL Server databas
+* En datafeed-Provider, OData för närvarande
 * Azure Cosmos DB
 
-Eftersom den här träningsdata hämtas när experimentet körs, är det bara tillgängliga i försöket. Jämförelsevis har är data som lagrats i en datauppsättning till modulen tillgänglig för alla experiment på arbetsytan.
+Eftersom dessa inlärnings data används medan experimentet körs, är det bara tillgängligt i det experimentet. I jämförelse är data som har lagrats i en data uppsättnings modul tillgänglig för alla experiment i din arbets yta.
 
-Du kommer åt online-datakällor i Studio-experiment genom att lägga till den [importdata] [ import-data] modulen i experimentet. Välj sedan **starta guiden Importera** under **egenskaper** stegvisa guidad instruktioner att välja och konfigurera datakällan. Du kan även manuellt välja **datakälla** under **egenskaper** och ange de parametrar som behövs för att komma åt data.
+Om du vill komma åt online-datakällor i ditt Studio (klassiska) experiment lägger du till modulen [Importera data][import-data] i experimentet. Välj sedan **guiden för att starta import data** under **Egenskaper** för steg-för-steg-instruktioner för att välja och konfigurera data källan. Alternativt kan du manuellt välja **data källa** under **Egenskaper** och ange de parametrar som krävs för att få åtkomst till data.
 
-Online-datakällor som stöds är uppdelat i tabellen nedan. Den här tabellen sammanfattar också filformat som stöds och parametrar som används för att komma åt data.
+Online-datakällor som stöds finns i tabellen nedan. Den här tabellen sammanfattar också de fil format som stöds och parametrar som används för att komma åt data.
 
 > [!IMPORTANT]
-> För närvarande den [importdata] [ import-data] och [exportera Data] [ export-data] moduler kan läsa och skriva data endast från Azure storage som skapats med klassiskt distributionsmodell. Med andra ord stöds den nya Azure Blob Storage-kontotyp som erbjuder en frekvent åtkomstnivå eller lågfrekvent åtkomstnivå inte ännu.
+> För närvarande kan modulen [Importera data][import-data] och [Exportera data][export-data] bara läsa och skriva data från Azure Storage som skapats med den klassiska distributions modellen. Med andra ord stöds inte den nya konto typen för Azure Blob Storage som erbjuder snabb åtkomst nivå eller låg frekvent åtkomst nivå ännu.
 >
-> I allmänhet bör alla Azure storage-konton som du kan ha skapat innan det här alternativet om tjänsten blev tillgängliga bör inte påverkas.
-> Om du vill skapa ett nytt konto kan du välja **klassiska** för distributionen modell, eller använda Resource manager och välj **generella** snarare än **Blob-lagring** för  **Typ av konto**.
+> I allmänhet bör alla Azure Storage-konton som du har skapat innan det här tjänst alternativet bli tillgängliga inte påverkas.
+> Om du behöver skapa ett nytt konto väljer du **klassiskt** för distributions modellen eller använder Resource Manager och väljer **Allmänt syfte** i stället för **Blob Storage** för **konto typ**.
 >
-> Mer information finns i [Azure Blob Storage: Frekvent och lågfrekvent lagringsnivå](../../storage/blobs/storage-blob-storage-tiers.md).
+> Mer information finns i [Azure Blob Storage: frekvent och låg frekvent lagrings nivå](../../storage/blobs/storage-blob-storage-tiers.md).
 
 ### <a name="supported-online-data-sources"></a>Online-datakällor som stöds
-Azure Machine Learning Studio **importdata** modulen stöder följande datakällor:
+Den klassiska versionen av modulen Azure Machine Learning Studio **Importera data** stöder följande data Källor:
 
-| Datakälla | Beskrivning | Parametrar |
+| Data Källa | Beskrivning | Parametrar |
 | --- | --- | --- |
-| Webbadress till via HTTP |Läser data i fil med kommaavgränsade värden (CSV), tabbavgränsade värden (TVS), Attributrelation filformatet (ARFF) och Support Vector datorer (SVM lätt)-format, från valfri webbtjänst-URL som använder HTTP |<b>URL</b>: Anger det fullständiga namnet på filen, inklusive webbplatsens URL och filnamn, med alla tillägg. <br/><br/><b>Dataformatet</b>: Anger en av format som stöds: CSV, TVS, ARFF eller SVM ljus. Om data har en rubrikrad, används den tilldelas kolumnnamn. |
-| Hadoop/HDFS |Läser data från distribuerad lagring i Hadoop. Du anger de data du vill genom att använda HiveQL, ett SQL-liknande frågespråk. HiveQL kan också användas för att sammanställa data och utföra filtrering innan du lägger till data till Studio. |<b>Hive databasfråga</b>: Anger Hive-fråga som används för att generera data.<br/><br/><b>HCatalog server URI </b> : Ange namnet på klustret i formatet  *&lt;klusternamnet&gt;. azurehdinsight.net.*<br/><br/><b>Hadoop-användarkontonamnet</b>: Anger Hadoop-användarkontonamnet används för att etablera klustret.<br/><br/><b>Hadoop lösenord</b> : Anger de autentiseringsuppgifter som används vid etableringen av klustret. Mer information finns i [skapa Hadoop-kluster i HDInsight](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).<br/><br/><b>Platsen för utdata</b>: Anger om data lagras i ett Hadoop distributed file system (HDFS) eller i Azure. <br/><ul>Om du lagrar utdata för i HDFS kan du ange URI för HDFS-servern. (Glöm inte att använda HDInsight-klustrets namn utan prefixet HTTPS://). <br/><br/>Om du lagrar dina utdata i Azure måste du ange Azure storage-kontonamn, åtkomstnyckel för lagring och namnet på lagringsbehållaren.</ul> |
-| SQL-databas |Läser data som lagras i en Azure SQL-databas eller i en SQL Server-databas som körs på virtuella Azure-datorer. |<b>Namn på databasserver</b>: Anger namnet på den server där databasen körs.<br/><ul>Ange servernamnet som genereras när det gäller Azure SQL Database. Har normalt formatet  *&lt;generated_identifier&gt;. database.windows.net.* <br/><br/>Vid en SQL-server som körs på en Azure virtuell dator anger *tcp:&lt;DNS-namn på virtuell dator&gt;, 1433*</ul><br/><b>Databasnamnet </b>: Anger namnet på databasen på servern. <br/><br/><b>Server användarkontonamn</b>: Anger ett användarnamn för ett konto som har åtkomstbehörighet för databasen. <br/><br/><b>Server lösenord</b>: Anger lösenordet för användarkontot.<br/><br/><b>Databasfråga</b>: Ange ett SQL-uttryck som beskriver de data som du vill läsa. |
-| Lokal SQL-databas |Läser data som lagras i en lokal SQL-databas. |<b>Datagateway</b>: Anger namnet på Data Management Gateway installerad på en dator där den kan komma åt SQL Server-databasen. Information om hur du konfigurerar gatewayen finns i [utför avancerad analys med Azure Machine Learning Studio med hjälp av data från en lokal SQLServer](use-data-from-an-on-premises-sql-server.md).<br/><br/><b>Namn på databasserver</b>: Anger namnet på den server där databasen körs.<br/><br/><b>Databasnamnet </b>: Anger namnet på databasen på servern. <br/><br/><b>Server användarkontonamn</b>: Anger ett användarnamn för ett konto som har åtkomstbehörighet för databasen. <br/><br/><b>Användarnamn och lösenord</b>: Klicka på <b>ange värden</b> att ange dina Databasautentiseringsuppgifter. Du kan använda Windows-integrerad autentisering eller SQL Server-autentisering beroende på hur din lokala SQL Server är konfigurerat.<br/><br/><b>Databasfråga</b>: Ange ett SQL-uttryck som beskriver de data som du vill läsa. |
-| Azure-tabell |Läser data från Table service i Azure Storage.<br/><br/>Om du har läst stora mängder data används sällan använda Azure Table Service. Det ger en flexibel, icke-relationella (NoSQL), mycket skalbar, prisvärd och mycket tillgängliga lagringslösning. |Alternativen i den **importdata** ändras beroende på om du får åtkomst till offentlig information eller en privat lagringskontot som kräver autentiseringsuppgifter för inloggning. Detta bestäms av den <b>autentiseringstyp</b> som kan ha värdet för ”PublicOrSAS” eller ”konto”, som har en egen uppsättning parametrar. <br/><br/><b>Offentlig eller delad Åtkomstsignatur (SAS) URI</b>: Parametrarna är:<br/><br/><ul><b>Tabellen URI</b>: Anger offentlig eller SAS-Webbadressen för tabellen.<br/><br/><b>Anger vilka rader som ska söka efter egenskapsnamn</b>: Värdena som är <i>TopN</i> söker igenom det angivna antalet rader, eller <i>ScanAll</i> att hämta alla rader i tabellen. <br/><br/>Om data är homogena och förutsägbara, rekommenderar vi att du väljer *TopN* och ange ett tal för N. För stora tabeller kan detta resultera i snabbare läsning gånger.<br/><br/>Om data är strukturerade med uppsättningar med egenskaper som kan variera beroende på djupet och position i tabellen, väljer du den *ScanAll* alternativet att genomsöka alla rader. Detta säkerställer integriteten hos dina resulterande egenskapen och metadata för konvertering.<br/><br/></ul><b>Privat Lagringskonto</b>: Parametrarna är: <br/><br/><ul><b>Kontonamn</b>: Anger namnet på det konto som innehåller tabellen att läsa.<br/><br/><b>Kontonyckel</b>: Anger lagringskontots åtkomstnyckel som är associerade med kontot.<br/><br/><b>Tabellnamnet</b> : Anger namnet på den tabell som innehåller data att läsa.<br/><br/><b>Rader som ska söka efter egenskapsnamn</b>: Värdena som är <i>TopN</i> söker igenom det angivna antalet rader, eller <i>ScanAll</i> att hämta alla rader i tabellen.<br/><br/>Om data är homogena och förutsägbara, rekommenderar vi att du väljer *TopN* och ange ett tal för N. För stora tabeller kan detta resultera i snabbare läsning gånger.<br/><br/>Om data är strukturerade med uppsättningar med egenskaper som kan variera beroende på djupet och position i tabellen, väljer du den *ScanAll* alternativet att genomsöka alla rader. Detta säkerställer integriteten hos dina resulterande egenskapen och metadata för konvertering.<br/><br/> |
-| Azure Blob Storage |Läser data som lagras i Blob service i Azure Storage, inklusive bilder, ostrukturerad text eller binära data.<br/><br/>Du kan använda Blob-tjänsten att exponera data offentligt eller lagra programdata privat. Du kan komma åt dina data var som helst genom att använda HTTP eller HTTPS-anslutningar. |Alternativen i den **importdata** modul ändras beroende på om du får åtkomst till offentlig information eller en privat lagringskontot som kräver autentiseringsuppgifter för inloggning. Detta bestäms av den <b>autentiseringstyp</b> som kan ha ett värde för ”PublicOrSAS” eller ”konto”.<br/><br/><b>Offentlig eller delad Åtkomstsignatur (SAS) URI</b>: Parametrarna är:<br/><br/><ul><b>URI: N</b>: Anger offentlig eller SAS-Webbadress för blob storage.<br/><br/><b>Filformat för</b>: Anger formatet för data i Blob-tjänsten. Format som stöds är CSV, TVS och ARFF.<br/><br/></ul><b>Privat Lagringskonto</b>: Parametrarna är: <br/><br/><ul><b>Kontonamn</b>: Anger namnet på det konto som innehåller den blob som du vill läsa.<br/><br/><b>Kontonyckel</b>: Anger lagringskontots åtkomstnyckel som är associerade med kontot.<br/><br/><b>Sökvägen till behållaren, katalogen eller blob </b> : Anger namnet på bloben som innehåller data att läsa.<br/><br/><b>BLOB-filformatet</b>: Anger formatet för data i blob-tjänsten. Format som stöds är CSV, TVS, ARFF, CSV med en angiven kodning och Excel. <br/><br/><ul>Om formatet är CSV- eller TVS, måste du ange om filen innehåller en rubrikrad.<br/><br/>Du kan använda Excel-alternativet för att läsa data från Excel-arbetsböcker. I den <i>Excel dataformat</i> måste du ange om data är i ett Excel-kalkylbladsområde eller i en Excel-tabell. I den <i>Excel-blad eller inbäddade tabell </i>, anger du namnet på kalkylbladet eller tabellen som du vill läsa från.</ul><br/> |
-| -Datafeedprovider |Läser data från en leverantör som stöds feed. För närvarande endast formatet Open Data Protocol (OData) stöds. |<b>Innehållstyp som data</b>: Anger OData-format.<br/><br/><b>Käll-URL</b>: Anger den fullständiga URL för datafeeden. <br/>Till exempel läser följande URL från exempeldatabasen: https://services.odata.org/northwind/northwind.svc/ |
+| Webb adress via HTTP |Läser data i kommaavgränsade värden (CSV), Tabbavgränsade värden (TSV), attribut-ARFF (File-relation File Format) och stöder Vector Machines (SVM-Light)-format från alla webb adresser som använder HTTP |<b>URL</b>: anger det fullständiga namnet på filen, inklusive webbplatsens URL och fil namnet, med valfritt tillägg. <br/><br/><b>Data format</b>: anger ett av de data format som stöds: CSV, TSV, arff eller SVM-Light. Om data har en rubrik rad används den för att tilldela kolumn namn. |
+| Hadoop/HDFS |Läser data från distribuerad lagring i Hadoop. Du anger de data du vill använda med HiveQL, ett SQL-liknande frågespråk. HiveQL kan också användas för att aggregera data och utföra data filtrering innan du lägger till data i den klassiska versionen av Studio. |<b>Hive-databas fråga</b>: anger den Hive-fråga som används för att generera data.<br/><br/><b>HCatalog-Server-URI</b> : Ange namnet på klustret med formatet *&lt;klustrets namn&gt;. azurehdinsight.net.*<br/><br/><b>Hadoop-användar konto namn</b>: anger det Hadoop-användarnamn som används för att etablera klustret.<br/><br/><b>Hadoop-kontots lösen ord</b> : anger de autentiseringsuppgifter som används för att konfigurera klustret. Mer information finns i [skapa Hadoop-kluster i HDInsight](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).<br/><br/><b>Plats för utgående data</b>: anger om data lagras i ett Hadoop-distribuerat fil system (HDFS) eller i Azure. <br/><ul>Om du lagrar utdata i HDFS anger du Server-URI för HDFS. (Se till att använda HDInsight-klustrets namn utan HTTPS://-prefixet). <br/><br/>Om du lagrar dina utdata i Azure måste du ange namnet på Azure Storage-kontot, lagrings åtkomst nyckeln och namnet på lagrings behållaren.</ul> |
+| SQL-databas |Läser data som lagras i en Azure SQL-databas eller i en SQL Server databas som körs på en virtuell Azure-dator. |<b>Databas server namn</b>: anger namnet på den server där databasen körs.<br/><ul>Vid Azure SQL Database anger du det Server namn som genereras. Vanligt vis har den formatet *&lt;generated_identifier&gt;. Database.Windows.net.* <br/><br/>Om det finns en SQL Server på en virtuell Azure-dator anger du *TCP:&lt;DNS-namn för virtuell dator&gt;1433*</ul><br/><b>Databas namn </b>: anger namnet på databasen på servern. <br/><br/><b>Serverns användar konto namn</b>: anger ett användar namn för ett konto som har åtkomst behörighet för databasen. <br/><br/><b>Lösen ord för serverns användar konto</b>: anger lösen ordet för användar kontot.<br/><br/><b>Databas fråga</b>: Ange en SQL-instruktion som beskriver de data som du vill läsa. |
+| Lokal SQL-databas |Läser data som lagras i en lokal SQL-databas. |<b>Datagateway</b>: anger namnet på den data Management Gateway som är installerad på en dator där den kan komma åt din SQL Server-databas. Information om hur du konfigurerar gatewayen finns i [utföra avancerad analys med den klassiska versionen av Azure Machine Learning Studio med hjälp av data från en lokal SQL Server](use-data-from-an-on-premises-sql-server.md).<br/><br/><b>Databas server namn</b>: anger namnet på den server där databasen körs.<br/><br/><b>Databas namn </b>: anger namnet på databasen på servern. <br/><br/><b>Serverns användar konto namn</b>: anger ett användar namn för ett konto som har åtkomst behörighet för databasen. <br/><br/><b>Användar namn och lösen ord</b>: Klicka på <b>Ange värden</b> för att ange dina autentiseringsuppgifter för databasen. Du kan använda Windows-integrerad autentisering eller SQL Server autentisering beroende på hur din lokala SQL Server har kon figurer ATS.<br/><br/><b>Databas fråga</b>: Ange en SQL-instruktion som beskriver de data som du vill läsa. |
+| Azure-tabell |Läser data från Table service i Azure Storage.<br/><br/>Om du läser stora mängder data som inte används ofta använder du Azure Table service. Det ger en flexibel, icke-relationell (NoSQL), massivt skalbar, billig och hög tillgänglig lagrings lösning. |Alternativen i **Importera data** ändras beroende på om du kommer åt offentlig information eller ett privat lagrings konto som kräver inloggnings uppgifter. Detta bestäms av <b>autentiseringstypen</b> som kan ha värdet "PublicOrSAS" eller "Account", som var och en har en egen uppsättning parametrar. <br/><br/><b>Offentlig eller signatur för delad åtkomst (SAS)</b>: parametrarna är:<br/><br/><ul><b>Tabell-URI</b>: anger den offentliga eller SAS-URL: en för tabellen.<br/><br/><b>Anger vilka rader som ska genomsökas efter egenskaps namn</b>: värdena är <i>TopN</i> för att skanna det angivna antalet rader eller <i>ScanAll</i> för att hämta alla rader i tabellen. <br/><br/>Om data är homogena och förutsägbara rekommenderar vi att du väljer *TopN* och anger ett tal för N. För stora tabeller kan detta resultera i snabbare läsnings tider.<br/><br/>Om data är strukturerade med uppsättningar med egenskaper som varierar beroende på tabellens djup och placering väljer du alternativet *ScanAll* för att söka igenom alla rader. Detta säkerställer integriteten hos den resulterande egenskapen och metadata-konverteringen.<br/><br/></ul><b>Privat lagrings konto</b>: parametrarna är: <br/><br/><ul><b>Konto namn</b>: anger namnet på det konto som innehåller tabellen som ska läsas.<br/><br/><b>Konto nyckel</b>: anger den lagrings nyckel som är kopplad till kontot.<br/><br/><b>Tabell namn</b> : anger namnet på den tabell som innehåller de data som ska läsas.<br/><br/><b>Rader som ska genomsökas efter egenskaps namn</b>: värdena är <i>TopN</i> för att skanna det angivna antalet rader eller <i>ScanAll</i> för att hämta alla rader i tabellen.<br/><br/>Om data är homogena och förutsägbara rekommenderar vi att du väljer *TopN* och anger ett tal för N. För stora tabeller kan detta resultera i snabbare läsnings tider.<br/><br/>Om data är strukturerade med uppsättningar med egenskaper som varierar beroende på tabellens djup och placering väljer du alternativet *ScanAll* för att söka igenom alla rader. Detta säkerställer integriteten hos den resulterande egenskapen och metadata-konverteringen.<br/><br/> |
+| Azure Blob Storage |Läser data som lagras i Blob Service i Azure Storage, inklusive bilder, ostrukturerad text eller binära data.<br/><br/>Du kan använda Blob Service för att visa data offentligt eller för att lagra program data privat. Du kan komma åt dina data var som helst genom att använda HTTP-eller HTTPS-anslutningar. |Alternativen i modulen **Importera data** varierar beroende på om du kommer åt offentlig information eller ett privat lagrings konto som kräver inloggnings uppgifter. Detta bestäms av autentiseringstypen som kan ha ett värde av <b>typen</b> "PublicOrSAS" eller "Account".<br/><br/><b>Offentlig eller signatur för delad åtkomst (SAS)</b>: parametrarna är:<br/><br/><ul><b>URI</b>: anger den offentliga eller SAS-URL: en för Storage-blobben.<br/><br/><b>Fil format</b>: anger formatet för data i BLOB service. De format som stöds är CSV, TSV och ARFF.<br/><br/></ul><b>Privat lagrings konto</b>: parametrarna är: <br/><br/><ul><b>Konto namn</b>: anger namnet på det konto som innehåller den blob som du vill läsa.<br/><br/><b>Konto nyckel</b>: anger den lagrings nyckel som är kopplad till kontot.<br/><br/><b>Sökväg till behållare, katalog eller BLOB</b> : anger namnet på blobben som innehåller de data som ska läsas.<br/><br/><b>BLOB-fil format</b>: anger formatet för data i Blob-tjänsten. De data format som stöds är CSV, TSV, ARFF, CSV med en angiven kodning och Excel. <br/><br/><ul>Om formatet är CSV eller TSV, måste du ange om filen innehåller en rubrik rad.<br/><br/>Du kan använda Excel-alternativet för att läsa data från Excel-arbetsböcker. I <i>Excel data format</i> -alternativet anger du om data finns i ett kalkyl blads område i Excel eller i en Excel-tabell. I alternativet <i>Excel-blad eller inbäddad tabell </i>anger du namnet på bladet eller tabellen som du vill läsa från.</ul><br/> |
+| Datafeed-Provider |Läser data från en feed som stöds. För närvarande stöds endast OData-formatet (Open data Protocol). |<b>Data innehålls typ</b>: anger OData-formatet.<br/><br/><b>Käll-URL</b>: anger den fullständiga URL: en för datafeeden. <br/>Följande URL läser till exempel från exempel databasen Northwind: https://services.odata.org/northwind/northwind.svc/ |
 
 ## <a name="import-from-another-experiment"></a>Importera från ett annat experiment
 
-Det blir när du vill ta ett mellanliggande resultat från ett experiment och använda den som en del av ett annat experiment. Om du vill göra detta måste spara du modulen som en datauppsättning:
+Det kommer att finnas tillfällen när du vill göra ett mellanliggande resultat från ett experiment och använda det som en del av ett annat experiment. Det gör du genom att spara modulen som en data uppsättning:
 
-1. Klicka på utdata från modulen som du vill spara som en datauppsättning.
-2. Klicka på **Spara som datamängd**.
-3. När du uppmanas, anger du ett namn och en beskrivning som du kan enkelt identifiera datauppsättningen.
-4. Klicka på den **OK** bockmarkeringen.
+1. Klicka på utdata från den modul som du vill spara som en data uppsättning.
+2. Klicka på **Spara som data uppsättning**.
+3. När du uppmanas till det anger du ett namn och en beskrivning som gör det enkelt att identifiera data uppsättningen.
+4. Klicka på **bock markeringen** .
 
-När du är klar spara blir datauppsättningen tillgänglig för användning i alla experiment på arbetsytan. Du hittar den i den **sparade datauppsättningar** lista på modulpaletten.
+När Spara-funktionen är klar är data uppsättningen tillgänglig för användning i alla experiment på arbets ytan. Du hittar den i listan med **sparade data uppsättningar** i modulen modul.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Distribuera Azure Machine Learning studio-webbtjänster som använder moduler för dataimport och dataexport](web-services-that-use-import-export-modules.md)
+[Distribuera Azure Machine Learning Studio webb tjänster som använder moduler för data import och data export](web-services-that-use-import-export-modules.md)
 
 
 <!-- Module References -->

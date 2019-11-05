@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5fa13f209d6f4df0ebd531f803e75cdb657abf5c
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 731abdde2160c16123ed648b5e552e9e62378438
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163120"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494001"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Självstudie: skapa och distribuera anpassade IoT Edge-moduler
 
@@ -172,7 +172,7 @@ Sedan lägger vi till modulen router i vår lösning. Modulen router hanterar fl
 4. När du uppmanas att ange lagrings platsen för Docker-avbildningen använder du registret från Machine Learning-arbetsytan (du hittar registret i noden registryCredentials i din *Deployment. template. JSON* -fil). Det här värdet är den fullständigt kvalificerade adressen till registret, t. ex **.\<registret\>. azurecr.io/turbofanrouter**.
 
     > [!NOTE]
-    > I den här artikeln använder vi Azure Container Registry som skapats av arbets ytan Azure Machine Learning tjänst, som vi använde för att träna och distribuera vår klassificerare. Detta är rent för enkelhetens skull. Vi kan ha skapat ett nytt behållar register och publicerat våra moduler där.
+    > I den här artikeln använder vi Azure Container Registry som skapats av arbets ytan Azure Machine Learning som vi använde för att träna och distribuera vår klassificerare. Detta är rent för enkelhetens skull. Vi kan ha skapat ett nytt behållar register och publicerat våra moduler där.
 
 5. Öppna ett nytt terminalfönster i Visual Studio Code (**visa** > **Terminal**) och kopiera filer från katalogen moduler.
 
@@ -639,7 +639,7 @@ Med routern och klassificeraren på plats förväntar vi dig att ta emot vanliga
 
 13. Välj **test väg**. Om testet lyckas visas meddelandet "meddelandet matchade frågan".
 
-14. Klicka på **Save** (Spara).
+14. Klicka på **Spara**.
 
 #### <a name="update-turbofandevicetostorage-route"></a>Uppdatera turbofanDeviceToStorage-flöde
 
@@ -752,7 +752,7 @@ Nu när vi har gjort konfigurations ändringarna är vi redo att bygga avbildnin
 
 När skapandet har slutförts kommer vi att kunna använda Azure Portal för att granska våra publicerade moduler.
 
-1. I Azure Portal navigerar du till Azure Machine Learning service-arbetsytan och klickar på hyperlänken för **registret**.
+1. Gå till arbets ytan Azure Machine Learning i Azure Portal och klicka på hyperlänken för **registret**.
 
     ![Navigera till registret från Machine Learning service-arbetsytan](media/tutorial-machine-learning-edge-06-custom-modules/follow-registry-link.png)
 

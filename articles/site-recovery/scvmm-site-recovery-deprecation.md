@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: rajanaki
-ms.openlocfilehash: 972223815810917684f35c4e99f04e1ab5b882c8
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 68881d57f251d2f26996b2a837780106326ec1d3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952126"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492292"
 ---
 # <a name="upcoming-deprecation-of-dr-between-customer-owned-sites-using-hyper-v-and-between-sites-managed-by-scvmm-to-azure"></a>Kommande utfasning av DR mellan kundägda webbplatser med Hyper-V och mellan platser som hanteras av SCVMM till Azure
 
@@ -32,13 +32,13 @@ Den här artikeln beskriver den kommande avskrivnings planen, motsvarande konsek
 
 - När scenarierna är inaktuella kan du få följande konsekvenser om inte kunden följer de rekommenderade stegen.
 
-    - DR mellan virtuella Hyper-V-datorer som hanteras av SCVMM mellan kundägda webbplatser: replikeringarna fortsätter att fungera eftersom den underliggande funktionen i Hyper-V-replikering fortsätter att fungera, men kunderna kan inte Visa, hantera eller utföra ny DR-relaterade åtgärder via Azures SIRET-återställnings upplevelse i Azure Portal. 
-    - DR för virtuella Hyper-V-datorer som hanteras av SCVMM till Azure: befintliga replikeringar avbryts och kunder kan inte Visa, hantera eller utföra ny DR-relaterade åtgärder via Azure Site Recovery
+    - DR mellan virtuella Hyper-V-datorer som hanteras av SCVMM mellan kundägda webbplatser: replikeringarna fortsätter att fungera eftersom den underliggande funktionen i Hyper-V-replikering fortsätter att fungera, men kunderna kan inte Visa, hantera eller utföra några DR-relaterade åtgärder via Azures SIRET-återställnings upplevelse i Azure Portal. 
+    - DR för virtuella Hyper-V-datorer som hanteras av SCVMM till Azure: befintliga replikeringar avbryts och kunderna kan inte Visa, hantera eller utföra några DR-relaterade åtgärder via Azure Site Recovery
 
 
 ## <a name="recommended-actions-to-be-taken"></a>Rekommenderade åtgärder som ska vidtas
 
-Nedan visas alternativa alternativ som kunden måste se till att deras DR-strategi inte påverkas när scenariot är föråldrat. 
+Nedan visas de alternativ kunden behöver för att säkerställa att deras DR-strategi inte påverkas när scenariot är föråldrat. 
 
 - Välj att [börja använda Azure som Dr-mål för virtuella datorer på Hyper-V-värdar](hyper-v-azure-tutorial.md).
 

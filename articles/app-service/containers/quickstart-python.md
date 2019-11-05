@@ -16,12 +16,12 @@ ms.author: cephalin
 ms.custom: seo-python-october2019
 experimental: false
 experiment_id: 1e304dc9-5add-4b
-ms.openlocfilehash: 8c3015f78df1427af760f14bd948057643ef2a98
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 69e7cfef01005432a99dd10ed5bc7f004562e582
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990832"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470808"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Snabb start: skapa en python-app i Azure App Service på Linux
 
@@ -29,7 +29,7 @@ I den här snabb starten distribuerar du en python-webbapp till [app service på
 
 Om du föredrar att distribuera appar via en IDE, se [distribuera python-appar till App Service från Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - <a href="https://www.python.org/downloads/" target="_blank">Python 3,7</a> (python 3,6 stöds också)
@@ -207,17 +207,19 @@ Om du vill stoppa logg strömningen när som helst, skriver du `Ctrl`+`C`.
 
 ## <a name="manage-the-azure-app"></a>Hantera Azure-appen
 
-Du hanterar appen som du skapade i <a href="https://portal.azure.com" target="_blank">Azure Portal</a>. 
+Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den app som du skapade. Sök efter och välj **app Services**.
 
-Klicka på **App Services** i menyn till vänster och välj sedan namnet på din Azure-app.
+![Navigera till App Services i Azure Portal](./media/quickstart-python/navigate-to-app-services-in-the-azure-portal.png)
+
+Välj namnet på din Azure-App.
 
 ![Navigera till python-appen i App Services i Azure Portal](./media/quickstart-python/navigate-to-app-in-app-services-in-the-azure-portal.png)
 
-Appens översikts sida visas sedan. På den här sidan kan du utföra grundläggande hanterings åtgärder som att bläddra, stoppa, starta, starta om och ta bort.
+Du ser din apps översiktssida. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort.
 
 ![Hantera din python-app på sidan Översikt i Azure Portal](./media/quickstart-python/manage-an-app-in-app-services-in-the-azure-portal.png)
 
-Menyn till vänster innehåller olika sidor för att konfigurera appen. 
+App Service-menyn innehåller olika sidor för att konfigurera din app.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

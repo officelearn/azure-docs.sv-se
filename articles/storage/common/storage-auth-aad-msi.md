@@ -9,12 +9,12 @@ ms.date: 10/17/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 833aa7dcce5c429b3005a378e93e2177df1eb0d4
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: d77ab142e227cfaa6533395cc256d992e698dd17
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595185"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495934"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Ge åtkomst till blobbar och köer med Azure Active Directory och hanterade identiteter för Azure-resurser
 
@@ -26,7 +26,7 @@ Den här artikeln visar hur du auktoriserar åtkomst till BLOB-eller Queue-data 
 
 Innan du kan använda hanterade identiteter för Azure-resurser för att ge åtkomst till blobbar och köer från din virtuella dator måste du först aktivera hanterade identiteter för Azure-resurser på den virtuella datorn. Information om hur du aktiverar hanterade identiteter för Azure-resurser finns i någon av följande artiklar:
 
-- [Azure-portalen](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
+- [Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager-mall](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
@@ -42,7 +42,7 @@ När din kod körs i utvecklings miljön kan autentiseringen hanteras automatisk
 
 Andra utvecklingsverktyg kan bli ombedd att logga in via en webbläsare. Du kan också använda ett huvud namn för tjänsten för att autentisera från utvecklings miljön. Mer information finns i [skapa identitet för Azure-appen i portalen](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-Efter autentiseringen får klient biblioteket för Azure Identity ett token-autentiseringsuppgifter. Den här token-autentiseringsuppgiften kapslas sedan i det tjänst klient objekt som du skapar för att utföra åtgärder mot Azure Storage. Biblioteket hanterar detta för sömlöst genom att hämta rätt autentiseringsuppgifter för token.
+Efter autentiseringen får klient biblioteket för Azure Identity ett token-autentiseringsuppgifter. Den här token-autentiseringsuppgiften kapslas sedan i det tjänst klient objekt som du skapar för att utföra åtgärder mot Azure Storage. Biblioteket hanterar detta för dig sömlöst genom att hämta rätt token-autentiseringsuppgifter.
 
 Mer information om klient biblioteket för Azure Identity finns i [klient biblioteket för Azure Identity för .net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity).
 

@@ -1,5 +1,5 @@
 ---
-title: Använd SQL-transformering
+title: Använda SQL-transformering
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder modulen Använd SQL-transformering i Azure Machine Learning-tjänsten för att köra en SQLite-fråga på indata-datauppsättningar för att transformera data.
 services: machine-learning
@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 8eede9d1fbee7d8b70f6b6924b9767b4d3f4e0bf
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 62c61d589324fe8364fe4630b3cf2cc64e1860b1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72694641"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493919"
 ---
-# <a name="apply-sql-transformation"></a>Använd SQL-transformering
+# <a name="apply-sql-transformation"></a>Använda SQL-transformering
 
-I den här artikeln beskrivs en modul i Azure Machine Learning Visual Interface.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Med hjälp av modulen Använd SQL-omvandling kan du:
   
@@ -33,7 +33,7 @@ Med hjälp av modulen Använd SQL-omvandling kan du:
 
 ## <a name="how-to-configure-apply-sql-transformation"></a>Konfigurera tillämpa SQL-omvandling  
 
-Modulen kan ta upp till tre data uppsättningar som indata. När du refererar till data uppsättningarna som är anslutna till varje indataport måste du använda namnen `t1`, `t2` och `t3`. Tabell numret anger indataportens index.  
+Modulen kan ta upp till tre data uppsättningar som indata. När du refererar till data uppsättningarna som är anslutna till varje indataport måste du använda namnen `t1`, `t2`och `t3`. Tabell numret anger indataportens index.  
   
 Den återstående parametern är en SQL-fråga som använder SQLite-syntaxen. När du skriver flera rader i text rutan **SQL-skript** , använder du ett semikolon för att avsluta varje instruktion. Annars konverteras rad brytningar till blank steg.  
 
@@ -55,9 +55,9 @@ Det här avsnittet innehåller implementerings information, tips och svar på va
   
 - `LEFT OUTER JOIN` implementeras, men inte `RIGHT OUTER JOIN` eller `FULL OUTER JOIN`.  
 
-- Du kan använda `RENAME TABLE`-och `ADD COLUMN`-uttryck med kommandot `ALTER TABLE`, men andra satser stöds inte, inklusive `DROP COLUMN`, `ALTER COLUMN` och `ADD CONSTRAINT`.  
+- Du kan använda `RENAME TABLE`-och `ADD COLUMN`-uttryck med kommandot `ALTER TABLE`, men andra satser stöds inte, inklusive `DROP COLUMN`, `ALTER COLUMN`och `ADD CONSTRAINT`.  
   
-- Du kan skapa en vy i SQLite, men därefter är vyn skrivskyddad. Det går inte att köra ett `DELETE`-, `INSERT`-eller `UPDATE`-uttryck i en vy. Du kan dock skapa en utlösare som utlöses vid ett försök att `DELETE`, `INSERT` eller `UPDATE` i en vy och utföra andra åtgärder i utlösaren.  
+- Du kan skapa en vy i SQLite, men därefter är vyn skrivskyddad. Det går inte att köra ett `DELETE`-, `INSERT`-eller `UPDATE`-uttryck i en vy. Du kan dock skapa en utlösare som utlöses vid ett försök att `DELETE`, `INSERT`eller `UPDATE` i en vy och utföra andra åtgärder i utlösaren.  
   
 
 Förutom listan med funktioner som inte stöds på den officiella webbplatsen för SQLite, innehåller följande wiki en lista över andra funktioner som inte stöds: [sqlite-SQL som](http://www2.sqlite.org/cvstrac/wiki?p=UnsupportedSql) inte stöds  

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
-ms.openlocfilehash: c5de4277915e71763f034596d372554e4f88e204
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 2f55ad795cc76d59581b25ca60a1c89e7db96b04
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316666"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496017"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Vad är en enskild databas i Azure SQL Database
 
@@ -29,7 +29,7 @@ Med distributions alternativet för enskild databas skapas en databas i Azure SQ
 
 ## <a name="dynamic-scalability"></a>Dynamisk skalbarhet
 
-Du kan bygga din första app på en liten, enkel databas till låg kostnad på Server lös (för hands version) beräknings nivå eller en liten beräknings storlek i den allokerade beräknings nivån. Du kan ändra [beräknings-eller tjänst nivå](sql-database-single-database-scale.md) manuellt eller program mässigt när som helst för att uppfylla lösningens behov. Du kan justera prestandan utan driftavbrott för din app eller dina kunder. Dynamisk skalbarhet gör att databasen transparent kan svara på snabbt förändrade resurskrav och gör det möjligt för dig att endast betala för de resurser som du behöver, när du behöver dem.
+Du kan bygga din första app på en liten, enkel databas till låg kostnad på Server lös beräknings nivå eller en liten beräknings storlek i den allokerade beräknings nivån. Du kan ändra [beräknings-eller tjänst nivå](sql-database-single-database-scale.md) manuellt eller program mässigt när som helst för att uppfylla lösningens behov. Du kan justera prestandan utan driftavbrott för din app eller dina kunder. Dynamisk skalbarhet gör att databasen transparent kan svara på snabbt förändrade resurskrav och gör det möjligt för dig att endast betala för de resurser som du behöver, när du behöver dem.
 
 ## <a name="single-databases-and-elastic-pools"></a>Enkla databaser och elastiska pooler
 

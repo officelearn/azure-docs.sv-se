@@ -5,19 +5,19 @@ services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 09/19/2019
+ms.date: 10/14/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b42634aa86f210382adb1ae224c847a92d89109b
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
-ms.translationtype: MT
+ms.openlocfilehash: 587848c6718a003bf781f81d0298c73ef1549bb3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103314"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474906"
 ---
-# <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Självstudier: Aktivera autentisering i en webbapp med hjälp av Azure Active Directory B2C
+# <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Självstudie: aktivera autentisering i ett webb program med hjälp av Azure Active Directory B2C
 
 Den här självstudien visar hur du använder Azure Active Directory B2C (Azure AD B2C) för att logga in och registrera användare i ett ASP.NET-webbprogram. Med Azure AD B2C kan program autentisera med konton på sociala medier, företagskonton och Azure Active Directory-konton med hjälp av öppna standardprotokoll.
 
@@ -35,18 +35,42 @@ I den här guiden får du lära dig att:
 * [Skapa användarflöden](tutorial-create-user-flows.md) för att möjliggöra användarupplevelser i programmet.
 * Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med arbets belastningen **ASP.net och webb utveckling** .
 
-## <a name="update-the-application"></a>Uppdatera programmet
+## <a name="update-the-application-registration"></a>Uppdatera program registreringen
 
-I den självstudien som du slutförde som en del av förutsättningarna lade du till en webbapp i Azure AD B2C. För att möjliggöra kommunikation med exemplet i den här självstudien behöver du lägga till en omdirigerings-URI i programmet i Azure AD B2C.
+I självstudien som du avslutade som en del av förutsättningarna registrerade du ett webb program i Azure AD B2C. Om du vill aktivera kommunikation med exemplet i den här självstudien måste du lägga till en omdirigerings-URI och skapa en klient hemlighet (nyckel) för det registrerade programmet.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+### <a name="add-a-redirect-uri-reply-url"></a>Lägg till en omdirigerings-URI (svars-URL)
+
+Du kan använda den aktuella **program** upplevelsen eller vår nya enhetliga **Appregistreringar (för hands version)** för att uppdatera programmet. [Läs mer om för hands](http://aka.ms/b2cappregintro)versionen.
+
+#### <a name="applicationstabapplications"></a>[Program](#tab/applications/)
+
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
 1. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 1. Välj **Program** och därefter programmet *webapp1*.
 1. Under **Svars-URL** lägger du till `https://localhost:44316`.
 1. Välj **Spara**.
-1. På egenskapssidan antecknar du det program-ID som du kommer att använda när du konfigurerar webbappen.
-1. Välj **Nycklar** följt av **Skapa nyckel** och sedan **Spara**. Anteckna den nyckel som du kommer att använda när du konfigurerar webbappen.
+1. På sidan Egenskaper registrerar du program-ID för användning i ett senare steg när du konfigurerar webb programmet.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
+
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
+1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
+1. Välj **Appregistreringar (för hands version)** , Välj fliken **ägda program** och välj sedan *webapp1* -programmet.
+1. Välj **autentisering**och välj sedan **testa den nya upplevelsen** (om den visas).
+1. Under **webb**väljer du länken **Lägg till URI** , anger `https://localhost:44316`och väljer sedan **Spara**.
+1. Välj **Översikt**.
+1. Registrera **program-ID (Client)** för användning i ett senare steg när du konfigurerar webb programmet.
+
+* * *
+
+### <a name="create-a-client-secret"></a>Skapa en klient hemlighet
+
+Skapa sedan en klient hemlighet för det registrerade webb programmet. Kod exemplet för webb program använder detta för att bevisa sin identitet när du begär token.
+
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 ## <a name="configure-the-sample"></a>Konfigurera exemplet
 
@@ -67,7 +91,7 @@ Uppdatera inställningarna i Web. config-filen så att de fungerar med ditt anv�
 
 1. Öppna **B2C-WebAPI-DotNet**-lösningen i Visual Studio.
 1. I projektet **TaskWebApp** öppnar du **Web.config**-filen.
-    1. Uppdatera värdet för `ida:Tenant` och `ida:AadInstance` med namnet på Azure AD B2C klienten som du skapade. Ersätt `fabrikamb2c` till exempel med `contoso`.
+    1. Uppdatera värdet för `ida:Tenant` och `ida:AadInstance` med namnet på den Azure AD B2C klient som du skapade. Ersätt till exempel `fabrikamb2c` med `contoso`.
     1. Ersätt värdet för `ida:ClientId` med det program-ID som du har spelat in.
     1. Ersätt värdet för `ida:ClientSecret` med den nyckel som du registrerade. Du måste använda XML-koda klient hemligheten innan du lägger till den i Web. config.
     1. Ersätt värdet för `ida:SignUpSignInPolicyId` med `b2c_1_signupsignin1`.
@@ -91,7 +115,7 @@ Uppdatera inställningarna i Web. config-filen så att de fungerar med ditt anv�
 
 Program användaren kan nu använda sin e-postadress för att logga in och använda webb programmet.
 
-Men **att göra-lista-** funktionen fungerar inte förrän du har slutfört nästa självstudie i serien, [Självstudier: Använd Azure AD B2C för att skydda ett ASP.NET webb](active-directory-b2c-tutorials-web-api.md)-API.
+Men **för att göra-listan** fungerar inte förrän du har slutfört nästa självstudie i serien, [Självstudier: använda Azure AD B2C för att skydda ett ASP.net webb-API](active-directory-b2c-tutorials-web-api.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -105,4 +129,4 @@ I den här självstudiekursen lärde du dig att:
 Gå vidare till nästa självstudie för att aktivera funktionen **att göra-listan** i webb programmet. I den registrerar du ett webb-API-program i din egen Azure AD B2C klient och ändrar sedan kod exemplet så att det använder klienten för API-autentisering.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Använd Azure Active Directory B2C för att skydda ett ASP.NET-webb-API >](active-directory-b2c-tutorials-web-api.md)
+> [Självstudie: använda Azure Active Directory B2C för att skydda en ASP.NET Web API->](active-directory-b2c-tutorials-web-api.md)

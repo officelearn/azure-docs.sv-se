@@ -1,28 +1,28 @@
 ---
 title: 'Besluts skogs regression: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder besluts skogs Regressions modulen i Azure Machine Learning-tjänsten för att skapa en Regressions modell som baseras på en ensemble i besluts träd.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder besluts skogs Regressions modulen i Azure Machine Learning för att skapa en Regressions modell som baseras på en ensemble i besluts träd.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 7b89d08f4621ecde77a60510b05d96decff0cfde
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: d930a6d856c6608e7792ce8ef3204b39aba0028a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693179"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497968"
 ---
 # <a name="decision-forest-regression-module"></a>Besluts skogs Regressions modul
 
-I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd den här modulen för att skapa en Regressions modell som baseras på en ensemble i besluts träd.
 
-När du har konfigurerat modellen måste du träna modellen med hjälp av en etikettad data uppsättning och modulen [träna modell](./train-model.md) .  Den tränade modellen kan sedan användas för att göra förutsägelser. 
+När du har konfigurerat modellen måste du träna modellen med hjälp av en etikettad data uppsättning och modulen [träna modell](./train-model.md) . Den tränade modellen kan sedan användas för att göra förutsägelser. 
 
 ## <a name="how-it-works"></a>Så här fungerar det
 
@@ -42,11 +42,11 @@ Mer information om det teoretiska ramverket för den här algoritmen och dess im
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>Konfigurera Regressions modellen för besluts skogar
 
-1. Lägg till **besluts skogs Regressions** modulen i pipelinen. Du kan hitta modulen i gränssnittet under **Machine Learning**, **initiera modellen**och **regression**.
+1. Lägg till **besluts skogs Regressions** modulen i pipelinen. Du kan hitta modulen i designern under **Machine Learning**, **initiera modellen**och **regression**.
 
 2. Öppna egenskaperna för modulen och välj den metod som används för att skapa enskilda träd för **omsamplings metod**.  Du kan välja mellan **bagage** eller **Replikera**.
 
-    - **Bagage**: bagage kallas även *Start agg regering*. Varje träd i en Regressions besluts skog matar ut en Gaussisk fördelning genom förutsägelse. Aggregation är att hitta en Gaussisk vars första två moment motsvarar momentet av en blandning av Gaussisk som anges genom att kombinera alla Gaussisk som returneras av enskilda träd.
+    - **Bagage**: bagage kallas även *Start agg regering*. Varje träd i en Regressions besluts skog matar ut en Gaussisk fördelning genom förutsägelse. Aggregation är att hitta en Gaussisk vars första två moment motsvarar momentet i blandningen av Gaussisk distributioner genom att kombinera alla distributioner som returneras av enskilda träd.
 
          Mer information finns i Wikipedia-posten för [Start agg regering](https://wikipedia.org/wiki/Bootstrap_aggregating).
 
@@ -96,4 +96,4 @@ När utbildningen är klar:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

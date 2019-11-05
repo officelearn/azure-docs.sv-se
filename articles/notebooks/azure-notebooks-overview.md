@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 04/05/2019
 ms.author: kraigb
-ms.openlocfilehash: 12d9a1a92c0b008244c7db4ec23d5a28888b042a
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: ad4a1d89809ebd1b7ac933ef391965accbfd1a6c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973170"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496727"
 ---
 # <a name="overview-of-azure-notebooks"></a>Översikt över Azure Notebooks
 
@@ -72,7 +72,7 @@ För varje notebook-fil väljer du den kernel (det vill säga körningsmiljö) s
 
 Azure Notebooks innehåller även extra paket utöver de grundläggande distributionerna. Python-kernlarna innehåller till exempel biblioteken numpy, pandas, scikit-learn, matplotlib och bokeh.
 
-Du kan även anpassa ett projekt för att skapa en miljö för alla de notebook-filer i projektet. Mer information finns i [ Snabbstart: Skapa ett projekt med en anpassad miljö](quickstart-create-jupyter-notebook-project-environment.md).
+Du kan även anpassa ett projekt för att skapa en miljö för alla de notebook-filer i projektet. Mer information finns i [Snabbstart: Skapa ett projekt med en anpassad miljö](quickstart-create-jupyter-notebook-project-environment.md).
 
 Utöver de grundläggande distributionerna levereras Azure Notebooks förinstallerat med många extra paket som är användbara för dataexperter. Du kan även installera egna paket med hjälp av den typiska processen för varje språk.
 
@@ -114,8 +114,8 @@ Om du vill diskutera frågor om Azure Notebooks kan du rapportera ett problem p�
   
   - [Skapa och klona projekt](create-clone-jupyter-notebooks.md)
   - [Konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
-  - [Installera paket från inom en anteckningsbok](install-packages-jupyter-notebook.md)
+  - [Installera paket inifrån en notebook-fil](install-packages-jupyter-notebook.md)
   - [Presentera ett bildspel](present-jupyter-notebooks-slideshow.md)
-  - [Arbeta med filer](work-with-project-data-files.md)
-  - [Få åtkomst till data-resurser](access-data-resources-jupyter-notebooks.md)
-  - [Använda Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)
+  - [Arbeta med datafiler](work-with-project-data-files.md)
+  - [Få åtkomst till dataresurser](access-data-resources-jupyter-notebooks.md)
+  - [Använd Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

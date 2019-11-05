@@ -1,24 +1,24 @@
 ---
-title: 'Välj kolumner i data uppsättning: Modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen Välj kolumner i data uppsättning i Azure Machine Learning-tjänsten för att välja en delmängd av kolumner som ska användas i underordnade åtgärder.
+title: 'Välj kolumner i data uppsättning: modulreferens'
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen Välj kolumner i data uppsättning i Azure Machine Learning för att välja en delmängd av kolumner som ska användas i underordnade åtgärder.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 097477fb9fc10d954954815c7f4b0fef8947a526
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.date: 10/22/2019
+ms.openlocfilehash: 3511c448298aa96c95dc970d1d192869c127eb0d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128499"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497667"
 ---
 # <a name="select-columns-in-dataset-module"></a>Välj kolumner i data uppsättnings modul
 
-I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd den här modulen för att välja en delmängd av kolumner som ska användas i underordnade åtgärder. Modulen tar inte bort kolumnerna från käll data uppsättningen fysiskt. i stället skapas en delmängd av kolumner, ungefär som en databas *vy* eller *projektion*.
 
@@ -40,7 +40,7 @@ Det finns flera alternativ i modulen för att välja kolumner efter namn:
 
     Om du har anslutit en data mängd som redan är ifylld, ska en lista över tillgängliga kolumner visas. Om inga kolumner visas kan du behöva köra överordnade moduler för att Visa kolumn listan.
 
-    Filtrera listan genom att skriva i sökrutan. Om du till exempel skriver bokstaven `w` i sökrutan filtreras listan för att visa de kolumn namn som innehåller bokstaven. `w`
+    Filtrera listan genom att skriva i sökrutan. Om du till exempel skriver bokstaven `w` i sökrutan, filtreras listan för att visa de kolumn namn som innehåller bokstavs `w`.
 
     Markera kolumner och klicka på högerpilen för att flytta de markerade kolumnerna till listan i den högra rutan.
 
@@ -87,7 +87,7 @@ Kolumn indexet refererar till kolumnens ordning i den ursprungliga data uppsätt
 
 + Kolumner numreras sekventiellt från 1.  
 + Om du vill hämta ett kolumn intervall använder du ett bindestreck. 
-+ Open-avslutade specifikationer som `1-` eller `-3` är inte tillåtna.
++ Öppna specifikationer som `1-` eller `-3` tillåts inte.
 + Dubbla index värden (eller kolumn namn) tillåts inte och kan resultera i ett fel.
 
 Om din data uppsättning till exempel har minst åtta kolumner kan du klistra in följande exempel för att returnera flera icke-sammanhängande kolumner: 
@@ -96,7 +96,7 @@ Om din data uppsättning till exempel har minst åtta kolumner kan du klistra in
 + `1,3-8`
 + `1,3-6,4` 
 
-det sista exemplet resulterar inte i ett fel. den returnerar dock en enda instans av en kolumn `4`.
+det sista exemplet resulterar inte i ett fel. den returnerar dock en enda instans av kolumnen `4`.
 
 
 
@@ -112,4 +112,4 @@ I en data uppsättning med kolumnerna Col1, Col2, Col3 och Col4 kan du till exem
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

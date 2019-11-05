@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: c19b64441d7afbe7544a4401314078b807a8c939
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: b9413807cda096adf1056c07e026373ea19359b9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673260"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495954"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Avancerat skydd för Azure Storage
 
@@ -30,7 +30,7 @@ Avancerat skydd för Azure Storage matar in diagnostikloggar för Läs-, skriv-o
 
 Avancerat skydd är aktiverat för ditt lagrings konto som standard. Du kan konfigurera Avancerat skydd på flera sätt, som beskrivs i följande avsnitt.
 
-### <a name="use-the-azure-portal"></a>Använda Azure-portalen
+### <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 1. Starta [Azure Portal](https://portal.azure.com/).
 1. Navigera till ditt Azure Storage-konto. Under **Inställningar**väljer du **avancerad säkerhet**.
@@ -40,7 +40,7 @@ Avancerat skydd är aktiverat för ditt lagrings konto som standard. Du kan konf
 
     ![Aktivera Azure Storage Avancerat skydd](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
-### <a name="using-azure-security-center"></a>Använda Azure Security Center
+### <a name="azure-security-centertabazure-security-center"></a>[Azure Security Center](#tab/azure-security-center)
 
 När du prenumererar på standard nivån i Azure Security Center konfigureras Avancerat skydd automatiskt på alla dina lagrings konton. Du kan aktivera eller inaktivera Avancerat skydd för dina lagrings konton under en speciell prenumeration på följande sätt:
 
@@ -51,16 +51,16 @@ När du prenumererar på standard nivån i Azure Security Center konfigureras Av
     ![Välj en prenumeration](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-subscription.png)
 
 1. Klicka på **pris nivå**.
-1. I avsnittet **Välj pris nivå efter resurs typ** klickar du på aktive rad eller inaktive radpå raden **lagrings konton** .
+1. I avsnittet **Välj pris nivå efter resurs typ** klickar du på **aktive** rad eller **inaktive**rad på raden **lagrings konton** .
 
     ![Aktivera ATP i Security Center](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
 1. Klicka på **Spara**.
 
-### <a name="using-azure-resource-manager-templates"></a>Använda Azure Resource Manager mallar
+### <a name="templatetabtemplate"></a>[Mall](#tab/template)
 
 Använd en Azure Resource Manager mall för att distribuera ett Azure Storage konto med avancerat skydd aktiverat. Mer information finns i [lagrings konto med avancerat skydd](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
 
-### <a name="using-an-azure-policy"></a>Använda en Azure Policy
+### <a name="azure-policytabazure-policy"></a>[Azure Policy](#tab/azure-policy)
 
 Använd en Azure Policy för att aktivera avancerat skydd mellan lagrings konton under en speciell prenumeration eller resurs grupp.
 
@@ -78,20 +78,22 @@ Använd en Azure Policy för att aktivera avancerat skydd mellan lagrings konton
 
     ![Sidan princip definitioner](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
-### <a name="using-the-rest-api"></a>Använda REST API
+### <a name="rest-apitabrest-api"></a>[REST API](#tab/rest-api)
 
 Använd REST API-kommandon för att skapa, uppdatera eller Hämta inställningen för avancerat skydd för ett angivet lagrings konto.
 
 * [Avancerat skydd – skapa](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
 * [Avancerat skydd – Hämta](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
 
-### <a name="using-azure-powershell"></a>Använda Azure PowerShell
+### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Använd följande PowerShell-cmdletar:
 
 * [Aktivera avancerat skydd](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
 * [Hämta Avancerat skydd](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
 * [Inaktivera Avancerat skydd](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
+
+---
 
 ## <a name="explore-security-anomalies"></a>Utforska säkerhets avvikelser
 

@@ -1,24 +1,24 @@
 ---
 title: 'Ange data manuellt: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen ange data manuellt i Azure Machine Learning tjänst för att skapa en liten data uppsättning genom att ange värden. Data uppsättningen kan ha flera kolumner.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen ange data manuellt i Azure Machine Learning för att skapa en liten data uppsättning genom att ange värden. Data uppsättningen kan ha flera kolumner.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: bd5fb636dbf79534e84a21a461f8912ceb6d9633
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 7c4d62c19984e1316a01213f579c059b97f709c3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693167"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497939"
 ---
 # <a name="enter-data-manually-module"></a>Ange modulen data manuellt
 
-I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd den här modulen för att skapa en liten data uppsättning genom att ange värden. Data uppsättningen kan ha flera kolumner.
   
@@ -102,4 +102,4 @@ Den här modulen kan vara till hjälp i scenarier som dessa:
      Om du vill visa data uppsättningen klickar du på utdataporten och väljer **visualisera**.  
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

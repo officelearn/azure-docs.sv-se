@@ -1,24 +1,24 @@
 ---
 title: 'Besluts skog med två klasser: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder besluts skogen i två klasser i Azure Machine Learning service för att skapa en Machine Learning-modell som baseras på algoritmen för besluts skogar.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen besluts skog i två klasser i Azure Machine Learning för att skapa en maskin inlärnings modell som baseras på algoritmen för besluts skogar.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 243f1774069f048d0e8a1ce11e3ac42e4e73f58b
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: ebe9a0368f2111fa6787b7fa4f4432d7ad4106c3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693623"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73485954"
 ---
 # <a name="two-class-decision-forest-module"></a>Modul för besluts skog i två klass
 
-I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd den här modulen för att skapa en Machine Learning-modell som baseras på algoritmen för besluts skogar.  
 
@@ -101,7 +101,6 @@ När utbildningen är klar:
 
 + Om du vill använda modellen för poängsättning lägger du till modulen **Poäng modell** i en pipeline.
 
-
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

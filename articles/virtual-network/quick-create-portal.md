@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: f95174efbffedd09946f5910a39285e7bec062c1
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d8e95f9c345a943eb458800b852640e3f1fde907
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161494"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488501"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Snabbstart: Skapa ett virtuellt nätverk med hjälp av Azure-portalen
 
@@ -34,9 +34,11 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-1. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**.
+1. Från Azure Portal-menyn väljer du **skapa en resurs**.
 
-1. I **Skapa virtuellt nätverk** anger eller väljer du följande information:
+2. Från Azure Marketplace väljer du **nätverk** > **virtuellt nätverk**.
+
+3. I **Skapa virtuellt nätverk** anger eller väljer du följande information:
 
     | Inställning | Värde |
     | ------- | ----- |
@@ -45,10 +47,10 @@ Logga in på [Azure-portalen](https://portal.azure.com).
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
     | Plats | Välj **USA, östra**.|
-    | Undernät – namn | Ange *myVirtualSubnet*. |
+    | Undernät – Namn | Ange *myVirtualSubnet*. |
     | Undernät – adressintervall | Ange *10.1.0.0/24*. |
 
-1. Lämna resten som standard och välj **skapa**.
+4. Lämna resten som standard och välj **skapa**.
 
 ## <a name="create-virtual-machines"></a>Skapa virtuella datorer
 
@@ -56,9 +58,11 @@ Skapa två virtuella datorer i det virtuella nätverket:
 
 ### <a name="create-the-first-vm"></a>Skapa den första virtuella datorn
 
-1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs** > **Compute** > **Windows Server 2019 Data Center**.
+1. Från Azure Portal-menyn väljer du **skapa en resurs**.
 
-1. I **Skapa en virtuell dator – grunder** anger eller väljer du följande information:
+2. Från Azure Marketplace väljer du **compute** > **Windows Server 2019 Data Center**.
+
+3. I **Skapa en virtuell dator – grunder** anger eller väljer du följande information:
 
     | Inställning | Värde |
     | ------- | ----- |
@@ -80,11 +84,11 @@ Skapa två virtuella datorer i det virtuella nätverket:
     | **SPARA PENGAR** |  |
     | Har du redan en Windows-licens? | Lämna kvar standardinställningen **Nej**. |
 
-1. Välj **Nästa: diskar**.
+4. Välj **Nästa: diskar**.
 
-1. Lämna standardvärdena i **skapa en virtuell dator – diskar**och välj **Nästa: nätverk**.
+5. Lämna standardvärdena i **skapa en virtuell dator – diskar**och välj **Nästa: nätverk**.
 
-1. I **Skapa en virtuell dator – nätverk** väljer du följande information:
+6. I **Skapa en virtuell dator – nätverk** väljer du följande information:
 
     | Inställning | Värde |
     | ------- | ----- |
@@ -94,11 +98,11 @@ Skapa två virtuella datorer i det virtuella nätverket:
     | Offentliga inkommande portar | Välj **Tillåt valda portar**. |
     | Välj inkommande portar | Välj **HTTP** och **RDP**.
 
-1. Välj **Nästa: hantering**.
+7. Välj **Nästa: hantering**.
 
-1. I **Skapa en virtuell dator – Hantering** går du till **Diagnostiklagringskonto** och väljer **Skapa nytt**.
+8. I **Skapa en virtuell dator – Hantering** går du till **Diagnostiklagringskonto** och väljer **Skapa nytt**.
 
-1. I **Skapa lagringskonto** anger eller väljer du följande information:
+9. I **Skapa lagringskonto** anger eller väljer du följande information:
 
     | Inställning | Värde |
     | ------- | ----- |
@@ -107,11 +111,11 @@ Skapa två virtuella datorer i det virtuella nätverket:
     | Prestanda | Lämna kvar standardinställningen **Standard**. |
     | Replikering | Lämna kvar standardinställningen **Lokalt redundant lagring (LRS)** . |
 
-1. Välj **OK**
+10. Välj **OK**
 
-1. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen.
+11. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen.
 
-1. När du ser meddelandet **valideringen har skickats** väljer du **skapa**.
+12. När du ser meddelandet **valideringen har skickats** väljer du **skapa**.
 
 ### <a name="create-the-second-vm"></a>Skapa den andra virtuella datorn
 
@@ -122,44 +126,44 @@ Skapa två virtuella datorer i det virtuella nätverket:
     >
     > I steg 7, **Diagnostiklagringskonto**, ska du se till att välja **myvmstorageaccount**.
 
-1. Välj **Granska + skapa**. Du tas till sidan **Granska + skapa** och Azure verifierar din konfiguration.
+2. Välj **Granska + skapa**. Du tas till sidan **Granska + skapa** och Azure verifierar din konfiguration.
 
-1. När du ser meddelandet **valideringen har skickats** väljer du **skapa**.
+3. När du ser meddelandet **valideringen har skickats** väljer du **skapa**.
 
-## <a name="connect-to-a-vm-from-the-internet"></a>Ansluta till en virtuell dator från Internet
+## <a name="connect-to-a-vm-from-the-internet"></a>Ansluta till en virtuell dator från internet
 
 När du har skapat *myVm1*ansluter du till Internet.
 
 1. I portalens sökfältet anger du *myVm1*.
 
-1. Välj knappen **Anslut**.
+2. Välj knappen **Anslut**.
 
     ![Ansluta till en virtuell dator](./media/quick-create-portal/connect-to-virtual-machine.png)
 
     När du har valt knappen **Anslut** öppnas **Anslut till den virtuella datorn**.
 
-1. Välj **Ladda ned RDP-fil**. Azure skapar en *.rdp*-fil (Remote Desktop Protocol) och laddar ned den till datorn.
+3. Välj **Ladda ned RDP-fil**. Azure skapar en *.rdp*-fil (Remote Desktop Protocol) och laddar ned den till datorn.
 
-1. Öppna den nedladdade *.rdp*-filen.
+4. Öppna den nedladdade *.rdp*-filen.
 
     1. Välj **Anslut** om du uppmanas att göra det.
 
-    1. Ange det användar namn och lösen ord som du angav när du skapade den virtuella datorn.
+    2. Ange det användar namn och lösen ord som du angav när du skapade den virtuella datorn.
 
         > [!NOTE]
         > Du kan behöva välja **Fler alternativ** > **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn.
 
-1. Välj **OK**.
+5. Välj **OK**.
 
-1. Du kan få en certifikatvarning under inloggningen. Välj **Ja** eller **Fortsätt** om du får en certifikatvarning.
+6. Du kan få en certifikatvarning under inloggningen. Välj **Ja** eller **Fortsätt** om du får en certifikatvarning.
 
-1. När virtuella datorns skrivbord visas kan du minimera det att gå tillbaka till din lokala dator.
+7. När virtuella datorns skrivbord visas kan du minimera det att gå tillbaka till din lokala dator.
 
 ## <a name="communicate-between-vms"></a>Kommunicera mellan virtuella datorer
 
 1. Öppna PowerShell på fjärrskrivbordet på *myVm1*.
 
-1. Ange `ping myVm2`.
+2. Ange `ping myVm2`.
 
     Du får ett meddelande som liknar detta:
 
@@ -176,7 +180,7 @@ När du har skapat *myVm1*ansluter du till Internet.
 
     `ping` misslyckas eftersom `ping` använder Internet Control Message Protocol (ICMP). Som standard tillåts inte ICMP genom Windows-brandväggen.
 
-1. Ange det efterföljande kommandot för att tillåta *myVm2* att pinga *myVm1* i ett senare skede:
+3. Ange det efterföljande kommandot för att tillåta *myVm2* att pinga *myVm1* i ett senare skede:
 
     ```powershell
     New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
@@ -184,11 +188,11 @@ När du har skapat *myVm1*ansluter du till Internet.
 
     Detta kommando tillåter ICMP-inkommande genom Windows-brandväggen:
 
-1. Stäng fjärrskrivbordsanslutningen till *myVm1*.
+4. Stäng fjärrskrivbordsanslutningen till *myVm1*.
 
-1. Utför stegen i [Ansluta till en virtuell dator från Internet](#connect-to-a-vm-from-the-internet) igen, men anslut till *myVm2*.
+5. Utför stegen i [Ansluta till en virtuell dator från Internet](#connect-to-a-vm-from-the-internet) igen, men anslut till *myVm2*.
 
-1. Från en kommandotolk anger du `ping myvm1`.
+6. Från en kommandotolk anger du `ping myvm1`.
 
     Du får tillbaka något som liknar det här meddelandet:
 
@@ -207,7 +211,7 @@ När du har skapat *myVm1*ansluter du till Internet.
 
     Du får svar från *myVm1*eftersom du har tillåtit ICMP via Windows-brandväggen på den virtuella datorn *myVm1* i steg 3.
 
-1. Stäng fjärrskrivbordsanslutningen till *myVm2*.
+7. Stäng fjärrskrivbordsanslutningen till *myVm2*.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -215,9 +219,9 @@ När du är klar med det virtuella nätverket och de virtuella datorerna tar du 
 
 1. Skriv *myResourceGroup* i **sökrutan längst** upp i portalen och välj **myResourceGroup** från Sök resultaten.
 
-1. Välj **Ta bort resursgrupp**.
+2. Välj **Ta bort resursgrupp**.
 
-1. Skriv *myResourceGroup* där du uppmanas att **skriva resursgruppens namn:** (Skriv resursgruppens namn) och välj **Ta bort**.
+3. Skriv *myResourceGroup* där du uppmanas att **skriva resursgruppens namn:** (Skriv resursgruppens namn) och välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

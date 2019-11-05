@@ -1,7 +1,7 @@
 ---
 title: Exportera och ta bort data
-titleSuffix: Azure Machine Learning Studio
-description: 'I produkten data som lagras av Azure Machine Learning Studio är tillgängliga för export eller tas bort via Azure-portalen och även via autentiserade REST API: er. Dessa data kan nås via Azure sekretess-portalen. Den här artikeln visar hur du gör.'
+titleSuffix: Azure Machine Learning Studio (classic)
+description: 'Produkt data som lagras av Azure Machine Learning Studio (klassisk) är tillgängliga för export och borttagning via Azure Portal och även via autentiserade REST-API: er. Telemetri-data kan nås via Azures sekretess Portal. Den här artikeln visar hur du gör.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,68 +10,68 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 827714fea9618724ef058e1f76dc099f692482bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0cc200f69be2362806886aae79ece52c833a43a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60750131"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492957"
 ---
-# <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>Exportera och ta bort i produkten användardata från Azure Machine Learning Studio
+# <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio-classic"></a>Exportera och ta bort användar data i produkten från Azure Machine Learning Studio (klassisk)
 
-Du kan ta bort eller export-produktdata som lagras av Azure Machine Learning Studio med hjälp av Azure portal, gränssnittet Studio, PowerShell, och autentiserade REST API: er. Den här artikeln visar hur du gör. 
+Du kan ta bort eller exportera data från en produkt som lagras av Azure Machine Learning Studio (klassisk) med hjälp av Azure Portal, Studio (klassiskt) gränssnitt, PowerShell och autentiserade REST-API: er. Den här artikeln beskriver hur du gör. 
 
-Dessa data kan nås via sekretess för Azure-portalen. 
+Telemetri-data kan nås via Azures sekretess Portal. 
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="what-kinds-of-user-data-does-studio-collect"></a>Vilka typer av användardata samlar Studio?
+## <a name="what-kinds-of-user-data-does-studio-classic-collect"></a>Vilka typer av användar data samlar Studio (klassisk) in?
 
-Användardata består av information om användare som har behörighet att komma åt arbetsytor och telemetri poster i användarinteraktioner med tjänsten för den här tjänsten.
+För den här tjänsten består användar data av information om användare som har behörighet att komma åt arbets ytor och telemetri poster för användar interaktioner med tjänsten.
 
-Det finns två typer av användardata i Machine Learning Studio:
-- **Personligt kontodata:** Account ID: N och e-postadresser som är associerad med ett konto.
-- **Kundinformation:** Data som du laddade upp för att analysera.
+Det finns två typer av användar data i Machine Learning Studio (klassisk):
+- **Personliga konto data:** Konto-ID och e-postadresser kopplade till ett konto.
+- **Kund information:** Data som du överförde för att analysera.
 
-## <a name="studio-account-types-and-how-data-is-stored"></a>Studio-kontotyper och hur data lagras
+## <a name="studio-classic-account-types-and-how-data-is-stored"></a>Studio (klassiska) konto typer och hur data lagras
 
-Det finns tre typer av konton i Machine Learning Studio. Vilken typ av konto som du har avgör hur dina data lagras och hur du kan ta bort eller exportera den.
+Det finns tre typer av konton i Machine Learning Studio (klassisk). Vilken typ av konto du har bestämmer hur dina data lagras och hur du kan ta bort eller exportera dem.
 
-- En **gäst arbetsytan** är ett kostnadsfritt, anonym-konto. Du registrera dig utan att ange autentiseringsuppgifter, till exempel ett e-postadress eller lösenord.
-    -  Data tas bort när arbetsytan gäst upphör att gälla.
-    - Gästanvändare kan exportera kunddata via Användargränssnittet, REST API: er eller PowerShell-paketet.
-- En **kostnadsfri arbetsyta** är ett kostnadsfritt konto som du loggar in med Microsoft-konto autentiseringsuppgifter – ett e-postadress och lösenord.
-    - Du kan exportera och ta bort personliga och kundens data som omfattas av DSR-begäranden för (datasubjektsrättigheter).
-    - Du kan exportera kunddata via Användargränssnittet, REST API: er eller PowerShell-paketet.
-    - Kostnadsfritt kan arbetsytor som inte använder Azure AD-konton, telemetri exporteras med hjälp av sekretess-portalen.
-    - När du tar bort arbetsytan kan du ta bort alla personliga kunddata.
-- En **standardarbetsytan** är ett betalt konto som du har åtkomst till med inloggningsuppgifter.
-    - Du kan exportera och ta bort personliga och kundens data som omfattas av DSR-begäranden.
-    - Du kan komma åt data via sekretess för Azure-portalen
-    - Du kan exportera personliga och kundens data via Användargränssnittet, REST API: er eller PowerShell-paketet
-    - Du kan ta bort dina data i Azure-portalen.
+- En **gäst arbets yta** är ett kostnads fritt, anonymt konto. Du registrerar dig utan att ange autentiseringsuppgifter, till exempel en e-postadress eller ett lösen ord.
+    -  Data rensas när gäst arbets ytan upphör att gälla.
+    - Gäst användare kan exportera kund information via användar gränssnittet, REST-API: erna eller PowerShell-paketet.
+- En **kostnads fri arbets yta** är ett kostnads fritt konto som du loggar in på med Microsoft-konto autentiseringsuppgifter – en e-postadress och ett lösen ord.
+    - Du kan exportera och ta bort personliga och kunddata som omfattas av DSR-begäranden (data subject Rights).
+    - Du kan exportera kund information via användar gränssnittet, REST-API: erna eller PowerShell-paketet.
+    - För kostnads fria arbets ytor som inte använder Azure AD-konton kan telemetri exporteras med hjälp av sekretess portalen.
+    - När du tar bort arbets ytan tar du bort all personlig kund information.
+- En **standard arbets yta** är ett betalt konto som du kommer åt med inloggnings uppgifter.
+    - Du kan exportera och ta bort personliga och kunddata, vilka är föremål för DSR-begäranden.
+    - Du kan komma åt data via Azures sekretess Portal
+    - Du kan exportera personliga och kunddata via användar gränssnittet, REST-API: erna eller PowerShell-paketet
+    - Du kan ta bort dina data i Azure Portal.
 
-## <a name="delete"></a>Ta bort arbetsytedata i Studio 
+## <a name="delete"></a>Ta bort arbets ytans data i Studio (klassisk) 
 
-### <a name="delete-individual-assets"></a>Ta bort enskilda tillgångar
+### <a name="delete-individual-assets"></a>Ta bort enskilda till gångar
 
-Användare kan ta bort tillgångar i en arbetsyta genom att markera dem och sedan välja knappen Ta bort.
+Användare kan ta bort till gångar i en arbets yta genom att markera dem och sedan välja knappen Ta bort.
 
-![Ta bort tillgångar i Machine Learning Studio](./media/export-delete-personal-data-dsr/delete-studio-asset.png)
+![Ta bort till gångar i Machine Learning Studio (klassisk)](./media/export-delete-personal-data-dsr/delete-studio-asset.png)
 
-### <a name="delete-an-entire-workspace"></a>Ta bort en hel arbetsyta
+### <a name="delete-an-entire-workspace"></a>Ta bort en hel arbets yta
 
-Användare kan också ta bort hela arbetsytan:
-- Betalda arbetsyta: Ta bort via Azure portal.
-- Kostnadsfri arbetsyta: Använd knappen Ta bort i den **inställningar** fönstret.
+Användare kan också ta bort hela arbets ytan:
+- Betald arbets yta: ta bort via Azure Portal.
+- Kostnads fri arbets yta: Använd knappen Ta bort i fönstret **Inställningar** .
 
-![Ta bort en kostnadsfri arbetsyta i Machine Learning Studio](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
+![Ta bort en kostnads fri arbets yta i Machine Learning Studio (klassisk)](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  
-## <a name="export-studio-data-with-powershell"></a>Exportera Studio data med PowerShell
-Exportera din information till en bärbar format från Azure Machine Learning Studio med hjälp av kommandon med hjälp av PowerShell. Mer information finns i den [PowerShell-modulen för Azure Machine Learning Studio](powershell-module.md) artikeln.
+## <a name="export-studio-classic-data-with-powershell"></a>Exportera Studio (klassiska) data med PowerShell
+Använd PowerShell för att exportera all information till ett bärbart format från den klassiska versionen av Azure Machine Learning Studio med hjälp av kommandon. Mer information finns i [PowerShell-modulen för Azure Machine Learning Studio (klassisk)](powershell-module.md) artikel.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Dokumentation som täcker webbtjänster och åtagande plan fakturering finns [Azure Machine Learning Studio REST API-referens](https://docs.microsoft.com/rest/api/machinelearning/). 
+Dokumentation som omfattar fakturering av webb tjänster och åtagande plan finns i [Azure Machine Learning Studio (klassisk) REST API referens](https://docs.microsoft.com/rest/api/machinelearning/). 

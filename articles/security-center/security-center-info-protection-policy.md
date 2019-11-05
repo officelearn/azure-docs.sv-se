@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
 ms.author: memildin
-ms.openlocfilehash: edd415c330656d4cecc42a39d27598a88a1a8d2c
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
-ms.translationtype: MT
+ms.openlocfilehash: f9b161bbb692c1336083640250b93f9d87f1e0d9
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202091"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73520808"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Anpassa SQL information Protection-principen i Azure Security Center (för hands version)
  
@@ -52,7 +52,7 @@ Om du vill anpassa information Protection-principen för din Azure-klient måste
 2. På skärmen **Konfigurera känslighets etikett** kan du skapa eller ändra etikett namnet och beskrivningen. Du kan också ange om etiketten är aktiv eller inaktive rad genom att aktivera eller inaktivera den **aktiverade** växeln. Slutligen kan du lägga till eller ta bort informations typer som är kopplade till etiketten. Alla data som har identifierats som matchar den informations typen kommer automatiskt att inkludera den tillhör ande känslighets etiketten i klassificerings rekommendationerna.
 3. Klicka på **OK**.
  
-   ![Konfigurera känslighetsetikett](./media/security-center-info-protection-policy/config-sensitivity-label.png)
+   ![Konfigurera känslighets etikett](./media/security-center-info-protection-policy/config-sensitivity-label.png)
  
 4. Etiketter visas i stigande känslighets ordning. Om du vill ändra rangordningen mellan etiketter drar du etiketterna för att ändra ordning på dem i tabellen, eller Använd knapparna **Flytta upp** och **Flytta ned** för att ändra ordningen. 
  
@@ -83,8 +83,5 @@ I den här artikeln har du lärt dig hur du definierar en princip för SQL-Infor
 
 Mer information om säkerhets principer och data säkerhet i Azure Security Center finns i följande artiklar:
  
-- [Översikt över säkerhets principer](security-center-policies-overview.md): Få en översikt över säkerhets principer i Security Center
-- [Ställer in säkerhets principer i Azure Security Center](tutorial-security-policy.md): Lär dig hur du konfigurerar säkerhets principer för dina Azure-prenumerationer och resurs grupper
+- [Ställa in säkerhets principer i Azure Security Center](tutorial-security-policy.md): Lär dig hur du konfigurerar säkerhets principer för dina Azure-prenumerationer och resurs grupper
 - [Azure Security Center data säkerhet](security-center-data-security.md): Lär dig hur Security Center hanterar och skyddar data
-
-

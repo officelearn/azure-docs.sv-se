@@ -8,25 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: bd57880b11f56b13b4225652071593d29dcc6280
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 9d7336fb933ee5e9781d15214fa3e59446aa5b6a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515223"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490708"
 ---
 # <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>Analysera din inlärnings slinga med en offline-utvärdering
 
 Lär dig hur du slutför en offline-utvärdering och förstår resultatet.
 
-Med offline-utvärdering kan du mäta hur effektiva anpassningar som jämförs med programmets standard beteende, se vilka funktioner som bidrar mest till anpassning och identifiera nya inställningar för maskin inlärning automatiskt.
+Med offline-utvärdering kan du mäta hur effektiv Personanpassare jämförs med programmets standard beteende, se vilka funktioner som bidrar mest till anpassning och identifiera nya maskin inlärnings värden automatiskt.
 
 Läs om [offline-utvärderingar](concepts-offline-evaluation.md) för mer information.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En konfigurerad personanpassa slinga
 * Den personliga slingan måste ha en representativ mängd data – som en ungefärligt rekommenderar vi minst 50 000 händelser i sina loggar för meningsfulla utvärderings resultat. Om du vill kan du också ha tidigare exporterade _Learning-principfiler_ som du kan jämföra och testa i samma utvärdering.
@@ -35,11 +35,11 @@ Läs om [offline-utvärderingar](concepts-offline-evaluation.md) för mer inform
 
 1. Leta upp din anpassnings resurs i [Azure Portal](https://azure.microsoft.com/free/).
 1. I Azure Portal går du till avsnittet **utvärderingar** och väljer **Skapa utvärdering**.
-    ![In Azure Portal går du till avsnittet * * utvärdering * * och väljer * * Skapa utvärdering * *. ](./media/offline-evaluation/create-new-offline-evaluation.png)
-1. Välj följande inställningar:
+    ![i Azure Portal går du till avsnittet * * utvärdering * * och väljer * * Skapa utvärdering * *.](./media/offline-evaluation/create-new-offline-evaluation.png)
+1. Konfigurera följande värden:
 
     * Ett utvärderings namn
-    * Start-och slutdatum – dessa datum är tidigare, vilket anger det data intervall som ska användas i utvärderingen. Dessa data måste finnas i loggarna som anges i inställningen [datakvarhållning](how-to-settings.md) .
+    * Start-och slutdatum – dessa datum är tidigare, vilket anger det data intervall som ska användas i utvärderingen. Dessa data måste finnas i loggarna, enligt vad som anges i [datakvarhållning](how-to-settings.md) svärdet.
     * Optimerings identifiering har angetts till **Ja**
 
     ![Välj inställningar för utvärdering av offline](./media/offline-evaluation/create-an-evaluation-form.png)

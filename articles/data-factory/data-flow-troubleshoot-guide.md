@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 10/08/2019
 ms.author: makromer
-ms.openlocfilehash: 5cf4773ac781ae51a60ef7d987c3dc324c125d95
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 53c38af2208be6bb7cdb794ad0403456613f2df6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387735"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486175"
 ---
 # <a name="troubleshoot-azure-data-factory-data-flows"></a>Felsöka Azure Data Factory data flöden
 
@@ -68,6 +68,14 @@ Den här artikeln utforskar vanliga fel söknings metoder för data flöden i Az
 
 - **Lösning**: ändra namnet på den tabell som du försöker skapa
 
+### <a name="error-message-df-sys-01-commicrosoftsqlserverjdbcsqlserverexception-string-or-binary-data-would-be-truncated"></a>Fel meddelande: DF-SYS-01: com. Microsoft. SqlServer. JDBC. SQLServerException: sträng data eller binära data skulle trunkeras. 
+
+- **Symptom**: när du skriver data till en SQL-mottagare går det inte att köra data flödet i pipeline-körningen med möjliga trunkering-fel.
+
+- **Orsak**: ett fält från ditt data flöde mappar till en kolumn i din SQL-databas är inte tillräckligt brett för att lagra värdet, vilket gör att SQL-drivrutinen kan utlösa det här felet
+
+- **Lösning**: du kan minska längden på data för sträng kolumner med ```left()``` i en härledd kolumn eller implementera [mönstret "fel rad".](how-to-data-flow-error-rows.md)
+
 ## <a name="general-troubleshooting-guidance"></a>Allmän fel söknings vägledning
 
 1. Kontrol lera statusen för dina data uppsättnings anslutningar. I varje käll-och mottagar omvandling kan du gå till den länkade tjänsten för varje data uppsättning som du använder och testa anslutningarna.
@@ -78,7 +86,7 @@ Den här artikeln utforskar vanliga fel söknings metoder för data flöden i Az
 
 Om du vill ha mer fel söknings hjälp kan du prova följande resurser:
 
-*  [Data Factory blogg](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Data Factory-bloggen](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory funktions begär Anden](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure-videor](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)

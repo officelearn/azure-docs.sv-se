@@ -2,23 +2,24 @@
 title: Skapa automatiserade ML-experiment
 titleSuffix: Azure Machine Learning
 description: Automatisk maskin inlärning väljer en algoritm åt dig och genererar en modell som är klar för distribution. Läs om de alternativ som du kan använda för att konfigurera automatiserade maskin inlärnings experiment.
-author: nacharya1
-ms.author: nilesha
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 181f11bd5cfda479c25b5bce20649b8f382968fe
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
-ms.translationtype: MT
+ms.openlocfilehash: 4d050385bb76817c8aeada1bef4c4697a1f58d09
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935379"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497267"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i python
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 I den här guiden får du lära dig hur du definierar olika konfigurations inställningar för dina automatiserade maskin inlärnings experiment med [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Automatisk maskin inlärning väljer en algoritm och sina egenskaper för dig och genererar en modell som är klar för distribution. Det finns flera alternativ som du kan använda för att konfigurera automatiserade maskin inlärnings experiment.
 
@@ -34,7 +35,7 @@ Konfigurations alternativ som är tillgängliga i Automatisk maskin inlärning:
 * Utforska modell mått
 * Registrera och distribuera modell
 
-Om du föredrar en ingen kod upplevelse kan du också [skapa dina automatiserade maskin inlärnings experiment i Azure Portal](how-to-create-portal-experiments.md).
+Om du föredrar en ingen kod upplevelse kan du också [skapa dina automatiserade maskin inlärnings experiment i Azure Machine Learning Studio](how-to-create-portal-experiments.md).
 
 ## <a name="select-your-experiment-type"></a>Välj experiment typ
 
@@ -61,7 +62,7 @@ Klassificering | Regression | Prognosticering för tids serier
 |[Genomsnittlig Perceptron-klassificerare](https://docs.microsoft.com/en-us/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest)||ForecastTCN
 |[Linjär SVM-klassificerare](https://docs.microsoft.com/en-us/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest)||
 
-Använd parametern `task` i konstruktorn `AutoMLConfig` för att ange din experiment typ.
+Använd `task`-parametern i konstruktorn `AutoMLConfig` för att ange din experiment typ.
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -72,7 +73,7 @@ automl_config = AutoMLConfig(task = "classification")
 
 ## <a name="data-source-and-format"></a>Data källa och format
 
-Automatisk Machine Learning stöder data som finns på ditt lokala skriv bord eller i molnet, till exempel Azure Blob Storage. Data kan läsas i en Pandas- **DataFrame** eller en **Azure Machine Learning TabularDataset**.  [Läs mer om datatsets](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md).
+Automatisk Machine Learning stöder data som finns på ditt lokala skriv bord eller i molnet, till exempel Azure Blob Storage. Data kan läsas i en Pandas- **DataFrame** eller en **Azure Machine Learning TabularDataset**.  [Läs mer om data uppsättningar](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md).
 
 Krav för tränings data:
 - Data måste vara i tabell form.
@@ -107,11 +108,11 @@ För fjärrkörningar måste inlärnings data vara tillgängliga från fjärrdat
 * överför enkelt data från statiska filer eller URL-källor till din arbets yta
 * gör dina data tillgängliga för att träna skript när de körs på moln beräknings resurser
 
-Se [instruktionen How-to](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) för ett exempel på hur du använder klassen `Dataset` för att montera data till beräknings målet.
+Se [instruktionen How-to](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) för ett exempel på hur du använder `Dataset`-klassen för att montera data till beräknings målet.
 
 ## <a name="train-and-validation-data"></a>Träna och verifiera data
 
-Du kan ange separata tåg-och validerings uppsättningar direkt i konstruktorn `AutoMLConfig`.
+Du kan ange separata tåg-och validerings uppsättningar direkt i `AutoMLConfig`-konstruktorn.
 
 ### <a name="k-folds-cross-validation"></a>Kors validering med K-vikning
 
@@ -145,26 +146,24 @@ Det finns flera alternativ som du kan använda för att konfigurera ditt automat
 
 Några exempel är:
 
-1.  Klassificerings experiment med AUC viktat som primärt mått med en maximal tid på 12 000 sekunder per iteration, med experimentet att sluta efter 50 iterationer och 2 kors validerings vikning.
+1.  Klassificerings experiment med AUC viktat som primärt mått med experiment tids gräns minuter angivet till 30 minuter och 2 kors validerings vikning.
 
     ```python
     automl_classifier=AutoMLConfig(
         task='classification',
         primary_metric='AUC_weighted',
-        max_time_sec=12000,
-        iterations=50,
+        experiment_timeout_minutes=30,
         blacklist_models='XGBoostClassifier',
         training_data=train_data,
         label_column_name=label,
         n_cross_validations=2)
     ```
-2.  Nedan visas ett exempel på ett Regressions experiment som slutar efter 100 iterationer, med varje iteration som varar upp till 600 sekunder med 5 verifierings kors vikning.
+2.  Nedan visas ett exempel på ett Regressions experiment som slutar efter 60 minuter med 5 verifierings kors vikning.
 
     ```python
     automl_regressor = AutoMLConfig(
         task='regression',
-        max_time_sec=600,
-        iterations=100,
+        experiment_timeout_minutes=60,
         whitelist_models='kNN regressor'
         primary_metric='r2_score',
         training_data=train_data,
@@ -172,7 +171,7 @@ Några exempel är:
         n_cross_validations=5)
     ```
 
-De tre olika `task` parameter värden (den tredje typen av aktivitet är `forecasting` och använder samma algoritm som `regression`-aktiviteter) för att fastställa listan över modeller som ska användas. Använd parametrarna `whitelist` eller `blacklist` för att ytterligare ändra iterationer med tillgängliga modeller som ska tas med eller undantas. Listan över modeller som stöds finns i SupportedModels- [klassen](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py).
+De tre olika `task` parameter värden (den tredje aktivitets typen är `forecasting`och använder samma algoritm som `regression` aktiviteter) för att fastställa listan över modeller som ska användas. Använd parametrarna `whitelist` eller `blacklist` för att ytterligare ändra iterationer med tillgängliga modeller som ska tas med eller undantas. Listan över modeller som stöds finns i SupportedModels- [klassen](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py).
 
 ### <a name="primary-metric"></a>Primärt mått
 Det primära måttet avgör vilket mått som ska användas vid modell träning för optimering. Tillgängliga mått som du kan välja bestäms av den aktivitets typ som du väljer och följande tabell visar giltiga primära mått för varje aktivitets typ.
@@ -191,13 +190,13 @@ Lär dig mer om de olika definitionerna av dessa för att [förstå automatisera
 
 I varje automatiserad maskin inlärnings experiment [skalas dina data automatiskt och normaliseras](concept-automated-ml.md#preprocess) för att hjälpa *vissa* algoritmer som är känsliga för funktioner som är i olika skalor.  Du kan dock också aktivera ytterligare för bearbetning/funktionalisering, till exempel saknade värden Imputation, encoding och transformationer. [Läs mer om vad funktionalisering ingår](how-to-create-portal-experiments.md#preprocess).
 
-Om du vill aktivera den här funktionalisering anger du `"preprocess": True` för [klassen `AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
+Ange `"preprocess": True` för [`AutoMLConfig`-klassen](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)om du vill aktivera den här funktionalisering.
 
 > [!NOTE]
 > Automatiserad bearbetning av Machine Learning för bearbetning (funktions normalisering, hantering av saknade data, konvertering av text till tal osv.) blir en del av den underliggande modellen. När du använder modellen för förutsägelser tillämpas samma för bearbetnings steg som tillämpas på dina indata-data automatiskt.
 
 ### <a name="time-series-forecasting"></a>Prognosticering för tids serier
-Tids seriens `forecasting`-aktivitet kräver ytterligare parametrar i konfigurationsobjektet:
+Tids seriens `forecasting` aktivitet kräver ytterligare parametrar i konfigurationsobjektet:
 
 1. `time_column_name`: obligatorisk parameter som definierar namnet på kolumnen i dina utbildnings data som innehåller en giltig tids serie.
 1. `max_horizon`: definierar den tids längd som du vill förutsäga baserat på tränings datans periodicitet. Om du till exempel har utbildnings information med dagliga tids kärnor definierar du hur långt ut i dagar du vill att modellen ska tränas.
@@ -225,7 +224,7 @@ time_series_settings = {
 automl_config = AutoMLConfig(task = 'forecasting',
                              debug_log='automl_oj_sales_errors.log',
                              primary_metric='normalized_root_mean_squared_error',
-                             iterations=10,
+                             experiment_timeout_minutes=20,
                              training_data=train_data,
                              label_column_name=label,
                              n_cross_validations=5,
@@ -240,7 +239,7 @@ Ensemble-modeller är aktiverade som standard och visas som de slutliga körning
 
 Det finns flera standard argument som kan anges som `kwargs` i ett `AutoMLConfig`-objekt för att ändra standardvärdet för egenskapen ensemble.
 
-* `stack_meta_learner_type`: meta-eleven är en modell som är utbildad i resultatet av de enskilda heterogena-modellerna. Standardmetadata för metadata är `LogisticRegression` för klassificerings uppgifter (eller `LogisticRegressionCV` om kors validering är aktiverat) och `ElasticNet` för regression/prognos uppgifter (eller `ElasticNetCV` om kors validering är aktive rad). Den här parametern kan vara en av följande strängar: `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor` eller `LinearRegression`.
+* `stack_meta_learner_type`: meta-eleven är en modell som är utbildad i resultatet av de enskilda heterogena-modellerna. Standard-metadata är `LogisticRegression` för klassificerings aktiviteter (eller `LogisticRegressionCV` om kors validering är aktiverat) och `ElasticNet` för Regressions-/prognos uppgifter (eller `ElasticNetCV` om kors validering är aktive rad). Den här parametern kan vara en av följande strängar: `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor`eller `LinearRegression`.
 * `stack_meta_learner_train_percentage`: anger andelen av inlärnings uppsättningen (när du väljer träna och validerings typ av utbildning) som ska reserveras för att träna meta-eleven. Standardvärdet är `0.2`.
 * `stack_meta_learner_kwargs`: valfria parametrar som ska skickas till initieraren för meta-eleven. Dessa parametrar och parameter typer speglar de från motsvarande modell-konstruktor och vidarebefordras till modell-konstruktorn.
 
@@ -262,7 +261,7 @@ ensemble_settings = {
 automl_classifier = AutoMLConfig(
         task='classification',
         primary_metric='AUC_weighted',
-        iterations=20,
+        experiment_timeout_minutes=30,
         training_data=train_data,
         label_column_name=label,
         n_cross_validations=5,
@@ -276,7 +275,7 @@ Ensemble-utbildning är aktiverat som standard, men det kan inaktive ras med hj�
 automl_classifier = AutoMLConfig(
         task='classification',
         primary_metric='AUC_weighted',
-        iterations=20,
+        experiment_timeout_minutes=30,
         training_data=data_train,
         label_column_name=label,
         n_cross_validations=5,
@@ -314,7 +313,6 @@ run = experiment.submit(automl_config, show_output=True)
 ### <a name="exit-criteria"></a>Avslutnings villkor
 Det finns några alternativ som du kan definiera för att avsluta experimentet.
 1. Inga kriterier: om du inte definierar några avslutnings parametrar fortsätter experimentet tills inga ytterligare framsteg görs på ditt primära mått.
-1. Antal iterationer: du definierar antalet iterationer för experimentet som ska köras. Du kan också lägga till `iteration_timeout_minutes` för att definiera en tids gräns i minuter per iteration.
 1. Avsluta efter en viss tid: om du använder `experiment_timeout_minutes` i dina inställningar kan du definiera hur länge i minuter som ett experiment ska fortsätta att köras.
 1. Avsluta efter att poängen har uppnåtts: om du använder `experiment_exit_score` slutförs experimentet efter att ett primärt mått har nåtts.
 
@@ -338,7 +336,7 @@ best_run, fitted_model = automl_run.get_output()
 
 ### <a name="automated-feature-engineering"></a>Automatiserad funktions teknik
 
-Se listan över förbehandling och [automatiserad funktions teknik](concept-automated-ml.md#preprocess) som inträffar när preprocess = True.
+Se listan över förbehandling och [automatiserad funktions teknik](concept-automated-ml.md#preprocess) som inträffar när feauturization = Auto.
 
 Tänk på det här exemplet:
 + Det finns 4 ingångs funktioner: A (numeriskt), B (numeriskt), C (numeriskt), D (DateTime)
@@ -398,7 +396,7 @@ Använd de här två API: erna i det första steget i den monterade modellen fö
     'Tranformations': ['DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime']}]
   ```
 
-   Var:
+   Där:
 
    |Resultat|Definition|
    |----|--------|
@@ -407,6 +405,32 @@ Använd de här två API: erna i det första steget i den monterade modellen fö
    |Släpper|Anger om inmatad funktion har släppts eller använts.|
    |EngineeringFeatureCount|Antal funktioner som genererats via automatiserad funktion teknik Transforms.|
    |Transformationer|Lista över omvandlingar som används för inmatade funktioner för att generera funktioner som har utvecklats.|
+   
+### <a name="customize-feature-engineering"></a>Anpassa funktions teknik
+Om du vill anpassa funktioner, ange `"feauturization":FeaturizationConfig`.
+
+Anpassning som stöds omfattar:
+
+|Anpassning|Definition|
+|--|--|
+|Uppdatering av kolumn syfte|Åsidosätt funktions typ för den angivna kolumnen.|
+|Transformering av parameter uppdatering |Uppdatera parametrar för den angivna transformeraren. Stöder för närvarande imputerade-och HashOneHotEncoder.|
+|Släpp kolumner |Kolumner att släppa från bearbetas.|
+|Block transformatorer| Block transformatorer som ska användas för funktionalisering-processen.|
+
+Skapa FeaturizationConfig-objektet med API-anrop:
+```python
+featurization_config = FeaturizationConfig()
+featurization_config.blocked_transformers = ['LabelEncoder']
+featurization_config.drop_columns = ['aspiration', 'stroke']
+featurization_config.add_column_purpose('engine-size', 'Numeric')
+featurization_config.add_column_purpose('body-style', 'CategoricalHash')
+#default strategy mean, add transformer param for for 3 columns
+featurization_config.add_transformer_params('Imputer', ['engine-size'], {"strategy": "median"})
+featurization_config.add_transformer_params('Imputer', ['city-mpg'], {"strategy": "median"})
+featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "most_frequent"})
+featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of_bits": 3})
+```
 
 ### <a name="scalingnormalization-and-algorithm-with-hyperparameter-values"></a>Skalning/normalisering och algoritm med värden för en valfri parameter:
 
@@ -467,78 +491,13 @@ LogisticRegression
 
 <a name="explain"></a>
 
-## <a name="explain-the-model-interpretability"></a>Förklara modellen (tolkning)
+## <a name="model-interpretability"></a>Modelltolkning
 
-Med automatisk maskin inlärning kan du förstå funktions vikten.  Under inlärnings processen kan du få global funktions betydelse för modellen.  I klassificerings scenarier kan du också få funktions prioritet på klass nivå.  Du måste ange en validerings data uppsättning (validation_data) för att få funktions prioritet.
+Med modell tolkning kan du förstå varför dina modeller har gjort förutsägelser och de underliggande funktions prioritets värdena. SDK: n innehåller olika paket för att aktivera modell tolknings funktioner, både vid utbildning och drift störningar, för lokala och distribuerade modeller.
 
-Det finns två sätt att generera funktions prioritet.
+Se anvisningar [för kod exempel för hur](how-to-machine-learning-interpretability-automl.md) du aktiverar tolknings funktioner specifikt inom automatiserade maskin inlärnings experiment.
 
-*   När ett experiment har slutförts kan du använda `explain_model` metod på valfri iteration.
-
-    ```python
-    from azureml.train.automl.automlexplainer import explain_model
-
-    shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
-        explain_model(fitted_model, train_data, test_data)
-
-    #Overall feature importance
-    print(overall_imp)
-    print(overall_summary)
-
-    #Class-level feature importance
-    print(per_class_imp)
-    print(per_class_summary)
-    ```
-
-*   Om du vill visa funktions prioritet för alla iterationer anger `model_explainability` flagga till `True` i AutoMLConfig.
-
-    ```python
-    automl_config = AutoMLConfig(task='classification',
-                                 debug_log='automl_errors.log',
-                                 primary_metric='AUC_weighted',
-                                 max_time_sec=12000,
-                                 iterations=10,
-                                 verbosity=logging.INFO,
-                                 training_data=train_data,
-                                 label_column_name=y_train,
-                                 validation_data=test_data,
-                                 model_explainability=True,
-                                 path=project_folder)
-    ```
-
-    När du är färdig kan du använda retrieve_model_explanation-metoden för att hämta funktions prioritet för en speciell iteration.
-
-    ```python
-    from azureml.train.automl.automlexplainer import retrieve_model_explanation
-
-    shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
-        retrieve_model_explanation(best_run)
-
-    #Overall feature importance
-    print(overall_imp)
-    print(overall_summary)
-
-    #Class-level feature importance
-    print(per_class_imp)
-    print(per_class_summary)
-    ```
-
-Visa URL: en för att Visa funktions prioritet med hjälp av objektet kör:
-
-```
-automl_run.get_portal_url()
-```
-
-Du kan visualisera funktions prioritets diagrammet i din arbets yta i Azure Portal eller från [landnings sidan för din arbets yta (för hands version)](https://ml.azure.com). Diagrammet visas också när du använder [Jupyter-widgeten](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) `RunDetails` i en bärbar dator. Om du vill veta mer om diagrammen kan du läsa mer om att [förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md).
-
-```Python
-from azureml.widgets import RunDetails
-RunDetails(automl_run).show()
-```
-
-![funktions prioritets diagram](./media/how-to-configure-auto-train/feature-importance.png)
-
-Mer information om hur modell förklaringar och funktions prioritet kan aktive ras på andra områden i SDK utanför Automatisk maskin inlärning finns i avsnittet [begrepp](machine-learning-interpretability-explainability.md) om tolkning.
+Allmän information om hur modell förklaringar och funktions prioritet kan aktive ras på andra områden i SDK utanför Automatisk maskin inlärning finns i avsnittet [begrepp](how-to-machine-learning-interpretability.md) om tolkning.
 
 ## <a name="next-steps"></a>Nästa steg
 

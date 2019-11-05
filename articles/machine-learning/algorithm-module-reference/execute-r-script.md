@@ -1,7 +1,7 @@
 ---
 title: 'Kör R-skript: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen kör R-skript i Azure Machine Learning-tjänsten för att köra R-kod.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen kör R-skript i Azure Machine Learning för att köra R-kod.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,25 +9,25 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
-ms.openlocfilehash: 01d4e3a06b8c6a95374b9ee246864167e6d2ac85
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: f9aae1302f0d83c27d5d8f01745ddecbaeea9467
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693775"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497885"
 ---
 # <a name="execute-r-script"></a>Köra R-skript
 
-I den här artikeln beskrivs hur du använder modulen **Kör r-skript** för att köra r-kod i den visuella gränssnitts pipelinen.
+Den här artikeln beskriver hur du använder modulen **Kör r-skript** för att köra r-kod i pipelinen Azure Machine Learning designer (för hands version).
 
 Med R kan du utföra uppgifter som för närvarande inte stöds av befintliga moduler, till exempel: 
 - Skapa anpassade data transformationer
 - Använd dina egna mått för att utvärdera förutsägelser
-- Bygg modeller med algoritmer som inte har implementerats som fristående moduler i Visual Interface
+- Bygg modeller med algoritmer som inte har implementerats som fristående moduler i designern
 
 ## <a name="r-version-support"></a>Stöd för R-versioner
 
-Det visuella gränssnittet för Azure Machine Learnings tjänsten använder CRAN-distributionen (omfattande R Archive Network) för R. Den version som används är CRAN 3.5.1.
+Azure Machine Learning designer använder CRAN-distributionen (omfattande R Archive Network) för R. Den version som används är CRAN 3.5.1.
 
 ## <a name="supported-r-packages"></a>R-paket som stöds
 
@@ -73,7 +73,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ![R-modul](media/module/execute-r-script.png)
 
-Data uppsättningar lagrade i visuella gränssnitt konverteras automatiskt till en R data-ram när de läses in med den här modulen.
+Data uppsättningar som lagras i designern konverteras automatiskt till en R data-ram när de läses in med den här modulen.
 
 1.  Lägg till modulen **Kör R-skript** i din pipeline.
 
@@ -116,10 +116,10 @@ azureml_main <- function(dataframe1, dataframe2){
  * Start punkts funktionen kan innehålla upp till två indataargument: `Param<dataframe1>` och `Param<dataframe2>`
  
    > [!NOTE]
-    > De data som skickas till modulen **Kör R-skript** refereras till som `dataframe1` och `dataframe2`, vilket skiljer sig från Azure Machine Learning Studio (Studio referens som `dataset1`, `dataset2`). Kontrol lera att indata är korrekt referneced i skriptet.  
+    > Data som skickas till modulen **köra R-skript** refereras till som `dataframe1` och `dataframe2`, vilket skiljer sig från Azure Machine Learning designer (design referensen som `dataset1`, `dataset2`). Kontrol lera att indata är korrekt referneced i skriptet.  
  
     > [!NOTE]
-    >  Befintlig R-kod kan behöva mindre ändringar för att köras i en pipeline för visuellt gränssnitt. Indata som du anger i CSV-format ska till exempel uttryckligen konverteras till en data uppsättning innan du kan använda den i din kod. Data-och kolumn typer som används i R-språket skiljer sig också på vissa sätt från data-och kolumn typerna som används i det visuella gränssnittet.
+    >  Befintlig R-kod kan behöva mindre ändringar för att köras i en designer-pipeline. Indata som du anger i CSV-format ska till exempel uttryckligen konverteras till en data uppsättning innan du kan använda den i din kod. Data-och kolumn typer som används i R-språket skiljer sig också på vissa sätt från data-och kolumn typer som används i designern.
 
 1.  **Slumpmässigt utsäde**: Ange ett värde som ska användas i R-miljön som det slumpmässiga startvärdet. Den här parametern motsvarar att anropa `set.seed(value)` i R-kod.  
 
@@ -127,7 +127,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ## <a name="results"></a>Resultat
 
-**Kör R-skriptets** moduler kan returnera flera utdata, men de måste anges som R-databildor. Data ramar konverteras automatiskt till Visual Interface-datauppsättningar för kompatibilitet med andra moduler.
+**Kör R-skriptets** moduler kan returnera flera utdata, men de måste anges som R-databildor. Data ramar konverteras automatiskt till data uppsättningar i designern för kompatibilitet med andra moduler.
 
 Standard meddelanden och fel från R returneras till modulens logg.
 
@@ -235,7 +235,7 @@ Du kan skicka R-objekt mellan instanser av modulen **Kör R-skript** med hjälp 
     }
     ```
 
-    Den explicita konverteringen till Integer-typ görs eftersom serialiserings funktionen matar ut data i R `Raw`-formatet, som inte stöds av det visuella gränssnittet.
+    Den explicita konverteringen till Integer-typ görs eftersom serialiserings funktionen matar ut data i R `Raw`-formatet, vilket inte stöds av designern.
 
 1. Lägg till en andra instans av modulen **Kör R-skript** och Anslut den till utdataporten för den föregående modulen.
 
@@ -402,4 +402,4 @@ Den aktuella listan över förinstallerade R-paket som är tillgängliga för an
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

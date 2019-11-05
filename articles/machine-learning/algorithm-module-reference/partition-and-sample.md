@@ -1,24 +1,24 @@
 ---
 title: 'Partition och exempel: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder partition och exempel modul i Azure Machine Learning-tjänsten för att utföra sampling på en data uppsättning eller skapa partitioner från din data uppsättning.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder partition och exempel modul i Azure Machine Learning för att utföra sampling på en data uppsättning eller skapa partitioner från din data uppsättning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: fcbf9fae3306c43613ef0b67a79c9c0b53f6b923
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 659dcae0bee0fe1015ba6225797c31bad438013f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693758"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497710"
 ---
 # <a name="partition-and-sample-module"></a>Partition och exempel modul
 
-I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd den här modulen för att utföra sampling på en data uppsättning eller för att skapa partitioner från din data uppsättning.
 
@@ -44,8 +44,8 @@ Sampling är ett viktigt verktyg i Machine Learning eftersom det gör att du kan
 
 Den här modulen stöder flera metoder för att dela data i partitioner eller för att sampla. Välj först metoden och ange sedan ytterligare alternativ som krävs av metoden.
 
-- Huvud
-- Sampling
+- Head
+- Samling
 - Tilldela till vikning
 - Välj vikning
 
@@ -122,7 +122,7 @@ Använd det här alternativet om du vill dela upp data uppsättningen i del män
 
     - **Partition med anpassade proportioner**: Använd det här alternativet för att ange storleken på varje partition som en kommaavgränsad lista.
 
-        Om du till exempel vill skapa tre partitioner, med den första partitionen som innehåller 50% av data, och de återstående två partitionerna som innehåller 25% av data, klickar du på **listan med proportioner avgränsade med kommatecken** och skriver följande tal: @no_ _t_1
+        Om du till exempel vill skapa tre partitioner, med den första partitionen som innehåller 50% av data, och de återstående två partitionerna som innehåller 25% av data, klickar du på **listan med proportioner avgränsade med kommatecken** och skriver följande tal: @no_ _t_1_`.5, .25, .25`
 
         Summan av alla partition storlekar måste vara upp till exakt 1.
 
@@ -156,7 +156,7 @@ Det här alternativet används när du har delat upp en data uppsättning i fler
 
     Anta till exempel att du har partitionerat patienter i fyra vikningar med hjälp av ålder. Om du vill arbeta med varje enskild vikning behöver du fyra kopior av **partitionen och** modulen, och i varje väljer du en annan vikning, som du ser nedan. Det är inte rätt att använda alternativet **tilldela för att vika** utdata direkt.  
 
-    [![Partition och exempel](./media/partition-and-sample/partition-and-sample.png)](./media/partition-and-sample/partition-and-sample-lg.png#lightbox)
+    [![partition och exempel](./media/partition-and-sample/partition-and-sample.png)](./media/partition-and-sample/partition-and-sample-lg.png#lightbox)
 
 5. Köra en pipeline.
 
@@ -167,4 +167,4 @@ Det här alternativet används när du har delat upp en data uppsättning i fler
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 07/24/2019
-ms.openlocfilehash: d0e0c5601a6cddf936604df6d5b48b8bf48e7c8d
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.date: 10/25/2019
+ms.openlocfilehash: 2e088557bf61141d3ea3cbeb25d53f711a71fd97
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162436"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496857"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Distribuera en djup inlärnings modell för en härledning med GPU
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Den här artikeln lär dig hur du använder Azure Machine Learning för att distribuera en GPU-aktiverad modell som en webb tjänst. Informationen i den här artikeln baseras på distribution av en modell på Azure Kubernetes service (AKS). AKS-klustret tillhandahåller en GPU-resurs som används av modellen för härledning.
 
@@ -209,7 +210,7 @@ print(aks_service.state)
 ```
 
 > [!NOTE]
-> Om objektet har `enable_gpu=True` ,`deployment_target` måste parametern referera till ett kluster som tillhandahåller en GPU. `InferenceConfig` Annars Miss kommer distributionen.
+> Om `InferenceConfig`-objektet har `enable_gpu=True`måste parametern `deployment_target` referera till ett kluster som tillhandahåller en GPU. Annars Miss kommer distributionen.
 
 Mer information finns i referens dokumentationen för- [modellen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 

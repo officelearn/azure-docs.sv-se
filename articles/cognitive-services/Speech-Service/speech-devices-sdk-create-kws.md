@@ -1,7 +1,7 @@
 ---
-title: Skapa en anpassad tjänsten för aktivering av ord i tal
+title: Skapa en anpassad tjänst för nyckelords tal
 titleSuffix: Azure Cognitive Services
-description: Din enhet lyssnar alltid för ett wake ord (eller ett uttryck). När du visar wake ordet har skickar enheten alla efterföljande ljud till molnet, tills användaren slutar talar. Anpassa ditt wake ord är ett effektivt sätt att skilja mellan enheten och Stärk din företagsanpassning.
+description: Enheten lyssnar alltid efter ett nyckelord (eller en fras). När användaren säger nyckelordet skickar enheten allt efterföljande ljud till molnet tills användaren slutar att tala. Att anpassa ditt nyckelord är ett effektivt sätt att särskilja din enhet och förbättra ditt varumärke.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,62 +10,60 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 2bc1a6cbbf1e0d790326849a41b0788e332daa31
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bf9afb66163532b4095e0d30b1167010320abbf8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553105"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490947"
 ---
-# <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Skapa ett anpassat wake ord med Speech-tjänsten
+# <a name="create-a-custom-keyword-by-using-the-speech-service"></a>Skapa ett anpassat nyckelord med hjälp av tal tjänsten
 
-Din enhet lyssnar alltid för ett wake ord (eller ett uttryck). Till exempel är ”Hey Cortana” ett wake word för Cortana-Installationsassistenten. När du visar wake ordet har skickar enheten alla efterföljande ljud till molnet, tills användaren slutar talar. Anpassa ditt wake ord är ett effektivt sätt att skilja mellan enheten och Stärk din företagsanpassning.
+Enheten lyssnar alltid efter ett nyckelord (eller en fras). Till exempel är "Hej Cortana" ett nyckelord för Cortana-assistenten. När användaren säger nyckelordet skickar enheten allt efterföljande ljud till molnet tills användaren slutar att tala. Att anpassa ditt nyckelord är ett effektivt sätt att särskilja din enhet och förbättra ditt varumärke.
 
-I den här artikeln får du lära dig hur du skapar en anpassad aktivering word för din enhet.
+I den här artikeln får du lära dig hur du skapar ett anpassat nyckelord för din enhet.
 
-## <a name="choose-an-effective-wake-word"></a>Välj ett gällande wake ord
+## <a name="choose-an-effective-keyword"></a>Välj ett effektivt nyckelord
 
-Tänk på följande när du väljer ett wake ord:
+Överväg följande rikt linjer när du väljer ett nyckelord:
 
-* Wake-word ska vara ett ord eller en fras. Det bör ta högst två sekunder för att säga.
+* Ditt nyckelord bör vara ett engelskt ord eller en fras. Det bör inte ta mer än två sekunder att säga.
 
-* Ord av 4-7 stavelser fungerar bäst. Till exempel är ”Hey, datorn” ett bra wake-word. Bara ”Hey” är dålig.
+* Ord av 4 till 7 stavelser fungerar bäst. Till exempel "Hej, dator" är ett utmärkt nyckelord. Bara "Hej" är ett dåligt.
 
-* Wake ord bör följa den vanliga engelska uttal av regler.
+* Nyckelord bör följa vanliga intals regler för engelska uttal.
 
-* Ett unikt eller ett sydda ord som följer den vanliga engelska uttal reglerna kan minska falska positiva identifieringar. ”Computerama” kan till exempel vara en bra wake word.
+* Ett unikt eller till och med ett upprättat ord som följer vanliga regler för engelska uttal kan minska antalet falska positiva identifieringar. Till exempel kan "computerama" vara ett utmärkt nyckelord.
 
-* Välj inte ett vanligt ord. Till exempel ”äta” och ”gå” är ord som personer säga ofta i vanlig konversationen. De kan vara falskt utlösare för din enhet.
+* Välj inget vanligt ord. Till exempel är "äta" och "go" ord som människor säger ofta i vanlig konversation. De kan vara falska utlösare för enheten.
 
-* Undvik att använda ett wake-ord som kan ha alternativ uttal. Användare behöver veta ”höger” uttal att få sin enhet för att svara. Till exempel ”509” förstärkas ”fem noll nio”, ”fem ojsan nio”, eller ”fem hundra och nio”. ”R.E.I.” förstärkas ”r-e-i” eller ”ray”. ”Live” förstärkas ”/līv/” eller ”/liv/”.
+* Undvik att använda nyckelord som kan ha alternativa uttal. Användarna måste känna till "Right"-uttal för att få enheten att svara. "509" kan till exempel uttalas "5 0 9", "5 0 9" eller "509". "R.E.I." kan uttalas "r-e-i" eller "Ray". "Live" kan uttalas "/līv/" eller "/liv/".
 
-* Använd inte specialtecken, symboler och siffror. Till exempel skulle ”Go #” och ”20 + katt” inte vara bra wake orden. Dock ”gå sharp” eller ”tjugo plus katt” fungerar. Du kan fortfarande använda symbolerna i din företagsanpassning och använda marknadsföring och dokumentation för att säkerställa rätt uttal.
+* Använd inte specialtecken, symboler eller siffror. Till exempel "go #" och "20 + katter" skulle inte vara lämpliga nyckelord. Men "gå skarpa" eller "tjugo plus katter" kan fungera. Du kan fortfarande använda symbolerna i din anpassning och använda marknadsföring och dokumentation för att förstärka rätt uttal.
 
 > [!NOTE]
-> Om du väljer ett varumärkesskyddat ord som wake-word, Tänk på att du äger den varumärken eller att du har behörighet från varumärke ägare att använda ordet. Microsoft ansvarar inte för eventuella juridiska problem som kan uppstå från ditt val av wake word.
+> Om du väljer ett tilldelat ord som nyckelord måste du vara säker på att du äger detta varumärke eller att du har behörighet från varumärkes ägaren för att använda ordet. Microsoft ansvarar inte för några juridiska problem som kan uppstå från ditt val av nyckelord.
 
-## <a name="create-your-wake-word"></a>Skapa ditt wake ord
+## <a name="create-your-keyword"></a>Skapa ditt nyckelord
 
-Innan du kan använda ett anpassat aktiverings ord med din enhet måste du skapa ett aktiverings ord med Microsoft Customer generations-tjänsten för automatisk aktivering. När du har angett ett aktiverings ord skapar tjänsten en fil som du distribuerar till ditt utvecklings paket för att aktivera aktiverings ordet på enheten.
+Innan du kan använda ett anpassat nyckelord med din enhet måste du skapa ett nyckelord med tjänsten Microsoft Custom Keyword generation. När du har angett ett nyckelord skapar tjänsten en fil som du distribuerar till ditt utvecklings paket för att aktivera nyckelordet på enheten.
 
-1. Gå till [Custom Speech service portal](https://aka.ms/sdsdk-speechportal) och **Logga** in eller om du inte har en tal prenumeration väljer du [**skapa en prenumeration**](https://go.microsoft.com/fwlink/?linkid=2086754)
+1. Gå till [tal Studio](https://aka.ms/sdsdk-speechportal) och **Logga** in, eller Välj [**skapa en prenumeration**](https://go.microsoft.com/fwlink/?linkid=2086754)om du inte har en tal prenumeration än.
 
-    ![Custom Speech Service Portal](media/speech-devices-sdk/wake-word-4.png)
+1. På sidan [anpassat nyckelord](https://aka.ms/sdsdk-wakewordportal) skriver du in nyckelordet som du vill välja och klickar på **Lägg till nyckelord**. Vi har några [rikt linjer](#choose-an-effective-keyword) som hjälper dig att välja ett effektivt nyckelord. Support är för närvarande begränsat till ett-US-språk.
 
-1. På sid typen [anpassad aktiverings ord](https://aka.ms/sdsdk-wakewordportal) i det aktiverings ord du väljer och klicka på **Lägg till aktivering Word**. Vi har några [rikt linjer](#choose-an-effective-wake-word) som hjälper dig att välja ett effektivt nyckelord. För närvarande stöder vi bara ett-US-språk.
+    ![Ange ditt nyckelord](media/speech-devices-sdk/custom-kws-portal-enter-keyword.png)
 
-    ![Ange ditt wake ord](media/speech-devices-sdk/wake-word-5.png)
+1. Portalen kommer nu att skapa kandidat uttal för ditt nyckelord. Lyssna på varje kandidat genom att klicka på uppspelnings knapparna och ta bort kontrollerna bredvid eventuella uttal som är felaktiga. När endast väluttal har marker ATS väljer du **Skicka** för att börja generera nyckelordet. Om du vill ändra nyckelordet måste du först ta bort det befintliga genom att klicka på knappen Ta bort som visas på höger sida av raden och hovra över det.
 
-1. Tre alternativa uttal av ditt aktiverings ord kommer att skapas. Du kan välja alla uttal som du vill. Välj sedan **Skicka** för att generera aktiverings ordet. Om du vill ändra aktiverings ordet, tar du bort det befintliga, när du hovrar på ututtals raden. då visas ikonen Ta bort.
+    ![Granska ditt nyckelord](media/speech-devices-sdk/custom-kws-portal-review-keyword.png)
 
-    ![Granska ditt aktiverings ord](media/speech-devices-sdk/wake-word-6.png)
+1. Det kan ta upp till en minut innan modellen genereras. Du uppmanas sedan att ladda ned filen.
 
-1. Det kan ta upp till en minut innan modellen genereras. Du uppmanas att ladda ned filen.
+    ![Hämta ditt nyckelord](media/speech-devices-sdk/custom-kws-portal-download-keyword.png)
 
-    ![Hämta ditt aktiverings ord](media/speech-devices-sdk/wake-word-7.png)
-
-1. Spara ZIP-filen till datorn. Du behöver den här filen för att distribuera ditt anpassade aktiverings ord till utvecklings paketet.
+1. Spara zip-filen på din dator. Du kommer att behöva den här filen för att distribuera ditt anpassade nyckelord till Development Kit.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Testa ditt anpassade aktiverings ord med [tal enheter SDK snabb start](https://aka.ms/sdsdk-quickstart).
+Testa ditt anpassade nyckelord med [tal enheter SDK snabb start](https://aka.ms/sdsdk-quickstart).

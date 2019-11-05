@@ -1,26 +1,26 @@
 ---
 title: 'Kör Python-skript: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen kör Python-skript i Azure Machine Learning-tjänsten för att köra python-kod.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen kör Python-skript i Azure Machine Learning för att köra python-kod.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: ac68239c12fb284dd3cb5179b5719f3d36acbd34
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 1ba10bf682d900a45f345f2ebe2707ba1275e94e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693781"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497863"
 ---
 # <a name="execute-python-script-module"></a>Köra Python-skript modul
 
-I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
-Använd den här modulen för att köra python-kod. Mer information om arkitektur och design principer för python finns i [följande artikel.](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts)
+Använd den här modulen för att köra python-kod. Mer information om arkitektur och design principer för python finns i [följande artikel](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts).
 
 Med python kan du utföra uppgifter som för närvarande inte stöds av befintliga moduler, till exempel:
 
@@ -81,7 +81,7 @@ os.system(f"pip install scikit-misc")
 
 1. Lägg till modulen **Kör Python-skript** i din pipeline.
 
-2. Lägg till och Anslut på **Dataset1** alla data uppsättningar från gränssnittet som du vill använda för indata. Referera till den här data uppsättningen i python-skriptet som **DataFrame1**.
+2. Lägg till och Anslut på **Dataset1** alla data uppsättningar från designern som du vill använda för indata. Referera till den här data uppsättningen i python-skriptet som **DataFrame1**.
 
     Användningen av en data uppsättning är valfri, om du vill generera data med python eller använda python-kod för att importera data direkt till modulen.
 
@@ -97,15 +97,15 @@ os.system(f"pip install scikit-misc")
 
 5. I text rutan **Python-skript** skriver eller klistrar du in giltigt Python-skript.
 
-    Text rutan **Python-skript** fylls i automatiskt med instruktioner i kommentarer och exempel kod för data åtkomst och utdata. **Du måste redigera eller ersätta den här koden.** Se till att följa python-konventioner om indrag och Skift läge.
+    Text rutan **Python-skript** fylls i automatiskt med instruktioner i kommentarer och exempel kod för data åtkomst och utdata. Du måste redigera eller ersätta den här koden. Se till att följa python-konventioner om indrag och Skift läge.
 
     + Skriptet måste innehålla en funktion med namnet `azureml_main` som start punkt för den här modulen.
     + Start punkts funktionen kan innehålla upp till två indataargument: `Param<dataframe1>` och `Param<dataframe2>`
     + Zippade filer som är anslutna till den tredje Indataporten är zippade och lagras i katalogen, `.\Script Bundle`, som också läggs till i python-`sys.path`. 
 
-    Om din zip-fil innehåller `mymodule.py` ska du därför importera den med `import mymodule`.
+    Om din zip-fil innehåller `mymodule.py`ska du därför importera den med `import mymodule`.
 
-    + Två data uppsättningar kan returneras till gränssnittet, vilket måste vara en sekvens av typen `pandas.DataFrame`. Du kan skapa andra utdata i python-koden och skriva dem direkt till Azure Storage.
+    + Två data uppsättningar kan returneras till designern, som måste vara en sekvens av typen `pandas.DataFrame`. Du kan skapa andra utdata i python-koden och skriva dem direkt till Azure Storage.
 
 6. Kör pipelinen eller Välj modulen och klicka på **Kör valt** för att bara köra python-skriptet.
 
@@ -124,4 +124,4 @@ Modulen returnerar två data uppsättningar:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

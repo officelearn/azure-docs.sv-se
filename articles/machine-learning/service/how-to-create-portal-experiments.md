@@ -1,7 +1,7 @@
 ---
 title: Använd Azures automatiserade ML-gränssnitt för att träna & distribuera modeller
 titleSuffix: Azure Machine Learning
-description: Skapa, hantera och distribuera automatiserade Machine Learning-experiment i Azure Machine Learnings landnings sida för arbets ytor (för hands version).
+description: Skapa, hantera och distribuera automatiserade maskin inlärnings experiment i Azure Machine Learning Studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,73 +10,57 @@ ms.author: nibaccam
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 09/09/2019
-ms.openlocfilehash: 2de24d36d78ebf5edf6ef65471e85b53d954486e
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.openlocfilehash: 05bae18d35eafc47eddc7c1450eb06af5bbe5562
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900745"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497225"
 ---
-# <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learnings-workspace-landing-page-preview"></a>Skapa, utforska och distribuera automatiserade Machine Learning-experiment med Azure Machine Learning s landnings sida för arbets ytan (för hands version)
+# <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Skapa, utforska och distribuera automatiserade maskin inlärnings experiment med Azure Machine Learning Studio
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
- I den här artikeln får du lära dig hur du skapar, utforskar och distribuerar automatiserade maskin inlärnings experiment i Azure Machine Learningens landnings sida för arbets ytan utan en enda rad kod. Automatisk maskin inlärning automatiserar processen med att välja den bästa algoritmen som ska användas för dina data, så att du snabbt kan skapa en maskin inlärnings modell. [Lär dig mer om automatisk maskin inlärning](concept-automated-ml.md).
+ I den här artikeln får du lära dig hur du skapar, utforskar och distribuerar automatiserade maskin inlärnings experiment i Azure Machine Learning Studio utan en enda rad kod. Automatisk maskin inlärning automatiserar processen med att välja den bästa algoritmen som ska användas för dina data, så att du snabbt kan skapa en maskin inlärnings modell. [Lär dig mer om automatisk maskin inlärning](concept-automated-ml.md).
 
  Om du föredrar en mer kod baserad upplevelse kan du också [Konfigurera dina automatiserade maskin inlärnings experiment i python](how-to-configure-auto-train.md) med [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
-* En Azure Machine Learning-arbetsyta. Se [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
+* En Azure Machine Learning arbets yta med en typ av **Enterprise-utgåva**. Se [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).  Information om hur du uppgraderar en befintlig arbets yta till Enterprise Edition finns i [Uppgradera till Enterprise Edition](how-to-manage-workspace.md#upgrade).
 
-## <a name="get-started"></a>Kom i gång
+## <a name="get-started"></a>Kom igång
 
-1. Logga in på [sidan med landnings sidan för arbets ytan](https://ml.azure.com/workspaceportal/). 
+1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com). 
 
 1. Välj din prenumeration och arbets yta. 
 
 1. Navigera till den vänstra rutan. Välj **Automatisk ml** under avsnittet **författare** .
 
-[![Azure Portal navigerings fönstret](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
+[navigerings fönstret ![Azure Machine Learning Studio](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
 
- Om det här är första gången du gör ett experiment visas skärmen **Kom igång** . 
+ Om det här är första gången du gör ett experiment visas en tom lista och länkar till dokumentationen. 
 
-Annars ser du din automatiserade instrument panel för **maskin inlärning** med en översikt över alla automatiserade maskin inlärnings experiment, inklusive de som har skapats med SDK: n. Här kan du filtrera och utforska dina körningar efter datum, experiment namn och körnings status.
+Annars visas en lista över dina senaste automatiserade maskin inlärnings experiment, inklusive de som har skapats med SDK: n. 
 
 ## <a name="create-and-run-experiment"></a>Skapa och kör experiment
 
-1. Välj **Skapa experiment** och fyll i formuläret.
+1. Välj **+ Skapa experiment** och fyll i formuläret.
 
-1. Ange ett unikt experiment namn.
-
-1. Välj en beräkning för data profilering och utbildnings jobb. Det finns en lista över dina befintliga beräkningar i list rutan. Om du vill skapa en ny beräkning följer du anvisningarna i steg 4.
-
-1. Välj **skapa en ny beräkning** för att konfigurera din beräknings kontext för det här experimentet.
-
-    Fält|Beskrivning
-    ---|---
-    Compute-namn| Ange ett unikt namn som identifierar din beräknings kontext.
-    Storlek på virtuell dator| Välj storlek på den virtuella datorn för din beräkning.
-    Min/max-noder (i avancerade inställningar)| Du måste ange 1 eller fler noder för att kunna profilera data. Ange det maximala antalet noder för din beräkning. Standardvärdet är 6 noder för en AML-beräkning.
-    
-    Välj **Skapa**. Det kan ta några minuter att skapa en ny beräkning.
-
-    >[!NOTE]
-    > Ditt beräknings namn anger om den beräkning som du väljer/skapar profilering är *aktive rad*. (Mer information finns i avsnittet om avsnitts [data profilering](#profile) ).
-
-1. Välj en data uppsättning från din lagrings behållare eller skapa en genom att ladda upp en fil från den lokala datorn till behållaren. Offentlig för hands version stöder endast lokala fil överföringar och Azure Blob Storage-konton.
+1. Välj en data uppsättning från din lagrings behållare eller skapa en ny data uppsättning. Data uppsättningar kan skapas från lokala filer, webb-URL: er, data lager eller Azure Open-datauppsättningar. 
 
     >[!Important]
     > Krav för tränings data:
     >* Data måste vara i tabell form.
     >* Värdet som du vill förutse (mål kolumnen) måste finnas i data.
 
-    1. Om du vill skapa en ny data uppsättning från en fil på din lokala beräkning väljer du **Bläddra** och väljer sedan filen. 
+    1. Om du vill skapa en ny data uppsättning från en fil på den lokala datorn väljer du **Bläddra** och väljer sedan filen. 
 
     1. Ge din data uppsättning ett unikt namn och ange en valfri beskrivning. 
 
-    1. Välj **Nästa** för att överföra den till standard lagrings behållaren som skapas automatiskt med din arbets yta eller Välj en lagrings behållare som du vill använda för experimentet. 
+    1. Välj **Nästa**för att överföra den till standard lagrings behållaren som skapas automatiskt med din arbets yta, eller Välj en lagrings behållare som du vill använda för experimentet. 
 
     1. Granska **inställningarna och för hands versions** formuläret för noggrannhet. Formuläret fylls i intelligent baserat på filtypen. 
 
@@ -94,25 +78,51 @@ Annars ser du din automatiserade instrument panel för **maskin inlärning** med
             
         Välj **Nästa.**
 
-1. Välj utbildnings jobb typ: klassificering, regression eller Prognosticering.
+    1. Formuläret **bekräfta information** är en sammanfattning av den information som tidigare har fyllts i i **grundläggande information** och **Inställningar och för hands** formulär. Du kan också välja att profilera din data uppsättning med en profilerings aktive rad beräkning. Läs mer om [data profilering](#profile).
 
-1. Välj mål kolumn; Det här är den kolumn som du vill göra förutsägelser på.
+        Välj **Nästa**.
+1. Välj den nyligen skapade data uppsättningen när den visas. Du kan också visa en förhands granskning av data uppsättningen och exempel statistiken. 
 
-1. För Prognosticering:
-    1. Välj tids kolumn: den här kolumnen innehåller de tids data som ska användas.
+1. I formuläret **Konfigurera körning** anger du ett unikt experiment namn.
 
-    1. Välj prognos Horisont: Ange hur många tidsenheter (minuter/timmar/dagar/veckor/månader/år) som modellen ska kunna förutsäga till framtiden. Den ytterligare modellen krävs för att förutsäga i framtiden. den mindre exakta den blir. [Lär dig mer om prognostisering av prognoser och prognoser](how-to-auto-train-forecast.md).
+1. Välj en mål kolumn. Det här är den kolumn som du vill göra förutsägelser på.
 
-1. Valfritt Avancerade inställningar: ytterligare inställningar som du kan använda för att styra utbildnings jobbet bättre. Annars tillämpas standardvärdena utifrån experiment val och data. 
+1. Välj en beräkning för data profilering och utbildnings jobb. Det finns en lista över dina befintliga beräkningar i list rutan. Följ instruktionerna i steg 7 för att skapa en ny beräkning.
 
-    Avancerade inställningar|Beskrivning
+1. Välj **skapa en ny beräkning** för att konfigurera din beräknings kontext för det här experimentet.
+
+    Fält|Beskrivning
+    ---|---
+    Compute-namn| Ange ett unikt namn som identifierar din beräknings kontext.
+    Storlek på virtuell dator| Välj storlek på den virtuella datorn för din beräkning.
+    Min/max-noder (i avancerade inställningar)| Du måste ange 1 eller fler noder för att kunna profilera data. Ange det maximala antalet noder för din beräkning. Standardvärdet är 6 noder för en AML-beräkning.
+    
+    Välj **Skapa**. Det kan ta några minuter att skapa en ny beräkning.
+
+    >[!NOTE]
+    > Ditt beräknings namn anger om den beräkning som du väljer/skapar profilering är *aktive rad*. (Mer information finns i avsnittet om avsnitts [data profilering](#profile) ).
+
+    Välj **Nästa**.
+
+1. I formuläret **uppgifts typ och inställningar** väljer du uppgifts typ: klassificering, regression eller Prognosticering. 
+
+    1. För klassificering kan du också aktivera djup inlärning som används för text featurizations.
+
+    1. För Prognosticering:
+        1. Välj tids kolumn: den här kolumnen innehåller de tids data som ska användas.
+
+        1. Välj prognos Horisont: Ange hur många tidsenheter (minuter/timmar/dagar/veckor/månader/år) som modellen ska kunna förutsäga till framtiden. Den ytterligare modellen krävs för att förutsäga i framtiden. den mindre exakta den blir. [Lär dig mer om prognostisering av prognoser och prognoser](how-to-auto-train-forecast.md).
+
+1. Valfritt Ytterligare konfigurationer: ytterligare inställningar som du kan använda för att styra utbildnings jobbet bättre. Annars tillämpas standardvärdena utifrån experiment val och data. 
+
+    Ytterligare konfigurationer|Beskrivning
     ------|------
     Primärt mått| Främsta mått som används för att värdera din modell. [Lär dig mer om modell mått](how-to-configure-auto-train.md#explore-model-metrics).
-    Avslutnings villkor| När något av dessa villkor uppfylls stoppas utbildnings jobbet. <br> *Utbildnings jobb tid (minuter)* : hur lång tid det tar att köra utbildnings jobbet.  <br> *Max antal iterationer*: maximalt antal pipelines (iterationer) som ska testas i utbildnings jobbet. Jobbet kan inte köra fler än det angivna antalet iterationer. <br> *Mät*värdes tröskel: minsta mått Poäng för alla pipeliner. Detta säkerställer att om du har ett definierat målmått som du vill nå, ägnar du inte mer tid åt övnings jobbet än nödvändigt.
-    Förbearbeta| Välj det här alternativet om du vill aktivera eller inaktivera förbearbetningen som gjorts genom automatisk maskin inlärning. För bearbetning inkluderar automatisk rensning av data, förberedelser och transformering för att generera syntetiska funktioner. [Läs mer om för bearbetning](#preprocess).
-    Validering| Välj ett av de kors validerings alternativ som ska användas i övnings jobbet. [Läs mer om kors validering](how-to-configure-auto-train.md).
-    Samtidighet| Välj de gränser för flera kärnor som du vill använda när du använder data bearbetning i flera kärnor.
+    Automatisk funktionalisering| Välj det här alternativet om du vill aktivera eller inaktivera förbearbetningen som gjorts genom automatisk maskin inlärning. För bearbetning inkluderar automatisk rensning av data, förberedelser och transformering för att generera syntetiska funktioner. [Läs mer om för bearbetning](#preprocess).
     Blockerad algoritm| Välj algoritmer som du vill undanta från utbildnings jobbet.
+    Avslutnings kriterium| När något av dessa villkor uppfylls stoppas utbildnings jobbet. <br> *Utbildnings jobb tid (timmar)* : hur lång tid det tar att köra utbildnings jobbet. <br> *Mät*värdes tröskel: minsta mått Poäng för alla pipeliner. Detta säkerställer att om du har ett definierat målmått som du vill nå, ägnar du inte mer tid åt övnings jobbet än nödvändigt.
+    Validering| Välj ett av de kors validerings alternativ som ska användas i övnings jobbet. [Läs mer om kors validering](how-to-configure-auto-train.md).
+    Samtidighet| *Max. antal samtidiga iterationer*: maximalt antal pipelines (iterationer) som ska testas i utbildnings jobbet. Jobbet kan inte köra fler än det angivna antalet iterationer. <br> *Högsta antal kärnor per iteration*: Välj de gränser för flera kärnor som du vill använda när du använder data bearbetning i flera kärnor.
 
 <a name="profile"></a>
 
@@ -130,7 +140,7 @@ Profil| Infogad visualisering baserat på den härledda typen. Strängar, booles
 Typ distribution| Antal värden i en kolumn. Nullvärden är deras egna typ, så den här visualiseringen är användbar för att identifiera udda eller saknade värden.
 Typ|Den härledda typen för kolumnen. Möjliga värden är: strängar, booleska värden, datum och decimaler.
 Min| Minsta värde för kolumnen. Tomma poster visas för funktioner vars typ inte har en inbyggd ordning (t. ex. booleska värden).
-Max.| Max värde för kolumnen. 
+Max| Max värde för kolumnen. 
 Antal| Totalt antal saknade och icke-saknade poster i kolumnen.
 Antal saknas inte| Antal poster i kolumnen som inte saknas. Tomma strängar och fel behandlas som värden, så de kommer inte att bidra till det antal som saknas.
 Quantiles| Ungefärligt värde vid varje quantile för att ge en uppfattning om data fördelningen.
@@ -160,19 +170,22 @@ När du konfigurerar experimenten kan du aktivera den avancerade inställningen 
 
 ## <a name="run-experiment-and-view-results"></a>Kör experimentet och visa resultaten
 
-Välj **Starta** för att köra experimentet. Experimentet som förbereder processen tar några minuter.
+Välj **Starta** för att köra experimentet. Processen för att förbereda experiment kan ta upp till 10 minuter. Utbildnings jobb kan ta ytterligare ytterligare 2-3 minuter för varje pipeline för att slutföra körningen.
 
 ### <a name="view-experiment-details"></a>Visa experiment information
 
-När experiment förberedelse fasen är färdig visas skärmen körnings information som börjar fyllas i. Den här skärmen visar en fullständig lista över de modeller som skapats. Som standard är modellen som visar högsta baserat på det valda måttet överst i listan. När utbildnings jobbet försöker utföra fler modeller läggs de till i listan iteration och diagram. Använd upprepnings diagrammet för att få en snabb jämförelse av måtten för de modeller som har producerats hittills.
+>[!NOTE]
+> Välj **Uppdatera** regelbundet för att visa status för körningen. 
 
-Utbildnings jobb kan ta en stund för varje pipeline att slutföras.
+Skärmen **körnings information** öppnas på fliken **information** . Den här skärmen visar en sammanfattning av experiment körningen inklusive **körnings status**. 
 
-[instrument panel för![körnings information](media/how-to-create-portal-experiments/run-details.png)](media/how-to-create-portal-experiments/run-details-expanded.png#lightbox)
+Fliken **modeller** innehåller en lista med modeller som skapats sorterade efter måttets poäng. Som standard är modellen som visar högsta baserat på det valda måttet överst i listan. När utbildnings jobbet försöker utföra fler modeller läggs de till i listan. Använd detta för att få en snabb jämförelse av måtten för de modeller som har producerats hittills.
+
+[instrument panel för ![körnings information](media/how-to-create-portal-experiments/run-details.png)](media/how-to-create-portal-experiments/run-details-expanded.png#lightbox)
 
 ### <a name="view-training-run-details"></a>Visa information om tränings körningar
 
-Öka detalj nivån för någon av utmatnings modellerna för att se information om utbildnings körning, till exempel prestanda mått och distributions diagram. [Lär dig mer om diagram](how-to-understand-automated-ml.md).
+Öka detalj nivån för alla färdiga modeller för att se information om utbildnings körning, som att köra mått på fliken **modell information** eller prestanda diagram på fliken **visualiseringar** . [Läs mer om diagram](how-to-understand-automated-ml.md).
 
 [![upprepnings information](media/how-to-create-portal-experiments/iteration-details.png)](media/how-to-create-portal-experiments/iteration-details-expanded.png)
 
@@ -184,9 +197,9 @@ Med automatisk ML får du hjälp med att distribuera modellen utan att skriva ko
 
 1. Du har ett par alternativ för distribution. 
 
-    + Alternativ 1: om du vill distribuera den bästa modellen (enligt de mått kriterier som du har definierat) väljer du distribuera bästa modell på sidan körnings information.
+    + Alternativ 1: om du vill distribuera den bästa modellen (enligt de mått kriterier som du har definierat) väljer du distribuera bästa modell på fliken information.
 
-    + Alternativ 2: om du vill distribuera en speciell modell iteration från det här experimentet går du nedåt i modellen för att öppna sidan körnings information och väljer distribuera modell.
+    + Alternativ 2: om du vill distribuera en speciell modell iteration från det här experimentet går du nedåt i modellen för att öppna fliken modell information och väljer distribuera modell.
 
 1. Fyll i fönstret **distribuera modell** .
 
@@ -194,16 +207,12 @@ Med automatisk ML får du hjälp med att distribuera modellen utan att skriva ko
     ----|----
     Distributions namn| Ange ett unikt namn för din distribution.
     Distributions Beskrivning| Ange en beskrivning för att bättre identifiera vad den här distributionen är för.
-    Bedömnings skript| Skapa eller ladda upp din egen bedömnings fil automatiskt. [Läs mer om bedömnings skript](how-to-deploy-and-where.md#script)
+    Bedömnings skript| Skapa eller ladda upp din egen bedömnings fil automatiskt. [Läs mer om bedömnings skript](how-to-deploy-and-where.md#script).
     Miljö skript| Skapa eller ladda upp din egen miljö fil automatiskt.
     >[!Important]
     > Fil namn måste vara under 32 tecken och måste börja och sluta med alfanumeriska tecken. Får innehålla bindestreck, under streck, punkter och alfanumeriska tecken mellan. Blank steg är inte tillåtna.
 
 1. Välj **Distribuera**. Distributionen kan ta ungefär 20 minuter att slutföra.
-
-    Följande meddelande visas när distributionen har slutförts.
-
-    ![Distributionen är klar](media/tutorial-1st-experiment-automated-ml/deploy-complete-status.png) 
 
 Nu har du en fungerande webb tjänst för att generera förutsägelser! Du kan testa förutsägelserna genom att fråga tjänsten från [Power BI inbyggda Azure Machine Learning-supporten](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 

@@ -9,34 +9,34 @@ ms.topic: include
 ms.date: 7/5/2019
 ms.author: dapine
 ms.openlocfilehash: b40f1833f08074cb0a8d45fe3afc6bac7cbac7f0
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717066"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73523940"
 ---
-## <a name="create-an-anomaly-detector-resource"></a>Skapa en Avvikelseidentifiering detektor-resurs
+## <a name="create-an-anomaly-detector-resource"></a>Skapa en resurs för avvikelse detektor
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com)
-1. Klicka på [skapa **Avvikelseidentifiering detektor** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) resurs
+1. Logga in på [Azure Portal](https://portal.azure.com)
+1. Klicka på [skapa **avvikelse detektor** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) resurs
 1. Ange alla nödvändiga inställningar:
 
     |Inställning|Värde|
     |--|--|
     |Namn|Önskat namn (2-64 tecken)|
-    |Subscription|Välj lämplig prenumeration|
-    |Location|Välj valfri plats i närheten och tillgänglig|
-    |Prisnivå|`F0` -minimal prisnivån|
-    |Resursgrupp|Välj en tillgänglig resursgrupp|
-    |Bekräftelserutan för förhandsgranskning (krävs)|Om du har läst den **förhandsversion** Observera|
+    |Prenumeration|Välj lämplig prenumeration|
+    |Plats|Välj valfri närliggande och tillgänglig plats|
+    |Prisnivå|`F0` – den minimala pris nivån|
+    |Resursgrupp|Välj en tillgänglig resurs grupp|
+    |Kryss rutan Bekräfta för hands version (krävs)|Om du har läst meddelandet för **förhands granskning**|
 
-1. Klicka på **skapa** och vänta tills resursen som ska skapas. När den har skapats, gå till resurssidan
-1. Samla in konfigurerats `endpoint` och en API-nyckel:
+1. Klicka på **skapa** och vänta tills resursen har skapats. När den har skapats går du till resurs Sidan
+1. Samla in konfigurerade `endpoint` och en API-nyckel:
 
-    |Resurs-fliken i portalen|Inställning|Värde|
+    |Fliken resurs i portalen|Inställning|Värde|
     |--|--|--|
-    |**Översikt**|Slutpunkt|Kopiera slutpunkten. Den liknar `https://westus2.api.cognitive.microsoft.com/`|
-    |**nycklar**|API-nyckel|Kopiera 1 av två nycklar. Det är en 32 alfanumeriska tecken lång sträng utan mellanslag eller tankstreck, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |**Översikt**|Slutpunkt|Kopiera slut punkten. Det ser ut ungefär som `https://westus2.api.cognitive.microsoft.com/`|
+    |**Nyckel**|API-nyckel|Kopia 1 av de två nycklarna. Det är en sträng med 32 alfanumeriska tecken utan blank steg eller bindestreck, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
 
 
 

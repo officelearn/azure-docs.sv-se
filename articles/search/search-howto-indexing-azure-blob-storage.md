@@ -280,7 +280,7 @@ Azure Kognitiv sökning begränsar storleken på blobbar som indexeras. De här 
 
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
-Du kan också fortsätta att indexera om fel inträffar när som helst, antingen vid parsning av blobbar eller när dokument läggs till i ett index. Om du vill ignorera ett visst antal fel anger du `maxFailedItems` och `maxFailedItemsPerBatch` konfigurations parametrar till önskade värden. Exempel:
+Du kan också fortsätta att indexera om fel inträffar när som helst, antingen vid parsning av blobbar eller när dokument läggs till i ett index. Om du vill ignorera ett visst antal fel anger du `maxFailedItems` och `maxFailedItemsPerBatch` konfigurations parametrar till önskade värden. Till exempel:
 
     {
       ... other parts of indexer definition

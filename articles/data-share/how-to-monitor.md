@@ -1,21 +1,21 @@
 ---
-title: Övervaka för hands versionen av Azure Data Share
-description: Lär dig hur du övervakar status för inbjudan, delar prenumerationer och ögonblicks bilds historik i Azure Data repreview.
+title: Övervaka Azures data resurs
+description: Lär dig hur du övervakar status för inbjudan, delar prenumerationer och ögonblicks bilds historik i Azure Data Share
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 22c95f1ac541e1288494ed85cc9654d42780ea60
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 15089dd99de0471c244a6c0d93931438442599a7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169129"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490505"
 ---
-# <a name="monitor-azure-data-share-preview"></a>Övervaka för hands versionen av Azure Data Share 
+# <a name="monitor-azure-data-share"></a>Övervaka Azure Data Share  
 
-Den här artikeln förklarar hur du kan övervaka dina data resurser med hjälp av Azure Data repreview. Som data leverantör kan du övervaka olika aspekter av dina data delnings relationer. Information som till exempel om dina data konsumenter har accepterat din inbjudan till data resursen, samt om de har skapat en resurs prenumeration och börjat använda dina data, är tillgängliga för övervakning. 
+Den här artikeln förklarar hur du kan övervaka dina data resurser med Azure Data Share. Som data leverantör kan du övervaka olika aspekter av dina data delnings relationer. Information som till exempel om dina data konsumenter har accepterat din inbjudan till data resursen, samt om de har skapat en resurs prenumeration och börjat använda dina data, är tillgängliga för övervakning. 
 
 Som data konsument kan du övervaka ögonblicks bilderna som har utlösts i din Azure-prenumeration. 
 
@@ -23,7 +23,7 @@ Som data konsument kan du övervaka ögonblicks bilderna som har utlösts i din 
 
 Visa statusen för dina inbjudningar för data delning genom att navigera till skickade resurser – > inbjudningar. 
 
-![](./media/invitation-status.png "Status") för Inbjudnings status för inbjudan 
+![Status för inbjudan](./media/invitation-status.png "Status för inbjudan") 
 
 Din inbjudan kan vara i tre lägen:
 
@@ -42,13 +42,13 @@ Visa statusen för dina resurs prenumerationer genom att navigera till skickade 
 
 På fliken Historik kan du Visa ögonblicks bilderna som har kopierats till din data konsument klient. Du kan övervaka frekvens och varaktighet för varje ögonblicks bilds intervall. 
 
-Ögonblicks(./media/sent-shares.png "bild") historik för ![ögonblicks bild historik] 
+![Ögonblicks bilds historik](./media/sent-shares.png "Ögonblicks bilds historik") 
 
 Du kan visa mer information om varje ögonblicks bild körning genom att klicka på start datum för körning. 
 
 Upp till 30 dagar från ögonblicks bilds historik visas som standard. Om du behöver se historiken mer än 30 dagar går du till övervakning-> diagnostikinställningar och väljer **Lägg till diagnostisk inställning**. Du måste välja ett lagrings konto för att lagra loggarna i. 
 
-(./media/diagnostic-settings.png "Diagnostiska inställningar") för ![ögonblicks bild historik] 
+![Ögonblicks bilds historik](./media/diagnostic-settings.png "Diagnostikinställningar") 
 
 ## <a name="next-steps"></a>Nästa steg 
 

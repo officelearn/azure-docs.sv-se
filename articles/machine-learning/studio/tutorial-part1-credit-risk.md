@@ -1,7 +1,7 @@
 ---
-title: 'Självstudie 1: Förutsäga kreditrisk'
-titleSuffix: Azure Machine Learning Studio
-description: En detaljerad självstudie om hur du skapar en förutsägelseanalys för kreditriskbedömning i Azure Machine Learning Studio. Den här självstudien är del ett i en självstudieserie i tre delar.  Den visar hur du skapar en arbetsyta, laddar upp data och skapar ett experiment.
+title: 'Självstudie 1: förutsägelse kredit risk'
+titleSuffix: Azure Machine Learning Studio (classic)
+description: En detaljerad självstudie som visar hur du skapar en förutsägelse analys lösning för kredit riskbedömning i den klassiska versionen av Azure Machine Learning Studio. Den här självstudien är del ett i en självstudieserie i tre delar.  Den visar hur du skapar en arbetsyta, laddar upp data och skapar ett experiment.
 keywords: kreditrisk, lösning för förutsägelseanalys, riskbedömning
 author: sdgilley
 ms.author: sgilley
@@ -10,59 +10,58 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: f9746dae4cdf10a10922be41602f4ecd7f032f5b
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: b861fbca1f8b4fd6b313e770b1636674767e406a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949791"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492615"
 ---
-# <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>Självstudie 1: Förutsäga kreditrisk – Azure Machine Learning Studio
+# <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Självstudie 1: förutsägelse kredit risk-Azure Machine Learning Studio (klassisk)
 
-I den här självstudien tittar vi närmare på hur du utvecklar en lösning för förutsägelseanalys. Du ska utveckla en enkel modell i Machine Learning Studio.  Därefter distribuerar du modellen som en Azure Machine Learning-webbtjänst.  Den här distribuerade modellen kan göra förutsägelser med nya data. Den här självstudien är **del ett i en självstudieserie i tre delar**.
+[!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
+
+I den här självstudien tittar vi närmare på hur du utvecklar en lösning för förutsägelseanalys. Du utvecklar en enkel modell i Machine Learning Studio (klassisk).  Därefter distribuerar du modellen som en Azure Machine Learning-webbtjänst.  Den här distribuerade modellen kan göra förutsägelser med nya data. Den här självstudien är **del ett i en självstudieserie i tre delar**.
 
 Anta att du behöver förutsäga kreditrisken för en person baserat på den information som han eller hon fyller i på en kreditansökan.  
 
-Kreditriskbedömning är ett komplext problem, men den här självstudien kommer att förenkla processen. Du använder det som ett exempel på hur du kan skapa en lösning för förutsägelseanalys med hjälp av Microsoft Azure Machine Learning Studio. Du använder Azure Machine Learning Studio och en Machine Learning-webbtjänst i den här lösningen.  
+Kreditriskbedömning är ett komplext problem, men den här självstudien kommer att förenkla processen. Du kommer att använda det som ett exempel på hur du kan skapa en förutsägelse analys lösning med hjälp av Microsoft Azure Machine Learning Studio (klassisk). Du använder den klassiska versionen av Azure Machine Learning Studio och en Machine Learning webb tjänst för den här lösningen.  
 
-I den här självstudien i tre delar börjar du med offentligt tillgängliga kreditriskdata.  Därefter utvecklar du och tränar en förutsägelsemodell.  Slutligen distribuerar du modellen som en webbtjänst.
+I den här självstudien i tre delar börjar du med offentligt tillgängliga kreditriskdata.  Därefter utvecklar du och tränar en förutsägelsemodell.  Slutligen ska du distribuera modellen som en webbtjänst.
 
 I den här delen av självstudien ska du: 
  
 > [!div class="checklist"]
-> * Skapa en Machine Learning Studio-arbetsyta
+> * Skapa en Machine Learning Studio (klassisk)-arbets yta
 > * Överför befintliga data
 > * Skapa ett experiment
 
 Du kan sedan använda det här experimentet till att [träna modeller i del 2](tutorial-part2-credit-risk-train.md) och sedan [distribuera dem i del 3](tutorial-part3-credit-risk-deploy.md).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+## <a name="prerequisites"></a>Förutsättningar
 
+I den här självstudien förutsätter vi att du har använt Machine Learning Studio (klassisk) minst en gång innan och att du har kunskaper om Machine Learning-koncept. Men vi förväntar oss inte att du är en expert.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-
-I den här självstudien förutsätter vi att du har använt Machine Learning Studio åtminstone någon gång och att du är någorlunda insatt i vad maskininlärning är. Men vi förväntar oss inte att du är en expert.
-
-Om du aldrig har använt **Azure Machine Learning Studio** förut vill du kanske börja med snabbstarten, [Skapa ditt första dataexperiment i Azure Machine Learning Studio](create-experiment.md). Snabbstarten vägleder dig genom första användningen av Machine Learning Studio. Vi går vi igenom grunderna och förklarar hur du drar och släpper moduler i ett experiment, hur du kopplar ihop dem och hur du kör experimentet. Vi avslutar med att titta på resultatet.
+Om du aldrig har använt **Azure Machine Learning Studio (klassisk)** tidigare kanske du vill börja med snabb starten och [skapa ditt första data vetenskaps experiment i Azure Machine Learning Studio (klassisk)](create-experiment.md). Snabb starten tar dig genom Machine Learning Studio (klassisk) för första gången. Vi går vi igenom grunderna och förklarar hur du drar och släpper moduler i ett experiment, hur du kopplar ihop dem och hur du kör experimentet. Vi avslutar med att titta på resultatet.
 
 
 > [!TIP] 
-> Du hittar en fungerande kopia av det experiment som du skapar i den här självstudien i [Azure AI Gallery](https://gallery.azure.ai). Gå till **[Självstudie – Förutsäga kreditrisk](https://gallery.azure.ai/Experiment/Walkthrough-Credit-risk-prediction-1)** och klicka på **Öppna i Studio** för att ladda ned en kopia av experimentet till din Machine Learning Studio-arbetsyta.
+> Du hittar en fungerande kopia av det experiment som du skapar i den här självstudien i [Azure AI Gallery](https://gallery.azure.ai). Gå till **[självstudie – Förutsäg kredit risk](https://gallery.azure.ai/Experiment/Walkthrough-Credit-risk-prediction-1)** och klicka på **Öppna i Studio** för att ladda ned en kopia av experimentet i arbets ytan Machine Learning Studio (klassisk).
 > 
 
 
-## <a name="create-a-machine-learning-studio-workspace"></a>Skapa en Machine Learning Studio-arbetsyta
+## <a name="create-a-machine-learning-studio-classic-workspace"></a>Skapa en Machine Learning Studio (klassisk)-arbets yta
 
-För att kunna använda Machine Learning Studio behöver du ha en Microsoft Azure Machine Learning Studio-arbetsyta. Den här arbetsytan innehåller de verktyg du behöver för att skapa, hantera och publicera experiment.  
+Om du vill använda Machine Learning Studio (klassisk) måste du ha en Microsoft Azure Machine Learning Studio (klassisk)-arbets yta. Den här arbetsytan innehåller de verktyg du behöver för att skapa, hantera och publicera experiment.  
 
-Information om hur du skapar en arbetsyta finns i [Skapa och dela en Azure Machine Learning Studio-arbetsyta](create-workspace.md).
+Information om hur du skapar en arbets yta finns i [skapa och dela en Azure Machine Learning Studio (klassisk)-arbets yta](create-workspace.md).
 
-När arbetsytan har skapats kan du öppna Machine Learning Studio ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). Om du har fler än en arbetsyta kan du välja arbetsytan i verktygsfältet i det övre högra hörnet i fönstret.
+När arbets ytan har skapats öppnar du Machine Learning Studio (klassisk) ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). Om du har fler än en arbetsyta kan du välja arbetsytan i verktygsfältet i det övre högra hörnet i fönstret.
 
-![Välja arbetsyta i Studio](./media/tutorial-part1-credit-risk/open-workspace.png)
+![Välj arbets yta i Studio (klassisk)](./media/tutorial-part1-credit-risk/open-workspace.png)
 
 > [!TIP]
-> Om du är arbetsytans ägare kan du dela de experiment som du arbetar med genom att bjuda in andra till arbetsytan. Du kan göra detta i Machine Learning Studio på sidan **SETTINGS** (Inställningar). Du behöver bara det Microsoft-konto eller organisationskonto för varje användare.
+> Om du är arbetsytans ägare kan du dela de experiment som du arbetar med genom att bjuda in andra till arbetsytan. Du kan göra detta i Machine Learning Studio (klassisk) på sidan **Inställningar** . Du behöver bara Microsoft-kontot eller organisationskontot för varje användare.
 > 
 > På sidan **SETTINGS** (Inställningar) klickar du på **USERS** (Användare) och sedan på **INVITE MORE USERS** (Bjud in fler användare) längst ned i fönstret.
 > 
@@ -78,7 +77,7 @@ Datamängden **german.data** innehåller rader med 20 variabler för 1000 tidiga
 
 UCI-webbplatsen innehåller en beskrivning av attributen för funktionsvektor för dessa data. Dessa data innehåller ekonomisk information, kredithistorik, anställningsstatus och personlig information. Varje sökande har getts en binär klassificering som anger om sökanden utgör en låg eller hög kreditrisk. 
 
-Du använder dessa data för att träna en modell för förutsägelseanalys. När du är klar, ska din modell kunna acceptera en funktionen vektor för en ny person och förutsäga om de är en låg eller hög kreditrisk.  
+Du använder dessa data för att träna en modell för förutsägelseanalys. När du är klar bör din modell kunna acceptera en funktions vektor för en ny individ och förutsäga om de är en låg eller hög kredit risk.  
 
 Här är en intressant problemvariant.
 
@@ -96,7 +95,7 @@ Om modellen sedan felklassificerar någon som en låg kreditrisk när den person
 
 ### <a name="convert-the-dataset-format"></a>Konvertera datamängdens format
 
-Den ursprungliga datamängden använder ett format med blankstegsavgränsning. Machine Learning Studio fungerar bättre med en kommaavgränsad fil (CSV). Därför konverterar du datamängden genom att ersätta blanksteg med kommatecken.  
+Den ursprungliga datamängden använder ett format med blankstegsavgränsning. Den klassiska versionen av Machine Learning Studio fungerar bättre med en fil med kommaavgränsade värden (CSV), så du kommer att konvertera data uppsättningen genom att ersätta blank steg med kommatecken.  
 
 Det finns många sätt att konvertera dessa data. Ett sätt är att använda följande Windows PowerShell-kommando:   
 
@@ -108,11 +107,11 @@ Ett annat sätt är att använda Unix sed-kommandot:
 
 I båda fallen skapar du en kommaavgränsad version av data i en fil med namnet **german.csv** som du kan använda i experimentet.
 
-### <a name="upload-the-dataset-to-machine-learning-studio"></a>Ladda upp datamängden till Machine Learning Studio
+### <a name="upload-the-dataset-to-machine-learning-studio-classic"></a>Överför data uppsättningen till Machine Learning Studio (klassisk)
 
-När data har konverterats till CSV-format behöver du ladda upp dem till Machine Learning Studio. 
+När data har konverterats till CSV-format måste du överföra dem till den klassiska versionen av Machine Learning Studio. 
 
-1. Öppna startsidan för Machine Learning Studio ([https://studio.azureml.net](https://studio.azureml.net)). 
+1. Öppna Start sidan för Machine Learning Studio (klassisk) ([https://studio.azureml.net](https://studio.azureml.net)). 
 
 2. Klicka på menyn ![Meny](./media/tutorial-part1-credit-risk/menu.png) i det övre vänstra hörnet i fönstret, klicka på **Azure Machine Learning**, välj **Studio** och logga in.
 
@@ -138,17 +137,17 @@ När data har konverterats till CSV-format behöver du ladda upp dem till Machin
 
 Detta laddar upp data till en datamängdsmodul som du kan använda i ett experiment.
 
-Du kan hantera datamängder som du har laddat upp till Studio genom att klicka på fliken **DATASETS** (Datamängder) till vänster i Studio-fönstret.
+Du kan hantera data uppsättningar som du har laddat upp till Studio (klassisk) genom att klicka på fliken **data uppsättningar** till vänster om Studio-fönstret (klassisk).
 
 ![Hantera datamängder](./media/tutorial-part1-credit-risk/dataset-list.png)
 
-Mer information om hur du importerar andra typer av data till ett experiment finns i avsnittet om att [importera dina träningsdata till Azure Machine Learning Studio](import-data.md).
+Mer information om hur du importerar andra typer av data till ett experiment finns i [Importera dina utbildnings data till Azure Machine Learning Studio (klassisk)](import-data.md).
 
 ## <a name="create-an-experiment"></a>Skapa ett experiment
 
-Nästa steg i den här självstudien är att skapa ett experiment i Machine Learning Studio som använder den datamängd som du laddade upp.  
+Nästa steg i den här självstudien är att skapa ett experiment i den klassiska versionen av Machine Learning Studio som använder den data uppsättning som du laddade upp.  
 
-1. I Studio klickar du på **+NEW** (Ny) längst ned i fönstret.
+1. I Studio (klassisk) klickar du på **+ ny** längst ned i fönstret.
 1. Välj **EXPERIMENT** och sedan ”Blank Experiment” (Tomt experiment). 
 
     ![Skapa ett nytt experiment](./media/tutorial-part1-credit-risk/create-new-experiment.png)
@@ -172,21 +171,21 @@ Nästa steg i den här självstudien är att skapa ett experiment i Machine Lear
 
 ### <a name="prepare-the-data"></a>Förbereda data
 
-Du kan visa de första 100 dataraderna och viss statistisk information för hela datamängden: Klicka på utdataporten för datamängden (den lilla cirkeln längst ned) och välj **Visualize** (Visualisera).  
+Du kan visa de första 100 raderna i data och viss statistisk information för hela data uppsättningen: Klicka på utdataporten för data uppsättningen (den lilla cirkeln längst ned) och välj **visualisera**.  
 
-Eftersom datafilen inte levererades med kolumnrubriker har Studio angett allmänna rubriker (Col1, Col2, *osv.*). Bra rubriker är inte nödvändiga för skapandet av en modell, men de gör det lättare att arbeta med data i experimentet. Och när du senare publicerar den här modellen i en webbtjänst hjälper rubrikerna till att identifiera kolumnerna för användare av tjänsten.  
+Eftersom data filen inte levererades med kolumn rubriker, har den klassiska versionen av Studio tillhandahållit allmänna rubriker (Col1, Col2 *osv.* ). Bra rubriker är inte nödvändiga för skapandet av en modell, men de gör det lättare att arbeta med data i experimentet. Och när du senare publicerar den här modellen i en webbtjänst hjälper rubrikerna till att identifiera kolumnerna för användare av tjänsten.  
 
-Du kan lägga till kolumnrubriker med hjälp av modulen [Edit Metadata][edit-metadata] (Redigera metadata).
+Du kan lägga till kolumn rubriker med modulen [Redigera metadata][edit-metadata] .
 
-Du använder modulen [Edit Metadata][edit-metadata] (Redigera metadata) för att ändra metadata som associeras med en datamängd. I det här fallet använder du den för att ge kolumnrubrikerna mer användbara namn. 
+Du kan använda modulen [Redigera metadata][edit-metadata] för att ändra metadata som är associerade med en data uppsättning. I det här fallet använder du den för att ge kolumnrubrikerna mer användbara namn. 
 
-Du använder [Edit Metadata][edit-metadata] (Redigera metadata) genom att först ange vilka kolumner som ska ändras (i det här fallet alla). Sedan anger du den åtgärd som ska utföras på de kolumnerna (i det här fallet ska kolumnrubrikerna ändras).
+Om du vill använda [Redigera metadata][edit-metadata]anger du först vilka kolumner som ska ändras (i det här fallet alla). Sedan anger du den åtgärd som ska utföras på dessa kolumner (i det här fallet ändra kolumn rubriker.)
 
-1. På modulpaletten skriver du ”metadata” i rutan **Search** (Sök). [Edit Metadata][edit-metadata] (Redigera metadata) visas i modullistan.
+1. På modulpaletten skriver du ”metadata” i rutan **Search** (Sök). [Redigera metadata][edit-metadata] visas i listan modul.
 
-1. Klicka och dra modulen [Edit Metadata][edit-metadata] (Redigera metadata) till arbetsytan och släpp den nedanför den datamängd som du lade till tidigare.
+1. Klicka och dra modulen [Redigera metadata][edit-metadata] till arbets ytan och släpp den under den data uppsättning som du lade till tidigare.
 
-1. Ansluta datamängden till [Edit Metadata][edit-metadata] (Redigera metadata): klicka på utdataporten för datamängden (den lilla cirkeln längst ned i datamängden), dra till indataporten för [Edit Metadata][edit-metadata] (Redigera metadata) (den lilla cirkeln längst upp i modulen) och släpp sedan musknappen. Datamängden och modulen förblir anslutna även om du flyttar runt endera av dem på arbetsytan.
+1. Anslut data uppsättningen till [Redigera metadata][edit-metadata]: Klicka på utdataporten för data uppsättningen (den lilla cirkeln längst ned i data uppsättningen), dra till Indataporten för [Redigera metadata][edit-metadata] (den lilla cirkeln överst i modulen) och släpp sedan mus knappen. Datamängden och modulen förblir anslutna även om du flyttar runt endera av dem på arbetsytan.
  
     Nu bör experimentet se ut ungefär så här:  
 
@@ -195,12 +194,12 @@ Du använder [Edit Metadata][edit-metadata] (Redigera metadata) genom att först
     Det röda utropstecknet anger att du inte har angett egenskaperna för den här modulen ännu. Det gör du i nästa steg.
 
     > [!TIP]
-    > Du kan lägga till en kommentar till en modul genom att dubbelklicka på modulen och skriva text. På så sätt kan du snabbt se vad modulen gör i experimentet. I det här fallet dubbelklickar du på modulen [Edit Metadata][edit-metadata] (Redigera metadata) och skriver kommentaren ”Lägg till kolumnrubriker”. Klicka någon annanstans på arbetsytan för att stänga textrutan. Om du vill visa kommentaren klickar du på nedåtpilen i modulen.
+    > Du kan lägga till en kommentar till en modul genom att dubbelklicka på modulen och skriva text. På så sätt kan du snabbt se vad modulen gör i experimentet. I det här fallet dubbelklickar du på modulen [Redigera metadata][edit-metadata] och skriver kommentaren "Lägg till kolumn rubriker". Klicka någon annanstans på arbetsytan för att stänga textrutan. Om du vill visa kommentaren klickar du på nedåtpilen i modulen.
     > 
     > ![Redigera metadatamodulen med tillagd kommentar](./media/tutorial-part1-credit-risk/edit-metadata-with-comment.png)
     > 
 
-1. Välj [Edit Metadata][edit-metadata] (Redigera metadata). I fönstret **Properties** (Egenskaper) till höger om arbetsytan klickar du på **Launch column selector** (Starta kolumnväljaren).
+1. Välj [Redigera metadata][edit-metadata]och klicka på **Starta kolumn väljaren**i rutan **Egenskaper** till höger om arbets ytan.
 
 1. I dialogrutan **Select columns** (Välj kolumner) väljer du alla rader i **Available Columns** (Tillgängliga kolumner) och klickar på > för att flytta dem till **Selected Columns** (Valda kolumner).
    Dialogrutan bör se ut så här:
@@ -221,7 +220,7 @@ Du använder [Edit Metadata][edit-metadata] (Redigera metadata) genom att först
    ![Egenskaper för Redigera metadata](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
 
    > [!TIP]
-   > Om du vill kontrollera kolumnrubrikerna kör du experimentet (klicka på **RUN** (Kör) nedanför arbetsytan för experimentet). När det har körts klart (en grön markering visas i [Edit Metadata][edit-metadata] (Redigera metadata)) klickar du på utdataporten för modulen [Edit Metadata][edit-metadata] (Redigera metadata) och väljer **Visualize** (Visualisera). Du kan visa utdata från valfri modul på samma sätt för att visa förloppet för data genom experimentet.
+   > Om du vill kontrollera kolumnrubrikerna kör du experimentet (klicka på **RUN** (Kör) nedanför arbetsytan för experimentet). När den är klar (en grön bock visas på [Redigera metadata][edit-metadata]) klickar du på utdataporten för modulen [Redigera metadata][edit-metadata] och väljer **visualisera**. Du kan visa utdata från valfri modul på samma sätt för att visa förloppet för data genom experimentet.
    > 
    > 
 
@@ -230,30 +229,30 @@ Du använder [Edit Metadata][edit-metadata] (Redigera metadata) genom att först
 Du behöver en del data för att träna modellen och en del för att testa den.
 I nästa steg i experimentet delar du därför in datamängden i två separata datamängder: en för att träna modellen och en för att testa den.
 
-Det gör du med hjälp av modulen [Split Data][split] (Dela data).  
+Om du vill göra detta använder du modulen [dela data][split] .  
 
-1. Leta upp modulen [Split Data][split] (Dela data), dra den till arbetsytan och anslut den till modulen [Edit Metadata][edit-metadata] (Redigera metadata).
+1. Hitta modulen [dela data][split] , dra den till arbets ytan och Anslut den till modulen [Redigera metadata][edit-metadata] .
 
-1. Som standard är delningsförhållandet 0,5 och parametern **Randomized split** (Slumpmässig delning) anges. Det innebär att en slumpmässig halva av data matas ut via en port i modulen [Split Data][split] (Dela data) och halva via den andra. Du kan justera de här parametrarna samt parametern **Random seed** (Slumpmässigt frö) för att ändra delningen mellan träningsdata och testningsdata. I det här exemplet låter du dem vara som de är.
+1. Som standard är delningsförhållandet 0,5 och parametern **Randomized split** (Slumpmässig delning) anges. Det innebär att en slumpmässig hälft av data matas ut genom en port i modulen [dela data][split] och hälften genom den andra. Du kan justera de här parametrarna samt parametern **Random seed** (Slumpmässigt frö) för att ändra delningen mellan träningsdata och testningsdata. I det här exemplet låter du dem vara som de är.
    
    > [!TIP]
    > Egenskapen **Fraction of rows in the first output dataset** (Andel rader i den första utdatamängden) avgör hur mycket av data som matas ut via den *vänstra* utdataporten. Om du till exempel anger förhållandet till 0,7 matas 70 % av data ut via den vänstra porten och 30 % via den högra porten.  
    > 
    > 
 
-1. Dubbelklicka på modulen [Split Data][split] (Dela data) och ange kommentaren ”Tränings-/testningsdata delat 50 %”. 
+1. Dubbelklicka på modulen [dela data][split] och ange kommentaren, "träning/test Data Split 50%". 
 
-Du kan använda utdata för modulen [Split Data][split] (Dela data) på det sätt du vill, men just nu väljer vi att använda vänster utdata som träningsdata och höger utdata som testningsdata.  
+Du kan använda utdata från modulen [dela data][split] men vi väljer att använda vänster utdata som tränings data och rätt utdata som test data.  
 
 Som vi nämnde i det [föregående steget](tutorial-part1-credit-risk.md#upload) är kostnaden för felklassificering av en hög kreditrisk som låg fem gånger högre än kostnaden för felklassificering av en låg kreditrisk som hög. Du beaktar detta genom att generera en ny datamängd som speglar den här kostnadsfunktionen. I den nya datamängden replikeras varje högriskexempel fem gånger medan varje lågriskexempel inte replikeras.   
 
 Du kan utföra replikeringen med hjälp av R-kod:  
 
-1. Leta upp och dra modulen [Execute R Script][execute-r-script] (Kör R-skript) till experimentets arbetsyta. 
+1. Leta upp och dra modulen [Kör R-skript][execute-r-script] till experimentets arbets yta. 
 
-1. Anslut den vänstra utdataporten för modulen [Split Data][split] (Dela data) till den första indataporten (”Dataset1”) i modulen [Execute R Script][execute-r-script] (Kör R-skript).
+1. Anslut den vänstra utdataporten för modulen [dela data][split] till den första Indataporten ("Dataset1") för modulen [Kör R-skript][execute-r-script] .
 
-1. Dubbelklicka på modulen [Execute R Script][execute-r-script] (Kör R-skript) och ange kommentaren ”Ange kostnadsjustering”.
+1. Dubbelklicka på modulen [Kör R-skript][execute-r-script] och ange kommentaren, "Ange kostnads justering".
 
 1. I fönstret **Properties** (Egenskaper) tar du bort standardtexten i parametern **R Script** och anger följande skript:
    
@@ -265,13 +264,13 @@ Du kan utföra replikeringen med hjälp av R-kod:
 
     ![R-skript i modulen Execute R Script](./media/tutorial-part1-credit-risk/execute-r-script.png)
 
-Du behöver utföra samma replikeringsåtgärden för varje utdata från modulen [Split Data][split] (Dela data) så att träningsdata och testningsdata inte har samma kostnadsjustering. Det enklaste sättet att göra detta är att duplicera den [Execute R Script][execute-r-script]-modul (Kör R-skript) som du just skapade och ansluta den till den andra utdataporten för modulen [Split Data][split] (Dela data).
+Du måste göra samma replikering för varje utdata i modulen [dela data][split] så att träningen och test data har samma kostnads justering. Det enklaste sättet att göra detta är genom att duplicera modulen [Kör R-skript][execute-r-script] som du precis gjorde och ansluta den till den andra utdataporten för modulen [dela data][split] .
 
-1. Högerklicka på [Execute R Script][execute-r-script] (Kör R-skript) och välj **Copy** (Kopiera).
+1. Högerklicka på modulen [Kör R-skript][execute-r-script] och välj **Kopiera**.
 
 1. Högerklicka på experimentets arbetsyta och välj **Paste** (Klistra in).
 
-1. Dra den nya modulen till rätt plats och anslut den högra utdataporten för modulen [Split Data][split] (Dela data) till den första indataporten för den nya [Execute R Script][execute-r-script]-modulen (Kör R-skript). 
+1. Dra den nya modulen till position och Anslut sedan den högra utdataporten för modulen [dela data][split] till den första Indataporten för den nya [Kör R-skriptkommando][execute-r-script] . 
 
 1. Längst ned på arbetsytan klickar du på **Run** (Kör). 
 
@@ -296,7 +295,7 @@ Mer information om hur du använder R-skript i experiment finns i [Utöka experi
 I den här självstudien har du slutfört dessa steg: 
  
 > [!div class="checklist"]
-> * Skapa en Machine Learning Studio-arbetsyta
+> * Skapa en Machine Learning Studio (klassisk)-arbets yta
 > * Ladda upp befintliga data till arbetsytan
 > * Skapa ett experiment
 

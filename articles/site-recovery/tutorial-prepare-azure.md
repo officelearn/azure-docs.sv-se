@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1b8bdde64ee003d93ad15df8f1d4d8b1e3a2b5f9
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 32aa2c8f4c97f247bfcff5fc82a3f810b8005591
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814337"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488547"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Förbereda Azure-resurser för haveriberedskap för lokala datorer
 
@@ -40,7 +40,7 @@ I den här guiden får du lära dig att:
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar. Logga sedan in på [Azure Portal](https://portal.azure.com).
 
 
-## <a name="verify-account-permissions"></a>Verifiera kontobehörighet
+## <a name="verify-account-permissions"></a>Kontrollera kontobehörigheten
 
 Om du precis har skapat ditt kostnads fria Azure-konto är du administratör för din prenumeration och du har de behörigheter som du behöver. Om du inte är administratör för prenumerationen kan du tillsammans med administratören tilldela de behörigheter som du behöver. Om du vill aktivera replikering för en ny virtuell dator måste du ha behörighet för att:
 
@@ -49,21 +49,22 @@ Om du precis har skapat ditt kostnads fria Azure-konto är du administratör fö
 - Skriv till ett Azure Storage-konto.
 - Skriv till en Azure-hanterad disk.
 
-För att slutföra dessa uppgifter måste ditt konto tilldelas en inbyggd roll som virtuell datordeltagare. För att hantera Site Recovery-åtgärder i ett valv, måste ditt konto också tilldelas en inbyggd roll som Site Recovery-deltagare.
+För att slutföra dessa uppgifter måste ditt konto tilldelas en inbyggd roll som virtuell datordeltagare. För att hantera Site Recovery åtgärder i ett valv måste ditt konto dessutom tilldelas den inbyggda rollen Site Recovery Contributor.
 
 
-## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
+## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
 
-1. I Azure Portal klickar du på **+ skapa en resurs**och söker efter **återställning**i Marketplace.
-2. Klicka på **säkerhets kopiering och Site Recovery**och på sidan säkerhets kopiering och Site Recovery klickar du på **skapa**. 
-1. I **Recovery Services-valv** > **Namn** anger du ett eget namn som identifierar valvet. I de här självstudierna använder vi namnet **ContosoVMVault**.
-2. I **Resursgrupp** väljer du en befintlig resursgrupp eller skapar en ny. I den här självstudien använder vi **contosoRG**.
-3. I **Plats** väljer du den region där valvet ska finnas. Använder vi **Västeuropa**.
-4. För att snabbt komma åt valvet från instrumentpanelen väljer du **Fäst på instrumentpanelen** > **Skapa**.
+1. Från Azure Portal-menyn väljer du **skapa en resurs**och söker efter **återställning**i Marketplace.
+2. Välj **säkerhets kopiering och Site Recovery** från Sök resultaten och klicka på **skapa**på sidan säkerhets kopiering och Site Recovery. 
+3. På sidan **skapa Recovery Services valv** väljer du **prenumerationen**. Vi använder **contoso-prenumerationen**.
+4. I **Resursgrupp** väljer du en befintlig resursgrupp eller skapar en ny. I den här självstudien använder vi **contosoRG**.
+5. I **valv namn**anger du ett eget namn som identifierar valvet. I de här självstudierna använder vi namnet **ContosoVMVault**.
+6. I **region**väljer du den region där valvet ska placeras. Använder vi **Västeuropa**.
+7. Välj **Granska + skapa**.
 
    ![Skapa ett nytt valv](./media/tutorial-prepare-azure/new-vault-settings.png)
 
-   Det nya valvet visas på **Instrumentpanelen** > **Alla resurser** och på huvudsidan för **Recovery Services-valv**.
+   Det nya valvet visas nu i **instrument panelen** > **alla resurser**och på huvud sidan för **Recovery Services valv** .
 
 ## <a name="set-up-an-azure-network"></a>Skapa ett Azure-nätverk
 
@@ -72,16 +73,17 @@ Lokala datorer replikeras till Azure Managed disks. När redundansväxlingen int
 1. I [Azure Portal](https://portal.azure.com) markerar du **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**.
 2. Behåll **Resource Manager** valt som distributions modell.
 3. I **Namn** anger du ett nätverksnamn. Namnet måste vara unikt inom Azure-resursgruppen. Vi använder **ContosASRnet** i den här självinlärningskursen.
-4. Ange resursgruppen där nätverket kommer att skapas. Vi använder den befintliga resursgruppen **contosoRG**.
-5. I **adress intervall**anger du intervallet för nätverket. Vi använder **10.1.0.0/24**och använder inte ett undernät.
-6. I **Prenumeration** väljer du den prenumeration där du vill skapa nätverket.
+4. I **adress utrymme**anger du det virtuella nätverkets adress intervall i CDR-notation. Vi använder **10.1.0.0/24**.
+5. I **Prenumeration** väljer du den prenumeration där du vill skapa nätverket.
+6. Ange **resurs gruppen** som nätverket ska skapas i. Vi använder den befintliga resursgruppen **contosoRG**.
 7. I **plats**väljer du samma region som Recovery Servicess valvet har skapats i. I vår självstudie är det **Västeuropa**. Nätverket måste finnas i samma region som valvet.
-8. Vi lämnar standardalternativen för grundläggande DDoS-skydd utan tjänstslutpunkten i nätverket.
-9. Klicka på **Skapa**.
+8. I **adress intervall**anger du intervallet för nätverket. Vi använder **10.1.0.0/24**och använder inte ett undernät.
+9. Vi lämnar standard alternativen för grundläggande DDoS-skydd, utan tjänst slut punkt eller brand vägg i nätverket.
+9. Välj **Skapa**.
 
    ![Skapa ett virtuellt nätverk](media/tutorial-prepare-azure/create-network.png)
 
-Det tar några sekunder att skapa ditt virtuella nätverk. När det har skapats ser du det i instrumentpanelen för Azure Portal.
+Det tar några sekunder att skapa ditt virtuella nätverk. När den har skapats visas den i Azure Portal instrument panelen.
 
 
 

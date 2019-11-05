@@ -3,34 +3,36 @@ title: Automatiserade ML fjärrberäknings mål
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du skapar modeller med hjälp av automatisk maskin inlärning på ett Azure Machine Learning fjärrberäknings mål med Azure Machine Learning
 services: machine-learning
-author: nacharya1
-ms.author: nilesha
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 7/12/2019
-ms.openlocfilehash: 9eab21fe6b5269229de186a7553e11a147c1033e
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 11/04/2019
+ms.openlocfilehash: 4276a713e62f96cc5340fc7be0e8391939d32342
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034991"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497324"
 ---
-# <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Träna modeller med automatiserade maskininlärning i molnet
+# <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Träna modeller med automatiserad maskin inlärning i molnet
 
-I Azure Machine Learning träna din modell på olika typer av beräkningsresurser som du hanterar. Compute-målet kan vara en lokal dator eller en resurs i molnet.
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
+I Azure Machine Learning tränar du din modell på olika typer av beräknings resurser som du hanterar. Compute-målet kan vara en lokal dator eller en resurs i molnet.
 
 Du kan enkelt skala upp eller skala ut dator inlärnings experimentet genom att lägga till ytterligare beräknings mål, till exempel Azure Machine Learning Compute (AmlCompute Compute). AmlCompute är en hanterad beräknings infrastruktur som gör att du enkelt kan skapa en beräkning med en enda eller flera noder.
 
 I den här artikeln får du lära dig hur du skapar en modell med hjälp av automatiserad ML med AmlCompute.
 
-## <a name="how-does-remote-differ-from-local"></a>Hur skiljer sig remote från lokal?
+## <a name="how-does-remote-differ-from-local"></a>Hur skiljer sig fjärrifrån från lokala objekt?
 
-I självstudien "[träna en klassificerings modell med automatisk maskin inlärning](tutorial-auto-train-models.md)" lär du dig hur du använder en lokal dator för att träna en modell med automatiserad ml. Arbetsflödet när utbildning lokalt gäller även för samt fjärranslutna mål. Men med remote beräkning körs automatiserade iterationer av experiment ML asynkront. Den här funktionen kan du avbryta en viss iteration, se status för körning eller fortsätta att arbeta med andra celler i Jupyter-anteckningsboken. För att kunna träna via fjärr anslutning skapar du först ett fjärrberäknings mål som AmlCompute. Sedan konfigurerar om fjärresursen och skicka koden där.
+I självstudien "[träna en klassificerings modell med automatisk maskin inlärning](tutorial-auto-train-models.md)" lär du dig hur du använder en lokal dator för att träna en modell med automatiserad ml. Arbets flödet när utbildning lokalt även gäller för fjärranslutna mål. Med fjärrberäkning utförs dock automatiskt ML experiment upprepningar asynkront. Med den här funktionen kan du avbryta en viss iteration, se status för körningen eller fortsätta att arbeta med andra celler i Jupyter Notebook. För att kunna träna via fjärr anslutning skapar du först ett fjärrberäknings mål som AmlCompute. Sedan konfigurerar du fjär resursen och skickar koden dit.
 
-Den här artikeln visar de extra steg som krävs för att köra ett automatiserat ML-experiment på ett fjärran slutet AmlCompute-mål. Objektet arbetsytan `ws`, från självstudierna används i hela koden här.
+Den här artikeln visar de extra steg som krävs för att köra ett automatiserat ML-experiment på ett fjärran slutet AmlCompute-mål. Objektet arbets yta `ws`från självstudien används i hela koden här.
 
 ```python
 ws = Workspace.from_config()
@@ -38,9 +40,9 @@ ws = Workspace.from_config()
 
 ## <a name="create-resource"></a>Skapa resurs
 
-Skapa AmlCompute-målet på din arbets yta`ws`() om det inte redan finns.
+Skapa AmlCompute-målet på din arbets yta (`ws`) om det inte redan finns.
 
-**Tids uppskattning**: Det tar cirka 5 minuter att skapa AmlCompute-målet.
+**Tids uppskattning**: skapandet av AmlCompute-målet tar cirka 5 minuter.
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -60,17 +62,17 @@ compute_target.wait_for_completion(
     show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
-Du kan nu använda den `compute_target` -objektet som den fjärranslutna beräkningsmål.
+Du kan nu använda `compute_target`-objektet som fjärrberäknings mål.
 
 Kluster namns begränsningarna är:
 + Måste vara kortare än 64 tecken.
-+ Får inte innehålla följande tecken: `\` ~! @ # $ % ^ & * () = + _ [] {} \\ \\ |;: \' \\”, < > /?. `
++ Det får inte finnas något av följande tecken: `\` ~! @ # $% ^ & * () = + _ [] {} \\\\ |; : \' \\, < >/?. `
 
 ## <a name="access-data-using-tabulardataset-function"></a>Åtkomst till data med funktionen TabularDataset
 
-Definierade X och y som `TabularDataset`skickas till automatiserad ml i AutoMLConfig. `from_delimited_files`som standard anges `infer_column_types` värdet true, vilket kommer att härleda kolumn typen automatiskt. 
+Definierat X och y som `TabularDataset`s, som skickas till automatiserad ML i AutoMLConfig. `from_delimited_files` som standard anges `infer_column_types` till true, vilket kommer att härleda kolumn typen automatiskt. 
 
-Om du vill ange kolumn typerna manuellt kan du ange `set_column_types` argumentet för att manuellt ange typ för varje kolumn. I följande kodexempel kommer data från sklearn-paketet.
+Om du vill ställa in kolumn typerna manuellt kan du ange att argumentet `set_column_types` manuellt ska ange typ för varje kolumn. I följande kod exempel kommer data från sklearn-paketet.
 
 ```python
 # Create a project_folder if it doesn't exist
@@ -101,7 +103,7 @@ y = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/y_train.csv'))
 
 ## <a name="create-run-configuration"></a>Skapa körnings konfiguration
 
-Definiera ett `RunConfiguration` objekt med definierat `CondaDependencies`för att göra beroenden tillgängliga för get_data. py-skriptet. Använd det här objektet för `run_configuration` parametern i `AutoMLConfig`.
+Om du vill göra beroenden tillgängliga för get_data. py-skriptet definierar du ett `RunConfiguration`-objekt med definierat `CondaDependencies`. Använd det här objektet för parametern `run_configuration` i `AutoMLConfig`.
 
 ```python
 from azureml.core.runconfig import RunConfiguration
@@ -120,7 +122,7 @@ run_config.environment.python.conda_dependencies = dependencies
 I den här [exempel antecknings boken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) finns ytterligare ett exempel på det här design mönstret.
 
 ## <a name="configure-experiment"></a>Konfigurera experiment
-Ange inställningar för `AutoMLConfig`.  (Finns i en [fullständig lista över parametrar](how-to-configure-auto-train.md#configure-experiment) och deras möjliga värden.)
+Ange inställningarna för `AutoMLConfig`.  (Se en [fullständig lista över parametrar](how-to-configure-auto-train.md#configure-experiment) och deras möjliga värden.)
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -149,9 +151,9 @@ automl_config = AutoMLConfig(task='classification',
                              )
 ```
 
-### <a name="enable-model-explanations"></a>Aktivera modellen förklaringar
+### <a name="enable-model-explanations"></a>Aktivera modell förklaringar
 
-Ange den valfria `model_explainability` parametern i den `AutoMLConfig` konstruktor. Dessutom kan en verifiering dataframe objektet måste skickas som en parameter `X_valid` kan använda funktionen explainability modellen.
+Ange den valfria `model_explainability` parametern i `AutoMLConfig`-konstruktorn. Dessutom måste ett verifierings dataframe-objekt skickas som en parameter `X_valid` för att använda funktionen modell förklaring.
 
 ```python
 automl_config = AutoMLConfig(task='classification',
@@ -167,9 +169,9 @@ automl_config = AutoMLConfig(task='classification',
                              )
 ```
 
-## <a name="submit-training-experiment"></a>Skicka träningsexperiment
+## <a name="submit-training-experiment"></a>Skicka utbildnings experiment
 
-Nu skicka konfigurationen för att automatiskt välja algoritmen, hyper parametrar och träna modellen.
+Nu ska du skicka konfigurationen för att automatiskt välja algoritmen, Hyper-parametrarna och träna modellen.
 
 ```python
 from azureml.core.experiment import Experiment
@@ -177,7 +179,7 @@ experiment = Experiment(ws, 'automl_remote')
 remote_run = experiment.submit(automl_config, show_output=True)
 ```
 
-Du ser utdata som liknar följande exempel:
+Du kommer att se utdata som liknar följande exempel:
 
     Running on remote compute: mydsvmParent Run ID: AutoML_015ffe76-c331-406d-9bfd-0fd42d8ab7f6
     ***********************************************************************************************
@@ -220,12 +222,12 @@ from azureml.widgets import RunDetails
 RunDetails(remote_run).show()
 ```
 
-Här är en statisk bild av widgeten.  Du kan klicka på någon av staplarna i tabell för att visa egenskaper för körning och utdataloggar för som körs i anteckningsboken.   Du kan också använda listrutan ovanför diagrammet för att visa ett diagram över alla tillgängliga mått för varje iteration.
+Här är en statisk bild av widgeten.  I antecknings boken kan du klicka på en rad i tabellen för att se körnings egenskaper och utgående loggar för den körningen.   Du kan också använda List rutan ovanför grafen för att visa ett diagram över varje tillgängligt mått för varje iteration.
 
 ![widgettabell](./media/how-to-auto-train-remote/table.png)
 ![widgetdiagram](./media/how-to-auto-train-remote/plot.png)
 
-Widgeten visar en URL som du kan använda för att visa och utforska de enskilda körningsinformation.  
+Widgeten visar en URL som du kan använda för att visa och utforska de enskilda körnings uppgifterna.  
 
 Om du inte använder en Jupyter-anteckningsbok kan du Visa URL: en från själva köra:
 
@@ -237,26 +239,26 @@ Samma information finns på arbets ytan.  Mer information om de här resultaten 
 
 ### <a name="view-logs"></a>Visa loggar
 
-Finns det loggar på DSVM under `/tmp/azureml_run/{iterationid}/azureml-logs`.
+Hitta loggar på DSVM under `/tmp/azureml_run/{iterationid}/azureml-logs`.
 
 ## <a name="explain"></a>Förklaring av bästa modell
 
-Hämtning av modellen förklaring data kan du se detaljerad information om modeller för att öka transparens för program som körs på serverdelen. I det här exemplet kör du modellen förklaringar endast för den bästa anpassa modellen. Om du kör för alla modeller i pipelinen, resulterar det i betydande körningstid. Förklaring modellinformation innehåller:
+Genom att hämta modell förklarings data kan du se detaljerad information om modeller för att öka transparensen i vad som körs på Server delen. I det här exemplet kör du modell förklaringar enbart för den bästa anpassnings modellen. Om du kör för alla modeller i pipelinen leder det till betydande körnings tid. Information om modell förklaringar innehåller:
 
-* shap_values: Förklarings informationen som genereras av Shap-lib.
-* expected_values: Det förväntade värdet för modellen som används för en uppsättning X_train-data.
-* overall_summary: Modell nivå funktionens prioritets värden sorterade i fallande ordning.
-* overall_imp: Funktions namnen sorteras i samma ordning som i overall_summary.
-* per_class_summary: Nivå värden för funktionen på klass nivå sorteras i fallande ordning. Endast tillgängligt för klassificerings ärendet.
-* per_class_imp: Funktions namnen sorteras i samma ordning som i per_class_summary. Endast tillgängligt för klassificerings ärendet.
+* shap_values: förklarings informationen som genereras av Shap-lib.
+* expected_values: det förväntade värdet för modellen som används för en uppsättning X_train-data.
+* overall_summary: funktions värden på modell nivå som är sorterade i fallande ordning.
+* overall_imp: funktions namnen sorteras i samma ordning som i overall_summary.
+* per_class_summary: funktions värden för funktionen på klass nivå sorteras i fallande ordning. Endast tillgängligt för klassificerings ärendet.
+* per_class_imp: funktions namnen sorteras i samma ordning som i per_class_summary. Endast tillgängligt för klassificerings ärendet.
 
-Använd följande kod för att välja den bästa pipelinen från din iterationer. Den `get_output` metoden returnerar den bästa körningen och den anpassade modellen för senaste passar anrop.
+Använd följande kod för att välja den bästa pipelinen från dina iterationer. Metoden `get_output` returnerar den bästa körningen och den monterade modellen för den senaste pass-anropet.
 
 ```python
 best_run, fitted_model = remote_run.get_output()
 ```
 
-Importera den `retrieve_model_explanation` fungerar och körs på den bästa modellen.
+Importera `retrieve_model_explanation`-funktionen och kör den bästa modellen.
 
 ```python
 from azureml.train.automl.automlexplainer import retrieve_model_explanation
@@ -265,7 +267,7 @@ shap_values, expected_values, overall_summary, overall_imp, per_class_summary, p
     retrieve_model_explanation(best_run)
 ```
 
-Skriv ut resultat för den `best_run` förklaring variabler som du vill visa.
+Skriv ut resultat för variabler för `best_run` förklaring som du vill visa.
 
 ```python
 print(overall_summary)
@@ -274,13 +276,13 @@ print(per_class_summary)
 print(per_class_imp)
 ```
 
-Skriva ut den `best_run` förklaring sammanfattning variabler resulterar i följande utdata.
+Om du skriver ut sammanfattnings variabler för `best_run` förklaring resulterar det i följande utdata.
 
-![Modellen explainability konsolens utdata](./media/how-to-auto-train-remote/expl-print.png)
+![Modeller av förklarande modell konsol](./media/how-to-auto-train-remote/expl-print.png)
 
-Du kan också visualisera funktions prioritet via gränssnittet i gränssnittet, webb gränssnittet på Azure Portal eller din [arbets ytans landnings sida (för hands version)](https://ml.azure.com). 
+Du kan också visualisera funktions prioritet genom gränssnittet i widgeten eller i din arbets yta i [Azure Machine Learning Studio](https://ml.azure.com). 
 
-![Modellen explainability UI](./media/how-to-auto-train-remote/model-exp.png)
+![Användar gränssnitt för modell förklaring](./media/how-to-auto-train-remote/model-exp.png)
 
 ## <a name="example"></a>Exempel
 

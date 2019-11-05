@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 10/09/2019
-ms.openlocfilehash: 3f969fb346ce341e694458dcc38bf193f012226b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f7cdfb8b9edbce5ef2b094cf6a603904d39a7404
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792636"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493579"
 ---
 En pipeline körs på ett beräknings mål som är en beräknings resurs som är kopplad till din arbets yta. När du har skapat ett beräknings mål kan du återanvända det för framtida körningar.
 
@@ -25,7 +25,7 @@ En pipeline körs på ett beräknings mål som är en beräknings resurs som är
     Om du redan har ett tillgängligt beräknings mål kan du välja att köra denna pipeline.
 
     > [!NOTE]
-    > Det visuella gränssnittet kan bara köra experiment på Machine Learning-beräkning mål. Andra beräknings mål visas inte.
+    > Designern kan bara köra experiment på Machine Learning-beräkning mål. Andra beräknings mål visas inte.
 
 1. Ange ett namn för beräknings resursen.
 

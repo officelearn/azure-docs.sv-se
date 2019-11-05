@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: bearbeta data från Azure Event Hubs med Apache Spark i HDInsight'
+title: 'Självstudie: Azure Event Hubs data & Apache Spark – HDInsight'
 description: Självstudie – Anslut Apache Spark i Azure HDInsight till Azure Event Hubs och bearbeta strömmande data.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 10/17/2019
-ms.openlocfilehash: 33ec747edaeba60f1c1e5fdb29fd2af1cb29cf8d
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 0b24d1b0215564fb9f6063d4a2d091bb7a9a1c3e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72800086"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494627"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Självstudie: bearbeta tweets med Azure Event Hubs och Apache Spark i HDInsight
 
@@ -26,7 +26,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Apache Spark-kluster i HDInsight. Se [skapa ett Apache Spark-kluster](./apache-spark-jupyter-spark-sql-use-portal.md).
 
@@ -48,7 +48,7 @@ Om du vill få en dataström med tweets skapar du ett program i Twitter. Följ a
     |---|---|
     |Appnamn|Ange program namnet. Det värde som används för den här självstudien är **HDISparkStreamApp0423**. Det här namnet måste vara ett unikt namn.|
     |Programbeskrivning|Ange en kort beskrivning av programmet. Det värde som används för den här självstudien är **ett enkelt program för HDInsight Spark-direktuppspelning**.|
-    |Webbplats-URL|Ange programmets webbplats. Det behöver inte vara en giltig webbplats.  Värdet som används för den här självstudien är `http://www.contoso.com`.|
+    |Webbplats-URL|Ange programmets webbplats. Det behöver inte vara en giltig webbplats.  Det värde som används för den här självstudien är `http://www.contoso.com`.|
     |Berätta för oss hur den här appen kommer att användas|Endast i testnings syfte. Skapa ett Apache Spark streaming-program för att skicka tweets till en Azure Event Hub.|
 
 1. Välj **Skapa**.
@@ -137,7 +137,7 @@ Skapa en Event Hub när Event Hubs namn rymden har distribuerats.  Från portale
     {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.13,org.twitter4j:twitter4j-core:4.0.6"}}
     ```
 
-1. Redigera koden nedan genom att ersätta `<Event hub name>`, `<Event hub namespace connection string>`, `<CONSUMER KEY>`, `<CONSUMER SECRET>`, `<ACCESS TOKEN>` och `<TOKEN SECRET>` med lämpliga värden. Kör den redigerade koden för att skicka tweets till händelsehubben:
+1. Redigera koden nedan genom att ersätta `<Event hub name>`, `<Event hub namespace connection string>`, `<CONSUMER KEY>`, `<CONSUMER SECRET>`, `<ACCESS TOKEN>`och `<TOKEN SECRET>` med lämpliga värden. Kör den redigerade koden för att skicka tweets till händelsehubben:
 
     ```scala
     import java.util._
@@ -219,7 +219,7 @@ Skapa en annan Jupyter-anteckningsbok och ge den namnet **ReadTweetsFromEventHub
     {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.13"}}
     ```
 
-2. Redigera koden nedan genom att ersätta `<Event hub name>` och `<Event hub namespace connection string>` med lämpliga värden. Kör den redigerade koden för att läsa tweets från händelsehubben:
+2. Redigera koden nedan genom att ersätta `<Event hub name>`och `<Event hub namespace connection string>` med lämpliga värden. Kör den redigerade koden för att läsa tweets från händelsehubben:
 
     ```scala
     import org.apache.spark.eventhubs._
@@ -253,7 +253,7 @@ Med HDInsight lagras dina data i Azure Storage eller Azure Data Lake Storage, s�
 
 ![HDInsight Azure Portal ta bort kluster](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Ta bort HDInsight-kluster")
 
-Du kan också välja det resursgruppnamn som ska öppna resursgruppsidan och sedan välja **Ta bort resursgrupp**. När resursgruppen tas bort, tas även HDInsight Spark-klustret och standardkontot för lagring bort.
+Du kan också välja det resursgruppnamn som ska öppna resursgruppsidan och sedan välja **Ta bort resursgrupp**. När du tar bort resursgruppen tar du bort både HDInsight Spark-klustret och standardkontot för lagring.
 
 ## <a name="next-steps"></a>Nästa steg
 

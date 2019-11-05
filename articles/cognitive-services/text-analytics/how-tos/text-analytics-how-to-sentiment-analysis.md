@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: d516b4f71f78a5da113356a4bdf6647585292999
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d246b14a5bd6e60a7b6facae73c68d7449e2e097
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161670"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494439"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>Exempel: identifiera sentiment med Textanalys
 
@@ -33,104 +33,6 @@ För närvarande stöder Attitydanalys API: t engelska, tyska, spanska och frans
 Textanalys använder en klassificering i maskininlärningsalgoritmen för att generera ett attitydpoäng mellan 0 och 1. Resultat nära 1 visar positiv attityd medan resultat nära 0 indikerar negativ attityd. Modellen har förtränats med en omfattande textmassa med attitydassociationer. För närvarande går det inte att tillhandahålla dina egna tränings data. Modellen använder en kombination av metoder under text analys. Tekniker omfattar text bearbetning, del av tal analys, ord placering och Word-associationer. Läs mer om algoritmen [Introduktion till textanalys](https://blogs.technet.microsoft.com/machinelearning/2015/04/08/introducing-text-analytics-in-the-azure-ml-marketplace/).
 
 Attitydanalys utförs i hela dokumentet, till skillnad från åsiktsextrahering för en viss affärsenhet i texten. I praktiken finns det en tendens för att förbättra precisionen när dokumenten innehåller en eller två meningar i stället för ett stort block med text. Under en objektivitetsutvärderingsfasen avgör modellen om ett dokument som helhet är objektivt eller innehåller attityd. Ett dokument som främst är målet går inte vidare till identifierings fasen sentiment, vilket resulterar i en 0,50 poäng, utan ytterligare bearbetning. För dokument som fortsätter i pipelinen genererar nästa fas en poäng över eller under 0,50. Poängen beror på vilken grad av sentiment som har identifierats i dokumentet.
-
-## <a name="preparation"></a>Förberedelse
-
-Sentiment-analys ger bättre resultat när du ger den mindre text segment att arbeta med. Detta är motsatsen till nyckelfrasextrahering vilket fungerar på bättre på större textblock. För att få bästa resultat från båda åtgärder kan du överväga att omstrukturera indata på ett lämpligt sätt.
-
-Du måste ha JSON-dokument i det här formatet: ID, text och språk.
-
-Dokument storleken måste vara under 5 120 tecken per dokument. Du kan ha upp till 1 000 objekt (ID) per samling. Samlingen skickas i begäranstexten. Följande exempel är ett exempel på innehåll som du kan skicka för sentiment-analys:
-
-```json
-    {
-        "documents": [
-            {
-                "language": "en",
-                "id": "1",
-                "text": "We love this trail and make the trip every year. The views are breathtaking and well worth the hike!"
-            },
-            {
-                "language": "en",
-                "id": "2",
-                "text": "Poorly marked trails! I thought we were goners. Worst hike ever."
-            },
-            {
-                "language": "en",
-                "id": "3",
-                "text": "Everyone in my family liked the trail but thought it was too challenging for the less athletic among us. Not necessarily recommended for small children."
-            },
-            {
-                "language": "en",
-                "id": "4",
-                "text": "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area."
-            },
-            {
-                "language": "en",
-                "id": "5",
-                "text": "This is my favorite trail. It has beautiful views and many places to stop and rest"
-            }
-        ]
-    }
-```
-
-## <a name="step-1-structure-the-request"></a>Steg 1: Strukturera begäran
-
-Mer information om definition av begäran finns i [anropa API för textanalys](text-analytics-how-to-call-api.md). Följande punkter har anges på nytt för enkelhetens skull:
-
-+ Skapa en POST-begäran. Information om hur du granskar API-dokumentationen för den här begäran finns i [ATTITYDANALYS API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9).
-
-+ Ange HTTP-slutpunkten för sentiment-analys genom att antingen använda en Textanalys-resurs på Azure eller en instansierad [textanalys-behållare](text-analytics-how-to-install-containers.md). Du måste inkludera `/text/analytics/v2.1/sentiment` i URL: en. Till exempel: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`.
-
-+ Ange ett rubrik för begäran för att inkludera [åtkomst nyckeln](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) för textanalys åtgärder.
-
-+ Ange den JSON-dokumentsamling som du har förberett för den här analysen i begärandetexten.
-
-> [!Tip]
-> Använd [Postman](text-analytics-how-to-call-api.md) eller öppna **API test-konsolen** i [dokumentationen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) för att strukturera begäran och publicera den till tjänsten.
-
-## <a name="step-2-post-the-request"></a>Steg 2: Publicera begäran
-
-Analysen utförs när begäran har tagits emot. Information om storlek och antal begär Anden som du kan skicka per minut och sekund finns i avsnittet [data begränsningar](../overview.md#data-limits) i översikten.
-
-Kom ihåg att tjänsten är tillståndslös. Inga data lagras i ditt konto. Resultaten returneras omedelbart i svaret.
-
-
-## <a name="step-3-view-the-results"></a>Steg 3: Visa resultaten
-
-Sentiment Analyzer klassificerar texten som huvudsakligen positiv eller negativ. Det tilldelar en poäng mellan 0 och 1. Värden nära 0,5 är neutrala eller obestämda. Ett resultat på 0,5 anger neutralitet. När en sträng inte kan analyseras för sentiment eller saknar sentiment är poängen alltid 0,5 exakt. Om du skickar in en spansk sträng i kod för engelska är poängen 0,5.
-
-Utdata returneras direkt. Du kan strömma resultaten till ett program som accepterar JSON eller spara utdata till en fil på det lokala systemet. Importera sedan utdata till ett program som du kan använda för att sortera, söka och ändra data.
-
-I följande exempel visas svaret på dokument samlingen i den här artikeln:
-
-```json
-    {
-        "documents": [
-            {
-                "score": 0.9999237060546875,
-                "id": "1"
-            },
-            {
-                "score": 0.0000540316104888916,
-                "id": "2"
-            },
-            {
-                "score": 0.99990355968475342,
-                "id": "3"
-            },
-            {
-                "score": 0.980544924736023,
-                "id": "4"
-            },
-            {
-                "score": 0.99996328353881836,
-                "id": "5"
-            }
-        ],
-        "errors": []
-    }
-```
 
 ## <a name="sentiment-analysis-v3-public-preview"></a>Attitydanalys v3 offentlig för hands version
 
@@ -163,20 +65,10 @@ Attitydanalys v3 kan returnera Poäng och etiketter på en menings-och dokument 
 
 ### <a name="model-versioning"></a>Modell version
 
-Från API för textanalys och med version 3,0 kan du välja den Textanalys modell som används på dina data. Använd den valfria `model-version` parametern för att välja en version av modellen i dina begär Anden. Om den här parametern inte anges kommer API: et att vara standard `latest`, den senaste stabila modell versionen.
+> [!NOTE]
+> Modell versions hantering för sentiment-analys är tillgänglig från och med version `v3.0-preview.1`.
 
-Tillgängliga modell versioner:
-* `2019-10-01` (`latest`)
-
-Varje svar från v3-slutpunkterna innehåller ett `model-version`-fält som anger modell versionen som användes.
-
-```json
-{
-    "documents": […]
-    "errors": []
-    "model-version": "2019-10-01"
-}
-```
+[!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
 
 ### <a name="sentiment-analysis-v3-example-request"></a>Exempel förfrågan om Attitydanalys v3
 
@@ -277,16 +169,114 @@ Formatet för begäran är detsamma som i föregående version, men svars format
 
 Du kan hitta ett exempel C# program som anropar den här versionen av Attitydanalys på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/SentimentV3.cs).
 
+## <a name="preparation"></a>Förberedelse
+
+Sentiment-analys ger bättre resultat när du ger den mindre text segment att arbeta med. Detta är motsatsen till nyckelfrasextrahering vilket fungerar på bättre på större textblock. För att få bästa resultat från båda åtgärder kan du överväga att omstrukturera indata på ett lämpligt sätt.
+
+Du måste ha JSON-dokument i det här formatet: ID, text och språk.
+
+Dokument storleken måste vara under 5 120 tecken per dokument. Du kan ha upp till 1 000 objekt (ID) per samling. Samlingen skickas i begäranstexten. Följande exempel är ett exempel på innehåll som du kan skicka för sentiment-analys:
+
+```json
+    {
+        "documents": [
+            {
+                "language": "en",
+                "id": "1",
+                "text": "We love this trail and make the trip every year. The views are breathtaking and well worth the hike!"
+            },
+            {
+                "language": "en",
+                "id": "2",
+                "text": "Poorly marked trails! I thought we were goners. Worst hike ever."
+            },
+            {
+                "language": "en",
+                "id": "3",
+                "text": "Everyone in my family liked the trail but thought it was too challenging for the less athletic among us. Not necessarily recommended for small children."
+            },
+            {
+                "language": "en",
+                "id": "4",
+                "text": "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area."
+            },
+            {
+                "language": "en",
+                "id": "5",
+                "text": "This is my favorite trail. It has beautiful views and many places to stop and rest"
+            }
+        ]
+    }
+```
+
+## <a name="step-1-structure-the-request"></a>Steg 1: Strukturera begäran
+
+Mer information om definition av begäran finns i [anropa API för textanalys](text-analytics-how-to-call-api.md). Följande punkter har anges på nytt för enkelhetens skull:
+
++ Skapa en POST-begäran. Information om hur du granskar API-dokumentationen för den här begäran finns i [ATTITYDANALYS API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9).
+
++ Ange HTTP-slutpunkten för sentiment-analys genom att antingen använda en Textanalys-resurs på Azure eller en instansierad [textanalys-behållare](text-analytics-how-to-install-containers.md). Du måste inkludera `/text/analytics/v2.1/sentiment` i URL: en. Till exempel: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`.
+
++ Ange ett rubrik för begäran för att inkludera [åtkomst nyckeln](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) för textanalys åtgärder.
+
++ Ange den JSON-dokumentsamling som du har förberett för den här analysen i begärandetexten.
+
+> [!Tip]
+> Använd [Postman](text-analytics-how-to-call-api.md) eller öppna **API test-konsolen** i [dokumentationen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) för att strukturera begäran och publicera den till tjänsten.
+
+## <a name="step-2-post-the-request"></a>Steg 2: Publicera begäran
+
+Analysen utförs när begäran har tagits emot. Information om storlek och antal begär Anden som du kan skicka per minut och sekund finns i avsnittet [data begränsningar](../overview.md#data-limits) i översikten.
+
+Kom ihåg att tjänsten är tillståndslös. Inga data lagras i ditt konto. Resultaten returneras omedelbart i svaret.
+
+
+## <a name="step-3-view-the-results"></a>Steg 3: Visa resultaten
+
+Sentiment Analyzer klassificerar texten som huvudsakligen positiv eller negativ. Det tilldelar en poäng mellan 0 och 1. Värden nära 0,5 är neutrala eller obestämda. Ett resultat på 0,5 anger neutralitet. När en sträng inte kan analyseras för sentiment eller saknar sentiment är poängen alltid 0,5 exakt. Om du skickar in en spansk sträng i kod för engelska är poängen 0,5.
+
+Utdata returneras direkt. Du kan strömma resultaten till ett program som accepterar JSON eller spara utdata till en fil på det lokala systemet. Importera sedan utdata till ett program som du kan använda för att sortera, söka och ändra data.
+
+I följande exempel visas svaret på dokument samlingen i den här artikeln:
+
+```json
+    {
+        "documents": [
+            {
+                "score": 0.9999237060546875,
+                "id": "1"
+            },
+            {
+                "score": 0.0000540316104888916,
+                "id": "2"
+            },
+            {
+                "score": 0.99990355968475342,
+                "id": "3"
+            },
+            {
+                "score": 0.980544924736023,
+                "id": "4"
+            },
+            {
+                "score": 0.99996328353881836,
+                "id": "5"
+            }
+        ],
+        "errors": []
+    }
+```
+
 ## <a name="summary"></a>Sammanfattning
 
-I den här artikeln har du lärt dig begrepp och arbets flöde för sentiment-analys genom att använda Textanalys i Azure Cognitive Services. Sammanfattning:
+I den här artikeln har du lärt dig begrepp och arbets flöde för sentiment-analys genom att använda Textanalys i Azure Cognitive Services. Sammanfattningsvis:
 
 + [Attitydanalys-API: et](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) är tillgängligt för valda språk.
 + JSON-dokument i begär ande texten innehåller ID, text och språkkod.
 + POST-begäran är till en `/sentiment` slut punkt genom att använda en anpassad [åtkomst nyckel och en slut punkt](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) som är giltig för din prenumeration.
 + Svars utdata som består av en sentiment Poäng för varje dokument-ID kan strömmas till alla appar som accepterar JSON. Exempel på appar är Excel och Power BI, så att du kan namnge några.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
  [Översikt över Textanalys](../overview.md) [Vanliga frågor och svar](../text-analytics-resource-faq.md)</br>
  [Produktsida för textanalys](//go.microsoft.com/fwlink/?LinkID=759712)

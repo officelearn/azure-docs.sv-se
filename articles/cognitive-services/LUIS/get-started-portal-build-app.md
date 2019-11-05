@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa en ny app i LUIS-portalen'
+title: 'Snabb start: skapa en ny app i LUIS-portalen'
 titleSuffix: Azure Cognitive Services
 description: I den här snabb starten skapar du en ny app i LUIS-portalen. Skapa grundläggande delar av en app, avsikter och entiteter. Testa appen genom att tillhandahålla ett exempel på användarens uttryck i den interaktiva test panelen för att få den förväntade avsikten. Det är kostnads fritt att skapa en app. ingen Azure-prenumeration krävs.
 services: cognitive-services
@@ -10,14 +10,17 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: ff666437790a1e32dde83f9e3be90b4c62637181
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
-ms.translationtype: MT
+ms.openlocfilehash: 6888c53122e649d6a0e91f8ece30101f051c08e8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307731"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488773"
 ---
-# <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Snabbstart: Skapa en ny app i LUIS-portalen
+# <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Snabb start: skapa en ny app i LUIS-portalen
+
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 I den här snabb starten skapar du en ny app i [Luis-portalen](https://www.luis.ai). Först skapar du grundläggande delar av en app, **avsikter**och **entiteter**. Sedan testar du appen genom att tillhandahålla ett exempel på användarens uttryck i den interaktiva test panelen för att få den förväntade avsikten.
 
@@ -27,17 +30,17 @@ Att skapa en app är kostnads fritt och kräver inte en Azure-prenumeration. Nä
 
 ## <a name="create-an-app"></a>Skapa en app
 
-1. Välj **Skapa ny app** från kontext verktygsfältet.
+1. Välj **+ skapa** från kontext verktygsfältet.
 
-   [![Skapa en ny app i LUIS-portalen](./media/get-started-portal-build-app/create-app-in-portal.png)](./media/get-started-portal-build-app/create-app-in-portal.png#lightbox)
+   [![skapa en ny app i LUIS-portalen](./media/get-started-portal-build-app/create-app-in-portal.png)](./media/get-started-portal-build-app/create-app-in-portal.png#lightbox)
 
 1. I popup-fönstret konfigurerar du appen med följande inställningar och väljer sedan **Slutför**.
 
-   |Inställningsnamn| Value | Syfte|
+   |Inställningsnamn| Värde | Syfte|
    |--|--|--|
-   |Name|`myEnglishApp`|Unikt namn på LUIS-app<br>obligatorisk|
-   |Kultur|**Engelska**|Språk för yttranden från användare, **en-US**<br>obligatorisk|
-   |Beskrivning|`App made with LUIS Portal`|Beskrivning av app<br>valfri|
+   |Namn|`myEnglishApp`|Unikt namn på LUIS-app<br>Kunna|
+   |Kultur|**Engelska**|Språk för yttranden från användare, **en-US**<br>Kunna|
+   |Beskrivning|`App made with LUIS Portal`|Beskrivning av app<br>Valfritt|
    | | | |
 
    ![Ange nya inställningar för app](./media/get-started-portal-build-app/create-new-app-settings.png)
@@ -62,17 +65,17 @@ Utför följande steg för att skapa avsikter:
 
    [![Välj Skapa ny avsikts knapp](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
-1. Ange namnet `FindForm`på avsikten och välj sedan **färdig**.
+1. Ange namnet på avsikten `FindForm`och välj sedan **färdig**.
 
    ![Ange namnet på FindForm](./media/get-started-portal-build-app/create-new-intent-dialog.png)
 
-## <a name="add-an-example-utterance"></a>Lägg till en exempel-uttryck
+## <a name="add-an-example-utterance"></a>Lägg till ett exempel uttryck
 
 Du lägger till exempel yttranden när du har skapat avsikter. Exempel på yttranden är text som en användare anger i en chat-robot eller något annat klient program. De mappar avsikten med användarens text till ett LUISt syfte.
 
-I det här exempel programmets `FindForm` syfte innehåller exempel yttranden formulär numret. Klient programmet behöver formulär numret för att uppfylla användarens begäran, så det är viktigt att inkludera det i uttryck.
+I det här exempel programmets `FindForm` avsikt kommer exempel yttranden att innehålla formulär numret. Klient programmet behöver formulär numret för att uppfylla användarens begäran, så det är viktigt att inkludera det i uttryck.
 
-[![Ange exempel yttranden för FindForm-avsikten](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
+[![ange exempel yttranden för FindForm-avsikten](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
 
 Lägg till följande 15 exempel yttranden i `FindForm` avsikten.
 
@@ -85,7 +88,7 @@ Lägg till följande 15 exempel yttranden i `FindForm` avsikten.
 |5|Behöver jag HRF-234695 för att ansöka om ett internt jobb?|
 |6|Behöver min chef veta att jag använder för ett jobb med HRF-234091|
 |7|Var skickar jag HRF-234918? Får jag ett e-postmeddelande om att det togs emot?|
-|8|hrf-234555|
+|8|HRF – 234555|
 |9|När var HRF-234987 uppdaterad?|
 |10|Använder jag formatet HRF-876345 för att ansöka om tekniska platser|
 |11|Har en ny version av HRF-765234 skickats för mina öppna REQ?|
@@ -112,13 +115,13 @@ Om du vill returnera formulär numret i svars förutsägelsens svar måste formu
 
 1. Välj **Skapa ny entitet** på sidan **entiteter** .
 
-1. Ange namnet `Human Resources Form Number`, Välj **regex** -entitetstypen och ange `hrf-[0-9]{6}`det reguljära uttrycket. Den här posten matchar litteral tecken, `hrf-`och tillåter exakt 6 siffror.
+1. Ange namnet `Human Resources Form Number`, Välj **regex** -entitetstypen och ange det reguljära uttrycket `hrf-[0-9]{6}`. Den här posten matchar litteral tecken, `hrf-`och tillåter exakt 6 siffror.
 
    ![Ange enhets information för entiteten för reguljärt uttryck](./media/get-started-portal-build-app/create-regular-expression-entity.png)
 
 1. Välj **Done** (Klar).
 
-## <a name="add-example-utterances-to-the-none-intent"></a>Lägga till exempelyttranden i avsikten Ingen
+## <a name="add-example-utterances-to-the-none-intent"></a>Lägg till exempel på yttranden i avsikten Ingen
 
 **Ingen** avsikt är återställnings avsikten och får inte vara tom. Avsikten bör innehålla en uttryck för varje 10-exempel yttranden som du har lagt till för andra avsikter av appen.
 
@@ -146,7 +149,7 @@ På menyn i det övre högra hörnet väljer du **träna** för att tillämpa ä
 
    Entiteten är markerad där den visas i exemplet yttranden. Om du vill se den ursprungliga texten i stället för enhets namnet växlar du **vyn entiteter** från verktygsfältet.
 
-   [![Alla exempel yttranden markerade med entiteter](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
+   [![alla exempel yttranden markerade med entiteter](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
 
 ## <a name="test-your-new-app-with-the-interactive-test-pane"></a>Testa din nya app med det interaktiva test fönstret
 
@@ -166,9 +169,9 @@ Använd det interaktiva **test** fönstret i Luis-portalen för att verifiera at
 
 När du är klar med den här snabb starten och inte fortsätter till nästa snabb start väljer du **Mina appar** på den översta navigerings menyn. Markera sedan appens vänstra kryss ruta i listan och välj **ta bort** från verktygsfältet kontext ovanför listan.
 
-[![Ta bort appen från listan Mina appar](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
+[![ta bort appen från listan Mina appar](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [2. Distribuera en app](get-started-portal-deploy-app.md)
+> [2. distribuera en app](get-started-portal-deploy-app.md)

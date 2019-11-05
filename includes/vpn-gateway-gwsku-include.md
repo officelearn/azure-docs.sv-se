@@ -5,17 +5,17 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/20/2019
+ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b1a9d93d9fccf02ba1517e429625150736e539e9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 75152fabfc33dda0494d871fbdf9a388f4260c0d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187228"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495771"
 ---
-När du skapar en virtuell nätverksgateway måste du ange vilken gateway-SKU som du vill använda. Välj den SKU som uppfyller dina krav baserat på typerna av arbetsbelastning, dataflöden, funktioner och serviceavtal. Vnet-gateway SKU: er i Azure Availability Zones, se [Azure Availability Zones Gateway SKU: er](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
+När du skapar en virtuell nätverksgateway måste du ange vilken gateway-SKU som du vill använda. Välj den SKU som uppfyller dina krav baserat på typerna av arbetsbelastning, dataflöden, funktioner och serviceavtal. För virtuella nätverksgateway-SKU: er i Azure-tillgänglighetszoner, se [Azure-tillgänglighetszoner Gateway-SKU: er](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
 
 ###  <a name="benchmark"></a>Gateway-SKU:er efter tunnel, anslutning och dataflöde
 
@@ -23,30 +23,30 @@ När du skapar en virtuell nätverksgateway måste du ange vilken gateway-SKU so
 
 [!INCLUDE [classic SKU](./vpn-gateway-classic-sku-support-include.md)]
 
-###  <a name="feature"></a>Gateway-SKU: er av funktionsuppsättning
+###  <a name="feature"></a>Gateway-SKU: er efter funktions uppsättning
 
-Den nya VPN-gatewayen SKU: er förenklar funktionsuppsättningarna gateway:
+De nya VPN gateway-SKU: erna effektiviserar de funktions uppsättningar som erbjuds i gatewayerna:
 
 | **SKU**| **Funktioner**|
 | ---    | ---         |
-|**Grundläggande** (*)   | **Ruttbaserad VPN**: 10 tunnlar för S2S/anslutningar. Ingen RADIUS-autentisering för P2S; Ingen IKEv2 för P2S<br>**Principbaserad VPN**: (IKEv1): 1 S2S-anslutning tunneln. Ingen P2S|
-| **VpnGw1, VpnGw2 och VpnGw3** | **Ruttbaserad VPN**: upp till 30 tunnlar (*), P2S, BGP, aktiv-aktiv, anpassade IPsec/IKE-principer, ExpressRoute/VPN samexistens |
+|**Basic** (* *)   | **Route-based VPN**: 10 tunnlar för S2S/anslutningar; ingen RADIUS-autentisering för P2S; inget IKEv2 för P2S<br>**PRINCIPBASERAD VPN**: (ikev1): 1 S2S/anslutnings tunnel; ingen P2S|
+| **Alla Generation1-och Generation2-SKU: er förutom Basic** | **Routing-baserad VPN**: upp till 30 tunnlar (*), P2s, BGP, Active-Active, anpassad IPsec/IKE-princip, ExpressRoute/VPN-samexistens |
 |        |             |
 
-( * ) Du kan konfigurera ”PolicyBasedTrafficSelectors” för att ansluta en ruttbaserad VPN-gateway (VpnGw1 VpnGw2, VpnGw3) till flera lokala principbaserade brandväggsenheter. Referera till [Ansluta VPN-gatewayer till flera lokala principbaserad VPN-enheter med hjälp av PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) för mer information.
+(*) Du kan konfigurera "PolicyBasedTrafficSelectors" för att ansluta en Route-baserad VPN-gateway till flera lokala, principbaserade brand Väggs enheter. Referera till [Ansluta VPN-gatewayer till flera lokala principbaserad VPN-enheter med hjälp av PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) för mer information.
 
-(\*\*) Basic SKU anses vara en äldre SKU. Basic SKU:n har vissa funktionsbegränsningar. Du kan inte ändra storlek på en gateway som använder en Basic SKU till en av de nya gateway-SKU:erna. Du måste istället ändra till en ny SKU, vilket innebär att ta bort och återskapa din VPN-gateway.
+(\*\*) Den grundläggande SKU: n anses vara en äldre SKU. Basic SKU:n har vissa funktionsbegränsningar. Du kan inte ändra storlek på en gateway som använder en Basic SKU till en av de nya gateway-SKU:erna. Du måste istället ändra till en ny SKU, vilket innebär att ta bort och återskapa din VPN-gateway.
 
-###  <a name="workloads"></a>Gateway-SKU: er - produktion vs. Arbetsbelastningar för utvecklingstest
+###  <a name="workloads"></a>Gateway SKU – produktion eller arbets belastningar för utveckling och testning
 
-På grund av skillnader i serviceavtal och funktioner rekommenderar vi följande SKU: er för produktion och utveckling och testning:
+På grund av skillnaderna i service avtal och funktions uppsättningar rekommenderar vi följande SKU: er för produktion och utveckling och testning:
 
 | **Arbetsbelastning**                       | **SKU: er**               |
 | ---                                | ---                    |
-| **Produktion, kritiska arbetsbelastningar** | VpnGw1 VpnGw2, VpnGw3 |
-| **Utv-test eller konceptbevis**   | Basic (*)                 |
+| **Produktion, kritiska arbetsbelastningar** | Alla Generation1-och Generation2-SKU: er förutom Basic |
+| **Utv-test eller konceptbevis**   | Basic (* *)                 |
 |                                    |                        |
 
-(\*\*) Basic SKU anses vara en äldre SKU och har funktionsbegränsningar. Kontrollera att funktionen du behöver stöds innan du använder Basic SKU:n.
+(\*\*) Den grundläggande SKU: n anses vara en äldre SKU och har funktions begränsningar. Kontrollera att funktionen du behöver stöds innan du använder Basic SKU:n.
 
-Om du använder de gamla SKU: er (äldre) är rekommendationerna för produktion-SKU Standard och HighPerformance. Information och anvisningar om hur gamla SKU: er finns i [Gateway SKU: er (äldre)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
+Om du använder gamla SKU: er (äldre), är Production SKU-rekommendationerna standard och HighPerformance. Information och anvisningar för gamla SKU: er finns i [Gateway SKU: er (bakåtkompatibelt)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).

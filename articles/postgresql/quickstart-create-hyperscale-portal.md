@@ -1,6 +1,6 @@
 ---
-title: Snabb start för Azure Database for PostgreSQL – storskalig (citus) (för hands version)
-description: Snabb start för att skapa och fråga distribuerade tabeller på Azure Database for PostgreSQL citus (för hands version).
+title: Snabb start för Azure Database for PostgreSQL – storskalig (citus)
+description: Snabb start för att skapa och fråga distribuerade tabeller på Azure Database for PostgreSQL storskalig (citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,16 +8,16 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.openlocfilehash: fe981167249e24a43a8cb14c51c9b7c1eb081225
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 6b5bfbf16e76cbf90a5536332d8e3bf1035f983a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70164020"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500078"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-preview-in-the-azure-portal"></a>Snabb start: skapa en Azure Database for PostgreSQL-storskalig (citus) (för hands version) i Azure Portal
+# <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-in-the-azure-portal"></a>Snabb start: skapa en Azure Database for PostgreSQL-storskalig (citus) i Azure Portal
 
-Azure Database för PostgreSQL är en hanterad tjänst som du använder för att köra, hantera och skala högtillgängliga PostgreSQL-databaser i molnet. Den här snabb starten visar hur du skapar en Server grupp för Azure Database for PostgreSQL disscale (citus) (för hands version) med hjälp av Azure Portal. Du kommer att utforska distribuerade data: horisontell partitionering tabeller över flera noder, mata in exempel data och köra frågor som körs på flera noder.
+Azure Database för PostgreSQL är en hanterad tjänst som du använder för att köra, hantera och skala högtillgängliga PostgreSQL-databaser i molnet. Den här snabb starten visar hur du skapar en citus-servergrupp (Azure Database for PostgreSQL-Scale Scale) med hjälp av Azure Portal. Du kommer att utforska distribuerade data: horisontell partitionering tabeller över flera noder, mata in exempel data och köra frågor som körs på flera noder.
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
@@ -62,7 +62,7 @@ CREATE TABLE github_users
 );
 ```
 
-@No__t_0-fältet i `github_events` har en datatype-dataJSONB. JSONB är JSON-datatypen i binär form i postgres. Datatype gör det enkelt att lagra ett flexibelt schema i en enda kolumn.
+`payload`-fältet i `github_events` har en datatype-dataJSONB. JSONB är JSON-datatypen i binär form i postgres. Datatype gör det enkelt att lagra ett flexibelt schema i en enda kolumn.
 
 Postgres kan skapa ett `GIN`-index för den här typen, vilket kommer att indexera varje nyckel och värde i den. Med ett index blir det snabbt och enkelt att fråga nytto lasten med olika villkor. Nu ska vi gå vidare och skapa ett par index innan vi läser in våra data. I psql:
 
@@ -113,7 +113,7 @@ GROUP BY hour
 ORDER BY hour;
 ```
 
-Så länge har frågorna involverat GitHub \_events exklusivt, men vi kan kombinera den här informationen med GitHub \_users. Eftersom vi shardade både användare och händelser på samma identifierare (`user_id`), kommer raderna i båda tabellerna med matchande användar-ID att [samplaceras](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) på samma databasnoder och kan enkelt anslutas.
+Hittills har frågorna involverat GitHub-\_-händelser exklusivt, men vi kan kombinera den här informationen med GitHub\_användare. Eftersom vi shardade både användare och händelser på samma identifierare (`user_id`), kommer raderna i båda tabellerna med matchande användar-ID att [samplaceras](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) på samma databasnoder och kan enkelt anslutas.
 
 Om vi ansluter till `user_id`, kan storskaligt skicka in kopplings körningen till Shards för körning parallellt på arbetsnoder. Vi kan till exempel hitta de användare som skapade det största antalet databaser:
 

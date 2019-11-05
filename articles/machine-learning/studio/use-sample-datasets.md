@@ -1,7 +1,7 @@
 ---
 title: Använd exempeldatauppsättningarna
-titleSuffix: Azure Machine Learning Studio
-description: Beskrivningar av de datauppsättningar som används i exemplet modeller som ingår i Machine Learning Studio. Du kan använda dessa exempel på datauppsättningar för dina experiment.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Beskrivningar av de data uppsättningar som används i exempel modeller som ingår i Machine Learning Studio (klassisk). Du kan använda dessa exempel data uppsättningar för dina experiment.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,22 +10,22 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: f86ae4977621927a09d9b83287a00dfa3bc17196
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c44fd4fcc6672d81332d79d1f5cc6845868a09d5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736623"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466977"
 ---
-# <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Använd exemplen på datauppsättningar i Azure Machine Learning Studio
+# <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Använd exempel data uppsättningarna i Azure Machine Learning Studio (klassisk)
 [top]: #machine-learning-sample-datasets
 
-När du skapar en ny arbetsyta i Azure Machine Learning Studio med ett antal provdatauppsättningar och experiment som standard. Många av dessa exempel på datauppsättningar som används av exemplet modeller i den [Azure AI-galleriet](https://gallery.azure.ai/). Andra finns med exempel på olika typer av data som vanligtvis används i machine learning.
+När du skapar en ny arbets yta i Azure Machine Learning Studio (klassisk) ingår ett antal exempel data uppsättningar och experiment som standard. Många av dessa exempel data uppsättningar används av exempel modellerna i [Azure AI Gallery](https://gallery.azure.ai/). Andra inkluderas som exempel på olika typer av data som vanligt vis används i Machine Learning.
 
-Vissa av dessa datauppsättningar är tillgängliga i Azure Blob storage. Följande tabell innehåller en direktlänk för dessa datauppsättningar. Du kan använda dessa datauppsättningar i dina experiment med hjälp av den [importdata] [ import-data] modulen.
+Några av dessa data uppsättningar är tillgängliga i Azure Blob Storage. I följande tabell finns en direkt länk för de här data uppsättningarna. Du kan använda dessa data uppsättningar i experimenten med hjälp av modulen [Importera data][import-data] .
 
-Resten av dessa exempel på datauppsättningar som är tillgängliga i din arbetsyta under **sparade datauppsättningar**. Du hittar du på modulpaletten till vänster om arbetsytan för experimentet i Machine Learning Studio.
-Du kan använda någon av de här datauppsättningarna i dina egna experiment genom att dra den till experimentets arbetsyta.
+Resten av dessa exempel data uppsättningar är tillgängliga i din arbets yta under **sparade data uppsättningar**. Du hittar det här i modulen modul till vänster om arbets ytan experiment i Machine Learning Studio (klassisk).
+Du kan använda någon av dessa data uppsättningar i ditt eget experiment genom att dra den till arbets ytan för experimentet.
 
 ## <a name="datasets"></a>Datauppsättningar
 
@@ -33,373 +33,373 @@ Du kan använda någon av de här datauppsättningarna i dina egna experiment ge
 
 <tr>
   <th>Namn på datauppsättning</th>
-  <th>Beskrivning av datauppsättning</th>
+  <th>Beskrivning av data uppsättning</th>
 </tr>
 
 <tr>
-  <td>Vuxet insamlade binära Intäktsklassificering datauppsättning</td>
+  <td>Data uppsättning för binära sammanräknings inkomst</td>
   <td>
-En delmängd av 1994 insamlade databasen, med fungerande vuxna än 16 med ett index som justerad inkomst > 100.
+En delmängd av databasen för 1994-inventering, med hjälp av att arbeta vuxna under 16 med ett justerat inkomst index på > 100.
 <p></p>
-<b>Syntax:</b> Klassificera personer som använder demografi för att förutsäga om en person grundats över 50K per år.
+<b>Användning:</b> Klassificera personer som använder demografiska till att förutsäga om en person får över 50 000 per år.
 <p></p>
-<b>Relaterade Research:</b> Kohavi, R., Becker, B., (1996). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
+<b>Relaterad forskning:</b> Kohavi, R., Becker, B., (1996). Machine Learning lagrings <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>plats för. Irvine, CA: University of Kalifornien, skol information och dator vetenskap </td>
 </tr>
 
 <tr>
-  <td>Flygplats koder datauppsättning</td>
+  <td>Data uppsättning för flyg plats koder</td>
   <td>
-USA flygplats-koder.
+Amerikanska flyg plats koder.
 <p></p>
-Den här datauppsättningen innehåller en rad för varje USA flygplats, att tillhandahålla en flygplats-ID och namn tillsammans med den plats ort och delstat.
+Den här data uppsättningen innehåller en rad för varje amerikansk flyg plats, vilket ger flyg platsens ID-nummer och namn tillsammans med platsens ort och delstat.
   </td>
 </tr>
 
 <tr>
-  <td>Bil price data (Raw)</td>
+  <td>Bil pris data (RAW)</td>
   <td>
-Information om bilar av märke och modell, inklusive priser, funktioner, till exempel antalet cylindrar och MPG, samt en försäkring riskpoäng.
+Information om mobila enheter med märke och modeller, inklusive pris, funktioner, till exempel antalet cylindrar och MPG, samt en försäkrings risk poäng.
 <p></p>
-Riskpoängen är inledningsvis associerad med automatisk pris. Den justeras sedan för faktiska risk i en process som är kända för aktuarier som symboling. Värdet + 3 anger att automatiskt är riskfyllda och ett värde för-3 att den är förmodligen säkert.
+Risk poängen är inlednings vis kopplad till automatiskt pris. Den justeras sedan för faktisk risk i en process som är känd för aktuarier som symbol. Värdet + 3 anger att det automatiska är riskabelt och att värdet-3 förmodligen är säkert.
 <p></p>
-<b>Syntax:</b> Förutsäga riskpoäng med funktioner, med hjälp av regression eller multivarierad klassificering. 
+<b>Användning:</b> Förutsäg risk poängen med hjälp av funktioner, regression eller multivarierad klassificering. 
 <p></p>
-<b>Relaterade Research:</b> Schlimmer J.C. (1987). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
+<b>Relaterad forskning:</b> Schlimmer, J.C. (1987). Machine Learning lagrings <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>plats för. Irvine, CA: University of Kalifornien, skol information och dator vetenskap </td>
 </tr>
 
 <tr>
-  <td>Cykel hyra UCI datauppsättning</td>
+  <td>Bil-datauppsättning för cykel hyra</td>
   <td>
-UCI cykel hyra datauppsättning som är baserad på verkliga data från kapital Bikeshare företag som underhåller ett cykel hyra nätverk i Washington DC.
+DataStore Bike hyr-datauppsättning som baseras på verkliga data från kapital Bikeshares företag som underhåller ett cykel uthyrnings nätverk i Washington DC.
 <p></p>
-Datauppsättningen har en rad för varje timme varje dag under 2011 och 2012, totalt 17,379 rader. Cykeluthyrning per timme intervallet är från 1 till 977.
+Data uppsättningen har en rad för varje timme på varje dag i 2011 och 2012, för totalt 17 379 rader. Intervallet för cykel uthyrning per timme är mellan 1 och 977.
 
   </td>
 </tr>
 
 <tr>
-  <td>Bill Gates RGB-bild</td>
+  <td>Bild av Bill Gates RGB</td>
   <td>
-Offentligt tillgängliga bildfil konverteras till CSV-data.
+Offentligt tillgänglig bildfil konverterad till CSV-data.
 <p></p>
-Koden för att konvertera avbildningen finns i den <strong>färg kvantifieringsfel med K-Means klustring</strong> detaljsidan för modellen.
+Koden för att konvertera avbildningen finns på informations sidan om <strong>färg-kvantifieringsfel med hjälp av</strong> sidan för kluster modell information.
   </td>
 </tr>
 
 <tr>
-  <td>Blod donation data</td>
+  <td>Blod donations data</td>
   <td>
-En delmängd av data från vinstsyfte Service Center Hsin Chu stad, Taiwan blod bidragsgivare-databas.
+En delmängd av data från blod donator databasen för blod transfusions tjänst Center för Hsin-chu City, Taiwan.
 <p></p>
-Bidragsgivare data inklusive månader sedan senaste donation), och frekvens, eller det totala antalet donationer, tid sedan senaste donation och mängden blod donerat.
+Donator data inkluderar de månader sedan senaste donationen) och frekvens, eller det totala antalet donationer, tid sedan senaste donation och mängden blod som donerats.
 <p></p>
-<b>Syntax:</b> Målet är att förutsäga via klassificering om bidragsgivare donerat blod i mars 2007, där 1 anger en bidragsgivare under perioden som mål och 0 icke-bidragsgivare. 
+<b>Användning:</b> Målet är att förutsäga över klassificeringen om givaren donerade blod i mars 2007, där 1 anger en donator under mål perioden och 0 en icke-donator. 
 <p></p>
-<b>Relaterade Research:</b> Yeh, I.C., (2008). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap
+<b>Relaterad forskning:</b> Yeh, I.C., (2008). Machine Learning lagrings <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>plats för. Irvine, CA: University of Kalifornien, skol information och dator vetenskap
 <p></p>
-Yeh, jag-Cheng, Yang, King Jang och cering, tagg-mobilnät, ”Knowledge discovery på NF modellen med Bernoulli sekvens,” Expert-system med program, 2008 <a href="https://dx.doi.org/10.1016/j.eswa.2008.07.018">https://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
+Yeh, I-Cheng, Yang, King-Jang och, tagg-mobilnät, "kunskaps identifiering på RFM-modell med Bernoulli Sequence", expert system med program, 2008 <a href="https://dx.doi.org/10.1016/j.eswa.2008.07.018">https://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
 </tr>
 
 <tr>
-  <td>Bröstet cancer data</td>
+  <td>Bröst cancer data</td>
   <td>
-En av tre cancer-relaterade datauppsättningar som tillhandahålls av Oncology Institute som visas ofta i machine learning-dokumentation. Kombinerar diagnostikinformation med funktioner från laboratorieanalys av ungefär 300 vävnadsprover.
+En av tre cancer data uppsättningar som tillhandahålls av Oncology-Institutet som visas ofta i Machine Learning-dokumentationen. Kombinerar diagnostikinformation med funktioner från laboratorie analys av cirka 300 vävnads exempel.
 <p></p>
-<b>Syntax:</b> Klassificera datatypen för cancer, baserat på 9 attribut, vilket är linjär och vissa är kategoriska. 
+<b>Användning:</b> Klassificera typ av cancer, baserat på 9 attribut, varav vissa är linjära och vissa är kategoriska. 
 <p></p>
-<b>Relaterade Research:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
+<b>Relaterad forskning:</b> Wohlberg, W.H., gata, W.N., & Mangasarian, O.L. (1995). Machine Learning lagrings <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>plats för. Irvine, CA: University of Kalifornien, skol information och dator vetenskap </td>
 </tr>
 
 <tr>
-  <td>Bröstet Cancer funktioner <td>
-Datauppsättningen innehåller information för 102K misstänkta regioner (kandidater) X-ray avbildningar, beskrivs 117 för funktionerna. Funktionerna är tillverkarspecifika och deras innebörd visas inte datauppsättning skapare (Siemens Healthcare). 
+  <td>Bröst cancer funktioner <td>
+Data uppsättningen innehåller information för 102K-misstänkta regioner (kandidater) av X-Ray-bilder, var och en beskrivs av 117-funktionerna. Funktionerna är tillverkarspecifika och deras innebörd visas inte av data uppsättnings skapare (Siemens-hälsovården). 
   </td>
 </tr>
 
 <tr>
-  <td>Bröstet Cancer Info</td>
+  <td>Bröst cancer information</td>
   <td>
-Datauppsättningen innehåller ytterligare information för varje misstänkt region av X-ray avbildning. Varje exempel innehåller information (till exempel etikett, patientens ID, koordinaterna för patch i förhållande till hela bilden) om motsvarande radnumret i datauppsättningen bröstet Cancer funktioner. Varje patients har ett antal exempel. Några exempel är positivt för patienter som har en cancer, och vissa är negativt. För patienter som inte har en cancer, är alla exempel negativt. Datauppsättningen har 102K exempel. Datauppsättningen är prioriterar 0,6% av punkterna är positivt, resten är negativt. Datauppsättningen har gjorts tillgängliga av Siemens Healthcare.
+Data uppsättningen innehåller ytterligare information för varje misstänkt region med X-ray-avbildning. I varje exempel finns information (t. ex. etikett, patient-ID, koordinater för korrigering i förhållande till hela bilden) om motsvarande rad nummer i data uppsättningen bröst cancer-funktioner. Varje patient har ett antal exempel. För patienter som har en cancer är vissa exempel positiva och några är negativa. För patienter som inte har någon cancer är alla exempel negativa. Data uppsättningen har 102K-exempel. Data uppsättningen är prioriterad, 0,6% av punkterna är positiv, resten är negativa. Data uppsättningen gjordes tillgänglig av Siemens-hälsovården.
   </td>
 </tr>
 
 <tr>
-  <td>CRM begär etiketter delas</td>
+  <td>CRM begär-etiketter delade</td>
   <td>
-Etiketter från KDD Cup 2009 kunden relation förutsägelse utmaningen (<a href="http://www.sigkdd.org/site/2009/files/orange_small_train_appetency.labels">orange_small_train_appetency.labels</a>).
+Etiketter från KDD-bägaren 2009 för kund Relations förutsägelse (<a href="http://www.sigkdd.org/site/2009/files/orange_small_train_appetency.labels">orange_small_train_appetency. labels</a>).
   </td>
 </tr>
 
 <tr>
-  <td>CRM omsättning etiketter delas</td>
+  <td>CRM omsättnings etiketter delade</td>
   <td>
-Etiketter från KDD Cup 2009 kunden relation förutsägelse utmaningen (<a href="http://www.sigkdd.org/site/2009/files/orange_small_train_churn.labels">orange_small_train_churn.labels</a>).
+Etiketter från KDD-bägaren 2009 för kund Relations förutsägelse (<a href="http://www.sigkdd.org/site/2009/files/orange_small_train_churn.labels">orange_small_train_churn. labels</a>).
   </td>
 </tr>
 
 <tr>
-  <td>CRM-datauppsättning som delas</td>
+  <td>CRM-datauppsättning delad</td>
   <td>
-Den här informationen kommer från KDD Cup 2009 kunden relation förutsägelse utmaningen (<a href="http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip">orange_small_train.data.zip</a>).
+Dessa data kommer från KDD-bägaren 2009 för kund Relations förutsägelse (<a href="http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip">orange_small_train. data. zip</a>).
 <p></p>
-Datauppsättningen innehåller 50K kunder från Franska Kostnadsuppföljning av företaget Orange. Varje kund har 230 maskerade funktioner, 190 som är numeriska och 40 är kategoriska. Funktionerna är mycket begränsad.
+Data uppsättningen innehåller 50 000-kunder från det franska telekom-företaget orange. Varje kund har 230 anonymiserats-funktioner, men 190 av som är numeriska och 40 är kategoriska. Funktionerna är mycket glesa.
   </td>
 </tr>
 
 <tr>
-  <td>CRM Upselling etiketter delas</td>
+  <td>CRM försäljar etiketter delade</td>
   <td>
-Etiketter från KDD Cup 2009 kunden relation förutsägelse utmaningen (<a href="http://www.sigkdd.org/site/2009/files/orange_large_train_upselling.labels">orange_large_train_upselling.labels</a>).
+Etiketter från KDD-bägaren 2009 för kund Relations förutsägelse (<a href="http://www.sigkdd.org/site/2009/files/orange_large_train_upselling.labels">orange_large_train_upselling. labels</a>).
   </td>
 </tr>
 
 <tr>
-  <td>Energieffektivitet Regression data</td>
+  <td>Regressions data för energi effektivitet</td>
   <td>
-En samling av simulerade energi profiler, baserat på 12 annan byggnad former. Byggnaderna åtskiljs av åtta funktioner. Detta inkluderar glas området, rutor området distribution och orientering.
+En samling simulerade energi profiler, baserat på 12 olika byggnads former. Byggnaderna skiljs åt av åtta funktioner. Detta omfattar glas rutor, distribution av glas områden och orientering.
 <p></p>
-<b>Syntax:</b> Använda regression eller klassificering för att förutsäga betyget energieffektivitet baserat som en av två riktig värdefull svar. Flera klassificering, är i avrunda variabeln svar till närmaste heltal. 
+<b>Användning:</b> Använd antingen regression eller klassificering för att förutsäga energi effektivitets betyget baserat på ett av två faktiska värde svar. För klassificering i flera klasser, är processvariabeln Response till närmaste heltal. 
 <p></p>
-<b>Relaterade Research:</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
+<b>Relaterad forskning:</b> Xifara, A. & Tsanas, A. (2012). Machine Learning lagrings <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>plats för. Irvine, CA: University of Kalifornien, skol information och dator vetenskap </td>
 </tr>
 
 <tr>
-  <td>Flight fördröjer Data</td>
+  <td>Data för flyg fördröjning</td>
   <td>
-Passagerartrafik flygning i tid prestandadata som kommer från TranStats datainsamling i USA Department of Transportation (<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">i tid</a>).
+Prestanda data för passagerar flygning i tid som tagits från TranStats-datainsamlingen för USA: s transport (<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">i tid</a>).
 <p></p>
-Datauppsättningen tar upp hur lång tid April – oktober 2013. Innan du skickar till Azure Machine Learning Studio, bearbetades datamängden på följande sätt:
+Data uppsättningen täcker den tids period som april – oktober 2013. Innan du överför till den klassiska versionen av Azure Machine Learning Studio bearbetades data uppsättningen på följande sätt:
 <ul>
-  <li>Datauppsättningen har filtrerats för att täcka endast de 70 mest använda flygplatserna i kontinentala USA</li>
-  <li>Avbrutna flyg märkta som försenade på grund av mer än 15 minuter</li>
-  <li>Och distribueras flyg filtrerades bort</li>
-  <li>Följande kolumner har valts: Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Canceled</li>
+  <li>Data uppsättningen har filtrerats för att endast avse 70 vanligaste-flyg platserna i kontinental USA</li>
+  <li>Annullerade flygningar har märkts som fördröjda med mer än 15 minuter</li>
+  <li>Avlästa flygningar filtrerades bort</li>
+  <li>Följande kolumner valdes: Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, avbruten</li>
 </ul>
 </td>
 </tr>
 
 <tr>
-  <td>Flight punktlighetsinformation (Raw)</td>
+  <td>Prestanda för Flight i tid (RAW)</td>
   <td>
-Poster flygplan flygning tillförsel och leveranser inom USA från oktober 2011.
+Register över flyg Plans införslar och avgångser i USA från oktober 2011.
 <p></p>
-<b>Syntax:</b> Förutsäga flygförseningar. 
+<b>Användning:</b> Förutsäg fördröjningar i flygningen. 
 <p></p>
-<b>Relaterade Research:</b> Från USA Avd. Transportmyndighet <a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time"> https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time </a>.
+<b>Relaterad forskning:</b> Från amerikanska avd. om transport <a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
   </td>
 </tr>
 
 <tr>
-  <td>Data om skogsbränder</td>
+  <td>Skog utlöser data</td>
   <td>
-Innehåller weather-data, till exempel temperatur och fuktighet index och vindhastighet. Data hämtas från ett område i nordöstra Portugal, i kombination med poster i skogsbränder.
+Innehåller väder data, till exempel temperatur-och fuktighets index och vridnings hastighet. Data hämtas från ett arean av nordöstra Portugal, kombinerat med poster i skogs utlöses.
 <p></p>
-<b>Syntax:</b> Det här är en svårt regression uppgift om syftet är att förutsäga området brända skogsbränder. 
+<b>Användning:</b> Detta är en svår Regressions uppgift där målet är att förutsäga den brända arean i skogs bränder. 
 <p></p>
-<b>Relaterade Research:</b> Cortez, P., & Morais A. (2008). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap
+<b>Relaterad forskning:</b> Cortez, P., & Morais, A. (2008). Machine Learning lagrings <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>plats för. Irvine, CA: University of Kalifornien, skol information och dator vetenskap
 <p></p>
-[Cortez och Morais 2007] S. Cortez och A. Morais. En Data Mining metod för att förutsäga skogsbränder med hjälp av Meteorological Data. I J. Neves, M. F. Santos och J. Machado Eds., nya trender i artificiell intelligens, handlingar från 13 EPIA 2007 - portugisiska konferens på artificiell intelligens, December, Guimarães, Portugal, sidor 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Tillgängligt på: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf"> http://www.dsi.uminho.pt/~pcortez/fires.pdf </a>.
+[Cortez och Morais, 2007] P. Cortez och en. Morais. En data utvinnings metod för att förutsäga skogen utlöses med hjälp av meteorologiska data. I J. Neves, M. F. Santos och J. Machado EDS., nya trender i artificiell intelligens, åtgärder hos 13 EPIA 2007-portugisiska-konferensen om artificiell intelligens, december, Guimarães, Portugal, s. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Tillgänglig på: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
   </td>
 </tr>
 
 <tr>
-  <td>Tyska kreditkort UCI datauppsättning</td>
+  <td>German-datauppsättning för tyska kredit kort</td>
   <td>
-UCI Statlog (tyska kreditkort) datauppsättningen (<a href="https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">Statlog + tyska + kredit + Data</a>), med hjälp av german.data-filen.
+Den Statlog (tyska kredit kort) data uppsättningen (<a href="https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">Statlog + tyska + kredit + data</a>), med hjälp av den tyska. data filen.
 <p></p>
-Datauppsättningen klassificerar personer, som beskrivs av en uppsättning attribut som låg eller hög kreditrisker. Varje exempel representerar en person. Det finns 20 funktioner, både numeriska och kategoriska, och en binär etikett (kredit risk värde). Hög kredit risk poster har etikett = 2, låg kredit risk poster har etikett = 1. Kostnaden för misclassifying ett lågrisk-exempel som hög är 1, kostnaden för misclassifying en hög risk exempel så låga är 5.
+Data uppsättningen klassificerar personer, som beskrivs av en uppsättning attribut, som små eller stora kredit risker. Varje exempel representerar en person. Det finns 20 funktioner, både numeriska och kategoriska och en binär etikett (kredit risk värde). Stora kredit risk poster har etikett = 2, låg kredit risk poster har etikett = 1. Kostnaden för att inte klassificera ett litet risk exempel som hög är 1, medan kostnaden för att klassificera ett högt risk exempel som låg är 5.
   </td>
 </tr>
 
 <tr>
-  <td>IMDB text</td>
+  <td>Film titlar för IMDB</td>
   <td>
-Datauppsättningen innehåller information om filmer som har klassificerat i Twitter tweets: IMDB film-ID, filmens, genre och produktionsår. Det finns 17K filmer i datauppsättningen. Datauppsättningen introducerades i dokumentet ”S. Dooms, T. De Pessemier och L. Martens. MovieTweetings: en film omdöme datamängden som samlas in från Twitter. Workshop om gemensamt skapade och mänsklig beräkning för rekommenderare system, CrowdRec vid RecSys 2013 ”.
+Data uppsättningen innehåller information om filmer som har klassificerats i Twitter-tweets: IMDB Movie ID, Movie Name, genre och Product Year. Det finns 17K filmer i data uppsättningen. Data uppsättningen introducerades i papperet "S. Dooms, T. ex. de Pessemier och L. Martens. MovieTweetings: en film betygs uppsättning som samlats in från Twitter. Workshop om gemensamt skapade och mänsklig beräkning för rekommenderade system, CrowdRec på RecSys 2013. "
   </td>
 </tr>
 
 <tr>
-  <td>Iris två klass-data</td>
+  <td>Iris, två klass data</td>
   <td>
-Detta är kanske mest känd databasen ska finnas i mönstret för dokumentation. Datauppsättningen är relativt liten, som innehåller 50 exempel varje på petal mått från tre iris sorterna.
+Detta är kanske den bästa kända databasen som finns i dokumentationen för mönster igenkänning. Data uppsättningen är relativt liten, som innehåller 50 exempel på olika sorters mått från tre Iris.
 <p></p>
-<b>Syntax:</b> Förutsäga iris-typen från mätningar.  
+<b>Användning:</b> Förutsäg Iris-typen från mätningarna.  
 <p></p>
-<b>Relaterade Research:</b> Fisher R.A. (1988). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
+<b>Relaterad forskning:</b> Fisher, R.A. (1988). Machine Learning lagrings <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>plats för. Irvine, CA: University of Kalifornien, skol information och dator vetenskap </td>
 </tr>
 
 <tr>
-  <td>Film Tweets</td>
+  <td>Film tweets</td>
   <td>
-Datauppsättningen är en utökad version av film Tweetings datauppsättningen. Datauppsättningen har 170K klassificeringar för filmer, extraheras från välstrukturerade tweets på Twitter. Varje instans som representerar en tweet och är en tuppel: användar-ID, IMDB film-ID, klassificering, tidsstämpel, antal Favoriter för den här tweet och antal retweets av den här tweet. Datauppsättningen har gjorts tillgängliga av A. SA, S. Dooms, B. Loni och D. Tikk för rekommenderare system utmaning 2014.
+Data uppsättningen är en utökad version av data uppsättningen för film tweeter. Data uppsättningen har 170K klassificeringar för filmer som extraheras från välstrukturerade tweets på Twitter. Varje instans representerar en tweet och är en tupel: användar-ID, IMDB-film-ID, klassificering, tidsstämpel, antal favoriter för den här tweeten och antalet retweetar för den här tweeten. Data uppsättningen gjordes tillgänglig av A. S. Dooms, B. Loni och D. Tikk för rekommenderade system Challenge 2014.
   </td>
 </tr>
 
 <tr>
-  <td>MPG-data för olika bilar</td>
+  <td>MPG-data för olika mobila enheter</td>
   <td>
-Den här datauppsättningen är en något justerad version av datauppsättningen som tillhandahålls av StatLib bibliotek med Carnegie Mellon University. Datauppsättningen senast användes i 1983 American statistiska Association tillverkning.
+Den här data uppsättningen är en något modifierad version av den data uppsättning som tillhandahålls av StatLib-biblioteket för Carnegie Mellon University. Data uppsättningen användes i den 1983 amerikanska amerikanska statistiska kopplings hand boken.
 <p></p>
-Data visas i olika bilar i miles per gallon samband med bränsle. Den innehåller också information som antalet cylindrar, motorn Förskjutning, hästkrafter, total vikt och acceleration.
+Data visar bränsle förbrukning för olika bilenheter i km per liter. Den innehåller också information om t. ex. antalet cylindrar, motor förskjutning, häst krafter, total vikt och acceleration.
 <p></p>
-<b>Syntax:</b> Förutsäga bränsleekonomin baserat på tre diskreta flervärdesattribut och fem kontinuerliga attribut. 
+<b>Användning:</b> Förutsäga bränsle ekonomin baserat på tre multivärdeiga diskreta attribut och fem kontinuerliga attribut. 
 <p></p>
-<b>Relaterade Research:</b> StatLib, Carnegie Mellon University, (1993). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
+<b>Relaterad forskning:</b> StatLib, Carnegie Mellon University, (1993). Machine Learning lagrings <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>plats för. Irvine, CA: University of Kalifornien, skol information och dator vetenskap </td>
 </tr>
 
 <tr>
-  <td>Pima människor Diabetes binär klassificering datauppsättning</td>
+  <td>Pima Indians diabetes Binary klassificering data uppsättning</td>
   <td>
-En delmängd av data från National Institute av Diabetes och mag och lever sjukdomar. Datauppsättningen har filtrerats för att fokusera på kvinnliga patienter av Pima indiska arv. Innehåller information som medicinska data, till exempel glukos och inulinsirap nivåer samt livsstil faktorer.
+En delmängd av data från National Institute of diabetes och databasen för sammandrag av eller njure sjukdomar. Data uppsättningen filtrerades för att fokusera på kvinnlig patienter från Pima indiska kultur arvet. Data innehåller medicinska data, till exempel glukos och insulin nivåer, samt livsstils faktorer.
 <p></p>
-<b>Syntax:</b> Förutsäg om ämnet har diabetes (binär klassificering). 
+<b>Användning:</b> Förutsäg om ämnet har diabetes (binära klassificering). 
 <p></p>
-<b>Relaterade Research:</b> Sigillito V. (1990). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml”</a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
+<b>Relaterad forskning:</b> Sigillito, V. (1990). Den Machine Learning lagrings platsen för den andra databasen <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml"</a>. Irvine, CA: University of Kalifornien, skol information och dator vetenskap </td>
 </tr>
 
 <tr>
-  <td>Restaurang kunddata</td>
+  <td>Restaurang kund information</td>
   <td>
-En uppsättning metadata om kunder, inklusive demografi och inställningar.
+En uppsättning metadata om kunder, inklusive demografiska och preferenser.
 <p></p>
-<b>Syntax:</b> Använd den här datauppsättningen i kombination med de andra två restaurang datauppsättningar, träna och testa ett rekommenderare system. 
+<b>Användning:</b> Använd den här data uppsättningen, i kombination med de andra två restaurang data uppsättningarna, för att träna och testa ett rekommenderat system. 
 <p></p>
-<b>Relaterade Research:</b> Bache, K. och Lichman, M. (2013). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap.
+<b>Relaterad forskning:</b> Bache, K. och Lichman, M. (2013). Machine Learning lagrings <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>plats för. Irvine, CA: University of Kalifornien, skol information och dator vetenskap.
   </td>
 </tr>
 
 <tr>
-  <td>Restaurang funktionsdata</td>
+  <td>Restaurang funktions data</td>
   <td>
-En uppsättning metadata om restauranger och deras funktioner, till exempel mat typ, äta middag format och plats.
+En uppsättning metadata om restauranger och deras funktioner, till exempel livsmedels typ, matsal och plats.
 <p></p>
-<b>Syntax:</b> Använd den här datauppsättningen i kombination med de andra två restaurang datauppsättningar, träna och testa ett rekommenderare system. 
+<b>Användning:</b> Använd den här data uppsättningen, i kombination med de andra två restaurang data uppsättningarna, för att träna och testa ett rekommenderat system. 
 <p></p>
-<b>Relaterade Research:</b> Bache, K. och Lichman, M. (2013). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap.
+<b>Relaterad forskning:</b> Bache, K. och Lichman, M. (2013). Machine Learning lagrings <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>plats för. Irvine, CA: University of Kalifornien, skol information och dator vetenskap.
   </td>
 </tr>
 
 <tr>
-  <td>Restaurang betyg</td>
+  <td>Restaurang värderingar</td>
   <td>
-Innehåller klassificeringar som anges av användarna restauranger på en skala från 0 till 2.
+Innehåller omdömen från användare till restauranger på en skala från 0 till 2.
 <p></p>
-<b>Syntax:</b> Använd den här datauppsättningen i kombination med de andra två restaurang datauppsättningar, träna och testa ett rekommenderare system. 
+<b>Användning:</b> Använd den här data uppsättningen, i kombination med de andra två restaurang data uppsättningarna, för att träna och testa ett rekommenderat system. 
 <p></p>
-<b>Relaterade Research:</b> Bache, K. och Lichman, M. (2013). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap.
+<b>Relaterad forskning:</b> Bache, K. och Lichman, M. (2013). Machine Learning lagrings <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>plats för. Irvine, CA: University of Kalifornien, skol information och dator vetenskap.
   </td>
 </tr>
 
 <tr>
-  <td>Stål Annealing flera datauppsättning</td>
+  <td>Anlöpning för flera klasser i stål</td>
   <td>
-Den här datauppsättningen innehåller en serie poster från stål glödgning utvärderingsversioner. Den innehåller de fysiska egenskaperna (bredd, tjocklek, typ (slutet, blad osv.) i den nya stål typer.
+Den här data uppsättningen innehåller en serie poster från stål anlöpning-tester. Den innehåller de fysiska attributen (bredd, tjocklek, typ (spole, ark osv.) för de resulterande stål typerna.
 <p></p>
-<b>Syntax:</b> Förutsäga något av två numeriska klassattribut; hårdhet eller styrka. Du kan också analysera korrelationer mellan attribut.
+<b>Användning:</b> Förutsäga alla två numeriska klass-attribut; hårdhet eller styrka. Du kan också analysera korrelationer mellan attribut.
 <p></p>
-Stål betyg följer en set-standard definieras av SAE och andra organisationer. Du letar efter en specifik ”i företagsklass” (Klassvariabeln) och vill förstå de värden som behövs. 
+Stål betyg följer en angiven standard som definieras av SAE och andra organisationer. Du letar efter en speciell klass (klass variabel) och vill förstå de värden som behövs. 
 <p></p>
-<b>Relaterade Research:</b> Sterling, D. & Buntine, W. (NA). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap
+<b>Relaterad forskning:</b> Sterling, D. & Buntine, W. (NA). Machine Learning lagrings <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>plats för. Irvine, CA: University of Kalifornien, skol information och dator vetenskap
 <p></p>
-En användbar guide till stål betyg finns här: <a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
+Du hittar en användbar guide till stål betyg här: <a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
 </tr>
 
 <tr>
-  <td>Teleskopet data</td>
+  <td>Information om Telescope</td>
   <td>
-Post med hög energi gamma partikeln toppar tillsammans med bakgrundsljud både simulerade Använd Monte Carlo-process.
+Registrera hög Energis törningar med hög strömförbrukning och bakgrunds brus, som båda simuleras med en Monte Carlo-process.
 <p></p>
-Syftet med simuleringen var att förbättra marken atmospheric Cherenkov gamma teleskop. Detta görs med hjälp av statistiska metoder för att skilja mellan den önskade signalen (Cherenkov strålning duschar) och bakgrundsljud (hadronic duschar initieras av cosmic strålar i luften på övre).
+Syftet med simuleringen var att förbättra noggrannheten för markbaserade atmosfäriska Cherenkov gamma-scope. Detta görs med hjälp av statistiska metoder för att skilja mellan den önskade signalen (Cherenkov-strålnings dusch) och bakgrunds brus (hadronic duschar som initierats av Cosmic strålar i den övre atmosfärn).
 <p></p>
-Data har bearbetats för att skapa ett avlångt kluster med långt axel är inriktad på kamera center. Egenskaperna för den här ellips (kallas ofta Hillas parametrar) är bland de bildparametrar som kan användas för diskriminering.
+Data har bearbetats för att skapa ett överdrivet kluster med den långa axeln riktas mot kamera centret. Egenskaperna för den här ellipsen (kallas ofta Hill)-parametrar är bland de avbildnings parametrar som kan användas för diskriminering.
 <p></p>
-<b>Syntax:</b> Förutsäg om avbildning av en representerar signal eller bakgrund bruset.
+<b>Användning:</b> Förutse om bilden av ett barn visar signal-eller bakgrunds brus.
 <p></p>
-<b>Anteckningar:</b> Enkel klassificering är inte meningsfullt för dessa data sedan klassificera en händelse i bakgrunden eftersom signalen är sämre än klassificera en signalhändelse som bakgrund. Jämförelse av olika klassificerare ska ROC-diagrammet användas. Sannolikheten för att acceptera en händelse i bakgrunden som signalen måste vara under följande tröskelvärden: 0,01, 0,02, 0,05, 0,1 eller 0,2.
+<b>Anteckningar:</b> Enkel klassificerings noggrannhet är inte meningsfullt för dessa data, eftersom en bakgrunds händelse klassificeras som signal än om man klassificerar en signal händelse som bakgrund. För jämförelse av olika klassificerare ska ROC-grafen användas. Sannolikheten för att acceptera en bakgrunds händelse som signal måste vara under något av följande tröskelvärden: 0,01, 0,02, 0,05, 0,1 eller 0,2.
 <p></p>
-Observera också att antalet händelser som bakgrund (för hadronic duschar h) är överskattade. I verkliga mått representerar klassen h eller brus merparten av händelser. 
+Observera också att antalet bakgrunds händelser (h, för hadronic duschar) är uppskattat. I verkliga mätningar representerar h-eller brus klassen majoriteten av händelserna. 
 <p></p>
-<b>Relaterade Research:</b> Bock, R.K. (1995). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation </td>
+<b>Relaterad forskning:</b> Bock, R.K. (1995). Machine Learning lagrings <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>plats för. Irvine, CA: University of Kalifornien, skol information </td>
 </tr>
 
 <tr>
-  <td>Väder-datauppsättning</td>
+  <td>Data uppsättning väder</td>
   <td>
-Per timme mark-baserade väder observationer från amerikanska NOAA (<a href="https://az754797.vo.msecnd.net/data/WeatherDataset.csv">samman data från 201304 till 201310</a>).
+Varje timmes markbaserade väderleks observationer från NOAA (<a href="https://az754797.vo.msecnd.net/data/WeatherDataset.csv">sammanfogade data från 201304 till 201310</a>).
 <p></p>
-Väderdata täcker observationer som görs från en flygplats väder stationer, som omfattar tidsperioden April – oktober 2013. Innan du skickar till Azure Machine Learning Studio, bearbetades datamängden på följande sätt:
+Väder data täcker observationer som gjorts från flyg platsens väderleks stationer, som omfattar den period som april – 2013 oktober. Innan du överför till den klassiska versionen av Azure Machine Learning Studio bearbetades data uppsättningen på följande sätt:
 <ul>
-  <li>-Väderstation, ID: N har mappats till motsvarande flygplats ID: N</li>
-  <li>Väder stationer som inte är associerade med 70 mest använda flygplatser filtrerades bort</li>
-  <li>Datumkolumnen är uppdelad i separata kolumner för år, månad och dag</li>
-  <li>Följande kolumner har valts: AirportID, år, månad, dag, tid, tidszon, SkyCondition, synlighet, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, vindhastigheten, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li>
+  <li>Väder Stations-ID: n mappades till motsvarande flyg plats-ID</li>
+  <li>Väder stationer som inte är kopplade till 70 vanligaste-flyg platserna filtrerades bort</li>
+  <li>Datum kolumnen delades upp i separata kolumner för år, månad och dag</li>
+  <li>Följande kolumner valdes: AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, altimeter</li>
 </ul>
   </td>
 </tr>
 
 <tr>
-  <td>Wikipedia SP 500 Dataset</td>
+  <td>Wikipedia SP 500-datauppsättning</td>
   <td>
-Data hämtas från Wikipedia (<a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a>) baserat på artiklar på varje S & P 500 företag, lagras som XML-data.
+Data härleds från Wikipedia (<a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a>) baserat på artiklar i varje S & P 500-företag, lagrade som XML-data.
 <p></p>
-Innan du skickar till Azure Machine Learning Studio, bearbetades datamängden på följande sätt:
+Innan du överför till den klassiska versionen av Azure Machine Learning Studio bearbetades data uppsättningen på följande sätt:
 <ul>
-  <li>Extrahera textinnehåll för varje företag</li>
-  <li>Ta bort wiki formatering</li>
+  <li>Extrahera text innehåll för varje enskilt företag</li>
+  <li>Ta bort wiki-formatering</li>
   <li>Ta bort icke-alfanumeriska tecken</li>
-  <li>Omvandla alla text till gemener</li>
-  <li>Kända företagets kategorier har lagts till</li>
+  <li>Konvertera all text till gemener</li>
+  <li>Kända företags kategorier har lagts till</li>
 </ul>
 <p></p>
-Observera att för vissa företag som en artikel kunde inte hittas så att antalet poster som är mindre än 500.
+Observera att för vissa företag gick det inte att hitta en artikel, så antalet poster är mindre än 500.
   </td>
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/direct_marketing.csv">direct_marketing.csv</a></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/direct_marketing.csv">direct_marketing. csv</a></td>
   <td>
-Datauppsättningen innehåller kunddata och uppgifter om deras svar på en direkt e kampanj. Varje rad representerar en kund. Datauppsättningen innehåller nio funktioner om demografi för användaren och de senaste beteende och tre märka kolumner (besöker, konvertering och spendera).  Gå till är en binary-kolumn som anger att en kund besökt efter marknadsföringskampanjen. Konverteringen anger en kund köpt något. Spendera är den som användes för att.  Datauppsättningen har gjorts tillgängliga av Kevin Hillstrom för MineThatData e-Analytics och Data Mining utmaning.
+Data uppsättningen innehåller kund information och uppgifter om deras svar på en direkt kopplings kampanj. Varje rad representerar en kund. Data uppsättningen innehåller nio funktioner för användar demografiskhet och tidigare beteende och tre etikett kolumner (besök, konvertering och spendera).  Besök är en binär kolumn som visar att en kund besökt efter marknadsförings kampanjen. Omvandlingen innebär att en kund har köpt något. Spenderat är det belopp som spenderades.  Data uppsättningen har gjorts tillgänglig av Kevin Hillstrom för MineThatData e-post analys och data utvinnings utmaning.
   </td>
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_test.csv">lyrl2004_tokens_test.csv</a></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_test.csv">lyrl2004_tokens_test. csv</a></td>
   <td>
-Funktioner i testet exemplen i RCV1 V2 Reuters nyheter datauppsättningen. Datauppsättningen har 781K nyhetsartiklar tillsammans med deras ID (första kolumnen i datauppsättningen). Varje artikel är tokeniserad stopworded, och berodde. Datauppsättningen har gjorts tillgängliga av David. D. Lewis.
+Funktioner i test exempel i RCV1-v2 Reuters News-datauppsättningen. Data uppsättningen har 781K nyhets artiklar tillsammans med deras ID (första kolumnen i data uppsättningen). Varje artikel är token, stopworded och påfylld. Data uppsättningen gjordes tillgänglig av David. D. Lewis.
   </td>
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_train.csv">lyrl2004_tokens_train.csv</a></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_train.csv">lyrl2004_tokens_train. csv</a></td>
   <td>
-Funktioner i utbildning exemplen i RCV1 V2 Reuters nyheter datauppsättningen. Datauppsättningen har 23K nyhetsartiklar tillsammans med deras ID (första kolumnen i datauppsättningen). Varje artikel är tokeniserad stopworded, och berodde. Datauppsättningen har gjorts tillgängliga av David. D. Lewis.
+Funktioner i övnings exempel i RCV1-v2 Reuters News-datauppsättningen. Data uppsättningen har 23K nyhets artiklar tillsammans med deras ID (första kolumnen i data uppsättningen). Varje artikel är token, stopworded och påfylld. Data uppsättningen gjordes tillgänglig av David. D. Lewis.
   </td>
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a><br></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection. csv</a><br></td>
   <td>
-Datauppsättning från KDD Cup 1999 Knowledge Discovery and Data-utvinning Tools konkurrens (<a href="https://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).
+Data uppsättning från KDD-bägaren 1999 kunskaps identifiering och data utvinnings verktyg, tävling (<a href="https://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99. html</a>).
 <p></p>
-Datauppsättningen har hämtats och lagrats i Azure Blob storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a>) och innehåller både för träning och testning datauppsättningar. Datauppsättning för träning har cirka 126K rader och 43 kolumner, inklusive etiketter. Tre kolumner är en del av etikettinformationen om och 40 kolumner, som består av strängen/kategoriska och numeriska funktioner är tillgängliga för att träna modellen. Test har cirka 22,5 K testa exempel med samma 43 kolumner som i träningsdata.
+Data uppsättningen har laddats ned och lagrats i Azure Blob Storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection. csv</a>) och omfattar både utbildning och testning av data uppsättningar. Data uppsättningen för träning har ungefär 126K rader och 43 kolumner, inklusive etiketter. Tre kolumner är en del av etikett informationen och 40 kolumner, som består av numeriska och sträng/kategoriska funktioner, är tillgängliga för att träna modellen. Test data har ungefär 22.5 K test-exempel med samma 43-kolumner som i tränings data.
   </td>
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2. topics. qrels. csv</a></td>
   <td>
-Avsnittet tilldelningar efter nyhetsartiklar i RCV1 V2 Reuters nyheter datauppsättningen. En nyhetsartikel kan tilldelas till flera avsnitt. Formatet för varje rad är ”&lt;ämnesnamn&gt; &lt;dokument-id&gt; 1”. Datauppsättningen innehåller 2,6 miljoner avsnittet tilldelningar. Datauppsättningen har gjorts tillgängliga av David. D. Lewis.
+Ämnes tilldelningar för nyhets artiklar i RCV1-v2 Reuters News-datauppsättningen. En nyhets artikel kan tilldelas till flera ämnen. Formatet på varje rad är "&lt;ämnes namn&gt; &lt;dokument-ID&gt; 1". Data uppsättningen innehåller ämnes tilldelningar 2.6 M. Data uppsättningen gjordes tillgänglig av David. D. Lewis.
   </td>
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance. txt</a></td>
   <td>
-Den här informationen kommer från KDD Cup 2010 Student prestanda utvärdering utmaningen (<a href="https://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">student prestandautvärdering</a>). De data som används är träningsmängden Algebra_2008_2009 (Stamper, J., Niculescu-Mizil A., Ritter, S. Gordon, G.J. och Koedinger K.R. (2010). Algebra I 2008-2009. Utmana datauppsättning från KDD Cup 2010 Educational Data Mining utmaning. Hitta den på <a href="https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
+Dessa data kommer från KDD-bägaren 2010 student prestanda utvärderings utmaning (<a href="https://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">student Performance Evaluation</a>). De data som används är Algebra_2008_2009 Training set (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Algebra I 2008-2009. Utmanings data uppsättning från KDD-bägare 2010 utbildnings data utvinnings utmaning. Hitta den vid <a href="https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">hämtningar. jsp</a>.
 <p></p>
-Datauppsättningen har hämtats och lagrats i Azure Blob storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) och innehåller loggfiler från student tutoring system. De angivna funktionerna inkluderar problem-ID och en kort beskrivning, student-ID, tidsstämpel och hur många försök elevens gjort innan du lösa problemet på rätt sätt. Den ursprungliga datauppsättningen innehåller poster för 8.9M; den här datauppsättningen har varit samplas ned till de första 100K raderna. Datauppsättningen har 23 tabbavgränsade kolumner med olika typer: numeriska, kategoriska, och tidsstämpel.
+Data uppsättningen har laddats ned och lagrats i Azure Blob Storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance. txt</a>) och innehåller loggfiler från ett student Utlärnings-system. De tillhandahållna funktionerna inkluderar problem-ID och dess kort beskrivning, Student-ID, tidsstämpel och hur många försök student som gjorts innan problemet löses på rätt sätt. Den ursprungliga data uppsättningen innehåller 8,9 M-poster; den här data uppsättningen har inaktiverats för de första 100 000 raderna. Data uppsättningen har 23 tabbavgränsade kolumner av olika typer: numeric, kategoriska och timestamp.
   </td>
 </tr>
 
@@ -408,7 +408,7 @@ Datauppsättningen har hämtats och lagrats i Azure Blob storage (<a href="https
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Kickstart experimenterar med exempel](sample-experiments.md)
+> [Kickstart dina experiment med exempel](sample-experiments.md)
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

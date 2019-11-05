@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/31/2019
+ms.date: 10/14/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 91f07b8da2cbc9beaa24730f2ec9f2ddb4639f37
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
-ms.translationtype: MT
+ms.openlocfilehash: e6e4c0018f11e216afd5a8c295fc336036885e68
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302536"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468943"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: vanliga frågor och svar
 
@@ -35,9 +35,9 @@ Azure AD B2C kan inte användas för att autentisera användare för Microsoft O
 
 ### <a name="what-are-local-accounts-in-azure-ad-b2c-how-are-they-different-from-work-or-school-accounts-in-azure-ad"></a>Vad är lokala konton i Azure AD B2C? Hur skiljer de sig från arbets-eller skol konton i Azure AD?
 
-I en Azure AD-klient är det användare som tillhör klient inloggningen med en e-postadress till formuläret `<xyz>@<tenant domain>`. @No__t-0 är en av de verifierade domänerna i klient organisationen eller den första `<...>.onmicrosoft.com`-domänen. Den här typen av konto är ett arbets-eller skol konto.
+I en Azure AD-klient är det användare som tillhör klient inloggningen med en e-postadress till formuläret `<xyz>@<tenant domain>`. `<tenant domain>` är en av de verifierade domänerna i klient organisationen eller den första `<...>.onmicrosoft.com`s domänen. Den här typen av konto är ett arbets-eller skol konto.
 
-I en Azure AD B2C klient vill de flesta appar att användaren loggar in med valfri e-postadress (till exempel joe@comcast.net, bob@gmail.com, sarah@contoso.com eller jim@live.com). Den här typen av konto är ett lokalt konto. Vi stöder också godtyckliga användar namn som lokala konton (till exempel Johan, Robert, Sarah eller Jim). Du kan välja en av dessa två lokala konto typer när du konfigurerar identitets leverantörer för Azure AD B2C i Azure Portal. I Azure AD B2C klient väljer du **identitets leverantörer**, väljer **lokalt konto**och väljer sedan **användar namn**.
+I en Azure AD B2C klient vill de flesta appar att användaren loggar in med valfri e-postadress (till exempel joe@comcast.net, bob@gmail.com, sarah@contoso.comeller jim@live.com). Den här typen av konto är ett lokalt konto. Vi stöder också godtyckliga användar namn som lokala konton (till exempel Johan, Robert, Sarah eller Jim). Du kan välja en av dessa två lokala konto typer när du konfigurerar identitets leverantörer för Azure AD B2C i Azure Portal. I Azure AD B2C klient väljer du **identitets leverantörer**, väljer **lokalt konto**och väljer sedan **användar namn**.
 
 Användar konton för program måste alltid skapas via ett registrerings-eller inloggnings användar flöde eller med hjälp av Azure AD-Graph API. Användar konton som skapas i Azure Portal används bara för att administrera klient organisationen.
 
@@ -130,15 +130,20 @@ Inte för tillfället. Den här funktionen finns i vår översikt. Att verifiera
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Hur gör jag för att ta bort Azure AD B2C klienten?
 
-Följ de här stegen för att ta bort din Azure AD B2C klient:
+Följ dessa steg om du vill ta bort din Azure AD B2C-klient.
 
+Du kan använda den aktuella **program** upplevelsen eller vår nya enhetliga **Appregistreringar (för hands version)** . [Läs mer om för hands](http://aka.ms/b2cappregintro)versionen.
+
+#### <a name="applicationstabapplications"></a>[Program](#tab/applications/)
+
+1. Logga in på [Azure Portal](https://portal.azure.com/) som *prenumerations administratör*. Använd samma arbets-eller skol konto eller samma Microsoft-konto som du använde för att registrera dig för Azure.
+1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
+1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
 1. Ta bort alla **användar flöden (principer)** i Azure AD B2C klient organisationen.
 1. Ta bort alla **program** som du har registrerat i Azure AD B2C-klienten.
-1. Logga sedan in på [Azure Portal](https://portal.azure.com/) som prenumerations administratör. Använd samma arbets-eller skol konto eller samma Microsoft-konto som du använde för att registrera dig för Azure.
-1. Växla till den Azure AD B2C klient som du vill ta bort.
 1. Välj **Azure Active Directory** på menyn till vänster.
 1. Under **Hantera** väljer du **Användare**.
-1. Välj varje användare i tur (exkludera den prenumerations administratörs användare som du för närvarande är inloggad som). Välj **ta bort** längst ned på sidan och välj **Ja** när du uppmanas till det.
+1. Välj varje användare i tur (exkludera den *prenumerations administratörs* användare som du för närvarande är inloggad som). Välj **ta bort** längst ned på sidan och välj **Ja** när du uppmanas till det.
 1. Under **Hantera**väljer du **Appregistreringar** (eller **Appregistreringar (bakåtkompatibelt)** ).
 1. Välj **Visa alla program**
 1. Välj programmet med namnet **B2C-Extensions-app**, Välj **ta bort**och välj sedan **Ja** när du uppmanas att göra det.
@@ -149,6 +154,28 @@ Följ de här stegen för att ta bort din Azure AD B2C klient:
 1. Logga ut från Azure Portal och logga sedan in igen för att uppdatera åtkomsten.
 1. Välj **Azure Active Directory** på menyn till vänster.
 1. På sidan **Översikt** väljer du **ta bort katalog**. Slutför processen genom att följa anvisningarna på skärmen.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
+
+1. Logga in på [Azure Portal](https://portal.azure.com/) som *prenumerations administratör*. Använd samma arbets-eller skol konto eller samma Microsoft-konto som du använde för att registrera dig för Azure.
+1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
+1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
+1. Ta bort alla **användar flöden (principer)** i Azure AD B2C klient organisationen.
+1. Välj **Appregistreringar (för hands version)** och välj sedan fliken **alla program** .
+1. Ta bort alla program som du har registrerat.
+1. Ta bort **B2C-Extensions-appen**.
+1. Under **Hantera** väljer du **Användare**.
+1. Välj varje användare i tur (exkludera den *prenumerations administratörs* användare som du för närvarande är inloggad som). Välj **ta bort** längst ned på sidan och välj **Ja** när du uppmanas till det.
+1. Välj **Azure Active Directory** på menyn till vänster.
+1. Under **Hantera**väljer du **användar inställningar**.
+1. Om det är tillgängligt väljer du **Nej**under **LinkedIn-konto anslutningar**och väljer sedan **Spara**.
+1. Under **Hantera**, väljer du **Egenskaper**
+1. Under **åtkomst hantering för Azure-resurser**väljer du **Ja**och väljer sedan **Spara**.
+1. Logga ut från Azure Portal och logga sedan in igen för att uppdatera åtkomsten.
+1. Välj **Azure Active Directory** på menyn till vänster.
+1. På sidan **Översikt** väljer du **ta bort katalog**. Slutför processen genom att följa anvisningarna på skärmen.
+
+* * *
 
 ### <a name="can-i-get-azure-ad-b2c-as-part-of-enterprise-mobility-suite"></a>Kan jag få Azure AD B2C som en del av Enterprise Mobility Suite?
 

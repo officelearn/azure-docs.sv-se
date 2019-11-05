@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 6987c6f1191b0dfc7b78b14e77a5d6a0ab369f57
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: e46bc9e4fbb2b573338b8be43c38e658ebde05a8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782612"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468026"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Konfigurera katastrof återställning för virtuella Azure-datorer
 
@@ -23,7 +23,7 @@ ms.locfileid: "68782612"
 Den här självstudien visar hur du konfigurerar haveri beredskap för virtuella Azure-datorer genom att replikera dem från en Azure-region till en annan. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * skapar ett Recovery Services-valv
+> * Skapa ett Recovery Services-valv
 > * Verifiera målresursuppsättningar
 > * Konfigurera utgående nätverks anslutning för virtuella datorer
 > * Aktivera replikering för en virtuell dator
@@ -38,12 +38,12 @@ För att slutföra den här självstudien behöver du:
 - Granska [arkitekturen och komponenterna för scenariot](concepts-azure-to-azure-architecture.md).
 - Granska [support kraven](site-recovery-support-matrix-azure-to-azure.md) innan du börjar.
 
-## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
+## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
 
 Skapa valvet i valfri region, utom i källregionen.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) > **Recovery Services**.
-2. Klicka på **Skapa en resurs** > **Hanteringsverktyg** > **Backup och Site Recovery**.
+2. På Azure Portal-menyn eller på **Start** sidan väljer du **skapa en resurs**. Välj sedan **hanterings verktyg** > **säkerhets kopiering och Site Recovery**.
 3. I **Namn** anger du ett eget namn som identifierar valvet. Om du har mer än en prenumeration väljer du den lämpligaste.
 4. Skapa en resursgrupp eller välj en befintlig. Ange en Azure-region. Information om vilka regioner som stöds finns under Geografisk tillgänglighet i avsnittet med [Azure Site Recovery-prisinformation](https://azure.microsoft.com/pricing/details/site-recovery/).
 5. För att snabbt komma åt valvet från instrumentpanelen klickar du på **Fäst på instrumentpanelen** och sedan på **Skapa**.
@@ -69,7 +69,7 @@ Site Recovery kräver att vissa ändringar görs i utgående nätverksanslutning
 
 Om du använder en webbadressbaserad brandväggsproxy för att styra utgående nätverksanslutningar ger du tillgång till dessa URL:er.
 
-| **URL** | **Detaljer** |
+| **URL** | **Information** |
 | ------- | ----------- |
 | *.blob.core.windows.net | Gör att data kan skrivas från den virtuella datorn till cachelagringskontot i källregionen. |
 | login.microsoftonline.com | Tillhandahåller auktorisering och autentisering för Site Recovery-tjänstens webbadresser. |
@@ -138,7 +138,7 @@ Site Recovery skapar standardinställningar och replikeringsprinciper för målr
 
 3. Anpassa mål inställningarna som sammanfattas i tabellen.
 
-    **Inställning** | **Detaljer**
+    **Inställning** | **Information**
     --- | ---
     **Mål prenumeration** | Som standard är mål prenumerationen densamma som käll prenumerationen. Klicka på Anpassa om du vill välja en annan målprenumeration inom samma Azure Active Directory-klientorganisation.
     **Målplats** | Den målregion som används för haveriberedskap.<br/><br/> Vi rekommenderar att målplatsen överensstämmer med Site Recovery-valvets plats.
@@ -152,7 +152,7 @@ Site Recovery skapar standardinställningar och replikeringsprinciper för målr
 
 4. Om du vill anpassa inställningarna för replikeringsprincipen klickar du på **Anpassa** bredvid **replikeringsprincip**och ändrar inställningarna efter behov.
 
-    **Inställning** | **Detaljer**
+    **Inställning** | **Information**
     --- | ---
     **Namn på replikeringsprincip** | Principnamn.
     **Kvarhållning av återställnings punkt** | Som standard behåller Site Recovery återställningspunkter i 24 timmar. Du kan ställa in ett värde mellan 1 och 72 timmar.
@@ -175,8 +175,8 @@ Site Recovery skapar standardinställningar och replikeringsprinciper för målr
 Om den virtuella käll datorn har Azure Disk Encryption (ADE) aktiverat, granskar du inställningarna.
 
 1. Verifiera inställningarna:
-    - **Nyckelvalv för diskkryptering**: Som standard skapar Site Recovery ett nytt nyckel valv på den virtuella käll diskens krypterings nycklar, med ett "ASR"-suffix. Om nyckel valvet redan finns återanvänds det.
-    - **Nyckelvalv för nyckelkryptering**: Som standard skapar Site Recovery ett nytt nyckel valv i mål regionen. Namnet har "ASR"-suffix och baseras på den virtuella käll nyckelns krypterings nycklar. Om nyckel valvet som skapats av Site Recovery redan finns återanvänds det.
+    - **Nyckel valv för disk kryptering**: som standard skapar Site Recovery ett nytt nyckel valv på den virtuella käll diskens disk krypterings nycklar med ett "ASR"-suffix. Om nyckel valvet redan finns återanvänds det.
+    - **Nyckel valv för nyckel kryptering**: som standard skapar Site Recovery ett nytt nyckel valv i mål regionen. Namnet har "ASR"-suffix och baseras på den virtuella käll nyckelns krypterings nycklar. Om nyckel valvet som skapats av Site Recovery redan finns återanvänds det.
 
 2. Klicka på **Anpassa** för att välja anpassade nyckelvalv.
 

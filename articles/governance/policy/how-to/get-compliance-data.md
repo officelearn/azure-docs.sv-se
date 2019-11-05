@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 47258f27f44b6a21c5da72e4631591e695024400
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: bd65fcf6ebff931fbb408ca8337a37d355221dfe
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053282"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480242"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Hämta efterlevnads data för Azure-resurser
 
@@ -89,10 +89,10 @@ Följande tabell visar hur olika princip effekter fungerar med villkors utvärde
 
 | Resurs tillstånd | Verkan | Princip utvärdering | Kompatibilitetstillstånd |
 | --- | --- | --- | --- |
-| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | Sant | Icke-kompatibel |
-| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | Falskt | Uppfyller kraven |
-| Nytt | Audit, AuditIfNotExist\* | Sant | Icke-kompatibel |
-| Nytt | Audit, AuditIfNotExist\* | Falskt | Uppfyller kraven |
+| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Icke-kompatibel |
+| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Kompatibel |
+| Ny | Audit, AuditIfNotExist\* | True | Icke-kompatibel |
+| Ny | Audit, AuditIfNotExist\* | False | Kompatibel |
 
 \* För åtgärderna Append, DeployIfNotExist och AuditIfNotExist måste IF-instruktionen är TRUE.
 Åtgärderna kräver också att villkoret Finns är FALSE för att vara icke-kompatibla. När det är TRUE utlöser IF-villkoret utvärdering av villkoret Finns för de relaterade resurserna.
@@ -118,7 +118,7 @@ _Totalt antal resurser_ definieras som summan av de **kompatibla**, **icke-kompa
 
 ![Exempel på sidan efterlevnad av principer](../media/getting-compliance-data/simple-compliance.png)
 
-## <a name="portal"></a>Portalen
+## <a name="portal"></a>Portal
 
 Azure Portal demonstrerar en grafisk upplevelse av visualisering och förståelse av status för miljön. På **princip** sidan innehåller **översikts** alternativet information om tillgängliga omfång för efterlevnad av både principer och initiativ. Tillsammans med kompatibilitetstillstånd och antalet per tilldelning innehåller det ett diagram som visar efterlevnad under de senaste sju dagarna. Sidan **efterlevnad** innehåller ungefär samma information (förutom diagrammet), men innehåller ytterligare alternativ för filtrering och sortering.
 
@@ -131,9 +131,16 @@ Eftersom en princip eller ett initiativ kan tilldelas till olika omfattningar, i
 I listan över resurser på fliken **kompatibilitet** visas utvärderings status för befintliga resurser för den aktuella tilldelningen. Fliken är som standard **icke-kompatibel**, men kan filtreras.
 Händelser (tillägg, granskning, neka, distribution) som utlöses av begäran om att skapa en resurs visas på fliken **händelser** .
 
+> [!NOTE]
+> För en AKS Engine-princip är resursen som visas resurs gruppen.
+
 ![Exempel på Azure Policy Compliance Events](../media/getting-compliance-data/compliance-events.png)
 
-Högerklicka på raden i händelsen som du vill samla in mer information om och välj **Visa aktivitets loggar**. Sidan aktivitets logg öppnas och filtreras i förväg till sökningen som visar information om tilldelningen och händelserna. Aktivitets loggen ger ytterligare kontext och information om dessa händelser.
+För resurser i [resurs leverantörs läge](../concepts/definition-structure.md#resource-provider-modes) går du till fliken **Resource Compliance (Resource Compliance** ) och markerar resursen eller högerklickar på raden och väljer **Visa kompatibilitetsinformation** öppnar komponenten Kompatibilitetsrapport. På den här sidan finns också flikar för att se de principer som har tilldelats den här resursen, händelser, komponent händelser och ändrings historik.
+
+![Exempel på information om efterlevnad av Azure Policy-komponenter](../media/getting-compliance-data/compliance-components.png)
+
+Tillbaka på sidan Resource Compliance (resurser) högerklickar du på den rad i händelsen som du vill samla in mer information om och väljer **Visa aktivitets loggar**. Sidan aktivitets logg öppnas och filtreras i förväg till sökningen som visar information om tilldelningen och händelserna. Aktivitets loggen ger ytterligare kontext och information om dessa händelser.
 
 ![Exempel på aktivitets logg för Azure Policy regelefterlevnad](../media/getting-compliance-data/compliance-activitylog.png)
 
@@ -143,7 +150,7 @@ Högerklicka på raden i händelsen som du vill samla in mer information om och 
 
 När en resurs bedöms vara **icke-kompatibel**finns det många möjliga orsaker. Om du vill ta reda på orsaken till att en resurs är **icke-kompatibel** eller om du vill ha en ändrings ansvarig, kontrollerar du att det [inte är kompatibelt](./determine-non-compliance.md)
 
-## <a name="command-line"></a>Kommandoraden
+## <a name="command-line"></a>Kommandorad
 
 Samma information som är tillgänglig i portalen kan hämtas med REST API (inklusive med [ARMClient](https://github.com/projectkudu/ARMClient)), Azure PowerShell och Azure CLI (för hands version).
 Fullständig information om REST API finns i [Azure policy Insights](/rest/api/policy-insights/) -referensen. REST API referens sidor har en grön "Try"-knapp för varje åtgärd som gör att du kan testa den direkt i webbläsaren.

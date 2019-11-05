@@ -1,7 +1,7 @@
 ---
 title: Skapa en ny app-LUIS
 titleSuffix: Azure Cognitive Services
-description: Skapa och hantera dina program på webbsidan för Språkförståelse (LUIS).
+description: Skapa och hantera dina program på sidan Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,31 +9,33 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 5939886f68a877c4cfad752fe93c4f0eca8f80cf
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 227efcdbcb7d8e776dd77b38c5d1dedd54d71b6b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258512"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500314"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Skapa en ny LUIS-app i LUIS-portalen
-Det finns ett par olika sätt att skapa en LUIS-app. Du kan skapa en LUIS-app i den [LUIS](https://www.luis.ai) portal, eller via LUIS redigering [API: er](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
+Det finns ett par olika sätt att skapa en LUIS-app. Du kan skapa en LUIS-app i [Luis](https://www.luis.ai) -portalen eller via Luis redigerings- [API: er](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
 
-## <a name="using-the-luis-portal"></a>Med LUIS-portalen
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
-Du kan skapa en ny app i portalen LUIS på flera olika sätt:
+## <a name="using-the-luis-portal"></a>Använda LUIS-portalen
 
-* Börja med en tom app och skapa avsikter och yttranden entiteter.
-* Börja med en tom app och lägga till en [fördefinierade domän](luis-how-to-use-prebuilt-domains.md).
-* Importera en LUIS-app från en JSON-fil som redan innehåller avsikter och yttranden entiteter.
+Du kan skapa en ny app i LUIS-portalen på flera sätt:
 
-## <a name="using-the-authoring-apis"></a>Med redigering API: er
-Du kan skapa en ny app med redigering API: er på ett par olika sätt:
+* Börja med en tom app och skapa avsikter, yttranden och entiteter.
+* Börja med en tom app och Lägg till en [fördefinierad domän](luis-how-to-use-prebuilt-domains.md).
+* Importera en LUIS-app från en JSON-fil som redan innehåller avsikter, yttranden och entiteter.
 
-* [Starta](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) med en tom app och skapa avsikter och yttranden entiteter.
-* [Starta](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/59104e515aca2f0b48c76be5) med en fördefinierade domän.  
+## <a name="using-the-authoring-apis"></a>Använda API: erna för redigering
+Du kan skapa en ny app med API: erna för redigering på ett par olika sätt:
+
+* [Börja](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) med en tom app och skapa avsikter, yttranden och entiteter.
+* [Börja](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/59104e515aca2f0b48c76be5) med en fördefinierad domän.  
 
 
 <a name="export-app"></a>
@@ -43,18 +45,18 @@ Du kan skapa en ny app med redigering API: er på ett par olika sätt:
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
-## <a name="create-new-app-in-luis"></a>Skapa ny app i LUIS
+## <a name="create-new-app-in-luis"></a>Skapa en ny app i LUIS
 
-1. På **Mina appar** väljer **skapar en ny app**.
+1. På sidan **Mina appar** väljer du **+ skapa**.
 
     ![Lista över LUIS-appar](./media/luis-create-new-app/apps-list.png)
 
 
-2. Namnge ditt program ”TravelAgent” i dialogrutan.
+2. Ge ditt program namnet "TravelAgent" i dialog rutan.
 
-    ![Skapa ny app dialog](./media/luis-create-new-app/create-app.png)
+    ![Dialog rutan skapa ny app](./media/luis-create-new-app/create-app.png)
 
-3. Välj ditt program kulturen (TravelAgent appen, Välj engelska), och välj sedan **klar**. 
+3. Välj din program kultur (för TravelAgent-appen, välj engelska) och välj sedan **klar**. 
 
     > [!NOTE]
     > Kulturen kan inte ändras när appen har skapats. 
@@ -92,4 +94,4 @@ Möjliga fel är:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Din första uppgift i appen är att [Lägg till avsikter](luis-how-to-add-intents.md).
+Din första uppgift i appen är att [lägga till avsikter](luis-how-to-add-intents.md).

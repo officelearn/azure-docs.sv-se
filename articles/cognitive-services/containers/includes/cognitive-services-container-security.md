@@ -7,18 +7,18 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/24/2019
+ms.date: 09/30/2019
 ms.author: dapine
-ms.openlocfilehash: 7322d356d972635b81bc1bdd4b329bd3d5ac02df
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 35f5cffdc644370082e229c88d67db33e853c446
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71842579"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499180"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Säkerhet för Azure Cognitive Services-behållare
 
-Säkerheten bör vara primärt fokuserad när du utvecklar program. Vikten av säkerhet är ett mått för framgång. När du skapar en program varu lösning som innehåller Cognitive Services behållare är det viktigt att du förstår de begränsningar och möjligheter som är tillgängliga för dig. Mer information finns i [Azure-säkerhet][az-security].
+Säkerheten bör vara primärt fokuserad när du utvecklar program. Vikten av säkerhet är ett mått för framgång. När du skapar en program varu lösning som innehåller Cognitive Services behållare är det viktigt att du förstår de begränsningar och möjligheter som är tillgängliga för dig. Mer information om nätverks säkerhet finns i [Konfigurera Azure Cognitive Services virtuella nätverk][az-security].
 
 > [!IMPORTANT]
 > Som standard finns det *Ingen säkerhet* för API: et för Cognitive Services container. Orsaken till detta är att behållaren ofta körs som en del av en pod som skyddas från utsidan av en nätverks brygga. Det är dock möjligt att aktivera autentisering som fungerar identiskt med autentiseringen som används vid åtkomst till den [molnbaserade Cognitive Services][request-authentication].
@@ -44,11 +44,11 @@ Värden ska tillåta List **port 443** och följande domäner:
 
 #### <a name="disable-deep-packet-inspection"></a>Inaktivera djup paket granskning
 
-> [Djup paket inspektion](https://en.wikipedia.org/wiki/Deep_packet_inspection) (DPI) är en typ av data bearbetning som identifierar data som skickas över ett dator nätverk, och som vanligt vis vidtar åtgärder genom att blockera, dirigera om eller logga i enlighet med detta.
+> [Djup paket inspektion](https://en.wikipedia.org/wiki/Deep_packet_inspection) (dpi) är en typ av data bearbetning som identifierar data som skickas över ett dator nätverk, och som vanligt vis vidtar åtgärder genom att blockera, dirigera om eller logga i enlighet med detta.
 
 Inaktivera DPI på de säkra kanaler som Cognitive Services behållare skapar till Microsoft-servrar. Om du inte gör det kommer behållaren inte att fungera korrekt.
 
 [istio]: https://istio.io/
 [nginx]: https://www.nginx.com
 [request-authentication]: ../../authentication.md
-[az-security]: ../../../security/fundamentals/overview.md
+[az-security]: ../../cognitive-services-virtual-networks.md

@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Hämta avsikt med REST API: er – LUIS'
+title: 'Snabb start: skapa avsikt med REST-API: er – LUIS'
 titleSuffix: Azure Cognitive Services
 description: I den här REST API snabb starten använder du en tillgänglig offentlig LUIS-app för att fastställa en användares avsikt från konversations text.
 services: cognitive-services
@@ -9,19 +9,23 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/27/2019
+ms.date: 10/17/2019
 ms.author: diberry
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: f3eceed1c4ab06d9b7a1959bceda4122f0412b35
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 3a8badb74bb8919876f3c0670d785f44fbcbb397
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703159"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499687"
 ---
-# <a name="quickstart-get-intent-with-rest-apis"></a>Snabbstart: Hämta avsikt med REST API: er
+# <a name="quickstart-get-intent-with-rest-apis"></a>Snabb start: skapa avsikt med REST API: er
 
-[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+I den här snabbstarten använder du en tillgänglig offentlig LUIS-app för att fastställa användarens avsikt i konversationstext. Skicka användarens avsikt som text till den offentliga appens HTTP-slutpunkt för förutsägelser. Vid slutpunkten tillämpar LUIS den offentliga appens modell för att analysera betydelsen av text med naturligt språk, och fastställa den övergripande avsikten och extrahera data som är relevanta för appens ämnesdomän. 
+
+I den här snabbstarten används slutpunktens REST-API. Mer information finns i [dokumentationen om slutpunkts-API:er](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78).
+
+I den här artikeln behöver du ett kostnadsfritt [LUIS](https://www.luis.ai)-konto. 
 
 <a name="create-luis-subscription-key"></a>
 

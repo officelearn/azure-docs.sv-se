@@ -3,15 +3,15 @@ title: Information om princip definitions strukturen
 description: Beskriver hur resurs princip definitionen används av Azure Policy för att upprätta konventioner för resurser i din organisation genom att beskriva när principen tillämpas och vilken funktion som ska vidtas.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/09/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: fe0f16fd4c07eac92ab3c1ae2c6f78b0bd1595eb
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: d415075bda4ff58d4a3a633fe820f22d8a157459
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053504"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464023"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -25,7 +25,7 @@ Du använder JSON för att skapa en princip definition. Princip definitionen inn
 - Offline
 - parameters
 - visnings namn
-- beskrivning
+- description
 - princip regel
   - logisk utvärdering
   - effekt
@@ -81,12 +81,17 @@ Vi rekommenderar att du ställer in **läget** till `all` i de flesta fall. Alla
 
 `indexed` bör användas när du skapar principer som tvingar taggar eller platser. Även om det inte krävs, förhindrar det att resurser som inte stöder taggar och platser visas som icke-kompatibla i resultatet av efterlevnaden. Undantag är **resurs grupper**. Principer som tvingar plats eller taggar i en resurs grupp bör ange **läge** till `all` och särskilt rikta `Microsoft.Resources/subscriptions/resourceGroups` typen. Ett exempel finns i [tvinga resurs grupps Taggar](../samples/enforce-tag-rg.md). En lista över resurser som stöder taggar finns i [tagga stöd för Azure-resurser](../../../azure-resource-manager/tag-support.md).
 
-### <a name="resource-provider-modes"></a>Resurs leverantörs lägen
+### <a name="a-nameresource-provider-modes-resource-provider-modes-preview"></a>läge för <a name="resource-provider-modes" />resurs leverantör (förhands granskning)
 
-Det enda resurs leverantörs läge som stöds för närvarande är `Microsoft.ContainerService.Data` för hantering av regler för regler för åtkomst kontroll i [Azure Kubernetes-tjänsten](../../../aks/intro-kubernetes.md).
+Följande resurs leverantörs lägen stöds för närvarande under för hands versionen:
+
+- `Microsoft.ContainerService.Data` för hantering av regler för regler för åtkomst kontroll i [Azure Kubernetes-tjänsten](../../../aks/intro-kubernetes.md). Principer som använder detta resurs leverantörs läge **måste** använda [EnforceRegoPolicy](./effects.md#enforceregopolicy) -effekter.
+- `Microsoft.Kubernetes.Data` för att hantera självhanterade Kubernetes-kluster i AKS-motorn på Azure.
+  Principer som använder detta resurs leverantörs läge **måste** använda [EnforceOPAConstraint](./effects.md#enforceopaconstraint) -effekter.
+- `Microsoft.KeyVault.Data` för att hantera valv och certifikat i [Azure Key Vault](../../../key-vault/key-vault-overview.md).
 
 > [!NOTE]
-> [Azure policy för Kubernetes](rego-for-aks.md) finns i en offentlig för hands version och stöder bara inbyggda princip definitioner.
+> Resurs leverantörs lägen stöder bara inbyggda princip definitioner och stöder inte initiativ i för hands versionen.
 
 ## <a name="parameters"></a>Parametrar
 
@@ -134,7 +139,7 @@ Du kan till exempel definiera en princip definition för att begränsa de platse
 
 ### <a name="using-a-parameter-value"></a>Använda ett parameter värde
 
-I princip regeln refererar du parametrar med följande syntax för `parameters` distributions värde funktion:
+I princip regeln refererar du parametrar med följande syntax för `parameters` funktion:
 
 ```json
 {
@@ -272,7 +277,7 @@ Följande fält stöds:
 - `tags['''<tagName>''']`
   - Den här klammerns syntax stöder taggnamn som har apostrofer i den genom att använda dubbla apostrofer.
   - Där **"\<tagName\>"** är namnet på taggen som verifierar villkoret för.
-  - Exempel: `tags['''My.Apostrophe.Tag''']` där **"\<tagName\>"** är namnet på taggen.
+  - Exempel: `tags['''My.Apostrophe.Tag''']` där **' My. apostrof. tag '** är namnet på taggen.
 - egenskaps Ali Aset – en lista finns i [alias](#aliases).
 
 > [!NOTE]
@@ -282,7 +287,7 @@ Följande fält stöds:
 
 Ett parameter värde kan skickas till ett tagg-fält. Att skicka en parameter till ett taggnamn ökar flexibiliteten i princip definitionen under princip tilldelning.
 
-I följande exempel används `concat` för att skapa ett tagg fälts uppslag för taggen som heter värdet för **TagName** -parametern. Om taggen inte finns **används Lägg till-resultatet för** att lägga till taggen med värdet för samma namngivna tagg uppsättning på den överordnade resurs gruppen granskade resurser med hjälp av `resourcegroup()` lookup-funktionen.
+I följande exempel används `concat` för att skapa ett tagg fälts uppslag för taggen som heter värdet för **TagName** -parametern. Om taggen inte finns används **ändra** -funktionen för att lägga till taggen med värdet för samma namngivna tagg uppsättning på den överordnade resurs gruppen granskade resurser med hjälp av `resourcegroup()` lookup-funktionen.
 
 ```json
 {
@@ -291,11 +296,17 @@ I följande exempel används `concat` för att skapa ett tagg fälts uppslag fö
         "exists": "false"
     },
     "then": {
-        "effect": "append",
-        "details": [{
-            "field": "[concat('tags[', parameters('tagName'), ']')]",
-            "value": "[resourcegroup().tags[parameters('tagName')]]"
-        }]
+        "effect": "modify",
+        "details": {
+            "operations": [{
+                "operation": "add",
+                "field": "[concat('tags[', parameters('tagName'), ']')]",
+                "value": "[resourcegroup().tags[parameters('tagName')]]"
+            }],
+            "roleDefinitionIds": [
+                "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+            ]
+        }
     }
 }
 ```
@@ -390,42 +401,15 @@ Med den ändrade regel regeln `if()` kontrollerar längden på **namnet** innan 
 
 Azure Policy stöder följande typer av påverkan:
 
-- **Neka**: genererar en händelse i aktivitets loggen och Miss lyckas med begäran
-- **Granskning**: genererar en varnings händelse i aktivitets loggen men misslyckade begäran
 - **APPEND**: lägger till den definierade fält uppsättningen i begäran
-- **AuditIfNotExists**: aktiverar granskning om en resurs inte finns
-- **DeployIfNotExists**: distribuerar en resurs om den inte redan finns
+- **Granskning**: genererar en varnings händelse i aktivitets loggen men misslyckade begäran
+- **AuditIfNotExists**: genererar en varnings händelse i aktivitets loggen om en relaterad resurs inte finns
+- **Neka**: genererar en händelse i aktivitets loggen och Miss lyckas med begäran
+- **DeployIfNotExists**: distribuerar en relaterad resurs om den inte redan finns
 - **Disabled**: utvärderar inte resurser för efterlevnad för princip regeln
-- **EnforceRegoPolicy**: konfigurerar kontrollanten för öppen Policy Agent inspelare i Azure Kubernetes-tjänsten (för hands version)
+- **EnforceOPAConstraint** (för hands version): konfigurerar hanterings styrenheten för öppna Policy Agent med Gatekeeper v3 för självhanterade Kubernetes-kluster på Azure (för hands version)
+- **EnforceRegoPolicy** (för hands version): konfigurerar kontrollanten för att öppna princip agenter med Gatekeeper v2 i Azure Kubernetes-tjänsten
 - **Ändra**: lägger till, uppdaterar eller tar bort definierade taggar från en resurs
-
-För **Lägg till**måste du ange följande information:
-
-```json
-"effect": "append",
-"details": [{
-    "field": "field name",
-    "value": "value of the field"
-}]
-```
-
-Värdet kan vara antingen en sträng eller ett JSON-format-objekt.
-
-**AuditIfNotExists** och **DeployIfNotExists** utvärderar förekomsten av en relaterad resurs och tillämpar en regel. Om resursen inte matchar regeln implementeras resultatet. Du kan till exempel kräva att en Network Watcher har distribuerats för alla virtuella nätverk. Mer information finns i [granskningen om tillägget inte finns](../samples/audit-ext-not-exist.md) i exemplet.
-
-**DeployIfNotExists** -funktionen kräver egenskapen **roleDefinitionId** i **informations** delen av princip regeln. Mer information finns i [reparation-Konfigurera princip definition](../how-to/remediate-resources.md#configure-policy-definition).
-
-```json
-"details": {
-    ...
-    "roleDefinitionIds": [
-        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
-        "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
-    ]
-}
-```
-
-På samma sätt **krävs** **roleDefinitionId** -egenskapen i **informations** delen av princip regeln för [Åtgärds uppgiften](../how-to/remediate-resources.md). **Ändra** kräver även en **Åtgärds** mat ris för att definiera vilka åtgärder som ska vidtas på resurs taggarna.
 
 Fullständig information om varje effekt, utvärderings ordning, egenskaper och exempel finns i [förstå Azure policys effekter](effects.md).
 
@@ -509,7 +493,7 @@ Listan över alias växer alltid. Använd någon av följande metoder för att t
 
 ### <a name="understanding-the--alias"></a>Förstå aliaset [*]
 
-Flera av de tillgängliga aliasen har en version som visas som ett normalt namn och en annan som har **[\*]** kopplad till den. Exempel:
+Flera av de tillgängliga aliasen har en version som visas som ett normalt namn och en annan som har **[\*]** kopplad till den. Till exempel:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9e51249bdcfa3cf506700cd3032b1ca39b773d82
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 7c31c04137a8d36adfe41a18cbc276a45483b05b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73102371"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467178"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Tillhandahålla Key Vault autentisering med en princip för åtkomst kontroll
 
@@ -32,7 +32,7 @@ Fullständig information om Key Vault åtkomst kontroll finns i [Azure Key Vault
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett nyckel valv. Du kan använda ett befintligt nyckel valv eller skapa ett nytt genom att följa stegen i någon av följande snabb starter:
    - [Skapa ett nyckel valv med Azure CLI](quick-create-cli.md)
@@ -53,7 +53,7 @@ Varje post för åtkomst principer för nyckel valv ger en distinkt uppsättning
 
 Om du vill ge ett program, Azure AD-grupp eller användar åtkomst till ditt nyckel valv måste du först hämta dess objectId.
 
-#### <a name="applications"></a>Appar
+#### <a name="applications"></a>Program
 
 ObjectId för ett program motsvarar dess associerade tjänst huvud namn. Fullständig information om tjänstens huvud namn. Se [program-och tjänst huvud objekt i Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). 
 
@@ -162,7 +162,7 @@ Set-AzKeyVaultAccessPolicy –VaultName <your-key-vault-name> -PermissionsToKeys
 
 Du kan skapa en Azure AD-grupp, lägga till program och användare i gruppen och ge gruppen åtkomst till ditt nyckel valv.  På så sätt kan du lägga till ett antal program i ett nyckel valv som en post för enskild åtkomst princip och eliminera behovet av att ge användarna direkt åtkomst till ditt nyckel valv (som vi avråder). Mer information finns i [Hantera app-och resurs åtkomst med hjälp av Azure Active Directory grupper](../active-directory/fundamentals/active-directory-manage-groups.md).
 
-### <a name="addition-prerequisites"></a>Tilläggs krav
+### <a name="additional-prerequisites"></a>Ytterligare krav
 
 Utöver [kraven ovan](#prerequisites)måste du ha behörighet att skapa/redigera grupper i Azure Active Directory-klienten. Om du inte har behörighet kan du behöva kontakta Azure Active Directory administratören.
 

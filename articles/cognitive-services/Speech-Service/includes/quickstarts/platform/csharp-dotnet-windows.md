@@ -1,0 +1,78 @@
+---
+title: 'Snabb start: tal-SDK för .NET Framework (Windows) plattforms konfiguration – tal tjänst'
+titleSuffix: Azure Cognitive Services
+description: Använd den här guiden för att konfigurera din plattform C# för under .NET Framework för Windows med Speech Services SDK.
+services: cognitive-services
+author: markamos
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: quickstart
+ms.date: 10/10/2019
+ms.author: erhopf
+ms.openlocfilehash: 2caa5124144146e2286b102bf6ded9c5d120f904
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73502515"
+---
+Den här guiden visar hur du installerar [tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för .NET Framework (Windows).
+
+[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
+
+## <a name="prerequisites"></a>Förutsättningar
+
+För den här snabbstarten krävs:
+
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+
+## <a name="create-a-visual-studio-project-and-install-the-speech-sdk"></a>Skapa ett Visual Studio-projekt och installera talet SDK
+
+Du måste installera [NuGet-paketet för tal-SDK](https://aka.ms/csspeech/nuget) så att du kan referera till det i din kod. För att göra det måste du först skapa ett **HelloWorld** -projekt. Om du redan har ett projekt med arbets belastningen **.net Desktop Development** tillgängligt kan du använda det projektet och hoppa över att [använda NuGet Package Manager för att installera tal-SDK](#use-nuget-package-manager-to-install-the-speech-sdk).
+
+### <a name="create-helloworld-project"></a>Skapa HelloWorld-projekt
+
+1. Öppna Visual Studio 2019.
+
+1. I fönstret Starta väljer du **skapa ett nytt projekt**. 
+
+1. Välj **konsol program (.NET Framework)** i fönstret **skapa ett nytt projekt** och välj sedan **Nästa**.
+
+1. I fönstret **Konfigurera ditt nya projekt** anger du *HelloWorld* i **projekt namn**, väljer eller skapar sökvägen till katalogen på **platsen**och väljer sedan **skapa**.
+
+1. I meny raden i Visual Studio väljer du **verktyg** > **Hämta verktyg och funktioner**som öppnar Visual Studio Installer och visar dialog rutan **ändra** .
+
+1. Kontrol lera om arbets belastningen **.net Desktop Development** är tillgänglig. Om arbets belastningen inte har installerats markerar du kryss rutan bredvid den och väljer sedan **ändra** för att starta installationen. Det kan ta några minuter att ladda ned och installera.
+
+   Om kryss rutan bredvid **.net Desktop Development** redan är markerad väljer du **Stäng** för att stänga dialog rutan.
+
+   ![Aktivera .NET-skrivbordsutveckling](~/articles/cognitive-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
+
+1. Stäng Visual Studio Installer.
+
+### <a name="use-nuget-package-manager-to-install-the-speech-sdk"></a>Använd NuGet Package Manager för att installera talet SDK
+
+1. I Solution Explorer högerklickar du på projektet **HelloWorld** och väljer sedan **Hantera NuGet-paket** för att Visa NuGet Package Manager.
+
+   ![NuGet Package Manager](~/articles/cognitive-services/speech-service/media/sdk/vs-nuget-package-manager.png)
+
+1. Leta upp List rutan **paket källa** i det övre högra hörnet och kontrol lera att **`nuget.org`** är markerat.
+
+1. I det övre vänstra hörnet väljer du **Bläddra**.
+
+1. Skriv *Microsoft. CognitiveServices. Speech* i rutan Sök och välj **RETUR**.
+
+1. Från Sök resultaten väljer du paketet **Microsoft. CognitiveServices. Speech** och väljer sedan **Installera** för att installera den senaste stabila versionen.
+
+   ![Installera Microsoft. CognitiveServices. Speech NuGet-paketet](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-03-nuget-install-1.0.0.png)
+
+1. Acceptera alla avtal och licenser för att starta installationen.
+
+   När paketet har installerats visas en bekräftelse i fönstret **Package Manager-konsol** .
+
+Nu kan du gå vidare till [Nästa steg](#next-steps) nedan.
+
+## <a name="next-steps"></a>Nästa steg
+
+[!INCLUDE [windows](../quickstart-list.md)]

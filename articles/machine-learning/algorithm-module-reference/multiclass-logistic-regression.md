@@ -1,24 +1,24 @@
 ---
 title: 'Logistik regression i multiklass: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder MultiClass Logistisk regression-modulen i Azure Machine Learning service för att skapa en logistik Regressions modell som kan användas för att förutsäga flera värden.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder MultiClass Logistisk regression-modulen i Azure Machine Learning för att skapa en logistik Regressions modell som kan användas för att förutsäga flera värden.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: d31329d6d45fd9f137bd6d57a638915e0833ee4a
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 9d6e6c11f0e2a8fb7e08385f7abf26fb4a8d21c8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692759"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465962"
 ---
 # <a name="multiclass-logistic-regression-module"></a>Logistik Regressions-modul för multiklass
 
-I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd den här modulen för att skapa en logistik Regressions modell som kan användas för att förutsäga flera värden.
 
@@ -67,4 +67,4 @@ När utbildningen är klar kan du se en översikt över modellens parametrar, ti
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/07/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 277333cbca5a31fdc08ae943d2ff61c35d2c9310
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 992cface653bf3fe52afc7efa3f17573fcf91399
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802354"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469640"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Självstudie: använda Key Vault referenser i en ASP.NET Core app
 
@@ -41,7 +41,7 @@ I den här guiden får du lära dig att:
 > * Skapa en konfigurations nyckel för appen som refererar till ett värde som lagras i Key Vault.
 > * Få åtkomst till värdet för den här nyckeln från ett ASP.NET Core-webbprogram.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du startar den här självstudien installerar du [.net Core SDK](https://dotnet.microsoft.com/download).
 
@@ -123,7 +123,7 @@ Om du vill lägga till en hemlighet i valvet behöver du bara utföra några ytt
     az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
     ```
 
-1. I följande kommandon lägger du till hemligheter i stället för *clientId* och *ClientSecret* till hemligheter Manager. Kommandona måste köras i samma katalog som *. CSPROJ* -filen.
+1. Lägg till hemligheter för *clientId* och *ClientSecret* i hemligheter Manager, verktyget för att lagra känsliga data som du har lagt till i *. CSPROJ* -filen i [snabb start: skapa en ASP.net Core-app med Azure App konfiguration](./quickstart-aspnet-core-app.md). De här kommandona måste köras i samma katalog som *. CSPROJ* -filen.
 
     ```
     dotnet user-secrets set ConnectionStrings:KeyVaultClientId <clientId-of-your-service-principal>
@@ -142,7 +142,7 @@ Om du vill lägga till en hemlighet i valvet behöver du bara utföra några ytt
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-1. Uppdatera `CreateWebHostBuilder`-metoden för att använda app-konfiguration genom att anropa `config.AddAzureAppConfiguration`-metoden. Inkludera `UseAzureKeyVault` alternativet för att skicka en ny `KeyVaultClient` referens till din Key Vault.
+1. Uppdatera metoden `CreateWebHostBuilder` för att använda app-konfiguration genom att anropa metoden `config.AddAzureAppConfiguration`. Inkludera `UseAzureKeyVault` alternativet för att skicka en ny `KeyVaultClient` referens till din Key Vault.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

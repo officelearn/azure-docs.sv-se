@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: fråga Apache HBase i Azure HDInsight – Apache Phoenix'
+title: 'Snabb start: Apache HBase & Apache Phoenix – Azure HDInsight'
 description: I den här snabb starten får du lära dig hur du använder Apache Phoenix i HDInsight. Lär dig också hur du installerar och konfigurerar SQLLine på datorn för att ansluta till ett HBase-kluster i HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 20af6d32d03ae5d4fe37b1a37198ef1f2c50ec95
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: a6896eaad86c5e361c50cd81257131ee75a8d6a8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72312203"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467035"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-apache-phoenix"></a>Snabb start: fråga Apache HBase i Azure HDInsight med Apache Phoenix
 
@@ -21,7 +21,7 @@ I den här snabb starten får du lära dig hur du använder Apache Phoenix för 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Apache HBase-kluster. Se [skapa kluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) för att skapa ett HDInsight-kluster.  Se till att du väljer kluster typen **HBase** .
 
@@ -53,7 +53,7 @@ Anteckna värdet för `host_name` för senare användning.
 
 Du kan använda SSH för att ansluta till HBase-kluster och sedan använda Apache Phoenix för att skapa HBase-tabeller, infoga data och fråga efter data.
 
-1. Använd `ssh`-kommandot för att ansluta till ditt HBase-kluster. Redigera kommandot nedan genom att ersätta `CLUSTERNAME` med namnet på klustret och ange sedan kommandot:
+1. Använd `ssh` kommando för att ansluta till ditt HBase-kluster. Redigera kommandot nedan genom att ersätta `CLUSTERNAME` med namnet på klustret och ange sedan kommandot:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -77,7 +77,7 @@ Du kan använda SSH för att ansluta till HBase-kluster och sedan använda Apach
     CREATE TABLE Company (company_id INTEGER PRIMARY KEY, name VARCHAR(225));
     ```
 
-5. Använd kommandot SQLLine `!tables` för att visa alla tabeller i HBase. Ange följande kommando:
+5. Använd kommandot SQLLine `!tables` för att visa en lista över alla tabeller i HBase. Ange följande kommando:
 
     ```sqlline
     !tables

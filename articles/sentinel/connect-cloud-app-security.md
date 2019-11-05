@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 10/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6e71028855344d083dedf3493682e1e27685de48
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 95e38cee8f6995e09dbbb2194cd5a9d0ebc301c1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240111"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498657"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Anslut data från Microsoft Cloud App Security 
 
@@ -30,18 +30,22 @@ Du kan strömma loggar från [Cloud App Security](https://docs.microsoft.com/clo
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Användare med behörighet som global administratör eller säkerhets administratör
+- Om du vill strömma Cloud Discovery loggar till Azure Sentinel [aktiverar du Azure Sentinel som Siem i Microsoft Cloud App Security](aka.ms. https://aka.ms/AzureSentinelMCAS).
 
+> [!IMPORTANT]
+> Inmatning av Cloud Discovery loggar är för närvarande en offentlig för hands version.
+> Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar.
+> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+ 
 ## <a name="connect-to-cloud-app-security"></a>Anslut till Cloud App Security
 
 Om du redan har Cloud App Security kontrollerar du att den är [aktive rad i nätverket](https://docs.microsoft.com/cloud-app-security/getting-started-with-cloud-app-security).
 Om Cloud App Security distribueras och matas in med dina data kan aviserings informationen enkelt strömmas i Azure Sentinel.
 
 
-1. I Azure Sentinel väljer du **data kopplingar** och klickar sedan på panelen **Cloud App Security** .
+1. I Azure Sentinel väljer du **data kopplingar**, klickar på panelen **Cloud App Security** och väljer **Öppna kopplings sida**.
 
-1. Välj vilka loggar du vill strömma till i Azure Sentinel. du kan välja **aviseringar**. 
-
-1. Du kan välja om du vill att aviseringarna från Microsoft Cloud App Security automatiskt ska generera incidenter i Azure Sentinel automatiskt. Under **skapa incidenter** väljer du **Aktivera** för att aktivera den standard analys regel som skapar incidenter automatiskt från aviseringar som genereras i den anslutna säkerhets tjänsten. Du kan sedan redigera den här regeln under **analys** och sedan **aktiva regler**.
+1. Välj vilka loggar du vill strömma till i Azure Sentinel, du kan välja **aviseringar** och **Cloud Discovery loggar** (för hands version). 
 
 1. Klicka på **Anslut**.
 
@@ -53,4 +57,4 @@ Om Cloud App Security distribueras och matas in med dina data kan aviserings inf
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig hur du ansluter Microsoft Cloud App Security till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 - Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
-- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats.md).

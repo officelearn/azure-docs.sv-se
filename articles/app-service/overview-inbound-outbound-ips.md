@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: de98f972a43f3845d2a01b928d90283732ef4843
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 26033192ee841262345b0fc7f6aec76872379070
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329781"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470174"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Inkommande och utgående IP-adresser i Azure App Service
 
@@ -32,7 +32,7 @@ Oavsett antalet utskalade instanser har varje app en enskild inkommande IP-adres
 
 - Ta bort en app och återskapa den i en annan resurs grupp.
 - Ta bort den sista appen i en kombination av resurs grupp _och_ region och återskapa den.
-- Ta bort en befintlig SSL-bindning, till exempel vid certifikat förnyelse (se [Förnya certifikat](app-service-web-tutorial-custom-ssl.md#renew-certificates)).
+- Ta bort en befintlig SSL-bindning, till exempel vid certifikat förnyelse (se [Förnya certifikat](configure-ssl-certificate.md#renew-certificate)).
 
 ## <a name="find-the-inbound-ip"></a>Hitta den inkommande IP-adressen
 
@@ -44,7 +44,7 @@ nslookup <app-name>.azurewebsites.net
 
 ## <a name="get-a-static-inbound-ip"></a>Hämta en statisk inkommande IP-adress
 
-Ibland kanske du vill ha en dedikerad statisk IP-adress för din app. Om du vill hämta en statisk inkommande IP-adress måste du konfigurera en [IP-baserad SSL-bindning](app-service-web-tutorial-custom-ssl.md#secure-a-custom-domain). Om du inte behöver SSL-funktioner för att skydda din app kan du till och med Ladda upp ett självsignerat certifikat för den här bindningen. I en IP-baserad SSL-bindning är certifikatet bundet till själva IP-adressen, så App Service etablerar en statisk IP-adress så att den sker. 
+Ibland kanske du vill ha en dedikerad statisk IP-adress för din app. Om du vill hämta en statisk inkommande IP-adress måste du konfigurera en [IP-baserad SSL-bindning](configure-ssl-bindings.md#secure-a-custom-domain). Om du inte behöver SSL-funktioner för att skydda din app kan du till och med Ladda upp ett självsignerat certifikat för den här bindningen. I en IP-baserad SSL-bindning är certifikatet bundet till själva IP-adressen, så App Service etablerar en statisk IP-adress så att den sker. 
 
 ## <a name="when-outbound-ips-change"></a>När utgående IP-ändringar ändras
 
@@ -52,7 +52,7 @@ Oavsett antalet utskalade instanser har varje app ett angivet antal utgående IP
 
 Uppsättningen utgående IP-adresser för din app ändras när du skalar appen mellan de lägre nivåerna (**Basic**, **standard**och **Premium**) och **Premium v2** -nivån.
 
-Du hittar uppsättningen med alla möjliga utgående IP-adresser som din app kan använda, oavsett pris nivå, genom att leta efter egenskapen `possibleOutboundIpAddresses` eller i fältet **ytterligare utgående IP-adresser** på bladet **Egenskaper** i Azure Portal. Se [hitta utgående IP-adresser](#find-outbound-ips).
+Du hittar uppsättningen med alla möjliga utgående IP-adresser som din app kan använda, oavsett pris nivå, genom att leta efter `possibleOutboundIpAddresses` egenskap eller i fältet **ytterligare utgående IP-adresser** på bladet **Egenskaper** i Azure Portal. Se [hitta utgående IP-adresser](#find-outbound-ips).
 
 ## <a name="find-outbound-ips"></a>Hitta utgående IP-adresser
 

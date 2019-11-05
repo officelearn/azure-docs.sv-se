@@ -1,7 +1,7 @@
 ---
 title: 'Besluts träd med djup klass: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen för besluts träd med multiklass i Azure Machine Learning-tjänsten för att skapa en klassificerare med märkta data.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen för besluts träd med multiklass i Azure Machine Learning för att skapa en klassificerare med märkta data.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 08/22/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 09d2a637099bae414400f49bb89efc5b6652f150
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: b53e504e98cab34fdc50ee8715ec162c910dd40d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692824"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465993"
 ---
 # <a name="multiclass-boosted-decision-tree"></a>Förbättrat beslutsträd med flera klasser
 
-I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd den här modulen för att skapa en Machine Learning-modell som baseras på algoritmen för besluts träd.
 
@@ -61,4 +61,4 @@ Du kan träna den här typen av modell med hjälp av [träna-modellen](././train
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

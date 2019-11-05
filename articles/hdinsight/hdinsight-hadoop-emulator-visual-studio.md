@@ -1,5 +1,5 @@
 ---
-title: Data Lake verktyg för Visual Studio med Hortonworks sandbox – Azure HDInsight
+title: Data Lake verktyg för Visual Studio & Hortonworks – Azure HDInsight
 description: Lär dig hur du använder Azure Data Lake verktyg för Visual Studio med sand boxen Hortonworks som körs i en lokal virtuell dator. Med dessa verktyg kan du skapa och köra Hive-och gris-jobb i sand boxen och visa utdata och historik för jobb.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 1edab776ec93f057ebf7e37ac887747f86a27db9
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: e128aaf6e1726b7a1341fefc6df3cdafd3beb880
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098780"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500155"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Använd Azure Data Lake verktyg för Visual Studio med sandbox-Hortonworks
 
@@ -33,7 +33,7 @@ Med Hortonworks sandbox kan du arbeta med Hadoop lokalt i utvecklings miljön. N
 
 ## <a name="configure-passwords-for-the-sandbox"></a>Konfigurera lösen ord för sandbox
 
-Kontrol lera att sandbox-Hortonworks körs. Följ sedan stegen i dokumentet [Kom igång i Hortonworks sandbox](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords) . De här stegen konfigurerar lösen ordet för SSH `root` -kontot och Apache Ambari `admin` -kontot. Dessa lösen ord används när du ansluter till sand boxen från Visual Studio.
+Kontrol lera att sandbox-Hortonworks körs. Följ sedan stegen i dokumentet [Kom igång i Hortonworks sandbox](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords) . De här stegen konfigurerar lösen ordet för SSH `root`-kontot och Apache Ambari `admin`-kontot. Dessa lösen ord används när du ansluter till sand boxen från Visual Studio.
 
 ## <a name="connect-the-tools-to-the-sandbox"></a>Ansluta verktygen till sand boxen
 
@@ -49,7 +49,7 @@ Kontrol lera att sandbox-Hortonworks körs. Följ sedan stegen i dokumentet [Kom
 
     Välj **Nästa** för att fortsätta.
 
-4. Använd fältet **lösen ord** för att ange det lösen ord som du `root` har konfigurerat för kontot. Lämna övriga fält till standardvärdet.
+4. Använd fältet **lösen ord** för att ange det lösen ord som du har konfigurerat för `root` kontot. Lämna övriga fält till standardvärdet.
 
     ![Skärm bild av dialog rutan med text rutan rot lösen ord markerad](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password1.png)
 
@@ -63,7 +63,7 @@ Kontrol lera att sandbox-Hortonworks körs. Följ sedan stegen i dokumentet [Kom
     > Vid uppdaterings processen används Ambari för att ändra Hortonworks sandbox-konfigurationen till vad som förväntas av Data Lake verktyg för Visual Studio.
 
 6. När verifieringen är klar väljer du **Slutför** för att slutföra konfigurationen.
-    ![Skärm bild av dialog rutan med knappen Slutför markerad](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect-dialog.png)
+    ![skärm bild av dialog rutan med knappen Slutför markerad](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect-dialog.png)
 
      >[!NOTE]  
      > Beroende på hastigheten i utvecklings miljön och mängden minne som allokeras till den virtuella datorn kan det ta flera minuter att konfigurera och validera tjänsterna.
@@ -99,7 +99,7 @@ Hive innehåller ett SQL-liknande frågespråk (HiveQL) för att arbeta med stru
     När **jobbets tillstånd** ändras till **avslutad**visas ett dirigerat acykliska diagram (dag). Det här diagrammet beskriver den körnings Sök väg som avgjordes av Tez vid bearbetning av Hive-frågan. Tez är standard körnings motorn för Hive i det lokala klustret.
 
     > [!NOTE]  
-    > Apache Tez är också standard när du använder Linux-baserade HDInsight-kluster. Det är inte standard på Windows-baserade HDInsight. Om du vill använda den där måste du lägga till `set hive.execution.engine = tez;` raden i början av din Hive-fråga.
+    > Apache Tez är också standard när du använder Linux-baserade HDInsight-kluster. Det är inte standard på Windows-baserade HDInsight. Om du vill använda det där måste du lägga till raden `set hive.execution.engine = tez;` i början av din Hive-fråga.
 
     Använd länken **jobbets utdata** om du vill visa utdata. I det här fallet är det 823, antalet rader i sample_08-tabellen. Du kan visa diagnostikinformation om jobbet med hjälp av **jobb loggen** och **Hämta garn logg** länkar.
 

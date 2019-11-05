@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/28/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 9eda37f80b6ba537b4b8f9ef87cb8b03bb4129e0
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 124a87728a8d201c329b15d94ae7e61a225646ab
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024825"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468444"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal
 
@@ -39,7 +39,7 @@ I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * konfigurera en testnätverksmiljö
 > * distribuera en brandvägg
-> * Skapa en standardväg
+> * skapa en standardväg
 > * Konfigurera en program regel för att tillåta åtkomst till www.google.com
 > * Konfigurera en nätverksregel för att tillåta åtkomst till externa DNS-servrar
 > * testa brandväggen.
@@ -57,8 +57,8 @@ Skapa först en resursgrupp som ska innehålla de resurser som behövs till att 
 Resursgruppen innehåller alla resurser för den här självstudien.
 
 1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
-2. På sidan Azure Portal start väljer du **resurs grupper** > **Lägg till**.
-3. I fältet **Resursgruppsnamn** skriver du **Test-FW-RG**.
+2. På Azure Portal-menyn väljer du **resurs grupper** eller söker efter och väljer *resurs grupper* från vilken sida som helst. Välj sedan **Lägg till**.
+3. För **resurs grupp namn**anger du *test-VB-RG*.
 4. I fältet **Prenumeration** väljer du din prenumeration.
 5. I fältet **Resursgruppsplats** väljer du en plats. Alla efterföljande resurser du skapar måste finnas på samma plats.
 6. Välj **Skapa**.
@@ -70,22 +70,22 @@ Det här virtuella nätverket innehåller tre undernät.
 > [!NOTE]
 > Storleken på AzureFirewallSubnet-undernätet är/26. Mer information om under näts storleken finns i [vanliga frågor och svar om Azure Firewall](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
-1. På Start sidan Azure Portal väljer du **skapa en resurs**.
-2. Välj **virtuellt nätverk**under **nätverk**.
-4. I fältet **Namn** skriver du **Test-FW-VN**.
-5. I fältet **Adressutrymme** skriver du **10.0.0.0/16**.
-6. I fältet **Prenumeration** väljer du din prenumeration.
-7. För **resurs grupp**väljer du **test-VB-RG**.
-8. Välj samma plats som tidigare i fältet **Plats**.
-9. Under **Undernät**, i fältet **Namn**, skriver du **AzureFirewallSubnet**. Brandväggen kommer att ligga i det här undernätet, och namnet på undernätet **måste** vara AzureFirewallSubnet.
-10. För **adress intervall**skriver du **10.0.1.0/26**.
-11. Godkänn de andra standardinställningarna och välj sedan **skapa**.
+1. På Azure Portal-menyn eller på **Start** sidan väljer du **skapa en resurs**.
+1. Välj **nätverk** > **virtuellt nätverk**.
+1. I fältet **Namn** skriver du **Test-FW-VN**.
+1. I fältet **Adressutrymme** skriver du **10.0.0.0/16**.
+1. I fältet **Prenumeration** väljer du din prenumeration.
+1. För **resurs grupp**väljer du **test-VB-RG**.
+1. Välj samma plats som tidigare i fältet **Plats**.
+1. Under **Undernät**, i fältet **Namn**, skriver du **AzureFirewallSubnet**. Brandväggen kommer att ligga i det här undernätet, och namnet på undernätet **måste** vara AzureFirewallSubnet.
+1. För **adress intervall**skriver du **10.0.1.0/26**.
+1. Godkänn de andra standardinställningarna och välj sedan **skapa**.
 
 ### <a name="create-additional-subnets"></a>Skapa ytterligare undernät
 
 Skapa sedan undernät för hoppservern och ett undernät för arbetsbelastningsservrarna.
 
-1. På Azure Portal start sida väljer du **resurs grupper** > **test-VB-RG**.
+1. På Azure Portal-menyn väljer du **resurs grupper** eller söker efter och väljer *resurs grupper* från vilken sida som helst. Välj sedan **test-VB-RG**.
 2. Välj det virtuella nätverket **test-VB-VN** .
 3. Välj **undernät** >  **+ undernät**.
 4. I fältet **Namn** skriver du **Workload-SN**.
@@ -98,7 +98,7 @@ Skapa ett nytt undernät med namnet **Jump-SN** och adressintervallet **10.0.3.0
 
 Skapa nu de virtuella hopp- och arbetsbelastningsdatorerna och placera dem i respektive undernät.
 
-1. Välj **Skapa en resurs** på Azure-portalen.
+1. På Azure Portal-menyn eller på **Start** sidan väljer du **skapa en resurs**.
 2. Välj **Compute** och sedan **Windows Server 2016 Datacenter** i listan Aktuella.
 3. Ange följande värden för den virtuella datorn:
 
@@ -133,7 +133,7 @@ Använd informationen i följande tabell för att konfigurera en annan virtuell 
 
 Distribuera brandväggen till det virtuella nätverket.
 
-1. På portalens start sida väljer du **skapa en resurs**.
+1. På Azure Portal-menyn eller på **Start** sidan väljer du **skapa en resurs**.
 2. Skriv **brand väggen** i sökrutan och tryck på **RETUR**.
 3. Välj **brand vägg** och välj sedan **skapa**.
 4. På sidan **Skapa en brandvägg** använder du följande tabell till att konfigurera brandväggen:
@@ -154,11 +154,11 @@ Distribuera brandväggen till det virtuella nätverket.
 7. När distributionen är klar går du till resurs gruppen **test-VB-RG** och väljer **test-FW01** brand väggen.
 8. Skriv ned den privata IP-adressen. Du kommer att använda den senare när du skapar standardvägen.
 
-## <a name="create-a-default-route"></a>Skapa en standardväg
+## <a name="create-a-default-route"></a>skapa en standardväg
 
 För undernätet **Workload-SN** ställer du in att den utgående standardvägen ska gå via brandväggen.
 
-1. På Start sidan för Azure Portal väljer du **alla tjänster**.
+1. Välj **alla tjänster** på Azure Portal-menyn eller Sök efter och välj *alla tjänster* från vilken sida som helst.
 2. Under **nätverk**väljer du **routningstabeller**.
 3. Välj **Lägg till**.
 4. I fältet **Namn** skriver du **Firewall-route**.
@@ -209,7 +209,6 @@ Det här är nätverksregel som tillåter utgående åtkomst till två IP-adress
 3. I fältet **Namn** skriver du **Net-Coll01**.
 4. I fältet **Prioritet** skriver du **200**.
 5. I fältet **Åtgärd** väljer du **Tillåt**.
-
 6. Under **regler**, för **namn**, skriver du **Allow-DNS**.
 7. I fältet **Protokoll** väljer du **UDP**.
 8. I fältet **Källadresser** skriver du **10.0.2.0/24**.
@@ -223,7 +222,7 @@ Det här är nätverksregel som tillåter utgående åtkomst till två IP-adress
 
 I test syfte i den här självstudien konfigurerar du serverns primära och sekundära DNS-adresser. Detta är inte ett allmänt krav för Azure-brandvägg.
 
-1. Gå till Azure Portal och öppna resursgruppen **Test-FW-RG**.
+1. På Azure Portal-menyn väljer du **resurs grupper** eller söker efter och väljer *resurs grupper* från vilken sida som helst. Välj resurs gruppen **test-VB-RG** .
 2. Välj nätverks gränssnitt för den virtuella **SRV-Work-** datorn.
 3. Under **Inställningar**väljer du **DNS-servrar**.
 4. Under **DNS-servrar**väljer du **anpassad**.
@@ -237,7 +236,6 @@ Testa nu brand väggen för att bekräfta att den fungerar som förväntat.
 
 1. Öppna Azure Portal, granska nätverksinställningarna för den virtuella datorn **Srv-Work** och anteckna den privata IP-adressen.
 2. Anslut ett fjärr skrivbord till en virtuell dator med **SRV-hopp** och logga in. Därifrån öppnar du en fjärr skrivbords anslutning till den privata IP-adressen för **SRV-arbete** .
-
 3. Öppna Internet Explorer och navigera till https://www.google.com.
 4. Välj **OK** > **Stäng** i Internet Explorers säkerhets aviseringar.
 

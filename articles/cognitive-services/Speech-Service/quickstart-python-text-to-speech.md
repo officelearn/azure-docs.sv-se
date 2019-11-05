@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Omvandla text till tal-, python-tal-tjänst'
+title: 'Snabb start: konvertera text till tal, python-tal-tjänsten'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten du lär dig hur du konverterar text till tal med Python och REST-API för text till tal. Exempeltext som ingår i den här guiden är strukturerad som tal syntes Markup Language (SSML). På så sätt kan du välja rösten och språket för tal-svaret.
+description: I den här snabb starten får du lära dig hur du konverterar text till tal med python och text till tal-REST API. Exempel texten som ingår i den här guiden är strukturerad som SSML (Speech syntes Markup Language). På så sätt kan du välja röst-och språk för tal svaret.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a2e43b72bda65c5f1e7515888ac33b0ac806e64c
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: a66835d605b9005b8f94eb79a3c266f735f0a3b6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803249"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467211"
 ---
-# <a name="quickstart-convert-text-to-speech-using-python"></a>Snabbstart: Konvertera text till tal med python
+# <a name="quickstart-convert-text-to-speech-using-python"></a>Snabb start: konvertera text till tal med python
 
-I den här snabbstarten du lär dig hur du konverterar text till tal med Python och text till tal REST-API. Det begärda innehållet i den här guiden är strukturerad som [tal syntes Markup Language (SSML)](speech-synthesis-markup.md), vilket gör att du kan välja rösten och språket i svaret.
+I den här snabb starten får du lära dig hur du konverterar text till tal med python och text till tal-REST API. Begär ande texten i den här guiden är strukturerad som [SSML (Speech syntes Markup Language)](speech-synthesis-markup.md), vilket gör att du kan välja röst och språk för svaret.
 
 Den här snabb starten kräver ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Speech Services-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](get-started.md) för att hämta en prenumerationsnyckel.
 
@@ -45,11 +45,11 @@ from xml.etree import ElementTree
 > [!NOTE]
 > Om du inte har använt de här modulerna behöver du installera dem innan du kör programmet. För att installera de här paketen kör du: `pip install requests`.
 
-Dessa moduler används för att skriva tal svaret på en fil med en tidsstämpel, skapa HTTP-begäran och anropa text till tal-API.
+Dessa moduler används för att skriva tal svaret till en fil med en tidsstämpel, konstruera HTTP-begäran och anropa text-till-tal-API: et.
 
-## <a name="set-the-subscription-key-and-create-a-prompt-for-tts"></a>Ange prenumerationsnyckeln och skapa en uppmaning för text till tal
+## <a name="set-the-subscription-key-and-create-a-prompt-for-tts"></a>Ange prenumerations nyckeln och skapa en prompt för TTS
 
-I nästa avsnitt ska du skapa metoder för att hantera auktorisering, anropa text till tal-API och verifiera svaret. Låt oss börja med att lägga till kod som gör att det här exemplet fungerar med Python 2.7.x och 3.x.
+I de följande avsnitten skapar du metoder för att hantera auktorisering, anropa text till tal-API: et och verifiera svaret. Nu ska vi börja med att lägga till kod som ser till att det här exemplet fungerar med python 2.7. x och 3. x.
 
 ```python
 try:
@@ -58,7 +58,7 @@ except NameError:
     pass
 ```
 
-Nu ska vi skapa en klass. Det här är där vi lägger in vår metoder för tokenutbytet och anropa text till tal-API.
+Nu ska vi skapa en klass. Här ska vi lägga våra metoder för token Exchange och anropa text till tal-API: et.
 
 ```python
 class TextToSpeech(object):
@@ -69,15 +69,15 @@ class TextToSpeech(object):
         self.access_token = None
 ```
 
-Den `subscription_key` är den unika nyckeln från Azure-portalen. `tts` uppmanar användaren att ange text som ska konverteras till tal. Den här indata är en teckensträng så tecken inte behöver undantas. Slutligen `timestr` hämtar den aktuella tiden som vi ska använda för att namnge din fil.
+`subscription_key` är din unika nyckel från Azure Portal. `tts` uppmanas användaren att ange text som ska konverteras till tal. Den här indatamängden är en tecken sträng, så tecknen behöver inte vara undantagna. Slutligen `timestr` hämtar den aktuella tiden som vi ska använda för att namnge din fil.
 
 ## <a name="get-an-access-token"></a>Hämta en åtkomsttoken
 
-Text till tal REST-API kräver en åtkomsttoken för autentisering. Om du vill få en åtkomsttoken, krävs ett utbyte. Det här exemplet utbyter din prenumerations nyckel för tal tjänster för en åtkomsttoken med hjälp av `issueToken`-slutpunkten.
+Text till tal-REST API kräver en åtkomsttoken för autentisering. För att få en åtkomsttoken krävs ett utbyte. Det här exemplet utbyter din prenumerations nyckel för tal tjänster för en åtkomsttoken med hjälp av `issueToken` slut punkten.
 
-Det här exemplet förutsätter att din röst tjänst prenumeration är i regionen USA, västra. Om du använder en annan region måste du uppdatera värdet för `fetch_token_url`. En fullständig lista finns i [regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+Det här exemplet förutsätter att din röst tjänst prenumeration är i regionen USA, västra. Om du använder en annan region uppdaterar du värdet för `fetch_token_url`. En fullständig lista finns i [regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
-Kopiera den här koden i den `TextToSpeech` klass:
+Kopiera den här koden till `TextToSpeech`-klassen:
 
 ```python
 def get_token(self):
@@ -94,19 +94,19 @@ def get_token(self):
 
 ## <a name="make-a-request-and-save-the-response"></a>Gör en begäran och spara svaret
 
-Här ska du skapa begäran och spara svaret tal. Först behöver du ange den `base_url` och `path`. Det här exemplet förutsätter att du använder slutpunkten som USA, västra. Om din resurs har registrerats till en annan region, kontrollera att du uppdaterar den `base_url`. Mer information finns i avsnittet om [tal Services-regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Här skapar du begäran och sparar tal svaret. Först måste du ange `base_url` och `path`. I det här exemplet förutsätter vi att du använder slut punkten västra USA. Om din resurs är registrerad i en annan region, se till att du uppdaterar `base_url`. Mer information finns i avsnittet om [tal Services-regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
-Du måste sedan lägga till nödvändiga sidhuvuden för begäran. Se till att du uppdaterar `User-Agent` med namnet på din resurs (finns i Azure portal) och Ställ in `X-Microsoft-OutputFormat` till din önskade ljud. En fullständig lista över utdataformat finns i [ljud matar ut](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
+Därefter måste du lägga till nödvändiga rubriker för begäran. Se till att du uppdaterar `User-Agent` med namnet på din resurs (finns i Azure Portal) och ange `X-Microsoft-OutputFormat` till önskad ljud uppspelning. En fullständig lista över utdataformat finns i [ljud utmatningar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
-Skapa sedan begärandetexten med tal syntes Markup Language (SSML). Det här exemplet definierar strukturen och använder den `tts` indata du skapade tidigare.
+Konstruera sedan begär ande texten med hjälp av tal syntes Markup Language (SSML). Det här exemplet definierar strukturen och använder `tts` inmatare som du skapade tidigare.
 
 >[!NOTE]
-> Det här exemplet används den `Guy24KRUS` rösttyp. En fullständig lista över Microsoft tillhandahålls röster/språk, finns i [språkstöd](language-support.md).
-> Om du är intresserad av att skapa en unik, identifierbara ton för ditt varumärke, se [skapar anpassade rösttyper](how-to-customize-voice-font.md).
+> I det här exemplet används `Guy24KRUS` röst teckensnitt. En fullständig lista över de röster/språk som tillhandahålls av Microsoft finns i [språk stöd](language-support.md).
+> Om du är intresse rad av att skapa en unik, identifierbar röst för ditt varumärke, se [skapa anpassade röst teckensnitt](how-to-customize-voice-font.md).
 
-Slutligen ska du göra en begäran till tjänsten. Om begäran lyckas, och statuskoden 200 returneras svaret tal skrivs till en tidsstämplad-fil.
+Slutligen ska du skapa en begäran till tjänsten. Om begäran lyckas och en status kod för 200 returneras, skrivs tal svaret till en tidsstämplad fil.
 
-Kopiera den här koden i den `TextToSpeech` klass:
+Kopiera den här koden till `TextToSpeech`-klassen:
 
 ```python
 def save_audio(self):
@@ -153,13 +153,13 @@ if __name__ == "__main__":
 
 ## <a name="run-the-sample-app"></a>Kör exempelappen
 
-Det var allt, är du redo att köra din text till tal-exempelapp. Från kommandoraden (eller en terminalsession) går du till projektkatalogen och kör:
+Då är det dags att köra din text-till-tal-exempel App. Från kommandoraden (eller en terminalsession) går du till projektkatalogen och kör:
 
 ```console
 python tts.py
 ```
 
-När du uppmanas, anger du i vad du vill konvertera från text till tal. Om detta lyckas, finns tal-filen i projektmappen. Spela upp den med din favorit media player.
+När du uppmanas till det skriver du det du vill konvertera från text till tal. Om det lyckas finns tal filen i projektmappen. Spela upp den med din favorit medie spelare.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -170,9 +170,9 @@ Se till att ta bort all konfidentiell information från exempelappens källkod, 
 > [!div class="nextstepaction"]
 > [Utforska Python-exempel på GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [Referens för text till tal-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
-* [Använda python-och tal-SDK för att konvertera text till tal](quickstart-text-to-speech-python.md)
-* [Skapa anpassade rösttyper](how-to-customize-voice-font.md)
-* [Post voice-exempel för att skapa en anpassad röst](record-custom-voice-samples.md)
+* [Använda python-och tal-SDK för att konvertera text till tal](quickstarts/speech-to-text-from-microphone.md)
+* [Skapa anpassade röst teckensnitt](how-to-customize-voice-font.md)
+* [Spela in röst exempel för att skapa en anpassad röst](record-custom-voice-samples.md)

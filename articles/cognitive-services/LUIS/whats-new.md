@@ -9,20 +9,39 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: 3a32499a85b1cd782c808166c516be7ad9c78913
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 0788df1c05d70c01d4de7f7a6ba62a476252f75a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813276"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498935"
 ---
 # <a name="whats-new-in-language-understanding"></a>Vad är nytt i Language Understanding
 
-Läs om vad som är nytt i tjänsten. Dessa objekt kan vara viktig för anteckningar, videor, blogg inlägg och andra typer av information. Skapa ett bok märke för den här sidan för att hålla dig uppdaterad med tjänsten.  
+Läs om vad som är nytt i tjänsten. Dessa objekt innehåller viktig information, videor, blogg inlägg och andra typer av information. Skapa ett bok märke för den här sidan för att hålla dig uppdaterad med tjänsten.  
 
 ## <a name="release-notes"></a>Viktig information 
+
+### <a name="november-4-2019---ignite"></a>4 november 2019-antändning
+
+* Förbättrad produktivitet för utvecklare
+    * Allmän tillgänglighet för vår [förutsägelse slut punkt v3](luis-migration-api-v3.md). 
+    * Möjlighet att importera och exportera appar med formatet. lu ([LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)). På så sätt kan du paves en effektiv CI/CD-process. 
+* Språk expansion
+    * [Arabiska och hindi](luis-language-support.md) i offentlig för hands version.
+* För skapande av modeller
+    * [Fördefinierade domäner](luis-reference-prebuilt-domains.md) är nu allmänt tillgängliga (ga)
+    * Japanska [fördefinierade entiteter](luis-reference-prebuilt-entities.md#japanese-entity-support) – ålder, valuta, tal, procent stöder inte i v3.
+    * [Fördefinierade italienska entiteter](luis-reference-prebuilt-entities.md#italian-entity-support) – ålder, valuta, dimension, nummer, procents ATS av matchning har ändrats från v2.
+* Förbättra användar upplevelsen i [Preview.Luis.AI-portalen](https://preview.luis.ai) – förbättringar etiketting-upplevelse för att möjliggöra skapande och fel sökning av komplexa modeller.
+* Förhands språk förstå funktioner – [skapa sofistikerade språk modeller](luis-concept-entity-types.md) med mindre ansträngning. 
+* Definiera Machine Learning-funktioner på modell nivå och aktivera modeller som ska användas som signaler till annan modell, som att använda entiteter som funktioner till avsikter och andra entiteter.
+* Nya, utökade [gränser](luis-boundaries.md) – högre max för fras listor och total fraser, ny modell som funktions gränser
+* Extrahera information från text i formatet djup hierarki-struktur, så att konversations program blir mer kraftfulla.
+
+    ![enhets bild som sparats av datorn](./media/whats-new/deep-entity-extraction-example.png)
 
 ### <a name="september-3-2019"></a>3 september 2019
 
@@ -61,7 +80,7 @@ Följande funktioner släpptes på Build 2019-konferensen:
 
 [Bot Framework](https://blog.botframework.com/)
 
-## <a name="videos"></a>Videor
+## <a name="videos"></a>Videoklipp
 
 ### <a name="2019-build-videos"></a>2019 Bygg videor
 

@@ -10,12 +10,12 @@ ms.custom:
 ms.author: avneets
 author: avneet723
 ms.date: 10/19/2019
-ms.openlocfilehash: 8727de7b13b6ac036e714ac5aca7ae017200097c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b07ce135d9efec6ecad369b6333d0a3bf2c3aab1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951229"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468242"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Ansluta en Rigado kaskad 500-gateway-enhet till ditt Azure IoT Central-program
 
@@ -28,11 +28,11 @@ I den här artikeln beskrivs hur du kan ansluta en Rigado kaskad 500-gateway-enh
 
 Cascade 500 är förcertifierat för Azure IoT Plug and Play (PnP) som gör det möjligt för våra lösnings byggare att enkelt publicera enheten i sina slut-till-slut-lösningar. Med överlappande Gateway kan du trådlöst ansluta till en mängd olika villkor som övervakar sensorer som är i närheten av gateway-enheten. Dessa sensorer kan registreras i IoT Central via gateway-enheten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att gå igenom den här instruktions guiden behöver du följande resurser:
 
 * En Rigado kaskad 500-enhet. Mer information finns på [Rigado](https://www.rigado.com/).
-* Ett Azure IoT Central-program som skapats från någon av Programmallarna för förhands granskning. Mer information finns i avsnittet [skapa ett nytt program](https://docs.microsoft.com/azure/iot-central/quick-deploy-iot-central-pnp?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+* Ett Azure IoT Central-program som skapats från någon av Programmallarna för förhands granskning. Mer information finns i avsnittet [skapa ett nytt program](https://docs.microsoft.com/azure/iot-central/core/quick-deploy-iot-central-pnp?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 ## <a name="add-a-device-template"></a>Lägga till en enhetsmall
 

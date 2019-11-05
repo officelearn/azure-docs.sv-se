@@ -1,20 +1,20 @@
 ---
 title: 'Neurala nätverks regression: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder neurala Network regression-modulen i Azure Machine Learning-tjänsten för att skapa en Regressions modell med en anpassningsbar neurala-nätverks algoritm.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder neurala Network regression-modulen i Azure Machine Learning för att skapa en Regressions modell med en anpassningsbar neurala-nätverks algoritm.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 54518d21db0c9b14cbb7b4fc4316d1db2b871573
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: d5cc0f06e9fb95894df30af1322d47337f51e314
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692739"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466004"
 ---
 # <a name="neural-network-regression-module"></a>Neurala Network regression-modul
 
@@ -24,7 +24,7 @@ ms.locfileid: "72692739"
   
 ## <a name="module-overview"></a>Översikt över modul  
 
-I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd den här modulen för att skapa en Regressions modell med en anpassningsbar neurala-nätverks algoritm.
   
@@ -51,8 +51,8 @@ Neurala-nätverk kan anpassas i stor utsträckning. I det här avsnittet beskriv
     Det här alternativet är bäst om du redan är bekant med neurala-nätverk. Du använder språket net # för att definiera nätverks arkitekturen.  
 
 ##  <a name="bkmk_DefaultArchitecture"></a>Skapa en neurala-nätverks modell med standard arkitekturen
-  
-1.  Lägg till **neurala Network regression** -modulen till din pipeline i gränssnittet. Du kan hitta den här modulen under **Machine Learning**, **initiera**i **Regressions** kategorin. 
+
+1.  Lägg till **neurala Network regression** -modulen i din pipeline i designern. Du kan hitta den här modulen under **Machine Learning**, **initiera**i **Regressions** kategorin. 
   
 2. Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .  
   
@@ -98,4 +98,4 @@ När utbildningen är klar:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

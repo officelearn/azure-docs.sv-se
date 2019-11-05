@@ -15,25 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 090242cde79f6c31b0f70e1a75240778dca89fa7
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 1c9562f413fa0ed52d61d0b38df358f1a2cd03f9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828571"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498677"
 ---
-# <a name="security-frame-communication-security--mitigations"></a>Säkerhets ram: Kommunikations säkerhet | Åtgärder 
+# <a name="security-frame-communication-security--mitigations"></a>Säkerhets ram: kommunikations säkerhet | Åtgärder 
 | Produkt/tjänst | Artikel |
 | --------------- | ------- |
 | **Azure Event Hub** | <ul><li>[Skydda kommunikation till Event Hub med SSL/TLS](#comm-ssltls)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Kontrol lera behörigheter för tjänst kontot och kontrol lera att de anpassade tjänsterna eller ASP.NET-sidorna respekterar CRM-säkerheten](#priv-aspnet)</li></ul> |
 | **Azure Data Factory** | <ul><li>[Använd Data Management Gateway när du ansluter lokala SQL Server till Azure Data Factory](#sqlserver-factory)</li></ul> |
 | **Identitets Server** | <ul><li>[Se till att all trafik till identitets servern är över HTTPS-anslutning](#identity-https)</li></ul> |
-| **Webb program** | <ul><li>[Verifiera X. 509-certifikat som används för att autentisera SSL-, TLS-och DTLS-anslutningar](#x509-ssltls)</li><li>[Konfigurera SSL-certifikat för anpassad domän i Azure App Service](#ssl-appservice)</li><li>[Tvinga all trafik att Azure App Service över HTTPS-anslutning](#appservice-https)</li><li>[Aktivera HTTP Strict Transport Security (HSTS)](#http-hsts)</li></ul> |
+| **Webbprogram** | <ul><li>[Verifiera X. 509-certifikat som används för att autentisera SSL-, TLS-och DTLS-anslutningar](#x509-ssltls)</li><li>[Konfigurera SSL-certifikat för anpassad domän i Azure App Service](#ssl-appservice)</li><li>[Tvinga all trafik att Azure App Service över HTTPS-anslutning](#appservice-https)</li><li>[Aktivera HTTP Strict Transport Security (HSTS)](#http-hsts)</li></ul> |
 | **Databas** | <ul><li>[Kontrol lera kryptering av SQL Server-anslutning och certifikat validering](#sqlserver-validation)</li><li>[Framtvinga krypterad kommunikation med SQL Server](#encrypted-sqlserver)</li></ul> |
 | **Azure Storage** | <ul><li>[Se till att kommunikationen med Azure Storage är över HTTPS](#comm-storage)</li><li>[Verifiera MD5-hash efter nedladdning av BLOB om HTTPS inte kan aktive ras](#md5-https)</li><li>[Använd SMB 3,0-kompatibel klient för att säkerställa data kryptering under överföring till Azure-filresurser](#smb-shares)</li></ul> |
 | **Mobil klient** | <ul><li>[Implementera certifikats fäste](#cert-pinning)</li></ul> |
-| **WCF** | <ul><li>[Aktivera HTTPS – säker transport kanal](#https-transport)</li><li>[WCF: Ange skydds nivå för meddelande säkerhet till EncryptAndSign @ no__t-0</li><li>[WCF: Använd ett konto med minst privilegier för att köra WCF-tjänsten @ no__t-0</li></ul> |
+| **WCF** | <ul><li>[Aktivera HTTPS – säker transport kanal](#https-transport)</li><li>[WCF: Ange skydds nivå för meddelande säkerhet till EncryptAndSign](#message-protection)</li><li>[WCF: Använd ett konto med minst privilegier för att köra WCF-tjänsten](#least-account-wcf)</li></ul> |
 | **Webb-API** | <ul><li>[Tvinga all trafik till webb-API: er över HTTPS-anslutning](#webapi-https)</li></ul> |
 | **Azure Cache for Redis** | <ul><li>[Se till att kommunikationen med Azure cache för Redis är över SSL](#redis-ssl)</li></ul> |
 | **IoT-fält Gateway** | <ul><li>[Skydda enhet till fält Gateway-kommunikation](#device-field)</li></ul> |
@@ -41,9 +41,9 @@ ms.locfileid: "71828571"
 
 ## <a id="comm-ssltls"></a>Skydda kommunikation till Event Hub med SSL/TLS
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
-| **Komponent**               | Azure händelsehubb | 
+| **Komponent**               | Azure Event Hub | 
 | **SDL-fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
@@ -52,7 +52,7 @@ ms.locfileid: "71828571"
 
 ## <a id="priv-aspnet"></a>Kontrol lera behörigheter för tjänst kontot och kontrol lera att de anpassade tjänsterna eller ASP.NET-sidorna respekterar CRM-säkerheten
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Dynamics CRM | 
 | **SDL-fas**               | Utveckla |  
@@ -63,7 +63,7 @@ ms.locfileid: "71828571"
 
 ## <a id="sqlserver-factory"></a>Använd Data Management Gateway när du ansluter lokala SQL Server till Azure Data Factory
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Data Factory | 
 | **SDL-fas**               | Distribution |  
@@ -74,7 +74,7 @@ ms.locfileid: "71828571"
 
 ## <a id="identity-https"></a>Se till att all trafik till identitets servern är över HTTPS-anslutning
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Identitets Server | 
 | **SDL-fas**               | Distribution |  
@@ -85,7 +85,7 @@ ms.locfileid: "71828571"
 
 ## <a id="x509-ssltls"></a>Verifiera X. 509-certifikat som används för att autentisera SSL-, TLS-och DTLS-anslutningar
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL-fas**               | Utveckla |  
@@ -96,24 +96,24 @@ ms.locfileid: "71828571"
 
 ## <a id="ssl-appservice"></a>Konfigurera SSL-certifikat för anpassad domän i Azure App Service
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL-fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | EnvironmentType – Azure |
-| **Reference**              | [Aktivera HTTPS för en app i Azure App Service](../../app-service/app-service-web-tutorial-custom-ssl.md) |
+| **Reference**              | [Aktivera HTTPS för en app i Azure App Service](../../app-service/configure-ssl-bindings.md) |
 | **Steg** | Som standard aktiverar Azure HTTPS för varje app med ett certifikat med jokertecken för domänen *. azurewebsites.net. Precis som alla domäner med jokertecken är det dock inte lika säkert som att använda en anpassad domän med egna certifikat, [Se](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/). Vi rekommenderar att du aktiverar SSL för den anpassade domänen som den distribuerade appen kommer att få åtkomst till via|
 
 ## <a id="appservice-https"></a>Tvinga all trafik att Azure App Service över HTTPS-anslutning
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL-fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | EnvironmentType – Azure |
-| **Reference**              | [Använd HTTPS på Azure App Service](../../app-service/app-service-web-tutorial-custom-ssl.md#enforce-https) |
+| **Reference**              | [Använd HTTPS på Azure App Service](../../app-service/configure-ssl-bindings.md#enforce-https) |
 | **Steg** | <p>Även om Azure redan aktiverar HTTPS för Azure App Services med ett jokertecken för domänen *. azurewebsites.net, tillämpar den inte HTTPS. Besökare kanske fortfarande har åtkomst till appen via HTTP, som kan kompromettera appens säkerhet och därför måste HTTPS vara påtvingad uttryckligen. ASP.NET MVC-program bör använda [RequireHttps-filtret](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) som tvingar en oskyddad http-begäran att skickas på nytt via https.</p><p>Alternativt kan URL-modulen för att skriva om, som ingår i Azure App Service användas för att genomdriva HTTPS. Med URL-modulen för skrivning kan utvecklare definiera regler som tillämpas på inkommande begär Anden innan begär Anden skickas till ditt program. Regler för URL-omskrivning definieras i en Web. config-fil som lagras i programmets rot</p>|
 
 ### <a name="example"></a>Exempel
@@ -136,11 +136,11 @@ I följande exempel finns en grundläggande URL-omskrivning regel som tvingar al
   </system.webServer>
 </configuration>
 ```
-Den här regeln fungerar genom att returnera HTTP-statuskod 301 (permanent omdirigering) när användaren begär en sida med HTTP. 301 omdirigerar begäran till samma URL som den begärda användaren, men ersätter HTTP-delen av begäran med HTTPS. @No__t-0 omdirigeras till exempel till HTTPS://contoso.com. 
+Den här regeln fungerar genom att returnera HTTP-statuskod 301 (permanent omdirigering) när användaren begär en sida med HTTP. 301 omdirigerar begäran till samma URL som den begärda användaren, men ersätter HTTP-delen av begäran med HTTPS. Exempelvis omdirigeras HTTP://contoso.com till HTTPS://contoso.com. 
 
 ## <a id="http-hsts"></a>Aktivera HTTP Strict Transport Security (HSTS)
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL-fas**               | Utveckla |  
@@ -151,18 +151,18 @@ Den här regeln fungerar genom att returnera HTTP-statuskod 301 (permanent omdir
 
 ## <a id="sqlserver-validation"></a>Kontrol lera kryptering av SQL Server-anslutning och certifikat validering
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL-fas**               | Utveckla |  
 | **Tillämpliga tekniker** | SQL Azure  |
-| **Dokumentattribut**              | SQL Version - V12 |
+| **Dokumentattribut**              | SQL-version – V12 |
 | **Reference**              | [Metod tips för att skriva säkra anslutnings strängar för SQL Database](https://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) |
-| **Steg** | <p>All kommunikation mellan SQL Database och ett klient program krypteras med hjälp av Secure Sockets Layer (SSL) hela tiden. SQL Database stöder inte okrypterade anslutningar. Om du vill validera certifikat med program kod eller verktyg kan du uttryckligen begära en krypterad anslutning och inte lita på Server certifikaten. Om din program kod eller dina verktyg inte begär en krypterad anslutning får de fortfarande krypterade anslutningar</p><p>De kan dock inte verifiera Server certifikaten och kommer därför att vara utsatta för "man i de mittersta" angrepp. Om du vill validera certifikat med ADO.NET program kod anger du `Encrypt=True` och `TrustServerCertificate=False` i databas anslutnings strängen. Om du vill verifiera certifikat via SQL Server Management Studio öppnar du dialog rutan Anslut till server. Klicka på kryptera anslutning på fliken anslutnings egenskaper</p>|
+| **Steg** | <p>All kommunikation mellan SQL Database och ett klient program krypteras med hjälp av Secure Sockets Layer (SSL) hela tiden. SQL Database stöder inte okrypterade anslutningar. Om du vill validera certifikat med program kod eller verktyg kan du uttryckligen begära en krypterad anslutning och inte lita på Server certifikaten. Om din program kod eller dina verktyg inte begär en krypterad anslutning får de fortfarande krypterade anslutningar</p><p>De kan dock inte verifiera Server certifikaten och kommer därför att vara utsatta för "man i de mittersta" angrepp. Om du vill validera certifikat med ADO.NET program kod anger `Encrypt=True` och `TrustServerCertificate=False` i databas anslutnings strängen. Om du vill verifiera certifikat via SQL Server Management Studio öppnar du dialog rutan Anslut till server. Klicka på kryptera anslutning på fliken anslutnings egenskaper</p>|
 
 ## <a id="encrypted-sqlserver"></a>Framtvinga krypterad kommunikation med SQL Server
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL-fas**               | Utveckla |  
@@ -173,7 +173,7 @@ Den här regeln fungerar genom att returnera HTTP-statuskod 301 (permanent omdir
 
 ## <a id="comm-storage"></a>Se till att kommunikationen med Azure Storage är över HTTPS
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
 | **SDL-fas**               | Distribution |  
@@ -184,7 +184,7 @@ Den här regeln fungerar genom att returnera HTTP-statuskod 301 (permanent omdir
 
 ## <a id="md5-https"></a>Verifiera MD5-hash efter nedladdning av BLOB om HTTPS inte kan aktive ras
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
 | **SDL-fas**               | Utveckla |  
@@ -195,7 +195,7 @@ Den här regeln fungerar genom att returnera HTTP-statuskod 301 (permanent omdir
 
 ## <a id="smb-shares"></a>Använd SMB 3,0-kompatibel klient för att säkerställa data kryptering under överföring till Azure-filresurser
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Mobil klient | 
 | **SDL-fas**               | Utveckla |  
@@ -206,14 +206,14 @@ Den här regeln fungerar genom att returnera HTTP-statuskod 301 (permanent omdir
 
 ## <a id="cert-pinning"></a>Implementera certifikats fäste
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
 | **SDL-fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk, Windows Phone |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | [Certifikat och offentlig nyckel fäste](https://www.owasp.org/index.php/Certificate_and_Public_Key_Pinning#.Net) |
-| **Steg** | <p>Certifikat sättning skyddar mot MITM-attacker (man-in-the-Middle). Att fästa är en process för att associera en värd med det förväntade X509-certifikatet eller den offentliga nyckeln. När ett certifikat eller en offentlig nyckel är känd eller visas för en värd, är certifikatet eller den offentliga nyckeln kopplad till värden. </p><p>När en angripare försöker att göra SSL-MITM-attack, under SSL-handskakningen kommer nyckeln från angriparens server att skilja sig från det fästa Certifikatets nyckel och begäran kommer att tas bort, vilket förhindrar att MITM certifikat fästs av implementerar ServicePointManager-delegaten `ServerCertificateValidationCallback`.</p>|
+| **Steg** | <p>Certifikat sättning skyddar mot MITM-attacker (man-in-the-Middle). Att fästa är en process för att associera en värd med det förväntade X509-certifikatet eller den offentliga nyckeln. När ett certifikat eller en offentlig nyckel är känd eller visas för en värd, är certifikatet eller den offentliga nyckeln kopplad till värden. </p><p>När en angripare försöker att göra SSL-MITM-attack, under SSL-handskakningen kommer nyckeln från angriparens server att skilja sig från det fästa Certifikatets nyckel och begäran kommer att tas bort, vilket förhindrar att MITM certifikat fästs av implementerar ServicePointManager `ServerCertificateValidationCallback`-delegaten.</p>|
 
 ### <a name="example"></a>Exempel
 ```csharp
@@ -283,28 +283,28 @@ namespace CertificatePinningExample
 
 ## <a id="https-transport"></a>Aktivera HTTPS – säker transport kanal
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL-fas**               | Utveckla |  
 | **Tillämpliga tekniker** | NET Framework 3 |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_transport_security_enabled) |
-| **Steg** | Program konfigurationen bör se till att HTTPS används för all åtkomst till känslig information.<ul><li>**SKRIFTLIGA** Om ett program hanterar känslig information och inte använder kryptering på meddelande nivå, bör det bara tillåtas att kommunicera via en krypterad transport kanal.</li><li>**REKOMMENDERADE** Se till att HTTP-transport är inaktive rad och Aktivera HTTPS-transport i stället. Ersätt till exempel `<httpTransport/>` med taggen `<httpsTransport/>`. Förlita dig inte på en nätverks konfiguration (brand vägg) för att garantera att programmet bara kan nås via en säker kanal. Från en Philosophical-plats bör programmet inte vara beroende av nätverket för dess säkerhet.</li></ul><p>Från en praktisk vy kan de personer som ansvarar för att skydda nätverket inte alltid följa säkerhets kraven för programmet när de utvecklas.</p>|
+| **Steg** | Program konfigurationen bör se till att HTTPS används för all åtkomst till känslig information.<ul><li>**Förklaring:** Om ett program hanterar känslig information och inte använder kryptering på meddelande nivå, bör det bara tillåtas att kommunicera via en krypterad transport kanal.</li><li>**Rekommendationer:** Se till att HTTP-transport är inaktive rad och Aktivera HTTPS-transport i stället. Ersätt till exempel `<httpTransport/>` med `<httpsTransport/>`-taggen. Förlita dig inte på en nätverks konfiguration (brand vägg) för att garantera att programmet bara kan nås via en säker kanal. Från en Philosophical-plats bör programmet inte vara beroende av nätverket för dess säkerhet.</li></ul><p>Från en praktisk vy kan de personer som ansvarar för att skydda nätverket inte alltid följa säkerhets kraven för programmet när de utvecklas.</p>|
 
 ## <a id="message-protection"></a>WCF: Ange skydds nivå för meddelande säkerhet till EncryptAndSign
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL-fas**               | Utveckla |  
 | **Tillämpliga tekniker** | .NET Framework 3 |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | [MSDN](https://msdn.microsoft.com/library/ff650862.aspx) |
-| **Steg** | <ul><li>**SKRIFTLIGA** När skydds nivån har angetts till "ingen" inaktive ras meddelande skyddet. Konfidentialitet och integritet uppnås med lämplig inställnings nivå.</li><li>**REKOMMENDERADE**<ul><li>När `Mode=None`-inaktiverar meddelande skydd</li><li>När `Mode=Sign`-signeras men inte krypterar meddelandet. bör användas när data integriteten är viktig</li><li>När `Mode=EncryptAndSign`-signerar och krypterar meddelandet</li></ul></li></ul><p>Överväg att inaktivera kryptering och bara signera ditt meddelande när du bara behöver validera integriteten för informationen utan problem med sekretess. Detta kan vara användbart för drift-eller tjänste kontrakt där du behöver validera den ursprungliga avsändaren men inga känsliga data överförs. När du minskar skydds nivån bör du vara noga med att meddelandet inte innehåller några personliga data.</p>|
+| **Steg** | <ul><li>**Förklaring:** När skydds nivån har angetts till "ingen" inaktive ras meddelande skyddet. Konfidentialitet och integritet uppnås med lämplig inställnings nivå.</li><li>**REKOMMENDERADE**<ul><li>När `Mode=None` – inaktiverar meddelande skydd</li><li>När `Mode=Sign`-tecken, men krypterar inte meddelandet. bör användas när data integriteten är viktig</li><li>När `Mode=EncryptAndSign` signerar och krypterar meddelandet</li></ul></li></ul><p>Överväg att inaktivera kryptering och bara signera ditt meddelande när du bara behöver validera integriteten för informationen utan problem med sekretess. Detta kan vara användbart för drift-eller tjänste kontrakt där du behöver validera den ursprungliga avsändaren men inga känsliga data överförs. När du minskar skydds nivån bör du vara noga med att meddelandet inte innehåller några personliga data.</p>|
 
 ### <a name="example"></a>Exempel
-Genom att konfigurera tjänsten och åtgärden för att endast signera meddelandet visas följande exempel. Service kontrakt exempel på `ProtectionLevel.Sign`: Följande är ett exempel på hur du använder ProtectionLevel. Sign på service kontrakts nivån: 
+Genom att konfigurera tjänsten och åtgärden för att endast signera meddelandet visas följande exempel. Exempel på service kontrakt `ProtectionLevel.Sign`: följande är ett exempel på hur du använder ProtectionLevel. Sign på service kontrakts nivån: 
 ```
 [ServiceContract(Protection Level=ProtectionLevel.Sign] 
 public interface IService 
@@ -314,7 +314,7 @@ public interface IService
 ```
 
 ### <a name="example"></a>Exempel
-Exempel på åtgärds kontrakt i `ProtectionLevel.Sign` (för detaljerad kontroll): Följande är ett exempel på hur du använder `ProtectionLevel.Sign` på OperationContract-nivån:
+Exempel på åtgärds kontrakt för `ProtectionLevel.Sign` (för detaljerad kontroll): följande är ett exempel på hur du använder `ProtectionLevel.Sign` på OperationContract-nivån:
 
 ```
 [OperationContract(ProtectionLevel=ProtectionLevel.Sign] 
@@ -323,18 +323,18 @@ string GetData(int value);
 
 ## <a id="least-account-wcf"></a>WCF: Använd ett konto med minst privilegier för att köra WCF-tjänsten
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL-fas**               | Utveckla |  
 | **Tillämpliga tekniker** | .NET Framework 3 |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | [MSDN](https://msdn.microsoft.com/library/ff648826.aspx ) |
-| **Steg** | <ul><li>**SKRIFTLIGA** Kör inte WCF-tjänster under administratörs-eller hög behörighets konto. om tjänster komprometteras leder det till hög påverkan.</li><li>**REKOMMENDERADE** Använd ett konto med minst privilegier för att vara värd för WCF-tjänsten eftersom det minskar ditt programs attack yta och minskar risken för angrepp om du angrips. Om tjänst kontot kräver ytterligare åtkomst behörighet för infrastruktur resurser som MSMQ, händelse loggen, prestanda räknarna och fil systemet, bör lämpliga behörigheter ges till dessa resurser så att WCF-tjänsten kan köras utan problem.</li></ul><p>Om tjänsten behöver åtkomst till vissa resurser för den ursprungliga anroparen, använder du personifiering och delegering för att flöda anroparens identitet för en underordnad verifierings kontroll. I ett utvecklings scenario använder du det lokala nätverks tjänst kontot, som är ett särskilt inbyggt konto som har lägre privilegier. I ett produktions scenario skapar du ett anpassat domän tjänst konto med minst privilegier.</p>|
+| **Steg** | <ul><li>**Förklaring:** Kör inte WCF-tjänster under administratörs-eller hög behörighets konto. om tjänster komprometteras leder det till hög påverkan.</li><li>**Rekommendationer:** Använd ett konto med minst privilegier för att vara värd för WCF-tjänsten eftersom det minskar ditt programs attack yta och minskar risken för angrepp om du angrips. Om tjänst kontot kräver ytterligare åtkomst behörighet för infrastruktur resurser som MSMQ, händelse loggen, prestanda räknarna och fil systemet, bör lämpliga behörigheter ges till dessa resurser så att WCF-tjänsten kan köras utan problem.</li></ul><p>Om tjänsten behöver åtkomst till vissa resurser för den ursprungliga anroparen, använder du personifiering och delegering för att flöda anroparens identitet för en underordnad verifierings kontroll. I ett utvecklings scenario använder du det lokala nätverks tjänst kontot, som är ett särskilt inbyggt konto som har lägre privilegier. I ett produktions scenario skapar du ett anpassat domän tjänst konto med minst privilegier.</p>|
 
 ## <a id="webapi-https"></a>Tvinga all trafik till webb-API: er över HTTPS-anslutning
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL-fas**               | Utveckla |  
@@ -375,7 +375,7 @@ public class ValuesController : ApiController
  
 ## <a id="redis-ssl"></a>Se till att kommunikationen med Azure cache för Redis är över SSL
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Cache for Redis | 
 | **SDL-fas**               | Utveckla |  
@@ -388,7 +388,7 @@ Observera att Redis har utformats för att få åtkomst till betrodda klienter i
 
 ## <a id="device-field"></a>Skydda enhet till fält Gateway-kommunikation
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-fält Gateway | 
 | **SDL-fas**               | Utveckla |  
@@ -399,7 +399,7 @@ Observera att Redis har utformats för att få åtkomst till betrodda klienter i
 
 ## <a id="device-cloud"></a>Skydda enhet till Cloud Gateway-kommunikation med SSL/TLS
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT Cloud Gateway | 
 | **SDL-fas**               | Utveckla |  

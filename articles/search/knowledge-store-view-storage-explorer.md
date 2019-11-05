@@ -6,23 +6,23 @@ manager: nitinme
 author: lisaleib
 ms.author: v-lilei
 ms.service: cognitive-search
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: cfa85e61059e27cd39a9701a835a725e16e5bc0a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
-ms.translationtype: MT
+ms.openlocfilehash: 9ba11b69a51a5bc563764a7e75189bed67cb2ac6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789980"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73485000"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Visa ett kunskaps lager med Storage Explorer
 
 > [!Note]
-> Kunskaps lagret är i för hands version och bör inte användas i produktionen. [Azure Kognitiv sökning REST API version 2019-05-06 – för hands version](search-api-preview.md) innehåller den här funktionen. Det finns för närvarande inget stöd för .NET SDK.
+> Kunskaps lagret är i för hands version och bör inte användas i produktionen. Portalen och [sök REST API version 2019-05-06 – för hands version](search-api-preview.md) innehåller den här funktionen. Det finns för närvarande inget stöd för .NET SDK.
 >
-I den här artikeln får du lära dig hur du ansluter och utforskar ett kunskaps lager med hjälp av Storage Explorer i Azure Portal. Om du vill skapa ett kunskaps lager exempel som används i den här genom gången, se [skapa ett kunskaps lager i Azure Portal](knowledge-store-create-portal.md).
+I den här artikeln lär du dig hur du kan ansluta till och utforska ett kunskaps lager med hjälp av Storage Explorer i Azure Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + Följ stegen i [skapa ett kunskaps lager i Azure Portal](knowledge-store-create-portal.md) för att skapa ett exempel på kunskaps lager som används i den här genom gången.
 
@@ -30,7 +30,7 @@ I den här artikeln får du lära dig hur du ansluter och utforskar ett kunskaps
 
 ## <a name="view-edit-and-query-a-knowledge-store-in-storage-explorer"></a>Visa, redigera och fråga ett kunskaps lager i Storage Explorer
 
-1. Öppna det lagrings konto som du använde för att skapa kunskaps lagret i Azure Portal.
+1. [Öppna det lagrings konto](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) som du använde för att skapa kunskaps lagret i Azure Portal.
 
 1. I lagrings kontots vänstra navigerings fönster klickar du på **Storage Explorer**.
 
@@ -58,12 +58,8 @@ Kom ihåg att du är begränsad till tre index, indexerare och data källor om d
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du ansluter det här kunskaps lagret till Power BI finns i följande artikel.
+Anslut det här kunskaps lagret till Power BI för djupare analys eller flytta framåt med kod med hjälp av REST API och Postman för att skapa ett annat kunskaps lager.
 
 > [!div class="nextstepaction"]
-> [Anslut med Power BI](knowledge-store-connect-power-bi.md)
-
-Information om hur du skapar ett kunskaps lager med hjälp av REST-API: er och Postman finns i följande artikel.  
-
-> [!div class="nextstepaction"]
-> [Skapa ett kunskaps lager i REST](knowledge-store-howto.md)
+> [Ansluta till Power BI](knowledge-store-connect-power-bi.md)
+> [skapa ett kunskaps lager i rest](knowledge-store-howto.md)

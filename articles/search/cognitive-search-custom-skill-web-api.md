@@ -1,24 +1,23 @@
 ---
-title: Anpassad kognitiv Sök kompetens – Azure Search
-description: 'Utöka funktionerna i kognitiv search-färdighetsuppsättningar genom att anropa ut till webb-API: er'
-services: search
+title: Anpassad webb-API-kunskap i en anriknings pipeline
+titleSuffix: Azure Cognitive Search
+description: 'Utöka funktionerna i Azure Kognitiv sökning färdighetsuppsättningar genom att anropa ut till webb-API: er. Använd anpassade webb-API-kunskaper för att integrera din anpassade kod.'
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: fda4f96c2c73c5a2d39435a509afcf654ed77b70
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 24b0d0caa9deb43bc198b3c09836ac94777cf154
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901325"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466730"
 ---
-# <a name="custom-web-api-skill"></a>Anpassad webb-API-kunskap
+# <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Anpassad webb-API-kunskap i en Azure Kognitiv sökning anriknings pipeline
 
-Med den **anpassade webb-API-** kunskapen kan du utöka kognitiv sökning genom att anropa till en webb-API-slutpunkt som tillhandahåller anpassade åtgärder. På liknande sätt som inbyggda kunskaper har en **anpassad webb-API-** kunskap indata och utdata. Beroende på indata får ditt webb-API en JSON-nyttolast när indexeraren körs, och utvärderar en JSON-nyttolast som svar, tillsammans med status koden lyckades. Svaret förväntas ha de utdata som anges av din anpassade färdighet. Andra svar betraktas som ett fel och inga berikningar utförs.
+Med den **anpassade webb-API-** kunskapen kan du utöka AI-anrikning genom att anropa till en webb-API-slutpunkt som tillhandahåller anpassade åtgärder. På liknande sätt som inbyggda kunskaper har en **anpassad webb-API-** kunskap indata och utdata. Beroende på indata får ditt webb-API en JSON-nyttolast när indexeraren körs, och utvärderar en JSON-nyttolast som svar, tillsammans med status koden lyckades. Svaret förväntas ha de utdata som anges av din anpassade färdighet. Andra svar betraktas som ett fel och inga berikningar utförs.
 
 Strukturen för JSON-nyttolasterna beskrivs ytterligare ned i det här dokumentet.
 
@@ -58,7 +57,7 @@ Det finns inga fördefinierade utdata för den här kunskapen. Beroende på vilk
 ```json
   {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-        "description": "A custom skill that can count the number of words or characters or lines in text",
+        "description": "A custom skill that can identify positions of different phrases in the source text",
         "uri": "https://contoso.count-things.com",
         "batchSize": 4,
         "context": "/document",
@@ -72,14 +71,13 @@ Det finns inga fördefinierade utdata för den här kunskapen. Beroende på vilk
             "source": "/document/languageCode"
           },
           {
-            "name": "countOf",
-            "source": "/document/propertyToCount"
+            "name": "phraseList",
+            "source": "/document/keyphrases"
           }
         ],
         "outputs": [
           {
-            "name": "count",
-            "targetName": "countOfThings"
+            "name": "hitPositions"
           }
         ]
       }
@@ -103,7 +101,7 @@ Den kommer alltid att följa dessa begränsningar:
            {
              "text": "Este es un contrato en Inglés",
              "language": "es",
-             "countOf": "words"
+             "phraseList": ["Este", "Inglés"]
            }
       },
       {
@@ -112,16 +110,16 @@ Den kommer alltid att följa dessa begränsningar:
            {
              "text": "Hello world",
              "language": "en",
-             "countOf": "characters"
+             "phraseList": ["Hi"]
            }
       },
       {
         "recordId": "2",
         "data":
            {
-             "text": "Hello world \r\n Hi World",
+             "text": "Hello world, Hi world",
              "language": "en",
-             "countOf": "lines"
+             "phraseList": ["world"]
            }
       },
       {
@@ -130,7 +128,7 @@ Den kommer alltid att följa dessa begränsningar:
            {
              "text": "Test",
              "language": "es",
-             "countOf": null
+             "phraseList": []
            }
       }
     ]
@@ -159,7 +157,7 @@ Den kommer alltid att följa dessa begränsningar:
             },
             "errors": [
               {
-                "message" : "Cannot understand what needs to be counted"
+                "message" : "'phraseList' should not be null or empty"
               }
             ],
             "warnings": null
@@ -167,7 +165,7 @@ Den kommer alltid att följa dessa begränsningar:
         {
             "recordId": "2",
             "data": {
-                "count": 2
+                "hitPositions": [6, 16]
             },
             "errors": null,
             "warnings": null
@@ -175,7 +173,7 @@ Den kommer alltid att följa dessa begränsningar:
         {
             "recordId": "0",
             "data": {
-                "count": 6
+                "hitPositions": [0, 23]
             },
             "errors": null,
             "warnings": null
@@ -183,10 +181,12 @@ Den kommer alltid att följa dessa begränsningar:
         {
             "recordId": "1",
             "data": {
-                "count": 11
+                "hitPositions": []
             },
             "errors": null,
-            "warnings": null
+            "warnings": {
+                "message": "No occurrences of 'Hi' were found in the input text"
+            }
         },
     ]
 }
@@ -201,9 +201,8 @@ Förutom att ditt webb-API är otillgängligt, eller om du skickar ut status kod
 
 När webb-API: t inte är tillgängligt eller returnerar ett HTTP-fel, läggs ett fel meddelande med tillgänglig information om HTTP-felet till i körnings historiken för Indexer.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-+ [Energi kunskaper: ett lager med anpassade kunskaper](https://aka.ms/powerskills)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
-+ [Lägg till anpassad färdighet i kognitiv sökning](cognitive-search-custom-skill-interface.md)
-+ [Exempel: skapa en anpassad färdighet för kognitiv sökning](cognitive-search-create-custom-skill-example.md)
++ [Lägg till anpassad kompetens i en AI-pipeline för anrikning](cognitive-search-custom-skill-interface.md)
++ [Exempel: skapa en anpassad färdighet för AI-anrikning (kognitiv-search-Create-example.md-Custom-skicklighet-)

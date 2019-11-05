@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: jmartens
-ms.author: shipatel
-author: shivp950
-ms.date: 05/10/2019
+ms.author: sgilley
+author: sdgilley
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 511c737e160c0f0753e570314c9b29346972cb04
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 1985c596b9f4b9b78b0055bfe1eab9888c30e201
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71269256"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489740"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Skapa och hantera Azure Machine Learning arbets ytor i Azure Portal
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 I den här artikeln skapar du, visar och tar bort [**Azure Machine Learning arbets ytor**](concept-workspace.md) i Azure Portal för [Azure Machine Learning](overview-what-is-azure-ml.md).  Portalen är det enklaste sättet att komma igång med arbets ytor, men när du behöver ändra eller krav på Automation-höjning kan du också skapa och ta bort arbets ytor [med hjälp av CLI](reference-azure-machine-learning-cli.md), [med python-kod](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) eller [via vs Code-tillägget](how-to-vscode-tools.md#get-started-with-azure-machine-learning-for-visual-studio-code).
 
@@ -26,7 +26,38 @@ I den här artikeln skapar du, visar och tar bort [**Azure Machine Learning arbe
 
 Du behöver en Azure-prenumeration för att skapa en arbets yta. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
-[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
+1. Logga in på [Azure Portal](https://portal.azure.com/) med hjälp av autentiseringsuppgifterna för din Azure-prenumeration. 
+
+1. I det övre vänstra hörnet av Azure Portal väljer du **+ skapa en resurs**.
+
+      ![Skapa en ny resurs](../../../includes/media/aml-create-in-portal/portal-create-resource.png)
+
+1. Använd Sök fältet för att hitta **Machine Learning service-arbetsyta**.
+
+1. Välj **Machine Learning tjänst arbets yta**.
+
+1. I fönstret **Machine Learning service-arbetsyta** väljer du **skapa** för att börja.
+
+1. Ange följande information för att konfigurera din nya arbets yta:
+
+   Fält|Beskrivning 
+   ---|---
+   Namn på arbets yta |Ange ett unikt namn som identifierar din arbets yta. I det här exemplet använder vi **dokument-WS**. Namn måste vara unika i resurs gruppen. Använd ett namn som är enkelt att återkalla och särskilja från arbets ytor som skapats av andra.  
+   Prenumeration |Ange den prenumeration som du vill använda.
+   Resursgrupp | Använd en befintlig resurs grupp i din prenumeration eller ange ett namn för att skapa en ny resurs grupp. En resurs grupp innehåller relaterade resurser för en Azure-lösning. I det här exemplet använder vi **AML-dokument**. 
+   Plats | Välj den plats som är närmast dina användare och data resurserna för att skapa din arbets yta.
+   Arbetsyte version | Välj **Basic** eller **Enterprise**.  Den här arbets ytans utgåva avgör vilka funktioner du kommer att ha åtkomst till och prissättning på. Läs mer om [erbjudanden för Basic och Enterprise Edition](overview-what-is-azure-ml.md#sku). 
+
+    ![Konfigurera din arbets yta](media/how-to-manage-workspace/select-edition.png)
+
+1. När du är färdig med konfigurationen av arbets ytan väljer du **skapa**. 
+
+   > [!Warning] 
+   > Det kan ta flera minuter att skapa din arbets yta i molnet.
+
+   När processen är klar visas ett meddelande om lyckad distribution. 
+ 
+ 1. Om du vill visa den nya arbets ytan väljer du **gå till resurs**.
 
 ### <a name="download-a-configuration-file"></a>Hämta en konfigurations fil
 
@@ -38,27 +69,45 @@ Du behöver en Azure-prenumeration för att skapa en arbets yta. Om du inte har 
    
    Placera filen i katalog strukturen med dina Python-skript eller Jupyter-anteckningsböcker. Det kan finnas i samma katalog, i en under katalog med namnet *. azureml*eller i en överordnad katalog. När du skapar en VM-anteckningsbok läggs den här filen till i rätt katalog på den virtuella datorn åt dig.
 
+## <a name="upgrade"></a>Uppgradera till Enterprise Edition
 
-## <a name="view"></a>Visa en arbets yta
+Du kan uppgradera din arbets yta från Basic Edition till Enterprise Edition för att dra nytta av de förbättrade funktionerna i dessa miljöer och förbättrade säkerhetsfunktioner.
+
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+
+1. Välj den arbets yta som du vill uppgradera.
+
+1. Välj **Uppgradera** antingen överst eller i uppgraderings meddelandet.
+
+    ![Uppgradera en arbets yta](media/how-to-manage-workspace/upgrade.png)
+
+1. Välj **Bekräfta uppdatering**.
+
+
+> [!IMPORTANT]
+> Du kan inte nedgradera en Enterprise Edition-arbetsyta till en Basic Edition-arbetsyta. 
+
+## <a name="view"></a>Hitta en arbets yta
 
 1. I det övre vänstra hörnet av portalen väljer du **alla tjänster**.
 
-1. I fältet **alla tjänster** filter skriver du **Machine Learning-tjänsten**.  
+1. I fältet **alla tjänster** filter skriver du **Machine Learning**.  
 
-1. Välj **Machine Learning tjänst arbets ytor**.
+1. Välj **Azure Machine Learning**.
 
    ![Sök efter Azure Machine Learning arbets yta](media/how-to-manage-workspace/all-services.png)
 
 1. Titta igenom listan med arbets ytor som har hittats. Du kan filtrera baserat på prenumeration, resurs grupper och platser.  
 
 1. Välj en arbets yta för att visa dess egenskaper.
-   ![Workspace egenskaper ](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
+   ![arbets ytans egenskaper](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
 
 ## <a name="delete-a-workspace"></a>Ta bort en arbetsyta
 
 Använd knappen Ta bort högst upp i arbets ytan som du vill ta bort.
 
   ![Knappen Ta bort](media/how-to-manage-workspace/delete-workspace.png)
+
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

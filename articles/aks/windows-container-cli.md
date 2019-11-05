@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: ff4367194f06a8a6895c9c16252b01c3b94995d3
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 497dab37f178a9ae7d0ab6cd647a10bac44539f8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241246"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472511"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>För hands version – skapa en Windows Server-behållare i ett Azure Kubernetes service-kluster (AKS) med hjälp av Azure CLI
 
@@ -69,7 +69,7 @@ Det tar några minuter för registreringen att slutföras. Kontrol lera registre
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/WindowsPreview')].{Name:name,State:properties.state}"
 ```
 
-När registrerings statusen är `Registered`, trycker du på CTRL + C för att stoppa övervakningen av tillstånd.  Uppdatera sedan registreringen av *Microsoft. container service* Resource Provider med hjälp av [AZ Provider register][az-provider-register] kommando:
+När registrerings statusen är `Registered`trycker du på CTRL-C för att stoppa övervakning av status.  Uppdatera sedan registreringen av *Microsoft. container service* Resource Provider med hjälp av [AZ Provider register][az-provider-register] kommando:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -79,7 +79,6 @@ az provider register --namespace Microsoft.ContainerService
 
 Följande begränsningar gäller när du skapar och hanterar AKS-kluster som stöder flera Node-pooler:
 
-* Flera resurspooler är tillgängliga för kluster som skapas när du har registrerat *WindowsPreview*. Flera resurspooler är också tillgängliga om du registrerar *MultiAgentpoolPreview* -funktionen för din prenumeration. Du kan inte lägga till eller hantera resurspooler med ett befintligt AKS-kluster som skapats innan den här funktionen har registrerats.
 * Du kan inte ta bort den första noden.
 
 När den här funktionen är i för hands version gäller följande ytterligare begränsningar:
@@ -141,7 +140,8 @@ az aks create \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
-    --enable-vmss \
+    --vm-set-type VirtualMachineScaleSets \
+    --load-balancer-sku standard \
     --network-plugin azure
 ```
 
@@ -153,7 +153,7 @@ Efter några minuter slutförs kommandot och returnerar JSON-formaterad informat
 
 ## <a name="add-a-windows-server-node-pool"></a>Lägga till en pool för Windows Server-noder
 
-Som standard skapas ett AKS-kluster med en Node-pool som kan köra Linux-behållare. Använd `az aks nodepool add`-kommandot för att lägga till ytterligare en adresspool som kan köra Windows Server-behållare.
+Som standard skapas ett AKS-kluster med en Node-pool som kan köra Linux-behållare. Använd `az aks nodepool add` kommandot för att lägga till ytterligare en adresspool som kan köra Windows Server-behållare.
 
 ```azurecli
 az aks nodepool add \

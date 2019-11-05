@@ -3,66 +3,69 @@ title: Autentisering med Azure Maps | Microsoft Docs
 description: Autentisering för användning av Azure Maps-tjänster.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 07/11/2019
+ms.date: 10/24/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: a4608d0631c9a590fdde583e399883a023275c30
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
-ms.translationtype: MT
+ms.openlocfilehash: 8a6bc8b71f5f8edda76faa1a8d1b20417dfba1d1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67838039"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73478658"
 ---
 # <a name="authentication-with-azure-maps"></a>Autentisering med Azure Maps
 
-Azure Maps stöder två sätt att autentisera begäranden: Delad nyckel och Azure Active Directory (AD Azure). Den här artikeln förklarar dessa autentiseringsmetoder för att guida din implementering.
+Azure Maps stöder två sätt att autentisera begär Anden: delad nyckel och Azure Active Directory (Azure AD). I den här artikeln beskrivs dessa autentiseringsmetoder för att hjälpa din implementering.
 
 ## <a name="shared-key-authentication"></a>Autentisering med delad nyckel
 
-Autentisering med delad nyckel skickar nycklar som genererats av ett Azure Maps-konto med varje begäran om att Azure Maps.  Två nycklar genereras när ditt Azure Maps-konto skapas. Prenumerationsnyckeln måste läggas till som en parameter i URL: en för varje begäran till Azure Maps-tjänsterna.
+Autentisering med delad nyckel skickar nycklar som genereras av ett Azure Maps-konto med varje begäran om att Azure Maps.  Två nycklar skapas när ditt Azure Maps-konto skapas. För varje begäran om att Azure Maps tjänster måste prenumerations nyckeln läggas till som en parameter till URL: en.
 
 > [!Tip]
-> Vi rekommenderar att du återskapar nycklarna regelbundet. Du får se två nycklar så att du kan upprätthålla anslutningar med en nyckel medan den andra återskapas. När du återskapar dina nycklar kan behöva du uppdatera alla program som använder kontot för att använda de nya nycklarna.
+> Vi rekommenderar att du återskapar nycklarna regelbundet. Du har två nycklar så att du kan underhålla anslutningar med en nyckel när du återskapar den andra. När du återskapar nycklar måste du uppdatera alla program som har åtkomst till kontot för att använda de nya nycklarna.
 
-Information om hur du visar dina nycklar finns i [visa information om autentisering](https://aka.ms/amauthdetails).
+Information om hur du visar dina nycklar finns i [Visa information om autentisering](https://aka.ms/amauthdetails).
 
 ## <a name="authentication-with-azure-active-directory-preview"></a>Autentisering med Azure Active Directory (förhandsversion)
 
-Azure Maps nu erbjuder [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) -integrering för autentisering av begäranden för Azure Maps-tjänsterna. Azure AD erbjuder identitet-baserad autentisering, inklusive [rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview), för att bevilja användarnivå, grupp- och programnivå åtkomst till Azure Maps-resurser. Avsnitten som följer kan hjälpa dig att förstå begrepp och komponenter i Azure Maps-integrering med Azure AD.
+Azure Maps erbjuder nu [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) -integration för att autentisera begär anden för Azure Maps tjänster. Azure AD ger identitets baserad autentisering, inklusive [rollbaserad åtkomst kontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview), för att bevilja åtkomst på användar nivå, grupp nivå och program nivå till Azure Maps resurser. I avsnitten som följer får du hjälp att förstå begreppen och komponenterna i Azure Maps integrering med Azure AD.
 
 ## <a name="authentication-with-oauth-access-tokens"></a>Autentisering med OAuth-åtkomsttoken
 
-Azure Maps accepterar **OAuth 2.0** åtkomsttoken för Azure AD-klienter som är associerade med en Azure-prenumeration som innehåller ett Azure Maps-konto. Azure Maps accepterar token för:
+Azure Maps accepterar **OAuth 2,0** -åtkomsttoken för Azure AD-klienter som är associerade med en Azure-prenumeration som innehåller ett Azure Maps-konto. Azure Maps accepterar token för:
 
 * Azure AD-användare. 
-* Partnerprogram som använder behörigheter som delegerats av användare.
+* Partner program som använder behörigheter som delegerats av användare.
 * Hanterade identiteter för Azure-resurser.
 
-Azure Maps genererar en *unika identifierare (klient-ID)* för varje Azure Maps-konto. När du kombinerar detta klient-ID med ytterligare parametrar kan begära du token från Azure AD genom att ange följande värde:
+Azure Maps skapar ett *unikt ID (klient-ID)* för varje Azure Maps-konto. När du kombinerar detta klient-ID med ytterligare parametrar kan du begära token från Azure AD genom att ange värdena i följande tabell, beroende på din Azure-miljö.
 
-```
-https://login.microsoftonline.com
-```
-Läs mer om hur du konfigurerar Azure AD och begära token för Azure Maps [hantera autentisering i Azure Maps](https://review.docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+| Azure-miljö   | Azure AD-token-slutpunkt |
+| --------------------|-------------------------|
+| Offentlig Azure-        | https://login.microsoftonline.com |
+| Azure Government    | https://login.microsoftonline.us |
 
-Allmän information om hur du begär token från Azure AD finns i [vad är authentication?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 
-## <a name="request-azure-map-resources-with-oauth-tokens"></a>Begär Azure Map resurser med OAuth-token
+Mer information om hur du konfigurerar Azure AD och begär token för Azure Maps finns i [hantera autentisering i Azure Maps](https://review.docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
 
-När en token har tagits emot från Azure AD, kan en begäran skickas till Azure Maps med följande två nödvändiga begäran rubriker:
+Allmän information om hur du begär token från Azure AD finns i [Vad är autentisering?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
+
+## <a name="request-azure-map-resources-with-oauth-tokens"></a>Begär Azure Map-resurser med OAuth-token
+
+När en token tas emot från Azure AD kan en begäran skickas till Azure Maps med följande två obligatoriska begär ande huvud uppsättningar:
 
 | Begärandehuvud    |    Värde    |
 |:------------------|:------------|
 | x-ms-client-id    | 30d7cc….9f55|
-| Authorization     | Bearer eyJ0e….HNIVN |
+| Auktorisering     | Bearer eyJ0e….HNIVN |
 
 > [!Note]
-> `x-ms-client-id` är Azure Maps baserade GUID som visas på sidan för Azure Maps-autentisering.
+> `x-ms-client-id` är det Azure Maps kontobaserade GUID som visas på sidan Azure Maps autentisering.
 
-Här är ett exempel på en begäran för Azure Maps väg som använder en OAuth-token:
+Här är ett exempel på en Azure Maps Route-begäran som använder en OAuth-token:
 
 ```
 GET /route/directions/json?api-version=1.0&query=52.50931,13.42936:52.50274,13.43872 
@@ -71,24 +74,24 @@ x-ms-client-id: 30d7cc….9f55
 Authorization: Bearer eyJ0e….HNIVN 
 ```
 
-Information om hur du visar klient-ID finns i [visa information om autentisering](https://aka.ms/amauthdetails).
+Information om hur du visar ditt klient-ID finns i [Visa information om autentisering](https://aka.ms/amauthdetails).
 
-## <a name="control-access-with-rbac"></a>Kontrollera åtkomst med RBAC
+## <a name="control-access-with-rbac"></a>Kontrol lera åtkomst med RBAC
 
-Azure AD kan du styra åtkomsten till skyddade resurser med hjälp av RBAC. När du skapar ditt Azure Maps-konto och registrera ditt Azure Maps Azure AD-program i Azure AD-klienten, kan du konfigurera RBAC för en användare, grupp, program eller Azure-resurs på portalsidan för Azure Maps-konto.
+Med Azure AD kan du styra åtkomsten till skyddade resurser med RBAC. När du har skapat ditt Azure Maps-konto och registrerat ditt Azure Maps Azure AD-program i din Azure AD-klient kan du konfigurera RBAC för en användare, grupp, program eller Azure-resurs på Azure Maps-kontots Portal sida.
 
-Azure Maps stöder Läs åtkomstkontroll för enskilda användare, grupper, program och Azure-tjänster via hanterade identiteter för Azure-resurser i Azure AD.
+Azure Maps stöder Läs åtkomst kontroll för enskilda Azure AD-användare, grupper, program och Azure-tjänster via hanterade identiteter för Azure-resurser.
 
-![Azure Maps Data-läsare (förhandsgranskning)](./media/azure-maps-authentication/concept.png)
+![Azure Maps data läsare (förhands granskning)](./media/azure-maps-authentication/concept.png)
 
-Information om hur du visar RBAC-inställningar finns i [hur du konfigurerar RBAC för Azure Maps](https://aka.ms/amrbac).
+Information om hur du visar dina RBAC-inställningar finns i [så här konfigurerar du RBAC för Azure Maps](https://aka.ms/amrbac).
 
 ## <a name="managed-identities-for-azure-resources-and-azure-maps"></a>Hanterade identiteter för Azure-resurser och Azure Maps
 
-[Hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) tillhandahålla Azure-tjänster (Azure App Service, Azure Functions, Azure Virtual Machines och så vidare) med en automatiskt hanterade identitet som kan ha behörighet för åtkomst till Azure Maps-tjänsterna.  
+[Hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) ger Azure-tjänster (Azure App Service, Azure Functions, Azure-Virtual Machines och så vidare) med en automatiskt hanterad identitet som kan beviljas åtkomst till Azure Maps tjänster.  
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om autentisera ett program med Azure AD och Azure Maps, se [hantera autentisering i Azure Maps](https://review.docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+* Mer information om hur du autentiserar ett program med Azure AD och Azure Maps finns i [hantera autentisering i Azure Maps](https://review.docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
 
-* Mer information om autentisering Azure Maps-Kartkontroll och Azure AD finns [använder du Azure Maps-Kartkontroll](https://aka.ms/amaadmc).
+* Mer information om hur du autentiserar Azure Maps Kartkontroll och Azure AD finns i [använda Azure Maps Kartkontroll](https://aka.ms/amaadmc).

@@ -1,5 +1,5 @@
 ---
-title: Migrera lokala Apache Hadoop-kluster till Azure HDInsight – infrastruktur
+title: 'Infrastruktur: lokal Apache Hadoop till Azure HDInsight'
 description: Lär dig metod tips för infrastruktur för migrering av lokala Hadoop-kluster till Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: e35917a7eb7b2e38fcc2689f6fe838ec6529428a
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: adc0e5f5eef41dcb1f826ffbf0cfe91a937fac01
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087454"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499220"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight – metod tips för infrastruktur
 
@@ -42,7 +42,7 @@ Du kan också använda Apache Ambari-gränssnittet eller Ambari-REST API för at
 
 Program eller komponenter som var tillgängliga i lokala kluster, men som inte ingår i HDInsight-kluster, kan läggas till på en Edge-nod eller på en virtuell dator i samma VNet som HDInsight-klustret. Ett Hadoop-program från tredje part som inte är tillgängligt på Azure HDInsight kan installeras med alternativet "program" i HDInsight-klustret. Anpassade Hadoop-program kan installeras på HDInsight-kluster med hjälp av skript åtgärder. I följande tabell visas några av de vanligaste programmen och deras HDInsight-integrerings alternativ:
 
-|**Programmet**|**Samordning**
+|**Applicering**|**Samordning**
 |---|---|
 |Luft flöde|IaaS-eller HDInsight Edge-nod
 |Alluxio|IaaS  
@@ -61,7 +61,7 @@ Program eller komponenter som var tillgängliga i lokala kluster, men som inte i
 |Python 2|PaaS 
 |Python 3|PaaS 
 |R|PaaS 
-|SAS|IaaS 
+|SÄKERHETS|IaaS 
 |Vertica|IaaS (SQLDW ett alternativ i Azure)
 |Tableau|IaaS 
 |Linje|HDInsight Edge-nod
@@ -81,13 +81,13 @@ Skriptet kan vara beständigt eller köras en stund. De bestående skripten anv�
 
 HDInsight innehåller i förväg skrivna skript för att installera följande komponenter i HDInsight-kluster:
 
-- Lägg till ett Azure Storage-konto
+- Lägg till ett Azure Storage konto
 - Installera Hue
 - Installera Presto
-- Installera Solr
+- Installera solr
 - Installera Giraph
 - För inläsning av Hive-bibliotek
-- Installera eller uppgradera Mono
+- Installera eller uppdatera Mono
 
 > [!Note]  
 > HDInsight tillhandahåller inte direkt stöd för anpassade Hadoop-komponenter eller komponenter som installeras med skript åtgärder.
@@ -102,7 +102,7 @@ Mer information finns i följande artiklar:
 
 ## <a name="customize-hdinsight-configs-using-bootstrap"></a>Anpassa HDInsight-konfiguration med start
 
-Ändringar i konfigurationerna i config- `core-site.xml` `hive-site.xml` filerna som och `oozie-env.xml` kan göras med hjälp av bootstrap. Följande skript är ett exempel som använder PowerShell [AZ-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) cmdlet [New-AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster):
+Ändringar i konfigurationerna i config-filerna, till exempel `core-site.xml`, `hive-site.xml` och `oozie-env.xml` kan göras med hjälp av bootstrap. Följande skript är ett exempel som använder PowerShell [AZ-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) cmdlet [New-AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster):
 
 ```powershell
 # hive-site.xml configuration
@@ -137,7 +137,7 @@ En tom Edge-nod är en virtuell Linux-dator med samma klient verktyg installerad
 - testa klient program
 - värdbaserade klient program
 
-Edge-noder kan skapas och tas bort via Azure Portal och kan användas under eller efter att klustret har skapats. När Edge-noden har skapats kan du ansluta till Edge-noden med SSH och köra klient verktyg för att komma åt Hadoop-klustret i HDInsight. SSH-slutpunkten för `<EdgeNodeName>.<ClusterName>-ssh.azurehdinsight.net:22`Edge-noden är.
+Edge-noder kan skapas och tas bort via Azure Portal och kan användas under eller efter att klustret har skapats. När Edge-noden har skapats kan du ansluta till Edge-noden med SSH och köra klient verktyg för att komma åt Hadoop-klustret i HDInsight. SSH-slutpunkten för Edge-noden är `<EdgeNodeName>.<ClusterName>-ssh.azurehdinsight.net:22`.
 
 
 Mer information finns i artikeln [använda tomma Edge-noder i Apache Hadoop kluster i HDInsight](../hdinsight-apps-use-edge-node.md).
@@ -168,7 +168,7 @@ HDInsight kan antingen läggas till i en ny eller befintlig Azure-Virtual Networ
 Mer information finns i följande artiklar:
 
 - [Azure Virtual-Networks – översikt](../../virtual-network/virtual-networks-overview.md)
-- [Utöka Azure HDInsight med hjälp av ett virtuellt Azure-nätverk](../hdinsight-plan-virtual-network-deployment.md)
+- [Utöka HDInsight med ett Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md)
 
 ## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Anslut säkert till Azure-tjänster med Azure Virtual Network Service-slutpunkter
 

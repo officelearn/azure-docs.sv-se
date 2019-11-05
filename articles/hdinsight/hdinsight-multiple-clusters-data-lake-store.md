@@ -1,5 +1,5 @@
 ---
-title: Använd flera HDInsight-kluster med ett Azure Data Lake Storage konto
+title: Flera HDInsight-kluster & ett Azure Data Lake Storage konto
 description: Lär dig hur du använder mer än ett HDInsight-kluster med ett enda Data Lake Storage konto
 keywords: HDInsight-lagring, HDFS, strukturerade data, ostrukturerade data, data Lake Store
 author: hrasheed-msft
@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 776d8f31a5353604ff1c887bdfa214d07b2bfb48
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: ba0c26d87f2161af514c9430eae5c9949ef92b15
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70733183"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498185"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Använd flera HDInsight-kluster med ett Azure Data Lake Storage konto
 
 Från och med HDInsight version 3,5 kan du skapa HDInsight-kluster med Azure Data Lake Storage-konton som standard fil system.
-Data Lake Storage stöder obegränsad lagring som gör det idealiskt inte bara för att vara värd för stora mängder data. men även för att vara värd för flera HDInsight-kluster som delar ett enda Data Lake Storage-konto. Instruktioner för hur du skapar ett HDInsight-kluster med data Lake Storage som lagrings plats finns [i snabb start: Konfigurera kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+Data Lake Storage stöder obegränsad lagring som gör det idealiskt inte bara för att vara värd för stora mängder data. men även för att vara värd för flera HDInsight-kluster som delar ett enda Data Lake Storage-konto. Instruktioner för hur du skapar ett HDInsight-kluster med Data Lake Storage som lagrings utrymme finns i [snabb start: Konfigurera kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 Den här artikeln ger rekommendationer till Data Lake Storage-administratören för att konfigurera ett enda och delat Data Lake Storage-konto som kan användas i flera **aktiva** HDInsight-kluster. De här rekommendationerna gäller för att vara värd för flera skyddade och icke-säkra Apache Hadoop-kluster på ett delat Data Lake Storage konto.
 
@@ -36,9 +36,9 @@ Om du vill att den här mappstrukturen ska användas effektivt av HDInsight-klus
 
 |Mapp  |Behörigheter  |Ägande användare  |Ägande grupp  | Namngiven användare | Namngivna användar behörigheter | Namngiven grupp | Namngivna grupp behörigheter |
 |---------|---------|---------|---------|---------|---------|---------|---------|
-|/ | rwxr-x--x  |innehavaradministration |innehavaradministration  |Tjänstens huvudnamn |--x  |FINGRP   |r-x         |
-|/clusters | rwxr-x--x |innehavaradministration |innehavaradministration |Tjänstens huvudnamn |--x  |FINGRP |r-x         |
-|/clusters/finance | rwxr-x--t |innehavaradministration |FINGRP  |Tjänstens huvudnamn |RWX  |-  |-     |
+|/ | rwxr-x--x  |Innehavaradministration |Innehavaradministration  |Tjänstens huvud namn |--x  |FINGRP   |r-x         |
+|/clusters | rwxr-x--x |Innehavaradministration |Innehavaradministration |Tjänstens huvud namn |--x  |FINGRP |r-x         |
+|/clusters/finance | rwxr-x--t |Innehavaradministration |FINGRP  |Tjänstens huvud namn |RWX  |-  |-     |
 
 I tabellen,
 
@@ -57,7 +57,7 @@ Några viktiga saker att tänka på.
 
     |Mapp  |Behörigheter  |Ägande användare  |Ägande grupp  | Namngiven användare | Namngivna användar behörigheter | Namngiven grupp | Namngivna grupp behörigheter |
     |---------|---------|---------|---------|---------|---------|---------|---------|
-    |/clusters/finanace/ fincluster01 | rwxr-x---  |Tjänstens huvudnamn |FINGRP  |- |-  |-   |-  | 
+    |/clusters/finanace/ fincluster01 | rwxr – x---  |Tjänstens huvudnamn |FINGRP  |- |-  |-   |-  | 
    
 
 
@@ -87,10 +87,10 @@ De här inställningarna är kända för att påverka ett visst HDInsight-använ
 
 Som anges i garn JIRA som är länkad tidigare, medan lokaliserade offentliga resurser, verifierar lokaliserings tjänsten att alla begärda resurser är offentliga genom att kontrol lera deras behörigheter i fjärrfilsystemet. Alla LocalResource som inte uppfyller det villkoret avvisas för lokalisering. Sök efter behörigheter, inklusive Läs åtkomst till filen för "andra". Det här scenariot fungerar inte direkt när du är värd för HDInsight-kluster på Azure Data Lake, eftersom Azure Data Lake nekar all åtkomst till "andra" på Rotmappens nivå.
 
-#### <a name="workaround"></a>Lösning:
-Ange Läs-och kör behörigheter för **andra** via hierarkin, till exempel at **/** , **/Clusters** och **/Clusters/Finance** , som visas i tabellen ovan.
+#### <a name="workaround"></a>Lösning
+Ange Läs-och kör behörigheter för **andra** via hierarkin, till exempel på **/** , **/Clusters** och **/Clusters/Finance** som visas i tabellen ovan.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [Snabbstart: Konfigurera kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](hdinsight-hadoop-use-data-lake-storage-gen2.md)

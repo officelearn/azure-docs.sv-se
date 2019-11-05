@@ -1,6 +1,6 @@
 ---
 title: Köra python Machine Learning-skript
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
 description: Lär dig hur du använder modulen kör Python-skript för att använda python-kod i Machine Learning Studio (klassiska) experiment och webb tjänster.
 services: machine-learning
 ms.service: machine-learning
@@ -10,22 +10,22 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: bfc2efca0786838d528b3019a3aff405f46ef645
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 1be367191ab042611f45d1f773df0d499400c500
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053793"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493005"
 ---
-# <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Kör skript för Python-maskininlärning i Azure Machine Learning Studio
+# <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Köra python Machine Learning-skript i Azure Machine Learning Studio (klassisk)
 
 Python är ett värdefullt verktyg i verktyget Chest av många data forskare. Den används i alla stadier av vanliga Machine Learning-arbetsflöden, inklusive data utforskning, funktions extrahering, modell utbildning och validering och distribution.
 
-I den här artikeln beskrivs hur du kan använda den köra Python-skript-modulen för att använda python-kod i dina Azure Machine Learning Studio experiment och webb tjänster.
+I den här artikeln beskrivs hur du kan använda den köra Python-skript-modulen för att använda python-kod i dina Azure Machine Learning Studio (klassiska) experiment och webb tjänster.
 
 ## <a name="using-the-execute-python-script-module"></a>Använda modulen kör Python-skript
 
-Det primära gränssnittet till python i Studio är genom att [köra Python-skript][execute-python-script] -modulen. Den accepterar upp till tre indata och genererar upp till två utdata, på samma sätt som [Kör R-skript][execute-r-script] -modulen. Python-koden anges i parameter rutan via en särskilt namngiven post punkts funktion som kallas `azureml_main`.
+Det primära gränssnittet till python i Studio (klassisk) är genom [execute Python-skript][execute-python-script] -modulen. Den accepterar upp till tre indata och genererar upp till två utdata, på samma sätt som [Kör R-skript][execute-r-script] -modulen. Python-koden anges i parameter rutan via en särskilt namngiven post punkts funktion som kallas `azureml_main`.
 
 ![Köra Python-skript modul](./media/execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
@@ -53,7 +53,7 @@ Funktionen `azureml_main` måste returnera en enskild Pandas DataFrame-paketerad
 
 ## <a name="translation-of-input-and-output-data-types"></a>Översättning av data typer för indata och utdata
 
-Studio-datauppsättningar är inte samma som Panda DataFrames. Det innebär att indata-datauppsättningar i Studio konverteras till Pandas-DataFrame och utdata-DataFrames konverteras tillbaka till Studio-datauppsättningar. Under den här konverterings processen utförs även följande översättningar:
+Studio-datauppsättningar är inte samma som Panda DataFrames. Det innebär att indata-datauppsättningar i den klassiska versionen av Studio konverteras till Pandas-DataFrame och utdata-DataFrames konverteras tillbaka till Studio (klassiska) data uppsättningar. Under den här konverterings processen utförs även följande översättningar:
 
  **Data typen python** | **Översättnings procedur för Studio** |
 | --- | --- |
@@ -67,9 +67,9 @@ Studio-datauppsättningar är inte samma som Panda DataFrames. Det innebär att 
 
 ## <a id="import-modules"></a>Befintliga Python-skript moduler importeras
 
-Server delen som används för att köra python baseras på [Anaconda](https://www.anaconda.com/distribution/), en mycket använda vetenskaplig python-distribution. Den levereras med nära 200 av de vanligaste python-paketen som används i datainriktade arbets belastningar. Studio stöder för närvarande inte användning av paket hanterings system som pip eller Conda för att installera och hantera externa bibliotek.  Om du tycker att du behöver inkludera ytterligare bibliotek använder du följande scenario som vägledning.
+Server delen som används för att köra python baseras på [Anaconda](https://www.anaconda.com/distribution/), en mycket använda vetenskaplig python-distribution. Den levereras med nära 200 av de vanligaste python-paketen som används i datainriktade arbets belastningar. Den klassiska versionen av Studio stöder för närvarande inte användning av paket hanterings system som pip eller Conda för att installera och hantera externa bibliotek.  Om du tycker att du behöver inkludera ytterligare bibliotek använder du följande scenario som vägledning.
 
-Ett vanligt användnings fall är att införliva befintliga Python-skript i Studio experiment. [Execute Python-skript][execute-python-script] module accepterar en zip-fil som innehåller python-moduler på den tredje Indataporten. Filen zippas inte av körnings ramverket vid körning och innehållet läggs till i biblioteks Sök vägen för python-tolken. Den `azureml_main` start punkt funktionen kan sedan importera de här modulerna direkt. 
+Ett vanligt användnings fall är att införliva befintliga Python-skript i den klassiska versionen av Studio experiment. [Execute Python-skript][execute-python-script] module accepterar en zip-fil som innehåller python-moduler på den tredje Indataporten. Filen zippas inte av körnings ramverket vid körning och innehållet läggs till i biblioteks Sök vägen för python-tolken. Den `azureml_main` start punkt funktionen kan sedan importera de här modulerna direkt. 
 
 Anta till exempel att filen Hello.py innehåller en enkel "Hello, World"-funktion.
 
@@ -79,7 +79,7 @@ Därefter skapar vi en fil Hej. zip som innehåller Hello.py:
 
 ![Zip-fil som innehåller användardefinierad python-kod](./media/execute-python-scripts/figure5.png)
 
-Ladda upp zip-filen som en data uppsättning i Studio. Skapa och kör sedan ett experiment som använder python-koden i filen Hello. zip genom att koppla den till den tredje Indataporten för modulen **Kör python** som visas i följande bild.
+Ladda upp zip-filen som en data uppsättning i den klassiska versionen av Studio. Skapa och kör sedan ett experiment som använder python-koden i filen Hello. zip genom att koppla den till den tredje Indataporten för modulen **Kör python** som visas i följande bild.
 
 ![Exempel på experiment med Hello. zip som ininformation till en EXECUTE python-skriptfil](./media/execute-python-scripts/figure6a.png)
 
@@ -94,7 +94,7 @@ Modulens utdata visar att zip-filen har packats upp och att funktionen `print_he
 Du kan komma åt data som lagras i ett Azure Blob Storage-konto med följande steg:
 
 1. Ladda ned [Azure Blob Storage-paketet för python](https://azuremlpackagesupport.blob.core.windows.net/python/azure.zip) lokalt.
-1. Överför zip-filen till din Studio-arbetsyta som en data uppsättning.
+1. Överför zip-filen till din Studio (klassiska) arbets yta som en data uppsättning.
 1. Skapa ett BlobService-objekt med `protocol='http'`
 
 ```
@@ -141,11 +141,11 @@ Den här processen illustreras i följande bilder som skapar en punkt ritnings m
 
 ![Visualisera ritytor för ett exempel experiment med python-kod](./media/execute-python-scripts/figure-v2-9b.png)
 
-Det är möjligt att returnera flera siffror genom att spara dem i olika bilder. Studio-körningen hämtar alla bilder och sammanfogar dem för visualisering.
+Det är möjligt att returnera flera siffror genom att spara dem i olika bilder. Den klassiska versionen av Studio runtime hämtar alla bilder och sammanfogar dem för visualisering.
 
 ## <a name="advanced-examples"></a>Avancerade exempel
 
-Anaconda-miljön som installeras i Studio innehåller vanliga paket som NumPy, SciPy och scikits-lär. Dessa paket kan användas effektivt för data bearbetning i en maskin inlärnings pipeline.
+Anaconda-miljön som installeras i den klassiska versionen av Studio innehåller vanliga paket som NumPy, SciPy och scikits-lär. Dessa paket kan användas effektivt för data bearbetning i en maskin inlärnings pipeline.
 
 Följande experiment och skript visar till exempel användningen av Ensemble-lär i scikits – lär dig att beräkna prioritets resultat för en data uppsättning. Poängen kan användas för att utföra ett övervakat funktions val innan de matas in i en annan modell.
 
@@ -153,7 +153,7 @@ Här är python-funktionen som används för att beräkna prioritets poängen oc
 
 ![Funktion för att rangordna funktioner efter Poäng](./media/execute-python-scripts/figure8.png)
 
-Följande experiment beräknar och returnerar prioritets poängen för funktionerna i data uppsättningen "Pima indiska diabetes" i Azure Machine Learning Studio:
+Följande experiment beräknar och returnerar prioritets poängen för funktionerna i data uppsättningen "Pima indiska diabetes" i den klassiska versionen av Azure Machine Learning Studio:
 
 ![Försök att rangordna funktioner i Pima indiska diabetes-datauppsättningen med python](./media/execute-python-scripts/figure9a.png)
 
@@ -173,7 +173,7 @@ Python-modulen stöder för närvarande inte IDE-funktioner som IntelliSense och
 
 ### <a name="single-data-frame-output"></a>Utdata för en data ram
 
-Start punkten för python får bara returnera en enskild data ram som utdata. För närvarande går det inte att returnera godtyckliga python-objekt, till exempel utbildade modeller direkt tillbaka till Studio-körningen. Precis som [Kör R-skript][execute-r-script], som har samma begränsning, är det möjligt i många fall att Pickle objekt till en byte mat ris och sedan returnera det inuti en data ram.
+Start punkten för python får bara returnera en enskild data ram som utdata. För närvarande går det inte att returnera godtyckliga python-objekt, till exempel utbildade modeller direkt tillbaka till Studio-körningsmiljön (klassisk). Precis som [Kör R-skript][execute-r-script], som har samma begränsning, är det möjligt i många fall att Pickle objekt till en byte mat ris och sedan returnera det inuti en data ram.
 
 ### <a name="inability-to-customize-python-installation"></a>Det går inte att anpassa python-installationen
 

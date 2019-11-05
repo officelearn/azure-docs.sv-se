@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 7426493a575ceb38211f5e6e3b4f7e2ba558b670
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: fd874776e5be94831322bce839a502ebc43e1958
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754737"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481188"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Beräknings miljöer som stöds av Azure Data Factory
 I den här artikeln beskrivs olika beräknings miljöer som du kan använda för att bearbeta eller transformera data. Den innehåller också information om olika konfigurationer (på begäran eller ta med din egen) som stöds av Data Factory när du konfigurerar länkade tjänster som länkar dessa beräknings miljöer till en Azure Data Factory.
@@ -26,9 +26,10 @@ Följande tabell innehåller en lista över beräknings miljöer som stöds av D
 | Compute-miljö                                          | activities                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [HDInsight-kluster på begäran](#azure-hdinsight-on-demand-linked-service) eller [ditt eget HDInsight-kluster](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [gris](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop-direktuppspelning](transform-data-using-hadoop-streaming.md) |
-| [Azure Batch](#azure-batch-linked-service)                   | [Anpassat](transform-data-using-dotnet-custom-activity.md)     |
+| [Azure Batch](#azure-batch-linked-service)                   | [Anpassad](transform-data-using-dotnet-custom-activity.md)     |
 | [Azure Machine Learning Studio](#azure-machine-learning-studio-linked-service) | [Machine Learning-aktiviteter: batchkörning och resursuppdatering](transform-data-using-machine-learning.md) |
-| [Azure Machine Learning tjänst](#azure-machine-learning-service-linked-service) | [Azure Machine Learning kör pipeline](transform-data-machine-learning-service.md) |
+| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning kör pipeline](transform-data-machine-learning-service.md) |
+| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning kör pipeline](transform-data-machine-learning-service.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service) [SQL Server](#sql-server-linked-service) | [Lagrad procedur](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [jar](transform-data-databricks-jar.md), [python](transform-data-databricks-python.md) |
@@ -100,7 +101,7 @@ Följande JSON definierar en Linux-baserad länkad HDInsight-tjänst på begära
 | Egenskap                     | Beskrivning                              | Krävs |
 | ---------------------------- | ---------------------------------------- | -------- |
 | typ                         | Egenskapen Type ska anges till **HDInsightOnDemand**. | Ja      |
-| clusterSize                  | Antalet arbets uppgifter/datanoder i klustret. HDInsight-klustret skapas med två head-noder och antalet arbetsnoder som du anger för den här egenskapen. Noderna har storleks Standard_D3 som har 4 kärnor, så ett kluster med fyra arbets noder tar 24 kärnor (4 \*4 = 16 kärnor för arbetsnoder, plus 2 \*4 = 8 kärnor för huvudnoder). Se [Konfigurera kluster i HDInsight med Hadoop, Spark, Kafka och mycket mer](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) för mer information. | Ja      |
+| clusterSize                  | Antalet arbets uppgifter/datanoder i klustret. HDInsight-klustret skapas med två head-noder och antalet arbetsnoder som du anger för den här egenskapen. Noderna har storleks Standard_D3 som har 4 kärnor, så ett kluster med fyra arbets noder tar 24 kärnor (4\*4 = 16 kärnor för arbetsnoder, plus 2\*4 = 8 kärnor för Head-noder). Se [Konfigurera kluster i HDInsight med Hadoop, Spark, Kafka och mycket mer](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) för mer information. | Ja      |
 | linkedServiceName            | Azure Storage länkad tjänst som ska användas av klustret på begäran för att lagra och bearbeta data. HDInsight-klustret skapas i samma region som det här Azure Storage kontot. Azure HDInsight har en begränsning för hur många kärnor du kan använda i varje Azure-region som stöds. Se till att du har tillräckligt många kärn kvoter i Azure-regionen för att uppfylla de nödvändiga clusterSize. Mer information finns i [Konfigurera kluster i HDInsight med Hadoop, Spark, Kafka och mycket mer](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)<p>För närvarande kan du inte skapa ett HDInsight-kluster på begäran som använder en Azure Data Lake Store som lagrings plats. Om du vill lagra resultat data från HDInsight-bearbetning i en Azure Data Lake Store använder du en kopierings aktivitet för att kopiera data från Azure-Blob Storage till Azure Data Lake Store. </p> | Ja      |
 | clusterResourceGroup         | HDInsight-klustret skapas i den här resurs gruppen. | Ja      |
 | TimeToLive                   | Den tillåtna inaktiva tiden för HDInsight-klustret på begäran. Anger hur länge HDInsight-klustret på begäran förblir aktivt efter att en aktivitets körning slutförts om det inte finns några andra aktiva jobb i klustret. Det minsta tillåtna värdet är 5 minuter (00:05:00).<br/><br/>Om en aktivitets körning till exempel tar 6 minuter och TimeToLive har angetts till 5 minuter förblir klustret aktiv i 5 minuter efter 6 minuters bearbetning av aktivitets körningen. Om en annan aktivitets körning körs med fönstret 6 minuter, bearbetas den av samma kluster.<br/><br/>Att skapa ett HDInsight-kluster på begäran är en dyr åtgärd (kan ta en stund), så Använd den här inställningen vid behov för att förbättra prestandan hos en data fabrik genom att återanvända ett HDInsight-kluster på begäran.<br/><br/>Om du anger TimeToLive-värdet till 0, tas klustret bort så snart aktiviteten körs klart. Om du anger ett högt värde kan klustret vara inaktivt så att du kan logga in för vissa fel söknings syfte men det kan resultera i höga kostnader. Därför är det viktigt att du anger rätt värde utifrån dina behov.<br/><br/>Om värdet för egenskapen TimeToLive har angetts korrekt kan flera pipelines dela instansen av HDInsight-klustret på begäran. | Ja      |
@@ -392,11 +393,11 @@ Du skapar en Azure Machine Learning Studio länkad tjänst för att registrera e
 | innehav                 | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Du kan hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Krävs om updateResourceEndpoint har angetts |
 | connectVia             | Integration Runtime som ska användas för att skicka aktiviteter till den här länkade tjänsten. Du kan använda Azure Integration Runtime eller egen värd Integration Runtime. Om inget värde anges används standard Azure Integration Runtime. | Nej                                       |
 
-## <a name="azure-machine-learning-service-linked-service"></a>Länkad tjänst för Azure Machine Learning tjänsten
-Du skapar en länkad tjänst för Azure Machine Learning tjänsten för att ansluta en Azure Machine Learning service-arbetsyta till en data fabrik.
+## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning länkad tjänst
+Du skapar en Azure Machine Learning länkad tjänst för att ansluta en Azure Machine Learning arbets yta till en data fabrik.
 
 > [!NOTE]
-> För närvarande stöds endast autentisering av tjänstens huvud namn för den länkade tjänsten Azure Machine Learning tjänsten.
+> För närvarande stöds endast autentisering av tjänstens huvud namn för den länkade tjänsten Azure Machine Learning.
 
 ### <a name="example"></a>Exempel
 
@@ -430,7 +431,7 @@ Du skapar en länkad tjänst för Azure Machine Learning tjänsten för att ansl
 | Typ                   | Egenskapen Type ska anges till: **AzureMLService**. | Ja                                      |
 | subscriptionId         | ID för Azure-prenumeration              | Ja                                      |
 | resourceGroupName      | namn | Ja                                      |
-| mlWorkspaceName        | Namn på Azure Machine Learning service-arbetsyta | Ja  |
+| mlWorkspaceName        | Namn på Azure Machine Learning arbets yta | Ja  |
 | servicePrincipalId     | Ange programmets klient-ID.     | Nej |
 | servicePrincipalKey    | Ange programmets nyckel.           | Nej |
 | innehav                 | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Du kan hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Krävs om updateResourceEndpoint har angetts | Nej |

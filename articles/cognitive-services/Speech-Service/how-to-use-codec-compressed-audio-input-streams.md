@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: amishu
-ms.openlocfilehash: 8f2896a6289ecaf4046d705da106636258cdadc5
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 668964c597b8d748220cbeec68e0ba68300cb406
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802246"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464360"
 ---
 # <a name="using-codec-compressed-audio-input-with-the-speech-sdk"></a>Använda codec-komprimerad ljud inspelning med talet SDK
 
@@ -27,7 +27,7 @@ Talet SDK: s **komprimerade ljud inspelnings** -API ger ett sätt att strömma k
 
 För WAV/PCM ser du Mainline tal-dokumentationen.  Utanför WAV/PCM stöds följande codec-komprimerade indataformat:
 
-- MP3-FILEN
+- MP3
 - OPUS/OGG
 - FLAC
 - ALAW i WAV-behållare
@@ -43,7 +43,7 @@ sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugin
 
 ## <a name="example-code-using-codec-compressed-audio-input"></a>Exempel kod med codec komprimerad ljud inspelning
 
-Skapa `PullAudioInputStream` eller `PushAudioInputStream` för att strömma i ett komprimerat ljud format till tal tjänsterna. Skapa sedan en `AudioConfig` från en instans av data ström klassen och ange komprimerings formatet för data strömmen.
+Skapa `PullAudioInputStream` eller `PushAudioInputStream`för att strömma i ett komprimerat ljud format till tal tjänsterna. Skapa sedan en `AudioConfig` från en instans av data ström klassen och ange komprimerings formatet för data strömmen.
 
 Vi antar att du har en data Ströms klass som heter `myPushStream` och använder OPUS/OGG. Din kod kan se ut så här:
 
@@ -67,4 +67,4 @@ var text = result.GetText();
 ## <a name="next-steps"></a>Nästa steg
 
 - [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services/)
-- [Se hur du kan känna igen tal i C#](quickstart-csharp-dotnet-windows.md)
+* [Se identifiera tal i Java](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)

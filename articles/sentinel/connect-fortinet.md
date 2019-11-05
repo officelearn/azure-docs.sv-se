@@ -13,60 +13,92 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 10/13/2019
 ms.author: rkarlin
-ms.openlocfilehash: 20079fd0c95da3e3aec9518f194ea39561a5e662
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 7a44d63b834a7b6b580909005a440637bf730918
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240701"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475784"
 ---
-# <a name="connect-your-fortinet-appliance"></a>Anslut din Fortinet-apparat
+# <a name="connect-fortinet-to-azure-sentinel"></a>Anslut Fortinet till Azure Sentinel
 
 
 
-Du kan ansluta Azure Sentinel till valfri Fortinet-apparat genom att spara loggfilerna som syslog-CEF (common Event format). Med integreringen med Azure Sentinel kan du enkelt köra analyser och frågor över logg fils data från Fortinet. Mer information om hur Azure Sentinel matar in CEF-data finns i [ansluta CEF-enheter](connect-common-event-format.md).
+Den här artikeln förklarar hur du ansluter din Fortinet-installation till Azure Sentinel. Med Fortinet data Connector kan du enkelt ansluta dina Fortinet-loggar med Azure Sentinel, för att visa instrument paneler, skapa anpassade aviseringar och förbättra undersökningen. Genom att använda Fortinet på Azure Sentinel får du mer insikter om din organisations Internet användning och förbättrar säkerhets åtgärdens funktioner. 
 
-> [!NOTE]
-> Data lagras på den geografiska platsen för den arbets yta där du kör Azure Sentinel.
 
-## <a name="step-1-connect-your-fortinet-appliance-by-using-an-agent"></a>Steg 1: Anslut din Fortinet-installation med hjälp av en agent
+## <a name="how-it-works"></a>Så här fungerar det
 
-Om du vill ansluta din Fortinet-installation till Azure Sentinel distribuerar du en agent på en dedikerad virtuell dator eller lokal dator för att stödja kommunikationen mellan enheten och Azure Sentinel. 
+Du måste distribuera en agent på en särskild Linux-dator (VM eller lokalt) för att stödja kommunikationen mellan Fortinet och Azure Sentinel. Följande diagram beskriver installationen i händelse av en virtuell Linux-dator i Azure.
 
-Du kan också distribuera agenten manuellt på en befintlig virtuell Azure-dator, på en virtuell dator i ett annat moln eller på en lokal dator.
+ ![CEF i Azure](./media/connect-cef/cef-syslog-azure.png)
 
-> [!NOTE]
-> Se till att konfigurera datorns säkerhet enligt din organisations säkerhets princip. Du kan till exempel konfigurera nätverket så att det överensstämmer med företagets nätverks säkerhets princip och ändra portarna och protokollen i daemonen så att de överensstämmer med dina krav. 
+Detta kan också finnas om du använder en virtuell dator i ett annat moln eller på en lokal dator. 
 
-Om du vill se ett nätverks diagram över båda alternativen, se [Anslut data källor](connect-data-sources.md#agent-options).
+ ![CEF lokalt](./media/connect-cef/cef-syslog-onprem.png)
 
-### <a name="deploy-the-agent"></a>Distribuera agenten
 
-1. Klicka på **data kopplingar** på Azure Sentinel-portalen och välj **Fortinet** och **Öppna sedan kopplings sidan**. 
+## <a name="security-considerations"></a>Säkerhetsöverväganden
 
-1. Under **Hämta och installera syslog-agenten**väljer du dator typ, antingen Azure eller lokalt. 
-1. På skärmen **virtuella datorer** som öppnas väljer du den dator som du vill använda och klickar på **Anslut**.
-1. Om du väljer **Hämta och installera agent för virtuella Azure Linux-datorer**väljer du datorn och klickar på **Anslut**. Om du väljer **Hämta och installera agent för virtuella datorer som inte använder Azure Linux**kör du skriptet under **Ladda ned och integrera agent för Linux**på skärmen **Direct agent** .
-1. På anslutnings skärmen under **Konfigurera och vidarebefordra syslog**anger du om syslog-daemonen är **rsyslog. d** eller **syslog-ng**. 
-1. Kopiera dessa kommandon och kör dem på din apparat:
-   - Om du har valt rsyslog. d:
-            
-     1. Instruera syslog-daemon att lyssna på local_4 och skicka syslog-meddelanden till Azure Sentinel-agenten genom att använda port 25226. Använd det här kommandot:`sudo bash -c "printf 'local4.debug  @127.0.0.1:25226\n\n:msg, contains, \"Fortinet\"  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
-     1. Hämta och installera den [security_events-konfigurationsfil](https://aka.ms/asi-syslog-config-file-linux) som konfigurerar syslog-agenten att lyssna på port 25226. Använd det här kommandot `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` : {0} var ska ersättas med din arbets ytans GUID.
-     1. Starta om syslog-daemonen med följande kommando:`sudo service rsyslog restart`
-            
-   - Om du valde syslog-ng:
+Se till att konfigurera datorns säkerhet enligt din organisations säkerhets princip. Du kan till exempel konfigurera nätverket så att det överensstämmer med företagets nätverks säkerhets princip och ändra portarna och protokollen i daemonen så att de överensstämmer med dina krav. Du kan använda följande instruktioner för att förbättra datorns säkerhets konfiguration:  [säker virtuell dator i Azure](../virtual-machines/linux/security-policy.md), [metod tips för nätverks säkerhet](../security/fundamentals/network-best-practices.md).
 
-      1. Instruera syslog-daemon att lyssna på local_4 och skicka syslog-meddelanden till Azure Sentinel-agenten genom att använda port 25226. Använd det här kommandot:`sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };\n\nfilter f_msg_oms { match(\"Fortinet\" value(\"MESSAGE\")); };\n  destination security_msg_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_msg_oms); destination(security_msg_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
-      1. Hämta och installera den [security_events-konfigurationsfil](https://aka.ms/asi-syslog-config-file-linux) som konfigurerar syslog-agenten att lyssna på port 25226. Använd det här kommandot `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` : {0} var ska ersättas med din arbets ytans GUID.
-      1. Starta om syslog-daemonen med följande kommando:`sudo service syslog-ng restart`
-1. Starta om syslog-agenten med följande kommando:`sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
-1. Bekräfta att det inte finns några fel i agent loggen genom att köra det här kommandot:`tail /var/opt/microsoft/omsagent/log/omsagent.log`
+Om du vill använda TLS-kommunikation mellan säkerhets lösningen och syslog-datorn måste du konfigurera syslog-daemonen (rsyslog eller syslog-ng) för att kommunicera i TLS: [kryptera syslog-trafik med TLS-rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [kryptera logg meddelanden med TLS – syslog – ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
 
  
-## <a name="step-2-forward-fortinet-logs-to-the-syslog-agent"></a>Steg 2: Vidarebefordra Fortinet-loggar till syslog-agenten
+## <a name="prerequisites"></a>Förutsättningar
+Kontrol lera att Linux-datorn som du använder som proxy kör något av följande operativ system:
+
+- 64-bitars
+  - CentOS 6 och 7
+  - Amazon Linux 2017,09
+  - Oracle Linux 6 och 7
+  - Red Hat Enterprise Linux Server 6 och 7
+  - Debian GNU/Linux 8 och 9
+  - Ubuntu Linux 14,04 LTS 16,04 LTS och 18,04 LTS
+  - SUSE Linux Enterprise Server 12
+- 32-bitars
+   - CentOS 6
+   - Oracle Linux 6
+   - Red Hat Enterprise Linux Server 6
+   - Debian GNU/Linux 8 och 9
+   - Ubuntu Linux 14,04 LTS och 16,04 LTS
+ 
+ - Daemon-versioner
+   - Syslog-ng: 2,1-3.22.1
+   - Rsyslog: V8
+  
+ - Syslog-RFC stöds
+   - Syslog RFC 3164
+   - Syslog RFC 5424
+ 
+Kontrol lera att datorn också uppfyller följande krav: 
+- Behörigheter
+    - Du måste ha förhöjd behörighet (sudo) på datorn. 
+- Programvarukrav
+    - Kontrol lera att du har python igång på datorn
+## <a name="step-1-deploy-the-agent"></a>STEG 1: Distribuera agenten
+
+I det här steget måste du välja den Linux-dator som ska fungera som en proxy mellan Azure Sentinel och din säkerhets lösning. Du måste köra ett skript på den proxyserver som:
+- Installerar Log Analytics agenten och konfigurerar den efter behov för att lyssna efter syslog-meddelanden på port 514 via TCP och skicka CEF-meddelanden till din Azure Sentinel-arbetsyta.
+- Konfigurerar syslog-daemonen att vidarebefordra CEF-meddelanden till Log Analytics agenten med port 25226.
+- Ställer in syslog-agenten för att samla in data och skicka dem säkert till Log Analytics, där det är parsat och berikat.
+ 
+ 
+1. Klicka på **data kopplingar** på Azure Sentinel-portalen och välj **Fortinet** och **Öppna sedan kopplings sidan**. 
+
+1. Under **Installera och konfigurera syslog-agenten**väljer du dator typ, antingen Azure, annat moln eller lokalt. 
+   > [!NOTE]
+   > Eftersom skriptet i nästa steg installerar Log Analytics agenten och ansluter datorn till din Azure Sentinel-arbetsyta, kontrol lera att datorn inte är ansluten till någon annan arbets yta.
+1. Du måste ha förhöjd behörighet (sudo) på datorn. Se till att du har python på datorn med hjälp av följande kommando: `python –version`
+
+1. Kör följande skript på din proxyserver.
+   `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
+1. Kontrol lera att du inte får några fel eller varnings meddelanden medan skriptet körs.
+
+ 
+## <a name="step-2-forward-fortinet-logs-to-the-syslog-agent"></a>Steg 2: vidarebefordra Fortinet-loggar till syslog-agenten
 
 Konfigurera Fortinet så att syslog-meddelanden vidarebefordras i CEF-format till Azure-arbetsytan via syslog-agenten.
 
@@ -74,7 +106,6 @@ Konfigurera Fortinet så att syslog-meddelanden vidarebefordras i CEF-format til
 
         config log syslogd setting
         set format cef
-        set facility <facility_name>
         set port 514
         set reliable disable
         set server <ip_address_of_Receiver>
@@ -82,65 +113,26 @@ Konfigurera Fortinet så att syslog-meddelanden vidarebefordras i CEF-format til
         end
 
     - Ersätt serverns **IP-adress** med AGENTens IP-adress.
-    - Ange **facility_name** för att använda den funktion som du konfigurerade i agenten. Som standard ställer agenten in på local4.
     - Ställ in **syslog-porten** på **514** eller port uppsättningen på agenten.
     - Om du vill aktivera CEF-format i tidiga FortiOS-versioner kan du behöva köra kommandot **CSV Disable**.
  
    > [!NOTE] 
    > Mer information finns i [Fortinet-dokumentbiblioteket](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary). Välj din version och Använd referensen **handböcker** och **logg meddelande**.
 
- Om du vill använda det relevanta schemat i Azure Monitor Log Analytics för Fortinet-händelserna söker `CommonSecurityLog`du efter.
+ Om du vill använda det relevanta schemat i Azure Monitor Log Analytics för Fortinet-händelser söker du efter `CommonSecurityLog`.
 
 
-## <a name="step-3-validate-connectivity"></a>Steg 3: Verifiera anslutning
+## <a name="step-3-validate-connectivity"></a>STEG 3: verifiera anslutningen
 
-Det kan ta upp till 20 minuter innan loggarna börjar visas i Log Analytics. 
+1. Öppna Log Analytics för att se till att loggarna tas emot med CommonSecurityLog-schemat.<br> Det kan ta upp till 20 minuter innan loggarna börjar visas i Log Analytics. 
 
-1. Se till att du använder rätt funktion. Funktionen måste vara densamma i din installation och i Azure Sentinel. Du kan kontrol lera vilken lokal fil du använder i Azure Sentinel och ändra den i filen `security-config-omsagent.conf`. 
+1. Innan du kör skriptet rekommenderar vi att du skickar meddelanden från din säkerhetslösning för att se till att de vidarebefordras till den syslog-proxyserver som du har konfigurerat. 
+1. Du måste ha förhöjd behörighet (sudo) på datorn. Se till att du har python på datorn med hjälp av följande kommando: `python –version`
+1. Kör följande skript för att kontrol lera anslutningen mellan agenten, Azure Sentinel och din säkerhets lösning. Den kontrollerar att daemon-vidarebefordran har kon figurer ATS korrekt, lyssnar på rätt portar och att ingenting blockerar kommunikationen mellan daemonen och den Log Analytics agenten. Skriptet skickar även de blå meddelandena "TestCommonEventFormat" för att kontrol lera anslutning från slut punkt till slut punkt. <br>
+ `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]`
 
-2. Se till att dina loggar får rätt port i syslog-agenten. Kör det här kommandot på datorn för syslog- `tcpdump -A -ni any  port 514 -vv`agenten:. Det här kommandot visar de loggar som strömmas från enheten till syslog-datorn. Se till att loggarna tas emot från käll installationen på rätt port och till höger.
 
-3. Se till att de loggar du skickar följer [RFC 3164](https://tools.ietf.org/html/rfc3164).
 
-4. På den dator som kör syslog-agenten kontrollerar du att portarna 514 och 25226 är öppna och lyssnar med hjälp `netstat -a -n:`av kommandot. Mer information om hur du använder det här kommandot finns i [netstat (8) – Linux man-sidan](https://linux.die.net/man/8/netstat). Om den lyssnar korrekt visas:
-
-   ![Azure Sentinel-portar](./media/connect-cef/ports.png) 
-
-5. Kontrol lera att daemon är inställt på att lyssna på port 514, där du skickar loggarna.
-    - För rsyslog:<br>Kontrol lera att filen `/etc/rsyslog.conf` innehåller den här konfigurationen:
-
-           # provides UDP syslog reception
-           module(load="imudp")
-           input(type="imudp" port="514")
-        
-           # provides TCP syslog reception
-           module(load="imtcp")
-           input(type="imtcp" port="514")
-
-      Mer information finns i [imudp: UDP syslog-ingångs modul](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imudp.html#imudp-udp-syslog-input-module) och [imtcp: TCP syslog-indatamängd](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imtcp.html#imtcp-tcp-syslog-input-module).
-
-   - För syslog-ng:<br>Kontrol lera att filen `/etc/syslog-ng/syslog-ng.conf` innehåller den här konfigurationen:
-
-           # source s_network {
-            network( transport(UDP) port(514));
-             };
-     Mer information finns i [imudp: UDP syslog-ingångs modul](https://rsyslog.readthedocs.io/en/latest/configuration/modules/imudp.html) och [syslog-ng öppen källkod Edition 3,16 – administrations guide](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.16/administration-guide/19#TOPIC-956455).
-
-1. Kontrol lera att det finns kommunikation mellan syslog-daemon och agenten. Kör det här kommandot på datorn för syslog- `tcpdump -A -ni any  port 25226 -vv`agenten:. Det här kommandot visar de loggar som strömmas från enheten till syslog-datorn. Se till att loggarna också tas emot på agenten.
-
-6. Om båda de här kommandona har fått lyckade resultat kontrollerar du Log Analytics för att se om dina loggar kommer in. Alla händelser som strömmas från dessa apparater visas i rå form i Log Analytics `CommonSecurityLog` under typ.
-
-7. Om du vill kontrol lera om det finns fel eller om loggarna inte kommer `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`, kan du leta i. Om det står ett fel i logg format, går du till `/etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` och tittar på filen. `security_events.conf` Se till att dina loggar matchar regex-formatet som visas i den här filen.
-
-8. Se till att standard storleken för syslog-meddelanden är begränsad till 2048 byte (2 KB). Om loggarna är för långa uppdaterar du security_events. conf genom att använda det här kommandot:`message_length_limit 4096`
-
-10. Om dina Fortinet-loggar inte tas emot av agenten kör du det här kommandot, beroende på vilken typ av syslog-daemon som du använder, för att ställa in funktionen och ange loggarna för att söka efter ordet Fortinet i loggarna:
-       - rsyslog. d:`sudo bash -c "printf 'local4.debug  @127.0.0.1:25226\n\n:msg, contains, \"Fortinet\"  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
-
-     Starta om syslog-daemonen med följande kommando:`sudo service rsyslog restart`
-       - syslog-ng: `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };\n\nfilter f_msg_oms { match(\"Fortinet\" value(\"MESSAGE\")); };\n  destination security_msg_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_msg_oms); destination(security_msg_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
-      
-     Starta om syslog-daemonen med följande kommando:`sudo service syslog-ng restart`
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du lärt dig hur du ansluter Fortinet-enheter till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:

@@ -1,24 +1,23 @@
 ---
-title: Vanliga fel och varningar – Azure Search
-description: Den här artikeln innehåller information och lösningar på vanliga fel och varningar som du kan stöta på under AI-anrikning i Azure Search.
-services: search
-manager: heidist
+title: Vanliga fel och varningar
+titleSuffix: Azure Cognitive Search
+description: Den här artikeln innehåller information och lösningar på vanliga fel och varningar som du kan stöta på under AI-anrikning i Azure Kognitiv sökning.
+manager: nitinme
 author: amotley
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 09/18/2019
 ms.author: abmotley
-ms.openlocfilehash: 6455ac9dbe0933f6d46d1137e0a19dcc388d8c80
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
-ms.translationtype: MT
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 540e72a4472fce626822f0b22bfac11a23aea205
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73243051"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466768"
 ---
-# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-search"></a>Vanliga fel och varningar i AI-pipeline för anrikning i Azure Search
+# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Vanliga fel och varningar för AI-pipeline i Azure Kognitiv sökning
 
-Den här artikeln innehåller information och lösningar på vanliga fel och varningar som du kan stöta på under AI-anrikning i Azure Search.
+Den här artikeln innehåller information och lösningar på vanliga fel och varningar som du kan stöta på under AI-anrikning i Azure Kognitiv sökning.
 
 ## <a name="errors"></a>Fel
 Indexeringen stoppas när antalet fel överstiger ["maxFailedItems"](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
@@ -35,7 +34,7 @@ Indexeraren kunde inte läsa dokumentet från data källan. Detta kan inträffa 
 
 | Orsak | Exempel | Åtgärd |
 | --- | --- | --- |
-| inkonsekventa fält typer i olika dokument | Värdets typ stämmer inte med kolumn typen. Det gick inte att lagra `'{47.6,-122.1}'` i Authors-kolumnen.  Förväntad typ är JArray. | Se till att typen för varje fält är samma för olika dokument. Om t. ex. det första dokument `'startTime'`s fältet är ett datum/tid och i det andra dokumentet är det en sträng. detta fel uppstår. |
+| inkonsekventa fält typer i olika dokument | Värdets typ stämmer inte med kolumn typen. Det gick inte att lagra `'{47.6,-122.1}'` i Authors-kolumnen.  Förväntad typ är JArray. | Se till att typen för varje fält är samma för olika dokument. Om till exempel det första dokumentet `'startTime'`-fältet är ett DateTime-värde och i det andra dokumentet är det fel meddelandet. |
 | fel från data källans underliggande tjänst | (från Cosmos DB) `{"Errors":["Request rate is large"]}` | Kontrol lera lagrings instansen för att säkerställa att den är felfri. Du kan behöva justera skalning/partitionering. |
 | tillfälliga problem | Ett fel på transport nivå har uppstått när resultat togs emot från servern. (provider: TCP-Provider, fel: 0-en befintlig anslutning tvingades stänga av den fjärranslutna värden | Ibland finns det ibland oväntade anslutnings problem. Försök att köra dokumentet via din indexerare igen senare. |
 
@@ -81,7 +80,7 @@ Det finns två fall där du kan stöta på det här fel meddelandet, som var och
 Många av de inbyggda kognitiva färdigheterna, till exempel språk identifiering, entitets igenkänning eller OCR, backas upp av en kognitiv tjänst-API-slutpunkt. Ibland finns det tillfälliga problem med dessa slut punkter och tids gränsen för en begäran upphör. För tillfälliga problem finns det ingen åtgärd förutom att vänta och försöka igen. Som en minskning bör du överväga att ställa in indexeraren att [köras enligt ett schema](search-howto-schedule-indexers.md). Schemalagd indexering hämtar var den slutade. Förutsatt att de tillfälliga problemen är lösta, bör indexerings-och kognitiva kompetens bearbetningen fortsätta vid nästa schemalagda körning.
 
 #### <a name="custom-skills"></a>Anpassade färdigheter
-Om du stöter på ett tids gräns fel med en anpassad färdighet som du har skapat, finns det några saker du kan prova. Börja med att granska din anpassade färdighet och se till att den inte fastnar i en oändlig slinga och att den returnerar ett resultat konsekvent. När du har bekräftat att är fallet ska du ta reda på hur körnings tiden för din färdighet är. Om du inte uttryckligen angav ett `timeout`-värde i din anpassade kunskaps definition är standard `timeout` 30 sekunder. Om 30 sekunder inte är tillräckligt lång för att din kunskap ska kunna köras, kan du ange ett högre `timeout` värde i din anpassade kunskaps definition. Här är ett exempel på en anpassad kunskaps definition där tids gränsen har angetts till 90 sekunder:
+Om du stöter på ett tids gräns fel med en anpassad färdighet som du har skapat, finns det några saker du kan prova. Börja med att granska din anpassade färdighet och se till att den inte fastnar i en oändlig slinga och att den returnerar ett resultat konsekvent. När du har bekräftat att är fallet ska du ta reda på hur körnings tiden för din färdighet är. Om du inte uttryckligen angav ett `timeout`-värde i din anpassade kunskaps definition, är standard `timeout` 30 sekunder. Om 30 sekunder inte är tillräckligt lång för att din kunskap ska kunna köras, kan du ange ett högre `timeout`-värde i din anpassade kunskaps definition. Här är ett exempel på en anpassad kunskaps definition där tids gränsen har angetts till 90 sekunder:
 
 ```json
   {
@@ -105,7 +104,7 @@ Om du stöter på ett tids gräns fel med en anpassad färdighet som du har skap
       }
 ```
 
-Det maximala värde som du kan ange för parametern `timeout` är 230 sekunder.  Om din anpassade färdighet inte kan köras konsekvent inom 230 sekunder kan du överväga att minska `batchSize` av din anpassade färdighet så att den har färre dokument för bearbetning i en enda körning.  Om du redan har angett `batchSize` till 1 måste du skriva om färdigheten för att kunna köra under 230 sekunder eller dela upp den i flera anpassade kunskaper så att körnings tiden för en enskild anpassad färdighet är högst 230 sekunder. Läs den [anpassade kunskaps dokumentationen](cognitive-search-custom-skill-web-api.md) för mer information.
+Det maximala värdet som du kan ange för parametern `timeout` är 230 sekunder.  Om din anpassade färdighet inte kan köras konsekvent inom 230 sekunder kan du överväga att minska `batchSize` i din anpassade färdighet så att den har färre dokument för bearbetning i en enda körning.  Om du redan har angett din `batchSize` till 1 måste du skriva om färdigheten för att kunna köra under 230 sekunder eller dela upp den i flera anpassade kunskaper så att körnings tiden för en enskild anpassad färdighet är högst 230 sekunder. Läs den [anpassade kunskaps dokumentationen](cognitive-search-custom-skill-web-api.md) för mer information.
 
 ### <a name="could-not-mergeorupload--delete-document-to-the-search-index"></a>Det gick inte att `MergeOrUpload` | `Delete`-dokument till Sök indexet
 
@@ -118,6 +117,7 @@ Dokumentet lästes och bearbetades, men indexeraren kunde inte lägga till det i
 | Det går inte att ansluta till mål indexet (som kvarstår efter återförsök) eftersom tjänsten är under annan belastning, t. ex. frågor eller indexering. | Det gick inte att upprätta en anslutning till uppdaterings index. Sök tjänsten är hårt belastad. | [Skala upp Sök tjänsten](search-capacity-planning.md)
 | Sök tjänsten korrigeras för tjänst uppdatering eller är i mitten av en omkonfiguration av topologin. | Det gick inte att upprätta en anslutning till uppdaterings index. Sök tjänsten är för närvarande nere/Search-tjänsten genomgår en över gång. | Konfigurera tjänsten med minst tre repliker för 99,9% tillgänglighet per [SLA-dokumentation](https://azure.microsoft.com/support/legal/sla/search/v1_0/)
 | Haveri i den underliggande beräknings-/nätverks resursen (sällsynt) | Det gick inte att upprätta en anslutning till uppdaterings index. Ett okänt fel uppstod. | Konfigurera indexerare så att de [körs enligt ett schema](search-howto-schedule-indexers.md) för att hämta från ett felaktigt tillstånd.
+| En indexerings förfrågan som gjorts till mål indexet bekräftades inte inom en tids gräns på grund av nätverks problem. | Det gick inte att upprätta en anslutning till Sök indexet inom rimlig tid. | Konfigurera indexerare så att de [körs enligt ett schema](search-howto-schedule-indexers.md) för att hämta från ett felaktigt tillstånd. Dessutom kan du försöka med att sänka [batchstorleken](https://docs.microsoft.com/rest/api/searchservice/create-indexer#parameters) för indexeraren om detta fel tillstånd kvarstår.
 
 ### <a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"></a>Det gick inte att indexera dokumentet eftersom indexerings data som index var ogiltiga
 
@@ -131,7 +131,7 @@ Dokumentet lästes och bearbetades, men på grund av ett matchnings fel i konfig
 | En okänd typ upptäcktes i käll dokumentet. | Okänd typ '_okänd_' kan inte indexeras |
 | En inkompatibel notation för geografi punkter användes i käll dokumentet. | Sträng litteraler för well punkt stöds inte. Använd ingångar av polyjson-punkter i stället |
 
-I alla dessa fall refererar du till [data typer som stöds (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) och [data typs mappning för indexerare i Azure Search](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) för att se till att du skapar index schemat korrekt och har konfigurerat lämpliga [fält mappningar för indexeraren](search-indexer-field-mappings.md). Fel meddelandet innehåller information som kan hjälpa till att spåra källan till matchnings felet.
+I alla dessa fall refererar du till [data typer som stöds](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) och [data typs mappning för indexerare](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) för att se till att du skapar index schemat korrekt och har konfigurerat lämpliga [fält mappningar för indexeraren](search-indexer-field-mappings.md). Fel meddelandet innehåller information som kan hjälpa till att spåra källan till matchnings felet.
 
 ### <a name="could-not-process-document-within-indexer-max-run-time"></a>Det gick inte att bearbeta dokumentet inom den maximala körnings tiden för indexeraren
 
@@ -143,7 +143,7 @@ Varningar slutar inte att indexera, men de anger villkor som kan leda till ovän
 ### <a name="could-not-execute-skill-because-a-skill-input-was-invalid"></a>Det gick inte att köra kompetensen eftersom en kompetens ineffekt var ogiltig
 Indexeraren kunde inte köra en färdighet i färdigheter eftersom det saknades en inmatare, fel typ eller på annat sätt ogiltig.
 
-Kognitiva kunskaper har obligatoriska indata och valfria indata. Till exempel har den här [extraheringen av nyckel fraser](cognitive-search-skill-keyphrases.md) två obligatoriska indata `text`, `languageCode` och inga valfria indata. Om några obligatoriska indata är ogiltiga hoppas kunskapen över och genererar en varning. Överhoppade kunskaper genererar inga utdata, så om andra kunskaper använder utdata från den överhoppade kunskapen kan de generera ytterligare varningar.
+Kognitiva kunskaper har obligatoriska indata och valfria indata. Till exempel har den här [extraheringen av nyckel fraser](cognitive-search-skill-keyphrases.md) två obligatoriska indata `text`, `languageCode`och inga valfria indata. Om några obligatoriska indata är ogiltiga hoppas kunskapen över och genererar en varning. Överhoppade kunskaper genererar inga utdata, så om andra kunskaper använder utdata från den överhoppade kunskapen kan de generera ytterligare varningar.
 
 Om du vill ange ett standardvärde i händelse av saknade indata kan du använda den [villkorliga kompetensen](cognitive-search-skill-conditional.md) för att generera ett standardvärde och sedan använda resultatet av den [villkorliga kompetensen](cognitive-search-skill-conditional.md) som färdighets indata.
 
@@ -168,7 +168,7 @@ Om du vill ange ett standardvärde i händelse av saknade indata kan du använda
 | Inmatade kunskaper om språk kod är ogiltiga | Kompetens ingångs `languageCode` har följande språk koder `X,Y,Z`, minst en som är ogiltig. | Se mer information [nedan](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid) |
 
 ### <a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>Kompetens ingången ' languageCode ' har följande språk koder, "X, Y, Z", minst en som är ogiltig.
-Ett eller flera av de värden som angavs i den valfria `languageCode` indatamängden för en underordnad färdighet stöds inte. Detta kan inträffa om du skickar utdata från [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) till efterföljande kunskaper och utdata består av fler språk än vad som stöds i de efterföljande färdigheterna.
+Ett eller flera av värdena som angavs i den valfria `languageCode`-indatamängden för en underordnad färdighet stöds inte. Detta kan inträffa om du skickar utdata från [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) till efterföljande kunskaper och utdata består av fler språk än vad som stöds i de efterföljande färdigheterna.
 
 Om du vet att din data uppsättning är på ett språk, bör du ta bort [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) och `languageCode` kompetens inmatningar och använda den `defaultLanguageCode` färdighets parameter för den kunskapen i stället, förutsatt att språket stöds för den aktuella kompetensen.
 
@@ -195,7 +195,7 @@ Här följer några referenser för de språk som stöds för närvarande för v
 ### <a name="skill-input-was-truncated"></a>Kompetens ineffekten trunkerades
 Kognitiva kunskaper har gränser för text längden som kan analyseras samtidigt. Om text ingången för dessa kunskaper överskrider den gränsen kommer vi att trunkera texten för att uppfylla gränsen och sedan utföra anrikningen på den trunkerade texten. Det innebär att kunskapen körs, men inte över alla dina data.
 
-I exemplet nedan kan `'text'` indatafält utlösa den här varningen om den överskrider tecken gränsen. Du hittar de ingångs begränsningar du har i [kunskaps dokumentationen](cognitive-search-predefined-skills.md).
+I exemplet nedan kan `'text'`-indatamängden utlösa den här varningen om den ligger över tecken gränsen. Du hittar de ingångs begränsningar du har i [kunskaps dokumentationen](cognitive-search-predefined-skills.md).
 
 ```json
  {
@@ -225,3 +225,8 @@ Möjligheten att återuppta ett index jobb som inte är klart är predikat på a
 Det är möjligt att åsidosätta det här beteendet, aktivera stegvisa framsteg och ignorera den här varningen med hjälp av konfigurations egenskapen `assumeOrderByHighWatermarkColumn`.
 
 [Mer information om hur du Cosmos DB stegvisa framsteg och anpassade frågor.](https://go.microsoft.com/fwlink/?linkid=2099593)
+
+### <a name="could-not-map-output-field-x-to-search-index"></a>Det gick inte att mappa utmatnings fältet "X" till Sök indexet
+Mappningar av utdatakolumner som refererar till icke-existerande/null-data genererar varningar för varje dokument och resulterar i ett tomt index fält. Du kan lösa det här problemet genom att dubbelklicka på käll Sök vägar för mappning av utdata för möjliga skrivfel eller ange ett standardvärde med hjälp av den [villkorliga kompetensen](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist).
+
+Indexeraren kunde köra en färdighet i färdigheter, men svaret från webb-API-begäran angav att det fanns varningar under körningen. Granska varningarna för att förstå hur dina data påverkas och huruvida en åtgärd krävs eller inte.

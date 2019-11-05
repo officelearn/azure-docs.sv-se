@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 2647a8c33bf777cb2d97dcfe89799097ad719ac3
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 61b929756cbc4cf13103faa67a667128eaffeec8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077025"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498167"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planera ett virtuellt nätverk för Azure HDInsight
 
@@ -136,7 +136,7 @@ Om du vill aktivera namn matchning mellan det virtuella nätverket och resursern
 
 2. Konfigurera det virtuella nätverket så att det använder den anpassade DNS-servern.
 
-3. Hitta det Azure-tilldelade DNS-suffixet för det virtuella nätverket. Det här värdet liknar `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`. Information om hur du hittar DNS-suffixet finns [i exemplet: Anpassat DNS](hdinsight-create-virtual-network.md#example-dns) -avsnitt.
+3. Hitta det Azure-tilldelade DNS-suffixet för det virtuella nätverket. Det här värdet liknar `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`. Information om hur du hittar DNS-suffix finns i avsnittet [exempel: anpassad DNS](hdinsight-create-virtual-network.md#example-dns) .
 
 4. Konfigurera vidarebefordring mellan DNS-servrarna. Konfigurationen beror på typen av fjärrnätverk.
 
@@ -148,7 +148,7 @@ Om du vill aktivera namn matchning mellan det virtuella nätverket och resursern
 
          * Vidarebefordra alla andra begär anden till den lokala DNS-servern. Den lokala DNS-tjänsten hanterar alla andra namn matchnings begär Anden, även begär Anden för Internet resurser som Microsoft.com.
 
-     * __Lokal DNS__: Vidarebefordra begär Anden för det virtuella nätverkets DNS-suffix till den anpassade DNS-servern. Den anpassade DNS-servern vidarebefordrar sedan till den rekursiva Azure-matcharen.
+     * __Lokalt DNS__: vidarebefordra begär Anden för det virtuella nätverkets DNS-suffix till den anpassade DNS-servern. Den anpassade DNS-servern vidarebefordrar sedan till den rekursiva Azure-matcharen.
 
        Den här konfigurationen dirigerar begär Anden om fullständigt kvalificerade domän namn som innehåller det virtuella nätverkets DNS-suffix till den anpassade DNS-servern. Alla andra begär Anden (även för offentliga Internet adresser) hanteras av den lokala DNS-servern.
 
@@ -162,13 +162,13 @@ Om du vill aktivera namn matchning mellan det virtuella nätverket och resursern
 
        DNS-servern för varje nätverk vidarebefordrar begär anden till varandra, baserat på DNS-suffix. Andra begär Anden löses med Azures rekursiva lösare.
 
-     Ett exempel på varje konfiguration finns i [exemplet: Anpassat DNS](hdinsight-create-virtual-network.md#example-dns) -avsnitt.
+     Ett exempel på varje konfiguration finns i avsnittet [exempel: anpassad DNS](hdinsight-create-virtual-network.md#example-dns) .
 
 Mer information finns i dokumentet [namn matchning för virtuella datorer och roll instanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) .
 
 ## <a name="directly-connect-to-apache-hadoop-services"></a>Anslut direkt till Apache Hadoop tjänster
 
-Du kan ansluta till klustret på `https://CLUSTERNAME.azurehdinsight.net`. Den här adressen använder en offentlig IP-adress, som kanske inte kan kommas åt om du har använt NSG: er för att begränsa inkommande trafik från Internet. När du distribuerar klustret i ett VNet kan du dessutom komma åt det med hjälp av den privata `https://CLUSTERNAME-int.azurehdinsight.net`slut punkten. Den här slut punkten matchar en privat IP-adress i VNet för kluster åtkomst.
+Du kan ansluta till klustret på `https://CLUSTERNAME.azurehdinsight.net`. Den här adressen använder en offentlig IP-adress, som kanske inte kan kommas åt om du har använt NSG: er för att begränsa inkommande trafik från Internet. När du distribuerar klustret i ett virtuellt nätverk kan du dessutom komma åt det med hjälp av den privata slut punkten `https://CLUSTERNAME-int.azurehdinsight.net`. Den här slut punkten matchar en privat IP-adress i VNet för kluster åtkomst.
 
 Använd följande steg för att ansluta till Apache Ambari och andra webb sidor via det virtuella nätverket:
 
@@ -194,7 +194,7 @@ Använd följande steg för att ansluta till Apache Ambari och andra webb sidor 
     az network nic list --resource-group RESOURCEGROUP --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-    I listan över noder som returneras hittar du FQDN för huvudnoderna och använder FQDN: er för att ansluta till Ambari och andra webb tjänster. Använd `http://<headnode-fqdn>:8080` till exempel för att komma åt Ambari.
+    I listan över noder som returneras hittar du FQDN för huvudnoderna och använder FQDN: er för att ansluta till Ambari och andra webb tjänster. Använd till exempel `http://<headnode-fqdn>:8080` för att få åtkomst till Ambari.
 
     > [!IMPORTANT]  
     > Vissa tjänster som finns på huvudnoderna är bara aktiva på en nod i taget. Om du försöker komma åt en tjänst på en head-nod och den returnerar ett 404-fel växlar du till den andra Head-noden.
@@ -207,7 +207,7 @@ Använd följande steg för att ansluta till Apache Ambari och andra webb sidor 
 
 Nätverks trafik i virtuella Azure-nätverk kan kontrol leras med hjälp av följande metoder:
 
-* **Nätverks säkerhets grupper** (NSG) låter dig filtrera inkommande och utgående trafik till nätverket. Mer information finns i dokumentet [filtrera nätverks trafik med nätverks säkerhets grupper](../virtual-network/security-overview.md) .
+* Med **nätverks säkerhets grupper** (NSG) kan du filtrera inkommande och utgående trafik till nätverket. Mer information finns i dokumentet [filtrera nätverks trafik med nätverks säkerhets grupper](../virtual-network/security-overview.md) .
 
 * **Virtuella nätverks enheter** (NVA) kan endast användas med utgående trafik. NVA replikerar funktionaliteten för enheter som brand väggar och routrar. Mer information finns i dokumentet om [nätverks](https://azure.microsoft.com/solutions/network-appliances) installationer.
 
@@ -248,6 +248,10 @@ Om du planerar att använda en **brand vägg** och komma åt klustret utifrån v
 En lista över portar för vissa tjänster finns i [portarna som används av Apache Hadoop Services i HDInsight](hdinsight-hadoop-port-settings-for-services.md) -dokument.
 
 Mer information om brand Väggs regler för virtuella enheter finns i [scenario](../virtual-network/virtual-network-scenario-udr-gw-nva.md) dokumentet för Virtual-installation.
+
+## <a name="load-balancing"></a>Belastningsutjämning
+
+När du skapar ett HDInsight-kluster skapas även en belastnings utjämning. Den här belastningsutjämnaren är på den [grundläggande SKU-nivån](../load-balancer/load-balancer-overview.md#skus) som har vissa begränsningar. Ett av de här begränsningarna är att om du har två virtuella nätverk i olika regioner kan du inte ansluta till grundläggande belastnings utjämning. Mer information finns i [vanliga frågor och svar om virtuella nätverk: begränsningar för global VNet-peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 
 ## <a name="next-steps"></a>Nästa steg
 

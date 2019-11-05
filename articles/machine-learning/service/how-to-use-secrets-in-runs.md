@@ -11,14 +11,15 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4872ba8a707192cd61ec371fa982a076d410e918
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: c0d696e3fc060a2779eba7d7e895397ea3245383
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996580"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489273"
 ---
 # <a name="use-secrets-in-training-runs"></a>Använda hemligheter i utbildnings körningar
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 I den här artikeln får du lära dig hur du använder hemligheter i utbildning på ett säkert sätt. Om du till exempel vill ansluta till en extern databas för att fråga efter tränings data måste du skicka användar namn och lösen ord till fjärrkörnings kontexten. Att koda sådana värden till utbildnings skript i klartext är osäker eftersom det exponerar hemligheten. 
 

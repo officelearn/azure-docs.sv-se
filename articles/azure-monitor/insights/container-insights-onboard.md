@@ -6,17 +6,17 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/12/2019
-ms.openlocfilehash: 44cdc2d6b93ac9a62f96875ca6c679fbb97d85a9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 10/15/2019
+ms.openlocfilehash: dd58ec08c6ec372cf53a79b75162748cfe336b23
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555395"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73477131"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>Aktivera Azure Monitor för behållare
 
-Den här artikeln innehåller en översikt över tillgängliga alternativ för att konfigurera Azure Monitor för behållare för att övervaka prestanda för arbets belastningar som distribueras till Kubernetes-miljöer och som finns i [Azure Kubernetes-tjänsten](https://docs.microsoft.com/azure/aks/).
+Den här artikeln innehåller en översikt över tillgängliga alternativ för att konfigurera Azure Monitor för behållare för att övervaka prestanda för arbets belastningar som distribueras till Kubernetes-miljöer och som finns i [Azure Kubernetes-tjänsten](https://docs.microsoft.com/azure/aks/), AKS-motorn på [Azure Stack ](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)eller Kubernetes distribueras lokalt.
 
 Azure Monitor för behållare kan aktive ras för nya eller en eller flera befintliga distributioner av AKS med hjälp av följande metoder:
 
@@ -25,7 +25,8 @@ Azure Monitor för behållare kan aktive ras för nya eller en eller flera befin
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
+
 Kontrol lera att du har följande innan du börjar:
 
 * **En Log Analytics-arbetsyta.**
@@ -40,7 +41,41 @@ Kontrol lera att du har följande innan du börjar:
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-* Prometheus mått samlas inte in som standard. Innan du [konfigurerar agenten](container-insights-agent-config.md) för att samla in dem är det viktigt att du läser Prometheus- [dokumentationen](https://prometheus.io/) för att förstå vad du kan definiera.
+* Prometheus mått samlas inte in som standard. Innan du [konfigurerar agenten](container-insights-prometheus-integration.md) för att samla in dem är det viktigt att du läser Prometheus- [dokumentationen](https://prometheus.io/) för att förstå vad du kan definiera.
+
+## <a name="network-firewall-requirements"></a>Krav för nätverks brand vägg
+
+Informationen i följande tabell visar den konfigurations information för proxy och brand vägg som krävs för att agenten ska kunna kommunicera med Azure Monitor för behållare. All nätverks trafik från agenten är utgående till Azure Monitor.
+
+|Agentresurs|Portar |
+|--------------|------|
+| *.ods.opinsights.azure.com | 443 |  
+| *.oms.opinsights.azure.com | 443 | 
+| *.blob.core.windows.net | 443 |
+| dc.services.visualstudio.com | 443 |
+| *.microsoftonline.com | 443 |
+| *. monitoring.azure.com | 443 |
+| login.microsoftonline.com | 443 |
+
+Informationen i följande tabell visar konfigurations information för proxy och brand vägg för Azure Kina.
+
+|Agentresurs|Portar |Beskrivning | 
+|--------------|------|-------------|
+| *. ods.opinsights.azure.cn | 443 | Datainhämtning |
+| *. oms.opinsights.azure.cn | 443 | OMS-onboarding |
+| *.blob.core.windows.net | 443 | Används för övervakning av utgående anslutning. |
+| microsoft.com | 80 | Används för nätverks anslutning. Detta krävs endast om agent avbildnings versionen är ciprod09262019 eller tidigare. |
+| dc.services.visualstudio.com | 443 | För för agent-telemetri med Azures offentliga moln Application Insights. |
+
+Informationen i följande tabell visar konfigurations information för proxy och brand vägg för Azure amerikanska myndigheter.
+
+|Agentresurs|Portar |Beskrivning | 
+|--------------|------|-------------|
+| *. ods.opinsights.azure.us | 443 | Datainhämtning |
+| *. oms.opinsights.azure.us | 443 | OMS-onboarding |
+| *.blob.core.windows.net | 443 | Används för övervakning av utgående anslutning. |
+| microsoft.com | 80 | Används för nätverks anslutning. Detta krävs endast om agent avbildnings versionen är ciprod09262019 eller tidigare. |
+| dc.services.visualstudio.com | 443 | För att kunna använda agenten i Azures offentliga moln Application Insights. |
 
 ## <a name="components"></a>Komponenter
 
@@ -67,6 +102,7 @@ Du aktiverar Azure Monitor för behållare genom att använda någon av följand
 | | [Aktivera från Azure Monitor](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| Du kan aktivera övervakning av ett eller flera AKS-kluster som redan har distribuerats från sidan AKS flera kluster i Azure Monitor. |
 | | [Aktivera från AKS-kluster](container-insights-enable-existing-clusters.md#enable-directly-from-aks-cluster-in-the-portal)| Du kan aktivera övervakning direkt från ett AKS-kluster i Azure Portal. |
 | | [Aktivera med hjälp av en Azure Resource Manager mall](container-insights-enable-existing-clusters.md#enable-using-an-azure-resource-manager-template)| Du kan aktivera övervakning av ett AKS-kluster med en förkonfigurerad Azure Resource Manager-mall. |
+| | [Aktivera för Hybrid Kubernetes-kluster](container-insights-hybrid-setup.md) | Du kan aktivera övervakning av en AKS-motor som finns i Azure Stack eller för Kubernetes som finns lokalt. |
 
 ## <a name="next-steps"></a>Nästa steg
 

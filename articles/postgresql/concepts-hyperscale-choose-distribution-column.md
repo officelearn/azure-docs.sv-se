@@ -7,16 +7,16 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 0b29567dcd22c79c30e70594066f7ff87c18fdb0
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: a61c52773c4c6036a76d7b233988c713c1da861f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947600"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482851"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Välj distributions kolumner i Azure Database for PostgreSQL – storskalig (citus)
 
-Att välja varje tabells distributions kolumn är en av de viktigaste modell beslut som du gör. Azure Database for PostgreSQL-för hands versionen av citus (för hands version) lagrar rader i Shards baserat på värdet för radernas distributions kolumn.
+Att välja varje tabells distributions kolumn är en av de viktigaste modell beslut som du gör. Azure Database for PostgreSQL – citus) lagrar rader i Shards baserat på värdet för radernas distributions kolumn.
 
 Rätt alternativ grupper relaterade data tillsammans på samma fysiska noder, vilket gör att frågor snabbt och lägger till stöd för alla SQL-funktioner. Ett felaktigt val gör att systemet körs långsamt och inte stöder alla SQL-funktioner på noderna.
 
@@ -28,7 +28,7 @@ Arkitekturen för flera innehavare använder en form av hierarkisk databas model
 
 Citus (storskalig) kontrollerar frågor för att se vilket klient-ID de inkluderar och hittar matchande tabell-Shard. Den dirigerar frågan till en enda arbetsnoden som innehåller Shard. Att köra en fråga med alla relevanta data som placeras på samma nod kallas samplacering.
 
-Följande diagram illustrerar samplacering i data modellen för flera innehavare. Den innehåller två tabeller, konton och kampanjer, som var och en distribueras med `account_id`. De skuggade rutorna representerar Shards. Gröna Shards lagras tillsammans på en arbetsnoden och blå Shards lagras på en annan arbetsnod. Observera att en kopplings fråga mellan konton och kampanjer har alla data som krävs tillsammans på en nod när båda tabellerna är begränsade till samma konto @ no__t-0id.
+Följande diagram illustrerar samplacering i data modellen för flera innehavare. Den innehåller två tabeller, konton och kampanjer, som delas av `account_id`. De skuggade rutorna representerar Shards. Gröna Shards lagras tillsammans på en arbetsnoden och blå Shards lagras på en annan arbetsnod. Observera att en kopplings fråga mellan konton och kampanjer har alla data som krävs tillsammans på en nod när båda tabellerna är begränsade till samma konto\_-ID.
 
 ![Samplacering för flera klienter](media/concepts-hyperscale-choosing-distribution-column/multi-tenant-colocation.png)
 
@@ -37,13 +37,13 @@ Frågor i modellen för flera klienter är begränsade till en klient. Till exem
 
 #### <a name="best-practices"></a>Bästa praxis
 
--   **Partitionera distribuerade tabeller av en gemensam klient @ no__t-1id-kolumn.** I ett SaaS-program där klienter är företag, är klienten @ no__t-0id troligt vis företaget @ no__t-1id.
+-   **Partitionera distribuerade tabeller av en gemensam klient\_ID-kolumn.** I ett SaaS-program där klienter är företag är dock\_-ID: t för klient organisationer som är företagets\_-ID.
 -   **Konvertera små kors klient tabeller till referens tabeller.** När flera klienter delar en liten tabell med information distribuerar du den som en referens tabell.
--   **Begränsa filtreringen av alla program frågor efter klient @ no__t-1id.** Varje fråga bör begära information för en klient i taget.
+-   **Begränsa filtreringen av alla program frågor efter klient\_-ID.** Varje fråga bör begära information för en klient i taget.
 
 Läs [själv studie kursen om flera innehavare](./tutorial-design-database-hyperscale-multi-tenant.md) för ett exempel på hur du skapar den här typen av program.
 
-### <a name="real-time-apps"></a>Appar i real tid
+### <a name="real-time-apps"></a>Realtidsappar
 
 Arkitekturen för flera innehavare introducerar en hierarkisk struktur och använder data på samma plats för att dirigera frågor per klient. I motsatsen är real tids arkitekturer beroende av vissa distributions egenskaper för data för att uppnå hög parallell bearbetning.
 

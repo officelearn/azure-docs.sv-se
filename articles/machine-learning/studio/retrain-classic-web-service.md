@@ -1,7 +1,7 @@
 ---
 title: Träna om och distribuera en klassisk webbtjänst
-titleSuffix: Azure Machine Learning Studio
-description: Lär dig hur du tränar en modell och uppdatera en klassisk webbtjänst för att använda den nyligen tränade modellen i Azure Machine Learning Studio.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Lär dig hur du omtränar en modell och uppdaterar en klassisk webb tjänst för att använda den nyligen utbildade modellen i Azure Machine Learning Studio (klassisk).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,84 +10,84 @@ author: peterclu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: b636883ee1f08fa0fb6d080b6980cd07553dde1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 477e099bb759e09402a245b693d95f3b3980699e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65234036"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480202"
 ---
-# <a name="retrain-and-deploy-a-classic-studio-web-service"></a>Träna och distribuera en klassiska Studio-webbtjänst
+# <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Omträna och distribuera en klassisk Studio (klassisk) webb tjänst
 
-Träna modeller i machine learning är ett sätt att se till att de förblir korrekta och baserat på de mest relevanta data som är tillgängliga. Den här artikeln visar hur du tränar en klassisk Studio-webbtjänst. En guide om hur du tränar en ny Studio-webbtjänst [visa i den här artikeln.](retrain-machine-learning-model.md)
+Retraining Machine Learning-modeller är ett sätt att se till att de håller sig noggrann och utifrån de mest relevanta data som finns tillgängliga. I den här artikeln visas hur du återskapar en klassisk Studio (klassisk) webb tjänst. En guide om hur du återskapar en ny Studio-webbtjänst (klassisk) finns i [den här instruktions artikeln.](retrain-machine-learning-model.md)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Den här artikeln förutsätter att du redan har både ett omtränings experiment och ett förutsägbart experiment. De här stegen beskrivs i [tränar om och distribuera en modell för maskininlärning.](/azure/machine-learning/studio/retrain-machine-learning-model) Men i stället för att distribuera machine learning-modell som en ny webbtjänst, distribuerar du din förutsägelseexperiment som en klassiska webbtjänst.
+Den här artikeln förutsätter att du redan har både ett omskolnings experiment och ett förutsägelse experiment. De här stegen beskrivs i [omträna och distribuera en maskin inlärnings modell.](/azure/machine-learning/studio/retrain-machine-learning-model) Men i stället för att distribuera din Machine Learning-modell som en ny webb tjänst, kommer du att distribuera ditt förutsägelse experiment som en klassisk webb tjänst.
      
-## <a name="add-a-new-endpoint"></a>Lägg till en ny slutpunkt
+## <a name="add-a-new-endpoint"></a>Lägg till en ny slut punkt
 
-Förutsägbar webbtjänst som du har distribuerat innehåller en bedömningsslutpunkten som hålls synkroniserad med den ursprungliga utbildningen och bedömning experiment tränade modellen. Om du vill uppdatera webbtjänsten till med en ny tränad modell, måste du skapa en ny bedömnings-slutpunkt.
+Den förutsägbara webb tjänsten som du har distribuerat innehåller en standard slut punkt för poäng som är synkroniserad med den ursprungliga inlärnings-och bedömnings experimentets tränade modell. Om du vill uppdatera din webb tjänst till med en ny utbildad modell måste du skapa en ny bedömnings slut punkt.
 
-Det finns två sätt som du kan lägga till en ny slutpunkt till en webbtjänst:
+Du kan lägga till en ny slut punkt i en webb tjänst på två sätt:
 
 * Programmässigt
-* Med hjälp av Azure Web Services-portalen
+* Använda Azure Web Services-portalen
 
 > [!NOTE]
-> Var noga med att du lägger till slutpunkten för förutsägande Web Service, inte webbtjänsten utbildning. Om du har distribuerat både ett utbildnings- och en förutsägbar webbtjänst korrekt, bör du se två separata webbtjänster som visas. Förutsägande webbtjänsten ska sluta med ”[förutsägande exp.]”.
+> Se till att du lägger till slut punkten till den förutsägbara webb tjänsten, inte utbildnings webb tjänsten. Om du har distribuerat både en utbildning och en förutsägbar webb tjänst, bör du se två separata webb tjänster i listan. Den förutsägbara webb tjänsten måste sluta med "[förutsägande exp.]".
 >
 
-### <a name="programmatically-add-an-endpoint"></a>Lägga till en slutpunkt
+### <a name="programmatically-add-an-endpoint"></a>Lägg till en slut punkt program mässigt
 
-Du kan lägga till bedömnings slutpunkter med hjälp av exempelkoden i den här [GitHub-lagringsplatsen](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint).
+Du kan lägga till bedömnings slut punkter med hjälp av exempel koden som anges i den här [GitHub-lagringsplatsen](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint).
 
-### <a name="use-the-azure-web-services-portal-to-add-an-endpoint"></a>Använd Azure Web Services-portalen för att lägga till en slutpunkt
+### <a name="use-the-azure-web-services-portal-to-add-an-endpoint"></a>Använd Azure Web Services-portalen för att lägga till en slut punkt
 
-1. Klicka på webbtjänster i Machine Learning Studio, på den vänstra kolumnen.
-1. Längst ned i instrumentpanelen för webbtjänsten klickar du på **hantera slutpunkter förhandsversion**.
+1. I Machine Learning Studio (klassisk) i den vänstra navigerings kolumnen klickar du på webb tjänster.
+1. Klicka på **Hantera slut punkter för förhands granskning**längst ned på instrument panelen för webb tjänster.
 1. Klicka på **Lägg till**.
-1. Skriv ett namn och beskrivning för den nya slutpunkten. Välj loggningsnivån och om exempeldata är aktiverad. Mer information om loggning finns i [aktivera loggning för Machine Learning web services](web-services-logging.md).
+1. Ange ett namn och en beskrivning för den nya slut punkten. Välj loggnings nivå och om exempel data är aktiverade. Mer information om loggning finns i [Aktivera loggning för Machine Learning-webbtjänster](web-services-logging.md).
 
-## <a name="update-the-added-endpoints-trained-model"></a>Uppdatera har lagts till slutpunkten tränade modellen
+## <a name="update-the-added-endpoints-trained-model"></a>Uppdatera den utbildade modell som lagts till för slut punkten
 
-### <a name="retrieve-patch-url"></a>Hämta PATCH-URL
+### <a name="retrieve-patch-url"></a>Hämta KORRIGERINGs webb adress
 
-### <a name="option-1-programmatically"></a>Alternativ 1: Programmässigt
+### <a name="option-1-programmatically"></a>Alternativ 1: program mässigt
 
-Följ dessa steg för att få rätt KORRIGERA URL programmässigt kan:
+Följ dessa steg om du vill hämta rätt URL för korrigerings fil program:
 
-1. Kör den [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) exempelkoden.
-1. Från utdata från AddEndpoint, hitta den *HelpLocation* värde och kopiera URL: en.
+1. Kör [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) exempel kod.
+1. Från utdata från AddEndpoint letar du reda på *HelpLocation* -värdet och kopierar URL: en.
 
    ![HelpLocation i utdata från addEndpoint-exemplet.](./media/retrain-classic/addEndpoint-output.png)
-1. Klistra in URL: en i en webbläsare och navigera till en sida som innehåller länkar för webbtjänsten.
-1. Klicka på den **resursuppdatering** länk för att öppna sidan patch hjälp.
+1. Klistra in webb adressen i en webbläsare för att navigera till en sida som innehåller hjälp länkar till webb tjänsten.
+1. Klicka på länken **Uppdatera resurs** för att öppna hjälp sidan för korrigerings filen.
 
 ### <a name="option-2-use-the-azure-machine-learning-web-services-portal"></a>Alternativ 2: Använd Azure Machine Learning Web Services-portalen
 
-Följ dessa steg för att få rätt KORRIGERA URL: en med hjälp av webbportalen:
+Följ dessa steg för att hämta rätt KORRIGERINGs-URL med hjälp av webb portalen:
 
-1. Logga in på den [Azure Machine Learning Web Services](https://services.azureml.net/) portal.
-1. Klicka på **webbtjänster** eller **klassiska webbtjänster** högst upp.
-1. Klicka på bedömnings webbtjänst som du arbetar med (om du använde standardnamnet för webbtjänsten, upphör den i ”[beräkning Exp.]”).
+1. Logga in på [Azure Machine Learning Web Services-](https://services.azureml.net/) portalen.
+1. Klicka på **webb tjänster** eller **klassiska webb tjänster** längst upp.
+1. Klicka på den bedömnings webb tjänst som du arbetar med (om du inte har ändrat standard namnet på webb tjänsten slutar den i "[bedömnings exp.]").
 1. Klicka på **+ ny**.
-1. När slutpunkten har lagts till, klickar du på namnet på slutpunkten.
-1. Under den **Patch** URL: en, klicka på **API Help** att öppna sidan uppdatering hjälp.
+1. När du har lagt till slut punkten klickar du på slut punktens namn.
+1. Klicka på **API-hjälp** under **korrigerings** webb adressen för att öppna hjälp sidan för korrigerings filen.
 
 > [!NOTE]
-> Lägg till slutpunkten till webbtjänsten utbildning i stället för förutsägande webbtjänsten och du får följande felmeddelande när du klickar på den **resursuppdatering** länk: ”Vi beklagar, men den här funktionen är inte eller är inte tillgängligt i den här kontexten. Den här webbtjänsten har inga uppdateringsbara resurser. Vi ber om ursäkt för besväret och arbetar på att förbättra det här arbetsflödet ”.
+> Om du har lagt till slut punkten för webb tjänsten utbildning i stället för den förutsägbara webb tjänsten, får du följande fel meddelande när du klickar på länken **Uppdatera resurs** : "Tyvärr, men den här funktionen stöds inte eller är inte tillgänglig i den här kontexten. Den här webb tjänsten har inga uppdaterings bara resurser. Vi beklagar besväret och arbetar med att förbättra det här arbets flödet. "
 >
 
-PATCH-hjälpsidan innehåller KORRIGERA URL: en måste du använda och visar exempelkod som du kan använda för att anropa den.
+Hjälp sidan för KORRIGERINGs filen innehåller KORRIGERINGs-URL: en som du måste använda och innehåller exempel kod som du kan använda för att anropa den.
 
-![Patch-URL.](./media/retrain-classic/ml-help-page-patch-url.png)
+![Korrigerings webb adress.](./media/retrain-classic/ml-help-page-patch-url.png)
 
-### <a name="update-the-endpoint"></a>Uppdatera slutpunkten
+### <a name="update-the-endpoint"></a>Uppdatera slut punkten
 
-Du kan nu använda den tränade modellen för att uppdatera bedömnings slutpunkten som du skapade tidigare.
+Nu kan du använda den tränade modellen för att uppdatera poäng slut punkten som du skapade tidigare.
 
-Följande exempelkod visar hur du använder den *BaseLocation*, *RelativeLocation*, *SasBlobToken*, och KORRIGERA URL: en att uppdatera slutpunkten.
+Följande exempel kod visar hur du använder URL: en för *BaseLocation*, *RelativeLocation*, *SasBlobToken*och patch för att uppdatera slut punkten.
 
     private async Task OverwriteModel()
     {
@@ -127,25 +127,25 @@ Följande exempelkod visar hur du använder den *BaseLocation*, *RelativeLocatio
         }
     }
 
-Den *apiKey* och *endpointUrl* för anropet kan hämtas från slutpunkt-instrumentpanelen.
+*ApiKey* och *endpointUrl* för anropet kan hämtas från slut punktens instrument panel.
 
-Värdet för den *namn* parameter i *resurser* ska matcha resursnamnet för den sparade tränade modellen i förutsägbart experiment. Hämta resursnamnet:
+Värdet för *namn* parametern i *resurser* måste matcha resurs namnet för den sparade tränade modellen i förutsägande experimentet. Så här hämtar du resurs namnet:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-1. I den vänstra menyn klickar du på **Maskininlärning**.
-1. Under namn klickar du på din arbetsyta och klicka sedan på **webbtjänster**.
-1. Under namn, klickar du på **insamlade modell [förutsägande exp.]** .
-1. Klicka på den nya slutpunkten som du har lagt till.
-1. På endpoint-instrumentpanelen klickar du på **resursuppdatering**.
-1. På sidan Update Resource API-dokumentation för webbtjänsten som du kan hitta den **resursnamn** under **uppdateras resurser**.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Klicka på **Machine Learning**på den vänstra menyn.
+1. Under namn klickar du på din arbets yta och sedan på **webb tjänster**.
+1. Under namn klickar du på **inventerings modell [förutsägande exp.]** .
+1. Klicka på den nya slut punkten som du har lagt till.
+1. Klicka på **Uppdatera resurs**på instrument panelen för slut punkten.
+1. På sidan för uppdatering av resurs-API-dokumentation för-webb tjänsten kan du hitta **resurs namnet** under **uppdaterings bara resurser**.
 
-Om din SAS-token upphör att gälla innan du har uppdaterat slutpunkten, måste du utföra en hämtning med jobb-ID för att hämta en ny token.
+Om din SAS-token upphör att gälla innan du Slutför uppdateringen av slut punkten måste du utföra en GET med jobb-ID: t för att hämta en ny token.
 
-När koden har körts, ska den nya slutpunkten börja använda retrained modellen i ungefär 30 sekunder.
+När koden har körts, ska den nya slut punkten börja använda den omtränade modellen på cirka 30 sekunder.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om hur du hanterar webbtjänster och hålla reda på flera experiment körs, finns i följande artiklar:
+Mer information om hur du hanterar webb tjänster eller håller reda på flera experiment körningar finns i följande artiklar:
 
-* [Utforska Web Services-portalen](manage-new-webservice.md)
-* [Hantera iterationer av experiment](manage-experiment-iterations.md)
+* [Utforska webb tjänst portalen](manage-new-webservice.md)
+* [Hantera experiment upprepningar](manage-experiment-iterations.md)

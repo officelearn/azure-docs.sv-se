@@ -1,5 +1,5 @@
 ---
-title: Skapa myndighets lösningar med Azure IoT Central
+title: Skapa lösningar för myndigheter med Azure IoT Central
 description: Lär dig att bygga smarta stads lösningar med hjälp av Azure IoT Central programmallar.
 author: miriambrus
 ms.author: miriamb
@@ -7,14 +7,14 @@ ms.date: 10/23/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 02918df348414058d176246da5c2d0f14df7b405
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: a862a221f9fe2db5448473bddcca2a9932716e0e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73026649"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464076"
 ---
-# <a name="building-government-solutions-with-azure-iot-central"></a>Skapa myndighets lösningar med Azure IoT Central
+# <a name="building-government-solutions-with-azure-iot-central"></a>Skapa lösningar för myndigheter med Azure IoT Central
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
@@ -79,5 +79,5 @@ Kom igång med [självstudierna för anslutet hanterings program](./tutorial-con
 * Lär dig mer om [begrepp för övervakning av vatten kvalitet](./concepts-waterqualitymonitoring-architecture.md)
 * Lär dig mer om [övervaknings koncept för vattenförbrukning](./concepts-waterconsumptionmonitoring-architecture.md)
 * Lär dig mer om [anslutna avfalls hanterings koncept](./concepts-connectedwastemanagement-architecture.md)  
-* Läs mer om IoT Central i [IoT Central översikt](https://docs.microsoft.com/azure/iot-central/overview-iot-central)
+* Läs mer om IoT Central i [IoT Central översikt](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)
  

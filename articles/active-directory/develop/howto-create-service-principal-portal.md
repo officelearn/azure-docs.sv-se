@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d60c1a01f3a4ca3a191ddb322def7d86a316c58f
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 03ae780f86512ac401fcb7f6936e8f74cb595ca7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803327"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473870"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Gör så här: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som har åtkomst till resurser
 
@@ -51,7 +51,7 @@ Du måste tilldela programmet till en roll för att få åtkomst till resurser i
 
 Du kan ange omfång på nivån för prenumerationen, resurs gruppen eller resursen. Behörigheter ärvs till lägre omfattnings nivåer. Om du till exempel lägger till ett program till rollen läsare för en resurs grupp innebär det att den kan läsa resurs gruppen och alla resurser som den innehåller.
 
-1. Navigera till den omfattnings nivå som du vill tilldela programmet till. Om du till exempel vill tilldela en roll i prenumerations omfånget väljer du **alla tjänster** och **prenumerationer**.
+1. I Azure Portal väljer du den omfattnings nivå som du vill tilldela programmet till. Om du till exempel vill tilldela en roll i prenumerations omfånget söker du efter och väljer **prenumerationer**eller väljer **prenumerationer** på **Start** sidan.
 
    ![Tilldela till exempel en roll i prenumerations omfånget](./media/howto-create-service-principal-portal/select-subscription.png)
 
@@ -147,7 +147,7 @@ Om inställningen för appens registrering är inställd på **Nej**kan endast a
 
 ### <a name="check-azure-subscription-permissions"></a>Kontrol lera behörigheter för Azure-prenumeration
 
-I din Azure-prenumeration måste ditt konto ha `Microsoft.Authorization/*/Write`-åtkomst för att tilldela en AD-App till en roll. Den här åtgärden beviljas genom rollen [Ägare](../../role-based-access-control/built-in-roles.md#owner) eller [Administratör för användaråtkomst](../../role-based-access-control/built-in-roles.md#user-access-administrator). Om ditt konto har tilldelats rollen **deltagare** , har du inte tillräcklig behörighet. Du får ett fel meddelande när du försöker tilldela tjänstens huvud namn till en roll.
+I din Azure-prenumeration måste ditt konto ha `Microsoft.Authorization/*/Write` åtkomst för att tilldela en AD-App till en roll. Den här åtgärden beviljas genom rollen [Ägare](../../role-based-access-control/built-in-roles.md#owner) eller [Administratör för användaråtkomst](../../role-based-access-control/built-in-roles.md#user-access-administrator). Om ditt konto har tilldelats rollen **deltagare** , har du inte tillräcklig behörighet. Du får ett fel meddelande när du försöker tilldela tjänstens huvud namn till en roll.
 
 Så här kontrollerar du dina prenumerations behörigheter:
 

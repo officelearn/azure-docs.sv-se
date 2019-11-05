@@ -5,17 +5,17 @@ services: iot-central
 ms.service: iot-central
 ms.topic: tutorial
 ms.custom:
-- iot-storeAnalytics-conditionMonitor
+- iot-storeAnalytics-checkout
 - iot-p0-scenario
 ms.author: timlt
 author: timlt
 ms.date: 10/03/2019
-ms.openlocfilehash: 571c172054e52960c3dba8d41469ba304f3493eb
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 0d586aaab4fc87bb671e67152cf66e9fb1447504
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73026420"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495168"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Självstudie: skapa ett in-Store Analytics-program i Azure IoT Central
 
@@ -41,7 +41,7 @@ I den här guiden får du lära dig att:
 > * Ansluta enheter till ditt program
 > * Lägg till regler och åtgärder för att övervaka villkor
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra den här själv studie serien behöver du:
 * En Azure-prenumeration rekommenderas. Du kan välja att använda en kostnads fri 7-dagars utvärderings version. Om du inte har någon Azure-prenumeration kan du skapa en på [sidan för Azure-registrering](https://aka.ms/createazuresubscription).

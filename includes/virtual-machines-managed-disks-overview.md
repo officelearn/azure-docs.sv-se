@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 979fa8bed99a8244e9ebae9de4b615bfac4bd773
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: f041381534dfe59036ce1b9d91792f9e78d0dace
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72966472"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73523908"
 ---
 ## <a name="benefits-of-managed-disks"></a>Fördelar med hanterade diskar
 
@@ -85,12 +85,12 @@ Varje virtuell dator innehåller en temporär disk, som inte är en hanterad dis
 
 En ögonblicks bild av en hanterad disk är en skrivskyddad, enhetlig, fullständig kopia av en hanterad disk som är lagrad som en standard-hanterad disk som standard. Med ögonblicks bilder kan du säkerhetskopiera de hanterade diskarna vid alla tidpunkter. Dessa ögonblicks bilder finns oberoende av käll disken och kan användas för att skapa nya hanterade diskar. 
 
-Ögonblicks bilder faktureras baserat på den använda storleken. Om du till exempel skapar en ögonblicks bild av en hanterad disk med en etablerad kapacitet på 64 GiB och den faktiska använda data storleken på 10 GiB, faktureras ögonblicks bilden endast för den använda data storleken på 10 GiB. Du kan se den använda storleken på dina ögonblicks bilder genom att titta på [Azures användnings rapport](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-bill). Om den använda data storleken för en ögonblicks bild till exempel är 10 GiB, visar användnings rapporten 10 GiB/(31 dagar x 24 timmar) = 0,013441 GiB som förbrukad kvantitet.
+Ögonblicks bilder faktureras baserat på den använda storleken. Om du till exempel skapar en ögonblicks bild av en hanterad disk med en etablerad kapacitet på 64 GiB och den faktiska använda data storleken på 10 GiB, faktureras ögonblicks bilden endast för den använda data storleken på 10 GiB. Du kan se den använda storleken på dina ögonblicks bilder genom att titta på [Azures användnings rapport](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-bill). Om den använda data storleken för en ögonblicks bild till exempel är 10 GiB, visar rapporten **daglig** användning 10 GIB/(31 dagar) = 0,3226 som förbrukad kvantitet.
 
-Mer information om hur du skapar ögonblicks bilder med Managed disks finns i följande resurser:
+Mer information om hur du skapar ögonblicks bilder för Managed disks finns i följande resurser:
 
-* [Skapa en kopia av VHD som lagras som en hanterad disk med hjälp av ögonblicks bilder i Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Skapa kopia av en virtuell hårddisk som lagras som en hanterad disk med hjälp av ögonblicksbilder i Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Skapa en ögonblicks bild av en hanterad disk i Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Skapa en ögonblicks bild av en hanterad disk i Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 ### <a name="images"></a>Avbildningar
 

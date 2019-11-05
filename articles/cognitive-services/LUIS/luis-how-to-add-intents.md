@@ -1,46 +1,48 @@
 ---
 title: Lägg till avsikter – LUIS
 titleSuffix: Azure Cognitive Services
-description: Lägg till avsikter att LUIS-app för att identifiera grupper av frågor eller kommandon som har samma avsikt.
+description: Lägg till avsikter i LUIS-appen för att identifiera grupper med frågor eller kommandon som har samma avsikt.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: eb90a902b8f7fe8b37b81c2825cbdfc25ef5dc0d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 1f2f001489552203f0157dd24356341eb3184c81
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932899"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467544"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Lägg till avsikter för att fastställa användar avsikt för yttranden
 
-Lägg till [avsikter](luis-concept-intent.md) till din LUIS-app för att identifiera grupper av frågor eller kommandon som har samma avsikt. 
+Lägg [till avsikter](luis-concept-intent.md) i Luis-appen för att identifiera grupper med frågor eller kommandon som har samma avsikt. 
 
-Avsikter hanteras från övre navigeringsfältet i **skapa** avsnittet sedan från den vänstra panelen **avsikter**. 
+Avsikter hanteras från det övre navigerings fältets **build** -avsnitt och sedan från den vänstra panelens **avsikter**. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## <a name="add-intent"></a>Lägga till avsikt
 
 1. På sidan **Intents** (Avsikter) väljer du **Create new intent** (Skapa ny avsikt).
 
-1. I den **skapa nya avsikt** dialogrutan Ange avsikt namn `GetEmployeeInformation`, och klicka på **klar**.
+1. I dialog rutan **Skapa ny avsikt** anger du namnet på avsikten `GetEmployeeInformation`och klickar på **Slutför**.
 
     ![Lägg till avsikt](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
 
-## <a name="add-an-example-utterance"></a>Lägg till en exempel-uttryck
+## <a name="add-an-example-utterance"></a>Lägg till ett exempel uttryck
 
-Exempel yttranden är text-exempel på användarnas frågor eller kommandon. Om du vill hålla Språkförståelse (LUIS), som du behöver lägga till exempel yttranden till en avsikt.
+Exempel på yttranden är text exempel på användar frågor eller kommandon. Om du vill lära dig Language Understanding (LUIS) måste du lägga till exempel yttranden i ett avsikts syfte.
 
-1. På den **GetEmployeeInformation** avsikt information anger en relevanta uttryck som du förväntar dig från dina användare, till exempel `Does John Smith work in Seattle?` i textrutan nedan avsikt namn och tryck på RETUR.
+1. På sidan information om **GetEmployeeInformation** -information anger du en relevant uttryck som du förväntar dig av dina användare, t. ex. `Does John Smith work in Seattle?` i text rutan under namnet på avsikten och trycker sedan på RETUR.
  
-    ![Skärmbild av avsikter detaljsidan med uttryck markerat](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
+    ![Skärm bild av sidan information om information, där uttryck är markerat](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
 
-    LUIS konverterar alla yttranden till gemener och lägger till blanksteg runt token, till exempel bindestreck.
+    LUIS konverterar alla yttranden till gemener och lägger till blank steg runt token, till exempel bindestreck.
 
 <a name="#intent-prediction-discrepancy-errors"></a>
 
@@ -64,47 +66,47 @@ Om du vill lära dig hur du åtgärdar förutsägelse fel för avsikt använder 
 
 ## <a name="add-a-custom-entity"></a>Lägg till en anpassad entitet
 
-När ett uttryck har lagts till en avsikt, kan du välja text från uttryck att skapa en anpassad entitet. En anpassad entitet är ett sätt att tagga text för extrahering, tillsammans med rätt avsikten. 
+När en uttryck har lagts till i ett avsikts sätt kan du välja text i uttryck för att skapa en anpassad entitet. En anpassad entitet är ett sätt att tagga text för extraktion, tillsammans med rätt avsikt. 
 
 Läs mer i [lägga till entitet till uttryck](luis-how-to-add-example-utterances.md) .
 
-## <a name="entity-prediction-discrepancy-errors"></a>Entiteten förutsägelse avvikelse fel 
+## <a name="entity-prediction-discrepancy-errors"></a>Avvikelse fel i enhets förutsägelse 
 
-Entiteten är understruket i rött att indikera en [entitet förutsägelse avvikelse](luis-how-to-add-example-utterances.md#entity-status-predictions). Eftersom detta är den första förekomsten av en entitet kan det finns inte tillräckligt med exempel för LUIS för att ha en hög exakthet som den här texten är taggade med rätt entiteten. Den här skillnaden tas bort när appen har tränats. 
+Entiteten är understruken i rött för att indikera en [avvikelse i enhets förutsägelse](luis-how-to-add-example-utterances.md#entity-status-predictions). Eftersom det här är den första förekomsten av en entitet finns det inte tillräckligt många exempel för att LUIS ska ha ett högt förtroende för att texten ska märkas med rätt entitet. Den här avvikelsen tas bort när appen tränas. 
 
-![Skärmbild av avsikter informationssidan, anpassad entitetsnamn markeras i blått](./media/luis-how-to-add-intents/create-custom-entity-name-blue-highlight.png) 
+![Skärm bild av sidan information om avsikter, anpassat entitetsnamn markerat i blått](./media/luis-how-to-add-intents/create-custom-entity-name-blue-highlight.png) 
 
-Texten markeras i blått, som anger en entitet.  
+Texten är markerad i blått, vilket indikerar en entitet.  
 
-## <a name="add-a-prebuilt-entity"></a>Lägg till en fördefinierade entitet
+## <a name="add-a-prebuilt-entity"></a>Lägg till en fördefinierad entitet
 
-Mer information finns i [fördefinierade entitet](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
+Mer information finns i en [fördefinierad entitet](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
 
-## <a name="using-the-contextual-toolbar"></a>Med hjälp av sammanhangsbaserad verktygsfältet
+## <a name="using-the-contextual-toolbar"></a>Använda sammanhangsbaserade verktygsfält
 
 När ett eller flera exempel yttranden har marker ATS i listan, genom att markera rutan till vänster om en uttryck, i verktygsfältet ovanför uttryck-listan kan du utföra följande åtgärder:
 
-* Omtilldela avsikt: flytta utterance(s) till olika avsikt
-* Ta bort utterance(s)
-* Entiteten filter: Visa endast yttranden som innehåller filtrerade entiteter
-* Visa alla / endast fel: Visa yttranden med förutsägelse fel eller visa alla yttranden
-* Visa entiteter/token: Visa rå text av uttryck eller visa entiteter med entitetsnamn
-* Förstoringsglas: Sök efter uttryck som innehåller viss text
+* Omtilldela avsikt: flytta uttryck (ar) till olika avsikter
+* Ta bort uttryck (er)
+* Enhets filter: Visa endast yttranden som innehåller filtrerade entiteter
+* Visa endast alla/fel: Visa yttranden med förutsägelse fel eller Visa alla yttranden
+* Vyn entiteter/token: Visa entiteter med entitetsnamn eller Visa rå uttryck text
+* Förstorings glas: Sök efter yttranden som innehåller en speciell text
 
-## <a name="working-with-an-individual-utterance"></a>Arbeta med en enskilda uttryck
+## <a name="working-with-an-individual-utterance"></a>Arbeta med en enskild uttryck
 
 Följande åtgärder kan utföras på en enskild uttryck från ellips-menyn till höger om uttryck:
 
-* Redigera: ändra texten i uttryck
-* Ta bort: ta bort uttryck från avsikten. Om du fortfarande vill uttryck, en bättre metod är att flytta den till den **ingen** avsikt. 
-* Lägg till ett mönster: Ett mönster gör att du kan använda en gemensam uttryck och markera text och text som kan ignoreras, vilket minskar behovet av mer yttranden i avsikten. 
+* Redigera: ändra texten för uttryck
+* Ta bort: ta bort uttryck från avsikten. Om du fortfarande vill att uttryck ska du använda en bättre metod för att flytta den till **none** -avsikten. 
+* Lägg till ett mönster: ett mönster gör att du kan använda en gemensam uttryck och markera text som kan förbytas, vilket minskar behovet av mer yttranden i avsikten. 
 
-Den **märkta avsikt** kolumn kan du ändra syftet med uttryck.
+Med kolumnen **benämnaD avsikt** kan du ändra syftet med uttryck.
 
-## <a name="train-your-app-after-changing-model-with-intents"></a>Träna din app när du har ändrat modell med avsikter
+## <a name="train-your-app-after-changing-model-with-intents"></a>Träna din app efter att ha ändrat modellen med avsikter
 
-När du lägger till, redigera eller ta bort avsikter, [träna](luis-how-to-train.md) och [publicera](luis-how-to-publish-app.md) din app så att ändringarna tillämpas på slutpunkten frågor. 
+När du har lagt till, redigerat eller tagit bort avsikter kan du [träna](luis-how-to-train.md) och [publicera](luis-how-to-publish-app.md) din app så att ändringarna tillämpas på slut punkts frågor. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om att lägga till [exempel yttranden](luis-how-to-add-example-utterances.md) med entiteter. 
+Lär dig mer om att lägga till [exempel yttranden](luis-how-to-add-example-utterances.md) med entiteter. 

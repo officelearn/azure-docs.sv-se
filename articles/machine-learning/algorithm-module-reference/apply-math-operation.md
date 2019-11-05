@@ -1,5 +1,5 @@
 ---
-title: Använd matematik åtgärd
+title: Använda matematisk åtgärd
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder modulen Använd matematik operation i Azure Machine Learning-tjänsten för att tillämpa en matematisk åtgärd på kolumn värden i en pipeline.
 services: machine-learning
@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 49bab338f559b1b43389e12d98c75bbffbb25a85
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: a2f3665355cc2023aaf4b66c9207aaff4a3bc6db
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72694771"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493926"
 ---
-# <a name="apply-math-operation"></a>Använd matematik åtgärd
+# <a name="apply-math-operation"></a>Använda matematisk åtgärd
 
-I den här artikeln beskrivs en modul i Azure Machine Learning Visual Interface.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd funktionen Använd matematik för att skapa beräkningar som tillämpas på numeriska kolumner i data uppsättningen för indata. 
 
@@ -95,7 +95,7 @@ Om du genererar resultaten med hjälp av **tilläggs** -eller **ResultOnly** -al
 -   **Lika med (Col2_Col1)** , som anger att du har testat Col2 mot Col1.  
 -   **Lika med (Col2_ $10)** som anger att du jämförde kolumn 2 med konstant 10.  
 
-Även om du använder alternativet **InPlace** , tas inte källdata bort eller ändras. kolumnen i den ursprungliga data uppsättningen är fortfarande tillgänglig i Visual Interface. Om du vill visa ursprungliga data kan du ansluta modulen [Lägg till kolumner](add-columns.md) och koppla den till utdata från **Använd matematik-åtgärd**.  
+Även om du använder alternativet **InPlace** , tas inte källdata bort eller ändras. kolumnen i den ursprungliga data uppsättningen är fortfarande tillgänglig i designern. Om du vill visa ursprungliga data kan du ansluta modulen [Lägg till kolumner](add-columns.md) och koppla den till utdata från **Använd matematik-åtgärd**.  
     
 ## <a name="basic-math-operations"></a>Grundläggande matematik åtgärder 
 
@@ -130,7 +130,7 @@ Beräknar kubens rot för värdena i den markerade kolumnen.
 
 Returnerar storleken på mellanrummet mellan det aktuella värdet och det näst högsta, dubbla precisions numret. Motsvarar EPS-funktionen i MATLAB.  
   
-### <a name="exp"></a>EXP
+### <a name="exp"></a>Exp
 
 Returnerar e upphöjt till kraften i värdet i den markerade kolumnen. Detta är samma som funktionen för EXP-funktionen i Excel.  
 
@@ -162,7 +162,7 @@ Returnerar den naturliga logaritmen för värdena i den markerade kolumnen.
 
 Returnerar den naturliga logaritmen plus en för värdena i den markerade kolumnen.  
 
-### <a name="log"></a>Logg
+### <a name="log"></a>Logga
 
 Returnerar loggen för värdena i den markerade kolumnen, med angiven bas.  
 
@@ -208,7 +208,7 @@ Kvadraterar värdena i den markerade kolumnen.
 
 ## <a name="comparison-operations"></a>Jämförelse åtgärder  
 
-Använd jämförelse funktionerna i Azure Machine Learning visuellt gränssnitt när du behöver testa två uppsättningar värden mot varandra. I en pipeline kan du till exempel behöva utföra dessa jämförelse åtgärder:  
+Använd jämförelse funktionerna i Azure Machine Learning designer när du behöver testa två uppsättningar värden mot varandra. I en pipeline kan du till exempel behöva utföra dessa jämförelse åtgärder:  
 
 - Utvärdera en kolumn med sannolikhets Poäng modell mot ett tröskelvärde.
 - Kontrol lera om två resultat uppsättningar är desamma. För varje rad som skiljer sig lägger du till en falsk flagga som kan användas för vidare bearbetning eller filtrering.  
@@ -280,13 +280,13 @@ Ange den kolumn med värden som ska användas ( *MINUEND*) genom att välja en a
 
 ##  <a name="rounding-operations"></a>Avrundnings åtgärder 
 
-Azure Machine Learning Visual Interface stöder flera olika avrundnings åtgärder. För många åtgärder måste du ange hur mycket precision som ska användas vid avrundning. Du kan antingen använda en statisk precisions nivå, anges som en konstant, eller så kan du använda ett dynamiskt precisions värde som hämtats från en kolumn med värden.  
+Azure Machine Learning Designer stöder flera olika avrundnings åtgärder. För många åtgärder måste du ange hur mycket precision som ska användas vid avrundning. Du kan antingen använda en statisk precisions nivå, anges som en konstant, eller så kan du använda ett dynamiskt precisions värde som hämtats från en kolumn med värden.  
 
 - Om du använder en konstant anger du **precisions typen** **konstant** och skriver sedan antalet siffror som ett heltal i text rutan **konstant precision** . Om du anger ett icke-heltal, genererar modulen inget fel, men det kan vara oväntade resultat.  
 
 - Om du vill använda ett annat precisions värde för varje rad i data uppsättningen anger du **precisions typen** till **ColumnSet**och väljer sedan den kolumn som innehåller lämpliga precisions värden.  
 
-### <a name="ceiling"></a>Fastställ
+### <a name="ceiling"></a>Ceiling
 
 Returnerar taket för värdena i **kolumn uppsättningen**.  
 
@@ -294,7 +294,7 @@ Returnerar taket för värdena i **kolumn uppsättningen**.
 
 Returnerar taket i fyrkant för värdena i **kolumn uppsättningen**.  
 
-### <a name="floor"></a>Maximal
+### <a name="floor"></a>Floor
 
 Returnerar golvet för värdena i **kolumn uppsättningen**till den angivna precisionen.  
 
@@ -330,7 +330,7 @@ Returnerar värdena i **kolumn uppsättningen**, avrundat till närmaste heltal,
 
 Returnerar värdena i **kolumn uppsättningen**, avrundade till närmaste hela, udda tal.  
 
-### <a name="truncate"></a>Trunkera
+### <a name="truncate"></a>Truncate
 
 Trunkerar värdena i **kolumn uppsättningen** genom att ta bort alla siffror som inte tillåts av den angivna precisionen.  
   
@@ -485,7 +485,7 @@ Beräknar arcus tangens för kolumnvärdena i grader.
 
 Beräknar kolumn värdets hyperboliska arcus tangens.  
 
-### <a name="cos"></a>COS
+### <a name="cos"></a>Cos
 
 Beräknar cosinus för kolumn värden.  
 
@@ -540,7 +540,7 @@ Beräknar hyperbolisk sekant för kolumn värden.
 
 Returnerar tecknet för kolumn värden.  
 
-### <a name="sin"></a>Sinus
+### <a name="sin"></a>Sin
 
 Beräknar sinus för kolumn värden.  
 
@@ -556,7 +556,7 @@ Beräknar sinus för kolumnvärdena i grader.
 
 Beräknar kolumn värdets hyperboliska sinus.  
 
-### <a name="tan"></a>brun
+### <a name="tan"></a>Tan
 
 Beräknar tangens för kolumnvärdena.  
 

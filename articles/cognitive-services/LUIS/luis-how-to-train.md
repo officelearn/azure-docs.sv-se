@@ -1,7 +1,7 @@
 ---
 title: Träna app-LUIS
 titleSuffix: Azure Cognitive Services
-description: Utbildning är lära din appversion för Språkförståelse (LUIS) att förbättra förståelse för naturliga språk. Träna LUIS-appen efter uppdateringar till modellen, till exempel att lägga till, redigera, etiketter eller ta bort entiteter, avsikter eller yttranden.
+description: Träning är en process för att lära sig din Language Understanding (LUIS)-app-version för att förbättra sin naturliga språk förståelse. Träna din LUIS-app efter uppdateringar av modellen, till exempel lägga till, redigera, märka eller ta bort entiteter, avsikter eller yttranden.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,40 +9,39 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: b3841c9d60cf275e423024fc66c15582f95c0a10
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 259ea23c05f0c0a138ad54b6efd11aad2061cf7a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932761"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500224"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Träna din aktiva version av LUIS-appen 
 
-Utbildning är lära appen Språkförståelse (LUIS) för att förbättra förståelse för naturliga språk. Träna LUIS-appen efter uppdateringar till modellen, till exempel att lägga till, redigera, etiketter eller ta bort entiteter, avsikter eller yttranden. 
+Träning är en process för att lära sig din Language Understanding-app (LUIS) för att förbättra sin naturliga språk förståelse. Träna din LUIS-app efter uppdateringar av modellen, till exempel lägga till, redigera, märka eller ta bort entiteter, avsikter eller yttranden. 
 
-<!--
-When you train a LUIS app by example, LUIS generalizes from the examples you have labeled, and it learns to recognize the relevant intents and entities. This teaches LUIS to improve classification accuracy in the future. -->
+Utbildning och [testning](luis-concept-test.md) av en app är en iterativ process. När du har tränat din LUIS-app testar du den med exempel yttranden för att se om intentarna och entiteterna identifieras korrekt. Om de inte är det kan du göra uppdateringar till LUIS-appen, träna och testa igen. 
 
-Utbildning och [testning](luis-concept-test.md) en app är en iterativ process. När du tränar LUIS-appen testa du den med exempel yttranden om avsikter och entiteter identifieras korrekt. Om de inte gör uppdateringar till LUIS-app, träna och testa igen. 
+Träning tillämpas på den aktiva versionen i LUIS-portalen. 
 
-Utbildning tillämpas på den aktiva versionen i LUIS-portalen. 
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
-## <a name="how-to-train-interactively"></a>Hur du tränar interaktivt
+## <a name="how-to-train-interactively"></a>Så här tränar du interaktivt
 
-Starta iterativ process i den [LUIS portal](https://www.luis.ai), måste du först att träna LUIS-appen minst en gång. Kontrollera att varje avsikt har minst ett uttryck innan utbildning.
+För att starta den iterativa processen i [Luis-portalen](https://www.luis.ai)måste du först träna din Luis-app minst en gång. Se till att varje avsikt har minst en uttryck innan träning.
 
-1. Få åtkomst till din app genom att välja dess namn på den **Mina appar** sidan. 
+1. Öppna din app genom att välja namnet på sidan **Mina appar** . 
 
-2. I din app, väljer **träna** i den övre panelen. 
+2. I din app väljer du **träna** på den övre panelen. 
 
-3. När utbildning är klar, visas en grön meddelandefältet överst i webbläsaren.
+3. När inlärningen är klar visas ett grönt meddelande fält överst i webbläsaren.
 
 <!-- The following note refers to what might cause the error message "Training failed: FewLabels for model: <ModelName>" -->
 
 >[!NOTE]
->Om du har en eller flera avsikter i din app som inte innehåller exempel yttranden, kan du träna din app. Lägg till yttranden för alla dina avsikter. Mer information finns i [lägger du till exempel yttranden](luis-how-to-add-example-utterances.md).
+>Om du har en eller flera avsikter i din app som inte innehåller exempel yttranden kan du inte träna din app. Lägg till yttranden för alla dina avsikter. Mer information finns i [Lägg till exempel yttranden](luis-how-to-add-example-utterances.md).
 
 ## <a name="training-date-and-time"></a>Datum och tid för utbildning
 
@@ -50,19 +49,36 @@ Datum och tid för utbildning är GMT + 2.
 
 ## <a name="train-with-all-data"></a>Träna med alla data
 
-Utbildning använder en liten andel av negativa sampling. Om du vill använda alla data i stället för små negativt sampling kan använda den [Version inställningar API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) med den `UseAllTrainingData` ange värdet som SANT för att Stäng av den här funktionen. 
+Träning använder en liten procent andel av negativ sampling. 
 
-## <a name="unnecessary-training"></a>Onödiga utbildning
+Om du vill använda alla data i stället för den små negativa insamlingen använder du [API: et](#version-settings-api-use-of-usealltrainingdata).
 
-Du behöver inte träna efter varje enskild ändring. Utbildning bör utföras när en grupp med ändringar tillämpas på modellen och nästa steg som du vill göra är att testa eller publicera. Om du inte behöver testa eller publicera utbildning finns inte behövs. 
+<!--
 
-## <a name="training-with-the-rest-apis"></a>Utbildning med REST-API: er
+ or the [LUIS portal setting](#luis-portal-setting-to-use-all-training-data)
 
-Utbildning i LUIS-portalen är ett enda steg för att trycka på den **träna** knappen. Utbildning med REST-API: er är en tvåstegsprocess. Först är att [begär utbildning](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45) med HTTP POST. Begära det [utbildning status](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) med HTTP Get. 
+### LUIS portal setting to use all training data
 
-Du måste avsöka status tills alla modeller har tränas om du vill veta när utbildning har slutförts. 
+!!!IGNITE
+
+
+-->
+
+### <a name="version-settings-api-use-of-usealltrainingdata"></a>Versions inställningar API-användning av UseAllTrainingData
+
+Använd [API för versions inställningar](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) med `UseAllTrainingData` ange True för att inaktivera den här funktionen. 
+
+## <a name="unnecessary-training"></a>Onödig utbildning
+
+Du behöver inte träna efter varje enskild ändring. Träningen bör utföras efter att en grupp av ändringar har tillämpats på modellen och nästa steg du vill göra är att testa eller publicera. Om du inte behöver testa eller publicera behövs ingen utbildning. 
+
+## <a name="training-with-the-rest-apis"></a>Utbildning med REST API: er
+
+Utbildning i LUIS-portalen är ett enda steg där man trycker på knappen **träna** . Utbildning med REST API: er är en två stegs process. Det första är att [begära utbildning](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45) med http post. Begär sedan [utbildnings status](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) med http get. 
+
+För att veta när inlärningen är klar måste du avsöka statusen tills alla modeller har tränats. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Etiketten föreslagna yttranden med LUIS](luis-how-to-review-endpoint-utterances.md) 
-* [Använda funktioner för att förbättra prestanda för dina LUIS-app](luis-how-to-add-features.md) 
+* [Märk föreslagna yttranden med LUIS](luis-how-to-review-endpoint-utterances.md) 
+* [Använd funktioner för att förbättra LUIS-appens prestanda](luis-how-to-add-features.md) 

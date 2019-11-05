@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: ccddd13ddd8c10daba84f959b1cc1f8a4a80deb1
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 71e4b62ddcb3f144b49b99e6ba95a47971d3f4bb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345549"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476921"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 Det här dokumentet innehåller några av de vanligaste Microsoft Azures gränserna, som ibland kallas kvoter. Det här dokumentet avser för närvarande inte alla Azure-tjänster. Med tiden kommer listan att expanderas och uppdateras för att avse fler tjänster.
@@ -25,7 +25,7 @@ Mer information om priser för Azure finns i [Översikt över Azure-priser](http
 > [!NOTE]
 > Om du vill höja gränsen eller kvoten över standard gränsen kan du [öppna en kund support förfrågan online utan kostnad](azure-resource-manager/resource-manager-quota-errors.md). Gränserna kan inte höjas över det maximala gräns värde som visas i följande tabeller. Om det inte finns någon övre gräns kolumn har inte resursen några justerbara gränser.
 >
-> De [kostnads fria utvärderings prenumerationerna](https://azure.microsoft.com/offers/ms-azr-0044p) är inte berättigade till begränsning eller kvot ökningar. Om du har en [kostnadsfri utvärderingsprenumeration](https://azure.microsoft.com/offers/ms-azr-0044p), du kan uppgradera till en [användningsbaserad](https://azure.microsoft.com/offers/ms-azr-0003p/) prenumeration. Mer information finns i [uppgradera din kostnads fria utvärderings prenumeration på Azure till en prenumeration där du betalar per](billing/billing-upgrade-azure-subscription.md) användning och [vanliga frågor och svar om utvärderings prenumerationen](https://azure.microsoft.com/free/free-account-faq).
+> De [kostnads fria utvärderings prenumerationerna](https://azure.microsoft.com/offers/ms-azr-0044p) är inte berättigade till begränsning eller kvot ökningar. Om du har en [kostnads fri utvärderings prenumeration](https://azure.microsoft.com/offers/ms-azr-0044p)kan du uppgradera till en prenumeration [där du betalar per](https://azure.microsoft.com/offers/ms-azr-0003p/) användning. Mer information finns i [uppgradera din kostnads fria utvärderings prenumeration på Azure till en prenumeration där du betalar per](billing/billing-upgrade-azure-subscription.md) användning och [vanliga frågor och svar om utvärderings prenumerationen](https://azure.microsoft.com/free/free-account-faq).
 >
 
 ## <a name="limits-and-azure-resource-manager"></a>Gränser och Azure Resource Manager
@@ -56,7 +56,7 @@ I följande lista över gränser visar en ny tabell eventuella skillnader i grä
 * [Azure Firewall](#azure-firewall-limits)
 * [Azure Functions](#functions-limits)
 * [Azure Kubernetes Service](#azure-kubernetes-service-limits)
-* [Azure Machine Learning tjänst](#azure-machine-learning-service-limits)
+* [Azure Machine Learning](#azure-machine-learning-limits)
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#azure-monitor-limits)
 * [Azure Policy](#azure-policy-limits)
@@ -77,13 +77,14 @@ I följande lista över gränser visar en ny tabell eventuella skillnader i grä
 * [Frontend-tjänst](#azure-front-door-service-limits)
 * [Identitets hanterare](#identity-manager-limits)
 * [IoT Hub](#iot-hub-limits)
-* [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
+* [IoT Hub Device Provisioning-tjänst](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
 * [Media Services](#media-services-limits)
 * [Mobile Services](#mobile-services-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication-limits)
 * [Nätverk](#networking-limits)
   * [Application Gateway](#application-gateway-limits)
+  * [Azure-skydds](#azure-bastion-limits)
   * [Azure DNS](#azure-dns-limits)
   * [Azure Front Door Service](#azure-front-door-service-limits)
   * [Azure Firewall](#azure-firewall-limits)
@@ -107,7 +108,7 @@ I följande lista över gränser visar en ny tabell eventuella skillnader i grä
 * [StorSimple-system](#storsimple-system-limits)
 * [Stream Analytics](#stream-analytics-limits)
 * [Prenumeration](#subscription-limits)
-* [Virtual Machines](#virtual-machines-limits)
+* [Virtuella datorer](#virtual-machines-limits)
 * [Skaluppsättningar för virtuella datorer](#virtual-machine-scale-sets-limits)
 
 ### <a name="subscription-limits"></a>Prenumerationsgränser
@@ -154,7 +155,7 @@ I följande tabell beskrivs funktionerna och begränsningarna för [tjänst niv�
 ### <a name="azure-kubernetes-service-limits"></a>Service gränser i Azure Kubernetes
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
-### <a name="azure-machine-learning-service-limits"></a>Azure Machine Learning tjänst gränser
+### <a name="azure-machine-learning-limits"></a>Azure Machine Learning gränser
 Du hittar de senaste värdena för Azure Machine Learning Compute-kvoter på sidan för [Azure Machine Learning kvot](../articles/machine-learning/service/how-to-manage-quotas.md)
 
 ### <a name="networking-limits"></a>Begränsningar för nätverk
@@ -179,6 +180,9 @@ Följande tabell gäller v1, v2, standard och WAF SKU: er om inget annat anges.
 
 #### <a name="traffic-manager-limits"></a>Traffic Manager gränser
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
+
+#### <a name="azure-bastion-limits"></a>Azure skydds-gränser
+[!INCLUDE [Azure Bastion limits](../includes/bastion-limits.md)]
 
 #### <a name="azure-dns-limits"></a>Azure DNS gränser
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
@@ -260,7 +264,7 @@ I följande tabell visas gränserna för Azure BizTalk Services.
 ### <a name="azure-cosmos-db-limits"></a>Azure Cosmos DB gränser
 För Azure Cosmos DB gränser, se [gränser i Azure Cosmos DB](cosmos-db/concepts-limits.md).
 
-### <a name="azure-database-for-mysql"></a>Azure Database for MySQL
+### <a name="azure-database-for-mysql"></a>Azure-databas för MySQL
 För Azure Database for MySQL gränser, se [begränsningar i Azure Database for MySQL](mysql/concepts-limits.md).
 
 ### <a name="azure-database-for-postgresql"></a>Azure Database for PostgreSQL
@@ -398,7 +402,7 @@ För SQL Database gränser, se [SQL Database resurs gränser för enskilda datab
 ### <a name="sql-data-warehouse-limits"></a>SQL Data Warehouse gränser
 SQL Data Warehouse gränser finns i [SQL Data Warehouse resurs gränser](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 - [Förstå Azure-gränser och ökningar](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 - [Virtuella datorer och moln tjänst storlekar för Azure](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Storlekar för Azure-Cloud Services](cloud-services/cloud-services-sizes-specs.md)

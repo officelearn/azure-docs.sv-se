@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
-ms.date: 09/13/2019
-ms.openlocfilehash: 3b3fbce40c93389037435a7cdb1271e773163de3
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.openlocfilehash: 536f3ab506dcbe2b8997f2c1870f25244b6c070f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123269"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489683"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Identifiera data drift (för hands version) i modeller som distribuerats till Azure Kubernetes service (AKS)
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 I den här artikeln får du lära dig hur du övervakar data drift mellan inlärnings data uppsättningen och data härlednings data i en distribuerad modell. I samband med Machine Learning kan tränade maskin inlärnings modeller uppleva försämrade förutsägelser på grund av driften. Med Azure Machine Learning kan du övervaka data driften och tjänsten kan skicka en e-postavisering till dig när en avvikelse upptäcks.
 
@@ -40,7 +41,7 @@ Med Azure Machine Learning kan du övervaka indata till en modell som distribuer
 
 ### <a name="how-data-drift-is-monitored-in-azure-machine-learning"></a>Så här övervakas data driften i Azure Machine Learning
 
-Med hjälp av Azure Machine Learning övervakas data driften via data uppsättningar eller distributioner. För att övervaka data, en bas linje uppsättning – vanligt vis är inlärnings data uppsättningen för en modell-angiven. En andra data uppsättning – vanligt vis modell indata som samlas in från en distribution, testas mot bas linje data uppsättningen. Båda data uppsättningarna är profilerade och indata för data tjänst övervaknings tjänsten. En maskin inlärnings modell är utbildad för att identifiera skillnader mellan de två data uppsättningarna. Modellens prestanda konverteras till drivgarn, som mäter storleken på driften mellan de två data uppsättningarna. Med [modell tolkning](machine-learning-interpretability-explainability.md)kan de funktioner som bidrar till drifts koefficienten beräknas. Statistisk information om varje funktion spåras från data uppsättnings profilen. 
+Med hjälp av Azure Machine Learning övervakas data driften via data uppsättningar eller distributioner. För att övervaka data, en bas linje uppsättning – vanligt vis är inlärnings data uppsättningen för en modell-angiven. En andra data uppsättning – vanligt vis modell indata som samlas in från en distribution, testas mot bas linje data uppsättningen. Båda data uppsättningarna är profilerade och indata för data tjänst övervaknings tjänsten. En maskin inlärnings modell är utbildad för att identifiera skillnader mellan de två data uppsättningarna. Modellens prestanda konverteras till drivgarn, som mäter storleken på driften mellan de två data uppsättningarna. Med [modell tolkning](how-to-machine-learning-interpretability.md)kan de funktioner som bidrar till drifts koefficienten beräknas. Statistisk information om varje funktion spåras från data uppsättnings profilen. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -58,12 +59,12 @@ Med hjälp av Azure Machine Learning övervakas data driften via data uppsättni
 - Installera data drivgarn SDK med följande kommando:
 
     ```shell
-    pip install azureml-contrib-datadrift
+    pip install azureml-datadrift
     ```
 
 - Skapa en [data uppsättning](how-to-create-register-datasets.md) från din modells utbildnings data.
 
-- Ange inlärnings data uppsättningen när modellen [registreras](concept-model-management-and-deployment.md) . Följande exempel visar hur du använder `datasets` -parametern för att ange inlärnings data uppsättningen:
+- Ange inlärnings data uppsättningen när modellen [registreras](concept-model-management-and-deployment.md) . Följande exempel visar hur du använder `datasets`-parametern för att ange inlärnings data uppsättningen:
 
     ```python
     model = Model.register(model_path=model_file,
@@ -79,12 +80,12 @@ Med hjälp av Azure Machine Learning övervakas data driften via data uppsättni
 ## <a name="configure-data-drift"></a>Konfigurera data avvikelse
 Om du vill konfigurera data drift för experimentet kan du importera beroenden som visas i följande python-exempel. 
 
-I det här exemplet visas [`DataDriftDetector`](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector.datadriftdetector?view=azure-ml-py) hur du konfigurerar objektet:
+Det här exemplet visar hur du konfigurerar [`DataDriftDetector`](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector.datadriftdetector?view=azure-ml-py) -objektet:
 
 ```python
 # Import Azure ML packages
 from azureml.core import Experiment, Run, RunDetails
-from azureml.contrib.datadrift import DataDriftDetector, AlertConfiguration
+from azureml.datadrift import DataDriftDetector, AlertConfiguration
 
 # if email address is specified, setup AlertConfiguration
 alert_config = AlertConfiguration('your_email@contoso.com')
@@ -97,7 +98,7 @@ print('Details of Datadrift Object:\n{}'.format(datadrift))
 
 ## <a name="submit-a-datadriftdetector-run"></a>Skicka en DataDriftDetector-körning
 
-Med objektet konfigurerat kan du skicka en [data körnings körning](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) på ett visst datum för modellen. `DataDriftDetector` Som en del av körningen aktiverar du DataDriftDetector-aviseringar `drift_threshold` genom att ange parametern. Om [datadrift_coefficient](#metrics) är över angivet `drift_threshold`skickas ett e-postmeddelande.
+Med `DataDriftDetector`-objektet konfigurerat kan du skicka en [data körnings körning](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) på ett visst datum för modellen. Som en del av körningen aktiverar du DataDriftDetector-aviseringar genom att ange parametern `drift_threshold`. Om [datadrift_coefficient](#metrics) är över den angivna `drift_threshold`skickas ett e-postmeddelande.
 
 ```python
 # adhoc run today
@@ -131,9 +132,9 @@ datadrift_contribution|Funktions betydelsen hos funktioner som bidrar till drift
 
 Det finns flera sätt att Visa avvikelse mått:
 
-* Använd widgeten [Jupyter.](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) `RunDetails`
-* Använd funktionen på alla `datadrift` körnings objekt. [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-)
-* Visa måtten från avsnittet **modeller** i [landnings sidan för din arbets yta (för hands version)](https://ml.azure.com).
+* Använd [widgeten `RunDetails`Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
+* Använd funktionen [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) på alla `datadrift` köra objekt.
+* Visa måtten från **modell** avsnittet på arbets ytan i [Azure Machine Learning Studio](https://ml.azure.com).
 
 Följande python-exempel visar hur du kan rita relevanta mått för data avvikelser. Du kan använda de returnerade måtten för att bygga anpassade visualiseringar:
 
@@ -151,22 +152,22 @@ drift_figures = datadrift.show(with_details=True)
 
 ## <a name="schedule-data-drift-scans"></a>Schemalägga data avvikelser 
 
-När du aktiverar data identifieringen körs en DataDriftDetector med den angivna schemalagda frekvensen. Om datadrift_coefficient når angivet `drift_threshold`skickas ett e-postmeddelande med varje schemalagd körning. 
+När du aktiverar data identifieringen körs en DataDriftDetector med den angivna schemalagda frekvensen. Om datadrift_coefficient når den angivna `drift_threshold`skickas ett e-postmeddelande med varje schemalagd körning. 
 
 ```python
 datadrift.enable_schedule()
 datadrift.disable_schedule()
 ```
 
-Konfigurationen av data behållar detektorn visas under **modeller** på fliken **information** på [sidan landnings sida för arbets ytan (för hands version)](https://ml.azure.com).
+Konfigurationen av data avvikelse detektorn visas under **modeller** på fliken **information** på arbets ytan i [Azure Machine Learning Studio](https://ml.azure.com).
 
-![Azure Portal data avvikelse](media/how-to-monitor-data-drift/drift-config.png)
+![Data avvikelse i Azure Machine Learning Studio](media/how-to-monitor-data-drift/drift-config.png)
 
-## <a name="view-results-in-your-workspace-landing-page"></a>Visa resultat i landnings sidan för din arbets yta
+## <a name="view-results-in-your-azure-machine-learning-studio"></a>Visa resultat i Azure Machine Learning Studio
 
-Om du vill visa resultat i din arbets yta i [landnings sidan för arbets ytan (för hands version)](https://ml.azure.com)går du till sidan modell. På fliken information i modellen visas konfigurationen för data riktning. En **datadrivgarn** -flik är nu tillgänglig för visualisering av data drifts måtten. 
+Om du vill visa resultat i din arbets yta i [Azure Machine Learning Studio](https://ml.azure.com)går du till sidan modell. På fliken information i modellen visas konfigurationen för data riktning. En **datadrivgarn** -flik är nu tillgänglig för visualisering av data drifts måtten. 
 
-[![vilplan för arbets ytans landnings sida](media/how-to-monitor-data-drift/drift-ui.png)](media/how-to-monitor-data-drift/drift-ui-expanded.png)
+[Data avvikelse i ![Azure Machine Learning Studio](media/how-to-monitor-data-drift/drift-ui.png)](media/how-to-monitor-data-drift/drift-ui-expanded.png)
 
 
 ## <a name="receiving-drift-alerts"></a>Ta emot larm

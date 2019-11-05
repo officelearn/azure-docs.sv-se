@@ -1,7 +1,7 @@
 ---
 title: Konfigurera Windows Java-appar – Azure App Service | Microsoft Docs
 description: Lär dig hur du konfigurerar Java-appar så att de körs på standard instanser av Windows i Azure App Service.
-keywords: azure app service, web app, windows, oss, java
+keywords: Azure App Service, Web App, Windows, oss, Java
 services: app-service
 author: jasonfreeberg
 manager: jeconnock
@@ -14,12 +14,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 91f0c059d22fb921aeb0c65f7d4eba95debd530d
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 75632d4fcdbf27f70b1b84f08f7295212dbac6a8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097739"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471087"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Konfigurera en Windows java-app för Azure App Service
 
@@ -33,7 +33,7 @@ Du kan använda [maven-plugin-programmet för Azure App Service för](/java/api/
 
 Annars beror distributions metoden på din Arkiv typ:
 
-- Om du vill distribuera. War-filer till Tomcat `/api/wardeploy/` använder du slut punkten för att publicera Arkiv filen. Mer information om det här API: et finns i [den här dokumentationen](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file).
+- Om du vill distribuera. War-filer till Tomcat använder du `/api/wardeploy/` slut punkten för att publicera Arkiv filen. Mer information om det här API: et finns i [den här dokumentationen](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file).
 
 Distribuera inte din. War med FTP. FTP-verktyget är utformat för att ladda upp start skript, beroenden eller andra runtime-filer. Det är inte det bästa valet för att distribuera webbappar.
 
@@ -53,7 +53,7 @@ Mer information finns i [Stream-loggar i Cloud Shell](troubleshoot-diagnostic-lo
 
 ### <a name="app-logging"></a>Loggning av app
 
-Aktivera [program loggning](troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#enable-application-logging-windows) via Azure Portal eller [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) för att konfigurera App Service att skriva programmets standard-och standard konsol fel strömmar till det lokala fil systemet eller Azure-Blob Storage. Loggning till den lokala App Service fil Systems instansen är inaktive rad 12 timmar efter att den har kon figurer ATS Om du behöver kvarhållare kan du konfigurera programmet att skriva utdata till en Blob Storage-behållare. Du hittar dina program loggar för Java och Tomcat i katalogen */LogFiles/Application/* .
+Aktivera [program loggning](troubleshoot-diagnostic-logs.md#enable-application-logging-windows) via Azure Portal eller [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) för att konfigurera App Service att skriva programmets standard-och standard konsol fel strömmar till det lokala fil systemet eller Azure-Blob Storage. Loggning till den lokala App Service fil Systems instansen är inaktive rad 12 timmar efter att den har kon figurer ATS Om du behöver kvarhållare kan du konfigurera programmet att skriva utdata till en Blob Storage-behållare. Du hittar dina program loggar för Java och Tomcat i katalogen */LogFiles/Application/* .
 
 Om ditt program använder [logback](https://logback.qos.ch/) eller [log4j](https://logging.apache.org/log4j) för spårning kan du vidarebefordra de här spårningarna för granskning till Azure Application Insights med hjälp av konfigurations anvisningar för loggnings ramverk i [utforska Java trace-loggar i Application Insights ](/azure/application-insights/app-insights-java-trace-logs).
 
@@ -62,17 +62,17 @@ Om ditt program använder [logback](https://logback.qos.ch/) eller [log4j](https
 
 Azure App Service stöder anpassning och anpassning av rutorna i Azure Portal och CLI. Läs följande artiklar för konfiguration av icke-Java-en webbapp:
 
-- [Konfigurera appinställningar](configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)
-- [Konfigurera en anpassad domän](app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Aktivera SSL](app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Lägg till en CDN](../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Konfigurera appinställningar](configure-common.md#configure-app-settings)
+- [Konfigurera en anpassad domän](app-service-web-tutorial-custom-domain.md)
+- [Konfigurera SSL-bindningar](configure-ssl-bindings.md)
+- [Lägg till en CDN](../cdn/cdn-add-to-web-app.md)
 - [Konfigurera kudu-webbplatsen](https://github.com/projectkudu/kudu/wiki/Configurable-settings)
 
 ### <a name="set-java-runtime-options"></a>Ange Java Runtime-alternativ
 
-Om du vill ange allokerat minne eller andra alternativ för JVM-körning skapar `JAVA_OPTS` du en app- [inställning](configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) med namnet med alternativen. App Service skickar den här inställningen som en miljö variabel till Java-körningsmiljön när den startas.
+Om du vill ange allokerat minne eller andra alternativ för JVM-körning skapar du en [app-inställning](configure-common.md#configure-app-settings) med namnet `JAVA_OPTS` med alternativen. App Service skickar den här inställningen som en miljö variabel till Java-körningsmiljön när den startas.
 
-I Azure Portal, under **program inställningar** för webbappen, skapar du en ny app-inställning med `JAVA_OPTS` namnet som innehåller de ytterligare `-Xms512m -Xmx1204m`inställningarna, till exempel.
+I Azure Portal, under **program inställningar** för webbappen, skapar du en ny app-inställning med namnet `JAVA_OPTS` som innehåller ytterligare inställningar, till exempel `-Xms512m -Xmx1204m`.
 
 Om du vill konfigurera appens inställning från maven-plugin-programmet lägger du till inställningar/värde-Taggar i Azure plugin-avsnittet. I följande exempel anges en angiven minsta och högsta Java-Heap-storlek:
 
@@ -87,9 +87,9 @@ Om du vill konfigurera appens inställning från maven-plugin-programmet lägger
 
 Utvecklare som kör ett enda program med en distributions plats i sin App Service plan kan använda följande alternativ:
 
-- B1 och S1-instanser:`-Xms1024m -Xmx1024m`
-- B2-och S2-instanser:`-Xms3072m -Xmx3072m`
-- B3 och S3-instanser:`-Xms6144m -Xmx6144m`
+- B1 och S1-instanser: `-Xms1024m -Xmx1024m`
+- B2-och S2-instanser: `-Xms3072m -Xmx3072m`
+- B3 och S3-instanser: `-Xms6144m -Xmx6144m`
 
 När du finjusterar inställningarna för programheap granskar du App Service plan information och tar hänsyn till flera program och distributions fack måste hitta den optimala allokeringen av minnet.
 
@@ -112,7 +112,7 @@ az webapp start --name <app-name> --resource-group <resource-group-name>
 
 ### <a name="set-default-character-encoding"></a>Ange standard tecken kodning
 
-Skapa en ny app-inställning med namnet `JAVA_OPTS` med värde `-Dfile.encoding=UTF-8`under **program inställningar** för webbappen i Azure Portal.
+I Azure Portal, under **program inställningar** för webbappen, skapar du en ny app-inställning med namnet `JAVA_OPTS` med värde `-Dfile.encoding=UTF-8`.
 
 Du kan också konfigurera appens inställning med hjälp av App Service maven-plugin-programmet. Lägg till inställnings namn och värde Taggar i plugin-konfigurationen:
 
@@ -135,17 +135,17 @@ Java-program som körs i App Service har samma uppsättning [rekommenderade säk
 
 ### <a name="authenticate-users-easy-auth"></a>Autentisera användare (enkel autentisering)
 
-Konfigurera app-autentisering i Azure Portal med alternativet **autentisering och auktorisering** . Därifrån kan du aktivera autentisering med Azure Active Directory eller sociala inloggningar som Facebook, Google eller GitHub. Azure Portal konfiguration fungerar bara när du konfigurerar en enda autentiseringsprovider. Mer information finns i [Konfigurera din app service app för att använda Azure Active Directory inloggning](configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) och relaterade artiklar för andra identitets leverantörer. Om du behöver aktivera flera inloggnings leverantörer följer du anvisningarna i artikeln [anpassa App Service-autentisering](app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) .
+Konfigurera app-autentisering i Azure Portal med alternativet **autentisering och auktorisering** . Därifrån kan du aktivera autentisering med Azure Active Directory eller sociala inloggningar som Facebook, Google eller GitHub. Azure Portal konfiguration fungerar bara när du konfigurerar en enda autentiseringsprovider. Mer information finns i [Konfigurera din app service app för att använda Azure Active Directory inloggning](configure-authentication-provider-aad.md) och relaterade artiklar för andra identitets leverantörer. Om du behöver aktivera flera inloggnings leverantörer följer du anvisningarna i artikeln [anpassa App Service-autentisering](app-service-authentication-how-to.md) .
 
 #### <a name="tomcat-and-wildfly"></a>Tomcat och WildFly
 
-Ditt Tomcat-eller WildFly-program kan komma åt användarens anspråk direkt från servlet genom att omvandla huvudobjektet till ett kart objekt. Kart-objektet mappar varje anspråks typ till en samling av anspråken för den typen. I koden nedan `request` är en instans av `HttpServletRequest`.
+Ditt Tomcat-eller WildFly-program kan komma åt användarens anspråk direkt från servlet genom att omvandla huvudobjektet till ett kart objekt. Kart-objektet mappar varje anspråks typ till en samling av anspråken för den typen. I koden nedan är `request` en instans av `HttpServletRequest`.
 
 ```java
 Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
 ```
 
-Nu kan du kontrol lera `Map` objektet för ett enskilt anspråk. Följande kodfragment itererar till exempel igenom alla anspråks typer och skriver ut innehållet i varje samling.
+Nu kan du kontrol lera `Map`-objektet för ett enskilt anspråk. Följande kodfragment itererar till exempel igenom alla anspråks typer och skriver ut innehållet i varje samling.
 
 ```java
 for (Object key : map.keySet()) {
@@ -159,7 +159,7 @@ for (Object key : map.keySet()) {
     }
 ```
 
-Använd `/.auth/ext/logout` sökvägen för att logga ut användare. Om du vill utföra andra åtgärder kan du läsa dokumentationen om [App Service autentisering och auktorisering](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to). Det finns också en officiell dokumentation om Tomcat [HttpServletRequest-gränssnittet](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) och dess metoder. Följande servlet-metoder har också dehydratiseras baserat på din App Service konfiguration:
+Använd `/.auth/ext/logout` Sök väg för att logga ut användare. Om du vill utföra andra åtgärder kan du läsa dokumentationen om [App Service autentisering och auktorisering](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to). Det finns också en officiell dokumentation om Tomcat [HttpServletRequest-gränssnittet](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) och dess metoder. Följande servlet-metoder har också dehydratiseras baserat på din App Service konfiguration:
 
 ```java
 public boolean isSecure()
@@ -169,11 +169,11 @@ public String getScheme()
 public int getServerPort()
 ```
 
-Om du vill inaktivera den här funktionen skapar du en `WEBSITE_AUTH_SKIP_PRINCIPAL` program inställning med namnet `1`med värdet. Om du vill inaktivera alla servlet-filter som har lagts till av `WEBSITE_SKIP_FILTERS` App Service skapar du en `1`inställning med namnet med värdet.
+Om du vill inaktivera den här funktionen skapar du en program inställning med namnet `WEBSITE_AUTH_SKIP_PRINCIPAL` med värdet `1`. Om du vill inaktivera alla servlet-filter som har lagts till av App Service skapar du en inställning med namnet `WEBSITE_SKIP_FILTERS` med värdet `1`.
 
 ### <a name="configure-tlsssl"></a>Konfigurera TLS/SSL
 
-Följ instruktionerna i [BIND ett befintligt anpassat SSL-certifikat](app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) för att ladda upp ett befintligt SSL-certifikat och bind det till programmets domän namn. Som standard tillåter programmet fortfarande HTTP-anslutningar – Följ de specifika stegen i självstudien för att genomdriva SSL och TLS.
+Följ anvisningarna i avsnittet [skydda ett anpassat DNS-namn med en SSL-bindning i Azure App Service](configure-ssl-bindings.md) för att ladda upp ett befintligt SSL-certifikat och bind det till ditt programs domän namn. Som standard tillåter programmet fortfarande HTTP-anslutningar – Följ de specifika stegen i självstudien för att genomdriva SSL och TLS.
 
 ### <a name="use-keyvault-references"></a>Använda nyckel Valvs referenser
 
@@ -181,7 +181,7 @@ Azure-nyckels [valvet](../key-vault/key-vault-overview.md) tillhandahåller cent
 
 Börja med att följa anvisningarna för [att ge appen åtkomst till Key Vault](app-service-key-vault-references.md#granting-your-app-access-to-key-vault) och [skapa en nyckel valv referens till din hemlighet i en program inställning](app-service-key-vault-references.md#reference-syntax). Du kan kontrol lera att referensen matchar hemligheten genom att skriva ut miljövariabeln och fjärrans luta till App Service terminalen.
 
-Om du vill mata in dessa hemligheter i din fjäder-eller Tomcat-konfigurationsfil använder du miljövariabeln insprutning-syntax (`${MY_ENV_VAR}`). För våren-konfigurationsfiler läser du den här dokumentationen om de [externa konfigurationerna](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
+Om du vill mata in de här hemligheterna i din våren-eller Tomcat-konfigurationsfil använder du syntaxen för miljö variabel insprutning (`${MY_ENV_VAR}`). För våren-konfigurationsfiler läser du den här dokumentationen om de [externa konfigurationerna](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
 
 
 ## <a name="configure-apm-platforms"></a>Konfigurera APM-plattformar
@@ -197,7 +197,7 @@ Det här avsnittet visar hur du ansluter Java-program som distribuerats på Azur
 5. Överför de packade nya Relic Java agent-filerna till en katalog under */Home/site/wwwroot/APM*. Filerna för din agent ska vara i */Home/site/wwwroot/APM/newrelic*.
 6. Ändra YAML-filen på */Home/site/wwwroot/APM/newrelic/newrelic.yml* och ersätt licens värdet för plats hållaren med din egen licens nyckel.
 7. I Azure Portal bläddrar du till ditt program i App Service och skapar en ny program inställning.
-    - Om din app använder **Java se**skapar du en miljö variabel med namnet `JAVA_OPTS` med värdet. `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`
+    - Om din app använder **Java se**skapar du en miljö variabel med namnet `JAVA_OPTS` med värdet `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
     - Om du använder **Tomcat**skapar du en miljö variabel med namnet `CATALINA_OPTS` med värdet `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
 
 ### <a name="configure-appdynamics"></a>Konfigurera AppDynamics
@@ -207,10 +207,10 @@ Det här avsnittet visar hur du ansluter Java-program som distribuerats på Azur
 3. Använd [kudu-konsolen](https://github.com/projectkudu/kudu/wiki/Kudu-console) för att skapa en ny katalog- */Home/site/wwwroot/APM*.
 4. Överför Java-agentens filer till en katalog under */Home/site/wwwroot/APM*. Filerna för din agent ska vara i */Home/site/wwwroot/APM/AppDynamics*.
 5. I Azure Portal bläddrar du till ditt program i App Service och skapar en ny program inställning.
-    - Om du använder **Java se**skapar du en miljö variabel med namnet `JAVA_OPTS` med värdet `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` där `<app-name>` är ditt App Service namn.
-    - Om du använder **Tomcat**skapar du en miljö variabel med namnet `CATALINA_OPTS` med värdet `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` där `<app-name>` är ditt App Service namn.
+    - Om du använder **Java se**skapar du en miljö variabel med namnet `JAVA_OPTS` med värdet `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` där `<app-name>` är App Service namn.
+    - Om du använder **Tomcat**skapar du en miljö variabel med namnet `CATALINA_OPTS` med värdet `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` där `<app-name>` är App Service namn.
 
->  Om du redan har en miljö variabel för `JAVA_OPTS` eller `CATALINA_OPTS`lägger `-javaagent:/...` du till alternativet i slutet av det aktuella värdet.
+>  Om du redan har en miljö variabel för `JAVA_OPTS` eller `CATALINA_OPTS`lägger du till alternativet `-javaagent:/...` till slutet av det aktuella värdet.
 
 ## <a name="data-sources"></a>Datakällor
 
@@ -221,10 +221,10 @@ Dessa anvisningar gäller för alla databas anslutningar. Du måste fylla i plat
 | Databas   | Klass namn för driv rutin                             | JDBC Driver                                                                      |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
 | PostgreSQL | `org.postgresql.Driver`                        | [Ladda ned](https://jdbc.postgresql.org/download.html)                                    |
-| MySQL      | `com.mysql.jdbc.Driver`                        | [Ladda ned](https://dev.mysql.com/downloads/connector/j/) (Välj plattform oberoende) |
+| MySQL      | `com.mysql.jdbc.Driver`                        | [Hämta](https://dev.mysql.com/downloads/connector/j/) (Välj plattform oberoende) |
 | SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Ladda ned](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
 
-Om du vill konfigurera Tomcat för att använda Java Database Connectivity (JDBC) eller Java-persistence API (JPA), `CATALINA_OPTS` måste du först anpassa den miljö variabel som läses in av Tomcat vid start. Ange dessa värden via en app-inställning i [maven-plugin-programmet för App Service](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md):
+Om du vill konfigurera Tomcat för att använda Java Database Connectivity (JDBC) eller Java persistence API (JPA) måste du först anpassa `CATALINA_OPTS`-miljövariabeln som läses in av Tomcat vid start. Ange dessa värden via en app-inställning i [maven-plugin-programmet för App Service](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md):
 
 ```xml
 <appSettings>
@@ -235,7 +235,7 @@ Om du vill konfigurera Tomcat för att använda Java Database Connectivity (JDBC
 </appSettings>
 ```
 
-Eller ange miljövariabler på sidan Inställningar för **konfigurations** > **program** i Azure Portal.
+Eller ange miljövariabler på sidan **konfiguration** > **program inställningar** i Azure Portal.
 
 Ta sedan reda på om data källan ska vara tillgänglig för ett program eller för alla program som körs på Tomcat-servlet.
 
@@ -243,7 +243,7 @@ Ta sedan reda på om data källan ska vara tillgänglig för ett program eller f
 
 1. Skapa en *context. XML-* fil i projektets *meta-inf/* katalog. Skapa *meta-inf/-* katalogen om den inte finns.
 
-2. I *context. XML*lägger du till `Context` ett-element för att länka data källan till en JNDI-adress. `driverClassName` Ersätt plats hållaren med driv Rutinens klass namn från tabellen ovan.
+2. I *context. XML*lägger du till ett `Context`-element för att länka data källan till en JNDI-adress. Ersätt `driverClassName` plats hållaren med driv Rutinens klass namn från tabellen ovan.
 
     ```xml
     <Context>
@@ -285,16 +285,16 @@ Slutligen kommer vi att placera driv rutins jar v7 i Tomcat-classpath och starta
 
 3. Anslut till den lokala tunnel porten med din SFTP-klient och överför filerna till mappen */Home/Tomcat/lib* .
 
-Alternativt kan du använda en FTP-klient för att ladda upp JDBC-drivrutinen. Följ de här [anvisningarna för att hämta dina FTP-autentiseringsuppgifter](deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+Alternativt kan du använda en FTP-klient för att ladda upp JDBC-drivrutinen. Följ de här [anvisningarna för att hämta dina FTP-autentiseringsuppgifter](deploy-configure-credentials.md).
 
 ## <a name="configuring-tomcat"></a>Konfigurera Tomcat
 
-Om du vill redigera `server.xml` Tomcat eller andra konfigurationsfiler bör du först anteckna din tomcat-huvud version i portalen.
+Om du vill redigera Tomcat `server.xml` eller andra konfigurationsfiler ska du först anteckna din tomcat-huvud version i portalen.
 
-1. Hitta Tomcat-hemkatalogen för din version genom att `env` köra kommandot. Sök efter den miljö variabel som börjar med `AZURE_TOMCAT`och matchar din huvud version. Till exempel `AZURE_TOMCAT85_HOME` pekar till Tomcat-katalogen för Tomcat 8,5.
-1. När du har identifierat arbets katalogen Tomcat för din version, kan du kopiera konfigurations `D:\home`katalogen till. Om `AZURE_TOMCAT85_HOME` till exempel har fått `D:\Program Files (x86)\apache-tomcat-8.5.37`värdet är den nya sökvägen till `D:\home\apache-tomcat-8.5.37`den kopierade katalogen.
+1. Hitta Tomcat-hemkatalogen för din version genom att köra kommandot `env`. Sök efter den miljö variabel som börjar med `AZURE_TOMCAT`och som matchar huvud versionen. `AZURE_TOMCAT85_HOME` till exempel pekar på Tomcat-katalogen för Tomcat 8,5.
+1. När du har identifierat Tomcat-arbetskatalogen för din version kan du kopiera konfigurations katalogen till `D:\home`. Om `AZURE_TOMCAT85_HOME` till exempel hade värdet `D:\Program Files (x86)\apache-tomcat-8.5.37`, skulle den nya sökvägen till den kopierade katalogen vara `D:\home\apache-tomcat-8.5.37`.
 
-Slutligen startar du om din App Service. Dina distributioner bör gå till `D:\home\site\wwwroot\webapps` precis som tidigare.
+Slutligen startar du om din App Service. Dina distributioner ska gå till `D:\home\site\wwwroot\webapps` precis som tidigare.
 
 ## <a name="java-runtime-statement-of-support"></a>Stöd för Java Runtime-sats
 
@@ -322,7 +322,7 @@ Utvecklare kan ladda ned Production Edition of Azul Zulu Enterprise JDK för lok
 
 Produkt support för det [Azure-Azul Zulu-JDK som stöds](https://www.azul.com/downloads/azure-only/zulu/) är tillgängligt via Microsoft när du utvecklar för azure eller [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) med ett [kvalificerat support](https://azure.microsoft.com/support/plans/)avtal för Azure.
 
-### <a name="runtime-support"></a>Runtime-stöd
+### <a name="runtime-support"></a>Stöd för körning
 
 Utvecklare kan [öppna ett problem](/azure/azure-supportability/how-to-create-azure-support-request) med Azul Zulu-JDKs via Azure-support om de har ett [kvalificerat support](https://azure.microsoft.com/support/plans/)avtal.
 

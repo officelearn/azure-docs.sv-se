@@ -1,7 +1,7 @@
 ---
 title: Vanliga frågor och svar
 titleSuffix: Microsoft Genomics
-description: Svar på vanliga frågor som kunder ställer om Microsoft Genomics.
+description: Få svar på vanliga frågor om att använda tjänsten Microsoft Genomics, inklusive teknisk information, SLA och fakturering.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
-ms.openlocfilehash: 80a656ee687b71fcaf09a02d70d0a5a4300186bc
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 4a2b66f95467e7f6cb99f632548351f827e259c3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249235"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476438"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: vanliga frågor
 
@@ -22,7 +22,7 @@ Den här artikeln innehåller de vanligaste frågorna som du kanske har relatera
 
 
 ## <a name="how-do-i-run-gatk4-workflows-on-microsoft-genomics"></a>Hur gör jag för att köra GATK4-arbetsflöden på Microsoft Genomics?
-I filen config. txt i Microsoft Genomics-filen anger du PROCESS_NAME till `gatk4`. Observera att du debiteras enligt vanliga fakturerings kostnader.
+I filen config. txt för Microsoft Genomics anger du den PROCESS_NAME som `gatk4`. Observera att du debiteras enligt vanliga fakturerings kostnader.
 
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Vad är service avtalet för Microsoft Genomics?
@@ -32,11 +32,11 @@ Vi garanterar att 99,9% av tiden Microsoft Genomics tjänsten kommer att vara ti
 Microsoft Genomics räkningar baserat på antalet bearbetade gigabaser per arbets flöde. Mer information finns i [prissättning](https://azure.microsoft.com/pricing/details/genomics/).
 
 
-## <a name="where-can-i-find-a-list-of-all-possible-commands-and-arguments-for-the-msgen-client"></a>Var hittar jag en lista över alla möjliga kommandon och argument för `msgen`-klienten?
-Du kan få en fullständig lista över tillgängliga kommandon och argument genom att köra `msgen help`. Om inga ytterligare argument anges visas en lista över tillgängliga hjälp avsnitt, en för var och en av `submit`, `list`, `cancel` och `status`. Om du vill ha hjälp med ett speciellt kommando skriver du `msgen help command`; `msgen help submit` visar till exempel alla sändnings alternativ.
+## <a name="where-can-i-find-a-list-of-all-possible-commands-and-arguments-for-the-msgen-client"></a>Var hittar jag en lista över alla möjliga kommandon och argument för den `msgen` klienten?
+Du kan få en fullständig lista över tillgängliga kommandon och argument genom att köra `msgen help`. Om inga ytterligare argument anges visas en lista över tillgängliga hjälp avsnitt, en för var och en av `submit`, `list`, `cancel`och `status`. Om du vill ha hjälp med ett speciellt kommando skriver du `msgen help command`; `msgen help submit` visar till exempel alla sändnings alternativ.
 
-## <a name="what-are-the-most-commonly-used-commands-for-the-msgen-client"></a>Vilka kommandon används oftast för `msgen`-klienten?
-De vanligaste kommandona är argument för `msgen`-klienten är: 
+## <a name="what-are-the-most-commonly-used-commands-for-the-msgen-client"></a>Vilka är de vanligaste kommandona för den `msgen` klienten?
+De vanligaste kommandona är argument för den `msgen` klienten är: 
 
  |**Kommando**          |  **Fältbeskrivning** |
  |:--------------------|:-------------         |
@@ -55,7 +55,7 @@ Gå till Azure Portal och öppna ditt Genomiks konto sida. Under **hanterings** 
 Du behöver två åtkomst nycklar om du vill uppdatera (återskapa) dem utan att avbryta användningen av tjänsten. Om du till exempel vill uppdatera den första nyckeln bör du ha alla nya arbets flöden som använder den andra nyckeln. Vänta sedan tills alla arbets flöden använder den första nyckeln för att slutföra innan du uppdaterar den första nyckeln.
 
 ## <a name="do-you-save-my-storage-account-keys"></a>Sparar du mina lagrings konto nycklar?
-Din lagrings konto nyckel används för att skapa kortsiktiga åtkomsttoken för Microsoft Genomics tjänsten för att läsa dina indatafiler och skriva utdatafilerna. Standard varaktigheten för token är 48 timmar. Varaktigheten för token kan ändras med alternativet `-sas/--sas-duration` för Submit-kommandot. värdet anges i timmar.
+Din lagrings konto nyckel används för att skapa kortsiktiga åtkomsttoken för Microsoft Genomics tjänsten för att läsa dina indatafiler och skriva utdatafilerna. Standard varaktigheten för token är 48 timmar. Varaktigheten för token kan ändras med alternativet `-sas/--sas-duration` för kommandot Skicka. värdet anges i timmar.
 
 ## <a name="what-genome-references-can-i-use"></a>Vilka användar-och användar referenser kan jag använda?
 
@@ -86,5 +86,5 @@ msgen förstår konfigurationsfilerna i följande format:
 
 Använd följande resurser för att komma igång med Microsoft Genomics:
 - Kom igång genom att köra ditt första arbets flöde via Microsoft Genomicss tjänsten. [Köra ett arbets flöde via Microsoft Genomics tjänsten](quickstart-run-genomics-workflow-portal.md)
-- Skicka in egna data för bearbetning av tjänsten Microsoft Genomics: [parad FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [flera fastq eller BAM](quickstart-input-multiple.md) 
+- Skicka in dina egna data för bearbetning av tjänsten Microsoft Genomics: [parad FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [flera fastq eller BAM](quickstart-input-multiple.md) 
 

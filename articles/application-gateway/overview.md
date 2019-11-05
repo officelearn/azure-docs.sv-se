@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 5/31/2019
 ms.author: victorh
-ms.openlocfilehash: 725b284fa58296aea310f618c000e77d9a0fb4c9
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
-ms.translationtype: MT
+ms.openlocfilehash: b30b96e6ae931e0df41b60e16f04127e82a068ad
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146628"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469758"
 ---
 # <a name="what-is-azure-application-gateway"></a>Vad är Azure Application Gateway?
 
@@ -52,6 +52,13 @@ Brandvägg för webbaserade program (WAF) är en funktion i Application Gateway 
 Webbprogram blir i allt större utsträckning föremål för attacker där kända svagheter i programmen utnyttjas. Bland annat är SQL-inmatningsattacker och skriptangrepp mellan webbplatser vanliga. Det kan vara svårt att förhindra sådana attacker i programkoden och kräver ofta omfattande underhåll, korrigeringar och övervakning av många skikt i programtopologin. Med en centraliserad brandvägg för webbaserade program blir det enklare att hantera säkerheten och programadministratörer får bättre möjligheter skydda mot intrång. En brandväggslösning för webbaserade program kan även reagera snabbare på ett säkerhetshot genom att åtgärda en känd svaghet på en central plats jämfört med om korrigeringar ska utföras i varje enskilt webbprogram. Befintliga programgatewayer kan enkelt konverteras till en Application Gateway med brandväggen för webbprogram.
 
 Mer information finns i [brand vägg för webbaserade program (WAF) i Application Gateway](https://docs.microsoft.com/azure/application-gateway/waf-overview).
+
+## <a name="ingress-controller-for-aks"></a>Ingress Controller för AKS
+Med Application Gateway ingångs kontroll (AGIC) kan du använda Application Gateway som ingångs punkt för ett [Azure Kubernetes service-kluster (AKS)](https://azure.microsoft.com/services/kubernetes-service/) . 
+
+Ingångs kontrollen körs som en POD i AKS-klustret och använder [Kubernetes ingångs resurser](https://kubernetes.io/docs/concepts/services-networking/ingress/) och konverterar dem till en Application Gateway-konfiguration som gör att gatewayen kan belastningsutjämna trafik till Kubernetes poddar. Ingångs styrenheten har endast stöd för Application Gateway v2 SKU. 
+
+Mer information finns i [Application Gateway ingress-styrenhet (AGIC)](ingress-controller-overview.md).
 
 ## <a name="url-based-routing"></a>URL-baserad routning
 
@@ -97,12 +104,6 @@ WebSocket- och HTTP/2-protokollen aktiverar full duplex-kommunikation mellan en 
 
 Mer information finns i stöd för [WebSocket-support](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) och [http/2](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support).
 
-## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Förhandsversion av Azure Kubernetes Service (AKS) Ingress-kontrollant 
-
-Application Gateway Ingress-kontrollanten körs som en pod i AKS-klustret och gör så att Application Gateway kan fungera som ingress för ett AKS-kluster. Detta stöds endast med Application Gateway v2.
-
-Mer information finns i avsnittet om [Azure Application Gateway Ingress-kontrollant](https://azure.github.io/application-gateway-kubernetes-ingress/).
-
 ## <a name="connection-draining"></a>Anslutningstömning
 
 Anslutningstömning hjälper dig att få korrekt borttagning av medlemmar i serverdelspoolen under planerade serviceuppdateringar. Den här inställningen aktiveras via serverdelens http-inställning och kan tillämpas på alla medlemmar i en serverdelspool i samband med regelskapandet. Application Gateway säkerställer att alla avregistrerande instanser av en backend-pool inte får någon ny begäran samtidigt som de tillåter att befintliga begär Anden kan slutföras inom en angiven tids gräns. Detta gäller för båda Server dels instanserna som uttryckligen tas bort från backend-poolen med ett API-anrop, och Server dels instanser som rapporteras som skadade enligt hälso avsökningarna.
@@ -127,11 +128,11 @@ Application Gateway stöder möjligheten att lägga till, ta bort eller uppdater
 
 Mer information finns i [skriva om HTTP-huvuden](rewrite-http-headers.md).
 
-## <a name="sizing"></a>Storleksändring
+## <a name="sizing"></a>Storlekar
 
 Application Gateway Standard_v2 och WAF_v2 SKU kan konfigureras för automatisk skalning eller distributioner med fast storlek. Dessa SKU: er erbjuder inte olika instans storlekar. Mer information om v2-prestanda och priser finns i [autoskalning v2 SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing).
 
-Application Gateway standard-och WAF SKU finns för närvarande i tre storlekar: **liten**, **medel** och **stor**. Smål instansstorlekar är avsedda för utvecklings- och testningsscenarier.
+Application Gateway standard-och WAF SKU finns för närvarande i tre storlekar: **liten**, **medel**och **stor**. Smål instansstorlekar är avsedda för utvecklings- och testningsscenarier.
 
 En fullständig lista över gränserna för programgateways finns i avsnittet om [gränser för Application Gateway-tjänsten](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
@@ -140,7 +141,7 @@ I följande tabell visas ett genomsnittligt prestanda data flöde för varje App
 | Genomsnittligt sidsvarsstorlek för serverdel | Liten | Medel | Stor |
 | --- | --- | --- | --- |
 | 6 kB |7.5 Mbit/s |13 Mbit/s |50 Mbit/s |
-| 100 kB |35 Mbit/s |100 Mbit/s |200 Mbit/s |
+| 100 kB |35 Mbit/s |100 Mbit/s |200 Mbps |
 
 > [!NOTE]
 > De här värdena är genomsnittliga värden för ett Application Gateway-dataflöde. Det faktiska dataflödet beror på olika miljöfaktorer som genomsnittlig sidstorlek, plats för serverdelsinstanserna och bearbetningstid för att serva en sida. Du bör köra egna test för exakta prestandavärden. Dessa värden är bara för vägledning vid kapacitetsplanering.
@@ -149,6 +150,6 @@ I följande tabell visas ett genomsnittligt prestanda data flöde för varje App
 
 Beroende på dina krav och din miljö kan du skapa en testprogramgateway med Azure Portal, Azure PowerShell eller Azure CLI:
 
-- [Snabbstart: Direkt webb trafik med Azure Application Gateway – Azure Portal](quick-create-portal.md)
+- [Snabb start: direkt webb trafik med Azure Application Gateway – Azure Portal](quick-create-portal.md)
 - [Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure PowerShell](quick-create-powershell.md)
 - [Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure CLI](quick-create-cli.md)

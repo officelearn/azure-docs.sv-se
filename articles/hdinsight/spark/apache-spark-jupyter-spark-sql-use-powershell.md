@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa ett Spark-kluster i HDInsight med hjälp av Azure PowerShell'
+title: 'Snabb start: skapa HDInsight Spark-kluster med Azure PowerShell'
 description: Den här snabbstarten visar hur du använder Azure PowerShell för att skapa ett Apache Spark-kluster i Azure HDInsight och köra en enkel Spark SQL-fråga.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.custom: mvc
-ms.openlocfilehash: f4f876c6a0e208c949f8aec2781dda39ba66fb00
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: d2ab605d3532df1623ff087dbf1f93dad35445f3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71337601"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494506"
 ---
-# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-powershell"></a>Snabbstart: Skapa Apache Spark kluster i Azure HDInsight med hjälp av PowerShell
+# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-powershell"></a>Snabb start: skapa Apache Spark kluster i Azure HDInsight med hjälp av PowerShell
 
-Lär dig hur du skapar [Apache Spark](https://spark.apache.org/)-kluster i Azure HDInsight och hur du kör Spark SQL-frågor mot [Apache Hive](https://hive.apache.org/)-tabeller. Apache Spark möjliggör snabb dataanalys och databehandling i kluster med hjälp av minnesintern bearbetning. Mer information om Spark på HDInsight finns i [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md).
+Lär dig hur du skapar [Apache Spark](https://spark.apache.org/)-kluster i Azure HDInsight och hur du kör Spark SQL-frågor mot [Apache Hive](https://hive.apache.org/)-tabeller. Apache Spark möjliggör snabb data-analys och kluster-computing med minnesintern bearbetning. Mer information om Spark på HDInsight finns i [Översikt: Apache Spark på Azure HDInsight](apache-spark-overview.md).
 
-I den här snabbstarten använder du Azure PowerShell för att skapa ett HDInsight Spark-kluster. Klustret använder Azure Storage Blobar som klusterlagring. Mer information om hur du kan använda Data Lake Storage Gen2 finns i [Snabbstart: Konfigurera kluster i HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+I den här snabbstarten använder du Azure PowerShell för att skapa ett HDInsight Spark-kluster. Klustret använder Azure Storage-blobbar som klusterlagring. Mer information om att använda Data Lake Storage Gen2 finns i [Snabbstart: Konfigurera kluster i HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 > [!IMPORTANT]  
 > Fakturering för HDInsight-kluster sker proportionerligt per minut, oavsett om du använder dem eller inte. Se till att du tar bort dina kluster när du är klar med dem. Mer information finns i avsnittet [Rensa resurser](#clean-up-resources) i den här artikeln.
@@ -27,6 +27,8 @@ I den här snabbstarten använder du Azure PowerShell för att skapa ett HDInsig
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisite"></a>Krav
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 PowerShell- [modulen för AZ](https://docs.microsoft.com/powershell/azure/overview) är installerad.
 
@@ -40,10 +42,10 @@ Att skapa ett HDInsight-kluster innefattar att skapa följande Azure-objekt och 
 
 Du använder ett PowerShell-skript för att skapa resurserna.  När du kör skriptet uppmanas du att ange följande värden:
 
-|Parameter|Value|
+|Parameter|Värde|
 |------|------|
-|Azure-resursgruppnamn | Ange ett unikt namn för resursgruppen.|
-|Location| Ange Azure-regionen, t.ex. Centrala USA. |
+|Azure-resursgruppsnamn | Ange ett unikt namn för resursgruppen.|
+|Plats| Ange Azure-regionen, t.ex. Centrala USA. |
 |Namn på standardlagringskonto | Ange ett unikt namn för lagringskontot. |
 |Klusternamn | Ange ett unikt namn för HDInsight Spark-klustret.|
 |Autentiseringsuppgifter för klusterinloggning | Du kan använda det här kontot för att ansluta till klusterinstrumentpanelen senare i snabbstarten.|
@@ -143,11 +145,11 @@ Om du stöter på ett problem med att skapa HDInsight-kluster kan det bero på a
 
 1. I portalen väljer du **Kluster-instrumentpaneler** och sedan **Jupyter Notebook**. Ange autentiseringsuppgifterna för klustret om du uppmanas att göra det.
 
-   ![Öppna en Jupyter-anteckningsbok för att köra en interaktiv Spark SQL-fråga](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Öppna en Jupyter-anteckningsbok för att köra interaktiv Spark SQL-fråga")
+   ![Öppna Jupyter Notebook för att köra interaktiv Spark SQL-fråga](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Öppna Jupyter Notebook för att köra interaktiv Spark SQL-fråga")
 
 1. Skapa en anteckningsbok genom att välja **Ny** > **PySpark**.
 
-   ![Skapa en Jupyter-anteckningsbok för att köra en interaktiv Spark SQL-fråga](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Skapa en Jupyter-anteckningsbok för att köra en interaktiv Spark SQL-fråga")
+   ![Skapa en Jupyter Notebook för att köra interaktiv Spark SQL-fråga](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Skapa en Jupyter Notebook för att köra interaktiv Spark SQL-fråga")
 
    En ny anteckningsbok skapas och öppnas med namnet Untitled(Untitled.pynb).
 
@@ -182,7 +184,7 @@ SQL (Structured Query Language) är det vanligaste språket för frågor och def
 
     Skärmen bör uppdateras så att frågeresultatet visas.
 
-    ![Hive-frågeresultatet i HDInsight Spark](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query-output.png "Hive-frågeresultatet i HDInsight Spark")
+    ![Utdata från Hive-fråga i HDInsight Spark](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query-output.png "Utdata från Hive-fråga i HDInsight Spark")
 
 1. Välj **Stäng och stoppa** på anteckningsbokens **Arkiv**-meny. När du stänger anteckningsboken frigörs klusterresurserna.
 
@@ -192,9 +194,9 @@ HDInsight sparar dina data i Azure Storage eller Azure Data Lake Storage så att
 
 Växla tillbaka till Azure Portal och välj **Ta bort**.
 
-![Azure Portal ta bort ett HDInsight-kluster](./media/apache-spark-jupyter-spark-sql/hdinsight-azure-portal-delete-cluster.png "ta bort HDInsight-kluster")
+![Azure Portal ta bort ett HDInsight-kluster](./media/apache-spark-jupyter-spark-sql/hdinsight-azure-portal-delete-cluster.png "Ta bort HDInsight-kluster")
 
-Du kan också välja det resursgruppnamn som ska öppna resursgruppsidan och sedan välja **Ta bort resursgrupp**. När resursgruppen tas bort, tas även HDInsight Spark-klustret och standardkontot för lagring bort.
+Du kan också välja det resursgruppnamn som ska öppna resursgruppsidan och sedan välja **Ta bort resursgrupp**. När du tar bort resursgruppen tar du bort både HDInsight Spark-klustret och standardkontot för lagring.
 
 ### <a name="piecemeal-clean-up-with-powershell-az-module"></a>Stycke vis rensa med PowerShell AZ-modulen
 

@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/14/2019
+ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bf9b6a3ad40d46b628bfcdb3fa3e32b2419360c9
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: bf87b1709c355faf6f06ff2d23b2c819f88750cd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802114"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475204"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Åtkomst till Azure AD B2C gransknings loggar
 
@@ -33,12 +33,12 @@ Kategorin **B2C** i gransknings loggar innehåller följande typer av aktivitete
 
 |Aktivitetstyp |Beskrivning  |
 |---------|---------|
-|Authorization |Aktiviteter som rör auktorisering av en användare för att få åtkomst till B2C-resurser (till exempel en administratör som har åtkomst till en lista över B2C-principer).         |
+|Auktorisering |Aktiviteter som rör auktorisering av en användare för att få åtkomst till B2C-resurser (till exempel en administratör som har åtkomst till en lista över B2C-principer).         |
 |Katalog |Aktiviteter relaterade till katalogattribut som hämtats när en administratör loggar in med hjälp av Azure Portal. |
 |Program | Skapa, läsa, uppdatera och ta bort (CRUD) åtgärder på B2C-program. |
 |Nyckel |CRUD åtgärder för nycklar som lagras i en B2C Key-behållare. |
-|Resource |CRUD-åtgärder på B2C-resurser. Till exempel principer och identitets leverantörer.
-|Authentication |Validering av användarautentiseringsuppgifter och utfärdande av token.|
+|Resurs |CRUD-åtgärder på B2C-resurser. Till exempel principer och identitets leverantörer.
+|Autentisering |Validering av användarautentiseringsuppgifter och utfärdande av token.|
 
 För CRUD-aktiviteter för användar objekt, se kategorin **kärn katalog** .
 
@@ -52,13 +52,13 @@ Panelen aktivitets information innehåller följande relevanta information:
 
 |Section|Fält|Beskrivning|
 |-------|-----|-----------|
-| Aktivitet | Name | Vilken aktivitet som ägde rum. Du kan till exempel *utfärda en id_token till programmet*som avslutar den faktiska användar inloggningen. |
-| Initierad av (aktör) | ObjectId | **Objekt-ID** för det B2C-program som användaren loggar in på. Den här identifieraren visas inte i Azure Portal, men är tillgänglig via Microsoft Graph API. |
-| Initierad av (aktör) | SPN | **Program-ID** för det B2C-program som användaren loggar in på. |
-| Mål (ar) | ObjectId | **Objekt-ID** för den användare som loggar in. |
+| Aktivitet | Namn | Vilken aktivitet som ägde rum. Du kan till exempel *utfärda en id_token till programmet*som avslutar den faktiska användar inloggningen. |
+| Initierad av (aktör) | objectId | **Objekt-ID** för det B2C-program som användaren loggar in på. Den här identifieraren visas inte i Azure Portal, men är tillgänglig via Microsoft Graph API. |
+| Initierad av (aktör) | Namn | **Program-ID** för det B2C-program som användaren loggar in på. |
+| Mål (ar) | objectId | **Objekt-ID** för den användare som loggar in. |
 | Ytterligare information | TenantId | **Klient-ID** för Azure AD B2C klient organisationen. |
-| Ytterligare information | `PolicyId` | **Princip-ID: t** för det användar flöde (princip) som används för att signera användaren i. |
-| Ytterligare information | ApplicationId | **Program-ID** för det B2C-program som användaren loggar in på. |
+| Ytterligare information | policyId | **Princip-ID: t** för det användar flöde (princip) som används för att signera användaren i. |
+| Ytterligare information | applicationId | **Program-ID** för det B2C-program som användaren loggar in på. |
 
 ## <a name="view-audit-logs-in-the-azure-portal"></a>Visa gransknings loggar i Azure Portal
 
@@ -89,8 +89,7 @@ Gransknings loggar publiceras i samma pipeline som andra aktiviteter för Azure 
 
 Om du vill tillåta skript-eller programbaserad åtkomst till Azure AD repor ting-API: n måste du ha ett Azure Active Directory-program registrerat i Azure AD B2C-klienten med följande API-behörigheter:
 
-* Microsoft Graph
-  * Program: Läs all spårningsloggsdata
+* Microsoft Graph > program behörigheter > AuditLog. Read. all
 
 Du kan aktivera de här behörigheterna för en befintlig Azure Active Directory program registrering i B2C-klienten eller skapa en ny som är specifik för användning med gransknings logg automatisering.
 
@@ -102,13 +101,31 @@ Följ de här stegen registrera ett program, tilldela det nödvändiga Microsoft
 
 ### <a name="assign-api-access-permissions"></a>Tilldela API-åtkomst behörigheter
 
+#### <a name="applicationstabapplications"></a>[Program](#tab/applications/)
+
 1. På sidan **registrerad app** -översikt väljer du **Inställningar**.
 1. Under **API-åtkomst**väljer du **nödvändiga behörigheter**.
 1. Välj **Lägg till**och **Välj sedan ett API**.
 1. Välj **Microsoft Graph**och **Välj**sedan.
 1. Under **program behörigheter**väljer du **Läs alla Gransknings logg data**.
 1. Välj knappen **Välj** och välj sedan **färdig**.
-1. Välj **bevilja**, och välj sedan **Ja**.
+1. Välj **bevilja behörigheter**och välj sedan **Ja**.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
+
+1. Under **Hantera**, Välj **API-behörigheter**.
+1. Under **konfigurerade behörigheter**väljer du **Lägg till en behörighet**.
+1. Välj fliken **Microsoft API: er** .
+1. Välj **Microsoft Graph**.
+1. Välj **Programbehörigheter**.
+1. Expandera **AuditLog** och markera kryss rutan **AuditLog. Read. all** .
+1. Välj **Lägg till behörigheter**. Vänta några minuter innan du fortsätter till nästa steg.
+1. Välj **bevilja administrativt godkännande för (ditt klient namn)** .
+1. Välj ditt inloggade konto om det har tilldelats rollen som *Global administratör* eller logga in med ett konto i Azure AD B2C-klienten som har tilldelats rollen som *Global administratör* .
+1. Välj **Acceptera**.
+1. Välj **Uppdatera**och verifiera sedan att "beviljat..." visas under **status** för *AuditLog. Read. all* behörighet. Det kan ta några minuter innan behörigheterna har spridits.
+
+* * *
 
 ### <a name="create-client-secret"></a>Skapa klient hemlighet
 
@@ -118,7 +135,7 @@ Nu har du ett program med nödvändig API-åtkomst, ett program-ID och en nyckel
 
 ### <a name="access-the-api"></a>Åtkomst till API: et
 
-Du kan hämta Azure AD B2C Gransknings logg händelser via API: et genom att filtrera `B2C` loggarna på kategorin. Om du vill filtrera efter kategori använder `filter` du frågesträngparametern när du anropar slut punkten för Azure AD repor ting API.
+Om du vill hämta Azure AD B2C Gransknings logg händelser via API: et, filtrerar du loggarna i `B2C` kategorin. Om du vill filtrera efter kategori använder du parametern `filter` frågesträng när du anropar slut punkten för Azure AD repor ting API.
 
 ```HTTP
 https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByService eq 'B2C' and activityDateTime gt 2019-09-10T02:28:17Z
@@ -128,15 +145,15 @@ https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByServi
 
 Följande PowerShell-skript visar ett exempel på hur du frågar Azure AD repor ting-API: et. Efter att ha frågat API: et skrivs de loggade händelserna ut till standardutdata och skriver sedan JSON-utdata till en fil.
 
-Du kan testa det här skriptet i [Azure Cloud Shell](../cloud-shell/overview.md). Se till att du uppdaterar den med ditt program-ID, nyckel och namnet på Azure AD B2C klient organisationen.
+Du kan testa det här skriptet i [Azure Cloud Shell](../cloud-shell/overview.md). Se till att du uppdaterar den med ditt program-ID, klient hemlighet och namnet på din Azure AD B2C klient.
 
 ```powershell
 # This script requires the registration of a Web Application in Azure Active Directory:
 # https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api
 
 # Constants
-$ClientID       = "your-client-application-id-here"       # Insert your application's Client ID, a GUID (registered by Global Admin)
-$ClientSecret   = "your-client-application-secret-here"   # Insert your application's Client secret/key
+$ClientID       = "your-client-application-id-here"       # Insert your application's client ID, a GUID (registered by Global Admin)
+$ClientSecret   = "your-client-application-secret-here"   # Insert your application's client secret
 $tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # Insert your Azure AD B2C tenant; for example, contoso.onmicrosoft.com
 $loginURL       = "https://login.microsoftonline.com"
 $resource       = "https://graph.microsoft.com"           # Microsoft Graph API resource URI

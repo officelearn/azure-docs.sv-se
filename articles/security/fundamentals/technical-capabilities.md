@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: ac9a62a810a957c67d9c24063d01eff822c8294f
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: dbc17cff2347cd86db3296f4aa2de76ef0f75460
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129302"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468072"
 ---
 # <a name="azure-security-technical-capabilities"></a>Tekniska funktioner för Azure-säkerhet
 Den här artikeln innehåller en introduktion till säkerhets tjänster i Azure som hjälper dig att skydda dina data, resurser och program i molnet och uppfylla verksamhetens säkerhets behov.
@@ -127,7 +127,7 @@ När du använder Azure Active Directory B2C kan dina konsumenter registrera sig
 
 [Azure AD Device Registration](../../active-directory/devices/overview.md) är grunden för enhets scenarier för [villkorlig åtkomst](../../active-directory/devices/overview.md) . När en enhet registreras tillhandahåller Azure AD Device Registration enheten med en identitet som används för att autentisera enheten när användaren loggar in. Den autentiserade enheten och attributen för enheten kan sedan användas för att tillämpa principer för villkorlig åtkomst för program som finns i molnet och lokalt.
 
-I kombination med en hanterings lösning för [mobila enheter (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) , till exempel Intune, uppdateras enhetens attribut i Azure Active Directory med ytterligare information om enheten. På så sätt kan du skapa regler för villkorlig åtkomst som tvingar åtkomst från enheter att uppfylla dina standarder för säkerhet och efterlevnad.
+I kombination med en [hanterings lösning för mobila enheter (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) , till exempel Intune, uppdateras enhetens attribut i Azure Active Directory med ytterligare information om enheten. På så sätt kan du skapa regler för villkorlig åtkomst som tvingar åtkomst från enheter att uppfylla dina standarder för säkerhet och efterlevnad.
 
 #### <a name="privileged-identity-management"></a>Privileged Identity Management
 
@@ -171,7 +171,7 @@ En av nycklarna till data skydd i molnet är redovisning av de möjliga tillstå
 
 - I vila: Detta omfattar alla informations lagrings objekt, behållare och typer som finns statiskt på fysiska media, som är magnetiska eller optiska diskar.
 
-- Under överföring: När data överförs mellan komponenter, platser eller program, till exempel över nätverket, via en Service Bus (från lokalt till molnet och vice versa, inklusive hybrid anslutningar som ExpressRoute) eller under en indata/utdata-process, är det tanke på rörelsens rörelse.
+- Under överföring: när data överförs mellan komponenter, platser eller program, t. ex. över nätverket, via en Service Bus (från lokalt till molnet och vice versa, inklusive hybrid anslutningar som ExpressRoute) eller under en indata/utdata-process , den betraktas som rörelse.
 
 ### <a name="encryption-at-rest"></a>Vilande kryptering
 
@@ -194,7 +194,7 @@ Målet för kryptering i vila är att kryptera alla data. Detta eliminerar riske
 > [!Note]
 > Inte bara "program data" eller "PII", men alla data som rör program inklusive metadata för konto (prenumerations mappningar, kontrakts information, PII).
 
-Överväg vilka butiker du använder för att lagra data. Exempel:
+Överväg vilka butiker du använder för att lagra data. Till exempel:
 
 - Extern lagring (till exempel SQL Azure, dokument databas, HDInsights, Data Lake osv.)
 
@@ -206,9 +206,9 @@ Målet för kryptering i vila är att kryptera alla data. Detta eliminerar riske
 
 För varje butik som du använder kan du utnyttja den befintliga krypteringen vid rest-supporten.
 
-- Azure Storage: Se [Azure Storage tjänst kryptering för vilande data](../../storage/common/storage-service-encryption.md)
+- Azure Storage: se [Azure Storage tjänst kryptering för vilande data](../../storage/common/storage-service-encryption.md),
 
-- SQL Azure: Se [Transparent datakryptering (TDE), SQL Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)
+- SQL Azure: se [Transparent datakryptering (TDE), SQL Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)
 
 - VM & lokal disk lagring ([Azure Disk Encryption](../azure-security-disk-encryption-overview.md))
 
@@ -281,7 +281,7 @@ Organisationer som är svaga på [data klassificering](https://download.microsof
 ## <a name="secure-your-application"></a>Skydda ditt program
 Även om Azure ansvarar för att skydda den infrastruktur och plattform som ditt program körs på, är det ditt ansvar att skydda själva programmet. Med andra ord måste du utveckla, distribuera och hantera din program kod och ditt innehåll på ett säkert sätt. Utan detta kan program koden eller innehållet fortfarande vara sårbart för hot.
 
-### <a name="web-application-firewall"></a>Brandvägg för webbappar
+### <a name="web-application-firewall"></a>Brandvägg för webbaserade program
 [Brand vägg för webbaserade program (WAF)](../../application-gateway/waf-overview.md) är en funktion i [Application Gateway](../../application-gateway/overview.md) som tillhandahåller centraliserat skydd av dina webb program från vanliga sårbarheter och sårbarheter.
 
 Brandväggen använder regler från [OWASP Core Rule Sets](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 eller 2.2.9. Webbprogram blir i allt större utsträckning föremål för attacker där kända svagheter i programmen utnyttjas. Bland annat är SQL-inmatningsattacker och skriptangrepp mellan webbplatser vanliga. Det kan vara svårt att förhindra sådana attacker i programkoden och kräver ofta omfattande underhåll, korrigeringar och övervakning av flera skikt i programtopologin. Med en centraliserad brandvägg för webbaserade program blir det enklare att hantera säkerheten och programadministratörer får bättre möjligheter skydda mot intrång. En brandväggslösning för webbaserade program kan även reagera snabbare på ett säkerhetshot genom att åtgärda en känd svaghet på en central plats jämfört med om korrigeringar ska utföras i varje enskilt webbprogram. Befintliga programgatewayer kan enkelt konverteras till en Application Gateway med brandväggen för webbprogram.
@@ -309,7 +309,7 @@ Azure tillhandahåller också flera lättanvända funktioner som hjälper dig at
 
 - [Konfigurera Azure Active Directory autentisering för din app](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
 
-- [Skydda trafik till din app genom att aktivera Transport Layer Security (TLS/SSL)-HTTPS](../../app-service/app-service-web-tutorial-custom-ssl.md)
+- [Skydda trafik till din app genom att aktivera Transport Layer Security (TLS/SSL)-HTTPS](../../app-service/configure-ssl-bindings.md)
 
   - [Tvinga all inkommande trafik över HTTPS-anslutning](http://microsoftazurewebsitescheatsheet.info/)
 
@@ -360,7 +360,7 @@ Microsoft Antimalware för Azure Cloud Services och Virtual Machines är en real
 
 [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) hjälper till att dirigera replikering, redundans och återställning av arbets belastningar och appar så att de är tillgängliga från en annan plats om din primära plats slutar fungera.
 
-## <a name="ensure-compliance-cloud-services-due-diligence-checklist"></a>Säkerställa efterlevnad: Check lista för noggrannhet av moln tjänster
+## <a name="ensure-compliance-cloud-services-due-diligence-checklist"></a>Se till att efterlevnad: moln tjänster förfaller noggrannhet check lista
 
 Microsoft har [Cloud Services utvecklat noggrannhet check lista](https://aka.ms/cloudchecklist.download) för att hjälpa organisationer att använda noggrannhet när de funderar på att flytta till molnet. Det ger en struktur för en organisation av valfri storlek och typ – privata företag och offentliga organisationer, inklusive myndigheter på alla nivåer och icke-vinst, för att identifiera sina egna prestanda-, tjänst-, data hanterings-och styrnings mål och signaturkrav. Detta gör det möjligt för dem att jämföra erbjudandena med olika moln tjänst leverantörer, vilket i slut ändan utgör grunden för ett moln tjänst avtal.
 
@@ -388,7 +388,7 @@ Dessutom visas check listan:
 
 Azures drift säkerhet bygger på ett ramverk som införlivar den kunskap som du har fått via en mängd olika funktioner som är unika för Microsoft, inklusive Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Centre-programmet och djupgående medvetenhet om cybersäkerhet Threat landskap.
 
-### <a name="microsoft-azure-monitor"></a>Microsoft Azure Monitor
+### <a name="microsoft-azure-monitor"></a>Övervakare för Microsoft Azure
 
 [Azure Monitor](../../azure-monitor/index.yml) är IT-hanterings lösningen för Hybrid molnet. Azure Monitor loggar som används separat eller för att utöka din befintliga System Center-distribution ger dig maximal flexibilitet och kontroll för molnbaserad hantering av infrastrukturen.
 
@@ -406,11 +406,11 @@ Med den här metoden kan du konsolidera data från olika källor, så att du kan
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
-Med hjälp av [Azure Security Center](../../security-center/security-center-intro.md) kan du förebygga, upptäcka och åtgärda hot med bättre överblick och kontroll över säkerheten för dina resurser i Azure. Härifrån kan du övervaka och hantera principer för alla Azure-prenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
+Med hjälp av [Azure Security Center](../../security-center/security-center-intro.md) kan du förebygga, upptäcka och åtgärda hot med bättre överblick och kontroll över säkerheten för dina resurser i Azure. Härifrån kan du övervaka och hantera principer för alla Azureprenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
 
 Säkerhetstillståndet på resurserna i Azure analyseras i Security Center för upptäckt av eventuella säkerhetsrisker. Genom en lista med rekommendationer får du hjälp att ställa in de kontrollfunktioner som behövs.
 
-Exempel på rekommendationer:
+Till exempel:
 
 - att installera program som kan hitta och ta bort skadlig kod
 
@@ -442,7 +442,7 @@ Moln program är komplexa med många rörliga delar. Övervakning tillhandahåll
 
 Det är viktigt att granska nätverks säkerheten för att identifiera nätverks sårbarheter och säkerställa efterlevnaden av din IT-säkerhet och reglerande styrnings modell. Med vyn säkerhets grupp kan du hämta den konfigurerade nätverks säkerhets gruppen och säkerhets reglerna, samt de effektiva säkerhets reglerna. Med listan över regler som tillämpas kan du fastställa vilka portar som är öppna och SS-nätverks sårbarhet.
 
-### <a name="network-watcher"></a>Nätverksbevakare
+### <a name="network-watcher"></a>Network Watcher
 
 [Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) är en regional tjänst som gör att du kan övervaka och diagnostisera villkor på en nätverks nivå i, till och från Azure. Diagnostikverktyg för nätverk och visualiserings verktyg som är tillgängliga med Network Watcher hjälpa dig att förstå, diagnostisera och få insikter om ditt nätverk i Azure. Den här tjänsten omfattar paket insamling, nästa hopp, kontrol lera IP-flöde, vyn säkerhets grupp, NSG Flow-loggar. Övervakning av scenario nivå ger en heltäckande vy över nätverks resurser i motsats till övervakning av enskilda nätverks resurser.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: nitinme
-ms.openlocfilehash: 5694894a78a46ad658ec18f210c6a82fb82df23f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 00a20ac2d7f05c42be9e955eeb8f47c302db7885
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559594"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464583"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrera från Taligenkänning i Bing till tal tjänsten
 
@@ -39,29 +39,29 @@ Tal tjänsterna liknar Taligenkänning i Bing, med följande skillnader.
 
 Funktion | Bing-taligenkänning | Speech Services | Information
 -|-|-|-
-C++ SDK | : heavy_minus_sign: | :heavy_check_mark: | Tal tjänster stöder Windows och Linux.
+C++GRÄNSSNITTET | :heavy_minus_sign: | :heavy_check_mark: | Tal tjänster stöder Windows och Linux.
 Java SDK | :heavy_check_mark: | :heavy_check_mark: | Tal tjänster stöder Android-och tal enheter.
 C#-SDK | :heavy_check_mark: | :heavy_check_mark: | Tal tjänster stöder Windows 10, Universell Windows-plattform (UWP) och .NET standard 2,0.
-Kontinuerlig tal igenkänning | 10 minuter | Obegränsad (med SDK) | Både Taligenkänning i Bing-och Speech Services-WebSockets-protokoll stöder upp till 10 minuter per anrop. Tal-SDK återansluter dock automatiskt vid timeout eller koppla från.
+Kontinuerlig tal igenkänning | 10 minuter | Obegränsad (med SDK) | Både Taligenkänning i Bing-och Speech Services-WebSockets-protokoll stöder upp till 10 minuter per anrop. Tal-SDK återansluter dock automatiskt vid timeout eller koppla från.
 Partiella eller interimistiska resultat | :heavy_check_mark: | :heavy_check_mark: | Med WebSockets-protokoll eller SDK.
 Anpassade tal modeller | :heavy_check_mark: | :heavy_check_mark: | Taligenkänning i Bing kräver en separat Custom Speech prenumeration.
 Anpassade röst teckensnitt | :heavy_check_mark: | :heavy_check_mark: | Taligenkänning i Bing kräver en separat anpassad röst prenumeration.
-24-KHz-röster | : heavy_minus_sign: | :heavy_check_mark:
+24-KHz-röster | :heavy_minus_sign: | :heavy_check_mark:
 Igenkänning av talavsikt | Kräver separat LUIS-API-anrop | Integrerad (med SDK) |  Du kan använda en LUIS-nyckel med tal tjänsten.
-Enkel avsikts igenkänning | : heavy_minus_sign: | :heavy_check_mark:
-Batch-avskrift av långa ljudfiler | : heavy_minus_sign: | :heavy_check_mark:
-Igenkänningsläge | Manuell via slut punkts-URI | Automatiskt | Igenkännings läget är inte tillgängligt i Speech service.
+Enkel avsikts igenkänning | :heavy_minus_sign: | :heavy_check_mark:
+Batch-avskrift av långa ljudfiler | :heavy_minus_sign: | :heavy_check_mark:
+Igenkänningsläge | Manuell via slut punkts-URI | Automatisk | Igenkännings läget är inte tillgängligt i Speech service.
 Slut punkts plats | Global | Regioner | Regionala slut punkter förbättrar svars tiden.
 REST API:er | :heavy_check_mark: | :heavy_check_mark: | API: erna för tal tjänster REST är kompatibla med Taligenkänning i Bing (annan slut punkt). REST-API: er stöder text-till-tal och begränsade tal-till-text-funktioner.
 WebSockets-protokoll | :heavy_check_mark: | :heavy_check_mark: | Anrops-API: t för Speech Services är kompatibelt med Taligenkänning i Bing (annan slut punkt). Migrera till tal-SDK om möjligt, för att förenkla koden.
-API-anrop från tjänst till tjänst | :heavy_check_mark: | : heavy_minus_sign: | Tillhandahålls i Taligenkänning i Bing via C# tjänst biblioteket.
-SDK för öppen källkod | :heavy_check_mark: | : heavy_minus_sign: |
+API-anrop från tjänst till tjänst | :heavy_check_mark: | :heavy_minus_sign: | Tillhandahålls i Taligenkänning i Bing via C# tjänst biblioteket.
+SDK för öppen källkod | :heavy_check_mark: | :heavy_minus_sign: |
 
 Tal tjänsterna använder en tidsbaserad pris modell (i stället för en transaktions baserad modell). Se [pris information för tal tjänster](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) .
 
 ## <a name="migration-strategies"></a>Migreringsstrategier
 
-Om du eller din organisation har program i utveckling eller produktion som använder en API för Bing-taligenkänning bör du uppdatera dem så att de använder tal tjänsterna så snart som möjligt. Se [dokumentationen för tal tjänster](index.yml) för tillgängliga SDK: er, kod exempel och självstudier.
+Om du eller din organisation har program i utveckling eller produktion som använder en API för Bing-taligenkänning bör du uppdatera dem så att de använder tal tjänsterna så snart som möjligt. Se [dokumentationen för tal tjänster](index.md) för tillgängliga SDK: er, kod exempel och självstudier.
 
 [REST-API: erna](rest-apis.md) för tal tjänster är kompatibla med taligenkänning i Bing-API: er. Om du för närvarande använder Taligenkänning i Bing REST-API: er behöver du bara ändra REST-slutpunkten och byta till en prenumerations nyckel för tal tjänster.
 
@@ -77,8 +77,8 @@ Om programmet använder anslutningar med lång livs längd och det inte går att
 
 Kom igång med talet SDK:
 
-1. Ladda ned den [tal SDK](speech-sdk.md).
-1. Arbeta via [snabb starts guiderna](quickstart-csharp-dotnet-windows.md) för tal tjänster och självstudier. [](how-to-recognize-intents-from-speech-csharp.md) Titta även på [kod exemplen](samples.md) för att få erfarenhet av de nya API: erna.
+1. Hämta [tal-SDK: n](speech-sdk.md).
+1. Arbeta via [snabb starts guiderna](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet) för tal tjänster och [självstudier](how-to-recognize-intents-from-speech-csharp.md). Titta även på [kod exemplen](samples.md) för att få erfarenhet av de nya API: erna.
 1. Uppdatera programmet så att det använder tal tjänsterna.
 
 ## <a name="support"></a>Support
@@ -90,9 +90,9 @@ För tal service, SDK och API-stöd går du till [support Sidan](support.md)för
 ## <a name="next-steps"></a>Nästa steg
 
 * [Prova tal tjänster kostnads fritt](get-started.md)
-* [Snabbstart: Identifiera tal i en UWP-app med hjälp av talet SDK](quickstart-csharp-uwp.md)
+* [Snabb start: identifiera tal i en UWP-app med hjälp av talet SDK](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 * [Viktig information om tal tjänster](releasenotes.md)
-* [Vad är Speech Service](overview.md)
+* [Vad är tal tjänsten](overview.md)
 * [Dokumentation om Speech Services och Speech SDK](speech-sdk.md#get-the-sdk)

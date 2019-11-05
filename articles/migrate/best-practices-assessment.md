@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: raynew
-ms.openlocfilehash: a07e83c805fc422c861f6c644a59da0b42bb8072
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: e235116ab77159a0e2e9c66ad09cdb86ce6da1e9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71007718"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466943"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Metod tips för att skapa utvärderingar
 
@@ -23,7 +23,7 @@ I den här artikeln sammanfattas metod tips när du skapar utvärderingar med ve
 
 Utvärderingar som du skapar med Azure Migrate Server utvärdering är en tidpunkts ögonblicks bild av data. Det finns två typer av utvärderingar i Azure Migrate.
 
-**Bedömnings typ** | **Detaljer** | **Data**
+**Bedömnings typ** | **Information** | **Data**
 --- | --- | ---
 **Prestanda-baserade** | Utvärderingar som gör rekommendationer baserat på insamlade prestanda data | Rekommendationen för VM-storlek baseras på processor-och minnes användnings data.<br/><br/> Disk typs rekommendation (standard HDD/SSD eller Premium-Managed Disks) baseras på IOPS och data flödet för lokala diskar.
 **Som lokal** | Utvärderingar som inte använder prestanda data för att göra rekommendationer. | Rekommendationen för VM-storlek baseras på den lokala virtuella dator storleken<br/><br> Den rekommenderade disk typen baseras på vad du väljer i inställningen lagrings typ för utvärderingen.
@@ -41,13 +41,19 @@ Om du t. ex. har en lokal virtuell dator med fyra kärnor med 20% användning oc
 
 ## <a name="best-practices-for-creating-assessments"></a>Metod tips för att skapa utvärderingar
 
-Azure Migrates apparaten profiler använder kontinuerligt din lokala miljö och skickar metadata-och prestanda data till Azure. Följ dessa metod tips för att skapa utvärderingar:
+Azure Migrates apparaten profiler använder kontinuerligt din lokala miljö och skickar metadata-och prestanda data till Azure. Följ dessa rekommenderade metoder för utvärdering av servrar som identifierats med en installation:
 
-- **Skapa som-är utvärderingar**: Du kan skapa som-är-utvärderingar direkt när dina datorer visas i Azure Migrate-portalen.
-- **Skapa prestanda baserad utvärdering**: När du har konfigurerat identifiering rekommenderar vi att du väntar minst en dag innan du kör en prestanda baserad utvärdering:
+- **Skapa som-är-utvärderingar**: du kan skapa som-är-utvärderingar direkt när dina datorer visas i Azure Migrate-portalen.
+- **Skapa prestanda baserad utvärdering**: när du har konfigurerat identifiering rekommenderar vi att du väntar minst en dag innan du kör en prestanda-baserad utvärdering:
     - Insamling av prestanda data tar tid. Om du väntar minst en dag säkerställer det att det finns tillräckligt med prestanda data punkter innan du kör utvärderingen.
     - När du kör prestandabaserade utvärderingar kontrollerar du att du profilerar din miljö för utvärderings perioden. Om du till exempel skapar en utvärdering med en varaktighet på en vecka måste du vänta i minst en vecka efter att du har startat identifieringen för att alla data punkter ska samlas in. Om du inte gör det får utvärderingen inget omdöme på fem stjärnor.
-- **Beräkna om utvärderingar**: Eftersom utvärderingar är tidpunkter för ögonblicks bilder uppdateras de inte automatiskt med den senaste informationen. Om du vill uppdatera en utvärdering med senaste data måste du beräkna om den.
+- **Beräkna om utvärderingar**: eftersom utvärderingarna är tidpunkter för ögonblicks bilder uppdateras de inte automatiskt med den senaste informationen. Om du vill uppdatera en utvärdering med senaste data måste du beräkna om den.
+
+Följ dessa metod tips för utvärdering av servrar som importer ATS till Azure Migrate via. CSV-fil:
+
+- **Skapa som-är-utvärderingar**: du kan skapa som-är-utvärderingar direkt när dina datorer visas i Azure Migrate-portalen.
+- **Skapa prestandabaserade utvärderingar**: Detta hjälper till att få en bättre kostnads uppskattning, särskilt om du har överetablerat Server kapacitet lokalt. Noggrannheten hos den prestandabaserade utvärderingen beror dock på de prestanda data som du har angett för servrarna. 
+- **Beräkna om utvärderingar**: eftersom utvärderingarna är tidpunkter för ögonblicks bilder uppdateras de inte automatiskt med den senaste informationen. Om du vill uppdatera en utvärdering med de senaste importerade data måste du beräkna om den.
 
 ## <a name="best-practices-for-confidence-ratings"></a>Metod tips för förtroende värderingar
 
@@ -77,7 +83,7 @@ Om du lägger till eller tar bort datorer från en grupp efter att du har skapat
 
 ### <a name="outdated-assessments"></a>Inaktuella bedömningar
 
-Om det finns lokala ändringar av virtuella datorer som finns i en grupp som har bedömts, markeras utvärderingen som föråldrad. Om du vill visa ändringarna kör du utvärderingen igen.
+Om det finns lokala ändringar av virtuella datorer som finns i en grupp som har bedömts, markeras utvärderingen som **föråldrad**. Om du vill visa ändringarna kör du utvärderingen igen.
 
 ### <a name="low-confidence-rating"></a>Bedömning av låg exakthet
 

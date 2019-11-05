@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 6f81bc2ccf11cbcc3621dc1149879864c88cf0cf
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 489f4a527a5afaf1bab5e2065137a5011d45baa6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980506"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474448"
 ---
 # <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Vanliga användnings fall och scenarier för Azure Active Directory Domain Services
 
-Azure Active Directory Domain Services (Azure AD DS) tillhandahåller hanterade domän tjänster som domän anslutning, grup princip, LDAP och Kerberos/NTLM-autentisering. Azure AD DS integreras med din befintliga Azure AD-klient, vilket gör det möjligt för användarna att logga in med sina befintliga autentiseringsuppgifter. Du kan använda dessa domän tjänster utan att behöva distribuera, hantera och korrigera domänkontrollanter i molnet, vilket ger en smidigare ökning och växling av lokala resurser till Azure.
+Azure Active Directory Domain Services (Azure AD DS) tillhandahåller hanterade domän tjänster som domän anslutning, grup princip, LDAP (Lightweight Directory Access Protocol) och Kerberos/NTLM-autentisering. Azure AD DS integreras med din befintliga Azure AD-klient, vilket gör det möjligt för användarna att logga in med sina befintliga autentiseringsuppgifter. Du kan använda dessa domän tjänster utan att behöva distribuera, hantera och korrigera domänkontrollanter i molnet, vilket ger en smidigare ökning och växling av lokala resurser till Azure.
 
 Den här artikeln beskriver några vanliga affärs scenarier där Azure AD DS tillhandahåller värde och uppfyller dessa krav.
 
@@ -28,11 +28,11 @@ Den här artikeln beskriver några vanliga affärs scenarier där Azure AD DS ti
 
 För att du ska kunna använda en enda uppsättning AD-autentiseringsuppgifter kan virtuella Azure-datorer (VM) anslutas till en hanterad Azure AD DS-domän. Den här metoden minskar problem med hantering av autentiseringsuppgifter, till exempel underhåll av lokala administratörs konton på varje virtuell dator eller separata konton och lösen ord mellan miljöer.
 
-Virtuella datorer som är anslutna till en hanterad Azure AD DS-domän kan också hanteras och skyddas med hjälp av grupprincip. Nödvändiga säkerhets bas linjer kan tillämpas på virtuella datorer för att låsa dem i enlighet med företags säkerhets rikt linjerna. Du kan till exempel använda funktioner för hantering av grup princip för att begränsa vilka typer av program som kan startas på den virtuella datorn.
+Virtuella datorer som är anslutna till en hanterad Azure AD DS-domän kan också hanteras och skyddas med hjälp av grup princip. Nödvändiga säkerhets bas linjer kan tillämpas på virtuella datorer för att låsa dem i enlighet med företags säkerhets rikt linjerna. Du kan till exempel använda funktioner för hantering av grup princip för att begränsa vilka typer av program som kan startas på den virtuella datorn.
 
 ![Effektiv administration av virtuella Azure-datorer](./media/active-directory-domain-services-scenarios/streamlined-vm-administration.png)
 
-Nu ska vi titta på ett vanligt exempel scenario. När servrar och annan infrastruktur når sitt livs längd vill contoso flytta program som för närvarande finns lokalt i molnet. Deras aktuella IT-standardmandat som servrar som är värdar för företags program måste vara domänanslutna och hanterade med hjälp av grup princip. Contosos IT-administratör föredrar domän anslutning till virtuella datorer som distribuerats i Azure för att förenkla administrationen eftersom användarna sedan kan logga in med sina företags uppgifter. Vid domänanslutna kan virtuella datorer också konfigureras för att uppfylla de nödvändiga säkerhets bas linjerna med hjälp av grupprincip. Contoso föredrar inte att distribuera, övervaka och hantera sina egna domänkontrollanter i Azure.
+Nu ska vi titta på ett vanligt exempel scenario. När servrar och annan infrastruktur når sitt livs längd vill contoso flytta program som för närvarande finns lokalt i molnet. Deras aktuella IT-standardmandat som servrar som är värdar för företags program måste vara domänanslutna och hanterade med hjälp av grup princip. Contosos IT-administratör föredrar domän anslutning till virtuella datorer som distribuerats i Azure för att förenkla administrationen eftersom användarna sedan kan logga in med sina företags uppgifter. När domänanslutna, kan virtuella datorer också konfigureras för att uppfylla de nödvändiga säkerhets bas linjerna med hjälp av grup princip objekt (GPO). Contoso föredrar inte att distribuera, övervaka och hantera sina egna domänkontrollanter i Azure.
 
 Azure AD DS passar bra för det här användnings fallet. Med en Azure AD DS-hanterad domän kan du ansluta virtuella datorer till domän, använda en enda uppsättning autentiseringsuppgifter och tillämpa grup principer. Som en hanterad domän behöver du inte konfigurera och underhålla domän kontrol Lanterna själv.
 
@@ -63,7 +63,7 @@ Följande distributions överväganden gäller för det här exemplet:
 
 ## <a name="lift-and-shift-on-premises-applications-that-use-ldap-read-to-access-the-directory"></a>Lyft och byta lokala program som använder LDAP Read för att få åtkomst till katalogen
 
-Precis som i föregående exempel scenario antar vi att contoso har ett lokalt LOB-program (Line-of-Business) som utvecklades nästan för varje år sedan. Det här programmet är katalog medvetet och har utformats för att använda LDAP (Lightweight Directory Access Protocol) för att läsa information/attribut om användare från AD DS. Programmet ändrar inte attribut eller skriver på annat sätt till katalogen.
+Precis som i föregående exempel scenario antar vi att contoso har ett lokalt LOB-program (Line-of-Business) som utvecklades nästan för varje år sedan. Det här programmet är katalog medvetet och utformat för att använda LDAP för att läsa information/attribut om användare från AD DS. Programmet ändrar inte attribut eller skriver på annat sätt till katalogen.
 
 Contoso vill migrera det här programmet till Azure och dra tillbaka den lokala maskin vara som är värd för det här programmet. Programmet kan inte skrivas om för att använda moderna katalog-API: er, till exempel den REST-baserade Azure AD-Graph API. Ett alternativ för att lyfta och byta är att önska var programmet kan migreras för att köras i molnet, utan att ändra kod eller skriva om programmet.
 
@@ -99,7 +99,7 @@ Du kan använda Azure AD DS för att tillhandahålla hanterade domän tjänster 
 
 ## <a name="domain-joined-hdinsight-clusters-preview"></a>Domänanslutna HDInsight-kluster (för hands version)
 
-Du kan konfigurera ett Azure HDInsight-kluster som är anslutet till en hanterad Azure AD DS-domän med Apache Ranger aktiverat. Den här funktionen är för närvarande en förhandsversion. Du kan skapa och använda Hive-principer via Apache Ranger och tillåta användare, till exempel data experter, att ansluta till Hive med hjälp av ODBC-baserade verktyg som Excel eller Tableau. Vi fortsätter att arbeta med att lägga till andra arbets belastningar, till exempel HBase, Spark och Storm för domänanslutna HDInsight.
+Du kan konfigurera ett Azure HDInsight-kluster som är anslutet till en hanterad Azure AD DS-domän med Apache Ranger aktiverat. Du kan skapa och använda Hive-principer via Apache Ranger och tillåta användare, till exempel data experter, att ansluta till Hive med hjälp av ODBC-baserade verktyg som Excel eller Tableau. Vi fortsätter att arbeta med att lägga till andra arbets belastningar, till exempel HBase, Spark och Storm för domänanslutna HDInsight.
 
 Mer information om det här distributions scenariot finns i [så här konfigurerar du domänanslutna HDInsight-kluster][hdinsight]
 

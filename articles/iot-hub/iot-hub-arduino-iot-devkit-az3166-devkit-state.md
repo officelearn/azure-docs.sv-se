@@ -1,6 +1,6 @@
 ---
-title: Använda Azure enhetstvillingar för att styra MXChip IoT DevKit användaren LED | Microsoft Docs
-description: I de här självstudierna lär du dig hur du övervakar DevKit tillstånd och styra användaren LED med Azure IoT Hub enhetstvillingar.
+title: Använd Azure-enheten för att styra MXChip IoT DevKit User lampa | Microsoft Docs
+description: I den här självstudien får du lära dig hur du övervakar DevKit-tillstånd och styr användar INDIKATORn med Azure IoT Hub enhets dubbla.
 author: liydu
 manager: jeffya
 ms.service: iot-hub
@@ -9,28 +9,28 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: e955d21132dda6caa137ad3b5de9d00ccf7ed1b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: deb1ea8c7b41ad48bddebfbed1b15c667ee0071a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61369863"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73483939"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
-Du kan använda det här exemplet att övervaka MXChip IoT DevKit WiFi information och sensorn tillstånd och styra färgen på användare-LED använder enhetstvillingar för Azure IoT Hub.
+Du kan använda det här exemplet för att övervaka MXChip IoT DevKit WiFi-information och sensor tillstånd och för att styra färgen på användaren med hjälp av Azure IoT Hub enhets dubbla.
 
 ## <a name="what-you-learn"></a>Detta får du får lära dig
 
-- Så här övervakar du MXChip IoT DevKit sensorn tillstånd.
+- Så här övervakar du MXChip IoT DevKit sensor tillstånd.
 
-- Hur du använder Azure enhetstvillingar för att styra färgen för DevKit RGB-LED.
+- Så här använder du Azure-enheten för att styra färgen på DevKit RGB-LED.
 
 ## <a name="what-you-need"></a>Vad du behöver
 
-- Konfigurera din utvecklingsmiljö genom att följa den [Kom igång-guiden](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+- Konfigurera utvecklings miljön genom att följa [komma igång guide](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
 
-- Skriv följande kommandon från GitBash terminalfönstret (eller andra Git-kommandoradsgränssnittet):
+- I GitBash-terminalfönstret (eller något annat kommando rads gränssnitt för git) skriver du följande kommandon:
 
    ```bash
    git clone https://github.com/DevKitExamples/DevKitState.git
@@ -40,81 +40,81 @@ Du kan använda det här exemplet att övervaka MXChip IoT DevKit WiFi informati
 
 ## <a name="provision-azure-services"></a>Etablera Azure-tjänster
 
-1. Klicka på den **uppgifter** nedrullningsbara menyn i Visual Studio Code och välj **kör uppgift...**   -  **molnet etablera**.
+1. Klicka på den nedrullningsbara menyn **aktiviteter** i Visual Studio Code och välj **Kör aktivitet...**  - **moln etablering**.
 
-2. Förloppet visas under den **TERMINAL** fliken den **Välkommen** panelen.
+2. Din förloppet visas under fliken **Terminal** i **välkomst** panelen.
 
-3. När du uppmanas med meddelandet *vilken prenumeration du vill välja*, Välj en prenumeration.
+3. När du tillfrågas om meddelandet *vilken prenumeration vill du välja väljer du*en prenumeration.
 
-4. Välj eller välj en resursgrupp. 
+4. Välj eller Välj en resurs grupp. 
  
    > [!NOTE]
-   > Om du redan har en kostnadsfri IoT Hub kan du hoppa över det här steget.
+   > Om du redan har ett kostnads fritt IoT Hub kan du hoppa över det här steget.
 
-5. När du uppmanas med meddelandet *vilken IoT-hubb skulle du vilja välja*väljer eller skapar en IoT-hubb.
+5. När du tillfrågas om meddelandet *vad IoT Hub vill du välja*eller skapa en IoT Hub.
 
-6. Resultatet ungefär *funktionsapp: funktionsappens namn: xxx*, visas. Skriv ned namnet på funktionen; den används i ett senare steg.
+6. Något liknar *Function-appen: Function-appens namn: xxx*visas. Anteckna namnet på appens funktion. den kommer att användas i ett senare steg.
 
-7. Vänta tills Azure Resource Manager malldistributionen är klar, vilket är anges när meddelandet *Resource Manager för malldistribution: Klar* visas.
+7. Vänta tills distribution av Azure Resource Manager mal len har slutförts, vilket anges när distributionen av Message *Resource Manager-mall: klar* visas.
 
-## <a name="deploy-function-app"></a>Distribuera Funktionsappen
+## <a name="deploy-function-app"></a>Distribuera Funktionsapp
 
-1. Klicka på den **uppgifter** nedrullningsbara menyn i Visual Studio Code och välj **kör uppgift...**   -  **molnet – distribuera**.
+1. Klicka på den nedrullningsbara menyn **aktiviteter** i Visual Studio Code och välj **Kör aktivitet...**  - **Cloud-Deploy**.
 
-2. Vänta tills funktionskod laddar upp processen avslutas. meddelandet *funktionsapp distribuerar: Klar* visas.
+2. Vänta på att funktionen för att ladda appens kod ska kunna slutföras. meddelande *funktionens app distribueras: färdig* visas.
 
-## <a name="configure-iot-hub-device-connection-string-in-devkit"></a>Konfigurera anslutningssträngen för IoT Hub-enhet i DevKit
+## <a name="configure-iot-hub-device-connection-string-in-devkit"></a>Konfigurera IoT Hub enhets anslutnings sträng i DevKit
 
-1. Ansluta MXChip IoT DevKit till din dator.
+1. Anslut din MXChip IoT-DevKit till din dator.
 
-2. Klicka på den **uppgifter** nedrullningsbara menyn i Visual Studio Code och välj **kör uppgift...**   -  **config enhetsanslutning**
+2. Klicka på den nedrullningsbara menyn **aktiviteter** i Visual Studio Code och välj **Kör aktivitet...**  - **konfiguration-enhets anslutning**
 
-3. På MXChip IoT DevKit, tryck på och håll ned knappen **A**, tryck på den **återställa** knappen och sedan på knappen versionen **A** att göra DekKit ange konfigurationsläge.
+3. Tryck på och håll ned knapp **a**på MXChip IoT-DevKit, tryck på **återställnings** knappen och släpp sedan knappen **A** för att göra DekKit att ange konfigurations läge.
 
-4. Vänta tills anslutningen sträng konfigurationsprocessen ska slutföras.
+4. Vänta tills konfigurations processen för anslutnings strängen har slutförts.
 
-## <a name="upload-arduino-code-to-devkit"></a>Ladda upp Arduino kod till DevKit
+## <a name="upload-arduino-code-to-devkit"></a>Ladda upp Arduino-kod till DevKit
 
-Ansluten till datorn med MXChip IoT DevKit:
+Med din MXChip IoT-DevKit ansluten till datorn:
 
-1. Klicka på den **uppgifter** nedrullningsbara menyn i Visual Studio Code och välj **kör Skapa uppgift...** Arduino skissen samlas in och överförs till DevKit.
+1. Klicka på den nedrullningsbara menyn **aktiviteter** i Visual Studio Code och välj **Kör skapa uppgift...** Arduino-skissen kompileras och överförs till DevKit.
 
-2. När skissen har överförts, en *Build & Överför skiss: lyckad* meddelande.
+2. När skissen har laddats upp visas ett meddelande om att *Ladda upp skissen & upload: lyckades* .
 
-## <a name="monitor-devkit-state-in-browser"></a>Tillstånd för Övervakare för DevKit i webbläsare
+## <a name="monitor-devkit-state-in-browser"></a>Övervaka DevKit tillstånd i webbläsare
 
-1. I en webbläsare, öppna den `DevKitState\web\index.html` filen som skapades under Vad behöver du steg.
+1. Öppna en webbläsare och öppna `DevKitState\web\index.html`-filen – som skapades under det du behöver steget.
 
-2. På följande webbsida visas:![Ange namnet på funktionen.](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state-function-app-name.png)
+2. Följande webb sida visas:![Ange namnet på Function-appen.](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state-function-app-name.png)
 
-3. Ange funktionsappens namn du skrev ned tidigare.
+3. Mata in namnet på den funktions app som du skrev ned tidigare.
 
-4. Klicka på den **Connect** knappen
+4. Klicka på knappen **Anslut**
 
-5. Inom några sekunder sidan uppdateras och visar den DevKit Wi-Fi-anslutningsstatus och status för var och en av de inbyggda sensorerna.
+5. Inom några sekunder uppdateras sidan och visar DevKit status för WiFi-anslutning och tillståndet för var och en av de inbyggda sensorerna.
 
-## <a name="control-the-devkits-user-led"></a>Kontrollera den DevKit användaren Indikator
+## <a name="control-the-devkits-user-led"></a>Styr DevKit användar indikator
 
-1. Klicka på användare LED bilden på bilden webbsida.
+1. Klicka på bilden för användar LAMPAn på webb sidan.
 
-2. Inom några sekunder skärmen uppdateras och visar den aktuella Färgstatusen för användaren LED.
+2. Inom några sekunder uppdateras skärmen och visar den aktuella färg statusen för användar INDIKATORn.
 
-3. Försök att ändra värdet för RGB-LED genom att klicka på olika platser på RGB-skjutreglage.
+3. Försök att ändra färg värde för RGB-LYSDIODen genom att klicka på olika platser i kontrollerna för RGB-skjutreglage.
 
-## <a name="example-operation"></a>Exempel-åtgärden
+## <a name="example-operation"></a>Exempel åtgärd
 
-![Testa exempelprocedur](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
+![Exempel på test procedur](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
 
 > [!NOTE]
-> Du kan se rådata för enhetstvilling i Azure-portalen: IoT Hub -\> IoT-enheter –\> *\<enheten\>*  - \> Enhetstvillingen.
+> Du kan se rå data för enheten i Azure Portal: IoT Hub-\> IoT-enheter –\> *\<enheten\>*  -enhets anslutning.\>
 
 ## <a name="next-steps"></a>Nästa steg
 
-Har du lärt dig hur du:
-- Anslut en enhet för MXChip IoT DevKit till din Azure IoT lösningsacceleratorn för fjärrövervakning.
-- Funktionen Azure IoT device twins kan känna av och styra färgen för DevKit RGB-LED.
+Du har lärt dig att:
+- Anslut en MXChip IoT DevKit-enhet till din Azure IoT-lösning för övervakning av fjärrstyrning.
+- Använd Azure IoT-enheten för att förstå och kontrol lera färgen på DevKit RGB-LED.
 
-Här följer nästa föreslagna steg:
+Här är de föreslagna nästa stegen:
 
-* [IoT-Remote Monitoring solution accelerator översikt över Azure](https://docs.microsoft.com/azure/iot-suite/)
-* [Anslut en enhet för MXChip IoT DevKit till programmet Azure IoT Central](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Översikt över Azure IoT Remote Monitoring Solution Accelerator](https://docs.microsoft.com/azure/iot-suite/)
+* [Ansluta en MXChip IoT DevKit-enhet till ditt Azure IoT Central-program](/azure/iot-central/core/howto-connect-devkit)

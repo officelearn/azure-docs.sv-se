@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: diberry
-ms.openlocfilehash: cf0ef1095946b1c8e9479b3cd47fe403baeed7d1
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 0a59d9783eac122f96b1671f2dba5d0d708e1d83
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757132"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499399"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>Självstudie: identifiera vanliga avsikter och entiteter
 
@@ -24,13 +24,15 @@ I den här självstudien lägger du till fördefinierade avsikter och entiteter 
 
 Fördefinierade modeller (domäner, avsikter och entiteter) hjälper dig att snabbt bygga din modell.
 
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
 **I den här självstudiekursen får du lära du dig att:**
 
 > [!div class="checklist"]
 > * Skapa ny app
 > * Lägga till fördefinierade avsikter 
 > * Lägg till fördefinierade entiteter 
-> * Lär in 
+> * Träna 
 > * Publicera 
 > * Hämta avsikter och entiteter från slutpunkt
 
@@ -67,15 +69,15 @@ LUIS har flera fördefinierade entiteter för extrahering av data.
 
      Med den här entiteten kan du lägga till plats igenkänning i klient programmet.
 
-## <a name="add-example-utterances-to-the-none-intent"></a>Lägga till exempelyttranden i avsikten Ingen 
+## <a name="add-example-utterances-to-the-none-intent"></a>Lägg till exempel på yttranden i avsikten Ingen 
 
 [!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
-## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Träna appen så att ändringar av avsikten kan testas 
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Träna appen så att avsiktsändringarna kan testas 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicera appen så att frågor kan köras på den tränade modellen från slutpunkten
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicera appen så att frågor kan köras mot den tränade modellen från slutpunkten
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 

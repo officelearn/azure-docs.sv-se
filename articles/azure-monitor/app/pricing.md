@@ -8,12 +8,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 10/28/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4c56c8f98e536060ea18eb6b9d3a37179eebc89f
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: eedb9d811e35d606f4d3e1df55d9303d68678b3c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044326"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73478741"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
@@ -167,9 +167,9 @@ Om du vill ändra den dagliga belastningen går du till avsnittet **Konfigurera*
 
 ![Justera volym begränsningen för daglig telemetri](./media/pricing/pricing-003.png)
 
-Om du vill [ändra den dagliga gränsen via Azure Resource Manager](../../azure-monitor/app/powershell.md)är egenskapen att ändra `dailyQuota`.  Via Azure Resource Manager kan du också ange `dailyQuotaResetTime` och den dagliga Cap-`warningThreshold`. 
+Om du vill [ändra den dagliga gränsen via Azure Resource Manager](../../azure-monitor/app/powershell.md)är egenskapen att ändra `dailyQuota`.  Via Azure Resource Manager kan du också ställa in `dailyQuotaResetTime` och den dagliga Cap-`warningThreshold`. 
 
-## <a name="sampling"></a>Sampling
+## <a name="sampling"></a>Samling
 [Sampling](../../azure-monitor/app/sampling.md) är en metod för att minska den hastighet som telemetri skickas till din app, samtidigt som du behåller möjligheten att hitta relaterade händelser under diagnostiska sökningar. Du behåller också korrekta antal händelser.
 
 Sampling är ett effektivt sätt att minska kostnaderna och hålla dig inom din månads kvot. Samplings algoritmen behåller relaterade objekt för telemetri, så om du till exempel använder Sök kan du hitta begäran som är relaterad till ett visst undantag. Algoritmen behåller också de korrekta värdena så att du ser rätt värden i Metric Explorer för begär ande frekvens, undantags frekvens och andra antal.
@@ -203,7 +203,7 @@ Om du vill ändra kvarhållning går du till sidan **användning och uppskattade
 
 ![Justera volym begränsningen för daglig telemetri](./media/pricing/pricing-005.png)
 
-Kvarhållning kan också [ställas in program mässigt med PowerShell](powershell.md#set-the-data-retention) med hjälp av parametern `retentionInDays`. Om du ställer in data kvarhållning på 30 dagar kan du dessutom utlösa en omedelbar rensning av äldre data med hjälp av parametern `immediatePurgeDataOn30Days`, vilket kan vara användbart för kompatibilitets-relaterade scenarier. Den här rensnings funktionen exponeras bara via Azure Resource Manager och bör användas med extrem noggrannhet. 
+Kvarhållning kan också [ställas in program mässigt med PowerShell](powershell.md#set-the-data-retention) med hjälp av parametern `retentionInDays`. Om du ställer in data kvarhållning på 30 dagar kan du dessutom utlösa en omedelbar rensning av äldre data med hjälp av parametern `immediatePurgeDataOn30Days`, vilket kan vara användbart för scenarier som rör kompatibilitet. Den här rensnings funktionen exponeras bara via Azure Resource Manager och bör användas med extrem noggrannhet. 
 
 ## <a name="data-transfer-charges-using-application-insights"></a>Avgifter för data överföring med Application Insights
 
@@ -229,7 +229,7 @@ Nivån per nod (tidigare företag) har en avgift per nod och varje nod får en d
 För aktuella priser i din valuta och region, se [Application Insights priser](https://azure.microsoft.com/pricing/details/application-insights/).
 
 > [!NOTE]
-> I april 2018 [introducerade](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) vi en ny pris sättnings modell för Azure-övervakning. Den här modellen antar en enkel "betala per användning"-modell i hela portföljen av övervaknings tjänster. Lär dig mer om den [nya pris sättnings modellen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), hur du kan [bedöma effekten av att flytta till den här modellen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) baserat på dina användnings mönster och [hur du kan välja den nya modellen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model)
+> I april 2018 [introducerade](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) vi en ny pris sättnings modell för Azure-övervakning. Den här modellen antar en enkel "betala per användning"-modell i hela portföljen av övervaknings tjänster. Lär dig mer om den [nya pris sättnings modellen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), hur du kan [bedöma effekten av att flytta till den här modellen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#understanding-your-azure-monitor-costs) baserat på dina användnings mönster och [hur du kan välja den nya modellen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#azure-monitor-pricing-model)
 
 ### <a name="per-node-tier-and-operations-management-suite-subscription-entitlements"></a>Per nod-och Operations Management Suite-prenumerations rättigheter
 

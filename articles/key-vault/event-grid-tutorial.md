@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 56490ede89a5859ef73d9110b46ea55fd9b96d54
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 3b24da4d988554da240baba2984df44ff4744aaf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73033557"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464100"
 ---
 # <a name="how-to-receive-and-respond-to-key-vault-notifications-with-azure-event-grid-preview"></a>Gör så här: ta emot och svara på meddelanden om nyckel valv med Azure Event Grid (för hands version)
 
@@ -22,7 +22,7 @@ Key Vault integration med Azure Event Grid, som för närvarande finns i för ha
 
 I den här guiden visas hur du tar emot Key Vault-meddelanden via Azure Event Grid och hur du svarar på status ändringar med Azure Automation.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 - Ett nyckel valv i din Azure-prenumeration. Du kan snabbt skapa ett nytt nyckel valv genom att följa stegen i [Ange och hämta en hemlighet från Azure Key Vault med hjälp av Azure CLI](quick-create-cli.md)
@@ -31,7 +31,7 @@ I den här guiden visas hur du tar emot Key Vault-meddelanden via Azure Event Gr
 
 Azure Event Grid är en händelsetjänst för molnet. I den här guiden ska du prenumerera på händelser för Key Vault och dirigera händelser till Azure Automation. När en av hemligheterna i nyckel valvet håller på att gå ut får Event Grid ett meddelande om status ändringen och gör ett HTTP-inlägg till slut punkten. En webbhook utlöser sedan en Azure Automation körning av PowerShell-skript.
 
-![mallar](media/image1.png)
+![image](media/image1.png)
 
 ## <a name="create-an-azure-automation-account"></a>Skapa ett Azure Automation-konto
 
@@ -120,7 +120,7 @@ Nu ska du skapa en webhook för att utlösa din nyligen skapade Runbook.
 
 Skapa en Event Grid-prenumeration via [Azure Portal](https://portal.azure.com).
 
-1.  Öppna Azure Portal med hjälp av följande länk: https://ms.portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true
+1.  Öppna Azure Portal med hjälp av följande länk: https://portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true
 
 1.  Gå till ditt nyckel valv och välj fliken "händelser". Om du inte kan se fliken händelser kontrollerar du att du använder för [hands versionen av portalen](https://ms.portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true).
 
@@ -182,7 +182,7 @@ Kontrol lera att din Event Grid-prenumeration har kon figurer ATS.  Det här tes
 
 1. Välj det senaste jobbet och titta på POST-begäran som skickades från Event Grid till webhooken. Undersök JSON och se till att parametrarna för nyckel valvet och händelse typen är korrekta. Om parametern "händelse typ" i JSON-objektet matchar händelsen som ingick i nyckel valvet (i det här exemplet Microsoft. Key Vault. SecretNearExpiry) lyckades testet.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 ### <a name="unable-to-create-event-subscription"></a>Det gick inte att skapa händelse prenumeration
 
@@ -190,7 +190,7 @@ Registrera Event Grid-och Key Vault-providern i Azure-prenumerationens resurs le
 
 ## <a name="next-steps"></a>Nästa steg
 
-Gratulerar! Om du har följt alla steg ovan är du nu redo för att program mässigt svara på status ändringar för hemligheter som lagras i ditt nyckel valv.
+Grattis! Om du har följt alla steg ovan är du nu redo för att program mässigt svara på status ändringar för hemligheter som lagras i ditt nyckel valv.
 
 Om du har använt ett avsöknings system för att leta efter status ändringar för hemligheter i dina nyckel valv, migrera till att använda den här meddelande funktionen. Du kan också ersätta test skriptet i din Runbook med kod för att program mässigt förnya dina hemligheter när de håller på att gå ut.
 

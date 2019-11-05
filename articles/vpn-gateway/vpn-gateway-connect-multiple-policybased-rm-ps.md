@@ -1,75 +1,75 @@
 ---
 title: 'Anslut Azure VPN-gatewayer till flera lokala principbaserade VPN-enheter: Azure Resource Manager: PowerShell | Microsoft Docs'
-description: Konfigurera en Azure-vägbaserade VPN-gateway till flera principbaserade VPN-enheter med Azure Resource Manager och PowerShell.
+description: Konfigurera en Azure Route-baserad VPN-gateway till flera principbaserade VPN-enheter med hjälp av Azure Resource Manager och PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 10/17/2019
 ms.author: yushwang
-ms.openlocfilehash: 9085d5ee21b1e955b7d9416a379ee730ba26ad3e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c753320b8d525e0c3ac031777bee15ba2050fcc0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150147"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495667"
 ---
-# <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Ansluta Azure VPN-gatewayer till flera lokala principbaserade VPN-enheter med hjälp av PowerShell
+# <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Anslut Azure VPN-gatewayer till flera lokala principbaserade VPN-enheter med hjälp av PowerShell
 
-Den här artikeln hjälper dig att konfigurera en Azure-vägbaserade VPN-gateway att ansluta till flera lokala principbaserade VPN-enheter att använda anpassade IPsec/IKE-principer på S2S VPN-anslutningar.
+Den här artikeln hjälper dig att konfigurera en Azure Route-baserad VPN-gateway för att ansluta till flera lokala principbaserade VPN-enheter som utnyttjar anpassade IPsec/IKE-principer på S2S VPN-anslutningar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="about"></a>Om principbaserad och routningsbaserad VPN-gatewayer
+## <a name="about"></a>Om principbaserad och routning-baserade VPN-gatewayer
 
-Datorprincip - *jämfört med* routningsbaserad VPN-enheter skiljer sig åt i hur trafikväljare IPsec anges för en anslutning:
+Princip- *vs.* Route-baserade VPN-enheter skiljer sig åt i hur IPSec-trafikväljare anges i en anslutning:
 
-* **Principbaserad** VPN-enheter använder kombinationer av prefix från båda nätverken för att definiera hur trafik är krypterad/dekrypteras via IPsec-tunnlar. Den bygger vanligtvis på för brandväggsenheter som utför filtrering av nätverkspaket. IPsec-tunnel, kryptering och dekryptering läggs till i paketet filtrering och motor för händelsebearbetning.
-* **Ruttbaserad** VPN-enheter använder alla-till-alla (med jokertecken) trafikväljare och låta routning/vidarebefordran tabeller dirigera trafik till olika IPsec-tunnlar. Den bygger vanligtvis på routern plattformar där varje IPsec-tunneln modelleras som ett nätverksgränssnitt eller VTI (virtuella tunnelgränssnitt).
+* **Principbaserad** VPN-enheter använder kombinationer av prefix från båda nätverken för att definiera hur trafiken krypteras/dekrypteras via IPsec-tunnlar. Den bygger vanligt vis på brand Väggs enheter som utför paket filtrering. Kryptering och dekryptering av IPsec-tunnel läggs till i paket filtrerings-och bearbetnings motorn.
+* **Route-baserad** VPN-enheter använder valfri-till-valfri (jokertecken) trafik väljare och låter tabeller dirigeras/vidarebefordras till olika IPsec-tunnlar. Den bygger vanligt vis på perronger där varje IPsec-tunnel modelleras som ett nätverks gränssnitt eller VTI (virtuellt tunnel gränssnitt).
 
-Följande diagram markerar du de två modellerna:
+I följande diagram markeras de två modellerna:
 
-### <a name="policy-based-vpn-example"></a>Principbaserad VPN-exempel
-![principbaserad](./media/vpn-gateway-connect-multiple-policybased-rm-ps/policybasedmultisite.png)
+### <a name="policy-based-vpn-example"></a>Princip-baserat VPN-exempel
+![Principbaserad](./media/vpn-gateway-connect-multiple-policybased-rm-ps/policybasedmultisite.png)
 
-### <a name="route-based-vpn-example"></a>Ruttbaserad VPN-exempel
-![routningsbaserad](./media/vpn-gateway-connect-multiple-policybased-rm-ps/routebasedmultisite.png)
+### <a name="route-based-vpn-example"></a>ROUT-based VPN-exempel
+![Route-baserad](./media/vpn-gateway-connect-multiple-policybased-rm-ps/routebasedmultisite.png)
 
 ### <a name="azure-support-for-policy-based-vpn"></a>Azure-stöd för principbaserad VPN
-Azure stöder för närvarande båda lägena VPN-gatewayer: routningsbaserade VPN-gatewayer och principbaserad VPN-gatewayer. De bygger på olika interna plattformar, vilket resulterar i olika specifikationer:
+För närvarande stöder Azure båda lägena för VPN-gatewayer: routning-baserade VPN-gatewayer och principbaserad VPN-gatewayer. De bygger på olika interna plattformar, vilket resulterar i olika specifikationer:
 
-|                          | **Principbaserad VPN-Gateway** | **Routningsbaserad VPN-Gateway**               |
-| ---                      | ---                         | ---                                      |
-| **Azure Gateway SKU**    | Basic                       | Basic, Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3 |
-| **IKE-version**          | IKEv1                       | IKEv2                                    |
-| **Max. S2S-anslutningar** | **1**                       | Basic/Standard: 10<br> HighPerformance: 30 |
-|                          |                             |                                          |
+|                          | **Principbaserad VPN Gateway** | **Routningsbaserad VPN Gateway**       |**Routningsbaserad VPN Gateway**                          |
+| ---                      | ---                         | ---                              |---                                                 |
+| **Azure Gateway-SKU**    | Basic                       | Basic                            | Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3  |
+| **IKE-version**          | IKEv1                       | IKEv2                            | IKEv1 och IKEv2                                    |
+| **Bekräftat. S2S-anslutningar** | **1**                       | 10                               |Standard: 10<br> Andra SKU: er: 30                     |
+|                          |                             |                                  |                                                    |
 
-Med den anpassade IPsec/IKE-principen, kan du nu konfigurera Azure-vägbaserade VPN-gateways för att använda prefix-baserade trafikväljare med alternativet ”**PolicyBasedTrafficSelectors**”, för att ansluta till den lokala principbaserad VPN-enheter. Den här funktionen kan du ansluta från Azure-nätverk och VPN-gateway till flera lokala principbaserade VPN/brandväggsenheter, ta bort gränsen enkel anslutning från de aktuella Azure principbaserade VPN-gatewayerna.
+Med den anpassade IPsec/IKE-principen kan du nu konfigurera Azure Route-baserade VPN-gatewayer för att använda prefixbaserade trafik väljare med alternativet "**PolicyBasedTrafficSelectors**" för att ansluta till lokala PRINCIPBASERADE VPN-enheter. Med den här funktionen kan du ansluta från ett virtuellt Azure-nätverk och en VPN-gateway till flera lokala principbaserade VPN/brand Väggs enheter och ta bort den enskilda anslutnings gränsen från de aktuella Azure-principbaserad VPN-gatewayerna.
 
 > [!IMPORTANT]
-> 1. Om du vill aktivera den här anslutningen, dina lokala principbaserad VPN-enheter måste ha stöd för **IKEv2** att ansluta till Azure-vägbaserade VPN-gateways. Kontrollera dina specifikationer för VPN-enheten.
-> 2. De lokala nätverk som ansluter via principbaserad VPN-enheter med den här mekanismen kan bara ansluta till Azure-nätverk; **de kan inte överföra till andra lokala nätverk eller virtuella nätverk via samma Azure VPN-gateway**.
-> 3. Konfigurationsalternativet är en del av principen för anpassade IPsec/IKE. Om du aktiverar alternativet principbaserad trafik väljare, måste du ange hela policyn (IPsec/IKE-kryptering och integritet algoritmer, nyckellängder och SA-livstider).
+> 1. För att aktivera den här anslutningen måste dina lokala principbaserade VPN-enheter stödja **IKEv2** för att ansluta till Azure Route-baserade VPN-gatewayer. Kontrol lera dina specifikationer för VPN-enheter.
+> 2. De lokala nätverk som ansluter via principbaserad VPN-enheter med den här mekanismen kan bara ansluta till det virtuella Azure-nätverket. **de kan inte transitera till andra lokala nätverk eller virtuella nätverk via samma Azure VPN-gateway**.
+> 3. Konfigurations alternativet är en del av den anpassade IPsec/IKE-anslutnings principen. Om du aktiverar alternativet principbaserade trafik väljare måste du ange den fullständiga principen (IPsec/IKE-kryptering och integritetsalgoritmer, nyckel styrkor och SA-livstider).
 
-Följande diagram visar varför transit Routning via Azure VPN-gateway inte fungerar med alternativet principbaserad:
+Följande diagram visar varför transit routning via Azure VPN Gateway inte fungerar med det principbaserade alternativet:
 
 ![principbaserad överföring](./media/vpn-gateway-connect-multiple-policybased-rm-ps/policybasedtransit.png)
 
-I diagrammet visas Azure VPN-gatewayen har trafikväljare från det virtuella nätverket till alla lokala nätverksprefix, men inte korsanslutning prefix. Till exempel en lokal plats 2, plats 3 och plats 4 kan varje kommunicera till VNet1 respektive, men det går inte att ansluta via Azure VPN-gatewayen till varandra. Diagrammet visar cross-connect-trafikväljare som inte är tillgängliga i Azure VPN-gatewayen under den här konfigurationen.
+Som visas i diagrammet har Azure VPN-gatewayen trafik väljare från det virtuella nätverket till var och en av de lokala nätverks prefixen, men inte prefixen mellan anslutningarna. Den lokala platsen 2, plats 3 och plats 4 kan till exempel kommunicera med VNet1, men kan inte ansluta via Azure VPN-gatewayen till varandra. Diagrammet visar de kors anslutnings väljare som inte är tillgängliga i Azure VPN-gatewayen under den här konfigurationen.
 
-## <a name="configurepolicybased"></a>Konfigurera trafikväljare med principbaserad på en anslutning
+## <a name="configurepolicybased"></a>Konfigurera principbaserad trafik väljare för en anslutning
 
-Anvisningarna i den här artikeln följer samma exempel som beskrivs i [konfigurera IPsec/IKE-principer för S2S eller VNet-till-VNet-anslutningar](vpn-gateway-ipsecikepolicy-rm-powershell.md) att upprätta en S2S VPN-anslutning. Detta illustreras i följande diagram:
+Anvisningarna i den här artikeln följer samma exempel som beskrivs i [Konfigurera IPSec/IKE-princip för S2S-eller VNet-till-VNet-anslutningar](vpn-gateway-ipsecikepolicy-rm-powershell.md) för att upprätta en S2S VPN-anslutning. Detta visas i följande diagram:
 
-![s2s-policy](./media/vpn-gateway-connect-multiple-policybased-rm-ps/s2spolicypb.png)
+![S2S-princip](./media/vpn-gateway-connect-multiple-policybased-rm-ps/s2spolicypb.png)
 
-Arbetsflöde för att aktivera den här anslutningen:
-1. Skapa virtuellt nätverk, VPN-gateway och lokal nätverksgateway för anslutningen mellan flera platser
+Arbets flödet för att aktivera den här anslutningen:
+1. Skapa det virtuella nätverket, VPN-gatewayen och den lokala Nätverksgatewayen för din anslutning över hela nätverket
 2. Skapa en IPsec/IKE-princip
-3. Tillämpa principen när du skapar en S2S- eller VNet-till-VNet-anslutning och **aktivera principbaserade trafikväljare** på anslutningen
-4. Om anslutningen har redan skapats, kan du tillämpa eller uppdatera principen till en befintlig anslutning
+3. Tillämpa principen när du skapar en S2S-eller VNet-till-VNet-anslutning och **aktiverar de principbaserade trafik markeringarna** på anslutningen
+4. Om anslutningen redan har skapats kan du tillämpa eller uppdatera principen på en befintlig anslutning
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -77,13 +77,13 @@ Kontrollera att du har en Azure-prenumeration. Om du inte har någon Azure-prenu
 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
-## <a name="enablepolicybased"></a>Aktivera principbaserade trafikväljare på en anslutning
+## <a name="enablepolicybased"></a>Aktivera principbaserad trafik väljare för en anslutning
 
-Kontrollera att du har slutfört [del 3 av artikeln konfigurera IPsec/IKE policy](vpn-gateway-ipsecikepolicy-rm-powershell.md) för det här avsnittet. I följande exempel används samma parametrar och steg:
+Se till att du har slutfört [del 3 av artikeln Konfigurera IPSec/IKE-princip](vpn-gateway-ipsecikepolicy-rm-powershell.md) i det här avsnittet. I följande exempel används samma parametrar och steg:
 
-### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>Steg 1 – Skapa virtuella nätverk, VPN-gateway och lokal nätverksgateway
+### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>Steg 1 – skapa det virtuella nätverket, VPN-gatewayen och den lokala Nätverksgatewayen
 
-#### <a name="1-connect-to-your-subscription-and-declare-your-variables"></a>1. Ansluta till din prenumeration och deklarera dina variabler
+#### <a name="1-connect-to-your-subscription-and-declare-your-variables"></a>1. Anslut till din prenumeration och deklarera dina variabler
 
 [!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
@@ -114,7 +114,7 @@ $LNGPrefix62   = "10.62.0.0/16"
 $LNGIP6        = "131.107.72.22"
 ```
 
-#### <a name="2-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>2. Skapa virtuellt nätverk, VPN-gateway och lokal nätverksgateway
+#### <a name="2-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>2. skapa det virtuella nätverket, VPN-gatewayen och den lokala Nätverksgatewayen
 
 Skapa en resursgrupp.
 
@@ -122,7 +122,7 @@ Skapa en resursgrupp.
 New-AzResourceGroup -Name $RG1 -Location $Location1
 ```
 
-Använd följande exempel för att skapa det virtuella nätverket TestVNet1 med tre undernät och en VPN-gateway. Om du vill ersätta värden är det viktigt att du alltid namnger gateway-undernätet specifikt ”GatewaySubnet”. Om du ger det något annat namn går det inte att skapa gatewayen.
+Använd följande exempel för att skapa det virtuella nätverket TestVNet1 med tre undernät och VPN-gatewayen. Om du vill ersätta värden är det viktigt att du alltid namnger ditt Gateway-undernät särskilt "GatewaySubnet". Om du ger det något annat namn går det inte att skapa gatewayen.
 
 ```azurepowershell-interactive
 $fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
@@ -143,21 +143,21 @@ New-AzLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location $Loc
 
 ### <a name="step-2---create-a-s2s-vpn-connection-with-an-ipsecike-policy"></a>Steg 2 – Skapa en S2S VPN-anslutning med en IPsec/IKE-princip
 
-#### <a name="1-create-an-ipsecike-policy"></a>1. Skapa en IPsec/IKE-princip
+#### <a name="1-create-an-ipsecike-policy"></a>1. skapa en IPsec/IKE-princip
 
 > [!IMPORTANT]
-> Du behöver skapa en IPsec/IKE-princip för att aktivera alternativet ”UsePolicyBasedTrafficSelectors” på anslutningen.
+> Du måste skapa en IPsec/IKE-princip för att aktivera alternativet "UsePolicyBasedTrafficSelectors" på anslutningen.
 
-I följande exempel skapar en IPsec/IKE-princip med dessa algoritmer och parametrar:
+I följande exempel skapas en IPsec/IKE-princip med följande algoritmer och parametrar:
 * IKEv2: AES256, SHA384, DHGroup24
-* IPsec: AES256, SHA256, PFS None, SA-livstid 14400 sekunder och 102 400 000 KB
+* IPsec: AES256, SHA256, PFS none, SA-livstid 14400 sekunder & 102400000KB
 
 ```azurepowershell-interactive
 $ipsecpolicy6 = New-AzIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 ```
 
-#### <a name="2-create-the-s2s-vpn-connection-with-policy-based-traffic-selectors-and-ipsecike-policy"></a>2. Skapa S2S VPN-anslutningen med principbaserade trafikväljare och IPsec/IKE-princip
-Skapa en S2S VPN-anslutning och använda IPsec/IKE-principer som skapats i föregående steg. Vara medveten om ytterligare parametern ”-UsePolicyBasedTrafficSelectors $True” som gör det möjligt för principbaserade trafikväljare för anslutningen.
+#### <a name="2-create-the-s2s-vpn-connection-with-policy-based-traffic-selectors-and-ipsecike-policy"></a>2. skapa S2S VPN-anslutningen med principbaserade trafik väljare och IPsec/IKE-princip
+Skapa en S2S VPN-anslutning och tillämpa IPsec/IKE-principen som skapades i föregående steg. Tänk på den ytterligare parametern "-UsePolicyBasedTrafficSelectors $True" som aktiverar principbaserad trafik väljare på anslutningen.
 
 ```azurepowershell-interactive
 $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
@@ -166,13 +166,13 @@ $lng6 = Get-AzLocalNetworkGateway  -Name $LNGName6 -ResourceGroupName $RG1
 New-AzVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng6 -Location $Location1 -ConnectionType IPsec -UsePolicyBasedTrafficSelectors $True -IpsecPolicies $ipsecpolicy6 -SharedKey 'AzureA1b2C3'
 ```
 
-När du har slutfört stegen, S2S VPN-anslutningen använder IPsec/IKE-principer som definierats, och aktivera principbaserade trafikväljare för anslutningen. Du kan upprepa samma steg för att lägga till fler anslutningar till ytterligare lokala principbaserad VPN-enheter från samma Azure VPN-gateway.
+När du har slutfört stegen kommer VPN-anslutningen för S2S att använda IPsec/IKE-principen definierad och aktivera principbaserad trafik väljare på anslutningen. Du kan upprepa samma steg för att lägga till fler anslutningar till ytterligare lokala principbaserade VPN-enheter från samma Azure VPN-gateway.
 
-## <a name="update-policy-based-traffic-selectors-for-a-connection"></a>Uppdatera principbaserade trafikväljare för en anslutning
-Det sista avsnittet visar hur du uppdaterar alternativet principbaserad trafik väljare för en befintlig S2S VPN-anslutning.
+## <a name="update-policy-based-traffic-selectors-for-a-connection"></a>Uppdatera principbaserade trafik väljare för en anslutning
+Det sista avsnittet visar hur du uppdaterar alternativet principbaserade trafik väljare för en befintlig S2S VPN-anslutning.
 
-### <a name="1-get-the-connection"></a>1. Hämta
-Hämta anslutningsresurs.
+### <a name="1-get-the-connection"></a>1. Hämta anslutningen
+Hämta anslutnings resursen.
 
 ```azurepowershell-interactive
 $RG1          = "TestPolicyRG1"
@@ -180,20 +180,20 @@ $Connection16 = "VNet1toSite6"
 $connection6  = Get-AzVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
 ```
 
-### <a name="2-check-the-policy-based-traffic-selectors-option"></a>2. Kontrollera alternativet principbaserad trafik väljare
-Följande rad visar om används de principbaserade trafikväljare för anslutningen:
+### <a name="2-check-the-policy-based-traffic-selectors-option"></a>2. Markera alternativet principbaserade trafik väljare
+Följande rad visar om principbaserade trafik väljare används för anslutningen:
 
 ```azurepowershell-interactive
 $connection6.UsePolicyBasedTrafficSelectors
 ```
 
-Om raden returnerar ”**SANT**”, sedan principbaserade trafikväljare konfigureras på anslutningen; annars returneras ”**FALSKT**”.
+Om raden returnerar "**True**" konfigureras principbaserade trafik väljare på anslutningen. annars returnerar den "**false**".
 
-### <a name="3-enabledisable-the-policy-based-traffic-selectors-on-a-connection"></a>3. Aktivera/inaktivera principbaserade trafikväljare på en anslutning
-Du kan aktivera eller inaktivera alternativet när du har hämtat connection-resursen.
+### <a name="3-enabledisable-the-policy-based-traffic-selectors-on-a-connection"></a>3. Aktivera/inaktivera de principbaserade trafik väljare som är baserade på en anslutning
+När du har fått anslutnings resursen kan du aktivera eller inaktivera alternativet.
 
-#### <a name="to-enable-usepolicybasedtrafficselectors"></a>Aktivera UsePolicyBasedTrafficSelectors
-I följande exempel aktiverar principbaserad trafik väljare alternativ men lämnar IPsec/IKE-principen har inte ändrats:
+#### <a name="to-enable-usepolicybasedtrafficselectors"></a>Så här aktiverar du UsePolicyBasedTrafficSelectors
+I följande exempel aktive ras alternativet principbaserade trafik väljare, men IPsec/IKE-principen lämnas oförändrad:
 
 ```azurepowershell-interactive
 $RG1          = "TestPolicyRG1"
@@ -203,8 +203,8 @@ $connection6  = Get-AzVirtualNetworkGatewayConnection -Name $Connection16 -Resou
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -UsePolicyBasedTrafficSelectors $True
 ```
 
-#### <a name="to-disable-usepolicybasedtrafficselectors"></a>Inaktivera UsePolicyBasedTrafficSelectors
-I följande exempel inaktiverar alternativet principbaserad trafik väljare, men lämnar IPsec/IKE-principen har inte ändrats:
+#### <a name="to-disable-usepolicybasedtrafficselectors"></a>Så här inaktiverar du UsePolicyBasedTrafficSelectors
+I följande exempel inaktiverar du alternativet principbaserade trafik väljare, men inaktiverar IPsec/IKE-principen oförändrad:
 
 ```azurepowershell-interactive
 $RG1          = "TestPolicyRG1"
@@ -217,4 +217,4 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 ## <a name="next-steps"></a>Nästa steg
 När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Se [Skapa en virtuell dator](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) för anvisningar.
 
-Granska även [konfigurera IPsec/IKE-principer för S2S VPN- eller VNet-till-VNet-anslutningar](vpn-gateway-ipsecikepolicy-rm-powershell.md) för mer information om anpassade IPsec/IKE-principer.
+Granska också [Konfigurera IPSec/IKE-princip för S2S VPN-eller VNet-till-VNet-anslutningar](vpn-gateway-ipsecikepolicy-rm-powershell.md) för mer information om anpassade IPSec/IKE-principer.

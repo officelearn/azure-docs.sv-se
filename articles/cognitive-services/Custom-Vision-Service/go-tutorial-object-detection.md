@@ -1,29 +1,30 @@
 ---
-title: 'Snabbstart: Skapa ett objektidentifieringsprojekt med Custom Vision SDK för Go'
+title: 'Snabb start: skapa ett projekt för objekt identifiering med Custom Vision SDK för go'
 titleSuffix: Azure Cognitive Services
 description: Skapa ett projekt, lägg till taggar, ladda upp bilder, träna projektet och identifiera objekt med hjälp av Go SDK.
 services: cognitive-services
 author: areddish
+ms.author: areddish
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/08/2019
-ms.author: daauld
-ms.openlocfilehash: 3831f89842f969ecce582c5b5d7a5f8a54c5e7a1
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 050d0593f64c939c687601eb25677f2356f4ba51
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946214"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73519090"
 ---
-# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-go-sdk"></a>Snabbstart: Skapa ett objektidentifieringsprojekt med Custom Vision. Go SDK
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-go-sdk"></a>Snabb start: skapa ett objekt identifierings projekt med Custom Vision go SDK
 
 Den här artikeln innehåller information och exempelkod som hjälper dig att komma igång med att använda Custom Vision-SDK med Go för att skapa en objektidentifierarmodell. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, Hämta projektets publicerade slut punkts-URL och använda slut punkten för att testa en avbildning. Använd det här exemplet som mall för att skapa dit eget Go-program.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - [Go 1.8+](https://golang.org/doc/install)
+- [!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## <a name="install-the-custom-vision-sdk"></a>Installera Custom Vision-SDK
 
@@ -33,7 +34,7 @@ Kör följande kommando i PowerShell för att installera Custom Vision Service S
 go get -u github.com/Azure/azure-sdk-for-go/...
 ```
 
-eller om du använder `dep`i din lagrings platsen kör du:
+Om du använder `dep`kör du följande i lagrings platsen:
 ```shell
 dep ensure -add github.com/Azure/azure-sdk-for-go
 ```
@@ -48,7 +49,9 @@ Skapa en ny fil med namnet *sample.go* i den projektkatalog som du vill använda
 
 ### <a name="create-the-custom-vision-service-project"></a>Skapa Custom Vision Service-projektet
 
-Lägg till följande kod i skriptet för att skapa ett nytt Custom Vision Service-projekt. Infoga dina prenumerationsnycklar i lämpliga definitioner. Se [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) -metoden för att ange andra alternativ när du skapar ditt projekt (förklaras i guiden [skapa en Detektors](get-started-build-detector.md) webb Portal).
+Lägg till följande kod i skriptet för att skapa ett nytt Custom Vision Service-projekt. Infoga dina prenumerationsnycklar i lämpliga definitioner. Hämta även slut punkts-URL: en från sidan Inställningar på webbplatsen för Custom Vision.
+
+Se [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) -metoden för att ange andra alternativ när du skapar ditt projekt (förklaras i guiden [skapa en Detektors](get-started-build-detector.md) webb Portal).
 
 ```go
 import(
@@ -67,7 +70,7 @@ var (
     training_key string = "<your training key>"
     prediction_key string = "<your prediction key>"
     prediction_resource_id = "<your prediction resource id>"
-    endpoint string = "https://southcentralus.api.cognitive.microsoft.com"
+    endpoint string = "<your endpoint URL>"
     project_name string = "Go Sample OD Project"
     iteration_publish_name = "detectModel"
     sampleDataDirectory = "<path to sample images>"
@@ -241,7 +244,7 @@ trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name
 
 ### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Hämta och Använd den publicerade iterationen på förutsägelse slut punkten
 
-Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förutsägelsen lägger du till följande kod i slutet av filen:
+Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förutsägelsen, lägger du till följande kod i slutet av filen:
 
 ```go
     fmt.Println("Predicting...")

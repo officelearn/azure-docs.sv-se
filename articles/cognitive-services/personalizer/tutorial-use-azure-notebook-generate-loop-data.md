@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
-ms.date: 10/04/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 7c0dc40ee2d748b1f48c3254a3e3a6e197069c08
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 6bc306551d158d4b996002de0bb5ab991a0bcbd9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515166"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467246"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>Självstudie: använda en Personanpassare i Azure Notebook
 
@@ -65,7 +65,7 @@ Systemet tar emot rankningen av kaffe valen och jämför sedan förutsägelsen m
 > Detta är en simulering så att algoritmen för belöningen är enkel. I ett verkligt scenario bör algoritmen använda affärs logik, möjligt vis med vikt för olika aspekter av kundens upplevelse, för att fastställa belönings poängen. 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett [Azure Notebook](https://notebooks.azure.com/) -konto. 
 * En [Azures personanpassa resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). 
@@ -81,7 +81,7 @@ Fil beskrivningar:
 
 ## <a name="configure-personalizer-resource"></a>Konfigurera en personanpassa resurs
 
-I Azure Portal konfigurerar du din [personanpassa resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) med **frekvensen Uppdatera modell** till 15 sekunder och en **belönings vänte tid** på 15 sekunder. De här inställningarna finns på sidan **[Inställningar](how-to-settings.md#configure-service-settings-in-the-azure-portal)** . 
+I Azure Portal konfigurerar du din [personanpassa resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) med **frekvensen Uppdatera modell** till 15 sekunder och en **belönings vänte tid** på 15 sekunder. Dessa värden finns på **[konfigurations](how-to-settings.md#configure-service-settings-in-the-azure-portal)** sidan. 
 
 |Inställning|Värde|
 |--|--|
@@ -170,7 +170,7 @@ def get_last_updated(currentModifiedDate):
 
 Verifiera tjänstens status med dessa två REST-anrop.
 
-Dessa celler har inga utdata. Funktionen matar ut tjänst inställningarna när de anropas.
+Dessa celler har inga utdata. Funktionen matar ut tjänst värden när den anropas.
 
 ```python
 def get_service_settings():
@@ -578,7 +578,7 @@ Det idealiska målet som i slutet av testet gör att slingan är i genomsnitt en
 
 `100-20=80`
 
-Den här utforsknings inställningen finns i Azure Portal för personanpassa resurs på sidan **Inställningar** . 
+Det här utforsknings värdet finns i Azure Portal för personanpassa resursen på sidan **konfiguration** . 
 
 För att hitta en bättre inlärnings policy, baserat på dina data till ranknings-API: et, kör du en [offline-utvärdering](how-to-offline-evaluation.md) i portalen för din personanpassa slinga.
 
@@ -587,7 +587,7 @@ För att hitta en bättre inlärnings policy, baserat på dina data till ranknin
 1. I Azure Portal öppnar du sidan **utvärdering** av personanpassa resurs.
 1. Välj **Skapa utvärdering**.
 1. Ange nödvändiga data för utvärderings namn och datum intervall för upprepnings utvärderingen. Datum intervallet får bara innehålla de dagar som du fokuserar på för utvärderingen. 
-    ![In Azure Portal öppnar du sidan med utvärderings resursen för personanpassa resursen. Välj Skapa utvärdering. Ange utvärderings namnet och datum intervallet. ](./media/tutorial-azure-notebook/create-offline-evaluation.png)
+    Om du ![i Azure Portal öppnar du sidan utvärdering av personanpassa resurs. Välj Skapa utvärdering. Ange utvärderings namnet och datum intervallet.](./media/tutorial-azure-notebook/create-offline-evaluation.png)
 
     Syftet med att köra denna offline-utvärdering är att avgöra om det finns en bättre inlärnings princip för de funktioner och åtgärder som används i den här slingan. Se till att **optimerings principen** är aktive rad för att hitta den bättre inlärnings principen.
 
@@ -598,7 +598,7 @@ För att hitta en bättre inlärnings policy, baserat på dina data till ranknin
 
 ## <a name="change-update-model-frequency-to-5-minutes"></a>Ändra frekvens för uppdaterings modell till 5 minuter
 
-1. I Azure Portal, fortfarande på den personanpassa resursen, väljer du sidan **Inställningar** . 
+1. Välj sidan **konfiguration** i Azure Portal, fortfarande på den personliga resursen. 
 1. Ändra **uppdaterings frekvensen för modellen** och **belönings vänte tiden** till 5 minuter och välj **Spara**.
 
 Läs mer om [belönings vänte tid](concept-rewards.md#reward-wait-time) och [modell uppdaterings frekvens](how-to-settings.md#model-update-frequency).

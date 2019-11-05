@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 78a0dafeedc9aac4db69903b9f1193574cbd39c7
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 6f2b5eb96eeb1c4b7d07219d5fe54a8a0ca9e28a
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934612"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73413016"
 ---
 ## <a name="for-users-in-your-directory"></a>För användare i din katalog
 
@@ -105,19 +105,19 @@ Följ de här stegen för att ange godkännande inställningarna för de använd
 
 1. Om du vill kräva godkännande för förfrågningar från de valda användarna anger du alternativet **Kräv godkännande** för att växla till **Ja**. Om du vill att begär Anden ska godkännas automatiskt anger du växla till **Nej**.
 
-    ![Åtkomst till paket-begär Anden – godkännande inställningar](./media/active-directory-entitlement-management-request-policy/approval.png)
-
 1. Om du vill kräva att användarna anger en motivering för att begära åtkomst paketet, ställer du in **justeringen Kräv ändring av begär ande** för att växla till **Ja**.
 
-1. Ta reda på om begäran kräver ett enda eller ett godkännande med flera steg. Ange **hur många steg** som ska växlas till **1** för en enskild fas.
+    ![Åtkomst till paket-begär Anden – godkännande inställningar](./media/active-directory-entitlement-management-request-policy/approval.png)
+
+### <a name="single-stage-approval"></a>Godkännande med ett enda steg
 
 1. För god kännare väljer du **chef som god kännare** eller **vissa god kännare**.
 
-    Chefen bestäms av attributet **Manager** i användarens profil för Azure AD. Mer information finns i [lägga till eller uppdatera en användares profil information med hjälp av Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
-
-    ![Azure Active Directory användar profil-Manager-attribut](./media/active-directory-entitlement-management-request-policy/profile-manager.png)
+    ![Åtkomst till paket-begär Anden-inställningar för enskilda steg](./media/active-directory-entitlement-management-request-policy/approval-single-stage.png)
 
 1. Om du har valt hanterare som god kännare, klickar du på **Lägg till reserv** för att välja en eller flera användare eller grupper i din katalog som en reserv god kännare. det går inte att hitta chefen.
+
+    Chefen bestäms av attributet **Manager** i användarens profil för Azure AD. Mer information finns i [lägga till eller uppdatera en användares profil information med hjälp av Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
 
 1. Om du har valt Välj en viss god kännare klickar du på **Lägg till god kännare** för att välja en eller flera användare eller grupper i din katalog som ska vara god kännare.
 
@@ -125,9 +125,34 @@ Följ de här stegen för att ange godkännande inställningarna för de använd
 
     Om en begäran inte godkänns inom den här tids perioden kommer den automatiskt att nekas. Användaren måste skicka en annan begäran om åtkomst paketet.
 
-1. Om du vill kräva att användarna anger en motivering för att begära åtkomst paketet, ställer du in **Kräv motivering** till **Ja**.
+1. Om du vill kräva att användarna anger en motivering för att få åtkomst paketet, ställer du in **Kräv god kännare justering** på **Ja**.
 
     En motivering är synlig för andra god kännare och begär Ande.
+
+### <a name="alternate-approvers"></a>Alternativa god kännare
+
+Förutom att ange primära god kännare som kan godkänna begär Anden kan du ange alternativa god kännare. På så sätt kan du se till att förfrågningarna godkänns eller nekas innan de upphör att gälla (tids gräns).
+
+Genom att ange alternativa god kännare, i händelse av att de primära god kännarna inte har kunnat godkänna eller neka begäran, vidarebefordras den väntande begäran till de alternativa god kännarna, enligt det vidarebefordrings schema som du angav när principen konfigurerades. De får ett e-postmeddelande för att godkänna eller neka den väntande begäran.
+
+När begäran har vidarebefordrats till de alternativa god kännarna kan de primära god kännarna fortfarande godkänna eller neka begäran. Alternativa god kännare använder samma åtkomst webbplats som de primära god kännarna för att godkänna eller neka den väntande begäran.
+
+Vi kan lista personer eller grupper med personer som är primära god kännare och alternativa god kännare. Se till att du listar olika uppsättningar med personer som primära god kännare och alternativa god kännare.
+Om du till exempel har listat Alice och Bob som primär god kännare, anger du Carol och Dave som alternativ god kännare. Använd följande steg för att lägga till alternativa god kännare i ett Access-paket:
+
+1. Klicka på **Visa avancerade inställningar för begäran**.
+
+    ![Åtkomst paket – princip – Visa avancerade inställningar för begäran](./media/active-directory-entitlement-management-request-policy/alternate-approvers-click-advanced-request.png)
+
+1. Ange **om ingen åtgärd har vidtagits, vidarebefordra till alternativa god kännare?** växla till **Ja**.
+
+1. Klicka på **Lägg till alternativa god kännare** och välj alternativa god kännare i listan.
+
+    ![Åtkomst paket – princip – Lägg till alternativa god kännare](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
+
+1. I rutan **vidarebefordra till alternativ god kännare efter hur många dagar** som god kännaren måste godkänna eller neka en begäran. Om inga god kännare har godkänt eller nekat begäran före varaktigheten för begäran upphör begäran att gälla (tids gräns) och användaren måste skicka en annan begäran om åtkomst paketet. 
+
+    Begär Anden kan bara vidarebefordras till alternativa god kännare per dag efter att varaktigheten för begäran når halva livs längd. I det här exemplet är varaktigheten för begäran 14 dagar. Det innebär att varaktigheten för begäran når en halv livs längd på dag 7. Begäran kan vidarebefordras inte tidigare än dag 8. Dessutom kan begär Anden inte vidarebefordras till den alternativa god kännaren den sista dagen i begärans varaktighet. I exemplet kan den senaste förfrågan vidarebefordras dag 13.
 
 ## <a name="enable-requests"></a>Aktivera begär Anden
 
@@ -139,4 +164,4 @@ Följ de här stegen för att ange godkännande inställningarna för de använd
 
     ![Åtkomst paket-princip-aktivera princip inställning](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
-1. Klicka på **Next**.
+1. Klicka på **Nästa**.

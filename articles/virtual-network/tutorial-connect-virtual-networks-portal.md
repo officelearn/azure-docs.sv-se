@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: cbf19d941e63429b6a5edcc6745d04834cf18621
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: b32f3762f2546a4d4956bf38c914173657e9d3da
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164065"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499883"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Självstudie: Koppla samman virtuella nätverk med peerkoppling med hjälp av Azure Portal
 
@@ -44,17 +44,17 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-virtual-networks"></a>Skapa virtuella nätverk
 
-1. Klicka på **+ Skapa en resurs** längst upp till vänster på Azure Portal.
+1. På Azure Portal-menyn eller på **Start** sidan väljer du **skapa en resurs**.
 2. Välj **Nätverk** och välj därefter **Virtuellt nätverk**.
 3. På sidan **grundläggande** anger eller väljer du följande information och accepterar standardinställningarna för de återstående inställningarna:
 
     |Inställning|Värde|
     |---|---|
     |Prenumeration| Välj din prenumeration.|
-    |Resursgrupp| Välj **Skapa ny** och ange *myResourceGroup*.|
+    |Resursgrupp| Välj **Skapa ny** och skriv *myResourceGroup*.|
     |Region| Välj **USA, östra**.|
     |Namn|myVirtualNetwork1|
-   
+
 4. På sidan **IP-adresser** anger du 10.0.0.0/16 för fältet **adress utrymme** . Klicka på knappen **Lägg till undernät** nedan och ange Subnet1 för **under nätets namn** och 10.0.0.0/24 för **under nätets adress intervall**.
    
 5. Utför steg 1–3 igen, med följande ändringar:
@@ -64,12 +64,12 @@ Logga in på Azure Portal på https://portal.azure.com.
     |Namn|myVirtualNetwork2|
     |Adressutrymme|10.1.0.0/16|
     |Resursgrupp| Välj **Använd befintlig** och sedan **myResourceGroup**.|
-    |Adressintervall för undernät|10.1.0.0/24|
+    |Undernätsadressintervall|10.1.0.0/24|
 
 ## <a name="peer-virtual-networks"></a>Peerkoppla virtuella nätverk
 
 1. I rutan Sök högst upp på Azure Portal börjar du skriva *MyVirtualNetwork1*. När **myVirtualNetwork1** visas i sökresultatet väljer du det.
-2. Välj **Peering-sessioner** under **INSTÄLLNINGAR** och sedan **+ Lägg till** som du ser på följande bild:
+2. Välj **peering**, under **Inställningar**och välj sedan **Lägg till**, som du ser i följande bild:
 
     ![Skapa peerkoppling](./media/tutorial-connect-virtual-networks-portal/create-peering.png)
 
@@ -96,7 +96,7 @@ Skapa en virtuell dator i varje virtuellt nätverk så att du kan kommunicera me
 
 ### <a name="create-the-first-vm"></a>Skapa den första virtuella datorn
 
-1. Klicka på **+ Skapa en resurs** längst upp till vänster på Azure Portal.
+1. På Azure Portal-menyn eller på **Start** sidan väljer du **skapa en resurs**.
 2. Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**. Du kan välja ett annat operativsystem, men i återstående steg förutsätts att du har valt **Windows Server 2016 Datacenter**. 
 3. Ange eller välj följande information för **Grundinställningar**, acceptera standardinställningarna för återstående inställningar och välj sedan **Skapa**:
 
@@ -141,7 +141,7 @@ Det tar några minuter att skapa de virtuella datorerna. Fortsätt inte med åte
 
     ![Ansluta till den virtuella datorn](./media/tutorial-connect-virtual-networks-portal/connect-to-virtual-machine.png)  
 
-3. Öppna den nedladdade RDP-filen för att ansluta till den virtuella datorn. Välj **Anslut** om du uppmanas att göra det.
+3. Öppna den hämtade RDP-filen för att ansluta till den virtuella datorn. Välj **Anslut** om du uppmanas att göra det.
 4. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn (du kanske måste välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn) och välj **OK**.
 5. Du kan få en certifikatvarning under inloggningen. Välj **Ja** för att fortsätta med anslutningen.
 6. I ett senare steg används ping för att kommunicera med den virtuella datorn *myVm2* från den virtuella datorn *myVm1*. Ping använder som standard ICMP (Internet Control Message Protocol), som nekas via Windows-brandväggen. På den virtuella datorn *myVm1* aktiverar du ICMP via Windows-brandväggen, så att du kan pinga den här virtuella datorn från *myVm2* i ett senare steg, med hjälp av PowerShell:
@@ -168,11 +168,11 @@ Det tar några minuter att skapa de virtuella datorerna. Fortsätt inte med åte
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resursgruppen och alla resurser den innehåller när de inte längre behövs: 
+Ta bort resursgruppen, skalningsuppsättningen och alla resurser som den innehåller: 
 
 1. Skriv *myResourceGroup* i rutan **Sök** högst upp i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
 2. Välj **Ta bort resursgrupp**.
-3. Skriv *myResourceGroup* i **SKRIV RESURSGRUPPSNAMNET:** och välj **Ta bort**.
+3. Skriv *myResourceGroup* där du uppmanas att **skriva resursgruppens namn:** (Skriv resursgruppens namn) och välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

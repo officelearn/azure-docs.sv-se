@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d314cc55096f681d1bcf66d33c4c30a4060751e9
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 9d2986acc47087c267193eee43136e030abcc422
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972658"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990306"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Konfigurera vCenter-identitets källor som ska använda Active Directory
 
@@ -30,7 +30,11 @@ Du kan konfigurera din Active Directory domän och domänkontrollanter på någo
 
 I den här guiden beskrivs aktiviteter för att konfigurera Active Directory domän-och domän kontrollers som kör antingen lokalt eller som virtuella datorer i dina prenumerationer.  Om du vill använda Azure AD som identitets källa kan du läsa mer i [använda Azure AD som identitets leverantör för vCenter i CloudSimple Private Cloud](azure-ad.md) för detaljerade anvisningar om hur du konfigurerar identitets källan.
 
-Innan du [lägger till en identitets källa](#add-an-identity-source-on-vcenter)måste [du tillfälligt eskalera vCenter](escalate-private-cloud-privileges.md)-privilegierna.
+Innan du [lägger till en identitets källa](#add-an-identity-source-on-vcenter)måste [du tillfälligt eskalera vCenter-privilegierna](escalate-private-cloud-privileges.md).
+
+> [!CAUTION]
+> Nya användare får endast läggas till i *moln-ägar-grupp*, *Cloud-global-Cluster-admin-Group*, *Cloud-Global-Storage-admin-Group*, *Cloud-Global-Network-admin-Group* eller, *Cloud-global-VM-admin-Group*.  Användare som lagts till i gruppen *Administratörer* tas då bort automatiskt.  Endast tjänst konton måste läggas till i gruppen *Administratörer* .  
+
 
 ## <a name="identity-source-options"></a>Alternativ för identitets källa
 
@@ -51,12 +55,12 @@ Använd informationen i följande tabell när du konfigurerar din Active Directo
 |------------|-----------------|
 | **Namn** | Namnet på identitets källan. |
 | **Grundläggande DN för användare** | Grundläggande unikt namn för användare. |
-| **Domännamn** | FDQN för domänen, till exempel example.com. Ange ingen IP-adress i den här text rutan. |
+| **Domän namn** | FDQN för domänen, till exempel example.com. Ange ingen IP-adress i den här text rutan. |
 | **Domän Ali Aset** | Domänens NetBIOS-namn. Lägg till NetBIOS-namnet för Active Directory domän som ett alias för identitets källan om du använder SSPI-autentiseringar. |
 | **Bas-DN för grupper** | Det grundläggande unika namnet för grupper. |
-| **Primär server-URL** | Primär domänkontrollantens LDAP-server för domänen.<br><br>Använd formatet `ldap://hostname:port` eller. `ldaps://hostname:port` Porten är vanligt vis 389 för LDAP-anslutningar och 636 för LDAPs-anslutningar. För att Active Directory distributioner av flera domänkontrollanter är porten vanligt vis 3268 för LDAP och 3269 för LDAPs.<br><br>Ett certifikat som upprättar förtroende för slut punkten för LDAPS-slutpunkten för Active Directory `ldaps://`-servern krävs när du använder i den primära eller sekundära LDAP-URL: en. |
+| **Primär server-URL** | Primär domänkontrollantens LDAP-server för domänen.<br><br>Använd formatet `ldap://hostname:port` eller `ldaps://hostname:port`. Porten är vanligt vis 389 för LDAP-anslutningar och 636 för LDAPs-anslutningar. För att Active Directory distributioner av flera domänkontrollanter är porten vanligt vis 3268 för LDAP och 3269 för LDAPs.<br><br>Ett certifikat som upprättar förtroende för LDAP-slutpunkten för Active Directory-servern krävs när du använder `ldaps://` i den primära eller sekundära LDAP-URL: en. |
 | **Sekundär server-URL** | Adress till en sekundär domänkontrollant LDAP-server som används för redundans. |
-| **Välj certifikat** | Om du vill använda LDAPS med din Active Directory LDAP-server eller OpenLDAP-serverns identitets källa visas knappen Välj certifikat när du har `ldaps://`skrivit i text rutan URL. Det krävs ingen sekundär URL. |
+| **Välj certifikat** | Om du vill använda LDAPs med din Active Directory LDAP-server eller OpenLDAP-serverns identitets källa visas knappen Välj certifikat när du har skrivit `ldaps://` i text rutan URL. Det krävs ingen sekundär URL. |
 | **Användarnamn** | ID för en användare i domänen som har minst skrivskyddad åtkomst till bas-DN för användare och grupper. |
 | **Lösenord** | Lösen ordet för den användare som anges av användar namnet. |
 
@@ -114,7 +118,7 @@ När nätverks anslutningen har upprättats följer du stegen i [lägga till lok
 
     ![Enkel inloggning](media/OnPremAD02.png)
 
-5. Öppna fliken **identitets källor** och klicka **+** för att lägga till en ny identitets källa.
+5. Öppna fliken **identitets källor** och klicka på **+** för att lägga till en ny identitets källa.
 
     ![Identitets källor](media/OnPremAD03.png)
 

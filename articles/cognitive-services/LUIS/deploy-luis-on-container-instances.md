@@ -1,31 +1,31 @@
 ---
-title: Kör Azure Container Instances
+title: Kör Azure Container instances
 titleSuffix: Azure Cognitive Services
-description: LUIS-behållaren distribueras till en Azure-Behållarinstans och testa den i en webbläsare.
+description: Distribuera behållaren LUIS till en Azure Container instance och testa den i en webbläsare.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 7/5/2019
+ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 1d19d80bbc334a376f77eb285349fb1a87a91a54
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 6a714178c9f8ec3f9239ba64bccbcf25b4aecf60
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711575"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465928"
 ---
-# <a name="deploy-the-language-understanding-luis-container-to-azure-container-instances"></a>Distribuera behållaren Språkförståelse (LUIS) till Azure Container Instances
+# <a name="deploy-the-language-understanding-luis-container-to-azure-container-instances"></a>Distribuera Language Understanding-behållaren (LUIS) till Azure Container instances
 
-Lär dig hur du distribuerar Cognitive Services [LUIS](luis-container-howto.md) behållare till Azure [Behållarinstanser](https://docs.microsoft.com/azure/container-instances/). Den här proceduren visar skapandet av en Avvikelseidentifiering detektor-resurs. Därefter ska vi prata hämta associerade behållaravbildningen. Slutligen kan markerar vi du möjlighet att utöva dirigering av två från en webbläsare. Med hjälp av behållare kan du ändra den utvecklare uppmärksamhet från hantering av infrastruktur för att i stället fokusera på programutveckling.
+Lär dig hur du distribuerar Cognitive Services [Luis](luis-container-howto.md) -behållaren till Azure [container instances](https://docs.microsoft.com/azure/container-instances/). Den här proceduren visar hur du skapar en avvikelse detektor resurs. Sedan diskuterar vi hämtningen av den tillhör ande behållar avbildningen. Slutligen fokuserar vi på att kunna utnyttja dirigeringen av de två från en webbläsare. Genom att använda behållare kan du byta utvecklares uppmärksamhet från att hantera infrastrukturen i stället för att fokusera på program utveckling.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-prerequisites.md)]
 
 [!INCLUDE [Create LUIS resource](includes/create-luis-resource.md)]
 
-[!INCLUDE [Create LUIS Container Instance resource](../containers/includes/create-container-instances-resource.md)]
+[!INCLUDE [Create LUIS Container instance resource](../containers/includes/create-container-instances-resource.md)]
 
 [!INCLUDE [API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa ett objektidentifieringsprojekt med Custom Vision SDK för Node.js'
+title: 'Snabb start: skapa ett objekt identifierings projekt med Custom Vision SDK för Node. js'
 titleSuffix: Azure Cognitive Services
 description: Skapa ett projekt, lägg till taggar, ladda upp bilder, träna projektet och identifiera objekt med hjälp av Node.js SDK.
 services: cognitive-services
@@ -10,21 +10,22 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/08/2019
 ms.author: areddish
-ms.openlocfilehash: 6e3bf7b4fb60d81ff8883c2592de3739572bf2fa
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: b922073df468ca2d92e319e4e59cae098734c13c
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997798"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "73518992"
 ---
-# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>Snabbstart: Skapa ett objektidentifieringsprojekt med Custom Vision. Node.js SDK
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>Snabb start: skapa ett objekt identifierings projekt med Custom Vision Node. js SDK
 
-Den här artikeln innehåller information och exempelkod som hjälper dig att komma igång med att använda Custom Vision SDK med Node.js för att skapa en objektidentifieringsmodell. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, Hämta projektets publicerade slut punkts-URL och använda slut punkten för att testa en avbildning. Använd det här exemplet som mall för att skapa ditt eget Node.js-program.
+Den här artikeln innehåller information och exempelkod som hjälper dig att komma igång med att använda Custom Vision SDK med Node.js för att skapa en objektidentifieringsmodell. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, Hämta projektets publicerade slut punkts-URL och använda slut punkten för att testa en avbildning. Använd det här exemplet som en mall för att skapa ditt eget Node.js-program.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - [Node.js 8](https://www.nodejs.org/en/download/) eller senare installerat.
 - [npm](https://www.npmjs.com/) installerat.
+- [!INCLUDE [create-resources](includes/create-resources.md)]
 
 [!INCLUDE [get-keys](includes/get-keys.md)]
 
@@ -61,7 +62,7 @@ const predictionKey = "<your prediction key>";
 const predictionResourceId = "<your prediction resource id>";
 const sampleDataRoot = "<path to image files>";
 
-const endPoint = "https://southcentralus.api.cognitive.microsoft.com"
+const endPoint = "https://<my-resource-name>.cognitiveservices.azure.com/"
 
 const publishIterationName = "detectModel";
 
@@ -207,7 +208,7 @@ await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIt
 
 ### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Hämta och Använd den publicerade iterationen på förutsägelse slut punkten
 
-Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förutsägelsen lägger du till följande kod i slutet av filen:
+Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förutsägelsen, lägger du till följande kod i slutet av filen:
 
 ```javascript
     const predictor = new PredictionApi.PredictionAPIClient(predictionKey, endPoint);

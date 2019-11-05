@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 7fe84dd30099377af09b8100f5e5e7246a0d6328
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: a070a7da48af8abe138900dd0221bace2149aa20
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162403"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469304"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Skapa en funktion i Azure som utlöses av en timer
 
@@ -24,7 +24,7 @@ Lär dig hur du använder Azure Functions för att skapa en funktion utan [Serve
 
 ![Skapa en funktionsapp i Azure Portal](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du:
 
@@ -42,7 +42,7 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
 ## <a name="create-a-timer-triggered-function"></a>Skapa en timerutlöst funktion
 
-1. Expandera funktionsappen och klicka på knappen **+** bredvid **Funktioner**. Om det här är den första funktionen i din funktionsapp väljer du **I portalen** och sedan **Fortsätt**. Annars går du till steg tre.
+1. Expandera funktionsappen och klicka på knappen **+** bredvid **Funktioner**. Om det här är den första funktionen i din funktionsapp väljer du **I portalen** och sedan **Fortsätt**. Annars går du till steg 3.
 
    ![Sidan snabbstart för funktioner i Azure Portal](./media/functions-create-scheduled-function/function-app-quickstart-choose-portal.png)
 

@@ -73,7 +73,7 @@ När administratörerna har godkänt din app kan de välja att lägga till den i
 
 ![Knapp som visar text för Microsoft-logotypen och "Lägg till i min organisation"](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
-Vi rekommenderar dock att du skriver förklarande text istället för att förlita dig på knappar. Exempel:
+Vi rekommenderar dock att du skriver förklarande text istället för att förlita dig på knappar. Till exempel:
 
 > *Om du redan använder Office 365 eller andra företags tjänster från Microsoft kan du bevilja < your_app_name > åtkomst till din organisations data. Detta gör att användarna kan komma åt < your_app_name > med sina befintliga arbets konton.*
 

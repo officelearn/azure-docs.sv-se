@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: 27578e50c56a9c7dac3d74b88e14d0f8fbe9d402
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 97622df578b6c1357601b32a22c806e9eef77c96
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784979"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466869"
 ---
-# <a name="introduction-to-ai-enrichment-in-azure-cognitive-search"></a>Introduktion till AI-anrikning i Azure Kognitiv sökning
+# <a name="introduction-to-ai-in-azure-cognitive-search"></a>Introduktion till AI i Azure Kognitiv sökning
 
-AI-anrikning är en funktion i Azure Kognitiv sökning indexering, som används för att extrahera text från bilder, blobbar och andra ostrukturerade data källor – innehåll som gör det mer sökbart i ett index eller kunskaps lager. Extraktion och berikning implementeras genom *kognitiva kunskaper* som är kopplade till en indexerings pipeline. Kognitiva kunskaper är indelade i följande kategorier: 
+AI-anrikning är en funktion i Azure Kognitiv sökning indexering, som används för att extrahera text från bilder, blobbar och andra ostrukturerade data källor – innehåll som gör det mer sökbart i ett index eller kunskaps lager. Extraktion och berikning implementeras genom *kognitiva kunskaper* som är kopplade till en indexerings pipeline. Kognitiva kunskaper som är inbyggda i tjänsten ingår i följande kategorier: 
 
 + Kunskaper om **bearbetning av naturligt språk** omfattar [enhets igenkänning](cognitive-search-skill-entity-recognition.md), [språk identifiering](cognitive-search-skill-language-detection.md), [extrahering av nyckel fraser](cognitive-search-skill-keyphrases.md), text manipulation och [sentiment identifiering](cognitive-search-skill-sentiment.md). Med dessa kunskaper kan ostrukturerad text utgå från nya formulär som är mappade som sökbara och filter bara fält i ett index.
 
@@ -36,6 +36,12 @@ Naturligt språk och bild bearbetning används under fasen för data inmatning, 
 
 ## <a name="when-to-use-cognitive-skills"></a>När du ska använda kognitiva kunskaper
 
+Du bör överväga att använda inbyggda kognitiva kunskaper om ditt råa innehåll är ostrukturerad text, bild innehåll eller innehåll som behöver språk identifiering och översättning. Genom att använda AI via inbyggda kognitiva kunskaper kan du låsa upp det här innehållet och öka dess värde och verktyg i dina Sök-och data vetenskaps appar. 
+
+Dessutom kan du överväga att lägga till en anpassad färdighet om du har en öppen källkod, tredje part eller första parts kod som du vill integrera i pipelinen. Klassificerings modeller som identifierar viktigaste delarna egenskaper för olika dokument typer ingår i den här kategorin, men paket som lägger till värde i innehållet kan också användas.
+
+### <a name="more-about-built-in-skills"></a>Mer om inbyggda kunskaper
+
 En färdigheter som samlas in med inbyggda kunskaper passar bra för följande program scenarier:
 
 + Skannade dokument (JPEG) som du vill göra full text sökbar. Du kan bifoga en OCR-färdighet (optisk tecken läsning) för att identifiera, extrahera och mata in text från JPEG-filer.
@@ -49,6 +55,8 @@ En färdigheter som samlas in med inbyggda kunskaper passar bra för följande p
   Blobbar innehåller ofta en stor innehålls förteckning som är förpackad i ett enda "fält". Genom att koppla färdigheter för avbildning och naturlig språk bearbetning till en indexerare kan du skapa ny information som är extant i rå data, men inte på annat sätt placeras som distinkta fält. Vissa inbyggda kognitiva kunskaper som kan hjälpa dig med att extrahera nyckel fraser, sentiment analys och enhets igenkänning (personer, organisationer och platser).
 
   Dessutom kan inbyggda kunskaper också användas för att omstrukturera innehåll genom text delnings-, sammanfognings-och form åtgärder.
+
+### <a name="more-about-custom-skills"></a>Mer om anpassade kunskaper
 
 Anpassade kunskaper kan stödja mer komplexa scenarier, till exempel igenkänning av formulär eller anpassad identifiering av entiteter med hjälp av en modell som du anger och omsluter i det [anpassade webb gränssnittet för kompetens](cognitive-search-custom-skill-interface.md). Flera exempel på anpassade kunskaper är [formulär igenkänning](/azure/cognitive-services/form-recognizer/overview), integrering av [API för entitetsökning i Bing](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example)och [anpassad enhets igenkänning](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 

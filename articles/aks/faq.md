@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: mlearned
-ms.openlocfilehash: 4d736556147797bcd007bdab1b5328deeadea712
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 2f24f5cacb8b6e115d7fe91c6ef0a7a333676ae1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827358"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472840"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor och svar om Azure Kubernetes service (AKS)
 
@@ -33,7 +33,7 @@ Ja, du kan distribuera ett AKS-kluster till ett befintligt virtuellt nätverk me
 
 ## <a name="can-i-limit-who-has-access-to-the-kubernetes-api-server"></a>Kan jag begränsa vem som har åtkomst till Kubernetes API-servern?
 
-Ja, du kan begränsa åtkomsten till Kubernetes-API-servern med hjälp av [tillåtna IP-intervall för API-servern][api-server-authorized-ip-ranges], som för närvarande är en för hands version
+Ja, du kan begränsa åtkomsten till Kubernetes-API-servern med hjälp av [tillåtna IP-intervall för API-servern][api-server-authorized-ip-ranges].
 
 ## <a name="can-i-make-the-kubernetes-api-server-accessible-only-within-my-virtual-network"></a>Kan jag bara göra Kubernetes-API-servern tillgänglig i mitt virtuella nätverk?
 
@@ -41,7 +41,7 @@ Inte just nu, men det är planerat. Du kan följa förloppet för [AKS GitHub-la
 
 ## <a name="can-i-have-different-vm-sizes-in-a-single-cluster"></a>Kan jag ha olika storlekar på virtuella datorer i ett enda kluster?
 
-Ja, du kan använda olika storlekar för virtuella datorer i ditt AKS-kluster genom att skapa [flera noder][multi-node-pools], som för närvarande finns i för hands version.
+Ja, du kan använda olika storlekar för virtuella datorer i AKS-klustret genom att skapa [flera noder][multi-node-pools].
 
 ## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Används säkerhets uppdateringar för AKS-agent-noder?
 
@@ -89,7 +89,7 @@ Om du ändrar eller tar bort Azure-skapade Taggar och andra resurs egenskaper i 
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Vilka Kubernetes-kontrollanter stöder AKS? Kan åtkomst kontrol Lanterna läggas till eller tas bort?
 
-AKS stöder följande styrenheter för [åtkomst][admission-controllers]kontroll:
+AKS stöder följande [styrenheter för åtkomst][admission-controllers]kontroll:
 
 - *NamespaceLifecycle*
 - *LimitRanger*
@@ -118,20 +118,20 @@ Windows Server-stöd för Node-pool innehåller vissa begränsningar som ingår 
 
 I ett service avtal (SLA) accepterar providern att återbetala kunden till kostnaden för tjänsten om den publicerade Service nivån inte är uppfylld. Eftersom AKS är kostnads fritt är ingen kostnad tillgänglig för åter betalning, så AKS har inget formellt service avtal. Men AKS strävar efter att behålla tillgänglighet för minst 99,5 procent för Kubernetes API-servern.
 
-Det är viktigt att känna till skillnaden mellan AKS-tjänstens tillgänglighet som avser drift tid av Kubernetes-kontroll planet och tillgängligheten för din speciella arbets belastning som körs på Azure Virtual Machines. Kontroll planet kan vara otillgängligt om kontroll planet inte är klart, men dina kluster arbets belastningar som körs på virtuella Azure-datorer kan fortfarande fungera. De virtuella Azure-datorerna är betalda resurser som de backas upp av ett finansiellt service avtal. Läs [här om du vill ha mer information](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_8/) om service avtalet för Azure VM och hur du ökar tillgängligheten med funktioner som [Tillgänglighetszoner][availability-zones].
+Det är viktigt att känna till skillnaden mellan AKS-tjänstens tillgänglighet som avser drift tid av Kubernetes-kontroll planet och tillgängligheten för din speciella arbets belastning som körs på Azure Virtual Machines. Kontroll planet kan vara otillgängligt om kontroll planet inte är klart, men dina kluster arbets belastningar som körs på virtuella Azure-datorer kan fortfarande fungera. De virtuella Azure-datorerna är betalda resurser som de backas upp av ett finansiellt service avtal. Läs [här om du vill ha mer information](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) om service avtalet för Azure VM och hur du ökar tillgängligheten med funktioner som [Tillgänglighetszoner][availability-zones].
 
 ## <a name="why-cant-i-set-maxpods-below-30"></a>Varför kan jag inte ange maxPods under 30?
 
-I AKS kan du ange `maxPods` värdet när du skapar klustret med hjälp av Azure CLI och Azure Resource Manager mallar. Både Kubernetes och Azure CNI kräver dock ett *minsta värde* (verifieras vid skapande):
+I AKS kan du ange `maxPods` värde när du skapar klustret med hjälp av Azure CLI och Azure Resource Manager mallar. Både Kubernetes och Azure CNI kräver dock ett *minsta värde* (verifieras vid skapande):
 
 | Nätverk | Minimum | Maximal |
 | -- | :--: | :--: |
-| Azure CNI | 30 | 250 |
+| Azure-CNI | 30 | 250 |
 | Kubernetes | 30 | 110 |
 
 Eftersom AKS är en hanterad tjänst distribuerar vi och hanterar tillägg och poddar som en del av klustret. Tidigare kunde användare definiera ett `maxPods` värde som är lägre än värdet som de hanterade poddar krävde för att köra (till exempel 30). AKS beräknar nu det minsta antalet poddar med hjälp av följande formel: ((maxPods eller (maxPods * vm_count)) > hanterat tillägg poddar minimum.
 
-Användare kan inte åsidosätta `maxPods` den lägsta verifieringen.
+Användare kan inte åsidosätta den minsta `maxPods` verifieringen.
 
 ## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>Kan jag använda Azure reservation-rabatter på mina AKS-agent-noder?
 
@@ -139,7 +139,7 @@ AKS agent-noder faktureras som standard virtuella Azure-datorer, så om du har k
 
 ## <a name="can-i-movemigrate-my-cluster-between-azure-tenants"></a>Kan jag flytta/migrera mitt kluster mellan Azure-klienter?
 
-`az aks update-credentials` Kommandot kan användas för att flytta ett AKS-kluster mellan Azure-klienter. Följ anvisningarna i [Välj för att uppdatera eller skapa ett huvud namn för tjänsten](https://docs.microsoft.com/azure/aks/update-credentials) och [uppdatera sedan AKS-kluster med nya autentiseringsuppgifter](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-credentials).
+`az aks update-credentials` kommandot kan användas för att flytta ett AKS-kluster mellan Azure-klienter. Följ anvisningarna i [Välj för att uppdatera eller skapa ett huvud namn för tjänsten](https://docs.microsoft.com/azure/aks/update-credentials) och [uppdatera sedan AKS-kluster med nya autentiseringsuppgifter](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-credentials).
 
 ## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>Kan jag flytta/migrera mitt kluster mellan prenumerationer?
 
@@ -161,17 +161,17 @@ Du kan, men AKS rekommenderar inte detta. Uppgraderingar bör helst utföras nä
 
 Nej, ta bort/ta bort alla noder i ett felaktigt tillstånd eller ta bort dem från klustret innan du uppgraderar.
 
-## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>Det gick inte att ta bort klustret, men du kan se felet `[Errno 11001] getaddrinfo failed` 
+## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>Jag körde ett kluster borttagnings fel, men se fel `[Errno 11001] getaddrinfo failed` 
 
 Oftast orsakas detta av användare som har en eller flera nätverks säkerhets grupper (NSG: er) som fortfarande används och som är kopplade till klustret.  Ta bort dem och försök att ta bort dem igen.
 
 ## <a name="i-ran-an-upgrade-but-now-my-pods-are-in-crash-loops-and-readiness-probes-fail"></a>Jag körde en uppgradering, men nu finns det poddar i krascher och det går inte att söka efter beredskap?
 
-Kontrol lera att tjänstens huvud namn inte har upphört att gälla.  Se: Autentiseringsuppgifter för [AKS-tjänstens huvud namn](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) och [AKS](https://docs.microsoft.com/azure/aks/update-credentials).
+Kontrol lera att tjänstens huvud namn inte har upphört att gälla.  Se: [AKS-tjänstens huvud namn](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) och [AKS uppdatera autentiseringsuppgifter](https://docs.microsoft.com/azure/aks/update-credentials).
 
 ## <a name="my-cluster-was-working-but-suddenly-can-not-provision-loadbalancers-mount-pvcs-etc"></a>Mitt kluster fungerade, men det gick plötsligt inte att etablera belastningsutjämnare, montera PVC: er osv. 
 
-Kontrol lera att tjänstens huvud namn inte har upphört att gälla.  Se: Autentiseringsuppgifter för [AKS-tjänstens huvud namn](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) och [AKS](https://docs.microsoft.com/azure/aks/update-credentials).
+Kontrol lera att tjänstens huvud namn inte har upphört att gälla.  Se: [AKS-tjänstens huvud namn](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) och [AKS uppdatera autentiseringsuppgifter](https://docs.microsoft.com/azure/aks/update-credentials).
 
 ## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>Kan jag använda API: erna för skalnings uppsättningen för virtuella datorer för att skala manuellt?
 

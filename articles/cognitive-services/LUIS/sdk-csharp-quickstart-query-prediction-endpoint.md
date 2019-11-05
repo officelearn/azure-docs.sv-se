@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: C#Slut punkt för SDK-fråga för förutsägelse – LUIS'
+title: 'Snabb start C# : SDK-fråga förutsägelse slut punkt – Luis'
 titleSuffix: Azure Cognitive Services
 description: Använd C# SDK till att skicka talindata för användaren till LUIS och ta emot en förutsägelse.
 author: diberry
@@ -10,14 +10,14 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 4d7c02d8cf37f155af1fd9c0d5de7fa8ec948c4b
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: d7cf46add464a089f15a5bd15a20cea7d17eed37
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703114"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488687"
 ---
-# <a name="quickstart-query-v2-prediction-endpoint-with-c-net-sdk"></a>Snabbstart: Fråga v2 förutsägelse slut punkt C# med .NET SDK
+# <a name="quickstart-query-v2-prediction-endpoint-with-c-net-sdk"></a>Snabb start: fråga v2 förutsägelse slut C# punkt med .NET SDK
 
 Använd .NET SDK, som finns i [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/), till att skicka talindata för användaren till LUIS (Language Understanding) och ta emot en förutsägelse av användarens avsikt. 
 
@@ -27,7 +27,7 @@ Den här snabbstarten skickar talindata för användaren, som t.ex. `turn on the
 
 * [Visual Studio Community 2017](https://visualstudio.microsoft.com/vs/community/)
 * Programmeringsspråket C# (ingår i VS Community 2017)
-* Offentligt app-ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
+* Offentlig app-ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
 > [!Note]
 > Den fullständiga lösningen är tillgänglig från GitHub-lagringsplatsen [cognitive-services-language-understanding](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/sdk-quickstarts/c%23/UsePredictionRuntime).
@@ -77,7 +77,7 @@ using Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime.Models;
 
 ## <a name="create-a-new-method-for-the-prediction"></a>Skapa en ny metod för förutsägelsen
 
-Skapa den nya metoden `GetPrediction` som skickar frågan till slutpunkten för förutsägelsefrågan. Metoden skapar och konfigurerar alla nödvändiga objekt och returnerar sedan en `Task` med förutsägelseresultatet [`LuisResult`](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.models.luisresult?view=azure-dotnet). 
+Skapa den nya metoden `GetPrediction` som skickar frågan till slutpunkten för förutsägelsefrågan. Metoden skapar och konfigurerar alla nödvändiga objekt och returnerar sedan en `Task` med förutsägelseresultatet [`LuisResult`](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.models.luisresult?view=azure-python). 
 
 ```csharp
 static async  Task<LuisResult> GetPrediction() {
@@ -184,4 +184,4 @@ HomeAutomation.Room:'bedroom' begins at position 12 and ends at position 18
 Läs mer om [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) och [referensdokumentationen för .NET](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet). 
 
 > [!div class="nextstepaction"] 
-> [Självstudier: Skapa en LUIS-app som identifierar användarens avsikter](luis-quickstart-intents-only.md) 
+> [Självstudie: Bygg LUIS-app för att fastställa användar avsikter](luis-quickstart-intents-only.md) 

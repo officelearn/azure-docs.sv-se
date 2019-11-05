@@ -1,7 +1,7 @@
 ---
 title: Fördefinierad valuta entitet – LUIS
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln innehåller valuta fördefinierade entitetsinformation i Språkförståelse (LUIS).
+description: Den här artikeln innehåller fördefinierad information om valutan i Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,130 +9,85 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 61be3225f22aca821f8c26522ab37eab0c82bc26
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 5b49dcc7e999757e119c399bdf01bed7cb312e02
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677705"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465043"
 ---
 # <a name="currency-prebuilt-entity-for-a-luis-app"></a>Fördefinierad valuta enhet för en LUIS-app
-Den fördefinierade valuta enheten identifierar valuta i många valörer och länder/regioner, oavsett LUIS-programkultur. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller den valuta som programmet avsikter. Valuta entitet stöds i [många kulturer](luis-reference-prebuilt-entities.md). 
+Den fördefinierade valuta enheten identifierar valuta i många valörer och länder/regioner, oavsett LUIS-programkultur. Eftersom entiteten redan har tränats behöver du inte lägga till exempel yttranden som innehåller valuta till program avsikterna. Currency-entiteten stöds i [många kulturer](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-currency"></a>Typer av valuta
 Valutan hanteras från GitHub-lagringsplatsen för [identifierare – text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26)
 
-## <a name="resolution-for-currency-entity"></a>Lösning för valuta entitet
+## <a name="resolution-for-currency-entity"></a>Lösning för entiteten valuta
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
+#### <a name="v3-responsetabv3"></a>[V3-svar](#tab/V3)
 
-I följande exempel visas av lösningen på den **builtin.currency** entitet.
+Följande JSON är med parametern `verbose` som har angetts till `false`:
 
 ```json
-{
-  "query": "search for items under $10.99",
-  "topScoringIntent": {
-    "intent": "SearchForItems",
-    "score": 0.926173568
-  },
-  "intents": [
-    {
-      "intent": "SearchForItems",
-      "score": 0.926173568
-    },
-    {
-      "intent": "None",
-      "score": 0.07376878
+"entities": {
+    "money": [
+        {
+            "number": 10.99,
+            "units": "Dollar"
+        }
+    ]
+}
+```
+#### <a name="v3-verbose-responsetabv3-verbose"></a>[V3 utförlig Response](#tab/V3-verbose)
+Följande JSON är med parametern `verbose` som har angetts till `true`:
+
+```json
+"entities": {
+    "money": [
+        {
+            "number": 10.99,
+            "unit": "Dollar"
+        }
+    ],
+    "$instance": {
+        "money": [
+            {
+                "type": "builtin.currency",
+                "text": "$10.99",
+                "startIndex": 23,
+                "length": 6,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor"
+            }
+        ]
     }
-  ],
-  "entities": [
+}
+```
+
+#### <a name="v2-responsetabv2"></a>[V2-svar](#tab/V2)
+
+I följande exempel visas upplösningen för entiteten **Builtin. Currency** .
+
+```json
+"entities": [
     {
-      "entity": "$10.99",
-      "type": "builtin.currency",
-      "startIndex": 23,
-      "endIndex": 28,
-      "resolution": {
+        "entity": "$10.99",
+        "type": "builtin.currency",
+        "startIndex": 23,
+        "endIndex": 28,
+        "resolution": {
         "unit": "Dollar",
         "value": "10.99"
-      }
-    }
-  ]
-}
-```
-
-
-
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
-
-Följande JSON är med parametern `verbose` inställd på `false`:
-
-```json
-{
-    "query": "search for items under $10.99",
-    "prediction": {
-        "normalizedQuery": "search for items under $10.99",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.605889857
-            }
-        },
-        "entities": {
-            "money": [
-                {
-                    "number": 10.99,
-                    "unit": "Dollar"
-                }
-            ]
         }
     }
-}
+]
 ```
-
-Följande JSON är med parametern `verbose` inställd på `true`:
-
-```json
-{
-    "query": "search for items under $10.99",
-    "prediction": {
-        "normalizedQuery": "search for items under $10.99",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.605889857
-            }
-        },
-        "entities": {
-            "money": [
-                {
-                    "number": 10.99,
-                    "unit": "Dollar"
-                }
-            ],
-            "$instance": {
-                "money": [
-                    {
-                        "type": "builtin.currency",
-                        "text": "$10.99",
-                        "startIndex": 23,
-                        "length": 6,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    }
-                ]
-            }
-        }
-    }
-}
-```
-
-
 * * * 
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
-Lär dig mer om den [datetimeV2](luis-reference-prebuilt-datetimev2.md), [dimension](luis-reference-prebuilt-dimension.md), och [e-post](luis-reference-prebuilt-email.md) entiteter. 
+Lär dig mer om [datetimeV2](luis-reference-prebuilt-datetimev2.md), [dimension](luis-reference-prebuilt-dimension.md)och [e-](luis-reference-prebuilt-email.md) postentiteter. 

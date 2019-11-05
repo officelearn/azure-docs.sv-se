@@ -1,7 +1,7 @@
 ---
 title: Tal översättning med Speech service
 titleSuffix: Azure Cognitive Services
-description: Med tal tjänsten kan du lägga till en fullständig översättning av tal från slut punkt till slut punkt i real tid till dina program, verktyg och enheter. Samma API kan användas för både tal-till-tal- och tal till text.
+description: Med tal tjänsten kan du lägga till en fullständig översättning av tal från slut punkt till slut punkt i real tid till dina program, verktyg och enheter. Samma API kan användas för både tal-till-tal-och tal-till-text-översättning.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: cfcefd0b18831163324519b61dbea305f90f44bc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 17ad32cba18915bf7f83163cd876686d42323750
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552647"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468760"
 ---
 # <a name="what-is-speech-translation"></a>Vad är tal Översättning?
 
@@ -23,7 +23,7 @@ Tal översättning från Azure Speech Services, aktiverar real tids-, tal-till-t
 
 Microsofts översättnings motor drivs av två olika metoder: statistisk maskin översättning (SMT) och neurala Machine Translation (NMT). SMT använder avancerad statistisk analys för att uppskatta de bästa möjliga översättningarna med några få ord. Med NMT används neurala-nätverk för att tillhandahålla mer exakta, naturligt förekommande översättningar genom att använda den fullständiga kontexten för meningar för att översätta ord.
 
-Idag använder Microsoft NMT för översättning till de flesta populära språken. Alla [språk som är tillgängliga för tal till talöversättning](language-support.md#speech-translation) drivs av NMT. Tal till text translation kan använda SMT eller NMT beroende på språkparet. När mål språket stöds av NMT, är den fullständiga översättningen NMT. När mål språket inte stöds av NMT, är översättningen en hybrid av NMT och SMT, med engelska som en "Pivot"-lösning mellan de två språken.
+Idag använder Microsoft NMT för översättning till de flesta populära språken. Alla [språk som är tillgängliga för översättning av tal till tal](language-support.md#speech-translation) drivs av NMT. Översättning av tal till text kan använda SMT-eller NMT beroende på språk paret. När mål språket stöds av NMT, är den fullständiga översättningen NMT. När mål språket inte stöds av NMT, är översättningen en hybrid av NMT och SMT, med engelska som en "Pivot"-lösning mellan de två språken.
 
 ## <a name="core-features"></a>Kärn funktioner
 
@@ -41,11 +41,11 @@ Vi erbjuder snabb starter som har utformats för att du ska kunna köra kod på 
 
 | Snabbstart | Plattform | API-referens |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-translate-speech-dotnetcore-windows.md) | Windows | [Mellan](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET Framework](quickstart-translate-speech-dotnetframework-windows.md) | Windows | [Mellan](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](quickstart-translate-speech-uwp.md) | Windows | [Mellan](https://aka.ms/csspeech/csharpref) |
-| [C++](quickstart-translate-speech-cpp-windows.md) | Windows | [Mellan](https://aka.ms/csspeech/cppref)|
-| [Java](quickstart-translate-speech-java-jre.md) | Windows, Linux, macOS | [Mellan](https://aka.ms/csspeech/javaref) |
+| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore) | Windows | [Mellan](https://aka.ms/csspeech/csharpref) |
+| [C#.NET Framework](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet) | Windows | [Mellan](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp) | Windows | [Mellan](https://aka.ms/csspeech/csharpref) |
+| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-cpp&tabs=windows) | Windows | [Mellan](https://aka.ms/csspeech/cppref)|
+| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre) | Windows, Linux, macOS | [Mellan](https://aka.ms/csspeech/javaref) |
 
 ## <a name="sample-code"></a>Exempelkod
 
@@ -53,7 +53,7 @@ Exempel koden för talet SDK finns på GitHub. De här exemplen beskriver vanlig
 
 * [Exempel på tal-till-text-och översättning (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 
-## <a name="migration-guides"></a>Stöd linjer för migrering
+## <a name="migration-guides"></a>Migreringsguider
 
 Om dina program, verktyg eller produkter använder [Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview)har vi skapat guider som hjälper dig att migrera till tal tjänsterna.
 
@@ -63,9 +63,9 @@ Om dina program, verktyg eller produkter använder [Translator Speech API](https
 
 * [Speech SDK](speech-sdk-reference.md)
 * [Tal enheter SDK](speech-devices-sdk.md)
-* [REST API: Tal till text](rest-speech-to-text.md)
-* [REST API: Text till tal](rest-text-to-speech.md)
-* [REST API: Batch-avskrift och anpassning](https://westus.cris.ai/swagger/ui/index)
+* [REST API: tal till text](rest-speech-to-text.md)
+* [REST API: text till tal](rest-text-to-speech.md)
+* [REST API: batch-avskrift och anpassning](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Nästa steg
 

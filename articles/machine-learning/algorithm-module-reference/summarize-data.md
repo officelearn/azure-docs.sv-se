@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 54d7235ef56a94c9c0e7b780c53cbd9791bf4f53
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 503eb533b83cbeedcc16b73a9c1dbe821a4d4d94
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72694719"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492576"
 ---
 # <a name="summarize-data"></a>Sammanfatta data
 
-I den här artikeln beskrivs en modul i Azure Machine Learning Visual Interface.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd modulen sammanfatta data för att skapa en uppsättning standard statistiska mått som beskriver varje kolumn i inmatnings tabellen.
 
@@ -32,7 +32,7 @@ Modulen beräknar de viktiga poängen för varje kolumn och returnerar en rad me
 
 ## <a name="how-to-configure-summarize-data"></a>Konfigurera sammanfattande data  
 
-1. Lägg till modulen **sammanfatta data** i din pipeline. Du hittar den här modulen i kategorin **statistiska funktioner** i Visual Interface.
+1. Lägg till modulen **sammanfatta data** i din pipeline. Du hittar den här modulen i kategorin **statistiska funktioner** i designern.
 
 1. Anslut den data uppsättning som du vill skapa en rapport för.
 

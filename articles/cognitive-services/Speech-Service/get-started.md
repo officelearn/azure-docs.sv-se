@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
-ms.openlocfilehash: eb4478a435fbfc899055a60e13b318be771652f7
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 46ada91060aa095b7c041ff75abb6256f3d05853
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72527520"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464694"
 ---
 # <a name="try-speech-services-for-free"></a>Prova tal tjänster kostnads fritt
 
@@ -123,5 +123,5 @@ Nycklar som skapats för en region är bara giltiga i den regionen. Om du förs�
 Slutför en av våra snabb starter på 10 minuter eller kolla våra SDK-exempel:
 
 > [!div class="nextstepaction"]
-> [Snabb start: identifiera tal C# i](quickstart-csharp-dotnet-windows.md) 
+> [Snabb start: identifiera tal C# i](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
 > [tal SDK-exempel](speech-sdk.md#get-the-samples)

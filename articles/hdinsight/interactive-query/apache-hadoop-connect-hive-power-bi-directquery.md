@@ -1,5 +1,5 @@
 ---
-title: Visualisera interaktiva Hive-frågedata med Power BI i Azure HDInsight
+title: Se interaktiva Query Hive-data med Power BI i Azure HDInsight
 description: Använd Microsoft Power BI för att visualisera interaktiva Hive-frågedata från Azure HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: 0f273f75c33362bc99efbd7ac6bc46c3778ae88b
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: ea63b0784c0f8680e544179dfcd927f59336b3ec
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123025"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467147"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-hdinsight"></a>Visualisera interaktiva frågor Apache Hive data med Microsoft Power BI med direkt fråga i HDInsight
 
-Den här artikeln beskriver hur du ansluter Microsoft Power BI till interaktiva Azure HDInsight-frågegrupper och visualiserar Apache Hive data med direkt fråga. Exemplet läser in data från en `hivesampletable` Hive-tabell till Power BI. `hivesampletable` Hive-tabellen innehåller vissa mobil telefon användnings data. Sedan kan du rita användnings data på en världs karta:
+Den här artikeln beskriver hur du ansluter Microsoft Power BI till interaktiva Azure HDInsight-frågegrupper och visualiserar Apache Hive data med direkt fråga. Exemplet läser in data från en `hivesampletable` Hive-tabell som ska Power BI. Hive-tabellen `hivesampletable` innehåller vissa mobil telefon användnings data. Sedan kan du rita användnings data på en världs karta:
 
 ![HDInsight Power BI kart rapporten](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
 
@@ -35,7 +35,7 @@ Innan du går igenom den här artikeln måste du ha följande objekt:
 
 1. Starta Power BI Desktop.
 
-2. I meny raden går du till **Start** > **Hämta data** > **mer.** ...
+2. I meny raden går du till **start** > **Hämta data** > **mer.** ..
 
     ![HDInsight Power BI hämta data mer](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png)
 

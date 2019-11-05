@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Apache Storm att läsa, skriva med Apache Kafka – Azure HDInsight'
+title: 'Självstudie: Apache Storm med Apache Kafka – Azure HDInsight'
 description: Lär dig att skapa en direktuppspelnings-pipeline med Apache Storm och Apache Kafka i HDInsight. I den här självstudien använder du KafkaBolt- och KafkaSpout-komponenter till att strömma data från Kafka.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 0eaa3428234db8a7045728404bcfac5cc732dd9d
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: eac9bee6992520492b846e3b579d8a05c327e749
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181155"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494355"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Självstudie: Använda Apache Storm med Apache Kafka i HDInsight
 
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Känna till hur man skapar Kafka-ämnen. Mer information finns i dokumentet [Snabbstart för Kafka i HDInsight](./kafka/apache-kafka-get-started.md).
+* Om du vet hur man skapar Kafka-avsnitt. Mer information finns i dokumentet [Snabbstart för Kafka på HDInsight](./kafka/apache-kafka-get-started.md).
 
 * Känna till hur man skapar och distribuerar Storm-lösningar (topologier). Mer specifikt gäller det topologier som använder [Apache Storm Flux](https://storm.apache.org/releases/current/flux.html)-ramverket. Mer information finns i dokumentet [Skapa en Apache Storm-topologi i Java](./storm/apache-storm-develop-java-topology.md).
 
@@ -128,7 +128,7 @@ Två topologier medföljer den här självstudien:
     >
     > Om du inte använder mallen i det här dokumentet för att skapa Storm-kluster, måste du tillämpa skriptåtgärden i klustret manuellt.
     >
-    > Skript åtgärden finns i [https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh](https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh) och tillämpas på noderna ansvariga och Nimbus i Storm-klustret. Mer information om hur du använder skriptåtgärder finns i dokumentet [Anpassa HDInsight med hjälp av skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md).
+    > Skript åtgärden finns på [https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh](https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh) och tillämpas på noderna supervisor och Nimbus i Storm-klustret. Mer information om hur du använder skriptåtgärder finns i dokumentet [Anpassa HDInsight med hjälp av skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md).
 
 Topologierna definieras med hjälp av [Flux](https://storm.apache.org/releases/current/flux.html). Flux introducerades i Storm-0.10.x för att du ska kunna avgränsa topologikonfigurationen från koden. För topologier som använder Flux-ramverket definieras topologin i en YAML-fil. YAML-filen kan ingå i topologin. Den kan också vara en fristående fil som används när du skickar topologin. Flux stöder också variabelersättning vid körning, vilket används i det här exemplet.
 
@@ -395,7 +395,7 @@ Om du vill skapa ett Azure Virtual Network och sedan skapa Kafka- och Storm-klus
 
     * Azure-resursgrupp
     * Azure Virtual Network
-    * Azure-lagringskonto
+    * Azure Storage-konto
     * Kafka i HDInsight version 3.6 (tre arbetarnoder)
     * Storm i HDInsight version 3.6 (tre arbetarnoder)
 
@@ -406,11 +406,11 @@ Om du vill skapa ett Azure Virtual Network och sedan skapa Kafka- och Storm-klus
 
    1. Använd följande information för att fylla i posterna i avsnittet **Anpassad mall**:
 
-      | Inställning | Value |
+      | Inställning | Värde |
       | --- | --- |
-      | Subscription | Din Azure-prenumeration |
-      | Resource group | Resursgruppen som innehåller resurserna. |
-      | Location | Azure-regionen som resurserna skapas i. |
+      | Prenumeration | Din Azure-prenumeration |
+      | Resursgrupp | Resursgruppen som innehåller resurserna. |
+      | Plats | Azure-regionen som resurserna skapas i. |
       | Kafka-klusternamn | Namnet på Kafka-klustret. |
       | Namn på Storm-kluster | Namnet på Storm-klustret. |
       | Användarnamn för klusterinloggning | Ett administratörsanvändarnamn för klustren. |

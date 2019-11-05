@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 5fb1050fed2ab7318ad5b4ecafec7a96a9324575
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: cf0332909e053a0875d41a00d15f196b193ba15e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792055"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466712"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Dokumentations resurser för AI-anrikning i Azure Kognitiv sökning
 
@@ -22,8 +22,8 @@ AI-anrikning är en funktion i Azure Kognitiv sökning indexering som hittar lat
 Följande artiklar är den fullständiga dokumentationen för AI-berikning.
 
 ## <a name="getting-started"></a>Komma igång
-+ [Introduktion till AI-anrikning i Azure Kognitiv sökning](cognitive-search-concept-intro.md)
-+ [Snabb start: prova AI-anrikning i portalen](cognitive-search-quickstart-blob.md)
++ [Introduktion till AI i Azure Kognitiv sökning](cognitive-search-concept-intro.md)
++ [Snabb start: skapa en kognitiv färdigheter i Azure Portal](cognitive-search-quickstart-blob.md)
 + [Självstudie: omfattande indexering med AI](cognitive-search-tutorial-blob.md)
 + [Exempel: skapa en anpassad färdighet för AI-anrikning](cognitive-search-create-custom-skill-example.md)
 
@@ -49,6 +49,7 @@ Följande artiklar är den fullständiga dokumentationen för AI-berikning.
   + [Microsoft. färdigheter. vision. ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)
   + [Microsoft. färdigheter. vision. OcrSkill](cognitive-search-skill-ocr.md)
   + [Microsoft. färdigheter. util. ConditionalSkill](cognitive-search-skill-conditional.md)
+  + [Microsoft. färdigheter. util. DocumentExtractionSkill](cognitive-search-skill-document-extraction.md)
   + [Microsoft. färdigheter. util. ShaperSkill](cognitive-search-skill-shaper.md)
 
 + Anpassade färdigheter
@@ -61,7 +62,7 @@ Följande artiklar är den fullständiga dokumentationen för AI-berikning.
   + [Skapa färdigheter (API-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
   + [Skapa indexerare (API-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 + [Azure Kognitiv sökning REST API](https://docs.microsoft.com/rest/api/searchservice/)
 + [Indexerare i Azure Kognitiv sökning](search-indexer-overview.md)

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b0fab51e002ecb431bf68f58984290889296b2a9
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 4f5344259767aaad9ed58ded1da86ae7ee3c03e7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097549"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470105"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för appar i Azure App Service
 ## <a name="overview"></a>Översikt
@@ -25,12 +25,17 @@ Azure har inbyggd diagnostik som hjälper till med fel sökning av en [App Servi
 
 I den här artikeln används [Azure Portal](https://portal.azure.com) och Azure CLI för att arbeta med diagnostikloggar. Information om hur du arbetar med diagnostiska loggar med Visual Studio finns i [Felsöka Azure i Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
-|type|Plattform|Location|Beskrivning|
+> [!NOTE]
+> Förutom loggnings anvisningarna i den här artikeln finns det en ny integrerad loggnings funktion med Azure-övervakning. Du hittar den här funktionen på [sidan loggar och diagnostikinställningar (för hands version)](https://aka.ms/appsvcblog-azmon). 
+>
+>
+
+|Typ|Plattform|Plats|Beskrivning|
 |-|-|-|-|
-| Programloggning | Windows, Linux | App Service fil system och/eller Azure Storage blobbar | Loggar meddelanden som genereras av din program kod. Meddelandena kan genereras av det webb ramverk du väljer eller från din program kod direkt med hjälp av standard loggnings mönstret för ditt språk. Varje meddelande tilldelas en av följande kategorier: **Kritisk**, **fel**, **Varning**, **info**, **fel sökning**och **spårning**. Du kan välja hur utförlig loggning ska ske genom att ange allvarlighets grad när du aktiverar program loggning.|
-| Webbserverloggning| Windows | App Service fil system eller Azure Storage blobbar| Rå data för HTTP-begäran i [utökat logg fils format för W3C](/windows/desktop/Http/w3c-logging). Varje logg meddelande innehåller data, till exempel HTTP-metoden, resurs-URI, klient-IP, klient port, användar agent, svars kod och så vidare. |
+| Programloggning | Windows, Linux | App Service fil system och/eller Azure Storage blobbar | Loggar meddelanden som genereras av din program kod. Meddelandena kan genereras av det webb ramverk du väljer eller från din program kod direkt med hjälp av standard loggnings mönstret för ditt språk. Varje meddelande tilldelas en av följande kategorier: **kritisk**, **fel**, **Varning**, **information**, **fel sökning**och **spårning**. Du kan välja hur utförlig loggning ska ske genom att ange allvarlighets grad när du aktiverar program loggning.|
+| Webb Server loggning| Windows | App Service fil system eller Azure Storage blobbar| Rå data för HTTP-begäran i [utökat logg fils format för W3C](/windows/desktop/Http/w3c-logging). Varje logg meddelande innehåller data, till exempel HTTP-metoden, resurs-URI, klient-IP, klient port, användar agent, svars kod och så vidare. |
 | Detaljerad fel loggning | Windows | App Service fil system | Kopior av *. htm* -felsidor som skulle ha skickats till klient webbläsaren. Av säkerhets skäl bör detaljerade felsidor inte skickas till klienter i produktion, men App Service kan spara felsidan varje gången ett program fel uppstår som har HTTP-kod 400 eller senare. Sidan kan innehålla information som kan hjälpa dig att avgöra varför servern returnerar felkoden. |
-| Spårning av misslyckade förfrågningar | Windows | App Service fil system | Detaljerad spårnings information om misslyckade förfrågningar, inklusive spårning av IIS-komponenter som används för att bearbeta begäran och den tid som tagits i varje komponent. Det är användbart om du vill förbättra platsens prestanda eller isolera ett särskilt HTTP-fel. En mapp skapas för varje misslyckad begäran, som innehåller XML-loggfilen och XSL-formatmallen för att Visa logg filen med. |
+| Spårning av misslyckade begär Anden | Windows | App Service fil system | Detaljerad spårnings information om misslyckade förfrågningar, inklusive spårning av IIS-komponenter som används för att bearbeta begäran och den tid som tagits i varje komponent. Det är användbart om du vill förbättra platsens prestanda eller isolera ett särskilt HTTP-fel. En mapp skapas för varje misslyckad begäran, som innehåller XML-loggfilen och XSL-formatmallen för att Visa logg filen med. |
 | Distributions loggning | Windows, Linux | App Service fil system | Loggar för när du publicerar innehåll till en app. Distributions loggning sker automatiskt och det finns inga konfigurerbara inställningar för distributions loggning. Det hjälper dig att avgöra varför en distribution misslyckades. Om du till exempel använder ett [anpassat distributions skript](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)kan du använda distributions loggning för att avgöra varför skriptet Miss söker. |
 
 > [!NOTE]
@@ -45,7 +50,7 @@ Om du vill aktivera program loggning för Windows-appar i [Azure Portal](https:/
 
 Välj **antingen för** **program loggning (fil system)** eller **program loggning (BLOB)** eller båda. 
 
-Alternativet **fil system** är för tillfälliga fel söknings syfte och inaktive ras i 12 timmar. **BLOB** -alternativet är för långsiktig loggning och behöver en Blob Storage-behållare för att skriva loggar till.  **BLOB** -alternativet innehåller också ytterligare information i logg meddelandena, till exempel ID: t för den ursprungliga virtuella dator instansen av logg`InstanceId`meddelandet (), tråd`Tid`-ID () och en mer detaljerad[`EventTickCount`](https://docs.microsoft.com/dotnet/api/system.datetime.ticks)tidsstämpel ().
+Alternativet **fil system** är för tillfälliga fel söknings syfte och inaktive ras i 12 timmar. **BLOB** -alternativet är för långsiktig loggning och behöver en Blob Storage-behållare för att skriva loggar till.  **BLOB** -alternativet innehåller också ytterligare information i logg meddelandena, till exempel ID: t för den ursprungliga virtuella dator instansen av logg meddelandet (`InstanceId`), tråd-id (`Tid`) och en mer detaljerad tidsstämpel ([`EventTickCount`](https://docs.microsoft.com/dotnet/api/system.datetime.ticks)).
 
 > [!NOTE]
 > För närvarande kan endast .NET-program loggar skrivas till blob-lagringen. Java, PHP, Node. js, python-programloggarna kan bara lagras i App Service fil system (utan kod ändringar för att skriva loggar till extern lagring).
@@ -61,7 +66,7 @@ Välj **nivå**eller den informations nivå som ska loggas. Följande tabell vis
 
 | Nivå | Inkluderade kategorier |
 |-|-|
-|**Inaktiverad** | Inga |
+|**Inaktiverad** | Ingen |
 |**Fels** | Fel, kritiskt |
 |**Honom** | Varning, fel, kritiskt|
 |**Mer** | Information, varning, fel, kritiskt|
@@ -107,9 +112,9 @@ Båda typerna av loggar lagras i App Service fil system. Upp till 50 fel (filer/
 
 ## <a name="add-log-messages-in-code"></a>Lägg till logg meddelanden i kod
 
-I program koden använder du vanliga loggnings funktioner för att skicka logg meddelanden till program loggarna. Exempel:
+I program koden använder du vanliga loggnings funktioner för att skicka logg meddelanden till program loggarna. Till exempel:
 
-- ASP.NET-program kan använda klassen [system. Diagnostics. trace](/dotnet/api/system.diagnostics.trace) för att logga information i Application Diagnostics-loggen. Exempel:
+- ASP.NET-program kan använda klassen [system. Diagnostics. trace](/dotnet/api/system.diagnostics.trace) för att logga information i Application Diagnostics-loggen. Till exempel:
 
     ```csharp
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
@@ -137,12 +142,12 @@ Om du vill strömma loggar Live i [Cloud Shell](../cloud-shell/overview.md)anvä
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-Om du vill filtrera vissa händelser, till exempel fel, använder du parametern **--filter** . Exempel:
+Om du vill filtrera vissa händelser, till exempel fel, använder du parametern **--filter** . Till exempel:
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --filter Error
 ```
-Använd parametern **--Path** för att filtrera vissa logg typer, till exempel http. Exempel:
+Använd parametern **--Path** för att filtrera vissa logg typer, till exempel http. Till exempel:
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --path http
@@ -158,8 +163,8 @@ Om du konfigurerar alternativet Azure Storage blobbar för en loggtyp behöver d
 
 För loggar som lagras i App Service fil systemet är det enklaste sättet att ladda ned ZIP-filen i webbläsaren på:
 
-- Linux/container-appar:`https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
-- Windows-appar:`https://<app-name>.scm.azurewebsites.net/api/dump`
+- Linux/container-appar: `https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
+- Windows-appar: `https://<app-name>.scm.azurewebsites.net/api/dump`
 
 För Linux/container-appar innehåller ZIP-filen konsolens utgående loggar för både Docker-värden och Docker-behållaren. För en utskalad app innehåller ZIP-filen en uppsättning loggar för varje instans. I det App Service fil systemet, är dessa loggfiler innehållet i */Home/LogFiles* -katalogen.
 
@@ -170,7 +175,7 @@ För Windows-appar innehåller ZIP-filen innehållet i *D:\Home\LogFiles* -katal
 | **Program loggar** |*/LogFiles/Application/* | Innehåller en eller flera textfiler. Formatet på logg meddelandena beror på vilken loggnings leverantör du använder. |
 | **Spårning av misslyckade begär Anden** | */LogFiles/W3SVC#########/* | Innehåller XML-filer och en XSL-fil. Du kan visa de formaterade XML-filerna i webbläsaren. |
 | **Detaljerade fel loggar** | */LogFiles/DetailedErrors/* | Innehåller HTM-felfiler. Du kan visa HTM-filerna i webbläsaren.<br/>Ett annat sätt att Visa spårningen av misslyckade begär Anden är att navigera till din app-sida i portalen. På den vänstra menyn väljer du **diagnostisera och löser problem**, sedan söker du efter **spårnings loggar för misslyckade begär Anden**och klickar sedan på ikonen för att bläddra och visa den spårning som du vill använda. |
-| **Webb server loggar** | */LogFiles/http/RawLogs/* | Innehåller textfiler som formaterats med [utökat logg fils format för W3C](/windows/desktop/Http/w3c-logging). Den här informationen kan läsas med en text redigerare eller ett verktyg som [log parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>App Service stöder `s-computername`inte fälten, `s-ip`, eller `cs-version` . |
+| **Webb server loggar** | */LogFiles/http/RawLogs/* | Innehåller textfiler som formaterats med [utökat logg fils format för W3C](/windows/desktop/Http/w3c-logging). Den här informationen kan läsas med en text redigerare eller ett verktyg som [log parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>App Service stöder inte fälten `s-computername`, `s-ip`eller `cs-version`. |
 | **Distributions loggar** | */LogFiles/git/* och */Deployments/* | Innehåller loggar som genereras av interna distributions processer samt loggar för git-distributioner. |
 
 ## <a name="nextsteps"></a>Nästa steg

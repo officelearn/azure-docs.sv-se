@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: 3792eed170d3e3e1cdd267c0c88d2d2d6c520733
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: da84f72c1ccf85e1f3d0f003a5aca961118c0a0e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672817"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472894"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes Core-koncept för Azure Kubernetes service (AKS)
 
@@ -45,7 +45,7 @@ När du skapar ett AKS-kluster skapas och konfigureras en kluster hanterare auto
 
 Kluster administratören innehåller följande kärn Kubernetes-komponenter:
 
-- *Kube-apiserver* – API-servern är hur de underliggande Kubernetes-API: erna exponeras. Den här komponenten ger interaktion för hanterings verktyg, till `kubectl` exempel eller Kubernetes-instrumentpanelen.
+- *Kube-apiserver* – API-servern är hur de underliggande Kubernetes-API: erna exponeras. Den här komponenten ger interaktion för hanterings verktyg, till exempel `kubectl` eller Kubernetes-instrumentpanelen.
 - *etcd* – för att underhålla status för ditt Kubernetes-kluster och-konfiguration är hög tillgänglig *etcd* ett nyckel värdes lager inom Kubernetes.
 - *Kube-Scheduler* – när du skapar eller skalar program bestämmer Scheduler vilka noder som kan köra arbets belastningen och startar dem.
 - *Kube-Controller-Manager* – Controller Manager ser över ett antal mindre styrenheter som utför åtgärder som att replikera poddar och hantera Node-åtgärder.
@@ -62,7 +62,7 @@ För associerade metod tips, se [metod tips för kluster säkerhet och uppgrader
 
 Om du vill köra program och stöd tjänster behöver du en Kubernetes- *nod*. Ett AKS-kluster har en eller flera noder, som är en virtuell Azure-dator (VM) som kör Kubernetes-nodens komponenter och behållar körningen:
 
-- @No__t-0 är Kubernetes-agenten som bearbetar Orchestration-begärandena från kluster hanteraren och schemaläggning av att köra de begärda behållarna.
+- `kubelet` är Kubernetes-agenten som bearbetar Orchestration-begärandena från kluster hanteraren och schemaläggning av att köra de begärda behållarna.
 - Virtuella nätverk hanteras av *Kube-proxy* på varje nod. Proxyservern dirigerar nätverks trafik och hanterar IP-adresser för tjänster och poddar.
 - *Container runtime* är den komponent som gör det möjligt för program i behållare att köra och interagera med ytterligare resurser, till exempel det virtuella nätverket och lagringen. I AKS används Moby som container Runtime.
 
@@ -72,11 +72,11 @@ Storleken på virtuella Azure-datorer för dina noder definierar hur många proc
 
 I AKS baseras den virtuella dator avbildningen för noderna i klustret för närvarande på Ubuntu Linux eller Windows Server 2019. När du skapar ett AKS-kluster eller skalar upp antalet noder, skapar Azure-plattformen det begärda antalet virtuella datorer och konfigurerar dem. Det finns ingen manuell konfiguration som du kan utföra. Agent-noder faktureras som standard virtuella datorer så att eventuella rabatter som du har på den virtuella dator storleken som du använder (inklusive [Azure-reservationer][reservation-discounts]) används automatiskt.
 
-Om du behöver använda ett annat värd operativ system, container runtime eller inkludera anpassade paket kan du distribuera ditt eget Kubernetes-kluster med [AKS-Engine][aks-engine]. Överordnad `aks-engine` frigör funktioner och ger konfigurations alternativ innan de stöds officiellt i AKS-kluster. Om du till exempel vill använda en annan behållar körning än Moby kan du använda `aks-engine` för att konfigurera och distribuera ett Kubernetes-kluster som uppfyller dina aktuella behov.
+Om du behöver använda ett annat värd operativ system, container runtime eller inkludera anpassade paket kan du distribuera ditt eget Kubernetes-kluster med [AKS-Engine][aks-engine]. Överordnad `aks-engine` frigör funktioner och tillhandahåller konfigurations alternativ innan de stöds officiellt i AKS-kluster. Om du till exempel vill använda en annan behållar körning än Moby kan du använda `aks-engine` för att konfigurera och distribuera ett Kubernetes-kluster som uppfyller dina aktuella behov.
 
 ### <a name="resource-reservations"></a>Resurs reservationer
 
-Node-resurser används av AKS för att göra Node-funktionen som en del av klustret. Detta kan skapa en discrepency mellan nodens totala resurser och de resurser allocatable som används i AKS. Detta är viktigt att notera när du ställer in förfrågningar och begränsningar för användare som har distribuerat poddar.
+Node-resurser används av AKS för att göra Node-funktionen som en del av klustret. Detta kan skapa en avvikelse mellan nodens totala resurser och de resurser som allocatable när de används i AKS. Detta är viktigt att notera när du ställer in förfrågningar och begränsningar för användare som har distribuerat poddar.
 
 Så här söker du efter en nods allocatable resurser:
 ```kubectl
@@ -108,9 +108,9 @@ Den underliggande noden kräver också viss mängd processor-och minnes resurser
 
 För associerade metod tips, se [metod tips för grundläggande funktioner i Schemaläggaren i AKS][operator-best-practices-scheduler].
 
-### <a name="node-pools"></a>Nodpooler
+### <a name="node-pools"></a>Node-pooler
 
-Noder i samma konfiguration grupperas tillsammans i *noder i pooler*. Ett Kubernetes-kluster innehåller en eller flera Node-pooler. Det ursprungliga antalet noder och storlek definieras när du skapar ett AKS-kluster, vilket skapar en *standardnod*. Denna standardnod i AKS innehåller de underliggande virtuella datorerna som kör dina agent-noder. Stöd för flera Node-pooler är för närvarande en för hands version i AKS.
+Noder i samma konfiguration grupperas tillsammans i *noder i pooler*. Ett Kubernetes-kluster innehåller en eller flera Node-pooler. Det ursprungliga antalet noder och storlek definieras när du skapar ett AKS-kluster, vilket skapar en *standardnod*. Denna standardnod i AKS innehåller de underliggande virtuella datorerna som kör dina agent-noder.
 
 > [!NOTE]
 > För att klustret ska fungera på ett tillförlitligt sätt bör du köra minst två noder (två) i standardnodens pool.
@@ -140,7 +140,7 @@ spec:
 
 Mer information om hur du styr var poddar schemaläggs finns i [metod tips för avancerade Scheduler-funktioner i AKS][operator-best-practices-advanced-scheduler].
 
-## <a name="pods"></a>Poddar
+## <a name="pods"></a>poddar
 
 Kubernetes använder *poddar* för att köra en instans av programmet. En POD representerar en enda instans av ditt program. Poddar har vanligt vis en 1:1-mappning med en behållare, även om det finns avancerade scenarier där en POD kan innehålla flera behållare. Dessa poddar för flera behållare schemaläggs tillsammans på samma nod och tillåter att behållare delar relaterade resurser.
 
@@ -218,7 +218,7 @@ Det finns två Kubernetes-resurser som låter dig hantera följande typer av pro
 
 Modern program utveckling syftar ofta till tillstånds lösa program, men *StatefulSets* kan användas för tillstånds känsliga program, till exempel program som innehåller databas komponenter. En StatefulSet liknar en distribution i som en eller flera identiska poddar skapas och hanteras. Repliker i en StatefulSet följer en korrekt, sekventiell metod för distribution, skalning, uppgraderingar och avslutning. Med en StatefulSet kommer namngivnings konventionen, nätverks namnen och lagringen att vara kvar som repliker omplaneras.
 
-Du definierar programmet i YAML-format med hjälp av `kind: StatefulSet`, och StatefulSet-kontrollanten hanterar sedan distributionen och hanteringen av de nödvändiga replikerna. Data skrivs till beständig lagring, som tillhandahålls av Azure Managed Disks eller Azure Files. Med StatefulSets förblir den underliggande beständiga lagringen även om StatefulSet tas bort.
+Du definierar programmet i YAML-format med hjälp av `kind: StatefulSet`och StatefulSet-kontrollanten hanterar sedan distributionen och hanteringen av de nödvändiga replikerna. Data skrivs till beständig lagring, som tillhandahålls av Azure Managed Disks eller Azure Files. Med StatefulSets förblir den underliggande beständiga lagringen även om StatefulSet tas bort.
 
 Mer information finns i [Kubernetes StatefulSets][kubernetes-statefulsets].
 

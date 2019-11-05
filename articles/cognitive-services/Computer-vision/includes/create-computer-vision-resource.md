@@ -6,33 +6,28 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 7/5/2019
+ms.date: 10/07/2019
 ms.author: dapine
-ms.openlocfilehash: cbf11c13bfb5c90739ea67fab92df08796a88e50
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 2cb2cfbdfbac5d496f109d85977b41a050766ab0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717278"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499110"
 ---
-## <a name="create-an-computer-vision-resource"></a>Skapa en resurs för visuellt innehåll
+## <a name="create-an-computer-vision-resource"></a>Skapa en Visuellt innehåll resurs
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com)
-1. Klicka på [skapa **visuellt** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) resurs
+1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Klicka på [skapa **visuellt innehåll** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) resurs.
 1. Ange alla nödvändiga inställningar:
 
     |Inställning|Värde|
     |--|--|
     |Namn|Önskat namn (2-64 tecken)|
-    |Subscription|Välj lämplig prenumeration|
-    |Location|Välj valfri plats i närheten och tillgänglig|
-    |Prisnivå|`F0` -minimal prisnivån|
-    |Resursgrupp|Välj en tillgänglig resursgrupp|
+    |Prenumeration|Välj lämplig prenumeration|
+    |Plats|Välj valfri närliggande och tillgänglig plats|
+    |Prisnivå|`F0` – den minimala pris nivån|
+    |Resursgrupp|Välj en tillgänglig resurs grupp|
 
-1. Klicka på **skapa** och vänta tills resursen som ska skapas. När den har skapats, gå till resurssidan
-1. Samla in konfigurerats `endpoint` och en API-nyckel:
-
-    |Resurs-fliken i portalen|Inställning|Värde|
-    |--|--|--|
-    |**Översikt**|Slutpunkt|Kopiera slutpunkten. Den liknar `https://computer-vision.cognitiveservices.azure.com/`|
-    |**nycklar**|API-nyckel|Kopiera 1 av två nycklar. Det är en 32 alfanumeriska tecken lång sträng utan mellanslag eller tankstreck, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+1. Klicka på **skapa** och vänta tills resursen har skapats. När den har skapats går du till resurs sidan.
+1. Samla in konfigurerade `{ENDPOINT_URI}` och `{API_KEY}`, se [samla in nödvändiga parametrar](../computer-vision-how-to-install-containers.md#gathering-required-parameters) för mer information.

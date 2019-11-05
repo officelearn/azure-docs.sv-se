@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d0cb5becd8375c393031892efb0b6c54786eeb8f
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 63c3f2080a74142f3f9a68852092cbc527c4483b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242224"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470073"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -322,11 +322,24 @@ Mer information finns i [OWASP topp 10 sårbarheter](https://www.owasp.org/index
 
 ### <a name="does-waf-support-ddos-protection"></a>Stöder WAF DDoS-skydd?
 
-Ja. Du kan aktivera DDoS-skydd på det virtuella nätverk där programgatewayen distribueras. Den här inställningen säkerställer att tjänsten Azure DDoS Protection också skyddar den virtuella IP-adressen (VIP) för Programgateway.
+Ja. Du kan aktivera DDoS-skydd på det virtuella nätverket där programgatewayen distribueras. Denna inställning garanterar att tjänsten Azure DDoS Protection även skyddar applikationsgatewayens virtuella IP-adress (VIP).
 
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Finns det några rikt linjer som du kan använda för att migrera från v1 SKU till v2-SKU: n?
 
 Ja. Mer information finns i [migrera Azure Application Gateway och brand vägg för webbaserade program från v1 till v2](migrate-v1-v2.md).
+
+## <a name="configuration---ingress-controller-for-aks"></a>Konfiguration – ingress-styrenhet för AKS
+
+### <a name="what-is-an-ingress-controller"></a>Vad är en ingångs kontroll?
+
+Med Kubernetes kan du skapa `deployment` och `service` resurs för att exponera en grupp poddar internt i klustret. För att exponera samma tjänst externt definieras en [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) resurs som tillhandahåller belastnings utjämning, SSL-avslutning och namnbaserade virtuella värdar.
+För att tillfredsställa denna `Ingress` resurs krävs en ingångs kontroll som lyssnar efter ändringar i `Ingress` resurser och konfigurerar belastnings Utjämnings principerna.
+
+På Application Gateway ingångs styrenheten kan [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) användas som ingress för en [Azure Kubernetes-tjänst](https://azure.microsoft.com/services/kubernetes-service/) även kallat ett AKS-kluster.
+
+### <a name="can-a-single-ingress-controller-instance-manage-multiple-application-gateways"></a>Kan en enskild instans av kontroll enheten hantera flera programgatewayer?
+
+För närvarande kan en instans av ingångs styrenheten bara kopplas till en Application Gateway.
 
 ## <a name="diagnostics-and-logging"></a>Diagnostik och loggning
 

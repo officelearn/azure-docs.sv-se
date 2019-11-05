@@ -11,26 +11,26 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/26/2019
-ms.openlocfilehash: 5fccf1ffc76c824c81f8b8b826f90bf8314ff1e3
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: f23ef5506027a5de9f4189a11636d323679707f3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883349"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488489"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL Database ord lista med villkor
 
-|Kontext|Term|Mer information|
+|Kontext|Period|Mer information|
 |:---|:---|:---|
 |Namn på Azure-tjänst|Azure SQL Database eller SQL Database|[Tjänsten Azure SQL Database](sql-database-technical-overview.md)|
-|Compute-nivå|Utan server (för hands version)|[Server lös beräknings nivå](sql-database-serverless.md)
+|Beräknings nivå|Utan server |[Server lös beräknings nivå](sql-database-serverless.md)
 ||Etablerat|[Server lös beräknings nivå](sql-database-serverless.md)
 |Distributionsalternativ |Enskild databas|[Enkla databaser](sql-database-single-database.md)|
 ||Elastisk pool|[Elastisk pool](sql-database-elastic-pool.md)|
 ||Hanterad instans|[Hanterad instans](sql-database-managed-instance.md)|
-|Serverobjekt|SQL Database Server eller databas server|[Databas server](sql-database-servers.md)|
+|Server objekt|SQL Database Server eller databas server|[Databas server](sql-database-servers.md)|
 ||SQL Database Hanterad instans Server, hanterad instans Server eller instans Server|[Hanterad instans](sql-database-managed-instance.md)|
-Databasobjekt|Azure SQL-databas|Alla databaser i Azure SQL Database|
+Databas objekt|Azure SQL-databas|Alla databaser i Azure SQL Database|
 ||Enskild databas|En databas som skapats med distributions alternativet för enskild databas|
 ||Databas i pooler|En databas som skapats i eller flyttats till en elastisk pool|
 ||Instans databas|En databas som skapats inom en hanterad instans|
@@ -43,8 +43,8 @@ Databasobjekt|Azure SQL-databas|Alla databaser i Azure SQL Database|
 ||Etablerad databas|En databas som kon figurer ATS i den allokerade beräknings nivån|
 |[Köp modeller och resurser](sql-database-purchase-models.md)|DTU-baserad inköps modell|[DTU-baserad inköps modell](sql-database-service-tiers-dtu.md)|
 ||Köpmodell baserad på virtuell kärna|[vCore-baserad inköps modell](sql-database-service-tiers-vcore.md)|
-||virtuell kärna|En kärna som erbjuds av gäst operativ systemet via hypervisorn.|
-||Tjänstnivå|En service nivå inom en inköps modell|
+||vCore|En kärna som erbjuds av gäst operativ systemet via hypervisorn.|
+||Tjänstenivå|En service nivå inom en inköps modell|
 ||Beräknings storlek|Mängden data bearbetnings resurser för en enskild databas, elastisk pool eller hanterad instans inom en tjänst nivå|
 ||Lagrings belopp|Mängden lagrings utrymme som är tillgänglig för en enskild databas, elastisk pool eller hanterad instans|
 ||Beräknings generation|Generering av processor inom en tjänst nivå|

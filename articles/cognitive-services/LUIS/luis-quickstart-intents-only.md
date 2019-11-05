@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Förutsäga avsikter – LUIS'
+title: 'Självstudie: förutsäga-LUIS'
 titleSuffix: Azure Cognitive Services
 description: I den här självstudien skapar du en anpassad app som förutspår en användares avsikt. Den här appen är den enklaste typen av LUIS-app eftersom den inte extraherar olika dataelement från yttranden, som e-postadresser eller datum.
 services: cognitive-services
@@ -11,16 +11,18 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 7139876f64841a877e688ec6faf03597c527d1f2
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 83ecf0767f2b21065c698421e3ad8f07f31d5b16
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375825"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465287"
 ---
-# <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Självstudier: Skapa en LUIS-app som identifierar användarens avsikter
+# <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Självstudie: Bygg LUIS-app för att fastställa användar avsikter
 
 I den här självstudien skapar du en anpassad Human Resources-app som förutspår vad en användare vill baserat på yttrandet (text). 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **I den här självstudiekursen får du lära du dig att:**
 
@@ -47,9 +49,9 @@ Den här appen innehåller ett par avsikter.
 
 |Avsikt|Syfte|
 |--|--|
-|ApplyForJob|Avgör om användaren söker ett jobb.|
-|GetJobInformation|Avgör om användaren letar efter information om jobb allmänt eller ett specifikt jobb.|
-|Inga|Avgör om användaren frågar om något som appen inte är avsedd att besvara. Den här avsikten tillhandahålls som en del av att skapa appen och kan inte tas bort. |
+|`ApplyForJob`|Avgör om användaren söker ett jobb.|
+|`GetJobInformation`|Avgör om användaren letar efter information om jobb allmänt eller ett specifikt jobb.|
+|`None`|Avgör om användaren frågar om något som appen inte är avsedd att besvara. Den här avsikten tillhandahålls som en del av att skapa appen och kan inte tas bort. |
 
 ## <a name="create-a-new-app"></a>Skapa en ny app
 
@@ -59,7 +61,7 @@ Den här appen innehåller ett par avsikter.
 
 1. Välj **Create new intent** (Skapa ny avsikt). Ange det nya avsiktsnamnet `GetJobInformation`. Den här avsikten förväntas när en användare vill ha information om lediga tjänster på företaget. 
 
-    ![Skärmbild av Language Understanding (LUIS), dialogrutan Ny avsikt](media/luis-quickstart-intents-only/create-intent.png "Skärmbild av Language Understanding (LUIS), dialogrutan Ny avsikt")
+    ![Skärm bild av Language Understanding (LUIS) ny avsikts dialog ruta](media/luis-quickstart-intents-only/create-intent.png "Skärm bild av Language Understanding (LUIS) ny avsikts dialog ruta")
 
 1. Välj **Done** (Klar).
 
@@ -67,24 +69,24 @@ Den här appen innehåller ett par avsikter.
 
     | Exempel på yttranden|
     |--|
-    |Har nya jobb publicerats i dag?|
-    |Finns det lediga tjänster på Seattle-kontoret?|
-    |Finns det några lediga distansjobb för tekniker?|
-    |Finns det jobb med databaser?|
-    |Jag letar efter ett jobb på tampa-kontoret.|
-    |Finns det någon ledig praktikplats på san francisco-kontoret?|
-    |Finns det några deltidstjänster för studerande vid universitetet?|
-    |Söker efter ett nytt arbete inom redovisning|
-    |Letar efter ett jobb i new york för tvåspråkiga.|
-    |Söker efter ett nytt arbete inom redovisning.|
-    |Nya jobb?|
-    |Visa mig alla jobb för tekniker som har lagts till de 2 senaste dagarna.|
-    |Dagens jobbannonser?|
-    |Vilka redovisningstjänster är lediga på london-kontoret?|
-    |Finns det lediga tjänster för erfarna tekniker?|
-    |Var finns jobblistorna|
+    |`Any new jobs posted today?`|
+    |`Are there any new positions in the Seattle office?`|
+    |`Are there any remote worker or telecommute jobs open for engineers?`|
+    |`Is there any work with databases?`|
+    |`I'm looking for a co-working situation in the tampa office.`|
+    |`Is there an internship in the san francisco office?`|
+    |`Is there any part-time work for people in college?`|
+    |`Looking for a new situation with responsibilities in accounting`|
+    |`Looking for a job in new york city for bilingual speakers.`|
+    |`Looking for a new situation with responsibilities in accounting.`|
+    |`New jobs?`|
+    |`Show me all the jobs for engineers that were added in the last 2 days.`|
+    |`Today's job postings?`|
+    |`What accounting positions are open in the london office?`|
+    |`What positions are available for Senior Engineers?`|
+    |`Where is the job listings`|
 
-    [![Skärmbild av att ange nya yttranden för MyStore-avsikter](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Skärmbild av att ange nya yttranden för MyStore-avsikter")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
+    [![Skärm bild av att ange nya yttranden för avsikten med mittArkiv](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Skärm bild av att ange nya yttranden för avsikten med mittArkiv")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
     Genom att tillhandahålla _exempelyttranden_ tränar du LUIS i vilka typer av yttranden som ska förväntas i samband med den här avsikten. 
 
@@ -149,29 +151,22 @@ Gå tillbaka till LUIS-portalen och skapa en ny avsikt för att avgöra om anvä
 
     | Exempel på yttranden|
     |--|
-    |Fyll i ansökan till jobbet 123456|
-    |Här är mitt cv för tjänsten 654234|
-    |Här är mitt CV för deltidstjänsten som receptionist.|
-    |Jag söker tjänsten på reklamavdelningen med dessa dokument.|
-    |Jag söker sommarpraktikplatsen på forskning och utveckling i San Diego|
-    |Jag vill lämna in mitt CV för den tillfälliga tjänsten i kafeterian.|
-    |Jag skickar mitt CV för det nya Autocar-teamet i Columbus, OH|
-    |Jag vill söka det nya jobbet inom redovisning|
-    |Dokumenten för jobb 456789, praktikplatsen på redovisningsavdelningen, är här|
-    |Jobbet 567890 och mina dokument|
-    |Jag bifogar mina dokument för redovisningspraktikplatsen i tulsa.|
-    |Mina dokument för helgleveranstjänsten|
-    |Skicka mitt CV för det nya redovisningsjobbet i seattle|
-    |Skicka cv för teknikertjänsten|
-    |Jag skickar härmed mitt cv för tjänsten 234123 i Tampa.|
+    |`Fill out application for Job 123456`|
+    |`Here is my c.v. for position 654234`|
+    |`Here is my resume for the part-time receptionist post.`|
+    |`I'm applying for the art desk job with this paperwork.`|
+    |`I'm applying for the summer college internship in Research and Development in San Diego`|
+    |`I'm requesting to submit my resume to the temporary position in the cafeteria.`|
+    |`I'm submitting my resume for the new Autocar team in Columbus, OH`|
+    |`I want to apply for the new accounting job`|
+    |`Job 456789 accounting internship paperwork is here`|
+    |`Job 567890 and my paperwork`|
+    |`My papers for the tulsa accounting internship are attached.`|
+    |`My paperwork for the holiday delivery position`|
+    |`Please send my resume for the new accounting job in seattle`|
+    |`Submit resume for engineering position`|
+    |`This is my c.v. for post 234123 in Tampa.`|
 
-<!--
-
-    [![Screenshot of entering new utterances for ApplyForJob intent](media/luis-quickstart-intents-only/utterance-applyforjob.png "Screenshot of entering new utterances for ApplyForJob intent")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
-
-    The labeled intent is outlined in red because LUIS is currently uncertain the intent is correct. Training the app tells LUIS the utterances are on the correct intent. 
-
--->
 
 ## <a name="train-again"></a>Träna igen
 

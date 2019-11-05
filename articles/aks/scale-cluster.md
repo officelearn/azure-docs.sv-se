@@ -1,32 +1,32 @@
 ---
-title: Skala ett kluster i Azure Kubernetes Service (AKS)
-description: Lär dig mer om att skala antalet noder i ett kluster i Azure Kubernetes Service (AKS).
+title: Skala ett Azure Kubernetes service-kluster (AKS)
+description: Lär dig hur du skalar antalet noder i ett Azure Kubernetes service-kluster (AKS).
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 9cc06df5d2a66ede18af52c13201c731c12e2049
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 719f45aeeb5c7aa7e9b5e597ed461808c9d2b005
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614495"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472585"
 ---
-# <a name="scale-the-node-count-in-an-azure-kubernetes-service-aks-cluster"></a>Skala antalet noder i ett kluster i Azure Kubernetes Service (AKS)
+# <a name="scale-the-node-count-in-an-azure-kubernetes-service-aks-cluster"></a>Skala antalet noder i ett Azure Kubernetes service-kluster (AKS)
 
-Om resursbehov för ditt program ändras kan du skala manuellt ett AKS-kluster för att köra ett annat antal noder. När du skalar noder är noggrant [avspärrade och tömda][kubernetes-drain] att minimera störningar i program som körs. När du skalar upp AKS ska vänta tills noderna är markerade `Ready` av Kubernetes-klustret innan poddar schemaläggs på dem.
+Om resurs behoven för dina program ändras kan du manuellt skala ett AKS-kluster för att köra ett annat antal noder. När du skalar ned är noderna noggrant [avspärradea och töms][kubernetes-drain] för att minimera störningar i program som körs. När du skalar upp väntar AKS tills noderna markeras `Ready` av Kubernetes-klustret innan poddar schemaläggs.
 
 ## <a name="scale-the-cluster-nodes"></a>Skala klusternoderna
 
-Hämta först det *namn* av din nod poolen med hjälp av den [az aks show][az-aks-show] kommando. I följande exempel hämtas pool nodnamnet för klustret med namnet *myAKSCluster* i den *myResourceGroup* resursgrupp:
+Börja med att hämta *namnet* på Node-poolen med kommandot [AZ AKS show][az-aks-show] . I följande exempel hämtas Node-namnet för klustret med namnet *myAKSCluster* i resurs gruppen *myResourceGroup* :
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --query agentPoolProfiles
 ```
 
-Följande Exempelutdata visar att den *namn* är *nodepool1*:
+Följande exempel på utdata visar att *namnet* är *nodepool1*:
 
 ```console
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query agentPoolProfiles
@@ -44,13 +44,13 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query agent
 ]
 ```
 
-Använd den [az aks skala][az-aks-scale] kommando för att skala klusternoderna. I följande exempel skalas ett kluster med namnet *myAKSCluster* till en enda nod. Ange din egen *--nodepool-name* från föregående kommando som *nodepool1*:
+Använd kommandot [AZ AKS Scale][az-aks-scale] för att skala klusternoderna. I följande exempel skalas ett kluster med namnet *myAKSCluster* till en enda nod. Ange ditt eget *--nodepool-namn* från föregående kommando, t. ex. *nodepool1*:
 
 ```azurecli-interactive
 az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 1 --nodepool-name <your node pool name>
 ```
 
-Följande Exempelutdata visar klustret har har skalats till en nod, enligt den *agentPoolProfiles* avsnittet:
+Följande exempel på utdata visar att klustret har skalats till en nod, som du ser i avsnittet *agentPoolProfiles* :
 
 ```json
 {
@@ -74,7 +74,7 @@ Följande Exempelutdata visar klustret har har skalats till en nod, enligt den *
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln får skala du manuellt ett AKS-kluster för att öka eller minska antalet noder. Du kan också använda den [kluster autoskalningen][cluster-autoscaler] (för närvarande i förhandsversion i AKS) du automatiskt skalar ditt kluster.
+I den här artikeln har du manuellt skalat ett AKS-kluster för att öka eller minska antalet noder. Du kan också använda automatisk skalning av [klustret][cluster-autoscaler] för att automatiskt skala klustret.
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/

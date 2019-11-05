@@ -19,12 +19,12 @@ ms.author: ryanwi
 ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73869773597d372affbf02e6a256642c8c1ce8f4
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 23cdf7887d6d0812a9e991580e2095b603a4b4df
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809304"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473944"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Konfigurerbara livstider för token i Azure Active Directory (för hands version)
 
@@ -66,11 +66,14 @@ När en klient får åtkomst-token för åtkomst till en skyddad resurs får kli
 Det är viktigt att skilja mellan konfidentiella klienter och offentliga klienter, eftersom detta påverkar hur länge uppdaterade token kan användas. Mer information om olika typer av klienter finns i [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
 #### <a name="token-lifetimes-with-confidential-client-refresh-tokens"></a>Livs längd för token med konfidentiella klient uppdaterings-token
-Konfidentiella klienter är program som säkert kan lagra ett klient lösen ord (hemligt). De kan bevisa att förfrågningar kommer från det skyddade klient programmet och inte från en skadlig aktör. En webbapp är till exempel en konfidentiell klient eftersom den kan lagra en klient hemlighet på webb servern. Den exponeras inte. Eftersom dessa flöden är säkrare är det `until-revoked`att standard livstiden för uppdateringstoken som utfärdats till dessa flöden är, inte kan ändras med hjälp av en princip och kommer inte att återkallas för frivilliga lösen ords återställning.
+Konfidentiella klienter är program som säkert kan lagra ett klient lösen ord (hemligt). De kan bevisa att förfrågningar kommer från det skyddade klient programmet och inte från en skadlig aktör. En webbapp är till exempel en konfidentiell klient eftersom den kan lagra en klient hemlighet på webb servern. Den exponeras inte. Eftersom dessa flöden är säkrare är standard livs längden för uppdateringstoken som utfärdats till dessa flöden `until-revoked`, kan inte ändras med hjälp av en princip och kommer inte att återkallas på frivilliga lösen ords återställning.
 
 #### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Livs längd för token med offentliga klient uppdaterings-token
 
 Offentliga klienter kan inte lagra ett klient lösen ord på ett säkert sätt (hemligt). En iOS/Android-app kan till exempel inte obfuscate en hemlighet från resurs ägaren, så den betraktas som en offentlig klient. Du kan ange principer för resurser för att förhindra att uppdateringstoken från offentliga klienter som är äldre än en angiven period hämtar ett nytt nyckel par för åtkomst/uppdatering. (Om du vill göra detta använder du egenskapen Refresh token Max inaktiv tid (`MaxInactiveTime`).) Du kan också använda principer för att ange en period utanför vilken uppdateringstoken inte längre accepteras. (Om du vill göra detta använder du egenskapen Refresh token max ålder.) Du kan justera livs längden för en uppdateringstoken för att styra när och hur ofta användaren måste ange autentiseringsuppgifter igen, i stället för att tyst autentiseras igen när du använder ett offentligt klient program.
+
+> [!NOTE]
+> Egenskapen max ålder är den tid som en enskild token kan användas. 
 
 ### <a name="id-tokens"></a>ID-tokens
 ID-token skickas till webbplatser och interna klienter. ID-tokens innehåller profil information om en användare. En ID-token är kopplad till en speciell kombination av användare och klient. ID-token anses giltiga tills de upphör att gälla. Vanligt vis matchar ett webb program en användares sessions livs längd i programmet till livs längden för den ID-token som utfärdats för användaren. Du kan justera livs längden för en ID-token för att styra hur ofta webb programmet ska upphöra med programsessionen och hur ofta den kräver att användaren autentiseras igen med Azure AD (antingen tyst eller interaktivt).
@@ -91,7 +94,7 @@ En livs längds princip för token är en typ av princip objekt som innehåller 
 | Egenskap | Princip egenskaps sträng | Nätverk | Standard | Minimum | Maximal |
 | --- | --- | --- | --- | --- | --- |
 | Livstid för åtkomsttoken |AccessTokenLifetime<sup>2</sup> |Åtkomsttoken, ID-token, SAML2-token |1 timme |10 minuter |1 dag |
-| Maximal inaktiv tid för uppdateringstoken |MaxInactiveTime |Uppdatera token |90 dagar |10 minuter |90 dagar |
+| Maximal inaktiv tid för uppdateringstoken |MaxInactiveTime |Uppdatera token |90 dagar |10 minuter |90 dagar |
 | Högsta ålder för token för enkel uppdatering |MaxAgeSingleFactor |Uppdatera tokens (för alla användare) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
 | Högsta ålder för Multi-Factor Refresh-token |MaxAgeMultiFactor |Uppdatera tokens (för alla användare) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
 | Högsta ålder för token för token för en session |MaxAgeSessionSingleFactor |Token för sessioner (beständiga och inte permanenta) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
@@ -104,7 +107,7 @@ En livs längds princip för token är en typ av princip objekt som innehåller 
 | Egenskap | Nätverk | Standard |
 | --- | --- | --- |
 | Uppdatera token max ålder (utfärdat för federerade användare som har otillräcklig åter kallelse information<sup>1</sup>) |Uppdatera tokens (utfärdat för federerade användare som har otillräcklig återkallnings information<sup>1</sup>) |12 timmar |
-| Maximal inaktiv tid för uppdateringstoken (utfärdat för konfidentiella klienter) |Uppdatera tokens (utfärdat för konfidentiella klienter) |90 dagar |
+| Maximal inaktiv tid för uppdateringstoken (utfärdat för konfidentiella klienter) |Uppdatera tokens (utfärdat för konfidentiella klienter) |90 dagar |
 | Maximal ålder för uppdateringstoken (utfärdat för konfidentiella klienter) |Uppdatera tokens (utfärdat för konfidentiella klienter) |Tills den har återkallats |
 
 * <sup>1</sup> Federerade användare som har otillräcklig information om återkallade certifikat inkluderar alla användare som inte har attributet "LastPasswordChangeTimestamp" synkroniserat. Dessa användare ges denna kortaste ålder eftersom AAD inte kan verifiera när token som är knutna till en gammal autentiseringsuppgift (till exempel ett lösen ord som har ändrats) måste kontrol leras oftare för att säkerställa att användaren och tillhör ande token fortfarande är i lämpliga  anseende. För att förbättra den här upplevelsen måste klient administratörerna se till att de synkroniserar attributet "LastPasswordChangeTimestamp" (detta kan anges för användarobjektet med PowerShell eller via AADSync).
@@ -121,7 +124,7 @@ Mer information om relationen mellan program objekt och tjänst huvud objekt fin
 
 Giltighet för token utvärderas vid den tidpunkt då token används. Principen med den högsta prioriteten för det program som används börjar gälla.
 
-Alla tidsintervallen som används här formateras enligt C# [TimeSpan](/dotnet/api/system.timespan) -objektet-D. hh: mm: SS.  Så 80 dagar och 30 minuter skulle vara `80.00:30:00`.  Det inledande D-värdet kan tas bort om noll, så 90 minuter skulle `00:90:00`.  
+Alla tidsintervallen som används här formateras enligt C# [TimeSpan](/dotnet/api/system.timespan) -objektet-D. hh: mm: SS.  Så 80 dagar och 30 minuter skulle bli `80.00:30:00`.  Den inledande D-filen kan släppas om noll, så 90 minuter skulle vara `00:90:00`.  
 
 > [!NOTE]
 > Här är ett exempel scenario.
@@ -213,7 +216,7 @@ I exemplen får du lära dig att:
 * Skapa en princip för en intern app som anropar ett webb-API
 * Hantera en avancerad princip
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 I följande exempel kan du skapa, uppdatera, länka och ta bort principer för appar, tjänstens huvud namn och din övergripande organisation. Om du är nybörjare på Azure AD rekommenderar vi att du lär dig [hur du skaffar en Azure AD-klient](quickstart-create-new-tenant.md) innan du fortsätter med de här exemplen.  
 
 Gör så här för att komma igång:
@@ -364,7 +367,7 @@ I det här exemplet skapar du några principer för att lära dig hur prioritets
         Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
         ```
 
-3. Ange `IsOrganizationDefault` flagga till falskt:
+3. Ange värdet false för flaggan `IsOrganizationDefault`:
 
     ```powershell
     Set-AzureADPolicy -Id $policy.Id -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false

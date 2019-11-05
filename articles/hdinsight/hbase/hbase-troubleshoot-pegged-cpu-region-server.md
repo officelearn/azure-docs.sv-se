@@ -1,5 +1,5 @@
 ---
-title: Peggad processor på region server i Apache HBase-kluster i Azure HDInsight
+title: Peggad processor i Apache HBase-kluster – Azure HDInsight
 description: Felsöka Peggad CPU på region server i Apache HBase-kluster i Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/01/2019
-ms.openlocfilehash: 0712e6e8e9fe6db370d913d04e562c19b72d69a7
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 845307f24495090891812b4e945e202cdad47e71
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091668"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468330"
 ---
 # <a name="scenario-pegged-cpu-on-region-server-in-apache-hbase-cluster-in-azure-hdinsight"></a>Scenario: Peggad processor på region server i Apache HBase-kluster i Azure HDInsight
 
@@ -24,9 +24,9 @@ Apache HBase region Server process börjar med nära 200% processor, vilket lede
 
 ## <a name="cause"></a>Orsak
 
-Om du kör HBase Cluster v 3.4 kan du ha träffat en möjlig bugg som orsakas av en uppgradering av JDK till version 1.7.0 _151. Det symptom som vi ser är region Server processen börjar ta upp till 200% processor (för att verifiera körningen `top` av kommandot. om det finns en process som håller nära 200% CPU får du ett PID och bekräftar att det är en region Server `ps -aux | grep` process genom att köra).
+Om du kör HBase Cluster v 3.4 kan du ha träffat en möjlig bugg som orsakas av en uppgradering av JDK till version 1.7.0 _151. Det symptom som vi ser är region Server processen börjar med nära 200% processor (för att verifiera detta kör `top` kommandot. om det finns en process som håller nära 200% CPU får du ett PID och bekräftar att det är en region Server process genom att köra `ps -aux | grep`).
 
-## <a name="resolution"></a>Lösning
+## <a name="resolution"></a>Upplösning
 
 1. Installera JDK 1,8 på alla noder i klustret enligt nedan:
 
@@ -34,9 +34,9 @@ Om du kör HBase Cluster v 3.4 kan du ha träffat en möjlig bugg som orsakas av
 
     * Alternativt kan du logga in på varje enskild nod och köra kommandot `sudo add-apt-repository ppa:openjdk-r/ppa -y && sudo apt-get -y update && sudo apt-get install -y openjdk-8-jdk`.
 
-1. Gå till Ambari UI – `https://<clusterdnsname>.azurehdinsight.net`.
+1. Gå till Ambari UI-`https://<clusterdnsname>.azurehdinsight.net`.
 
-1. Navigera till **HBase-> configs – > Advanced-> Avancerat** `hbase-env configs` och ändra variabeln `JAVA_HOME` till `export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64`. Spara konfigurations ändringen.
+1. Navigera till **HBase-> configs-> avancerade > avancerade** `hbase-env configs` och ändra variabeln `JAVA_HOME` till `export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64`. Spara konfigurations ändringen.
 
 1. [Valfritt men rekommenderas] [Rensa alla tabeller i klustret](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
 
@@ -58,4 +58,4 @@ Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon a
 
 * Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns i [”Skapa en supportförfrågan för Azure”](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Tillgång till support för prenumerationshantering och fakturering ingår i din Microsoft Azure-prenumeration och teknisk support ges via ett [supportavtal för Azure](https://azure.microsoft.com/support/plans/).

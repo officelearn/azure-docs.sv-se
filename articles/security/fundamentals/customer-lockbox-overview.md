@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: cabailey
 manager: barbkess
-ms.date: 06/20/2019
-ms.openlocfilehash: 7ca5c890b1f3161923cd808c5ecec0ccf0165d64
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.date: 11/04/2019
+ms.openlocfilehash: 7c0409d48876a0f830366381c2a46821c4aa03a0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727517"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466418"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Customer Lockbox för Microsoft Azure
 
@@ -47,7 +47,7 @@ Följande steg beskriver ett typiskt arbets flöde för en Customer Lockbox beg�
 
 6. När begäran kräver direkt åtkomst till kund information initieras en Customer Lockbox begäran. Till exempel fjärr skrivbords åtkomst till en kunds virtuella dator.
     
-    Begäran besvaras nu i ett kundmeddelat tillstånd och väntar på kundens godkännande innan åtkomst beviljas.
+    Begäran **besvaras nu i ett Kundmeddelat** tillstånd och väntar på kundens godkännande innan åtkomst beviljas.
 
 7. Vid kund organisationen får användaren som har [ägar rollen](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles) för Azure-prenumerationen ett e-postmeddelande från Microsoft för att meddela dem om den väntande åtkomst förfrågan. Den här personen är utsedd god kännare för Customer Lockbox begär Anden.
     
@@ -65,7 +65,7 @@ Följande steg beskriver ett typiskt arbets flöde för en Customer Lockbox beg�
     
     ![Azure Customer Lockbox – Visa väntande begäran](./media/customer-lockbox-overview/customer-lockbox-pending-requests.png)
 
-10. Den angivna god kännaren kan också välja **ID för tjänstbegäran** för att se begäran om support ärende som skapades av den ursprungliga användaren. Den här informationen innehåller en kontext för varför Microsoft Support aktive ras och historiken för det rapporterade problemet. Exempel:
+10. Den angivna god kännaren kan också välja **ID för tjänstbegäran** för att se begäran om support ärende som skapades av den ursprungliga användaren. Den här informationen innehåller en kontext för varför Microsoft Support aktive ras och historiken för det rapporterade problemet. Till exempel:
     
     ![Azure Customer Lockbox – Visa begäran om support ärende](./media/customer-lockbox-overview/customer-lockbox-support-ticket.png)
 
@@ -74,8 +74,8 @@ Följande steg beskriver ett typiskt arbets flöde för en Customer Lockbox beg�
     ![Azure-Customer Lockbox – Välj Godkänn eller neka](./media/customer-lockbox-overview/customer-lockbox-approval.png)
     
     Som ett resultat av valet:
-    - **Godkänn**:  Åtkomst beviljas till Microsoft-teknikern. Åtkomst beviljas för en standard period på åtta timmar.
-    - **Neka**: Den utökade åtkomst förfrågan från Microsoft-teknikern avvisas och ingen ytterligare åtgärd vidtas.
+    - **Godkänn**: åtkomst beviljas till Microsoft-teknikern. Åtkomst beviljas för en standard period på åtta timmar.
+    - **Neka**: den utökade åtkomst förfrågan från Microsoft-teknikern avvisas och ingen ytterligare åtgärd vidtas.
 
 I gransknings syfte loggas de åtgärder som vidtas i det här arbets flödet i [Customer lockbox begär Anden](#auditing-logs).
 
@@ -91,7 +91,7 @@ Som exempel:
 
 ![Azure Customer Lockbox-aktivitets loggar](./media/customer-lockbox-overview/customer-lockbox-activitylogs.png)
 
-## <a name="supported-services-and-scenarios"></a>Tjänster och scenarier som stöds
+## <a name="supported-services-and-scenarios-in-general-availability"></a>Tjänster och scenarier som stöds i allmän tillgänglighet
 
 Följande tjänster och scenarier är för närvarande allmänt tillgängliga för Customer Lockbox.
 
@@ -108,6 +108,23 @@ Customer Lockbox är för närvarande aktiverat för förfrågningar om fjärr s
 #### <a name="detailed-audit-logs"></a>Detaljerade gransknings loggar
 
 För scenarier som involverar åtkomst till fjärr skrivbord kan du använda Windows-händelseloggen för att granska de åtgärder som vidtagits av Microsoft-teknikern. Överväg att använda Azure Security Center för att samla in dina händelse loggar och kopiera data till din arbets yta för analys. Mer information finns [i data insamling i Azure Security Center](../../security-center/security-center-enable-data-collection.md).
+
+## <a name="supported-services-and-scenarios-in-preview"></a>Tjänster och scenarier som stöds i för hands version
+
+Följande tjänster är nu i för hands version för Customer Lockbox:
+
+- Azure Storage 
+
+- Azure SQL-databas 
+
+- Azure-datautforskaren 
+
+- Virtuella datorer (nu omfattar även åtkomst till minnes dum par och hanterade diskar) 
+
+- Azure-prenumerations överföringar
+
+Om du vill aktivera Customer Lockbox för dessa förhands gransknings erbjudanden för din organisation kan du registrera dig för [Customer lockbox för offentlig för hands version av Azure](https://aka.ms/customerlockbox/insiderprogram)
+
 
 ## <a name="exclusions"></a>Undantag
 

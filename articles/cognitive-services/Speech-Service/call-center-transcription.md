@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 4f5163ba448e4cc7e18b0e794a44003ce5ab1dce
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 858ca114ca4c4b469ce4a5dd5275c9ac9874feb5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516759"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465008"
 ---
 # <a name="speech-services-for-telephony-data"></a>Tal tjänster för telefoni data
 
@@ -38,9 +38,9 @@ Utöver den funktionella aspekten av tal tjänsternas primära syfte – är det
 
 * Analys efter anrop som är en batchbearbetning av anrops inspelningar
 * Analys i real tid av ljud signalen för att extrahera olika insikter när samtalet sker (med sentiment är ett framträdande användnings fall) och
-* Virtuella assistenter (robotar), antingen genom att köra dialogen mellan kunden och roboten i ett försök att lösa kundens problem med ingen agent medverkan eller att använda AI-protokoll för att hjälpa agenten.
+* Röst assistenter (robotar), antingen genom att köra dialogen mellan kunden och roboten i ett försök att lösa kundens problem med ingen agent medverkan eller att använda AI-protokoll för att hjälpa agenten.
 
-Ett typiskt arkitektur diagram över implementeringen av ett batch-scenario visas i bilden nedan ![Call Center avskrifts arkitektur ](media/scenarios/call-center-transcription-architecture.png)
+Ett typiskt arkitektur diagram över implementeringen av ett batch-scenario visas i bilden nedan ![arkitekturen för svars Center avskrifts](media/scenarios/call-center-transcription-architecture.png)
 
 ## <a name="speech-analytics-technology-components"></a>Teknik komponenter för tal analys
 
@@ -66,7 +66,7 @@ Vår svars tid från slut punkt till slut punkt är ganska låg som beaktar de o
 
 Våra nya röster är också särskiljbar från mänskliga röster. Du kan använda-röster för att ge din robot sitt unika personlighet.
 
-### <a name="search"></a>Sök
+### <a name="search"></a>Search
 En annan häftklammer av analys är att identifiera interaktioner där en speciell händelse eller erfarenhet har inträffat. Detta görs vanligt vis med en av två metoder, antingen en ad hoc-sökning där användaren bara skriver en fras och systemet svarar eller en mer strukturerad fråga där en analytiker kan skapa en uppsättning logiska uttryck som identifierar ett scenario i ett anrop och varje anrop kan indexeras mot dessa uppsättningar med frågor. Ett bra Sökexempel är allmänt förekommande Compliance "detta samtal skall registreras i kvalitets syfte... "– så många företag vill vara säkra på att deras agenter tillhandahåller denna fri skrivning till kunderna innan samtalet faktiskt registreras. De flesta analys system har möjlighet att kunna trenda de beteenden som upptäckts av Query/search-algoritmer – eftersom den här rapporteringen av trender i slut änden är en av de viktigaste funktionerna i ett analys system. Med hjälp av [kognitiva tjänster-katalogen](https://azure.microsoft.com/services/cognitive-services/directory/search/) kan din end to end-lösning förbättras avsevärt med indexerings-och Sök funktioner.
 
 ### <a name="key-phrase-extraction"></a>Extrahering av nyckelfraser
@@ -92,7 +92,7 @@ En typisk lösning använder dessa tjänster:
 * [Webhooks](webhooks.md) används för att få meddelanden när avskrifter har slutförts.
 
 Internt använder vi tekniken ovan för att stödja Microsofts kund samtal i batch-läge.
-![Batch arkitektur ](media/scenarios/call-center-batch-pipeline.png)
+![batch-arkitektur](media/scenarios/call-center-batch-pipeline.png)
 
 ## <a name="real-time-transcription-for-call-center-data"></a>Real tids avskrift för Call Center-data
 

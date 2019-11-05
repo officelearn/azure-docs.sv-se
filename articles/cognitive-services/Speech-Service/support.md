@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 11/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: 26d66868ab4c003dbd962e0c94009bc38bb36345
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f8793975d920e24924fca7c2ae366f70972e6ab7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558834"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468627"
 ---
 # <a name="support-and-help-options"></a>Support-och hjälp alternativ
 
@@ -64,14 +64,14 @@ Stack Overflow är den föredragna kanalen för utvecklings frågor. Det är dä
 
 Om du inte kan hitta ett svar på ditt problem via sökning skickar du en ny fråga till Stack Overflow. Använd någon av följande Taggar när du formulerar frågan:
 
-|Komponent/Area  |Tags  |
+|Komponent/Area  |Taggar  |
 |---------|---------|
 |Taligenkänning |[[Microsoft-kognitivt + tal-till-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
 |Tal syntes |[[Microsoft-kognitivt + text till tal]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
 |Talöversättning |[[Microsoft-kognitivt + översättning]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
 |Tal avsikt |[[Microsoft-kognitivt + Luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
 |Allmänt tal-SDK |[[Microsoft-kognitivt + Microsoft-Speech-API]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
-| Röst-första virtuella assistenter (för hands version) | [[Microsoft-kognitivt + Virtual-Assistant + botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) |
+|Röst assistenter | [[Microsoft-kognitivt + Virtual-Assistant + botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) |
 
 > [!TIP]
 > Följande inlägg från Stack Overflow innehåller tips om hur du kan forma frågor och lägga till källkod. Följande rikt linjer kan hjälpa dig att öka risken för att community-medlemmar bedömer och svarar snabbt på dina frågor:  

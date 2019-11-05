@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 5/31/2019
 ms.author: mlearned
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 0e09d541cb84ef7857e4d68f776b92f845488771
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 89bb7014ddb04b63a83dc8c5b520bcf500bdc707
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329889"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472687"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Snabb start: Distribuera ett Azure Kubernetes service-kluster (AKS) med hjälp av Azure Portal
 
@@ -31,27 +31,29 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-an-aks-cluster"></a>Skapa ett AKS-kluster
 
-I det övre vänstra hörnet av Azure Portal väljer du **+ skapa en resurs** > **behållare** >  **Kubernetes-tjänsten**.
-
 Du skapar ett AKS-kluster genom att slutföra följande steg:
 
-1. På sidan **grundläggande** inställningar konfigurerar du följande alternativ:
-   - *PROJEKTINFORMATION*: Välj en Azure-prenumeration och välj sedan eller skapa en Azure-resursgrupp, till exempel *myResourceGroup*. Ange ett **Kubernetes-klusternamn**, till exempel *myAKSCluster*.
-   - *KLUSTERINFORMATION*: Välj en region, en Kubernetes-version och ett DNS-namnprefix för AKS-klustret.
-   - **Primär Node-pool**: Välj en VM-storlek för AKS-noderna. VM-storleken **kan inte** ändras efter att ett AKS-kluster har distribuerats. 
-       - Välj även det antal noder som ska distribueras till klustret. För den här snabbstarten ställer du in **Nodantal** till *1*. Antalet noder **kan** justeras efter att klustret har distribuerats.
+1. På Azure Portal-menyn eller på **Start** sidan väljer du **skapa en resurs**.
+
+2. Välj **behållare** >  **Kubernetes-tjänsten**.
+
+3. På sidan **grundläggande** inställningar konfigurerar du följande alternativ:
+    - **Projekt information**: Välj en Azure- **prenumeration**och välj eller skapa en Azure- **resurs grupp**, till exempel *myResourceGroup*.
+    - **Kluster information**: Ange ett **Kubernetes-kluster namn**, till exempel *myAKSCluster*. Välj en **region**, **Kubernetes-version**och **DNS-namn-prefix** för AKS-klustret.
+    - **Primär Node-pool**: Välj en VM- **nods storlek** för AKS-noderna. Den virtuella datorns storlek *kan inte* ändras när ett AKS-kluster har distribuerats. 
+            -Välj antalet noder som ska distribueras till klustret. För den här snabbstarten ställer du in **Nodantal** till *1*. Antalet noder *kan* justeras efter att klustret har distribuerats.
     
-     ![Skapa AKS-kluster – ange grundläggande information](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
+    ![Skapa AKS-kluster – ange grundläggande information](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-     Välj **Nästa: skala** när du är klar.
+    Välj **Nästa: skala** när du är klar.
 
-2. Behåll standard alternativen på sidan **skala** . Längst ned på skärmen klickar du på **Nästa: autentisering**.
-> [!CAUTION]
-> Det kan ta flera minuter att sprida nya AAD-tjänstens huvud namn och bli tillgängliga, vilket orsakar att tjänstens huvud namn inte hittades fel och validerings fel i Azure Portal. Om du når [den här lösningen går du](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one) vidare till lösningar.
+4. Behåll standard alternativen på sidan **skala** . Längst ned på skärmen klickar du på **Nästa: autentisering**.
+    > [!CAUTION]
+    > Det kan ta flera minuter att sprida nya AAD-tjänstens huvud namn och bli tillgängliga, vilket orsakar att tjänstens huvud namn inte hittades fel och validerings fel i Azure Portal. Om du når [den här lösningen går du](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one) vidare till lösningar.
 
-3. Konfigurera följande alternativ på sidan **autentisering** :
-   - Skapa ett nytt huvud namn för tjänsten genom att lämna fältet för **tjänstens huvud** namn med **(nytt) standard huvud namn för tjänsten**. Du kan också välja *Konfigurera tjänstens huvud namn* för att använda en befintlig. Om du använder en befintlig måste du ange klient-ID och hemlighet för tjänstens huvud namn.
-   - Aktivera alternativet för kontroller för rollbaserad åtkomstkontroll (RBAC) för Kubernetes. Detta ger mer detaljerad kontroll över åtkomsten till de Kubernetes-resurser som distribueras i ditt AKS-kluster.
+5. Konfigurera följande alternativ på sidan **autentisering** :
+    - Skapa ett nytt huvud namn för tjänsten genom att lämna fältet för **tjänstens huvud** namn med **(nytt) standard huvud namn för tjänsten**. Du kan också välja *Konfigurera tjänstens huvud namn* för att använda en befintlig. Om du använder en befintlig måste du ange klient-ID och hemlighet för tjänstens huvud namn.
+    - Aktivera alternativet för kontroller för rollbaserad åtkomstkontroll (RBAC) för Kubernetes. Detta ger mer detaljerad kontroll över åtkomsten till de Kubernetes-resurser som distribueras i ditt AKS-kluster.
 
 Som standard används *Grundläggande* nätverk och Azure Monitor för container är aktiverat. Klicka på **Granska + skapa** och **skapa** när verifieringen är klar.
 
@@ -63,7 +65,7 @@ Det tar några minuter att skapa AKS-klustret. När distributionen är klar klic
 
 Om du vill hantera ett Kubernetes-kluster använder du [kubectl][kubectl], Kubernetes kommando rads klient. `kubectl`-klienten är förinstallerad i Azure Cloud Shell.
 
-Öppna Cloud Shell med knappen `>_` överst i Azure Portal.
+Öppna Cloud Shell att använda `>_`-knappen överst i Azure Portal.
 
 ![Öppna Azure Cloud Shell i portalen](media/kubernetes-walkthrough-portal/aks-cloud-shell.png)
 
@@ -91,9 +93,9 @@ aks-agentpool-14693408-0   Ready     agent     15m       v1.11.5
 En Kubernetes-manifestfil definierar ett önskat tillstånd för klustret, till exempel vilka containeravbildningar som ska köras. I den här snabbstarten används ett manifest för att skapa alla objekt som behövs för att köra Azure Vote-programmet. Det här manifestet innehåller två [Kubernetes-distributioner][kubernetes-deployment] – en för Azures rösten python-program och en annan för en Redis-instans. Två [Kubernetes-tjänster][kubernetes-service] skapas också – en intern tjänst för Redis-instansen och en extern tjänst för att få åtkomst till Azures röst program från Internet.
 
 > [!TIP]
-> I den här snabbstarten skapar och distribuerar du manuellt applikationsmanifest till AKS-klustret. I verkliga scenarier kan du använda [Azure dev Spaces][azure-dev-spaces] för att snabbt iterera och felsöka koden direkt i AKS-klustret. Du kan använda Dev Spaces på olika OS-plattformar och i olika utvecklingsmiljöer samt arbeta tillsammans med andra i ditt team.
+> I den här snabbstarten skapar och distribuerar du manuellt programmanifest till AKS-kluster. I verkliga scenarier kan du använda [Azure dev Spaces][azure-dev-spaces] för att snabbt iterera och felsöka koden direkt i AKS-klustret. Du kan använda Dev Spaces på olika OS-plattformar och i olika utvecklingsmiljöer samt arbeta tillsammans med andra i ditt team.
 
-Använd `nano` eller `vi` i Cloud Shell för att skapa en fil med namnet `azure-vote.yaml` och kopiera i följande YAML-definition:
+I Cloud Shell använder du `nano` eller `vi` för att skapa en fil med namnet `azure-vote.yaml` och kopiera i följande YAML-definition:
 
 ```yaml
 apiVersion: apps/v1
@@ -237,7 +239,7 @@ Containrarna *bak-azure-vote* och *azure-vote-front* visas enligt följande exem
 
 ![Visa hälsan för containrar som körs i AKS](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-Om du vill se loggar för `azure-vote-front`-pod väljer du **Visa behållar loggar** i list rutan i listan behållare. Loggarna inkluderar strömmarna *stdout* och *stderr* från containern.
+Om du vill se loggar för `azure-vote-front` Pod väljer du **Visa behållar loggar** i list rutan i listan behållare. Loggarna inkluderar strömmarna *stdout* och *stderr* från containern.
 
 ![Visa containerloggarna i AKS](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 

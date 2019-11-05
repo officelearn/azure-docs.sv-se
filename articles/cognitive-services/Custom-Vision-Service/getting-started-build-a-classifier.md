@@ -10,14 +10,14 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: anroth
-ms.openlocfilehash: dfc137375e35d0d13a34ff45b0c6639bcf6784df
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 12be696c74a32909d79be405144582cd8fc05fb6
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561059"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "73519160"
 ---
-# <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Snabbstart: Så här skapar du en klassificerare med Custom Vision
+# <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Snabb start: så här skapar du en klassificerare med Custom Vision
 
 I den här snabb starten får du lära dig hur du skapar en klassificerare genom Custom Vision webbplats. När du har skapat en klassificerings modell kan du använda tjänsten Custom Vision för avbildnings klassificering.
 
@@ -29,7 +29,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Skapa Custom Vision resurser i Azure Portal
 
-Om du vill använda Custom Vision Service måste du skapa Custom Vision utbildning och förutsägelse resurser i Azure Portal. Fyll i dialog rutan på sidan [skapa Custom vision](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) för att skapa både en utbildnings-och förutsägelse resurs. 
+[!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## <a name="create-a-new-project"></a>Skapa ett nytt projekt
 
@@ -47,7 +47,7 @@ Navigera till [Custom vision webb sida](https://customvision.ai) i webbläsaren 
    > [!NOTE]
    > Om ingen resurs grupp är tillgänglig bekräftar du att du har loggat in på [customvision.AI](https://customvision.ai) med samma konto som du använde för att logga in på [Azure Portal](https://portal.azure.com/). Kontrol lera också att du har valt samma "katalog" i Custom Vision portal som katalog i den Azure Portal där dina Custom Vision-resurser finns. På båda platserna kan du välja din katalog från menyn för List menyn i det övre högra hörnet på skärmen. 
 
-1. Välj __klassificering__ under __projekt typer__. Välj antingen multietikett eller multiklass under  __klassificerings typer__, beroende på ditt användnings fall. Klassificering med flera etiketter använder valfritt antal taggar i en bild (noll eller flera), medan klassificering av flera klasser sorterar bilder i enskilda kategorier (varje bild som du skickar kommer att sorteras i den mest sannolika taggen). Du kommer att kunna ändra klassificerings typ senare om du vill.
+1. Välj __klassificering__ under __projekt typer__. Välj antingen **multietikett** eller **Multiklass**under __klassificerings typer__, beroende på ditt användnings fall. Klassificering med flera etiketter använder valfritt antal taggar i en bild (noll eller flera), medan klassificering av flera klasser sorterar bilder i enskilda kategorier (varje bild som du skickar kommer att sorteras i den mest sannolika taggen). Du kommer att kunna ändra klassificerings typ senare om du vill.
 
 1. Välj sedan en av de tillgängliga domänerna. Varje domän optimerar klassificeraren för vissa typer av bilder, enligt beskrivningen i följande tabell. Du kommer att kunna ändra domänen senare om du vill.
 

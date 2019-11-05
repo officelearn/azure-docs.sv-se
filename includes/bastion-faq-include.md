@@ -5,58 +5,48 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 06/17/2019
+ms.date: 10/15/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 29ab9b3c33aae6005510c34b207c7f87714149e5
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 4f49220da5d996615c9f8ef7cad2b6c6793866b7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67608377"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466269"
 ---
-### <a name="preview"></a>Hur jag för att delta i den offentliga förhandsversionen?
-
-Du måste publicera för att kunna delta i den offentliga förhandsversionen. Följ stegen i [i den här artikeln](../articles/bastion/bastion-create-host-portal.md) att skapa en ny Azure Skyddsmiljö-resurs. För närvarande när åtkomst till och med den här tjänsten, måste du använda den [Azure-portalen – förhandsversion](https://aka.ms/BastionHost) i stället för vanliga Azure-portalen.
-
-### <a name="regions"></a>Vilka regioner är tillgängliga under förhandsperioden?
-
-Du kan distribuera och använda skyddade resursen i någon av dessa förhandsversionsregioner via den [Azure-portalen – förhandsversion länk](https://aka.ms/BastionHost).
+### <a name="regions"></a>Vilka regioner är tillgängliga?
 
 [!INCLUDE [region](bastion-regions-include.md)]
 
-### <a name="portal"></a>Jag hittar inte den skyddade resursen i Azure-portalen. Vad ska jag göra?
+### <a name="publicip"></a>Behöver jag en offentlig IP-adress på min virtuella dator?
 
-Se till att du använder den [Azure-portalen – förhandsversion länken](https://aka.ms/BastionHost), inte vanliga Azure-portalen.
+Du behöver inte en offentlig IP-adress på den virtuella Azure-dator som du ansluter till med Azure skydds-tjänsten. Skydds-tjänsten öppnar RDP/SSH-sessionen/-anslutningen till den virtuella datorn via den privata IP-adressen för den virtuella datorn i det virtuella nätverket.
 
-### <a name="publicip"></a>Behöver jag en offentlig IP på min virtuella dator?
+### <a name="rdpssh"></a>Behöver jag en RDP-eller SSH-klient?
 
-Du behöver inte en offentlig IP på Azure-dator som du ansluter till med tjänsten Azure Skyddsmiljö. Tjänsten Skyddsmiljö öppnas RDP/SSH-session/anslutning till den virtuella datorn över den privata IP-Adressen för den virtuella datorn i det virtuella nätverket.
+Du behöver ingen RDP- eller SSH-klient för att få åtkomst till RDP/SSH till din virtuella Azure-dator i din Azure-portalen. Använd [Azure Portal](https://portal.azure.com) så att du kan få RDP/SSH-åtkomst till den virtuella datorn direkt i webbläsaren.
 
-### <a name="rdpssh"></a>Behöver jag en RDP eller SSH-klient?
-
-Du behöver ingen RDP- eller SSH-klient för att få åtkomst till RDP/SSH till din virtuella Azure-dator i din Azure-portalen. Använd den [Azure-portalen – förhandsversion länken](https://aka.ms/BastionHost) att få åtkomst till förhandsversionen flygning med portalen. Då kan du få RDP/SSH-åtkomst till din virtuella dator direkt i webbläsaren.
-
-### <a name="agent"></a>Behöver jag en agent som körs i Azure-dator?
+### <a name="agent"></a>Behöver jag en agent som körs på den virtuella Azure-datorn?
 
 Du behöver inte installera någon agent eller programvara i webbläsaren eller den virtuella Azure-datorn. Tjänsten Bastion är agentlös och ingen ytterligare programvara krävs för RDP/SSH.
 
 ### <a name="browsers"></a>Vilka webbläsare stöds?
 
-Den offentliga förhandsversionen, använder du Microsoft Edge-webbläsaren eller Google Chrome på Windows. För Apple Mac använder du webbläsaren Google Chrome. Microsoft Edge Chromium kan också användas på både Windows och Mac.
+Använd Microsoft Edge-webbläsaren eller Google Chrome i Windows. För Apple Mac använder du webbläsaren Google Chrome. Microsoft Edge Chromium kan också användas på både Windows och Mac.
 
-### <a name="roles"></a>Är alla roller som krävs för att få åtkomst till en virtuell dator?
+### <a name="roles"></a>Krävs det några roller för att få åtkomst till en virtuell dator?
 
-För att upprätta en anslutning, krävs följande roller:
+Följande roller krävs för att upprätta en anslutning:
 
-* Läsarroll för på den virtuella datorn
-* Läsarroll på nätverkskortet med privata IP-Adressen för den virtuella datorn
-* Läsarroll för Azure-skyddade resursen
+* Rollen läsare på den virtuella datorn
+* Rollen läsare på NÄTVERKSKORTet med den virtuella datorns privata IP-adress
+* Läsar roll på Azure skydds-resursen
 
-### <a name="previewbill"></a>Priser – faktureras jag för att du deltar i förhandsgranskningen?
+### <a name="pricingpage"></a>Vad är prissättningen?
 
-Du kommer bara att debiteras delvis allmänt tillgängliga förhandsversionen. Det finns dock inget serviceavtal som är kopplat till din distribution. Mer information finns på sidan med [priser](https://aka.ms/BastionHostPricing).
+Mer information finns på sidan med [priser](https://aka.ms/BastionHostPricing).
 
-### <a name="previewbill"></a>Varför får jag ”din session har upphört att gälla” fel meddelandet innan du startar Skyddsmiljö-sessionen?
+### <a name="session"></a>Varför visas ett fel meddelande om att sessionen har upphört att gälla innan skydds-sessionen startar?
 
-En session ska initieras från Azure-portalen. Logga in på Azure Portal och börja sessionen igen. Om du går till URL: en direkt från en annan webbläsarsession eller flik kan är det här felet förväntat. Det säkerställer att din session är säkrare och att sessionen är tillgänglig endast via Azure portal.
+En session ska endast initieras från Azure Portal. Logga in på Azure Portal och påbörja sessionen igen. Om du går till URL: en direkt från en annan webbläsarsession eller TABB förväntas det här felet. Det hjälper till att säkerställa att sessionen är säkrare och att sessionen bara kan nås via Azure Portal.

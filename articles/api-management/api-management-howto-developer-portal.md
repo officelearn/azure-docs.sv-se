@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: eb5e2c2e2eeb0f29eb74b3727ecf14d70d2381f6
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 1311328dde6fc70202ce3c6271b33f79d52102cc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176695"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472218"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Översikt över Azure API Management Developer-portalen
 
@@ -25,7 +25,10 @@ Developer Portal är en automatiskt genererad, helt anpassningsbar webbplats med
 
 I den här artikeln beskrivs skillnaderna mellan egna värdbaserade och hanterade versioner av Developer-portalen i API Management. Den förklarar också dess arkitektur och ger svar på vanliga frågor.
 
-> [!IMPORTANT]
+> [!WARNING]
+> Den nya Developer-portalen är för närvarande distribuerad till API Management tjänster.
+> Om din tjänst har skapats nyligen eller är en tjänst för utvecklare, bör du redan ha den senaste versionen. Annars kan det uppstå problem (till exempel med publicerings funktionen). Funktions distributionen kommer att slutföras den 11 november 2019.
+>
 > [Lär dig hur du migrerar från för hands versionen till den allmänt tillgängliga versionen](#preview-to-ga) av Developer-portalen.
 
 ![API Management Developer-portalen](media/api-management-howto-developer-portal/cover.png)

@@ -1,7 +1,7 @@
 ---
 title: Felsöka din modell
-titleSuffix: Azure Machine Learning Studio
-description: Så här felsöker du fel som genereras av modulerna Träningsmodell och Poängmodell i Azure Machine Learning Studio.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Så här felsöker du fel som uppstår i modulerna träna modell och Poäng modell i Azure Machine Learning Studio (klassisk).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,62 +10,62 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2017
-ms.openlocfilehash: 9c505262030e5b5aa13b8d221cf1e39c4a9c7833
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 053bb75bb7beea86215397bdfd81a1dbc9d1bcb9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751135"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493067"
 ---
-# <a name="debug-your-model-in-azure-machine-learning-studio"></a>Felsöka din modell i Azure Machine Learning Studio
+# <a name="debug-your-model-in-azure-machine-learning-studio-classic"></a>Felsöka din modell i Azure Machine Learning Studio (klassisk)
 
-När du kör en modell kan stöta du på följande fel:
+När du kör en modell kan du stöta på följande fel:
 
-* den [Träningsmodell] [ train-model] modulen genererar ett fel 
-* den [Poängmodell] [ score-model] modulen ger felaktiga resultat 
+* modulen [träna modell][train-model] ger ett fel 
+* modulen [Poäng modell][score-model] ger felaktiga resultat 
 
-Den här artikeln beskrivs möjliga orsaker till att de här felen.
+I den här artikeln förklaras möjliga orsaker till dessa fel.
 
 
-## <a name="train-model-module-produces-an-error"></a>Träna modell genererar ett fel
+## <a name="train-model-module-produces-an-error"></a>Träna modell module genererar ett fel
 
 ![image1](./media/debug-models/train_model-1.png)
 
-Den [Träningsmodell] [ train-model] modulen förväntar sig två indata:
+Modulen [träna modell][train-model] förväntar sig två indata:
 
-1. Typ av machine learning-modell från samlingen av modeller som tillhandahålls av Azure Machine Learning Studio.
-2. Träningsdata med en angiven etikett-kolumn som anger variabeln för att förutsäga (de andra kolumnerna antas vara funktioner).
+1. Typ av Machine Learning-modell från den samling av modeller som tillhandahålls av Azure Machine Learning Studio (klassisk).
+2. Tränings data med en angiven etikett kolumn som anger vilken variabel som ska förutsägas (de andra kolumnerna antas vara funktioner).
 
-Den här modulen kan producera ett fel i följande fall:
+Den här modulen kan generera ett fel i följande fall:
 
-1. Kolumnen etikett har angetts felaktigt. Detta kan inträffa om mer än en kolumn har markerats som etikett eller en felaktig kolumnindex har valts. Det andra fallet skulle till exempel gälla om ett index på 30 används med en indatauppsättning som har bara 25 kolumner.
+1. Etikett kolumnen har angetts felaktigt. Detta kan inträffa om antingen fler än en kolumn har marker ATS som etikett eller felaktigt kolumn index har valts. Till exempel gäller det andra fallet om ett kolumn index på 30 används med en indata-datamängd som bara har 25 kolumner.
 
-2. Datauppsättningen innehåller inte några kolumner i funktionen. Till exempel om datauppsättningen för indata har endast en kolumn som har markerats som kolumnen etikett, blir det inga funktioner med att bygga modellen. I det här fallet den [Träningsmodell] [ train-model] modulen genererar ett fel.
+2. Data uppsättningen innehåller inte några funktions kolumner. Om till exempel indata-datauppsättningen bara har en kolumn, som har marker ATS som etikett-kolumnen, finns det inga funktioner för att bygga modellen. I det här fallet genererar modulen [träna modell][train-model] ett fel.
 
-3. Datauppsättningen för indata (funktioner eller etikett) innehåller Infinity som ett-värde.
+3. Data uppsättningen för indata (funktioner eller etikett) innehåller oändligt som ett värde.
 
-## <a name="score-model-module-produces-incorrect-results"></a>Modulen poängsätta modell ger felaktiga resultat
+## <a name="score-model-module-produces-incorrect-results"></a>Score modell-modulen ger felaktiga resultat
 
 ![image2](./media/debug-models/train_test-2.png)
 
-I en typisk träning och testning experiment för övervakad inlärning den [dela Data] [ split] modulen dividerar den ursprungliga datauppsättningen i två delar: en del används för att träna modellen och en del används för att bedöma hur bra utför den tränade modellen. Den tränade modellen används sedan för att bedöma testdata, varefter resultaten utvärderas för att fastställa korrektheten i modellen.
+I ett typiskt övnings-och testnings experiment för övervakad inlärning delar modulen [dela data][split] upp den ursprungliga data uppsättningen i två delar: en del används för att träna modellen och en del används för att visa hur väl den tränade modellen presterar. Den tränade modellen används sedan för att Visa test data, varefter resultaten utvärderas för att fastställa modellens noggrannhet.
 
-Den [Poängmodell] [ score-model] modulen kräver två indata:
+Modulen [Poäng modell][score-model] kräver två indata:
 
-1. En tränad utdata från den [Träningsmodell] [ train-model] modulen.
-2. En arbetsflödesbaserad datauppsättning som skiljer sig från den datauppsättning som används för att träna modellen.
+1. En tränad modell utmatning från modulen [träna modell][train-model] .
+2. En poäng data uppsättning som skiljer sig från den data uppsättning som används för att träna modellen.
 
-Det är möjligt att även om försöket lyckas, den [Poängmodell] [ score-model] modulen ger felaktiga resultat. Flera scenarier kan orsaka det här problemet att detta inträffar:
+Det är möjligt att även om experimentet lyckas, ger modulen [Poäng modell][score-model] felaktiga resultat. Det kan hända att det här problemet uppstår i flera scenarier:
 
-1. Om den angivna etiketten är kategoriska och en regressionsmodellen ska tränas på data, felaktig utdata skulle genereras av den [Poängmodell] [ score-model] modulen. Det beror på att regression kräver en kontinuerlig svar-variabel. I så fall skulle det vara lämpligare att använda en modell för klassificering. 
+1. Om den angivna etiketten är kategoriska och en Regressions modell tränas på data, skapas Felaktiga utdata av modulen [Poäng modell][score-model] . Detta beror på att regression kräver en variabel med kontinuerlig respons. I det här fallet skulle det vara mer lämpligt att använda en klassificerings modell. 
 
-2. Om en klassificering tränas på en datauppsättning med flyttal i kolumnen etikett, på samma sätt kan det ge oönskade resultat. Det beror på att klassificering kräver en diskret svar-variabel som endast tillåter värden som intervall för över en begränsad och små, uppsättning klasser.
+2. På samma sätt kan det uppstå oönskade resultat om en klassificerings modell tränas på en data uppsättning med flytt ALS nummer i kolumnen etikett. Detta beror på att klassificeringen kräver en diskret variabel som bara tillåter värden som sträcker sig över en begränsad och liten uppsättning klasser.
 
-3. Om bedömnings datauppsättningen inte innehåller alla funktioner som används för att öva med modellen, de [Poängmodell] [ score-model] genererar ett fel.
+3. Om poängsättnings data uppsättningen inte innehåller alla funktioner som används för att träna modellen, genererar [Poäng modellen][score-model] ett fel.
 
-4. Om en rad i bedömnings datauppsättningen innehåller saknade värden eller ett oändligt värde för någon av dess funktioner i [Poängmodell] [ score-model] inte producerar några utdata som motsvarar den raden.
+4. Om en rad i poängsättnings data uppsättningen innehåller ett saknat värde eller ett oändligt värde för någon av dess funktioner, genererar inte [Poäng modellen][score-model] några utdata som motsvarar den raden.
 
-5. Den [Poängmodell] [ score-model] kan ge identiska utdata för alla rader i bedömnings datauppsättningen. Detta kan inträffa, till exempel vid klassificering med hjälp av beslut skogar om det minsta antalet prover per lövnod väljs vara fler än antalet utbildning exempel tillgängliga.
+5. [Poäng modellen][score-model] kan producera identiska utdata för alla rader i poängsättnings data uppsättningen. Detta kan inträffa, till exempel vid försök att klassificera med hjälp av besluts skogar om det minsta antalet sampel per lövnod väljs som ska vara mer än antalet tillgängliga utbildnings exempel.
 
 <!-- Module References -->
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/

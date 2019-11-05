@@ -9,14 +9,14 @@ ms.topic: sample
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
-ms.date: 07/31/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: dd93e4e621a4fd474283f788e2cf67b305a1be3d
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
-ms.translationtype: MT
+ms.openlocfilehash: 145ab994bbd2ac2445947968ccdeadbb730eb76a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70997069"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476082"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Utforska Azure Machine Learning med Jupyter-anteckningsböcker
 
@@ -24,7 +24,7 @@ ms.locfileid: "70997069"
 
 Den här artikeln visar hur du kommer åt databasen från följande miljöer:
 
-- [Azure Machine Learning Notebook VM](#notebookvm)
+- [Azure Machine Learning beräknings instans](#notebookvm)
 - [Ta med din egen Notebook-Server](#byo)
 - [Data Science Virtual Machine](#dsvm)
 
@@ -32,9 +32,9 @@ Den här artikeln visar hur du kommer åt databasen från följande miljöer:
 > När du har klonat lagrings platsen hittar du själv studie **kurser i självstudierna** och de funktionsbaserade antecknings böckerna i mappen **How-to-use-azureml** .
 
 <a name="notebookvm"></a>
-## <a name="get-samples-on-azure-machine-learning-notebook-vm"></a>Hämta exempel på Azure Machine Learning Notebook VM
+## <a name="get-samples-on-azure-machine-learning-compute-instance"></a>Hämta exempel på Azure Machine Learning beräknings instans
 
-Det enklaste sättet att komma igång med exemplen är att slutföra [självstudien: Installations miljö och arbets](tutorial-1st-experiment-sdk-setup.md)yta. När du är klar har du en dedikerad Notebook-server som är förinstallerad med SDK och exempel lagrings plats. Inga hämtningar eller installationer krävs.
+Det enklaste sättet att komma igång med exemplen är att slutföra [självstudien: installations miljö och arbets yta](tutorial-1st-experiment-sdk-setup.md). När du är klar har du en dedikerad Notebook-server som är förinstallerad med SDK och exempel lagrings plats. Inga hämtningar eller installationer krävs.
 
 <a name="byo"></a>
 

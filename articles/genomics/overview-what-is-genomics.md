@@ -1,7 +1,7 @@
 ---
 title: Vad är Microsoft Genomics?
 titleSuffix: Microsoft Genomics
-description: Lär dig hur Microsoft Genomics kan sätta igång genom att använda en moln implementering av Burrows-Wheeler-justering (BWA) och verktyg för att analysera och köra analys verktyg (användas).
+description: Lär dig hur du använder Microsoft Genomics för att köra BWA-användas-arbetsflödet för genomiks analys.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: overview
 ms.date: 12/07/2017
-ms.openlocfilehash: 04ecab58db822aa80ca2abba1bebaa39598498bd
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 461e385bae3b091c72355ed27a35ae5408bda7c2
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244013"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498820"
 ---
 # <a name="what-is-microsoft-genomics"></a>Vad är Microsoft Genomics?
 Microsoft Genomics erbjuder en moln implementering av Burrows-Wheeler-justeringen (BWA) och användas (för analys verktyg) för sekundär analys. Tjänsten är ISO-certifierad och kompatibel med HIPAA-förordningar och har pris för bruk för dina behov. Lär dig hur du använder tjänsten Microsoft Genomics och integrerar med vår API genom att läsa våra snabb starter, självstudier och dokumentation.
@@ -33,7 +33,7 @@ Microsoft Genomicss tjänsten är ISO 27001, ISO 27018 och ISO 9001 certifierad 
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har läst en introduktion till Microsoft Genomics är du redo att:
-- På prissättningssidan finns kostnadsjämförelser och kostnadsberäknare. [Prissättning](https://azure.microsoft.com/pricing/details/genomics/)
+- På prissättningssidan finns kostnadsjämförelser och kostnadsberäknare. [Priser](https://azure.microsoft.com/pricing/details/genomics/)
 - Kom igång genom att köra ditt första arbets flöde via Microsoft Genomicss tjänsten. [Köra ett arbets flöde via Microsoft Genomics tjänsten](quickstart-run-genomics-workflow-portal.md)
-- Skicka in egna data för bearbetning av tjänsten Microsoft Genomics: [parad FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [flera fastq eller BAM](quickstart-input-multiple.md) 
+- Skicka in dina egna data för bearbetning av tjänsten Microsoft Genomics: [parad FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [flera fastq eller BAM](quickstart-input-multiple.md) 
 

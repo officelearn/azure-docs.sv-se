@@ -1,7 +1,7 @@
 ---
 title: Hantera versioner – LUIS
 titleSuffix: Azure Cognitive Services
-description: Versioner kan du skapa och publicera olika modeller. Ett bra tips är att klona den aktuella aktiva modellen till en annan version av appen innan du gör ändringar i modellen.
+description: Med versioner kan du bygga och publicera olika modeller. En bra idé är att klona den aktuella aktiva modellen till en annan version av appen innan du gör ändringar i modellen.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,63 +9,65 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 982dbf3555648c6a7c82da90a62740a584473c1e
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: aa1cbd08bdf8d92653a8f30ae67ecd813e563999
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932838"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467509"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Använda versioner för att redigera och testa utan att påverka mellanlagrings-eller produktions program
 
-Versioner kan du skapa och publicera olika modeller. Ett bra tips är att klona den aktuella aktiva modellen till en annan [version](luis-concept-version.md) av appen innan du gör ändringar i modellen. 
+Med versioner kan du bygga och publicera olika modeller. En bra idé är att klona den aktuella aktiva modellen till en annan [version](luis-concept-version.md) av appen innan du gör ändringar i modellen. 
 
-Om du vill arbeta med versioner, kan du öppna din app genom att välja dess namn på **Mina appar** och välj sedan **hantera** i det översta fältet och markera **versioner** i det vänstra navigeringsfönstret. 
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
+Om du vill arbeta med versioner öppnar du appen genom att välja namnet på sidan **Mina appar** och väljer sedan **Hantera** i det översta fältet och sedan **versioner** i det vänstra navigerings fältet. 
 
 I listan över versioner visas vilka versioner som publiceras, var de publiceras och vilken version som för närvarande är aktiv. 
 
-[![Hanteringsavsnittet, versioner sidan](./media/luis-how-to-manage-versions/versions-import.png "hanteringsavsnittet, versioner sidan")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
+[![Avsnittet hantera, sidan versioner](./media/luis-how-to-manage-versions/versions-import.png "Avsnittet hantera, sidan versioner")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
 ## <a name="clone-a-version"></a>Klona en version
 
-1. Välj den version som du vill klona Välj **klona** från verktygsfältet. 
+1. Välj den version som du vill klona och välj sedan **klona** i verktygsfältet. 
 
-2. I den **klona version** dialogrutan, ange ett namn för den nya versionen, till exempel ”0.2”.
+2. I dialog rutan **klona version** anger du ett namn för den nya versionen, till exempel "0,2".
 
-   ![Dialogrutan för kloning Version](./media/luis-how-to-manage-versions/version-clone-version-dialog.png)
+   ![Dialog rutan klona version](./media/luis-how-to-manage-versions/version-clone-version-dialog.png)
  
      > [!NOTE]
-     > Version ID bestå av tecken, siffror eller '.' och får inte vara längre än 10 tecken.
+     > Versions-ID får endast bestå av tecken, siffror eller "." och får inte vara längre än 10 tecken.
  
-   En ny version med det angivna namnet skapas och Ställ in som den aktiva versionen.
+   En ny version med det angivna namnet skapas och anges som den aktiva versionen.
 
-## <a name="set-active-version"></a>Ange active version
+## <a name="set-active-version"></a>Ange aktiv version
 
-Välj en version i listan och välj sedan **göra Active** från verktygsfältet. 
+Välj en version i listan och välj sedan **gör aktiv** från verktygsfältet. 
 
 [![Hantera avsnitt, versioner, sidan, skapa en versions åtgärd](./media/luis-how-to-manage-versions/versions-other.png "Hantera avsnitt, versioner, sidan, skapa en versions åtgärd")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
 
-## <a name="import-version"></a>Import-version
+## <a name="import-version"></a>Importera version
 
-1. Välj **Import version** från verktygsfältet. 
+1. Välj **Importera version** från verktygsfältet. 
 
-2. I den **Importera nya version** popup-fönstret, ange namnet på nya tio tecken version. Du behöver bara ange ett versions-ID om versionen i JSON-filen finns redan i appen.
+2. Ange det nya 10-siffriga versions namnet i popup-fönstret **Importera ny version** . Du behöver bara ange ett versions-ID om versionen i JSON-filen redan finns i appen.
 
     ![Hantera avsnitt, versioner, sidan Importera ny version](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
-    När du importerar en version, blir den aktiva versionen i den nya versionen.
+    När du har importerat en version blir den nya versionen den aktiva versionen.
 
 ### <a name="import-errors"></a>Import fel
 
-* Tokenizer-fel: Om du får ett **tokenizer-fel** när du importerar försöker du importera en version som använder en annan [tokenizer](luis-language-support.md#custom-tokenizer-versions) än appen som för närvarande använder. Information om hur du åtgärdar detta finns i [Migrera mellan tokenizer-versioner](luis-language-support.md#migrating-between-tokenizer-versions).
+* Tokenizer-fel: om du får ett **Tokenizer-fel** när du importerar försöker du importera en version som använder en annan [Tokenizer](luis-language-support.md#custom-tokenizer-versions) än appen som för närvarande använder. Information om hur du åtgärdar detta finns i [Migrera mellan tokenizer-versioner](luis-language-support.md#migrating-between-tokenizer-versions).
 
 <a name = "export-version"></a>
 
 ## <a name="other-actions"></a>Andra åtgärder
 
-* Att **ta bort** en version, Välj en version i listan och välj sedan **ta bort** från verktygsfältet. Välj **OK**. 
-* Att **Byt namn på** en version, Välj en version i listan och välj sedan **Byt namn på** från verktygsfältet. Ange ett nytt namn och välj **klar**. 
-* Att **exportera** en version, Välj en version i listan och välj sedan **Export app** från verktygsfältet. Välj JSON för att exportera för säkerhets kopiering, Välj **Exportera för container** om du vill [använda den här appen i en Luis-behållare](luis-container-howto.md).  
+* Om du vill **ta bort** en version väljer du en version i listan och väljer sedan **ta bort** från verktygsfältet. Välj **OK**. 
+* Om du vill **byta namn på** en version väljer du en version i listan och väljer sedan **Byt namn** från verktygsfältet. Ange ett nytt namn och välj sedan **OK**. 
+* Om du vill **Exportera** en version väljer du en version i listan och väljer sedan **Exportera app** i verktygsfältet. Välj JSON för att exportera för säkerhets kopiering, Välj **Exportera för container** om du vill [använda den här appen i en Luis-behållare](luis-container-howto.md).  
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 28502c49c0eebce84ffd5aa376e7b20bd52213c0
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 60ef89308eceeb8ae74caba7230f1dc9c6940f47
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72674970"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469106"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -156,8 +156,8 @@ När du kör kommandot i version 2. x måste du välja en körning för projekte
 Select a worker runtime:
 dotnet
 node
-python (preview)
-powershell (preview)
+python 
+powershell
 ```
 
 Använd piltangenterna för att välja ett språk och tryck sedan på RETUR. Om du planerar att utveckla Java Script-eller TypeScript-funktioner väljer du **Node**och väljer sedan språket. TypeScript har [vissa ytterligare krav](functions-reference-node.md#typescript). 
@@ -181,8 +181,8 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 | **`--docker`** | Skapa en Dockerfile för en behållare med hjälp av en bas avbildning som baseras på vald `--worker-runtime`. Använd det här alternativet när du planerar att publicera till en anpassad Linux-behållare. |
 | **`--force`** | Initiera projektet även när det finns befintliga filer i projektet. Den här inställningen skriver över befintliga filer med samma namn. Andra filer i projektmappen påverkas inte. |
 | **`--no-source-control -n`** | Förhindrar att en git-lagringsplats skapas som standard i version 1. x. Git-lagringsplatsen skapas inte som standard i version 2. x. |
-| **`--source-control`** | Anger om en git-lagringsplats skapas. Som standard skapas inte en lagrings plats. När `true` skapas en lagrings plats. |
-| **`--worker-runtime`** | Anger språk körning för projektet. De värden som stöds är `dotnet`, `node` (Java Script), `java` och `python`. När du inte har angett uppmanas du att välja din körning under initieringen. |
+| **`--source-control`** | Anger om en git-lagringsplats skapas. Som standard skapas inte en lagrings plats. När `true`skapas en lagrings plats. |
+| **`--worker-runtime`** | Anger språk körning för projektet. De värden som stöds är `dotnet`, `node` (Java Script), `java`och `python`. När du inte har angett uppmanas du att välja din körning under initieringen. |
 
 > [!IMPORTANT]
 > Som standard skapar version 2. x av kärn verktygen Function app-projekt för .net-körningen som [ C# klass projekt](functions-dotnet-class-library.md) (. CSPROJ). Dessa C# projekt, som kan användas med Visual Studio eller Visual Studio Code, kompileras under testning och vid publicering till Azure. Om du i stället vill skapa och arbeta med samma C# skript-filer (. CSX) som skapats i version 1. x och i portalen måste du inkludera parametern `--csx` när du skapar och distribuerar funktioner.
@@ -202,17 +202,19 @@ Värdena för funktionen app-inställningar kan också läsas i koden som miljö
 
 När ingen giltig lagrings anslutnings sträng har angetts för [`AzureWebJobsStorage`] och emulatorn inte används visas följande fel meddelande:
 
-> Värde saknas för AzureWebJobsStorage i Local. Settings. JSON. Detta krävs för alla andra utlösare än HTTP. Du kan köra "FUNC Azure functionapp Fetch-App-Settings \<functionAppName \>" eller ange en anslutnings sträng i Local. Settings. JSON.
+> Värde saknas för AzureWebJobsStorage i Local. Settings. JSON. Detta krävs för alla andra utlösare än HTTP. Du kan köra "FUNC Azure functionapp Fetch-App-Settings \<functionAppName\>" eller ange en anslutnings sträng i Local. Settings. JSON.
 
 ### <a name="get-your-storage-connection-strings"></a>Hämta anslutnings strängar för lagring
 
 Även om du använder Storage-emulatorn för utveckling kanske du vill testa med en faktisk lagrings anslutning. Förutsatt att du redan har [skapat ett lagrings konto](../storage/common/storage-create-storage-account.md)kan du hämta en giltig lagrings anslutnings sträng på något av följande sätt:
 
-+ Från [Azure-portalen]. Navigera till ditt lagrings konto, Välj **åtkomst nycklar** i **Inställningar**och kopiera sedan ett av värdena för **anslutnings strängen** .
+- Sök efter och välj **lagrings konton**från [Azure Portal]. 
+  ![väljer du lagrings konton från Azure Portal](./media/functions-run-local/select-storage-accounts.png)
+  
+  Välj ditt lagrings konto, Välj **åtkomst nycklar** i **Inställningar**och kopiera sedan ett av värdena för **anslutnings strängen** .
+  ![kopiera anslutnings strängen från Azure Portal](./media/functions-run-local/copy-storage-connection-portal.png)
 
-  ![Kopiera anslutnings strängen från Azure Portal](./media/functions-run-local/copy-storage-connection-portal.png)
-
-+ Använd [Azure Storage Explorer](https://storageexplorer.com/) för att ansluta till ditt Azure-konto. I **Utforskaren**expanderar du din prenumeration, väljer ditt lagrings konto och kopierar den primära eller sekundära anslutnings strängen.
+- Använd [Azure Storage Explorer](https://storageexplorer.com/) för att ansluta till ditt Azure-konto. I **Utforskaren**expanderar du din prenumeration, väljer ditt lagrings konto och kopierar den primära eller sekundära anslutnings strängen.
 
   ![Kopiera anslutnings strängen från Storage Explorer](./media/functions-run-local/storage-explorer.png)
 
@@ -398,7 +400,7 @@ Om du vill skicka test data till administratörs slut punkten för en funktion m
 }
 ```
 
-@No__t_0-värdet innehåller data i ett format som förväntas av funktionen. Följande spiral exempel är ett inlägg i en `QueueTriggerJS`-funktion. I det här fallet är indatamängden en sträng som motsvarar det meddelande som förväntas finnas i kön.
+`<trigger_input>`-värdet innehåller data i ett format som förväntas av funktionen. Följande spiral exempel är ett inlägg i en `QueueTriggerJS`-funktion. I det här fallet är indatamängden en sträng som motsvarar det meddelande som förväntas finnas i kön.
 
 ```bash
 curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
@@ -518,7 +520,7 @@ Om du vill skicka en fel-eller funktions förfrågan [öppnar du ett GitHub-prob
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure-portalen]: https://portal.azure.com 
+[Azure Portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [AzureWebJobsStorage]: functions-app-settings.md#azurewebjobsstorage

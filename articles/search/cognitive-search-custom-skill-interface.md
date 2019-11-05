@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f86c34dcc1276b8677e3e60514661a6d0b974005
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e0b54ca89511063e1a76753793846deaf8e8b9b4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787555"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466788"
 ---
 # <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Så här lägger du till en anpassad färdighet i en Azure Kognitiv sökning-rikare pipeline
 
@@ -154,8 +154,10 @@ När du skapar en webb-API-berikare kan du beskriva HTTP-huvuden och-parametrar 
 
 ## <a name="next-steps"></a>Nästa steg
 
-+ [Energi kunskaper: ett lager med anpassade kunskaper](https://aka.ms/powerskills)
-+ [Exempel: skapa en anpassad färdighet för kognitiv sökning](cognitive-search-create-custom-skill-example.md)
+I den här artikeln beskrivs de gränssnitts krav som krävs för att integrera en anpassad färdighet i en färdigheter. Klicka på följande länkar om du vill veta mer om anpassade kunskaper och färdigheter-sammansättning.
+
++ [Energi kunskaper: ett lager med anpassade kunskaper](https://github.com/Azure-Samples/azure-search-power-skills)
++ [Exempel: skapa en anpassad färdighet för AI-anrikning](cognitive-search-create-custom-skill-example.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
 + [Skapa färdigheter (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Så här mappar du omfattande fält](cognitive-search-output-field-mapping.md)

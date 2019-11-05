@@ -1,67 +1,75 @@
 ---
-title: Azure Appkonfiguration vanliga frågor och svar | Microsoft Docs
-description: Vanliga frågor och svar om konfiguration av Azure
+title: Vanliga frågor om Azure App konfiguration | Microsoft Docs
+description: Vanliga frågor om Azure App konfiguration
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
+author: lisaguthrie
 manager: maiye
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.author: yegu
+ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: e321c0b473b110597b5b87a6e67666737116daa2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dbfb6a1c4c53b1bd255560e688d3dc0cf3835a3a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393354"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469634"
 ---
-# <a name="azure-app-configuration-faq"></a>Azure Appkonfiguration vanliga frågor och svar
+# <a name="azure-app-configuration-faq"></a>Vanliga frågor om Azure App konfiguration
 
-Den här artikeln tar upp vanliga frågor och svar om konfiguration av Azure.
+Den här artikeln handlar om vanliga frågor om Azure App-konfiguration.
 
 ## <a name="how-is-app-configuration-different-from-azure-key-vault"></a>Vad är skillnaden mellan App Configuration och Azure Key Vault?
 
-Konfiguration av har utformats för en specifik uppsättning användningsfall: Det hjälper utvecklare att hantera inställningar för program och kontrollera tillgängliga funktioner. Syftet är att förenkla uppgifter för att arbeta med komplexa konfigurationsdata.
+App-konfigurationen är utformad för en distinkt uppsättning användnings fall: den hjälper utvecklare att hantera program inställningar och kontrol lera tillgänglighet för funktioner. Det syftar till att förenkla många av aktiviteterna för att arbeta med komplexa konfigurations data.
 
-Har stöd för Appkonfiguration:
+Konfiguration av appar stöder:
 
-- Hierarkisk namnområden
-- Märkning
+- Hierarkiska namn områden
+- märkning
 - Omfattande frågor
-- Batch-hämtning
-- Specialiserad hanteringsåtgärder
-- Ett användargränssnitt för hantering av funktionen
+- Hämta batch
+- Specialiserade hanterings åtgärder
+- Ett användar gränssnitt för funktions hantering
 
-Konfiguration av är kompletterande till Key Vault och två ska användas sida vid sida i de flesta programdistributioner.
+Konfiguration av appar kompletterar Key Vault och de två bör användas sida vid sida i de flesta program distributioner.
 
-## <a name="should-i-store-secrets-in-app-configuration"></a>Ska jag lagra hemligheter i Appkonfiguration?
+## <a name="should-i-store-secrets-in-app-configuration"></a>Bör jag lagra hemligheter i appens konfiguration?
 
-Även om Appkonfiguration ger förstärkt säkerhet, Key Vault är fortfarande den bästa platsen för att lagra programhemligheter. Key Vault ger kryptering på enhetsnivå maskinvara, detaljerade åtkomstprinciper och hanteringsåtgärder, till exempel certifikatrotering.
+Även om app-konfigurationen tillhandahåller härdnings säkerhet är Key Vault fortfarande den bästa platsen för att lagra program hemligheter. Key Vault tillhandahåller kryptering på maskin varu nivå, detaljerade åtkomst principer och hanterings åtgärder, till exempel certifikat rotation.
 
-## <a name="does-app-configuration-encrypt-my-data"></a>Krypterar Appkonfiguration Mina data?
+## <a name="does-app-configuration-encrypt-my-data"></a>Krypterar app-konfigurationen mina data?
 
-Ja. Konfiguration av krypterar alla nyckelvärden som den innehåller och krypteras nätverkskommunikation. Nyckelnamn används som index för att hämta konfigurationsdata och inte är krypterad.
+Ja. App-konfigurationen krypterar alla nyckel värden som den innehåller och krypterar nätverkskommunikationen. Nyckel namn används som index för att hämta konfigurations data och är inte krypterade.
 
-## <a name="how-should-i-store-configurations-for-multiple-environments-test-staging-production-and-so-on"></a>Hur ska jag lagra konfigurationer för flera miljöer (testning, mellanlagring, produktion och så vidare)?
+## <a name="are-there-any-size-limitations-on-keys-and-values-stored-in-app-configuration"></a>Finns det några storleks begränsningar för nycklar och värden som lagras i appens konfiguration?
 
-För närvarande kan du styra vem som har åtkomst till konfiguration på en per store-nivå. Använd ett annat lager för varje miljö som kräver olika behörigheter. Den här metoden ger dig bästa säkerhetsisolering.
+Det finns en gräns på 10 kB för ett enskilt nyckel värdes objekt.
 
-## <a name="what-are-the-recommended-ways-to-use-app-configuration"></a>Vad är den rekommenderade sätten att använda konfiguration?
+## <a name="how-should-i-store-configurations-for-multiple-environments-test-staging-production-and-so-on"></a>Hur ska jag lagra konfigurationer för flera miljöer (test, mellanlagring, produktion och så vidare)?
 
-Se [bästa praxis](./howto-best-practices.md).
+För närvarande kan du kontrol lera vem som har åtkomst till app-konfigurationen på per lagrings nivå. Använd en separat lagrings plats för varje miljö som kräver olika behörigheter. Den här metoden ger dig den bästa säkerhets isoleringen.
 
-## <a name="how-much-does-app-configuration-cost"></a>Hur mycket kostar konfiguration?
+## <a name="what-are-the-recommended-ways-to-use-app-configuration"></a>Vilka är de rekommenderade sätten att använda app Configuration?
 
-Tjänsten är kostnadsfritt att använda den offentliga förhandsversionen.
+Se [metod tips](./howto-best-practices.md).
 
-## <a name="how-can-i-report-an-issue-or-give-a-suggestion"></a>Hur kan jag rapportera ett problem eller ge förslag?
+## <a name="how-much-does-app-configuration-cost"></a>Hur mycket kostar det att konfigurera appar?
 
-Du kan nå oss direkt på [GitHub](https://github.com/Azure/AppConfiguration/issues).
+Tjänsten är kostnads fri att användas under den offentliga för hands versionen.
+
+## <a name="how-can-i-receive-announcements-on-new-releases-and-other-information-related-to-app-configuration"></a>Hur kan jag få meddelanden om nya versioner och annan information om app-konfigurationen?
+
+Prenumerera på vår [GitHub-annonsering lagrings platsen](https://github.com/Azure/AppConfiguration-Announcements).
+
+## <a name="how-can-i-report-an-issue-or-give-a-suggestion"></a>Hur kan jag rapportera ett ärende eller lämna ett förslag?
+
+Du kan kontakta oss direkt på [GitHub](https://github.com/Azure/AppConfiguration/issues).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Om konfiguration av Azure](./overview.md)
+* [Om Azure App konfiguration](./overview.md)

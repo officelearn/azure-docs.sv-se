@@ -6,22 +6,22 @@ ms.author: dacoulte
 ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 82279e6937fccfbbef13f9580f76cd344593b0df
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
-ms.translationtype: MT
+ms.openlocfilehash: efe929a6ea38a8df7ad9fe37a92c181e3d409b25
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255843"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464073"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure Policys gäst konfiguration
 
-Utöver att granska och [Reparera](../how-to/remediate-resources.md) Azure-resurser kan Azure policy granska inställningarna i en dator. Verifieringen utförs av gäst konfigurations tillägget och klienten. Tillägget, via klienten, validerar inställningar som:
+Utöver att granska och [Reparera](../how-to/remediate-resources.md) Azure-resurser kan Azure policy granska inställningarna i en dator. Verifieringen utförs av gästkonfigurationstillägget och klienten. Tillägget kontrollerar inställningar via klienten, till exempel:
 
 - Operativ systemets konfiguration
-- Program konfiguration eller närvaro
-- Miljö inställningar
+- Programkonfiguration eller förekomst
+- Miljöinställningar
 
-För närvarande granskar Azure Policy-gäst konfigurationen endast inställningar i datorn. Konfigurationen används inte.
+För närvarande granskar Azure Policy-gästkonfigurationen endast inställningar i datorn. Den tillämpar inte konfigurationer.
 
 ## <a name="extension-and-client"></a>Tillägg och klient
 
@@ -123,6 +123,29 @@ Azure Policy använder **complianceStatus** -egenskapen för gäst konfiguration
 
 Alla inbyggda principer för gäst konfiguration ingår i ett initiativ för att gruppera definitionerna för användning i tilldelningar. Det inbyggda initiativet med namnet *[för hands version]: granska säkerhets inställningar för lösen ord på Linux-och Windows-datorer* innehåller 18 principer. Det finns sex **DeployIfNotExists** -och **AuditIfNotExists** -par för Windows och tre par för Linux. [Princip definitions](definition-structure.md#policy-rule) logiken verifierar att endast mål operativ systemet utvärderas.
 
+#### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Granska operativ system inställningar efter bransch bas linjer
+
+Ett av de initiativ som är tillgängliga i Azure Policy ger möjlighet att granska operativ systemets inställningar i virtuella datorer efter "bas linje" från Microsoft.  Definitionen *[Preview]: granska virtuella Windows-datorer som inte matchar inställningarna för Azures säkerhets bas linje* innehåller en fullständig uppsättning gransknings regler som baseras på inställningarna från Active Directory Grupprincip.
+
+De flesta av inställningarna är tillgängliga som parametrar.  Med den här funktionen kan du anpassa vad som ska granskas för att justera principen med organisationens krav, eller för att mappa principen till tredje parts information, till exempel bransch regelverks standarder.
+
+Vissa parametrar har stöd för ett heltals värde intervall.  Till exempel kan den högsta ålders parametern för lösen ord anges med en intervall operator för att ge flexibilitet till dator ägare.  Du kan granska att den effektiva grupprincips inställningen som kräver att användaren ändrar sina lösen ord inte ska vara mer än 70 dagar, men bör inte vara mindre än 1 dag.  Som det beskrivs i info-bubblan för parametern, för att göra detta till det effektiva granskning svärdet, ställer du in värdet på "1, 70".
+
+Om du tilldelar principen med hjälp av en mall för Azure Resource Manager dployment kan du använda en parameter fil för att hantera inställningarna från käll kontroll.
+Genom att använda ett verktyg som Git för att hantera ändringar i gransknings principer med kommentarer vid varje incheckning, dokumenteras bevis för varför en tilldelning ska vara i undantag till det förväntade värdet.
+
+#### <a name="applying-configurations-using-guest-configuration"></a>Använda konfigurationer med gäst konfiguration
+
+Den senaste funktionen i Azure Policy konfigurerar inställningar i datorer.
+Definitionen *Konfigurera tids zonen på Windows-datorer* kommer att göra ändringar på datorn genom att konfigurera tids zonen.
+
+När du tilldelar definitioner som börjar med *Konfigurera*måste du också tilldela *krav för definitions distribution för att aktivera principen för gäst konfiguration på virtuella Windows-datorer.*
+Du kan kombinera dessa definitioner i ett initiativ om du väljer.
+
+#### <a name="assigning-policies-to-machines-outside-of-azure"></a>Tilldela principer till datorer utanför Azure
+
+De gransknings principer som är tillgängliga för gäst konfiguration är resurs typen **Microsoft. HybridCompute/Machines** .  Alla datorer som har publicerats till Azure-bågen som ingår i tilldelnings omfånget tas automatiskt med.
+
 ### <a name="multiple-assignments"></a>Flera tilldelningar
 
 Principer för gäst konfiguration stöder för närvarande bara tilldelning av samma gäst tilldelning en gång per dator, även om princip tilldelningen använder olika parametrar.
@@ -144,7 +167,7 @@ Där `<version>` refererar till det aktuella versions numret.
 
 ### <a name="collecting-logs-remotely"></a>Samla in loggar via fjärr anslutning
 
-Det första steget i Felsöka konfigurationer av gäst konfiguration eller moduler bör vara att använda cmdleten `Test-GuestConfigurationPackage` enligt stegen i [testa ett gäst konfigurations paket](../how-to/guest-configuration-create.md#test-a-guest-configuration-package).
+Det första steget i Felsöka konfigurationer av gäst konfiguration eller moduler bör vara att använda `Test-GuestConfigurationPackage`-cmdleten enligt stegen i [testa ett gäst konfigurations paket](../how-to/guest-configuration-create.md#test-a-guest-configuration-package).
 Om det inte lyckas kan insamling av klient loggar hjälpa till att diagnostisera problem.
 
 #### <a name="windows"></a>Windows

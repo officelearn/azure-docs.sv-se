@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/25/2019
-ms.openlocfilehash: 06f4fd56ba5d0152b7e5d3fbfaa31dc4d6c4482d
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 01553eb020c1493488e941705d9df8c8c946340a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554117"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73478702"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Aktivera övervakning av ett nytt Azure Kubernetes service-kluster (AKS)
 
@@ -97,7 +97,7 @@ omsagent   2         2         2         2            2           beta.kubernete
 ```  
 
 ## <a name="view-configuration-with-cli"></a>Visa konfiguration med CLI
-Använd kommandot `aks show` för att få information om t. ex. om lösningen är aktive rad eller inte, vad är inställningen för Log Analytics-arbetsytan och sammanfattande information om klustret.  
+Använd kommandot `aks show` för att få information om till exempel att lösningen är aktive rad eller inte, vad är inställningen för Log Analytics-arbetsytan och sammanfattningen av klustret.  
 
 ```azurecli
 az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
@@ -120,4 +120,4 @@ Efter några minuter slutförs kommandot och returnerar JSON-formaterad informat
 
 * Läs [fel söknings guiden](container-insights-troubleshoot.md) om du får problem när du försöker publicera lösningen
 
-* När övervakning har Aktiver ATS för att fånga hälso mått för både AKS-klusternoder och poddar är dessa hälso mått tillgängliga i Azure Portal. Information om hur du använder Azure Monitor för behållare finns i [Visa Azure Kubernetes service Health](container-insights-analyze.md).
+* När övervakning har Aktiver ATS för att samla in hälso-och resursutnyttjande för ditt AKS-kluster och arbets belastningar som körs på dem, lär [du dig hur du använder](container-insights-analyze.md) Azure Monitor för behållare.

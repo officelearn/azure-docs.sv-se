@@ -1,24 +1,24 @@
 ---
 title: 'Normalisera data: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen normalisera data i Azure Machine Learning-tjänsten för att transformera en data uppsättning via *normalisering*..
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen normalisera data i Azure Machine Learning för att transformera en data uppsättning via *normalisering*..
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: c77ebbe8569ffd221fadb5b98a54fc26d0d70893
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: bdf2fa700b96c6110143a4557985ac1a30ed9096
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692704"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466054"
 ---
 # <a name="normalize-data-module"></a>Normalisera datamodul
 
-I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd den här modulen för att transformera en data uppsättning via *normalisering*.
 
@@ -109,4 +109,4 @@ Du kan bara använda en normaliserings metod i taget med den här modulen. Därf
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

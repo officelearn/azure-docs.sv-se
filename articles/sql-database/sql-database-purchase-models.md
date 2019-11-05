@@ -11,18 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: 98d257c28ab5ff2cf902c0b8205ac8918ccf4d45
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ab291ab60a5e72b5c61552bc54c10e303c1df1a9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567012"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492482"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Välj mellan vCore och DTU inköps modeller
 
 Med Azure SQL Database kan du enkelt köpa en helt hanterad plattform som en tjänst (PaaS) databas motor som passar dina prestanda-och kostnads behov. Beroende på vilken distributions modell som du har valt för Azure SQL Database kan du välja den inköps modell som passar dig bäst:
 
-- [Virtual Core (vCore)-baserad inköps modell](sql-database-service-tiers-vcore.md) (rekommenderas). Den här inköps modellen ger ett val mellan en allokerad beräknings nivå och en server lös (för hands version) beräknings nivå. Med den allokerade beräknings nivån väljer du den exakta mängden beräknings resurser som alltid är etablerade för din arbets belastning. Med Server lös beräknings nivån anger du automatisk skalning av beräknings resurserna över ett konfigurerbart beräknings intervall. Med den här beräknings nivån kan du också automatiskt pausa och återuppta databasen baserat på arbets belastnings aktivitet. VCore enhets pris per tidsenhet är lägre än den allokerade beräknings nivån än den är i Server lös beräknings nivån.
+- [Virtual Core (vCore)-baserad inköps modell](sql-database-service-tiers-vcore.md) (rekommenderas). Den här inköps modellen ger ett val mellan en allokerad beräknings nivå och en server lös beräknings nivå. Med den allokerade beräknings nivån väljer du den exakta mängden beräknings resurser som alltid är etablerade för din arbets belastning. Med Server lös beräknings nivån anger du automatisk skalning av beräknings resurserna över ett konfigurerbart beräknings intervall. Med den här beräknings nivån kan du också automatiskt pausa och återuppta databasen baserat på arbets belastnings aktivitet. VCore enhets pris per tidsenhet är lägre än den allokerade beräknings nivån än den är i Server lös beräknings nivån.
 - [-Baserad inköps modell för databas transaktions enhet (DTU)](sql-database-service-tiers-dtu.md). Den här inköps modellen tillhandahåller paket för beräkning och lagring som är balanserade för vanliga arbets belastningar.
 
 Olika inköps modeller är tillgängliga för olika Azure SQL Database distributions modeller:
@@ -53,7 +53,7 @@ Kostnaden för lagring av säkerhets kopior är samma för nivån affärs kritis
 
 ### <a name="serverless-compute-costs"></a>Beräknings kostnader utan Server
 
-En beskrivning av hur beräknings kapaciteten definieras och kostnader beräknas för Server lös beräknings nivån finns [SQL Database utan server (för hands version)](sql-database-serverless.md).
+En beskrivning av hur beräknings kapaciteten definieras och kostnader beräknas för Server lös beräknings nivån finns [SQL Database utan server](sql-database-serverless.md).
 
 ## <a name="storage-costs"></a>Lagringskostnader
 
@@ -67,7 +67,7 @@ Mer information om lagrings priser finns på sidan med [priser](https://azure.mi
 
 En virtuell kärna (vCore) representerar en logisk CPU och ger dig möjlighet att välja mellan generationens maskin vara och maskin varans fysiska egenskaper (till exempel antalet kärnor, minne och lagrings storlek). Den vCore-baserade inköps modellen ger dig flexibilitet, kontroll, transparens för enskild resursanvändning och ett enkelt sätt att översätta lokala arbets belastnings krav till molnet. Med den här modellen kan du välja beräknings-, minnes-och lagrings resurser baserat på dina arbets belastnings behov.
 
-I den vCore-baserade inköps modellen kan du välja mellan [allmänna syften](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) och [affärs kritiska](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) tjänst nivåer för [enskilda databaser](sql-database-single-database-scale.md), elastiska [pooler](sql-database-elastic-pool.md)och hanterade [instanser](sql-database-managed-instance.md). För enskilda databaser kan du också välja den [storskaliga tjänst nivån](sql-database-service-tier-hyperscale.md).
+I den vCore-baserade inköps modellen kan du välja mellan [allmänna syften](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) och [affärs kritiska](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) tjänst nivåer för [enskilda databaser](sql-database-single-database-scale.md), [elastiska pooler](sql-database-elastic-pool.md)och [hanterade instanser](sql-database-managed-instance.md). För enskilda databaser kan du också välja den [storskaliga tjänst nivån](sql-database-service-tier-hyperscale.md).
 
 Med den vCore-baserade inköps modellen kan du välja beräknings-och lagrings resurser oberoende av varandra, matcha lokala prestanda och optimera priset. I den vCore-baserade inköps modellen betalar du för:
 
@@ -102,12 +102,12 @@ De resurser som används av arbets belastningen påverkar inte resurserna som ä
 
 ![avgränsnings ruta](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
-DTU: er är mest användbara för att förstå de relativa resurser som är allokerade för Azure SQL-databaser med olika beräknings storlekar och tjänst nivåer. Exempel:
+DTU: er är mest användbara för att förstå de relativa resurser som är allokerade för Azure SQL-databaser med olika beräknings storlekar och tjänst nivåer. Till exempel:
 
 - Att dubblera DTU: er genom att öka beräknings storleken för en databas, motsvarar att dubblera den uppsättning av resurser som är tillgängliga för den databasen.
 - En Premium Service Tier p11-databas med 1750 DTU: er ger beräkningskraft mer DTU-beräknings kraft än en grundläggande tjänst nivå databas med 5 DTU: er.  
 
-Om du vill få djupare insikt i resurs användningen för din arbets belastning använder du [frågor om prestanda](sql-database-query-performance.md) insikter för att:
+Om du vill få djupare insikt i resurs användningen för din arbets belastning använder du [frågor om prestanda insikter](sql-database-query-performance.md) för att:
 
 - Identifiera de vanligaste frågorna efter processor/varaktighet/antal körningar som kan justeras för bättre prestanda. Till exempel kan en I/O-intensiv fråga ha nytta av [minnes optimerings tekniker](sql-database-in-memory.md) för att bättre kunna använda det tillgängliga minnet på en viss tjänst nivå och beräknings storlek.
 - Öka detalj nivån i informationen om en fråga för att visa dess text och dess historik för resursanvändning.

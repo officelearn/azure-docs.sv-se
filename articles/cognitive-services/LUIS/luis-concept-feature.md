@@ -1,7 +1,7 @@
 ---
 title: Funktioner – LUIS
 titleSuffix: Azure Cognitive Services
-description: Lägga till funktioner till en språkmodell ge tips om hur du identifierar indata som du vill märka eller klassificera.
+description: Lägg till funktioner i en språk modell för att ge tips om hur du identifierar indatatyper som du vill etikettera eller klassificera.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,33 +9,53 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 11/03/2019
 ms.author: diberry
-ms.openlocfilehash: dab4b4c6f41a95623a40e5d3fd859f9613afac27
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 08f78e4945b612a92d372c832490c380d3749811
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949602"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73487514"
 ---
-# <a name="phrase-list-features-in-your-luis-app"></a>Fras List funktioner i LUIS-appen
+# <a name="machine-learned-features"></a>Funktioner som har lästs av datorn 
 
-I machine learning, en *funktionen* är en särskiljande egenskap eller ett attribut av data där dina system. 
+I Machine Learning är en *funktion* en särskiljande egenskaps-eller dataattribut som systemet iakttar & lär sig igenom. I Language Understanding (LUIS) beskriver en funktion och förklarar vad som är viktigt om dina avsikter och entiteter.
 
-Lägga till funktioner till en språkmodell ge tips om hur du identifierar indata som du vill märka eller klassificera. Funktionerna bidrar LUIS kunna identifiera både avsikter och entiteter, men funktioner är inte avsikter eller entiteter själva. Funktioner kan i stället innehåller exempel på relaterade villkor.  
+## <a name="features-in-language-understanding"></a>Funktioner i Language Understanding
 
-## <a name="what-is-a-phrase-list-feature"></a>Vad är en fras lista funktion?
-En fras lista är en lista över ord eller fraser som är viktiga för din app, mer än andra ord i yttranden. En fras lista lägger till i program domänens vokabulär som en ytterligare signal för att LUIS om orden. Vad LUIS lär sig om en av dem tillämpas automatiskt på alla andra program. Den här listan är inte en stängd [list-entitet](luis-concept-entity-types.md#types-of-entities) med exakt text matchning.
+Funktioner, även kallade beskrivningar, beskriver LED trådar för att hjälpa Language Understanding att identifiera exemplet yttranden. Funktionerna omfattar: 
 
-Fras listorna bidrar inte till att du behöver lägga till uttryck-exempel som använder en rad olika ord listor och fraser.
+* Fras lista som en funktion till avsikter eller entiteter
+* Entiteter som funktioner till avsikter eller entiteter
 
-## <a name="phrase-lists-help-all-models"></a>Fras listorna hjälper alla modeller
+Funktioner bör betraktas som en nödvändig del av ditt schema för modells sammansättning. 
 
-Fras listor är inte länkade till en speciell avsikt eller entitet, men läggs till som en betydande ökning av alla avsikter och entiteter. Syftet med detta är att förbättra identifieringen av avsikts identifiering och enhets klassificering.
+## <a name="what-is-a-phrase-list"></a>Vad är en fras lista
 
-## <a name="how-to-use-phrase-lists"></a>Hur du använder frasen listor
+En fras lista är en lista över ord, fraser, siffror eller andra tecken som hjälper dig att identifiera det koncept som du försöker identifiera. Listan är Skift läges okänslig. 
 
-[Skapa en fras](luis-how-to-add-features.md) lista när din app har ord eller fraser som är viktiga för appen, till exempel:
+## <a name="when-to-use-a-phrase-list"></a>När du ska använda en fras lista
+
+Med en fras lista anser LUIS kontext och generalizes för att identifiera objekt som liknar, men inte en exakt text matchning. Använd en fras lista om du behöver LUIS-appen för att kunna generalisera och identifiera nya objekt. 
+
+När du vill kunna identifiera nya instanser, till exempel en schemaläggare för möten som ska identifiera namnen på nya kontakter eller en inventerings app som ska identifiera nya produkter, börjar du med en enhet som har lärts från enheten. Skapa sedan en fras lista som hjälper LUIS att hitta ord med liknande betydelse. Den här frasen visar en lista över LUIS som hjälper dig att identifiera exempel genom att lägga till ytterligare betydelse för värdet av dessa ord. 
+
+Fras listor är som domänbaserad vokabulär som hjälper till att förbättra kvaliteten på både avsikter och entiteter. 
+
+## <a name="considerations-when-using-a-phrase-list"></a>Att tänka på när du använder en fras lista
+
+En fras lista används som standard för alla modeller i appen. Detta fungerar för fras listor som kan korsa alla avsikter och entiteter. För desammansättning kan du använda en fras lista för att bara de modeller som är relevanta för. 
+
+Om du skapar en fras lista (som skapas globalt som standard), tillämpas den senare som en beskrivning (funktion) till en speciell modell, tas den bort från de andra modellerna. Den här borttagningen lägger till relevans för fras listan för den modell som den tillämpas på, vilket ger bättre noggrannhet i modellen. 
+
+Flaggan `enabledForAllModels` styr det här modell omfånget i API: et. 
+
+<a name="how-to-use-phrase-lists"></a>
+
+### <a name="how-to-use-a-phrase-list"></a>Så här använder du en fras lista
+
+[Skapa en fras](luis-how-to-add-features.md) lista när ditt avsikt eller din entitet har ord eller fraser som är viktiga, till exempel:
 
 * bransch villkor
 * slang
@@ -44,48 +64,29 @@ Fras listor är inte länkade till en speciell avsikt eller entitet, men läggs 
 * språk som är från ett annat språk men som ofta används i din app
 * nyckelord och fraser i ditt exempel yttranden
 
-När du har angett några ord eller fraser använder du den **rekommenderade** funktionen för att hitta relaterade värden. Granska de relaterade värdena innan du lägger till dem i dina fras List värden.
-
-En fras lista är för värden som är synonymer. Om du till exempel vill att alla vatten förekomster hittas och du har exempel yttranden som: 
-
-* Vilka städer är nära de fantastiska sjöarna? 
-* Vilken väg körs i sjön-Havasu?
-* Var börjar och slutar Nileen? 
-
-Varje uttryck bör bestämmas för både avsikt och entiteter oavsett vatten förekomst: 
-
-* Vilka städer är nära [bodyOfWater]?
-* Vilken väg körs tillsammans [bodyOfWater]?
-* Var börjar och slutar [bodyOfWater]? 
-
-Eftersom ord eller fraser för bröd texten i vatten är synonyma och kan användas utbytbara i yttranden. 
+Lägg **inte** till varje möjligt ord eller fras. Lägg i stället till några ord eller fraser i taget, och sedan träna och publicera. När listan växer med tiden kan det hända att vissa termer har många former (synonymer). Dela upp dessa i en annan lista. 
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 
-## <a name="phrase-lists-help-identify-simple-interchangeable-entities"></a>Fras listor hjälper till att identifiera enkla utbytbara entiteter
-Utbytbara frasen listor är ett bra sätt att finjustera prestanda för LUIS-appen. Om din app har problem med att förutsäga yttranden till rätt avsikt eller känna igen entiteter kan du tänka på om talade innehålla ovanliga ord eller ord som kan vara tvetydiga i betydelse. Dessa ord är bra kandidater ska ingå i en fras-lista.
+## <a name="when-to-use-an-entity-as-a-feature"></a>När du ska använda en entitet som en funktion 
 
-## <a name="phrase-lists-help-identify-intents-by-better-understanding-context"></a>Fras Visar hjälp med att identifiera avsikter genom att bättre förstå kontexten
-En lista med frasen är inte en instruktion till LUIS för att utföra strikt matchar eller alla villkor i listan över frasen alltid märka likadant. Det är bara ett tips. Du kan ha en fras-lista som anger att ”Patti” och ”Selma” namn, men LUIS kan fortfarande använda kontextinformation att känna igen de betyder något annat i ”gör en reservation för 2 på Patti's Diner till middag” och ”hitta mig Driver anvisningar för att Selma, Georgien ”. 
+En entitet kan läggas till som en funktion på avsikts-eller enhets nivå. 
 
-Att lägga till en fras lista är ett alternativ till att lägga till fler exempel yttranden till en avsikt. 
+### <a name="entity-as-a-feature-to-an-intent"></a>Entitet som en funktion till ett avsikts sätt
 
-## <a name="when-to-use-phrase-lists-versus-list-entities"></a>När du ska använda frasen listor jämfört med listan över entiteter
-Både en fras lista och en [lista över entiteter](reference-entity-list.md) kan påverka yttranden i alla avsikter, varje gör detta på ett annat sätt. Använda en fras ska påverka avsikt förutsägelse poäng. Använd en entitet i listan för att påverka entitetextrahering efter en exakt denna matchning. 
+Lägg till en entitet som en beskrivning (funktion) i avsikt när identifieringen av den enheten är signifikant för avsikten.
 
-### <a name="use-a-phrase-list"></a>Använd en fras-lista
-Med en fras lista LUIS fortfarande ta hänsyn till kontext och generalisera för att identifiera objekt som liknar, men inte en exakt matchning som objekt i en lista. Om du behöver LUIS-appen för att kunna generalisera och identifiera nya objekt i en kategori kan du använda en fras-lista. 
+Om avsikten exempelvis är att boka en flygning och entiteten är biljett information (t. ex. antalet platser, ursprung och mål), ska du söka efter entiteten med biljett information genom att lägga till vikt till förutsägelsen av bokens flyg avsikt. 
 
-När du vill kunna identifiera nya instanser av en entitet, till exempel en schemaläggare för möten som ska identifiera namnen på nya kontakter, eller en inventerings app som ska identifiera nya produkter, använder du en annan typ av enhets medveten entitet, till exempel en enkel enhet. Skapa sedan en lista över ord och fraser fras som hjälper dig att hitta andra ord liknar entiteten LUIS. Den här listan visar LUIS för att identifiera exempel på entiteten genom att lägga till ytterligare multipel till värdet för orden. 
+### <a name="entity-as-a-feature-to-another-entity"></a>Entitet som en funktion till en annan entitet
 
-Fras listor liknar domänspecifika ordförråd hjälp med att förbättra kvaliteten på förståelse för både avsikter och entiteter. En gemensam användning av en fras lista är egennamn, till exempel stadsnamn. Namnet på en stad kan vara flera ord, inklusive bindestreck eller apostrofer.
- 
-### <a name="dont-use-a-phrase-list"></a>Använd inte en fras-lista 
-En lista över entitet definierar uttryckligen varje värde en entitet kan ta och bara identifierar värden som matchar exakt. En lista över entitet kan vara lämpligt för en app där alla instanser av en entitet är kända och inte ändras ofta. Exempel är mat objekt på en restaurang-meny som ändras sällan. Om du behöver en exakt denna matchning av en entitet kan du inte använda en fras-lista. 
+En entitet (A) ska läggas till som en funktion till en annan entitet (B) när entitetens identifiering (A) är signifikant för (B).
+
+Om t. ex. entiteten gatuadress (A) har identifierats lägger du till en vikt till förutsägelsen för entiteten leverans adress (B) genom att söka efter gatuadressen (A). 
 
 ## <a name="best-practices"></a>Bästa praxis
-Lär dig [bästa praxis](luis-concept-best-practices.md).
+Lär dig [metod tips](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [Lägg till funktioner](luis-how-to-add-features.md) mer information om hur du lägger till funktioner till din LUIS-app.
+Se [Lägg till funktioner](luis-how-to-add-features.md) för att lära dig mer om hur du lägger till funktioner i Luis-appen.

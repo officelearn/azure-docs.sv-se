@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 1721f10f8950577080a89ba58a3eb4dd3a25c188
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: c4a312654fb54660a229c334071d33a5d6bc172f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249191"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496368"
 ---
 # <a name="view-service-fabric-health-reports"></a>Visa Service Fabric hälso rapporter
 Azure Service Fabric introducerar en [hälso modell](service-fabric-health-introduction.md) med hälsoentiteter där system komponenter och övervaknings enheter kan rapportera lokala villkor som de övervakar. [Hälso arkivet](service-fabric-health-introduction.md#health-store) sammanställer alla hälso data för att avgöra om entiteterna är felfria.
@@ -32,7 +32,7 @@ Service Fabric ger flera sätt att hämta enheternas aggregerade hälso tillstå
 * Hälso frågor (via PowerShell, API eller REST)
 * Allmänna frågor som returnerar en lista över entiteter som har hälso tillstånd som en av egenskaperna (via PowerShell, API eller REST)
 
-För att demonstrera de här alternativen ska vi använda ett lokalt kluster med fem noder och [Fabric:/WORDCOUNT-programmet](https://aka.ms/servicefabric-wordcountapp). Programmet **Fabric:/WORDCOUNT** innehåller två standard tjänster, en tillstånds känslig tjänst av typen `WordCountServiceType`och en tillstånds lös tjänst av typen `WordCountWebServiceType`. Jag ändrade `ApplicationManifest.xml` för att kräva sju mål repliker för den tillstånds känsliga tjänsten och en partition. Eftersom det bara finns fem noder i klustret, rapporterar system komponenterna en varning på-tjänstepartitionen eftersom den är lägre än antalet mål.
+För att demonstrera de här alternativen ska vi använda ett lokalt kluster med fem noder och [Fabric:/WORDCOUNT-programmet](https://github.com/Azure-Samples/service-fabric-wordcount/raw/master/WordCountV1.sfpkg). Programmet **Fabric:/WORDCOUNT** innehåller två standard tjänster, en tillstånds känslig tjänst av typen `WordCountServiceType`och en tillstånds lös tjänst av typen `WordCountWebServiceType`. Jag ändrade `ApplicationManifest.xml` att kräva sju mål repliker för den tillstånds känsliga tjänsten och en partition. Eftersom det bara finns fem noder i klustret, rapporterar system komponenterna en varning på-tjänstepartitionen eftersom den är lägre än antalet mål.
 
 ```xml
 <Service Name="WordCountService">
@@ -46,7 +46,7 @@ För att demonstrera de här alternativen ska vi använda ett lokalt kluster med
 Service Fabric Explorer ger en visuell vy av klustret. I bilden nedan kan du se att:
 
 * Application **Fabric:/WORDCOUNT** är rött (i fel) eftersom det innehåller en fel händelse som rapporteras av min **övervaknings** enhet för egenskaps **tillgänglighet**.
-* En av dess tjänster, **Fabric:/WORDCOUNT/WordCountService** är gult (i varning). Tjänsten har kon figurer ATS med sju repliker och klustret innehåller fem noder, så det går inte att placera två repliker. Även om den inte visas här är tjänstepartitionen gul på grund av en system rapport från `System.FM` att säga `Partition is below target replica or instance count`att. Den gula partitionen utlöser den gula tjänsten.
+* En av dess tjänster, **Fabric:/WORDCOUNT/WordCountService** är gult (i varning). Tjänsten har kon figurer ATS med sju repliker och klustret innehåller fem noder, så det går inte att placera två repliker. Även om den inte visas här är tjänstepartitionen gul på grund av en system rapport från `System.FM` som säger att `Partition is below target replica or instance count`. Den gula partitionen utlöser den gula tjänsten.
 * Klustret är rött på grund av det röda programmet.
 
 Utvärderingen använder standard principer från kluster manifestet och applikations manifestet. De är strikta principer och tolererar inte eventuella problem.
@@ -96,7 +96,7 @@ Returnerar hälso tillståndet för klustrets entitet och innehåller hälso til
 * Valfritt Filter för att inkludera infrastruktur resurser:/hälso statistik i hälso statistik. Endast tillämpligt om hälso statistik inte är exkluderad. Hälso statistiken innehåller som standard endast statistik för användar program och inte system tillämpningen.
 
 ### <a name="api"></a>API
-För att få kluster hälsa skapar du `FabricClient` en och anropar [GetClusterHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync) -metoden på dess **HealthManager**.
+Skapa en `FabricClient` och anropa [GetClusterHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync) -metoden på dess **HealthManager**för att få kluster hälsa.
 
 Följande anrop hämtar kluster tillståndet:
 
@@ -244,7 +244,7 @@ Returnerar hälsan för en nod-entitet och innehåller de hälso händelser som 
 * Valfritt Filter för händelser som anger vilka poster som är av intresse och som ska returneras i resultatet (till exempel endast fel eller både varningar och fel). Alla händelser används för att utvärdera enhetens sammanlagda hälso tillstånd, oavsett filtret.
 
 ### <a name="api"></a>API
-Om du vill hämta en nods hälsa genom API: `FabricClient` et skapar du en och anropar [GetNodeHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getnodehealthasync) -metoden på dess HealthManager.
+Skapa en `FabricClient` och anropa [GetNodeHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getnodehealthasync) -metoden på dess HealthManager för att få en nods hälsa genom API: et.
 
 Följande kod hämtar nodens hälsa för angivet nodnamn:
 
@@ -314,7 +314,7 @@ Returnerar hälsan för en program enhet. Den innehåller hälso tillståndet f�
 * Valfritt Filtrera för att undanta hälso statistik. Om detta inte anges innehåller hälso statistik antalet OK, varning och fel för alla program underordnade: tjänster, partitioner, repliker, distribuerade program och distribuerade tjänst paket.
 
 ### <a name="api"></a>API
-Skapa en `FabricClient` och anropa [GetApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync) -metoden på dess HealthManager för att få program hälsan.
+Skapa ett `FabricClient` och anropa [GetApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync) -metoden på dess HealthManager för att få program hälsan.
 
 Följande kod hämtar program hälsan för angivet program namn (URI):
 
@@ -460,7 +460,7 @@ Returnerar hälsan för en tjänste enhet. Den innehåller hälso tillståndet f
 * Valfritt Filtrera för att undanta hälso statistik. Om detta inte anges visar hälso statistik antalet OK, varning och fel för alla partitioner och repliker av tjänsten.
 
 ### <a name="api"></a>API
-Om du vill hämta tjänstens hälso tillstånd genom API `FabricClient` : et skapar du en och anropar [GetServiceHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync) -metoden på dess HealthManager.
+Skapa en `FabricClient` och anropa [GetServiceHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync) -metoden på dess HealthManager för att få tjänstens hälso tillstånd genom API: et.
 
 Följande exempel hämtar hälso tillståndet för en tjänst med angivet tjänste namn (URI):
 
@@ -532,7 +532,7 @@ Returnerar hälsan för en partition-entitet. Den innehåller replikens hälso t
 * Valfritt Filtrera för att undanta hälso statistik. Om detta inte anges visar hälso statistiken hur många repliker som är i OK, varning och fel tillstånd.
 
 ### <a name="api"></a>API
-Om du vill hämta partitionens hälso tillstånd genom API `FabricClient` : et skapar du en och anropar [GetPartitionHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync) -metoden på dess HealthManager. Skapa [PartitionHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.partitionhealthquerydescription)om du vill ange valfria parametrar.
+Skapa en `FabricClient` och anropa [GetPartitionHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync) -metoden på dess HealthManager för att få partitionera hälsa genom API: et. Skapa [PartitionHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.partitionhealthquerydescription)om du vill ange valfria parametrar.
 
 ```csharp
 PartitionHealth partitionHealth = await fabricClient.HealthManager.GetPartitionHealthAsync(partitionId);
@@ -623,7 +623,7 @@ Returnerar hälsan för en tillstånds känslig tjänst replik eller en tillstå
 * Valfritt Filter för händelser som anger vilka poster som är av intresse och som ska returneras i resultatet (till exempel endast fel eller både varningar och fel). Alla händelser används för att utvärdera enhetens sammanlagda hälso tillstånd, oavsett filtret.
 
 ### <a name="api"></a>API
-Om du vill hämta replik hälsan genom API: et skapar `FabricClient` du en och anropar [GetReplicaHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getreplicahealthasync) -metoden på dess HealthManager. Använd [ReplicaHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.replicahealthquerydescription)om du vill ange avancerade parametrar.
+Om du vill hämta replik hälsan via API: et skapar du en `FabricClient` och anropar [GetReplicaHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getreplicahealthasync) -metoden på dess HealthManager. Använd [ReplicaHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.replicahealthquerydescription)om du vill ange avancerade parametrar.
 
 ```csharp
 ReplicaHealth replicaHealth = await fabricClient.HealthManager.GetReplicaHealthAsync(partitionId, replicaId);
@@ -667,7 +667,7 @@ Returnerar hälso tillståndet för ett program som har distribuerats på en Nod
 * Valfritt Filtrera för att undanta hälso statistik. Om detta inte anges visar hälso statistik antalet distribuerade tjänst paket i hälso tillstånden OK, varning och fel.
 
 ### <a name="api"></a>API
-Om du vill få hälso tillståndet för ett program som distribuerats på en nod via API: `FabricClient` et, skapar du en och anropar [GetDeployedApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync) -metoden på dess HealthManager. Använd [DeployedApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription)om du vill ange valfria parametrar.
+Om du vill få hälso tillståndet för ett program som distribuerats på en nod via API skapar du ett `FabricClient` och anropar [GetDeployedApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync) -metoden på dess HealthManager. Använd [DeployedApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription)om du vill ange valfria parametrar.
 
 ```csharp
 DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedApplicationHealthAsync(
@@ -725,7 +725,7 @@ Returnerar hälsan för en distribuerad tjänst paket enhet. Indata:
 * Valfritt Filter för händelser som anger vilka poster som är av intresse och som ska returneras i resultatet (till exempel endast fel eller både varningar och fel). Alla händelser används för att utvärdera enhetens sammanlagda hälso tillstånd, oavsett filtret.
 
 ### <a name="api"></a>API
-Om du vill hämta hälsan för ett distribuerat tjänst paket via API: et skapar `FabricClient` du en och anropar [GetDeployedServicePackageHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync) -metoden på dess HealthManager. Använd [DeployedServicePackageHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedservicepackagehealthquerydescription)om du vill ange valfria parametrar.
+Om du vill hämta hälsan för ett distribuerat tjänst paket via API: et skapar du ett `FabricClient` och anropar [GetDeployedServicePackageHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync) -metoden på dess HealthManager. Använd [DeployedServicePackageHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedservicepackagehealthquerydescription)om du vill ange valfria parametrar.
 
 ```csharp
 DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeployedServicePackageHealthAsync(
@@ -820,7 +820,7 @@ Segment resultatet innehåller de underordnade objekten som respekterar filtren.
 För närvarande returnerar segment frågan inte felfria utvärderingar eller enhets händelser. Den extra informationen kan hämtas med hjälp av den befintliga kluster hälso frågan.
 
 ### <a name="api"></a>API
-Om du vill hämta klustrets hälso tillstånd `FabricClient` skapar du ett och anropar [GetClusterHealthChunkAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync) -metoden på dess **HealthManager**. Du kan skicka in [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthchunkquerydescription) för att beskriva hälso principer och avancerade filter.
+Om du vill hämta klustrets hälso tillstånd skapar du ett `FabricClient` och anropar [GetClusterHealthChunkAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync) -metoden på dess **HealthManager**. Du kan skicka in [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthchunkquerydescription) för att beskriva hälso principer och avancerade filter.
 
 Följande kod hämtar ett kluster hälso segment med avancerade filter.
 
@@ -1030,30 +1030,30 @@ Om allmänna frågor returnerar ett okänt hälso tillstånd för en entitet, ä
 
 Frågorna **som innehåller** hälsoattribut för entiteter är:
 
-* Node-lista: Returnerar List-noderna i klustret (växlat).
-  * APPLICATION [FabricClient.QueryClient.GetNodeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
-  * PowerShell: Get-ServiceFabricNode
-* Program lista: Returnerar listan över program i klustret (växlat).
-  * APPLICATION [FabricClient.QueryClient.GetApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
-  * PowerShell: Get-ServiceFabricApplication
-* Tjänst lista: Returnerar listan över tjänster i ett program (växlat).
-  * APPLICATION [FabricClient.QueryClient.GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
-  * PowerShell: Get-ServiceFabricService
-* Lista över partitioner: Returnerar listan över partitioner i en tjänst (växlat).
-  * APPLICATION [FabricClient.QueryClient.GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
-  * PowerShell: Get-ServiceFabricPartition
-* Replik lista: Returnerar listan över repliker i en partition (växlad).
-  * APPLICATION [FabricClient.QueryClient.GetReplicaListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
-  * PowerShell: Get-ServiceFabricReplica
-* Distribuerad program lista: Returnerar listan över distribuerade program på en nod.
-  * APPLICATION [FabricClient.QueryClient.GetDeployedApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
-  * PowerShell: Get-ServiceFabricDeployedApplication
-* Lista över distribuerade service paket: Returnerar listan över tjänst paket i ett distribuerat program.
-  * APPLICATION [FabricClient.QueryClient.GetDeployedServicePackageListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
-  * PowerShell: Get-ServiceFabricDeployedApplication
+* Node-lista: returnerar List-noderna i klustret (växlat).
+  * API: [FabricClient. QueryClient. GetNodeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
+  * PowerShell: get-ServiceFabricNode
+* Program lista: returnerar listan över program i klustret (växlat).
+  * API: [FabricClient. QueryClient. GetApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
+  * PowerShell: get-ServiceFabricApplication
+* Tjänst lista: returnerar listan över tjänster i ett program (växlat).
+  * API: [FabricClient. QueryClient. GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
+  * PowerShell: get-ServiceFabricService
+* Partition lista: returnerar listan över partitioner i en tjänst (växlad).
+  * API: [FabricClient. QueryClient. GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
+  * PowerShell: get-ServiceFabricPartition
+* Replik lista: returnerar listan över repliker i en partition (växlad).
+  * API: [FabricClient. QueryClient. GetReplicaListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
+  * PowerShell: get-Removeservicefabricreplica
+* Distribuerad program lista: returnerar listan över distribuerade program på en nod.
+  * API: [FabricClient. QueryClient. GetDeployedApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
+  * PowerShell: get-ServiceFabricDeployedApplication
+* Distribuerad Service Pack-lista: returnerar listan över tjänst paket i ett distribuerat program.
+  * API: [FabricClient. QueryClient. GetDeployedServicePackageListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
+  * PowerShell: get-ServiceFabricDeployedApplication
 
 > [!NOTE]
-> Några av frågorna returnerar växlade resultat. Returen av dessa frågor är en lista som härletts från [\<PagedList T >](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Om resultatet inte passar ett meddelande returneras bara en sida och en ContinuationToken som spårar där uppräkningen stoppas. Fortsätt att anropa samma fråga och skicka i fortsättnings-token från föregående fråga för att få nästa resultat.
+> Några av frågorna returnerar växlade resultat. Returen av dessa frågor är en lista som härletts från [PagedList\<t >](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Om resultatet inte passar ett meddelande returneras bara en sida och en ContinuationToken som spårar där uppräkningen stoppas. Fortsätt att anropa samma fråga och skicka i fortsättnings-token från föregående fråga för att få nästa resultat.
 
 ### <a name="examples"></a>Exempel
 Följande kod hämtar felaktiga program i klustret:

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3118be297caabbd4b829344e42361fa6b7602aad
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 78440185b4a26bccc8ffb0258416a19aa929af6b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066735"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470251"
 ---
 # <a name="azure-app-service-plan-overview"></a>Översikt över Azure App Services plan
 
@@ -35,9 +35,9 @@ När du skapar en App Service plan i en viss region (till exempel Västeuropa) s
 
 _Pris nivån_ för en app service plan avgör vilka App Service funktioner du får och hur mycket du betalar för planen. Det finns några kategorier av pris nivåer:
 
-- **Delad beräkning**: De två bas nivåerna är **kostnads fria** och **delade**, och kör en app på samma virtuella Azure-dator som andra App Service appar, inklusive appar från andra kunder. Dessa nivåer allokerar processor kvoter till varje app som körs på delade resurser och resurserna kan inte skala ut.
-- **Dedikerad beräkning**: Nivåerna **Basic**, **standard**, **Premium**och **PremiumV2** kör appar på dedikerade virtuella Azure-datorer. Endast appar i samma App Service plan delar samma beräknings resurser. Ju högre nivå, desto fler VM-instanser kan du skala ut.
-- **Isolerade**: Den här nivån kör dedikerade virtuella Azure-datorer på dedikerade virtuella Azure-nätverk. Den ger nätverks isolering ovanpå beräknings isoleringen för dina appar. Det ger de maximala skalbara funktionerna.
+- **Delad beräkning**: **kostnads fri** och **delad**, de två bas nivåerna kör en app på samma virtuella Azure-dator som andra App Service appar, inklusive appar från andra kunder. Dessa nivåer allokerar processor kvoter till varje app som körs på delade resurser och resurserna kan inte skala ut.
+- **Dedikerad beräkning**: nivåerna **Basic**, **standard**, **Premium**och **PremiumV2** kör appar på dedikerade virtuella Azure-datorer. Endast appar i samma App Service plan delar samma beräknings resurser. Ju högre nivå, desto fler VM-instanser kan du skala ut.
+- **Isolerad**: den här nivån kör dedikerade virtuella Azure-datorer på dedikerade virtuella Azure-nätverk. Den ger nätverks isolering ovanpå beräknings isoleringen för dina appar. Det ger de maximala skalbara funktionerna.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -77,7 +77,7 @@ I det här avsnittet beskrivs hur App Service-appar faktureras. Detaljerad infor
 Förutom för den **kostnads fria** nivån debiteras en app service plan per timme för de beräknings resurser som används.
 
 - På den **delade** nivån får varje app en kvot på CPU minuter, så _varje app_ debiteras per timme för processor kvoten.
-- I dedikerade beräknings nivåer (**Basic**, **standard**, **Premium**, **PremiumV2**) definierar App Service plan antalet virtuella dator instanser som APPARna skalas till, så _varje VM-instans_ i App Service plan har en timkostnad per timme. Dessa VM-instanser debiteras samma oavsett hur många appar körs på dem. Information om hur du undviker oväntade kostnader finns i [Rensa en app service plan](app-service-plan-manage.md#delete).
+- I dedikerade beräknings nivåer (**Basic**, **standard**, **Premium**, **PremiumV2**) definierar App Service plan antalet virtuella dator instanser som APPARna skalas till, så _varje VM-instans_ i App Service plan har en timkostnad per timme. Dessa VM-instanser debiteras på samma sätt oavsett hur många appar som körs på dem. Information om hur du undviker oväntade kostnader finns i [Rensa en app service plan](app-service-plan-manage.md#delete).
 - På den **isolerade** nivån definierar App Service-miljön antalet isolerade arbetare som kör dina appar, och _varje arbets tagare_ debiteras per timme. Det finns dessutom en grund avgift per timme för att köra själva App Service-miljön.
 
 Du debiteras inte för att använda de App Service funktioner som är tillgängliga för dig (Konfigurera anpassade domäner, SSL-certifikat, distributions platser, säkerhets kopior osv.). Undantagen är:
@@ -95,7 +95,7 @@ Du debiteras inte för att använda de App Service funktioner som är tillgängl
 
 Din App Service plan kan skalas upp och ned när som helst. Det är lika enkelt som att ändra planens pris nivå. Du kan välja en lägre pris nivå genom att först och skala upp senare när du behöver fler App Service funktioner.
 
-Du kan till exempel börja testa din webbapp i ett **kostnads fritt** App Service plan och betala ingenting. När du vill lägga till ett [anpassat DNS-namn](app-service-web-tutorial-custom-domain.md) till webbappen kan du skala upp det till **delad** nivå. När du senare vill lägga till ett [anpassat SSL-certifikat](app-service-web-tutorial-custom-ssl.md)måste du skala upp till **Basic** -nivån. Om du vill ha mellanlagrings [miljöer](deploy-staging-slots.md), skala upp till **standard** nivån. När du behöver fler kärnor, minne eller lagring skalar du upp till en större VM-storlek på samma nivå.
+Du kan till exempel börja testa din webbapp i ett **kostnads fritt** App Service plan och betala ingenting. När du vill lägga till ett [anpassat DNS-namn](app-service-web-tutorial-custom-domain.md) till webbappen kan du skala upp det till **delad** nivå. När du senare vill [skapa en SSL-bindning](configure-ssl-bindings.md)måste du skala upp till **Basic** -nivån. Om du vill ha [mellanlagrings miljöer](deploy-staging-slots.md), skala upp till **standard** nivån. När du behöver fler kärnor, minne eller lagring skalar du upp till en större VM-storlek på samma nivå.
 
 Samma fungerar i omvänd ordning. När du tycker att du inte längre behöver de funktioner som finns i en högre nivå kan du skala ned till en lägre nivå, vilket sparar pengar.
 

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: aabcb0b0d01d821c529803927dacec448c923745
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 41edcc40bae7915e321a278592dd2f73621aae05
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998018"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482417"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>PostgreSQL-tillägg i Azure Database for PostgreSQL – storskalig (citus)
 
@@ -20,13 +20,13 @@ PostgreSQL ger möjlighet att utöka funktionaliteten i databasen med hjälp av 
 
 ## <a name="use-postgresql-extensions"></a>Använd PostgreSQL-tillägg
 
-PostgreSQL-tillägg måste vara installerade i databasen innan du kan använda dem. Om du vill installera ett visst tillägg kör du kommandot [skapa tillägg](https://www.postgresql.org/docs/9.6/static/sql-createextension.html) från psql-verktyget för att läsa in de paketerade objekten i databasen.
+PostgreSQL-tillägg måste vara installerade i databasen innan du kan använda dem. Om du vill installera ett visst tillägg kör du kommandot [create extension](https://www.postgresql.org/docs/9.6/static/sql-createextension.html) från psql-verktyget för att läsa in de paketerade objekten i databasen.
 
-För hands versionen av Azure Database for PostgreSQL-storskalig (citus) stöder för närvarande en delmängd av nyckel tillägg som anges här. Andra tillägg än de som listas stöds inte. Du kan inte skapa ditt eget tillägg med Azure Database for PostgreSQL.
+Azure Database for PostgreSQL-Scale (citus) stöder för närvarande en delmängd av nyckel tillägg som visas här. Andra tillägg än de som listas stöds inte. Du kan inte skapa ditt eget tillägg med Azure Database for PostgreSQL.
 
 ## <a name="extensions-supported-by-azure-database-for-postgresql"></a>Tillägg som stöds av Azure Database for PostgreSQL
 
-I följande tabeller visas de standard PostgreSQL-tillägg som för närvarande stöds av Azure Database for PostgreSQL. Den här informationen är också tillgänglig genom `SELECT * FROM pg_available_extensions;`att köra.
+I följande tabeller visas de standard PostgreSQL-tillägg som för närvarande stöds av Azure Database for PostgreSQL. Den här informationen är också tillgänglig genom att köra `SELECT * FROM pg_available_extensions;`.
 
 ### <a name="data-types-extensions"></a>Tillägg för data typer
 
@@ -34,10 +34,10 @@ I följande tabeller visas de standard PostgreSQL-tillägg som för närvarande 
 > | **Utöka** | **Beskrivning** |
 > |---|---|
 > | [citext](https://www.postgresql.org/docs/9.6/static/citext.html) | Innehåller en Skift läges okänslig tecken sträng typ. |
-> | [cube](https://www.postgresql.org/docs/9.6/static/cube.html) | Tillhandahåller en datatyp för flerdimensionella kuber. |
+> | [kuben](https://www.postgresql.org/docs/9.6/static/cube.html) | Tillhandahåller en datatyp för flerdimensionella kuber. |
 > | [hstore](https://www.postgresql.org/docs/9.6/static/hstore.html) | Tillhandahåller en datatyp för lagring av uppsättningar med nyckel/värde-par. |
 > | [inte är](https://www.postgresql.org/docs/9.6/static/isn.html) | Tillhandahåller data typer för internationella standarder för produkt nummer. |
-> | [lo](https://www.postgresql.org/docs/current/lo.html) | Stort objekt underhåll. |
+> | [Lo](https://www.postgresql.org/docs/current/lo.html) | Stort objekt underhåll. |
 > | [ltree](https://www.postgresql.org/docs/9.6/static/ltree.html) | Tillhandahåller en datatyp för hierarkiska träd strukturer. |
 > | [seg](https://www.postgresql.org/docs/current/seg.html) | Datatyp som representerar linje segment eller flytt ALS intervall. |
 > | [TOPN](https://github.com/citusdata/postgresql-topn/) | Typ för Top-n-JSONB. |
@@ -49,7 +49,7 @@ I följande tabeller visas de standard PostgreSQL-tillägg som för närvarande 
 > |---|---|
 > | [dict\_int](https://www.postgresql.org/docs/9.6/static/dict-int.html) | Innehåller en mall för text Sök lexikon för heltal. |
 > | [dict\_xsyn](https://www.postgresql.org/docs/current/dict-xsyn.html) | Mall för text Sök lexikon för utökad synonym bearbetning. |
-> | [unaccent](https://www.postgresql.org/docs/9.6/static/unaccent.html) | En text Sök ord lista som tar bort accenttecken (dia kritiska tecken) från lexemes. |
+> | [avaccent](https://www.postgresql.org/docs/9.6/static/unaccent.html) | En text Sök ord lista som tar bort accenttecken (dia kritiska tecken) från lexemes. |
 
 ### <a name="functions-extensions"></a>Funktions tillägg
 
@@ -59,15 +59,15 @@ I följande tabeller visas de standard PostgreSQL-tillägg som för närvarande 
 > | [autoinc](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.7) | Funktioner för att autoöka fält. |
 > | [earthdistance](https://www.postgresql.org/docs/9.6/static/earthdistance.html) | Ger ett sätt att beräkna fantastiska avstånd på jordens yta. |
 > | [fuzzystrmatch](https://www.postgresql.org/docs/9.6/static/fuzzystrmatch.html) | Innehåller flera funktioner som avgör likheter och avstånd mellan strängar. |
-> | [infoga\_användar namn](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.8) | Funktioner för att spåra vem som har ändrat en tabell. |
+> | [Infoga\_användar namn](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.8) | Funktioner för att spåra vem som har ändrat en tabell. |
 > | [intagg](https://www.postgresql.org/docs/current/intagg.html) | Heltals Aggregator och uppräknare (föråldrad). |
 > | [intarray](https://www.postgresql.org/docs/9.6/static/intarray.html) | Tillhandahåller funktioner och operatorer för att ändra null-fria matriser med heltal. |
 > | [moddatetime](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.9) | Funktioner för att spåra senaste ändrings tid. |
 > | [pgcrypto](https://www.postgresql.org/docs/9.6/static/pgcrypto.html) | Tillhandahåller kryptografiska funktioner. |
-> | [PG\_part](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Hanterar partitionerade tabeller efter tid eller ID. |
-> | [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Tillhandahåller funktioner och operatorer för att fastställa likheten mellan alfanumerisk text baserat på trigram matchning. |
+> | [PG\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Hanterar partitionerade tabeller efter tid eller ID. |
+> | [PG\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Tillhandahåller funktioner och operatorer för att fastställa likheten mellan alfanumerisk text baserat på trigram matchning. |
 > | [refint](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.5) | Funktioner för att implementera referens integritet (föråldrad). |
-> | analys\_av sessioner | Funktioner för att skicka frågor till hstore-matriser. |
+> | analys av sessionen\_ | Funktioner för att skicka frågor till hstore-matriser. |
 > | [tablefunc](https://www.postgresql.org/docs/9.6/static/tablefunc.html) | Innehåller funktioner som ändrar hela tabeller, inklusive kors. |
 > | [tcn](https://www.postgresql.org/docs/current/tcn.html) | Utlösta ändrings meddelanden. |
 > | [timetravel](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.6) | Funktioner för att implementera res tid. |
@@ -79,7 +79,7 @@ I följande tabeller visas de standard PostgreSQL-tillägg som för närvarande 
 > | **Utöka** | **Beskrivning** |
 > |---|---|
 > | [citus](https://github.com/citusdata/citus) | Citus distribuerad databas. |
-> | Shard\_-ombalanser | På ett säkert sätt balansera om data i en Server grupp i händelse av nod tillägg eller borttagning. |
+> | Shard\_ombalanser | På ett säkert sätt balansera om data i en Server grupp i händelse av nod tillägg eller borttagning. |
 
 ### <a name="index-types-extensions"></a>Tillägg för index typer
 
@@ -88,7 +88,7 @@ I följande tabeller visas de standard PostgreSQL-tillägg som för närvarande 
 > |---|---|
 > | [hinna](https://www.postgresql.org/docs/current/bloom.html) | Anslutnings metod för blomma – Signature filbaserat index. |
 > | [b\_gin](https://www.postgresql.org/docs/9.6/static/btree-gin.html) | Tillhandahåller exempel på GIN operator klasser som implementerar B-träd-liknande beteenden för vissa data typer. |
-> | [b\_register](https://www.postgresql.org/docs/9.6/static/btree-gist.html) | Tillhandahåller klasser för registrerings index operatorer som implementerar B-träd. |
+> | [b\_registret](https://www.postgresql.org/docs/9.6/static/btree-gist.html) | Tillhandahåller klasser för registrerings index operatorer som implementerar B-träd. |
 
 ### <a name="language-extensions"></a>Språk tillägg
 
@@ -106,18 +106,18 @@ I följande tabeller visas de standard PostgreSQL-tillägg som för närvarande 
 > | [amcheck](https://www.postgresql.org/docs/current/amcheck.html) | Funktioner för att verifiera Relations integritet. |
 > | [fil\_FDW](https://www.postgresql.org/docs/current/file-fdw.html) | Sekundärt data omslag för Flat-filåtkomst. |
 > | [pageinspect](https://www.postgresql.org/docs/current/pageinspect.html) | Granska innehållet på databas sidor på en låg nivå. |
-> | [PG\_-buffercache](https://www.postgresql.org/docs/9.6/static/pgbuffercache.html) | Ger ett sätt att undersöka vad som händer i det delade cacheminnet i real tid. |
-> | [PG\_-cron](https://github.com/citusdata/pg_cron) | Jobb schema för PostgreSQL. |
-> | [PG\_-freespacemap](https://www.postgresql.org/docs/current/pgfreespacemap.html) | Kontrol lera kartan över ledigt utrymme (FSM). |
-> | [PG\_-förvarm](https://www.postgresql.org/docs/9.6/static/pgprewarm.html) | Är ett sätt att läsa in relations data i bufferten. |
-> | [rapporter\_om\_PG stat](https://www.postgresql.org/docs/9.6/static/pgstatstatements.html) | Ger ett sätt att spåra körnings statistik för alla SQL-uttryck som körs av en server. Mer information om det här tillägget finns i avsnittet "pg_stat_statements". |
-> | [PG\_-synlighet](https://www.postgresql.org/docs/current/pgvisibility.html) | Granska Synlighets kartan (VM) och Synlighets information på sidnivå. |
+> | [PG\_buffercache](https://www.postgresql.org/docs/9.6/static/pgbuffercache.html) | Ger ett sätt att undersöka vad som händer i det delade cacheminnet i real tid. |
+> | [PG\_cron](https://github.com/citusdata/pg_cron) | Jobb schema för PostgreSQL. |
+> | [PG\_freespacemap](https://www.postgresql.org/docs/current/pgfreespacemap.html) | Kontrol lera kartan över ledigt utrymme (FSM). |
+> | [PG\_prevärma](https://www.postgresql.org/docs/9.6/static/pgprewarm.html) | Är ett sätt att läsa in relations data i bufferten. |
+> | [PG\_stat\_-instruktioner](https://www.postgresql.org/docs/9.6/static/pgstatstatements.html) | Ger ett sätt att spåra körnings statistik för alla SQL-uttryck som körs av en server. Mer information om det här tillägget finns i avsnittet "pg_stat_statements". |
+> | [\_synlighet för PG](https://www.postgresql.org/docs/current/pgvisibility.html) | Granska Synlighets kartan (VM) och Synlighets information på sidnivå. |
 > | [pgrowlocks](https://www.postgresql.org/docs/9.6/static/pgrowlocks.html) | Ger möjlighet att Visa lås information på radnivå. |
 > | [pgstattuple](https://www.postgresql.org/docs/9.6/static/pgstattuple.html) | Ger ett sätt att visa statistik på tuple-nivå. |
 > | [postgres\_FDW](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Sekundärt data omslag som används för att komma åt data som lagras i externa PostgreSQL-servrar. Mer information om det här tillägget finns i avsnittet "dbLink och postgres_fdw".|
 > | [sslinfo](https://www.postgresql.org/docs/current/sslinfo.html) | Information om SSL-certifikat. |
 > | [TSM\_system\_rader](https://www.postgresql.org/docs/current/tsm-system-rows.html) | TABLESAMPLE-metoden som accepterar antalet rader som en gräns. |
-> | [TSM\_system\_tid](https://www.postgresql.org/docs/current/tsm-system-time.html) | TABLESAMPLE-metoden som accepterar tiden i millisekunder som en gräns. |
+> | [TSM\_systemets\_tid](https://www.postgresql.org/docs/current/tsm-system-time.html) | TABLESAMPLE-metoden som accepterar tiden i millisekunder som en gräns. |
 > | [hypopg](https://hypopg.readthedocs.io/en/latest/) | Ger ett sätt att skapa hypotetiska index som inte kostar CPU eller disk. |
 > | [dblink](https://www.postgresql.org/docs/current/dblink.html) | En modul som stöder anslutningar till andra PostgreSQL-databaser inifrån en databas-session. Mer information om det här tillägget finns i avsnittet "dbLink och postgres_fdw". |
 > | [xml2](https://www.postgresql.org/docs/current/xml2.html) | XPath-frågor och XSLT. |
@@ -128,19 +128,19 @@ I följande tabeller visas de standard PostgreSQL-tillägg som för närvarande 
 > [!div class="mx-tableFixed"]
 > | **Utöka** | **Beskrivning** |
 > |---|---|
-> | [Postgis](https://www.postgis.net/), postgis\_-topologi,\_postgis\_Tiger-kod, postgis\_sfcgal | Spatialdata och geografiska objekt för PostgreSQL. |
-> | adress\_standardiserare, adress\_standardiserade\_data\_US | Används för att parsa en adress till komponent element. Används för att stödja kod normaliserings steg för den här adressen. |
+> | [Postgis](https://www.postgis.net/), postgis\_Topology, postgis\_Tiger\_-kod, postgis\_sfcgal | Spatialdata och geografiska objekt för PostgreSQL. |
+> | adress\_standardiserare, adress\_standardisering\_data\_oss | Används för att parsa en adress till komponent element. Används för att stödja kod normaliserings steg för den här adressen. |
 > | postgis\_sfcgal | PostGIS SFCGAL-funktioner. |
 > | postgis\_Tiger\_-kod | PostGIS Tiger hårdkodad och omvänd landskod. |
 > | postgis\_-topologi | Spatiala typer och funktioner för PostGIS-topologi. |
 
 
 ## <a name="pg_stat_statements"></a>pg_stat_statements
-[Tillägget för\_PG\_stat-satser](https://www.postgresql.org/docs/current/pgstatstatements.html) är förinstallerat på alla Azure Database for postgresql server för att ge dig ett sätt att spåra körnings statistik för SQL-uttryck.
+Sidan [pg\_stat\_uttrycks tillägg](https://www.postgresql.org/docs/current/pgstatstatements.html) är förinstallerad på varje Azure Database for postgresql-server för att ge dig ett sätt att spåra körnings statistik över SQL-uttryck.
 
-Inställningen `pg_stat_statements.track` styr vilka instruktioner som räknas av tillägget. Den används som `top`standard, vilket innebär att alla instruktioner som utfärdas direkt av klienter spåras. De två andra spårnings nivåerna `none` är `all`och. Den här inställningen kan konfigureras som en server parameter via [Azure Portal](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) eller [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
+Inställningen `pg_stat_statements.track` styr vilka instruktioner som räknas av tillägget. Standardvärdet är `top`, vilket innebär att alla instruktioner som utfärdas direkt av klienter spåras. De två andra spårnings nivåerna är `none` och `all`. Den här inställningen kan konfigureras som en server parameter via [Azure Portal](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) eller [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
 
-Det är en kompromiss mellan pg_stat_statements för frågans körnings information och påverkan på Server prestanda när varje SQL-sats loggas. Om du inte aktivt använder pg_stat_statements-tillägget rekommenderar vi att du ställer in `pg_stat_statements.track` på `none`. Vissa övervaknings tjänster från tredje part kan vara beroende av pg_stat_statements för att leverera frågor om prestanda insikter, så kontrol lera om detta är fallet för dig eller inte.
+Det är en kompromiss mellan pg_stat_statements för frågans körnings information och påverkan på Server prestanda när varje SQL-sats loggas. Om du inte aktivt använder pg_stat_statements-tillägget rekommenderar vi att du anger `pg_stat_statements.track` till `none`. Vissa övervaknings tjänster från tredje part kan vara beroende av pg_stat_statements för att leverera frågor om prestanda insikter, så kontrol lera om detta är fallet för dig eller inte.
 
 ## <a name="dblink-and-postgres_fdw"></a>dbLink och postgres_fdw
 Du kan använda dbLink och postgres_fdw för att ansluta från en PostgreSQL-server till en annan, eller till en annan databas på samma server. Den mottagande servern måste tillåta anslutningar från den sändande servern via brand väggen. Om du vill använda dessa tillägg för att ansluta mellan Azure Database for PostgreSQL-servrar anger du **Tillåt åtkomst till Azure-tjänster** till på. Du måste också aktivera den här inställningen om du vill använda tilläggen för att återgå till samma server. Du hittar inställningen **Tillåt åtkomst till Azure-tjänster** på Azure Portal sidan för postgres-servern under **anslutnings säkerhet**. Aktivera **Tillåt åtkomst till Azure-tjänster** på whitelists alla Azure IP-adresser.

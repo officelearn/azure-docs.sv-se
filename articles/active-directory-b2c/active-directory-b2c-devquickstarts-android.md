@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 29f1fc2a6fd23ef3a770f58fd78d5067672136dd
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 28b1c3622ca449b0ce539937369fe43bd1d508ee
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326290"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468953"
 ---
 # <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>Logga in med ett Android-program i Azure Active Directory B2C
 
@@ -38,7 +38,9 @@ Registrera sedan ett program i Azure AD B2C klient organisationen. Det ger Azure
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-Registrera **program-ID** för användning i ett senare steg. Välj sedan programmet i listan och registrera den **anpassade omdirigerings-URI: n**, även för användning i ett senare steg. Till exempel `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
+Registrera **program-ID: t (Client)** för användning i ett senare steg.
+
+Registrera även en anpassad omdirigerings-URI för användning i ett senare steg. Till exempel `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 ## <a name="create-your-user-flows"></a>Skapa dina användar flöden
 
@@ -67,9 +69,9 @@ Exemplet är en ändring av exemplet som tillhandahålls av [AppAuth](https://op
 Du kan konfigurera kommunikation med Azure AD B2C genom att antingen ange identifierings-URI eller genom att ange både behörighets slut punkt och token slut punkt URI. I båda fallen behöver du följande information:
 
 * Klient-ID (t. ex. contoso.onmicrosoft.com)
-* Användar flödes namn (t. ex. B2C @ no__t-01 @ no__t-1SignUpIn)
+* Användar flödes namn (t. ex. B2C\_1\_SignUpin)
 
-Om du väljer att automatiskt identifiera auktoriserings-och token-slutpunkts-URI: erna måste du hämta information från identifierings-URI: n. Identifierings-URI: n kan genereras genom att ersätta klienten @ no__t-0ID och principen @ no__t-1Name i följande URL:
+Om du väljer att automatiskt identifiera auktoriserings-och token-slutpunkts-URI: erna måste du hämta information från identifierings-URI: n. Identifierings-URI kan genereras genom att ersätta klient\_s-ID: t och princip\_namnet i följande URL:
 
 ```java
 String mDiscoveryURI = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/v2.0/.well-known/openid-configuration?p=<Policy_Name>";
@@ -96,7 +98,7 @@ AuthorizationServiceConfiguration.fetchFromIssuer(
   });
 ```
 
-I stället för att använda identifiering för att hämta slut punkts-URI: erna för auktorisering och token, kan du också ange dem explicit genom att ersätta klienten @ no__t-0ID och principen @ no__t-1Name i URL: erna nedan:
+I stället för att använda identifiering för att hämta slut punkts-URI: erna för auktorisering och token, kan du också ange dem explicit genom att ersätta klient\_s-ID: t och princip\_namnet i URL: en nedan:
 
 ```java
 String mAuthEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2.0/authorize?p=<Policy_Name>";
@@ -113,7 +115,7 @@ AuthorizationServiceConfiguration config =
 // perform the auth request...
 ```
 
-### <a name="authorizing"></a>Auktoriserar
+### <a name="authorizing"></a>Auktorisera
 
 När du har konfigurerat eller hämtat en Authorization service-konfiguration kan en auktoriseringsbegäran konstrueras. Om du vill skapa begäran behöver du följande information:
 

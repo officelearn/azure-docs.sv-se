@@ -28,7 +28,7 @@ ms.locfileid: "72800193"
 
 Mer information om Event Hubs ta emot mönster finns i [Event Hubs översikt][Event Hubs overview].
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du börjar med snabb starten **skapar du ett Event Hubs-namnområde och en Event Hub**. Använd [Azure Portal](https://portal.azure.com) för att skapa ett namn område av typen Event Hubs och hämta de autentiseringsuppgifter som programmet behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md). 
 
 ## <a name="create-project-and-add-code"></a>Skapa projekt och Lägg till kod

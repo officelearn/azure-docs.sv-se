@@ -7,14 +7,14 @@ ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 5927d27a23e5609079ac2380d8fed13e62d1c592
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: cffa571028dac192e8b8806ee9ec932cf89eb1fe
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027560"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498789"
 ---
-# <a name="water-quality-monitoring-reference-architecture"></a>Referens arkitektur för övervakning av vatten kvalitet 
+# <a name="water-quality-monitoring-reference-architecture"></a>Referensarkitektur för övervakning av vattenkvalitet 
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
@@ -35,7 +35,7 @@ Låt oss ta en titt på viktiga komponenter som vanligt vis spelar en del av en 
 ## <a name="devices-and-connectivity"></a>Enheter och anslutningar 
 I det här avsnittet kommer vi att referera till enheter som används för övervakning av vatten kvalitet eller vattenkonsumtion, vanligt vis som smarta vatten enheter. Smarta vatten enheter kan vara flödes mätare, vatten kvalitet övervakare, smarta ventiler, läckor osv.
 
-Enheter som används i smarta vatten lösningar är vanligt vis anslutna via låg Energis LPWAN (Wide Area Network) via en nätverks operatör från tredje part. För dessa typer av enheter kan du utnyttja [azure IoT Central Device Bridge](https://docs.microsoft.com/azure/iot-central/howto-build-iotc-device-bridge) för att skicka enhets data till IoT-programmet i Azure IoT Central. Du kan också ha enhets-gatewayer som är IP-kompatibla och kan ansluta direkt till IoT Central.
+Enheter som används i smarta vatten lösningar är vanligt vis anslutna via låg Energis LPWAN (Wide Area Network) via en nätverks operatör från tredje part. För dessa typer av enheter kan du utnyttja [azure IoT Central Device Bridge](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge) för att skicka enhets data till IoT-programmet i Azure IoT Central. Du kan också ha enhets-gatewayer som är IP-kompatibla och kan ansluta direkt till IoT Central.
 
 ## <a name="iot-central"></a>IoT Central 
 Azure IoT Central är en IoT app-plattform som hjälper dig att snabbt komma igång med din IoT-lösning. Du kan märka, anpassa och integrera din lösning med tjänster från tredje part.
@@ -54,5 +54,5 @@ IoT-data kan användas för att driva olika affärs program i ett vatten verktyg
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [skapar ett program för övervakning av vatten kvalitet](./tutorial-water-quality-monitoring.md) IoT Central
 * Läs mer om [mallar för IoT Central myndigheter](./overview-iot-central-government.md)
-* Mer information om IoT Central finns i [IoT Central översikt](https://docs.microsoft.com/azure/iot-central/overview-iot-central)
+* Mer information om IoT Central finns i [IoT Central översikt](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)
 

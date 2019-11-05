@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 76b4f721135c6e34eebdc20268a76e84d86b0637
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 2c153d818136c5d8804dae72004dfaf17fd1bf7a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575680"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494525"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Kända problem för Apache Spark kluster i HDInsight
 
@@ -32,7 +32,7 @@ Använd följande procedur för att lösa problemet:
 
         yarn application –list
 
-    Standard jobb namnen kommer att vara livy om jobben startades med en livy-interaktiv session utan att några explicita namn angavs. För livy-sessionen som startades av [Jupyter Notebook](https://jupyter.org/)börjar jobb namnet med `remotesparkmagics_*`.
+    Standard jobb namnen kommer att vara livy om jobben startades med en livy-interaktiv session utan att några explicita namn angavs. För att livy-sessionen startades av [Jupyter Notebook](https://jupyter.org/)börjar jobb namnet med `remotesparkmagics_*`.
 
 3. Kör följande kommando för att avsluta dessa jobb.
 
@@ -81,17 +81,17 @@ Använd inte icke-ASCII-tecken i Jupyter Notebook-filnamn. Om du försöker ladd
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Fel vid inläsning av antecknings böcker med större storlekar
 
-Du kan se ett fel **`Error loading notebook`** när du läser in anteckningsböcker som är större.  
+Du kan se ett fel **`Error loading notebook`** när du läser in antecknings böcker som är större i storlek.  
 
 **Minskning**
 
-Om du får det här felet betyder det inte att dina data är skadade eller går förlorade.  Dina antecknings böcker finns fortfarande på `/var/lib/jupyter`disk i och du kan använda SSH i klustret för att få åtkomst till dem. Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
+Om du får det här felet betyder det inte att dina data är skadade eller går förlorade.  Dina antecknings böcker finns fortfarande på disk i `/var/lib/jupyter`och du kan använda SSH i klustret för att få åtkomst till dem. Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
 När du har anslutit till klustret med SSH kan du kopiera dina antecknings böcker från klustret till din lokala dator (med hjälp av SCP eller WinSCP) som en säkerhets kopia för att förhindra förlust av viktiga data i antecknings boken. Du kan sedan använda SSH-tunnlar i din huvudnoden vid Port 8001 för att få åtkomst till Jupyter utan att gå via gatewayen.  Därifrån kan du ta bort utdatan från antecknings boken och spara den igen för att minimera storleken på antecknings boken.
 
 Om du vill förhindra att det här felet uppstår i framtiden måste du följa rekommendationerna nedan:
 
-* Det är viktigt att hålla nere storleken på bärbara datorer. Alla utdata från dina Spark-jobb som skickas tillbaka till Jupyter sparas i antecknings boken.  Det är en bra idé att använda Jupyter i allmänhet för att `.collect()` undvika att köra stora RDD eller dataframes. om du i stället vill titta på en RDDs innehåll kan du överväga `.take()` att `.sample()` köra eller så att dina utdata inte blir för stora.
+* Det är viktigt att hålla nere storleken på bärbara datorer. Alla utdata från dina Spark-jobb som skickas tillbaka till Jupyter sparas i antecknings boken.  Vi rekommenderar att du använder Jupyter i allmänhet för att undvika att köra `.collect()` på stora RDD eller dataframes; Om du i stället vill titta på ett RDD-innehåll kan du överväga att köra `.take()` eller `.sample()` så att utdata inte blir för stora.
 * När du sparar en antecknings bok rensar du också alla utdata celler för att minska storleken.
 
 ### <a name="notebook-initial-startup-takes-longer-than-expected"></a>Den första starten av Notebook tar längre tid än förväntat
@@ -115,15 +115,15 @@ När Spark-klustret har slut på resurser, kommer Spark-och PySpark-kernelerna i
 
 2. Starta om den antecknings bok som du försökte starta. Det finns tillräckligt med resurser för att skapa en session nu.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-* [: Apache Spark på Azure HDInsight](apache-spark-overview.md)
+* [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenarier
 
-* [Apache Spark med BI: Utföra interaktiv data analys med hjälp av spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
-* [Apache Spark med Machine Learning: Använda spark i HDInsight för analys av bygg temperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark med Machine Learning: Använd spark i HDInsight för att förutsäga resultatet av livsmedels inspektionen](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark med BI: utföra interaktiv data analys med hjälp av spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
+* [Apache Spark med Machine Learning: använda spark i HDInsight för analys av byggnads temperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: använda spark i HDInsight för att förutsäga resultatet av livsmedels inspektionen](apache-spark-machine-learning-mllib-ipython.md)
 * [Webbplats logg analys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Skapa och köra program

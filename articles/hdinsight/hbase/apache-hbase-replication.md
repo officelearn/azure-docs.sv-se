@@ -1,5 +1,5 @@
 ---
-title: Konfigurera HBase Cluster Replication i Azure Virtual Networks – Azure HDInsight
+title: HBase kluster replikering i virtuella nätverk – Azure HDInsight
 description: Lär dig hur du konfigurerar HBase-replikering från en HDInsight-version till en annan för belastnings utjämning, hög tillgänglighet, migrering av noll-nedtid och uppdateringar samt haveri beredskap.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 34b9993482d1036570805af7caba29361b231426
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 18c7a06e656cbd5c16151381a76ec7725eb2785e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077185"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468422"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Konfigurera Apache HBase Cluster Replication i Azure Virtual Networks
 
@@ -66,34 +66,34 @@ Några hårdkodade värden i mallen:
 
 **VNet 1**
 
-| Egenskap | Value |
+| Egenskap | Värde |
 |----------|-------|
-| Location | Västra USA |
-| Namn på virtuellt nätverk | &lt;ClusterNamePrevix >-vnet1 |
+| Plats | USA, västra |
+| VNet-namn | &lt;ClusterNamePrevix >-vnet1 |
 | Prefix för adress utrymme | 10.1.0.0/16 |
-| Undernätsnamn | undernät 1 |
+| Namn på undernät | undernät 1 |
 | Undernätsprefixet | 10.1.0.0/24 |
 | Namn på undernät (Gateway) | GatewaySubnet (kan inte ändras) |
 | Prefix för undernät (Gateway) | 10.1.255.0/27 |
 | Gateway-namn | vnet1gw |
-| Gateway-typ | Vpn |
+| Typ av Gateway | Vpn |
 | Gateway VPN-typ | Routningsbaserad |
 | Gateway-SKU | Basic |
 | Gateway-IP | vnet1gwip |
 
 **VNet 2**
 
-| Egenskap | Value |
+| Egenskap | Värde |
 |----------|-------|
-| Location | East US |
-| Namn på virtuellt nätverk | &lt;ClusterNamePrevix >-vnet2 |
+| Plats | USA, östra |
+| VNet-namn | &lt;ClusterNamePrevix >-vnet2 |
 | Prefix för adress utrymme | 10.2.0.0/16 |
-| Undernätsnamn | undernät 1 |
+| Namn på undernät | undernät 1 |
 | Undernätsprefixet | 10.2.0.0/24 |
 | Namn på undernät (Gateway) | GatewaySubnet (kan inte ändras) |
 | Prefix för undernät (Gateway) | 10.2.255.0/27 |
 | Gateway-namn | vnet2gw |
-| Gateway-typ | Vpn |
+| Typ av Gateway | Vpn |
 | Gateway VPN-typ | Routningsbaserad |
 | Gateway-SKU | Basic |
 | Gateway-IP | vnet1gwip |
@@ -121,12 +121,12 @@ Använd följande procedur för att installera bind:
     Ersätt `sshuser` med det SSH-användarkonto du angav när du skapade den virtuella DNS-datorn.
 
     > [!NOTE]  
-    > Det finns flera olika sätt att hämta `ssh` verktyget. På Linux, UNIX och macOS tillhandahålls det som en del av operativ systemet. Om du använder Windows kan du överväga något av följande alternativ:
+    > Det finns flera olika sätt att hämta `ssh`-verktyget. På Linux, UNIX och macOS tillhandahålls det som en del av operativ systemet. Om du använder Windows kan du överväga något av följande alternativ:
     >
     > * [Azure Cloud Shell](../../cloud-shell/quickstart.md)
     > * [Bash på Ubuntu i Windows 10](https://msdn.microsoft.com/commandline/wsl/about)
-    > * [Git https://git-scm.com/)](https://git-scm.com/)
-    > * [OpenSSH https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
+    > * [Git (https://git-scm.com/)](https://git-scm.com/)
+    > * [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
 
 2. Om du vill installera bind använder du följande kommandon från SSH-sessionen:
 
@@ -135,7 +135,7 @@ Använd följande procedur för att installera bind:
     sudo apt-get install bind9 -y
     ```
 
-3. Konfigurera bindning för att vidarebefordra namn matchnings begär anden till din lokala DNS-server. Det gör du genom att använda följande text som `/etc/bind/named.conf.options` filens innehåll:
+3. Konfigurera bindning för att vidarebefordra namn matchnings begär anden till din lokala DNS-server. Det gör du genom att använda följande text som innehållet i `/etc/bind/named.conf.options`-filen:
 
     ```
     acl goodclients {
@@ -162,7 +162,7 @@ Använd följande procedur för att installera bind:
     ```
     
     > [!IMPORTANT]  
-    > Ersätt värdena i `goodclients` avsnittet med IP-adressintervallet för de två virtuella nätverken. Det här avsnittet definierar de adresser som den här DNS-servern accepterar begär Anden från.
+    > Ersätt värdena i avsnittet `goodclients` med IP-adressintervallet för de två virtuella nätverken. Det här avsnittet definierar de adresser som den här DNS-servern accepterar begär Anden från.
 
     Använd följande kommando om du vill redigera filen:
 
@@ -182,11 +182,11 @@ Använd följande procedur för att installera bind:
 
         vnet1DNS.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
 
-    Texten är __DNS-suffixet__ för det här virtuella nätverket. `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` Du bör spara det här värdet eftersom det används senare.
+    `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` texten är __DNS-suffixet__ för det här virtuella nätverket. Du bör spara det här värdet eftersom det används senare.
 
     Du måste också ta reda på DNS-suffixet från den andra DNS-servern. Du behöver det i nästa steg.
 
-5. Om du vill konfigurera bind för att matcha DNS-namn för resurser i det virtuella nätverket, använder du följande text som `/etc/bind/named.conf.local` filens innehåll:
+5. Om du vill konfigurera bind för att matcha DNS-namn för resurser i det virtuella nätverket, använder du följande text som innehållet i `/etc/bind/named.conf.local`-filen:
 
     ```
     // Replace the following with the DNS suffix for your virtual network
@@ -263,9 +263,9 @@ Skapa ett [Apache HBase](https://hbase.apache.org/) -kluster i vart och ett av d
 - **Kluster typ**: HBase
 - **Version**: HBase 1.1.2 (HDI 3,6)
 - **Plats**: Använd samma plats som det virtuella nätverket.  Som standard är vnet1 *västra USA*, och Vnet2 är *östra USA*.
-- **Lagring**: Skapa ett nytt lagrings konto för klustret.
+- **Lagring**: skapa ett nytt lagrings konto för klustret.
 - **Virtuellt nätverk** (från avancerade inställningar på portalen): Välj vnet1 som du skapade i den senaste proceduren.
-- **Undernät**: Standard namnet som används i mallen är **subnet1**.
+- **Undernät**: standard namnet som används i mallen är **subnet1**.
 
 För att säkerställa att miljön är korrekt konfigurerad måste du kunna pinga huvudnoden-FQDN mellan de två klustren.
 
@@ -273,7 +273,7 @@ För att säkerställa att miljön är korrekt konfigurerad måste du kunna ping
 
 När du replikerar ett kluster måste du ange de tabeller som du vill replikera. I det här avsnittet läser du in data i käll klustret. I nästa avsnitt kommer du att aktivera replikering mellan de två klustren.
 
-Om du vill skapa en **kontakt** tabell och infoga data i tabellen följer du anvisningarna på [själv studie kursen om Apache HBase: Kom igång med Apache HBase i HDInsight](apache-hbase-tutorial-get-started-linux.md).
+Om du vill skapa en **kontakt** tabell och infoga data i tabellen, följer du anvisningarna i [själv studie kursen om Apache HBase: komma igång med Apache HBase i HDInsight](apache-hbase-tutorial-get-started-linux.md).
 
 ## <a name="enable-replication"></a>Aktivera replikering
 
@@ -281,16 +281,16 @@ Följande steg beskriver hur du anropar skript åtgärds skriptet från Azure Po
 
 **Så här aktiverar du HBase-replikering från Azure Portal**
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Öppna käll HBases klustret.
 3. I menyn kluster väljer du **skript åtgärder**.
 4. Längst upp på sidan väljer du **Skicka ny**.
 5. Välj eller ange följande information:
 
-   1. **Namn på**: Ange **Aktivera replikering**.
-   2. **Bash-skript-URL**: Ange **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** .
-   3. **Huvud**: Se till att det är markerat. Ta bort de andra nodtypen.
-   4. **Parametrar**: Följande exempel parametrar aktiverar replikering för alla befintliga tabeller och kopierar sedan alla data från käll klustret till mål klustret:
+   1. **Namn**: ange **Aktivera replikering**.
+   2. **Bash-skript-URL**: ange **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** .
+   3. **Head**: kontrol lera att detta är markerat. Ta bort de andra nodtypen.
+   4. **Parametrar**: följande exempel parametrar aktiverar replikering för alla befintliga tabeller och kopierar sedan alla data från käll klustret till mål klustret:
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     
@@ -301,7 +301,7 @@ Följande steg beskriver hur du anropar skript åtgärds skriptet från Azure Po
 
 Obligatoriska argument:
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |----|-----------|
 |-s,--src-Cluster | Anger DNS-namnet för HBase-klustret. Exempel:-s hbsrccluster,--src-Cluster = hbsrccluster |
 |-d,--sommar-Cluster | Anger DNS-namnet för mål-HBase-klustret (Replica). Exempel:-s dsthbcluster,--src-Cluster = dsthbcluster |
@@ -310,7 +310,7 @@ Obligatoriska argument:
 
 Valfria argument:
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |----|-----------|
 |-Su,--src-Ambari-User | Anger administratörs användar namnet för Ambari i HBase-klustret. Standardvärdet är **admin**. |
 |-du,--DST-Ambari-User | Anger administratörs användar namnet för Ambari på mål HBase-klustret. Standardvärdet är **admin**. |
@@ -320,7 +320,7 @@ Valfria argument:
 |-RPM,-replikera-Phoenix-meta | Aktiverar replikering i Phoenix system-tabeller. <br><br>*Använd det här alternativet med försiktighet.* Vi rekommenderar att du återskapar Phoenix-tabeller på replik kluster innan du använder det här skriptet. |
 |-h,--hjälp | Visar användnings information. |
 
-Avsnittet i skriptet innehåller en detaljerad förklaring av parametrarna. [](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh) `print_usage()`
+Avsnittet `print_usage()` i [skriptet](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh) innehåller en detaljerad förklaring av parametrar.
 
 När skript åtgärden har distribuerats kan du använda SSH för att ansluta till mål HBase-klustret och sedan verifiera att data har repliker ATS.
 
@@ -356,14 +356,14 @@ Du kan följa samma procedur som beskrivs i [Aktivera replikering](#enable-repli
 
     -m hn1 -t <table1:start_timestamp:end_timestamp;table2:start_timestamp:end_timestamp;...> -p <replication_peer> [-everythingTillNow]
 
-Avsnittet i skriptet innehåller en detaljerad beskrivning av parametrarna. [](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_copy_table.sh) `print_usage()`
+Avsnittet `print_usage()` i [skriptet](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_copy_table.sh) innehåller en detaljerad beskrivning av parametrarna.
 
 ### <a name="scenarios"></a>Scenarier
 
 - **Kopiera vissa tabeller (TEST1, TEST2 och test3) för alla rader som redige ras tills nu (aktuell tidstämpel)** :
 
         -m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
-  Eller
+  eller
 
         -m hn1 -t "test1::;test2::;test3::" --replication-peer="zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
 
@@ -379,7 +379,7 @@ Om du vill inaktivera replikering använder du ett annat skript åtgärds skript
 
     -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> <-all|-t "table1;table2;...">  
 
-Avsnittet i skriptet innehåller en detaljerad förklaring av parametrarna. [](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh) `print_usage()`
+Avsnittet `print_usage()` i [skriptet](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh) innehåller en detaljerad förklaring av parametrar.
 
 ### <a name="scenarios"></a>Scenarier
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: b2b4dc1aa9486e432fb2fae48343c21fba620221
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: ea029e62ac1273d9796e52edc3f7a46868964d2a
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996691"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73520743"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Beredskapsöversikt för Azure Security Center
 I det här dokumentet får du en beredskapsöversikt som hjälper dig att komma igång med Azure Security Center.
@@ -32,7 +32,7 @@ Artiklar
 * [Introduktion till Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 * [Snabbstartsguide för Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-get-started)
 
-Videor
+Videoklipp
 * [Snabb introduktionsvideo](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
 * [Översikt över Security Center-funktioner för skydd, identifiering och svar](https://azure.microsoft.com/resources/videos/azurecon-2015-new-azure-security-center-helps-you-prevent-detect-and-respond-to-threats/)
 
@@ -79,7 +79,7 @@ För att minska kostnaderna och skadorna är det viktigt att ha en incidenthante
 
 Med följande resurser kan du lära dig hur Security Center kan införlivas i processen för incidenthantering.
 
-Videor  
+Videoklipp  
 * [Incidenthantering i Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response)
 * [Reagera snabbt på hot med nästa generations säkerhetsåtgärder och undersökning](https://youtu.be/e8iFCz5RM4g)
 
@@ -93,7 +93,7 @@ Virtuella Azure-datorer kan dra nytta av funktioner för avancerat molnskydd i S
 
 Använd följande resurser för att lära dig mer om hur du använder funktionerna i Security Center.
 
-Videor  
+Videoklipp  
 * [Azure Security Center – just-in-Time VM-åtkomst](https://youtu.be/UOQb2FcdQnU)
 * [Azure Security Center – Anpassningsbara programkontroller](https://youtu.be/wWWekI1Y9ck)
 
@@ -105,7 +105,7 @@ Artiklar
 
 * [Praktiska övningar i Security Center](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=78871abf-6f35-4aa0-840f-d801f5cdbd72)
 * [Rekommendationsspelbok för brandvägg för webbaserade program (WAF) i Security Center](https://gallery.technet.microsoft.com/ASC-Playbook-Protect-38bd47ff)
-* [Playbook för Azure Security Center: Säkerhets aviseringar @ no__t-0
+* [Spelbok om Azure Security Center: Säkerhetsaviseringar](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 * [Dokumentationssidan om Security Center](https://docs.microsoft.com/azure/security-center/)
@@ -115,7 +115,7 @@ Artiklar
 * [Metodtips för identitetssäkerhet](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
 * [Metodtips för nätverkssäkerhet](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices)
 * [PaaS-rekommendationer](https://docs.microsoft.com/azure/security/security-paas-deployments)
-* [Efterlevnad](https://www.microsoft.com/en-us/trustcenter/compliance/due-diligence-checklist)
+* [Efterlevnad](https://www.microsoft.com/trustcenter/compliance/due-diligence-checklist)
 * [Log Analytics-kunder kan nu använda Azure Security Center för att skydda sina hybrid moln arbets belastningar](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## <a name="community-resources"></a>Community-resurser

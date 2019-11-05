@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5f11173c7b7f7396a8cf5cda4b9c8975cd7bb38e
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 172003b13807720df2431a3610947b36d8303fed
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679799"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470363"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrera ett aktivt DNS-namn till Azure App Service
 
@@ -29,7 +29,7 @@ När du migrerar en Live-plats och dess DNS-domännamn till App Service, betjän
 
 Om du inte är oroar över stillestånds tid i DNS-matchning, se [mappa ett befintligt anpassat DNS-namn till Azure App Service](app-service-web-tutorial-custom-domain.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här instruktionen:
 
@@ -48,15 +48,15 @@ När du slutligen migrerar ditt anpassade DNS-namn från den gamla platsen till 
 
 ### <a name="create-domain-verification-record"></a>Skapa domän verifierings post
 
-Om du vill verifiera domän ägarskapet lägger du till en TXT-post. TXT-posten mappar från _awverify. &lt;subdomain >_ till _&lt;appname >. azurewebsites. net_. 
+Om du vill verifiera domän ägarskapet lägger du till en TXT-post. TXT-posten mappar från _awverify.&lt;under domän >_ till _&lt;APPNAME >. azurewebsites. net_. 
 
 Den TXT-post du behöver beror på den DNS-post som du vill migrera. Exempel finns i följande tabell (`@` vanligt vis representerar rot domänen):
 
 | Exempel på DNS-post | TXT-värd | TXT-värde |
 | - | - | - |
-| \@ (rot) | _awverify_ | _&lt;appname >. azurewebsites. net_ |
-| www (sub) | _awverify. www_ | _&lt;appname >. azurewebsites. net_ |
-| \* (jokertecken) | _awverify. \*_ | _&lt;appname >. azurewebsites. net_ |
+| \@ (rot) | _awverify_ | _&lt;APPNAME >. azurewebsites. net_ |
+| www (sub) | _awverify. www_ | _&lt;APPNAME >. azurewebsites. net_ |
+| \* (jokertecken) | _awverify.\*_ | _&lt;APPNAME >. azurewebsites. net_ |
 
 På sidan DNS-poster noterar du post typen för det DNS-namn som du vill migrera. App Service stöder mappningar från CNAME-och A-poster.
 
@@ -122,8 +122,8 @@ För `contoso.com` rot domän exemplet, mappa om A-eller CNAME-posten som exempl
 | FQDN-exempel | Posttyp | Värd | Värde |
 | - | - | - | - |
 | contoso.com (rot) | A | `@` | IP-adress från [Kopiera appens IP-adress](#info) |
-| www \.contoso. com (sub) | CNAME | `www` | _&lt;appname >. azurewebsites. net_ |
-| \*. contoso.com (jokertecken) | CNAME | _\*_ | _&lt;appname >. azurewebsites. net_ |
+| www\.contoso.com (sub) | CNAME | `www` | _&lt;APPNAME >. azurewebsites. net_ |
+| \*. contoso.com (jokertecken) | CNAME | _\*_ | _&lt;APPNAME >. azurewebsites. net_ |
 
 Spara inställningarna.
 
@@ -140,4 +140,4 @@ Du kan hitta distributions enheten för din app genom att titta på domän namne
 Lär dig hur du binder ett anpassat SSL-certifikat till App Service.
 
 > [!div class="nextstepaction"]
-> [Binda ett befintligt anpassat SSL-certifikat till Azure App Service](app-service-web-tutorial-custom-ssl.md)
+> [Bind ett SSL-certifikat till Azure App Service](configure-ssl-bindings.md)

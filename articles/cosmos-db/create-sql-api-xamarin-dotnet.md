@@ -8,22 +8,22 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: 9d7dc560d452eba4c31b24a2011254258211bf8a
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 74d34705a6541b396fa2c2bf5028254f5f2e8d21
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615747"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466300"
 ---
-# <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Snabbstart: Skapa en att göra-app med Xamarin med hjälp av Azure Cosmos DB SQL API-konto
+# <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Snabb start: Bygg en att göra-app med Xamarin med Azure Cosmos DB SQL API-konto
 
 > [!div class="op_single_selector"]
-> * [NET](create-sql-api-dotnet.md)
+> * [.NET V3](create-sql-api-dotnet.md)
+> * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
->  
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB.
 
@@ -38,7 +38,7 @@ Den här snabb starten visar hur du skapar ett Azure Cosmos DB SQL API-konto, en
 
 Om du utvecklar på Windows och inte redan har Visual Studio 2019 installerat kan du hämta och använda den **kostnads fria** [versionen av Visual Studio 2019 community](https://www.visualstudio.com/downloads/). Se till att du aktiverar arbetsbelastningarna **Azure-utveckling** och **Mobil utveckling med .NET** under installationen av Visual Studio.
 
-Om du använder en Mac kan du ladda ner den [Visual Studio för Mac](https://www.visualstudio.com/vs/mac/) **utan kostnad**.
+Om du använder en Mac kan du ladda ner den **Visual Studio för Mac** [utan kostnad](https://www.visualstudio.com/vs/mac/).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
@@ -51,7 +51,7 @@ Om du använder en Mac kan du ladda ner den [Visual Studio för Mac](https://www
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
-## <a name="add-sample-data"></a>Lägg till exempeldata
+## <a name="add-sample-data"></a>Lägga till exempeldata
 
 [!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
 
@@ -118,19 +118,19 @@ Koden i ToDoItems-lösningen innehåller:
 Nu ska vi ta en snabb titt på hur appen kommunicerar med Azure Cosmos DB.
 
 * NuGet-paketet [Microsoft.Azure.DocumentDb.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/) måste läggas till i alla projekt.
-* -Klassen i mappen mappen/Samples/Xamarin/ToDoItems/ToDoItems. Core/Models modellerar dokumenten i behållaren objekt som har skapats ovan. `ToDoItem` Observera att egenskapsnamnet är skiftlägeskänsligt.
+* `ToDoItem`-klassen i mappen mappen/Samples/Xamarin/ToDoItems/ToDoItems. Core/Models modellerar dokumenten i den **objekt** behållare som har skapats ovan. Observera att egenskapsnamnet är skiftlägeskänsligt.
 * `CosmosDBService`-klassen i mappen azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Services kapslar in kommunikationen till Azure Cosmos DB.
-* I `CosmosDBService`-klassen finns det en variabel av typen `DocumentClient`. `DocumentClient` Används för att konfigurera och köra begär Anden mot Azure Cosmos DB kontot och instansieras:
+* I `CosmosDBService`-klassen finns det en variabel av typen `DocumentClient`. `DocumentClient` används för att konfigurera och köra begär Anden mot Azure Cosmos DB-kontot och instansieras:
 
     ```csharp
     docClient = new DocumentClient(new Uri(APIKeys.CosmosEndpointUrl), APIKeys.CosmosAuthKey);
     ```
 
-* När du `DocumentClient.CreateDocumentQuery<T>` frågar efter en behållare för dokument används metoden, som visas här `CosmosDBService.GetToDoItems` i funktionen:
+* När du frågar en behållare för dokument används metoden `DocumentClient.CreateDocumentQuery<T>` som visas här i `CosmosDBService.GetToDoItems`-funktionen:
 
    [!code-csharp[](~/samples-cosmosdb-xamarin/src/ToDoItems.Core/Services/CosmosDBService.cs?name=GetToDoItems)] 
 
-    `CreateDocumentQuery<T>` Tar en URI som pekar på den behållare som skapades i föregående avsnitt. Du kan också ange specifika LINQ-operatorer. som t.ex. en `Where`-sats. I detta fall returneras endast att göra-objekt som inte är slutförda.
+    `CreateDocumentQuery<T>` tar en URI som pekar på den behållare som skapades i föregående avsnitt. Du kan också ange specifika LINQ-operatorer. som t.ex. en `Where`-sats. I detta fall returneras endast att göra-objekt som inte är slutförda.
 
     Funktionen `CreateDocumentQuery<T>` körs synkront och returnerar en `IQueryable<T>`. Men `AsDocumentQuery`-metoden konverterar `IQueryable<T>` till ett `IDocumentQuery<T>`-objekt som kan köras asynkront. Därför blockeras inte UI-tråden för mobila program.
 
@@ -139,21 +139,21 @@ Nu ska vi ta en snabb titt på hur appen kommunicerar med Azure Cosmos DB.
 > [!TIP]
 > Flera funktioner som körs på Azure Cosmos-behållare och dokument tar en URI som en parameter som anger adressen till behållaren eller dokumentet. URI:n skapas med hjälp av `URIFactory`-klassen. URI: er för databaser, behållare och dokument kan skapas med den här klassen.
 
-* `ComsmosDBService.InsertToDoItem` Funktionen visar hur du infogar ett nytt dokument:
+* Funktionen `ComsmosDBService.InsertToDoItem` visar hur du infogar ett nytt dokument:
 
    [!code-csharp[](~/samples-cosmosdb-xamarin/src/ToDoItems.Core/Services/CosmosDBService.cs?name=InsertToDoItem)] 
 
     Objekt-URI: n anges samt det objekt som ska infogas.
 
-* `CosmosDBService.UpdateToDoItem` Funktionen visar hur du ersätter ett befintligt dokument med ett nytt:
+* Funktionen `CosmosDBService.UpdateToDoItem` visar hur du ersätter ett befintligt dokument med ett nytt:
 
    [!code-csharp[](~/samples-cosmosdb-xamarin/src/ToDoItems.Core/Services/CosmosDBService.cs?name=UpdateToDoItem)] 
 
-    Här behöver du en ny URI för att unikt identifiera det dokument som ska ersättas och hämtas genom att `UriFactory.CreateDocumentUri` använda och skicka det till databasen och behållar namn och dokumentets ID.
+    Här behöver du en ny URI för att unikt identifiera det dokument som ska ersättas och hämtas med hjälp av `UriFactory.CreateDocumentUri` och skicka det till databasen och behållar namn och dokumentets ID.
 
     `DocumentClient.ReplaceDocumentAsync` ersätter dokumentet som identifieras av URI:n med det som anges som parameter.
 
-* Om du `CosmosDBService.DeleteToDoItem` tar bort ett objekt visas funktionen:
+* Om du tar bort ett objekt visas funktionen `CosmosDBService.DeleteToDoItem`:
 
    [!code-csharp[](~/samples-cosmosdb-xamarin/src/ToDoItems.Core/Services/CosmosDBService.cs?name=DeleteToDoItem)] 
 
@@ -161,7 +161,7 @@ Nu ska vi ta en snabb titt på hur appen kommunicerar med Azure Cosmos DB.
 
 ## <a name="run-the-app"></a>Kör appen
 
-Du har nu uppdaterat din app med all information den behöver för att kommunicera med Azure Cosmos DB.
+Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB.
 
 Följande steg visar hur du kör appen med felsökningsprogrammet i Visual Studio för Mac.
 

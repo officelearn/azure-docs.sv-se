@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
-ms.openlocfilehash: 35c696e47c0a01c2cdb4d91db5a654208f2196e2
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 9dd24a962ddece4ae7841effea7fc36bba1b727b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71257268"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496449"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-ffiec-financial-services"></a>Handlingsplan för säkerhet och efterlevnad i Azure: analys för FFIEC Financial Services
 
@@ -29,7 +29,7 @@ Att uppnå FFIEC kräver att kvalificerade revisorer certifierar en produktions 
 
 Den här Handlingsplan för säkerhet och efterlevnad i Azure tillhandahåller en analys plattform som kunder kan bygga egna analys verktyg på. Referens arkitekturen beskriver ett allmänt användnings fall där kunder matar in data via Mass data import av SQL/data-administratören eller genom drift data uppdateringar via en drift användare. Båda arbets strömmarna omfattar Azure Functions för att importera data till Azure SQL Database. Azure Functions måste konfigureras av kunden via Azure Portal för att hantera import aktiviteter som är unika för varje kunds behov av analys.
 
-Azure erbjuder en rad olika rapporterings-och analys tjänster för kunderna. Den här lösningen införlivar Azure Machine Learning tjänster tillsammans med Azure SQL Database för att snabbt bläddra igenom data och leverera snabbare resultat via smartare modellering. Azure Machine Learning ökar frågans hastighet genom att identifiera nya relationer mellan data uppsättningar. När data har tränats genom flera statistiska funktioner kan upp till 7 ytterligare lagringspooler (8 totalt inklusive kund servern) synkroniseras med samma tabell modeller för att sprida frågor till arbets belastningar och minska svars tiderna.
+Azure erbjuder en rad olika rapporterings-och analys tjänster för kunderna. Den här lösningen införlivar Azure Machine Learning tillsammans med Azure SQL Database för att snabbt bläddra igenom data och leverera snabbare resultat via smartare modellering. Azure Machine Learning ökar frågans hastighet genom att identifiera nya relationer mellan data uppsättningar. När data har tränats genom flera statistiska funktioner kan upp till 7 ytterligare lagringspooler (8 totalt inklusive kund servern) synkroniseras med samma tabell modeller för att sprida frågor till arbets belastningar och minska svars tiderna.
 
 För förbättrad analys och rapportering kan Azure SQL-databaser konfigureras med columnstore-index. Både Azure Machine Learning och Azure SQL-databaser kan skalas upp eller ned eller stängas av fullständigt som svar på kund användning. All SQL-trafik krypteras med SSL genom att du kan inkludera självsignerade certifikat. Som bästa praxis rekommenderar Azure användningen av en betrodd certifikat utfärdare för förbättrad säkerhet.
 
@@ -71,7 +71,7 @@ I följande avsnitt beskrivs distributions-och implementerings elementen.
 
 **Azure Functions**: [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) är en server lös beräknings tjänst som gör det möjligt för användare att köra kod på begäran utan att behöva etablera eller hantera infrastruktur. Använd Azure Functions för att köra ett skript eller kod som svar på en rad olika händelser.
 
-**Azure Machine Learning tjänst**: [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/) är en data vetenskaps teknik som gör att datorer kan använda befintliga data för att förutse framtida beteenden, resultat och trender.
+**Azure Machine Learning**: [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/) är en data vetenskaps teknik som gör att datorer kan använda befintliga data för att förutsäga framtida beteenden, resultat och trender.
 
 **Azure Data Catalog**: [Data Catalog](../../data-catalog/overview.md) gör det enkelt att identifiera och förstå data källor av de användare som hanterar data. Vanliga data källor kan registreras, taggas och sökas efter finansiella data. Data finns kvar på den befintliga platsen, men en kopia av dess metadata läggs till i Data Catalog, tillsammans med en referens till data käll platsen. Dessa metadata indexeras också för att det ska bli enkelt att identifiera alla datakällor och för att användare som identifierar dem ska förstå dem.
 
@@ -182,7 +182,7 @@ I [matrisen handlingsplan för säkerhet och efterlevnad i Azure – FFIEC kund 
 
 En säker VPN-tunnel eller [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) måste konfigureras för att på ett säkert sätt upprätta en anslutning till resurserna som distribueras som en del av den här referens arkitekturen för data analys. Genom att konfigurera en VPN-eller ExpressRoute på lämpligt sätt kan kunder lägga till ett skydds lager för data under överföring.
 
-Genom att implementera en säker VPN-tunnel med Azure kan du skapa en virtuell privat anslutning mellan ett lokalt nätverk och en Azure-Virtual Network. Den här anslutningen sker via Internet och gör det möjligt för kunder att på ett säkert sätt &quot;tunnel &quot; information i en krypterad länk mellan kundens&#39;nätverk och Azure. VPN för plats-till-plats är en säker, vuxen teknik som har distribuerats av företag i alla storlekar i årtionden. [IPSec-tunnelläge](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) används i det här alternativet som en krypterings metod.
+Genom att implementera en säker VPN-tunnel med Azure kan du skapa en virtuell privat anslutning mellan ett lokalt nätverk och en Azure-Virtual Network. Den här anslutningen sker via Internet och gör det möjligt för kunder att på ett säkert sätt &quot;tunnel&quot; information i en krypterad länk mellan kundens&#39;nätverk och Azure. VPN för plats-till-plats är en säker, vuxen teknik som har distribuerats av företag i alla storlekar i årtionden. [IPSec-tunnelläge](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) används i det här alternativet som en krypterings metod.
 
 Eftersom trafiken i VPN-tunneln passerar Internet med en plats-till-plats-VPN, erbjuder Microsoft en annan, ännu mer säker anslutnings möjlighet. Azure ExpressRoute är en särskild WAN-länk mellan Azure och en lokal plats eller en Exchange-värd leverantör. Eftersom ExpressRoute-anslutningar inte går via Internet, ger dessa anslutningar mer tillförlitlighet, snabbare hastighet, lägre fördröjning och högre säkerhet än vanliga anslutningar via Internet. Dessutom, eftersom det är en direkt anslutning till kundens&#39;teleoperatörs leverantör, överförs inte data via Internet och visas därför inte för den.
 

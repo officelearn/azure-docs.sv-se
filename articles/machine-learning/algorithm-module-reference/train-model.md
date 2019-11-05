@@ -1,24 +1,24 @@
 ---
 title: 'Träna modell: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen **träna modell** i Azure Machine Learning-tjänsten för att träna en klassificerings-eller Regressions modell.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen **träna modell** i Azure Machine Learning för att träna en klassificerings-eller Regressions modell.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: f9717c39388c85ced889744722899b78a5df8453
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 28cc2e1f8782f1ffd37e3a20fcc68264b481e42e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693693"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490367"
 ---
 # <a name="train-model-module"></a>Träna modell modul
 
-I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd den här modulen för att träna en klassificerings-eller Regressions modell. Träningen sker efter att du har definierat en modell och angett dess parametrar och kräver taggade data. Du kan också använda **träna modell** för att omträna en befintlig modell med nya data. 
 
@@ -77,4 +77,4 @@ När modellen har tränats:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

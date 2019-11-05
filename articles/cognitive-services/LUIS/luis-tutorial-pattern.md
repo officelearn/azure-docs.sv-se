@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Mönster – LUIS'
+title: 'Självstudie: mönster – LUIS'
 titleSuffix: Azure Cognitive Services
 description: Använd mönster för att förbättra avsikts- och entitetsförutsägelser och samtidigt ge färre exempelyttranden. Mönstret tillhandahålls via ett exempel på mallyttrande, som innehåller syntax för att identifiera entiteter och ignorerbar text.
 services: cognitive-services
@@ -9,27 +9,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 07/16/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 69f853b77e3fbab149dbf163ed5cccb08578aa4e
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 4e4f1787db86378eaeff9df196cc061c42d0ab1e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390345"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498997"
 ---
-# <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Självstudier: Lägga till format för mallyttrande med vanliga mönster
+# <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Självstudie: Lägg till vanliga mönster mal len uttryck format
 
 I den här kursen använder du mönster för att förbättra avsikts- och entitetsförutsägelser och samtidigt ge färre exempelyttranden. Mönstret tillhandahålls via ett exempel på mallyttrande, som innehåller syntax för att identifiera entiteter och ignorerbar text. Ett mönster är en kombination av uttrycksmatchning och maskininlärning.  Exemplet på mallyttrande, tillsammans med avsiktsyttranden, ger LUIS en bättre förståelse för vilka yttranden som passar avsikten. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **I den här självstudiekursen får du lära du dig att:**
 
 > [!div class="checklist"]
-> * Importera en exempelapp 
+> * Importera exempelappen 
 > * Skapa avsikt
 > * Träna
 > * Publicera
-> * Hämta avsikter och entiteter från en slutpunkt
+> * Hämta avsikter och entiteter från slutpunkt
 > * Skapa ett mönster
 > * Verifiera förbättringar av mönsterförutsägelser
 > * Markera text ignorerbar och kapsla i mönstret
@@ -37,7 +39,7 @@ I den här kursen använder du mönster för att förbättra avsikts- och entite
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="import-example-app"></a>Importera en exempelapp
+## <a name="import-example-app"></a>Importera exempelappen
 
 Fortsätt med appen du skapade i föregående självstudie med namnet **HumanResources**. 
 
@@ -69,7 +71,7 @@ Använd följande steg:
     |Who does Jill Jones directly report to? (Vem rapporterar Jill Jones direkt till?)|
     |Who is Jill Jones supervisor? (Vem är Jill Jones arbetsledare?)|
 
-    [![Skärmbild av LUIS som lägger till nya yttranden till avsikt](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "Skärmbild av LUIS som lägger till nya yttranden till avsikt")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
+    [![Skärm bild av LUIS som lägger till nya yttranden till avsikt](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "Skärm bild av LUIS som lägger till nya yttranden till avsikt")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
 
     Oroa dig inte om keyPhrase-entiteten är märkt i yttranden för avsikten i stället för medarbetarentiteten. Båda förutsägs korrekt i rutan Text och i slutpunkten. 
 
@@ -197,7 +199,7 @@ Använd mönster för att göra den korrekta avsiktens poäng betydligt högre p
 Lämna det här andra webbläsarfönstret öppet. Du använder det igen senare i den här kursen. 
 
 ## <a name="template-utterances"></a>Mallyttranden
-På grund av Human Resources-domänens natur finns det några vanliga sätt att fråga om medarbetares relationer i organisationer. Exempel:
+På grund av Human Resources-domänens natur finns det några vanliga sätt att fråga om medarbetares relationer i organisationer. Till exempel:
 
 |Yttranden|
 |--|
@@ -377,7 +379,7 @@ Exempel mal yttranden som tillåter denna valfria information:
 Användningen av valfri syntax inom hakparentes, `[]`, gör den här valfria texten enkel att lägga till i mallyttrandet och kan kapslas upp till en andra nivå, `[[]]`, och innehåller entiteter eller text.
 
 
-**Fråga: Varför är alla `w`-bokstäver, den första bokstaven i varje mallyttrande, gemener? Borde det inte vara valfritt versaler eller gemener?** Yttrandet som skickas till frågeslutpunkten, av frågeslutpunkten, konverteras till gemener. Mallyttrandet kan vara versaler eller gemener och slutpunktsyttrandet kan också vara antingen eller. Jämförelsen görs alltid efter konverteringen till gemener.
+**Fråga: Varför är alla `w` bokstäver, den första bokstaven i varje mall uttryck, gemener? Bör de inte vara alternativt övre eller små?** Yttrandet som skickas till frågeslutpunkten, av frågeslutpunkten, konverteras till gemener. Mallyttrandet kan vara versaler eller gemener och slutpunktsyttrandet kan också vara antingen eller. Jämförelsen görs alltid efter konverteringen till gemener.
 
 **Fråga: Varför är inte fördefinierat tal ett mallyttrande om 3 mars förutsägs både som talet `3` och datumet `March 3`?** Mallyttrandet använder kontextuellt ett datum, antingen bokstavligen som i `March 3` eller abstraheras som `in a month`. Ett datum innehåller ett tal men ett tal kanske inte nödvändigtvis ses som ett datum. Använd alltid entiteten som bäst representerar den typ du vill ska returneras i resultatet för förutsägelse-JSON.  
 
@@ -424,9 +426,9 @@ Alla dessa yttranden hittade entiteterna inuti, och därför matchar de samma m�
 
 ## <a name="use-the-or-operator-and-groups"></a>Använd operator och grupper
 
-Flera av de tidigare mallarna yttranden är mycket nära. Använd **gruppen** `()` och **eller** `|` syntaxen för att minska mallen yttranden. 
+Flera av de tidigare mallarna yttranden är mycket nära. Använd **grupp** `()` och **eller** `|` syntax för att minska mallen yttranden. 
 
-Följande 2-mönster kan kombineras i ett enda mönster med hjälp `()` av gruppen `|` och eller syntaxen.
+Följande 2-mönster kan kombineras i ett enda mönster med hjälp av grupp `()` och eller `|` syntax.
 
 |Avsikt|Exempelyttranden med valfri text och fördefinierade entiteter|
 |--|--|
@@ -437,7 +439,7 @@ Den nya mallens uttryck kommer att vara:
 
 `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`. 
 
-Detta använder en **grupp** som omger de nödvändiga verben och de valfria `in` och `on` med en **eller** ett rör mellan dem. 
+Detta använder en **grupp** runt de nödvändiga verben och de valfria `in` och `on` med en **eller** en pipe mellan dem. 
 
 1. På sidan **mönster** väljer du filtret **organisations hanterare** . Begränsa listan genom att söka efter `manager`. 
 
@@ -465,7 +467,7 @@ Detta använder en **grupp** som omger de nödvändiga verben och de valfria `in
 
 ## <a name="use-the-utterance-beginning-and-ending-anchors"></a>Använd uttryck start-och slut ankare
 
-Pattern-syntaxen ger inledande och avslutande uttryck Anchor- `^`syntax för ett cirkumflex. De inledande och avslutande uttryck-ankarena kan användas tillsammans för att rikta in sig på mycket specifika och eventuellt exakta uttryck eller som används separat för mål avsikter. 
+Pattern-syntaxen ger inledande och avslutande uttryck Anchor-syntax för ett cirkumflex, `^`. De inledande och avslutande uttryck-ankarena kan användas tillsammans för att rikta in sig på mycket specifika och eventuellt exakta uttryck eller som används separat för mål avsikter. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

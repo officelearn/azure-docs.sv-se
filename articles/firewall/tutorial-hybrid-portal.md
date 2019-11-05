@@ -1,21 +1,21 @@
 ---
-title: 'Självstudier: Distribuera och konfigurera Azure-brandväggen i ett hybrid nätverk med hjälp av Azure Portal'
+title: 'Självstudie: Distribuera och konfigurera Azure-brandväggen i ett hybrid nätverk med hjälp av Azure Portal'
 description: I den här självstudien får du lära dig hur du distribuerar och konfigurerar Azure-brandväggen med Azure Portal.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 09/17/2019
+ms.date: 11/02/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 50f1d0bca958ef4504394cad1d771459cc8be27d
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 4a4fd2f89bc662f394b59aa6295c3a909cb8552b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018978"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468459"
 ---
-# <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Självstudier: Distribuera och konfigurera Azure-brandväggen i ett hybrid nätverk med hjälp av Azure Portal
+# <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Självstudie: Distribuera och konfigurera Azure-brandväggen i ett hybrid nätverk med hjälp av Azure Portal
 
 När du ansluter ditt lokala nätverk till ett virtuellt Azure-nätverk för att skapa ett hybridnätverk är förmågan att styra åtkomst till dina Azure-nätverksresurser en viktig del av den övergripande säkerhetsplanen.
 
@@ -41,7 +41,7 @@ I den här guiden får du lära dig att:
 > * Peera de virtuella hubb- och ekernätverken
 > * Skapa vägarna
 > * Skapa de virtuella datorerna
-> * Testa brandväggen
+> * testa brandväggen.
 
 Om du vill använda Azure PowerShell i stället för att slutföra den här proceduren, se [distribuera och konfigurera Azure-brandväggen i ett hybrid nätverk med Azure PowerShell](tutorial-hybrid-ps.md).
 
@@ -108,14 +108,6 @@ Skapa nu VNet:
 10. För **adress intervall**skriver du **10.6.0.0/24**.
 11. Godkänn de andra standardinställningarna och välj sedan **skapa**.
 
-Skapa nu ett andra undernät för gatewayen.
-
-1. På sidan **VNet-eker** väljer du **undernät**.
-2. Välj **+ undernät**.
-3. I **namn**skriver du **GatewaySubnet**.
-4. För **adress intervall (CIDR-block)** skriver du **10.6.1.0/24**.
-5. Välj **OK**.
-
 ## <a name="create-the-on-premises-virtual-network"></a>Skapa det lokala virtuella nätverket
 
 1. På Start sidan Azure Portal väljer du **skapa en resurs**.
@@ -157,14 +149,14 @@ Distribuera nu brand väggen i brand Väggs hubbens virtuella nätverk.
 2. Välj **nätverk**i den vänstra kolumnen och välj sedan **brand vägg**.
 4. På sidan **Skapa en brandvägg** använder du följande tabell till att konfigurera brandväggen:
 
-   |Inställning  |Value  |
+   |Inställning  |Värde  |
    |---------|---------|
-   |Subscription     |\<din prenumeration\>|
-   |Resource group     |**VB-hybrid-test** |
-   |Name     |**AzFW01**|
-   |Location     |Välj samma plats som tidigare|
+   |Prenumeration     |\<din prenumeration\>|
+   |Resursgrupp     |**VB-hybrid-test** |
+   |Namn     |**AzFW01**|
+   |Plats     |Välj samma plats som tidigare|
    |Välj ett virtuellt nätverk     |**Använd befintlig**:<br> **VNet-hubb**|
-   |Offentlig IP-adress     |Skapa nytt: <br>Namn - **VB-pip**. |
+   |Offentlig IP-adress     |Skapa nytt: <br>**Namn** - **VB-pip**. |
 
 5. Välj **Granska + skapa**.
 6. Granska sammanfattningen och välj sedan **skapa** för att skapa brand väggen.
@@ -341,7 +333,7 @@ Skapa nu standard vägen från eker-undernätet.
 2. När du har skapat routningstabellen väljer du den för att öppna sidan väg tabell.
 3. Välj **vägar** i den vänstra kolumnen.
 4. Välj **Lägg till**.
-5. Skriv **ToSpoke**som väg namn.
+5. Skriv **ToHub**som väg namn.
 6. För adressprefixet skriver du **0.0.0.0/0**.
 7. För nästa hopp typ väljer du **virtuell**installation.
 8. För nästa hopp adress skriver du brand väggens privata IP-adress som du noterade tidigare.
@@ -371,9 +363,9 @@ Skapa en virtuell dator i det virtuella eker-nätverket som kör IIS, utan offen
     - **Namn på virtuell dator**: *VM-eker-01*.
     - **Region** – samma region som du har använt tidigare.
     - **Användar namn**: *azureuser*.
-    - **Lösenord**: *Azure123456!*
+    - **Lösen ord**: *Azure123456!*
 4. Välj **Nästa:Diskar**.
-5. Acceptera standardvärdena och **Välj Nästa: Nätverk**.
+5. Acceptera standardvärdena och välj **Nästa: nätverk**.
 6. Välj **VNet-eker** för det virtuella nätverket och under nätet är **SN – arbets belastning**.
 7. För **offentlig IP-adress**väljer du **ingen**.
 8. För **offentliga inkommande portar**väljer du **Tillåt valda portar**och väljer sedan **http (80)** och **RDP (3389)**
@@ -384,7 +376,7 @@ Skapa en virtuell dator i det virtuella eker-nätverket som kör IIS, utan offen
 ### <a name="install-iis"></a>Installera IIS
 
 1. Öppna Cloud Shell från Azure Portal och kontrol lera att den är inställd på **PowerShell**.
-2. Kör följande kommando för att installera IIS på den virtuella datorn:
+2. Kör följande kommando för att installera IIS på den virtuella datorn och ändra platsen om det behövs:
 
    ```azurepowershell-interactive
    Set-AzVMExtension `
@@ -406,10 +398,10 @@ Det här är en virtuell dator som du använder för att ansluta via fjärr skri
 2. Under **populär**väljer du **Windows Server 2016 Data Center**.
 3. Ange följande värden för den virtuella datorn:
     - **Resurs grupp** – Välj befintlig och välj sedan **VB-hybrid-test**.
-    - **Virtuellt dator namn** - *VM-OnPrem*.
+    - **Namn på virtuell dator** - *VM-OnPrem*.
     - **Region** – samma region som du har använt tidigare.
     - **Användar namn**: *azureuser*.
-    - **Lösenord**: *Azure123456!* .
+    - **Lösen ord**: *Azure123456!* .
 4. Välj **Nästa:Diskar**.
 5. Acceptera standardvärdena och välj **Nästa: nätverk**.
 6. Välj **VNet-OnPrem** för det virtuella nätverket och under nätet är **SN-Corp**.
@@ -418,9 +410,9 @@ Det här är en virtuell dator som du använder för att ansluta via fjärr skri
 9. För **startdiagnostik**väljer du **av**.
 10. Välj **Granska + skapa**, granska inställningarna på sidan Sammanfattning och välj sedan **skapa**.
 
-## <a name="test-the-firewall"></a>Testa brandväggen
+## <a name="test-the-firewall"></a>testa brandväggen.
 
-1. Först hämtar du och sedan antecknar den privata IP-adressen för den virtuella datorn **VM-spoke-01**.
+1. Anteckna först den privata IP-adressen för den virtuella datorn med **ekrar 01** .
 
 2. Från Azure-portalen ansluter du till den virtuella datorn **VM-Onprem**.
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
@@ -459,4 +451,4 @@ Du kan behålla dina brandväggsresurser för nästa självstudie eller, om de i
 Därefter kan du övervaka Azure Firewall-loggarna.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Monitor Azure Firewall-loggar](./tutorial-diagnostics.md)
+> [Självstudie: Övervaka Azure Firewall-loggar](./tutorial-diagnostics.md)

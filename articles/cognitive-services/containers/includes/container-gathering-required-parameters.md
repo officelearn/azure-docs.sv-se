@@ -6,31 +6,28 @@ manager: nitinme
 description: Parametrar för alla Cognitive Services behållare
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/18/2019
+ms.date: 10/15/2019
 ms.author: dapine
-ms.openlocfilehash: 06f68d28d06dec7c9e738ad8cb50ca337fa840be
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: bf4e8f06642a4a764794a75e2b49f15958796c61
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71102017"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465941"
 ---
 ## <a name="gathering-required-parameters"></a>Nödvändiga parametrar samlas in
 
-Det finns tre primära parametrar för alla Cognitive Services behållare som krävs. Licens avtalet för slutanvändare (EULA) måste vara närvarande med värdet `accept`. Dessutom behövs både en slut punkts-URL och API-nyckel.
+Det finns tre primära parametrar för alla Cognitive Services behållare som krävs. Licens avtalet för slutanvändare (EULA) måste förekomma med värdet `accept`. Dessutom behövs både en slut punkts-URL och API-nyckel.
 
-> [!NOTE]
-> Det enda undantaget till dessa tre obligatoriska parametrar är när behållare anses vara offline-behållare. Offline-behållare rapporterar inte användning, är inte avgiftsbelagda och följer en annan fakturerings metod.
-
-### <a name="endpoint-uri-endpoint_uri"></a>Slut punkts-URI`{ENDPOINT_URI}`
+### <a name="endpoint-uri-endpoint_uri"></a>Slut punkts-URI `{ENDPOINT_URI}`
 
 URI-värdet för **slut punkten** är tillgängligt på sidan Azure Portal *Översikt* för motsvarande kognitiva tjänst resurs. Gå till sidan *Översikt* , Hovra över slut punkten och en `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> ikon visas. Kopiera och använd vid behov.
 
 ![Samla in slut punkts-URI för senare användning](../media/overview-endpoint-uri.png)
 
-### <a name="keys-api_key"></a>Nyckel`{API_KEY}`
+### <a name="keys-api_key"></a>Nycklar `{API_KEY}`
 
-Den här nyckeln används för att starta behållaren och är tillgänglig på sidan Azure Portals nycklar för motsvarande kognitiva tjänst resurser. Gå till sidan *nycklar* och klicka `Copy to clipboard` på <span class="docon docon-edit-copy x-hidden-focus"></span> ikonen.
+Den här nyckeln används för att starta behållaren och är tillgänglig på sidan Azure Portals nycklar för motsvarande kognitiva tjänst resurser. Gå till sidan *nycklar* och klicka på ikonen `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> .
 
 ![Hämta en av de två nycklarna för senare användning](../media/keys-copy-api-key.png)
 

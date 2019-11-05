@@ -1,5 +1,5 @@
 ---
-title: Konfigurera begränsning av utgående nätverks trafik för Azure HDInsight-kluster
+title: Konfigurera begränsning av utgående nätverks trafik – Azure HDInsight
 description: Lär dig hur du konfigurerar begränsning av utgående nätverks trafik för Azure HDInsight-kluster.
 services: hdinsight
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 56e745a4f4e4bfbe82da00b46b7a5c0a58e3785e
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
-ms.translationtype: MT
+ms.openlocfilehash: df691102b565824d6cb6a86f19e6fce3822d8ba8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789796"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498132"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Konfigurera utgående nätverks trafik för Azure HDInsight-kluster med hjälp av brand vägg (för hands version)
 
@@ -46,7 +46,7 @@ En sammanfattning av stegen för att låsa bort från din befintliga HDInsight m
 
 Skapa en program regel samling som gör det möjligt för klustret att skicka och ta emot viktig kommunikation.
 
-Välj den nya brand Väggs **test-FW01** från Azure Portal. Klicka på **regler** under **Inställningar**  > **program regel samling**  > **Lägg till program regel samling**.
+Välj den nya brand Väggs **test-FW01** från Azure Portal. Klicka på **regler** under **Inställningar** > **program regel samling** > **Lägg till program regel samling**.
 
 ![Rubrik: Lägg till program regel samling](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
@@ -75,7 +75,7 @@ Utför följande steg på skärmen **Lägg till program regel samling** :
 Skapa nätverks reglerna för att konfigurera HDInsight-klustret på rätt sätt.
 
 1. Välj den nya brand Väggs **test-FW01** från Azure Portal.
-1. Klicka på **regler** under **Inställningar**  > **nätverks regel samling**  > **Lägg till nätverks regel samling**.
+1. Klicka på **regler** under **Inställningar** > **nätverks regel samling** > **Lägg till nätverks regel samling**.
 1. På skärmen **Lägg till regel samling för nätverk** anger du ett **namn**, **prioritet**och klickar på **Tillåt** i list rutan med **Åtgärds** menyn.
 1. Skapa följande regler i avsnittet **IP-adresser** :
 
@@ -127,7 +127,7 @@ Slutför konfigureringen av routningstabellen:
 
 1. Tilldela routningstabellen som du har skapat till ditt HDInsight-undernät genom att klicka på **undernät** under **Inställningar** och sedan **associera**.
 1. På skärmen **associera undernät** väljer du det virtuella nätverk som klustret skapades i och **HDInsight-undernätet** som du använde för ditt HDInsight-kluster.
-1. Klicka på **OK**
+1. Klicka på **OK**.
 
 ## <a name="edge-node-or-custom-application-traffic"></a>Edge-Node eller anpassad program trafik
 
@@ -181,12 +181,12 @@ I föregående instruktioner kan du konfigurera Azure-brandväggen för att begr
 
 #### <a name="ip-address-dependencies"></a>IP-adress beroenden
 
-| **Endpoint** | **Detaljer** |
+| **Endpoint** | **Information** |
 |---|---|
-| \*:123 | Kontroll av NTP-klocka. Trafiken kontrol leras på flera slut punkter på port 123 |
+| \*: 123 | Kontroll av NTP-klocka. Trafiken kontrol leras på flera slut punkter på port 123 |
 | IP-adresser publicerade [här](hdinsight-management-ip-addresses.md) | Detta är HDInsight-tjänsten |
 | AAD – DS privata IP-adresser för ESP-kluster |
-| \*:16800 för aktivering av KMS-Windows |
+| \*: 16800 för aktivering av KMS-Windows |
 | \*12000 för Log Analytics |
 
 #### <a name="fqdn-httphttps-dependencies"></a>FQDN HTTP/HTTPS-beroenden

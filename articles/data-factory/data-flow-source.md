@@ -6,16 +6,14 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: c7d18ab6e9018511915e9b77ea02ac60b1277c12
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: fb11b785cecbd021c0b894754e31d226edfe72f2
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72596484"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73519312"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Käll omvandling för att mappa data flöde 
-
-
 
 En käll omvandling konfigurerar data källan för data flödet. När du skapar data flöden kommer ditt första steg alltid att konfigurera en käll omvandling. Om du vill lägga till en källa klickar du på rutan **Lägg till källa** i arbets ytan data flöde.
 
@@ -27,11 +25,12 @@ Varje käll omvandling är associerad med exakt en Data Factory data uppsättnin
 
 Genom att mappa data flödet följer du metoden extrahera, läsa in, transformera (ELT) och arbetar med *mellanlagring* av data uppsättningar som är alla i Azure. För närvarande kan följande data uppsättningar användas i en käll omvandling:
     
-* Azure Blob Storage
-* Azure Data Lake Storage Gen1
-* Azure Data Lake Storage Gen2
+* Azure Blob Storage (JSON, Avro, text, Parquet)
+* Azure Data Lake Storage Gen1 (JSON, Avro, text, Parquet)
+* Azure Data Lake Storage Gen2 (JSON, Avro, text, Parquet)
 * Azure SQL Data Warehouse
 * Azure SQL Database
+* Azure CosmosDB
 
 Azure Data Factory har åtkomst till över 80 inbyggda anslutningar. Om du vill ta med data från de andra källorna i ditt data flöde använder du kopierings aktiviteten för att läsa in dessa data till något av de mellanliggande mellanlagrings områdena.
 
@@ -79,9 +78,9 @@ Jokertecken exempel:
 
 * ```/data/sales/**/*.csv``` hämtar alla CSV-filer under/data/Sales
 * ```/data/sales/20??/**``` hämtar alla filer i 20-talet
-* ```/data/sales/2004/*/12/[XY]1?.csv``` hämtar alla CSV-filer i 2004 i december som börjar med X eller Y som föregås av ett tvåsiffrigt tal
+* ```/data/sales/2004/*/12/[XY]1?.csv``` får alla CSV-filer i 2004 i december som börjar med X eller Y som föregås av ett tvåsiffrigt tal
 
-**Partitionens rot Sök väg:** Om du har partitionerade mappar i din fil källa med ```key=value```-format (till exempel Year = 2019) kan du tilldela den översta nivån i det partitionens mappträd till ett kolumn namn i data flödet för data flödet.
+**Partitionens rot Sök väg:** Om du har partitionerade mappar i fil källan med ett ```key=value``` format (t. ex. Year = 2019) kan du tilldela den översta nivån i det partitionens mappträd till ett kolumn namn i data flödes data strömmen.
 
 Ange först ett jokertecken för att inkludera alla sökvägar som är de partitionerade mapparna plus de löv-filer som du vill läsa.
 
@@ -130,7 +129,7 @@ Om din källa är i SQL Database eller SQL Data Warehouse är ytterligare SQL-/r
 
 **Inmatade:** Välj om du vill peka din källa i en tabell (motsvarande ```Select * from <table-name>```) eller ange en anpassad SQL-fråga.
 
-**Fråga**: om du väljer fråga i fältet inmatat anger du en SQL-fråga för källan. Den här inställningen åsidosätter alla tabeller som du har valt i data uppsättningen. **Order by** -satser stöds inte här, men du kan ange en fullständig Select from-instruktion. Du kan också använda användardefinierade tabell funktioner. **Select * from udfGetData ()** är en UDF i SQL som returnerar en tabell. Med den här frågan skapas en käll tabell som du kan använda i ditt data flöde.
+**Fråga**: om du väljer fråga i fältet inmatat anger du en SQL-fråga för källan. Den här inställningen åsidosätter alla tabeller som du har valt i data uppsättningen. **Order by** -satser stöds inte här, men du kan ange en fullständig Select from-instruktion. Du kan också använda användardefinierade tabell funktioner. **Select * from udfGetData ()** är en UDF i SQL som returnerar en tabell. Med den här frågan skapas en käll tabell som du kan använda i ditt data flöde. Att använda frågor är också ett bra sätt att minska antalet rader för testning eller sökning. Exempel: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
 **Batchstorlek**: Ange en batchstorlek för att segmentera stora data till läsningar.
 
@@ -152,6 +151,19 @@ Som scheman i data uppsättningar definierar projektionen i en källa data kolum
 Om text filen inte har något definierat schema väljer du **identifiera data typ** så att Data Factory kan sampla och härleda data typerna. Välj **definiera standardformat** för att automatiskt identifiera standard data formaten. 
 
 Du kan ändra kolumn data typerna i en nedströms härledd kolumn-omvandling. Använd en SELECT-omvandling för att ändra kolumn namnen.
+
+### <a name="import-schema"></a>Importera schema
+
+Data uppsättningar som Avro och CosmosDB som stöder komplexa data strukturer kräver inte att schema definitioner finns i data uppsättningen. Därför kan du klicka på knappen "Importera schema" på fliken projektion för dessa typer av källor.
+
+## <a name="cosmosdb-specific-settings"></a>CosmosDB-inställningar
+
+När du använder CosmosDB som ursprungs typ finns det några alternativ att tänka på:
+
+* Inkludera system kolumner: om du markerar det här kommer ```id```, ```_ts```och andra system kolumner att inkluderas i metadata för data flödet från CosmosDB. När du uppdaterar samlingar är det viktigt att ta med detta så att du kan ta tag i det befintliga rad-ID: t.
+* Sid storlek: antalet dokument per sida i frågeresultatet. Standardvärdet är "-1" som använder den dynamiska sidan för tjänsten upp till 1000.
+* Data flöde: Ange ett valfritt värde för det antal ru: er som du vill använda för din CosmosDB-samling för varje körning av det här data flödet under Läs åtgärden. Minimum är 400.
+* Prioriterade regioner: du kan välja önskade Läs regioner för den här processen.
 
 ## <a name="optimize-the-source-transformation"></a>Optimera käll omvandlingen
 

@@ -10,43 +10,40 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/15/2019
+ms.date: 11/1/2019
 ms.author: raiye
-ms.openlocfilehash: b4150858986f204723dc258b23daf22de5d39842
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: e1d27563d2181a8e094e00295f9506d88e694513
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430163"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500255"
 ---
 # <a name="azure-guest-os"></a>Azure gäst operativ system
 Följande tabeller visar de uppdateringar av Microsoft Security Response Center (MSRC) som tillämpas på Azures gäst operativ system. Sök i den här artikeln för att avgöra om en viss uppdatering gäller det gäst operativ system som du använder. Uppdateringar överför alltid den specifika [familj][family-explain] som de introducerades i.
 
 ## <a name="october-2019-guest-os"></a>Oktober 2019 gäst operativ system
 
->[!NOTE]
->Gäst operativ systemet i oktober distribueras för närvarande till virtuella datorer i moln tjänsten som är konfigurerade för automatiska uppdateringar. När distributionen är klar görs den här versionen tillgänglig för manuella uppdateringar via Azure Portal-och konfigurationsfiler. Följande korrigeringar ingår i oktober-gäst operativ systemet. Den här listan kan ändras.
-
 | Produktkategori | Överordnad KB-artikel | Beskrivning av sårbarhet | Gästoperativsystem | Datum för första gången |
 | --- | --- | --- | --- | --- |
-|  Rel 19-10   |  [4520003]  |  Windows-säkerhet   |  2,91  |  Okt 8, 2019  |
-|  Rel 19-10   |  [4519985]  |  Windows-säkerhet   |  3,78  |  Okt 8, 2019  |
-|  Rel 19-10   |  [4519990]  |  Windows-säkerhet   |  4,71  |  Okt 8, 2019  |
-|  Rel 19-10   |  [4519998]  |  Senaste kumulativa uppdateringen   |  5,36  |  Okt 8, 2019  |
-|  Rel 19-10   |  [4519338]  |  Senaste kumulativa uppdateringen   |  6,12  |  Okt 8, 2019  |
-|  Rel 19-10   |  [4519974]  |  Internet Explorer   |  2,91, 3,78, 4,71  |  Okt 8, 2019  |
-|  Rel 19-10   |  [4516065]  |  Ej säkerhet   |  2,91  |  10 september 2019  |
-|  Rel 19-10   |  [4516655]  |  SJÄLVBETJÄNINGS   |  2,91  |  10 september 2019  |
-|  Rel 19-10   |  [4516055]  |  Ej säkerhet   |  3,78  |  10 september 2019  |
-|  Rel 19-10   |  [4512939]  |  SJÄLVBETJÄNINGS   |  3,78  |  10 september 2019  |
-|  Rel 19-10   |  [4514370]  |  .NET Framework 3,5   |  3,78  |  10 september 2019  |
-|  Rel 19-10   |  [4514368]  |  .NET Framework 4.5.2   |  3,78  |  10 september 2019  |
-|  Rel 19-10   |  [4516067]  |  Ej säkerhet   |  4,71  |  10 september 2019  |
-|  Rel 19-10   |  [4512938]  |  SJÄLVBETJÄNINGS   |  4,71  |  10 september 2019  |
-|  Rel 19-10   |  [4514371]  |  .NET Framework 3,5   |  4,71  |  10 september 2019  |
-|  Rel 19-10   |  [4514367]  |  .NET Framework 4.5.2   |  4,71  |  10 september 2019  |
-|  Rel 19-10   |  [4512574]  |  SJÄLVBETJÄNINGS   |  5,36  |  10 september 2019  |
-|  Rel 19-10   |  [4512577]  |  SJÄLVBETJÄNINGS   |  6,12  |  10 september 2019  |
+|  Rel 19-10   |  [4520003]  |  Windows-säkerhet   |  [2,91]  |  Okt 8, 2019  |
+|  Rel 19-10   |  [4519985]  |  Windows-säkerhet   |  [3,78]  |  Okt 8, 2019  |
+|  Rel 19-10   |  [4519990]  |  Windows-säkerhet   |  [4,71]  |  Okt 8, 2019  |
+|  Rel 19-10   |  [4519998]  |  Senaste kumulativa uppdateringen   |  [5,36]  |  Okt 8, 2019  |
+|  Rel 19-10   |  [4519338]  |  Senaste kumulativa uppdateringen   |  [6,12]  |  Okt 8, 2019  |
+|  Rel 19-10   |  [4519974]  |  Internet Explorer   |  [2,91], [3,78], [4,71]  |  Okt 8, 2019  |
+|  Rel 19-10   |  [4516065]  |  Ej säkerhet   |  [2,91]  |  10 september 2019  |
+|  Rel 19-10   |  [4516655]  |  SJÄLVBETJÄNINGS   |  [2,91]  |  10 september 2019  |
+|  Rel 19-10   |  [4516055]  |  Ej säkerhet   |  [3,78]  |  10 september 2019  |
+|  Rel 19-10   |  [4512939]  |  SJÄLVBETJÄNINGS   |  [3,78]  |  10 september 2019  |
+|  Rel 19-10   |  [4514370]  |  .NET Framework 3,5   |  [3,78]  |  10 september 2019  |
+|  Rel 19-10   |  [4514368]  |  .NET Framework 4.5.2   |  [3,78]  |  10 september 2019  |
+|  Rel 19-10   |  [4516067]  |  Ej säkerhet   |  [4,71]  |  10 september 2019  |
+|  Rel 19-10   |  [4512938]  |  SJÄLVBETJÄNINGS   |  [4,71]  |  10 september 2019  |
+|  Rel 19-10   |  [4514371]  |  .NET Framework 3,5   |  [4,71]  |  10 september 2019  |
+|  Rel 19-10   |  [4514367]  |  .NET Framework 4.5.2   |  [4,71]  |  10 september 2019  |
+|  Rel 19-10   |  [4512574]  |  SJÄLVBETJÄNINGS   |  [5,36]  |  10 september 2019  |
+|  Rel 19-10   |  [4512577]  |  SJÄLVBETJÄNINGS   |  [6,12]  |  10 september 2019  |
 
 [4520003]: https://support.microsoft.com/kb/4520003
 [4519985]: https://support.microsoft.com/kb/4519985
@@ -67,6 +64,11 @@ Följande tabeller visar de uppdateringar av Microsoft Security Response Center 
 [4512574]: https://support.microsoft.com/kb/4512574
 [4512577]: https://support.microsoft.com/kb/4512577
 
+[6,12]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5,36]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4,71]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3,78]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2,91]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## <a name="september-2019-guest-os"></a>September 2019-gäst operativ system

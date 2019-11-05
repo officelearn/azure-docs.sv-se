@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/31/2019
 ms.author: helohr
-ms.openlocfilehash: 561dad566d7f1caaf609c8013fa075062e4471ea
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
-ms.translationtype: MT
+ms.openlocfilehash: 1d7f08dbaa9b91cd2dbac28daf5c17ea85d09985
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676749"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482216"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Ansluta med Windows-skrivbordsklienten
 
@@ -25,11 +25,11 @@ Du kan komma åt Windows-resurser för virtuella skriv bord på enheter med Wind
 
 ## <a name="install-the-windows-desktop-client"></a>Installera Windows Desktop-klienten
 
-Det här är de klienter som du kan ladda ned för tillfället:
+Välj den klient som matchar din version av Windows:
 
 - [Windows 64-bitars](https://go.microsoft.com/fwlink/?linkid=2068602)
-
-Vi uppdaterar den här listan när klienten blir tillgänglig för fler versioner av Windows.
+- [Windows 32-bitars för hands version](https://go.microsoft.com/fwlink/?linkid=2098960)
+- [Windows ARM64 Preview](https://go.microsoft.com/fwlink/?linkid=2098961)
 
 Du kan installera klienten för den aktuella användaren, som inte kräver administratörs rättigheter, eller så kan administratören installera och konfigurera klienten så att alla användare på enheten kan komma åt den.
 

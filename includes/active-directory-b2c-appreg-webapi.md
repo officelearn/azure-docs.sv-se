@@ -1,19 +1,24 @@
 ---
 author: mmacy
 ms.service: active-directory-b2c
+ms.subservice: B2C
 ms.topic: include
-ms.date: 09/30/2019
+ms.date: 10/16/2019
 ms.author: marsma
-ms.openlocfilehash: 4ac69b51e69031a1a4ce83a2c09dc6cc010ccd62
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: da92c40b051a3dc34e61d056c63f3207d4f42f1b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720265"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475098"
 ---
 Webb-API-resurser måste vara registrerade i klientorganisationen innan de kan godkänna och svara på en begäran från en skyddad resurs från klientprogram som använder en åtkomsttoken.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+Om du vill registrera ett program i din Azure AD B2C klient kan du använda den aktuella **program** upplevelsen eller vår nya enhetliga **Appregistreringar (förhands granskning)** . [Läs mer om för hands](https://aka.ms/b2cappregintro)versionen.
+
+#### <a name="applicationstabapplications"></a>[Program](#tab/applications/)
+
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
 1. Välj **Program** och därefter **Lägg till**.
@@ -24,3 +29,21 @@ Webb-API-resurser måste vara registrerade i klientorganisationen innan de kan g
 1. För **app-ID-URI**lägger du till API-slutpunkt-ID: t till den URI som visas. I den här självstudien anger du `api`, så att hela URI: n liknar `https://contosob2c.onmicrosoft.com/api`.
 1. Välj **Skapa**.
 1. Registrera **program-ID** för användning i ett senare steg.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
+
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
+1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
+1. Välj **Appregistreringar (för hands version)** och välj sedan **ny registrering**.
+1. Ange ett **namn** för programmet. Till exempel *webapi1*.
+1. Under **omdirigerings-URI**väljer du **webb**och anger sedan en slut punkt där Azure AD B2C ska returnera de token som programmet begär. I den här självstudien körs exemplet lokalt och lyssnar på `http://localhost:5000`.
+1. Välj **Registrera**.
+1. Registrera **program-ID: t (Client)** för användning i ett senare steg.
+
+Aktivera sedan det implicita tilldelnings flödet:
+
+1. Under **Hantera**väljer du **autentisering**.
+1. Välj **testa den nya upplevelsen** (om den visas).
+1. Under **implicit beviljande**väljer du kryss rutorna för **åtkomst-tokens** och **ID-token** .
+1. Välj **Spara**.

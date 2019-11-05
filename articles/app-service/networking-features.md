@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 950818d08cb654bad969deaede24231cab9bcbe2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 102f3e131b20534dc2f192b6485a3fdc95070315
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098559"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470254"
 ---
 # <a name="app-service-networking-features"></a>App Service nätverksfunktioner
 
@@ -34,7 +34,7 @@ Azure App Service är ett distribuerat system. Rollerna som hanterar inkommande 
 | Inkommande funktioner | Utgående funktioner |
 |---------------------|-------------------|
 | App-tilldelad adress | Hybridanslutningar |
-| Åtkomstbegränsningar | Gateway krävs VNet-integrering |
+| Åtkomst begränsningar | Gateway krävs VNet-integrering |
 | Serviceslutpunkter | VNet-integrering (för hands version) |
 
 Om inget annat anges kan alla funktioner användas tillsammans. Du kan blanda funktionerna för att lösa de olika problemen.
@@ -45,9 +45,9 @@ För alla typer av användnings fall kan det finnas några sätt att lösa probl
  
 | Inkommande användnings fall | Funktion |
 |---------------------|-------------------|
-| Stöd för IP-baserade SSL-behov för din app | app-tilldelad adress |
-| Inte delad, dedikerad inkommande adress för din app | app-tilldelad adress |
-| Begränsa åtkomsten till din app från en uppsättning väldefinierade adresser | Åtkomstbegränsningar |
+| Stöd för IP-baserade SSL-behov för din app | App-tilldelad adress |
+| Inte delad, dedikerad inkommande adress för din app | App-tilldelad adress |
+| Begränsa åtkomsten till din app från en uppsättning väldefinierade adresser | Åtkomst begränsningar |
 | Exponera min app på privata IP-adresser i mitt VNet | ILB ASE </br> Application Gateway med tjänst slut punkter |
 | Begränsa åtkomsten till min app från resurser i ett virtuellt nätverk | Serviceslutpunkter </br> ILB ASE |
 | Exponera min app på en privat IP-adress i mitt VNet | ILB ASE </br> privat IP för inkommande på en Application Gateway med tjänst slut punkter |
@@ -89,11 +89,11 @@ När du använder en app-tilldelad adress, går trafiken fortfarande genom samma
 
 Du kan lära dig hur du anger en adress i din app med själv studie kursen om hur du [konfigurerar IP-baserad SSL][appassignedaddress]. 
 
-### <a name="access-restrictions"></a>Åtkomstbegränsningar 
+### <a name="access-restrictions"></a>Åtkomst begränsningar 
 
 Med funktionen åtkomst begränsningar kan du filtrera **inkommande** begär Anden baserat på den ursprungliga IP-adressen. Filtrerings åtgärden utförs på de frontend-roller som är överordnade från arbets tagaren och där dina appar körs. Eftersom front-end-rollerna är överordnade från arbets tagarna kan funktionen åtkomst begränsningar betraktas som skydd på nätverks nivå för dina appar. Med funktionen kan du bygga en lista över tillåtna och neka-adressblock som utvärderas i prioritetsordning. Det liknar funktionen nätverks säkerhets grupp (NSG) som finns i Azure-nätverk.  Du kan använda den här funktionen i en ASE eller i tjänsten flera innehavare. När det används med en ILB-ASE kan du begränsa åtkomsten från privata adress block.
 
-![Åtkomstbegränsningar](media/networking-features/access-restrictions.png)
+![Åtkomst begränsningar](media/networking-features/access-restrictions.png)
 
 Funktionen åtkomst begränsningar hjälper dig i scenarier där du vill begränsa vilka IP-adresser som kan användas för att nå din app. Bland användnings exemplen för den här funktionen är:
 
@@ -104,11 +104,11 @@ Funktionen åtkomst begränsningar hjälper dig i scenarier där du vill begrän
 
 Om du vill låsa åtkomsten till din app så att den bara kan nås från resurser i din Azure-Virtual Network (VNet) behöver du en statisk offentlig adress på vilken källa som är i ditt VNet. Om resurserna inte har en offentlig adress bör du använda funktionen tjänst slut punkter i stället. Lär dig hur du aktiverar den här funktionen med självstudien om hur du [konfigurerar åtkomst begränsningar][iprestrictions].
 
-### <a name="service-endpoints"></a>Tjänstens slutpunkter
+### <a name="service-endpoints"></a>Tjänstslutpunkter
 
 Med tjänst slut punkter kan du låsa **inkommande** åtkomst till din app så att käll adressen måste komma från en uppsättning undernät som du väljer. Den här funktionen fungerar tillsammans med begränsningar för IP-åtkomst. Tjänst slut punkter anges i samma användar upplevelse som begränsningarna för IP-åtkomst. Du kan bygga en lista över tillåtna/nekade åtkomst regler som innehåller offentliga adresser samt undernät i din virtuella nätverk. Den här funktionen stöder scenarier som:
 
-![tjänst slut punkter](media/networking-features/service-endpoints.png)
+![Tjänst slut punkter](media/networking-features/service-endpoints.png)
 
 * Konfigurera en Application Gateway med din app för att låsa inkommande trafik till din app
 * Begränsa åtkomsten till din app till resurser i ditt VNet. Detta kan vara virtuella datorer, ASE eller till och med andra appar som använder VNet-integrering 
@@ -163,7 +163,7 @@ Den gateway som krävs för VNet-integrering är mycket användbar men matchar f
 
 Den här funktionen är i för hands version och bör inte användas för produktions arbets belastningar. Läs mer om den här funktionen i dokumenten på [App Service VNet-integrering][vnetintegration].
 
-## <a name="app-service-environment"></a>App Service-miljön 
+## <a name="app-service-environment"></a>App Service Environment 
 
 En App Service-miljön (ASE) är en enda klient distribution av Azure App Service som körs i ditt VNet. ASE möjliggör användnings fall som:
 
@@ -222,7 +222,7 @@ Ett program på flera nivåer är ett program där API-backend-apparna bara kan 
 Du kan ha flera frontend-appar som använder samma API-app genom att använda VNet-integrering från andra frontend-appar och tjänst slut punkter från API-appen med sina undernät.  
 
 <!--Links-->
-[appassignedaddress]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl
+[appassignedaddress]: https://docs.microsoft.com/azure/app-service/configure-ssl-certificate
 [iprestrictions]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
 [serviceendpoints]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
 [hybridconn]: https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections

@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: bde0c483eacec7fb8e076530bba594eb33a32a12
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 2590b9851b654990795f111e76f6cc5ea6c96723
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553448"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491940"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>Snabb start: skapa och kryptera en virtuell Windows-dator med Azure Portal
 
@@ -55,13 +55,13 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. På sidan ny under populär väljer du **Windows Server 2016 Data Center**.
 1. På fliken **grundläggande** , under **projekt information**, se till att rätt prenumeration är markerad.
-1. För **resurs grupp**väljer du den resurs grupp som du skapade när du gjorde ditt nyckel valv ovan (t. ex. **myResourceGroup**)
-1. Ange *MyVM*för den **virtuella datorns namn** och välj 
+1. För **resurs grupp**väljer du den resurs grupp som du skapade när du gjorde ditt nyckel valv ovan (t. ex. **myResourceGroup**).
+1. Ange *MyVM*som **namn på virtuell dator**.
 1. För **region**väljer du samma region som du använde när du gjorde ditt nyckel valv ovan (t. ex. **USA, östra**).
 1. Kontrol lera att **storleken** är *standard D2s v3*.
 1. Under **administratörs konto**väljer du **lösen ord**. Ange ett användar namn och ett lösen ord.
-    skärm ](../media/disk-encryption/portal-qs-windows-vm-creation.png) för ![ResourceGroup skapande
-1. Välj fliken "hantering" och kontrol lera att du har ett konto för diagnostik-lagring. Om du inte har några lagrings konton väljer du "Skapa ny", ger ditt nya konto ett namn och väljer OK ![ResourceGroup skärmen för att skapa ](../media/disk-encryption/portal-qs-vm-creation-storage.png)
+    skärmen ![ResourceGroup skapas](../media/disk-encryption/portal-qs-windows-vm-creation.png)
+1. Välj fliken "hantering" och kontrol lera att du har ett konto för diagnostik-lagring. Om du inte har några lagrings konton väljer du "Skapa ny", ger ditt nya konto ett namn och väljer "OK" ![skapa ResourceGroup-skärmen](../media/disk-encryption/portal-qs-vm-creation-storage.png)
 1. Klicka på granska + skapa.
 1. På sidan **Skapa en virtuell dator** kan du se information om den virtuella datorn som du håller på att skapa. När du är klar väljer du **Skapa**.
 

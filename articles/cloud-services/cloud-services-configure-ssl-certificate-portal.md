@@ -8,19 +8,19 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: gwallace
-ms.openlocfilehash: 9e7b7526f13fa6b9ae648c4ddb4004a627d85154
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: cc5b142558a21d1364254e555f3cf8f64bba0e58
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359745"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469016"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Konfigurera SSL för ett program i Azure
 
 SSL-kryptering (Secure Socket Layer) är den vanligaste metoden för att skydda data som skickas över Internet. Den här vanliga åtgärden diskuterar hur man anger en HTTPS-slutpunkt för en webbroll och överför ett SSL-certifikat för att skydda ett program.
 
 > [!NOTE]
-> Procedurerna i den här uppgiften gäller Azure Cloud Services; för App Services, se [detta](../app-service/app-service-web-tutorial-custom-ssl.md).
+> Procedurerna i den här uppgiften gäller Azure Cloud Services; för App Services, se [detta](../app-service/configure-ssl-bindings.md).
 >
 
 Den här uppgiften använder en produktions distribution. Information om hur du använder en mellanlagrings distribution finns i slutet av det här avsnittet.
@@ -43,10 +43,10 @@ Därefter måste du inkludera information om certifikatet i tjänst definitions-
 
 <a name="modify"> </a>
 
-## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Steg 2: Ändra tjänst definition och konfigurationsfiler
+## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Steg 2: ändra tjänst definition och konfigurationsfiler
 Ditt program måste vara konfigurerat för att använda certifikatet och en HTTPS-slutpunkt måste läggas till. Därför måste tjänst definitions-och tjänst konfigurations filerna uppdateras.
 
-1. Öppna tjänst definitions filen (CSDEF) i utvecklings miljön, Lägg till avsnittet **certifikat** i avsnittet webrole  och ta med följande information om certifikatet (och mellanliggande certifikat):
+1. Öppna tjänst definitions filen (CSDEF) i utvecklings miljön, Lägg till avsnittet **certifikat** i avsnittet **webrole** och ta med följande information om certifikatet (och mellanliggande certifikat):
 
    ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
@@ -74,7 +74,7 @@ Ditt program måste vara konfigurerat för att använda certifikatet och en HTTP
 
    Avsnittet **certifikat** definierar namnet på vårt certifikat, dess plats och namnet på butiken där det finns.
 
-   Behörigheter (`permissionLevel` attribut) kan anges till något av följande värden:
+   Behörigheter (`permissionLevel` attribut) kan anges till ett av följande värden:
 
    | Behörighets värde | Beskrivning |
    | --- | --- |
@@ -94,7 +94,7 @@ Ditt program måste vara konfigurerat för att använda certifikatet och en HTTP
     </WebRole>
     ```
 
-3. Lägg till ett bindnings element i avsnittet  **platser** i tjänst definitions filen. Det här elementet lägger till en HTTPS-bindning för att mappa slut punkten till platsen:
+3. Lägg till ett **bindnings** element i avsnittet **platser** i tjänst definitions filen. Det här elementet lägger till en HTTPS-bindning för att mappa slut punkten till platsen:
 
    ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
@@ -149,7 +149,7 @@ Anslut till Azure Portal och...
 
 4. Ange **filen**, **lösen ordet**och klicka sedan på **överför** längst ned i data inmatnings området.
 
-## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Steg 4: Ansluta till roll instansen med hjälp av HTTPS
+## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Steg 4: Anslut till roll instansen med hjälp av HTTPS
 Nu när din distribution är igång i Azure kan du ansluta till den med hjälp av HTTPS.
 
 1. Klicka på webb **adressen för webbplatsen** för att öppna webbläsaren.
@@ -166,7 +166,7 @@ Nu när din distribution är igång i Azure kan du ansluta till den med hjälp a
    ![Förhandsgranska webbplats](media/cloud-services-configure-ssl-certificate-portal/show-site.png)
 
    > [!TIP]
-   > Om du vill använda SSL för en mellanlagrings distribution i stället för en produktions distribution måste du först fastställa den URL som används för mellanlagrings distributionen. När moln tjänsten har distribuerats bestäms URL: en till mellanlagringsplatsen av **distributions-ID-** GUID i detta format:`https://deployment-id.cloudapp.net/`  
+   > Om du vill använda SSL för en mellanlagrings distribution i stället för en produktions distribution måste du först fastställa den URL som används för mellanlagrings distributionen. När moln tjänsten har distribuerats bestäms URL: en till mellanlagringsplatsen av GUID för **distributions-ID** i detta format: `https://deployment-id.cloudapp.net/`  
    >
    > Skapa ett certifikat med eget namn (CN) som motsvarar den GUID-baserade URL: en (till exempel **328187776e774ceda8fc57609d404462.cloudapp.net**). Använd portalen för att lägga till certifikatet i den mellanlagrade moln tjänsten. Lägg sedan till certifikat informationen i CSDEF-och CSCFG-filerna, paketera om programmet och uppdatera din mellanlagrade distribution för att använda det nya paketet.
    >

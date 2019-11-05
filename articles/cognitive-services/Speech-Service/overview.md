@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 07/05/2019
+ms.date: 11/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 993064a36bd12c95e83ffb7c9635c3e4dfcec0f0
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 46e9182d9660729dbf65367f52483d96428760ff
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803351"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467404"
 ---
 # <a name="what-are-the-speech-services"></a>Vad är Speech Services?
 
@@ -26,7 +26,7 @@ Tal tjänsterna är arbetskonton av tal-till-text, text till tal och tal övers�
 
 Dessa funktioner utgör Azures tal tjänster. Använd länkarna i den här tabellen för att lära dig mer om vanliga användnings fall för varje funktion eller Sök i API-referensen.
 
-| Tjänsten | Funktion | Beskrivning | SDK | REST |
+| Tjänst | Funktion | Beskrivning | SDK | REST |
 |---------|---------|-------------|-----|------|
 | [Tal till text](speech-to-text.md) | Tal till text | Tal till text skickar ljud strömmar till text i real tid som dina program, verktyg eller enheter kan använda eller Visa. Använd tal-till-text med [language Understanding (Luis)](https://docs.microsoft.com/azure/cognitive-services/luis/) för att härleda användar avsikter från inställt tal och agera på röst kommandon. | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Batch-avskrift](batch-transcription.md) | Med batch-avskrifter kan du använda asynkrona tal-till-text-avskrifter av stora data volymer. Det här är en REST-baserad tjänst som använder samma slut punkt som anpassning och modell hantering. | Nej | [Ja](https://westus.cris.ai/swagger/ui/index) |
@@ -35,7 +35,7 @@ Dessa funktioner utgör Azures tal tjänster. Använd länkarna i den här tabel
 | [Text till tal](text-to-speech.md) | Text till tal | Text till tal konverterar inmatad text till mänskligt syntetiskt tal med [SSML (Speech syntes Markup Language)](text-to-speech.md#speech-synthesis-markup-language-ssml). Välj bland standard röster och neurala röster (se [språk stöd](language-support.md)). | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Skapa anpassade röster](#customize-your-speech-experience) | Skapa anpassade röst teckensnitt som är unika för ditt varumärke eller din produkt. | Nej | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Talöversättning](speech-translation.md) | Talöversättning | Tal översättning möjliggör real tids översättning av tal till dina program, verktyg och enheter i real tid. Använd den här tjänsten för tal-till-tal-och tal-till-text-översättning. | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Nej |
-| [Röst-första virtuella assistenter](voice-first-virtual-assistants.md) | Röst-första virtuella assistenter | Anpassade virtuella assistenter som använder Azure Speech Services ger utvecklare möjlighet att skapa naturliga, mänskliga konversations gränssnitt för sina program och upplevelser. Robot Framework: s direkta rad tal kanal förbättrar dessa funktioner genom att tillhandahålla en samordnad, dirigerad start punkt till en kompatibel robot som möjliggör röst i, röst ut-interaktion med låg latens och hög tillförlitlighet. | [Ja](voice-first-virtual-assistants.md) | Nej |
+| [Röst assistenter](voice-assistants.md) | Röst assistenter | Röst assistenter som använder Azure Speech Services ger utvecklare möjlighet att skapa naturliga, mänskliga konversations gränssnitt för sina program och upplevelser. Röst assistents tjänsten ger snabb, tillförlitlig interaktion mellan en enhet och en assistent implementering som använder bot Framework: s direkta rad tal kanal eller den integrerade anpassade kommandona (för hands version) för att slutföra uppgiften. | [Ja](voice-assistants.md) | Nej |
 
 ## <a name="news-and-updates"></a>Nyheter och uppdateringar
 
@@ -43,12 +43,12 @@ Lär dig vad som är nytt med Azure Speech Services.
 
 * September 2019
   * Utgivna tal SDK-1.7.0. En fullständig lista över uppdateringar, förbättringar och kända problem finns i [viktig information](releasenotes.md).
-* 2019 augusti
-  * **Ny självstudie**: [Röstaktivera din robot med Speech SDK, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-  * Ett nytt tal format, [`chat`](speech-synthesis-markup.md#adjust-speaking-styles), har lagts till för @no__t 2-rösten. 
-* 2019 juni
+* Augusti 2019
+  * **Ny självstudie**: [röst aktivera din robot med talet SDK, C# ](tutorial-voice-enable-your-bot-speech-sdk.md)
+  * Du har lagt till en ny tal format [`chat`](speech-synthesis-markup.md#adjust-speaking-styles)för `en-US-JessaNeural` rösten. 
+* Juni 2019
   * Utgivna tal SDK-1.6.0. En fullständig lista över uppdateringar, förbättringar och kända problem finns i [viktig information](releasenotes.md).
-* Maj 2019 – dokumentationen är nu tillgänglig för [konversations avskrifter](conversation-transcription-service.md), [avskriftering av samtals Center](call-center-transcription.md)och [röst-och första virtuella assistenter](voice-first-virtual-assistants.md).
+* Maj 2019 – dokumentation är nu tillgänglig för [konversations avskrift](conversation-transcription-service.md), meddelande om [samtals Center](call-center-transcription.md)och [röst assistenter](voice-assistants.md).
 * Maj 2019
   * Utgivna tal SDK-1.5.1. En fullständig lista över uppdateringar, förbättringar och kända problem finns i [viktig information](releasenotes.md).
   * Utgivna tal SDK-1.5.0. En fullständig lista över uppdateringar, förbättringar och kända problem finns i [viktig information](releasenotes.md).
@@ -59,19 +59,18 @@ Vi erbjuder snabb starter i de flesta populära programmeringsspråk, som var ut
 
 | Tal till text (SDK) | Text till tal (SDK) | Översättning (SDK) |
 |----------------------|----------------------|-------------------|
-| [C#, .NET Core (Windows)](quickstart-csharp-dotnet-windows.md) | [C#, .NET Framework (Windows)](quickstart-text-to-speech-dotnet-windows.md) | [Java (Windows, Linux)](quickstart-translate-speech-java-jre.md) |
-| [Java Script (webbläsare)](quickstart-js-browser.md) | [C++ (Windows)](quickstart-text-to-speech-cpp-windows.md) | [C#, .NET Core (Windows)](quickstart-translate-speech-dotnetcore-windows.md) |
-| [Python (Windows, Linux, macOS)](quickstart-python.md) | [C++ (Linux)](quickstart-text-to-speech-cpp-linux.md) | [C#, .NET Framework (Windows)](quickstart-translate-speech-dotnetframework-windows.md) |
-| [Java (Windows, Linux)](quickstart-java-jre.md) | | [C++ (Windows)](quickstart-translate-speech-cpp-windows.md) |
+| [Identifiera tal från en ljudfil](quickstarts/speech-to-text-from-file.md) | [Syntetisera tal i en ljudfil](quickstarts/text-to-speech-audio-file.md) | [Översätt tal till text](quickstarts/translate-speech-to-text.md) |
+| [Identifiera tal med en mikrofon](quickstarts/speech-to-text-from-microphone.md) | [Syntetisera tal till en talare](quickstarts/text-to-speech.md) | [Översätt tal till flera mål språk](quickstarts/translate-speech-to-text-multiple-languages.md) |
+| [Identifiera tal som lagras i Blob Storage](quickstarts/from-blob.md) | [Asynkron syntes för lång Forms ljud](quickstarts/text-to-speech/async-synthesis-long-form-audio.md) | [Översätt tal till tal](quickstarts/translate-speech-to-speech.md) |
 
 > [!NOTE]
 > Tal till text och text till tal har också REST-slutpunkter och tillhör ande snabb starter.
 
 När du har haft möjlighet att använda tal tjänsterna kan du prova vår självstudie som lär dig hur du kan identifiera avsikter från tal med hjälp av talet SDK och LUIS.
 
-* [Självstudier: Identifiera avsikter från tal med talet SDK och LUIS.C#](how-to-recognize-intents-from-speech-csharp.md)
-* [Självstudier: Röst aktivera din robot med talet SDK, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-* [Självstudier: Bygg en kolv-app för att översätta text, analysera sentiment och syntetisera översatt text till tal, REST @ no__t-0
+* [Självstudie: identifiera avsikter från tal med talet SDK och LUIS,C#](how-to-recognize-intents-from-speech-csharp.md)
+* [Självstudie: röst aktivera din robot med talet SDK,C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+* [Självstudie: Bygg en kolv-app för att översätta text, analysera sentiment och syntetisera översatt text till tal, REST](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json&toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fspeech-service%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
 
 ## <a name="get-sample-code"></a>Hämta exempelkod
 
@@ -80,7 +79,7 @@ Exempel kod finns på GitHub för var och en av Azure Speech Services. De här e
 * [Exempel på tal-till-text-text till tal och tal översättning (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 * [Batch-avskrifts exempel (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 * [Text till tal-exempel (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
-* [Röst-första exempel på virtuella assistenter (SDK)](https://aka.ms/csspeech/samples)
+* [Röst assistents exempel (SDK)](https://aka.ms/csspeech/samples)
 
 ## <a name="customize-your-speech-experience"></a>Anpassa din tal upplevelse
 
@@ -88,16 +87,16 @@ Azure Speech Services fungerar bra med inbyggda modeller, men du kanske vill anp
 
 | Tjänst för taligenkänning | Plattform | Beskrivning |
 |----------------|-------------|-------------|
-| Tal till text | [Anpassat tal](https://aka.ms/customspeech) | Anpassa tal igenkännings modeller till dina behov och tillgängliga data. Övervinn hinder för taligenkänning som samtalsstil, vokabulär och bakgrundsljud. |
+| Tal till text | [Custom Speech](https://aka.ms/customspeech) | Anpassa tal igenkännings modeller till dina behov och tillgängliga data. Övervinn hinder för taligenkänning som samtalsstil, vokabulär och bakgrundsljud. |
 | Text till tal | [Anpassad röst](https://aka.ms/customvoice) | Bygg en igenkännings Bart, en-av-en-röst för dina text till tal-appar med dina inläsnings data tillgängliga. Du kan finjustera röst utmatningarna ytterligare genom att justera en uppsättning röst parametrar. |
 
 ## <a name="reference-docs"></a>Referensdokument
 
 * [Speech SDK](speech-sdk-reference.md)
 * [Tal enheter SDK](speech-devices-sdk.md)
-* [REST API: Tal till text](rest-speech-to-text.md)
-* [REST API: Text till tal](rest-text-to-speech.md)
-* [REST API: Batch-avskrift och anpassning](https://westus.cris.ai/swagger/ui/index)
+* [REST API: tal till text](rest-speech-to-text.md)
+* [REST API: text till tal](rest-text-to-speech.md)
+* [REST API: batch-avskrift och anpassning](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Nästa steg
 

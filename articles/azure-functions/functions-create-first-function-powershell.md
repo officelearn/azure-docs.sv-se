@@ -1,26 +1,21 @@
 ---
-title: Skapa din första PowerShell-funktion med Azure Functions
+title: Skapa din första PowerShell-funktion i Azure
 description: Lär dig hur du skapar din första PowerShell-funktion i Azure med Visual Studio Code.
-services: functions
-keywords: ''
 author: joeyaiello
-manager: jeconnoc
+manager: gwallace
 ms.author: jaiello
 ms.reviewer: glenga
 ms.date: 04/25/2019
 ms.topic: quickstart
 ms.service: azure-functions
-ms.devlang: powershell
-ms.openlocfilehash: c9de4cec417625bb8451457652dacb61550c31b0
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 1d6d641e141862b12fed40b800589aad70af2789
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248322"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469408"
 ---
-# <a name="create-your-first-powershell-function-in-azure-preview"></a>Skapa din första PowerShell-funktion i Azure (för hands version)
-
-[!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
+# <a name="create-your-first-powershell-function-in-azure"></a>Skapa din första PowerShell-funktion i Azure
 
 I den här snabb starten beskrivs hur du skapar din första [Server](https://azure.com/serverless) utan PowerShell-funktion med Visual Studio Code.
 
@@ -33,7 +28,7 @@ Du kan använda [Azure Functions-tillägg för Visual Studio Code] för att skap
 
 Följande steg stöds i macOS-, Windows-och Linux-baserade operativ system.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -66,7 +61,7 @@ Med Azure Functions-projektmallen i Visual Studio Code skapas ett projekt som ka
     > [!NOTE]
     > Den här artikeln har utformats för att genomföras utanför en arbetsyta. Välj i det här fallet inte en projektmapp som ingår i en arbetsyta.
 
-1. Välj **PowerShell (för hands version)** som språk för ditt Function app-projekt och sedan **Azure Functions v2**.
+1. Välj **PowerShell** som språk för ditt Function app-projekt och sedan **Azure Functions v2**.
 
 1. Välj **http-utlösare** som mall för din första funktion, Använd `HTTPTrigger` som funktions namn och välj en autentiseringsnivå för **funktionen**.
 
@@ -81,13 +76,13 @@ Visual Studio Code skapar PowerShell Function-exempelprojektet i en ny arbets yt
 
 Azure Functions Core Tools integreras med Visual Studio Code så att du kan köra och felsöka ett Azure Functions-projekt lokalt.  
 
-1. Om du vill felsöka funktionen infogar du ett anrop till [`Wait-Debugger`-] cmdleten i funktions koden innan du vill koppla fel sökaren. Tryck sedan på F5 för att starta programmet för Function-appen och koppla fel sökaren. Utdata från Core Tools visas på panelen **Terminal**.
+1. Om du vill felsöka din funktion infogar du ett anrop till [`Wait-Debugger`] cmdlet i funktions koden innan du vill koppla fel sökaren. Tryck sedan på F5 för att starta programmet för Function-appen och koppla fel sökaren. Utdata från Core Tools visas på panelen **Terminal**.
 
 1. På panelen **Terminal** kopierar du URL-slutpunkten för den HTTP-utlösta funktionen.
 
     ![Lokala Azure-utdata](./media/functions-create-first-function-powershell/functions-vscode-f5.png)
 
-1. Lägg till frågesträngen `?name=<yourname>` till denna URL och Använd sedan `Invoke-RestMethod` för att köra begäran, enligt följande:
+1. Lägg till frågesträngen `?name=<yourname>` till denna URL och Använd sedan `Invoke-RestMethod` för att köra begäran på följande sätt:
 
     ```powershell
     PS > Invoke-RestMethod -Method Get -Uri http://localhost:7071/api/HttpTrigger?name=PowerShell
@@ -96,7 +91,7 @@ Azure Functions Core Tools integreras med Visual Studio Code så att du kan kör
 
     Du kan också köra GET-begäran från en webbläsare.
 
-    När du anropar HttpTrigger-slutpunkten utan att skicka en parameter för `name`, antingen som en frågeparameter eller i texten, returnerar funktionen ett [HttpStatusCode]:: BadRequest-fel. När du granskar koden i Run. ps1 ser du att felet uppstår i design läge.
+    När du anropar HttpTrigger-slutpunkten utan att skicka en `name` parameter antingen som en frågeparameter eller i bröd texten returnerar funktionen ett [HttpStatusCode]:: BadRequest-fel. När du granskar koden i Run. ps1 ser du att felet uppstår i design läge.
 
 1. Tryck på SKIFT+F5 för att stoppa felsökningen.
 
@@ -104,15 +99,15 @@ När du har kontrollerat att funktionen körs korrekt på den lokala datorn är 
 
 > [!NOTE]
 > Kom ihåg att ta bort alla anrop till `Wait-Debugger` innan du publicerar dina funktioner till Azure. 
-
-> [!NOTE]
-> När du skapar ett Funktionsapp i Azure uppmanas du bara att ange Funktionsapp namn. Ange azureFunctions. advancedCreation till true för att uppmanas att ange alla andra värden.
+>
+> När du skapar en Function-app i Azure uppmanas du bara att ange namnet på din funktions app. Andra värden har definierats för dig.
+> Ange `azureFunctions.advancedCreation` för att `true` ska tillfrågas om alla andra värden.
 
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 
 ## <a name="test"></a>Kör funktionen i Azure
 
-Verifiera att den publicerade funktionen körs i Azure genom att köra följande PowerShell-kommando och ersätta parametern `Uri` med URL: en för funktionen HTTPTrigger från föregående steg. Som tidigare lägger du till frågesträngen `&name=<yourname>` till URL: en, som i följande exempel:
+Verifiera att den publicerade funktionen körs i Azure genom att köra följande PowerShell-kommando och ersätta `Uri`-parametern med URL: en för funktionen HTTPTrigger från föregående steg. Som tidigare lägger du till frågesträngen `&name=<yourname>` till URL: en, som i följande exempel:
 
 ```powershell
 PS > Invoke-WebRequest -Method Get -Uri "https://glengatest-vscode-powershell.azurewebsites.net/api/HttpTrigger?code=nrY05eZutfPqLo0som...&name=PowerShell"

@@ -7,14 +7,14 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: c0c5c5fe899c9b9b898973a88c7dac4256959ee4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 99a3ca0115611f45ed080c39767d13e087b8efb8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60563246"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464218"
 ---
-# <a name="tutorial-host-your-domain-in-azure-dns"></a>Självstudier: Använd Azure DNS som värd för din domän
+# <a name="tutorial-host-your-domain-in-azure-dns"></a>Självstudie: Använda Azure DNS som värd för din domän
 
 Du kan använda Azure DNS för att vara värd för din DNS-domän och hantera dina DNS-poster. Genom att använda Azure som värd för dina domäner kan du hantera dina DNS-poster med hjälp av samma autentiseringsuppgifter, API:er, verktyg och fakturering som för dina andra Azure-tjänster.
 
@@ -32,27 +32,27 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Du måste ha ett domännamn som är tillgängliga för att testa med att du kan ha i Azure DNS. Du måste ha fullständig kontroll över den här domänen. Fullständig behörighet omfattar möjligheten att ange namnserverposter (NS-poster) för domänen.
+Du måste ha ett domän namn tillgängligt för att kunna testa med att du kan vara värd för Azure DNS. Du måste ha fullständig kontroll över den här domänen. Fullständig behörighet omfattar möjligheten att ange namnserverposter (NS-poster) för domänen.
 
-Exempel-domänen i den här självstudien är contoso.net, men använda ditt eget domännamn.
+Exempel domänen som används för den här självstudien är contoso.net, men Använd ditt eget domän namn.
 
 ## <a name="create-a-dns-zone"></a>Skapa en DNS-zon
 
-1. Logga in på Azure Portal.
-1. Uppe till vänster väljer du **Skapa en resurs** > **Nätverk** > **DNS-zon** för att öppna sidan **Skapa DNS-zon**.
+1. Gå till [Azure Portal](https://portal.azure.com/) för att skapa en DNS-zon. Sök efter och välj **DNS-zoner**.
 
    ![DNS-zon](./media/dns-delegate-domain-azure-dns/openzone650.png)
 
+1. Välj **Skapa DNS-zon**.
 1. På sidan **Skapa DNS-zon** anger du följande värden och klickar sedan på **Skapa**:
 
-   | **Inställning** | **Värde** | **Detaljer** |
+   | **Inställning** | **Värde** | **Information** |
    |---|---|---|
    |**Namn**|[ditt domännamn] |Det domännamn som du har köpt. Den här självstudien använder contoso.net som ett exempel.|
    |**Prenumeration**|[Din prenumeration]|Välj den prenumeration där du vill skapa zonen.|
    |**Resursgrupp**|**Skapa ny:** contosoRG|Skapa en resursgrupp. Resursgruppens namn måste vara unikt inom den prenumeration du valde.<br>Platsen för resursgruppen har ingen inverkan på DNS-zonen. Platsen för DNS-zonen är alltid ”global” och visas inte.|
-   |**Plats**|Östra USA||
+   |**Plats**|USA, östra||
 
 ## <a name="retrieve-name-servers"></a>Hämta namnservrar
 

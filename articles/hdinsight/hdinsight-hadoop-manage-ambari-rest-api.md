@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.openlocfilehash: 146aaa8b1b69c29e22f39d48883f604098b8e348
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 1d684957939c5cb83aae05962c1694f7a8d8da23
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718406"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498226"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Hantera HDInsight-kluster med hjälp av Apache Ambari REST API
 
@@ -39,7 +39,7 @@ Lär dig hur du använder Apache Ambari-REST API för att hantera och övervaka 
 
  Bas Uniform Resource Identifier (URI) för Ambari REST API på HDInsight är `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, där `CLUSTERNAME` är namnet på klustret.  Kluster namn i URI: er är Skift läges **känsliga**.  Kluster namnet i det fullständigt kvalificerade domän namnet (FQDN) i URI: n (`CLUSTERNAME.azurehdinsight.net`) är Skift läges okänsligt, men andra förekomster i URI: n är Skift läges känsliga.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autentisering
 
 För att ansluta till Ambari i HDInsight krävs HTTPS. Använd administratörs konto namnet (standard är **administratör**) och lösen ord som du angav när du skapade klustret.
 
@@ -50,7 +50,7 @@ För Enterprise Security Package kluster, i stället för `admin`, använder du 
 ### <a name="setup-preserve-credentials"></a>Installations program (bevara autentiseringsuppgifter)
 Behåll dina autentiseringsuppgifter för att undvika att behöva ange dem igen för varje exempel.  Kluster namnet kommer att bevaras i ett separat steg.
 
-**EN. Bash @ no__t-0  
+**A. bash**  
 Redigera skriptet nedan genom att ersätta `PASSWORD` med det faktiska lösen ordet.  Ange sedan kommandot.
 
 ```bash
@@ -66,7 +66,7 @@ $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 ### <a name="identify-correctly-cased-cluster-name"></a>Identifiera korrekt bokstäver-kluster namn
 Det faktiska Skift läget i kluster namnet kan skilja sig från förväntat, beroende på hur klustret skapades.  Stegen här visar det faktiska Skift läget och lagrar det sedan i en variabel för alla efterföljande exempel.
 
-Redigera skripten nedan och Ersätt `CLUSTERNAME` med ditt kluster namn. Ange sedan kommandot. (Kluster namnet för FQDN är inte Skift läges känsligt.)
+Redigera skripten nedan om du vill ersätta `CLUSTERNAME` med ditt kluster namn. Ange sedan kommandot. (Kluster namnet för FQDN är inte Skift läges känsligt.)
 
 ```bash
 export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
@@ -85,7 +85,7 @@ $clusterName
 
 ### <a name="parsing-json-data"></a>Parsar JSON-data
 
-I följande exempel används [JQ](https://stedolan.github.io/jq/) eller [ConvertFrom-JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) för att parsa JSON Response-dokumentet och endast visa information om `health_report` från resultaten.
+I följande exempel används [JQ](https://stedolan.github.io/jq/) eller [ConvertFrom-JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) för att parsa JSON Response-dokumentet och bara Visa `health_report` information från resultaten.
 
 ```bash
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" \
@@ -212,9 +212,9 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 
 Returvärdet liknar något av följande exempel:
 
-* `wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net` – det här värdet anger att klustret använder ett Azure Storage konto för standard lagring. Värdet `ACCOUNTNAME` är namnet på lagrings kontot. @No__t-0-delen är namnet på BLOB-behållaren i lagrings kontot. Behållaren är roten till den HDFS-kompatibla lagringen för klustret.
+* `wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net` – det här värdet anger att klustret använder ett Azure Storage konto för standard lagring. `ACCOUNTNAME`-värdet är namnet på lagrings kontot. `CONTAINER` delen är namnet på BLOB-behållaren i lagrings kontot. Behållaren är roten till den HDFS-kompatibla lagringen för klustret.
 
-* `abfs://CONTAINER@ACCOUNTNAME.dfs.core.windows.net` – det här värdet anger att klustret använder Azure Data Lake Storage Gen2 för standard lagring. Värdena `ACCOUNTNAME` och `CONTAINER` har samma betydelser som för Azure Storage tidigare nämnts.
+* `abfs://CONTAINER@ACCOUNTNAME.dfs.core.windows.net` – det här värdet anger att klustret använder Azure Data Lake Storage Gen2 för standard lagring. Värdena för `ACCOUNTNAME` och `CONTAINER` har samma betydelser som för Azure Storage tidigare nämnts.
 
 * `adl://home` – det här värdet anger att klustret använder Azure Data Lake Storage Gen1 för standard lagring.
 
@@ -306,9 +306,9 @@ Det här exemplet returnerar ett JSON-dokument som innehåller den aktuella konf
    Ändra och ange sedan följande kommandon:
 
    * Ersätt `livy2-conf` med den önskade komponenten.
-   * Ersätt `INITIAL` med det faktiska värdet hämtas för `tag` från [Hämta alla konfigurationer](#get-all-configurations).
+   * Ersätt `INITIAL` med det faktiska värdet som hämtades för `tag` från [Hämta alla konfigurationer](#get-all-configurations).
 
-     **EN. Bash @ no__t-0  
+     **A. bash**  
      ```bash
      curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=livy2-conf&tag=INITIAL" \
      | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
@@ -332,13 +332,13 @@ Det här exemplet returnerar ett JSON-dokument som innehåller den aktuella konf
 
    * Skapar ett rot dokument för den nya önskade konfigurationen.
 
-   * Hämtar innehållet i matrisen `.items[]` och lägger till det under **desired_config** -elementet.
+   * Hämtar innehållet i `.items[]` matrisen och lägger till det under **desired_config** -elementet.
 
-   * Tar bort `href`-, `version`-och `Config`-element eftersom dessa element inte behövs för att skicka en ny konfiguration.
+   * Tar bort `href`, `version`och `Config` element eftersom dessa element inte behövs för att skicka en ny konfiguration.
 
    * Lägger till ett `tag`-element med värdet `version#################`. Den numeriska delen baseras på det aktuella datumet. Varje konfiguration måste ha en unik tagg.
 
-     Slutligen sparas data i dokumentet `newconfig.json`. Dokument strukturen bör se ut ungefär som i följande exempel:
+     Slutligen sparas data i `newconfig.json` dokumentet. Dokument strukturen bör se ut ungefär som i följande exempel:
 
      ```json
      {
@@ -359,7 +359,7 @@ Det här exemplet returnerar ett JSON-dokument som innehåller den aktuella konf
      ```
 
 2. Redigera `newconfig.json`.  
-   Öppna dokumentet `newconfig.json` och ändra/Lägg till värden i objektet `properties`. I följande exempel ändras värdet för `"livy.server.csrf_protection.enabled"` från `"true"` till `"false"`.
+   Öppna `newconfig.json`-dokumentet och ändra/Lägg till värden i `properties`-objektet. I följande exempel ändras värdet för `"livy.server.csrf_protection.enabled"` från `"true"` till `"false"`.
 
         "livy.server.csrf_protection.enabled": "false",
 
@@ -421,7 +421,7 @@ Om du i det här läget tittar på Ambari webb gränssnitt indikerar Spark-tjän
     $respObj.ServiceInfo.maintenance_state
     ```
 
-    Returvärdet är `ON`.
+    Det returnerade värdet är `ON`.
 
 3. Använd sedan följande för att stänga av Spark2-tjänsten:
 
@@ -453,10 +453,10 @@ Om du i det här läget tittar på Ambari webb gränssnitt indikerar Spark-tjän
     ```
 
     > [!IMPORTANT]  
-    > Värdet `href` som returneras av denna URI använder den interna IP-adressen för klusternoden. Om du vill använda den utanför klustret ersätter du `10.0.0.18:8080`-delen med FQDN för klustret.  
+    > Det `href` värde som returneras av denna URI använder den interna IP-adressen för klusternoden. Om du vill använda den utanför klustret ersätter du `10.0.0.18:8080` delen med FQDN för klustret.  
 
 4. Verifiera begäran.  
-    Redigera kommandot nedan genom att ersätta `29` med det faktiska värdet för @no__t 1 som returnerades från föregående steg.  Följande kommandon hämtar status för begäran:
+    Redigera kommandot nedan genom att ersätta `29` med det faktiska värdet för `id` som returnerades från föregående steg.  Följande kommandon hämtar status för begäran:
 
     ```bash
     curl -u admin:$password -sS -H "X-Requested-By: ambari" \
@@ -471,7 +471,7 @@ Om du i det här läget tittar på Ambari webb gränssnitt indikerar Spark-tjän
     $respObj.Requests.request_status
     ```
 
-    Ett svar på `COMPLETED` anger att begäran har avslut ATS.
+    Svars `COMPLETED` indikerar att begäran har avslut ATS.
 
 5. När den tidigare begäran har slutförts använder du följande för att starta Spark2-tjänsten.
 

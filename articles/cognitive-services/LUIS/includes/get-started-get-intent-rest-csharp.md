@@ -1,66 +1,181 @@
 ---
-title: Kom avsikt med REST-anrop iC#
+title: Få förutsägelse med REST-anrop iC#
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/27/2019
+ms.date: 10/17/2019
 ms.author: diberry
-ms.openlocfilehash: e6ae9590cee3a2ddc3b8e121161fcf84815da28a
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 81c95dc58e8cfaddf981e3911e88310cea508115
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838496"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499694"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
-* [Visual Studio Community 2017](https://visualstudio.microsoft.com/vs/community/)
-* Programmeringsspråket C# (ingår i VS Community 2017)
+* [.NET Core V 2.2 +](https://dotnet.microsoft.com/download)
+* [Visual Studio Code](https://code.visualstudio.com/)
 * Offentlig app-ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
-
-
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
 ## <a name="get-luis-key"></a>Hämta LUIS-nyckel
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
 
 ## <a name="get-intent-programmatically"></a>Hämta avsikter programmatiskt
 
-Använd C# för att fråga förutsägelseslutpunktens GET-[API](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) för att få samma resultat som du såg i webbläsarfönstret i det föregående avsnittet. 
+Används C# för att fråga förutsägelse slut punkt Hämta [API](https://aka.ms/luis-apim-v3-prediction) för att hämta förutsägelse resultatet. 
 
-1. Skapa ett nytt konsolprogram i Visual Studio. 
+1. Skapa ett nytt konsol program som riktar C# sig mot språket, med ett projekt-och mappnamn med `predict-with-rest`. 
 
-    ![Skapa ett nytt konsolprogram i Visual Studio](../media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
+    ```console
+    dotnet new console -lang C# -n predict-with-rest
+    ```
 
-2. I Visual Studio-projektet, i Solutions Explorer, väljer du **Lägg till referens** och välj sedan **System.Web** på fliken Sammansättningar.
+1. Installera nödvändiga beroenden med följande dotNet CLI-kommandon.
 
-    ![välj Lägg till referens och sedan System.Web från fliken Sammansättningar](../media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
-
-3. Skriv över Program.cs med följande kod:
+    ```console
+    dotnet add package System.Net.Http
+    ```
+1. Skriv över Program.cs med följande kod:
     
-   [!code-csharp[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/quickstarts/analyze-text/csharp/Program.cs)]
+   ```csharp
+    using System;
+    using System.Net.Http;
+    using System.Web;
+    
+    namespace predict_with_rest
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                // YOUR-KEY: for example, the starter key
+                var key = "YOUR-KEY";
+                
+                // YOUR-ENDPOINT: example is westus2.api.cognitive.microsoft.com
+                var endpoint = "YOUR-ENDPOINT";
 
-4. Ersätt värdet för `YOUR_KEY` med LUIS-nyckeln.
+                // //public sample app
+                var appId = "df67dcdb-c37d-46af-88e1-8b97951ca1c2"; 
+    
+                var utterance = "turn on all lights";
+    
+                MakeRequest(key, endpoint, appId, utterance);
+    
+                Console.WriteLine("Hit ENTER to exit...");
+                Console.ReadLine();
+            }
+            static async void MakeRequest(string key, string endpoint, string appId, string utterance)
+            {
+                var client = new HttpClient();
+                var queryString = HttpUtility.ParseQueryString(string.Empty);
+    
+                // The request header contains your subscription key
+                client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+    
+                // The "q" parameter contains the utterance to send to LUIS
+                queryString["query"] = utterance;
+    
+                // These optional request parameters are set to their default values
+                queryString["verbose"] = "true";
+                queryString["show-all-intents"] = "true";
+                queryString["staging"] = "false";
+                queryString["timezoneOffset"] = "0";
+    
+                var endpointUri = String.Format("https://{0}/luis/prediction/v3.0/apps/{1}/slots/production/predict?query={2}", endpoint, appId, queryString);
+    
+                var response = await client.GetAsync(endpointUri);
+    
+                var strResponseContent = await response.Content.ReadAsStringAsync();
+                
+                // Display the JSON result from LUIS
+                Console.WriteLine(strResponseContent.ToString());
+            }
+        }
+    }
 
-5. Skapa och kör konsolprogrammet. Det visar samma JSON som du såg tidigare i webbläsarfönstret.
+   ```
 
-    ![Konsolfönstret visar JSON-resultat från LUIS](../media/luis-get-started-cs-get-intent/console-turn-on.png)
+1. Ersätt följande värden:
 
+    * `YOUR-KEY` med din start nyckel
+    * `YOUR-ENDPOINT` med slut punkten, till exempel `westus2.api.cognitive.microsoft.com`
 
+1. Skapa konsolprogrammet. 
+
+    ```console
+    dotnet build
+    ```
+
+1. Kör konsolprogrammet. Konsolens utdata visar samma JSON som du såg tidigare i webbläsarfönstret.
+
+    ```console
+    dotnet run
+    ```
+
+1. Granska förutsägelse svar i JSON-format:
+
+    ```console
+    Hit ENTER to exit...
+    {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
+    ```
+
+    JSON-svaret formaterat för läsbarhet: 
+
+    ```JSON
+    {
+        "query": "turn on all lights",
+        "prediction": {
+            "topIntent": "HomeAutomation.TurnOn",
+            "intents": {
+                "HomeAutomation.TurnOn": {
+                    "score": 0.5375382
+                },
+                "None": {
+                    "score": 0.08687421
+                },
+                "HomeAutomation.TurnOff": {
+                    "score": 0.0207554
+                }
+            },
+            "entities": {
+                "HomeAutomation.Operation": [
+                    "on"
+                ],
+                "$instance": {
+                    "HomeAutomation.Operation": [
+                        {
+                            "type": "HomeAutomation.Operation",
+                            "text": "on",
+                            "startIndex": 5,
+                            "length": 2,
+                            "score": 0.724984169,
+                            "modelTypeId": -1,
+                            "modelType": "Unknown",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+    ```
 
 ## <a name="luis-keys"></a>LUIS-nycklar
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med den här snabbstarten stänger du Visual Studio-projektet och tar bort projektkatalogen från filsystemet. 
+När du är färdig med den här snabb starten tar du bort filen från fil systemet. 
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lägga till yttranden och träna med C#](../luis-get-started-cs-add-utterance.md)
+> [Lägg till yttranden och träna](../luis-get-started-cs-add-utterance.md)

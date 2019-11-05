@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 0964dac6b4f381e2ec52bd9ec078741d0ee85712
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: dd100e2390cdd2731df498379e376bde4cf2b87d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802195"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498698"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Stödmatris för utvärdering och migrering av Hyper-V
 
@@ -31,35 +31,16 @@ Tabellen sammanfattar scenarier som stöds för virtuella Hyper-V-datorer.
 
 ## <a name="azure-migrate-projects"></a>Azure Migrate projekt
 
-**Support** | **Detaljer**
+**Support** | **Information**
 --- | ---
 Azure-behörigheter | Du måste ha deltagar-eller ägar behörigheter i prenumerationen för att kunna skapa ett Azure Migrate-projekt.
 Hyper-V:s virtuella datorer | Utvärdera upp till 35 000 virtuella Hyper-V-datorer i ett enda projekt. Du kan ha flera projekt i en Azure-prenumeration. Ett projekt kan innehålla både virtuella VMware-datorer och virtuella Hyper-V-datorer, upp till utvärderings gränserna.
-Placering | Du kan skapa Azure Migrate projekt i ett antal geografiska områden. Även om du kan skapa projekt i specifika geografiska områden kan du utvärdera eller migrera datorer för andra mål platser. Projektets geografi används bara för att lagra identifierade metadata.
-
-  **Geografi** | **Lagrings plats för metadata**
-  --- | ---
-  Azure Government | USA Gov Virginia
-  Asien och stillahavsområdet | Asien, östra eller Sydostasien
-  Australien | Östra Australien eller Australien, sydöstra
-  Brasilien | Brasilien, södra
-  Kanada | Kanada, centrala eller Kanada, öst
-  Europa | Europa, norra eller Europa, västra
-  Frankrike | Frankrike, centrala
-  Indien | Centrala Indien eller södra Indien
-  Japan |  Japan, östra eller Japan, väst
-  Korea | Korea, centrala eller Korea, södra
-  Storbritannien | Storbritannien, södra eller Storbritannien, västra
-  USA | USA, centrala eller västra USA 2
-
-
- > [!NOTE]
- > Stöd för Azure Government är för närvarande bara tillgängligt för den [äldre versionen](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) av Azure Migrate.
+Placering | [Granska](migrate-support-matrix.md#supported-geographies) stödda geografiska områden.
 
 
 ## <a name="assessment-hyper-v-host-requirements"></a>Bedömning-krav för Hyper-V-värd
 
-| **Support**                | **Detaljer**               
+| **Support**                | **Information**               
 | :-------------------       | :------------------- |
 | **Värd distribution**       | Hyper-V-värden kan vara fristående eller distribuerad i ett kluster. |
 | **Behörigheter**           | Du behöver administratörs behörighet på Hyper-V-värden. <br/> Om du inte vill tilldela administratörs behörighet skapar du ett lokalt konto eller domän användar konto och lägger till användaren i dessa grupper – fjärrhanterings användare, Hyper-V-administratörer och användare av prestanda övervakning. |
@@ -70,7 +51,7 @@ Placering | Du kan skapa Azure Migrate projekt i ett antal geografiska områden.
 
 ## <a name="assessment-hyper-v-vm-requirements"></a>Utvärdering – krav för virtuell Hyper-V-dator
 
-| **Support**                  | **Detaljer**               
+| **Support**                  | **Information**               
 | :----------------------------- | :------------------- |
 | **Operativsystem** | Alla [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) -och [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) -operativsystem som stöds av Azure. |
 | **Integrerings tjänster**       | [Integrerings tjänsterna för Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services) måste köras på de virtuella datorer som du bedömer, för att kunna avbilda information om operativ systemet. |
@@ -81,7 +62,7 @@ Placering | Du kan skapa Azure Migrate projekt i ett antal geografiska områden.
 
 Vid utvärdering kör Azure Migrate en förenklad installation för att identifiera virtuella Hyper-V-datorer och skicka VM-metadata och prestanda data till Azure Migrate. Installationen körs på en virtuell Hyper-V-dator och du konfigurerar med en komprimerad virtuell Hyper-V-hårddisk som du hämtar från Azure Portal. I följande tabell sammanfattas kraven på installationen.
 
-| **Support**                | **Detaljer**               
+| **Support**                | **Information**               
 | :-------------------       | :------------------- |
 | **Distribution av utrustning**   |  Du distribuerar installationen som en virtuell Hyper-V-dator.<br/> Den virtuella dator som tillhandahålls av Azure Migrate är Hyper-V VM version 5,0.<br/> Hyper-V-värden måste köra Windows Server 2012 R2 eller senare.<br/> Värden behöver tillräckligt med utrymme för att allokera 16 GB RAM-minne, 8 virtuella processorer, runt 80 GB lagrings utrymme och en extern växel för den virtuella datorns dator.<br/> Enheten behöver en statisk eller dynamisk IP-adress och Internet åtkomst.
 | **Azure Migrate projekt**  |  En apparat kan associeras med ett enda projekt.<br/> Valfritt antal enheter kan associeras med ett enda projekt.<br/> Du kan utvärdera upp till 35 000 virtuella datorer i ett projekt.
@@ -101,7 +82,7 @@ För att utvärdera de virtuella datorerna behöver Azure Migrate-enheten Intern
 - Om du har en avlyssnings-proxy kan du behöva importera Server certifikatet från proxyservern till enheten.
 
 
-**URL** | **Detaljer**  
+**URL** | **Information**  
 --- | ---
 *.portal.azure.com | Navigering till Azure Portal
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | Logga in till din Azure-prenumeration
@@ -128,7 +109,7 @@ Du kan välja upp till 10 virtuella datorer på en gång för replikering. Om du
 
 ## <a name="migration-hyper-v-host-requirements"></a>Migration-krav för Hyper-V-värd
 
-| **Support**                | **Detaljer**               
+| **Support**                | **Information**               
 | :-------------------       | :------------------- |
 | **Värd distribution**       | Hyper-V-värden kan vara fristående eller distribuerad i ett kluster. |
 | **Behörigheter**           | Du behöver administratörs behörighet på Hyper-V-värden. |
@@ -136,7 +117,7 @@ Du kan välja upp till 10 virtuella datorer på en gång för replikering. Om du
 
 ## <a name="migration-hyper-v-vm-requirements"></a>Migrering – krav för virtuell Hyper-V-dator
 
-| **Support**                  | **Detaljer**               
+| **Support**                  | **Information**               
 | :----------------------------- | :------------------- |
 | **Operativsystem** | Alla [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) -och [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) -operativsystem som stöds av Azure. |
 | **Behörigheter**           | Du behöver administratörs behörighet för varje virtuell Hyper-V-dator som du vill utvärdera. |
@@ -165,7 +146,7 @@ Du kan välja upp till 10 virtuella datorer på en gång för replikering. Om du
 
 I följande tabell sammanfattas URL-åtkomst kraven för Hyper-V-värdar.
 
-**URL** | **Detaljer**  
+**URL** | **Information**  
 --- | ---
 login.microsoftonline.com | Åtkomst kontroll och identitets hantering med hjälp av Active Directory.
 *.backup.windowsazure.com | Överföring och samordning av replikeringsdata.

@@ -9,20 +9,22 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: a3f9ad20e4bfba6e0bb858c82ccce73bb687a826
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 7d651849f5c8d930d99e87931eed5b823e90113c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69613076"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474758"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-ad-domain-services-managed-domain"></a>Skapa en organisationsenhet (OU) i en Azure AD Domain Services hanterad domän
 
 Organisationsenheter (OU) i Active Directory Domain Services (AD DS) gör att du kan gruppera objekt logiskt, till exempel användar konton, tjänst konton eller dator konton. Du kan sedan tilldela administratörer till specifika organisationsenheter och tillämpa grup principer för att genomdriva aktuella konfigurations inställningar.
 
-Azure AD DS-hanterade domäner innehåller två inbyggda ou- *AADDC datorer* och *AADDC-användare*. *AADDC Computers* ou innehåller dator objekt för alla datorer som är anslutna till den hanterade domänen. *AADDC* -användarens ou innehåller användare och grupper som är synkroniserade i från Azure AD-klienten. När du skapar och kör arbets belastningar som använder Azure AD DS kan du behöva skapa tjänst konton för att program ska kunna autentisera sig själva. För att organisera dessa tjänst konton skapar du ofta en anpassad ORGANISATIONSENHET i den hanterade domänen i Azure AD DS och skapar sedan tjänst konton inom den ORGANISATIONSENHETen.
+Azure AD DS-hanterade domäner innehåller två inbyggda ou- *AADDC datorer* och *AADDC-användare*. *AADDC Computers* ou innehåller dator objekt för alla datorer som är anslutna till den hanterade domänen. *AADDC-användarens* ou innehåller användare och grupper som är synkroniserade i från Azure AD-klienten. När du skapar och kör arbets belastningar som använder Azure AD DS kan du behöva skapa tjänst konton för att program ska kunna autentisera sig själva. För att organisera dessa tjänst konton skapar du ofta en anpassad ORGANISATIONSENHET i den hanterade domänen i Azure AD DS och skapar sedan tjänst konton inom den ORGANISATIONSENHETen.
+
+I en hybrid miljö synkroniseras inte organisationsenheter som skapats i en lokal AD DS-miljö till Azure AD DS. Azure AD DS-hanterade domäner använder en ORGANISATIONSENHETs struktur. Alla användar konton och grupper lagras i behållaren *AADDC Users* , trots att de synkroniseras från olika lokala domäner eller skogar, även om du har konfigurerat en hierarkisk ou-struktur där.
 
 Den här artikeln visar hur du skapar en ORGANISATIONSENHET i din Azure AD DS-hanterade domän.
 
@@ -40,7 +42,7 @@ För att slutföra den här artikeln behöver du följande resurser och behörig
     * Om det behövs, slutför du själv studie kursen för att [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance].
 * En virtuell Windows Server Management-dator som är ansluten till den hanterade Azure AD DS-domänen.
     * Om det behövs kan du slutföra självstudien för att [skapa en virtuell hanterings dator][tutorial-create-management-vm].
-* Ett användar konto som är medlem i administratörs gruppen för *Azure AD DC* i din Azure AD-klient.
+* Ett användar konto som är medlem i *Administratörs gruppen för Azure AD DC* i din Azure AD-klient.
 
 ## <a name="custom-ou-considerations-and-limitations"></a>Överväganden och begränsningar för anpassade OU
 
@@ -48,9 +50,9 @@ När du skapar anpassade organisationsenheter i en Azure AD DS-hanterad domän f
 
 * Om du vill skapa anpassade organisationsenheter måste användare vara medlem i gruppen *AAD DC-administratörer* .
 * En användare som skapar en anpassad ORGANISATIONSENHET beviljas administratörs behörighet (fullständig behörighet) över ORGANISATIONSENHETen och är resurs ägare.
-    * Som standard innehåller administratörs gruppen för *AAD* -domänkontrollanten även fullständig kontroll över den anpassade organisationsenheten.
-* En standard-OU för *AADDC-användare* skapas som innehåller de synkroniserade användar kontona från din Azure AD-klient.
-    * Du kan inte flytta användare eller grupper från *AADDC* -användarens organisationsenhet till anpassade organisationsenheter som du skapar. Endast användar konton eller resurser som skapats i den hanterade domänen i Azure AD DS kan flyttas till anpassade organisationsenheter.
+    * Som standard innehåller *Administratörs gruppen för AAD-domänkontrollanten* även fullständig kontroll över den anpassade organisationsenheten.
+* En standard-OU för *AADDC-användare* skapas som innehåller alla synkroniserade användar konton från din Azure AD-klient.
+    * Du kan inte flytta användare eller grupper från *AADDC-användarens* organisationsenhet till anpassade organisationsenheter som du skapar. Endast användar konton eller resurser som skapats i den hanterade domänen i Azure AD DS kan flyttas till anpassade organisationsenheter.
 * Användar konton, grupper, tjänst konton och dator objekt som du skapar under anpassade organisationsenheter är inte tillgängliga i din Azure AD-klient.
     * De här objekten visas inte med Azure AD Graph API eller i användar gränssnittet för Azure AD; de är bara tillgängliga i din Azure AD DS-hanterade domän.
 
@@ -59,8 +61,9 @@ När du skapar anpassade organisationsenheter i en Azure AD DS-hanterad domän f
 Om du vill skapa en anpassad ORGANISATIONSENHET använder du Active Directory administrations verktyg från en domänansluten virtuell dator. Med Active Directory Administrationscenter kan du Visa, redigera och skapa resurser i en hanterad Azure AD DS-domän, inklusive organisationsenheter.
 
 > [!NOTE]
-> Om du vill skapa en anpassad ORGANISATIONSENHET i en Azure AD DS-hanterad domän måste du vara inloggad på ett användar konto som är medlem i administratörs gruppen för *AAD* -domänkontrollanten.
+> Om du vill skapa en anpassad ORGANISATIONSENHET i en Azure AD DS-hanterad domän måste du vara inloggad på ett användar konto som är medlem i *Administratörs gruppen för AAD-domänkontrollanten* .
 
+1. Logga in på den virtuella hanterings datorn. Anvisningar om hur du ansluter med hjälp av Azure Portal finns i [ansluta till en virtuell Windows Server-dator][connect-windows-server-vm].
 1. Välj **administrations verktyg**på Start skärmen. En lista över tillgängliga hanterings verktyg visas som har installerats i självstudien för att [skapa en virtuell hanterings dator][tutorial-create-management-vm].
 1. Om du vill skapa och hantera organisationsenheter väljer du **Active Directory Administrationscenter** i listan över administrations verktyg.
 1. I den vänstra rutan väljer du din Azure AD DS-hanterade domän, till exempel *contoso.com*. En lista över befintliga organisationsenheter och resurser visas:
@@ -91,3 +94,4 @@ Mer information om hur du använder administrations verktyg eller skapar och anv
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
+[connect-windows-server-vm]: join-windows-vm.md#connect-to-the-windows-server-vm

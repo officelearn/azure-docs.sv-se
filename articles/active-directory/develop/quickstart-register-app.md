@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b0adc75d2da1a8ef053edf0078746df8f36ed5e
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 329e4b262731ae1b23fb94da7b937c9c1549185f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430322"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473659"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Snabb start: registrera ett program med Microsoft Identity Platform
 
@@ -32,9 +32,9 @@ Den här snabb starten visar hur du lägger till och registrerar ett program med
 
 ## <a name="register-a-new-application-using-the-azure-portal"></a>Registrera ett nytt program med hjälp av Azure-portalen
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller en personligt Microsoft-konto.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
-1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** och väljer sedan **Appregistreringar > ny registrering**.
+1. Sök efter och välj **Azure Active Directory**. På sidan **Active Directory** väljer du **Appregistreringar** och väljer sedan **ny registrering**.
 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
 
    - **Namn** – ange ett beskrivande programnamn som ska visas för appens användare.
@@ -54,18 +54,18 @@ Den här snabb starten visar hur du lägger till och registrerar ett program med
 
 1. När det är klart väljer du **Registrera**.
 
-    [![Shows skärmen för att registrera ett nytt program i Azure Portal](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
+    [![visar skärmen för att registrera ett nytt program i Azure Portal](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
 
 Azure AD tilldelar ett unikt program-ID (klient) till din app, och du kommer till programmets **översiktssida**. Om du vill lägga till ytterligare funktioner i programmet kan du välja andra konfigurationsalternativ inklusive varumärkesanpassning, certifikat och hemligheter, API-behörigheter och mer.
 
-[![Example för en nyligen registrerad Apps översikts sida](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
+[![exempel på sidan Översikt för nyligen registrerade appar](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om [behörigheter och medgivande](v2-permissions-and-consent.md).
 - Om du vill aktivera konfigurationsfunktioner i din programregistrering, till exempel autentiseringsuppgifter och behörigheter och aktivera inloggning för användare från andra klientorganisationer kan du läsa följande snabbstarter:
     - [Konfigurera ett klientprogram för åtkomst till webb-API:er](quickstart-configure-app-access-web-apis.md)
-    - [Konfigurera en app att exponera webb-API:er](quickstart-configure-app-expose-web-apis.md)
+    - [Konfigurera ett program att exponera webb-API:er](quickstart-configure-app-expose-web-apis.md)
     - [Ändra konton som stöds av en app](quickstart-modify-supported-accounts.md)
 - Välj en [snabbstart](https://docs.microsoft.com/azure/active-directory/develop) för att snabbt bygga en app och lägga till funktioner som att hämta token, uppdatera token, logga in en användare, visa användarinformation med mera.
 - Mer information om de två Azure AD-objekt som representerar ett registrerat program och relationen mellan dem finns i [Programobjekt och tjänsthuvudnamnsobjekt](app-objects-and-service-principals.md).

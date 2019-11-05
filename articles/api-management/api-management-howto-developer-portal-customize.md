@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 2fc22a8f2a9e1e9410f2e6a9738c50a296a6287f
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 62fb5552d86a802c3ba0213d99be2f91f21025e2
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180724"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472128"
 ---
 # <a name="access-and-customize-developer-portal"></a>Komma åt och anpassa Developer-portalen
 
@@ -36,7 +36,11 @@ Du hittar mer information om Developer-portalen i [Översikt över Azure API Man
 
 ![API Management Developer-portalen-admin-läge](media/api-management-howto-developer-portal-customize/cover.png)
 
-## <a name="prerequisites"></a>Krav
+> [!WARNING]
+> Developer-portalen är för närvarande distribuerad till API Management tjänster.
+> Om din tjänst har skapats nyligen eller är en tjänst för utvecklare, bör du redan ha den senaste versionen. Annars kan det uppstå problem (till exempel med publicerings funktionen). Funktions distributionen kommer att slutföras den 11 november 2019. 
+
+## <a name="prerequisites"></a>Förutsättningar
 
 - Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 - Importera och publicera en Azure API Management-instans. Mer information finns i [Importera och publicera](import-and-publish.md)

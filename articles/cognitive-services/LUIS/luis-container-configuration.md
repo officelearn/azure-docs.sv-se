@@ -1,7 +1,7 @@
 ---
 title: Inställningar för Docker-behållare – LUIS
 titleSuffix: Azure Cognitive Services
-description: LUIS-behållaren körningsmiljö konfigureras med hjälp av den `docker run` kommandot argument. LUIS har flera inställningar som krävs, tillsammans med några valfria inställningar.
+description: LUIS container Runtime Environment konfigureras med hjälp av kommando argumenten `docker run`. LUIS har flera inställningar som krävs, tillsammans med några få valfria inställningar.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -9,125 +9,120 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 9760475886ecb0f20d9f0f3981eab8246643da21
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 163fe24c941f779a2160ee5ef50f9d4dfcea1022
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101988"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486741"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Konfigurera Language Understanding Docker-behållare 
 
-**Language Understanding** (Luis) container Runtime Environment konfigureras med hjälp av `docker run` kommando argumenten. LUIS har flera inställningar som krävs, tillsammans med några valfria inställningar. Flera [exempel](#example-docker-run-commands) kommandots är tillgängliga. Behållare-specifika inställningarna är indata [Monteringsinställningar](#mount-settings) och fakturering inställningarna. 
+**Language Understanding** (Luis) container runtime-miljön konfigureras med hjälp av `docker run` kommando argument. LUIS har flera inställningar som krävs, tillsammans med några få valfria inställningar. Det finns flera [exempel](#example-docker-run-commands) på kommandot. De maskinvaruspecifika inställningarna är ingångs [monterings inställningar](#mount-settings) och fakturerings inställningar. 
 
 ## <a name="configuration-settings"></a>Konfigurationsinställningar
 
-Den här behållaren har följande konfigurationsinställningar:
+Den här behållaren har följande konfigurations inställningar:
 
 |Krävs|Inställning|Syfte|
 |--|--|--|
-|Ja|[ApiKey](#apikey-setting)|Används för att spåra faktureringsinformation.|
-|Nej|[ApplicationInsights](#applicationinsights-setting)|Du kan lägga till [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) telemetri stöd till behållaren.|
+|Ja|[ApiKey](#apikey-setting)|Används för att spåra fakturerings information.|
+|Nej|[ApplicationInsights](#applicationinsights-setting)|Gör att du kan lägga till stöd för [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) -telemetri till din behållare.|
 |Ja|[Billing](#billing-setting)|Anger slut punkts-URI för tjänst resursen på Azure.|
-|Ja|[Eula](#eula-setting)| Anger att du har godkänt licensen för behållaren.|
-|Nej|[Fluentd](#fluentd-settings)|Skriva log och eventuellt måttdata till en Fluentd-server.|
+|Ja|[Villkoren](#eula-setting)| Anger att du har accepterat licensen för behållaren.|
+|Nej|[Fluent](#fluentd-settings)|Skriv logg och, om du vill, Metric-data till en Fluent-Server.|
 |Nej|[Http-proxy](#http-proxy-credentials-settings)|Konfigurera en HTTP-proxy för att göra utgående begär Anden.|
-|Nej|[Loggning](#logging-settings)|Ger ASP.NET Core loggning stöd för din behållare. |
-|Ja|[Mounts](#mount-settings)|Läsa och skriva data från värddatorn till behållaren och från behållaren tillbaka till värddatorn.|
+|Nej|[Logging](#logging-settings)|Tillhandahåller ASP.NET Core loggnings stöd för din behållare. |
+|Ja|[Monterar](#mount-settings)|Läs och Skriv data från värddatorn till behållare och från behållare tillbaka till värddatorn.|
 
 > [!IMPORTANT]
-> Den [ `ApiKey` ](#apikey-setting), [ `Billing` ](#billing-setting), och [ `Eula` ](#eula-setting) inställningar används tillsammans, och du måste ange giltiga värden för alla tre av dem, annars din behållare startar inte. Läs mer om att använda dessa konfigurationsinställningar för att skapa en instans av en behållare, [fakturering](luis-container-howto.md#billing).
+> Inställningarna [`ApiKey`](#apikey-setting), [`Billing`](#billing-setting)och [`Eula`](#eula-setting) används tillsammans och du måste ange giltiga värden för alla tre. annars startar inte behållaren. Mer information om hur du använder dessa konfigurations inställningar för att instansiera en behållare finns i [fakturering](luis-container-howto.md#billing).
 
-## <a name="apikey-setting"></a>ApiKey inställningen
+## <a name="apikey-setting"></a>ApiKey-inställning
 
-Den `ApiKey` inställningen anger du Azure-resurs-nyckeln som används för att spåra faktureringsinformation för behållaren. Du måste ange ett värde för ApiKey och värdet måste vara en giltig nyckel för den _Cognitive Services_ resurs som angetts för [`Billing`](#billing-setting) konfigurations inställningen.
+Inställningen `ApiKey` anger den Azure-resurs nyckel som används för att spåra fakturerings information för behållaren. Du måste ange ett värde för ApiKey och värdet måste vara en giltig nyckel för den _Cognitive Services_ resurs som angetts för inställningen [`Billing`](#billing-setting) konfiguration.
 
 Du hittar den här inställningen på följande platser:
 
-* Azure-portalen: **Cognitive Services** Resurs hantering, under **nycklar**
-* LUIS-Portal: Sidan **nycklar och slut punkts inställningar** . 
+* Azure Portal: **Cognitive Services** resurs hantering under **nycklar**
+* LUIS Portal: **Inställningar för nycklar och slut punkt** . 
 
-Använd inte starter-nyckel eller nyckeln för redigering. 
+Använd inte start nyckeln eller redigerings nyckeln. 
 
-## <a name="applicationinsights-setting"></a>Inställningen för ApplicationInsights
+## <a name="applicationinsights-setting"></a>ApplicationInsights-inställning
 
 [!INCLUDE [Container shared configuration ApplicationInsights settings](../../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
 
-## <a name="billing-setting"></a>Inställningen för fakturering
+## <a name="billing-setting"></a>Fakturerings inställning
 
-Inställningen anger slut punkts-URI för den Cognitive Services resursen på Azure som används för att mäta fakturerings information för behållaren. `Billing` Du måste ange ett värde för den här konfigurations inställningen och värdet måste vara en giltig slut punkts-URI för en _Cognitive Services_ -resurs på Azure. Behållar rapporteringen visar var 10 till 15: e minut.
+Inställningen `Billing` anger slut punkts-URI för den _Cognitive Services_ resursen på Azure som används för att mäta fakturerings information för behållaren. Du måste ange ett värde för den här konfigurations inställningen och värdet måste vara en giltig slut punkts-URI för en _Cognitive Services_ -resurs på Azure. Behållar rapporteringen visar var 10 till 15: e minut.
 
 Du hittar den här inställningen på följande platser:
 
-* Azure-portalen: **Cognitive Services** Översikt, märkt`Endpoint`
-* LUIS-Portal: Sidan **nycklar och slut punkts inställningar** som en del av slut punktens URI.
+* Azure Portal: **Cognitive Services** översikt, med etiketter `Endpoint`
+* LUIS Portal: **Inställningar för nycklar och slut punkt** som en del av slut punktens URI.
 
-Kom ihåg att inkludera `luis/v2.0` dirigeringen i URL: en som visas i följande tabell:
+| Krävs | Namn | Datatyp | Beskrivning |
+|----------|------|-----------|-------------|
+| Ja      | `Billing` | sträng | URI för fakturerings slut punkt. |
 
-
-|Obligatorisk| Namn | Datatyp | Beskrivning |
-|--|------|-----------|-------------|
-|Ja| `Billing` | Sträng | Fakturering endpoint URI<br><br>Exempel:<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
-
-## <a name="eula-setting"></a>Licensvillkor för inställningen
+## <a name="eula-setting"></a>Licens avtals inställning
 
 [!INCLUDE [Container shared configuration eula settings](../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
 
-## <a name="fluentd-settings"></a>Fluentd-inställningar
+## <a name="fluentd-settings"></a>Fluent-inställningar
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## <a name="http-proxy-credentials-settings"></a>Inställningar för autentiseringsuppgifter för http-proxy
+## <a name="http-proxy-credentials-settings"></a>Inställningar för autentiseringsuppgifter för HTTP-proxy
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
-## <a name="logging-settings"></a>Loggningsinställningar
+## <a name="logging-settings"></a>Loggnings inställningar
  
 [!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
-## <a name="mount-settings"></a>Monteringsinställningar
+## <a name="mount-settings"></a>Monterings inställningar
 
-Använd bindning monterar för att läsa och skriva data till och från behållaren. Du kan ange en monteringspunkt som indata eller utdata mount genom att ange den `--mount` alternativet i den [docker kör](https://docs.docker.com/engine/reference/commandline/run/) kommando. 
+Använd bind-monteringar för att läsa och skriva data till och från behållaren. Du kan ange en inmatnings montering eller utmatnings montering genom att ange alternativet `--mount` i kommandot [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) . 
 
-LUIS-behållare använder inte indata eller utdata monterar för att lagra utbildning eller tjänstdata. 
+LUIS-behållaren använder inte indata eller utmatnings montering för att lagra utbildning eller tjänst data. 
 
-Den exakta syntaxen hos montera värdplats varierar beroende på värdens operativsystem. Dessutom kan den [värddatorn](luis-container-howto.md#the-host-computer)'s montera platsen är kanske inte tillgänglig på grund av en konflikt mellan behörigheter som används av docker-tjänstkontot och värden montera plats behörigheter. 
+Den exakta syntaxen för värd monterings platsen varierar beroende på värd operativ systemet. Dessutom kanske [värd datorns](luis-container-howto.md#the-host-computer)monterings plats inte är tillgänglig på grund av en konflikt mellan behörigheter som används av Docker-tjänstkontot och värd monterings platsens behörigheter. 
 
 I följande tabell beskrivs de inställningar som stöds.
 
 |Krävs| Namn | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
-|Ja| `Input` | Sträng | Inkommande monterings-mål. Standardvärdet är `/input`. Det här är platsen för LUIS-paketfilerna. <br><br>Exempel:<br>`--mount type=bind,src=c:\input,target=/input`|
-|Nej| `Output` | Sträng | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar LUIS frågeloggar och behållarloggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Ja| `Input` | Sträng | Målet för den inmatade monteringen. Standardvärdet är `/input`. Det här är platsen för LUIS. <br><br>Exempel:<br>`--mount type=bind,src=c:\input,target=/input`|
+|Nej| `Output` | Sträng | Målet för utmatnings monteringen. Standardvärdet är `/output`. Detta är platsen för loggarna. Detta inkluderar LUIS-frågemeddelanden och behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## <a name="example-docker-run-commands"></a>Exempel docker-kommandon
+## <a name="example-docker-run-commands"></a>Exempel på Docker-körnings kommandon
 
-I följande exempel används konfigurationsinställningarna som illustrerar hur du skriver och använda `docker run` kommandon.  När du kör, behållaren fortsätter att köras tills du [stoppa](luis-container-howto.md#stop-the-container) den.
+I följande exempel används konfigurations inställningarna för att illustrera hur du skriver och använder `docker run`-kommandon.  När den körs fortsätter behållaren att köras tills du [stoppar](luis-container-howto.md#stop-the-container) den.
 
-* I de här exemplen används katalogen `C:` från enheten för att undvika eventuella behörighets konflikter i Windows. Om du vill använda en viss katalog som den inkommande katalogen kan du behöva ge docker tjänsten behörighet. 
-* Ändra inte argumentens ordning om du inte är bekant med docker-behållare.
-* Om du använder ett annat operativ system använder du rätt konsol/Terminal, kommandosyntax för montering och linje fortsättnings text för systemet. Dessa exempel förutsätter en Windows-konsol med ett linje `^`fortsättnings steg. Eftersom behållaren är ett Linux-operativsystem använder mål-Mount en syntax för en mappvy i Linux-typ.
-
-Kom ihåg att inkludera `luis/v2.0` dirigeringen i URL: en som visas i följande tabell.
+* I de här exemplen används katalogen från `C:`s enheten för att undvika eventuella behörighets konflikter i Windows. Om du behöver använda en speciell katalog som indatalistan kan du behöva ge Docker-tjänstens behörighet. 
+* Ändra inte ordningen på argumenten om du inte är bekant med Docker-behållare.
+* Om du använder ett annat operativ system använder du rätt konsol/Terminal, kommandosyntax för montering och linje fortsättnings text för systemet. De här exemplen förutsätter en Windows-konsol med ett linje fortsättnings Character `^`. Eftersom behållaren är ett Linux-operativsystem använder mål-Mount en syntax för en mappvy i Linux-typ.
 
 Ersätt {_argument_name_} med dina egna värden:
 
 | Platshållare | Värde | Format eller exempel |
 |-------------|-------|---|
-| **{API_KEY}** | `LUIS` Resursens slut punkts nyckel på sidan med `LUIS` Azure-nycklar. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
-| **{ENDPOINT_URI}** | Värdet för fakturerings slut punkten är tillgängligt på sidan `LUIS` Azure-översikt.| Se [samla in obligatoriska parametrar](luis-container-howto.md#gathering-required-parameters) för explicita exempel. |
+| **{API_KEY}** | Slut punkts nyckeln för `LUIS` resursen på sidan för Azure `LUIS`-nycklar. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | Värdet för fakturerings slut punkten är tillgängligt på översikts sidan för Azure-`LUIS`.| Se [samla in obligatoriska parametrar](luis-container-howto.md#gathering-required-parameters) för explicita exempel. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
-> Den `Eula`, `Billing`, och `ApiKey` alternativ måste anges för att köra behållaren, i annat fall startar inte behållaren. Mer information finns i [fakturering](luis-container-howto.md#billing).
-> ApiKey-värdet är **nyckeln** på sidan nycklar och slut punkter i Luis-portalen och finns också på sidan med Azures `Cognitive Services` resurs nycklar. 
+> Alternativen `Eula`, `Billing`och `ApiKey` måste anges för att köra behållaren. annars startar inte behållaren. Mer information finns i [fakturering](luis-container-howto.md#billing).
+> ApiKey-värdet är **nyckeln** på sidan nycklar och slut punkter i Luis-portalen och finns också på sidan med resurs nycklar för Azure `Cognitive Services`. 
 
-### <a name="basic-example"></a>Grundläggande exempel
+### <a name="basic-example"></a>Basic-exempel
 
-I följande exempel har de minsta antalet argument som går att köra behållaren:
+I följande exempel finns minsta möjliga argument för att köra behållaren:
 
 ```console
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 ^
@@ -139,9 +134,9 @@ Billing={ENDPOINT_URL} ^
 ApiKey={API_KEY}
 ```
 
-### <a name="applicationinsights-example"></a>Exempel för ApplicationInsights
+### <a name="applicationinsights-example"></a>ApplicationInsights-exempel
 
-I följande exempel anger argumentet ApplicationInsights att skicka telemetri till Application Insights medan behållaren körs:
+I följande exempel anges argumentet ApplicationInsights för att skicka telemetri till Application Insights medan behållaren körs:
 
 ```console
 docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 ^
@@ -156,7 +151,7 @@ InstrumentationKey={INSTRUMENTATION_KEY}
 
 ### <a name="logging-example"></a>Loggnings exempel 
 
-Följande kommando anger loggningsnivån, `Logging:Console:LogLevel`, för att konfigurera loggningsnivån till [ `Information` ](https://msdn.microsoft.com). 
+Följande kommando anger loggnings nivån, `Logging:Console:LogLevel`, för att konfigurera loggnings nivån till [`Information`](https://msdn.microsoft.com). 
 
 ```console
 docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 ^

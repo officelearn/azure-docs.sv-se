@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.date: 11/04/2019
 ms.author: aahi
-ms.openlocfilehash: 846650fce6701bb7e382df049902f427390b3051
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 529568cf4f667e72b0b4fb7ba83d0b85c4a90341
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931217"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499983"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Språk-och region stöd för API för textanalys
 
@@ -31,7 +31,7 @@ Om du har innehåll som uttrycks på ett mindre vanligt språk kan du prova Spr�
 
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Attitydanalys, Extrahering av diskussionsämne och identifiering av namngiven entitet
 
-För sentiment-analys, extrahering av nyckel fraser och enhets igenkänning är listan över språk som stöds mer selektiv eftersom analys enheterna är förfinade för att hantera språkliga regler för ytterligare språk. Stöd för den fullständiga uppsättningen [entitetstyper](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition) är för närvarande begränsat till följande språk: 
+För sentiment-analys, extrahering av nyckel fraser och enhets igenkänning är listan över språk som stöds mer selektiv eftersom analys enheterna är förfinade för att hantera språkliga regler för ytterligare språk. I namngiven enhets igenkänning v2 är stöd för den fullständiga uppsättningen [entitetstyper](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition-v2) för närvarande begränsad till följande språk: 
 * Svenska
 * Kinesiska – Förenklad
 * Franska
@@ -44,39 +44,40 @@ Endast `Person`, `Location` och `Organization` namngivna entiteter returneras f�
 
 Språk stöd är inlednings vis insamlat i för hands version, som är i allmänhet tillgänglig (GA) status, oberoende av varandra och för Textanalys tjänsten. Det är möjligt att språken förblir i för hands versionen, även om API för textanalys över gångar till allmänt tillgängliga.
 
-| Språk    | Språkkod | Sentiment | Nyckelfraser | Igenkänning av namngiven entitet |   Anteckningar  |
-|:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
-| Arabiska      | `ar`          |           |             | ✔ \*                     | |
-| Tjeckiska       | `cs`          |           |             | ✔ \*                     | |
-| Kinesiska – Förenklad | `zh-hans`| ✔ \***     |             | ✔         |    |
-| Kinesiska (traditionell) | `zh-hant`| ✔ \***     |             |          |    |
-| Danska      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
-| Nederländska       | `nl`          | ✔ \***     | ✔          |  ✔ \*           |     |
-| Svenska     | `en`          | ✔ \***       | ✔           |  ✔ \*\*     |      |
-| Finska     | `fi`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| Franska      | `fr`          | ✔ \***       | ✔           |  ✔            |     |
-| Tyska      | `de`          | ✔ \***     | ✔           |  ✔           |     |
-| Grekiska       | `el`          | ✔ \*     |             |            |     |
-| Ungerska   | `hu`          |           |             |  ✔ \*          |     | 
-| Italienska     | `it`          | ✔ \***     | ✔           |  ✔ \*           |     |
-| Japanska    | `ja`          | ✔ \***         | ✔           |  ✔ \*          |     |
-| Koreanska      | `ko`          |          | ✔           |  ✔ \*          |     |
-| Norska (bokmål) | `no`  | ✔ \*     |  ✔          | ✔ \*            |     |
-| Polska      | `pl`          | ✔ \*     |  ✔          |  ✔ \*           |     |
-| Portugisiska (Portugal) | `pt-PT`| ✔ \***        |  ✔          | ✔ \*      |`pt` också accepterat|
-| Portugisiska (Brasilien)   | `pt-BR`|          |  ✔   |  ✔ \*       |     |
-| Ryska     | `ru`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| Spanska     | `es`          | ✔ \***       | ✔           |   ✔ \*\*      |     | 
-| Svenska     | `sv`          | ✔ \*     | ✔           |   ✔ \*          |     |
-| Turkiska     | `tr`          | ✔ \*     |             |   ✔ \*          |  |
+> [!NOTE]
+> Mer information om språk stöd för den namngivna enhets igenkänningen (NER) v3 Public Preview finns i [namngivna entitetstyper](named-entity-types.md).
+
+| Språk              | Språkkod | Sentiment | Nyckelfraser | Igenkänning av namngiven enhet | Länkning av entitet |       Anteckningar        |
+|:----------------------|:-------------:|:---------:|:-----------:|:------------------------:|:--------------:|:------------------:|
+| Arabiska                |     `ar`      |           |             |           ✔ \*           |                |                    |
+| Tjeckiska                 |     `cs`      |           |             |           ✔ \*           |                |                    |
+| Kinesiska – Förenklad    |   `zh-hans`   |  ✔ \*\*   |             |            ✔             |                |                    |
+| Kinesiska (traditionell)   |   `zh-hant`   |  ✔ \*\*   |             |                          |                |                    |
+| Danska                |     `da`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| Nederländska                 |     `nl`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
+| Svenska               |     `en`      |   ✔ \**   |      ✔      |          ✔ \*\*          |     ✔ \**      |                    |
+| Finska               |     `fi`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| Franska                |     `fr`      |   ✔ \**   |      ✔      |            ✔             |                |                    |
+| Tyska                |     `de`      |   ✔ \**   |      ✔      |            ✔             |                |                    |
+| Grekiska                 |     `el`      |   ✔ \*    |             |                          |                |                    |
+| Ungerska             |     `hu`      |           |             |           ✔ \*           |                |                    |
+| Italienska               |     `it`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
+| Japanska              |     `ja`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
+| Koreanska                |     `ko`      |           |      ✔      |           ✔ \*           |                |                    |
+| Norska (bokmål)   |     `no`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| Polska                |     `pl`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| Portugisiska (Portugal) |    `pt-PT`    |   ✔\**    |      ✔      |           ✔ \*           |                | `pt` också accepterat |
+| Portugisiska (Brasilien)   |    `pt-BR`    |           |      ✔      |           ✔ \*           |                |                    |
+| Ryska               |     `ru`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| Spanska               |     `es`      |   ✔\**    |      ✔      |           ✔ \*           |     ✔ \**      |                    |
+| Svenska               |     `sv`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| Turkiska               |     `tr`      |   ✔ \*    |             |           ✔ \*           |                |                    |
 
 \* språk stöd finns i för hands version
 
-\*\* [med namnet entitets igenkänning](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) och [enhets länkning](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) är båda tillgängliga för det här språket.  
+\** är även tillgängligt i [Attitydanalys v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview) och/eller [med namnet Recognition v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-v3-public-preview) offentlig förhands visning.
 
-\** * tillgängligt i [Attitydanalys v3 offentlig för hands version](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview)
-
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 [Cognitive Services dokumentations sida](https://docs.microsoft.com/azure/cognitive-services/)   
 [Produktsida om Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)

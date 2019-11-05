@@ -1,7 +1,7 @@
 ---
 title: 'Förbearbeta text: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen för Förbearbetad text i Azure Machine Learning-tjänsten för att rensa och förenkla text.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen för Förbearbetad text i Azure Machine Learning för att rensa och förenkla text.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/01/2019
-ms.openlocfilehash: 2213d26e6d3b2b6a7aca9d65e74a4499ff0da6c1
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 9bf81b4e4c305c864592c32a8737d1a5eeb18651
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692691"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497686"
 ---
 # <a name="preprocess-text"></a>Förbearbeta text
 
-I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd modulen för **Förbearbetad text** för att rensa och förenkla text. Det stöder följande vanliga text bearbetnings åtgärder:
 
@@ -33,7 +33,7 @@ Modulen för **Förbearbetad text** stöder för närvarande bara engelska.
 
 ## <a name="configure-text-preprocessing"></a>Konfigurera text förbehandling  
 
-1.  Lägg till modulen för **Förbearbetad text** i experimentet i Azure Machine Learning-tjänsten. Du kan hitta den här modulen under **textanalys**.
+1.  Lägg till modulen för **Förbearbetad text** i din pipeline i Azure Machine Learning. Du kan hitta den här modulen under **textanalys**.
 
 1. Anslut en data uppsättning som har minst en kolumn som innehåller text.
 
@@ -47,7 +47,7 @@ Modulen för **Förbearbetad text** stöder för närvarande bara engelska.
 
 1. **Lemmatisering**: Välj det här alternativet om du vill att ord ska visas i deras kanoniska form. Det här alternativet är användbart för att minska antalet unika förekomster av andra liknande tokens.
 
-    Lemmatisering-processen är mycket språk beroende.
+    Lemmatisering-processen är mycket språk beroende...
 
 1. **Identifiera meningar**: Välj det här alternativet om du vill att modulen ska infoga en ord avgränsnings markering när du utför analysen.
 
@@ -71,7 +71,7 @@ Modulen för **Förbearbetad text** stöder för närvarande bara engelska.
     * **Ta bort duplicerade tecken**: Välj det här alternativet om du vill ta bort extra tecken i sekvenser som upprepas för fler än två gånger. En sekvens som "AAAAA" skulle till exempel minskas till "AA".
     
     * **Ta bort e-post adresser**: Välj det här alternativet om du vill ta bort en sekvens med formatet `<string>@<string>`.  
-    * **Ta bort webb adresser**: Välj det här alternativet om du vill ta bort en sekvens som innehåller följande URL-prefix: `http`, `https`, `ftp` `www`
+    * **Ta bort webb adresser**: Välj det här alternativet om du vill ta bort en sekvens som innehåller följande URL-prefix: `http`, `https`, `ftp``www`
     
 1. **Expandera verb**: det här alternativet gäller endast för språk som använder verb-kontrakt. för närvarande endast på engelska. 
 
@@ -79,12 +79,12 @@ Modulen för **Förbearbetad text** stöder för närvarande bara engelska.
 
 1. **Normalisera omvända snedstreck till snedstreck**: Välj det här alternativet om du vill mappa alla instanser av `\\` `/`.
 
-1. **Dela tokens på specialtecken**: Välj det här alternativet om du vill dela upp ord på tecken som `&`, `-` och så vidare. Det här alternativet kan också minska de särskilda tecknen när de upprepas mer än två gånger. 
+1. **Dela tokens på specialtecken**: Välj det här alternativet om du vill dela upp ord på tecken som `&`, `-`och så vidare. Det här alternativet kan också minska de särskilda tecknen när de upprepas mer än två gånger. 
 
-    Strängen `MS---WORD` skulle till exempel delas upp i tre tokens, `MS`, `-` och `WORD`.
+    Strängen `MS---WORD` skulle till exempel delas upp i tre tokens, `MS`, `-`och `WORD`.
 
-1. Kör experimentet.
+1. Köra en pipeline.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

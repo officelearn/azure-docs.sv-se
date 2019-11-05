@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 887bda92a1165a3dd17e9105e921a5df9e0c5534
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8ed1b128fc2663cfc09c40f001bd0b14663a728e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61248172"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486017"
 ---
 # <a name="provision-devices-across-load-balanced-iot-hubs"></a>Etablera enheter över belastningsutjämnade IoT-hubbar
 
@@ -28,7 +28,7 @@ Den här självstudien visar hur du etablerar enheter för flera belastningsutj�
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här självstudien bygger på den tidigare självstudien [Etablera enhet till en hubb](tutorial-provision-device-to-hub.md).
 
@@ -49,8 +49,8 @@ Registreringslistan anger för enhetsetableringstjänsten vilken attesteringsmet
 Allokeringsprincipen är en inställning för enhetsetableringstjänsten som bestämmer hur enheter tilldelas till en IoT-hubb. Det finns tre allokeringsprinciper som stöds: 
 
 1. **Kortast svarstid**: Enheter etableras till en IoT-hubb baserat på hubben med kortast svarstid till enheten.
-2. **Jämnt viktad distribution** (standard): Länkade IoT-hubbar är lika sannolikt att enheter etablerade till sig. Det här är standardinställningen. Om du endast etablerar enheter till en IoT-hubb kan du behålla den här inställningen. 
-3. **Statisk konfiguration via registreringslistan**: Specifikation av önskad IoT-hubben på registreringslistan har prioritet framför allokeringsprincip Device Provisioning-tjänstnivå.
+2. **Jämnt viktad distribution** (standard): Det är lika sannolikt att länkade IoT-hubbar får enheter etablerade till sig. Det här är standardinställningen. Om du endast etablerar enheter till en IoT-hubb kan du behålla den här inställningen. 
+3. **Statisk konfiguration via registreringslistan**: Specificering av den önskade IoT-hubben på registreringslistan har högre prioritet än allokeringsprincipen på Device Provisioning-tjänstnivå.
 
 Följ dessa steg om du vill ange allokeringsprincipen:
 
@@ -81,5 +81,5 @@ I den här självstudiekursen lärde du dig att:
 <!-- Advance to the next tutorial to learn how to 
  Replace this .md
 > [!div class="nextstepaction"]
-> [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
+> [Bind an existing custom SSL certificate to Azure Web Apps]()
 -->

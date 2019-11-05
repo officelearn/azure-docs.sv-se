@@ -9,20 +9,20 @@ ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: efc61f7dc8e9d2caa53c4cbd7d932af9e1a206d1
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: fdb558267d823657f6a735d8b96efde33cdb8383
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793546"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466533"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>Hantera Azure Kognitiv sökning-tjänsten med PowerShell
 > [!div class="op_single_selector"]
-> * [Portalen](search-manage.md)
+> * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
 > * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
-> * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)-> 
+> * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0) -> 
 
 Du kan köra PowerShell-cmdlets och skript i Windows, Linux eller i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) för att skapa och konfigurera Azure kognitiv sökning. **AZ. search** -modulen utökar Azure PowerShell] med fullständig paritet till [Azure-kognitiv sökning hantering REST-API: er](https://docs.microsoft.com/rest/api/searchmanagement). Med Azure PowerShell och **AZ. search**kan du utföra följande uppgifter:
 
@@ -40,7 +40,7 @@ Det finns inga dedikerade PowerShell-kommandon för innehålls hantering, men du
 
 Andra aktiviteter som inte stöds via PowerShell eller någon annan API (endast Portal) inkluderar:
 + [Koppla en kognitiv tjänst resurs](cognitive-search-attach-cognitive-services.md) för [AI-berikad indexering](cognitive-search-concept-intro.md). En kognitiv tjänst är kopplad till en färdigheter, inte en prenumeration eller tjänst.
-+ [Lösningar](search-monitor-usage.md#add-on-monitoring-solutions) för att övervaka Azure Search.
++ [Lösningar](search-monitor-usage.md#add-on-monitoring-solutions) för att övervaka Azure-kognitiv sökning.
 
 <a name="check-versions-and-load"></a>
 
@@ -197,7 +197,7 @@ Tags
 
 [**New-AzSearchAdminKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) används för att rulla över administrations- [API-nycklar](search-security-api-keys.md). Två administratörs nycklar skapas med varje tjänst för autentiserad åtkomst. Nycklar krävs på varje begäran. Båda administratörs nycklarna fungerar som likvärdiga, vilket ger fullständig Skriv behörighet till en Sök tjänst med möjlighet att hämta information eller skapa och ta bort objekt. Det finns två nycklar så att du kan använda en när du ersätter den andra. 
 
-Du kan bara återskapa en i taget, som har angetts som antingen `primary`-eller `secondary`-nyckel. Kom ihåg att uppdatera all klient kod för att använda en sekundär nyckel när du rullar över primär nyckeln för en oavbruten tjänst. Undvik att ändra nycklarna när åtgärderna är i flygning.
+Du kan bara återskapa en i taget, som har angetts som antingen `primary` eller `secondary` nyckel. Kom ihåg att uppdatera all klient kod för att använda en sekundär nyckel när du rullar över primär nyckeln för en oavbruten tjänst. Undvik att ändra nycklarna när åtgärderna är i flygning.
 
 Om du återskapar nycklar utan att uppdatera klient koden, kan det hända att förfrågningar som använder den gamla nyckeln Miss förväntas. Om du återskapar alla nya nycklar låses du inte permanent av tjänsten och du kan fortfarande komma åt tjänsten via portalen. När du har återskapat primära och sekundära nycklar kan du uppdatera klient koden för att använda de nya nycklarna och åtgärderna kommer att återupptas på motsvarande sätt.
 

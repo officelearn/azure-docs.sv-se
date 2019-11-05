@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 96221ffc8249f722268ea5778bee4b4389ded26e
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 0fb5341c2e7ee55391cb38251b0ea66b55b93301
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326605"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469158"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Logga in med ett iOS-program
 
@@ -37,7 +37,9 @@ Registrera sedan ett program i Azure AD B2C klient organisationen. Det ger Azure
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-Registrera **program-ID** för användning i ett senare steg. Välj sedan programmet i listan och registrera den **anpassade omdirigerings-URI: n**, även för användning i ett senare steg. Till exempel `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
+Registrera **program-ID: t (Client)** för användning i ett senare steg.
+
+Registrera även en anpassad omdirigerings-URI för användning i ett senare steg. Till exempel `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 ## <a name="create-your-user-flows"></a>Skapa dina användar flöden
 I Azure AD B2C definieras varje användar upplevelse av ett [användar flöde](active-directory-b2c-reference-policies.md). Det här programmet innehåller en identitets upplevelse: en kombinerad inloggning och registrering. När du skapar användar flödet måste du se till att:
@@ -63,15 +65,15 @@ Det här exemplet skapades genom att följa README-instruktionerna i [iOS AppAut
 
 Du kan konfigurera kommunikation med Azure AD B2C genom att ange både behörighets slut punkten och URI för token-slut punkt.  Om du vill generera dessa URI: er behöver du följande information:
 * Klient-ID (till exempel contoso.onmicrosoft.com)
-* Användar flödes namn (till exempel B2C @ no__t-01 @ no__t-1SignUpIn)
+* Användar flödes namn (till exempel B2C\_1\_SignUpin)
 
-URI: n för token-slutpunkt kan genereras genom att ersätta klienten @ no__t-0ID och principen @ no__t-1Name i följande URL:
+URI: n för token-slutpunkt kan genereras genom att ersätta klient\_s-ID och princip\_namn i följande URL:
 
 ```objc
 static NSString *const tokenEndpoint = @"https://<Tenant_name>.b2clogin.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/token";
 ```
 
-URI: n för auktoriserings slut punkt kan genereras genom att ersätta klienten @ no__t-0ID och principen @ no__t-1Name i följande URL:
+URI: n för auktoriserings slut punkt kan genereras genom att ersätta klient\_s-ID: t och princip\_namnet i följande URL:
 
 ```objc
 static NSString *const authorizationEndpoint = @"https://<Tenant_name>.b2clogin.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/authorize";
@@ -85,7 +87,7 @@ OIDServiceConfiguration *configuration =
 // now we are ready to perform the auth request...
 ```
 
-### <a name="authorizing"></a>Auktoriserar
+### <a name="authorizing"></a>Auktorisera
 
 När du har konfigurerat eller hämtat en Authorization service-konfiguration kan en auktoriseringsbegäran konstrueras. Om du vill skapa begäran behöver du följande information:
 
@@ -120,7 +122,7 @@ appDelegate.currentAuthorizationFlow =
 
 Om du vill konfigurera ditt program för att hantera omdirigeringen till URI: n med det anpassade schemat måste du uppdatera listan med URL-scheman i info. pList:
 * Öppna info. pList.
-* Hovra över en rad som "paketera OS-typ kod" och klicka på \+-symbolen.
+* Hovra över en rad som "paketera OS-typ kod" och klicka på \+ symbolen.
 * Byt namn på den nya raden "URL types".
 * Öppna trädet genom att klicka på pilen till vänster om "URL-typer".
 * Klicka på pilen till vänster om "objekt 0" för att öppna trädet.
@@ -130,4 +132,4 @@ Om du vill konfigurera ditt program för att hantera omdirigeringen till URI: n 
 
 Läs AppAuth- [guiden](https://openid.github.io/AppAuth-iOS/) om hur du Slutför resten av processen. Om du snabbt behöver komma igång med en fungerande app kan du kolla [in exemplet](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Följ stegen i [Readme.MD](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) för att ange din egen Azure AD B2C konfiguration.
 
-Vi är alltid öppna för återkoppling och förslag! Om du har problem med den här artikeln eller har rekommendationer för att förbättra det här innehållet, skulle vi uppskatta din feedback längst ned på sidan. För förfrågningar om ny funktionalitet, vänligen lägg till dem i [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+Vi är alltid öppna för feedback och förslag! Om du har problem med den här artikeln eller har rekommendationer för att förbättra det här innehållet, skulle vi uppskatta din feedback längst ned på sidan. För funktions begär Anden lägger du till dem i [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).

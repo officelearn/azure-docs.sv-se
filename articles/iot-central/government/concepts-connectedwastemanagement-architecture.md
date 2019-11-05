@@ -7,14 +7,14 @@ ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 806b853b7d3a6291b576c0dde6cdc0b88beec4eb
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 2905a7ab7999c66bde0a705ff129fa049617df10
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027612"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498871"
 ---
-# <a name="connected-waste-monitoring-reference-architecture"></a>Referens arkitektur för ansluten avfalls övervakning 
+# <a name="connected-waste-monitoring-reference-architecture"></a>Referensarkitektur för ansluten avfallsövervakning 
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
@@ -33,7 +33,7 @@ Koncept:
 Låt oss ta en titt på viktiga komponenter som vanligt vis spelar en del i en övervaknings lösning för vatten förbrukning.
 
 ## <a name="devices-and-connectivity"></a>Enheter och anslutningar 
-Enheter som används i öppna miljöer, t. ex. avfalls lager platser, kan vanligt vis anslutas via låg Energis LPWAN (Wide Area Network) via en nätverks operatör från tredje part. För dessa typer av enheter kan du utnyttja [azure IoT Central Device Bridge](https://docs.microsoft.com/azure/iot-central/howto-build-iotc-device-bridge) för att skicka enhets data till IoT-programmet i Azure IoT Central. Du kan också ha enhets-gatewayer som är IP-kompatibla och kan ansluta direkt till IoT Central.
+Enheter som används i öppna miljöer, t. ex. avfalls lager platser, kan vanligt vis anslutas via låg Energis LPWAN (Wide Area Network) via en nätverks operatör från tredje part. För dessa typer av enheter kan du utnyttja [azure IoT Central Device Bridge](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge) för att skicka enhets data till IoT-programmet i Azure IoT Central. Du kan också ha enhets-gatewayer som är IP-kompatibla och kan ansluta direkt till IoT Central.
 
 ## <a name="iot-central"></a>IoT Central 
 Azure IoT Central är en IoT app-plattform som hjälper dig att snabbt komma igång med din IoT-lösning. Du kan märka, anpassa och integrera din lösning med tjänster från tredje part.
@@ -51,5 +51,5 @@ IoT-data kan användas för att driva en mängd olika affärs program i ett verk
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [skapar ett anslutet hanterings](./tutorial-connected-waste-management.md) IoT Central program
 * Läs mer om [mallar för IoT Central myndigheter](./overview-iot-central-government.md)
-* Mer information om IoT Central finns i [IoT Central översikt](https://docs.microsoft.com/azure/iot-central/overview-iot-central)
+* Mer information om IoT Central finns i [IoT Central översikt](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)
 

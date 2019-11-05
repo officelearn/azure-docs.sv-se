@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 26a751924985f94a7d7d12a382d4e6654f36ea48
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1301ee2494aa24720905b9e3e68edce04fb17e72
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793713"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466440"
 ---
 # <a name="how-to-rebuild-an-azure-cognitive-search-index"></a>Återskapa ett Azure Kognitiv sökning-index
 
@@ -46,7 +46,7 @@ Eventuella andra ändringar kan göras utan att det påverkar befintliga fysiska
 
 När du lägger till ett nytt fält får befintliga indexerade dokument ett null-värde för det nya fältet. Vid en framtida data uppdatering ersätter värden från externa källdata de null-värden som läggs till av Azure Kognitiv sökning. Mer information om hur du uppdaterar index innehåll finns i [lägga till, uppdatera eller ta bort dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
-## <a name="partial-or-incremental-indexing"></a>Partiell eller stegvis indexering
+## <a name="partial-indexing"></a>Partiell indexering
 
 I Azure Kognitiv sökning kan du inte styra indexeringen baserat på varje fält och välja att ta bort eller återskapa specifika fält. Det finns inte heller någon inbyggd mekanism för [indexering av dokument baserat på kriterier](https://stackoverflow.com/questions/40539019/azure-search-what-is-the-best-way-to-update-a-batch-of-documents). Eventuella krav för villkors driven indexering måste uppfyllas genom anpassad kod.
 
@@ -93,7 +93,7 @@ När du läser in indexet fylls varje fälts inverterade index med alla unika, t
 
 Du kan börja fråga ett index så snart det första dokumentet har lästs in. Om du känner till ett dokuments ID returnerar [Sök dokumentet REST API](https://docs.microsoft.com/rest/api/searchservice/lookup-document) det aktuella dokumentet. För bredare testning bör du vänta tills indexet har lästs in och sedan använda frågor för att kontrol lera den kontext som du förväntar dig att se.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 + [Översikt över indexeraren](search-indexer-overview.md)
 + [Indexera stora data mängder i skala](search-howto-large-index.md)

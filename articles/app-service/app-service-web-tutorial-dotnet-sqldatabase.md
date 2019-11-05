@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f010e7564f097f28269070d85e2895e73f454054
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 2f815d99c32c2dcaa1fd35d00110b27a90f53ab4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415587"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471175"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Självstudie: Skapa en ASP.NET-app i Azure med SQL Database
 
-Med [Azure App Service](overview.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Den här självstudien visar hur du distribuerar en datadriven ASP.NET-app i App Service och ansluter den till [Azure SQL Database](../sql-database/sql-database-technical-overview.md). När du är klar kan du har en ASP.NET-app som körs i Azure och ansluten till SQL Database.
+Med [Azure App Service](overview.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Den här självstudien visar hur du distribuerar en datadriven ASP.NET-app i App Service och ansluter den till [Azure SQL Database](../sql-database/sql-database-technical-overview.md). När du är klar har du en ASP.NET-app som körs i Azure och är ansluten till SQL Database.
 
 ![Publicerat ASP.NET-program i Azure App Service](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * skapa en SQL Database i Azure
-> * ansluta en ASP.NET-app till SQL Database
+> * Ansluta en ASP.NET-app till SQL Database
 > * distribuera appen till Azure
 > * uppdatera datamodellen och distribuera om appen
 > * strömma loggar från Azure till terminalen
@@ -40,13 +40,13 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du:
 
-Installera <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> med den **ASP.NET och webbutveckling** arbetsbelastning.
+Installera <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> med arbets belastningen **ASP.net och webb utveckling** .
 
-Om du redan har installerat Visual Studio lägger du till arbetsbelastningarna i Visual Studio genom att klicka på **Tools (Verktyg)** > **Get Tools and Features (Skaffa verktyg och funktioner)**.
+Om du redan har installerat Visual Studio lägger du till arbetsbelastningarna i Visual Studio genom att klicka på **Tools (Verktyg)**  > **Get Tools and Features (Skaffa verktyg och funktioner)** .
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 
@@ -79,7 +79,7 @@ Se till att **Microsoft Azure App Service** är markerat och klicka på **Public
 
 I dialogrutan **Skapa App Service** som öppnas efter publicering får du hjälp att skapa alla Azure-resurser som behövs för att köra ASP.NET-appen i Azure.
 
-### <a name="sign-in-to-azure"></a>Logga in till Azure
+### <a name="sign-in-to-azure"></a>Logga in på Azure
 
 I dialogrutan **Skapa App Service** klickar du på **Lägg till ett konto** och logga sedan in på din Azure-prenumeration. Om du redan är inloggad på ett Microsoft-konto kontrollerar du att kontot tillhör din Azure-prenumeration. Om kontot inte tillhör din Azure-prenumeration klickar du på den för att lägga till rätt konto. 
 
@@ -88,7 +88,7 @@ I dialogrutan **Skapa App Service** klickar du på **Lägg till ett konto** och 
 >
 >
    
-![Logga in till Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
+![Logga in på Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
 
 ### <a name="configure-the-web-app-name"></a>Konfigurera webbappnamnet
 
@@ -165,7 +165,7 @@ Lägg till några att-göra-uppgifter.
 
 ![Publicerat ASP.NET-program i Azure app](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-Gratulerar! Din datadrivna ASP.NET-app körs live i Azure App Service.
+Grattis! Din datadrivna ASP.NET-app körs live i Azure App Service.
 
 ## <a name="access-the-sql-database-locally"></a>Lokal åtkomst till SQL Database
 
@@ -201,7 +201,7 @@ När Visual Studio har skapat brandväggsinställningen för SQL Database-instan
 
 Här kan du utföra de vanligaste databasåtgärderna, till exempel köra frågor, skapa vyer och lagrade procedurer och mycket mer. 
 
-Expandera din anslutning > **Databaser** > **&lt;din databas>** > **Tabeller**. Högerklicka på tabellen `Todoes` och välj **Visa data**. 
+Expandera din anslutning > **Databaser** >  **&lt;din databas>**  > **Tabeller**. Högerklicka på tabellen `Todoes` och välj **Visa data**. 
 
 ![Utforska SQL Database-objekt](./media/app-service-web-tutorial-dotnet-sqldatabase/explore-sql-database.png)
 
@@ -311,7 +311,7 @@ Klicka på **Konfigurera** för att öppna publiceringsinställningarna.
 
 Klicka på **Nästa** i guiden.
 
-Kontrollera att anslutningssträngen för din SQL Database fylls i för **MyDatabaseContext (MyDbConnection)**. Du kan behöva välja databasen **myToDoAppDb** i listrutan. 
+Kontrollera att anslutningssträngen för din SQL Database fylls i för **MyDatabaseContext (MyDbConnection)** . Du kan behöva välja databasen **myToDoAppDb** i listrutan. 
 
 Välj **Execute Code First Migrations (runs on application start)** (Utför Code First Migrations (körs när programmet startar)) och klicka på **Save** (Spara).
 
@@ -392,11 +392,11 @@ Om du vill avsluta loggströmningstjänsten klickar du på knappen **Stop monito
 
 ## <a name="manage-your-azure-app"></a>Hantera din Azure-app
 
-Gå till [Azure-portalen](https://portal.azure.com) för att se den app du skapade. 
+Gå till [Azure Portal](https://portal.azure.com) för att hantera webbappen. Sök efter och välj **app Services**. 
 
+![Sök efter Azure App tjänster](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-portal-navigate-app-services.png)
 
-
-Klicka på **App Services** på menyn till vänster och klicka sedan på namnet på din Azure-app.
+Välj namnet på din Azure-App.
 
 ![Portalnavigering till Azure-app](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
 
@@ -414,7 +414,7 @@ I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
 > * skapa en SQL Database i Azure
-> * ansluta en ASP.NET-app till SQL Database
+> * Ansluta en ASP.NET-app till SQL Database
 > * distribuera appen till Azure
 > * uppdatera datamodellen och distribuera om appen
 > * strömma loggar från Azure till terminalen

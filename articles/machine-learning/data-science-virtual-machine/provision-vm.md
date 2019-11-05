@@ -7,12 +7,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/10/2019
-ms.openlocfilehash: c9b72c90bc23cfac6f064445c4f6f98d05d7fe16
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: afc026ccb602538b0749fa294cee763efa3d27d0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331778"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73483234"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Snabb start: Konfigurera Data Science Virtual Machine för Windows
 
@@ -34,10 +34,10 @@ Så här skapar du en DSVM-instans:
 
 1. Välj knappen **skapa** längst ned.
 
-    [![](media/provision-vm/create-windows.png "Knapp för att skapa en Windows-dator")](media/provision-vm/create-windows-expanded.png#lightbox)
+    [![](media/provision-vm/create-windows.png "Button to create a Windows machine")](media/provision-vm/create-windows-expanded.png#lightbox)
 
 1. Du bör omdirigeras till bladet "skapa en virtuell dator".
-   fliken ![Basics som motsvarar den virtuella Windows-datorn @ no__t-1
+   fliken ![grunder som motsvarar den virtuella Windows-datorn](./media/provision-vm/review-create-windows.png)
 
 1. Fyll i fliken **grundläggande** :
       * **Prenumeration**: om du har mer än en prenumeration väljer du den som datorn ska skapas i och faktureras. Du måste ha behörighet att skapa resurser för prenumerationen.
@@ -72,7 +72,7 @@ Du kan också bifoga en DSVM till Azure Notebooks för att köra Jupyter-anteckn
 ## <a name="next-steps"></a>Nästa steg
 
 * Utforska verktygen på DSVM genom att öppna **Start** -menyn.
-* Lär dig mer om tjänsten Azure Machine Learning genom att läsa [Vad är Azure Machine Learning tjänsten?](../service/overview-what-is-azure-ml.md) och prova [själv studie kurserna](../index.yml).
+* Läs mer om Azure Machine Learning genom att läsa [Vad är Azure Machine Learning?](../service/overview-what-is-azure-ml.md) och prova [själv studie kurserna](../index.yml).
 * I Utforskaren bläddrar du till C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts for samples som använder RevoScaleR-biblioteket i R som stöder data analys i företags skala. 
 * Läs artikeln [tio saker du kan göra på data science Virtual Machine](https://aka.ms/dsvmtenthings).
 * Lär dig hur du bygger analytiska lösningar från slut punkt till slut punkt med hjälp av [team data science-processen](../team-data-science-process/index.yml).

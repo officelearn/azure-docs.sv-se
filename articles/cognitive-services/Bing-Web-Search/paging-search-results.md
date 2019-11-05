@@ -9,20 +9,20 @@ ms.assetid: 26CA595B-0866-43E8-93A2-F2B5E09D1F3B
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/31/2019
 ms.author: aahi
-ms.openlocfilehash: 9fc05ab42c75bac1f8e192dd4fe20bb142881479
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: ea883bb294a8769b3c9be1e0eafc2e3e7c811b48
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176912"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481741"
 ---
 # <a name="how-to-page-through-results-from-the-bing-search-apis"></a>Så här bläddrar du genom resultat från API:er för Bing-sökresultat
 
-När du skickar ett anrop till webb-, anpassade-, bild-, diskussions-eller Videosökning-API: er för Bing returnerar Bing en delmängd av det totala antalet resultat som kan vara relevanta för frågan. Om du vill få det uppskattade totala antalet tillgängliga resultat kan du komma åt svars objektets `totalEstimatedMatches`-fält. 
+När du skickar ett anrop till webb-, anpassade-, bild-, diskussions-eller Videosökning-API: er för Bing returnerar Bing en delmängd av det totala antalet resultat som kan vara relevanta för frågan. Om du vill få det uppskattade totala antalet tillgängliga resultat kan du komma åt svars objektets `totalEstimatedMatches` fält. 
 
-Exempel: 
+Till exempel: 
 
 ```json
 {
@@ -37,17 +37,17 @@ Exempel:
 
 ## <a name="paging-through-search-results"></a>Växling genom Sök Resultat
 
-Om du vill bläddra igenom de tillgängliga resultaten använder du parametrarna `count` och `offset` när du skickar din begäran.  
+Om du vill bläddra igenom de tillgängliga resultaten använder du parametrarna `count` och `offset` Query när du skickar din begäran.  
 
 > [!NOTE]
 >
-> * Sid indelning med Bing Video-, bild-och diskussions grupps-API: erna gäller endast för allmän video (`/video/search`), Nyheter (`/news/search`) och bild (`/image/search`)-sökningar. Det går inte att växla mellan olika trender och kategorier.  
-> * Fältet `TotalEstimatedMatches` är en uppskattning av det totala antalet Sök Resultat för den aktuella frågan. När du ställer in parametrarna `count` och `offset` kan den här uppskattningen ändras.
+> * Sid indelning med Bing Video-, bild-och diskussions grupps-API: erna gäller endast för allmänna video (`/video/search`), Nyheter (`/news/search`) och bild (`/image/search`). Det går inte att växla mellan olika trender och kategorier.  
+> * Fältet `TotalEstimatedMatches` är en uppskattning av det totala antalet Sök Resultat för den aktuella frågan. När du ställer in `count` och `offset` parametrar, kan den här uppskattningen ändras.
 
 | Parameter | Beskrivning                                                                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `count`   | Anger antalet resultat som ska returneras i svaret. Observera att standardvärdet för `count` och det maximala antalet resultat som kan begäras varierar beroende på API. Du hittar dessa värden i referens dokumentationen under [Nästa steg](#next-steps). |
-| `offset`  | Anger antalet resultat som ska hoppas över. @No__t-0 är noll-baserat och måste vara mindre än (`totalEstimatedMatches` @ no__t-2 @ no__t-3).                                           |
+| `count`   | Anger antalet resultat som ska returneras i svaret. Observera att standardvärdet för `count`och det maximala antalet resultat som kan begäras varierar beroende på API. Du hittar dessa värden i referens dokumentationen under [Nästa steg](#next-steps). |
+| `offset`  | Anger antalet resultat som ska hoppas över. `offset` är noll-baserat och måste vara mindre än (`totalEstimatedMatches` - `count`).                                           |
 
 Om du till exempel vill visa 15 resultat per sida anger du `count` till 15 och `offset` till 0 för att få den första resultat sidan. För varje efterföljande API-anrop skulle du öka `offset` med 15. I följande exempel begärs 15 webb sidor som börjar vid förskjutningen 45.
 
@@ -57,7 +57,7 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```
 
-Om du använder standardvärdet för `count` behöver du bara ange parametern `offset` i dina API-anrop.  
+Om du använder standard `count`s värdet behöver du bara ange parametern `offset` fråga i dina API-anrop.  
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&offset=45&mkt=en-us HTTP/1.1  
@@ -65,10 +65,12 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```
 
+När du använder Bing-avbildningen och video-API: er kan du använda `nextOffset`-värdet för att undvika dubbla Sök resultat. Hämta värdet från `Images` eller `Videos` svars objekt och Använd det i dina begär Anden med `offset`-parametern.  
+
 > [!NOTE]
-> API för webbsökning i Bing returnerar Sök resultat som kan innehålla webb sidor, bilder, videor och nyheter. När du bläddrar genom Sök resultatet från API för webbsökning i Bing, är du bara att växla [webb sidor](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage)och inte andra svars typer, till exempel bilder eller nyheter. Sök resultat i `WebPage`-objekt kan innehålla resultat som även visas i andra svars typer.
+> API för webbsökning i Bing returnerar Sök resultat som kan innehålla webb sidor, bilder, videor och nyheter. När du bläddrar genom Sök resultatet från API för webbsökning i Bing, är du bara att växla [webb sidor](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage)och inte andra svars typer, till exempel bilder eller nyheter. Sök resultat i `WebPage` objekt kan innehålla resultat som även visas i andra svars typer.
 >
-> Om du använder parametern `responseFilter` utan att ange några filter värden ska du inte använda parametrarna `count` och `offset`. 
+> Om du använder parametern `responseFilter` fråga utan att ange några filter värden ska du inte använda parametrarna `count` och `offset`. 
 
 ## <a name="next-steps"></a>Nästa steg
 

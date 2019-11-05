@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: aa3e3b63bdfda7aa6d875055dee4c69b9840db25
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: e07939bd5f0264df637fda439d96be213a8d28d1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "72167355"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499216"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Vad är Apache Hive och HiveQL på Azure HDInsight?
 
 [Apache Hive](https://hive.apache.org/) är ett informations lager system för Apache Hadoop. Hive möjliggör data sammanfattning, frågor och analys av data. Hive-frågor skrivs i HiveQL, vilket är ett frågespråk som liknar SQL.
 
-Med Hive kan du projicera strukturen på mycket ostrukturerade data. När du har definierat strukturen kan du använda HiveQL för att fråga data utan kunskaper om Java eller MapReduce.
+Med Hive kan du projicera strukturer på storskaliga data. När du har definierat strukturen kan du använda HiveQL för att fråga data utan kunskaper om Java eller MapReduce.
 
 HDInsight tillhandahåller flera kluster typer, som är anpassade för vissa arbets belastningar. Följande kluster typer används oftast för Hive-frågor:
 
@@ -139,7 +139,7 @@ I föregående exempel utför HiveQL-instruktionerna följande åtgärder:
 
 * `ROW FORMAT`: anger Hive hur data formateras. I det här fallet separeras fälten i varje logg med ett blank steg.
 
-* `STORED AS TEXTFILE LOCATION`: meddelar Hive var data lagras (`example/data`-katalogen) och att den lagras som text. Data kan finnas i en fil eller spridas över flera filer i katalogen.
+* `STORED AS TEXTFILE LOCATION`: anger Hive var data lagras (`example/data` katalogen) och lagras som text. Data kan finnas i en fil eller spridas över flera filer i katalogen.
 
 * `SELECT`: väljer ett antal rader där kolumnen **T4** innehåller värdet **[Error]** . Den här instruktionen returnerar värdet **3** eftersom det finns tre rader som innehåller det här värdet.
 
@@ -171,7 +171,7 @@ Dessa instruktioner utför följande åtgärder:
 
 * `CREATE TABLE IF NOT EXISTS`: om tabellen inte finns skapar du den. Eftersom det **externa** nyckelordet inte används skapar den här instruktionen en intern tabell. Tabellen lagras i Hive-datalagret och hanteras fullständigt av Hive.
 
-* `STORED AS ORC`: lagrar data i optimerade rad kolumners (ORC)-format. ORC är ett mycket optimerat och effektivt format för att lagra Hive-data.
+* `STORED AS ORC`: lagrar data i optimerade rad kolumners (ORC) format. ORC är ett mycket optimerat och effektivt format för att lagra Hive-data.
 
 * `INSERT OVERWRITE ... SELECT`: väljer rader från tabellen **log4jLogs** som innehåller **[Error]** och infogar sedan data i tabellen **errorLogs** .
 

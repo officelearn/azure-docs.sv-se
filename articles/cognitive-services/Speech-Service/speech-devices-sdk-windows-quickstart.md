@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Kör tal enheter SDK i Windows-Speech-tjänsten'
+title: 'Snabb start: kör tal enheter SDK i Windows-Speech-tjänsten'
 titleSuffix: Azure Cognitive Services
 description: Krav och anvisningar för att komma igång med en Windows Speech-enhet SDK.
 services: cognitive-services
@@ -10,28 +10,28 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: erhopf
-ms.openlocfilehash: ad90a6443cc1c94bcdb730e783b82dfdd4798676
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b1f23ffac26cb48493f013290654189162861a27
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553040"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468739"
 ---
-# <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows"></a>Snabbstart: Kör exempel programmet för tal enheter SDK i Windows
+# <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows"></a>Snabb start: Kör exempel programmet för tal enheter SDK i Windows
 
-I den här snabb starten lär du dig att använda tal enheter SDK för Windows för att bygga en tal aktive rad produkt eller använda den som en avskrifts enhet för [konversation](conversation-transcription-service.md) . För närvarande stöds endast [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) .
+I den här snabb starten lär du dig att använda tal enheter SDK för Windows för att bygga en tal aktive rad produkt eller använda den som en [Avskrifts](conversation-transcription-service.md) enhet för konversation. För närvarande stöds endast [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) .
 
 Programmet har skapats med tal-SDK-paketet och Sol förmörkelse Java IDE (v4) på 64-bitars Windows. Det körs i en 64-bitars Java 8-körningsmiljö (JRE).
 
 Den här guiden kräver ett [Azure Cognitive Services](get-started.md) -konto med en Speech Services-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 
-Käll koden för [exempel programmet](https://aka.ms/sdsdk-download-JRE) ingår i tal enheter SDK. Det är också [finns på GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
+Käll koden för [exempel programmet](https://aka.ms/sdsdk-download-JRE) ingår i tal enheter SDK. Det finns också [på GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 
-* Operativsystem: 64-bitars Windows
+* Operativ system: 64-bitars Windows
 * [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * Endast [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) eller [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html) .
@@ -55,7 +55,7 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
 
 1. Efter en liten stund visas huvudfönstret i Eclipse IDE. Stäng välkomstskärmen om en sådan visas.
 
-1. Skapa ett nytt projekt från meny raden för Sol förmörkelse genom att välja **Arkiv** > **nytt** > **Java-projekt**. Om det inte är tillgängligt väljer du **projekt** och sedan **Java-projekt**.
+1. Skapa ett nytt projekt från meny raden för Sol förmörkelse genom att välja **arkiv** > **nytt** > **Java-projekt**. Om det inte är tillgängligt väljer du **projekt** och sedan **Java-projekt**.
 
 1. Guiden **nytt Java-projekt** startar. **Bläddra** efter exempel projektets plats. Välj **Slutför**.
 
@@ -65,13 +65,13 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
 
    ![Skärmbild av Paketutforskaren](media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
-1. Kopiera `kws.table`och  till projektmappen target\classes `participants.properties` `Microsoft.CognitiveServices.Speech.extension.pma.dll`
+1. Kopiera `kws.table`, `participants.properties` och `Microsoft.CognitiveServices.Speech.extension.pma.dll` till projektmappen **target\classes**
 
 ## <a name="configure-the-sample-application"></a>Konfigurera exempel programmet
 
-1. Lägg till din tal prenumerations nyckel i käll koden. Om du vill prova taligenkänning kan också lägga till din [tjänst för Språkförståelse](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) prenumerationsnyckel och program-ID.
+1. Lägg till din tal prenumerations nyckel i käll koden. Om du vill prova avsikts igenkänning lägger du också till din [language Understanding tjänst](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) prenumerations nyckel och program-ID.
 
-   För tal-och LUIS går din information till `FunctionsList.java`:
+   För tal-och LUIS hamnar informationen i `FunctionsList.java`:
 
    ```java
     // Subscription
@@ -82,23 +82,23 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-    Om du använder en konversations avskrift krävs även din information om din röst nyckel och region `Cts.java`i:
+    Om du använder en konversations avskrift behövs även din information om din nyckel och region i `Cts.java`:
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
     ```
 
-1. Standard wake ordet (nyckelordet) är ”dator”. Du kan också prova något av de andra tillhandahålls wake ord, som till exempel ”dator” eller ”assistenten”. Resursfiler för dessa alternativa wake ord är i tal enheter SDK i mappen nyckelord. `C:\SDSDK\JRE-Sample-Release\keyword\Computer` Innehåller till exempel de filer som används för ordet "dator" i Wake.
+1. Standard nyckelordet (Keyword) är "Computer". Du kan också prova något av de andra angivna nyckelorden, t. ex. "Machine" eller "Assistant". Resursfiler för dessa alternativa nyckelord finns i avsnittet om tal enheter SDK i mappen nyckelord. `C:\SDSDK\JRE-Sample-Release\keyword\Computer` innehåller till exempel de filer som används för nyckelordet "dator".
 
    > [!TIP]
-   > Du kan också [skapa en anpassad aktivering word](speech-devices-sdk-create-kws.md).
+   > Du kan också [skapa ett anpassat nyckelord](speech-devices-sdk-create-kws.md).
 
-    Om du vill använda ett nytt aktiverings ord uppdaterar du följande två `FunctionsList.java`rader i och kopierar Väcknings ord paketet till din app. Om du till exempel vill använda Väcknings ordet "dator" från Väcknings ord paketet `kws-machine.zip`:
+    Om du vill använda ett nytt nyckelord uppdaterar du följande två rader i `FunctionsList.java`och kopierar nyckelords paketet till din app. Om du till exempel vill använda nyckelordet "dator" från nyckelords paketet `kws-machine.zip`:
 
-   * Kopiera Väcknings ord paketet till projektmappen **/-klasserna**i Project-mappen.
+   * Kopiera nyckelords paketet till projekt-mappens **mål/klasser**.
 
-   * `FunctionsList.java` Uppdatera med nyckelordet och paket namnet:
+   * Uppdatera `FunctionsList.java` med nyckelordet och paket namnet:
 
      ```java
      private static final String Keyword = "Machine";
@@ -107,15 +107,15 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
 
 ## <a name="run-the-sample-application-from-eclipse"></a>Köra exempel programmet från Sol förmörkelse
 
-1. I meny raden för Sol förmörkelse **Kör** > du**Kör som** > **Java-program**. Välj sedan **FunctionsList** och **OK**.
+1. I meny raden för Sol förmörkelse **kör** > **Kör som** > **Java-program**. Välj sedan **FunctionsList** och **OK**.
 
    ![Skärm bild av Välj Java-program](media/speech-devices-sdk/eclipse-run-sample.png)
 
-1. Exempelprogram för tal Devices SDK startar och välja mellan följande alternativ:
+1. Exempel programmet för tal enheter SDK startar och visar följande alternativ:
 
-   ![Exempelprogrammet tal Devices SDK exempel och alternativ](media/speech-devices-sdk/java-sample-app-windows.png)
+   ![Exempel program och alternativ för exempel på tal enheter SDK](media/speech-devices-sdk/java-sample-app-windows.png)
 
-1. Prova den nya  demonstrationen av konversations avskrift. Börja skriva med **session** > **Start**. Som standard är alla gäst. Men om du har deltagares röst-signaturer kan de placeras i en fil `participants.properties` i projektmappen **mål/klasser**. Om du vill generera röst signaturen tittar du på Skicka [konversationer (SDK)](how-to-use-conversation-transcription-service.md).
+1. Prova den nya demonstrationen av **konversations avskrift** . Börja skriva med **sessionen** > **Starta**. Som standard är alla gäst. Men om du har deltagares röst-signaturer kan de placeras i en fil `participants.properties` i projektmappen **mål/klasser**. Om du vill generera röst signaturen tittar du på Skicka [konversationer (SDK)](how-to-use-conversation-transcription-service.md).
 
    ![Avskrifts program för demo konversation](media/speech-devices-sdk/cts-sample-app-windows.png)
 
@@ -131,7 +131,7 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
  
    ![Skärm bild av körbara JAR File export](media/speech-devices-sdk/eclipse-export-jar-windows.png)
 
-1. Lägg `kws.table`till `participants.properties` ,`pma.dll` , och imålmappensomväljsovansomdehärfilernabehövsavprogrammet.`Microsoft.CognitiveServices.Speech.extension.pma.dll` `unimic_runtime.dll`
+1. Sätt `kws.table`, `participants.properties`, `unimic_runtime.dll`, `pma.dll` och `Microsoft.CognitiveServices.Speech.extension.pma.dll` i målmappen som väljs ovan som de här filerna behövs för programmet.
 
 1. Köra det fristående programmet
 
@@ -142,4 +142,4 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Granska viktig information](devices-sdk-release-notes.md)
+> [Läs viktig information](devices-sdk-release-notes.md)

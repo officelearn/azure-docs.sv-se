@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: b18e1b755b4e1339bf00380d8228fc28e355d3e1
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 577a76b628e40b7651345698a46cba255b16a828
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802513"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464556"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Förbereda data för Custom Speech
 
@@ -25,11 +25,11 @@ Oavsett om du testar för att se hur korrekt Microsoft tal igenkänning är elle
 
 I den här tabellen listas godkända data typer, när varje datatyp ska användas och den rekommenderade kvantiteten. Det krävs inte alla data typer för att skapa en modell. Data kraven varierar beroende på om du skapar ett test eller tränar en modell.
 
-| Datatyp | Används för testning | Antal | Används för utbildning | Antal |
+| Datatyp | Används för testning | Kvantitet | Används för utbildning | Kvantitet |
 |-----------|-----------------|----------|-------------------|----------|
-| [Ljud](#audio-data-for-testing) | Ja<br>Används för visuell granskning | 5 + ljudfiler | Nej | Ej tillämpligt |
+| [In](#audio-data-for-testing) | Ja<br>Används för visuell granskning | 5 + ljudfiler | Nej | ej tillämpligt |
 | [Ljud + medmärkta avskrifter](#audio--human-labeled-transcript-data-for-testingtraining) | Ja<br>Används för att utvärdera noggrannhet | 0,5 – 5 timmars ljud | Ja | 1 – 1 000 timmars ljud |
-| [Relaterad text](#related-text-data-for-training) | Nej | Ej tillämpligt | Ja | 1-200 MB relaterad text |
+| [Relaterad text](#related-text-data-for-training) | Nej | ej tillämpligt | Ja | 1-200 MB relaterad text |
 
 Filerna ska grupperas efter typ i en data uppsättning och laddas upp som en zip-fil. Varje data uppsättning får bara innehålla en enda datatyp.
 
@@ -52,10 +52,10 @@ Ljuddata är optimala för att testa noggrannheten hos Microsofts bas linje tal-
 
 Använd den här tabellen för att se till att ljudfilerna är korrekt formaterade för användning med Custom Speech:
 
-| Egenskap | Value |
+| Egenskap | Värde |
 |----------|-------|
 | Fil format | RIFF (WAV) |
-| Samplingshastighet | 8 000 Hz eller 16 000 Hz |
+| Samplings frekvens | 8 000 Hz eller 16 000 Hz |
 | Kanaler | 1 (mono) |
 | Maximal längd per ljud | 2 timmar |
 | Exempel format | PCM, 16-bitars |
@@ -73,10 +73,10 @@ Om ljudet inte uppfyller dessa egenskaper eller om du vill kontrol lera om det g
 
 För att mäta noggrannheten hos Microsofts tal-till-text-precision vid bearbetning av ljudfiler, måste du tillhandahålla medmärkta avskrifter (ord för ord) för jämförelse. Även om det ofta finns tids krävande avskrifter, är det nödvändigt att utvärdera precisionen och träna modellen för dina användnings fall. Kom ihåg att förbättringarna i igenkänningen bara är lika lämpliga som de data som tillhandahålls. Därför är det viktigt att endast avskrifter av hög kvalitet överförs.  
 
-| Egenskap | Value |
+| Egenskap | Värde |
 |----------|-------|
 | Fil format | RIFF (WAV) |
-| Samplingshastighet | 8 000 Hz eller 16 000 Hz |
+| Samplings frekvens | 8 000 Hz eller 16 000 Hz |
 | Kanaler | 1 (mono) |
 | Maximal längd per ljud | 60 s |
 | Exempel format | PCM, 16-bitars |
@@ -85,7 +85,7 @@ För att mäta noggrannheten hos Microsofts tal-till-text-precision vid bearbetn
 
 För att lösa problem som Word-borttagning eller ersättning krävs en stor mängd data för att förbättra igenkänningen. I allmänhet rekommenderar vi att du ger ord för ord-avskrifter i ungefär 10 till 1 000 timmar av ljud. Transkriptioner för alla WAV-filer bör ingå i en enda fil med oformaterad text. Varje rad i transkriptionsfilen ska innehålla namnet på en av ljudfilerna följt av motsvarande transkription. Filnamnet och transkriptionen ska separeras med ett tabbtecken (\t).
 
-  Exempel:
+  Till exempel:
 ```
   speech01.wav  speech recognition is awesome
   speech02.wav  the quick brown fox jumped all over the place
@@ -94,7 +94,7 @@ För att lösa problem som Word-borttagning eller ersättning krävs en stor mä
 > [!NOTE]
 > Transkriptionen ska kodas som UTF-8-byteordningsmärke (BOM).
 
-Transkriptionerna textnormaliseras så att de kan bearbetas av systemet. Det finns dock vissa viktiga normaliseringar som måste utföras av användaren _innan_ data laddas upp till Custom Speech Service. För det språk som ska användas när du förbereder dina avskrifter, se [så här skapar du en](how-to-custom-speech-human-labeled-transcriptions.md) medhjälpad avskrift
+Transkriptionerna textnormaliseras så att de kan bearbetas av systemet. Det finns dock några viktiga normaliseringar som måste utföras av användaren _innan_ data överförs till tal Studio. För det språk som ska användas när du förbereder dina avskrifter, se [så här skapar du en](how-to-custom-speech-human-labeled-transcriptions.md) medhjälpad avskrift
 
 När du har samlat in dina ljudfiler och motsvarande avskrifter bör de paketeras som en enda zip-fil innan de överförs till [Custom Speech Portal](https://speech.microsoft.com/customspeech). Detta är ett exempel på en data uppsättning med tre ljudfiler och en fil med mänsklig märkning:
 
@@ -117,7 +117,7 @@ Om du vill skapa en anpassad modell med relaterad text måste du ange en lista �
 
 Använd den här tabellen för att se till att din relaterade datafil för yttranden är korrekt formaterad:
 
-| Egenskap | Value |
+| Egenskap | Värde |
 |----------|-------|
 | Textkodning | UTF-8 BOM |
 | antal yttrande per rad | 1 |
@@ -138,7 +138,7 @@ Om det finns ovanliga termer utan standard uttal som användarna kommer att stö
 
 Detta inkluderar exempel på en talade uttryck och ett anpassat uttal för var och en:
 
-| Identifierat/visat formulär | Talat formulär |
+| Identifierat/visat formulär | Tal format |
 |--------------|--------------------------|
 | 3CPO | tre c p o |  
 | CNTK | c n t k |
@@ -148,14 +148,14 @@ Det talade formuläret är den fonetiska sekvensen som har stavats ut. Det kan b
 
 Anpassat uttal är tillgängligt på engelska (en-US) och tyska (de-DE). I den här tabellen visas tecken som stöds efter språk:
 
-| Språk | Nationell inställning | Karaktärer |
+| Språk | Nationell inställning | Tabbtecken |
 |----------|--------|------------|
 | Svenska | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
 | Tyska | de-DE | ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, b, x, y, z |
 
 Använd den här tabellen för att kontrol lera att din relaterade datafil för uttal är korrekt formaterad. Uttal-filerna är små och bör inte överstiga några få KB.
 
-| Egenskap | Value |
+| Egenskap | Värde |
 |----------|-------|
 | Textkodning | UTF-8-struktur (ANSI stöds också för engelska) |
 | antal uttal per rad | 1 |

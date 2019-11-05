@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Läs in New York Taxidata-data till Azure SQL Data Warehouse | Microsoft Docs'
-description: Självstudier använder Azure Portal och SQL Server Management Studio för att läsa in New York Taxidata-data från en offentlig Azure-blob till Azure SQL Data Warehouse.
+title: 'Självstudie: läsa in New York Taxidata-data till Azure SQL Data Warehouse | Microsoft Docs'
+description: Självstudier använder Azure Portal och SQL Server Management Studio för att läsa in New York Taxidata-data från en global Azure-blob till Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,20 +10,20 @@ ms.subservice: load-data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e3bef20a92322b07219e42c4f7fe8443917eae32
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 2e799d84aee9ba4d3bfb00ddfad358c9b90c3d59
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575213"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482396"
 ---
-# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Självstudier: Läs in New York Taxidata-data till Azure SQL Data Warehouse
+# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Självstudie: läsa in New York Taxidata-data till Azure SQL Data Warehouse
 
-I den här självstudien används PolyBase för att läsa in New York Taxidata-data från en offentlig Azure-blob till Azure SQL Data Warehouse. I självstudierna används [Azure-portalen](https://portal.azure.com) och [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) för att: 
+I den här självstudien används PolyBase för att läsa in New York Taxidata-data från en global Azure-blob till Azure SQL Data Warehouse. I självstudierna används [Azure-portalen](https://portal.azure.com) och [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) för att: 
 
 > [!div class="checklist"]
 > * Skapa ett informationslager på Azure-portalen
-> * Skapa en brandväggsregel på servernivå på Azure-portalen
+> * Skapade en brandväggsregel på servernivå på Azure-portalen
 > * Ansluta till informationslagret med SSMS
 > * Skapa en användare som utsetts för att läsa in data
 > * Skapa externa tabeller för data i Azure blobblagring
@@ -38,13 +38,13 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 Innan du börjar med de här självstudierna ska du ladda ned och installera den senaste versionen av [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
+## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Skapa en tom SQL Data Warehouse
 
-En Azure SQL Data Warehouse skapas med en definierad uppsättning beräknings [resurser](memory-and-concurrency-limits.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-features.md). 
+En Azure SQL Data Warehouse skapas med en definierad uppsättning [beräknings resurser](memory-and-concurrency-limits.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-features.md). 
 
 Följ de här stegen för att skapa en tom SQL Data Warehouse. 
 
@@ -72,7 +72,7 @@ Följ de här stegen för att skapa en tom SQL Data Warehouse.
     | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
     | **Inloggning för serveradministratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
     | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
-    | **Location** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
+    | **Plats** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
 
     ![skapa databasserver](media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
 
@@ -150,9 +150,9 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
     | ------------ | --------------- | ----------- | 
     | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
     | servernamn | Fullständigt kvalificerat servernamn | Namnet ska vara något som liknar detta: **mynewserver-20180430.Database.Windows.net**. |
-    | Authentication | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi har konfigurerat i den här kursen. |
-    | Logga in | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
-    | lösenordsinställning | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
+    | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi har konfigurerat i den här kursen. |
+    | Inloggning | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
+    | Lösenord | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
 
     ![Anslut till server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 
@@ -181,7 +181,7 @@ Eftersom du för närvarande är ansluten som serveradministratör kan du skapa 
     CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
     ```
 
-3. Klicka på **Kör**.
+3. Klicka på **Execute**.
 
 4. Högerklicka på **mySampleDataWarehouse** och välj **Ny fråga**. Ett nytt frågefönster öppnas.  
 
@@ -195,7 +195,7 @@ Eftersom du för närvarande är ansluten som serveradministratör kan du skapa 
     EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
     ```
 
-6. Klicka på **Kör**.
+6. Klicka på **Execute**.
 
 ## <a name="connect-to-the-server-as-the-loading-user"></a>Ansluta till servern som inläsningsanvändare
 

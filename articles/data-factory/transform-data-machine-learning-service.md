@@ -1,6 +1,6 @@
 ---
-title: Köra Azure Machine Learning tjänst pipelines i Azure Data Factory pipelines | Microsoft Docs
-description: Lär dig hur du kör Azure Machine Learning tjänstens pipeliner i Azure Data Factory pipeliner.
+title: Köra Azure Machine Learning pipelines i Azure Data Factory pipelines | Microsoft Docs
+description: Lär dig hur du kör Azure Machine Learning pipelines i Azure Data Factory pipeliner.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 author: djpmsft
 ms.author: daperlov
-ms.openlocfilehash: ddaa020b3567f8f00cfd7fc7f7728f1160d9306b
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: c05a0fde7019d9162a051a04696c2251301d70dc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301352"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490591"
 ---
-# <a name="execute-azure-machine-learning-service-pipelines-in-azure-data-factory"></a>Köra Azure Machine Learning tjänst pipeliner i Azure Data Factory
+# <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Köra Azure Machine Learning pipelines i Azure Data Factory
 
-Kör pipelinen Azure Machine Learning service som ett steg i Azure Data Factory pipeliner. Med aktiviteten kör pipeline för Machine Learning kan du definiera scenarier för batch-förutsägelse, till exempel identifiera möjliga låne standarder, bestämma sentiment och analysera kund beteende mönster.
+Kör Azure Machine Learning pipelines som ett steg i Azure Data Factory pipeliner. Med aktiviteten kör pipeline för Machine Learning kan du definiera scenarier för batch-förutsägelse, till exempel identifiera möjliga låne standarder, bestämma sentiment och analysera kund beteende mönster.
 
 ## <a name="syntax"></a>Syntax
 
@@ -48,11 +48,11 @@ Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 namn | Namn på aktiviteten i pipelinen | Sträng | Ja
 typ | Typ av aktivitet är ' AzureMLExecutePipeline ' | Sträng | Ja
-linkedServiceName | Länkad tjänst till Azure Machine Learning tjänst | Länkad tjänst referens | Ja
+linkedServiceName | Länkad tjänst till Azure Machine Learning | Länkad tjänst referens | Ja
 mlPipelineId | ID för den publicerade Azure Machine Learning pipelinen | Sträng (eller uttryck med resultType för sträng) | Ja
 experimentName | Körnings experimentets experiment namn för Machine Learning pipeline-körningen | Sträng (eller uttryck med resultType för sträng) | Nej
 mlPipelineParameters | Nyckel, värdepar som ska skickas till den publicerade Azure Machine Learning pipeline-slutpunkten. Nycklar måste matcha namnen på de pipeline-parametrar som definierats i den publicerade Machine Learning pipelinen | Objekt med nyckel värdes par (eller uttryck med resultType-objekt) | Nej
-mlParentRunId | Den överordnade Azure Machine Learning tjänstens pipeline körnings-ID | Sträng (eller uttryck med resultType för sträng) | Nej
+mlParentRunId | ID för pipeline-körning för överordnad Azure Machine Learning | Sträng (eller uttryck med resultType för sträng) | Nej
 continueOnStepFailure | Om körningen av andra steg i Machine Learning pipelinen ska fortsätta köras om ett steg Miss lyckas | boolesk | Nej
 
 ## <a name="next-steps"></a>Nästa steg

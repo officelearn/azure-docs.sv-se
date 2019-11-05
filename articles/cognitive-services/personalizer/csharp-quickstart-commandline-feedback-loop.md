@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/26/2019
+ms.date: 10/24/2019
 ms.author: diberry
-ms.openlocfilehash: 4308ed6d00bd3900986f08a93a686f0d7d00bcfb
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: b86a8df86b7f9b8a5936752a5f0413aa863ae85f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515593"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490800"
 ---
 # <a name="quickstart-personalizer-client-library-for-net"></a>Snabb start: ett personligt klient bibliotek för .NET
 
@@ -26,9 +26,9 @@ Kom igång med personanpassa klient biblioteket för .NET. Följ de här stegen 
  * Rangordna en lista med åtgärder för anpassning.
  * Rapportera belönings Poäng som indikerar att det främsta antalet rankade åtgärder lyckades.
 
-[Referens dokumentation](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer?view=azure-dotnet-preview)  | [Library Source Code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer)  | [Package (NuGet)  | -](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/) [exempel](https://github.com/Azure-Samples/cognitive-services-personalizer-samples)
+[Referens dokumentation](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer?view=azure-dotnet-preview) | [Library Source Code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer) | [Package (NuGet) | -](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/) [exempel](https://github.com/Azure-Samples/cognitive-services-personalizer-samples)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
@@ -38,29 +38,28 @@ Kom igång med personanpassa klient biblioteket för .NET. Följ de här stegen 
 Det finns flera steg för att använda den här snabb starten:
 
 * I Azure Portal skapar du en personanpassar-resurs
-* I Azure Portal, för personanpassa resursen, på sidan **Inställningar** ändrar du modell uppdaterings frekvensen
+* I Azure Portal för personanpassa resursen, på sidan **konfiguration** , ändrar du modell uppdaterings frekvensen
 * Skapa en kod fil i en kod redigerare och redigera kod filen
 * På kommando raden eller terminalen installerar du SDK från kommando raden
 * Kör kod filen i kommando raden eller terminalen
 
 ## <a name="create-a-personalizer-azure-resource"></a>Skapa en personanpassa Azure-resurs
 
-Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för Personanpassare med hjälp av [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på den lokala datorn. Du kan också:
+Skapa en resurs för Personanpassare med hjälp av [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på den lokala datorn. Du kan också:
 
 * Få en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services) som är giltig i 7 dagar utan kostnad. När du har registrerat dig är den tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Visa din resurs på [Azure Portal](https://portal.azure.com/).
 
-<!-- rename TBD_KEY to something meaningful for your service, like TEXT_ANALYTICS_KEY -->
 När du har skaffat en nyckel från din utvärderings prenumeration eller resurs skapar du två [miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication):
 
 * `PERSONALIZER_RESOURCE_KEY` för resurs nyckeln.
 * `PERSONALIZER_RESOURCE_ENDPOINT` för resurs slut punkten.
 
-I Azure Portal är både nyckel-och slut punkts värden tillgängliga på sidan **snabb start** .
+I Azure Portal är både nyckel-och slut punkts värden tillgängliga från **snabb starts** sidan.
 
 ## <a name="change-the-model-update-frequency"></a>Ändra modell uppdaterings frekvensen
 
-I Azure Portal i gruppen personanpassa på sidan **Inställningar** ändrar du **modell uppdaterings frekvensen** till 10 sekunder. Detta kommer att träna tjänsten snabbt, så att du kan se hur de viktigaste åtgärderna ändras för varje iteration.
+I Azure Portal i gruppen personanpassa på sidan **konfiguration** ändrar du **modell uppdaterings frekvensen** till 10 sekunder. Den här korta varaktigheten kommer att träna tjänsten snabbt, så att du kan se hur de viktigaste åtgärderna ändras för varje iteration.
 
 ![Ändra modell uppdaterings frekvens](./media/settings/configure-model-update-frequency-settings.png)
 
@@ -110,11 +109,11 @@ Om du vill be om innehållets rangordning skapar du en [RankRequest](https://doc
 
 Om du vill skicka en belöning till Personanpassan skapar du en [RewardRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rewardrequest?view=azure-dotnet-preview)och skickar den till [klienten. Belönings](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclientextensions.reward?view=azure-dotnet-preview) metod. 
 
-Att fastställa belöningen i den här snabb starten är trivial. I ett produktions system kan du bestämma vad som påverkar [belönings poängen](concept-rewards.md) och hur mycket som kan vara en komplicerad process som du kan välja att ändra med tiden. Detta bör vara ett av de primära design besluten i din anpassnings arkitektur. 
+Att fastställa belöningen i den här snabb starten är trivial. I ett produktions system kan du bestämma vad som påverkar [belönings poängen](concept-rewards.md) och hur mycket som kan vara en komplicerad process som du kan välja att ändra med tiden. Det här design beslutet bör vara ett av de viktigaste besluten i din personanpassa arkitektur. 
 
 ## <a name="code-examples"></a>Kod exempel
 
-De här kodfragmenten visar hur du gör följande med personanpassa klient biblioteket för .NET:
+De här kodfragmenten visar hur du utför följande uppgifter med personanpassa klient biblioteket för .NET:
 
 * [Skapa en personanpassa klient](#create-a-personalizer-client)
 * [Begär en rang](#request-a-rank)
@@ -272,7 +271,7 @@ dotnet run
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portalen](../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg
@@ -282,5 +281,5 @@ Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort 
 
 * [Vad är Personanpassare?](what-is-personalizer.md)
 * [Var kan du använda Personanpassare?](where-can-you-use-personalizer.md)
-* [Troubleshooting](troubleshooting.md) (Felsökning)
+* [Felsökning](troubleshooting.md)
 

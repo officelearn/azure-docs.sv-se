@@ -1,5 +1,5 @@
 ---
-title: Inbyggd data extrahering, naturligt språk, bild bearbetning
+title: Inbyggda kunskaper för data extrahering, naturligt språk, bild bearbetning under indexering.
 titleSuffix: Azure Cognitive Search
 description: Data extrahering, naturligt språk, kognitiva bild bearbetnings kunskaper Lägg till semantik och struktur till rå data i en Azure Kognitiv sökning pipeline.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 435635018dc25ed2af0aec3d542c0388af8ab885
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 2f03752c5fda366fc16b681d71ba68486527a30f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792088"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466807"
 ---
 # <a name="built-in-cognitive-skills-for-content-enrichment-azure-cognitive-search"></a>Inbyggda kognitiva kunskaper för innehålls anrikning (Azure Kognitiv sökning)
 
@@ -25,7 +25,7 @@ I den här artikeln får du lära dig om kognitiva färdigheter som medföljer A
 > Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan med priser för Azure kognitiv sökning](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
-## <a name="built-in-skills"></a>Inbyggda kunskaper
+## <a name="built-in-skills"></a>Inbyggda färdigheter
 
 Flera färdigheter är flexibla i vad de använder eller producerar. I allmänhet baseras de flesta kunskaper på förtränade modeller, vilket innebär att du inte kan träna modellen med dina egna tränings data. I följande tabell räknas och beskrivs de kunskaper som tillhandahålls av Microsoft. 
 
@@ -41,13 +41,14 @@ Flera färdigheter är flexibla i vad de använder eller producerar. I allmänhe
 | [Microsoft. färdigheter. vision. ImageAnalysisSkill](cognitive-search-skill-image-analysis.md) | Den här kunskapen använder en algoritm för avbildnings avkänning för att identifiera innehållet i en bild och generera en text beskrivning. |
 | [Microsoft. färdigheter. vision. OcrSkill](cognitive-search-skill-ocr.md) | Optisk typsnitts igenkänning. |
 | [Microsoft. färdigheter. util. ConditionalSkill](cognitive-search-skill-conditional.md) | Tillåter filtrering, tilldelar ett standardvärde och sammanfogar data baserat på ett villkor.|
+| [Microsoft. färdigheter. util. DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) | Extraherar innehåll från en fil inom en pipeline för anrikning. |
 | [Microsoft. färdigheter. util. ShaperSkill](cognitive-search-skill-shaper.md) | Mappar utdata till en komplex typ (en data typ med flera delar, som kan användas för ett fullständigt namn, en rad med flera rader eller en kombination av efter namn och personligt ID.) |
 | [Microsoft. färdigheter. Custom. WebApiSkill](cognitive-search-custom-skill-web-api.md) | Tillåter utökning av en AI-rikare pipeline genom att göra ett HTTP-anrop till ett anpassat webb-API |
 
 
 Information om hur du skapar en [anpassad färdighet](cognitive-search-custom-skill-web-api.md)finns i [så här definierar du ett anpassat gränssnitt](cognitive-search-custom-skill-interface.md) och [exempel: skapa en anpassad färdighet för AI-berikning](cognitive-search-create-custom-skill-example.md).
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
 + [Definition av anpassat kompetens gränssnitt](cognitive-search-custom-skill-interface.md)

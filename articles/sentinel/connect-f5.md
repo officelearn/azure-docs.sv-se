@@ -13,120 +13,111 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 10/13/2019
 ms.author: rkarlin
-ms.openlocfilehash: 64ea16b6e5a2821db4f053928e4b95ba80d177dd
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 9e7ceee07cfc81953709e3077a6af14388e40e99
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240013"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475823"
 ---
-# <a name="connect-your-f5-appliance"></a>Anslut din F5-apparat
+# <a name="connect-f5-to-azure-sentinel"></a>Anslut F5 till Azure Sentinel
+
+Den här artikeln förklarar hur du ansluter din F5-enhet till Azure Sentinel. Med F5-datakopplingen kan du enkelt ansluta dina F5-loggar med Azure Sentinel, för att visa instrument paneler, skapa anpassade aviseringar och förbättra undersökningen. Genom att använda F5 i Azure Sentinel får du mer insikter om din organisations Internet användning och förbättrar säkerhets åtgärdens funktioner. 
 
 
+## <a name="how-it-works"></a>Så här fungerar det
 
-Du kan ansluta Azure Sentinel till valfri F5-apparat genom att spara loggfilerna som syslog-CEF. Integrationen med Azure Sentinel gör det möjligt för dig att enkelt köra analyser och frågor i logg fils data från F5. Mer information om hur Azure Sentinel matar in CEF-data finns i [ansluta CEF-enheter](connect-common-event-format.md).
+Du måste distribuera en agent på en särskild Linux-dator (VM eller lokalt) för att stödja kommunikationen mellan F5 och Azure Sentinel. Följande diagram beskriver installationen i händelse av en virtuell Linux-dator i Azure.
 
-> [!NOTE]
-> Data lagras på den geografiska platsen för den arbets yta där du kör Azure Sentinel.
+ ![CEF i Azure](./media/connect-cef/cef-syslog-azure.png)
 
-## <a name="step-1-connect-your-f5-appliance-using-an-agent"></a>Steg 1: Ansluta din F5-apparat med en agent
+Detta kan också finnas om du använder en virtuell dator i ett annat moln eller på en lokal dator. 
 
-Om du vill ansluta din F5-enhet till Azure Sentinel måste du distribuera en agent på en dedikerad dator (VM eller lokalt) för att stödja kommunikationen mellan-enheten och Azure Sentinel.
+ ![CEF lokalt](./media/connect-cef/cef-syslog-onprem.png)
 
-Alternativt kan du distribuera agenten manuellt på en befintlig virtuell Azure-dator, på en virtuell dator i ett annat moln eller på en lokal dator.
 
-> [!NOTE]
-> Se till att konfigurera datorns säkerhet enligt din organisations säkerhets princip. Du kan till exempel konfigurera nätverket så att det överensstämmer med företagets nätverks säkerhets princip och ändra portarna och protokollen i daemonen så att de överensstämmer med dina krav. 
+## <a name="security-considerations"></a>Säkerhetsöverväganden
 
-Om du vill se ett nätverks diagram över båda alternativen, se [Anslut data källor](connect-data-sources.md#agent-options).
+Se till att konfigurera datorns säkerhet enligt din organisations säkerhets princip. Du kan till exempel konfigurera nätverket så att det överensstämmer med företagets nätverks säkerhets princip och ändra portarna och protokollen i daemonen så att de överensstämmer med dina krav. Du kan använda följande instruktioner för att förbättra datorns säkerhets konfiguration:  [säker virtuell dator i Azure](../virtual-machines/linux/security-policy.md), [metod tips för nätverks säkerhet](../security/fundamentals/network-best-practices.md).
 
-### <a name="deploy-the-agent"></a>Distribuera agenten 
+Om du vill använda TLS-kommunikation mellan säkerhets lösningen och syslog-datorn måste du konfigurera syslog-daemonen (rsyslog eller syslog-ng) för att kommunicera i TLS: [kryptera syslog-trafik med TLS-rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [kryptera logg meddelanden med TLS – syslog – ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
 
+ 
+## <a name="prerequisites"></a>Förutsättningar
+Kontrol lera att Linux-datorn som du använder som proxy kör något av följande operativ system:
+
+- 64-bitars
+  - CentOS 6 och 7
+  - Amazon Linux 2017,09
+  - Oracle Linux 6 och 7
+  - Red Hat Enterprise Linux Server 6 och 7
+  - Debian GNU/Linux 8 och 9
+  - Ubuntu Linux 14,04 LTS 16,04 LTS och 18,04 LTS
+  - SUSE Linux Enterprise Server 12
+- 32-bitars
+   - CentOS 6
+   - Oracle Linux 6
+   - Red Hat Enterprise Linux Server 6
+   - Debian GNU/Linux 8 och 9
+   - Ubuntu Linux 14,04 LTS och 16,04 LTS
+ 
+ - Daemon-versioner
+   - Syslog-ng: 2,1-3.22.1
+   - Rsyslog: V8
+  
+ - Syslog-RFC stöds
+   - Syslog RFC 3164
+   - Syslog RFC 5424
+ 
+Kontrol lera att datorn också uppfyller följande krav: 
+- Behörigheter
+    - Du måste ha förhöjd behörighet (sudo) på datorn. 
+- Programvarukrav
+    - Kontrol lera att du har python igång på datorn
+## <a name="step-1-deploy-the-agent"></a>STEG 1: Distribuera agenten
+
+I det här steget måste du välja den Linux-dator som ska fungera som en proxy mellan Azure Sentinel och din säkerhets lösning. Du måste köra ett skript på den proxyserver som:
+- Installerar Log Analytics agenten och konfigurerar den efter behov för att lyssna efter syslog-meddelanden på port 514 via TCP och skicka CEF-meddelanden till din Azure Sentinel-arbetsyta.
+- Konfigurerar syslog-daemonen att vidarebefordra CEF-meddelanden till Log Analytics agenten med port 25226.
+- Ställer in syslog-agenten för att samla in data och skicka dem säkert till Log Analytics, där det är parsat och berikat.
+ 
+ 
 1. I Azure Sentinel-portalen klickar du på **data kopplingar** och väljer **F5** och sedan **Öppna kopplings sida**. 
 
-1. Under **Hämta och installera syslog-agenten**väljer du dator typ, antingen Azure eller lokalt. 
-1. På skärmen **virtuella datorer** som öppnas väljer du den dator som du vill använda och klickar på **Anslut**.
-1. Om du väljer **Hämta och installera agent för virtuella Azure Linux-datorer**väljer du datorn och klickar på **Anslut**. Om du väljer **Hämta och installera agent för virtuella datorer som inte använder Azure Linux**kör du skriptet under **Ladda ned och integrera agent för Linux**på skärmen **Direct agent** .
-1. Ange om syslog-daemonen ska vara **rsyslog. d** eller **syslog-ng**på anslutnings skärmen under **Konfigurera och vidarebefordra syslog**. 
-1. Kopiera dessa kommandon och kör dem på din apparat:
-    - Om du har valt rsyslog. d:
-              
-      1. Instruera syslog-daemon att lyssna på local_4 och skicka syslog-meddelanden till Azure Sentinel-agenten med port 25226. `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
-            
-      2. Hämta och installera den [security_events-konfigurationsfil](https://aka.ms/asi-syslog-config-file-linux) som konfigurerar syslog-agenten att lyssna på port 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"`Var {0} ska ersättas med arbets ytans GUID.
-            
-      1. Starta om syslog-daemon`sudo service rsyslog restart`
-             
-    - Om du valde syslog-ng:
+1. Under **Installera och konfigurera syslog-agenten**väljer du dator typ, antingen Azure, annat moln eller lokalt. 
+   > [!NOTE]
+   > Eftersom skriptet i nästa steg installerar Log Analytics agenten och ansluter datorn till din Azure Sentinel-arbetsyta, kontrol lera att datorn inte är ansluten till någon annan arbets yta.
+1. Du måste ha förhöjd behörighet (sudo) på datorn. Se till att du har python på datorn med hjälp av följande kommando: `python –version`
 
-      1. Instruera syslog-daemon att lyssna på local_4 och skicka syslog-meddelanden till Azure Sentinel-agenten med port 25226. `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
-      2. Hämta och installera den [security_events-konfigurationsfil](https://aka.ms/asi-syslog-config-file-linux) som konfigurerar syslog-agenten att lyssna på port 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"`Var {0} ska ersättas med arbets ytans GUID.
-
-      3. Starta om syslog-daemon`sudo service syslog-ng restart`
- 1. Starta om syslog-agenten med följande kommando:`sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
- 1. Bekräfta att det inte finns några fel i agent loggen genom att köra det här kommandot:`tail /var/opt/microsoft/omsagent/log/omsagent.log`
+1. Kör följande skript på din proxyserver.
+   `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
+1. Kontrol lera att du inte får några fel eller varnings meddelanden medan skriptet körs.
 
 
-## <a name="step-2-forward-f5-logs-to-the-syslog-agent"></a>Steg 2: Vidarebefordra F5-loggar till syslog-agenten
+## <a name="step-2-configure-your-f5-to-send-cef-messages"></a>STEG 2: Konfigurera F5 för att skicka CEF-meddelanden
 
-Konfigurera F5 för att vidarebefordra syslog-meddelanden i CEF-format till din Azure-arbetsyta via syslog-agenten:
+1. Gå till [F5 Konfigurera loggning av program säkerhets händelser](https://techdocs.f5.com/kb/en-us/products/big-ip_asm/manuals/product/asm-implementations-11-5-0/12.html)och följ anvisningarna för att konfigurera fjärrloggning med hjälp av följande rikt linjer:
+   - Ange **typen av Fjärrlagring** till **CEF**.
+   - Ställ in **protokollet** på **TCP**.
+   - Ange **IP-adressen** till syslog-serverns IP-adress.
+   - Ange **port numret** till **514**, eller den port som du anger att agenten ska använda.
+   - Du kan ange max storleken för **frågesträngen** till den storlek som du har angett i din agent.
 
-Gå till F5 [Konfigurera loggning av program säkerhets händelser](https://aka.ms/asi-syslog-f5-forwarding)och följ anvisningarna för att konfigurera fjärrloggning med hjälp av följande rikt linjer:
-  - Ange **typen av Fjärrlagring** till **CEF**.
-  - Ange **protokollet** till **UDP**.
-  - Ange **IP-adressen** till syslog-serverns IP-adress.
-  - Ange **port numret** till **514**, eller den port som du anger att agenten ska använda.
-  - Ställ in **funktionen** på den som du angav i syslog-agenten (som standard ställer agenten in på **local4**).
-  - Du kan ange max storleken för **frågesträngen** till den storlek som du har angett i din agent.
+1. Om du vill använda det relevanta schemat i Log Analytics för CEF-händelserna söker du efter `CommonSecurityLog`.
 
-## <a name="step-3-validate-connectivity"></a>Steg 3: Verifiera anslutning
+## <a name="step-3-validate-connectivity"></a>STEG 3: verifiera anslutningen
 
-Det kan ta upp till 20 minuter innan loggarna börjar visas i Log Analytics. 
+1. Öppna Log Analytics för att se till att loggarna tas emot med CommonSecurityLog-schemat.<br> Det kan ta upp till 20 minuter innan loggarna börjar visas i Log Analytics. 
 
-1. Se till att du använder rätt funktion. Funktionen måste vara densamma i din installation och i Azure Sentinel. Du kan kontrol lera vilken lokal fil du använder i Azure Sentinel och ändra den i filen `security-config-omsagent.conf`. 
-
-2. Se till att dina loggar får rätt port i syslog-agenten. Kör det här kommandot på datorn för syslog-agenten: `tcpdump -A -ni any  port 514 -vv`Det här kommandot visar de loggar som strömmas från enheten till syslog-datorn. Se till att loggarna tas emot från käll installationen på rätt port och till höger.
-
-3. Se till att de loggar du skickar följer [RFC 3164](https://tools.ietf.org/html/rfc3164).
-
-4. På den dator som kör syslog-agenten kontrollerar du att portarna 514, 25226 är öppna och lyssnar med kommandot `netstat -a -n:`. Mer information om hur du använder det här kommandot finns i [netstat (8) – Linux man-sidan](https://linux.die.net/man/8/netstat). Om den lyssnar korrekt visas följande:
-
-   ![Azure Sentinel-portar](./media/connect-cef/ports.png) 
-
-5. Kontrol lera att daemon är inställt på att lyssna på port 514, där du skickar loggarna.
-    - För rsyslog:<br>Kontrol lera att filen `/etc/rsyslog.conf` innehåller den här konfigurationen:
-
-           # provides UDP syslog reception
-           module(load="imudp")
-           input(type="imudp" port="514")
-        
-           # provides TCP syslog reception
-           module(load="imtcp")
-           input(type="imtcp" port="514")
-
-      Mer information finns i [imudp: UDP syslog-ingångs modul](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imudp.html#imudp-udp-syslog-input-module) och [imtcp: TCP syslog-indatamängd](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imtcp.html#imtcp-tcp-syslog-input-module)
-
-   - För syslog-ng:<br>Kontrol lera att filen `/etc/syslog-ng/syslog-ng.conf` innehåller den här konfigurationen:
-
-           # source s_network {
-            network( transport(UDP) port(514));
-             };
-     Mer information finns i [syslog-ng öppen källkod Edition 3,16-administrations guide](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.16/administration-guide/19#TOPIC-956455).
-
-1. Kontrol lera att det finns kommunikation mellan syslog-daemon och agenten. Kör det här kommandot på datorn för syslog-agenten: `tcpdump -A -ni any  port 25226 -vv`Det här kommandot visar de loggar som strömmas från enheten till syslog-datorn. Se till att loggarna också tas emot på agenten.
-
-6. Om båda de här kommandona har fått lyckade resultat kontrollerar du Log Analytics för att se om dina loggar kommer in. Alla händelser som strömmas från dessa apparater visas i rå form i Log Analytics `CommonSecurityLog` under typ.
-
-7. Om du vill kontrol lera om det finns fel eller om loggarna inte kommer `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`, kan du leta i. Om det står fel i logg format, går du till `/etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` och tittar på filen `security_events.conf`och kontrollerar att dina loggar matchar regex-formatet som visas i den här filen.
-
-8. Se till att standard storleken för syslog-meddelanden är begränsad till 2048 byte (2 KB). Om loggarna är för långa uppdaterar du security_events. conf med det här kommandot:`message_length_limit 4096`
-
+1. Innan du kör skriptet rekommenderar vi att du skickar meddelanden från din säkerhetslösning för att se till att de vidarebefordras till den syslog-proxyserver som du har konfigurerat. 
+1. Du måste ha förhöjd behörighet (sudo) på datorn. Se till att du har python på datorn med hjälp av följande kommando: `python –version`
+1. Kör följande skript för att kontrol lera anslutningen mellan agenten, Azure Sentinel och din säkerhets lösning. Den kontrollerar att daemon-vidarebefordran har kon figurer ATS korrekt, lyssnar på rätt portar och att ingenting blockerar kommunikationen mellan daemonen och den Log Analytics agenten. Skriptet skickar även de blå meddelandena "TestCommonEventFormat" för att kontrol lera anslutning från slut punkt till slut punkt. <br>
+ `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]`
 
 
 ## <a name="next-steps"></a>Nästa steg
-I det här dokumentet har du lärt dig hur du ansluter F5-enheter till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
+I det här dokumentet har du lärt dig hur du ansluter F5 till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 - Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
-- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
-
+- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats.md).

@@ -12,12 +12,12 @@ ms.subservice: development
 ms.date: 10/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 81c709e7705e16484438ab684a6b1591e5e624ba
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 0ca59080b4056ba74e2f05038e07d647f12de765
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553510"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73485051"
 ---
 # <a name="getting-started-with-visual-studio-2019-for-sql-data-warehouse"></a>Komma igång med Visual Studio 2019 för SQL Data Warehouse
 Visual Studio **2019** SQL Server Data Tools (SSDT) är ett enda verktyg som gör att du kan göra följande:
@@ -26,7 +26,7 @@ Visual Studio **2019** SQL Server Data Tools (SSDT) är ett enda verktyg som gö
 - Använd en objekt Utforskare för att visuellt utforska alla objekt i din data modell, inklusive tabeller, vyer, lagrade procedurer och så vidare.
 - Generera T-SQL Data Definition Language-skript (DDL) för dina objekt
 - Utveckla ditt informations lager med hjälp av en tillstånds-baserad metod med SSDT databas projekt
-- Integrera ditt databas projekt med käll kontroll system som git med Azure DevOps databaser
+- Integrera ditt databas projekt med käll kontroll system som git med Azure databaser
 - Konfigurera kontinuerliga integrerings-och distributions pipeliner med Automation-servrar som Azure DevOps
 
 > [!NOTE]

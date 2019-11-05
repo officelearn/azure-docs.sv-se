@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: b9e910f24503f6bbf86e8ed8cdcb6f422d2490d9
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 1cfab9b065fd4e28a9ce11ac85682a298011200b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074002"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470117"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Övervaka appar i Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) innehåller inbyggda övervaknings funktioner för webbappar, mobila Server delar och API-appar i [Azure Portal](https://portal.azure.com).
 
-I Azure Portal kan du granska *kvoter* och *mått* för en app, granska App Service plan och automatiskt konfigurera aviseringar och *skalning* som baseras på måtten.
+I Azure Portal kan du granska *kvoter* och *mått* för en app, granska App Service plan och automatiskt konfigurera *aviseringar* och *skalning* som baseras på måtten.
 
 ## <a name="understand-quotas"></a>Förstå kvoter
 
@@ -43,7 +43,7 @@ Kvoter för kostnads fria eller delade appar är:
 | **PROCESSOR (kort)** | Mängden CPU som tillåts för den här appen i ett intervall om 5 minuter. Den här kvoten återställs var femte minut. |
 | **PROCESSOR (dag)** | Den totala mängden processor som tillåts för den här appen under en dag. Den här kvoten återställs var 24: e timme vid midnatt UTC. |
 | **Minnesoptimerade** | Den totala mängden minne som tillåts för den här appen. |
-| **Bandwidth** | Den totala mängden utgående bandbredd som tillåts för den här appen under en dag. Den här kvoten återställs var 24: e timme vid midnatt UTC. |
+| **Bandbredd** | Den totala mängden utgående bandbredd som tillåts för den här appen under en dag. Den här kvoten återställs var 24: e timme vid midnatt UTC. |
 | **Fil Systems** | Den totala mängden lagrings utrymme som tillåts. |
 
 Den enda kvot som gäller för appar som är värdbaserade enligt *Basic*-, *standard*-och *Premium* -planer är fil system.
@@ -70,7 +70,7 @@ För en app är tillgängliga mått:
 
 | Mått | Beskrivning |
 | --- | --- |
-| **Genomsnittlig svars tid** | Genomsnittlig tid det tar för appen att betjäna begär Anden, i millisekunder. |
+| **Genomsnittlig svars tid** | Genomsnittlig tid det tar för appen att betjäna begär Anden, i sekunder. |
 | **Genomsnittlig arbets mängd för minne** | Den genomsnittliga mängden minne som används av appen, i megabyte (MiB). |
 | **Anslutningar** | Antalet kopplade socketar som är befintliga i sandbox (W3wp. exe och dess underordnade processer).  En bunden socket skapas genom att anropa BIND ()/Connect ()-API: er och förblir kvar tills socketen stängs med CloseHandle ()/Closesocket (). |
 | **CPU-tid** | Mängden CPU som används av appen, i sekunder. Mer information om det här måttet finns i [CPU-tid jämfört med processor procent](#cpu-time-vs-cpu-percentage). |
@@ -124,9 +124,9 @@ För en App Service plan är tillgängliga mått:
 
 Det finns två mått som återspeglar CPU-användning:
 
-**CPU-tid**: Användbart för appar som finns i kostnads fria eller delade planer, eftersom en av deras kvoter definieras i CPU-minuter som används av appen.
+**CPU-tid**: användbart för appar som finns i kostnads fria eller delade planer, eftersom en av deras kvoter definieras i CPU-minuter som används av appen.
 
-**CPU-procent**: Användbart för appar som finns i Basic-, standard-och Premium-planer, eftersom de kan skalas ut. CPU-procent är en korrekt indikation på den övergripande användningen för alla instanser.
+**Processor procent**: användbart för appar som finns i Basic-, standard-och Premium-planer, eftersom de kan skalas ut. CPU-procent är en korrekt indikation på den övergripande användningen för alla instanser.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Mät precisions precision och bevarande princip
 Mått för en app-och App Service-plan loggas och sammanställs av tjänsten med följande granularitet-och bevarande principer:
@@ -140,16 +140,16 @@ Om du vill granska statusen för de olika kvoter och mått som påverkar en app 
 
 ![Kvot diagram i Azure Portal][quotas]
 
-Välj **inställnings** > **kvoter**för att hitta kvoter. I diagrammet kan du granska: 
+Om du vill hitta kvoter väljer du **inställningar** > **kvoter**. I diagrammet kan du granska: 
 1. Kvotens namn.
 1. Dess återställnings intervall.
 1. Den aktuella gränsen.
 1. Det aktuella värdet.
 
-![Mått diagram i Azure Portal][metrics] du kan komma åt mått direkt från **resurs** sidan. Så här anpassar du diagrammet: 
+![Metric-diagrammet i Azure Portal][metrics] kan du komma åt mått direkt från **resurs** sidan. Så här anpassar du diagrammet: 
 1. Markera diagrammet.
 1. Välj **Redigera diagram**.
-1. Redigera tidsintervallet.
+1. Redigera **tidsintervallet**.
 1. Redigera **diagram typen**.
 1. Redigera måtten som du vill visa.  
 
@@ -160,7 +160,7 @@ Mått för en app eller en App Service plan kan anslutas till aviseringar. Mer i
 
 App Service appar som finns i Basic-, standard-eller Premium App Service-planer stöder autoskalning. Med autoskalning kan du konfigurera regler som övervakar App Service plans måtten. Regler kan öka eller minska antalet instanser, vilket kan ge ytterligare resurser efter behov. Regler kan också hjälpa dig att spara pengar när appen är överetablerad.
 
-Mer information om autoskalning finns i [skala](../monitoring-and-diagnostics/insights-how-to-scale.md) och [metod tips för Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md)autoskalning.
+Mer information om autoskalning finns i [skala](../monitoring-and-diagnostics/insights-how-to-scale.md) och [metod tips för Azure Monitor autoskalning](../azure-monitor/platform/autoscale-best-practices.md).
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169

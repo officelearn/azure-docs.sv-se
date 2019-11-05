@@ -1,23 +1,23 @@
 ---
-title: Självstudie – Aktivera autentisering i ett internt klientprogram – Azure Active Directory B2C | Microsoft Docs
+title: Självstudie – autentisera användare i ett internt klient program – Azure Active Directory B2C
 description: Självstudiekurs som lär dig hur du använder Azure Active Directory B2C för att tillhandahålla användarinloggning i ett .NET-program.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 02/04/2019
+ms.date: 10/12/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 3740a032db6ca9fd0fb88ce348610684d9f895bc
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: cd0fc90988048f98be46370d2c7836d9506cc44a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326331"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475252"
 ---
-# <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>Självstudier: Aktivera autentisering i ett internt klientprogram med hjälp av Azure Active Directory B2C
+# <a name="tutorial-authenticate-users-in-a-native-desktop-client-using-azure-active-directory-b2c"></a>Självstudie: autentisera användare i en intern Skriv bords klient med hjälp av Azure Active Directory B2C
 
 Den här självstudien visar hur du använder Azure Active Directory B2C (Azure AD B2C) för att logga in och registrera användare i en Windows Presentation Foundation (WPF) Desktop-program. Med Azure AD B2C kan program autentisera med konton på sociala medier, företagskonton och Azure Active Directory-konton med hjälp av öppna standardprotokoll.
 
@@ -39,30 +39,33 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-Registrera **program-ID** för användning i ett senare steg.
+Registrera **program-ID: t (Client)** för användning i ett senare steg.
 
 ## <a name="configure-the-sample"></a>Konfigurera exemplet
 
-I den här självstudien konfigurerar du ett exempel som du kan ladda ned från GitHub. I WPF-exempelprogrammet visas registrering, inloggning och anrop till ett skyddat webb-API i Azure AD B2C. [Ladda ned en zip-fil](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip), [bläddra på lagringsplatsen](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) eller klona exemplet från GitHub.
+I den här självstudien konfigurerar du ett exempel som du kan ladda ned från GitHub. Exempel programmet WPF Desktop visar registrering, inloggning och kan anropa ett skyddat webb-API i Azure AD B2C. [Ladda ned en zip-fil](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip), [bläddra på lagringsplatsen](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) eller klona exemplet från GitHub.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git
 ```
 
-Du ändrar appinställningarna genom att byta ut `<your-tenant-name>` mot namnet på klientorganisationen och `<application-ID`> mot det program-ID du antecknade.
+Så här uppdaterar du programmet så att det fungerar med din Azure AD B2C klient och anropar dess användar flöden i stället för de i standard-demo-klienten:
 
-1. Öppna därefter `active-directory-b2c-wpf`-lösningen i Visual Studio.
-2. I projektet `active-directory-b2c-wpf` öppnar du filen **App.xaml.cs** filen och gör följande uppdateringar:
+1. Öppna den **Active-Directory-B2C-WPF-** lösning (`active-directory-b2c-wpf.sln`) i Visual Studio.
+2. Öppna *app.XAML.cs* -filen i **Active-Directory-B2C-WPF-** projektet och leta upp följande variabel definitioner. Ersätt `{your-tenant-name}` med ditt Azure AD B2C klient namn och `{application-ID}` med det program-ID som du registrerade tidigare.
 
     ```csharp
-    private static string Tenant = "<your-tenant-name>.onmicrosoft.com";
-    private static string ClientId = "<application-ID>";
+    private static readonly string Tenant = "{your-tenant-name}.onmicrosoft.com";
+    private static readonly string AzureAdB2CHostname = "{your-tenant-name}.b2clogin.com";
+    private static readonly string ClientId = "{application-ID}";
     ```
 
-3. Uppdatera variabeln **PolicySignUpSignIn** med namnet på användarflödet du skapade.
+3. Uppdatera variablerna för princip namn med namnen på de användar flöden som du skapade som en del av förutsättningarna. Till exempel:
 
     ```csharp
     public static string PolicySignUpSignIn = "B2C_1_signupsignin1";
+    public static string PolicyEditProfile = "B2C_1_profileediting1";
+    public static string PolicyResetPassword = "B2C_1_passwordreset1";
     ```
 
 ## <a name="run-the-sample"></a>Kör exemplet
@@ -71,20 +74,23 @@ Tryck på **F5** för att skapa och köra exemplet.
 
 ### <a name="sign-up-using-an-email-address"></a>Registrera sig med en e-postadress
 
-1. Klicka på **Logga In** för att registrera dig som användare. Då används användarflödet **B2C_1_signupsignin1**.
-2. Azure AD B2C visar en inloggningssida med en registreringslänk. Eftersom du inte har något konto klickar du på länken **Registrera dig**.
+1. Välj **Logga** in för att registrera dig som en användare. Då används användarflödet **B2C_1_signupsignin1**.
+2. Azure AD B2C visar en inloggnings sida med länken **Registrera dig nu** . Eftersom du ännu inte har ett konto väljer du länken **Registrera dig nu** .
 3. Arbetsflödet för registrering visar en sida för att samla in och verifiera användarens identitet med en e-postadress. Arbetsflödet för registrering samlar även in användarens lösenord och de attribut som definierats i användarflödet.
 
     Använd en giltig e-postadress och verifiera med verifieringskoden. Ange ett lösenord. Ange värden för de begärda attributen.
 
-    ![Registrerings sidan visas som en del av inloggnings-och registrerings arbets flödet](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
+    ![Registrerings sidan visas som en del av inloggnings-och registrerings arbets flödet](media/active-directory-b2c-tutorials-desktop-app/azure-ad-b2c-sign-up-workflow.png)
 
-4. Klicka på **Skapa** och skapa ett lokalt konto i Azure AD B2C-klientorganisationen.
+4. Välj **skapa** för att skapa ett lokalt konto i Azure AD B2C klient organisationen.
 
-Användaren kan nu använda e-postadressen för att logga in och använda skrivbordsappen.
+Användaren kan nu använda sin e-postadress för att logga in och använda Skriv bords programmet. Efter en lyckad registrering eller inloggning visas information om token i det nedre fönstret i WPF-appen.
 
-> [!NOTE]
-> Om du klickar på knappen **Anropa API** får du felmeddelandet ”Obehörig”. Du får felmeddelandet eftersom du försöker komma åt en resurs från demoklientorganisationen. Eftersom ditt åtkomst-token endast är giltigt för din Azure AD-klientorganisation är API-anropet obehörigt. Fortsätt med nästa självstudiekurs och skapa ett skyddat webb-API för din klientorganisation.
+![Information om token visas i det nedre fönstret av WPF Desktop-programmet](media/active-directory-b2c-tutorials-desktop-app/desktop-app-01-post-signin.png)
+
+Om du väljer knappen **anropa API** visas ett **fel meddelande** . Du stöter på felet eftersom programmet försöker komma åt ett API som skyddas av demo klienten `fabrikamb2c.onmicrosoft.com`i det aktuella läget. Eftersom din åtkomsttoken bara är giltig för din Azure AD B2C klient, är API-anropet därför obehörigt.
+
+Fortsätt till nästa självstudie för att registrera ett skyddat webb-API i din egen klient organisation och aktivera API-funktionen för **anrop** .
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -95,5 +101,7 @@ I den här självstudiekursen lärde du dig att:
 > * Konfigurera exemplet för att använda programmet
 > * Registrera dig via användarflödet
 
+För att aktivera funktionen **anropa API** -knappen ger du åtkomst till WPF Desktop-programmet åtkomst till ett webb-API som registrerats i din egen Azure AD B2C klient:
+
 > [!div class="nextstepaction"]
-> [Självstudier: Ge åtkomst till ett Node.js-webb-API från en skrivbordsapp med hjälp av Azure Active Directory B2C](active-directory-b2c-tutorials-spa-webapi.md)
+> [Självstudie: bevilja åtkomst till ett Node. js-webb-API från en desktop-app >](active-directory-b2c-tutorials-desktop-app-webapi.md)

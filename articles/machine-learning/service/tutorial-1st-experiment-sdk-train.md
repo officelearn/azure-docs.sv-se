@@ -9,15 +9,17 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 09/03/2019
-ms.openlocfilehash: c78a45cedbeb5cfa0f0cc7c5c976fceb36f1da2a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.openlocfilehash: b5b3ca127aba62b39bd7236412d4c6a542347db3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173295"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476180"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Självstudie: träna din första ML-modell
+
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Självstudien är **del två i en självstudieserie i två delar**. I föregående självstudie [skapade du en arbets yta och valde en utvecklings miljö](tutorial-1st-experiment-sdk-setup.md). I den här självstudien får du lära dig grundläggande design mönster i Azure Machine Learning och träna en enkel scikit-modell som baseras på diabetes data uppsättning. När du har slutfört den här självstudien får du praktisk kunskap om SDK: n för att skala upp för att utveckla mer komplexa experiment och arbets flöden.
 
@@ -29,7 +31,7 @@ I den här självstudien kommer du att lära dig följande:
 > * Visa utbildnings resultat i portalen
 > * Hämta den bästa modellen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den enda förutsättningen är att köra en del av den här självstudien, [installations miljön och arbets ytan](tutorial-1st-experiment-sdk-setup.md).
 
@@ -37,13 +39,13 @@ I den här delen av självstudien kör du koden i exemplet Jupyter Notebook `tut
 
 ## <a name="open-the-notebook"></a>Öppna antecknings boken
 
-1. Logga in på [sidan med landnings sidan för arbets ytan](https://ml.azure.com/).
+1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com/).
 
 1. Öppna **självstudien – 1st-experiment-SDK-träna. ipynb** i din mapp som du ser i [del ett](tutorial-1st-experiment-sdk-setup.md#open).
 
 
 > [!Warning]
-> Skapa **inte** en *ny* antecknings bok i Jupyter-gränssnittet! Notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` inkluderar **all kod och alla data som behövs** för den här självstudien.
+> Skapa **inte** en *ny* antecknings bok i Jupyter-gränssnittet! Notebook-`tutorials/tutorial-1st-experiment-sdk-train.ipynb` inkluderar **all kod och alla data som behövs** för den här självstudien.
 
 ## <a name="connect-workspace-and-create-experiment"></a>Anslut arbets ytan och skapa experiment
 
@@ -62,7 +64,7 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-Nu ska du skapa ett experiment i din arbets yta. Ett experiment är en annan grundläggande moln resurs som representerar en samling av försök (enskilda modell körningar). I den här självstudien använder du experimentet för att skapa körningar och spåra din modell utbildning i Azure Portal. Parametrar är en referens till din arbets yta och ett sträng namn för experimentet.
+Nu ska du skapa ett experiment i din arbets yta. Ett experiment är en annan grundläggande moln resurs som representerar en samling av försök (enskilda modell körningar). I den här självstudien använder du experimentet för att skapa körningar och spåra din modell utbildning i Azure Machine Learning Studio. Parametrar är en referens till din arbets yta och ett sträng namn för experimentet.
 
 
 ```python
@@ -72,15 +74,17 @@ experiment = Experiment(workspace=ws, name="diabetes-experiment")
 
 ## <a name="load-data-and-prepare-for-training"></a>Läs in data och Förbered för utbildning
 
-I den här självstudien använder du diabetes-datauppsättningen, som är en förnormaliserad data uppsättning som ingår i scikit-lär. Den här data uppsättningen använder funktioner som ålder, kön och BMI för att förutsäga diabetes sjukdoms förlopp. Läs in data från den statiska funktionen `load_diabetes()` och dela upp den i utbildning och test uppsättningar med `train_test_split()`. Den här funktionen åtskiljer data så att modellen har osett data som ska användas för att testa följande utbildning.
+I den här självstudien använder du diabetes-datauppsättningen, som använder funktioner som ålder, kön och BMI för att förutse diabetes sjukdoms förlopp. Läs in data från klassen [öppna data uppsättningar i Azure](https://azure.microsoft.com/services/open-datasets/) och dela upp den i utbildning och test uppsättningar med hjälp av `train_test_split()`. Den här funktionen åtskiljer data så att modellen har osett data som ska användas för att testa följande utbildning.
 
 
 ```python
-from sklearn.datasets import load_diabetes
+from azureml.opendatasets import Diabetes
 from sklearn.model_selection import train_test_split
 
-X, y = load_diabetes(return_X_y = True)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=66)
+x_df = Diabetes.get_tabular_dataset().to_pandas_dataframe().dropna()
+y_df = x_df.pop("Y")
+
+X_train, X_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=66)
 ```
 
 ## <a name="train-a-model"></a>Träna en modell
@@ -139,7 +143,7 @@ När utbildnings modeller skalas över hundratals och tusentals separata körnin
 
 ![Huvud experiment sidan i portalen](./media/tutorial-quickstart/experiment-main.png)
 
-Om du klickar på en körnings nummer länk i kolumnen `RUN NUMBER` går du till sidan för varje enskild körning. På fliken standard visas mer **detaljerad information om** varje körning. Navigera till fliken **utdata** och se filen `.pkl` för den modell som överfördes till körningen under varje inlärnings upprepning. Här kan du ladda ned modell filen i stället för att behöva träna den manuellt.
+Om du klickar på en körnings nummer länk i kolumnen `RUN NUMBER` går du till sidan för varje enskild körning. På fliken standard visas mer **detaljerad information om** varje körning. Navigera till fliken **utdata** och se `.pkl`-filen för den modell som överfördes till körningen under varje inlärnings upprepning. Här kan du ladda ned modell filen i stället för att behöva träna den manuellt.
 
 ![Sidan kör information i portalen](./media/tutorial-quickstart/model-download.png)
 
@@ -193,19 +197,9 @@ best_run.download_file(name="model_alpha_0.1.pkl")
 
 Slutför inte det här avsnittet om du tänker köra andra Azure Machine Learning själv studie kurser.
 
-### <a name="stop-the-notebook-vm"></a>Stoppa den virtuella Notebook-datorn
+### <a name="stop-the-compute-instance"></a>Stoppa beräknings instansen
 
-Om du har använt en molnbaserad Notebook-Server stoppar du den virtuella datorn när du inte använder den för att minska kostnaderna.
-
-1. I arbets ytan väljer du **Notebook VM**: ar.
-
-   ![Stoppa VM-servern](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
-
-1. Välj den virtuella datorn i listan.
-
-1. Välj **stoppa**.
-
-1. När du är redo att använda servern igen väljer du **Starta**.
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### <a name="delete-everything"></a>Ta bort allt
 

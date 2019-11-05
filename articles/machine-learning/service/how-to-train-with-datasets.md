@@ -1,6 +1,6 @@
 ---
 title: Träna med azureml-datauppsättningar
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Lär dig hur du använder data uppsättningar i utbildning
 services: machine-learning
 ms.service: machine-learning
@@ -11,20 +11,21 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: 9ccc5f5721d1ddc8459918913a4f3ce707766dea
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
-ms.translationtype: MT
+ms.openlocfilehash: 12c08a95cd43f9f988c98711141b1b1f879e8b3a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316698"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489383"
 ---
 # <a name="train-with-datasets-preview-in-azure-machine-learning"></a>Träna med data uppsättningar (för hands version) i Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 I den här artikeln får du lära dig de två sätt som du kan använda för att använda [Azure Machine Learning data uppsättningar](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) i träning för fjärrkörning utan att oroa dig om anslutnings strängar eller data Sök vägar.
 
-- Alternativ 1: Om du har strukturerade data skapar du en TabularDataset och använder den direkt i ditt utbildnings skript.
+- Alternativ 1: om du har strukturerade data skapar du en TabularDataset och använder den direkt i ditt utbildnings skript.
 
-- Alternativ 2: Om du har ostrukturerade data skapar du en FileDataset och monterar eller laddar ned filer till en fjärrberäkning för utbildning.
+- Alternativ 2: om du har ostrukturerade data skapar du en FileDataset och monterar eller laddar ned filer till en fjärrberäkning för utbildning.
 
 Azure Machine Learning data uppsättningar ger en sömlös integrering med Azure Machine Learning utbildnings produkter som [ScriptRun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py), [uppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) och [HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py).
 
@@ -32,18 +33,18 @@ Azure Machine Learning data uppsättningar ger en sömlös integrering med Azure
 
 För att skapa och träna med data uppsättningar behöver du:
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
-* En [Azure Machine Learning service-arbetsyta](how-to-manage-workspace.md).
+* En [Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
 * [Azure Machine Learning SDK för python installerat](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), som innehåller paketet azureml-DataSets.
 
 > [!Note]
-> Vissa data uppsättnings klasser (för hands version) har beroenden för [azureml-nu-](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) paketet. För Linux-användare stöds dessa klasser endast för följande distributioner:  Red Hat Enterprise Linux, Ubuntu, Fedora och CentOS.
+> Vissa data uppsättnings klasser (för hands version) har beroenden för [azureml-nu-](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) paketet. För Linux-användare stöds dessa klasser endast för följande distributioner: Red Hat Enterprise Linux, Ubuntu, Fedora och CentOS.
 
-## <a name="option-1-use-datasets-directly-in-training-scripts"></a>Alternativ 1: Använda data uppsättningar direkt i tränings skript
+## <a name="option-1-use-datasets-directly-in-training-scripts"></a>Alternativ 1: Använd data uppsättningar direkt i tränings skript
 
-I det här exemplet skapar du en [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) och använder den som en direkt ingång för `estimator` ditt objekt för utbildning. 
+I det här exemplet skapar du en [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) och använder den som direkt inström till `estimator` objekt för utbildning. 
 
 ### <a name="create-a-tabulardataset"></a>Skapa en TabularDataset
 
@@ -60,7 +61,7 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path)
 
 TabularDataset-objekt ger möjlighet att läsa in data till en Pandas-eller Spark-DataFrame så att du kan arbeta med välbekanta data förberedelse-och utbildnings bibliotek. För att dra nytta av den här funktionen kan du skicka en TabularDataset som inmatad i din tränings konfiguration och sedan hämta den i skriptet.
 
-Det gör du genom att komma åt data uppsättningen för [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) indata via objektet i ditt utbildnings skript [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#to-pandas-dataframe--) och använda-metoden. 
+Det gör du genom att komma åt data uppsättningen för indata via [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) -objektet i utbildnings skriptet och använda metoden [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#to-pandas-dataframe--) . 
 
 ```Python
 %%writefile $script_folder/train_titanic.py
@@ -78,11 +79,11 @@ df = dataset.to_pandas_dataframe()
 
 Ett [uppskattnings](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) objekt används för att skicka experimentet. Azure Machine Learning har förkonfigurerade uppskattningar för vanliga ramverk för maskin inlärning, samt en generisk uppskattning.
 
-Den här koden skapar ett generiskt uppskattnings `est`objekt, som anger
+Den här koden skapar ett generiskt uppskattnings objekt, `est`, som anger
 
 * En skript katalog för dina skript. Alla filer i den här katalogen laddas upp till klusternoderna för körning.
 * Övnings skriptet *train_titanic. py*.
-* Data uppsättningen för indata för `titanic`träning.
+* Data uppsättningen för indata för träning, `titanic`.
 * Compute-målet för experimentet.
 * Miljö definitionen för experimentet.
 
@@ -99,7 +100,7 @@ experiment_run = experiment.submit(est)
 experiment_run.wait_for_completion(show_output=True)
 ```
 
-## <a name="option-2--mount-files-to-a-remote-compute-target"></a>Alternativ 2:  Montera filer till ett fjärran sluten beräknings mål
+## <a name="option-2--mount-files-to-a-remote-compute-target"></a>Alternativ 2: montera filer till ett fjärran sluten beräknings mål
 
 Om du vill göra dina datafiler tillgängliga på Compute-målet för träning använder du [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) för att montera eller ladda ned filer som det hänvisas till.
 
@@ -126,7 +127,7 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 
 ### <a name="configure-the-estimator"></a>Konfigurera uppskattningen
 
-I stället för att skicka data uppsättningen `inputs` via-parametern i uppskattningen kan du också skicka data uppsättningen via `script_params` och hämta data Sök vägen (monterings punkten) i utbildnings skriptet via argument. På så sätt kan du komma åt dina data och använda ett befintligt utbildnings skript.
+I stället för att skicka data uppsättningen via `inputs`-parametern i uppskattningen kan du också skicka data uppsättningen via `script_params` och hämta data Sök vägen (monterings punkten) i utbildnings skriptet via argument. På så sätt kan du komma åt dina data och använda ett befintligt utbildnings skript.
 
 Ett [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) -behållarobjekt används för att skicka in körningen för scikit-se experiment. Lär dig mer om utbildning med [SKlearn-uppskattningen](how-to-train-scikit-learn.md).
 
@@ -152,7 +153,7 @@ run.wait_for_completion(show_output=True)
 
 ### <a name="retrieve-the-data-in-your-training-script"></a>Hämta data i ditt utbildnings skript
 
-När du har skickat körningen kommer datafiler som refereras `mnist` till data uppsättningen att monteras till beräknings målet. Följande kod visar hur du hämtar data i skriptet.
+När du har skickat körningen kommer datafiler som refereras till av `mnist`-datauppsättning att monteras till beräknings målet. Följande kod visar hur du hämtar data i skriptet.
 
 ```Python
 %%writefile $script_folder/train_mnist.py

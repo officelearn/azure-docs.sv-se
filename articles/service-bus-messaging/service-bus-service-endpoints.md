@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: aschhab
-ms.openlocfilehash: f32a67dc6d3b3f869afaa532403c05b218588552
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 7d31dd004c879fd3e689f4ba7a8ae58cb223ae70
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786382"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73484939"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Använd Virtual Network tjänst slut punkter med Azure Service Bus
 
@@ -36,7 +36,6 @@ Resultatet är en privat och isolerad relation mellan arbets belastningarna som 
 > - Integrering med Azure Event Grid
 > - Azure IoT Hub vägar
 > - Azure IoT-Device Explorer
-> - Datautforskaren i Azure
 >
 > De Microsoft-tjänster som behövs nedan måste finnas i ett virtuellt nätverk
 > - Azure App Service

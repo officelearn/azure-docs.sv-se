@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: a3c25553e7abbe39c00407e8000880dc99056bcd
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: ccc3da6f2dd49775ff4d4486fcd2af9f08a396d6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172993"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475927"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Vad är en privat Azure-slutpunkt?
 
-Den privata Azure-slutpunkten är ett nätverks gränssnitt som ansluter privat och säkert till en tjänst som drivs av en privat Azure-länk. Privat slut punkt använder en privat IP-adress från ditt VNet, vilket effektivt tar tjänsten till ditt VNet. Tjänsten kan vara en Azure-tjänst som Azure Storage, SQL osv. eller din egen [privata länk tjänst](private-link-service-overview.md).
+Den privata Azure-slutpunkten är ett nätverks gränssnitt som ansluter privat och säkert till en tjänst som drivs av en privat Azure-länk. Privat slut punkt använder en privat IP-adress från ditt VNet, vilket effektivt tar tjänsten till ditt VNet. Tjänsten kan vara en Azure-tjänst, till exempel Azure Storage, Azure Cosmos DB, SQL osv. eller en egen [privat länk-tjänst](private-link-service-overview.md).
   
 ## <a name="private-endpoint-properties"></a>Egenskaper för privat slut punkt 
  En privat slut punkt anger följande egenskaper: 
@@ -57,7 +57,7 @@ En privat länk resurs är mål målet för en specifik privat slut punkt. Följ
 |**Azure SQL Data Warehouse** | Microsoft. SQL/Servers    |  SQL Server (sqlServer)        |
 |**Azure Storage**  | Microsoft.Storage/storageAccounts    |  BLOB (BLOB, blob_secondary)<BR> Tabell (tabell, table_secondary)<BR> Kö (kö, queue_secondary)<BR> Fil (fil, file_secondary)<BR> Webb (webb, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  BLOB (BLOB, blob_secondary)       |
- 
+|**Azure Cosmos DB** | Microsoft. AzureCosmosDB/databaseAccounts | SQL, MongoDB, Cassandra, Gremlin, Table|
  
 ## <a name="network-security-of-private-endpoints"></a>Nätverks säkerhet för privata slut punkter 
 När du använder privata slut punkter för Azure-tjänster skyddas trafik till en enskild privat länk resurs. Plattformen utför en åtkomst kontroll för att verifiera att nätverks anslutningar når enbart den angivna privata länk resursen. För att få åtkomst till ytterligare resurser inom samma Azure-tjänst krävs ytterligare privata slut punkter. 
@@ -107,9 +107,12 @@ För Azure-tjänster använder du de rekommenderade zon namnen enligt beskrivnin
 |Lagrings konto (Microsoft. Storage/storageAccounts)   |    Fil (fil, file_secondary)      |    privatelink.file.core.windows.net      |
 |Lagrings konto (Microsoft. Storage/storageAccounts)     |  Webb (webb, web_secondary)        |    privatelink.web.core.windows.net      |
 |Data Lake Gen2 för fil system (Microsoft. Storage/storageAccounts)  |  Data Lake Gen2 för fil system (DFS, dfs_secondary)        |     privatelink.dfs.core.windows.net     |
-||||
+|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|SQL |privatelink.documents.azure.com|
+|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|MongoDB |privatelink.mongo.cosmos.azure.com|
+|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Cassandra|privatelink.cassandra.cosmos.azure.com|
+|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Gremlin |privatelink.gremlin.cosmos.azure.com|
+|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Tabell|privatelink.table.cosmos.azure.com|
  
-
 Azure skapar en DNS-post för kanoniskt namn (CNAME) på den offentliga DNS-domänen för att omdirigera matchningen till föreslagna domän namn. Du kan åsidosätta upplösningen med den privata IP-adressen för dina privata slut punkter. 
  
 Dina program behöver inte ändra anslutnings-URL: en. När du försöker matcha med hjälp av en offentlig DNS-server kommer DNS-servern nu att matcha dina privata slut punkter. Processen påverkar inte dina program. 
@@ -131,4 +134,5 @@ Följande tabell innehåller en lista med kända begränsningar när du använde
 - [Skapa en privat slut punkt för SQL Database Server med PowerShell](create-private-endpoint-powershell.md)
 - [Skapa en privat slut punkt för SQL Database Server med CLI](create-private-endpoint-cli.md)
 - [Skapa en privat slut punkt för lagrings kontot med hjälp av portalen](create-private-endpoint-storage-portal.md)
+- [Skapa en privat slut punkt för Azure Cosmos-konto med hjälp av portalen](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Skapa en egen privat länk-tjänst med hjälp av Azure PowerShell](create-private-link-service-powershell.md)

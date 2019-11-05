@@ -9,46 +9,46 @@ ms.topic: conceptual
 author: chris-lauren
 ms.author: clauren
 ms.reviewer: jmartens
-ms.date: 07/09/2019
+ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 08b9434dbcca96ff57e2c8182693023a5eb2eea9
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 3a79c95d627bbdec3a91a1d048a48ff061b308ca
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70997162"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489361"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Felsöka Azure Machine Learning Azure Kubernetes service och Azure Container Instances distribution
 
 Lär dig att undvika eller lösa vanliga Docker-distributions fel med Azure Container Instances (ACI) och Azure Kubernetes service (AKS) med Azure Machine Learning.
 
-När du distribuerar en modell i Azure Machine Learning utför systemet ett antal uppgifter. Distribution aktiviteter är:
+När du distribuerar en modell i Azure Machine Learning utför systemet ett antal uppgifter. Distributions uppgifterna är:
 
-1. Registrera modellen i arbetsytan modellen registret.
+1. Registrera modellen i arbets ytans modell register.
 
-2. Skapa en Docker-avbildning, inklusive:
+2. Bygg en Docker-avbildning, inklusive:
     1. Ladda ned den registrerade modellen från registret. 
-    2. Skapa en docker-fil med en Python-miljö baserat på de beroenden som du anger i miljön yaml-fil.
-    3. Lägg till modellfiler och bedömningsskriptet som du anger i dockerfile.
-    4. Skapa en ny Docker-avbildning med hjälp av dockerfile.
-    5. Registrera Docker-avbildningen med Azure Container Registry som är associerade med arbetsytan.
+    2. Skapa en Dockerfile med en python-miljö baserat på de beroenden som du anger i miljöns yaml-fil.
+    3. Lägg till dina modellvariabler och det bedömnings skript som du anger i Dockerfile.
+    4. Bygg en ny Docker-avbildning med hjälp av Dockerfile.
+    5. Registrera Docker-avbildningen med Azure Container Registry som är kopplad till arbets ytan.
 
     > [!IMPORTANT]
     > Beroende på din kod sker avbildnings skapandet automatiskt utan dina indata.
 
-3. Distribuera Docker-avbildningen till Azure Container Instance (ACI)-tjänsten eller till Azure Kubernetes Service (AKS).
+3. Distribuera Docker-avbildningen till Azure Container instance-tjänsten (ACI) eller till Azure Kubernetes service (AKS).
 
 4. Starta en ny behållare (eller behållare) i ACI eller AKS. 
 
-Mer information om den här processen i den [modellhantering](concept-model-management-and-deployment.md) introduktion.
+Läs mer om den här processen i Introduktion till [modellhantering](concept-model-management-and-deployment.md) .
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Om du stöter på några problem, det första du ska göra är att bryta ned aktiviteten distribution (tidigare beskrivs) till enskilda steg för att isolera problemet.
+Om du stöter på ett problem är det första du ska göra är att dela upp distributions aktiviteten (tidigare beskriven) i enskilda steg för att isolera problemet.
 
 Att dela upp distributionen i aktiviteter är användbart om du använder API för [WebService. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) eller [WebService. deploy_from_model ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) , eftersom båda dessa funktioner utför de ovannämnda stegen som en enda åtgärd. Dessa API: er är vanligt vis praktiska, men det hjälper dig att dela upp stegen vid fel sökning genom att ersätta dem med nedanstående API-anrop.
 
-1. Registrera modellen. Här är exempelkod:
+1. Registrera modellen. Här är exempel kod:
 
     ```python
     # register a model out of a run record
@@ -58,7 +58,7 @@ Att dela upp distributionen i aktiviteter är användbart om du använder API f�
     model = Model.register(model_path='my_model.pkl', model_name='my_best_model', workspace=ws)
     ```
 
-2. Skapa avbildningen. Här är exempelkod:
+2. Bygg avbildningen. Här är exempel kod:
 
     ```python
     # configure the image
@@ -73,7 +73,7 @@ Att dela upp distributionen i aktiviteter är användbart om du använder API f�
     image.wait_for_creation(show_output=True)
     ```
 
-3. Distribuera avbildningen som tjänst. Här är exempelkod:
+3. Distribuera avbildningen som tjänst. Här är exempel kod:
 
     ```python
     # configure an ACI-based deployment
@@ -86,11 +86,11 @@ Att dela upp distributionen i aktiviteter är användbart om du använder API f�
     aci_service.wait_for_deployment(show_output=True)    
     ```
 
-När du har uppdelade distributionsprocessen i enskilda aktiviteter kan vi titta på några av de vanligaste felen.
+När du har delat upp distributions processen i enskilda uppgifter kan vi titta på några av de vanligaste felen.
 
-## <a name="image-building-fails"></a>Bild som att skapa misslyckas
+## <a name="image-building-fails"></a>Bild skapande Miss lyckas
 
-Om Docker-avbildningen inte kan skapas, Miss lyckas anropet [image. wait_for_creation ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#wait-for-creation-show-output-false-) eller [service. wait_for_deployment ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#wait-for-deployment-show-output-false-) med fel meddelanden som kan ge en del LED trådar. Du kan också hitta mer information om felen från image build-loggen. Nedan är exempelkod som visar hur du identifierar build log-uri för avbildning.
+Om Docker-avbildningen inte kan skapas, Miss lyckas anropet [image. wait_for_creation ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#wait-for-creation-show-output-false-) eller [service. wait_for_deployment ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#wait-for-deployment-show-output-false-) med fel meddelanden som kan ge en del LED trådar. Du kan också få mer information om felen från avbildnings versions loggen. Nedan visas en exempel kod som visar hur du identifierar avbildningens versions logg-URI.
 
 ```python
 # if you already have the image object handy
@@ -104,7 +104,7 @@ for name, img in ws.images.items():
     print(img.name, img.version, img.image_build_log_uri)
 ```
 
-Logg-uri för avbildning är en SAS-URL som pekar på en loggfil som lagras i Azure blob storage. Helt enkelt kopiera och klistra in URI: n i ett webbläsarfönster och du kan hämta och visa loggfilen.
+Avbildnings loggens URI är en SAS-URL som pekar på en loggfil som lagras i Azure Blob Storage. Du behöver bara kopiera och klistra in URI: n i ett webbläsarfönster och du kan ladda ned och Visa logg filen.
 
 ### <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Azure Key Vault åtkomst princip och Azure Resource Manager mallar
 
@@ -149,20 +149,20 @@ b\'{"code":"InternalServerError","statusCode":500,"message":"An internal server 
 För att undvika det här problemet rekommenderar vi en av följande metoder:
 
 * Distribuera inte mallen mer än en gång för samma parametrar. Eller ta bort de befintliga resurserna innan du använder mallen för att återskapa dem.
-* Granska Key Vault åtkomst principer och Använd sedan dessa principer för att ange `accessPolicies` mallens egenskap.
+* Granska Key Vault åtkomst principer och Använd sedan dessa principer för att ange mallens `accessPolicies` egenskap.
 * Kontrol lera om Key Vault resursen redan finns. Om det gör det, ska du inte återskapa det via mallen. Du kan till exempel lägga till en parameter som gör att du kan inaktivera skapande av den Key Vault resursen om den redan finns.
 
 ## <a name="debug-locally"></a>Felsök lokalt
 
-Om du får problem med att distribuera en modell till ACI eller AKS kan du prova att distribuera den som en lokal webb tjänst. Med hjälp av en lokal webb tjänst blir det enklare att felsöka problem. Docker-avbildningen som innehåller modellen laddas ned och startas i det lokala systemet.
+Om du får problem med att distribuera en modell till ACI eller AKS kan du prova att distribuera den som en lokal. Med hjälp av en lokal är det enklare att felsöka problem. Docker-avbildningen som innehåller modellen laddas ned och startas i det lokala systemet.
 
 > [!IMPORTANT]
-> Lokal distribution av webb tjänster kräver en fungerande Docker-installation på det lokala systemet. Docker måste köras innan du distribuerar en lokal webb tjänst. Information om hur du installerar och använder Docker finns [https://www.docker.com/](https://www.docker.com/)i.
+> Lokala distributioner kräver en fungerande Docker-installation på det lokala systemet. Docker måste köras innan du distribuerar en lokal. Information om hur du installerar och använder Docker finns [https://www.docker.com/](https://www.docker.com/).
 
 > [!WARNING]
-> Distributioner av lokala webb tjänster stöds inte i produktions scenarier.
+> Lokala distributioner stöds inte i produktions scenarier.
 
-Om du vill distribuera lokalt ändrar du koden så `LocalWebservice.deploy_configuration()` att den används för att skapa en distributions konfiguration. Använd `Model.deploy()` sedan för att distribuera tjänsten. I följande exempel distribueras en modell (som finns i `model` variabeln) som en lokal webb tjänst:
+Om du vill distribuera lokalt ändrar du koden så att den använder `LocalWebservice.deploy_configuration()` för att skapa en distributions konfiguration. Använd sedan `Model.deploy()` för att distribuera tjänsten. I följande exempel distribueras en modell (som finns i variabeln `model`) som lokal:
 
 ```python
 from azureml.core.model import InferenceConfig, Model
@@ -173,14 +173,14 @@ inference_config = InferenceConfig(runtime="python",
                                    entry_script="score.py",
                                    conda_file="myenv.yml")
 
-# Create a local deployment, using port 8890 for the web service endpoint
+# Create a local deployment, using port 8890 for the  endpoint
 deployment_config = LocalWebservice.deploy_configuration(port=8890)
 # Deploy the service
 service = Model.deploy(
     ws, "mymodel", [model], inference_config, deployment_config)
 # Wait for the deployment to complete
 service.wait_for_deployment(True)
-# Display the port that the web service is available on
+# Display the port that the  is available on
 print(service.port)
 ```
 
@@ -202,10 +202,10 @@ print(prediction)
 
 ### <a name="update-the-service"></a>Uppdatera tjänsten
 
-Under lokal testning kan du behöva uppdatera `score.py` filen för att lägga till loggning eller försöka lösa eventuella problem som du har identifierat. Om du vill läsa in ändringarna `score.py` i filen igen `reload()`använder du. Följande kod läser till exempel in skriptet för tjänsten och skickar sedan data till den. Data får poäng med den uppdaterade `score.py` filen:
+Under lokal testning kan du behöva uppdatera `score.py`-filen för att lägga till loggning eller försöka lösa eventuella problem som du har identifierat. Om du vill läsa in ändringarna i `score.py`-filen använder du `reload()`. Följande kod läser till exempel in skriptet för tjänsten och skickar sedan data till den. Data visas med den uppdaterade `score.py` filen:
 
 > [!IMPORTANT]
-> `reload` Metoden är endast tillgänglig för lokala distributioner. Information om hur du uppdaterar en distribution till ett annat beräknings mål finns i avsnittet uppdatering i [Distribuera modeller](how-to-deploy-and-where.md#update).
+> Metoden `reload` är bara tillgänglig för lokala distributioner. Information om hur du uppdaterar en distribution till ett annat beräknings mål finns i avsnittet uppdatering i [Distribuera modeller](how-to-deploy-and-where.md#update).
 
 ```python
 service.reload()
@@ -213,7 +213,7 @@ print(service.run(input_data=test_sample))
 ```
 
 > [!NOTE]
-> Skriptet läses in på nytt från den plats som anges `InferenceConfig` av det objekt som används av tjänsten.
+> Skriptet läses in på nytt från den plats som anges av `InferenceConfig`-objektet som används av tjänsten.
 
 Om du vill ändra modellen, Conda-beroenden eller distributions konfigurationen använder du [Update ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#update--args-). I följande exempel uppdateras modellen som används av tjänsten:
 
@@ -227,7 +227,7 @@ Om du vill ta bort tjänsten använder du [Delete ()](https://docs.microsoft.com
 
 ### <a id="dockerlog"></a>Granska Docker-loggen
 
-Du kan skriva ut detaljerad Docker-motorn loggmeddelanden från objektet. Du kan visa loggen för ACI, AKS och lokala distributioner. Följande exempel visar hur du skriver ut loggarna.
+Du kan skriva ut detaljerade logg meddelanden för Docker-motorn från serviceobjektet. Du kan visa loggen för ACI, AKS och lokala distributioner. Följande exempel visar hur du skriver ut loggarna.
 
 ```python
 # if you already have the service object handy
@@ -237,15 +237,15 @@ print(service.get_logs())
 print(ws.webservices['mysvc'].get_logs())
 ```
 
-## <a name="service-launch-fails"></a>Starta tjänsten misslyckas
+## <a name="service-launch-fails"></a>Det går inte att starta tjänsten
 
-När avbildningen har skapats försöker systemet starta en behållare med hjälp av distributions konfigurationen. Som en del i processen för att starta upp behållaren, den `init()` funktionen i din bedömningsskriptet anropas av systemet. Om det finns undantag utan felhantering i den `init()` fungerar, visas **CrashLoopBackOff** fel i felmeddelandet.
+När avbildningen har skapats försöker systemet starta en behållare med hjälp av distributions konfigurationen. Som en del av processen för container start anropas funktionen `init()` i ditt bedömnings skript av systemet. Om det finns undantag som inte har fångats i `init()`-funktionen kan du se **CrashLoopBackOff** -fel i fel meddelandet.
 
-Använd informationen i avsnittet [Granska Docker](#dockerlog) -loggen för att kontrol lera loggarna.
+Använd informationen i avsnittet [Granska Docker-loggen](#dockerlog) för att kontrol lera loggarna.
 
-## <a name="function-fails-get_model_path"></a>Funktionen misslyckas: get_model_path()
+## <a name="function-fails-get_model_path"></a>Funktionen misslyckades: get_model_path ()
 
-I `init()` funktionen i bedömnings skriptet, anropas ofta funktionen [modell. get _model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) för att hitta en modell fil eller en mapp med modell filer i behållaren. Om modell filen eller mappen inte kan hittas Miss lyckas funktionen. Det enklaste sättet att felsöka det här felet är att köra den nedan Python-kod i behållaren shell:
+I `init()`-funktionen i bedömnings skriptet, anropas ofta funktionen [Model. get _model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) för att hitta en modell fil eller en mapp med modell filer i behållaren. Om modell filen eller mappen inte kan hittas Miss lyckas funktionen. Det enklaste sättet att felsöka det här felet är att köra följande python-kod i container Shell:
 
 ```python
 from azureml.core.model import Model
@@ -254,13 +254,13 @@ logging.basicConfig(level=logging.DEBUG)
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 
-Det här exemplet skriver ut den lokala sökvägen (i `/var/azureml-app`förhållande till) i behållaren där bedömnings skriptet förväntar sig att hitta modell filen eller mappen. Därefter kan du kontrollera om filen eller mappen är verkligen där det förväntas vara.
+Det här exemplet skriver ut den lokala sökvägen (i förhållande till `/var/azureml-app`) i behållaren där bedömnings skriptet förväntar sig att hitta modell filen eller mappen. Sedan kan du kontrol lera om filen eller mappen verkligen är den förväntas vara.
 
 Om du ställer in loggnings nivån på fel sökning kan det leda till att ytterligare information loggas, vilket kan vara användbart vid identifiering av felet.
 
-## <a name="function-fails-runinput_data"></a>Funktionen misslyckas: run(input_data)
+## <a name="function-fails-runinput_data"></a>Funktionen misslyckades: kör (input_data)
 
-Om tjänsten har distribuerats, men den kraschar när du publicerar data till bedömnings-slutpunkten, du kan lägga till fel vid identifiering av instruktionen i din `run(input_data)` så att den returnerar detaljerat felmeddelande i stället. Exempel:
+Om tjänsten har distribuerats, men den kraschar när du skickar data till poäng slut punkten, kan du lägga till fel meddelande instruktion i din `run(input_data)`-funktion så att den returnerar ett detaljerat fel meddelande i stället. Till exempel:
 
 ```python
 def run(input_data):
@@ -275,7 +275,7 @@ def run(input_data):
         return json.dumps({"error": result})
 ```
 
-**Obs!** Fel meddelanden som returneras från `run(input_data)` anropet ska endast utföras för fel söknings syfte. Av säkerhets skäl bör du inte returnera fel meddelanden på det här sättet i en produktions miljö.
+**Obs!** fel meddelanden som returneras från `run(input_data)`-anropet ska endast göras för fel söknings ändamål. Av säkerhets skäl bör du inte returnera fel meddelanden på det här sättet i en produktions miljö.
 
 ## <a name="http-status-code-503"></a>HTTP-statuskod 503
 
@@ -285,16 +285,16 @@ Det finns två saker som kan hjälpa till att förhindra 503 status koder:
 
 * Ändra användnings nivån där autoskalning skapar nya repliker.
     
-    Som standard är den automatiska skalnings mål användningen inställd på 70%, vilket innebär att tjänsten kan hantera toppar i begär Anden per sekund (RPS) på upp till 30%. Du kan justera användnings målet genom `autoscale_target_utilization` att ange till ett lägre värde.
+    Som standard är den automatiska skalnings mål användningen inställd på 70%, vilket innebär att tjänsten kan hantera toppar i begär Anden per sekund (RPS) på upp till 30%. Du kan justera användnings målet genom att ange `autoscale_target_utilization` till ett lägre värde.
 
     > [!IMPORTANT]
     > Den här ändringen innebär inte att repliker skapas *snabbare*. I stället skapas de med ett lägre användnings tröskelvärde. I stället för att vänta tills tjänsten är 70% Använd, och om du ändrar värdet till 30%, så skapas repliker när 30% belastning sker.
     
-    Om webb tjänsten redan använder de aktuella Max replikerna och du fortfarande ser 503 status koder ökar `autoscale_max_replicas` du värdet för att öka det maximala antalet repliker.
+    Om den redan använder de aktuella Max replikerna och du fortfarande ser 503 status koder ökar du `autoscale_max_replicas` värde för att öka det maximala antalet repliker.
 
 * Ändra det minsta antalet repliker. Att öka de minsta replikerna ger en större pool som hanterar inkommande toppar.
 
-    Om du vill öka det lägsta antalet repliker anger `autoscale_min_replicas` du ett högre värde. Du kan beräkna de repliker som krävs genom att använda följande kod och ersätta värden med värden som är speciella för ditt projekt:
+    Om du vill öka det minsta antalet repliker anger `autoscale_min_replicas` till ett högre värde. Du kan beräkna de repliker som krävs genom att använda följande kod och ersätta värden med värden som är speciella för ditt projekt:
 
     ```python
     from math import ceil
@@ -316,7 +316,7 @@ Det finns två saker som kan hjälpa till att förhindra 503 status koder:
     > [!NOTE]
     > Om du får begär ande toppar som är större än de nya minsta replikerna kan hantera kan du få 503s igen. När trafik till tjänsten ökar kan du till exempel behöva öka de lägsta replikerna.
 
-Mer information om hur du `autoscale_target_utilization`ställer `autoscale_max_replicas`in, `autoscale_min_replicas` och för finns i [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) -modulens referens.
+Mer information om hur du ställer in `autoscale_target_utilization`, `autoscale_max_replicas`och `autoscale_min_replicas` för finns i [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) module-referensen.
 
 
 ## <a name="advanced-debugging"></a>Avancerad fel sökning
@@ -326,7 +326,7 @@ I vissa fall kan du behöva interaktivt felsöka python-koden som finns i modell
 > [!IMPORTANT]
 > Den här fel söknings metoden fungerar inte när du använder `Model.deploy()` och `LocalWebservice.deploy_configuration` för att distribuera en modell lokalt. I stället måste du skapa en avbildning med hjälp av klassen [ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) . 
 >
-> Lokal distribution av webb tjänster kräver en fungerande Docker-installation på det lokala systemet. Docker måste köras innan du distribuerar en lokal webb tjänst. Information om hur du installerar och använder Docker finns [https://www.docker.com/](https://www.docker.com/)i.
+> Lokala distributioner kräver en fungerande Docker-installation på det lokala systemet. Docker måste köras innan du distribuerar en lokal. Information om hur du installerar och använder Docker finns [https://www.docker.com/](https://www.docker.com/).
 
 ### <a name="configure-development-environment"></a>Konfigurera utvecklingsmiljön
 
@@ -336,7 +336,7 @@ I vissa fall kan du behöva interaktivt felsöka python-koden som finns i modell
     python -m pip install --upgrade ptvsd
     ```
 
-    Mer information om hur du använder PTVSD med VS Code finns [](https://code.visualstudio.com/docs/python/debugging#_remote-debugging)i fjärrfelsökning.
+    Mer information om hur du använder PTVSD med VS Code finns i [fjärrfelsökning](https://code.visualstudio.com/docs/python/debugging#_remote-debugging).
 
 1. Om du vill konfigurera VS-kod för att kommunicera med Docker-avbildningen skapar du en ny fel söknings konfiguration:
 
@@ -369,7 +369,7 @@ I vissa fall kan du behöva interaktivt felsöka python-koden som finns i modell
 
 ### <a name="create-an-image-that-includes-ptvsd"></a>Skapa en avbildning som innehåller PTVSD
 
-1. Ändra Conda-miljön för distributionen så att den innehåller PTVSD. I följande exempel visas hur du lägger till `pip_packages` den med hjälp av parametern:
+1. Ändra Conda-miljön för distributionen så att den innehåller PTVSD. I följande exempel visas hur du lägger till den med hjälp av parametern `pip_packages`:
 
     ```python
     from azureml.core.conda_dependencies import CondaDependencies 
@@ -384,7 +384,7 @@ I vissa fall kan du behöva interaktivt felsöka python-koden som finns i modell
         f.write(myenv.serialize_to_string())
     ```
 
-1. Om du vill starta PTVSD och vänta en anslutning när tjänsten startas lägger du till följande längst upp i `score.py` filen:
+1. Om du vill starta PTVSD och vänta en anslutning när tjänsten startas lägger du till följande överst i `score.py`-filen:
 
     ```python
     import ptvsd
@@ -395,7 +395,7 @@ I vissa fall kan du behöva interaktivt felsöka python-koden som finns i modell
     print("Debugger attached...")
     ```
 
-1. Under fel sökning kanske du vill göra ändringar i filerna i avbildningen utan att behöva återskapa den. Om du vill installera en text redigerare (vim) i Docker-avbildningen skapar du en ny `Dockerfile.steps` text fil med namnet och använder följande som innehållet i filen:
+1. Under fel sökning kanske du vill göra ändringar i filerna i avbildningen utan att behöva återskapa den. Om du vill installera en text redigerare (vim) i Docker-avbildningen skapar du en ny textfil med namnet `Dockerfile.steps` och använder följande som innehållet i filen:
 
     ```text
     RUN apt-get update && apt-get -y install vim
@@ -403,10 +403,10 @@ I vissa fall kan du behöva interaktivt felsöka python-koden som finns i modell
 
     Med en text redigerare kan du ändra filerna i Docker-avbildningen för att testa ändringar utan att skapa en ny avbildning.
 
-1. Om du vill skapa en avbildning som `Dockerfile.steps` använder filen använder du `docker_file` parametern när du skapar en avbildning. Följande exempel visar hur du gör detta:
+1. Om du vill skapa en avbildning som använder `Dockerfile.steps`-filen använder du parametern `docker_file` när du skapar en avbildning. Följande exempel visar hur du gör detta:
 
     > [!NOTE]
-    > I det här exemplet `ws` förutsätts att du pekar på din Azure Machine Learning `model` arbets yta och det är modellen som distribueras. `myenv.yml` Filen innehåller de Conda-beroenden som skapades i steg 1.
+    > Det här exemplet förutsätter att `ws` pekar på arbets ytan Azure Machine Learning och att `model` är den modell som distribueras. `myenv.yml`-filen innehåller de Conda-beroenden som skapades i steg 1.
 
     ```python
     from azureml.core.image import Image, ContainerImage
@@ -429,7 +429,7 @@ När avbildningen har skapats visas avbildnings platsen i registret. Platsen lik
 myregistry.azurecr.io/myimage:1
 ```
 
-I den här text exemplet är `myregistry` register namnet och avbildningen heter. `myimage` Avbildnings versionen är `1`.
+I den här text exemplet är register namnet `myregistry` och avbildningen heter `myimage`. Avbildnings versionen är `1`.
 
 ### <a name="download-the-image"></a>Ladda ned avbildningen
 
@@ -445,20 +445,20 @@ I den här text exemplet är `myregistry` register namnet och avbildningen heter
     az acr login --name myregistry
     ```
 
-1. Använd följande kommando för att ladda ned avbildningen till din lokala Docker. Ersätt `myimagepath` med den plats som returnerades när du registrerade avbildningen:
+1. Använd följande kommando för att ladda ned avbildningen till din lokala Docker. Ersätt `myimagepath` med platsen som returnerades när du registrerade avbildningen:
 
     ```bash
     docker pull myimagepath
     ```
 
-    Avbildningens sökväg bör liknas `myregistry.azurecr.io/myimage:1`. Var `myregistry` är ditt register, `myimage` är din avbildning och `1` är avbildnings versionen.
+    Avbildningens sökväg bör likna `myregistry.azurecr.io/myimage:1`. Om `myregistry` är ditt register, `myimage` är din avbildning och `1` är avbildnings versionen.
 
     > [!TIP]
     > Autentiseringen från föregående steg är inte senaste för alltid. Om du väntar tillräckligt länge mellan kommandot Authentication och kommandot pull, får du ett autentiseringsfel. Om detta händer, autentisera om.
 
-    Hur lång tid det tar att slutföra nedladdningen beror på Internet anslutningens hastighet. En nedladdnings status visas under processen. När hämtningen är klar kan du använda `docker images` kommandot för att kontrol lera att det har laddats ned.
+    Hur lång tid det tar att slutföra nedladdningen beror på Internet anslutningens hastighet. En nedladdnings status visas under processen. När hämtningen är klar kan du använda kommandot `docker images` för att kontrol lera att den har laddats ned.
 
-1. Använd följande kommando för att lägga till en tagg för att göra det enklare att arbeta med avbildningen. Ersätt `myimagepath` med värdet location från steg 2.
+1. Använd följande kommando för att lägga till en tagg för att göra det enklare att arbeta med avbildningen. Ersätt `myimagepath` med plats-värdet från steg 2.
 
     ```bash
     docker tag myimagepath debug:1
@@ -469,7 +469,7 @@ I den här text exemplet är `myregistry` register namnet och avbildningen heter
 ### <a name="debug-the-service"></a>Felsöka tjänsten
 
 > [!TIP]
-> Om du anger en tids gräns för PTVSD-anslutningen i `score.py` filen måste du ansluta vs-kod till felsökningssessionen innan tids gränsen upphör att gälla. Starta vs Code, öppna den lokala kopian `score.py`av, ange en Bryt punkt och låt den vara klar innan du använder stegen i det här avsnittet.
+> Om du anger en tids gräns för PTVSD-anslutningen i `score.py`-filen måste du ansluta VS-kod till felsökningssessionen innan tids gränsen upphör att gälla. Starta VS Code, öppna den lokala kopian av `score.py`, ange en Bryt punkt och låt den vara klar innan du använder stegen i det här avsnittet.
 >
 > Mer information om fel sökning och inställning av Bryt punkter finns i [fel sökning](https://code.visualstudio.com/Docs/editor/debugging).
 
@@ -479,7 +479,7 @@ I den här text exemplet är `myregistry` register namnet och avbildningen heter
     docker run --rm --name debug -p 8000:5001 -p 5678:5678 debug:1
     ```
 
-1. Om du vill bifoga VS Code till PTVSD i behållaren öppnar du VS Code och använder F5-tangenten eller väljer __Felsök__. När du uppmanas väljer __du Azure Machine Learning: Konfiguration av Docker-felsökning__ . Du kan också välja fel söknings ikonen från sido fältet, __Azure Machine Learning: Docker-felsöknings post från List rutan Felsök och Använd sedan den gröna pilen för att koppla fel sökaren.__
+1. Om du vill bifoga VS Code till PTVSD i behållaren öppnar du VS Code och använder F5-tangenten eller väljer __Felsök__. När du uppmanas väljer du __Azure Machine Learning: Docker-felsöknings__ konfiguration. Du kan också välja fel söknings ikonen från sido fältet, __Azure Machine Learning: Docker-felsöknings__ post från List Rute menyn Felsök och sedan använda den gröna pilen för att koppla fel sökaren.
 
     ![Fel söknings ikonen, starta fel söknings knappen och konfigurations väljaren](media/how-to-troubleshoot-deployment/start-debugging.png)
 
@@ -504,7 +504,7 @@ Om du vill göra ändringar i filerna i avbildningen kan du ansluta till den på
     cd /var/azureml-app
     ```
 
-    Härifrån kan du använda VIM för att redigera `score.py` filen. Mer information om hur du använder vim finns i [använda vim](https://www.tldp.org/LDP/intro-linux/html/sect_06_02.html)-redigeraren.
+    Härifrån kan du använda VIM för att redigera `score.py`-filen. Mer information om hur du använder vim finns i [använda vim-redigeraren](https://www.tldp.org/LDP/intro-linux/html/sect_06_02.html).
 
 1. Ändringar i en behållare är normalt inte sparade. Om du vill spara de ändringar du gör använder du följande kommando innan du avslutar gränssnittet som startades i ovanstående steg (det vill säga i ett annat gränssnitt):
 
@@ -512,7 +512,7 @@ Om du vill göra ändringar i filerna i avbildningen kan du ansluta till den på
     docker commit debug debug:2
     ```
 
-    Det här kommandot skapar en ny avbildning `debug:2` med namnet som innehåller dina ändringar.
+    Det här kommandot skapar en ny avbildning med namnet `debug:2` som innehåller dina ändringar.
 
     > [!TIP]
     > Du måste stoppa den aktuella behållaren och börja använda den nya versionen innan ändringarna börjar gälla.
@@ -531,5 +531,5 @@ docker stop debug
 
 Lär dig mer om distribution:
 
-* [Hur du distribuerar och var](how-to-deploy-and-where.md)
-* [Självstudier: Träna & att distribuera modeller](tutorial-train-models-with-aml.md)
+* [Distribuera och var](how-to-deploy-and-where.md)
+* [Självstudie: träna & distribuera modeller](tutorial-train-models-with-aml.md)

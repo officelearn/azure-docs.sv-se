@@ -1,5 +1,5 @@
 ---
-title: Skydda webb tjänster med hjälp av SSL
+title: Skydda er med hjälp av SSL
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du aktiverar HTTPS för att för säkra en webb tjänst som distribueras via Azure Machine Learning.
 services: machine-learning
@@ -11,47 +11,48 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 39b79e5729945a346e9cf022fb93e23da9fa7824
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 1455ec17898e82ed0f39fea66c44d2e9b4f57280
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053549"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489551"
 ---
-# <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>Använd SSL för att skydda en webb tjänst via Azure Machine Learning
+# <a name="use-ssl-to-secure-a--through-azure-machine-learning"></a>Använd SSL för att skydda en genom Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Den här artikeln visar hur du skyddar en webb tjänst som distribueras via Azure Machine Learning.
+Den här artikeln visar hur du skyddar en som distribueras via Azure Machine Learning.
 
-Du använder [https](https://en.wikipedia.org/wiki/HTTPS) för att begränsa åtkomsten till webb tjänster och säkra de data som klienter skickar. HTTPS skyddar kommunikationen mellan en klient och en webb tjänst genom att kryptera kommunikationen mellan de två. Kryptering använder [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS kallas ibland även *Secure Sockets Layer* (SSL), som var den föregående aktiviteten TLS.
+Du använder [https](https://en.wikipedia.org/wiki/HTTPS) för att begränsa åtkomsten till och skydda de data som klienter skickar. HTTPS skyddar kommunikationen mellan en klient och en genom att kryptera kommunikationen mellan de två. Kryptering använder [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS kallas ibland även *Secure Sockets Layer* (SSL), som var den föregående aktiviteten TLS.
 
 > [!TIP]
-> Azure Machine Learning SDK använder termen "SSL" för egenskaper som är relaterade till säker kommunikation. Detta innebär inte att din webb tjänst inte använder *TLS*. SSL är bara en oftare erkänd term.
+> Azure Machine Learning SDK använder termen "SSL" för egenskaper som är relaterade till säker kommunikation. Detta innebär inte att din användning av *TLS*används. SSL är bara en oftare erkänd term.
 
 TLS och SSL är beroende av *digitala certifikat*, som hjälper till med kryptering och identitets verifiering. Mer information om hur digitala certifikat fungerar finns i avsnittet om infrastrukturen för [offentliga nycklar](https://en.wikipedia.org/wiki/Public_key_infrastructure)i Wikipedia-ämnet.
 
 > [!WARNING]
-> Om du inte använder HTTPS för din webb tjänst kan data som skickas till och från tjänsten vara synliga för andra på Internet.
+> Om du inte använder HTTPS för dina data kan data som skickas till och från tjänsten vara synliga för andra på Internet.
 >
 > HTTPS gör det också möjligt för klienten att verifiera äktheten på den server som den ansluter till. Den här funktionen skyddar klienter mot [man-in-the-Middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) -attacker.
 
-Detta är den allmänna processen för att skydda en webb tjänst:
+Detta är den allmänna processen för att skydda en:
 
 1. Hämta ett domän namn.
 
 2. Skaffa ett digitalt certifikat.
 
-3. Distribuera eller uppdatera webb tjänsten med SSL aktiverat.
+3. Distribuera eller uppdatera with SSL-aktiverat.
 
-4. Uppdatera din DNS så att den pekar på webb tjänsten.
+4. Uppdatera din DNS så att den pekar på.
 
 > [!IMPORTANT]
 > Om du distribuerar till Azure Kubernetes service (AKS) kan du köpa ditt eget certifikat eller använda ett certifikat från Microsoft. Om du använder ett certifikat från Microsoft behöver du inte skaffa ett domän namn eller SSL-certifikat. Mer information finns i avsnittet [Aktivera SSL och distribution](#enable) i den här artikeln.
 
-Det finns små skillnader när du skyddar webb tjänster mellan [distributions mål](how-to-deploy-and-where.md).
+Det finns små skillnader när du skyddar er över [distributions mål](how-to-deploy-and-where.md).
 
 ## <a name="get-a-domain-name"></a>Hämta ett domän namn
 
-Om du inte redan har ett domän namn kan du köpa ett från en *domän namns registrator*. Processen och priset skiljer sig mellan registratorn. Registratorn innehåller verktyg för att hantera domän namnet. Du använder dessa verktyg för att mappa ett fullständigt kvalificerat domän namn (FQDN) (till exempel www\.contoso.com) till den IP-adress som är värd för webb tjänsten.
+Om du inte redan har ett domän namn kan du köpa ett från en *domän namns registrator*. Processen och priset skiljer sig mellan registratorn. Registratorn innehåller verktyg för att hantera domän namnet. Du använder dessa verktyg för att mappa ett fullständigt kvalificerat domän namn (FQDN) (till exempel www\.contoso.com) till den IP-adress som är värd för.
 
 ## <a name="get-an-ssl-certificate"></a>Hämta ett SSL-certifikat
 
@@ -60,7 +61,7 @@ Det finns många sätt att hämta ett SSL-certifikat (digitalt certifikat). Det 
 * Ett **certifikat**. Certifikatet måste innehålla den fullständiga certifikat kedjan och måste vara "PEM-kodad".
 * En **nyckel**. Nyckeln måste också vara PEM-kodad.
 
-När du begär ett certifikat måste du ange det fullständiga domän namnet för den adress som du planerar att använda för webb tjänsten (till exempel www\.contoso.com). Adressen som stämplas in i certifikatet och den adress som klienterna använder jämförs för att verifiera webb tjänstens identitet. Om dessa adresser inte matchar får klienten ett fel meddelande.
+När du begär ett certifikat måste du ange det fullständiga domän namnet för den adress som du planerar att använda för (till exempel www\.contoso.com). Adressen som stämplas in i certifikatet och den adress som klienterna använder jämförs för att verifiera identiteten för. Om dessa adresser inte matchar får klienten ett fel meddelande.
 
 > [!TIP]
 > Om certifikat utfärdaren inte kan ange certifikatet och nyckeln som PEM-kodade filer kan du använda ett verktyg som [openssl](https://www.openssl.org/) för att ändra formatet.
@@ -75,7 +76,7 @@ Om du vill distribuera (eller distribuera om) tjänsten med SSL aktiverat, anger
 ### <a name="deploy-on-aks-and-field-programmable-gate-array-fpga"></a>Distribuera på AKS och Field-programmerbar grind mat ris (FPGA)
 
   > [!NOTE]
-  > Informationen i det här avsnittet gäller även när du distribuerar en säker webb tjänst för det visuella gränssnittet. Om du inte är bekant med att använda python SDK, se [Vad är Azure Machine Learning SDK för python?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+  > Informationen i det här avsnittet gäller även när du distribuerar en säker design. Om du inte är bekant med att använda python SDK, se [Vad är Azure Machine Learning SDK för python?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 När du distribuerar till AKS kan du skapa ett nytt AKS-kluster eller koppla ett befintligt. Mer information om hur du skapar eller ansluter ett kluster finns i [distribuera en modell till ett Azure Kubernetes service-kluster](how-to-deploy-azure-kubernetes-service.md).
   
@@ -136,7 +137,7 @@ Mer information finns i [AciWebservice. deploy_configuration ()](https://docs.mi
 
 ## <a name="update-your-dns"></a>Uppdatera din DNS
 
-Sedan måste du uppdatera din DNS så att den pekar på webb tjänsten.
+Sedan måste du uppdatera din DNS så att den pekar på.
 
 + **För Container Instances:**
 
@@ -151,7 +152,7 @@ Sedan måste du uppdatera din DNS så att den pekar på webb tjänsten.
 
   Uppdatera DNS för den offentliga IP-adressen för AKS-klustret på fliken **konfiguration** under **Inställningar** i det vänstra fönstret. (Se följande bild.) Den offentliga IP-adressen är en resurs typ som skapas under resurs gruppen som innehåller AKS-agentens noder och andra nätverks resurser.
 
-  [![Azure Machine Learning: skydda webb tjänster med SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
+  [![Azure Machine Learning: skydda s med SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
 
 ## <a name="update-the-ssl-certificate"></a>Uppdatera SSL-certifikatet
 
@@ -248,5 +249,5 @@ aks_target.update(update_config)
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig att:
-+ [Använda en maskin inlärnings modell som distribueras som en webb tjänst](how-to-consume-web-service.md)
++ [Använda en maskin inlärnings modell som distribueras som en](how-to-consume-web-service.md)
 + [Köra experiment och härledning på ett säkert sätt i ett virtuellt Azure-nätverk](how-to-enable-virtual-network.md)

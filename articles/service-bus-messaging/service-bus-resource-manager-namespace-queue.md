@@ -1,6 +1,6 @@
 ---
-title: Skapa Azure Service Bus-namnområde och kö med hjälp av Azure Resource Manager-mall | Microsoft Docs
-description: Skapa ett Service Bus-namnområde och en kö med hjälp av Azure Resource Manager-mall
+title: Skapa Azure Service Bus namnrymd och kö med Azure Resource Manager-mall | Microsoft Docs
+description: Skapa ett Service Bus-namnområde och en kö med Azure Resource Manager-mall
 services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
@@ -14,38 +14,38 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: 6d7e4253d37d5b50fc8c3de1c8c31636e59b2b9c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1c6a4202b944b2eb95008964eb1040f176645334
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444776"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482385"
 ---
-# <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Skapa ett Service Bus-namnområde och en kö med en Azure Resource Manager-mall
+# <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Skapa ett Service Bus-namnområde och en kö med hjälp av en Azure Resource Manager-mall
 
-Den här artikeln visar hur du använder en Azure Resource Manager-mall som skapar ett Service Bus-namnområde och en kö i namnområdet. Den här artikeln beskriver hur du ange vilka resurser distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav.
+Den här artikeln visar hur du använder en Azure Resource Manager-mall som skapar ett Service Bus-namnområde och en kö inom denna namnrymd. Artikeln förklarar hur du anger vilka resurser som distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav.
 
-Mer information om hur du skapar mallar finns i [redigera Azure Resource Manager-mallar][Authoring Azure Resource Manager templates].
+Mer information om hur du skapar mallar finns i [redigera Azure Resource Manager mallar][Authoring Azure Resource Manager templates].
 
-Läs den fullständiga mallen, den [Service Bus-namnområde och kö mallen][Service Bus namespace and queue template] på GitHub.
+Den fullständiga mallen finns i [Service Bus namnrymd och Queue-mall][Service Bus namespace and queue template] på GitHub.
 
 > [!NOTE]
-> Följande Azure Resource Manager-mallar är tillgängliga för hämtning och distribution.
+> Följande Azure Resource Manager mallar är tillgängliga för hämtning och distribution.
 > 
-> * [Skapa ett Service Bus-namnområde med kön och auktorisering](service-bus-resource-manager-namespace-auth-rule.md)
-> * [Skapa ett Service Bus-namnområde med ämne och en prenumeration](service-bus-resource-manager-namespace-topic.md)
+> * [Skapa ett Service Bus-namnområde med kö och auktoriseringsregel](service-bus-resource-manager-namespace-auth-rule.md)
+> * [Skapa ett Service Bus-namnområde med ämne och prenumeration](service-bus-resource-manager-namespace-topic.md)
 > * [Skapa ett Service Bus-namnområde](service-bus-resource-manager-namespace.md)
 > * [Skapa ett Service Bus-namnområde med ämne, prenumeration och regel](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Om du vill söka efter de senaste mallarna, Besök den [Azure-Snabbstartsmallar][Azure Quickstart Templates] galleriet och söka efter **Service Bus**.
+> Om du vill söka efter de senaste mallarna går du till galleriet för [Azure snabb starts mallar][Azure Quickstart Templates] och söker efter **Service Bus**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-will-you-deploy"></a>Vad vill du distribuera?
 
-Med den här mallen kan du distribuera ett Service Bus-namnområde med en kö.
+Med den här mallen distribuerar du en Service Bus namnrymd med en kö.
 
-[Service Bus-köer](service-bus-queues-topics-subscriptions.md#queues) erbjuder First In, First Out (FIFO) meddelandeleverans till en eller flera konkurrerande konsumenter.
+[Service Bus köer](service-bus-queues-topics-subscriptions.md#queues) ger en eller flera konkurrerande konsumenter först in, först ut-meddelande (FIFO).
 
 Klicka på följande knapp för att köra distributionen automatiskt:
 
@@ -53,12 +53,12 @@ Klicka på följande knapp för att köra distributionen automatiskt:
 
 ## <a name="parameters"></a>Parametrar
 
-Med Azure Resource Manager kan du definiera parametrar för värden som du vill ange när mallen distribueras. Mallen innehåller ett avsnitt som heter `Parameters` som innehåller alla parametervärden. Du bör definiera en parameter för de värden som varierar utifrån det projekt som du distribuerar eller utifrån den miljö som du distribuerar till. Inte definiera parametrar för värden som ska alltid vara samma. Varje parametervärde används i mallen för att definiera de resurser som distribueras.
+Med Azure Resource Manager kan du definiera parametrar för värden som du vill ange när mallen distribueras. Mallen innehåller ett avsnitt som heter `Parameters` som innehåller alla parameter värden. Du bör definiera en parameter för de värden som varierar beroende på vilket projekt du distribuerar eller baserat på den miljö som du distribuerar till. Definiera inte parametrar för värden som alltid ska vara desamma. Varje parametervärde används i mallen för att definiera de resurser som distribueras.
 
 Mallen definierar följande parametrar.
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
-Namnet på Service Bus-namnområdet för att skapa.
+Namnet på Service Bus namn området som ska skapas.
 
 ```json
 "serviceBusNamespaceName": {
@@ -70,7 +70,7 @@ Namnet på Service Bus-namnområdet för att skapa.
 ```
 
 ### <a name="servicebusqueuename"></a>serviceBusQueueName
-Namnet på kön som skapats i Service Bus-namnområdet.
+Namnet på kön som skapades i Service Bus namn området.
 
 ```json
 "serviceBusQueueName": {
@@ -79,7 +79,7 @@ Namnet på kön som skapats i Service Bus-namnområdet.
 ```
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
-Service Bus-API-versionen av mallen.
+Mallens Service Bus-API-version.
 
 ```json
 "serviceBusApiVersion": { 
@@ -91,18 +91,19 @@ Service Bus-API-versionen av mallen.
 ```
 
 ## <a name="resources-to-deploy"></a>Resurser som ska distribueras
-Skapar en standard Service Bus-namnområde av typen **Messaging**, med en kö.
+Skapar ett standard Service Bus-namnområde av typ **meddelanden**, med en kö.
 
 ```json
-"resources ": [{
-        "apiVersion": "[variables('sbVersion')]",
+{
+    "resources": [{
+        "apiVersion": "2017-04-01",
         "name": "[parameters('serviceBusNamespaceName')]",
-        "type": "Microsoft.ServiceBus/Namespaces",
-        "location": "[variables('location')]",
-        "kind": "Messaging",
+        "type": "Microsoft.ServiceBus/namespaces",
+        "location": "[parameters('location')]",
         "sku": {
-            "name": "Standard",
+            "name": "Standard"
         },
+        "properties": {},
         "resources": [{
             "apiVersion": "[variables('sbVersion')]",
             "name": "[parameters('serviceBusQueueName')]",
@@ -111,13 +112,14 @@ Skapar en standard Service Bus-namnområde av typen **Messaging**, med en kö.
                 "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
             ],
             "properties": {
-                "path": "[parameters('serviceBusQueueName')]",
+                "path": "[parameters('serviceBusQueueName')]"
             }
         }]
     }]
+}
 ```
 
-JSON-syntax och egenskaper finns i [namnområden](/azure/templates/microsoft.servicebus/namespaces) och [köer](/azure/templates/microsoft.servicebus/namespaces/queues).
+Information om JSON-syntax och egenskaper finns i [namnrymder](/azure/templates/microsoft.servicebus/namespaces) och [köer](/azure/templates/microsoft.servicebus/namespaces/queues).
 
 ## <a name="commands-to-run-deployment"></a>Kommandon för att köra distributionen
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
@@ -137,9 +139,9 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Se följande avsnitt som visar hur du skapar en auktoriseringsregel för namnområde/kön: [Skapa en Service Bus-auktoriseringsregel för namnområde och kö med en Azure Resource Manager-mall](service-bus-resource-manager-namespace-auth-rule.md)
+Se följande avsnitt som visar hur du skapar en auktoriseringsregel för namn området/kön: [skapa en Service Bus auktoriseringsregel för namnrymd och kö med en Azure Resource Manager-mall](service-bus-resource-manager-namespace-auth-rule.md)
 
-Lär dig hur du hanterar dessa resurser genom att visa de här artiklarna:
+Lär dig hur du hanterar dessa resurser genom att läsa följande artiklar:
 
 * [Hantera Service Bus med PowerShell](service-bus-manage-with-ps.md)
 * [Hantera Service Bus-resurser med Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)

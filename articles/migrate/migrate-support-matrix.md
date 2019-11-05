@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 10/16/2019
 ms.author: raynew
-ms.openlocfilehash: 3fb36eb9b8507903d1aee00b82c375685a4dfa6c
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 18032250bc5c321d638ad46204738f49f1a0c744
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279474"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480141"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure Migrate support mat ris
 
@@ -24,21 +24,22 @@ Du kan använda [tjänsten Azure Migrate](migrate-overview.md) för att utvärde
 
 Det finns två versioner av tjänsten Azure Migrate:
 
-- **Aktuell version**: Med den här versionen kan du skapa nya Azure Migrate projekt, identifiera lokala utvärderingar och dirigera utvärderingar och migreringar. [Läs mer](whats-new.md#azure-migrate-new-version).
-- **Tidigare version**: För kunder som använder den tidigare versionen av Azure Migrate (endast utvärdering av lokala virtuella VMware-datorer stöds) bör du nu använda den aktuella versionen. I den tidigare versionen kan du inte skapa nya Azure Migrate projekt eller utföra nya identifieringar.
+- **Aktuell version**: om du använder den här versionen kan du skapa nya Azure Migrate projekt, identifiera lokala utvärderingar och dirigera utvärderingar och migreringar. [Läs mer](whats-new.md#release-version-july-2019).
+- **Tidigare version**: för kund som använder den tidigare versionen av Azure Migrate (endast utvärdering av lokala virtuella VMware-datorer stöddes) bör du nu använda den aktuella versionen. I den tidigare versionen kan du inte skapa nya Azure Migrate projekt eller utföra nya identifieringar.
 
-## <a name="supported-migration-scenarios"></a>Scenarier för migrering som stöds
+## <a name="supported-assessmentmigration-scenarios"></a>Scenarier för bedömning/migrering som stöds
 
-Tabellen sammanfattar migrerings scenarier som stöds.
+Tabellen sammanfattar scenarier för identifiering, utvärdering och migrering som stöds.
 
-**Distribution** | **Detaljer** 
+**Distribution** | **Information** 
 --- | --- 
+**App-Specific Discovery** | Du kan identifiera appar, roller och funktioner som körs på virtuella VMware-datorer. För närvarande är den här funktionen begränsad till enbart identifiering. Utvärderingen är för närvarande på dator nivå. Vi erbjuder ännu inte app-, roll-eller funktions-/regionsspecifika bedömning. 
 **Lokal utvärdering** | Utvärdera lokala arbets belastningar och data som körs på virtuella VMware-datorer och virtuella Hyper-V-datorer. Utvärdera med hjälp av Azure Migrate Server utvärdering och Microsoft Data Migration Assistant (DMA) och verktyg från tredje part som omfattar Cloudamize, samhyres teknik och Turbonomic-Server.
 **Lokal migrering till Azure** | Migrera arbets belastningar och data som körs på fysiska servrar, virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar och molnbaserade virtuella datorer till Azure. Migrera med hjälp av Azure Migrate Server Assessment and Azure Database Migration Service (DMS) och med verktyg från tredje part som innehåller Carbonite och CorentTech.
 
 Stöd för ett speciellt verktyg sammanfattas på följande sätt.
 
-**Verktyg** | **Bedömning/migrering** | **Detaljer**
+**Verktyg** | **Bedömning/migrering** | **Information**
 --- | --- | ---
 Utvärdering av Azure Migrate Server | Utvärdering | Prova Server utvärdering för [Hyper-V](tutorial-prepare-hyper-v.md) och [VMware](tutorial-prepare-vmware.md).
 Cloudamize | Utvärdering | [Läs mer](https://www.cloudamize.com/platform#tab-0).
@@ -51,14 +52,38 @@ CorentTech | Migrering | [Läs mer](https://www.corenttech.com/).
 
 ## <a name="azure-migrate-projects"></a>Azure Migrate projekt
 
-**Support** | **Detaljer**
+**Support** | **Information**
 --- | ---
-Subscription | Du kan ha flera Azure Migrate projekt i en prenumeration.
+Prenumeration | Du kan ha flera Azure Migrate projekt i en prenumeration.
 Azure-behörigheter | Du måste ha deltagar-eller ägar behörigheter i prenumerationen för att kunna skapa ett Azure Migrate-projekt.
 VMwares virtuella datorer  | Utvärdera upp till 35 000 virtuella VMware-datorer i ett enda projekt.
 Hyper-V:s virtuella datorer | Utvärdera upp till 35 000 virtuella Hyper-V-datorer i ett enda projekt.
 
 Ett projekt kan innehålla både virtuella VMware-datorer och virtuella Hyper-V-datorer, upp till utvärderings gränserna.
+
+## <a name="supported-geographies"></a>Geografiska områden som stöds
+
+Du kan skapa ett Azure Migrate-projekt i ett antal geografiska områden. Även om du bara kan skapa projekt i dessa geografiska områden kan du utvärdera eller migrera datorer för andra mål platser. Projektets geografi används bara för att lagra identifierade metadata.
+
+**Geografi** | **Lagrings plats för metadata**
+--- | ---
+Azure Government | Virginia (USA-förvaltad region)
+Asien och stillahavsområdet | Asien, östra eller Sydostasien
+Australien | Östra Australien eller Australien, sydöstra
+Brasilien | Södra Brasilien
+Kanada | Kanada, centrala eller Kanada, öst
+Europa | Europa, norra eller Europa, västra
+Frankrike | Frankrike, centrala
+Indien | Centrala Indien eller södra Indien
+Japan |  Japan, östra eller Japan, väst
+Korea | Korea, centrala eller Korea, södra
+Storbritannien | Storbritannien, södra eller Storbritannien, västra
+USA | USA, centrala eller västra USA 2
+
+
+ > [!NOTE]
+ > Stöd för Azure Government är för närvarande bara tillgängligt för den [äldre versionen](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) av Azure Migrate.
+
 
 
 ## <a name="vmware-assessment-and-migration"></a>VMware-bedömning och migrering

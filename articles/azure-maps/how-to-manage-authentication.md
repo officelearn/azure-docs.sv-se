@@ -3,17 +3,17 @@ title: Hantera autentisering i Azure Maps | Microsoft Docs
 description: Du kan använda Azure Portal för att hantera autentisering i Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 07/11/2019
+ms.date: 10/24/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2f4a3d791e6b5d6ff20c09408d1a0bf5995c32fd
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 496edb4f3528daa5bd06193383f0277922e8a93a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756563"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73478776"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Hantera autentisering i Azure Maps
 
@@ -32,7 +32,7 @@ Du kan visa information om autentiseringen på Azure Portal. Gå till ditt konto
 
 När du har skapat ett Azure Maps-konto måste du upprätta en länk mellan din Azure AD-klient och Azure Maps-resursen.
 
-1. Gå till bladet Azure AD och skapa en app-registrering. Ange ett namn för registreringen. I rutan **inloggnings-URL** anger du start sidan för WEBBAPP/API (till exempel https: \//localhost/). Om du redan har en registrerad app går du till steg 2.
+1. Gå till bladet Azure AD och skapa en app-registrering. Ange ett namn för registreringen. I rutan **inloggnings-URL** anger du start sidan för WEBBAPP/API (till exempel https:\//localhost/). Om du redan har en registrerad app går du till steg 2.
 
     ![Appregistrering](./media/how-to-manage-authentication/app-registration.png)
 
@@ -91,7 +91,12 @@ När du har registrerat din app och associerat den med Azure Maps kan du begära
 
 * Om ditt program använder autentisering med användar-token med Azure Maps Web SDK, måste du konfigurera din HTML-sida med Azure Maps-klient-ID och Azure AD App-ID.
 
-* Om programmet använder Server/program-autentisering måste du begära en token från Azure AD-inloggningens slut punkt `https://login.microsoftonline.com` med Azure AD-resurs-ID: t `https://atlas.microsoft.com/`, Azure Maps-klient-ID, Azure AD-App-ID och Azure AD-appens registrerings lösen ord eller certifikatmallens.
+* Om programmet använder Server/program-autentisering måste du begära en token från Azure AD token-slutpunkten `https://login.microsoftonline.com` med Azure AD-resurs-ID: t `https://atlas.microsoft.com/`, Azure Maps klient-ID, Azure AD-App-ID och Azure AD-appens registrerings lösen ord eller certifikatmallens.
+
+| Azure-miljö   | Azure AD-token-slutpunkt | Resurs-ID för Azure |
+| --------------------|-------------------------|-------------------|
+| Offentlig Azure-        | https://login.microsoftonline.com | https://atlas.microsoft.com/ |
+| Azure Government    | https://login.microsoftonline.us  | https://atlas.microsoft.com/ | 
 
 Mer information om hur du begär åtkomsttoken från Azure AD för användare och tjänst huvud namn finns i [autentiserings scenarier för Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 

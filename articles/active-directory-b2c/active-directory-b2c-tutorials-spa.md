@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 07/24/2019
+ms.date: 10/14/2019
 ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 40b92f24922b146dfdc66c1b0a59aab748dea6f2
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
-ms.translationtype: MT
+ms.openlocfilehash: f6a417e33ac9c60c978d8638539a1e5a0772a034
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931375"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475054"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c-azure-ad-b2c"></a>Självstudie: aktivera autentisering i ett program med en enda sida med hjälp av Azure Active Directory B2C (Azure AD B2C)
 
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande Azure AD B2C resurser på plats innan du fortsätter med stegen i den här självstudien:
 
@@ -48,6 +48,10 @@ Dessutom behöver du följande i din lokala utvecklings miljö:
 
 I den andra själv studie kursen som du avslutade som en del av förutsättningarna registrerade du ett webb program i Azure AD B2C. För att möjliggöra kommunikation med exemplet i självstudien behöver du lägga till en omdirigerings-URI i programmet i Azure AD B2C.
 
+Du kan använda den aktuella **program** upplevelsen eller vår nya enhetliga **Appregistreringar (för hands version)** för att uppdatera programmet. [Läs mer om för hands](http://aka.ms/b2cappregintro)versionen.
+
+#### <a name="applicationstabapplications"></a>[Program](#tab/applications/)
+
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
 1. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Azure AD B2C**.
@@ -55,6 +59,19 @@ I den andra själv studie kursen som du avslutade som en del av förutsättninga
 1. Under **Svars-URL** lägger du till `http://localhost:6420`.
 1. Välj **Spara**.
 1. På sidan Egenskaper registrerar du **program-ID: t**. Du använder app-ID i ett senare steg när du uppdaterar koden i webb programmet med en sida.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
+
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
+1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
+1. Välj **Appregistreringar (för hands version)** , Välj fliken **ägda program** och välj sedan *webapp1* -programmet.
+1. Välj **autentisering**och välj sedan **testa den nya upplevelsen** (om den visas).
+1. Under **webb**väljer du länken **Lägg till URI** , anger `http://localhost:6420`och väljer sedan **Spara**.
+1. Välj **Översikt**.
+1. Registrera **program-ID: t (klient)** för användning i ett senare steg när du uppdaterar koden i webb programmet med en sida.
+
+* * *
 
 ## <a name="get-the-sample-code"></a>Hämta exempelkoden
 
@@ -91,7 +108,7 @@ Nu när du har hämtat exemplet uppdaterar du koden med ditt Azure AD B2C klient
 
 ## <a name="run-the-sample"></a>Kör exemplet
 
-1. Öppna ett konsol fönster och ändra till den katalog som innehåller exemplet. Exempel:
+1. Öppna ett konsol fönster och ändra till den katalog som innehåller exemplet. Till exempel:
 
     ```console
     cd active-directory-b2c-javascript-msal-singlepageapp
@@ -124,7 +141,7 @@ Exempelappen har stöd för registrering, inloggning, redigering av profil och �
 
     Använd en giltig e-postadress och verifiera med verifieringskoden. Ange ett lösenord. Ange värden för de begärda attributen.
 
-    ![Registrerings sidan som visas i användar flödet för inloggning/registrering](./media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
+    ![Registrerings sidan som visas i användar flödet för inloggning/registrering](./media/active-directory-b2c-tutorials-spa/azure-ad-b2c-sign-up-workflow.png)
 
 1. Välj **skapa** för att skapa ett lokalt konto i katalogen Azure AD B2C.
 

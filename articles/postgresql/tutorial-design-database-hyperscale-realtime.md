@@ -1,6 +1,6 @@
 ---
-title: Skapa en realtidsinstrumentpanel med Azure Database for PostgreSQL – hyperskala (Citus) (förhandsversion) självstudien
-description: Den här självstudien visar hur du skapar, fylla i och frågar distribuerade tabeller på Azure Database för PostgreSQL Hyperscale (Citus) (förhandsversion).
+title: Utforma en instrument panel i real tid med Azure Database for PostgreSQL – citus-självstudie
+description: Den här självstudien visar hur du skapar, fyller i och frågar distribuerade tabeller på Azure Database for PostgreSQL citus.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,35 +8,35 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: a5e4b2073a29785ee851b2733c12d6331afe59d8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 32487d65397a96d9e96ae3bf3476eed23ddb8adc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791304"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482882"
 ---
-# <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Självstudier: Utforma en instrumentpanel för analys i realtid med hjälp av Azure Database för PostgreSQL – hyperskala (Citus) (förhandsversion)
+# <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Självstudie: utforma en instrument panel med real tids analys med Azure Database for PostgreSQL – storskalig (citus)
 
-I den här självstudien använder du Azure Database för PostgreSQL – hyperskala (Citus) (förhandsversion) för att lära dig hur du:
+I den här självstudien använder du Azure Database for PostgreSQL-storskalig skalning (citus) för att lära dig att:
 
 > [!div class="checklist"]
-> * Skapa en servergrupp i hyperskala (Citus)
+> * Skapa en Hyperscale-servergrupp (Citus)
 > * Använd psql-verktyget för att skapa ett schema
-> * Shard tabeller mellan noder
+> * Shard-tabeller över noder
 > * Generera exempeldata
-> * Utföra uppdateringar
-> * Fråga efter rådata och sammanställda data
-> * Ta bort data
+> * Utför samlade uppdateringar
+> * Fråga rå data och sammanställda data
+> * Förfaller data
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
 ## <a name="use-psql-utility-to-create-a-schema"></a>Använd psql-verktyget för att skapa ett schema
 
-Efter att ha anslutit till Azure Database för PostgreSQL – kan hyperskala (Citus) (förhandsversion) med psql, du utföra några grundläggande uppgifter. Den här självstudien vägleder dig genom att mata in trafikdata från webbanalyser, sedan samlar in dessa data och ger instrumentpaneler i realtid baserat på dessa data.
+När du har anslutit till Azure Database for PostgreSQL skala (citus) med psql kan du utföra några grundläggande uppgifter. Den här självstudien vägleder dig genom att mata in trafik data från Web Analytics och sedan samla in data för att tillhandahålla instrument paneler i real tid baserat på dessa data.
 
-Nu ska vi skapa en tabell som kommer att använda alla våra raw webbdata trafik. Kör följande kommandon i psql terminal:
+Nu ska vi skapa en tabell som använder all vår rå data för webb trafik. Kör följande kommandon i psql-terminalen:
 
 ```sql
 CREATE TABLE http_request (
@@ -52,7 +52,7 @@ CREATE TABLE http_request (
 );
 ```
 
-Vi ska också skapa en tabell som ska innehålla vårt aggregeringar per minut och en tabell som underhåller positionen för vår senaste samlade uppdateringen. Kör följande kommandon i psql samt:
+Vi ska också skapa en tabell som innehåller våra samlingarna per minut och en tabell som behåller positionen för den senaste sammanslagningen. Kör följande kommandon i psql också:
 
 ```sql
 CREATE TABLE http_request_1min (
@@ -76,17 +76,17 @@ CREATE TABLE latest_rollup (
 );
 ```
 
-Du kan se de nyligen skapade tabellerna i listan över tabeller nu med det här psql-kommandot:
+Du kan se de nyligen skapade tabellerna i listan med tabeller nu med detta psql-kommando:
 
 ```postgres
 \dt
 ```
 
-## <a name="shard-tables-across-nodes"></a>Shard tabeller mellan noder
+## <a name="shard-tables-across-nodes"></a>Shard-tabeller över noder
 
-En storskalig distribution lagrar tabellrader på olika noder baserat på värdet för en kolumn som anges av användaren. Den här ”distributionskolumn” markerar hur data är fragmenterade (sharded) mellan noder.
+En storskalig distribution lagrar tabell rader på olika noder baserat på värdet för en användardefinierad kolumn. Denna "distributions kolumn" markerar hur data ska shardade mellan noder.
 
-Vi ställer distributionskolumn vara plats\_-id, shardnyckeln. Kör dessa funktioner i psql:
+Låt oss ställa in distributions kolumnen som plats\_-ID, nyckeln Shard. I psql kör du följande funktioner:
 
   ```sql
 SELECT create_distributed_table('http_request',      'site_id');
@@ -95,7 +95,7 @@ SELECT create_distributed_table('http_request_1min', 'site_id');
 
 ## <a name="generate-sample-data"></a>Generera exempeldata
 
-Vår servergrupp bör nu vara redo att mata in vissa data. Du kan köra följande lokalt från våra `psql` anslutning till kontinuerligt infoga data.
+Nu bör vår server grupp vara redo att mata in vissa data. Vi kan köra följande lokalt från vår `psql`-anslutning för att infoga data kontinuerligt.
 
 ```sql
 DO $$
@@ -122,18 +122,18 @@ DO $$
 END $$;
 ```
 
-Frågan infogar cirka åtta rader per sekund. Rader som är lagrade på olika arbetsnoder enligt anvisningarna från kolumnen distribution `site_id`.
+Frågan infogar ungefär åtta rader varje sekund. Raderna lagras på olika arbetsnoder enligt anvisningarna i kolumnen distribution `site_id`.
 
    > [!NOTE]
-   > Lämna data generation frågan som körs och öppna en andra psql-anslutning för de resterande kommandona i den här självstudien.
+   > Lämna frågan för generering av data som körs och öppna en andra psql-anslutning för de återstående kommandona i den här självstudien.
    >
 
 ## <a name="query"></a>Fråga
 
-Hyperskala som är värd för alternativet gör att flera noder att bearbeta frågor parallellt för hastighet. Till exempel databasen beräknar aggregeringar som SUM och COUNT på arbetsnoder och kombinerar resultaten till en slutlig svar.
+Med alternativet för skalnings värd kan flera noder bearbeta frågor parallellt för hastighet. Databasen beräknar till exempel agg regeringar som SUM och COUNT på arbetsnoder och kombinerar resultaten till ett slutligt svar.
 
-Här är en fråga till antal begäranden per minut tillsammans med några få statistik.
-Försök att köra i psql och se resultaten.
+Här är en fråga om att räkna webb förfrågningar per minut tillsammans med få statistik.
+Prova att köra det i psql och observera resultatet.
 
 ```sql
 SELECT
@@ -149,13 +149,13 @@ GROUP BY site_id, minute
 ORDER BY minute ASC;
 ```
 
-## <a name="rolling-up-data"></a>Samlar in data
+## <a name="rolling-up-data"></a>Rensar data
 
-Den föregående frågan fungerar bra i de tidiga stadierna, men dess prestanda försämras med ditt data. Även med distribuerad bearbetning går det snabbare för att beräkna förväg data än om du vill beräkna om det upprepade gånger.
+Den föregående frågan fungerar fint i tidiga faser, men dess prestanda försämras i takt med att dina data skalas. Även om distribuerad bearbetning är det snabbare att förberäkna data än att beräkna om dem upprepade gånger.
 
-Vi kan se till att vår instrumentpanel håller sig kvar snabbt genom att regelbundet samlar in rådata till en sammanställd tabell. Du kan experimentera med aggregering varaktighet. Vi har använt en per minut sammansättningstabellen, men du kan dela upp data i 5, 15 eller 60 minuter i stället.
+Vi kan se till att vår instrument panel hålls fast genom att regelbundet rensa rå data i en sammanslagen tabell. Du kan experimentera med agg regerings tiden. Vi använde en agg regerings tabell per minut, men du kan dela upp data i 5, 15 eller 60 minuter i stället.
 
-Om du vill köra den här samlad enklare vi att placera den i en plpgsql-funktion. Kör följande kommandon i psql att skapa den `rollup_http_request` funktion.
+För att kunna köra den här sammanfattningen är det enklare att publicera den i en plpgsql-funktion. Kör dessa kommandon i psql för att skapa funktionen `rollup_http_request`.
 
 ```sql
 -- initialize to a time long ago
@@ -190,13 +190,13 @@ END;
 $$ LANGUAGE plpgsql;
 ```
 
-Kör den samlar in data med vår funktion på plats:
+Med vår funktion på plats kan du köra den för att samla in data:
 
 ```sql
 SELECT rollup_http_request();
 ```
 
-Och med våra data i form av en preaggregeras vi frågar Upplyft för att få samma rapport som tidigare. Kör följande fråga:
+Och med våra data i ett församlat formulär kan vi skicka en fråga till sammanslagnings tabellen för att hämta samma rapport som tidigare. Kör följande fråga:
 
 ```sql
 SELECT site_id, ingest_time as minute, request_count,
@@ -205,25 +205,25 @@ SELECT site_id, ingest_time as minute, request_count,
  WHERE ingest_time > date_trunc('minute', now()) - '5 minutes'::interval;
  ```
 
-## <a name="expiring-old-data"></a>Upphör att gälla gamla data
+## <a name="expiring-old-data"></a>Gamla data förfaller
 
-Uppdateringar göra frågor snabbare, men vi behöver att ta bort gamla data för att undvika obundna lagringskostnader. Bestäm hur länge du vill behålla data för varje granularitet och använda standard frågor för att ta bort utgångna data. I följande exempel beslutat att hålla rådata under en dag och per minut aggregeringar i en månad:
+Sammanslagningarna gör frågor snabbare, men vi måste fortfarande förfalla gamla data för att undvika obegränsade lagrings kostnader. Bestäm hur länge du vill behålla data för varje kornig het och Använd standard frågor för att ta bort inaktuella data. I följande exempel beslutade vi att behålla rå data i en dag och agg regeringar per minut i en månad:
 
 ```sql
 DELETE FROM http_request WHERE ingest_time < now() - interval '1 day';
 DELETE FROM http_request_1min WHERE ingest_time < now() - interval '1 month';
 ```
 
-I produktion kan du omsluta dessa frågor i en funktion och anropa varje minut i ett cron-jobb.
+I produktion kan du figursätta dessa frågor i en funktion och anropa dem varje minut i ett cron-jobb.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-I föregående steg skapade du Azure-resurser i en servergrupp. Om du inte tror att du behöver dessa resurser i framtiden kan du ta bort servergruppen. Tryck på den *ta bort* knappen i den *översikt* sidan för din servergrupp. När du uppmanas att göra på en popup-sida bekräfta namnet på servergruppen och klickar på sista *ta bort* knappen.
+I föregående steg skapade du Azure-resurser i en Server grupp. Om du inte tror att du behöver dessa resurser i framtiden tar du bort Server gruppen. Tryck på knappen *ta bort* på sidan *Översikt* för Server gruppen. När du uppmanas till ett popup-fönster bekräftar du namnet på Server gruppen och klickar på knappen slutlig *borttagning* .
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig att etablera en servergrupp i hyperskala (Citus). Du är ansluten till den med psql, skapas ett schema och distribuerade data. Du har lärt dig att fråga data både i obearbetat format regelbundet samla datan, fråga aggregerade tabeller och ta bort gamla data.
+I den här självstudien har du lärt dig hur du etablerar en Server grupp för storskaliga (citus). Du är ansluten till den med psql, skapat ett schema och distribuerade data. Du har lärt dig att fråga data både i rå data, samla in data, fråga de sammanställda tabellerna och förfalla gamla data.
 
-Därefter lär dig mer om begreppet hyperskala.
+Nu kan du läsa om begreppen storskalighet.
 > [!div class="nextstepaction"]
-> [Hyperskala nodtyper](https://aka.ms/hyperscale-concepts)
+> [Storskaliga nodtyper](https://aka.ms/hyperscale-concepts)

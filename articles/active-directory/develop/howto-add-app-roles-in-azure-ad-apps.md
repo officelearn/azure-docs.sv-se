@@ -18,12 +18,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87660c6ef8266d3ebfbad1b7a8a7cb98b936e9c6
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 2c838c6fe256e2960842c5b40f58f8a5d5b1fdf3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803354"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473776"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Gör så här: Lägg till app-roller i ditt program och ta emot dem i token
 
@@ -43,9 +43,9 @@ Dessa program roller definieras i [Azure Portal](https://portal.azure.com) i pro
 1. I det översta fältet väljer du ditt konto och byter sedan **katalog**.
 1. När fönstret **katalog + prenumeration** öppnas väljer du den Active Directory klient organisation där du vill registrera ditt program, från listan **Favoriter** eller **alla kataloger** .
 1. Välj **alla tjänster** i det vänstra navigerings fältet och välj **Azure Active Directory**.
-1. I fönstret **Azure Active Directory** väljer du **Appregistreringar** för att visa en lista över alla dina program.
+1. I fönstret **Azure Active Directory** väljer du **Appregistreringar (äldre)** om du vill visa en lista över alla dina program.
 
-     Om du inte ser det program som du vill visa här använder du de olika filtren överst i **Appregistreringars** listan för att begränsa listan eller bläddra nedåt i listan för att hitta programmet.
+     Om du inte ser det program som du vill visa här, använder du de olika filtren överst i listan **Appregistreringar (äldre)** för att begränsa listan eller bläddra nedåt i listan för att hitta programmet.
 
 1. Välj det program som du vill definiera app-roller i.
 1. Välj **manifest**i bladet för ditt program.

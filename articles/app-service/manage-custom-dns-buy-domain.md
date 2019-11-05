@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 188db5e89097542b5a47b43e7bc8bbb2ce30b072
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 1354f48843f8006b4a6180a2cea60e735413e446
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073120"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470459"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Köp ett anpassat domän namn för Azure App Service
 
@@ -78,7 +78,7 @@ När du ser följande meddelande har skalningsåtgärden slutförts.
 
 ## <a name="buy-the-domain"></a>Köp domänen
 
-### <a name="pricing-information"></a>Prisinformation
+### <a name="pricing-information"></a>Pris information
 Information om priser för Azure App Service domäner finns på [sidan med App Service prissättning](https://azure.microsoft.com/pricing/details/app-service/windows/) och rulla ned till App Service domän.
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
@@ -117,7 +117,7 @@ Välj sedan önskade alternativ för din domän. I följande tabell finns förkl
 
 | Inställning | Föreslaget värde | Beskrivning |
 |-|-|-|
-|Sekretesskydd | Aktivera | Anmäl dig till "Sekretess skydd", som ingår i inköps priset _kostnads fritt_. Vissa domäner på den översta nivån hanteras av registratorer som inte har stöd för sekretess skydd och de visas på sidan för skydds **skydd** . |
+|Sekretess skydd | Aktivera | Anmäl dig till "Sekretess skydd", som ingår i inköps priset _kostnads fritt_. Vissa domäner på den översta nivån hanteras av registratorer som inte har stöd för sekretess skydd och de visas på sidan för skydds **skydd** . |
 | Tilldela standard värdnamn | **www** och **\@** | Välj önskade bindningar för värdnamn, om så önskas. När du har slutfört åtgärden för domänen kan din app nås på de valda värd namnen. Om appen är bakom [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)kan du inte se alternativet för att tilldela rot domänen (@), eftersom Traffic Manager inte stöder poster. Du kan ändra värdnamnnas tilldelningar när domänen har köpts. |
 
 ### <a name="accept-terms-and-purchase"></a>Godkänn villkor och Köp
@@ -146,10 +146,10 @@ Du kan också se de valda värd namnen på sidan **anpassade domäner** i avsnit
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
-> En osäker etikett för din anpassade domän innebär att den inte har bundits till ett SSL-certifikat och att alla https-förfrågningar från en webbläsare till din anpassade domän får ett fel eller en varning, beroende på webbläsaren. Information om hur du konfigurerar SSL-bindning finns i [köpa och konfigurera ett SSL-certifikat för Azure App Service](web-sites-purchase-ssl-web-site.md).
+> En osäker etikett för din anpassade domän innebär att **den inte har** bundits till ett SSL-certifikat och att alla https-förfrågningar från en webbläsare till din anpassade domän får ett fel eller en varning, beroende på webbläsaren. Om du vill konfigurera SSL-bindning, se [skydda ett anpassat DNS-namn med en SSL-bindning i Azure App Service](configure-ssl-bindings.md).
 >
 
-Om du vill testa värd namnen navigerar du till de listade värd namnen i webbläsaren. I exemplet i föregående skärm bild kan du försöka navigera till _kontoso.net_ och _www\.-kontoso.net_.
+Om du vill testa värd namnen navigerar du till de listade värd namnen i webbläsaren. I exemplet i föregående skärm bild kan du försöka navigera till _kontoso.net_ och _www\.kontoso.net_.
 
 ## <a name="assign-hostnames-to-app"></a>Tilldela värdnamn till appen
 
@@ -157,7 +157,7 @@ Om du väljer att inte tilldela en eller flera standard värd namn till din app 
 
 Du kan också tilldela värdnamn i App Service-domänen till alla andra appar. Stegen beror på om App Service-domänen och appen tillhör samma prenumeration.
 
-- Annan prenumeration: Mappa anpassade DNS-poster från App Service-domänen till appen som en externt köpt domän. Information om hur du lägger till anpassade DNS-namn i en App Service domän finns i [Hantera anpassade DNS-poster](#custom). Information om hur du mappar en extern, köpt domän till en app finns i [mappa ett befintligt anpassat DNS-namn till Azure App Service](app-service-web-tutorial-custom-domain.md). 
+- Annan prenumeration: mappa anpassade DNS-poster från App Service-domänen till appen som en externt köpt domän. Information om hur du lägger till anpassade DNS-namn i en App Service domän finns i [Hantera anpassade DNS-poster](#custom). Information om hur du mappar en extern, köpt domän till en app finns i [mappa ett befintligt anpassat DNS-namn till Azure App Service](app-service-web-tutorial-custom-domain.md). 
 - Samma prenumeration: Använd följande steg.
 
 ### <a name="launch-add-hostname"></a>Starta Lägg till värdnamn
@@ -177,10 +177,10 @@ Se till att den köpta domänen visas i avsnittet **App Service domäner** , men
 Välj **Lägg till värddatornamn**.
 
 ### <a name="configure-hostname"></a>Konfigurera värdnamn
-I dialog rutan **Lägg till värdnamn** anger du det fullständigt kvalificerade domän namnet för din app service domän eller under domän. Exempel:
+I dialog rutan **Lägg till värdnamn** anger du det fullständigt kvalificerade domän namnet för din app service domän eller under domän. Till exempel:
 
 - kontoso.net
-- www\.kontoso.net
+- www-\.kontoso.net
 - abc.kontoso.net
 
 När du är klar väljer du **Verifiera**. Post typen hostname väljs automatiskt åt dig.
@@ -228,8 +228,8 @@ Om din domän förnyelse lyckas får du ett e-postmeddelande inom 24 timmar.
 
 Azure följer förfaller eller förfaller App Service domäner på följande sätt:
 
-* Om automatisk förnyelse har inaktiverats: 90 dagar innan domänen upphör skickas ett e-postmeddelande med en förnyad avisering till dig och knappen **förnya domän** aktive ras i portalen.
-* Om automatisk förnyelse har Aktiver ATS: På dagen efter din domäns giltighets tid försöker Azure att fakturera dig för förnyelse av domän namn.
+* Om automatisk förnyelse är inaktive rad: 90 dagar innan domänen upphör skickas ett e-postmeddelande med en förnyad avisering till dig och knappen **förnya domän** aktive ras i portalen.
+* Om automatisk förnyelse har Aktiver ATS: efter det att din domäns giltighets tid har gått ut försöker Azure debitera dig för förnyelsen av domän namn.
 * Om ett fel inträffar under den automatiska förnyelsen (till exempel om ditt kort på filen har upphört att gälla), eller om automatisk förnyelse har inaktiverats och du tillåter att domänen upphör att gälla, meddelar Azure dig om domänen upphör att gälla och parkerar ditt domän namn. Du kan [förnya](#renew-the-domain) din domän manuellt.
 * På dygnet runt och tolfte dagar efter förfallo datum skickar Azure ytterligare e-postmeddelanden. Du kan [förnya](#renew-the-domain) din domän manuellt.
 * På den 19: a dagen efter förfallo datum förblir din domän stoppad men blir föremål för en avgift för inlösen. Du kan ringa kund support för att förnya ditt domän namn, beroende på eventuella tillämpliga förnyelse-och inlösen avgifter.
@@ -270,15 +270,15 @@ I Azure Portal väljer du **alla tjänster** > **App Service domäner**på den v
 
 Välj den domän som du vill avbryta eller ta bort. 
 
-### <a name="delete-hostname-bindings"></a>Ta bort värddatornamnsbindningar
+### <a name="delete-hostname-bindings"></a>Ta bort värdnamn bindningar
 
-I domänens vänstra meny väljer du **hostname**-bindningar. Värd namns bindningarna från alla Azure-tjänster visas här.
+I domänens vänstra meny väljer du **hostname-bindningar**. Värd namns bindningarna från alla Azure-tjänster visas här.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostname-bindings.png)
 
 Du kan inte ta bort den App Service domänen förrän alla bindnings bindningar har tagits bort.
 
-Ta bort varje hostname-bindning genom att välja **...** **Ta bort**.  >  När alla bindningar har tagits bort väljer du **Spara**.
+Ta bort varje hostname-bindning genom att välja **...**  > **ta bort**. När alla bindningar har tagits bort väljer du **Spara**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png)
 
@@ -296,4 +296,4 @@ När åtgärden har slutförts släpps domänen från din prenumeration och är 
 
 ## <a name="direct-default-url-to-a-custom-directory"></a>Dirigera standard-URL:en till en anpassad katalog
 
-Som standard dirigerar App Service webbegäranden till rotkatalogen för din appkod. För att dirigera dem till en under katalog, t `public`. ex., se [direkt standard-URL till en anpassad katalog](app-service-web-tutorial-custom-domain.md#virtualdir).
+Som standard dirigerar App Service webbegäranden till rotkatalogen för din appkod. Om du vill dirigera dem till en under katalog, till exempel `public`, se [direkt standard-URL till en anpassad katalog](app-service-web-tutorial-custom-domain.md#virtualdir).

@@ -8,22 +8,18 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 3204387a8e0920d2a7196edbad229bf811a9ba0a
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: cd118def8b9caf97f26aaa5ad5dc1f6fb015316d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72958795"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469226"
 ---
-1. Öppna Azure Portal från [https://portal.azure.com](https://portal.azure.com)
+1. Från Azure Portal-menyn väljer du **skapa en resurs**.
 
-1. Välj knappen **skapa en resurs**
+    ![Lägg till resurs med hjälp av Azure Portal-menyn](./media/functions-create-function-app-portal/create-function-app-resource.png)
 
-    ![Skapa resurs](./media/functions-create-function-app-portal/function-app-create-resource.png)
-
-1. Välj **compute** > **Funktionsapp**.
-
-    ![Skapa en funktionsapp i Azure Portal](./media/functions-create-function-app-portal/function-app-create-start.png)
+1. På sidan **ny** väljer du **Compute** > **Funktionsapp**.
 
 1. Använd funktionsappinställningarna enligt tabellen under bilden.
 
@@ -34,7 +30,7 @@ ms.locfileid: "72958795"
     | **Prenumeration** | Din prenumeration | Prenumerationen som den nya funktionsappen skapas under. |
     | **[Resursgrupp](../articles/azure-resource-manager/resource-group-overview.md)** |  *myResourceGroup* | Namnet på den nya resursgrupp där du vill skapa funktionsappen. |
     | **Funktionsapp namn** | Globalt unikt namn | Namn som identifierar din nya funktionsapp. Giltiga tecken är `a-z` (Skift läges okänsligt), `0-9`och `-`.  |
-    |**Publicera**| Programmera | Alternativ för att publicera kod filer eller en Docker-behållare. |
+    |**Publicera**| Kod | Alternativ för att publicera kod filer eller en Docker-behållare. |
     | **Körningsstack** | Önskat språk | Välj en körning som stöder det funktionsprogrammeringsspråk som du föredrar. Välj **.NET** för C#- och F#-funktioner. |
     |**Region**| Önskad region | Välj en [plats](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som kommer att användas i dina funktioner. |
 

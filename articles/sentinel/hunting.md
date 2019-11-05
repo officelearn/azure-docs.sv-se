@@ -16,16 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: eca3a969d56d9b016afbf2d104aaf951cdbf6360
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: edba2a18e3b086a132f0bba7622df5df389671c3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372411"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489195"
 ---
-# <a name="hunt-for-threats-with-in-azure-sentinel"></a>Söker efter hot med i Azure Sentinel
-
-
+# <a name="hunt-for-threats-with-azure-sentinel"></a>Söker efter hot med Azure Sentinel
 
 Om du är en utredare som vill vara proaktiv om att söka efter säkerhetshot, kan du söka efter säkerhetshot i Azure Sentinel i din organisations data källor. Men dina system-och säkerhets apparater genererar berg data som kan vara svåra att parsa och filtrera i meningsfulla händelser. För att hjälpa säkerhetsanalytikerna att titta proaktivt för nya avvikelser som inte identifierats av dina säkerhetsappar, kan du med Azure Sentinel-de inbyggda jakt frågorna ställa rätt frågor till att hitta problem i de data som du redan har i nätverket. 
 
@@ -48,7 +46,7 @@ Med Azure Sentinel-jakt kan du dra nytta av följande funktioner:
 ## <a name="get-started-hunting"></a>Kom igång med jakt
 
 1. Klicka på **jakt**i Azure Sentinel-portalen.
-  ![Azure Sentinel börjar jakt @ no__t-1
+  ![Azure Sentinel börjar jakt](media/tutorial-hunting/hunting-start.png)
 
 2. När du öppnar sidan **jakt** visas alla jakt frågor i en enda tabell. I tabellen visas alla frågor som har skrivits av Microsofts team med säkerhetsanalytiker och ytterligare frågor som du har skapat eller ändrat. Varje fråga innehåller en beskrivning av vad den söker efter och vilken typ av data som den körs på. De här mallarna grupperas efter deras olika taktiker – ikonerna till höger klassificerar typ av hot, till exempel initial åtkomst, persistence och exfiltrering. Du kan filtrera dessa jakt-fråge mallar med något av fälten. Du kan spara alla frågor till dina favoriter. Genom att spara en fråga till dina favoriter körs frågan automatiskt varje gång **jakt** sidan nås. Du kan skapa en egen jakt fråga eller klona och anpassa en befintlig jakt-frågegrupp. 
  

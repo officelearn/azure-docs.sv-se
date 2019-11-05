@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 08/05/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: dad2841d680702786cfc1f175a70390158444e02
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 07b47374484cf954b1fc4279c93dddcc6cec7e61
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72928628"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470566"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Skapa och Använd en intern Load Balancer App Service-miljön 
 
@@ -132,7 +132,7 @@ Mer information om hur du konfigurerar ILB-ASE med en WAF-enhet finns i [Konfigu
 
 ILB-ASE som gjordes före maj 2019 krävde att du ställer in domänsuffix under ASE skapas. Du måste också ladda upp ett standard certifikat som baseras på det domänsuffix. Med en äldre ILB-ASE kan du också inte utföra enkel inloggning till kudu-konsolen med appar i som ILB ASE. När du konfigurerar DNS för en äldre ILB-ASE måste du ange jokertecken för en post i en zon som matchar ditt domänsuffix. 
 
-## <a name="get-started"></a>Kom i gång ##
+## <a name="get-started"></a>Kom igång ##
 
 * Information om hur du kommer igång med ASE finns i [Introduktion till App Service miljöer][Intro]. 
 
@@ -157,7 +157,7 @@ ILB-ASE som gjordes före maj 2019 krävde att du ställer in domänsuffix under
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
-[ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
+[ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

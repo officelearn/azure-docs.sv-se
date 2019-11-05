@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 5baa8c78ad581a00a3601706f31cf815359120c7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3dee054f6c382a00a55e4acf07e2a188c5cc6a07
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70077052"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490673"
 ---
-# <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Snabbstart: Skapa en datafabrik med hjälp av gränssnittet i Azure Data Factory
+# <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Snabb start: skapa en data fabrik med hjälp av Azure Data Factory gränssnittet
 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Aktuell version](quickstart-create-data-factory-portal.md)
 
-Den här snabbstarten beskriver hur du använder Azure Data Factory-användargränssnittet till att skapa och övervaka en datafabrik. Den pipeline du skapar i den här datafabriken *kopierar* data från en mapp till en annan mapp i Azure Blob Storage. En självstudie om hur du *omvandlar* data med hjälp av Azure Data Factory finns i [Självstudie: Transformera data med hjälp av Spark](tutorial-transform-data-spark-portal.md).
+Den här snabbstarten beskriver hur du använder Azure Data Factory-användargränssnittet till att skapa och övervaka en datafabrik. Den pipeline du skapar i den här datafabriken *kopierar* data från en mapp till en annan mapp i Azure Blob Storage. Om du vill se en självstudie som visar hur du *omvandlar* data med Azure Data Factory går du till [Tutorial: Transform data using Spark](tutorial-transform-data-spark-portal.md) (Självstudie: Omvandla data med Spark).
 
 > [!NOTE]
 > Om du inte har använt Azure Data Factory tidigare kan du läsa [Introduktion till Azure Data Factory](data-factory-introduction.md). 
@@ -37,9 +37,12 @@ Om du tittar på den här videon får du hjälp med att förstå Data Factory-an
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Just nu är det bara webbläsarna Microsoft Edge och Google Chrome som har stöd för Data Factory UI.
 1. Gå till [Azure-portalen](https://portal.azure.com). 
-1. Välj **Skapa en resurs** på den vänstra menyn, välj **Analys** och välj sedan **Data Factory**. 
+1. Från Azure Portal-menyn väljer du **skapa en resurs**.
+   
+   ![Välj Skapa en resurs från Azure Portal-menyn](./media/doc-common-process/create-a-resource.png)
+1. Välj **analys**och välj sedan **Data Factory**. 
    
    ![Valet Data Factory i fönstret Nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. På sidan **Ny datafabrik** anger du **ADFTutorialDataFactory** som **Namn**. 
@@ -87,7 +90,7 @@ I den här proceduren skapar du en länkad tjänst för att länka ditt Azure St
    d. Välj **Slutför** för att spara den länkade tjänsten. 
 
 ## <a name="create-datasets"></a>Skapa datauppsättningar
-I den här proceduren skapar du två datamängder: **InputDataset** och **OutputDataset**. Dessa datauppsättningar är av typen **AzureBlob**. De refererar till den länkade Azure Storage-tjänst du skapade i föregående avsnitt. 
+I den här proceduren skapar du två datauppsättningar: **InputDataset** och **OutputDataset**. Dessa datauppsättningar är av typen **AzureBlob**. De refererar till den länkade Azure Storage-tjänst du skapade i föregående avsnitt. 
 
 Datauppsättningen för indata representerar källdata i indatamappen. I definitionen av datauppsättningen för indata anger du blobcontainern (**adftutorial**), mappen (**input**) och filen (**emp.txt**) som innehåller källdata. 
 
@@ -139,7 +142,7 @@ I den här proceduren skapar och verifierar du en pipeline med en kopieringsakti
 
 1. In fliken **Allmänt** anger du **CopyPipeline** som **Name**. 
 
-1. Gå till verktygsfältet **Aktiviteter** och expandera **Flytta och transformera**. Dra aktiviteten **Kopiera data** från aktivitets verktygs lådan till pipelinens designer-yta. Du kan också söka efter aktiviteter i verktygslådan **Aktiviteter**. Ange **CopyFromBlobToBlob** som **Namn**.
+1. Gå till verktygsfältet **Aktiviteter** och expandera **Flytta och transformera**. Dra aktiviteten **Kopiera data** från **aktivitets verktygs lådan** till pipelinens designer-yta. Du kan också söka efter aktiviteter i verktygslådan **Aktiviteter**. Ange **CopyFromBlobToBlob** som **Namn**.
 
 1. Växla till fliken **Källa** i inställningarna för kopieringsaktiviteten och välj **InputDataset** som **Källdatauppsättning**.
 
@@ -162,7 +165,7 @@ I den här proceduren distribuerar du entiteter (länkade tjänster, datauppsät
 1. Innan du utlöser en pipeline måste du publicera entiteter i Data Factory. Välj **Publicera alla** i rutan längs upp för att publicera. 
 
    ![Knappen Publicera](./media/quickstart-create-data-factory-portal/publish-button.png)
-1. Om du vill utlösa pipelinen manuellt väljer du **Lägg till** utlösare i pipeline-verktygsfältet och väljer sedan **Utlös nu**. På sidan **Pipeline Run** (Pipelinekörning) väljer du **Slutför**.
+1. Om du vill utlösa pipelinen manuellt väljer du **Lägg till utlösare** i pipeline-verktygsfältet och väljer sedan **Utlös nu**. På sidan **Pipeline Run** (Pipelinekörning) väljer du **Slutför**.
 
 ## <a name="monitor-the-pipeline"></a>Övervaka pipeline
 
@@ -171,18 +174,18 @@ I den här proceduren distribuerar du entiteter (länkade tjänster, datauppsät
    ![Fliken för övervakning av pipeline-körningar](./media/quickstart-create-data-factory-portal/monitor-trigger-now-pipeline.png)
 1. Välj länken **View Activity Runs** (Visa aktivitetskörningar) under **Åtgärder**. Du kan se status för kopieringsaktiviteten på den här sidan. 
 
-1. Om du vill se mer information om kopieringsåtgärden väljer du länken **Detaljer** (glasögonbilden) i kolumnen **Actions** (Åtgärder). Mer information om egenskaperna finns i [Copy Activity overview](copy-activity-overview.md) (Översikt över kopieringsaktivitet). 
+1. Om du vill se mer information om kopieringsåtgärden väljer du länken **Detaljer** (glasögonbilden) i kolumnen **Åtgärder**. Mer information om egenskaperna finns i [Copy Activity overview](copy-activity-overview.md) (Översikt över kopieringsaktivitet). 
 
    ![Detaljerad information om kopieringsåtgärden](./media/quickstart-create-data-factory-portal/copy-operation-details.png)
 1. Bekräfta att du ser en ny fil i **utdatamappen**. 
-1. Du kan gå tillbaka till **pipeline** -körningar från vyn **aktivitets körningar** genom att välja länken **pipeline** -körningar. 
+1. Du kan gå tillbaka till **pipeline-körningar** från vyn **aktivitets körningar** genom att välja länken **pipeline-körningar** . 
 
 ## <a name="trigger-the-pipeline-on-a-schedule"></a>Utlös pipelinen enligt ett schema
 Den här proceduren är valfri i den här självstudien. Du kan skapa en *schemautlösare* för att schemalägga pipelinen så att den körs regelbundet (varje timme, varje dag och så vidare). I den här proceduren skapar du en utlösare som ska köras varje minut tills det slutdatum och den sluttid du anger. 
 
 1. Växla till fliken **Författare**. 
 
-1. Gå till din pipeline, Välj **Lägg till** utlösare i pipeline-verktygsfältet och välj sedan **ny/redigera**. 
+1. Gå till din pipeline, Välj **Lägg till utlösare** i pipeline-verktygsfältet och välj sedan **ny/redigera**. 
 
 1. På sidan **Add Triggers** (Lägg till utlösare) väljer du **Choose trigger** (Välj utlösare) och sedan **Ny**. 
 
@@ -190,14 +193,14 @@ Den här proceduren är valfri i den här självstudien. Du kan skapa en *schema
 
    Den tillkommer en kostnad för varje pipelinekörning, så ange sluttiden bara några minuter efter starttiden. Kontrollera att det är samma dag. Se dock till att det finns tillräckligt med tid för pipelinen att köras mellan publicerings tiden och slut tiden. Utlösaren träder endast i kraft när du har publicerat lösningen till Data Factory, och inte när du sparar utlösaren i användargränssnittet. 
 
-1. På sidan **ny** utlösare markerar du kryss rutan **aktive rad** och väljer sedan **Spara**. 
+1. På sidan **Ny utlösare** markerar du kryss rutan **aktive rad** och väljer sedan **Spara**. 
 
    ![Ny Utlösar inställning](./media/quickstart-create-data-factory-portal/trigger-settings-next.png)
 1. Läs varningsmeddelandet och välj **Slutför**.
 
 1. Välj **Publicera alla** för att publicera ändringarna till Data Factory. 
 
-1. Växla till fliken **Övervaka** till vänster. Om du vill uppdatera listan väljer du **Uppdatera**. Du ser att pipelinen körs varje minut från publiceringstiden till sluttiden. 
+1. Växla till fliken **Övervaka** till vänster. Om du vill uppdatera listan väljer du **Refresh** (Uppdatera). Du ser att pipelinen körs varje minut från publiceringstiden till sluttiden. 
 
    Observera värdena i kolumnen **Aktiverad av**. Den manuella körningen av utlösaren var från steget (**Trigger Now**) (Utlös nu) du gjorde tidigare. 
 

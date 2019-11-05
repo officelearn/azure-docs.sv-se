@@ -1,6 +1,6 @@
 ---
-title: Distribution - planer i Azure Active Directory | Microsoft Docs
-description: Slutpunkt till slutpunkt vägledning om hur du distribuerar många funktioner i Azure Active Directory.
+title: Distributions planer – Azure Active Directory | Microsoft Docs
+description: Fullständig vägledning om hur du distribuerar många Azure Active Directory-funktioner.
 services: active-directory
 author: msaburnley
 manager: daveba
@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7c851c2d865a7b553be2cd0f619ad09985115a3
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 949676c622c87831d22dcfc7e1bc6d920b622738
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71336865"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473292"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory-distributionsplaner
 Letar du efter slut punkt till slut punkt om hur du distribuerar Azure Active Directory (Azure AD)-funktioner? Distributions planer för Azure AD vägleder dig genom affärs värde, planerings överväganden och operativa procedurer som krävs för att distribuera vanliga funktioner i Azure AD.
@@ -29,7 +29,7 @@ När du påbörjar distributions planeringen för en ny funktion är det viktigt
 
 Roller kan innehålla följande 
 
-|Role |Beskrivning |
+|Roll |Beskrivning |
 |-|-|
 |Slutanvändare|En representativ grupp användare för vilka funktionen ska implementeras. Visar ofta ändringarna i ett pilotprogram.
 |IT-support ansvarig|IT-avdelningen stöder organisations representant som kan tillhandahålla insikter om den här förändringen från ett support perspektiv.  
@@ -61,16 +61,17 @@ Att utöka distributionen till större grupper av användare bör utföras genom
 
 | Funktion | Beskrivning|
 | -| -|
-| [Multi-Factor Authentication](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-getstarted)| Azure Multi-Factor Authentication (MFA) är Microsofts verifieringslösning i två steg. Med hjälp av godkända autentiseringsmetoder bidrar Azure MFA till att skydda åtkomsten till dina data och program samtidigt som du kan uppfylla behovet av en enkel inloggnings process. |
+| [Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)| Azure Multi-Factor Authentication (MFA) är Microsofts verifieringslösning i två steg. Med hjälp av godkända autentiseringsmetoder bidrar Azure MFA till att skydda åtkomsten till dina data och program samtidigt som du kan uppfylla behovet av en enkel inloggnings process. |
 | [Villkorlig åtkomst](https://aka.ms/deploymentplans/ca)| Med villkorlig åtkomst kan du implementera automatiska åtkomst kontroll beslut för vilka som kan komma åt dina molnappar, baserat på villkor. |
 | [Självåterställning av lösenord](https://aka.ms/deploymentplans/sspr)| Lösen ords återställning via självbetjäning hjälper dina användare att återställa sina lösen ord utan att administratören behöver göra det, när och var de behöver. |
+| [Lösen ords lös](https://aka.ms/deploymentplans/passwordless) | Implementera lösenordsbaserad autentisering med hjälp av Microsoft Authenticator-appen eller FIDO2 säkerhets nycklar i din organisation |
 
 ## <a name="deploy-application-management"></a>Distribuera program hantering
 
 | Funktion | Beskrivning|
 | -| - |
 | [Enkel inloggning](https://aka.ms/deploymentplans/sso)| Enkel inloggning hjälper dina användare att komma åt de appar och resurser som de behöver för att göra affärer medan de bara loggar in en gång. När de har loggat in kan de gå från Microsoft Office till SalesForce till Box till interna program utan att behöva ange autentiseringsuppgifterna en andra gång. |
-| [Åtkomst panel](https://aka.ms/deploymentplans/accesspanel)| Ger användarna en enkel hubb för att upptäcka och komma åt sina program. Gör det möjligt för dem att bli mer produktiva med självbetjänings funktioner, t. ex. att begära åtkomst till appar och grupper eller att hantera åtkomst till resurser för andras räkning. |
+| [Åtkomst panel](https://aka.ms/deploymentplans/accesspanel)| Erbjud dina användare en enkel hubb för att upptäcka och komma åt alla sina program. Gör det möjligt för dem att bli mer produktiva med självbetjänings funktioner, t. ex. att begära åtkomst till appar och grupper eller att hantera åtkomst till resurser för andras räkning. |
 
 
 ## <a name="deploy-hybrid-scenarios"></a>Distribuera hybrid scenarier
@@ -86,8 +87,8 @@ Att utöka distributionen till större grupper av användare bör utföras genom
 
 | Funktion | Beskrivning|
 | -| -|
-| [Användaretablering](https://aka.ms/UserProvisioningDPDownload)| Azure AD hjälper dig att automatisera skapande, underhåll och borttagning av användaridentiteter i molnprogram (SaaS), till exempel Dropbox, Salesforce, ServiceNow och mer. |
-| [Etableringen av workday-driven inkommande användare](https://aka.ms/WorkdayDeploymentPlan)| Workday-driven inkommande Användaretablering till Active Directory skapar en grund för pågående identitetsstyrning och förbättrar kvaliteten på affärsprocesser som förlitar sig på auktoritativa identitetsdata. Med hjälp av den här funktionen kan du sömlöst hantera identitets livs cykeln för anställda och eventualtillgångar genom att konfigurera regler som mappar till kopplingar – överlåtande processer (t. ex. ny anställning, avsluta, överför) till etablerings åtgärder (till exempel skapa, aktivera, Tillåt |
+| [Användaretablering](https://aka.ms/deploymentplans/userprovisioning)| Azure AD hjälper dig att automatisera skapande, underhåll och borttagning av användaridentiteter i molnprogram (SaaS), till exempel Dropbox, Salesforce, ServiceNow och mer. |
+| [Workday-driven inkommande användar etablering](https://aka.ms/WorkdayDeploymentPlan)| Workday-driven inkommande användar etablering till Active Directory skapar en grund för pågående identitets styrning och förbättrar kvaliteten på affärs processer som förlitar sig på auktoritativa identitets data. Med hjälp av den här funktionen kan du sömlöst hantera identitets livs cykeln för anställda och eventualtillgångar genom att konfigurera regler som mappar till kopplingar – överlåtande processer (t. ex. ny anställning, avsluta, överför) till etablerings åtgärder (till exempel skapa, aktivera, Tillåt |
 
 ## <a name="deploy-governance-and-reporting"></a>Distribuera styrning och rapportering
 

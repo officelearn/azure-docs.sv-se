@@ -16,18 +16,18 @@ ms.author: cephalin
 ms.custom: seodec18
 experimental: false
 experiment_id: a231f2b4-2625-4d
-ms.openlocfilehash: 380e587fc8c921b395d63d1dbca10e2f5fb1b9ba
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 98d939c69bb03666dbeed124778b06f8a7e73532
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72433199"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471459"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Skapa en Node.js-webbapp i Azure 
 
 Med Azure App Service får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Den här snabbstarten visar hur du distribuerar en Node.js-app till Azure App Service.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har ett Azure-konto kan du [Registrera dig](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension) för ett kostnads fritt konto med $200 i Azure-krediter för att testa en kombination av tjänster.
 
@@ -41,9 +41,9 @@ När tillägget har installerats loggar du in på ditt Azure-konto. I aktivitets
 
 ![Logga in på Azure](containers/media/quickstart-nodejs/sign-in.png)
 
-### <a name="troubleshooting"></a>Felsöka
+### <a name="troubleshooting"></a>Felsökning
 
-Om du ser felet **"det går inte att hitta prenumerationen med namnet [prenumerations-ID]"** kan det bero på att du är bakom en proxyserver och inte kan komma åt Azure-API: et. Konfigurera `HTTP_PROXY`-och `HTTPS_PROXY`-miljövariabler med din proxyinformation i terminalen med hjälp av `export`.
+Om du ser felet **"det går inte att hitta prenumerationen med namnet [prenumerations-ID]"** kan det bero på att du är bakom en proxyserver och inte kan komma åt Azure-API: et. Konfigurera `HTTP_PROXY` och `HTTPS_PROXY` miljövariabler med din proxyinformation i terminalen med hjälp av `export`.
 
 ```sh
 export HTTPS_PROXY=https://username:password@proxy:8080
@@ -76,7 +76,7 @@ Skapa sedan ett Node. js-program som kan distribueras till molnet. Den här snab
 npx express-generator myExpressApp --view pug --git
 ```
 
-@No__t-0-parametrarna anger att generatorn ska använda [pug](https://pugjs.org/api/getting-started.html) (tidigare kallat `jade`) och för att skapa en @no__t 3-fil.
+`--view pug --git` parametrar anger att generatorn ska använda [pug](https://pugjs.org/api/getting-started.html) -mall (tidigare `jade`) och för att skapa en `.gitignore`-fil.
 
 Om du vill installera alla program beroenden går du till den nya mappen och kör `npm install`.
 
@@ -87,13 +87,13 @@ npm install
 
 ### <a name="run-the-application"></a>Köra programmet
 
-Se sedan till att programmet körs. Starta-programmet från terminalen med kommandot `npm start` för att starta-servern.
+Se sedan till att programmet körs. Starta-programmet från terminalen med hjälp av kommandot `npm start` för att starta servern.
 
 ```bash
 npm start
 ```
 
-Öppna webbläsaren och gå till [http://localhost:3000](http://localhost:3000), där du bör se något som liknar detta:
+Öppna din webbläsare och gå till [http://localhost:3000](http://localhost:3000), där du bör se något som liknar detta:
 
 ![Kör Express-program](containers/media/quickstart-nodejs/express.png)
 
@@ -124,13 +124,13 @@ I **Azure App Service** Explorer väljer du ikonen blå UPPIL för att distribue
 1. Välj ett alternativ för att skapa baserat på det operativ system som du vill distribuera till:
 
     - Linux: Välj **Skapa ny webbapp**.
-    - Windows: Välj **Skapa ny webbapp... Avancerat**.
+    - Windows: Välj **Skapa ny webbapp** och välj alternativet **Avancerat** .
 
 1. Ange ett globalt unikt namn för din webbapp och tryck på RETUR. Giltiga tecken för ett app-namn är "a-z", "0-9" och "-".
 
 1. Om du anger Linux-mål väljer du en Node. js-version när du uppmanas till det. En **LTS** -version rekommenderas.
 
-1. Om du aktiverar Windows med alternativet *Avancerat** följer du de ytterligare frågorna:
+1. Om du aktiverar Windows med alternativet **Avancerat** följer du de ytterligare anvisningarna:
     1. Välj **skapa en ny resurs grupp**och ange sedan ett namn för resurs gruppen.
     1. Välj **Windows** för operativ systemet.
     1. Välj en befintlig App Service plan eller skapa en ny. Du kan välja en pris nivå när du skapar en ny plan.
@@ -154,7 +154,7 @@ I **Azure App Service** Explorer väljer du ikonen blå UPPIL för att distribue
 
 När distributionen är klar väljer du **Bläddra webbplats** i prompten för att visa din nyligen distribuerade webbapp.
 
-### <a name="troubleshooting"></a>Felsöka
+### <a name="troubleshooting"></a>Felsökning
 
 Om du ser felet **"du har inte behörighet att visa den här katalogen eller sidan."** , kunde programmet antagligen inte starta korrekt. Gå till nästa avsnitt och Visa loggens utdata för att hitta och åtgärda felet. Om du inte kan åtgärda det, kontakta oss genom att välja knappen **jag körde i ett ärende** nedan. Vi är glada att hjälpa!
 

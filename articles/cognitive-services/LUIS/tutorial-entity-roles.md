@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Kontextuella data med roller – LUIS'
+title: 'Självstudie: kontextuella data med roller – LUIS'
 titleSuffix: Azure Cognitive Services
 description: Hitta relaterade data baserat på kontext. Till exempel är ett ursprung och målplatser för en fysisk flytt från en byggnad och ett kontor till en annan byggnad och ett annat kontor relaterade.
 services: cognitive-services
@@ -9,20 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 2af35e08b523d782418ab356bf148e038f397f83
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 3e85067439fe412822ac34a065753e9a13c7a506
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308041"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488728"
 ---
-# <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Självstudier: Extrahera sammanhangsmässigt relaterade data från ett yttrande
+# <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Självstudie: extrahera sammanhangsbaserade relaterade data från en uttryck
 
 I den här självstudien hittar du relaterade datadelar baserat på kontext. Exempel kan vara en ursprungsplats och målplatser för en transport från en stad till en annan. Båda datadelarna kan krävas, och de är relaterade till varandra.  
 
 En roll kan användas med en fördefinierad eller anpassad entitetstyp och används i båda exemplen yttranden och Patterns. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **I den här självstudiekursen får du lära du dig att:**
 
@@ -83,12 +85,12 @@ Den fördefinierade entiteten geographyV2, extraherar plats information, inklusi
 
 1. Välj **entiteter** från den vänstra navigeringen.
 
-1. Välj **Lägg till fördefinierad entitet**och `geo` Välj sedan i Sök fältet för att filtrera de förinställda entiteterna. 
+1. Välj **Lägg till fördefinierad entitet**och välj sedan `geo` i Sök fältet för att filtrera de förinställda entiteterna. 
 
     ![Lägg till geographyV2-fördefinierad entitet i appen](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
 1. Markera kryss rutan och välj **färdig**.
 1. I listan **entiteter** väljer du **geographyV2** för att öppna den nya entiteten. 
-1. Lägg till två roller `Origin`, och `Destination`. 
+1. Lägg till två roller, `Origin`och `Destination`. 
 
     ![Lägg till roller i fördefinierad entitet](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 1. Välj **avsikter** från navigeringen till vänster och välj sedan **MoveEmployeeToCity** avsikt. Lägg märke till att Orts namnen är märkta med den fördefinierade entiteten **geographyV2**.
@@ -96,7 +98,7 @@ Den fördefinierade entiteten geographyV2, extraherar plats information, inklusi
 1. Använd-metoden från föregående steg för att markera alla roller för platser i alla yttranden. 
 
 
-## <a name="add-example-utterances-to-the-none-intent"></a>Lägga till exempelyttranden i avsikten Ingen 
+## <a name="add-example-utterances-to-the-none-intent"></a>Lägg till exempel på yttranden i avsikten Ingen 
 
 [!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 

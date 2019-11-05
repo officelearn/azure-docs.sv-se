@@ -1,17 +1,28 @@
 ---
 author: mmacy
 ms.service: active-directory-b2c
+ms.subservice: B2C
 ms.topic: include
-ms.date: 10/02/2019
+ms.date: 10/16/2019
 ms.author: marsma
-ms.openlocfilehash: 1937e56c8ea4c7f2c4a488e34cb056c32a830724
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 279254cb214a812209d43baad695953b5a248778
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802065"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474904"
 ---
+#### <a name="applicationstabapplications"></a>[Program](#tab/applications/)
+
 1. Under **API-åtkomst**väljer du **nycklar**.
-1. Ange en beskrivning av nyckeln i rutan **nyckel Beskrivning** . Till exempel *hanterings nyckel*.
+1. Ange en beskrivning av nyckeln i rutan **nyckel Beskrivning** . Till exempel *clientsecret1*.
 1. Välj en giltighets **tid** och välj sedan **Spara**.
 1. Registrera nyckelns **värde**. Du använder det här värdet för konfiguration i ett senare steg.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
+
+1. Under **Hantera**väljer du **certifikat & hemligheter**.
+1. Välj **Ny klienthemlighet**.
+1. Ange en beskrivning av klient hemligheten i rutan **Beskrivning** . Till exempel *clientsecret1*.
+1. Under **upphör ande**väljer du en varaktighet för vilken hemligheten är giltig och väljer sedan **Lägg till**.
+1. Registrera hemlighetens **värde**. Du använder det här värdet för konfiguration i ett senare steg.

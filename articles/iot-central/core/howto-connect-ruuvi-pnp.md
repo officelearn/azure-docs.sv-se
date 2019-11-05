@@ -10,12 +10,12 @@ ms.custom:
 ms.author: avneets
 author: avneet723
 ms.date: 10/19/2019
-ms.openlocfilehash: 0a93bedb697a0d5a514fddab55c79b969b2bd77b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: f1d152c921d38931f8c67396fc5769cfd2dfcf58
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954232"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468230"
 ---
 # <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>Ansluta en RuuviTag-sensor till ditt Azure IoT Central-program
 
@@ -29,12 +29,12 @@ RuuviTag kommunicerar via Bell (Bluetooth Low Energy) och kräver därför att e
 
 Följ [anvisningarna här](./howto-connect-rigado-cascade-500-pnp.md) om du vill konfigurera en Rigado kaskad 500-gateway-enhet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att ansluta RuuviTag-sensorer behöver du följande resurser:
 
 * En RuuviTag-sensor. Mer information finns på [RuuviTag](https://ruuvi.com/). 
 * En Rigado kaskad 500-enhet eller en annan Bell-Gateway. Mer information finns på [Rigado](https://www.rigado.com/).
-* Ett Azure IoT Central-program som skapats från någon av Programmallarna för förhands granskning. Mer information finns i avsnittet [skapa ett nytt program](https://docs.microsoft.com/azure/iot-central/quick-deploy-iot-central-pnp?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+* Ett Azure IoT Central-program som skapats från någon av Programmallarna för förhands granskning. Mer information finns i avsnittet [skapa ett nytt program](https://docs.microsoft.com/azure/iot-central/core/quick-deploy-iot-central-pnp?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 ## <a name="add-a-ruuvitag-device-template"></a>Lägg till en mall för RuuviTag-enhet
 

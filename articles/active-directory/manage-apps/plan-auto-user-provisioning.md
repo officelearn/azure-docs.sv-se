@@ -12,14 +12,14 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab1caeb59cf7fc0a6baef5ba0001e734a75fccd2
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 25d1aec836f66ae2ebc007e920cf6ef8a4450919
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72758239"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473334"
 ---
-# <a name="plan-an-automatic-user-provisioning-deployment"></a>Planera en distribution av automatisk användar etablering
+# <a name="plan-an-automatic-user-provisioning-deployment"></a>Planera en distribution med automatisk användaretablering
 
 Många organisationer förlitar sig på SaaS-program (program vara som en tjänst) som ServiceNow, Zscaler och slack för slutanvändarens produktivitet. Den tidigare IT-personalen har förlitat sig på manuella etablerings metoder, till exempel att ladda upp CSV-filer eller använda anpassade skript för att hantera användar identiteter på ett säkert sätt i varje SaaS-program. De här processerna är fel känsliga, oskyddade och svåra att hantera.
 
@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) automatisk användar etablering fören klar pr
 
 Se [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) för att bättre förstå funktionerna.
 
-## <a name="learn"></a>Inlärning
+## <a name="learn"></a>Läs mer
 
 Användar etablering skapar en grund för pågående identitets styrning och förbättrar kvaliteten på affärs processer som förlitar sig på auktoritativa identitets data.
 
@@ -63,18 +63,18 @@ I den här artikeln används följande villkor:
 
 * Mål system – databasen med användare som Azure AD tillhandahåller. Mål systemet är vanligt vis ett SaaS-program, till exempel ServiceNow, Zscaler och slack. Mål systemet kan också vara ett lokalt system, till exempel AD.
 
-* [System för identitets hantering över domän (scim)](http://www.simplecloud.info/)) – En öppen standard som möjliggör automatisering av användar etablering. SCIM kommunicerar användar identitets data mellan identitets leverantörer som Microsoft och tjänst leverantörer som Salesforce eller andra SaaS-appar som kräver information om användar identitet.
+* [System för scim (Cross-Domain Identity Management)](https://aka.ms/scimoverview) – en öppen standard som möjliggör automatisering av användar etablering. SCIM kommunicerar användar identitets data mellan identitets leverantörer som Microsoft och tjänst leverantörer som Salesforce eller andra SaaS-appar som kräver information om användar identitet.
 
 ### <a name="training-resources"></a>Utbildnings resurser
 
 | Resurser| Länk och beskrivning |
 | - | - |
-| Webbseminarier on-demand| [Hantera dina företags program med Azure AD](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Lär dig hur Azure AD kan hjälpa dig att få SSO till dina företags SaaS-program och bästa praxis för att kontrol lera åtkomst. |
-| Videor| [Vad är användar etablering i Active Azure-katalogen?](https://youtu.be/_ZjARPpI6NI) <br> [Hur distribuerar jag användar etablering i Active Azure-katalogen?](https://youtu.be/pKzyts6kfrw) <br> [Integrera Salesforce med Azure AD: så här automatiserar du användar etablering](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
+| Webbseminarier på begäran| [Hantera dina företags program med Azure AD](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Lär dig hur Azure AD kan hjälpa dig att få SSO till dina företags SaaS-program och bästa praxis för att kontrol lera åtkomst. |
+| Videoklipp| [Vad är användar etablering i Active Azure-katalogen?](https://youtu.be/_ZjARPpI6NI) <br> [Hur distribuerar jag användar etablering i Active Azure-katalogen?](https://youtu.be/pKzyts6kfrw) <br> [Integrera Salesforce med Azure AD: så här automatiserar du användar etablering](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
 | Nätbaserade kurser| SkillUp online: [hantera identiteter](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Lär dig hur du integrerar Azure AD med många SaaS-program och skyddar användarnas åtkomst till dessa program. |
 | Böcker| [Modern autentisering med Azure Active Directory för webb program (referens för utvecklare) 1: a utgåvan](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> Det här är en auktoritativ och djupgående guide för att skapa Active Directory-autentiseringsbegäranden för de här nya miljöerna. |
 | Självstudiekurser| Se [listan med självstudier om hur du integrerar SaaS-appar med Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list). |
-| FAQ| [Vanliga frågor](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) om automatisk användar etablering |
+| VANLIGA FRÅGOR OCH SVAR| [Vanliga frågor](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) om automatisk användar etablering |
 
 ### <a name="solution-architectures"></a>Lösningsarkitekturer
 
@@ -282,6 +282,8 @@ Efter en lyckad [första cykel](https://docs.microsoft.com/azure/active-director
 
 Information om hur du granskar dessa händelser och alla andra aktiviteter som utförs av etablerings tjänsten finns i Azure AD- [etablerings loggar](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context).
 
+För att förstå hur länge etablerings cyklerna tar och övervakar förloppet för etablerings jobbet kan du [kontrol lera status för användar etablering](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user).
+
 ### <a name="gain-insights-from-reports"></a>Få insikter från rapporter
 
 Azure AD kan ge [ytterligare insikter](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) om din organisations användar etablering och drifts hälsa genom gransknings loggar och-rapporter.
@@ -290,7 +292,7 @@ Administratörer bör kontrol lera sammanfattnings rapporten för etablering fö
 
 Vi rekommenderar att du förbrukar ägande rätt till och använder dessa rapporter på en takt som uppfyller organisationens krav. Azure AD behåller de flesta gransknings data i 30 dagar.
 
-### <a name="troubleshoot"></a>Felsökning
+### <a name="troubleshoot"></a>Felsöka
 
 Se följande länkar för att felsöka eventuella problem som kan uppstå under etableringen:
 

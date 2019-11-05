@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Identifiera avsikter från tal med hjälp av Speech SDK för C#'
+title: 'Självstudie: Identifiera avsikter från tal med hjälp av Speech SDK för C#'
 titleSuffix: Azure Cognitive Services
 description: I den här självstudien lär du dig att identifiera avsikter från tal med hjälp av Speech SDK för C#.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: wolfma
-ms.openlocfilehash: cf5bf3dfd7b6a408179bb267156433168e562a8e
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 7f42d5914a2ec7f479a8b3d1df1b8672f318036b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326839"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464619"
 ---
-# <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Självstudier: Identifiera avsikter från tal med hjälp av Speech SDK för C#
+# <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Självstudie: Identifiera avsikter från tal med hjälp av Speech SDK för C#
 
 Cognitive Services [Speech SDK](speech-sdk.md) integreras med [language Understanding-tjänsten (Luis)](https://www.luis.ai/home) för att ge **avsikts igenkänning**. En avsikt är något som användaren vill göra: boka en flygning, titta på vädret eller ringa ett samtal. Användaren kan använda de termer som känns naturliga. Med Machine Learning kan LUIS mappa användar förfrågningar till de avsikter som du har definierat.
 
@@ -45,11 +45,12 @@ Se till att du har följande saker innan du påbörjar den här självstudien:
 
 LUIS integreras med tal tjänsterna för att identifiera avsikter från tal. Du behöver inte en prenumerations tjänst prenumeration, bara LUIS.
 
-LUIS använder två typer av nycklar:
+LUIS använder tre typer av nycklar:
 
 |Nyckeltyp|Syfte|
 |--------|-------|
 |Redigering|Gör att du kan skapa och ändra LUIS-appar program mässigt|
+|Starter|Gör att du kan testa ditt LUIS-program med enbart text|
 |Slutpunkt |Auktoriserar åtkomst till en viss LUIS-app|
 
 För den här självstudien behöver du slut punkts nyckel typen. I självstudien används exempel programmet Home Automation LUIS, som du kan skapa genom att följa snabb starten för [välbyggda hem automatiserings program](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) . Om du har skapat en LUIS app som du själv har skapat kan du använda den i stället.
@@ -85,11 +86,11 @@ Sedan lägger du till kod i projektet.
 
 1. Öppna filen **program.cs**från **Solution Explorer**.
 
-1. Ersätt blocket med `using`-instruktioner i början av filen med följande deklarationer:
+1. Ersätt blocket med `using`-satser i början av filen med följande deklarationer:
 
    [!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#toplevel)]
 
-1. I den angivna `Main()`-metoden lägger du till följande kod:
+1. I den tillhandahållna `Main()`-metoden lägger du till följande kod:
 
    ```csharp
    RecognizeIntentAsync().Wait();
@@ -136,7 +137,7 @@ Nu importerar du modellen från LUIS-appen med hjälp av `LanguageUnderstandingM
 
 Om du vill lägga till avsikter måste du ange tre argument: LUIS-modellen (som har skapats och heter `model`), namnet på avsikten och ett avsikts-ID. Skillnaden mellan ID och namnet är som följer.
 
-|`AddIntent()` @ no__t-1argument|Syfte|
+|`AddIntent()`&nbsp;argument|Syfte|
 |--------|-------|
 |intentName|Namnet på avsikten enligt vad som definierats i LUIS-appen. Det här värdet måste matcha namnet på LUIS-avsikten exakt.|
 |intentID|Ett ID som tilldelas till en igenkänd avsikt av Speech SDK. Det här värdet kan vara vad du vill. Det behöver inte motsvara det namn på avsikten som definierats i LUIS-appen. Om flera avsikter till exempel hanteras av samma kod kan du använda samma ID för dem.|
@@ -148,7 +149,7 @@ recognizer.AddIntent(model, "HomeAutomation.TurnOff", "off");
 recognizer.AddIntent(model, "HomeAutomation.TurnOn", "on");
 ```
 
-I stället för att lägga till enskilda avsikter kan du också använda metoden `AddAllIntents` för att lägga till alla syften i en modell i igenkännings verktyget.
+I stället för att lägga till enskilda avsikter kan du också använda metoden `AddAllIntents` för att lägga till alla syften i en modell i identifieraren.
 
 ## <a name="start-recognition"></a>Starta igenkänning
 
@@ -157,7 +158,7 @@ När igenkännaren har skapats och avsikterna lagts till kan igenkänningen bör
 |Igenkänningsläge|Metoder att anropa|Resultat|
 |----------------|-----------------|---------|
 |Engångsigenkänning|`RecognizeOnceAsync()`|Returnerar den igenkända avsikten, om sådan finns, efter ett yttrande.|
-|Kontinuerlig|`StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()`|Känner igen flera yttranden; genererar händelser (till exempel `IntermediateResultReceived`) när det finns tillgängliga resultat.|
+|Kontinuerlig igenkänning|`StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()`|Känner igen flera yttranden; genererar händelser (till exempel `IntermediateResultReceived`) när resultatet är tillgängligt.|
 
 Självstudieprogrammet använder engångsigenkänning och anropar därför `RecognizeOnceAsync()` för att påbörja igenkänning. Resultatet är ett `IntentRecognitionResult`-objekt som innehåller information om den igenkända avsikten. Du extraherar LUIS JSON-svaret med hjälp av följande uttryck:
 
@@ -175,11 +176,11 @@ Som standard känner LUIS igen avsikter på amerikansk engelska (`en-us`). Genom
 
 ## <a name="continuous-recognition-from-a-file"></a>Kontinuerlig igenkänning från en fil
 
-Följande kod illustrerar två ytterligare funktioner för avsiktsigenkänning med hjälp av Speech SDK. Den första, som nämnts tidigare, är kontinuerlig igenkänning, där igenkännaren genererar händelser när resultat finns tillgängliga. Dessa händelser kan sedan bearbetas av händelsehanterare som du anger. Med kontinuerlig igenkänning anropar du tolkens `StartContinuousRecognitionAsync()`-metod för att starta igenkänning i stället för `RecognizeOnceAsync()`.
+Följande kod illustrerar två ytterligare funktioner för avsiktsigenkänning med hjälp av Speech SDK. Den första, som nämnts tidigare, är kontinuerlig igenkänning, där igenkännaren genererar händelser när resultat finns tillgängliga. Dessa händelser kan sedan bearbetas av händelsehanterare som du anger. Med kontinuerlig igenkänning anropar du tolkens `StartContinuousRecognitionAsync()` metod för att starta igenkänning i stället för `RecognizeOnceAsync()`.
 
 Den andra funktionen är att läsa det ljud som innehåller det tal som ska bearbetas från en WAV-fil. Implementeringen innebär att skapa en ljud konfiguration som kan användas när du skapar typen av avsikts igenkänning. Filen måste vara enkanalig (mono) med en samplingsfrekvens på 16 kHz.
 
-Om du vill testa dessa funktioner tar du bort eller kommenterar innehållet i metoden `RecognizeIntentAsync()` och lägger till följande kod i sitt ställe.
+Om du vill testa dessa funktioner tar du bort eller kommenterar bröd texten i `RecognizeIntentAsync()`-metoden och lägger till följande kod i sitt ställe.
 
 [!code-csharp[Intent recognition by using events from a file](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentContinuousRecognitionWithFile)]
 
@@ -195,4 +196,4 @@ Sök efter koden från den här artikeln i mappen **samples/csharp/sharedcontent
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Så identifierar du tal](quickstart-csharp-dotnetcore-windows.md)
+> [Så identifierar du tal](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)

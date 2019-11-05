@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: fff08b3e046161fbedefdc55f4e6a39a7f965f80
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 7a782c62165aa6f2641c2ebe8e4600198ec373c5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72387274"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486205"
 ---
 # <a name="azure-data-factory-alter-row-transformation"></a>Azure Data Factory Alter Row-transformering
 
@@ -22,7 +22,7 @@ Använd transformeringen Alter Row för att ange INSERT-, DELETE-, Update-och up
 ![Ändra rad inställningar](media/data-flow/alter-row1.png "Ändra rad inställningar")
 
 > [!NOTE]
-> Alter Row-transformeringar fungerar bara på databas handfat i ditt data flöde. De åtgärder som du tilldelar till rader (Insert, Update, DELETE, upsert) sker inte under debug-sessioner. Du måste lägga till en åtgärd för att köra data flöde i en pipeline och använda fel sökning eller utlösare för pipeline för att införa principer för att ändra rad i dina databas tabeller.
+> Alter Row-transformeringar fungerar bara på databas-eller CosmosDB-mottagare i ditt data flöde. De åtgärder som du tilldelar till rader (Insert, Update, DELETE, upsert) sker inte under debug-sessioner. Du måste lägga till en åtgärd för att köra data flöde i en pipeline och använda fel sökning eller utlösare för pipeline för att införa principer för att ändra rad i dina databas tabeller.
 
 ## <a name="indicate-a-default-row-policy"></a>Ange en standard rads princip
 

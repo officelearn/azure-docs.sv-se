@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: f40043b920fab4cb38f935618c7aaecc6bf40a87
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: a8b8e7270851c71869b1a67f0f0f0ba2187f0e87
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069710"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470665"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certifikat och App Service-miljön 
 
@@ -32,7 +32,7 @@ Om du använder en extern ASE nås dina appar på [APPNAME]. [asename]. p. azure
 
 Det finns två alternativ för att konfigurera certifikat med din ILB-ASE.  Du kan ange ett standard certifikat för jokertecken för ILB-ASE eller ange certifikat för enskilda webbappar i ASE.  Oavsett vilket val du gör måste följande attribut för certifikaten vara korrekt konfigurerade:
 
-- **Motiv** Det här attributet måste anges till *. [din-Root-Domain-här] för ett ILB ASE-certifikat med jokertecken. Om du skapar certifikatet för din app ska det vara [APPNAME]. [din-Root-Domain-här]
+- **Ämne:** Det här attributet måste anges till *. [din-Root-Domain-här] för ett ILB ASE-certifikat med jokertecken. Om du skapar certifikatet för din app ska det vara [APPNAME]. [din-Root-Domain-här]
 - **Alternativt namn för certifikat mottagare:** Attributet måste innehålla både *. [din-Root-Domain-här] och *. scm. [din-Root-Domain-här] för ASE-certifikatet med jokertecken ILB. Om du skapar certifikatet för din app ska det vara [APPNAME]. [din-Root-Domain-här] och [APPNAME]. scm. [din-Root-Domain-här].
 
 Som tredje variant kan du skapa ett ILB ASE-certifikat som innehåller alla dina egna program namn i certifikatets SAN i stället för att använda en jokertecken referens. Problemet med den här metoden är att du måste känna till namnen på de appar som du placerar i ASE eller så måste du fortsätta uppdatera ILB ASE-certifikatet.
@@ -64,7 +64,7 @@ Appar som finns i en ASE kan använda app-koncentriska certifikat funktioner som
 - IP-baserad SSL, som endast stöds med en extern ASE.  En ILB-ASE har inte stöd för IP-baserad SSL.
 - Värdbaserade certifikat för nyckel valv 
 
-Instruktioner för att ladda upp och hantera dessa certifikat finns i själv studie kursen https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl App Service SSL.  Om du helt enkelt konfigurerar certifikat så att de matchar ett anpassat domän namn som du har tilldelat din webbapp räcker dessa instruktioner. Om du laddar upp certifikatet för en ILB ASE-webbapp med standard domän namnet anger du SCM-platsen i SAN-nätverket för certifikatet enligt ovan. 
+Instruktioner för att ladda upp och hantera dessa certifikat är tillgängliga i [Lägg till ett SSL-certifikat i Azure App Service](../configure-ssl-certificate.md).  Om du helt enkelt konfigurerar certifikat så att de matchar ett anpassat domän namn som du har tilldelat din webbapp räcker dessa instruktioner. Om du laddar upp certifikatet för en ILB ASE-webbapp med standard domän namnet anger du SCM-platsen i SAN-nätverket för certifikatet enligt ovan. 
 
 ## <a name="tls-settings"></a>TLS-inställningar 
 

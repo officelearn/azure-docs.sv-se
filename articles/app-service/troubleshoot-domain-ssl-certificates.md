@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: a6c3b8485a3243d7c89ab409a2fb83b1b045c9ba
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 778836661ff15c334823f95fef42acadb3e8b649
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121985"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470142"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Felsök problem med domän-och SSL-certifikat i Azure App Service
 
 Den här artikeln innehåller vanliga problem som kan uppstå när du konfigurerar en domän eller ett SSL-certifikat för dina webb program i Azure App Service. Det beskriver också möjliga orsaker och lösningar för dessa problem.
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**.
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Du kan också skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -34,7 +34,7 @@ Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azu
 
 ### <a name="you-cant-add-an-ssl-certificate-binding-to-an-app"></a>Du kan inte lägga till en SSL-certifikat bindning till en app 
 
-#### <a name="symptom"></a>Symtom
+#### <a name="symptom"></a>Symptom
 
 När du lägger till en SSL-bindning visas följande fel meddelande:
 
@@ -53,7 +53,7 @@ Använd någon av följande metoder för att åtgärda problemet:
 
 ### <a name="you-cant-delete-a-certificate"></a>Du kan inte ta bort ett certifikat 
 
-#### <a name="symptom"></a>Symtom
+#### <a name="symptom"></a>Symptom
 
 När du försöker ta bort ett certifikat visas följande fel meddelande:
 
@@ -69,15 +69,15 @@ Ta bort SSL-bindningen för certifikatet från apparna. Försök sedan att ta bo
 
 ### <a name="you-cant-purchase-an-app-service-certificate"></a>Du kan inte köpa ett App Service certifikat 
 
-#### <a name="symptom"></a>Symtom
-Du kan inte köpa ett [Azure App Service certifikat](./web-sites-purchase-ssl-web-site.md) från Azure Portal.
+#### <a name="symptom"></a>Symptom
+Du kan inte köpa ett [Azure App Service certifikat](./configure-ssl-certificate.md#import-an-app-service-certificate) från Azure Portal.
 
 #### <a name="cause-and-solution"></a>Orsak och lösning
 Det här problemet kan bero på någon av följande orsaker:
 
 - App Service plan är kostnads fri eller delad. Dessa pris nivåer stöder inte SSL. 
 
-    **Lösning**: Uppgradera App Service plan för app till standard.
+    **Lösning**: uppgradera App Service plan för appen till standard.
 
 - Prenumerationen har inte något giltigt kredit kort.
 
@@ -85,24 +85,24 @@ Det här problemet kan bero på någon av följande orsaker:
 
 - Prenumerations erbjudandet stöder inte köp av ett App Service-certifikat, till exempel Microsoft student.  
 
-    **Lösning**: Uppgradera din prenumeration. 
+    **Lösning**: uppgradera din prenumeration. 
 
 - Prenumerationen har uppnått gränsen för inköp som tillåts för en prenumeration.
 
-    **Lösning**: App Service certifikat har en gräns på 10 certifikat inköp för prenumerations typerna betala per användning och EA. För andra prenumerations typer är gränsen 3. Kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)om du vill öka gränsen.
-- App Service certifikatet har marker ATS som bedrägerier. Du har fått följande fel meddelande: "Ditt certifikat har flaggats för möjlig bedrägerier. Begäran är för närvarande en granskning. Kontakta Azure-supporten om certifikatet inte kan användas inom 24 timmar. "
+    **Lösning**: app service certifikat har en gräns på 10 certifikat inköp för prenumerations typerna betala per användning och EA. För andra prenumerations typer är gränsen 3. Kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)om du vill öka gränsen.
+- App Service certifikatet har marker ATS som bedrägerier. Följande fel meddelande visades: "ditt certifikat har flaggats för möjlig bedrägerier. Begäran är för närvarande en granskning. Kontakta Azure-supporten om certifikatet inte kan användas inom 24 timmar. "
 
-    **Lösning**: Om certifikatet har marker ATS som bedrägeri och inte har lösts efter 24 timmar följer du dessa steg:
+    **Lösning**: om certifikatet har marker ATS som bedrägeri och inte har lösts efter 24 timmar följer du dessa steg:
 
-    1. Logga in på [Azure Portal](https://portal.azure.com).
+    1. Logga in på [Azure-portalen](https://portal.azure.com).
     2. Gå till **app service certifikat**och välj certifikat.
-    3. Välj **certifikat konfiguration** > **steg 2: Verifiera**domän > **verifieringen**. Det här steget skickar ett meddelande till Azure-certifikat leverantören för att lösa problemet.
+    3. Välj **certifikat konfiguration** > **steg 2: verifiera** > **domän verifiering**. Det här steget skickar ett meddelande till Azure-certifikat leverantören för att lösa problemet.
 
 ## <a name="custom-domain-problems"></a>Anpassade domän problem
 
 ### <a name="a-custom-domain-returns-a-404-error"></a>En anpassad domän returnerar ett 404-fel 
 
-#### <a name="symptom"></a>Symtom
+#### <a name="symptom"></a>Symptom
 
 När du bläddrar till platsen med hjälp av det anpassade domän namnet visas följande fel meddelande:
 
@@ -130,7 +130,7 @@ Rensa webbläsaren. För Windows-enheter kan du köra kommandot `ipconfig /flush
 
 ### <a name="you-cant-add-a-subdomain"></a>Det går inte att lägga till en under domän 
 
-#### <a name="symptom"></a>Symtom
+#### <a name="symptom"></a>Symptom
 
 Du kan inte lägga till ett nytt värdnamn i en app för att tilldela en under domän.
 
@@ -141,7 +141,7 @@ Du kan inte lägga till ett nytt värdnamn i en app för att tilldela en under d
 
 ### <a name="dns-cant-be-resolved"></a>DNS kan inte matchas
 
-#### <a name="symptom"></a>Symtom
+#### <a name="symptom"></a>Symptom
 
 Du har fått följande fel meddelande:
 
@@ -160,7 +160,7 @@ Det här problemet uppstår av någon av följande orsaker:
 
 ### <a name="you-need-to-restore-a-deleted-domain"></a>Du måste återställa en borttagen domän 
 
-#### <a name="symptom"></a>Symtom
+#### <a name="symptom"></a>Symptom
 Din domän visas inte längre i Azure Portal.
 
 #### <a name="cause"></a>Orsak 
@@ -173,7 +173,7 @@ Om din domän har tagits bort mindre än sju dagar sedan har domänen inte start
 
 ### <a name="you-purchased-an-ssl-certificate-for-the-wrong-domain"></a>Du har köpt ett SSL-certifikat för fel domän
 
-#### <a name="symptom"></a>Symtom
+#### <a name="symptom"></a>Symptom
 
 Du har köpt ett App Service-certifikat för fel domän. Du kan inte uppdatera certifikatet så att det använder rätt domän.
 
@@ -185,7 +185,7 @@ Om det aktuella certifikatet som använder fel domän är i "utfärdat" tillstå
 
 ### <a name="an-app-service-certificate-was-renewed-but-the-app-shows-the-old-certificate"></a>Ett App Service certifikat har förnyats, men appen visar det gamla certifikatet 
 
-#### <a name="symptom"></a>Symtom
+#### <a name="symptom"></a>Symptom
 
 App Service certifikatet förnyades, men den app som använder App Service certifikatet använder fortfarande det gamla certifikatet. Dessutom har du fått en varning om att HTTPS-protokollet krävs.
 
@@ -196,13 +196,13 @@ App Service synkroniserar ditt certifikat automatiskt inom 48 timmar. När du ro
 
 Du kan tvinga fram synkronisering av certifikatet:
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Välj **app service certifikat**och välj sedan certifikatet.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **app service certifikat**och välj sedan certifikatet.
 2. Välj **nyckel förnyelse och synkronisera**och välj sedan **Synkronisera**. Det tar lite tid att slutföra synkroniseringen. 
-3. När synkroniseringen är klar visas följande meddelande: "Alla resurser har uppdaterats med det senaste certifikatet".
+3. När synkroniseringen är klar visas följande meddelande: "alla resurser har uppdaterats med det senaste certifikatet".
 
 ### <a name="domain-verification-is-not-working"></a>Domän verifiering fungerar inte 
 
-#### <a name="symptom"></a>Symtom 
+#### <a name="symptom"></a>Symptom 
 Det App Service certifikatet kräver domän verifiering innan certifikatet kan användas. Processen Miss lyckas när du väljer **Verifiera**.
 
 #### <a name="solution"></a>Lösning
@@ -219,7 +219,7 @@ Alternativt kan du använda HTML-webbsidans metod för att verifiera din domän 
 3.  Ladda upp den här filen i roten på webb servern som är värd för din domän.
 4.  Välj **Uppdatera** för att kontrol lera certifikatets status. Det kan ta några minuter innan verifieringen har slutförts.
 
-Om du t. ex. köper ett standard certifikat för Azure.com med verifierings-token 1234ABCD, ska en webbegäran https://azure.com/1234abcd.html som görs till returnera 1234ABCD. 
+Om du t. ex. köper ett standard certifikat för azure.com med verifierings-token 1234ABCD, ska en webbegäran som görs till https://azure.com/1234abcd.html returnera 1234ABCD. 
 
 > [!IMPORTANT]
 > En certifikat beställning har bara 15 dagar på sig att slutföra domän verifierings åtgärden. Efter 15 dagar nekar certifikat utfärdaren certifikatet och du debiteras inte för certifikatet. I så fall tar du bort certifikatet och försöker igen.
@@ -228,7 +228,7 @@ Om du t. ex. köper ett standard certifikat för Azure.com med verifierings-toke
 
 ### <a name="you-cant-purchase-a-domain"></a>Du kan inte köpa en domän
 
-#### <a name="symptom"></a>Symtom
+#### <a name="symptom"></a>Symptom
 Du kan inte köpa en App Service domän i Azure Portal.
 
 #### <a name="cause-and-solution"></a>Orsak och lösning
@@ -241,17 +241,17 @@ Det här problemet uppstår av någon av följande orsaker:
 
 - Du är inte prenumerations ägare, så du har inte behörighet att köpa en domän.
 
-    **Lösning**: [Tilldela ägar rollen](../role-based-access-control/role-assignments-portal.md) till ditt konto. Eller kontakta prenumerations administratören för att få behörighet att köpa en domän.
+    **Lösning**: [tilldela ägar rollen](../role-based-access-control/role-assignments-portal.md) till ditt konto. Eller kontakta prenumerations administratören för att få behörighet att köpa en domän.
 - Du har nått gränsen för att köpa domäner i din prenumeration. Den aktuella gränsen är 20.
 
-    **Lösning**: Kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)om du vill begära en ökning av gränsen.
+    **Lösning**: kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)om du vill begära en ökning av gränsen.
 - Din prenumerations typ för Azure stöder inte köpet av en App Service domän.
 
-    **Lösning**: Uppgradera din Azure-prenumeration till en annan prenumerations typ, till exempel en prenumeration där du betalar per användning.
+    **Lösning**: uppgradera din Azure-prenumeration till en annan prenumerations typ, till exempel en prenumeration där du betalar per användning.
 
 ### <a name="you-cant-add-a-host-name-to-an-app"></a>Du kan inte lägga till ett värdnamn i en app 
 
-#### <a name="symptom"></a>Symtom
+#### <a name="symptom"></a>Symptom
 
 När du lägger till ett värdnamn kan processen inte verifiera och verifiera domänen.
 
@@ -261,10 +261,10 @@ Det här problemet uppstår av någon av följande orsaker:
 
 - Du har inte behörighet att lägga till ett värdnamn.
 
-    **Lösning**: Be prenumerations administratören att ge dig behörighet att lägga till ett värdnamn.
+    **Lösning**: be prenumerations administratören att ge dig behörighet att lägga till ett värdnamn.
 - Det gick inte att verifiera domän ägarskapet.
 
-    **Lösning**: Kontrol lera att din CNAME-eller A-post har kon figurer ATS korrekt. Om du vill mappa en anpassad domän till en app skapar du antingen en CNAME-post eller en A-post. Om du vill använda en rot domän måste du använda A-och TXT-poster:
+    **Lösning**: kontrol lera att din CNAME-eller A-post har kon figurer ATS korrekt. Om du vill mappa en anpassad domän till en app skapar du antingen en CNAME-post eller en A-post. Om du vill använda en rot domän måste du använda A-och TXT-poster:
 
     |Posttyp|Värd|Peka på|
     |------|------|-----|
@@ -276,7 +276,7 @@ Det här problemet uppstår av någon av följande orsaker:
 
 **Måste jag konfigurera min anpassade domän för min webbplats när jag köper den?**
 
-När du köper en domän från Azure Portal konfigureras App Services programmet automatiskt för att använda den anpassade domänen. Du behöver inte vidta några ytterligare åtgärder. Om du vill ha mer [information kan du titta Azure App Service själv hjälp: Lägg till ett anpassat domän](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name) namn på channel9.
+När du köper en domän från Azure Portal konfigureras App Services programmet automatiskt för att använda den anpassade domänen. Du behöver inte vidta några ytterligare åtgärder. Mer information finns [Azure App Service själv hjälp: Lägg till ett anpassat domän namn](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name) på channel9.
 
 **Kan jag använda en domän som köpts i Azure Portal för att peka på en virtuell Azure-dator i stället?**
 

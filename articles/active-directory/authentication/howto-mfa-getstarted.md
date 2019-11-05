@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7504d14d522a440572aa25491270c0afc73325a9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 2d80ac949dea3c9d6c3d28d2a343c4ed7bad8983
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554401"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474303"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planera en molnbaserad Azure Multi-Factor Authentication-distribution
 
@@ -24,7 +24,7 @@ Personer ansluter till organisations resurser i allt större komplicerade scenar
 
 [Azure Multi-Factor Authentication (MFA)](concept-mfa-howitworks.md) hjälper till att skydda åtkomsten till data och program. Det ger ett extra säkerhets lager med hjälp av en andra form av autentisering. Organisationer kan använda [villkorlig åtkomst](../conditional-access/overview.md) för att se till att lösningen passar deras speciella behov.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du påbörjar en distribution av Azure Multi-Factor Authentication finns det nödvändiga objekt som bör övervägas.
 
@@ -220,6 +220,7 @@ Det är viktigt att du förhindrar oavsiktligt låst av din Azure AD-klient. Du 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett globalt administratörs konto.
 1. Bläddra till **Azure Active Directory**, **villkorlig åtkomst**.
 1. Välj **ny princip**.
+   ![skapa en princip för villkorlig åtkomst för att aktivera MFA för Azure Portal användare i pilot gruppen](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. Ange ett beskrivande namn för principen.
 1. Under **användare och grupper**:
    * På fliken **Inkludera** väljer du alternativ knappen **alla användare**
@@ -237,8 +238,6 @@ Det är viktigt att du förhindrar oavsiktligt låst av din Azure AD-klient. Du 
 1. Hoppa över avsnittet **session** .
 1. Ange **aktiverings principen** växla till **på**.
 1. Klicka på **Skapa**.
-
-![Skapa en princip för villkorlig åtkomst för att aktivera MFA för Azure Portal användare i pilot gruppen](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 
 ## <a name="plan-integration-with-on-premises-systems"></a>Planera integrering med lokala system
 

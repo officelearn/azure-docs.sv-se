@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 9279f97d5260eae698d5dbee10e077b71ab01992
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: c225be5a1123c89d8a470a8dea48b3c57eb893b5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612327"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474581"
 ---
 # <a name="administer-dns-in-an-azure-ad-domain-services-managed-domain"></a>Administrera DNS i en Azure AD Domain Services hanterad domän
 
@@ -23,7 +23,9 @@ I Azure Active Directory Domain Services (Azure AD DS) är en nyckel komponent D
 
 När du kör dina egna program och tjänster kan du behöva skapa DNS-poster för datorer som inte är anslutna till domänen, konfigurera virtuella IP-adresser för belastningsutjämnare eller konfigurera externa DNS-vidarebefordrare. Användare som tillhör gruppen *AAD DC-administratörer* beviljas behörighet för DNS-administration på den hanterade domänen i Azure AD DS och kan skapa och redigera anpassade DNS-poster.
 
-Den här artikeln visar hur du installerar verktyg för DNS-server och sedan använder DNS-konsolen för att hantera poster.
+I en hybrid miljö synkroniseras inte DNS-zoner och-poster som kon figurer ATS i en lokal AD DS-miljö med Azure AD DS. Om du vill definiera och använda dina egna DNS-poster skapar du poster i Azure AD DS DNS-servern eller använder villkorliga vidarebefordrare som pekar på befintliga DNS-servrar i din miljö.
+
+Den här artikeln visar hur du installerar verktyg för DNS-server och sedan använder DNS-konsolen för att hantera poster i Azure AD DS.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
@@ -39,14 +41,14 @@ För att slutföra den här artikeln behöver du följande resurser och behörig
     * Om det behövs, slutför du själv studie kursen för att [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance].
 * En virtuell Windows Server Management-dator som är ansluten till den hanterade Azure AD DS-domänen.
     * Om det behövs, slutför du själv studie kursen för att [skapa en virtuell Windows Server-dator och koppla den till en hanterad domän][create-join-windows-vm].
-* Ett användar konto som är medlem i administratörs gruppen för *Azure AD DC* i din Azure AD-klient.
+* Ett användar konto som är medlem i *Administratörs gruppen för Azure AD DC* i din Azure AD-klient.
 
 ## <a name="install-dns-server-tools"></a>Installera verktyg för DNS-Server
 
-Om du vill skapa och ändra DNS måste du installera verktyg för DNS-server. Dessa verktyg kan installeras som en funktion i Windows Server. Mer information om hur du installerar administrations verktyg på en Windows-klient finns i installera [verktyg för fjärrserveradministration (RSAT)][install-rsat].
+Om du vill skapa och ändra DNS-poster i Azure AD DS måste du installera verktyg för DNS-server. Dessa verktyg kan installeras som en funktion i Windows Server. Mer information om hur du installerar administrations verktyg på en Windows-klient finns i installera [verktyg för fjärrserveradministration (RSAT)][install-rsat].
 
 1. Logga in på den virtuella hanterings datorn. Anvisningar om hur du ansluter med hjälp av Azure Portal finns i [ansluta till en virtuell Windows Server-dator][connect-windows-server-vm].
-1. **Serverhanteraren** bör öppnas som standard när du loggar in på den virtuella datorn. Annars väljer du **Serverhanteraren**på **Start** -menyn.
+1. Om **Serverhanteraren** inte öppnas som standard när du loggar in på den virtuella datorn väljer du **Start** -menyn och väljer **Serverhanteraren**.
 1. I fönstret *instrument panel* i fönstret **Serverhanteraren** väljer du **Lägg till roller och funktioner**.
 1. På sidan **innan du börjar** i *guiden Lägg till roller och funktioner*väljer du **Nästa**.
 1. För *installations typen*låter du alternativet för **rollbaserad eller funktions baserad installation** vara markerat och väljer **Nästa**.
@@ -64,7 +66,7 @@ Om du vill skapa och ändra DNS måste du installera verktyg för DNS-server. De
 Med verktyg för DNS-server installerat kan du administrera DNS-poster på den hanterade domänen i Azure AD DS.
 
 > [!NOTE]
-> Om du vill administrera DNS i en Azure AD DS-hanterad domän måste du vara inloggad på ett användar konto som är medlem i administratörs gruppen för *AAD* -domänkontrollanten.
+> Om du vill administrera DNS i en Azure AD DS-hanterad domän måste du vara inloggad på ett användar konto som är medlem i *Administratörs gruppen för AAD-domänkontrollanten* .
 
 1. Välj **administrations verktyg**på Start skärmen. En lista över tillgängliga hanterings verktyg visas, inklusive **DNS** installerat i föregående avsnitt. Välj **DNS** för att starta konsolen DNS-hantering.
 1. I dialog rutan **Anslut till DNS-Server** väljer **du följande dator**och anger sedan DNS-domännamnet för den hanterade domänen, till exempel *contoso.com*:

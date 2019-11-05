@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 164ba5ff7be38d3b11a8c5f8e5c76a3ff19ff508
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 4753cc9a98cd59c0c5d446b3d92280aabfb72c12
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172937"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474689"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Självstudie: ansluta en virtuell Windows Server-dator till en hanterad domän
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du följande resurser:
 
@@ -54,7 +54,8 @@ För att se hur du ansluter en dator till en Azure AD DS-hanterad domän, ska vi
 
 Om du redan har en virtuell dator som du vill ansluta till, kan du gå vidare till avsnittet för att [ansluta den virtuella datorn till den hanterade domänen i Azure AD DS](#join-the-vm-to-the-azure-ad-ds-managed-domain).
 
-1. I det övre vänstra hörnet av Azure Portal väljer du **+ skapa en resurs**.
+1. Från Azure Portal-menyn eller från **Start** sidan väljer du **skapa en resurs**.
+
 1. Från **Kom igång**väljer du **Windows Server 2016 Data Center**.
 
     ![Välj att skapa en virtuell Windows Server 2016 datacenter-dator i Azure Portal](./media/join-windows-vm/select-vm-image.png)

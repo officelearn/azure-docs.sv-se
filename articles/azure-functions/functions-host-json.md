@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 2a61a2ba74ccdaa69b26cae65dd4f74a7b837ccf
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
-ms.translationtype: MT
+ms.openlocfilehash: 96c346db74c1e6c43c3501b657621d09e019309c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72927453"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469214"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Host. JSON-referens för Azure Functions 2. x  
 
@@ -71,6 +71,9 @@ Följande exempel på *Host. JSON* -filer har alla möjliga alternativ angivna.
             }
         }
     },
+    "managedDependency": {
+        "enabled": true
+    },
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -78,10 +81,7 @@ Följande exempel på *Host. JSON* -filer har alla möjliga alternativ angivna.
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ],
-    "managedDependency": {
-        "enabled": true
-    }
+    "watchDirectories": [ "Shared", "Test" ]
 }
 ```
 
@@ -113,11 +113,11 @@ Styr [samplings funktionen i Application Insights](./functions-monitoring.md#con
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
-|isEnabled|sant|Aktiverar eller inaktiverar sampling.| 
+|isEnabled|true|Aktiverar eller inaktiverar sampling.| 
 |maxTelemetryItemsPerSecond|20|Tröskelvärdet då samplingen börjar.| 
-|EnableLiveMetrics |sant|Aktiverar insamling av Live-mått.|
-|EnableDependencyTracking|sant|Aktiverar beroende spårning.|
-|EnablePerformanceCountersCollection|sant|Aktiverar insamling av kudu prestanda räknare.|
+|EnableLiveMetrics |true|Aktiverar insamling av Live-mått.|
+|EnableDependencyTracking|true|Aktiverar beroende spårning.|
+|EnablePerformanceCountersCollection|true|Aktiverar insamling av kudu prestanda räknare.|
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -174,9 +174,9 @@ Konfigurations inställningar för [övervakaren av värd hälsa](https://github
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
-|aktiva|sant|Anger om funktionen är aktive rad. | 
+|aktiva|true|Anger om funktionen är aktive rad. | 
 |healthCheckInterval|10 sekunder|Tidsintervallet mellan de regelbundna hälso kontrollerna i bakgrunden. | 
-|healthCheckWindow|2 minuter|Ett glidande tids fönster som används tillsammans med inställningen `healthCheckThreshold`.| 
+|healthCheckWindow|2 minuter|Ett glidande tids fönster som används tillsammans med `healthCheckThreshold`-inställningen.| 
 |healthCheckThreshold|6|Maximalt antal gånger som hälso kontrollen kan återställas innan en återkallning av en värd initieras.| 
 |counterThreshold|0,80|Tröskelvärdet som en prestanda räknare kommer att anses vara ohälsosam.| 
 
@@ -222,10 +222,10 @@ Styr loggnings beteenden för Function-appen, inklusive Application Insights.
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------|
-|fileLoggingMode|debugOnly|Definierar vilken nivå av fil loggning som är aktive rad.  Alternativen är `never`, `always`, `debugOnly`. |
-|logLevel|Ej tillämpligt|Objekt som definierar logg kategori filtrering för funktioner i appen. Version 2. x följer ASP.NET Core layout för filtrering av loggnings kategorier. På så sätt kan du filtrera loggning för vissa funktioner. Mer information finns i [logg filtrering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) i ASP.net Core-dokumentationen. |
-|konsol|Ej tillämpligt| Loggnings inställningen för [konsolen](#console) . |
-|applicationInsights|Ej tillämpligt| Inställningen [applicationInsights](#applicationinsights) . |
+|fileLoggingMode|debugOnly|Definierar vilken nivå av fil loggning som är aktive rad.  Alternativen är `never`, `always``debugOnly`. |
+|logLevel|Saknas|Objekt som definierar logg kategori filtrering för funktioner i appen. Version 2. x följer ASP.NET Core layout för filtrering av loggnings kategorier. På så sätt kan du filtrera loggning för vissa funktioner. Mer information finns i [logg filtrering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) i ASP.net Core-dokumentationen. |
+|konsol|Saknas| Loggnings inställningen för [konsolen](#console) . |
+|applicationInsights|Saknas| Inställningen [applicationInsights](#applicationinsights) . |
 
 ## <a name="console"></a>konsol
 
@@ -246,6 +246,18 @@ Den här inställningen är underordnad [loggning](#logging). Den styr konsol lo
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
 |isEnabled|false|Aktiverar eller inaktiverar konsol loggning.| 
+
+## <a name="manageddependency"></a>managedDependency
+
+Hanterat beroende är en funktion som för närvarande endast stöds med PowerShell-baserade funktioner. Det gör att beroenden kan hanteras automatiskt av tjänsten. När `enabled`-egenskapen är inställd på `true`bearbetas `requirements.psd1`s filen. Beroenden uppdateras när eventuella del versioner släpps. Mer information finns i [hanterat beroende](functions-reference-powershell.md#dependency-management) i PowerShell-artikeln.
+
+```json
+{
+    "managedDependency": {
+        "enabled": true
+    }
+}
+```
 
 ## <a name="queues"></a>kön
 
@@ -281,7 +293,7 @@ Konfigurations inställningar för beteendet singleton lock. Mer information fin
 |listenerLockPeriod|00:01:00|Den period som lyssnarens lås tas för.| 
 |listenerLockRecoveryPollingInterval|00:01:00|Det tidsintervall som används för återställning av lyssnar lås om det inte gick att hämta ett lyssnar lås vid start.| 
 |lockAcquisitionTimeout|00:01:00|Den maximala tid som körningen kommer att försöka hämta ett lås.| 
-|lockAcquisitionPollingInterval|Ej tillämpligt|Intervallet mellan lås försök.| 
+|lockAcquisitionPollingInterval|Saknas|Intervallet mellan lås försök.| 
 
 ## <a name="version"></a>version
 
@@ -294,18 +306,6 @@ En uppsättning [delade kod kataloger](functions-reference-csharp.md#watched-dir
 ```json
 {
     "watchDirectories": [ "Shared" ]
-}
-```
-
-## <a name="manageddependency"></a>managedDependency
-
-Hanterat beroende är en förhands gransknings funktion som för närvarande endast stöds med PowerShell-baserade funktioner. Det gör att beroenden kan hanteras automatiskt av tjänsten. När egenskapen Enabled har angetts till True kommer filen [Requirements. psd1](functions-reference-powershell.md#dependency-management) att bearbetas. Beroenden kommer att uppdateras när eventuella del versioner släpps.
-
-```json
-{
-    "managedDependency": {
-        "enabled": true
-    }
 }
 ```
 

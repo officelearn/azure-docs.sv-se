@@ -11,16 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: b7015b3e861aea3a33ea26d6a8c1a31f7f17b8c4
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: d2571b04f10bbbd3a461e553a56904abb3b46588
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063084"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496021"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Skala enkla databas resurser i Azure SQL Database
 
-Den här artikeln beskriver hur du skalar beräknings-och lagrings resurserna som är tillgängliga för en Azure SQL Database i den allokerade beräknings nivån. Alternativt kan du använda [beräknings nivån Server lös (för hands version)](sql-database-serverless.md) för att beräkna automatisk skalning och räkningar per sekund för beräkning som används.
+Den här artikeln beskriver hur du skalar beräknings-och lagrings resurserna som är tillgängliga för en Azure SQL Database i den allokerade beräknings nivån. Alternativt tillhandahåller Server lös beräknings [nivån](sql-database-serverless.md) beräkning av automatisk skalning och räkningar per sekund för beräkning som används.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -57,7 +57,7 @@ Att ändra tjänst nivå eller beräknings storlek i huvudsak inbegriper tjänst
 
 Den uppskattade svars tiden för att ändra tjänst nivån eller skala om beräknings storleken för en enskild databas eller elastisk pool är parameterstyrda enligt följande:
 
-|Tjänstnivå|Enkel databas,</br>Standard (S0-S1)|Basic elastisk pool,</br>Standard (S2-S12) </br>Hyperskala </br>Generell användning enskild databas eller elastisk pool|Premium-eller Affärskritisk enkel databas eller elastisk pool|
+|Tjänstenivå|Enkel databas,</br>Standard (S0-S1)|Basic elastisk pool,</br>Standard (S2-S12) </br>Hyperskala </br>Generell användning enskild databas eller elastisk pool|Premium-eller Affärskritisk enkel databas eller elastisk pool|
 |:---|:---|:---|:---|
 |**Enkel databas,</br> standard (S0-S1)**|&bull; &nbsp;tidssvars tid för konstant som är oberoende av använt utrymme</br>&bull; &nbsp;vanligt vis mindre än 5 minuter|&bull; &nbsp;svars tid som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull; &nbsp;vanligt vis mindre än 1 minut per GB använt utrymme|&bull; &nbsp;svars tid som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull; &nbsp;vanligt vis mindre än 1 minut per GB använt utrymme|
 |**Basic elastisk pool, </br>standard (S2-S12), </br>storskalig </br>Generell användning enskild databas eller elastisk pool**|&bull; &nbsp;svars tid som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull; &nbsp;vanligt vis mindre än 1 minut per GB använt utrymme|&bull; &nbsp;tidssvars tid för konstant som är oberoende av använt utrymme</br>&bull; &nbsp;vanligt vis mindre än 5 minuter|&bull; &nbsp;svars tid som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull; &nbsp;vanligt vis mindre än 1 minut per GB använt utrymme|
@@ -70,7 +70,7 @@ Den uppskattade svars tiden för att ändra tjänst nivån eller skala om beräk
 
 En ändring eller skalnings åtgärd för en tjänst nivå kan avbrytas.
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Azure Portal
 
 I bladet databas översikt navigerar du till **meddelanden** och klickar på panelen som visar att det finns en pågående åtgärd:
 

@@ -1,24 +1,25 @@
 ---
-title: Lathund för Azure SQL Data Warehouse | Microsoft Docs
-description: Hitta länkar och bästa metoder för att snabbt skapa dina Azure SQL Data Warehouse-lösningar.
+title: Lathund-blad för Azure Synapse Analytics (tidigare SQL DW) | Microsoft Docs
+description: Hitta länkar och bästa metoder för att snabbt bygga upp dina Azure Synapse Analytics-lösningar (tidigare SQL DW).
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
-ms.date: 08/23/2019
+ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 1bbb0148e6f4be2afc777960afcda9c727328206
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: be5e8952ddfc6cb831b87f880bc281d6ceb2ba3d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195059"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492265"
 ---
-# <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Lathund för Azure SQL Data Warehouse
-Med den här lathunden får du praktiska tips och bästa metoder för att skapa dina Azure SQL Data Warehouse-lösningar. Innan du börjar bör du lära dig mer om varje steg genom att läsa om [mönster och antimönster i arbetsbelastningar i Azure SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns), där det står vad SQL Data Warehouse är och vad det inte är.
+# <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Lathund-blad för Azure Synapse Analytics (tidigare SQL DW)
+
+Det här lathund-bladet innehåller användbara tips och bästa metoder för att skapa lösningar för Azure Synapse. 
 
 Följande bild visar hur du skapar ett informationslager:
 
@@ -35,13 +36,13 @@ När du vet åtgärdstyperna i förväg kan du optimera tabellernas design.
 
 ## <a name="data-migration"></a>Datamigrering
 
-Börja med att läsa in data i [Azure Data Lake Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) eller Azure Blob Storage. Använd sedan PolyBase för att läsa in dina data i SQL Data Warehouse i en mellanlagringstabell. Använd följande konfiguration:
+Börja med att läsa in data i [Azure Data Lake Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) eller Azure Blob Storage. Använd sedan PolyBase för att läsa in dina data i mellanlagrings tabeller. Använd följande konfiguration:
 
 | Design | Rekommendation |
 |:--- |:--- |
 | Distribution | Resursallokering |
 | Indexering | Heap |
-| Partitionering | Inga |
+| Partitionering | Ingen |
 | Resursklass | largerc eller xlargerc |
 
 Läs mer om [datamigrering], [datainläsning] och [ELT-processen (Extract, Load, and Transform)](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading). 
@@ -50,7 +51,7 @@ Läs mer om [datamigrering], [datainläsning] och [ELT-processen (Extract, Load,
 
 Använd följande strategier, beroende på tabellens egenskaper:
 
-| type | Passar bra för...| Se upp om...|
+| Typ | Passar bra för...| Se upp om...|
 |:--- |:--- |:--- |
 | Replikerad | • Små dimensionstabeller i ett star-schema med mindre än 2 GB lagring efter komprimering (~5x komprimering) |•  Det finns många skrivtransaktioner i tabellen (som infoga, upsert, ta bort, uppdatera)<br></br>• Du ändrar DWU-etablering (Data Warehouse Units) ofta<br></br>• Du endast använder 2–3 kolumner men tabellen har många kolumner<br></br>•  Du indexerar en replikerad tabell |
 | Resursallokering (standard) | • Tillfällig/mellanlagringstabell<br></br> • Ingen uppenbar kopplingsnyckel eller kolumn för bra kandidater |• Prestanda går långsamt på grund av dataförflyttning |
@@ -70,7 +71,7 @@ Läs mer om [replikerade tabeller] och [distribuerade tabeller].
 
 Indexering är bra när du vill läsa tabeller snabbt. Det finns en unik uppsättning tekniker som du kan använda utifrån dina behov:
 
-| type | Passar bra för... | Se upp om...|
+| Typ | Passar bra för... | Se upp om...|
 |:--- |:--- |:--- |
 | Heap | • Mellanlagrings-/temporär tabell<br></br>• Små tabeller med små sökningar |• Sökningar som genomsöker hela tabellen |
 | Grupperat index | • Tabeller med upp till 100 miljoner rader<br></br>• Stora tabeller (över 100 miljoner rader) där endast 1–2 kolumner används mycket |•  Används på en replikerad tabell<br></br>•    Du har avancerade frågor som omfattar flera kopplingsåtgärder och Gruppera efter-åtgärder<br></br>•  Du gör uppdateringar för de indexerade kolumnerna: det kräver minne |
@@ -98,28 +99,28 @@ Läs mer om [partitioner].
 
 Om du ska läsa in data stegvis ska du först kontrollera att du allokerar större resursklasser för att läsa in dina data.  Detta är särskilt viktigt när du läser in i tabeller med grupperade columnstore-index.  Se [resurs klasser](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management) för mer information.  
 
-Vi rekommenderar att du använder PolyBase och ADF V2 för att automatisera dina ELT-pipelines i SQL Data Warehouse.
+Vi rekommenderar att du använder PolyBase och ADF v2 för att automatisera dina ELT-pipeliner i ditt informations lager.
 
 Överväg att använda en [CTAs](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-ctas) för att skriva de data som du vill behålla i en tabell i stället för att använda Infoga, uppdatera och ta bort för en stor batch med uppdateringar i historiska data.
 
 ## <a name="maintain-statistics"></a>Underhålla statistik
- Tills automatisk statistik är allmänt tillgänglig kräver SQL Data Warehouse manuell underhåll av statistik. Det är viktigt att uppdatera statistik när viktiga dataändringar görs. Detta hjälper till att optimera dina frågeplaner. Om du tycker att det tar för lång tid att behålla all statistik kan du vara mer selektiv med vilka kolumner som ska ha statistik. 
+ Tills automatisk statistik är allmänt tillgänglig krävs manuell underhåll av statistik. Det är viktigt att uppdatera statistik när viktiga dataändringar görs. Detta hjälper till att optimera dina frågeplaner. Om du tycker att det tar för lång tid att behålla all statistik kan du vara mer selektiv med vilka kolumner som ska ha statistik. 
 
 Du kan även definiera frekvensen för uppdateringarna. Du kanske till exempel vill uppdatera datumkolumner, där nya värden kan läggas till, varje dag. Du får ut mest genom att använda statistik med kolumner som ingår i kopplingar, kolumner som används i WHERE-satsen och kolumner som finns i GROUP BY.
 
 Läs mer om [statistik].
 
 ## <a name="resource-class"></a>Resursklass
-SQL Data Warehouse använder resursgrupper som ett sätt att allokera minne till frågor. Om du behöver mer minne för att förbättra hastigheten för frågor eller inläsning ska du allokera högre resursklasser. Å andra sidan påverkar användning av större klasser samtidigheten. Du bör överväga det innan du flyttar alla dina användare till en stor resursklass.
+Resurs grupper används som ett sätt att allokera minne till frågor. Om du behöver mer minne för att förbättra hastigheten för frågor eller inläsning ska du allokera högre resursklasser. Å andra sidan påverkar användning av större klasser samtidigheten. Du bör överväga det innan du flyttar alla dina användare till en stor resursklass.
 
 Om du märker att frågor tar för lång tid kan du kontrollera att dina användare inte körs i stora resursklasser. Stora resursklasser förbrukar många samtidighetsfack. De kan orsaka att andra frågor placeras i kö.
 
-När Gen2 används för SQL Data Warehouse får varje resursklass 2,5 gånger så mycket minne som Gen1.
+Med hjälp av Gen2 i [SQL-poolen](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse)får varje resurs klass 2,5 gånger mer minne än gen1.
 
 Lär dig mer om hur du arbetar med [resursklasser och samtidighet].
 
 ## <a name="lower-your-cost"></a>Sänk kostnaderna
-En viktig funktion i SQL Data Warehouse är möjligheten att [hantera beräkningsresurser](sql-data-warehouse-manage-compute-overview.md). Du kan pausa informationslagret när du inte använder det, vilket gör att faktureringen för beräkningsresurser stoppas. Du kan skala resurser för att uppfylla dina prestandakrav. Om du vill pausa använder du [Azure-portalen](pause-and-resume-compute-portal.md) eller [PowerShell](pause-and-resume-compute-powershell.md). Om du vill skala använder du [Azure-portalen](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md) eller en [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
+En viktig funktion i Azure Synapse är möjligheten att [hantera beräknings resurser](sql-data-warehouse-manage-compute-overview.md). Du kan pausa SQL-poolen när du inte använder den, vilket stoppar faktureringen av beräknings resurser. Du kan skala resurser för att uppfylla dina prestandakrav. Om du vill pausa använder du [Azure-portalen](pause-and-resume-compute-portal.md) eller [PowerShell](pause-and-resume-compute-powershell.md). Om du vill skala använder du [Azure-portalen](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md) eller en [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 Autoskala nu för den tid du önskar med Azure Functions:
 
@@ -131,9 +132,9 @@ Autoskala nu för den tid du önskar med Azure Functions:
 
 Vi rekommenderar att du överväger SQL Database och Azure Analysis Services i en nav-och-eker-arkitektur. Den här lösningen kan isolera arbetsbelastningen mellan olika grupper av användare när du även använder avancerade funktioner från SQL Database och Azure Analysis Services. Det här är också ett sätt att tillhandahålla obegränsad samtidighet till dina användare.
 
-Läs mer om [vanliga arkitekturer som använder SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/).
+Lär dig mer om [typiska arkitekturer som utnyttjar Azure-Synapse](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/).
 
-Distribuera dina ekrar med ett klick i SQL-databaser från SQL Data Warehouse:
+Distribuera i ett Klicka på dina ekrar i SQL-databaser från SQL-poolen:
 
 <a href="https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwSpokeDbTemplate%2Fazuredeploy.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>

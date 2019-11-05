@@ -1,7 +1,7 @@
 ---
-title: Ställ en fråga som kan svara på data
-titleSuffix: Azure Machine Learning Studio
-description: Lär dig att formulera en sharp data science-fråga i datavetenskap för nybörjare video 3. Innehåller en jämförelse av klassificerings- och regressionsmodeller frågor.
+title: Be om en frågans data kan svara
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Lär dig att formulera en skarp data vetenskaps fråga i data vetenskap för nybörjare, video 3. Innehåller en jämförelse av klassificerings-och Regressions frågor.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -9,18 +9,18 @@ ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
-ms.openlocfilehash: 7343692e8484e50a02963b4528889a35cc1fcaa6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f0064d30c96a143dd2e53637a681e4a7ee0bc30
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66239081"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493165"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Ställ en fråga som du kan svara på med data
-## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Datavetenskap för nybörjare-serien
-Lär dig att formulera data science problem i en fråga i datavetenskap för nybörjare video 3. Denna video innehåller en jämförelse av frågor för klassificering och regression algoritmer.
+## <a name="video-3-data-science-for-beginners-series"></a>Video 3: data vetenskap för nybörjare-serien
+Lär dig att formulera ett data vetenskaps problem till en fråga i data vetenskap för nybörjare, video 3. Den här videon innehåller en jämförelse av frågor för klassificerings-och Regressions algoritmer.
 
-Titta på alla för att få ut det mesta av serien. [Gå till listan över videor](#other-videos-in-this-series)
+För att få ut det mesta av serien, se alla. [Gå till listan med videor](#other-videos-in-this-series)
 <br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player]
@@ -28,68 +28,68 @@ Titta på alla för att få ut det mesta av serien. [Gå till listan över video
 >
 
 ## <a name="other-videos-in-this-series"></a>Andra videor i den här serien
-*Datavetenskap för nybörjare* är en snabbintroduktion i datakunskap med fem korta filmer.
+*Data vetenskap för nybörjare* är en snabb introduktion till data vetenskap i fem korta videor.
 
-* Video 1: [5 frågor och svar om datavetenskap](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sek.)*
-* Video 2: [Är dina data klara för datavetenskap?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sek)*
-* Video 3: Ställ en fråga som du kan svara på med data
-* Video 4: [Förutsäga ett svar med en enkel modell](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sek)*
-* Video 5: [Kopiera andras arbete för att göra datavetenskap](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sek)*
+* Video 1: [5 frågor data vetenskaps svar](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 SEK)*
+* Video 2: [är dina data klara för data vetenskap?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 SEK)*
+* Video 3: Ställ en fråga som du kan besvara med data
+* Video 4: [förutsäga ett svar med en enkel modell](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 SEK)*
+* Video 5: [Kopiera andras arbete för att göra data vetenskap](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 SEK)*
 
-## <a name="transcript-ask-a-question-you-can-answer-with-data"></a>Avskriften: Ställ en fråga som du kan svara på med data
-Välkommen till tredje videon i serien ”datavetenskap för nybörjare”.  
+## <a name="transcript-ask-a-question-you-can-answer-with-data"></a>Avskrift: Ställ en fråga som du kan besvara med data
+Välkommen till den tredje videon i serien "data vetenskap för nybörjare".  
 
-I det här objektet får du några tips för utformningen av en fråga som du kan svara på med data.
+I den här artikeln får du några tips för att skapa en fråga som du kan besvara med data.
 
-Du kan få ut mer av den här videon om du först titta på två tidigare videor i den här serien: ”5 frågor data science kan besvara” och ”är dina data är klara för datavetenskap”?
+Du kan få ut mer av den här videon om du först tittar på de två tidigare videor i den här serien: "5 frågor data vetenskap kan svara" och "är dina data redo för data vetenskap?"
 
-## <a name="ask-a-sharp-question"></a>Ställ en sharp fråga
-Vi har pratat om hur data science är processen för att förutsäga ett svar på en fråga med hjälp av namn (kallas även för kategorier eller etiketter) och siffror. Men det kan vara vilken fråga. Det måste vara en *sharp fråga.*
+## <a name="ask-a-sharp-question"></a>Ställ en skarp fråga
+Vi har talat om hur data vetenskap är processen med att använda namn (kallas även kategorier eller etiketter) och siffror för att förutsäga ett svar på en fråga. Men det kan inte vara bara en fråga. Det måste vara en *skarp fråga.*
 
-Vagt frågor behöver besvaras med ett namn eller en siffra. Måste vara en sharp fråga.
+En vagt-fråga behöver inte besvaras med ett namn eller en siffra. En skarp fråga måste anges.
 
-Anta att du hittat ett magic ljus med en genie som sanningsenligt sätt svarar på alla frågor som du be. Men det är en mischievous genie som kommer att försöka att göra deras svar så vaga och förvirrande eftersom de kan få direkt med. Du vill fästa dem med en fråga som lufttätt så att de kan hjälpa men Berätta vad du vill veta.
+Anta att du har hittat en Magic lampa med en Genie som kommer att sanningsenligt kan besvara alla frågor som du ställer. Men det är en mischievous-Genie, som försöker göra sitt svar som vagt och vara förvirrande så att de kan komma igång. Du vill fästa dem med en fråga så att de inte kan hjälpa dig, men berätta vad du vill veta.
 
-Om du vill ställa en vagt fråga som ”vad som händer med Mina lager”?, kan svara på genie, ”priset ändras”. Det är ett sanningsenliga svar, men är inte det mycket bra.
+Om du skulle ställa en vagt fråga, t. ex. "Vad händer med min aktie?", kan Genie svara "priset kommer att ändras". Det är ett sanningsenliga svar, men det är inte särskilt användbart.
 
-Men om du skulle ställa en sharp fråga som ”vad mitt lager försäljningspris blir nästa vecka”?, kan inte genie bidra men ger dig en specifik besvara och förutsäga ett försäljningspris.
+Men om du skulle ställa en skarp fråga, t. ex. "vad kommer min akties försäljnings pris att vara nästa vecka?", kan Genie inte hjälpa till att ge dig ett särskilt svar och förutsäga ett försäljnings pris.
 
-## <a name="examples-of-your-answer-target-data"></a>Exempel på svaret: Måldata
-Kontrollera om du har ett exempel på svaret i dina data när du formulera din fråga.
+## <a name="examples-of-your-answer-target-data"></a>Exempel på ditt svar: mål data
+När du har formulerat din fråga kan du kontrol lera om du har exempel på svaret i dina data.
 
-Om våra fråga är ”vad mitt lager försäljningspris blir nästa vecka”? sedan måste vi Kontrollera våra data ingår historiken för aktiekursen.
+Om vår fråga är "vad kommer min aktie försäljnings pris att vara nästa vecka?" sedan måste vi se till att våra data innehåller aktie pris historiken.
 
-Om våra fråga är ”vilka bil i min flotta kommer att misslyckas först”? sedan måste vi Kontrollera att våra data innehåller information om föregående fel.
+Om vår fråga är "vilken bil i min flotta kommer att sluta fungera först?" sedan måste vi se till att våra data innehåller information om tidigare haverier.
 
-![Målprogram - exempel på ditt svar. Formulera en data science-fråga.](./media/data-science-for-beginners-ask-a-question-you-can-answer-with-data/target-data.png)
+![Mål data – exempel på ditt svar. Formulera en data vetenskaps fråga.](./media/data-science-for-beginners-ask-a-question-you-can-answer-with-data/target-data.png)
 
-De här exemplen för svar kallas för ett mål. Ett mål är vad vi vill förutsäga om framtida datapunkter, oavsett om det är en kategori eller en siffra.
+Dessa exempel på svar kallas för ett mål. Ett mål är vad vi försöker förutse om framtida data punkter, oavsett om det är en kategori eller ett tal.
 
-Om du inte har några måldata, måste du gör. Du kan inte svara på din fråga utan den.
+Om du inte har några mål data måste du skaffa några. Du kan inte svara på din fråga utan den.
 
-## <a name="reformulate-your-question"></a>Reformulate din fråga
-Ibland kan du formulera om frågan för att få en mer användbar svar.
+## <a name="reformulate-your-question"></a>Formulera om din fråga
+Ibland kan du formulera om din fråga för att få ett mer användbart svar.
 
-Frågan ”är den här data punkt A eller B”? förutsäger kategori (eller namnet eller etiketten) av något. För att besvara det vi använder en *klassificeringsalgoritm*.
+Frågan "är den här data punkten A eller B?" förutsäger kategorin (eller namnet eller etiketten) för något. För att besvara det använder vi en *klassificerings algoritm*.
 
-Frågan ”hur mycket”? eller ”hur många”? beräknar ett belopp. Svara på det vi använder en *regressionsalgoritm*.
+Frågan "hur mycket?" eller "hur många?" förutsäger ett belopp. För att besvara det använder vi en *Regressions algoritm*.
 
-Om du vill se hur vi kan förvandla dem, ska vi titta på frågan ”vilka nyheter berättelse är den mest intressanta denna läsare”? Uppmanas du att ange en förutsägelse av ett val bland många möjligheter – med andra ord ”är den här A eller B eller C eller D”? - och använder en klassificeringsalgoritm för.
+För att se hur vi kan omvandla dessa, ska vi titta på frågan, vilket nyhets berättelser är den mest intressanta för läsaren? " Den ber om en förutsägelse av ett enda val från många möjligheter – med andra ord "är detta A eller B eller C eller D?" -och använder en klassificerings algoritm.
 
-Men den här frågan kan vara lättare att svara på om du formulera om den som ”hur intressanta är varje artikel i listan till denna läsare”? Nu kan du ge varje artikel ett numeriskt värde och sedan är det enkelt att identifiera den högsta bedömning artikeln. Det här är att formulera om av klassificering-fråga till en regression fråga eller hur mycket?
+Men det kan vara lättare att besvara den här frågan om du formulerar om den som "hur intressant är varje berättelse i den här listan till den här läsaren?" Nu kan du ge varje artikel en numerisk Poäng och sedan är det enkelt att identifiera den senaste Poäng artikeln. Detta är en omformulerande av klassificerings frågan i en Regressions fråga eller hur mycket?
 
-![Reformulate din fråga. Klassificering fråga kontra regression fråga.](./media/data-science-for-beginners-ask-a-question-you-can-answer-with-data/classification-question-vs-regression-question.png)
+![Formulera om din fråga. Klassificerings fråga mot Regressions fråga.](./media/data-science-for-beginners-ask-a-question-you-can-answer-with-data/classification-question-vs-regression-question.png)
 
-Hur du ställa en fråga är en ledtråd till vilken algoritmen kan ge dig ett svar.
+Hur du ställer en fråga är en uppfattning om vilken algoritm som kan ge dig ett svar.
 
-Du hittar att vissa familjer av algoritmer - som de i vårt exempel på berättelse nyheter – nära relaterade. Du kan reformulate din fråga om du vill använda den algoritm som ger dig mest användbara svaret.
+Du ser att vissa familjer av algoritmer – som de i vårt nyhets artikel exempel – är nära relaterade. Du kan formulera om din fråga om du vill använda algoritmen som ger dig det mest användbara svaret.
 
-Men viktigast av allt, och Ställ sharp frågan - fråga som du kan svara på med data. Och kontrollera att du har rätt data att besvara den.
+Men det viktigaste är att fråga den skarpa frågan – frågan som du kan besvara med data. Se till att du har rätt data att svara på.
 
-Vi har pratat om några grundläggande principer för att ställa en fråga som du kan svara på med data.
+Vi har talat om några grundläggande principer för att ställa en fråga som du kan besvara med data.
 
-Glöm inte att checka ut andra videor i ”Data datavetenskap för nybörjare” från Microsoft Azure Machine Learning Studio.
+Se till att ta en titt på de andra videorna i "data vetenskap för nybörjare" från Microsoft Azure Machine Learning Studio (klassisk).
 
 ## <a name="next-steps"></a>Nästa steg
-* [Prova en första dataexperiment med Machine Learning Studio](create-experiment.md)
+* [Testa ett första data vetenskaps experiment med Machine Learning Studio (klassisk)](create-experiment.md)
 * [Få en introduktion till Machine Learning på Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

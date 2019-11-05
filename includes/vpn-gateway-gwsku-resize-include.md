@@ -5,23 +5,23 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/15/2019
+ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f6fd4039614dbd7c1a2b2c6ba8403502a6420fe3
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4842c55b2b1fd23f4d6b7996ccf02e7141504836
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187226"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495739"
 ---
-För de aktuella SKU: er (VpnGw1, VpnGw2 och VPNGW3) som du vill ändra storlek på din gateway SKU att uppgradera till en kraftfullare, du kan använda den `Resize-AzVirtualNetworkGateway` PowerShell-cmdlet. Du kan också nedgradera gateway SKU-storlek som använder denna cmdlet. Om du använder Basic-gateway SKU, [Följ dessa instruktioner i stället](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#resize) att ändra storlek på din gateway.
+Du kan använda `Resize-AzVirtualNetworkGateway` PowerShell-cmdleten för att uppgradera eller nedgradera en Generation1-eller Generation2-SKU (alla VpnGw SKU: er kan ändra storlek förutom grundläggande SKU: er). Om du använder den grundläggande Gateway-SKU: n [använder du de här anvisningarna i stället](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#resize) för att ändra storlek på din gateway.
 
-Följande PowerShell-exempel visar en gateway-SKU som ändras till VpnGw2.
+I följande PowerShell-exempel visas en gateway-SKU som ändrar storlek till VpnGw2.
 
 ```azurepowershell-interactive
 $gw = Get-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku VpnGw2
 ```
 
-Du kan också ändra storlek på en gateway i Azure portal genom att gå till den **Configuration** för din virtuella nätverksgateway och väljer en annan SKU i listrutan.
+Du kan också ändra storlek på en gateway i Azure Portal genom att gå till **konfigurations** sidan för den virtuella Nätverksgatewayen och välja en annan SKU i list rutan.

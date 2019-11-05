@@ -1,24 +1,24 @@
 ---
 title: 'Rensa saknade data: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen rensa data som saknas i Azure Machine Learning tjänsten för att ta bort, ersätta eller härleda saknade värden.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen rensa data som saknas i Azure Machine Learning för att ta bort, ersätta eller härleda saknade värden.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 7167d53cce2c44f754f438753acda008e53bb2b3
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: fef8cb0c29eac4b26b93abee54faa4fe1078678d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693205"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493818"
 ---
 # <a name="clean-missing-data-module"></a>Rensa data modul som saknas
 
-I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd den här modulen för att ta bort, ersätta eller härleda saknade värden. 
 
@@ -133,8 +133,8 @@ Om du ofta behöver upprepa rengörings åtgärder rekommenderar vi att du spara
   
 2.  Lägg till den data uppsättning som du vill rensa och Anslut data uppsättningen till den högra porten för indata.  
   
-3.  Expandera gruppen **transformeringar** i det vänstra fönstret i gränssnittet. Leta upp den sparade omvandlingen och dra den till pipelinen.  
-  
+3.  Expandera gruppen **Transforms** i den vänstra rutan i designern. Leta upp den sparade omvandlingen och dra den till pipelinen.  
+
 4.  Anslut den sparade omvandlingen till den vänstra Indataporten för [Apply Transformation](./apply-transformation.md). 
 
     När du använder en sparad omvandling kan du inte välja de kolumner som transformationen tillämpas på. Det beror på att omvandlingen redan har definierats och tillämpas automatiskt på de kolumner som anges i den ursprungliga åtgärden.
@@ -145,4 +145,4 @@ Om du ofta behöver upprepa rengörings åtgärder rekommenderar vi att du spara
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

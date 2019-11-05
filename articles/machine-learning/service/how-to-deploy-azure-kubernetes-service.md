@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 07/08/2019
-ms.openlocfilehash: dfaa39b33839406ffdf484299cb520aebf011c7d
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.date: 10/25/2019
+ms.openlocfilehash: 45d76328f4a5de4a5cf26b0a126825c1b0a906c7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299678"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496954"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuera en modell till ett Azure Kubernetes service-kluster
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Lär dig hur du använder Azure Machine Learning för att distribuera en modell som en webb tjänst på Azure Kubernetes service (AKS). Azure Kubernetes-tjänsten är lämplig för storskaliga produktions distributioner. Använd Azure Kubernetes-tjänsten om du behöver en eller flera av följande funktioner:
 
@@ -30,13 +31,13 @@ Lär dig hur du använder Azure Machine Learning för att distribuera en modell 
 
 När du distribuerar till Azure Kubernetes-tjänsten distribuerar du till ett AKS-kluster som är __anslutet till din arbets yta__. Det finns två sätt att ansluta ett AKS-kluster till din arbets yta:
 
-* Skapa AKS-klustret med hjälp av Azure Machine Learning SDK, Machine Learning CLI, [Azure Portal](https://portal.azure.com) -eller [arbets ytans landnings sida (för hands version)](https://ml.azure.com). Den här processen ansluter automatiskt klustret till arbets ytan.
-* Koppla ett befintligt AKS-kluster till din Azure Machine Learning-arbetsyta. Ett kluster kan kopplas med hjälp av Azure Machine Learning SDK, Machine Learning CLI eller Azure Portal.
+* Skapa AKS-klustret med hjälp av Azure Machine Learning SDK, Machine Learning CLI eller [Azure Machine Learning Studio](https://ml.azure.com). Den här processen ansluter automatiskt klustret till arbets ytan.
+* Koppla ett befintligt AKS-kluster till din Azure Machine Learning-arbetsyta. Ett kluster kan kopplas med hjälp av Azure Machine Learning SDK, Machine Learning CLI eller Azure Machine Learning Studio.
 
 > [!IMPORTANT]
 > Processen för att skapa eller bifogad fil är en engångs uppgift. När ett AKS-kluster är anslutet till arbets ytan kan du använda det för distributioner. Du kan koppla bort eller ta bort AKS-klustret om du inte längre behöver det. När detatched eller tagits bort kommer du inte längre att kunna distribuera till klustret.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
@@ -46,9 +47,9 @@ När du distribuerar till Azure Kubernetes-tjänsten distribuerar du till ett AK
 
 - I __python__ -kodfragmenten i den här artikeln förutsätter vi att följande variabler har angetts:
 
-    * `ws` – Ställ in på din arbets yta.
-    * `model` – Ställ in på din registrerade modell.
-    * `inference_config`-ställs in på modellens konfigurations konfiguration.
+    * `ws`-Ställ in på din arbets yta.
+    * `model`-Ställ in på din registrerade modell.
+    * `inference_config`-Ställ in på modellens konfigurations konfiguration.
 
     Mer information om hur du ställer in dessa variabler finns i [hur och var modeller ska distribueras](how-to-deploy-and-where.md).
 
@@ -66,7 +67,7 @@ Att skapa eller ansluta ett AKS-kluster är en process för arbets ytan. Du kan 
 Om du vill skapa ett AKS-kluster för __utveckling__, __validering__och __testning__ i stället för produktion kan du ange ett __kluster syfte__ för __dev-test__.
 
 > [!WARNING]
-> Om du anger `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` är det kluster som skapas inte lämpligt för trafik på produktions nivå och kan öka eventuella härlednings tider. Utvecklings-och test kluster garanterar inte heller fel tolerans. Vi rekommenderar minst 2 virtuella processorer för dev/test-kluster.
+> Om du ställer in `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`är det kluster som skapas inte lämpligt för trafik på produktions nivå och kan öka eventuella härlednings tider. Utvecklings-och test kluster garanterar inte heller fel tolerans. Vi rekommenderar minst 2 virtuella processorer för dev/test-kluster.
 
 Följande exempel visar hur du skapar ett nytt AKS-kluster med hjälp av SDK och CLI:
 
@@ -91,9 +92,9 @@ aks_target.wait_for_completion(show_output = True)
 ```
 
 > [!IMPORTANT]
-> Om du i [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py)väljer anpassade värden för `agent_count` och `vm_size`, och `cluster_purpose` inte `DEV_TEST`, måste du se till att `agent_count` multiplicerat med `vm_size` är större än eller lika med 12 virtuella processorer. Om du till exempel använder en `vm_size` av "Standard_D3_v2", som har 4 virtuella processorer, bör du välja en `agent_count` av 3 eller fler.
+> Om du i [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py)väljer anpassade värden för `agent_count` och `vm_size`och `cluster_purpose` inte är `DEV_TEST`måste du se till att `agent_count` multiplicerat med `vm_size` är större än eller lika med 12 virtuella processorer. Om du till exempel använder en `vm_size` av "Standard_D3_v2", som har 4 virtuella processorer, bör du välja en `agent_count` på 3 eller senare.
 >
-> Azure Machine Learning SDK ger inte stöd för skalning av ett AKS-kluster. Om du vill skala noderna i klustret använder du användar gränssnittet för ditt AKS-kluster i Azure Portal. Du kan bara ändra antalet noder, inte klustrets virtuella dator storlek.
+> Azure Machine Learning SDK ger inte stöd för skalning av ett AKS-kluster. Om du vill skala noderna i klustret använder du användar gränssnittet för ditt AKS-kluster i Azure Machine Learning Studio. Du kan bara ändra antalet noder, inte klustrets virtuella dator storlek.
 
 Mer information om klasser, metoder och parametrar som används i det här exemplet finns i följande referens dokument:
 
@@ -124,9 +125,9 @@ Om du redan har AKS-kluster i din Azure-prenumeration och det är lägre än ver
 > [!WARNING]
 > När du kopplar ett AKS-kluster till en arbets yta kan du definiera hur du ska använda klustret genom att ange parametern `cluster_purpose`.
 >
-> Om du inte anger parametern `cluster_purpose` eller anger `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD` måste klustret ha minst 12 virtuella processorer tillgängliga.
+> Om du inte anger parametern `cluster_purpose` eller anger `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`måste klustret ha minst 12 virtuella processorer tillgängliga.
 >
-> Om du anger `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` behöver klustret inte ha 12 virtuella processorer. Vi rekommenderar minst 2 virtuella processorer för utveckling/testning. Men ett kluster som har kon figurer ATS för utveckling/testning är inte lämpligt för trafik på produktions nivå och kan öka eventuella härlednings tider. Utvecklings-och test kluster garanterar inte heller fel tolerans.
+> Om du anger `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`behöver klustret inte ha 12 virtuella processorer. Vi rekommenderar minst 2 virtuella processorer för utveckling/testning. Men ett kluster som har kon figurer ATS för utveckling/testning är inte lämpligt för trafik på produktions nivå och kan öka eventuella härlednings tider. Utvecklings-och test kluster garanterar inte heller fel tolerans.
 
 Mer information om hur du skapar ett AKS-kluster med hjälp av Azure CLI eller portalen finns i följande artiklar:
 
@@ -172,7 +173,7 @@ Det här kommandot returnerar ett värde som liknar följande text:
 /subscriptions/{GUID}/resourcegroups/{myresourcegroup}/providers/Microsoft.ContainerService/managedClusters/{myexistingcluster}
 ```
 
-Använd följande kommando för att koppla det befintliga klustret till din arbets yta. Ersätt `aksresourceid` med värdet som returneras av föregående kommando. Ersätt `myresourcegroup` med resurs gruppen som innehåller din arbets yta. Ersätt `myworkspace` med namnet på din arbets yta.
+Använd följande kommando för att koppla det befintliga klustret till din arbets yta. Ersätt `aksresourceid` med det värde som returneras av föregående kommando. Ersätt `myresourcegroup` med resurs gruppen som innehåller din arbets yta. Ersätt `myworkspace` med namnet på din arbets yta.
 
 ```azurecli
 az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w myworkspace
@@ -210,7 +211,7 @@ Mer information om klasser, metoder och parametrar som används i det här exemp
 
 ### <a name="using-the-cli"></a>Använda CLI
 
-Använd följande kommando för att distribuera med hjälp av CLI. Ersätt `myaks` med namnet på AKS Compute Target. Ersätt `mymodel:1` med namn och version för den registrerade modellen. Ersätt `myservice` med namnet för att ge den här tjänsten:
+Använd följande kommando för att distribuera med hjälp av CLI. Ersätt `myaks` med namnet på AKS Compute Target. Ersätt `mymodel:1` med namnet och versionen för den registrerade modellen. Ersätt `myservice` med namnet för att ge den här tjänsten:
 
 ```azurecli-interactive
 az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
@@ -227,11 +228,74 @@ Information om hur du använder VS Code finns i [distribuera till AKS via vs Cod
 > [!IMPORTANT] 
 > Att distribuera via VS Code kräver att AKS-klustret skapas eller kopplas till din arbets yta i förväg.
 
+## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Distribuera modeller till AKS med hjälp av kontrollerad distribution (för hands version)
+Analysera och uppgradera modell versioner på ett kontrollerat sätt med hjälp av slut punkter. Distribuera upp till 6 versioner bakom en enda slut punkt och konfigurera% av bedömnings trafik till varje distribuerad version. Du kan aktivera App Insights om du vill visa drifts mått för slut punkter och distribuerade versioner.
+
+### <a name="create-an-endpoint"></a>Skapa en slutpunkt
+När du är redo att distribuera dina modeller skapar du en poäng slut punkt och distribuerar din första version. I steget nedan visas hur du distribuerar och skapar slut punkten med hjälp av SDK. Den första distributionen definieras som standard version, vilket innebär att ospecificerad trafik percentil över alla versioner kommer att gå till standard versionen.  
+
+```python
+import azureml.core,
+from azureml.core.webservice import AksEndpoint
+from azureml.core.compute import AksCompute
+from azureml.core.compute import ComputeTarget
+# select a created compute
+compute = ComputeTarget(ws, 'myaks')
+namespace_name= endpointnamespace 
+# define the endpoint and version name
+endpoint_name = "mynewendpoint",
+version_name= "versiona",
+# create the deployment config and define the scoring traffic percentile for the first deployment
+endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, memory_gb = 0.2,
+                                                              enable_app_insights = true, 
+                                                              tags = {'sckitlearn':'demo'},
+                                                              decription = testing versions,
+                                                              version_name = version_name,
+                                                              traffic_percentile = 20)
+ # deploy the model and endpoint
+ endpoint = Model.deploy(ws, endpoint_name, [model], inference_config, endpoint_deployment_config, compute)
+ ```
+
+### <a name="update-and-add-versions-to-an-endpoint"></a>Uppdatera och lägga till versioner till en slut punkt
+
+Lägg till en annan version till din slut punkt och konfigurera bedömnings trafikens percentil till versionen. Det finns två typer av versioner, en kontroll och en behandlings version. Det kan finnas flera behandlings versioner som hjälper dig att jämföra med en enda kontroll version. 
+
+ ```python
+from azureml.core.webservice import AksEndpoint
+
+# add another model deployment to the same endpoint as above
+version_name_add = "versionb" 
+endpoint.create_version(version_name = version_name_add, 
+                        inference_config=inference_config,
+                        models=[model], 
+                        tags = {'modelVersion':'b'}, 
+                        description = "my second version", 
+                        traffic_percentile = 10)
+```
+
+Uppdatera befintliga versioner eller ta bort dem i en slut punkt. Du kan ändra versionens standard typ, kontroll typ och trafik percentilen. 
+ 
+ ```python
+from azureml.core.webservice import AksEndpoint
+
+# update the version's scoring traffic percentage and if it is a default or control type 
+endpoint.update_version(version_name=endpoint.versions["versionb"].name, 
+                        description="my second version update", 
+                        traffic_percentile=40,
+                        is_default=True,
+                        is_control_version_type=True)
+
+# delete a version in an endpoint 
+endpoint.delete_version(version_name="versionb")
+
+```
+
+
 ## <a name="web-service-authentication"></a>Webb tjänstens autentisering
 
 När du distribuerar till Azure Kubernetes-tjänsten aktive ras __nyckelbaserad__ autentisering som standard. Du kan också aktivera __tokenbaserad__ autentisering. Token-baserad autentisering kräver att klienter använder ett Azure Active Directory konto för att begära en autentiseringstoken, som används för att göra förfrågningar till den distribuerade tjänsten.
 
-Om du vill __inaktivera__ autentisering anger du parametern `auth_enabled=False` när du skapar distributions konfigurationen. I följande exempel inaktive ras autentisering med hjälp av SDK:
+Om du vill __inaktivera__ autentisering ställer du in parametern `auth_enabled=False` när du skapar distributions konfigurationen. I följande exempel inaktive ras autentisering med hjälp av SDK:
 
 ```python
 deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, auth_enabled=False)
@@ -259,7 +323,7 @@ Om du vill aktivera token-autentisering anger du parametern `token_auth_enabled=
 deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, token_auth_enabled=True)
 ```
 
-Om token-autentisering har Aktiver ATS kan du använda metoden `get_token` för att hämta en JWT-token och förfallo tiden för token:
+Om token-autentisering har Aktiver ATS kan du använda metoden `get_token` för att hämta en JWT-token och dess förfallo tid för token:
 
 ```python
 token, refresh_by = service.get_token()
@@ -267,7 +331,7 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> Du måste begära en ny token efter det att token har `refresh_by` tid.
+> Du måste begära en ny token efter det att token `refresh_by` tid.
 >
 > Microsoft rekommenderar starkt att du skapar din Azure Machine Learning arbets yta i samma region som ditt Azure Kubernetes service-kluster. För att autentisera med en token kommer webb tjänsten att ringa till den region där din Azure Machine Learning arbets yta skapas. Om arbets ytans region inte är tillgänglig kan du inte hämta en token för din webb tjänst även om klustret finns i en annan region än din arbets yta. Detta leder till att tokenbaserad autentisering inte är tillgängligt förrän arbets ytans region är tillgänglig igen. Dessutom ökar avståndet mellan klustrets region och arbets ytans region, desto längre tid tar det att hämta en token.
 

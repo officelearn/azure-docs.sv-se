@@ -10,15 +10,15 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: vanto, carlrab
-ms.date: 04/19/2019
-ms.openlocfilehash: d8f0f4a8e603a9040d166b00682077cff23abd8d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 11/04/2019
+ms.openlocfilehash: 0413216bc666aff504193d6723d46a6ee26be8ee
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569701"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500063"
 ---
-# <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault-preview"></a>Hantera transparent datakryptering i en hanterad instans med hjälp av din egen nyckel från Azure Key Vault (förhands granskning)
+# <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault"></a>Hantera transparent datakryptering i en hanterad instans med hjälp av din egen nyckel från Azure Key Vault
 
 Detta exempel på PowerShell-skript konfigurerar transparent datakryptering (TDE) i Bring Your Own Key (för hands version) för Azure SQL-hanterad instans med hjälp av en nyckel från Azure Key Vault. Mer information om stöd för TDE med Bring Your Own Key (BYOK) finns i [TDE Bring Your Own Key till Azure SQL](../transparent-data-encryption-byok-azure-sql.md).
 

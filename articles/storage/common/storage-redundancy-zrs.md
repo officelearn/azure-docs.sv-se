@@ -9,12 +9,12 @@ ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: a343601ec126549926cfd4035d901862c0a585a8
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: e075091461949639fc36ffb9feab69ac5399ae61
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673098"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491971"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>Zone-redundant lagring (ZRS) för att skapa hög tillgängliga Azure Storage program
 
@@ -32,16 +32,17 @@ För General-Purpose v2-konton är ZRS allmänt tillgängligt i följande region
 - Västeuropa
 - Nordeuropa
 - Frankrike, centrala
-- Östra Japan
+- Japan, östra
 - Storbritannien, södra
 - USA, centrala
-- USA, östra
+- USA, Östra
 - USA, östra 2
 - USA, västra 2
 
 För FileStorage-konton är ZRS allmänt tillgängligt i följande regioner:
 
 - Västeuropa
+- USA, Östra
 
 Microsoft fortsätter att aktivera ZRS i ytterligare Azure-regioner. På sidan [uppdateringar för Azure-tjänsten](https://azure.microsoft.com/updates/) regelbundet hittar du information om nya regioner.
 
@@ -56,7 +57,7 @@ Dina data är fortfarande tillgängliga för både Läs-och skriv åtgärder äv
 
 När en zon inte är tillgänglig gör Azure nätverks uppdateringar, t. ex. DNS-ompekare. De här uppdateringarna kan påverka ditt program om du har åtkomst till dina data innan uppdateringarna har slutförts.
 
-ZRS kanske inte skyddar dina data mot en regional katastrof där flera zoner påverkas permanent. ZRS erbjuder i stället återhämtnings kapacitet för dina data om det blir tillfälligt otillgängligt. För skydd mot regionala katastrofer rekommenderar Microsoft att använda Geo-redundant lagring (GRS). Mer information om GRS finns i [Geo-redundant lagring (GRS): Replikering mellan regioner för Azure Storage](storage-redundancy-grs.md).
+ZRS kanske inte skyddar dina data mot en regional katastrof där flera zoner påverkas permanent. ZRS erbjuder i stället återhämtnings kapacitet för dina data om det blir tillfälligt otillgängligt. För skydd mot regionala katastrofer rekommenderar Microsoft att använda Geo-redundant lagring (GRS). Mer information om GRS finns i [Geo-redundant lagring (GRS): replikering mellan flera regioner för Azure Storage](storage-redundancy-grs.md).
 
 ## <a name="converting-to-zrs-replication"></a>Konverterar till ZRS-replikering
 
@@ -90,7 +91,7 @@ Tänk på följande begränsningar för direktmigrering:
 - Ditt konto måste innehålla data.
 - Du kan bara migrera data inom samma region. Om du vill migrera dina data till ett ZRS-konto som finns i en annan region än käll kontot, måste du utföra en manuell migrering.
 - Endast standard lagrings konto typer stöder Direktmigrering. Premium Storage-konton måste migreras manuellt.
-- Direktmigreringen från ZRS till LRS, GRS eller RA-GRS stöds inte. Du måste flytta data manuellt till ett nytt eller ett befintligt lagrings konto.
+- Direktmigreringen från ZRS till LRS, GRS eller RA-GRS stöds inte. Du behöver flytta data manuellt till ett nytt eller ett befintligt lagringskonto.
 - Managed disks är bara tillgängliga för LRS och kan inte migreras till ZRS. Du kan lagra ögonblicks bilder och avbildningar för Standard SSD Managed Disks på Standard HDD lagring och [välja mellan alternativen LRS och ZRS](https://azure.microsoft.com/pricing/details/managed-disks/). För integrering med tillgänglighets uppsättningar, se [Introduktion till Azure Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets).
 - LRS-eller GRS-konton med Arkiv data kan inte migreras till ZRS.
 
@@ -99,11 +100,11 @@ Du kan begära en Direktmigrering via [Azure-support portalen](https://ms.portal
 2. Slutför **grunderna** baserat på din konto information. I avsnittet **tjänst** väljer du **lagrings konto hantering** och den resurs som du vill konvertera till ZRS. 
 3. Välj **Nästa**. 
 4. Ange följande värden i avsnittet **problem** : 
-    - **Allvarlighets grad**: Låt standardvärdet vara kvar.
+    - **Allvarlighets grad**: låt standardvärdet vara.
     - **Problem typ**: Välj **datamigrering**.
     - **Kategori**: Välj **migrera till ZRS**.
-    - **Rubrik**: Ange en beskrivande rubrik, till exempel **ZRS-kontots migrering**.
-    - **Information**: Skriv mer information i **informations** rutan, till exempel vill du MIGRERA till ZRS från [LRS, GRS] i regionen \_ @ no__t-2. 
+    - **Title**: Ange en beskrivande rubrik, till exempel **ZRS-kontots migrering**.
+    - **Information**: Skriv ytterligare information i **informations** rutan, till exempel om jag vill migrera till ZRS från [LRS, GRS] i regionen \_\_. 
 5. Välj **Nästa**.
 6. Kontrol lera att kontakt informationen är korrekt på bladet med **kontakt information** .
 7. Välj **Skapa**.
@@ -136,7 +137,7 @@ Innan du skickar en begäran om Direktmigrering till ZRS bör du se till att din
 
 Om du vill migrera dina data till ett ZRS-konto som finns i en annan region än käll kontots region måste du utföra en manuell migrering.
 
-## <a name="zrs-classic-a-legacy-option-for-block-blobs-redundancy"></a>Klassisk ZRS: Ett bakåtkompatibelt alternativ för block blobs-redundans
+## <a name="zrs-classic-a-legacy-option-for-block-blobs-redundancy"></a>ZRS Classic: ett äldre alternativ för block blobs-redundans
 > [!NOTE]
 > Microsoft kommer att föråldra och migrera ZRS klassiska konton den 31 mars 2021. Mer information kommer att ges till ZRS klassiska kunder före utfasning. 
 >
@@ -162,7 +163,7 @@ Om du vill uppgradera till ZRS med CLI anropar du följande kommando:
 az storage account update -g <resource_group> -n <storage_account> --set kind=StorageV2
 ```
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 - [Azure Storage-replikering](storage-redundancy.md)
-- [Lokalt redundant lagring (LRS): Data redundans för låg kostnad för Azure Storage](storage-redundancy-lrs.md)
-- [Geo-redundant lagring (GRS): Replikering mellan regioner för Azure Storage](storage-redundancy-grs.md)
+- [Lokalt redundant lagring (LRS): låg kostnads data redundans för Azure Storage](storage-redundancy-lrs.md)
+- [Geo-redundant lagring (GRS): replikering mellan regioner för Azure Storage](storage-redundancy-grs.md)

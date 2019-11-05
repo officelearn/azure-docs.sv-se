@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2172ac30cd5b4251933e5012affdb41a0202a344
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 3f80169808b1e6420f04b786d2bb06bde9c96231
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784853"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73479668"
 ---
 # <a name="text-split-cognitive-skill"></a>Text delning kognitiv kunskap
 
@@ -33,7 +33,7 @@ Parametrar är Skift läges känsliga.
 |--------------------|-------------|
 | textSplitMode      | Antingen "Pages" eller "meningar" | 
 | maximumPageLength | Om textSplitMode är inställt på "Pages", refererar detta till den maximala sid längden som mäts av `String.Length`. Minimivärdet är 100.  Om textSplitMode är inställt på "Pages" försöker algoritmen dela upp texten i segment som har flest "maximumPageLength" i storlek. I det här fallet gör algoritmen det bästa sättet att dela upp meningen på en mening, så storleken på segmentet kan vara något lägre än "maximumPageLength". | 
-| defaultLanguageCode   | valfritt En av följande språk koder: `da, de, en, es, fi, fr, it, ko, pt`. Standardvärdet är engelska (en). Några saker att tänka på:<ul><li>Om du skickar ett languageCode-CountryCode-format används endast languageCode-delen av formatet.</li><li>Om språket inte finns i den föregående listan, delar den delade kompetensen texten vid tecken gränser.</li><li>Att ange en språkkod är användbart för att undvika att klippa ut ett ord på hälften för icke-utrymmes språk, till exempel kinesiska, japanska och koreanska.</li></ul>  |
+| defaultLanguageCode   | valfritt En av följande språk koder: `da, de, en, es, fi, fr, it, ko, pt`. Standardvärdet är engelska (en). Några saker att tänka på:<ul><li>Om du skickar ett languageCode-CountryCode-format används endast languageCode-delen av formatet.</li><li>Om språket inte finns i den föregående listan, delar den delade kompetensen texten vid tecken gränser.</li><li>Att tillhandahålla en språkkod är användbart för att undvika att klippa ut ett ord på en halv till ett språk som inte är blank steg, till exempel kinesiska, japanska och koreanska.</li><li>Om du inte känner till språket (dvs. om du behöver dela upp texten för indatamängden i [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), är standardvärdet engelska (en) tillräckligt. </li></ul>  |
 
 
 ## <a name="skill-inputs"></a>Kompetens inmatningar
@@ -41,7 +41,7 @@ Parametrar är Skift läges känsliga.
 | Parameternamn       | Beskrivning      |
 |----------------------|------------------|
 | text  | Den text som ska delas upp i under sträng. |
-| languageCode  | Valfritt Språk kod för dokumentet.  |
+| languageCode  | Valfritt Språk kod för dokumentet. Om du inte känner till språket (d.v.s. om du behöver dela upp texten för inläsningar i [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)) är det säkert att ta bort den här indatamängden.  |
 
 ## <a name="skill-outputs"></a>Kunskaps utmatningar 
 
@@ -130,7 +130,7 @@ Parametrar är Skift läges känsliga.
 ## <a name="error-cases"></a>Fel fall
 Om ett språk inte stöds genereras en varning och texten delas upp vid tecken gränser.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 + [Inbyggda kunskaper](cognitive-search-predefined-skills.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)

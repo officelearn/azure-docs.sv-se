@@ -1,6 +1,6 @@
 ---
-title: Val av funktioner i Team Data Science Process
-description: Förklarar ändamålet med val av funktioner och ger exempel på deras roll i hur data förbättring av machine learning.
+title: Funktions val i team data science process
+description: Förklarar syftet med val av funktioner och ger exempel på deras roll i data förbättrings processen för Machine Learning.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -11,59 +11,57 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a74f2c21746deb16372174d4a769f9abb825a1cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da5da64538ceaf906388c49963c0d5115e1b5ab9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60809596"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480230"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Funktionsval i TDSP (Team Data Science Process)
-Den här artikeln förklarar för val av funktioner och innehåller exempel på dess roll i processen för data förbättring av machine learning. Följande exempel hämtas från Azure Machine Learning Studio. 
+Den här artikeln förklarar syftet med val av funktioner och ger exempel på dess roll i processen för data förbättring av Machine Learning. Dessa exempel hämtas från Azure Machine Learning Studio.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+Teknikerna och valet av funktioner är en del av TDSP (Team data science process) som beskrivs i artikeln [Vad är team data science-processen?](overview.md). Funktions teknik och urval är delar av steget **utveckla funktioner** i TDSP.
 
-Teknik- och urval funktioner är en del av Team Data Science Process (TDSP) som beskrivs i artikeln [vad är Team Data Science Process?](overview.md). Funktioner och egenskapsval är delar av den **utveckla funktioner** steg i TDSP.
+* **funktions teknik**: den här processen försöker skapa ytterligare relevanta funktioner från befintliga RAW-funktioner i data och öka förutsägande kraft för inlärningen.
+* **Val av funktion**: den här processen väljer en nyckel del av de ursprungliga data funktionerna i ett försök att minska inlärnings problemets dimensionalitet.
 
-* **egenskapsval**: Den här processen försöker att skapa ytterligare relevanta funktioner från de befintliga raw-funktionerna i data och för att öka förutsägande kraften att Inlärningsalgoritmen.
-* **Funktionsval**: Den här processen väljer viktiga delmängd av den ursprungliga datafunktioner i ett försök att minska dimensionaliteten för utbildning-problem.
+Normalt **används funktionerna först** för att generera ytterligare funktioner och sedan utförs **funktions urvalet** för att eliminera irrelevanta, redundanta eller mycket korrelerade funktioner.
 
-Normalt **funktionstekniker** tillämpas först för att generera ytterligare funktioner, och sedan den **Funktionsval** steg utförs för att ta bort irrelevanta, redundant eller mycket korrelerade funktioner.
+## <a name="filter-features-from-your-data---feature-selection"></a>Filtrera funktioner från dina data funktions val
+Funktions val är en process som vanligt vis används för att utforma utbildnings data uppsättningar för förutsägelse modellering, till exempel klassificerings-och Regressions uppgifter. Målet är att välja en delmängd av funktionerna från den ursprungliga data uppsättningen som minskar sina dimensioner genom att använda en minimal uppsättning funktioner för att representera den maximala avvikelsen i data. Den här del mängden av funktioner används för att träna modellen. Val av funktioner är två huvudsakliga syfte.
 
-## <a name="filter-features-from-your-data---feature-selection"></a>Filtrera funktioner från dina data, val av funktioner
-Val av funktioner är en process som används ofta för datauppsättningar för utbildning för förutsägelsemodellering aktiviteter till exempel klassificerings- eller regressionsmodell aktivitet. Målet är att välja en delmängd av funktionerna i den ursprungliga datauppsättningen som minska dess storlek med hjälp av en minimal uppsättning funktioner som representerar längsta avvikelse i data. Den här delmängd av funktionerna för att träna modellen. Val av funktioner har två huvudsakliga syften.
+* För det första ökar funktions valet ofta klassificerings precision genom att eliminera irrelevanta, redundanta eller mycket korrelerade funktioner.
+* För det andra minskar antalet funktioner, vilket gör processen för modell inlärning mer effektiv. Effektiviteten är särskilt viktigt för att lära sig som är dyra att träna, till exempel för att stödja Vector-datorer.
 
-* Först, val av funktioner ökar ofta klassificering noggrannhet genom att ta bort irrelevanta, redundanta eller mycket korrelerade funktioner.
-* Dessutom minskas hur många funktioner, vilket gör träningsprocess modell effektivare. Effektivitet är särskilt viktigt för elever som är dyra att träna, till exempel support vector datorer.
+Även om val av funktioner gör att du kan minska antalet funktioner i data uppsättningen som används för att träna modellen, så refereras den inte till av termen "Dimensional minskning". Funktions urvals metoder extraherar en delmängd av ursprungliga funktioner i data utan att ändra dem.  Metoder för minskning av dimensionalitet använder utformade funktioner som kan omvandla de ursprungliga funktionerna och därmed ändra dem. Exempel på metoder för minskning av dimensionalitet är huvudsakliga komponent analys, kanonisk korrelations analys och sammanställning av sammansatta värden.
 
-Även om Funktionsurval avser att minska antalet funktioner i datauppsättningen som används för att träna modellen, är det inte refereras till av termen ”minskar dimensionalitet”. Funktionen av klientautentiseringskapaciteten extrahera en delmängd av ursprungliga funktioner i data utan att ändra dem.  Dimensionalitet minskning metoder använder bakåtkompilerade funktioner som kan omvandla de ursprungliga funktionerna och därmed ändra dem. Exempel på dimensionalitet minskning metoder är huvudnamn komponenten analys, canonical korrelation analys och rapportanvändare värdet uppdelning.
+Bland annat kallas en allmänt tillämpad kategori med funktions urvals metoder i en övervakad kontext, "filterbaserade funktions val". Genom att utvärdera korrelationen mellan varje funktion och målattributet tillämpar dessa metoder ett statistiskt mått för att tilldela varje funktion en poäng. Funktionerna rangordnas sedan efter poängen, som kan användas för att ange tröskelvärdet för att hålla eller ta bort en speciell funktion. Exempel på statistiska mått som används i dessa metoder är person korrelation, ömsesidig information och chi2-test.
 
-Bland annat kallas en mycket tillämpade kategori av funktionen val av metoder i ett övervakat sammanhang ”val av filter-baserade funktioner”. Genom att utvärdera sambandet mellan varje funktion och Målattributet, gäller de här metoderna ett statistiska mått om du vill tilldela en poäng varje funktion. Funktionerna är sedan rankade efter poäng, som kan användas för att ange ett tröskelvärde för att behålla eller ta bort en specifik funktion. Exempel på statistiska åtgärder som används i de här metoderna är Person korrelation ömsesidig information och Chi kvadraten testet.
+I Azure Machine Learning Studio finns moduler för val av funktioner. Som du ser i följande bild inkluderar dessa moduler [filtrerings-baserade funktions val][filter-based-feature-selection] och [analys av Fisher-discriminant][fisher-linear-discriminant-analysis].
 
-Det finns moduler som angetts för val av funktioner i Azure Machine Learning Studio. I följande bild visas dessa moduler omfattar [Filter-baserade Funktionsurval] [ filter-based-feature-selection] och [Fisher linjär Discriminant analys] [ fisher-linear-discriminant-analysis].
+![Moduler för funktions val](./media/select-features/feature-Selection.png)
 
-![Funktionen val av moduler](./media/select-features/feature-Selection.png)
+Överväg till exempel användningen av modulen för [filtrerings-baserade funktions val][filter-based-feature-selection] . Fortsätt att använda text utvinnings exemplet för bekvämlighet. Anta att du vill skapa en Regressions modell efter att en uppsättning 256 funktioner har skapats via modulen för [funktions-hash][feature-hashing] och att variabeln respons är "Col1" som innehåller gransknings klassificeringen från 1 till 5. Genom att ange "funktions bedömnings metod" som "Pearson korrelation", måste mål kolumnen vara "Col1" och "antalet önskade funktioner" till 50. Sedan skapar modulen [filterbaserade funktions val][filter-based-feature-selection] en data uppsättning som innehåller 50-funktioner tillsammans med målattributet "Col1". Följande bild visar flödet för det här experimentet och indataparametrarna:
 
-Till exempel överväga att använda den [Filter-baserade Funktionsurval] [ filter-based-feature-selection] modulen. För enkelhetens skull fortsätta att använda textexempel för datautvinning. Anta att du vill skapa en regressionsmodell när en uppsättning 256 funktioner har skapats via den [funktions-hashning] [ feature-hashing] modulen och att variabeln response är den ”Kol1” som innehåller boken granska betyg mellan 1 och 5. Genom att ange ”funktionen bedömnings metoden” ska vara ”Pearson korrelation”, ”målkolumnen” att vara ”Kol1” och ”antal önskade funktioner” till mellan 50. Sedan modulen [Filter-baserade Funktionsurval] [ filter-based-feature-selection] producerar en datauppsättning som innehåller 50 funktioner tillsammans med Målattributet ”Kol1”. Följande bild visar flödet av det här experimentet och indataparametrarna som:
+![Filtrera baserat funktions val för modulen egenskaper](./media/select-features/feature-Selection1.png)
 
-![Funktionen markering modulen filteregenskaper](./media/select-features/feature-Selection1.png)
+Följande bild visar de resulterande data uppsättningarna:
 
-Följande bild visar de resulterande datauppsättningarna:
+![Resulterande data uppsättning för filter baserat funktions val modul](./media/select-features/feature-Selection2.png)
 
-![Resultatet för Filter baserat Funktionsurval modul](./media/select-features/feature-Selection2.png)
+Varje funktion betygs ätts baserat på Pearsons korrelation mellan sig och målattributet "Col1". De funktioner som har flest resultat behålls.
 
-Varje funktion beräknas baserat på Pearson sambandet mellan sig och Målattributet ”Kol1”. Funktioner med översta poäng hålls.
+Motsvarande resultat för de valda funktionerna visas i följande figur:
 
-Motsvarande poäng för de valda funktionerna visas i följande bild:
+![Poäng för filtrering baserat funktions val modul](./media/select-features/feature-Selection3.png)
 
-![Poäng för Filter baserat Funktionsurval modul](./media/select-features/feature-Selection3.png)
+Genom att använda den här [filterbaserade modulen för funktions val][filter-based-feature-selection] är 50 av 256 funktioner markerade eftersom de har de mest korrelerade funktionerna med Target-variabeln "Col1", baserat på bedömnings metoden "Pearson korrelation".
 
-Genom att använda detta [Filter-baserade Funktionsurval] [ filter-based-feature-selection] modulen, 50 av 256 funktioner är markerade eftersom de har mest korrelerade funktioner med en målvariabel ”Kol1” baserat på bedömnings-metoden ”Pearson korrelation”.
+## <a name="conclusion"></a>Slutsats
+Funktions teknik och funktions val är två vanliga och valda funktioner och ökar effektiviteten i inlärnings processen som försöker extrahera nyckelinformation som finns i data. De kan också förbättra kraften i dessa modeller för att klassificera indata på ett korrekt sätt och förutsäga resultat av intresse mer robust. Funktions teknik och urval kan också kombineras för att göra inlärningen mer beräknings bara. Det gör det genom att förbättra och minska antalet funktioner som behövs för att kalibrera eller träna en modell. De funktioner som har valts för att träna modellen är en minimal uppsättning oberoende variabler som förklarar mönstren i data och förutsäger sedan resultatet.
 
-## <a name="conclusion"></a>Sammanfattning
-Funktionsframställning och val av funktioner är två vanliga utformat och valda funktioner öka effektiviteten för utbildning-processen som försöker extrahera nyckelinformationen ingå i data. De kan även förbättra kraften hos dessa modeller att klassificera indata korrekt och att förutsäga resultat av intresse mer kraftigare. Funktioner och egenskapsval kan också kombinera för att göra utbildningsresurser mer beräkningsmässigt tractable. Detta sker genom bättre och minskar antalet funktioner som behövs för att kalibrera eller tränar en modell. De funktioner som valts för att träna modellen är matematiskt sett en minimal uppsättning oberoende variabler som förklarar mönster i data och förutsäga resultat har.
-
-Det är inte alltid nödvändigtvis för val av teknik eller funktion av funktioner. Om det behövs eller inte beror på de data som samlas in, den algoritm som valts och syftet med experimentet.
+Det är inte alltid nödvändigt att utföra funktion teknik eller val av funktioner. Vare sig det behövs eller inte beror på insamlade data, algoritmen som valts och syftet med experimentet.
 
 <!-- Module References -->
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/

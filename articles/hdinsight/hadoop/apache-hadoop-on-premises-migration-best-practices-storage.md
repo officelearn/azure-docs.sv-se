@@ -1,5 +1,5 @@
 ---
-title: Migrera lokala Apache Hadoop-kluster till Azure HDInsight – lagring
+title: 'Lagring: migrera lokala Apache Hadoop till Azure HDInsight'
 description: Lär dig metod tips för lagring för migrering av lokala Hadoop-kluster till Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9b246fe9b09f2939663b4fb74ee1da703264d533
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: b22c3c7e7dbbf7a93fff10ded1fbb7bef8fc5900
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028936"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494955"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight
 
@@ -23,9 +23,9 @@ Den här artikeln innehåller rekommendationer för data lagring i Azure HDInsig
 
 Katalog strukturen för den lokala Apache Hadoop fil systemet (HDFS) kan återskapas i Azure Storage eller Azure Data Lake Storage. Du kan sedan på ett säkert sätt ta bort HDInsight-kluster som används för beräkning utan att förlora användar data. Båda tjänsterna kan användas både som standard fil system och ytterligare fil system för ett HDInsight-kluster. HDInsight-klustret och lagrings kontot måste finnas i samma region.
 
-### <a name="azure-storage"></a>Azure-lagring
+### <a name="azure-storage"></a>Azure Storage
 
-HDInsight-kluster kan använda BLOB-behållaren i Azure Storage som antingen standard fil systemet eller ett ytterligare fil system. Lagrings kontot på standard nivån stöds för användning med HDInsight-kluster. Premier-nivån stöds inte. Standardcontainern lagrar klusterspecifik information, till exempel jobbhistorik och loggar. Det går inte att dela en blob-container som standardfilsystem över flera kluster.
+HDInsight-kluster kan använda BLOB-behållaren i Azure Storage som antingen standard fil systemet eller ett ytterligare fil system. Lagrings kontot på standard nivån stöds för användning med HDInsight-kluster. Premier-nivån stöds inte. Standardcontainern lagrar klusterspecifik information, till exempel jobbhistorik och loggar. Delning av en BLOB-behållare som standard fil system för flera kluster stöds inte.
 
 De lagrings konton som definieras i skapande processen och deras respektive nycklar lagras i `%HADOOP_HOME%/conf/core-site.xml` på klusternoderna. De kan också nås under avsnittet "anpassad kärn webbplats" i HDFS-konfigurationen i Ambari-ANVÄNDARGRÄNSSNITTET. Lagrings konto nyckeln krypteras som standard och ett anpassat dekrypterings skript används för att dekryptera nycklarna innan de skickas vidare till Hadoop-daemon. Jobben, inklusive Hive, MapReduce, Hadoop-strömning och gris, har en beskrivning av lagrings konton och metadata med dem.
 
@@ -42,7 +42,7 @@ Ett av följande format kan användas för att komma åt data som lagras i Azure
 
 [Azure Storage skalbarhets-och prestanda mål](../../storage/common/storage-scalability-targets.md) visar de aktuella gränserna för Azure Storage-konton. Om programmets behov överskrider skalbarhets målen för ett enda lagrings konto kan programmet byggas för att använda flera lagrings konton och sedan partitionera data objekt över dessa lagrings konton.
 
-[Azure-lagringsanalys](../../storage/storage-analytics.md)@no__t 1provides mått för alla lagrings tjänster och Azure Portal kan konfigureras samla in mått som ska visualiseras genom diagram. Aviseringar kan skapas för att meddela när tröskelvärden har nåtts för lagrings resurs mått.
+[Azure-lagringsanalys](../../storage/storage-analytics.md) innehåller mått för alla lagrings tjänster och Azure Portal kan konfigureras samla in mått som ska visualiseras genom diagram. Aviseringar kan skapas för att meddela när tröskelvärden har nåtts för lagrings resurs mått.
 
 Azure Storage erbjuder [mjuk borttagning för BLOB-objekt](../../storage/blobs/storage-blob-soft-delete.md) för att hjälpa till att återställa data när de av misstag har ändrats eller tagits bort av ett program eller en annan lagrings konto användare.
 
@@ -94,23 +94,23 @@ Azure Data Lake Storage Gen2 är det senaste lagrings erbjudandet. Den kombinera
 
 ADLS gen 2 bygger på [Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md) och gör att du kan konfigurera gränssnitt med data med hjälp av både fil systemet och objekt lagrings paradigm. Funktioner från [Azure Data Lake Storage gen1](../../data-lake-store/index.md), till exempel semantiska fil system, säkerhet på filnivå och skala kombineras med låg kostnad, nivå lagring, hög tillgänglighet/haveri beredskap och ett stort SDK/verktyg för eko system från [Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md). I Data Lake Storage Gen2 bibehålls alla kvaliteter för objekt lagring samtidigt som du lägger till fördelarna med ett fil system gränssnitt som är optimerat för analys arbets belastningar.
 
-En grundläggande funktion i Data Lake Storage Gen2 är att lägga till ett [hierarkiskt namn område](../../storage/data-lake-storage/namespace.md) to Blob Storage-tjänsten, som ordnar objekt/filer i en hierarki med kataloger för att utföra data åtkomst. Den hierarkiska strukturen aktiverar åtgärder som att byta namn på eller ta bort en katalog för att vara enkla atomiska metadata-åtgärder i katalogen i stället för att räkna upp och bearbeta alla objekt som delar namn prefixet för katalogen.
+En grundläggande funktion i Data Lake Storage Gen2 är att lägga till ett [hierarkiskt namn område](../../storage/data-lake-storage/namespace.md) till Blob Storage-tjänsten, som organiserar objekt/filer i en hierarki med kataloger för att utföra data åtkomst. Den hierarkiska strukturen aktiverar åtgärder som att byta namn på eller ta bort en katalog för att vara enkla atomiska metadata-åtgärder i katalogen i stället för att räkna upp och bearbeta alla objekt som delar namn prefixet för katalogen.
 
-Tidigare hade molnbaserad analys att angripa i delar av prestanda, hantering och säkerhet. De viktigaste funktionerna i Azure Data Lake Storage (ADLS) Gen2 är följande:
+Tidigare var molnbaserad analys en kompromiss i områden med prestanda, hantering och säkerhet. De viktigaste funktionerna i Azure Data Lake Storage (ADLS) Gen2 är följande:
 
-- **Hadoop-kompatibel åtkomst**: Med Azure Data Lake Storage Gen2 kan du hantera och komma åt data precis som med en [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Den nya [ABFS driv rutinen](../../storage/data-lake-storage/abfs-driver.md) is är tillgänglig i alla Apache Hadoop miljöer som ingår i [Azure HDInsight](../index.yml). Med den här driv rutinen kan du komma åt data som lagras i Data Lake Storage Gen2.
+- **Hadoop-kompatibel åtkomst**: Azure Data Lake Storage Gen2 gör att du kan hantera och komma åt data precis som med en [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Den nya [driv rutinen ABFS](../../storage/data-lake-storage/abfs-driver.md) finns i alla Apache Hadoop miljöer som ingår i [Azure HDInsight](../index.yml). Med den här driv rutinen kan du komma åt data som lagras i Data Lake Storage Gen2.
 
-- **En supermängd av POSIX-behörigheter**: Säkerhets modellen för Data Lake Gen2 har fullt stöd för ACL-och POSIX-behörigheter tillsammans med viss extra detaljerad information som är speciell för Data Lake Storage Gen2. Inställningarna kan konfigureras via administrations verktyg eller ramverk som Hive och Spark.
+- **En supermängd av POSIX-behörigheter**: säkerhets modellen för data Lake Gen2 har fullt stöd för ACL-och POSIX-behörigheter tillsammans med viss detaljerad kornig het för data Lake Storage Gen2. Inställningarna kan konfigureras via administrations verktyg eller ramverk som Hive och Spark.
 
-- **Kostnads effektiv**: Data Lake Storage Gen2 funktioner lagrings kapacitet och transaktioner med låg kostnad. Som data över gångar via hela livs cykeln ändras fakturerings taxan till minimerade kostnader via inbyggda funktioner, till exempel [Azure Blob Storage livs cykel](../../storage/common/storage-lifecycle-management-concepts.md).
+- **Kostnads effektiv**: data Lake Storage Gen2 funktioner för lagrings kapacitet och transaktioner med låg kostnad. Som data över gångar via hela livs cykeln ändras fakturerings taxan till minimerade kostnader via inbyggda funktioner, till exempel [Azure Blob Storage livs cykel](../../storage/common/storage-lifecycle-management-concepts.md).
 
-- **Fungerar med Blob Storage-verktyg, ramverk och appar**: Data Lake Storage Gen2 fortsätter att arbeta med en bred uppsättning verktyg, ramverk och program som finns idag för Blob Storage.
+- **Fungerar med Blob Storage-verktyg, ramverk och appar**: data Lake Storage Gen2 fortsätter att fungera med en bred uppsättning verktyg, ramverk och program som finns idag för Blob Storage.
 
-- **Optimerad driv rutin**: Azure Blob filesystem-drivrutinen (ABFS) [optimeras specifikt](../../storage/data-lake-storage/abfs-driver.md) for Big data Analytics. Motsvarande REST-API: er är anslutna via DFS-slutpunkten dfs.core.windows.net.
+- **Optimerad driv rutin**: Azure Blob filesystem-drivrutinen (ABFS) [optimeras specifikt](../../storage/data-lake-storage/abfs-driver.md) för stor data analys. Motsvarande REST-API: er är anslutna via DFS-slutpunkten dfs.core.windows.net.
 
 Ett av följande format kan användas för att komma åt data som lagras i ADLS Gen2:
-- `abfs:///`: Få åtkomst till standard Data Lake Storage för klustret.
-- `abfs://file_system@account_name.dfs.core.windows.net`: Används vid kommunikation med ett Data Lake Storage som inte är standard.
+- `abfs:///`: få åtkomst till standard Data Lake Storage för klustret.
+- `abfs://file_system@account_name.dfs.core.windows.net`: används vid kommunikation med ett Data Lake Storage som inte är standard.
 
 Mer information finns i följande artiklar:
 
@@ -173,7 +173,7 @@ HDInsight har som standard fullständig åtkomst till data i de Azure Storage ko
 
 6. Använd följande värden för fälten **nyckel** och **värde** :
 
-    **Nyckel**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net`- **värde**: SAS-nyckeln som returnerades av python-programmet från steg 4 ovan.
+    **Nyckel**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **värde**: den SAS-nyckel som returnerades av python-programmet från steg 4 ovan.
 
 7. Klicka på knappen **Lägg** till för att spara den här nyckeln och värdet och klicka sedan på knappen **Spara** för att spara konfigurations ändringarna. När du uppmanas till det, lägger du till en beskrivning av ändringen ("lägga till SAS-lagringsenhet" till exempel) och klickar sedan på **Spara**.
 
@@ -185,7 +185,7 @@ Det finns tre viktiga saker att komma ihåg om användningen av SAS-token i Azur
 
 1. När SAS-token skapas med behörigheterna Läs + lista kommer användare som har åtkomst till BLOB-behållaren med den SAS-token inte att kunna skriva och ta bort data. Användare som har åtkomst till BLOB-behållaren med den SAS-token och försöker utföra en Skriv-eller borttagnings åtgärd, kommer att få ett meddelande som `"This request is not authorized to perform this operation"`.
 
-2. När SAS-token genereras med `READ + LIST + WRITE`-behörigheter (för att begränsa `DELETE`), kommandon som `hadoop fs -put` skriver först till en @no__t 3-fil och försöker sedan byta namn på filen. Denna HDFS-åtgärd mappar till en `copy+delete` för WASB. Eftersom behörigheten `DELETE` inte angavs skulle "placering" inte utföras. Åtgärden `\_COPYING\_` är en Hadoop-funktion som är avsedd att ge en viss samtidighets kontroll. Det finns för närvarande inget sätt att begränsa bara åtgärden "ta bort" utan att påverka "Skriv"-åtgärder.
+2. När SAS-token genereras med `READ + LIST + WRITE` behörigheter (för att begränsa `DELETE`), kommandon som `hadoop fs -put` första skrivning till en `\_COPYING\_`-fil och försöker sedan byta namn på filen. Denna HDFS-åtgärd mappar till en `copy+delete` för WASB. Eftersom den `DELETE` behörigheten inte angavs skulle "placering" inte utföras. Åtgärden `\_COPYING\_` är en Hadoop-funktion som är avsedd att ge en viss samtidighets kontroll. Det finns för närvarande inget sätt att begränsa bara åtgärden "ta bort" utan att påverka "Skriv"-åtgärder.
 
 3. Tyvärr fungerar inte ShellDecryptionKeyProvider (Hadoop Credential Provider och dekrypteringsnyckeln Key Provider) med SAS-token och så att den för närvarande inte kan skyddas från synlighet.
 

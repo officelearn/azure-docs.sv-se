@@ -1,40 +1,36 @@
 ---
-title: Ändra vyn för virtuell dator-session till helskärm i Azure Skyddsmiljö | Microsoft Docs
-description: I den här artikeln lär du dig hur du ändrar vyn till hela skärmen.
+title: Ändra vyn för virtuell dator-session till full skärm i Azure skydds | Microsoft Docs
+description: I den här artikeln lär du dig hur du ändrar vyn till hel skärms läge.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 10/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6a063d6c8891133126924bfb934770f7818db71a
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: a8c9cab825644fe797713c80d3a710c7a2d54850
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191556"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498055"
 ---
-# <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion-preview"></a>Ändra till helskärmsläge för en vm-session: Azure Skyddsmiljö (förhandsversion)
+# <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>Ändra till hel skärms läge för en VM-session: Azure skydds
 
-Den här artikeln hjälper dig att ändra vyn virtuell dator till helskärm och tillbaka i webbläsaren. Innan du börjar arbeta med en virtuell dator, kontrollera att du har följt stegen för att [skapa en Skyddsmiljö-värd](bastion-create-host-portal.md). Sedan kan ansluta till den virtuella datorn som du vill arbeta med med hjälp av antingen [RDP](bastion-connect-vm-rdp.md) eller [SSH](bastion-connect-vm-ssh.md).
+Den här artikeln hjälper dig att ändra den virtuella datorns vy till full skärm och tillbaka i webbläsaren. Innan du arbetar med en virtuell dator bör du kontrol lera att du har följt stegen för att [skapa en skydds-värd](bastion-create-host-portal.md). Anslut sedan till den virtuella dator som du vill arbeta med via [RDP](bastion-connect-vm-rdp.md) eller [SSH](bastion-connect-vm-ssh.md).
 
-> [!IMPORTANT]
-> Den offentliga förhandsversionen tillhandahålls utan serviceavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
+## <a name="launch-the-clipboard-tool"></a>Starta urklipps verktyget
 
-## <a name="launch-the-clipboard-tool"></a>Starta verktyget Urklipp
-
-Under fjärrsessionen, starta paletten Skyddsmiljö Urklipp åtkomst verktyget genom att välja de två pilarna som fanns i vänsterkant sessionen.
+Under fjärrsessionen startar du skydds urklipps åtkomst verktyg genom att välja de två pilarna som finns längst till vänster i sessionen.
 
 ![verktyg](./media/bastion-vm-manage/left.png)
 
-## <a name="select-full-screen"></a>Välj helskärm
+## <a name="select-full-screen"></a>Välj hel skärms läge
 
-Välj den **helskärm** knappen för att växla sessionen till en upplevelse för hela skärmen. När du byter återinitierar sessionen att hela skärmen.
+Välj knappen **hel** skärm för att växla sessionen till en hel skärms upplevelse. När du har växlat ominitieras sessionen till full skärm.
 
-![helskärm](./media/bastion-vm-manage/full-screen.png)
+![hel skärms läge](./media/bastion-vm-manage/full-screen.png)
  
 ## <a name="next-steps"></a>Nästa steg
 
-Läs den [Skyddsmiljö vanliga frågor och svar](bastion-faq.md).
-Lär dig hur du [kopiera och klistra in](bastion-vm-copy-paste.md) till och från en Azure-dator.
+Läs [vanliga frågor och svar om skydds](bastion-faq.md).
+Lär dig hur du [kopierar och klistrar in](bastion-vm-copy-paste.md) till och från en virtuell Azure-dator.

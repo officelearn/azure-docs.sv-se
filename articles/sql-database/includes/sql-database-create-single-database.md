@@ -3,14 +3,14 @@ author: MashaMSFT
 ms.service: sql-database
 ms.subservice: single-database
 ms.topic: include
-ms.date: 07/31/2019
+ms.date: 11/04/2019
 ms.author: mathoma
-ms.openlocfilehash: ff5505c2cb35d088565773e8d0ba01e8abb4b8c3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0fad326107fa101cbba869311724710bd3f5307b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933240"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496123"
 ---
 I det här steget ska du skapa en Azure SQL Database enskild databas. 
 
@@ -19,7 +19,7 @@ I det här steget ska du skapa en Azure SQL Database enskild databas.
 >
 > Mer information finns i [skapa en brand Väggs regel på databas nivå](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) eller för att fastställa vilken IP-adress som används för brand Väggs regeln på server nivå för datorn se [skapa en brand vägg på server nivå](../sql-database-server-level-firewall-rule.md).  
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Skapa en resurs grupp och en enkel databas med hjälp av Azure Portal.
 
@@ -55,12 +55,12 @@ Skapa en resurs grupp och en enkel databas med hjälp av Azure Portal.
 
      ![SQL Database information](../media/sql-database-get-started-portal/sql-db-basic-db-details.png)
 
-   - Välj **etablerade** och **Gen5**.
+   - Välj **etablerad**.
 
      ![Etablerade Gen4](../media/sql-database-get-started-portal/create-database-provisioned.png)
 
-   - Granska inställningarna för **Max virtuella kärnor**, **min virtuella kärnor**, **AutoPause Delay**och **data Max storlek**. Ändra dem efter behov.
-   - Godkänn villkoren för för hands versionen och klicka på **OK**.
+   - Granska inställningarna för **virtuella kärnor**och **data Max storlek**. Ändra dem efter behov. 
+     - Alternativt kan du också välja **ändra konfiguration** för att ändra maskin varu genereringen.
    - Välj **Använd**.
 
 5. Välj fliken **ytterligare inställningar** . 

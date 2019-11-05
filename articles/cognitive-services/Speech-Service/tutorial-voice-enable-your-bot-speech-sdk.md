@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Röster aktiverar din robot med tal-SDK'
+title: 'Självstudie: röster aktivera din robot med tal-SDK'
 titleSuffix: Azure Cognitive Services
 description: I den här självstudien får du skapa en eko-robot med hjälp av Microsoft bot-Framework, distribuera den till Azure och registrera den med bot-ramverkets direkta linje tal kanal. Sedan konfigurerar du en exempel klient app för Windows som låter dig tala med din robot och höra att den svarar på dig.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 11/05/2019
 ms.author: dcohen
-ms.openlocfilehash: 3c57200591f3b7de9a1f9ab4198e55ed844b4d07
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
-ms.translationtype: MT
+ms.openlocfilehash: 89bf4a3a6b8ea0cb04f3a1a663cc2365fa4fefc3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932054"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468683"
 ---
-# <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Självstudier: Röst – aktivera din robot med hjälp av talet SDK
+# <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Självstudie: röst – aktivera din robot med tal-SDK
 
 Nu kan du använda kraften i tal tjänsterna för att enkelt röst aktivera en chatt-robot.
 
@@ -28,10 +28,10 @@ Den här självstudien är utformad för utvecklare som bara startar sin resa me
 I slutet av den här övningen har du konfigurerat ett system som fungerar på följande sätt:
 
 1. Exempel klient programmet är konfigurerat för att ansluta till direkt linje tal kanal och eko roboten
-2. Ljud spelas in från knappen Standard mikrofon vid knapp tryckning (eller kontinuerligt inspelad om anpassat aktiverings ord har Aktiver ATS)
-3. Du kan också välja att identifiera anpassad aktiverings ord, hantera ljud strömning till molnet
+2. Ljud spelas in från standard mikrofonen vid knapp tryckning (eller kontinuerligt inspelad om anpassat nyckelord är aktiverat)
+3. Du kan också välja att identifiera anpassade nyckelord, hantera ljud strömning till molnet
 4. Med hjälp av tal-SDK ansluter appen till direkt linje tal kanal och strömma ljud
-5. Du kan också kontrol lera att verifieringen av aktiverings ord med högre exakthet sker på tjänsten
+5. Du kan också kontrol lera att nyckelord med högre noggrannhet sker i tjänsten
 6. Ljudet skickas till tal igenkännings tjänsten och skrivs till text
 7. Den tolkade texten skickas till eko-roboten som en bot Framework-aktivitet 
 8. Svars texten omvandlas till ljud av tjänsten text till tal (TTS) och strömmas tillbaka till klient programmet för uppspelning
@@ -47,7 +47,7 @@ Den här själv studie kursen beskriver följande:
 > * Bygg, testa och distribuera eko robot exemplet till en Azure App Service
 > * Registrera din robot med direkt linje tal kanal
 > * Skapa och kör direkt radnumrering-klienten för att interagera med din eko-robot
-> * Lägg till anpassad aktivering av aktiverings ord
+> * Lägg till anpassad nyckelords aktivering
 > * Lär dig att ändra språket för det identifierade och talade talet
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -65,7 +65,7 @@ Det här är vad du behöver för att slutföra den här kursen:
 
 Klient programmet som du skapar i den här självstudien använder en fåtal av Azure-tjänster. Om du vill minska svars tiden för svar från din robot bör du se till att dessa tjänster finns i samma Azure-region. I det här avsnittet ska du skapa en resurs grupp i regionen **USA, västra** . Den här resurs gruppen kommer att användas när du skapar enskilda resurser för bot-ramverket, direkt linje tal kanalen och tal tjänsterna.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj **resurs grupper**i det vänstra navigerings fältet. Klicka sedan på **Lägg** till för att lägga till en ny resurs grupp.
 3. Du uppmanas att ange viss information:
    * Ställ in **prenumeration** på **kostnads fri utvärderings version** (du kan också använda en befintlig prenumeration).
@@ -79,7 +79,7 @@ Klient programmet som du skapar i den här självstudien använder en fåtal av 
 
 Om du vill använda en annan region för den här självstudien kan de här faktorerna begränsa dina val:
 
-* Den direkta linjens tal kanal är en för hands versions tjänst. Det kan till exempel vara begränsat till särskilda Azure-regioner. Mer information om tillgängliga regioner finns i [röst-första virtuella assistenter](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#voice-first-virtual-assistants).
+* Se till att du använder en [Azure-region som stöds](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#voice-assistants).
 * Den direkta linjens tal kanal använder tjänsten för text till tal, som har standard-och neurala-röster. Neurala-röster är [begränsade till särskilda Azure-regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).
 * De kostnads fria utvärderings nycklarna kan vara begränsade till en speciell region.
 
@@ -107,9 +107,9 @@ Följ de här anvisningarna för att skapa en tal resurs:
 
 I det här läget kontrollerar du att resurs gruppen (**SpeechEchoBotTutorial-ResourceGroup**) har en tal resurs:
 
-| NAMN | TYP  | PLATS |
+| Namn | TYP  | SÖKVÄGEN |
 |------|-------|----------|
-| SpeechEchoBotTutorial-tal | Cognitive Services | Västra USA |
+| SpeechEchoBotTutorial-tal | Cognitive Services | USA, västra |
 
 ### <a name="create-an-azure-app-service-plan"></a>Skapa en Azure App Service-plan
 
@@ -130,10 +130,10 @@ Nästa steg är att skapa en App Service-plan. En App Service-plan definierar en
 
 I det här läget kontrollerar du att resurs gruppen (**SpeechEchoBotTutorial-ResourceGroup**) har två resurser:
 
-| NAMN | TYP  | PLATS |
+| Namn | TYP  | SÖKVÄGEN |
 |------|-------|----------|
-| SpeechEchoBotTutorial-AppServicePlan | App Service-plan | Västra USA |
-| SpeechEchoBotTutorial-tal | Cognitive Services | Västra USA |
+| SpeechEchoBotTutorial-AppServicePlan | App Service-plan | USA, västra |
+| SpeechEchoBotTutorial-tal | Cognitive Services | USA, västra |
 
 ## <a name="build-an-echo-bot"></a>Bygg en eko-robot
 
@@ -153,16 +153,16 @@ Nu när du har skapat några resurser är det dags att skapa en bot. Vi kommer a
    ```
    experimental\directline-speech\csharp_dotnetcore\02.echo-bot\EchoBot.csproj
    ```
-4. När projektet har lästs in trycker `F5` du på för att köra projektet.
+4. När projektet har lästs in trycker du på `F5` för att köra projektet.
 
 ### <a name="test-with-the-bot-framework-emulator"></a>Testa med bot Framework-emulatorn
 
-[Bot Framework](https://github.com/microsoft/botframework-emulator) -emulatorn är en Skriv bords app som gör det möjligt för bot-utvecklare att testa och felsöka sina robotar lokalt eller via en tunnel. Följ dessa steg om du vill använda bot Framework-emulatorn för att testa din eko-robot.
+[Bot Framework-emulatorn](https://github.com/microsoft/botframework-emulator) är en Skriv bords app som gör det möjligt för bot-utvecklare att testa och felsöka sina robotar lokalt eller via en tunnel. Följ dessa steg om du vill använda bot Framework-emulatorn för att testa din eko-robot.
 
-1. Installera [bot Framework](https://github.com/Microsoft/BotFramework-Emulator/releases/latest) -emulatorns version 4.3.0 eller senare
+1. Installera [bot Framework-emulatorns](https://github.com/Microsoft/BotFramework-Emulator/releases/latest) version 4.3.0 eller senare
 2. Starta bot Framework-emulatorn och öppna din robot:
-   * Filen -> **Öppna bot**.
-3. Ange URL: en för din robot. Exempel:
+   * **Filen** -> **Öppna bot**.
+3. Ange URL: en för din robot. Till exempel:
    ```
    http://localhost:3978/api/messages
    ```
@@ -185,7 +185,7 @@ Nästa steg är att distribuera eko-roboten till Azure. Det finns några sätt a
 3. Välj **App Service** i det vänstra navigerings fältet, Välj **Skapa ny**och klicka sedan på **publicera**.
 5. När fönstret **skapa App Service** visas:
    * Klicka på **Lägg till ett konto**och logga in med dina autentiseringsuppgifter för Azure-kontot. Om du redan är inloggad väljer du önskat konto i list rutan.
-   * För **namnet på appen**måste du ange ett globalt unikt namn för din robot. Det här namnet används för att skapa en unik bot-URL. Ett standardvärde kommer att fyllas i inklusive datum och tid (till exempel: "EchoBot20190805125647"). Du kan använda standard namnet för den här självstudien.
+   * För **namnet på appen**måste du ange ett globalt unikt namn för din robot. Det här namnet används för att skapa en unik bot-URL. Ett standardvärde kommer att fyllas i, inklusive datum och tid (till exempel: "EchoBot20190805125647"). Du kan använda standard namnet för den här självstudien.
    * För **prenumeration**ställer du in den på **kostnads fri utvärderings version**
    * För **resurs grupp**väljer du **SpeechEchoBotTutorial-ResourceGroup**
    * För **värd plan**väljer du **SpeechEchoBotTutorial-AppServicePlan**
@@ -195,14 +195,14 @@ Nästa steg är att distribuera eko-roboten till Azure. Det finns några sätt a
    Publish Succeeded.
    Web App was published successfully https://EchoBot20190805125647.azurewebsites.net/
    ```
-8. Din standard webbläsare ska öppna och visa en sida som läser: "Din robot är klar!".
+8. Din standard webbläsare bör öppna och visa en sida som läser: "din robot är klar!".
 9. I det här läget kontrollerar du resurs gruppen **SpeechEchoBotTutorial-ResourceGroup** i Azure Portal och kontrollerar att det finns tre resurser:
 
-| NAMN | TYP  | PLATS |
+| Namn | TYP  | SÖKVÄGEN |
 |------|-------|----------|
-| EchoBot20190805125647 | App Service | Västra USA |
-| SpeechEchoBotTutorial-AppServicePlan | App Service-plan | Västra USA |
-| SpeechEchoBotTutorial-tal | Cognitive Services | Västra USA |
+| EchoBot20190805125647 | App Service | USA, västra |
+| SpeechEchoBotTutorial-AppServicePlan | App Service-plan | USA, västra |
+| SpeechEchoBotTutorial-tal | Cognitive Services | USA, västra |
 
 ## <a name="enable-web-sockets"></a>Aktivera webb-socketar
 
@@ -225,7 +225,7 @@ Nu när du har skapat en Azure App Service som värd för din robot, är nästa 
 > Om du vill veta mer om hur robotar använder kanaler kan du läsa [Anslut en robot till kanaler](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels?view=azure-bot-service-4.0).
 
 1. Det första steget är att skapa en ny resurs för registreringen. Klicka på **skapa en resurs**i [Azure Portal](https://portal.azure.com).
-2. I robotens typ avsökning, när resultaten visas, väljer du **robot Channels-registrering**.
+2. I **robotens**typ av sökning, när resultaten visas, väljer du **robot Channels-registrering**.
 3. Klicka på **Skapa**.
 4. Du uppmanas att ange viss information:
    * För **bot-namn**anger du **SpeechEchoBotTutorial-BotRegistration**.
@@ -233,19 +233,19 @@ Nu när du har skapat en Azure App Service som värd för din robot, är nästa 
    * För **resurs grupp**väljer du **SpeechEchoBotTutorial-ResourceGroup**.
    * För **plats**väljer du **västra USA**.
      * För **pris nivå**väljer du **F0**.
-     * För **meddelande slut punkt**anger du URL: en för din webbapp med `/api/messages` sökvägen som läggs till i slutet. Exempel: om ditt globalt unika app-namn var **EchoBot20190805125647**skulle meddelande slut punkten vara: `https://EchoBot20190805125647.azurewebsites.net/api/messages/`.
+     * För **meddelande slut punkt**anger du URL: en för din webbapp med `/api/messages` Sök vägen sist. Exempel: om ditt globalt unika app-namn var **EchoBot20190805125647**, skulle din meddelande slut punkt vara: `https://EchoBot20190805125647.azurewebsites.net/api/messages/`.
      * För **Application Insights**kan du ange till **av**. Mer information finns i [bot Analytics](https://docs.microsoft.com/azure/bot-service/bot-service-manage-analytics?view=azure-bot-service-4.0).
      * Ignorera **Auto skapa app-ID och lösen ord**.
 5. Gå tillbaka till **registreringen av bot Channels** och klicka på **skapa**.
 
 I det här läget kontrollerar du resurs gruppen **SpeechEchoBotTutorial-ResourceGroup** i Azure Portal. Nu bör det Visa fyra resurser:
 
-| NAMN | TYP  | PLATS |
+| Namn | TYP  | SÖKVÄGEN |
 |------|-------|----------|
-| EchoBot20190805125647 | App Service | Västra USA |
-| SpeechEchoBotTutorial-AppServicePlan | App Service-plan | Västra USA |
+| EchoBot20190805125647 | App Service | USA, västra |
+| SpeechEchoBotTutorial-AppServicePlan | App Service-plan | USA, västra |
 | SpeechEchoBotTutorial-BotRegistration | Registrering av robot kanaler | Global |
-| SpeechEchoBotTutorial-tal | Cognitive Services | Västra USA |
+| SpeechEchoBotTutorial-tal | Cognitive Services | USA, västra |
 
 > [!IMPORTANT]
 > Registrerings resursen för robot kanaler visar den globala regionen även om du valde västra USA. Detta är normalt.
@@ -257,7 +257,7 @@ Nu är det dags att registrera din robot med den direkta rad igenkännings kanal
 1. Leta upp och öppna din **SpeechEchoBotTutorial-BotRegistration-** resurs i [Azure Portal](https://portal.azure.com).
 2. Välj **kanaler**i det vänstra navigerings fältet.
    * Leta efter **fler kanaler**, leta upp och klicka på **direkt linje tal**.
-   * Granska texten på sidan **Konfigurera direkt linje tal (för hands version)** och klicka sedan på **Spara**.
+   * Granska texten på sidan **Konfigurera direkt linje tal**och klicka sedan på **Spara**.
    * Som en del av skapandet genererades två **hemliga nycklar** . Nycklarna är unika för din robot. När du skriver en app med hjälp av [tal-SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/)ger du en av dessa nycklar för att upprätta en anslutning mellan klient appen, den direkta linje igenkännings kanalen och bot tjänsten. I den här självstudien använder du den direkta tal klienten (WPF C#).
    * Klicka på **Visa** och kopiera en av nycklarna någonstans, så att du enkelt kan komma åt den. Oroa dig inte, du kan alltid komma åt nycklarna från Azure Portal.
 3. Klicka på **Inställningar**i det vänstra navigerings fältet.
@@ -265,13 +265,13 @@ Nu är det dags att registrera din robot med den direkta rad igenkännings kanal
    * Klicka på **Spara**.
 
 > [!TIP]
-> Om du vill veta mer, se [Anslut en robot till direkt radnumrering (för hands version)](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0). Den här sidan innehåller ytterligare information och kända problem.
+> Om du vill veta mer, se [Anslut en robot till direkt linje tal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0). Den här sidan innehåller ytterligare information och kända problem.
 
 ## <a name="build-the-direct-line-speech-client"></a>Bygg direkt linje tal klienten
 
 I det här steget ska du bygga den direkta rad igenkännings klienten. Klienten är en Windows Presentation Foundation-app (WPF) i C# som använder [tal-SDK: n](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk) för att hantera kommunikation med din robot med hjälp av direkt linje tal kanalen. Använd den för att interagera med och testa din robot innan du skriver en anpassad klient app.
 
-Den direkta linje tal klienten har ett enkelt användar gränssnitt som gör att du kan konfigurera anslutningen till din robot, Visa text konversationen, Visa bot-ramverk-aktiviteter i JSON-format och Visa anpassningsbara kort. Det stöder också användning av anpassade Väcknings ord. Du använder den här klienten för att prata med din robot och få ett röst svar.
+Den direkta linje tal klienten har ett enkelt användar gränssnitt som gör att du kan konfigurera anslutningen till din robot, Visa text konversationen, Visa bot-ramverk-aktiviteter i JSON-format och Visa anpassningsbara kort. Det stöder också användning av anpassade nyckelord. Du använder den här klienten för att prata med din robot och få ett röst svar.
 
 Innan vi går vidare kontrollerar du att mikrofonen och högtalarna är aktiverade och fungerar.
 
@@ -287,17 +287,17 @@ Om du får ett fel meddelande i huvud fönstret i appen använder du den här ta
 
 | Fel | Vad gör du? |
 |-------|----------------------|
-|App-fel (se logg för information): Microsoft. CognitiveServices. Speech. csharp: Värdet får inte vara null. Parameter namn: speechConfig | Det här är ett klient program fel. Se till att du har ett värde som inte är tomt i huvudappens fönster (se avsnittet [Registrera din robot med direkt linje tal kanal](#register-the-direct-line-speech-channel)) |
+|App-fel (se logg för information): Microsoft. CognitiveServices. Speech. csharp: värdet får inte vara null. Parameter namn: speechConfig | Det här är ett klient program fel. Se till att du har ett värde som inte är *tomt i* huvudappens fönster (se avsnittet [Registrera din robot med direkt linje tal kanal](#register-the-direct-line-speech-channel)) |
 |Fel AuthenticationFailure: WebSocket-uppgraderingen misslyckades med ett autentiseringsfel (401). Sök efter rätt prenumerations nyckel (eller autentiseringstoken) och region namn| På sidan Inställningar i appen kontrollerar du att du har angett tal prenumerations nyckeln och dess region korrekt.<br>Kontrol lera att din robot hemlighet har angetts korrekt. |
-|Fel ConnectionFailure: Anslutningen stängdes av fjärrvärden. Felkod: 1011. Felinformation: Det gick inte att ansluta till boten innan ett meddelande skickades | Kontrol lera att du har [markerat kryss rutan "Aktivera direkt uppspelnings slut punkt"](#register-the-direct-line-speech-channel) och/eller [växlade **webb-Sockets** ](#enable-web-sockets) till på.<br>Kontrol lera att din Azure App Service körs. Om det är fallet kan du försöka starta om App Service.|
-|Fel ConnectionFailure: Anslutningen stängdes av fjärrvärden. Felkod: 1011. Felinformation: Svars status koden indikerar inte att det är klart: 500 (InternalServerError)| Din robot har angett en neurala röst i sitt [Speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) -fält för utdata-aktivitet, men den Azure-region som är associerad med din tal prenumerations nyckel stöder inte neurala-röster. Se [standard-och neurala-röster](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).|
-|Fel ConnectionFailure: Anslutningen stängdes av fjärrvärden. Felkod: 1000. Felinformation: Maximal inaktiv varaktighet för WebSocket-anslutning (> 300000 MS)| Detta är ett förväntat fel när en anslutning till kanalen lämnas öppen och inaktiv i mer än fem minuter. |
+|Fel ConnectionFailure: anslutningen stängdes av den fjärranslutna värden. Felkod: 1011. Fel information: vi kunde inte ansluta till bot innan ett meddelande skickades | Kontrol lera att du har [markerat kryss rutan "Aktivera direkt uppspelnings slut punkt"](#register-the-direct-line-speech-channel) och/eller [växlade **webb-Sockets** ](#enable-web-sockets) till på.<br>Kontrol lera att din Azure App Service körs. Om det är fallet kan du försöka starta om App Service.|
+|Fel ConnectionFailure: anslutningen stängdes av den fjärranslutna värden. Felkod: 1011. Fel information: svars status koden indikerar inte lyckad: 500 (InternalServerError)| Din robot har angett en neurala röst i sitt [Speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) -fält för utdata-aktivitet, men den Azure-region som är associerad med din tal prenumerations nyckel stöder inte neurala-röster. Se [standard-och neurala-röster](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).|
+|Fel ConnectionFailure: anslutningen stängdes av den fjärranslutna värden. Felkod: 1000. Fel information: överskrider maximal inaktiv varaktighet för WebSocket-anslutning (> 300000 MS)| Detta är ett förväntat fel när en anslutning till kanalen lämnas öppen och inaktiv i mer än fem minuter. |
 
-Om problemet inte har åtgärd ATS i tabellen, se [för hands version av röst-första virtuella assistenter: Vanliga frågor och](https://docs.microsoft.com/azure/cognitive-services/speech-service/faq-voice-first-virtual-assistants)svar.
+Om problemet inte har åtgärd ATS i tabellen, se [röst assistenter: vanliga frågor och svar](faq-voice-assistants.md).
 
 ### <a name="view-bot-activities"></a>Visa bot-aktiviteter
 
-Varje robot skickar och tar emot **aktivitets** meddelanden. I **aktivitets logg** fönstret i direkt radnumrering-klienten visas de tidsstämplade loggarna med varje aktivitet som klienten har tagit emot från bot. Du kan också se de aktiviteter som klienten har skickat till roboten med hjälp [`DialogServiceConnector.SendActivityAsync`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.sendactivityasync) av-metoden. När du väljer ett logg objekt visas information om den associerade aktiviteten som JSON.
+Varje robot skickar och tar emot **aktivitets** meddelanden. I **aktivitets logg** fönstret i direkt radnumrering-klienten visas de tidsstämplade loggarna med varje aktivitet som klienten har tagit emot från bot. Du kan också se de aktiviteter som klienten har skickat till bot med hjälp av metoden [`DialogServiceConnector.SendActivityAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.sendactivityasync) . När du väljer ett logg objekt visas information om den associerade aktiviteten som JSON.
 
 Här är ett exempel-JSON för en aktivitet som klienten tar emot:
 ```json
@@ -339,40 +339,40 @@ Mer information om vad som returneras i JSON-utdata finns i [fält i aktiviteten
 ### <a name="view-client-source-code-for-calls-to-the-speech-sdk"></a>Visa klient käll koden för anrop till tal-SDK
 
 Den direkta linje igenkännings klienten använder NuGet-paketet [Microsoft. CognitiveServices. Speech](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/)som innehåller talet SDK. En bra plats för att börja granska exempel koden är metoden InitSpeechConnector () i filen [`DLSpeechClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/MainWindow.xaml.cs), som skapar dessa två tal SDK-objekt:
-- [`DialogServiceConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconfig)– För konfigurations inställningar (tal prenumerations nyckel, nyckel region, robot hemlighet)
-- [`DialogServiceConnector`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.-ctor)-För att hantera kanal anslutningen och klient prenumerations händelser för hantering av identifierade tal-och robot svar.
+- [`DialogServiceConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconfig) – för konfigurations inställningar (tal prenumerations nyckel, nyckel region, robot hemlighet)
+- [`DialogServiceConnector`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.-ctor) – för att hantera kanal anslutningen och klient prenumerations händelser för hantering av identifierade tal-och robot svar.
 
-## <a name="add-custom-wake-word-activation"></a>Lägg till anpassad aktivering av aktiverings ord
+## <a name="add-custom-keyword-activation"></a>Lägg till anpassad nyckelords aktivering
 
-Tal-SDK: n stöder anpassad aktivering av aktiverings ord. Precis som med "Hej Cortana" för Microsofts assistent kan du skriva en app som kontinuerligt lyssnar efter ett aktiverings ord som du väljer. Tänk på att ett aktiverings ord kan vara ett enstaka ord eller en fras med flera ord.
+Tal-SDK: n stöder anpassad nyckelords aktivering. Precis som med "Hej Cortana" för Microsofts assistent kan du skriva en app som kontinuerligt lyssnar efter valfritt sökord. Tänk på att ett nyckelord kan vara ett enstaka ord eller en fras med flera ord.
 
 > [!NOTE]
-> Termen *Väcknings arbete* används ofta i båda fallen med *nyckel ordet*, och du kan se båda som används i Microsoft-dokumentationen.
+> *Nyckelordet* term används ofta i båda fallen med termen *aktiverings ord*, och du kan se båda som används i Microsoft-dokumentationen.
 
-Identifiering av Väcknings ord görs i klient programmet. Om du använder ett aktiverings ord strömmas ljudet bara till direkt linjens tal kanal om aktiverings ordet upptäcks. Den direkta linjens tal kanal innehåller en komponent som kallas *Key Word Verification (KWV)* , som gör mer komplex bearbetning i molnet för att verifiera att det aktiverings ord som du har valt är i början av ljud strömmen. Om verifieringen av nyckel ord lyckas kommer kanalen att kommunicera med bot.
+Nyckelords identifiering görs i klient programmet. Om du använder ett nyckelord strömmas ljudet bara till direkt linjens tal kanal om nyckelordet identifieras. Den direkta linjens tal kanal innehåller en komponent som kallas *nyckelords verifiering (KWV)* , som gör mer komplex bearbetning i molnet för att verifiera att det nyckelord du har valt är i början av ljud strömmen. Om verifieringen av nyckel ord lyckas kommer kanalen att kommunicera med bot.
 
-Följ de här stegen för att skapa en aktiverings ord modell, konfigurera den direkta linje igenkännings klienten så att den använder den här modellen och testa den med din robot.
+Följ de här stegen för att skapa en nyckelords modell, konfigurera den direkta linje igenkännings klienten så att den använder den här modellen och testa den med din robot.
 
-1. Följ de här anvisningarna för att [skapa ett anpassat aktiverings ord med hjälp av tal tjänsten](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws).
-2. Zippa upp modell filen som du laddade ned i föregående steg. Den ska namnges för ditt aktiverings ord. Du letar efter en fil med namnet `kws.table`.
-3. I den direkta tal klienten, letar du upp menyn **Inställningar** (leta efter kugg hjuls ikonen längst upp till höger). Leta reda på **modell filens sökväg** och ange den fullständiga sökvägen `kws.table` för filen från steg 2.
-4. Se till att markera kryss rutan med etiketten **aktive rad**. Du bör se det här meddelandet bredvid kryss rutan: "Lyssnar efter aktiverings ordet vid nästa anslutning". Om du har angett fel fil eller ogiltig sökväg bör du se ett fel meddelande.
+1. Följ de här anvisningarna för att [skapa ett anpassat nyckelord med hjälp av tal tjänsten](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws).
+2. Zippa upp modell filen som du laddade ned i föregående steg. Den ska namnges för ditt nyckelord. Du letar efter en fil med namnet `kws.table`.
+3. I den direkta tal klienten, letar du upp menyn **Inställningar** (leta efter kugg hjuls ikonen längst upp till höger). Leta reda på **modell filens sökväg** och ange den fullständiga sökvägen för `kws.table`-filen från steg 2.
+4. Se till att markera kryss rutan med etiketten **aktive rad**. Du bör se meddelandet bredvid kryss rutan: "lyssnar efter nyckelordet vid nästa anslutning". Om du har angett fel fil eller ogiltig sökväg bör du se ett fel meddelande.
 5. Ange din röst **prenumerations nyckel**, **prenumerations nyckel region**och klicka sedan på **OK** för att stänga menyn **Inställningar** .
-6. Välj en **robot hemlighet**och klicka sedan på **Återanslut igen**. Du bör se ett meddelande som läser: "Ny konversation har startats – Skriv, tryck på mikrofon knappen eller säg ordet" aktivering ". Appen lyssnar nu kontinuerligt.
-7. Tala om vilken fras som helst som börjar med ditt aktiverings ord. Till exempel: " **{din Väcknings ord}** , vilken tid är det?". Du behöver inte pausa efter att du har gjort ett aktiverings ord. När det är klart händer två saker:
+6. Välj en **robot hemlighet**och klicka sedan på **Återanslut igen**. Du bör se ett meddelande som läser: "ny konversation har startats", tryck på mikrofon knappen eller säg nyckelordet ". Appen lyssnar nu kontinuerligt.
+7. Tala om vilken fras som helst som börjar med ditt nyckelord. Till exempel: " **{ditt nyckelord}** , vilken tid är det?". Du behöver inte pausa efter att du har gjort ett nyckelord. När det är klart händer två saker:
    * Du ser en avskrift av det du eker
    * Strax efter kan du höra robotens svar
 8. Fortsätt att experimentera med de tre indatatyper som din robot stöder:
    * Skriven text i det nedre fältet
    * Tryck på mikrofon ikonen och tala
-   * Säga en fras som börjar med ditt aktiverings ord
+   * Säga en fras som börjar med ditt nyckelord
 
-### <a name="view-the-source-code-that-enables-wake-word"></a>Visa käll koden som aktiverar aktiverings ord
+### <a name="view-the-source-code-that-enables-keyword"></a>Visa käll koden som aktiverar nyckelord
 
-Ta en titt på de här filerna i klient käll koden för direkt raden för att granska koden som används för att aktivera identifiering av Väcknings ord:
+Ta en titt på de här filerna i klient käll koden för direkt raden för att granska koden som används för att aktivera nyckelords identifiering:
 
-1. [`DLSpeechClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/Models.cs)innehåller ett anrop till metoden [`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/en-us/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest#fromfile-string-)Speech SDK som används för att instansiera modellen från en lokal fil på disk.
-1. [`DLSpeechClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/MainWindow.xaml.cs)innehåller ett anrop till metoden [`DialogServiceConnector.StartKeywordRecognitionAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.startkeywordrecognitionasync)för tal-SDK, som aktiverar kontinuerlig ord identifiering för aktivering.
+1. [`DLSpeechClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/Models.cs) innehåller ett anrop till metoden för tal-SDK [`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest#fromfile-string-), som används för att instansiera modellen från en lokal fil på disk.
+1. [`DLSpeechClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/MainWindow.xaml.cs) innehåller ett anrop till metoden för tal-SDK [`DialogServiceConnector.StartKeywordRecognitionAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.startkeywordrecognitionasync), som aktiverar kontinuerlig identifiering av nyckelord.
 
 ## <a name="optional-change-the-language-and-redeploy-your-bot"></a>Valfritt Ändra språket och distribuera om din robot
 
@@ -382,7 +382,7 @@ Roboten som du har skapat kommer att lyssna efter och svara på engelska. Men du
 
 1. Vi börjar med att öppna `\experimental\directline-speech\csharp_dotnetcore\02.echo-bot\Bots\echo-bot.cs`.
 2. Leta sedan reda på SSML. Det är enkelt att hitta, eftersom det omges av `<speak></speak>` taggar.
-3. Leta upp `<voice name>` taggen i SSML-strängen, Ersätt den med `<voice name='de-DE-Stefan-Apollo'>`och spara. Den här formaterade strängen visar att tjänsten text till tal returnerar ett syntetiskt tal svar med rösten `de-DE-Stefan-Apollo`, som är optimerad för tyska.
+3. Leta upp `<voice name>`-taggen i SSML-strängen, Ersätt den med `<voice name='de-DE-Stefan-Apollo'>`och spara. Den här formaterade strängen visar att tjänsten för text till tal returnerar ett syntetiskt tal svar med hjälp av röst `de-DE-Stefan-Apollo`, som är optimerad för tyska.
 
 >[!NOTE]
 > Du är inte begränsad till tyska och kan välja i listan över tillgängliga röster från [tal tjänsten](language-support.md#text-to-speech).
@@ -395,7 +395,7 @@ Nu när du har gjort den nödvändiga ändringen i roboten är nästa steg att p
 2. I fönstret Solution Explorer högerklickar du på projektet **EchoBot** och väljer **publicera**.
 3. Din tidigare distributions konfiguration har redan lästs in som standard. Klicka bara på **publicera** bredvid **EchoBot20190805125647 – webb distribution**.
 4. Meddelandet **publicera slutförd** visas i Visual Studio-utdatafönstret och en webb sida öppnas med meddelandet "din robot är klar!".
-5. Öppna klient programmet direkt linje tal och klicka på knappen Inställningar (övre högra kugg hjuls ikonen) och ange `de-de` i fältet språk. Detta anger det talade språket som ska identifieras och åsidosätter standardvärdet `en-us`.
+5. Öppna klient programmet direkt linje tal, klicka på knappen Inställningar (övre högra kugg hjuls ikonen) och ange `de-de` i fältet språk. Detta anger det talade språket som ska identifieras och åsidosätter standard `en-us`.
 6. Följ anvisningarna i [skapa direkt radnumrering-klienten](#build-the-direct-line-speech-client) för att återansluta med din nyligen distribuerade robot, tala på det nya språket och lyssna på ditt robot svar på det språket med den nya rösten.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
@@ -409,9 +409,9 @@ Om du inte kommer att fortsätta använda eko-roboten som distribuerats i den h�
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Bygg din egen klient app med talet SDK](quickstart-virtual-assistant-csharp-uwp.md)
+> [Bygg din egen klient app med talet SDK](quickstart-voice-assistant-csharp-uwp.md)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * Distribuera till en [Azure-region nära dig](https://azure.microsoft.com/global-infrastructure/locations/) för att se förbättringar av robotens svars tid
 * Distribuera till en [Azure-region som stöder NEURALA TTS-röster med hög kvalitet](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices)
@@ -419,5 +419,5 @@ Om du inte kommer att fortsätta använda eko-roboten som distribuerats i den h�
   * [Priser för bot service](https://azure.microsoft.com/pricing/details/bot-service/)
   * [Speech Services](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
 * Skapa och distribuera din egen röst aktive rad bot:
-    * Bygg en bot [-Framework-robot](https://dev.botframework.com/). Registrera dig med [direkt kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0) och [Anpassa din robot för röst](https://docs.microsoft.com/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0)
-    * Utforska befintliga [bot-Framework-lösningar](https://github.com/microsoft/botframework-solutions): Skapa en [anpassad röst för första virtuella assistent](https://docs.microsoft.com/azure/cognitive-services/speech-service/voice-first-virtual-assistants) och [röst – aktivera den](https://github.com/microsoft/botframework-solutions/blob/master/docs/howto/assistant/csharp/speechenablement.md)
+  * Bygg en bot [-Framework-robot](https://dev.botframework.com/). Registrera dig med [direkt kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0) och [Anpassa din robot för röst](https://docs.microsoft.com/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0)
+  * Utforska befintliga [bot-Framework-lösningar](https://github.com/microsoft/botframework-solutions): skapa en [anpassad röst assistent](https://docs.microsoft.com/azure/cognitive-services/speech-service/voice-assistants) och [röst – aktivera den](https://github.com/microsoft/botframework-solutions/blob/master/docs/howto/assistant/csharp/speechenablement.md)

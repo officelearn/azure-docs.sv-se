@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 08/07/2019
-ms.openlocfilehash: 309cef6ec058d8192bc7a6341b49a59c0000a305
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 11/04/2019
+ms.openlocfilehash: e834c55ec35195ff627176603c7611abbf6adf1c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035565"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497505"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Företags säkerhet för Azure Machine Learning
 
@@ -23,7 +23,7 @@ I den här artikeln får du lära dig om säkerhetsfunktioner som är tillgängl
 
 När du använder en moln tjänst är det bästa sättet att begränsa åtkomsten till de användare som behöver den. Börja med att förstå autentiserings-och auktoriserings modellen som används av tjänsten. Du kanske också vill begränsa nätverks åtkomsten eller på ett säkert sätt ansluta resurser i ditt lokala nätverk till molnet. Data kryptering är också viktigt, både i vila och medan data flyttas mellan tjänster. Slutligen måste du kunna övervaka tjänsten och skapa en Gransknings logg för all aktivitet.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autentisering
 
 Multi-Factor Authentication stöds om Azure Active Directory (Azure AD) har kon figurer ATS för att använda den. Här är autentiseringsprocessen:
 
@@ -31,7 +31,7 @@ Multi-Factor Authentication stöds om Azure Active Directory (Azure AD) har kon 
 1. Klienten presenterar token för att Azure Resource Manager och till alla Azure Machine Learning.
 1. Tjänsten Machine Learning tillhandahåller en Machine Learning tjänst-token för användar beräknings målet (till exempel Machine Learning-beräkning). Denna token används av användar beräknings målet för att anropa till Machine Learning tjänsten när körningen har slutförts. Omfattningen är begränsad till arbets ytan.
 
-[![Autentisering i Azure Machine Learning](./media/enterprise-readiness/authentication.png)](./media/enterprise-readiness/authentication-expanded.png)
+[![autentisering i Azure Machine Learning](./media/enterprise-readiness/authentication.png)](./media/enterprise-readiness/authentication-expanded.png)
 
 ### <a name="authentication-for-web-service-deployment"></a>Autentisering för webb tjänst distribution
 
@@ -40,7 +40,7 @@ Azure Machine Learning stöder två typer av autentisering för webb tjänster: 
 |Autentiseringsmetod|Azure Container Instances|AKS|
 |---|---|---|
 |Nyckel|Inaktiverat som standard| Aktive rad som standard|
-|Token| Saknas| Inaktiverat som standard |
+|Token| Inte tillgängligt| Inaktiverat som standard |
 
 #### <a name="authentication-with-keys"></a>Autentisering med nycklar
 
@@ -49,9 +49,9 @@ När du aktiverar nyckel autentisering för en distribution skapar du automatisk
 * Autentisering aktive ras som standard när du distribuerar till Azure Kubernetes service (AKS).
 * Autentisering inaktive ras som standard när du distribuerar till Azure Container Instances.
 
-Om du vill aktivera nyckel autentisering använder `auth_enabled` du parametern när du skapar eller uppdaterar en distribution.
+Om du vill aktivera nyckel autentisering använder du parametern `auth_enabled` när du skapar eller uppdaterar en distribution.
 
-Om du har aktiverat autentisering av `get_keys` nycklar kan du använda-metoden för att hämta en primär nyckel och en sekundär autentiseringsnyckel:
+Om du har aktiverat autentisering av nycklar kan du använda metoden `get_keys` för att hämta en primär och sekundär autentiseringsnyckel:
 
 ```python
 primary, secondary = service.get_keys()
@@ -59,7 +59,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Om du vill återskapa en nyckel kan du använda [ `service.regen_key` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
+> Om du behöver återskapa en nyckel använder du [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
 
 #### <a name="authentication-with-tokens"></a>Autentisering med token
 
@@ -68,9 +68,9 @@ När du aktiverar token-autentisering för en webb tjänst måste användarna pr
 * Token-autentisering inaktive ras som standard när du distribuerar till Azure Kubernetes-tjänsten.
 * Token-autentisering stöds inte när du distribuerar till Azure Container Instances.
 
-Om du vill kontrol lera token `token_auth_enabled` -autentisering använder du parametern när du skapar eller uppdaterar en distribution.
+Om du vill kontrol lera token-autentisering använder du parametern `token_auth_enabled` när du skapar eller uppdaterar en distribution.
 
-Om token-autentisering har Aktiver ATS kan `get_token` du använda metoden för att hämta en JSON Web token (JWT) och den tokens förfallo tid:
+Om token-autentisering har Aktiver ATS kan du använda metoden `get_token` för att hämta ett JSON Web Token (JWT) och den tokens förfallo tid:
 
 ```python
 token, refresh_by = service.get_token()
@@ -78,7 +78,7 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> Du måste begära en ny token efter det att token `refresh_by` har uppnåtts.
+> Du måste begära en ny token efter `refresh_by`s tiden för token.
 >
 > Vi rekommenderar starkt att du skapar din Azure Machine Learning arbets yta i samma region som ditt Azure Kubernetes service-kluster. 
 >
@@ -86,9 +86,9 @@ print(token)
 >
 > Dessutom ökar avståndet mellan klustrets region och arbets ytans region, desto längre tid tar det att hämta en token.
 
-## <a name="authorization"></a>Authorization
+## <a name="authorization"></a>Auktorisering
 
-Du kan skapa flera arbetsytor och varje arbetsyta kan delas av flera personer. När du delar en arbets yta kan du kontrol lera åtkomsten till den genom att tilldela dessa roller till användare:
+Du kan skapa flera arbets ytor och varje arbets yta kan delas av flera personer. När du delar en arbets yta kan du kontrol lera åtkomsten till den genom att tilldela dessa roller till användare:
 
 * Ägare
 * Deltagare
@@ -100,10 +100,11 @@ I följande tabell visas några av de viktigaste Azure Machine Learning åtgärd
 | ---- |:----:|:----:|:----:|
 | Skapa arbetsyta | ✓ | ✓ | |
 | Dela arbets yta | ✓ | |  |
+| Uppgradera arbets ytan till Enterprise Edition | ✓ | |
 | Skapa beräknings mål | ✓ | ✓ | |
 | Koppla beräknings mål | ✓ | ✓ | |
 | Bifoga data lager | ✓ | ✓ | |
-| Kör experimentet | ✓ | ✓ | |
+| Kör experiment | ✓ | ✓ | |
 | Visa körningar/mått | ✓ | ✓ | ✓ |
 | Registrera modellen | ✓ | ✓ | |
 | Skapa avbildning | ✓ | ✓ | |
@@ -121,10 +122,10 @@ Varje arbets yta har också en associerad systemtilldelad hanterad identitet som
 
 Mer information om hanterade identiteter finns i [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-| Resource | Behörigheter |
+| Resurs | Behörigheter |
 | ----- | ----- |
 | Arbetsyta | Deltagare |
-| Lagringskonto | Storage Blob Data-deltagare |
+| Lagringskonto | Storage BLOB data-deltagare |
 | Nyckelvalv | Åtkomst till alla nycklar, hemligheter, certifikat |
 | Azure Container Registry | Deltagare |
 | Resurs grupp som innehåller arbets ytan | Deltagare |
@@ -193,7 +194,7 @@ Varje arbets yta har en associerad systemtilldelad hanterad identitet som har sa
 
 Du kan använda Azure Monitor mått för att visa och övervaka mått för arbets ytan Azure Machine Learning. I [Azure Portal](https://portal.azure.com)väljer du din arbets yta och väljer sedan **mått**:
 
-[![Skärm bild som visar exempel mått för en arbets yta](./media/enterprise-readiness/workspace-metrics.png)](./media/enterprise-readiness/workspace-metrics-expanded.png)
+[![skärm bild som visar exempel mått för en arbets yta](./media/enterprise-readiness/workspace-metrics.png)](./media/enterprise-readiness/workspace-metrics-expanded.png)
 
 Måtten innehåller information om körningar, distributioner och registreringar.
 
@@ -205,7 +206,7 @@ Du kan visa aktivitets loggen för en arbets yta för att se olika åtgärder so
 
 Den här skärm bilden visar aktivitets loggen för en arbets yta:
 
-[![Skärm bild som visar aktivitets loggen för en arbets yta](./media/enterprise-readiness/workspace-activity-log.png)](./media/enterprise-readiness/workspace-activity-log-expanded.png)
+[![skärm bild som visar aktivitets loggen för en arbets yta](./media/enterprise-readiness/workspace-activity-log.png)](./media/enterprise-readiness/workspace-activity-log-expanded.png)
 
 Information om bedömnings förfrågningar lagras i Application Insights. Application Insights skapas i prenumerationen när du skapar en arbets yta. Loggad information innehåller fält som HTTPMethod, UserAgent, ComputeType, RequestUrl, StatusCode, RequestId och varaktighet.
 
@@ -233,7 +234,7 @@ Ytterligare resurser skapas i användarens prenumeration när arbets ytan skapas
 
 Användaren kan också etablera andra beräknings mål som är kopplade till en arbets yta (t. ex. Azure Kubernetes-tjänsten eller virtuella datorer) efter behov.
 
-[![Skapa arbets ytans arbets flöde](./media/enterprise-readiness/create-workspace.png)](./media/enterprise-readiness/create-workspace-expanded.png)
+[arbets flöde för ![skapa arbets yta](./media/enterprise-readiness/create-workspace.png)](./media/enterprise-readiness/create-workspace-expanded.png)
 
 ### <a name="save-source-code-training-scripts"></a>Spara käll kod (tränings skript)
 
@@ -241,7 +242,7 @@ Följande diagram visar arbets flödet för kod ögonblicks bilder.
 
 Kopplade till en Azure Machine Learning-arbetsyta är kataloger (experiment) som innehåller käll koden (utbildnings skript). Dessa skript lagras på din lokala dator och i molnet (i Azure Blob Storage för din prenumeration). Kod ögonblicks bilderna används för körning eller inspektion för historisk granskning.
 
-[![Arbets flöde för kod ögonblicks bild](./media/enterprise-readiness/code-snapshot.png)](./media/enterprise-readiness/code-snapshot-expanded.png)
+[arbets flöde för ![kod ögonblicks bild](./media/enterprise-readiness/code-snapshot.png)](./media/enterprise-readiness/code-snapshot-expanded.png)
 
 ### <a name="training"></a>Utbildning
 
@@ -268,7 +269,7 @@ Eftersom Machine Learning-beräkning är ett hanterat beräknings mål (dvs. det
 
 I flödes diagrammet nedan inträffar det här steget när träning Compute Target skriver körnings måtten tillbaka till Azure Machine Learning från lagringen i Cosmos DB-databasen. Klienter kan anropa Azure Machine Learning. Machine Learning kommer i tur och retur-mått från Cosmos DB-databasen och återställa dem tillbaka till klienten.
 
-[![Arbets flöde för utbildning](./media/enterprise-readiness/training-and-metrics.png)](./media/enterprise-readiness/training-and-metrics-expanded.png)
+[arbets flöde för ![utbildning](./media/enterprise-readiness/training-and-metrics.png)](./media/enterprise-readiness/training-and-metrics-expanded.png)
 
 ### <a name="creating-web-services"></a>Skapar webb tjänster
 
@@ -283,13 +284,13 @@ Här är information:
 * Information om bedömnings förfrågningar lagras i Application Insights, som finns i användarens prenumeration.
 * Telemetri skickas också till Microsoft/Azure-prenumerationen.
 
-[![Arbets flöde för störningar](./media/enterprise-readiness/inferencing.png)](./media/enterprise-readiness/inferencing-expanded.png)
+[arbets flöde för ![s störningar](./media/enterprise-readiness/inferencing.png)](./media/enterprise-readiness/inferencing-expanded.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skydda Azure Machine Learning-webbtjänster med SSL](how-to-secure-web-service.md)
+* [Skydda Azure Machine Learning webb tjänster med SSL](how-to-secure-web-service.md)
 * [Använda en Machine Learning modell som distribueras som en webb tjänst](how-to-consume-web-service.md)
-* [Hur du kör batch-förutsägelser](how-to-run-batch-predictions.md)
+* [Så här kör du batch-förutsägelser](how-to-run-batch-predictions.md)
 * [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)
 * [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)

@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70f0badc170c65b11bc244b5ed4ec2f9a205c72d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9dbc7f8068ed84f42ec41ebd969e0aa91ffbb264
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084865"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473323"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect – vanliga frågor och svar
 
@@ -42,27 +42,27 @@ Du kan läsa mer här:
 
 * [Minska den Active Directory angrepps ytan](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
-**F: Kommer installationen att fungera om den globala administratörs administratören för Azure Active Directory (Azure AD) har 2FA) aktiverat?**  
+**F: kommer installationen att fungera om den globala administratörs administratören för Azure Active Directory (Azure AD) har 2FA) aktiverat?**  
 Från och med februari 2016-versioner stöds det här scenariot.
 
-**F: Finns det ett sätt att installera Azure AD Connect obevakad?**  
+**F: finns det ett sätt att installera Azure AD Connect obevakad?**  
 Azure AD Connect installationen stöds bara när du använder installations guiden. En obevakad, tyst installation stöds inte.
 
 **F: Jag har en skog där en domän inte kan kontaktas. Hur gör jag för att installera Azure AD Connect?**  
 Från och med februari 2016-versioner stöds det här scenariot.
 
-**F: Fungerar Azure Active Directory Domain Services (Azure AD DS)-hälso agenten på Server Core?**  
+**F: fungerar Azure Active Directory Domain Services (Azure AD DS)-hälso agenten på Server Core?**  
 Ja. När du har installerat agenten kan du slutföra registrerings processen genom att använda följande PowerShell-cmdlet: 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
-**F: Stöder Azure AD Connect synkronisering från två domäner till i Azure AD?**  
+**F: stöder Azure AD Connect synkronisering från två domäner till en Azure AD?**  
 Ja, det här scenariot stöds. Referera till [flera domäner](how-to-connect-install-multiple-domains.md).
  
-**F: Kan du ha flera kopplingar för samma Active Directory domän i Azure AD Connect?**  
+**F: kan du ha flera kopplingar för samma Active Directory domän i Azure AD Connect?**  
 Nej, flera kopplingar för samma AD-domän stöds inte. 
 
-**F: Kan jag flytta Azure AD Connect databasen från den lokala databasen till en fjärran sluten SQL Server instans?**    
+**F: kan jag flytta Azure AD Connect-databasen från den lokala databasen till en fjärran sluten SQL Server instans?**    
 Ja, följande steg innehåller allmän vägledning om hur du gör detta. Vi arbetar för närvarande i ett mer detaljerat dokument.
 1. Säkerhetskopiera LocalDB ADSync-databasen.
 Det enklaste sättet att göra detta är att använda SQL Server Management Studio installerat på samma dator som Azure AD Connect. Anslut till *(LocalDb) .\ADSync*och säkerhetskopiera ADSync-databasen.
@@ -72,13 +72,13 @@ Det enklaste sättet att göra detta är att använda SQL Server Management Stud
 3. Installera Azure AD Connect mot den befintliga [fjärranslutna SQL-databasen](how-to-connect-install-existing-database.md).
    Artikeln visar hur du migrerar till att använda en lokal SQL-databas. Om du migrerar till att använda en fjärran sluten SQL-databas i steg 5 i processen måste du också ange ett befintligt tjänst konto som Windows Sync-tjänsten ska köras som. Det här tjänst kontot för synkroniseringstjänsten beskrivs här:
    
-      **Använd ett befintligt tjänst konto**: Som standard använder Azure AD Connect ett virtuellt tjänst konto för de synkroniseringstjänst som ska användas. Om du använder en fjärran sluten SQL Server instans eller använder en proxy som kräver autentisering, använder du ett hanterat tjänst konto eller ett tjänst konto i domänen och känner till lösen ordet. I detta fall anger du det konto som ska användas. Se till att användare som kör installationen är system administratörer i SQL så att inloggnings uppgifter för tjänst kontot kan skapas. Mer information finns i [Azure AD Connect konton och behörigheter](reference-connect-accounts-permissions.md#adsync-service-account). 
+      **Använd ett befintligt tjänst konto**: som standard använder Azure AD Connect ett virtuellt tjänst konto för de synkroniseringstjänst som ska användas. Om du använder en fjärran sluten SQL Server instans eller använder en proxy som kräver autentisering, använder du ett hanterat tjänst konto eller ett tjänst konto i domänen och känner till lösen ordet. I detta fall anger du det konto som ska användas. Se till att användare som kör installationen är system administratörer i SQL så att inloggnings uppgifter för tjänst kontot kan skapas. Mer information finns i [Azure AD Connect konton och behörigheter](reference-connect-accounts-permissions.md#adsync-service-account). 
    
       Med den senaste versionen kan SQL-administratören nu distribuera databasen ”out of band” och därefter kan den installeras av Azure AD Connect-administratören med databasägarrättigheter. Mer information finns i [installera Azure AD Connect med hjälp av SQL-delegerad administratörs behörighet](how-to-connect-install-sql-delegation.md).
 
 För att det ska vara enkelt, rekommenderar vi att användare som installerar Azure AD Connect är system administratörer i SQL. Med de senaste versionerna kan du nu använda delegerade SQL-administratörer, enligt beskrivningen i [installera Azure AD Connect med hjälp av SQL-delegerad administratörs behörighet](how-to-connect-install-sql-delegation.md).
 
-**F: Vilka är några av de bästa metoderna från fältet?**  
+**F: vilka är några av de bästa metoderna från fältet?**  
 
 Följande är ett informations dokument som visar några av de bästa metoderna som hjälper dig, support och våra konsulter som har utvecklats under åren.  Detta visas i en punkt lista som snabbt kan refereras till.  Även om den här listan försöker vara omfattande, kan det finnas ytterligare metod tips som kanske inte har gjort dem i listan ännu.
 
@@ -116,23 +116,23 @@ Följande är ett informations dokument som visar några av de bästa metoderna 
 - Validera alltid exporter innan du växlar över till mellanlagringsplatsen serverLeverage för fullständig import och fullständig synkronisering för att minska verksamhets påverkan
 - Behåll versions konsekvensen mellan Azure AD Connect servrar så mycket som möjligt 
 
-**F: Kan jag tillåta att Azure AD Connect skapar Azure AD Connector-kontot på arbets grupps datorn?**
+**F: kan jag tillåta att Azure AD Connect skapar Azure AD Connector-kontot på arbets grupps datorn?**
 Nej.  Datorn måste vara domänansluten för att du ska kunna tillåta att Azure AD Connect automatiskt skapar Azure AD Connector-kontot.  
 
 ## <a name="network"></a>Nätverk
 **F: Jag har en brand vägg, en nätverks enhet eller något annat som begränsar den tid som anslutningarna kan vara öppna i nätverket. Vad ska tids gränsen för klient sidan vara när jag använder Azure AD Connect?**  
 All nätverks program vara, fysiska enheter eller något annat som begränsar den längsta tid som anslutningar kan vara öppna bör använda ett tröskelvärde på minst fem minuter (300 sekunder) för anslutning mellan den server där Azure AD Connect-klienten är installerad och Azure Active Directory. Den här rekommendationen gäller även för alla tidigare utgivna Microsoft Identitetssynkronisering-verktyg.
 
-**F: Stöds SLDs (Single Label Domains)?**  
+**F: stöds SLDs (Single Label Domains)?**  
 Vi rekommenderar starkt att du använder den här nätverks konfigurationen ([se artikeln](https://support.microsoft.com/help/2269810/microsoft-support-for-single-label-domains)), med Azure AD Connect Sync med en enda etikett domän stöds, så länge nätverks konfigurationen för domänen med en domän fungerar som den ska.
 
-**F: Stöds skogar med åtskilda AD-domäner?**  
+**F: finns det stöd för skogar med åtskilda AD-domäner?**  
 Nej, Azure AD Connect stöder inte lokala skogar som innehåller åtskilda namn områden.
 
-**F: Stöds "punktavgränsade NetBIOS-namn?**  
+**F: är "punktavgränsade" NetBIOS-namn stöds?**  
 Nej, Azure AD Connect stöder inte lokala skogar eller domäner där NetBIOS-namnet innehåller en punkt (.).
 
-**F: Stöds en ren IPv6-miljö?**  
+**F: stöds en ren IPv6-miljö?**  
 Nej, Azure AD Connect har inte stöd för en ren IPv6-miljö.
 
 **Q:I ha en miljö med flera skogar och nätverket mellan de två skogarna använder NAT (Network Address Translation). Stöds Azure AD Connect mellan dessa två skogar?**</br>
@@ -146,16 +146,16 @@ Information om hur du förnyar certifikatet finns i [Förnya certifikat](how-to-
 Använd rikt linjerna som beskrivs i artikeln [Förnya certifikat](how-to-connect-fed-o365-certs.md).
 
 ## <a name="environment"></a>Miljö
-**F: Stöds det att byta namn på servern när Azure AD Connect har installerats?**  
+**F: stöds det att byta namn på servern när Azure AD Connect har installerats?**  
 Nej. Om du ändrar Server namnet renderas inte Synkroniseringsmotorn för att ansluta till SQL Database-instansen och tjänsten kan inte starta.
 
-**F: Stöds regler för nästa generations kryptografiska (NGC) på en FIPS-aktiverad dator?**  
+**F: är regler för nästa generations kryptografiska (NGC) som stöds på en FIPS-aktiverad dator?**  
 Nej.  De stöds inte.
 
-**FRÅGOR OCH. Om jag har inaktiverat en synkroniserad enhet (till exempel: HAADJ) i Azure Portal, varför den aktive ras igen?**<br>
+**F. om jag inaktiverade en synkroniserad enhet (till exempel: HAADJ) i Azure Portal, varför den aktive ras igen?**<br>
 Synkroniserade enheter kan vara skapade eller hanterade lokalt. Om en synkroniserad enhet har Aktiver ATS lokalt kan den aktive ras på nytt i Azure Portal även om tidigare har inaktiverats av en administratör. Om du vill inaktivera en synkroniserad enhet använder du den lokala Active Directory för att inaktivera dator kontot.
 
-**FRÅGOR OCH. Om jag blockerar användar inloggning på Office 365 eller Azure AD-portalen för synkroniserade användare, varför den avblockeras vid inloggning igen?**<br>
+**F. om jag blockerar användar inloggning på Office 365 eller Azure AD-portalen för synkroniserade användare, varför den avblockeras vid inloggning igen?**<br>
 Synkroniserade användare kan ha skapats eller hanterats lokalt. Om kontot är aktiverat lokalt kan det avblockera inloggnings blocket som har placerats av administratören.
 
 ## <a name="identity-data"></a>Identitets data
@@ -167,26 +167,26 @@ Mer information finns i följande artiklar:
 
 Du kan också konfigurera Azure AD så att Synkroniseringsmotorn kan uppdatera UPN, enligt beskrivningen i [Azure AD Connect Sync service-funktioner](how-to-connect-syncservice-features.md).
 
-**F: Stöds det att mjuk matchning av en lokal Azure AD-grupp eller ett kontakt objekt med en befintlig Azure AD-grupp eller ett kontakt objekt?**  
+**F: stöds det för att mjuka upp en lokal Azure AD-grupp eller ett kontakt objekt med en befintlig Azure AD-grupp eller ett kontakt objekt?**  
 Ja, denna mjuka matchning baseras på proxyAddress. Mjuk matchning stöds inte för grupper som inte är e-postaktiverade.
 
-**F: Finns det stöd för att manuellt ange attributet ImmutableId för en befintlig Azure AD-grupp eller ett kontakt objekt för hård matchning till en lokal Azure AD-grupp eller ett kontakt objekt?**  
+**F: finns det stöd för att manuellt ange attributet ImmutableId för en befintlig Azure AD-grupp eller ett kontakt objekt för hård matchning till en lokal Azure AD-grupp eller ett kontakt objekt?**  
 Nej, det finns för närvarande inte stöd för att ange attributet ImmutableId för en befintlig Azure AD-grupp eller ett kontakt objekt till hård matchning.
 
 ## <a name="custom-configuration"></a>Anpassad konfiguration
-**F: Var finns PowerShell-cmdletar för Azure AD Connect dokumenterade?**  
+**F: var finns PowerShell-cmdletar för Azure AD Connect dokumenterade?**  
 Med undantag för cmdletarna som dokumenteras på den här platsen, stöds inte andra PowerShell-cmdlets i Azure AD Connect för kund användning.
 
-**F: Kan jag använda alternativet "server export/Server import" som finns i Synchronization Service Manager för att flytta konfigurationen mellan servrar?**  
+**F: kan jag använda alternativet "server export/Server import" som finns i Synchronization Service Manager för att flytta konfigurationen mellan servrar?**  
 Nej. Det här alternativet hämtar inte alla konfigurations inställningar och bör inte användas. Använd i stället guiden för att skapa den grundläggande konfigurationen på den andra servern och Använd redigeraren för Synkroniseringsregel för att generera PowerShell-skript för att flytta en anpassad regel mellan servrar. Mer information finns i flytta [migrering](how-to-upgrade-previous-version.md#swing-migration).
 
-**F: Kan lösen ord cachelagras för Azures inloggnings sida och den här cachen kan förhindras eftersom den innehåller ett indatavärde för lösen ord med attributet *Autoavsluta = "false"* ?**  
+**F: kan lösen ord cachelagras för Azures inloggnings sida och den här cachelagringen kan förhindras eftersom den innehåller ett indatavärde för lösen ord med attributet *Autoavsluta = "false"* ?**  
 För närvarande stöds inte att ändra HTML-attributen för fältet **lösen ord** , inklusive autocomplete-taggen. Vi arbetar för närvarande med en funktion som möjliggör anpassad Java Script, vilket gör att du kan lägga till valfritt attribut i fältet **lösen ord** .
 
-**F: På Azures inloggnings sida visas användar namn för användare som tidigare har loggat in. Kan det här beteendet stängas av?**  
+**F: Azures inloggnings sida visar användar namn för användare som tidigare har loggat in. Kan det här beteendet stängas av?**  
 För närvarande stöds inte att ändra HTML-attributen för fältet för **lösen ords** Indatatyp, inklusive taggen komplettera automatiskt. Vi arbetar för närvarande med en funktion som möjliggör anpassad Java Script, vilket gör att du kan lägga till valfritt attribut i fältet **lösen ord** .
 
-**F: Finns det något sätt att förhindra samtidiga sessioner?**  
+**F: finns det något sätt att förhindra samtidiga sessioner?**  
 Nej.
 
 ## <a name="auto-upgrade"></a>Automatisk uppgradering
@@ -198,7 +198,7 @@ Den automatiska uppgraderings processen fastställer alltid först om en install
 
 Beroende på miljöns storlek kan processen ta några timmar. Medan uppgraderingen pågår sker ingen synkronisering mellan Windows Server Active Directory och Azure AD.
 
-**F: Jag har fått ett e-postmeddelande som säger att min automatiska uppgradering inte längre fungerar och jag behöver installera en ny version. Varför måste jag göra detta?**  
+**F: Jag fick ett e-postmeddelande som säger att min automatiska uppgradering inte längre fungerar och jag behöver installera en ny version. Varför måste jag göra detta?**  
 Förra året släppte vi en version av Azure AD Connect att, under vissa omständigheter, kan ha inaktiverat funktionen för automatisk uppgradering på servern. Vi har åtgärdat problemet i Azure AD Connect version 1.1.750.0. Om du har drabbats av problemet kan du minimera det genom att köra ett PowerShell-skript för att reparera det eller genom att uppgradera manuellt till den senaste versionen av Azure AD Connect. 
 
 Kör PowerShell-skriptet genom att [Ladda ned skriptet](https://aka.ms/repairaadconnect) och köra det på Azure AD Connect-servern i ett administrativt PowerShell-fönster. Om du vill lära dig hur du kör skriptet kan du [Visa den här korta videon](https://aka.ms/repairaadcau).
@@ -214,7 +214,7 @@ Ja, du måste uppgradera till version 1.1.750.0 eller senare för att återaktiv
 **F: Jag har fått ett e-postmeddelande som säger att jag uppgraderar till den senaste versionen för att återaktivera automatisk uppgradering. Behöver jag fortfarande installera den senaste versionen om jag har använt PowerShell för att aktivera automatisk uppgradering?**  
 Ja, du måste fortfarande uppgradera till version 1.1.750.0 eller senare. Aktivering av tjänsten för automatisk uppgradering med PowerShell minimerar inte det automatiska uppgraderings problemet som påträffades i versioner före 1.1.750.0.
 
-**F: Jag vill uppgradera till en nyare version, men jag är inte säker på vem som installerat Azure AD Connect och vi har inte användar namn och lösen ord. Behöver vi detta?**
+**F: Jag vill uppgradera till en nyare version, men jag är inte säker på vem som installerade Azure AD Connect och vi har inte användar namn och lösen ord. Behöver vi detta?**
 Du behöver inte känna till det användar namn och lösen ord som ursprungligen användes för att uppgradera Azure AD Connect. Använd valfritt Azure AD-konto som har rollen global administratör.
 
 **F: Hur kan jag ta reda på vilken version av Azure AD Connect jag använder?**  
@@ -223,39 +223,39 @@ Du kan kontrol lera vilken version av Azure AD Connect som är installerad på s
 ![Azure AD Connect version på kontroll panelen](./media/reference-connect-faq/faq1.png)
 
 **F: Hur gör jag för att uppgradera till den senaste versionen av Azure AD Connect?**  
-Information om hur du uppgraderar till den senaste versionen finns i [Azure AD Connect: Uppgradera från en tidigare version till den senaste](how-to-upgrade-previous-version.md). 
+Information om hur du uppgraderar till den senaste versionen finns [Azure AD Connect: uppgradera från en tidigare version till den senaste](how-to-upgrade-previous-version.md). 
 
-**F: Vi har redan uppgraderat till den senaste versionen av Azure AD Connect förra året. Behöver vi uppgradera igen?**  
-Azure AD Connect-teamet gör uppdateringar av tjänsten ofta. För att kunna dra nytta av fel korrigeringar och säkerhets uppdateringar och nya funktioner är det viktigt att hålla servern uppdaterad med den senaste versionen. Om du aktiverar automatisk uppgradering uppdateras program versionen automatiskt. För att hitta versions historiken för Azure AD Connect, [se Azure AD Connect: Versionshistorik](reference-connect-version-history.md).
+**F: vi har redan uppgraderat till den senaste versionen av Azure AD Connect förra året. Behöver vi uppgradera igen?**  
+Azure AD Connect-teamet gör uppdateringar av tjänsten ofta. För att kunna dra nytta av fel korrigeringar och säkerhets uppdateringar och nya funktioner är det viktigt att hålla servern uppdaterad med den senaste versionen. Om du aktiverar automatisk uppgradering uppdateras program versionen automatiskt. För att hitta versions historiken för Azure AD Connect, se [Azure AD Connect: versions historik](reference-connect-version-history.md).
 
-**F: Hur lång tid tar det att utföra uppgraderingen, och vad påverkar mina användare?**  
+**F: hur lång tid tar det att utföra uppgraderingen, och vad påverkar mina användare?**  
 Tiden som krävs för uppgraderingen beror på klientens storlek. För större organisationer kan det vara bäst att utföra uppgraderingen på kvälls-eller helgen. Ingen synkroniseringsuppgift sker under uppgraderingen.
 
-**F: Jag tror att jag har uppgraderat till Azure AD Connect, men Office-portalen nämner fortfarande DirSync. Varför är det här?**  
+**F: Jag tror att jag har uppgraderat till Azure AD Connect, men Office-portalen nämns fortfarande DirSync. Varför är det här?**  
 Office-teamet arbetar för att få uppdateringar av Office-portalen att återspegla det aktuella produkt namnet. Det visar inte vilket Sync-verktyg du använder.
 
-**F: Statusen för automatisk uppgradering står "Suspended". Varför är den inaktive rad? Ska jag aktivera det?**  
+**F: min automatiska uppgraderings status står, "inaktive rad". Varför är den inaktive rad? Ska jag aktivera det?**  
 En bugg har introducerats i en tidigare version som under vissa omständigheter lämnar statusen för automatisk uppgradering inställd på "inaktive rad". Det är tekniskt möjligt att aktivera den manuellt, men det skulle krävas flera komplexa steg. Det bästa du kan göra är att installera den senaste versionen av Azure AD Connect.
 
-**F: Mitt företag har strikt ändrings hanterings krav och jag vill styra när det skickas ut. Kan jag kontrol lera när automatisk uppgradering startas?**  
+**F: mitt företag har strikt ändrings hanterings krav och jag vill kontrol lera när det skickas ut. Kan jag kontrol lera när automatisk uppgradering startas?**  
 Nej, det finns ingen sådan funktion idag. Funktionen utvärderas för framtida versioner.
 
-**F: Får jag ett e-postmeddelande om den automatiska uppgraderingen misslyckades? Hur vet jag att det lyckades?**  
+**F: får jag ett e-postmeddelande om den automatiska uppgraderingen misslyckades? Hur vet jag att det lyckades?**  
 Du får inget meddelande om resultatet av uppgraderingen. Funktionen utvärderas för framtida versioner.
 
-**F: Publicerar du en tids linje för när du planerar att push-överföra automatiska uppgraderingar?**  
-Automatisk uppgradering är det första steget i versions processen för en nyare version. När det finns en ny version flyttas uppgraderingar automatiskt. Nyare versioner av Azure AD Connect förannonseras i [Azure AD](../fundamentals/whats-new.md)-översikten.
+**F: publicerar du en tids linje för när du planerar att push-överföra automatiska uppgraderingar?**  
+Automatisk uppgradering är det första steget i versions processen för en nyare version. När det finns en ny version flyttas uppgraderingar automatiskt. Nyare versioner av Azure AD Connect förannonseras i [Azure AD-översikten](../fundamentals/whats-new.md).
 
-**F: Uppgraderas även Azure AD Connect Health automatiskt i uppgradera?**  
+**F: uppgraderas även Azure AD Connect Health automatiskt?**  
 Ja, automatisk uppgradering uppgraderar också Azure AD Connect Health.
 
-**F: Uppgraderar du också Azure AD Connect-servrar automatiskt i mellanlagrings läge?**  
+**F: vill du också uppgradera Azure AD Connect-servrar automatiskt i mellanlagrings läge?**  
 Ja, du kan uppgradera en Azure AD Connect-Server automatiskt i mellanlagrings läge.
 
-**F: Vad gör jag om den automatiska uppgraderingen Miss lyckas och Azure AD Connect servern inte startar?**  
+**F: om den automatiska uppgraderingen Miss lyckas och Azure AD Connect servern inte startar, vad ska jag göra?**  
 I sällsynta fall startar inte tjänsten Azure AD Connect när du har utfört uppgraderingen. I sådana fall löser det vanligt vis problemet genom att starta om servern. Om tjänsten Azure AD Connect fortfarande inte startar öppnar du ett support ärende. Mer information finns i [skapa en tjänstbegäran för att kontakta supporten för Office 365](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/). 
 
-**F: Jag är osäker på vad riskerna är när jag uppgraderar till en nyare version av Azure AD Connect. Kan du ringa mig för att hjälpa mig med uppgraderingen?**  
+**F: Jag är inte säker på vad riskerna är när jag uppgraderar till en nyare version av Azure AD Connect. Kan du ringa mig för att hjälpa mig med uppgraderingen?**  
 Om du behöver hjälp med att uppgradera till en nyare version av Azure AD Connect öppnar du ett support ärende i [skapa en tjänstbegäran för att kontakta Office 365-supporten](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/).
 
 ## <a name="troubleshooting"></a>Felsökning
@@ -267,7 +267,7 @@ Om du behöver hjälp med att uppgradera till en nyare version av Azure AD Conne
 
 [Azure Active Directory forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 
-* Sök efter tekniska frågor och svar eller Ställ egna frågor genom att gå till [Azure AD](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)-communityn.
+* Sök efter tekniska frågor och svar eller Ställ egna frågor genom att gå till [Azure AD-communityn](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 
 [Få support för Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
 

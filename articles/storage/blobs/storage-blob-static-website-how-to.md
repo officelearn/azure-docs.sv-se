@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: 5664bf1eaee85d2492601ef00968d9b17d857abb
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: d5b8121c7888903f3e4552a21a6ddc175ecc5176
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900486"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489083"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Vara värd för en statisk webbplats i Azure Storage
 
@@ -22,9 +22,9 @@ Den här artikeln visar hur du aktiverar statisk webbplats värd med hjälp av A
 
 <a id="portal" />
 
-## <a name="use-the-azure-portal"></a>Använda Azure-portalen
+## <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
-En steg-för-steg-guide finns i [Självstudier: Hantera en statisk webbplats på Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
+En steg-för-steg-guide finns i [Självstudier: vara värd för en statisk webbplats på Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
 
 När du har aktiverat statisk webbplats värd kan du visa sidorna på din webbplats från en webbläsare med hjälp av den offentliga URL: en för webbplatsen.
 
@@ -38,7 +38,7 @@ I rutan som visas bredvid sidan konto översikt för ditt lagrings konto väljer
 
 <a id="cli" />
 
-## <a name="use-the-azure-cli"></a>Använda Azure CLI
+## <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Du kan aktivera statisk webbplats som värd med hjälp av [kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -50,7 +50,7 @@ Du kan aktivera statisk webbplats som värd med hjälp av [kommando rads gränss
    az account set --subscription <subscription-id>
    ```
 
-   `<subscription-id>` Ersätt placeholder-värdet med ID: t för din prenumeration.
+   Ersätt `<subscription-id>` placeholder-värdet med ID: t för din prenumeration.
 
 3. Aktivera statisk webbplats värd.
 
@@ -60,14 +60,14 @@ Du kan aktivera statisk webbplats som värd med hjälp av [kommando rads gränss
 
    * Ersätt platshållarvärdet `<storage-account-name>` med namnet på ditt lagringskonto.
 
-   * `<error-document-name>` Ersätt plats hållaren med namnet på fel dokumentet som visas för användarna när en webbläsare begär en sida på din webbplats som inte finns.
+   * Ersätt `<error-document-name>` plats hållaren med namnet på fel dokumentet som visas för användarna när en webbläsare begär en sida på din webbplats som inte finns.
 
-   * `<index-document-name>` Ersätt plats hållaren med namnet på index dokumentet. Det här dokumentet är vanligt vis "index. html".
+   * Ersätt `<index-document-name>` plats hållaren med namnet på index dokumentet. Det här dokumentet är vanligt vis "index. html".
 
 4. Ladda upp objekt till *$Web* containern från en käll katalog.
 
    > [!NOTE]
-   > Om du använder Azure Cloud Shell, se till att lägga till ett `\` escape-tecken när du refererar `$web` till behållaren (till exempel `\$web`:). Om du använder en lokal installation av Azure CLI behöver du inte använda escape-tecken.
+   > Om du använder Azure Cloud Shell, se till att lägga till ett `\` escape-tecken när du refererar till `$web` containern (till exempel: `\$web`). Om du använder en lokal installation av Azure CLI behöver du inte använda escape-tecken.
 
    I det här exemplet förutsätter vi att du kör kommandon från Azure Cloud Shell-sessionen.
 
@@ -77,7 +77,7 @@ Du kan aktivera statisk webbplats som värd med hjälp av [kommando rads gränss
 
    * Ersätt platshållarvärdet `<storage-account-name>` med namnet på ditt lagringskonto.
 
-   * `<source-path>` Ersätt plats hållaren med en sökväg till platsen för de filer som du vill ladda upp.
+   * Ersätt `<source-path>` plats hållaren med en sökväg till platsen för de filer som du vill ladda upp.
 
    > [!NOTE]
    > Om du använder en plats installation av Azure CLI kan du använda sökvägen till valfri plats på den lokala datorn (till exempel: `C:\myFolder`.
@@ -98,11 +98,11 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 
 * Ersätt platshållarvärdet `<storage-account-name>` med namnet på ditt lagringskonto.
 
-* `<resource-group-name>` Ersätt placeholder-värdet med namnet på din resurs grupp.
+* Ersätt `<resource-group-name>` placeholder-värdet med namnet på din resurs grupp.
 
 <a id="powershell" />
 
-## <a name="use-powershell"></a>Använd PowerShell
+## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Du kan aktivera statisk webbplats värd med hjälp av Azure PowerShell-modulen.
 
@@ -129,7 +129,7 @@ Du kan aktivera statisk webbplats värd med hjälp av Azure PowerShell-modulen.
    Set-AzContext $context
    ```
 
-   `<subscription-id>` Ersätt placeholder-värdet med ID: t för din prenumeration.
+   Ersätt `<subscription-id>` placeholder-värdet med ID: t för din prenumeration.
 
 5. Hämta lagrings konto kontexten som definierar det lagrings konto som du vill använda.
 
@@ -138,7 +138,7 @@ Du kan aktivera statisk webbplats värd med hjälp av Azure PowerShell-modulen.
    $ctx = $storageAccount.Context
    ```
 
-   * `<resource-group-name>` Ersätt placeholder-värdet med namnet på din resurs grupp.
+   * Ersätt `<resource-group-name>` placeholder-värdet med namnet på din resurs grupp.
 
    * Ersätt platshållarvärdet `<storage-account-name>` med namnet på ditt lagringskonto.
 
@@ -148,9 +148,9 @@ Du kan aktivera statisk webbplats värd med hjälp av Azure PowerShell-modulen.
    Enable-AzStorageStaticWebsite -Context $ctx -IndexDocument <index-document-name> -ErrorDocument404Path <error-document-name>
    ```
 
-   * `<error-document-name>` Ersätt plats hållaren med namnet på fel dokumentet som visas för användarna när en webbläsare begär en sida på din webbplats som inte finns.
+   * Ersätt `<error-document-name>` plats hållaren med namnet på fel dokumentet som visas för användarna när en webbläsare begär en sida på din webbplats som inte finns.
 
-   * `<index-document-name>` Ersätt plats hållaren med namnet på index dokumentet. Det här dokumentet är vanligt vis "index. html".
+   * Ersätt `<index-document-name>` plats hållaren med namnet på index dokumentet. Det här dokumentet är vanligt vis "index. html".
 
 7. Ladda upp objekt till *$Web* containern från en käll katalog.
 
@@ -162,9 +162,9 @@ Du kan aktivera statisk webbplats värd med hjälp av Azure PowerShell-modulen.
     -Context $ctx
      ```
 
-   * Ersätt placeholder-värdet med den fullständigt kvalificerade sökvägen till den fil som du vill överföra (till exempel: `C:\temp\index.html`). `<path-to-file>`
+   * Ersätt `<path-to-file>` placeholder-värdet med den fullständigt kvalificerade sökvägen till den fil som du vill överföra (till exempel: `C:\temp\index.html`).
 
-   * Ersätt placeholder-värdet med det namn som du vill ge den resulterande blobben (till exempel: `index.html`). `<blob-name>`
+   * Ersätt `<blob-name>` placeholder-värdet med det namn som du vill ge den resulterande blobben (till exempel: `index.html`).
 
 <a id="powershell-find-url" />
 
@@ -179,17 +179,19 @@ Hitta URL: en med hjälp av följande kommando:
 Write-Output $storageAccount.PrimaryEndpoints.Web
 ```
 
-* `<resource-group-name>` Ersätt placeholder-värdet med namnet på din resurs grupp.
+* Ersätt `<resource-group-name>` placeholder-värdet med namnet på din resurs grupp.
 
 * Ersätt platshållarvärdet `<storage-account-name>` med namnet på ditt lagringskonto.
 
 <a id="metrics" />
 
+---
+
 ## <a name="enable-metrics-on-static-website-pages"></a>Aktivera mått på statiska webbplats sidor
 
 När du har aktiverat mått rapporteras trafik statistik på filer i **$Web** -behållaren på instrument panelen mått.
 
-1. Klicka på **Inställningar** > **övervaknings** > **mått**.
+1. Klicka på **inställningar** > **övervakning** > **mått**.
 
    Mått data genereras genom att ansluta till olika mått-API: er. Portalen visar bara de API-medlemmar som används inom en bestämd tidsram för att endast fokusera på medlemmar som returnerar data. Det första steget är att expandera tids ramen för att säkerställa att du kan välja den nödvändiga API-medlemmen.
 
@@ -225,4 +227,4 @@ När du har aktiverat mått rapporteras trafik statistik på filer i **$Web** -b
 * [Azure Functions](/azure/azure-functions/functions-overview)
 * [Azure App Service](/azure/app-service/overview)
 * [Bygg din första server lös webbapp](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [Självstudier: Vara värd för din domän i Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)
+* [Självstudie: vara värd för din domän i Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)

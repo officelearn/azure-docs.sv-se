@@ -1,5 +1,5 @@
 ---
-title: Migrera lokala Apache Hadoop-kluster till Azure HDInsight – säkerhet
+title: 'Säkerhet: migrera lokala Apache Hadoop till Azure HDInsight'
 description: Lär dig mer om säkerhets-och DevOps för att migrera lokala Hadoop-kluster till Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: c1523ccb3952bce904deac375d11de692ac235ef
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 1cebe425e323eefda6e26b0f32ddeda0118a70d1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736140"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494963"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight – säkerhets-och DevOps metod tips
 
@@ -43,12 +43,12 @@ Använd följande steg för att distribuera det domänanslutna HDInsight-klustre
 
 
 - Distribuera HDInsight ESP-kluster genom att ange följande parametrar:
-    - **Domän namn**: Det domän namn som är associerat med Azure AD DS.
-    - **Domän användar namn**: Tjänst kontot i den domänkontrollant-hanterade Azure AD DS-domän som du skapade i föregående avsnitt, till exempel: `hdiadmin@contoso.onmicrosoft.com`. Den här domän användaren kommer att vara administratör för det här HDInsight-klustret.
-    - **Domän lösen ord**: Lösen ordet för tjänst kontot.
-    - **Organisationsenhet**: Det unika namnet på den ORGANISATIONSENHET som du vill använda med HDInsight-klustret, till exempel: `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`. Om ORGANISATIONSENHETen inte finns försöker HDInsight-klustret skapa ORGANISATIONSENHETen med hjälp av tjänst kontots behörigheter.
-    - **LDAPS-URL**: t `ldaps://contoso.onmicrosoft.com:636`. ex.
-    - **Åtkomst till användar grupp**: De säkerhets grupper vars användare du vill synkronisera till klustret, till exempel: `HiveUsers`. Om du vill ange flera användar grupper avgränsar du dem med semikolone;. Gruppen (erna) måste finnas i katalogen innan du skapar ESP-klustret.
+    - **Domän namn**: det domän namn som är associerat med Azure AD DS.
+    - **Domän användar namn**: tjänst kontot i den domänkontrollant-hanterade Azure AD DS-domän som du skapade i föregående avsnitt, till exempel: `hdiadmin@contoso.onmicrosoft.com`. Den här domän användaren kommer att vara administratör för det här HDInsight-klustret.
+    - **Domän lösen ord**: lösen ordet för tjänst kontot.
+    - **Organisationsenhet**: det unika namnet på den organisationsenhet som du vill använda med HDInsight-klustret, till exempel: `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`. Om ORGANISATIONSENHETen inte finns försöker HDInsight-klustret skapa ORGANISATIONSENHETen med hjälp av tjänst kontots behörigheter.
+    - **LDAPS-URL**: till exempel `ldaps://contoso.onmicrosoft.com:636`.
+    - **Åtkomst till användar grupp**: de säkerhets grupper vars användare du vill synkronisera till klustret, till exempel: `HiveUsers`. Om du vill ange flera användar grupper avgränsar du dem med semikolone;. Gruppen (erna) måste finnas i katalogen innan du skapar ESP-klustret.
 
 Mer information finns i följande artiklar:
 
@@ -114,7 +114,7 @@ Mer information finns i artikeln: [Uppgradera HDInsight-kluster till en ny versi
 
 Som en hanterad Hadoop-tjänst tar HDInsight hand om korrigering av OS för de virtuella datorer som används av HDInsight-kluster.
 
-Mer information finns i artikeln: [OS-uppdatering för HDInsight](../hdinsight-os-patching.md).
+Mer information finns i artikeln: [uppdatering av operativ system för HDInsight](../hdinsight-os-patching.md).
 
 ## <a name="post-migration"></a>Efter migrering
 

@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: db3581616b369345ad654593192048e8573c6fa4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0d132a46db39308911f472941c02f8bb04a44e0d
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935214"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72988791"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Ord lista med villkor för för hands versionen av IoT Plug and Play
 
@@ -38,7 +38,7 @@ Azure CLI är ett plattforms oberoende kommando rads verktyg för att hantera Az
 - Anropa enhets [kommandon](#commands).
 - Hantera [modell databaser](#model-repository), [gränssnitt](#interface)och [enhets kapacitets modeller](#device-capability-model).
 
-## <a name="azure-iot-central"></a>Utforska IoT Central
+## <a name="azure-iot-central"></a>Azure IoT Central
 
 Azure IoT Central är en fullständigt hanterad lösning för program vara som en tjänst som gör det enkelt att ansluta, övervaka och hantera dina [IoT plug and Play-enheter](#iot-plug-and-play-device). Du kan använda [enhets kapacitets modeller](#device-capability-model) för att automatiskt konfigurera ett IoT Central program för att övervaka och hantera dina enheter.
 
@@ -117,7 +117,7 @@ En [enhets utvecklare](#device-developer) använder ett [digitalt definitions sp
 
 ## <a name="device-provisioning-service"></a>Enhets etablerings tjänst
 
-[Azure IoT Central](#azure-iot-central) använder enhets etablerings tjänsten för att hantera all enhets registrering och anslutning. Mer information finns i [enhets anslutning i Azure IoT Central](../iot-central/core/concepts-connectivity-pnp.md). Du kan också använda enhets etablerings tjänsten för att hantera enhets registrering och anslutning till din IoT Hub-baserade IoT-lösning. Mer information finns i avsnittet [om att konfigurera enheter med Azure IoT Hub Device Provisioning service](../iot-dps/about-iot-dps.md).
+[Azure IoT Central](#azure-iot-central) använder enhets etablerings tjänsten för att hantera all enhets registrering och anslutning. Mer information finns i [enhets anslutning i Azure IoT Central](../iot-central/core/overview-iot-central-get-connected-pnp.md). Du kan också använda enhets etablerings tjänsten för att hantera enhets registrering och anslutning till din IoT Hub-baserade IoT-lösning. Mer information finns i avsnittet [om att konfigurera enheter med Azure IoT Hub Device Provisioning service](../iot-dps/about-iot-dps.md).
 
 ## <a name="device-registration"></a>Enhetsregistrering
 

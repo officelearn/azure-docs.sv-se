@@ -11,25 +11,25 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 724e120a8ed92f71ff2e7f2bdda7d1884d80bc10
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 3c98da50d0c50a7fdb94f579444f3c09c1096d18
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70997158"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476414"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Vad hände med Azure Machine Learning Workbench?
 
-Azure Machine Learning Workbench-programmet och vissa andra tidiga funktioner togs bort och ersattes i versionen från september 2018 för att frigöra plats för en förbättrad [arkitektur](concept-azure-machine-learning-architecture.md).
+Azure Machine Learning Workbench programmet och vissa andra tidiga funktioner har föråldrats och ersatts i versionen från **September 2018** för att skapa en förbättrad [arkitektur](concept-azure-machine-learning-architecture.md).
 
-För att förbättra upplevelsen innehåller versionen många viktiga uppdateringar som baseras på feedback från kunder. Grundläggande funktioner från experimentkörningar till modelldistribution har inte förändrats. Men du kan nu använda den robusta <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a> och [Azure CLI](reference-azure-machine-learning-cli.md) för att utföra dina maskininlärningsaktiviteter och pipelines.
+För att förbättra upplevelsen innehåller versionen många viktiga uppdateringar som baseras på feedback från kunder. Grundläggande funktioner från experimentkörningar till modelldistribution har inte förändrats. Men nu kan du använda robusta <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">python SDK</a>, R SDK och [Azure CLI](reference-azure-machine-learning-cli.md) för att utföra dina Machine Learning-uppgifter och pipeliner.
 
 De flesta artefakter som har skapats i den tidigare versionen av Azure Machine Learning lagras i din lokala eller molnbaserade lagring. Dessa artefakter försvinner aldrig.
 
 I den här artikeln får lära du dig om vad som ändrats och hur det påverkar ditt befintliga arbete med Azure Machine Learning Workbench och dess API:er.
 
 >[!Warning]
->Den här artikeln är inte för Azure Machine Learning Studio-användare. Det är Azure Machine Learning kunder som har installerat program varan Workbench (för hands version) och/eller har för hands versioner av för hands versions-och modell hanterings konton.
+>Den här artikeln är inte avsedd för Azure Machine Learning Studio-användare. Det är Azure Machine Learning kunder som har installerat program varan Workbench (för hands version) och/eller har för hands versioner av för hands versions-och modell hanterings konton.
 
 
 ## <a name="what-changed"></a>Vad har ändrats?
@@ -42,7 +42,7 @@ Den senaste versionen av Azure Machine Learning innehåller följande funktioner
 
 [Arkitekturen](concept-azure-machine-learning-architecture.md) har gjorts om för enklare användning. I stället för flera Azure-resurser och konton behöver du bara en [Azure Machine Learning-arbetsyta](concept-workspace.md). Du kan skapa arbetsytor snabbt i [Azure-portalen](how-to-manage-workspace.md). Genom att använda en arbetsyta kan flera användare lagra tränings- och distributionsberäkningsmål, modellexperiment, Docker-avbildningar, distribuerade modeller och så vidare.
 
-Även om det finns nya förbättrade CLI- och SDK-klienter i den aktuella versionen, har själva Workbench-skrivbordsprogrammet tagits ur bruk. Experiment kan hanteras i [instrumentpanelen för arbetsytan i Azure-portalen](how-to-track-experiments.md#view-the-experiment-in-the-web-portal). Använd instrumentpanelen för att hämta din experimenthistorik, hantera beräkningsmål som är kopplade till din arbetsyta, hantera modeller och Docker-avbildningar och även distribuera webbtjänster.
+Även om det finns nya förbättrade CLI- och SDK-klienter i den aktuella versionen, har själva Workbench-skrivbordsprogrammet tagits ur bruk. Experiment kan hanteras i [instrument ytans instrument panel i Azure Machine Learning Studio](how-to-track-experiments.md#view-the-experiment-in-the-web-portal). Använd instrumentpanelen för att hämta din experimenthistorik, hantera beräkningsmål som är kopplade till din arbetsyta, hantera modeller och Docker-avbildningar och även distribuera webbtjänster.
 
 <a name="timeline"></a>
 
@@ -56,13 +56,13 @@ Alla nya funktioner är tillgängliga med hjälp av detta <a href="https://docs.
 
 Äldre körhistorik är inte längre tillgänglig, men du kan fortfarande visa dina körningar i den senaste versionen.
 
-Körhistorik kallas nu **experiment**. Du kan samla in modellens experiment och utforska dem med hjälp av SDK, CLI eller Azure Portal.
+Körhistorik kallas nu **experiment**. Du kan samla in modellens experiment och utforska dem med hjälp av SDK, CLI eller Azure Machine Learning Studio.
 
 Portalens instrumentpanel för arbetsytor stöds endast i webbläsarna Microsoft Edge, Chrome och Firefox:
 
-[![Online Portal](./media/overview-what-happened-to-workbench/image001.png)](./media/overview-what-happened-to-workbench/image001.png#lightbox)
+[![online-portalen](./media/overview-what-happened-to-workbench/image001.png)](./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
-Starta utbildning dina modeller och spåra körhistorik som använder den nya CLI och SDK. Du kan lära dig mer i [kursen: träna modeller med Azure Machine Learning](tutorial-train-models-with-aml.md).
+Börja träna dina modeller och spåra körhistorik med hjälp av nya CLI och SDK. Du kan lära dig mer i [kursen: träna modeller med Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 ## <a name="can-i-still-prep-data"></a>Går det fortfarande att förbereda data?
 
@@ -74,7 +74,7 @@ Med data mängder av valfri storlek kan du använda [data förberedelse paketet 
 
 Du förlorar inte någon kod eller något arbete. I den äldre versionen är projekt molnentiteter med en lokal katalog. I den senaste versionen kopplar du lokala kataloger till Azure Machine Learning arbets ytan med hjälp av en lokal konfigurations fil. Se ett [diagram över den senaste arkitekturen](concept-azure-machine-learning-architecture.md).
 
-Mycket av projektinnehållet finns redan på den lokala datorn. Så du behöver bara skapa en konfigurationsfil i denna katalog och referera till den i koden för att ansluta till din arbetsyta. Om du vill fortsätta att använda den lokala katalogen som innehåller dina filer och skript, anger du katalogens namn i python-kommandot ["experiment. Submit"](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) eller med `az ml project attach` kommandot cli.  Exempel:
+Mycket av projektinnehållet finns redan på den lokala datorn. Så du behöver bara skapa en konfigurationsfil i denna katalog och referera till den i koden för att ansluta till din arbetsyta. Om du vill fortsätta att använda den lokala katalogen som innehåller dina filer och skript, anger du katalogens namn i python-kommandot ["experiment. Submit"](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) eller med kommandot `az ml project attach` cli.  Till exempel:
 ```python
 run = exp.submit(source_directory=script_folder,
                  script='train.py', run_config=run_config_system_managed)
@@ -96,7 +96,7 @@ I den senaste versionen distribueras modeller som webbtjänster till Azure Conta
 
 Mer information finns i följande artiklar:
 + [Var och hur du distribuerar modeller](how-to-deploy-and-where.md)
-+ [Självstudier: Distribuera modeller med Azure Machine Learning](tutorial-deploy-models-with-aml.md)
++ [Självstudie: Distribuera modeller med Azure Machine Learning](tutorial-deploy-models-with-aml.md)
 
 ## <a name="what-about-the-old-sdk-and-cli"></a>Vad gäller för den gamla SDK:n och CLI?
 
@@ -112,7 +112,7 @@ I den senaste versionen har tillägget bytt namn till Azure Machine Learning fö
 
 ## <a name="what-about-domain-packages"></a>Vad gäller för domänpaket?
 
-Domänpaketen för visuellt innehåll, textanalys och prognostisering kan inte användas med den senaste versionen av Azure Machine Learning. Du kan dock fortfarande skapa och träna modeller för visuellt innehåll, textanalys och prognostisering med den senaste Azure Machine Learning Python-<a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK:n</a>. Om du vill lära dig mer om att migrera befintliga modeller som skapats med visuellt innehåll-, textanalys- och prognostiseringspaket, kontakta[AML-Packages@microsoft.com](mailto:AML-Packages@microsoft.com).
+Domänpaketen för visuellt innehåll, textanalys och prognostisering kan inte användas med den senaste versionen av Azure Machine Learning. Du kan dock fortfarande skapa och träna modeller för visuellt innehåll, textanalys och prognostisering med den senaste Azure Machine Learning Python-<a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK:n</a>.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -120,6 +120,9 @@ Lär dig mer om den [senaste arkitekturen för Azure Machine Learning](concept-a
 
 Om du vill ha en översikt över tjänsten läser du [Vad är Azure Machine Learning?](overview-what-is-azure-ml.md).
 
-Skapa ditt första experiment med självstudierna i två delar för att [Konfigurera miljön och arbets ytan](tutorial-1st-experiment-sdk-setup.md) och [träna din första modell](tutorial-1st-experiment-sdk-train.md)
-
-Om du vill ha en mer djupgående upplevelse av det här arbets flödet följer du [vägledningen för full längd](tutorial-train-models-with-aml.md) som innehåller detaljerade steg för att träna och distribuera modeller med Azure Machine Learning.
+Skapa ditt första experiment med önskad metod:
+  + [Använd python-anteckningsböcker för att träna & distribuera ML-modeller](tutorial-1st-experiment-sdk-setup.md)
+  + [Använd R-markdown för att träna & distribuera ML-modeller]( tutorial-1st-r-experiment.md) 
+  + [Använd automatisk maskin inlärning för att träna & distribuera ML-modeller](ui-tutorial-automobile-price-train-score.md) 
+  + [Använd designerns dra & släpp-funktioner för att träna & distribuera](tutorial-first-experiment-automated-ml.md) 
+  + [Använda Machine Learning CLI för att träna och distribuera en modell](tutorial-train-deploy-model-cli.md)

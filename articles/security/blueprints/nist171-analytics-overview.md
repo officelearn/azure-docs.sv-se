@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: 2bd2510b3b7aa72ac5e66ac9910f1c941f276564
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 0bed9f96ce04fae313672f2fa627c2e20bea2f6f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259903"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496418"
 ---
 # <a name="azure-security-and-compliance-blueprint---data-analytics-for-nist-sp-800-171"></a>Handlingsplan för säkerhet och efterlevnad i Azure-Data analys för NIST SP 800-171
 
@@ -27,7 +27,7 @@ Den här referens arkitekturen, tillhör ande implementerings guide och hot mode
 ## <a name="architecture-diagram-and-components"></a>Arkitektur diagram och-komponenter
 Den här lösningen ger en analys plattform som kunder kan bygga egna analys verktyg på. Referens arkitekturen beskriver ett allmänt användnings fall. Kunder kan använda den för att mata in data via Mass data import av SQL/data-administratören. De kan också använda den för att mata in data via användnings data uppdateringar via en drift användare. Båda workstreams inkluderar Azure Functions för att importera data till Azure SQL Database. Azure Functions måste konfigureras av kunden via Azure Portal för att hantera import aktiviteter som är unika för kundens analys krav.
 
-Azure erbjuder en rad olika rapporterings-och analys tjänster för kunden. Den här lösningen använder Azure Machine Learning tjänster och SQL Database för att snabbt bläddra igenom data och leverera snabbare resultat via smartare data modellering. Machine Learning är avsedd att öka frågans hastighet genom att identifiera nya relationer mellan data uppsättningar. Inlednings vis tränas data genom flera statistiska funktioner. Efteråt kan upp till sju ytterligare fråge bassänger synkroniseras med samma tabell modeller för att sprida frågor till arbets belastningen och minska svars tiderna. Kund servern hämtar summan av de olika fråge poolerna till åtta.
+Azure erbjuder en rad olika rapporterings-och analys tjänster för kunden. Den här lösningen använder Azure Machine Learning och SQL Database för att snabbt bläddra igenom data och leverera snabbare resultat via smartare data modellering. Machine Learning är avsedd att öka frågans hastighet genom att identifiera nya relationer mellan data uppsättningar. Inlednings vis tränas data genom flera statistiska funktioner. Efteråt kan upp till sju ytterligare fråge bassänger synkroniseras med samma tabell modeller för att sprida frågor till arbets belastningen och minska svars tiderna. Kund servern hämtar summan av de olika fråge poolerna till åtta.
 
 För förbättrad analys och rapportering kan SQL Database konfigureras med kolumn lagrings index. Machine Learning och SQL Database kan skalas upp eller ned eller stängas av fullständigt som svar på kund användning. All SQL-trafik krypteras med SSL genom att du kan inkludera självsignerade certifikat. Som bästa praxis rekommenderar vi att du använder en betrodd certifikat utfärdare för förbättrad säkerhet.
 
@@ -64,18 +64,18 @@ Den här lösningen använder följande Azure-tjänster. Mer information finns i
 ## <a name="deployment-architecture"></a>Distributions arkitektur
 I följande avsnitt beskrivs distributions-och implementerings elementen.
 
-**Azure Event Grid**: Med [Event Grid](https://docs.microsoft.com/azure/event-grid/overview)kan kunder enkelt bygga program med händelsebaserade arkitekturer. Användare väljer den Azure-resurs som de vill prenumerera på. Sedan ger de händelse hanteraren eller webhook en slut punkt för att skicka händelsen till. Kunder kan skydda webhook-slutpunkter genom att lägga till frågeparametrar till webhook-URL: en när de skapar en händelse prenumeration. Event Grid stöder endast HTTPS webhook-slutpunkter. Med Event Grid kan kunderna styra åtkomst nivån för olika användare för att utföra olika hanterings åtgärder. Användare kan lista händelse prenumerationer, skapa nya och generera nycklar. Event Grid använder Azure RBAC.
+**Azure Event Grid**: med [Event Grid](https://docs.microsoft.com/azure/event-grid/overview)kan kunder enkelt bygga program med händelsebaserade arkitekturer. Användare väljer den Azure-resurs som de vill prenumerera på. Sedan ger de händelse hanteraren eller webhook en slut punkt för att skicka händelsen till. Kunder kan skydda webhook-slutpunkter genom att lägga till frågeparametrar till webhook-URL: en när de skapar en händelse prenumeration. Event Grid stöder endast HTTPS webhook-slutpunkter. Med Event Grid kan kunderna styra åtkomst nivån för olika användare för att utföra olika hanterings åtgärder. Användare kan lista händelse prenumerationer, skapa nya och generera nycklar. Event Grid använder Azure RBAC.
 
 **Azure Functions**: [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) är en server lös beräknings tjänst som kör kod på begäran. Du behöver inte uttryckligen etablera eller hantera infrastruktur. Använd Azure Functions för att köra ett skript eller kod som svar på en rad olika händelser.
 
-**Azure Machine Learning tjänst**: [Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/) är en data vetenskaps teknik som gör att datorer kan använda befintliga data för att förutsäga framtida beteenden, resultat och trender.
+**Azure Machine Learning**: [Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/) är en data vetenskaps teknik som gör att datorer kan använda befintliga data för att förutsäga framtida beteenden, resultat och trender.
 
 **Azure Data Catalog**: [Data Catalog](../../data-catalog/overview.md) gör det enkelt att identifiera och förstå data källor för de användare som hanterar data. Vanliga data källor kan registreras, taggas och sökas efter data. Data behålls på den befintliga platsen, men en kopia av dess metadata läggs till Data Catalog. En referens till data käll platsen ingår. Metadata indexeras för att göra varje data källa lätt att upptäcka via sökning. Indexeringen gör det också lättare för användare som identifierar dem.
 
 ### <a name="virtual-network"></a>Virtuellt nätverk
 Den här referens arkitekturen definierar ett privat virtuellt nätverk med adress utrymmet 10.0.0.0/16.
 
-**Nätverks säkerhets grupper**: [Nätverks säkerhets grupper](../../virtual-network/virtual-network-vnet-plan-design-arm.md) (NSG: er) innehåller åtkomst kontrol listor som tillåter eller nekar trafik i ett virtuellt nätverk. NSG: er kan användas för att skydda trafik i ett undernät eller på en enskild virtuell dator nivå. Följande NSG: er finns:
+**Nätverks säkerhets grupper**: [nätverks säkerhets grupper](../../virtual-network/virtual-network-vnet-plan-design-arm.md) (NSG: er) innehåller åtkomst kontrol listor som tillåter eller nekar trafik i ett virtuellt nätverk. NSG: er kan användas för att skydda trafik i ett undernät eller på en enskild virtuell dator nivå. Följande NSG: er finns:
   - En NSG för Active Directory
   - En NSG för arbets belastningen
 
@@ -83,7 +83,7 @@ Varje NSG: er har vissa portar och protokoll öppna så att lösningen kan funge
   - [Diagnostikloggar och händelser](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) är aktiverade och lagras i ett lagrings konto
   - Azure Monitor loggar är anslutna till [NSG-diagnostiken](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
-**Undernät**: Varje undernät är associerat med motsvarande NSG.
+**Undernät**: varje undernät är associerat med motsvarande NSG.
 
 ### <a name="data-in-transit"></a>Data under överföring
 Azure krypterar all kommunikation till och från Azures Data Center som standard. Alla transaktioner till lagringen via Azure Portal sker via HTTPS.
@@ -92,9 +92,9 @@ Azure krypterar all kommunikation till och från Azures Data Center som standard
 
 Arkitekturen skyddar data i vila genom kryptering, databas granskning och andra åtgärder.
 
-**Azure Storage**: För att uppfylla kraven för krypterade data i vila använder [](https://azure.microsoft.com/services/storage/) all lagring [kryptering för lagringstjänst](../../storage/common/storage-service-encryption.md). Den här funktionen hjälper till att skydda och skydda data som stöd för organisationens säkerhets åtaganden och krav på efterlevnad som definieras av NIST SP 800-171.
+**Azure Storage**: för att uppfylla kraven för krypterade data i vila använder [](https://azure.microsoft.com/services/storage/) all lagring [kryptering för lagringstjänst](../../storage/common/storage-service-encryption.md). Den här funktionen hjälper till att skydda och skydda data som stöd för organisationens säkerhets åtaganden och krav på efterlevnad som definieras av NIST SP 800-171.
 
-**Azure Disk Encryption**: [Disk kryptering](../azure-security-disk-encryption-overview.md) använder BitLocker-funktionen i Windows för att tillhandahålla volym kryptering för data diskar. Lösningen integreras med Azure Key Vault för att hjälpa dig att styra och hantera disk krypterings nycklarna.
+**Azure Disk Encryption**: [disk kryptering](../azure-security-disk-encryption-overview.md) använder BitLocker-funktionen i Windows för att tillhandahålla volym kryptering för data diskar. Lösningen integreras med Azure Key Vault för att hjälpa dig att styra och hantera disk krypterings nycklarna.
 
 **Azure SQL Database**: SQL Database-instansen använder följande säkerhets åtgärder för databasen:
 -   [Active Directory autentisering och auktorisering](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) möjliggör identitets hantering av databas användare och andra Microsoft-tjänster på en central plats.
@@ -114,7 +114,7 @@ Följande tekniker tillhandahåller funktioner för att hantera åtkomst till da
 -   [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview.md) identifierar potentiella sårbarheter som påverkar en organisations identiteter. Den konfigurerar automatiserade svar på identifierade misstänkta åtgärder som rör en organisations identiteter. Den undersöker också misstänkta incidenter för att vidta lämpliga åtgärder för att lösa dem.
 
 ### <a name="security"></a>Säkerhet
-**Hemligheter, hantering**: Lösningen använder [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) för hantering av nycklar och hemligheter. Key Vault hjälper till att skydda kryptografiska nycklar och hemligheter som används av moln program och-tjänster. Följande Key Vault funktioner hjälper kunder att skydda data:
+**Hemligheter, hantering**: lösningen använder [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) för hantering av nycklar och hemligheter. Key Vault hjälper till att skydda kryptografiska nycklar och hemligheter som används av moln program och-tjänster. Följande Key Vault funktioner hjälper kunder att skydda data:
 - Avancerade åtkomst principer konfigureras på grund av behov.
 - Key Vault åtkomst principer definieras med lägsta behörighet som krävs för nycklar och hemligheter.
 - Alla nycklar och hemligheter i Key Vault har förfallo datum.
@@ -123,7 +123,7 @@ Följande tekniker tillhandahåller funktioner för att hantera åtkomst till da
 - Diagnostikloggar för Key Vault aktive ras med en kvarhållningsperiod på minst 365 dagar.
 - Tillåtna kryptografiska åtgärder för nycklar är begränsade till dem som krävs.
 
-**Azure Security Center**: Med [Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)kan kunder centralt tillämpa och hantera säkerhets principer över arbets belastningar, begränsa exponeringen för hot och identifiera och reagera på attacker. Security Center också åtkomst till befintliga konfigurationer av Azure-tjänster för att tillhandahålla konfigurations-och tjänst rekommendationer för att förbättra säkerheten position och skydda data.
+**Azure Security Center**: med [Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)kan kunder centralt tillämpa och hantera säkerhets principer över arbets belastningar, begränsa exponeringen för hot och identifiera och reagera på attacker. Security Center också åtkomst till befintliga konfigurationer av Azure-tjänster för att tillhandahålla konfigurations-och tjänst rekommendationer för att förbättra säkerheten position och skydda data.
 
  Security Center använder flera olika identifierings funktioner för att meddela kunder om potentiella attacker som riktar sig mot sina miljöer. Dessa aviseringar innehåller värdefull information om vad som utlöste aviseringen, vilka resurser som berörs och attackens källa. Security Center har en uppsättning [fördefinierade säkerhets aviseringar](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) som utlöses när ett hot eller en misstänkt aktivitet äger rum. Kunder kan använda [anpassade aviserings regler](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) för att definiera nya säkerhets aviseringar baserat på data som redan har samlats in från deras miljö.
 
@@ -132,20 +132,20 @@ Följande tekniker tillhandahåller funktioner för att hantera åtkomst till da
 ### <a name="logging-and-auditing"></a>Loggning och granskning
 
 Azure-tjänster loggar system-och användar aktiviteter i stor utsträckning, samt systemets hälso tillstånd:
-- **Aktivitets loggar**: [Aktivitets loggar](../../azure-monitor/platform/activity-logs-overview.md) ger inblick i åtgärder som utförs på resurser i en prenumeration. Aktivitets loggar kan hjälpa till att bestämma en åtgärds initierare, tidpunkt för förekomst och status.
-- **Diagnostikloggar**: [Diagnostikloggar](../../azure-monitor/platform/resource-logs-overview.md) innehåller alla loggar som har avsänts av varje resurs. Dessa loggar innehåller loggar för Windows Event system, lagrings loggar, Key Vault gransknings loggar och Azure Application Gateway-åtkomst och brand Väggs loggar. Alla diagnostiska loggar skriver till ett centraliserat och krypterat Azure Storage-konto för arkivering. Användare kan konfigurera kvarhållningsperioden, upp till 730 dagar, för att uppfylla de särskilda kraven.
+- **Aktivitets loggar**: [aktivitets loggar](../../azure-monitor/platform/activity-logs-overview.md) ger inblick i åtgärder som utförs på resurser i en prenumeration. Aktivitets loggar kan hjälpa till att bestämma en åtgärds initierare, tidpunkt för förekomst och status.
+- **Diagnostikloggar**: [diagnostikloggar](../../azure-monitor/platform/resource-logs-overview.md) innehåller alla loggar som har avsänts av varje resurs. Dessa loggar innehåller loggar för Windows Event system, lagrings loggar, Key Vault gransknings loggar och Azure Application Gateway-åtkomst och brand Väggs loggar. Alla diagnostiska loggar skriver till ett centraliserat och krypterat Azure Storage-konto för arkivering. Användare kan konfigurera kvarhållningsperioden, upp till 730 dagar, för att uppfylla de särskilda kraven.
 
-**Azure Monitor loggar**: Loggar konsol IDE ras i [Azure Monitor loggar](https://azure.microsoft.com/services/log-analytics/) för bearbetning, lagring och instrument panels rapportering. När data har samlats in organiseras de i separata tabeller för varje datatyp inom Log Analytics arbets ytor. På så sätt kan alla data analyseras tillsammans, oavsett den ursprungliga källan. Security Center integreras med Azure Monitor-loggar. Kunder kan använda Kusto-frågor för att komma åt sina säkerhets händelse data och kombinera dem med data från andra tjänster.
+**Azure Monitor loggar**: loggar konsol IDE ras i [Azure Monitor loggar](https://azure.microsoft.com/services/log-analytics/) för bearbetning, lagring och instrument panels rapportering. När data har samlats in organiseras de i separata tabeller för varje datatyp inom Log Analytics arbets ytor. På så sätt kan alla data analyseras tillsammans, oavsett den ursprungliga källan. Security Center integreras med Azure Monitor-loggar. Kunder kan använda Kusto-frågor för att komma åt sina säkerhets händelse data och kombinera dem med data från andra tjänster.
 
 Följande lösningar för Azure- [övervakning](../../monitoring/monitoring-solutions.md) ingår som en del av den här arkitekturen:
--   [Active Directory utvärdering](../../azure-monitor/insights/ad-assessment.md): Active Directory hälso kontrolls lösningen utvärderar hälso-och hälso tillståndet för Server miljöer med jämna mellanrum. Den innehåller en prioriterad lista med rekommendationer som är speciella för den distribuerade Server infrastrukturen.
-- [SQL-utvärdering](../../azure-monitor/insights/sql-assessment.md): I SQL Health Check-lösningen bedöms risken och hälsan i Server miljöer med jämna mellanrum. Den ger kunder en prioriterad lista med rekommendationer som är speciella för den distribuerade Server infrastrukturen.
-- [Agenthälsa](../../monitoring/monitoring-solution-agenthealth.md): Agenthälsa lösning rapporterar hur många agenter som distribueras och deras geografiska distribution. Den rapporterar även hur många agenter som inte svarar och antalet agenter som skickar drift data.
--   [Aktivitetslogganalys](../../azure-monitor/platform/collect-activity-logs.md): Aktivitetslogganalys lösning hjälper till med analys av Azures aktivitets loggar i alla Azure-prenumerationer för en kund.
+-   [Active Directory bedömning](../../azure-monitor/insights/ad-assessment.md): den Active Directory hälso kontroll lösningen bedömer riskerna och hälsan i Server miljöer med jämna mellanrum. Den innehåller en prioriterad lista med rekommendationer som är speciella för den distribuerade Server infrastrukturen.
+- [SQL-utvärdering](../../azure-monitor/insights/sql-assessment.md): SQL-hälso kontroll lösningen utvärderar risker och hälso tillstånd för Server miljöer med jämna mellanrum. Den ger kunder en prioriterad lista med rekommendationer som är speciella för den distribuerade Server infrastrukturen.
+- [Agenthälsa](../../monitoring/monitoring-solution-agenthealth.md): Agenthälsas lösning rapporterar hur många agenter som distribueras och deras geografiska distribution. Den rapporterar även hur många agenter som inte svarar och antalet agenter som skickar drift data.
+-   [Aktivitetslogganalys](../../azure-monitor/platform/collect-activity-logs.md): Aktivitetslogganalys lösningen hjälper till med analys av Azures aktivitets loggar i alla Azure-prenumerationer för en kund.
 
 **Azure Automation**: [Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) lagrar, kör och hanterar Runbooks. I den här lösningen kan Runbooks samla in loggar från SQL Database. Kunder kan använda Automation [ändringsspårning](../../automation/change-tracking.md) -lösningen för att enkelt identifiera ändringar i miljön.
 
-**Azure Monitor**: [Övervakaren](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) hjälper användare att spåra prestanda, upprätthålla säkerhet och identifiera trender. Organisationer kan använda den för att granska, skapa aviseringar och arkivera data. De kan också spåra API-anrop i sina Azure-resurser.
+**Azure Monitor**: [övervakaren](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) hjälper användare att spåra prestanda, upprätthålla säkerhet och identifiera trender. Organisationer kan använda den för att granska, skapa aviseringar och arkivera data. De kan också spåra API-anrop i sina Azure-resurser.
 
 **Application Insights**: [Application Insights](https://docs.microsoft.com/azure/application-insights/) är en utöknings bar hanterings tjänst för program prestanda för webbutvecklare på flera plattformar. Prestanda avvikelser upptäcks och kraftfulla analys verktyg ingår. Verktygen hjälper dig att diagnostisera problem och hjälpa kunderna att förstå vad användarna gör med appen. Den är utformad för att hjälpa användarna att kontinuerligt förbättra prestanda och användbarhet.
 

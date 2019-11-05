@@ -4,15 +4,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: 1b94a437d48fbfe9a3669924682ebd5dea22f87a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 56b6ba3dcd88dd45bbda3ccb9ba7ddeb5b373b10
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68857500"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "73518947"
 ---
 ## <a name="get-the-training-and-prediction-keys"></a>Hämta utbildningen och förutsägelsenycklarna
 
-Projektet behöver en giltig uppsättning prenumerationsnycklar för att kunna interagera med tjänsten. Gå till [Custom Vision-webbplatsen](https://customvision.ai) för att få en uppsättning kostnadsfria testnycklar och logga in med ett Microsoft-konto. Välj __kugghjulsikonen__ i det övre högra hörnet. I avsnittet __konton__ , se värdena i fälten __utbildnings nyckel__, __förutsägelse nyckel__ och __förutsägelse resurs-ID__ . Du behöver dessa senare. 
+Projektet kräver en giltig uppsättning prenumerations nycklar för att samverka med tjänsten. Du kan hitta objekten på [Custom vision webbplats](https://customvision.ai). Logga in med det konto som är associerat med det Azure-konto som användes för att skapa dina Custom Vision-resurser. Välj __kugghjulsikonen__ i det övre högra hörnet. I avsnittet __konton__ blir List rutor tillgängliga för dina Azure-resurser, så att du kan se värdena för __utbildnings nyckel__, __förutsägelse nyckel__och __förutsägelse resurs-ID__ .
 
-![Bild på gränssnittet för nycklarna](../media/csharp-tutorial/training-prediction-keys.png)
+![Bild av nyckel-UI:et](../media/csharp-tutorial/training-prediction-keys.png)
+
+ Du kan också hämta dessa nycklar och ID från [Azure Portal](https://www.portal.azure.com) genom att Visa Custom vision utbildning och förutsägelse resurser och granska fliken __nycklar__ . Där hittar du __utbildnings nyckeln__ eller __förutsägelse nyckeln__. Gå till fliken __Egenskaper__ för förutsägelse resursen för att hämta ditt __förutsägelse resurs-ID__.
+

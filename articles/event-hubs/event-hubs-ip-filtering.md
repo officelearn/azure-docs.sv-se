@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs-brandväggsregler | Microsoft Docs
-description: Använd brandväggsregler för att tillåta anslutningar från specifika IP-adresser till Azure Event Hubs.
+title: Regler för Azure Event Hubs-brandvägg | Microsoft Docs
+description: Använd brand Väggs regler för att tillåta anslutningar från vissa IP-adresser till Azure Event Hubs.
 services: event-hubs
 documentationcenter: ''
 author: spelluru
@@ -11,68 +11,67 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: ccb2fa7b0805b332957513c52c0c1051d068d2cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f96c25dbb85ed92141636487f10d861a8c5e5f28
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60821665"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468435"
 ---
-# <a name="use-firewall-rules"></a>Använd brandväggsregler
+# <a name="use-firewall-rules"></a>Använd brand Väggs regler
 
-För scenarier där Azure Event Hubs måste vara endast tillgängliga från vissa välkända platser, kan brandväggsregler du konfigurera regler för att acceptera trafik som kommer från specifika IPv4-adresser. Dessa adresser kan exempelvis vara de för en företagets NAT-gateway.
+För scenarier där Azure Event Hubs endast ska vara tillgängligt från vissa välkända platser, kan du konfigurera regler för att acceptera trafik från specifika IPv4-adresser med hjälp av brand Väggs regler. Dessa adresser kan till exempel vara de som tillhör en Corporate NAT-gateway.
 
 ## <a name="when-to-use"></a>När du ska använda detta
 
-Om du vill konfigurera Event Hubs-namnområdet, till exempel som det ska ta emot trafik från bara angivna intervall med IP-adresser och avvisa allt annat så kan du utnyttja en *brandväggsregel* att blockera Event Hub-slutpunkter från andra IP-adresser. Exempel: Om du använder Event Hubs med [Azure Express Route][express-route], kan du skapa en *brandväggsregel* att begränsa trafiken från din lokala infrastruktur IP-adress adresser.
+Om du vill konfigurera Event Hubs namn området så att det endast ska ta emot trafik från ett visst intervall med IP-adresser och neka allt annat, kan du utnyttja en *brand Väggs regel* för att blockera Event Hub-slutpunkter från andra IP-adresser. Om du till exempel använder Event Hubs med [Azure Express Route][express-route]kan du skapa en *brand Väggs regel* för att begränsa trafiken från dina lokala infrastruktur-IP-adresser.
 
-## <a name="how-filter-rules-are-applied"></a>Hur filterregler tillämpas
+## <a name="how-filter-rules-are-applied"></a>Hur filter regler tillämpas
 
-IP-filterreglerna tillämpas på namnområdesnivå Event Hubs. Därför gäller reglerna för alla anslutningar från klienter som använder alla protokoll som stöds.
+IP-filter regler tillämpas på Event Hubs namn områdes nivå. Reglerna gäller därför för alla anslutningar från klienter som använder ett protokoll som stöds.
 
-Alla anslutningsförsök från en IP-adress som inte matchar en tillåtna IP-regel i Händelsehubbar namnområde avvisas som ej behörig. Svaret nämner inte IP-regeln.
+Eventuella anslutnings försök från en IP-adress som inte matchar en tillåten IP-regel på Event Hubs namn området nekas som obehörig. Svaret innehåller ingen IP-regel.
 
-## <a name="default-setting"></a>Standardinställningen
+## <a name="default-setting"></a>Standardinställning
 
-Som standard den **IP-adressfilter** rutnätet i portalen för Event Hubs är tomt. Den här standardinställningen innebär att din händelsehubb tar emot anslutningar från alla IP-adresser. Den här standardinställningen motsvarar en regel som accepterar 0.0.0.0/0 IP-adressintervall.
+Som standard är rutnätet för **IP-filter** i portalen för Event Hubs tomt. Den här standardinställningen innebär att händelsehubben accepterar anslutningar från alla IP-adresser. Standardvärdet motsvarar en regel som accepterar IP-adressintervallet 0.0.0.0/0.
 
-## <a name="ip-filter-rule-evaluation"></a>IP-filter rule utvärdering
+## <a name="ip-filter-rule-evaluation"></a>Regel utvärdering av IP-filter
 
-IP-filterreglerna tillämpas i ordning och den första regeln som matchar IP-adressen anger åtgärden acceptera eller avvisa.
+IP filter regler tillämpas i ordning och den första regeln som matchar IP-adressen avgör vilken åtgärd som godkänns eller nekas.
 
 >[!WARNING]
-> Implementera brandväggar kan det förhindra att interagera med Händelsehubbar andra Azure-tjänster.
+> Implementering av brand väggar kan förhindra andra Azure-tjänster från att samverka med Event Hubs.
 >
-> Betrodda Microsoft-tjänster inte stöds när IP-filtrering (brandväggar) implementeras och görs tillgänglig snart.
+> Betrodda Microsoft-tjänster stöds inte när IP-filtrering (brand väggar) implementeras och kommer snart att göras tillgänglig.
 >
-> Vanliga Azure-scenarier som inte fungerar med IP-filtrering (Observera att listan är **inte** uttömmande)-
+> Vanliga Azure-scenarier som inte fungerar med IP-filtrering (Observera att listan **inte** är fullständig) –
 > - Azure Monitor
 > - Azure Stream Analytics
 > - Integrering med Azure Event Grid
-> - Azure IoT Hub Routes
-> - Azure IoT Device Explorer
-> - Azure-datautforskaren
+> - Azure IoT Hub vägar
+> - Azure IoT-Device Explorer
 >
-> Den nedan Microsoft services måste vara i ett virtuellt nätverk
+> De Microsoft-tjänster som behövs nedan måste finnas i ett virtuellt nätverk
 > - Azure Web Apps
 > - Azure Functions
 
-### <a name="creating-a-firewall-rule-with-azure-resource-manager-templates"></a>Skapa en brandväggsregel med Azure Resource Manager-mallar
+### <a name="creating-a-firewall-rule-with-azure-resource-manager-templates"></a>Skapa en brand Väggs regel med Azure Resource Manager mallar
 
 > [!IMPORTANT]
-> Brandväggsregler stöds i **standard** och **dedikerade** nivåerna för Event Hubs. De stöds inte på grundläggande nivå.
+> Brand Väggs regler stöds i **standard** -och **dedikerade** nivåer av Event Hubs. De stöds inte på grundläggande nivå.
 
-Följande Resource Manager-mallen gör det möjligt att lägga till en IP-filterregeln i en befintlig Event Hubs-namnområdet.
+Följande Resource Manager-mall gör det möjligt att lägga till en IP-filterlista till ett befintligt Event Hubs-namnområde.
 
 Mallparametrar:
 
-- **ipMask** är en enskild IPv4-adress eller ett block med IP-adresser i CIDR-notation. Till exempel i CIDR representerar notation 70.37.104.0/24 256 IPv4-adresser från 70.37.104.0 till 70.37.104.255 med 24 som anger antalet bitar betydande prefixet för intervallet.
+- **ipMask** är en enskild IPv4-adress eller ett block med IP-adresser i CIDR-notation. I CIDR-notation 70.37.104.0/24 representerar till exempel 256 IPv4-adresser från 70.37.104.0 till 70.37.104.255, med 24 som anger antalet signifikanta prefix för intervallet.
 
 > [!NOTE]
-> Det finns inga neka regler som är möjligt, Azure Resource Manager-mallen har den standardåtgärd som har angetts till **”Tillåt”** som inte begränsar anslutningar.
-> När du skapar regler för virtuellt nätverk eller brandväggar, vi måste ändra den ***”defaultAction”***
+> Även om det inte finns några tillåtna nekade regler, har Azure Resource Manager mal len standard åtgärden inställd på **Tillåt** , vilket inte begränsar anslutningar.
+> När du skapar Virtual Network-eller brand Väggs regler måste vi ändra ***"defaultAction"***
 > 
-> from
+> som
 > ```json
 > "defaultAction": "Allow"
 > ```
@@ -143,13 +142,13 @@ Mallparametrar:
   }
 ```
 
-Om du vill distribuera mallen genom att följa anvisningarna för [Azure Resource Manager][lnk-deploy].
+Följ anvisningarna för [Azure Resource Manager][lnk-deploy]om du vill distribuera mallen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Begränsa åtkomst till Event Hubs till Azure-nätverk finns i följande länk:
+Information om hur du begränsar åtkomsten till Event Hubs till virtuella Azure-nätverk finns i följande länk:
 
-- [Tjänstslutpunkter i virtuella nätverk för Event Hubs][lnk-vnet]
+- [Virtual Network tjänst slut punkter för Event Hubs][lnk-vnet]
 
 <!-- Links -->
 

@@ -7,20 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 55ded9a733baaac7fbc78621bd625d57d1d37ad1
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 8ebd91f8f02ad7eacd8440b34a31b78f5cac5741
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255491"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472622"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Använda en standard-SKU-belastningsutjämnare i Azure Kubernetes service (AKS)
 
 För att ge åtkomst till dina program i Azure Kubernetes service (AKS) kan du skapa och använda en Azure Load Balancer. En belastningsutjämnare som körs på AKS kan användas som en intern eller extern belastningsutjämnare. En intern belastningsutjämnare gör att en Kubernetes-tjänst endast är tillgänglig för program som körs i samma virtuella nätverk som AKS-klustret. En extern belastningsutjämnare tar emot en eller flera offentliga IP-adresser för ingress och gör en Kubernetes-tjänst tillgänglig externt med hjälp av offentliga IP-adresser.
 
-Azure Load Balancer finns i två SKU: er – *Basic* och *standard*. Som standard används *Basic* SKU när ett tjänst manifest används för att skapa en BELASTNINGSUTJÄMNARE på AKS. Med en *standard* -SKU-belastningsutjämnare får du ytterligare funktioner och funktioner, till exempel större storlek på backend-pool och Tillgänglighetszoner. Det är viktigt att du förstår skillnaderna mellan *standard* -och *grundläggande* belastningsutjämnare innan du väljer vilken du vill använda. När du har skapat ett AKS-kluster kan du inte ändra SKU för belastnings utjämning för det klustret. Mer information om *Basic* -och *standard* -SKU: er finns i [jämförelse av Azure Load Balancer SKU][azure-lb-comparison].
-
-Den här artikeln visar hur du skapar och använder en Azure Load Balancer med *standard* -SKU: n med Azure Kubernetes service (AKS).
+Azure Load Balancer finns i två SKU: er – *Basic* och *standard*. *Standard* -SKU: n används som standard när du skapar ett AKS-kluster. Med en *standard* -SKU-belastningsutjämnare får du ytterligare funktioner och funktioner, till exempel större storlek på backend-pool och Tillgänglighetszoner. Det är viktigt att du förstår skillnaderna mellan *standard* -och *grundläggande* belastningsutjämnare innan du väljer vilken du vill använda. När du har skapat ett AKS-kluster kan du inte ändra SKU för belastnings utjämning för det klustret. Mer information om *Basic* -och *standard* -SKU: er finns i [jämförelse av Azure Load Balancer SKU][azure-lb-comparison].
 
 Den här artikeln förutsätter grundläggande kunskaper om Kubernetes och Azure Load Balancer koncept. Mer information finns i [Kubernetes Core Concepts for Azure Kubernetes service (AKS)][kubernetes-concepts] och [Vad är Azure Load Balancer?][azure-lb].
 
@@ -31,10 +29,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 Om du väljer att installera och använda CLI lokalt kräver den här artikeln att du kör Azure CLI-version 2.0.74 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
 ## <a name="before-you-begin"></a>Innan du börjar
+Den här artikeln förutsätter att du har ett AKS-kluster med *standard* -SKU-Azure Load Balancer. Om du behöver ett AKS-kluster kan du läsa snabb starten för AKS [med hjälp av Azure CLI][aks-quickstart-cli] eller [Azure Portal][aks-quickstart-portal].
 
-AKS-kluster tjänstens huvud namn måste ha behörighet att hantera nätverks resurser om du använder ett befintligt undernät eller en befintlig resurs grupp. I allmänhet tilldelar du rollen *nätverks deltagare* till tjänstens huvud namn på de delegerade resurserna. Mer information om behörigheter finns i [delegera AKS-åtkomst till andra Azure-resurser][aks-sp].
-
-Du måste skapa ett AKS-kluster som anger SKU: n för belastningsutjämnaren till *standard* i stället för standard *Basic*.
+AKS-kluster tjänstens huvud namn behöver också behörighet att hantera nätverks resurser om du använder ett befintligt undernät eller en befintlig resurs grupp. I allmänhet tilldelar du rollen *nätverks deltagare* till tjänstens huvud namn på de delegerade resurserna. Mer information om behörigheter finns i [delegera AKS-åtkomst till andra Azure-resurser][aks-sp].
 
 ### <a name="limitations"></a>Begränsningar
 
@@ -48,220 +45,11 @@ Följande begränsningar gäller när du skapar och hanterar AKS-kluster som st�
 * Du kan bara definiera belastningsutjämnare-SKU: n när du skapar ett AKS-kluster. Du kan inte ändra SKU: n för belastningsutjämnaren efter att ett AKS-kluster har skapats.
 * Du kan bara använda en SKU för belastnings utjämning i ett enda kluster.
 
-## <a name="create-a-resource-group"></a>Skapa en resursgrupp
+## <a name="configure-the-load-balancer-to-be-internal"></a>Konfigurera belastningsutjämnaren så att den är intern
 
-En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras. När du skapar en resursgrupp uppmanas du att ange en plats. Den här platsen är den plats där resurs gruppens metadata lagras, men det är även där dina resurser körs i Azure om du inte anger någon annan region när du skapar en resurs. Skapa en resurs grupp med kommandot [AZ Group Create][az-group-create] .
+Du kan också konfigurera belastningsutjämnaren så att den är intern och inte exponera en offentlig IP-adress. Om du vill konfigurera belastningsutjämnaren som intern lägger du till `service.beta.kubernetes.io/azure-load-balancer-internal: "true"` som en anteckning till *Loadbalancer* -tjänsten. Du kan se ett exempel på yaml-manifest och mer information om en intern belastningsutjämnare [här][internal-lb-yaml].
 
-I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
-
-```azurecli-interactive
-az group create --name myResourceGroup --location eastus
-```
-
-Följande exempelutdata visar den resursgrupp som skapats:
-
-```json
-{
-  "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup",
-  "location": "eastus",
-  "managedBy": null,
-  "name": "myResourceGroup",
-  "properties": {
-    "provisioningState": "Succeeded"
-  },
-  "tags": null,
-  "type": null
-}
-```
-
-## <a name="create-aks-cluster"></a>Skapa AKS-kluster
-För att kunna köra ett AKS-kluster som har stöd för en belastningsutjämnare med *standard* -SKU: n, måste klustret ange parametern *Load-Balancer-SKU* till *standard*. Den här parametern skapar en belastningsutjämnare med *standard* -SKU: n när klustret skapas. När du kör en *Loadbalancer* -tjänst i klustret uppdateras konfigurationen av *standard* -SKU-belastningsutjämnaren med tjänstens konfiguration. Använd kommandot [AZ AKS Create][az-aks-create] för att skapa ett AKS-kluster med namnet *myAKSCluster*.
-
-> [!NOTE]
-> Egenskapen *Load-Balancer-SKU* kan endast användas när klustret skapas. Du kan inte ändra SKU: n för belastningsutjämnaren efter att ett AKS-kluster har skapats. Du kan också bara använda en typ av SKU för belastningsutjämnare i ett enda kluster.
-> 
-> Om du vill använda dina egna offentliga IP-adresser använder du parametrarna *Load-Balancer-utgående-IP*eller *Load-Balancer-utgående-IP-prefix* . Båda parametrarna kan också användas vid [uppdatering av klustret](#optional---provide-your-own-public-ips-or-prefixes-for-egress).
-
-```azurecli-interactive
-az aks create \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
-    --vm-set-type VirtualMachineScaleSets \
-    --node-count 1 \
-    --load-balancer-sku standard \
-    --generate-ssh-keys
-```
-
-Efter några minuter slutförs kommandot och returnerar JSON-formaterad information om klustret.
-
-## <a name="connect-to-the-cluster"></a>Anslut till klustret
-
-Om du vill hantera ett Kubernetes-kluster använder du [kubectl][kubectl], Kubernetes kommando rads klient. Om du använder Azure Cloud Shell är `kubectl` redan installerat. Om du vill installera `kubectl` lokalt använder du kommandot [AZ AKS install-CLI][az-aks-install-cli] :
-
-```azurecli
-az aks install-cli
-```
-
-För att konfigurera `kubectl` till att ansluta till ditt Kubernetes-kluster använder du kommandot [az aks get-credentials][az-aks-get-credentials]. Det här kommandot laddar ned autentiseringsuppgifter och konfigurerar Kubernetes CLI för att använda dem.
-
-```azurecli-interactive
-az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
-```
-
-Du kan kontrollera anslutningen till klustret genom att köra kommandot [kubectl get][kubectl-get] för att returnera en lista över klusternoderna.
-
-```azurecli-interactive
-kubectl get nodes
-```
-
-Följande exempelutdata visar den enskilda nod som skapades i föregående steg. Kontrollera att status för noden är *Klar*:
-
-```
-NAME                       STATUS   ROLES   AGE     VERSION
-aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.13.10
-```
-
-## <a name="verify-your-cluster-uses-the-standard-sku"></a>Verifiera att klustret använder *standard* -SKU: n
-
-Använd [AZ AKS show][az-aks-show] för att visa konfigurationen av klustret.
-
-```console
-$ az aks show --resource-group myResourceGroup --name myAKSCluster
-
-{
-  "aadProfile": null,
-  "addonProfiles": null,
-   ...
-   "networkProfile": {
-    "dnsServiceIp": "10.0.0.10",
-    "dockerBridgeCidr": "172.17.0.1/16",
-    "loadBalancerSku": "standard",
-    ...
-```
-
-Kontrol lera att egenskapen *loadBalancerSku* visar som *standard*.
-
-## <a name="use-the-load-balancer"></a>Använda belastningsutjämnaren
-
-Om du vill använda belastnings utjämning i klustret skapar du ett tjänst manifest med tjänst typen *Loadbalancer*. Om du vill visa belastnings Utjämnings arbetet skapar du ett annat manifest med ett exempel program som ska köras i klustret. Det här exempel programmet exponeras via belastningsutjämnaren och kan visas via en webbläsare.
-
-Skapa ett manifest med namnet `sample.yaml` som visas i följande exempel:
-
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: azure-vote-back
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: azure-vote-back
-  template:
-    metadata:
-      labels:
-        app: azure-vote-back
-    spec:
-      nodeSelector:
-        "beta.kubernetes.io/os": linux
-      containers:
-      - name: azure-vote-back
-        image: redis
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 250m
-            memory: 256Mi
-        ports:
-        - containerPort: 6379
-          name: redis
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: azure-vote-back
-spec:
-  ports:
-  - port: 6379
-  selector:
-    app: azure-vote-back
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: azure-vote-front
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: azure-vote-front
-  template:
-    metadata:
-      labels:
-        app: azure-vote-front
-    spec:
-      nodeSelector:
-        "beta.kubernetes.io/os": linux
-      containers:
-      - name: azure-vote-front
-        image: microsoft/azure-vote-front:v1
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 250m
-            memory: 256Mi
-        ports:
-        - containerPort: 80
-        env:
-        - name: REDIS
-          value: "azure-vote-back"
-```
-
-Ovanstående manifest konfigurerar två distributioner: *Azure-rösta-framtill* och *Azure-rösta – tillbaka*. Om du vill konfigurera *Azure-röst-front-* distribution som ska exponeras med belastningsutjämnaren skapar du ett manifest med namnet `standard-lb.yaml` som visas i följande exempel:
-
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: azure-vote-front
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 80
-  selector:
-    app: azure-vote-front
-```
-
-Tjänsten *Azure-röst-front* använder *Loadbalancer* -typen för att konfigurera belastningsutjämnaren på ditt AKS-kluster för att ansluta till *Azure-röstning-frontend-* distributionen.
-
-Distribuera exempel programmet och belastningsutjämnaren med hjälp av [kubectl tillämpa][kubectl-apply] och ange namnet på dina yaml-manifest:
-
-```console
-kubectl apply -f sample.yaml
-kubectl apply -f standard-lb.yaml
-```
-
-*Standard* -SKU: n är nu konfigurerad för att exponera exempel programmet. Visa tjänst informationen för *Azure-röstning-frontend* med [kubectl Hämta][kubectl-get] för att se belastnings UTJÄMNINGENS offentliga IP-adress. Belastnings utjämningens offentliga IP-adress visas i kolumnen *extern IP-* adress. Det kan ta en minut eller två att ändra IP-adressen från *\<pending @ no__t-2* till en faktisk extern IP-adress, som visas i följande exempel:
-
-```
-$ kubectl get service azure-vote-front
-
-NAME                TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)        AGE
-azure-vote-front    LoadBalancer   10.0.227.198   52.179.23.131   80:31201/TCP   16s
-```
-
-Navigera till den offentliga IP-adressen i en webbläsare och kontrol lera att du ser exempel programmet. I exemplet ovan är den offentliga IP-adressen `52.179.23.131`.
-
-![Bild som illustrerar hur du navigerar till Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
-
-> [!NOTE]
-> Du kan också konfigurera belastningsutjämnaren så att den är intern och inte exponera en offentlig IP-adress. Om du vill konfigurera belastningsutjämnaren som intern lägger du till `service.beta.kubernetes.io/azure-load-balancer-internal: "true"` som en anteckning till *Loadbalancer* -tjänsten. Du kan se ett exempel på yaml-manifest och mer information om en intern belastningsutjämnare [här][internal-lb-yaml].
-
-## <a name="optional---scale-the-number-of-managed-public-ips"></a>Valfria – skala antalet hanterade offentliga IP-adresser
+## <a name="scale-the-number-of-managed-public-ips"></a>Skala antalet hanterade offentliga IP-adresser
 
 När du använder en *standard* -SKU för belastningsutjämnare med hanterade utgående offentliga IP-adresser, som skapas som standard, kan du skala antalet hanterade utgående offentliga IP-adresser med hjälp av parametern *Load-Balancer-Managed-IP-Count* .
 
@@ -276,9 +64,9 @@ az aks update \
 
 Exemplet ovan anger antalet hanterade utgående offentliga IP-adresser till *2* för *myAKSCluster* -klustret i *myResourceGroup*. 
 
-Du kan också använda parametern *belastningsutjämnare-hanterade-IP-antal* för att ange det ursprungliga antalet hanterade, offentliga IP-adresser när du skapar klustret genom att lägga till parametern `--load-balancer-managed-outbound-ip-count` och ange önskat värde. Standardvärdet för hanterade utgående offentliga IP-adresser är 1.
+Du kan också använda parametern *belastningsutjämnare-hanterade-IP-antal* för att ange det ursprungliga antalet hanterade offentliga IP-adresser när du skapar klustret genom att lägga till `--load-balancer-managed-outbound-ip-count`-parametern och ange det till önskat värde. Standardvärdet för hanterade utgående offentliga IP-adresser är 1.
 
-## <a name="optional---provide-your-own-public-ips-or-prefixes-for-egress"></a>Valfritt – ange egna offentliga IP-adresser eller prefix för utgående trafik
+## <a name="provide-your-own-public-ips-or-prefixes-for-egress"></a>Ange egna offentliga IP-adresser eller prefix för utgående trafik
 
 När du använder en *standard* -SKU-BELASTNINGSUTJÄMNARE skapar AKS-klustret automatiskt en offentlig IP-adress i samma resurs grupp som skapats för AKS-klustret och tilldelar den offentliga IP-adressen till *standard* -SKU-belastningsutjämnaren. Alternativt kan du tilldela din egen offentliga IP-adress när klustret skapas, eller så kan du uppdatera ett befintligt klusters egenskaper för belastningsutjämnare.
 
@@ -336,7 +124,7 @@ Du kanske vill ta med dina egna IP-adresser eller IP-prefix för utgående trafi
 
 Använd kommandot *AZ AKS Create* med parametern *Load-Balancer-utgående-IP* för att skapa ett nytt kluster med dina offentliga IP-adresser vid start.
 
-```
+```azurecli-interactive
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
@@ -349,7 +137,7 @@ az aks create \
 
 Använd kommandot *AZ AKS Create* med parametern *Load-Balancer-utgående-IP-prefix* för att skapa ett nytt kluster med dina offentliga IP-prefix vid starten.
 
-```
+```azurecli-interactive
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
@@ -358,15 +146,6 @@ az aks create \
     --load-balancer-sku standard \
     --generate-ssh-keys \
     --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
-```
-
-## <a name="clean-up-the-standard-sku-load-balancer-configuration"></a>Rensa standard konfigurationen för SKU-belastnings utjämning
-
-Ta bort exempel programmet och belastnings Utjämnings konfigurationen med [kubectl Delete][kubectl-delete]:
-
-```console
-kubectl delete -f sample.yaml
-kubectl delete -f standard-lb.yaml
 ```
 
 ## <a name="next-steps"></a>Nästa steg
@@ -408,4 +187,3 @@ Läs mer om Kubernetes Services i [dokumentationen för Kubernetes Services][kub
 [use-kubenet]: configure-kubenet.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-

@@ -1,7 +1,7 @@
 ---
-title: Hantera data från Azure AI-galleriet
-titleSuffix: Azure Machine Learning Studio
-description: 'Du kan exportera och ta bort i produkten användardata från Azure AI-galleriet med hjälp av gränssnittet eller AI-galleriet Catalog API: et. Den här artikeln visar hur du gör.'
+title: Hantera data från Azure AI Gallery
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Du kan exportera och ta bort användar data från en produkt från Azure AI Gallery med hjälp av gränssnitts-eller AI-galleriets katalog-API. Den här artikeln visar hur du gör.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,63 +11,63 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: 44ff2a5b723c086604acf39e9f975deb53759ae1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0b0bd4b01056769d38179597e477ecb164fa9ab
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60752053"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493541"
 ---
-# <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Visa och ta bort i produkten användardata från Azure AI-galleriet
+# <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Visa och ta bort användar data i produkten från Azure AI Gallery
 
-Du kan visa och ta bort i produkten användardata från Azure AI-galleriet med hjälp av gränssnittet eller AI-galleriet Catalog API: et. Den här artikeln visar hur du gör.
+Du kan visa och ta bort användar data från Azure AI Gallery med hjälp av gränssnitts-eller AI-galleriets katalog-API. Den här artikeln beskriver hur du gör.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="view-your-data-in-ai-gallery-with-the-ui"></a>Visa dina data i AI-galleriet med Användargränssnittet
+## <a name="view-your-data-in-ai-gallery-with-the-ui"></a>Visa dina data i AI-galleriet med användar gränssnittet
 
-Du kan visa objekt som du har publicerat via webbplatsen Azure AI-galleriet Användargränssnittet. Användare kan visa både offentliga och olistade lösningar, projekt, experiment och andra publicerade objekt:
+Du kan visa objekt som du har publicerat via användar gränssnittet för Azure AI Gallery webbplats. Användare kan visa både offentliga och ej listade lösningar, projekt, experiment och andra publicerade objekt:
 
-1.  Logga in på den [Azure AI-galleriet](https://gallery.azure.ai/).
-2.  Klicka på profilbild i det övre högra hörnet och sedan namnet på kontot för att läsa in din profilsida.
-3.  Profilsidan visas alla objekt som publicerats i galleriet, inklusive olistade poster.
+1.  Logga in på [Azure AI Gallery](https://gallery.azure.ai/).
+2.  Klicka på profil bilden i det övre högra hörnet och sedan på konto namnet för att läsa in din profil sida.
+3.  På sidan profil visas alla objekt som har publicerats i galleriet, inklusive poster som inte finns i listan.
 
-## <a name="use-the-ai-gallery-catalog-api-to-view-your-data"></a>Använd AI-galleriet Catalog-API: et för att visa dina data
+## <a name="use-the-ai-gallery-catalog-api-to-view-your-data"></a>Använd AI-galleriets katalog-API för att visa dina data
 
-Du kan visa data som samlas in via AI-galleriet Catalog API, som är tillgänglig på programmässigt https://catalog.cortanaanalytics.com/entities. Om du vill visa data som du behöver ditt författare-ID. Om du vill visa olistade myndigheter via Catalog-API: et, behöver du en åtkomsttoken.
+Du kan visa data som samlas in via program mässigt i AI-galleriets katalog-API, som är tillgängligt på https://catalog.cortanaanalytics.com/entities. Om du vill visa data behöver du ditt författar-ID. Om du vill visa enheter som inte finns i listan via katalog-API: et behöver du en åtkomsttoken.
 
-Katalogen svar returneras i JSON-format.
+Katalog svar returneras i JSON-format.
 
-### <a name="get-an-author-id"></a>Hämta ett författare-ID
-ID: T för författaren baseras på den e-postadress som används vid publicering till Azure AI-galleriet. Den ändrar inte:
+### <a name="get-an-author-id"></a>Hämta ett författar-ID
+Författar-ID baseras på den e-postadress som används vid publicering till Azure AI Gallery. Den ändras inte:
 
-1.  Logga in på [Azure AI-galleriet](https://gallery.azure.ai/).
-2.  Klicka på profilbild i det övre högra hörnet och sedan namnet på kontot för att läsa in din profilsida.
-3.  Webbadressen i adressfältet visas alfanumeriska ID följande `authorId=`. Till exempel för URL: en: `https://gallery.azure.ai/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
+1.  Logga in på [Azure AI Gallery](https://gallery.azure.ai/).
+2.  Klicka på profil bilden i det övre högra hörnet och sedan på konto namnet för att läsa in din profil sida.
+3.  URL: en i adress fältet visar det alfanumeriska ID: t efter `authorId=`. Till exempel för URL: en: `https://gallery.azure.ai/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
         
-    Författare-ID: `99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
+    Författar-ID: `99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
 
-### <a name="get-your-access-token"></a>Få din åtkomsttoken
+### <a name="get-your-access-token"></a>Hämta din åtkomsttoken
 
-Du behöver en åtkomsttoken för att visa olistade myndigheter via Catalog-API: et. Utan ett åtkomsttoken, kan användare fortfarande visa offentliga entiteter och andra användarinformation.
+Du behöver en åtkomsttoken för att visa enheter som inte finns i listan via katalog-API. Utan en åtkomsttoken kan användarna fortfarande Visa offentliga entiteter och annan användar information.
 
-För att få en åtkomsttoken kan du behöva granska den `DataLabAccessToken` en HTTP-begäran som webbläsaren skickar till katalogen API: et när du är inloggad-huvud:
+För att få en åtkomsttoken måste du kontrol lera `DataLabAccessToken` rubriken för en HTTP-begäran som webbläsaren gör till katalog-API: et när du är inloggad:
 
-1.  Logga in på den [Azure AI-galleriet](https://gallery.azure.ai/).
-2.  Klicka på profilbild i det övre högra hörnet och sedan namnet på kontot för att läsa in din profilsida.
-3.  Öppna webbläsarens utvecklingsverktyg fönster genom att trycka på F12, Välj fliken nätverk och uppdatera sidan. 
-4. Filtrera begäranden på strängen *catalog* genom att skriva i rutan för textfiltrering.
-5.  I begäranden till URL: en `https://catalog.cortanaanalytics.com/entities`, hitta en GET-begäran och välj den *rubriker* fliken. Rulla ned till den *begärandehuvuden* avsnittet.
-6.  Under rubriken `DataLabAccessToken` är alfanumeriska token. För att skydda dina data, dela inte denna token.
+1.  Logga in på [Azure AI Gallery](https://gallery.azure.ai/).
+2.  Klicka på profil bilden i det övre högra hörnet och sedan på konto namnet för att läsa in din profil sida.
+3.  Öppna webbläsarens Utvecklarverktyg fönstret genom att trycka på F12, Välj fliken nätverk och uppdatera sidan. 
+4. Filtrera begär anden i sträng *katalogen* genom att skriva i text rutan filter.
+5.  I begär anden till URL: en `https://catalog.cortanaanalytics.com/entities`letar du upp en GET-begäran och väljer fliken *sidhuvud* . Rulla ned *till avsnittet begärandehuvuden* .
+6.  Under rubriken `DataLabAccessToken` är den alfanumeriska token. Dela inte denna token om du vill skydda dina data.
 
-### <a name="view-user-information"></a>Visa information om användare
-Med hjälp av författaren-ID som du fick i föregående steg, visa information i en användares profil genom att ersätta `[AuthorId]` i följande URL:
+### <a name="view-user-information"></a>Visa användar information
+Använd det författar-ID som du fick i föregående steg, Visa information i en användares profil genom att ersätta `[AuthorId]` i följande URL:
 
     https://catalog.cortanaanalytics.com/users/[AuthorID]
 
-Exempelvis kan den här URL-begäran:
+Till exempel följande URL-begäran:
     
     https://catalog.cortanaanalytics.com/users/99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA
 
@@ -78,23 +78,23 @@ Returnerar ett svar som:
 
 ### <a name="view-public-entities"></a>Visa offentliga entiteter
 
-Catalog-API: et lagrar information om publicerade entiteter i Azure AI-galleriet som du kan också visa direkt på den [AI-galleriet webbplats](https://gallery.azure.ai/). 
+Katalog-API: t lagrar information om publicerade entiteter till Azure AI Gallery som du också kan visa direkt på [AI-galleriets webbplats](https://gallery.azure.ai/). 
 
-Om du vill visa publicerade entiteter finns följande URL ersätter `[AuthorId]` med ID: T för författaren som hämtades i [hämta ett författare ID](#get-an-author-id) ovan.
+Om du vill visa publicerade entiteter går du till följande URL och ersätter `[AuthorId]` med det författar-ID som hämtades i [Hämta ett författar-ID](#get-an-author-id) ovan.
 
     https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'
 
-Exempel:
+Till exempel:
 
     https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA'
 
-### <a name="view-unlisted-and-public-entities"></a>Visa inte finns i listan och offentliga entiteter
+### <a name="view-unlisted-and-public-entities"></a>Visa enheter som inte finns i listan och offentliga entiteter
 
-Den här frågan visar endast de offentliga enheter. Om du vill visa alla enheter, inklusive olistade som ger åtkomst token hämtas från föregående avsnitt.
+Den här frågan visar endast offentliga entiteter. Om du vill visa alla entiteter, inklusive List rutor, anger du den åtkomsttoken som hämtades från föregående avsnitt.
 
-1.  Med ett verktyg som [Postman](https://www.getpostman.com), skapa en HTTP GET-begäran till URL: en för katalogen enligt beskrivningen i [få din åtkomsttoken](#get-your-access-token).
-2.  Skapa en HTTP-frågehuvudet kallas `DataLabAccessToken`, med värdet satt till åtkomsttoken.
+1.  Använd ett verktyg som [Postman](https://www.getpostman.com)och skapa en HTTP GET-begäran till katalog-URL: en enligt beskrivningen i [Hämta din](#get-your-access-token)åtkomsttoken.
+2.  Skapa ett HTTP Request-huvud med namnet `DataLabAccessToken`, med värdet inställt på åtkomsttoken.
 3.  Skicka HTTP-begäran.
 
 > [!TIP]
-> Om olistade entiteter inte visas i svar från Catalog-API: et, användaren kanske har en ogiltig eller har upphört att gälla åtkomst-token. Logga ut från Azure AI-galleriet och sedan upprepa stegen i [få din åtkomsttoken](#get-your-access-token) att förnya token. 
+> Om entiteter som inte finns i listan inte visas i svar från katalog-API: et, kan användaren ha en ogiltig eller utgången åtkomsttoken. Logga ut från Azure AI Gallery och upprepa sedan stegen i [Hämta](#get-your-access-token) åtkomsttoken för att förnya token. 

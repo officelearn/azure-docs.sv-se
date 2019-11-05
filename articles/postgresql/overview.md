@@ -7,15 +7,15 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 05/06/2019
-ms.openlocfilehash: 5194cf51fd7f1debeba76edb48e8377919ae448a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 9d4389ed2c0cc5d7b632380fba691ae2e9a6b257
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177953"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466750"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Vad är Azure Database for PostgreSQL?
-Azure Database for PostgreSQL är en Relations databas tjänst i Microsoft-molnet som skapats för utvecklare. Den är baserad på community-versionen av [postgresql](https://www.postgresql.org/) Database Engine med öppen källkod och är tillgänglig i två distributions alternativ: Single Server och Scale (citus) (för hands version).
+Azure Database for PostgreSQL är en Relations databas tjänst i Microsoft-molnet som skapats för utvecklare. Den är baserad på community-versionen av [postgresql](https://www.postgresql.org/) Database Engine med öppen källkod och är tillgänglig i två distributions alternativ: Single Server och Scale (citus).
 
 ## <a name="azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-enskild server
 Distributions alternativet för enskild server ger:
@@ -32,7 +32,7 @@ Alla dessa funktioner kräver nästan ingen administration och de tillhandahåll
 
 Distributions alternativet för enskild server har tre pris nivåer: Basic, Generell användning och Minnesoptimerade. Varje nivå erbjuder olika resursfunktioner som har stöd för arbetsbelastningar för databaser. Du kan skapa din första app i en liten databas för några kronor i månaden och sedan justera skalan för att bemöta lösningens behov. Dynamisk skalbarhet gör att databasen reagerar transparent på resurskrav som ändras snabbt. Du betalar bara för de resurser du behöver och endast när du behöver dem. Mer information finns i  [Prisnivåer](concepts-pricing-tiers.md).
 
-## <a name="azure-database-for-postgresql---hyperscale-citus-preview"></a>Azure Database for PostgreSQL-Scale (citus) (för hands version)
+## <a name="azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL-Scale (citus)
 Alternativet för skalning (citus) skalar horisontellt frågor över flera datorer med hjälp av horisontell partitionering. Dess frågemotor parallelizes inkommande SQL-frågor över dessa servrar för snabbare svar på stora data mängder. Den hanterar program som kräver större skalning och prestanda, vanligt vis arbets belastningar som närmar sig – eller som redan är större än 100 GB data.
 
 Citus-distributions alternativet ger:
@@ -42,8 +42,6 @@ Citus-distributions alternativet ger:
 - Utmärkt stöd för program med flera klienter, operativa analyser i real tid och transaktions arbets belastningar med höga data flöden
 
 Program som skapats för PostgreSQL kan köra distribuerade frågor på citus (storskalig) med standard [anslutnings bibliotek](./concepts-connection-libraries.md) och minimala ändringar.
-
-Observera att för hands versionen (citus) finns i en offentlig för hands version och att det inte erbjuder något service avtal ännu.
 
 ## <a name="data-security"></a>Datasäkerhet
 Azure Database for PostgreSQL överlagrar Azure Database Services-tradition av data säkerhet. Den har funktioner som begränsar åtkomst, skyddar data i vila och i rörelse och hjälper dig att övervaka aktiviteten. Besök [Azure Säkerhetscenter](https://azure.microsoft.com/overview/trusted-cloud/) för information om Azures plattformssäkerhet.
@@ -59,5 +57,5 @@ Tänk också på dessa kontakt punkter efter behov:
 
 ## <a name="next-steps"></a>Nästa steg
 - På [prissättningssidan](https://azure.microsoft.com/pricing/details/postgresql/) finns kostnadsjämförelser och kostnadsberäknare.
-- Kom igång genom att skapa din första Azure Database for PostgreSQL [enskild server](./quickstart-create-server-database-portal.md) eller [storskalig (citus) (för hands version)](./quickstart-create-hyperscale-portal.md)
+- Kom igång genom att skapa din första Azure Database for PostgreSQL [enskild server](./quickstart-create-server-database-portal.md) eller [storskalig (citus)](./quickstart-create-hyperscale-portal.md)
 - Skapa den första appen i Python, PHP, Ruby, C\#, Java, Node.js: [anslutningsbibliotek](./concepts-connection-libraries.md)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 155ca71ae30559cc79e090a8a7bbc12c896b637f
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
-ms.translationtype: MT
+ms.openlocfilehash: f8c049cc8d2b09cb37dbd444427b03c1013da65c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973002"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73523907"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om Azure IaaS VM-diskar och hanterade och ohanterade Premium-diskar
 
@@ -35,7 +35,7 @@ Ja. Du debiteras för varje transaktion. Mer information finns på sidan med [pr
 
 **Kommer jag att debiteras för den faktiska storleken på data på disken eller för den allokerade kapaciteten på disken för en standard hanterad disk?**
 
-Du debiteras baserat på den allokerade kapaciteten för disken. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/storage).
+Du debiteras baserat på diskens etablerade kapacitet. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/storage).
 
 **Hur skiljer sig priserna från Premium Managed disks från ohanterade diskar?**
 
@@ -85,9 +85,9 @@ Du konfigurerar ett privat lagrings konto för VM-diagnostik.
 
 Managed Disks stöder tre nyckel standard roller:
 
-* Innehavare Kan hantera allt, inklusive åtkomst
-* Arbeta Kan hantera allt utom åtkomst
-* Acrobat Kan visa allt, men det går inte att göra ändringar
+* Ägare: kan hantera allt, inklusive åtkomst
+* Deltagare: kan hantera allt utom åtkomst
+* Läsare: kan visa allt, men kan inte göra ändringar
 
 **Finns det något sätt som jag kan kopiera eller exportera en hanterad disk till ett privat lagrings konto?**
 
@@ -145,6 +145,30 @@ GPT-partitionering kan bara användas på data diskar, inte på OS-diskar. OS-di
 
 Ögonblicks bilder av Premium SSD, standard SSD och standard-HDD stöder. För dessa tre disk typer stöds ögonblicks bilder för alla disk storlekar (inklusive diskar upp till 32 TiB i storlek). Ultra disks stöder inte ögonblicks bilder.
 
+### <a name="disk-reservation"></a>Disk reservation
+
+**Vad är Azure disk reservation?**
+Disk reservation är möjligheten att köpa ett års disk lagring i förväg, vilket minskar den totala kostnaden.
+
+**Vilka alternativ erbjuder Azure disk reservation?**
+Med Azure disk reservation får du möjlighet att köpa Premium-SSD i de angivna SKU: erna från P30 (1 TiB) upp till P80 (32 TiB) under ett år. Det finns ingen begränsning för den minsta mängd diskar som krävs för att köpa en disk reservation. Dessutom kan du välja att betala med en enda, förskotts betalning eller månads betalningar. Ingen ytterligare transaktionell kostnad tillämpas för Premium SSD Managed Disks.
+
+Reservationer görs i form av diskar, inte kapacitet. Med andra ord får du en enda P80-disk när du reserverar en P80-disk (32 TiB), du kan inte Divvy den för att reservera upp till två mindre P70-diskar (16 TiB). Du kan naturligtvis reservera så många eller så få diskar som du vill, inklusive två separata P70-diskar (16 TiB).
+
+**Hur debiteras jag för Azure disk reservation?**
+- För Enterprise-avtal-kunder (EA) kommer Azures betalnings åtagande först att användas för att köpa Azure disk-reservationer. I scenarier där EA-kunder har använt hela sitt betalnings åtagande, kan disk reservationer fortfarande köpas, och dessa inköp faktureras för den enda förskotts betalningen på nästa debiterings faktura.
+
+- För kunder som köper via Azure.com, vid tidpunkten för köpet debiteras kredit kortet för filen för den fullständiga utbetalningen (eller månatliga fasta betalningar) av Azure disks-reservation.
+
+**Hur tillämpas Azure disk reservation?**
+Disk reservationen följer en modell liknande de reserverade virtuella dator instanserna. Skillnaden är att en disk reservation inte kan tillämpas på olika SKU: er, medan en VM-instans kan. Mer information om VM-instanser finns i [Spara kostnader med Azure Reserved VM instances](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) . 
+
+**Kan jag använda min data lagring via reservationen av Azure-diskar i flera regioner?**
+Azure disks-reservationen köps för en bestämd region och SKU (som P30 i USA, östra 2) och kan därför inte användas utanför dessa konstruktioner. Du kan alltid köpa ytterligare en Azure disks-reservation för dina disk lagrings behov i andra regioner eller SKU: er.
+
+**Vad händer när reservationen för Azure disks upphör att gälla?**
+Du får e-postmeddelanden 30 dagar innan det går ut och sedan på förfallo datumet. När reservationen går ut fortsätter de distribuerade diskarna att köras och debiteras enligt de senaste priserna enligt principen [betala per](https://azure.microsoft.com/pricing/details/managed-disks/)användning.
+
 ## <a name="ultra-disks"></a>Ultra disks
 
 **Vilka regioner stöder för närvarande Ultra disks?**
@@ -157,7 +181,7 @@ GPT-partitionering kan bara användas på data diskar, inte på OS-diskar. OS-di
 - DSv3
 
 **Vad ska jag ställa in mitt hård disk data flöde på?**
-Om du är osäker på vad du ska ställa in disk data flödet på rekommenderar vi att du börjar med att anta en i/o-storlek på 16 KiB och justerar prestandan därifrån när du övervakar ditt program. Formeln är: Data flöde i Mbit/s = # av IOPS * 16/1000.
+Om du är osäker på vad du ska ställa in disk data flödet på rekommenderar vi att du börjar med att anta en i/o-storlek på 16 KiB och justerar prestandan därifrån när du övervakar ditt program. Formeln är: data flöde i Mbit/s = # av IOPS * 16/1000.
 
 **Jag har konfigurerat min disk till 40000 IOPS men jag ser bara 12800 IOPS, varför ser jag inte diskens prestanda?**
 Förutom disk begränsningen finns det en IO-begränsning som läggs på VM-nivån. Kontrol lera att den virtuella dator storleken som du använder stöder de nivåer som har kon figurer ATS på diskarna. Information om de IO-gränser som den virtuella datorn har infört finns i [storlekar för virtuella Windows-datorer i Azure](../articles/virtual-machines/windows/sizes.md).
@@ -333,7 +357,19 @@ Ja
 
 Nej. Men om du exporterar en virtuell hård disk till ett krypterat lagrings konto från en krypterad hanterad disk eller ögonblicks bild är den krypterad. 
 
-## <a name="premium-disks-managed-and-unmanaged"></a>Premium diskar: Hanterade och ohanterade
+## <a name="premium-disks-managed-and-unmanaged"></a>Premium diskar: hanterade och ohanterade
+
+**Vilka regioner stöder burst-kapacitet för tillämplig Premium SSD-disk storlek?**
+
+Burst-funktionen stöds för närvarande i Azure västra centrala USA.
+
+**Vilka regioner är 4/8/16 GiB-hanterade disk storlekar (P1/P2/P3, E1/E2/E3) som stöds i?**
+
+Dessa nya disk storlekar stöds för närvarande i Azure västra centrala USA.
+
+**Stöds disk storlekarna P1/P2/P3 för ohanterade diskar eller sid-blobar?**
+
+Nej, det stöds bara på Premium SSD Managed Disks. 
 
 **Om en virtuell dator använder en storleks serie som stöder Premium SSD diskar, t. ex. en DSv2, kan jag koppla både Premium-och standard data diskar?** 
 
@@ -363,7 +399,7 @@ Den lokala SSD-enheten är tillfällig lagring som ingår i en Managed Disks VM.
 
 Det finns ingen nack delar med att trimma på Azure-diskar på antingen Premium-eller standard diskar.
 
-## <a name="new-disk-sizes-managed-and-unmanaged"></a>Nya disk storlekar: Hanterade och ohanterade
+## <a name="new-disk-sizes-managed-and-unmanaged"></a>Nya disk storlekar: hanterade och ohanterade
 
 **Vilken är den största hanterade disk storleken som stöds för operativ system och data diskar?**
 
@@ -383,10 +419,10 @@ Du behöver inte uppgradera dina befintliga Azure-verktyg för att skapa, bifoga
 
 |Azure-verktyg      | Versioner som stöds                                |
 |-----------------|---------------------------------------------------|
-|Azure PowerShell | 4\.1.0 för versions nummer: Utgåva från juni 2017 eller senare|
-|Azure CLI v1     | 0\.10.13 för versions nummer: Maj 2017-utgåva eller senare|
-|Azure CLI v2     | 2\.0.12 för versions nummer: Version juli 2017 eller senare|
-|AzCopy           | 6\.1.0 för versions nummer: Utgåva från juni 2017 eller senare|
+|Azure PowerShell | Versions nummer 4.1.0: utgåva 2017 juni eller senare|
+|Azure CLI v1     | Versions nummer 0.10.13: maj 2017 release eller senare|
+|Azure CLI v2     | Versions nummer 2.0.12: juli 2017-utgåva eller senare|
+|AzCopy           | Versions nummer 6.1.0: utgåva 2017 juni eller senare|
 
 **Stöds P4-och P6-disk storlekar för ohanterade diskar eller sid-blobar?**
 
@@ -410,7 +446,7 @@ Den största disk storleken som stöds av Azure Backup-och Azure Site Recovery-t
 
 **Vilka är de rekommenderade VM-storlekarna för större disk storlekar (> 4 TiB) för Standard SSD och Standard HDD diskar för att åstadkomma optimerad disk-IOPS och bandbredd?**
 
-För att uppnå disk data flödet för Standard SSD och Standard HDD stora disk storlekar (> 4 TiB) utöver 500 IOPS och 60 MiB/s, rekommenderar vi att du distribuerar en ny virtuell dator från någon av följande VM-storlekar för att optimera prestandan: B-serien, DSv2-serien, Dsv3-serien, ESv3-serien, FS-serien, Fsv2-serien, M-serien, GS-serien, NCv2-serien, NCv3-serien eller LS-seriens virtuella datorer. Om du bifogar stora diskar till befintliga virtuella datorer eller virtuella datorer som inte använder de rekommenderade storlekarna ovan kan det uppstå lägre prestanda.
+För att uppnå disk data flödet för Standard SSD och Standard HDD stora disk storlekar (> 4 TiB) utöver 500 IOPS och 60 MiB/s, rekommenderar vi att du distribuerar en ny virtuell dator från någon av följande VM-storlekar för att optimera prestanda: B-serien, DSv2-serien, Dsv3-serien, ESv3-serien , FS-serien, Fsv2-serien, M-serien, GS-serien, NCv2-serien, NCv3-serien eller LS-seriens virtuella datorer. Om du bifogar stora diskar till befintliga virtuella datorer eller virtuella datorer som inte använder de rekommenderade storlekarna ovan kan det uppstå lägre prestanda.
 
 **Hur uppgraderar jag mina diskar (> 4 TiB) som distribuerades under för hands versionen av större disk storlekar för att få högre IOPS & bandbredd i GA?**
 

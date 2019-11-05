@@ -8,18 +8,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 6fe959a661f23673bb5d3e6df630ef4ee25128f7
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 894396686a54ed3a685366fcf3e933fa8f03bee8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958550"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474522"
 ---
 # <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Administrera grupprincip i en Azure AD Domain Services hanterad domän
 
 Inställningar för användar-och dator objekt i Azure Active Directory Domain Services (Azure AD DS) hanteras ofta med hjälp av grupprincip objekt (GPO). Azure AD DS innehåller inbyggda grup princip objekt för behållare för *AADDC-användare* och AADDC- *datorer* . Du kan anpassa de här inbyggda grupprincipobjekten för att konfigurera grupprincip efter behov för din miljö. Medlemmar i gruppen *Azure AD DC-administratörer* har Grupprincip administratörs behörighet i Azure AD DS-domänen och kan också skapa anpassade grup princip objekt och organisationsenheter (OU). Mer information om vad grupprincip är och hur det fungerar finns i [Grupprincip översikt][group-policy-overview].
+
+I en hybrid miljö synkroniseras inte grup principer som kon figurer ATS i en lokal AD DS-miljö med Azure AD DS. Om du vill definiera konfigurations inställningar för användare eller datorer i Azure AD DS redigerar du en av standard grup princip objekt eller skapar ett anpassat grup princip objekt.
 
 Den här artikeln visar hur du installerar grupprincip hanterings verktyg och sedan redigerar de inbyggda grupprincipobjekten och skapar anpassade grup princip objekt.
 

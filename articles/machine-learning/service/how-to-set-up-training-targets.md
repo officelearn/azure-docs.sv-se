@@ -3,26 +3,27 @@ title: Skapa och Använd Compute-mål för modell utbildning
 titleSuffix: Azure Machine Learning
 description: Konfigurera utbildnings miljöer (beräknings mål) för maskin inlärnings modell träning. Du kan enkelt växla mellan utbildnings miljöer. Börja träna lokalt. Om du behöver skala ut växlar du till ett moln baserat beräknings mål.
 services: machine-learning
-author: rastala
-ms.author: roastala
+author: sdgilley
+ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 46a212719846eddc7d21f3aeb0815dfbf4119e15
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3237272c7bdab5a798e84117147254a3471f5c6d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935355"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489562"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Konfigurera och Använd Compute-mål för modell träning 
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Med Azure Machine Learning kan du träna din modell på en mängd olika resurser eller miljöer, som sammankallas för [__beräknings mål__](concept-azure-machine-learning-architecture.md#compute-targets). Ett beräknings mål kan vara en lokal dator eller en moln resurs, till exempel en Azure Machine Learning beräkning, Azure HDInsight eller en virtuell dator för virtuella datorer.  Du kan också skapa beräknings mål för modell distribution enligt beskrivningen i ["var och hur du distribuerar dina modeller"](how-to-deploy-and-where.md).
 
-Du kan skapa och hantera ett beräknings mål med hjälp av Azure Machine Learning SDK, Azure Portal, landnings sidan för arbets ytan (för hands version), Azure CLI eller Azure Machine Learning VS Code-tillägg. Om du har beräknings mål som har skapats via en annan tjänst (till exempel ett HDInsight-kluster) kan du använda dem genom att koppla dem till din Azure Machine Learning-arbetsyta.
+Du kan skapa och hantera ett beräknings mål med hjälp av Azure Machine Learning SDK, Azure Machine Learning Studio, Azure CLI eller Azure Machine Learning VS Code Extension. Om du har beräknings mål som har skapats via en annan tjänst (till exempel ett HDInsight-kluster) kan du använda dem genom att koppla dem till din Azure Machine Learning-arbetsyta.
  
 I den här artikeln får du lära dig hur du använder olika beräknings mål för modell träning.  Stegen för alla beräknings mål följer samma arbets flöde:
 1. __Skapa__ ett beräknings mål om du inte redan har ett.
@@ -132,7 +133,7 @@ En beständig Azure Machine Learning beräkning kan återanvändas mellan jobb. 
    Du kan också konfigurera flera avancerade egenskaper när du skapar Azure Machine Learning Compute. Med egenskaperna kan du skapa ett beständigt kluster med fast storlek eller inom en befintlig Azure-Virtual Network i din prenumeration.  Mer information finns i [AmlCompute-klassen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
     ) .
     
-   Eller så kan du skapa och koppla en beständig Azure Machine Learning beräknings resurs [i Azure Portal](#portal-create).
+   Eller så kan du skapa och koppla en beständig Azure Machine Learning beräknings resurs i [Azure Machine Learning Studio](#portal-create).
 
 1. **Konfigurera**: skapa en körnings konfiguration för det beständiga beräknings målet.
 
@@ -154,7 +155,7 @@ Använd Azure-Data Science Virtual Machine (DSVM) som den virtuella Azure-dator 
     > [!WARNING]
     > Azure Machine Learning stöder bara virtuella datorer som kör Ubuntu. När du skapar en virtuell dator eller väljer en befintlig virtuell dator måste du välja en virtuell dator som använder Ubuntu.
 
-1. **Bifoga**: om du vill koppla en befintlig virtuell dator som ett beräknings mål måste du ange det fullständigt kvalificerade domän namnet (FQDN), användar namnet och lösen ordet för den virtuella datorn. I exemplet ersätter du \<fqdn > med det offentliga domän namnet för den virtuella datorn eller den offentliga IP-adressen. Ersätt \<username > och \<Password > med SSH-användarnamnet och lösen ordet för den virtuella datorn.
+1. **Bifoga**: om du vill koppla en befintlig virtuell dator som ett beräknings mål måste du ange det fullständigt kvalificerade domän namnet (FQDN), användar namnet och lösen ordet för den virtuella datorn. I exemplet ersätter du \<FQDN > med det offentliga domän namnet för den virtuella datorn eller den offentliga IP-adressen. Ersätt \<användar namn > och \<lösen ord > med SSH-användarnamnet och lösen ordet för den virtuella datorn.
 
    ```python
    from azureml.core.compute import RemoteCompute, ComputeTarget
@@ -179,7 +180,7 @@ Använd Azure-Data Science Virtual Machine (DSVM) som den virtuella Azure-dator 
    compute.wait_for_completion(show_output=True)
    ```
 
-   Eller så kan du koppla DSVM till din arbets yta [med hjälp av Azure Portal](#portal-reuse).
+   Eller så kan du koppla DSVM till din arbets yta [med Azure Machine Learning Studio](#portal-reuse).
 
 1. **Konfigurera**: skapa en körnings konfiguration för DSVM Compute Target. Docker och Conda används för att skapa och konfigurera utbildnings miljön på DSVM.
 
@@ -196,9 +197,9 @@ Azure HDInsight är en populär plattform för stor data analys. Plattformen ger
 
     När du skapar klustret måste du ange ett SSH-användarnamn och-lösen ord. Anteckna dessa värden eftersom du behöver dem för att använda HDInsight som ett beräknings mål.
     
-    När klustret har skapats ansluter du till det med värd namnet \<clustername >-ssh.azurehdinsight.net, där \<clustername > är det namn som du har angett för klustret. 
+    När klustret har skapats ansluter du till det med värd namnet \<kluster namn >-ssh.azurehdinsight.net, där \<kluster namn > är det namn som du har angett för klustret. 
 
-1. **Bifoga**: om du vill ansluta ett HDInsight-kluster som ett beräknings mål måste du ange värdnamn, användar namn och lösen ord för HDInsight-klustret. I följande exempel används SDK för att ansluta ett kluster till din arbets yta. I exemplet ersätter du \<clustername > med namnet på klustret. Ersätt \<username > och \<Password > med SSH-användarnamnet och lösen ordet för klustret.
+1. **Bifoga**: om du vill ansluta ett HDInsight-kluster som ett beräknings mål måste du ange värdnamn, användar namn och lösen ord för HDInsight-klustret. I följande exempel används SDK för att ansluta ett kluster till din arbets yta. I exemplet ersätter du \<kluster namn > med namnet på klustret. Ersätt \<användar namn > och \<lösen ord > med SSH-användarnamnet och lösen ordet för klustret.
 
    ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
@@ -220,7 +221,7 @@ Azure HDInsight är en populär plattform för stor data analys. Plattformen ger
    hdi_compute.wait_for_completion(show_output=True)
    ```
 
-   Eller så kan du ansluta HDInsight-klustret till din arbets yta [med hjälp av Azure Portal](#portal-reuse).
+   Eller så kan du ansluta HDInsight-klustret till din arbets yta [med Azure Machine Learning Studio](#portal-reuse).
 
 1. **Konfigurera**: skapa en körnings konfiguration för HDI Compute Target. 
 
@@ -270,9 +271,9 @@ except ComputeTargetException:
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
 
-## <a name="set-up-in-azure-portal"></a>Konfigurera i Azure Portal
+## <a name="set-up-in-azure-machine-learning-studio"></a>Konfigurera i Azure Machine Learning Studio
 
-Du kan komma åt de beräknings mål som är associerade med din arbets yta i Azure Portal.  Du kan använda portalen för att:
+Du kan komma åt de beräknings mål som är associerade med din arbets yta i Azure Machine Learning Studio.  Du kan använda Studio för att:
 
 * [Visa beräknings mål](#portal-view) som är kopplade till din arbets yta
 * [Skapa ett beräknings mål](#portal-create) på din arbets yta
@@ -291,7 +292,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 Använd följande steg för att se beräknings målen för din arbets yta:
 
-1. Navigera till [Azure Portal](https://portal.azure.com) och öppna din arbets yta. Du kan också komma åt samma steg på din [landnings sida för arbets ytan (för hands version)](https://ml.azure.com), men bilderna nedan visar Azure Portal.
+1. Navigera till [Azure Machine Learning Studio](https://ml.azure.com).
  
 1. Under __program__väljer du __beräkning__.
 
@@ -310,7 +311,7 @@ Följ föregående steg för att visa listan över beräknings mål. Använd sed
 1. Välj **Machine Learning-beräkning** som den typ av beräkning som ska användas för __träning__. 
 
     >[!NOTE]
-    >Azure Machine Learning Compute är den enda hanterade beräknings resursen som du kan skapa i Azure Portal.  Alla andra beräknings resurser kan bifogas när de har skapats.
+    >Azure Machine Learning Compute är den enda hanterade beräknings resursen som du kan skapa i Azure Machine Learning Studio.  Alla andra beräknings resurser kan bifogas när de har skapats.
 
 1. Fyll i formuläret. Ange värden för de obligatoriska egenskaperna, särskilt **VM-serien**och de **maximalt antal noder** som ska användas för att öka beräkningen.  
 
@@ -336,7 +337,7 @@ Följ stegen som beskrivs ovan för att visa listan över beräknings mål. Anv�
 1. Välj den typ av beräkning som ska bifogas för __träning__:
 
     > [!IMPORTANT]
-    > Alla beräknings typer kan inte kopplas från Azure Portal. De beräknings typer som för närvarande kan bifogas för utbildning är:
+    > Alla beräknings typer kan inte kopplas från Azure Machine Learning Studio. De beräknings typer som för närvarande kan bifogas för utbildning är:
     >
     > * En virtuell fjärrdator
     > * Azure Databricks (används i maskin inlärnings pipeliner)
@@ -379,7 +380,7 @@ När du har skapat en körnings konfiguration använder du den för att köra ex
 > [!IMPORTANT]
 > När du skickar utbildningen skapas en ögonblicks bild av den katalog som innehåller dina utbildnings skript och skickas till beräknings målet. Den lagras också som en del av experimentet i din arbets yta. Om du ändrar filer och skickar körningen igen kommer bara de ändrade filerna att överföras.
 >
-> Om du vill förhindra att filer tas med i ögonblicks bilden skapar du en [. gitignore](https://git-scm.com/docs/gitignore) -eller `.amlignore`-fil i katalogen och lägger till filerna i den. Filen `.amlignore` använder samma syntax och mönster som [. gitignore](https://git-scm.com/docs/gitignore) -filen. Om båda filerna finns, prioriteras `.amlignore`-filen.
+> Om du vill förhindra att filer tas med i ögonblicks bilden skapar du en [. gitignore](https://git-scm.com/docs/gitignore) -eller `.amlignore`-fil i katalogen och lägger till filerna i den. `.amlignore`-filen använder samma syntax och mönster som [. gitignore](https://git-scm.com/docs/gitignore) -filen. Om båda filerna finns har `.amlignore`-filen företräde.
 > 
 > Mer information finns i [ögonblicks bilder](concept-azure-machine-learning-architecture.md#snapshots).
 
@@ -414,7 +415,7 @@ Växla samma experiment för att köra i ett annat beräknings mål genom att an
 
 Eller så kan du:
 
-* Skicka experimentet med ett `Estimator`-objekt såsom visas i [träna ml-modeller med uppskattningar](how-to-train-ml-models.md).
+* Skicka experimentet med ett `Estimator`-objekt som visas i [träna ml-modeller med uppskattningar](how-to-train-ml-models.md).
 * Skicka en HyperDrive-körning för inställning av min [parameter](how-to-tune-hyperparameters.md).
 * Skicka ett experiment via [vs Code-tillägget](how-to-vscode-tools.md#train-and-tune-models).
 
@@ -422,7 +423,7 @@ Mer information finns i dokumentationen om [ScriptRunConfig](https://docs.micros
 
 ## <a name="create-run-configuration-and-submit-run-using-azure-machine-learning-cli"></a>Skapa kör konfiguration och skicka körning med Azure Machine Learning CLI
 
-Du kan använda [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) och [Machine Learning CLI-tillägget](reference-azure-machine-learning-cli.md) för att skapa kör konfigurationer och skicka körningar på olika Compute-mål. Följande exempel förutsätter att du har en befintlig Azure Machine Learning-arbetsyta och att du har loggat in på Azure med `az login` CLI-kommando. 
+Du kan använda [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) och [Machine Learning CLI-tillägget](reference-azure-machine-learning-cli.md) för att skapa kör konfigurationer och skicka körningar på olika Compute-mål. Följande exempel förutsätter att du har en befintlig Azure Machine Learning-arbetsyta och att du har loggat in på Azure med `az login` CLI-kommandot. 
 
 ### <a name="create-run-configuration"></a>Skapa körnings konfiguration
 
@@ -446,6 +447,8 @@ Kör konfigurations filen är YAML formaterad, med följande avsnitt
  * Konfigurations information som är speciell för det valda ramverket.
  * Data referens och data lager information.
  * Konfigurations information som är speciell för Machine Learning-beräkning för att skapa ett nytt kluster.
+
+Se JSON- [filen](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json) för ett fullständigt runconfig-schema.
 
 ### <a name="create-an-experiment"></a>Skapa ett experiment
 

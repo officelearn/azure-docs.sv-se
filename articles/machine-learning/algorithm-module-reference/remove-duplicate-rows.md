@@ -1,24 +1,24 @@
 ---
 title: 'Ta bort dubblettrader: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen ta bort dubbla rader i Azure Machine Learning-tjänsten för att ta bort eventuella dubbletter från en data uppsättning.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen ta bort dubbla rader i Azure Machine Learning för att ta bort potentiella dubbletter från en data uppsättning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 8b3f73c56d85eecd50633085eca0e632abaa6b4c
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: a0faba895c5717d061bacee2ce724c20464f8150
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693670"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497694"
 ---
 # <a name="remove-duplicate-rows-module"></a>Ta bort modul för dubbla rader
 
-I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd den här modulen för att ta bort potentiella dubbletter från en data uppsättning.
 
@@ -78,4 +78,4 @@ När du kör modulen skapar den en Candidate-datauppsättning och returnerar en 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

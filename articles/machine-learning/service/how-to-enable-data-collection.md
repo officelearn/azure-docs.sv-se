@@ -6,19 +6,20 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: jmartens
-ms.author: marthalc
-author: marthalc
+ms.reviewer: laobri
+ms.author: copeters
+author: lostmygithubaccount
 ms.date: 10/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 25017e6ea0be5d4320832298cdadbec7ec5a05cc
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
-ms.translationtype: MT
+ms.openlocfilehash: 845d271c60762177ea88912f2100f3b47aedde46
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72929371"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489988"
 ---
 # <a name="collect-data-for-models-in-production"></a>Samla in data för modeller i produktion
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 >[!IMPORTANT]
 > Detta SDK tas snart ur bruk. Detta SDK är fortfarande lämpligt för utvecklare som övervakar data i modeller, men de flesta utvecklare bör använda den förenklade [data övervakningen med Application Insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights). 
@@ -54,7 +55,7 @@ Sökvägen till utdata i bloben följer den här syntaxen:
 >[!Note]
 > I tidigare versioner av SDK: n innan `0.1.0a16` `designation` argumentet `identifier`. Om din kod har utvecklats med en tidigare version måste du uppdatera detta.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
@@ -79,7 +80,7 @@ Om du vill aktivera det måste du:
    from azureml.monitoring import ModelDataCollector
    ```
 
-2. Deklarera dina variabler för data insamling i din `init()`-funktion:
+2. Deklarera dina variabler för data insamling i din `init()` funktion:
 
     ```python
     global inputs_dc, prediction_dc
@@ -115,7 +116,7 @@ Om du vill aktivera det måste du:
 
 Om du redan har en tjänst med beroenden som är installerade i **miljö filen** och **bedömnings filen**aktiverar du data insamling genom att:
 
-1. Gå till [Azure Portal](https://portal.azure.com).
+1. Gå till [Azure Machine Learning Studio](https://ml.azure.com).
 
 1. Öppna din arbets yta.
 
@@ -133,10 +134,10 @@ Om du redan har en tjänst med beroenden som är installerade i **miljö filen**
 
 
 ## <a name="disable-data-collection"></a>Inaktivera data insamling
-Du kan sluta samla in data när som helst. Använd python-kod eller Azure Portal för att inaktivera data insamling.
+Du kan sluta samla in data när som helst. Använd python-kod eller Azure Machine Learning Studio för att inaktivera data insamling.
 
-+ Alternativ 1 – Inaktivera i Azure Portal: 
-  1. Logga in på [Azure-portalen](https://portal.azure.com).
++ Alternativ 1 – Inaktivera i Azure Machine Learning Studio: 
+  1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com).
 
   1. Öppna din arbets yta.
 
@@ -150,7 +151,7 @@ Du kan sluta samla in data när som helst. Använd python-kod eller Azure Portal
 
   1. Välj **Uppdatera** för att tillämpa ändringen.
 
-  Du kan också komma åt de här inställningarna i din [landnings sida för arbets ytor (för hands version)](https://ml.azure.com).
+  Du kan också komma åt de här inställningarna i din arbets yta i [Azure Machine Learning Studio](https://ml.azure.com).
 
 + Alternativ 2 – Använd python för att inaktivera data insamling:
 
@@ -160,10 +161,10 @@ Du kan sluta samla in data när som helst. Använd python-kod eller Azure Portal
   ```
 
 ## <a name="validate-your-data-and-analyze-it"></a>Verifiera dina data och analysera dem
-Du kan välja valfritt verktyg för att analysera de data som samlas in i Azure-blobben. 
+Du kan välja valfritt verktyg för att analysera de data som samlas in i Azure-blobben.
 
 För att snabbt komma åt data från din BLOB:
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com).
 
 1. Öppna din arbets yta.
 1. Klicka på **lagring**.

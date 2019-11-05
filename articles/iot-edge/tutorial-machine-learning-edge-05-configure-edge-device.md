@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b9f9fe78db2d8bcf50a076fdfc3eba7b1f347201
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 6d8f67cf94e143cd67a525fa2cc675650fb59e65
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965399"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494015"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Självstudie: Konfigurera en IoT Edge enhet
 
@@ -75,9 +75,9 @@ I det här avsnittet skapar vi de självsignerade certifikaten med hjälp av en 
 
 För att lagra våra certifikat säkert och för att göra dem tillgängliga från flera enheter laddar vi upp certifikaten till Azure Key Vault. Som du kan se i listan ovan har vi två typer av certifikatfiler: PFX och PEM. Vi kommer att behandla PFX-filen som Key Vault certifikat som ska överföras till Key Vault. PEM-filerna är oformaterad text och vi kommer att behandla dem som Key Vault hemligheter. Vi kommer att använda den Key Vault som är kopplad till arbets ytan Azure Machine Learning som vi skapade genom att köra [Azure Notebooks](tutorial-machine-learning-edge-04-train-model.md#run-azure-notebooks).
 
-1. Från [Azure Portal](https://portal.azure.com)navigerar du till Azure Machine Learning service-arbetsytan.
+1. Från [Azure Portal](https://portal.azure.com)navigerar du till arbets ytan Azure Machine Learning.
 
-2. På sidan Översikt i arbets ytan Azure Machine Learning tjänst hittar du namnet på **Key Vault**.
+2. På sidan Översikt i arbets ytan Azure Machine Learning söker du efter namnet på **Key Vault**.
 
     ![Kopiera nyckel valvs namn](media/tutorial-machine-learning-edge-05-configure-edge-device/find-key-vault-name.png)
 

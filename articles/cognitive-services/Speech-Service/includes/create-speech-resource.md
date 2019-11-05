@@ -9,30 +9,30 @@ ms.topic: include
 ms.date: 7/5/2019
 ms.author: dapine
 ms.openlocfilehash: 3c42bf2b2acc2472741bd603ea9d653a314ecc40
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717256"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73523982"
 ---
-## <a name="create-a-speech-resource"></a>Skapa en tal-resurs
+## <a name="create-a-speech-resource"></a>Skapa en tal resurs
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com)
+1. Logga in på [Azure Portal](https://portal.azure.com)
 1. Klicka på [skapa **tal** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) resurs
 1. Ange alla nödvändiga inställningar:
 
     |Inställning|Värde|
     |--|--|
     |Namn|Önskat namn (2-64 tecken)|
-    |Subscription|Välj lämplig prenumeration|
-    |Location|Välj valfri plats i närheten och tillgänglig|
-    |Prisnivå|`F0` -minimal prisnivån|
-    |Resursgrupp|Välj en tillgänglig resursgrupp|
+    |Prenumeration|Välj lämplig prenumeration|
+    |Plats|Välj valfri närliggande och tillgänglig plats|
+    |Prisnivå|`F0` – den minimala pris nivån|
+    |Resursgrupp|Välj en tillgänglig resurs grupp|
 
-1. Klicka på **skapa** och vänta tills resursen som ska skapas. När den har skapats, gå till resurssidan
-1. Samla in konfigurerats `endpoint` och en API-nyckel:
+1. Klicka på **skapa** och vänta tills resursen har skapats. När den har skapats går du till resurs Sidan
+1. Samla in konfigurerade `endpoint` och en API-nyckel:
 
-    |Resurs-fliken i portalen|Inställning|Värde|
+    |Fliken resurs i portalen|Inställning|Värde|
     |--|--|--|
-    |**Översikt**|Slutpunkt|Kopiera slutpunkten. Den liknar `https://speech.cognitiveservices.azure.com/sts/v1.0/issuetoken`|
-    |**nycklar**|API-nyckel|Kopiera 1 av två nycklar. Det är en 32 alfanumeriska tecken lång sträng utan mellanslag eller tankstreck, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |**Översikt**|Slutpunkt|Kopiera slut punkten. Det ser ut ungefär som `https://speech.cognitiveservices.azure.com/sts/v1.0/issuetoken`|
+    |**Nyckel**|API-nyckel|Kopia 1 av de två nycklarna. Det är en sträng med 32 alfanumeriska tecken utan blank steg eller bindestreck, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|

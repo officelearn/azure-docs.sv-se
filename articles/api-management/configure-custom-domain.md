@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 52eeedf4651cee012569034ae635a4736b3f3335
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: ba2288fa4add6df6b7861b5f8a99bcd3ee8b4c12
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135543"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472203"
 ---
 # <a name="configure-a-custom-domain-name"></a>Konfigurera ett anpassat domännamn
 
@@ -63,7 +63,7 @@ För att utföra stegen som beskrivs i den här artikeln måste du ha:
     - I **certifikatet**väljer du ett certifikat från Key Vault. Du kan också ladda upp en giltig. PFX-fil och ange **lösen ord**, om certifikatet är skyddat med ett lösen ord.
 
     > [!NOTE]
-    > Domän namn för jokertecken, `*.contoso.com` t. ex. stöds i alla nivåer förutom förbruknings nivån.
+    > Domän namn för jokertecken, t. ex. `*.contoso.com` stöds på alla nivåer förutom förbruknings nivån.
 
     > [!TIP]
     > Vi rekommenderar att du använder Azure Key Vault för att hantera certifikat och ställa in dem för automatisk rotation.
@@ -88,7 +88,7 @@ När du konfigurerar DNS för det anpassade domän namnet har du två alternativ
 -   Konfigurera en A-post som pekar på din API Management Gateway-IP-adress.
 
 > [!NOTE]
-> Även om IP-adressen för API-hanterings instansen är statisk, kan den ändras i några få scenarier. På grund av detta rekommenderar vi att du använder CNAME när du konfigurerar en anpassad domän. Ta hänsyn till när du väljer DNS-konfigurationsfil. Läs mer i [vanliga frågor och svar om API-Mananagement](api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services).
+> Även om IP-adressen för API-hanterings instansen är statisk, kan den ändras i några få scenarier. På grund av detta rekommenderar vi att du använder CNAME när du konfigurerar en anpassad domän. Ta hänsyn till när du väljer DNS-konfigurationsfil. Läs mer i [vanliga frågor och svar om API Management](api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services).
 
 ## <a name="next-steps"></a>Nästa steg
 

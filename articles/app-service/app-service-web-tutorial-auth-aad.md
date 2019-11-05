@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ad0c510244c78fa3bdba41690c2284d0650c4b55
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: c82cad30fcc2aa80eea52ab13f60fc0c4da33cd1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019388"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471308"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Självstudie: Autentisera och auktorisera användare från slutpunkt till slutpunkt i Azure App Service
 
@@ -90,7 +90,7 @@ I det här steget distribuerar du projektet till två App Service-appar. Den ena
 
 ### <a name="create-azure-resources"></a>Skapa Azure-resurser
 
-Kör följande kommandon i Cloud Shell för att skapa två webbappar. `a-z`Ersätt  _\<frontend-App-Name->_ och  _\<backend-App-Name >_ med två globalt unika namn på appar (giltiga tecken är, `0-9`och `-`). Mer information om varje kommando finns i [RESTful-API med CORS i Azure App Service](app-service-web-tutorial-rest-api.md).
+Kör följande kommandon i Cloud Shell för att skapa två webbappar. Ersätt _\<frontend-app-name >_ och _\<backend-app-Name >_ med två globalt unika app-namn (giltiga tecken är `a-z`, `0-9`och `-`). Mer information om varje kommando finns i [RESTful-API med CORS i Azure App Service](app-service-web-tutorial-rest-api.md).
 
 ```azurecli-interactive
 az group create --name myAuthResourceGroup --location "West Europe"
@@ -100,7 +100,7 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 ```
 
 > [!NOTE]
-> Spara URL: erna för git-fjärrdatorer för klient dels-och backend-apparna, som visas i utdata från `az webapp create`.
+> Spara URL: erna för git-fjärrdatorer för dina frontend-och backend-appar, som visas i utdata från `az webapp create`.
 >
 
 ### <a name="push-to-azure-from-git"></a>Skicka till Azure från Git
@@ -141,7 +141,7 @@ I det här steget använder du serverkoden för klientdelsappen för att komma �
 
 ### <a name="modify-front-end-code"></a>Ändra klientdelskod
 
-Öppna _Controllers/TodoController.cs_ på den lokala lagringsplatsen. I början av `TodoController` klassen lägger du till följande rader och ersätter  _\<backend-App-Name->_ med namnet på din backend-app:
+Öppna _Controllers/TodoController.cs_ på den lokala lagringsplatsen. I början av `TodoController`-klassen lägger du till följande rader och ersätter _\<backend-app-name >_ med namnet på din backend-app:
 
 ```cs
 private static readonly HttpClient _client = new HttpClient();
@@ -218,29 +218,31 @@ Du använder Azure Active Directory som identitetsleverantör. Mer information f
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Aktivera autentisering och auktorisering för serverdelsapp
 
-På [Azure-portalen](https://portal.azure.com) öppnar du hanteringssidan för serverdelsappen genom att klicka via vänster meny: **Resurs grupper** > myAuthResourceGroupbackend > - **_app-Name>.\<_**
+1. I [Azure Portal](https://portal.azure.com) -menyn väljer du **resurs grupper** eller söker efter och väljer *resurs grupper* från vilken sida som helst.
 
-![ASP.NET Core-API som körs i Azure App Service](./media/app-service-web-tutorial-auth-aad/portal-navigate-back-end.png)
+1. I **resurs grupper**söker du efter och väljer din resurs grupp. I **Översikt**väljer du din backend-appens hanterings sida.
 
-I vänstermenyn för serverdelsappen klickar du på **Authentication / Authorization** (Autentisering/Auktorisering) och aktiverar App Service-autentisering genom att klicka på **On** (På).
+   ![ASP.NET Core-API som körs i Azure App Service](./media/app-service-web-tutorial-auth-aad/portal-navigate-back-end.png)
 
-För **Åtgärd att vidta när en begäran inte har autentiserats** väljer du **Logga in med Azure Active Directory**.
+1. I backend-appens vänstra meny väljer du **autentisering/auktorisering**och aktiverar App Service autentisering genom att välja **på**.
 
-Under **Autentiseringsprovidrar** och klicka på **Azure Active Directory** 
+1. För **Åtgärd att vidta när en begäran inte har autentiserats** väljer du **Logga in med Azure Active Directory**.
 
-![ASP.NET Core-API som körs i Azure App Service](./media/app-service-web-tutorial-auth-aad/configure-auth-back-end.png)
+1. Under **autentiseringsproviders**väljer du **Azure Active Directory** 
 
-Klicka på **Express** och acceptera standardinställningarna för att skapa en ny AD-app och klicka på **OK**.
+   ![ASP.NET Core-API som körs i Azure App Service](./media/app-service-web-tutorial-auth-aad/configure-auth-back-end.png)
 
-På sidan **Autentisering/auktorisering** klickar du på **Spara**. 
+1. Välj **Express**och godkänn standardinställningarna för att skapa en ny AD-App och välj **OK**.
 
-När du ser aviseringen med meddelandet `Successfully saved the Auth Settings for <back-end-app-name> App` (Autentiseringsinställningarna för serverdelsappen sparades) uppdaterar du sidan.
+1. På sidan **autentisering/auktorisering** väljer du **Spara**.
 
-Klicka på **Azure Active Directory** igen och klicka sedan på **Azure AD App**.
+   När du ser aviseringen med meddelandet `Successfully saved the Auth Settings for <back-end-app-name> App` (Autentiseringsinställningarna för serverdelsappen sparades) uppdaterar du sidan.
 
-Kopiera **klient-ID** för Azure AD-programmet till en anteckning. Du behöver det här värdet senare.
+1. Välj **Azure Active Directory** igen och välj sedan **Azure AD App**.
 
-![ASP.NET Core-API som körs i Azure App Service](./media/app-service-web-tutorial-auth-aad/get-application-id-back-end.png)
+1. Kopiera **klient-ID** för Azure AD-programmet till en anteckning. Du behöver det här värdet senare.
+
+   ![ASP.NET Core-API som körs i Azure App Service](./media/app-service-web-tutorial-auth-aad/get-application-id-back-end.png)
 
 ### <a name="enable-authentication-and-authorization-for-front-end-app"></a>Aktivera autentisering och auktorisering för klientappen
 
@@ -259,15 +261,17 @@ Om du vill kan du navigera till `http://<front-end-app-name>.azurewebsites.net`.
 
 Nu när du har aktiverat autentisering och auktorisering för båda dina appar backas var och en av dem upp av ett AD-program. I det här steget kan ge du klientdelsappen åtkomstbehörighet till serverdelsappen å användarens vägnar. (Tekniskt sett ger du _AD-programmet_ för klientdelsappen behörighet att komma åt _AD-programmet_ för serverdelen å användarens vägnar.)
 
-På den vänstra menyn i portalen väljer du **Azure Active Directory** > **Appregistreringar** > **ägda program** >  **\<frontend-App-Name >**  >   **API-behörigheter**.
+1. I menyn [Azure Portal](https://portal.azure.com) väljer du **Azure Active Directory** eller söker efter och väljer *Azure Active Directory* från vilken sida som helst.
 
-![ASP.NET Core-API som körs i Azure App Service](./media/app-service-web-tutorial-auth-aad/add-api-access-front-end.png)
+1. Välj **Appregistreringar** > **ägda program**. Välj namn på klient sidan och välj sedan API- **behörigheter**.
 
-Välj **Lägg till en behörighet**och välj sedan **Mina API: er** >  **\<backend-App-Name >** .
+   ![ASP.NET Core-API som körs i Azure App Service](./media/app-service-web-tutorial-auth-aad/add-api-access-front-end.png)
 
-På sidan **begär API-behörigheter** för backend-appen väljer du delegerade **behörigheter** och **User_impersonation**och väljer sedan **Lägg till behörigheter**.
+1. Välj **Lägg till en behörighet**och välj sedan **Mina api: er** >  **\<backend-App-Name >** .
 
-![ASP.NET Core-API som körs i Azure App Service](./media/app-service-web-tutorial-auth-aad/select-permission-front-end.png)
+1. På sidan **begär API-behörigheter** för backend-appen väljer du **delegerade behörigheter** och **User_impersonation**och väljer sedan **Lägg till behörigheter**.
+
+   ![ASP.NET Core-API som körs i Azure App Service](./media/app-service-web-tutorial-auth-aad/select-permission-front-end.png)
 
 ### <a name="configure-app-service-to-return-a-usable-access-token"></a>Konfigurera App Service för att returnera en användbar åtkomsttoken
 
@@ -277,7 +281,7 @@ Logga in på [Azure Resource Explorer](https://resources.azure.com). Överst på
 
 ![ASP.NET Core-API som körs i Azure App Service](./media/app-service-web-tutorial-auth-aad/resources-enable-write.png)
 
- > Klicka på **prenumerationer** > prenumerationer > >**resourceGroups** **myAuthResourceGroup** **_\<-leverantörer i den_** vänstra > webbläsarenMicrosoft. > Web**Sites** >  **_frontend-\<App-Name >_** configauthsettings > . >   > 
+I den vänstra webbläsaren klickar du på **prenumerationer** >  **_\<prenumerationen >_**  > **resourceGroups** > **MyAuthResourceGroup** > **providers** > **Microsoft. Web** > - **platser** >  **_\<klient delens app-Name >_**  > **config** > **authsettings**.
 
 I vyn **authsettings** (autentiseringsinställningar) klickar du på **Edit** (Redigera). Ange `additionalLoginParams` till följande JSON-sträng med det klient-ID som du kopierade. 
 
@@ -343,7 +347,7 @@ Medan serverkoden har åtkomst till begäranderubriker kan klientkoden komma åt
 
 ### <a name="configure-cors"></a>Konfigurera CORS
 
-I Cloud Shell aktiverar du CORS till din klient-URL med kommandot [`az resource update`](/cli/azure/resource#az-resource-update). Ersätt plats hållarna för  _\<backend-appens namn >_ och  _\<klient namn för klient delens app-namn >_ .
+I Cloud Shell aktiverar du CORS till din klient-URL med kommandot [`az resource update`](/cli/azure/resource#az-resource-update). Ersätt _\<backend-app-name >_ och _\<frontend-app-Name >_ plats hållare.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myAuthResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<back-end-app-name> --set properties.cors.allowedOrigins="['https://<front-end-app-name>.azurewebsites.net']" --api-version 2015-06-01
@@ -355,7 +359,7 @@ Det här steget är inte kopplat till autentisering och auktorisering. Du behöv
 
 Öppna _wwwroot/index.html_ på den lokala lagringsplatsen.
 
-På rad 51 ställer du in `apiEndpoint`-variabeln till URL:en för serverdelsappen (`https://<back-end-app-name>.azurewebsites.net`). Ersätt backend-app-  _Name->mednamnetpåappeniAppService\<_ .
+På rad 51 ställer du in `apiEndpoint`-variabeln till URL:en för serverdelsappen (`https://<back-end-app-name>.azurewebsites.net`). Ersätt _\<backend-App-Name->_ med namnet på appen i App Service.
 
 På den lokala lagringsplatsen öppnar du _wwwroot/app/scripts/todoListSvc.js_ och ser till att `apiEndpoint` är tillagt för alla API-anrop. Nu anropar Angular.js-appen serverdels-API:erna. 
 

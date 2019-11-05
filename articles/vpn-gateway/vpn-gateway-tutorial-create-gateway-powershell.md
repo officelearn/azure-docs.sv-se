@@ -5,17 +5,16 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 11/04/2019
 ms.author: cherylmc
-ms.custom: mvc
-ms.openlocfilehash: d1c90e61890ee98dc5371faed872d03409aaf31f
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: bfec1493492fb1e8e9bd7394aae3db8983f4cff9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489547"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495651"
 ---
-# <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Självstudier: Skapa och hantera en VPN-gateway med hjälp av PowerShell
+# <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Självstudie: skapa och hantera en VPN-gateway med PowerShell
 
 Azure VPN-gatewayer ger anslutningar mellan olika platser, t.ex. mellan kundens lokaler och Azure. Den här självstudien beskriver grundläggande distributionsobjekt i Azure VPN-gatewayen, till exempel att skapa och hantera en VPN-gateway. Lär dig att:
 
@@ -85,7 +84,7 @@ New-AzResourceGroup -ResourceGroupName $RG1 -Location $Location1
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Azure VPN-gatewayen ger anslutning mellan olika platser och P2S VPN-serverfunktioner för det virtuella nätverket. Lägg till VPN-gatewayen i ett befintligt virtuellt nätverk eller skapa ett nytt virtuellt nätverk och gatewayen. Observera att exemplet anger namnet på Gateway-undernätet specifikt. Du måste alltid ange namnet på Gateway-undernätet som "GatewaySubnet" för att det ska fungera korrekt. I det här exemplet skapas ett nytt virtuellt nätverk med tre undernät: Frontend, Backend och GatewaySubnet med hjälp av [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) och [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork):
+Azure VPN-gatewayen ger anslutning mellan olika platser och P2S VPN-serverfunktioner för det virtuella nätverket. Lägg till VPN-gatewayen i ett befintligt virtuellt nätverk eller skapa ett nytt virtuellt nätverk och gatewayen. Observera att exemplet anger namnet på Gateway-undernätet specifikt. Du måste alltid ange namnet på Gateway-undernätet som "GatewaySubnet" för att det ska fungera korrekt. Det här exemplet skapar ett nytt virtuellt nätverk med tre undernät: frontend, backend och GatewaySubnet med [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) och [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork):
 
 ```azurepowershell-interactive
 $fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubnet1 -AddressPrefix $FEPrefix1
@@ -128,9 +127,9 @@ New-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroupName $RG1 `
 Värden för nyckelparameter:
 * GatewayType: Använd **Vpn** för anslutningar från plats till plats och mellan virtuella nätverk
 * VpnType: Använd **RouteBased** för att interagera med ett bredare urval av VPN-enheter och fler routningsfunktioner
-* GatewaySku: **VpnGw1** är standard. Ändra till VpnGw2 eller VpnGw3 om du behöver högre dataflöden eller fler anslutningar. Se [Gateway SKU:er](vpn-gateway-about-vpn-gateway-settings.md#gwsku) för mer information.
+* GatewaySku: **VpnGw1** är standard. ändra den till en annan VpnGw-SKU om du behöver högre data flöden eller fler anslutningar. Se [Gateway SKU:er](vpn-gateway-about-vpn-gateway-settings.md#gwsku) för mer information.
 
-Om du använder TryIt kan tidsgränsen för sessionen uppnås. Det gör ingenting. Gatewayen kommer fortfarande att skapas.
+Om du använder TryIt kan det ta lång tid att kontakta sessionen. Det är ok. Gatewayen kommer fortfarande att skapas.
 
 När gatewayen har skapats kan du skapa en anslutning mellan ditt virtuella nätverk och ett annat virtuellt nätverk, eller skapa en anslutning mellan ditt virtuella nätverk och en lokal plats. Du kan också konfigurera en P2S-anslutning till ditt virtuella nätverk från en klientdator.
 
@@ -147,7 +146,7 @@ $myGwIp.IpAddress
 
 ## <a name="resize-a-gateway"></a>Ändra storlek på en gateway
 
-Du kan ändra VPN-gatewayens SKU när gatewayen har skapats. Olika gateway-SKU:er stöder olika specifikationer som t.ex. dataflöden, antal anslutningar osv. I följande exempel används [Resize-AzVirtualNetworkGateway](/powershell/module/az.network/Resize-azVirtualNetworkGateway) till att ändra storlek på din gateway från VpnGw1 till VpnGw2. Se [Gateway SKU:er](vpn-gateway-about-vpn-gateway-settings.md#gwsku) för mer information.
+Du kan ändra VPN-gatewayens SKU när gatewayen har skapats. Olika Gateway-SKU: er har stöd för olika specifikationer, till exempel data flöden, antal anslutningar osv. I följande exempel används [ändra storlek-AzVirtualNetworkGateway](/powershell/module/az.network/Resize-azVirtualNetworkGateway) för att ändra storlek på gatewayen från VpnGw1 till VpnGw2. Se [Gateway SKU:er](vpn-gateway-about-vpn-gateway-settings.md#gwsku) för mer information.
 
 ```azurepowershell-interactive
 $gateway = Get-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1

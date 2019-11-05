@@ -9,23 +9,24 @@ ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
 ms.date: 06/28/2019
-ms.openlocfilehash: 0908ca232ee38e2b0d461aa9f597558adc4461ef
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
-ms.translationtype: MT
+ms.openlocfilehash: a45548d3698d28a0189be4f46c26e418da8c91ef
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350527"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489633"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualisera experiment körningar och mät värden med TensorBoard och Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här artikeln får du lära dig hur du visar experiment körningar och mått i TensorBoard [med `tensorboard` ](https://docs.microsoft.com/python/api/azureml-tensorboard/?view=azure-ml-py) hjälp av paketet i huvud Azure Machine Learning SDK. När du har kontrollerat att experimentet har körts kan du bättre justera och träna dina maskin inlärnings modeller.
+I den här artikeln får du lära dig hur du visar experiment körningar och mått i TensorBoard med hjälp [av `tensorboard`-paketet](https://docs.microsoft.com/python/api/azureml-tensorboard/?view=azure-ml-py) i huvud Azure Machine Learning SDK. När du har kontrollerat att experimentet har körts kan du bättre justera och träna dina maskin inlärnings modeller.
 
 [TensorBoard](https://www.tensorflow.org/tensorboard/r1/overview) är en uppsättning webb program för att kontrol lera och förstå din experiment struktur och prestanda.
 
 Hur du startar TensorBoard med Azure Machine Learning experiment beror på typen av experiment:
 + Om experimentet sparar loggfiler som kan användas av TensorBoard, till exempel PyTorch, Kedjorer och TensorFlow experiment, kan du [Starta TensorBoard direkt](#direct) från experimentets körnings historik. 
 
-+ Använd [ `export_to_tensorboard()` metoden](#export) för att exportera körnings historiken som TensorBoard loggar och starta TensorBoard från där, för experiment som inte har en intern utmatning av TensorBoard användnings bara filer, t. ex. Scikit – lära eller Azure Machine Learning experiment. 
++ För experiment som inte har TensorBoardt utdata, t. ex. Scikit – lär eller Azure Machine Learning experiment, använder [du `export_to_tensorboard()`-metoden](#export) för att exportera körnings historiken som TensorBoard loggar och starta TensorBoard därifrån. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -33,9 +34,9 @@ Hur du startar TensorBoard med Azure Machine Learning experiment beror på typen
 
 * Koden i den här instruktionen kan köras i någon av följande miljöer: 
 
-    * Azure Machine Learning Notebook VM – inga hämtningar eller installationer behövs
+    * Azure Machine Learning beräknings instans – inga hämtningar eller installationer behövs
 
-        * Slutför [Självstudie: Konfigurera miljö och arbets](tutorial-1st-experiment-sdk-setup.md) yta för att skapa en dedikerad Notebook-server som är förinstallerad med SDK och exempel lagrings plats.
+        * Slutför [självstudien: installations miljö och arbets yta](tutorial-1st-experiment-sdk-setup.md) för att skapa en dedikerad Notebook-server som är förinstallerad med SDK och exempel lagrings plats.
 
         * I mappen exempel på Notebook-servern hittar du två slutförda och expanderade antecknings böcker genom att gå till den här katalogen: **How-to-use-azureml > Training-with-djupgående-Learning**.
         * Exportera – kör-historik-till-kör-historik. ipynb
@@ -49,7 +50,7 @@ Hur du startar TensorBoard med Azure Machine Learning experiment beror på typen
 <a name="direct"></a>
 ## <a name="option-1-directly-view-run-history-in-tensorboard"></a>Alternativ 1: Visa körnings historik direkt i TensorBoard
 
-Det här alternativet används för experiment som skriver utdata i loggfiler som kan användas av TensorBoard, till exempel PyTorch, Kedjorer och TensorFlow experiment. Om detta inte är fallet använder [du `export_to_tensorboard()` metoden](#export) i stället.
+Det här alternativet används för experiment som skriver utdata i loggfiler som kan användas av TensorBoard, till exempel PyTorch, Kedjorer och TensorFlow experiment. Om detta inte är fallet kan du använda [metoden `export_to_tensorboard()`](#export) i stället.
 
 I följande exempel kod används [MNIST demo experiment](https://raw.githubusercontent.com/tensorflow/tensorflow/r1.8/tensorflow/examples/tutorials/mnist/mnist_with_summaries.py) från TensorFlow-lagringsplatsen i ett fjärrberäknings mål, Azure Machine Learning beräkning. Därefter tränar vi vår modell med SDK: s anpassade [TensorFlow-uppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)och startar sedan TensorBoard mot det här TensorFlow-experimentet, det vill säga ett experiment som skriver ut TensorBoard-händelseobjektet internt.
 
@@ -81,7 +82,7 @@ tf_code = requests.get("https://raw.githubusercontent.com/tensorflow/tensorflow/
 with open(os.path.join(exp_dir, "mnist_with_summaries.py"), "w") as file:
     file.write(tf_code.text)
 ```
-I MNIST-kod filen, mnist_with_summaries. py, ser du att det finns rader som anropar `tf.summary.scalar()`, `tf.summary.histogram()` `tf.summary.FileWriter()` osv. Dessa metoder grupperar, loggar och tagar nyckel mått för dina experiment i körnings historiken. `tf.summary.FileWriter()` Är särskilt viktigt när den serialiserar data från de inloggade experiment måtten, vilket gör att TensorBoard kan generera visualiseringar av dem.
+I MNIST-kod filen, mnist_with_summaries. py, ser du att det finns rader som anropar `tf.summary.scalar()`, `tf.summary.histogram()``tf.summary.FileWriter()` osv. Dessa metoder grupperar, loggar och tagar nyckel mått för dina experiment i körnings historiken. `tf.summary.FileWriter()` är särskilt viktigt när den serialiserar data från de inloggade experiment måtten, vilket gör att TensorBoard kan generera visualiseringar av dem.
 
  ### <a name="configure-experiment"></a>Konfigurera experiment
 
@@ -144,7 +145,7 @@ compute_target.wait_for_completion(show_output=True, min_node_count=None)
 
 ### <a name="submit-run-with-tensorflow-estimator"></a>Skicka körning med TensorFlow-uppskattning
 
-TensorFlow-uppskattningen ger ett enkelt sätt att starta ett TensorFlow utbildnings jobb på ett beräknings mål. Den implementeras via den generiska [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klassen, som kan användas för att stödja eventuella ramverk. Mer information om tränings modeller med hjälp av den generiska uppskattningen finns i [träna modeller med Azure Machine Learning med hjälp av uppskattning](how-to-train-ml-models.md)
+TensorFlow-uppskattningen ger ett enkelt sätt att starta ett TensorFlow utbildnings jobb på ett beräknings mål. Den implementeras via den allmänna [`estimator`s](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klassen, som kan användas för att stödja eventuella ramverk. Mer information om tränings modeller med hjälp av den generiska uppskattningen finns i [träna modeller med Azure Machine Learning med hjälp av uppskattning](how-to-train-ml-models.md)
 
 ```Python
 from azureml.train.dnn import TensorFlow
@@ -160,7 +161,7 @@ run = exp.submit(tf_estimator)
 
 ### <a name="launch-tensorboard"></a>Starta TensorBoard
 
-Du kan starta TensorBoard under din körning eller när den är klar. I följande skapar vi en TensorBoard objekt instans, `tb`som använder experiment körnings historiken som lästs in `run`i och `start()` sedan startar TensorBoard med-metoden. 
+Du kan starta TensorBoard under din körning eller när den är klar. I följande skapar vi en TensorBoard-objekt instans, `tb`, som tar den tidigare experiment körnings historiken i `run`och sedan startar TensorBoard med `start()`-metoden. 
   
 [TensorBoard-konstruktorn](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py) tar en matris med körningar, så var noga med att skicka den som en matris med ett enda element.
 
@@ -178,13 +179,13 @@ tb.stop()
 
 <a name="export"></a>
 
-## <a name="option-2-export-history-as-log-to-view-in-tensorboard"></a>Alternativ 2: Exportera historik som logg att visa i TensorBoard
+## <a name="option-2-export-history-as-log-to-view-in-tensorboard"></a>Alternativ 2: exportera historik som logg att visa i TensorBoard
 
 Följande kod konfigurerar ett exempel experiment, påbörjar loggnings processen med hjälp av Azure Machine Learning API: er för körnings historik och exporterar experiment körnings historiken till loggar som kan användas av TensorBoard för visualisering. 
 
 ### <a name="set-up-experiment"></a>Konfigurera experiment
 
-Följande kod ställer in ett nytt experiment och namnger körnings katalogen `root_run`. 
+I följande kod ställer vi in ett nytt experiment och namnger `root_run`för körnings katalogen. 
 
 ```python
 from azureml.core import Workspace, Experiment
@@ -215,7 +216,7 @@ data = {
 
 ### <a name="run-experiment-and-log-metrics"></a>Köra experiment-och logg mått
 
-För den här koden tränar vi en linjär Regressions modell och loggar nyckel mått, alpha- `alpha` koefficienten och Mean-kvadratvärdet `mse`, i körnings historiken.
+För den här koden tränar vi en linjär Regressions modell och logg nyckel mått, alpha-koefficienten, `alpha` och medels kapade fel `mse`, i körnings historiken.
 
 ```Python
 from tqdm import tqdm
@@ -241,7 +242,7 @@ for alpha in tqdm(alphas):
 
 Med SDK: s [export_to_tensorboard ()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.export?view=azure-ml-py) -metod kan vi exportera körnings historiken för vårt Azure Machine Learning-experiment till tensorboard-loggar, så att vi kan visa dem via tensorboard.  
 
-I följande kod skapar vi mappen `logdir` i vår aktuella arbets katalog. I den här mappen kommer vi att exportera våra experiment körnings historik och `root_run` loggar från och sedan markera att kör som slutförd. 
+I följande kod skapar vi mappen `logdir` i vår aktuella arbets katalog. I den här mappen kommer vi att exportera våra experiment körnings historik och loggar från `root_run` och sedan Markera Kör som slutförd. 
 
 ```Python
 from azureml.tensorboard.export import export_to_tensorboard
@@ -262,7 +263,7 @@ root_run.complete()
 ```
 
 >[!Note]
- Du kan också exportera en viss körning till TensorBoard genom att ange namnet på körningen`export_to_tensorboard(run_name, logdir)`
+ Du kan också exportera en viss körning till TensorBoard genom att ange namnet på körnings `export_to_tensorboard(run_name, logdir)`
 
 ### <a name="start-and-stop-tensorboard"></a>Starta och stoppa TensorBoard
 När vår körnings historik för det här experimentet har exporter ATS kan vi starta TensorBoard med metoden [Start ()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py#start-start-browser-false-) . 

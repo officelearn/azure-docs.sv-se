@@ -1,22 +1,22 @@
 ---
 title: Vad är öppna data uppsättningar? Granskade offentliga data uppsättningar
-titleSuffix: Azure Open Datasets (preview)
-description: Lär dig mer om Azure Open data uppsättningar (för hands version), granskade data uppsättningar från den offentliga domänen som är redo att användas i maskin inlärnings-och analys lösningar. Data uppsättningar innehåller offentliga data, till exempel väder, räkning, helger och plats som hjälper dig att utöka förutsägelse lösningar.
+titleSuffix: Azure Open Datasets
+description: Lär dig mer om Azure Open data uppsättningar, granskade data uppsättningar från den offentliga domänen, till exempel väder, räkning, helgdagar och plats för att utöka förutsägelse lösningar.
 ms.service: open-datasets
 ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
-ms.date: 05/02/2019
-ms.openlocfilehash: 0c4bf3143bbf1ceb2f2f3c4a22477daa03690a0e
-ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.openlocfilehash: b8633bd91abc1f336870158f54d75829ed5cf6a0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70213589"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496604"
 ---
-# <a name="what-are-azure-open-datasets-preview-and-how-can-you-use-them"></a>Vad är Azure Open data uppsättningar (för hands version) och hur kan du använda dem?
+# <a name="what-are-azure-open-datasets-and-how-can-you-use-them"></a>Vad är Azure Open-datauppsättningar och hur kan du använda dem?
 
-[Azure Open](https://azure.microsoft.com/services/open-datasets/) -datauppsättningar är granskade offentliga data uppsättningar som du kan använda för att lägga till scenario-/regionsspecifika funktioner till maskin inlärnings lösningar för mer exakta modeller. Öppna data uppsättningar finns i molnet på Microsoft Azure och är tillgängliga för Azure Databricks, Machine Learning tjänst och Machine Learning Studio. Du kan också komma åt data uppsättningarna via API: er och använda dem i andra produkter, till exempel Power BI och Azure Data Factory.
+[Azure Open-datauppsättningar](https://azure.microsoft.com/services/open-datasets/) är granskade offentliga data uppsättningar som du kan använda för att lägga till scenario-/regionsspecifika funktioner till maskin inlärnings lösningar för mer exakta modeller. Öppna data uppsättningar finns i molnet på Microsoft Azure och är integrerade i Azure Machine Learning och är tillgängliga för Azure Databricks och Machine Learning Studio (klassisk). Du kan också komma åt data uppsättningarna via API: er och använda dem i andra produkter, till exempel Power BI och Azure Data Factory.
 
 Data uppsättningar omfattar data från offentliga domäner för väder, räkning, helger, offentlig säkerhet och plats som hjälper dig att träna maskin inlärnings modeller och utöka förutsägelse lösningar. Du kan också dela dina offentliga data uppsättningar i Azure Open-datauppsättningar. 
 
@@ -47,7 +47,7 @@ Följande är exempel på data uppsättningar som är tillgängliga.
 ## <a name="access-to-datasets"></a>Åtkomst till data uppsättningar  
 Med ett Azure-konto kan du komma åt öppna data uppsättningar med hjälp av kod eller via Azure-tjänstens gränssnitt. Data är samplacerade med Azures moln beräknings resurser för användning i din Machine Learning-lösning.  
 
-Öppna data uppsättningar innehåller Azure Notebooks och Azure Databricks antecknings böcker som du kan använda för att ansluta data till Azure Machine Learning tjänst och Azure Databricks. Data uppsättningar kan också nås via en python SDK. 
+Öppna data uppsättningar är tillgängliga via Azure Machine Learning användar gränssnitt och SDK. Öppna data uppsättningar innehåller också Azure Notebooks och Azure Databricks antecknings böcker som du kan använda för att ansluta data till Azure Machine Learning och Azure Databricks. Data uppsättningar kan också nås via en python SDK. 
 
 Du behöver dock inget Azure-konto för att få åtkomst till öppna data uppsättningar. Du kan komma åt dem från valfri python-miljö med eller utan Spark.
 
@@ -57,5 +57,5 @@ Om du inte kan hitta de data som du vill ha, kan du skicka e-post till [en data 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Exempel på Notebook](samples.md)
-* [Självstudier: Regressions modellering med NY taxi data](tutorial-opendatasets-automl.md)
+* [Självstudie: Regressions modellering med NY taxi data](tutorial-opendatasets-automl.md)
 * [Python SDK för öppna data uppsättningar](/python/api/azureml-opendatasets/?view=azure-ml-py)

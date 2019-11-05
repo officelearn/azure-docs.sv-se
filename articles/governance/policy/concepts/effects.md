@@ -3,15 +3,15 @@ title: Förstå hur effekter fungerar
 description: Azure Policy definitioner har olika effekter som avgör hur efterlevnaden hanteras och rapporteras.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/17/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 4f657cd8c804a597220a7e74d1fce0401c4cd9ae
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: c448ab889ad263f4f8b6c9a59048551ca761d69a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176333"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464047"
 ---
 # <a name="understand-azure-policy-effects"></a>Förstå Azure Policys effekter
 
@@ -25,6 +25,7 @@ Dessa effekter stöds för närvarande i en princip definition:
 - [Autentiseringsregel](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Inaktiverad](#disabled)
+- [EnforceOPAConstraint](#enforceopaconstraint) (för hands version)
 - [EnforceRegoPolicy](#enforceregopolicy) (för hands version)
 - [Gör](#modify)
 
@@ -39,7 +40,7 @@ Begär Anden om att skapa eller uppdatera en resurs via Azure Resource Manager u
 
 När resurs leverantören returnerar en lyckad kod, utvärderas **AuditIfNotExists** och **DeployIfNotExists** för att avgöra om det krävs ytterligare loggning eller åtgärd av efterlevnad.
 
-Det finns för närvarande ingen utvärderings ordning för **EnforceRegoPolicy** -påverkan.
+Det finns för närvarande ingen utvärderings ordning för **EnforceOPAConstraint** -eller **EnforceRegoPolicy** -effekterna.
 
 ## <a name="disabled"></a>Disabled
 
@@ -99,7 +100,7 @@ Exempel 2: ett **fält/värde** -par med ett **[\*]** - [alias](definition-struc
 
 ## <a name="modify"></a>Ändra
 
-Ändra används för att lägga till, uppdatera eller ta bort taggar på en resurs under skapandet eller uppdateringen. Ett vanligt exempel är att uppdatera taggar på resurser som costCenter. En ändra princip ska alltid ha `mode` inställt på _indexerad_ om inte mål resursen är en resurs grupp. Befintliga icke-kompatibla resurser kan åtgärdas med en [reparations uppgift](../how-to/remediate-resources.md). En enda ändra-regel kan ha valfritt antal åtgärder.
+Ändra används för att lägga till, uppdatera eller ta bort taggar på en resurs under skapandet eller uppdateringen. Ett vanligt exempel är att uppdatera taggar på resurser som costCenter. En ändrings princip bör alltid ha `mode` angetts till _indexerad_ om inte mål resursen är en resurs grupp. Befintliga icke-kompatibla resurser kan åtgärdas med en [reparations uppgift](../how-to/remediate-resources.md). En enda ändra-regel kan ha valfritt antal åtgärder.
 
 > [!IMPORTANT]
 > Ändra är för närvarande endast för användning med-taggar. Om du hanterar Taggar rekommenderar vi att du använder ändra i stället för Lägg till som ändra och ger ytterligare åtgärds typer och möjlighet att åtgärda befintliga resurser. Tillägg rekommenderas dock om du inte kan skapa en hanterad identitet.
@@ -132,9 +133,9 @@ Egenskapen **information** för funktionen ändra har alla under egenskaper som 
 
 Med egenskapen för **drifts** egenskaper kan du ändra flera taggar på olika sätt från en enda princip definition. Varje åtgärd består av egenskaperna **åtgärd**, **fält**och **värde** . Åtgärden avgör vad reparations uppgiften gör till taggarna, fältet avgör vilken tagg som ändras och värdet definierar den nya inställningen för taggen. Exemplet nedan gör följande tagg ändringar:
 
-- Anger taggen `environment` till "test", även om den redan finns med ett annat värde.
+- Ställer in `environment`-taggen på "test", även om den redan finns med ett annat värde.
 - Tar bort taggen `TempResource`.
-- Ställer in taggen `Dept` till den princip parameter _DeptName_ som kon figurer ATS i princip tilldelningen.
+- Ställer in `Dept`-taggen till den princip parameter _DeptName_ som kon figurer ATS för princip tilldelningen.
 
 ```json
 "details": {
@@ -188,7 +189,7 @@ Exempel 1: Lägg till taggen `environment` och ersätt befintliga `environment`-
 }
 ```
 
-Exempel 2: ta bort taggen `env` och Lägg till taggen `environment` eller ersätt befintliga `environment`-Taggar med ett parameter värde:
+Exempel 2: ta bort taggen `env` och Lägg till `environment`-taggen eller ersätt befintliga `environment`-Taggar med ett parameter värde:
 
 ```json
 "then": {
@@ -373,7 +374,7 @@ Egenskapen **information** för DeployIfNotExists-effekterna har alla under egen
   - En _plats_ egenskap måste anges i _distributionen_ när du använder distributioner på prenumerations nivå.
   - Standardvärdet är _ResourceGroup_.
 - **Distribution** [krävs]
-  - Den här egenskapen ska innehålla den fullständiga mal Lav distributionen som den skulle skickas till `Microsoft.Resources/deployments`-PLACERINGs-API. Mer information finns i [distributioner REST API](/rest/api/resources/deployments).
+  - Den här egenskapen ska innehålla den fullständiga mal Lav distributionen som den skulle skickas till `Microsoft.Resources/deployments` skicka API. Mer information finns i [distributioner REST API](/rest/api/resources/deployments).
 
   > [!NOTE]
   > Alla funktioner i **distributions** egenskapen utvärderas som komponenter i mallen, inte principen. Undantaget är **parameter** egenskapen som skickar värden från principen till mallen. **Värdet** i det här avsnittet under ett Mallnamn används för att utföra det här värdet genom att skicka (se _fullDbName_ i DeployIfNotExists-exemplet).
@@ -431,12 +432,68 @@ Exempel: utvärderar SQL Server databaser för att avgöra om transparentDataEnc
 }
 ```
 
-## <a name="enforceregopolicy"></a>EnforceRegoPolicy
+## <a name="enforceopaconstraint"></a>EnforceOPAConstraint
 
-Den här inställningen används med ett princip definitions *läge* för `Microsoft.ContainerService.Data`. Den används för att skicka regler för åtkomst kontroll som definierats med [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) för att [Öppna princip agenten](https://www.openpolicyagent.org/) (OPA) på [Azure Kubernetes-tjänsten](../../../aks/intro-kubernetes.md).
+Den här inställningen används med ett princip definitions *läge* för `Microsoft.Kubernetes.Data`. Den används för att skicka Gatekeeper v3-regler för åtkomst kontroll som definierats med [OPA constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) till att [Öppna princip agent](https://www.openpolicyagent.org/) (OPA) till självhanterade Kubernetes-kluster i Azure.
 
 > [!NOTE]
-> [Azure policy för Kubernetes](rego-for-aks.md) finns i en offentlig för hands version och stöder bara inbyggda princip definitioner.
+> [Azure policy för AKS-motorn](aks-engine.md) finns i en offentlig för hands version och stöder bara inbyggda princip definitioner.
+
+### <a name="enforceopaconstraint-evaluation"></a>EnforceOPAConstraint-utvärdering
+
+Den öppna princip agentens åtkomst kontroll utvärderar alla nya begär anden i klustret i real tid.
+Var 5: e minut slutförs en fullständig genomsökning av klustret och resultaten rapporteras till Azure Policy.
+
+### <a name="enforceopaconstraint-properties"></a>Egenskaper för EnforceOPAConstraint
+
+Egenskapen **information** för EnforceOPAConstraint-effekter har de subegenskaper som beskriver Gatekeeper-åtkomstkontroll för åtkomst kontroll.
+
+- **constraintTemplate** [krävs]
+  - Begränsnings mal len CustomResourceDefinition (CRD) som definierar nya begränsningar. Mallen definierar Rego Logic, begränsnings schema och villkors parametrar som skickas via **värden** från Azure policy.
+- **begränsning** [obligatoriskt]
+  - CRD-implementeringen av begränsnings mal len. Använder parametrar som skickas via **värden** som `{{ .Values.<valuename> }}`. I exemplet nedan är detta `{{ .Values.cpuLimit }}` och `{{ .Values.memoryLimit }}`.
+- **värden** [valfritt]
+  - Definierar alla parametrar och värden som ska skickas till begränsningen. Varje värde måste finnas i CRD för begränsnings mal len.
+
+### <a name="enforceregopolicy-example"></a>EnforceRegoPolicy-exempel
+
+Exempel: Gatekeeper v3-åtkomstkontroll för att ange behållarens processor gränser och minnes resurs gränser i AKS-motorn.
+
+```json
+"if": {
+    "allOf": [
+        {
+            "field": "type",
+            "in": [
+                "Microsoft.ContainerService/managedClusters",
+                "AKS Engine"
+            ]
+        },
+        {
+            "field": "location",
+            "equals": "westus2"
+        }
+    ]
+},
+"then": {
+    "effect": "enforceOPAConstraint",
+    "details": {
+        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-resource-limits/template.yaml",
+        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-resource-limits/constraint.yaml",
+        "values": {
+            "cpuLimit": "[parameters('cpuLimit')]",
+            "memoryLimit": "[parameters('memoryLimit')]"
+        }
+    }
+}
+```
+
+## <a name="enforceregopolicy"></a>EnforceRegoPolicy
+
+Den här inställningen används med ett princip definitions *läge* för `Microsoft.ContainerService.Data`. Den används för att skicka Gatekeeper v2-regler för åtkomst kontroll som definierats med [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) för att [Öppna princip agent](https://www.openpolicyagent.org/) (OPA) på [Azure Kubernetes-tjänsten](../../../aks/intro-kubernetes.md).
+
+> [!NOTE]
+> [Azure policy för AKS](rego-for-aks.md) är i begränsad för hands version och stöder bara inbyggda princip definitioner
 
 ### <a name="enforceregopolicy-evaluation"></a>EnforceRegoPolicy-utvärdering
 
@@ -445,7 +502,7 @@ Var 5: e minut slutförs en fullständig genomsökning av klustret och resultate
 
 ### <a name="enforceregopolicy-properties"></a>Egenskaper för EnforceRegoPolicy
 
-Egenskapen **information** för EnforceRegoPolicy-effekter har de subegenskaper som beskriver reglerna för Rego-åtkomstkontroll.
+Egenskapen **information** för EnforceRegoPolicy-funktionen har de subegenskaper som beskriver åtkomst kontroll regeln för gatekeeper v2.
 
 - **policyId** [krävs]
   - Ett unikt namn som skickas som en parameter till Rego-åtkomstkontroll.
@@ -456,7 +513,7 @@ Egenskapen **information** för EnforceRegoPolicy-effekter har de subegenskaper 
 
 ### <a name="enforceregopolicy-example"></a>EnforceRegoPolicy-exempel
 
-Exempel: Rego-åtkomstkontroll för att endast tillåta de angivna behållar avbildningarna i AKS.
+Exempel: Gatekeeper v2-åtkomstkontroll för att endast tillåta de angivna behållar avbildningarna i AKS.
 
 ```json
 "if": {
@@ -485,7 +542,7 @@ Exempel: Rego-åtkomstkontroll för att endast tillåta de angivna behållar avb
 
 ## <a name="layering-policies"></a>Skikt principer
 
-En resurs kan påverkas av flera tilldelningar. Tilldelningarna kan finnas i samma omfång eller i olika omfång. Vart och ett av dessa tilldelningar är också troligt att en annan inverkan har definierats. Villkoret och påverkan för varje princip utvärderas oberoende av varandra. Exempel:
+En resurs kan påverkas av flera tilldelningar. Tilldelningarna kan finnas i samma omfång eller i olika omfång. Vart och ett av dessa tilldelningar är också troligt att en annan inverkan har definierats. Villkoret och påverkan för varje princip utvärderas oberoende av varandra. Till exempel:
 
 - Princip 1
   - Begränsar resursens plats till "väst"

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: fe40eb27b07304aba48be4a47fb22168cb60434c
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
-ms.translationtype: MT
+ms.openlocfilehash: 5bf8aea05855d81e88face1dd507f0006cc19cab
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332285"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73483901"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Självstudie: Konfigurera ett klassrumslabb 
 I självstudien konfigurerar du ett klassrumslabb med virtuella datorer som används av eleverna i klassrummet.  
@@ -32,7 +32,7 @@ I den här självstudien gör du följande:
 > * Ange schema för labbet
 > * Skicka inbjudan via e-post till studenter
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill konfigurera ett klass rums labb i ett labb konto måste du vara medlem i någon av dessa roller i labb kontot: ägare, labb skapare eller deltagare. Det konto som du använde för att skapa ett labbkonto läggs automatiskt till i ägarrollen.
 
 En labbägare kan lägga till andra användare i rollen **Labbskaparen**. Labbägare lägger exempelvis till universitetslärare till rollen Labbskaparen. Sedan skapar universitetsläraren labbar med virtuella datorer för deras klasser. Elever använder registreringslänken som de får från universitetslärarna för att registrera sig i labbet. När de har registrerats kan de använda virtuella datorer i labbarna för att utföra klass- och hemarbete. Detaljerade anvisningar för att lägga till användare till rollen Labbskaparen finns i [Lägga till en användare till rollen Labbskaparen](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
@@ -111,11 +111,11 @@ Skapa en schemalagd händelse för labbet så att virtuella datorer i labbet sta
 1. Växla till sidan **scheman** och välj **Lägg till schemalagd händelse** i verktygsfältet. 
 
     ![Knappen Lägg till schema på sidan scheman](../media/how-to-create-schedules/add-schedule-button.png)
-2. Bekräfta att **standard** är valt **händelse typ**. Du väljer **Start bara** för att ange start tiden för de virtuella datorerna. Du väljer **stoppa endast** om du bara vill ange stopp tiden för de virtuella datorerna. 
-7. I avsnittet **Upprepa** väljer du det aktuella schemat. 
+2. Bekräfta att **standard** har valts som **händelse typ**. Du väljer **Start bara** för att ange start tiden för de virtuella datorerna. Du väljer **stoppa endast** om du bara vill ange stopp tiden för de virtuella datorerna. 
+3. I avsnittet **Upprepa** väljer du det aktuella schemat. 
 
     ![Knappen Lägg till schema på sidan scheman](../media/how-to-create-schedules/select-current-schedule.png)
-5. Utför följande steg i dialog rutan **Upprepa** :
+4. Om du väljer schemat öppnas dialog rutan **Upprepa** . I den här dialog rutan utför du följande steg:
     1. Bekräfta att **varje vecka** har angetts för fältet **Upprepa** . 
     3. Ange **start datum**.
     4. Ange **Start tiden** då du vill att de virtuella datorerna ska startas.
@@ -124,10 +124,8 @@ Skapa en schemalagd händelse för labbet så att virtuella datorer i labbet sta
     2. Välj de dagar som du vill att schemat ska börja gälla. I följande exempel är måndag-torsdag markerat. 
     8. Välj **Spara**. 
 
-        ![Ange upprepnings schema](../media/how-to-create-schedules/set-repeat-schedule.png)
-
-3. På sidan **Lägg till schemalagd händelse** för **anteckningar (valfritt)** anger du eventuellt en beskrivning eller information om schemat. 
-4. På sidan **Lägg till schemalagd händelse** väljer du **Spara**. 
+5. På sidan **Lägg till schemalagd händelse** för **anteckningar (valfritt)** anger du eventuellt en beskrivning eller information om schemat. 
+6. På sidan **Lägg till schemalagd händelse** väljer du **Spara**. 
 
     ![Vecko schema](../media/how-to-create-schedules/add-schedule-page-weekly.png)
 
@@ -140,7 +138,7 @@ Skapa en schemalagd händelse för labbet så att virtuella datorer i labbet sta
 1. På sidan **Skicka inbjudan via e-post** anger du ett valfritt meddelande och väljer sedan **Skicka**. E-postmeddelandet innehåller automatiskt registrerings länken. Du kan hämta den här registrerings länken genom att välja **... (tre punkter)** i verktygsfältet och **registrerings länken**. 
 
     ![Skicka registrerings länk via e-post](../media/tutorial-setup-classroom-lab/send-email.png)
-4. Du ser status för **inbjudan** i listan **användare** . Statusen bör ändras till att **skickas** och sedan **skickas till &lt;date @ no__t-3**. 
+4. Du ser status för **inbjudan** i listan **användare** . Statusen bör ändras till att **skickas** och sedan **skickas till &lt;datum&gt;** . 
 
 ## <a name="next-steps"></a>Nästa steg
 I självstudien skapade du ett klassrumslabb och konfigurerade labbet. Om du vill veta hur en elev kan få åtkomst till en virtuell dator i labbet med hjälp av registreringslänken, går du vidare till nästa självstudie:

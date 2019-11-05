@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Utforma din första relationsdatabas i Azure SQL Database med hjälp av SSMS | Microsoft Docs'
+title: 'Självstudie: utforma din första Relations databas i Azure SQL Database med SSMS | Microsoft Docs'
 description: Lär dig hur du utformar din första relationsdatabas i en enkel databas i Azure SQL Database med hjälp av SQL Server Management Studio.
 services: sql-database
 ms.service: sql-database
@@ -9,20 +9,20 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
-ms.openlocfilehash: c6ad1cd7af02f281c53ece23a018f8b5ec0c7da9
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 18e7e75b259475b9e360dc3441ed83ccb577e557
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640949"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492015"
 ---
-# <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Självstudier: Utforma en relationsdatabas i en enkel databas i Azure SQL Database med hjälp av SSMS
+# <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Självstudie: utforma en Relations databas i en enda databas inom Azure SQL Database med SSMS
 
 Azure SQL Database är en relationsdatabas-som-tjänst (DBaaS) som bygger på Microsoft Cloud (Azure). I de här självstudierna får du lära dig att använda Azure-portalen och [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) för att:
 
 > [!div class="checklist"]
-> - Skapa en enkel databas med hjälp av Azure-portalen*
-> - Konfigurera en IP-brandväggsregel på servernivå med hjälp av Azure-portalen
+> - Skapa en enskild databas med hjälp av Azure-portalen*
+> - Ställa in en IP-brandväggsregel på servernivå med hjälp av Azure-portalen
 > - Ansluta till databasen med SSMS
 > - Skapa tabeller med SSMS
 > - Massinläsa data med BCP
@@ -33,7 +33,7 @@ Azure SQL Database är en relationsdatabas-som-tjänst (DBaaS) som bygger på Mi
 > [!TIP]
 > Följande Microsoft Learn-modul hjälper dig att lära dig kostnads fritt hur du [utvecklar och konfigurerar ett ASP.NET-program som skickar frågor till en Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), inklusive skapandet av en enkel databas.
 > [!NOTE]
-> I den här självstudien använder vi enkel databas. Du skulle även kunna använda en pooldatabas i en elastisk pool eller en instansdatabas i en hanterad instans. Anslutning till en hanterad instans behandlas i de här snabbstarterna för hanterad instans: [Snabbstart: Konfigurera en virtuell Azure-dator för att ansluta till en hanterad Azure SQL Database-instans](sql-database-managed-instance-configure-vm.md) och [Snabbstart: Konfigurera en punkt-till-plats-anslutning till en hanterad Azure SQL Database-instans lokalt](sql-database-managed-instance-configure-p2s.md).
+> I den här självstudien använder vi enkel databas. Du skulle även kunna använda en pooldatabas i en elastisk pool eller en instansdatabas i en hanterad instans. För anslutning till en hanterad instans, se följande snabb starter för hanterade instanser: [snabb start: Konfigurera virtuell Azure-dator för att ansluta till en Azure SQL Database Hanterad instans](sql-database-managed-instance-configure-vm.md) och [snabb start: Konfigurera en punkt-till-plats-anslutning till en Azure SQL Database Hanterad instans från lokal plats](sql-database-managed-instance-configure-p2s.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -44,7 +44,7 @@ För att kunna följa de här självstudierna ska du kontrollera att du har inst
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-blank-single-database"></a>Skapa en enda tom databas
 
@@ -52,7 +52,7 @@ En enskild databas i Azure SQL-databasen skapas med en definierad uppsättning b
 
 Följ dessa steg för att skapa en enskild tom databas.
 
-1. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
+1. På Azure Portal-menyn eller på **Start** sidan väljer du **skapa en resurs**.
 2. Välj **Databaser** i avsnittet Azure Marketplace på sidan **Nytt** och klicka sedan på **SQL Database** i avsnittet **Aktuellt**.
 
    ![skapa tom databas](./media/sql-database-design-first-database/create-empty-database.png)
@@ -73,7 +73,7 @@ Följ dessa steg för att skapa en enskild tom databas.
     | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/naming-conventions). |
     | **Inloggning för serveradministratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](/sql/relational-databases/databases/database-identifiers). |
     | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
-    | **Location** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
+    | **Plats** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
 
     ![skapa databas-server](./media/sql-database-design-first-database/create-database-server.png)
 
@@ -88,7 +88,7 @@ Följ dessa steg för att skapa en enskild tom databas.
 
 9. Klicka på **Aviseringar** i verktygsfältet för att övervaka distributionsprocessen.
 
-   ![meddelande](./media/sql-database-design-first-database/notification.png)
+   ![avisering](./media/sql-database-design-first-database/notification.png)
 
 ## <a name="create-a-server-level-ip-firewall-rule"></a>Skapa en IP-brandväggsregel på servernivå
 
@@ -97,21 +97,23 @@ SQL Database-tjänsten skapar en IP-brandvägg på servernivå. Den här brandv�
 > [!IMPORTANT]
 > SQL Database-tjänsten kommunicerar via port 1433. Om du försöker ansluta till den här tjänsten från ett företagsnätverk kan utgående trafik via port 1433 bli nekad av nätverkets brandvägg. I så fall kan du inte ansluta till din enkla databas om inte administratören öppnar port 1433.
 
-1. När distributionen är klar klickar du på **SQL-databaser** på menyn till vänster och klickar sedan på *yourDatabase* på sidan **SQL-databaser**. Översiktssidan för databasen öppnas och visar det fullständigt kvalificerade **servernamnet** (till exempel *yourserver.database.windows.net*) tillsammans med alternativ för ytterligare konfiguration.
+1. När distributionen är klar väljer du **SQL-databaser** på Azure Portal-menyn eller söker efter och väljer *SQL-databaser* från vilken sida som helst.  
 
-2. Kopiera det här fullständigt kvalificerade servernamnet. Du behöver det när du ansluter till servern och dess databaser från SQL Server Management Studio.
+1. Välj *yourDatabase* på sidan **SQL-databaser** . Översikts sidan för databasen öppnas och visar det fullständigt kvalificerade **Server namnet** (till exempel `contosodatabaseserver01.database.windows.net`) och innehåller alternativ för ytterligare konfiguration.
 
    ![servernamn](./media/sql-database-design-first-database/server-name.png)
 
-3. Klicka på **Konfigurera serverns brandvägg** i verktygsfältet. Sidan **Brandväggsinställningar** för SQL Database-servern öppnas.
+1. Kopiera det här fullständigt kvalificerade servernamnet. Du behöver det när du ansluter till servern och dess databaser från SQL Server Management Studio.
+
+1. Klicka på **Konfigurera serverns brandvägg** i verktygsfältet. Sidan **Brandväggsinställningar** för SQL Database-servern öppnas.
 
    ![IP-brandväggsregel på servernivå](./media/sql-database-design-first-database/server-firewall-rule.png)
 
-4. Klicka på **Lägg till klient-IP** i verktygsfältet och lägg till din aktuella IP-adress i en ny IP-brandväggsregel. Med en IP-brandväggsregel kan du öppna port 1433 för en enskild IP-adress eller för IP-adressintervall.
+1. Klicka på **Lägg till klient-IP** i verktygsfältet och lägg till din aktuella IP-adress i en ny IP-brandväggsregel. Med en IP-brandväggsregel kan du öppna port 1433 för en enskild IP-adress eller för IP-adressintervall.
 
-5. Klicka på **Spara**. En IP-brandväggsregel på servernivå för att öppna port 1433 på SQL Database-servern skapas för din aktuella IP-adress.
+1. Klicka på **Spara**. En IP-brandväggsregel på servernivå för att öppna port 1433 på SQL Database-servern skapas för din aktuella IP-adress.
 
-6. Klicka på **OK** och stäng sedan sidan **Brandväggsinställningar**.
+1. Klicka på **OK** och stäng sedan sidan **Brandväggsinställningar**.
 
 Din IP-adress kan nu passera genom IP-brandväggen. Nu kan du ansluta till din enkla databas med hjälp av SQL Server Management Studio eller ett annat verktyg. Se till att använda serveradmin-kontot som du skapade tidigare.
 
@@ -212,7 +214,7 @@ Följande diagram visar hur tabellerna är relaterade till varandra. Vissa av ta
 
    ![skapade ssms-tabeller](./media/sql-database-design-first-database/ssms-tables-created.png)
 
-## <a name="load-data-into-the-tables"></a>Läs in data till tabellerna
+## <a name="load-data-into-the-tables"></a>Läs in data i tabellerna
 
 1. Skapa en mapp med namnet *sampleData* i din mapp för nedladdningar för att lagra exempeldata till din databas.
 
@@ -236,7 +238,7 @@ Följande diagram visar hur tabellerna är relaterade till varandra. Vissa av ta
 
 Du har nu läst in exempeldata i de tabeller som du skapade tidigare.
 
-## <a name="query-data"></a>Söka i data
+## <a name="query-data"></a>Frågedata
 
 Kör följande frågor för att hämta information från databastabellerna. I [Skriva SQL-frågor](https://technet.microsoft.com/library/bb264565.aspx) kan du läsa mer om hur du skriver SQL-frågor. Den första frågan kopplar ihop alla fyra tabellerna och söker efter alla elever som undervisats av ”Dominick Pope” som har ett betyg som är högre än 75 %. Den andra frågan kopplar ihop alla fyra tabeller och söker efter kurserna som ”Noe Coleman” någonsin har registrerat sig på.
 

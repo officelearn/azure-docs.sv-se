@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 7f62e437d80f023972327d98b4add193eb7b8dd6
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 65bbf58d8514f9fea082b839f57e9aaf3417dc14
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044404"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469741"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer
 
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 > * Schemalägga en uppdateringsdistribution
 > * Visa resultatet av en distribution
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -47,8 +47,9 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 Först aktiverar du uppdateringshantering på din virtuella datorn för att kunna genomföra den här självstudien:
 
-1. I Azure Portal, i vänstermenyn, väljer du **Virtuella datorer**. Välj en virtuell dator i listan.
-2. På sidan för virtuell dator under **ÅTGÄRDER** väljer du **Uppdateringshantering**. Fönstret **Aktivera uppdateringshantering** öppnas.
+1. Välj **virtuella datorer** på [Azure Portal](https://portal.azure.com) -menyn eller Sök efter och välj **virtuella datorer** på **Start** sidan.
+1. Välj den virtuella dator som du vill aktivera Uppdateringshantering för.
+1. På sidan för virtuell dator under **ÅTGÄRDER** väljer du **Uppdateringshantering**. Fönstret **Aktivera uppdateringshantering** öppnas.
 
 Verifieringen utförs för att fastställa om uppdateringshantering är aktiverat för den här virtuella datorn. Verifieringen söker efter en Log Analytics-arbetsyta och ett länkat Azure Automation-konto, och om lösningen för uppdateringshantering är i arbetsytan.
 
@@ -143,7 +144,7 @@ Under **Ny uppdateringsdistribution** anger du följande information:
 
   Klassificeringstyper:
 
-   |OS  |Typ  |
+   |Operativsystem  |Typ  |
    |---------|---------|
    |Windows     | Kritiska uppdateringar</br>Säkerhetsuppdateringar</br>Samlade uppdateringar</br>Funktionspaket</br>Service pack</br>Definitionsuppdateringar</br>Verktyg</br>Uppdateringar        |
    |Linux     | Kritiska uppdateringar och säkerhetsuppdateringar</br>Övriga uppdateringar       |
@@ -153,7 +154,7 @@ Under **Ny uppdateringsdistribution** anger du följande information:
 * **Uppdateringar att inkludera/exkludera** – detta öppnar sidan **Inkludera/exkludera**. Uppdateringar som ska inkluderas eller exkluderas visas på en separat flik.
 
 > [!NOTE]
-> Det är viktigt att veta att undantagen åsidosätter inkluderingar. Om du till exempel definierar en undantags regel för `*` installeras inga korrigeringar eller paket eftersom de undantas. Undantagna uppdateringar visas fortfarande som saknas på datorn. För Linux-datorer om ett paket ingår men har ett beroende paket som uteslutits, installeras inte paketet.
+> Det är viktigt att veta att undantagen åsidosätter inkluderingar. Om du till exempel definierar en undantags regel för `*`installeras inga korrigeringar eller paket eftersom de undantas. Undantagna uppdateringar visas fortfarande som saknas på datorn. För Linux-datorer om ett paket ingår men har ett beroende paket som uteslutits, installeras inte paketet.
 
 * **Schemainställningar**: Sidan **Schemainställningar** öppnas. Starttiden är som standard 30 minuter efter den aktuella tiden. Du kan ange starttiden till helst från 10 minuter i framtiden.
 

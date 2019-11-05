@@ -1,7 +1,7 @@
 ---
 title: Modulreferens för funktion för hashing
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen för funktions-hash i Azure Machine Learning-tjänsten för att funktionalisera text data.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen för funktions-hash i Azure Machine Learning för att funktionalisera text data.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/01/2019
-ms.openlocfilehash: bbcab6e94783583c7e13ae482d68fd013ba4c91d
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 48960eae4941bb744a937639e1308e1b5f6aaf9f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170872"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497825"
 ---
 # <a name="feature-hashing-module-reference"></a>Modulreferens för funktion för hashing
 
-I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learnings tjänsten.
+I den här artikeln beskrivs en modul som ingår i Azure Machine Learning designer (för hands version).
 
 Använd modulen funktion-hash för att transformera en strömmande engelsk text till en uppsättning med heltals funktioner. Du kan sedan skicka den här hash-funktionen till en Machine Learning-algoritm för att träna en text analys modell.
 
@@ -39,7 +39,7 @@ Ta till exempel en uppsättning enkla meningar som dessa, följt av en sentiment
 
 Internt skapar modulen för funktions-hash en ord lista med n-gram. Listan över för den här data uppsättningen skulle till exempel vara ungefär så här:
 
-|Term (bigram)|Frekvens|
+|Term (bigram)|Frequency|
 |------------|---------------|
 |Den här boken|3|
 |Jag gillat|1|
@@ -48,18 +48,18 @@ Internt skapar modulen för funktions-hash en ord lista med n-gram. Listan över
 
 Du kan kontrol lera storleken på n-gram med hjälp av egenskapen **n-g** . Om du väljer unigrams beräknas även. Ord listan innehåller även enkla termer som dessa:
 
-|Term (unigrams)|Frekvens|
+|Term (unigrams)|Frequency|
 |------------|---------------|
 |bokfilen|3|
 |I|3|
-|Böcker|1|
-|var|1|
+|böcker|1|
+|upptäckt|1|
 
 När ord listan har skapats konverteras ord listans villkor till hash-värden i modulen för hashing av funktioner. Sedan beräknar den om en funktion har använts i varje fall. För varje rad med text data visar modulen en uppsättning kolumner, en kolumn för varje hashad funktion.
 
 Till exempel kan funktions kolumnerna se ut ungefär så här efter hashing:
 
-|Klassificering|Hash-funktion 1|Hash-funktion 2|Hash-funktion 3|
+|Bedömnings|Hash-funktion 1|Hash-funktion 2|Hash-funktion 3|
 |-----|-----|-----|-----|
 |4|1|1|0|
 |5|0|0|0|
@@ -73,7 +73,7 @@ Numeriska utdata gör det också möjligt att använda vanliga metoder för mask
 
 ## <a name="configure-the-feature-hashing-module"></a>Konfigurera modulen för funktion-hash
 
-1.  Lägg till modulen för funktions-hash i experimentet i ett visuellt gränssnitt.
+1.  Lägg till modulen för funktions-hash i din pipeline i designern.
 
 1. Anslut data uppsättningen som innehåller den text som du vill analysera.
 
@@ -94,7 +94,7 @@ Numeriska utdata gör det också möjligt att använda vanliga metoder för mask
 
     Om du till exempel anger 3, unigrams, 2 g och trigrams kommer att skapas.
 
-1. Kör experimentet.
+1. Köra en pipeline.
 
 ## <a name="results"></a>Resultat
 
@@ -127,8 +127,8 @@ Följande metod tips kan hjälpa dig att få ut mesta möjliga av modulen för f
     * Borttagning av interpunktion och specialtecken
     * Följd  
 
-Den optimala uppsättningen för bearbetnings metoder som ska användas i vilken lösning som helst beror på domän, vokabulär och affärs behov. Experimentera med dina data för att se vilka text bearbetnings metoder som är mest effektiva.
+Den optimala uppsättningen för bearbetnings metoder som ska användas i vilken lösning som helst beror på domän, vokabulär och affärs behov. pipeline med dina data för att se vilka text bearbetnings metoder som är mest effektiva.
 
 ## <a name="next-steps"></a>Nästa steg
             
-Se de [moduler som är tillgängliga](module-reference.md) för tjänsten Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning 

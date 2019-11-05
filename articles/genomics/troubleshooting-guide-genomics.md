@@ -1,7 +1,7 @@
 ---
-title: Fel söknings guide
+title: Felsökningsguide
 titleSuffix: Microsoft Genomics
-description: Lär dig mer om fel söknings strategier för att använda Microsoft Genomics.
+description: Lär dig mer om fel söknings strategier för att använda Microsoft Genomics, inklusive fel meddelanden och hur du löser dem.
 keywords: fel sökning, fel, fel sökning
 services: genomics
 author: ruchir
@@ -11,12 +11,12 @@ ms.service: genomics
 ms.workload: genomics
 ms.topic: troubleshooting
 ms.date: 10/29/2018
-ms.openlocfilehash: ce8af4d444e642a8f67f43f8cf403ce9b2cb08ab
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: f6ef56e4188a7541036db096e4ab35a1b95fc141
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248518"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486009"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -83,7 +83,7 @@ msgen status -w 1001 -f "config.txt"
 ```
 
 ### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2. granska innehållet i StandardOutput. txt 
-Leta upp behållaren utdata för arbets flödet i fråga. MSGEN skapar en, `[workflowfilename].logs.zip`-mapp efter varje arbets flödes körning. Zippa upp mappen för att visa dess innehåll:
+Leta upp behållaren utdata för arbets flödet i fråga. MSGEN skapar en, `[workflowfilename].logs.zip` mapp efter varje arbets flödes körning. Zippa upp mappen för att visa dess innehåll:
 
 * outputFileList. txt – en lista över utdatafilerna som skapas under arbets flödet
 * StandardError. txt – den här filen är tom.

@@ -10,12 +10,12 @@ ms.subservice: load-data
 ms.date: 07/28/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: c90deefba75cd8bbeda126c9da8a05e1069831d4
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: c248a2e3e6724388fa6402a70ac3bcb51f0f9ef3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597464"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492257"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Utforma en PolyBase data inläsnings strategi för Azure SQL Data Warehouse
 
@@ -40,10 +40,10 @@ De grundläggande stegen för att implementera en PolyBase-ELT för SQL Data War
 
 En inläsnings kurs finns i [använda PolyBase för att läsa in data från Azure Blob Storage till Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
 
-Mer information finns i blogg om inläsnings [mönster](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/). 
+Mer information finns i [blogg om inläsnings mönster](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/). 
 
 
-## <a name="1-extract-the-source-data-into-text-files"></a>1. Extrahera källdata i textfiler
+## <a name="1-extract-the-source-data-into-text-files"></a>1. extrahera källdata i textfiler
 
 Att hämta data från käll systemet beror på lagrings platsen.  Målet är att flytta data till PolyBase-stödda avgränsade textfiler. 
 
@@ -57,37 +57,37 @@ PolyBase läser in data från UTF-8-och UTF-16-kodade avgränsade textfiler. Fö
 |       smallint        |                           smallint                           |
 |          int          |                             int                              |
 |        bigint         |                            bigint                            |
-|        boolean        |                             bit                              |
-|        double         |                            float                             |
-|         float         |                             real                             |
-|        double         |                            money                             |
+|        boolesk        |                             bitmask                              |
+|        double         |                            flyt                             |
+|         flyt         |                             verkligen                             |
+|        double         |                            mynt                             |
 |        double         |                          smallmoney                          |
 |        sträng         |                            nchar                             |
 |        sträng         |                           nvarchar                           |
-|        sträng         |                             char                             |
+|        sträng         |                             hängande                             |
 |        sträng         |                           varchar                            |
-|        binary         |                            binary                            |
-|        binary         |                          varbinary                           |
-|       timestamp       |                             date                             |
-|       timestamp       |                        smalldatetime                         |
-|       timestamp       |                          datetime2                           |
-|       timestamp       |                           datetime                           |
-|       timestamp       |                             time                             |
-|       date            |                             date                             |
+|        binär         |                            binär                            |
+|        binär         |                          varbinary                           |
+|       tidsstämpel       |                             datum                             |
+|       tidsstämpel       |                        datatyp                         |
+|       tidsstämpel       |                          datetime2                           |
+|       tidsstämpel       |                           datetime                           |
+|       tidsstämpel       |                             time                             |
+|       datum            |                             datum                             |
 |        decimal        |                            decimal                           |
 
-## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. Landa data i Azure Blob Storage eller Azure Data Lake Store
+## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. landa data i Azure Blob Storage eller Azure Data Lake Store
 
 Om du vill landa data i Azure Storage kan du flytta dem till [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) eller [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md). På någon av platserna ska data lagras i textfiler. PolyBase kan läsas in från vilken plats som helst.
 
 Verktyg och tjänster som du kan använda för att flytta data till Azure Storage:
 
-- [Azure ExpressRoute](../expressroute/expressroute-introduction.md) service förbättrar nätverks data flöde, prestanda och förutsägbarhet. ExpressRoute är en tjänst som dirigerar data med en dedikerad privat anslutning till Azure. ExpressRoute-anslutningar dirigerar inte data via det offentliga Internet. Anslutningarna ger högre tillförlitlighet, snabbare hastighet, lägre fördröjning och högre säkerhet än vanliga anslutningar via det offentliga Internet.
+- [Azure ExpressRoute](../expressroute/expressroute-introduction.md) service förbättrar nätverks data flöde, prestanda och förutsägbarhet. ExpressRoute är en tjänst som dirigerar dina data via en dedikerad privat anslutning till Azure. ExpressRoute-anslutningar dirigerar inte data via det offentliga Internet. Anslutningarna ger högre tillförlitlighet, snabbare hastighet, lägre fördröjning och högre säkerhet än vanliga anslutningar via det offentliga Internet.
 - [AzCopy-verktyget](../storage/common/storage-moving-data.md) flyttar data till Azure Storage över det offentliga Internet. Detta fungerar om data storlekarna är mindre än 10 TB. Om du vill utföra belastningen regelbundet med AZCopy testar du nätverks hastigheten för att se om den är acceptabel. 
 - [Azure Data Factory (ADF)](../data-factory/introduction.md) har en gateway som du kan installera på den lokala servern. Sedan kan du skapa en pipeline för att flytta data från din lokala server upp till Azure Storage. Om du vill använda Data Factory med SQL Data Warehouse, se [Läs in data i SQL Data Warehouse](/azure/data-factory/load-azure-sql-data-warehouse).
 
 
-## <a name="3-prepare-the-data-for-loading"></a>3. Förbereda data för inläsning
+## <a name="3-prepare-the-data-for-loading"></a>3. Förbered data för inläsning
 
 Du kan behöva förbereda och rensa data i ditt lagrings konto innan du läser in det i SQL Data Warehouse. Data förberedelse kan utföras medan dina data är i källan, när du exporterar data till textfiler, eller när data har Azure Storage.  Det är enklast att arbeta med data så tidigt i processen som möjligt.  
 
@@ -123,19 +123,19 @@ Om du vill läsa in data med PolyBase kan du använda något av följande inläs
 - [PolyBase med T-SQL](load-data-from-azure-blob-storage-using-polybase.md) fungerar bra när dina data finns i Azure Blob storage eller Azure Data Lake Store. Du får störst kontroll över inläsnings processen, men du måste också definiera externa data objekt. De andra metoderna definierar dessa objekt bakom scenerna när du mappar käll tabeller till mål tabeller.  För att dirigera T-SQL-inläsningar kan du använda Azure Data Factory, SSIS eller Azure Functions. 
 - [PolyBase med SSIS](/sql/integration-services/load-data-to-sql-data-warehouse) fungerar bra när dina källdata är i SQL Server, antingen SQL Server lokalt eller i molnet. SSIS definierar källa till mål tabell mappningar och dirigerar även belastningen. Om du redan har SSIS-paket kan du ändra paketen så att de fungerar med det nya informations lager målet. 
 - [PolyBase med Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) är ett annat Orchestration-verktyg.  Den definierar en pipeline och schemalägger jobb. 
-- [PolyBase med Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) överför data från en SQL Data Warehouse tabell till en DataBricks-dataframe och/eller skriver data från en DataBricks dataframe till en SQL Data Warehouse tabell med PolyBase.
+- [PolyBase med Azure Databricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) överför data från en SQL Data Warehouse tabell till en Databricks-dataframe och/eller skriver data från en Databricks-dataframe till en SQL Data Warehouse tabell med PolyBase.
 
 ### <a name="non-polybase-loading-options"></a>Alternativ för icke-PolyBase-inläsning
 
 Om dina data inte är kompatibla med PolyBase kan du använda [BCP](/sql/tools/bcp-utility) -eller [SQLBulkCopy-API: et](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). BCP läser in direkt till SQL Data Warehouse utan att gå via Azure Blob Storage, och är endast avsett för små belastningar. Obs! belastnings prestandan för de här alternativen är betydligt långsammare än PolyBase. 
 
 
-## <a name="5-transform-the-data"></a>5. Omvandla data
+## <a name="5-transform-the-data"></a>5. transformera data
 
 När data finns i mellanlagringsplatsen ska du utföra omvandlingar som din arbets belastning kräver. Flytta sedan data till en produktions tabell.
 
 
-## <a name="6-insert-the-data-into-production-tables"></a>6. Infoga data i produktions tabeller
+## <a name="6-insert-the-data-into-production-tables"></a>6. infoga data i produktions tabeller
 
 INSERT INTO... SELECT-instruktionen flyttar data från mellanlagrings tabellen till den permanenta tabellen. 
 

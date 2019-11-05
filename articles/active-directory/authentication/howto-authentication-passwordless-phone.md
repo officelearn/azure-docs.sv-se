@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9c21ff5c4c94eecc7bb1a6643e46166df80edf4
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: acdcbef74d95fbbc4cfb49176d1f98621e746ff6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648323"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474359"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Aktivera lösen ords utan lösen ord med Microsoft Authenticator-appen (förhands granskning)
 
@@ -31,7 +31,7 @@ I stället för att se en uppmaning om att ange ett lösen ord när du har anget
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Azure Multi-Factor Authentication, med push-meddelanden som tillåts som en verifieringsmetod 
+- Azure Multi-Factor Authentication, med push-meddelanden som är tillåtna som en verifieringsmetod 
 - Den senaste versionen av Microsoft Authenticator installerad på enheter som kör iOS 8,0 eller senare, eller Android 6,0 eller senare.
 
 > [!NOTE]
@@ -41,12 +41,12 @@ I stället för att se en uppmaning om att ange ett lösen ord när du har anget
 
 ### <a name="enable-the-combined-registration-experience"></a>Aktivera kombinerad registrerings upplevelse
 
-Registrerings funktioner för metoder för lösen ords kryptering förlitar sig på den kombinerade förhands granskningen. Följ anvisningarna i artikeln Aktivera kombinerad registrering av [säkerhets information (för hands version)](howto-registration-mfa-sspr-combined.md)för att aktivera den kombinerade förhands granskningen.
+Registrerings funktioner för metoder för lösen ords kryptering förlitar sig på den kombinerade förhands granskningen. Följ anvisningarna i artikeln [Aktivera kombinerad registrering av säkerhets information (för hands version)](howto-registration-mfa-sspr-combined.md)för att aktivera den kombinerade förhands granskningen.
 
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Aktivera autentiseringsmetoder för inloggning med lösen ord
 
 1. Logga in på [Azure-portalen](https://portal.azure.com)
-1. Bläddra till **Azure Active Directory** > **autentiseringsmetoder** > **metod (för hands version)**
+1. Bläddra till **Azure AD-säkerhets** > **autentiseringsmetoder** > **princip för autentiserings metod (för hands version)**
 1. Under **lösen ords telefon inloggning**väljer du följande alternativ
    1. **Aktivera** – Ja eller Nej
    1. **Mål** – alla användare eller Välj användare

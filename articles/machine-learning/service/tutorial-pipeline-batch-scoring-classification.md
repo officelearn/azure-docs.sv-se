@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: ML pipelines för batch-Poäng'
+title: 'Självstudie: ML pipelines för batch-Poäng'
 titleSuffix: Azure Machine Learning
 description: Bygg en pipeline för maskin inlärning för att köra batch-bedömning i en bild klassificerings modell i Azure Machine Learning. Maskin inlärnings pipeliner optimerar arbets flödet med hastighet, portabilitet och åter användning, så att du kan fokusera på din expertis – maskin inlärning – i stället för på infrastruktur och automatisering.
 services: machine-learning
@@ -9,15 +9,17 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 09/05/2019
-ms.openlocfilehash: 3fe25f0f8297a7b743ed5f522e8a35deb165a039
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.openlocfilehash: f693a80726c9185bbd75d5fb99eb7e5f3ccad987
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695617"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493485"
 ---
 # <a name="build--use-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Bygg & Använd en Azure Machine Learning pipeline för batch-Poäng
+
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 I den här självstudien använder du en pipeline i Azure Machine Learning för att köra ett batch-bedömnings jobb. I exemplet används den förtränade inlagan [(convolutional neurala](https://arxiv.org/abs/1512.00567) Network Tensorflow Model för att klassificera omärkta bilder. När du har skapat och publicerat en pipeline konfigurerar du en REST-slutpunkt som du kan använda för att utlösa pipelinen från alla HTTP-bibliotek på vilken plattform som helst.
 
@@ -47,7 +49,7 @@ Om du vill köra själv studie kursen i din egen [lokala miljö](how-to-configur
 Skapa ett objekt för arbets ytan från den befintliga Azure Machine Learning-arbetsytan.
 
 - En [arbets yta](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) är en klass som godkänner din Azure-prenumeration och resursinformation. Arbets ytan skapar också en moln resurs som du kan använda för att övervaka och spåra din modell körningar. 
-- `Workspace.from_config()` läser `config.json`-filen och läser sedan in autentiseringsinformationen till ett objekt med namnet `ws`. @No__t-0-objektet används i koden under den här självstudien.
+- `Workspace.from_config()` läser `config.json`-filen och läser sedan in autentiseringsinformationen till ett objekt med namnet `ws`. `ws`-objektet används i koden under den här självstudien.
 
 ```python
 from azureml.core import Workspace
@@ -56,7 +58,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-datastore-for-sample-images"></a>Skapa ett data lager för exempel bilder
 
-På `pipelinedata`-kontot hämtar du ImageNet för utvärdering av offentliga data från den `sampledata` offentliga BLOB-behållaren. Anropa `register_azure_blob_container()` om du vill att data ska vara tillgängliga för arbets ytan under namnet `images_datastore`. Ange sedan standard data lagret för arbets ytan som utdata-datalager. Använd utdata-datalagret för att räkna ut utdata i pipelinen.
+På `pipelinedata`-kontot hämtar du ImageNet för utvärdering av offentliga data från `sampledata` offentliga BLOB-behållaren. Anropa `register_azure_blob_container()` för att göra data tillgängliga för arbets ytan under namnet `images_datastore`. Ange sedan standard data lagret för arbets ytan som utdata-datalager. Använd utdata-datalagret för att räkna ut utdata i pipelinen.
 
 ```python
 from azureml.core.datastore import Datastore
@@ -77,11 +79,11 @@ När du skapar en pipeline läser ett `DataReference`-objekt data från data lag
 > [!Important]
 > I batch-bedömnings exemplet i den här självstudien används endast ett pipeline-steg. I användnings fall som har flera steg innehåller det typiska flödet följande steg:
 >
-> 1. Använd `DataReference`-objekt som *indata* för att hämta rå data, utföra några omvandlingar och sedan *skriva ut* ett `PipelineData`-objekt.
+> 1. Använd `DataReference` objekt som *indata* för att hämta rå data, utföra vissa omvandlingar och sedan *skriva ut* ett `PipelineData`-objekt.
 >
-> 2. Använd objektet `PipelineData`- *utdata* i föregående steg som ett *indata-objekt*. Upprepa det för efterföljande steg.
+> 2. Använd `PipelineData` *output-objektet* i föregående steg som ett *indata-objekt*. Upprepa det för efterföljande steg.
 
-I det här scenariot skapar du `DataReference`-objekt som motsvarar data lager kataloger för både indata och klassificerings etiketter (y-test-värden). Du skapar också ett `PipelineData` objekt för utdata från batch-poängen.
+I det här scenariot skapar du `DataReference` objekt som motsvarar data lager kataloger för både indata och klassificerings etiketter (y-test-värden). Du skapar också ett `PipelineData`-objekt för utdata från batch-poäng.
 
 ```python
 from azureml.data.data_reference import DataReference
@@ -121,7 +123,7 @@ tar = tarfile.open("model.tar.gz", "r:gz")
 tar.extractall("models")
 ```
 
-Registrera sedan modellen på arbets ytan så att du enkelt kan hämta modellen i pipeline-processen. I den `register()` statiska funktionen `model_name` är parametern den nyckel som du använder för att hitta din modell i SDK: n.
+Registrera sedan modellen på arbets ytan så att du enkelt kan hämta modellen i pipeline-processen. I den `register()` statiska funktionen är `model_name`-parametern den nyckel som du använder för att hitta din modell i SDK: n.
 
 ```python
 from azureml.core.model import Model
@@ -137,7 +139,7 @@ model = Model.register(model_path="models/inception_v3.ckpt",
 
 Det går inte att köra maskin inlärnings pipeliner lokalt, så du kör dem på moln resurser eller *fjärranslutna beräknings mål*. Ett fjärran sluten beräknings mål är en återanvändbar virtuell beräknings miljö där du kör experiment och Machine Learning-arbetsflöden. 
 
-Kör följande kod för att skapa ett GPU-aktiverat [`AmlCompute`-](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) mål och koppla det sedan till din arbets yta. Mer information om beräknings mål finns i den [konceptuella artikeln](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target).
+Kör följande kod för att skapa en GPU-aktiverad [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) -mål och koppla den sedan till din arbets yta. Mer information om beräknings mål finns i den [konceptuella artikeln](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target).
 
 
 ```python
@@ -160,17 +162,17 @@ except ComputeTargetException:
 
 ## <a name="write-a-scoring-script"></a>Skriv ett bedömnings skript
 
-Om du vill göra en bedömning skapar du ett kommando bedömnings skript som heter `batch_scoring.py` och skriver det sedan till den aktuella katalogen. Skriptet använder inmatnings bilder, använder klassificerings modellen och matar sedan ut förutsägelserna till en resultat fil.
+Om du vill göra en bedömning skapar du ett kommando bedömnings skript som heter `batch_scoring.py`och skriver det sedan till den aktuella katalogen. Skriptet använder inmatnings bilder, använder klassificerings modellen och matar sedan ut förutsägelserna till en resultat fil.
 
-Skriptet `batch_scoring.py` tar följande parametrar, som skickas från det pipeline-steg som du skapar senare i den här självstudien:
+`batch_scoring.py` skriptet använder följande parametrar, som skickas från pipeline-steget som du skapar senare i den här självstudien:
 
-- `--model_name`: Namnet på den modell som används.
-- `--label_dir`: Katalogen som innehåller `labels.txt`-filen.
-- `--dataset_path`: Den katalog som innehåller de inmatade bilderna.
-- `--output_dir`: Utdata-katalogen för `results-label.txt`-filen när skriptet kör modellen på data.
-- `--batch_size`: Batchstorleken som används för att köra modellen.
+- `--model_name`: namnet på den modell som används.
+- `--label_dir`: den katalog som innehåller `labels.txt`s filen.
+- `--dataset_path`: den katalog som innehåller de inmatade bilderna.
+- `--output_dir`: utdata-katalogen för `results-label.txt`-filen efter att skriptet kört modellen på data.
+- `--batch_size`: batchstorleken som används för att köra modellen.
 
-Pipeline-infrastrukturen använder klassen `ArgumentParser` för att skicka parametrar till pipeline-steg. I följande kod får du till exempel det första argumentet `--model_name` med egenskaps identifieraren `model_name`. I `main()`-funktionen används `Model.get_model_path(args.model_name)` för att få åtkomst till den här egenskapen.
+Pipeline-infrastrukturen använder `ArgumentParser`-klassen för att skicka parametrar till pipeline-steg. I följande kod har det första argumentet `--model_name` fått egenskaps-ID: t `model_name`. I funktionen `main()` används `Model.get_model_path(args.model_name)` för att få åtkomst till den här egenskapen.
 
 
 ```python
@@ -292,11 +294,11 @@ if __name__ == "__main__":
 ```
 
 > [!TIP]
-> Pipelinen i den här självstudien har bara ett steg och skriver utdata till en fil. I pipeline för flera steg använder du också `ArgumentParser` för att definiera en katalog för att skriva utdata som indata för efterföljande steg. Ett exempel på att skicka data mellan flera pipeline-steg med hjälp av design mönstret `ArgumentParser` finns i [antecknings boken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb).
+> Pipelinen i den här självstudien har bara ett steg och skriver utdata till en fil. I pipeline för flera steg använder du också `ArgumentParser` för att definiera en katalog för att skriva utdata som indata för efterföljande steg. Ett exempel på att skicka data mellan flera pipeline-steg med hjälp av `ArgumentParser` design mönstret finns i [antecknings boken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb).
 
 ## <a name="build-and-run-the-pipeline"></a>Skapa och kör pipelinen
 
-Innan du kör pipelinen skapar du ett-objekt som definierar python-miljön och skapar de beroenden som ditt `batch_scoring.py`-skript kräver. Det nödvändiga huvud beroendet är Tensorflow, men du installerar `azureml-defaults` från SDK: n för bakgrunds processer. Skapa ett `RunConfiguration`-objekt med hjälp av beroenden. Ange också Docker och Docker-GPU-stöd.
+Innan du kör pipelinen skapar du ett-objekt som definierar python-miljön och skapar de beroenden som `batch_scoring.py`-skriptet kräver. Det nödvändiga huvud beroendet är Tensorflow, men du installerar `azureml-defaults` från SDK: n för bakgrunds processer. Skapa ett `RunConfiguration`-objekt med hjälp av beroenden. Ange också Docker och Docker-GPU-stöd.
 
 ```python
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
@@ -321,18 +323,18 @@ from azureml.pipeline.core.graph import PipelineParameter
 batch_size_param = PipelineParameter(name="param_batch_size", default_value=20)
 ```
 
-### <a name="create-the-pipeline-step"></a>Skapa pipeline-steg
+### <a name="create-the-pipeline-step"></a>Skapa pipeline-steget
 
 Ett pipeline-steg är ett objekt som kapslar in allt du behöver för att köra en pipeline, inklusive:
 
-* miljö-och beroende inställningar
-* beräknings resursen som ska köra pipelinen på
-* indata och utdata och eventuella anpassade parametrar
+* Miljö-och beroende inställningar
+* Beräknings resursen som ska köra pipelinen på
+* Indata och utdata och eventuella anpassade parametrar
 * Referens till ett skript eller en SDK-logik som ska köras under steget
 
 Flera klasser ärver från den överordnade klassen [`PipelineStep`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py). Du kan välja klasser för att använda specifika ramverk eller stackar för att bygga ett steg. I det här exemplet använder du klassen [`PythonScriptStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py) för att definiera din steg logik genom att använda ett anpassat Python-skript. Om ett argument i skriptet antingen är indata till steget eller utdata från steget, måste argumentet definieras *både* i `arguments`-matrisen *och* i antingen `input`-eller `output`-parametern. 
 
-I scenarier där det finns mer än ett steg blir en objekt referens i matrisen `outputs` tillgänglig som *inmatare* för efterföljande pipeline-steg.
+I scenarier där det finns mer än ett steg blir en objekt referens i `outputs`s mat ris tillgänglig som *inmatare* för efterföljande pipeline-steg.
 
 ```python
 from azureml.pipeline.steps import PythonScriptStep
@@ -356,9 +358,9 @@ En lista över alla klasser du kan använda för olika steg typer finns i [steg 
 
 ### <a name="run-the-pipeline"></a>Köra en pipeline
 
-Kör nu pipelinen. Först skapar du ett `Pipeline`-objekt med hjälp av din arbets ytans referens och det pipeline-steg som du skapade. Parametern `steps` är en matris med steg. I det här fallet finns det bara ett steg för batch-poäng. Placera stegen i den här matrisen för att bygga pipeliner som har flera steg.
+Kör nu pipelinen. Skapa först ett `Pipeline`-objekt med hjälp av din arbets ytans referens och det pipeline-steg som du skapade. Parametern `steps` är en matris med steg. I det här fallet finns det bara ett steg för batch-poäng. Placera stegen i den här matrisen för att bygga pipeliner som har flera steg.
 
-Använd sedan funktionen `Experiment.submit()` för att skicka pipelinen för körning. Du anger också den anpassade parametern `param_batch_size`. Funktionen `wait_for_completion` matar ut loggar under pipeline-Bygg processen. Du kan använda loggarna för att se aktuell status.
+Använd sedan `Experiment.submit()`-funktionen för att skicka pipelinen för körning. Du anger också den anpassade parametern `param_batch_size`. Funktionen `wait_for_completion` matar ut loggar under pipeline-Bygg processen. Du kan använda loggarna för att se aktuell status.
 
 > [!IMPORTANT]
 > Den första pipeline-körningen tar ungefär *15 minuter*. Alla beroenden måste hämtas, en Docker-avbildning skapas och python-miljön har skapats och skapats. Att köra pipelinen igen får betydligt kortare tid eftersom resurserna återanvänds i stället för att skapas. Den totala körnings tiden för pipelinen beror dock på arbets belastningen för dina skript och de processer som körs i varje pipeline-steg.
@@ -402,8 +404,8 @@ df.head(10)
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Filnamn</th>
-      <th>förutsägelse</th>
+      <th>Sökväg</th>
+      <th>Förutsägelse</th>
     </tr>
   </thead>
   <tbody>
@@ -463,7 +465,7 @@ df.head(10)
 
 ## <a name="publish-and-run-from-a-rest-endpoint"></a>Publicera och köra från en REST-slutpunkt
 
-Kör följande kod för att publicera pipelinen till din arbets yta. I arbets ytan i Azure Portal kan du se metadata för pipelinen, inklusive körnings historik och varaktighet. Du kan också köra pipelinen manuellt från portalen.
+Kör följande kod för att publicera pipelinen till din arbets yta. I din arbets yta i Azure Machine Learning Studio kan du se metadata för pipelinen, inklusive körnings historik och varaktighet. Du kan också köra pipelinen manuellt från Studio.
 
 Genom att publicera pipelinen kan du använda en REST-slutpunkt som du kan använda för att köra pipelinen från alla HTTP-bibliotek på vilken plattform som helst.
 
@@ -476,7 +478,7 @@ published_pipeline
 
 Om du vill köra pipelinen från REST-slutpunkten behöver du ett OAuth2 Bearer-huvud. I följande exempel används interaktiv autentisering (för illustrations ändamål), men för de flesta produktions scenarier som kräver automatiserad eller riktad autentisering använder du tjänstens huvud namns autentisering enligt [beskrivningen i den här antecknings boken](https://aka.ms/pl-restep-auth).
 
-Autentisering av tjänstens huvud konto innebär att skapa en *app-registrering* i *Azure Active Directory*. Först genererar du en klient hemlighet och sedan beviljar du *rollen* som tjänst huvud namn till din Machine Learning-arbetsyta. Använd klassen [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) för att hantera ditt autentiserings flöde. 
+Autentisering av tjänstens huvud konto innebär att skapa en *app-registrering* i *Azure Active Directory*. Först genererar du en klient hemlighet och sedan beviljar du *rollen* som tjänst huvud namn till din Machine Learning-arbetsyta. Använd [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) -klassen för att hantera ditt autentiseringspaket. 
 
 Både `InteractiveLoginAuthentication` och `ServicePrincipalAuthentication` ärver från `AbstractAuthentication`. I båda fallen använder du funktionen `get_authentication_header()` på samma sätt för att hämta rubriken:
 
@@ -487,11 +489,11 @@ interactive_auth = InteractiveLoginAuthentication()
 auth_header = interactive_auth.get_authentication_header()
 ```
 
-Hämta REST-URL: en från egenskapen `endpoint` för det publicerade pipeline-objektet. Du kan också hitta REST-URL: en i din arbets yta i Azure Portal. 
+Hämta REST-URL: en från egenskapen `endpoint` för det publicerade pipeline-objektet. Du kan också hitta REST-URL: en i din arbets yta i Azure Machine Learning Studio. 
 
-Bygg en HTTP POST-begäran till slut punkten. Ange ditt Authentication-huvud i begäran. Lägg till ett JSON-nyttolast-objekt med experiment namnet och batch-storleks parametern. Som tidigare nämnts i självstudien, `param_batch_size` skickas till ditt `batch_scoring.py`-skript eftersom du har definierat det som ett `PipelineParameter`-objekt i steg konfigurationen.
+Bygg en HTTP POST-begäran till slut punkten. Ange ditt Authentication-huvud i begäran. Lägg till ett JSON-nyttolast-objekt med experiment namnet och batch-storleks parametern. Som tidigare nämnts i själv studie kursen skickas `param_batch_size` till `batch_scoring.py` skriptet eftersom du har definierat det som ett `PipelineParameter`-objekt i steg konfigurationen.
 
-Gör begäran för att utlösa körningen. Ta med kod för att komma åt `Id`-nyckeln från svars ord listan för att hämta värdet för körnings-ID: t.
+Gör begäran för att utlösa körningen. Ta med kod för att komma åt `Id` nyckel från svars ord listan för att hämta värdet för körnings-ID: t.
 
 ```python
 import requests
@@ -520,14 +522,9 @@ RunDetails(published_pipeline_run).show()
 
 Slutför inte det här avsnittet om du planerar att köra andra Azure Machine Learning själv studie kurser.
 
-### <a name="stop-the-notebook-vm"></a>Stoppa den virtuella Notebook-datorn
+### <a name="stop-the-compute-instance"></a>Stoppa beräknings instansen
 
-Om du har använt en molnbaserad Notebook-Server för att minska kostnaderna stoppar du den virtuella datorn när your'e inte använder den:
-
-1. I arbets ytan väljer du **Notebook VM**: ar.
-1. I listan över virtuella datorer väljer du den virtuella dator som du vill stoppa.
-1. Välj **stoppa**.
-1. När du är redo att använda servern igen väljer du **Starta**.
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### <a name="delete-everything"></a>Ta bort allt
 

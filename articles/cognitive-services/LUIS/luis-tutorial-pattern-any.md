@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Mönster. alla entiteter – LUIS'
+title: 'Självstudie: mönster. alla entiteter – LUIS'
 titleSuffix: Azure Cognitive Services
 description: Använd entiteten pattern.any för att extrahera data från yttranden som är välformade och där dataslutet lätt kan förväxlas med återstående ord i yttrandet.
 services: cognitive-services
@@ -9,18 +9,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 57a7deee3112737dc457646d040d5d3e02e63d46
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 43ad6558b685d3959562be720f7494b3d2a7334e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390288"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499429"
 ---
-# <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Självstudier: Extrahera friformsdata med Pattern.any-entiteten
+# <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Självstudie: extrahera fri Forms data med mönster. alla entiteter
 
 I den här självstudien ska du använda entiteten pattern.any för att extrahera data från yttranden som är välformade och där dataslutet lätt kan förväxlas med återstående ord i yttrandet. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **I den här självstudiekursen får du lära du dig att:**
 
@@ -64,7 +66,7 @@ Den varierande längden innehåller ord som kan förvirra LUIS om var entiteten 
 |Vem skapade {FormName}[?]|
 |Har {FormName} publicerats på franska[?]|
 
-## <a name="import-example-app"></a>Importera en exempelapp
+## <a name="import-example-app"></a>Importera exempelappen
 
 1. Ladda ned och spara [JSON-filen för appen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json).
 

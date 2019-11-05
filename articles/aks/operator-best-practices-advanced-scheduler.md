@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: f260e019ffa6eb89e8a2c1e17d2bf239e74290c2
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 798c368edb4a738124fce965f8990e6805fbdeba
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900114"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472598"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Metod tips för avancerade Scheduler-funktioner i Azure Kubernetes service (AKS)
 
@@ -31,7 +31,7 @@ I den här artikeln fokuserar vi på avancerade funktioner för Kubernetes-schem
 
 När du skapar ditt AKS-kluster kan du distribuera noder med GPU-stöd eller ett stort antal kraftfulla processorer. Dessa noder används ofta för stora data bearbetnings arbets belastningar som Machine Learning (ML) eller artificiell intelligens (AI). Eftersom den här typen av maskin vara vanligt vis är en dyr resurs som du kan distribuera, begränsar du arbets belastningarna som kan schemaläggas på dessa noder. Du kanske vill tilldela vissa noder i klustret för att köra ingress-tjänster och förhindra andra arbets belastningar.
 
-Detta stöd för olika noder tillhandahålls genom att använda flera noder i pooler. Ett AKS-kluster innehåller en eller flera noder i en pool. Stöd för flera Node-pooler i AKS är för närvarande en för hands version.
+Detta stöd för olika noder tillhandahålls genom att använda flera noder i pooler. Ett AKS-kluster innehåller en eller flera noder i en pool.
 
 Kubernetes Scheduler kan använda utsmakar och tolereras för att begränsa vilka arbets belastningar som kan köras på noder.
 
@@ -69,7 +69,7 @@ spec:
     effect: "NoSchedule"
 ```
 
-När den här Pod distribueras, till exempel med hjälp av `kubectl apply -f gpu-toleration.yaml`, kan Kubernetes schemalägga Pod på noderna med den tillämpade bismaken. Med den här logiska isoleringen kan du kontrol lera åtkomsten till resurser i ett kluster.
+När den här Pod distribueras, t. ex. genom att använda `kubectl apply -f gpu-toleration.yaml`, kan Kubernetes schemalägga Pod på noderna med den använda bismaken. Med den här logiska isoleringen kan du kontrol lera åtkomsten till resurser i ett kluster.
 
 När du använder smakarna arbetar du med dina programutvecklare och ägare för att tillåta dem att definiera de nödvändiga tolererarna i sina distributioner.
 
@@ -81,16 +81,16 @@ Mer information om hur du använder flera Node-pooler i AKS finns i [skapa och h
 
 När du uppgraderar en Node-pool i AKS följer smakarna och tolererarna ett uppsättnings mönster som de tillämpas på nya noder:
 
-- **Standard kluster utan skalnings stöd för virtuella datorer**
-  - Vi antar att du har ett kluster med två noder, *Nod1* och *NOD2*. När du uppgraderar skapas en ytterligare nod (*nod3*).
+- **Standard kluster som använder skalnings uppsättningar för virtuella datorer**
+  - Vi antar att du har ett kluster med två noder, *Nod1* och *NOD2*. Du uppgraderar Node-poolen.
+  - Två ytterligare noder skapas, *nod3* och *nod4*och smakarna skickas på respektive.
+  - De ursprungliga *Nod1* och *NOD2* tas bort.
+
+- **Kluster utan stöd för skalnings uppsättning för virtuella datorer**
+  - Nu antar vi att du har ett kluster med två noder, *Nod1* och *NOD2*. När du uppgraderar skapas en ytterligare nod (*nod3*).
   - De bismakerna från *Nod1* tillämpas på *nod3*. därefter raderas *Nod1* .
   - En annan ny nod skapas (med namnet *Nod1*, eftersom den tidigare *Nod1* togs bort) och *NOD2* -smakarna tillämpas på den nya *Nod1*. Sedan tas *NOD2* bort.
   - I själva verket *Nod1* blir *nod3*och *NOD2* blir *Nod1*.
-
-- **Kluster som använder skalnings uppsättningar för virtuella datorer**
-  - Nu antar vi att du har ett kluster med två noder, *Nod1* och *NOD2*. Du uppgraderar Node-poolen.
-  - Två ytterligare noder skapas, *nod3* och *nod4*och smakarna skickas på respektive.
-  - De ursprungliga *Nod1* och *NOD2* tas bort.
 
 När du skalar en Node-pool i AKS överförs inte smakarna och tolererarna genom design.
 

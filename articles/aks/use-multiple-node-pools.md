@@ -7,91 +7,45 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: c1b372dbeaea31e83c8ff42a84fc39d762b2ebdb
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
-ms.translationtype: MT
+ms.openlocfilehash: 8a78c854e9c842915700d4a20c1a57e4f1594a2e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212263"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472454"
 ---
-# <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>För hands version – skapa och hantera flera resurspooler för ett kluster i Azure Kubernetes service (AKS)
+# <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Skapa och hantera flera Node-pooler för ett kluster i Azure Kubernetes service (AKS)
 
 I Azure Kubernetes service (AKS) grupperas noderna i samma konfiguration tillsammans i *noder i pooler*. De här noderna innehåller de underliggande virtuella datorerna som kör dina program. Det ursprungliga antalet noder och deras storlek (SKU) definieras när du skapar ett AKS-kluster, vilket skapar en *standardnod*. För att stödja program som har olika beräknings-eller lagrings krav kan du skapa ytterligare noder. Använd till exempel dessa ytterligare resurspooler för att tillhandahålla GPU: er för beräknings intensiva program eller åtkomst till SSD-lagring med höga prestanda.
 
 > [!NOTE]
-> Den här funktionen ger bättre kontroll över hur du skapar och hanterar flera noder i pooler. Därför krävs separata kommandon för att skapa/uppdatera/ta bort. Tidigare kluster åtgärder via `az aks create` eller `az aks update` använde managedCluster API och var det enda alternativet att ändra ditt kontroll plan och en enskild Node-pool. Den här funktionen exponerar en separat åtgärds uppsättning för agent-pooler via agentpoolegenskap-API: et `az aks nodepool` och kräver att kommando uppsättningen används för att köra åtgärder på en enskild Node-pool.
+> Den här funktionen ger bättre kontroll över hur du skapar och hanterar flera noder i pooler. Därför krävs separata kommandon för att skapa/uppdatera/ta bort. Tidigare kluster åtgärder via `az aks create` eller `az aks update` använt managedCluster-API: et och var det enda alternativet att ändra ditt kontroll plan och en enskild Node-pool. Den här funktionen exponerar en separat åtgärds uppsättning för agent-pooler via Agentpoolegenskap-API: et och kräver att kommandot `az aks nodepool` anges för att köra åtgärder på en enskild Node-pool.
 
-Den här artikeln visar hur du skapar och hanterar flera resurspooler i ett AKS-kluster. Den här funktionen är för närvarande en förhandsversion.
-
-> [!IMPORTANT]
-> AKS för hands versions funktioner är självbetjänings deltagande. För hands versioner tillhandahålls "i befintligt skick" och "som tillgängliga" och undantas från service nivå avtalen och den begränsade garantin. AKS för hands versionerna omfattas delvis av kund supporten på bästa möjliga sätt. Dessa funktioner är därför inte avsedda att användas för produktion. Om du vill ha ytterligare information kan du läsa följande artiklar om support:
->
-> * [Support principer för AKS][aks-support-policies]
-> * [Vanliga frågor och svar om support för Azure][aks-faq]
+Den här artikeln visar hur du skapar och hanterar flera resurspooler i ett AKS-kluster.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Du behöver Azure CLI-versionen 2.0.61 eller senare installerad och konfigurerad. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
-
-### <a name="install-aks-preview-cli-extension"></a>Installera AKS-Preview CLI-tillägg
-
-Om du vill använda flera noder i pooler behöver du *AKS-Preview CLI-* tillägget 0.4.16 eller högre. Installera *AKS-Preview* Azure CLI-tillägget med kommandot [AZ Extension Add][az-extension-add] och Sök sedan efter eventuella tillgängliga uppdateringar med kommandot [AZ Extension Update][az-extension-update] ::
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-### <a name="register-multiple-node-pool-feature-provider"></a>Registrera flera funktions leverantörer för Node pool
-
-Om du vill skapa ett AKS-kluster som kan använda flera noder i pooler aktiverar du först en funktions flagga för din prenumeration. Registrera funktions flaggan *MultiAgentpoolPreview* med [funktions registrerings kommandot AZ][az-feature-register] som visas i följande exempel:
-
-> [!CAUTION]
-> När du registrerar en funktion på en prenumeration kan du för närvarande inte avregistrera funktionen. När du har aktiverat vissa för hands versions funktioner kan standarderna användas för alla AKS-kluster och sedan skapas i prenumerationen. Aktivera inte för hands versions funktioner för produktions prenumerationer. Använd en separat prenumeration för att testa för hands versions funktionerna och samla in feedback.
-
-```azurecli-interactive
-az feature register --name MultiAgentpoolPreview --namespace Microsoft.ContainerService
-```
-
-> [!NOTE]
-> Alla AKS-kluster som du skapar när du har registrerat *MultiAgentpoolPreview* använder du den här för hands versionen av klustret. För att fortsätta att skapa vanliga kluster som stöds fullständigt, aktivera inte för hands versions funktioner för produktions prenumerationer. Använd en separat test-eller utvecklings-Azure-prenumeration för att testa för hands versions funktioner.
-
-Det tar några minuter för statusen att visa *registrerad*. Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list][az-feature-list] :
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MultiAgentpoolPreview')].{Name:name,State:properties.state}"
-```
-
-När du är klar uppdaterar du registreringen av resurs leverantören *Microsoft. container service* med hjälp av [AZ Provider register][az-provider-register] kommando:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+Du behöver Azure CLI-versionen 2.0.76 eller senare installerad och konfigurerad. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
 ## <a name="limitations"></a>Begränsningar
 
 Följande begränsningar gäller när du skapar och hanterar AKS-kluster som stöder flera Node-pooler:
 
-* Flera noder i pooler är bara tillgängliga för kluster som skapats efter att du har registrerat *MultiAgentpoolPreview* -funktionen för din prenumeration. Du kan inte lägga till eller hantera resurspooler med ett befintligt AKS-kluster som skapats innan den här funktionen har registrerats.
 * Du kan inte ta bort standard-noden (första).
 * Det går inte att använda Dirigerings tillägget för HTTP-program.
 * Du kan inte lägga till eller ta bort resurspooler med en befintlig Resource Manager-mall som i de flesta åtgärder. Använd i stället [en separat Resource Manager-mall](#manage-node-pools-using-a-resource-manager-template) för att göra ändringar i nodkonfigurationer i ett AKS-kluster.
 * Namnet på en Node-pool måste börja med en gemen bokstav och får bara innehålla alfanumeriska tecken. För Linux-nodkonfigurationer måste längden vara mellan 1 och 12 tecken, och längden måste vara mellan 1 och 6 tecken för Windows-noder.
-
-När den här funktionen är i för hands version gäller följande ytterligare begränsningar:
-
 * AKS-klustret kan ha högst åtta noder i pooler.
 * AKS-klustret kan ha högst 400 noder i de åtta noderna i poolen.
 * Alla noder i pooler måste finnas i samma undernät.
+* AKS-klustret måste använda skalnings uppsättningar för virtuella datorer för noderna.
 
 ## <a name="create-an-aks-cluster"></a>Skapa ett AKS-kluster
 
 Kom igång genom att skapa ett AKS-kluster med en enda Node-pool. I följande exempel används kommandot [AZ Group Create][az-group-create] för att skapa en resurs grupp med namnet *myResourceGroup* i regionen *östra* . Ett AKS-kluster med namnet *myAKSCluster* skapas sedan med kommandot [AZ AKS Create][az-aks-create] . A *--Kubernetes-versionen* av *1.13.10* används för att visa hur du uppdaterar en Node-pool i ett följande steg. Du kan ange en [Kubernetes-version som stöds][supported-versions].
 
-Vi rekommenderar starkt att du använder standard-SKU: n för att använda SKU: n för flera noder. Läs [det här dokumentet](load-balancer-standard.md) om du vill veta mer om hur du använder standardbelastningsutjämnare med AKS.
+> [!NOTE]
+> *Basic* load balanacer SKU stöds inte när du använder flera noder i en pool. Som standard skapas AKS-kluster med *standard* -SKU: n för loadbalacer.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -178,7 +132,7 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 > [!NOTE]
 > Uppgraderings-och skalnings åtgärder i ett kluster eller en nods pool kan inte inträffa samtidigt, om ett försök till ett fel returneras. I stället måste varje åtgärds typ slutföras på mål resursen innan nästa begäran om samma resurs. Läs mer om detta i vår [fel söknings guide](https://aka.ms/aks-pending-upgrade).
 
-När ditt AKS-kluster ursprungligen skapades i det första steget angavs `--kubernetes-version` en av *1.13.10* . Detta anger Kubernetes-versionen för både kontroll planet och standardnoden. Kommandona i det här avsnittet beskriver hur du uppgraderar en enskild viss Node-pool.
+När ditt AKS-kluster ursprungligen skapades i det första steget angavs en `--kubernetes-version` av *1.13.10* . Detta anger Kubernetes-versionen för både kontroll planet och standardnoden. Kommandona i det här avsnittet beskriver hur du uppgraderar en enskild viss Node-pool.
 
 Relationen mellan att uppgradera Kubernetes-versionen av kontroll planet och Node-poolen beskrivs i [avsnittet nedan](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
@@ -244,20 +198,20 @@ Som bästa praxis bör du uppgradera alla resurspooler i ett AKS-kluster till sa
 
 Ett AKS-kluster har två kluster resurs objekt med associerade Kubernetes-versioner. Det första är en kontroll Plans Kubernetes-version. Den andra är en agent-pool med en Kubernetes-version. Ett kontroll plan mappar till en eller flera Node-pooler. Beteendet för en uppgraderings åtgärd beror på vilket Azure CLI-kommando som används.
 
-1. Att uppgradera kontroll planet kräver att du använder`az aks upgrade`
+* Att uppgradera kontroll planet kräver att du använder `az aks upgrade`
    * Detta uppgraderar kontroll Plans versionen och alla noder i klustret
-   * Genom att `az aks upgrade` `--control-plane-only` bara skicka med flaggan är det bara kluster kontroll planet som uppgraderas och ingen av de associerade noderna har ändrats. Flaggan är tillgänglig i **AKS-Preview Extension v 0.4.16** eller senare. `--control-plane-only`
-1. Om du vill uppgradera enskilda noder måste du använda`az aks nodepool upgrade`
+   * Genom att bara skicka `az aks upgrade` med `--control-plane-only`-flaggan uppgraderas bara kluster kontroll planet och ingen av de associerade noderna ändras.
+* Du måste använda `az aks nodepool upgrade` för att uppgradera enskilda noder.
    * Detta uppgraderar bara målnoden med den angivna Kubernetes-versionen
 
 Relationen mellan Kubernetes-versioner som innehas av Node-pooler måste också följa en uppsättning regler.
 
-1. Du kan inte nedgradera kontroll planet eller en Kubernetes-version för Node-poolen.
-1. Om en Kubernetes version av en nod inte anges, beror beteendet på vilken klient som används. För deklaration i ARM-mall används den befintliga versionen som definierats för Node-poolen, om ingen är inställd, används kontroll Plans versionen.
-1. Du kan antingen uppgradera eller skala ett kontroll plan eller en Node-pool vid en specifik tidpunkt, men du kan inte skicka båda åtgärderna samtidigt.
-1. En Kubernetes version av Node-pool måste ha samma huvud version som kontroll planet.
-1. En Kubernetes version av Node-pool kan vara högst två (2) mindre versioner som är mindre än kontroll planet, aldrig större.
-1. En Node-pool kan vara vilken Kubernetes korrigerings version som helst som är mindre än eller lika med kontroll planet, aldrig större.
+* Du kan inte nedgradera kontroll planet eller en Kubernetes-version för Node-poolen.
+* Om en Kubernetes version av en nod inte anges, beror beteendet på vilken klient som används. För deklaration i Resource Manager-mall används den befintliga versionen som definierats för Node-poolen, om ingen är inställd, används kontroll Plans versionen.
+* Du kan antingen uppgradera eller skala ett kontroll plan eller en Node-pool vid en specifik tidpunkt, men du kan inte skicka båda åtgärderna samtidigt.
+* En Kubernetes version av Node-pool måste ha samma huvud version som kontroll planet.
+* En Kubernetes version av Node-pool kan vara högst två (2) mindre versioner som är mindre än kontroll planet, aldrig större.
+* En Node-pool kan vara vilken Kubernetes korrigerings version som helst som är mindre än eller lika med kontroll planet, aldrig större.
 
 ## <a name="scale-a-node-pool-manually"></a>Skala en adresspool manuellt
 
@@ -313,7 +267,7 @@ Det tar några minuter för skalnings åtgärden att slutföras.
 
 ## <a name="scale-a-specific-node-pool-automatically-by-enabling-the-cluster-autoscaler"></a>Skala en speciell Node-pool automatiskt genom att aktivera kluster autoskalning
 
-AKS erbjuder en separat funktion i för hands versionen för att automatiskt skala nodkonfigurationer med en funktion som kallas för [kluster autoskalning](cluster-autoscaler.md). Den här funktionen är ett AKS-tillägg som kan aktive ras per Node-pool med unika minimi-och Max skalnings antal per Node-pool. Lär dig hur du [använder kluster autoskalning per Node-pool](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled).
+AKS erbjuder en separat funktion för att automatiskt skala Node-pooler med en funktion som kallas för [kluster autoskalning](cluster-autoscaler.md). Den här funktionen kan aktive ras per adresspool med unika minimi-och Max skalnings antal per Node-pool. Lär dig hur du [använder kluster autoskalning per Node-pool](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled).
 
 ## <a name="delete-a-node-pool"></a>Ta bort en Node-pool
 
@@ -367,7 +321,7 @@ I föregående exempel för att skapa en Node-pool användes en standard storlek
 
 I följande exempel skapar du en GPU-baserad Node-pool som använder den virtuella dator storleken *Standard_NC6* . De här virtuella datorerna drivs av NVIDIA Tesla K80-kortet. Information om tillgängliga VM-storlekar finns i [storlekar för virtuella Linux-datorer i Azure][vm-sizes].
 
-Skapa en Node-pool med kommandot [AZ AKS Node pool Add][az-aks-nodepool-add] . Den här gången anger du namnet *gpunodepool*och använder `--node-vm-size` parametern för att ange *Standard_NC6* storlek:
+Skapa en Node-pool med kommandot [AZ AKS Node pool Add][az-aks-nodepool-add] . Den här gången anger du namnet *gpunodepool*och använder parametern `--node-vm-size` för att ange *Standard_NC6* storlek:
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -441,7 +395,7 @@ kubectl taint node aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
 
 Följande grundläggande exempel på YAML-manifest använder en tolererare för att tillåta att Schemaläggaren för Kubernetes kör en NGINX-Pod på den GPU-baserade noden. För ett mer lämpligt, men tids krävande exempel för att köra ett Tensorflow-jobb mot MNIST-datauppsättningen, se [Använd GPU: er för beräknings intensiva arbets belastningar på AKS][gpu-cluster].
 
-Skapa en fil med `gpu-toleration.yaml` namnet och kopiera i följande exempel yaml:
+Skapa en fil med namnet `gpu-toleration.yaml` och kopiera i följande exempel YAML:
 
 ```yaml
 apiVersion: v1
@@ -466,7 +420,7 @@ spec:
     effect: "NoSchedule"
 ```
 
-Schemalägg Pod med `kubectl apply -f gpu-toleration.yaml` kommandot:
+Schemalägg Pod med kommandot `kubectl apply -f gpu-toleration.yaml`:
 
 ```console
 kubectl apply -f gpu-toleration.yaml
@@ -593,7 +547,7 @@ AKS-noder kräver inte sina egna offentliga IP-adresser för kommunikation. Viss
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-När registreringen är klar distribuerar du en Azure Resource Manager-mall enligt samma instruktioner som [ovan](#manage-node-pools-using-a-resource-manager-template) och lägger till följande booleska värdes egenskap "enableNodePublicIP" på agentPoolProfiles. Ange detta `true` som standard som standard, anges som `false` om det inte anges. Detta är endast en egenskap för att skapa en tid och kräver en lägsta API-version på 2019-06-01. Detta kan användas för både Linux-och Windows-adresspooler.
+När registreringen är klar distribuerar du en Azure Resource Manager-mall enligt samma instruktioner som [ovan](#manage-node-pools-using-a-resource-manager-template) och lägger till följande booleska värdes egenskap "enableNodePublicIP" på agentPoolProfiles. Ange detta till `true` som standard anges det som `false` om inget värde anges. Detta är endast en egenskap för att skapa en tid och kräver en lägsta API-version på 2019-06-01. Detta kan användas för både Linux-och Windows-adresspooler.
 
 ```
 "agentPoolProfiles":[  
@@ -637,11 +591,6 @@ Information om hur du skapar och använder Windows Server container Node-pooler 
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 
 <!-- INTERNAL LINKS -->
-[azure-cli-install]: /cli/azure/install-azure-cli
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
 [az-aks-create]: /cli/azure/aks#az-aks-create
@@ -659,7 +608,3 @@ Information om hur du skapar och använder Windows Server container Node-pooler 
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-windows]: windows-container-cli.md
 [az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
-[aks-support-policies]: support-policies.md
-[aks-faq]: faq.md
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update

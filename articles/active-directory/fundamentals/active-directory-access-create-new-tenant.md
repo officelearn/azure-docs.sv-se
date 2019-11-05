@@ -12,36 +12,38 @@ ms.date: 09/10/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bc3e3bb178efbbc8f4cee6d81417ce70bd7a662
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c8310b6fc33f1d03e1ccc9ccddfcd7b9e6c35d37
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562060"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473353"
 ---
-# <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Snabbstart: Skapa en ny klientorganisation i Azure Active Directory
+# <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Snabb start: skapa en ny klient i Azure Active Directory
 Du kan utföra alla administrativa aktiviteter med hjälp av Azure Active Directory (Azure AD)-portalen, inklusive att skapa en ny klient för din organisation. 
 
 I den här snabbstarten får du lära dig hur du kommer till Azure-portalen och Azure Active Directory och du får lära dig hur du skapar en grundläggande klient för din organisation.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
-Logga in på din organisations [Azure-portal](https://portal.azure.com/) med ett konto som global administratör.
-
-![Azure Portal skärm, med alternativet Azure AD](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
-
 ## <a name="create-a-new-tenant-for-your-organization"></a>Så här skapar du en ny klient för din organisation
 När du har loggat in på Azure-portalen kan du skapa en ny klient för din organisation. Den nya klientorganisationen representerar din organisation och hjälper dig att hantera en specifik instans av Microsoft-molntjänster för dina interna och externa användare.
 
 ### <a name="to-create-a-new-tenant"></a>Så här skapar du en ny klient
-1. Välj **Skapa en resurs** följt av **Identitet** och sedan **Azure Active Directory**.
+
+1. Logga in på din organisations [Azure-portal](https://portal.azure.com/) med ett konto som global administratör.
+
+1. Från Azure Portal-menyn väljer du **skapa en resurs**.  
+
+    ![Azure Active Directory skapa resoure-sida](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+
+1. Välj **identitet**och välj sedan **Azure Active Directory**.
 
     Sidan **Skapa katalog** visas.
 
     ![Sidan skapa Azure Active Directory](media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)
 
-2.  På sidan **Skapa katalog** anger du följande information:
+1.  På sidan **Skapa katalog** anger du följande information:
     
     - Skriv _Contoso_ i rutan **Organisationsnamn**.
 
@@ -49,7 +51,7 @@ När du har loggat in på Azure-portalen kan du skapa en ny klient för din orga
 
     - Lämna alternativet _USA_ i rutan **Land eller region**.
 
-3. Välj **Skapa**.
+1. Välj **Skapa**.
 
 Den nya klientorganisationen skapas med domänen contoso.onmicrosoft.com.
 

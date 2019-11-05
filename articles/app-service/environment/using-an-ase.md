@@ -13,21 +13,21 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: cabefcc53106a53459975fc26513dc59ae7d3372
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 841271c474ba8e24bc352bcae1fa037cf382a8ec
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073215"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470580"
 ---
 # <a name="use-an-app-service-environment"></a>Använda en App Service-miljö #
 
 Azure App Service-miljön är en distribution av Azure App Service till ett undernät i en kunds virtuella Azure-nätverk. Det består av:
 
-- **Klient**delar: Klient delen upphör där HTTP/HTTPS avslutas i en App Services miljö (ASE).
-- **Arbetare**: Arbets tagarna är de resurser som är värdar för dina appar.
-- **Databas**: Databasen innehåller information som definierar miljön.
-- **Lagring**: Lagringen används som värd för kundens publicerade appar.
+- **Klient**delar: klient delen upphör där http/https avslutas i en app Services miljö (ASE).
+- **Arbetare**: arbetarna är de resurser som är värdar för dina appar.
+- **Databas**: databasen innehåller information som definierar miljön.
+- **Lagring**: lagringen används som värd för kundens publicerade appar.
 
 > [!NOTE]
 > Det finns två versioner av App Service-miljön: ASEv1 och ASEv2. I ASEv1 måste du hantera resurserna innan du kan använda dem. Information om hur du konfigurerar och hanterar ASEv1 finns i [Konfigurera en app service miljö v1][ConfigureASEv1]. Resten av den här artikeln fokuserar på ASEv2.
@@ -105,7 +105,7 @@ Klient dels resurser är HTTP/HTTPS-slutpunkten för ASE. Med standard konfigura
 
 ## <a name="app-access"></a>Appåtkomst ##
 
-I en extern ASE skiljer sig den domän som används när du skapar apparna från App Service för flera innehavare. Den innehåller namnet på ASE. Mer information om hur du skapar en extern ASE finns i [skapa en app service-miljö][MakeExternalASE]. Domän namnet i en extern ASE ser ut så *här&lt; . asename&gt;. p.azurewebsites.net*. Om din ASE till exempel heter _extern-ASE_ och du är värd för en app som heter _contoso_ i den ASE, så kommer du till följande URL: er:
+I en extern ASE skiljer sig den domän som används när du skapar apparna från App Service för flera innehavare. Den innehåller namnet på ASE. Mer information om hur du skapar en extern ASE finns i [skapa en app service-miljö][MakeExternalASE]. Domän namnet i en extern ASE ser ut så här *:&lt;asename&gt;. p.azurewebsites.net*. Om din ASE till exempel heter _extern-ASE_ och du är värd för en app som heter _contoso_ i den ASE, så kommer du till följande URL: er:
 
 - contoso.external-ase.p.azurewebsites.net
 - contoso.scm.external-ase.p.azurewebsites.net
@@ -133,11 +133,11 @@ Den största skillnaden med publicering är i förhållande till en ILB-ASE. Med
 
 Som standard fungerar inte Internetbaserade CI-system, till exempel GitHub och Azure DevOps, med en ILB-ASE eftersom publicerings slut punkten inte är tillgänglig för Internet. För Azure DevOps kan du undvika detta genom att installera en lokal versions agent i det interna nätverket där den kan komma åt ILB. Du kan också använda ett CI-system som använder en pull-modell, till exempel Dropbox.
 
-Publiceringsslutpunkterna för appar i en ILB ASE använder domänen som ILB ASE skapades med. Du kan se den i appens publicerings profil och i appens Portal blad (i **översikts** > **grunderna** och i **Egenskaper**). 
+Publiceringsslutpunkterna för appar i en ILB ASE använder domänen som ILB ASE skapades med. Du kan se den i appens publicerings profil och i appens Portal blad (i **översikt** > **Essentials** och även i **Egenskaper**). 
 
-## <a name="pricing"></a>Prissättning ##
+## <a name="pricing"></a>Priser ##
 
-Pris-SKU: n som heter isolerad skapades endast för användning med ASEv2. Alla App Service planer som finns i ASEv2 finns i den isolerade pris-SKU: n. Isolerade App Service plans priser kan variera per region. 
+Pris-SKU: n som heter **isolerad** skapades endast för användning med ASEv2. Alla App Service planer som finns i ASEv2 finns i den isolerade pris-SKU: n. Isolerade App Service plans priser kan variera per region. 
 
 Utöver priset för dina App Service-planer finns det ett fast pris för ASE. Den fasta taxan ändras inte med storleken på din ASE och betalar för ASE-infrastrukturen med en standard skalnings hastighet på 1 ytterligare klient del för varje 15 App Service plan instans.  
 
@@ -179,7 +179,7 @@ Så här tar du bort en ASE:
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
-[ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
+[ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md

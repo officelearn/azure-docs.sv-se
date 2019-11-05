@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/12/2019
-ms.openlocfilehash: c3a034776b32db57f70ddee960c1cd5fc96b170b
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 10/15/2019
+ms.openlocfilehash: 787e9e6d0ae86568e1af74b4d67fb716841a02df
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555420"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73477082"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Så här frågar du efter loggar från Azure Monitor för behållare
 
@@ -46,7 +46,7 @@ Exempel på poster som samlas in av Azure Monitor för behållare och de data ty
 
 Azure Monitor loggar kan hjälpa dig att söka efter trender, diagnostisera Flask halsar, prognostisera eller korrelera data som kan hjälpa dig att avgöra om den aktuella kluster konfigurationen fungerar optimalt. Fördefinierade loggs ökningar tillhandahålls så att du direkt kan börja använda eller anpassa för att returnera den information som du vill.
 
-Du kan utföra interaktiv analys av data i arbets ytan genom att välja alternativet **Visa Kubernetes händelse loggar** eller **Visa container loggar** i förhands gransknings fönstret. Sidan **loggs ökning** visas till höger om Azure Portal sidan som du var på.
+Du kan utföra interaktiv analys av data i arbets ytan genom att välja alternativet **Visa Kubernetes händelse loggar** eller **Visa behållar loggar** i förhands gransknings fönstret i list rutan **Visa i Analytics** . Sidan **loggs ökning** visas till höger om Azure Portal sidan som du var på.
 
 ![Analysera data i Log Analytics](./media/container-insights-analyze/container-health-log-search-example.png)   
 
@@ -56,7 +56,7 @@ Behållaren loggar utdata som vidarebefordras till din arbets yta är STDOUT och
 
 Det är ofta användbart att skapa frågor som börjar med ett exempel eller två och sedan ändra dem så att de passar dina behov. För att hjälpa till att bygga mer avancerade frågor kan du experimentera med följande exempel frågor:
 
-| Söka i data | Beskrivning | 
+| Fråga | Beskrivning | 
 |-------|-------------|
 | ContainerInventory<br> &#124;projekt dator, namn, avbildning, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124;återge tabell | Lista all information om livs cykeln för en behållare| 
 | KubeEvents_CL<br> &#124;där inte (IsEmpty (Namespace_s))<br> &#124;Sortera efter TimeGenerated DESC<br> &#124;återge tabell | Kubernetes-händelser|
@@ -65,37 +65,57 @@ Det är ofta användbart att skapa frågor som börjar med ett exempel eller tv�
 | **Välj visnings alternativ för linje diagram**:<br> Perf<br> &#124;där ObjectName = = "K8SContainer" och CounterName = = "memoryRssBytes" &#124; sammanfatta AvgUsedRssMemoryBytes = AVG (CounterValue) per bin (TimeGenerated, 30M), instancename | Containerminne |
 | InsightsMetrics<br> &#124;där name = = "requests_count"<br> &#124;sammanfatta val = any (val) av TimeGenerated = bin (TimeGenerated, 1m)<br> &#124;Sortera efter TimeGenerated ASC<br> &#124;projekt RequestsPerMinute = val-föreg (val), TimeGenerated <br> &#124;rendera Barchart  | Begär Anden per minut med anpassade mått |
 
-Följande exempel är en Prometheus mått fråga. De mått som samlas in är räknare och för att fastställa hur många fel som inträffade inom en viss tids period måste vi subtrahera från antalet. Data uppsättningen partitioneras av *partitionKey*, vilket innebär för varje unik uppsättning *namn*, *värdnamn*och *OperationType*, och vi kör en under fråga på den uppsättning som beställer loggarna efter *TimeGenerated*, en process som gör det möjligt att hitta föregående *TimeGenerated* och det antal som registrerats för den tiden för att fastställa en kostnad.
+## <a name="query-prometheus-metrics-data"></a>Fråga Prometheus Metrics-data
+
+Följande exempel är en Prometheus mått fråga som visar disk läsningar per sekund per disk per nod.
 
 ```
-let data = InsightsMetrics 
-| where Namespace contains 'prometheus' 
-| where Name == 'kubelet_docker_operations' or Name == 'kubelet_docker_operations_errors'    
-| extend Tags = todynamic(Tags) 
-| extend OperationType = tostring(Tags['operation_type']), HostName = tostring(Tags.hostName) 
-| extend partitionKey = strcat(HostName, '/' , Name, '/', OperationType) 
-| partition by partitionKey ( 
-    order by TimeGenerated asc 
-    | extend PrevVal = prev(Val, 1), PrevTimeGenerated = prev(TimeGenerated, 1) 
-    | extend Rate = iif(TimeGenerated == PrevTimeGenerated, 0.0, Val - PrevVal) 
-    | where isnull(Rate) == false 
-) 
-| project TimeGenerated, Name, HostName, OperationType, Rate; 
-let operationData = data 
-| where Name == 'kubelet_docker_operations' 
-| project-rename OperationCount = Rate; 
-let errorData = data 
-| where Name == 'kubelet_docker_operations_errors' 
-| project-rename ErrorCount = Rate; 
-operationData 
-| join kind = inner ( errorData ) on TimeGenerated, HostName, OperationType 
-| project-away TimeGenerated1, Name1, HostName1, OperationType1 
-| extend SuccessPercentage = iif(OperationCount == 0, 1.0, 1 - (ErrorCount / OperationCount))
+InsightsMetrics
+| where Namespace == 'container.azm.ms/diskio'
+| where TimeGenerated > ago(1h)
+| where Name == 'reads'
+| extend Tags = todynamic(Tags)
+| extend HostName = tostring(Tags.hostName), Device = Tags.name
+| extend NodeDisk = strcat(Device, "/", HostName)
+| order by NodeDisk asc, TimeGenerated asc
+| serialize
+| extend PrevVal = iif(prev(NodeDisk) != NodeDisk, 0.0, prev(Val)), PrevTimeGenerated = iif(prev(NodeDisk) != NodeDisk, datetime(null), prev(TimeGenerated))
+| where isnotnull(PrevTimeGenerated) and PrevTimeGenerated != TimeGenerated
+| extend Rate = iif(PrevVal > Val, Val / (datetime_diff('Second', TimeGenerated, PrevTimeGenerated) * 1), iif(PrevVal == Val, 0.0, (Val - PrevVal) / (datetime_diff('Second', TimeGenerated, PrevTimeGenerated) * 1)))
+| where isnotnull(Rate)
+| project TimeGenerated, NodeDisk, Rate
+| render timechart
+
+```
+
+Om du vill visa Prometheus-mått som har klippts av Azure Monitor filtrerade efter namnrymd anger du "Prometheus". Här är en exempel fråga som visar Prometheus-mått från namn området `default` Kubernetes.
+
+```
+InsightsMetrics 
+| where Namespace == "prometheus"
+| extend tags=parse_json(Tags)
+| summarize count() by Name
+```
+
+Prometheus-data kan också direkt frågas efter namn.
+
+```
+InsightsMetrics 
+| where Namespace == "prometheus"
+| where Name contains "some_prometheus_metric"
+```
+
+### <a name="query-config-or-scraping-errors"></a>Fråga efter konfiguration eller OLE-fel
+
+Följande exempel fråga returnerar informations händelser från `KubeMonAgentEvents` tabellen för att undersöka eventuella konfigurations-eller kassations fel.
+
+```
+KubeMonAgentEvents | where Level != "Info" 
 ```
 
 Resultatet kommer att visa resultat som liknar följande:
 
-![Logga frågeresultaten för data inmatnings volym](./media/container-insights-log-search/log-query-example-prometheus-metrics.png)
+![Logga frågeresultat av informations händelser från agenten](./media/container-insights-log-search/log-query-example-kubeagent-events.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

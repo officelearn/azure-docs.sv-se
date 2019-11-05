@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: d2d7508b4f0a2789a0eae5d6c6205475b5795e36
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 1972a91e1ed8a39bcd467272108e0e772116344e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097830"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472873"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Skalnings alternativ för program i Azure Kubernetes service (AKS)
 
@@ -56,8 +56,6 @@ För att svara på ändring av Pod-krav har Kubernetes en kluster autoskalning, 
 ![Kubernetes-kluster autoskalning](media/concepts-scale/cluster-autoscaler.png)
 
 Kluster autoskalning används vanligt vis tillsammans med den horisontella Pod autoskalning. När den vågräta Pod används ökas eller minskas antalet poddar baserat på program efter frågan och klustrets autoskalning justerar antalet noder som behövs för att köra ytterligare poddar.
-
-Kluster autoskalning ska endast testas i för hands versionen i AKS-kluster.
 
 För att komma igång med klustrets autoskalning i AKS, se [kluster autoskalning på AKS][aks-cluster-autoscaler].
 

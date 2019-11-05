@@ -1,27 +1,27 @@
 ---
-title: Lägga till data uppsättningar i en befintlig Azure Data repreview-förhandsgranskning
+title: Lägga till data uppsättningar till en befintlig Azure-Dataresurs
 description: Lär dig hur du lägger till data uppsättningar till en befintlig data resurs i Azure Data Share och delar med samma mottagare.
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 8cc61307ae6664889f60469cc3ca65c840c43b86
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 00c96950565b077e65f84e2d8b4977092df5e317
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169198"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490543"
 ---
-# <a name="how-to-add-datasets-to-an-existing-share-in-azure-data-share-preview"></a>Så här lägger du till data uppsättningar till en befintlig resurs i för hands versionen av Azure Data Share
+# <a name="how-to-add-datasets-to-an-existing-share-in-azure-data-share"></a>Så här lägger du till data uppsättningar till en befintlig resurs i Azure Data Share
 
-Den här artikeln beskriver hur du lägger till data uppsättningar till en befintlig data resurs med hjälp av för hands versionen av Azure Data Share. På så sätt kan du dela mer data med samma mottagare utan att behöva skapa en ny resurs.
+Den här artikeln beskriver hur du lägger till data uppsättningar till en befintlig data resurs med hjälp av Azure Data Share. På så sätt kan du dela mer data med samma mottagare utan att behöva skapa en ny resurs.
 
 Information om hur du lägger till data uppsättningar när du skapar en resurs finns i själv studie kursen [dela data](share-your-data.md) .
 
 ## <a name="navigate-to-a-sent-data-share"></a>Navigera till en data resurs som skickats
 
-I Azure Data repreview-förhandsgranskning navigerar du till den skickade resursen och väljer fliken **data uppsättningar** . Klicka på **+ Lägg till data uppsättningar** om du vill lägga till fler data uppsättningar.
+I Azure Data Share navigerar du till den skickade resursen och väljer fliken **data uppsättningar** . Klicka på **+ Lägg till data uppsättningar** om du vill lägga till fler data uppsättningar.
 
 ![Lägg till data uppsättningar](./media/how-to/how-to-add-datasets/add-datasets.png)
 

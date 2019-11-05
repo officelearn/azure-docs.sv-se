@@ -9,35 +9,34 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 08/09/2019
-ms.custom: seodec18
-ms.openlocfilehash: 5edf4a4f53e6b4255970f86dd942795ad2e4cbe2
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.openlocfilehash: 7c52adfb919586fc590ef60215592a5b5c1c1cb3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73025400"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476125"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Kända problem och fel söknings Azure Machine Learning
 
 Den här artikeln hjälper dig att hitta och korrigera fel eller fel som uppstår när du använder Azure Machine Learning.
 
-## <a name="upcoming-sr-iov-upgrade-to-ncv3-machines-in-amlcompute"></a>Kommande SR-IOV-uppgradering till NCv3-datorer i AmlCompute
+## <a name="outage-sr-iov-upgrade-to-ncv3-machines-in-amlcompute"></a>Avbrott: SR-IOV-uppgradering till NCv3-datorer i AmlCompute
 
-Azure Compute uppdaterar NCv3 SKU: er som startar tidigt november för att ge stöd för alla MPI-implementeringar och-versioner, samt RDMA-verb för InfiniBand-utrustade virtuella datorer. Detta kräver kort stillestånds tid – [Läs mer om SR-IOV-uppgraderingen](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku).
+Azure Compute uppdaterar NCv3 SKU: er som startar tidigt november 2019 för att ge stöd för alla MPI-implementeringar och-versioner samt RDMA-verb för InfiniBand-utrustade virtuella datorer. Detta kräver kort stillestånds tid – [Läs mer om SR-IOV-uppgraderingen](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku).
 
 Som kund av Azure Machine Learnings hanterade Compute-erbjudande (AmlCompute) behöver du inte göra några ändringar för tillfället. Utifrån [uppdaterings schemat](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku) skulle du behöva planera för en kort rast i utbildningen. Tjänsten tar ansvar för att uppdatera VM-avbildningarna på klusternoderna och skala automatiskt upp klustret. När uppgraderingen är klar kan du använda alla andra MPI-discibutions (t. ex. OpenMPI med Pytorch), förutom att få större InfiniBand-bandbredd, lägre fördröjning och bättre prestanda för distribuerade program.
 
-## <a name="visual-interface-issues"></a>Problem med visuella gränssnitt
+## <a name="azure-machine-learning-designer-issues"></a>Problem med Azure Machine Learning designer
 
-Visuellt gränssnitt för Machine Learning service-problem.
+Kända problem med designern.
 
 ### <a name="long-compute-preparation-time"></a>Förberedelse tid för lång beräkning
 
 Det kan ta några minuter eller till och med längre tid att skapa en ny beräknings-eller använda. Teamet arbetar för optimering.
 
 
-### <a name="cannot-run-an-experiment-only-contains-dataset"></a>Det går inte att köra ett experiment som bara innehåller data uppsättning 
+### <a name="cannot-run-an-experiment-only-contains-a-dataset"></a>Det går inte att köra ett experiment som bara innehåller en data uppsättning 
 
 Du kanske vill köra ett experiment endast innehåller data uppsättning för att visualisera data uppsättningen. Men det är inte tillåtet att köra ett experiment som bara innehåller data uppsättningar idag. Vi åtgärdar det här problemet aktivt.
  
@@ -144,11 +143,12 @@ Om de här stegen inte löser problemet kan du försöka med att starta om klust
 
 ### <a name="failtosendfeather"></a>FailToSendFeather
 
-Om du ser ett `FailToSendFeather`-fel vid läsning av data på Azure Databricks-kluster, se följande lösningar:
+Om du ser ett `FailToSendFeather` fel när du läser data på Azure Databricks kluster kan du läsa följande lösningar:
 
 * Uppgradera `azureml-sdk[automl]`-paketet till den senaste versionen.
 * Lägg till `azure-dataprep` version 1.1.8 eller senare.
 * Lägg till `pyarrow` version 0,11 eller senare.
+
 
 ## <a name="datasets"></a>Datauppsättningar
 
@@ -156,13 +156,13 @@ Detta är kända problem för Azure Machine Learning data uppsättningar.
 
 + **Det gick inte att läsa Parquet-filer på Azure Data Lake Storage Gen2** Läsning av Parquet-filer från Azure Data Lake Storage Gen2-datalager fungerar inte om du har `azureml-dataprep==1.1.25` installerat. Det går inte att `Cannot seek once reading started.`. Om du ser det här felet kan du antingen installera `azureml-dataprep<=1.1.24` eller installera `azureml-dataprep>=1.1.26`.
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure Portal
 
-Om du går direkt till att visa din arbets yta från en resurs länk från SDK eller portalen, kan du inte visa sidan för normal översikt med prenumerations information i tillägget. Du kommer inte heller att kunna byta till en annan arbets yta. Om du behöver visa en annan arbets yta är lösningen att gå direkt till [Azure Portal](https://portal.azure.com) och söka efter namnet på arbets ytan.
+Om du går direkt till att visa din arbets yta från en resurs länk från SDK eller portalen, kan du inte visa sidan för normal översikt med prenumerations information i tillägget. Du kommer inte heller att kunna byta till en annan arbets yta. Om du behöver visa en annan arbets yta är lösningen att gå direkt till [Azure Machine Learning Studio](https://ml.azure.com) och söka efter namnet på arbets ytan.
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 
-Ibland kan det vara bra om du kan ange diagnostikinformation när du ber om hjälp. Om du vill se några loggar går du till [Azure Portal](https://portal.azure.com) och går till din arbets yta och väljer **arbets yta > Experiment > Kör > loggar**.  Du kan också hitta den här informationen i avsnittet **experiment** i [landnings sidan för arbets ytan (för hands version)](https://ml.azure.com).
+Ibland kan det vara bra om du kan ange diagnostikinformation när du ber om hjälp. Om du vill se några loggar går du till [Azure Machine Learning Studio](https://ml.azure.com) och går till din arbets yta och väljer **arbets yta > Experiment > Kör > loggar**.  
 
 > [!NOTE]
 > Azure Machine Learning loggar information från en rad olika källor under utbildningen, till exempel AutoML eller Docker-behållaren som kör övnings jobbet. Många av dessa loggar dokumenteras inte. Om du stöter på problem och kontaktar Microsoft-supporten kan det hända att de kan använda dessa loggar under fel sökning.

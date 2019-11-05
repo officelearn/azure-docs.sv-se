@@ -8,26 +8,30 @@ ms.topic: include
 ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: ecdd419331c88e712644851f9213861f882cf0f6
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3a44dc35c27cd084e6589482f180b13b258f0b24
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187503"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470973"
 ---
 ## <a name="prepare-your-web-app"></a>Förbereda din webbapp
 
 Om du vill binda ett anpassat SSL-certifikat (ett tredjepartscertifikat eller App Service-certifikat) till webbappen måste din [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) ha nivån **Basic**, **Standard**, **Premium** eller **Isolerad**. I det här steget ser du till att webbappen har en prisnivå som stöds.
 
-### <a name="log-in-to-azure"></a>Logga in på Azure
+### <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Öppna [Azure-portalen](https://portal.azure.com).
 
 ### <a name="navigate-to-your-web-app"></a>Navigera till din webbapp
 
-Klicka på **App Services** i menyn till vänster och sedan på namnet på din webbapp.
+Sök efter och välj **app Services**.
 
-![Välja webbapp](./media/app-service-ssl-prepare-app/select-app.png)
+![Välj App Services](./media/app-service-ssl-prepare-app/app-services.png)
+
+På sidan **app Services** väljer du namnet på din Azure-App.
+
+![Portalnavigering till Azure-app](./media/app-service-ssl-prepare-app/select-app.png)
 
 Du har kommit till hanteringssidan för din webbapp.  
 

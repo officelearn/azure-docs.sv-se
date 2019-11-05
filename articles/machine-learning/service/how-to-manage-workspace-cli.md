@@ -9,14 +9,15 @@ ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
 ms.date: 08/30/2019
-ms.openlocfilehash: 75487906e4323ea12a47d75164617212bd3e65d9
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 8606ac2578c45062182517b5e67d669a09b8e5c0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002639"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489726"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Skapa en arbets yta för Azure Machine Learning med Azure CLI
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 I den här artikeln får du lära dig hur du skapar en Azure Machine Learning-arbetsyta med hjälp av Azure CLI. Azure CLI innehåller kommandon för att hantera Azure-resurser. Machine Learning-tillägget till CLI innehåller kommandon för att arbeta med Azure Machine Learning resurser.
 
@@ -58,7 +59,7 @@ Azure Machine Learning-arbetsytan är beroende av följande Azure-tjänster elle
 > [!IMPORTANT]
 > Om du inte anger en befintlig Azure-tjänst skapas en automatiskt när arbets ytan skapas. Du måste alltid ange en resurs grupp.
 
-| Tjänsten | Parameter för att ange en befintlig instans |
+| Tjänst | Parameter för att ange en befintlig instans |
 | ---- | ---- |
 | **Azure-resurs grupp** | `-g <resource-group-name>`
 | **Azure Storage-konto** | `--storage-account <service-id>` |
@@ -68,7 +69,7 @@ Azure Machine Learning-arbetsytan är beroende av följande Azure-tjänster elle
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Arbets ytan Azure Machine Learning måste skapas i en resurs grupp. Du kan använda en befintlig resurs grupp eller skapa en ny. Använd följande kommando för att __skapa en ny resurs grupp__. Ersätt `<resource-group-name>` med det namn som ska användas för den här resurs gruppen. Ersätt `<location>` med den Azure-region som ska användas för den här resurs gruppen:
+Arbets ytan Azure Machine Learning måste skapas i en resurs grupp. Du kan använda en befintlig resurs grupp eller skapa en ny. Använd följande kommando för att __skapa en ny resurs grupp__. Ersätt `<resource-group-name>` med namnet som ska användas för den här resurs gruppen. Ersätt `<location>` med den Azure-region som ska användas för den här resurs gruppen:
 
 > [!TIP]
 > Välj en region där Azure Machine Learning är tillgängligt. Mer information finns i [produkt tillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service).
@@ -133,7 +134,7 @@ Om du vill skapa en arbets yta som använder befintliga resurser måste du ange 
 > [!IMPORTANT]
 > Du behöver inte ange alla befintliga resurser. Du kan ange en eller flera. Du kan till exempel ange ett befintligt lagrings konto så skapas de andra resurserna av arbets ytan.
 
-+ **Azure Storage konto**:`az storage account show --name <storage-account-name> --query "id"`
++ **Azure Storage konto**: `az storage account show --name <storage-account-name> --query "id"`
 
     Svaret från det här kommandot liknar följande text och är ID: t för ditt lagrings konto:
 
@@ -163,7 +164,7 @@ Om du vill skapa en arbets yta som använder befintliga resurser måste du ange 
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<key-vault-name>"`
 
-+ **Azure Container Registry**:`az acr show --name <acr-name> -g <resource-group-name> --query "id"`
++ **Azure Container Registry**: `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
 
     Svaret från det här kommandot liknar följande text och är ID: t för behållar registret:
 
@@ -201,7 +202,7 @@ Utdata från det här kommandot liknar följande JSON:
 }
 ```
 
-## <a name="list-workspaces"></a>Lista arbetsytor
+## <a name="list-workspaces"></a>Lista arbets ytor
 
 Om du vill visa en lista över alla arbets ytor för din Azure-prenumeration använder du följande kommando:
 

@@ -9,18 +9,18 @@ ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: a755fe1607e581cb0a25eb9bd90c2ba223829a46
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: ac7ae0d7933e1d1b4d716eb157bf74152155a969
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350598"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497341"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Träna modeller med Azure Machine Learning
 
-Azure Machine Learning tillhandahåller flera olika sätt att träna modeller, från att koda första lösningar med hjälp av SDK till lösningar med låg kod som automatiserad maskin inlärning och det visuella gränssnittet. Använd följande lista för att avgöra vilken utbildnings metod som passar dig bäst:
+Azure Machine Learning tillhandahåller flera olika sätt att träna modeller, från att koda första lösningar med hjälp av SDK till lösningar med låg kod, till exempel automatisk maskin inlärning och den visuella designern. Använd följande lista för att avgöra vilken utbildnings metod som passar dig bäst:
 
-+ [Azure Machine Learning SDK för python](#python-sdk): Python SDK tillhandahåller flera olika sätt att träna modeller, var och en med olika funktioner.
++ [Azure Machine Learning SDK för python](#python-sdk): python SDK tillhandahåller flera olika sätt att träna modeller, var och en med olika funktioner.
 
     | Utbildnings metod | Beskrivning |
     | ----- | ----- |
@@ -29,7 +29,7 @@ Azure Machine Learning tillhandahåller flera olika sätt att träna modeller, f
     | [Kostnadsberäknare](#estimators) | Uppskattnings klasser **gör det enkelt att träna modeller baserat på populära ramverk för maskin inlärning**. Det finns uppskattnings klasser för **Scikit-lära**, **PyTorch**, **TensorFlow**och **kedjor**. Det finns också en generisk uppskattning som kan användas med ramverk som inte redan har en dedikerad uppskattnings klass. Du behöver inte bekymra dig om att definiera en körnings konfiguration när du använder uppskattningar. |
     | [Maskin inlärnings pipeline](#machine-learning-pipeline) | Pipelines är inte en annan utbildnings metod, men ett **sätt att definiera ett arbets flöde med modulära, återanvändbara steg**som kan innefatta utbildning som en del av arbets flödet. Maskin inlärnings pipeliner har stöd för automatisk maskin inlärning, uppskattningar och körning av konfiguration för att träna modeller. Eftersom pipelines inte fokuserar på utbildning, är orsakerna till att använda en pipeline mer varierade än andra utbildnings metoder. I allmänhet kan du använda en pipeline när:<br>* Du vill **Schemalägga obevakade processer** , t. ex. tids krävande utbildnings jobb eller förberedelse av data.<br>* Använd **flera steg** som är koordinerade över heterogena beräknings resurser och lagrings platser.<br>* Använd pipelinen som en **återanvändbar mall** för vissa scenarier, till exempel omskolning eller batch-poäng.<br>* **spårnings-och versions data källor, indata och utdata** för arbets flödet.<br>* Ditt arbets flöde **implementeras av olika team som arbetar på vissa steg oberoende av varandra**. Steg kan sedan kopplas ihop i en pipeline för att implementera arbets flödet. |
 
-+ **Visuellt gränssnitt**: Azure Machine Learning __Visual Interface__ är en lätt ingångs punkt i maskin inlärning för att skapa bevis på begrepp eller för användare med lite kodnings upplevelse. Det gör att du kan träna modeller med ett webbaserat användar gränssnitt med dra och släpp. Du kan använda python-kod som en del av designen eller träna modeller utan att skriva någon kod.
++ **Designer**: Azure Machine Learning designer (för hands version) ger dig en lätt ingångs punkt i maskin inlärning för att skapa bevis på begrepp eller för användare med lite kodnings upplevelse. Det gör att du kan träna modeller med ett webbaserat användar gränssnitt med dra och släpp. Du kan använda python-kod som en del av designen eller träna modeller utan att skriva någon kod.
 
 + **CLI**: Machine Learning CLI innehåller kommandon för vanliga aktiviteter med Azure Machine Learning och används ofta för **skript och automatiserade uppgifter**. När du till exempel har skapat ett utbildnings skript eller en pipeline kan du använda CLI för att starta en utbildning i ett schema eller när datafilerna som används för träningen uppdateras. För utbildnings modeller tillhandahåller den kommandon som skickar utbildnings jobb. Den kan skicka jobb med kör konfigurationer eller pipeliner.
 
@@ -43,40 +43,40 @@ Med Azure Machine Learning SDK för python kan du skapa och köra Machine Learni
 * [Installera/uppdatera SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
 * [Konfigurera en utvecklings miljö för Azure Machine Learning](how-to-configure-environment.md)
 
-### <a name="run-configuration"></a>Köra konfiguration
+### <a name="run-configuration"></a>Kör konfiguration
 
 Ett allmänt utbildnings jobb med Azure Machine Learning kan definieras med hjälp av [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py). Körnings konfigurationen används sedan tillsammans med dina utbildnings skript för att träna en modell på ett beräknings mål.
 
 Du kan börja med en körnings konfiguration för den lokala datorn och sedan växla till en för ett moln baserat beräknings mål vid behov. När du ändrar Compute-målet ändrar du bara den körnings konfiguration som du använder. En körning loggar också information om utbildnings jobbet, till exempel indata, utdata och loggar.
 
 * [Vad är en körnings konfiguration?](concept-azure-machine-learning-architecture.md#run-configurations)
-* [Självstudier: Träna din första ML-modell @ no__t-0
-* [Examples: Jupyter Notebook exempel på utbildnings modeller @ no__t-0
-* [Anvisningar: Konfigurera och Använd Compute-mål för modell träning @ no__t-0
+* [Självstudie: träna din första ML-modell](tutorial-1st-experiment-sdk-train.md)
+* [Exempel: Jupyter Notebook exempel på utbildnings modeller](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training)
+* [Gör så här: Konfigurera och Använd Compute-mål för modell utbildning](how-to-set-up-training-targets.md)
 
 ### <a name="automated-machine-learning"></a>Automatiserad maskininlärning
 
 Definiera iterationer, inställningar för funktionalisering och andra inställningar. Under utbildningen försöker Azure Machine Learning olika algoritmer och parametrar parallellt. Träningen stoppas när det träffar de avslutnings villkor som du har definierat. Du behöver inte bekymra dig om att definiera en körnings konfiguration när du använder uppskattningar.
 
 > [!TIP]
-> I utöver till python SDK kan du också använda automatisk ML via [sidan för landning av arbets ytor (för hands version)](https://ml.azure.com).
+> I utöver till python SDK kan du också använda automatisk ML via [Azure Machine Learning Studio](https://ml.azure.com).
 
 * [Vad är automatisk maskin inlärning?](concept-automated-ml.md)
-* [Självstudier: Skapa din första klassificerings modell med automatiserad Machine Learning @ no__t-0
-* [Självstudier: Använd automatisk maskin inlärning för att förutse taxi-biljett @ no__t-0
-* [Examples: Jupyter Notebook exempel för automatisk Machine Learning @ no__t-0
-* [Anvisningar: Konfigurera automatiserade ML-experiment i python @ no__t-0
-* [Anvisningar: Autoträna en tids serie prognos modell @ no__t-0
-* [Anvisningar: Skapa, utforska och distribuera automatiserade maskin inlärnings experiment med Azure Machine Learning s landnings sida för arbets ytor (för hands version) ](how-to-create-portal-experiments.md)
+* [Självstudie: skapa din första klassificerings modell med automatiserad maskin inlärning](tutorial-first-experiment-automated-ml.md)
+* [Självstudie: Använd automatisk maskin inlärning för att förutse taxi priser](tutorial-auto-train-models.md)
+* [Exempel: Jupyter Notebook exempel för automatisk maskin inlärning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
+* [Gör så här: Konfigurera automatiserade ML-experiment i python](how-to-configure-auto-train.md)
+* [Gör så här: autoträna en tids serie prognos modell](how-to-auto-train-forecast.md)
+* [Så här: skapa, utforska och distribuera automatiserade Machine Learning-experiment med [Azure Machine Learning Studio](how-to-create-portal-experiments.md)
 
 ### <a name="estimators"></a>Kostnadsberäknare
 
 Med uppskattningar är det enkelt att träna modeller med hjälp av populära ML-ramverk. Om du använder **Scikit – lära**, **PyTorch**, **TensorFlow**eller **kedjeer**bör du överväga att använda en uppskattning för utbildning. Det finns också en generisk uppskattning som kan användas med ramverk som inte redan har en dedikerad uppskattnings klass. Du behöver inte bekymra dig om att definiera en körnings konfiguration när du använder uppskattningar.
 
 * [Vad är uppskattningar?](concept-azure-machine-learning-architecture.md#estimators)
-* [Självstudier: Träna bild klassificerings modeller med MNIST data och scikit – lär dig använda Azure Machine Learning @ no__t-0
-* [Examples: Jupyter Notebook exempel på att använda uppskattars @ no__t-0
-* [Anvisningar: Skapa uppskattningar i utbildning @ no__t-0
+* [Självstudie: träna bild klassificerings modeller med MNIST data och scikit – lär dig använda Azure Machine Learning](tutorial-train-models-with-aml.md)
+* [Exempel: Jupyter Notebook exempel på att använda uppskattningar](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning)
+* [Gör så här: skapa uppskattningar i utbildning](how-to-train-ml-models.md)
 
 ### <a name="machine-learning-pipeline"></a>Maskin inlärnings pipeline
 
@@ -84,20 +84,22 @@ Maskin inlärnings pipeliner kan använda de tidigare nämnda utbildnings metode
 
 * [Vad är ML-pipelines i Azure Machine Learning?](concept-ml-pipelines.md)
 * [Skapa och kör maskin inlärnings pipeliner med Azure Machine Learning SDK](how-to-create-your-first-pipeline.md)
-* [Självstudier: Använd Azure Machine Learning pipelines för batch-poängsättning @ no__t-0
-* [Examples: Jupyter Notebook exempel för maskin inlärnings pipelines @ no__t-0
-* [Examples: Pipeline med automatiserad Machine Learning @ no__t-0
-* [Examples: Pipeline med uppskattars @ no__t-0
+* [Självstudie: Använd Azure Machine Learning pipelines för batch-Poäng](tutorial-pipeline-batch-scoring-classification.md)
+* [Exempel: Jupyter Notebook exempel för maskin inlärnings pipelines](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
+* [Exempel: pipeline med automatiserad maskin inlärning](https://aka.ms/pl-automl)
+* [Exempel: pipeline med uppskattningar](https://aka.ms/pl-estimator)
 
-## <a name="visual-interface"></a>Visuellt gränssnitt
+## <a name="azure-machine-learning-designer"></a>Azure Machine Learning designer
 
-Med Visual Interface (för hands versionen) kan du träna modeller med hjälp av ett dra och släpp-gränssnitt i webbläsaren.
+Med designern kan du träna modeller med hjälp av ett dra och släpp-gränssnitt i webbläsaren.
 
-+ [Vad är det visuella gränssnittet?](ui-concept-visual-interface.md)
-+ [Tutorial: Förutsäg bil pris @ no__t-0
-+ [Regression: Förutsägelse pris](how-to-ui-sample-regression-predict-automobile-price-basic.md)
-+ [Classification: Förutsägelse kredit risk](how-to-ui-sample-classification-predict-credit-risk-basic.md)
-+ [Classification: Förutsäga omsättning, begär och försäljning](how-to-ui-sample-classification-predict-churn.md)
++ [Vad är designern?](concept-designer.md)
++ [Självstudie: förutsäga Automobile-priset](tutorial-designer-automobile-price-train-score.md)
++ [Regression: förutsägelse pris](how-to-designer-sample-regression-automobile-price-basic.md)
++ [Klassificering: Förutsäg inkomst](how-to-designer-sample-classification-predict-income.md)
++ [Klassificering: förutse omsättning, begär och försäljning](how-to-designer-sample-classification-churn.md)
++ [Klassificering med anpassat R-skript: förutsäga flyg fördröjningar](how-to-designer-sample-classification-flight-delay.md)
++ [Text klassificering: Wikipedia SP 500-datauppsättning](how-to-designer-sample-text-classification.md)
 
 ## <a name="cli"></a>CLI
 

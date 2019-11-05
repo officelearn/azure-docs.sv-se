@@ -1,5 +1,5 @@
 ---
-title: Vilka är de senaste nyheterna? Viktig information – Azure Active Directory | Microsoft Docs
+title: Nyheter Viktig information – Azure Active Directory | Microsoft Docs
 description: Lär dig mer om vad som är nytt med Azure Active Directory, till exempel senaste versions information, kända problem, fel korrigeringar, inaktuella funktioner och kommande ändringar.
 services: active-directory
 author: eross-msft
@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6847384177e71c7f2b012e46211a5c09fa80fedb
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7db35b89903de6c5027bb7ea445245d84b96d6ef
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73149018"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473301"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -196,7 +196,7 @@ Den nya **säkerhets** menyn innehåller:
 
 - Villkorlig åtkomst
 - Identity Protection
-- Säkerhetscenter
+- Security Center
 - Identifiera säkra Poäng för identitet
 - Autentiseringsmetoder
 - MFA
@@ -434,7 +434,7 @@ Moderna säkerhets rapporter ger ytterligare funktioner från de äldre versione
 - Risk tillstånd, täcker: vid risk, avstängd, åtgärdad och bekräftat komprometterad
 - Nya riskfyllda identifieringar (tillgängliga för Azure AD Premium prenumeranter)
 
-Mer information finns i [riskfyllda användare](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risky-users-report), [riskfyllda inloggningar](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risky-sign-ins-report)och [risk identifieringar](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risk-detections-report).
+Mer information finns i [riskfyllda användare](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risky-users), [riskfyllda inloggningar](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risky-sign-ins)och [risk identifieringar](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risk-detections).
 
 ---
 
@@ -494,7 +494,7 @@ Mer information om apparna finns i [SaaS Application Integration with Azure Acti
 
 Nya uppdateringar av AzureAD-och AzureAD Preview PowerShell-modulerna är tillgängliga:
 
-- En ny `-Filter`-parameter har lagts till i parametern `Get-AzureADDirectoryRole` i AzureAD-modulen. Med den här parametern kan du filtrera efter katalog roller som returneras av cmdleten.
+- En ny `-Filter`-parameter har lagts till i `Get-AzureADDirectoryRole`-parametern i AzureAD-modulen. Med den här parametern kan du filtrera efter katalog roller som returneras av cmdleten.
 - Nya cmdletar har lagts till i AzureADPreview-modulen för att hjälpa till att definiera och tilldela anpassade roller i Azure AD, inklusive:
 
     - `Get-AzureADMSRoleAssignment`
@@ -525,7 +525,7 @@ Mer information finns i [Hantera dynamiska medlemskaps regler](https://docs.micr
 **Tjänste kategori:** Åtkomst granskningar  
 **Produkt kapacitet:** Identitets styrning
 
-Vi har introducerat en ny Microsoft Graph app-behörighet `AccessReview.ReadWrite.Membership`, som gör att appar automatiskt kan skapa och hämta åtkomst granskningar för grupp medlemskap och app-tilldelningar. Den här behörigheten kan användas av schemalagda jobb eller som en del av din automatisering, utan att det krävs någon inloggad användar kontext.
+Vi har introducerat en ny Microsoft Graph app-behörighet `AccessReview.ReadWrite.Membership`, som gör det möjligt för appar att automatiskt skapa och hämta åtkomst granskningar för grupp medlemskap och app-tilldelningar. Den här behörigheten kan användas av schemalagda jobb eller som en del av din automatisering, utan att det krävs någon inloggad användar kontext.
 
 Mer information finns i exempel på [hur du skapar åtkomst granskningar för Azure AD med hjälp av Microsoft Graph app-behörigheter med PowerShell-bloggen](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-how-to-create-Azure-AD-access-reviews-using-Microsoft/m-p/807241).
 
@@ -551,7 +551,7 @@ Mer information om hur du konfigurerar Azure Monitor finns [i Azure AD-aktivitet
 
 Den 25 september 2019 kommer vi att stänga av den gamla, icke-förbättrade säkerhets informationen för att registrera och hantera användar säkerhets information och bara aktivera den nya, [förbättrade versionen](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Cool-enhancements-to-the-Azure-AD-combined-MFA-and-password/ba-p/354271). Det innebär att användarna inte längre kommer att kunna använda den gamla upplevelsen.
 
-Mer information om förbättrad säkerhets information finns i vår [admin-dokumentation](https://aka.ms/securityinfodocs) AND vår [användar dokumentation](https://aka.ms/securityinfoguide).
+Mer information om förbättrad säkerhets information finns i vår [Administratörs dokumentation](https://aka.ms/securityinfodocs) och i vår [användar dokumentation](https://aka.ms/securityinfoguide).
 
 #### <a name="to-turn-on-this-new-experience-you-must"></a>Om du vill aktivera den här nya upplevelsen måste du:
 
@@ -739,7 +739,7 @@ Alla Azure AD-administratörer kan nu välja banderollen överst i befintliga s�
 
 - Risk tillstånd, täcker: vid risk, avstängd, åtgärdad och bekräftat komprometterad
 
-Mer information finns i rapporten om [riskfyllda användare](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risky-users-report) och [riskfyllda inloggningar](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risky-sign-ins-report).
+Mer information finns i rapporten om [riskfyllda användare](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risky-users) och [riskfyllda inloggningar](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risky-sign-ins).
 
 ---
 

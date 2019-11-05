@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 10/21/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 258e547c58016cb449c74b058d02f2a2e4d7d683
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 04dd7cb55f9a6d4ceb722606f0eb90792413e414
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792705"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471772"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Skapa en ASP.NET Framework-webbapp i Azure
 
@@ -28,7 +28,7 @@ Den här snabbstarten visar hur du distribuerar din första ASP.NET-webbapp till
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien installerar du <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> med arbets belastningen **ASP.net och webb utveckling** .
 
@@ -91,7 +91,7 @@ Skapa en ASP.NET-webbapp genom att följa dessa steg:
    | Inställning | Föreslaget värde | Beskrivning |
    |-|-|-|
    |App Service-plan| myAppServicePlan | Namnet på App Service-planen. |
-   | Plats | Europa, västra | Datacenter som är värd för webbappen. |
+   | Plats | Västra Europa | Datacenter som är värd för webbappen. |
    | Storlek | Kostnadsfri | [Prisnivån](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avgör tillgängliga värdfunktioner. |
 
    ![Skapa apptjänstplan](./media/app-service-web-get-started-dotnet-framework/app-service-plan-framework-vs2019.png)
@@ -131,9 +131,11 @@ När publiceringen är klar startar Visual Studio en webbläsare till webbappens
 
 ## <a name="manage-the-azure-app"></a>Hantera Azure-appen
 
-1. Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera webbappen.
+1. Om du vill hantera webbappen går du till [Azure Portal](https://portal.azure.com)och söker efter och väljer **app Services**.
 
-2. Klicka på **App Services** i menyn till vänster och välj sedan namnet på din Azure-app.
+   ![Välj app Services](./media/app-service-web-get-started-dotnet-framework/app-services.png)
+
+2. På sidan **app Services** väljer du namnet på din webbapp.
 
    ![Portalnavigering till Azure-app](./media/app-service-web-get-started-dotnet-framework/access-portal-framework-vs2019.png)
 

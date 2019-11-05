@@ -1,5 +1,5 @@
 ---
-title: Utökad Spark-historik Server för att felsöka Spark-program – Azure HDInsight
+title: Utökad Spark-historik Server för att felsöka appar – Azure HDInsight
 description: Använd utökad Spark-historik Server för att felsöka och diagnostisera Spark-program – Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 9398745cb240e7b7dff45ff5d6d9cdf064239bfd
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 1320764687f3eb2f033ca70703a9bcb16ab616ea
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130360"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494730"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Använd utökad Apache Spark historik Server för att felsöka och diagnostisera Apache Spark program
 
@@ -106,16 +106,16 @@ Välj jobb-ID och klicka sedan på **Graph** på menyn verktyg för att hämta j
 
 + Spela upp jobbet genom att klicka på **uppspelnings** knappen och sluta när som helst genom att klicka på stopp knappen. Uppgiften visas i färg för att visa olika status vid uppspelning:
 
-  + Grön för lyckad: Jobbet har slutförts.
-  + Orange för nya försök: Instanser av aktiviteter som misslyckats men inte påverkar det slutliga resultatet av jobbet. De här uppgifterna hade dubbla eller nya försök för instanser som kan lyckas senare.
-  + Blå för att köra: Uppgiften körs.
-  + Vit för att vänta eller hoppa över: Uppgiften väntar på att köras eller så har fasen hoppats över.
-  + Rött för misslyckades: Uppgiften misslyckades.
+  + Grön för klar: jobbet har slutförts.
+  + Orange för nya försök: instanser av aktiviteter som misslyckats men inte påverkar jobbets slut resultat. De här uppgifterna hade dubbla eller nya försök för instanser som kan lyckas senare.
+  + Blå för att köra: uppgiften körs.
+  + Vit för väntande eller överhoppad: aktiviteten väntar på att köras eller så har fasen hoppats över.
+  + Rött för misslyckades: det gick inte att utföra uppgiften.
 
     ![Färg exempel för Spark-program och jobb diagram, köra](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
 
     Det överhoppade steget visas i vitt.
-    ![Färg exempel för Spark-program och jobb diagram, hoppa över](./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png)
+    färg exempel för ![Spark-program och jobb diagram, hoppa över](./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png)
 
     ![Färg exemplet för Spark-program och jobb diagram misslyckades](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
 
@@ -137,7 +137,7 @@ Välj jobb-ID och klicka sedan på **Graph** på menyn verktyg för att hämta j
     ![Ikon för skevning av Spark-program och jobb diagram](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
 + I noden jobb diagram visas följande information om varje steg:
-  + IDENTITET.
+  + Identitet.
   + Namn eller beskrivning.
   + Totalt aktivitets nummer.
   + Lästa data: summan av storleken på indata och den blandade Läs storleken.
@@ -168,7 +168,7 @@ Välj jobb-ID och klicka sedan på **diagnos** på verktygs menyn för att hämt
 
 Klicka på fliken **data skevning** så visas motsvarande skevade uppgifter baserat på de angivna parametrarna.
 
-+ **Ange parametrar** – det första avsnittet visar de parametrar som används för att identifiera data skevning. Den inbyggda regeln är: Lästa aktivitets data är större än tre gånger i Genomsnittligt aktivitets data och att lästa aktivitets data är större än 10 MB. Om du vill definiera en egen regel för skevade uppgifter kan du välja parametrar, den **skevade fasen**och **skeva TKN** -avsnittet kommer att uppdateras i enlighet med detta.
++ **Ange parametrar** – det första avsnittet visar de parametrar som används för att identifiera data skevning. Den inbyggda regeln är: aktivitets data som läses är större än tre gånger i Genomsnittligt aktivitets data, och de lästa uppgifterna är mer än 10 MB. Om du vill definiera en egen regel för skevade uppgifter kan du välja parametrar, den **skevade fasen**och **skeva TKN** -avsnittet kommer att uppdateras i enlighet med detta.
 
 + **Skevad fas** – det andra avsnittet visar steg som har skevade uppgifter som uppfyller de villkor som anges ovan. Om det finns fler än en skevad aktivitet i ett stadium visar den skevade scen tabellen bara den mest sneda aktiviteten (t. ex. de största data för data skevning).
 
@@ -202,7 +202,7 @@ Användnings diagrammet för utförar visualiserar Spark-jobbets faktiska utför
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
-### <a name="1-revert-to-community-version"></a>1. Återgå till community-version
+### <a name="1-revert-to-community-version"></a>1. återgå till community-versionen
 
 Gör så här om du vill återgå till community-versionen:
 
@@ -224,7 +224,7 @@ Gör så här om du vill återgå till community-versionen:
     ![Spark2-historik för Apache Ambari-](./media/apache-azure-spark-history-server/apache-spark-restart2.png)  
 9. Uppdatera Spark historik serverns webb gränssnitt. det kommer att återställas till community-versionen.
 
-### <a name="2-upload-history-server-event"></a>2. Händelse för uppladdning av historik Server
+### <a name="2-upload-history-server-event"></a>2. händelse vid uppladdning av historik Server
 
 Om du kör till historik Server fel följer du stegen för att tillhandahålla händelsen:
 
@@ -240,11 +240,11 @@ Om du kör till historik Server fel följer du stegen för att tillhandahålla h
 
     ![exempel på Apache Spark-Filproblem](./media/apache-azure-spark-history-server/apache-spark-file-issue.png)
 
-### <a name="3-upgrade-jar-file-for-hotfix-scenario"></a>3. Uppgradera jar-fil för snabb korrigerings scenario
+### <a name="3-upgrade-jar-file-for-hotfix-scenario"></a>3. uppgradera jar-filen för snabb korrigerings scenario
 
 Om du vill uppgradera med Hotfix använder du skriptet nedan som kommer att uppgradera Spark-Enhancement. jar *.
 
-**upgrade_spark_enhancement.sh**:
+**upgrade_spark_enhancement. sh**:
 
    ```bash
     #!/usr/bin/env bash
@@ -330,4 +330,4 @@ Om du vill uppgradera med Hotfix använder du skriptet nedan som kommer att uppg
 
 ## <a name="contact-us"></a>Kontakta oss
 
-Om du har feedback eller om du stöter på andra problem när du använder det här verktyget kan du skicka ett e[hdivstool@microsoft.com](mailto:hdivstool@microsoft.com)-postmeddelande på ().
+Om du har feedback eller om du stöter på andra problem när du använder det här verktyget skickar du ett e-postmeddelande till ([hdivstool@microsoft.com](mailto:hdivstool@microsoft.com)).

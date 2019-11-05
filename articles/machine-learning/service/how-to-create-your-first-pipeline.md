@@ -11,14 +11,15 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: fe4a2082647ef1325d03ce4eec428ed1579704c5
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: MT
+ms.openlocfilehash: 373713cc92379236385024beff201d16fbbfd4b5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755991"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497049"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Skapa och kör maskin inlärnings pipeliner med Azure Machine Learning SDK
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 I den här artikeln får du lära dig hur du skapar, publicerar, kör och spårar en [pipeline för maskin inlärning](concept-ml-pipelines.md) med hjälp av [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Använd **ml-pipelines** för att skapa ett arbets flöde som häftar samman olika ml-faser och publicera sedan den pipelinen i Azure Machine Learning arbets ytan för att komma åt senare eller dela med andra.  ML-pipelines är idealiska för scenarier med batch-poäng, med hjälp av olika beräkningar, återanvända steg i stället för att köra om dem, samt dela ML-arbetsflöden med andra. 
 
@@ -32,11 +33,15 @@ ML pipelines använder fjärrberäknings mål för beräkning och lagring av mel
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Skapa en [Azure Machine Learning arbets yta](how-to-manage-workspace.md) för att lagra alla dina pipeline-resurser.
 
-* [Konfigurera utvecklings miljön](how-to-configure-environment.md) för att installera Azure Machine Learning SDK eller Använd en [Notebook VM](tutorial-1st-experiment-sdk-setup.md#azure) med SDK redan installerad.
+* [Konfigurera utvecklings miljön](how-to-configure-environment.md) för att installera Azure Machine Learning SDK eller använd en [Azure Machine Learning beräknings instans](concept-compute-instance.md) med SDK redan installerad.
+
+> [!NOTE]
+> Beräknings instanser är endast tillgängliga för arbets ytor med en region i **norra centrala USA** eller **Storbritannien, södra**.
+>Om din arbets yta finns i en annan region kan du fortsätta att skapa och använda en [virtuell dator](concept-compute-instance.md#notebookvm) i stället. 
 
 Börja med att koppla din arbets yta:
 
@@ -89,7 +94,7 @@ En pipeline består av ett eller flera steg. Ett steg är en enhets körning på
 
 ### <a name="configure-data-reference"></a>Konfigurera data referens
 
-Du har precis skapat en data källa som kan refereras till i en pipeline som indata till ett steg. En data källa i en pipeline representeras av ett [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference) -objekt. @No__t_0-objektet pekar på data som finns i eller kan nås från ett data lager.
+Du har precis skapat en data källa som kan refereras till i en pipeline som indata till ett steg. En data källa i en pipeline representeras av ett [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference) -objekt. `DataReference`-objektet pekar på data som finns i eller kan nås från ett data lager.
 
 ```python
 from azureml.data.data_reference import DataReference
@@ -325,7 +330,7 @@ Mer information finns i referens för [Azure-pipeline-steg-paketet](https://docs
 När du skickar pipelinen kontrollerar Azure Machine Learning beroendena för varje steg och överför en ögonblicks bild av käll katalogen som du har angett. Om ingen käll katalog anges överförs den aktuella lokala katalogen. Ögonblicks bilden lagras också som en del av experimentet i din arbets yta.
 
 > [!IMPORTANT]
-> Om du vill förhindra att filer tas med i ögonblicks bilden skapar du en [. gitignore](https://git-scm.com/docs/gitignore) -eller `.amlignore`-fil i katalogen och lägger till filerna i den. Filen `.amlignore` använder samma syntax och mönster som [. gitignore](https://git-scm.com/docs/gitignore) -filen. Om båda filerna finns, prioriteras `.amlignore`-filen.
+> Om du vill förhindra att filer tas med i ögonblicks bilden skapar du en [. gitignore](https://git-scm.com/docs/gitignore) -eller `.amlignore`-fil i katalogen och lägger till filerna i den. `.amlignore`-filen använder samma syntax och mönster som [. gitignore](https://git-scm.com/docs/gitignore) -filen. Om båda filerna finns har `.amlignore`-filen företräde.
 >
 > Mer information finns i [ögonblicks bilder](concept-azure-machine-learning-architecture.md#snapshots).
 
@@ -410,21 +415,21 @@ response = requests.post(published_pipeline1.endpoint,
 ### <a name="view-results-of-a-published-pipeline"></a>Visa resultat från en publicerad pipeline
 
 Se listan över alla publicerade pipeliner och deras körnings information:
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com).
 
 1. [Se din arbets yta](how-to-manage-workspace.md#view) för att hitta listan över pipeliner.
- ![list av pipelines i Machine Learning ](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
+ ![lista över maskin inlärnings pipeliner](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Välj en enskild pipeline för att se körnings resultaten.
 
-De här resultaten är också tillgängliga i [landnings sidan för din arbets yta (för hands version)](https://ml.azure.com).
+De här resultaten är också tillgängliga i din arbets yta i [Azure Machine Learning Studio]] (https://ml.azure.com).
 
 ### <a name="disable-a-published-pipeline"></a>Inaktivera en publicerad pipeline
 
 Om du vill dölja en pipeline från listan över publicerade pipeliner inaktiverar du den:
 
 ```
-# Get the pipeline by using its ID from the Azure portal
+# Get the pipeline by using its ID from Azure Machine Learning studio
 p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Apache Hadoop kluster på begäran i Azure HDInsight – Data Factory'
+title: 'Självstudie: kluster på begäran i Azure HDInsight med Data Factory'
 description: Självstudie – lär dig hur du skapar Apache Hadoop-kluster på begäran i HDInsight med hjälp av Azure Data Factory.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 10/09/2019
-ms.openlocfilehash: 00937197536ede7d6eed168e0a84bad294800159
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 1d1ddb84c000efaf58356ffdd15382e0b74aa744
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72264596"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494870"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Självstudie: skapa Apache Hadoop kluster på begäran i HDInsight med Azure Data Factory
 
@@ -34,7 +34,7 @@ Den här självstudien omfattar följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * PowerShell- [modulen för AZ](https://docs.microsoft.com/powershell/azure/overview) är installerad.
 
@@ -42,7 +42,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="create-preliminary-azure-objects"></a>Skapa preliminära Azure-objekt
 
-I det här avsnittet skapar du olika objekt som ska användas för HDInsight-klustret som du skapar på begäran. Det skapade lagrings kontot innehåller exempel [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) -skriptet `partitionweblogs.hql`, som du kan använda för att simulera ett exempel [Apache Hive](https://hive.apache.org/) jobb som körs i klustret.
+I det här avsnittet skapar du olika objekt som ska användas för HDInsight-klustret som du skapar på begäran. Det skapade lagrings kontot innehåller exempel [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) -skriptet `partitionweblogs.hql`, som du använder för att simulera ett exempel [Apache Hive](https://hive.apache.org/) jobb som körs i klustret.
 
 I det här avsnittet används ett Azure PowerShell-skript för att skapa lagrings kontot och kopiera över de filer som krävs inom lagrings kontot. Azure PowerShell exempel skriptet i det här avsnittet utför följande uppgifter:
 
@@ -154,7 +154,7 @@ Write-host "`nScript completed" -ForegroundColor Green
 **Kontrol lera att lagrings kontot har skapats**
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Till vänster går du till **alla tjänster** > **allmänna** > **resurs grupper**.
+1. Till vänster navigerar du till **alla tjänster** > **allmänna** > **resurs grupper**.
 1. Välj det resurs grupps namn som du skapade i PowerShell-skriptet. Använd filtret om du har för många resurs grupper i listan.
 1. I vyn **Översikt** visas en resurs som listas om du inte delar resurs gruppen med andra projekt. Resursen är lagrings kontot med det namn du angav tidigare. Välj lagrings kontots namn.
 1. Välj **behållarens** panel.
@@ -185,7 +185,7 @@ I den här artikeln konfigurerar du Hive-aktiviteten för att skapa ett HDInsigh
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-2. På den vänstra menyn navigerar du till **+ skapa en resurs** > **analys** > **Data Factory**.
+2. På den vänstra menyn navigerar du till **+ skapa en resurs** > **Analytics** > **Data Factory**.
 
     ![Azure Data Factory på portalen](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-azure-portal.png "Azure Data Factory på portalen")
 
@@ -269,7 +269,7 @@ I det här avsnittet skapar du två länkade tjänster i din data fabrik.
     | Välj resursgrupp | Välj den resurs grupp som du skapade som en del av PowerShell-skriptet som du använde tidigare.|
     | OS-typ/kluster SSH-användarnamn | Ange ett SSH-användarnamn, vanligt vis `sshuser`. |
     | OS-typ/kluster SSH-lösenord | Ange ett lösen ord för SSH-användaren |
-    | OS-typ/kluster användar namn | Ange ett kluster användar namn, vanligt vis `admin`. |
+    | OS-typ/kluster användar namn | Ange ett användar namn för klustret, vanligt vis `admin`. |
     | OS-typ/kluster lösen ord | Ange ett lösen ord för kluster användaren. |
 
     Välj sedan **Skapa**.
@@ -298,7 +298,7 @@ I det här avsnittet skapar du två länkade tjänster i din data fabrik.
 
         ![Ange Hive-skript information för pipelinen](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-path.png "Ange Hive-skript information för pipelinen")
 
-    1. Under **avancerade** > -**parametrar**väljer du **automatisk ifyllning från skript**. Det här alternativet söker efter parametrar i Hive-skriptet som kräver värden vid körning. Skriptet som du använder (**skriptfilen partitionweblogs. HQL**) har en **utdataparameter** . Ange **värdet** i formatet `wasbs://adfgetstarted@<StorageAccount>.blob.core.windows.net/outputfolder/` för att peka på en befintlig mapp på din Azure Storage. Sökvägen är skiftlägeskänslig. Detta är sökvägen där skriptets utdata ska lagras. Schemat för `wasbs` är nödvändigt eftersom lagrings konton nu har säker överföring som är aktiverat som standard.
+    1. Under **avancerade** > **parametrar**väljer du **automatisk ifyllning från skript**. Det här alternativet söker efter parametrar i Hive-skriptet som kräver värden vid körning. Skriptet som du använder (**skriptfilen partitionweblogs. HQL**) har en **utdataparameter** . Ange **värdet** i formatet `wasbs://adfgetstarted@<StorageAccount>.blob.core.windows.net/outputfolder/` att peka på en befintlig mapp på din Azure Storage. Sökvägen är skiftlägeskänslig. Detta är sökvägen där skriptets utdata ska lagras. `wasbs` schemat är nödvändigt eftersom lagrings konton nu har säker överföring som är aktiverat som standard.
     
         ![Ange parametrar för Hive-skriptet](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-parameters.png "Ange parametrar för Hive-skriptet")
 
@@ -312,7 +312,7 @@ I det här avsnittet skapar du två länkade tjänster i din data fabrik.
 
 ## <a name="trigger-a-pipeline"></a>Utlös en pipeline
 
-1. I verktygsfältet på design ytan väljer du **Lägg till utlösare** > **utlösare nu**.
+1. I verktygsfältet på design ytan väljer du **Lägg till utlösare** > **Utlös nu**.
 
     ![Utlös Azure Data Factory pipelinen](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-trigger-pipeline.png "Utlös Azure Data Factory pipelinen")
 
@@ -336,7 +336,7 @@ I det här avsnittet skapar du två länkade tjänster i din data fabrik.
 
     - Du ser en **adfgerstarted/outputfolder** som innehåller utdata från Hive-skriptet som kördes som en del av pipelinen.
 
-    - Du ser en **adfhdidatafactory-\<linked >-\<timestamp >** container. Den här behållaren är standard lagrings platsen för HDInsight-klustret som skapades som en del av pipeline-körningen.
+    - Du ser en **adfhdidatafactory-\<>-\<tidstämpel >** container. Den här behållaren är standard lagrings platsen för HDInsight-klustret som skapades som en del av pipeline-körningen.
 
     - Du ser en **adfjobs** -behållare som har Azure Data Factory jobb loggar.  
 

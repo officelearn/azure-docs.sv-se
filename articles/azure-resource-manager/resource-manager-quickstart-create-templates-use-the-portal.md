@@ -13,18 +13,18 @@ ms.devlang: na
 ms.date: 06/12/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 109c838d903faee7510441a8b3d502a7e95d8bb4
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 4bdf482357789b71b2f87bb74afd76d9ebc7f7d1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533665"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476786"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Snabbstart: Skapa och distribuera Azure Resource Manager-mallar med hjälp av Azure-portalen
 
 Lär dig hur du genererar en Resource Manager-mall med hjälp av Azure-portalen samt hur du redigerar och distribuerar mallen från portalen. Resource Manager-mallar är JSON-filer som definierar de resurser du behöver för att distribuera lösningen. En beskrivning av de begrepp som används i samband med distribution och hantering av Azure-lösningar finns i [Översikt över Azure Resource Manager](resource-group-overview.md).
 
-![snabb starts Portal diagram för Resource Manager-mall](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
+![Snabb starts Portal diagram för Resource Manager-mall](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
 När du har slutfört självstudien kan du distribuera ett Azure Storage-konto. Samma process kan användas till att distribuera andra Azure-resurser.
 
@@ -36,16 +36,20 @@ Att skapa en Resource Manager-mall från grunden är inte en enkel uppgift, sär
 
 Många erfarna mallar för utvecklare använder den här metoden för att skapa mallar när de försöker distribuera Azure-resurser som de inte är bekanta med. Mer information om hur du exporterar mallar med hjälp av portalen finns i [Exportera resurs grupper till mallar](./manage-resource-groups-portal.md#export-resource-groups-to-templates). Det andra sättet att hitta en fungerande mall är från [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/).
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Välj **Skapa en resurs** > **Lagring** > **Lagringskonto – blob, fil, tabell, kö**.
+1. I en webbläsare går du till [Azure Portal](https://portal.azure.com) och loggar in.
+2. Från Azure Portal-menyn väljer du **skapa en resurs**.
 
-    ![Skapa ett Azure-lagringskonto med hjälp av Azure-portalen](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
-3. Ange följande information:
+    ![Välj Skapa en resurs från Azure Portal-menyn](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-a-resource.png)
+
+3. Välj **lagrings** > **lagrings konto**.
+
+    ![Skapa ett Azure-lagringskonto](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
+1. Ange följande information:
 
     |Namn|Värde|
     |----|----|
-    |**Resursgrupp**|Välj **Skapa ny**och ange ett valfritt resurs grupps namn. På skärmbilden är namnet på resursgruppen *mystorage1016rg*. En resursgrupp är en container för Azure-resurser. Med resursgrupper är det enklare att hantera Azure-resurser. |
-    |**Namn**|Ge lagringskontot ett unikt namn. Lagrings kontots namn måste vara unikt i hela Azure och det får bara innehålla gemena bokstäver och siffror. Namnet måste innehålla mellan 3 och 24 tecken. Om du får ett fel meddelande om att "lagrings konto namnet" mystorage1016 "redan är upptaget" kan du prova att använda **&lt;your namn > lagrings &lt;Today datum i MMDD >** , till exempel **johndolestorage1016**. Mer information finns i [namngivnings regler och begränsningar](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming).|
+    |**Resursgrupp**|Välj **Skapa ny** och ge resursgruppen ett namn. På skärmbilden är namnet på resursgruppen *mystorage1016rg*. En resursgrupp är en container för Azure-resurser. Med resursgrupper är det enklare att hantera Azure-resurser. |
+    |**Namn**|Ge lagringskontot ett unikt namn. Lagrings kontots namn måste vara unikt i hela Azure och det får bara innehålla gemena bokstäver och siffror. Namnet måste innehålla mellan 3 och 24 tecken. Om du får ett fel meddelande om att "lagrings konto namnet" mystorage1016 "redan är upptaget" kan **du prova att använda&lt;ditt namn > lagring&lt;dagens datum i MMDD >** , till exempel **johndolestorage1016**. Mer information finns i [namngivnings regler och begränsningar](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming).|
 
     Du kan använda standardvärdena för resten av egenskaperna.
 
@@ -54,8 +58,8 @@ Många erfarna mallar för utvecklare använder den här metoden för att skapa 
     > [!NOTE]
     > Vissa av de exporterade mallarna kräver vissa ändringar innan du kan distribuera dem.
 
-4. Välj **Granska + skapa** längst ned på skärmen. Välj inte **skapa** i nästa steg.
-5. Välj **Ladda ned en mall för automatisering** längst ned på skärmen. Portalen visar den genererade mallen:
+5. Välj **Granska + skapa** längst ned på skärmen. Välj inte **skapa** i nästa steg.
+6. Välj **Ladda ned en mall för automatisering** längst ned på skärmen. Portalen visar den genererade mallen:
 
     ![Generera en mall från portalen](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template.png)
 
@@ -64,9 +68,9 @@ Många erfarna mallar för utvecklare använder den här metoden för att skapa 
     Det finns sex parametrar angivna. En av dem heter **storageAccountName**. Den andra markerade delen på den föregående skärmbilden visar hur den här parametern ska anges i mallen. I nästa avsnitt kan du redigera mallen för att använda ett genererat namn för lagringskontot.
 
     En Azure-resurs har definierats i mallen. Typen är `Microsoft.Storage/storageAccounts`. Ta en titt på hur resursen definieras och definitions strukturen.
-6. Välj **Ladda ned** överst på skärmen.
-7. Öppna den hämtade ZIP-filen och spara sedan **Template. JSON** på din dator. I nästa avsnitt använder du ett malldistributionsverktyg för att redigera mallen.
-8. Välj fliken **Parameter** för att se de värden som du angav för parametrarna. Anteckna dessa värden, eftersom du behöver dem i nästa avsnitt när du distribuerar mallen.
+7. Välj **Ladda ned** överst på skärmen.
+8. Öppna den hämtade ZIP-filen och spara sedan **Template. JSON** på din dator. I nästa avsnitt använder du ett malldistributionsverktyg för att redigera mallen.
+9. Välj fliken **Parameter** för att se de värden som du angav för parametrarna. Anteckna dessa värden, eftersom du behöver dem i nästa avsnitt när du distribuerar mallen.
 
     ![Generera en mall från portalen](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png)
 
@@ -81,7 +85,7 @@ Du kan använda Azure-portalen för att utföra viss grundläggande redigering a
 
 Azure kräver att varje Azure-tjänst har ett unikt namn. Distributionen kan misslyckas om du anger namnet på ett lagringskonto som redan finns. För att undvika det här problemet ändrar du mallen så att den använder ett mallfunktionsanrop `uniquestring()` för att generera ett unikt lagringskontonamn.
 
-1. I Azure-portalen väljer du **Skapa en resurs**.
+1. Från Azure Portal-menyn eller från **Start** sidan väljer du **skapa en resurs**.
 2. I **Sök på Marketplace** skriver du **malldistribution** och trycker sedan på **RETUR**.
 3. Välj **Malldistribution**.
 
@@ -160,9 +164,9 @@ Azure kräver att varje Azure-tjänst har ett unikt namn. Distributionen kan mis
     |----|----|
     |**Resursgrupp**|Välj det resurs grupps namn som du skapade i det sista avsnittet. |
     |**Plats**|Välj en plats för lagrings kontot. Välj till exempel **USA, centrala**. |
-    |**Kontotyp**|Ange **Standard_LRS** för den här snabb starten. |
-    |**Metod**|Ange **StorageV2** för den här snabb starten. |
-    |**Åtkomst nivå**|Ange **frekvent** för den här snabb starten. |
+    |**Kontotyp**|Ange **Standard_LRS** för den här snabbstarten. |
+    |**Metod**|Ange **StorageV2** för den här snabbstarten. |
+    |**Åtkomst nivå**|Ange **Frekvent** för den här snabbstarten. |
     |**HTTPS-trafik är bara aktive rad**| Välj **true** för den här snabbstarten. |
     |**Jag samtycker till de villkor som anges ovan**|Select|
 

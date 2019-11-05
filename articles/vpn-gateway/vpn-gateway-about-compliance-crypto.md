@@ -2,61 +2,63 @@
 title: Om kryptografiska krav och Azure VPN-gatewayer | Microsoft Docs
 description: Den här artikeln beskriver kryptografiska krav och Azure VPN-gatewayer
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/22/2017
+ms.date: 10/17/2019
 ms.author: yushwang
-ms.openlocfilehash: 060e647badcc3bad7b44d7cef3530c36b8ecdf57
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f2fd68871a329f7ff04f90d8166cb1fa58a512c7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648689"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495862"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Om kryptografiska krav och Azure VPN-gatewayer
 
-Den här artikeln beskrivs hur du kan konfigurera Azure VPN-gatewayer för att uppfylla dina kryptografiska krav för både S2S VPN-tunnlar för flera platser och VNet-till-VNet-anslutningar i Azure. 
+Den här artikeln beskriver hur du kan konfigurera Azure VPN-gatewayer för att uppfylla dina kryptografiska krav för både lokala S2S VPN-tunnlar och VNet-till-VNet-anslutningar i Azure.
 
-## <a name="about-ipsec-and-ike-policy-parameters-for-azure-vpn-gateways"></a>Om IPsec och IKE principparametrar för Azure VPN-gatewayer
-IPsec och IKE protokollet som standard stöder en mängd olika kryptografiska algoritmer i olika kombinationer. Om kunderna inte begär en specifik kombination av kryptografiska algoritmer och parametrar, Använd en Azure VPN-gatewayer standard förslag. Uppsättningarna för standard-principen har valts för att maximera samverkan med ett brett utbud av tredje parts VPN-enheter på standardkonfigurationerna. Därför kan täcker principerna och antal förslag inte alla möjliga kombinationer av tillgängliga kryptografiska algoritmer och nyckellängder.
+## <a name="about-ikev1-and-ikev2-for-azure-vpn-connections"></a>Om IKEv1 och IKEv2 för Azure VPN-anslutningar
 
-Standardprincipen för Azure VPN-gateway är anges i dokumentet: [Om VPN-enheter och IPsec/IKE-parametrar för anslutningar för plats-till-plats VPN-Gateway](vpn-gateway-about-vpn-devices.md).
+Traditionellt tillåtna endast IKEv1-anslutningar för grundläggande SKU: er och tillåtna IKEv2-anslutningar för alla VPN gateway-SKU: er som inte är grundläggande. De grundläggande SKU: erna tillåter endast 1 anslutning och tillsammans med andra begränsningar, till exempel prestanda, kunder som använder äldre enheter som endast stöder IKEv1-protokoll har begränsad erfarenhet. För att förbättra upplevelsen av kunder med IKEv1-protokoll tillåter vi nu IKEv1-anslutningar för alla VPN gateway-SKU: er. Mer information finns i [VPN gateway SKU: er](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku).
 
-## <a name="cryptographic-requirements"></a>Kryptografiska krav
-För kommunikation som kräver särskilda kryptografiska algoritmer eller parametrar, kan vanligtvis på grund av efterlevnad eller säkerhetskrav, kunder nu konfigurera sin Azure VPN-gatewayer för att använda en anpassad IPsec/IKE-princip med specifika kryptografiska algoritmer och nyckellängder i stället principuppsättningarna i Azure standard.
+![Azure VPN Gateway IKEv1-och IKEv2-anslutningar](./media/vpn-gateway-about-compliance-crypto/ikev1-ikev2-connections.png)
 
-Till exempel använda IKEv2 huvudläge principerna för Azure VPN-gateways endast Diffie-Hellman-Grupp2 (1 024 bitar), medan kunder kan behöva ange starkare grupper som ska användas i IKE, till exempel gruppen 14 (2048-bitars), grupp 24 (2048-bitars MODP grupp) eller ECP (elliptic kurva grupper) 256 eller 384-bitars (gruppen 19 och 20 grupp, respektive). Samma krav som gäller för IPSec-snabbläge samt principer.
+När IKEv1-och IKEv2-anslutningar används på samma VPN-gateway, är överföringen mellan dessa två anslutningar automatiskt aktive rad.
 
-## <a name="custom-ipsecike-policy-with-azure-vpn-gateways"></a>Anpassade IPsec/IKE-princip med Azure VPN-gatewayer
-Azure VPN-gatewayer har nu stöd för varje anslutning, anpassad IPsec/IKE-princip. För en plats-till-plats eller VNet-till-VNet-anslutning, kan du välja en specifik kombination av kryptografiska algoritmer för IPsec och IKE med önskad nyckellängd som visas i följande exempel:
+## <a name="about-ipsec-and-ike-policy-parameters-for-azure-vpn-gateways"></a>Om IPsec-och IKE-principinställningar för Azure VPN-gatewayer
 
-![ipsec-ike-policy](./media/vpn-gateway-about-compliance-crypto/ipsecikepolicy.png)
+IPsec-och IKE-protokoll standarden stöder en mängd olika krypteringsalgoritmer i olika kombinationer. Om du inte begär en speciell kombination av krypteringsalgoritmer och parametrar, använder Azure VPN-gatewayer en uppsättning standard förslag. Standard princip uppsättningarna valdes för att maximera samverkan med en mängd olika VPN-enheter från tredje part i standardkonfigurationerna. Därför kan principerna och antalet förslag inte avse alla möjliga kombinationer av tillgängliga krypteringsalgoritmer och viktiga styrkor.
 
-Du kan skapa en IPsec/IKE-princip och tillämpa till en ny eller befintlig anslutning. 
+Standard principen som har angetts för Azure VPN-gatewayen visas i artikeln: [om VPN-enheter och IPSec/IKE-parametrar för plats-till-plats-VPN gateway-anslutningar](vpn-gateway-about-vpn-devices.md).
+
+## <a name="cryptographic-requirements"></a>Krypterings krav
+
+För kommunikation som kräver särskilda kryptografiska algoritmer eller parametrar, vanligt vis på grund av efterlevnad eller säkerhets krav, kan du nu konfigurera deras Azure VPN-gatewayer så att de använder en anpassad IPsec/IKE-princip med särskilda krypteringsalgoritmer och viktiga styrkor i stället för standard princip uppsättningarna i Azure.
+
+IKEv2 huvud läges principer för Azure VPN-gatewayer använder till exempel bara Diffie-Hellman-grupp 2 (1024 bitar), men du kan behöva ange starkare grupper som ska användas i IKE, till exempel grupp 14 (2048-bitars), grupp 24 (2048-bitars MODP-grupp) eller ECP (Elliptic-kurva grupper) 256 eller 384 bit (grupp 19 respektive grupp 20 respektive). Liknande krav gäller även IPsec-principer för snabb läge.
+
+## <a name="custom-ipsecike-policy-with-azure-vpn-gateways"></a>Anpassad IPsec/IKE-princip med Azure VPN-gatewayer
+
+Azure VPN-gatewayer stöder nu per anslutning, anpassad IPsec/IKE-princip. För en plats-till-plats-eller VNet-till-VNet-anslutning kan du välja en speciell kombination av krypteringsalgoritmer för IPsec och IKE med önskad nyckel längd, som du ser i följande exempel:
+
+![IPSec-IKE – princip](./media/vpn-gateway-about-compliance-crypto/ipsecikepolicy.png)
+
+Du kan skapa en IPsec/IKE-princip och tillämpa den på en ny eller befintlig anslutning.
 
 ### <a name="workflow"></a>Arbetsflöde
 
-1. Skapa virtuella nätverk, VPN-gatewayer och lokala nätverksgatewayer för anslutningstopologin enligt beskrivningen i andra instruktionsdokument
+1. Skapa virtuella nätverk, VPN-gatewayer eller lokala nätverksgateway för din anslutnings topologi enligt beskrivningen i andra instruktions dokument
 2. Skapa en IPsec/IKE-princip
-3. Du kan tillämpa principen när du skapar en S2S- eller VNet-till-VNet-anslutning
-4. Om anslutningen har redan skapats, kan du tillämpa eller uppdatera principen till en befintlig anslutning
+3. Du kan tillämpa principen när du skapar en S2S-eller VNet-till-VNet-anslutning
+4. Om anslutningen redan har skapats kan du tillämpa eller uppdatera principen på en befintlig anslutning
 
-
-## <a name="ipsecike-policy-faq"></a>Vanliga frågor och svar för IPsec/IKE-princip
+## <a name="ipsecike-policy-faq"></a>Vanliga frågor och svar om IPsec/IKE-princip
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
-
 ## <a name="next-steps"></a>Nästa steg
-Se [konfigurera IPsec/IKE-princip](vpn-gateway-ipsecikepolicy-rm-powershell.md) stegvisa instruktioner om hur du konfigurerar anpassade IPsec/IKE-principer på en anslutning.
 
-Se även [ansluta flera principbaserade VPN-enheter](vpn-gateway-connect-multiple-policybased-rm-ps.md) mer information om alternativet UsePolicyBasedTrafficSelectors.
+Se [Konfigurera IPSec/IKE-princip](vpn-gateway-ipsecikepolicy-rm-powershell.md) för steg-för-steg-instruktioner om hur du konfigurerar anpassad IPsec/IKE-princip på en anslutning.
+
+Se även [Anslut flera principbaserade VPN-enheter](vpn-gateway-connect-multiple-policybased-rm-ps.md) om du vill veta mer om alternativet UsePolicyBasedTrafficSelectors.

@@ -5,53 +5,61 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 07/22/2019
+ms.date: 10/14/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: f1576e963f9c25821b5e3f57907662e3d86df4e0
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 76a82696986f4957e7a5a96a3b93497ed461f0c4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68406343"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491703"
 ---
-# <a name="what-is-azure-virtual-wan"></a>Vad är Azure Virtual WAN?
+# <a name="about-azure-virtual-wan"></a>Om Azure Virtual WAN
 
 Azure Virtual WAN är en nätverks tjänst som tillhandahåller optimerad och automatiserad gren anslutning till och via Azure. Azure-regioner fungerar som hubbar som du kan välja att ansluta dina grenar till. Du kan använda Azures stamnät för att även ansluta grenar och dra nytta av anslutningar från förgrening till VNet. Vi har en lista över partners som stöder anslutnings automatisering med Azure Virtual WAN VPN. Mer information finns i artikeln om [virtuella WAN-partners och platser](virtual-wan-locations-partners.md) .
 
-Azure Virtual WAN ger tillsammans många Azure-Molntjänster som VPN-tjänster, till exempel plats-till-plats-VPN och ExpressRoute till ett enda drifts gränssnitt. Anslutning till Azure-virtuella nätverk upprättas med hjälp av virtuella nätverks anslutningar.
-
-ExpressRoute för virtuellt WAN är för närvarande en för hands version.
+Azure Virtual WAN ger tillsammans många Azure Cloud Connectivity-tjänster, till exempel plats-till-plats-VPN, användar-VPN (punkt-till-plats) och ExpressRoute till ett enda drifts gränssnitt. Anslutning till Azure-virtuella nätverk upprättas med hjälp av virtuella nätverks anslutningar. Den möjliggör [Global transit nätverks arkitektur](virtual-wan-global-transit-network-architecture.md) baserat på en klassisk nav-och-eker-nätverksanslutning där det molnbaserade nätverkets hubb möjliggör transitiv anslutning mellan slut punkter som kan fördelas mellan olika typer av ekrar.
 
 ![Virtual WAN-diagram](./media/virtual-wan-about/virtualwan1.png)
 
 Den här artikeln ger en snabb överblick över nätverks anslutningen i Azure Virtual WAN. Virtual WAN har följande fördelar:
 
 * **Integrerade anslutnings lösningar i hubb och eker:** Automatisera plats-till-plats-konfiguration och anslutning mellan lokala platser och en Azure-hubb.
-* **Automatiserad eker-installation och konfiguration:** Anslut dina virtuella nätverk och arbets belastningar till Azure-hubben sömlöst.
+* **Automatiserad installation och konfiguration av ekerplatser:** Anslut enkelt dina virtuella nätverk och arbetsbelastningar till Azure-navet.
 * **Intuitiv fel sökning:** Du kan se flödet från slut punkt till slut punkt i Azure och sedan använda den här informationen för att utföra nödvändiga åtgärder.
+
+## <a name="basicstandard"></a>Basic-och standard-virtuella WAN
+
+Det finns två typer av virtuella WAN-enheter: Basic och standard. I följande tabell visas de tillgängliga konfigurationerna för respektive typ.
+
+[!INCLUDE [Basic and Standard SKUs](../../includes/virtual-wan-standard-basic-include.md)]
+
+Anvisningar för hur du uppgraderar ett virtuellt WAN finns i [uppgradera ett virtuellt WAN-nätverk från Basic till standard](upgrade-virtual-wan.md).
 
 ## <a name="resources"></a>Virtual WAN-resurser
 
-Om du vill konfigurera ett virtuellt WAN-nätverk från slut punkt till slut punkt skapar du följande resurser:
+Om du vill konfigurera ett virtuellt WAN från slutpunkt till slutpunkt skapar du följande resurser:
 
-* **virtualWAN:** VirtualWAN-resursen representerar ett virtuellt överlägg för ditt Azure-nätverk och är en samling av flera resurser. Den innehåller länkar till alla virtuella nav som ska ingå i det virtuella WAN-nätverket. Virtual WAN-resurser är isolerade från varandra och kan inte innehålla ett gemensamt nav. Virtuella nav i Virtual WAN-nätverk kommunicerar inte med varandra. Egenskapen "Tillåt gren till gren trafik" aktiverar trafik mellan VPN-platser samt VPN-till-ExpressRoute (för närvarande i för hands version) aktiverade platser.
+* **virtualWAN:** virtualWAN-resursen representerar ett virtuellt överlägg på ditt Azure-nätverk och består av en samling med flera resurser. Den innehåller länkar till alla virtuella nav som ska ingå i det virtuella WAN-nätverket. Virtual WAN-resurser är isolerade från varandra och kan inte innehålla ett gemensamt nav. Virtuella hubbar i virtuella WAN-nätverk kommunicerar inte med varandra.
 
-* **)** En virtuell hubb är ett Microsoft-hanterat virtuellt nätverk. Navet innehåller olika tjänstslutpunkter för anslutning från ditt lokala nätverk (vpnsite). Navet är kärnan i ditt nätverk i en region. Det kan bara finnas ett nav per Azure-region. När du skapar ett nav med hjälp av Azure-portalen skapas ett virtuellt navnätverk och en virtuell nav-vpngateway.
+* **Nav:** Ett virtuellt nav är ett Microsoft-hanterat virtuellt nätverk. Navet innehåller olika tjänst slut punkter för att möjliggöra anslutning. Från ditt lokala nätverk (vpnsite) kan du ansluta till en VPN Gateway inuti den virtuella hubben, ansluta ExpressRoute-kretsar till en virtuell hubb eller till och med ansluta mobila användare till en punkt-till-plats-gateway i den virtuella hubben. Navet är kärnan i ditt nätverk i en region. Det kan bara finnas ett nav per Azure-region.
 
   En nav-gateway är inte detsamma som en virtuell nätverksgateway som du använder för ExpressRoute och VPN Gateway. När du använder ett virtuellt WAN-nätverk kan du till exempel inte skapa en plats-till-plats-anslutning från din lokala plats direkt till ditt VNet. I stället skapar du en plats-till-plats-anslutning till hubben. Trafiken passerar alltid nav-gatewayen. Det innebär att dina virtuella nätverk inte behöver egna gateways för virtuella nätverk. Med Virtual WAN kan dina virtuella nätverk enkelt dra nytta av skalning via det virtuella navet och den virtuella nav-gatewayen.
 
-* **Hubb anslutning till virtuellt nätverk:** Nätverks anslutnings resursen för hubben används för att ansluta navet sömlöst till det virtuella nätverket. För närvarande kan du bara ansluta till virtuella nätverk som finns i samma navregion.
+* **Anslutning mellan nav och virtuellt nätverk:** Den här resursen används för att sömlöst ansluta navet till ditt virtuella nätverk.
 
-* **NAV väg tabell:**  Du kan skapa en virtuell nav väg och tillämpa den på väg tabellen för virtuella hubbar. Du kan använda flera vägar i routningstabellen för den virtuella hubben.
+* **(För hands version) nav-till-hubb-anslutningar** – NAV är anslutna till varandra i ett virtuellt WAN-nätverk. Detta innebär att en gren, användare eller VNet som är ansluten till en lokal hubb kan kommunicera med en annan gren eller VNet med den kompletta nät arkitekturen i de anslutna hubbarna. Du kan också ansluta virtuella nätverk i en hubb-överföring via det virtuella navet, samt virtuella nätverk över hubben, med hjälp av det anslutna nav-till-hubb-ramverket.
+
+* **Navroutningstabell:** Du kan skapa en virtuell navväg och tillämpa vägen på den virtuella navroutningstabellen. Du kan använda flera vägar i routningstabellen för den virtuella hubben.
 
 **Ytterligare virtuella WAN-resurser**
 
-  * **Plats** Den här resursen används endast för plats-till-plats-anslutningar. Plats resursen är **vpnsite**. Den representerar din lokala VPN-enhet och dess inställningar. Om du arbetar med en Virtual WAN-partner har du en inbyggd lösning som hjälper dig att automatiskt exportera den här informationen till Azure.
+  * **Plats:** Den här resursen används endast för plats-till-plats-anslutningar. Plats resursen är **vpnsite**. Den representerar din lokala VPN-enhet och dess inställningar. Om du arbetar med en Virtual WAN-partner har du en inbyggd lösning som hjälper dig att automatiskt exportera den här informationen till Azure.
 
 ## <a name="connectivity"></a>Koppling
 
-Det virtuella WAN-nätverket tillåter två typer av anslutningar: Plats-till-plats och ExpressRoute (för hands version).
+Virtuella WAN-nätverk möjliggör följande typer av anslutningar: plats-till-plats-VPN, användar-VPN (punkt-till-plats) och ExpressRoute.
 
 ### <a name="s2s"></a>Plats-till-plats-VPN-anslutningar
 
@@ -71,9 +79,11 @@ När du arbetar med en virtuell WAN-partner är arbets flödet:
 
 En lista över tillgängliga partners och platser finns i artikeln [virtuella WAN-partners och platser](virtual-wan-locations-partners.md) .
 
+### <a name="uservpn"></a>Användares VPN-anslutningar (punkt-till-plats)
 
-### <a name="er"></a>ExpressRoute-anslutningar (förhandsversion)
+Du kan ansluta till dina resurser i Azure via en IPsec/IKE (IKEv2) eller OpenVPN-anslutning. Den här typen av anslutning kräver att en VPN-klient konfigureras på klient datorn. Mer information finns i [skapa en punkt-till-plats-anslutning](virtual-wan-site-to-site-portal.md).
 
+### <a name="er"></a>ExpressRoute-anslutningar
 Med ExpressRoute kan du ansluta ett lokalt nätverk till Azure över en privat anslutning. Information om hur du skapar anslutningen finns i [skapa en ExpressRoute-anslutning med hjälp av virtuellt WAN](virtual-wan-expressroute-portal.md).
 
 ## <a name="locations"></a>Platser

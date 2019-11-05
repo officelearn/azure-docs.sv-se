@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/27/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 0a2bf306ccfa3a4a4fc80d0d55493f284185bba9
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 26793c91c85ba4cc33a07358ab8ff318becb325f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648455"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490669"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -42,20 +42,22 @@ I den här snabbstarten använder du ett allmänt Azure Storage-konto (Blob Stor
 Du behöver namnet på ditt Azure Storage-konto för den här snabb starten. Följande procedur innehåller steg för att hämta namnet på ditt lagrings konto: 
 
 1. I en webbläsare går du till [Azure Portal](https://portal.azure.com) och loggar in med ditt användar namn och lösen ord för Azure.
-2. Välj **alla tjänster** > **lagrings** > **lagrings konton**.
+2. Välj **alla tjänster**på Azure Portal-menyn och välj sedan **lagrings** > **lagrings konton**. Du kan också söka efter och välja *lagrings konton* från vilken sida som helst.
 3. På sidan **lagrings konton** filtrerar du ditt lagrings konto (om det behövs) och väljer sedan ditt lagrings konto. 
+
+Du kan också söka efter och välja *lagrings konton* från vilken sida som helst.
 
 #### <a name="create-a-blob-container"></a>Skapa en blobcontainer
 I det här avsnittet skapar du en blobcontainer med namnet **adftutorial** i Azure Blob Storage.
 
-1. På sidan lagrings konto väljer du **översikts** > **blobbar**.
-2. På sidan -   *kontonamn>blobs-sidans\<* verktygsfält väljer du behållare.
-3. I dialogrutan **Ny container** anger du **adftutorial** som namn och väljer **OK**.  -   *Sidankontonamn>blobbaruppdaterasförattinkluderaadftutorialilistan\<* över behållare.
+1. På sidan lagrings konto väljer du **översikt** > **blobbar**.
+2. På sidan *\<konto namn >*  - **blobbar** sidans verktygsfält väljer du **behållare**.
+3. I dialogrutan **Ny container** anger du **adftutorial** som namn och väljer **OK**. Sidan *\<konto namn >*  - **blobbar** uppdateras för att inkludera **adftutorial** i listan över behållare.
 
    ![Lista över behållare](media/data-factory-quickstart-prerequisites/list-of-containers.png)
 
 #### <a name="add-an-input-folder-and-file-for-the-blob-container"></a>Lägg till en mapp för indata och en fil för BLOB-behållaren
-I det här avsnittet ska du skapa en mapp med namnet indata i den behållare som du nyss skapade och sedan ladda upp en exempel fil till mappen indata. Innan du börjar måste du öppna en text redigerare, till exempel **anteckningar**, och skapa en fil med namnet **EMP. txt** med följande innehåll:
+I det här avsnittet ska du skapa en mapp med namnet **indata** i den behållare som du nyss skapade och sedan ladda upp en exempel fil till mappen indata. Innan du börjar måste du öppna en text redigerare, till exempel **anteckningar**, och skapa en fil med namnet **EMP. txt** med följande innehåll:
 
 ```emp.txt
 John, Doe
@@ -64,7 +66,12 @@ Jane, Doe
 
 Spara filen i mappen **C:\ADFv2QuickStartPSH** (Om mappen inte redan finns skapar du den.) Gå sedan tillbaka till Azure Portal och följ de här stegen:
 
-1. På sidan -   *kontonamn>blobbardärduslutade,väljerduadftutorialfrånden\<* uppdaterade listan över behållare. (Om du stängde fönstret eller gick till en annan sida loggar du in på [Azure Portal](https://portal.azure.com) igen, väljer **alla tjänster** > **lagrings** > **lagrings konton**, väljer ditt lagrings konto och väljer sedan **blobbar** **adftutorial.** )  > 
+1. På sidan *\<konto namn >*  - **blobbar** där du slutade, väljer du **adftutorial** från den uppdaterade listan över behållare.
+
+   1. Om du stängde fönstret eller gick till en annan sida loggar du in på [Azure Portal](https://portal.azure.com) igen.
+   1. Välj **alla tjänster**på Azure Portal-menyn och välj sedan **lagrings** > **lagrings konton**. Du kan också söka efter och välja *lagrings konton* från vilken sida som helst.
+   1. Välj ditt lagrings konto och välj sedan **blobbar** > **adftutorial**.
+
 2. I verktygsfältet för **adftutorial** container-sidan väljer du **Ladda upp**.
 3. På sidan **Ladda upp BLOB** väljer du rutan **filer** och bläddrar sedan till och väljer filen **EMP. txt** .
 4. Expandera den **avancerade** rubriken. Sidan visas nu som på det sätt som visas:

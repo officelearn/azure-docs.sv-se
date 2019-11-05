@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9b7c63639eea7176af36593983b08ad0c5213613
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ee7e3cb200a20b52a307dba31682a534e9f7b455
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073221"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470654"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Nätverks överväganden för en App Service-miljön #
 
@@ -26,8 +26,8 @@ ms.locfileid: "70073221"
 
  Azure [App Service-miljön][Intro] är en distribution av Azure App Service till ett undernät i ditt virtuella Azure-nätverk (VNet). Det finns två distributions typer för en App Services miljö (ASE):
 
-- **Externa ASE**: Exponerar de ASE-appar som finns på en IP-adress med Internet åtkomst. Mer information finns i [skapa en extern ASE][MakeExternalASE].
-- **ILB ASE**: Exponerar de ASE-appar som finns på en IP-adress i ditt VNet. Den interna slut punkten är en intern belastningsutjämnare (ILB), vilket är anledningen till att den kallas för ett ILB-ASE. Mer information finns i [skapa och använda en ILB-ASE][MakeILBASE].
+- **Extern ASE**: exponerar ASE-appar på en IP-adress med Internet åtkomst. Mer information finns i [skapa en extern ASE][MakeExternalASE].
+- **ILB ASE**: exponerar de ASE-värdbaserade apparna på en IP-adress i ditt VNet. Den interna slut punkten är en intern belastningsutjämnare (ILB), vilket är anledningen till att den kallas för ett ILB-ASE. Mer information finns i [skapa och använda en ILB-ASE][MakeILBASE].
 
 Alla ASE, externa och ILB har en offentlig VIP som används för inkommande hanterings trafik och som från-adressen när du gör anrop från ASE till Internet. Anrop från en ASE som går till Internet lämnar VNet via den VIP som tilldelats för ASE. Den offentliga IP-adressen för denna VIP är käll-IP för alla anrop från ASE som går till Internet. Om apparna i din ASE gör anrop till resurser i ditt VNet eller via VPN, är käll-IP: en av IP-adresserna i under nätet som används av din ASE. Eftersom ASE är i det virtuella nätverket kan det också komma åt resurser inom VNet utan ytterligare konfiguration. Om det virtuella nätverket är anslutet till ditt lokala nätverk har appar i din ASE också åtkomst till resurser där utan ytterligare konfiguration.
 
@@ -62,7 +62,7 @@ För att ASE ska fungera kräver ASE att följande portar är öppna:
 | Användning | Från | Till |
 |-----|------|----|
 | Hantering | App Service hanterings adresser | ASE-undernät: 454, 455 |
-|  Intern kommunikation med ASE | ASE-undernät: Alla portar | ASE-undernät: Alla portar
+|  Intern kommunikation med ASE | ASE-undernät: alla portar | ASE-undernät: alla portar
 |  Tillåt inkommande Azure Load Balancer | Azure-lastbalanserare | ASE-undernät: 16001
 
 Det finns två andra portar som kan visas som öppna på en ports ökning, 7654 och 1221. De svarar med en IP-adress och inget annat. De kan blockeras om du vill. 
@@ -115,12 +115,12 @@ Om du ändrar DNS-inställningen för det virtuella nätverk som din ASE finns i
 Förutom de ASE funktionella beroendena finns det några extra objekt relaterade till Portal upplevelsen. Några av funktionerna i Azure Portal är beroende av direkt åtkomst till _SCM-webbplatsen_. Det finns två URL: er för varje app i Azure App Service. Den första URL: en är för att komma åt din app. Den andra URL: en är åtkomst till SCM-webbplatsen, som även kallas _kudu-konsolen_. Funktioner som använder SCM-platsen är:
 
 -   Webb jobb
--   Funktioner
--   Loggströmning
+-   Functions
+-   Logg strömning
 -   Kudu
 -   Tillägg
 -   Processutforskaren
--   Konsol
+-   Console
 
 När du använder en ILB-ASE går det inte att komma åt SCM-platsen utanför VNet. Vissa funktioner fungerar inte från App-portalen eftersom de behöver åtkomst till SCM-platsen för en app. Du kan ansluta till SCM-platsen direkt i stället för att använda portalen. 
 
@@ -130,10 +130,10 @@ Om din ILB-ASE är domän namnet *contoso.appserviceenvironment.net* och ditt ap
 
 En ASE har några IP-adresser att vara medveten om. De är:
 
-- **Offentlig inkommande IP-adress**: Används för app-trafik i en extern ASE och hanterings trafik i både en extern ASE och en ILB-ASE.
-- **Utgående offentlig IP-adress**: Används som "från"-IP för utgående anslutningar från ASE som lämnar det virtuella nätverket, som inte dirigerar en VPN.
+- **Offentlig inkommande IP-adress**: används för app-trafik i en extern ASE och hanterings trafik i både en extern ASE och en ILB-ASE.
+- **Utgående offentlig IP-adress**: används som "från"-IP för utgående anslutningar från ASE som lämnar det virtuella nätverket, som inte dirigeras nedåt i en VPN.
 - **ILB IP-adress**: IP-adressen ILB finns bara i en ILB-ASE.
-- **App-tilldelade IP-baserade SSL-adresser**: Endast möjlig med en extern ASE och när IP-baserad SSL har kon figurer ATS.
+- **App-tilldelade IP-baserade SSL-adresser**: endast möjligt med en extern ASE och när IP-baserad SSL har kon figurer ATS.
 
 Alla dessa IP-adresser visas i Azure Portal från användar gränssnittet för ASE. Om du har en ILB-ASE visas IP-adressen för ILB.
 
@@ -144,7 +144,7 @@ Alla dessa IP-adresser visas i Azure Portal från användar gränssnittet för A
 
 ### <a name="app-assigned-ip-addresses"></a>App-tilldelade IP-adresser ###
 
-Med en extern ASE kan du tilldela IP-adresser till enskilda appar. Du kan inte göra det med en ILB-ASE. Mer information om hur du konfigurerar din app så att den har sin egen IP-adress finns i [BIND ett befintligt anpassat SSL-certifikat till Azure App Service](../app-service-web-tutorial-custom-ssl.md).
+Med en extern ASE kan du tilldela IP-adresser till enskilda appar. Du kan inte göra det med en ILB-ASE. Mer information om hur du konfigurerar din app så att den har sin egen IP-adress finns i [skydda ett anpassat DNS-namn med en SSL-bindning i Azure App Service](../configure-ssl-bindings.md).
 
 När en app har sin egen IP-baserade SSL-adress reserverar ASE två portar för att mappa till den IP-adressen. En port är för HTTP-trafik och den andra porten är för HTTPS. Dessa portar anges i ASE-ANVÄNDARGRÄNSSNITTET i avsnittet IP-adresser. Trafiken måste kunna nå dessa portar från VIP: en eller så är apparna inte tillgängliga. Detta krav är viktigt att komma ihåg när du konfigurerar nätverks säkerhets grupper (NSG: er).
 
@@ -181,15 +181,15 @@ DNS-porten behöver inte läggas till eftersom trafik till DNS inte påverkas av
 
 När de inkommande och utgående kraven tas i beaktande bör NSG: er se ut ungefär som NSG: er som visas i det här exemplet. 
 
-![Ingående säkerhetsregel][4]
+![Ingående säkerhetsregler][4]
 
-En standard regel gör att IP-adresser i det virtuella nätverket kan kommunicera med ASE-undernätet. En annan standard regel aktiverar belastningsutjämnaren, även kallat offentlig VIP, för att kommunicera med ASE. Om du vill se standard reglerna väljer du **standard regler** bredvid ikonen **Lägg till** . Om du anger en neka alla Else-regler innan standard reglerna förhindras trafik mellan VIP-och ASE. Om du vill förhindra trafik som kommer inifrån VNet lägger du till en egen regel för att tillåta inkommande. Använd en källa som är lika med AzureLoadBalancer med målet och ett port intervall för **\*** . Eftersom NSG-regeln används för ASE-undernätet behöver du inte vara särskilt i målet.
+En standard regel gör att IP-adresser i det virtuella nätverket kan kommunicera med ASE-undernätet. En annan standard regel aktiverar belastningsutjämnaren, även kallat offentlig VIP, för att kommunicera med ASE. Om du vill se standard reglerna väljer du **standard regler** bredvid ikonen **Lägg till** . Om du anger en neka alla Else-regler innan standard reglerna förhindras trafik mellan VIP-och ASE. Om du vill förhindra trafik som kommer inifrån VNet lägger du till en egen regel för att tillåta inkommande. Använd en källa som är lika med AzureLoadBalancer med ett mål för **ett och ett** port intervall för **\*** . Eftersom NSG-regeln används för ASE-undernätet behöver du inte vara särskilt i målet.
 
 Om du har tilldelat en IP-adress till din app, se till att du behåller portarna öppna. Om du vill se portarna väljer du **App Service-miljön** > **IP-adresser**.  
 
 Alla objekt som visas i följande utgående regler behövs, förutom det sista objektet. De ger nätverks åtkomst till ASE-beroenden som nämnts tidigare i den här artikeln. Om du blockerar någon av dem slutar ASE att fungera. Det sista objektet i listan gör att ASE kan kommunicera med andra resurser i ditt VNet.
 
-![Utgående säkerhetsregler][5]
+![Utgående säkerhets regler][5]
 
 När dina NSG: er har definierats tilldelar du dem till det undernät som din ASE är på. Om du inte kommer ihåg ASE VNet eller under nätet kan du se det från ASE Portal-sidan. Om du vill tilldela NSG till ditt undernät går du till under nätets användar gränssnitt och väljer NSG.
 
@@ -200,11 +200,11 @@ Tvingad tunnel trafik är när du ställer in vägar i ditt VNet så att utgåen
 När du skapar en ASE i portalen skapar vi också en uppsättning routningstabeller i under nätet som skapas med ASE.  De vägarna säger bara att du skickar utgående trafik direkt till Internet.  
 Följ dessa steg om du vill skapa samma vägar manuellt:
 
-1. Gå till Azure Portal. Välj **nätverks** > **väg tabeller**.
+1. Gå till Azure Portal. Välj **nätverks** > **routningstabeller**.
 
 2. Skapa en ny routningstabell i samma region som ditt VNet.
 
-3. I användar gränssnittet för din routningstabell väljer du **vägar** > **Lägg till**.
+3. I användar gränssnittet för din routningstabell väljer du **flöden** > **Lägg till**.
 
 4. Ange **nästa hopp typ** till **Internet** och **adressprefixet** till **0.0.0.0/0**. Välj **Spara**.
 
@@ -251,7 +251,7 @@ När tjänstens slutpunkter är aktiverade på ett undernät med en Azure SQL-in
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
-[ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
+[ConfigureSSL]: ../configure-ss-cert.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

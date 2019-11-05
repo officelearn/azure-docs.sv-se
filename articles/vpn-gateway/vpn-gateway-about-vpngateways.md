@@ -6,14 +6,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 05/22/2019
+ms.date: 10/31/2019
 ms.author: cherylmc
-ms.openlocfilehash: b4ad8697997a8c90a6548c66819bfe790c8235e3
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 82e9003036f67ecd3b3ecd7d8ab6cd434fcfc438
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798999"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495694"
 ---
 # <a name="what-is-vpn-gateway"></a>Vad är en VPN-gateway?
 
@@ -21,11 +21,13 @@ En VPN-gateway är en viss typ av virtuell nätverksgateway som används till at
 
 ## <a name="whatis"></a>Vad är en virtuell nätverksgateway?
 
-En virtuell nätverksgateway består av två eller flera virtuella datorer som distribuerats till ett specifikt undernät som du skapar, kallat *gatewayundernätet*. De virtuella datorerna i gatewayundernätet skapas när du skapar den virtuella nätverksgatewayen. Virtuella datorer för virtuell nätverksgateway är konfigurerade för att innehålla routningstabeller och gateway-tjänster som är specifika för gatewayen. Du kan inte konfigurera de virtuella datorer som är en del av den virtuella nätverksgatewayen direkt, och du bör aldrig distribuera ytterligare resurser till gatewayundernätet.
+En virtuell nätverksgateway består av två eller flera virtuella datorer som distribueras till ett speciellt undernät som du skapar som gateway- *undernätet*. Virtuella nätverksgateway VM: ar innehåller routningstabeller och kör vissa gateway-tjänster. De här virtuella datorerna skapas när du skapar den virtuella Nätverksgatewayen. Du kan inte konfigurera de virtuella datorerna som ingår i den virtuella Nätverksgatewayen.
 
-VPN-gatewayer kan distribueras i Azure Availability Zones. Detta ger flexibilitet, skalbarhet och högre tillgänglighet för virtuella nätverksgatewayer. Distribuera gateways i Azure Availability Zones fysisk och logiskt separerar gatewayer inom en region, samtidigt som du skyddar din lokal nätverksanslutning till Azure från zonen på servernivå fel. Se [om zonredundant virtuella nätverksgatewayer i Tillgänglighetszoner i Azure](about-zone-redundant-vnet-gateways.md)
+En inställning som du konfigurerar för en virtuell nätverksgateway är Gateway-typen. Gateway-typ anger hur den virtuella Nätverksgatewayen ska användas och de åtgärder som gatewayen tar. Gateway-typen VPN anger att den typ av virtuell nätverksgateway som skapas är en VPN-gateway i stället för en ExpressRoute-Gateway. Ett virtuellt nätverk kan ha två virtuella nätverksgateway; en VPN-gateway och en ExpressRoute-gateway – som är fallet med [sambefintliga](#coexisting) anslutnings konfigurationer. Se [Gatewaytyper](vpn-gateway-about-vpn-gateway-settings.md#gwtype) för mer information.
 
-Det kan ta upp till 45 minuter att skapa en virtuell nätverksgateway. När du skapar en virtuell nätverksgateway distribueras de virtuella gatewaydatorerna till gatewayundernätet och konfigureras med de inställningar du anger. En av inställningarna som du konfigurerar är gatewaytypen. Gatewaytypen ”vpn” anger att den typ av virtuell nätverksgateway som skapas är en VPN-gateway. När du har skapat en VPN-gateway kan du skapa en VPN-tunnelanslutning med IPsec/IKE mellan denna VPN-gateway och en annan VPN-gateway (VNet-till-VNet), eller en VPN-tunnel med IPsec/IKE mellan VPN-gatewayen och en lokal VPN-enhet (Plats-till-plats). Du kan också skapa en punkt-till-plats VPN-anslutning (VPN över OpenVPN, IKEv2 eller SSTP), vilket gör att du kan ansluta till ditt virtuella nätverk från en annan plats, till exempel från en konferens eller från hemmakontoret.
+VPN-gatewayer kan distribueras i Azure-tillgänglighetszoner. Detta ger återhämtning, skalbarhet och högre tillgänglighet till virtuella nätverks-gatewayer. Att distribuera gateways i Azure-tillgänglighetszoner fysiskt och logiskt särskiljer gatewayer inom en region, samtidigt som du skyddar din lokala nätverks anslutning till Azure från felaktiga zon nivåer. Se [om zoner – redundanta virtuella nätverksgateway i Azure-tillgänglighetszoner](about-zone-redundant-vnet-gateways.md)
+
+Det kan ta upp till 45 minuter att skapa en virtuell nätverksgateway. När du skapar en virtuell nätverksgateway distribueras de virtuella gatewaydatorerna till gatewayundernätet och konfigureras med de inställningar du anger. När du har skapat en VPN-gateway kan du skapa en VPN-tunnelanslutning med IPsec/IKE mellan denna VPN-gateway och en annan VPN-gateway (VNet-till-VNet), eller en VPN-tunnel med IPsec/IKE mellan VPN-gatewayen och en lokal VPN-enhet (Plats-till-plats). Du kan också skapa en punkt-till-plats-VPN-anslutning (VPN över OpenVPN, IKEv2 eller SSTP), vilket gör att du kan ansluta till ditt virtuella nätverk från en annan plats, till exempel från en konferens eller hemifrån.
 
 ## <a name="configuring"></a>Konfigurera en VPN gateway
 
@@ -51,7 +53,7 @@ Tabellen nedan kan hjälpa dig att bestämma det bästa anslutningsalternativet 
 
 ## <a name="gwsku"></a>Gateway-SKU:er
 
-När du skapar en virtuell nätverksgateway anger du vilken gateway-SKU som du vill använda. Välj den SKU som uppfyller dina krav baserat på typerna av arbetsbelastning, dataflöden, funktioner och serviceavtal. Mer information om gateway-SKU: er, inklusive stöd för funktionerna, produktion och utvecklings- och konfigurationssteg, finns i den [VPN Gateway-inställningar - Gateway SKU: er](vpn-gateway-about-vpn-gateway-settings.md#gwsku) artikeln. Äldre SKU-information, se [arbeta med äldre SKU: er](vpn-gateway-about-skus-legacy.md).
+När du skapar en virtuell nätverksgateway anger du vilken gateway-SKU som du vill använda. Välj den SKU som uppfyller dina krav baserat på typerna av arbetsbelastning, dataflöden, funktioner och serviceavtal. Mer information om Gateway-SKU: er, inklusive funktioner som stöds, produktions-och dev-test och konfigurations steg, finns i artikeln [VPN Gateway inställningar-Gateway SKU: er](vpn-gateway-about-vpn-gateway-settings.md#gwsku) . Äldre SKU-information finns i [arbeta med äldre SKU: er](vpn-gateway-about-skus-legacy.md).
 
 ### <a name="benchmark"></a>Gateway-SKU:er efter tunnel, anslutning och dataflöde
 
@@ -59,7 +61,7 @@ När du skapar en virtuell nätverksgateway anger du vilken gateway-SKU som du v
 
 ## <a name="diagrams"></a>Diagram för anslutningstopologi
 
-Det är viktigt att känna till att det finns olika konfigurationer för VPN-gatewayanslutningar. Du måste bestämma vilken konfiguration som passar bäst för dina behov. I avsnitten nedan kan du se information och topologidiagram om följande VPN-gatewayanslutningar: Följande avsnitt innehåller tabeller som visar:
+Det är viktigt att känna till att det finns olika konfigurationer för VPN-gatewayanslutningar. Du måste bestämma vilken konfiguration som passar bäst för dina behov. I avsnitten nedan kan du se information och topologidiagram om följande VPN-gatewayanslutningar: följande avsnitt innehåller tabeller som visar:
 
 * tillgänglig distributionsmodell
 * tillgängliga konfigurationsverktyg
@@ -142,7 +144,7 @@ Du kan konfigurera ett VPN för plats-till-plats som en säker redundansväxling
 
 [!INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)]
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 [!INCLUDE [vpn-gateway-about-pricing-include](../../includes/vpn-gateway-about-pricing-include.md)]
 

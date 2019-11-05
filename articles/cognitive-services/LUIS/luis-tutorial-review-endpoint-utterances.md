@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Granska slut punkt yttranden-LUIS'
+title: 'Självstudie: granska slut punkt yttranden-LUIS'
 titleSuffix: Azure Cognitive Services
 description: Förbättra förutsägelserna i dina appar genom att verifiera eller korrigera yttranden som tas emot via HTTP-slutpunkten för LUIS och som LUIS inte kan fastställa säkert. I vissa yttranden kan avsikten behöva verifieras och i vissa kan du behöva verifiera entiteter.
 services: cognitive-services
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: f81066ed21702dfe94ad7897adc3b82ed5a49f4d
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 04f30818e3c871d74d94bfd92bd3f73e4e6637a0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70387528"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499420"
 ---
-# <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Självstudier: Åtgärda osäkra förutsägelser genom att granska slutpunktsyttranden
+# <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Självstudie: åtgärda osäker förutsägelse genom att granska slut punkts yttranden
 I den här självstudien kommer vi att förbättra förutsägelserna i dina appar genom att verifiera eller korrigera yttranden som tas emot via HTTP-slutpunkten för LUIS och som LUIS inte kan fastställa säkert. I vissa yttranden kan avsikten behöva verifieras och i vissa kan du behöva verifiera entiteter. Du bör granska yttranden vid slutpunkter inom ramen för det schemalagda underhållet av LUIS. 
 
 Den här granskningsprocessen är ett annat sätt för LUIS för att lära sig din appdomän. LUIS valde yttrandena som visas i granskningslistan. Följande gäller för listan:
@@ -28,6 +28,8 @@ Den här granskningsprocessen är ett annat sätt för LUIS för att lära sig d
 * Den bör granskas regelbundet. 
 
 Genom att granska slutpunktsyttranden verifierar eller korrigerar du det yttrandets förutsagda avsikt. Du märker även ut anpassade entiteter som inte förutsagts eller som förutsagts felaktigt. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **I den här självstudiekursen får du lära du dig att:**
 
@@ -75,7 +77,7 @@ Använd följande steg:
     [![Skärmbild av Granska slutpunktstalindata med växeln Entitetsvy markerad](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
 
-    Den här uttryck `I'm looking for a job with Natural Language Processing`är inte i rätt avsikt. 
+    Den här uttryck, `I'm looking for a job with Natural Language Processing`, har inte rätt avsikt. 
 
     Anledningen till att uttryck var oförutsägbart är att **ApplyForJob** -avsikten har 21 yttranden jämfört med 7 yttranden i **GetJobInformation**. Avsikten med fler yttranden kommer att ha en högre förutsägelse. Det är viktigt att antalet och kvaliteten på yttranden över avsikter är balanserade.
 
@@ -85,7 +87,7 @@ Använd följande steg:
     |:--|:--|:--|
     |`I'm looking for a job with Natural Language Processing`|GetJobInfo|Jobb – ”Natural Language Process”|
 
-    Om du `natural language processing` vill ändra från en entitet för en enhets fras till en jobbmall väljer du frasen och väljer sedan **jobb** i listan. Om du bara vill välja en del av en text för en annan entitet måste du ta bort den som en entitet, en etikett med en annan entitet och sedan använda entiteten för att hämta en ny entitet i appen. 
+    Om du vill ändra `natural language processing` från en entitet med en enhets fras till en jobbmall väljer du frasen och väljer sedan **jobb** i listan. Om du bara vill välja en del av en text för en annan entitet måste du ta bort den som en entitet, en etikett med en annan entitet och sedan använda entiteten för att hämta en ny entitet i appen. 
 
     Om du lägger till uttryck flyttas uttryck från **gransknings slut punkten yttranden** till **GetJobInformation** -avsikten. Slutpunktsyttrandet är nu ett exempelyttrande för den avsikten. 
 

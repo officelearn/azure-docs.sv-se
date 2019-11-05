@@ -9,19 +9,20 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 07/08/2019
-ms.openlocfilehash: 27988edaf9d6fe70288352b0ba45945e32976d4d
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 10/25/2019
+ms.openlocfilehash: 6590b6c3ecf1efc43822a4fefab79cdc7f624dcd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034638"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496988"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Distribuera en modell till Azure Container Instances
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Lär dig hur du använder Azure Machine Learning för att distribuera en modell som en webb tjänst på Azure Container Instances (ACI). Använd Azure Container Instances om något av följande villkor är uppfyllt:
 
-- Du behöver att snabbt distribuera och verifiera din modell. Du behöver inte skapa ACI-behållare i förväg. De skapas som en del av distributions processen.
+- Du måste snabbt distribuera och validera din modell. Du behöver inte skapa ACI-behållare i förväg. De skapas som en del av distributions processen.
 - Du testar en modell som är under utveckling. 
 
 Information om kvot-och regions tillgänglighet för ACI finns i [kvoter och regions tillgänglighet för Azure Container instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) artikel.
@@ -36,13 +37,13 @@ Information om kvot-och regions tillgänglighet för ACI finns i [kvoter och reg
 
 - I __python__ -kodfragmenten i den här artikeln förutsätter vi att följande variabler har angetts:
 
-    * `ws`– Ställ in på din arbets yta.
-    * `model`– Ställ in på din registrerade modell.
-    * `inference_config`-Ange som modellens konfigurations konfiguration.
+    * `ws`-Ställ in på din arbets yta.
+    * `model`-Ställ in på din registrerade modell.
+    * `inference_config`-Ställ in på modellens konfigurations konfiguration.
 
     Mer information om hur du ställer in dessa variabler finns i [hur och var modeller ska distribueras](how-to-deploy-and-where.md).
 
-- __CLI__ -kodfragmenten i den här artikeln förutsätter att du har `inferenceconfig.json` skapat ett dokument. Mer information om hur du skapar det här dokumentet finns i [så här distribuerar du modeller](how-to-deploy-and-where.md).
+- __CLI__ -kodfragmenten i den här artikeln förutsätter att du har skapat ett `inferenceconfig.json`-dokument. Mer information om hur du skapar det här dokumentet finns i [så här distribuerar du modeller](how-to-deploy-and-where.md).
 
 ## <a name="deploy-to-aci"></a>Distribuera till ACI
 
@@ -85,7 +86,7 @@ Se [Distribuera modeller med vs Code](how-to-vscode-tools.md#deploy-and-manage-m
 > [!IMPORTANT]
 > Du behöver inte skapa en ACI-behållare för att testa i förväg. ACI-behållare skapas vid behov.
 
-## <a name="update-the-web-service"></a>Uppdatera webbtjänsten
+## <a name="update-the-web-service"></a>Uppdatera webb tjänsten
 
 [!INCLUDE [aml-update-web-service](../../../includes/machine-learning-update-web-service.md)]
 
@@ -93,7 +94,7 @@ Se [Distribuera modeller med vs Code](how-to-vscode-tools.md#deploy-and-manage-m
 
 * [Så här distribuerar du en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
 * [Distributions fel sökning](how-to-troubleshoot-deployment.md)
-* [Skydda Azure Machine Learning-webbtjänster med SSL](how-to-secure-web-service.md)
-* [Använd en ML-modell som distribueras som en webbtjänst](how-to-consume-web-service.md)
+* [Skydda Azure Machine Learning webb tjänster med SSL](how-to-secure-web-service.md)
+* [Använda en ML-modell som distribueras som en webb tjänst](how-to-consume-web-service.md)
 * [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Distribuera en app med LUIS-portalen'
+title: 'Snabb start: Distribuera en app med LUIS-portalen'
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur du distribuerar din LUIS-app till förutsägelse slut punkten när appen är redo att returnera uttryck förutsägelser till ett klient program, till exempel en chatt-robot. Den här snabb starten visar hur du distribuerar ett program genom att skapa en förutsägelse slut punkt resurs, tilldela resursen till appen, träna appen och publicera appen.
 services: cognitive-services
@@ -8,16 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/27/2019
+ms.date: 10/17/2019
 ms.author: diberry
-ms.openlocfilehash: f640921e6f48559db3f1414551d6ed974df15e4f
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
-ms.translationtype: MT
+ms.openlocfilehash: ecae5c7db02436fe34fec19989f174504fd1e03a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703226"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488718"
 ---
-# <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Snabbstart: Distribuera en app i LUIS-portalen
+# <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Snabb start: Distribuera en app i LUIS-portalen
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
 
 När din LUIS-app är redo att returnera uttryck förutsägelser till ett klient program (till exempel en chatt-robot) måste du distribuera appen till förutsägelse slut punkten.
 
@@ -32,19 +35,19 @@ I den här snabb starten lär du dig att distribuera ett program. Du skapar en f
 
 Du skapar en förutsägelse slut punkts resurs i Azure Portal. Den här resursen bör endast användas för slut punkts förutsägelse frågor. Använd inte den här resursen för att redigera ändringar i appen.
 
-1. Logga in på [Azure Portal](https://ms.portal.azure.com/).
+1. Logga in på [Azure-portalen](https://ms.portal.azure.com/).
 
-1. Välj det gröna **+-** tecknet i den övre vänstra panelen. Sök efter `Cognitive Services` på Marketplace och välj den.
+1. Välj det gröna **+s** tecknet i den övre vänstra panelen. Sök efter `Cognitive Services` på Marketplace och markera det.
 
 1. Konfigurera prenumerationen med följande inställningar:
 
-   |Inställning|Value|Syfte|
+   |Inställning|Värde|Syfte|
    |--|--|--|
-   |Name|`my-cognitive-service-resource`|Namnet på Azure-resursen. Du behöver det här namnet när du tilldelar resursen till appen i LUIS-portalen.|
-   |Subscription|Din prenumeration|Välj en av prenumerationerna som är kopplade till ditt konto.|
-   |Location|**USA, västra**|Azure-regionen för den här resursen.|
+   |Namn|`my-cognitive-service-resource`|Namnet på Azure-resursen. Du behöver det här namnet när du tilldelar resursen till appen i LUIS-portalen.|
+   |Prenumeration|Din prenumeration|Välj en av prenumerationerna som är kopplade till ditt konto.|
+   |Plats|**USA, västra**|Azure-regionen för den här resursen.|
    |Prisnivå|**S0**|Standard pris nivån för den här resursen.|
-   |Resource group|`my-cognitive-service-resource-group`|Skapa en ny resurs grupp för alla dina kognitiva tjänst resurser. När du är klar med resurserna kan du ta bort resurs gruppen för att rensa prenumerationen. |
+   |Resursgrupp|`my-cognitive-service-resource-group`|Skapa en ny resurs grupp för alla dina kognitiva tjänst resurser. När du är klar med resurserna kan du ta bort resurs gruppen för att rensa prenumerationen. |
    | | | |
 
    ![Val av Azure-API](./media/get-started-portal-deploy-app/create-cognitive-services-resource.png)
@@ -65,11 +68,11 @@ Varje gång du skapar en ny resurs för LUIS måste du tilldela resursen till LU
 
     <!-- TBD: get screenshot-->
 
-1. Välj klient, prenumeration och resurs namn. Välj **Tilldela resurs**.
+1. Välj klient, prenumeration och resurs namn. Välj **tilldela resurs**.
 
    ![Tilldela en resurs till din app](./media/get-started-portal-deploy-app/assign-resource.png)
 
-1. Hitta den nya raden i tabellen och kopiera slutpunkts-URL. Den är korrekt konstruerad för att skapa en `HTTP GET`-begäran till LUIS API-slutpunkten för en förutsägelse.
+1. Hitta den nya raden i tabellen och kopiera slut punkts-URL: en. Den är korrekt konstruerad för att göra en `HTTP GET`-begäran till LUIS API-slutpunkten för en förutsägelse.
 
 ## <a name="train-and-publish-the-app"></a>Träna och publicera appen
 
@@ -77,66 +80,73 @@ Träna appen när du är redo att testa den. Publicera appen när du vill att de
 
 1. Om appen är inte tränad väljer du **träna** på menyn i det övre högra hörnet.
 
-1. Välj **publicera** på den översta menyn. Godkänn standard miljö inställningarna och välj **publicera**.
+1. Välj **publicera** på den översta menyn. Välj produktions plats och publicera.
 
-1. När meddelandet grönt lyckades visas överst i webbläsarfönstret väljer du **referera till listan över slut punkter**.
+1. När meddelande fältet visas slutförs publiceringen.
 
-   ![Appens meddelande fält har publicerats i webbläsaren](./media/get-started-portal-deploy-app/successfully-published-notification.png)
+1. På sidan Hantera avdelningens **Azure-resurser** letar du upp listan över tilldelade resurser och motsvarande slut punkts-URL: er.
 
-1. På sidan **nycklar och slut punkts inställningar** letar du upp listan över tilldelade resurser och motsvarande slut punkts-URL: er längst ned.
-
-1. Välj slut punkts-URL: en som är kopplad till ditt nya resurs namn. Den här åtgärden öppnar en webbläsare med en korrekt konstruerad webb adress för att göra en `GET`-begäran till förutsägelse slut punkts körningen.
+1. Kopiera exempel frågan till ett webbläsarfönster och Lägg till din användar uttryck som `query` parameter.
 
 ## <a name="prediction-endpoint-request"></a>Förutsägelse slut punkts förfrågan
 
-<!-- V3FIX -->
-
-@No__t-0 i slutet av URL: en är kort för **fråga** och är där användarens uttryck läggs till i get-begäran. Efter `q=` anger du samma användar-uttryck som användes i slutet av föregående snabb start:
+`query=` i slutet av URL: en är kort för **fråga** och är där användarens uttryck läggs till i get-begäran. Efter `query=`anger du samma användar-uttryck som användes i slutet av föregående snabb start:
 
 ```Is there a form named hrf-234098```
 
-Webbläsaren visar svaret, som är samma JSON som klient programmet kommer att få:
+Se till att frågesträngen innehåller följande par:
+
+* `show-all-intents=true`
+* `verbose=true`
+
+Webbläsaren visar svaret:
 
 ```JSON
 {
-"query": "Is there a form named hrf-234098",
-"topScoringIntent": {
-    "intent": "FindForm",
-    "score": 0.9768753
-},
-"intents": [
-    {
-    "intent": "FindForm",
-    "score": 0.9768753
-    },
-    {
-    "intent": "None",
-    "score": 0.0216071066
+    "query": "Is there a form named hrf-234098",
+    "prediction": {
+        "topIntent": "FindForm",
+        "intents": {
+            "FindForm": {
+                "score": 0.9768753
+            },
+            "None": {
+                "score": 0.0216071177
+            }
+        },
+        "entities": {
+            "Human Resources Form Number": [
+                "hrf-234098"
+            ],
+            "$instance": {
+                "Human Resources Form Number": [
+                    {
+                        "type": "Human Resources Form Number",
+                        "text": "hrf-234098",
+                        "startIndex": 22,
+                        "length": 10,
+                        "modelTypeId": 8,
+                        "modelType": "Regex Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
+        }
     }
-],
-"entities": [
-    {
-    "entity": "hrf-234098",
-    "type": "Human Resources Form Number",
-    "startIndex": 22,
-    "endIndex": 31
-    }
-    ]
 }
 ```
 
-Det här svaret ger dig mer information än standard test fönstret i föregående självstudie. Om du vill se samma informations nivå i test fönstret måste du publicera appen. När appen har publicerats väljer du **Jämför med publicerad** i test fönstret. Använd **Visa JSON-vy** i det publicerade test fönstret för att se samma JSON som i föregående steg. På så sätt kan du jämföra den aktuella appen som du arbetar med med en app som publiceras till slut punkten.
+Om du vill se samma informations nivå i test fönstret måste du publicera appen. När appen har publicerats väljer du **Jämför med publicerad** i test fönstret. Använd **Visa JSON-vy** i det publicerade test fönstret för att se samma JSON som i föregående steg. På så sätt kan du jämföra den aktuella appen som du arbetar med med en app som publiceras till slut punkten.
 
-[![Compare som för närvarande redigerar jämfört med en publicerad version av appen](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
-
-
-
+[![jämför den aktuella redigeringen jämfört med den publicerade versionen av appen](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 När du är klar med den här snabb starten väljer du **Mina appar** på den översta navigerings menyn. Markera kryss rutan för appen i listan och välj sedan **ta bort** från verktygsfältet kontext ovanför listan.
 
-[![Delete app från listan Mina appar](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
+[![ta bort appen från listan Mina appar](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 

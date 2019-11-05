@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Exakt text matchning – LUIS'
+title: 'Självstudie: exakt text matchning – LUIS'
 titleSuffix: Azure Cognitive Services
 description: Hämta data som matchar en fördefinierad lista med objekt. Varje objekt i listan kan ha synonymer som också matchar exakt
 services: cognitive-services
@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 25882f2aaa5d32dfb594d5f8fdb9cdc46f2ad958
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 9531e86e63fa8d944aa216fddd0c8215b73038a9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307603"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492706"
 ---
-# <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Självstudier: Hämta exakta textmatchade data från ett uttryck
+# <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Självstudie: Hämta exakta text matchade data från en uttryck
 
 I den här självstudien får du lära dig hur du hämtar entitetsdata som matchar en fördefinierad lista med objekt. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **I den här självstudiekursen får du lära du dig att:**
 
@@ -31,7 +33,7 @@ I den här självstudien får du lära dig hur du hämtar entitetsdata som match
 > * Lägg till listentitet 
 > * Träna 
 > * Publicera
-> * Hämta avsikter och entiteter från en slutpunkt
+> * Hämta avsikter och entiteter från slutpunkt
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
@@ -78,7 +80,7 @@ En listentitet är ett bra alternativ för den här typen av data när:
     |Steve Standish till 1234|
     |Tanner Thompson till 3456|
 
-    [![Skärmbild av avsikten med exempelyttranden](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png "Skärmbild av avsikten med exempelyttranden")](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png#lightbox)
+    [![Skärm bild av avsikten med exempel yttranden](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png "Skärm bild av avsikten med exempel yttranden")](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
@@ -94,7 +96,7 @@ Det primära, _kanoniska_ namnet för varje objekt är avdelningsnamnet. Några 
 |Utvecklingsåtgärder|DevOps<br>4949|
 |Teknik|eng<br>teknik<br>4567|
 |Ekonomi|ek<br>2020|
-|Informationsteknik|it<br>2323|
+|Informationsteknik|IT<br>2323|
 |Innesäljare|isälj<br>insälj<br>1414|
 |Forskning och utveckling|FoU<br>1234|
 
@@ -104,7 +106,7 @@ Det primära, _kanoniska_ namnet för varje objekt är avdelningsnamnet. Några 
 
 1. I dialogrutan för entiteter anger du `Department` som entitetsnamn och **List** (Lista) som entitetstyp. Välj **Done** (Klar).  
 
-    [![Skärmbild av att skapa en ny popup-dialogruta för en entitet](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png "Skärmbild av att skapa en ny popup-dialogruta för en entitet")](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png#lightbox)
+    [![Skärm bild av popup-dialog rutan skapa ny entitet](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png "Skärm bild av popup-dialog rutan skapa ny entitet")](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png#lightbox)
 
 1. Ange `Accounting` som det nya värdet på avdelningsentitetssidan.
 
@@ -112,7 +114,7 @@ Det primära, _kanoniska_ namnet för varje objekt är avdelningsnamnet. Några 
 
 1. Fortsätt att lägga till alla kanoniska namn och deras synonymer. 
 
-## <a name="add-example-utterances-to-the-none-intent"></a>Lägg till exempelyttranden till avsikten Ingen 
+## <a name="add-example-utterances-to-the-none-intent"></a>Lägg till exempel på yttranden i avsikten Ingen 
 
 [!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 

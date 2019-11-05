@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a863c8fe81a08f00385cb267bf360994918fe82
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 9adf083f8e4c8c269b895dac87b4e4613ec1b023
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212119"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474376"
 ---
-# <a name="quickstart-self-service-password-reset"></a>Snabbstart: Återställning av lösenord för självbetjäning
+# <a name="quickstart-self-service-password-reset"></a>Quickstart: Självåterställning av lösenord
 
 I den här snabbstarten går du igenom konfiguration av självåterställning av lösenord (SSPR) som ett enkelt sätt för IT-administratörer att göra så att användarna kan återställa sina lösenord eller låsa upp sina konton.
 
@@ -33,7 +33,7 @@ I den här snabbstarten går du igenom konfiguration av självåterställning av
 
 [Visa den här processen som en video på YouTube](https://youtu.be/Pa0eyqjEjvQ)
 
-1. På **Azure-portalen** väljer du **Återställning av lösenord** under **Azure Active Directory** från din befintliga Azure AD-klientorganisation.
+1. Från din befintliga Azure AD-klient går du till Azure Portal-menyn eller på **Start** sidan och väljer **Azure Active Directory**. Välj sedan **Återställ lösen ord**.
 
 2. På sidan **Egenskaper** går du till alternativet **Self Service Password Reset Enabled** (Självåterställning av lösenord aktiverat) och väljer **Vald**.
     * Från **Välj grupp** väljer du den pilotgrupp som skapades i avsnittet om förutsättningar i den här artikeln.

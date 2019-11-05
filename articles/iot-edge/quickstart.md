@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 8264030593a1e44b2a50d9f95dce925136eb4d26
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: edb100901dea4419d65635f9214555c27c1949f0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965991"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494058"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Snabb start: distribuera din första IoT Edge-modul till en virtuell Windows-enhet
 
@@ -22,7 +22,7 @@ Testa Azure IoT Edge i den här snabb starten genom att distribuera container ko
 
 I den här snabbstarten lär du dig att:
 
-1. Skapa en IoT Hub.
+1. Skapa en IoT-hubb.
 2. Registrera en IoT Edge-enhet till din IoT Hub.
 3. Installera och starta IoT Edge runtime på den virtuella enheten.
 4. Fjärrdistribuera en modul till en IoT Edge-enhet och skicka telemetri till IoT Hub.
@@ -43,7 +43,7 @@ Lägg till Azure IoT-tillägget till Cloud Shell-instansen.
    az extension add --name azure-cli-iot-ext
    ```
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Molnresurser:
 
@@ -93,7 +93,7 @@ Följande kod skapar en kostnadsfri **F1**-hubb i resursgruppen **IoTEdgeResourc
 
 ## <a name="register-an-iot-edge-device"></a>Registrera en IoT Edge-enhet
 
-Registrera en IoT Edge-enhet med den IoT Hub som du nyss skapade.
+Registrera en IoT Edge-enhet med IoT-hubben som du nyss skapade.
 ![Diagram – Registrera en enhet med en IoT Hub-identitet](./media/quickstart/register-device.png)
 
 Skapa en enhetsidentitet för den simulerade enheten så att den kan kommunicera med din IoT Hub. Enhetsidentiteten finns i molnet, och du använder en unik enhetsanslutningssträng för att associera en fysisk enhet med en enhetsidentitet.
@@ -139,7 +139,7 @@ Använd PowerShell för att ladda ned och installera IoT Edge-körningen. Använ
 
 1. Om du inte redan har gjort det följer du stegen i [Registrera en ny Azure IoT Edge enhet](how-to-register-device.md) för att registrera enheten och hämta anslutnings strängen för enheten.
 
-2. Kör PowerShell som administratör.
+2. Kör PowerShell som administratör på den virtuella datorn.
 
    >[!NOTE]
    >Använd en AMD64-session av PowerShell för att installera IoT Edge, inte PowerShell (x86). Om du inte är säker på vilken typ av session du använder kör du följande kommando:

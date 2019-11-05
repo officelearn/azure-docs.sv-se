@@ -5,18 +5,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 10/11/2019
 ms.author: hamusa
-ms.openlocfilehash: 04162f074dba05ac6492c16acb446912296cd673
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 46bf756a729441bd3bc4b2b00aaa2c79fa06c0b8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952105"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73521241"
 ---
-# <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Utvärdera virtuella VMware-datorer med Azure Migrate: Server Assessment
+# <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Utvärdera virtuella VMware-datorer med Azure Migrate: Server utvärdering
 
-Den här artikeln visar hur du kan utvärdera lokala virtuella VMware-datorer med hjälp av Azure Migrate: Verktyget Server bedömning.
+Den här artikeln visar hur du kan utvärdera lokala virtuella VMware-datorer med hjälp av verktyget Azure Migrate: Server bedömning.
 
 [Azure Migrate](migrate-services-overview.md) innehåller en hubb med verktyg som hjälper dig att identifiera, utvärdera och migrera appar, infrastruktur och arbets belastningar till Microsoft Azure. Hubben omfattar Azure Migrate-verktyg och oberoende program varu leverantörer från tredje part (ISV).
 
@@ -48,32 +48,33 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="set-up-an-azure-migrate-project"></a>Konfigurera ett Azure Migrate-projekt
 
-Skapa ett nytt Azure Migrate projekt på följande sätt.
+Konfigurera ett nytt Azure Migrate-projekt enligt följande.
 
-1. Sök efter **Azure Migrate**i Azure Portal > **alla tjänster**.
-2. Under **tjänster**väljer du **Azure Migrate**.
-3. I **Översikt**, under **Upptäck, utvärdera och migrera servrar**, klickar du på **utvärdera och migrera servrar**.
+1. I Azure-portalen > **Alla tjänster** söker du efter **Azure Migrate**.
+2. Under **Tjänster** väljer du **Azure Migrate**.
+3. I **Översikt** under **Identifiera, utvärdera och migrera servrar** klickar du på **Utvärdera och migrera servrar**.
 
     ![Identifiera och utvärdera servrar](./media/tutorial-assess-vmware/assess-migrate.png)
 
-4. I **komma igång**klickar du på **Lägg till verktyg**.
-5. I **migrera projekt**väljer du din Azure-prenumeration och skapar en resurs grupp om du inte har någon.     
+4. I **Komma igång** klickar du på **Lägg till verktyg**.
+5. I **Migrera projekt** väljer du din Azure-prenumeration och skapar en resursgrupp om du inte har någon.     
 6. I **projekt information**anger du projekt namnet och geografin som du vill skapa projektet i. Asien, Europa, Storbritannien och USA stöds.
 
-    - Projektets geografi används bara för att lagra metadata som samlats in från lokala virtuella datorer.
-    - Du kan välja valfri mål region när du kör en migrering.
+    - Projektgeografin används bara för att lagra de metadata som samlas in från lokala virtuella datorer.
+    - Du kan välja vilken målregion du vill när du kör en migrering.
 
     ![Skapa ett Azure Migrate-projekt](./media/tutorial-assess-vmware/migrate-project.png)
 
 
 7. Klicka på **Nästa**.
-8. I **Välj bedömnings verktyg**väljer **du Azure Migrate: Server bedömning** > **Nästa**.
+8. I **Välj bedömnings verktyg**väljer du **Azure Migrate: Server utvärdering** > **Nästa**.
 
     ![Skapa ett Azure Migrate-projekt](./media/tutorial-assess-vmware/assessment-tool.png)
 
-9. I **Välj Migreringsverktyg**väljer du **hoppa över Lägg till ett Migreringsverktyg nu** > **Nästa**.
-10. I **Granska + Lägg till verktyg**granskar du inställningarna och klickar på **Lägg till verktyg**.
-11. Vänta några minuter innan det Azure Migrate projektet distribueras. Du kommer till projekt sidan. Om du inte ser projektet kan du komma åt det från **servrar** i Azure Migrate instrument panelen.
+9. I **Välj migreringsverktyg** väljer du **Hoppa över att lägga till ett migreringsverktyg just nu** > **Nästa**.
+10. I **Granska + lägg till verktyg**
+granskar du inställningarna och klickar på **Lägg till verktyg**.
+11. Vänta några minuter tills Azure Migrate-projektet har distribuerats. Projektsidan öppnas. Om du inte ser projektet kan du öppna det från **Servrar** i Azure Migrate-instrumentpanelen.
 
 
 ## <a name="set-up-the-appliance-vm"></a>Konfigurera den virtuella dator enheten
@@ -89,9 +90,9 @@ Azure Migrate: Server utvärderingen kör en förenklad VMware VM-enhet.
 
 ### <a name="download-the-ova-template"></a>Ladda ned mallen för ägg
 
-1. I > Serverför > migreringsmålAzureMigrate: **Server utvärdering**, klicka på **identifiera**.
-2. I **identifiera datorer** > **är dina datorer virtualiserade?** , klicka på **Ja, med VMware vSphere hypervisor**.
-3. Klicka på **Ladda ned** för att ladda ned. Filer för embryo-mall.
+1. I **mål för migrering** > **servrar** > **Azure Migrate: Server utvärdering**, klicka på **identifiera**.
+2. I **Identifiera datorer** > **Är dina datorer virtualiserade?** klickar du på **Ja, med VMware vSphere Hypervisor-programmet**.
+3. Klicka på **Ladda ned** för att ladda ned .OVA-mallfilen.
 
     ![Hämta .OVA-fil](./media/tutorial-assess-vmware/download-ova.png)
 
@@ -104,7 +105,7 @@ Kontrol lera att ägg filen är säker innan du distribuerar den.
 2. Kör följande kommando för att generera en hash för OVA-filen:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exempel på användning: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. För version 2.19.07.30 ska den genererade hashen matcha dessa värden. 
+3. För version 2.19.07.30 ska den genererade hashen matcha dessa värden.
 
   **Algoritm** | **Hash-värde**
   --- | ---
@@ -140,18 +141,18 @@ Konfigurera installationen med hjälp av följande steg.
 
 1. Högerklicka på den virtuella datorn i vSphere-klientkonsolen > **Öppna konsol**.
 2. Ange språk, tidszon och lösen ord för enheten.
-3. Öppna en webbläsare på vilken dator som helst som kan ansluta till den virtuella datorn och öppna URL: en för installations programmets **webbapp: https://-enhetens*namn eller IP-adress*: 44368**.
+3. Öppna en webbläsare på vilken dator som helst som kan ansluta till den virtuella datorn och öppna URL: en för installations programmets webbapp: **https://-enhetens*namn eller IP-adress*: 44368**.
 
    Alternativt kan du öppna appen från apparatens skriv bord genom att klicka på genvägen till appen.
 4. I webbappen > **Konfigurera krav**gör du följande:
-    - **Licens**: Acceptera licensvillkoren och läs informationen från tredje part.
-    - **Anslutning**: Appen kontrollerar att den virtuella datorn har Internet åtkomst. Om den virtuella datorn använder en proxyserver:
-        - Klicka på **proxyinställningar**och ange proxyadress och lyssnings port i formuläret http://ProxyIPAddress eller. http://ProxyFQDN
+    - **Licens**: Godkänn licens villkoren och Läs informationen från tredje part.
+    - **Anslutning**: appen kontrollerar att den virtuella datorn har Internet åtkomst. Om den virtuella datorn använder en proxyserver:
+        - Klicka på **proxyinställningar**och ange proxyadress och lyssnings port, i formatet http://ProxyIPAddress eller http://ProxyFQDN.
         - Ange autentiseringsuppgifter om proxyn kräver autentisering.
         - Endast HTTP-proxy stöds.
     - **Tidssynkronisering**: tiden för installationen bör vara synkroniserad med Internet-tid för att identifieringen ska fungera korrekt.
-    - **Installera uppdateringar**: Installationen ser till att de senaste uppdateringarna är installerade.
-    - **Installera vddk**: Enheten kontrollerar att VMWare vSphere Virtual Disk Development Kit (VDDK) har installerats.
+    - **Installera uppdateringar: installationen**säkerställer att de senaste uppdateringarna är installerade.
+    - **Installera vddk**: enheten kontrollerar att VMware vSphere Virtual Disk Development Kit (vddk) har installerats.
         - Azure Migrate: Server-migreringen använder VDDK för att replikera datorer under migreringen till Azure.
         - Hämta VDDK 6,7 från VMware och extrahera det hämtade ZIP-innehållet till den angivna platsen på enheten.
 
@@ -166,17 +167,30 @@ Konfigurera installationen med hjälp av följande steg.
 3. Ange ett namn för enheten. Namnet måste vara alfanumeriskt med 14 tecken eller mindre.
 4. Klicka på **Registrera**.
 
-
 ## <a name="start-continuous-discovery"></a>Starta kontinuerlig identifiering
 
-Anslut nu från installationen till vCenter Server och starta identifiering av virtuell dator.
+Installations programmet måste ansluta till vCenter Server för att identifiera konfigurations-och prestanda data för de virtuella datorerna.
 
+### <a name="specify-vcenter-server-details"></a>Ange vCenter Server-information
 1. I **ange vCenter Server information**anger du namnet (FQDN) eller IP-adressen för vCenter Server. Du kan lämna standard porten eller ange en anpassad port som vCenter Server lyssnar på.
 2. I **användar namn** och **lösen ord**anger du de skrivskyddade kontoautentiseringsuppgifter som installeras av enheten för att identifiera virtuella datorer på vCenter-servern. Kontrol lera att kontot har de [behörigheter som krävs för identifiering](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). Du kan begränsa identifieringen genom att begränsa åtkomsten till vCenter-kontot enligt detta. Lär dig mer om omfattnings identifiering [här](tutorial-assess-vmware.md#scoping-discovery).
 3. Klicka på **Verifiera anslutning** för att kontrol lera att installationen kan ansluta till vCenter Server.
-4. När anslutningen har upprättats klickar du på **Spara och starta identifiering**.
 
-Detta startar identifieringen. Det tar ungefär 15 minuter för metadata för identifierade virtuella datorer som visas i portalen.
+### <a name="specify-vm-credentials"></a>Ange autentiseringsuppgifter för virtuell dator
+För identifiering av program, roller och funktioner och visualisering av beroenden för de virtuella datorerna kan du ange en VM-autentiseringsuppgift som har åtkomst till de virtuella VMware-datorerna. Du kan lägga till en autentiseringsuppgift för virtuella Windows-datorer och en autentiseringsuppgift för virtuella Linux-datorer. [Läs mer](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) om de behörigheter som krävs.
+
+> [!NOTE]
+> Den här indatamängden är valfri och behövs för att aktivera program identifiering och visualisering av beroenden för agenter.
+
+1. I **identifiera program och beroenden på virtuella datorer**klickar du på **Lägg till autentiseringsuppgifter**.
+2. Välj **operativ system**.
+3. Ange ett eget namn för autentiseringsuppgiften.
+4. I **användar namn** och **lösen ord**anger du ett konto som har minst gäst åtkomst på de virtuella datorerna.
+5. Klicka på **Lägg till**.
+
+När du har angett vCenter Server och autentiseringsuppgifter för virtuella datorer (valfritt), klickar du på **Spara och starta identifiering** för att starta identifieringen av den lokala miljön.
+
+Det tar ungefär 15 minuter för metadata för identifierade virtuella datorer som visas i portalen. Identifiering av installerade program, roller och funktioner tar lite tid, tiden beror på antalet virtuella datorer som identifieras. För 500 virtuella datorer tar det cirka 1 timme för program inventeringen att visas i Azure Migrate portalen.
 
 ### <a name="scoping-discovery"></a>Omfattnings identifiering
 
@@ -189,34 +203,34 @@ Om du vill ange omfånget måste du utföra följande steg:
 
 **Skapa ett vCenter-användarkonto**
 1.  Logga in på vSphere-webbklient som vCenter Server administratör.
-2.  Klicka på fliken **Administration** > **SSO-användare och grupper** > **användare** .
+2.  Klicka på **Administration** > **SSO-användare och grupper** > **användare** -fliken.
 3.  Klicka på ikonen **ny användare** .
 4.  Fyll i den information som krävs för att skapa en ny användare och klicka på **OK**.
 
-**Definiera en ny roll med nödvändiga privilegier** (<em>krävs för Server-migrering utan agent</em>)
+**Definiera en ny roll med nödvändiga behörigheter** (<em>krävs för migrering utan server</em>)
 1.  Logga in på vSphere-webbklienten som vCenter Server administratör.
-2.  Bläddra till **administrationens** > **roll hanterare**.
+2.  Bläddra till **Administration** > **roll hanteraren**.
 3.  Välj vCenter Server på den nedrullningsbara menyn.
 4.  Klicka på **skapa roll** åtgärd.
 5.  Ange ett namn för den nya rollen. (till exempel <em>Azure_Migrate</em>).
-6.  Tilldela de [](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) här behörigheterna till den nyligen definierade rollen.
+6.  Tilldela de här [behörigheterna](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) till den nyligen definierade rollen.
 7.  Klicka på **OK**.
 
 **Tilldela behörigheter för vCenter-objekt**
 
 Det finns två metoder för att tilldela behörigheter för inventerings objekt i vCenter till vCenter-användarkontot med en tilldelad roll.
-- För Server utvärdering måste en skrivskyddad roll tillämpas på vCenter **-** användarkontot för alla överordnade objekt där de virtuella datorer som ska identifieras finns. Alla överordnade objekt – värd, mapp med värdar, kluster, mapp med kluster i hierarkin upp till data centret ska inkluderas. Dessa behörigheter ska spridas till underordnade objekt i hierarkin. 
+- För Server utvärdering måste en **skrivskyddad** roll tillämpas på vCenter-användarkontot för alla överordnade objekt där de virtuella datorer som ska identifieras finns. Alla överordnade objekt – värd, mapp med värdar, kluster, mapp med kluster i hierarkin upp till data centret ska inkluderas. Dessa behörigheter ska spridas till underordnade objekt i hierarkin.
 
     På samma sätt som för Server migreringen, är en användardefinierad roll (kan ha namnet <em>Azure-_Migrate</em>) med de här [privilegierna](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) som tilldelats måste tillämpas på vCenter-användarkontot för alla överordnade objekt där de virtuella datorer som ska migreras finns.
 
 ![Tilldela behörigheter](./media/tutorial-assess-vmware/assign-perms.png)
 
 - Den alternativa metoden är att tilldela användar kontot och rollen rollen på data center nivå och sprida dem till de underordnade objekten. Ge sedan kontot **Ingen åtkomst** roll för varje objekt (t. ex. virtuella datorer) som du inte vill identifiera/migrera. Den här konfigurationen är besvärlig. Det visar oavsiktlig åtkomst kontroll, eftersom varje nytt underordnat objekt automatiskt beviljas åtkomst som ärvs från den överordnade. Därför rekommenderar vi att du använder den första metoden.
- 
+
 > [!NOTE]
 > I dag kan Server utvärderingen inte identifiera virtuella datorer om vCenter-kontot har åtkomst som beviljats på nivån vCenter VM Folder. Om du vill begränsa identifieringen av VM-mappar kan du göra det genom att se till att vCenter-kontot har skrivskyddad åtkomst som tilldelats på en VM-nivå.  Följande är instruktioner om hur du kan göra detta:
 >
-> 1. Tilldela skrivskyddade behörigheter för alla virtuella datorer i de VM-mappar som du vill använda för att begränsa identifieringen. 
+> 1. Tilldela skrivskyddade behörigheter för alla virtuella datorer i de VM-mappar som du vill använda för att begränsa identifieringen.
 > 2. Bevilja skrivskyddad åtkomst till alla överordnade objekt där de virtuella datorerna finns. Alla överordnade objekt – värd, mapp med värdar, kluster, kluster kluster – i hierarkin till data centret ska inkluderas. Du behöver inte sprida behörigheterna till alla underordnade objekt.
 > 3. Använd autentiseringsuppgifterna för identifiering som väljer datacenter som *samlings omfång*. Med RBAC-inställningarna ser du till att motsvarande vCenter-användare bara har åtkomst till klient datorer som är användarspecifika.
 >
@@ -227,16 +241,16 @@ Det finns två metoder för att tilldela behörigheter för inventerings objekt 
 Efter identifieringen kan du kontrol lera att de virtuella datorerna visas i Azure Portal.
 
 1. Öppna instrument panelen för Azure Migrate.
-2. I **Azure Migrate-servrar** > **Azure Migrate: Sidan Server** utvärdering klickar du på ikonen som visar antalet för **identifierade servrar**.
+2. På sidan **Azure Migrate-servrar** > **Azure Migrate: Server utvärdering** klickar du på ikonen som visar antalet för **identifierade servrar**.
 
 ## <a name="set-up-an-assessment"></a>Konfigurera en utvärdering
 
-Det finns två typer av utvärderingar som du kan skapa med hjälp av Azure Migrate: Server Assessment.
+Det finns två typer av utvärderingar som du kan skapa med hjälp av Azure Migrate: Server utvärdering.
 
-**Beskrivningar** | **Detaljer** | **Data**
+**Utvärdering** | **Information** | **Data**
 --- | --- | ---
-**Prestanda-baserade** | Utvärderingar baserade på insamlade prestanda data | **Rekommenderad VM-storlek**: Baserat på CPU-och minnes användnings data.<br/><br/> **Rekommenderad disktyp (standard-eller Premium-hanterad disk)** : Baserat på IOPS och data flöde för lokala diskar.
-**Som lokalt** | Utvärderingar baserade på lokal storlek. | **Rekommenderad VM-storlek**: Baserat på den lokala virtuella dator storleken<br/><br> **Rekommenderad disk typ**: Baserat på inställningen för lagrings typ som du väljer för utvärderingen.
+**Prestanda-baserade** | Utvärderingar baserade på insamlade prestanda data | **Rekommenderad VM-storlek**: baserat på processor-och minnes användnings data.<br/><br/> **Rekommenderad disktyp (standard-eller Premium-hanterad disk)** : baserat på IOPS och data flödet för lokala diskar.
+**Som lokalt** | Utvärderingar baserade på lokal storlek. | **Rekommenderad VM-storlek**: baserat på den lokala virtuella dator storleken<br/><br> **Rekommenderad disktyp**: baserat på den inställning för lagrings typ som du väljer för utvärderingen.
 
 
 ### <a name="run-an-assessment"></a>Köra en utvärdering
@@ -244,14 +258,14 @@ Det finns två typer av utvärderingar som du kan skapa med hjälp av Azure Migr
 Kör en utvärdering på följande sätt:
 
 1. Gå igenom [metod tipsen](best-practices-assessment.md) för att skapa utvärderingar.
-2. På fliken **servrar** i **Azure Migrate: Panelen Server** bedömning klickar du på **utvärdera**.
+2. Klicka på **utvärdera**i panelen **Azure Migrate: Server bedömning** på fliken **servrar** .
 
     ![Utvärdera](./media/tutorial-assess-vmware/assess.png)
 
 2. I **utvärdera servrar**anger du ett namn för utvärderingen.
 3. Klicka på **Visa alla** för att granska utvärderingsegenskaperna.
 
-    ![Utvärderingsegenskaper](./media/tutorial-assess-vmware/view-all.png)
+    ![Bedömnings egenskaper](./media/tutorial-assess-vmware/view-all.png)
 
 3. I **Välj eller skapa en grupp**väljer du **Skapa ny**och anger ett grupp namn. En grupp samlar in en eller flera virtuella datorer för utvärdering.
 4. I **Lägg till datorer i gruppen**väljer du de virtuella datorer som ska läggas till i gruppen.
@@ -259,7 +273,7 @@ Kör en utvärdering på följande sätt:
 
     ![Skapa en utvärdering](./media/tutorial-assess-vmware/assessment-create.png)
 
-6. När utvärderingen har skapats kan du Visa den på **servrar** > **Azure Migrate: Utvärderingar**av Server bedömning. > 
+6. När utvärderingen har skapats kan du Visa den i **servrar** > **Azure Migrate: Server bedömning** > **utvärderingar**.
 7. Klicka på **Exportera utvärdering** för att ladda ned den som en Excel-fil.
 
 
@@ -268,25 +282,25 @@ Kör en utvärdering på följande sätt:
 
 En utvärdering beskriver:
 
-- **Azure-beredskap**: Om de virtuella datorerna är lämpliga för migrering till Azure.
-- **Månads kostnads uppskattning**: Beräknad månatlig beräknings-och lagrings kostnad för att köra de virtuella datorerna i Azure.
-- **Kostnads uppskattning för månatlig lagring**: Uppskattade kostnader för disk lagring efter migrering.
+- **Azure-beredskap**: om virtuella datorer är lämpliga för migrering till Azure.
+- **Månads kostnads uppskattning**: beräknad kostnad för beräkning och lagring för de virtuella datorerna i Azure.
+- **Kostnads uppskattning för månatlig lagring**: beräknade kostnader för disk lagring efter migrering.
 
 ### <a name="view-an-assessment"></a>Visa en utvärdering
 
-1. I **mål** >  **Server**för migrering klickar du på utvärderingar i **Azure Migrate: Server utvärdering**.
+1. I **mål för migrering** >  - **servrar**klickar du på **utvärderingar** i **Azure Migrate: Server utvärdering**.
 2. I **bedömningar**klickar du på en utvärdering för att öppna den.
 
-    ![Utvärderingssammanfattning](./media/tutorial-assess-vmware/assessment-summary.png)
+    ![Utvärderings Sammanfattning](./media/tutorial-assess-vmware/assessment-summary.png)
 
 ### <a name="review-azure-readiness"></a>Granska Azure readiness
 
 1. I **Azure-beredskap**kontrollerar du om de virtuella datorerna är klara för migrering till Azure.
 2. Granska VM-statusen:
     - **Redo för Azure**: Azure Migrate rekommenderar en VM-storlek och kostnads uppskattning för virtuella datorer i utvärderingen.
-    - **Klar med villkor**: Visar problem och Rekommenderad reparation.
-    - **Inte redo för Azure**: Visar problem och Rekommenderad reparation.
-    - **Beredskap okänd**: Används när Azure Migrate inte kan utvärdera beredskap på grund av problem med data tillgänglighet.
+    - **Klar med villkor**: visar problem och Rekommenderad reparation.
+    - **Inte redo för Azure**: visar problem och förslag på åtgärder.
+    - **Beredskap okänd**: används när Azure Migrate inte kan utvärdera beredskap på grund av problem med data tillgänglighet.
 
 2. Klicka på en status för **Azure-beredskap** . Du kan visa information om VM-beredskap och öka detalj nivån för att se information om virtuella datorer, inklusive beräknings-, lagrings-och nätverks inställningar.
 
@@ -310,7 +324,7 @@ I den här vyn visas den beräknade beräknings-och lagrings kostnaden för virt
 
 När du kör prestandabaserade utvärderingar tilldelas utvärderingen en förtroende nivå.
 
-![Förtroendeklassificering](./media/tutorial-assess-vmware/confidence-rating.png)
+![Säkerhetsomdöme](./media/tutorial-assess-vmware/confidence-rating.png)
 
 - En klassificering från 1 – stjärna (lägsta) till 5-stjärnor (högst) tilldelas.
 - Förtroende omdömet hjälper dig att beräkna tillförlitligheten för de storleks rekommendationer som tillhandahålls av utvärderingen.

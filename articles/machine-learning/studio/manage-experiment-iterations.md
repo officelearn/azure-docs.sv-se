@@ -1,7 +1,7 @@
 ---
 title: Hantera experimentupprepningar
-titleSuffix: Azure Machine Learning Studio
-description: Så här att hantera iterationer av experiment i Azure Machine Learning Studio. Du kan granska tidigare körningar för dina experiment när som helst för att utmana, gå tillbaka till, och slutligen antingen bekräfta eller förfina föregående antaganden.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Hantera experiment upprepningar i Azure Machine Learning Studio (klassisk). Du kan granska tidigare körningar av dina experiment när som helst för att kunna anropa, gå tillbaka, och i slut ändan antingen bekräfta eller förfina tidigare antaganden.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,69 +10,69 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 34a72f2e7b6be90654c0f053d5b8978b0283d56c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2c1f31db93d2caecc5576de18eb15e01cc94461
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60860256"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492849"
 ---
-# <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Hantera iterationer av experiment i Azure Machine Learning Studio
-Utveckla en förutsägande analysmodell är en iterativ process - allteftersom du ändrar de olika funktioner och parametrar av experimentet resultaten att Konvergera tills du är nöjd att du har en tränad, effektiv modell. Nyckeln till den här processen för att spåra olika iterationer av dina experiment parametrar och konfigurationer.
+# <a name="manage-experiment-iterations-in-azure-machine-learning-studio-classic"></a>Hantera experiment upprepningar i Azure Machine Learning Studio (klassisk)
+Att utveckla en förutsägelse analys modell är en iterativ process – när du ändrar de olika funktionerna och parametrarna i experimentet konvergerar resultatet tills du är nöjd med att du har en tränad, effektiv modell. Nyckeln till den här processen spårar olika iterationer av dina experiment parametrar och konfigurationer.
 
 
 
-Du kan granska tidigare körningar för dina experiment när som helst för att utmana, gå tillbaka till, och slutligen antingen bekräfta eller förfina föregående antaganden. När du kör ett experiment, sparar en historik över kör, bland annat datauppsättning, modulen kommunikationsportar och parametrar i Machine Learning Studio. Denna historik samlar även in resultat, runtime information, till exempel start- och stopptider, loggmeddelanden och jobbstatus. Du kan gå tillbaka till någon av dessa körs när som helst granska kronologisk ordning experiment och mellanliggande resultat. Du kan även använda en tidigare körning av experimentet för att starta i en ny fas i förfrågan och identifiering i sökvägen till att skapa enkla eller komplexa även ensemble modellering lösningar.
+Du kan granska tidigare körningar av dina experiment när som helst för att kunna anropa, gå tillbaka, och i slut ändan antingen bekräfta eller förfina tidigare antaganden. När du kör ett experiment behåller Machine Learning Studio (klassisk) en historik över körningen, inklusive data uppsättning, modul och port anslutningar och-parametrar. Den här historiken fångar också resultat, körnings information som start-och stopp tider, logg meddelanden och körnings status. Du kan när som helst se hur som helst av dessa körningar om du vill granska kronologisk ordning av experimentet och mellanliggande resultat. Du kan även använda en tidigare körning av ditt experiment för att starta i en ny fas av förfrågan och identifiering på din sökväg för att skapa enkla, komplexa eller till och med Ensemble-modellerings lösningar.
 
 > [!NOTE]
-> När du visar en tidigare körning av ett experiment som versionen av experimentet är låst och kan inte redigeras. Du kan dock spara en kopia av den genom att klicka på **Spara som** och ange ett nytt namn för kopian. Machine Learning Studio öppnas den nya kopian som du kan redigera och köra. Den här kopian av experimentet är tillgängliga i den **EXPERIMENT** lista tillsammans med alla andra experiment.
+> När du visar en tidigare körning av ett experiment är den versionen av experimentet låst och kan inte redige ras. Du kan dock spara en kopia av den genom att klicka på **Spara som** och ange ett nytt namn för kopian. Machine Learning Studio (klassisk) öppnar den nya kopian, som du sedan kan redigera och köra. Den här kopian av ditt experiment är tillgänglig i **experiment** listan tillsammans med alla andra experiment.
 > 
 > 
 
-## <a name="viewing-the-prior-run"></a>Visa den tidigare körningen
-När du har en öppen för experiment som du har kört minst en gång kan du visa den föregående körningen av experimentet genom att klicka på **tidigare kör** i egenskapsfönstret.
+## <a name="viewing-the-prior-run"></a>Visa föregående körning
+När du har ett experiment öppet som du har kört minst en gång kan du Visa föregående körning av experimentet genom att klicka på **föregående körning** i rutan Egenskaper.
 
-Anta exempelvis att du skapar ett experiment och kör versioner av paketet på 11:23 11:42 och 11:55. Om du öppnar den senaste körningen av experimentet (11:55) och klicka på **tidigare kör**, den version som du körde på 11:42 öppnas.
+Anta till exempel att du skapar ett experiment och kör versioner av det på 11:23, 11:42 och 11:55. Om du öppnar den senaste körningen av experimentet (11:55) och klickar på **föregående körning**öppnas den version du körde vid 11:42.
 
-## <a name="viewing-the-run-history"></a>Visa Körningshistorik
-Du kan visa alla tidigare körningar av ett experiment genom att klicka på **visa Körningshistorik** i en öppen experiment.
+## <a name="viewing-the-run-history"></a>Visa körnings historiken
+Du kan visa alla tidigare körningar av ett experiment genom att klicka på **Visa körnings historik** i ett öppet experiment.
 
-Anta exempelvis att du skapar ett experiment med den [linjär Regression] [ linear-regression] modulen och du vill se effekten av att ändra värdet för **inlärningsfrekvensen** på din Experimentera resultat. Du har kört experimentet flera gånger med olika värden för den här parametern på följande sätt:
+Anta till exempel att du skapar ett experiment med modulen [linjär regression][linear-regression] och att du vill se hur du ändrar värdet för **inlärnings frekvensen** för dina experiment resultat. Du kör experimentet flera gånger med olika värden för den här parametern, enligt följande:
 
-| Learning värde för Bandbreddshastighet | Starttid för körning |
+| Inlärnings pris värde | Kör Start tid |
 | --- | --- |
-| 0,1 |9/11/2014 4:18:58 pm |
-| 0.2 |9/11/2014 4:24:33 pm |
-| 0.4 |9/11/2014 4:28:36 pm |
-| 0,5 |9/11/2014 4:33:31 pm |
+| 0,1 |9/11/2014 4:18:58 PM |
+| 0,2 |9/11/2014 4:24:33 PM |
+| 0,4 |9/11/2014 4:28:36 PM |
+| 0,5 |9/11/2014 4:33:31 PM |
 
-Om du klickar på **visa KÖRNINGSHISTORIK**, visas en lista över alla körningar:
+Om du klickar på **Visa körnings historik**visas en lista över alla dessa körningar:
 
-![Exempel på Kör historik](./media/manage-experiment-iterations/viewrunhistory.jpg)
+![Exempel på körnings historik](./media/manage-experiment-iterations/viewrunhistory.jpg)
 
-Klicka på någon av dessa körningar att visa en ögonblicksbild av experimentet när du körde den. Konfiguration, parametervärden, kommentarer och resultat bevaras för att ge dig en fullständig post för den körningen av experimentet.
+Klicka på någon av dessa körningar för att visa en ögonblicks bild av experimentet vid den tidpunkt då du körde det. Konfigurationen, parameter värden, kommentarer och resultat bevaras för att ge dig en fullständig post av den körningen av experimentet.
 
 > [!TIP]
-> Om du vill dokumentera din iterationer av experimentet, du kan ändra rubriken varje gång du kör den, kan du uppdatera den **sammanfattning** av experiment i egenskaperna för fönstret, och du kan lägga till eller uppdatera kommentarer på enskilda moduler som att registrera din ändringar. Rubrik, Sammanfattning och modulen kommentarer sparas med varje körning av experiment.
+> Om du vill dokumentera dina iterationer av experimentet kan du ändra titeln varje gång du kör det, så att du kan uppdatera **sammanfattningen** av experimentet i fönstret Egenskaper och du kan lägga till eller uppdatera kommentarer om enskilda moduler för att registrera dina ändringar. Kommentarerna för rubrik, Sammanfattning och modul sparas med varje körning av experimentet.
 > 
 > 
 
-Listan över experiment i den **EXPERIMENT** fliken i Machine Learning Studio visas alltid den senaste versionen av ett experiment. Om du öppnar en tidigare körning av experiment (med hjälp av **tidigare kör** eller **visa KÖRNINGSHISTORIK**), du kan återgå till utkastet genom att klicka på **visa KÖRNINGSHISTORIK** och välja den iteration som har en **tillstånd** av **redigeras**.
+I listan över experiment på fliken **experiment** i Machine Learning Studio (klassisk) visas alltid den senaste versionen av ett experiment. Om du öppnar en tidigare körning av experimentet (med tidigare **Kör** eller **Visa körnings historik**) kan du gå tillbaka till utkastet genom att klicka på **Visa körnings historik** och välja den iteration som har **statusen** **redigerbar**.
 
-## <a name="iterating-on-a-previous-run"></a>Iteration av en tidigare körning
-När du klickar på **tidigare kör** eller **visa KÖRNINGSHISTORIK** och öppna en tidigare körning kan du visa en färdig experiment i skrivskyddat läge.
+## <a name="iterating-on-a-previous-run"></a>Iterera på en tidigare körning
+När du klickar på **föregående körning** eller **Visa körnings historik** och öppnar en tidigare körning kan du visa ett klart experiment i skrivskyddat läge.
 
-Om du vill börja en iterationer av experimentet som börjar med det sättet som du har konfigurerat för en tidigare körning kan du göra detta genom att öppna körningen och klicka på **Spara som**. Detta skapar ett nytt experiment med en ny rubrik, en tom körningshistorik, och alla komponenter och parametervärdena för föregående kör. Det här nya experimentet visas i den **EXPERIMENTEN** flik i Machine Learning Studio-startsidan och du kan ändra och köra den initierar en ny körningshistorik för den här iterationer av experimentet. 
+Om du vill påbörja en upprepning av experimentet som börjar med det sätt som du konfigurerade det för en tidigare körning, kan du göra det genom att öppna körningen och klicka på **Spara som**. Detta skapar ett nytt experiment, med en ny rubrik, en tom körnings historik och alla komponenter och parameter värden för föregående körning. Det nya experimentet visas på fliken **experiment** på start sidan Machine Learning Studio (klassisk), och du kan ändra och köra det och påbörja en ny körnings historik för den här iterationen av experimentet. 
 
-Anta exempelvis att du har experimentet körningshistorik som visas i föregående avsnitt. Du vill se vad som händer när du ställer in den **inlärningsfrekvensen** parametern 0.4 och prova olika värden för den **antalet utbildning epoker** parametern.
+Anta till exempel att du har historiken för experiment körning som visas i föregående avsnitt. Du vill veta vad som händer när du ställer in **Learning Rate** -parametern på 0,4 och provar olika värden för **antalet epoker** -parametrar.
 
-1. Klicka på **visa KÖRNINGSHISTORIK** och öppna iterationer av experimentet som du körde klockan 4:28:36 (där du anger värdet för parametern till 0.4).
+1. Klicka på **Visa körnings historik** och öppna upprepningen av experimentet som du körde vid 4:28:36 PM (där du angav parametervärdet till 0,4).
 2. Klicka på **Spara som**.
-3. Ange ett nytt namn och klicka på den **OK** bockmarkeringen. En ny kopia av experimentet har skapats.
-4. Ändra den **antalet utbildning epoker** parametern.
-5. Klicka på **kör**.
+3. Ange en ny rubrik och klicka på **OK** -bocken. En ny kopia av experimentet skapas.
+4. Ändra **antalet epoker** -parametrar.
+5. Klicka på **Kör**.
 
-Du kan nu fortsätta att ändra och köra den här versionen av ditt experiment, att skapa en ny körningshistorik för att registrera ditt arbete.
+Nu kan du fortsätta att ändra och köra den här versionen av experimentet och skapa en ny körnings historik för att registrera ditt arbete.
 
 <!-- Module References -->
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/

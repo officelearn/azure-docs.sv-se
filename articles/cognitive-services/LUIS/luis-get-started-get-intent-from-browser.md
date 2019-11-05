@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Få avsikt med webb läsar LUIS'
+title: 'Snabb start: skapa avsikt med webb läsar LUIS'
 titleSuffix: Azure Cognitive Services
 description: I den här snabb starten använder du en tillgänglig offentlig LUIS-app för att fastställa en användares avsikt från konversations text i en webbläsare.
 services: cognitive-services
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/27/2019
+ms.date: 10/17/2019
 ms.author: diberry
-ms.openlocfilehash: 6282e768ebc51d0d4ec2b15f057727f207a7d81a
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: a99dbc594b53d00ae02b2581d149fe7b4573ab7d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703134"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495231"
 ---
-# <a name="quickstart-get-intent-with-a-browser"></a>Snabbstart: Skapa avsikt med en webbläsare
+# <a name="quickstart-get-intent-with-a-browser"></a>Snabb start: skapa avsikt med en webbläsare
 
 Om du vill förstå vad som returneras från en LUIS-slutpunkt för förutsägelser kan du granska resultatet i en webbläsare. 
 
@@ -26,36 +26,55 @@ Om du vill förstå vad som returneras från en LUIS-slutpunkt för förutsägel
 
 Du behöver följande för att kunna skicka frågor till en offentlig app:
 
-* Din egen Language Understanding-nyckel (LUIS). Om du inte redan har en prenumeration för att skapa en nyckel kan du registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Din egen Language Understanding-nyckel (LUIS). Om du inte redan har en prenumeration för att skapa en nyckel kan du registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/). Redigerings nyckeln för LUIS fungerar inte. 
 * Den offentliga appens ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. 
 
 ## <a name="use-the-browser-to-see-predictions"></a>Använd webbläsaren för att se förutsägelser
 
 1. Öppna en webbläsare. 
-1. Använd de fullständiga URL: erna nedan och ersätt `{your-key}` med din egen LUIS-nyckel. Begär Anden är GET-begäranden och inkluderar auktoriseringen med din LUIS-nyckel som en frågesträngparametern.
+1. Använd de fullständiga URL: erna nedan och ersätt `YOUR-KEY` med din egen LUIS-nyckel. Begär Anden är GET-begäranden och inkluderar auktoriseringen med din LUIS-nyckel som en frågesträngparametern.
 
-    #### <a name="v2-prediction-endpoint-requesttabv2"></a>[V2-begäran om slut punkts förutsägelse](#tab/V2)
-    
-    Formatet på v2-URL: en för en begäran om att **Hämta** slut punkter är:
-    
-    `
-    https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key={your-key}&q=turn on all lights
-    `
-    
-    #### <a name="v3-prediction-endpoint-requesttabv3"></a>[V3 förutsägelse slut punkts förfrågan](#tab/V3)
+    #### <a name="v3-prediction-requesttabv3-1-1"></a>[V3 förutsägelse förfrågan](#tab/V3-1-1)
     
     
     Formatet på v3-URL: en för en begäran om **hämtning** av slut punkt (per fack) är:
     
     `
-    https://westus.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key={your-key}
+    https://westus.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-KEY
     `
+
+    #### <a name="v2-prediction-requesttabv2-1-2"></a>[V2 förutsägelse förfrågan](#tab/V2-1-2)
     
-    * * *
+    Formatet på v2-URL: en för en begäran om att **Hämta** slut punkter är:
+    
+    `
+    https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=YOUR-KEY&q=turn on all lights
+    `
 
 1. Klistra in URL:en i ett webbläsarfönster och tryck på Retur. Du ser ett JSON-resultat i webbläsaren som indikerar att LUIS har identifierat avsikten `HomeAutomation.TurnOn` som troligaste avsikt och entiteten `HomeAutomation.Operation` med värdet `on`.
 
-    #### <a name="v2-prediction-endpoint-responsetabv2"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
+    #### <a name="v3-prediction-responsetabv3-2-1"></a>[V3 förutsägelse svar](#tab/V3-2-1)
+
+    ```JSON
+    {
+        "query": "turn on all lights",
+        "prediction": {
+            "topIntent": "HomeAutomation.TurnOn",
+            "intents": {
+                "HomeAutomation.TurnOn": {
+                    "score": 0.5375382
+                }
+            },
+            "entities": {
+                "HomeAutomation.Operation": [
+                    "on"
+                ]
+            }
+        }
+    }
+    ```
+
+    #### <a name="v2-prediction-responsetabv2-2-2"></a>[V2 förutsägelse svar](#tab/V2-2-2)
 
     ```json
     {
@@ -76,17 +95,32 @@ Du behöver följande för att kunna skicka frågor till en offentlig app:
     }
     ```
 
-    #### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
+    * * *
+
+1. Om du vill se alla avsikter lägger du till lämplig frågesträngparametern. 
+
+    #### <a name="v3-prediction-endpointtabv3-3-1"></a>[V3 förutsägelse slut punkt](#tab/V3-3-1)
+
+    Lägg till `show-all-intents=true` i slutet av QueryString för att **Visa alla avsikter**:
+
+    `
+    https://westus.api.cognitive.microsoft.com/luis/predict/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-KEY&show-all-intents=true
+    `
 
     ```JSON
     {
-        "query": "turn on all lights",
+        "query": "turn off the living room light",
         "prediction": {
-            "normalizedQuery": "turn on all lights",
             "topIntent": "HomeAutomation.TurnOn",
             "intents": {
                 "HomeAutomation.TurnOn": {
                     "score": 0.5375382
+                },
+                "None": {
+                    "score": 0.08687421
+                },
+                "HomeAutomation.TurnOff": {
+                    "score": 0.0207554
                 }
             },
             "entities": {
@@ -98,13 +132,9 @@ Du behöver följande för att kunna skicka frågor till en offentlig app:
     }
     ```
 
-    * * *
-
-1. Om du vill se alla avsikter lägger du till lämplig frågesträngparametern. 
-
     #### <a name="v2-prediction-endpointtabv2"></a>[V2-förutsägelse slut punkt](#tab/V2)
 
-    Lägg till `verbose=true` till slutet av QueryString för att **Visa alla avsikter**:
+    Lägg till `verbose=true` i slutet av QueryString för att **Visa alla avsikter**:
 
     `
     https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?q=turn on all lights&subscription-key={your-key}&verbose=true
@@ -143,41 +173,8 @@ Du behöver följande för att kunna skicka frågor till en offentlig app:
     }
     ```
 
-    #### <a name="v3-prediction-endpointtabv3"></a>[V3 förutsägelse slut punkt](#tab/V3)
 
-    Lägg till `show-all-intents=true` till slutet av QueryString för att **Visa alla avsikter**:
-
-    `
-    https://westus.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key={your-key}&show-all-intents=true
-    `
-
-    ```JSON
-    {
-        "query": "turn on all lights",
-        "prediction": {
-            "normalizedQuery": "turn on all lights",
-            "topIntent": "HomeAutomation.TurnOn",
-            "intents": {
-                "HomeAutomation.TurnOn": {
-                    "score": 0.5375382
-                },
-                "HomeAutomation.TurnOff": {
-                     "score": 0.0207554
-                },
-                "None": {
-                     "score": 0.08687421
-                }
-            },
-            "entities": {
-                "HomeAutomation.Operation": [
-                    "on"
-                ]
-            }
-        }
-    }
-    ```
-
-    * * * 
+<!-- FIX - is the public app getting updated for the new prebuilt domain with entities? -->   
 
 ## <a name="next-steps"></a>Nästa steg
 

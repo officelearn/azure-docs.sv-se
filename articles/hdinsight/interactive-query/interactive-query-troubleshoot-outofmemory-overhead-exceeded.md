@@ -1,5 +1,5 @@
 ---
-title: Kopplingar i Apache Hive leder till ett OutOfMemory-fel i Azure HDInsight
+title: Kopplingar i Apache Hive leder till OutOfMemory-fel – Azure HDInsight
 description: Hantering av OutOfMemory fel meddelandet "GC-overhead-gräns överskreds"
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,14 +7,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/30/2019
-ms.openlocfilehash: e1f41b6e1e5f51cb7e6e0af1e99184cdfbd373e1
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 182ca8243b2e6050a72c22f52b9fcd0d2cef37c5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091415"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494220"
 ---
-# <a name="scenario-joins-in-apache-hive-leads-to-an-outofmemory-error-in-azure-hdinsight"></a>Scenario: Kopplingar i Apache Hive leder till ett OutOfMemory-fel i Azure HDInsight
+# <a name="scenario-joins-in-apache-hive-leads-to-an-outofmemory-error-in-azure-hdinsight"></a>Scenario: kopplingar i Apache Hive leder till ett OutOfMemory-fel i Azure HDInsight
 
 I den här artikeln beskrivs fel söknings steg och möjliga lösningar på problem vid användning av interaktiva frågekomponenter i Azure HDInsight-kluster.
 
@@ -30,7 +30,7 @@ När du kör kopplingar i Hive med tillräcklig storlek, påträffas följande f
 Caused by: java.lang.OutOfMemoryError: GC overhead limit exceeded error.
 ```
 
-## <a name="resolution"></a>Lösning
+## <a name="resolution"></a>Upplösning
 
 Förhindra att Hive läser in tabeller i minnet i kopplingar (i stället utföra ett kart-/minsknings steg) genom att ange följande konfigurations värde för Hive:
 
@@ -46,4 +46,4 @@ Om du inte kunde lösa problemet med det här värdet kan du gå till något av 
 
 * Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns i [”Skapa en supportförfrågan för Azure”](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Tillgång till support för prenumerationshantering och fakturering ingår i din Microsoft Azure-prenumeration och teknisk support ges via ett [supportavtal för Azure](https://azure.microsoft.com/support/plans/).

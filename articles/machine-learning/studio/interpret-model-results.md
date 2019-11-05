@@ -1,7 +1,7 @@
 ---
 title: Tolka modellresultat
-titleSuffix: Azure Machine Learning Studio
-description: Hur du väljer den optimala parameteruppsättning för en algoritm med och visualisera poängsätta modell utdata.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Hur du väljer den optimala parameter uppsättningen för en algoritm med hjälp av och visualisering av Poäng modellens utdata.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,298 +10,298 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: c46f22fb5c906aaffa48f39a0c643ca2a48573f9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 07f446daafea8b866083933bb414b0f5ef04bb4d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60867309"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492922"
 ---
-# <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Tolka modellresultat i Azure Machine Learning Studio
-Det här avsnittet förklarar hur du visualiserar och tolka förutsagda resultaten i Azure Machine Learning Studio. När du har tränats en modell och göra förutsägelser ovanpå det. (”poängsätts modellen”), måste du förstå och tolka resultatet förutsägelse.
+# <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Tolka modell resultat i Azure Machine Learning Studio (klassisk)
+I det här avsnittet beskrivs hur du visualiserar och tolkar förutsägelse resultat i Azure Machine Learning Studio (klassisk). När du har tränat en modell och gjort förutsägelser ovanpå den ("score modellen"), måste du förstå och tolka resultatet av förutsägelsen.
 
 
 
-Det finns fyra viktiga typer av machine learning-modeller i Azure Machine Learning Studio:
+Det finns fyra viktiga typer av maskin inlärnings modeller i den klassiska versionen av Azure Machine Learning Studio:
 
 * Klassificering
-* Klustring
+* Redundanskluster
 * Regression
-* Rekommenderare system
+* Rekommenderade system
 
-Moduler som används för förutsägelse ovanpå dessa modeller är:
+Modulerna som används för förutsägelser ovanpå dessa modeller är:
 
-* [Bedömningsmodell] [ score-model] -modulen för klassificering och regression
-* [Tilldela till kluster] [ assign-to-clusters] -modulen för kluster
-* [Bedöma Matchbox rekommenderare] [ score-matchbox-recommender] för recommendation-system
+* [Score modell][score-model] -modul för klassificering och regression
+* [Tilldela till kluster][assign-to-clusters] -modul för klustring
+* [Poäng matchbox rekommenderar][score-matchbox-recommender] för rekommendations system
 
-Det här dokumentet beskriver hur du tolkar förutsägelser för var och en av dessa moduler. En översikt över dessa moduler finns i [välja parametrar för att optimera algoritmerna i Azure Machine Learning Studio](algorithm-parameters-optimize.md).
+Det här dokumentet beskriver hur du tolkar förutsägelse resultat för var och en av dessa moduler. En översikt över dessa moduler finns i [så här väljer du parametrar för att optimera algoritmerna i Azure Machine Learning Studio (klassisk)](algorithm-parameters-optimize.md).
 
-Det här avsnittet behandlar förutsägelse tolkning men inte modellen utvärderingsversioner. Läs mer om hur du utvärderar din modell, [hur du utvärderar du modellens prestanda i Azure Machine Learning Studio](evaluate-model-performance.md).
+Det här avsnittet beskriver förutsägelse tolkning men inte modell utvärdering. Mer information om hur du utvärderar din modell finns [i så här utvärderar du modell prestanda i Azure Machine Learning Studio (klassisk)](evaluate-model-performance.md).
 
-Om du inte har använt Azure Machine Learning Studio och behöver hjälp med att skapa ett enkelt experiment du kommer igång finns i [skapar ett enkelt experiment i Azure Machine Learning Studio](create-experiment.md) i Azure Machine Learning Studio.
+Om du är nybörjare på den klassiska versionen av Azure Machine Learning Studio och behöver hjälp med att skapa ett enkelt experiment för att komma igång, se [skapa ett enkelt experiment i Azure Machine Learning Studio (klassisk)](create-experiment.md).
 
 ## <a name="classification"></a>Klassificering
-Det finns två underkategorier klassificering problem:
+Det finns två under Kategorier med klassificerings problem:
 
-* Problem med bara två klasser (tvåklassförhöjt eller binär klassificering)
-* Problem med fler än två klasser (flera klassificering)
+* Problem med endast två klasser (klassificering med två klasser eller binära)
+* Problem med fler än två klasser (klassificering i flera klasser)
 
-Azure Machine Learning Studio har olika moduler behöver bry dig om de olika typerna av klassificering, men metoder för att tolka resultaten förutsägelse är liknande.
+Azure Machine Learning Studio (klassisk) har olika moduler för att hantera var och en av dessa typer av klassificering, men metoderna för att tolka deras förutsägelse resultat liknar varandra.
 
-### <a name="two-class-classification"></a>Två klassificering
-**Exempelexperiment**
+### <a name="two-class-classification"></a>Klassificering i två klasser
+**Exempel experiment**
 
-Ett exempel på en tvåklassförhöjt klassifikationsproblem är klassificeringen av iris blommor. Uppgiften är att klassificera iris blommor baserat på deras funktioner. Iris-datauppsättningen som anges i Azure Machine Learning Studio är en delmängd av de populära [Iris-datauppsättningen](https://en.wikipedia.org/wiki/Iris_flower_data_set) som innehåller instanser av endast två blomma species (klasser 0 och 1). Det finns fyra funktioner för varje blommor (sepal length, sepal width, petal längd och petal width).
+Ett exempel på ett klassificerings problem med två klasser är klassificeringen av Iris blommor. Uppgiften är att klassificera irisnas blommor baserat på deras funktioner. Iris-datauppsättningen som tillhandahålls i den klassiska versionen av Azure Machine Learning Studio är en delmängd av den populära [Iris-datauppsättningen](https://en.wikipedia.org/wiki/Iris_flower_data_set) som innehåller instanser av två blommas arter (klasserna 0 och 1). Det finns fyra funktioner för varje blomma (sepal längd, sepal bredd, blad längd och blad bredd).
 
-![Skärmbild av iris experiment](./media/interpret-model-results/1.png)
+![Skärm bild av Iris-experiment](./media/interpret-model-results/1.png)
 
-Figur 1. Iris tvåklassförhöjt klassificering problemet experiment
+Figur 1. Iris i två klassers klassificerings problem
 
-Ett experiment har utförts för att lösa problemet, som visas i bild 1. En tvåklassförhöjt beslutsträd trädet modell har tränats och poängsätts. Nu kan du visualisera resultatet från den [Poängmodell] [ score-model] modulen genom att klicka på utdataporten för den [Poängmodell] [ score-model] modulen och sedan klicka på **visualisera**.
+Ett experiment har utförts för att lösa det här problemet, som visas i bild 1. En utökat besluts träd modell med två klasser har tränats och betyg ATS. Nu kan du visualisera förutsägelse resultatet från modulen [Poäng modell][score-model] genom att klicka på utdataporten för modulen [Poäng modell][score-model] och sedan klicka på **visualisera**.
 
-![Modulen poängsätta modell](./media/interpret-model-results/1_1.png)
+![Score modell-modul](./media/interpret-model-results/1_1.png)
 
-Detta öppnar bedömnings resultaten som visas i bild 2.
+Resultatet visas i bild 2.
 
-![Resultat av iris tvåklassförhöjt klassificering experiment](./media/interpret-model-results/2.png)
+![Resultat av iris, två klassens klassificerings experiment](./media/interpret-model-results/2.png)
 
-Figur 2. Visualisera ett poängmodell resultat i två klassificering
+Figur 2. Visualisera en resultat modell i en klassificering i två klasser
 
-**Resultatet tolkning**
+**Resultat tolkning**
 
-Det finns sex kolumner i resultattabellen. De vänstra fyra kolumnerna är fyra funktioner. Höger två kolumner, poängsatta etiketter och poängsätts sannolikhet är resultatet. Kolumnen poängsätts sannolikhet visar sannolikheten som en blommor tillhör klassen positivt (klass 1). Den första siffran i kolumnen (0.028571) gör att det är till exempel 0.028571 sannolikheten att den första blomman tillhör klass 1. Kolumnen poängsatta etiketter visas den förväntade klassen för varje blommor. Detta baseras på kolumnen poängsätts sannolikhet. Om poängsatta sannolikheten för en blommor är större än 0,5, förväntas som klass 1. I annat fall förväntas som klass 0.
+Det finns sex kolumner i resultat tabellen. De fyra vänstra kolumnerna är de fyra funktionerna. De två högra kolumnerna, resultat etiketter och resultat sannolikheter är förutsägelse resultatet. Kolumnen resultat av sannolikhet visar sannolikheten att en blomma tillhör klassen positiv (klass 1). Det första talet i kolumnen (0,028571) innebär till exempel att det finns 0,028571 sannolikhet för att den första blomma tillhör klass 1. Kolumnen Poäng etiketter visar den förväntade klassen för varje blomma. Detta baseras på kolumnen Scoret sannolikhets värde. Om den förväntade sannolikheten för en blomma är större än 0,5, förutsägs den som klass 1. Annars förutsägs det som klass 0.
 
-**Web tjänstepublicering**
+**Webb tjänst publicering**
 
-När resultatet har förstått och bedömas ljud, kan experimentet publiceras som en webbtjänst så att du kan distribuera i olika program och kalla den för att hämta klass förutsägelser om alla nya iris blommor. Läs hur du ändrar ett träningsexperiment till ett bedömningsskript experiment och publicera den som en webbtjänst i [självstudie 3: Distribuera kredit risk modell](tutorial-part3-credit-risk-deploy.md). Den här proceduren innehåller en arbetsflödesbaserad experiment som visas i bild 3.
+När förutsägelse resultaten har förstått och bedömt ljud kan experimentet publiceras som en webb tjänst så att du kan distribuera den i olika program och anropa den för att få klass förutsägelser på alla nya Iris. Information om hur du ändrar ett utbildnings experiment till ett bedömnings experiment och publicerar det som en webb tjänst finns i [självstudie 3: Distribuera kredit risk modell](tutorial-part3-credit-risk-deploy.md). Den här proceduren ger dig ett Poäng experiment som visas i bild 3.
 
-![Skärmbild av bedömning experiment](./media/interpret-model-results/3.png)
+![Skärm bild av poängsättnings experiment](./media/interpret-model-results/3.png)
 
-Figur 3. Bedömning iris tvåklassförhöjt klassificering problemet experimentet
+Figur 3. Bedömning av Iriss problem med klassificerings problem i två klass
 
-Du måste nu ange indata och utdata för webbtjänsten. Indata är rätt indataporten för [Poängmodell][score-model], vilket är Iris blommor funktioner indata. Valet av utdata beror på om du är intresserad av den förväntade klassen (poängsatta etikett), poängsatta sannolikheten eller båda. I det här exemplet förutsätts att du är intresserad av båda. Välj önskad utdatakolumnerna genom att använda en [Välj kolumner i datauppsättning] [ select-columns] modulen. Klicka på [Välj kolumner i datauppsättning][select-columns], klickar du på **starta kolumnväljaren**, och välj **poängsatta etiketter** och **Scored Sannolikhet**. När du har angett utdataporten för [Välj kolumner i datauppsättning] [ select-columns] och kör den igen, bör du vara redo att publicera bedömnings experiment som en webbtjänst genom att klicka på **publicera WEBBTJÄNSTEN** . Det slutliga experimentet ser ut som bild 4.
+Nu måste du ange indata och utdata för webb tjänsten. Indatamängden är den högra Indataporten i [Poäng modellen][score-model], vilket är den inmatade Iris-funktionen. Valet av utdata beror på om du är intresse rad av den förväntade klassen (resultat etikett), den resulterande sannolikheten eller både och. I det här exemplet förutsätts att du är intresse rad av båda. Om du vill välja önskade utdatakolumner använder du en [Välj kolumner i modulen data uppsättning][select-columns] . Klicka på [Välj kolumner i data uppsättning][select-columns], klicka på **Starta kolumn väljaren**och välj **resultat etiketter** och **betyg betygs**ätt. När du har angett utdataporten för [Välj kolumner i data uppsättningen][select-columns] och kör den igen, bör du vara redo att publicera bedömnings experimentet som en webb tjänst genom att klicka på **publicera webb tjänst**. Det slutliga experimentet ser ut som figur 4.
 
-![Iris tvåklassförhöjt klassificering experimentet](./media/interpret-model-results/4.png)
+![Iris i två Klasss experiment](./media/interpret-model-results/4.png)
 
-Figur 4. Slutliga bedömnings experimentet av ett problem för tvåklassförhöjt klassificering av iris
+Figur 4. Slut på att experimentera med en Iriss klassificerings problem i två klasser
 
-När du kör webbtjänsten och ange egna värden för funktionen för en test-instans, returnerar resultatet två tal. Den första siffran är poängsatta etiketten och andra är poängsatta sannolikheten. Den här blommor förväntas som klass 1 med 0.9655 sannolikhet.
+När du har kört webb tjänsten och angett några funktions värden för en test instans returnerar resultatet två siffror. Det första talet är den nya etiketten och den andra är sannolikheten. Den här blomman förutsägs som klass 1 med 0,9655 sannolikhet.
 
-![Testa tolkar poängsätta modell](./media/interpret-model-results/4_1.png)
+![Test för att tolka Poäng modell](./media/interpret-model-results/4_1.png)
 
-![Bedömning av testresultat](./media/interpret-model-results/5.png)
+![Bedömnings test resultat](./media/interpret-model-results/5.png)
 
-Figur 5. Web service resultatet av iris tvåklassförhöjt klassificering
+Figur 5. Webb tjänst resultat av Iris i två Klasss klassificering
 
-### <a name="multi-class-classification"></a>Flera klassificering
-**Exempelexperiment**
+### <a name="multi-class-classification"></a>Klassificering med flera klasser
+**Exempel experiment**
 
-I det här experimentet utför du en bokstav erkännande uppgift som ett exempel på multiklass-baserad klassificering. Klassificeraren försöker förutse vissa bokstäver (klassen) baserat på vissa handskrivna attributvärden som extraheras från handskrivna-avbildningar.
+I det här experimentet utför du en igenkännings uppgift som ett exempel på klassificering av multiklasser. Klassificeraren försöker förutsäga en viss bokstav (klass) baserat på vissa manuellt skrivna attributvärden som extraheras från de manuella bilderna.
 
-![Bokstav erkännande exempel](./media/interpret-model-results/5_1.png)
+![Exempel på brev igenkänning](./media/interpret-model-results/5_1.png)
 
-Det finns 16 funktioner som extraheras från handskrivna bokstav bilder i utbildningsdata. 26 bokstäver utgör vårt 26 klasser. Bild 6 visar ett experiment som tränar en klassificeringsmodell för multiklass-baserad för bokstav erkännande och förutsäga på samma funktioner på en datauppsättning för testning.
+I tränings data finns det 16 funktioner som har extraherats från handskrivna brev bilder. 26 bokstäver utgör våra 26 klasser. Bild 6 visar ett experiment som tränar en klassificerings modell i multiklass för brev igenkänning och förutsäger samma funktions uppsättning i en test data uppsättning.
 
-![Bokstav erkännande inom klassificering experiment](./media/interpret-model-results/6.png)
+![Skrift igenkänning av klassificerings experiment i multiklass](./media/interpret-model-results/6.png)
 
-Figur 6. Bokstav erkännande inom klassificering problemet experiment
+Figur 6. Brev igenkänning multiklass klassificerings problem experiment
 
-Visualisera resultaten från den [Poängmodell] [ score-model] modulen genom att klicka på utdataporten för [Poängmodell] [ score-model] modulen och sedan klicka på **Visualisera**, bör du se innehåll som visas på bild 7.
+Visualisera resultaten från modulen [Poäng modell][score-model] genom att klicka på utdataporten för [Poäng modell][score-model] och klicka på **visualisera**. du bör se innehållet som visas på bild 7.
 
-![Modellen poängresultat](./media/interpret-model-results/7.png)
+![Resultat modell resultat](./media/interpret-model-results/7.png)
 
-Figur 7. Visualisera poängresultat modellen i en flera klassificering
+Figur 7. Visualisera Poäng modell resulterar i en klassificering i flera klasser
 
-**Resultatet tolkning**
+**Resultat tolkning**
 
-De vänstra 16 kolumnerna representerar funktionen värden för test-uppsättningen. Kolumner med namn som poängsätts sannolikhet för klassen ”XX” är bara som poängsätts sannolikhet kolumnen i två fall. De visar hjälp som sedan motsvarande post hamnar i en viss klass. Till exempel för den första posten finns 0.003571 sannolikheten att den är en ”A” 0.000451 sannolikheten att det är ett ”B” och så vidare. Den sista kolumnen (poängsatta etiketter) är samma som poängsatta etiketter i två fall. Klassen med största poängsatta sannolikheten väljs som den förväntade klassen på motsvarande transaktion. Till exempel för den första posten, poängsatta etiketten är ”F” eftersom den har en största sannolikhet att vara ett ”F” (0.916995).
+De vänstra 16 kolumnerna representerar test uppsättningens funktions värden. Kolumnerna med namn som betygs ätt för klass "XX" är precis som kolumnen med resultatet av sannolikheten i två klass fall. De visar sannolikheten för att motsvarande post hamnar i en viss klass. För den första posten är det till exempel 0,003571 sannolikt att det är en "A" 0,000451 sannolikhet att det är en "B" och så vidare. Den sista kolumnen (Poäng etiketter) är samma som de resultat etiketter som visas i det två klass fallet. Den väljer klassen med störst sannolikhet som den förväntade klassen för motsvarande post. För den första posten är till exempel etiketten "F" eftersom den har störst sannolikhet att vara en "F" (0,916995).
 
-**Web tjänstepublicering**
+**Webb tjänst publicering**
 
-Du kan också visa poängsatta etiketten för varje post och sannolikheten för poängsatta etiketten. Den grundläggande logiken är att hitta den största sannolikheten bland alla poängsatt sannolikhet. Om du vill göra detta måste du använda den [kör R-skript] [ execute-r-script] modulen. R-kod visas i figur 8 och resultatet av experimentet illustreras i bild 9.
+Du kan också hämta den resultat etikett som visas för varje post och sannolikheten för den resultat etikett som visas. Den grundläggande logiken är att hitta den största sannolikheten bland alla sannolika sannolikheter. Om du vill göra detta måste du använda modulen [Kör R-skript][execute-r-script] . R-koden visas i bild 8, och resultatet av experimentet visas i bild 9.
 
-![R-kodexempel](./media/interpret-model-results/8.png)
+![Exempel på R-kod](./media/interpret-model-results/8.png)
 
-Figur 8. R-kod för att extrahera poängsatta etiketter och sannolikheter för etiketter
+Figur 8. R-kod för att extrahera Poäng etiketter och de associerade sannolikheterna för etiketterna
 
 ![Experiment resultat](./media/interpret-model-results/9.png)
 
-Figur 9. Slutliga bedömnings experimentet problemets bokstav erkännande inom klassificering
+Figur 9. Slutliga bedömnings experiment om klassificerings problem med multiklass i brev igenkänning
 
-När du publicerar och köra webbtjänsten och ange egna värden för inkommande funktion, returnerade resultatet ser ut som bild 10. Den här handskrivna bokstaven med extraherade 16 funktionerna, förväntas vara ett ”T” med 0.9715 sannolikhet.
+När du har publicerat och kört webb tjänsten och angett några värden för inmatade funktioner ser det returnerade resultatet ut som figur 10. Detta handskrivna brev, med extraherade 16 funktioner, förväntas vara "T" med 0,9715 sannolikhet.
 
-![Testa tolkar poäng-modul](./media/interpret-model-results/9_1.png)
+![Testa score-modulen](./media/interpret-model-results/9_1.png)
 
 ![Testresultat](./media/interpret-model-results/10.png)
 
-Figur 10. Web service resultatet av multiklass-baserad klassificering
+Figur 10. Webb tjänst resultat för klassificering av multiklass
 
 ## <a name="regression"></a>Regression
-Regressionsproblem skiljer sig från klassificering problem. I ett klassificeringsproblem försöker du förutse diskreta klasser, till exempel vilka klass en iris-blommor tillhör. Men som du ser i följande exempel visar ett regressionsproblem du försöker att förutsäga en kontinuerlig variabel, till exempel priset på en bil.
+Regressions problem skiljer sig från klassificerings problem. I ett klassificerings problem försöker du förutse diskreta klasser, till exempel vilken klass en Iris blomma tillhör. Men som du kan se i följande exempel på ett Regressions problem försöker du förutsäga en kontinuerlig variabel, till exempel priset på en bil.
 
-**Exempelexperiment**
+**Exempel experiment**
 
-Använda bil pris förutsägelse som ditt exempel för regression. Du försöker att förutsäga priset på en bil baserat på dess funktioner, inklusive märke, bränsle, strängtypen och enheten hjul. Experimentet illustreras i bild 11.
+Använd pris förutsägelser för bilar som exempel för regression. Du försöker förutsäga priset på en bil baserat på dess funktioner, inklusive fabrikat, bränsle typ, typ av brödtext och enhets hjul. Experimentet visas i bild 11.
 
-![Bil pris regression experiment](./media/interpret-model-results/11.png)
+![Test av bil pris regression](./media/interpret-model-results/11.png)
 
-Figur 11. Bil pris regression problemet experiment
+Figur 11. Problem experiment med Automobil pris regression
 
-Visualisera den [Poängmodell] [ score-model] modulen resultatet ser ut som figur 12.
+Visualisering av modulen [Poäng modell][score-model] , resultatet ser ut som figur 12.
 
-![Bedömning resultat för bil pris förutsägelse problemet](./media/interpret-model-results/12.png)
+![Resultat för problem med förutsägande av mobil pris](./media/interpret-model-results/12.png)
 
-Figur 12. Bedömning resultatet för bil pris förutsägelse problemet
+Figur 12. Resultat för problem med att förutsäga det mobila priset
 
-**Resultatet tolkning**
+**Resultat tolkning**
 
-Poängsatta etiketter är resultatkolumn i den här bedömnings resultat. Talen är förväntade priset för varje bil.
+Poäng etiketter är resultat kolumnen i det här resultat resultatet. Siffrorna är det förväntade priset för varje bil.
 
-**Web tjänstepublicering**
+**Webb tjänst publicering**
 
-Du kan publicera regression experimentet till en webbtjänst och anropar det för bil pris förutsägelse i på samma sätt som användningsfall tvåklassförhöjt klassificering.
+Du kan publicera Regressions experimentet i en webb tjänst och anropa det för biluppskattning av mobila enheter på samma sätt som i ett klassificerings scenario med två klasser.
 
-![Bedömning experiment för bil pris regressionsproblem](./media/interpret-model-results/13.png)
+![Poäng experiment för automobilt pris Regressions problem](./media/interpret-model-results/13.png)
 
-Figur 13. Bedömning experiment av en bil pris regressionsproblem
+Figur 13. Poäng experiment med ett analys problem med bil-priset
 
-Köra webbtjänsten returnerade resultatet ser ut som figur 14. Förväntade priset för den här bil är $15,085.52.
+När webb tjänsten körs ser det returnerade resultatet ut som bild 14. Det förväntade priset för den här bilen är $15 085,52.
 
-![Testa tolkar poängsättningsmodul](./media/interpret-model-results/13_1.png)
+![Testa bedömnings bedömnings modul](./media/interpret-model-results/13_1.png)
 
-![Bedömning modulen resultat](./media/interpret-model-results/14.png)
+![Resultat för bedömnings modul](./media/interpret-model-results/14.png)
 
-Figur 14. Web service-resultatet av en bil pris regressionsproblem
+Bild 14. Webb tjänst resultat av ett analys problem med bil-priset
 
-## <a name="clustering"></a>Klustring
-**Exempelexperiment**
+## <a name="clustering"></a>Redundanskluster
+**Exempel experiment**
 
-Nu ska vi använda igen Iris-datauppsättningen för att skapa ett kluster experiment. Här kan du filtrera ut klass etiketterna i datauppsättningen så att den endast har funktioner och kan användas i kluster. I den här iris användningsfall, ange antalet kluster som ska vara två under utbildning, vilket innebär att du vill gruppera blommor i två klasser. Experimentet visas i figur 15.
+Vi använder Iris-datauppsättningen igen för att skapa ett kluster experiment. Här kan du filtrera ut klass etiketterna i data uppsättningen så att de bara har funktioner och kan användas för klustring. I detta fall anger du hur många kluster som ska vara två under inlärnings processen, vilket innebär att du kan klustra blommorna i två klasser. Experimentet visas i bild 15.
 
-![Experimentera iris klustring problem](./media/interpret-model-results/15.png)
+![Problem experiment för Iris-kluster](./media/interpret-model-results/15.png)
 
-Figur 15. Experimentera iris klustring problem
+Figur 15. Problem experiment för Iris-kluster
 
-Klustring skiljer sig från klassificering i att data träningsmängden inte redan har grunden sanningen etiketter som själva. Klustring grupper utbildning datauppsättning instanser i olika kluster. Under processen utbildning etiketten modellen posterna genom att lära skillnaderna mellan deras funktioner. Efter det kan den tränade modellen användas för att ytterligare klassificera framtida transaktioner. Det finns två delar om resultatet vi är intresserade i ett kluster problem. Den första delen är märkning datauppsättning för träning och andra klassificera en ny datauppsättning med den tränade modellen.
+Klustring skiljer sig från klassificering i att tränings data uppsättningen inte har sanningen etiketter. Klustring grupperar data uppsättnings instanserna för utbildning i distinkta kluster. Under övnings processen namnger modellen posterna genom att lära sig skillnaderna mellan sina funktioner. Sedan kan den tränade modellen användas för att ytterligare klassificera framtida poster. Det finns två delar av resultatet som vi är intresserade av i ett kluster problem. Den första delen märks med tränings data uppsättningen och den andra klassificerar en ny data uppsättning med den tränade modellen.
 
-Den första delen av resultatet kan visualiseras genom att klicka på den vänstra utdataporten för [klustring Träningsmodell] [ train-clustering-model] och sedan klicka på **visualisera**. Visualiseringen illustreras i bild 16.
+Den första delen av resultatet kan visualiseras genom att klicka på den vänstra utdataporten för [träna kluster modell][train-clustering-model] och klicka på **visualisera**. Visualiseringen visas i bild 16.
 
-![Klustring resultat](./media/interpret-model-results/16.png)
+![Kluster resultat](./media/interpret-model-results/16.png)
 
-Bild 16. Visualisera kluster resultatet för datauppsättning för träning
+Bild 16. Visualisera kluster resultat för tränings data uppsättningen
 
-Resultatet av den andra delen, klustring nya poster med tränade klustringsmodell illustreras i bild 17.
+Resultatet av den andra delen, kluster nya poster med den tränade kluster modellen, visas i bild 17.
 
 ![Visualisera kluster resultat](./media/interpret-model-results/17.png)
 
-Bild 17. Visualisera klustring resultat på en ny datauppsättning
+Figur 17. Visualisera kluster resultat på en ny data uppsättning
 
-**Resultatet tolkning**
+**Resultat tolkning**
 
-Även om resultaten av de två delarna härrör från olika experiment faser, de ser likadana ut och tolkas på samma sätt. De första fyra kolumnerna är funktioner. Den sista kolumnen tilldelningar är resultatet för förutsägelse. Poster som har tilldelats samma antal bedöms vara i samma kluster, det vill säga de delar likheter på något sätt (det här experimentet använder Euclidean avståndet Standardmåttet). Eftersom du har angett antalet kluster vara 2 märks posterna i tilldelningar 0 eller 1.
+Även om resultatet av de två delarna härrör från olika experiment faser ser de likadana ut och tolkas på samma sätt. De första fyra kolumnerna är funktioner. Den sista kolumnen, tilldelningarna är resultatet av förutsägelsen. De poster som har tilldelats samma nummer förväntas finnas i samma kluster, det vill säga att de delar liknande på något sätt (det här experimentet använder standardvärdet för Euclidean avstånd). Eftersom du angav antalet kluster som ska vara 2, är posterna i tilldelningarna märkta med antingen 0 eller 1.
 
-**Web tjänstepublicering**
+**Webb tjänst publicering**
 
-Du kan publicera klustring experimentet till en webbtjänst och anropa för klustring förutsägelser på samma sätt som klassificeringen två användningsfall.
+Du kan publicera kluster experimentet i en webb tjänst och anropa det för kluster förutsägelser på samma sätt som i ett klassificerings scenario med två klasser.
 
-![Bedömning experiment för iris klustring problemet](./media/interpret-model-results/18.png)
+![Poäng experiment för problem med Iris-kluster](./media/interpret-model-results/18.png)
 
-Bild 18. Bedömning av experimentet till ett kluster iris-problem
+Bild 18. Poäng experiment av ett problem med Iris-kluster
 
-När du har kört webbtjänsten returnerade resultat som ser ut som bild 19. Den här blommor förväntas finnas i klustret 0.
+När du har kört webb tjänsten ser det returnerade resultatet ut som bild 19. Denna blomma förutsägs vara i kluster 0.
 
-![Testa tolka poängsättningsmodul](./media/interpret-model-results/18_1.png)
+![Testa modulen för att tolka Poängsättning](./media/interpret-model-results/18_1.png)
 
-![Bedömning modulen resultat](./media/interpret-model-results/19.png)
+![Resultat av bedömnings modul](./media/interpret-model-results/19.png)
 
-Bild 19. Web service resultatet av iris tvåklassförhöjt klassificering
+Bild 19. Webb tjänst resultat av Iris i två Klasss klassificering
 
-## <a name="recommender-system"></a>Rekommenderare system
-**Exempelexperiment**
+## <a name="recommender-system"></a>Rekommenderat system
+**Exempel experiment**
 
-För rekommenderare system, du kan använda restaurang rekommendation problemet som ett exempel: du kan rekommendera restauranger för kunder som är baserat på deras klassificering historik. Indata består av tre delar:
+För rekommenderade system kan du använda problemet med restaurang rekommendationer som exempel: du kan rekommendera restauranger för kunder baserat på deras klassificerings historik. Indata består av tre delar:
 
-* Restaurang klassificeringar från kunder
-* Funktionen kunddata
-* Restaurang funktionsdata
+* Restaurang betyg från kunder
+* Kund funktions data
+* Restaurang funktions data
 
-Det finns flera saker som vi kan göra med den [träna Matchbox rekommenderare] [ train-matchbox-recommender] modul i Azure Machine Learning Studio:
+Det finns flera saker som vi kan göra med modulen [träna matchbox-rekommendationer][train-matchbox-recommender] i den klassiska versionen av Azure Machine Learning Studio:
 
-* Förutsäga klassificeringar för en viss användare och objekt
-* Rekommendera föremål för en viss användare
-* Hitta användare som rör en viss användare
-* Hitta objekt som är relaterade till ett visst objekt
+* Förutsäg betyg för en specifik användare och objekt
+* Rekommendera objekt till en specifik användare
+* Hitta användare som är relaterade till en specifik användare
+* Hitta objekt som rör ett angivet objekt
 
-Du kan välja vad du vill göra genom att välja bland de fyra alternativen i den **rekommenderare förutsägelse typ** menyn. Här kan du gå igenom alla fyra scenarier.
+Du kan välja vad du vill göra genom att välja bland de fyra alternativen på menyn **rekommenderat förutsägelse typ** . Här kan du gå igenom alla fyra scenarier.
 
-![Matchbox rekommenderare](./media/interpret-model-results/19_1.png)
+![Matchbox-rekommendation](./media/interpret-model-results/19_1.png)
 
-Ett typiskt Azure Machine Learning Studio-experiment för ett system för rekommenderare ser ut som bild 20. Information om hur du använder dessa moduler för rekommenderare system finns i [träna matchbox rekommenderare] [ train-matchbox-recommender] och [poäng matchbox rekommenderare] [ score-matchbox-recommender].
+Ett vanligt Azure Machine Learning Studio (klassiskt) experiment för ett rekommenderat system ser ut som figur 20. Information om hur du använder dessa rekommenderade system moduler finns i [träna matchbox rekommenderar][train-matchbox-recommender] and [Scores matchbox rekommenderar][score-matchbox-recommender].
 
-![Rekommenderare system experiment](./media/interpret-model-results/20.png)
+![Rekommenderat system experiment](./media/interpret-model-results/20.png)
 
-Bild 20. Rekommenderare system experiment
+Bild 20. Rekommenderat system experiment
 
-**Resultatet tolkning**
+**Resultat tolkning**
 
-**Förutsäga klassificeringar för en viss användare och objekt**
+**Förutsäg betyg för en specifik användare och objekt**
 
-Genom att välja **klassificering förutsägelse** under **rekommenderare förutsägelse typ**, du ber rekommenderare systemet att förutsäga betyget för en viss användare och objekt. Visualisering av den [poäng Matchbox rekommenderare] [ score-matchbox-recommender] utdata som returneras liknar bild 21.
+Genom att välja **betygs** förutsägelse under **rekommendations förutsägelse typ**ber du det rekommenderade systemet att förutsäga omdömet för en viss användare och objekt. Visualiseringen av [poängen matchbox rekommenderar][score-matchbox-recommender] att utdata ser ut som figur 21.
 
-![Rangordna resultat av systemet rekommenderare--omdöme förutsägelse](./media/interpret-model-results/21.png)
+![Resultat resultat för rekommendations systemet – betygs förutsägelse](./media/interpret-model-results/21.png)
 
-Bild 21. Visualisera poäng resultatet av systemet rekommenderare--omdöme förutsägelse
+Bild 21. Visualisera resultatet från rekommendations systemet – betygs förutsägelse
 
-De första två kolumnerna är användaren-item-par som tillhandahålls av indata. Den tredje kolumnen är den förväntade klassificeringen av en användare för en viss artikel. Till exempel på den första raden förväntas kunden U1048 rate restaurang 135026 som 2.
+De första två kolumnerna är de användar objekts par som tillhandahålls av indata. Den tredje kolumnen är den förväntade omdömet för en användare för ett visst objekt. I den första raden förutsägs till exempel kund U1048 för att ge pris på restaurang 135026 som 2.
 
-**Rekommendera föremål för en viss användare**
+**Rekommendera objekt till en specifik användare**
 
-Genom att välja **objekt rekommendation** under **rekommenderare förutsägelse typ**, begär du rekommenderare systemet att rekommendera objekt till en viss användare. Den sista parametern för att välja i det här scenariot är *rekommenderas val av*. Alternativet **från görs av objekt (för utvärdering av modellen)** är främst avsedd för utvärdering av modellen under utbildning. För det här steget förutsägelse vi välja **från alla objekt**. Visualisering av den [poäng Matchbox rekommenderare] [ score-matchbox-recommender] utdata som returneras liknar bild 22.
+Genom att välja **artikel rekommendation** under **rekommenderat förutsägelse typ**ber du det rekommenderade systemet att rekommendera objekt till en viss användare. Den sista parametern som du väljer i det här scenariot *rekommenderas val av objekt*. Alternativet **från betygsatta objekt (för modell utvärdering)** är i första hand för modell utvärdering under inlärnings processen. För det här förutsägelse skedet väljer vi **från alla objekt**. Visualiseringen av [poängen matchbox rekommenderar][score-matchbox-recommender] att utdata ser ut som figur 22.
 
-![Poäng resultatet av rekommenderare system, objekt-rekommendation](./media/interpret-model-results/22.png)
+![Resultat från rekommendations system – artikel rekommendation](./media/interpret-model-results/22.png)
 
-Bild 22. Visualisera poäng resultatet av rekommenderare system, objekt-rekommendation
+Bild 22. Visualisera Poäng resultatet av rekommendations systemet – artikel rekommendation
 
-Första sex kolumner representerar den angivna användar-ID att rekommendera objekt, som tillhandahålls av indata. De fem kolumnerna representerar de objekt som rekommenderas för användaren i fallande relevansordning. I den första raden är exempelvis rekommenderas restaurang för kund U1048 134986, följt av 135018, 134975, 135021 och 132862.
+Den första av de sex kolumnerna representerar de angivna användar-ID: na för att rekommendera objekt för, enligt uppgifterna i indata. De andra fem kolumnerna representerar de objekt som rekommenderas för användaren i fallande ordning efter relevans. Till exempel, på den första raden, är den mest rekommenderade restaurangen för kund U1048 134986, följt av 135018, 134975, 135021 och 132862.
 
-**Hitta användare som rör en viss användare**
+**Hitta användare som är relaterade till en specifik användare**
 
-Genom att välja **relaterade användare** under **rekommenderare förutsägelse typ**, begär du rekommenderare systemet efter relaterade användare till en viss användare. Relaterade användare är de användare som har liknande inställningar. Den sista parametern för att välja i det här scenariot är *relaterade användarens val*. Alternativet **från användare att ingen återbetalning görs objekt (för utvärdering av modellen)** är främst avsedd för utvärdering av modellen under utbildning. Välj **från alla användare** för det här steget för förutsägelse. Visualisering av den [poäng Matchbox rekommenderare] [ score-matchbox-recommender] utdata som returneras liknar bild 23.
+Genom att välja **relaterade användare** under **rekommendations förutsägelse typ**ber du det rekommenderade systemet att hitta relaterade användare till en viss användare. Relaterade användare är de användare som har liknande inställningar. Den sista parametern som du väljer i det här scenariot är *relaterad användar val*. Alternativet **från användare som betygsattade objekt (för modell utvärdering)** är i första hand för modell utvärdering under inlärnings processen. Välj **bland alla användare** för den här förutsägelse fasen. Visualiseringen av [poängen matchbox rekommenderar][score-matchbox-recommender] att utdata ser ut som Figur 23.
 
-![Poäng resultatet av rekommenderare system, relaterade användare](./media/interpret-model-results/23.png)
+![Resultat från rekommenderade system-relaterade användare](./media/interpret-model-results/23.png)
 
-Bild 23. Visualisera poängresultat rekommenderare systemets--relaterade användare
+Bild 23. Visualisera Poäng resultat för de rekommenderade användarens system-relaterade användare
 
-Första sex kolumner visas den angivna användaren ID krävs för att hitta relaterade användare, som tillhandahålls av indata. De fem kolumnerna lagra förväntade relaterade användarna av användaren i fallande relevansordning. I den första raden är till exempel mest relevanta kunden för kund U1048 U1051, följt av U1066, U1044, U1017 och U1072.
+Den första av de sex kolumnerna visar de angivna användar-ID: n som krävs för att hitta relaterade användare, som tillhandahålls av indata. De andra fem kolumnerna lagrar de förväntade relaterade användarna av användaren i fallande ordning efter relevans. Till exempel, på den första raden, är den mest relevanta kunden för kund U1048 U1051, följt av U1066, U1044, U1017 och U1072.
 
-**Hitta objekt som är relaterade till ett visst objekt**
+**Hitta objekt som rör ett angivet objekt**
 
-Genom att välja **relaterade objekt** under **rekommenderare förutsägelse typ**, du ber rekommenderare-systemet för att få relaterade objekt till ett visst objekt. Relaterade objekt är objekt som är störst sannolikhet att vara gillade av samma användare. Den sista parametern för att välja i det här scenariot är *relaterade val av*. Alternativet **från görs av objekt (för utvärdering av modellen)** är främst avsedd för utvärdering av modellen under utbildning. Vi väljer **från alla objekt** för det här steget för förutsägelse. Visualisering av den [poäng Matchbox rekommenderare] [ score-matchbox-recommender] utdata som returneras liknar bild 24.
+Genom att välja **relaterade objekt** under **rekommendations förutsägelse typ**ber du det rekommenderade systemet att hitta relaterade objekt till ett givet objekt. Relaterade objekt är de objekt som troligt vis kommer att Gillas av samma användare. Den sista parametern som du väljer i det här scenariot är *relaterat objekt val*. Alternativet **från betygsatta objekt (för modell utvärdering)** är i första hand för modell utvärdering under inlärnings processen. Vi väljer **bland alla objekt** för den här förutsägelse fasen. Visualiseringen av [poängen matchbox rekommenderar][score-matchbox-recommender] att utdata ser ut som figur 24.
 
-![Poäng resultatet av rekommenderare system, relaterade objekt](./media/interpret-model-results/24.png)
+![Resultat från rekommenderade system-relaterade objekt](./media/interpret-model-results/24.png)
 
-Bild 24. Visualisera poängresultat rekommenderare systemets--relaterade objekt
+Bild 24. Visualisera Poäng resultat för de rekommenderade system-relaterade objekten
 
-Första sex kolumner representerar objektet ID: N som behövs för att hitta relaterade objekt, som tillhandahålls av indata. De fem kolumnerna lagra förväntade relaterade objekt för objekt i fallande ordning när det gäller relevans. I den första raden är det mest relevanta objektet för objektet 135026 exempelvis 135074, följt av 135035, 132875, 135055 och 134992.
+Den första av de sex kolumnerna representerar de angivna objekt-ID: n som krävs för att hitta relaterade objekt, som tillhandahålls av indata. De andra fem kolumnerna lagrar de förväntade relaterade objekten för objektet i fallande ordning i förhållande till relevansen. Till exempel, på den första raden, är det mest relevanta objektet för artikel 135026 135074, följt av 135035, 132875, 135055 och 134992.
 
-**Web tjänstepublicering**
+**Webb tjänst publicering**
 
-Processen för att publicera dessa experiment som webbtjänster som ska få förutsägelser liknar för var och en av de fyra scenarierna. Här kan vi dra i det andra scenariot (det rekommenderas att objekt till en viss användare), som exempel. Du kan följa samma procedur med de andra tre.
+Processen att publicera dessa experiment som webb tjänster för att få förutsägelser liknar varandra för var och en av de fyra scenarierna. Här tar vi det andra scenariot (rekommendera objekt till en specifik användare) som exempel. Du kan följa samma procedur med de andra tre.
 
-Spara tränade rekommenderare systemet som en tränad modell och filtrera inkommande data till en enskild användare ID-kolumn som begärs, kan du koppla samman experiment som bild 25 och publicera den som en webbtjänst.
+Om du sparar det utbildade rekommenderade systemet som en utbildad modell och filtrerar indata till en kolumn för användar-ID som begärs, kan du ansluta experimentet som i bild 25 och publicera det som en webb tjänst.
 
-![Bedömning experiment problemets restaurang rekommendation](./media/interpret-model-results/25.png)
+![Poäng experiment med problemet med restaurang rekommendation](./media/interpret-model-results/25.png)
 
-Bild 25. Bedömning experiment problemets restaurang rekommendation
+Bild 25. Poäng experiment med problemet med restaurang rekommendation
 
-Köra webbtjänsten returnerade resultatet ser ut som bild 26. Fem rekommenderade restauranger för användaren U1048 är 134986, 135018, 134975, 135021 och 132862.
+När webb tjänsten körs ser det returnerade resultatet ut som bild 26. De fem rekommenderade restauranger för User U1048 är 134986, 135018, 134975, 135021 och 132862.
 
-![Exempel på rekommenderare systemtjänst](./media/interpret-model-results/25_1.png)
+![Exempel på tjänsten rekommenderar system](./media/interpret-model-results/25_1.png)
 
-![Exempelresultat för experiment](./media/interpret-model-results/26.png)
+![Exempel på experiment resultat](./media/interpret-model-results/26.png)
 
-Bild 26. Web service resultatet av restaurang rekommendation problem
+Bild 26. Webb tjänst resultat av problem med restaurang rekommendationer
 
 <!-- Module References -->
 [assign-to-clusters]: https://msdn.microsoft.com/library/azure/eed3ee76-e8aa-46e6-907c-9ca767f5c114/

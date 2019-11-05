@@ -1,22 +1,22 @@
 ---
-title: Felsöka för hands version av Azure Data Share
-description: Lär dig hur du felsöker problem med inbjudningar och fel när du skapar eller tar emot data resurser med Azure Data Share Preview.
+title: Felsöka Azure Data Share
+description: Lär dig hur du felsöker problem med inbjudningar och fel när du skapar eller tar emot data resurser med Azure Data Share.
 services: data-share
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 07/10/2019
-ms.openlocfilehash: 592a2d464aed8c39dfd11734beccbd0399d75fd9
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 6ad612d56b25da9e092070198e321e7fca8ad96b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169230"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490558"
 ---
-# <a name="troubleshoot-common-issues-in-azure-data-share-preview"></a>Felsök vanliga problem i för hands versionen av Azure Data Share
+# <a name="troubleshoot-common-issues-in-azure-data-share"></a>Felsök vanliga problem i Azure Data Share 
 
-Den här artikeln visar hur du felsöker vanliga problem för för hands versionen av Azure Data reshare. 
+Den här artikeln visar hur du felsöker vanliga problem med Azure Data Share. 
 
 ## <a name="azure-data-share-invitations"></a>Azure Data Share-inbjudningar 
 
@@ -55,6 +55,20 @@ Om du får något av ovanstående felmeddelanden när du skapar en ny dataresurs
 1. Välj **åtkomst kontroll (IAM)**
 1. Klicka på **Lägg till**
 1. Lägg till dig själv i som ägare.
+
+## <a name="troubleshooting-sql-based-sharing"></a>Felsöka SQL-baserad delning
+
+"Fel: x data uppsättningar lades inte till eftersom du inte har de behörigheter som krävs för att dela."
+
+Om du får det här felet när du lägger till en data uppsättning från en SQL-baserad källa kan det bero på att du inte har skapat en användare för Azure Data Share-MSI på din SQL Server.  Lös problemet genom att köra följande skript:
+
+```sql
+    create user <share_acct_name> from external provider;     
+    exec sp_addrolemember db_owner, <share_acct_name>; 
+```      
+Observera att *< share_acc_name >* är namnet på ditt data resurs konto. Om du inte har skapat ett data resurs konto ännu kan du komma tillbaka till det här kravet senare.         
+
+Se till att du har följt alla krav som anges i [dela din data](share-your-data.md) kurs.
 
 ## <a name="next-steps"></a>Nästa steg
 

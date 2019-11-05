@@ -1,51 +1,45 @@
 ---
-title: Anslut till en Windows-VM med hjälp av Azure Skyddsmiljö | Microsoft Docs
-description: I den här artikeln lär du dig hur du ansluter till en Azure-dator som kör Windows med hjälp av Azure Skyddsmiljö.
+title: Ansluta till en virtuell Windows-dator med Azure skydds | Microsoft Docs
+description: I den här artikeln får du lära dig hur du ansluter till en virtuell Azure-dator som kör Windows med hjälp av Azure-skydds.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 10/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 376b7042a513dd50647dc8f88bf1de70f65bb21c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: dc741007c7de8d8e24f9c0f9e4e0c03306d036a4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478406"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498354"
 ---
-# <a name="connect-to-a-windows-virtual-machine-using-azure-bastion-preview"></a>Ansluta till en Windows-dator med hjälp av Azure Skyddsmiljö (förhandsversion)
+# <a name="connect-to-a-windows-virtual-machine-using-azure-bastion"></a>Ansluta till en virtuell Windows-dator med Azure skydds
 
-Den här artikeln visar hur till säkert och smidigt RDP till dina virtuella Windows-datorer i ett virtuellt Azure nätverk med hjälp av Azure Skyddsmiljö. Du kan ansluta till en virtuell dator direkt från Azure-portalen. När du använder Azure Bastion behövs ingen klient, agent eller ytterligare programvara för den virtuella datorn. Läs mer om Azure Skyddsmiljö den [översikt](bastion-overview.md).
-
-> [!IMPORTANT]
-> Den offentliga förhandsversionen tillhandahålls utan serviceavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
+Den här artikeln visar hur du på ett säkert och smidigt sätt kan använda RDP för dina virtuella Windows-datorer i ett virtuellt Azure-nätverk med Azure skydds. Du kan ansluta till en virtuell dator direkt från Azure-portalen. När du använder Azure Bastion behövs ingen klient, agent eller ytterligare programvara för den virtuella datorn. Mer information om Azure-skydds finns i [översikten](bastion-overview.md).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Kontrollera att du har konfigurerat en Azure-Skyddsmiljö-värd för det virtuella nätverket där den virtuella datorn finns. Mer information finns i [skapa en Azure-Skyddsmiljö-värd](bastion-create-host-portal.md). När tjänsten Skyddsmiljö etableras och distribueras i det virtuella nätverket, kan du använda den för att ansluta till virtuella datorer i det här virtuella nätverket. I den här förhandsversionen förutsätter Skyddsmiljö att du använder RDP för att ansluta till en Windows-VM och SSH för att ansluta till din virtuella Linux-datorer. Information om anslutningen till en Linux-VM finns i [Anslut till en virtuell dator – Linux](bastion-connect-vm-ssh.md).
+Kontrol lera att du har konfigurerat en Azure skydds-värd för det virtuella nätverk där den virtuella datorn finns. Mer information finns i [skapa en Azure skydds-värd](bastion-create-host-portal.md). När skydds-tjänsten har tillhandahållits och distribuerats i det virtuella nätverket kan du använda den för att ansluta till en virtuell dator i det här virtuella nätverket. Skydds förutsätter att du använder RDP för att ansluta till en virtuell Windows-dator och SSH för att ansluta till dina virtuella Linux-datorer. Information om hur du ansluter till en virtuell Linux-dator finns i [ansluta till en VM – Linux](bastion-connect-vm-ssh.md).
 
-För att upprätta en anslutning, krävs följande roller:
+Följande roller krävs för att upprätta en anslutning:
 
-* Läsarroll för på den virtuella datorn
-* Läsarroll på nätverkskortet med privata IP-Adressen för den virtuella datorn
-* Läsarroll för Azure-skyddade resursen
+* Rollen läsare på den virtuella datorn
+* Rollen läsare på NÄTVERKSKORTet med den virtuella datorns privata IP-adress
+* Läsar roll på Azure skydds-resursen
 
-## <a name="rdp"></a>Ansluta med RDP
+## <a name="rdp"></a>Anslut via RDP
 
-1. Använd [den här länken](https://aka.ms/BastionHost) att öppna sidan preview portal för Azure Skyddsmiljö. Navigera till den virtuella datorn som du vill ansluta till och klicka sedan på **Connect**. Den virtuella datorn ska vara en Windows-dator när du använder en RDP-anslutning.
+1. Öppna [Azure-portalen](https://portal.azure.com). Navigera till den virtuella dator som du vill ansluta till och klicka sedan på **Anslut**. Den virtuella datorn ska vara en virtuell Windows-dator när en RDP-anslutning används.
 
-    ![VM-anslutning](./media/bastion-connect-vm-rdp/connect.png)
+   ![Anslut till virtuell dator](./media/bastion-connect-vm-rdp/connect.png)
+1. När du klickar på Anslut visas ett sido fält med tre flikar – RDP, SSH och skydds. Om skydds etablerades för det virtuella nätverket är fliken skydds aktiv som standard. Om du inte etablerar skydds för det virtuella nätverket kan du klicka på länken för att konfigurera skydds. Konfigurations anvisningar finns i [Konfigurera skydds](bastion-create-host-portal.md).
 
-1. När du klickar på Anslut visas ett sida-fält som har tre flikar – RDP och SSH Skyddsmiljö. Om Skyddsmiljö etablerades för det virtuella nätverket, är fliken Skyddsmiljö aktiv som standard. Om du inte har etablerat Skyddsmiljö för det virtuella nätverket, klickar du på länken om du vill konfigurera Skyddsmiljö. Instruktioner för konfiguration, se [konfigurera Skyddsmiljö](bastion-create-host-portal.md). Om du inte ser **Skyddsmiljö** visas, du har inte öppnat preview-portalen. Öppna portalen använder det här [förhandsversion länk](https://aka.ms/BastionHost).
+   ![Anslut till virtuell dator](./media/bastion-connect-vm-rdp/bastion.png)
+1. På fliken skydds, användar namn och lösen ord för den virtuella datorn klickar du på **Anslut**. RDP-anslutningen till den virtuella datorn via skydds öppnas direkt i Azure Portal (via HTML5) med port 443 och skydds-tjänsten.
 
-    ![VM-anslutning](./media/bastion-connect-vm-rdp/bastion.png)
-
-1. På fliken Skyddsmiljö, användarnamn och lösenord för den virtuella datorn, klicka sedan på **Connect**. RDP-anslutning till den här virtuella datorn via Skyddsmiljö öppnas direkt i Azure-portalen (via HTML5) med port 443 och Skyddsmiljö-tjänsten.
-
-    ![VM-anslutning](./media/bastion-connect-vm-rdp/443rdp.png)
+   ![Anslut till virtuell dator](./media/bastion-connect-vm-rdp/443rdp.png)
  
 ## <a name="next-steps"></a>Nästa steg
 
-Läs den [Skyddsmiljö vanliga frågor och svar](bastion-faq.md)
+Läs [vanliga frågor och svar om skydds](bastion-faq.md)

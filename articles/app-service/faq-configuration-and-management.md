@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 68d0f693d0cc7d8db8e6f697ff8907400a7aca50
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 111ee6cda46677b3b0fc39f5a84268e6ac192da9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121315"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470526"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar om konfiguration och hantering för Web Apps i Azure
 
@@ -43,12 +43,12 @@ Information om hur du köper och konfigurerar en anpassad domän för din App Se
 
 ## <a name="how-do-i-upload-and-configure-an-existing-ssl-certificate-for-my-web-app"></a>Hur gör jag för att ladda upp och konfigurera ett befintligt SSL-certifikat för min webbapp?
 
-Information om hur du överför och konfigurerar ett befintligt anpassat SSL-certifikat finns i [BIND ett befintligt anpassat SSL-certifikat till en Azure-webbapp](app-service-web-tutorial-custom-ssl.md#upload).
+Information om hur du överför och konfigurerar ett befintligt anpassat SSL-certifikat finns i [lägga till ett SSL-certifikat till din app service-app](configure-ssl-certificate.md).
 
 
 ## <a name="how-do-i-purchase-and-configure-a-new-ssl-certificate-in-azure-for-my-web-app"></a>Hur gör jag för att köpa och konfigurera ett nytt SSL-certifikat i Azure för mitt webb program?
 
-Information om hur du köper och konfigurerar ett SSL-certifikat för din App Service-webbapp finns i [lägga till ett SSL-certifikat till din app service-app](web-sites-purchase-ssl-web-site.md).
+Information om hur du köper och konfigurerar ett SSL-certifikat för din App Service-webbapp finns i [lägga till ett SSL-certifikat till din app service-app](configure-ssl-certificate.md).
 
 
 ## <a name="how-do-i-move-application-insights-resources"></a>Hur gör jag för att flyttar du Application Insights resurser?
@@ -139,7 +139,7 @@ Så här granskar du webb jobb loggar:
 6. Välj knappen **Växla utdata** .
 7. Välj länken Hämta.
 
-## <a name="im-trying-to-use-hybrid-connections-with-sql-server-why-do-i-see-the-message-systemoverflowexception-arithmetic-operation-resulted-in-an-overflow"></a>Jag försöker använda Hybridanslutningar med SQL Server. Varför visas meddelandet "system. OverflowException: En aritmetisk åtgärd resulterade i ett spill "?
+## <a name="im-trying-to-use-hybrid-connections-with-sql-server-why-do-i-see-the-message-systemoverflowexception-arithmetic-operation-resulted-in-an-overflow"></a>Jag försöker använda Hybridanslutningar med SQL Server. Varför visas meddelandet "system. OverflowException: aritmetisk åtgärd resulterade i ett spill"?
 
 Om du använder Hybridanslutningar för att få åtkomst till SQL Server kan en Microsoft .NET uppdatering den 10 maj 2016 orsaka att anslutningar Miss lyckas. Du kanske ser det här meddelandet:
 
@@ -147,13 +147,13 @@ Om du använder Hybridanslutningar för att få åtkomst till SQL Server kan en 
 Exception: System.Data.Entity.Core.EntityException: The underlying provider failed on Open. —> System.OverflowException: Arithmetic operation resulted in an overflow. or (64 bit Web app) System.OverflowException: Array dimensions exceeded supported range, at System.Data.SqlClient.TdsParser.ConsumePreLoginHandshake
 ```
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
 Undantaget orsakades av ett problem med den Hybridanslutningshanteraren som har åtgärd ATS sedan. Se till att [uppdatera Hybridanslutningshanteraren](https://go.microsoft.com/fwlink/?LinkID=841308) för att lösa problemet.
 
 ## <a name="how-do-i-add-a-url-rewrite-rule"></a>Hur gör jag för att lägga till en regel för att skapa en URL?
 
-Om du vill lägga till en regel för en URL-omskrivning skapar du en Web. config-fil med relevanta konfigurations poster i mappen **wwwroot** . Mer information finns i [Azure App Services: Att förstå URL-](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/)omskrivning.
+Om du vill lägga till en regel för en URL-omskrivning skapar du en Web. config-fil med relevanta konfigurations poster i mappen **wwwroot** . Mer information finns i [Azure App Services: förstå URL-omskrivning](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/).
 
 ## <a name="how-do-i-control-inbound-traffic-to-app-service"></a>Hur gör jag för att kontroll av inkommande trafik till App Service?
 
@@ -197,7 +197,7 @@ Om du vill visa en har-fil kan du använda [visaren har visats](https://www.soft
 
 ## <a name="why-do-i-get-an-error-when-i-try-to-connect-an-app-service-web-app-to-a-virtual-network-that-is-connected-to-expressroute"></a>Varför visas ett fel meddelande när jag försöker ansluta en App Service-webbapp till ett virtuellt nätverk som är anslutet till ExpressRoute?
 
-Om du försöker ansluta en Azure-webbapp till ett virtuellt nätverk som är anslutet till Azure ExpressRoute Miss lyckas det. Följande meddelande visas: "Gatewayen är inte en VPN-gateway."
+Om du försöker ansluta en Azure-webbapp till ett virtuellt nätverk som är anslutet till Azure ExpressRoute Miss lyckas det. Följande meddelande visas: "gatewayen är inte en VPN-gateway."
 
 För närvarande kan du inte ha punkt-till-plats-VPN-anslutningar till ett virtuellt nätverk som är anslutet till ExpressRoute. Det går inte att använda en punkt-till-plats-VPN och ExpressRoute för samma virtuella nätverk. Mer information finns i [ExpressRoute och begränsningar för plats-till-plats-VPN-anslutningar och begränsningar](../expressroute/expressroute-howto-coexist-classic.md#limits-and-limitations).
 

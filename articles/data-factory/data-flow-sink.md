@@ -6,16 +6,14 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: da8dc332794cadc0eb6677390c566e67a6df6f3f
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 7cfe0cf291e8c39a4600234632090c39ab5cd78e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882449"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73519319"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Sink-transformering för ett data flöde
-
-
 
 När du har transformerat ditt data flöde kan du sinka data till en mål data uppsättning. I omvandling för mottagare väljer du en data uppsättnings definition för målets utgående data. Du kan ha så många handfat som dina data flöden kräver.
 
@@ -107,6 +105,13 @@ Välj databas inställningar:
 
 > [!NOTE]
 > När du uppdaterar eller tar bort rader i din databas mottagare måste du ange nyckel kolumnen. Med den här inställningen kan Alter-Row-omvandlingen bestämma den unika raden i data flyttnings biblioteket (DML).
+
+### <a name="cosmosdb-specific-settings"></a>CosmosDB-inställningar
+
+Vid landnings data i CosmosDB måste du överväga följande ytterligare alternativ:
+
+* Partitionsnyckel: det här fältet är obligatoriskt. Ange en sträng som representerar partitionens partitionsnyckel för din samling. Exempel: ```/movies/title```
+* Data flöde: Ange ett valfritt värde för det antal ru: er som du vill använda för din CosmosDB-samling för varje körning av det här data flödet. Minimum är 400.
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har skapat ditt data flöde lägger du till en [data flödes aktivitet i din pipeline](concepts-data-flow-overview.md).

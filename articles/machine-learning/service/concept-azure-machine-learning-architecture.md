@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/12/2019
+ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 706f76c00022c5f5661ea261a5bb35eedc13d5ba
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: MT
+ms.openlocfilehash: ba6d81596cd8a690f5c17e1ca55b91c5ff27b916
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756038"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497520"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Hur Azure Machine Learning fungerar: arkitektur och koncept
 
@@ -28,13 +28,13 @@ Lär dig mer om arkitekturen, begreppen och arbets flödet för Azure Machine Le
 Arbets flödet för Machine Learning-modellen följer i allmänhet den här ordningen:
 
 1. **Utbilda**
-    + Utveckla utbildnings skript för Machine Learning i **python** eller med det visuella gränssnittet.
+    + Utveckla utbildnings skript för maskin inlärning i **python** eller med den visuella designern.
     + Skapa och konfigurera ett **beräknings mål**.
     + **Skicka skripten** till det konfigurerade Compute-målet som ska köras i den miljön. Under utbildningen kan skripten läsa från eller skriva till **data lager**. Och posterna för körningen sparas som **körs** i **arbets ytan** och grupperas under **experiment**.
 
 1. **Paket** – när en tillfredsställande körning hittas registrerar du den sparade modellen i **modell registret**.
 
-1. **Verifiera**  - **fråga experimentet** efter loggade mått från aktuella och tidigare körningar. Om måtten inte indikerar ett önskat resultat går du tillbaka till steg 1 och itererar dina skript.
+1. **Verifiera** - **fråga experimentet** efter loggade mått från aktuella och tidigare körningar. Om måtten inte indikerar ett önskat resultat går du tillbaka till steg 1 och itererar dina skript.
 
 1. **Distribuera** – utveckla ett bedömnings skript som använder modellen och **distribuera modellen** som en **webb tjänst** i Azure, eller till en **IoT Edge enhet**.
 
@@ -45,23 +45,26 @@ Arbets flödet för Machine Learning-modellen följer i allmänhet den här ordn
 Använd följande verktyg för Azure Machine Learning:
 
 +  Interagera med tjänsten i valfri python-miljö med [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
++ Interagera med tjänsten i valfri R-miljö med [Azure Machine Learning SDK för R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + Automatisera dina Machine Learning-aktiviteter med [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
 + Skriva kod i Visual Studio Code med [Azure Machine Learning vs Code-tillägg](how-to-vscode-tools.md)
-+ Använd [Visual Interface (för hands version) för Azure Machine Learning](ui-concept-visual-interface.md) för att utföra arbets flödes stegen utan att skriva kod.
++ Använd [Azure Machine Learning designer (för hands version)](concept-designer.md) för att utföra arbets flödes stegen utan att skriva kod.
+
 
 > [!NOTE]
 > Även om den här artikeln definierar termer och begrepp som används av Azure Machine Learning definierar den inte termer och begrepp för Azure-plattformen. Mer information om terminologi för Azure-plattformen finns i [ord listan Microsoft Azure](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
 
 ## <a name="glossary"></a>Ordlista
 + <a href="#activities">Aktivitet</a>
++ <a href="#compute-instance">Beräknings instans</a>
 + <a href="#compute-targets">Compute-mål</a>
 + <a href="#datasets-and-datastores">Data uppsättningar & data lager</a>
-+ <a href="#deployment">Distribution</a>
++ <a href="#endpoints">Slut punkter</a>
 + <a href="#environments">Utrymmen</a>
 + [Kostnadsberäknare](#estimators)
 + <a href="#experiments">Experiment</a>
 + <a href="#github-tracking-and-integration">Git-spårning</a>
-+ <a href="#iot-module-deployments">IoT-moduler</a>
++ <a href="#iot-module-endpoints">IoT-moduler</a>
 + <a href="#logging">Logging</a>
 + <a href="#ml-pipelines">ML pipelines</a>
 + <a href="#models">Modellerna</a>
@@ -69,7 +72,7 @@ Använd följande verktyg för Azure Machine Learning:
 + <a href="#run-configurations">Kör konfiguration</a>
 + <a href="#snapshots">Ögonblicks bild</a>
 + <a href="#training-scripts">Tränings skript</a>
-+ <a href="#web-service-deployments">Webb tjänster</a>
++ <a href="#web-service-endpoint">Webb tjänster</a>
 + <a href="#workspaces">Platsen</a>
 
 ### <a name="activities"></a>Aktiviteter
@@ -81,9 +84,19 @@ En aktivitet representerar en tids krävande åtgärd. Följande åtgärder är 
 
 Aktiviteter kan ge aviseringar via SDK eller webb gränssnittet så att du enkelt kan övervaka förloppet för dessa åtgärder.
 
+### <a name="compute-instance"></a>Beräknings instans
+
+> [!NOTE]
+> Beräknings instanser är endast tillgängliga för arbets ytor med en region i **norra centrala USA** eller **Storbritannien, södra**.
+>Om din arbets yta finns i en annan region kan du fortsätta att skapa och använda en [virtuell dator](concept-compute-instance.md#notebookvm) i stället. 
+
+En **Azure Machine Learning beräknings instans** (tidigare VM) är en fullständigt hanterad molnbaserad arbets station som innehåller flera verktyg och miljöer som är installerade för maskin inlärning. Beräknings instanser kan användas som beräknings mål för utbildnings-och inferencing-jobb. För stora aktiviteter är [Azure Machine Learning beräknings kluster](how-to-set-up-training-targets.md#amlcompute) med skalnings funktioner för flera noder ett bättre beräknings måls val.
+
+Läs mer om [beräknings instanser](concept-compute-instance.md).
+
 ### <a name="compute-targets"></a>Compute-mål
 
-Med ett [beräknings mål](concept-compute-target.md) kan du ange den beräknings resurs där du kör ditt utbildnings skript eller vara värd för tjänst distributionen. Den här platsen kan vara din lokala dator eller en molnbaserad beräknings resurs. Med beräknings mål är det enkelt att ändra beräknings miljön utan att ändra koden.
+Med ett [beräknings mål](concept-compute-target.md) kan du ange den beräknings resurs där du kör ditt utbildnings skript eller vara värd för tjänst distributionen. Den här platsen kan vara din lokala dator eller en molnbaserad beräknings resurs.
 
 Lär dig mer om de [tillgängliga beräknings målen för utbildning och distribution](concept-compute-target.md).
 
@@ -97,23 +110,23 @@ Mer information finns i [skapa och registrera Azure Machine Learning data uppsä
 
 Ett **data lager** är en lagrings abstraktion över ett Azure Storage-konto. Data lagret kan använda antingen en Azure Blob-behållare eller en Azure-filresurs som server dels lagringen. Varje arbets yta har ett standard-datalager och du kan registrera ytterligare data lager. Använd python SDK API eller Azure Machine Learning CLI för att lagra och hämta filer från data lagret.
 
-### <a name="deployment"></a>Distribution
+### <a name="endpoints"></a>Slutpunkter
 
-En distribution är en instansiering av din modell i antingen en webb tjänst som kan finnas i molnet eller en IoT-modul för integrerade enhets distributioner.
+En slut punkt är en instansiering av din modell i antingen en webb tjänst som kan finnas i molnet eller en IoT-modul för integrerade enhets distributioner.
 
-#### <a name="web-service-deployments"></a>Webb tjänst distributioner
+#### <a name="web-service-endpoint"></a>Webb tjänst slut punkt
 
-En distribuerad webb tjänst kan använda Azure Container Instances, Azure Kubernetes-tjänsten eller FPGAs. Du skapar tjänsten från din modell, ditt skript och tillhör ande filer. De kapslas in i en avbildning som tillhandahåller kör tids miljön för webb tjänsten. Avbildningen har en belastningsutjämnad HTTP-slutpunkt som tar emot Poäng begär Anden som skickas till webb tjänsten.
+När du distribuerar en modell som en webb tjänst kan slut punkten distribueras på Azure Container Instances, Azure Kubernetes-tjänsten eller FPGAs. Du skapar tjänsten från din modell, ditt skript och tillhör ande filer. De placeras i en bas behållar avbildning som innehåller körnings miljön för modellen. Avbildningen har en belastningsutjämnad HTTP-slutpunkt som tar emot Poäng begär Anden som skickas till webb tjänsten.
 
-Azure hjälper dig att övervaka din webb tjänst distribution genom att samla in Application Insights telemetri eller modellera telemetri, om du har valt att aktivera den här funktionen. Telemetridata är bara tillgängliga för dig och lagras i Application Insights-och lagrings konto instanser.
+Azure hjälper dig att övervaka din webb tjänst genom att samla in Application Insights telemetri eller modellera telemetri, om du har valt att aktivera den här funktionen. Telemetridata är bara tillgängliga för dig och lagras i Application Insights-och lagrings konto instanser.
 
 Om du har aktiverat automatisk skalning skalar Azure automatiskt distributionen.
 
 Ett exempel på hur du distribuerar en modell som en webb tjänst finns [i Distribuera en bild klassificerings modell i Azure Container instances](tutorial-deploy-models-with-aml.md).
 
-#### <a name="iot-module-deployments"></a>Distribution av IoT-moduler
+#### <a name="iot-module-endpoints"></a>IoT-modulens slut punkter
 
-En distribuerad IoT-modul är en Docker-behållare som innehåller din modell och tillhör ande skript eller program och eventuella ytterligare beroenden. Du distribuerar dessa moduler genom att använda Azure IoT Edge på gräns enheter.
+En distribuerad IoT module-slutpunkt är en Docker-behållare som innehåller din modell och tillhör ande skript eller program och eventuella ytterligare beroenden. Du distribuerar dessa moduler genom att använda Azure IoT Edge på gräns enheter.
 
 Om du har aktiverat övervakning samlar Azure in telemetridata från modellen i Azure IoT Edge-modulen. Telemetridata är bara tillgängliga för dig och lagras i din lagrings konto instans.
 
@@ -188,7 +201,6 @@ Du kan inte ta bort en registrerad modell som används av en aktiv distribution.
 
 Ett exempel på hur du registrerar en modell finns i [träna en bild klassificerings modell med Azure Machine Learning](tutorial-train-models-with-aml.md).
 
-
 ### <a name="runs"></a>Körningar
 
 En körning är en enskild körning av ett utbildnings skript. Azure Machine Learning registrerar alla körningar och lagrar följande information:
@@ -223,7 +235,6 @@ Ett exempel finns i [Självstudier: träna en bild klassificerings modell med Az
 ### <a name="workspaces"></a>Arbetsytor
 
 [Arbets ytan](concept-workspace.md) är den översta resursen för Azure Machine Learning. Det ger en central plats för att arbeta med alla artefakter som du skapar när du använder Azure Machine Learning. Du kan dela en arbets yta med andra. En detaljerad beskrivning av arbets ytor finns i [Vad är en Azure Machine Learning arbets yta?](concept-workspace.md).
-
 
 ### <a name="next-steps"></a>Nästa steg
 

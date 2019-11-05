@@ -1,5 +1,5 @@
 ---
-title: Introduktion till Azure Kognitiv sökning
+title: Introduktion till Azure Cognitive Search
 titleSuffix: Azure Cognitive Search
 description: Azure Kognitiv sökning är en fullständigt hanterad Sök tjänst i molnet som tillhandahålls av Microsoft. Läs funktions beskrivningar, utvecklings arbets flödet, jämförelser med andra Microsoft Search-produkter och hur du kommer igång.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 51d7cf270a0df665fdcf5bc90cae283c85ae5d22
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1df8bb293834fca123b2573f02871410754a6bdc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794177"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73479644"
 ---
-# <a name="what-is-azure-cognitive-search"></a>Vad är Azure Kognitiv sökning?
+# <a name="what-is-azure-cognitive-search"></a>Vad är Azure Cognitive Search?
 
 Azure Kognitiv sökning ([tidigare kallat "Azure Search"](whats-new.md#new-service-name)) är en moln lösning för sökning som en tjänst som tillhandahåller utvecklares API: er och verktyg för att lägga till en omfattande Sök upplevelse över privat, heterogent innehåll i webb-, mobil-och företags program . Din kod eller ett verktyg anropar data inmatning (indexering) för att skapa och läsa in ett index. Du kan också lägga till kognitiva kunskaper för att tillämpa AI-processer under indexering. På så sätt kan du lägga till ny information och strukturer som är användbara för sökning och andra scenarier.
 
@@ -67,8 +67,8 @@ Azure Kognitiv sökning passar bra för följande program scenarier:
 |-------------------|----------|
 | Verktyg för prototyper och inspektion | I portalen kan du använda [**guiden Importera data**](search-import-data-portal.md) för att konfigurera indexerare, indexdesignern för att sätta upp ett index och [**Sökutforskaren**](search-explorer.md) för att testa frågor och förfina bedömningsprofiler. Du kan också öppna ett index om du vill visa dess schema. |
 | Övervakning och diagnostik | [**Aktivera övervakningsfunktionerna**](search-monitor-usage.md) för att gå bortom måtten – vid en snabb skärm som alltid är synliga i portalen. Mått för frågor per sekund, svarstid och begränsning fångas in och rapporteras på portalsidor utan att ytterligare konfiguration krävs.|
-| Kryptering på serversidan | [**Microsoft-Managed Encrypted Encryption-at-rest**](search-security-overview.md#encrypted-transmission-and-storage) är inbyggt i det interna lagrings lagret och är oåterkalleligt. Alternativt kan du komplettera standard kryptering med [**Kundhanterade krypterings nycklar (för hands version)** ](search-security-manage-encryption-keys.md). Nycklar som du skapar och hanterar i Azure Key Vault används för att kryptera index och synonymer Maps i Azure Search. |
-| Infrastruktur | **Plattformen med hög tillgänglighet** ger en mycket tillförlitlig söktjänst. När det skalas korrekt [erbjuder Azure Search ett serviceavtal på 99,9 %](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> Azure Search är **fullständigt hanterat och skalbart** som en komplett lösning, och kräver ingen som helst infrastrukturhantering. Tjänsten kan skräddarsys efter dina behov genom att skala i två dimensioner för att hantera mer dokumentlagring, högre frågebelastningar eller båda.<br/><br/>|
+| Kryptering på serversidan | [**Microsoft-Managed Encrypted Encryption-at-rest**](search-security-overview.md#encrypted-transmission-and-storage) är inbyggt i det interna lagrings lagret och är oåterkalleligt. Alternativt kan du komplettera standard kryptering med [**Kundhanterade krypterings nycklar (för hands version)** ](search-security-manage-encryption-keys.md). Nycklar som du skapar och hanterar i Azure Key Vault används för att kryptera index och synonymer kartor i Azure Kognitiv sökning. |
+| Infrastruktur | **Plattformen med hög tillgänglighet** ger en mycket tillförlitlig söktjänst. Vid skalning på rätt sätt [erbjuder Azure kognitiv sökning ett service avtal på 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> Azure Kognitiv sökning är **helt hanterat och skalbart** som en lösning från slut punkt till slut punkt, men det krävs absolut ingen infrastruktur hantering. Tjänsten kan skräddarsys efter dina behov genom att skala i två dimensioner för att hantera mer dokumentlagring, högre frågebelastningar eller båda.<br/><br/>|
 
 ## <a name="how-to-use-azure-cognitive-search"></a>Använda Azure Kognitiv sökning
 ### <a name="step-1-provision-service"></a>Steg 1: Etablera tjänsten

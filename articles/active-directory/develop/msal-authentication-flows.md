@@ -18,18 +18,18 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e65c68e4f24dd95696cc53b92dd7e2b59d940b6c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 55d618a24b957fedb6fc2af3e75b7a7d2bd23d96
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175718"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473818"
 ---
 # <a name="authentication-flows"></a>Autentiserings flöden
 
 I den här artikeln beskrivs de olika autentiserings flöden som tillhandahålls av Microsoft Authentication Library (MSAL).  Dessa flöden kan användas i olika program scenarier.
 
-| Flow | Beskrivning | Används i|  
+| Flöde | Beskrivning | Används i|  
 | ---- | ----------- | ------- | 
 | [Interaktiv](#interactive) | Hämtar token via en interaktiv process som efterfrågar användaren om autentiseringsuppgifter via en webbläsare eller popup-fönster. | [Skrivbordsappar](scenario-desktop-overview.md), [mobilappar](scenario-mobile-overview.md) |
 | [Implicit beviljande](#implicit-grant) | Tillåter appen att hämta tokens utan att säkerhetskopiera autentiseringsuppgifter för backend-servern. Detta gör att appen kan logga in användaren, underhålla sessionen och hämta token till andra webb-API: er i klientens JavaScript-kod.| [Enkels Ides program (SPA)](scenario-spa-overview.md) |
@@ -44,7 +44,7 @@ I den här artikeln beskrivs de olika autentiserings flöden som tillhandahålls
  
 Beroende på hur din klient har skapats kan den använda en (eller flera) av de autentiserings flöden som stöds av Microsoft Identity Platform.  Dessa flöden kan skapa en mängd olika token (id_tokens, Refresh tokens, åtkomsttoken) samt auktoriseringsregler och kräver olika token för att de ska fungera. Det här diagrammet proides en översikt:
  
-|Flow | Innebär | id_token | åtkomsttoken | uppdatera token | auktoriseringskod | 
+|Flöde | Innebär | id_token | åtkomsttoken | uppdatera token | auktoriseringskod | 
 |-----|----------|----------|--------------|---------------|--------------------|
 |[Flöde för auktoriseringskod](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
 |[Implicit flöde](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
@@ -203,7 +203,7 @@ Det innebär att något av följande stämmer:
 - Du har angett ett sätt för användare att samtycka till programmet (se [begära individuell användar medgivande](v2-permissions-and-consent.md#requesting-individual-user-consent)).
 - Du har angett ett sätt för klient administratören att godkänna programmet (se [administrativt medgivande](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)).
 
-IWA-flödet har Aktiver ATS för .NET Desktop-, .NET Core-och Windows Universal Platform-appar. I .NET Core är det bara den överlagring som tar användar namnet tillgängligt. .NET Core Platform kan inte fråga användar namnet för operativ systemet.
+IWA-flödet har Aktiver ATS för .NET Desktop-, .NET Core-och Windows Universal Platform-appar. På .NET Core måste du ange användar namnet för IWA, eftersom .NET Core inte kan hämta användar namn från operativ systemet.
   
 Mer information om medgivande finns i [v 2.0-behörigheter och medgivande](v2-permissions-and-consent.md).
 

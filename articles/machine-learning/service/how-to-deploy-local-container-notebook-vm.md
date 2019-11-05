@@ -1,7 +1,7 @@
 ---
-title: Så här distribuerar du modeller till Notebook VM
+title: Distribuera modeller till beräknings instanser
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du distribuerar dina Azure Machine Learning-modeller som en webb tjänst med virtuella notebook-datorer.
+description: Lär dig hur du distribuerar dina Azure Machine Learning modeller som en webb tjänst med hjälp av beräknings instanser.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,35 +9,41 @@ ms.topic: conceptual
 ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
-ms.date: 08/08/2019
-ms.openlocfilehash: 046f998038c47a48a8528bf36d87ac836395eec2
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
-ms.translationtype: MT
+ms.date: 10/25/2019
+ms.openlocfilehash: bb187826250b3edc9ac3d9e36a243d75819a45b3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002816"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496876"
 ---
-# <a name="deploy-a-model-to-notebook-vms"></a>Distribuera en modell till virtuella notebook-datorer
+# <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Distribuera en modell för att Azure Machine Learning beräknings instanser
 
-Lär dig hur du använder Azure Machine Learning för att distribuera en modell som en webb tjänst på din bärbara dator. Använd Notebook-VM: ar om något av följande villkor är uppfyllt:
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-- Du behöver att snabbt distribuera och verifiera din modell.
+> [!NOTE]
+> Beräknings instanser är endast tillgängliga för arbets ytor med en region i **norra centrala USA** eller **Storbritannien, södra**.
+>Om din arbets yta finns i en annan region kan du fortsätta att skapa och använda en [virtuell dator](concept-compute-instance.md#notebookvm) i stället.  Du kan distribuera en modell till antingen en beräknings instans eller en virtuell dator med hjälp av stegen i den här artikeln.
+
+Lär dig hur du använder Azure Machine Learning för att distribuera en modell som en webb tjänst på din Azure Machine Learning beräknings instans. Använd beräknings instanser om något av följande villkor är uppfyllt:
+
+- Du måste snabbt distribuera och validera din modell.
 - Du testar en modell som är under utveckling.
 
 > [!TIP]
-> Distribution av en modell från en Jupyter Notebook på en virtuell dator med en virtuell dator, till en webb tjänst på samma virtuella dator är en _lokal distribution_. I det här fallet är den lokala datorn den virtuella Notebook-datorn. Mer information om distributioner finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
+> Att distribuera en modell från en Jupyter Notebook på en beräknings instans till en webb tjänst på samma virtuella dator är en _lokal distribution_. I det här fallet är den lokala datorn beräknings instansen. Mer information om distributioner finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En Azure Machine Learning arbets yta med en VM-dator som körs. Mer information finns i [installations miljö och arbets yta](tutorial-1st-experiment-sdk-setup.md).
+- En Azure Machine Learning-arbetsyta med en beräknings instans som körs. Mer information finns i [installations miljö och arbets yta](tutorial-1st-experiment-sdk-setup.md).
 
-## <a name="deploy-to-the-notebook-vms"></a>Distribuera till de virtuella datorerna för bärbara datorer
+## <a name="deploy-to-the-compute-instances"></a>Distribuera till beräknings instanserna
 
-En exempel-anteckningsbok som visar lokala distributioner ingår i den virtuella datorns bärbara dator. Använd följande steg för att läsa in den bärbara datorn och distribuera modellen som en webb tjänst på den virtuella datorn:
+En exempel-anteckningsbok som visar lokala distributioner ingår i din beräknings instans. Använd följande steg för att läsa in den bärbara datorn och distribuera modellen som en webb tjänst på den virtuella datorn:
 
-1. Välj Azure Machine Learning Notebook-VM: ar från [Azure Portal](https://portal.azure.com).
+1. Välj dina Azure Machine Learning beräknings instanser från [Azure Machine Learning Studio](https://ml.azure.com).
 
-1. Öppna under katalogen och öppna `how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb`sedan. `samples-*` Kör antecknings boken när den är öppen.
+1. Öppna under katalogen `samples-*` och öppna `how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb`. Kör antecknings boken när den är öppen.
 
     ![Skärm bild av den lokala tjänsten som körs på antecknings boken](media/how-to-deploy-local-container-notebookvm/deploy-local-service.png)
 
@@ -45,7 +51,13 @@ En exempel-anteckningsbok som visar lokala distributioner ingår i den virtuella
 
     ![Skärm bild av den aktiva porten för den lokala tjänsten](media/how-to-deploy-local-container-notebookvm/deploy-local-service-port.png)
 
-1. Använd `https://localhost:<local_service.port>` URL: en för att testa tjänsten från den virtuella Notebook-datorn. Om du vill testa från en fjärran sluten klient hämtar du den offentliga URL: en för tjänsten som körs på den virtuella Notebook-datorn som den offentliga URL: en kan fastställas Använd följande formel. `https://<notebookvm_name>-<local_service_port>.<azure_region_of_notebook>.notebooks.azureml.net/score`. Till exempel `https://mynotebookvm-6789.eastus2.notebooks.azureml.net/score`.
+1. Använd `https://localhost:<local_service.port>` URL för att testa tjänsten från en beräknings instans. Om du vill testa från en fjärran sluten klient hämtar du den offentliga URL: en för tjänsten som körs på beräknings instansen. Den offentliga URL: en kan fastställas med hjälp av följande formel. 
+    * VM för virtuell dator: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.notebooks.azureml.net/score`. 
+    * Beräknings instans: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.instances.azureml.net/score`. 
+    
+    Exempel: 
+    * VM för virtuell dator: `https://vm-name-6789.northcentralus.notebooks.azureml.net/score` 
+    * Beräknings instans: `https://vm-name-6789.northcentralus.instances.azureml.net/score`
 
 ## <a name="test-the-service"></a>Testa tjänsten
 
@@ -61,7 +73,8 @@ test_sample = json.dumps({'data': [
 test_sample = bytes(test_sample,encoding = 'utf8')
 access_token = "your bearer token"
 headers = {'Content-Type':'application/json', 'Authorization': 'Bearer ' + access_token}
-service_url = "https://mynotebookvm-6789.eastus2.notebooks.azureml.net/score"
+service_url = "https://vm-name-6789.northcentralus.notebooks.azureml.net/score"
+# for a compute instance, the url would be https://vm-name-6789.northcentralus.instances.azureml.net/score
 resp = requests.post(service_url, test_sample, headers=headers)
 print("prediction:", resp.text)
 ```
@@ -70,7 +83,7 @@ print("prediction:", resp.text)
 
 * [Så här distribuerar du en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
 * [Distributions fel sökning](how-to-troubleshoot-deployment.md)
-* [Skydda Azure Machine Learning-webbtjänster med SSL](how-to-secure-web-service.md)
-* [Använd en ML-modell som distribueras som en webbtjänst](how-to-consume-web-service.md)
+* [Skydda Azure Machine Learning webb tjänster med SSL](how-to-secure-web-service.md)
+* [Använda en ML-modell som distribueras som en webb tjänst](how-to-consume-web-service.md)
 * [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)

@@ -1,7 +1,7 @@
 ---
 title: Utvärdera modellprestanda
-titleSuffix: Azure Machine Learning Studio
-description: Den här artikeln visar hur du utvärderar prestanda för en modell i Azure Machine Learning Studio och ger en kort förklaring av mått som är tillgängliga för den här uppgiften.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Den här artikeln visar hur du utvärderar en modells prestanda i Azure Machine Learning Studio (klassisk) och ger en kort förklaring av de mått som är tillgängliga för den här aktiviteten.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,170 +10,170 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 37ab56c377bc53a7300b51ffc709ea8d1b9d6f9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7947c1be552e72cea9fb0b9214e82a1ecc481fb1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60750657"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493078"
 ---
-# <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>Så här utvärderar du modellens prestanda i Azure Machine Learning Studio
+# <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Utvärdera modell prestanda i Azure Machine Learning Studio (klassisk)
 
-Den här artikeln visar hur du utvärderar prestanda för en modell i Azure Machine Learning Studio och ger en kort förklaring av mått som är tillgängliga för den här uppgiften. Tre vanliga scenarier för övervakad inlärning visas: 
+Den här artikeln visar hur du utvärderar en modells prestanda i Azure Machine Learning Studio (klassisk) och ger en kort förklaring av de mått som är tillgängliga för den här aktiviteten. Tre vanliga övervakade inlärnings scenarier presenteras: 
 
-* regression
-* Binär klassificering 
-* multiklass-baserad klassificering
+* Regression
+* binära klassificering 
+* klassificering av multiklass
 
 
 
-Utvärdera prestanda i en modell är en av de grundläggande stegen i data science process. Den visar hur lyckade bedömnings (förutsägelser) för en datauppsättning har av en trained model. 
+Utvärdering av prestanda för en modell är en av kärn stegen i data vetenskaps processen. Det visar hur framgångs poängen (förutsägelserna) av en data uppsättning har varit av en utbildad modell. 
 
-Azure Machine Learning Studio stöder modellen utvärdering via två av dess huvudsakliga machine learning-moduler: [Utvärdera modellen] [ evaluate-model] och [Kontrollera modellen][cross-validate-model]. Dessa moduler kan du se hur modellen presterar när det gäller ett antal mått som är vanliga i machine learning och statistik.
+Azure Machine Learning Studio (klassisk) stöder utvärdering av modeller genom två av de huvudsakliga Machine Learning-modulerna: [utvärdera modell][evaluate-model] och [kors validerings modell][cross-validate-model]. Med dessa moduler kan du se hur din modell presterar i termer av ett antal mått som ofta används i maskin inlärning och statistik.
 
-## <a name="evaluation-vs-cross-validation"></a>Jämfört med utvärdering Korsvalidering
-Utvärdering och mellan verifiering är standard sätt att mäta prestanda i din modell. De båda generera utvärderingsmått som du kan kontrollera eller jämföra med de andra modeller.
+## <a name="evaluation-vs-cross-validation"></a>Utvärdering kontra kors validering
+Utvärdering och kors validering är standard sätt att mäta modellens prestanda. Båda genererar utvärderings mått som du kan kontrol lera eller jämföra med andra modeller.
 
-[Utvärdera modellen] [ evaluate-model] förväntar sig en poängsatta datauppsättning som indata (eller 2 om du vill jämföra prestanda för två olika modeller). Det innebär att du behöver att träna modellen med den [träna modell] [ train-model] modulen och göra förutsägelser om vissa datauppsättning med hjälp av den [Poängmodell] [ score-model]modulen innan du kan utvärdera resultaten. Utvärderingen baseras på poängsatta etiketter/troliga tillsammans med SANT etiketterna, som matats ut av den [Poängmodell] [ score-model] modulen.
+[Utvärdera modell][evaluate-model] förväntar sig en returnerad data uppsättning som indata (eller 2 om du vill jämföra prestanda i två olika modeller). Det innebär att du måste träna din modell med modulen [träna modell][train-model] och göra förutsägelser på viss data uppsättning med hjälp av modulen [Poäng modell][score-model] innan du kan utvärdera resultatet. Utvärderingen baseras på etiketter och sannolikheter tillsammans med de sanna etiketterna, som alla matas ut av modulen [Poäng modell][score-model] .
 
-Du kan också använda mellan verifieringen för att utföra ett antal träna poäng utvärdera åtgärder (10 vikningar) automatiskt på olika delmängder av indata. Indata är indelat i 10 delar, där är ett reserverat för testning, och de andra 9 för utbildning. Den här processen upprepas 10 gånger och utvärderingsmått är ett genomsnitt. På så sätt kan bestämma hur väl en modell skulle generalisera till nya datauppsättningar. Den [Kontrollera modellen] [ cross-validate-model] modulen tar ett omdöme modellen och vissa taggade datauppsättning och matar ut utvärderingsresultat av var och en av de 10 vikningar, förutom genomsnittlig resultaten.
+Du kan också använda kors validering för att utföra ett antal åtgärder för bedömning av träna Poäng (10 vikning) automatiskt på olika del mängder av indata. Indata delas upp i 10 delar, där en är reserverad för testning och den andra 9 for Training. Den här processen upprepas 10 gånger och utvärderings måtten är genomsnitts. Detta hjälper till att fastställa hur väl en modell skulle generaliseras till nya data uppsättningar. Modulen för modul för att [kontrol lera modell][cross-validate-model] tar i en modell som inte är tränad och vissa märkta data uppsättningar och utvärderar utvärderings resultaten för var och en av de 10 vikningarna, utöver de genomsnittliga resultaten.
 
-I följande avsnitt kommer vi bygga enkla regression och klassificering modeller och utvärdera deras prestanda genom att använda både den [utvärdera modell] [ evaluate-model] och [Kontrollera modell ] [ cross-validate-model] moduler.
+I följande avsnitt kommer vi att bygga enkla Regressions-och klassificerings modeller och utvärdera deras prestanda med hjälp av modulerna [utvärdera modell][evaluate-model] och [kors validering][cross-validate-model] .
 
-## <a name="evaluating-a-regression-model"></a>Utvärderar en regressionsmodell
-Anta att vi vill förutsäga pris för en bil med hjälp av vissa funktioner, till exempel dimensioner, hästkrafter, motorn specifikationer och så vidare. Det här är en typisk regressionsproblem där en målvariabel (*pris*) är en kontinuerlig numeriskt värde. Vi kan anpassa en enkel linjär regressionsmodell som, med funktionen värdena på en viss bil kan förutsäga priset på den bil. Den här regressionsmodellen kan användas för att bedöma vi tränats på samma datauppsättning. När vi har förväntade priserna för alla bilarna utvärdera det prestanda för modellen genom att titta på hur mycket förutsägelserna avviker från priserna som faktiskt i genomsnitt. För att illustrera detta använder vi den *Automobile price data (Raw) datauppsättning* tillgängliga i den **sparade datauppsättningar** avsnitt i Azure Machine Learning Studio.
-
-### <a name="creating-the-experiment"></a>Skapa experimentet
-Lägg till följande moduler i din arbetsyta i Azure Machine Learning Studio:
-
-* Bil price data (Raw)
-* [Linjär Regression][linear-regression]
-* [Träna modell][train-model]
-* [Poängsätta modell][score-model]
-* [Utvärdera modellen][evaluate-model]
-
-Ansluta portarna som visas nedan i figur 1 och ange kolumnen etikett i den [Träningsmodell] [ train-model] modulen *pris*.
-
-![Utvärderar en regressionsmodell](./media/evaluate-model-performance/1.png)
-
-Figur 1. Utvärderar en regressionsmodell.
-
-### <a name="inspecting-the-evaluation-results"></a>Kontrollera utvärderingsresultaten
-När du har kört experimentet som du kan klicka på utdataporten för den [utvärdera modell] [ evaluate-model] modul och välj *visualisera* att se utvärderingsresultaten. Utvärderingsmått som är tillgängliga för regressionsmodeller är: *Medelabsolutfel*, *rot absoluta fel*, *relativa absoluta fel*, *relativt cirkels fel*, och *koefficienten för Bestämning*.
-
-Termen ”error” här representerar skillnaden mellan det förväntade och värdet true. Det absoluta värdet eller kvadraten av denna skillnad beräknas vanligtvis att samla in den totala storleken på fel i alla instanser som skillnaden mellan det förväntade och SANT värdet kan vara negativt i vissa fall. Felmått mäta förutsägande prestanda i en regressionsmodell när det gäller medelvärdet skillnader mellan dess förutsägelser från värdet true. Nedre felvärdena gör modellen är bättre att göra förutsägelser. Ett övergripande fel mått noll innebär att modellen passar data perfekt.
-
-Bestämningskoefficient, som även kallas R cirkels, är också ett standardiserat sätt att mäta hur väl modellen passar data. Den kan tolkas som variation som beskrivs i modellen. En högre andel är bättre i detta fall där 1 anger en perfekt passning.
-
-![Linjär Regression Utvärderingsmått](./media/evaluate-model-performance/2.png)
-
-Figur 2. Linjär Regression Utvärderingsmått.
-
-### <a name="using-cross-validation"></a>Med hjälp av plattformsoberoende verifiering
-Som vi nämnde tidigare kan du utföra upprepade utbildning, bedömning och utvärderingar som automatiskt med den [Kontrollera modellen] [ cross-validate-model] modulen. Allt du behöver i det här fallet är en datauppsättning, en omdöme modell och en [Kontrollera modellen] [ cross-validate-model] modulen (se bilden nedan). Du måste ange etikettkolumnen *pris* i den [Kontrollera modellen] [ cross-validate-model] modulens egenskaper.
-
-![Verifiera en regressionsmodell mellan](./media/evaluate-model-performance/3.png)
-
-Figur 3. Cross-validerar en regressionsmodell.
-
-När experimentet har körts kan du inspektera utvärderingsresultaten genom att klicka på den högra utdataporten för den [Kontrollera modellen] [ cross-validate-model] modulen. Detta ger en detaljerad vy av mått för varje iteration (vikning) och genomsnittlig resultaten för var och en av mått (bild 4).
-
-![Korsvalidering resultatet av en regressionsmodell](./media/evaluate-model-performance/4.png)
-
-Figur 4. Korsvalidering resultatet av en regressionsmodell.
-
-## <a name="evaluating-a-binary-classification-model"></a>Utvärderar en binär Klassificeringsmodell
-I ett scenario med binär klassificering en målvariabel har bara två möjliga resultat, till exempel: {0, 1} eller {FALSKT, SANT}, {negativt, positivt}. Anta att du får en datauppsättning som är olämpligt för barn anställda med några demografiska och anställning variabler och att du uppmanas att förutsäga inkomstnivå, en binär variabel med värdena {”< = 50 K” ”, > 50 K”}. Med andra ord klassen negativt representerar de medarbetare som gör mindre än eller lika med 50 K per år och klassen positivt representerar alla andra anställda. Som i scenariot regression skulle vi tränar en modell, bedöma vissa data och utvärdera resultaten. Den största skillnaden här är valet av mått beräknar Azure Machine Learning Studio- och utdata. För att visa intäkter på förutsägelse scenario kan vi använder den [vuxet](https://archive.ics.uci.edu/ml/datasets/Adult) datauppsättning för att skapa ett experiment i Studio och utvärdera prestanda för en tvåklassförhöjt logistic regression-modellen, ett vanligt binär klassificerare.
+## <a name="evaluating-a-regression-model"></a>Utvärdera en Regressions modell
+Anta att vi vill förutsäga en bils pris med hjälp av vissa funktioner som dimensioner, häst krafter, motor specifikationer och så vidare. Detta är ett typiskt Regressions problem, där mål variabeln (*pris*) är ett kontinuerligt numeriskt värde. Vi kan få en enkel linjär Regressions modell som, med tanke på funktions värden för en viss bil, kan förutsäga priset på den bilen. Denna Regressions modell kan användas för att räkna med samma data uppsättning som vi tränade på. När vi har de förutsagda priserna för alla bilar kan vi utvärdera modellens prestanda genom att se hur mycket förutsägelserna avviker från de faktiska priserna i genomsnitt. För att illustrera detta använder vi *data uppsättningen för Automobile-pris (RAW)* som är tillgänglig i avsnittet **sparade data uppsättningar** i den klassiska versionen av Azure Machine Learning Studio.
 
 ### <a name="creating-the-experiment"></a>Skapa experimentet
-Lägg till följande moduler i din arbetsyta i Azure Machine Learning Studio:
+Lägg till följande moduler till din arbets yta i den klassiska versionen av Azure Machine Learning Studio:
 
-* Vuxet insamlade binära Intäktsklassificering datauppsättning
-* [Två Logistic Regression][two-class-logistic-regression]
+* Bil pris data (RAW)
+* [Linjär regression][linear-regression]
 * [Träna modell][train-model]
-* [Poängsätta modell][score-model]
-* [Utvärdera modellen][evaluate-model]
+* [Poäng modell][score-model]
+* [Utvärdera modell][evaluate-model]
 
-Ansluta portarna som visas nedan i figur 5 och ange kolumnen etikett i den [Träningsmodell] [ train-model] modulen *inkomst*.
+Anslut portarna enligt beskrivningen nedan i bild 1 och Ställ in kolumnen etikett i modulen [träna modell][train-model] på *pris*.
 
-![Utvärderar en binär Klassificeringsmodell](./media/evaluate-model-performance/5.png)
+![Utvärdera en Regressions modell](./media/evaluate-model-performance/1.png)
 
-Figur 5. Utvärderar en binär Klassificeringsmodell.
+Figur 1. Utvärdera en Regressions modell.
 
-### <a name="inspecting-the-evaluation-results"></a>Kontrollera utvärderingsresultaten
-När du har kört experimentet som du kan klicka på utdataporten för den [utvärdera modell] [ evaluate-model] modul och välj *visualisera* att se utvärderingsresultaten (bild 7). Utvärderingsmått som är tillgängliga för binär klassificering modeller är: *Precision*, *Precision*, *återkalla*, *F1 poäng*, och *AUC*. Dessutom kan modulen matar ut en felmatris som visar antalet positiva, false negativ, falska positiva identifieringar och SANT negativ samt *ROC*, *Precision/återkallande*, och  *Flytta* kurvor.
+### <a name="inspecting-the-evaluation-results"></a>Inspektera utvärderings resultaten
+När du har kört experimentet kan du klicka på utdataporten för modulen [utvärdera modell][evaluate-model] och välja *visualisera* för att se utvärderings resultatet. De utvärderings mått som är tillgängliga för Regressions modeller är: *medels absolut fel*, *rot medelvärde absolut fel*, *relativt absolut fel*, *relativt kvadratvärde*och *koefficienten för bestämning*.
 
-Precision är helt enkelt den korrekt klassificerade instanser. Det är vanligtvis den första mått som du tittar på när du utvärderar en klassificerare. Men när testdata är obalanserade (där de flesta av de hör till någon av klasserna) eller om du är intresserad av mer precision inte prestanda på någon av klasserna verkligen avbilda effektiviteten i en klassificerare. Anta att du testar på vissa data där 99% av instanserna motsvarar personer som du betalar, desto mindre än eller lika med 50K per år intäkter på klassificering för scenariot. Det är möjligt att uppnå en 0.99 noggrannhet genom att förutsäga klassen ”< = 50K” för alla instanser. Klassificeraren visas i det här fallet att utföra en övergripande bra, men i verkligheten kan det går inte att klassificera någon av high-income personer (1-%) korrekt.
+Termen "fel" här representerar skillnaden mellan det förväntade värdet och det sanna värdet. Det absoluta värdet eller kvadraten av denna skillnad beräknas vanligt vis för att fånga den totala storleken på fel i alla instanser, eftersom skillnaden mellan det förväntade och sanna värdet kan vara negativ i vissa fall. Fel måtten mäter förutsägelse prestanda för en Regressions modell i termer av genomsnitts avvikelsen för dess förutsägelser från de sanna värdena. Lägre fel värden innebär att modellen är mer exakt för att göra förutsägelser. En övergripande felvärdet noll innebär att modellen passar data perfekt.
 
-Därför är det bra att beräkna ytterligare mått som samlar in mer specifika aspekter av utvärderingen. Innan du fortsätter i detaljerna för mått, är det viktigt att förstå felmatrisen för en binär klassificering utvärderingen. Klass-etiketter i träningsmängden kan ha endast 2 möjliga värden som vi vanligtvis refererar till som positivt eller negativt. Positiva och negativa instanserna som en klassificerare beräknar korrekt kallas korrekta positiva identifieringar (TP) och SANT negativ (TN). På samma sätt kallas felaktigt klassificerad instanser falska positiva identifieringar (FP) och FALSKT negativ (FN). Felmatrisen är helt enkelt en tabell som visar antalet instanser som hör till var och en av följande 4 kategorier. Azure Machine Learning Studio beslutar automatiskt som två klasser i datauppsättningen är positivt klassen. Om klassen etiketter är booleskt värde eller heltal, har namngivna instanser 'true' eller '1' tilldelats klassen positivt. Om etiketterna är strängar, som i fallet med inkomst datauppsättningen etiketterna sorteras alfabetiskt och den första nivån väljs vara negativt klassen medan den andra nivån är positivt klassen.
+Koefficienten för bestämning, som även kallas R-kvadrat, är också ett standard sätt att mäta hur väl modellen passar data. Den kan tolkas som den andel av variationen som förklaras av modellen. En högre proportion är bättre i det här fallet, där 1 är perfekt anpassad.
 
-![Binär klassificering Felmatris](./media/evaluate-model-performance/6a.png)
+![Mät värden för linjär Regressions utvärdering](./media/evaluate-model-performance/2.png)
 
-Figur 6. Binär klassificering Felmatris.
+Figur 2. Mät värden för linjär Regressions utvärdering.
 
-Går tillbaka till klassificeringsproblem intäkter, vill vi skulle ställa flera utvärderingsfrågor som hjälper oss att förstå prestanda för klassificerarna används. Det är en mycket naturlig fråga: ' Från personer som modellen förutse till att tjäna > 50 K (TP + FP), hur många har klassificerats korrekt (TP) ”? Den här frågan besvaras genom att titta på den **Precision** av modellen, vilket är den positiva identifieringar som klassificeras på korrekt sätt: TP/(TP+FP). En annan vanlig fråga är ”utanför alla hög tjäna anställda med inkomst > 50 k (TP + FN), hur många klassificeraren klassificera korrekt (TP)”. Hittar du faktiskt den **återkalla**, eller true positiva identifieringar: TP/(TP+FN) för klassificerarna. Du kanske märker att det finns en uppenbar säkerhetsaspekten precision och återkallande. Till exempel får en relativt belastningsutjämnade datauppsättning, skulle en klassificerare som beräknar huvudsakligen positivt instanser, finns en hög återkallande, men en i stället Låg precision som många av instanserna i negativt skulle klassificeras vilket resulterar i ett stort antal falska positiva identifieringar. Om du vill se ett diagram över hur de här två måtten varierar, kan du klicka på den **PRECISION/återkallande** kurvan i utvärderingssidan resultatet utdata (övre vänstra del av bild 7).
+### <a name="using-cross-validation"></a>Använda kors validering
+Som tidigare nämnts kan du utföra upprepad utbildning, bedömning och utvärderingar automatiskt med modulen för [kors validerings modell][cross-validate-model] . Allt du behöver i det här fallet är en data uppsättning, en modell som inte är tränad och en modul för [kors validering][cross-validate-model] (se bilden nedan). Du måste ange Label-kolumnen till *pris* i egenskaperna för [Cross-validate Model-][cross-validate-model] modulen.
 
-![Utvärderingsresultat av binär klassificering](./media/evaluate-model-performance/7.png)
+![Kors validering av en Regressions modell](./media/evaluate-model-performance/3.png)
 
-Figur 7. Utvärderingsresultat av binär klassificering.
+Figur 3. Kors validering av en Regressions modell.
 
-En annan relaterade mått som används ofta är det **F1 poäng**, som tar både precision och återkallande i beräkningen. Det är det harmoniska medelvärdet av de här 2 måtten och beräknas därför: F1 = 2 (precision x återkallande) / (precision + återkallande). F1-poängen är ett bra sätt att sammanfatta utvärdering i ett enda tal, men det är alltid en bra idé att titta på både precision och återkallande tillsammans för att bättre förstå hur en klassificerare fungerar.
+När du har kört experimentet kan du kontrol lera utvärderings resultatet genom att klicka på den högra utdataporten för modulen för [kors validerings modell][cross-validate-model] . Detta ger en detaljerad vy över måtten för varje iteration (vikning) och de genomsnittliga resultaten av vart och ett av måtten (bild 4).
 
-Dessutom kan en kan inspektera SANT positiva identifieringar kontra andel falska positiva identifieringar i den **mottagare fungerar egenskap (ROC)** kurvan och motsvarande **området Under the kurvan (AUC)** värdet. Ju närmare kurvan är att det övre vänstra hörnet, desto bättre prestanda för den klassificerare är (som är att maximera SANT positiva identifieringar som minimeras andel falska positiva identifieringar). Kurvor som närmar sig diagonalt av området resultat från klassificerare som brukar göra förutsägelser som närmar sig slumpmässiga gissa.
+![Kors validerings resultat för en Regressions modell](./media/evaluate-model-performance/4.png)
 
-### <a name="using-cross-validation"></a>Med hjälp av plattformsoberoende verifiering
-Exemplet regression kan vi utföra flera valideringen för att träna, poäng och utvärdera olika delmängder av data automatiskt flera gånger. På samma sätt kan vi använda den [Kontrollera modellen] [ cross-validate-model] modulen, ett omdöme logistic regression-modellen och en datauppsättning. Etikettkolumnen måste anges till *inkomst* i den [Kontrollera modellen] [ cross-validate-model] modulens egenskaper. När du kör experimentet och klicka på höger utgående port på den [Kontrollera modellen] [ cross-validate-model] modulen, vi kan se måttvärden för binär klassificering för varje vikning dessutom att medelvärdet och standardavvikelsen för var och en. 
+Figur 4. Kors validerings resultat för en Regressions modell.
 
-![Verifiera en binär Klassificeringsmodell mellan](./media/evaluate-model-performance/8.png)
-
-Figur 8. Cross-validerar en binär Klassificeringsmodell.
-
-![Korsvalidering resultatet av en binär klassificerare](./media/evaluate-model-performance/9.png)
-
-Figur 9. Korsvalidering resultatet av en binär klassificerare.
-
-## <a name="evaluating-a-multiclass-classification-model"></a>Utvärdering av en modell för multiklass-baserad klassificering
-I det här experimentet använder vi den populära [Iris](https://archive.ics.uci.edu/ml/datasets/Iris "Iris") datauppsättning som innehåller instanser av 3 olika typer (klasser) av iris anläggning. Det finns 4 funktionen värden (sepal längd och bredd och petal längd och bredd) för varje instans. I de föregående experiment vi tränas och testas modeller med samma datauppsättningar. Här kan vi använder den [dela Data] [ split] modul för att skapa 2 delmängder av data, träna på först och bedöma och utvärdera på andra. Iris-datauppsättningen är offentligt tillgängligt på den [UCI Machine Learning databasen](https://archive.ics.uci.edu/ml/index.html), och kan hämtas med hjälp av en [importera Data] [ import-data] modulen.
+## <a name="evaluating-a-binary-classification-model"></a>Utvärdera en binär klassificerings modell
+I ett binära klassificerings scenario har mål variabeln bara två möjliga resultat, till exempel: {0, 1} eller {false, true}, {negativ, positiv}. Anta att du får en data uppsättning vuxna anställda med några demografiska och anställnings variabler och att du uppmanas att förutsäga inkomst nivån, en binär variabel med värdena {"< = 50 K", "> 50 K"}. Med andra ord representerar den negativa klassen de anställda som gör mindre än eller lika med 50 000 per år och den positiva klassen representerar alla andra anställda. Som i Regressions scenariot skulle vi träna en modell, Poäng för några data och utvärdera resultatet. Den största skillnaden här är valet av metricsthe-klassiskt version av Azure Machine Learning Studio-beräkningar och utdata. För att illustrera förutsägelse scenariot för uppskattning av inkomstnivå använder vi den [vuxen](https://archive.ics.uci.edu/ml/datasets/Adult) data uppsättningen för att skapa ett Studio-experiment (klassiskt) och utvärdera prestanda för en logistik Regressions modell med två klasser, en ofta använd binär klassificerare.
 
 ### <a name="creating-the-experiment"></a>Skapa experimentet
-Lägg till följande moduler i din arbetsyta i Azure Machine Learning Studio:
+Lägg till följande moduler till din arbets yta i den klassiska versionen av Azure Machine Learning Studio:
 
-* [Importera Data][import-data]
-* [Beslutsskog med multiclass][multiclass-decision-forest]
-* [Dela Data][split]
+* Data uppsättning för binära sammanräknings inkomst
+* [Logistik regression med två klasser][two-class-logistic-regression]
 * [Träna modell][train-model]
-* [Poängsätta modell][score-model]
-* [Utvärdera modellen][evaluate-model]
+* [Poäng modell][score-model]
+* [Utvärdera modell][evaluate-model]
 
-Anslut portarna som visas nedan i figur 10.
+Anslut portarna enligt vad som visas nedan i bild 5 och Ställ in kolumnen etikett i modulen [träna modell][train-model] till *inkomst*.
 
-Ange etikett kolumnindex för de [Träningsmodell] [ train-model] modulen till 5. Datauppsättningen har ingen rubrikrad, men vi vet att klassen etiketter finns i den femte kolumnen.
+![Utvärdera en binär klassificerings modell](./media/evaluate-model-performance/5.png)
 
-Klicka på den [importera Data] [ import-data] modulen och ange den *datakälla* egenskap *Webbadress via HTTP*, och *URL* till http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
+Figur 5. Utvärdera en binär klassificerings modell.
 
-Ange andelen av instanser som ska användas för utbildning i den [dela Data] [ split] modulen (0,7 till exempel).
+### <a name="inspecting-the-evaluation-results"></a>Inspektera utvärderings resultaten
+När du har kört experimentet kan du klicka på utdataporten för modulen [utvärdera modell][evaluate-model] och välja *visualisera* för att se utvärderings resultaten (bild 7). De utvärderings mått som är tillgängliga för binära klassificerings modeller är: *precision*, *precision*, *återkallande*, *F1-Poäng*och *AUC*. Dessutom visar modulen en Förväxlings mat ris som visar antalet sanna positiva identifieringar, falska negativa tal, falska positiva identifieringar och sanna negativ, samt *Roc*, *precision/återkallande*och *lyft* kurvor.
 
-![Utvärderar en inom klassificerare](./media/evaluate-model-performance/10.png)
+Noggrannhet är bara den andel av korrekt klassificerade instanser. Det är vanligt vis det första mått du tittar på när du utvärderar en klassificerare. Men om test data inte är balanserade (där de flesta instanserna tillhör en av klasserna), eller om du är mer intresserade av prestandan i någon av klasserna, så är noggrannheten inte riktigt att en klassificerare är effektiv. I klassificerings scenariot för inkomst nivån förutsätter du att du testar på vissa data där 99% av instanserna representerar personer som har mindre än eller lika med 50 000 per år. Det är möjligt att uppnå en 0,99 precision genom att förutsäga klassen "< = 50 000" för alla instanser. Klassificeraren i det här fallet verkar vara en effektiv uppgift, men i verkligheten går det inte att klassificera någon av de enskilda inkomst personerna (1%) Bra.
 
-Figur 10. Utvärderar en inom klassificerare
+Av den anledningen är det bra att beräkna ytterligare mått som fångar upp mer detaljerade aspekter av utvärderingen. Innan du går igenom informationen om dessa mått är det viktigt att förstå Förväxlings mat ris för en binära klassificerings utvärdering. Klass etiketterna i inlärnings uppsättningen kan bara ha två möjliga värden, som vi vanligt vis refererar till som positivt eller negativt. De positiva och negativa instanserna som en klassificerare förutsäger korrekt kallas för sant positiv (TP) och sant negativ (TN). På samma sätt kallas de felaktigt klassificerade instanserna falskt positiva (RP) och falskt negativ (FN). Förväxlings mat ris är bara en tabell som visar antalet instanser som faller under var och en av dessa fyra kategorier. Den klassiska versionen av Azure Machine Learning Studio bestämmer automatiskt vilken av de två klasserna i data uppsättningen som är den positiva klassen. Om klass etiketter är booleska eller heltal, tilldelas de märkta instanserna "true" eller "1" den positiva klassen. Om etiketterna är strängar, som i fallet med inkomst data uppsättningen, sorteras etiketterna alfabetiskt och den första nivån väljs som den negativa klassen medan den andra nivån är den positiva klassen.
 
-### <a name="inspecting-the-evaluation-results"></a>Kontrollera utvärderingsresultaten
-Kör experimentet och klicka på utdataporten för [utvärdera modell][evaluate-model]. Utvärderingsresultatet visas i form av en felmatris i det här fallet. Matrisen visar de faktiska intäkter jämfört med förutsagda instanser för alla 3 klasser.
+![Förvirring mat ris i binära klassifikation](./media/evaluate-model-performance/6a.png)
 
-![Utvärderingsresultat av multiklass-baserad klassificering](./media/evaluate-model-performance/11.png)
+Figur 6. Visualiserings mat ris för binära klassificering.
 
-Figur 11. Utvärderingsresultat av multiklass-baserad klassificering.
+Om du går tillbaka till intäkts klassificeringen skulle vi vilja ställa flera utvärderings frågor som hjälper oss att förstå prestandan för den klassificerare som används. En mycket naturlig fråga är: "ut ur de individer som modellen förutsäger för att tjäna > 50 000 (TP + RP), hur många klassificerades korrekt (TP)?" Den här frågan kan besvaras genom att titta på modellens **precision** , som är den andel av positiva resultat som klassificeras korrekt: TP/(TP + RP). En annan vanlig fråga är "av alla anställda med inkomst > 50 000 (TP + FN), hur många klassificerar klassificeraren korrekt (TP)". Detta är i själva verket **återställnings**punkt eller den verkliga positiva HASTIGHETEN: TP/(TP + FN) för klassificeraren. Du kanske märker att det finns en uppenbar kompromiss mellan precisionen och återställningen. Till exempel med en relativt bal anse rad data uppsättning skulle en klassificerare som förutser mest positiva instanser ha en hög återkallning, men en ganska låg precision då många av de negativa instanserna skulle bli felklassificerade som resulterar i ett stort antal falska positiva identifieringar. Om du vill se ett diagram över hur dessa två mått varierar kan du klicka på kurvan **precision/återkalla** på sidan för resultat av utvärderings resultat (övre vänstra delen av figur 7).
 
-### <a name="using-cross-validation"></a>Med hjälp av plattformsoberoende verifiering
-Som vi nämnde tidigare kan du utföra upprepade utbildning, bedömning och utvärderingar som automatiskt med den [Kontrollera modellen] [ cross-validate-model] modulen. Behöver du en datauppsättning, en omdöme modell och en [Kontrollera modellen] [ cross-validate-model] modulen (se bilden nedan). Igen måste du ange den etikettkolumnen i den [Kontrollera modellen] [ cross-validate-model] modulen (kolumnindex 5 i det här fallet). När du kör experimentet och klicka på höger utgående port på den [Kontrollera modellen][cross-validate-model], du kan inspektera måttvärden för varje vikning samt mean- och standard-avvikelse. Mått som visas här är den som liknar de som beskrivs i fallet binär klassificering. Observera dock att i multiklass-baserad klassificering, databehandling SANT positiva identifieringar/negativ och falska positiva identifieringar/negativ görs genom att räkna på basis av per klass, eftersom det inte finns någon övergripande positiv eller negativ klass. Till exempel när du beräknar precision återkallande av klassen Iris-setosa, antas det att det här är klassen positiva och alla andra som negativt.
+![Resultat av binära klassificerings utvärdering](./media/evaluate-model-performance/7.png)
 
-![Cross-verifierande inom Klassificeringsmodellen](./media/evaluate-model-performance/12.png)
+Figur 7. Resultat av binära klassificerings utvärdering.
 
-Figur 12. Cross-validerar en modell för multiklass-baserad klassificering.
+Ett annat relaterat mått som ofta används är **F1-poängen**, som tar både precision och åter användning. Det är det harmoniska medelvärdet av dessa två mått och beräknas som sådant: F1 = 2 (precision x återkalla)/(precision + återkalla). F1-poängen är ett bra sätt att sammanfatta utvärderingen i ett enda tal, men det är alltid en bra idé att titta på både precisionen och återkalla tillsammans för att bättre förstå hur en klassificerare fungerar.
 
-![Korsvalidering resultatet av en modell för multiklass-baserad klassificering](./media/evaluate-model-performance/13.png)
+Dessutom kan en granska den sanna positiva nivån jämfört med den falska positiva positiva frekvensen i **Roc-kurvan (receiver Operational)** och motsvarande **del under värdet kurva (AUC)** . Den närmare kurvan är i det övre vänstra hörnet, desto bättre klassificerarens prestanda (som maximerar den sanna positiva hastigheten och minimerar den falska positiva positiva frekvensen). Kurvor som ligger nära ritytans Diagonal, är resultatet av klassificerare som tenderar att göra förutsägelser som är nära att gissa sig.
 
-Figur 13. Korsvalidering resultatet av en modell för multiklass-baserad klassificering.
+### <a name="using-cross-validation"></a>Använda kors validering
+Precis som i Regressions exemplet kan vi utföra kors valideringen för att upprepade gånger träna, räkna upp och utvärdera olika del mängder av data automatiskt. På samma sätt kan vi använda modulen för [kors validering][cross-validate-model] , en modell med en ej tränad logistik Regressions modell och en data uppsättning. Etikett kolumnen måste anges till *intäkt* i egenskaperna för den [kors validerings modellens][cross-validate-model] modul. När du har kört experimentet och klickat på den högra utdataporten för modulen för [kors validerings modell][cross-validate-model] kan vi se de binära klassificerings måtten för varje vikning, utöver medelvärdet och standard avvikelsen för var och en. 
+
+![Kors validering av en binär klassificerings modell](./media/evaluate-model-performance/8.png)
+
+Figur 8. Kors validering av en binär klassificerings modell.
+
+![Kors validerings resultat för en binär klassificerare](./media/evaluate-model-performance/9.png)
+
+Figur 9. Kors validerings resultat för en binär klassificerare.
+
+## <a name="evaluating-a-multiclass-classification-model"></a>Utvärdera en klassificerings modell med multiklass
+I det här experimentet ska vi använda den populära [Iris](https://archive.ics.uci.edu/ml/datasets/Iris "Iris") -datauppsättningen som innehåller instanser av 3 olika typer (klasser) av Iris-anläggningen. Det finns 4 funktions värden (sepal längd/bredd och blad längd/bredd) för varje instans. I föregående experiment tränade vi och testade modellerna med samma data uppsättningar. Här ska vi använda modulen [dela data][split] för att skapa 2 del mängder av data, träna på den första och poäng och utvärdera den andra. Iris-datauppsättningen är offentligt tillgänglig på den [Machine Learning lagrings platsen](https://archive.ics.uci.edu/ml/index.html)och kan laddas ned med en modul för att [Importera data][import-data] .
+
+### <a name="creating-the-experiment"></a>Skapa experimentet
+Lägg till följande moduler till din arbets yta i den klassiska versionen av Azure Machine Learning Studio:
+
+* [Importera data][import-data]
+* [Besluts skog med flera klasser][multiclass-decision-forest]
+* [Dela data][split]
+* [Träna modell][train-model]
+* [Poäng modell][score-model]
+* [Utvärdera modell][evaluate-model]
+
+Anslut portarna enligt bilden i bild 10.
+
+Ställ in etikett kolumn index för modulen [träna modell][train-model] på 5. Data uppsättningen har ingen rubrik rad men vi vet att klass etiketterna är i den femte kolumnen.
+
+Klicka på modulen [Importera data][import-data] och ange egenskapen *data källa* till webb- *URL via http*och *URL: en* till http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
+
+Ange del av instanser som ska användas för utbildning i modulen [dela data][split] (till exempel 0,7).
+
+![Utvärdera en klassificering av en multiklass](./media/evaluate-model-performance/10.png)
+
+Figur 10. Utvärdera en klassificering av en multiklass
+
+### <a name="inspecting-the-evaluation-results"></a>Inspektera utvärderings resultaten
+Kör experimentet och klicka på utdataporten för [utvärdera modell][evaluate-model]. Utvärderings resultaten presenteras i form av en förvirring mat ris, i det här fallet. Matrisen visar de faktiska kontra förväntade instanserna för alla 3 klasser.
+
+![Utvärderings resultat för klassificering av multiklass](./media/evaluate-model-performance/11.png)
+
+Figur 11. Utvärderings resultat för klassificering av multiklass.
+
+### <a name="using-cross-validation"></a>Använda kors validering
+Som tidigare nämnts kan du utföra upprepad utbildning, utvärdera och utvärdera automatiskt med modulen för [kors validerings modell][cross-validate-model] . Du behöver en data uppsättning, en ej tränad modell och en modul för [kors validering][cross-validate-model] (se bilden nedan). Återigen måste du ange kolumnen etikett för modulen för [kors validerings modell][cross-validate-model] (kolumn index 5 i det här fallet). När du har kört experimentet och klickat på den högra utdataporten för [kors validerings modellen][cross-validate-model], kan du kontrol lera värdena för varje vikning samt medelvärdet och standard avvikelsen. De mått som visas här liknar de som beskrivs i det binära klassificerings fallet. Observera dock att om du använder multiklass-klassificering, beräknar de sanna positiva och negativa positiva och negativa positiva och negativa heltalen genom att inventera per klass, eftersom det inte finns någon övergripande positiv eller negativ klass. När du till exempel beräknar precisionen eller återkallar klassen "Iris-Setosa" förutsätts att detta är den positiva klassen och alla andra som negativa.
+
+![Kors validering av en klassificerings modell med multiklass](./media/evaluate-model-performance/12.png)
+
+Figur 12. Kors validering av en klassificerings modell med multiklass.
+
+![Kors validerings resultat för en klassificerings modell med multiklass](./media/evaluate-model-performance/13.png)
+
+Figur 13. Kors validerings resultat för en klassificerings modell i multiklass.
 
 <!-- Module References -->
 [cross-validate-model]: https://msdn.microsoft.com/library/azure/75fb875d-6b86-4d46-8bcc-74261ade5826/

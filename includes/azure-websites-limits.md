@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 08/09/2019
 ms.author: jroth
-ms.openlocfilehash: b84b503fad951b5a6998bf0b06d466ce41031aa8
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 1f08067768f2d4a0a0c2ab31b3db1c9f2c9e1521
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526777"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476962"
 ---
 | Resurs | Kostnadsfri | Delad | Basic | Standard | Premium (v2) | Isolerad </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -18,8 +18,8 @@ ms.locfileid: "72526777"
 | Beräknings instans typ |Delad |Delad |Dedikerad<sup>3</sup> |Dedikerad<sup>3</sup> |Dedikerad<sup>3</sup></p> |Dedikerad<sup>3</sup>|
 | [Skala ut](../articles/app-service/manage-scale-up.md) (maximalt antal instanser) |1 delad |1 delad |3 dedikerad<sup>3</sup> |10 dedikerat<sup>3</sup> |20 dedikerad<sup>3</sup>|100 dedikerat<sup>4</sup>|
 | Lagring<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup></p> |1 TB<sup>5</sup>|
-| PROCESSOR tid (5 minuter)<sup>6</sup> |3 minuter |3 minuter |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/) </a> |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/) </a> |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/) </a> |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/) </a>|
-| CPU-tid (dag)<sup>6</sup> |60 minuter |240 minuter |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/) </a> |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/) </a> |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/) </a> |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/) </a> |
+| PROCESSOR tid (5 minuter)<sup>6</sup> |3 minuter |3 minuter |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a>|
+| CPU-tid (dag)<sup>6</sup> |60 minuter |240 minuter |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a> |
 | Minne (1 timme) |1 024 MB per App Service plan |1 024 MB per app |Gäller inte |Gäller inte |Gäller inte |Gäller inte |
 | Bandbredd |165 MB |Obegränsad, [data överförings taxa](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad, [data överförings taxa](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad, [data överförings taxa](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad, [data överförings taxa](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad, [data överförings taxa](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |
 | Programarkitektur |32-bitars |32-bitars |32-bitars/64-bitars |32-bitars/64-bitars |32-bitars/64-bitars |32-bitars/64-bitars |
@@ -27,8 +27,8 @@ ms.locfileid: "72526777"
 | IP-anslutningar | 600 | 600 | Är beroende av instans storlek<sup>8</sup> | Är beroende av instans storlek<sup>8</sup> | Är beroende av instans storlek<sup>8</sup> | 64 000 |
 | Samtidiga [fel söknings anslutningar](../articles/app-service/troubleshoot-dotnet-visual-studio.md) per program |1 |1 |1 |5 |5 |5 |
 | App Service certifikat per prenumeration<sup>9</sup>| Stöds inte | Stöds inte |10 |10 |10 |10 |
-| Anpassade domäner per app </a> |0 (endast azurewebsites.net-underdomän)|500 |500 |500 |500 |500 |
-| Stöd för anpassad domän- [SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |Saknar stöd för det jokertecken för *. azurewebsites.net som är tillgängligt som standard|Saknar stöd för det jokertecken för *. azurewebsites.net som är tillgängligt som standard|Obegränsade SNI SSL anslutningar |Obegränsade SNI SSL och 1 IP SSL anslutningar ingår |Obegränsade SNI SSL och 1 IP SSL anslutningar ingår | Obegränsade SNI SSL och 1 IP SSL anslutningar ingår|
+| Anpassade domäner per app</a> |0 (endast azurewebsites.net-underdomän)|500 |500 |500 |500 |500 |
+| Stöd för anpassad domän- [SSL](../articles/app-service/configure-ssl-certificate.md) |Saknar stöd för det jokertecken för *. azurewebsites.net som är tillgängligt som standard|Saknar stöd för det jokertecken för *. azurewebsites.net som är tillgängligt som standard|Obegränsade SNI SSL anslutningar |Obegränsade SNI SSL och 1 IP SSL anslutningar ingår |Obegränsade SNI SSL och 1 IP SSL anslutningar ingår | Obegränsade SNI SSL och 1 IP SSL anslutningar ingår|
 | Hybrid anslutningar per plan | | | 5 | 25 | 200 | 200 |
 | Integrerad belastningsutjämnare | |X |X |X |X |X<sup>10</sup> |
 | [Always on](../articles/app-service/configure-common.md) | | |X |X |X |X |

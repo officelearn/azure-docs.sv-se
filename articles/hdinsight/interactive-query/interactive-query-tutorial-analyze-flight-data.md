@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Utföra ETL-åtgärder med interaktiv fråga i Azure HDInsight'
+title: 'Självstudie: ETL-åtgärder med interaktiv fråga – Azure HDInsight'
 description: Självstudie – lär dig hur du extraherar data från en rå CSV-datauppsättning, omvandlar den med interaktiv fråga på HDInsight och läser sedan in transformerade data till Azure SQL Database med hjälp av Apache Sqoop.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 07/02/2019
 ms.author: hrasheed
 ms.custom: hdinsightactive,mvc
-ms.openlocfilehash: 9ff215bb687ea2b6aa32ecb01dba7a61385b15a4
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: d1136c153a529f58db1de277ec84ac332b9f78ae
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735839"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494161"
 ---
-# <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Självstudier: Extrahera, transformera och läsa in data med interaktiv fråga i Azure HDInsight
+# <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Självstudie: extrahera, transformera och läsa in data med hjälp av interaktiv fråga i Azure HDInsight
 
 I den här självstudien tar du en rå CSV-datafil med offentligt tillgängliga flyg data, importerar den till HDInsight-kluster lagring och omvandlar sedan data med hjälp av interaktiv fråga i Azure HDInsight. När dessa data har transformerats läser du in dem till en Azure SQL-databas med hjälp av [Apache Sqoop](https://sqoop.apache.org/).
 
@@ -42,7 +42,7 @@ Den här självstudien omfattar följande uppgifter:
 
 2. På sidan rensar du alla fält och väljer sedan följande värden:
 
-   | Name | Värde |
+   | Namn | Värde |
    | --- | --- |
    | Filtrera år |2019 |
    | Filtrera period |Januari |
@@ -68,7 +68,7 @@ Det finns många sätt att överföra data till lagring som är associerade med 
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-3. Konfigurera en miljö variabel när en SSH-anslutning har upprättats. Ersätt `FILE_NAME` ,`SQL_SERVERNAME` ,,`SQL_PASWORD` och med lämpliga värden. `SQL_DATABASE` `SQL_USER` Ange sedan kommandot:
+3. Konfigurera en miljö variabel när en SSH-anslutning har upprättats. Ersätt `FILE_NAME`, `SQL_SERVERNAME`, `SQL_DATABASE`, `SQL_USER`och `SQL_PASWORD` med lämpliga värden. Ange sedan kommandot:
 
     ```bash
     export FILENAME=FILE_NAME
@@ -260,15 +260,15 @@ I föregående avsnitt kopierade du omvandlade data på `/tutorials/flightdelays
     sqoop list-databases --connect jdbc:sqlserver://$SQLSERVERNAME.database.windows.net:1433 --username $SQLUSER --password $SQLPASWORD
     ```
 
-    Det här kommandot returnerar en lista över databaser, inklusive databasen där du skapade `delays` tabellen tidigare.
+    Det här kommandot returnerar en lista över databaser, inklusive databasen där du skapade `delays`s tabellen tidigare.
 
-2. Exportera data från `/tutorials/flightdelays/output` `delays` till tabellen genom att ange kommandot nedan:
+2. Exportera data från `/tutorials/flightdelays/output` till tabellen `delays` genom att ange kommandot nedan:
 
     ```bash
     sqoop export --connect "jdbc:sqlserver://$SQLSERVERNAME.database.windows.net:1433;database=$DATABASE" --username $SQLUSER --password $SQLPASWORD --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
     ```
 
-    Sqoop ansluter till databasen som innehåller `delays` tabellen och exporterar data `/tutorials/flightdelays/output` från katalogen till `delays` tabellen.
+    Sqoop ansluter till databasen som innehåller `delays` tabellen och exporterar data från `/tutorials/flightdelays/output`-katalogen till `delays`s tabellen.
 
 3. När Sqoop-kommandot har slutförts använder du tsql-verktyget för att ansluta till databasen genom att ange kommandot nedan:
 

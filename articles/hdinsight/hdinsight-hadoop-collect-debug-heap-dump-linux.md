@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5df6ab47c45a64077a39974a30c65fe13f3c851d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 90de0b4bfad4c5096ebc38eb3d31fc41bca6649b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091503"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494854"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Aktivera heap-dum par för Apache Hadoop tjänster på Linux-baserade HDInsight
 
@@ -37,12 +37,12 @@ Du kan också aktivera heap-dum par för kartan och minska de processer som kör
 
 Heap-dumpar aktive ras genom att skicka alternativ (ibland kallade eller parametrar) till JVM när en tjänst startas. För de flesta [Apache Hadoop](https://hadoop.apache.org/) -tjänster kan du ändra det Shell-skript som används för att starta tjänsten för att skicka dessa alternativ.
 
-I varje skript finns en  **\*export för \_att**välja, som innehåller de alternativ som har skickats till JVM. I **Hadoop-ENV.sh** -skriptet innehåller till exempel den rad som börjar med `export HADOOP_NAMENODE_OPTS=` innehåller alternativen för NameNode-tjänsten.
+I varje skript finns det en export för **\*\_väljer**som innehåller de alternativ som skickas till JVM. I **Hadoop-ENV.sh** -skriptet innehåller till exempel den rad som börjar med `export HADOOP_NAMENODE_OPTS=` alternativen för NameNode-tjänsten.
 
 Mappa och minska processer skiljer sig något åt, eftersom dessa åtgärder är underordnade processer i MapReduce-tjänsten. Varje karta eller minska processen körs i en underordnad behållare och det finns två poster som innehåller JVM-alternativen. Båda finns i **mapred-site. XML**:
 
 * **MapReduce. admin. map. Child. java. väljer**
-* **mapreduce.admin.reduce.child.java.opts**
+* **MapReduce. admin. reduce. Child. java. önskad**
 
 > [!NOTE]  
 > Vi rekommenderar att du använder [Apache Ambari](https://ambari.apache.org/) för att ändra både skript-och mapred-site. XML-inställningarna, som Ambari hanterar replikering av ändringar över noder i klustret. Mer information finns i avsnittet [using Apache Ambari](#using-apache-ambari) .
@@ -53,7 +53,7 @@ Följande alternativ aktiverar heap-dum par när en OutOfMemoryError inträffar:
 
     -XX:+HeapDumpOnOutOfMemoryError
 
-**+** Anger att det här alternativet är aktiverat. Standardvärdet är inaktiverad.
+**+** anger att det här alternativet är aktiverat. Standardvärdet är inaktiverad.
 
 > [!WARNING]  
 > Heap-dumpar är inte aktiverade för Hadoop-tjänster på HDInsight som standard eftersom dumpfiler kan vara stora. Om du aktiverar dem för fel sökning, kom ihåg att inaktivera dem när du har återskapat problemet och samlat in dumpfiler.
@@ -64,7 +64,7 @@ Standard platsen för dumpfilen är den aktuella arbets katalogen. Du kan styra 
 
     -XX:HeapDumpPath=/path
 
-Om du till exempel `-XX:HeapDumpPath=/tmp` använder kan dumparna lagras i katalogen/tmp-katalogen.
+Om du till exempel använder `-XX:HeapDumpPath=/tmp` kommer dumparna att lagras i katalogen/tmp-katalogen.
 
 ### <a name="scripts"></a>Skript
 
@@ -75,13 +75,13 @@ Du kan också utlösa ett skript när ett **OutOfMemoryError** inträffar. Du ka
 > [!NOTE]  
 > Eftersom Apache Hadoop är ett distribuerat system måste alla skript som används placeras på alla noder i klustret som tjänsten körs på.
 > 
-> Skriptet måste också finnas på en plats som är tillgänglig för det konto som tjänsten körs som, och måste ge kör-behörighet. Till exempel kanske du vill lagra skript i `/usr/local/bin` och använda `chmod go+rx /usr/local/bin/filename.sh` för att bevilja Läs-och kör behörigheter.
+> Skriptet måste också finnas på en plats som är tillgänglig för det konto som tjänsten körs som, och måste ge kör-behörighet. Du kanske till exempel vill lagra skript i `/usr/local/bin` och använda `chmod go+rx /usr/local/bin/filename.sh` för att bevilja Läs-och kör behörigheter.
 
 ## <a name="using-apache-ambari"></a>Använda Apache Ambari
 
 Använd följande steg för att ändra konfigurationen för en tjänst:
 
-1. Öppna Ambari-webbgränssnittet för klustret. URL: en https://YOURCLUSTERNAME.azurehdinsight.net är.
+1. Öppna Ambari-webbgränssnittet för klustret. URL: en är https://YOURCLUSTERNAME.azurehdinsight.net.
 
     När du uppmanas autentiserar du till platsen med hjälp av HTTP-kontonamnet (standard: admin) och lösen ordet för klustret.
 
@@ -96,7 +96,7 @@ Använd följande steg för att ändra konfigurationen för en tjänst:
 
     ![Filtrerad lista med Apache Ambari-konfiguration](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png)
 
-4. Leta upp posten för den tjänst som du vill aktivera heap-dum par för och Lägg till de alternativ som du vill aktivera.  **\* \_** I följande bild har jag lagt `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` till i posten **HADOOP\_NAMENODE:\_**
+4. Leta reda på posten **\*\_** som du vill aktivera heap-dum par för och Lägg till de alternativ som du vill aktivera. I följande bild har jag lagt till `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` till filen **HADOOP\_NAMENODE\_** indexord:
 
     ![Apache Ambari Hadoop-namenode-väljer](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png)
 

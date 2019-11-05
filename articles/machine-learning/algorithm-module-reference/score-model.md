@@ -1,24 +1,24 @@
 ---
 title: 'Poäng modell: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen Poäng modell i Azure Machine Learning-tjänsten för att generera förutsägelser med hjälp av en utbildad klassificerings-eller Regressions modell.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen Poäng modell i Azure Machine Learning för att generera förutsägelser med hjälp av en tränad klassificerings-eller Regressions modell.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: f046b41d02ac392d003a9ecd15f25b43e5449cd0
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: e7ab953a7ac0907244ebaab70b3b86cbe6f0f4d9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692677"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497648"
 ---
 # <a name="score-model-module"></a>Modulen Poängsätta modell
 
-I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd den här modulen för att generera förutsägelser med hjälp av en utbildad klassificerings-eller Regressions modell.
 
@@ -50,7 +50,6 @@ Poängen eller det förväntade värdet kan ha många olika format, beroende på
 
 En vanlig användning av poängsättning är att returnera utdata som en del av en förutsägbar webb tjänst. Mer information finns i den här självstudien om hur du skapar en webb tjänst baserat på en pipeline i Azure Machine Learning:
 
-
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

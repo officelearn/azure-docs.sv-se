@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5100af99046a03345230ed0468071766aae1c77b
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 30b0649f23403363ca4ab4101a2d5cf7a42d505b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389615"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473697"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Snabb start: Konfigurera ett klient program för åtkomst till webb-API: er
 
@@ -43,7 +43,7 @@ I den här snabbstarten visas hur du konfigurerar din app för att:
 * [Lägg till autentiseringsuppgifter i ditt webb program](#add-credentials-to-your-web-application)
 * [Lägga till behörigheter för att få åtkomst till webb-API:er](#add-permissions-to-access-web-apis)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar kontrollerar du att följande krav är uppfyllda:
 
@@ -55,9 +55,10 @@ Innan du börjar kontrollerar du att följande krav är uppfyllda:
 
 Innan du kan konfigurera appen gör du följande:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller en personligt Microsoft-konto.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
 1. Om ditt konto ger dig åtkomst till fler än en klient väljer du ditt konto i det övre högra hörnet och ställer in din portal-session till önskad Azure AD-klient.
-1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** och väljer sedan **Appregistreringar**.
+1. Sök efter och välj **Azure Active Directory**. 
+1. I den vänstra rutan väljer du **Appregistreringar**.
 1. Leta reda på och välj den app du vill konfigurera. När du har valt appen ser du dess **översikt** eller huvudregistreringssida.
 1. Följ stegen för att konfigurera appen för åtkomst till webb-API:er:
     * [Lägga till omdirigerings-URI:er för appen](#add-redirect-uris-to-your-application)
@@ -117,7 +118,7 @@ När du har [konfigurerat de konto typer som stöds](quickstart-register-app.md)
 
 ## <a name="configure-platform-settings-for-your-application"></a>Konfigurera plattforms inställningar för ditt program
 
-[![Configure inställningar för din app baserat på plattformen eller enheten](./media/quickstart-update-azure-ad-app-preview/authentication-new-platform-configurations-expanded.png)](./media/quickstart-update-azure-ad-app-preview/authentication-new-platform-configurations-small.png#lightbox)
+[![konfigurera inställningar för appen baserat på plattformen eller enheten](./media/quickstart-update-azure-ad-app-preview/authentication-new-platform-configurations-expanded.png)](./media/quickstart-update-azure-ad-app-preview/authentication-new-platform-configurations-small.png#lightbox)
 
 Om du vill konfigurera program inställningar baserat på plattformen eller enheten är du mål:
 
@@ -132,7 +133,7 @@ Om du vill konfigurera program inställningar baserat på plattformen eller enhe
    | **Webbprogram**    | **Webb**              | Ange **omdirigerings-URI** för programmet. |
    | **Mobil program** | **iOS**              | Ange appens **paket-ID**, som du hittar i Xcode i info. plist eller skapa inställningar. Genom att lägga till paket-ID: t skapas automatiskt en omdirigerings-URI för programmet. |
    |                         | **Android**          | * Ange appens **paket namn**, som du hittar i filen AndroidManifest. xml.<br/>* Generera och ange **signaturens hash-värde**. När du lägger till signaturens hash skapas automatiskt en omdirigerings-URI för programmet.  |
-   | **Desktop + enheter**   | **Desktop + enheter** | Valfritt. Välj en av de rekommenderade **omdirigerings-URI: erna** om du skapar appar för Station ära datorer och enheter.<br/>Valfritt. Ange en **anpassad omdirigerings-URI**, som används som den plats där Azure AD omdirigerar användare som svar på autentiseringsbegäranden. För .NET Core-program där du vill ha interaktionen använder du till exempel `https://localhost`. |
+   | **Desktop + enheter**   | **Desktop + enheter** | Valfritt. Välj en av de rekommenderade **omdirigerings-URI: erna** om du skapar appar för Station ära datorer och enheter.<br/>Valfritt. Ange en **anpassad omdirigerings-URI**, som används som den plats där Azure AD omdirigerar användare som svar på autentiseringsbegäranden. Till exempel för .NET Core-program där du vill ha interaktionen använder du `https://localhost`. |
 
    > [!IMPORTANT]
    > För mobila program som inte använder det senaste MSAL-biblioteket eller som inte använder en Service Broker måste du konfigurera omdirigerings-URI: erna för dessa program i **Desktop +-enheter**.
@@ -183,7 +184,7 @@ Så lägger du till behörigheter för att komma åt resurs-API:er från kliente
 Läs mer om dessa andra relaterade snabbstarter för apphantering:
 
 * [Registrera en app på Microsoft Identity Platform](quickstart-register-app.md)
-* [Konfigurera en app att exponera webb-API:er](quickstart-configure-app-expose-web-apis.md)
+* [Konfigurera ett program att exponera webb-API:er](quickstart-configure-app-expose-web-apis.md)
 * [Ändra konton som stöds av en app](quickstart-modify-supported-accounts.md)
 * [Ta bort en app registrerad på Microsoft Identity Platform](quickstart-remove-app.md)
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
-ms.openlocfilehash: fd43e9c71db9ae553b24e6cd774495ee8cc5b621
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: d1874d610feb041545e1675ad5b40a1b5e753b67
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242339"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497984"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer utgående regler
 
@@ -86,7 +86,7 @@ Använd följande parameter för att allokera 10 000 SNAT-portar per virtuell da
 
 Varje offentlig IP-adress från alla klient delar av en utgående regel bidrar upp till 64 000 tillfälliga portar för användning som SNAT-portar.  Load Balancer allokerar SNAT-portar i multipler av 8. Om du anger ett värde som inte är delbart med 8 avvisas konfigurations åtgärden.  Om du försöker allokera fler SNAT-portar än vad som är tillgängligt baserat på antalet offentliga IP-adresser avvisas konfigurations åtgärden.  Om du till exempel allokerar 10 000-portar per virtuell dator och 7 virtuella datorer i en backend-pool delar en enskild offentlig IP-adress, så avvisas konfigurationen (7 x 10 000/SNAT-portar > 64 000/SNAT-portar).  Du kan lägga till fler offentliga IP-adresser till klient delen för den utgående regeln för att aktivera scenariot.
 
-Du kan återgå till [Automatisk SNAT-port tilldelning baserat på storlek på backend-poolen](load-balancer-outbound-connections.md#preallocatedports) genom att ange 0 för antal portar. I så fall kommer de första 50 VM-instanserna att få 1024 portar, 51-100 VM-instanser får 512 och så vidare enligt tabellen. Om du har fler än en klient del med en offentlig IP-adress som är kopplad till regeln för utgående trafik ökar inte antalet portar som allokerats till varje VM-instans.
+Du kan återgå till [Automatisk SNAT-port tilldelning baserat på storlek på backend-poolen](load-balancer-outbound-connections.md#preallocatedports) genom att ange 0 för antal portar. I så fall kommer de första 50 VM-instanserna att få 1024 portar, 51-100 VM-instanser får 512 och så vidare enligt tabellen.
 
 ### <a name="idletimeout"></a>Kontrol lera timeout för utgående inaktivt flöde
 

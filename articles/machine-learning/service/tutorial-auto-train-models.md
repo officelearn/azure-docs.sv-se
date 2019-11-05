@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie om regressionsmodell: Automatisk ML'
+title: 'Regressions modell självstudie: automatiserad ML'
 titleSuffix: Azure Machine Learning
 description: Lär dig att skapa en maskininlärningsmodell med automatiserad maskininlärning. Azure Machine Learning kan förbearbeta data, välja algoritm och hyperparameter på ett automatiserat sätt åt dig. Sedan distribueras den slutliga modellen med Azure Machine Learning.
 services: machine-learning
@@ -9,15 +9,16 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 08/21/2019
-ms.openlocfilehash: f08f2f07137e518925ee4dbe9b128e100be870c9
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.openlocfilehash: a7bd735a808532ed0e61cf42dca2d7a797092487
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003984"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493692"
 ---
-# <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Självstudier: Använd automatisk maskin inlärning för att förutse taxi-priser
+# <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Självstudie: Använd automatisk maskin inlärning för att förutse taxi priser
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 I den här självstudien använder du Automatisk maskin inlärning i Azure Machine Learning för att skapa en Regressions modell för att förutsäga priserna för NYC Taxi pris. Den här processen godkänner inlärnings data och konfigurations inställningar och upprepas automatiskt genom kombinationer av olika metoder, modeller och inställningar för en funktion för funktioner, modeller och kompatibilitetsinställningar för att komma till den bästa modellen.
 
@@ -41,7 +42,7 @@ Den här själv studie kursen finns också på [GitHub](https://github.com/Azure
 
 ## <a name="download-and-prepare-data"></a>Hämta och förbereda data
 
-Importera de nödvändiga paketen. Det öppna data uppsättnings paketet innehåller en klass som representerar varje data`NycTlcGreen` källa (till exempel) för att enkelt filtrera datum parametrar innan de hämtas.
+Importera de nödvändiga paketen. Det öppna data uppsättnings paketet innehåller en klass som representerar varje data källa`NycTlcGreen` (till exempel) för att enkelt filtrera datum parametrar innan de laddas ned.
 
 ```python
 from azureml.opendatasets import NycTlcGreen
@@ -50,9 +51,9 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 ```
 
-Börja med att skapa en dataframe som innehåller taxi data. När du arbetar i en miljö som inte är Spark-miljö kan öppna data uppsättningar bara hämta en månad med data i taget med vissa klasser `MemoryError` för att undvika med stora data mängder.
+Börja med att skapa en dataframe som innehåller taxi data. När du arbetar i en miljö som inte är Spark-miljö kan öppna data uppsättningar bara hämta en månad med data i taget med vissa klasser för att undvika `MemoryError` med stora data mängder.
 
-För att hämta taxi data, Hämta upprepade gånger en månad i taget och innan du lägger till den för `green_taxi_df` att slumpmässigt sampla 2 000 poster från varje månad för att undvika bloating dataframe. Förhandsgranska sedan data.
+För att hämta taxi data, Hämta upprepade gånger en månad i taget och innan du lägger till den i `green_taxi_df` slumpvis sampla 2 000 poster från varje månad för att undvika bloating dataframe. Förhandsgranska sedan data.
 
 
 ```python
@@ -96,7 +97,7 @@ green_taxi_df.head(10)
       <th>...</th>
       <th>paymentType</th>
       <th>fareAmount</th>
-      <th>extra</th>
+      <th>Extra</th>
       <th>mtaTax</th>
       <th>improvementSurcharge</th>
       <th>tipAmount</th>
@@ -114,8 +115,8 @@ green_taxi_df.head(10)
       <td>2015-01-11 05:45:03</td>
       <td>3</td>
       <td>4,84</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,88</td>
       <td>40,84</td>
       <td>– 73,94</td>
@@ -138,14 +139,14 @@ green_taxi_df.head(10)
       <td>2015-01-20 16:30:26</td>
       <td>1</td>
       <td>0,69</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,96</td>
       <td>40,81</td>
       <td>– 73,96</td>
       <td>...</td>
       <td>2</td>
-      <td>4.50</td>
+      <td>4,50</td>
       <td>1,00</td>
       <td>0,50</td>
       <td>0,3</td>
@@ -162,8 +163,8 @@ green_taxi_df.head(10)
       <td>2015-01-01 06:00:55</td>
       <td>1</td>
       <td>0,45</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,92</td>
       <td>40,76</td>
       <td>– 73,91</td>
@@ -186,8 +187,8 @@ green_taxi_df.head(10)
       <td>2015-01-17 02:41:38</td>
       <td>1</td>
       <td>0,00</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,81</td>
       <td>40,70</td>
       <td>– 73,82</td>
@@ -210,8 +211,8 @@ green_taxi_df.head(10)
       <td>2015-01-01 05:06:23</td>
       <td>1</td>
       <td>0,50</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,92</td>
       <td>40,76</td>
       <td>– 73,92</td>
@@ -234,8 +235,8 @@ green_taxi_df.head(10)
       <td>2015-01-04 20:05:45</td>
       <td>2</td>
       <td>1,10</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,96</td>
       <td>40,72</td>
       <td>– 73,95</td>
@@ -258,8 +259,8 @@ green_taxi_df.head(10)
       <td>2015-01-03 12:33:52</td>
       <td>1</td>
       <td>0,90</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,88</td>
       <td>40,76</td>
       <td>– 73,87</td>
@@ -282,8 +283,8 @@ green_taxi_df.head(10)
       <td>2015-01-09 23:39:52</td>
       <td>1</td>
       <td>3,30</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,96</td>
       <td>40,72</td>
       <td>– 73,91</td>
@@ -306,8 +307,8 @@ green_taxi_df.head(10)
       <td>2015-01-11 17:22:57</td>
       <td>1</td>
       <td>1,19</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,94</td>
       <td>40,71</td>
       <td>– 73,95</td>
@@ -330,8 +331,8 @@ green_taxi_df.head(10)
       <td>2015-01-22 23:20:13</td>
       <td>1</td>
       <td>0,65</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,94</td>
       <td>40,71</td>
       <td>– 73,94</td>
@@ -353,7 +354,7 @@ green_taxi_df.head(10)
 </div>
 
 
-Nu när de ursprungliga data har lästs in definierar du en funktion för att skapa olika tidsbaserade funktioner från fältet Hämta datum/tid. Detta skapar nya fält för månads nummer, dag i månad, veckodag och veckodag och ger modellen i tidsbaserad säsongs beroende. Använd funktionen på dataframe för att upprepa `build_time_features()` funktionen på varje rad i taxi data. `apply()`
+Nu när de ursprungliga data har lästs in definierar du en funktion för att skapa olika tidsbaserade funktioner från fältet Hämta datum/tid. Detta skapar nya fält för månads nummer, dag i månad, veckodag och veckodag och ger modellen i tidsbaserad säsongs beroende. Använd funktionen `apply()` på dataframe för att upprepa funktionen `build_time_features()` för varje rad i taxi data.
 
 ```python
 def build_time_features(vector):
@@ -415,8 +416,8 @@ green_taxi_df.head(10)
       <td>2015-01-11 05:45:03</td>
       <td>3</td>
       <td>4,84</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,88</td>
       <td>40,84</td>
       <td>– 73,94</td>
@@ -439,8 +440,8 @@ green_taxi_df.head(10)
       <td>2015-01-20 16:30:26</td>
       <td>1</td>
       <td>0,69</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,96</td>
       <td>40,81</td>
       <td>– 73,96</td>
@@ -463,8 +464,8 @@ green_taxi_df.head(10)
       <td>2015-01-01 06:00:55</td>
       <td>1</td>
       <td>0,45</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,92</td>
       <td>40,76</td>
       <td>– 73,91</td>
@@ -487,8 +488,8 @@ green_taxi_df.head(10)
       <td>2015-01-17 02:41:38</td>
       <td>1</td>
       <td>0,00</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,81</td>
       <td>40,70</td>
       <td>– 73,82</td>
@@ -511,8 +512,8 @@ green_taxi_df.head(10)
       <td>2015-01-01 05:06:23</td>
       <td>1</td>
       <td>0,50</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,92</td>
       <td>40,76</td>
       <td>– 73,92</td>
@@ -535,8 +536,8 @@ green_taxi_df.head(10)
       <td>2015-01-04 20:05:45</td>
       <td>2</td>
       <td>1,10</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,96</td>
       <td>40,72</td>
       <td>– 73,95</td>
@@ -559,8 +560,8 @@ green_taxi_df.head(10)
       <td>2015-01-03 12:33:52</td>
       <td>1</td>
       <td>0,90</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,88</td>
       <td>40,76</td>
       <td>– 73,87</td>
@@ -583,8 +584,8 @@ green_taxi_df.head(10)
       <td>2015-01-09 23:39:52</td>
       <td>1</td>
       <td>3,30</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,96</td>
       <td>40,72</td>
       <td>– 73,91</td>
@@ -607,8 +608,8 @@ green_taxi_df.head(10)
       <td>2015-01-11 17:22:57</td>
       <td>1</td>
       <td>1,19</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,94</td>
       <td>40,71</td>
       <td>– 73,95</td>
@@ -631,8 +632,8 @@ green_taxi_df.head(10)
       <td>2015-01-22 23:20:13</td>
       <td>1</td>
       <td>0,65</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,94</td>
       <td>40,71</td>
       <td>– 73,94</td>
@@ -668,7 +669,7 @@ green_taxi_df.head(5)
 
 ### <a name="cleanse-data"></a>Rensa data
 
-`describe()` Kör funktionen på den nya dataframe för att se sammanfattnings statistik för varje fält.
+Kör funktionen `describe()` på den nya dataframe för att se sammanfattnings statistik för varje fält.
 
 ```python
 green_taxi_df.describe()
@@ -720,7 +721,7 @@ green_taxi_df.describe()
       <td>48000,00</td>
     </tr>
     <tr>
-      <th>medelvärde</th>
+      <th>anses</th>
       <td>1,78</td>
       <td>1,37</td>
       <td>2,87</td>
@@ -736,21 +737,21 @@ green_taxi_df.describe()
     </tr>
     <tr>
       <th>standard</th>
-      <td>0.41</td>
+      <td>0,41</td>
       <td>1,04</td>
       <td>2,93</td>
       <td>2,76</td>
       <td>1,52</td>
-      <td>2.61</td>
+      <td>2,61</td>
       <td>1,44</td>
       <td>12,08</td>
-      <td>3.45</td>
+      <td>3,45</td>
       <td>8,45</td>
       <td>1,95</td>
       <td>6,83</td>
     </tr>
     <tr>
-      <th>min</th>
+      <th>min.</th>
       <td>1,00</td>
       <td>0,00</td>
       <td>0,00</td>
@@ -774,13 +775,13 @@ green_taxi_df.describe()
       <td>– 73,97</td>
       <td>40,70</td>
       <td>7,80</td>
-      <td>3.75</td>
+      <td>3,75</td>
       <td>8,00</td>
       <td>2,00</td>
       <td>9,00</td>
     </tr>
     <tr>
-      <th>50%</th>
+      <th>50 %</th>
       <td>2,00</td>
       <td>1,00</td>
       <td>1,90</td>
@@ -791,7 +792,7 @@ green_taxi_df.describe()
       <td>11,30</td>
       <td>6,50</td>
       <td>15,00</td>
-      <td>3.00</td>
+      <td>3,00</td>
       <td>15,00</td>
     </tr>
     <tr>
@@ -810,7 +811,7 @@ green_taxi_df.describe()
       <td>19,00</td>
     </tr>
     <tr>
-      <th>max</th>
+      <th>bekräftat</th>
       <td>2,00</td>
       <td>9,00</td>
       <td>97,57</td>
@@ -831,9 +832,9 @@ green_taxi_df.describe()
 
 Från sammanfattnings statistik ser du att det finns flera fält med avvikande värden eller värden som minskar modell noggrannheten. Börja med att filtrera Lat/Long-fälten så att de ligger inom gränserna för Manhattan-ytan. Detta filtrerar längre taxi resor eller resor som är avvikande i förhållande till deras förhållande till andra funktioner.
 
-Filtrera också fältet `tripDistance` så att det är större än noll men mindre än 31 mil (haversine avståndet mellan två Lat/Long-par). Detta eliminerar långa avvikare resor som har inkonsekventa rese kostnader.
+Filtrera också `tripDistance` fältet så att det är större än noll men mindre än 31 mil (det haversine avståndet mellan de två Lat/Long-paren). Detta eliminerar långa avvikare resor som har inkonsekventa rese kostnader.
 
-Slutligen har `passengerCount` fältet negativa värden för taxi-priserna, vilket inte är meningsfullt i den här modellen, och fältet innehåller felaktiga data med de lägsta värdena noll. `totalAmount`
+Slutligen har fältet `totalAmount` negativa värden för Taxins biljett priser, vilket inte är meningsfullt i den här modellen, och fältet `passengerCount` innehåller felaktiga data med de lägsta värdena noll.
 
 Filtrera bort dessa avvikelser med hjälp av fråge funktioner och ta sedan bort de senaste kolumnerna som behövs för utbildning.
 
@@ -857,7 +858,7 @@ final_df.describe()
 
 ## <a name="configure-workspace"></a>Konfigurera arbetsyta
 
-Skapa ett arbetsyteobjekt från den befintliga arbetsytan. En [arbets yta](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) är en klass som godkänner din Azure-prenumeration och resursinformation. Den skapar också en molnresurs för att övervaka och spåra dina körningar i modellen. `Workspace.from_config()`läser filen **config. JSON** och läser in autentiseringsinformationen till ett objekt med namnet `ws`. `ws` används i resten av koden i den här självstudien.
+Skapa ett arbetsyteobjekt från den befintliga arbetsytan. En [arbets yta](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) är en klass som godkänner din Azure-prenumeration och resursinformation. Den skapar också en molnresurs för att övervaka och spåra dina körningar i modellen. `Workspace.from_config()` läser filen **config. JSON** och läser in autentiseringsinformationen till ett objekt med namnet `ws`. `ws` används i resten av koden i den här självstudien.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -866,9 +867,9 @@ ws = Workspace.from_config()
 
 ## <a name="split-the-data-into-train-and-test-sets"></a>Dela data till uppsättningar för träning och testning
 
-Dela data i utbildnings-och test uppsättningar genom att `train_test_split` använda funktionen `scikit-learn` i biblioteket. Den här funktionen åtskiljer data i data uppsättningen x (**funktioner**) för modell utbildning och data uppsättningen y (**värden att Förutsäg**) för testning.
+Dela data i utbildnings-och test uppsättningar med hjälp av funktionen `train_test_split` i `scikit-learn`-biblioteket. Den här funktionen åtskiljer data i data uppsättningen x (**funktioner**) för modell utbildning och data uppsättningen y (**värden att Förutsäg**) för testning.
 
-Parametern `test_size` anger procentandelen av data som ska allokeras till testning. `random_state` Parametern anger ett start värde för den slumpmässiga generatorn, så att dina träna-test-delningar är deterministiska.
+Parametern `test_size` anger procentandelen av data som ska allokeras till testning. Parametern `random_state` anger ett start värde för den slumpmässiga generatorn, så att dina träna-test-delningar är deterministiska.
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -891,14 +892,15 @@ För att träna en modell automatiskt gör du följande:
 
 ### <a name="define-training-settings"></a>Definiera utbildnings inställningar
 
-Definiera experiment parametern och modell inställningarna för träning. Visa hela listan med [inställningar](how-to-configure-auto-train.md). Att skicka experimentet med dessa standardinställningar tar cirka 5-10 min, men om du vill ha en kortare körnings tid minskar du `iterations` parametern.
+Definiera experiment parametern och modell inställningarna för träning. Visa hela listan med [inställningar](how-to-configure-auto-train.md). Att skicka experimentet med dessa standardinställningar tar cirka 5-20 min, men om du vill ha en kortare körnings tid minskar du `experiment_timeout_minutes`-parametern.
 
 |Egenskap| Värde i den här självstudien |Beskrivning|
 |----|----|---|
 |**iteration_timeout_minutes**|2|Tidsgräns i minuter för varje iteration. Minska det här värdet om du vill minska den totala körningstiden.|
-|**iterationer**|20|Antal iterationer. I varje iteration tränas en ny maskininlärningsmodell med dina data. Det här är det primära värde som påverkar den totala körningstiden.|
+|**experiment_timeout_minutes**|20|Den maximala tid i minuter som alla iterationer kombineras kan ta innan experimentet avslutas.|
+|**enable_early_stopping**|True|Flagga för att Enble tidig uppsägning om poängen inte förbättras på kort sikt.|
 |**primary_metric**| spearman_correlation | Mått som du vill optimera. Den modell som passar bäst väljs utifrån det här måttet.|
-|**preprocess**| Sant | När **True** (Sant) används kan experimentet förbearbeta indata (hantering av saknade data, konvertering av text till numeriskt osv.)|
+|**funktionalisering**| Disk | Genom att använda **Auto**kan experimentet Förbearbeta indata (hantering av saknade data, konvertera text till numeriskt osv.)|
 |**verbosity**| logging.INFO | Styr loggningsnivån.|
 |**n_cross_validations**|5|Det antal delningar av korsvalidering som ska utföras när verifieringsdata inte har angetts.|
 
@@ -907,15 +909,16 @@ import logging
 
 automl_settings = {
     "iteration_timeout_minutes": 2,
-    "iterations": 20,
+    "experiment_timeout_minutes": 20,
+    "enable_early_stopping": True,
     "primary_metric": 'spearman_correlation',
-    "preprocess": True,
+    "featurization": 'auto',
     "verbosity": logging.INFO,
     "n_cross_validations": 5
 }
 ```
 
-Använd dina definierade utbildnings inställningar som en `**kwargs` parameter till ett `AutoMLConfig` objekt. Ange även dina träningsdata och modelltypen, som i det här fallet är `regression`.
+Använd dina definierade utbildnings inställningar som en `**kwargs` parameter till ett `AutoMLConfig`-objekt. Ange även dina träningsdata och modelltypen, som i det här fallet är `regression`.
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -932,7 +935,7 @@ automl_config = AutoMLConfig(task='regression',
 
 ### <a name="train-the-automatic-regression-model"></a>Träna den automatiska regressionsmodellen
 
-Skapa ett experiment objekt i din arbets yta. Ett experiment fungerar som en behållare för dina enskilda körningar. Skicka det definierade `automl_config` objektet till experimentet och ange att `True` utdata ska se förloppet under körningen.
+Skapa ett experiment objekt i din arbets yta. Ett experiment fungerar som en behållare för dina enskilda körningar. Skicka det definierade `automl_config`-objektet till experimentet och Ställ in utdata till `True` för att visa förloppet under körningen.
 
 När experimentet har startats visas uppdateringarna Live som experimentet. För varje iteration ser du modelltypen, körningens varaktighet samt träningens noggrannhet. Fältet `BEST` spårar den bästa löpande körningspoängen utifrån din måttyp.
 
@@ -995,7 +998,7 @@ RunDetails(local_run).show()
 
 ### <a name="retrieve-the-best-model"></a>Hämta den bästa modellen
 
-Välj den bästa modellen från dina iterationer. `get_output` Funktionen returnerar den bästa körningen och den monterade modellen för den senaste pass-anropet. Genom att använda överlagringarna `get_output`kan du hämta den bästa körnings-och den monterade modellen för alla inloggade mått eller en viss iteration.
+Välj den bästa modellen från dina iterationer. Funktionen `get_output` returnerar den bästa körningen och den monterade modellen för den senaste pass-anropet. Genom att använda överlagringar på `get_output`kan du hämta den bästa körnings-och den monterade modellen för alla inloggade mått eller en viss iteration.
 
 ```python
 best_run, fitted_model = local_run.get_output()
@@ -1012,7 +1015,7 @@ y_predict = fitted_model.predict(x_test.values)
 print(y_predict[:10])
 ```
 
-Beräkna `root mean squared error` för resultatet. `y_test` Konvertera dataframe till en lista som ska jämföras med de förväntade värdena. Funktionen `mean_squared_error` tar emot två matriser med värden och beräknar det genomsnittliga kvadratfelet mellan dem. Att ta kvadratroten ur resultatet ger ett fel i samma enheter som y-variabeln, **kostnad**. Det anger ungefär hur långt priset för taxi avgiften kommer från de faktiska priserna.
+Beräkna `root mean squared error` för resultatet. Konvertera `y_test` dataframe till en lista som ska jämföras med de förväntade värdena. Funktionen `mean_squared_error` tar emot två matriser med värden och beräknar det genomsnittliga kvadratfelet mellan dem. Att ta kvadratroten ur resultatet ger ett fel i samma enheter som y-variabeln, **kostnad**. Det anger ungefär hur långt priset för taxi avgiften kommer från de faktiska priserna.
 
 ```python
 from sklearn.metrics import mean_squared_error
@@ -1023,7 +1026,7 @@ rmse = sqrt(mean_squared_error(y_actual, y_predict))
 rmse
 ```
 
-Kör följande kod för att beräkna medelvärde för absoluta procent fel (MAPE) med hjälp av `y_actual` fullständig `y_predict` och data uppsättningar. Det här måttet beräknar en absolut skillnad mellan varje förväntat och faktiskt värde och summerar alla skillnaderna. Sedan uttrycker den summan som en procent andel av summan av de faktiska värdena.
+Kör följande kod för att beräkna medelvärde för absoluta procent fel (MAPE) med hjälp av den fullständiga `y_actual` och `y_predict` data uppsättningar. Det här måttet beräknar en absolut skillnad mellan varje förväntat och faktiskt värde och summerar alla skillnaderna. Sedan uttrycker den summan som en procent andel av summan av de faktiska värdena.
 
 ```python
 sum_actuals = sum_errors = 0
@@ -1053,20 +1056,15 @@ print(1 - mean_abs_percent_error)
 
 Från de två noggrannhets måtten för förutsägelse ser du att modellen är ganska lämplig vid förutsägelse av taxi biljett från data uppsättningens funktioner, vanligt vis inom +-$4,00 och cirka 15% fel.
 
-De traditionella machine learning-modell utvecklingsprocessen är mycket resurskrävande och kräver betydande domän kunskap och tid att köra och jämför resultatet från flera olika modeller. Användning av automatisk maskininlärning är ett bra sätt att snabbt testa flera olika modeller för ett scenario.
+Utvecklingsprocessen för maskininlärningsmodeller är mycket resurskrävande och fordrar betydande domänkunskap och tid för att köra och jämföra resultat från flera olika modeller. Användning av automatisk maskininlärning är ett bra sätt att snabbt testa flera olika modeller för ett scenario.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Slutför inte det här avsnittet om du tänker köra andra Azure Machine Learning själv studie kurser.
 
-### <a name="stop-the-notebook-vm"></a>Stoppa den virtuella Notebook-datorn
+### <a name="stop-the-compute-instance"></a>Stoppa beräknings instansen
 
-Om du har använt en molnbaserad Notebook-Server stoppar du den virtuella datorn när du inte använder den för att minska kostnaderna.
-
-1. I arbets ytan väljer du **Notebook VM**: ar.
-1. Välj den virtuella datorn i listan.
-1. Välj **stoppa**.
-1. När du är redo att använda servern igen väljer du **Starta**.
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### <a name="delete-everything"></a>Ta bort allt
 

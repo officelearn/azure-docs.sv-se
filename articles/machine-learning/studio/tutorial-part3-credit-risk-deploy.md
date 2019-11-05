@@ -1,7 +1,7 @@
 ---
-title: 'Självstudie 3: Distribuera en kreditriskmodell'
-titleSuffix: Azure Machine Learning Studio
-description: En detaljerad självstudie om hur du skapar en förutsägelseanalys för kreditriskbedömning i Azure Machine Learning Studio. Självstudien är del tre i en självstudieserie i tre delar. Den visar hur du distribuerar en modell som en webbtjänst.
+title: 'Självstudie 3: Distribuera kredit risk modell'
+titleSuffix: Azure Machine Learning Studio (classic)
+description: En detaljerad självstudie som visar hur du skapar en förutsägelse analys lösning för kredit riskbedömning i den klassiska versionen av Azure Machine Learning Studio. Självstudien är del tre i en självstudieserie i tre delar. Den visar hur du distribuerar en modell som en webbtjänst.
 keywords: kreditrisk, lösning för förutsägelseanalys, riskbedömning, distribuera, webbtjänst
 author: sdgilley
 ms.author: sgilley
@@ -10,24 +10,24 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 6cdccd54546296c85864f1588b71109ed8b8f79f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 34b0e783b3655aba52cc3d40957b63dd3b0e03b9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60734803"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492516"
 ---
-# <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio"></a>Självstudie 3: Distribuera en kreditriskmodell – Azure Machine Learning Studio
+# <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Självstudie 3: Distribuera kredit risk modell – Azure Machine Learning Studio (klassisk)
 
-I den här självstudien ska vi titta närmare på hur du utvecklar en lösning för förutsägelseanalys. Du ska utveckla en enkel modell i Machine Learning Studio.  Därefter distribuerar du modellen som en Azure Machine Learning-webbtjänst.  Den här distribuerade modellen kan göra förutsägelser med nya data. Självstudien är **del tre i en självstudieserie i tre delar**.
+I den här självstudien tittar vi närmare på hur du utvecklar en lösning för förutsägelseanalys. Du utvecklar en enkel modell i Machine Learning Studio (klassisk).  Därefter distribuerar du modellen som en Azure Machine Learning-webbtjänst.  Den här distribuerade modellen kan göra förutsägelser med nya data. Självstudien är **del tre i en självstudieserie i tre delar**.
 
 Anta att du behöver förutsäga kreditrisken för en person baserat på den information som han eller hon fyller i på en kreditansökan.  
 
-Kreditriskbedömning är ett komplext problem, men den här självstudien kommer att förenkla processen. Du använder det som ett exempel på hur du kan skapa en lösning för förutsägelseanalys med hjälp av Microsoft Azure Machine Learning Studio. Du använder Azure Machine Learning Studio och en Machine Learning-webbtjänst i den här lösningen. 
+Kreditriskbedömning är ett komplext problem, men den här självstudien kommer att förenkla processen. Du kommer att använda det som ett exempel på hur du kan skapa en förutsägelse analys lösning med hjälp av Microsoft Azure Machine Learning Studio (klassisk). Du använder den klassiska versionen av Azure Machine Learning Studio och en Machine Learning webb tjänst för den här lösningen. 
 
 I den här självstudien i tre delar börjar du med offentligt tillgängliga kreditriskdata.  Därefter utvecklar du och tränar en förutsägelsemodell.  Slutligen ska du distribuera modellen som en webbtjänst.
 
-I [del ett av självstudien](tutorial-part1-credit-risk.md) skapade du en Machine Learning Studio-arbetsyta, överförde data och skapade ett experiment.
+I [del ett av självstudien](tutorial-part1-credit-risk.md)har du skapat en Machine Learning Studio (klassisk)-arbets yta, överfört data och skapat ett experiment.
 
 I [del två av självstudien](tutorial-part2-credit-risk-train.md) fick du träna och utvärdera modeller.
 
@@ -40,9 +40,7 @@ I den här delen av självstudien ska du:
 > * Hantera webbtjänsten
 > * Få åtkomst till webbtjänsten
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför [del två av självstudien](tutorial-part2-credit-risk-train.md).
 
@@ -61,24 +59,24 @@ Att förbereda distributionen är en process i tre steg:
 
 Först behöver du minska experimentet lite. du har just nu två olika modeller i experimentet, men du ska bara använda en modell när du distribuerar det som en webbtjänst.  
 
-Vi antar att du har bestämt dig för att trädmodellen presterade bättre än SVM-modellen. Så det första du ska göra är att ta bort modulen [Tvåklassig dator för vektorstöd][two-class-support-vector-machine] och de moduler som användes för att träna den. Du kan göra en kopia av experimentet först genom att klicka på **Spara som** längst ned på arbetsytan för experimentet.
+Vi antar att du har bestämt dig för att trädmodellen presterade bättre än SVM-modellen. Det första du ska göra är att ta bort den [dubbelriktade][two-class-support-vector-machine] modulen för stöd för Vector och de moduler som användes för att träna den. Du kan göra en kopia av experimentet först genom att klicka på **Spara som** längst ned på arbetsytan för experimentet.
 
 du måste ta bort följande moduler:  
 
-* [Two-Class Support Vector Machine][two-class-support-vector-machine] (Tvåklassig dator för vektorstöd)
-* Modulerna [Train Model][train-model] (Träningsmodell) och [Score Model][score-model] (Poängmodell) som var anslutna till den
-* [Normalisera data][normalize-data] (båda två)
-* [Evaluate Model][evaluate-model] (Utvärdera modellen) (eftersom vi är klara med modellutvärderingen)
+* [Dubbelriktad Vector-dator][two-class-support-vector-machine]
+* [Träna modell][train-model] -och [Poäng modell][score-model] moduler som var anslutna till den
+* [Normalisera data][normalize-data] (båda)
+* [Utvärdera modellen][evaluate-model] (eftersom vi är klar med utvärderingen av modellerna)
 
 Markera varje modul och tryck på Delete-tangenten, eller högerklicka på modulen och välj **Ta bort**. 
 
-![Visar vilka moduler tas bort för att ta bort modellen dator för Vektorstöd](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
+![Markerar vilka moduler som ska tas bort för att ta bort support Vector Machine Model](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
 
 Nu bör modellen se ut ungefär så här:
 
-![Resulterande experiment när modellen dator för Vektorstöd tas bort](./media/tutorial-part3-credit-risk-deploy/publish3.png)
+![Resulterande experiment när dator modellen för support Vector tas bort](./media/tutorial-part3-credit-risk-deploy/publish3.png)
 
-Nu är vi redo att distribuera modellen med hjälp av [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Tvåklassigt förbättrat beslutsträd).
+Nu är vi redo att distribuera den här modellen med hjälp av [besluts trädet i två klasser][two-class-boosted-decision-tree].
 
 ### <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Konvertera träningsexperimentet till ett förutsägelseexperiment
 
@@ -91,16 +89,16 @@ För att förbereda den här modellen för distribution, måste du konvertera tr
 du kan göra detta manuellt om du vill, men som tur är kan alla tre stegen utföras genom att klicka på **Set Up Web Service** (Konfigurera webbtjänst) längst ned på arbetsytan för experimentet (och välja alternativet **Predictive Web Service** (Förutsägelsewebbtjänst)).
 
 > [!TIP]
-> Om du vill veta mer vad som händer när du konverterar ett träningsexperiment till ett förutsägelseexperiment, kan du läsa [Så här förbereder du din modell för distribution i Azure Machine Learning Studio](convert-training-experiment-to-scoring-experiment.md).
+> Om du vill ha mer information om vad som händer när du konverterar ett utbildnings experiment till ett förutsägelse experiment, se så [här förbereder du modellen för distribution i Azure Machine Learning Studio (klassisk)](convert-training-experiment-to-scoring-experiment.md).
 
 När du klickar på **Set Up Web Service** (Konfigurera webbtjänst) händer flera saker:
 
 * Den tränade modellen konverteras till den enda modulen för **Trained Model** (Tränad modell) och lagras i modulpaletten till vänster om arbetsytan för experimentet (du hittar den under **Trained Models** (Tränade modeller))
 * Moduler som har använts för träning tas bort, exempelvis:
-  * [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Tvåklassigt förbättrat beslutsträd)
-  * [Train Model][train-model] (Träningsmodell)
-  * [Split Data][split] (Dela data)
-  * den andra modulen [Kör R-skript][execute-r-script] som användes för testdata
+  * [Besluts träd med två klasser][two-class-boosted-decision-tree]
+  * [Träna modell][train-model]
+  * [Dela data][split]
+  * den andra [Kör R-skriptkommando][execute-r-script] som användes för test data
 * Den sparade tränade modellen har lagts tillbaka i experimentet
 * Modulerna **Web service input** (Webbtjänstens indata) och **Web service output** (Webbtjänstens utdata) har lagts till (de identifierar var användarens data kommer in i modellen, vilka data som returneras och när webbtjänsten används)
 
@@ -108,8 +106,8 @@ När du klickar på **Set Up Web Service** (Konfigurera webbtjänst) händer fle
 > Du kan se att experimentet sparas i två delar under flikar som lagts till överst i arbetsytan för experimentet. Det ursprungliga träningsexperimentet finns under fliken **Träningsexperiment** och det nyligen skapade förutsägelseexperiment finns i **Förutsägelseexperiment**. Du ska distribuera förutsägelseexperimentet som en webbtjänst.
 
 du måste vidta ytterligare en åtgärd i det här experimentet.
-du har lagt till två moduler för [Kör R-skript][execute-r-script] för att få en viktad funktion till datan. Det var bara något som användes i din träning och testning, så du kan ta bort dessa moduler i den slutliga modellen.
-Machine Learning Studio tog bort en modul för [Kör R-skript][execute-r-script] när den tog bort modulen [Dela][split]. Nu kan du ta bort den andra och ansluta [Metadata Editor][metadata-editor] direkt till [Score Model][score-model] (Poängmodell).    
+du har lagt till två [exekvera R-skript][execute-r-script] -moduler för att tillhandahålla en viktnings funktion för data. Det var bara något som användes i din träning och testning, så du kan ta bort dessa moduler i den slutliga modellen.
+Machine Learning Studio (klassisk) tog bort en [execute R-skript][execute-r-script] -modul [när den togs][split] bort. Nu kan du ta bort den andra och ansluta [metadata-redigeraren][metadata-editor] direkt till [Poäng modellen][score-model].    
 
 Vårt experiment bör nu se ut så här:  
 
@@ -124,18 +122,18 @@ Vårt experiment bör nu se ut så här:
 >Observera att om din ursprungliga datamängd innehöll etiketten, kommer det förväntade schemat från webbindatan också förväntas innehålla en kolumn med etiketten! Du kan undvika problemet genom att ta bort etiketten och andra data som finns i datamängden för träning men som inte ska finnas i webbindatan, innan du kopplar webbindatan och datamängden för träning till en gemensam modul. 
 > 
 
-Kör experimentet en sista gång (klicka på **Kör**.) Om du vill kontrollera att modellen fortfarande fungerar, klickar du på utdatan från modulen [Score Model][score-model] (Poängmodell) och väljer **Visa resultat**. Du kan se att ursprungliga data visas tillsammans med kreditriskvärdet (”Scored Labels” (Poängsatta etiketter)) och bedömningens sannolikhetsvärde (”Scored Probabilities” (Poängsatt sannolikhet).) 
+Kör experimentet en sista gången (klicka på **Kör**.) Om du vill kontrol lera att modellen fortfarande fungerar klickar du på utdata från modulen [Poäng modell][score-model] och väljer **Visa resultat**. Du kan se att ursprungliga data visas tillsammans med kreditriskvärdet (”Scored Labels” (Poängsatta etiketter)) och bedömningens sannolikhetsvärde (”Scored Probabilities” (Poängsatt sannolikhet).) 
 
 ## <a name="deploy-the-web-service"></a>Distribuera webbtjänsten
 Du kan distribuera experimentet som antingen en klassisk webbtjänst eller som en ny webbtjänst som baseras på Azure Resource Manager.
 
 ### <a name="deploy-as-a-classic-web-service"></a>Distribuera som en klassisk webbtjänst
-Om du vill distribuera en klassisk webbtjänst som härletts från vårt experiment, klickar du på **Distribuera webbtjänst** under arbetsytan och väljer **Distribuera webbtjänst [klassisk]**. Machine Learning Studio distribuerar experimentet som en webbtjänst och tar dig till instrumentpanelen för webbtjänsten. Från den här sidan kan du återgå till experimentet (**Visa ögonblicksbild** eller **Visa senaste**) och köra ett enkelt test av webbtjänsten (finns i **Testa webbtjänsten** nedan). Det finns även information här för att skapa program som har åtkomst till webbtjänsten (mer information finns i nästa steg i den här självstudien).
+Om du vill distribuera en klassisk webbtjänst som härletts från vårt experiment, klickar du på **Distribuera webbtjänst** under arbetsytan och väljer **Distribuera webbtjänst [klassisk]** . Machine Learning Studio (klassisk) distribuerar experimentet som en webb tjänst och tar dig till instrument panelen för webb tjänsten. Från den här sidan kan du återgå till experimentet (**Visa ögonblicksbild** eller **Visa senaste**) och köra ett enkelt test av webbtjänsten (finns i **Testa webbtjänsten** nedan). Det finns även information här för att skapa program som har åtkomst till webbtjänsten (mer information finns i nästa steg i den här självstudien).
 
 ![Instrumentpanel för webbtjänsten](./media/tutorial-part3-credit-risk-deploy/publish6.png)
 
 
-Du kan konfigurera tjänsten genom att klicka på fliken **KONFIGURATION**. Här kan du ändra namnet på tjänsten (som har fått experimentnamnet som standard) och ange en beskrivning. Du kan också ange fler egna etiketter för inkommande och utgående data.  
+Du kan konfigurera tjänsten genom att klicka på fliken **konfiguration** . Här kan du ändra tjänst namnet (det får namnet på experimentet som standard) och ge det en beskrivning. Du kan också ange fler egna etiketter för inkommande och utgående data.  
 
 ![Konfigurera webbtjänsten](./media/tutorial-part3-credit-risk-deploy/publish5.png)
 
@@ -147,7 +145,7 @@ Du kan konfigurera tjänsten genom att klicka på fliken **KONFIGURATION**. Här
 
 Distribuera en ny webbtjänst från vårt experiment:
 
-1. Klicka på **Distribuera webbtjänst** under arbetsytan och välj **Distribuera webbtjänst [nytt]**. Machine Learning Studio överför dig till Azure Machine Learning-webbtjänsterna på sidan **Distribuera experiment**.
+1. Klicka på **Distribuera webbtjänst** under arbetsytan och välj **Distribuera webbtjänst [nytt]** . Machine Learning Studio (klassisk) överför du till experiment sidan för att **distribuera** Azure Machine Learning webb tjänster.
 
 1. Ange ett namn på webbtjänsten. 
 
@@ -157,26 +155,26 @@ Distribuera en ny webbtjänst från vårt experiment:
 
 Efter några minuter öppnas sidan **Snabbstart** för din webbtjänst.
 
-Du kan konfigurera tjänsten genom att klicka på fliken **Konfigurera**. Här kan du ändra tjänstens rubrik och ge den en beskrivning. 
+Du kan konfigurera tjänsten genom att klicka på fliken **Konfigurera** . Här kan du ändra tjänst titeln och ge den en beskrivning. 
 
 Om du vill testa webbtjänsten klickar du på fliken **Testa** (se **Testa webbtjänsten** nedan). Om du vill ha mer information om hur du skapar program med åtkomst till webbtjänsten, klickar du på fliken **Förbruka** (nästa steg i den här självstudien beskriver detta mer detaljerat).
 
 > [!TIP]
-> Du kan uppdatera webbtjänsten efter att du har distribuerat den. Om du till exempel vill ändra modell kan du redigera träningsexperimentet, justera modellparametrarna och klicka på **Distribuera webbtjänst**, välja **Distribuera webbtjänst [klassisk]** eller **Distribuera webbtjänst [nytt]**. När du distribuerar experimentet igen ersätts webbtjänsten med den uppdaterade modellen.  
+> Du kan uppdatera webbtjänsten efter att du har distribuerat den. Om du till exempel vill ändra modell kan du redigera träningsexperimentet, justera modellparametrarna och klicka på **Distribuera webbtjänst**, välja **Distribuera webbtjänst [klassisk]** eller **Distribuera webbtjänst [nytt]** . När du distribuerar experimentet igen ersätts webbtjänsten med den uppdaterade modellen.  
 > 
 > 
 
 ## <a name="test-the-web-service"></a>Testa webbtjänsten
 
-När webbtjänsten används kommer användarens data in via modulen **Webbtjänstens indata** där den skickas till modulen [Poängmodell][score-model] och poängsätts. På det sätt som du har konfigurerat förutsägelseexperimentet förväntar sig modellen data i samma format som den ursprungliga kreditriskdatamängden.
+När webb tjänsten används, kommer användarens data att gå via **webb tjänstens inmatnings** modul där den skickas till modulen [Poäng modell][score-model] och poäng. På det sätt som du har konfigurerat förutsägelseexperimentet förväntar sig modellen data i samma format som den ursprungliga kreditriskdatamängden.
 Resultaten returneras till användaren från webbtjänsten via modulen **Webbtjänstens utdata**.
 
 > [!TIP]
-> På det sätt som förutsägelseexperimentet har konfigurerats, returneras hela resultatet från modulen [Poängmodell][score-model]. Detta inkluderar alla indata plus kreditriskvärdet och bedömningen av sannolikheten. Men du kan returnera något annat om du vill – du kan till exempel returnera enbart kreditriskvärdet. Gör detta genom att infoga en [Välj kolumner] [ select-columns] modulen mellan [Poängmodell] [ score-model] och **Web service utdata**att ta bort kolumner som du inte vill webbtjänsten ska returneras. 
+> På vilket sätt du har konfigurerat det förutsägande experimentet returneras hela resultatet från modulen [Poäng modell][score-model] . Detta inkluderar alla indata plus kreditriskvärdet och bedömningen av sannolikheten. Men du kan returnera något annat om du vill – du kan till exempel returnera enbart kreditriskvärdet. Det gör du genom att infoga en modul för [Val av kolumner][select-columns] mellan [Poäng modell][score-model] och **webb tjänstens utdata** för att ta bort kolumner som du inte vill att webb tjänsten ska returnera. 
 > 
 > 
 
-Du kan testa en klassisk webbtjänst antingen i **Machine Learning Studio** eller i portalen för **Azure Machine Learning-webbtjänster**.
+Du kan testa en klassisk webb tjänst antingen i **Machine Learning Studio (klassisk)** eller i **Azure Machine Learning Web Services-** portalen.
 Du kan enbart testa en ny webbtjänst i portalen för **Machine Learning-webbtjänster**.
 
 > [!TIP]
@@ -184,9 +182,9 @@ Du kan enbart testa en ny webbtjänst i portalen för **Machine Learning-webbtj�
 
 ### <a name="test-a-classic-web-service"></a>Testa en klassisk webbtjänst
 
-Du kan testa en klassisk webbtjänst i Machine Learning Studio eller i portalen för Machine Learning-webbtjänster. 
+Du kan testa en klassisk webb tjänst i Machine Learning Studio (klassisk) eller i Machine Learning Web Services-portalen. 
 
-#### <a name="test-in-machine-learning-studio"></a>Testa i Machine Learning Studio
+#### <a name="test-in-machine-learning-studio-classic"></a>Testa i Machine Learning Studio (klassisk)
 
 1. På sidan **INSTRUMENTPANEL** för webbtjänsten klickar du på knappen **Test** under **Standardslutpunkt**. En dialogruta visas och du uppmanas att ange indata för tjänsten. Det här är samma kolumner som fanns i den ursprungliga kreditriskdatamängden.  
 

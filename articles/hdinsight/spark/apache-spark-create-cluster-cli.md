@@ -1,34 +1,34 @@
 ---
-title: 'Snabbstart: Skapa ett Apache Spark-kluster i Azure HDInsight med Azure CLI'
-description: Den här snabbstarten visar hur du använder Azure CLI för att skapa ett Apache Spark-kluster i Azure HDInsight.
+title: 'Snabb start: Apache Spark kluster med Azure CLI – Azure HDInsight'
+description: Den här snabb starten visar hur du använder Azure CLI för att skapa ett Apache Spark kluster i Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 72bdab9d7fb5c3019d97ffc4c92257c49ec2b8e5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 71b5e9f0ece79633673b183ca7288852f42ca3c0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066247"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494709"
 ---
-# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-cli"></a>Snabbstart: Skapa Apache Spark-kluster i Azure HDInsight med Azure CLI
+# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-cli"></a>Snabb start: skapa Apache Spark kluster i Azure HDInsight med Azure CLI
 
-I den här snabbstarten får du lära dig hur du skapar ett Apache Spark-kluster i Azure HDInsight med Azure CLI. Apache Spark möjliggör snabb dataanalys och databehandling i kluster med hjälp av minnesintern bearbetning. Den [Azure-kommandoradsgränssnittet (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) är Microsofts plattformsoberoende kommandoradsmiljö för att hantera Azure-resurser.
+I den här snabb starten får du lära dig hur du skapar ett Apache Spark kluster i Azure HDInsight med Azure CLI. Apache Spark möjliggör snabb data-analys och kluster-computing med minnesintern bearbetning. [Kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) är Microsofts plattforms oberoende kommando rads miljö för att hantera Azure-resurser.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Azure CLI. Om du inte har installerat Azure CLI, se [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) anvisningar.
+Azure CLI. Om du inte har installerat Azure CLI kan du läsa om hur du [installerar Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) cli.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-an-apache-spark-cluster"></a>Skapa ett Apache Spark-kluster
 
-1. Logga in på Azure-prenumerationen. Om du planerar att använda Azure Cloud Shell och sedan markerar du **prova** i det övre högra hörnet i kodblocket. Annars anger du kommandot nedan:
+1. Logga in på din Azure-prenumeration. Om du planerar att använda Azure Cloud Shell väljer du bara **testa det** i det övre högra hörnet i kod blocket. Annars anger du kommandot nedan:
 
     ```azurecli-interactive
     az login
@@ -37,7 +37,7 @@ Azure CLI. Om du inte har installerat Azure CLI, se [installera Azure CLI](https
     # az account set --subscription "SUBSCRIPTIONID"
     ```
 
-2. Ange miljövariabler. Användning av variabler i den här snabbstarten är baserad på Bash. Små variationer krävs för andra miljöer. Ersätt RESOURCEGROUPNAME, plats, KLUSTERNAMN, STORAGEACCOUNTNAME och lösenord i kodfragmentet nedan med önskade värden. Ange sedan CLI-kommandon för att ange miljövariabler.
+2. Ange miljövariabler. Användningen av variabler i den här snabb starten baseras på bash. Små variationer kommer att krävas för andra miljöer. Ersätt RESOURCEGROUPNAME, LOCATION, kluster namn, STORAGEACCOUNTNAME och PASSWORD i kodfragmentet nedan med önskade värden. Ange sedan CLI-kommandona för att ställa in miljövariablerna.
 
     ```azurecli-interactive
     export resourceGroupName=RESOURCEGROUPNAME
@@ -54,7 +54,7 @@ Azure CLI. Om du inte har installerat Azure CLI, se [installera Azure CLI](https
     export componentVersion=Spark=2.3
     ```
 
-3. Skapa resursgruppen genom att ange kommandot nedan:
+3. Skapa resurs gruppen genom att ange kommandot nedan:
 
     ```azurecli-interactive
     az group create \
@@ -62,7 +62,7 @@ Azure CLI. Om du inte har installerat Azure CLI, se [installera Azure CLI](https
         --name $resourceGroupName
     ```
 
-4. Skapa ett Azure storage-konto genom att ange kommandot nedan:
+4. Skapa ett Azure Storage-konto genom att ange kommandot nedan:
 
     ```azurecli-interactive
     az storage account create \
@@ -74,7 +74,7 @@ Azure CLI. Om du inte har installerat Azure CLI, se [installera Azure CLI](https
         --sku Standard_LRS
     ```
 
-5. Extrahera den primära nyckeln från Azure storage-kontot och lagra den i en variabel genom att ange kommandot nedan:
+5. Extrahera primär nyckeln från Azure Storage-kontot och lagra det i en variabel genom att ange kommandot nedan:
 
     ```azurecli-interactive
     export AZURE_STORAGE_KEY=$(az storage account keys list \
@@ -83,7 +83,7 @@ Azure CLI. Om du inte har installerat Azure CLI, se [installera Azure CLI](https
         --query [0].value -o tsv)
     ```
 
-6. Skapa en Azure storage-behållare genom att ange kommandot nedan:
+6. Skapa en Azure Storage-behållare genom att ange kommandot nedan:
 
     ```azurecli-interactive
     az storage container create \
@@ -92,7 +92,7 @@ Azure CLI. Om du inte har installerat Azure CLI, se [installera Azure CLI](https
         --account-name $AZURE_STORAGE_ACCOUNT
     ```
 
-7. Skapa Apache Spark-kluster genom att ange följande kommando:
+7. Skapa Apache Spark-klustret genom att ange följande kommando:
 
     ```azurecli-interactive
     az hdinsight create \
@@ -114,7 +114,7 @@ Azure CLI. Om du inte har installerat Azure CLI, se [installera Azure CLI](https
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du har slutfört snabbstarten kan du ta bort klustret. Med HDInsight lagras dina data i Azure Storage så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används.
+När du har slutfört snabb starten kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används.
 
 Ange alla eller några av följande kommandon för att ta bort resurser:
 
@@ -141,7 +141,7 @@ az group delete \
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du lärt dig hur du skapar ett Apache Spark-kluster i Azure HDInsight med Azure CLI.  Gå vidare till nästa självstudier om du vill lära dig använda ett HDInsight Spark-kluster för att köra interaktiva frågor på exempeldata.
+I den här snabb starten har du lärt dig hur du skapar ett Apache Spark kluster i Azure HDInsight med Azure CLI.  Gå vidare till nästa självstudier om du vill lära dig använda ett HDInsight Spark-kluster för att köra interaktiva frågor på exempeldata.
 
 > [!div class="nextstepaction"]
 > [Köra interaktiva frågor i Apache Spark](./apache-spark-load-data-run-query.md)

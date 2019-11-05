@@ -1,21 +1,21 @@
 ---
-title: Azure Data Share Preview-terminologi
-description: Lär dig mer om vanliga termer som används för att beskriva resurser som används i för hands versionen av Azure Data Resource (dataprovider, data konsument, data resurs, resurs prenumeration, ögonblicks bild, inbjudan, mottagare.)
+title: Terminologi för Azure Data Share
+description: Lär dig mer om vanliga termer som används för att beskriva resurser som används i Azure Data Share (dataprovider, data konsument, data resurs, resurs prenumeration, ögonblicks bild, inbjudan, mottagare.)
+ms.service: data-share
 author: joannapea
 ms.author: joanpo
-ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: dd3235b7d87d8e02f44a440741b90f675263d147
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 33532380d8f98df44029eeea998130d1da5fdafd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166277"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468550"
 ---
-# <a name="azure-data-share-preview-concepts"></a>Förhands gransknings begrepp för Azure Data Share 
+# <a name="azure-data-share-concepts"></a>Azure Data Share-koncept 
 
-I för hands versionen av Azure data sharing introduceras en del ny terminologi för data delning. I den här artikeln beskrivs några vanliga villkor som kan användas i hela tjänsten. 
+Azure data sharing introducerar en del nya termer som rör data delning. I den här artikeln beskrivs några vanliga villkor som kan användas i hela tjänsten. 
 
 ## <a name="data-provider"></a>Data leverantör
 
@@ -47,7 +47,7 @@ En DataProvider kan aktivera en inställning för ögonblicks bilder för en dat
 
 Om en DataProvider aktiverar den här inställningen kan du välja ett upprepnings intervall. Upprepnings intervallet kan vara varje timme eller varje dag. 
 
-En data konsument har möjlighet att välja detta ögonblicks bild schema för att ta emot stegvisa uppdateringar som innehåller alla data som har ändrats sedan de först genererade en ny ögonblicks bild. 
+En data konsument har möjlighet att delta i ögonblicks bild scheman för att ta emot stegvisa uppdateringar som innehåller alla data som har ändrats sedan de först genererade en ny ögonblicks bild. 
 
 ## <a name="invitation"></a>Inbjudan
 
@@ -64,4 +64,3 @@ En mottagare är någon som tar emot en inbjudan till en data resurs. Normalt l�
 ## <a name="next-steps"></a>Nästa steg
 
 Om du vill lära dig hur du börjar dela data fortsätter du till kursen [dela data](share-your-data.md) .
-

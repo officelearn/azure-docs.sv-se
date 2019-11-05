@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/19/2019
+ms.date: 10/24/2019
 ms.author: diberry
-ms.openlocfilehash: bb9a9c1d67e52c21d2cb039832d27547a023da9f
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: a47d6014e51dce81c9caf82f8624896c439f050d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154668"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490880"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Belönings Poäng visar att anpassningen lyckades
 
@@ -71,48 +71,42 @@ Du kan sedan skicka den totala belöningen till API: et.
 
 ## <a name="calling-the-reward-api-multiple-times"></a>Anrop av belönings-API: n flera gånger
 
-Du kan också anropa belönings-API: et med samma händelse-ID och skicka olika belönings poäng. När en Personanpassare får till gång till dessa förmåner fastställer den den slutliga belöningen för händelsen genom att aggregera dem enligt inställningarna i inställningarna för personanpassa.
+Du kan också anropa belönings-API: et med samma händelse-ID och skicka olika belönings poäng. När en Personanpassare får till gång till dessa förmåner fastställer den den slutliga belöningen för händelsen genom att aggregera dem enligt vad som anges i personanpassa konfigurationen.
 
-Samlings inställningar:
+Sammansättnings värden:
 
-*  **Första**: Tar emot den första belönings poängen för evenemanget och tar bort resten.
-* **Sum**: Tar alla belönings resultat som samlas in för eventId och lägger till dem tillsammans.
+*  **Först**: tar de första belönings poängen emot för evenemanget och tar bort resten.
+* **Sum**: tar alla belönings resultat som samlas in för eventId och lägger till dem tillsammans.
 
 Alla förmåner för en händelse, som tas emot efter den **väntande tiden för belöningen**, tas bort och påverkar inte inlärningen av modeller.
 
 Genom att lägga till belönings resultat kan din slutliga belöning vara utanför det förväntade Poäng intervallet. Detta gör inte att tjänsten fungerar.
 
-<!--
-@edjez - is the number ignored if it is outside the acceptable range?
--->
-
 ## <a name="best-practices-for-calculating-reward-score"></a>Metod tips för att beräkna belönings Poäng
 
-* **Överväg sanna indikatorer för lyckad anpassning**: Det är enkelt att tänka på klickningar, men en bra belöning baseras på vad du vill att användarna ska *uppnå* i stället för vad du vill att användarna ska *göra*.  Till exempel kan belöningar i klick leda till att du väljer innehåll som är clickbaitt känsligt.
+* **Överväg de sanna anpassnings indikatorerna**: det är enkelt att tänka på när det gäller klickningar, men en bra belöning baseras på vad du vill att användarna ska *uppnå* i stället för vad du vill att användarna ska *göra*.  Till exempel kan belöningar i klick leda till att du väljer innehåll som är clickbaitt känsligt.
 
-* **Använd en belönings Poäng för hur mycket anpassning som fungerade**: Att anpassa ett film förslag skulle förhoppnings vis leda till att användaren tittar på filmen och ger den en hög klassificering. Eftersom film klassificeringen förmodligen beror på många saker (kvaliteten på det som fungerar, stämningen av användaren), är det inte en bra belönings signal för hur väl *anpassningen* fungerade. Användaren tittar på de första minuterna i filmen, men kan vara en bättre signal för anpassnings effektivitet och att skicka en belöning på 1 efter 5 minuter är en bättre signal.
+* **Använd en belönings Poäng för hur stor anpassningen fungerade: att**anpassa ett film förslag skulle förhoppnings vis leda till att användaren tittar på filmen och ger den en hög klassificering. Eftersom film klassificeringen förmodligen beror på många saker (kvaliteten på det som fungerar, stämningen av användaren), är det inte en bra belönings signal för hur väl *anpassningen* fungerade. Användaren tittar på de första minuterna i filmen, men kan vara en bättre signal för anpassnings effektivitet och att skicka en belöning på 1 efter 5 minuter är en bättre signal.
 
-* **Förmåner gäller endast för RewardActionID**: I personanpassaren används belöningarna för att förstå effektiviteten hos den åtgärd som anges i RewardActionID. Om du väljer att visa andra åtgärder och användaren klickar på dem ska belöningen vara noll.
+* **Förmåner gäller endast för RewardActionID**: med personanpassare tillämpas belöningarna för att förstå effektiviteten i den åtgärd som anges i RewardActionID. Om du väljer att visa andra åtgärder och användaren klickar på dem ska belöningen vara noll.
 
-* **Ta hänsyn till oönskade konsekvenser**: Skapa belönings funktioner som leder till ansvariga resultat med [etik och ansvarig användning](ethics-responsible-use.md).
+* **Ta hänsyn till oönskade konsekvenser**: skapa belönings funktioner som leder till ansvariga resultat med [etik och ansvarig användning](ethics-responsible-use.md).
 
-* **Använd ökande förmåner**: Genom att lägga till delar av förmånerna för mindre användar beteenden kan du hjälpa bättre att uppnå bättre fördelar. Den här stegvisa belöningen gör det möjligt för algoritmen att veta att den kommer närmare att engagera användaren i det slutliga önskade beteendet.
+* **Använd ökande belöningar**: genom att lägga till del förmåner för mindre användar beteende kan du göra det lättare för användare att uppnå bättre fördelar. Den här stegvisa belöningen gör det möjligt för algoritmen att veta att den kommer närmare att engagera användaren i det slutliga önskade beteendet.
     * Om du visar en lista över filmer, om användaren hovrar över den första för ett tag för att se mer information, kan du fastställa att vissa användar engagemang har inträffat. Beteendet kan räknas med en belönings poäng på 0,1. 
     * Om användaren öppnade sidan och sedan avslutas, kan belönings poängen vara 0,2. 
 
-## <a name="reward-wait-time"></a>Väntetid för ersättning
+## <a name="reward-wait-time"></a>vänte tid för belöning
 
 En personanpassare korrelerar informationen om ett rang samtal med de fördelar som skickas i belönings anrop för att träna modellen. De kan komma att uppstå vid olika tidpunkter. Personanpassaren väntar en begränsad tid och startar när rang anropet skedde, även om rang anropet gjordes som en inaktiv händelse och aktive ras senare.
 
 Om **belöningens vänte tid** upphör att gälla, och det inte finns någon belönings information, tillämpas en standard belöning för utbildning. Maximal vänte tid är 6 dagar.
 
-## <a name="best-practices-for-setting-reward-wait-time"></a>Metod tips för att ställa in en belönings vänte tid
+## <a name="best-practices-for-reward-wait-time"></a>Metod tips för fördröjning av belöning
 
 Följ dessa rekommendationer för bättre resultat.
 
 * Gör belönings vänte tiden så kort som möjligt, samtidigt som du lämnar tillräckligt med tid för att få feedback från användaren. 
-
-<!--@Edjez - storage quota? -->
 
 * Välj inte en varaktighet som är kortare än den tid som krävs för att få feedback. Om några av dina förmåner till exempel har tittat på 1 minut i en video bör experiment längden vara minst dubbel.
 

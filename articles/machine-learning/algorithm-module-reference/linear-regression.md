@@ -1,23 +1,23 @@
 ---
 title: 'Linjär regression: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen linjär regression i Azure Machine Learning-tjänsten för att skapa en linjär Regressions modell för användning i en pipeline.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen linjär regression i Azure Machine Learning för att skapa en linjär Regressions modell för användning i en pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 9c1dc34743d3fe65d50559d1b75aab1a0530d24c
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 688bf923c07d9417b002b7cab6e3c0a0c8d20dae
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693700"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497744"
 ---
 # <a name="linear-regression-module"></a>Linjär Regressions modul
-I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd den här modulen för att skapa en linjär Regressions modell för användning i en pipeline.  Linjär regression försöker upprätta en linjär relation mellan en eller flera oberoende variabler och ett numeriskt resultat, eller en beroende variabel. 
 
@@ -63,7 +63,7 @@ Den här modulen stöder två metoder för att anpassa en Regressions modell med
 
 ## <a name="bkmk_OrdinaryLeastSquares"></a>Skapa en Regressions modell med minsta möjliga kvadratmetoden
 
-1. Lägg till modulen **linjär Regressions modell** till din pipeline i gränssnittet.
+1. Lägg till modulen **linjär Regressions modell** i din pipeline i designern.
 
     Du hittar den här modulen i kategorin **Machine Learning** . Expandera **initiera modell**, expandera **regression**och dra sedan modulen **linjär Regressions modell** till din pipeline.
 
@@ -97,7 +97,7 @@ När utbildningen är klar:
 
 ## <a name="bkmk_GradientDescent"></a>Skapa en Regressions modell med brantaste för online-gradient
 
-1. Lägg till modulen **linjär Regressions modell** till din pipeline i gränssnittet.
+1. Lägg till modulen **linjär Regressions modell** i din pipeline i designern.
 
     Du hittar den här modulen i kategorin **Machine Learning** . Expandera **initiera modell**, expandera **regression**och dra modulen **linjär Regressions modell** till din pipeline
 
@@ -143,4 +143,4 @@ När utbildningen är klar:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

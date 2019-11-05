@@ -10,15 +10,16 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 07/31/2019
-ms.openlocfilehash: 7ebbc7575ad52bbf7a399babb048113bc505a7f8
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.openlocfilehash: 525fc8beafbdbe15435c59697d136ae06c91c135
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174542"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489704"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Starta, övervaka och avbryta inlärnings körningar i python
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) och [Machine Learning CLI](reference-azure-machine-learning-cli.md) tillhandahåller olika metoder för att övervaka, organisera och hantera dina körningar för utbildning och experimentering.
 
@@ -29,7 +30,7 @@ Den här artikeln innehåller exempel på följande uppgifter:
 * Skapa underordnade körningar.
 * Tagga och hitta körningar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande objekt:
 
@@ -89,7 +90,7 @@ Gör så här för att starta en körning av experimentet:
 
     Mer information finns i [AZ ml Folder Attach](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
 
-2. Starta körningen med hjälp av följande kommando. När du använder det här kommandot anger du namnet på runconfig-filen (texten innan @no__t -0. runconfig om du tittar på fil systemet) mot parametern-c.
+2. Starta körningen med hjälp av följande kommando. När du använder det här kommandot anger du namnet på runconfig-filen (texten före \*. runconfig om du tittar på fil systemet) mot parametern-c.
 
     ```azurecli-interactive
     az ml run submit-script -c sklearn -e testexperiment train.py
@@ -114,7 +115,7 @@ Hämta status för en körning med metoden [`get_status()`](https://docs.microso
 print(notebook_run.get_status())
 ```
 
-Använd metoden [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#get-details--) för att hämta KÖRNINGS-ID, körnings tid och ytterligare information om körningen.
+Använd [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#get-details--) -metoden för att hämta körnings-ID, körnings tid och ytterligare information om körningen.
 
 ```python
 print(notebook_run.get_details())
@@ -176,7 +177,7 @@ local_script_run.cancel()
 print(local_script_run.get_status())
 ```
 
-Om din körning är klar, men den innehåller ett fel (till exempel om ett felaktigt utbildnings skript användes), kan du använda metoden [`fail()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)#fail-error-details-none--error-code-none---set-status-true-) för att markera den som misslyckad.
+Om din körning är klar, men den innehåller ett fel (till exempel om ett felaktigt utbildnings skript användes) kan du använda metoden [`fail()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)#fail-error-details-none--error-code-none---set-status-true-) för att markera den som misslyckad.
 
 ```python
 local_script_run = exp.submit(run_config)
@@ -201,7 +202,7 @@ Skapa underordnade körningar för att gruppera relaterade körningar, t. ex. f�
 > [!NOTE]
 > Underordnade körningar kan bara skapas med SDK: n.
 
-I det här kod exemplet används `hello_with_children.py`-skriptet för att skapa en batch med fem underordnade körningar från en skickad körning med hjälp av metoden [`child_run()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#child-run-name-none--run-id-none--outputs-none-) :
+I det här kod exemplet används `hello_with_children.py`-skriptet för att skapa en grupp med fem underordnade körningar från en skickad körning med hjälp av metoden [`child_run()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#child-run-name-none--run-id-none--outputs-none-) :
 
 ```python
 !more hello_with_children.py
@@ -245,7 +246,7 @@ child_run.parent.id
 
 ### <a name="query-child-runs"></a>Frågans underordnade körningar
 
-Om du vill fråga de underordnade körningarna av en speciell överordnad använder du metoden [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-) . Med argumentet ``recursive = True`` kan du fråga ett kapslat träd med underordnade och Grandchildren.
+Använd metoden [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-) för att fråga de underordnade körningarna av en speciell överordnad. Med argumentet ``recursive = True`` kan du fråga ett kapslat träd med underordnade och Grandchildren.
 
 ```python
 print(parent_run.get_children())
@@ -259,7 +260,7 @@ I Azure Machine Learning kan du använda egenskaper och taggar för att organise
 
 #### <a name="using-the-sdk"></a>Med SDK
 
-Använd metoden [`add_properties()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#add-properties-properties-) om du vill lägga till sökbara metadata i dina körningar. Följande kod lägger till exempel till egenskapen `"author"` i körnings rutan:
+Om du vill lägga till sökbara metadata i dina körningar använder du metoden [`add_properties()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#add-properties-properties-) . Följande kod lägger till exempel till egenskapen `"author"` i körnings rutan:
 
 ```Python
 local_script_run.add_properties({"author":"azureml-user"})

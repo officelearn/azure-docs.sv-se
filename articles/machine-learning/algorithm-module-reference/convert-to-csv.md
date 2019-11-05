@@ -1,24 +1,24 @@
 ---
 title: 'Konvertera till CSV: modulreferens'
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen konvertera till CSV i Azure Machine Learning-tjänsten för att konvertera en data uppsättning till ett CSV-format som kan laddas ned, exporteras eller delas med R-eller Python-skript moduler.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder modulen konvertera till CSV i Azure Machine Learning för att konvertera en data uppsättning till ett CSV-format som kan laddas ned, exporteras eller delas med R-eller Python-skript moduler.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 37c1653b31049dc0142cf8c0c6f6d405338b1d1f
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 999f78ab08e1a2c9dd6b28d853e49fbb559fab83
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693198"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493856"
 ---
 # <a name="convert-to-csv-module"></a>Konvertera till CSV-modul
 
-I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd den här modulen för att konvertera en data uppsättning till ett CSV-format som kan laddas ned, exporteras eller delas med R-eller Python-skript moduler.
 
@@ -26,7 +26,7 @@ Använd den här modulen för att konvertera en data uppsättning till ett CSV-f
 
 CSV-formatet, som står för "kommaavgränsade värden", är ett fil format som används av många externa Machine Learning-verktyg. CSV är ett vanligt utbytes format när du arbetar med språk med öppen källkod, till exempel R eller python.
 
-Även om du utför det mesta av ditt arbete i Azure Machine Learning, finns det tillfällen då du kan hitta det praktiskt att konvertera data uppsättningen till CSV och använda den i externa verktyg. Exempel:
+Även om du utför det mesta av ditt arbete i Azure Machine Learning, finns det tillfällen då du kan hitta det praktiskt att konvertera data uppsättningen till CSV och använda den i externa verktyg. Till exempel:
 
 + Hämta CSV-filen för att öppna den med Excel, eller importera den till en Relations databas.  
 + Spara CSV-filen i moln lagringen och Anslut till den från Power BI för att skapa visualiseringar.  
@@ -36,7 +36,8 @@ När du konverterar en data uppsättning till CSV sparas filen i din Azure ML-ar
 
 ## <a name="how-to-configure-convert-to-csv"></a>Så här konfigurerar du Convert to CSV
 
-1.  Lägg till modulen [konvertera till CSV](./convert-to-csv.md) i din pipeline. Du hittar den här modulen i gruppen för **data format konvertering** i gränssnittet. 
+
+1.  Lägg till modulen [konvertera till CSV](./convert-to-csv.md) i din pipeline. Du hittar den här modulen i gruppen för **data format konvertering** i designern. 
 
 2. Anslut den till en modul som matar ut en data uppsättning.   
   
@@ -56,4 +57,4 @@ Dubbelklicka på utdata från [konvertera till CSV](./convert-to-csv.md)och väl
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

@@ -1,0 +1,18 @@
+- name: Azure Arc-dokumentation
+  href: index.yml
+- name: Översikt
+  expanded: true
+  items:
+    - name: Vad är Azure Arc för servrar?
+      href: ./servers/overview.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Ansluta datorer till Azure med Azure Arc för servrar – Portal
+      href: ./servers/quickstart-onboard-portal.md
+    - name: Ansluta datorer till Azure med Azure Arc för servrar – PowerShell
+      href: ./servers/quickstart-onboard-powershell.md
+- name: Referens
+  items:
+    - name: Azure Connected Machine Agent CLI-gränssnitt
+      href: ./servers/azcmagent-reference.md

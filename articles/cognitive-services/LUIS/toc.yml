@@ -36,17 +36,7 @@
         - name: Hämta avsikt
           href: luis-get-started-get-intent-from-rest.md
         - name: Ändra modell
-          items:
-            - name: 'C#'
-              href: luis-get-started-cs-add-utterance.md
-            - name: Go
-              href: luis-get-started-go-add-utterance.md
-            - name: Java
-              href: luis-get-started-java-add-utterance.md
-            - name: Node.js
-              href: luis-get-started-node-add-utterance.md
-            - name: Python
-              href: luis-get-started-python-add-utterance.md
+          href: get-started-get-model-rest-apis.md
 - name: Självstudier
   items:
     - name: Bygg en app
@@ -103,49 +93,47 @@
               href: luis-tutorial-bot-nodejs-appinsights.md
 - name: Begrepp
   items:
-    - name: Bästa praxis
-      href: luis-concept-best-practices.md
-      displayName: 'phrase list, pattern, intent, utterance, version, do, don''t, example utterances, iteration, cycle, correct, right'
-    - name: Använda LUIS och QnA Maker
-      href: choose-natural-language-processing-service.md
-      displayName: 'nlp, qna maker'
+    - name: Utvecklingscykel
+      href: luis-concept-app-iteration.md
     - name: Planera din app
       displayName: 'simple, composite, prebuilt, list, regex, regular expression'
       href: luis-how-plan-your-app.md
-    - name: Redigering och körningsnycklar
-      displayName: 'shared, transfer, ownership, author, access, import'
-      href: luis-concept-keys.md
-    - name: Redigera appens modell
+    - name: Appmodeller
       items:
-        - name: Redigeringscykel
-          href: luis-concept-app-iteration.md
-        - name: Versionshantering
-          href: luis-concept-version.md
-          displayName: import
-    - name: Utforma modell
-      items:
+        - name: Typer
+          href: luis-concept-model.md
         - name: Avsikter
           href: luis-concept-intent.md
+        - name: Yttranden
+          href: luis-concept-utterance.md
         - name: Entiteter
           displayName: 'prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, machine-learn, exact, mixed, roles'
           href: luis-concept-entity-types.md
-        - name: Entitetsroller
-          href: luis-concept-roles.md
-        - name: Yttranden
-          href: luis-concept-utterance.md
         - name: Fördefinierade modeller
           href: luis-concept-prebuilt-model.md
-    - name: Förbättra apprestanda
-      items:
-        - name: Förutsägelseresultat
-          href: luis-concept-prediction-score.md
-        - name: Granska slutpunktsyttranden
-          href: luis-concept-review-endpoint-utterances.md
-        - name: Fraslistor
-          href: luis-concept-feature.md
         - name: Mönster
           href: luis-concept-patterns.md
           displayName: roles
+        - name: Funktioner
+          href: luis-concept-feature.md
+    - name: Förutsägelseresultat
+      href: luis-concept-prediction-score.md
+    - name: Bästa praxis
+      href: luis-concept-best-practices.md
+      displayName: 'phrase list, pattern, intent, utterance, version, do, don''t, example utterances, iteration, cycle, correct, right'
+    - name: Förbättra apprestanda
+      items:
+        - name: Granska slutpunktsyttranden
+          href: luis-concept-review-endpoint-utterances.md
+    - name: Testa
+      items:
+        - name: Interaktiv testning
+          href: luis-concept-test.md
+        - name: Batch-testning
+          href: luis-concept-batch-test.md
+    - name: Redigering och körningsnycklar
+      displayName: 'shared, transfer, ownership, author, access, import'
+      href: luis-concept-keys.md
     - name: Datahantering
       items:
         - name: Ändra data
@@ -157,12 +145,9 @@
           displayName: roles
         - name: Datalagring
           href: luis-concept-data-storage.md
-    - name: Testa
-      items:
-        - name: Interaktiv testning
-          href: luis-concept-test.md
-        - name: Batch-testning
-          href: luis-concept-batch-test.md
+    - name: Använda LUIS och QnA Maker
+      href: choose-natural-language-processing-service.md
+      displayName: 'nlp, qna maker'
     - name: Enterprise
       items:
         - name: Utforma strategier
@@ -183,13 +168,7 @@
           href: luis-how-to-add-entities.md
           displayName: 'roles, import'
         - name: Använd fördefinierade modeller
-          items:
-            - name: Använd domäner
-              href: luis-prebuilt-domains.md
-            - name: Användningsavsikter
-              href: luis-prebuilt-intent.md
-            - name: Använd enheter
-              href: luis-prebuilt-entities.md
+          href: howto-add-prebuilt-models.md
         - name: 'Med REST API:er'
           items:
             - name: Skapa en app programmässigt med Node.js
@@ -218,6 +197,7 @@
           href: luis-how-to-model-intent-pattern.md
     - name: Träna
       href: luis-how-to-train.md
+      displayName: 'negative sampling, nondeterministic, non-deterministic, UseAllTrainingData'
     - name: Testa
       items:
         - name: Interaktiv testning
@@ -246,13 +226,17 @@
           diplayName: 'import, export, container'
         - name: Med Traffic Manager
           href: luis-traffic-manager.md
-    - name: Migrera API
+    - name: 'Använd API: er'
       items:
-        - name: Migrera till V2 REST API
-          href: luis-migration-api-v1-to-v2.md
-        - name: Migrera till V3 REST API
+        - name: För utvecklare
+          href: developer-reference-resource.md
+        - name: 'Redigera API:er'
+          href: luis-migration-api-authoring.md
+        - name: Migrera till V3 API
           href: luis-migration-api-v3.md
           displayName: 'json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override'
+        - name: Migrera till V2 API
+          href: luis-migration-api-v1-to-v2.md
     - name: Använda containrar
       items:
         - name: Installera och köra containrar
@@ -262,6 +246,9 @@
           href: luis-container-configuration.md
         - name: Använda containerinstanser
           href: deploy-luis-on-container-instances.md
+        - name: Begränsningar för container
+          href: luis-container-limitations.md
+          displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
 - name: Referens
   items:
     - name: Användarsekretess
@@ -325,6 +312,8 @@
           href: reference-entity-regular-expression.md
         - name: Enkel entitet
           href: reference-entity-simple.md
+    - name: Sentiment
+      href: luis-reference-prebuilt-sentiment.md
     - name: Utvecklarresurser
       href: developer-reference-resource.md
       displayName: 'SDK, API, quickstart, REST, cli, powershell, azure, rm, resource manager, samples, package, module, tool, dispatch, bot'
@@ -334,9 +323,15 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=2092157'
     - name: 'REST API:er'
       items:
-        - name: 'Redigera V2 REST API: er'
+        - name: 'V3 – redigering av REST-API:er (förhandsversion)'
+          href: 'https://aka.ms/luis-apim-v3-authoring'
+        - name: 'V3 – REST API:er för förutsägelse'
+          href: 'https://aka.ms/luis-apim-v3-prediction'
+        - name: 'V2 – Redigera REST API:er'
           href: 'https://go.microsoft.com/fwlink/?linkid=2092087'
-        - name: Slutpunkt för V2 REST API
+        - name: 'V2 – REST API:er för förutsägelse'
+          href: 'https://go.microsoft.com/fwlink/?linkid=2092356'
+        - name: Slutpunkt för V3 REST API
           href: 'https://go.microsoft.com/fwlink/?linkid=2092356'
         - name: HTTP-koder
           displayName: '400, 401, 403, 409, 410, 414, 429'
@@ -413,7 +408,7 @@
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Stöd för språk och region
       href: luis-language-support.md
-      displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, Germain, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
+      displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, German, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
     - name: Azure-översikt
       href: 'https://go.microsoft.com/fwlink/?linkid=2092089'
     - name: Ordlista

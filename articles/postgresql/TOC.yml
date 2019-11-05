@@ -92,6 +92,8 @@
               href: concepts-data-access-and-security-vnet.md
             - name: Anslutningsarkitektur
               href: concepts-connectivity-architecture.md
+            - name: Azure AD-autentisering
+              href: concepts-aad-authentication.md
         - name: Verksamhetskontinuitet
           items:
             - name: Introduktion till affärskontinuitet
@@ -153,8 +155,14 @@
               href: concepts-hyperscale-firewall-rules.md
             - name: Konfigurera SSL
               href: concepts-hyperscale-ssl-connection-security.md
+        - name: Övervaka och finjustera
+          items:
+            - name: Övervaka och finjustera
+              href: concepts-hyperscale-monitoring.md
         - name: PostgreSQL-tillägg
           href: concepts-hyperscale-extensions.md
+        - name: Hög tillgänglighet
+          href: concepts-hyperscale-high-availability.md
         - name: Resurser
           items:
             - name: Konfigurationsalternativ
@@ -163,8 +171,12 @@
   items:
     - name: Enskild server
       items:
-        - name: Skapa användare
-          href: howto-create-users.md
+        - name: Autentisering
+          items:
+            - name: Skapa användare
+              href: howto-create-users.md
+            - name: Konfigurera Azure AD-integrering
+              href: howto-configure-sign-in-aad-authentication.md
         - name: Optimera
           items:
             - name: Massinfogning
@@ -245,12 +257,20 @@
               href: howto-read-replicas-cli.md
     - name: Hyperskala (Citus)
       items:
-        - name: Skalning
+        - name: Skapa användare
+          href: howto-hyperscale-create-users.md
+        - name: Skala
           href: howto-hyperscale-scaling.md
         - name: Hantera brandväggen
           items:
             - name: Azure Portal
               href: howto-hyperscale-manage-firewall-using-portal.md
+        - name: Hög tillgänglighet
+          href: howto-hyperscale-high-availability.md
+        - name: Övervaka
+          items:
+            - name: Skapa aviseringar för mått
+              href: howto-hyperscale-alert-on-metric.md
         - name: Felsöka
           items:
             - name: Felsöka anslutningsfel

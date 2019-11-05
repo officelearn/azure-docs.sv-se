@@ -45,7 +45,7 @@
           href: tutorial-deploy-function.md
         - name: Hitta medelvärden med Azure Stream Analytics
           href: tutorial-deploy-stream-analytics.md
-        - name: Bedöma data med Azure Machine Learning Service
+        - name: Bedöma data med Azure Machine Learning
           href: tutorial-deploy-machine-learning.md
         - name: Klassificera bilder med Custom Vision
           href: tutorial-deploy-custom-vision.md

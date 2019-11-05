@@ -20,29 +20,34 @@
           items:
             - name: Översikt
               href: sql-database-purchase-models.md
-            - name: vCore-baserad modell
-              href: sql-database-service-tiers-vcore.md
+            - name: vCore-modellen
               items:
-                - name: Serverlös beräkningsnivå
+                - name: Översikt över modell för virtuell kärna
+                  href: sql-database-service-tiers-vcore.md
+                - name: Utan server
                   href: sql-database-serverless.md
-                - name: Förskottsbetalning för reserverad kapacitet
+                - name: Azure Hybrid-förmån
+                  href: sql-database-azure-hybrid-benefit.md
+                - name: Reserverad kapacitet
                   href: sql-database-reserved-capacity.md
-            - name: Tjänstnivåer för DTU
+            - name: Översikt över DTU-modell
               href: sql-database-service-tiers-dtu.md
+            - name: Migrera från DTU till virtuell kärna
+              href: sql-database-dtu-to-vcore.md
         - name: Beräkning och lagring
           items:
             - name: Översikt
               href: sql-database-service-tiers-general-purpose-business-critical.md
               displayName: provisioned compute tier
-            - name: Tjänstnivåerna Generell användning/Standard
+            - name: Generell användning/Standard
               href: sql-database-service-tier-general-purpose.md
-            - name: Tjänstnivåerna Affärskritisk/Premium
+            - name: Affärskritisk/Premium
               href: sql-database-service-tier-business-critical.md
-            - name: Hyperskalatjänstnivå
+            - name: Hyperskala
               href: sql-database-service-tier-hyperscale.md
             - name: Vanliga frågor och svar om hyperskala
               href: sql-database-service-tier-hyperscale-faq.md
-            - name: Migrera från Premium RS-tjänstnivån
+            - name: Migrera från Premium RS
               href: sql-database-service-tiers-prs.md
 - name: Snabbstarter
   expanded: true
@@ -501,17 +506,17 @@
       items:
         - name: Resurser för enkla databaser
           items:
-            - name: vCore-baserade resursbegränsningar
+            - name: Resursgränser för virtuell kärna
               href: sql-database-vcore-resource-limits-single-databases.md
-            - name: DTU-baserade resursbegränsningar
+            - name: Resursgränser för dataöverföringsenhet
               href: sql-database-dtu-resource-limits-single-databases.md
             - name: Skala resurser
               href: sql-database-single-database-scale.md
         - name: Resurser för elastiska pooler
           items:
-            - name: vCore-baserade resursbegränsningar
+            - name: Resursgränser för virtuell kärna
               href: sql-database-vcore-resource-limits-elastic-pools.md
-            - name: DTU-baserade resursbegränsningar
+            - name: Resursgränser för dataöverföringsenhet
               href: sql-database-dtu-resource-limits-elastic-pools.md
             - name: Skala resurser
               href: sql-database-elastic-pool-scale.md

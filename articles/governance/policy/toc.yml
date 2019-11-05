@@ -28,6 +28,9 @@
     - name: Skapa en anpassad principdefinition
       displayName: 'disabled, parameters, rule, mode'
       href: ./tutorials/create-custom-policy-definition.md
+    - name: Hantera taggstyrning
+      displayName: 'modify, append, effects'
+      href: ./tutorials/govern-tags.md
     - name: Praktiska labbövningar – Utforska Azure Policy
       displayName: 'create, policy, training, learn'
       href: 'https://handsonlabs.microsoft.com/handsonlabs/SelfPacedLabs?storyId=story://content-private/content/sp-azuregovernance/1-azpolicy/a-policy'
@@ -263,14 +266,25 @@
     - name: Utvärdera effekten av en ny princip
       displayName: 'audit, enforcementmode, compliance'
       href: ./concepts/evaluate-impact.md
+    - name: Arbetsflöden för att utforma princip som kod
+      displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
+      href: ./concepts/policy-as-code.md
     - name: Azure Policy för Kubernetes
-      displayName: 'aks, rego, k8s, opa, open policy agent, gatekeeper'
-      href: ./concepts/rego-for-aks.md
+      items:
+        - name: Princip för AKS
+          displayName: 'aks, rego, k8s, opa, open policy agent, gatekeeper, v2'
+          href: ./concepts/rego-for-aks.md
+        - name: Princip för AKS Engine
+          displayName: 'aks, k8s, opa, open policy agent, gatekeeper, v3, crd, constraints'
+          href: ./concepts/aks-engine.md
     - name: Granska virtuella datorer med gästkonfiguration
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md
 - name: Instruktionsguider
   items:
+    - name: Azure Policy-tillägg för VSCode
+      displayName: visual studio code
+      href: ./how-to/extension-for-vscode.md
     - name: Skapa principer programmässigt
       displayName: 'assign, definition'
       href: ./how-to/programmatically-create.md

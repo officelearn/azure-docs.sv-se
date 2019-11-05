@@ -76,12 +76,26 @@
               href: connect-fortinet.md
             - name: Ansluta till F5
               href: connect-f5.md
+            - name: Ansluta F5 BIG-IP
+              href: connect-f5-big-ip.md
             - name: Ansluta till Syslog
               href: connect-syslog.md
             - name: Ansluta Symantec ICDX
               href: connect-symantec.md
             - name: Ansluta till Cisco
               href: connect-cisco.md
+            - name: Ansluta Barracuda CloudGen-brandväggen
+              href: connect-barracuda-cloudgen-firewall.md
+            - name: Ansluta Citrix Analytics (Security)
+              href: connect-citrix-analytics.md
+            - name: Ansluta ExtraHop Reveal(x)
+              href: connect-extrahop.md
+            - name: One Identity Safeguard
+              href: connect-one-identity.md
+            - name: Trend Micro Deep Security
+              href: connect-trend-micro.md
+            - name: Ansluta Zscaler
+              href: connect-zscaler.md
         - name: Ansluta till hotinformation
           href: connect-threat-intelligence.md
         - name: Ansluta virtuella datorer i Azure Stack
@@ -97,6 +111,8 @@
           href: notebooks.md
         - name: Använda bokmärken för hotjakt
           href: bookmarks.md
+        - name: Använda liveström till hotjakt
+          href: livestream.md
     - name: Ta bort Azure Sentinel
       href: offboard.md
 - name: Resurser

@@ -12,7 +12,9 @@
       items:
         - name: Azure Portal
           href: create-cosmosdb-resources-portal.md
-        - name: .NET-app
+        - name: .NET-app – V4 SDK
+          href: create-sql-api-dotnet-v4.md
+        - name: .NET-app – V3 SDK
           href: create-sql-api-dotnet.md
         - name: Java-app
           href: create-sql-api-java.md
@@ -47,8 +49,11 @@
             - name: Xamarin
               href: mobile-apps-with-xamarin.md
     - name: 2 – Migrera data
-      displayName: import
-      href: import-data.md
+      items:
+        - name: Använda datamigreringsverktyg
+          href: import-data.md
+        - name: Använda .NET-masstöd
+          href: tutorial-sql-api-dotnet-bulk-import.md
     - name: 3 – Frågedata
       href: tutorial-query-sql-api.md
     - name: 4 – Skapa en notebook-fil
@@ -122,6 +127,8 @@
         - name: Etablera dataflöde på containrar och databaser
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
+        - name: Etablera dataflöde – autopilotläge
+          href: provision-throughput-autopilot.md
     - name: SQL-frågereferens
       items:
         - name: Komma igång
@@ -953,6 +960,11 @@
           href: how-to-configure-firewall.md
         - name: Konfigurera åtkomst till virtuella nätverk
           href: how-to-configure-vnet-service-endpoint.md
+        - name: Konfigurera åtkomst från privata slutpunkter
+          href: how-to-configure-private-endpoints.md
+        - name: Ansluta privat till ett Cosmos DB-konto
+          href: /azure/private-link/create-private-endpoint-cosmosdb-portal
+          maintainContext: true
         - name: Konfigurera resursdelning för korsande ursprung (CORS)
           href: how-to-configure-cross-origin-resource-sharing.md
         - name: Skydda Azure Cosmos-nycklar med Key Vault

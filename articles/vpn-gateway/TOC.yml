@@ -124,6 +124,8 @@
               href: point-to-site-how-to-vpn-client-install-azure-cert.md
             - name: Skapa och installera VPN-klientkonfigurationsfiler
               href: point-to-site-vpn-client-configuration-azure-cert.md
+            - name: Om nedladdningsfilen för VPN-klientprofilen
+              href: about-vpn-profile-download.md
         - name: RADIUS-autentisering
           items:
             - name: Konfigurera ett virtuellt privat P2S-nätverk
@@ -138,6 +140,14 @@
               href: vpn-gateway-howto-openvpn.md
             - name: Konfigurera OpenVPN-klienter
               href: vpn-gateway-howto-openvpn-clients.md
+            - name: Öppet VPN – Azure Active Directory-autentisering
+              items:
+                - name: Konfigurera en Azure AD-klientorganisation
+                  href: openvpn-azure-ad-tenant.md
+                - name: Konfigurera en VPN-klient – Azure AD
+                  href: openvpn-azure-ad-client.md
+        - name: Övergång till ett offentligt CA-gatewaycertifikat för P2S
+          href: vpn-gateway-point-to-site-gateway-public-ca.md
         - name: Konfigurera en VPN-enhetstunnel för AlwaysOn
           href: vpn-gateway-howto-always-on-device-tunnel.md
         - name: Konfigurera en tunnel för Always On VPN-användare
@@ -188,6 +198,10 @@
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
         - name: Konfigurera aviseringar baserat på diagnostikloggar
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
+    - name: Konfigurera paketinsamlingar
+      href: packet-capture.md
+    - name: Konfigurera anpassade trafikväljare
+      href: custom-traffic-selectors.md
     - name: Felsöka
       href: vpn-gateway-troubleshoot.md
       items:
@@ -203,6 +217,8 @@
               href: vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md
             - name: Problem med punkt-till-plats-anslutning – VPN-klient för Mac OS X-klient
               href: vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md
+            - name: Punkt till plats – Azure AD-autentisering
+              href: troubleshoot-ad-vpn-client.md
         - name: Plats-till-plats-anslutningsproblem
           items:
             - name: Plats-till-plats-anslutningar

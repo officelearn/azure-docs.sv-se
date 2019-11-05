@@ -1,0 +1,27 @@
+- name: Dokumentation om SQL Database Edge
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Vad är SQL Database Edge?
+      href: overview.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Distribuera SQL Database Edge
+      href: deploy-portal.md
+    - name: Distribuera ONNX på SQL Database Edge
+      href: deploy-onnx.md
+- name: Självstudier
+  items:
+    - name: Synkronisera data med Azure Data Factory
+      href: tutorial-sync-data-factory.md
+    - name: Synkronisera daga med SQL Data Sync
+      href: tutorial-sync-data-sync.md
+- name: Gör så här för att
+  items:
+    - name: DAC-paket och Stream Analytics-jobb
+      href: stream-analytics.md
+- name: Begrepp
+  items:
+    - name: Maskininlärning och AI med ONNX
+      href: onnx-overview.md

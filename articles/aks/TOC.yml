@@ -102,6 +102,8 @@
       href: supported-kubernetes-versions.md
     - name: Säkerhetshärdning i värdoperativsystemet
       href: security-hardened-vm-host-image.md
+    - name: Översikt över Azure Kubernetes Service-diagnostik
+      href: concepts-diagnostics.md
 - name: Instruktionsguider
   items:
     - name: Klusteråtgärder
@@ -128,11 +130,11 @@
               href: virtual-nodes-portal.md
         - name: Använda Virtual Kubelet
           href: virtual-kubelet.md
-        - name: Använda klusterautoskalning (förhandsversion)
+        - name: Använda klusterautoskalning
           href: cluster-autoscaler.md
-        - name: Använda tillgänglighetszoner (förhandsversion)
+        - name: Använda tillgänglighetszoner
           href: availability-zones.md
-        - name: Använda flera nodpooler (förhandsversion)
+        - name: Använda flera nodpooler
           href: use-multiple-node-pools.md
         - name: Distribuera AKS med Terraform
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
@@ -199,7 +201,7 @@
           href: use-network-policies.md
         - name: Använda säkerhetsprinciper för poddar (förhandsversion)
           href: use-pod-security-policies.md
-        - name: Definiera API-serverauktoriserade IP-intervall (förhandsversion)
+        - name: Definiera API-serverauktoriserade IP-intervall
           href: api-server-authorized-ip-ranges.md
         - name: Kontrollera distributioner med Azure Policy (förhandsversion)
           href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
@@ -225,8 +227,8 @@
           href: view-master-logs.md
         - name: Visa kubelet-loggarna
           href: kubelet-logs.md
-        - name: Visa containerloggar i realtid (förhandsversion)
-          href: ../azure-monitor/insights/container-insights-live-logs.md
+        - name: Visa containerdata i realtid
+          href: ../azure-monitor/insights/container-insights-livedata-overview.md
           maintainContext: true
     - name: Använda Windows Server-containrar (förhandsversion)
       items:

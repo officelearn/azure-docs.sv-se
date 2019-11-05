@@ -1,10 +1,10 @@
-- name: Dokumentation om SQL Data Warehouse
+- name: Azure Synapse Analytics-dokumentation
   href: index.yml
 - name: Översikt
   items:
-    - name: Vad är SQL Data Warehouse?
+    - name: Vad är Azure Synapse Analytics?
       href: sql-data-warehouse-overview-what-is.md
-    - name: SQL Data Warehouse-arkitektur
+    - name: Azure Synapse Analytics-arkitektur
       href: massively-parallel-processing-mpp-architecture.md
     - name: Informationslagerenheter
       href: what-is-a-data-warehouse-unit-dwu-cdwu.md
@@ -257,20 +257,22 @@
           href: sql-data-warehouse-encryption-tde-tsql.md
     - name: Läsa in data
       items:
-        - name: Data om New York-taxibilar
-          href: load-data-from-azure-blob-storage-using-polybase.md
-        - name: Offentliga Contoso-data
-          href: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-        - name: Azure Data Lake Storage
+        - name: Från Azure Data Lake Storage (ADLS)
           href: sql-data-warehouse-load-from-azure-data-lake-store.md
-        - name: Azure Databricks
+        - name: Använda Azure Databricks (ADB)
           href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
-        - name: Data Factory
+        - name: Använda Data Factory (ADF)
           href: /azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
-        - name: SSIS
+        - name: Använda SQL Server Integration Services (SSIS)
           href: /sql/integration-services/load-data-to-sql-data-warehouse
-        - name: Läsa in WideWorldImporters
-          href: load-data-wideworldimportersdw.md
+        - name: Exempel
+          items:
+            - name: New York Taxi
+              href: load-data-from-azure-blob-storage-using-polybase.md
+            - name: Contoso
+              href: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+            - name: Wide World Importers
+              href: load-data-wideworldimportersdw.md
     - name: Utveckla
       items:
         - name: Översikt
@@ -351,9 +353,9 @@
       items:
         - name: Fullständig referens
           href: /sql/t-sql/language-reference?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-        - name: Språkelement för SQL DW
+        - name: Språkelement för Azure Synapse Analytics TSQL
           href: sql-data-warehouse-reference-tsql-language-elements.md
-        - name: Instruktioner för SQL DW
+        - name: Instruktioner för Azure Synapse Analytics TSQL
           href: sql-data-warehouse-reference-tsql-statements.md
     - name: Systemvyer
       href: sql-data-warehouse-reference-tsql-system-views.md

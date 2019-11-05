@@ -37,6 +37,14 @@
       href: security-center-using-recommendations.md
     - name: Hantering av flera klienter
       href: security-center-cross-tenant-management.md
+    - name: Containersäkerhet
+      items:
+        - name: Översikt över containersäkerhet
+          href: container-security.md
+        - name: Integration med Azure Container Registry
+          href: azure-container-registry-integration.md
+        - name: Integration med Azure Kubernetes Service
+          href: azure-kubernetes-service-integration.md
     - name: Hotidentifieringsaviseringar och incidenter
       items:
         - name: Översikt över säkerhetsaviseringar
@@ -67,33 +75,47 @@
       href: security-center-secure-score.md
     - name: Uppgradera till avancerad säkerhet
       href: security-center-onboarding.md
-    - name: Serverskydd med Microsoft Defender ATP
+    - name: Skydda dina servrar med Microsoft Defender ATP
       href: security-center-wdatp.md
-    - name: Avancerad datasäkerhet för SQL på virtuella Azure-datorer (allmänt tillgänglig förhandsversion)
+    - name: Använd avancerad datasäkerhet för SQL på virtuella Azure-datorer
       href: security-center-iaas-advanced-data.md
     - name: Skydda dina program med App Service
       href: security-center-app-services.md
-    - name: Arbeta med säkerhetsprinciper
-      href: tutorial-security-policy.md
+    - name: Använda säkerhetsprinciper
+      items:
+        - name: Översikt över säkerhetsprinciper
+          href: tutorial-security-policy.md
+        - name: Använda inbyggda säkerhetsprinciper
+          href: security-center-policy-definitions.md
+        - name: Skapa anpassade säkerhetsprinciper
+          href: custom-security-policies.md
+        - name: Hantera principer med Azure Policy REST API
+          href: configure-security-policy-azure-policy.md
+    - name: Lägga till dynamiska efterlevnadspaket
+      href: update-regulatory-compliance-packages.md
     - name: Anpassa informationsskyddsprincipen
       href: security-center-info-protection-policy.md
     - name: Hantera säkerhetslösningar
       href: security-center-partner-integration.md
     - name: Automatisera registrering med PowerShell
       href: security-center-powershell-onboarding.md
-    - name: Security Center-inställningar
-      href: security-center-policies-overview.md
+    - name: Integrera med Windows Admin Center
+      href: windows-admin-center-integration.md
     - name: Jämföra baslinjer med hjälp av filintegritetsövervakning
       href: security-center-file-integrity-monitoring-baselines.md
-    - name: Datainsamling
+    - name: Automatisera svar på aviseringar och rekommendationer
+      href: workflow-automation.md
+    - name: Exportera aviseringar och rekommendationer
+      href: continuous-export.md
+    - name: Konfigurera din datasamling
       href: security-center-enable-data-collection.md
-    - name: Inbyggda säkerhetsprinciper
-      href: security-center-policy-definitions.md
-    - name: E-postmeddelanden
+    - name: Konfigurera Advanced Threat Protection för Azure Key Vault
+      href: advanced-threat-protection-key-vault.md
+    - name: Konfigurera e-postmeddelanden
       href: security-center-provide-security-contact-details.md
     - name: Prissättning
       href: security-center-pricing.md
-    - name: Synlighet i hela klientorganisationen
+    - name: Skaffa klientorganisationstäckande synlighet
       href: security-center-management-groups.md
     - name: Implementera säkerhetsrekommendationer
       items:
@@ -160,7 +182,7 @@
     - name: Hantera användardata
       href: security-center-privacy.md
     - name: Dokumentation om Azure Security Center for IoT
-      href: 'https://docs.microsoft.com/en-us/azure/asc-for-iot/'
+      href: 'https://docs.microsoft.com/azure/asc-for-iot/'
     - name: VANLIGA FRÅGOR OCH SVAR
       href: security-center-faq.md
     - name: Dokumentation om Azure-säkerhet

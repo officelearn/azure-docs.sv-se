@@ -137,6 +137,8 @@
           href: disk-encryption.md
         - name: Designa för höga prestanda
           href: premium-storage-performance.md
+        - name: Diskutvidgning
+          href: disk-bursting.md
         - name: Skalbarhetsmål för diskar
           href: disk-scalability-targets.md
         - name: Lagring och haveriberedskap för diskar

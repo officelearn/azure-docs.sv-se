@@ -147,6 +147,10 @@
       href: limits.md
     - name: Felsökning
       href: troubleshooting.md
+    - name: Filformat
+      items:
+        - name: TSV-batchtestning
+          href: reference-tsv-format-batch-testing.md
     - name: Referens för REST API
       items:
         - name: 'Redigera API:er'

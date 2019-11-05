@@ -8,12 +8,12 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: be918ecef3a9fb346d9aa441bef9b4c3991009d6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bc013469610d5535c89870947fe094da93660012
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60530867"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488429"
 ---
 # <a name="app-service-documentation"></a>Dokumentation om App Service
 Med Azure App Service kan du skapa och vara värd för webbappar med valfritt programmeringsspråk utan att behöva hantera infrastrukturen, språket eller webbramverkskörningen. Azure Web Apps tillhandahåller automatisk skalning och hög tillgänglighet, har stöd för både Windows och Linux och möjliggör automatiska distributioner från GitHub, Azure DevOps Services eller valfri Git-lagringsplats. Lär dig hur du använder Azure App Service med våra snabbstarter, självstudier och exempel.
@@ -42,7 +42,7 @@ Lär dig att distribuera, hantera och övervaka säkra webbappar på Azure.
   - [Java med MySQL](/app-service/app-service-web-tutorial-java-mysql)
   - [Python med PostgreSQL](/app-service/containers/tutorial-python-postgresql-app)
 - [Mappa en befintlig anpassad domän till ditt program](/azure/app-service/app-service-web-tutorial-custom-domain)
-- [Bind ett befintligt SSL-certifikat till ditt program](/azure/app-service/app-service-web-tutorial-custom-SSL)
+- [Binda ett SSL-certifikat till ditt program](/azure/app-service/configure-ssl-bindings)
 
 ## <a name="free-pluralsight-video-training"></a>Kostnadsfri videoutbildning för Pluralsight
 

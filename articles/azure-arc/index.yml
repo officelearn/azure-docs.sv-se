@@ -1,0 +1,37 @@
+### YamlMime:Landing
+title: Azure Arc
+summary: Azure Arc utökar Azure Resource Manager-funktioner till Linux- och Windows-servrar samt Kubernetes-kluster på infrastrukturer – för lokala enheter, molnöverskridande enheter och nätverksgränsen. Med Azure Arc kan kunder också köra Azure-datatjänster var som helst, tack vare molnets alla fördelar, däribland ständigt uppdaterade datafunktioner, distribution på några sekunder (i stället för några timmar) och dynamisk skalbarhet på alla infrastrukturer. Azure Arc för servrar finns för närvarande i allmänt tillgänglig förhandsversion.
+metadata:
+  title: Azure Arc för servrar
+  description: Läs mer om hur du hanterar lokala datorer i Azure
+  author: bobbytreed
+  manager: carmonm
+  ms.service: azure-arc
+  ms.topic: landing-page
+  ms.date: 11/04/2019
+  ms.author: robreed
+  ms.openlocfilehash: 2ff0b9a194faf4d5a6b9e5181c52dc135208bdee
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73508558"
+landingContent:
+- title: Översikt över Azure Arc
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Läs mer om Azure Arc
+      url: https://aka.ms/Azure-Arc-Info
+- title: Ansluta datorer till Azure med Azure Arc för servrar
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Arc för servrar?
+      url: ./servers/overview.md
+  - linkListType: quickstart
+    links:
+    - text: Ansluta datorer till Azure med Azure Arc för servrar – Portal
+      url: ./servers/quickstart-onboard-portal.md
+    - text: Ansluta datorer till Azure med Azure Arc för servrar – PowerShell
+      url: ./servers/quickstart-onboard-portal.md

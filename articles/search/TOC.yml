@@ -33,7 +33,7 @@
       href: search-get-started-python.md
 - name: Självstudier
   items:
-    - name: Skapa din första app
+    - name: 'Skapa din första C#-app'
       items:
         - name: 1 – Grundläggande söksida
           href: tutorial-csharp-create-first-app.md
@@ -215,8 +215,6 @@
           href: search-howto-schedule-indexers.md
         - name: Mappa fält
           href: search-indexer-field-mappings.md
-        - name: Inkrementell indexering
-          href: search-howto-incremental-index.md
         - name: Ansluta till hanterad SQL-instans
           href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
         - name: Ansluta till virtuella SQL Server-datorer
@@ -239,14 +237,14 @@
               href: cognitive-search-output-field-mapping.md
             - name: Bearbeta och extrahera information från bilder
               href: cognitive-search-concept-image-scenarios.md
+            - name: Konfigurera inkrementell indexering
+              href: search-howto-incremental-index.md
         - name: Anpassade färdigheter
           items:
             - name: Integrera anpassade kunskaper
               href: cognitive-search-custom-skill-interface.md
             - name: Exempel – Azure Functions
               href: cognitive-search-create-custom-skill-example.md
-            - name: Exempel – Kraftfulla färdigheter
-              href: 'https://aka.ms/powerskills'
             - name: Exempel – Containrar
               href: 'https://go.microsoft.com/fwlink/?linkid=2089500'
         - name: Felsökningstips
@@ -378,6 +376,8 @@
           href: cognitive-search-skill-shaper.md
         - name: Villkorsstyrd
           href: cognitive-search-skill-conditional.md
+        - name: Extrahering av dokument
+          href: cognitive-search-skill-document-extraction.md
     - name: Anpassade färdigheter
       items:
         - name: Anpassat webb-API

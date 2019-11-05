@@ -7,12 +7,12 @@ ms.service: billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: b2c3fd9b59b371330e37dceb52b2e89b3db6c48e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 02a4ccc1bd7c18c36a7203f7d81cce8923ecf59a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390164"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499242"
 ---
 # <a name="what-are-azure-reservations"></a>Vad är Azure Reservations?
 
@@ -125,7 +125,7 @@ En reservationsrabatt gäller bara för resurser som är kopplade till Enterpris
 
 ## <a name="when-the-reservation-term-expires"></a>När reservationsperioden upphör att gälla
 
-I slutet av reservationsperioden upphör faktureringsrabatten. Den virtuella datorn, SQL-databasen, Azure Cosmos DB eller någon annan resurs debiteras enligt Betala per användning-pris. Azure-reservationer förnyas inte automatiskt. Om du vill fortsätta att få faktureringsrabatten måste du köpa en ny reservation för berättigade tjänster och programvara.
+I slutet av reservationsperioden går faktureringsrabatten ut och resurserna debiteras enligt principen betala per användning. Som standard är reservationerna inte inställda på automatisk förnyelse. Du kan välja att aktivera automatisk förnyelse av en reservation genom att välja alternativet i förnyelseinställningarna. Med automatisk förnyelse köps en ersättningsreservation när den befintliga reservationen upphör att gälla. Som standard har ersättningsreservationen samma attribut som reservationen som går ut. Om du vill ändrar du faktureringsfrekvensen, giltighetsperioden eller kvantiteten i förnyelseinställningarna. Alla användare med ägaråtkomst till reservationen och prenumerationen som används för fakturering kan konfigurera förnyelse.  
 
 ## <a name="discount-applies-to-different-sizes"></a>Rabatten tillämpas på olika storlekar
 

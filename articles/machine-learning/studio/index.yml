@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Dokumentation om Azure Machine Learning Studio
-summary: Machine Learning Studio är ett dra-och-släpp-verktyg som du kan använda till att bygga, testa och distribuera prediktiva analyslösningar.
+title: Dokumentation om Azure Machine Learning Studio (klassisk)
+summary: Machine Learning Studio (klassisk) är ett dra-och-släpp-verktyg som du kan använda till att bygga, testa och distribuera prediktiva analyslösningar.
 metadata:
-  title: Dokumentation om Machine Learning Studio – Azure
-  description: Machine Learning Studio är ett dra-och-släpp-verktyg som du kan använda till att bygga, testa och distribuera prediktiva analyslösningar.
+  title: Dokumentation om Machine Learning Studio (klassisk) – Azure
+  description: Machine Learning Studio (klassisk) är ett dra-och-släpp-verktyg som du kan använda till att bygga, testa och distribuera prediktiva analyslösningar.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: studio
@@ -12,18 +12,18 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 09/04/2019
-  ms.openlocfilehash: b6c9013d61df1a0076817af5baab0e0af6375083
-  ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+  ms.openlocfilehash: 651c816b72dd63845b786dcf73a8c395b9c8f337
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/04/2019
-  ms.locfileid: "70309189"
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73492876"
 landingContent:
-- title: Komma igång med Studio
+- title: Komma igång med Studio (klassisk)
   linkLists:
   - linkListType: get-started
     links:
-    - text: Vad är Studio?
+    - text: Vad är Studio (klassisk)?
       url: what-is-ml-studio.md
     - text: Skapa ditt första ML-experiment
       url: create-experiment.md
@@ -45,7 +45,7 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: Azure Machine Learning-tjänst
+    - text: Azure Machine Learning
       url: /azure/machine-learning/
     - text: Virtuell dator för datavetenskap
       url: /azure/machine-learning/data-science-virtual-machine

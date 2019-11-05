@@ -781,20 +781,32 @@
                   href: insights/container-insights-enable-new-cluster.md
                 - name: Aktivera för befintligt kluster
                   href: insights/container-insights-enable-existing-clusters.md
+                - name: Aktivera för hybridkluster
+                  href: insights/container-insights-hybrid-setup.md
                 - name: Regionsmappningar
                   href: insights/container-insights-region-mapping.md
             - name: Analysera
               href: insights/container-insights-analyze.md
             - name: Inaktivera övervakning
               href: insights/container-insights-optout.md
-            - name: Visa live-loggar
-              href: insights/container-insights-live-logs.md
+            - name: Visa livedata
+              items:
+                - name: Livedataöversikt (förhandsversion)
+                  href: insights/container-insights-livedata-overview.md
+                - name: Konfiguration
+                  href: insights/container-insights-livedata-setup.md
+                - name: Visa klustermått
+                  href: insights/container-insights-livedata-metrics.md
+                - name: Visa distributioner
+                  href: insights/container-insights-livedata-deployments.md
             - name: Analysera data med loggfrågor
               href: insights/container-insights-log-search.md
             - name: Aviseringar
               href: insights/container-insights-alerts.md
             - name: Agenthantering
               href: insights/container-insights-manage-agent.md
+            - name: Konfigurera Prometheus-måttskrapning
+              href: insights/container-insights-prometheus-integration.md
             - name: Konfigurera inställningar för agentsamlingar
               href: insights/container-insights-agent-config.md
             - name: Uppdatera för att aktivera mått

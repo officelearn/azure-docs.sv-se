@@ -61,6 +61,8 @@
       href: api-management-error-handling-policies.md
     - name: API-importrestriktioner
       href: api-management-api-import-restrictions.md
+    - name: Översikt över gateway med egen värd
+      href: self-hosted-gateway-overview.md
 - name: Instruktionsguider
   items:
     - name: 'Definiera API: er'
@@ -93,6 +95,16 @@
           href: api-management-howto-autoscale.md
         - name: Konfigurera ett anpassat domännamn
           href: configure-custom-domain.md
+        - name: Distribuera till flera Azure-regioner
+          href: api-management-howto-deploy-multi-region.md
+        - name: Etablera en gateway med egen värd
+          href: api-management-howto-provision-self-hosted-gateway.md
+        - name: Distribuera en gateway med egen värd till Kubernetes
+          href: api-management-howto-deploy-self-hosted-gateway-to-k8s.md
+        - name: Distribuera en gateway med egen värd till Docker
+          href: api-management-howto-deploy-self-hosted-gateway-to-docker.md
+        - name: Konfigurera en anpassad domän för gateway med egen värd
+          href: api-management-howto-configure-custom-domain-gateway.md
     - name: Cache
       items:
         - name: Lägg till cachelagring för att förbättra prestandan
@@ -195,8 +207,6 @@
       items:
         - name: Hantera grupper
           href: api-management-howto-create-groups.md
-        - name: Distribuera till flera Azure-regioner
-          href: api-management-howto-deploy-multi-region.md
         - name: Hämta IP-adresser
           href: api-management-howto-ip-addresses.md
         - name: Logga händelser till Azure Event Hubs

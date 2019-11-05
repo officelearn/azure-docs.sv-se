@@ -68,7 +68,7 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 | Östra Australien       | 13.75.149.87, 40.79.161.1 |
 | Sydöstra Australien | 191.239.192.109, 13.73.109.251 |
 | Södra Brasilien         | 104.41.11.5, 191.233.200.14 |
-| Kanada, centrala       | 40.85.224.249      |
+| Centrala Kanada       | 40.85.224.249      |
 | Östra Kanada          | 40.86.226.166      |
 | Centrala USA           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 | 
 | Kina, östra           | 139.219.130.35     |
@@ -76,7 +76,7 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 | Kina, norra          | 139.219.15.17      |
 | Kina, norra 2        | 40.73.50.0         |
 | Östasien            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
-| USA, östra              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
+| Östra USA              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | USA, östra 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 | 
 | Frankrike, centrala       | 40.79.137.0, 40.79.129.1 |
 | Centrala Tyskland      | 51.4.144.100       |
@@ -84,11 +84,11 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 | Centrala Indien        | 104.211.96.159     |
 | Södra Indien          | 104.211.224.146    |
 | Västra Indien           | 104.211.160.80     |
-| Japan, östra           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 | 
+| Östra Japan           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 | 
 | Västra Japan           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 | 
 | Sydkorea, centrala        | 52.231.32.42       |
 | Sydkorea, södra          | 52.231.200.86      |
-| USA, norra centrala     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
+| Norra centrala USA     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
 | Norra Europa         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
 | Sydafrika, norra   | 102.133.152.0      |
 | Sydafrika, västra    | 102.133.24.0       |
@@ -98,9 +98,9 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 | Förenade Arabemiraten, norra            | 65.52.248.0        |
 | Storbritannien, södra             | 51.140.184.11      |
 | Storbritannien, västra              | 51.141.8.11        |
-| USA, västra centrala      | 13.78.145.25       |
-| Europa, västra          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
-| USA, västra              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
+| Västra centrala USA      | 13.78.145.25       |
+| Västra Europa          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
+| Västra USA              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
 | Västra USA 2            | 13.66.226.202      |
 |                      |                    |
 

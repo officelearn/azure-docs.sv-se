@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/18/2018
 ms.author: dacoulte
 ms.custom: include file
-ms.openlocfilehash: c8453a2ec00a2fca107f85a23a8af1e6313a70b6
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: dabadf3a4175947f09ba20b0e644f1d2b485ee38
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187504"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73591466"
 ---
 ### <a name="sql-servers"></a>SQL Servrar
 
@@ -23,4 +23,3 @@ ms.locfileid: "67187504"
 | [Granska inställningar för hotidentifiering på servernivå](../articles/governance/policy/samples/audit-sql-server-threat-detection-setting.md) | Granskar principer för SQL Database-säkerhetsaviseringar om principerna inte är inställda på det angivna tillståndet. Du kan ange ett värde som anger om hotidentifiering är aktiverat eller inaktiverat.  |
 | [Granska granskningsinställningar för SQL Server](../articles/governance/policy/samples/sql-server-audit.md) | Granskar SQL Server beroende på om granskningsinställningarna är aktiverade. |
 | [Granska granskningsinställningar på SQL Server-nivå](../articles/governance/policy/samples/audit-sql-server-audit-setting.md) | Granskar granskningsinställningar för SQL Server om inställningarna inte matchar en angiven inställning. Du kan ange ett värde som anger om granskningsinställningar ska vara aktiverade eller inaktiverade. |
-| [Kräv SQL Server version 12.0](../articles/governance/policy/samples/require-sql-12.md) | Kräver att SQL-servrar använder version 12.0.  |

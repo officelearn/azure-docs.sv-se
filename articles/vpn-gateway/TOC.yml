@@ -200,8 +200,6 @@
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
     - name: Konfigurera paketinsamlingar
       href: packet-capture.md
-    - name: Konfigurera anpassade trafikväljare
-      href: custom-traffic-selectors.md
     - name: Felsöka
       href: vpn-gateway-troubleshoot.md
       items:

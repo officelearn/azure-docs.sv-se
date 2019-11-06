@@ -6,6 +6,8 @@
   items:
     - name: Vad är Speech Service?
       href: overview.md
+    - name: Stöd för språk och region
+      href: language-support.md
 - name: Tal till text
   expanded: false
   items:
@@ -38,7 +40,7 @@
         - name: Använda komprimerade ljudindataformat
           href: how-to-use-codec-compressed-audio-input-streams.md
         - name: Använda taligenkänning med Docker-containrar
-          href: speech-container-howto.md
+          href: speech-container-howto.md?tabs=stt
     - name: Referens
       items:
         - name: 'API:er för Speech SDK'
@@ -87,7 +89,7 @@
         - name: Syntetisera tal med API för långt ljud
           href: long-audio-api.md
         - name: Använda talsyntes med Docker-containrar
-          href: speech-container-howto.md
+          href: speech-container-howto.md?tabs=tts
     - name: Referens
       items:
         - name: Speech SDK

@@ -42,7 +42,7 @@
     - name: Bygg en app
       items:
         - name: Fastställ användaravsikter
-          href: luis-quickstart-intents-only.md
+          href: tutorial-intents-only.md
         - name: Identifiera vanliga användardata med fördefinierade modeller
           href: luis-tutorial-prebuilt-intents-entities.md
         - name: Extrahera sentiment från användaryttranden
@@ -116,6 +116,7 @@
           displayName: roles
         - name: Funktioner
           href: luis-concept-feature.md
+          displayName: 'descriptor, phrase list'
     - name: Förutsägelseresultat
       href: luis-concept-prediction-score.md
     - name: Bästa praxis

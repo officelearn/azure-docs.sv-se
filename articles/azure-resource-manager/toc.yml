@@ -101,8 +101,8 @@
           href: deployment-manager-health-check.md
     - name: Resource Manager och klassisk distribution
       href: resource-manager-deployment-model.md
-    - name: Vanliga säkerhetsattribut i Azure
-      href: azure-resource-manager-security-attributes.md
+    - name: Inbyggda säkerhetskontroller
+      href: azure-resource-manager-security-controls.md
 - name: Gör så här för att
   items:
     - name: Skapa mallar
@@ -249,6 +249,8 @@
           href: resource-manager-common-deployment-errors.md
         - name: AccountNameInvalid
           href: resource-manager-storage-account-name-errors.md
+        - name: DeploymentQuotaExceeded
+          href: deployment-quota-exceeded.md
         - name: InvalidTemplate
           href: resource-manager-invalid-template-errors.md
         - name: Linux-distributionsproblem

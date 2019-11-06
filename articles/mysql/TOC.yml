@@ -73,6 +73,8 @@
       items:
         - name: Prisnivåer
           href: concepts-pricing-tiers.md
+        - name: Förskottsbetalning för reserverad kapacitet
+          href: concept-reserved-pricing.md
         - name: Begränsningar
           href: concepts-limits.md
     - name: Dataåtkomst och säkerhet

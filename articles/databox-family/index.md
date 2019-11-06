@@ -9,14 +9,14 @@ ms.service: databox
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hub-page
-ms.date: 09/24/2018
+ms.date: 10/28/2019
 ms.author: alkohli
-ms.openlocfilehash: c0c5ea8dc069d24d01313bb68c0afb7c7aac1a33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2a3d17dda5f0d7a1cecc13583981d3659775283
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456640"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583210"
 ---
 <div id="main" class="v2">
 <h1>Azure Data Box</h1>
@@ -94,24 +94,6 @@ ms.locfileid: "61456640"
                         </div>
                         <div class="cardText">
                             <p><b>Data Box Gateway</b> virtuell enhet med lagring. Använd den här enheten för att skicka dina data över nätverket till Azure.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/databox-online/data-box-edge-overview">
-            <div class="cardSize">
-                <div class="cardPadding">
-                    <div class="card">
-                        <div class="cardImageOuter">
-                            <div class="cardImage"> 
-                                <img src="media/Edge_Icon_w_gear.svg" alt="" />
-                            </div>
-                        </div>
-                        <div class="cardText">
-                            <p><b>Data Box Edge</b> fysisk enhet med lagring och beräkning. Använd den här enheten när du planerar att analysera, transformera eller filtrera dina data när de flyttas till Azure.</p>
                         </div>
                     </div>
                 </div>

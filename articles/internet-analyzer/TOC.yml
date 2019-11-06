@@ -9,7 +9,7 @@
     - name: Skapa ett Internet Analyzer-test med hjälp av portalen
       href: internet-analyzer-create-test-portal.md
     - name: Skapa ett Internet Analyzer-test med CLI
-      herf: internet-analyzer-cli.md
+      href: internet-analyzer-cli.md
 - name: Instruktionsguider
   items:
     - name: Bädda in klient

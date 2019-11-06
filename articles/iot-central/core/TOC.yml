@@ -49,8 +49,6 @@
           href: howto-connect-windowsiotcore.md
         - name: Förbereda och ansluta en SensorTile.box-enhet
           href: howto-connect-sensortile.md
-        - name: Förbereda och ansluta en RuuviTag-enhet
-          href: howto-connect-ruuvi-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
         - name: Övervaka enhetsanslutning med hjälp av kommandoraden
           href: howto-use-iotc-explorer.md
     - name: Hantera enheter

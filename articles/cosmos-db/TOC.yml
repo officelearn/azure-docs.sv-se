@@ -469,9 +469,6 @@
           href: change-feed-functions.md
     - name: Globalt distribuerad analys och AI
       items:
-        - name: Introduktion
-          displayName: 'Apache Spark, spark'
-          href: spark-api-introduction.md
         - name: Användningsfall för analystjänster
           href: analytics-usecases.md
         - name: Analytics – lösningsarkitekturer

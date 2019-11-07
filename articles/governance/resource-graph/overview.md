@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: overview
 ms.service: resource-graph
-ms.openlocfilehash: c113719d304aa4ed9c13df1fe0264d22aacb5002
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 41663ec04e194bcc4380f46f1e5cc5a6867e53fc
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499145"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622536"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Översikt över Azure Resource Graph-tjänsten
 
@@ -92,7 +92,7 @@ Resurs diagram stöder Azure CLI, Azure PowerShell, Azure SDK för .NET och mer.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Kör din första fråga i [Azure Portal](first-query-portal.md).
+- Kör din första fråga med hjälp av [Azure Portal](first-query-portal.md).
 - Kör din första fråga med [Azure CLI](first-query-azurecli.md).
 - Kör din första fråga med [Azure PowerShell](first-query-powershell.md).
 - Få mer information om [frågespråket](./concepts/query-language.md).

@@ -3,15 +3,15 @@ title: 'Snabb start: starta ditt våren Cloud-program från käll koden'
 description: Lär dig hur du startar ditt Azure våren Cloud-program direkt från din käll kod
 author: jpconnock
 ms.service: spring-cloud
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 573baa242c06868326568a82bc358e136f1ece2c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
-ms.translationtype: MT
+ms.openlocfilehash: 524fa18dfd4c47e699ba6b9d5d7a98bbbaaf5c72
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177972"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73646775"
 ---
 # <a name="launch-your-spring-cloud-application-from-source-code"></a>Starta ditt våren Cloud-program från käll koden
 
@@ -28,10 +28,10 @@ Efter den här snabb starten får du lära dig att:
 > * Distribuera varje mikrotjänst
 > * Tilldela en offentlig slut punkt för ditt program
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 >[!Note]
-> Innan du påbörjar den här snabb starten ska du se till att din Azure-prenumeration har åtkomst till Azure våren Cloud.  Som förhands gransknings tjänst ber vi dig att kontakta oss så att vi kan lägga till din prenumeration i vår lista över tillåtna.  Om du vill utforska funktionerna i Azure våren Cloud kan du [fylla i det här formuläret](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u).  Även om Azure våren-molnet är i för hands version erbjuder Microsoft begränsad support utan service avtal.  Mer information om support under för hands versionerna finns i [vanliga frågor och svar om support](https://azure.microsoft.com/support/faq/).
+> Azure våren Cloud erbjuds för närvarande som en offentlig för hands version. Med den offentliga för hands versionen kan kunder experimentera med nya funktioner före den officiella versionen.  Funktioner och tjänster för offentliga för hands versioner är inte avsedda för användning i produktion.  Om du vill ha mer information om stöd under för hands versionerna kan du skicka en [supportbegäran](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
 
 Innan du börjar ska du se till att din Azure-prenumeration har de nödvändiga beroendena:
 
@@ -49,7 +49,7 @@ Innan du börjar ska du se till att din Azure-prenumeration har de nödvändiga 
 Installera Azure våren Cloud-tillägget för Azure CLI med följande kommando
 
 ```Azure CLI
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+az extension add --name spring-cloud
 ```
 
 ## <a name="provision-a-service-instance-using-the-azure-cli"></a>Etablera en tjänst instans med hjälp av Azure CLI
@@ -140,7 +140,7 @@ az spring-cloud app show-deploy-log -n <app-name> [-d <deployment-name>]
 ## <a name="assign-a-public-endpoint-to-gateway"></a>Tilldela en offentlig slut punkt till gateway
 
 1. Öppna sidan för **program instrument panelen** .
-2. Välj programmet `gateway` för att visa sidan med **programinformation** .
+2. Välj `gateway` program för att visa sidan med **program information** .
 3. Välj **tilldela domän** för att tilldela en offentlig slut punkt till gateway. Detta kan några minuter. 
 4. Ange den tilldelade offentliga IP-adressen i webbläsaren för att visa det program som körs.
 

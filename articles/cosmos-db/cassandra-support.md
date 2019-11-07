@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 53c71afc38e7b122a0ae1d066460b8df91132963
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
-ms.translationtype: MT
+ms.openlocfilehash: 0e1a8e47534073f64075540d74d6195abc304fa2
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73152256"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621480"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Apache Cassandra-funktioner som stöds av Azure Cosmos DB Cassandra-API 
 
@@ -96,13 +96,13 @@ Azure Cosmos DB Cassandra-API:et stöder följande CQL-funktioner:
 
 ## <a name="cassandra-api-limits"></a>API för Cassandra gränser
 
-Det finns inga begränsningar i Azure Cosmos DB Cassandra API för storleken på data som lagras i en tabell. Hundratals terabyte eller petabyte data kan lagras samtidigt om partitionsnyckelgränserna respekteras. Samma sak som varje entitet eller rad motsvarighet har inte några begränsningar för antalet kolumner, men den totala storleken på entiteten bör inte överstiga 2 MB. Data per partitionsnyckel får inte överstiga 10 GB som i alla andra API: er.
+Det finns inga begränsningar i Azure Cosmos DB Cassandra API för storleken på data som lagras i en tabell. Hundratals terabyte eller petabyte data kan lagras samtidigt om partitionsnyckelgränserna respekteras. På samma sätt har varje entitet eller rad motsvarighet inte några begränsningar för antalet kolumner. Den totala storleken på entiteten bör dock inte överstiga 2 MB. Data per partitionsnyckel får inte överstiga 10 GB som i alla andra API: er.
 
 ## <a name="tools"></a>Verktyg 
 
 Azure Cosmos DB Cassandra API är en hanterad tjänst-plattform. Det krävs inga hanteringskostnader eller verktyg som skräpinsamlare, Java Virtual Machine (JVM) eller nodverktyg för att hantera klustret. Det stöder verktyg som cqlsh som använder binär CQLv4-kompatibilitet. 
 
-* Azure-portals datautforskare, mått, loggdiagnostik, PowerShell och cli är andra mekanismer som stöds för att hantera kontot.
+* Azure Portal data Utforskaren, statistik, log Diagnostics, PowerShell och CLI är andra mekanismer som stöds för att hantera kontot.
 
 ## <a name="cql-shell"></a>CQL-gränssnittet  
 
@@ -136,11 +136,12 @@ Azure Cosmos DB stöder följande databaskommandon på alla Cassandra API-konton
 * USE 
 * INSERT 
 * VÄLJ 
-* UPPDATERING 
+* UPDATE 
 * BATCH – endast ej loggade kommandon stöds 
 * DELETE
 
-Alla CRUD-åtgärder när de körs via CQLV4-kompatibla SDK returnerar extra information om felet, förbrukade enheter. Ta bort och uppdatera kommandon måste hanteras med resurs styrning för att säkerställa att det etablerade data flödet får rätt användning. 
+Alla CRUD-åtgärder som utförs via en CQL v4-kompatibel SDK returnerar extra information om fel och begärda enheter som används. Kommandona ta bort och uppdatera bör hanteras med resurs styrning för att säkerställa den mest effektiva användningen av det etablerade data flödet.
+
 * Observera att gc_grace_seconds-värdet måste vara noll om det anges.
 
 ```csharp
@@ -165,9 +166,9 @@ Azure Cosmos DB stöder rollbaserad åtkomst kontroll (RBAC) för etablering, ro
 
 ## <a name="keyspace-and-table-options"></a>Alternativ för tecken utrymme och tabell
 
-Alternativen för region namn, klass, replication_factor och data Center i kommandot "skapa inloggnings utrymme" ignoreras för närvarande. Systemet använder den underliggande Azure Cosmos DBens [globala distributions](global-dist-under-the-hood.md) Metod för att lägga till regionerna. Om du behöver data över flera regioner kan du aktivera det på konto nivå med PowerShell, CLI eller portal för mer information. mer information finns i artikeln [så här lägger](how-to-manage-database-account.md#addremove-regions-from-your-database-account) du till regioner. Durable_writes kan inte inaktive ras eftersom Azure Cosmos DB säkerställer att varje skrivning är varaktig. I varje region replikerar Azure Cosmos DB data över replik uppsättningen som består av 4 repliker och den här replik uppsättnings [konfigurationen](global-dist-under-the-hood.md) kan inte ändras.
+Alternativen för region namn, klass, replication_factor och data Center i kommandot "skapa inloggnings utrymme" ignoreras för närvarande. Systemet använder den underliggande Azure Cosmos DBens [globala distributions](global-dist-under-the-hood.md) Metod för att lägga till regionerna. Om du behöver data över flera regioner kan du aktivera det på konto nivå med PowerShell, CLI eller portal, och läsa mer i artikeln [så här lägger](how-to-manage-database-account.md#addremove-regions-from-your-database-account) du till regioner. Durable_writes kan inte inaktive ras eftersom Azure Cosmos DB säkerställer att varje skrivning är varaktig. I varje region replikerar Azure Cosmos DB data över replik uppsättningen som består av fyra repliker och den här replik uppsättnings [konfigurationen](global-dist-under-the-hood.md) kan inte ändras.
  
-Alla alternativ ignoreras när tabellen skapas, förutom gc_grace_seconds som ska anges till noll.
+Alla alternativ ignoreras när tabellen skapas, förutom gc_grace_seconds, som ska vara inställd på noll.
 Det finns ett extra alternativ med namnet "cosmosdb_provisioned_throughput" med det minsta värdet på 400 RU/s. Genom strömningen med hjälp av det här flödet kan du dela data flöde över flera tabeller och det är användbart för scenarier när alla tabeller inte använder det etablerade data flödet. Alter Table-kommandot tillåter ändring av det etablerade data flödet i regionerna. 
 
 ```

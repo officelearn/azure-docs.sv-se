@@ -1,5 +1,5 @@
 ---
-title: Fråga Azure SQL Database med Ruby | Microsoft Docs
+title: Använd ruby för att fråga Azure SQL Database
 description: Det här avsnittet visar hur du använder Ruby för att skapa ett program som ansluter till en Azure SQL-databas och frågar den med hjälp av Transact-SQL-uttryck.
 services: sql-database
 ms.service: sql-database
@@ -11,18 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 5b47ddc2d865108e03b3c649536bfaa700e4a59d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ecfdfa8930858eb02e993688a3ea1a78d2d7fe5f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569114"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690905"
 ---
-# <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>Snabbstart: Använd Ruby för att fråga en Azure SQL-databas
+# <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>Snabbstart: Använda Ruby för att fråga en Azure SQL-databas
 
 Den här snabbstarten visar hur du använder [Ruby](https://www.ruby-lang.org) för att ansluta till en Azure SQL-databas och hur du frågar efter data med Transact-SQL-instruktioner.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här snabbstarten, behöver du följande förhandskrav:
 
@@ -44,11 +44,11 @@ För att slutföra den här snabbstarten, behöver du följande förhandskrav:
   
 - Ruby och relaterad programvara för ditt operativsystem:
   
-  - **MacOS**: Installera Homebrew, rbenv och ruby-build, Ruby, FreeTDS och TinyTDS. Se steg 1.2, 1.3, 1.4, 1.5 och 2.1 i [Skapa Ruby-appar med SQL Server på macOS](https://www.microsoft.com/sql-server/developer-get-started/ruby/mac/).
+  - **MacOS**: installera homebrew, rbenv och ruby-build, ruby, freetds och TinyTDS. Se steg 1.2, 1.3, 1.4, 1.5 och 2.1 i [Skapa Ruby-appar med SQL Server på macOS](https://www.microsoft.com/sql-server/developer-get-started/ruby/mac/).
   
-  - **Ubuntu**: Installera förhandskraven för Ruby, rbenv och ruby-build, Ruby, FreeTDS och TinyTDS. Se steg 1.2, 1.3, 1.4, 1.5 och 2.1 i [Skapa Ruby-appar med SQL Server på Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu/).
+  - **Ubuntu**: installera förutsättningar för ruby, rbenv och ruby-build, ruby, freetds och TinyTDS. Se steg 1.2, 1.3, 1.4, 1.5 och 2.1 i [Skapa Ruby-appar med SQL Server på Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu/).
   
-  - **Windows**: Installera Ruby, Ruby Devkit och TinyTDS. Se [Konfigurera utvecklingsmiljön för Ruby-utveckling](/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development).
+  - **Windows**: installera ruby, ruby devkit och TinyTDS. Se [Konfigurera utvecklingsmiljön för Ruby-utveckling](/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development).
 
 ## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
 
@@ -58,7 +58,7 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-da
 
 2. Navigera till sidan **SQL-databaser** eller **SQL-hanterade instanser**.
 
-3. På **översiktssidan** granskar du det fullständigt kvalificerade servernamnet bredvid **Servernamn** för en enkel databas eller det fullständigt kvalificerade servernamnet bredvid **Värd** för en hanterad instans. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och väljer ikonen **Kopiera**. 
+3. På **översiktssidan** granskar du det fullständigt kvalificerade servernamnet bredvid **Servernamn** för en enkel databas eller det fullständigt kvalificerade servernamnet bredvid **Värd** för en hanterad instans. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och markerar ikonen **Kopiera**. 
 
 ## <a name="create-code-to-query-your-sql-database"></a>Skapa kod för att fråga din SQL-databas
 

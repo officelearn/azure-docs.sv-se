@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: abee722e725b55933d7ff1acdcd1e9a2e701502b
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 14615d596c1b673a234ccef541fecfbfce9d5f27
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72752156"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622595"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Snabb start: kör din första resurs diagram fråga med Azure Resource Graph Explorer
 
@@ -30,16 +30,16 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 1. I **fråga 1** -delen av fönstret anger du frågan `Resources | project name, type | limit 5` och väljer **Kör fråga**.
 
    > [!NOTE]
-   > Eftersom den här frågan inte tillhandahåller en sorterings modifierare, till exempel `order by`, kan du köra den här frågan flera gånger för att ge en annan uppsättning resurser per begäran.
+   > Eftersom den här frågan inte tillhandahåller en sorterings modifierare, till exempel `order by`, kan du köra frågan flera gånger för att ge en annan uppsättning resurser per begäran.
 
 1. Granska fråge svaret på fliken **resultat** . Välj fliken **meddelanden** om du vill visa information om frågan, inklusive antalet resultat och varaktighet för frågan. Eventuella fel visas under den här fliken.
 
-1. Uppdatera frågan till `order by` egenskapen **namn** : `Resources | project name, type | limit 5 | order by name asc`. Välj sedan **Kör fråga**.
+1. Uppdatera frågan för att `order by` egenskapen **namn** : `Resources | project name, type | limit 5 | order by name asc`. Välj sedan **Kör fråga**.
 
    > [!NOTE]
    > Om du kör den här frågan flera kommer den, precis som den första frågan, sannolikt att resultera i olika resurser vid varje begäran. Ordningen på frågekommandona är viktig. I det här exemplet kommer `order by` efter `limit`. Det begränsar först frågeresultaten och sorterar sedan dem.
 
-1. Uppdatera frågan till First `order by` egenskapen **Name** och sedan `limit` till de fem främsta resultaten: `Resources | project name, type | order by name asc | limit 5`. Välj sedan **Kör fråga**.
+1. Uppdatera frågan till första `order by` egenskapen **namn** och `limit` sedan till de fem översta resultaten: `Resources | project name, type | order by name asc | limit 5`. Välj sedan **Kör fråga**.
 
 När den slutliga frågan körs flera gånger, förutsatt att ingenting i din miljö ändras, är resultaten som returneras konsekventa och som förväntat – beställt av egenskapen **namn** , men fortfarande begränsat till de fem främsta resultaten.
 
@@ -48,7 +48,7 @@ När den slutliga frågan körs flera gånger, förutsatt att ingenting i din mi
 Schema webbläsaren finns i den vänstra rutan i resurs diagram Utforskaren. I den här listan över resurser visas alla _resurs typer_ av Azure-resurser som båda stöds av Azures resurs diagram och som finns i en klient som du har åtkomst till. Om du expanderar en resurs typ eller underEgenskaper visas underordnade egenskaper som kan användas för att skapa en resurs diagram fråga.
 
 Om du väljer resurs typ placeras `where type =="<resource type>"` i rutan fråga. Om du väljer en av de underordnade egenskaperna läggs `where <propertyName> == "INSERT_VALUE_HERE"` till i rutan fråga.
-Schema läsaren är ett bra sätt att identifiera egenskaper för användning i frågor. Se till att ersätta _infoga \_VALUE \_HERE_ med ditt eget värde, justera frågan med villkor, operatorer och funktioner för att uppnå dina avsedda resultat.
+Schema läsaren är ett bra sätt att identifiera egenskaper för användning i frågor. Se till att ersätta _infoga\_värde\_här_ med ditt eget värde, justera frågan med villkor, operatorer och funktioner för att uppnå dina avsedda resultat.
 
 ## <a name="create-a-chart-from-the-resource-graph-query"></a>Skapa ett diagram från resurs diagram frågan
 
@@ -91,11 +91,11 @@ Prova följande exempel på instrument paneler för att tillhandahålla exempel 
 
 - [Resurs diagram Utforskare – exempel på instrument panel #1](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-1/resourcegraphexplorer-sample-1.json)
 
-  [![Example bild för instrument panelen #1](./media/arge-sample1-small.png)](./media/arge-sample1-large.png#lightbox)
+  [![exempel bild för instrument panel #1](./media/arge-sample1-small.png)](./media/arge-sample1-large.png#lightbox)
 
 - [Resurs diagram Utforskare – exempel på instrument panel #2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
 
-  [![Example bild för instrument panelen #2](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
+  [![exempel bild för instrument panel #2](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
 
 > [!NOTE]
 > Antalet och diagram i exempel skärmarna ovan kan skärm bilderna variera beroende på din Azure-miljö.
@@ -120,9 +120,9 @@ Om du vill ta bort exempel instrument panelerna för resurs diagram från din Az
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Få mer information om [frågespråket](./concepts/query-language.md)
-- Lär dig att [utforska resurser](./concepts/explore-resources.md)
-- Kör din första fråga med [Azure CLI](first-query-azurecli.md)
-- Se exempel på [startfrågor](./samples/starter.md)
-- Se exempel på [avancerade frågor](./samples/advanced.md)
-- Ge feedback på [UserVoice](https://feedback.azure.com/forums/915958-azure-governance)
+- Få mer information om [frågespråket](./concepts/query-language.md).
+- Lär dig mer om hur du [utforskar resurser](./concepts/explore-resources.md).
+- Kör din första fråga med [Azure CLI](first-query-azurecli.md).
+- Se exempel på [Start frågor](./samples/starter.md).
+- Se exempel på [avancerade frågor](./samples/advanced.md).
+- Ge feedback på [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).

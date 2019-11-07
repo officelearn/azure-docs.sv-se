@@ -1,5 +1,5 @@
 ---
-title: Skapa en HTTP-utlöst funktion i Azure
+title: Skapa en HTTP-utlöst python-funktion i Azure
 description: Lär dig hur du skapar din första Python-funktion i Azure med hjälp av Azure Functions Core Tools och Azure CLI.
 author: ggailey777
 ms.author: glenga
@@ -9,20 +9,20 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: gwallace
-ms.openlocfilehash: f2602e5a13f83090291656e7062c74c245bc6568
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 791348088d909785b36934c3b9a2ae00fc0acbb7
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693355"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622039"
 ---
-# <a name="create-an-http-triggered-function-in-azure"></a>Skapa en HTTP-utlöst funktion i Azure
+# <a name="create-an-http-triggered-python-function-in-azure"></a>Skapa en HTTP-utlöst python-funktion i Azure
 
 Den här artikeln visar hur du använder kommando rads verktyg för att skapa ett python-projekt som körs i Azure Functions. Du skapar också en funktion som utlöses av en HTTP-begäran. Slutligen publicerar du ditt projekt så att det körs som en [Server lös funktion](functions-scale.md#consumption-plan) i Azure.
 
 Den här artikeln är den första av två python-snabb starter för Azure Functions. När du har slutfört den här snabb starten kan du [lägga till en Azure Storage utgående bindning för kön](functions-add-output-binding-storage-queue-python.md) till din funktion.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar måste du:
 
@@ -59,7 +59,7 @@ py -m venv .venv
 .venv\scripts\activate
 ```
 
-Nu när du har aktiverat den virtuella miljön kör du de återstående kommandona i den. Kör `deactivate` för att ta bort den virtuella miljön.
+Nu när du har aktiverat den virtuella miljön kör du de återstående kommandona i den. Kör `deactivate`för att ta bort den virtuella miljön.
 
 ## <a name="create-a-local-functions-project"></a>Skapa ett lokalt Functions-projekt
 
@@ -105,7 +105,7 @@ De här kommandona skapar en undermapp med namnet _HttpTrigger_. Den innehåller
 
     Varje bindning kräver en riktning, skriv och ett unikt namn. HTTP-utlösaren har en inkommande bindning av typen [`httpTrigger`](functions-bindings-http-webhook.md#trigger) och utgående bindning av typen [`http`](functions-bindings-http-webhook.md#output).
 
-* *\_ \_init \_ \_. py*: skript fil som är din http-utlöst funktion. Observera att det här skriptet har en standard `main()`. HTTP-data från utlösaren skickas till funktionen med hjälp av `req` med namnet `binding parameter`. @No__t_0, som definieras i function. JSON, är en instans av [klassen Azure. functions. HttpRequest](/python/api/azure-functions/azure.functions.httprequest). 
+* *\_\_init\_\_. py*: skript fil som är din http-utlöst funktion. Observera att det här skriptet har en standard `main()`. HTTP-data från utlösaren skickas till funktionen med hjälp av `req` med namnet `binding parameter`. `req`, som definieras i function. JSON, är en instans av [klassen Azure. functions. HttpRequest](/python/api/azure-functions/azure.functions.httprequest). 
 
     Returvärdet, som definieras som `$return` i *Function. JSON*, är en instans av [klassen Azure. functions. HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Läs mer i [Azure Functions HTTP-utlösare och bindningar](functions-bindings-http-webhook.md).
 

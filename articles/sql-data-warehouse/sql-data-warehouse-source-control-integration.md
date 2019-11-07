@@ -1,5 +1,5 @@
 ---
-title: Käll kontrolls integrering | Microsoft Docs
+title: Källkontrollsintegrering
 description: Databas DevOps-upplevelse i företags klass för SQL Data Warehouse med intern käll kontroll integrering med Azure databaser (git och GitHub).
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,12 @@ ms.subservice: integration
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 10a10882efe05ef9e6bb86e54fcfcf8c5d73d225
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 82d366b3f807e21e3531da00da78520fed90bc66
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70098746"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73645249"
 ---
 # <a name="source-control-integration-for-azure-sql-data-warehouse"></a>Käll kontrolls integrering för Azure SQL Data Warehouse
 
@@ -37,7 +37,7 @@ I den här självstudien beskrivs hur du integrerar ditt SSDT-databas projekt (S
 
    ![Hantera anslutningar](media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Hantera anslutningar")
 
-   ![Anslut](media/sql-data-warehouse-source-control-integration/3-connect.png "Connect")
+   ![Anslut](media/sql-data-warehouse-source-control-integration/3-connect.png "Anslut")
 
 3. Klona din Azure lagrings platsen-lagringsplats från projektet till din lokala dator
 

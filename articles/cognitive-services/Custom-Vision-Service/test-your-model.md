@@ -1,7 +1,7 @@
 ---
 title: Testa och träna en modell-Custom Vision Service
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du testar en avbildning och använder den för att träna om modellen.
+description: Den här artikeln visar hur du testar en avbildning och använder den för att träna om modellen i Custom Visions tjänsten.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 3f78f0b992581a44b030387f1bd0e37664df4cfd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c6ed8869f6d33609381a42fd22d728e9e5542802
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560914"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721196"
 ---
 # <a name="test-and-retrain-a-model-with-custom-vision-service"></a>Testa och träna en modell med Custom Vision Service
 
@@ -39,7 +39,7 @@ Nu kan du lägga till den här test avbildningen i din modell och sedan träna m
 
 Använd följande steg för att använda den avbildning som du har skickat in tidigare för utbildning:
 
-1. Om du vill visa bilder som skickats till klassificeraren öppnar du [Custom vision webb sidan](https://customvision.ai) och  väljer fliken förutsägelser.
+1. Om du vill visa bilder som skickats till klassificeraren öppnar du [Custom vision webb sidan](https://customvision.ai) och väljer fliken __förutsägelser__ .
 
     ![Bild av fliken förutsägelser](./media/test-your-model/predictions-tab.png)
 
@@ -49,7 +49,7 @@ Använd följande steg för att använda den avbildning som du har skickat in ti
 2. Hovra över en bild för att se de taggar som förutsägs av klassificeraren.
 
     > [!TIP]
-    > Bilderna rangordnas så att de bilder som kan få flest vinster till klassificeraren visas överst. Använd sorterings avsnittet om du vill välja  en annan sortering.
+    > Bilderna rangordnas så att de bilder som kan få flest vinster till klassificeraren visas överst. Använd __sorterings__ avsnittet om du vill välja en annan sortering.
 
     Om du vill lägga till en bild i dina utbildnings data väljer du bilden, väljer taggen och väljer sedan __Spara och Stäng__. Bilden tas bort från __förutsägelser__ och läggs till i utbildnings avbildningarna. Du kan visa den genom att välja fliken __träna bilder__ .
 

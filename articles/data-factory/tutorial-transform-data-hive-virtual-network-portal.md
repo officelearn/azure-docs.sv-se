@@ -1,5 +1,5 @@
 ---
-title: Transformera data med Hive i Azure Virtual Network | Microsoft Docs
+title: 'Transformera data med Hive i Azure Virtual Network '
 description: Den här självstudiekursen innehåller stegvisa instruktioner för hur du transformerar data genom att använda en Hive-aktivitet i Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,15 +11,15 @@ ms.date: 01/04/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: b6e57500da0ca863f0c5810f625d6a4b0c56d1bf
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 73a43bdb859d39bd0cb8e3d4a3ed3f114fb2c156
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277480"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683424"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformera data i Azure Virtual Network med en Hive-aktivitet i Azure Data Factory
-I den här självstudien använder du Azure Portal för att skapa en Data Factory-pipeline som transformerar data med en Hive-aktivitet på ett HDInsight-kluster som finns i Azure Virtual Network (VNet). I den här självstudiekursen får du göra följande:
+I den här självstudien använder du Azure Portal för att skapa en Data Factory-pipeline som transformerar data med en Hive-aktivitet på ett HDInsight-kluster som finns i Azure Virtual Network (VNet). I de här självstudierna går du igenom följande steg:
 
 > [!div class="checklist"]
 > * Skapa en datafabrik. 
@@ -32,7 +32,7 @@ I den här självstudien använder du Azure Portal för att skapa en Data Factor
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -40,7 +40,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 - **Azure Virtual Network.** Om du inte har något virtuellt Azure-nätverk skapar du det genom att följa [de här instruktionerna](../virtual-network/quick-create-portal.md). I det här exemplet är HDInsight i ett virtuellt Azure-nätverk. Här är en exempelkonfiguration av Azure Virtual Network. 
 
     ![Skapa det virtuella nätverket](media/tutorial-transform-data-using-hive-in-vnet-portal/create-virtual-network.png)
-- **HDInsight-kluster.** Skapa ett HDInsight-kluster och anslut det till det virtuella nätverk som du skapade i föregående steg genom att följa stegen i den här artikeln: [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight/hdinsight-extend-hadoop-virtual-network.md) (Utöka HDInsight med ett Azure Virtual Network). Här är en exempelkonfiguration av HDInsight i ett virtuellt nätverk. 
+- **HDInsight-kluster.** Skapa ett HDInsight-kluster och anslut det till det virtuella nätverket som du skapade i föregående steg genom att följa stegen i den här artikeln: [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight/hdinsight-extend-hadoop-virtual-network.md) (Utöka HDInsight med ett Azure Virtual Network). Här är en exempelkonfiguration av HDInsight i ett virtuellt nätverk. 
 
     ![HDInsight i ett virtuellt nätverk](media/tutorial-transform-data-using-hive-in-vnet-portal/hdinsight-virtual-network-settings.png)
 - **Azure PowerShell**. Följ instruktionerna i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/install-Az-ps).
@@ -70,7 +70,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Just nu är det bara webbläsarna Microsoft Edge och Google Chrome som har stöd för Data Factory UI.
 1. Logga in på [Azure-portalen](https://portal.azure.com/).    
 2. Klicka på **Ny** på den vänstra menyn, klicka på **Data + Analys**, och klicka på **Data Factory**. 
    
@@ -100,7 +100,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
    
     ![Datafabrikens startsida](./media/tutorial-transform-data-using-hive-in-vnet-portal/data-factory-home-page.png)
 10. Klicka på **Författare och övervakare** för att starta användargränssnittet för Data Factory på en separat flik.
-11. På sidan **Kom igång** växlar du till fliken **Redigera** på den vänstra panelen, som på följande bild: 
+11. På sidan **kom igång** växlar du till fliken **Redigera** på den vänstra panelen som på följande bild: 
 
     ![Fliken Redigera](./media/tutorial-transform-data-using-hive-in-vnet-portal/get-started-page.png)
 
@@ -233,7 +233,7 @@ Observera följande punkter:
 
     ![Publicera](./media/tutorial-transform-data-using-hive-in-vnet-portal/publish.png)
 
-## <a name="trigger-a-pipeline-run"></a>Utlös en pipelinekörning
+## <a name="trigger-a-pipeline-run"></a>Utlösa en pipelinekörning
 
 1. Verifiera först pipelinen genom att klicka på knappen **Verifiera** i verktygsfältet. Stäng fönstret **Pipeline Validation Output** (Resultat av pipelineverifiering) genom att klicka på **högerpil (>>)** . 
 
@@ -259,7 +259,7 @@ Observera följande punkter:
     ![Utdatafil](./media/tutorial-transform-data-using-hive-in-vnet-portal/output-file.png)
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien har du fått: 
+I den här självstudiekursen har du fått: 
 
 > [!div class="checklist"]
 > * Skapa en datafabrik. 

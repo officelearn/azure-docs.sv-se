@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 09/19/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: cf1bd223c852db930835ea1b56a93a381e8312c5
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 30983d141f087a46e420f7ea457fba181956c28e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161430"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73577812"
 ---
-# <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Självstudier: Få åtkomst till ett klassrumslabb i Azure Lab Services
+# <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Självstudie: Åtkomst till ett klassrumslabb i Azure Lab Services
 I den här självstudien ansluter du som student till en virtuell dator (VM) i ett klassrumslabb. 
 
-I de här självstudierna gör du följande:
+I den här självstudien gör du följande:
 
 > [!div class="checklist"]
 > * Registrera dig för labbet
@@ -62,7 +62,7 @@ I de här självstudierna gör du följande:
 
 1. Välj den andra knappen som visas i följande bild för att **ansluta** till Labbets VM. 
 
-    ![Ansluta till virtuell dator](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
+    ![Ansluta till VM](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
 2. Gör något av följande: 
     1. För virtuella **Windows** -datorer sparar du **RDP** -filen på hård disken. Öppna RDP-filen för att ansluta till den virtuella datorn. Använd det **användar namn** och **lösen ord** som du får från din lärare/lärare för att logga in på datorn. 
     3. För virtuella **Linux** -datorer kan du använda **SSH** eller **RDP** (om det är aktiverat) för att ansluta till dem. Mer information finns i [aktivera anslutning till fjärr skrivbord för Linux-datorer](how-to-enable-remote-desktop-linux.md). 

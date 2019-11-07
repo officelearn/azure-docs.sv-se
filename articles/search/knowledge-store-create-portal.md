@@ -1,25 +1,24 @@
 ---
-title: Skapa ett kunskaps lager i Azure Portal
+title: Skapa ett kunskaps lager (för hands version) i Azure Portal
 titleSuffix: Azure Cognitive Search
-description: Använd guiden Importera data för att skapa ett kunskaps lager som används för beständigt innehåll. Anslut till ett kunskaps lager för analys från andra appar eller skicka berikat innehåll till efterföljande processer.
+description: Använd guiden Importera data för att skapa ett kunskaps lager som används för beständigt innehåll. Anslut till ett kunskaps lager för analys från andra appar eller skicka berikat innehåll till efterföljande processer. Den här funktionen är för närvarande i allmänt tillgänglig förhandsversion.
 author: lisaleib
 manager: nitinme
 ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 689b5aa0cd8a5fb310925b2c52baeec6860af0d5
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
-ms.translationtype: HT
+ms.openlocfilehash: 56053a942604a6f1cb935e6bddcae85ffc5a9e54
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607085"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720102"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Snabb start: skapa ett kunskaps lager för Azure Kognitiv sökning i Azure Portal
 
-> [!Note]
-> Kunskaps lagret är i för hands version och bör inte användas i produktionen. Både Azure Portal och [sök REST API version 2019-05-06 – för hands version](search-api-preview.md) innehåller den här funktionen. Det finns för närvarande inget stöd för .NET SDK.
->
+> [!IMPORTANT] 
+> Kunskaps lagret är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 Knowledge Store är en funktion i Azure Kognitiv sökning som sparar utdata från en kognitiv skicklighets pipeline för efterföljande analyser eller underordnad bearbetning. 
 

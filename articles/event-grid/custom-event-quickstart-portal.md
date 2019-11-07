@@ -1,22 +1,22 @@
 ---
-title: Skicka anpassade händelser till en webbslutpunkt – Event Grid, Azure CLI
-description: Använd Azure Event Grid och Azure Portal till att publicera ett anpassat ämne och prenumerera på händelser för det ämnet. Händelserna hanteras av en webbapp.
+title: 'Snabb start: skicka anpassade händelser till webb slut punkt – Event Grid Azure Portal'
+description: 'Snabb start: Använd Azure Event Grid och Azure Portal för att publicera ett anpassat ämne och prenumerera på händelser för ämnet. Händelserna hanteras av en webbapp.'
 services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 03/27/2019
+ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: afb53ed013af6cd1db2f6ff3d25c350aa2b4f1e8
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 398e63ec9a8b9e1b16d8ffcee538351fc6572de9
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638552"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720788"
 ---
-# <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Snabbstart: Dirigera anpassade händelser till en webbslutpunkt med Azure Portal och Event Grid
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Snabb start: dirigera anpassade händelser till webb slut punkten med Azure Portal och Event Grid
 
 Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder du Azure-portalen för att skapa ett anpassat ämne, prenumerera på det anpassade ämnet och utlösa händelsen för att visa resultatet. Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och utför åtgärder. Men för att enkelt beskriva den här artikeln kan skicka du händelser till en webbapp som samlar in och visar meddelanden.
 
@@ -104,12 +104,12 @@ I det första exemplet används Azure CLI. URL och nyckel för det anpassade äm
 1. I Azure Portal väljer du **Cloud Shell**. Välj **bash** i det övre vänstra hörnet i Cloud Shells fönstret. 
 
     ![Cloud Shell-bash](./media/custom-event-quickstart-portal/cloud-shell-bash.png)
-1. Kör följande kommando för att hämta **slut punkten** för ämnet: När du har kopierat och klistrat in kommandot uppdaterar du **ämnes namnet** och **resurs gruppens namn** innan du kör kommandot. 
+1. Kör följande kommando för att hämta **slut punkten** för ämnet: när du har kopierat och klistrat in kommandot uppdaterar du **ämnes namnet** och **resurs gruppens namn** innan du kör kommandot. 
 
     ```azurecli
     endpoint=$(az eventgrid topic show --name <topic name> -g <resource group name> --query "endpoint" --output tsv)
     ```
-2. Kör följande kommando för att hämta **nyckeln** för det anpassade ämnet: När du har kopierat och klistrat in kommandot uppdaterar du **ämnes namnet** och **resurs gruppens** namn innan du kör kommandot. 
+2. Kör följande kommando för att hämta **nyckeln** för det anpassade ämnet: när du har kopierat och klistrat in kommandot uppdaterar du **ämnes namnet** och **resurs gruppens** namn innan du kör kommandot. 
 
     ```azurecli
     key=$(az eventgrid topic key list --name <topic name> -g <resource group name> --query "key1" --output tsv)
@@ -128,7 +128,7 @@ I det första exemplet används Azure CLI. URL och nyckel för det anpassade äm
 ### <a name="azure-powershell"></a>Azure PowerShell
 I det andra exemplet används PowerShell för att utföra liknande steg.
 
-1. I Azure Portal väljer du **Cloud Shell** (du kan också gå https://shell.azure.com/) till. Välj **PowerShell** i det övre vänstra hörnet i Cloud Shells fönstret. Se exemplet på **Cloud Shell** fönstret i Azure CLI-avsnittet.
+1. I Azure Portal väljer du **Cloud Shell** (du kan också gå till https://shell.azure.com/). Välj **PowerShell** i det övre vänstra hörnet i Cloud Shells fönstret. Se exemplet på **Cloud Shell** fönstret i Azure CLI-avsnittet.
 2. Ange följande variabler. När du har kopierat och klistrat in varje kommando uppdaterar du **ämnes namnet** och **resurs gruppens namn** innan du kör kommandot:
 
     ```powershell

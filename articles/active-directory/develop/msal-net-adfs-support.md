@@ -18,15 +18,15 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 273a8b06b3bd3bf299b47a1cc52fd4660353cec3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d947645b45641b2604e20f18765fd0428a1336ec
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473738"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721061"
 ---
 # <a name="active-directory-federation-services-support-in-msalnet"></a>Active Directory Federation Services (AD FS) stöd i MSAL.NET
-Med Active Directory Federation Services (AD FS) (AD FS) i Windows Server kan du lägga till OpenID Connect och OAuth 2,0-baserad autentisering och auktorisering för program som du utvecklar. Dessa program kan sedan autentisera användare direkt mot AD FS. Mer information finns [i AD FS scenarier för utvecklare](/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios).
+Med Active Directory Federation Services (AD FS) (AD FS) i Windows Server kan du lägga till OpenID Connect och OAuth 2,0-baserad autentisering och auktorisering för program som du utvecklar. Dessa program kan sedan autentisera användare direkt mot AD FS. Mer information finns [i AD FS scenarier för utvecklare](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios).
 
 Microsoft Authentication Library för .NET (MSAL.NET) stöder två scenarier för autentisering mot AD FS:
 

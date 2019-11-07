@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: victorh
-ms.openlocfilehash: 7b9cbd4e84f60b42e8eb6cb250a9b25f398fd4a0
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 9e1fe0e5bae462715a8cb2950cca100f0f409325
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176447"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718724"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Server dels hälsa och diagnostikloggar för Application Gateway
 
@@ -49,7 +49,7 @@ Varje medlem i backend-poolen visas på den här sidan (oavsett om det är ett n
 
 ### <a name="view-back-end-health-through-powershell"></a>Visa backend-hälsa via PowerShell
 
-Följande PowerShell-kod visar hur du visar backend-hälsa med hjälp av cmdleten `Get-AzApplicationGatewayBackendHealth`:
+Följande PowerShell-kod visar hur du visar backend-hälsa genom att använda `Get-AzApplicationGatewayBackendHealth`-cmdlet:
 
 ```powershell
 Get-AzApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
@@ -112,11 +112,11 @@ Du har tre alternativ för att lagra dina loggar:
 
 Aktivitetsloggning är automatiskt aktiverad för alla Resource Manager-resurser. Du måste aktivera åtkomst-och prestanda loggning för att kunna börja samla in data som är tillgängliga via dessa loggar. Använd följande steg för att aktivera loggning:
 
-1. Anteckna resurs-ID:t för det lagringskonto där loggdata lagras. Det här värdet är av formatet:/Subscriptions/\<subscriptionId \>/resourceGroups/\<resource grupp namn \>/providers/Microsoft.Storage/storageAccounts/\<storage konto namn \>. Du kan använda valfritt lagringskonto i din prenumeration. Du hittar den här informationen i Azure Portal.
+1. Anteckna resurs-ID:t för det lagringskonto där loggdata lagras. Det här värdet är av formatet:/Subscriptions/\<subscriptionId\>/resourceGroups/\<resurs gruppens namn\>/providers/Microsoft.Storage/storageAccounts/\<lagrings kontots namn\>. Du kan använda valfritt lagringskonto i din prenumeration. Du hittar den här informationen i Azure Portal.
 
     ![Portal: resurs-ID för lagrings konto](./media/application-gateway-diagnostics/diagnostics1.png)
 
-2. Anteckna det resurs-ID för Application Gateway som loggning har Aktiver ATS för. Det här värdet är av formatet:/Subscriptions/\<subscriptionId \>/resourceGroups/\<resource grupp namn \>/providers/Microsoft.Network/applicationGateways/\<application Gateway-namn \>. Du hittar den här informationen i Azure Portal.
+2. Anteckna det resurs-ID för Application Gateway som loggning har Aktiver ATS för. Det här värdet är av formatet:/Subscriptions/\<subscriptionId\>/resourceGroups/\<resurs grupp namn\>/providers/Microsoft.Network/applicationGateways/\<Application Gateway-namn\>. Du hittar den här informationen i Azure Portal.
 
     ![Portal: resurs-ID för Application Gateway](./media/application-gateway-diagnostics/diagnostics2.png)
 
@@ -213,7 +213,7 @@ För Application Gateway och WAF v2 visar loggarna lite mer information:
 |httpVersion     | HTTP-version för begäran.        |
 |receivedBytes     | Storleken på det mottagna paketet, i byte.        |
 |sentBytes| Storlek på paket som skickas, i byte.|
-|timeTaken| Tids längd (i millisekunder) som det tar för en begäran att bearbetas och dess svar ska skickas. Detta beräknas som intervallet från den tidpunkt då Application Gateway tar emot den första byten i en HTTP-begäran till den tidpunkt då åtgärden skicka svar slutförs. Det är viktigt att Observera att det tidsödande fältet vanligt vis innehåller den tid som paket för begäran och svar överförs över nätverket. |
+|timeTaken| Hur lång tid (i **sekunder**) det tar för en begäran att bearbetas och dess svar ska skickas. Detta beräknas som intervallet från den tidpunkt då Application Gateway tar emot den första byten i en HTTP-begäran till den tidpunkt då åtgärden skicka svar slutförs. Det är viktigt att Observera att det tidsödande fältet vanligt vis innehåller den tid som paket för begäran och svar överförs över nätverket. |
 |sslEnabled| Huruvida kommunikationen med backend-pooler använder SSL. Giltiga värden är på och av.|
 |sslCipher| Chiffrering som används för SSL-kommunikation (om SSL är aktiverat).|
 |sslProtocol| SSL/TLS-protokoll som används (om SSL är aktiverat).|
@@ -263,7 +263,7 @@ Prestanda loggen skapas endast om du har aktiverat den på varje Application Gat
 |requestCount     | Antal begär Anden som hanteras.        |
 |Svars tid | Genomsnittlig svars tid (i millisekunder) för begär Anden från instansen till Server delen som hanterar begär Anden. |
 |failedRequestCount| Antal misslyckade förfrågningar.|
-|kapacitet| Genomsnittligt data flöde sedan den senaste loggen mätt i byte per sekund.|
+|Dataflöde| Genomsnittligt data flöde sedan den senaste loggen mätt i byte per sekund.|
 
 ```json
 {

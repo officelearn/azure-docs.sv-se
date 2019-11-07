@@ -1,6 +1,6 @@
 ---
-title: Inaktivera användarinloggningar för en företagsapp i Azure Active Directory | Microsoft Docs
-description: Så här inaktiverar du ett företagsprogram så att inga användare kan logga in till det i Azure Active Directory
+title: Inaktivera användar inloggningar för en Enterprise-App i Azure Active Directory | Microsoft Docs
+description: Så här inaktiverar du ett företags program så att inga användare kan logga in på det i Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,30 +16,49 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7256791c0b6bfbc72a26f6093cdd3c39410f702f
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 6a08779d171367d982392ae4e987fb46e019e61f
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807591"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720277"
 ---
-# <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Inaktivera användarinloggningar för en företagsapp i Azure Active Directory
+# <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Inaktivera användar inloggningar för en företags app i Azure Active Directory
 
-Det är enkelt att inaktivera ett företagsprogram så att inga användare kan logga in till den i Azure Active Directory (AD Azure). Du behöver behörighet att hantera appen enterprise. Och du måste vara global administratör för katalogen.
+Det är enkelt att inaktivera ett företags program så att inga användare kan logga in på det i Azure Active Directory (Azure AD). Du behöver rätt behörighet för att hantera företags appen. Och du måste vara global administratör för katalogen.
 
-## <a name="how-do-i-disable-user-sign-ins"></a>Hur jag för att inaktivera användarinloggningar?
+## <a name="how-do-i-disable-user-sign-ins"></a>Hur gör jag för att inaktivera användar inloggningar?
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
-1. Välj **alla tjänster**, ange **Azure Active Directory** i textrutan och välj sedan **RETUR**.
-1. På den **Azure Active Directory** -  ***directoryname*** (det vill säga Azure AD fönstret för den katalog som du hanterar), väljer **företagsprogram**.
-1. På den **företagsprogram – alla program** fönstret visas en lista över appar som du kan hantera. Välj en app.
-1. På den ***appname*** (det vill säga i rutan med namnet på den valda appen i rubriken) väljer **egenskaper**.
-1. På den ***appname*** - **egenskaper** väljer **nr** för **aktiverad för användare att logga in?** .
-1. Välj den **spara** kommando.
+1. Välj **alla tjänster**, ange **Azure Active Directory** i text rutan och välj sedan **RETUR**.
+1. I fönstret **Azure Active Directory** -  ***DirectoryName*** (det vill säga Azure AD-fönstret för den katalog som du hanterar) väljer du **företags program**.
+1. I fönstret **företags program – alla program** visas en lista över de appar som du kan hantera. Välj en app.
+1. I fönstret ***APPNAME*** (det vill säga fönstret med namnet på den valda appen i rubriken) väljer du **Egenskaper**.
+1. I fönstret **Egenskaper** för ***APPNAME*** - väljer du **Nej** för **användare som ska logga in?** .
+1. Välj kommandot **Spara** .
+
+## <a name="use-azure-ad-powershell-to-disable-an-unlisted-app"></a>Använd Azure AD PowerShell för att inaktivera en app som inte är listad
+
+Om du känner till AppId för en app som inte visas i listan över företags appar (till exempel eftersom du har tagit bort appen eller om tjänstens huvud namn inte har skapats på grund av att appen är förauktoriserad av Microsoft), kan du skapa tjänstens huvud namn manuellt för appen och inaktivera den med hjälp av [AzureAD PowerShell-cmdlet](https://docs.microsoft.com/powershell/module/azuread/New-AzureADServicePrincipal?view=azureadps-2.0).
+
+```PowerShell
+# The AppId of the app to be disabled
+$appId = "{AppId}"
+
+# Check if a service principal already exists for the app
+$servicePrincipal = Get-AzureADServicePrincipal -Filter "appId eq '$appId'"
+if ($servicePrincipal) {
+    # Service principal exists already, disable it
+    Set-AzureADServicePrincipal -ObjectId $servicePrincipal.ObjectId -AccountEnabled $false
+} else {
+    # Service principal does not yet exist, create it and disable it at the same time
+    $servicePrincipal = New-AzureADServicePrincipal -AppId $appId -AccountEnabled $false
+}
+```
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Se alla mina grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
-* [Tilldela en användare eller grupp till en företagsapp](assign-user-or-group-access-portal.md)
-* [Ta bort en användare eller grupp från en företagsapp](remove-user-or-group-access-portal.md)
-* [Ändra namnet eller logotyp i en företagsapp](change-name-or-logo-portal.md)
+* [Visa alla mina grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
+* [Tilldela en användare eller grupp till en företags app](assign-user-or-group-access-portal.md)
+* [Ta bort en användare eller grupp tilldelning från en företags app](remove-user-or-group-access-portal.md)
+* [Ändra namn eller logo typ för en företags app](change-name-or-logo-portal.md)

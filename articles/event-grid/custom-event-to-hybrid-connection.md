@@ -1,26 +1,26 @@
 ---
-title: Skicka anpassade händelser till hybrid anslutning – Event Grid
-description: Använd Azure Event Grid och Azure CLI för att publicera ett ämne och prenumerera på händelsen. En hybridanslutning används för slutpunkten.
+title: 'Självstudie: skicka anpassade händelser till hybrid anslutning – Event Grid'
+description: 'Självstudie: Använd Azure Event Grid och Azure CLI för att publicera ett ämne och prenumerera på händelsen. En hybridanslutning används för slutpunkten.'
 services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 10/22/2019
+ms.date: 11/05/2019
 ms.topic: tutorial
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 7e1493903cdb51191c942762895644ee12c49f10
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 2773d06fdfc606faaab88340fc2ef9685bba21f9
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790262"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720697"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Självstudie: dirigera anpassade händelser till Azure Relay Hybridanslutningar med Azure CLI och Event Grid
 
 Azure Event Grid är en händelsetjänst för molnet. Azure Relay hybridanslutningar är en av de händelsehanterare som stöds. Du kan använda hybridanslutningar som händelsehanterare när du behöver bearbeta händelser från program som inte har en offentlig slutpunkt. Dessa program kan finnas i ditt företagsnätverk. I den här artikeln använder du Azure CLI för att skapa ett anpassat ämne, prenumerera på det anpassade ämnet och utlösa händelsen för att visa resultatet. Du skickar händelser till hybridanslutningen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här artikeln förutsätter att du redan har en hybridanslutning och ett lyssnarprogram. För att komma igång med hybridanslutningar, se [Kom igång med Relay hybridanslutningar – .NET](../service-bus-relay/relay-hybrid-connections-dotnet-get-started.md) eller [Kom igång med Relay hybridanslutningar – nod](../service-bus-relay/relay-hybrid-connections-node-get-started.md).
 

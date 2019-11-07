@@ -1,5 +1,5 @@
 ---
-title: Transformera data med Spark i Azure Data Factory | Microsoft Docs
+title: 'Transformera data med hjälp av spark i Azure Data Factory '
 description: Den här självstudiekursen innehåller stegvisa instruktioner för hur du transformerar data genom att använda en Spark-aktivitet i Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,17 +11,17 @@ ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: d13e0b95d57e3063292319961d5e1138f994076e
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: b0df6264eb38cbbacd5f624b634eea5f742adbc7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812275"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683320"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformera data i molnet genom att använda Spark-aktivitet i Azure Data Factory
 I den här självstudien använder du Azure-portalen till att skapa Azure Data Factory-pipeline. Pipelinen transformerar data med en Spark-aktivitet och en länkad Azure HDInsight-tjänst på begäran. 
 
-I den här självstudiekursen får du göra följande:
+I de här självstudierna går du igenom följande steg:
 
 > [!div class="checklist"]
 > * Skapa en datafabrik. 
@@ -31,7 +31,7 @@ I den här självstudiekursen får du göra följande:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -83,7 +83,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Just nu är det bara webbläsarna Microsoft Edge och Google Chrome som har stöd för Data Factory UI.
 1. Välj **Nytt** på den vänstra menyn, välj **Data och analys** och välj sedan **Data Factory**. 
    
    ![Valet Data Factory i fönstret Nytt](./media/tutorial-transform-data-spark-portal/new-azure-data-factory-menu.png)
@@ -104,7 +104,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 1. För **Version** väljer du **V2**.
 1. För **Plats** väljer du en plats för datafabriken. 
 
-   Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/). De datalager (som Azure Storage och Azure SQL Database) och beräkningar (som HDInsight) som används i Data Factory kan finnas i andra regioner.
+   Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). De datalager (som Azure Storage och Azure SQL Database) och beräkningar (som HDInsight) som används i Data Factory kan finnas i andra regioner.
 
 1. Välj **Skapa**.
 
@@ -205,14 +205,14 @@ Du skapar två länkade tjänster i det här avsnittet:
    ![knappen Publicera alla](./media/tutorial-transform-data-spark-portal/publish-button.png)
 
 
-## <a name="trigger-a-pipeline-run"></a>Utlös en pipelinekörning
+## <a name="trigger-a-pipeline-run"></a>Utlösa en pipelinekörning
 Välj **Lägg till utlösare** i verktygsfältet och välj sedan **Utlös nu**. 
 
 ![knapparna Utlös och Utlös nu](./media/tutorial-transform-data-spark-portal/trigger-now-menu.png)
 
 ## <a name="monitor-the-pipeline-run"></a>Övervaka pipelinekörningen
 
-1. Välj fliken **Övervaka**. Bekräfta att du ser en pipelinekörning. Det tar ungefär 20 minuter att skapa ett Spark-kluster. 
+1. Växla till fliken **övervakare** . bekräfta att du ser en pipeline-körning. Det tar ungefär 20 minuter att skapa ett Spark-kluster. 
    
 1. Klicka på **Uppdatera** då och då så att du ser pipelinekörningens status. 
 
@@ -231,7 +231,7 @@ Verifiera att utdatafilen har skapats i mappen spark/otuputfiles/wordcount för 
 
 ![Plats för utdatafilen](./media/tutorial-transform-data-spark-portal/verity-output.png)
 
-Filen bör ha alla ord från indatafilen samma antal gånger som ordet förekommer i filen. Exempel: 
+Filen bör ha alla ord från indatafilen samma antal gånger som ordet förekommer i filen. Till exempel: 
 
 ```
 (u'This', 1)
@@ -253,7 +253,7 @@ Pipelinen i det här exemplet transformerar data med en Spark-aktivitet och en l
 Om du vill hur du transformerar data genom att köra ett Hive-skript i ett Azure HDInsight-kluster i ett virtuellt nätverk går du vidare till nästa självstudie: 
 
 > [!div class="nextstepaction"]
-> [Självstudier: Transformera data med Hive i Azure Virtual Network](tutorial-transform-data-hive-virtual-network-portal.md).
+> [Självstudie: Transformera data med Hive i Azure Virtual Network](tutorial-transform-data-hive-virtual-network-portal.md).
 
 
 

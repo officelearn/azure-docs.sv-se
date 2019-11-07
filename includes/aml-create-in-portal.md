@@ -9,18 +9,18 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 11/04/2019
-ms.openlocfilehash: d49a84f26453a6a7b2ff6d7f419fbc53ad8b98ba
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8ccd3e6129f4a061eacf83a1f4e70174c697480f
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475958"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73633753"
 ---
 1. Logga in på [Azure Portal](https://portal.azure.com/) med hjälp av autentiseringsuppgifterna för din Azure-prenumeration.
 
 1. I det övre vänstra hörnet av Azure Portal väljer du **+ skapa en resurs**.
 
-      ![Skapa en ny resurs](media/aml-create-in-portal/portal-create-resource.png)
+    ![Skapa en ny resurs](media/aml-create-in-portal/create-workspace.gif)
 
 1. Använd Sök fältet för att hitta **Machine Learning**.
 

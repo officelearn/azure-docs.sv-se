@@ -1,7 +1,7 @@
 ---
 title: Förbättra kunskaps basen – QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Med aktiv inlärning kan du förbättra kvaliteten på din kunskaps bas genom att föreslå alternativa frågor, baserat på användar-och användar sändningar, till din fråga och svar-paret. Du kan granska dessa förslag, antingen lägga till dem i befintliga frågor eller avvisa dem. Kunskaps basen ändras inte automatiskt. Du måste acceptera förslagen för att ändringarna ska börja gälla. Dessa förslag lägger till frågor, men ändrar inte eller tar inte bort befintliga frågor.
+description: Förbättra kvaliteten på din kunskaps bas med aktiv inlärning. Granska, acceptera eller avvisa, Lägg till utan att ta bort eller ändra befintliga frågor.
 author: diberry
 manager: nitinme
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 83d60487922e3355aab8e34f6a8409c529901d14
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: add4bbead880fb9b74d342abc1d4b3c0e9475fad
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72328018"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721174"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Använda aktiv inlärning för att förbättra kunskapsbasen
 
@@ -71,7 +71,7 @@ Aktiv inlärning är inaktiverat som standard. Aktivera det om du vill se föres
 
 1. Hitta QnA Maker tjänsten och växla sedan **aktiv inlärning**. 
 
-    [![On på sidan tjänst inställningar växlar du till funktionen aktiv inlärning. Om du inte kan växla funktionen kan du behöva uppgradera tjänsten.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
+    [![på sidan tjänst inställningar växlar du till funktionen aktiv inlärning. Om du inte kan växla funktionen kan du behöva uppgradera tjänsten.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
 
     > [!Note]
     > Den exakta versionen på föregående bild visas som ett exempel. Din version kan vara annorlunda. 
@@ -84,15 +84,15 @@ Active Learning ändrar kunskaps basen eller Search Service när du har godkänt
 
 1. Om du vill se de föreslagna frågorna går du till sidan **Redigera** kunskaps bas och väljer **visnings alternativ**. Välj sedan **Visa aktiva utbildnings förslag**. 
 
-    [@no__t – 1On redigera-avsnittet i portalen väljer du Visa förslag för att se de aktiva alternativen för inlärnings nya frågor.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
+    [![i avsnittet Redigera i portalen väljer du Visa förslag för att se de aktiva alternativen för inlärnings nya frågor.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
 1. Filtrera kunskaps basen med fråge-och svars par för att bara visa förslag genom att välja **Filtrera efter förslag**.
 
-    [@no__t – 1Use filter by Suggestions för att bara visa de aktiva inlärnings alternativ som föreslås av den aktuella frågan.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
+    [Använd alternativet filtrera efter förslag för att bara visa de aktiva inlärnings alternativ som föreslås av den aktuella frågan. ![](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
-1. Varje QnA-par föreslår den nya frågans alternativ med en bock markering, `✔`, för att acceptera frågan eller en `x` för att avvisa förslagen. Markera kryss rutan för att lägga till frågan. 
+1. Varje QnA-par föreslår den nya frågans alternativ med en bock markering, `✔` för att godkänna frågan eller en `x` för att avvisa förslagen. Markera kryss rutan för att lägga till frågan. 
 
-    [![Select eller avvisa den aktiva inlärningens föreslagna alternativ genom att markera den gröna bocken eller det röda ta bort-märket.](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
+    [![välja eller avvisa aktiv inlärning alternativ för föreslagen fråga genom att markera den gröna bocken eller det röda ta bort-märket.](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
     Du kan lägga till eller ta bort _alla förslag_ genom att välja **Lägg till alla** eller **Ignorera alla** i kontext verktygsfältet.
 
@@ -109,7 +109,7 @@ Active Learning ändrar kunskaps basen eller Search Service när du har godkänt
 
 En robot eller något annat klient program bör använda följande arkitektur flöde för att använda aktiv inlärning:
 
-* Robot [hämtar svaret från kunskaps basen](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) med GenerateAnswer-API: et, med egenskapen `top` för att få ett antal svar.
+* Robot [hämtar svaret från kunskaps basen](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) med GenerateAnswer-API: et, med hjälp av egenskapen `top` för att få ett antal svar.
 * Bot avgör explicit feedback:
     * Filtrera ut låga resultat med din egen [anpassade affärs logik](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user).
     * I robot-eller klient programmet visar du en lista över möjliga svar på användaren och får användarens valda svar.
@@ -191,7 +191,7 @@ Content-Type: application/json
 |URL-rutt parameter|Kunskaps bas-ID|sträng|Din kunskaps bas-GUID.|
 |Anpassad under domän|Resurs namn för QnAMaker|sträng|Resurs namnet används som anpassad under domän för QnA Maker. Detta är tillgängligt på sidan inställningar när du har publicerat kunskaps basen. Den visas som `host`.|
 |Huvud|Content-Type|sträng|Medie typen för den brödtext som skickas till API: et. Standardvärdet är: `application/json`|
-|Huvud|Autentisering|sträng|Din slut punkts nyckel (EndpointKey XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX).|
+|Huvud|Auktorisering|sträng|Din slut punkts nyckel (EndpointKey XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX).|
 |Publicera brödtext|JSON-objekt|JSON|Feedback om utbildningen|
 
 JSON-texten har flera inställningar:
@@ -221,7 +221,7 @@ Ett lyckat svar returnerar statusen 204 och ingen JSON-svars text.
 
 ### <a name="batch-many-feedback-records-into-a-single-call"></a>Gruppera många återkopplings poster till ett enda anrop
 
-I program på klient sidan, till exempel en bot, kan du lagra data och sedan skicka många poster i en enda JSON-text i matrisen `feedbackRecords`. 
+I program på klient sidan, till exempel en bot, kan du lagra data och sedan skicka många poster i en enda JSON-text i `feedbackRecords` matrisen. 
 
 Ett exempel på en JSON-text ser ut så här:
 
@@ -368,9 +368,9 @@ async callTrain(stepContext){
 
 ## <a name="active-learning-is-saved-in-the-exported-knowledge-base"></a>Aktiv inlärning sparas i den exporterade kunskaps basen
 
-När du har aktiverat aktiv inlärning i appen och du exporterar appen, behåller kolumnen `SuggestedQuestions` i TSV-filen de aktiva inlärnings data. 
+När du har aktiverat aktiv inlärning i appen och du exporterar appen, behåller `SuggestedQuestions` kolumnen i TSV-filen de aktiva inlärnings data. 
 
-Kolumnen `SuggestedQuestions` är ett JSON-objekt med information om implicit, `autosuggested` och explicit `usersuggested`-feedback. Ett exempel på det här JSON-objektet för en enskild användare som har skickat en fråga om `help` är:
+Kolumnen `SuggestedQuestions` är ett JSON-objekt med information om implicit, `autosuggested`och explicit, `usersuggested` feedback. Ett exempel på det här JSON-objektet för en enskild användare som har skickat en fråga till `help` är:
 
 ```JSON
 [
@@ -398,7 +398,7 @@ När du importerar om den här appen fortsätter den aktiva inlärningen att sam
 
 
 
-## <a name="best-practices"></a>Bästa metoder
+## <a name="best-practices"></a>Bästa praxis
 
 För bästa praxis när du använder aktiv inlärning, se [metod tips](../Concepts/best-practices.md#active-learning).
 

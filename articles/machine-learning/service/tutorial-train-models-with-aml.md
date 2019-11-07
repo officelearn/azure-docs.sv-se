@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: dd215e754b7e72c9ac424a53015955332068558e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 4d16c07bf42c99b905868cb956d82e8723da61d6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493552"
+ms.locfileid: "73581531"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Självstudie: träna bild klassificerings modeller med MNIST data och scikit – lär dig använda Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,12 +39,12 @@ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan
 >[!NOTE]
 > Koden i den här artikeln har testats med [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) -version 1.0.65.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Slutför [självstudien: kom igång med att skapa ditt första ml-experiment](tutorial-1st-experiment-sdk-setup.md) för att:
     * Skapa en arbetsyta
     * Klona självstudiernas antecknings böcker till din mapp i arbets ytan.
-    * Skapa en molnbaserad beräknings instans.
+    * Skapa en molnbaserad Notebook-baserad virtuell dator.
 
 * Öppna mappen **img-klassifikation-part1-Training. ipynb** i mappen klonade **självstudier** . 
 

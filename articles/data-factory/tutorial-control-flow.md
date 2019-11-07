@@ -1,5 +1,5 @@
 ---
-title: Branchning i Azure Data Factory-pipeline | Microsoft Docs
+title: 'Förgrening i Azure Data Factory pipeline '
 description: Lär dig hur du styr flödet av data i Azure Data Factory genom branchning och kedjesammansättning av aktiviteter.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 9/27/2019
-ms.openlocfilehash: d8ea5a507cc110c92bb74491c3376f7b671638d9
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 0a7e5f56fe71c174c78f1363e403ae41a2ec90a6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72175995"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683669"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Branchning och kedjesammansättning av aktiviteter i en Data Factory-pipeline
 
@@ -42,7 +42,7 @@ I den här självstudiekursen används .NET SDK. Du kan använda andra metoder f
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Azure Storage konto. Du använder Blob Storage som käll data lager. Om du inte har ett Azure Storage-konto kan du läsa [skapa ett lagrings konto](../storage/common/storage-quickstart-create-account.md).
 * Azure Storage Explorer. Information om hur du installerar det här verktyget finns [Azure Storage Explorer](https://storageexplorer.com/).
@@ -146,7 +146,7 @@ Skapa ett C# .net-konsol program:
 
 ### <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. Lägg till en `CreateOrUpdateDataFactory`-metod i *program.cs* -filen:
+1. Lägg till en `CreateOrUpdateDataFactory`-metod i din *program.cs* -fil:
 
    ```csharp
    static Factory CreateOrUpdateDataFactory(DataFactoryManagementClient client)
@@ -179,7 +179,7 @@ Skapa ett C# .net-konsol program:
 
 ## <a name="create-an-azure-storage-linked-service"></a>Skapa en länkad Azure Storage-tjänst
 
-1. Lägg till en `StorageLinkedServiceDefinition`-metod i *program.cs* -filen:
+1. Lägg till en `StorageLinkedServiceDefinition`-metod i din *program.cs* -fil:
 
    ```csharp
    static LinkedServiceResource StorageLinkedServiceDefinition(DataFactoryManagementClient client)
@@ -211,7 +211,7 @@ I det här avsnittet skapar du två data uppsättningar, en för källan och en 
 
 Lägg till en metod som skapar en *Azure Blob-datauppsättning*. Mer information om vilka egenskaper och information som stöds finns i [Egenskaper för Azure Blob-datauppsättningar](connector-azure-blob-storage.md#dataset-properties).
 
-Lägg till en `SourceBlobDatasetDefinition`-metod i *program.cs* -filen:
+Lägg till en `SourceBlobDatasetDefinition`-metod i din *program.cs* -fil:
 
 ```csharp
 static DatasetResource SourceBlobDatasetDefinition(DataFactoryManagementClient client)
@@ -238,7 +238,7 @@ Observera att parametrarna för *FolderPath*används. `sourceBlobContainer` är 
 
 ### <a name="create-a-dataset-for-a-sink-azure-blob"></a>Skapa en data uppsättning för en mottagar Azure-Blob
 
-1. Lägg till en `SourceBlobDatasetDefinition`-metod i *program.cs* -filen:
+1. Lägg till en `SourceBlobDatasetDefinition`-metod i din *program.cs* -fil:
 
    ```csharp
    static DatasetResource SinkBlobDatasetDefinition(DataFactoryManagementClient client)

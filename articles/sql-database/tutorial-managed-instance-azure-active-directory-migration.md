@@ -1,5 +1,5 @@
 ---
-title: Migrera SQL Server lokala Windows-användare och grupper till Azure SQL Database Hanterad instans med T-SQL DDL-syntax | Microsoft Docs
+title: Migrera SQL Server lokala Windows-användare och grupper till Azure SQL Database Hanterad instans med T-SQL DDL-syntax
 description: Lär dig mer om hur du migrerar SQL Server lokala Windows-användare och grupper till en hanterad instans
 services: sql-database
 ms.service: sql-database
@@ -9,12 +9,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/30/2019
-ms.openlocfilehash: b27c9991fd86334c87806772cbd641dd72aad1f6
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 079d684b56625b8327a94a1bfef222cb93572bd3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163965"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686746"
 ---
 # <a name="tutorial-migrate-sql-server-on-premises-windows-users-and-groups-to-azure-sql-database-managed-instance-using-t-sql-ddl-syntax"></a>Självstudie: Migrera SQL Server lokala Windows-användare och grupper till Azure SQL Database Hanterad instans med T-SQL DDL-syntax
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 > - Migrera användare manuellt till MI med ALTER USER syntax
 > - Testa autentisering med de nya mappade användarna
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande krav gäller för att slutföra den här självstudien:
 
@@ -214,9 +214,12 @@ Följ vår [snabb start: Återställ en databas till en hanterad instans](sql-da
 
 ## <a name="part-4-migrate-users-to-managed-instance"></a>Del 4: migrera användare till hanterad instans
 
+> [!NOTE]
+> Azure AD-administratören för hanterade instanser när den har skapats har ändrats. Mer information finns i [nya administratörs funktioner för Azure AD för mi](sql-database-aad-authentication-configure.md#new-azure-ad-admin-functionality-for-mi).
+
 Kör kommandot ALTER USER för att slutföra migreringsprocessen på den hanterade instansen.
 
-1. Logga in på den hanterade instansen med hjälp av SQL-administratörskontot för hanterad instans. Skapa sedan din Azure AD-inloggning i den hanterade instansen med hjälp av följande syntax. Mer information finns i [Självstudier: hanterad instans säkerhet i Azure SQL Database att använda Azure AD server-Huvudkonton (inloggningar)](sql-database-managed-instance-aad-security-tutorial.md).
+1. Logga in på den hanterade instansen med Azure AD admin-kontot för hanterad instans. Skapa sedan din Azure AD-inloggning i den hanterade instansen med hjälp av följande syntax. Mer information finns i [Självstudier: hanterad instans säkerhet i Azure SQL Database att använda Azure AD server-Huvudkonton (inloggningar)](sql-database-managed-instance-aad-security-tutorial.md).
 
     ```sql
     use master 

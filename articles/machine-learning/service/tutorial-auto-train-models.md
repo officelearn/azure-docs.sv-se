@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 11/04/2019
-ms.openlocfilehash: a7bd735a808532ed0e61cf42dca2d7a797092487
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 23441fb64293647698921c17c06731ab413b7699
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493692"
+ms.locfileid: "73582457"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Självstudie: Använd automatisk maskin inlärning för att förutse taxi priser
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen](https://aka.ms/AMLFree) av Azure Machine Learning idag.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Slutför [installations självstudien](tutorial-1st-experiment-sdk-setup.md) om du inte redan har en Azure Machine Learning arbets yta eller en virtuell dator.
 * När du har slutfört installations guiden öppnar du **självstudierna/regression-Automated-ml. ipynb** Notebook med samma Notebook-Server.
@@ -1062,7 +1062,7 @@ Utvecklingsprocessen för maskininlärningsmodeller är mycket resurskrävande o
 
 Slutför inte det här avsnittet om du tänker köra andra Azure Machine Learning själv studie kurser.
 
-### <a name="stop-the-compute-instance"></a>Stoppa beräknings instansen
+### <a name="stop-the-notebook-vm"></a>Stoppa den virtuella Notebook-datorn
 
 [!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 

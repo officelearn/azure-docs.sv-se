@@ -4,30 +4,30 @@ description: Ger en översikt över tjänsten Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 10/22/2019
+ms.date: 11/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: def0832898170e0a278c403349eab1bd89050a57
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: eadfc4e302f4445e8e0d5105aeac4361328cb259
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498741"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715453"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
 Den här artikeln ger en snabb översikt över Azure Migrate.
 
-Azure Migrate hjälper dig att migrera från en lokal plats till Azure. Azure Migrate tillhandahåller en central hubb för att spåra identifiering, utvärdering och migrering av lokal infrastruktur, program och data till Azure. Hubben tillhandahåller Azure-verktyg och-tjänster för utvärdering och migrering samt oberoende program varu leverantörer från tredje part (ISV). Azure Migrate tillhandahåller:
+Azure Migrate hjälper dig att migrera ditt företag från en lokal plats till Azure. Azure Migrate tillhandahåller en central hubb för att spåra identifiering, utvärdering och migrering av lokal infrastruktur, program och data till Azure.  Azure Migrate tillhandahåller:
 
 - **Plattform för enhetlig migrering**: en enda portal för att starta, köra och spåra migrerings resan till Azure.
-- **Olika verktyg**: inbyggda verktyg och integrering med andra Azure-tjänster, samt med ISV-verktyg. Välj rätt verktyg för bedömning och migrering baserat på organisationens krav.
-- **Arbets belastningar**: Azure Migrate tillhandahåller verktyg för bedömning och migrering för:
-    - **Servrar**: Använd Microsoft-verktyg eller ISV-verktyg för utvärdering och migrering av servrar till virtuella Azure-datorer.
-    - **Databaser**: utnyttja Microsoft-och ISV-verktyg för utvärdering och migrering av lokala databaser till Azure SQL DB eller Azure SQL Managed instance.
+- **Verktygs mängd**: hubben ger Azure Migrate verktyg bedömning och migrering, och integreras med andra Azure-tjänster, samt andra verktyg och ISV-erbjudanden (oberoende program varu leverantörer).
+- **Arbets belastningar**: Azure Migrate tillhandahåller utvärdering och migrering för:
+    - **Servrar**: Använd Azure Migrate Server utvärdering, Azure Migrate Server-migrering och andra verktyg för utvärdering och migrering av servrar till virtuella Azure-datorer.
+    - **Databaser**: utnyttja Microsoft-och ISV-verktyg för utvärdering och migrering av lokala databaser till Azure SQL DB eller Azure SQL-hanterad instans.
     - **Webb program**: Använd Azure App Service-assistenten för att utvärdera och migrera lokala webb program till Azure App Service.
     - **Virtuella skriv bord**: Använd ISV-verktyg för att utvärdera och migrera lokala virtuella Skriv bords infrastrukturer (VDI) till virtuella Windows-datorer i Azure.
-    - **Data**: Använd Azure Data Box serie produkter för att snabbt och kostnads effektivt migrera data till Azure.
+    - **Data**: Använd Azure Data Box serie produkter för att snabbt och kostnads effektivt migrera stora mängder data till Azure.
 
 ## <a name="azure-migrate-versions"></a>Azure Migrate versioner
 
@@ -36,29 +36,47 @@ Det finns för närvarande två versioner av tjänsten Azure Migrate:
 - **Aktuell version**: Använd den här versionen för att skapa Azure Migrate projekt, identifiera lokala datorer och dirigera utvärderingar och migreringar. [Läs mer](whats-new.md) om vad som är nytt i den här versionen.
 - **Tidigare version**: om du använde den tidigare versionen av Azure Migrate (endast utvärdering av lokala virtuella VMware-datorer stöds) bör du nu använda den aktuella versionen. Du kan inte längre skapa Azure Migrate projekt med hjälp av den tidigare versionen och vi rekommenderar att du inte gör nya identifieringar. Om du vill komma åt befintliga projekt går du till Azure Portal > **alla tjänster**och söker efter **Azure Migrate**. På Azure Migrate-instrumentpanelen finns ett meddelande och en länk för att komma åt gamla Azure Migrate-projekt.
 
+
+
 ## <a name="isv-integration"></a>ISV-integrering
 
-Förutom inbyggda Microsoft-verktyg kan Azure Migrate integreras med ett antal ISV-erbjudanden. 
+Förutom interna Azure-verktyg kan Azure Migrate integreras med ett antal ISV-erbjudanden. 
 
 **ISV** | **Funktion**
 --- | ---
-[Cloudamize](https://www.cloudamize.com/platform) | Utvärdera
+[Carbonite](https://www.carbonite.com/globalassets/files/datasheets/carb-migrate4azure-microsoft-ds.pdf) | Migrera
+[Cloudamize](https://www.cloudamize.com/platform) | Utvärdera 
+[Samhyres teknik](https://www.corenttech.com/AzureMigrate/) | Utvärdera och migrera
 [Enhet 42](https://docs.device42.com/) | Utvärdera
+[Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Utvärdera
+[Rack](https://go.microsoft.com/fwlink/?linkid=2102735) | Migrera
 [Turbonomic](https://learn.turbonomic.com/azure-migrate-portal-free-trial) | Utvärdera
 [UnifyCloud](https://www.cloudatlasinc.com/cloudrecon/) | Utvärdera
-[Samhyres teknik](https://www.corenttech.com/AzureMigrate/) | Utvärdera och migrera
-[Carbonite](https://www.carbonite.com/globalassets/files/datasheets/carb-migrate4azure-microsoft-ds.pdf) | Migrera
-[Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Utvärdera
+
+## <a name="tool-integration"></a>Verktygs integrering
+
+Tabellen sammanfattar andra verktyg som är integrerade i Azure Migrate.
+
+**Verktyg** | **Information**
+--- | ---
+Azure Migrate: Server utvärdering | Utvärdera servrar
+Azure Migrate: Server-migrering | Migrera servrar
+Databas Migration Assistant (DMA) | Utvärdera databaser
+Database Migration Service (DMS) | Migrera databaser
+Movere | Utvärdera servrar
+Webbapp Migration Assistant | Utvärdera och migrera webb program
 
 
 
-### <a name="selecting-an-isv-tool"></a>Välja ett ISV-verktyg
+### <a name="selecting-a-tool"></a>Välja ett verktyg
 
-Du identifierar det verktyg som du behöver och lägger till det i ett Azure Migrate-projekt.
+Identifiera det verktyg som du behöver och Lägg till det i ett Azure Migrate-projekt.
 
-- När du har lagt till ett ISV-verktyg kommer du igång genom att skaffa en licens eller registrera dig för en kostnads fri utvärderings version, i enlighet med ISV-principen. Licensiering för ISV-verktyg är i enlighet med ISV-licensierings modellen.
-- I varje verktyg finns det ett alternativ för att ansluta till Azure Migrate. Följ anvisningarna och dokumentationen för verktyget för att ansluta verktyget med Azure Migrate. L
-- Du kan centralt spåra migreringen från Azure Migrate-projektet i Azure-och ISV-verktyg.
+- Om du lägger till ett ISV-verktyg eller en driv kraft:
+    - Kom igång genom att skaffa en licens eller registrera dig för en kostnads fri utvärderings version, i enlighet med verktygs principen. Licensiering för verktyg är i enlighet med ISV-eller-verktygets licensierings modell.
+    - I varje verktyg finns det ett alternativ för att ansluta till Azure Migrate. Följ anvisningarna och dokumentationen för verktyget för att ansluta verktyget med Azure Migrate.
+- Du kan centralt spåra din migrerings resa från Azure Migrate-projektet, via Azure och andra verktyg.
+
 
 
 ## <a name="azure-migrate-server-assessment-tool"></a>Verktyget för Azure Migrate Server bedömning
@@ -83,15 +101,23 @@ Server utvärderingen använder en förenklad installation som du distribuerar l
 Azure Migrate: verktyget Migreringsverktyg hjälper dig att migrera lokala virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar, andra virtualiserade datorer och virtuella datorer i offentliga moln till Azure. Du kan migrera datorer efter att ha bedömt dem, eller utan en utvärdering.
 
 
-## <a name="database-assessment"></a>Databas utvärdering
+## <a name="database-migration-assistant"></a>Databas Migration Assistant
 
 Azure Migrate integreras med Microsoft Data Migration Assistant (DMA) för att utvärdera lokala SQL Server-databaser för migrering till Azure SQL DB, Azure SQL-hanterad instans eller virtuella Azure-datorer som kör SQL Server. DMA tillhandahåller information om möjliga spärrnings problem för migrering. Den identifierar funktioner som inte stöds, samt nya funktioner som du kan dra nytta av efter migreringen, och hjälper dig att identifiera rätt sökväg för migrering av databasen. [Läs mer](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017).
 
-## <a name="database-migration"></a>Databasmigrering
+## <a name="database-migration-service"></a>Database Migration Service
 
 Azure Migrate integreras med Azure Database Migration Service (DMS) för att migrera lokala databaser till Azure. Använd DMS för att migrera lokala databaser till virtuella Azure-datorer som kör SQL, Azure SQL DB och Azure SQL Managed instances. [Läs mer](https://docs.microsoft.com/azure/dms/dms-overview).
 
-## <a name="web-app-migration"></a>Migrering av webbappar
+## <a name="movere"></a>Movere
+
+ 
+Superkraft är en SaaS-plattform som ökar Business Intelligence genom att noggrant presentera hela IT-miljöer inom en enda dag. När organisationer växer, förändras och digitalt optimeras, ger lösningen företag den säkerhet de behöver för att få insyn och kontroll över sina miljöer oavsett plattform, program eller geografi. Den här förflyttningen [förvärvades](https:/azure.microsoft.com/blog/microsoft-acquires-movere-to-help-customers-unlock-cloud-innovation-with-seamless-migration-tools) av Microsoft och säljs inte längre som ett fristående erbjudande.  Kraftning är tillgängligt via Microsofts program för lösnings bedömning och molnet. [Läs mer](https://www.movere.io) om superkraft. Om du har frågor kan du skicka dem till: movereq@microsoft.com eller kontakta din Microsoft-representant.
+
+Vi rekommenderar att du även tittar på Azure Migrate, vår inbyggda migration service. Azure Migrate tillhandahåller en central hubb för att förenkla migreringen till molnet. Hubben innehåller omfattande stöd för olika arbets belastningar, inklusive fysiska och virtuella servrar, databaser och program. Med en synlighet från slut punkt till slut punkt blir det enkelt att spåra framsteg i hela identifiering, utvärdering och migrering. Med både Azure-och partners inbyggda ISV-verktyg har Azure Migrate också en mängd olika funktioner, inklusive virtuell och fysisk server identifiering, prestanda-baserad höger storlek, kostnads planering, import-baserade utvärderingar och program utan agent beroende analys. Om du vill ha expert hjälp för att komma igång har Microsoft kvalificerad [Azure expert Managed Service Provider](https://azure.microsoft.com/partners) som vägleder dig längs resan. Kolla in [Azure Migrate webbplats](https://azure.microsoft.com/services/azure-migrate/). 
+ 
+
+## <a name="web-app-migration-assistant"></a>Webbapp Migration Assistant
 
 Azure Migrate integreras med Azure App Service-Migration Assistant. Från Azure Migrate Hub kan du utvärdera och migrera lokala webbappar till Azure med hjälp av-assistenten enligt följande:
 
@@ -99,6 +125,8 @@ Azure Migrate integreras med Azure App Service-Migration Assistant. Från Azure 
 - **Migrera webbappar**: migrera .net-och php-webbappar till Azure med hjälp av Azure App Service Migration Assistant.
 
 [Lär dig mer](https://appmigration.microsoft.com/) om assistenten.
+
+
 
 ## <a name="offline-data-migration"></a>Datamigrering offline
 

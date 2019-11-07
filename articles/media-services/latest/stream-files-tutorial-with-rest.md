@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/21/2019
+ms.date: 11/05/2019
 ms.author: juliako
-ms.openlocfilehash: 3f065f77c6843b135554e61f5887655114571b08
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 128513c3af5ce6c0853b63d86959e4c3c35de93c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750255"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685105"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Självstudie: koda en fjärrfil baserat på URL och strömma videon REST
 
@@ -30,8 +30,8 @@ I den här självstudien får du lära dig att koda en fil baserat på en URL oc
 I den här självstudiekursen lär du dig att:    
 
 > [!div class="checklist"]
-> * Skapa ett medietjänstkonto
-> * Åtkomst till Media Services API
+> * Skapa ett Media Services-konto
+> * Åtkomst till Media Services-API:n
 > * Hämta Postman-filer
 > * Konfigurera Postman
 > * Skicka begäranden med Postman
@@ -40,7 +40,7 @@ I den här självstudiekursen lär du dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md).
 
@@ -215,7 +215,7 @@ Du kan använda en inbyggd EncoderNamedPreset eller anpassade förinställningar
 
 Ett [Jobb](https://docs.microsoft.com/rest/api/media/jobs) är den faktiska begäran till Media Services om att tillämpa den skapade **Transformeringen** på en given indatavideo eller ett ljudinnehåll. **Jobb** anger information som platsen för indatavideon och platsen för utdatan.
 
-I det här exemplet baseras jobbets Indatatyp på en HTTPS-URL ("https: \//nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/").
+I det här exemplet baseras jobbets Indatatyp på en HTTPS-URL ("https:\//nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/").
 
 1. I det vänstra fönstret i Postman-appen väljer du kodning och analys.
 2. Välj därefter Skapa eller uppdatera jobbet.
@@ -248,7 +248,7 @@ I det här exemplet baseras jobbets Indatatyp på en HTTPS-URL ("https: \//nimbu
         }
         ```
 
-Jobbet tar en stund att slutföra och du meddelas när detta sker. Om du vill se förloppet för jobbet rekommenderar vi att du använder Event Grid. Det är utformat för hög tillgänglighet, konsekvent prestanda och dynamisk skalning. Med Event Grid kan dina appar lyssna efter och reagera på händelser från i princip alla Azure-tjänster, samt anpassade källor. Enkel, HTTP-baserad reaktiv händelsehantering gör det enklare att skapa effektiva lösningar med hjälp av intelligent filtrering och dirigering av händelser.  Se [Dirigera händelser till en anpassad webbslutpunkt](job-state-events-cli-how-to.md).
+Jobbet tar en stund att slutföra och du meddelas när detta sker. Om du vill se förloppet för jobbet rekommenderar vi att du använder Event Grid. Det är utformat för hög tillgänglighet, konsekvent prestanda och dynamisk skalning. Med Event Grid kan dina appar lyssna efter och reagera på händelser från i princip alla Azure-tjänster, samt även från anpassade källor. Med enkel och HTTP-baserad reaktiv händelsehantering blir det lättare att skapa effektiva lösningar med hjälp av intelligent filtrering och dirigering av händelser.  Se [Dirigera händelser till en anpassad webbslutpunkt](job-state-events-cli-how-to.md).
 
 **Jobb** har vanligtvis följande tillstånd: **Schemalagd**, **I kö**, **Bearbetas**, **Slutförd** (slutlig status). Om jobbet har påträffat ett fel visas tillståndet **Fel**. Om jobbet avbryts visas **Avbryter** och **Avbruten** när det är klart.
 
@@ -258,34 +258,36 @@ Se [Felkoder](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ### <a name="create-a-streaming-locator"></a>Skapa en positionerare för direktuppspelning
 
-När kodningsjobbet är klart, är nästa steg att göra videon i **utdatatillgången** tillgänglig för uppspelning av klienter. Du kan göra detta i två steg: Först skapar du en [positionerare för direktuppspelning](https://docs.microsoft.com/rest/api/media/streaminglocators) och därefter skapar du de strömmande URL:er som klienterna ska använda. 
+När kodningsjobbet är klart, är nästa steg att göra videon i **utdatatillgången** tillgänglig för uppspelning av klienter. Du kan göra detta i två steg: Först skapar du en [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) och därefter skapar du de strömmande URL:er som klienterna ska använda. 
 
-Processen att skapa en **positionerare för direktuppspelning** kallas för publicering. Som standard kan din **positionerare för direktuppspelning** användas omedelbart efter API-anropen. Den fungerar tills den tas bort, såvida du inte konfigurerar valfria start- och sluttider. 
+Processen för att skapa en strömmande positionerare kallas publicering. Som standard är streaming Locator giltig omedelbart efter att du har gjort API-anrop och varar tills den tas bort, om du inte konfigurerar de valfria start-och slut tiderna. 
 
-När du skapar en [strömmande positionerare](https://docs.microsoft.com/rest/api/media/streaminglocators)måste du ange önskad **StreamingPolicyName**. I det här exemplet kommer du att strömma i det-rensade (eller icke-krypterade) innehållet, så den fördefinierade rensnings principen "Predefined_ClearStreamingOnly" används.
+När du skapar en [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) behöver du ange önskat **StreamingPolicyName**. I det här exemplet kommer du att strömma i det-rensade (eller icke-krypterade) innehållet, så den fördefinierade rensnings principen "Predefined_ClearStreamingOnly" används.
 
 > [!IMPORTANT]
 > Om du använder en anpassad [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) bör du skapa en begränsad uppsättning av sådana principer för ditt Media Service-konto, och återanvända dem för dina StreamingLocators när samma krypterings- och protokollalternativ krävs. 
 
-Media Service-kontot har en kvot för antalet **strömningsprincipposter**. Du bör inte skapa en ny **strömningsprincip** för varje **positionerare för direktuppspelning**.
+Media Service-kontot har en kvot för antalet **strömningsprincipposter**. Du bör inte skapa en ny **strömmande princip** för varje strömmande positionerare.
 
-1. Välj "strömmande principer" i det vänstra fönstret i Postman-appen.
-2. Välj därefter Skapa en positionerare.
+1. Välj "strömmande principer och positionerare" i det vänstra fönstret i Postman-appen.
+2. Välj sedan "skapa en strömmande Locator (rensa)".
 3. Tryck på **Skicka**.
 
     * Följande **PUT**-åtgärd skickas.
 
         ```
-        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}
         ```
     * Åtgärden har följande innehåll:
 
         ```json
         {
-            "properties":{
-            "assetName": "{{assetName}}",
-            "streamingPolicyName": "{{streamingPolicyName}}"
-            }
+          "properties": {
+            "streamingPolicyName": "Predefined_ClearStreamingOnly",
+            "assetName": "testAsset1",
+            "contentKeys": [],
+            "filters": []
+         }
         }
         ```
 
@@ -366,7 +368,7 @@ https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa
 > [!NOTE]
 > Kontrollera att **slutpunkten för direktuppspelning** som du vill spela upp innehåll från körs.
 
-I den här artikeln används Azure Media Player till att testa strömningen. 
+I den här artikeln används Azure Media Player för att testa dataströmmen. 
 
 1. Öppna en webbläsare och navigera till [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
 2. I **URL:** -rutan klistrar du in den URL som du skapat. 

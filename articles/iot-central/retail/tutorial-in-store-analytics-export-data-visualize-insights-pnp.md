@@ -3,6 +3,7 @@ title: Exportera data och visualisera insikter i Azure IoT Central | Microsoft D
 description: I den här självstudien får du lära dig hur du exporterar data från IoT Central och visualiserar insikter på en Power BI instrument panel.
 services: iot-central
 ms.service: iot-central
+ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.custom:
 - iot-storeAnalytics-checkout
@@ -10,12 +11,12 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 10/22/2019
-ms.openlocfilehash: 913a87df47121c18fcd4f83aa8d5a24b4041ce19
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0cf1c6e926b2406d960762a9d597b28a17f6c316
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495129"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615284"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Självstudie: exportera data från Azure IoT Central och visualisera insikter i Power BI
 
@@ -29,7 +30,7 @@ I den här guiden får du lära dig att:
 > * Använd Logic Apps för att skicka data från en händelsehubben till en Power BI strömmande data uppsättning.
 > * Skapa en instrument panel för Power BI för att visualisera data i den strömmande data uppsättningen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här kursen behöver du:
 
@@ -41,7 +42,7 @@ För att slutföra den här kursen behöver du:
 
 Innan du skapar din Event Hub-och Logic-app måste du skapa en resurs grupp för att hantera dem. Resurs gruppen måste vara på samma plats som din IoT Central program **för analys i butiken** . Så här skapar du en resursgrupp:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj **resurs grupper**i det vänstra navigerings fältet. Välj sedan **Lägg till**.
 1. För **prenumeration**väljer du namnet på den Azure-prenumeration som du använde för att skapa ditt IoT Central-program.
 1. För **resurs gruppens** namn, anger du _Retail-Store-Analysis_*.
@@ -475,9 +476,9 @@ Lägg till fyra kort paneler för att Visa Kölängd och bostads tid för de tv�
 | ------- | ------- | ------- | ------- | ------- |
 | Datauppsättning | Beläggnings sensor | Beläggnings sensor | Beläggnings sensor | Beläggnings sensor |
 | Typ av visualisering | Grupperat stående stapeldiagram | Grupperat stående stapeldiagram | Mätar | Mätar |
-| Axelvärdena    | Tidsstämpel | Tidsstämpel | Gäller inte | Gäller inte |
+| Axelvärdena    | Tidsstämpel | Tidsstämpel | Saknas | Saknas |
 | Värde | Uppehålls tid 1 | Bostadens tid 2 | Kölängd 1 | Kölängd 2 |
-| Tids period | 60 minuter | 60 minuter |  Gäller inte | Gäller inte |
+| Tids period | 60 minuter | 60 minuter |  Saknas | Saknas |
 | Rubrik | Bostads tid | Bostads tid | Kölängd | Kölängd |
 | Underavdelning | Utcheckning 1 | Utcheckning 2 | Utcheckning 1 | Utcheckning 2 |
 

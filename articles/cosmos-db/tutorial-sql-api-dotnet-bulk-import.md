@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 3e8f9f6f839f4effa039335e6326c163b18d3dcc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: d80d762338744c0ca783d1768bacb8443dbc5020
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73519348"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606207"
 ---
 # <a name="optimize-throughput-when-bulk-importing-data-to-azure-cosmos-db-sql-api-account"></a>Optimera data flödet vid Mass import av data till Azure Cosmos DB SQL API-konto
 
@@ -27,7 +27,7 @@ Den här självstudiekursen omfattar:
 > * Ansluta till ett Azure Cosmos-konto med Mass stöd aktiverat
 > * Utföra en data import via samtidiga skapande åtgärder
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Se till att du har följande resurser innan du följer anvisningarna i den här artikeln:
 
@@ -81,7 +81,7 @@ När du fortfarande är i program katalogen installerar du Azure Cosmos DB klien
 
 Exempel programmet måste autentisera till ditt Azure Cosmos-konto. För att autentisera bör du skicka autentiseringsuppgifter för Azure Cosmos-kontot till programmet. Hämta dina autentiseringsuppgifter för Azure Cosmos-kontot genom att följa dessa steg:
 
-1.  Logga in på [Azure-portalen](https://portal.azure.com/).
+1.  Logga in på [Azure Portal](https://portal.azure.com/).
 1.  Navigera till ditt Azure Cosmos-konto.
 1.  Öppna rutan **nycklar** och kopiera **URI: n** och **primär nyckeln** för ditt konto.
 
@@ -95,6 +95,14 @@ Vi börjar med att skriva över standard `Main` metoden och definiera globala va
 
 
    ```csharp
+   using System;
+   using System.Collections.Generic;
+   using System.Diagnostics;
+   using System.IO;
+   using System.Text.Json;
+   using System.Threading.Tasks;
+   using Microsoft.Azure.Cosmos;
+
    public class Program
    {
         private const string EndpointUrl = "https://<your-account>.documents.azure.com:443/";

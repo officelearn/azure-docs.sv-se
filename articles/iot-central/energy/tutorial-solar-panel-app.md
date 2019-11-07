@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: b408d2cc0754cc1f2dd8671d037d4f9d348e883b
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: c560c7e298dabbb5a3c31d90e0d48d0d63cfac5f
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027637"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581525"
 ---
 # <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Självstudie: skapa och gå igenom en mall för övervakning av solpanels program 
 
@@ -30,12 +30,12 @@ Den här självstudien vägleder dig genom processen för att skapa övervakning
 
 Om du inte har någon prenumeration kan du [skapa ett kostnads fritt utvärderings konto](https://azure.microsoft.com/free)
 
-## <a name="prerequisites"></a>Krav
-- Inget
+## <a name="prerequisites"></a>Nödvändiga komponenter
+- Ingen
 - Azure-prenumeration rekommenderas, men du behöver inte testa
 
 
-## <a name="create-a-solar-panel-monitoring-app"></a>Skapa en övervaknings app för en sol panel 
+## <a name="create-a-solar-panel-monitoring-app"></a>Skapa en app för solpanelsövervakning 
 
 Du kan skapa det här programmet i tre enkla steg:
 
@@ -43,8 +43,8 @@ Du kan skapa det här programmet i tre enkla steg:
 
 2. Välj fliken **energi** och klicka på **skapa app** i övervaknings program panelen i **sol panelen** . 
 
-    [!div class="mx-imgBorder"]
-    ![Bygg app](media/tutorial-iot-central-solar-panel/solar-panel-build.png)
+    > [!div class="mx-imgBorder"]
+    > ![Bygg app](media/tutorial-iot-central-solar-panel/solar-panel-build.png)
   
 3. **Skapa app** öppnar **nytt program** formulär. Fyll i den begärda informationen som visas i bilden nedan:
     * **Program namn**: Välj ett namn för IoT Central programmet. 
@@ -72,27 +72,27 @@ Adatum är ett fiktivt energi företag som övervakar och hanterar sol paneler. 
 * Spåra den totala energi generationen för planering och fakturering
 * Kommando-och kontroll åtgärder som aktiverings panel och uppdatering av inbyggd program vara. I mallen visar kommando knapparna de möjliga funktionerna och skickar inte riktiga kommandon.
 
-[!div class="mx-imgBorder"]
-instrument panel för ![sol panels övervakning](media/tutorial-iot-central-solar-panel/solar-panel-dashboard.png)
+> [!div class="mx-imgBorder"]
+> instrument panel för ![sol panels övervakning](media/tutorial-iot-central-solar-panel/solar-panel-dashboard.png)
 
 ### <a name="devices"></a>Enheter
 Appen levereras med ett exempel på en sol-panels enhet. Du kan se enhets informationen genom att klicka på fliken **enheter** .
 
-[!div class="mx-imgBorder"]
-![sol panels enheter](media/tutorial-iot-central-solar-panel/solar-panel-device.png)
+> [!div class="mx-imgBorder"]
+> ![sol panels enheter](media/tutorial-iot-central-solar-panel/solar-panel-device.png)
 
 
 Klicka på **SP0123456789** -länken exempel på enhet för att se information om enheten. På sidan **Uppdatera egenskaper** kan du uppdatera enhetens skrivbara egenskaper och visualisera de uppdaterade värdena på instrument panelen. 
 
-[!div class="mx-imgBorder"]
-![egenskaper för sol panelen](media/tutorial-iot-central-solar-panel/solar-panel-device-properties.png)
+> [!div class="mx-imgBorder"]
+> ![egenskaper för sol panelen](media/tutorial-iot-central-solar-panel/solar-panel-device-properties.png)
 
 
 ### <a name="device-template"></a>Enhets mall
 Klicka på fliken **enhets mallar** om du vill se enhets modellen för sol panelen. Modellen har ett för hands definierat gränssnitt för data, egenskaper, kommandon och vyer.
 
-[!div class="mx-imgBorder"]
-mall för ![sol panel enheter](media/tutorial-iot-central-solar-panel/solar-panel-device-templates.png)
+> [!div class="mx-imgBorder"]
+> mall för ![sol panel enheter](media/tutorial-iot-central-solar-panel/solar-panel-device-templates.png)
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
@@ -101,8 +101,8 @@ Om du väljer att inte fortsätta använda programmet tar du bort programmet med
 1. Öppna fliken Administration i den vänstra rutan
 2. Välj program inställningar och klicka på knappen Ta bort längst ned på sidan. 
 
-    [!div class="mx-imgBorder"]
-    ![ta bort program](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)
+    > [!div class="mx-imgBorder"]
+    > ![ta bort program](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 12/22/2018
+ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: 269b2bd1c1457b9e70ea4ada758aacb2f2ae96f3
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: a046f97dccdcc4a9cb9fe180447c1ff9a316f0df
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614634"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720811"
 ---
-# <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Självstudie om NoSQL: Skapa ett Java-konsolprogram med SQL API
+# <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Självstudiekurs om NoSQL: Skapa ett Java-konsolprogram med SQL API
 
 > [!div class="op_single_selector"]
 > * [NET](sql-api-get-started.md)
@@ -135,7 +135,7 @@ Ett dokument kan skapas med hjälp av metoden [createDocument](/java/api/com.mic
 
 ![Diagram som illustrerar den hierarkiska relationen mellan kontot, onlinedatabasen, samlingen och dokumenten som används i NoSQL-självstudiekursen för att skapa ett Java-konsolprogram](./media/sql-api-get-started/nosql-tutorial-account-database.png)
 
-## <a id="Query"></a>Steg 7: Köra frågor mot Azure Cosmos DB-resurser
+## <a id="Query"></a>Steg 7: Skicka frågor mot Azure Cosmos DB-resurser
 Azure Cosmos DB stöder [komplexa frågor](how-to-sql-query.md) mot JSON-dokument som lagras i varje samling.  Följande exempelkod visar hur du frågar dokument i Azure Cosmos DB med hjälp av SQL-syntaxen med [queryDocuments](/java/api/com.microsoft.azure.documentdb.documentclient.querydocuments)-metoden.
 
     FeedResponse<Document> queryResults = this.client.queryDocuments(

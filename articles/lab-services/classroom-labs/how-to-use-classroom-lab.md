@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 10813600621293e9f559129230193f81ea0c505a
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 2ac9e8b8d0635eceb7d4f85ad867b102f7d064f5
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161521"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585167"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Få åtkomst till ett klassrumslabb i Azure Lab Services
 Den här artikeln beskriver hur du registrerar dig för ett klass rums labb, visar alla labb som du kan komma åt, starta/stoppa en virtuell dator i labbet och ansluta till den virtuella datorn. 
@@ -54,7 +54,7 @@ Den här artikeln beskriver hur du registrerar dig för ett klass rums labb, vis
 
 1. Välj den andra knappen som visas i följande bild för att **ansluta** till Labbets VM. 
 
-    ![Ansluta till virtuell dator](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
+    ![Ansluta till VM](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
 2. Gör något av följande: 
     1. För virtuella **Windows** -datorer sparar du **RDP** -filen på hård disken. Öppna RDP-filen för att ansluta till den virtuella datorn. Använd det **användar namn** och **lösen ord** som du får från din lärare/lärare för att logga in på datorn. 
     3. För virtuella **Linux** -datorer kan du använda **SSH** eller **RDP** (om det är aktiverat) för att ansluta till dem. Mer information finns i [aktivera anslutning till fjärr skrivbord för Linux-datorer](how-to-enable-remote-desktop-linux.md). 
@@ -63,16 +63,16 @@ Den här artikeln beskriver hur du registrerar dig för ett klass rums labb, vis
 ## <a name="connect-to-a-vm-using-rdp-on-a-mac"></a>Ansluta till en virtuell dator med RDP på en Mac
 Det här avsnittet visar hur en student kan ansluta till en virtuell dator från en Mac med hjälp av RDP.
 
-### <a name="step-1-install-microsoft-remote-desktop-on-a-mac"></a>Steg 1: Installera Microsoft Fjärrskrivbord på en Mac
+### <a name="step-1-install-microsoft-remote-desktop-on-a-mac"></a>Steg 1: installera Microsoft Fjärrskrivbord på en Mac
 1. Öppna App Store på din Mac och Sök efter **Microsoft fjärrskrivbord**.
 
     ![Microsoft Fjärrskrivbord](../media/how-to-use-classroom-lab/install-ms-remote-desktop.png)
 1. Installera den senaste versionen av Microsoft Fjärrskrivbord. 
 
-### <a name="step-2-access-the-vm-from-your-mac-using-rdp"></a>Steg 2: Få åtkomst till den virtuella datorn från din Mac med hjälp av RDP
+### <a name="step-2-access-the-vm-from-your-mac-using-rdp"></a>Steg 2: få åtkomst till den virtuella datorn från din Mac med RDP
 1. Öppna den **RDP** -fil som har laddats ned på datorn med **Microsoft fjärrskrivbord** installerat. Den ska börja ansluta till den virtuella datorn. 
 
-    ![Ansluta till virtuell dator](../media/how-to-use-classroom-lab/connect-linux-vm.png)
+    ![Ansluta till VM](../media/how-to-use-classroom-lab/connect-linux-vm.png)
 1. Välj **Fortsätt** om du får följande varning. 
 
     ![Certifikat varning](../media/how-to-use-classroom-lab/certificate-error.png)
@@ -83,7 +83,7 @@ Det här avsnittet visar hur en student kan ansluta till en virtuell dator från
 
     ![Virtuell dator](../media/how-to-use-classroom-lab/vm-ui.png)
 
-## <a name="progress-bar"></a>Förloppsindikator 
+## <a name="progress-bar"></a>Förlopps indikator 
 Förlopps indikatorn i panelen visar antalet timmar som använts för antalet tilldelade [kvot timmar](how-to-configure-student-usage.md#set-quotas-for-users) . Den här gången är den ytterligare tid som tilldelas dig utöver den schemalagda tiden för labbet. Färgen på förlopps indikatorn och texten under förlopps indikatorn varierar enligt följande scenarier:
 
 - Om en klass pågår (inom schemat för klassen) är förlopps indikatorn nedtonad för att representera kvot timmar som inte används. 
@@ -107,7 +107,7 @@ När du registrerat dig till labben kan du visa alla klassrumslabb genom att utf
 2. Logga in på tjänsten med hjälp av det användarkonto som du använde för att registrera dig till labbet. 
 3. Bekräfta att du ser alla labb som du har åtkomst till. 
 
-    ![Visa alla labb](../media/how-to-use-classroom-lab/all-labs.png)
+    ![Visa alla labb](../media/how-to-manage-classroom-labs/all-labs.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

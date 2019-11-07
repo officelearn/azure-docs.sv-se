@@ -1,23 +1,23 @@
 ---
 title: 'Snabb start: skicka anpassade händelser med Event Grid och Azure CLI'
-description: Använd Azure Event Grid och Azure CLI för att publicera ett enpassat ämne och prenumerera på händelser för det ämnet. Händelserna hanteras av ett webbprogram.
+description: Snabb start använder Azure Event Grid och Azure CLI för att publicera ett anpassat ämne och prenumerera på händelser för ämnet. Händelserna hanteras av en webbapp.
 services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 12/07/2018
+ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
-ms.openlocfilehash: 30ffcd9bdb8170777c245d95b0c07198a34c5464
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: cc9af86833fc74d0927a1cfb5c1084f39418605a
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72556089"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720680"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Snabb start: dirigera anpassade händelser till webb slut punkten med Azure CLI och Event Grid
 
@@ -53,7 +53,7 @@ az group create --name gridResourceGroup --location westus2
 
 ## <a name="create-a-custom-topic"></a>Skapa en anpassat ämne
 
-Ett event grid-ämne tillhandahåller en användardefinierad slutpunkt där du publicerar dina händelser. I följande exempel skapas det anpassade ämnet i din resursgrupp. Ersätt `<your-topic-name>` med ett unikt namn för ditt ämne. Namnet på det anpassade ämnet måste vara unikt eftersom det är en del av DNS-posten. Dessutom måste det bestå av mellan 3 och 50 tecken och bara innehålla a–z, A–Z, 0–9 och "-"
+Ett event grid-ämne tillhandahåller en användardefinierad slutpunkt där du publicerar dina händelser. I följande exempel skapas det anpassade ämnet i din resursgrupp. Ersätt `<your-topic-name>` med ett unikt namn för ditt ämne. Namnet på det anpassade ämnet måste vara unikt eftersom det är en del av DNS-posten. Dessutom måste det bestå av mellan 3 och 50 tecken och bara innehålla a-z, A-Z, 0-9 och "-"
 
 ```azurecli-interactive
 topicname=<your-topic-name>
@@ -101,7 +101,7 @@ Visa ditt webbprogram igen och observera att en händelse för verifieringen av 
 ![Visa prenumerations händelsen i Azure Event Grid Viewer](./media/custom-event-quickstart/azure-event-grid-viewer-subscription-validation-event.png)
 
 
-## <a name="send-an-event-to-your-custom-topic"></a>Skicka en händelse till det anpassade ämnet
+## <a name="send-an-event-to-your-custom-topic"></a>Skicka en händelse till ditt anpassade ämne
 
 Nu ska vi utlösa en händelse och se hur Event Grid distribuerar meddelandet till slutpunkten. Först måste vi ta fram URL och nyckel för det anpassade ämnet.
 

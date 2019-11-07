@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: jpe316
 ms.author: jordane
-ms.date: 10/25/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8741a9a362a10dfdb0150c9dc0dfddeed54594a7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0d0e567198fd25243b89245d54bbed5a658cc663
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497443"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73716598"
 ---
 # <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning"></a>MLOps: hantera, distribuera och övervaka modeller med Azure Machine Learning
 
@@ -126,7 +126,7 @@ Mer information finns i [Distribuera modeller](how-to-deploy-and-where.md).
 Microsoft Power BI stöder användning av Machine Learning-modeller för data analys. Mer information finns i [Azure Machine Learning integration i Power BI (för hands version)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
 
-## <a name="monitor-ml-applications-for-operational-and-ml-related-issues"></a>Övervaka ML-program för operativa och ML-relaterade problem
+## <a name="monitor-for-operational--ml-issues"></a>Övervakare för drift & ML-problem
 
 Med övervakning kan du förstå vilka data som skickas till din modell och vilka förutsägelser som returneras.
 
@@ -135,16 +135,16 @@ Den här informationen hjälper dig att förstå hur modellen används. Insamlad
 Mer information finns i [så här aktiverar du modell data insamling](how-to-enable-data-collection.md).
 
 
-## <a name="capture-an-end-to-end-audit-trail-of-the-ml-lifecycle"></a>Avbilda en slut punkt till slut punkt för den ML-livs cykeln
+## <a name="audit-trail-of-the-ml-lifecycle"></a>Gransknings historik för ML-livscykel
 
-Azure ML ger dig möjlighet att spåra gransknings historiken från slut punkt till slut punkt för alla dina ML-tillgångar. Närmare bestämt:
+Azure ML ger dig möjlighet att spåra gransknings historiken från slut punkt till slut punkt för alla dina ML-tillgångar. Mer specifikt:
 
 - Azure ML [integreras med git](how-to-set-up-training-targets.md#gitintegration) för att spåra information som lagrings plats/Branch/bekräfta din kod kommer från.
 - Med [Azure ml-datauppsättningar](how-to-create-register-datasets.md) kan du spåra och versions data.
 - I Azure ML-körnings historik lagras en ögonblicks bild av koden, data och beräkning som används för att träna en modell.
 - Azure ML Model-registret fångar alla metadata som är associerade med din modell (vilket experiment tränade den, där den distribueras, om distributionerna är felfria).
 
-## <a name="automate-the-end-to-end-ml-lifecycle"></a>Automatisera livs cykeln för slut punkt till slut punkt ML 
+## <a name="automate-the-ml-lifecycle"></a>Automatisera ML-livscykeln 
 
 Du kan använda GitHub och Azure-pipelines för att skapa en kontinuerlig integrerings process som tågen en modell. När en data expert kontrollerar en ändring i git-lagrings platsen för ett projekt i ett typiskt scenario startar Azure pipelinen en tränings körning. Resultaten av körningen kan sedan kontrol leras för att se prestanda egenskaperna för den tränade modellen. Du kan också skapa en pipeline som distribuerar modellen som en webb tjänst.
 
@@ -157,8 +157,18 @@ Mer information om hur du använder Azure-pipeliner med Azure Machine Learning f
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [hur och var du kan distribuera modeller](how-to-deploy-and-where.md) med Azure Machine Learning. Ett exempel på distribution finns i [Självstudier: Distribuera en bild klassificerings modell i Azure Container instances](tutorial-deploy-models-with-aml.md).
+Lär dig mer genom att läsa och utforska följande resurser:
 
-Lär dig hur du skapar [kontinuerlig integrering och distribution av ml-modeller med Azure-pipelines](/azure/devops/pipelines/targets/azure-machine-learning). 
++ [Hur & du distribuerar modeller](how-to-deploy-and-where.md) med Azure Machine Learning
 
-Lär dig hur du skapar klient program och tjänster som [använder en modell som distribueras som en webb tjänst](how-to-consume-web-service.md).
++ [Självstudie: Distribuera en bild klassificerings modell i Aci](tutorial-deploy-models-with-aml.md).
+
++ [Lagrings platsen för MLOps-exempel från slut punkt till slut punkt](https://github.com/microsoft/MLOps)
+
++ [CI/CD med ML-modeller med Azure-pipelines](/azure/devops/pipelines/targets/azure-machine-learning)
+
++ Skapa klienter som [använder en distribuerad modell](how-to-consume-web-service.md)
+
++ [Maskininlärning i skala](/architecture/data-guide/big-data/machine-learning-at-scale)
+
++ [Referens arkitekturer för Azure AI & Best Practices rep](https://github.com/microsoft/AI)

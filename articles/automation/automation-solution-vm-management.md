@@ -6,19 +6,19 @@ ms.service: automation
 ms.subservice: process-automation
 author: bobbytreed
 ms.author: robreed
-ms.date: 05/21/2019
+ms.date: 11/06/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 15036b33e637953de7dc12100468d3dd8570f775
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: d7a43ee2ed8719df2c38d00c9a50811c6d5ea70d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376100"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718678"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer när de inte används lösning i Azure Automation
 
-Starta/stoppa virtuella datorer när de inte används lösning startar och stoppar dina virtuella Azure-datorer enligt användardefinierade scheman, ger insikter via Azure Monitor loggar och skickar valfria e-postmeddelanden med hjälp av [Åtgärds grupper](../azure-monitor/platform/action-groups.md). Det stöder både Azure Resource Manager och klassiska virtuella datorer för de flesta scenarier. Om du vill använda den här lösningen med klassiska virtuella datorer behöver du ett klassiskt RunAs-konto som inte skapas som standard. Anvisningar om hur du skapar ett klassiskt kör som-konto finns i [klassiska kör som-konton](automation-create-standalone-account.md#classic-run-as-accounts).
+Starta/stoppa virtuella datorer när de inte användss lösningen startar och stoppar dina virtuella Azure-datorer enligt användardefinierade scheman, ger insikter via Azure Monitor loggar och skickar valfria e-postmeddelanden med hjälp av [Åtgärds grupper](../azure-monitor/platform/action-groups.md). Det stöder både Azure Resource Manager och klassiska virtuella datorer för de flesta scenarier. Om du vill använda den här lösningen med klassiska virtuella datorer behöver du ett klassiskt RunAs-konto som inte skapas som standard. Anvisningar om hur du skapar ett klassiskt kör som-konto finns i [klassiska kör som-konton](automation-create-standalone-account.md#classic-run-as-accounts).
 
 > [!NOTE]
 > Den Starta/stoppa virtuella datorer när de inte används lösningen har testats med Azure-modulerna som importeras till ditt Automation-konto när du distribuerar lösningen. Lösningen fungerar för närvarande inte med nyare versioner av Azure-modulen. Detta påverkar bara det Automation-konto som du använder för att köra Starta/stoppa virtuella datorer när de inte används-lösningen. Du kan fortfarande använda nyare versioner av Azure-modulen i andra Automation-konton, enligt beskrivningen i [så här uppdaterar du Azure PowerShell moduler i Azure Automation](automation-update-azure-modules.md)
@@ -29,31 +29,31 @@ Den här lösningen innehåller ett decentraliserat alternativ för låg kostnad
 - Schemalägg virtuella datorer att starta och stoppa i stigande ordning med hjälp av Azure-Taggar (stöds inte för klassiska virtuella datorer).
 - Stoppa virtuella datorer för virtuella datorer baserat på låg CPU-användning.
 
-Följande är begränsningar för den aktuella lösningen:
+Följande är begränsningar med den aktuella lösningen:
 
 - Den här lösningen hanterar virtuella datorer i valfri region, men kan endast användas i samma prenumeration som ditt Azure Automation-konto.
 - Den här lösningen är tillgänglig i Azure och AzureGov till alla regioner som stöder en Log Analytics arbets yta, ett Azure Automation konto och aviseringar. AzureGov-regioner stöder för närvarande inte e-postfunktioner.
 
 > [!NOTE]
-> Om du använder lösningen för klassiska virtuella datorer kommer alla virtuella datorer att bearbetas sekventiellt per moln tjänst. Virtuella datorer bearbetas fortfarande parallellt över olika moln tjänster.
+> Om du använder lösningen för klassiska virtuella datorer kommer alla virtuella datorer att bearbetas sekventiellt per moln tjänst. Virtuella datorer bearbetas fortfarande parallellt över olika moln tjänster. Om du har fler än 20 virtuella datorer per moln tjänst rekommenderar vi att du skapar flera scheman med den överordnade Runbook- **ScheduledStartStop_Parent** och anger 20 virtuella datorer per schema. I schema egenskaperna anger du som en kommaavgränsad lista, VM-namn i parametern **VMList** . Annars, om automatiserings jobbet för den här lösningen körs mer än tre timmar, tas det tillfälligt bort eller stoppas enligt den [verkliga delnings](automation-runbook-execution.md#fair-share) gränsen.
 >
 > Azure-prenumerationer för moln lösningar (Azure CSP) stöder endast Azure Resource Manager-modellen, icke-Azure Resource Manager-tjänster är inte tillgängliga i programmet. När starta/stoppa-lösningen körs kan du få fel eftersom det finns cmdlets för att hantera klassiska resurser. Läs mer om CSP i [tillgängliga tjänster i CSP-prenumerationer](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments). Om du använder en CSP-prenumeration bör du ändra [**External_EnableClassicVMs**](#variables) -variabeln till **falskt** efter distributionen.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Runbooks för den här lösningen fungerar med ett [Kör som-konto i Azure](automation-create-runas-account.md). Kör som-kontot är den föredragna autentiseringsmetoden eftersom den använder certifikatautentisering i stället för ett lösen ord som kan gå ut eller ändras ofta.
 
-Vi rekommenderar att du använder ett separat Automation-konto för lösningen starta/stoppa virtuell dator. Detta beror på att Azure module-versioner ofta uppgraderas och att deras parametrar kan ändras. Lösningen för att starta/stoppa virtuell dator uppgraderas inte på samma takt, så den kanske inte fungerar med nyare versioner av de cmdlets som används. Vi rekommenderar att du testar modul uppdateringar i ett test Automation-konto innan du importerar dem i ditt produktions Automation-konto.
+Vi rekommenderar att du använder ett separat Automation-konto för lösningen starta/stoppa virtuell dator. Detta beror på att Azure module-versioner ofta uppgraderas och att deras parametrar kan ändras. Lösningen för att starta/stoppa virtuell dator uppgraderas inte på samma takt, så den kanske inte fungerar med nyare versioner av de cmdlets som används. Vi rekommenderar också att du testar module-uppdateringar i ett test Automation-konto innan du importerar dem i dina produktions Automation-konton.
 
 ### <a name="permissions-needed-to-deploy"></a>Behörigheter som krävs för att distribuera
 
 Det finns vissa behörigheter som en användare måste ha för att distribuera en lösning för att starta/stoppa virtuella datorer under låg tid. De här behörigheterna skiljer sig om du använder ett befintligt Automation-konto och Log Analytics arbets ytan eller skapar nya under distributionen. Om du är deltagare i prenumerationen och en global administratör i din Azure Active Directory klient behöver du inte konfigurera följande behörigheter. Om du inte har dessa rättigheter eller behöver konfigurera en anpassad roll, se de behörigheter som krävs nedan.
 
-#### <a name="pre-existing-automation-account-and-log-analytics-account"></a>Redan befintligt Automation-konto och Log Analytics konto
+#### <a name="pre-existing-automation-account-and-log-analytics-workspace"></a>Redan befintligt Automation-konto och Log Analytics arbets yta
 
-Om du vill distribuera en lösning för att starta/stoppa virtuella datorer under låg tid till ett Automation-konto och Log Analytics användaren som distribuerar lösningen kräver följande behörigheter för **resurs gruppen**. Mer information om roller finns i [anpassade roller för Azure-resurser](../role-based-access-control/custom-roles.md).
+Om du vill distribuera en lösning för att starta/stoppa virtuella datorer under låg tid till ett befintligt Automation-konto och Log Analytics arbets ytan, kräver användaren som distribuerar lösningen följande behörigheter för **resurs gruppen**. Mer information om roller finns i [anpassade roller för Azure-resurser](../role-based-access-control/custom-roles.md).
 
 | Behörighet | Omfång|
 | --- | --- |
@@ -80,8 +80,8 @@ Om du vill distribuera en lösning för att starta/stoppa virtuella datorer unde
 
 Om du vill distribuera en lösning för att starta/stoppa virtuella datorer under låg tid till ett nytt Automation-konto och Log Analytics arbets ytan, behöver användaren som distribuerar lösningen de behörigheter som definierats i föregående avsnitt samt följande behörigheter:
 
-- Medadministratör för prenumeration – detta behövs bara för att skapa det klassiska kör som-kontot om du ska hantera klassiska virtuella datorer. [Klassiska runas-konton](automation-create-standalone-account.md#classic-run-as-accounts) skapas inte längre som standard.
-- Vara en del av rollen som [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) **program utvecklare** . Mer information om hur du konfigurerar kör som-konton finns i [behörighet att konfigurera kör som-konton](manage-runas-account.md#permissions).
+- Medadministratör för prenumeration – du behöver bara skapa det klassiska kör som-kontot om du ska hantera klassiska virtuella datorer. [Klassiska runas-konton](automation-create-standalone-account.md#classic-run-as-accounts) skapas inte längre som standard.
+- En medlem i rollen som [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) **program utvecklare** . Mer information om hur du konfigurerar kör som-konton finns i [behörighet att konfigurera kör som-konton](manage-runas-account.md#permissions).
 - Deltagare i prenumerationen eller följande behörigheter.
 
 | Behörighet |Omfång|
@@ -109,7 +109,7 @@ Utför följande steg för att lägga till Starta/stoppa virtuella datorer när 
 
 2. På sidan **Starta/stoppa virtuella datorer när de inte används** för den valda lösningen granskar du sammanfattnings informationen och klickar sedan på **skapa**.
 
-   ![Azure portal](media/automation-solution-vm-management/azure-portal-01.png)
+   ![Azure Portal](media/automation-solution-vm-management/azure-portal-01.png)
 
 3. Sidan **Lägg till lösning** visas. Du uppmanas att konfigurera lösningen innan du kan importera den till din Automation-prenumeration.
 
@@ -120,7 +120,7 @@ Utför följande steg för att lägga till Starta/stoppa virtuella datorer när 
    - Välj en **prenumeration** som du vill länka till genom att välja i den nedrullningsbara listan, om det valda standardvärdet inte är lämpligt.
    - För **resurs grupp**kan du skapa en ny resurs grupp eller välja en befintlig.
    - Välj en **Plats**. För närvarande är de enda platser som är tillgängliga i **Australien**, **centrala Kanada**, **centrala Indien**, **östra usa**, **Östra Japan**, **Sydostasien**, **Storbritannien, södra** **, Västeuropa**och **västra USA 2** .
-   - Välj en **Prisnivå**. Välj alternativet **per GB (fristående)** . Azure Monitor loggar har uppdaterat [priser](https://azure.microsoft.com/pricing/details/log-analytics/) och nivån per GB är det enda alternativet.
+   - Välj en **Prisnivå**. Välj alternativet **per GB (fristående)** . Azure Monitors loggar har uppdaterat [priser](https://azure.microsoft.com/pricing/details/log-analytics/) och nivån per GB är det enda alternativet.
 
    > [!NOTE]
    > När du aktiverar lösningar går det endast att länka en Log Analytics-arbetsyta och ett Automation-konto i vissa regioner.
@@ -148,7 +148,7 @@ Utför följande steg för att lägga till Starta/stoppa virtuella datorer när 
      - Sequenced_StartStop_Parent
 
      > [!IMPORTANT]
-     > Standardvärdet för **mål ResourceGroup namn** är en **&ast;** . Detta riktar sig till alla virtuella datorer i en prenumeration. Om du inte vill att lösningen ska rikta alla virtuella datorer i din prenumeration måste det här värdet uppdateras till en lista över resurs grupp namn innan du aktiverar scheman.
+     > Standardvärdet för **mål ResourceGroup namn** är ett **&ast;** . Detta riktar sig till alla virtuella datorer i en prenumeration. Om du inte vill att lösningen ska rikta alla virtuella datorer i din prenumeration måste det här värdet uppdateras till en lista över resurs grupp namn innan du aktiverar scheman.
 
 8. När du har konfigurerat de första inställningarna som krävs för lösningen klickar du på **OK** för att stänga sidan **parametrar** och väljer **skapa**. När alla inställningar har verifierats distribueras lösningen till din prenumeration. Den här processen kan ta flera sekunder att slutföra och du kan följa förloppet under **meddelanden** på menyn.
 
@@ -271,7 +271,7 @@ I följande tabell visas variablerna som skapas i ditt Automation-konto. Ändra 
 |External_AutoStop_TimeAggregationOperator | Tids mängds operatorn, som används för den valda fönster storleken för att utvärdera villkoret. Godkända värden är **Average**, **minimum**, **maximum**, **Total**och **Last**.|
 |External_AutoStop_TimeWindow | Fönster storlek då Azure analyserar valda mått för att utlösa en avisering. Den här parametern accepterar inmatade i TimeSpan-format. Möjliga värden är mellan 5 och 6 timmar.|
 |External_EnableClassicVMs| Anger om de klassiska virtuella datorerna är riktade mot lösningen. Standardvärdet är true. Detta ska vara inställt på falskt för CSP-prenumerationer. Klassiska virtuella datorer kräver ett [klassiskt kör som-konto](automation-create-standalone-account.md#classic-run-as-accounts).|
-|External_ExcludeVMNames | Ange namn på virtuella datorer som ska uteslutas, separera namn genom att använda ett kommatecken utan blank steg. Detta är begränsat till 140 virtuella datorer. Om du lägger till fler än 140 virtuella datorer i den här kommaavgränsad listan kan virtuella datorer som är inställda på att undantas oavsiktligt startas eller stoppas.|
+|External_ExcludeVMNames | Ange namn på virtuella datorer som ska uteslutas, separera namn genom att använda ett kommatecken utan blank steg. Detta är begränsat till 140 virtuella datorer. Om du lägger till fler än 140 virtuella datorer i den här kommaseparerade listan kan virtuella datorer som är inställda på att undantas oavsiktligt startas eller stoppas.|
 |External_Start_ResourceGroupNames | Anger en eller flera resurs grupper och åtskiljer värden med hjälp av ett kommatecken som är mål för start åtgärder.|
 |External_Stop_ResourceGroupNames | Anger en eller flera resurs grupper, åtskilja värden med ett kommatecken för att stoppa åtgärder.|
 |Internal_AutomationAccountName | Anger namnet på Automation-kontot.|
@@ -345,7 +345,7 @@ När du utför en loggs ökning som returnerar kategori poster för **JobLogs** 
 
 Följande tabell innehåller exempel på sökningar i loggen för jobbposter som har samlats in av den här lösningen.
 
-|Söka i data | Beskrivning|
+|Fråga | Beskrivning|
 |----------|----------|
 |Hitta jobb för Runbook-ScheduledStartStop_Parent som har slutförts | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
 |Hitta jobb för Runbook-SequencedStartStop_Parent som har slutförts | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
@@ -391,11 +391,11 @@ Det finns ett par alternativ som du kan använda för att se till att en virtuel
 
 * Varje överordnad [Runbooks](#runbooks) i lösningen har en **VMList** -parameter. Du kan skicka en kommaavgränsad lista över namn på virtuella datorer till den här parametern när du schemalägger lämplig överordnad Runbook för din situation och de virtuella datorerna kommer att inkluderas när lösningen körs.
 
-* Om du vill välja flera virtuella datorer anger du **External_Start_ResourceGroupNames** och **External_Stop_ResourceGroupNames** med de resurs grupp namn som innehåller de virtuella datorer som du vill starta eller stoppa. Du kan också ange det här värdet till `*` om du vill att lösningen ska köras mot alla resurs grupper i prenumerationen.
+* Om du vill välja flera virtuella datorer anger du **External_Start_ResourceGroupNames** och **External_Stop_ResourceGroupNames** med de resurs grupp namn som innehåller de virtuella datorer som du vill starta eller stoppa. Du kan också ange det här värdet till `*`om du vill att lösningen ska köras mot alla resurs grupper i prenumerationen.
 
 ### <a name="exclude-a-vm"></a>Undanta en virtuell dator
 
-Om du vill utesluta en virtuell dator från lösningen kan du lägga till den i **External_ExcludeVMNames** -variabeln. Den här variabeln är en kommaavgränsad lista med vissa virtuella datorer som ska undantas från Start/Stop-lösningen. Den här listan är begränsad till 140 virtuella datorer. Om du lägger till fler än 140 virtuella datorer i den här kommaavgränsad listan kan virtuella datorer som är inställda på att undantas oavsiktligt startas eller stoppas.
+Om du vill utesluta en virtuell dator från lösningen kan du lägga till den i **External_ExcludeVMNames** -variabeln. Den här variabeln är en kommaavgränsad lista med vissa virtuella datorer som ska undantas från start-/stopp lösningen. Den här listan är begränsad till 140 virtuella datorer. Om du lägger till fler än 140 virtuella datorer i den här kommaseparerade listan kan virtuella datorer som är inställda på att undantas oavsiktligt startas eller stoppas.
 
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>Ändra scheman för start och avstängning
 
@@ -422,7 +422,7 @@ Utför följande steg för att ta bort lösningen:
 1. Från ditt Automation-konto, under **relaterade resurser**, väljer du **länkad arbets yta**.
 1. Välj **gå till arbets yta**.
 1. Under **Allmänt**väljer du **lösningar**. 
-1. På sidan **lösningar** väljer du lösningen **Start-Stop-VM [arbetsyte]** . På sidan **VMManagementSolution [Workspace]** väljer du **ta bort**på menyn.<br><br> @no__t 0Delete VM MGMT Solution @ no__t-1
+1. På sidan **lösningar** väljer du lösningen **Start-Stop-VM [arbetsyte]** . På sidan **VMManagementSolution [Workspace]** väljer du **ta bort**på menyn.<br><br> ![ta bort lösningen för VM-hantering](media/automation-solution-vm-management/vm-management-solution-delete.png)
 1. I fönstret **ta bort lösning** bekräftar du att du vill ta bort lösningen.
 1. Medan informationen verifieras och lösningen tas bort, kan du följa förloppet under **meddelanden** på menyn. Du kommer tillbaka till **lösnings** sidan när du har tagit bort lösningen.
 

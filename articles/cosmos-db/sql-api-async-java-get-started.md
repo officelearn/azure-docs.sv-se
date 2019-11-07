@@ -1,22 +1,22 @@
 ---
-title: 'Självstudie: Skapa en Java-app med Async Java SDK för att hantera ett SQL API-konto i Azure Cosmos DB'
+title: 'Självstudie: utveckla en Java-app med asynkron Java SDK för att hantera ett SQL API-konto i Azure Cosmos DB'
 description: Den här självstudien visar hur du lagrar och kommer åt data i ett SQL API-konto i Azure Cosmos DB med hjälp av ett Async Java-program.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 12/15/2018
+ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Java application with the Async Java SDK to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: 2a6f12bfe7aa3de028039d00c259a606d028a0e5
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 972328ec5052f5089994efbb940ff00c889ae78f
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614625"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720868"
 ---
-# <a name="tutorial-build-a-java-app-with-the-async-java-sdk-to-manage-data-stored-in-a-sql-api-account"></a>Självstudier: Skapa en Java-app med Async Java SDK för att hantera data som lagras i ett SQL API-konto
+# <a name="tutorial-build-a-java-app-with-the-async-java-sdk-to-manage-data-stored-in-a-sql-api-account"></a>Självstudie: utveckla en Java-app med asynkron Java SDK för att hantera data som lagras i ett SQL API-konto
 
 > [!div class="op_single_selector"]
 > * [NET](sql-api-get-started.md)
@@ -114,7 +114,7 @@ client = new AsyncDocumentClient.Builder()
 
 ## <a id="CreateDatabase"></a>Skapa en databas
 
-Skapa din Azure Cosmos-databas med hjälp `createDatabaseIfNotExists()` av metoden för DocumentClient-klassen. En databas är en logisk container för JSON-dokumentlagring, partitionerad över samlingarna.
+Skapa din Azure Cosmos-databas med hjälp av metoden `createDatabaseIfNotExists()` i DocumentClient-klassen. En databas är en logisk container för JSON-dokumentlagring, partitionerad över samlingarna.
 
 ```java
 private void createDatabaseIfNotExists() throws Exception 

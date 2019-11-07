@@ -6,17 +6,17 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 08/06/2019
+ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 0f410e06e1f5b9ae3b5319c4ff63f9632a2159dc
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 8390520320566907e8aaef709a085a71e8c8e4d6
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989440"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720820"
 ---
-# <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Självstudie: Skapa en Node.js-webbapp med JavaScript SDK för att hantera ett SQL API-konto i Azure Cosmos DB 
+# <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Självstudie: Bygg en Node. js-webbapp med hjälp av Java Script SDK för att hantera ett SQL API-konto i Azure Cosmos DB 
 
 > [!div class="op_single_selector"]
 > * [NET](sql-api-dotnet-application.md)
@@ -51,7 +51,7 @@ Innan du följer anvisningarna i den här artikeln bör du se till att du har f�
 * Installera [git][Git] på din lokala arbets Station.
 
 ## <a name="_Toc395637761"></a>Skapa ett Azure Cosmos DB-konto
-Vi ska börja med att skapa ett Azure Cosmos DB-konto. Om du redan har ett konto eller om du använder Azure Cosmos DB-emulatorn för självstudien, kan du gå vidare till [Steg 2: Skapa ett nytt Node.js-program](#_Toc395783178).
+Vi ska börja med att skapa ett Azure Cosmos DB-konto. Om du redan har ett konto eller om du använder Azure Cosmos DB-emulatorn för den här kursen kan du gå vidare till [Steg 2: Skapa ett nytt Node.js-program](#_Toc395783178).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -93,7 +93,7 @@ Nu ska vi skapa ett grundläggande Hello World Node.js-projekt med Express-ramve
 
 Filen **package.json** är en av filerna som skapas i projektets rot. Den här filen innehåller en lista över ytterligare moduler som krävs för Node.js-programmet. När du distribuerar det här programmet till Azure används den här filen för att avgöra vilka moduler som ska installeras på Azure för att stödja ditt program. Installera ytterligare två paket för den här självstudien.
 
-1. Installera Azure  **/Cosmos-modulenviaNPM.\@** 
+1. Installera **\@Azure/Cosmos** -modulen via NPM. 
 
    ```bash
    npm install @azure/cosmos
@@ -476,7 +476,7 @@ När ditt program fungerar lokalt, kan du distribuera det till Azure med hjälp 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan ta bort resursgruppen, Azure Cosmos DB-kontot och alla relaterade resurser när de inte längre behövs. Om du vill göra detta väljer du resursgruppen som du använde för Azure Cosmos DB-kontot. Välj sedan **Ta bort** och bekräfta namnet på resursgruppen som du vill ta bort.
+Du kan ta bort resursgruppen, Azure Cosmos DB-kontot och alla relaterade resurser när de inte längre behövs. Om du vill göra detta markerar du den resursgrupp som du använde för Azure Cosmos DB-kontot. Välj sedan **Ta bort** och bekräfta namnet på den resursgrupp som du vill ta bort.
 
 ## <a name="_Toc395637775"></a>Nästa steg
 

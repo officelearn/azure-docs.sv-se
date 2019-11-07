@@ -1,5 +1,5 @@
 ---
-title: Transformera data med Spark i Azure Data Factory | Microsoft Docs
+title: 'Transformera data med Spark i Azure Data Factory '
 description: Den här självstudiekursen innehåller stegvisa instruktioner för hur du transformerar data genom att använda en Spark-aktivitet i Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,15 +11,15 @@ ms.date: 01/22/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 7c7b2b75bdf8aa2be0ea9dd2b60453c2480fc1d2
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 06ec56e9e86069bd23a032aa289ea7391db04538
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813432"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683293"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Transformera data i molnet genom att använda Spark-aktivitet i Azure Data Factory
-I den här självstudien använder du Azure PowerShell för att skapa en Data Factory-pipeline som transformerar data med Spark-aktivitet och en länkad HDInsight-tjänst på begäran. I den här självstudiekursen får du göra följande:
+I den här självstudien använder du Azure PowerShell för att skapa en Data Factory-pipeline som transformerar data med Spark-aktivitet och en länkad HDInsight-tjänst på begäran. I de här självstudierna går du igenom följande steg:
 
 > [!div class="checklist"]
 > * Skapa en datafabrik. 
@@ -30,7 +30,7 @@ I den här självstudien använder du Azure PowerShell för att skapa en Data Fa
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -192,7 +192,7 @@ Du har skapat definitioner för länkad tjänst och pipeline i JSON-filer. Nu sk
     $resourceGroupName = "ADFTutorialResourceGroup" 
     ```
 
-    **Namn på datafabrik. Måste vara globalt unikt** 
+    **Data Factory namn. Måste vara globalt unikt** 
     ```powershell
     $dataFactoryName = "MyDataFactory09102017"
     ```
@@ -201,7 +201,7 @@ Du har skapat definitioner för länkad tjänst och pipeline i JSON-filer. Nu sk
     ```powershell
     $pipelineName = "MySparkOnDemandPipeline" # Name of the pipeline
     ```
-2. Starta **PowerShell**. Låt Azure PowerShell vara öppet tills du är klar med snabbstarten. Om du stänger och öppnar det igen måste du köra kommandona en gång till. Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
+2. Starta **PowerShell**. Låt Azure PowerShell vara öppet tills du är klar med snabbstarten. Om du stänger och öppnar det igen måste du köra kommandona en gång till. Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 
     Kör följande kommando och ange det användarnamn och lösenord som du använder för att logga in i Azure Portal:
         
@@ -284,7 +284,7 @@ Du har skapat definitioner för länkad tjänst och pipeline i JSON-filer. Nu sk
     Write-Host "Activity `Error` section:" -foregroundcolor "Yellow"
     $result.Error -join "`r`n" 
     ```  
-3. Här är utdata för exempelkörningen: 
+3. Här är utdata från exempelkörningen: 
 
     ```
     Pipeline run status: In Progress

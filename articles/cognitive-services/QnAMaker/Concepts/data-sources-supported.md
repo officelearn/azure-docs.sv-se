@@ -1,7 +1,7 @@
 ---
 title: Data källor som stöds – QnA Maker
 titleSuffix: Azure Cognitive Services
-description: QnA Maker extraherar automatiskt svars par från det delvis strukturerade innehållet, till exempel vanliga frågor, produkt handböcker, rikt linjer, support dokument och principer som lagras som webb sidor, PDF-filer eller MS Word doc-filer. Innehåll kan också läggas till i kunskaps basen från strukturerade QnA-innehållsfiler.
+description: QnA Maker extraherar automatiskt svars par som lagras som webb sidor, PDF-filer eller MS Word doc-filer eller strukturerade QnA-innehållsfiler.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: 39746032fd012de8e0868c3bc7f810cd8e780b68
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: a1fcc1bec5db3ad64dc045cf5e1a449fce808132
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176368"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721220"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Data källor för QnA Maker innehåll
 
@@ -239,6 +239,6 @@ Versions kontroll för data tillhandahålls via [import/export-funktionen](devel
 > [!div class="nextstepaction"]
 > [Konfigurera en QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md)
 
-## <a name="see-also"></a>Se också 
+## <a name="see-also"></a>Se även 
 
 [Översikt över QnA Maker](../Overview/overview.md)

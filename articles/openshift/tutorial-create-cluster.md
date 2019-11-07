@@ -7,17 +7,17 @@ ms.author: jzim
 manager: jeconnoc
 ms.topic: tutorial
 ms.service: container-service
-ms.date: 05/14/2019
-ms.openlocfilehash: 01319de8fd72875ca35bb7a869a6eaedee62f2a7
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.date: 11/04/2019
+ms.openlocfilehash: 4a09a0fe4aa1f04e665aeb71ebece17a8b368090
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285531"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582394"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Självstudie: skapa ett Azure Red Hat OpenShift-kluster
 
-Den här självstudien är del ett i en serie. Du lär dig hur du skapar ett Microsoft Azure Red Hat OpenShift-kluster med hjälp av Azure CLI, skalar det och sedan tar bort det för att rensa resurser.
+Den här självstudien ingår i en serie. Du lär dig hur du skapar ett Microsoft Azure Red Hat OpenShift-kluster med hjälp av Azure CLI, skalar det och sedan tar bort det för att rensa resurser.
 
 I del ett av serien får du lära dig att:
 
@@ -30,12 +30,10 @@ I den här självstudieserien får du lära du dig att:
 > * [Skala ett Azure Red Hat OpenShift-kluster](tutorial-scale-cluster.md)
 > * [Ta bort ett Azure Red Hat OpenShift-kluster](tutorial-delete-cluster.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 > [!IMPORTANT]
 > I den här självstudien krävs version 2.0.65 av Azure CLI.
->    
-> Innan du kan använda en Red Hat OpenShift-växel måste du köpa minst 4 Azure Red Hat OpenShift-reserverade programnoder enligt beskrivningen i [Konfigurera din Azure Red Hat-utvecklings miljö](howto-setup-environment.md#purchase-azure-red-hat-openshift-application-nodes-reserved-instances).
 
 Innan du börjar den här självstudien:
 
@@ -54,7 +52,7 @@ Om du kör Azure CLI lokalt öppnar du en bash kommando tolk och kör `az login`
 az login
 ```
 
- Om du har åtkomst till flera prenumerationer kör du `az account set -s {subscription ID}` och ersätter `{subscription ID}` med den prenumeration som du vill använda.
+ Om du har åtkomst till flera prenumerationer kör du `az account set -s {subscription ID}` ersätter `{subscription ID}` med den prenumeration som du vill använda.
 
 ## <a name="step-2-create-an-azure-red-hat-openshift-cluster"></a>Steg 2: skapa ett Azure Red Hat OpenShift-kluster
 
@@ -73,7 +71,7 @@ Välj en plats för att skapa klustret. En lista över Azure-regioner som stöde
 LOCATION=<location>
 ```
 
-Ange `APPID` till värdet som du sparade i steg 5 i [skapa en Azure AD App-registrering](howto-aad-app-configuration.md#create-an-azure-ad-app-registration).  
+Ange `APPID` till värdet som du sparade i steg 5 i [skapa en Azure AD-App-registrering](howto-aad-app-configuration.md#create-an-azure-ad-app-registration).  
 
 ```bash
 APPID=<app ID value>
@@ -91,7 +89,7 @@ Ange `SECRET` till värdet som du sparade i steg 8 i [skapa en klient hemlighet]
 SECRET=<secret value>
 ```
 
-Ange `TENANT` till klient-ID-värdet som du sparade i steg 7 i [skapa en ny klient](howto-create-tenant.md#create-a-new-azure-ad-tenant)  
+Ange `TENANT` till det klient-ID-värde som du sparade i steg 7 i [skapa en ny klient](howto-create-tenant.md#create-a-new-azure-ad-tenant)  
 
 ```bash
 TENANT=<tenant ID>
@@ -136,7 +134,7 @@ Om du **inte** peer-koppla klustret till ett virtuellt nätverk använder du fö
 az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID
 ```
 
-Om du peer- **koppla** klustret till ett virtuellt nätverk använder du följande kommando som lägger till flaggan `--vnet-peer`:
+Om du peer- **koppla** klustret till ett virtuellt nätverk använder du följande kommando som lägger till `--vnet-peer`-flaggan:
  
 ```bash
 az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID --vnet-peer $VNET_ID
@@ -157,7 +155,7 @@ az openshift show -n $CLUSTER_NAME -g $CLUSTER_NAME
 
 Leta efter `publicHostName` i utdata, till exempel: `"publicHostname": "openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io"`
 
-Inloggnings-URL: en för klustret kommer att `https://` följt av värdet @no__t 1.  Till exempel: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io`.  Du kommer att använda denna URI i nästa steg som en del av omdirigerings-URI för app-registrering.
+Inloggnings-URL: en för klustret kommer att `https://` följt av `publicHostName` svärdet.  Till exempel: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io`.  Du kommer att använda denna URI i nästa steg som en del av omdirigerings-URI för app-registrering.
 
 ## <a name="step-3-update-your-app-registration-redirect-uri"></a>Steg 3: uppdatera omdirigerings-URI för program registrering
 

@@ -1,25 +1,24 @@
 ---
 title: Arbeta med projektioner i ett kunskaps lager (för hands version)
 titleSuffix: Azure Cognitive Search
-description: Spara och forma dina berikade data från AI-förrikare indexerings pipelinen för användning i andra scenarier än fullständig texts ökning.
+description: Spara och forma dina berikade data från AI-förloppet till ett kunskaps lager för användning i andra scenarier än fullständig texts ökning. Kunskaps lagret är för närvarande en offentlig för hands version.
 manager: nitinme
 author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8e6c285e8917c4224e2007c565d5ac5447b20853
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: bb6af4be232810c1f5d135e459238e2e4f2cd5d8
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790005"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720035"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Arbeta med projektioner i ett kunskaps lager i Azure Kognitiv sökning
 
-> [!Note]
-> Kunskaps lagret är i för hands version och är inte avsett för användning i produktion. Den [REST API version 2019-05-06 – för hands version](search-api-preview.md) innehåller den här funktionen. Det finns för närvarande inget stöd för .NET SDK.
->
+> [!IMPORTANT] 
+> Kunskaps lagret är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [REST API version 2019-05-06-Preview](search-api-preview.md) innehåller för hands versions funktioner. Det finns för närvarande begränsad Portal support och inget stöd för .NET SDK.
 
 Azure Kognitiv sökning möjliggör innehålls berikning genom inbyggda kognitiva kunskaper och anpassade kunskaper som en del av indexeringen. Du kan lägga till strukturer i dina dokument och göra sökningen mer effektiv. I många fall är de omfattande dokumenten användbara för andra scenarier än Sök, till exempel för kunskaps utvinning.
 

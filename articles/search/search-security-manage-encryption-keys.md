@@ -1,26 +1,24 @@
 ---
 title: Kryptering – rest med Kundhanterade nycklar i Azure Key Vault (för hands version)
 titleSuffix: Azure Cognitive Search
-description: Kompletterande kryptering på Server sidan över index och synonymer mappar i Azure Kognitiv sökning via nycklar som du skapar och hanterar i Azure Key Vault.
+description: Kompletterande kryptering på Server sidan över index och synonymer mappar i Azure Kognitiv sökning via nycklar som du skapar och hanterar i Azure Key Vault. Den här funktionen är för närvarande i allmänt tillgänglig förhandsversion.
 manager: nitinme
 author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.openlocfilehash: 94c9d94edb9a9ca3f6117bd43ab9cefe1dad52a3
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1521abfa327c69648b38f02d1d6313baa369f304
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794355"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721748"
 ---
 # <a name="content-encryption-of-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Innehålls kryptering av Azure Kognitiv sökning med Kundhanterade nycklar i Azure Key Vault
 
-> [!Note]
-> Kryptering med Kundhanterade nycklar är i för hands version och är inte avsedd för produktions användning. Den [REST API version 2019-05-06 – för hands version](search-api-preview.md) innehåller den här funktionen. Du kan också använda .NET SDK version 8,0-Preview.
->
-> Den här funktionen är inte tillgänglig för kostnads fria tjänster. Du måste använda en fakturerbar Sök tjänst som skapats på eller efter 2019-01-01. Det finns för närvarande inget stöd för portalen.
+> [!IMPORTANT] 
+> Stöd för kryptering vid vila är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Den [REST API version 2019-05-06-Preview](search-api-preview.md) och [.net SDK version 8,0 – för hands version](search-dotnet-sdk-migration-version-9.md) innehåller den här funktionen. Det finns för närvarande inget stöd för portalen.
 
 Som standard krypterar Azure Kognitiv sökning användar innehåll i vila med [tjänst hanterade nycklar](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). Du kan komplettera standard kryptering med ytterligare ett krypterings lager med hjälp av nycklar som du skapar och hanterar i Azure Key Vault. Den här artikeln vägleder dig genom stegen.
 
@@ -30,7 +28,7 @@ Kryptering med Kundhanterade nycklar konfigureras på mappnings nivån index ell
 
 Du kan använda olika nycklar från olika nyckel valv. Det innebär att en enskild Sök tjänst kan vara värd för flera krypterade indexes\synonym-kartor, varje krypterad potentiellt en annan kundhanterad nyckel, tillsammans med indexes\synonym Maps som inte är krypterade med Kundhanterade nycklar. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande tjänster används i det här exemplet. 
 

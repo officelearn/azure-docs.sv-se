@@ -1,21 +1,24 @@
 ---
-title: Kognitiv kompetens för text översättning
+title: Text översättning kognitiv kompetens (för hands version)
 titleSuffix: Azure Cognitive Search
-description: Utvärderar text och, för varje post, returnerar text som har översatts till det angivna mål språket i en AI-pipeline i Azure Kognitiv sökning.
+description: Utvärderar text och, för varje post, returnerar text som har översatts till det angivna mål språket i en AI-pipeline i Azure Kognitiv sökning. Den här kunskapen är för närvarande en offentlig för hands version.
 manager: nitinme
 author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c2405fe67b39e016e64efb1b36cc551a00a338fc
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 7c42c9033fac057c12426726a96ae6079f3080da
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791861"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715408"
 ---
 #   <a name="text-translation-cognitive-skill"></a>Kognitiv kompetens för text översättning
+
+> [!IMPORTANT] 
+> Den här kunskapen är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [REST API version 2019-05-06-Preview](search-api-preview.md) innehåller för hands versions funktioner. Det finns för närvarande begränsad Portal support och inget stöd för .NET SDK.
 
 **Text översättnings** kunskapen utvärderar text och returnerar texten översatt till det angivna mål språket för varje post. Den här kunskapen använder [Translator text API v 3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) som finns i Cognitive Services.
 
@@ -148,7 +151,7 @@ Om du anger en språk kod som inte stöds för antingen från eller till språke
 Om texten är tom skapas en varning.
 Om texten är större än 50 000 tecken kommer endast de första 50 000 tecknen att översättas och en varning utfärdas.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 + [Inbyggda kunskaper](cognitive-search-predefined-skills.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)

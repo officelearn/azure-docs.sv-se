@@ -1,21 +1,21 @@
 ---
-title: Självstudie om Java-programutveckling med Azure Cosmos DB
-description: Den här självstudiekursen om webbprogram i Java beskriver hur du använder Azure Cosmos DB och SQL API för att lagra och komma åt data från ett Java-program i Azure Websites.
+title: 'Självstudie: självstudien om utveckling av Java-program med Azure Cosmos DB'
+description: 'Självstudie: den här självstudien för Java-webbprogram visar hur du använder Azure Cosmos DB och SQL API för att lagra och få åtkomst till data från ett Java-program som finns på Azure Websites.'
 author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 12/22/2018
+ms.date: 11/05/2019
 ms.author: ramkris
-ms.openlocfilehash: bd2894c23e206ed5f49fec8aa169d6ed852df4c6
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4a7c307e8a4d4088fe4d2f7800398fda4704219c
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616660"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720846"
 ---
-# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Skapa ett webbprogram i Java med Azure Cosmos DB och SQL API
+# <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Självstudie: bygga ett Java-webbprogram med Azure Cosmos DB och SQL API
 
 > [!div class="op_single_selector"]
 > * [NET](sql-api-dotnet-application.md)
@@ -50,7 +50,7 @@ Innan du påbörjar den här självstudien om apputveckling måste du ha följan
 * [Eclipse IDE för Java EE-utvecklare.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [En Azure-webbplats med en aktiverad Java-körningsmiljö (t.ex. Tomcat eller Jetty).](../app-service/app-service-web-get-started-java.md)
 
-Om du installerar verktygen för första gången finns det en beskrivning av installationsprocessen på coreservlets.com avsnittet Quick Start i artikeln [Självstudie: Installera TomCat7 och använd med Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html).
+Om du installerar verktygen för första gången finns det en beskrivning av installationsprocessen på coreservlets.com avsnittet Quick Start i artikeln [Tutorial: Installing TomCat7 and Using it with Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html).
 
 ## <a id="CreateDB"></a>Steg 1: Skapa ett Azure Cosmos DB-konto
 Vi ska börja med att skapa ett Azure Cosmos DB-konto. Om du redan har ett konto eller om du använder Azure Cosmos DB-emulatorn för den här kursen kan du gå vidare till [Steg 2: Skapa Java JSP-programmet](#CreateJSP).
@@ -737,12 +737,12 @@ Alla exempel i den här självstudien finns i projektet [Todo](https://github.co
 3. I **Arkiv**-menyn i Eclipse klickar du på **Importera**.
 4. I fönstret **Importera** klickar du på **Git**, **Projekt från Git** och **Nästa**.
 5. På skärmen **Välj lagerkälla** klickar du på **Klona URI**.
-6. Skriv https://github.com/Azure-Samples/documentdb-java-todo-app.git i rutan **URI** på skärmen **Source Git Repository** (Git-källagringsplats) och klicka på **Nästa**.
+6. Skriv **i rutan**URI**på skärmen**Source Git Repository https://github.com/Azure-Samples/documentdb-java-todo-app.git (Git-källagringsplats) och klicka på **Nästa**.
 7. På skärmen**Val av gren** kontrollerar du att **master** är markerat och klickar sedan på **Nästa**.
 8. På skärmen **Lokal destination** klickar du på **Bläddra** och väljer en mapp dit lagret kan kopieras och klickar sedan på **Nästa**.
 9. På skärmen **Välj en guide för importprojekt** kontrollerar du att **Importera befintliga projekt** är markerat och klickar sedan på **Nästa**.
 10. På skärmen **Importera projekt** avmarkerar du projektet **DocumentDB** och klickar sedan på **Slutför**. Azure DocumentDB-projektet innehåller Azure Cosmos DB Java SDK, som vi ska lägga till som ett beroende i stället.
-11. Navigera till azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java i **Projektutforskaren** och ersätt värdena i HOST och MASTER_KEY med URI:n och primärnyckeln för ditt Azure Cosmos DB-konto och spara sedan filen. Mer information finns [steg 1. Skapa ett Azure Cosmos Database-](#CreateDB)konto.
+11. Navigera till azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java i **Projektutforskaren** och ersätt värdena i HOST och MASTER_KEY med URI:n och primärnyckeln för ditt Azure Cosmos DB-konto och spara sedan filen. Mer information finns i [steg 1. Skapa ett Azure Cosmos Database-konto](#CreateDB).
 12. Högerklicka på **azure-documentdb-java-sample** i **Projektutforskaren**, klicka på **Build Path** (Byggsökväg) och sedan på **Configure Build Path** (Konfigurera byggsökväg).
 13. På skärmen **Java byggsökväg**, i den högra panelen, väljer du fliken **Bibliotek** och klickar sedan på **Lägg till externa JAR:er**. Navigera till platsen där filen lombok.jar finns. Klicka på **Öppna** och sedan på **OK**.
 14. Öppna fönstret **Egenskaper** genom steg 12 och klicka sedan på **Körningsmål** i den vänstra panelen.
@@ -753,5 +753,5 @@ Alla exempel i den här självstudien finns i projektet [Todo](https://github.co
 19. I fönstret **Lägg till och ta bort** flyttar du **azure-documentdb-java-sample** till rutan **Konfigurerad** och klickar sedan på **Slutför**.
 20. Högerklicka på **Tomcat v7.0 Server at localhost** (Tomcat v7.0-server på localhost) på fliken **Server** och klicka sedan på **Starta om**.
 21. Gå till `http://localhost:8080/azure-documentdb-java-sample/` i en webbläsare och börja lägga till aktiviteter. Om du har ändrat portarnas standardvärden ändrar du 8080 till värdet du har valt.
-22. [Steg 6 innehåller information om hur du distribuerar ditt projekt till en Azure-webbplats. Distribuera programmet till Azure Web Sites](#Deploy).
+22. Information om hur du distribuerar projektet till en Azure-webbplats finns i [steg 6. Distribuera ditt program till Azure Web Sites](#Deploy).
 

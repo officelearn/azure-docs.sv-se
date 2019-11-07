@@ -1,7 +1,7 @@
 ---
 title: Förbättra din klassificerare – Custom Vision Service
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du kan förbättra klassificerarens kvalitet.
+description: I den här artikeln får du lära dig hur belopp, kvalitet och mängd data kan förbättra din klassificerares kvalitet i Custom Visions tjänsten.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: d71c750185589fd488df70b63fd48e9e674ee3dc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c2858d5f9bca662cbbcd48b2345a7dc2c7ae48b2
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561039"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718540"
 ---
 # <a name="how-to-improve-your-classifier"></a>Förbättra din klassificerare
 
@@ -53,11 +53,11 @@ Se till att använda bilder som är representativa för vad som kommer att skick
 
 Du kan åtgärda det här problemet genom att inkludera en mängd olika avbildningar för att säkerställa att klassificeraren kan generaliseras. Nedan visas några exempel på hur du kan göra inlärningen Mer Diverse:
 
-* __Lägg__ Ange bilder för ditt objekt framför olika bakgrunder. Foton i naturliga sammanhang är bättre än foton framför neutrala bakgrunder eftersom de ger mer information om klassificeraren.
+* __Bakgrund:__ Ange bilder för ditt objekt framför olika bakgrunder. Foton i naturliga sammanhang är bättre än foton framför neutrala bakgrunder eftersom de ger mer information om klassificeraren.
 
     ![Bild av bakgrunds exempel](./media/getting-started-improving-your-classifier/background.png)
 
-* __Blixt__ Ge bilder med varierande belysning (det vill säga med blixt, hög exponering och så vidare), särskilt om de bilder som används för förutsägelsen har olika belysning. Det är också användbart att använda bilder med varierande mättnad, nyans och ljus styrka.
+* __Belysning:__ Ge bilder med varierande belysning (det vill säga med blixt, hög exponering och så vidare), särskilt om de bilder som används för förutsägelsen har olika belysning. Det är också användbart att använda bilder med varierande mättnad, nyans och ljus styrka.
 
     ![Bild av belysnings exempel](./media/getting-started-improving-your-classifier/lighting.png)
 
@@ -65,11 +65,11 @@ Du kan åtgärda det här problemet genom att inkludera en mängd olika avbildni
 
     ![Bild av storleks exempel](./media/getting-started-improving-your-classifier/size.png)
 
-* __Kamera vinkel:__ Ange bilder tagna med olika kamera vinklar. Alternativt, om alla dina foton måste tas med fasta kameror (till exempel övervaknings kameror), måste du tilldela en annan etikett till varje objekt som utförs regelbundet för att undvika överanpassning&mdash;av orelaterade objekt (till exempel lampposts) som nyckel funktion.
+* __Kamera vinkel:__ Ange bilder tagna med olika kamera vinklar. Alternativt, om alla dina foton måste tas med fasta kameror (till exempel övervaknings kameror), måste du tilldela en annan etikett till varje objekt som du ofta använder för att undvika överanpassning&mdash;tolkning av orelaterade objekt (till exempel lampposts) som nyckel funktion.
 
     ![Bild av vinkel exempel](./media/getting-started-improving-your-classifier/angle.png)
 
-* __ATS__ Ange bilder av olika format för samma klass (till exempel olika sorters frukt). Men om du har objekt av drastiskt olika format (t. ex. Mickey mus eller en verklig mus) rekommenderar vi att du ger dem etiketter som separata klasser för att bättre representera deras distinkta funktioner.
+* __Format:__ Ange bilder av olika format för samma klass (till exempel olika sorters frukt). Men om du har objekt av drastiskt olika format (t. ex. Mickey mus eller en verklig mus) rekommenderar vi att du ger dem etiketter som separata klasser för att bättre representera deras distinkta funktioner.
 
     ![Bild av format exempel](./media/getting-started-improving-your-classifier/style.png)
 
@@ -92,7 +92,7 @@ När du använder eller testar avbildnings klassificeraren genom att skicka avbi
 
 2. Hovra över en bild för att se de taggar som förutsägs av klassificeraren. Bilderna sorteras så att de som kan få flest förbättringar av klassificeraren visas överst. Om du vill använda en annan sorterings metod gör du ett val i avsnittet __Sortera__ . 
 
-    Om du vill lägga till en bild i dina befintliga utbildnings data väljer du bilden, anger rätt tagg (er) och klickar på __Spara och Stäng__. Bilden tas bort från förutsägelserna  och läggs till i uppsättningen med utbildnings bilder. Du kan visa den genom att välja fliken __träna bilder__ .
+    Om du vill lägga till en bild i dina befintliga utbildnings data väljer du bilden, anger rätt tagg (er) och klickar på __Spara och Stäng__. Bilden tas bort från __förutsägelserna__ och läggs till i uppsättningen med utbildnings bilder. Du kan visa den genom att välja fliken __träna bilder__ .
 
     ![Bild av taggnings Sidan](./media/getting-started-improving-your-classifier/tag.png)
 
@@ -100,7 +100,7 @@ När du använder eller testar avbildnings klassificeraren genom att skicka avbi
 
 ## <a name="visually-inspect-predictions"></a>Granska förutsägelser visuellt
 
-Om du vill kontrol lera bild förutsägelserna går du till fliken __inlärnings bilder__ , väljer din tidigare  inlärning på upprepnings menyn och markerar en eller flera taggar under avsnittet **taggar** . Vyn bör nu visa en röd ruta runt var och en av de bilder som modellen inte kunde förutsäga den angivna taggen på rätt sätt.
+Om du vill kontrol lera bild förutsägelserna går du till fliken __inlärnings bilder__ , väljer din tidigare inlärning på **upprepnings** menyn och markerar en eller flera taggar under avsnittet **taggar** . Vyn bör nu visa en röd ruta runt var och en av de bilder som modellen inte kunde förutsäga den angivna taggen på rätt sätt.
 
 ![Bild av upprepnings historiken](./media/getting-started-improving-your-classifier/iteration.png)
 

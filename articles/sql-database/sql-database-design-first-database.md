@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: utforma din första Relations databas i Azure SQL Database med SSMS | Microsoft Docs'
+title: 'Självstudie: utforma din första Relations databas i Azure SQL Database med SSMS '
 description: Lär dig hur du utformar din första relationsdatabas i en enkel databas i Azure SQL Database med hjälp av SQL Server Management Studio.
 services: sql-database
 ms.service: sql-database
@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
-ms.openlocfilehash: 18e7e75b259475b9e360dc3441ed83ccb577e557
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1ea8bcd353311d0e6f666a0086f8f2f3b24b55d2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492015"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690736"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Självstudie: utforma en Relations databas i en enda databas inom Azure SQL Database med SSMS
 
@@ -35,7 +35,7 @@ Azure SQL Database är en relationsdatabas-som-tjänst (DBaaS) som bygger på Mi
 > [!NOTE]
 > I den här självstudien använder vi enkel databas. Du skulle även kunna använda en pooldatabas i en elastisk pool eller en instansdatabas i en hanterad instans. För anslutning till en hanterad instans, se följande snabb starter för hanterade instanser: [snabb start: Konfigurera virtuell Azure-dator för att ansluta till en Azure SQL Database Hanterad instans](sql-database-managed-instance-configure-vm.md) och [snabb start: Konfigurera en punkt-till-plats-anslutning till en Azure SQL Database Hanterad instans från lokal plats](sql-database-managed-instance-configure-p2s.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att kunna följa de här självstudierna ska du kontrollera att du har installerat:
 
@@ -44,7 +44,7 @@ För att kunna följa de här självstudierna ska du kontrollera att du har inst
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-blank-single-database"></a>Skapa en enda tom databas
 

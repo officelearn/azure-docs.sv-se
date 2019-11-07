@@ -1,5 +1,5 @@
 ---
-title: Kopiera flera tabeller stegvis med Azure Data Factory | Microsoft Docs
+title: 'Kopiera flera tabeller stegvis med Azure Data Factory '
 description: I den här självstudiekursen kommer du att skapa en Azure Data Factory-pipeline som kopierar deltadata stegvis från flera tabeller i en lokal SQL Server-databas till en Azure SQL-databas.
 services: data-factory
 documentationcenter: ''
@@ -11,17 +11,17 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: a93b9249bde19c9ac902adbb7fc2b5469942f366
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 3129a0629c4de69e6e3d65f2f74da97e8d39a467
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595784"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683410"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Läs in data stegvis från flera tabeller i SQL Server till en Azure SQL-databas
 I den här självstudiekursen kommer du att skapa en Azure-datafabrik med en pipeline som läser in deltadata från flera tabeller på en lokal SQL-server till en Azure SQL-databas.    
 
-I den här självstudiekursen får du göra följande:
+I de här självstudierna går du igenom följande steg:
 
 > [!div class="checklist"]
 > * Förbereda käll- och måldatalager.
@@ -64,7 +64,7 @@ Här är några viktiga steg för att skapa den här lösningen:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * **SQL Server**. Du använder en lokal SQL Server-databas som källdatalager i den här självstudien. 
 * **Azure SQL Database**. Du använder en SQL-databas som måldatalager. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md). 
 
@@ -229,8 +229,8 @@ END
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
-2. På den vänstra menyn väljer du **skapa en resurs** > **analys** > **Data Factory**: 
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Just nu är det bara webbläsarna Microsoft Edge och Google Chrome som har stöd för Data Factory UI.
+2. På den vänstra menyn väljer du **skapa en resurs** > **Analytics** > **Data Factory**: 
    
    ![Valet Data Factory i fönstret Nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -252,7 +252,7 @@ END
 9. När datafabriken har skapats visas sidan **Datafabrik** som på bilden.
    
    ![Datafabrikens startsida](./media/doc-common-process/data-factory-home-page.png)
-10. Klicka på panelen **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory i en separat flik.
+10. Klicka på rutan **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory på en separat flik.
 
 ## <a name="create-self-hosted-integration-runtime"></a>Skapa Integration Runtime med lokal installation
 När du flyttar data från ett datalager i ett privat nätverk (lokalt) till ett Azure-datalager ska du installera en lokal Integration Runtime (IR) i din lokala miljö. Lokalt installerad IR flyttar data mellan ditt privata nätverk och Azure. 
@@ -351,7 +351,7 @@ I det här steget skapar du datauppsättningar som representerar datakällan, da
     
 1. I fönstret **Lägg till dynamiskt innehåll** väljer du **SinkTableName** i avsnittet **parametrar** . 
  
-1. När du **har**klickat på Slutför visas "@dataset (). SinkTableName "som tabell namn.
+1. När du **har**klickat på Slutför visas "@dataset(). SinkTableName "som tabell namn.
 
    ![Datauppsättning för mottagare – anslutning](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
@@ -363,9 +363,9 @@ I det här steget skapar du en datauppsättning för att lagra ett värde för e
 1. I fönstret **ny data uppsättning** väljer du **Azure SQL Database**och klickar på **Fortsätt**. 
 
 1. Längst ned på fliken **Allmänt** i fönstret Egenskaper skriver du **WatermarkDataset** som **namn**.
-1. Välj fliken **Anslutning** och gör följande: 
+1. Växla till fliken **Anslutning** och gör följande: 
 
-    1. Välj **AzureSqlDatabaseLinkedService** som **länkad tjänst**.
+    1. Välj **AzureSqlDatabaseLinkedService** som **Länkad tjänst**.
     1. Välj **[dbo].[watermarktable]** för **Tabell**.
 
     ![Vattenmärkesdatauppsättning – anslutning](./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png)
@@ -448,9 +448,9 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
 1. Gör så här:
 
     1. I **egenskaperna för data uppsättningen**, för parametern **SinkTableName** , anger du `@{item().TABLE_NAME}`.
-    1. I egenskapen **namn för lagrad procedur** anger du `@{item().StoredProcedureNameForMergeOperation}`.
+    1. Som egenskap för **lagrad procedur namn** anger du `@{item().StoredProcedureNameForMergeOperation}`.
     1. För egenskapen **tabell typ** anger du `@{item().TableType}`.
-    1. Ange `@{item().TABLE_NAME}` för **tabell typ parameter namn**.
+    1. Ange `@{item().TABLE_NAME}`för **tabell typ parameter namn**.
 
     ![Kopieringsaktiviteten – parametrar](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. Dra och släpp aktiviteten **Lagrad procedur** från verktygslådan **Aktiviteter** till pipelinedesignytan. Koppla aktiviteten **Copy** (Kopiera) till aktiviteten **Lagrad procedur**. 
@@ -667,7 +667,7 @@ project_table   2017-10-01 00:00:00.000
 Observera att vattenstämpelvärdena för båda tabellerna har uppdaterats.
      
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien har du fått: 
+I den här självstudiekursen har du fått: 
 
 > [!div class="checklist"]
 > * Förbereda käll- och måldatalager.

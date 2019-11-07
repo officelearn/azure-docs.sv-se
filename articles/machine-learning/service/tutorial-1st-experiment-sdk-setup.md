@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/25/2019
-ms.openlocfilehash: 891615ea301348b83124823b10403964d394c224
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 59844c5989abb03bbe5134c83c9653290c17d0a9
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476047"
+ms.locfileid: "73582483"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Självstudie: kom igång med att skapa ditt första ML-experiment med python SDK
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ I den här kursen för du göra följande:
 > [!div class="checklist"]
 > * Skapa en [Azure Machine Learning-arbetsyta](concept-workspace.md) som ska användas i nästa självstudie.
 > * Klona självstudiernas antecknings böcker till din mapp i arbets ytan.
-> * Skapa en molnbaserad beräknings instans med Azure Machine Learning python SDK installerat och förkonfigurerat.
+> * Skapa en molnbaserad Notebook-baserad virtuell dator med Azure Machine Learning python SDK installerat och förkonfigurerat.
 
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
@@ -79,7 +79,7 @@ Du har slutfört följande experiment med att ställa in och köra steg i Azure 
     
 1. Välj **självstudien – 1st-experiment-SDK-träna. ipynb** -filen i mappen med **självstudier** .
 
-1. I det översta fältet väljer du en beräknings instans som ska användas för att köra antecknings boken. De här virtuella datorerna är förkonfigurerade med [allt du behöver för att köra Azure Machine Learning](concept-compute-instance.md#contents). Du kan välja en virtuell dator som skapats av valfri användare av din arbets yta. 
+1. I det översta fältet väljer du en Notebook-VM som ska användas för att köra antecknings boken. De här virtuella datorerna är förkonfigurerade med allt du behöver för att köra Azure Machine Learning. Du kan välja en virtuell dator som skapats av valfri användare av din arbets yta. 
 
 1. Om inga virtuella datorer hittas väljer du **+ Lägg till beräkning** för att skapa den virtuella datorn.
 
@@ -89,9 +89,6 @@ Du har slutfört följande experiment med att ställa in och köra steg i Azure 
 
 1. När den virtuella datorn är tillgänglig visas den i det översta verktygsfältet.  Nu kan du köra antecknings boken med **Kör alla** i verktygsfältet, eller genom att använda **SKIFT + RETUR** i kod cellerna i antecknings boken.
 
-> [!NOTE]
-> Beräknings instanser är endast tillgängliga för arbets ytor med en region i **norra centrala USA** eller **Storbritannien, södra**.
->Om din arbets yta finns i en annan region kan du fortsätta att skapa och använda en [virtuell dator](concept-compute-instance.md#notebookvm) i stället.  Du kan använda antingen en virtuell dator med en virtuell dator eller en beräknings instans för att köra din bärbara dator.
 
 ## <a name="next-steps"></a>Nästa steg
 

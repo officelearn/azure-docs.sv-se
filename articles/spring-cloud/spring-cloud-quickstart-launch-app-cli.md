@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 5dd80dd82124723ae280c76b766afbe9ac47c90a
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: HT
+ms.openlocfilehash: 3bc1bfcf58d622151f0af9c6da693c5533bcf966
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646782"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721604"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>Snabb start: starta ett Java våren-program med Azure CLI
 
@@ -31,7 +31,7 @@ Efter den här snabb starten får du lära dig att:
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 >[!Note]
-> Azure våren Cloud erbjuds för närvarande som en offentlig för hands version. Med den offentliga för hands versionen kan kunder experimentera med nya funktioner före den officiella versionen.  Funktioner och tjänster för offentliga för hands versioner är inte avsedda för användning i produktion.  Om du vill ha mer information om stöd under för hands versionerna kan du skicka en [supportbegäran](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+> Azure våren Cloud erbjuds för närvarande som en offentlig för hands version. Med den offentliga för hands versionen kan kunder experimentera med nya funktioner före den officiella versionen.  Funktioner och tjänster för offentliga för hands versioner är inte avsedda för användning i produktion.  Om du vill ha mer information om support under för hands versionerna kan du läsa [vanliga frågor och svar](https://azure.microsoft.com/support/faq/) eller arkiv en [supportbegäran](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) .
 
 >[!TIP]
 > Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln.  Den har ett förinstallerat vanligt Azure-verktyg, inklusive de senaste versionerna av Git, JDK, Maven och Azure CLI. Om du är inloggad på din Azure-prenumeration startar du [Azure Cloud Shell](https://shell.azure.com) från Shell.Azure.com.  Du kan lära dig mer om Azure Cloud Shell genom att [läsa vår dokumentation](../cloud-shell/overview.md)

@@ -4,15 +4,15 @@ description: Ger en översikt över tjänsten Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 10/22/2019
+ms.date: 11/06/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 1ecd15b36b677e65eadbe4e979925723c9eedd51
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: af9305aafc3a77df9d7c4cffa65f6c61c53ad8a4
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498437"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715389"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Vad är nytt i Azure Migrate
 
@@ -22,7 +22,12 @@ ms.locfileid: "73498437"
 
 ## <a name="update-november-2019"></a>Uppdatering (november 2019)
 
+
+
 Ett antal nya funktioner har lagts till i Azure Migrate:
+
+> [!NOTE]
+> Om du ännu inte ser några av de här funktionerna i Azure Migrate-portalen låser du dig. De kommer att visas under nästa vecka eller så.
 
 - **Utvärdering av fysisk server**. Utvärdering av lokala fysiska servrar stöds nu, utöver migrering av fysiska servrar som redan stöds.
 - **Importera-baserad utvärdering**. Utvärdering av datorer som använder metadata-och prestanda data från en CSV-fil stöds nu.
@@ -30,6 +35,13 @@ Ett antal nya funktioner har lagts till i Azure Migrate:
 - **Beroende visualisering för agenter**: du behöver inte längre installera agenter för beroende visualisering. Både agent-och agentbaserade stöds nu.
 - **Virtuellt skriv bord**: Använd ISV-verktyg för att utvärdera och migrera lokala virtuella Skriv bords infrastrukturer (VDI) till virtuella Windows-datorer i Azure.
 - **Webbapp**: Azure App Service Migration Assistant som används för att utvärdera och migrera webbappar är nu integrerat i Azure Migrate.
+
+Nya verktyg för utvärdering och migrering har lagts till i Azure Migrate:
+
+- **Rackprogram**: erbjuder molnbaserad migrering.
+- Driv **kraft**: erbjudande utvärdering.
+
+[Lär dig mer](migrate-services-overview.md) om att använda verktyg och ISV-erbjudanden för utvärdering och migrering i Azure Migrate.
 
 ## <a name="release-version-july-2019"></a>Versions version (2019 juli)
 

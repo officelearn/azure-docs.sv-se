@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Publicera kunskaps basen, REST, python-QnA Maker'
+title: 'Snabb start: publicera kunskaps bas, REST, python-QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Den här Python REST-baserade snabbstarten vägleder dig genom publiceringen av din kunskapsbas, som överför den senaste versionen av den testade kunskapsbasen till ett dedikerat Azure Search-index som representerar den publicerade kunskapsbasen. Den skapar även en slutpunkt som kan anropas i ditt program eller en chattrobot.
+description: Den här python REST-baserade snabb starten publicerar din kunskaps bas och skapar en slut punkt som kan anropas i ditt program eller chatt-robot.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,21 +11,21 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 09523bb6c9c8a58f5f7bd102d2ac30ad77f28d1c
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 6ca13f29d2201bd29bda934ed4be169bcddf58de
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71840194"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720949"
 ---
-# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-python"></a>Snabbstart: Publicera en kunskapsbas i QnA Maker med Python
+# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-python"></a>Snabbstart: Publicera en kunskapsbas i QnA Maker med hjälp av Python
 
 Den här REST-baserade snabbstarten går igenom hur du programmatiskt publicerar din kunskapsbas (KB). Publicering skickar den senaste versionen av kunskapsbasen till ett dedikerat Azure Search-index och skapar en slutpunkt som kan anropas i ditt program eller en chattrobot.
 
 Den här snabb starten anropar QnA Maker REST API: er:
 * [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) (Publicera) – detta API kräver inte någon information i brödtexten för begäran.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * [Python 3.7](https://www.python.org/downloads/)
 * Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Om du vill hämta din nyckel och slut punkt (som innehåller resurs namnet) väljer du **snabb start** för resursen i Azure Portal.
@@ -33,7 +33,7 @@ Den här snabb starten anropar QnA Maker REST API: er:
 
     ![QnA Maker-kunskapsbas-ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
-    Om du inte har någon kunskapsbas ännu kan du skapa en exempelkunskapsbas för den här snabbstarten: [Skapa en ny kunskapsbas](../how-to/create-knowledge-base.md).
+    Om du inte har en kunskapsbas ännu kan du kan skapa en exempelkunskapsbas för den här snabbstarten: [Skapa en ny kunskapsbas](../how-to/create-knowledge-base.md).
 
 > [!NOTE] 
 > Kompletta lösningsfiler är tillgängliga från [**Azure-Samples/cognitive-services-qnamaker-python** GitHub-lagringsplatsen](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
@@ -44,7 +44,7 @@ Skapa en fil som heter `publish-kb-3x.py`.
 
 ## <a name="add-the-required-dependencies"></a>Lägga till nödvändiga beroenden
 
-Högst upp i `publish-kb-3x.py` lägger du till följande rader för att lägga till nödvändiga beroenden i projektet:
+Längst upp i `publish-kb-3x.py` lägger du till följande rader för att lägga till nödvändiga beroenden i projektet:
 
 [!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/publish-knowledge-base/publish-kb-3x.py?range=1-1 "Add the required dependencies")]
 

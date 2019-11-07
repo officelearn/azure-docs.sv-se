@@ -1,7 +1,7 @@
 ---
-title: Konfigurera stegvis indexering av fördefinierad innehålls baserad ändrings spårning
+title: Konfigurera stegvis indexering (för hands version) av fördefinierad innehålls baserad ändrings spårning
 titleSuffix: Azure Cognitive Search
-description: Aktivera ändrings spårning och bevara tillstånd för berikat innehåll för kontrollerad bearbetning i en kognitiv färdigheter.
+description: Aktivera ändrings spårning och bevara tillstånd för berikat innehåll för kontrollerad bearbetning i en kognitiv färdigheter. Den här funktionen är för närvarande i allmänt tillgänglig förhandsversion.
 author: vkurpad
 manager: eladz
 ms.author: vikurpad
@@ -9,24 +9,21 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ac082d6ecb6624dc0d5bc0ab927ff8b91ebdabce
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 74631ee3167c65e59fbd05f53fe5327d1b532dba
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512189"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719934"
 ---
 # <a name="how-to-set-up-incremental-indexing-of-enriched-documents-in-azure-cognitive-search"></a>Så här konfigurerar du stegvis indexering av berikade dokument i Azure Kognitiv sökning
+
+> [!IMPORTANT] 
+> Stegvis indexering är för närvarande en offentlig för hands version. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Den [REST API version 2019-05-06 – för hands version](search-api-preview.md) innehåller den här funktionen. Det finns för närvarande ingen portal eller .NET SDK-support.
 
 Den här artikeln visar hur du lägger till tillstånd och cachelagring i dokument som flyttas genom en Azure Kognitiv sökning-rikare pipeline så att du kan stegvis indexera dokument från någon av de data källor som stöds. Som standard är en färdigheter tillstånds lös, och om du ändrar någon del av dess sammansättning krävs en fullständig körning av indexeraren. Med stegvis indexering kan indexeraren avgöra vilka delar av pipelinen som har ändrats, återanvända befintliga anrikninger för oförändrade delar och ändra berikade delar för de steg som ändras. Cachelagrat innehåll placeras i Azure Storage.
 
 Om du inte är bekant med att konfigurera indexerare börjar du med [indexerare översikt](search-indexer-overview.md) och fortsätter sedan till [färdighetsuppsättningar](cognitive-search-working-with-skillsets.md) för att lära dig om anriknings pipelines. Mer bakgrunds information om viktiga begrepp finns i [stegvis indexering](cognitive-search-incremental-indexing-conceptual.md).
-
-Stegvis indexering konfigureras med hjälp av [search REST API-version = 2019-05 -06 – för hands version](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations).
-
-> [!NOTE]
-> Den här funktionen är inte tillgänglig ännu i portalen och måste användas program mässigt.
->
 
 ## <a name="modify-an-existing-indexer"></a>Ändra en befintlig indexerare
 

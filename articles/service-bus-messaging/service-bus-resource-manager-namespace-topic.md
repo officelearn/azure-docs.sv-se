@@ -1,6 +1,6 @@
 ---
-title: Skapa ämnesprenumeration för Azure Service Bus-namnområde med Azure Resource Manager-mall | Microsoft Docs
-description: Skapa ett Service Bus-namnområde med ämne och prenumeration med hjälp av Azure Resource Manager-mall
+title: 'Snabb start: Skapa Azure Service Bus namn områdets ämnes prenumeration med Azure Resource Manager-mall'
+description: 'Snabb start: skapa ett Service Bus-namnområde med ämne och prenumeration med Azure Resource Manager-mall'
 services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
@@ -9,43 +9,43 @@ editor: ''
 ms.assetid: d3d55200-5c60-4b5f-822d-59974cafff0e
 ms.service: service-bus-messaging
 ms.devlang: tbd
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: a63ad846f569f434e1cae33746f61e3a033de66c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a43b945ce11736b16e8e11edbe988a3c48f62d51
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755032"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718775"
 ---
-# <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Skapa ett Service Bus-namnområde med ämne och en prenumeration med en Azure Resource Manager-mall
+# <a name="quickstart-create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Snabb start: skapa ett Service Bus-namnområde med ämnet och prenumerationen med hjälp av en Azure Resource Manager mall
 
-Den här artikeln visar hur du använder en Azure Resource Manager-mall som skapar ett Service Bus-namnområde och ett ämne och en prenumeration inom namnområdet. Den här artikeln beskriver hur du ange vilka resurser distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav
+Den här artikeln visar hur du använder en Azure Resource Manager-mall som skapar ett Service Bus-namnområde och ett ämne och en prenumeration inom det namn området. Artikeln förklarar hur du anger vilka resurser som distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav
 
-Mer information om att skapa mallar finns i [Redigera Azure Resource Manager-mallar][Authoring Azure Resource Manager templates].
+Mer information om hur du skapar mallar finns i [redigera Azure Resource Manager mallar][Authoring Azure Resource Manager templates].
 
-Läs den fullständiga mallen, den [Service Bus-namnområde med ämne och prenumeration] [ Service Bus namespace with topic and subscription] mall.
+En fullständig mall finns i [avsnittet Service Bus namnrymd med ämne och prenumerations][Service Bus namespace with topic and subscription] mall.
 
 > [!NOTE]
-> Följande Azure Resource Manager-mallar är tillgängliga för hämtning och distribution.
+> Följande Azure Resource Manager mallar är tillgängliga för hämtning och distribution.
 > 
 > * [Skapa ett Service Bus-namnområde](service-bus-resource-manager-namespace.md)
 > * [Skapa ett Service Bus-namnområde med kö](service-bus-resource-manager-namespace-queue.md)
-> * [Skapa ett Service Bus-namnområde med kön och auktorisering](service-bus-resource-manager-namespace-auth-rule.md)
+> * [Skapa ett Service Bus-namnområde med kö och auktoriseringsregel](service-bus-resource-manager-namespace-auth-rule.md)
 > * [Skapa ett Service Bus-namnområde med ämne, prenumeration och regel](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Om du vill söka efter de senaste mallarna, Besök den [Azure-Snabbstartsmallar] [ Azure Quickstart Templates] galleriet och söka efter **Service Bus**.
+> Om du vill söka efter de senaste mallarna går du till galleriet för [Azure snabb starts mallar][Azure Quickstart Templates] och söker efter **Service Bus**.
 > 
 > 
 
-## <a name="what-do-you-deploy"></a>Vad du distribuera?
+## <a name="what-do-you-deploy"></a>Vad distribuerar du?
 
-Med den här mallen kan du distribuera ett Service Bus-namnområde med ämne och prenumeration.
+Med den här mallen distribuerar du ett Service Bus-namnområde med ämne och prenumeration.
 
-[Service Bus-ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) tillhandahålla en en-till-många-kommunikation i en *Publicera/prenumerera på* mönster.
+[Service Bus ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) ger en en-till-många-form av kommunikation i ett mönster för *publicering/prenumeration* .
 
 Klicka på följande knapp för att köra distributionen automatiskt:
 
@@ -53,12 +53,12 @@ Klicka på följande knapp för att köra distributionen automatiskt:
 
 ## <a name="parameters"></a>Parametrar
 
-Med Azure Resource Manager kan du definiera parametrar för värden som du vill ange när mallen distribueras. Mallen innehåller ett avsnitt som heter `Parameters` som innehåller alla parametervärden. Definiera en parameter för de värden som varierar utifrån det projekt som du distribuerar eller utifrån den miljö som du distribuerar till. Definiera inte parametrar för värden som aldrig ändras. Varje parametervärde används i mallen för att definiera de resurser som distribueras.
+Med Azure Resource Manager kan du definiera parametrar för värden som du vill ange när mallen distribueras. Mallen innehåller ett avsnitt som heter `Parameters` som innehåller alla parameter värden. Definiera en parameter för de värden som varierar beroende på vilket projekt du distribuerar eller baserat på den miljö som du distribuerar till. Definiera inte parametrar för värden som aldrig ändras. Varje parametervärde används i mallen för att definiera de resurser som distribueras.
 
 Mallen definierar följande parametrar:
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
-Namnet på Service Bus-namnområdet för att skapa.
+Namnet på Service Bus namn området som ska skapas.
 
 ```json
 "serviceBusNamespaceName": {
@@ -67,7 +67,7 @@ Namnet på Service Bus-namnområdet för att skapa.
 ```
 
 ### <a name="servicebustopicname"></a>serviceBusTopicName
-Namnet på det ämne som skapats i Service Bus-namnområdet.
+Namnet på ämnet som skapats i Service Bus namn området.
 
 ```json
 "serviceBusTopicName": {
@@ -76,7 +76,7 @@ Namnet på det ämne som skapats i Service Bus-namnområdet.
 ```
 
 ### <a name="servicebussubscriptionname"></a>serviceBusSubscriptionName
-Namnet på den prenumeration som skapats i Service Bus-namnområdet.
+Namnet på prenumerationen som skapades i Service Bus namn området.
 
 ```json
 "serviceBusSubscriptionName": {
@@ -85,7 +85,7 @@ Namnet på den prenumeration som skapats i Service Bus-namnområdet.
 ```
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
-Service Bus-API-versionen av mallen.
+Mallens Service Bus-API-version.
 
 ```json
 "serviceBusApiVersion": { 
@@ -96,7 +96,7 @@ Service Bus-API-versionen av mallen.
        }
 ```
 ## <a name="resources-to-deploy"></a>Resurser som ska distribueras
-Skapar en standard Service Bus-namnområde av typen **Messaging**, med ämne och prenumeration.
+Skapar ett standard Service Bus-namnområde av typ **meddelanden**, med ämnet och prenumerationen.
 
 ```json
 "resources": [{
@@ -131,7 +131,7 @@ Skapar en standard Service Bus-namnområde av typen **Messaging**, med ämne och
     }]
 ```
 
-JSON-syntax och egenskaper finns i [namnområden](/azure/templates/microsoft.servicebus/namespaces), [ämnen](/azure/templates/microsoft.servicebus/namespaces/topics), och [prenumerationer](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions).
+Information om JSON-syntax och egenskaper finns i [namn områden](/azure/templates/microsoft.servicebus/namespaces), [ämnen](/azure/templates/microsoft.servicebus/namespaces/topics)och [prenumerationer](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions).
 
 ## <a name="commands-to-run-deployment"></a>Kommandon för att köra distributionen
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
@@ -149,7 +149,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har skapat och distribuerat resurser med hjälp av Azure Resource Manager, lär du dig hur du hanterar dessa resurser genom att visa de här artiklarna:
+Nu när du har skapat och distribuerat resurser med Azure Resource Manager kan du läsa mer om hur du hanterar resurserna genom att läsa följande artiklar:
 
 * [Hantera Service Bus med PowerShell](service-bus-manage-with-ps.md)
 * [Hantera Service Bus-resurser med Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)

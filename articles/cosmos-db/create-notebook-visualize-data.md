@@ -1,24 +1,24 @@
 ---
-title: Skapa en antecknings bok i Azure Cosmos DB för att analysera och visualisera data
-description: Lär dig hur du använder inbyggda Jupyter-anteckningsböcker för att importera data till Azure Cosmos DB, analysera data och visualisera utdata.
+title: 'Självstudie: skapa en antecknings bok i Azure Cosmos DB för att analysera och visualisera data'
+description: 'Självstudie: Lär dig hur du använder inbyggda Jupyter-anteckningsböcker för att importera data till Azure Cosmos DB, analysera data och visualisera utdata.'
 author: deborahc
 ms.topic: tutorial
 ms.service: cosmos-db
-ms.date: 09/25/2019
+ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 679887ca6e9ad7713480899d1b40fddf9923c4c0
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 45dd4e8dcfd74cdb5d96b935e239b9f4b5094a7c
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931506"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720924"
 ---
-# <a name="create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Skapa en antecknings bok i Azure Cosmos DB för att analysera och visualisera data
+# <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Självstudie: skapa en antecknings bok i Azure Cosmos DB för att analysera och visualisera data
 
 Den här artikeln beskriver hur du använder inbyggda Jupyter-anteckningsböcker för att importera exempel på detalj handels data till Azure Cosmos DB. Du kommer att se hur du använder SQL-och Azure Cosmos DB Magic-kommandon för att köra frågor, analysera data och visualisera resultaten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * [Aktivera stöd för bärbara datorer när du skapar ett Azure Cosmos-konto](enable-notebooks.md)
 
@@ -121,7 +121,7 @@ Innan du kör frågor för att analysera data kan du läsa data från container 
 {Query text}
 ```
 
-Mer information finns i de [inbyggda antecknings kommandon och funktioner i Azure Cosmos DB](use-notebook-features-and-commands.md) artikel. Du kommer att köra fråge `SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c`. Resultaten kommer att sparas i en Pandas-DataFrame med namnet df_cosmos. Klistra in följande kommando i en ny Notebook-cell och kör den:
+Mer information finns i de [inbyggda antecknings kommandon och funktioner i Azure Cosmos DB](use-notebook-features-and-commands.md) artikel. Du kommer att köra frågan-`SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c`. Resultaten kommer att sparas i en Pandas-DataFrame med namnet df_cosmos. Klistra in följande kommando i en ny Notebook-cell och kör den:
 
 ```python
 %%sql --database RetailDemo --container WebsiteData --output df_cosmos

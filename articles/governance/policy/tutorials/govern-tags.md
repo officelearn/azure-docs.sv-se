@@ -6,16 +6,16 @@ ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
-ms.openlocfilehash: 79219b9405f76e7044a4d403b37ba2f1545dfbea
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 780dbf02fbdb0a607f29c710da9a6320a8626f7b
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501892"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643763"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Självstudie: hantera märkes styrning med Azure Policy
 
-[Taggar](../../../azure-resource-manager/resource-group-using-tags.md) är en viktig del av att organisera dina Azure-resurser i en taxonomi. När du följer [metod tipsen för etikett hantering](/azure/architecture/cloud-adoption/ready/considerations/name-and-tag#metadata-tags)kan du använda taggar för att tillämpa affärs principer med Azure policy eller [spåra kostnader med Cost Management](../../../cost-management/cost-mgt-best-practices.md#organize-and-tag-your-resources).
+[Taggar](../../../azure-resource-manager/resource-group-using-tags.md) är en viktig del av att organisera dina Azure-resurser i en taxonomi. När du följer [metod tipsen för etikett hantering](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources)kan du använda taggar för att tillämpa affärs principer med Azure policy eller [spåra kostnader med Cost Management](../../../cost-management/cost-mgt-best-practices.md#organize-and-tag-your-resources).
 Oavsett hur eller varför du använder taggar är det viktigt att du snabbt kan lägga till, ändra och ta bort taggarna på dina Azure-resurser.
 
 Azure Policyens [ändrings](../concepts/effects.md#modify) funktion har utformats för att hjälpa till med styrning av Taggar oavsett vilket stadium av resurs styrning som du är i. **Ändra** hjälper när:

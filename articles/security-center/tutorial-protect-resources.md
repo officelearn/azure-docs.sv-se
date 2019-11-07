@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center-självstudie – Skydda dina resurser med Azure Security Center | Microsoft Docs
+title: Självstudie för åtkomst & program kontroller – Azure Security Center
 description: I den här självstudien lär du dig hur du konfigurerar en just-in-Time-princip för VM-åtkomst och en princip för program kontroll.
 services: security-center
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
-ms.openlocfilehash: 8cb07f3447e50528a94811f33a2142086f698586
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 4b40b7c6f755eb2107a09b1b881ea33fa2187f29
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996333"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686327"
 ---
-# <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Självstudier: Skydda dina resurser med Azure Security Center
+# <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Självstudie: Skydda dina resurser ed Azure Security Center
 Security Center begränsar din exponering för hot med kontroller för åtkomst och program för att blockera skadlig aktivitet. Just-in-Time (JIT)-åtkomsten för virtuella datorer minskar exponeringen för attacker genom att du kan neka beständiga åtkomst till virtuella datorer. Istället tillhandahåller du kontrollerad och granskad åtkomst till virtuella datorer enbart när det behövs. Anpassningsbara programkontroller hjälper till att skydda virtuella datorer mot skadlig programvara genom att kontrollera vilka program du kan köra på dina virtuella datorer. Security Center använder Machine Learning för att analysera processerna som körs i den virtuella datorn och hjälper dig att tillämpa vitlisteregler med den här intelligensen.
 
 I den här självstudiekursen får du lära du dig att:
@@ -29,8 +29,6 @@ I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
 > * Konfigurera en just-in-Time-princip för VM-åtkomst
 > * Konfigurera en princip för programkontroll
-
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/pricing/free-trial/) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 För att gå igenom funktionerna i den här självstudien måste du ha standardnivån i Security Center. Du kan prova Security Center Standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/). Snabbstarten för att [registrera Azure-prenumerationen till Security Center Standard](security-center-get-started.md) vägleder dig genom uppgraderingen till Standard.
@@ -78,9 +76,9 @@ Anpassningsbara programkontroller hjälper dig att definiera en uppsättning pro
 
    Avsnittet **Resursgrupper** innehåller tre flikar:
 
-   - **Konfigurerade**: lista med resursgrupper som innehåller de virtuella datorer som konfigurerades med programkontroll.
-   - **Rekommenderas**: lista med resursgrupper som programkontroll rekommenderas för.
-   - **Ingen rekommendation**: lista med resursgrupper som innehåller virtuella datorer utan någon rekommendation för programkontroll. Till exempel virtuella datorer där program alltid byts ut och inte har uppnått ett stabilt tillstånd.
+   - **Konfigurerad**: lista över resursgrupper som innehåller de virtuella datorer som konfigurerades med programkontroll.
+   - **Rekommenderas**: lista över resursgrupper som programkontroll rekommenderas för.
+   - **Ingen rekommendation**: lista över resursgrupper som innehåller virtuella datorer utan rekommendationer för programkontroll. Till exempel virtuella datorer där program alltid byts ut och inte har uppnått ett stabilt tillstånd.
 
 2. Markera fliken **Rekommenderas** för att visa en lista över resursgrupper med rekommendationer för programkontroll.
 
@@ -89,14 +87,14 @@ Anpassningsbara programkontroller hjälper dig att definiera en uppsättning pro
 3. Välj en resursgrupp för att öppna alternativet **Skapa regler för programkontroll**. I **Välj virtuella datorer** läser du listan med rekommenderade virtuella datorer och avmarkerar dem du inte vill använda programkontroll för. I **Välj processer för reglerna för lista över tillåtna** läser du listan med rekommenderade virtuella datorer och avmarkerar dem du inte vill använda. Listan innehåller:
 
    - **NAMN**: den fullständiga programsökvägen
-   - **PROCESSER**: antalet program som finns på varje sökväg
-   - **GEMENSAM**: "Ja" betyder att dessa processer har körts på de flesta virtuella datorer i den här resursgruppen
-   - **EXPLOATERBAR**: en varningsikon anger om programmet skulle kunna användas av en angripare för att kringgå listan med tillåtna program. Vi rekommenderar att du granskar programmen innan du godkänner dem.
+   - **PROCESSER**: Hur många program som finns på varje sökväg
+   - **GEMENSAM**: "Ja" betyder att dessa processer har körts på de flesta virtuella datorerna i den här resursgruppen
+   - **EXPLOATERBAR**: En varningsikon anger om programmen skulle kunna användas av en angripare för att kringgå listan över tillåtna program. Vi rekommenderar att du granskar programmen innan du godkänner dem.
 
 4. När du är färdig med dina val klickar du på **Skapa**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-De andra snabbstarterna och självstudierna i den här samlingen bygger på den här snabbstarten. Om du tänker fortsätta med att arbeta med efterföljande snabbstarter och självstudier ska du fortsätta att köra Standard-nivån och ha automatisk etablering aktiverad. Om du inte tänker fortsätta eller vill återgå till den kostnadsfria nivån:
+De andra snabbstarterna och självstudierna i den här samlingen bygger på den här snabbstarten. Om du planerar att fortsätta arbeta med efterföljande snabb starter och självstudier kan du fortsätta att köra standard-nivån och behålla automatisk etablering aktive rad. Om du inte tänker fortsätta eller vill återgå till den kostnadsfria nivån:
 
 1. Återgå till huvudmenyn i Security Center och välj **Säkerhetsprincip**.
 2. Välj den prenumeration eller princip du vill ska återgå till den kostnadsfria nivån. **Säkerhetsprincip** öppnas.
@@ -125,7 +123,7 @@ I den här självstudien har du lärt dig att begränsa din exponering för hot 
 Gå vidare till nästa kurs om du vill veta mer om att hantera säkerhetsincidenter.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Reagera på säkerhetsincidenter](tutorial-security-incident.md)
+> [Självstudie: Reagera på säkerhetsincidenter](tutorial-security-incident.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-protect-resources/just-in-time-vm-access.png

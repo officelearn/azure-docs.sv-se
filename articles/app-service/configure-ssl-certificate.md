@@ -13,12 +13,12 @@ ms.date: 10/25/2019
 ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 683ea55bdc9eb878f7bcbe832d5364d50a6b23e2
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 12b8d6dff571c074d1f1422f75e33a8b12761bd9
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501185"
+ms.locfileid: "73572158"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Lägg till ett SSL-certifikat i Azure App Service
 
@@ -36,7 +36,7 @@ I följande tabell visas de alternativ som du har för att lägga till certifika
 | Ladda upp ett privat certifikat | Om du redan har ett privat certifikat från en tredje part kan du ladda upp det. Se [krav för privata certifikat](#private-certificate-requirements). |
 | Ladda upp ett offentligt certifikat | Offentliga certifikat används inte för att skydda anpassade domäner, men du kan läsa in dem i koden om du behöver dem för att få åtkomst till fjär resurser. |
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att följa den här instruktions guiden:
 
@@ -65,6 +65,7 @@ För att skydda en anpassad domän i en SSL-bindning har certifikatet ytterligar
 
 Det kostnads fria App Service-hanterade certifikatet är en lösning för att skydda ditt anpassade DNS-namn i App Service. Det är ett fullständigt fungerande SSL-certifikat som hanteras av App Service och förnyas automatiskt. Det kostnads fria certifikatet levereras med följande begränsningar:
 
+- Har inte stöd för certifikat med jokertecken.
 - Stöder inte blott-domäner.
 - Kan inte exporteras.
 
@@ -281,7 +282,7 @@ Klicka på **Överför**.
 
 ![Ladda upp ett offentligt certifikat i App Service](./media/configure-ssl-certificate/upload-public-cert.png)
 
-När certifikatet har laddats upp kopierar du tumavtrycket för certifikatet och ser [till att det blir tillgängligt för certifikatet](configure-ssl-certificate-in-code.md#load-the-certificate).
+När certifikatet har laddats upp kopierar du tumavtrycket för certifikatet och ser [till att det blir tillgängligt för certifikatet](configure-ssl-certificate-in-code.md#make-the-certificate-accessible).
 
 ## <a name="manage-app-service-certificates"></a>Hantera App Service certifikat
 

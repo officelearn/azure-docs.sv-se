@@ -1,22 +1,22 @@
 ---
-title: Migrera händelsedata till SQL Data Warehouse – Azure Event Hubs | Microsoft Docs
-description: I den här självstudien lär du dig att samla in data från din händelsehubb till ett SQL Data Warehouse med en Azure-funktion som utlöses av ett Event Grid (händelserutnät).
+title: 'Självstudie: Migrera händelse data till SQL Data Warehouse – Azure Event Hubs'
+description: 'Självstudie: den här själv studie kursen visar hur du samlar in data från din händelsehubben till ett SQL Data Warehouse med hjälp av en Azure-funktion som utlöses av ett event Grid.'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: ''
 ms.author: shvija
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 11/05/2019
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 90a17839afdddb4d6ad8abfa57963b4c76b100ed
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 92c414afbb8121eb03353c79dfe3a51e0cfa7ec0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604290"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718884"
 ---
-# <a name="migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Migrera insamlade Event Hubs-data till ett SQL Data Warehouse med hjälp av Event Grid och Azure Functions
+# <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Självstudie: Migrera insamlade Event Hubs data till en SQL Data Warehouse med Event Grid och Azure Functions
 
 Event Hubs [Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) är det enklaste sättet att automatiskt leverera strömmade data i Event Hubs till Azure Blob-lagring eller Azure Data Lake-lagring. Du kan sedan bearbeta och leverera data till andra lagringsmål, som SQL Data Warehouse eller Cosmos DB. I den här självstudien lär du dig att samla in data från din händelsehubb till ett SQL Data Warehouse med en Azure-funktion som utlöses av ett [Event Grid](https://docs.microsoft.com/azure/event-grid/overview) (händelserutnät).
 
@@ -26,7 +26,7 @@ Event Hubs [Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capt
 *   Sedan skapar du en Azure Event Grid-prenumeration med Event Hubs-namnområdet som källa och Azure Function-slutpunkten som mål.
 *   När en ny Avro-fil skickas till blob-lagring i Azure Storage av funktionen Event Hubs Capture, meddelar Event Grid blob-lagringens URI till Azure Function. Därefter migreras data av Function från blob-lagringen till ett SQL Data Warehouse.
 
-I de här självstudierna gör du följande: 
+I den här självstudien gör du följande: 
 
 > [!div class="checklist"]
 > * Distribuera infrastrukturen
@@ -106,7 +106,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
 ## <a name="publish-code-to-the-functions-app"></a>Publicera kod till Functions-appen
 
-1. Öppna lösningen *EventHubsCaptureEventGridDemo.sln* i Visual Studio 2019.
+1. Öppna lösningen *EventHubsCaptureEventGridDemo. SLN* i Visual Studio 2019.
 
 1. Högerklicka på *FunctionEGDWDumper* i Solution Explorer och välj **Publicera**.
 
@@ -139,11 +139,11 @@ När du har publicerat funktionen är du klar att prenumerera på insamlingshän
 
 1. Välj **Lägg till Event Grid-prenumeration**.
 
-   ![Lägg till prenumeration](./media/store-captured-data-data-warehouse/add-event-grid-subscription.png)
+   ![Lägg till en prenumeration](./media/store-captured-data-data-warehouse/add-event-grid-subscription.png)
 
 1. Ge Event Grid-prenumerationen ett namn. Använd **Event Hubs-namnområden** som händelsetyp. Ange värden för att välja din instans av Event Hubs-namnområdet. Lämna prenumerantens slutpunkt som det angivna värdet. Välj **Skapa**.
 
-   ![Skapa prenumeration](./media/store-captured-data-data-warehouse/set-subscription-values.png)
+   ![Skapa en prenumeration](./media/store-captured-data-data-warehouse/set-subscription-values.png)
 
 ## <a name="generate-sample-data"></a>Generera exempeldata  
 Nu har du konfigurerat Event Hub, SQL-informationslagret, Azure-funktionsappen och Event Grid-prenumerationen. Du kan köra WindTurbineDataGenerator.exe för att generera dataströmmar till Event Hub när du har uppdaterat anslutningssträngen och namnet på din händelsehubb i källkoden. 

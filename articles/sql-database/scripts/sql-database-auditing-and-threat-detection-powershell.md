@@ -1,5 +1,5 @@
 ---
-title: PowerShell-exempel på gransknings-och Avancerat skydd – Azure SQL Database | Microsoft Docs
+title: PowerShell-exempel på gransknings-och Avancerat skydd – Azure SQL Database
 description: Azure PowerShell exempel skript för att konfigurera gransknings-och Avancerat skydd i en Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: carlrab, vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: f9ef894f4c4d1d0ad0ab43b538c984f9cf5b2d01
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 1dee8031b00e7d291844790fb86efd4d00075d87
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816685"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691738"
 ---
 # <a name="use-powershell-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>Använd PowerShell för att konfigurera SQL Database granskning och Avancerat skydd
 

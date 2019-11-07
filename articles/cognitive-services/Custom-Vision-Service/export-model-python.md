@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: Köra en TensorFlow-modell i Python – Custom Vision Service'
 titleSuffix: Azure Cognitive Services
-description: Kör en TensorFlow-modell i Python.
+description: Kör en TensorFlow-modell i Python. Den här artikeln gäller endast modeller som exporteras från bild klassificerings projekt i Custom Visions tjänsten.
 services: cognitive-services
 author: areddish
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: areddish
-ms.openlocfilehash: 43fbf7b13c75b9bdbaa810905ed9a25e8faa664f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 00d3b1dce9bacc01c8319c678ab27a3d4cc8da88
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898367"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718422"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Självstudie: Köra en TensorFlow-modell i Python
 
@@ -24,11 +24,11 @@ När du har [exporterat din TensorFlow-modell](https://docs.microsoft.com/azure/
 > [!NOTE]
 > Den här självstudien gäller endast för modeller som exporteras från bild klassificerings projekt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 I självstudiekursen måste du göra följande:
 
-- Installera Python 2.7 + eller Python 3.5 +.
+- Installera Python 2.7+ eller Python 3.5+.
 - Installera pip.
 
 Sedan måste du installera följande paket:

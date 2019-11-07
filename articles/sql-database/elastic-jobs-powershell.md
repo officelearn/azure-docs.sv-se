@@ -1,5 +1,5 @@
 ---
-title: Skapa en elastisk jobbagent för Azure SQL Database med hjälp av PowerShell | Microsoft Docs
+title: 'Skapa en Azure SQL Database elastisk jobb agent med hjälp av PowerShell '
 description: Lär dig hur du skapar en elastisk jobbagent med PowerShell.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: 0d64bd150a43666679253f8244d80411e25dfdcd
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 80f9db2d11c875d9be9bef225c04e3e90f3d0ff8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935043"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692243"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Skapa en elastisk jobbagent med PowerShell
 
@@ -34,7 +34,7 @@ I den här självstudien får du lära dig de steg som krävs för att köra en 
 > * Starta körningen av ett jobb
 > * Övervaka ett jobb
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den uppgraderade versionen av Elastic Database-jobb har en ny uppsättning PowerShell-cmdlets som kan användas under migreringen. Dessa nya cmdletar överför alla befintliga autentiseringsuppgifter för jobb, mål (inklusive databaser, servrar, anpassade samlingar), jobb utlösare, jobb scheman, jobb innehåll och jobb till en ny elastisk jobb agent.
 
@@ -70,7 +70,7 @@ Get-Module Az.Sql
 
 För att skapa elastiska jobbagenter krävs en databas (S0 eller högre) som kan användas som [jobbdatabas](sql-database-job-automation-overview.md#job-database). 
 
-*Skriptet nedan skapar en ny resursgrupp, server och databas som ska användas som jobbdatabas. Skriptet nedan skapar också en andra server med två tomma databaser för att köra jobb mot.*
+*Skriptet nedan skapar en ny resurs grupp, server och databas som ska användas som jobb databas. Skriptet nedan skapar också en andra server med två tomma databaser för att köra jobb mot.*
 
 Elastiska jobb har inga särskilda krav för namngivningskonventioner, så du kan använda vilken namnkonvention du vill, förutsatt att de uppfyller något av [kraven för Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
@@ -289,7 +289,7 @@ $JobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 
 I följande tabell visas möjliga tillstånd för jobb körning:
 
-|Tillstånd|Beskrivning|
+|Status|Beskrivning|
 |:---|:---|
 |**Create** | Jobb körningen har precis skapats och pågår ännu inte.|
 |**Pågår** | Jobb körningen pågår just nu.|
@@ -297,7 +297,7 @@ I följande tabell visas möjliga tillstånd för jobb körning:
 |**Lyckades** | Jobb körningen har slutförts.|
 |**SucceededWithSkipped** | Jobb körningen har slutförts men vissa av dess underordnade hoppades över.|
 |**Misslyckades** | Jobb körningen har misslyckats och förbrukat sina återförsök.|
-|**TimedOut** | Tids gränsen nåddes för jobb körningen.|
+|**Stängningsåtgärd** | Tids gränsen nåddes för jobb körningen.|
 |**Avbrutet** | Jobb körningen avbröts.|
 |**Överhoppad** | Jobb körningen hoppades över eftersom en annan körning av samma jobb steg redan kördes på samma mål.|
 |**WaitingForChildJobExecutions** | Jobb körningen väntar på att de underordnade körningarna ska slutföras.|

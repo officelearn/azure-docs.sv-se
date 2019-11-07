@@ -3,6 +3,7 @@ title: Skapa ett in-Store Analytics-program i Azure IoT Central | Microsoft Docs
 description: I den här självstudien visas hur du skapar ett program för butiks analys i IoT Central. Du skapar den, anpassar den och lägger till sensor enheter.
 services: iot-central
 ms.service: iot-central
+ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.custom:
 - iot-storeAnalytics-checkout
@@ -10,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 10/03/2019
-ms.openlocfilehash: 0d586aaab4fc87bb671e67152cf66e9fb1447504
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a662201823808c9e2e34e9210096cb081e1b9430
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495168"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615312"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Självstudie: skapa ett in-Store Analytics-program i Azure IoT Central
 
@@ -41,7 +42,7 @@ I den här guiden får du lära dig att:
 > * Ansluta enheter till ditt program
 > * Lägg till regler och åtgärder för att övervaka villkor
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att kunna slutföra den här själv studie serien behöver du:
 * En Azure-prenumeration rekommenderas. Du kan välja att använda en kostnads fri 7-dagars utvärderings version. Om du inte har någon Azure-prenumeration kan du skapa en på [sidan för Azure-registrering](https://aka.ms/createazuresubscription).

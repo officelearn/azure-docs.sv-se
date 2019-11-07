@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 11/04/2019
-ms.openlocfilehash: f693a80726c9185bbd75d5fb99eb7e5f3ccad987
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: d5a8ada7be99cfbd541b9ac58db2eba094536fc0
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493485"
+ms.locfileid: "73580521"
 ---
 # <a name="build--use-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Bygg & Använd en Azure Machine Learning pipeline för batch-Poäng
 
@@ -37,7 +37,7 @@ I den här självstudien slutför du följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Om du inte redan har en Azure Machine Learning arbets yta eller en virtuell dator i datorn, fyller du [i del 1 i installations guiden för](tutorial-1st-experiment-sdk-setup.md).
 * När du är klar med installations självstudien använder du samma Notebook-Server för att öppna *självstudierna/tutorial-pipeline-batch-scoring-Classification. ipynb* Notebook.
@@ -522,7 +522,7 @@ RunDetails(published_pipeline_run).show()
 
 Slutför inte det här avsnittet om du planerar att köra andra Azure Machine Learning själv studie kurser.
 
-### <a name="stop-the-compute-instance"></a>Stoppa beräknings instansen
+### <a name="stop-the-notebook-vm"></a>Stoppa den virtuella Notebook-datorn
 
 [!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 

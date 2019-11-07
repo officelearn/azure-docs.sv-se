@@ -7,12 +7,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: raynew
-ms.openlocfilehash: 90111325677e1bdd12a03081ad7513a34f68fd40
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: b71048412f5715fd1b8ef3edf742716916672bd5
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044144"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718744"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Verksamhets kontinuitet och haveri beredskap (BCDR): Azure-kopplade regioner
 
@@ -28,31 +28,31 @@ Bild 1 – regionala Azure-par
 
 | Placering | Länkade regioner |  |
 |:--- |:--- |:--- |
-| Asien |Asien, östra |Asien, sydöstra |
-| Australien |Australien, östra |Australien, sydöstra |
+| Asien |Östasien |Sydostasien |
+| Australien |Östra Australien |Sydöstra Australien |
 | Australien |Australien, centrala |Australien, centrala 2 |
-| Brasilien |Brasilien, södra |USA, södra centrala |
-| Kanada |Kanada, centrala |Kanada, östra |
+| Brasilien |Södra Brasilien |Södra centrala USA |
+| Kanada |Centrala Kanada |Östra Kanada |
 | Kina |Kina, norra |Kina, östra|
 | Kina |Kina, norra 2 |Kina, östra 2|
 | Europa |Nordeuropa (Irland) |Västeuropa (Nederländerna) |
 | Frankrike |Frankrike, centrala|Frankrike, södra|
-| Tyskland |Tyskland, centrala |Tyskland, nordöstra |
-| Indien |Indien, centrala |Indien, södra |
-| Indien |Indien, västra |Indien, södra |
-| Japan |Japan, östra |Japan, västra |
+| Tyskland |Centrala Tyskland |Nordöstra Tyskland |
+| Indien |Indien, centrala |Södra Indien |
+| Indien |Indien, västra |Södra Indien |
+| Japan |Östra Japan |Västra Japan |
 | Korea |Sydkorea, centrala |Sydkorea, södra |
-| Nordamerika |USA, östra |USA, västra |
-| Nordamerika |USA, östra 2 |USA, centrala |
-| Nordamerika |USA, norra centrala |USA, södra centrala |
-| Nordamerika |USA, västra 2 |USA, västra centrala 
+| Nordamerika |Östra USA |Västra USA |
+| Nordamerika |USA, östra 2 |Centrala USA |
+| Nordamerika |Norra centrala USA |Södra centrala USA |
+| Nordamerika |Västra USA 2 |Västra centrala USA 
 | Sydafrika | Sydafrika, norra | Sydafrika, västra
 | Storbritannien |Storbritannien, västra |Storbritannien, södra |
 | Förenade Arabemiraten | Förenade Arabemiraten, norra | Förenade Arabemiraten, centrala
-| OSS-försvars departement |USA DoD, östra |US DoD, centrala |
+| OSS-försvars departement |US DoD, östra |US DoD, centrala |
 | Amerikanska myndigheter |Arizona (USA-förvaltad region) |Texas (USA-förvaltad region) |
-| Amerikanska myndigheter |US Gov, Iowa |USA Gov Virginia |
-| Amerikanska myndigheter |USA Gov Virginia |Texas (USA-förvaltad region) |
+| Amerikanska myndigheter |US Gov, Iowa |Virginia (USA-förvaltad region) |
+| Amerikanska myndigheter |Virginia (USA-förvaltad region) |Texas (USA-förvaltad region) |
 
 Tabell 1 – mappning av regionala Azure-par
 
@@ -75,7 +75,7 @@ Bild 2 – hypotetiskt, regionalt par för Azure
 ## <a name="cross-region-activities"></a>Aktiviteter över flera regioner
 Som det hänvisas till i bild 2.
 
-![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure Compute (IaaS)** – du måste etablera ytterligare beräknings resurser i förväg för att säkerställa att resurserna är tillgängliga i en annan region under en katastrof. Mer information finns i [teknisk vägledning för Azure-återhämtning](resiliency/resiliency-technical-guidance.md).
+![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure Compute (IaaS)** – du måste etablera ytterligare beräknings resurser i förväg för att säkerställa att resurserna är tillgängliga i en annan region under en katastrof. Mer information finns i [teknisk vägledning för Azure-återhämtning](https://github.com/uglide/azure-content/blob/master/articles/resiliency/resiliency-technical-guidance.md).
 
 ![lagrings](./media/best-practices-availability-paired-regions/2Green.png) **Azure Storage** – om du använder hanterade diskar kan du läsa mer om [säkerhets kopiering över flera regioner](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) med Azure Backup och [Replikera virtuella datorer](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) från en region till en annan med Azure Site Recovery. Om du använder lagrings konton konfigureras Geo-redundant lagring (GRS) som standard när ett Azure Storage-konto skapas. Med GRS replikeras dina data automatiskt tre gånger inom den primära regionen och tre gånger i den kopplade regionen. Mer information finns i [Azure Storage alternativ för redundans](storage/common/storage-redundancy.md).
 

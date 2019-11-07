@@ -1,21 +1,24 @@
 ---
-title: Dokument extrahering kognitiv Sök kunskaper
+title: Dokument extrahering kognitiv Sök kunskaper (för hands version)
 titleSuffix: Azure Cognitive Search
-description: Extraherar innehåll från en fil inom en pipeline för anrikning.
+description: Extraherar innehåll från en fil inom en pipeline för anrikning. Den här kunskapen är för närvarande en offentlig för hands version.
 manager: nitinme
 author: careyjmac
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: chalton
-ms.openlocfilehash: 8656896fe1a113ab143c43b4d1973e4196c5f087
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e4274f1cb2eacaf78ab83bfb9d637d044d2290bd
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512202"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720119"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Inlärnings kunskap för dokument extrahering
+
+> [!IMPORTANT] 
+> Den här kunskapen är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [REST API version 2019-05-06-Preview](search-api-preview.md) innehåller för hands versions funktioner. Det finns för närvarande inget stöd för Portal eller .NET SDK.
 
 **Dokument extraherings** kunskapen extraherar innehåll från en fil i pipelinen för anrikning. På så sätt kan du utnyttja det steg för dokument extrahering som normalt inträffar innan färdigheter-körningen med filer som kan genereras av andra färdigheter.
 
@@ -63,7 +66,7 @@ Detta fil referens objekt kan genereras av tre sätt:
 
  - Ställer in parametern `allowSkillsetToReadFileData` i din index-definition till "true".  Detta skapar en sökväg `/document/file_data` som är ett objekt som representerar de ursprungliga fil data som hämtats från BLOB-datakällan. Den här parametern gäller endast för data i Blob Storage.
 
- - Ange ett annat värde än `none`för parametern `imageAction` på indexeraren.  Detta skapar en matris med bilder `/document/normalized_images` som följer den konvention som krävs för inmatade kunskaper om den skickas separat (d.v.s. `/document/normalized_images/*`).
+ - Ange ett annat värde än `none`för parametern `imageAction` på indexeraren.  Detta skapar en matris med bilder som följer den konvention som krävs för inmatade kunskaper om den har skickats separat (d.v.s. `/document/normalized_images/*`).
 
  - En anpassad kunskap returnerar ett JSON-objekt som definieras exakt som ovan.  Parametern `$type` måste anges till exakt `file` och `data`s parametern måste vara bas 64-kodade byte mat ris data för fil innehållet.
 

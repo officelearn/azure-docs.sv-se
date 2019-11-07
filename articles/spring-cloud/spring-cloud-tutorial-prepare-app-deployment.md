@@ -1,22 +1,19 @@
 ---
 title: Förbereda ett våren-program för distribution i Azure våren Cloud | Microsoft Docs
 description: I den här snabb starten förbereder du ett Java våren-program för distribution.
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 10/06/2019
-ms.author: v-vasuke
-ms.openlocfilehash: 98d9f3f656cff84cec8d223ed535255157155bd2
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.author: jeconnoc
+ms.openlocfilehash: 6c3048fd27c3d3d4fdba0841fb4ab21bd10e15fe
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72039009"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721247"
 ---
-# <a name="tutorial-prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Självstudier: Förbereda ett Java våren-program för distribution i Azure våren Cloud
+# <a name="tutorial-prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Självstudie: förbereda ett Java våren-program för distribution i Azure våren Cloud
 
 Den här snabb starten visar hur du förbereder ett befintligt Java våren Cloud-program för distribution till Azure våren Cloud.  Azure våren Cloud har kon figurer ATS korrekt och ger robusta tjänster för att övervaka, skala och uppdatera ditt våren Cloud-program. 
 
@@ -93,27 +90,27 @@ I tabellen nedan visas rätt versioner för din våren Boot/våren Cloud-App.
 
 Start version för våren | Våren Cloud-version | Azure våren Cloud-version
 ---|---|---
-2.0. x | Finchley. RELEASE | 2.0.0 – ÖGONBLICKS BILD
-2.1. x | Greenwich. RELEASE | 2.1.0 – ÖGONBLICKS BILD
+2.0. x | Finchley. RELEASE | 2.0. x
+2.1. x | Greenwich. RELEASE | 2.1. x
 
-Ta med det här kodfragmentet i din `pom.xml` med rätt Azure våren Cloud-version i "beroende":
+Inkludera ett av kodfragmenten nedan i `pom.xml`.  Välj det kodfragment vars version matchar ditt eget.
 
+### <a name="version-20x"></a>Version 2.0. x:
 ```xml
-    <repositories>
-        <repository>
-            <id>nexus-snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-    
-    <dependency>
+<dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.1.0-SNAPSHOT</version>
-    </dependency>
+        <version>2.0.0</version>
+</dependency>
+```
+
+### <a name="version-21x"></a>Version 2.1. x:
+```xml
+<dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
+        <version>2.1.0</version>
+</dependency>
 ```
 
 ## <a name="other-required-dependencies"></a>Andra nödvändiga beroenden

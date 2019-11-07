@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/18/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: 842392ab425628a1c82a39e25a65066064747211
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 315ebfa1460f9d9bc041925cec2451f63ac5be16
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675782"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580254"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Självstudie: Spåra användning av ett labb i Azure Lab Services
 Den här kursen visar hur en labbskapare/ägare kan spåra användningen av ett labb.
@@ -41,6 +41,8 @@ I den här självstudien gör du följande:
 
     ![Registrerade användare](../media/tutorial-track-usage/registered-users.png)
 
+    Mer information om hur du lägger till och hanterar användare för labbet finns i [lägga till och hantera labb användare](how-to-configure-student-usage.md).
+
 ## <a name="view-the-usage-of-vms-in-the-lab"></a>Visa användningen av virtuella datorer i labbet 
 
 1. Välj **Virtuella datorer** på menyn till vänster. 
@@ -49,12 +51,11 @@ I den här självstudien gör du följande:
     ![VM-användning](../media/tutorial-track-usage/vm-usage.png)
 
 ## <a name="manage-student-vms"></a>Hantera virtuella studentdatorer 
-På den här sidan kan du starta, stoppa eller återställa elev-VM: ar genom att antingen använda List rutan i kolumnen **status** eller knapparna i verktygsfältet. 
+På den här sidan kan du starta, stoppa eller återställa elev-VM: ar med hjälp av kontrollerna i kolumnen **tillstånd** eller i verktygsfältet.
 
 ![Kontroller för virtuella datorer](../media/tutorial-track-usage/vm-controls.png)
 
-Du kan även använda verktygsfältsknappar för att starta, stoppa eller ta bort en virtuell dator. 
-
+Mer information om hur du hanterar en pool för virtuella datorer för labbet finns i [Konfigurera och hantera en pool för virtuella datorer](how-to-set-virtual-machine-passwords.md).
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om klassrumslabb finns i artiklarna under [Instruktionsguider](how-to-manage-lab-accounts.md).

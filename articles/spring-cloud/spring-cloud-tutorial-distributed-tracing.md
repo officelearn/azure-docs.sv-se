@@ -1,22 +1,19 @@
 ---
-title: 'Självstudier: Använd distribuerad spårning med Azure våren Cloud | Microsoft Docs'
+title: 'Självstudie: använda distribuerad spårning med Azure våren Cloud | Microsoft Docs'
 description: Lär dig att använda våren Cloud Distributed tracing via Azure Application Insights
-services: spring-cloud
-author: v-vasuke
-manager: gwallace
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 10/06/2019
-ms.author: v-vasuke
-ms.openlocfilehash: 95aae47bddffd102c5d6d6dac67f22e6777cc3e7
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.author: jeconnoc
+ms.openlocfilehash: a9d2100103cdd5858d0d58cf6ef77a6ccac3745f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038939"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607555"
 ---
-# <a name="tutorial-using-distributed-tracing-with-azure-spring-cloud"></a>Självstudier: Använda distribuerad spårning med Azure våren Cloud
+# <a name="tutorial-using-distributed-tracing-with-azure-spring-cloud"></a>Självstudie: använda distribuerad spårning med Azure våren Cloud
 
 Våren Clouds verktyg för distribuerad spårning möjliggör enkel fel sökning och övervakning av komplexa problem. Azure våren Cloud integrerar [våren Cloud-Sleuth](https://spring.io/projects/spring-cloud-sleuth) med azures [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) för att tillhandahålla kraftfull, distribuerad spårnings funktion från Azure Portal.
 
@@ -28,7 +25,7 @@ I den här artikeln får du lära dig att:
 > * Visa beroende kartor för dina mikrotjänst program
 > * Sök spårnings data med olika filter
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här självstudien behöver du:
 

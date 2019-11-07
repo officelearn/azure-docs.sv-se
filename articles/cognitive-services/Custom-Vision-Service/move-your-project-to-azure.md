@@ -1,7 +1,7 @@
 ---
 title: Flytta ett begränsat utvärderings projekt till Azure
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du flyttar ett begränsat utvärderings projekt till Azure.
+description: Har du ett begränsat utvärderings projekt i Custom Vision? Den här artikeln visar hur du flyttar den till Azure med ett migreringsjobb.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: anroth
-ms.openlocfilehash: 22c3767dfac1e377890f1e01517d18263e694854
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5c583270428a459f500ae0e220592805fd1bf454
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560930"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718909"
 ---
 # <a name="how-to-move-your-limited-trial-project-to-azure"></a>Så här flyttar du ditt begränsade utvärderings projekt till Azure
 
@@ -27,7 +27,7 @@ Mer information, inklusive nyckel deadlines i den begränsade utvärderings vers
 
 Med hjälp av [skriptet för migrering](https://github.com/Azure-Samples/custom-vision-move-project) kan du återskapa ett projekt genom att ladda ned och sedan ladda upp alla Taggar, regioner och bilder i den aktuella iterationen. Det låter dig med ett nytt projekt i din nya prenumeration som du sedan kan träna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Du behöver en giltig Azure-prenumeration som är associerad med Microsoft-konto-eller Azure Active Directory-kontot (AAD) som du vill använda för att logga in på [Custom vision webbplats](https://customvision.ai). 
     - Om du inte har ett Azure-konto kan du [skapa ett konto](https://azure.microsoft.com/free/) kostnads fritt.
@@ -46,7 +46,7 @@ Flera projekt kan associeras med en enda resurs. Mer information om [priser och 
 
 ## <a name="find-your-limited-trial-project-information"></a>Hitta din begränsade utvärderings projekt information
 
-Om du vill flytta projektet behöver du _projekt-ID_ och _utbildnings nyckel_ för projektet som du försöker migrera. Om du inte har den här informationen kan du [https://limitedtrial.customvision.ai/projects](https://limitedtrial.customvision.ai/projects) gå till för att hämta ID och nyckel för varje projekt. 
+Om du vill flytta projektet behöver du _projekt-ID_ och _utbildnings nyckel_ för projektet som du försöker migrera. Om du inte har den här informationen kan du gå till [https://limitedtrial.customvision.ai/projects](https://limitedtrial.customvision.ai/projects) för att hämta ID och nyckel för varje projekt. 
 
 ## <a name="use-the-python-sample-code-to-copy-your-project-to-azure"></a>Använd python-exempel koden för att kopiera projektet till Azure
 

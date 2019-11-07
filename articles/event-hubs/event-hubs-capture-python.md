@@ -1,6 +1,6 @@
 ---
-title: Läsa fångade data från python-appen – Azure Event Hubs | Microsoft Docs
-description: Skript som använder Azure python SDK för att demonstrera Event Hubs Capture-funktionen.
+title: 'Snabb start: läsa fångade data från python app – Azure Event Hubs'
+description: 'Snabb start: skript som använder Azure python SDK för att demonstrera Event Hubs Capture-funktionen.'
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -11,18 +11,18 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 10/10/2019
+ms.date: 11/05/2019
 ms.author: shvija
-ms.openlocfilehash: 354964e1b66b55dcccd9b5674f011f8c5a38a1c5
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: ade4aa79b2de005bfecd7a5882f06cb491ea4e6d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428946"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73717854"
 ---
-# <a name="event-hubs-capture-walkthrough-python"></a>Genom gång av Event Hubs avbildning: python
+# <a name="quickstart-event-hubs-capture-walkthrough-python"></a>Snabb start: Event Hubs Infångnings genom gång: python
 
 Capture är en funktion i Azure Event Hubs. Du kan använda Capture för att automatiskt leverera strömmande data i händelsehubben till ett Azure Blob Storage-konto som du väljer. Den här funktionen gör det enkelt att utföra batchbearbetning vid strömnings data i real tid. Den här artikeln beskriver hur du använder Event Hubs Capture med python. Mer information om Event Hubs avbildning finns i [avbilda händelser via Azure Event Hubs][Overview of Event Hubs Capture].
 
@@ -36,7 +36,7 @@ I den här genom gången ska du:
 > * Skicka data till händelsehubben med hjälp av ett Python-skript.
 > * Läsa och bearbeta filer från Event Hubs avbildning med hjälp av ett annat Python-skript.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Python 3,4 eller senare, med `pip` installerat och uppdaterat.
   
@@ -54,7 +54,7 @@ I den här genom gången ska du:
 
 Skapa ett lagrings konto och en behållare som ska användas för avbildningen. 
 
-1. Logga in på [Azure-portalen][Azure portal].
+1. Logga in på [Azure Portal][Azure portal].
 2. I det vänstra navigerings fältet väljer du **lagrings konton**och på skärmen **lagrings konton** väljer du **Lägg till**.
 3. På skärmen skapa lagrings konto väljer du en prenumeration och en resurs grupp och ger lagrings kontot ett namn. Du kan lämna övriga val som standard. Välj **Granska + skapa**, granska inställningarna och välj sedan **skapa**. 
    
@@ -78,7 +78,7 @@ Det här skriptet skickar 200-händelser till händelsehubben. Händelserna är 
 
 1. Öppna din favorit-eller python-redigerare, t. ex. [Visual Studio Code][Visual Studio Code].
 2. Skapa en ny fil med namnet *Sender.py*. 
-3. Klistra in följande kod i *Sender.py*. Ersätt dina egna värden för Event Hubs \<namespace >, \<AccessKeyName >, \<primary nyckel värde > och \<eventhub >.
+3. Klistra in följande kod i *Sender.py*. Ersätt dina egna värden för Event Hubs \<namn område >, \<AccessKeyName >, \<primär nyckel värde > och \<eventhub >.
    
    ```python
    import uuid
@@ -106,7 +106,7 @@ Det här skriptet skickar 200-händelser till händelsehubben. Händelserna är 
 Det här skriptet läser de fångade filerna och skapar en fil för var och en av dina enheter för att skriva data enbart för den enheten.
 
 1. Skapa en ny fil med namnet *capturereader.py*i python-redigeraren. 
-2. Klistra in följande kod i *capturereader.py*. Ersätt dina sparade värden för din \<storageaccount >, \<storage konto åtkomst nyckel > och \<storagecontainer >.
+2. Klistra in följande kod i *capturereader.py*. Ersätt dina sparade värden för din \<storageaccount->, \<lagrings kontots åtkomst nyckel > och \<storagecontainer >.
    
    ```python
    import os
@@ -162,7 +162,7 @@ Det här skriptet läser de fångade filerna och skapar en fil för var och en a
    pip install avro-python3
    ```
    
-   Om du har en tidigare version av `azure-storage` eller `azure` kan du behöva använda alternativet `--upgrade`.
+   Om du har en tidigare version av `azure-storage` eller `azure`kan du behöva använda alternativet `--upgrade`.
    
    Du kan också behöva köra följande kommando. Du behöver inte köra det här kommandot på de flesta system. 
    

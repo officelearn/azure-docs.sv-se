@@ -1,6 +1,7 @@
 ---
-title: Strömma live med Azure Media Services v3 | Microsoft Docs
-description: Den här självstudien vägleder dig genom stegen i strömningen Live med Media Services v3.
+title: Strömma live med Media Services v3
+titleSuffix: Azure Media Services
+description: Lär dig att strömma live med Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,38 +15,38 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: b69bd62cb9bbe44fb37b3f3660c2f20f3965384e
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 47d526ea410bc449c91ae4fb10913850c447f1b3
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051573"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582636"
 ---
-# <a name="tutorial-stream-live-with-media-services"></a>Självstudier: Strömma live med Media Services
+# <a name="tutorial-stream-live-with-media-services"></a>Självstudie: strömma live med Media Services
 
 > [!NOTE]
 > Även om självstudien använder [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) -exempel är de allmänna stegen desamma för [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)eller andra [SDK](media-services-apis-overview.md#sdks): er som stöds.
 
-I Azure Media Services ansvarar [livehändelser](https://docs.microsoft.com/rest/api/media/liveevents) för bearbetning av liveströmmat innehåll. En livehändelse tillhandahåller en slutpunkt (infognings-URL) som du sedan vidarebefordrar till en livekodare. Livehändelsen tar emot live indataströmmar från livekodaren och gör den tillgänglig för strömning via en eller flera [slutpunkter för direktuppspelning](https://docs.microsoft.com/rest/api/media/streamingendpoints). Livehändelser tillhandahåller också en slutpunkt för förhandsvisning (förhandsvisnings-URL) som du använder för att förhandsgranska och validera din ström inför vidare behandling och leverans. Den här självstudien visar hur du använder .NET Core för att skapa en **genomströmnings**typ av en livehändelse. 
+I Azure Media Services ansvarar [livehändelser](https://docs.microsoft.com/rest/api/media/liveevents) för bearbetning av liveströmmat innehåll. En livehändelse tillhandahåller en slutpunkt (infognings-URL) som du sedan vidarebefordrar till en livekodare. Livehändelsen tar emot live indataströmmar från livekodaren och gör den tillgänglig för strömning via en eller flera [slutpunkter för direktuppspelning](https://docs.microsoft.com/rest/api/media/streamingendpoints). Livehändelser tillhandahåller också en slutpunkt för förhandsvisning (förhandsvisnings-URL) som du använder för att förhandsgranska och validera din ström inför vidare behandling och leverans. Den här självstudien visar hur du använder .NET Core för att skapa en **genomströmnings**typ av en livehändelse.
 
-Självstudien visar hur du:    
+Självstudien visar hur du:
 
 > [!div class="checklist"]
-> * Ladda ned exempelappen som beskrivs i avsnittet
-> * Granska den kod som utför du liveuppspelningen
-> * Titta på händelsen med [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) på https://ampdemo.azureedge.net
-> * Rensa resurser
+> * Ladda ned exempel appen som beskrivs i avsnittet.
+> * Granska koden som utför direkt uppspelning.
+> * Titta på händelsen med [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) på https://ampdemo.azureedge.net.
+> * Rensa resurser.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Följande krävs för att kunna genomföra självstudien.
+Följande krävs för att kunna genomföra vägledningen:
 
 - Installera Visual Studio Code eller Visual Studio.
-- [Skapa ett Media Services-konto](create-account-cli-how-to.md).<br/>Se till att komma ihåg de värden som du använde för resursgruppens namn och namnet på Media Services-kontot.
-- Följ stegen i [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) (Få åtkomst till Azure Media Services-API med Azure CLI) och spara autentiseringsuppgifterna. Du behöver använda dem för att få åtkomst till API.
-- En kamera eller en enhet (som en bärbar dator) som används för att sända en händelse.
+- [Skapa ett Media Services-konto](create-account-cli-how-to.md).<br/>Kom ihåg att komma ihåg de värden som du använder för resurs gruppens namn och Media Services konto namnet.
+- Följ stegen i [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) (Få åtkomst till Azure Media Services-API med Azure CLI) och spara autentiseringsuppgifterna. Du måste använda dem för att få åtkomst till API: et.
+- En kamera eller en enhet (till exempel en bärbar dator) som används för att sända en händelse.
 - En live-videokodare som konverterar signaler från kameran till dataströmmar som skickas till en tjänst för liveuppspelning. Dataströmmen måste anges i **RTMP**- eller **Smooth Streaming**-format.
 
 > [!TIP]
@@ -61,44 +62,44 @@ Klona en GitHub-lagringsplats som innehåller det strömmande .NET-exemplet till
 
 Livesändningsexemplet finns i [Live](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live/MediaV3LiveApp)-mappen.
 
-Öppna [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/appsettings.json) i det nedladdade projektet. Ersätt värdena med autentiseringsuppgifterna som du fick från avsnittet om [åtkomst till API:er](access-api-cli-how-to.md).
+Öppna [appSettings. JSON](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/appsettings.json) i det nedladdade projektet. Ersätt värdena med de autentiseringsuppgifter som du har fått från [att komma åt API: er](access-api-cli-how-to.md).
 
 > [!IMPORTANT]
-> Det här exemplet använder unika suffix för varje resurs. Om du avbryter felsökningen eller avslutar appen utan att köra klart den, kommer du att få flera livehändelser i ditt konto. <br/>Se till att stoppa de livehändelser som körs. Annars kommer du att **debiteras**!
+> I det här exemplet används ett unikt suffix för varje resurs. Om du avbryter fel sökningen eller avslutar appen utan att köra den via, kommer du att få flera Live-händelser i ditt konto. <br/>Se till att stoppa de livehändelser som körs. Annars **faktureras**du!
 
 ## <a name="examine-the-code-that-performs-live-streaming"></a>Granska den kod som utför du liveuppspelningen
 
 Det här avsnittet går igenom funktionerna som definierades i [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs) för projektet *MediaV3LiveApp*.
 
-Exemplet skapar ett unikt suffix för varje resurs så att vi inte har namnkonflikter om du kör exemplet flera gånger utan att rensa upp.
+Exemplet skapar ett unikt suffix för varje resurs så att du inte har några namn konflikter om du kör exemplet flera gånger utan att rensa.
 
 > [!IMPORTANT]
-> Det här exemplet använder unika suffix för varje resurs. Om du avbryter felsökningen eller avslutar appen utan att köra klart den, kommer du att få flera livehändelser i ditt konto. <br/>
-> Se till att stoppa de livehändelser som körs. Annars kommer du att **debiteras**!
- 
+> I det här exemplet används ett unikt suffix för varje resurs. Om du avbryter fel sökningen eller avslutar appen utan att köra den via, kommer du att få flera Live-händelser i ditt konto. <br/>
+> Se till att stoppa de livehändelser som körs. Annars **faktureras**du!
+
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>Börja med att använda Media Services-API:er med .NET SDK
 
 Om du vill börja använda API:er för Media Services med .NET, måste du skapa ett **AzureMediaServicesClient**-objekt. När du skapar objektet måste du ange de autentiseringsuppgifter som krävs för att klienten ska kunna ansluta till Azure med hjälp av Azure AD. I den kod som du har klonat i början av artikeln skapade funktionen **GetCredentialsAsync** objektet ServiceClientCredentials baserat på de autentiseringsuppgifter som anges i den lokala konfigurationsfilen. 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateMediaServicesClient)]
 
-### <a name="create-a-live-event"></a>Skapa en direktsändning
+### <a name="create-a-live-event"></a>Skapa en livehändelse
 
 Det här avsnittet visar hur du skapar en **pass-through**-typ av livehändelse (LiveEventEncodingType inställd på None). Mer information om tillgängliga typer av Live-händelser finns i [Live Event types](live-events-outputs-concept.md#live-event-types). 
  
 Några saker som du kanske vill ange när du skapar en Live-händelse är:
 
-* Media Services-plats 
-* Strömningsprotokollet för livehändelsen (för närvarande stöds protokollen RTMP och Smooth Streaming).<br/>Du kan inte ändra protokollalternativ när livehändelsen eller dess associerade liveutdata körs. Om du behöver olika protokoll får du skapa separata livehändelser för varje strömningsprotokoll.  
-* IP-begränsningar på infogning och förhandsgranskning. Du kan definiera de IP-adresser som får mata in en video till den här livehändelsen. Tillåtna IP-adresser kan anges som en enskild IP-adress (till exempel 10.0.0.1), ett IP-intervall med IP-adress och en CIDR-nätmask (till exempel 10.0.0.1/22) eller ett IP-intervall med en IP-adress och en prickad decimalnätmask (till exempel 10.0.0.1(255.255.252.0)).<br/>Om inga IP-adresser har angetts och det saknas regeldefinitioner, kommer ingen IP-adress att tillåtas. Skapa en regel för att tillåta IP-adresser och ange 0.0.0.0/0.<br/>IP-adresserna måste vara i något av följande format: IpV4-adress med 4 siffror, CIDR-adressintervall.
-* När du skapar händelsen, kan du ange att den ska startas automatiskt. <br/>När autostart är angett till true (sant) startas live-händelsen efter skapandet. Det innebär att faktureringen påbörjas så fort direkt händelsen börjar köras. Du måste explicit anropa Stop på livehändelseresursen för att stoppa ytterligare fakturering. Mer information finns i [livehändelsetillstånd och fakturering](live-event-states-billing.md).
+* Media Services plats.
+* Strömningsprotokollet för livehändelsen (för närvarande stöds protokollen RTMP och Smooth Streaming).<br/>Du kan inte ändra alternativet protokoll när Live-händelsen eller dess associerade Live-utdata körs. Om du behöver olika protokoll kan du skapa separata Live-händelser för varje strömnings protokoll.  
+* IP-begränsningar på infogning och förhandsgranskning. Du kan definiera de IP-adresser som får mata in en video till den här livehändelsen. Tillåtna IP-adresser kan anges som en enskild IP-adress (till exempel 10.0.0.1), ett IP-intervall med IP-adress och en CIDR-nätmask (till exempel 10.0.0.1/22) eller ett IP-intervall med en IP-adress och en prickad decimalnätmask (till exempel 10.0.0.1(255.255.252.0)).<br/>Om inga IP-adresser har angetts och det inte finns någon regel definition kommer ingen IP-adress att tillåtas. Skapa en regel för att tillåta IP-adresser och ange 0.0.0.0/0.<br/>IP-adresserna måste vara i något av följande format: IpV4-adress med fyra nummer eller CIDR-adressintervall.
+* När du skapar händelsen kan du ange att den ska autostartas. <br/>När autostart är angett till true (sant) startas live-händelsen efter skapandet. Det innebär att faktureringen börjar så fort direkt händelsen börjar köras. Du måste explicit anropa Stop på livehändelseresursen för att stoppa ytterligare fakturering. Mer information finns i [livehändelsetillstånd och fakturering](live-event-states-billing.md).
 * Ange "anpassad"-läget för att kunna förutsäga en URL. Mer detaljerad information finns i [Live Event](live-events-outputs-concept.md#live-event-ingest-urls)inmatnings-URL: er.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveEvent)]
 
 ### <a name="get-ingest-urls"></a>Hämta infognings-URL:er
 
-När livehändelsen har skapats kan du få infognings-URL:er som du tillhandahåller till livekodaren. Kodaren använder dessa URL:er för att mata in en direktsänd dataström.
+När Live-händelsen har skapats kan du hämta inmatnings-URL: er som du skickar till Live-kodaren. Kodaren använder dessa URL:er för att mata in en direktsänd dataström.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#GetIngestURL)]
 
@@ -107,13 +108,13 @@ När livehändelsen har skapats kan du få infognings-URL:er som du tillhandahå
 Använd previewEndpoint för att förhandsgranska och verifiera att indata från kodaren faktiskt tas emot.
 
 > [!IMPORTANT]
-> Kontrollera att videon flödar till förhandsgransknings-URL:en innan du fortsätter!
+> Se till att videon flödar till för hands versionen av URL: en innan du fortsätter.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#GetPreviewURLs)]
 
 ### <a name="create-and-manage-live-events-and-live-outputs"></a>Skapa och hantera livehändelser och liveutdata
 
-När dataströmmen väl flödar till livehändelsen kan du påbörja strömningshändelsen genom att skapa en tillgång, liveutdata och en positionerare för direktuppspelning. Detta arkiverar dataströmmen och gör den tillgänglig för visning via strömningsslutpunkten. 
+När dataströmmen väl flödar till livehändelsen kan du påbörja strömningshändelsen genom att skapa en tillgång, liveutdata och en positionerare för direktuppspelning. Detta arkiverar dataströmmen och gör den tillgänglig för visning via strömningsslutpunkten.
 
 #### <a name="create-an-asset"></a>Skapa en tillgång
 
@@ -123,14 +124,14 @@ Skapa en tillgång som kan användas av liveutdata.
 
 #### <a name="create-a-live-output"></a>Skapa liveutdata
 
-Liveutdata startar när de skapas och avbryts när de tas bort. När du tar bort liveutdata tar du inte bort den underliggande tillgången och innehållet i tillgången.
+Liveutdata startar när de skapas och avbryts när de tas bort. När du tar bort Live-utdata tar du inte bort den underliggande till gången och innehållet i till gången.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveOutput)]
 
 #### <a name="create-a-streaming-locator"></a>Skapa en positionerare för direktuppspelning
 
 > [!NOTE]
-> När ditt Media Services-konto skapas läggs en slutpunkt för direktuppspelning av **standardtyp** till i kontot med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av [dynamisk paketering](dynamic-packaging-overview.md) och dynamisk kryptering måste den slutpunkt för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. 
+> När ditt Media Services-konto skapas läggs en **standard** slut punkt för direkt uppspelning till på ditt konto i **stoppat** tillstånd. Om du vill starta direktuppspelning av innehåll och dra nytta av [dynamisk paketering](dynamic-packaging-overview.md) och dynamisk kryptering måste den slutpunkt för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**.
 
 När du publicerar liveutdata-tillgången med hjälp av en positionerare för direktuppspelning, fortsätter livehändelsen (upp till DVR-fönstrets längd) att vara synlig tills positioneraren för direktuppspelning slutar att gälla eller tas bort, beroende på vilket som inträffar först.
 
@@ -154,11 +155,11 @@ foreach (StreamingPath path in paths.StreamingPaths)
 
 ### <a name="cleaning-up-resources-in-your-media-services-account"></a>Rensa upp resurserna på ditt Media Services-konto
 
-Följ stegen nedan om du är klar med strömningen av händelser och vill rensa de resurser som etablerades tidigare.
+Om du är klar med strömnings händelser och vill rensa de resurser som etablerades tidigare följer du stegen nedan:
 
 * Stoppa sändningen av dataströmmen från kodaren.
-* Stoppa livehändelsen. När livehändelsen har stoppats medför den inga avgifter. När du vill starta den igen har den samma infognings-URL så att du inte behöver konfigurera om din kodare.
-* Du kan avbryta din strömningsslutpunkt om du inte vill fortsätta att tillhandahålla arkivet för din direktsända händelse som en strömning på begäran. Om livehändelsen är i stoppat tillstånd medför den inga avgifter.
+* Stoppa livehändelsen. När Live-händelsen har stoppats debiteras inga avgifter. När du vill starta den igen har den samma infognings-URL så att du inte behöver konfigurera om din kodare.
+* Du kan avbryta din strömningsslutpunkt om du inte vill fortsätta att tillhandahålla arkivet för din direktsända händelse som en strömning på begäran. Om Live-händelsen är i stoppat tillstånd debiteras inga avgifter.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupLiveEventAndOutput)]
 
@@ -166,9 +167,9 @@ Följ stegen nedan om du är klar med strömningen av händelser och vill rensa 
 
 ## <a name="watch-the-event"></a>Titta på händelsen
 
-Om du vill titta på händelsen kopierar du strömnings-URL:en som du fick när du körde koden som beskrivs i Skapa en positionerare för direktuppspelning och använd en valfri spelare. Du kan använda [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) för att testa din dataström på https://ampdemo.azureedge.net. 
+Du kan titta på händelsen genom att kopiera den strömmande URL som du fick när du körde kod som beskrivs i skapa en strömmande positionerare. Du kan använda en valfri media spelare. [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) är tillgängligt för att testa data strömmen på https://ampdemo.azureedge.net.
 
-Livehändelser konverterar automatiskt händelser till innehåll-på-begäran när de stoppas. Även efter att du stoppat och tagit bort händelsen skulle användarna kunna strömma ditt arkiverade innehåll som en video på begäran så länge du inte tar bort tillgången. En tillgång kan inte tas bort om den används av en händelse. Händelsen måste tas bort först. 
+Livehändelser konverterar automatiskt händelser till innehåll-på-begäran när de stoppas. Även efter att du har stoppat och tagit bort händelsen kan användarna strömma ditt arkiverade innehåll som en video på begäran så länge du inte tar bort till gången. En till gång kan inte tas bort om den används av en händelse. händelsen måste tas bort först.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

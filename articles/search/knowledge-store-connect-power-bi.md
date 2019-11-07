@@ -1,37 +1,42 @@
 ---
-title: Ansluta till ett kunskaps lager med Power BI
+title: Ansluta till ett kunskaps lager (för hands version) med Power BI
 titleSuffix: Azure Cognitive Search
-description: Anslut ett Azure Kognitiv sökning kunskaps lager med Power BI för analys och utforskning.
+description: Anslut ett Azure Kognitiv sökning kunskaps lager (för hands version) med Power BI för analys och utforskning.
 author: lisaleib
 manager: nitinme
 ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 03f28cb40708b7ec77a0a342b5ec1b6faeaa8e3b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 7b12f0f14003389d36e2df5bcffe7828c135cf2b
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485157"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715490"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Anslut ett kunskaps lager med Power BI
 
-> [!Note]
-> Kunskaps lagret är i för hands version och bör inte användas i produktionen. Portalen och [sök REST API version 2019-05-06 – för hands version](search-api-preview.md) innehåller den här funktionen. Det finns för närvarande inget stöd för .NET SDK.
->
+> [!IMPORTANT] 
+> Kunskaps lagret är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [REST API version 2019-05-06-Preview](search-api-preview.md) innehåller för hands versions funktioner. Det finns för närvarande begränsad Portal support och inget stöd för .NET SDK.
 
 I den här artikeln får du lära dig hur du ansluter till och utforskar ett kunskaps lager med hjälp av Power Query i Power BI Desktop-appen. Du kan komma igång snabbare med mallar eller skapa en anpassad instrument panel från grunden.
 
-## <a name="prerequisites"></a>Förutsättningar
++ Följ stegen i [skapa ett kunskaps lager i Azure Portal](knowledge-store-create-portal.md) eller [skapa ett Azure kognitiv sökning kunskaps lager genom att använda rest](knowledge-store-create-rest.md) för att skapa det exempel kunskaps arkiv som användes i den här genom gången. Du kommer också att behöva namnet på det Azure Storage-konto som du använde för att skapa kunskaps lagret, tillsammans med dess åtkomst nyckel från Azure Portal.
 
 + [Installera Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 
-+ Du behöver ett kunskaps lager med en projektion i Azure Table Storage. Du kommer också att behöva namnet på det Azure Storage konto som används för att skapa kunskaps lagret, tillsammans med dess åtkomst nyckel från Azure Portal.
+## <a name="sample-power-bi-template---azure-portal-only"></a>Exempel Power BI mall – endast Azure Portal
 
-Om du vill arbeta med ett exempel på kunskaps lager följer du anvisningarna för att [skapa ett kunskaps lager](knowledge-store-create-portal.md).
+Om du har [skapat ditt kunskaps lager med hjälp av Azure Portal](knowledge-store-create-portal.md)kan du använda [mall-exemplet i Azure kognitiv sökning Power BI](https://github.com/Azure-Samples/cognitive-search-templates) för att visa och experimentera med Power BI visualiseringar. Den här mallen är också tillgänglig för hämtning när du går igenom guiden **Importera data** .
 
-## <a name="create-a-custom-report"></a>Skapa en anpassad rapport
+Exempel mal len utför automatiskt de installations steg som beskrivs i resten av den här artikeln. Men om du använde REST API för att skapa ditt kunskaps lager, hoppar över mallen och använder de återstående avsnitten i den här artikeln för att ansluta ditt kunskaps lager till Power BI. Börja med att [ansluta med Power BI](#connect-with-power-bi).
+
+Exempel mal len innehåller flera visualiseringar, till exempel WordCloud och Network Navigator. Vissa visualiseringar i mallen, t. ex. plats kartan och entiteten diagram visas, visar inte data för exempel kunskaps arkivet som skapades i [skapa ett kunskaps lager i Azure Portal](knowledge-store-create-portal.md). Detta beror på att endast en delmängd av AI-berikarna som är tillgängliga i guiden **Importera data** användes.
+
+![Exempel på Azure Kognitiv sökning Power BI-mall](media/knowledge-store-connect-power-bi/powerbi-sample-template-portal-only.png "Exempel på Power BI mall")
+
+## <a name="connect-with-power-bi"></a>Anslut med Power BI
 
 1. Starta Power BI Desktop och klicka på **Hämta data**.
 

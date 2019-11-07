@@ -9,52 +9,50 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 69fba508eac4b778dcd72371fd1471625ecb8c1a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b5fa1557999ae851bccafbf8ee7c41f0b3614614
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501605"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715912"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Självstudie: Distribuera en maskin inlärnings modell med designer (för hands version)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-Om du vill ge andra möjlighet att använda den förutsägelse modell som utvecklats i [del ett av själv studie kursen](tutorial-designer-automobile-price-train-score.md)kan du distribuera den som en slut punkt i real tid. I del 1 har du tränat din modell. Nu är det dags att generera nya förutsägelser baserat på användarindata. I den här delen av självstudien:
+Du kan distribuera den förutsägande modellen som utvecklats i [del ett av självstudien](tutorial-designer-automobile-price-train-score.md) för att ge andra möjlighet att använda den. I del 1 har du tränat din modell. Nu är det dags att generera nya förutsägelser baserat på användarindata. I den här delen av självstudien får du göra följande:
 
 > [!div class="checklist"]
-> * Distribuera en slut punkt i real tid
+> * Skapa en pipeline för real tids härledning
 > * Skapa ett inferencing-kluster
+> * Distribuera en slut punkt i real tid
 > * Testa en slut punkt i real tid
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Slutför [del ett av självstudien](tutorial-designer-automobile-price-train-score.md) och lär dig hur du tränar och poängs ätter en maskin inlärnings modell i designern.
 
-## <a name="deploy-a-real-time-endpoint"></a>Distribuera en slut punkt i real tid
+## <a name="create-a-real-time-inference-pipeline"></a>Skapa en pipeline för real tids härledning
 
-För att kunna distribuera din pipeline måste du:
-
-1. Omvandla utbildnings pipelinen till en pipeline för real tids härledning, som tar bort moduler för utbildning och lägger till indata och utdata för inferencing-begäranden.
-1. Distribuera härlednings pipelinen.
+Innan du kan distribuera din pipeline måste du först konvertera inlärnings pipelinen till en pipeline för real tids härledning. Den här processen tar bort moduler för utbildning och lägger till indata och utdata för inferencing-begäranden.
 
 ### <a name="create-a-real-time-inference-pipeline"></a>Skapa en pipeline för real tids härledning
 
-1. Överst på pipeline-arbetsytan väljer du **skapa härlednings pipeline** > **real tids härlednings pipeline**
-
-    När du väljer **skapa en härlednings pipeline**inträffar flera saker:
-    
-    * Den tränade modellen lagras som en **data uppsättnings** modul i modulens palett. Du kan hitta den under **mina data uppsättningar**.
-    * Moduler, som att **träna modell** och **dela data**, tas bort.
-    * Den sparade utbildade modellen läggs tillbaka i pipelinen.
-    * Moduler för **webb tjänst indata** och **webb tjänstens utdata** läggs till. Dessa moduler identifierar var användar data kommer att ange modellen och var data returneras.
-
-    > [!Note]
-    > **Inlärnings pipelinen** sparas under den nya fliken överst i pipeline-arbetsytan. Det kan också finnas som en publicerad pipeline i designern.
-    >
+1. Ovanför pipeline-arbetsytan väljer du **skapa härlednings pipeline** > **real tids härlednings pipeline**
 
     Din pipeline bör nu se ut så här:  
 
    ![Skärm bild som visar den förväntade konfigurationen för pipelinen när den har förberedats för distribution](./media/ui-tutorial-automobile-price-deploy/real-time-inference-pipeline.png)
+
+    När du väljer **skapa en härlednings pipeline**inträffar flera saker:
+    
+    * Den tränade modellen lagras som en **data uppsättnings** modul i modulens palett. Du kan hitta den under **mina data uppsättningar**.
+    * Inlärnings moduler som **tränar modell** och **delade data** tas bort.
+    * Den sparade utbildade modellen läggs tillbaka i pipelinen.
+    * Moduler för **webb tjänst indata** och **webb tjänstens utdata** läggs till. De här modulerna visar var användar data kommer att ange modellen och var data returneras.
+
+    > [!Note]
+    > **Inlärnings pipelinen** sparas under den nya fliken överst i pipeline-arbetsytan. Det kan också finnas som en publicerad pipeline i designern.
+    >
 
 1. Välj **Kör** och Använd samma beräknings mål och experiment som du använde i del 1.
 
@@ -64,11 +62,11 @@ För att kunna distribuera din pipeline måste du:
 
 1. Välj **Distribuera**.
 
-### <a name="create-an-inferencing-cluster"></a>Skapa ett inferencing-kluster
+## <a name="create-an-inferencing-cluster"></a>Skapa ett inferencing-kluster
 
-I dialog rutan som visas kan du välja från befintliga Azure Kubernetes service-kluster (AKS) i din arbets yta för att distribuera din modell. Om du inte har något AKS-kluster kan du använda följande steg för att skapa ett.
+I dialog rutan som visas kan du välja från alla befintliga Azure Kubernetes service-kluster (AKS) i för att distribuera din modell till. Om du inte har något AKS-kluster kan du använda följande steg för att skapa ett.
 
-1. Välj **Compute** i dialog rutan för att navigera till **beräknings** sidan.
+1. Välj **Compute** i dialog rutan som visas för att navigera till **beräknings** sidan.
 
 1. I menyfliksområdet navigering väljer du utgångs **kluster** >  **+ ny**.
 
@@ -86,7 +84,7 @@ I dialog rutan som visas kan du välja från befintliga Azure Kubernetes service
     > Det tar cirka 15 minuter att skapa en ny AKS-tjänst. Du kan kontrol lera etablerings statusen på sidan för att lösa **kluster**
     >
 
-### <a name="deploy-the-real-time-endpoint"></a>Distribuera real tids slut punkten
+## <a name="deploy-the-real-time-endpoint"></a>Distribuera real tids slut punkten
 
 När din AKS-tjänst har slutfört etableringen återgår du till inferencing-pipeline i real tid för att slutföra distributionen.
 
@@ -104,7 +102,7 @@ När din AKS-tjänst har slutfört etableringen återgår du till inferencing-pi
 
 ## <a name="test-the-real-time-endpoint"></a>Testa real tids slut punkten
 
-Du kan testa din real tids slut punkt genom att gå till sidan **slut punkter** i navigerings fönstret för arbets ytan till vänster.
+När distributionen är klar kan du testa real tids slut punkten genom att gå till sidan **slut punkter** .
 
 1. På sidan **slut punkter** väljer du den slut punkt som du har distribuerat.
 
@@ -112,9 +110,9 @@ Du kan testa din real tids slut punkt genom att gå till sidan **slut punkter** 
 
 1. Välj **test**.
 
-1. Ange test data eller Använd de autofyllde exempel data och välj **testa**.
+1. Du kan manuellt ange test data eller använda de automatiskt ifyllda exempel data och välj **test**.
 
-    Test förfrågan skickas till slut punkten och resultaten visas på sidan. Även om ett pris värde genereras för indata används inte det för att generera förutsägelse värdet.
+    Portalen skickar en testbegäran till slut punkten och visar resultatet. Även om ett pris värde genereras för indata används inte det för att generera förutsägelse värdet.
 
     ![Skärm bild som visar hur du testar real tids slut punkten med den visade etiketten för pris som marker ATS](./media/ui-tutorial-automobile-price-deploy/test-endpoint.png)
 

@@ -1,7 +1,7 @@
 ---
-title: Indexera CSV-blobar med Azure Kognitiv sökning BLOB-indexeraren
+title: Indexera CSV-blobar med delimitedText tolknings läge (för hands version)
 titleSuffix: Azure Cognitive Search
-description: Crawla CSV-blobar i Azure Blob Storage för full texts ökning med hjälp av ett Azure Kognitiv sökning-index. Indexerare automatiserar data inmatning för valda data källor som Azure Blob Storage.
+description: Extrahera och importera CSV från Azure Blob Storage med delimitedText tolknings läge, för närvarande i offentlig för hands version.
 manager: nitinme
 author: mgottein
 ms.author: magottei
@@ -9,18 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 18d0eb704deba80bf83b5cae0a598f47181700f7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 4edeb8d535504c305319aad35637bb1b09f65984
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793784"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719244"
 ---
-# <a name="how-to-index-csv-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Så här indexerar du CSV-blobar med hjälp av en BLOB-indexerare i Azure Kognitiv sökning 
+# <a name="how-to-index-csv-blobs-using-delimitedtext-parsing-mode-and-blob-indexers-in-azure-cognitive-search"></a>Så här indexerar du CSV-blobar med delimitedText tolknings läge och blob-indexerare i Azure Kognitiv sökning 
 
-> [!Note]
-> delimitedText parsing-läge är i för hands version och är inte avsett för användning i produktion. Den [REST API version 2019-05-06 – för hands version](search-api-preview.md) innehåller den här funktionen. Det finns för närvarande inget stöd för .NET SDK.
->
+> [!IMPORTANT] 
+> DelimitedText tolknings läge finns för närvarande i en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Den [REST API version 2019-05-06 – för hands version](search-api-preview.md) innehåller den här funktionen. Det finns för närvarande inget stöd för Portal eller .NET SDK.
 
 Som standard parsar [Azure kognitiv sökning BLOB-indexeraren](search-howto-indexing-azure-blob-storage.md) avgränsade text-blobbar som ett enda text segment. Men med blobbar som innehåller CSV-data vill du ofta behandla varje rad i blobben som ett separat dokument. Till exempel kan du använda följande avgränsade text för att dela upp den i två dokument, som innehåller "ID", "datePublished" och "Tags"-fält: 
 
@@ -28,7 +27,7 @@ Som standard parsar [Azure kognitiv sökning BLOB-indexeraren](search-howto-inde
     1, 2016-01-12, "azure-search,azure,cloud" 
     2, 2016-07-07, "cloud,mobile" 
 
-I den här artikeln får du lära dig hur du tolkar CSV-blobbar med en Azure Kognitiv sökning BLOB-indexerby anger `delimitedText` tolknings läge. 
+I den här artikeln får du lära dig hur du tolkar CSV-blobbar med en Azure Kognitiv sökning BLOB-indexerare genom att ange `delimitedText` tolknings läge. 
 
 > [!NOTE]
 > Följ konfigurations rekommendationerna för indexeraren i [en-till-många-indexering](search-howto-index-one-to-many-blobs.md) för att skriva ut flera Sök dokument från en Azure-blob.
@@ -47,7 +46,7 @@ Om blobbar inte innehåller en inledande rubrik rad, ska rubrikerna anges i inde
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
-Du kan anpassa avgränsnings tecken med konfigurations inställningen `delimitedTextDelimiter`. Exempel:
+Du kan anpassa avgränsnings tecken med konfigurations inställningen `delimitedTextDelimiter`. Till exempel:
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
 

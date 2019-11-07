@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3d87ab57a5cf3bcd768a28f7867dac37371570b
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 1ab2180c54f07ff5009e2c57d8522f2eb0b81aad
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200359"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718381"
 ---
 # <a name="authentication-basics"></a>Grundläggande om autentisering
 
@@ -37,7 +37,7 @@ Den här artikeln beskriver många av de autentiseringsmetoder du behöver känn
 
 I stället för att skapa appar som var och en upprätthåller sin egen användar namn och lösen ords information, vilket innebär en hög administrativ börda när du behöver lägga till eller ta bort användare över flera appar, kan appar delegera det ansvaret till en centraliserad identitets leverantör.
 
-Azure Active Directory (Azure AD) är en centraliserad identifierings leverantör i molnet. Genom att delegera autentisering och auktorisering till det kan du använda scenarier som principer för villkorlig åtkomst som kräver att en användare befinner sig på en speciell plats, användning av Multi-Factor Authentication, samt att göra det möjligt för en användare att logga in en gång och sedan automatiskt loggat in på alla webbappar som delar samma centrala katalog. Den här funktionen kallas enkel inloggning (SSO).
+Azure Active Directory (Azure AD) är en centraliserad identitets leverantör i molnet. Genom att delegera autentisering och auktorisering till det kan du använda scenarier som principer för villkorlig åtkomst som kräver att en användare befinner sig på en speciell plats, användning av Multi-Factor Authentication, samt att göra det möjligt för en användare att logga in en gång och sedan automatiskt loggat in på alla webbappar som delar samma centrala katalog. Den här funktionen kallas enkel inloggning (SSO).
 
 En centraliserad identitets leverantör är ännu viktigare för appar som har användare som finns i hela världen och som inte nödvändigt vis loggar in från företagets nätverk. Azure AD autentiserar användare och ger åtkomst-token. En åtkomsttoken är en säkerhetstoken som utfärdas av en Authorization Server. Den innehåller information om användaren och appen för vilken token är avsedd, som kan användas för att få åtkomst till webb-API: er och andra skyddade resurser.
 
@@ -53,7 +53,7 @@ Azure AD tillhandahåller också Azure Active Directory B2C så att organisation
 
 ### <a name="security-tokens"></a>Säkerhetstoken
 
-Säkerhetstoken innehåller information om användare och appar. Azure AD använder JSon-baserade token (JWTs) som innehåller anspråk. Ett anspråk ger intyg om en entitet till en annan. Program kan använda anspråk för olika uppgifter, till exempel:
+Säkerhetstoken innehåller information om användare och appar. Azure AD använder JSON-baserade token (JWTs) som innehåller anspråk. Ett anspråk ger intyg om en entitet till en annan. Program kan använda anspråk för olika uppgifter, till exempel:
 
 * Token verifieras
 * Identifiera ämnets katalog klient
@@ -74,7 +74,7 @@ Det är upp till appen för vilken token har skapats, webbappen som signerade an
 
 Tokens är bara giltiga under en begränsad tid. Vanligt vis tillhandahåller STS ett par token: en åtkomsttoken för att få åtkomst till programmet eller den skyddade resursen, och en uppdateringstoken som används för att uppdatera åtkomsttoken när åtkomsttoken ligger nära förfallo datum. 
 
-Åtkomsttoken skickas till ett webb-API som Bearer-token i `Authenticate`-huvudet. En app kan tillhandahålla en uppdateringstoken till STS, och om användarens åtkomst till appen inte har återkallats kommer den att få tillbaka en ny åtkomsttoken och en ny uppdateringstoken. Detta är hur scenariot för någon som lämnar företaget hanteras. När STS tar emot uppdateringstoken, utfärdar den ingen annan giltig åtkomsttoken om användaren inte längre är auktoriserad.
+Åtkomsttoken skickas till ett webb-API som Bearer-token i `Authenticate`s huvudet. En app kan tillhandahålla en uppdateringstoken till STS, och om användarens åtkomst till appen inte har återkallats kommer den att få tillbaka en ny åtkomsttoken och en ny uppdateringstoken. Detta är hur scenariot för någon som lämnar företaget hanteras. När STS tar emot uppdateringstoken, utfärdar den ingen annan giltig åtkomsttoken om användaren inte längre är auktoriserad.
 
 ## <a name="application-model"></a>Programmodell
 
@@ -83,7 +83,7 @@ Program kan logga in användare själva eller delegera inloggning till en identi
 För en identitets leverantör att veta att en användare har åtkomst till en viss app måste både användaren och programmet vara registrerat hos identitets leverantören. När du registrerar ditt program med Azure AD ger du en identitets konfiguration för ditt program som gör det möjligt att integrera det med Azure AD. Genom att registrera appen kan du också:
 
 - anpassa anpassningen av programmet i dialog rutan för inloggning. Detta är viktigt eftersom det är den första upplevelsen som en användare kommer att ha med din app.
-- Bestäm om du bara vill låta användarna logga in om de tillhör din organisation. Detta är ett enda klient program. Eller Tillåt användare att logga in med ett arbets-eller skol konto. Detta är ett program med flera innehavare. Du kan också tillåta personliga Microsoft-konton eller ett socialt konto från länkad, Google och så vidare.
+- Bestäm om du bara vill låta användarna logga in om de tillhör din organisation. Detta är ett enda klient program. Eller Tillåt användare att logga in med ett arbets-eller skol konto. Detta är ett program med flera innehavare. Du kan också tillåta personliga Microsoft-konton eller ett socialt konto från LinkedIn, Google och så vidare.
 - begär omfångs behörigheter. Du kan till exempel begära kommandot "User. Read", som ger behörighet att läsa profilen för den inloggade användaren.
 - Definiera omfattningar som definierar åtkomst till ditt webb-API. När en app vill komma åt ditt API måste du vanligt vis begära behörigheter till de omfattningar som du definierar.
 - Dela en hemlighet med Azure AD som visar appens identitet till Azure AD.  Detta är relevant i de fall där appen är ett konfidentiellt klient program. Ett konfidentiellt klient program är ett program som kan lagra autentiseringsuppgifter på ett säkert sätt. De kräver en betrodd backend-server för att lagra autentiseringsuppgifterna.
@@ -98,8 +98,9 @@ Microsoft Identity Platform:
 * Innehåller alla data som krävs för att stödja autentisering vid körning.
 * Innehåller alla data för att bestämma vilka resurser som en app kan behöva komma åt och under vilka omständigheter en specifik begäran ska uppfyllas.
 * Innehåller en infrastruktur för att implementera app-etablering i appens utvecklares klient organisation och till en annan Azure AD-klient.
+* Hanterar användarens medgivande under Tokenbegäran och underlättar dynamisk etablering av appar över klient organisationer
 
-Hantera användarens medgivande under Tokenbegäran och underlättar dynamisk etablering av appar över klient organisations medgivande är en resurs ägare som beviljar auktorisering till ett klient program för att komma åt skyddade resurser, under specifika behörigheter på resurs ägarens räkning. Microsoft Identity Platform:
+Samtycke är en resurs ägare som beviljar auktorisering för ett klient program att komma åt skyddade resurser, under specifika behörigheter för resurs ägarens räkning. Microsoft Identity Platform:
 
 * Möjliggör för användare och administratörer att dynamiskt bevilja eller neka medgivande för appen att få åtkomst till resurser för deras räkning.
 * Möjliggör för administratörer att i slutänden bestämma vilka appar som tillåts göra vad och vilka användare som kan använda specifika appar samt hur åtkomsten till katalogresurserna går till.

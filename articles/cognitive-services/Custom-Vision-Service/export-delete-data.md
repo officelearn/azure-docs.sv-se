@@ -1,7 +1,7 @@
 ---
 title: Exportera eller ta bort data – Custom Vision Service
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du exporterar eller tar bort data i Custom Vision Service.
+description: Du behåller full kontroll över dina data. Den här artikeln förklarar hur du kan visa, exportera eller ta bort data i Custom Vision Service.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: b885f359d9416fbc5f778b094610260342a75f65
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 82d9f4508db376ebbe69ef772c15fb732391a31d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564230"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718965"
 ---
 # <a name="export-or-delete-user-data-in-custom-vision"></a>Exportera eller ta bort användar data i Custom Vision
 
@@ -25,7 +25,7 @@ Custom Vision samlar in användar data för att kunna använda tjänsten, men ku
 
 Information om hur du exporterar och tar bort användar data i Custom Vision finns i följande tabell.
 
-| Data | Exportera åtgärd | Borttagningsåtgärd |
+| Data | Exportera åtgärd | Ta bort åtgärd |
 | ---- | ---------------- | ---------------- |
 | Konto information (prenumerations nycklar) | [GetAccountInfo](https://go.microsoft.com/fwlink/?linkid=865446) | Ta bort med Azure Portal (Azure-prenumerationer). Eller Använd knappen "ta bort ditt konto" på sidan med inställningar för CustomVision.ai (Microsoft-konto prenumerationer) | 
 | Upprepnings information | [GetIteration](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteIteration](https://go.microsoft.com/fwlink/?linkid=865446) |

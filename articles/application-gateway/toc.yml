@@ -17,8 +17,6 @@
       href: quick-create-cli.md
 - name: Självstudier
   items:
-    - name: Aktivera brandvägg för webbaserade program
-      href: application-gateway-web-application-firewall-portal.md
     - name: Skydda med SSL
       href: create-ssl-portal.md
     - name: Tillhandahåll värdtjänster för flera webbplatser
@@ -127,12 +125,6 @@
           items:
             - name: Konfigurera SSL-princip
               href: application-gateway-configure-ssl-policy-powershell.md
-    - name: Konfigurera brandväggen för webbappar
-      items:
-        - name: Azure PowerShell
-          href: tutorial-restrict-web-traffic-powershell.md
-        - name: Azure CLI
-          href: tutorial-restrict-web-traffic-cli.md
     - name: Ingress för AKS
       items:
         - name: Konfigurera med befintlig Application Gateway

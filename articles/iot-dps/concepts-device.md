@@ -3,17 +3,17 @@ title: Enhets koncept i Azure Device Provisioning | Microsoft Docs
 description: Beskriver de koncept för enhets etablering som är särskilt för enheter med enhets etablerings tjänsten och IoT Hub
 author: nberdy
 ms.author: nberdy
-ms.date: 04/04/2019
+ms.date: 11/06/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: dc4ffc4965d6a3c05693c7566a2c51538584f372
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 0e3557588281cd392a7a8a1c2654f10e8387dd83
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72897586"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720526"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>Koncept för IoT Hub Device Provisioning Service enhet
 
@@ -51,7 +51,7 @@ Registrerings-ID: t används för att unikt identifiera en enhet i enhets etable
 
 ## <a name="device-id"></a>Enhets-ID
 
-Enhets-ID: t är det ID som det visas i IoT Hub. Det önskade enhets-ID: t kan anges i registrerings posten, men det är inte obligatoriskt att ställas in. Om inget önskat enhets-ID anges i registrerings listan används registrerings-ID: t som enhets-ID när enheten registreras. Läs mer om [enhets-ID: n i IoT Hub](../iot-hub/iot-hub-devguide-identity-registry.md).
+Enhets-ID: t är det ID som det visas i IoT Hub. Det önskade enhets-ID: t kan anges i registrerings posten, men det är inte obligatoriskt att ställas in. Det går bara att ange önskat enhets-ID i enskilda registreringar. Om inget önskat enhets-ID anges i registrerings listan används registrerings-ID: t som enhets-ID när enheten registreras. Läs mer om [enhets-ID: n i IoT Hub](../iot-hub/iot-hub-devguide-identity-registry.md).
 
 ## <a name="id-scope"></a>ID-omfång
 

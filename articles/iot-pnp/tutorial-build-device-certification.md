@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 524bc3b2650ad7b435cba6b6b9d4084ffa5cf96c
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: e4dd5215812f0fd1a43afe0923601417bc8e6916
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932684"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73569644"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>Bygg en IoT Plug and Play förhands gransknings enhet som är klar för certifiering
 
@@ -28,14 +28,14 @@ Certifierings testerna kontrollerar att:
 - Enhets koden implementerar enhets informations gränssnittet.
 - Kapacitets modellen och enhets koden fungerar med IoT Central.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här kursen behöver du:
 
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [Azure IoT Tools för vs Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) Extension Pack
 
-Du behöver också IoT plug and Play-enheten som du skapar i [snabb starten: Använd en modell för enhets kapacitet för att](quickstart-create-pnp-device.md)skapa en enhet.
+Du behöver också IoT Plug and Play-enheten som du skapar i [snabb starten: Använd en enhets kapacitets modell för att skapa en enhet](quickstart-create-pnp-device.md).
 
 ## <a name="store-a-capability-model-and-interfaces"></a>Lagra en kapacitets modell och gränssnitt
 
@@ -58,9 +58,9 @@ Om du vill skicka certifierings processen måste du inkludera och implementera g
 ```
 
 > [!NOTE]
-> Om du har slutfört [snabb starten: Använd en enhets kapacitets modell för att](quickstart-create-pnp-device.md)skapa en enhet. du har redan inkluderat **enhets informations** gränssnittet i din modell.
+> Om du har slutfört [snabb starten: använda en enhets kapacitets modell för att skapa en enhet](quickstart-create-pnp-device.md)har du redan inkluderat **enhets informations** gränssnittet i din modell.
 
-Om du vill inkludera gränssnittet för **enhets information** i din enhets modell lägger du till `implements` gränssnitts-ID: t i egenskapen för kapacitets modellen:
+Om du vill inkludera gränssnittet för **enhets information** i din enhets modell lägger du till gränssnitts-ID: t i egenskapen `implements` för kapacitets modellen:
 
 ```json
 {
@@ -111,26 +111,17 @@ För att certifiera enheten måste den Aktivera etablering via [Azure IoT Device
 
 1. Välj **ANSI C** som språk.
 
-1. Välj **cmake-projekt** som projekt typ.
-
 1. Välj **via DPS (Device Provisioning service) symmetrisk nyckel** som anslutnings metod.
+
+1. Välj **cmake-projekt på Windows** -eller **cmake-projekt på Linux** som projektmall beroende på enhetens operativ system.
 
 1. VS Code öppnar ett nytt fönster med genererad enhets kod stub-filer.
 
-1. Öppna `main.c`, Fyll i **dpsIdScope**, **sasKey**och **registrationId** som du för beredde. Du kan hämta den här informationen från certifierings portalen. Mer information finns i [ansluta och testa din IoT plug and Play-enhet](tutorial-certification-test.md#connect-and-discover-interfaces).
+1. När du har byggt koden anger du DPS-autentiseringsuppgifterna (**DPS-ID-omfånget**, den **symmetriska DPS-nyckeln**, **enhets-ID**) som parametrar för programmet. Information om hur du hämtar autentiseringsuppgifterna från certifierings portalen finns i [ansluta och testa din IoT plug and Play-enhet](tutorial-certification-test.md#connect-and-discover-interfaces).
 
-    ```c
-    // TODO: Specify DPS scope ID if you intend on using DPS / IoT Central.
-    static const char *dpsIdScope = "[DPS Id Scope]";
-    
-    // TODO: Specify symmetric keys if you intend on using DPS / IoT Central and symmetric key based auth.
-    static const char *sasKey = "[DPS symmetric key]";
-    
-    // TODO: specify your device registration ID
-    static const char *registrationId = "[device registration Id]";
+    ```cmd/sh
+    .\your_pnp_app.exe [DPS ID Scope] [DPS symmetric key] [device ID]
     ```
-
-1. Spara filen.
 
 ### <a name="implement-standard-interfaces"></a>Implementera standard gränssnitt
 

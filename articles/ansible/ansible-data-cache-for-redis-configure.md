@@ -1,6 +1,6 @@
 ---
 title: Självstudie – konfigurera cacheminnen i Azure cache för Redis med Ansible
-description: Lär dig hur du använder Ansible för att skapa, skala och starta om Azure cache för Redis
+description: Lär dig hur du använder Ansible för att skapa, skala, starta om och lägga till en brand Väggs regel i Azure cache för Redis
 keywords: Ansible, Azure, DevOps, bash, Spelbok, cache, Redis
 ms.topic: tutorial
 ms.service: ansible
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 92592dffb3a9094ae74328e8819cafc9469c2ac7
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 95b42bc9539c36a533eb528c3c26ade89e99290b
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241800"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614367"
 ---
 # <a name="tutorial-configure-caches-in-azure-cache-for-redis-using-ansible"></a>Självstudie: Konfigurera cacheminnen i Azure cache för Redis med Ansible
 
@@ -31,7 +31,7 @@ ms.locfileid: "72241800"
 > * Lägga till en brand Väggs regel i en cache
 > * Ta bort en cache
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]

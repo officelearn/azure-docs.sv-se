@@ -2,25 +2,25 @@
 title: 'Snabb start: skapa ett Sök index i Node. js med hjälp av REST API: er'
 titleSuffix: Azure Cognitive Search
 description: Node. js-exempel för Azure Kognitiv sökning som demonstrerar hur du skapar, läser in data i och frågar från Java Script.
-author: lobrien
+author: HeidiSteen
 manager: nitinme
-ms.author: laobri
+ms.author: heidist
 ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 20a5af5ac7163c182ea01a9a9442d3c99614442d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 8b7308b5289ba747dba90716b495ca1ba6afb209
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787427"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719985"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Node. js med hjälp av REST API: er
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
-> * [Portalen](search-get-started-portal.md)
+> * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-create-index-rest-api.md)
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
@@ -29,7 +29,7 @@ Skapa ett Node. js-program som skapar, läser in och skickar frågor till ett Az
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande tjänster, verktyg och data används i den här snabb starten.
 
@@ -50,7 +50,7 @@ Anrop till tjänsten kräver en URL-slutpunkt och en åtkomst nyckel på varje b
 
 1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta namnet på din Sök tjänst på sidan **Översikt över** Sök tjänsten. Du kan bekräfta tjänst namnet genom att granska slut punkts-URL: en. Om slut punkts-URL: en har `https://mydemo.search.windows.net`ts, är tjänstens namn `mydemo`.
 
-2. I **inställningar** > **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+2. I **inställningar** > **nycklar**får du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
     Hämta även frågans nyckel. Det är en bra idé att utfärda förfrågningar med skrivskyddad åtkomst.
 
@@ -680,7 +680,7 @@ Kör programmet med `node index.js`. Förutom föregående steg skickas frågorn
 
 Exemplet använder en liten mängd hotell data som är tillräckliga för att demonstrera grunderna för att skapa och skicka frågor till ett Azure Kognitiv sökning-index.
 
-**AzureSearchClient** -klassen kapslar in konfiguration, URL: er och grundläggande HTTP-begäranden för Sök tjänsten. Filen **index. js** läser in konfigurations data för Azure kognitiv sökning-tjänsten, de hotell data som kommer att laddas upp för indexering och, i den `run` funktion, beställningar och körning av de olika åtgärderna.
+**AzureSearchClient** -klassen kapslar in konfiguration, URL: er och grundläggande HTTP-begäranden för Sök tjänsten. Filen **index. js** läser in konfigurations data för Azure kognitiv sökning-tjänsten, de hotell data som ska laddas upp för indexering och, i dess `run`-funktion, order och kör de olika åtgärderna.
 
 Det övergripande beteendet för `run` funktionen är att ta bort Azure Kognitiv sökning-indexet om det finns, skapa indexet, lägga till några data och utföra vissa frågor.  
 

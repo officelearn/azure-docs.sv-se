@@ -1,5 +1,5 @@
 ---
-title: Branchning i Azure Data Factory-pipeline | Microsoft Docs
+title: 'Förgrening i Azure Data Factory pipeline '
 description: Lär dig hur du styr flödet av data i Azure Data Factory genom branchning och kedjesammansättning av aktiviteter.
 services: data-factory
 documentationcenter: ''
@@ -11,19 +11,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/11/2018
-ms.openlocfilehash: d8e4c17307b35295f37f1f84db912d04ca625b6a
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: aada9d02c624785750c3064b7ca31a863d4080c1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140910"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683826"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Branchning och kedjesammansättning av aktiviteter i en Data Factory-pipeline
 I den här självstudiekursen skapar du en Data Factory-pipeline som visar några av funktionerna för att styra flödet. Den här pipelinen skapar en enkel kopia från en container i Azure Blob Storage till en annan container i samma lagringskonto. Om kopieringen lyckas skickar pipelinen information om den lyckade kopieringsåtgärden (till exempel hur mycket data som har skrivits) i ett e-postmeddelande. Om kopieringen misslyckas skickar pipelinen information om att kopieringen misslyckades (till exempel ett felmeddelande) i ett e-postmeddelande. I självstudiekursen visas olika exempel på hur du skickar parametrar.
 
 En översikt på hög nivå över scenariot: ![Översikt](media/tutorial-control-flow-portal/overview.png)
 
-I den här självstudiekursen får du göra följande:
+I de här självstudierna går du igenom följande steg:
 
 > [!div class="checklist"]
 > * Skapa en datafabrik.
@@ -37,15 +37,15 @@ I den här självstudiekursen får du göra följande:
 
 I den här självstudien används Azure Portal. Du kan använda andra metoder för att interagera med Azure Data Factory (se Snabbstarter i innehållsförteckningen).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
-* **Azure Storage-konto**. Du kan använda blob-lagringen som **källa** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md) .
+* **Azure Storage-konto**. Du kan använda blob-lagringen som **källa** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln om att [skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md) .
 * **Azure SQL Database**. Du använder databasen som **mottagare** för datalagringen. Om du inte har någon Azure SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md).
 
 ### <a name="create-blob-table"></a>Skapa blob-tabell
 
-1. Öppna Anteckningar. Kopiera följande text och spara den som en **input.txt**-fil på din disk.
+1. Öppna Anteckningar. Kopiera följande text och spara den som **input.txt** på disken.
 
     ```
     John,Doe
@@ -125,7 +125,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Just nu är det bara webbläsarna Microsoft Edge och Google Chrome som har stöd för Data Factory UI.
 1. På den vänstra menyn väljer du **skapa en resurs** > **data och analys** > **Data Factory**:
    
    ![Valet Data Factory i fönstret Nytt](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
@@ -154,7 +154,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 9. När datafabriken har skapats visas sidan **Datafabrik** som på bilden.
    
    ![Datafabrikens startsida](./media/tutorial-control-flow-portal/data-factory-home-page.png)
-10. Klicka på panelen **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory i en separat flik.
+10. Klicka på rutan **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory på en separat flik.
 
 
 ## <a name="create-a-pipeline"></a>Skapa en pipeline
@@ -208,7 +208,7 @@ I det här steget kan du skapa en pipeline med en kopieringsaktivitet och två w
     ![Knapp för ny datauppsättning för mottagare](./media/tutorial-control-flow-portal/new-sink-dataset-button.png)
 14. Välj **Azure Blob Storage** i fönstret **Ny datauppsättning** och klicka på **Slutför**. 
 15. På sidan **Allmänna inställningar** för datauppsättningen anger du **SinkBlobDataset** som **namn**.
-16. Välj fliken **Anslutning** och gör följande: 
+16. Växla till fliken **Anslutning** och gör följande: 
 
     1. Välj **AzureStorageLinkedService** för **LinkedService**.
     2. Ange `@pipeline().parameters.sinkBlobContainer` för mappen.
@@ -281,7 +281,7 @@ I det här steget kan du skapa en pipeline med en kopieringsaktivitet och två w
 ## <a name="trigger-a-pipeline-run-that-succeeds"></a>Utlös en lyckad pipelinekörning
 1. Om du vill **utlösa** en pipelinekörning klickar du på **Utlösare** i verktygsfältet och klickar på **Trigger Now** (Utlös nu). 
 
-    ![Utlös en pipelinekörning](./media/tutorial-control-flow-portal/trigger-now-menu.png)
+    ![Utlösa en pipelinekörning](./media/tutorial-control-flow-portal/trigger-now-menu.png)
 2. Gör följande i fönstret **Pipeline Run** (Pipelinekörning): 
 
     1. Ange **adftutorial/adfv2branch/input** för parametern **sourceBlobContainer**. 
@@ -302,7 +302,7 @@ I det här steget kan du skapa en pipeline med en kopieringsaktivitet och två w
 
 ## <a name="trigger-a-pipeline-run-that-fails"></a>Utlös en misslyckad pipelinekörning
 1. Välj fliken **Redigera** till vänster. 
-2. För att **utlösa** en pipelinekörning klickar du på **Utlösare** i verktygsfältet och på **Trigger Now** (Utlös nu). 
+2. Om du vill **utlösa** en pipelinekörning klickar du på **Utlösare** i verktygsfältet och klickar på **Trigger Now** (Utlös nu). 
 3. Gör följande i fönstret **Pipeline Run** (Pipelinekörning): 
 
     1. Ange **adftutorial/dummy/input** för parametern **sourceBlobContainer**. Se till att mappen dummy inte finns i containern adftutorial. 
@@ -326,7 +326,7 @@ I det här steget kan du skapa en pipeline med en kopieringsaktivitet och två w
     ![Aktivitetskörningsfel](./media/tutorial-control-flow-portal/activity-run-error.png)
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien har du fått: 
+I den här självstudiekursen har du fått: 
 
 > [!div class="checklist"]
 > * Skapa en datafabrik.

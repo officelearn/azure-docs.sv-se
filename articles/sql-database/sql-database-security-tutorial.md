@@ -1,5 +1,5 @@
 ---
-title: Skydda en enkel databas eller en pooldatabas i Azure SQL Database | Microsoft Docs
+title: Skydda en enskild databas eller en databas i Azure SQL Database
 description: En själv studie kurs som lär dig om tekniker och funktioner för att skydda en databas med en eller flera databaser i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -10,14 +10,14 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: ba648a2bf563b775c39f11ab8d5c4069c4bf740f
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 44fd49c391f4c6cddf24e3fddd7fa85a0d5ea4f2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231185"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687430"
 ---
-# <a name="tutorial-secure-a-single-or-pooled-database"></a>Självstudier: Skydda en enkel databas eller en pooldatabas
+# <a name="tutorial-secure-a-single-or-pooled-database"></a>Självstudie: skydda en enskild databas eller en databas i en pool
 
 I den här självstudiekursen får du lära du dig att:
 
@@ -42,7 +42,7 @@ Mer information finns i artiklarna [Säkerhetsöversikt för Azure SQL Database]
 > [!TIP]
 > Följande Microsoft Learn modul hjälper dig att lära dig kostnads fritt om hur du [skyddar dina Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att kunna slutföra den här självstudien behöver du följande:
 
@@ -117,7 +117,7 @@ Kontrollera att du använder den lämpliga hanterade domänen med Azure Active D
 
 Så här anger du Azure AD-administratör:
 
-1. I Azure-portalen går du till **SQL-serversidan** och väljer **Active Directory-administratör**. Sedan väljer du **Konfigurera administratör**.
+1. I Azure Portal väljer du **Active Directory admin**på **SQL Server** -sidan. Välj sedan **Ange administratör**.
 
     ![Välj active directory](./media/sql-database-security-tutorial/admin-settings.png)  
 
@@ -250,7 +250,7 @@ Så här aktiverar du avancerad datasäkerhet:
 
    1. Välj **PÅ** under **Avancerad datasäkerhet** för att aktivera funktionen. Välj ett lagringskonto för att spara resultat av sårbarhetsbedömning. Välj sedan **Spara**.
 
-      ![Navigeringsfönstret](./media/sql-database-security-tutorial/threat-settings.png)
+      ![Navigeringsfönster](./media/sql-database-security-tutorial/threat-settings.png)
 
       Du kan också konfigurera e-postmeddelanden för att få säkerhetsaviseringar, lagringsinformation och typer för identifiering av hot.
 

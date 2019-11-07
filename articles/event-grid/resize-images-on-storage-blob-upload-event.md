@@ -1,6 +1,6 @@
 ---
-title: Använda Azure Event Grid till att automatisera ändra storlek på uppladdade bilder | Microsoft Docs
-description: Azure Event Grid kan utlösas vid blob-överföringar i Azure Storage. Du kan använda det här till att skicka bildfiler som laddats upp till Azure Storage till andra tjänster, som Azure Functions, för storleksändring och andra förbättringar.
+title: 'Självstudie: använda Azure Event Grid för att automatisera storleks ändring av överförda bilder'
+description: 'Självstudie: Azure Event Grid kan utlösa vid BLOB-uppladdningar i Azure Storage. Du kan använda det här till att skicka bildfiler som laddats upp till Azure Storage till andra tjänster, som Azure Functions, för storleksändring och andra förbättringar.'
 services: event-grid, functions
 author: spelluru
 manager: jpconnoc
@@ -9,17 +9,17 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/29/2019
+ms.date: 11/05/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: c09e2cd812dd34976218ff71036734466943e8cd
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4359ce859e3fbe270785c3cf4bbc673e71d19799
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "69623876"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718218"
 ---
-# <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Självstudie: Automatisera storleksändring av överförda bilder med Event Grid
+# <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Självstudie: automatisera storleks ändring av överförda bilder med hjälp av Event Grid
 
 [Azure Event Grid](overview.md) är en händelsetjänst för molnet. Med Event Grid kan du skapa prenumerationer på händelser som genereras av Azure-tjänster eller resurser från tredje part.  
 
@@ -48,13 +48,13 @@ I den här guiden får du lära dig att:
 > * Distribuera serverfri kod med Azure Functions
 > * Skapa en prenumeration på en Blob Storage-händelse i Event Grid
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 För att slutföra den här självstudien behöver du:
 
-Du måste ha slutfört den föregående Blob Storage-självstudien: [Överför avbildnings data i molnet med Azure Storage][previous-tutorial].
+Du måste ha slutfört den tidigare Blob Storage-självstudien: [överför avbildnings data i molnet med Azure Storage][previous-tutorial].
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -266,13 +266,13 @@ Observera att en kopia av uppladdade bilden visas i karusellen **Generated thumb
 
 # <a name="nodejs-v2-sdktabnodejs"></a>[Node.js V2 SDK](#tab/nodejs)
 
-Klicka på **Välj fil** för att välja en fil och klicka sedan på **Ladda upp bild**. När uppladdningen är klar navigerar webbläsaren till en sida som visar att åtgärden lyckades. Klicka på länken för att återgå till startsidan. En kopia av den uppladdade bilden visas i området **Genererade miniatyrer**. (Om bilden inte visas kan du prova med att uppdatera sidan.) Den här bildens storlek ändrades av funktionen. Därefter lades den till i containern med *miniatyrer* och laddades ned av webbklienten.
+Klicka på **Välj fil** för att välja en fil och klicka sedan på **Ladda upp bild**. När uppladdningen är klar navigerar webbläsaren till en sida som visar att åtgärden lyckades. Klicka på länken för att återgå till startsidan. En kopia av den uppladdade bilden visas i området **Genererade miniatyrer**. (Om bilden inte visas överst försöker du att läsa in sidan igen.) Den här bildens storlek ändrades av funktionen, läggs till i behållaren för *miniatyr bilder* och laddades ned av webb klienten.
 
 ![Publicerad webbapp i webbläsaren](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 
 # <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
 
-Klicka på **Välj fil** för att välja en fil och klicka sedan på **Ladda upp bild**. När uppladdningen är klar navigerar webbläsaren till en sida som visar att åtgärden lyckades. Klicka på länken för att återgå till startsidan. En kopia av den uppladdade bilden visas i området **Genererade miniatyrer**. (Om bilden inte visas kan du prova med att uppdatera sidan.) Den här bildens storlek ändrades av funktionen. Därefter lades den till i containern med *miniatyrer* och laddades ned av webbklienten.
+Klicka på **Välj fil** för att välja en fil och klicka sedan på **Ladda upp bild**. När uppladdningen är klar navigerar webbläsaren till en sida som visar att åtgärden lyckades. Klicka på länken för att återgå till startsidan. En kopia av den uppladdade bilden visas i området **Genererade miniatyrer**. (Om bilden inte visas överst försöker du att läsa in sidan igen.) Den här bildens storlek ändrades av funktionen, läggs till i behållaren för *miniatyr bilder* och laddades ned av webb klienten.
 
 ![Publicerad webbapp i webbläsaren](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 

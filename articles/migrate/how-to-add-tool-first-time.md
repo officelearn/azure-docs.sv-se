@@ -4,19 +4,19 @@ description: Beskriver hur du skapar ett Azure Migrate-projekt och lägger till 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/09/2019
+ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: bd119956ced79b73b0376fe4530c9eafaf870238
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: a4e66175b20552e632702cb2ba46d0ae6c0956d4
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934165"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720239"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Lägga till ett utvärderings-/migreringsverktyg för första gången
 
 Den här artikeln beskriver hur du lägger till ett utvärderings-eller Migreringsverktyg till ett [Azure Migrate](migrate-overview.md) projekt för första gången.  
-Azure Migrate tillhandahåller en central hubb för att spåra identifiering, utvärdering och migrering av dina lokala appar och arbets belastningar och privata/offentliga virtuella moln datorer till Azure. Hubben ger Azure Migrate verktyg för utvärdering och migrering, samt oberoende program varu leverantörer ( [ISV) för](migrate-services-overview.md#isv-integration) tredje part. 
+Azure Migrate tillhandahåller en central hubb för att spåra identifiering, utvärdering och migrering av dina lokala appar och arbets belastningar och privata/offentliga virtuella moln datorer till Azure. Hubben innehåller Azure Migrate verktyg för utvärdering och migrering, samt andra verktyg och oberoende program varu leverantörer (ISV)- [erbjudanden](migrate-services-overview.md#isv-integration) . 
 
 ## <a name="create-a-project-and-add-a-tool"></a>Skapa ett projekt och lägga till ett verktyg
 
@@ -48,7 +48,7 @@ Skapa ett nytt Azure Migrate-projekt i en Azure-prenumeration och Lägg till ett
     Asien   | Sydostasien eller Asien, östra
     Europa | Europa, norra eller Europa, västra
     Japan  | Japan, östra eller Japan, väst
-    Storbritannien och Nordirland | Storbritannien, södra eller Storbritannien, västra
+    Storbritannien | Storbritannien, södra eller Storbritannien, västra
     USA | USA, centrala eller västra USA 2
     Kanada | Centrala Kanada
     Indien  | Indien, centrala eller Indien, södra
@@ -66,8 +66,8 @@ Skapa ett nytt Azure Migrate-projekt i en Azure-prenumeration och Lägg till ett
     > [!NOTE]
     > När du skapar ett projekt måste du lägga till minst ett verktyg för bedömning eller migrering.
 
-5. I **Välj bedömnings verktyg**lägger du till ett utvärderings verktyg. Om du inte behöver ett bedömnings verktyg väljer du **hoppa över Lägg till ett bedömnings verktyg för** > **Nästa**gång. 
-2. I **Välj Migreringsverktyg**lägger du till ett Migreringsverktyg efter behov. Om du inte behöver ett Migreringsverktyg just nu väljer du **hoppa över Lägg till ett Migreringsverktyg för** > **Nästa**gång.
+5. I **Välj bedömnings verktyg**lägger du till ett utvärderings verktyg. Om du inte behöver ett bedömnings verktyg väljer du **hoppa över Lägg till ett utvärderings verktyg för tillfället** > **Nästa**. 
+2. I **Välj Migreringsverktyg**lägger du till ett Migreringsverktyg efter behov. Om du inte behöver ett Migreringsverktyg just nu väljer du **hoppa över Lägg till ett Migreringsverktyg för tillfället** > **Nästa**.
 3. I **Granska + Lägg till verktyg**granskar du inställningarna och klickar på **Lägg till verktyg**.
 
 När du har skapat projektet kan du välja ytterligare verktyg för utvärdering och migrering av servrar och arbets belastningar, databaser och webbappar.

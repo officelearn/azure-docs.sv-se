@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcc704e7027903a1ede14c787a64c35d6b5fd9c0
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 1d8caafe312c123a9d572e9a5f4c5cf64a05f7ea
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373464"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721037"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementera hash-synkronisering av lösen ord med Azure AD Connect Sync
 Den här artikeln innehåller information som du behöver för att synkronisera dina användar lösen ord från en lokal Active Directory-instans till en molnbaserad Azure Active Directory-instans (Azure AD).
@@ -32,7 +32,7 @@ För att synkronisera ditt lösen ord extraherar Azure AD Connect sync din löse
 
 Det faktiska data flödet för processen för synkronisering av lösen ords-hash liknar synkroniseringen av användar data. Lösen ord synkroniseras dock oftare än standard fönstret för katalog synkronisering för andra attribut. Processen för synkronisering av lösen ord för hash körs var 2: e minut. Du kan inte ändra frekvensen för den här processen. När du synkroniserar ett lösen ord skriver det över det befintliga moln lösen ordet.
 
-Första gången du aktiverar funktionen för hash-synkronisering av lösen ord utför den en inledande synkronisering av lösen orden för alla användare i omfånget. Du kan inte uttryckligen definiera en delmängd av användar lösen ord som du vill synkronisera.
+Första gången du aktiverar funktionen för hash-synkronisering av lösen ord utför den en inledande synkronisering av lösen orden för alla användare i omfånget. Du kan inte uttryckligen definiera en delmängd av användar lösen ord som du vill synkronisera. Men om det finns flera kopplingar är det möjligt att inaktivera hash-synkronisering av lösen ord för vissa anslutningar, men inte andra som använder cmdleten [set-ADSyncAADPasswordSyncConfiguration](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant) .
 
 När du ändrar ett lokalt lösen ord, synkroniseras det uppdaterade lösen ordet, oftast på bara några minuter.
 Funktionen för synkronisering av lösen ord för hash-meddelanden misslyckade försök att synkronisera automatiskt. Om ett fel inträffar under ett försök att synkronisera ett lösen ord loggas ett fel i logg boken.
@@ -104,13 +104,13 @@ Om du vill aktivera funktionen EnforceCloudPasswordPolicyForPasswordSyncedUsers 
 
 När den är aktive rad går Azure AD inte till varje synkroniserad användare för att ta bort `DisablePasswordExpiration`-värdet från attributet PasswordPolicies. I stället är värdet inställt på `None` under nästa Lösenordssynkronisering för varje användare nästa gång de ändrar sitt lösen ord i lokal AD.  
 
-Vi rekommenderar att du aktiverar EnforceCloudPasswordPolicyForPasswordSyncedUsers innan du aktiverar synkronisering av lösen ords-hash, så att den inledande synkroniseringen av lösen ords-hashar inte lägger till värdet `DisablePasswordExpiration` i PasswordPolicies-attributet för användarna.
+Vi rekommenderar att du aktiverar EnforceCloudPasswordPolicyForPasswordSyncedUsers innan du aktiverar synkronisering av lösen ords-hash, så att den inledande synkroniseringen av lösen ords-hashar inte lägger till värdet `DisablePasswordExpiration` till attributet PasswordPolicies för användarna.
 
 Standard lösen ords principen för Azure AD kräver att användare ändrar sina lösen ord var 90: e dag. Om din princip i AD också är 90 dagar ska de två principerna matcha. Men om AD-principen inte är 90 dagar kan du uppdatera lösen ords principen för Azure AD så att den matchar med hjälp av kommandot Set-MsolPasswordPolicy PowerShell.
 
 Azure AD har stöd för en separat princip för förfallo datum för lösen ord per registrerad domän.
 
-Varningar: om det finns synkroniserade konton som måste ha lösen ord som inte upphör att gälla i Azure AD måste du uttryckligen lägga till värdet `DisablePasswordExpiration` i PasswordPolicies-attributet för användarobjektet i Azure AD.  Det kan du göra genom att köra följande kommando.
+Varningar: om det finns synkroniserade konton som måste ha lösen ord som inte upphör att gälla i Azure AD måste du uttryckligen lägga till `DisablePasswordExpiration`-värdet i PasswordPolicies-attributet för användarobjektet i Azure AD.  Det kan du göra genom att köra följande kommando.
 
 `Set-AzureADUser -ObjectID <User Object ID> -PasswordPolicies "DisablePasswordExpiration"`
 
@@ -123,7 +123,7 @@ Det är vanligt att tvinga en användare att ändra sina lösen ord under sin f�
   
 Funktionen för temporära lösen ord hjälper till att säkerställa att överföringen av ägarskapet för autentiseringsuppgiften har slutförts vid första användningen, för att minimera tiden i vilken mer än en person har kännedom om den autentiseringsuppgiften.
 
-Om du vill ha stöd för temporära lösen ord i Azure AD för synkroniserade användare kan du aktivera funktionen *ForcePasswordResetOnLogonFeature* genom att köra följande kommando på Azure AD Connect-servern och ersätta <AAD Connector Name> med anslutnings namnet som är särskilt för din miljö:
+Om du vill ha stöd för tillfälliga lösen ord i Azure AD för synkroniserade användare kan du aktivera funktionen *ForcePasswordResetOnLogonFeature* genom att köra följande kommando på Azure AD Connect-servern och ersätta <AAD Connector Name> med anslutnings namnet som är särskilt för din miljö:
 
 `Set-ADSyncAADCompanyFeature -ConnectorName "<AAD Connector name>" -ForcePasswordResetOnLogonFeature $true`
 

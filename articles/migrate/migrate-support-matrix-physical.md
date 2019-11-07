@@ -7,16 +7,19 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 56e49ab60733c9c0a813ca6e46712bcd8052a2ef
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 902e89305aa24e8cbb6d2dd84d6a61c710d11637
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518156"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715367"
 ---
 # <a name="support-matrix-for-physical-server-assessment-and-migration"></a>Support mat ris för fysisk server bedömning och migrering
 
 Du kan använda [tjänsten Azure Migrate](migrate-overview.md) för att utvärdera och migrera datorer till Microsoft Azure molnet. Den här artikeln sammanfattar support inställningar och begränsningar för att utvärdera och migrera lokala fysiska servrar.
+
+> [!NOTE]
+> Om funktionerna nämns här som du ännu inte ser i Azure Migrate-portalen, låser du. De kommer att visas under nästa vecka eller så.
 
 
 ## <a name="physical-server-scenarios"></a>Scenarier för fysiska servrar

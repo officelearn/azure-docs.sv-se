@@ -1,64 +1,59 @@
 ---
-title: Ta bort ett Recovery Services valv konfigurerat för tjänsten Azure Site Recovery
+title: Ta bort ett Azure Site Recovery-valv
 description: Lär dig hur du tar bort ett Recovery Services valv konfigurerat för Azure Site Recovery
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 11/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: a13dee2010688b02fd86fb05900826470a7d7a08
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: fb1e22b0ca1da00bf2665d863b40f19fa1621771
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876032"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721294"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Ta bort ett Site Recovery Services-valv
 
-Beroenden kan förhindra att du tar bort ett Azure Site Recovery valv. De åtgärder som du måste utföra varierar beroende på Site Recovery scenariot. Om du vill ta bort ett valv som används i Azure Backup, se [ta bort ett säkerhets kopierings valv i Azure](../backup/backup-azure-delete-vault.md).
+I den här artikeln beskrivs hur du tar bort ett Recovery Services valv för Site Recovery. Om du vill ta bort ett valv som används i Azure Backup, se [ta bort ett säkerhets kopierings valv i Azure](../backup/backup-azure-delete-vault.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="delete-a-site-recovery-vault"></a>Ta bort ett Site Recovery-valv 
-Om du vill ta bort valvet följer du de rekommenderade stegen för ditt scenario.
-### <a name="azure-vms-to-azure"></a>Virtuella Azure-datorer till Azure
 
-1. Ta bort alla skyddade virtuella datorer genom att följa stegen i [inaktivera skydd för en VMware](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-azure-vm-azure-to-azure).
-2. Ta bort valvet.
+## <a name="before-you-start"></a>Innan du börjar
 
-### <a name="vmware-vms-to-azure"></a>Virtuella VMware-datorer till Azure
-
-1. Ta bort alla skyddade virtuella datorer genom att följa stegen i [inaktivera skydd för en VMware](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure).
-
-2. Ta bort alla principer för replikering genom att följa stegen i [ta bort en replikeringsprincip](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy).
-
-3. Ta bort referenser till vCenter genom att följa stegen i [ta bort en vCenter-Server](vmware-azure-manage-vcenter.md#delete-a-vcenter-server).
-
-4. Ta bort konfigurations servern genom att följa stegen i [inaktivera en konfigurations Server](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server).
-
-5. Ta bort valvet.
+Innan du kan ta bort ett valv måste du ta bort registrerade servrar och objekt i valvet. Vad du behöver ta bort beror på de scenarier för replikering som du har distribuerat. 
 
 
-### <a name="hyper-v-vms-with-vmm-to-azure"></a>Virtuella Hyper-V-datorer (med VMM) till Azure
-1. Ta bort alla skyddade virtuella datorer genom att följa stegen i[inaktivera skydd för en virtuell Hyper-V-dator (med VMM)](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario).
+## <a name="delete-a-vault-azure-vm-to-azure"></a>Ta bort ett valv – virtuell Azure-dator till Azure
 
-2. Ta bort associationen & ta bort alla replikeringsprinciper genom att bläddra till ditt valv – > **Site Recovery infrastruktur** – > **för System Center VMM** -> -**replikeringsprinciper**
+1. Följ [dessa anvisningar](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-azure-vm-azure-to-azure) för att ta bort alla skyddade virtuella datorer.
+2. Ta sedan bort valvet.
 
-3.  Ta bort referenser till VMM-servrar genom att följa stegen i [avregistrera en ansluten VMM-Server](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server).
+## <a name="delete-a-vault-vmware-vm-to-azure"></a>Ta bort ett valv – VMware VM till Azure
 
-4.  Ta bort valvet.
+1. Följ [dessa anvisningar](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) för att ta bort alla skyddade virtuella datorer.
+2. Följ [dessa steg](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) om du vill ta bort alla principer för replikering.
+3. Ta bort referenser till vCenter med [de här stegen](vmware-azure-manage-vcenter.md#delete-a-vcenter-server).
+4. Följ [dessa anvisningar](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server) om du vill inaktivera en konfigurations Server.
+5. Ta sedan bort valvet.
 
-### <a name="hyper-v-vms-without-virtual-machine-manager-to-azure"></a>Virtuella Hyper-V-datorer (utan Virtual Machine Manager) till Azure
-1. Ta bort alla skyddade virtuella datorer genom att följa stegen i [inaktivera skydd för en virtuell Hyper-v-dator (Hyper-v till Azure)](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure).
 
-2. Ta bort associationen & ta bort alla replikeringsprinciper genom att bläddra till ditt valv – > **Site Recovery infrastruktur** -> **för Hyper-V-platser** -> 
+## <a name="delete-a-vault-hyper-v-vm-with-vmm-to-azure"></a>Ta bort ett valv – virtuell Hyper-V-dator (med VMM) till Azure
 
-3. Ta bort referenser till Hyper-V-servrar genom att följa stegen i [avregistrera en Hyper-v-värd](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site).
+1. Följ [dessa steg](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario) om du vill ta bort virtuella Hyper-V-datorer som hanteras av System Center VMM.
+2. Ta bort associationen och ta bort alla principer för replikering. Gör detta i valvet > **Site Recovery infrastruktur** > **för System Center VMM** > **replikeringsprinciper**.
+3. Följ [dessa steg](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server) om du vill avregistrera en ansluten VMM-Server.
+4. Ta sedan bort valvet.
 
+## <a name="delete-a-vault-hyper-v-vm-to-azure"></a>Ta bort ett valv – virtuell Hyper-V-dator till Azure
+
+1. Följ [dessa steg](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure) om du vill ta bort alla skyddade virtuella datorer.
+2. Ta bort associationen och ta bort alla principer för replikering. Gör detta i valvet > **Site Recovery infrastruktur** > **för Hyper-V-platser** > **replikeringsprinciper**.
+3. Följ [dessa instruktioner](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site) om du vill avregistrera en Hyper-V-värd.
 4. Ta bort Hyper-V-platsen.
-
-5. Ta bort valvet.
+5. Ta sedan bort valvet.
 
 
 ## <a name="use-powershell-to-force-delete-the-vault"></a>Använd PowerShell för att framtvinga borttagning av valvet 

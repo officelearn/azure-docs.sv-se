@@ -1,22 +1,22 @@
 ---
-title: Skicka Blob Storage-händelser till en webbslutpunkt – portal | Microsoft Docs
-description: Använd Azure Event Grid och Azure Portal för att skapa Blob Storage-konton och prenumerera på dess händelser. Skicka händelserna till en Webhook.
+title: 'Snabb start: skicka Blob Storage-händelser till webb slut punkt – Portal'
+description: 'Snabb start: Använd Azure Event Grid och Azure Portal för att skapa Blob Storage-konto och prenumerera på dess händelser. Skicka händelserna till en Webhook.'
 services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 07/11/2019
+ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: a11e04a92375f5b52849257124344673301739e5
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 9ecffc25461a909d47329d536d1c19724b3c22ac
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839159"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718064"
 ---
-# <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Snabbstart: Dirigera Blob Storage-händelser till en webbslutpunkt med Azure Portal
+# <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Snabb start: dirigera Blob Storage-händelser till webb slut punkt med Azure Portal
 
 Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder du Azure Portal för att skapa ett Blob Storage-konto, prenumerera på händelser för blobblagringen och utlösa en händelse för att visa resultatet. Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och utför åtgärder. Men för att enkelt beskriva den här artikeln kan skicka du händelser till en webbapp som samlar in och visar meddelanden.
 
@@ -102,7 +102,7 @@ Du kan utlösa en händelse för Blob Storage-kontot genom att ladda upp en fil.
 
 1. Bläddra till testfilen och ladda upp den.
 
-1. Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt som du konfigurerade när du prenumererade. Meddelandet är i JSON-format och innehåller en matris med en eller flera händelser. I följande exempel innehåller en matris med en händelse i JSON-meddelande. Visa din webbapp och notera att en skapad blobhändelse tagits emot. 
+1. Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt som du konfigurerade när du prenumererade. Meddelandet är i JSON-format och innehåller en matris med en eller flera händelser. I följande exempel innehåller JSON-meddelandet en matris med en händelse. Visa din webbapp och notera att en skapad blobhändelse tagits emot. 
 
    ```json
    [{

@@ -1,31 +1,31 @@
 ---
-title: Skicka och ta emot händelser med python – Azure Event Hubs
-description: Den här genom gången visar hur du skapar och kör Python-skript som skickar händelser till eller tar emot händelser från Azure Event Hubs.
+title: 'Snabb start: skicka och ta emot händelser med python – Azure Event Hubs'
+description: 'Snabb start: den här genom gången visar hur du skapar och kör Python-skript som skickar händelser till eller tar emot händelser från Azure Event Hubs.'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: femila
 ms.service: event-hubs
 ms.workload: core
-ms.topic: article
-ms.date: 10/11/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: shvija
-ms.openlocfilehash: 330a7f5dc325c707b5be7ce9f9b3242a1d4c9547
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 9b6c3fb03f696f4142721284a14001eb51153a77
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428896"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720544"
 ---
-# <a name="send-and-receive-events-with-event-hubs-using-python"></a>Skicka och ta emot händelser med Event Hubs med python
+# <a name="quickstart-send-and-receive-events-with-event-hubs-using-python"></a>Snabb start: skicka och ta emot händelser med Event Hubs med python
 
-Azure Event Hubs är en stor data strömnings plattform och händelse inmatnings tjänst som kan ta emot och bearbeta miljon tals händelser per sekund. Event Hubs kan bearbeta och lagra händelser, data eller telemetri från distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. Mer information om Event Hubs finns i [Azure-Event Hubs](event-hubs-about.md) och- [funktioner och terminologi i Azure Event Hubs](event-hubs-features.md).
+Azure Event Hubs är en stor data strömnings plattform och händelse inmatnings tjänst som kan ta emot och bearbeta miljon tals händelser per sekund. Event Hubs kan bearbeta och lagra händelser, data eller telemetri från distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadapter. Mer information om Event Hubs finns i [Azure-Event Hubs](event-hubs-about.md) och- [funktioner och terminologi i Azure Event Hubs](event-hubs-features.md).
 
 Den här snabb starten visar hur du skapar python-program som skickar händelser till och tar emot händelser från en händelsehubben. 
 
 > [!NOTE]
-> I stället för att arbeta via snabb starten kan du ladda ned och köra [exempel apparna](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) från GitHub. Ersätt `EventHubConnectionString`-och `EventHubName`-strängar med Event Hub-värdena. 
+> I stället för att arbeta via snabb starten kan du ladda ned och köra [exempel apparna](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) från GitHub. Ersätt `EventHubConnectionString` och `EventHubName` strängar med Event Hub-värdena. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här snabbstarten, behöver du följande förhandskrav:
 
@@ -48,7 +48,7 @@ Så här skapar du ett python-program som skickar händelser till en Event Hub:
 
 1. Öppna din favorit-eller python-redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com/)
 2. Skapa en ny fil med namnet *send.py*. Det här skriptet skickar 100-händelser till händelsehubben.
-3. Klistra in följande kod i *send.py*, och ersätt Event Hubs \<namespace >, \<eventhub >, \<AccessKeyName > och \<primary nyckel värde > med dina värden: 
+3. Klistra in följande kod i *send.py*, ersätt Event Hubs \<namn område >, \<eventhub >, \<AccessKeyName > och \<primär nyckel värde > med dina värden: 
    
    ```python
    import sys
@@ -104,14 +104,14 @@ Kör skriptet från katalogen där du sparade *send.py*genom att köra det här 
 start python send.py
 ```
 
-Gratulerar! Du har nu skickat meddelanden till en händelsehubb.
+Grattis! Du har nu skickat meddelanden till en händelsehubb.
 
 ## <a name="receive-events"></a>Ta emot händelser
 
 Så här skapar du ett python-program som tar emot händelser från en Event Hub:
 
 1. Skapa en fil med namnet *Recv.py*i python-redigeraren.
-2. Klistra in följande kod i *Recv.py*, och ersätt Event Hubs \<namespace >, \<eventhub >, \<AccessKeyName > och \<primary nyckel värde > med dina värden: 
+2. Klistra in följande kod i *Recv.py*, ersätt Event Hubs \<namn område >, \<eventhub >, \<AccessKeyName > och \<primär nyckel värde > med dina värden: 
    
    ```python
    import os

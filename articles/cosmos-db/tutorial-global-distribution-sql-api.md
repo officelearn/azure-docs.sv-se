@@ -1,24 +1,24 @@
 ---
-title: Självstudie om global distribution i Azure Cosmos DB för SQL API
-description: Lär dig att konfigurera global distribution i Azure Cosmos DB med SQL API:et.
+title: 'Självstudie: Azure Cosmos DB global distributions guide för SQL API'
+description: 'Självstudie: Lär dig hur du konfigurerar Azure Cosmos DB global distribution med SQL-API: et.'
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 07/15/2019
+ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: b6b8be29afc25a3862a440e46d41e8c911189c04
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: b76fee17b64d50831d5bceca9d8512e7b7498d73
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756831"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720764"
 ---
-# <a name="set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Konfigurera global distribution i Azure Cosmos DB med SQL API:et
+# <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Självstudie: Konfigurera Azure Cosmos DB global distribution med SQL-API: et
 
 I den här artikeln visar vi hur du kan konfigurera global distribution i Azure Cosmos DB med Azure Portal och sedan ansluta med hjälp av SQL-API:et.
 
-I den här artikeln beskrivs följande uppgifter: 
+Den här artikeln beskriver följande uppgifter: 
 
 > [!div class="checklist"]
 > * Konfigurera global distribution med Azure Portal
@@ -186,7 +186,7 @@ Och med detta är den här självstudiekursen klar. Mer information om hur du ka
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen har du gjort följande:
+I den här självstudien har du gjort följande:
 
 > [!div class="checklist"]
 > * Konfigurera global distribution med Azure Portal

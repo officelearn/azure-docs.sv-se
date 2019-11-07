@@ -1,6 +1,6 @@
 ---
-title: Integrationsexempel på Azure Service Bus till Event Grid | Microsoft Docs
-description: Den här artikeln visar exempel på Service Bus-meddelanden och Event Grid-integration.
+title: 'Självstudie: Azure Service Bus till Event Grid integrations exempel'
+description: 'Självstudie: den här artikeln innehåller exempel på Service Bus meddelande-och Event Grid-integration.'
 services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: tutorial
-ms.date: 05/14/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: f31e014cf242675577bedd29a3a79332ede32bf5
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: d3f523bbc0236536734f21870474492a61532ada
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304243"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719022"
 ---
-# <a name="respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Svara på Azure Service Bus händelser som tas emot via Azure Event Grid med Azure Functions och Azure Logic Apps
+# <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Självstudie: svara på Azure Service Bus händelser som tas emot via Azure Event Grid med Azure Functions och Azure Logic Apps
 I den här självstudien får du lära dig hur du svarar på Azure Service Bus händelser som tas emot via Azure Event Grid med Azure Functions och Azure Logic Apps. Du utför följande steg:
  
 - Skapa en Azure-funktion för att felsöka och visa det första flödet av händelser från Event Grid.
@@ -35,7 +35,7 @@ När du har skapat Service Bus, Event Grid, Azure Functions och Logic Apps artef
 3. Kontrol lera att den funktion eller den Logic-app som prenumererade på händelsen har tagit emot händelsen. 
 
 ## <a name="create-a-service-bus-namespace"></a>Skapa ett namnområde för Service Bus
-Följ anvisningarna i den här självstudien: [Snabbstart: Använd Azure Portal för att skapa ett Service Bus ämne och prenumerationer på avsnittet](service-bus-quickstart-topics-subscriptions-portal.md) för att utföra följande uppgifter:
+Följ anvisningarna i den här självstudien: [snabb start: använd Azure Portal för att skapa ett Service Bus ämne och prenumerationer på avsnittet](service-bus-quickstart-topics-subscriptions-portal.md) för att utföra följande uppgifter:
 
 - Skapa ett **premium** Service Bus-namnområde. 
 - Hämta anslutnings strängen. 
@@ -65,7 +65,7 @@ Innan du går igenom hela scenariot ställer du in minst en liten test funktion 
 Utför sedan följande steg: 
 
 
-# <a name="azure-functions-v2tabv2"></a>[Azure Functions V2](#tab/v2)
+# <a name="azure-functions-v2tabv2"></a>[Azure Functions v2](#tab/v2)
 
 1. Expandera **funktioner** i trädvyn och välj din funktion. Ersätt koden för funktionen med följande kod: 
 
@@ -122,7 +122,7 @@ Utför sedan följande steg:
 
     ![Hämta funktions webb adress](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
 
-# <a name="azure-functions-v1tabv1"></a>[Azure Functions V1](#tab/v1)
+# <a name="azure-functions-v1tabv1"></a>[Azure Functions v1](#tab/v1)
 
 1. Konfigurera funktionen för att använda **v1** -version: 
     1. Välj din Function-app i trädvyn och välj **Function app-inställningar**. 
@@ -211,7 +211,7 @@ Följ dessa steg om du vill skapa en Azure Event Grid-prenumeration:
 1. Kör .NET C# -programmet som skickar meddelanden till Service Bus avsnittet. 
 
     ![Utdata för konsol program](./media/service-bus-to-event-grid-integration-example/console-app-output.png)
-1. På sidan för din Azure Function- **app expanderar**du functions, expanderar din **funktion**och väljer **övervaka**. 
+1. På sidan för din Azure Function- **app expanderar du** **Functions**, expanderar din funktion och väljer **övervaka**. 
 
     ![Övervaknings funktion](./media/service-bus-to-event-grid-integration-example/function-monitor.png)
 
@@ -303,7 +303,7 @@ Anslut en Logic app med Azure Service Bus och Azure Event Grid genom att följa 
     2. Välj **Slutför meddelandet i en ämnes prenumeration** i listan med åtgärder. 
     3. Välj ditt Service Bus **ämne**.
     4. Välj den andra **prenumerationen** för ämnet.
-    5. För **meddelandets lås**-token väljer du **Lås token** från det **dynamiska innehållet**. 
+    5. För **meddelandets lås-token**väljer du **Lås token** från det **dynamiska innehållet**. 
 
         ![Logic Apps designer – Välj ditt Service Bus ämne och prenumeration](./media/service-bus-to-event-grid-integration-example/logic-app-complete-message.png)
 8. Spara Logic-appen genom att välja **Spara** i verktygsfältet på Logic Apps designer. 

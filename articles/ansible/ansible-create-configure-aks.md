@@ -7,13 +7,13 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/30/2019
-ms.openlocfilehash: 9b70a9c364768322a3eae6ef5b92c87b6839c540
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.date: 11/04/2019
+ms.openlocfilehash: b0839cf418cd30f62623e046960c32d41537609a
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242094"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614382"
 ---
 # <a name="tutorial-configure-azure-kubernetes-service-aks-clusters-in-azure-using-ansible"></a>Självstudie: Konfigurera Azure Kubernetes service-kluster (AKS) i Azure med hjälp av Ansible
 
@@ -30,7 +30,7 @@ AKS kan konfigureras för att använda [Azure Active Directory (AD)](/azure/acti
 > * Skapa ett AKS-kluster
 > * Konfigurera ett AKS-kluster
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
@@ -54,7 +54,8 @@ Spara följande spelbok som `azure_create_aks.yml`:
     ssh_key: "your_ssh_key"
     client_id: "your_client_id"
     client_secret: "your_client_secret"
-  tasks:
+    aks_version: aks_version
+tasks:
   - name: Create resource group
     azure_rm_resourcegroup:
       name: "{{ resource_group }}"
@@ -65,6 +66,7 @@ Spara följande spelbok som `azure_create_aks.yml`:
       location: "{{ location }}"
       resource_group: "{{ resource_group }}"
       dns_prefix: "{{ aks_name }}"
+      kubernetes_version: "{{aks_version}}"
       linux_profile:
         admin_username: "{{ username }}"
         ssh_key: "{{ ssh_key }}"
@@ -81,9 +83,10 @@ Spara följande spelbok som `azure_create_aks.yml`:
 
 Se följande anmärkningar innan du kör Spelbok:
 
-- Det första avsnittet i `tasks` definierar en resurs grupp med namnet `myResourceGroup` på platsen `eastus`.
-- Det andra avsnittet i `tasks` definierar ett AKS-kluster med namnet `myAKSCluster` i resurs gruppen `myResourceGroup`.
+- Det första avsnittet i `tasks` definierar en resurs grupp med namnet `myResourceGroup` inom `eastus` platsen.
+- Det andra avsnittet i `tasks` definierar ett AKS-kluster med namnet `myAKSCluster` i `myResourceGroup` resurs gruppen.
 - För platshållaren `your_ssh_key` anger du din offentliga RSA-nyckel i enradigt format – som ska börja med ”ssh-rsa” (utan citattecken).
+- För `aks_version` plats hållare använder du kommandot [AZ AKS get-versions](/cli/azure/aks?view=azure-cli-latest#az-aks-get-versions) .
 
 Kör Spelbok med kommandot `ansible-playbook`:
 
@@ -111,7 +114,7 @@ localhost                  : ok=3    changed=2    unreachable=0    failed=0
 
 ## <a name="scale-aks-nodes"></a>Skala AKS-noder
 
-Exempelspelboken i föregående avsnitt definierar två noder. Du justerar antalet noder genom att ändra värdet `count` i `agent_pool_profiles`-blocket.
+Exempelspelboken i föregående avsnitt definierar två noder. Du justerar antalet noder genom att ändra `count` värdet i `agent_pool_profiles`-blocket.
 
 Spara följande spelbok som `azure_configure_aks.yml`:
 

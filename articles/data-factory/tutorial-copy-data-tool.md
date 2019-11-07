@@ -1,5 +1,5 @@
 ---
-title: Kopiera data med Azure-verktyget Kopiera data | Microsoft Docs
+title: Kopiera data med hjälp av Azure Kopiera data-verktyget
 description: Skapa en Azure-datafabrik och kopiera sedan data från Azure Blob Storage till en SQL-databas.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: a99f319c25613f811b48923c734b77b135b677bc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 4646d7429dc4b3286f6af8861eaf7f1e6e27a760
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827934"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683598"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Kopiera data från Azure Blob Storage till en SQL-databas med verktyget för att kopiera data
 > [!div class="op_single_selector" title1="Välj den version av tjänsten Data Factory som du använder:"]
@@ -34,11 +34,11 @@ I den här självstudien får du göra följande:
 > * Använd verktyget Kopiera data för att skapa en pipeline.
 > * Övervaka pipelinen och aktivitetskörningarna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* **Azure-prenumeration**: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-* **Azure-lagringskonto**: Använd Blob Storage som _källdatalager_. Om du inte har något Azure-lagringskonto finns det anvisningar i [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md).
-* **Azure SQL Database**: Använd en SQL-databas som _måldatalager_. Om du inte har någon SQL-databas kan du läsa instruktionerna i [Skapa en SQL-databas](../sql-database/sql-database-get-started-portal.md).
+* **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+* **Azure-lagringskonto**: Använd Blob Storage som datalager för _källan_. Om du inte har något Azure-lagringskonto finns det anvisningar i [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md).
+* **Azure SQL Database**: Använd en SQL-databas som datalager för _kanalmottagaren_. Om du inte har någon SQL-databas kan du läsa instruktionerna i [Skapa en SQL-databas](../sql-database/sql-database-get-started-portal.md).
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Skapa en blob och en SQL-tabell
 
@@ -75,10 +75,10 @@ Förbered din Blob Storage och SQL-databas för självstudien genom att utföra 
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. På den vänstra menyn väljer du **skapa en resurs** > **analys** > **Data Factory**:
+1. På den vänstra menyn väljer du **skapa en resurs** > **Analytics** > **Data Factory**:
     
     ![Skapa ny datafabrik](./media/doc-common-process/new-azure-data-factory-menu.png)
-1. I fönstret **Ny datafabrik**, under **Namn** anger du **ADFTutorialDataFactory**.
+1. I fönstret **Ny datafabrik**, under **Namn**, anger du **ADFTutorialDataFactory**.
 
     Namnet på datafabriken måste vara _globalt unikt_. Du kan få följande felmeddelande:
     
@@ -92,7 +92,7 @@ Förbered din Blob Storage och SQL-databas för självstudien genom att utföra 
 
     b. Välj **Skapa ny** och ange namnet på en resursgrupp.
     
-    Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).
+    Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).
 
 1. För **version** väljer du **V2**.
 1. Under **plats** väljer du en plats för datafabriken. Endast platser som stöds visas i listrutan. Datalagren (t.ex. Azure Storage och SQL Database) och beräkningarna (t.ex. Azure HDInsight) som används i datafabriken kan finnas på andra platser och i andra regioner.
@@ -153,9 +153,9 @@ Förbered din Blob Storage och SQL-databas för självstudien genom att utföra 
 1. Sidan **Settings** (Inställningar) visas. Välj **Nästa**.
 1. Granska inställningarna på sidan **Sammanfattning** och klicka på **Nästa**.
 1. Välj **Övervaka** på sidan **Distribution** för att övervaka pipelinen (aktiviteten).
-1. Observera att fliken **Övervaka** till vänster väljs automatiskt. I kolumnen **Åtgärder** finns länkar som visar information om aktivitetskörningen och för att köra pipelinen igen. Om du vill uppdatera listan väljer du **Uppdatera**.
+1. Observera att fliken **Övervaka** till vänster väljs automatiskt. I kolumnen **Åtgärder** finns länkar som visar information om aktivitetskörningen och för att köra pipelinen igen. Om du vill uppdatera listan väljer du **Refresh** (Uppdatera).
 
-1. Om du vill se aktivitetskörningar som är associerade med pipelinekörningen, väljer du länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Åtgärder**. Om du vill se mer information om kopieringsåtgärden väljer du länken **Information** (glasögonikonen) i kolumnen **Åtgärder**. Om du vill gå tillbaka till vyn pipeline-körningar väljer du länken **pipeline** -körningar överst. Välj **Uppdatera** för att uppdatera vyn.
+1. Om du vill se aktivitetskörningar som är associerade med pipelinekörningen, väljer du länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Åtgärder**. Om du vill se mer information om kopieringsåtgärden väljer du länken **Information** (glasögonikonen) i kolumnen **Åtgärder**. Om du vill gå tillbaka till vyn pipeline-körningar väljer du länken **pipeline-körningar** överst. Välj **Uppdatera** för att uppdatera vyn.
 
     ![Övervaka aktivitetskörningar](./media/tutorial-copy-data-tool/activity-monitoring.png)
 

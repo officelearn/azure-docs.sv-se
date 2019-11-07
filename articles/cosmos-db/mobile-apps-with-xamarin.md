@@ -1,20 +1,20 @@
 ---
-title: Bygga mobilappar med Xamarin och Azure Cosmos DB
-description: En självstudiekurs som skapar en Xamarin iOS-, Android- eller Forms-app med Azure Cosmos DB. Azure Cosmos DB är en snabb, världsomfattande molndatabas för mobilappar.
+title: 'Självstudie: utveckla mobil program med Xamarin och Azure Cosmos DB'
+description: 'Självstudie: en själv studie kurs som skapar ett Xamarin iOS-, Android-eller Forms-program med hjälp av Azure Cosmos DB. Azure Cosmos DB är en snabb, världsomfattande molndatabas för mobilappar.'
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/15/2018
+ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: 4a9c0fe09bee553f53c90c9833922746aad35d14
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 40f7de4b4feb2b312705238abd30402edb635ea9
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615077"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720887"
 ---
-# <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Bygga mobilappar med Xamarin och Azure Cosmos DB
+# <a name="tutorial-build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Självstudie: utveckla mobil program med Xamarin och Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [NET](sql-api-dotnet-application.md)
@@ -45,7 +45,7 @@ Azure Cosmos DB innehåller följande viktiga funktioner för utvecklare av mobi
 Följande självstudiekurs visar hur du skapar en mobilapp med Xamarin och Azure Cosmos DB. Du hittar källkoden för hela självstudiekursen på [Xamarin och Azure Cosmos DB på GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin).
 
 ### <a name="get-started"></a>Kom igång
-Det är lätt att komma igång med Azure Cosmos DB. Gå till Azure Portal och skapa ett nytt Azure Cosmos DB-konto. Klicka på fliken **Snabbstart**. Ladda ned Xamarin Forms-exemplet för att göra-listan som redan är kopplad till ditt Azure Cosmos DB-konto. 
+Det är lätt att komma igång med Azure Cosmos DB. Gå till Azure Portal och skapa ett nytt Azure Cosmos DB-konto. Klicka på fliken **snabb start** . Ladda ned Xamarin formulär att göra-listan som redan är ansluten till ditt Azure Cosmos DB-konto. 
 
 ![Azure Cosmos DB snabbstart för mobilappar](media/mobile-apps-with-xamarin/cosmos-db-quickstart.png)
 
@@ -70,7 +70,7 @@ Du kan använda språkintegrerade frågor över schemalösa data i dina Xamarin-
         Items.AddRange(await query.ExecuteNextAsync<TodoItem>());
     }
 ```
-### <a name="add-users"></a>Lägg till användare
+### <a name="add-users"></a>Lägga till användare
 Som många kom igång-exempel autentiseras det Azure Cosmos DB-exempel som du laddar ned för tjänsten med hjälp av en huvudnyckel som är hårdkodad i appens kod. Den här standardinställningen är inte bra för appar du tänker dig ska kunna köras var som helst utom på din lokala emulator. Om en obehörig användare får tag på huvudnyckeln kan alla data i ditt Azure Cosmos DB-konto äventyras. Istället vill du att appen bara ska få åtkomst till poster som hör till den inloggade användaren. Azure Cosmos DB gör att utvecklare kan bevilja läsbehörighet eller läs- och skrivbehörighet för programmet till en samling, en uppsättning dokument grupperade efter en partitionsnyckel eller ett visst dokument. 
 
 Följ dessa anvisningar om du vill ändra att göra-appen till en app med en att göra-lista för flera användare: 

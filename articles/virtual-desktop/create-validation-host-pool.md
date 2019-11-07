@@ -1,5 +1,5 @@
 ---
-title: Skapa en Windows-pool för virtuella Skriv bords värdar för att verifiera tjänst uppdateringar – Azure
+title: Uppdateringar av tjänsten Host pool i Windows virtuella skriv bord – Azure
 description: Så här skapar du en pool för validering av värdar för övervakning av tjänst uppdateringar innan uppdateringar distribueras till produktion.
 services: virtual-desktop
 author: Heidilohr
@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: c294bb41afae1257add0c96a9f77adad3f871849
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: fd8be170f0f4388ee711881dde16923b9547f21f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676682"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606919"
 ---
-# <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Självstudier: Skapa en värdpool för att verifiera tjänstuppdateringar
+# <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Självstudie: skapa en adresspool för att verifiera tjänst uppdateringar
 
 Värdbaserade pooler är en samling av en eller flera identiska virtuella datorer i Windows-miljöer för virtuella Skriv bords klienter. Innan du distribuerar lagringspooler till produktions miljön rekommenderar vi starkt att du skapar en pool för validerings värdar. Uppdateringar tillämpas först på verifiering av värdbaserade pooler, så att du kan övervaka tjänst uppdateringar innan du återställer dem till produktions miljön. Utan en verifierings värd kan du inte identifiera ändringar som innehåller fel, vilket kan leda till stillestånds tid för användare i produktions miljön.
 
@@ -34,7 +34,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ## <a name="create-your-host-pool"></a>Skapa din värd bassäng
 
 Du kan skapa en adresspool genom att följa anvisningarna i någon av följande artiklar:
-- [Självstudier: Skapa en värdbaserad pool med Azure Marketplace @ no__t-0
+- [Självstudie: skapa en värdbaserad pool med Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Skapa en värdbaserad pool med en Azure Resource Manager-mall](create-host-pools-arm-template.md)
 - [Skapa en värdbaserad pool med PowerShell](create-host-pools-powershell.md)
 

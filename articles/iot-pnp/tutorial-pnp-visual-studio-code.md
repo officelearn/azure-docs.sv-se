@@ -9,14 +9,14 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: b890fe1a9ef30e18a54ced9f48015bed39298807
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: b7b9cd1040accda4d39af4d0a18940b56a45f929
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858881"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73569889"
 ---
-# <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>Självstudier: Skapa och testa en enhets kapacitets modell med Visual Studio Code
+# <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>Självstudie: skapa och testa en enhets kapacitets modell med Visual Studio Code
 
 Den här självstudien visar hur du, som enhets utvecklare, använder Visual Studio Code för att skapa en _enhets kapacitets modell_. Du kan använda modellen för att generera Skeleton-kod som ska köras på en enhet som ansluter till en Azure IoT Hub-instans i molnet.
 
@@ -30,11 +30,11 @@ I den här guiden får du lära dig att:
 > * Implementera stub-funktioner i den genererade koden
 > * Kör koden för att testa interaktionerna med en IoT-hubb
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill arbeta med enhets kapacitets modellen i den här självstudien behöver du:
 
-* [Visual Studio Code](https://code.visualstudio.com/download): VS Code är tillgängligt för flera plattformar
+* [Visual Studio Code](https://code.visualstudio.com/download): vs Code är tillgängligt för flera plattformar
 * [Azure IoT Tools för vs Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) Extension Pack. Använd följande steg för att installera tilläggs paketet i VS Code:
 
     1. I VS Code väljer du fliken **tillägg** .
@@ -43,14 +43,9 @@ Om du vill arbeta med enhets kapacitets modellen i den här självstudien behöv
 
 Om du vill skapa den genererade C-koden i Windows i den här självstudien behöver du:
 
-* [Visual Studio (community, Professional eller Enterprise)](https://visualstudio.microsoft.com/downloads/) – se till att du inkluderar **NuGet Package Manager** -komponenten och **Skriv bords utveckling med C++**  arbets belastning när du installerar Visual Studio.
+* [Bygg verktyg för Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) med  **C++ build-verktyg** och **NuGet Package Manager-komponentens** arbets belastningar. Eller om du redan har [Visual Studio (community, Professional eller Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019, 2017 eller 2015 med samma arbets belastningar installerade.
 * [Git](https://git-scm.com/download)
 * [CMake](https://cmake.org/download/)
-* En lokal kopia av Azure IoT C SDK:
-
-    ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
-    ```
 
 Om du vill testa enhets koden i den här självstudien behöver du:
 
@@ -71,13 +66,13 @@ Så här skapar du en gränssnitts fil som definierar funktionerna i din IoT-enh
 
 1. Starta VS Code och Använd **Ctrl + Shift + P** för att öppna kommando paletten.
 
-1. Ange **Plug and Play** och välj **IoT-& spela upp: Kommandot Skapa** gränssnitt.
+1. Ange **Plug and Play** och välj sedan kommandot **IoT plugg & Play: Create Interface** .
 
 1. Bläddra till och välj mappen **devicemodel** som du skapade.
 
 1. Ange sedan **EnvironmentalSensor** som namn på gränssnittet och tryck på **RETUR**. VS Code skapar en exempel gränssnitts fil med namnet **EnvironmentalSensor. Interface. JSON**.
 
-1. Ersätt innehållet i den här filen med följande JSON och Ersätt `{your name}` `@id` i fältet med ett unikt värde. Använd bara tecknen a-z, A-Z, 0-9 och under streck. Mer information finns i [digitalt format för dubbla identifierare](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format). Gränssnitts-ID: t måste vara unikt för att spara gränssnittet i databasen:
+1. Ersätt innehållet i den här filen med följande JSON och ersätt `{your name}` i fältet `@id` med ett unikt värde. Använd bara tecknen a-z, A-Z, 0-9 och under streck. Mer information finns i [digitalt format för dubbla identifierare](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format). Gränssnitts-ID: t måste vara unikt för att spara gränssnittet i databasen:
 
     ```json
     {
@@ -176,7 +171,7 @@ Så här skapar du en gränssnitts fil som definierar funktionerna i din IoT-enh
           "commandType": "synchronous"
         }
       ],
-      "@context": "http://azureiot.com/v1/contexts/Interface.json"
+      "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
     }
     ```
 
@@ -219,9 +214,9 @@ För att skapa en modell fil som anger de gränssnitt som din IoT Plug and Play-
 
 1. Använd **CTRL + SKIFT + P** för att öppna kommando paletten.
 
-1. Ange **Plug and Play** och välj **IoT-& spela upp: Kommandot Skapa kapacitets modell** . Ange sedan **SensorboxModel** som namn på modellen. VS Code skapar en exempel gränssnitts fil med namnet **SensorboxModel. capabilitymodel. JSON**.
+1. Ange **Plug and Play** och välj sedan kommandot **IoT plugg & Play: Create Capability Model** . Ange sedan **SensorboxModel** som namn på modellen. VS Code skapar en exempel gränssnitts fil med namnet **SensorboxModel. capabilitymodel. JSON**.
 
-1. Ersätt innehållet i den här filen med följande JSON `{your name}` och Ersätt `@id` i fältet och i `EnvironmentalSensor` gränssnittet med samma värde som du använde i filen **EnvironmentalSensor. Interface. JSON** . Gränssnitts-ID: t måste vara unikt för att spara gränssnittet i databasen:
+1. Ersätt innehållet i den här filen med följande JSON och ersätt `{your name}` i fältet `@id` och i `EnvironmentalSensor` gränssnittet med samma värde som du använde i filen **EnvironmentalSensor. Interface. JSON** . Gränssnitts-ID: t måste vara unikt för att spara gränssnittet i databasen:
 
     ```json
     {
@@ -256,7 +251,7 @@ Hämta **DeviceInformation** -gränssnittet från den offentliga modellens lagri
 
 1. Ange **Plug and Play**, Välj kommandot **Öppna modell databas** och välj sedan **Öppna offentlig modell databas**.
 
-1. Välj **gränssnitt**, välj sedan gränssnittet för enhets information med `urn:azureiot:DeviceManagement:DeviceInformation:1`ID och välj sedan **Hämta**.
+1. Välj **gränssnitt**, välj sedan gränssnittet för enhets information med ID `urn:azureiot:DeviceManagement:DeviceInformation:1`och välj sedan **Ladda ned**.
 
 Nu har du tre filer som utgör enhetens kapacitets modell:
 
@@ -280,7 +275,7 @@ Så här öppnar du företags databasen i VS Code:
 
 1. Använd **CTRL + SKIFT + P** för att öppna kommando paletten.
 
-1. Ange **Plug and Play** och välj **IoT-& spela upp: Öppna modell databas** kommandot.
+1. Ange **Plug and Play** och välj **IoT-plugin-& spela upp: öppna modell databas** kommandot.
 
 1. Välj **Öppna organisations modellens lagrings plats** och klistra in anslutnings strängen.
 
@@ -290,7 +285,7 @@ Publicera enhetens kapacitets modell och gränssnitt till företags databasen:
 
 1. Använd **CTRL + SKIFT + P** för att öppna kommando paletten.
 
-1. Ange **Plug and Play** och välj **IoT-& spela upp: Skicka filer till kommandot modell** databas.
+1. Ange **Plug and Play** och välj **IoT plugg & Play: skicka filer till modell lagrings** kommandot.
 
 1. Välj filerna **EnvironmentalSensor. Interface. JSON** och **SensorboxModel. capabilitymodel. JSON** och välj **OK**.
 
@@ -302,7 +297,7 @@ Du kan använda **Azure IoT Tools för vs Code** för att skapa Skeleton C-kod f
 
 1. Använd **CTRL + SKIFT + P** för att öppna kommando paletten.
 
-1. Ange **Plug and Play** och välj **IoT-& spela upp: Generera kommando för enhets kods stub** .
+1. Ange **Plug and Play** och välj **IoT-plugin-& spela upp: generera enhets kod stub-** kommandot.
 
 1. Välj din **SensorboxModel. capabilitymodel. JSON** -kapacitets modell fil.
 
@@ -310,9 +305,11 @@ Du kan använda **Azure IoT Tools för vs Code** för att skapa Skeleton C-kod f
 
 1. Välj **ANSI C** som språk.
 
-1. Välj **cmake-projekt** som mål.
-
 1. Välj **Via IoT Hub enhets anslutnings sträng** som ett sätt att ansluta.
+
+1. Välj **cmake-projekt i Windows** som projekt mal len.
+
+1. Välj **via Vcpkg** som ett sätt att inkludera enhets-SDK: n.
 
 VS Code genererar Skeleton C-koden och sparar filerna i mappen **sensorbox_app** i mappen **modelcode** . VS Code öppnar ett nytt fönster som innehåller de genererade filerna.
 
@@ -355,7 +352,7 @@ När du kör koden ansluter den till IoT Hub och börjar skicka exempel telemetr
 
     Anteckna anslutnings strängen.
 
-1. Gå till mappen **Azure-IoT-SDK-c** i en kommando tolk där du skapade SDK och exempel. Gå sedan till **\\cmake sensorbox_app\\release** -mappen.
+1. Gå till mappen **Azure-IoT-SDK-c** i en kommando tolk där du skapade SDK och exempel. Gå sedan till mappen **cmake\\sensorbox_app\\release** .
 
 1. Kör följande kommando:
 

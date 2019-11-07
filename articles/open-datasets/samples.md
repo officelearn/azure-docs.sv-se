@@ -1,5 +1,5 @@
 ---
-title: Exempel på Jupyter Notebooks med en NOAA Open-datauppsättning
+title: Exempel på Jupyter Notebooks med NOAA-data
 titleSuffix: Azure Open Datasets
 description: Använd exempel Jupyter Notebooks för Azure Open data uppsättningar för att lära dig hur du läser in öppna data uppsättningar och använder dem för att utöka demonstrations data. Tekniker inkluderar användning av Spark-och Pandas för att bearbeta data.
 ms.service: open-datasets
@@ -7,12 +7,12 @@ ms.topic: sample
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 11/04/2019
-ms.openlocfilehash: 2ccdb7adcae40d22a36fbfb47fba6e4c87b3349a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 8b96a35db91a282be1fb5e4c6143e6bd0a0203f2
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496569"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606150"
 ---
 # <a name="example-jupyter-notebooks-show-how-to-enrich-data-with-open-datasets"></a>Exempel på Jupyter Notebooks visar hur du kan utöka data med öppna data uppsättningar 
 Exemplet Jupyter Notebooks för Azure Open data uppsättningar visar hur du läser in öppna data uppsättningar och använder dem för att utöka demonstrations data. Tekniker inkluderar användning av Apache Spark-och Pandas för att bearbeta data.
@@ -40,6 +40,6 @@ Exemplet Jupyter Notebooks för Azure Open data uppsättningar visar hur du läs
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Självstudie: Regressions modellering med automatiserad maskin inlärning och en öppen data uppsättning](tutorial-opendatasets-automl.md)
+* [Självstudie: Regressions modellering med automatiserad maskin inlärning och en öppen data uppsättning](/azure/machine-learning/service/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context)
 * [Python SDK för öppna data uppsättningar](/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py)
 * [Azure Open data uppsättnings katalog](https://azure.microsoft.com/services/open-datasets/catalog/)

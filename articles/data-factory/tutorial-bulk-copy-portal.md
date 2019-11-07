@@ -1,5 +1,5 @@
 ---
-title: Masskopiera data med Azure Data Factory | Microsoft Docs
+title: 'Kopiera data i bulk med Azure Data Factory '
 description: Lär dig hur du använder Azure Data Factory och kopieringsaktiviteten till att masskopiera data från ett källdatalager till ett måldatalager.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: d7f97eec4e0dc6e88d89e845e086b9e5242caa7b
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 9feb9be5e76f91ab55ec1b3e60eb79ab5e246f4f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616537"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683729"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Kopiera flera tabeller i grupp med Azure Data Factory
 I den här självstudien visas hur du **kopierar ett antal tabeller från Azure SQL Database till Azure SQL Data Warehouse**. Du kan även använda samma mönster i andra kopieringssituationer. Till exempel kan du kopiera tabeller från SQL Server/Oracle till Azure SQL Database/Data Warehouse/Azure Blob eller kopiera olika sökvägar från Blob till Azure SQL Database-tabeller.
@@ -47,7 +47,7 @@ I det här scenariot har du ett antal tabeller i Azure SQL Database som du vill 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * **Azure Storage-konto**. Azure Storage-kontot används för mellanlagring för Blob Storage i masskopieringsåtgärden. 
 * **Azure SQL Database**. Den här databasen innehåller källdata. 
 * **Azure SQL Data Warehouse**. Det här datalagret innehåller de data som kopieras från SQL Database. 
@@ -68,11 +68,11 @@ Skapa en Azure SQL-databas med exempeldata för Adventure Works LT genom att fö
 
 Ge Azure-tjänster åtkomst till SQL-servern för både SQL Database och SQL Data Warehouse. Se till att inställningen **Tillåt åtkomst till Azure-tjänster** är **aktiverad** för Azure SQL-servern. Den här inställningen gör att Data Factory-tjänsten kan läsa data från Azure SQL Database och skriva data till Azure SQL Data Warehouse. 
 
-Om du vill kontrol lera och aktivera den här inställningen går du till Azure SQL Server > säkerhets > brand väggar och virtuella nätverk > ställer in **alternativet Tillåt åtkomst till Azure-tjänster** på.
+Om du vill kontrol lera och aktivera den här inställningen går du till Azure SQL Server > säkerhets > brand väggar och virtuella nätverk > ställer in **alternativet Tillåt åtkomst till Azure-tjänster** **på.**
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
-1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
-1. På den vänstra menyn väljer du **skapa en resurs** > **analys** > **Data Factory**: ![Data Factory valet i fönstret nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Just nu är det bara webbläsarna Microsoft Edge och Google Chrome som har stöd för Data Factory UI.
+1. På den vänstra menyn väljer du **skapa en resurs** > **Analytics** > **Data Factory**: ![Data Factory val i fönstret nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 1. På sidan **ny data fabrik** anger du **ADFTutorialBulkCopyDF** som **namn**. 
  
@@ -87,7 +87,7 @@ Om du vill kontrol lera och aktivera den här inställningen går du till Azure 
          
      Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
 1. Välj **V2** för **versionen**.
-1. Välj **plats** för datafabriken. Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
+1. Välj **plats** för datafabriken. Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 1. Klicka på **Skapa**.
 1. När datafabriken har skapats visas sidan **Datafabrik**.
    
@@ -189,12 +189,12 @@ I den här självstudien är käll- och måltabellerna i SQL inte hårdkodade i 
 
     a. För **Tabell**, markera alternativet **Redigera** och klicka i textrutan för tabellnamnet. Klicka sedan på länken **Lägg till dynamiskt innehåll** nedan. 
 
-    b. På sidan **Lägg till dynamiskt innehåll** klickar du på **DWTAbleName** under **parametrar**, som fyller automatiskt i text rutan `@dataset().DWTableName`för det översta uttrycket och klickar sedan på **Slutför**. Uppsättningens egenskap **tableName** är inställd på värdet som har skickats som argument för parametern **DWTableName**. ForEach-aktiviteten itereras via en lista över tabeller och skickar en i taget till kopieringsaktiviteten. 
+    b. På sidan **Lägg till dynamiskt innehåll** klickar du på **DWTAbleName** under **parametrar**, som fyller automatiskt i text rutan för det översta uttrycket `@dataset().DWTableName`och klickar sedan på **Slutför**. Uppsättningens egenskap **tableName** är inställd på värdet som har skickats som argument för parametern **DWTableName**. ForEach-aktiviteten itereras via en lista över tabeller och skickar en i taget till kopieringsaktiviteten. 
 
     ![Byggare för datauppsättningsparametern](./media/tutorial-bulk-copy-portal/dataset-parameter-builder.png)
  
 ## <a name="create-pipelines"></a>Skapa pipelines
-I den här självstudien skapar du två pipelines: **IterateAndCopySQLTables** och **GetTableListAndTriggerCopyData**. 
+I den här självstudien skapar du två pipeliner: **IterateAndCopySQLTables** och **GetTableListAndTriggerCopyData**. 
 
 **GetTableListAndTriggerCopyData** -pipeline utför två åtgärder:
 
@@ -224,7 +224,7 @@ I den här självstudien skapar du två pipelines: **IterateAndCopySQLTables** o
 
     b. Växla till fliken **Inställningar** , klicka på kryss rutan för **objekt**och klicka sedan på länken **Lägg till dynamiskt innehåll** nedan. 
 
-    c. På sidan **Lägg till dynamiskt innehåll** döljer du avsnittet **Systemvariabler** och **funktioner** , klickar på **tablelist** under **parametrar**, som automatiskt fyller i text rutan överst uttryck som `@pipeline().parameter.tableList`. Klicka sedan på **Slutför**. 
+    c. På sidan **Lägg till dynamiskt innehåll** döljer du avsnittet **Systemvariabler** och **funktioner** , klickar på **tablelist** under **parametrar**, som fyller automatiskt i text rutan för det översta uttrycket som `@pipeline().parameter.tableList`. Klicka sedan på **Slutför**. 
 
     ![Byggare för parametern Foreach](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
     
@@ -248,7 +248,7 @@ I den här självstudien skapar du två pipelines: **IterateAndCopySQLTables** o
 1. Växla till fliken **Mottagare** och gör följande: 
 
     1. Välj **AzureSqlDWDataset** för **Sink Dataset** (Datauppsättning för mottagare).
-    1. Klicka på indatamängden för värdet för parametern DWTableName-> Markera kryss rutan **Lägg till dynamiskt innehåll** nedan `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` , ange uttrycket som skript, > Välj **Slutför**.
+    1. Klicka på indatamängden för värdet för parametern DWTableName-> Markera kryss rutan **Lägg till dynamiskt innehåll** nedan, ange `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` uttryck som skript,-> Välj **Slutför**.
     1. Markera kryss rutan för **Tillåt PolyBase**. 
     1. Avmarkera alternativet **Use Type default** (Standardanvändartyp). 
     1. Klicka på textrutan **Pre-copy Script** (Förkopieringsskript) -> välj **Lägg till dynamiskt innehåll** nedan -> ange följande uttryck för Fråga -> välj **Slutför**. 
@@ -303,20 +303,20 @@ Den här pipelinen gör två åtgärder:
     1. Klicka på textrutan VALUE -> välj **Lägg till dynamiskt innehåll** nedan -> ange `@activity('LookupTableList').output.value` som värde för tabellens namn -> välj **Slutför**. Du ställer in resultat listan från söknings aktiviteten som inmatad till den andra pipelinen. Resultatlistan innehåller listan över tabeller vars data ska kopieras till målet. 
 
         ![Kör pipeline-aktivitet – sidan inställningar](./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png)
-1. Om du vill **ansluta** söknings aktiviteten till aktiviteten **Kör pipeliner** drar du den **gröna rutan** som är kopplad till Sök aktiviteten till vänster om aktiviteten kör pipeline.
+1. Om du vill **ansluta** **söknings** aktiviteten till aktiviteten **Kör pipeliner** drar du den **gröna rutan** som är kopplad till Sök aktiviteten till vänster om aktiviteten kör pipeline.
 
     ![Ansluta kopierings- och Kör pipeline-aktiviteter](./media/tutorial-bulk-copy-portal/connect-lookup-execute-pipeline.png)
 1. Verifiera pipelinen genom att klicka på **Verifiera** i verktygsfältet. Kontrollera att det inte finns några verifieringsfel. Om du vill stänga **verifieringsrapporten för pipeline** klickar du på **>>** .
 
 1. Om du vill publicera entiteter (datauppsättningar, pipelines osv.) till Data Factory-tjänsten klickar du på **Publicera alla** upptill i fönstret. Vänta tills publiceringen har lyckats. 
 
-## <a name="trigger-a-pipeline-run"></a>Utlös en pipelinekörning
+## <a name="trigger-a-pipeline-run"></a>Utlösa en pipelinekörning
 
-Gå till pipeline- **GetTableListAndTriggerCopyData**, klicka på **Lägg till**utlösare och klicka sedan på **Utlös nu**. 
+Gå till pipeline- **GetTableListAndTriggerCopyData**, klicka på **Lägg till utlösare**och klicka sedan på **Utlös nu**. 
 
 ## <a name="monitor-the-pipeline-run"></a>Övervaka pipelinekörningen
 
-1. Välj fliken **Övervaka**. Klicka på **Uppdatera** tills du ser körningar för båda dina pipeliner i lösningen. Fortsätt att uppdatera listan tills du ser statusen **Lyckades**. 
+1. Växla till fliken **övervakare** . Klicka på **Uppdatera** tills du ser körningar för båda pipelinen i din lösning. Fortsätt att uppdatera listan tills du ser statusen **Lyckades**. 
 
 1. Om du vill visa aktivitets körningar som är associerade med **GetTableListAndTriggerCopyData** -pipeline klickar du på den första länken i åtgärds länken för den pipelinen. Du ska se två aktivitetskörningar för den här pipelinekörningen. 
 
@@ -380,7 +380,7 @@ Gå till pipeline- **GetTableListAndTriggerCopyData**, klicka på **Lägg till**
 1. Bekräfta att data har kopierats till SQL Data Warehouse-målet du använde i den här självstudien. 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien har du fått: 
+I den här självstudiekursen har du fått: 
 
 > [!div class="checklist"]
 > * Skapa en datafabrik.
@@ -392,4 +392,4 @@ I den här självstudien har du fått:
 
 Fortsätt till följande självstudiekurs om du vill lära dig att kopiera data stegvis från en källa till ett mål:
 > [!div class="nextstepaction"]
->[Kopiera data stegvis](tutorial-incremental-copy-portal.md)
+>[Kopiera data inkrementellt](tutorial-incremental-copy-portal.md)

@@ -1,5 +1,5 @@
 ---
-title: Kopiera en tabell stegvis med Azure Data Factory | Microsoft Docs
+title: 'Kopiera en tabell stegvis med Azure Data Factory '
 description: I den här självstudiekursen kommer du att skapa en Azure Data Factory-pipeline som kopierar data stegvis från en Azure SQL-databas till Azure Blob Storage.
 services: data-factory
 documentationcenter: ''
@@ -11,17 +11,17 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 604b859bc144331550db9b71e6b216e35fd2d88a
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: bb1ddbddfb2e06f394ac2f57b10e18893879b51b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140608"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683344"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Läsa in data stegvis från en Azure SQL-databas till Azure Blob Storage
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta-data från en tabell i en Azure SQL-databas till Azure Blob Storage. 
 
-I den här självstudiekursen får du göra följande:
+I de här självstudierna går du igenom följande steg:
 
 > [!div class="checklist"]
 > * Förbered datalagringen för att lagra värdet för vattenstämpeln.
@@ -56,7 +56,7 @@ Här är några viktiga steg för att skapa den här lösningen:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -189,14 +189,14 @@ Observera följande punkter:
     ```
 
 * Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara medlem av rollerna deltagare eller ägare, eller vara administratör för Azure-prenumerationen.
-* Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren ( Storage, Azure SQL Database osv.) och beräkningarna (Azure HDInsight osv.) som används i datafabriken kan finnas i andra regioner.
+* Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren ( Storage, Azure SQL Database osv.) och beräkningarna (Azure HDInsight osv.) som används i datafabriken kan finnas i andra regioner.
 
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
 Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I det här avsnittet kan du skapa länkade tjänster till dina lagringskonton och din SQL-databas. 
 
 ### <a name="create-a-storage-linked-service"></a>Skapa en länkad lagringstjänst
-1. Skapa en JSON-fil med namnet AzureStorageLinkedService.json i mappen C:\ADF med följande innehåll. (Skapa mappen ADF om den inte redan finns.) Ersätt `<accountName>` och `<accountKey>` med namnet och nyckeln för ditt lagringskonto innan du sparar filen.
+1. Skapa en JSON-fil med namnet AzureStorageLinkedService.json i mappen C:\ADF med följande innehåll. (Skapa mappen ADF om den inte redan finns.) Ersätt `<accountName>` och `<accountKey>` med namnet och nyckeln för ditt lagrings konto innan du sparar filen.
 
     ```json
     {
@@ -230,7 +230,7 @@ Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager o
     ```
 
 ### <a name="create-a-sql-database-linked-service"></a>Skapa en länkad tjänst till SQL-databas
-1. Skapa en JSON-fil med namnet AzureSQLDatabaseLinkedService.json i mappen C:\ADF med följande innehåll. (Skapa mappen ADF om den inte redan finns.) Ersätt namnen för &lt;server&gt;, &lt;database&gt;, &lt;user id&gt; och &lt;password&gt; med namnt på din server, databas, användar-ID och lösenord innan du sparar filen. 
+1. Skapa en JSON-fil med namnet AzureSQLDatabaseLinkedService.json i mappen C:\ADF med följande innehåll. (Skapa mappen ADF om den inte redan finns.) Ersätt &lt;Server&gt;, &lt;Database&gt;, &lt;användar-ID&gt;och &lt;lösen ord&gt; med namnet på din server, databas, användar-ID och lösen ord innan du sparar filen. 
 
     ```json
     {
@@ -724,7 +724,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 
      
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien har du fått: 
+I den här självstudiekursen har du fått: 
 
 > [!div class="checklist"]
 > * Förbered datalagringen för att lagra värdet för vattenstämpeln. 

@@ -1,19 +1,19 @@
 ---
-title: Skapa en Azure HPC-cache (för hands version)
+title: Skapa en Azure HPC-cache
 description: Så här skapar du en Azure HPC cache-instans
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 7052b88a24ff5353656a71a7bfb044922ae1415c
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 1b9d2d3c46aab2096dd9208e0bea7f7776c0e429
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709982"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582713"
 ---
-# <a name="create-an-azure-hpc-cache-preview"></a>Skapa en Azure HPC-cache (för hands version)
+# <a name="create-an-azure-hpc-cache"></a>Skapa en Azure HPC-cache
 
 Använd Azure Portal för att skapa din cache.
 
@@ -23,7 +23,7 @@ Använd Azure Portal för att skapa din cache.
 
 ![skärm bild av sidan projekt information i Azure Portal](media/hpc-cache-create-basics.png)
 
-I **projekt information**väljer du den prenumeration och resurs grupp som ska vara värd för cachen. Se till att prenumerationen finns i listan över för [hands version](hpc-cache-prereqs.md#azure-subscription) .
+I **projekt information**väljer du den prenumeration och resurs grupp som ska vara värd för cachen. Se till att prenumerationen finns på [åtkomst](hpc-cache-prereqs.md#azure-subscription) listan.
 
 I **tjänst information**anger du cache-namn och följande attribut:
 

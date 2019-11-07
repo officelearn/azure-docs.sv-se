@@ -1,6 +1,6 @@
 ---
-title: Skicka händelser med hjälp av C – Azure Event Hubs | Microsoft Docs
-description: Den här artikeln innehåller en genomgång för att skapa ett C-program som skickar händelser till Azure Event Hubs.
+title: 'Snabb start: skicka händelser med hjälp av C-Azure Event Hubs'
+description: 'Snabb start: den här artikeln innehåller en genom gång av hur du skapar ett C-program som skickar händelser till Azure Event Hubs.'
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -11,41 +11,41 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
-ms.topic: article
+ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 11/05/2019
 ms.author: shvija
-ms.openlocfilehash: a8f647018ba6ed3c9e951db2054036b60c7d4ab5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5bd4bb66b7e3c3ec37724f8684105befbc9132ff
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822462"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720677"
 ---
-# <a name="send-events-to-azure-event-hubs-using-c"></a>Skicka händelser till Azure Event Hubs med hjälp av C
+# <a name="quickstart-send-events-to-azure-event-hubs-using-c"></a>Snabb start: skicka händelser till Azure Event Hubs med C
 
 ## <a name="introduction"></a>Introduktion
-Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
+Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadapter. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
 
-Den här självstudien beskrivs hur du skickar händelser till en händelsehubb med ett konsolprogram i C. 
+I den här självstudien beskrivs hur du skickar händelser till en Event Hub med ett konsol program i C. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 För att kunna genomföra den här kursen behöver du följande:
 
-* En C-utvecklingsmiljö. Den här självstudiekursen förutsätter gcc-stacken på en virtuell Linux-dator med Ubuntu 14.04.
+* En C-utvecklings miljö. Den här självstudien förutsätter gcc-stacken på en virtuell Azure Linux-dator med Ubuntu 14,04.
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
-* **Skapa ett Event Hubs-namnområde och en event hub**. Använd den [Azure-portalen](https://portal.azure.com) att skapa ett namnområde av typen Event Hubs och hämta autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du vill skapa ett namnområde och en händelsehubb följer du anvisningarna i [i den här artikeln](event-hubs-create.md). Hämta värdet för åtkomstnyckeln för event hub genom att följa instruktionerna från artikeln: [Hämta anslutningssträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du använder åtkomstnyckeln i koden du skriver senare i den här självstudien. Standard nyckelnamnet är: **RootManageSharedAccessKey**.
+* **Skapa ett Event Hubs-namnområde och en Event Hub**. Använd [Azure Portal](https://portal.azure.com) för att skapa ett namn område av typen Event Hubs och hämta de autentiseringsuppgifter som programmet behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md). Hämta värdet för åtkomst nyckeln för händelsehubben genom att följa anvisningarna i artikeln: [Hämta anslutnings sträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du använder åtkomst nyckeln i koden som du skriver senare i den här självstudien. Standard nyckel namnet är: **RootManageSharedAccessKey**.
 
 ## <a name="write-code-to-send-messages-to-event-hubs"></a>Skriva kod för att skicka meddelanden till Event Hubs
-I det här avsnittet visar hur du skriver en app för C för att skicka händelser till din event hub. Koden använder Proton AMQP-biblioteket från den [Apache Qpid projekt](https://qpid.apache.org/). Detta motsvarar att använda Service Bus-köer och ämnen med AMQP från C enligt [i det här exemplet](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Mer information finns i den [Qpid Proton dokumentation](https://qpid.apache.org/proton/index.html).
+I det här avsnittet visas hur du skriver en C-app för att skicka händelser till händelsehubben. Koden använder Proton AMQP-biblioteket från [Apache qpid-projektet](https://qpid.apache.org/). Detta är detsamma som att använda Service Bus köer och ämnen med AMQP från C som du ser [i det här exemplet](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Mer information finns i dokumentationen för [qpid Proton](https://qpid.apache.org/proton/index.html).
 
-1. Från den [Qpid AMQP Messenger sidan](https://qpid.apache.org/proton/messenger.html), följ instruktionerna för att installera Qpid Proton, beroende på din miljö.
-2. Kompilera Proton biblioteket genom att installera följande paket:
+1. På [sidan QPID AMQP Messenger](https://qpid.apache.org/proton/messenger.html)följer du anvisningarna för att installera qpid Proton, beroende på din miljö.
+2. För att kompilera Proton-biblioteket installerar du följande paket:
    
     ```shell
     sudo apt-get install build-essential cmake uuid-dev openssl libssl-dev
     ```
-3. Ladda ned den [Qpid Proton biblioteket](https://qpid.apache.org/proton/index.html), och extrahera det, t.ex.:
+3. Hämta [qpid Proton-biblioteket](https://qpid.apache.org/proton/index.html)och extrahera det, t. ex.:
    
     ```shell
     wget https://archive.apache.org/dist/qpid/proton/0.7/qpid-proton-0.7.tar.gz
@@ -60,7 +60,7 @@ I det här avsnittet visar hur du skriver en app för C för att skicka händels
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
     sudo make install
     ```
-5. Skapa en ny fil med namnet i arbetskatalogen **sender.c** med följande kod. Kom ihåg att ersätta värdena för din SAS-nyckel/name, event hub-namn och namnområde. Du måste också ersätta en URL-kodad version av nyckeln för den **SendRule** skapade tidigare. Du kan URL-koda den [här](https://www.w3schools.com/tags/ref_urlencode.asp).
+5. I arbets katalogen skapar du en ny fil med namnet **Sender. c** med följande kod. Kom ihåg att ersätta värdena för din SAS-nyckel/namn, händelsehubben och namn område. Du måste också ersätta en URL-kodad version av nyckeln för **SendRule** som skapades tidigare. Du kan URL-koda den [här](https://www.w3schools.com/tags/ref_urlencode.asp).
    
     ```c
     #include "proton/message.h"
@@ -148,9 +148,9 @@ I det här avsnittet visar hur du skriver en app för C för att skicka händels
     ```
 
     > [!NOTE]
-    > Den här koden använder ett fönster med en utgående 1 för att tvinga meddelanden ut så snart som möjligt. Du rekommenderas att ditt program försöker att batch-meddelanden för att öka dataflödet. Se den [Qpid AMQP Messenger sidan](https://qpid.apache.org/proton/messenger.html) information om hur du använder Qpid Proton biblioteket på det här och andra miljöer och plattformar som bindningar tillhandahålls (för närvarande Perl, PHP, Python och Ruby).
+    > I den här koden används ett utgående fönster på 1 för att framtvinga meddelanden så snart som möjligt. Vi rekommenderar att ditt program försöker att använda batch-meddelanden för att öka data flödet. Se [sidan QPID AMQP Messenger](https://qpid.apache.org/proton/messenger.html) för information om hur du använder qpid Proton-biblioteket i den här miljön och i andra miljöer och från plattformar där bindningar tillhandahålls (för närvarande perl, php, python och ruby).
 
-Kör programmet för att skicka meddelanden till event hub. 
+Kör programmet för att skicka meddelanden till händelsehubben. 
 
 Grattis! Du har nu skickat meddelanden till en händelsehubb.
 
@@ -158,7 +158,7 @@ Grattis! Du har nu skickat meddelanden till en händelsehubb.
 Läs följande artiklar:
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
-- [Funktionerna och terminologin i Azure Event Hubs](event-hubs-features.md).
+- [Funktioner och terminologi i Azure Event Hubs](event-hubs-features.md).
 
 
 <!-- Images. -->

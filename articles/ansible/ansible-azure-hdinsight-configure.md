@@ -1,6 +1,6 @@
 ---
 title: Självstudie – konfigurera ett kluster i Azure HDInsight med Ansible
-description: Lär dig hur du använder Ansible för att skapa och ändra storlek på ett Azure HDInsight
+description: Lär dig hur du använder Ansible för att konfigurera, ändra storlek på och ta bort ett Azure HDInsight-kluster
 keywords: Ansible, Azure, DevOps, bash, Spelbok, Apache Hadoop, HDInsight
 ms.topic: tutorial
 ms.service: ansible
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: ad17e6ff4cbf5b583e3a4be410847c1349c9edce
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: ce4723a9dbe952f0112b7e24c3e361fd2f414374
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241952"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614408"
 ---
 # <a name="tutorial-configure-a-cluster-in-azure-hdinsight-using-ansible"></a>Självstudie: Konfigurera ett kluster i Azure HDInsight med Ansible
 
@@ -30,7 +30,7 @@ ms.locfileid: "72241952"
 > * Ändra storlek på ett kluster
 > * Ta bort ett kluster
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)] 
@@ -144,7 +144,7 @@ Det kan ta flera minuter att slutföra instansen.
 
 När klustret har skapats är den enda inställningen du kan ändra antalet arbetsnoder. 
 
-Spelbok-koden i det här avsnittet ökar antalet arbetsnoder genom att uppdatera `target_instance_count` inom `workernode`.
+Spelbok-koden i det här avsnittet ökar antalet arbetsnoder genom att uppdatera `target_instance_count` i `workernode`.
 
 ```yml
 - name: Resize cluster

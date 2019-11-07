@@ -1,6 +1,6 @@
 ---
-title: Ta emot händelser med Apache Storm Azure-Event Hubs | Microsoft Docs
-description: Den här artikeln innehåller information om hur du tar emot händelser från Azure Event Hubs att använda Apache Storm.
+title: 'Snabb start: ta emot händelser med Apache Storm-Azure Event Hubs'
+description: 'Snabb start: den här artikeln innehåller information om hur du tar emot händelser från Azure Event Hubs att använda Apache Storm.'
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -11,18 +11,18 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: java
 ms.devlang: multiple
-ms.topic: article
+ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 11/05/2019
 ms.author: shvija
-ms.openlocfilehash: eaa461dd0c4ef6bd9ed0ae4379a710ee100929d2
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 90293da07d3a7ef1c32e5f82d35198d4ffa536b1
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72800193"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73717605"
 ---
-# <a name="receive-events-from-event-hubs-using-apache-storm"></a>Ta emot händelser från Event Hubs med Apache Storm
+# <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>Snabb start: ta emot händelser från Event Hubs med Apache Storm
 
 [Apache Storm](https://storm.incubator.apache.org) är ett distribuerat real tids beräknings system som fören klar tillförlitlig bearbetning av obundna data strömmar. Det här avsnittet visar hur du använder en Azure Event Hubs Storm-kanalen för att ta emot händelser från Event Hubs. Med hjälp av Apache Storm kan du dela upp händelser över flera processer som finns på olika noder. Event Hubs-integrering med storm fören klar händelse förbrukningen genom att överlappa den förhands granskningen med Storms Zookeeper-installation, hantera beständiga kontroll punkter och parallella inhämtningar från Event Hubs.
 

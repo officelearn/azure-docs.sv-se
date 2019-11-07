@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: lobrien
 ms.author: laobri
-ms.date: 05/02/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: d653d1cd719ac59bf6c98bee588c41858052bc61
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 34ff3f9704b9c84a7daddcfd14fb9cd3e990f794
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489833"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73716509"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportera eller ta bort data för din Machine Learning service-arbetsyta 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -243,17 +243,16 @@ Ta bort enskilda till gångar i designern där du skapade experimentet:
 
 1. I listan väljer du det enskilda pipeline-utkastet som ska tas bort.
 
-1. Klicka på **ta bort**längst ned.
+1. Välj **Ta bort**.
 
-## <a name="unregister-data-in-the-designer"></a>Avregistrera data i designern
+### <a name="delete-datasets-in-the-designer"></a>Ta bort data uppsättningar i designern
+
+Om du vill ta bort data uppsättningar i designern använder du Azure Portal eller Storage Explorer för att navigera till anslutna lagrings konton och ta bort data uppsättningar där. När data uppsättningar avregistreras i designern tas endast referens punkten i lagring bort. 
+
+## <a name="export-data-in-the-designer"></a>Exportera data i designern
 
 Exportera data som du har lagt till i designern där du skapade experimentet:
 
 1. Välj **data uppsättningar**till vänster.
 
-
-
     ![Hämta data](media/how-to-export-delete-data.md/unregister-dataset.png)
-
-1. I listan väljer du den enskilda data uppsättningen och klickar på avregistrera
-

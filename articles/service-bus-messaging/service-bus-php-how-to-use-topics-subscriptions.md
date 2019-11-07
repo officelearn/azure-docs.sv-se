@@ -1,6 +1,6 @@
 ---
-title: Använda Service Bus ämnen med PHP | Microsoft Docs
-description: Lär dig hur du använder Service Bus ämnen med PHP i Azure.
+title: 'Snabb start: använda Service Bus ämnen med PHP'
+description: 'Snabb start: Lär dig hur du använder Service Bus ämnen med PHP i Azure.'
 services: service-bus-messaging
 documentationcenter: php
 author: axisc
@@ -11,17 +11,17 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
-ms.topic: article
-ms.date: 04/15/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: eba2c0aeb37f2bc2283e7afb108bb4578981120e
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: b55d3c93f9926b7446dadf069b37a878caa81e15
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147226"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721649"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Använda Service Bus ämnen och prenumerationer med PHP
+# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Snabb start: använda Service Bus ämnen och prenumerationer med PHP
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
@@ -33,9 +33,9 @@ Den här artikeln visar hur du använder Service Bus ämnen och prenumerationer.
 - Ta emot meddelanden från en prenumeration
 - Ta bort ämnen och prenumerationer
 
-## <a name="prerequisites"></a>Förutsättningar
-1. En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera dina [förmåner för Visual Studio eller MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Följ stegen i [snabb starten: Använd Azure Portal för att skapa ett Service Bus ämne och prenumerationer på avsnittet](service-bus-quickstart-topics-subscriptions-portal.md) för att skapa ett Service Bus- **namnområde** och hämta **anslutnings strängen**.
+## <a name="prerequisites"></a>Nödvändiga komponenter
+1. En Azure-prenumeration. Du behöver ett Azure-konto för att genomföra kursen. Du kan aktivera dina [förmåner för Visual Studio eller MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Följ stegen i [snabb starten: använd Azure Portal för att skapa ett Service Bus ämne och prenumerationer på avsnittet](service-bus-quickstart-topics-subscriptions-portal.md) för att skapa ett Service Bus- **namnområde** och hämta **anslutnings strängen**.
 
     > [!NOTE]
     > Du kommer att skapa ett **ämne** och en **prenumeration** på avsnittet med hjälp av **php** i den här snabb starten. 
@@ -87,7 +87,7 @@ require_once 'vendor/autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 ```
 
-I följande exempel `require_once` visas instruktionen alltid, men endast de klasser som krävs för att exemplet ska kunna köras refereras till.
+I följande exempel visas `require_once`-instruktionen alltid, men endast de klasser som krävs för att exemplet ska kunna köras refereras till.
 
 ## <a name="set-up-a-service-bus-connection"></a>Konfigurera en Service Bus anslutning
 Om du vill instansiera en Service Bus-klient måste du först ha en giltig anslutnings sträng i det här formatet:
@@ -96,9 +96,9 @@ Om du vill instansiera en Service Bus-klient måste du först ha en giltig anslu
 Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[Primary Key]
 ```
 
-Där `Endpoint` är vanligt vis formatet `https://[yourNamespace].servicebus.windows.net`.
+Där `Endpoint` vanligt vis är formatet `https://[yourNamespace].servicebus.windows.net`.
 
-Du måste använda `ServicesBuilder` -klassen för att skapa en Azure-tjänst-klient. Du kan:
+Om du vill skapa en Azure-tjänst-klient måste du använda `ServicesBuilder`-klassen. Du kan:
 
 * Skicka anslutnings strängen direkt till den.
 * Använd **CloudConfigurationManager (CCM)** om du vill kontrol lera flera externa källor för anslutnings strängen:
@@ -118,9 +118,9 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 ```
 
 ## <a name="create-a-topic"></a>Skapa ett ämne
-Du kan utföra hanterings åtgärder för Service Bus ämnen via `ServiceBusRestProxy` -klassen. Ett `ServiceBusRestProxy` objekt konstrueras `ServicesBuilder::createServiceBusService` via fabriks metoden med en lämplig anslutnings sträng som kapslar in token-behörigheterna för att hantera det.
+Du kan utföra hanterings åtgärder för Service Bus ämnen via `ServiceBusRestProxy`-klassen. Ett `ServiceBusRestProxy`-objekt skapas via `ServicesBuilder::createServiceBusService` Factory-metoden med en lämplig anslutnings sträng som kapslar in token-behörigheterna för att hantera den.
 
-I följande exempel visas hur du instansierar `ServiceBusRestProxy` ett och `ServiceBusRestProxy->createTopic` anropar för att skapa `mytopic` ett ämne `MySBNamespace` som heter i ett namn område:
+I följande exempel visas hur du instansierar en `ServiceBusRestProxy` och anropar `ServiceBusRestProxy->createTopic` för att skapa ett ämne med namnet `mytopic` inom ett `MySBNamespace` namn område:
 
 ```php
 require_once 'vendor/autoload.php';
@@ -148,15 +148,15 @@ catch(ServiceException $e){
 ```
 
 > [!NOTE]
-> Du kan använda `listTopics` -metoden för `ServiceBusRestProxy` objekt för att kontrol lera om det redan finns ett ämne med ett angivet namn i ett namn område för tjänsten.
+> Du kan använda metoden `listTopics` på `ServiceBusRestProxy` objekt för att kontrol lera om det redan finns ett ämne med ett angivet namn i ett namn område för tjänsten.
 > 
 > 
 
 ## <a name="create-a-subscription"></a>Skapa en prenumeration
-Ämnes prenumerationer skapas också med `ServiceBusRestProxy->createSubscription` -metoden. Prenumerationer är namngivna och kan ha ett valfritt filter som begränsar den uppsättning av meddelanden som skickas till prenumerationens virtuella kö.
+Ämnes prenumerationer skapas också med metoden `ServiceBusRestProxy->createSubscription`. Prenumerationer är namngivna och kan ha ett valfritt filter som begränsar den uppsättning av meddelanden som skickas till prenumerationens virtuella kö.
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Skapa en prenumeration med standardfiltret (MatchAll)
-Om inget filter anges när en ny prenumeration skapas, används **MatchAll** -filtret (standard). När **MatchAll** -filtret används placeras alla meddelanden som publiceras till ämnet i prenumerationens virtuella kö. I följande exempel skapas en prenumeration med `mysubscription` namnet och standard filtret används i **MatchAll** .
+Om inget filter anges när en ny prenumeration skapas, används **MatchAll** -filtret (standard). När **MatchAll** -filtret används placeras alla meddelanden som publiceras till ämnet i prenumerationens virtuella kö. I följande exempel skapas en prenumeration med namnet `mysubscription` och standard filtret används i **MatchAll** .
 
 ```php
 require_once 'vendor/autoload.php';
@@ -187,11 +187,11 @@ catch(ServiceException $e){
 Du kan även ställa in filter som gör att du kan ange vilka meddelanden som skickas till ett ämne som ska visas inom en viss ämnesprenumeration. Den mest flexibla typen av filter som stöds av prenumerationer är [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter), som implementerar en delmängd av SQL92. SQL-filter tillämpas på egenskaperna i de meddelanden som publiceras till ämnet. Mer information om SqlFilters finns i [SqlFilter. SqlExpression-egenskapen][sqlfilter].
 
 > [!NOTE]
-> Varje regel i en prenumeration bearbetar inkommande meddelanden oberoende och lägger till sina resultat meddelanden i prenumerationen. Dessutom har varje ny prenumeration ett standard **regel** objekt med ett filter som lägger till alla meddelanden från ämnet i prenumerationen. Om du bara vill ta emot meddelanden som matchar ditt filter måste du ta bort standard regeln. Du kan ta bort standard regeln med hjälp `ServiceBusRestProxy->deleteRule` av-metoden.
+> Varje regel i en prenumeration bearbetar inkommande meddelanden oberoende och lägger till sina resultat meddelanden i prenumerationen. Dessutom har varje ny prenumeration ett standard **regel** objekt med ett filter som lägger till alla meddelanden från ämnet i prenumerationen. Om du bara vill ta emot meddelanden som matchar ditt filter måste du ta bort standard regeln. Du kan ta bort standard regeln med hjälp av metoden `ServiceBusRestProxy->deleteRule`.
 > 
 > 
 
-I följande exempel skapas en prenumeration med `HighMessages` namnet med en **SqlFilter** som endast väljer meddelanden som har en `MessageNumber` anpassad egenskap som är större än 3. Information om hur du lägger till anpassade egenskaper i meddelanden finns i [skicka meddelanden till ett ämne](#send-messages-to-a-topic) .
+I följande exempel skapas en prenumeration med namnet `HighMessages` med en **SqlFilter** som endast väljer meddelanden som har en anpassad `MessageNumber` egenskap som är större än 3. Information om hur du lägger till anpassade egenskaper i meddelanden finns i [skicka meddelanden till ett ämne](#send-messages-to-a-topic) .
 
 ```php
 $subscriptionInfo = new SubscriptionInfo("HighMessages");
@@ -204,7 +204,7 @@ $ruleInfo->withSqlFilter("MessageNumber > 3");
 $ruleResult = $serviceBusRestProxy->createRule("mytopic", "HighMessages", $ruleInfo);
 ```
 
-Den här koden kräver att ytterligare ett namn område används `WindowsAzure\ServiceBus\Models\SubscriptionInfo`:.
+Den här koden kräver att ytterligare ett namn område används: `WindowsAzure\ServiceBus\Models\SubscriptionInfo`.
 
 På samma sätt skapar följande exempel en prenumeration med namnet `LowMessages` med en `SqlFilter` som endast väljer meddelanden som har en `MessageNumber` egenskap som är mindre än eller lika med 3.
 
@@ -219,10 +219,10 @@ $ruleInfo->withSqlFilter("MessageNumber <= 3");
 $ruleResult = $serviceBusRestProxy->createRule("mytopic", "LowMessages", $ruleInfo);
 ```
 
-När ett `mytopic` meddelande skickas till ämnet levereras det alltid till mottagare som prenumererar `mysubscription` på prenumerationen, och som selektivt levereras till mottagare som prenumererar `HighMessages` på-och `LowMessages` -prenumerationerna (beroende vid meddelande innehållet).
+När ett meddelande skickas till `mytopic` ämnet, levereras det alltid till mottagare som prenumererar på `mysubscription` prenumerationen och är selektivt levererade till mottagare som prenumererar på `HighMessages` och `LowMessages` prenumerationer (beroende på meddelandets innehåll).
 
 ## <a name="send-messages-to-a-topic"></a>Skicka meddelanden till ett ämne
-Om du vill skicka ett meddelande till ett Service Bus ämne anropar `ServiceBusRestProxy->sendTopicMessage` programmet metoden. Följande kod visar hur du skickar ett meddelande till `mytopic` avsnittet som tidigare har skapats i namn området för `MySBNamespace` tjänsten.
+Om du vill skicka ett meddelande till ett Service Bus ämne anropar programmet `ServiceBusRestProxy->sendTopicMessage`s metoden. Följande kod visar hur du skickar ett meddelande till `mytopic` avsnittet som tidigare skapats i `MySBNamespace` tjänstens namnrymd.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -252,7 +252,7 @@ catch(ServiceException $e){
 }
 ```
 
-Meddelanden som skickas till Service Bus-ämnen är instanser av klassen [BrokeredMessage][BrokeredMessage]. [BrokeredMessage][BrokeredMessage] -objekt har en uppsättning standard egenskaper och metoder, samt egenskaper som kan användas för att lagra anpassade programspecifika egenskaper. I följande exempel visas hur du skickar fem test meddelanden till `mytopic` avsnittet som skapats tidigare. Metoden används för att lägga till en anpassad egenskap (`MessageNumber`) i varje meddelande. `setProperty` Egenskap svärdet varierar för varje meddelande (du kan använda det här värdet för att avgöra vilka prenumerationer som får det, som du ser i avsnittet [skapa en prenumeration](#create-a-subscription) ): `MessageNumber`
+Meddelanden som skickas till Service Bus-ämnen är instanser av klassen [BrokeredMessage][BrokeredMessage]. [BrokeredMessage][BrokeredMessage] -objekt har en uppsättning standard egenskaper och metoder, samt egenskaper som kan användas för att lagra anpassade programspecifika egenskaper. I följande exempel visas hur du skickar fem test meddelanden till `mytopic` avsnittet som skapats tidigare. Metoden `setProperty` används för att lägga till en anpassad egenskap (`MessageNumber`) i varje meddelande. Värdet för egenskapen `MessageNumber` varierar beroende på varje meddelande (du kan använda det här värdet för att avgöra vilka prenumerationer som får det, som du ser i avsnittet [skapa en prenumeration](#create-a-subscription) ):
 
 ```php
 for($i = 0; $i < 5; $i++){
@@ -271,11 +271,11 @@ for($i = 0; $i < 5; $i++){
 Service Bus-ämnena stöder en maximal meddelandestorlek på 256 kB på [standardnivån](service-bus-premium-messaging.md) och 1 MB på [premiumnivån](service-bus-premium-messaging.md). Rubriken, som inkluderar standardprogramegenskaperna och de anpassade programegenskaperna, kan ha en maximal storlek på 64 kB. Det finns ingen gräns för antalet meddelanden som kan finnas i ett ämne men det finns ett tak för den totala storleken för de meddelanden som ligger i ett ämne. Den övre gränsen för ämnes storleken är 5 GB. Mer information om kvoter finns i [Service Bus kvoter][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-subscription"></a>Ta emot meddelanden från en prenumeration
-Det bästa sättet att ta emot meddelanden från en prenumeration är att använda `ServiceBusRestProxy->receiveSubscriptionMessage` en metod. Meddelanden kan tas emot i två olika lägen: [ *ReceiveAndDelete* och *PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). **PeekLock** är standard.
+Det bästa sättet att ta emot meddelanden från en prenumeration är att använda en `ServiceBusRestProxy->receiveSubscriptionMessage` metod. Meddelanden kan tas emot i två olika lägen: [ *ReceiveAndDelete* och *PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). **PeekLock** är standard.
 
 När du använder läget [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) är inleveransen en engångsåtgärd, det vill säga, när Service Bus tar emot en läsbegäran för ett meddelande i en prenumeration så markerar den meddelandet som förbrukat och skickar tillbaka det till programmet. [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) *-läge är den enklaste modellen och fungerar bäst för scenarier där ett program kan tolerera bearbetning av ett meddelande när ett fel uppstår. För att förstå detta kan du föreställa dig ett scenario där konsumenten utfärdar en receive-begäran och sedan kraschar innan den kan bearbeta denna begäran. Eftersom Service Bus har markerat meddelandet som förbrukat, när programmet startas om och börjar förbruka meddelanden igen, har det fått meddelandet som förbrukades innan kraschen.
 
-I standard läget för [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) blir det möjligt att ta emot ett meddelande en åtgärd i två steg, vilket gör det möjligt att stödja program som inte kan tolerera meddelanden som saknas. När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra att andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har slutfört bearbetningen av meddelandet (eller lagrar det tillförlitligt för framtida bearbetning) slutförs det andra steget i Receive-processen genom att skicka det mottagna `ServiceBusRestProxy->deleteMessage`meddelandet till. När Service Bus ser `deleteMessage` anropet markeras meddelandet som förbrukat och tas bort från kön.
+I standard läget för [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) blir det möjligt att ta emot ett meddelande en åtgärd i två steg, vilket gör det möjligt att stödja program som inte kan tolerera meddelanden som saknas. När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra att andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har slutfört bearbetningen av meddelandet (eller lagrar det tillförlitligt för framtida bearbetning) slutförs det andra steget i Receive-processen genom att skicka det mottagna meddelandet till `ServiceBusRestProxy->deleteMessage`. När Service Bus ser `deleteMessage` anropet markeras meddelandet som förbrukat och tas bort från kön.
 
 I följande exempel visas hur du tar emot och bearbetar ett meddelande med [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) -läge (standard läget). 
 
@@ -319,16 +319,16 @@ catch(ServiceException $e){
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Så här gör du: hantera program krascher och oläsbara meddelanden
-Service Bus innehåller funktioner som hjälper dig att återställa fel i programmet eller lösa problem med bearbetning av meddelanden på ett snyggt sätt. Om ett mottagar program inte kan bearbeta meddelandet av någon anledning, kan det anropa `unlockMessage` metoden i det mottagna meddelandet (i stället `deleteMessage` för metoden). Det gör att Service Bus låser upp meddelandet i kön och gör det tillgängligt att tas emot igen, antingen genom samma användnings program eller ett annat användnings program.
+Service Bus innehåller funktioner som hjälper dig att återställa fel i programmet eller lösa problem med bearbetning av meddelanden på ett snyggt sätt. Om ett mottagar program inte kan bearbeta meddelandet av någon anledning, kan det anropa metoden `unlockMessage` på det mottagna meddelandet (i stället för `deleteMessage`-metoden). Det gör att Service Bus låser upp meddelandet i kön och gör det tillgängligt att tas emot igen, antingen genom samma användnings program eller ett annat användnings program.
 
 Det finns också en tids gräns som är kopplad till ett meddelande som är låst i kön och om programmet inte kan bearbeta meddelandet innan tids gränsen för låsning går ut (till exempel om programmet kraschar) låser Service Bus upp meddelandet automatiskt och gör det tillgängligt för att tas emot igen.
 
-I händelse av att programmet kraschar när meddelandet har bearbetats men innan `deleteMessage` begäran utfärdas omlevereras meddelandet till programmet när det startas om. Den här typen av bearbetning kallas ofta *minst en gång* . det vill säga att varje meddelande bearbetas minst en gång, men i vissa situationer kan samma meddelande levereras igen. Om scenariot inte kan tolerera dubbel bearbetning bör programutvecklare lägga till ytterligare logik till program för att hantera duplicerad meddelande leverans. Den uppnås ofta med hjälp `getMessageId` av meddelandets metod, som är konstant över leverans försök.
+I händelse av att programmet kraschar när meddelandet har bearbetats men innan `deleteMessage` begäran skickas, skickas meddelandet till programmet igen när det startas om. Den här typen av bearbetning kallas ofta *minst en gång* . det vill säga att varje meddelande bearbetas minst en gång, men i vissa situationer kan samma meddelande levereras igen. Om scenariot inte kan tolerera dubbel bearbetning bör programutvecklare lägga till ytterligare logik till program för att hantera duplicerad meddelande leverans. Den uppnås ofta med hjälp av `getMessageId` metoden i meddelandet, som förblir konstant över leverans försök.
 
 ## <a name="delete-topics-and-subscriptions"></a>Ta bort ämnen och prenumerationer
-Om du vill ta bort ett ämne eller en prenumeration `ServiceBusRestProxy->deleteTopic` använder du `ServiceBusRestProxy->deleteSubscripton` respektive metod. Om du tar bort ett ämne så tar du även bort alla prenumerationer som är registrerade på det ämnet.
+Om du vill ta bort ett ämne eller en prenumeration använder du `ServiceBusRestProxy->deleteTopic` eller `ServiceBusRestProxy->deleteSubscripton` metoderna. Om du tar bort ett ämne så tar du även bort alla prenumerationer som är registrerade på det ämnet.
 
-I följande exempel visas hur du tar bort ett ämne `mytopic` med namnet och dess registrerade prenumerationer.
+I följande exempel visas hur du tar bort ett ämne med namnet `mytopic` och dess registrerade prenumerationer.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -354,7 +354,7 @@ catch(ServiceException $e){
 }
 ```
 
-Genom att använda `deleteSubscription` -metoden kan du ta bort en prenumeration oberoende av varandra:
+Med hjälp av metoden `deleteSubscription` kan du ta bort en prenumeration oberoende av varandra:
 
 ```php
 $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");

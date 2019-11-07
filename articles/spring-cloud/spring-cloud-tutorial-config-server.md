@@ -1,19 +1,17 @@
 ---
 title: Konfigurera konfigurations servern i Azure våren-molnet | Microsoft Docs
 description: I den här självstudien får du lära dig hur du konfigurerar en vår moln konfigurations Server för ditt Azure våren-moln på Azure Portal
-services: spring-cloud
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.reviewer: jeconnoc
-ms.author: v-vasuke
-author: v-vasuke
+ms.author: jeconnoc
+author: jpconnock
 ms.date: 10/18/2019
-ms.openlocfilehash: 3a091c22f49ec31029a1808c10e675a4d0960fb4
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 6cf7b4a52ba3a7dbda5fa3fa558c4b68d09f4eb2
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177884"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73646713"
 ---
 # <a name="tutorial-set-up-a-spring-cloud-config-server-for-your-service"></a>Självstudie: Konfigurera en fjäder moln konfigurations Server för din tjänst
 
@@ -21,7 +19,7 @@ I den här självstudien får du se hur du ansluter en fjäder moln konfiguratio
 
 Våren Cloud config tillhandahåller stöd för Server-och klient sidan för den externa konfigurationen i ett distribuerat system. Med konfigurations servern har du en central plats för att hantera externa egenskaper för program i alla miljöer. Mer information finns i [vår referens för vår moln konfigurations Server](https://spring.io/projects/spring-cloud-config).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 * En Azure våren Cloud-tjänst som redan har tillhandahållits och körs.  Slutför [den här snabb](spring-cloud-quickstart-launch-app-cli.md) starten för att etablera och starta en Azure våren Cloud-tjänst.
 
@@ -64,7 +62,7 @@ Alla konfigurerbara egenskaper som används för att konfigurera den offentliga 
 
 ### <a name="private-repository-with-ssh-authentication"></a>Privat lagring med SSH-autentisering
 
-Alla konfigurerbara egenskaper som används för att konfigurera en privat `Git`-lagringsplats med `Ssh` visas nedan.
+Alla konfigurerbara egenskaper som används för att konfigurera privat `Git`-lagringsplatsen med `Ssh` visas nedan.
 
 > [!NOTE]
 > Att använda bindestreck ("-") för att avgränsa ord är den enda namngivnings konventionen som stöds för närvarande. Du kan till exempel använda `default-label`, men inte `defaultLabel`.
@@ -110,7 +108,7 @@ Alla konfigurerbara egenskaper som används för att konfigurera git-databaser m
 | :--------------------------------- | ---------------- | ------------------------------------------------------------ |
 | `repos`                            | `no`             | En karta som består av inställningarna för en `Git`-lagringsplats med ett angivet namn. |
 | `repos."uri"`                      | `yes` på `repos` | `uri` av `Git`s databasen som används som konfigurations Server Server del bör startas med `http://`, `https://`, `git@`eller `ssh://`. |
-| `repos."name"`                     | `yes` på `repos` | Ett namn för att identifiera en `Git`-lagringsplats, __krävs__ endast om `repos` finns. Till exempel ovan `team-A``team-B`. |
+| `repos."name"`                     | `yes` på `repos` | Ett namn för att identifiera en `Git`-lagringsplats, __krävs__ endast om `repos` finns. Till exempel ovan, `team-A`, `team-B`. |
 | `repos."pattern"`                  | `no`             | En sträng mat ris som används för att matcha ett program namn. Använd `{application}/{profile}` format med jokertecken för varje mönster. |
 | `repos."default-label"`            | `no`             | Standard etiketten för `Git`-lagringsplatsen bör vara `branch name`, `tag name`eller `commit-id` av lagrings platsen. |
 | `repos."search-paths`"             | `no`             | En sträng mat ris som används för att söka i under kataloger i `Git`-lagringsplatsen. |
@@ -137,7 +135,7 @@ Nu när du har sparat konfigurationsfilerna i en lagrings plats måste du anslut
 
 #### <a name="default-repository"></a>Standard databas
 
-* Offentligt lager: i avsnittet **standard databas** klistrar du in lagrings-URI i **URI** -avsnittet och kontrollerar att **autentiseringsinställningarna** är **offentlig**. Klicka sedan på **Verkställ** för att slutföra. 
+* Offentligt lager: i avsnittet **standard databas** klistrar du in lagrings platsens URI i **URI** -avsnittet.  Ange **etiketten** till `config`. Se till att **autentiseringsinställningarna** är **offentlig**och välj sedan **tillämpa** på Slutför. 
 
 * Privat lagrings plats: Azure våren Cloud har stöd för grundläggande lösen ords-/token-baserad autentisering och SSH.
 

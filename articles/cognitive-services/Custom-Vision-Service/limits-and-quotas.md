@@ -1,7 +1,7 @@
 ---
 title: Gränser och kvoter-Custom Vision Service
 titleSuffix: Azure Cognitive Services
-description: Lär dig mer om gränser och kvoter för Custom Vision Service.
+description: I den här artikeln beskrivs de olika typerna av licensierings nycklar och begränsningar och kvoter för Custom Vision Service.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: anroth
-ms.openlocfilehash: 878e2b03e21c18ef4ee845251e91642037c6c5ff
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: e4fc3555d7d880dcbd4f76d8f507300e98c237db
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114649"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718365"
 ---
 # <a name="limits-and-quotas"></a>Begränsningar och kvoter
 
@@ -25,8 +25,8 @@ Antalet utbildnings bilder per projekt och taggar per projekt förväntas öka m
 
 ||**F0**|**S0**|
 |-----|-----|-----|
-|Projekt|2|100|
-|Utbildnings bilder per projekt |5,000|100,000|
+|samarbetsprojekt|2|100|
+|Utbildnings bilder per projekt |5 000|100 000|
 |Förutsägelser/månad|10 000 |Obegränsat|
 |Taggar/projekt|50|500|
 |Iterationer |10|10|
@@ -36,10 +36,10 @@ Antalet utbildnings bilder per projekt och taggar per projekt förväntas öka m
 |[Förutsägelse](https://go.microsoft.com/fwlink/?linkid=865445) åtgärder med lagring (transaktioner per sekund)|2|10|
 |[Förutsägelse](https://go.microsoft.com/fwlink/?linkid=865445) åtgärder utan lagring (transaktioner per sekund)|2|20|
 |[TrainProject](https://go.microsoft.com/fwlink/?linkid=865446) (API-anrop per sekund)|2|10|
-|[Andra API-anrop](https://go.microsoft.com/fwlink/?linkid=865446) (Transaktioner per sekund)|10|10|
+|[Andra API-anrop](https://go.microsoft.com/fwlink/?linkid=865446) (transaktioner per sekund)|10|10|
 |Godkända avbildnings typer|jpg, PNG, BMP, GIF|jpg, PNG, BMP, GIF|
 |Minsta bild höjd/bredd i bild punkter|256 (se anmärkning)|256 (se anmärkning)|
-|Maximal bild höjd/bredd i bild punkter|obegränsad|obegränsad|
+|Maximal bild höjd/bredd i bild punkter|obegränsat|obegränsat|
 |Maximal bild storlek (uppladdning av inlärnings avbildning) |6 MB|6 MB|
 |Maximal bild storlek (förutsägelse)|4 MB|4 MB|
 |Bild för högsta antal regioner per objekts avkänning|200|200|

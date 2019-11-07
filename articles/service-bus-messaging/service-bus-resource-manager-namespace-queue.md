@@ -1,6 +1,6 @@
 ---
-title: Skapa Azure Service Bus namnrymd och kö med Azure Resource Manager-mall | Microsoft Docs
-description: Skapa ett Service Bus-namnområde och en kö med Azure Resource Manager-mall
+title: 'Snabb start: Skapa Azure Service Bus namnrymd och kö med Azure Resource Manager-mall'
+description: 'Snabb start: skapa en Service Bus namnrymd och en kö med Azure Resource Manager mall'
 services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: a6bfb5fd-7b98-4588-8aa1-9d5f91b599b6
 ms.service: service-bus-messaging
 ms.devlang: tbd
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 1c6a4202b944b2eb95008964eb1040f176645334
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 40aeff225cfa6d499ebdfae6736e0684b2a27244
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482385"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718793"
 ---
-# <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Skapa ett Service Bus-namnområde och en kö med hjälp av en Azure Resource Manager-mall
+# <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Snabb start: skapa en Service Bus namnrymd och en kö med hjälp av en Azure Resource Manager-mall
 
 Den här artikeln visar hur du använder en Azure Resource Manager-mall som skapar ett Service Bus-namnområde och en kö inom denna namnrymd. Artikeln förklarar hur du anger vilka resurser som distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav.
 

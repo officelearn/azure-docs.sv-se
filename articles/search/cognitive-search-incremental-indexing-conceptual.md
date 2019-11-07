@@ -1,25 +1,24 @@
 ---
 title: Introduktion till stegvis indexering (för hands version)
 titleSuffix: Azure Cognitive Search
-description: Konfigurera din AI-pipeline för att driva dina data till en eventuell konsekvens för att hantera eventuella uppdateringar av färdigheter, färdighetsuppsättningar, indexerare eller data källor.
+description: Konfigurera din AI-pipeline för att driva dina data till en eventuell konsekvens för att hantera eventuella uppdateringar av färdigheter, färdighetsuppsättningar, indexerare eller data källor. Den här funktionen är för närvarande en offentlig för hands version
 manager: nitinme
 author: Vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ea3bcfc25040f09b6871d85412ac64061ec2f9e8
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 94ce056185ff6a804521bf583ac4f6ffaa513fb0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73549120"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715431"
 ---
 # <a name="what-is-incremental-indexing-in-azure-cognitive-search"></a>Vad är stegvis indexering i Azure Kognitiv sökning?
 
-> [!Note]
-> Stegvis indexering är en för hands version och är inte avsedd för produktions användning. Den [REST API version 2019-05-06 – för hands version](search-api-preview.md) innehåller den här funktionen. Det finns för närvarande ingen portal eller .NET SDK-support.
->
+> [!IMPORTANT] 
+> Stegvis indexering är för närvarande en offentlig för hands version. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Den [REST API version 2019-05-06 – för hands version](search-api-preview.md) innehåller den här funktionen. Det finns för närvarande ingen portal eller .NET SDK-support.
 
 Stegvis indexering är en ny funktion i Azure Kognitiv sökning som lägger till cachelagring och tillstånd för berikat innehåll i en kognitiv färdigheter, vilket ger dig kontroll över bearbetning och ombearbetning av enskilda steg i en anriknings pipeline. Detta bevarar inte bara din monetära investering i bearbetningen, men det gör också ett mer effektivt system. När strukturer och innehåll cachelagras kan en indexerare avgöra vilka kunskaper som har ändrats och bara köra de som har ändrats, samt eventuella underordnade beroende kunskaper. 
 

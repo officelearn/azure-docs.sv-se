@@ -1,21 +1,21 @@
 ---
-title: 'ASP.NET Core MVC-självstudie för Azure Cosmos DB: Utveckling av webbapp'
+title: 'ASP.NET Core MVC-självstudie för Azure Cosmos DB: utveckling av webb program'
 description: ASP.NET Core MVC-självstudie för att skapa ett MVC-webbprogram med hjälp av Azure Cosmos DB. Du kommer att lagra JSON och komma åt data från en att göra-app som finns på Azure App Service-ASP NET Core MVC-självstudie steg för steg.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 09/24/2019
+ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: abff58be25a23c783f476dc849e0d6fa97e9eed2
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 1cfb7718c55920d817e1f87407fa1af590e9f006
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299360"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720906"
 ---
-# <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Självstudier: Utveckla ett ASP.NET Core MVC-webbprogram med Azure Cosmos DB med hjälp av .NET SDK
+# <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Självstudie: utveckla ett ASP.NET Core MVC-webbprogram med Azure Cosmos DB med hjälp av .NET SDK
 
 > [!div class="op_single_selector"]
 > * [NET](sql-api-dotnet-application.md)
@@ -56,7 +56,7 @@ Alla skärm dum par i den här artikeln är från Microsoft Visual Studio Commun
 
 ## <a name="create-an-azure-cosmos-account"></a>Steg 1: Skapa ett Azure Cosmos-konto
 
-Vi börjar med att skapa ett Azure Cosmos-konto. Om du redan har ett Azure Cosmos DB SQL API-konto eller om du använder Azure Cosmos DB-emulatorn går du [vidare till steg 2: Skapa ett nytt ASP.NET MVC-](#create-a-new-mvc-application)program.
+Vi börjar med att skapa ett Azure Cosmos-konto. Om du redan har ett Azure Cosmos DB SQL API-konto eller om du använder Azure Cosmos DB-emulatorn går du vidare till [steg 2: skapa ett nytt ASP.NET MVC-program](#create-a-new-mvc-application).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -64,7 +64,7 @@ Vi börjar med att skapa ett Azure Cosmos-konto. Om du redan har ett Azure Cosmo
 
 I nästa avsnitt skapar du ett nytt ASP.NET Core MVC-program.
 
-## <a name="create-a-new-mvc-application"></a>Steg 2: Skapa ett nytt ASP.NET Core MVC-program
+## <a name="create-a-new-mvc-application"></a>Steg 2: skapa ett nytt ASP.NET Core MVC-program
 
 1. Öppna Visual Studio och välj **skapa ett nytt projekt**.
 
@@ -78,7 +78,7 @@ I nästa avsnitt skapar du ett nytt ASP.NET Core MVC-program.
 
    Visual Studio skapar ett tomt MVC-program.
 
-1. Välj **Felsök** > **Starta fel sökning** eller F5 för att köra ASP.net-programmet lokalt.
+1. Välj **felsök** > **Starta fel sökning** eller F5 för att köra ditt ASP.NET-program lokalt.
 
 ## <a name="add-nuget-packages"></a>Steg 3: Lägg till Azure Cosmos DB NuGet-paketet i projektet
 
@@ -92,7 +92,7 @@ Nu när vi har flest den ASP.NET Core MVC Framework-kod som vi behöver för den
 
    Visual Studio laddar ned och installerar Azure Cosmos DB-paketet och dess beroenden.
 
-   Du kan också använda **Package Manager-konsolen** för att installera NuGet-paketet. Det gör du genom att välja **verktyg** > **NuGet Package Manager** > Package Manager-**konsolen**. Skriv följande kommando i prompten:
+   Du kan också använda **Package Manager-konsolen** för att installera NuGet-paketet. Det gör du genom att välja **verktyg** > **NuGet Package Manager** > **Package Manager-konsolen**. Skriv följande kommando i prompten:
 
    ```ps
    Install-Package Microsoft.Azure.Cosmos
@@ -112,7 +112,7 @@ Nu ska vi lägga till modeller, vyer och styrenheter för det här MVC-programme
 
    [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Models/Item.cs)]
 
-Azure Cosmos DB använder JSON för att flytta och lagra data. Du kan använda `JsonProperty` attributet för att styra hur JSON ska serialisera och deserialisera objekt. `Item` Klassen`JsonProperty` visar attributet. Den här koden styr formatet på egenskaps namnet som går till JSON. Den byter också namn på .NET-egenskapen `Completed`.
+Azure Cosmos DB använder JSON för att flytta och lagra data. Du kan använda attributet `JsonProperty` för att kontrol lera hur JSON serialiserar och deserialiserar objekt. Klassen `Item` visar attributet `JsonProperty`. Den här koden styr formatet på egenskaps namnet som går till JSON. Det byter också namn på .NET-egenskapen `Completed`.
 
 ### <a name="add-views"></a>Lägg till vyer
 
@@ -187,7 +187,7 @@ När du har slutfört de här stegen stänger du alla *cshtml* -dokument i Visua
 
 Attributet **ValidateAntiForgeryToken** används här för att skydda programmet mot attacker med förfalskning av begäran mellan webbplatser. Dina vyer bör fungera med den här antismidta token. Mer information och exempel finns i [förhindra förfalskning av CSRF-attacker (Cross-Site Request) i ASP.NET MVC-program][Preventing Cross-Site Request Forgery]. Källkoden på [GitHub][GitHub] har detta fullständigt implementerat.
 
-Vi använder även attributet **Bind** på metodparametern för att skydda mot overposting-attacker. Mer information finns i [Självstudie: Implementera CRUD-funktioner med Entity Framework i ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
+Vi använder även attributet **Bind** på metodparametern för att skydda mot overposting-attacker. Mer information finns i [Självstudier: implementera CRUD-funktioner med Entity Framework i ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
 
 ## <a name="connect-to-cosmosdb"></a>Steg 5: Ansluta till Azure Cosmos DB
 
@@ -195,7 +195,7 @@ Nu när standard MVC-saker tas i drift är det dags att lägga till koden för a
 
 ### <a name="perform-crud-operations"></a>Utför CRUD-åtgärder på data
 
-Först lägger vi till en klass som innehåller logiken för att ansluta till och använda Azure Cosmos DB. I den här självstudien kommer vi att kapsla in den här logiken i en klass `ICosmosDBService`som kallas `CosmosDBService` och ett gränssnitt som kallas. Den här tjänsten utför CRUD-åtgärderna. Den läser också feed-åtgärder, till exempel att inte Visa ofullständiga objekt, skapa, redigera och ta bort objekt.
+Först lägger vi till en klass som innehåller logiken för att ansluta till och använda Azure Cosmos DB. I den här självstudien kommer vi att kapsla in den här logiken i en klass med namnet `CosmosDBService` och ett gränssnitt som kallas `ICosmosDBService`. Den här tjänsten utför CRUD-åtgärderna. Den läser också feed-åtgärder, till exempel att inte Visa ofullständiga objekt, skapa, redigera och ta bort objekt.
 
 1. I **Solution Explorer**högerklickar du på projektet och väljer **Lägg till** > **ny mapp**. Namnge mappen *Services*.
 
@@ -215,7 +215,7 @@ Först lägger vi till en klass som innehåller logiken för att ansluta till oc
     services.AddSingleton<ICosmosDbService>(InitializeCosmosClientInstanceAsync(Configuration.GetSection("CosmosDb")).GetAwaiter().GetResult());
     ```
 
-    Koden i föregående steg tar emot en `CosmosClient` som del av konstruktorn. Följande ASP.NET Core pipeline måste gå till projektets *startup.cs* -fil. Koden i det här steget initierar klienten baserat på konfigurationen som en singleton-instans som ska matas [in via beroende insprutning i ASP.net Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection).
+    Koden i föregående steg tar emot en `CosmosClient` som en del av konstruktorn. Följande ASP.NET Core pipeline måste gå till projektets *startup.cs* -fil. Koden i det här steget initierar klienten baserat på konfigurationen som en singleton-instans som ska matas [in via beroende insprutning i ASP.net Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection).
 
 1. I samma fil lägger du till följande metod **InitializeCosmosClientInstanceAsync**, som läser konfigurationen och initierar klienten.
 

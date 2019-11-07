@@ -1,5 +1,5 @@
 ---
-title: Etablera en Azure SSIS-integreringskörning med hjälp av PowerShell | Microsoft Docs
+title: Etablera Azure-SSIS Integration Runtime med PowerShell
 description: Lär dig hur du etablerar Azure SSIS-integreringskörning i Azure Data Factory med PowerShell så att du kan distribuera och köra SSIS-paket i Azure.
 services: data-factory
 documentationcenter: ''
@@ -13,16 +13,16 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 7a4ae2198653ea8adab136caef0f812019efd998
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 594cdd848a3712d2164616e38f7b75a01a21b7f6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326112"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683582"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory-with-powershell"></a>Etablera en Azure-SSIS-integreringskörning i Azure Data Factory med PowerShell
 
-Den här självstudien innehåller steg för att tillhandahålla en Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR) i Azure Data Factory (ADF). Azure-SSIS IR stöder körning av paket som distribuerats till SSIS-katalogen (SSISDB) som hanteras av Azure SQL Database Server/hanterad instans (projekt distributions modell) och de som distribueras i fil system/fil resurser/Azure Files (paket distributions modell). När Azure-SSIS IR har distribuerats kan du sedan använda välbekanta verktyg, till exempel SQL Server Data Tools (SSDT)/SQL Server Management Studio (SSMS) och kommando rads verktyg, till exempel `dtinstall` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4, för att distribuera och köra dina paket i Azure. I den här självstudien gör du följande:
+Den här självstudien innehåller steg för att tillhandahålla en Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR) i Azure Data Factory (ADF). Azure-SSIS IR stöder körning av paket som distribuerats till SSIS-katalogen (SSISDB) som hanteras av Azure SQL Database Server/hanterad instans (projekt distributions modell) och de som distribueras i fil system/fil resurser/Azure Files (paket distributions modell). När Azure-SSIS IR har skapats kan du sedan använda välbekanta verktyg, till exempel SQL Server Data Tools (SSDT)/SQL Server Management Studio (SSMS) och kommando rads verktyg, till exempel `dtinstall`/`dtutil`/`dtexec`, för att distribuera och köra dina paket i Azure. I den här självstudien gör du följande:
 
 > [!NOTE]
 > I den här artikeln används Azure PowerShell för att etablera en Azure-SSIS IR. Om du vill använda Azure Portal/ADF-appen för att etablera en Azure-SSIS IR, se [Självstudier: etablera Azure-SSIS IR](tutorial-create-azure-ssis-runtime-portal.md). 
@@ -34,7 +34,7 @@ Den här självstudien innehåller steg för att tillhandahålla en Azure-SQL Se
 > * Granska det fullständiga skriptet
 > * Distribuera SSIS-paket
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -369,7 +369,7 @@ I följande artiklar finns information om att övervaka och hantera Azure-SSIS I
 
 ## <a name="deploy-ssis-packages"></a>Distribuera SSIS-paket
 
-Om du använder SSISDB kan du distribuera dina paket till den och köra dem på Azure-SSIS IR med hjälp av SSDT/SSMS-verktyg som ansluter till din databas server via dess server slut punkt. För Azure SQL Database Server/hanterad instans med en offentlig slut punkt är Server slut punktens format `<server name>.database.windows.net` @ no__t-1 @ no__t-2 respektive. Om du inte använder SSISDB kan du distribuera dina paket i fil system/fil resurser/Azure Files och köra dem på Azure-SSIS IR med `dtinstall` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 kommando rads verktyg. Mer information finns i [distribuera SSIS-paket](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server). I båda fallen kan du också köra dina distribuerade paket på Azure-SSIS IR med hjälp av aktiviteten kör SSIS-paket i ADF-pipeline, se [anropa SSIS-paket körning som en första omsluten ADF-aktivitet](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
+Om du använder SSISDB kan du distribuera dina paket till den och köra dem på Azure-SSIS IR med hjälp av SSDT/SSMS-verktyg som ansluter till din databas server via dess server slut punkt. För Azure SQL Database Server/hanterad instans med en offentlig slut punkt är Server slut punktens format `<server name>.database.windows.net`/`<server name>.public.<dns prefix>.database.windows.net,3342`. Om du inte använder SSISDB kan du distribuera paketen till fil system/fil resurser/Azure Files och köra dem på Azure-SSIS IR med `dtinstall`/`dtutil`/kommando rads verktyg.`dtexec` Mer information finns i [distribuera SSIS-paket](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server). I båda fallen kan du också köra dina distribuerade paket på Azure-SSIS IR med hjälp av aktiviteten kör SSIS-paket i ADF-pipeline, se [anropa SSIS-paket körning som en första omsluten ADF-aktivitet](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
 
 Se även följande artiklar från SSIS-dokumentationen: 
 

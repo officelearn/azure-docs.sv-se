@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 06b4fe3b716f2252f064a5b36fcde7dd7198db2d
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: c7bb35e7de6400a0fad13845a3faa38ad21b6de7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73026745"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581241"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Självstudie: skapa och gå igenom App-mallen för smart avläsning av övervakning 
 
@@ -29,11 +29,11 @@ Den här självstudien vägleder dig genom processen att skapa ett program för 
 
 Om du inte har någon prenumeration kan du [skapa ett kostnads fritt utvärderings konto](https://azure.microsoft.com/free)
 
-## <a name="prerequisites"></a>Krav
-- Inget
+## <a name="prerequisites"></a>Nödvändiga komponenter
+- Ingen
 - Azure-prenumeration rekommenderas, men du behöver inte testa
 
-## <a name="create-a-smart-meter-monitoring-app"></a>Skapa en app för övervakning av smarta mätare 
+## <a name="create-a-smart-meter-monitoring-app"></a>Skapa en app för smart mätarövervakning 
 
 Du kan skapa det här programmet i tre enkla steg:
 
@@ -41,8 +41,8 @@ Du kan skapa det här programmet i tre enkla steg:
 
 2. Välj fliken **energi** och klicka på **skapa app** under fönster panel för **övervakning av smarta Mät** värden.
 
-    [!div class="mx-imgBorder"]
-    ![Bygg app](media/tutorial-iot-central-smart-meter/smart-meter-build.png)
+    > [!div class="mx-imgBorder"]
+    > ![Bygg app](media/tutorial-iot-central-smart-meter/smart-meter-build.png)
     
 
 3. **Skapa app** öppnar formuläret **ny** app. Fyll i den begärda informationen som visas i bilden nedan:
@@ -72,25 +72,25 @@ Adatum är ett fiktivt energi företag som övervakar och hanterar smarta mätar
 * Spåra den totala energi förbrukningen för planering och fakturering
 * Kommando-och kontroll åtgärder, till exempel version för åter anslutning, mätare och uppdatering av inbyggd program vara. I mallen visar kommando knapparna de möjliga funktionerna och skickar inte riktiga kommandon. 
 
-[!div class="mx-imgBorder"]
-instrument panel för ![Smart mätnings övervakning](media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png)
+> [!div class="mx-imgBorder"]
+> instrument panel för ![Smart mätnings övervakning](media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png)
 
 ### <a name="devices"></a>Enheter
 Appen levereras med ett exempel på en smart meters enhet. Du kan se enhets informationen genom att klicka på fliken **enheter** .
 
-[!div class="mx-imgBorder"]
-![Smart meters enheter](media/tutorial-iot-central-smart-meter/smart-meter-devices.png)
+> [!div class="mx-imgBorder"]
+> ![Smart meters enheter](media/tutorial-iot-central-smart-meter/smart-meter-devices.png)
 
 Klicka på **SM0123456789** -länken exempel på enhet för att se information om enheten. Du kan uppdatera enhetens skrivbara egenskaper på sidan **Uppdatera egenskaper** och visualisera de uppdaterade värdena på instrument panelen.
 
-[!div class="mx-imgBorder"]
-![Smart mätar egenskaper](media/tutorial-iot-central-smart-meter/smart-meter-device-properties.png)
+> [!div class="mx-imgBorder"]
+> ![Smart mätar egenskaper](media/tutorial-iot-central-smart-meter/smart-meter-device-properties.png)
 
 ### <a name="device-template"></a>Enhets mall
 Klicka på fliken **enhets mallar** om du vill se enhets modellen för smart mätare. Modellen har ett för hands definierat gränssnitt för data, egenskaper, kommandon och vyer.
 
-[!div class="mx-imgBorder"]
-![Smart meters enhet mallar](media/tutorial-iot-central-smart-meter/smart-meter-device-template.png)
+> [!div class="mx-imgBorder"]
+> ![Smart meters enhet mallar](media/tutorial-iot-central-smart-meter/smart-meter-device-template.png)
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser

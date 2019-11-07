@@ -7,14 +7,17 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 86d61dbd75363f68ee4651bfb36f940810909c00
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 856f7f7735435579ac14918ee8026f27b222773e
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501850"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715507"
 ---
 # <a name="assess-servers-using-imported-data"></a>Utvärdera servrar med hjälp av importerade data
+
+> [!NOTE]
+> Om du inte ser den här funktionen än i Azure Migrate-portalen låser du dig. Den kommer att visas under nästa vecka eller så.
 
 Den här artikeln förklarar hur du bedömer lokala servrar med [Azure Migrate: Server utvärdering](migrate-services-overview.md#azure-migrate-server-assessment-tool)genom att importera serverns metadata med hjälp av CSV. Med den här bedömnings metoden behöver du inte konfigurera Azure Migrate-enheten för att skapa en utvärdering. Detta är användbart om: 
 

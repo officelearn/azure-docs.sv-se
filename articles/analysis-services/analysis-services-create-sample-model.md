@@ -1,18 +1,18 @@
 ---
-title: Självstudie – Lägga till en exempelmodell till en Azure Analysis Services-server | Microsoft Docs
+title: Självstudie – Lägg till en exempel modell – Azure Analysis Services | Microsoft Docs
 description: I den här självstudiekursen lär du dig hur du lägger till en exempelmodell i Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 10/16/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c6679e8075afd2f25e4baf73c79c35907ded4e2b
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: f76ec20da73c778d024feea9df113de9e4aa0fe9
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512881"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573091"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Självstudiekurs: Lägga till en exempelmodell från portalen
 
@@ -43,7 +43,7 @@ Logga in på [portalen](https://portal.azure.com/).
 
     ![Skapa en exempelmodell](./media/analysis-services-create-sample-model/aas-create-sample-new-model.png)
 
-2. I **ny modell**  > **väljer du en data källa**, verifierar **exempel data** är markerat och klickar sedan på **Lägg till**.
+2. I **ny modell** > **väljer du en data källa**, verifierar **exempel data** är markerat och klickar sedan på **Lägg till**.
 
     ![Välj exempeldata](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
 

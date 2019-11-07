@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center-självstudie – Reagera på säkerhetsincidenter | Microsoft Docs
+title: Själv studie kurs om incident svar – Azure Security Center
 description: Azure Security Center-självstudie – Reagera på säkerhetsincidenter
 services: security-center
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: 11c2543de2b5456d253e7e905065eea14810877a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: cd3f99fe82c9a8e5e760aa3be3bed1ad5d9bd5e9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200618"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663647"
 ---
-# <a name="tutorial-respond-to-security-incidents"></a>Självstudier: Reagera på säkerhetsincidenter
+# <a name="tutorial-respond-to-security-incidents"></a>Självstudie: Reagera på säkerhetsincidenter
 Security Center analyserar kontinuerligt dina hybridmolnarbetsbelastningar med avancerad analys och hotinformation för att varna dig om skadlig aktivitet. Dessutom kan du integrera varningar från andra säkerhetsprodukter och -tjänster i Security Center och skapa anpassade varningar utifrån dina egna indikatorer eller intelligenskällor. När en varning har genererats krävs snabba åtgärder för att undersöka och åtgärda. I den här självstudien får du lära dig hur man:
 
 > [!div class="checklist"]
@@ -66,7 +66,7 @@ Security Center tillhandahåller en enhetlig vy över alla säkerhetsvarningar. 
 
 1. På Security Center-huvudmenyn under **IDENTIFIERING** väljer du **Säkerhetsvarningar**:
 
-   ![Säkerhetsaviseringar](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
+   ![Säkerhetsaviseringar](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)
 
 2. I listan över varningar klickar du på en säkerhetsincident för att läsa mer om incidenten. En säkerhetsincident är en samling varningar. **Säkerhetsincident har identifierats** öppnas.
 

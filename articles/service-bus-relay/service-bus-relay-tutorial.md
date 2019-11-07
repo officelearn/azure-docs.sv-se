@@ -1,6 +1,6 @@
 ---
-title: Exponera en lokal WCF REST-tjänst till extern klient med hjälp av Azure WCF Relay | Microsoft Docs
-description: Bygg en klient-och tjänst program med hjälp av WCF Relay.
+title: 'Självstudie: exponera en lokal WCF REST-tjänst till extern klient med hjälp av Azure WCF Relay'
+description: 'Självstudie: Bygg en klient-och tjänst program med hjälp av WCF Relay.'
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: 53dfd236-97f1-4778-b376-be91aa14b842
 ms.service: service-bus-relay
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 4707e56a09c257c9e03e6db070083c81ffde07b6
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: e2dd0448dfed55450a6319936f49831e5d6d77f3
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212896"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718857"
 ---
-# <a name="expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Exponera en lokal WCF REST-tjänst till extern klient med hjälp av Azure WCF Relay
+# <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Självstudie: exponera en lokal WCF REST-tjänst till extern klient med hjälp av Azure WCF Relay
 
 I den här självstudien beskrivs hur du skapar ett WCF Relay klient program och-tjänster med hjälp av Azure Relay. En liknande självstudie som använder [Service Bus meddelanden](../service-bus-messaging/service-bus-messaging-overview.md)finns i [kom igång med Service Bus köer](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
@@ -43,7 +43,7 @@ Du utför följande uppgifter i den här självstudien:
 > * Implementera WCF-klienten.
 > * Kör programmen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här självstudien, finns följande förhandskrav:
 
@@ -68,15 +68,15 @@ Tjänste kontraktet anger vilka åtgärder tjänsten stöder. Åtgärder är web
 1. I **skapa ett nytt projekt**väljer du **konsol program (.NET Framework)** för C# och väljer **sedan nästa**.
 1. Ge projektet namnet *EchoService* och välj **skapa**.
 
-   ![Skapa en konsolapp][2]
+   ![Skapa en konsolklient][2]
 
 1. I **Solution Explorer**högerklickar du på projektet och väljer **Hantera NuGet-paket**. I **NuGet Package Manager**väljer du **Bläddra**och söker efter och väljer **windowsazure. Service Bus**. Välj **Installera**och godkänn användnings villkoren.
 
     ![Service Bus-paket][3]
 
-   Det här paketet lägger automatiskt till referenser till Service Bus bibliotek och WCF `System.ServiceModel`. [System.ServiceModel](/dotnet/api/system.servicemodel) är det namnområde som ger dig programmatisk åtkomst till de grundläggande funktionerna i WCF. Service Bus använder många av WFC:s objekt och attribut för att definiera tjänstekontrakt.
+   Det här paketet lägger automatiskt till referenser till Service Bus-bibliotek och WCF-`System.ServiceModel`. [System.ServiceModel](/dotnet/api/system.servicemodel) är det namnområde som ger dig programmatisk åtkomst till de grundläggande funktionerna i WCF. Service Bus använder många av WFC:s objekt och attribut för att definiera tjänstekontrakt.
 
-1. Lägg till följande `using` -instruktioner överst i *program.cs*:
+1. Lägg till följande `using`-uttryck högst upp i *program.cs*:
 
     ```csharp
     using System.ServiceModel;
@@ -89,7 +89,7 @@ Tjänste kontraktet anger vilka åtgärder tjänsten stöder. Åtgärder är web
    > I den här självstudien används C# namn området `Microsoft.ServiceBus.Samples` som är namn området för den kontraktbaserade hanterade typen som används i konfigurations filen i avsnittet [Konfigurera WCF-klienten](#configure-the-wcf-client) . Du kan ange ett namn område som du vill ha när du skapar det här exemplet. Själv studie kursen kommer dock inte att fungera om du inte ändrar namn områdena för kontraktet och tjänsten i enlighet med detta i program konfigurations filen. Det namn område som anges i filen *app. config* måste vara samma som det namn område som anges C# i filerna.
    >
 
-1. Direkt efter `Microsoft.ServiceBus.Samples` namn områdes deklarationen, men inom namn området, definierar du ett nytt gränssnitt med `ServiceContractAttribute` namnet `IEchoContract` och tillämpar attributet på gränssnittet med ett namn `https://samples.microsoft.com/ServiceModel/Relay/`områdes värde på. Klistra in följande kod efter namn områdes deklarationen:
+1. Direkt efter `Microsoft.ServiceBus.Samples` namn områdets deklaration, men inom namn området, definierar du ett nytt gränssnitt med namnet `IEchoContract` och tillämpar attributet `ServiceContractAttribute` på gränssnittet med ett namn områdes värde för `https://samples.microsoft.com/ServiceModel/Relay/`. Klistra in följande kod efter namn områdes deklarationen:
 
     ```csharp
     [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
@@ -101,10 +101,10 @@ Tjänste kontraktet anger vilka åtgärder tjänsten stöder. Åtgärder är web
     Namnområdesvärdet skiljer sig från det namnområde som du använder under hela intervallet för din kod. Istället används namnområdesvärdet som en unik identifierare för det här kontraktet. Genom att ange namnområdet uttryckligen förhindrar du att det förvalda namnområdesvärdet läggs till i kontraktnamnet.
 
    > [!NOTE]
-   > Namnområdet för tjänstekontraktet innehåller vanligtvis ett namngivningsschema som inkluderar information om versionen. Om du tar med versionsinformation i namnområdet för tjänstekontraktet kan tjänsterna isolera större ändringar genom att definiera ett nytt tjänstkontrakt med ett nytt namnområde och sedan exponera det på en ny slutpunkt. På så sätt kan klienterna fortsätta att använda det gamla service kontraktet utan att behöva uppdateras. Versionsinformation kan bestå av ett datum eller ett build-nummer. Mer information finns i [Versionshantering för tjänster](/dotnet/framework/wcf/service-versioning). I den här självstudien innehåller namngivnings planen för namn området för tjänst kontraktet inte versions information.
+   > Namnområdet för tjänstekontraktet innehåller vanligtvis ett namngivningsschema som inkluderar information om versionen. Om du tar med versionsinformation i namnområdet för tjänstekontraktet kan tjänsterna isolera större ändringar genom att definiera ett nytt tjänstkontrakt med ett nytt namnområde och sedan exponera det på en ny slutpunkt. På så sätt kan klienterna fortsätta att använda det gamla service kontraktet utan att behöva uppdateras. Versionsinformation kan bestå av ett datum eller ett build-nummer. Mer information finns i [Versionhantering för tjänster](/dotnet/framework/wcf/service-versioning). I den här självstudien innehåller namngivnings planen för namn området för tjänst kontraktet inte versions information.
    >
 
-1. I gränssnittet deklarerar du en metod för den enskild `IEchoContract` åtgärd som kontraktet visar i gränssnittet och tillämpar `OperationContractAttribute` attributet på den metod som du vill ska visas som en del av det offentliga WCF Relay kontraktet enligt följande: `IEchoContract`
+1. I `IEchoContract`-gränssnittet deklarerar du en metod för den enskilda åtgärden som `IEchoContract` kontraktet visar i gränssnittet och tillämpar attributet `OperationContractAttribute` på den metod som du vill exponera som en del av det offentliga WCF Relay kontraktet enligt följande :
 
     ```csharp
     [OperationContract]
@@ -119,7 +119,7 @@ Tjänste kontraktet anger vilka åtgärder tjänsten stöder. Åtgärder är web
 
     En kanal är det WCF-objekt via vilken värden och klienten skickar information till varandra. Senare ska du skriva kod mot kanalen för att få eko på information mellan de två programmen.
 
-1. Välj **bygge** > **build-lösning** eller Välj CTRL + SHIFT + B för att bekräfta att ditt arbete hittills är korrekt.
+1. Välj **build** > **build-lösning** eller Välj CTRL + SHIFT + B för att bekräfta att ditt arbete hittills är korrekt.
 
 ### <a name="example-of-a-wcf-contract"></a>Exempel på ett WCF-kontrakt
 
@@ -153,7 +153,7 @@ Nu när gränssnittet har skapats kan du implementera det.
 
 ## <a name="implement-the-wcf-contract"></a>Implementera WCF-kontraktet
 
-Om du skapar ett Azure-relä måste du först skapa kontraktet med ett gränssnitt. Mer information om hur du skapar gränssnittet finns i föregående avsnitt. Nästa procedur implementerar gränssnittet. Den här uppgiften innebär att skapa en `EchoService` klass med namnet som implementerar det `IEchoContract` användardefinierade gränssnittet. När du har implementerat gränssnittet konfigurerar du gränssnittet med hjälp av konfigurations filen *app. config* . Konfigurations filen innehåller nödvändig information för programmet. Den här informationen innehåller namnet på tjänsten, namnet på kontraktet och typen av protokoll som används för att kommunicera med relä tjänsten. Den kod som används för dessa uppgifter finns i exemplet som följer efter proceduren. En mer allmän diskussion om hur du implementerar ett tjänst kontrakt finns i [implementera Service kontrakt](/dotnet/framework/wcf/implementing-service-contracts).
+Om du skapar ett Azure-relä måste du först skapa kontraktet med ett gränssnitt. Mer information om hur du skapar gränssnittet finns i föregående avsnitt. Nästa procedur implementerar gränssnittet. Den här uppgiften innebär att skapa en klass med namnet `EchoService` som implementerar det användardefinierade `IEchoContract` gränssnittet. När du har implementerat gränssnittet konfigurerar du gränssnittet med hjälp av konfigurations filen *app. config* . Konfigurations filen innehåller nödvändig information för programmet. Den här informationen innehåller namnet på tjänsten, namnet på kontraktet och typen av protokoll som används för att kommunicera med relä tjänsten. Den kod som används för dessa uppgifter finns i exemplet som följer efter proceduren. En mer allmän diskussion om hur du implementerar ett tjänst kontrakt finns i [implementera Service kontrakt](/dotnet/framework/wcf/implementing-service-contracts).
 
 1. Skapa en ny klass med namnet `EchoService` direkt efter definitionen av gränssnittet `IEchoContract`. Klassen `EchoService` implementerar gränssnittet `IEchoContract`.
 
@@ -184,7 +184,7 @@ Om du skapar ett Azure-relä måste du först skapa kontraktet med ett gränssni
     }
     ```
 
-1. Välj **bygge** > **build-lösning** eller Välj CTRL + SHIFT + B.
+1. Välj **build** > **build-lösning** eller Välj CTRL + SHIFT + B.
 
 ### <a name="define-the-configuration-for-the-service-host"></a>Definiera konfigurationen för tjänst värden
 
@@ -192,7 +192,7 @@ Konfigurations filen liknar en WCF-konfigurationsfil. Den innehåller tjänst na
 
 1. I **Solution Explorer**dubbelklickar du på **app. config** för att öppna filen i Visual Studio-redigeraren.
 1. I elementet `<appSettings>` ersätter du platshållarna med namnet på ditt namnområde för tjänsten och den SAS-nyckel som du kopierade i ett av de föregående stegen.
-1. Lägg till ett `<services>`-element inom taggarna `<system.serviceModel>`. Du kan definiera flera Relay-program i en enda konfigurations fil. I den här självstudiekursen definieras dock bara en.
+1. Lägg till ett `<system.serviceModel>`-element inom taggarna `<services>`. Du kan definiera flera Relay-program i en enda konfigurations fil. I den här självstudiekursen definieras dock bara en.
 
     ```xml
     <?xmlversion="1.0"encoding="utf-8"?>
@@ -220,7 +220,7 @@ Konfigurations filen liknar en WCF-konfigurationsfil. Den innehåller tjänst na
 
     Slutpunkten definierar var klienten ska söka efter värdprogrammet. Senare använder självstudien det här steget för att skapa en URI som helt exponerar värden via Azure Relay. Bindningen deklarerar att vi använder TCP som protokoll för att kommunicera med relä tjänsten.
 
-1. Välj **bygge** > **build-lösning** eller Välj CTRL + SHIFT + B för att bekräfta att ditt arbete hittills är korrekt.
+1. Välj **build** > **build-lösning** eller Välj CTRL + SHIFT + B för att bekräfta att ditt arbete hittills är korrekt.
 
 ### <a name="example-of-implementation-of-a-service-contract"></a>Exempel på implementering av ett tjänst kontrakt
 
@@ -286,7 +286,7 @@ I det här steget beskrivs hur du kör en Azure Relay-tjänst.
 
 ### <a name="create-a-base-address-for-the-service"></a>Skapa en bas adress för tjänsten
 
-När du har lagt till den kod som du lade till i `Uri` föregående avsnitt skapar du en instans för tjänstens bas adress. Den här URI anger Service Bus-schemat, namnområdet och sökvägen för tjänstegränssnittet.
+När du har lagt till den kod som du lade till i föregående avsnitt skapar du en `Uri`-instans för tjänstens bas adress. Den här URI anger Service Bus-schemat, namnområdet och sökvägen för tjänstegränssnittet.
 
 ```csharp
 Uri address = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, "EchoService");
@@ -304,7 +304,7 @@ URI är `sb://putServiceNamespaceHere.windows.net/EchoService` för den här sj�
     ServiceBusEnvironment.SystemConnectivity.Mode = ConnectivityMode.AutoDetect;
     ```
 
-    Anslutnings läget beskriver det protokoll som tjänsten använder för att kommunicera med relä tjänsten. antingen HTTP eller TCP. Med hjälp av standardinställningen `AutoDetect`försöker tjänsten ansluta till Azure Relay via TCP om den är tillgänglig och http om TCP inte är tillgängligt. Det här resultatet skiljer sig från protokollet som tjänsten anger för klient kommunikation. Det här protokollet bestäms av den bindning som används. En tjänst kan till exempel använda [BasicHttpRelayBinding](/dotnet/api/microsoft.servicebus.basichttprelaybinding) -bindningen, som anger att dess slut punkt kommunicerar med klienter via http. Samma tjänst kan anges `ConnectivityMode.AutoDetect` så att tjänsten kommunicerar med Azure Relay via TCP.
+    Anslutnings läget beskriver det protokoll som tjänsten använder för att kommunicera med relä tjänsten. antingen HTTP eller TCP. Med hjälp av standardinställningen `AutoDetect`försöker tjänsten ansluta till Azure Relay över TCP om den är tillgänglig och HTTP om TCP inte är tillgängligt. Det här resultatet skiljer sig från protokollet som tjänsten anger för klient kommunikation. Det här protokollet bestäms av den bindning som används. En tjänst kan till exempel använda [BasicHttpRelayBinding](/dotnet/api/microsoft.servicebus.basichttprelaybinding) -bindningen, som anger att dess slut punkt kommunicerar med klienter via http. Samma tjänst kan ange `ConnectivityMode.AutoDetect` så att tjänsten kommunicerar med Azure Relay via TCP.
 
 1. Skapa tjänstevärden med hjälp av den URI som du skapade tidigare i det här avsnittet.
 
@@ -462,7 +462,7 @@ Nästa uppgift är att skapa ett klient program och definiera tjänst kontraktet
 
       ![Installera Service Bus-paket][4]
 
-1. Lägg till `using` en instruktion för [system. ServiceModel](/dotnet/api/system.servicemodel) -namnrymden i *program.cs* -filen.
+1. Lägg till en `using`-instruktion för [system. ServiceModel](/dotnet/api/system.servicemodel) -namnrymden i *program.cs* -filen.
 
     ```csharp
     using System.ServiceModel;
@@ -520,7 +520,7 @@ I det här steget skapar du en *app. config* -fil för ett grundläggande klient
 
 1. I **Solution Explorer**, i **EchoClient** -projektet, dubbelklickar du på **app. config** för att öppna filen i Visual Studio-redigeraren.
 1. I elementet `<appSettings>` ersätter du platshållarna med namnet på ditt namnområde för tjänsten och den SAS-nyckel som du kopierade i ett av de föregående stegen.
-1. I elementet `system.serviceModel` lägger du till ett `<client>` -element.
+1. Lägg till ett `<client>`-element i `system.serviceModel`-elementet.
 
     ```xml
     <?xmlversion="1.0"encoding="utf-8"?>
@@ -544,7 +544,7 @@ I det här steget skapar du en *app. config* -fil för ett grundläggande klient
 
     Den här koden definierar slut punktens namn. Den definierar också det avtal som definierats i tjänsten och det faktum att klient programmet använder TCP för att kommunicera med Azure Relay. Namnet på slutpunkten används i nästa steg för att länka samman denna slutpunktskonfiguration med URI:n för tjänsten.
 
-1. Välj **Arkiv** > **Spara alla**.
+1. Välj **fil** > **Spara alla**.
 
 ### <a name="example-of-the-appconfig-file"></a>Exempel på filen app. config
 
@@ -735,7 +735,7 @@ namespace Microsoft.ServiceBus.Samples
 
 1. Välj Ctrl + Skift + B för att bygga lösningen. Den här åtgärden skapar både klient projektet och det tjänst projekt som du skapade i föregående steg.
 1. Du måste se till att tjänsteprogrammet körs innan du startar klientprogrammet. I **Solution Explorer**högerklickar du på lösningen **EchoService** och väljer sedan **Egenskaper**.
-1. På **egenskaps sidor**, **vanliga egenskaper** > **Start projekt**och välj sedan **flera start projekt**. Kontrollera att **EchoService** visas först i listan.
+1. I **egenskaps sidor**, **vanliga egenskaper** > **Start projekt**och välj sedan **flera start projekt**. Kontrollera att **EchoService** visas först i listan.
 1. Ställ in rutan **Åtgärd** för både **EchoService**- och **EchoClient**-projektet på **Starta**.
 
     ![Egenskaps sidor för projekt][5]

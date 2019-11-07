@@ -1,6 +1,6 @@
 ---
-title: Använda Azure Service Bus ämnen och prenumerationer med Java
-description: Använd Service Bus ämnen och prenumerationer i Azure.
+title: 'Snabb start: använda Azure Service Bus ämnen och prenumerationer med Java'
+description: 'Snabb start: Använd Service Bus ämnen och prenumerationer i Azure.'
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
@@ -11,27 +11,27 @@ ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
-ms.topic: article
-ms.date: 04/15/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: affd62bd7cae0103b7d2510022fc12a66d26c865
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 8a721d929ff89fd644c78296ae54cee757bf9610
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155589"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720013"
 ---
-# <a name="use-service-bus-topics-and-subscriptions-with-java"></a>Använda Service Bus ämnen och prenumerationer med Java
+# <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>Snabb start: använda Service Bus ämnen och prenumerationer med Java
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
 I den här snabb starten skriver du Java-kod för att skicka meddelanden till ett Azure Service Bus ämne och sedan ta emot meddelanden från prenumerationer på det avsnittet. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-1. En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera dina [förmåner för Visual Studio eller MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Följ stegen i [snabb starten: Använd Azure Portal för att skapa ett Service Bus ämne och prenumerationer på avsnittet](service-bus-quickstart-topics-subscriptions-portal.md) för att utföra följande uppgifter:
+1. En Azure-prenumeration. Du behöver ett Azure-konto för att genomföra kursen. Du kan aktivera dina [förmåner för Visual Studio eller MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Följ stegen i [snabb starten: använd Azure Portal för att skapa ett Service Bus ämne och prenumerationer på avsnittet](service-bus-quickstart-topics-subscriptions-portal.md) för att utföra följande uppgifter:
     1. Skapa ett Service Bus- **namnområde**.
     2. Hämta **anslutnings strängen**.
     3. Skapa ett **ämne** i namn området.
@@ -49,7 +49,7 @@ Du måste också lägga till följande jar v7 i Java-build-sökvägen:
 - Commons-CLI-1.4. jar
 - Proton-j-0.21.0. jar
 
-Lägg till en klass med en **main** -Metod och Lägg sedan till `import` följande-instruktioner överst i Java-filen:
+Lägg till en klass med en **main** -Metod och Lägg sedan till följande `import`-instruktioner överst i Java-filen:
 
 ```java
 import com.google.gson.reflect.TypeToken;

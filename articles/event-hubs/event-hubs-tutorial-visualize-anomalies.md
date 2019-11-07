@@ -1,6 +1,6 @@
 ---
-title: Visualisera dataavvikelser i realtidshändelser – Azure Event Hubs | Microsoft Docs
-description: Självstudie – Visualisera dataavvikelser i realtidshändelser som skickats till Microsoft Azure Event Hubs
+title: 'Självstudie: visualisera data avvikelser i real tids händelser – Azure Event Hubs'
+description: 'Självstudie: visualisera data avvikelser i real tids händelser som skickas till Microsoft Azure Event Hubs'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
@@ -8,21 +8,21 @@ ms.author: shvija
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
-ms.date: 02/26/2019
-ms.openlocfilehash: d6786e4e3382c7c4d7a6a6a28c3cd3621df221c1
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.date: 11/05/2019
+ms.openlocfilehash: 0cfff0196ebc20b9b01bc966b3590470d349e86e
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867143"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718006"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Självstudie: Visualisera dataavvikelser i realtidshändelser som skickats till Azure Event Hubs
 
-Du kan använda Azure Stream Analytics med Azure Event Hubs för att kontrollera inkommande data och extrahera avvikelser, som du sedan kan visualisera i Power BI. Anta att du har tusentals enheter som kontinuerligt skickar data i realtid till en händelsehubb. I så fall kan det röra sig om miljontals händelser per sekund. Hur kontrollerar du om det finns avvikelser, eller fel, i sådana mängder data? Till exempel vilka om enheterna skickar kreditkortstransaktioner och du behöver samla in överallt där du har flera transaktioner i flera länder/regioner inom en 5-sekundersintervall tidsintervall? Detta kan inträffa om någon stjäl kreditkort och sedan använder dem för att köpa saker samtidigt från olika delar av världen. 
+Du kan använda Azure Stream Analytics med Azure Event Hubs för att kontrollera inkommande data och extrahera avvikelser, som du sedan kan visualisera i Power BI. Anta att du har tusentals enheter som kontinuerligt skickar data i realtid till en händelsehubb. I så fall kan det röra sig om miljontals händelser per sekund. Hur kontrollerar du om det finns avvikelser, eller fel, i sådana mängder data? Vad händer om enheterna skickar kredit korts transaktioner och du måste samla in var du än har flera transaktioner i flera länder/regioner inom ett intervall om 5 sekunder? Detta kan inträffa om någon stjäl kreditkort och sedan använder dem för att köpa saker samtidigt från olika delar av världen. 
 
 I den här självstudien får du simulera det här exemplet. Du kör ett program som skapar och skickar kreditkortstransaktioner till en händelsehubb. Sedan läser du dataströmmen i realtid med Azure Stream Analytics, som separerar giltiga transaktioner från ogiltiga transaktioner. Sedan använder du Power BI för att visuellt identifiera vilka transaktioner som är märkta som ogiltiga.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Skapa ett Event Hubs-namnområde
 > * Skapa en händelsehubb
@@ -32,7 +32,7 @@ I den här självstudiekursen får du lära du dig att:
 
 Du behöver en Azure-prenumeration för att kunna utföra stegen i den här självstudiekursen. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto][] innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -186,7 +186,7 @@ Nu kan du strömma data till din händelsehubb. För att kunna använda dessa da
 
    ![Skärmbild som visar hur du skapar ett nytt Azure Stream Analytics-jobb.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-add-job.png)
 
-    Acceptera standardvärdena för resten av fälten. Klicka på **Skapa**. 
+    För resten av fälten accepterar du standardvärdena. Klicka på **Skapa**. 
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Lägga till indata till Stream Analytics-jobbet
 
@@ -197,11 +197,11 @@ Indata för Steam Analytics-jobbet är kreditkortstransaktioner från händelseh
 > [!NOTE]
 > Värdena för variabler som börjar med dollartecken ($) anges i startskriptet i föregående avsnitt. Du måste använda samma värden här när du anger dessa fält, det vill säga Event Hubs-namnområdet och namnet på händelsehubben.
 
-1. Klicka på **Indata** under **Jobbtopologi**.
+1. Under **Jobbtopologi** klickar du på **Indata**.
 
 2. Klicka på **Lägg till strömindata** i fönstret **Indata** och välj Event Hubs. På skärmen som visas fyller du i följande fält:
 
-   **Indataalias**: Använd **contosoinputs**. Det här fältet är namnet på den indataström som används vid definiering av frågan efter data.
+   **Utdataalias**: Använd **contosooutputs**. Det här fältet är namnet på den indataström som används vid definiering av frågan efter data.
 
    **Prenumeration**: Välj din prenumeration.
 
@@ -209,11 +209,11 @@ Indata för Steam Analytics-jobbet är kreditkortstransaktioner från händelseh
 
    **Namn på händelsehubb**: Klicka på **Använd befintlig** och välj din händelsehubb ($**eventHubName**).
 
-   **Principnamn för Event Hubs**: Välj **RootManageSharedAccessKey**.
+   **Namn på Event Hubs-princip**: Välj **RootManageSharedAccessKey**.
 
-   **Händelsehubbkonsumentgrupp**: Använd standardkonsumentgruppen genom att lämna det här fältet tomt.
+   **Event Hubs-konsumentgrupp**: Använd standardkonsumentgruppen genom att lämna det här fältet tomt.
 
-   Acceptera standardvärdena för resten av fälten.
+   För resten av fälten accepterar du standardvärdena.
 
    ![Skärmbild som visar hur du lägger till en indataström till Stream Analytics-jobbet.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-inputs.png)
 
@@ -231,13 +231,13 @@ Indata för Steam Analytics-jobbet är kreditkortstransaktioner från händelseh
 
    **Tabellnamn**: Använd **contosoehtable**. Det här fältet är namnet på tabellen som ska användas i Power BI. 
 
-   Acceptera standardvärdena för resten av fälten.
+   För resten av fälten accepterar du standardvärdena.
 
    ![Skärmbild som visar hur du konfigurerar utdata för ett Stream Analytics-jobb.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-outputs.png)
 
 3. Klicka på **Autentisera** och logga in på Power BI-kontot.
 
-4. Acceptera standardvärdena för resten av fälten.
+4. För resten av fälten accepterar du standardvärdena.
 
 5. Klicka på **Spara**.
 

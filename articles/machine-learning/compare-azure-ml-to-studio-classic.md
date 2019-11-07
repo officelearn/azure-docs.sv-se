@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 10/29/2019
-ms.openlocfilehash: dae708a417a1bf8ca4b118f218e353a28e5675c1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
-ms.translationtype: HT
+ms.openlocfilehash: 721f730aa78be39b91f7d8368655dbbd5878903b
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684967"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73716693"
 ---
 # <a name="how-azure-machine-learning-differs-from-ml-studio-classic"></a>Hur Azure Machine Learning skiljer sig från ML Studio (klassisk)
 
@@ -40,7 +40,7 @@ Här är en snabb jämförelse.
 ||Designern är i för hands version, Azure Machine Learning är GA|Allmänt tillgänglig (GA) | 
 |Dra och släpp-gränssnitt| Ja | Ja|
 |Olika| Skala med beräknings mål|Skala (10 GB inlärnings data gräns) | 
-|Moduler för gränssnitt|  Många populära moduler|Mycket |
+|Moduler för gränssnitt| [Många populära moduler](algorithm-module-reference/module-reference.md) | Mycket |
 |Inlärnings mål| AML Compute (GPU/CPU)|Patentskyddat Compute Target, endast CPU|
 |Inferencing Compute-mål| Azure Kubernetes service för real tids härledning <br/>AML-beräkning för batch-härledning|Eget webb tjänst format, inte anpassningsbart | 
 |ML pipeline| Pipeline-redigering <br/> Publicerad pipeline <br/> Pipeline-slutpunkt <br/> [Läs mer om ML-pipeline](service/concept-ml-pipelines.md)|Stöds inte | 
@@ -48,7 +48,7 @@ Här är en snabb jämförelse.
 |Modell| Standardformat beror på utbildnings jobbet|Patentskyddat, icke-portabelt format.| 
 |Automatisk modell utbildning|Ännu inte i designern, men möjligt via gränssnittet och SDK: er.| Nej | 
 
-## <a name="get-started-with-azure-machine-learning-designer"></a>Kom igång med Azure Machine Learning designer
+## <a name="get-started-with-azure-machine-learning"></a>Kom igång med Azure Machine Learning
 
 Följande resurser kan hjälpa dig att komma igång med Azure Machine Learning
 
@@ -56,12 +56,11 @@ Följande resurser kan hjälpa dig att komma igång med Azure Machine Learning
 
 - [Skapa din första designer-pipeline](service/tutorial-designer-automobile-price-train-score.md) för att förutsäga de automatiska priserna.
 
-
 ![Exempel på Azure Machine Learning designer](service/media/concept-ml-pipelines/designer-drag-and-drop.gif)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Förutom dra-n-släpp-funktionerna i designern har Azure Machine Learning andra tillgängliga verktyg:  
+Förutom dra och släpp-funktionerna i designern har Azure Machine Learning andra tillgängliga verktyg:  
   + [Använd python-anteckningsböcker för att träna & distribuera ML-modeller](./service/tutorial-1st-experiment-sdk-setup.md)
   + [Använd R-markdown för att träna & distribuera ML-modeller](./service/tutorial-1st-r-experiment.md) 
   + [Använd automatisk maskin inlärning för att träna & distribuera ML-modeller](./service/tutorial-designer-automobile-price-train-score.md) 

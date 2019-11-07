@@ -1,6 +1,5 @@
 ---
-title: Flytta virtuella Azure IaaS-datorer till en annan Azure-region som zonlåsta virtuella datorer med hjälp av Azure Site Recovery-tjänsten | Microsoft Docs
-description: Använd Azure Site Recovery till att flytta virtuella Azure IaaS-datorer till en annan Azure-region som zonlåsta virtuella datorer.
+title: Flytta virtuella datorer till en Azure-region med tillgänglighets zoner med hjälp av Azure Site Recovery
 services: site-recovery
 author: rajani-janaki-ram
 ms.service: site-recovery
@@ -8,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: a9e8ddcca727c4c457e4d92a880fb0cafe5ca6f8
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: c9513ca38c665a53bc14f284e87a1cc01035d135
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375729"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693179"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Flytta virtuella Azure-datorer till tillgänglighetszoner
 Tillgänglighetszoner i Azure hjälper dig att skydda dina program och data från data Center fel. Varje tillgänglighetszon utgörs av ett eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverk. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Den fysiska separeringen av Tillgänglighetszoner inom en region hjälper till att skydda program och data från data Center problem. Med Tillgänglighetszoner erbjuder Azure ett service avtal (SLA) på 99,99% för drift tid för virtuella datorer (VM). Tillgänglighetszoner stöds i Välj regioner, vilket beskrivs i [Vad är Tillgänglighetszoner i Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region).
@@ -40,7 +39,7 @@ I ett scenario där de virtuella datorerna distribueras som *en enda instans* ti
 
     2. Behörighet att hantera Azure Site Recovery uppgifter. Rollen *Site Recovery Contributor* har alla behörigheter som krävs för att hantera Site Recovery åtgärder i ett Recovery Services valv.
 
-## <a name="prepare-the-source-vms"></a>Förbereda virtuella källdatorer
+## <a name="prepare-the-source-vms"></a>Förbereda källans virtuella datorer
 
 1. De virtuella datorerna bör använda hanterade diskar om du vill flytta dem till en tillgänglighets zon med hjälp av Site Recovery. Du kan konvertera befintliga virtuella Windows-datorer som använder ohanterade diskar för att använda hanterade diskar. Följ stegen på [konvertera en virtuell Windows-dator från ohanterade diskar till hanterade diskar](https://docs.microsoft.com/azure/virtual-machines/windows/convert-unmanaged-to-managed-disks). Se till att tillgänglighets uppsättningen är konfigurerad som *hanterad*.
 2. Kontrollera att alla de senaste rotcertifikaten finns på de virtuella Azure-datorer som du vill flytta. Om de senaste rot certifikaten inte finns kan inte data kopian till mål regionen aktive ras på grund av säkerhets begränsningar.
@@ -86,11 +85,11 @@ Följande steg vägleder dig när du använder Azure Site Recovery för att akti
 
 1. I Azure Portal väljer du **virtuella datorer**och väljer den virtuella dator som du vill flytta till Tillgänglighetszoner.
 2. I **Åtgärder** väljer du **Haveriberedskap**.
-3. I Konfigurera**mål region**för **haveri beredskap** > väljer du den mål region som du vill replikera till. Se till att den här regionen [stöder](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region) Tillgänglighetszoner.
+3. I **Konfigurera haveriberedskap** > **Målregion** väljer du den målregion du ska replikera till. Se till att den här regionen [stöder](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region) Tillgänglighetszoner.
 
     ![Val av mål region](media/azure-vms-to-zones/enable-rep-1.PNG)
 
-4. Välj **Nästa: Avancerade inställningar**.
+4. Välj **Nästa: avancerade inställningar**.
 5. Välj lämpliga värden för mål prenumerationen, resurs gruppen för den virtuella mål datorn och det virtuella nätverket.
 6. I avsnittet **tillgänglighet** väljer du den tillgänglighets zon som du vill flytta den virtuella datorn till. 
    > [!NOTE]
@@ -116,16 +115,16 @@ När replikeringen har slutförts kan du kontrollera replikeringsstatus, ändra 
 3. I **testa redundans**väljer du en återställnings punkt som ska användas för redundansväxlingen:
 
    - **Senaste bearbetade**: Redundansväxlar den virtuella datorn till den senaste återställningspunkten som bearbetades av Site Recovery-tjänsten. Tidsstämpeln visas. Med det här alternativet läggs ingen tid på bearbetning av data så den ger ett lågt mål för återställningstid (RTO).
-   - **Senaste appkonsekventa**: Det här alternativet redundansväxlar alla virtuella datorer till den senaste appkonsekventa återställningspunkten. Tidsstämpeln visas.
-   - **Anpassat**: Välj en annan återställningspunkt.
+   - **Senaste app-konsekventa**: Det här alternativet redundansväxlar alla virtuella datorer till den senaste app-konsekventa återställningspunkten. Tidsstämpeln visas.
+   - **Anpassad**: Välj en annan återställningspunkt.
 
 3. Välj målets virtuella Azure-testnätverk som du vill flytta de virtuella Azure-datorerna till för att testa konfigurationen. 
 
     > [!IMPORTANT]
     > Vi rekommenderar att du använder ett separat Azure VM-nätverk för test felen och inte produktions nätverket i mål regionen dit du vill flytta dina virtuella datorer.
 
-4. Börja testa flyttningen genom att välja **OK**. Om du vill spåra förloppet väljer du den virtuella datorn för att öppna dess egenskaper. Alternativt kan du välja jobbet **testa redundans** i valv namnet > **Inställningar** > **jobb** > **Site Recovery jobb**.
-5. När redundansen är klar visas repliken av den virtuella Azure-datorn i Azure-portalen > **Virtual Machines**. Kontrollera att den virtuella datorn körs med rätt storlek och ansluten till lämpligt nätverk.
+4. Börja testa flyttningen genom att välja **OK**. Om du vill spåra förloppet väljer du den virtuella datorn för att öppna dess egenskaper. Alternativt kan du välja jobbet **testa redundans** i valv namnet > **inställningar** > **jobb** > **Site Recovery jobb**.
+5. När redundansväxlingen är klar visas repliken av den virtuella Azure-datorn i Azure-portalen > **Virtual Machines**. Kontrollera att den virtuella datorn körs med rätt storlek och ansluten till lämpligt nätverk.
 6. Om du vill ta bort den virtuella datorn som skapats som en del i testningen av flyttningen väljer du **rensning** av redundanstest på det replikerade objektet. I **Kommentarer** skriver du ned och sparar eventuella observationer från testet.
 
 ## <a name="move-to-the-target-region-and-confirm"></a>Flytta till mål regionen och bekräfta

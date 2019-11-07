@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/01/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 64af398ec4829a0336294b33fef102392b9a4099
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 6549cf030772d805b063510b9931968027639511
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163870"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583139"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Rekommendations mappning av CIS-exemplet för benchmark-Microsoft Azure grunderna
 
@@ -356,13 +356,13 @@ Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -defin
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har granskat kontroll mappningen av CIS Microsoft Azure grunderna benchmark-skiss kan du gå till följande artikel om du vill lära dig mer om skissen eller besöka Azure Policy i Azure Portal för att tilldela initiativet:
+Nu när du har granskat kontroll mappningen av CIS Microsoft Azure grunderna benchmark-skiss kan du gå till följande artiklar om du vill lära dig mer om skissen eller besöka Azure Policy i Azure Portal för att tilldela initiativet:
 
 > [!div class="nextstepaction"]
-> [CIS Microsoft Azure grunderna benchmark-skiss – översikt](./index.md)
-> [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions)
+> [Cis Microsoft Azure grunderna – översikts översikt](./index.md)
+> [CIS Microsoft Azure grunderna benchmark-skiss – distribuera steg](./deploy.md)
 
-Ytterligare artiklar om ritningar och hur de används:
+Ytterligare artiklar om skisser och hur de används:
 
 - Mer information om [livscykeln för en skiss](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).

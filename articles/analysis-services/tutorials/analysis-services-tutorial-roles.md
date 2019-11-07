@@ -1,18 +1,18 @@
 ---
-title: Självstudie – Konfigurera administratörs- och användarroller för Azure Analysis Services | Microsoft Docs
-description: Lär dig hur du konfigurerar Azure Analysis Services-roller.
+title: Självstudie – konfigurera Azure Analysis Services roller | Microsoft Docs
+description: Lär dig hur du konfigurerar Azure Analysis Services administratör och användar roller med hjälp av Azure Portal eller SQL Server Management Studio.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: b70d1502985a1ffc0ebdf6fcb487cda3992d1c19
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 3abcfe61f365c3c96dfb6b8eb2ca6cc9e5d3797e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294431"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572381"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Självstudie: Konfigurera serveradministratörs- och användarroller
 
@@ -27,7 +27,7 @@ ms.locfileid: "72294431"
 
 Mer information om användarsäkerhet i Azure Analysis Services finns i [Autentisering och användarbehörigheter](../analysis-services-manage-users.md). 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En Azure Active Directory i din prenumeration.
 - Du måste ha skapat en [Azure Analysis Services-server](../analysis-services-create-server.md) i din prenumeration.
@@ -52,7 +52,7 @@ För de återstående uppgifterna använder du SSMS för att ansluta till och ha
 
 1. I SSMS > **Object Explorer** klickar du på **Anslut** > **Analysis Services**.
 
-    ![Connect](./media/analysis-services-tutorial-roles/aas-ssms-connect.png)
+    ![Anslut](./media/analysis-services-tutorial-roles/aas-ssms-connect.png)
 
 2. I **Server name** (Servernamn) i dialogrutan **Connect to Server** (Anslut till server) klistrar du in servernamnet som du kopierade från Portal. I **Authentication** (Autentisering) väljer du **Active Directory Universal with MFA Support** (Active Directory Universal med MFA-stöd). Ange ditt användarkonto och tryck sedan på **Connect** (Anslut).
    
@@ -84,7 +84,7 @@ I den här uppgiften lägger du till ett användarkonto eller gruppkonto från A
 
 I den här uppgiften lägger du till ett användarkonto eller gruppkonto i rollen ”Internet Sales Administrator” (Administratör för Internetförsäljning) som redan finns i modellen. Den här rollen har fullständig behörighet (administratör) för exempelmodelldatabasen adventureworks. I uppgiften används TMSL-kommandot [CreateOrReplace](https://docs.microsoft.com/bi-reference/tmsl/createorreplace-command-tmsl) i ett skript som skapats åt dig.
 
-1. Expandera **Databases (Databaser)**  > **adventureworks** > **Roles (Roller)** i **Object Explorer**. 
+1. Expandera **Databases (Databaser)** adventureworks > Roles (Roller) >  i **Object Explorer**. 
 2. Högerklicka på **Internet Sales Administrator** (Administratör för Internetförsäljning) och klicka sedan på **Script Role as (Skriptroll som)**  > **CREATE OR REPLACE To (SKAPA ELLER ERSÄTT till)**  > **New Query Editor Window (Nytt frågeredigerarfönster)** .
 
     ![Nytt frågeredigerarfönster](./media/analysis-services-tutorial-roles/aas-add-db-admin.png)

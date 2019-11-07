@@ -1,22 +1,22 @@
 ---
-title: PowerShell-exempel – skapa en hanterad instans i Azure SQL Database | Microsoft Docs
+title: Exempel på mall – skapa en hanterad instans i Azure SQL Database
 description: Azure PowerShell exempel skript för att skapa en hanterad instans i Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: ''
+ms.custom: seo-dt-2019
 ms.devlang: PowerShell
 ms.topic: sample
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 5a60e8efad41c94deeedd545e6e0c1c96ff04e25
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: be6aa73fe72568e9762e5b7249bedc2e8c7d3bf7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569737"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691432"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>Använd PowerShell med Azure Resource Manager mall för att skapa en hanterad instans i Azure SQL Database
 
@@ -38,7 +38,7 @@ Azure PowerShell-kommandon kan starta distribution med hjälp av en fördefinier
 
 Instansnamn, SQL-administratörsanvändarnamn, virtuellt nätverk/undernät och sortering kan inte ändras senare. Andra instansegenskaper kan ändras.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Det här exemplet förutsätter att du har [skapat en giltig nätverksmiljö](../sql-database-managed-instance-create-vnet-subnet.md) eller [ändrat befintligt virtuellt nätverk](../sql-database-managed-instance-configure-vnet-subnet.md) för din hanterade instans. Exemplet använder cmdletarna [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) och [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) så kontrol lera att du har installerat följande PowerShell-moduler:
 

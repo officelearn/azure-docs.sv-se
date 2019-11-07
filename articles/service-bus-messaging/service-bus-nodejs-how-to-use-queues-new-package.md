@@ -1,6 +1,6 @@
 ---
-title: Använda Azure/Service Bus-köer i Node. js
-description: Lär dig hur du använder Service Bus köer i Azure från en Node. js-app med hjälp av Azure/Service-Bus-paketet.
+title: 'Snabb start: så här använder du Azure/Service-Bus-köer i Node. js'
+description: 'Snabb start: Lär dig hur du använder Service Bus köer i Azure från en Node. js-app med Azure/Service-Bus-paketet.'
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -10,30 +10,30 @@ ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: article
-ms.date: 10/22/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 58049855cc27d51134b9f76a773f32f49c6381b6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 9901ccd6bb1abf27bb1141c618d0bfde167b9cc3
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790315"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721680"
 ---
-# <a name="how-to-use-service-bus-queues-with-nodejs-and-the-azureservice-bus-package"></a>Använda Service Bus köer med Node. js och Azure/Service-Bus-paketet
+# <a name="quickstart-how-to-use-service-bus-queues-with-nodejs-and-the-azureservice-bus-package"></a>Snabb start: så här använder du Service Bus köer med Node. js och Azure/Service-Bus-paketet
 > [!div class="op_multi_selector" title1="Programmeringsspråk" title2="Node. js-paket"]
 > - [(Node. js | Azure-SB)](service-bus-nodejs-how-to-use-queues.md)
 > - [(Node. js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
 
 I den här självstudien får du lära dig hur du skriver ett NodeJS-program för att skicka meddelanden till och ta emot meddelanden från en Service Bus kö med hjälp av det nya [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) -paketet. Det här paketet använder det snabbare [AMQP 1,0-protokollet](service-bus-amqp-overview.md) medan det äldre [Azure-SB-](https://www.npmjs.com/package/azure-sb) paketet används [Service Bus REST-API: er för körnings tid](/rest/api/servicebus/service-bus-runtime-rest). Exemplen är skrivna i Java Script.
 
-## <a name="prerequisites"></a>Krav
-- En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera dina [förmåner för MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+## <a name="prerequisites"></a>Nödvändiga komponenter
+- En Azure-prenumeration. Du behöver ett Azure-konto för att genomföra kursen. Du kan aktivera dina [förmåner för MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Om du inte har en kö att arbeta med följer du stegen i artikeln [använd Azure Portal för att Service Bus skapa](service-bus-quickstart-portal.md) en kö. Anteckna anslutnings strängen för Service Bus-instansen och namnet på kön som du skapade. Vi kommer att använda dessa värden i exemplen.
 
 > [!NOTE]
 > - Den här självstudien fungerar med exempel som du kan kopiera och köra med [NodeJS](https://nodejs.org/). Instruktioner för hur du skapar ett Node. js-program finns i [skapa och distribuera ett Node. js-program till en Azure-webbplats eller en](../app-service/app-service-web-get-started-nodejs.md) [Node. js-moln tjänst med hjälp av Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
-> - Det nya [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) -paketet stöder inte skapande av köer än. Använd [@azure/arm-servicebus-](https://www.npmjs.com/package/@azure/arm-servicebus) paketet om du vill skapa dem program mässigt.
+> - Det nya [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) -paketet stöder inte skapande av köer än. Använd [@azure/arm-servicebus](https://www.npmjs.com/package/@azure/arm-servicebus) -paketet om du vill skapa dem program mässigt.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>Installera paketet med NPM (Node Package Manager)
 Om du vill installera NPM-paketet för Service Bus öppnar du en kommando tolk som har `npm` i sökvägen, ändrar katalogen till den mapp där du vill ha dina exempel och kör sedan det här kommandot.
@@ -86,9 +86,9 @@ Att interagera med en Service Bus kö börjar med att instansiera klassen [Servi
 3. Ange anslutnings strängen och namnet för din kö i ovanstående kod.
 4. Kör sedan kommandot `node send.js` i en kommando tolk för att köra den här filen.
 
-Gratulerar! Du skickade bara meddelanden till en Service Bus-kö.
+Grattis! Du skickade bara meddelanden till en Service Bus-kö.
 
-Meddelanden har vissa standard egenskaper som `label` och `messageId` som du kan ställa in när du skickar. Om du vill ange anpassade egenskaper använder du `userProperties`, som är ett JSON-objekt som kan innehålla nyckel/värde-par av dina anpassade data.
+Meddelanden har vissa standard egenskaper som `label` och `messageId` som du kan ställa in när du skickar. Om du vill ange egna egenskaper använder du `userProperties`, som är ett JSON-objekt som kan innehålla nyckel/värde-par av dina anpassade data.
 
 Service Bus-köerna stöder en maximal meddelandestorlek på 256 kB på [standardnivån](service-bus-premium-messaging.md) och 1 MB på [premiumnivån](service-bus-premium-messaging.md). Det finns ingen gräns för antalet meddelanden som finns i en kö, men det finns ett tak för den totala storleken på de meddelanden som innehas av en kö. Den här köstorleken definieras när kön skapas, med en övre gräns på 5 GB. Mer information om kvoter finns i [Service Bus kvoter](service-bus-quotas.md).
 
@@ -127,9 +127,9 @@ Att interagera med en Service Bus kö börjar med att instansiera klassen [Servi
 3. Ange anslutnings strängen och namnet för din kö i ovanstående kod.
 4. Kör sedan kommandot `node receiveMessages.js` i en kommando tolk för att köra den här filen.
 
-Gratulerar! Du har bara tagit emot meddelanden från en Service Bus kö.
+Grattis! Du har bara tagit emot meddelanden från en Service Bus kö.
 
-Metoden [createReceiver](https://docs.microsoft.com/javascript/api/%40azure/service-bus/queueclient#createreceiver-receivemode-) tar i en `ReceiveMode` som är en Enum med värdena [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) och [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). Kom ihåg att [lösa dina meddelanden](message-transfers-locks-settlement.md#settling-receive-operations) om du använder `PeekLock` läge genom att använda någon av metoderna `complete()`, `abandon()`, `defer()`eller `deadletter()` i meddelandet.
+Metoden [createReceiver](https://docs.microsoft.com/javascript/api/%40azure/service-bus/queueclient#createreceiver-receivemode-) tar i ett `ReceiveMode` som är en Enum med värdena [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) och [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). Kom ihåg att [lösa dina meddelanden](message-transfers-locks-settlement.md#settling-receive-operations) om du använder `PeekLock` läge genom att använda någon av metoderna `complete()`, `abandon()`, `defer()`eller `deadletter()` i meddelandet.
 
 > [!NOTE]
 > Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer gör det möjligt för användare att ansluta till en Service Bus namnrymd och administrera meddelande enheter på ett enkelt sätt. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjlighet att testa ämnen, köer, prenumerationer, relä tjänster, Notification Hub och Event Hub. 

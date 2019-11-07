@@ -1,6 +1,6 @@
 ---
-title: Använda Azure Service Bus köer i Node. js
-description: Lär dig hur du använder Service Bus köer i Azure från en Node. js-app.
+title: 'Snabb start: Använd Azure Service Bus köer i Node. js'
+description: 'Snabb start: Lär dig hur du använder Service Bus köer i Azure från en Node. js-app.'
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -11,28 +11,29 @@ ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 1aba29f8ed7cacb8f2911ae2d37358869e6a7730
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 404163ed93549b55ceadad10825a9cf682de470b
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001135"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719218"
 ---
-# <a name="use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Använda Service Bus köer i Azure med Node. js och Azure-SB-paketet
+# <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Snabb start: Använd Service Bus köer i Azure med Node. js och Azure-SB-paketet
+
 > [!div class="op_multi_selector" title1="Programmeringsspråk" title2="Node. js-paket"]
 > - [(Node. js | Azure-SB)](service-bus-nodejs-how-to-use-queues.md)
 > - [(Node. js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
 
 I den här självstudien får du lära dig hur du skapar Node. js-program för att skicka meddelanden till och ta emot meddelanden från en Azure Service Bus kö med [Azure-SB-](https://www.npmjs.com/package/azure-sb) paketet. Exemplen är skrivna i Java Script och använder [Azure-modulen](https://www.npmjs.com/package/azure) Node. js som internt använder Azure-SB-paketet.
 
-[Azure-SB-](https://www.npmjs.com/package/azure-sb) paketet använder [Service Bus REST-API: er för körnings tid](/rest/api/servicebus/service-bus-runtime-rest). Du kan få en snabbare upplevelse med hjälp av den nya [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) som använder det snabbare [AMQP 1,0-protokollet](service-bus-amqp-overview.md). Mer information om det nya paketet finns i [så här använder du Service Bus köer med Node. js och @azure/service-bus-paket](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package), annars fortsätter läsa för att se hur du använder [Azure](https://www.npmjs.com/package/azure) -paketet.
+[Azure-SB-](https://www.npmjs.com/package/azure-sb) paketet använder [Service Bus REST-API: er för körnings tid](/rest/api/servicebus/service-bus-runtime-rest). Du kan få en snabbare upplevelse med hjälp av den nya [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) som använder det snabbare [AMQP 1,0-protokollet](service-bus-amqp-overview.md). Mer information om det nya paketet finns i [så här använder du Service Bus köer med Node. js och @azure/service-bus paket](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package), annars fortsätter läsa för att se hur du använder [Azure](https://www.npmjs.com/package/azure) -paketet.
 
-## <a name="prerequisites"></a>Förutsättningar
-- En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera dina [förmåner för MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+## <a name="prerequisites"></a>Nödvändiga komponenter
+- En Azure-prenumeration. Du behöver ett Azure-konto för att genomföra kursen. Du kan aktivera dina [förmåner för MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Om du inte har en kö att arbeta med följer du stegen i artikeln [använd Azure Portal för att Service Bus skapa](service-bus-quickstart-portal.md) en kö.
     1. Läs snabb **översikten** över Service Bus **köer**. 
     2. Skapa ett Service Bus- **namnområde**. 
@@ -49,7 +50,7 @@ Skapa ett tomt Node. js-program. Instruktioner för hur du skapar ett Node. js-p
 Om du vill använda Azure Service Bus laddar du ned och använder Azure-paketet Node. js. Det här paketet innehåller en uppsättning bibliotek som kommunicerar med Service Bus REST-tjänsterna.
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Hämta paketet med hjälp av Node Pack Manager (NPM)
-1. Använd kommando fönstret **Windows PowerShell för Node. js** för att navigera till mappen **c: \\node @ no__t-3sbqueues @ no__t-4WebRole1** där du skapade exempel programmet.
+1. Använd kommando fönstret **Windows PowerShell för Node. js** för att navigera till mappen **c:\\Node\\sbqueues\\WebRole1** där du skapade exempel programmet.
 2. Skriv **NPM installera Azure** i kommando fönstret, vilket bör resultera i utdata som liknar följande exempel:
 
     ```
@@ -154,13 +155,13 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 Service Bus-köerna stöder en maximal meddelandestorlek på 256 kB på [standardnivån](service-bus-premium-messaging.md) och 1 MB på [premiumnivån](service-bus-premium-messaging.md). Rubriken, som inkluderar standardprogramegenskaperna och de anpassade programegenskaperna, kan ha en maximal storlek på 64 kB. Det finns ingen gräns för antalet meddelanden som finns i en kö, men det finns ett tak för den totala storleken på de meddelanden som innehas av en kö. Den här köstorleken definieras när kön skapas, med en övre gräns på 5 GB. Mer information om kvoter finns i [Service Bus kvoter][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-queue"></a>Ta emot meddelanden från en kö
-Meddelanden tas emot från en kö med hjälp av metoden `receiveQueueMessage` på **ServiceBusService** -objektet. Som standard tas meddelanden bort från kön när de läses. Du kan dock läsa (granska) och låsa meddelandet utan att ta bort det från kön genom att ange den valfria parametern `isPeekLock` till **True**.
+Meddelanden tas emot från en kö med hjälp av metoden `receiveQueueMessage` på **ServiceBusService** -objektet. Som standard tas meddelanden bort från kön när de läses. Du kan dock läsa (granska) och låsa meddelandet utan att ta bort det från kön genom att ange den valfria parametern `isPeekLock` till **Sant**.
 
 Standard beteendet för att läsa och ta bort meddelandet som en del av Receive-åtgärden är den enklaste modellen och fungerar bäst för scenarier där ett program kan tolerera att inte bearbeta ett meddelande när ett fel uppstår. För att förstå det här beteendet bör du överväga ett scenario där klienten utfärdar Receive-begäran och sedan kraschar innan den bearbetas. Eftersom Service Bus har markerat meddelandet som förbrukat, och när programmet startas om och börjar förbruka meddelanden igen, kommer det att ha missat meddelandet som förbrukades före kraschen.
 
-Om parametern `isPeekLock` har angetts till **True**blir mottagningen en åtgärd i två steg, vilket gör det möjligt att stödja program som inte kan tolerera meddelanden som saknas. När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra att andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har slutfört bearbetningen av meddelandet (eller lagrar det tillförlitligt för framtida bearbetning) slutförs det andra steget i Receive-processen genom att anropa metoden `deleteMessage` och ange att meddelandet ska tas bort som en parameter. Metoden `deleteMessage` markerar meddelandet som förbrukat och tar bort det från kön.
+Om `isPeekLock`-parametern har angetts till **True**blir mottagningen en åtgärd i två steg, vilket gör det möjligt att stödja program som inte kan tolerera meddelanden som saknas. När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra att andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har slutfört bearbetningen av meddelandet (eller lagrar det tillförlitligt för framtida bearbetning) slutförs det andra steget i Receive-processen genom att anropa metoden `deleteMessage` och ange att meddelandet ska tas bort som en parameter. Metoden `deleteMessage` markerar meddelandet som förbrukat och tar bort det från kön.
 
-Följande exempel visar hur du tar emot och bearbetar meddelanden med hjälp av `receiveQueueMessage`. Exemplet tar först emot och tar bort ett meddelande, och tar sedan emot ett meddelande med hjälp av `isPeekLock` inställt på **Sant**och tar sedan bort meddelandet med hjälp av `deleteMessage`:
+Följande exempel visar hur du tar emot och bearbetar meddelanden med hjälp av `receiveQueueMessage`. Exemplet tar först emot och tar bort ett meddelande, och tar sedan emot ett meddelande med hjälp av `isPeekLock` ange **True**och tar sedan bort meddelandet med `deleteMessage`:
 
 ```javascript
 serviceBusService.receiveQueueMessage('myqueue', function(error, receivedMessage){
@@ -181,7 +182,7 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Hantera programkrascher och oläsbara meddelanden
-Service Bus innehåller funktioner som hjälper dig att återställa fel i programmet eller lösa problem med bearbetning av meddelanden på ett snyggt sätt. Om ett mottagar program inte kan bearbeta meddelandet av någon anledning kan det anropa metoden `unlockMessage` på **ServiceBusService** -objektet. Det kommer att orsaka att Service Bus låser upp meddelandet i kön och gör det tillgängligt att tas emot igen, antingen genom samma användnings program eller ett annat användnings program.
+Service Bus innehåller funktioner som hjälper dig att återställa fel i programmet eller lösa problem med bearbetning av meddelanden på ett snyggt sätt. Om ett mottagar program inte kan bearbeta meddelandet av någon anledning, kan det anropa metoden `unlockMessage` på **ServiceBusService** -objektet. Det kommer att orsaka att Service Bus låser upp meddelandet i kön och gör det tillgängligt att tas emot igen, antingen genom samma användnings program eller ett annat användnings program.
 
 Det finns också en tids gräns som är kopplad till ett meddelande som är låst i kön och om programmet inte kan bearbeta meddelandet innan tids gränsen för låsning går ut (till exempel om programmet kraschar), kommer Service Bus att låsa upp meddelandet automatiskt och göra det tillgängligt för att tas emot igen.
 

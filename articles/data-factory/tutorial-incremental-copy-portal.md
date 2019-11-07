@@ -1,5 +1,5 @@
 ---
-title: Kopiera en tabell stegvis med Azure Data Factory | Microsoft Docs
+title: 'Kopiera en tabell stegvis med Azure Data Factory '
 description: I den här självstudiekursen kommer du att skapa en Azure Data Factory-pipeline som kopierar data stegvis från en Azure SQL-databas till Azure Blob Storage.
 services: data-factory
 documentationcenter: ''
@@ -11,17 +11,17 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 3626e68c8cedfdd2d22f47cd92d6e7c4b8b5d180
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
+ms.openlocfilehash: a446574f0a6b2b18959f1a3c3e9a02a0a97e9f6b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806449"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683374"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Läsa in data stegvis från en Azure SQL-databas till Azure Blob Storage
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta-data från en tabell i en Azure SQL-databas till Azure Blob Storage. 
 
-I den här självstudiekursen får du göra följande:
+I de här självstudierna går du igenom följande steg:
 
 > [!div class="checklist"]
 > * Förbered datalagringen för att lagra värdet för vattenstämpeln.
@@ -31,7 +31,7 @@ I den här självstudiekursen får du göra följande:
 > * Skapa en pipeline.
 > * Köra en pipeline.
 > * Övervaka pipelinekörningen. 
-> * Granska resultat
+> * Granska resultatet
 > * Lägg till mer data i källan.
 > * Kör pipelinen igen.
 > * Övervaka den andra pipelinekörningen
@@ -61,7 +61,7 @@ Här är några viktiga steg för att skapa den här lösningen:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * **Azure SQL Database**. Du använder databasen som källa för datalagringen. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md).
 * **Azure Storage**. Du kan använda blob-lagringen som mottagare för datalagringen. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md). Skapa en container med namnet adftutorial. 
 
@@ -148,8 +148,8 @@ END
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
-2. På den vänstra menyn väljer du **skapa en resurs** > **analys** > **Data Factory**: 
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Just nu är det bara webbläsarna Microsoft Edge och Google Chrome som har stöd för Data Factory UI.
+2. På den vänstra menyn väljer du **skapa en resurs** > **Analytics** > **Data Factory**: 
    
    ![Valet Data Factory i fönstret Nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -171,7 +171,7 @@ END
 9. När datafabriken har skapats visas sidan **Datafabrik** som på bilden.
    
    ![Datafabrikens startsida](./media/doc-common-process/data-factory-home-page.png)
-10. Klicka på panelen **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory i en separat flik.
+10. Klicka på rutan **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory på en separat flik.
 
 ## <a name="create-a-pipeline"></a>Skapa en pipeline
 I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en kopieringsaktivitet och en aktivitet för lagrad procedur i en länkad pipeline. 
@@ -195,7 +195,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
     1. Ange **AzureSqlDatabaseLinkedService** som **namn**. 
     2. Välj din Azure SQL-server som **servernamn**.
     3. Välj ditt **databas namn** i list rutan. 
-    4. Ange**lösen ordet**för **användar namnet** & . 
+    4. Ange ditt **användar namn** & **lösen ord**. 
     5. Om du vill testa anslutningen till Azure SQL-databasen klickar du på **Testanslutning**.
     6. Klicka på **Slutför**.
     7. Bekräfta att **AzureSqlDatabaseLinkedService** har valts för den **länkade tjänsten**.
@@ -249,13 +249,13 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 26. Utför följande steg i fönstret **ny länkad tjänst (Azure Blob Storage)** : 
 
     1. Ange **AzureStorageLinkedService** som **namn**. 
-    2. Välj ditt Azure Storage-konto i **Lagringskontonamn**.
+    2. Välj ditt Azure-lagringskonto i **Lagringskontonamn**.
     3. Testa anslutningen och klicka sedan på **Slutför**. 
 
 27. I fönstret **Ange egenskaper** bekräftar du att **AzureStorageLinkedService** har valts för den **länkade tjänsten**. Välj sedan **Slutför**.
 28. Gå till fliken **anslutning** i SinkDataset och utför följande steg:
     1. I fältet **fil Sök väg** anger du **adftutorial/incrementalcopy**. **adftutorial** är blobcontainerns namn och **incrementalcopy** är mappens namn. Det här kodfragmentet förutsätter att du har en blobcontainer med namnet adftutorial i din blob-lagring. Skapa containern om den inte finns, eller ställ in den för namnet på en befintlig. Azure Data Factory skapar automatiskt utdatamappen **incrementalcopy** om den inte finns. Du kan också använda knappen **Bläddra** för **Filsökväg** för att navigera till en mapp i en blobcontainer.
-    2. För **fil** delen av fältet **fil Sök väg** väljer du **Lägg till dynamiskt innehåll [ALT + P]** och anger `@CONCAT('Incremental-', pipeline().RunId, '.txt')`sedan i det öppnade fönstret. Välj sedan **Slutför**. Filnamnet genereras dynamiskt med uttrycket. Varje pipelinekörning har ett unikt ID. Kopieringsaktiviteten använder körnings-ID för att generera filnamnet. 
+    2. För **fil** delen av fältet **fil Sök väg** väljer du **Lägg till dynamiskt innehåll [ALT + P]** och anger sedan `@CONCAT('Incremental-', pipeline().RunId, '.txt')`i fönstret öppna. Välj sedan **Slutför**. Filnamnet genereras dynamiskt med uttrycket. Varje pipelinekörning har ett unikt ID. Kopieringsaktiviteten använder körnings-ID för att generera filnamnet. 
 
 28. Växla till **pipeline**-redigeringsprogrammet genom att klicka på pipelinefliken högst upp eller på pipelinenamnet i trädvyn till vänster. 
 29. I verktygslådan **Aktiviteter** expanderar du **Allmänt** och drar och släpper aktiviteten **Lagrad procedur** från verktygslådan **Aktiviteter** till pipelinedesignerytan. **Anslut** gröna utdata (lyckades) från aktiviteten **Kopiera** till den **lagrade proceduraktiviteten**. 
@@ -269,7 +269,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
     1. Som **Namn på lagrad procedur** väljer du **usp_write_watermark**. 
     2. När du ska ange värden för parametrarna för lagrad procedur klickar du på **Importera parameter** och anger följande värden för parametern: 
 
-        | Name | Typ | Value | 
+        | Namn | Typ | Värde | 
         | ---- | ---- | ----- | 
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | Sträng | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
@@ -280,7 +280,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 28. Publicera entiteter (länkade tjänster, datauppsättningar och pipeliner) till Azure Data Factory-tjänsten genom att välja knappen **Publicera alla**. Vänta tills du ser ett meddelande om att publiceringen är klar. 
 
 
-## <a name="trigger-a-pipeline-run"></a>Utlös en pipelinekörning
+## <a name="trigger-a-pipeline-run"></a>Utlösa en pipelinekörning
 1. Klicka på **Lägg till utlösare** i verktygsfältet och klicka på **Utlös nu**. 
 
 2. I fönstret **Pipeline Run** (Pipelinekörning) väljer du **Slutför**. 
@@ -345,7 +345,7 @@ PersonID | Name | LastModifytime
 
 
 ## <a name="trigger-another-pipeline-run"></a>Utlös ytterligare en pipelinekörning
-1. Växla till fliken **Redigera**. Klicka på pipelinen i trädvyn om den inte öppnas i designern. 
+1. Växla till fliken **redigera** . Klicka på pipelinen i trädvyn om den inte är öppen i designern. 
 
 2. Klicka på **Lägg till utlösare** i verktygsfältet och klicka på **Utlös nu**. 
 
@@ -379,7 +379,7 @@ PersonID | Name | LastModifytime
 
      
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien har du fått: 
+I den här självstudiekursen har du fått: 
 
 > [!div class="checklist"]
 > * Förbered datalagringen för att lagra värdet för vattenstämpeln.
@@ -389,7 +389,7 @@ I den här självstudien har du fått:
 > * Skapa en pipeline.
 > * Köra en pipeline.
 > * Övervaka pipelinekörningen. 
-> * Granska resultat
+> * Granska resultatet
 > * Lägg till mer data i källan.
 > * Kör pipelinen igen.
 > * Övervaka den andra pipelinekörningen

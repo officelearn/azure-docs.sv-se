@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 07/26/2019
-ms.openlocfilehash: 5d42b9fc2dfd7cbee230b65f7d9844c9e7332147
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.date: 11/06/2019
+ms.openlocfilehash: adb89c04a83bbfbd5bddd5c23b0fa88019a88991
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680505"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721385"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Åtkomst till Azure Virtual Network-resurser från Azure Logic Apps med hjälp av integrerings tjänst miljöer (ISEs)
 
@@ -28,9 +28,9 @@ När du har skapat din ISE kan du, när du går för att skapa din Logic app ell
 
 Din Logi Kap par kan nu direkt komma åt system som är inuti eller anslutna till ditt virtuella nätverk genom att använda något av följande objekt:
 
-* En **ISE**-märkt koppling för systemet, till exempel SQL Server
+* En **ISE**-märkt koppling för systemet
 * En **Core**-märkt inbyggd utlösare eller åtgärd, till exempel http-utlösare eller åtgärd
-* en anpassad anslutning
+* En anpassad anslutning
 
 I den här översikten beskrivs mer information om hur en ISE ger dina Logic Apps och integrations konton direkt åtkomst till ditt virtuella Azure-nätverk och jämför skillnader mellan en ISE och den globala Logic Appss tjänsten.
 
@@ -51,7 +51,7 @@ Logic Apps i en ISE ger samma användar upplevelse och liknande funktioner som d
 * Azure Blob Storage, File Storage och Table Storage
 * Azure-köer, Azure Service Bus, Azure Event Hubs och IBM MQ
 * FTP och SFTP – SSH
-* SQL Server SQL Data Warehouse Azure Cosmos DB
+* SQL Server Azure SQL Data Warehouse Azure Cosmos DB
 * AS2, X12 och EDIFACT
 
 Skillnaden mellan ISE-och icke-ISE-anslutningar är på platser där utlösare och åtgärder körs:
@@ -92,6 +92,7 @@ Pris nivåer finns i [Logic Apps prissättning](https://azure.microsoft.com/pric
 När du skapar din ISE kan du välja att använda antingen interna eller externa slut punkter för åtkomst. Dessa slut punkter avgör om begäran eller webhook-utlösare på Logic Apps i din ISE kan ta emot samtal utanför det virtuella nätverket. Dessa slut punkter påverkar också åtkomsten till indata och utdata i körnings historiken för Logic app.
 
 * **Internt**: privata slut punkter som tillåter anrop till logi Kap par i din ISE plus åtkomst till indata och utdata i körnings historiken endast inifrån *ditt virtuella nätverk*
+
 * **Externt**: offentliga slut punkter som tillåter anrop till logi Kap par i din ISE plus åtkomst till indata och utdata i körnings historiken *från utanför det virtuella nätverket*
 
 > [!IMPORTANT]
@@ -103,15 +104,20 @@ När du skapar din ISE kan du välja att använda antingen interna eller externa
 
 För lokala system som är anslutna till ett virtuellt Azure-nätverk kan du injicera en ISE i nätverket så att dina Logi Kap par kan komma åt dessa system genom att använda något av följande objekt:
 
-* ISE – versions anslutning för systemet, till exempel SQL Server
 * HTTP-åtgärd
+
+* ISE – märkt koppling för systemet
+
+  > [!IMPORTANT]
+  > Om du vill använda Windows-autentisering med SQL Server-anslutningen måste du använda den [lokala datagatewayen](../logic-apps/logic-apps-gateway-install.md). SQL Server Connector stöder inte Windows-autentisering för en Logic app i en ISE.
+
 * Anpassad anslutning
 
   * Om du har anpassade anslutningar som kräver den lokala datagatewayen och du har skapat dessa anslutningar utanför en ISE kan Logic Apps i en ISE också använda dessa anslutningar.
   
   * Anpassade anslutningar som skapats i en ISE fungerar inte med den lokala datagatewayen. Dessa anslutningar kan dock direkt komma åt lokala data källor som är anslutna till det virtuella nätverket som är värd för ISE. Därför behöver Logic Apps i en ISE förmodligen inte datagatewayen när de kommunicerar med dessa resurser.
 
-För lokala system som inte är anslutna till ett virtuellt nätverk eller inte har versions hanterings anslutningar från ISE måste du först [Konfigurera den lokala datagatewayen](../logic-apps/logic-apps-gateway-install.md) innan dina Logi Kap par kan ansluta till dessa system.
+För lokala system som inte är anslutna till ett virtuellt nätverk eller inte har ISE-labled-kopplingar måste du först [Konfigurera den lokala datagatewayen](../logic-apps/logic-apps-gateway-install.md) innan dina Logi Kap par kan ansluta till dessa system.
 
 <a name="create-integration-account-environment"></a>
 

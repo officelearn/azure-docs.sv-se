@@ -1,21 +1,21 @@
 ---
-title: Skicka Event Hubs-data till informationslager – Event Grid
-description: Beskriver hur du använder Azure Event Grid och Event Hubs för att migrera data till ett SQL Data Warehouse. Den använder en Azure-funktion för att hämta en Capture-fil.
+title: 'Självstudie: Skicka Event Hubs data till data lagret – Event Grid'
+description: 'Självstudie: beskriver hur du använder Azure Event Grid och Event Hubs för att migrera data till en SQL Data Warehouse. Den använder en Azure-funktion för att hämta en Capture-fil.'
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 01/13/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 1ae7a18660d2a7324bc5897d6b3952da42b6c4b2
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 6f5bd129b175210cd5b9415a65b8db06d904e24d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603439"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718195"
 ---
-# <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Självstudie: Strömma stordata till ett datalager
+# <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Självstudie: strömma Big data till ett informations lager
 Azure [Event Grid](overview.md) är en intelligent tjänst för händelsedirigering som innebär att du kan agera på aviseringar (händelser) från appar och tjänster. Tjänsten kan till exempel utlösa en Azure-funktion som bearbetar Event Hubs-data som har hämtats till en Azure-blobblagring eller Azure Data Lake Storage och som migrerar datan till andra lagringsplatser. Det här [integrationsexemplet med Event Hubs och Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) visar hur du använder Event Hubs med Event Grid för att sömlöst migrera hämtade Event Hubs-data från blobblagring till SQL Data Warehouse.
 
 ![Programöversikt](media/event-grid-event-hubs-integration/overview.png)
@@ -45,7 +45,7 @@ I den här självstudien gör du följande:
 Du behöver följande för att kunna slutföra den här självstudiekursen:
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-* [Visual studio 2019](https://www.visualstudio.com/vs/) med arbetsbelastningar för: .NET-skrivbordsutveckling, Azure-utveckling, ASP.NET och webbutveckling, utveckling av Node.js och Python-utveckling.
+* [Visual studio 2019](https://www.visualstudio.com/vs/) med arbets belastningar för: .net Desktop Development, Azure-utveckling, ASP.net och webb utveckling, Node. js-utveckling och python-utveckling.
 * Ladda ned [exempelprojektet EventHubsCaptureEventGridDemo](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) till din dator.
 
 ## <a name="deploy-the-infrastructure"></a>Distribuera infrastrukturen
@@ -123,7 +123,7 @@ I det här steget distribuerar du den infrastruktur som krävs med en [Resource 
     3.  Tryck på **Retur-tangenten** i Cloud Shell-fönstret för att köra kommandot. Den här processen kan ta en stund eftersom du skapar många resurser. Kontrollera att det inte finns några fel i kommandoresultatet. 
     
 
-### <a name="use-azure-powershell"></a>Använda Azure PowerShell
+### <a name="use-azure-powershell"></a>Använd Azure PowerShell
 
 1. Växla till PowerShell-läget i Azure Cloud Shell. Välj nedåtpilen i det övre vänstra hörnet av Azure Cloud Shell och välj **PowerShell**.
 

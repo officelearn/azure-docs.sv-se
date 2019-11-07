@@ -8,12 +8,12 @@ ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 16dd63e22182dedb4af97c2ef6238e6628778467
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 689b5aa0cd8a5fb310925b2c52baeec6860af0d5
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485164"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607085"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Snabb start: skapa ett kunskaps lager för Azure Kognitiv sökning i Azure Portal
 
@@ -87,7 +87,7 @@ I den här guiden ska du skapa en färdigheter med kognitiva färdigheter. De ku
 1. Expandera **bifoga Cognitive Services**. **Kostnads fri (begränsade anrikninger)** är valt som standard. Du kan använda den här resursen eftersom antalet poster i HotelReviews-Free. csv är 19 och den här kostnads fria resursen tillåter upp till 20 transaktioner per dag.
 1. Expandera **Lägg till kognitiva kunskaper**.
 1. Ange `hotel-reviews-ss`för **namn på färdigheter**.
-1. För **data fält för källa**väljer du **reviews_text*.
+1. För **data fält för källa**väljer du **reviews_text**.
 1. Välj **sidor (5000-segment)** för **detaljerad granularitet nivå**
 1. Välj dessa kognitiva kunskaper:
     + **Extrahera nyckelfraser**

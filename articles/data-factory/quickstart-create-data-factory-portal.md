@@ -1,5 +1,5 @@
 ---
-title: Skapa en Azure-datafabrik med gränssnittet i Azure Data Factory | Microsoft Docs
+title: Skapa en Azure-datafabrik med hjälp av Azure Data Factory gränssnittet
 description: Skapa en datafabrik med en pipeline som en kopierar data från en plats till en annan i Azure Blob Storage.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 3dee054f6c382a00a55e4acf07e2a188c5cc6a07
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 642039e99df19939def5ac850f1abccca0e67222
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490673"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684477"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Snabb start: skapa en data fabrik med hjälp av Azure Data Factory gränssnittet
 

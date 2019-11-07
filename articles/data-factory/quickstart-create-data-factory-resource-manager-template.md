@@ -1,5 +1,5 @@
 ---
-title: Skapa en Azure-datafabrik med hjälp av en Resource Manager-mall | Microsoft Docs
+title: Skapa en Azure Data Factory med Resource Manager-mall
 description: I de här självstudierna skapar du ett exempel på en Azure Data Factory-pipeline med hjälp av en Azure Resource Manager-mall.
 services: data-factory
 documentationcenter: ''
@@ -11,20 +11,20 @@ ms.date: 02/20/2019
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: 8766ff461227a749a432771dfe7dbe96a291109a
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 6bba764060c243417711205083bf02f84a68fed1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71008729"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684522"
 ---
-# <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Självstudier: Skapa en Azure-datafabrik med hjälp av en Azure Resource Manager-mall
+# <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Självstudie: Skapa en Azure-datafabrik med hjälp av en Azure Resource Manager-mall
 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
 > * [Aktuell version](quickstart-create-data-factory-resource-manager-template.md)
 
-I den här snabbstarten får du se hur du skapar en Azure Data Factory med en Azure Resource Manager-mall. Den pipeline du skapar i den här datafabriken **kopierar** data från en mapp till en annan mapp i Azure Blob Storage. En självstudie om hur du **transformerar** data med hjälp av Azure Data Factory finns i [Självstudie: Transformera data med Spark](transform-data-using-spark.md).
+I den här snabbstarten får du se hur du skapar en Azure Data Factory med en Azure Resource Manager-mall. Den pipeline du skapar i den här datafabriken **kopierar** data från en mapp till en annan mapp i Azure Blob Storage. Om du vill se en självstudie som visar hur du **omvandlar** data med Azure Data Factory går du till [Tutorial: Transform data using Spark](transform-data-using-spark.md) (Självstudie: Omvandla data med Spark).
 
 > [!NOTE]
 > Den här artikeln ger inte någon detaljerad introduktion till Azure Data Factory-tjänsten. En introduktion till Azure Data Factory-tjänsten finns i [Introduktion till Azure Data Factory](introduction.md).
@@ -43,7 +43,7 @@ Se [Skapa Azure Resource Manager-mallar](../azure-resource-manager/resource-grou
 
 Följande avsnitt innehåller den fullständiga Resource Manager-mallen för att definiera Data Factory-entiteter så att du snabbt kan gå igenom självstudien och testa mallen. Om du vill förstå hur varje Data Factory-entitet definieras kan du läsa avsnittet [Data Factory-entiteter i mallen](#data-factory-entities-in-the-template).
 
-Mer information om JSON-syntaxen och JSON-egenskaperna för Data Factory-resurser i en mall finns i [Microsoft.DataFactory-resurstyper](/azure/templates/microsoft.datafactory/allversions).
+Mer information om JSON-syntaxen och JSON-egenskaperna för Data Factory-resurser i en mall finns i avsnittet om [Microsoft.DataFactory-resurstyper](/azure/templates/microsoft.datafactory/allversions).
 
 ## <a name="data-factory-json"></a>Data Factory JSON
 
@@ -288,7 +288,7 @@ Skapa en JSON-fil med namnet **ADFTutorialARM-Parameters.json** som innehåller 
 
 > [!IMPORTANT]
 > - Ange namn och nyckel för Azure Storage-kontot och parametrarna **storageAccountName** och **storageAccountKey** i den här parameterfilen. Du har skapat adftutorial-containern och laddat upp exempelfilen (emp.txt) till indatamappen i denna Azure Blob Storage.
-> - Ange ett globalt unikt namn för datafabriken för parametern **dataFactoryName**. Exempel: ARMTutorialFactoryJohnDoe11282017.
+> - Ange ett globalt unikt namn för datafabriken för parametern **dataFactoryName**. Till exempel: ARMTutorialFactoryJohnDoe11282017.
 > - För **triggerStartTime** anger du aktuell dag i formatet: `2019-09-08T00:00:00`.
 > - För **triggerEndTime** anger du nästa dag i formatet: `2019-09-09T00:00:00`. Du kan också kontrollera aktuell UTC-tid och ange nästa timma eller nästa två timmar som sluttid. Om UTC-tiden exempelvis nu är 1:32 anger du `2019-09-09:03:00:00` som sluttid. I det här fallet kör utlösaren pipelinen två gånger (vid 02:00 och 3:00).
 
@@ -435,16 +435,16 @@ Den distribuerade utlösaren har stoppats. Ett av sätt att starta utlösaren ä
 
 3. På sidan data fabrik klickar du på **författar & Monitor** panel.
 
-4. På sidan **nu sätter vi igång** väljer du **fliken övervakare**.  ![Övervaka pipeline-körning](media/doc-common-process/get-started-page-monitor-button.png)
+4. På sidan **nu sätter vi igång** väljer du **fliken övervakare**.  ![Övervakare för pipeline-körning](media/doc-common-process/get-started-page-monitor-button.png)
 
     > [!IMPORTANT]
-    > Du ser att pipelines endast körs vid hel timme (till exempel: 04.00, 05.00, 06.00 osv.). Klicka på **Uppdatera** i verktygsfältet för att uppdatera listan när tiden når nästa timma.
+    > Du ser att pipelines endast körs hel timme (till exempel: 4, 5, 6 osv.). Klicka på **Uppdatera** i verktygsfältet för att uppdatera listan när tiden når nästa timma.
 
 5. Klicka på länken **Visa aktivitets körningar** i kolumnen **åtgärder** .
 
     ![Länk för pipelineåtgärder](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
 
-6. Du ser att aktiviteten som körs är associerad med pipelinekörningen. I den här snabbstarten har pipelinen endast en aktivitet av typen: Kopiera. Därför kan du se en körning för den aktiviteten.
+6. Du ser att aktiviteten som körs är associerad med pipelinekörningen. I den här snabbstarten har pipelinen endast en aktivitet av typen: kopiera. Därför kan du se en körning för den aktiviteten.
 
     ![Aktivitetskörningar](media/quickstart-create-data-factory-resource-manager-template/activity-runs.png)
 7. Klicka på länken **utdata** under kolumnen åtgärder. Du ser utdata från kopieringsåtgärden i ett **utdatafönster**. Klicka på maximeringsknappen om du vill visa fullständiga utdata. Du kan stänga det maximerade utdatafönstret eller stänga det.
@@ -694,7 +694,7 @@ New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutori
 
 Observera att det första kommandot använder parameterfilen för utvecklingsmiljön, det andra för testmiljön och det tredje för produktionsmiljön.
 
-Du kan även återanvända mallen för att utföra upprepade uppgifter. Skapa till exempel många datafabriker med en eller flera pipelines som implementerar samma logik, men alla datafabriker använder olika konton för Azure Storage. I det här scenariot använder du samma mall i samma miljö (utvecklings-, test- eller produktionsmiljö) med olika parameterfiler för att skapa datafabriker.
+Du kan även återanvända mallen för att utföra upprepade uppgifter. Skapa till exempel många datafabriker med en eller flera pipelines som implementerar samma logik, men alla datafabriker använder olika konton för Azure Storage. I det här scenariot använder du samma mall i samma miljö (dev-, test- eller produktionsmiljö) med olika parameterfiler för att skapa datafabriker.
 
 ## <a name="next-steps"></a>Nästa steg
 

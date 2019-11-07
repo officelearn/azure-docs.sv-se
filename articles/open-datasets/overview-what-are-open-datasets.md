@@ -7,12 +7,12 @@ ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 11/04/2019
-ms.openlocfilehash: b8633bd91abc1f336870158f54d75829ed5cf6a0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: fd5697f9c325dc4ad866c333ce1b20e008ebfa24
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496604"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606161"
 ---
 # <a name="what-are-azure-open-datasets-and-how-can-you-use-them"></a>Vad är Azure Open-datauppsättningar och hur kan du använda dem?
 
@@ -25,7 +25,7 @@ Data uppsättningar omfattar data från offentliga domäner för väder, räknin
 ## <a name="curated-prepared-datasets"></a>Granskade, för beredda data uppsättningar
 Granskade öppna offentliga data uppsättningar i Azure Open-datauppsättningar är optimerade för användning i Machine Learning-arbetsflöden. 
 
-Data forskare lägger ofta till majoriteten av tiden som rensas och förbereder data för avancerad analys. Öppna data uppsättningar kopieras till Azure-molnet och förbearbetas för att spara tid. Med jämna mellanrum hämtas data från källorna, t. ex. via en FTP-anslutning till National NOAA-och atmosfär administration (), parsas till ett strukturerat format och sedan berikas som lämpligt med funktioner som post nummer eller plats för närmaste väder Station.
+Data forskare lägger ofta till majoriteten av tiden som rensas och förbereder data för avancerad analys. Öppna data uppsättningar kopieras till Azure-molnet och förbearbetas för att spara tid. Med jämna mellanrum hämtas data från källorna, t. ex. via en FTP-anslutning till National ensamt-NOAA (ensamt atmosfär administration). Därefter tolkas data i ett strukturerat format och berikas sedan som det är lämpligt med funktioner som post nummer eller plats för närmaste väder Station.
 
 Data uppsättningar är samvärdna med moln beräkning i Azure och underlättar åtkomst och manipulering.  
 
@@ -57,5 +57,5 @@ Om du inte kan hitta de data som du vill ha, kan du skicka e-post till [en data 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Exempel på Notebook](samples.md)
-* [Självstudie: Regressions modellering med NY taxi data](tutorial-opendatasets-automl.md)
+* [Självstudie: Regressions modellering med NY taxi data](/azure/machine-learning/service/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context)
 * [Python SDK för öppna data uppsättningar](/python/api/azureml-opendatasets/?view=azure-ml-py)

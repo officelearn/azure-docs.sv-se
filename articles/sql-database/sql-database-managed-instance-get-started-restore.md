@@ -1,5 +1,5 @@
 ---
-title: Återställa en säkerhetskopia till Azure SQL Database Managed Instance | Microsoft Docs
+title: 'Återställa en säkerhets kopia till Azure SQL Database Hanterad instans '
 description: Återställa en databassäkerhetskopia till en hanterad Azure SQL Database-instans med SSMS.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: c07daf4cf9f355e8eccfe618262dd06b4216106e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: ce112628c94c235b028331db5c37ba2b56458044
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146390"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688058"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Snabb start: återställa en databas till en hanterad instans
 
@@ -28,7 +28,7 @@ I den här snabbstarten ska du använda SQL Server Management Studio (SSMS) för
 > Mer information om migrering med hjälp av Azure Database Migration Service (DMS) finns i avsnittet [Migrering av hanterade instanser med DMS](../dms/tutorial-sql-server-to-managed-instance.md).
 > Mer information om de olika migreringsmetoderna finns i [SQL Server-instansmigrering till Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här snabbstarten:
 

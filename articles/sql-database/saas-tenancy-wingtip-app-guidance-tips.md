@@ -1,5 +1,5 @@
 ---
-title: Vägledning för SQL Database program med flera klient organisationer – Wingtip SaaS | Microsoft Docs
+title: 'Vägledning för SQL Database app för flera klient organisationer – Wingtip SaaS '
 description: Innehåller steg och rikt linjer för att installera och köra ett exempel på ett program för flera innehavare som använder Azure SQL Database, Wingtip Ticket SaaS-exempel.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 6c14fd69521be85dbda5ec4ceda991dfdff54ae0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9258e1e8219300c47e77ea8164e54edd5855bb39
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570075"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691805"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Allmänna rikt linjer för att arbeta med Wingtip ticks-exempel SaaS-appar
 
@@ -32,12 +32,12 @@ Körbart innehåll (skript, DLL-filer) kan blockeras av Windows när zip-filer l
     - [WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
 2. Klicka på **klona eller hämta**.
 3. Klicka på **Hämta zip** och spara filen.
-4. Högerklicka på zip-filen och välj **Egenskaper**. Zip-filnamn motsvarar namnet på lagrings platsen. priset. _WingtipTicketsSaaS-DbPerTenant-master.zip_)
+4. Högerklicka på zip-filen och välj **Egenskaper**. Zip-filnamn motsvarar namnet på lagrings platsen. priset. _WingtipTicketsSaaS-DbPerTenant-Master. zip_)
 5. På fliken **Allmänt** väljer du **avblockera**.
 6. Klicka på **OK**.
 7. Extrahera filerna.
 
-Skript finns på *... Mappen\\inlärnings moduler* .
+Skript finns i mappen *..\\Learning modules* .
 
 
 ## <a name="working-with-the-wingtip-tickets-powershell-scripts"></a>Arbeta med ett Wingtip-biljetter PowerShell-skript
@@ -48,7 +48,7 @@ För att få ut det mesta av exemplet måste du komma in i de medföljande skrip
 
 Redigera filen **userconfig. psm1** med den resurs grupp och det användar värde som du angav under distributionen:
 
-1. Öppna *POWERSHELL ISE* och Läs in... Learning-\\moduler*userconfig. psm1* \\ 
+1. Öppna *POWERSHELL ISE* och Läs in...\\Learning-moduler\\*userconfig. psm1* 
 2. Uppdatera *ResourceGroupName* och *namn* med de angivna värdena för din distribution (endast på raderna 10 och 11).
 3. Spara ändringarna!
 
@@ -78,22 +78,22 @@ Använd [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssm
 
 Distributionen har inlednings vis klient organisationer och katalog SQL Database servrar som ska anslutas till. Namngivningen av servrarna beror på databasens hyres mönster (se nedan för mer information). 
 
-   - **Fristående program:** servrar för varje klient (t. ex. *contosoconcerthall –&lt;användar&gt;*  Server) och *katalog – sa-&lt;användare&gt;*
-   - **Databas per klient:** *tenants1-DPT-&lt;User&gt;*  och *Catalog-DPT-&lt;User&gt;*  servers
-   - **Databas för flera innehavare:** *tenants1-MT-&lt;User&gt;*  och *Catalog-MT-&lt;User&gt;*  servers
+   - **Fristående program:** servrar för varje klient (t. ex. *contosoconcerthall-&lt;användare&gt;* -Server) och *katalog-sa-&lt;användare&gt;*
+   - **Databas per klient:** *tenants1-DPT-&lt;User&gt;* och *Catalog-DPT-&lt;användare&gt;* -servrar
+   - **Databas för flera innehavare:** *tenants1-MT-&lt;användar&gt;* och *katalog – MT-&lt;användare&gt;* -servrar
 
 För att säkerställa en lyckad demo anslutning har alla servrar en [brand Väggs regel](sql-database-firewall-configure.md) som tillåter alla IP-adresser.
 
 
 1. Öppna *SSMS* och Anslut till klienterna. Server namnet beror på databasens hyres mönster som du har valt (se nedan för information):
-    - **Fristående program:** servrar för enskilda klienter (t. ex. *contosoconcerthall-&lt;User&gt;.database.windows.net*) 
+    - **Fristående program:** servrar för enskilda klienter (t. ex. *contosoconcerthall-&lt;User&gt;. Database.Windows.net*) 
     - **Databas per klient:** *tenants1-DPT-&lt;User&gt;. Database.Windows.net*
-    - **Databas för flera innehavare:** *tenants1-MT-&lt;User&gt;. Database.Windows.net* 
+    - **Databas för flera klient organisationer:** *tenants1-MT-&lt;User&gt;. Database.Windows.net* 
 2. Klicka på **anslut** > **databasmotor...** :
 
    ![katalogserver](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. Autentiseringsuppgifterna för demon är: Login= Developer, Password = *P\@ssword1*
+3. Autentiseringsuppgifterna för demon är: login = *Developer*, Password = *P\@ssword1*
 
     Bilden nedan visar inloggningen för *databasen per klient* mönster. 
     ![anslutning](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
@@ -101,9 +101,9 @@ För att säkerställa en lyckad demo anslutning har alla servrar en [brand Väg
    
 
 4. Upprepa steg 2-3 och Anslut till katalog servern (se nedan för angivna Server namn baserat på databasens hyres mönster har valts)
-    - **Fristående program:** *katalog – sa-&lt;User&gt;. Database.Windows.net*
+    - **Fristående program:** *katalog-sa-&lt;User&gt;. Database.Windows.net*
     - **Databas per klient:** *katalog-DPT-&lt;User&gt;. Database.Windows.net*
-    - **Databas för flera innehavare:** *katalog – MT-&lt;User&gt;. Database.Windows.net*
+    - **Databas för flera innehavare:** *katalog-MT-&lt;User&gt;. Database.Windows.net*
 
 
 När du har anslutit bör du se alla servrar. Din lista över databaser kan vara olika beroende på vilka innehavare du har etablerad.

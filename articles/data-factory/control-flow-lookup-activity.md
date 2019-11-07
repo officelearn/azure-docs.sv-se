@@ -1,5 +1,5 @@
 ---
-title: Sök aktivitet i Azure Data Factory | Microsoft Docs
+title: Sök aktivitet i Azure Data Factory
 description: Lär dig hur du använder lookup-aktivitet för att leta upp ett värde från en extern källa. Det går att referera till utdata ytterligare genom att utföra aktiviteter.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 9658987092027b38ab0cab1feb3df4be0a91e350
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 04285de6fa7ef678e36767b7336f732ed9b45329
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141650"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679709"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Sök aktivitet i Azure Data Factory
 
@@ -53,23 +53,23 @@ Följande data källor stöds för lookup-aktivitet. Det största antalet rader 
 
 ## <a name="type-properties"></a>Typ egenskaper
 
-Name | Beskrivning | type | Krävs?
+Namn | Beskrivning | Typ | Krävs?
 ---- | ----------- | ---- | --------
-data uppsättning | Tillhandahåller data uppsättnings referensen för sökningen. Hämta information från avsnittet **Egenskaper för data mängd** i varje motsvarande kopplings artikel. | Nyckel/värde-par | Ja
-source | Innehåller data uppsättnings bara käll egenskaper, samma som för kopierings aktivitets källan. Hämta information från avsnittet **Kopiera aktivitets egenskaper** i varje motsvarande kopplings artikel. | Nyckel/värde-par | Ja
+Data uppsättning | Tillhandahåller data uppsättnings referensen för sökningen. Hämta information från avsnittet **Egenskaper för data mängd** i varje motsvarande kopplings artikel. | Nyckel/värde-par | Ja
+källa | Innehåller data uppsättnings bara käll egenskaper, samma som för kopierings aktivitets källan. Hämta information från avsnittet **Kopiera aktivitets egenskaper** i varje motsvarande kopplings artikel. | Nyckel/värde-par | Ja
 firstRowOnly | Anger om bara den första raden eller alla rader ska returneras. | Boolesk | Nej. Standardvärdet är `true`.
 
 > [!NOTE]
 > 
 > * Käll kolumner med **ByteArray** -typ stöds inte.
 > * **Strukturen** stöds inte i data uppsättnings definitioner. För textformat-filer använder du rubrik raden för att ange kolumn namnet.
-> * Om din uppslags källa är en JSON- `jsonPathDefinition` fil stöds inte inställningen för att omforma JSON-objektet. Hela objekten kommer att hämtas.
+> * Om din uppslags källa är en JSON-fil stöds inte `jsonPathDefinition`-inställningen för att omforma JSON-objektet. Hela objekten kommer att hämtas.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Använd Sök aktivitets resultatet i en efterföljande aktivitet
 
-Sök resultatet returneras i `output` avsnittet i aktivitets körnings resultatet.
+Sök resultatet returneras i avsnittet `output` i resultatet av aktivitets körningen.
 
-* När är inställt **på `true` (standard) visas utdataformatet som i följande kod. `firstRowOnly`** Uppslags resultatet är under en `firstRow` fast nyckel. Använd mönstret i om `@{activity('MyLookupActivity').output.firstRow.TableName}`du vill använda resultatet i efterföljande aktivitet.
+* **När `firstRowOnly` är inställt på `true` (standard)** visas utdataformatet som i följande kod. Uppslags resultatet är under en fast `firstRow` nyckel. Använd mönstret för `@{activity('MyLookupActivity').output.firstRow.TableName}`om du vill använda resultatet i efterföljande aktivitet.
 
     ```json
     {
@@ -81,7 +81,7 @@ Sök resultatet returneras i `output` avsnittet i aktivitets körnings resultate
     }
     ```
 
-* När är inställt **på `false`visas utdataformatet som i följande kod. `firstRowOnly`** Ett `count` fält indikerar hur många poster som returneras. Detaljerade värden visas under en fast `value` matris. I sådana fall följs söknings aktiviteten av en [förgrunds aktivitet](control-flow-for-each-activity.md). Du skickar `value` matrisen till fältet för förgrunds aktiviteter `items` `@activity('MyLookupActivity').output.value`med hjälp av mönstret. Använd följande syntax för att `value` få åtkomst till element i matrisen `@{activity('lookupActivity').output.value[zero based index].propertyname}`:. Ett exempel är `@{activity('lookupActivity').output.value[0].tablename}`.
+* **När `firstRowOnly` är inställt på `false`** visas utdataformatet som i följande kod. Ett `count` fält indikerar hur många poster som returneras. Detaljerade värden visas under en fast `value` matris. I sådana fall följs söknings aktiviteten av en [förgrunds aktivitet](control-flow-for-each-activity.md). Du skickar `value` matrisen till fältet för att `items` i förgrunds aktiviteten genom att använda mönstret för `@activity('MyLookupActivity').output.value`. Använd följande syntax för att få åtkomst till element i `value` matris: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Ett exempel är `@{activity('lookupActivity').output.value[0].tablename}`.
 
     ```json
     {
@@ -105,7 +105,7 @@ I det här exemplet kopierar kopierings aktiviteten data från en SQL-tabell i d
 I det här exemplet visas endast sökning efter den första raden. Om du vill söka efter alla rader och kedja resultaten med förgrunds aktiviteter, se exemplen i [Kopiera flera tabeller i bulk med hjälp av Azure Data Factory](tutorial-bulk-copy.md).
 
 ### <a name="pipeline"></a>Pipeline
-Den här pipelinen innehåller två aktiviteter: Sök och kopiera. 
+Den här pipelinen innehåller två aktiviteter: lookup och Copy. 
 
 - Uppslags aktiviteten konfigureras att använda **LookupDataset**, som refererar till en plats i Azure Blob Storage. Sök aktiviteten läser namnet på SQL-tabellen från en JSON-fil på den här platsen. 
 - Kopierings aktiviteten använder resultatet från söknings aktiviteten, vilket är namnet på SQL-tabellen. Egenskapen **TableName** i **SourceDataset** har kon figurer ATS för att använda utdata från lookup-aktiviteten. Kopierings aktiviteten kopierar data från SQL-tabellen till en plats i Azure Blob Storage. Platsen anges av egenskapen **SinkDataset** . 
@@ -267,7 +267,7 @@ Den här Azure SQL Database-instansen innehåller de data som ska kopieras till 
 }
 ```
 
-### <a name="sourcetablejson"></a>sourcetable.json
+### <a name="sourcetablejson"></a>SourceTable. JSON
 
 #### <a name="set-of-objects"></a>Uppsättning objekt
 
@@ -301,7 +301,7 @@ Den här Azure SQL Database-instansen innehåller de data som ska kopieras till 
 
 Här följer några begränsningar för söknings aktiviteten och föreslagna lösningar.
 
-| Begränsning | Lösning: |
+| Begränsning | Lösning |
 |---|---|
 | Sök aktiviteten har högst 5 000 rader och en maximal storlek på 2 MB. | Utforma en pipeline på två nivåer där den yttre pipelinen upprepas över en inre pipeline, som hämtar data som inte överskrider maximalt antal rader eller storlek. |
 | | |

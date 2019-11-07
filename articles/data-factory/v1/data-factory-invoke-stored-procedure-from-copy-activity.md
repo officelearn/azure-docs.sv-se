@@ -1,6 +1,6 @@
 ---
-title: Anropa lagrade procedur från Azure Data Factory-Kopieringsaktiviteten | Microsoft Docs
-description: Lär dig hur du anropar en lagrad procedur i Azure SQL Database eller SQL Server från en aktivitet för Azure Data Factory-kopia.
+title: Anropa lagrad procedur från Azure Data Factory kopierings aktivitet
+description: Lär dig att anropa en lagrad procedur i Azure SQL Database eller SQL Server från en Azure Data Factory kopierings aktivitet.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,24 +13,24 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 35e9347039a7b9939ab4d2719f9738429dec168c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c5bb7ab4e8932c9568293620352435c7259d810
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60824260"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682495"
 ---
-# <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Anropa lagrade procedur från Kopieringsaktivitet i Azure Data Factory
+# <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Anropa lagrad procedur från kopierings aktivitet i Azure Data Factory
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [Transformera data med aktivitet för lagrad procedur i Data Factory](../transform-data-using-stored-procedure.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory, se [transformera data med hjälp av lagrade procedur aktiviteter i Data Factory](../transform-data-using-stored-procedure.md).
 
 
-När du kopierar data till [SQL Server](data-factory-sqlserver-connector.md) eller [Azure SQL Database](data-factory-azure-sql-connector.md), kan du konfigurera den **SqlSink** i kopieringsaktiviteten att anropa en lagrad procedur. Du kanske vill använda den lagrade proceduren för att utföra några andra processer (sammanslagning kolumner, leta upp värden, infogning i flera tabeller, etc.) krävs innan du infogar data i tabellen. Den här funktionen utnyttjar [Table-Valued parametrar](https://msdn.microsoft.com/library/bb675163.aspx). 
+När du kopierar data till [SQL Server](data-factory-sqlserver-connector.md) eller [Azure SQL Database](data-factory-azure-sql-connector.md)kan du konfigurera **SqlSink** i kopierings aktiviteten för att anropa en lagrad procedur. Du kanske vill använda den lagrade proceduren för att utföra ytterligare bearbetning (sammanfoga kolumner, leta upp värden, infoga i flera tabeller osv.) krävs innan du infogar data i mål tabellen. Den här funktionen utnyttjar [tabell värdes parametrar](https://msdn.microsoft.com/library/bb675163.aspx). 
 
-I följande exempel visas hur du anropar en lagrad procedur i en SQL Server-databas från en Data Factory-pipelinen (kopieringsaktiviteten):  
+Följande exempel visar hur du anropar en lagrad procedur i en SQL Server databas från en Data Factory pipeline (kopierings aktivitet):  
 
-## <a name="output-dataset-json"></a>Utdatauppsättningen JSON
-I datauppsättningen för utdata JSON, ställer du in den **typ** till: **SqlServerTable**. Ange den till **AzureSqlTable** ska användas med en Azure SQL database. Värdet för **tableName** -egenskap måste matcha namnet på den första parametern för den lagrade proceduren.  
+## <a name="output-dataset-json"></a>JSON för utgående data mängd
+I JSON för utgående data uppsättning anger du **typen** till: **SqlServerTable**. Ange att **AzureSqlTable** ska användas med en Azure SQL-databas. Värdet för egenskapen **TableName** måste matcha namnet på den första parametern för den lagrade proceduren.  
 
 ```json
 {
@@ -49,8 +49,8 @@ I datauppsättningen för utdata JSON, ställer du in den **typ** till: **SqlSer
 }
 ```
 
-## <a name="sqlsink-section-in-copy-activity-json"></a>SqlSink-avsnittet i kopieringsaktiviteten JSON
-Definiera den **SqlSink** avsnittet i kopieringsaktiviteten JSON på följande sätt. Ange värden för både för att anropa en lagrad procedur vid infoga data i mottagare/måldatabasen **SqlWriterStoredProcedureName** och **SqlWriterTableType** egenskaper. Beskrivningar av de här egenskaperna finns i [SqlSink-avsnittet i artikeln för SQL Server-anslutningen](data-factory-sqlserver-connector.md#sqlsink).
+## <a name="sqlsink-section-in-copy-activity-json"></a>SqlSink-avsnittet i kopierings aktivitets-JSON
+Definiera avsnittet **SqlSink** i JSON-filen för kopierings aktiviteten enligt följande. Om du vill anropa en lagrad procedur och infoga data i mottagare/mål-databasen anger du värden för egenskaperna **SqlWriterStoredProcedureName** och **SqlWriterTableType** . Beskrivningar av dessa egenskaper finns i [avsnittet SqlSink i artikeln SQL Server Connector](data-factory-sqlserver-connector.md#sqlsink).
 
 ```json
 "sink":
@@ -68,8 +68,8 @@ Definiera den **SqlSink** avsnittet i kopieringsaktiviteten JSON på följande s
 }
 ```
 
-## <a name="stored-procedure-definition"></a>Lagrad Procedurdefinition 
-I databasen, definierar du den lagrade proceduren med samma namn som **SqlWriterStoredProcedureName**. Den lagrade proceduren hanterar inkommande data från källdatalagret och infogar data i en tabell i måldatabasen. Namnet på den första parametern för lagrad procedur måste matcha det tabellnamn som definierats i datauppsättningen JSON (marknadsföring).
+## <a name="stored-procedure-definition"></a>Definition av lagrad procedur 
+I databasen definierar du den lagrade proceduren med samma namn som **SqlWriterStoredProcedureName**. Den lagrade proceduren hanterar indata från käll data lagret och infogar data i en tabell i mål databasen. Namnet på den första parametern för den lagrade proceduren måste matcha det tableName som definierats i data uppsättnings-JSON (Marketing).
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
@@ -81,8 +81,8 @@ BEGIN
 END
 ```
 
-## <a name="table-type-definition"></a>Definition av tabell
-I databasen, definierar du tabelltyp med samma namn som **SqlWriterTableType**. Schemat för tabelltypen måste matcha schemat för datauppsättningen för indata.
+## <a name="table-type-definition"></a>Definition av tabell typ
+I databasen definierar du tabell typen med samma namn som **SqlWriterTableType**. Schemat för tabell typen måste matcha schemat för data uppsättningen för indata.
 
 ```sql
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
@@ -92,7 +92,7 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Granska följande kopplingen artiklar som för fullständiga JSON-exempel: 
+Läs följande artiklar om koppling för fullständiga JSON-exempel: 
 
 - [Azure SQL Database](data-factory-azure-sql-connector.md)
 - [SQL Server](data-factory-sqlserver-connector.md)

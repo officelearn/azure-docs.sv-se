@@ -1,5 +1,5 @@
 ---
-title: Hantera beräknings resurser i Azure SQL Data Warehouse | Microsoft Docs
+title: Hantera beräknings resurs
 description: 'Lär dig mer om funktionerna för prestanda skalning i Azure SQL Data Warehouse. Skala ut genom att justera DWU: er eller minska kostnaderna genom att pausa data lagret.'
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: f0935ccc4c4274bfab0c589ef158d4ea0bef455c
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f93996d834ab805f2228543a833c4ce601042dc4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575319"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692625"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Hantera beräkning i Azure SQL Data Warehouse
 Lär dig mer om att hantera beräknings resurser i Azure SQL Data Warehouse. Sänk kostnaderna genom att pausa data lagret eller skala data lagret så att det uppfyller prestanda kraven. 
@@ -32,7 +33,7 @@ Om du vill utföra en skalnings åtgärd SQL Data Warehouse du först omsorg all
 
 Följande tabell visar hur antalet distributioner per beräknings nod ändras när data lagrets enheter ändras.  DWU6000 tillhandahåller 60 Compute-noder och ger mycket högre frågeresultat än DWU100. 
 
-| Informationslagerenheter  | \#av Compute-noder | \#av distributioner per nod |
+| Informationslagerenheter  | \# av datornoder | \# av distributioner per nod |
 | ---- | ------------------ | ---------------------------- |
 | 100  | 1                  | 60                           |
 | 200  | 2                  | 30                           |

@@ -1,5 +1,5 @@
 ---
-title: 'SaaS appar: Azure SQL Database geo-redundanta säkerhets kopieringar för haveri beredskap | Microsoft Docs'
+title: 'SaaS-appar: Azure SQL Database geo-redundanta säkerhets kopieringar för haveri beredskap '
 description: Lär dig att använda Azure SQL Database geo-redundanta säkerhets kopieringar för att återställa en SaaS-app med flera innehavare i händelse av ett avbrott
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: AyoOlubeko
 ms.author: craigg
 ms.reviewer: sstein
 ms.date: 01/14/2019
-ms.openlocfilehash: c8990e5183d09e8f530fdef952a80a09104d3617
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2f058a5cd20fff845a1feafe42b66beb1afef766
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570494"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692207"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Använd geo-återställning för att återställa ett SaaS-program med flera innehavare från databas säkerhets kopior
 
@@ -79,7 +79,7 @@ De DR-skript som används i den här självstudien är tillgängliga i [Wingtip 
 ## <a name="review-the-healthy-state-of-the-application"></a>Granska det felfria tillståndet för programmet
 Innan du påbörjar återställnings processen granskar du det normala hälso tillståndet för programmet.
 
-1. I webbläsaren öppnar du http://events.wingtip-dpt.&lt Wingtip Ticket Events Hub (; User&gt;. trafficmanager.net, ersätter &lt; användare&gt; med distributionens användar värde).
+1. I webbläsaren öppnar du Wingtip Ticket Events Hub (http://events.wingtip-dpt.&lt; User&gt;. trafficmanager.net, ersätter &lt;användar&gt; med distributionens användar värde).
     
    Rulla längst ned på sidan och Lägg märke till katalog serverns namn och plats i sidfoten. Platsen är den region där du distribuerade appen.    
 
@@ -105,7 +105,7 @@ I den här uppgiften startar du en process för att synkronisera konfigurationen
 > [!IMPORTANT]
 > För enkelhetens skull implementeras Sync-processen och andra långvariga återställnings-och Repatriation-processer i dessa exempel som lokala PowerShell-jobb eller sessioner som körs under klientens användar inloggning. De autentiseringstoken som utfärdas när du loggar in upphör att gälla efter flera timmar och jobben kommer att Miss sen. I ett produktions scenario bör långvariga processer implementeras som pålitliga Azure-tjänster av någon typ, som körs under ett huvud namn för tjänsten. Se [använda Azure PowerShell för att skapa ett huvud namn för tjänsten med ett certifikat](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal). 
 
-1. Öppna filen. ..\Learning Modules\UserConfig.psm1 i PowerShell ISE. Ersätt `<resourcegroup>` och`<user>` på raderna 10 och 11 med det värde som används när du distribuerade appen. Spara filen.
+1. Öppna filen. ..\Learning Modules\UserConfig.psm1 i PowerShell ISE. Ersätt `<resourcegroup>` och `<user>` på raderna 10 och 11 med det värde som används när du distribuerade appen. Spara filen.
 
 2. I PowerShell ISE öppnar du skriptet. ..\Learning Modules\Business kontinuitet och haveri Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1.
 
@@ -113,7 +113,7 @@ I den här uppgiften startar du en process för att synkronisera konfigurationen
 
 3. Ange följande:
 
-    $DemoScenario = 1: Starta ett bakgrunds jobb som synkroniserar konfigurations information för klient organisationen och poolen i katalogen.
+    $DemoScenario = 1: starta ett bakgrunds jobb som synkroniserar klientens Server och konfigurations information för poolen i katalogen.
 
 4. Om du vill köra Sync-skriptet väljer du F5. 
 
@@ -199,7 +199,7 @@ När program slut punkten är inaktive rad i Traffic Manager är programmet inte
  
     ![Återställnings process](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-  * Om du öppnar en klients händelse sida direkt när klienten är offline visas en klient offline-avisering i sidan. Om contoso konsert Hall till exempel är offline kan du försöka öppna http://events.wingtip-dpt.&lt. user&gt;. trafficmanager.net/contosoconcerthall.
+  * Om du öppnar en klients händelse sida direkt när klienten är offline visas en klient offline-avisering i sidan. Om contoso konsert Hall till exempel är offline försöker du öppna http://events.wingtip-dpt.&lt; User&gt;. trafficmanager.net/contosoconcerthall.
 
     ![Återställnings process](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -208,7 +208,7 @@ Du kan etablera nya klienter i återställnings regionen även innan klient data
 
 1. I PowerShell ISE i avsnittet. ..\Learning Modules\Business kontinuitet och katastrof Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 anger du följande egenskap:
 
-    $DemoScenario = 3: Etablera en ny klient i återställnings regionen.
+    $DemoScenario = 3: etablera en ny klient i återställnings regionen.
 
 2. Välj F5 för att köra skriptet.
 
@@ -248,11 +248,11 @@ När återställnings processen har slutförts fungerar programmet och alla klie
 
    * Tenants2-DPT-&lt;User&gt;-Recovery SQL Server. Den här servern används för att tillhandahålla nya klienter under avbrottet.
 
-   * App Service Events-Wingtip-DPT-&lt;recoveryregion&gt;-&lt;User&gt;, som är återställnings instansen av events-appen.
+   * App Service-tjänsten Events-Wingtip-DPT-&lt;recoveryregion&gt;-&lt;User&gt;, som är återställnings instansen av events-appen.
 
      ![Contoso-resurser i återställnings regionen](media/saas-dbpertenant-dr-geo-restore/resources-in-recovery-region.png) 
     
-5. Öppna SQL Server-tenants2-&lt;DPT&gt;-User-Recovery. Observera att den innehåller databasen hawthornhall och den elastiska poolen Pool1. Hawthornhall-databasen har kon figurer ATS som en elastisk databas i den elastiska Pool1-poolen.
+5. Öppna tenants2-DPT-&lt;User&gt;-Recovery SQL Server. Observera att den innehåller databasen hawthornhall och den elastiska poolen Pool1. Hawthornhall-databasen har kon figurer ATS som en elastisk databas i den elastiska Pool1-poolen.
 
 ## <a name="change-the-tenant-data"></a>Ändra klient data 
 I den här uppgiften uppdaterar du en av de återställda klient databaserna. Repatriation-processen kopierar återställda databaser som har ändrats till den ursprungliga regionen. 
@@ -261,11 +261,11 @@ I den här uppgiften uppdaterar du en av de återställda klient databaserna. Re
 
 2. I PowerShell ISE i avsnittet. ..\Learning Modules\Business kontinuitet och katastrof Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 anger du följande värde:
 
-    $DemoScenario = 4: Ta bort en händelse från en klient i återställnings regionen.
+    $DemoScenario = 4: ta bort en händelse från en klient i återställnings regionen.
 
 3. Välj F5 för att köra skriptet.
 
-4. Uppdatera sidan contoso konsert evenemang (http://events.wingtip-dpt.&lt ; User&gt;. trafficmanager.net/contosoconcerthall) och Observera att händelsen allvarligt Strauss saknas.
+4. Uppdatera sidan contoso konsert evenemang (http://events.wingtip-dpt.&lt; User&gt;. trafficmanager.net/contosoconcerthall) och Observera att händelsen allvarligt Strauss saknas.
 
 I den här kursen har du återställt programmet, som nu körs i återställnings regionen. Du har etablerad en ny klient i återställnings regionen och ändrat data för en av de återställda klient organisationerna.  
 
@@ -329,7 +329,7 @@ Om du har följt självstudien återaktiverar skriptet omedelbart den Fabrikam J
 
     Om du vill köra återställnings skriptet i ett nytt PowerShell-fönster väljer du F5. Repatriation tar flera minuter och kan övervakas i PowerShell-fönstret.
 
-3. När skriptet körs uppdaterar du sidan Events Hub (http://events.wingtip-dpt.&lt ; User&gt;. trafficmanager.net).
+3. När skriptet körs uppdaterar du sidan Events Hub (http://events.wingtip-dpt.&lt; User&gt;. trafficmanager.net).
 
     Observera att alla klienter är online och tillgängliga i hela den här processen.
 
@@ -351,7 +351,7 @@ När Repatriation har slutförts är det säkert att ta bort resurserna i åters
 
 1. I PowerShell ISE i avsnittet. ..\Learning Modules\Business kontinuitet och katastrof Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 anger du:
     
-    $DemoScenario = 6: Ta bort föråldrade resurser från återställnings regionen.
+    $DemoScenario = 6: ta bort föråldrade resurser från återställnings regionen.
 
 2. Välj F5 för att köra skriptet.
 

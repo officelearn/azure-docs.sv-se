@@ -1,6 +1,6 @@
 ---
-title: Flytta data från OData-källor | Microsoft Docs
-description: Läs mer om hur du flyttar data från OData-källor med Azure Data Factory.
+title: Flytta data från OData-källor
+description: Lär dig mer om hur du flyttar data från OData-källor med hjälp av Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,65 +13,65 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 840a839f7d3259de0473937de9c9970fcb95227c
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: ea751a18f8a5e5423b3199919ccf440c41595091
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839083"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666674"
 ---
-# <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Flytta data från en OData-källan med Azure Data Factory
-> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
+# <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Flytta data från en OData-källa med Azure Data Factory
+> [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-odata-connector.md)
 > * [Version 2 (aktuell version)](../connector-odata.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [OData-anslutningsapp i V2](../connector-odata.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory, se [OData Connector i v2](../connector-odata.md).
 
 
-Den här artikeln förklarar hur du använder Kopieringsaktivitet i Azure Data Factory för att flytta data från en OData-källan. Den bygger på den [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikel som anger en allmän översikt över dataförflyttning med kopieringsaktiviteten.
+Den här artikeln förklarar hur du använder kopierings aktiviteten i Azure Data Factory för att flytta data från en OData-källa. Det bygger på artikeln [data förflyttnings aktiviteter](data-factory-data-movement-activities.md) , som visar en översikt över data förflyttning med kopierings aktiviteten.
 
-Du kan kopiera data från en OData-källan till alla datalager för mottagare som stöds. En lista över datalager som stöds som mottagare av Kopieringsaktivitet finns i den [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. Data factory stöder för närvarande endast flyttar data från en OData-källan till datalager, men inte för att flytta data från andra datalager till en OData-källan.
+Du kan kopiera data från en OData-källa till alla mottagar data lager som stöds. En lista över data lager som stöds som mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) . Data Factory har för närvarande endast stöd för att flytta data från en OData-källa till andra data lager, men inte för att flytta data från andra data lager till en OData-källa.
 
-## <a name="supported-versions-and-authentication-types"></a>Versioner som stöds och typer av autentisering
-Den här OData-anslutningsapp stöd för OData-version 3.0 och 4.0 och du kan kopiera data från båda OData-molnet och lokala OData-källor. Du måste installera Data Management Gateway för det senare. Se [flytta data mellan lokala och molnbaserade](data-factory-move-data-between-onprem-and-cloud.md) nedan för information om Data Management Gateway.
+## <a name="supported-versions-and-authentication-types"></a>Versioner och autentiseringstyper som stöds
+Denna OData-anslutning stöder OData version 3,0 och 4,0, och du kan kopiera data från både OData-och lokala OData-källor i molnet. För den senare måste du installera Data Management Gateway. Mer information om Data Management Gateway finns i artikeln [Flytta data mellan lokalt och i molnet](data-factory-move-data-between-onprem-and-cloud.md) .
 
-Under autentisering stöds:
+Under autentiseringstyper stöds:
 
-* Åtkomst till **molnet** OData-feed, du kan använda för anonym, grundläggande (användarnamn och lösenord) eller Azure Active Directory-baserad OAuth-autentisering.
-* Åtkomst till **lokala** OData-feed, kan du använda anonym, grundläggande (användarnamn och lösenord) eller Windows-autentisering.
+* För att komma åt **molnbaserad** OData-feed kan du använda Anonym, grundläggande (användar namn och lösen ord) eller Azure Active Directory baserad OAuth-autentisering.
+* För att komma åt **den lokala** OData-feeden kan du använda Anonym, grundläggande (användar namn och lösen ord) eller Windows-autentisering.
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data från en OData-källan med hjälp av olika verktyg/API: er.
+Du kan skapa en pipeline med en kopierings aktivitet som flyttar data från en OData-källa med hjälp av olika verktyg/API: er.
 
-Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. Se [självstudien: Skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data.
+Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
-Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager:
+Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
-1. Skapa **länkade tjänster** länka inkommande och utgående data du lagrar till din datafabrik.
-2. Skapa **datauppsättningar** som representerar inkommande och utgående data för kopieringen.
-3. Skapa en **pipeline** med en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata.
+1. Skapa **länkade tjänster** för att länka indata och utdata från data lager till din data fabrik.
+2. Skapa data **uppsättningar** som representerar indata och utdata för kopierings åtgärden.
+3. Skapa en **pipeline** med en kopierings aktivitet som tar en data uppsättning som indata och en data uppsättning som utdata.
 
-När du använder guiden skapas JSON-definitioner för dessa Data Factory-entiteter (länkade tjänster, datauppsättningar och pipeline) automatiskt åt dig. När du använder Verktyg/API: er (med undantag för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format.  Ett exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data från en OData-källan finns [JSON-exempel: Kopiera data från OData-källan till Azure Blob](#json-example-copy-data-from-odata-source-to-azure-blob) i den här artikeln.
+När du använder guiden skapas JSON-definitioner för dessa Data Factory entiteter (länkade tjänster, data uppsättningar och pipelinen) automatiskt åt dig. När du använder verktyg/API: er (förutom .NET API) definierar du dessa Data Factory entiteter med hjälp av JSON-formatet.  Ett exempel med JSON-definitioner för Data Factory entiteter som används för att kopiera data från en OData-källa finns i [JSON-exempel: kopiera data från OData-källa till Azure Blob](#json-example-copy-data-from-odata-source-to-azure-blob) i den här artikeln.
 
-Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory-entiteter som är specifika för OData-källan:
+I följande avsnitt finns information om JSON-egenskaper som används för att definiera Data Factory entiteter som är speciella för OData-källan:
 
-## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
-Följande tabell innehåller en beskrivning för JSON-element som är specifika för OData-länkad tjänst.
+## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
+Följande tabell innehåller en beskrivning av JSON-element som är speciella för OData-länkade tjänster.
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| type |Type-egenskapen måste anges till: **OData** |Ja |
+| typ |Egenskapen Type måste anges till: **OData** |Ja |
 | url |URL för OData-tjänsten. |Ja |
-| authenticationType |Typ av autentisering som används för att ansluta till OData-källan. <br/><br/> För molnet OData är möjliga värden anonym, grundläggande och OAuth (Observera att Azure Data Factory för närvarande endast stöder Azure Active Directory-baserad OAuth). <br/><br/> För den lokala OData är möjliga värden anonym, grundläggande och Windows. |Ja |
-| userName |Ange användarnamnet om du använder grundläggande autentisering. |Ja (endast om du använder grundläggande autentisering) |
-| password |Ange lösenord för det användarkonto som du angav för användarnamnet. |Ja (endast om du använder grundläggande autentisering) |
-| authorizedCredential |Om du använder OAuth, klickar du på **auktorisera** i Data Factory-Kopieringsguide eller redigerare och ange dina autentiseringsuppgifter och sedan värdet för den här egenskapen kommer att genereras automatiskt. |Ja (endast om du använder OAuth-autentisering) |
-| gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till OData-tjänst på plats. Ange endast om du kopierar data från lokala OData-källan. |Nej |
+| authenticationType |Typ av autentisering som används för att ansluta till OData-källan. <br/><br/> För Cloud OData är möjliga värden Anonym, Basic och OAuth (Obs Azure Data Factory stöder för närvarande endast Azure Active Directory baserade OAuth). <br/><br/> För lokala OData-enheter är möjliga värden Anonym, Basic och Windows. |Ja |
+| användarnamn |Ange användar namn om du använder grundläggande autentisering. |Ja (endast om du använder grundläggande autentisering) |
+| lösenord |Ange lösen ordet för det användar konto som du har angett för användar namnet. |Ja (endast om du använder grundläggande autentisering) |
+| authorizedCredential |Om du använder OAuth klickar du på knappen **auktorisera** i guiden Data Factory kopiering eller redigeraren och anger dina autentiseringsuppgifter. sedan genereras värdet för den här egenskapen automatiskt. |Ja (endast om du använder OAuth-autentisering) |
+| gatewayName |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala OData-tjänsten. Ange endast om du kopierar data från den lokala OData-källan. |Nej |
 
-### <a name="using-basic-authentication"></a>Använder grundläggande autentisering
+### <a name="using-basic-authentication"></a>Använda grundläggande autentisering
 ```json
 {
     "name": "inputLinkedService",
@@ -89,7 +89,7 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 }
 ```
 
-### <a name="using-anonymous-authentication"></a>Använder anonym autentisering
+### <a name="using-anonymous-authentication"></a>Använda anonym autentisering
 ```json
 {
     "name": "ODataLinkedService",
@@ -105,7 +105,7 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 }
 ```
 
-### <a name="using-windows-authentication-accessing-on-premises-odata-source"></a>Med hjälp av Windows-autentisering som åtkomst till lokala OData-källan
+### <a name="using-windows-authentication-accessing-on-premises-odata-source"></a>Använda Windows-autentisering åtkomst till lokal OData-källa
 ```json
 {
     "name": "inputLinkedService",
@@ -124,7 +124,7 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 }
 ```
 
-### <a name="using-oauth-authentication-accessing-cloud-odata-source"></a>Med hjälp av OAuth-autentisering åtkomst till molnet OData-källan
+### <a name="using-oauth-authentication-accessing-cloud-odata-source"></a>Använda OAuth-autentisering åtkomst till molnbaserad OData-källa
 ```json
 {
     "name": "inputLinkedService",
@@ -141,67 +141,67 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 }
 ```
 
-## <a name="dataset-properties"></a>Egenskaper för datamängd
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [skapar datauppsättningar](data-factory-create-datasets.md) artikeln. Avsnitt som struktur, tillgänglighet och princip av en datauppsättnings-JSON är liknande för alla datauppsättningstyper av (Azure SQL, Azure-blob, Azure-tabell osv.).
+## <a name="dataset-properties"></a>Egenskaper för data mängd
+En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) . Avsnitt som struktur, tillgänglighet och princip för en data uppsättnings-JSON liknar alla typer av data uppsättningar (Azure SQL, Azure Blob, Azure Table osv.).
 
-Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information om platsen för data i datalagret. TypeProperties avsnittet för datauppsättningen av typen **ODataResource** (som innehåller OData datauppsättning) har följande egenskaper
+Avsnittet **typeProperties** är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet typeProperties för data uppsättningen av typen **ODataResource** (som innehåller OData-datauppsättningen) har följande egenskaper
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| path |Sökvägen till OData-resurs |Nej |
+| sökväg |Sökväg till OData-resursen |Nej |
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [skapa Pipelines](data-factory-create-pipelines.md) artikeln. Egenskaper, till exempel namn, beskrivning, indata och utdata tabeller och principen är tillgängliga för alla typer av aktiviteter.
+En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [skapa pipeliner](data-factory-create-pipelines.md) . Egenskaper som namn, beskrivning, indata och utdata-tabeller och policy är tillgängliga för alla typer av aktiviteter.
 
-Egenskaper som är tillgängliga i avsnittet typeProperties aktivitetens variera å andra sidan med varje aktivitetstyp av. För kopieringsaktiviteten variera de beroende på vilka typer av källor och mottagare.
+Vilka egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten å andra sidan varierar med varje aktivitets typ. För kopierings aktivitet varierar de beroende på typerna av källor och mottagare.
 
-När källan är av typen **RelationalSource** (som innehåller OData) följande egenskaper är tillgängliga i avsnittet typeProperties:
+När källan är av typen **RelationalSource** (som inkluderar OData) finns följande egenskaper i avsnittet typeProperties:
 
 | Egenskap | Beskrivning | Exempel | Krävs |
 | --- | --- | --- | --- |
-| query |Använd anpassad fråga för att läsa data. |”? $select = namn, beskrivning och $top = 5” |Nej |
+| query |Använd den anpassade frågan för att läsa data. |"? $select = namn, beskrivning & $top = 5" |Nej |
 
-## <a name="type-mapping-for-odata"></a>Mappning för OData
-Som vi nämnde i den [dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikeln kopieringsaktiviteten utför automatisk konverteringar från typer av datakällor till mottagare typer med följande metod i två steg.
+## <a name="type-mapping-for-odata"></a>Typ mappning för OData
+Som anges i artikeln [data förflyttnings aktiviteter](data-factory-data-movement-activities.md) utför kopierings aktiviteten automatiska typ konverteringar från käll typer till mottagar typer med följande två stegs metod.
 
-1. Konvertera från interna källtyper till .NET-typ
-2. Konvertera från .NET-typ till interna mottagare
+1. Konvertera från interna käll typer till .NET-typ
+2. Konvertera från .NET-typ till typ av intern mottagare
 
-När du flyttar data från OData-, används följande mappningar från OData-typer till .NET-typen.
+När du flyttar data från OData används följande mappningar från OData-typer till .NET-typ.
 
-| OData-datatypen | .NET-typ |
+| OData-datatyp | .NET-typ |
 | --- | --- |
-| Edm.Binary |Byte[] |
-| Edm.Boolean |Bool |
-| Edm.Byte |Byte[] |
-| Edm.DateTime |DateTime |
-| Edm.Decimal |Decimal |
-| Edm.Double |Double |
-| Edm.Single |Single |
-| Edm.Guid |Guid |
-| Edm.Int16 |Int16 |
+| EDM. Binary |Byte [] |
+| Edm.Boolean |Booleska |
+| EDM. byte |Byte [] |
+| EDM. DateTime |DateTime |
+| EDM. decimal |Decimal |
+| Edm.Double |Dubbelklicka |
+| EDM. Single |Enkel |
+| EDM. GUID |GUID |
+| EDM. Int16 |Int16 |
 | Edm.Int32 |Int32 |
 | Edm.Int64 |Int64 |
-| Edm.SByte |Int16 |
-| Edm.String |String |
-| Edm.Time |TimeSpan |
+| EDM. SByte |Int16 |
+| Edm.String |Sträng |
+| EDM. Time |Intervall |
 | Edm.DateTimeOffset |DateTimeOffset |
 
 > [!Note]
-> OData komplexa datatyper t.ex. objektet stöds inte.
+> OData komplexa data typer, t. ex. objekt stöds inte.
 
-## <a name="json-example-copy-data-from-odata-source-to-azure-blob"></a>JSON-exempel: Kopiera data från OData-källan till Azure Blob
-Det här exemplet innehåller exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De visar hur du kopierar data från en OData-källan till en Azure Blob Storage. Dock datan kan kopieras till någon av de mottagare som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) använda Kopieringsaktivitet i Azure Data Factory. Exemplet har följande Data Factory-entiteter:
+## <a name="json-example-copy-data-from-odata-source-to-azure-blob"></a>JSON-exempel: kopiera data från OData-källa till Azure-Blob
+Det här exemplet innehåller exempel på JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De visar hur du kopierar data från en OData-källa till en Azure-Blob Storage. Data kan dock kopieras till någon av de handfat som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med kopierings aktiviteten i Azure Data Factory. Exemplet har följande Data Factory entiteter:
 
 1. En länkad tjänst av typen [OData](#linked-service-properties).
 2. En länkad tjänst av typen [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-3. Indata [datauppsättning](data-factory-create-datasets.md) av typen [ODataResource](#dataset-properties).
-4. Utdata [datauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-5. En [pipeline](data-factory-create-pipelines.md) med en Kopieringsaktivitet som använder [RelationalSource](#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+3. En indata- [datauppsättning](data-factory-create-datasets.md) av typen [ODataResource](#dataset-properties).
+4. En utdata- [datauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. En [pipeline](data-factory-create-pipelines.md) med kopierings aktivitet som använder [RelationalSource](#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-Exemplet kopierar data från att skicka frågor mot en OData-källan till en Azure-blob varje timme. JSON-egenskaper som används i exemplen beskrivs i exemplen i följande avsnitt.
+Exemplet kopierar data från frågor till en OData-källa till en Azure-Blob varje timme. De JSON-egenskaper som används i de här exemplen beskrivs i avsnitten som följer efter exemplen.
 
-**OData-länkad tjänst:** Det här exemplet använder anonym autentisering. Se [OData-länkade tjänst](#linked-service-properties) för olika typer av autentisering som du kan använda.
+**OData-länkad tjänst:** I det här exemplet används anonym autentisering. Se avsnittet [OData-länkad tjänst](#linked-service-properties) för olika typer av autentisering som du kan använda.
 
 ```json
 {
@@ -218,7 +218,7 @@ Exemplet kopierar data från att skicka frågor mot en OData-källan till en Azu
 }
 ```
 
-**Länkad Azure Storage-tjänst:**
+**Azure Storage länkad tjänst:**
 
 ```json
 {
@@ -232,9 +232,9 @@ Exemplet kopierar data från att skicka frågor mot en OData-källan till en Azu
 }
 ```
 
-**OData-datauppsättningen för indata:**
+**Data uppsättning för OData-indata:**
 
-Ange ”external”: ”true” informerar Data Factory-tjänsten att datauppsättningen är extern till datafabriken och inte kommer från en aktivitet i data factory.
+Inställningen "extern": "true" informerar den Data Factory tjänsten att data uppsättningen är extern för data fabriken och inte produceras av en aktivitet i data fabriken.
 
 ```json
 {
@@ -262,11 +262,11 @@ Ange ”external”: ”true” informerar Data Factory-tjänsten att datauppsä
 }
 ```
 
-Ange **sökväg** i datauppsättningen definition är valfritt.
+Det är valfritt att ange **sökväg** i data uppsättnings definitionen.
 
-**Utdatauppsättning för Azure Blob:**
+**Data uppsättning för Azure Blob-utdata:**
 
-Data skrivs till en ny blob varje timme (frequency: timme, intervall: 1). Sökvägen till mappen för bloben utvärderas dynamiskt baserat på starttiden för den sektor som bearbetas. Sökvägen till mappen använder år, månad, dag och timmar delar av starttiden.
+Data skrivs till en ny BLOB varje timme (frekvens: timme, intervall: 1). Mappsökvägen för blobben utvärderas dynamiskt baserat på Start tiden för den sektor som bearbetas. Mappens sökväg använder år, månad, dag och timmar delar av start tiden.
 
 ```json
 {
@@ -324,9 +324,9 @@ Data skrivs till en ny blob varje timme (frequency: timme, intervall: 1). Sökv�
 }
 ```
 
-**Kopiera aktivitet i en pipeline med OData-källan och Blob-mottagare:**
+**Kopiera aktivitet i en pipeline med OData-källa och blob-mottagare:**
 
-Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för användning av in- och utdatauppsättningar och är schemalagd att köras varje timme. I pipeline-JSON-definitionen i **källa** är **RelationalSource** och **mottagare** är **BlobSink**. SQL-frågan som angetts för den **fråga** egenskapen väljer senaste (nyaste) data från OData-källan.
+Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att använda data uppsättningar för indata och utdata och är schemalagda att köras varje timme. I JSON-definitionen för pipelinen är **käll** typen inställt på **RelationalSource** och **mottagar** typ är inställd på **BlobSink**. SQL-frågan som anges för egenskapen **query** väljer de senaste (nyaste) data från OData-källan.
 
 ```json
 {
@@ -374,21 +374,21 @@ Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för användn
 }
 ```
 
-Ange **fråga** i pipeline-definitionen är valfritt. Den **URL** att Data Factory-tjänsten använder för att hämta data är: URL som anges i den länkade tjänsten (krävs) + sökväg som anges i datauppsättningen (valfritt) + frågan i pipelinen (valfritt).
+Det är valfritt att ange **frågan** i pipeline-definitionen. **URL** : en för den Data Factory tjänsten använder för att hämta data är: URL: en som anges i den länkade tjänsten (krävs) + sökväg som anges i data uppsättningen (valfritt) + fråga i pipelinen (valfritt).
 
-### <a name="type-mapping-for-odata"></a>Mappning för OData
-Som vi nämnde i den [dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikeln kopieringsaktiviteten utför automatisk konverteringar från typer av datakällor till mottagare typer med följande metod i steg 2:
+### <a name="type-mapping-for-odata"></a>Typ mappning för OData
+Som anges i artikeln [data förflyttnings aktiviteter](data-factory-data-movement-activities.md) utför kopierings aktiviteten automatiska typ konverteringar från käll typer till mottagar typer med följande 2-steg-metod:
 
-1. Konvertera från interna källtyper till .NET-typ
-2. Konvertera från .NET-typ till interna mottagare
+1. Konvertera från interna käll typer till .NET-typ
+2. Konvertera från .NET-typ till typ av intern mottagare
 
-När du flyttar data från OData-data lagras, mappas OData-datatyper till .NET-typerna.
+När data flyttas från OData-data källor mappas OData-datatyper till .NET-typer.
 
-## <a name="map-source-to-sink-columns"></a>Kartkälla till kolumner för mottagare
-Mer information om mappning av kolumner i datauppsättningen för källan till kolumner i datauppsättning för mottagare, se [mappning av kolumner för datauppsättningar i Azure Data Factory](data-factory-map-columns.md).
+## <a name="map-source-to-sink-columns"></a>Mappa källa till mottagar kolumner
+Information om hur du mappar kolumner i käll data uppsättningen till kolumner i data uppsättning för mottagare finns i [mappa data mängds kolumner i Azure Data Factory](data-factory-map-columns.md).
 
-## <a name="repeatable-read-from-relational-sources"></a>Upprepbar läsning från relationella källor
-Kom ihåg att undvika oväntade resultat repeterbarhet när kopiera data från relationsdata lagras. I Azure Data Factory kan du köra en sektor manuellt. Du kan också konfigurera återförsöksprincipen för en datauppsättning så att en sektor som körs när ett fel uppstår. När ett segment ska köras på nytt på något sätt, måste du se till att samma data läses oavsett hur många gånger som en sektor körs. Se [Repeatable läsa från relationella källor](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+## <a name="repeatable-read-from-relational-sources"></a>Repeterbar läsning från Relations källor
+När du kopierar data från Relations data lager bör du ha repeterbarhet i åtanke för att undvika oönskade resultat. I Azure Data Factory kan du köra om ett segment manuellt. Du kan också konfigurera principer för återförsök för en data uppsättning så att en sektor körs igen när ett fel uppstår. När en sektor körs på annat sätt måste du se till att samma data är lästa oavsett hur många gånger en sektor körs. Se [repeterbar läsning från Relations källor](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
-## <a name="performance-and-tuning"></a>Prestanda- och justering
-Se [kopiera aktivitet prestanda- och Justeringsguide](data-factory-copy-activity-performance.md) att lära dig om viktiga faktorer att påverka prestandan för dataförflyttning (Kopieringsaktiviteten) i Azure Data Factory och olika sätt att optimera den.
+## <a name="performance-and-tuning"></a>Prestanda och justering
+Se [Kopiera aktivitets prestanda & justerings guide](data-factory-copy-activity-performance.md) för att lära dig mer om viktiga faktorer som påverkar prestanda för data förflyttning (kopierings aktivitet) i Azure Data Factory och olika sätt att optimera den.

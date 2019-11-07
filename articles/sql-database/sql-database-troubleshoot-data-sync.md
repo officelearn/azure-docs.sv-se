@@ -1,5 +1,5 @@
 ---
-title: Felsöka Azure SQL Data Sync | Microsoft Docs
+title: 'Felsöka Azure SQL Data Sync '
 description: Lär dig hur du felsöker vanliga problem med Azure SQL Data Sync.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: f1345c7de3ef56473b8ebd16cea20cfe76f0380e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 31cf2693ba33461f38ea6361bf2ca8b688f177ff
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566274"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686902"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Felsöka problem med SQL Data Sync
 
@@ -39,7 +39,7 @@ En översikt över SQL Data Sync finns i [Synkronisera data i flera moln och lok
 
 - [Jag ser en betydande försämring i prestandan](#sync-perf)
 
-- [Jag ser det här meddelandet: "Det går inte att infoga värdet null i \<kolumn kolumnen >. Kolumnen tillåter inte null-värden. " Vad betyder detta, och hur kan jag åtgärda det?](#sync-nulls)
+- [Jag ser det här meddelandet: "det går inte att infoga värdet NULL i kolumnen \<kolumn >. Kolumnen tillåter inte null-värden. " Vad betyder detta, och hur kan jag åtgärda det?](#sync-nulls)
 
 - [Hur hanterar data synkronisering cirkel referenser? Det vill säga när samma data har synkroniserats i flera Sync-grupper och håller på att ändras till följd av detta?](#sync-circ)
 
@@ -104,7 +104,7 @@ Prestandan försämras kraftigt, eventuellt till den punkt där du inte ens kan 
 
 - **Lösning**. Den bästa korrigeringen är förebyggande. Se till att du inte har cirkel referenser i dina Sync-grupper. Alla rader som synkroniseras av en Sync-grupp kan inte synkroniseras av en annan Sync-grupp.
 
-### <a name="sync-nulls"></a>Jag ser det här meddelandet: "Det går inte att infoga värdet null i \<kolumn kolumnen >. Kolumnen tillåter inte null-värden. " Vad betyder detta, och hur kan jag åtgärda det? 
+### <a name="sync-nulls"></a>Jag ser det här meddelandet: "det går inte att infoga värdet NULL i kolumnen \<kolumn >. Kolumnen tillåter inte null-värden. " Vad betyder detta, och hur kan jag åtgärda det? 
 Det här fel meddelandet anger att ett av följande två problem har inträffat:
 -  En tabell har ingen primär nyckel. Åtgärda problemet genom att lägga till en primär nyckel i alla tabeller som du synkroniserar.
 -  Det finns en WHERE-sats i CREATE INDEX-instruktionen. Datasynkroniseringen hanterar inte det här tillståndet. Åtgärda problemet genom att ta bort WHERE-satsen eller manuellt göra ändringarna i alla databaser. 
@@ -114,7 +114,7 @@ Datasynkronisering hanterar inte cirkel referenser. Se till att undvika dem.
 
 ## <a name="client-agent-issues"></a>Problem med klient agent
 
-Information om hur du felsöker problem med klient agenten finns i [Felsöka problem med Data Sync](sql-database-data-sync-agent.md#agent-tshoot)-agenten.
+Information om hur du felsöker problem med klient agenten finns i [Felsöka problem med Data Sync-agenten](sql-database-data-sync-agent.md#agent-tshoot).
 
 ## <a name="setup-and-maintenance-issues"></a>Problem med installation och underhåll
 
@@ -193,7 +193,7 @@ Det gick inte att ta bort en synkroniseringsresurs. Något av följande scenarie
 
 - **Lösning**. Tilldela användar kontot inloggnings uppgifter för logga in som en tjänst:
 
-  1. Gå till **Start** > **kontroll panelen** > **administrations verktyg** > lokal > **princip**användareRightsManagementpålokalsäkerhetsprincip. > 
+  1. Gå till **Start** > **kontroll panelen** > **administrations verktyg** > **lokal säkerhets princip** > **lokal princip** > **användar Rights Management**.
   1. Välj **Logga in som en tjänst**.
   1. Lägg till användar kontot i dialog rutan **Egenskaper** .
   1. Tryck på **Tillämpa** och välj sedan **OK**.
@@ -217,9 +217,9 @@ Det gick inte att ta bort en synkroniseringsresurs. Något av följande scenarie
 
 - **Orsak**. Om en eller flera ändringar inte kan tillämpas för hela kvarhållningsperioden på 45 dagar kan en Sync-grupp bli inaktuell.
 
-- **Lösning**. Om du vill undvika en inaktuell status för en Sync-grupp granskar du resultatet av dina synkroniseringsjobb i historik visaren regelbundet. Undersök och åtgärda eventuella ändringar som inte tillämpas.
+- **Lösning**. Om du vill undvika en **inaktuell** status för en Sync-grupp granskar du resultatet av dina synkroniseringsjobb i historik visaren regelbundet. Undersök och åtgärda eventuella ändringar som inte tillämpas.
 
-  Om statusen **för**synkroniseringsresursen är inaktuell tar du bort synkroniseringsresursen och återskapar den.
+  Om statusen för synkroniseringsresursen är **inaktuell**tar du bort synkroniseringsresursen och återskapar den.
 
 ### <a name="setup-delete2"></a>Det går inte att ta bort en Sync-grupp inom tre minuter från avinstallation eller stoppa agenten
 
@@ -243,10 +243,10 @@ Mer information om SQL Data Sync finns i:
 
 -   Översikt – [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](sql-database-sync-data.md)
 -   Konfigurera Data Sync
-    - I portalen – [Självstudie: Konfigurera SQL Data Sync för att synkronisera data mellan Azure SQL Database och SQL Server lokalt](sql-database-get-started-sql-data-sync.md)
+    - I portalen – [Självstudie: Konfigurera SQL Data Sync att synkronisera data mellan Azure SQL Database och SQL Server lokalt](sql-database-get-started-sql-data-sync.md)
     - Med PowerShell
         -  [Använda PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)
-        -  [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)
+        -  [Använd PowerShell för att synkronisera mellan en Azure SQL-databas och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   Datasynkroniseringsagent – [Datasynkroniseringsagent för Azure SQL Data Sync](sql-database-data-sync-agent.md)
 -   Metodtips – [Metodtips för Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
 -   Övervaka [SQL Data Sync med Azure Monitor loggar](sql-database-sync-monitor-oms.md)

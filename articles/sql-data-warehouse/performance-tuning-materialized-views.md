@@ -1,5 +1,5 @@
 ---
-title: Prestanda justering med Azure SQL Data Warehouse materialiserade vyer | Microsoft Docs
+title: Prestanda justering med materialiserade vyer
 description: Rekommendationer och överväganden som du bör känna till när du använder materialiserade vyer för att förbättra din frågas prestanda.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 593841ac95c4c6f17f33a8d35d6b3f83a6db1124
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.custom: seo-lt-2019
+ms.openlocfilehash: c1cfd3b4c365a04c3d4704f37e4ed4177fa74619
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338906"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692982"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Prestanda justering med materialiserade vyer 
 De materialiserade vyerna i Azure SQL Data Warehouse ger en låg underhålls metod för komplexa analytiska frågor för att få snabba prestanda utan att någon fråga ändras. Den här artikeln beskriver den allmänna vägledningen om hur du använder materialiserade vyer.
@@ -37,7 +38,7 @@ De flesta av kraven för en standardvy gäller fortfarande för en materialisera
 |Visa definition                 | Lagras i Azure Data Warehouse.              | Lagras i Azure Data Warehouse.    
 |Visa innehåll                    | Genereras varje gång som vyn används.   | Förbehandlade och lagrade i Azure Data Warehouse när du skapar vyn. Uppdateras när data läggs till i de underliggande tabellerna.                                             
 |Datauppdatering                    | Alltid uppdaterad                               | Alltid uppdaterad                          
-|Hastighet för att hämta visnings data från komplexa frågor     | långsam                                         | Snabb  
+|Hastighet för att hämta visnings data från komplexa frågor     | Långsam                                         | Snabbt  
 |Extra lagringsutrymme                   | Nej                                           | Ja                             
 |Syntax                          | SKAPA VY                                  | SKAPA MATERIALISERAD VY SOM VÄLJ           
      
@@ -106,7 +107,7 @@ Alternativ för att minska antalet materialiserade vyer:
 
 - Ta bort de materialiserade vyerna som har låg användning eller som inte längre behövs.  En inaktive rad materialiserad vy underhålls inte, men den kostar fortfarande lagrings kostnaden.  
 
-- Kombinera materialiserade vyer som skapats på samma eller liknande bas tabeller även om deras data inte överlappar varandra.  Att kamma materialiserade vyer kan resultera i en större vy i storlek än summan av de separata vyerna, men vyn underhålls kostnader bör minska.  Exempel:
+- Kombinera materialiserade vyer som skapats på samma eller liknande bas tabeller även om deras data inte överlappar varandra.  Att kamma materialiserade vyer kan resultera i en större vy i storlek än summan av de separata vyerna, men vyn underhålls kostnader bör minska.  Till exempel:
 
 ```sql
 

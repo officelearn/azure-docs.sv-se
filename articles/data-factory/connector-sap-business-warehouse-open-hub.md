@@ -1,5 +1,5 @@
 ---
-title: Kopiera data från SAP Business Warehouse via öppen hubb med Azure Data Factory | Microsoft Docs
+title: Kopiera data från SAP Business Warehouse via öppen hubb med Azure Data Factory
 description: Lär dig hur du kopierar data från SAP Business Warehouse (BW) via öppna hubb till mottagar data lager med stöd för en kopierings aktivitet i en Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: a35246aff99ec78e665e3be4afd47409959bef63
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: f4ee4ec40aeecdb902be3cf93beb9ee25350e262
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089725"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680326"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Kopiera data från SAP Business Warehouse via öppen hubb med Azure Data Factory
 
-Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från ett SAP Business Warehouse (BW) via öppen hubb. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
+Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från ett SAP Business Warehouse (BW) via öppen hubb. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
 
 >[!TIP]
 >Om du vill lära dig mer om ADF: s övergripande support i SAP data integrations scenario, se [SAP data integration med Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) med detaljerad introduktion, comparsion och vägledning.
@@ -33,7 +33,7 @@ Detta SAP Business Warehouse via öppen Hub Connector stöds för följande akti
 - [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
 - [Sökningsaktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från SAP Business Warehouse via öppna hubbar till alla mottagar data lager som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från SAP Business Warehouse via öppna hubbar till alla mottagar data lager som stöds. En lista över data lager som stöds som källor/mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
 
 Mer specifikt stöder detta SAP Business Warehouse Open Hub Connector:
 
@@ -54,7 +54,7 @@ SAP BW OHD (Open Hub destination) definierar målet som SAP-data vidarebefordras
 
 ADF SAP BW Open Hub Connector erbjuder två valfria egenskaper: `excludeLastRequest` och `baseRequestId` som kan användas för att hantera delta-belastning från öppna hubb. 
 
-- **excludeLastRequestId**: Om posterna för den senaste begäran ska uteslutas. Standardvärdet är true. 
+- **excludeLastRequestId**: om posterna för den senaste begäran ska uteslutas. Standardvärdet är true. 
 - **baseRequestId**: ID för begäran om delta inläsning. När den har angetts hämtas endast data med requestId som är större än värdet för den här egenskapen. 
 
 Som helhet består extraheringen från SAP InfoProviders till Azure Data Factory (ADF) av två steg: 
@@ -73,11 +73,11 @@ Du lagrar vanligt vis det maximala kopierade förfrågnings-ID: t i den senaste 
 
 För korrekt delta hantering kan det inte ha fråge-ID: n från olika DTPs i samma öppna Hub-tabell. Därför får du inte skapa fler än en DTP för varje Open Hub-destination (OHD). När du behöver fullständig och delta extrahering från samma InfoProvider bör du skapa två OHDs för samma InfoProvider. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill använda den här SAP Business Warehouse-anslutningen med öppen hubb måste du:
 
-- Konfigurera en egen värd Integration Runtime med version 3,13 eller senare. Se [lokal Integration Runtime](create-self-hosted-integration-runtime.md) nedan för information.
+- Konfigurera en egen värd Integration Runtime med version 3,13 eller senare. Mer information finns i artikeln om [egen värd integration runtime](create-self-hosted-integration-runtime.md) .
 
 - Hämta **64-bitars [SAP .net Connector 3,0](https://support.sap.com/en/product/connectors/msnet.html)**  från SAP: s webbplats och installera den på den lokala IR-datorn. När du installerar går du till fönstret valfria installations steg och kontrollerar att du väljer alternativet **Installera sammansättningar i GAC** som det visas i följande bild. 
 
@@ -100,20 +100,20 @@ Om du vill använda den här SAP Business Warehouse-anslutningen med öppen hubb
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter som är specifika för SAP Business Warehouse Open Hub Connector.
 
-## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
+## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 
 Följande egenskaper stöds för SAP Business Warehouse-länkad hubb:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Egenskapen Type måste anges till: **SapOpenHub** | Ja |
+| typ | Egenskapen Type måste anges till: **SapOpenHub** | Ja |
 | server | Namnet på den server där SAP BW-instansen finns. | Ja |
 | systemNumber | System numret för det SAP BW systemet.<br/>Tillåtet värde: tvåsiffrigt decimal tal representeras som en sträng. | Ja |
 | clientId | Klient-ID för klienten i SAP W-systemet.<br/>Tillåtet värde: tre-siffrigt decimal tal representeras som en sträng. | Ja |
 | language | Språk som används i SAP-systemet. | Nej (Standardvärdet är **en**)|
-| userName | Namnet på den användare som har åtkomst till SAP-servern. | Ja |
-| password | Lösenordet för användaren. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Det krävs en egen värd Integration Runtime som anges i [krav](#prerequisites). |Ja |
+| Användar | Namnet på den användare som har åtkomst till SAP-servern. | Ja |
+| lösenord | Lösenordet för användaren. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Det krävs en egen värd Integration Runtime som anges i [krav](#prerequisites). |Ja |
 
 **Exempel:**
 
@@ -140,18 +140,18 @@ Följande egenskaper stöds för SAP Business Warehouse-länkad hubb:
 }
 ```
 
-## <a name="dataset-properties"></a>Egenskaper för datamängd
+## <a name="dataset-properties"></a>Egenskaper för data mängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av SAP BW Open Hub-datauppsättningen.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av SAP BW Open Hub-datauppsättningen.
 
 Om du vill kopiera data från och till SAP BW öppna hubben, anger du egenskapen type för data uppsättningen till **SapOpenHubTable**. Följande egenskaper stöds.
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Egenskapen Type måste anges till **SapOpenHubTable**.  | Ja |
+| typ | Egenskapen Type måste anges till **SapOpenHubTable**.  | Ja |
 | openHubDestinationName | Namnet på det öppna hubb målet att kopiera data från. | Ja |
 
-Om du har `excludeLastRequest` angett `baseRequestId` och i data uppsättning stöds det fortfarande som det är, medan du föreslås att använda den nya modellen i aktivitets källan som går framåt.
+Om du ställer in `excludeLastRequest` och `baseRequestId` i data uppsättningen, stöds det fortfarande som det är, medan du föreslås att använda den nya modellen i aktivitets källan som går framåt.
 
 **Exempel:**
 
@@ -174,7 +174,7 @@ Om du har `excludeLastRequest` angett `baseRequestId` och i data uppsättning st
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av SAP BW öppna Hub-källan.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av SAP BW öppna Hub-källan.
 
 ### <a name="sap-bw-open-hub-as-source"></a>SAP BW öppna hubben som källa
 
@@ -182,14 +182,14 @@ Om du vill kopiera data från SAP BW öppna hubben, stöds följande egenskaper 
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | **Typ** egenskapen för kopierings aktivitets källan måste anges till **SapOpenHubSource**. | Ja |
-| excludeLastRequest | Om posterna för den senaste begäran ska uteslutas. | Nej (standard är **true**) |
+| typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **SapOpenHubSource**. | Ja |
+| excludeLastRequest | Om posterna för den senaste begäran ska uteslutas. | Nej (standard är **Sant**) |
 | baseRequestId | ID för begäran om delta inläsning. När den har angetts hämtas endast data med requestId som är **större än** värdet för den här egenskapen.  | Nej |
 
 >[!TIP]
 >Om den öppna Hub-tabellen bara innehåller de data som genereras av ID: t för en enskild begäran, till exempel, gör du alltid fullständig belastning och skriver över befintliga data i tabellen, eller så kör du bara DTP en gång för test, kom ihåg att avmarkera alternativet "excludeLastRequest" för att kopiera d ATA ut.
 
-För att påskynda data inläsningen kan du ställa [`parallelCopies`](copy-activity-performance.md#parallel-copy) in på kopierings aktiviteten för att läsa in data från SAP BW öppen hubb parallellt. Om du till exempel ställer in `parallelCopies` till fyra kör Data Factory samtidigt fyra RFC-anrop, och varje RFC-anrop hämtar en del av data från SAP BW öppna Hub-tabellen partitionerad med ID för DTP-begäran och paket-ID. Detta gäller när antalet unika ID för DTP-begäran och paket-ID är större än värdet för `parallelCopies`. När du kopierar data till ett filbaserat data lager, skrivs det också om att skriva till en mapp som flera filer (ange bara mappnamn), i vilket fall prestandan är bättre än att skriva till en enda fil.
+För att påskynda data inläsningen kan du ange [`parallelCopies`](copy-activity-performance.md#parallel-copy) på kopierings aktiviteten för att läsa in data från SAP BW öppen hubb parallellt. Om du till exempel ställer in `parallelCopies` till fyra kör Data Factory samtidigt fyra RFC-anrop, och varje RFC-anrop hämtar en del av data från den SAP BW öppna Hub-tabellen partitionerad med ID för begäran och paket-ID: t för DTP. Detta gäller när antalet unika ID för DTP-begäran och paket-ID är större än värdet för `parallelCopies`. När du kopierar data till ett filbaserat data lager, skrivs det också om att skriva till en mapp som flera filer (ange bara mappnamn), i vilket fall prestandan är bättre än att skriva till en enda fil.
 
 **Exempel:**
 
@@ -226,18 +226,18 @@ För att påskynda data inläsningen kan du ställa [`parallelCopies`](copy-acti
 
 ## <a name="data-type-mapping-for-sap-bw-open-hub"></a>Data typs mappning för SAP BW öppen hubb
 
-När du kopierar data från SAP BW öppna hubben används följande mappningar från SAP BW data typer för att Azure Data Factory interimistiska data typer. Se [Schema och data skriver mappningar](copy-activity-schema-and-type-mapping.md) vill veta mer om hur kopieringsaktiviteten mappar källtypen schema och data till mottagaren.
+När du kopierar data från SAP BW öppna hubben används följande mappningar från SAP BW data typer för att Azure Data Factory interimistiska data typer. Se [mappningar av schema och data typer](copy-activity-schema-and-type-mapping.md) för att lära dig mer om hur kopierings aktiviteten mappar käll schema och datatyp till mottagaren.
 
-| Typ av SAP-ABAP | Data factory tillfälliga datatyp |
+| Typ av SAP-ABAP | Data fabrikens interimistiska datatyp |
 |:--- |:--- |
-| C (String) | Sträng |
-| I (integer) | Int32 |
-| F (float) | Double |
-| D (Date) | Sträng |
-| T (Time) | Sträng |
-| P (BCD Packed, Currency, Decimal, Qty) | Decimal |
+| C (sträng) | Sträng |
+| I (heltal) | Int32 |
+| F (float) | Dubbelklicka |
+| D (datum) | Sträng |
+| T (tid) | Sträng |
+| P (BCD-packad, valuta, decimal, KVT) | Decimal |
 | N (Numc) | Sträng |
-| X (Binary and Raw) | Sträng |
+| X (binärt och RAW) | Sträng |
 
 ## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
 
@@ -245,4 +245,4 @@ Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](cont
 
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Azure Data Factory finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

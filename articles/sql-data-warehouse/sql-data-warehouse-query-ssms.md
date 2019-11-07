@@ -1,5 +1,5 @@
 ---
-title: Anslut till Azure SQL Data Warehouse-SSMS | Microsoft Docs
+title: Anslut med SSMS
 description: Använd SQL Server Management Studio (SSMS) för att ansluta till och fråga Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: b96896c0366c6fba2548480b166bdb9cf6ca692c
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: d5c903a24ea47cb152555330688dd0bc515c625b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575341"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692593"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>Ansluta till SQL Data Warehouse med SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -29,7 +30,7 @@ ms.locfileid: "69575341"
 
 Använd SQL Server Management Studio (SSMS) för att ansluta till och fråga Azure SQL Data Warehouse. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Du behöver följande för att använda de här självstudierna:
 
 * En befintlig SQL Data Warehouse. Se [Skapa ett SQL Data Warehouse][Create a SQL Data Warehouse] för att se hur man skapar det.
@@ -38,7 +39,7 @@ Du behöver följande för att använda de här självstudierna:
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Anslut till din SQL Data Warehouse
 1. Öppna SSMS.
-2. Öppna Object Explorer. Det gör du genom att välja **fil** > **anslutning Object Explorer**.
+2. Öppna Object Explorer. Det gör du genom att välja **fil** > **Anslut Object Explorer**.
    
     ![SQL Server Object Explorer][1]
 3. Fyll i fälten i fönstret anslut till server.
@@ -48,12 +49,12 @@ Du behöver följande för att använda de här självstudierna:
    * **Servernamn**. Ange det **servernamn** som du identifierade tidigare.
    * **Autentisering**. Välj **SQL Server-autentisering** eller **Active Directory-integrerad autentisering**.
    * **Användarnamn** och **lösenord**. Ange användarnamn och lösenord om du valde SQL Server-autentisering ovan.
-   * Klicka på **anslut**.
+   * Klicka på **Anslut**.
 4. Expandera din Azure SQL-server för att utforska. Du kan se de databaser som är associerade med servern. Expandera AdventureWorksDW för att se tabellerna i din exempeldatabas.
    
     ![Utforska AdventureWorksDW][3]
 
-## <a name="2-run-a-sample-query"></a>2. Kör en exempelfråga
+## <a name="2-run-a-sample-query"></a>2. kör en exempel fråga
 När du nu etablerat en anslutning till din databas, är det dags att skriva en fråga.
 
 1. Högerklicka på din databas i SQL Server Object Explorer.
@@ -65,9 +66,9 @@ När du nu etablerat en anslutning till din databas, är det dags att skriva en 
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Kör frågan. Det gör du genom att `Execute` Klicka på eller använda följande genväg `F5`:.
+4. Kör frågan. Det gör du genom att klicka på `Execute` eller använda följande genväg: `F5`.
    
-    ![Kör fråga][5]
+    ![Kör frågan][5]
 5. Titta på frågeresultaten. I det här exemplet har tabellen FactInternetSales 60398 rader.
    
     ![Frågeresultat][6]

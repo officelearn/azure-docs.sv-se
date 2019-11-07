@@ -1,6 +1,6 @@
 ---
-title: Ansluta till Azure SQL Data Warehouse – VSTS | Microsoft Docs
-description: Fråga SQL Data Warehouse med Visual Studio.
+title: Anslut med VSTS
+description: Fråga Azure SQL Data Warehouse med Visual Studio.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 08/15/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e6c3de1714d363eb1481bcea5f470d04125b96b9
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: e2d37b2d71f605077903197d25b5da2803e34ad3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575307"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685567"
 ---
 # <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>Ansluta till SQL Data Warehouse med Visual Studio och SSDT
 > [!div class="op_single_selector"]
@@ -29,7 +30,7 @@ ms.locfileid: "69575307"
 
 Använd Visual Studio för att ställa frågor till Azure SQL Data Warehouse på bara några minuter. Den här metoden använder tillägget SQL Server Data Tools (SSDT) i Visual Studio 2019. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Du behöver följande för att använda de här självstudierna:
 
 * En befintlig SQL Data Warehouse. Se [Skapa ett SQL Data Warehouse][Create a SQL Data Warehouse] för att se hur man skapar det.
@@ -51,12 +52,12 @@ Du behöver följande för att använda de här självstudierna:
    * **Servernamn**. Ange det **servernamn** som du identifierade tidigare.
    * **Autentisering**. Välj **SQL Server-autentisering** eller **Active Directory-integrerad autentisering**.
    * **Användarnamn** och **lösenord**. Ange användarnamn och lösenord om du valde SQL Server-autentisering ovan.
-   * Klicka på **anslut**.
+   * Klicka på **Anslut**.
 5. Expandera din Azure SQL-server för att utforska. Du kan se de databaser som är associerade med servern. Expandera AdventureWorksDW för att se tabellerna i din exempeldatabas.
    
     ![Utforska AdventureWorksDW][4]
 
-## <a name="2-run-a-sample-query"></a>2. Kör en exempelfråga
+## <a name="2-run-a-sample-query"></a>2. kör en exempel fråga
 När du nu etablerat en anslutning till din databas, är det dags att skriva en fråga.
 
 1. Högerklicka på din databas i SQL Server Object Explorer.

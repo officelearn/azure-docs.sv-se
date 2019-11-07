@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: cosmos-db
 ms.date: 09/26/2019
 ms.reviewer: sngun
-ms.openlocfilehash: d50b946e67bbcc171850b71021165356011f58e3
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: d0b5042c1401a95cc75f4c01ace843659b6babfe
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755207"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681765"
 ---
 # <a name="solutions-using-globally-distributed-analytics-in-azure-cosmos-db"></a>Lösningar som använder globalt distribuerad analys i Azure Cosmos DB
 
@@ -34,12 +34,12 @@ Du kan använda Spark-support i Azure Cosmos DB för att tillhandahålla rekomme
 
 Följande bild visar hur Azure Cosmos DB Spark-support används för att optimera priser och kampanjer:
 
-![Azure Cosmos DB Spark-support för att optimera priser och kampanjer](./media/spark-api-introduction/optimize-pricing-and-promotions.png)
+![Azure Cosmos DB Spark-support för att optimera priser och kampanjer](./media/analytics-solution-architectures/optimize-pricing-and-promotions.png)
 
 
 Följande bild visar hur Azure Cosmos DB Spark-stöd används i real tids rekommendations motor:
 
-![Stöd för Azure Cosmos DB spark i real tids rekommendations motor](./media/spark-api-introduction/real-time-recommendation-engine.png)
+![Stöd för Azure Cosmos DB spark i real tids rekommendations motor](./media/analytics-solution-architectures/real-time-recommendation-engine.png)
 
 ## <a name="manufacturing-and-iot"></a>Tillverkning och IoT
 
@@ -49,9 +49,9 @@ Med Azure Cosmos DB inbyggda analys plattformen kan du aktivera real tids analys
 
 Följande bild visar hur Azure Cosmos DB Spark-support används för att läsa mått från IoT-enheter och använda Smart Grid-analys:
 
-![Azure Cosmos DB Spark-support för att läsa mått från IoT-enheter](./media/spark-api-introduction/read-metrics-from-iot-devices.png)
+![Azure Cosmos DB Spark-support för att läsa mått från IoT-enheter](./media/analytics-solution-architectures/read-metrics-from-iot-devices.png)
 
-## <a name="predictive-maintenance"></a>Förutsägande underhåll
+## <a name="predictive-maintenance"></a>Förebyggande underhåll
 
 * Att underhålla till gångar som kompressorer som används i små borrnings Rigs till plattformar med djup vatten är en komplex Endeavor. Dessa till gångar finns i hela världen och genererar petabyte av data. Med hjälp av Azure Cosmos DB kan du skapa en pipeline för förutsägelse data från slut punkt till slut punkt som använder Spark-direktuppspelning för att bearbeta stora mängder sensor telemetri, lagra till gångs delar och sensor mappnings data.
 
@@ -59,11 +59,11 @@ Följande bild visar hur Azure Cosmos DB Spark-support används för att läsa m
 
 Följande bild visar hur Azure Cosmos DB Spark-support används för att bygga ett förutsägande underhålls system:
 
-![Azure Cosmos DB Spark-support för att bygga ett förutsägande underhålls system](./media/spark-api-introduction/predictive-maintenance-system.png)
+![Azure Cosmos DB Spark-support för att bygga ett förutsägande underhålls system](./media/analytics-solution-architectures/predictive-maintenance-system.png)
 
 Följande bild visar hur Azure Cosmos DB Spark-stödet används för att bygga ett real tids motor diagnos system:
 
-![Azure Cosmos DB Spark-stöd för att bygga ett system för diagnostik av motor i real tid](./media/spark-api-introduction/real-time-vehicle-diagnostic-system.png)
+![Azure Cosmos DB Spark-stöd för att bygga ett system för diagnostik av motor i real tid](./media/analytics-solution-architectures/real-time-vehicle-diagnostic-system.png)
 
 ## <a name="gaming"></a>Spel
 
@@ -75,7 +75,7 @@ Följande bild visar hur Azure Cosmos DB Spark-stödet används för att bygga e
 
 Följande bild visar hur Azure Cosmos DB Spark-stödet används i spel analys:
 
-![Azure Cosmos DB Spark-stöd i spel analys](./media/spark-api-introduction/gaming-analytics.png)
+![Azure Cosmos DB Spark-stöd i spel analys](./media/analytics-solution-architectures/gaming-analytics.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

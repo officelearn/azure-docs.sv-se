@@ -1,5 +1,5 @@
 ---
-title: Tids zoner för Azure SQL Database hanterade instanser | Microsoft Docs "
+title: Azure SQL Database hanterade instans tids zoner "
 description: Läs mer om tids zons information för Azure SQL Database Hanterad instans
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 09/03/2019
-ms.openlocfilehash: e81ae2fc563300402339fc40893fbbdbbd326dcd
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: a578c626cd1edd4a3f7474e59c2e795be2e3c121
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233236"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687847"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Tids zoner i Azure SQL Database Hanterad instans
 
@@ -101,147 +101,147 @@ Att använda samma tidszon i en primär och sekundär instans i en grupp för v�
 
 | **Tidszons-ID** | **Visnings namn för tidszon** |
 | --- | --- |
-| Datumgränsen, normaltid | (UTC-12:00) Internationella datumlinjen, väst |
+| Datum gränsen, normal tid | (UTC-12:00) Internationella datumlinjen, väst |
 | UTC-11 | (UTC-11:00) Coordinated Universal Time-11 |
-| Aleuterna, normaltid | (UTC-10:00) Aleuterna |
-| Hawaii, normaltid | (UTC-10:00) Hawaii |
-| Marquesas, normaltid | (UTC-09:30) Marquesasöarna |
-| Alaska, normaltid | (UTC-09:00) Alaska |
+| Aleuterna normal tid | (UTC-10:00) Aleuterna |
+| Hawaii, normal tid | (UTC-10:00) Hawaii |
+| Marquesas, normal tid | (UTC-09:30) Marquesasöarna |
+| Alaska, normal tid | (UTC-09:00) Alaska |
 | UTC-09 | (UTC-09:00) Coordinated Universal Time-09 |
 | Pacific, normal tid (Mexiko) | (UTC-08:00) Baja California |
 | UTC-08 | (UTC-08:00) Coordinated Universal Time-08 |
-| Pacific, normaltid | (UTC-08:00) Pacific Time (USA och Kanada) |
-| US Mountain, normaltid | (UTC-07:00) Arizona |
+| Pacific, normal tid | (UTC-08:00) Pacific Time (USA och Kanada) |
+| US Mountain, normal tid | (UTC-07:00) Arizona |
 | Mountain, normal tid (Mexiko) | (UTC-07:00) Chihuahua, La Paz, Mazatlan |
-| Mountain, normaltid | (UTC-07:00) Mountain Time (USA och Kanada) |
-| Centralamerika, normaltid | (UTC-06:00) Centralamerika |
-| Central, normaltid | (UTC-06:00) Central Time (USA och Kanada) |
-| Påskön, normaltid | (UTC-06:00) Påskön |
+| Mountain, normal tid | (UTC-07:00) Mountain Time (USA och Kanada) |
+| Central Amerika, normal tid | (UTC-06:00) Centralamerika |
+| Central, normal tid | (UTC-06:00) Central Time (USA och Kanada) |
+| Påskön, normal tid | (UTC-06:00) Påskön |
 | Central normal tid (Mexiko) | (UTC-06:00) Guadalajara, Mexico City, Monterrey |
-| Kanada, centrala, normaltid | (UTC-06:00) Saskatchewan |
-| SA Pacific, normaltid | (UTC-05:00) Bogota, Lima, Quito, Rio Branco |
+| Kanada, Central, normal tid | (UTC-06:00) Saskatchewan |
+| SA Pacific, normal tid | (UTC-05:00) Bogota, Lima, Quito, Rio Branco |
 | Eastern, normal tid (Mexiko) | (UTC-05:00) Chetumal |
-| Eastern, normaltid | (UTC-05:00) Eastern Time (USA och Kanada) |
-| Haiti, normaltid | (UTC-05:00) Haiti |
-| Kuba, normaltid | (UTC-05:00) Havanna |
-| US Eastern, normaltid | (UTC-05:00) Indiana (östra) |
+| Eastern, normal tid | (UTC-05:00) Eastern Time (USA och Kanada) |
+| Haiti, normal tid | (UTC-05:00) Haiti |
+| Kuba, normal tid | (UTC-05:00) Havanna |
+| Östra USA, normal tid | (UTC-05:00) Indiana (östra) |
 | Turks-och Caicosöarna, normal tid | (UTC-05:00) Turks-och Caicosöarna |
-| Paraguay, normaltid | (UTC-04:00) Asunción |
-| Atlantic, normaltid | (UTC-04:00) Atlantic Time (Kanada) |
-| Venezuela, normaltid | (UTC-04:00) Caracas |
-| Centrala Brasilien, normaltid | (UTC-04:00) Cuiaba |
-| Västra Sydamerika, normaltid | (UTC-04:00) Georgetown, La Paz, Manaus, San Juan |
-| Pacific SA, normaltid | (UTC-04:00) Santiago |
-| Newfoundland, normaltid | (UTC-03:30) Newfoundland |
-| Tocantins, normaltid | (UTC-03:00) Araguaina |
+| Paraguay, normal tid | (UTC-04:00) Asunción |
+| Atlantic, normal tid | (UTC-04:00) Atlantic Time (Kanada) |
+| Venezuela, normal tid | (UTC-04:00) Caracas |
+| Centrala Brasilien, normal tid | (UTC-04:00) Cuiaba |
+| Västra Sydamerika, normal tid | (UTC-04:00) Georgetown, La Paz, Manaus, San Juan |
+| Pacific SA, normal tid | (UTC-04:00) Santiago |
+| Newfoundland, normal tid | (UTC-03:30) Newfoundland |
+| Tocantins, normal tid | (UTC-03:00) Araguaina |
 | E. Södra Amerika, normal tid | (UTC-03:00) Brasilia |
-| Sydamerika (östra), normaltid | (UTC-03:00) Cayenne, Fortaleza |
-| Argentina, normaltid | (UTC-03:00) Buenos Aires |
-| Grönland, normaltid | (UTC-03:00) Grönland |
-| Montevideo, normaltid | (UTC-03:00) Montevideo |
-| Magallanes, normaltid | (UTC-03:00) Punta Arenas |
-| Saint Pierre, normaltid | (UTC-03:00) Saint Pierre och Miquelon |
-| Bahia, normaltid | (UTC-03:00) Salvador |
+| SA Eastern, normal tid | (UTC-03:00) Cayenne, Fortaleza |
+| Argentina, normal tid | (UTC-03:00) Buenos Aires |
+| Grönland, normal tid | (UTC-03:00) Grönland |
+| Montevideo, normal tid | (UTC-03:00) Montevideo |
+| Magallanes normal tid | (UTC-03:00) Punta Arenas |
+| Saint Pierre, normal tid | (UTC-03:00) Saint Pierre och Miquelon |
+| Bahia, normal tid | (UTC-03:00) Salvador |
 | UTC-02 | (UTC-02:00) Coordinated Universal Time-02 |
 | Mid-Atlantic, normal tid | (UTC-02:00) Mid-Atlantic - gammal |
-| Azorerna, normaltid | (UTC-01:00) Azorerna |
+| Azorerna, normal tid | (UTC-01:00) Azorerna |
 | Kap Verde, normal tid | (UTC-01:00) Cabo Verde |
 | UTC | (UTC) Coordinated Universal Time |
-| GMT, normaltid | (UTC+00:00) Dublin, Edinburgh, Lissabon, London |
-| Greenwich, normaltid | (UTC+00:00) Monrovia, Reykjavik |
-| W. Europa, normal tid | (UTC+01:00) Amsterdam, Berlin, Bern, Rom, Stockholm, Wien |
-| Centraleuropa, normaltid | (UTC+01:00) Belgrad, Bratislava, Budapest, Ljubljana, Prag |
-| Paris, Madrid, normaltid | (UTC+01:00) Bryssel, Köpenhamn, Madrid, Paris |
-| Marocko, normaltid | (UTC + 01:00) Casablanca |
-| São Tomé, normaltid | (UTC + 01:00) Sao Tome |
-| Centraleuropeisk normaltid | (UTC+01:00) Sarajevo, Skopje, Warszawa, Zagreb |
-| W. Central Afrika, normal tid | (UTC+01:00) Västra Centralafrika |
-| Jordanien, normaltid | (UTC+02:00) Amman |
-| GTB, normaltid | (UTC+02:00) Aten, Bukarest |
-| Mellanöstern, normaltid | (UTC+02:00) Beirut |
-| Egypten, normaltid | (UTC+02:00) Kairo |
+| GMT, normal tid | (UTC+00:00) Dublin, Edinburgh, Lissabon, London |
+| Greenwich, normal tid | (UTC+00:00) Monrovia, Reykjavik |
+| A. Europa, normal tid | (UTC+01:00) Amsterdam, Berlin, Bern, Rom, Stockholm, Wien |
+| Central Europa, normal tid | (UTC+01:00) Belgrad, Bratislava, Budapest, Ljubljana, Prag |
+| Romantik, normal tid | (UTC+01:00) Bryssel, Köpenhamn, Madrid, Paris |
+| Marocko, normal tid | (UTC + 01:00) Casablanca |
+| Sao Tome, normal tid | (UTC + 01:00) Sao Tome |
+| Central europeisk normal tid | (UTC+01:00) Sarajevo, Skopje, Warszawa, Zagreb |
+| A. Central Afrika, normal tid | (UTC+01:00) Västra Centralafrika |
+| Jordanien, normal tid | (UTC+02:00) Amman |
+| GTB, normal tid | (UTC+02:00) Aten, Bukarest |
+| Mellanöstern, normal tid | (UTC+02:00) Beirut |
+| Egypten, normal tid | (UTC+02:00) Kairo |
 | E. Europa, normal tid | (UTC+02:00) Chisinau |
-| Syrien, normaltid | (UTC+02:00) Damaskus |
+| Syrien, normal tid | (UTC+02:00) Damaskus |
 | Västra bankens normal tid | (UTC+02:00) Gaza, Hebron |
-| Södra Afrika, normaltid | (UTC+02:00) Harare, Pretoria |
-| FLE, normaltid | (UTC+02:00) Helsingfors, Kiev, Riga, Sofia, Tallinn, Vilnius |
+| Södra Afrika, normal tid | (UTC+02:00) Harare, Pretoria |
+| FLE, normal tid | (UTC+02:00) Helsingfors, Kiev, Riga, Sofia, Tallinn, Vilnius |
 | Israel, normal tid | (UTC+02:00) Jerusalem |
 | Kaliningrad normal tid | (UTC+02:00) Kaliningrad |
-| Sudan, normaltid | (UTC + 02:00) Khartoum |
-| Libyen, normaltid | (UTC+02:00) Tripoli |
-| Namibia, normaltid | (UTC+02:00) Windhoek |
-| Irak, normaltid | (UTC+03:00) Bagdad |
-| Turkiet, normaltid | (UTC+03:00) Istanbul |
-| Arabien, normaltid | (UTC+03:00) Kuwait, Riyad |
-| Vitryssland, normaltid | (UTC+03:00) Minsk |
+| Sudan, normal tid | (UTC + 02:00) Khartoum |
+| Libyen, normal tid | (UTC+02:00) Tripoli |
+| Namibia, normal tid | (UTC + 02:00) Windhoek |
+| Irak, normal tid | (UTC+03:00) Bagdad |
+| Turkiet, normal tid | (UTC + 03:00) Istanbul |
+| Arabemiraten, normal tid | (UTC+03:00) Kuwait, Riyad |
+| Vitryssland, normal tid | (UTC+03:00) Minsk |
 | Ryssland, normal tid | (UTC + 03:00) Moskva, St. Petersburg |
 | E. Afrika, normal tid | (UTC+03:00) Nairobi |
-| Iran, normaltid | (UTC+03:30) Teheran |
-| Arabisk normaltid | (UTC+04:00) Abu Dhabi, Muskat |
-| Astrachan, normaltid | (UTC+04:00) Astrakhan, Ulyanovsk |
-| Azerbajdzjan, normaltid | (UTC+04:00) Baku |
+| Iran, normal tid | (UTC+03:30) Teheran |
+| Arabisk normal tid | (UTC+04:00) Abu Dhabi, Muskat |
+| Astrachan, normal tid | (UTC+04:00) Astrakhan, Ulyanovsk |
+| Azerbajdzjan, normal tid | (UTC+04:00) Baku |
 | Ryssland-tid Zon 3 | (UTC+04:00) Izhevsk, Samara |
-| Mauritius, normaltid | (UTC+04:00) Port Louis |
-| Saratov, normaltid | (UTC+04:00) Saratov |
-| Georgien, normaltid | (UTC+04:00) Tbilisi |
-| Volgograd standardtid | (UTC + 04:00) Volgograd |
-| Kaukasus, normaltid | (UTC+04:00) Jerevan |
-| Afghanistan, normaltid | (UTC+04:30) Kabul |
-| Västra Asien, normaltid | (UTC+05:00) Asjchabad, Tasjkent |
+| Mauritius, normal tid | (UTC+04:00) Port Louis |
+| Saratov normal tid | (UTC + 04:00) Saratov |
+| Georgien, normal tid | (UTC+04:00) Tbilisi |
+| Volgograd, normal tid | (UTC + 04:00) Volgograd |
+| Kaukasus, normal tid | (UTC+04:00) Jerevan |
+| Afghanistan, normal tid | (UTC+04:30) Kabul |
+| Västra Asien, normal tid | (UTC+05:00) Asjchabad, Tasjkent |
 | Jekaterinburg normal tid | (UTC+05:00) Ekaterinburg |
-| Pakistan, normaltid | (UTC+05:00) Islamabad, Karachi |
-| Indien, normaltid | (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi |
-| Sri Lanka, normaltid | (UTC+05:30) Sri Jayawardenepura |
-| Nepal, normaltid | (UTC+05:45) Katmandu |
-| Centralasien, normaltid | (UTC+06:00) Astana |
-| Bangladesh, normaltid | (UTC+06:00) Dhaka |
-| Omsk, normaltid | (UTC+06:00) Omsk |
-| Unionen Myanmar, normaltid | (UTC+06:30) Yangon |
-| Sydostasien, normaltid | (UTC+07:00) Bangkok, Hanoi, Jakarta |
-| Altaj, normaltid | (UTC+07:00) Barnaul, Gorno-Altaysk |
-| W. Mongoliet, normal tid | (UTC+07:00) Hovd |
+| Pakistan, normal tid | (UTC+05:00) Islamabad, Karachi |
+| Indien, normal tid | (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi |
+| Sri Lanka, normal tid | (UTC+05:30) Sri Jayawardenepura |
+| Nepal, normal tid | (UTC+05:45) Katmandu |
+| Central Asien, normal tid | (UTC+06:00) Astana |
+| Bangladesh, normal tid | (UTC+06:00) Dhaka |
+| Omsk normal tid | (UTC + 06:00) Omsk |
+| Myanmar, normal tid | (UTC+06:30) Yangon |
+| Sydostasien, normal tid | (UTC+07:00) Bangkok, Hanoi, Jakarta |
+| Altai normal tid | (UTC+07:00) Barnaul, Gorno-Altaysk |
+| A. Mongoliet, normal tid | (UTC+07:00) Hovd |
 | Nord Asien, normal tid | (UTC+07:00) Krasnoyarsk |
-| N. Centralasien, normaltid | (UTC + 07:00) Novosibirsk |
-| Tomsk, normaltid | (UTC+07:00) Tomsk |
-| Kina, normaltid | (UTC+08:00) Beijing, Chongqing, Hongkong SAR, Urumqi |
+| M. Central Asien, normal tid | (UTC + 07:00) Novosibirsk |
+| Tomsk, normal tid | (UTC+07:00) Tomsk |
+| Kina, normal tid | (UTC+08:00) Beijing, Chongqing, Hongkong SAR, Urumqi |
 | Östra Nord Asien, normal tid | (UTC+08:00) Irkutsk |
 | Singapore, normal tid | (UTC+08:00) Kuala Lumpur, Singapore |
-| W. Australien, normal tid | (UTC+08:00) Perth |
-| Taipei, normaltid | (UTC+08:00) Taipei |
-| Ulan Bator, normaltid | (UTC+08:00) Ulan Bator |
+| A. Australien, normal tid | (UTC+08:00) Perth |
+| Taipei, normal tid | (UTC+08:00) Taipei |
+| Ulan Bator normal tid | (UTC+08:00) Ulan Bator |
 | Centrala Australien, normal tid | (UTC+08:45) Eucla |
-| Transbajkal, normaltid | (UTC+09:00) Chita |
-| Tokyo, normaltid | (UTC+09:00) Osaka, Sapporo, Tokyo |
-| Nordkorea, normaltid | (UTC + 09:00) Pyongyang |
-| Korea, normaltid | (UTC+09:00) Söul |
+| Transbajkal, normal tid | (UTC+09:00) Chita |
+| Tokyo, normal tid | (UTC+09:00) Osaka, Sapporo, Tokyo |
+| Nord Korea, normal tid | (UTC + 09:00) Pyongyang |
+| Korea, normal tid | (UTC+09:00) Söul |
 | Jakutsk normal tid | (UTC+09:00) Yakutsk |
 | Cent. Australien, normal tid | (UTC+09:30) Adelaide |
-| Centrala Australien, normaltid | (UTC+09:30) Darwin |
+| Centrala Australien, normal tid | (UTC+09:30) Darwin |
 | E. Australien, normal tid | (UTC+10:00) Brisbane |
-| Östra Australien, normaltid | (UTC+10:00) Canberra, Melbourne, Sydney |
-| West Pacific, normaltid | (UTC+10:00) Guam, Port Moresby |
-| Tasmanien, normaltid | (UTC+10:00) Hobart |
+| Östra Australien, normal tid | (UTC+10:00) Canberra, Melbourne, Sydney |
+| Västra Stilla havs området, normal tid | (UTC+10:00) Guam, Port Moresby |
+| Tasmanien, normal tid | (UTC+10:00) Hobart |
 | Vladivostok, normal tid | (UTC+10:00) Vladivostok |
-| Lord Howe, normaltid | (UTC+10:30) Lord Howeön |
-| Bougainville, normaltid | (UTC+11:00) Bougainville |
+| Herren Howe normal tid | (UTC+10:30) Lord Howeön |
+| Bougainville normal tid | (UTC+11:00) Bougainville |
 | Ryssland-tidszon 10 | (UTC+11:00) Chokurdakh |
-| Magadan, normaltid | (UTC+11:00) Magadan |
-| Norfolk, normaltid | (UTC+11:00) Norfolkön |
-| Sachalin, normaltid | (UTC+11:00) Sakhalin |
-| Central Pacific, normaltid | (UTC+11:00) Salomonöarna, Nya Kaledonien |
+| Magadan, normal tid | (UTC+11:00) Magadan |
+| Norfolk, normal tid | (UTC+11:00) Norfolkön |
+| Sachalin, normal tid | (UTC+11:00) Sakhalin |
+| Central Pacific, normal tid | (UTC+11:00) Salomonöarna, Nya Kaledonien |
 | Ryssland-tidszon 11 | (UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky |
-| Nya Zeeland, normaltid | (UTC+12:00) Auckland, Wellington |
-| UTC+12 | (UTC+12:00) Coordinated Universal Time+12 |
-| Fidji, normaltid | (UTC+12:00) Fiji |
-| Kamtjatka, normaltid | (UTC+12:00) Petropavlovsk-Kamtjatskij - gammal |
-| Chathamöarna, normaltid | (UTC+12:45) Chathamöarna |
-| UTC+13 | (UTC+13:00) Coordinated Universal Time+13 |
-| Tonga, normaltid | (UTC+13:00) Nuku'alofa |
-| Samoa, normaltid | (UTC+13:00) Samoa |
-| Linjeöarna, normaltid | (UTC+14:00) Kiritimati (Julön) |
+| Nya Zeeland, normal tid | (UTC+12:00) Auckland, Wellington |
+| UTC + 12 | (UTC+12:00) Coordinated Universal Time+12 |
+| Fidji, normal tid | (UTC+12:00) Fiji |
+| Kamtjatka, normal tid | (UTC+12:00) Petropavlovsk-Kamtjatskij - gammal |
+| Chathamöarna Islands, normal tid | (UTC+12:45) Chathamöarna |
+| UTC + 13 | (UTC + 13:00) Koordinerad universell tid + 13 |
+| Tonga, normal tid | (UTC+13:00) Nuku'alofa |
+| Samoa, normal tid | (UTC+13:00) Samoa |
+| Linje öarna, normal tid | (UTC+14:00) Kiritimati (Julön) |
 
-## <a name="see-also"></a>Se också 
+## <a name="see-also"></a>Se även 
 
 - [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
 - [I tidszon (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)
-- [sys.time_zone_info (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)
+- [sys. time_zone_info (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)

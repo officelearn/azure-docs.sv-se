@@ -1,5 +1,5 @@
 ---
-title: Skala elastiska pool resurser – Azure SQL Database | Microsoft Docs
+title: Skala Elastic pool-resurser – Azure SQL Database
 description: På den här sidan beskrivs skalnings resurser för elastiska pooler i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 ms.date: 3/14/2019
-ms.openlocfilehash: c96be7930a33185077134d051b49cba0695327e3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 812de89b43d1cb2bc7f9b5c5c619f3860344d5dd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568645"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690429"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Skala elastiska pool resurser i Azure SQL Database
 
@@ -45,11 +45,11 @@ Att ändra tjänst nivå eller beräknings storlek för en elastisk pool följer
 
 Den uppskattade svars tiden för att ändra tjänst nivån eller skala om beräknings storleken för en enskild databas eller elastisk pool är parameterstyrda enligt följande:
 
-|Tjänstnivå|Enkel databas,</br>Standard (S0-S1)|Basic elastisk pool,</br>Standard (S2-S12) </br>Hyperskala </br>Generell användning enskild databas eller elastisk pool|Premium-eller Affärskritisk enkel databas eller elastisk pool|
+|Tjänstenivå|Enkel databas,</br>Standard (S0-S1)|Basic elastisk pool,</br>Standard (S2-S12) </br>Hyperskala </br>Generell användning enskild databas eller elastisk pool|Premium-eller Affärskritisk enkel databas eller elastisk pool|
 |:---|:---|:---|:---|
-|**Enkel databas,</br> standard (S0-S1)**|&bull;&nbsp;Tidssvars tid för konstant som är oberoende av använt utrymme</br>&bull;&nbsp;Normalt mindre än 5 minuter|&bull;&nbsp;En latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|&bull;&nbsp;En latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|
-|**Basic elastisk pool, </br>standard (S2-S12), </br>storskalig, </br>generell användning enskild databas eller elastisk pool**|&bull;&nbsp;En latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|&bull;&nbsp;Tidssvars tid för konstant som är oberoende av använt utrymme</br>&bull;&nbsp;Normalt mindre än 5 minuter|&bull;&nbsp;En latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|
-|**Premium-eller Affärskritisk enkel databas eller elastisk pool**|&bull;&nbsp;En latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|&bull;&nbsp;En latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|&bull;&nbsp;En latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|
+|**Enkel databas,</br> standard (S0-S1)**|&bull; &nbsp;tidssvars tid för konstant som är oberoende av använt utrymme</br>&bull; &nbsp;vanligt vis mindre än 5 minuter|&bull; &nbsp;svars tid som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull; &nbsp;vanligt vis mindre än 1 minut per GB använt utrymme|&bull; &nbsp;svars tid som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull; &nbsp;vanligt vis mindre än 1 minut per GB använt utrymme|
+|**Basic elastisk pool, </br>standard (S2-S12), </br>storskalig </br>Generell användning enskild databas eller elastisk pool**|&bull; &nbsp;svars tid som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull; &nbsp;vanligt vis mindre än 1 minut per GB använt utrymme|&bull; &nbsp;tidssvars tid för konstant som är oberoende av använt utrymme</br>&bull; &nbsp;vanligt vis mindre än 5 minuter|&bull; &nbsp;svars tid som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull; &nbsp;vanligt vis mindre än 1 minut per GB använt utrymme|
+|**Premium-eller Affärskritisk enkel databas eller elastisk pool**|&bull; &nbsp;svars tid som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull; &nbsp;vanligt vis mindre än 1 minut per GB använt utrymme|&bull; &nbsp;svars tid som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull; &nbsp;vanligt vis mindre än 1 minut per GB använt utrymme|&bull; &nbsp;svars tid som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull; &nbsp;vanligt vis mindre än 1 minut per GB använt utrymme|
 
 > [!NOTE]
 >
@@ -57,7 +57,7 @@ Den uppskattade svars tiden för att ändra tjänst nivån eller skala om beräk
 > - Om du flyttar en databas till/från en elastisk pool, påverkar endast det utrymme som används av databasen svars tiden, inte det utrymme som används av den elastiska poolen.
 >
 > [!TIP]
-> Information om hur du övervakar pågående åtgärder finns i: [Hantera åtgärder med hjälp av SQL REST API](https://docs.microsoft.com/rest/api/sql/operations/list), [Hantera åtgärder med CLI](/cli/azure/sql/db/op), [övervaka åtgärder med hjälp av T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) och dessa två PowerShell-kommandon: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) och [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
+> Information om hur du övervakar pågående åtgärder finns i: [Hantera åtgärder med hjälp av SQL REST API](https://docs.microsoft.com/rest/api/sql/operations/list), [Hantera åtgärder med CLI](/cli/azure/sql/db/op), [övervaka åtgärder med hjälp av T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) och dessa två PowerShell-kommandon: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) och [ Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 
 ### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Ytterligare överväganden vid ändring av tjänst nivå eller skalning av beräknings storlek
 
@@ -71,7 +71,7 @@ Du debiteras för varje timme som det finns en databas med den högsta tjänst n
 ## <a name="change-elastic-pool-storage-size"></a>Ändra lagrings storlek för elastisk pool
 
 > [!IMPORTANT]
-> Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md).
+> Under vissa omständigheter kan du behöva krympa en databas för att frigöra utrymme som inte används. Mer information finns i [Hantera fil utrymme i Azure SQL Database](sql-database-file-space-management.md).
 
 ### <a name="vcore-based-purchasing-model"></a>Köpmodell baserad på virtuell kärna
 
@@ -83,7 +83,7 @@ Du debiteras för varje timme som det finns en databas med den högsta tjänst n
 - Priset för lagring för en elastisk pool är lagrings beloppet multiplicerat med lagrings enhets priset för tjänst nivån. Mer information om priset för extra lagring finns [SQL Database prissättning](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
-> Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md).
+> Under vissa omständigheter kan du behöva krympa en databas för att frigöra utrymme som inte används. Mer information finns i [Hantera fil utrymme i Azure SQL Database](sql-database-file-space-management.md).
 
 ### <a name="dtu-based-purchasing-model"></a>DTU-baserad inköps modell
 
@@ -92,7 +92,7 @@ Du debiteras för varje timme som det finns en databas med den högsta tjänst n
 - Priset för extra lagring för en elastisk pool är det extra lagrings beloppet multiplicerat med det extra lagrings enhets priset för tjänst nivån. Mer information om priset för extra lagring finns [SQL Database prissättning](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
-> Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md).
+> Under vissa omständigheter kan du behöva krympa en databas för att frigöra utrymme som inte används. Mer information finns i [Hantera fil utrymme i Azure SQL Database](sql-database-file-space-management.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

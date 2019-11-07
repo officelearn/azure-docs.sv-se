@@ -1,5 +1,5 @@
 ---
-title: Uppdatera Machine Learning-modeller med Azure Data Factory | Microsoft Docs
+title: Uppdatera Machine Learning-modeller med hjälp av Azure Data Factory
 description: Beskriver hur du skapar skapa förutsägande pipelines med Azure Data Factory-och Machine Learning
 services: data-factory
 documentationcenter: ''
@@ -11,22 +11,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: 56d0ce6668c1077b99c980c2bc5b16998a3a41c1
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 3313c9c362a9b82cf7ed8db63479aaa5cf0c777e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140534"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683239"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Uppdatera Azure Machine Learning modeller med hjälp av aktiviteten uppdatera resurs
-Den här artikeln kompletterar huvud artikeln Azure Data Factory-Azure Machine Learning-integrering: [Skapa förutsägande pipelines med hjälp av Azure Machine Learning och Azure Data Factory](transform-data-using-machine-learning.md). Läs igenom huvud artikeln innan du läser igenom den här artikeln, om du inte redan gjort det.
+Den här artikeln kompletterar den huvudsakliga Azure Data Factory-Azure Machine Learning-integrerings artikeln: [skapa förutsägbara pipelines med hjälp av Azure Machine Learning och Azure Data Factory](transform-data-using-machine-learning.md). Läs igenom huvud artikeln innan du läser igenom den här artikeln, om du inte redan gjort det.
 
 ## <a name="overview"></a>Översikt
-Som en del av processen med att använda Azure Machine Learning modeller, tränas modellen och sparas. Du sedan använda den för att skapa en förutsägbar webbtjänst. Webbtjänsten kan sedan användas i webbplatser, instrumentpaneler och mobila appar.
+Som en del av processen med att använda Azure Machine Learning modeller, tränas modellen och sparas. Sedan kan du använda den för att skapa en förutsägbar webb tjänst. Webb tjänsten kan sedan förbrukas på webbplatser, instrument paneler och mobila appar.
 
-Modeller som du skapar med Machine Learning är vanligtvis inte statiska. När nya data blir tillgängliga eller när användaren av API: et har sina egna data måste vara modellkomponenten modellen. Mer information om hur du kan träna en modell i Azure Machine Learning finns i avsnittet om att [träna en Machine Learning modell](../machine-learning/machine-learning-retrain-machine-learning-model.md) .
+Modeller som du skapar med hjälp av Machine Learning är vanligt vis inte statiska. När nya data blir tillgängliga eller när klienten för API: et har sina egna data måste modellen omtränas. Mer information om hur du kan träna en modell i Azure Machine Learning finns i avsnittet om att [träna en Machine Learning modell](../machine-learning/machine-learning-retrain-machine-learning-model.md) .
 
-Träna kan inträffa ofta. Med aktivitet för batch-körning och uppdatering av resurser kan du operationalisera Azure Machine Learning modell omträningen och uppdatera den förutsägbara webb tjänsten med hjälp av Data Factory.
+Omskolning kan ske ofta. Med aktivitet för batch-körning och uppdatering av resurser kan du operationalisera Azure Machine Learning modell omträningen och uppdatera den förutsägbara webb tjänsten med hjälp av Data Factory.
 
 Följande bild illustrerar förhållandet mellan utbildning och förutsägbara webb tjänster.
 
@@ -56,11 +56,11 @@ Följande JSON-kodfragment definierar en Azure Machine Learning batch execution-
 }
 ```
 
-| Egenskap                      | Beskrivning                              | Obligatorisk |
+| Egenskap                      | Beskrivning                              | Krävs |
 | :---------------------------- | :--------------------------------------- | :------- |
-| name                          | Namn på aktiviteten i pipelinen     | Ja      |
+| namn                          | Namn på aktiviteten i pipelinen     | Ja      |
 | description                   | Text som beskriver vad aktiviteten gör.  | Nej       |
-| type                          | För Azure Machine Learning uppdatera resurs aktivitet är aktivitets typen **AzureMLUpdateResource**. | Ja      |
+| typ                          | För Azure Machine Learning uppdatera resurs aktivitet är aktivitets typen **AzureMLUpdateResource**. | Ja      |
 | linkedServiceName             | Azure Machine Learning länkad tjänst som innehåller egenskapen updateResourceEndpoint. | Ja      |
 | trainedModelName              | Namnet på den tränade modell modulen i webb tjänst experimentet som ska uppdateras | Ja      |
 | trainedModelLinkedServiceName | Namnet på Azure Storage länkade tjänsten som innehåller den ilearner-fil som överförs av uppdaterings åtgärden | Ja      |
@@ -95,7 +95,7 @@ Du kan hämta värden för plats hållare i URL: en när du frågar webb tjänst
 Den nya typen av resurs slut punkt för uppdateringar kräver tjänstens huvud namns autentisering. Om du vill använda tjänstens huvud namns autentisering registrerar du en programentitet i Azure Active Directory (Azure AD) och ger rollen som **deltagare** eller **ägare** till den prenumeration eller resurs grupp där webb tjänsten tillhör. Se [hur du skapar tjänstens huvud namn och tilldelar behörigheter för att hantera Azure-resurser](../active-directory/develop/howto-create-service-principal-portal.md). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
 
 - Program-ID:t
-- Programnyckel
+- Program nyckel
 - Klient-ID:t
 
 Här är en exempel på en länkad tjänst definition:
@@ -127,7 +127,7 @@ Här är en exempel på en länkad tjänst definition:
 Följande scenario innehåller mer information. Det finns ett exempel på att omträna och uppdatera Azure Machine Learning Studio-modeller från en Azure Data Factory-pipeline.
 
 
-## <a name="sample-retraining-and-updating-an-azure-machine-learning-model"></a>Exempel: Omträning och uppdatering av en Azure Machine Learning modell
+## <a name="sample-retraining-and-updating-an-azure-machine-learning-model"></a>Exempel: omträning och uppdatering av en Azure Machine Learning modell
 
 Det här avsnittet innehåller en exempel pipeline som använder **batch-körningen Azure Machine Learning Studio** för att omträna en modell. Pipelinen använder också **resurs aktiviteten Azure Machine Learning Studio-uppdatering** för att uppdatera modellen i poängsättnings webb tjänsten. Avsnittet innehåller också JSON-kodfragment för alla länkade tjänster, data uppsättningar och pipeline i exemplet.
 

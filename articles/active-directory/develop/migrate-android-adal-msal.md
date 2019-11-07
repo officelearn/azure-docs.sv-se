@@ -16,12 +16,12 @@ ms.author: twhitney
 ms.reviewer: shoatman
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d06c84e6afcabb19c985d242679d6db8616a62e2
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: be8129de8b1c12965810bd5d9b5dfd1093e18d1c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679768"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73667891"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>ADAL till MSAL migration guide för Android
 
@@ -29,49 +29,46 @@ I den här artikeln beskrivs de ändringar du behöver göra för att migrera en
 
 ## <a name="difference-highlights"></a>Skillnader i fokus
 
-ADAL fungerar med Azure Active Directory v 1.0-slutpunkten. Microsoft Authentication Library (MSAL) fungerar med Microsoft Identity Platform, som tidigare kallades för Azure Active Directory v 2.0-slutpunkten.
+ADAL fungerar med Azure Active Directory v 1.0-slutpunkten. Microsoft Authentication Library (MSAL) fungerar med Microsoft Identity Platform – tidigare kallat Azure Active Directory v 2.0-slutpunkten. Microsoft Identity Platform skiljer sig från Azure Active Directory v 1.0 på så här:
 
-Microsoft Identity Platform skiljer sig från Azure Active Directory v 1.0 på så här:
-
-- Stöder båda:
+Uppfyller
   - Organisations identitet (Azure Active Directory)
-  - Icke-organisatoriska identiteter som Outlook.com, Xbox Live och så vidare.
-  - (Endast B2C) Federerad inloggning med Google, Facebook, Twitter och Amazon.
+  - Icke-organisatoriska identiteter som Outlook.com, Xbox Live och så vidare
+  - (Endast B2C) Federerad inloggning med Google, Facebook, Twitter och Amazon
 
 - Är standarder som är kompatibla med:
   - OAuth v 2.0
   - OpenID Connect (OIDC)
 
-MSAL offentliga API: et visar viktiga ändringar i användningen, inklusive:
+MSAL offentliga API inför viktiga ändringar, inklusive:
 
-- Ny modell för åtkomst till token:
-  - ADAL ger åtkomst till tokens via `AuthenticationContext`, som representerar-servern. MSAL ger åtkomst till tokens via `PublicClientApplication`, som representerar klienten. Klient utvecklare behöver inte skapa en ny `PublicClientApplication`-instans för varje myndighet som de behöver för att interagera med. Endast en `PublicClientApplication`-konfiguration krävs.
+- En ny modell för åtkomst till token:
+  - ADAL ger åtkomst till tokens via `AuthenticationContext`, som representerar servern. MSAL ger åtkomst till tokens via `PublicClientApplication`, som representerar klienten. Klient utvecklare behöver inte skapa en ny `PublicClientApplication`-instans för varje myndighet som de behöver för att interagera med. Endast en `PublicClientApplication` konfiguration krävs.
   - Stöd för att begära åtkomsttoken med hjälp av omfattningar, förutom resurs identifierare.
-  - Stöd för stegvist godkännande. Utvecklare kan begära omfattningar, inklusive de som inte ingår under registreringen av appen.
-  - Verifiering av auktoritet – > kända myndigheter
-      * Myndigheterna verifieras inte längre vid körning. i stället deklareras utvecklaren av en lista med kända myndigheter under utvecklingen.
+  - Stöd för stegvist godkännande. Utvecklare kan begära omfattningar när användaren får åtkomst till fler och fler funktioner i appen, inklusive de som inte ingår under registreringen av appen.
+  - Myndigheterna verifieras inte längre vid körning. I stället deklareras utvecklaren av en lista med kända myndigheter under utvecklingen.
 - API-ändringar för token:
-  - I ADAL försöker `AcquireToken` först att göra en tyst begäran och att Miss lyckas en interaktiv begäran. Det här beteendet ledde till att vissa utvecklare bara förlitar sig på `AcquireToken`, vilket ibland avsåg att en användar interaktion skulle inträffa vid ett oväntat tillfälle. MSAL kräver att utvecklare är avsiktliga när användaren får en UI-prompt.
-    - `AcquireTokenSilent` resulterar alltid i en tyst begäran som antingen lyckas eller Miss lyckas.
-    - `AcquireToken` är alltid resultatet i en interaktiv (användare som tillfrågas om UI).
-- MSAL stöder inloggnings-UI-interaktion från antingen en standard webbläsare eller en inbäddad webbvy:
+  - I ADAL gör `AcquireToken()` först en tyst begäran. Detta innebär att en interaktiv begäran görs. Detta beteende ledde till att vissa utvecklare bara förlitar sig på `AcquireToken`, vilket ledde till att användaren uppmanas att ange autentiseringsuppgifter vid ett tillfälle. MSAL kräver att utvecklare är avsiktliga när användaren får en UI-prompt.
+    - `AcquireTokenSilent` alltid resulterar i en tyst begäran som antingen lyckas eller Miss lyckas.
+    - `AcquireToken` alltid resulterar i en begäran som efterfrågar användaren via användar gränssnittet.
+- MSAL stöder inloggning från antingen en standard webbläsare eller en inbäddad webbvy:
   - Som standard används standard webbläsaren på enheten. Detta gör att MSAL kan använda Authentication State (cookies) som redan finns för ett eller flera konton som är inloggade. Om det inte finns något autentiserings tillstånd kan autentisering under auktorisering via MSAL resultera i autentiserings tillstånd (cookies) som skapas för att dra nytta av andra webb program som ska användas i samma webbläsare.
 - Ny undantags modell:
-  - Undantag är tydligare om typen av undantag som har inträffat och vad utvecklare måste göra för att lösa det
-- MSAL stöder parameter objekt för `AcquireToken`-och `AcquireTokenSilent`-anrop.
+  - Undantagen tydligare definierar den typ av fel som inträffat och vad utvecklare måste göra för att lösa det.
+- MSAL stöder parameter objekt för `AcquireToken` och `AcquireTokenSilent` anrop.
 - MSAL stöder deklarativ konfiguration för:
-  - Klient-ID, omdirigerings-URI
+  - Klient-ID, omdirigerings-URI.
   - Inbäddad vs standard-webbläsare
-  - Skattemyndigheter
+  - skattemyndigheter
   - HTTP-inställningar som Läs-och tids gräns för anslutning
 
 ## <a name="your-app-registration-and-migration-to-msal"></a>Din app-registrering och migrering till MSAL
 
-Inga ändringar krävs för din befintliga App-registrering för att använda MSAL. Om du vill dra nytta av stegvisa/progressiva medgivande kan du behöva granska registreringen för att identifiera de speciella omfattningar som du vill begära stegvis. Mer information om omfattningar och stegvisa godkännanden följer.
+Du behöver inte ändra din befintliga App-registrering för att använda MSAL. Om du vill dra nytta av stegvisa/progressiva medgivande kan du behöva granska registreringen för att identifiera de speciella omfattningar som du vill begära stegvis. Mer information om omfattningar och stegvisa godkännanden följer.
 
 I din app-registrering i portalen visas fliken **API-behörigheter** . Detta ger en lista med de API: er och behörigheter (omfattningar) som din app är konfigurerad för att begära åtkomst till. Den visar också en lista över de omfångs namn som är associerade med varje API-behörighet.
 
-### <a name="user-consent"></a>Användargodkännande
+### <a name="user-consent"></a>Användar medgivande
 
 Med ADAL och AAD v1-slutpunkten beviljades användaren de resurser de äger vid första användningen. Med MSAL och Microsoft Identity Platform kan medgivande begäras stegvis. Ett stegvist godkännande är användbart för behörigheter som en användare kan överväga med hög behörighet eller som annars kan frågas om det inte finns en tydlig förklaring av varför behörigheten krävs. I ADAL kan de behörigheterna ha resulterat i att användaren överger inloggningen i din app.
 
@@ -92,23 +89,23 @@ Organisations administratörer kan samtycka till att ge ditt program behörighet
 Om du för närvarande använder ADAL och inte behöver använda ett stegvist tillstånd är det enklaste sättet att börja använda MSAL att göra en `acquireToken`-begäran med det nya `AcquireTokenParameter`-objektet och ange resurs-ID-värdet.
 
 > [!CAUTION]
-> Det går inte att ange både scope och resurs-ID. Om du försöker ange båda leder det till en `IllegalArgumentException`.
+> Det går inte att ange både scope och resurs-ID. Om du försöker ange båda leder det till ett `IllegalArgumentException`.
 
  Detta leder till samma v1-beteende som du använder. Alla behörigheter som begärs i din app-registrering begärs från användaren under den första interaktionen.
 
 ### <a name="authenticate-and-request-permissions-only-as-needed"></a>Autentisera och begär bara behörigheter vid behov
 
-Om du vill dra nytta av ett stegvist medgivande måste du göra en lista över behörigheter (omfattningar) som appen använder från din app-registrering och sedan organisera dem i två listor baserat på:
+Om du vill dra nytta av ett stegvist godkännande ska du göra en lista över behörigheter (omfattningar) som appen använder från din app-registrering och organisera dem i två listor baserat på:
 
 - Vilka omfattningar du vill begära under användarens första interaktion med din app under inloggningen.
 - De behörigheter som associeras med en viktig funktion i din app som du också måste förklara för användaren.
 
-När du har ordnat omfattningarna måste du ordna varje lista efter vilken resurs (API) du vill begära en token för. Samt andra omfång som du vill att användaren ska auktorisera samtidigt.
+När du har ordnat omfattningarna ordnar du varje lista efter vilken resurs (API) du vill begära en token för. Samt andra omfång som du vill att användaren ska auktorisera samtidigt.
 
 Parameter-objektet som används för att göra din begäran till MSAL stöder:
 
-- `Scope`: Listan över omfattningar som du vill begära auktorisering för och ta emot en åtkomsttoken.
-- `ExtraScopesToConsent`: En ytterligare lista med omfattningar som du vill begära auktorisering för när du begär en åtkomsttoken för en annan resurs. Med hjälp av den här listan över omfång kan du minimera antalet gånger som du behöver begära användar godkännande. Vilket innebär färre användares auktorisering eller medgivande.
+- `Scope`: listan över omfattningar som du vill begära auktorisering för och ta emot en åtkomsttoken.
+- `ExtraScopesToConsent`: en ytterligare lista med omfattningar som du vill begära auktorisering för när du begär en åtkomsttoken för en annan resurs. Med hjälp av den här listan över omfång kan du minimera antalet gånger som du behöver begära användar godkännande. Vilket innebär färre användares auktorisering eller medgivande.
 
 ## <a name="migrate-from-authenticationcontext-to-publicclientapplications"></a>Migrera från AuthenticationContext till PublicClientApplications
 
@@ -118,7 +115,7 @@ När du använder MSAL instansierar du en `PublicClientApplication`. Det här ob
 
 Du kan deklarativ konfigurera det här objektet med JSON, som du antingen anger som en fil eller lagra som en resurs i din APK.
 
-Även om det här objektet inte är en singleton, använder det internt delade `Executors` för både interaktiva och tysta förfrågningar.
+Även om det här objektet inte är en singleton, använder internt det delade `Executors` för både interaktiva och tysta begär Anden.
 
 ### <a name="business-to-business"></a>Företag till företag
 
@@ -131,11 +128,11 @@ MSAL har inte någon flagga för att aktivera eller inaktivera verifiering av ut
 > [!TIP]
 > Om du är en Azure Business to Consumer-användare (B2C) innebär det att du inte längre behöver inaktivera verifiering av utfärdare. Inkludera i stället var och en av de Azure AD B2C principerna som stöds som utfärdare i din MSAL-konfiguration.
 
-Om du försöker använda en auktoritet som inte är känd för Microsoft och som inte ingår i din konfiguration får du en `UnknownAuthorityException`.
+Om du försöker använda en auktoritet som inte är känd för Microsoft, och som inte ingår i din konfiguration, får du en `UnknownAuthorityException`.
 
 ### <a name="logging"></a>Loggning
-Du kan nu deklarativ Konfigurera loggning som en del av konfigurationen, t. ex. nedan
- 
+Du kan nu deklarativ Konfigurera loggning som en del av konfigurationen, så här:
+
  ```
  "logging": {
     "pii_enabled": false,
@@ -158,13 +155,13 @@ Sam fungerar för Contoso.com men hanterar virtuella Azure-datorer som tillhör 
 
 Om du lägger till Sams Contoso.com-konto som en medlem i Fabrikam.com skulle det leda till att en ny post skapas i Fabrikam. com: s Azure Active Directory för Sam. Sam-posten i Azure Active Directory kallas för ett användar objekt. I det här fallet pekar användarobjektet tillbaka till Sams användar objekt i Contoso.com. Sam: s Fabrikam User-objekt är den lokala åter givningen av Sam och används för att lagra information om det konto som är associerat med Sam i kontexten för Fabrikam.com. I Contoso.com är Sam-titeln erfaren DevOps-konsult. I Fabrikam är Sam-titeln entreprenör-Virtual Machines. I Contoso.com är Sam inte ansvarigt eller auktoriserat för att hantera virtuella datorer. I Fabrikam.com är det bara jobb funktionen. Sam har fortfarande bara en uppsättning autentiseringsuppgifter för att hålla reda på, vilka är de autentiseringsuppgifter som utfärdats av Contoso.com.
 
-När ett lyckat `acquireToken`-anrop görs visas en referens till ett `IAccount`-objekt som kan användas i senare `acquireTokenSilent`-förfrågningar.
+När ett lyckat `acquireToken`-anrop görs visas en referens till ett `IAccount`-objekt som kan användas i senare `acquireTokenSilent` förfrågningar.
 
 ### <a name="imultitenantaccount"></a>IMultiTenantAccount
 
-Om du har en app som har åtkomst till anspråk om ett konto från var och en av de klienter där kontot visas, kan du omvandla `IAccount`-objekt till `IMultiTenantAccount`. Det här gränssnittet innehåller en karta över `ITenantProfiles`, som ställts in av klient-ID, som gör att du kan komma åt de anspråk som tillhör kontot i var och en av de klienter som du har begärt en token från, i förhållande till det aktuella kontot.
+Om du har en app som har åtkomst till anspråk om ett konto från var och en av de klienter där kontot visas, kan du omvandla `IAccount` objekt till `IMultiTenantAccount`. Det här gränssnittet innehåller en karta över `ITenantProfiles`, som ställts in efter klient-ID, som gör att du kan komma åt de anspråk som tillhör kontot i var och en av de klienter som du har begärt en token från, i förhållande till det aktuella kontot.
 
-Anspråken i roten av `IAccount` och `IMultiTenantAccount` innehåller alltid anspråk från hem klienten. Om du ännu inte har gjort en begäran om en token inom hem klienten, kommer den här samlingen att vara tom.
+Anspråk i roten av `IAccount` och `IMultiTenantAccount` innehåller alltid anspråk från hem klienten. Om du ännu inte har gjort en begäran om en token inom hem klienten, kommer den här samlingen att vara tom.
 
 ## <a name="other-changes"></a>Andra ändringar
 
@@ -241,7 +238,7 @@ public interface SilentAuthenticationCallback {
 
 ## <a name="migrate-to-the-new-exceptions"></a>Migrera till de nya undantagen
 
-I ADAL finns det en typ av undantag, `AuthenticationException`, som innehåller en metod för att hämta @no__t 1-uppräkning svärdet.
+I ADAL finns det en typ av undantag, `AuthenticationException`, som innehåller en metod för att hämta `ADALError` Enum-värdet.
 I MSAL finns det en hierarki med undantag och var och en har en egen uppsättning av tillhör ande specifika felkoder.
 
 Lista över MSAL-undantag

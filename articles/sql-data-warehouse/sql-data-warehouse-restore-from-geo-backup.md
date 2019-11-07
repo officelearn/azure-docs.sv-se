@@ -1,5 +1,5 @@
 ---
-title: Återställa en Azure SQL Data Warehouse från en geo-säkerhetskopiering | Microsoft Docs
+title: Återställa ett informations lager från en geo-säkerhetskopiering
 description: Instruktions guide för geo-återställning av en Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: anumjs
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 768646522c2589c302fd7a58031d4ebdb7fcdc12
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 69eb1221686da61868df8b06ed80664ae76d1627
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68426660"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685499"
 ---
 # <a name="geo-restore-azure-sql-data-warehouse"></a>Geo-Restore-Azure SQL Data Warehouse
 
@@ -29,7 +30,7 @@ I den här artikeln får du lära dig att återställa ditt informations lager f
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>Återställa från en geografisk Azure-region via PowerShell
 
-Om du vill återställa från en geo-säkerhets kopiering använder du cmdleten [Get-AzSqlDatabaseGeoBackup][Get-AzSqlDatabaseGeoBackup] och Restore [-AzSqlDatabase][Restore-AzSqlDatabase] .
+Om du vill återställa från en geo-säkerhets kopiering använder du cmdleten [Get-AzSqlDatabaseGeoBackup][Get-AzSqlDatabaseGeoBackup] och [restore-AzSqlDatabase][Restore-AzSqlDatabase] .
 
 > [!NOTE]
 > Du kan utföra en geo-återställning till Gen2! Det gör du genom att ange en Gen2-ServiceObjectiveName (t. ex. DW1000**c**) som en valfri parameter.
@@ -79,12 +80,12 @@ Följ stegen som beskrivs nedan för att återställa en Azure SQL Data Warehous
 1. Klicka på **+ skapa en resurs** och sök efter SQL Data Warehouse och klicka på **skapa**.
 
     ![Ny DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
-1. Fyll i informationen som begärs på fliken **grundläggande** och klicka **på Nästa: Ytterligare inställningar**.
+1. Fyll i informationen som begärs på fliken **grundläggande** och klicka på **Nästa: ytterligare inställningar**.
 
-    ![Grundinställningar](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
+    ![Grundläggande inställningar](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 1. Om du vill **använda befintlig data** parameter väljer du **säkerhets kopiering** och väljer lämplig säkerhets kopia från rullnings List alternativen. Klicka på **Granska + skapa**.
  
-   ![säkerhetskopiera](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
+   ![säkerhetskopiering](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 2. När data lagret har återställts kontrollerar du att **statusen** är online.
 
 ## <a name="next-steps"></a>Nästa steg

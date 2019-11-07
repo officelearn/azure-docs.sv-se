@@ -1,5 +1,5 @@
 ---
-title: Anslutnings arkitektur för en hanterad instans i Azure SQL Database | Microsoft Docs
+title: Anslutnings arkitektur för en hanterad instans i Azure SQL Database
 description: Lär dig mer om Azure SQL Database Hanterad instans-och anslutnings arkitektur samt hur komponenterna dirigerar trafik till den hanterade instansen.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 04/16/2019
-ms.openlocfilehash: 7e32cb302322f7a80154a3f2a246d7d4f1743c09
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 881f116988ae0c9a6a33c8454cd1e4012580bfab
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249373"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688198"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Anslutnings arkitektur för en hanterad instans i Azure SQL Database
 
@@ -66,7 +66,7 @@ Låt oss ta en djupare titt på anslutnings arkitekturen för hanterade instanse
 
 ![Anslutnings arkitektur för det virtuella klustret](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-Klienter ansluter till en hanterad instans med hjälp av ett värdnamn som har formatet `<mi_name>.<dns_zone>.database.windows.net`. Det här värd namnet matchar en privat IP-adress även om den är registrerad i en offentlig Domain Name System (DNS)-zon och kan matchas offentligt. @No__t-0 genereras automatiskt när du skapar klustret. Om ett nytt kluster är värd för en sekundär hanterad instans, delar den sitt zon-ID med det primära klustret. Mer information finns i [använda grupper för automatisk redundans för att aktivera transparent och koordinerad redundansväxling av flera databaser](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
+Klienter ansluter till en hanterad instans med hjälp av ett värdnamn som har formuläret `<mi_name>.<dns_zone>.database.windows.net`. Det här värd namnet matchar en privat IP-adress även om den är registrerad i en offentlig Domain Name System (DNS)-zon och kan matchas offentligt. `zone-id` skapas automatiskt när du skapar klustret. Om ett nytt kluster är värd för en sekundär hanterad instans, delar den sitt zon-ID med det primära klustret. Mer information finns i [använda grupper för automatisk redundans för att aktivera transparent och koordinerad redundansväxling av flera databaser](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
 
 Den här privata IP-adressen tillhör den hanterade instansens interna belastningsutjämnare. Belastningsutjämnaren dirigerar trafiken till den hanterade instansens Gateway. Eftersom flera hanterade instanser kan köras i samma kluster använder gatewayen den hanterade instansens värdnamn för att dirigera om trafik till rätt SQL-motortjänster.
 
@@ -112,7 +112,7 @@ Distribuera en hanterad instans i ett dedikerat undernät i det virtuella nätve
 > [!IMPORTANT]
 > Se till att det bara finns en regel för inkommande trafik för portarna 9000, 9003, 1438, 1440, 1452 och en utgående regel för portarna 80, 443, 12000. Hantering av hanterade instanser via Azure Resource Manager-distributioner Miss fungerar om inkommande och utgående regler har kon figurer ATS separat för varje port. Om de här portarna finns i separata regler fungerar inte distributionen med felkoden `VnetSubnetConflictWithIntendedPolicy`
 
-\* MI-UNDERNÄT refererar till IP-adressintervallet för under nätet i formatet 10. x. x/y. Du hittar den här informationen i Azure Portal i under näts egenskaper.
+\* MI-UNDERNÄT refererar till under nätets IP-adressintervall i formatet 10. x. x/y. Du hittar den här informationen i Azure Portal i under näts egenskaper.
 
 > [!IMPORTANT]
 > Även om de obligatoriska inkommande säkerhets reglerna tillåter trafik från vilken källa som _helst_ på portarna 9000, 9003, 1438, 1440 och 1452, skyddas dessa portar av en inbyggd brand vägg. Mer information finns i [ta reda på hanterings slut punktens adress](sql-database-managed-instance-find-management-endpoint-ip-address.md).
@@ -240,7 +240,7 @@ Med konfigurations användaren för tjänste under nätet används en fullständ
 Distribuera en hanterad instans i ett dedikerat undernät i det virtuella nätverket. Under nätet måste ha följande egenskaper:
 
 - **Dedikerat undernät:** Under nätet för den hanterade instansen får inte innehålla någon annan moln tjänst som är kopplad till den, och det får inte vara ett Gateway-undernät. Under nätet får inte innehålla någon resurs, men den hanterade instansen, och du kan inte senare lägga till andra typer av resurser i under nätet.
-- **Under näts delegering:** Under nätet för den hanterade instansen måste delegeras till `Microsoft.Sql/managedInstances`-resurs leverantör.
+- **Under näts delegering:** Under nätet för den hanterade instansen måste delegeras till `Microsoft.Sql/managedInstances` Resource Provider.
 - **Nätverks säkerhets grupp (NSG):** En NSG måste vara kopplad till under nätet för den hanterade instansen. Du kan använda en NSG för att styra åtkomsten till data slut punkten för den hanterade instansen genom att filtrera trafiken på port 1433 och portarna 11000-11999 när den hanterade instansen har kon figurer ATS för Tjänsten lägger automatiskt till [regler](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) som krävs för att tillåta oavbrutet flöde av hanterings trafik.
 - **Användardefinierad routningstabell (UDR):** En UDR-tabell måste vara kopplad till under nätet för den hanterade instansen. Du kan lägga till poster i routningstabellen för att dirigera trafik som har lokala privata IP-adressintervall som mål via den virtuella Nätverksgatewayen eller Virtual Network-apparaten (NVA). Tjänsten lägger automatiskt till [poster](#user-defined-routes-with-service-aided-subnet-configuration) som krävs för att tillåta oavbrutet flöde av hanterings trafik.
 - **Tjänst slut punkter:** Tjänst slut punkter kan användas för att konfigurera virtuella nätverks regler på lagrings konton som håller säkerhets kopior/gransknings loggar.
@@ -425,7 +425,7 @@ Distribuera en hanterad instans i ett dedikerat undernät i det virtuella nätve
 |mi-216-220-208-20-nexthop-Internet|216.220.208.0/20|Internet|
 ||||
 
-\* MI-UNDERNÄT refererar till IP-adressintervallet för under nätet i formatet 10. x. x/y. Du hittar den här informationen i Azure Portal i under näts egenskaper.
+\* MI-UNDERNÄT refererar till under nätets IP-adressintervall i formatet 10. x. x/y. Du hittar den här informationen i Azure Portal i under näts egenskaper.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -436,4 +436,4 @@ Distribuera en hanterad instans i ett dedikerat undernät i det virtuella nätve
   - Från [Azure Portal](sql-database-managed-instance-get-started.md).
   - Med hjälp av [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
   - Med hjälp av [en Azure Resource Manager-mall](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
-  - Genom att använda [en Azure Resource Manager mall (med hjälp av hopp, med SSMS ingår)](https://azure.microsoft.com/en-us/resources/templates/201-sqlmi-new-vnet-w-jumpbox/). 
+  - Genom att använda [en Azure Resource Manager mall (med hjälp av hopp, med SSMS ingår)](https://azure.microsoft.com/resources/templates/201-sqlmi-new-vnet-w-jumpbox/). 

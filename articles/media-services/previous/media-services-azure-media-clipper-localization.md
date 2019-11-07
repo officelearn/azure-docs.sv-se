@@ -1,44 +1,44 @@
 ---
-title: Konfigurera Azure Media Clipper lokalisering | Microsoft Docs
-description: Läs mer om Azure Media Clipper stöds språk och lokaliseringsstöd
+title: Konfigurera Azure Media Clipper-lokalisering | Microsoft Docs
+description: Lär dig om språk som stöds i Azure Media Clipper och lokaliserings stöd
 services: media-services
-keywords: Clip, underklipp, kodning, media
-author: dbgeorge
-manager: jasonsue
-ms.author: dwgeo
+keywords: klipp; subclip; encoding; Media
+author: Juliako
+manager: femila
+ms.author: juliako
 ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 41fd483a0b78619db6d018cf4b2ab7933a7c3031
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 96ffdfe5e6b3e913bd5596dd624e35afcaecfabe
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465804"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685023"
 ---
 # <a name="configure-localization"></a>Konfigurera lokalisering 
 
-Azure Media Clipper finns på 18 språk. Om du vill ange widget-språk, måste du definiera den `language` parametern under initieringen. Skicka i kod-strängen önskat språk i listan nedan:
+Azure Media Clipper är tillgängligt på 18 språk. Om du vill ange språket för widget måste du definiera parametern `language` under initieringen. Överför den önskade språk kods strängen från följande lista:
 - Kinesiska (förenklad): zh-hans
-- Kinesiska (traditionell): zh-hant
-- Tjeckiska: cs
-- Nederländska, Flemish: nl
+- Kinesiska (traditionell): zh-Hant
+- Tjeckiska: CS
+- Holländska, flamländska: nl
 - Engelska: en
 - Franska: fr
-- Tyska: Tyskland
+- Tyska: de
 - Ungerska: hu
-- Italienska: den
-- Japanese: ja
-- Korean: ko
+- Italienska: IT
+- Japanska: Ja
+- Koreanska: Ko
 - Polska: pl
 - Portugisiska (Brasilien): pt-br
 - Portugisiska (Portugal): pt-pt
 - Ryska: ru
 - Spanska: es
-- Svenska: SA
+- Svenska: sa
 - Turkiska: tr
 
-Ange ett anpassat språkordlista eller utöka standardspråk och ordlista, måste du definiera den `languages` eller `extraLanguages` parametern respektive. Skicka in en egen ordlista med följande JSON-format:
+Om du vill ange en anpassad ord lista eller utöka standard språk ord listan måste du definiera `languages` respektive `extraLanguages`-parametern. Skicka i en anpassad ord lista med följande JSON-format:
 
 ```javascript
 {
@@ -50,7 +50,7 @@ Ange ett anpassat språkordlista eller utöka standardspråk och ordlista, måst
 }
 ```
 
-I följande exempel definierar exempelvis lokaliserade engelska strängar:
+Följande exempel definierar till exempel de lokaliserade engelska strängarna:
 
 ```javascript
 {
@@ -141,6 +141,6 @@ I följande exempel definierar exempelvis lokaliserade engelska strängar:
 
 ## <a name="next-steps"></a>Nästa steg
 Se nästa steg för att konfigurera Azure Media Clipper:
-- [Läsa in tillgångar i Azure Media Clipper](media-services-azure-media-clipper-load-assets.md)
+- [Läsa in till gångar i Azure Media Clipper](media-services-azure-media-clipper-load-assets.md)
 - [Konfigurera anpassade kortkommandon](media-services-azure-media-clipper-keyboard-shortcuts.md)
-- [Skicka urklippningsjobb från Clipper](media-services-azure-media-clipper-submit-job.md)
+- [Skicka urklipps jobb från Clipper](media-services-azure-media-clipper-submit-job.md)

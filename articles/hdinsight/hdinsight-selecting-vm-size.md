@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: d93c3599bb4a52a03d4ac436ca664ce6be1c55b9
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: a21e8d6c76c93b3084619c09f6a7664a25c1929c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200832"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682209"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Välja rätt VM-storlek för ditt Azure HDInsight-kluster
 
@@ -45,7 +45,7 @@ Virtuella dator familjer i Azure är optimerade för att passa olika användning
 | [Beräkningsoptimerad](../virtual-machines/linux/sizes-compute.md)        | F           | Högt förhållande mellan processor och minne. Bra för webbservrar med medelhög trafik, nätverkstillämpningar, batchprocesser och programservrar.        |
 | [Minnesoptimerad](../virtual-machines/linux/sizes-memory.md)         | Esv3, Ev3  | Högt förhållande mellan minne och processor. Utmärkt för relationsdatabasservrar, mellanstora till stora cacheminnen och minnesinterna analyser.                 |
 
-- Information om priser för tillgängliga VM-instanser i regioner som stöds av HDInsight finns i avsnittet om [priser för HDInsight](https://azure.microsoft.com/en-us/pricing/details/hdinsight/).
+- Information om priser för tillgängliga VM-instanser i regioner som stöds av HDInsight finns i avsnittet om [priser för HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="cost-saving-vm-types-for-light-workloads"></a>Kostnads besparing av VM-typer för lätta arbets belastningar
 
@@ -59,8 +59,8 @@ I följande tabell beskrivs de olika typerna av kluster och nodtyper som kan ska
 | Hadoop | Alla | F4 och över | nej | nej |
 | Kafka | Alla | F4 och över | nej | nej |
 | HBase | Alla | F4 och över | nej | nej |
-| LLAP | Inaktiverats | nej | nej | nej |
-| Storm | Inaktiverats | nej | nej | nej |
+| LLAP | inaktiverats | nej | nej | nej |
+| Storm | inaktiverats | nej | nej | nej |
 | ML-tjänst | HDI 3,6 ENDAST | F4 och över | nej | nej |
 
 För att se specifikationerna för varje SKU för F-serien, se [VM-storlekar i f-serien](https://azure.microsoft.com/blog/f-series-vm-size/).

@@ -1,7 +1,7 @@
 ---
 title: Enkel entitetstyp – LUIS
 titleSuffix: Azure Cognitive Services
-description: En enkel entitet är en generisk entitet som beskriver ett enda koncept och som har lärts från den dator som har lärts. Eftersom enkla entiteter vanligt vis är namn, till exempel företags namn, produkt namn eller andra kategorier av namn, lägger du till en fras lista när du använder en enkel entitet för att öka signalen av de namn som används.
+description: En enkel entitet beskriver ett enda koncept från den dator som har lärts. Lägg till en fras lista när du använder en enkel entitet för att förbättra resultaten.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: 2eb3ff847f9bfc162adfb281d2ac1fad6f8c5093
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 27eb4d827c1488b0d051505e62286fd66d6a286b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695131"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671505"
 ---
 # <a name="simple-entity"></a>Enkel entitet 
 
@@ -25,15 +25,15 @@ En enkel entitet är en generisk entitet som beskriver ett enda koncept och som 
 
 * Data formateras inte konsekvent, utan anger samma sak. 
 
-![enkel enhet](./media/luis-concept-entities/simple-entity.png)
+![enkel entitet](./media/luis-concept-entities/simple-entity.png)
 
-## <a name="example-json"></a>Exempel på JSON
+## <a name="example-json"></a>Exempel-JSON
 
 `Bob Jones wants 3 meatball pho`
 
-I den föregående uttryck `Bob Jones` är märkt som en enkel `Customer` entitet.
+I föregående uttryck är `Bob Jones` märkta som en enkel `Customer` entitet.
 
-De data som returneras från slutpunkten innehåller entitetsnamnet, identifierade texten från uttryck, platsen för den identifierade texten och poängen:
+Data som returneras från slut punkten innehåller enhets namnet, den identifierade texten från uttryck, platsen för den identifierade texten och poängen:
 
 #### <a name="v2-prediction-endpoint-responsetabv2"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
@@ -88,9 +88,9 @@ This is the JSON if `verbose=true` is set in the query string:
 
 * * * 
 
-|Dataobjekt|Entitetsnamn|Värde|
+|Data objekt|Entitetsnamn|Värde|
 |--|--|--|
-|Enkel enhet|`Customer`|`bob jones`|
+|Enkel entitet|`Customer`|`bob jones`|
 
 ## <a name="next-steps"></a>Nästa steg
 

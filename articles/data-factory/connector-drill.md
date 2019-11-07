@@ -1,5 +1,5 @@
 ---
-title: Kopiera data från detalj nivån med Azure Data Factory | Microsoft Docs
+title: Kopiera data från detalj nivån med Azure Data Factory
 description: Lär dig hur du kopierar data från en detalj nivå till mottagar data lager med stöd för en kopierings aktivitet i en Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: bdbb5742c74ff2b8871b00c7251af03ec8e026ad
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3d91e8df3f0ecafc133b82dcb0172dbbba966e27
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931131"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681035"
 ---
 # <a name="copy-data-from-drill-using-azure-data-factory"></a>Kopiera data från detalj nivån med Azure Data Factory
 
@@ -34,7 +34,7 @@ Du kan kopiera data från detalj nivån till alla mottagar data lager som stöds
 
 Azure Data Factory innehåller en inbyggd driv rutin som möjliggör anslutning, och du behöver därför inte installera någon driv rutin manuellt med hjälp av den här anslutningen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -115,7 +115,7 @@ Om du vill kopiera data från detalj nivån anger du egenskapen type för data u
 |:--- |:--- |:--- |
 | typ | Data uppsättningens typ-egenskap måste anges till: **DrillTable** | Ja |
 | Schema | Schemats namn. |Nej (om "fråga" i aktivitets källan har angetts)  |
-| Partitionstabell | Tabellens namn. |Nej (om "fråga" i aktivitets källan har angetts)  |
+| partitionstabell | Tabellens namn. |Nej (om "fråga" i aktivitets källan har angetts)  |
 | tableName | Namnet på tabellen med schemat. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` och `table` för nya arbets belastningar. | Nej (om "fråga" i aktivitets källan har angetts) |
 
 **Exempel**
@@ -146,7 +146,7 @@ Om du vill kopiera data från en detalj nivå anger du käll typen i kopierings 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **DrillSource** | Ja |
-| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
+| query | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**
 

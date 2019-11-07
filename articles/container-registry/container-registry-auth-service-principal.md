@@ -6,18 +6,18 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 10/04/2019
 ms.author: danlep
-ms.openlocfilehash: 16ad37eaa50f0c3825d131338cc4a0abdc369978
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 4cb678e1ffa73731c6c1444f87fec588da7ddfbf
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72262881"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681835"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Azure Container Registry autentisering med tjänstens huvud namn
 
-Du kan använda ett Azure Active Directory (Azure AD) tjänstens huvud namn för att tillhandahålla behållar avbildning `docker push` och @no__t 1-åtkomst till ditt behållar register. Genom att använda ett huvud namn för tjänsten kan du ge åtkomst till "konsol löst" tjänster och program.
+Du kan använda ett Azure Active Directory (Azure AD) tjänstens huvud namn för att tillhandahålla behållar avbildning `docker push` och `pull` åtkomst till behållar registret. Genom att använda ett huvud namn för tjänsten kan du ge åtkomst till "konsol löst" tjänster och program.
 
 ## <a name="what-is-a-service-principal"></a>Vad är ett huvudnamn för tjänsten?
 
@@ -29,11 +29,11 @@ I samband med Azure Container Registry kan du skapa en Azure AD-tjänstens huvud
 
 Genom att använda ett Azure AD-tjänstens huvud namn kan du ge begränsad åtkomst till ditt privata behållar register. Skapa olika tjänst huvud namn för var och en av dina program eller tjänster, var och en med anpassade åtkomst rättigheter till registret. Eftersom du kan undvika att dela autentiseringsuppgifter mellan tjänster och program kan du rotera autentiseringsuppgifter eller återkalla åtkomsten för enbart tjänstens huvud namn (och därmed det program) du väljer.
 
-Du kan till exempel konfigurera ditt webb program så att det använder ett huvud namn för tjänsten som tillhandahåller avbildning `pull` endast åtkomst, medan ditt build-system använder ett huvud namn för tjänsten som ger det både `push`-och `pull`-åtkomst. Om utvecklingen av dina program ändringar händer kan du rotera dess autentiseringsuppgifter för tjänst principen utan att påverka build-systemet.
+Du kan till exempel konfigurera ditt webb program så att det använder ett huvud namn för tjänsten som tillhandahåller avbildningen `pull` endast åtkomst, medan ditt build-system använder ett huvud namn för tjänsten som ger det både `push` och `pull` åtkomst. Om utvecklingen av dina program ändringar händer kan du rotera dess huvud namn för tjänsten utan att påverka build-systemet.
 
 ## <a name="when-to-use-a-service-principal"></a>När du ska använda ett huvud namn för tjänsten
 
-Du bör använda ett huvud namn för tjänsten för att ge register åtkomst i **konsolbaserade scenarier**. Det vill säga alla program, tjänster eller skript som måste push-överföra eller hämta behållar avbildningar på ett automatiserat eller på annat sätt obevakat sätt. Exempel:
+Du bör använda ett huvud namn för tjänsten för att ge register åtkomst i **konsolbaserade scenarier**. Det vill säga alla program, tjänster eller skript som måste push-överföra eller hämta behållar avbildningar på ett automatiserat eller på annat sätt obevakat sätt. Till exempel:
 
   * *Hämta*: Distribuera behållare från ett register till Orchestration-system, inklusive KUBERNETES, DC/OS och Docker Swarm. Du kan också hämta från behållar register till relaterade Azure-tjänster som [Azure Kubernetes service (AKS)](../aks/cluster-container-registry-integration.md), [Azure Container instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/)och andra.
 
@@ -52,7 +52,7 @@ Du kan hitta föregående exempel skript för Azure CLI på GitHub, samt version
 
 ## <a name="authenticate-with-the-service-principal"></a>Autentisera med tjänstens huvud namn
 
-När du har fått ett huvud namn för tjänsten som du har beviljat åtkomst till behållar registret kan du konfigurera dess autentiseringsuppgifter för åtkomst till "automatiskt" tjänster och program, eller ange dem med kommandot `docker login`. Ange följande värden:
+När du har ett huvud namn för tjänsten som du har beviljat åtkomst till behållar registret kan du konfigurera dess autentiseringsuppgifter för åtkomst till "automatiskt" tjänster och program, eller ange dem med hjälp av kommandot `docker login`. Ange följande värden:
 
 * **Användar namn** – program-ID för tjänstens huvud namn (kallas även *klient-ID*)
 * **Lösen** ord för tjänstens huvud namn (kallas även *klient hemlighet*)
@@ -65,13 +65,13 @@ Varje värde är ett GUID för formuläret `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
 ### <a name="use-credentials-with-azure-services"></a>Använd autentiseringsuppgifter med Azure-tjänster
 
-Du kan använda autentiseringsuppgifter för tjänstens huvud namn från alla Azure-tjänster som kan autentiseras med ett Azure Container Registry.  Använd autentiseringsuppgifterna för tjänstens huvud namn i stället för registrets administratörsautentiseringsuppgifter för en mängd olika scenarier.
+Du kan använda autentiseringsuppgifter för tjänstens huvud namn från valfri Azure-tjänst som autentiserar med ett Azure Container Registry.  Använd autentiseringsuppgifterna för tjänstens huvud namn i stället för registrets administratörsautentiseringsuppgifter för en mängd olika scenarier.
 
 Använd till exempel autentiseringsuppgifterna för att hämta en avbildning från ett Azure Container Registry till [Azure Container instances](container-registry-auth-aci.md).
 
 ### <a name="use-with-docker-login"></a>Använd med Docker-inloggning
 
-Du kan också köra `docker login` med ett huvud namn för tjänsten. I följande exempel skickas ID: t för tjänstens huvud namn i miljövariabeln `$SP_APP_ID`, och lösen ordet i variabeln `$SP_PASSWD`. Metod tips för att hantera Docker-autentiseringsuppgifter finns i kommando referensen [Docker login](https://docs.docker.com/engine/reference/commandline/login/) .
+Du kan köra `docker login` med ett huvud namn för tjänsten. I följande exempel skickas program-ID: t för tjänstens huvud namn i miljövariabeln `$SP_APP_ID`och lösen ordet i variabeln `$SP_PASSWD`. Metod tips för att hantera Docker-autentiseringsuppgifter finns i kommando referensen [Docker login](https://docs.docker.com/engine/reference/commandline/login/) .
 
 ```bash
 # Log in to Docker with service principal credentials
@@ -79,6 +79,26 @@ docker login myregistry.azurecr.io --username $SP_APP_ID --password $SP_PASSWD
 ```
 
 När du har loggat in cachelagras autentiseringsuppgifterna av Docker.
+
+### <a name="use-with-certificate"></a>Använd med certifikat
+
+Om du har lagt till ett certifikat till tjänstens huvud namn kan du logga in på Azure CLI med certifikatbaserad autentisering och sedan använda kommandot [AZ ACR login][az-acr-login] för att få åtkomst till ett register. Att använda ett certifikat som en hemlighet i stället för ett lösen ord ger ytterligare säkerhet när du använder CLI. 
+
+Du kan skapa ett självsignerat certifikat när du [skapar ett huvud namn för tjänsten](/cli/azure/create-an-azure-service-principal-azure-cli). Du kan också lägga till ett eller flera certifikat till ett befintligt huvud namn för tjänsten. Om du till exempel använder ett av skripten i den här artikeln för att skapa eller uppdatera ett huvud namn för tjänsten med rättigheter att hämta eller skicka avbildningar från ett register, lägger du till ett certifikat med hjälp av kommandot [AZ AD SP Credential rereset][az-ad-sp-credential-reset] .
+
+Om du vill använda tjänstens huvud namn med certifikat för att [Logga in på Azure CLI](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal)måste certifikatet vara i PEM-format och innehålla den privata nyckeln. Om certifikatet inte är i det format som krävs använder du ett verktyg som `openssl` för att konvertera det. När du kör [AZ-inloggningen][az-login] för att logga in på CLI med hjälp av tjänstens huvud namn, ska du också ange program-ID för tjänstens huvud namn och Active Directory klient-ID. I följande exempel visas dessa värden som miljövariabler:
+
+```azurecli
+az login --service-principal --username $SP_APP_ID --tenant $SP_TENANT_ID  --password /path/to/cert/pem/file
+```
+
+Kör sedan [AZ ACR-inloggning][az-acr-login] för att autentisera med registret:
+
+```azurecli
+az acr login --name myregistry
+```
+
+CLI använder den token som skapades när du körde `az login` för att autentisera din session med registret.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -92,3 +112,5 @@ När du har loggat in cachelagras autentiseringsuppgifterna av Docker.
 
 <!-- LINKS - Internal -->
 [az-acr-login]: /cli/azure/acr#az-acr-login
+[az-login]: /cli/azure/reference-index#az-login
+[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#[az-ad-sp-credential-reset]

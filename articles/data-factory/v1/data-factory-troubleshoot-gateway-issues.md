@@ -1,6 +1,6 @@
 ---
-title: Felsökning av problem med Gateway för datahantering | Microsoft Docs
-description: Innehåller tips för att felsöka problem med Gateway för datahantering.
+title: Felsöka Data Management Gateway problem
+description: Innehåller tips för att felsöka problem som rör Data Management Gateway.
 services: data-factory
 author: nabhishek
 manager: craigg
@@ -12,192 +12,192 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0559d89bd691323a95713d518df05e58283cef39
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34930061189c11c9cea9c2cd0feb2ede9aade74d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61253759"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682325"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Felsöka problem med gateway för datahantering
-Den här artikeln innehåller information om hur du felsöker problem med Gateway för datahantering.
+Den här artikeln innehåller information om fel sökning av problem med att använda Data Management Gateway.
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Azure Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [lokal IR i Data Factory](../create-self-hosted-integration-runtime.md).
+> Den här artikeln gäller för version 1 av Azure Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory, se [integration runtime med egen värd i Data Factory](../create-self-hosted-integration-runtime.md).
 
-Se den [Data Management Gateway](data-factory-data-management-gateway.md) artikeln för detaljerad information om gatewayen. Se den [flytta data mellan lokala och molnbaserade](data-factory-move-data-between-onprem-and-cloud.md) artikeln en genomgång för att flytta data från en lokal SQL Server-databas till Microsoft Azure Blob storage med hjälp av gatewayen.
+Se [Data Management Gateway](data-factory-data-management-gateway.md) -artikeln för detaljerad information om gatewayen. Se artikeln [Flytta data mellan lokalt och moln](data-factory-move-data-between-onprem-and-cloud.md) för en genom gång av hur du flyttar data från en lokal SQL Server databas till Microsoft Azure Blob Storage med hjälp av gatewayen.
 
-## <a name="failed-to-install-or-register-gateway"></a>Det gick inte att installera eller registrera gateway
-### <a name="1-problem"></a>1. Problem
-Du ser det här felmeddelandet när du installerar och registrerar en gateway, särskilt vid nedladdning av gateway-installationsfilen.
+## <a name="failed-to-install-or-register-gateway"></a>Det gick inte att installera eller registrera Gateway
+### <a name="1-problem"></a>1. problem
+Du ser det här fel meddelandet när du installerar och registrerar en gateway, särskilt när du laddar ned gatewayens installations fil.
 
 `Unable to connect to the remote server". Please check your local settings (Error Code: 10003).`
 
 #### <a name="cause"></a>Orsak
-Den dator som du försöker installera gatewayen kunde inte ladda ned den senaste gateway-klientinstallationsfilen från download center på grund av ett nätverksproblem.
+Den dator som du försöker installera gatewayen på har inte kunnat hämta den senaste Gateway-installationsmappen från Download Center på grund av ett nätverks problem.
 
 #### <a name="resolution"></a>Lösning
-Kontrollera inställningarna för brandväggen proxyservern om du vill se om inställningarna blockera nätverksanslutningen från datorn till den [hämtningssidan](https://download.microsoft.com/), och uppdatera inställningarna i enlighet med detta.
+Kontrol lera inställningarna för din brand Väggs proxyserver för att se om inställningarna blockerar nätverks anslutningen från datorn till [Download Center](https://download.microsoft.com/)och uppdatera inställningarna efter behov.
 
-Du kan också hämta installationsfilen för den senaste gatewayen från den [hämtningssidan](https://www.microsoft.com/download/details.aspx?id=39717) på andra datorer som har åtkomst till download center. Du kan kopiera installationsfilen till gateway-värddatorn och köra den manuellt för att installera och uppdatera gatewayen.
+Du kan också hämta installations filen för den senaste gatewayen från [Download Center](https://www.microsoft.com/download/details.aspx?id=39717) på andra datorer som har åtkomst till Download Center. Du kan sedan kopiera installations filen till gateway-värddatorn och köra den manuellt för att installera och uppdatera gatewayen.
 
-### <a name="2-problem"></a>2. Problem
-Du ser det här felet när du försöker installera en gateway genom att klicka på **installera direkt på den här datorn** i Azure-portalen.
+### <a name="2-problem"></a>2. problem
+Du ser det här felet när du försöker installera en gateway genom att klicka på **installera direkt på den här datorn** i Azure Portal.
 
 `Error:  Abort installing a new gateway on this computer because this computer has an existing installed gateway and a computer without any installed gateway is required for installing a new gateway.`  
 
 #### <a name="cause"></a>Orsak
-En gateway har installerats på datorn.
+Det finns redan en gateway installerad på datorn.
 
 #### <a name="resolution"></a>Lösning
-Avinstallera den befintliga gatewayen på datorn och klicka på den **installera direkt på den här datorn** länka igen.
+Avinstallera den befintliga gatewayen på datorn och klicka på länken **installera direkt på datorn** igen.
 
-### <a name="3-problem"></a>3. Problem
-Du kan se det här felet när du registrerar en ny gateway.
+### <a name="3-problem"></a>3. problem
+Du kanske ser det här felet när du registrerar en ny Gateway.
 
 `Error: The gateway has encountered an error during registration.`
 
 #### <a name="cause"></a>Orsak
-Det här meddelandet kan visas för någon av följande orsaker:
+Du kan se det här meddelandet av någon av följande orsaker:
 
-* Formatet på den gateway-nyckeln är ogiltig.
-* Gateway-nyckel är inte längre giltig.
+* Formatet på Gateway-nyckeln är ogiltigt.
+* Gateway-nyckeln har ogiltig förklarats.
 * Gateway-nyckeln har återskapats från portalen.  
 
 #### <a name="resolution"></a>Lösning
-Kontrollera om du använder rätt gateway-nyckel från portalen. Om det behövs kan återskapa en nyckel och använda nyckeln för att registrera gatewayen.
+Kontrol lera om du använder rätt Gateway-nyckel från portalen. Om det behövs återskapar du en nyckel och använder nyckeln för att registrera gatewayen.
 
-### <a name="4-problem"></a>4. Problem
-Du kan se ett felmeddelande när du registrerar en gateway.
+### <a name="4-problem"></a>4. problem
+Du kan se följande fel meddelande när du registrerar en gateway.
 
 `Error: The content or format of the gateway key "{gatewayKey}" is invalid, please go to azure portal to create one new gateway or regenerate the gateway key.`
 
 
 
-![Innehållet eller formatet för nyckel är ogiltig](media/data-factory-troubleshoot-gateway-issues/invalid-format-gateway-key.png)
+![Nyckelns innehåll eller format är ogiltigt](media/data-factory-troubleshoot-gateway-issues/invalid-format-gateway-key.png)
 
 #### <a name="cause"></a>Orsak
-Innehållet eller formatet för den inkommande gateway-nyckeln är felaktigt. En av anledningarna kan vara att du har kopierat endast en del av nyckeln från portalen eller om du använder en ogiltig nyckel.
+Innehållet eller formatet på den inmatade Gateway-nyckeln är felaktigt. En av orsakerna kan vara att du bara har kopierat en del av nyckeln från portalen eller att du använder en ogiltig nyckel.
 
 #### <a name="resolution"></a>Lösning
-Skapa en gateway-nyckel i portalen och Använd kopieringsknappen för att kopiera hela nyckeln. Klistra in den i det här fönstret för att registrera gatewayen.
+Skapa en gateway-nyckel i portalen och Använd kopierings knappen för att kopiera hela nyckeln. Klistra sedan in den i det här fönstret för att registrera gatewayen.
 
-### <a name="5-problem"></a>5. Problem
-Du kan se ett felmeddelande när du registrerar en gateway.
+### <a name="5-problem"></a>5. problem
+Du kan se följande fel meddelande när du registrerar en gateway.
 
 `Error: The gateway key is invalid or empty. Specify a valid gateway key from the portal.`
 
-![Gateway-nyckel är ogiltig eller tom](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
+![Gateway-nyckeln är ogiltig eller tom](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
 
 #### <a name="cause"></a>Orsak
-Gateway-nyckeln har återskapats eller gatewayen har tagits bort i Azure-portalen. Det kan också inträffa om Data Management Gateway-installationen inte är senast.
+Gateway-nyckeln har återskapats eller också har gatewayen tagits bort i Azure Portal. Det kan också inträffa om Data Management Gateway-installationen inte är senaste.
 
 #### <a name="resolution"></a>Lösning
-Kontrollera om Data Management Gateway-installationen är den senaste versionen kan du hitta den senaste versionen på Microsofts [hämtningssidan](https://go.microsoft.com/fwlink/p/?LinkId=271260).
+Kontrol lera om Data Management Gateway installationen är den senaste versionen kan du hitta den senaste versionen på Microsoft [Download Center](https://go.microsoft.com/fwlink/p/?LinkId=271260).
 
-Om installationen är aktuella / senaste och gateway fortfarande finns på portalen, återskapa nyckeln gateway i Azure-portalen och Använd kopieringsknappen för att kopiera hela nyckeln och klistra in den i det här fönstret för att registrera gatewayen. I annat fall återskapa gatewayen och börja om från början.
+Om installationen är aktuell/senaste och gateway fortfarande finns på portalen, återskapar du Gateway-nyckeln i Azure Portal och använder kopierings knappen för att kopiera hela nyckeln och sedan klistra in den i det här fönstret för att registrera gatewayen. Annars kan du återskapa gatewayen och börja om.
 
-### <a name="6-problem"></a>6. Problem
-Du kan se ett felmeddelande när du registrerar en gateway.
+### <a name="6-problem"></a>6. problem
+Du kan se följande fel meddelande när du registrerar en gateway.
 
 `Error: Gateway has been online for a while, then shows “Gateway is not registered” with the status “Gateway key is invalid”`
 
-![Gateway-nyckel är ogiltig eller tom](media/data-factory-troubleshoot-gateway-issues/gateway-not-registered-key-invalid.png)
+![Gateway-nyckeln är ogiltig eller tom](media/data-factory-troubleshoot-gateway-issues/gateway-not-registered-key-invalid.png)
 
 #### <a name="cause"></a>Orsak
-Det här felet kan inträffa antingen gatewayen har tagits bort eller den associera gateway-nyckeln har återskapats.
+Det här felet kan inträffa på grund av att gatewayen har tagits bort eller att den associerade Gateway-nyckeln har återskapats.
 
 #### <a name="resolution"></a>Lösning
-Om gatewayen har tagits bort, återskapa gatewayen från portalen, klickar på **registrera**, kopiera nyckeln från portalen, klistra in den och försök att registrera gatewayen.
+Om gatewayen har tagits bort skapar du gatewayen på nytt från portalen, klickar på **Registrera**, kopierar nyckeln från portalen, klistrar in den och försöker registrera gatewayen.
 
-Om gatewayen fortfarande att finnas kvar, men dess nyckel har återskapats, kan du använda den nya nyckeln för att registrera gatewayen. Om du inte har nyckeln kan du återskapa nyckeln igen från portalen.
+Om gatewayen fortfarande finns men dess nyckel har återskapats använder du den nya nyckeln för att registrera gatewayen. Om du inte har nyckeln kan du återskapa nyckeln igen från portalen.
 
-### <a name="7-problem"></a>7. Problem
-När du registrerat en gateway kan behöva du ange sökvägen och lösenord för ett certifikat.
+### <a name="7-problem"></a>7. problem
+När du registrerar en gateway kan du behöva ange sökväg och lösen ord för ett certifikat.
 
 ![Ange certifikat](media/data-factory-troubleshoot-gateway-issues/specify-certificate.png)
 
 #### <a name="cause"></a>Orsak
-Gatewayen har registrerats på andra datorer innan. Under den första registreringen för en gateway för har ett krypteringscertifikat associerats med gatewayen. Certifikatet kan vara lokal genereras av gatewayen eller anges av användaren.  Det här certifikatet används för att kryptera autentiseringsuppgifterna för datalagret (länkad tjänst).  
+Gatewayen har registrerats på andra datorer tidigare. Under den inledande registreringen av en gateway har ett krypterings certifikat associerats med gatewayen. Certifikatet kan antingen skapas själv av gatewayen eller tillhandahållas av användaren.  Det här certifikatet används för att kryptera autentiseringsuppgifterna för data lagret (länkad tjänst).  
 
 ![Exportera certifikatet](media/data-factory-troubleshoot-gateway-issues/export-certificate.png)
 
-När du återställer en gateway på en annan värddator, frågar Registreringsguiden för det här certifikatet dekryptera autentiseringsuppgifterna som krypterats med det här certifikatet.  Autentiseringsuppgifterna som inte kan dekrypteras av den nya gatewayen och efterföljande kopiera aktivitet körningar som är associerade med den här nya gatewayen misslyckas utan det här certifikatet.  
+När du återställer gatewayen på en annan värddator, begär registrerings guiden att det här certifikatet ska dekryptera autentiseringsuppgifterna som tidigare har krypterats med det här certifikatet.  Utan det här certifikatet kan autentiseringsuppgifterna inte dekrypteras av den nya gatewayen och efterföljande kopierings aktivitets körningar som är associerade med den nya gatewayen kommer att Miss kopie ras.  
 
 #### <a name="resolution"></a>Lösning
-Om du har exporterat certifikatet för autentiseringsuppgifter från den ursprungliga gatewaydatorn med hjälp av den **exportera** knappen på den **inställningar** fliken i Data Management Gateway Configuration Manager, använda certifikat Här.
+Om du har exporterat certifikatet för autentiseringsuppgifter från den ursprungliga gateway-datorn med hjälp av knappen **Exportera** på fliken **inställningar** i Data Management Gateway Configuration Manager använder du certifikatet här.
 
-Du kan inte hoppa över det här steget när du återställer en gateway. Om certifikatet saknas, måste du ta bort gatewayen från portalen och skapa en ny gateway.  Dessutom kan uppdatera alla länkade tjänster som är relaterade till gatewayen genom att du slipper ange autentiseringsuppgifter.
+Du kan inte hoppa över det här steget när du återställer en gateway. Om certifikatet saknas måste du ta bort gatewayen från portalen och återskapa en ny Gateway.  Uppdatera dessutom alla länkade tjänster som är relaterade till gatewayen genom att ange sina autentiseringsuppgifter igen.
 
-### <a name="8-problem"></a>8. Problem
-Du kan se ett felmeddelande.
+### <a name="8-problem"></a>8. problem
+Du kan se följande fel meddelande.
 
 `Error: The remote server returned an error: (407) Proxy Authentication Required.`
 
 #### <a name="cause"></a>Orsak
-Det här felet inträffar när din gateway är i en miljö som kräver en HTTP-proxy för åtkomst till Internet-resurser eller autentisering proxylösenordet har ändrats men den inte uppdateras i din gateway.
+Det här felet inträffar när din gateway finns i en miljö som kräver en HTTP-proxy för att få åtkomst till Internet resurser, eller om proxyns lösen ord för proxyservern ändras, men inte uppdateras i enlighet med din gateway.
 
 #### <a name="resolution"></a>Lösning
-Följ anvisningarna i avsnittet Proxy server överväganden i den här artikeln och konfigurera proxyinställningar med Data Management Gateway Configuration Manager.
+Följ anvisningarna i avsnittet om proxy server-överväganden i den här artikeln och konfigurera proxyinställningar med Data Management Gateway Configuration Manager.
 
-## <a name="gateway-is-online-with-limited-functionality"></a>Gatewayen är online med begränsad funktionalitet
-### <a name="1-problem"></a>1. Problem
-Du kan se statusen för gatewayen som online med begränsad funktionalitet.
+## <a name="gateway-is-online-with-limited-functionality"></a>Gatewayen är online med begränsade funktioner
+### <a name="1-problem"></a>1. problem
+Du ser statusen för gatewayen som online med begränsade funktioner.
 
 #### <a name="cause"></a>Orsak
-Du se statusen för gatewayen som online med begränsad funktionalitet för någon av följande orsaker:
+Du ser statusen för gatewayen som online med begränsade funktioner av någon av följande orsaker:
 
-* Gatewayen kan inte ansluta till Molntjänsten via Azure Service Bus.
-* Molntjänsten kan inte ansluta till gatewayen via Service Bus.
+* Gatewayen kan inte ansluta till moln tjänsten via Azure Service Bus.
+* Moln tjänsten kan inte ansluta till gatewayen via Service Bus.
 
-När gatewayen är online med begränsad funktionalitet, kan du inte att kunna använda Data Factory-Kopieringsguiden skapa datapipelines för att kopiera data till eller från lokala datalager. Som en lösning kan använda du Data Factory-redigeraren i portal, Visual Studio eller Azure PowerShell.
+Om gatewayen är online med begränsad funktionalitet kanske du inte kan använda Data Factory kopierings guiden för att skapa datapipelines för att kopiera data till eller från lokala data lager. Som en lösning kan du använda Data Factory Editor i portalen, Visual Studio eller Azure PowerShell.
 
 #### <a name="resolution"></a>Lösning
-Lösning på problemet (online med begränsad funktionalitet) baseras på om gatewayen inte kan ansluta till Molntjänsten eller tvärtom. Följande avsnitt innehåller dessa lösningar.
+Lösning för det här problemet (online med begränsade funktioner) baseras på om gatewayen inte kan ansluta till moln tjänsten eller det andra sättet. Följande avsnitt innehåller de här lösningarna.
 
-### <a name="2-problem"></a>2. Problem
-Du ser följande fel.
+### <a name="2-problem"></a>2. problem
+Följande fel visas.
 
 `Error: Gateway cannot connect to cloud service through service bus`
 
-![Gatewayen kan inte ansluta till Molntjänsten](media/data-factory-troubleshoot-gateway-issues/gateway-cannot-connect-to-cloud-service.png)
+![Gatewayen kan inte ansluta till moln tjänsten](media/data-factory-troubleshoot-gateway-issues/gateway-cannot-connect-to-cloud-service.png)
 
 #### <a name="cause"></a>Orsak
-Gatewayen kan inte ansluta till Molntjänsten via Service Bus.
+Gatewayen kan inte ansluta till moln tjänsten via Service Bus.
 
 #### <a name="resolution"></a>Lösning
 Följ dessa steg om du vill hämta gatewayen online igen:
 
-1. Tillåt IP-adress utgående regler på gatewaydatorn och företagets brandvägg. Du hittar IP-adresser från händelseloggen i Windows (ID == 401): Ett försök gjordes att komma åt en socket på ett sätt som tillåts inte av åtkomstbehörigheterna XX. XX. XX. XX:9350.
-1. Konfigurera proxyinställningar på gatewayen. Se avsnittet Proxy server överväganden för information.
-1. Aktivera utgående portarna 5671 och 9350-9354 på båda Windows brandväggen på gatewaydatorn och företagets brandvägg. I avsnittet portar och brandväggen för information. Det här steget är valfritt men rekommenderas för prestanda.
+1. Tillåt utgående regler för IP-adress på gateway-datorn och företags brand väggen. Du kan hitta IP-adresser från Windows-händelseloggen (ID = = 401): ett försök gjordes att få åtkomst till en socket på ett sätt som är förbjudet av åtkomst behörigheterna XX. XX. XX. XX: 9350.
+1. Konfigurera proxyinställningar på gatewayen. Mer information finns i avsnittet om proxy server-överväganden.
+1. Aktivera utgående portar 5671 och 9350-9354 både i Windows-brandväggen på gateway-datorn och i företags brand väggen. Mer information finns i avsnittet om portar och brand väggar. Det här steget är valfritt, men vi rekommenderar det för prestanda överväganden.
 
-### <a name="3-problem"></a>3. Problem
-Du ser följande fel.
+### <a name="3-problem"></a>3. problem
+Följande fel visas.
 
 `Error: Cloud service cannot connect to gateway through service bus.`
 
 #### <a name="cause"></a>Orsak
-Ett tillfälligt fel i nätverksanslutningen.
+Ett tillfälligt fel i nätverks anslutningen.
 
 #### <a name="resolution"></a>Lösning
 Följ dessa steg om du vill hämta gatewayen online igen:
 
-1. Vänta några minuter, anslutningen återställs automatiskt när felet är borta.
-1. Om felet kvarstår startar du om gateway-tjänsten.
+1. Vänta ett par minuter så återställs anslutningen automatiskt när felet är borta.
+1. Om felet kvarstår startar du om Gateway-tjänsten.
 
-## <a name="failed-to-author-linked-service"></a>Det gick inte att skapa länkad tjänst
+## <a name="failed-to-author-linked-service"></a>Det gick inte att redigera den länkade tjänsten
 ### <a name="problem"></a>Problem
-Det här felet kan uppstå när du försöker använda Autentiseringshanteraren i portalen för att ange autentiseringsuppgifter för en ny länkad tjänst eller uppdatera autentiseringsuppgifterna för en befintlig länkad tjänst.
+Du kanske ser det här felet när du försöker använda Autentiseringshanteraren i portalen för att ange autentiseringsuppgifter för en ny länkad tjänst eller uppdatera autentiseringsuppgifter för en befintlig länkad tjänst.
 
 `Error: The data store '<Server>/<Database>' cannot be reached. Check connection settings for the data source.`
 
-När det här felet visas inställningssidan för Data Management Gateway Configuration Manager kan se ut som på följande skärmbild.
+När du ser det här felet kan inställnings sidan för Data Management Gateway Configuration Manager se ut som på följande skärm bild.
 
-![Databasen kan inte nås](media/data-factory-troubleshoot-gateway-issues/database-cannot-be-reached.png)
+![Det går inte att nå databasen](media/data-factory-troubleshoot-gateway-issues/database-cannot-be-reached.png)
 
 #### <a name="cause"></a>Orsak
-SSL-certifikatet kan ha varit förlorat på gateway-datorn. Gateway-datorn kan inte läsa in certifikatet för närvarande som används för SSL-kryptering. Du kan även se ett felmeddelande visas i händelseloggen som liknar följande meddelande.
+SSL-certifikatet kan ha gått förlorat på gateway-datorn. Gateway-datorn kan inte läsa in det certifikat som används för SSL-kryptering. Du kan också se ett fel meddelande i händelse loggen som liknar följande meddelande.
 
  `Unable to get the gateway settings from cloud service. Check the gateway key and the network connection. (Certificate with thumbprint cannot be loaded.)`
 
@@ -206,82 +206,82 @@ Följ dessa steg för att lösa problemet:
 
 1. Starta Data Management Gateway Configuration Manager.
 2. Växla till fliken **Settings** (Inställningar).  
-3. Klicka på den **ändra** knappen för att ändra SSL-certifikatet.
+3. Klicka på knappen **ändra** för att ändra SSL-certifikatet.
 
-   ![Ändra certifikat för](media/data-factory-troubleshoot-gateway-issues/change-button-ssl-certificate.png)
-4. Välj ett nytt certifikat som SSL-certifikat. Du kan använda ett SSL-certifikat som genereras av dig eller en organisation.
+   ![Knappen Ändra certifikat](media/data-factory-troubleshoot-gateway-issues/change-button-ssl-certificate.png)
+4. Välj ett nytt certifikat som SSL-certifikat. Du kan använda valfritt SSL-certifikat som har genererats av dig eller någon annan organisation.
 
    ![Ange certifikat](media/data-factory-troubleshoot-gateway-issues/specify-http-end-point.png)
 
-## <a name="copy-activity-fails"></a>Kopieringen misslyckas
+## <a name="copy-activity-fails"></a>Kopierings aktiviteten Miss lyckas
 ### <a name="problem"></a>Problem
-Du kanske märker följande ”UserErrorFailedToConnectToSqlserver”-fel när du har skapat en pipeline i portalen.
+Du kan märka följande "UserErrorFailedToConnectToSqlserver"-problem när du har skapat en pipeline i portalen.
 
 `Error: Copy activity encountered a user error: ErrorCode=UserErrorFailedToConnectToSqlServer,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Cannot connect to SQL Server`
 
 #### <a name="cause"></a>Orsak
-Detta kan inträffa av olika skäl och minskning varierar i enlighet med detta.
+Detta kan inträffa av olika orsaker och minskningen varierar.
 
 #### <a name="resolution"></a>Lösning
-Tillåt utgående TCP-anslutningar över port TCP/1433 på klientsidan för Data Management Gateway innan du ansluter till en SQL-databas.
+Tillåt utgående TCP-anslutningar via port TCP/1433 på den Data Management Gateway klient sidan innan du ansluter till en SQL-databas.
 
-Kontrollera SQL Server brandväggsinställningar för Azure samt om måldatabasen är en Azure SQL database.
+Om mål databasen är en Azure SQL-databas kontrollerar du även SQL Server brand Väggs inställningar för Azure.
 
-Se följande avsnitt för att testa anslutningen till det lokala datalagringen.
+Se följande avsnitt för att testa anslutningen till det lokala data lagret.
 
-## <a name="data-store-connection-or-driver-related-errors"></a>Datalager-anslutning eller drivrutinen-relaterade fel
-Om du ser data lagrar anslutning eller drivrutinen-relaterade fel gör du följande:
+## <a name="data-store-connection-or-driver-related-errors"></a>Anslutning eller driv rutins fel för data lager
+Om du ser data lager anslutning eller driv rutins fel utför du följande steg:
 
-1. Starta Konfigurationshanteraren för Data Management Gateway på gateway-datorn.
-2. Växla till den **diagnostik** fliken.
-3. I **Testanslutningen**, Lägg till värdena för gateway-grupp.
-4. Klicka på **Test** att se om du kan ansluta till en lokal datakälla från gateway-datorn med anslutningsinformationen och autentiseringsuppgifterna. Om testanslutningen fortfarande misslyckas när du har installerat en drivrutin, ska du starta om gatewayen så att den använder den senaste ändringen.
+1. Starta Data Management Gateway Configuration Manager på gateway-datorn.
+2. Växla till fliken **diagnostik** .
+3. I **Testa anslutning**lägger du till värdet för gateway-gruppen.
+4. Klicka på **testa** för att se om du kan ansluta till den lokala data källan från gateway-datorn med hjälp av anslutnings informationen och autentiseringsuppgifterna. Om testanslutningen fortfarande misslyckas när du har installerat en drivrutin, ska du starta om gatewayen så att den använder den senaste ändringen.
 
-![Testa anslutning i fliken diagnostik](media/data-factory-troubleshoot-gateway-issues/test-connection-in-diagnostics-tab.png)
+![Testa anslutning på fliken diagnostik](media/data-factory-troubleshoot-gateway-issues/test-connection-in-diagnostics-tab.png)
 
 ## <a name="gateway-logs"></a>Gateway-loggar
-### <a name="send-gateway-logs-to-microsoft"></a>Skicka gateway-loggar till Microsoft
-När du kontaktar Microsoft Support att få hjälp med felsökning av problem med gateway kan du bli ombedd att dela din gateway-loggar. Med denna version av gatewayen är kan du dela krävs gateway-loggar med två knapptryckningar i Data Management Gateway Configuration Manager.    
+### <a name="send-gateway-logs-to-microsoft"></a>Skicka Gateway-loggar till Microsoft
+När du kontaktar Microsoft Support för att få hjälp med fel sökning av Gateway-problem kan du bli ombedd att dela dina gateway-loggar. Med versionen av gatewayen kan du dela nödvändiga Gateway-loggar med två klickningar i Data Management Gateway Configuration Manager.    
 
-1. Växla till den **diagnostik** fliken i Data Management Gateway Configuration Manager.
+1. Växla till fliken **diagnostik** i Data Management Gateway Configuration Manager.
 
-    ![Fliken för data Management Gateway-diagnostik](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-diagnostics-tab.png)
-2. Klicka på **skicka loggar** att se följande dialogruta.
+    ![Fliken Data Management Gateway diagnostik](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-diagnostics-tab.png)
+2. Klicka på **skicka loggar** för att se följande dialog ruta.
 
     ![Data Management Gateway skicka loggar](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-dialog.png)
-3. (Valfritt) Klicka på **visa loggar** att granska loggarna i Loggboken.
-4. (Valfritt) Klicka på **sekretess** läsa sekretesspolicy för Microsoft web services.
-5. När du är nöjd med vad du kommer att ladda upp, klickar du på **skicka loggar** faktiskt skicka loggarna från de senaste sju dagarna till Microsoft för felsökning. Du bör se status för åtgärden Skicka loggarna som du ser i följande skärmbild.
+3. Valfritt Klicka på **Visa loggar** för att granska loggarna i logg boken.
+4. Valfritt Klicka på **Sekretess** om du vill läsa sekretess policyn för Microsofts webb tjänster.
+5. När du är nöjd med vad du kommer att överföra klickar du på **skicka loggar** för att skicka loggarna från de senaste sju dagarna till Microsoft för fel sökning. Du bör se statusen för åtgärden skicka-loggar som visas på följande skärm bild.
 
     ![Data Management Gateway skicka loggar status](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png)
-6. När åtgärden har slutförts, visas en dialogruta som visas i följande skärmbild.
+6. När åtgärden har slutförts visas en dialog ruta som visas i följande skärm bild.
 
     ![Data Management Gateway skicka loggar status](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-result.png)
-7. Spara den **rapport-ID** och dela den med Microsoft Support. Rapport-ID används för att leta reda på gatewayloggarna som du laddade upp för felsökning.  Rapport-ID också sparas i visningsprogrammet.  Du kan hitta den genom att titta på händelse-ID ”25” och kontrollera datum och tid.
+7. Spara **rapport-ID: t** och dela den med Microsoft support. Rapport-ID: t används för att hitta de Gateway-loggar som du har överfört för fel sökning.  Rapport-ID: t sparas också i logg boken.  Du hittar det genom att titta på händelse-ID "25" och kontrol lera datum och tid.
 
-    ![Data Management Gateway skicka loggar rapport-ID](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-report-id.png)    
+    ![Rapport-ID för Data Management Gateway skicka loggar](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-report-id.png)    
 
-### <a name="archive-gateway-logs-on-gateway-host-machine"></a>Arkivera gateway loggar in på värddatorn för gateway
-Det finns vissa scenarier där du har problem med gateway och du kan inte dela gateway-loggar direkt:
+### <a name="archive-gateway-logs-on-gateway-host-machine"></a>Arkivera Gateway-loggar på Gateway Host Machine
+Det finns vissa scenarier där du har problem med gatewayen och du kan inte dela Gateway-loggar direkt:
 
-* Du kan manuellt installera gatewayen och registrera gatewayen.
-* Du försöker registrera gatewayen med en återskapade nyckeln i Data Management Gateway Configuration Manager.
-* Du försöker skicka loggar och gatewaytjänsten kan inte anslutas.
+* Du installerar gatewayen manuellt och registrerar gatewayen.
+* Du försöker registrera gatewayen med en återskapad nyckel i Data Management Gateway Configuration Manager.
+* Du försöker skicka loggar och värd tjänsten för gatewayen kan inte anslutas.
 
-Dessa scenarier kan du spara gateway-loggar som en zip-fil och dela den när du kontaktar Microsoft support. Till exempel om du får ett felmeddelande när du registrerar gatewayen som visas i följande skärmbild.   
+I dessa scenarier kan du spara Gateway-loggar som en zip-fil och dela den när du kontaktar Microsoft support. Om du till exempel får ett fel meddelande när du registrerar gatewayen så som visas på följande skärm bild.   
 
-![Data Management Gateway registreringsfel](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-registration-error.png)
+![Data Management Gateway registrerings fel](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-registration-error.png)
 
-Klicka på den **Arkivera gateway-loggar** länk för att arkivera och spara loggar och sedan dela zip-filen med Microsoft-supporten.
+Klicka på länken **arkivera Gateway-loggar** för att arkivera och Spara loggar och dela sedan zip-filen med Microsoft support.
 
-![Data Management Gateway-arkivet loggar](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-archive-logs.png)
+![Data Management Gateway Arkiv loggar](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-archive-logs.png)
 
-### <a name="locate-gateway-logs"></a>Leta reda på gatewayloggarna
-Du hittar detaljerad gateway logginformation i Windows-händelseloggar.
+### <a name="locate-gateway-logs"></a>Hitta Gateway-loggar
+Du hittar detaljerad information om Gateway-loggen i händelse loggarna i Windows.
 
 1. Starta Windows **Loggboken**.
-2. Leta reda på loggarna i den **program- och tjänstloggar** > **Data Management Gateway** mapp.
+2. Hitta loggar i > **Data Management Gateway** mappen **program-och tjänst loggar** .
 
-   När du felsöker gateway-relaterade problem, leta efter felnivåhändelser i Loggboken.
+   När du felsöker Gateway-relaterade problem kan du leta efter fel nivå händelser i logg boken.
 
-![Data Management Gateway-loggarna i Loggboken](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)
+![Data Management Gateway loggar i logg boken](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)

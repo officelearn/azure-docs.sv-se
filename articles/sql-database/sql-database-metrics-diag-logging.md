@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database mått och diagnostisk loggning | Microsoft Docs
+title: Azure SQL Database mått och diagnostikloggning
 description: Lär dig hur du aktiverar diagnostik i Azure SQL Database för att lagra information om resursutnyttjande och statistik för körning av frågor.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/21/2019
-ms.openlocfilehash: 235cdff1297b840bfd1a522e265633b47094c855
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 6c2040a223b7ec33b05ee3c8b3c65bad031aa3c2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597972"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687790"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database mått och diagnostikloggning
 
@@ -41,7 +41,7 @@ Den här artikeln innehåller rikt linjer för hur du aktiverar telemetri för A
 
 Du kan aktivera och hantera loggning av mått och telemetri genom att använda någon av följande metoder:
 
-- Azure portal
+- Azure Portal
 - PowerShell
 - Azure CLI
 - Azure Monitor REST API
@@ -80,7 +80,7 @@ Du kan konfigurera Azure SQL-databaser och instans databaser för att samla in f
 > [!NOTE]
 > Det går inte att aktivera säkerhets gransknings-och SQLSecurityAuditEvents-loggar från databasens diagnostikinställningar (även om de visas på skärmen). Om du vill aktivera Gransknings logg strömning, se [Konfigurera granskning för din databas](sql-database-auditing.md#subheading-2)och [gransknings loggar i Azure Monitor loggar och Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure Portal
 
 Du kan använda menyn **diagnostikinställningar** för varje enskild, poolad eller instans databas i Azure Portal för att konfigurera strömning av telemetri. Dessutom kan diagnostisk telemetri också konfigureras separat för databas behållare: elastiska pooler och hanterade instanser. Du kan ställa in följande destinationer för att strömma telemetri för diagnostik: Azure Storage, Azure Event Hubs och Azure Monitor loggar.
 
@@ -113,7 +113,7 @@ Följ dessa steg om du vill aktivera strömning av telemetri för en elastisk po
 1. Välj en mål resurs för data för strömmande diagnostik: **arkivera till lagrings konto**, **strömma till en Event Hub**eller **Skicka till Log Analytics**.
 1. För Log Analytics väljer du **Konfigurera** och skapa en ny arbets yta genom att välja **+ Skapa ny arbets yta**eller Välj en befintlig arbets yta.
 1. Markera kryss rutan för telemetri för Elastic pool-diagnostik: **grundläggande** mått.
-   ![Configure diagnostik för elastiska pooler ](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
+   ![Konfigurera diagnostik för elastiska pooler](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 1. Välj **Spara**.
 1. Dessutom kan du konfigurera strömning av telemetri för varje databas i den elastiska pool som du vill övervaka genom att följa stegen som beskrivs i nästa avsnitt.
 
@@ -137,7 +137,7 @@ Följ dessa steg om du vill aktivera strömning av diagnostik för enskilda data
 1. Välj en mål resurs för data för strömmande diagnostik: **arkivera till lagrings konto**, **strömma till en Event Hub**eller **Skicka till Log Analytics**.
 1. För den händelsebaserade övervaknings upplevelsen markerar du följande kryss rutor för Database Diagnostics-loggen telemetri: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** , **Fel**, **DatabaseWaitStatistics**, **tids gränser**, **block**och **död lägen**.
 1. För en avancerad övervaknings upplevelse med en minut markerar du kryss rutan för **grundläggande** mått.
-   ![Configure diagnostik för enskilda databaser eller instans databaser ](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
+   ![Konfigurera diagnostik för enskilda databaser eller instans databaser](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 1. Välj **Spara**.
 1. Upprepa de här stegen för varje databas som du vill övervaka.
 
@@ -175,7 +175,7 @@ Följ dessa steg om du vill aktivera strömning av telemetri för en hanterad in
 1. Välj en mål resurs för data för strömmande diagnostik: **arkivera till lagrings konto**, **strömma till en Event Hub**eller **Skicka till Log Analytics**.
 1. För Log Analytics väljer du **Konfigurera** och skapa en ny arbets yta genom att välja **+ Skapa ny arbets yta**eller använda en befintlig arbets yta.
 1. Markera kryss rutan för telemetri för instansen diagnostik: **ResourceUsageStats**.
-   ![Configure diagnostik för hanterad instans ](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
+   ![Konfigurera diagnostik för hanterad instans](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 1. Välj **Spara**.
 1. Konfigurera dessutom strömning av telemetri för varje instans databas i den hanterade instans som du vill övervaka genom att följa stegen som beskrivs i nästa avsnitt.
 
@@ -199,7 +199,7 @@ Följ dessa steg om du vill aktivera strömning av telemetri för instans databa
 1. Ange ett inställnings namn för din egen referens.
 1. Välj en mål resurs för data för strömmande diagnostik: **arkivera till lagrings konto**, **strömma till en Event Hub**eller **Skicka till Log Analytics**.
 1. Markera kryss rutorna för telemetri för databas diagnostik: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** och **errors**.
-   ![Configure diagnostik för instans databaser ](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+   ![Konfigurera diagnostik för instans databaser](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
 1. Välj **Spara**.
 1. Upprepa de här stegen för varje instans databas som du vill övervaka.
 
@@ -252,16 +252,16 @@ Du kan kombinera dessa parametrar för att aktivera flera alternativ för utdata
 
 Använd PowerShell-skriptet från [Aktivera Azure Resource Metric-loggning med PowerShell](https://blogs.technet.microsoft.com/msoms/20../../enable-azure-resource-metrics-logging-using-powershell/)för att stödja flera prenumerationer.
 
-Ange arbets ytans resurs-ID \< $WSID \> som en parameter när du kör skriptet `Enable-AzureRMDiagnostics.ps1` för att skicka diagnostikdata från flera resurser till arbets ytan.
+Ange arbets ytans resurs-ID \<$WSID\> som en parameter när du kör skriptet `Enable-AzureRMDiagnostics.ps1` för att skicka diagnostikdata från flera resurser till arbets ytan.
 
-- Använd följande skript för att hämta arbetsyte-ID \< $WSID \> av målet för dina diagnostikdata:
+- Använd följande skript för att hämta arbetsyte-ID \<$WSID\> av målet för dina diagnostikdata:
 
     ```powershell
     PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/<RG_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>"
     PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
     ```
 
-   Ersätt \<subID \> med prenumerations-ID: t \<RG_NAME \> med resurs gruppens namn och \<WS_NAME \> med namnet på arbets ytan.
+   Ersätt \<subID\> med prenumerations-ID: t \<RG_NAME\> med namnet på resurs gruppen och \<WS_NAME\> med arbets ytans namn.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -569,7 +569,7 @@ Läs mer om [väntande statistik data för Query Store](https://docs.microsoft.c
 |Meddelande|Fel meddelande i oformaterad text |
 |user_defined_b|Är den användardefinierade biten för fel |
 |error_number_d|Felkod |
-|Allvarsgrad|Felets allvarlighets grad |
+|Severity|Felets allvarlighets grad |
 |state_d|Tillstånd för felet |
 |query_hash_s|Fråga hash för den misslyckade frågan, om den är tillgänglig |
 |query_plan_hash_s|Fråga plan-hash för den misslyckade frågan, om den är tillgänglig |

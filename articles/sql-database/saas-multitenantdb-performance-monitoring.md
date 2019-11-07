@@ -1,5 +1,5 @@
 ---
-title: Övervaka prestanda för en shardade Azure SQL-databas med flera innehavare i en SaaS-app med flera innehavare | Microsoft Docs
+title: Övervaka prestanda för en shardade Azure SQL-databas med flera innehavare i en SaaS-app med flera innehavare
 description: Övervaka och hantera prestanda för shardade för flera innehavare i en SaaS-app med flera innehavare
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 50fab6afe837ad409f05dbb0f3a8a44d089a894e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 03487c7e0e5fd08b6c93f81b733ab5ec1afb5605
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570327"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692038"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för shardade för flera innehavare i en SaaS-app med flera innehavare
 
@@ -36,7 +36,7 @@ I den här självstudiekursen får du lära du dig att:
 Följande krav måste uppfyllas för att kunna köra den här självstudiekursen:
 
 * Wingtip biljetter SaaS-appen för flera klient organisationer har distribuerats. Om du vill distribuera på mindre än fem minuter läser du [distribuera och utforska Wingtip-biljetterna SaaS-databas program för flera innehavare](saas-multitenantdb-get-started-deploy.md)
-* Azure PowerShell ska ha installerats. Mer information finns i [Komma igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+* Azure PowerShell ska ha installerats. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>Introduktion till SaaS prestanda hanterings mönster
 
@@ -63,7 +63,7 @@ För en god förståelse för hur prestanda övervakning och hantering fungerar 
 
 Om du redan har skapat en batch med klienter i en tidigare självstudie går du vidare till avsnittet [simulera användning på alla klient databaser](#simulate-usage-on-all-tenant-databases) .
 
-1. I **POWERSHELL ISE**öppnar du... Inlärnings\\moduler prestanda övervakning och\\hantering*performancemonitoringandmanagement. ps1.* \\ Ha det här skriptet öppet medan du kör scenarierna i den här guiden.
+1. I **POWERSHELL ISE**öppnar du\\Learning-moduler\\prestanda övervakning och hantering\\*performancemonitoringandmanagement. ps1*. Ha det här skriptet öppet medan du kör scenarierna i den här guiden.
 1. Ställ in **$DemoScenario** = **1**, _etablera en batch med klienter_
 1. Tryck **F5** för att köra skriptet.
 
@@ -84,20 +84,20 @@ Skriptet *performancemonitoringandmanagement. ps1* tillhandahålls som simulerar
 
 Belastningsgeneratorn tillämpar en *syntetisk* enbart-CPU-belastning på varje klientdatabas. Generatorn startar ett jobb för varje klientdatabas som anropar en lagrad procedur med jämna mellanrum, vilket genererar belastningen. Belastnings nivåerna (i DTU: er), varaktighet och intervall varierar i alla databaser, vilket simulerar oförutsägbar klient aktivitet.
 
-1. I **POWERSHELL ISE**öppnar du... Inlärnings\\moduler prestanda övervakning och\\hantering*performancemonitoringandmanagement. ps1.* \\ Ha det här skriptet öppet medan du kör scenarierna i den här guiden.
+1. I **POWERSHELL ISE**öppnar du\\Learning-moduler\\prestanda övervakning och hantering\\*performancemonitoringandmanagement. ps1*. Ha det här skriptet öppet medan du kör scenarierna i den här guiden.
 1. Ange **$DemoScenario** = **2**, _generera normal intensitets belastning_
 1. Tryck på **F5** för att använda en belastning för alla klienter.
 
 Wingtip biljetter SaaS-databas för flera innehavare är en SaaS-app och den verkliga belastningen på en SaaS-app är vanligt vis sporadisk och oförutsägbar. För att simulera det så skapar belastningsgeneratorn en slumpmässig belastning som distribueras över alla klienterna. Det krävs flera minuter för att inläsnings mönstret ska visas, så kör belastnings generatorn i 3-5 minuter innan du försöker övervaka belastningen i följande avsnitt.
 
 > [!IMPORTANT]
-> Belastnings generatorn körs som en serie jobb i ett nytt PowerShell-fönster. Om du stänger sessionen stoppas belastnings generatorn. Belastnings generatorn förblir i ett *jobb* som anropar ett tillstånd där den genererar belastning på alla nya klienter som tillhandahålls efter att generatorn har startats. Använd *CTRL-C* för att stoppa att anropa nya jobb och avsluta skriptet. Belastnings generatorn fortsätter att köras, men bara på befintliga klienter.
+> Belastnings generatorn körs som en serie jobb i ett nytt PowerShell-fönster. Om du stänger sessionen stoppas belastnings generatorn. Belastnings generatorn förblir i ett *jobb som anropar* ett tillstånd där den genererar belastning på alla nya klienter som tillhandahålls efter att generatorn har startats. Använd *CTRL-C* för att stoppa att anropa nya jobb och avsluta skriptet. Belastnings generatorn fortsätter att köras, men bara på befintliga klienter.
 
 ## <a name="monitor-resource-usage-using-the-azure-portal"></a>Övervaka resursanvändningen med hjälp av Azure Portal
 
 Om du vill övervaka resursanvändningen som beror på att belastningen används öppnar du portalen till databasen för flera klient organisationer **tenants1**, som innehåller klienterna:
 
-1. Öppna [Azure Portal](https://portal.azure.com) och bläddra till servern *tenants1-&lt;MT-User.&gt;*
+1. Öppna [Azure Portal](https://portal.azure.com) och bläddra till *användar&gt;för Server-tenants1-MT-&lt;* .
 1. Bläddra nedåt och leta upp databaser och klicka på **tenants1**. Denna shardade-databas för flera innehavare innehåller alla klienter som skapats hittills.
 
 ![databas diagram](./media/saas-multitenantdb-performance-monitoring/multitenantdb.png)
@@ -108,7 +108,7 @@ Observera **DTU** -diagrammet.
 
 Ange en avisering för den databas som utlöser \>75%-användning enligt följande:
 
-1. Öppna *tenants1* -databasen (på *tenants1-MT-User&lt;&gt; -* servern) i [Azure Portal](https://portal.azure.com).
+1. Öppna *tenants1* -databasen (på *tenants1-MT-&lt;User&gt;* Server) i [Azure Portal](https://portal.azure.com).
 1. Klicka på **aviseringsregler** och därefter på **+ lägg till avisering**:
 
    ![lägg till avisering](media/saas-multitenantdb-performance-monitoring/add-alert.png)
@@ -143,7 +143,7 @@ Du kan simulera en upptagen databas genom att öka belastningen som alstras av g
 1. Justera **DTU** -inställningen till **100**. 
 1. Klicka på **tillämpa** för att skicka begäran om att skala databasen.
 
-Gå tillbaka till **tenants1** > -**översikten** om du vill visa övervaknings diagrammen. Övervaka effekterna av att tillhandahålla databasen med fler resurser (även om det finns några klienter och en slumpmässig inläsning är det inte alltid lätt att se något avgörande tills du kör en stund). När du tittar på diagrammen är det viktigt att 100% i det övre diagrammet nu representerar 100 DTU: er, medan i det nedre diagrammet 100% fortfarande 50 DTU: er.
+Gå tillbaka till **tenants1** > **Översikt** för att Visa övervaknings diagrammen. Övervaka effekterna av att tillhandahålla databasen med fler resurser (även om det finns några klienter och en slumpmässig inläsning är det inte alltid lätt att se något avgörande tills du kör en stund). När du tittar på diagrammen är det viktigt att 100% i det övre diagrammet nu representerar 100 DTU: er, medan i det nedre diagrammet 100% fortfarande 50 DTU: er.
 
 Databaserna är online och fullt tillgängliga under hela processen. Program koden bör alltid skrivas för att försöka igen, och ansluter sedan till databasen igen.
 
@@ -153,9 +153,9 @@ Med shardade för flera klienter kan du välja om du vill etablera en ny klient 
 
 Om du redan har skapat en ny klient i en egen databas, hoppar du över nästa steg.
 
-1. I **POWERSHELL ISE**öppnar du... Learning-\\modulerProvisionTenants\\*demo-ProvisionTenants. ps1.* \\ 
+1. I **POWERSHELL ISE**öppnar du...\\Learning-moduler\\ProvisionTenants\\*demo-ProvisionTenants. ps1*. 
 1. Ändra **$TenantName = "Salix salsa"** och **$VenueType = "kontrollen åt"**
-1. Ange **$scenario** = **2**, _etablera en klient i en ny databas för en enda klient_
+1. Ange **$Scenario** = **2**, _etablera en klient i en ny databas för en enda klient_
 1. Tryck **F5** för att köra skriptet.
 
 Skriptet etablerar den här klienten i en separat databas, registrerar databasen och klienten med katalogen och öppnar sedan klientens händelse sida i webbläsaren. Uppdatera sidan Events Hub och se att "Salix salsa" har lagts till som plats.
@@ -166,12 +166,12 @@ Om en enskild klient i en databas med flera innehavare upplever en varaktig hög
 
 I den här övningen simuleras effekterna av Salix salsa som har hög belastning när biljetterna går till försäljning för en populär händelse.
 
-1. Öppna... *Performancemonitoringandmanagement. ps1* -skript. \\
+1. Öppna skriptet...\\*performancemonitoringandmanagement. ps1* .
 1. Ange **$DemoScenario = 5**, _Generera en normal belastning plus en hög belastning på en enskild klient (cirka 90 DTU)._
 1. Ange **$SingleTenantName = Salix salsa**
 1. Kör skriptet med **F5**.
 
-Gå till portalen och navigera till **salixsalsa** > -**Översikt** för att Visa övervaknings diagrammen. 
+Gå till portalen och gå till **salixsalsa** > **Översikt** för att Visa övervaknings diagrammen. 
 
 ## <a name="other-performance-management-patterns"></a>Andra mönster för prestanda hantering
 

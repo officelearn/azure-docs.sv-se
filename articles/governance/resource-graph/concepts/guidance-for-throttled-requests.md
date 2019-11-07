@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 1bbfd2a64de0b42da19d0a978874d564f1755c59
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 2dea1c160b07ac08075dad3a1ca1f6fc753e3481
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387619"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622658"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Vägledning för begränsade begär anden i Azure Resource Graph
 
@@ -31,7 +31,7 @@ Azure Resource Graph allokerar kvot nummer för varje användare baserat på ett
 I varje fråge svar lägger Azure Resource Graph till två begränsnings rubriker:
 
 - `x-ms-user-quota-remaining` (int): den återstående resurs kvoten för användaren. Det här värdet mappar till antal frågor.
-- `x-ms-user-quota-resets-after` (hh: mm: SS): tids perioden tills en användares kvot användning återställs.
+- `x-ms-user-quota-resets-after` (hh: mm: SS): tids perioden tills en användares kvot förbrukning återställs.
 
 För att illustrera hur rubrikerna fungerar, ska vi titta på ett fråge svar som har sidhuvud och värden för `x-ms-user-quota-remaining: 10` och `x-ms-user-quota-resets-after: 00:00:03`.
 
@@ -227,7 +227,7 @@ Eftersom Azure Resource Graph returnerar högst 1000 poster i ett enda fråge sv
 
 ## <a name="still-get-throttled"></a>Är du fortfarande begränsad?
 
-Kontakta teamet på [resourcegraphsupport@microsoft.com](mailto:resourcegraphsupport@microsoft.com)om du får en begränsning efter att du har använt rekommendationerna ovan.
+Om du får en begränsning efter ovanstående rekommendationer kan du kontakta teamet på [resourcegraphsupport@microsoft.com](mailto:resourcegraphsupport@microsoft.com).
 
 Ange följande information:
 
@@ -240,4 +240,4 @@ Ange följande information:
 
 - Se språket som används i [Start frågor](../samples/starter.md).
 - Se avancerade användnings områden i [avancerade frågor](../samples/advanced.md).
-- Lär dig att [utforska resurser](explore-resources.md).
+- Lär dig mer om hur du [utforskar resurser](explore-resources.md).

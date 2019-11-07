@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database funktioner för flera modeller | Microsoft Docs
+title: Azure SQL Database funktioner för flera modeller
 description: Med Azure SQL Database kan du arbeta med flera data modeller i samma databas.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: e319daf322d688828c7d05d78dacd2359273223f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7156b9923c9cb98ae3dde143c98eb32a6eb11a9c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567123"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687723"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Funktioner i flera modeller i Azure SQL Database
 
@@ -29,12 +29,12 @@ Du bör överväga att använda flera modell funktioner i Azure SQL Database i f
 - Du har en del information eller strukturer som passar bättre för NoSQL-modeller och du inte vill använda separata NoSQL-databaser.
 - En majoritet av dina data lämpar sig för Relations modeller och du behöver modellera vissa delar av dina data i NoSQL-format.
 - Du vill använda Rich-SQL-språk för att fråga och analysera både Relations-och NoSQL data och integrera den med en rad olika verktyg och program som kan använda SQL-språket.
-- Du vill använda databas funktioner som [minnes intern teknik](sql-database-in-memory.md) för att förbättra prestanda för din analys eller bearbetning av NoSQL data Strucutres [, använda Transaktionsreplikering](sql-database-managed-instance-transactional-replication.md) eller läsbara repliker för att skapa [](sql-database-read-scale-out.md) en kopia av dina data på den andra platsen och avlasta vissa analytiska arbets belastningar från den primära databasen.
+- Du vill använda databas funktioner som [minnes intern teknik](sql-database-in-memory.md) för att förbättra prestanda för din analys eller bearbetning av NoSQL data Strucutres [, använda Transaktionsreplikering](sql-database-managed-instance-transactional-replication.md) eller [läsbara repliker](sql-database-read-scale-out.md) för att skapa en kopia av dina data på den andra platsen och avlasta vissa analytiska arbets belastningar från den primära databasen.
 
 ## <a name="overview"></a>Översikt
 
 Azure SQL innehåller följande funktioner för flera modeller:
-- Med [Graph-funktioner](#graph-features) kan du Visa dina data som en uppsättning noder och kanter och använda standard Transact-SQL-frågor som har `MATCH` förbättrats med diagram operator för att fråga graf-data.
+- Med [Graph-funktioner](#graph-features) kan du Visa dina data som en uppsättning noder och kanter och använda standard Transact-SQL-frågor som har förbättrats med Graph `MATCH`-operatorn för att fråga graf-data.
 - Med [JSON-funktioner](#json-features) kan du använda JSON-dokument i tabeller, transformera Relations data till JSON-dokument och vice versa. Du kan använda standard språket för Transact-SQL med JSON-funktioner för att parsa dokument och använda icke-grupperade index, columnstore-index eller minnesoptimerade tabeller för att optimera dina frågor.
 - Med [spatiala funktioner](#spatial-features) kan du lagra geografiska och geometriska data, indexera dem med hjälp av rums index och hämta data med hjälp av spatiala frågor.
 - Med [XML-funktioner](#xml-features) kan du lagra och indexera XML-data i databasen och använda inbyggda XQuery/XPath-åtgärder för att arbeta med XML-data. Azure SQL Database har specialiserat inbyggd XML-frågemotor som bearbetar XML-data.
@@ -132,7 +132,7 @@ CREATE TABLE Collection (
 )
 ```
 
-Du kan anpassa den här nyckel värdes strukturen så att den passar dina behov utan begränsningar. Värdet kan till exempel vara XML-dokument i stället för `nvarchar(max)` typ, om värdet är JSON-dokument, `CHECK` kan du ange en begränsning som verifierar att JSON-innehåll är giltigt. Du kan placera ett valfritt antal värden som är relaterade till en nyckel i de ytterligare kolumnerna, lägga till beräknade kolumner och index för att förenkla och optimera data åtkomst, definiera tabellen som en minnes/optimerad schema tabell för att få bättre prestanda osv.
+Du kan anpassa den här nyckel värdes strukturen så att den passar dina behov utan begränsningar. Värdet kan till exempel vara XML-dokument i stället för `nvarchar(max)` typ, om värdet är JSON-dokument, kan du ange `CHECK` begränsning som verifierar att JSON-innehåll är giltigt. Du kan placera ett valfritt antal värden som är relaterade till en nyckel i de ytterligare kolumnerna, lägga till beräknade kolumner och index för att förenkla och optimera data åtkomst, definiera tabellen som en minnes/optimerad schema tabell för att få bättre prestanda osv.
 
 Se [hur bwin använder minnes intern OLTP för att uppnå oöverträffade prestanda och skalning](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) för sin ASP.net caching-lösning som nådde 1.200.000 batchar per sekund, som ett exempel på hur Relations modellen kan användas som nyckel värdes par lösning i jordbrukarsed.
 

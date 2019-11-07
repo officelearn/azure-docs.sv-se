@@ -1,5 +1,5 @@
 ---
-title: Resurs klasser för hantering av arbets belastning i Azure SQL Data Warehouse | Microsoft Docs
+title: Resurs klasser för hantering av arbets belastning
 description: Vägledning för att använda resurs klasser för att hantera samtidighet och beräknings resurser för frågor i Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
@@ -7,15 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 10/04/2019
+ms.date: 11/04/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5ef95faf162a6774e42b7cf258515757fdc9c7eb
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 558a6e3faa207e15000657a17bec99a7b1ac99e4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035075"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685924"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Arbets belastnings hantering med resurs klasser i Azure SQL Data Warehouse
 
@@ -35,7 +36,7 @@ Det finns två typer av resurs klasser:
 
 Resurs klasser använder samtidiga platser för att mäta resursförbrukning.  [Samtidiga platser](#concurrency-slots) beskrivs senare i den här artikeln.
 
-- Om du vill visa resursutnyttjande för resurs klasserna, se [minnes-och samtidiga gränser](memory-and-concurrency-limits.md#concurrency-maximums).
+- Om du vill visa resursutnyttjande för resurs klasserna läser du [minnes-och samtidiga gränser] minnes-samtidighets-limits.md).
 - Du kan ändra resurs klassen genom att köra frågan under en annan användare eller [ändra den aktuella användarens resurs klass](#change-a-users-resource-class) medlemskap.
 
 ### <a name="static-resource-classes"></a>Statiska resurs klasser
@@ -124,7 +125,7 @@ Följande instruktioner är undantagna från resurs klasser och körs alltid i s
 - Skapa eller släppa vy
 - INFOGA VÄRDEN
 - Välj från systemvyer och DMV: er
-- VAD
+- Vad
 - DBCC
 
 <!--
@@ -249,7 +250,7 @@ EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;
 Följande instruktion skapar Table1 som används i föregående exempel.
 `CREATE TABLE Table1 (a int, b varchar(50), c decimal (18,10), d char(10), e varbinary(15), f float, g datetime, h date);`
 
-### <a name="stored-procedure-definition"></a>Lagrad Procedurdefinition
+### <a name="stored-procedure-definition"></a>Definition av lagrad procedur
 
 ```sql
 -------------------------------------------------------------------------------
@@ -331,7 +332,7 @@ SELECT 'DW100c' AS DWU,4 AS max_queries,4 AS max_slots,1 AS slots_used_
     SELECT 'DW30000c', 128, 1200, 36, 120, 264, 840, 1, 2, 4, 8, 16, 32, 64, 128 
 )
 -- Creating workload mapping to their corresponding slot consumption and default memory grant.
-,map
+,map  
 AS
 (
   SELECT CONVERT(varchar(20), 'SloDWGroupSmall') AS wg_name, slots_used_smallrc AS slots_used FROM alloc WHERE DWU = @DWU
@@ -580,7 +581,7 @@ SELECT  CASE
 GO
 ```
 
-## <a name="next-step"></a>Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 Mer information om hur du hanterar databas användare och säkerhet finns [i skydda en databas i SQL Data Warehouse][Secure a database in SQL Data Warehouse]. Mer information om hur större resurs klasser kan förbättra grupperade columnstore-index kvalitet finns i [minnes optimeringar för columnstore-komprimering](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 

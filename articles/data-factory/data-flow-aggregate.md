@@ -1,5 +1,5 @@
 ---
-title: Sammanställd transformering i Azure Data Factory mappnings data flöde | Microsoft Docs
+title: Sammanställd transformering i Azure Data Factory mappnings data flöde
 description: Lär dig hur du sammanställer data i skala i Azure Data Factory med den sammanställda omvandlingen för data flöde.
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: add548a184440c408b8b74e131f2249b4f616ddc
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 3f21367c36ae31aa2115c109933a581bef464baf
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514840"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73676915"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Sammanställd transformering i mappnings data flödet 
 
@@ -68,7 +68,7 @@ Sammanställda transformeringar liknar SQL-aggregerade urvals frågor. Kolumner 
 
 ### <a name="example"></a>Exempel
 
-Exemplet nedan tar en inkommande data ström `MoviesYear` och grupperar rader efter kolumn `year`. Omvandlingen skapar en sammanställd kolumn `avgrating` som utvärderas till genomsnittet av kolumnen `Rating`. Den sammanställda omvandlingen heter `AvgComedyRatingsByYear`.
+I exemplet nedan tar en inkommande data ström `MoviesYear` och grupperas rader efter kolumn `year`. Omvandlingen skapar en sammanställd kolumn `avgrating` som utvärderas till genomsnittet av kolumn `Rating`. Den sammanställda omvandlingen heter `AvgComedyRatingsByYear`.
 
 I Data Factory UX ser den här omvandlingen ut som på bilden nedan:
 

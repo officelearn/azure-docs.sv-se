@@ -1,6 +1,6 @@
 ---
-title: Kopiera data till och från Azure Blob Storage | Microsoft Docs
-description: 'Lär dig hur du kopierar en blob-data i Azure Data Factory. Använd vårt exempel: Hur du kopierar data till och från Azure Blob Storage och Azure SQL Database.'
+title: Kopiera data till/från Azure Blob Storage
+description: 'Lär dig hur du kopierar BLOB-data i Azure Data Factory. Använd vårt exempel: så här kopierar du data till och från Azure Blob Storage och Azure SQL Database.'
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,87 +13,87 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 16d11a707851cdbb3e315c9a6d2fe592a97eca9a
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 9aeef3a2f6a43346a7637c3e2497979632b04762
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839577"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683278"
 ---
-# <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Kopiera data till och från Azure Blob Storage med Azure Data Factory
-> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
+# <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Kopiera data till eller från Azure Blob Storage med Azure Data Factory
+> [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-azure-blob-connector.md)
 > * [Version 2 (aktuell version)](../connector-azure-blob-storage.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [Azure Blob Storage connector i V2](../connector-azure-blob-storage.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory kan du läsa mer i [Azure Blob Storage Connector i v2](../connector-azure-blob-storage.md).
 
 
-Den här artikeln förklarar hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data till och från Azure Blob Storage. Den bygger på den [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikel som anger en allmän översikt över dataförflyttning med kopieringsaktiviteten.
+Den här artikeln förklarar hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data till och från Azure Blob Storage. Det bygger på artikeln [data förflyttnings aktiviteter](data-factory-data-movement-activities.md) , som visar en översikt över data förflyttning med kopierings aktiviteten.
 
 ## <a name="overview"></a>Översikt
-Du kan kopiera data från alla dataarkiv till Azure Blob Storage eller Azure Blob Storage till alla mottagarens datalager. I följande tabell innehåller en lista över datalager som stöds som källor eller egenskaperna av kopieringsaktiviteten. Du kan exempelvis flytta data **från** en SQL Server-databas eller en Azure SQL database **till** Azure blob storage. Och du kan kopiera data **från** Azure blobblagring **till** en Azure SQL Data Warehouse eller en Azure Cosmos DB-samling.
+Du kan kopiera data från alla käll data lager som stöds till Azure Blob Storage eller från Azure Blob Storage till alla mottagar data lager som stöds. Följande tabell innehåller en lista över data lager som stöds som källor eller handfat av kopierings aktiviteten. Du kan till exempel flytta data **från** en SQL Server databas eller en Azure SQL-databas **till** en Azure Blob Storage. Du kan också kopiera data **från** Azure Blob Storage **till** en Azure SQL Data Warehouse eller en Azure Cosmos DB samling.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
-Du kan kopiera data **från Azure Blob Storage** till följande data lagras:
+Du kan kopiera data **från Azure Blob Storage** till följande data lager:
 
 [!INCLUDE [data-factory-supported-sink](../../../includes/data-factory-supported-sinks.md)]
 
-Du kan kopiera data från följande datalager **till Azure Blob Storage**:
+Du kan kopiera data från följande data lager **till Azure Blob Storage**:
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
 > [!IMPORTANT]
-> Kopieringsaktivitet har stöd för kopiering av data från/till både Allmänt Azure Storage-konton och frekvent/lågfrekvent – Blob storage. Aktiviteten stöder **läsningen från block, lägga till eller sidblobbar**, men stöder **skrivning till endast blockblobar**. Azure Premium Storage stöds inte som en mottagare eftersom den backas upp av sidblobar.
+> Kopierings aktiviteten stöder kopiering av data från/till både generella Azure Storage konton och frekvent/låg frekvent blob-lagring. Aktiviteten har stöd för **läsning från block-, tilläggs-eller sid-blobar**, men stöder **skrivning enbart till block-blobar**. Azure Premium Storage stöds inte som mottagare eftersom den backas upp av Page blobbar.
 >
-> Kopieringsaktivitet tar inte bort data från källan när data har kopierats till målet. Om du vill ta bort källdata efter en lyckad kopiering kan du skapa en [anpassad aktivitet](data-factory-use-custom-activities.md) att ta bort data och använda aktiviteten i pipelinen. Ett exempel finns i den [ta bort blob- eller mappnamn exemplet på GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/DeleteBlobFileFolderCustomActivity).
+> Kopierings aktiviteten tar inte bort data från källan när data har kopierats till målet. Om du behöver ta bort källdata efter en lyckad kopiering skapar du en [anpassad aktivitet](data-factory-use-custom-activities.md) för att ta bort data och använder aktiviteten i pipelinen. Ett exempel finns i [ta bort BLOB-eller Folder-exempel på GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/DeleteBlobFileFolderCustomActivity).
 
 ## <a name="get-started"></a>Kom igång
-Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data till och från Azure Blob Storage med hjälp av olika verktyg/API: er.
+Du kan skapa en pipeline med en kopierings aktivitet som flyttar data till/från en Azure-Blob Storage med hjälp av olika verktyg/API: er.
 
-Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. Den här artikeln innehåller en [genomgången](#walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage) för att skapa en pipeline för att kopiera data från en Azure Blob Storage-plats till en annan plats i Azure Blob Storage. En självstudiekurs om hur du skapar en pipeline för att kopiera data från Azure Blob Storage till Azure SQL Database finns i [självstudien: Skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
+Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Den här artikeln innehåller en [genom gång](#walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage) av hur du skapar en pipeline för att kopiera data från en Azure Blob Storage plats till en annan Azure Blob Storage plats. En själv studie kurs om hur du skapar en pipeline för att kopiera data från en Azure-Blob Storage till Azure SQL Database finns i [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md).
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
-Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager:
+Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
-1. Skapa en **datafabrik**. En datafabrik kan innehålla en eller flera pipelines.
-2. Skapa **länkade tjänster** länka inkommande och utgående data du lagrar till din datafabrik. Till exempel om du kopierar data från Azure blob storage till en Azure SQL-databas skapa du två länkade tjänster för att länka ditt Azure storage-konto och Azure SQL-databas till datafabriken. Länkade tjänstegenskaper som är specifika för Azure Blob Storage, se [länkade tjänstegenskaper](#linked-service-properties) avsnittet.
-2. Skapa **datauppsättningar** som representerar inkommande och utgående data för kopieringen. I det tidigare exemplet i det sista steget, skapar du en datauppsättning för att ange blobbehållare och mapp som innehåller indata. Och skapar du en annan datauppsättning för att ange den SQL-tabellen i Azure SQL-databasen som innehåller de data som kopieras från blob storage. Egenskaper för datamängd som är specifika för Azure Blob Storage, se [egenskaper för datamängd](#dataset-properties) avsnittet.
-3. Skapa en **pipeline** med en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata. I exemplet som nämnts tidigare, använder du BlobSource som en källa och SqlSink som mottagare för kopieringsaktiviteten. På samma sätt, om du kopierar från Azure SQL Database till Azure Blob Storage, använder du SqlSource och BlobSink i kopieringsaktiviteten. Kopiera Aktivitetsegenskaper som är specifika för Azure Blob Storage, se [kopiera Aktivitetsegenskaper](#copy-activity-properties) avsnittet. Mer information om hur du använder ett datalager som en källa eller mottagare klickar du på länken i föregående avsnitt för ditt datalager.
+1. Skapa en **data fabrik**. En data fabrik kan innehålla en eller flera pipeliner.
+2. Skapa **länkade tjänster** för att länka indata och utdata från data lager till din data fabrik. Om du t. ex. kopierar data från en Azure Blob-lagring till en Azure SQL-databas, skapar du två länkade tjänster för att länka ditt Azure Storage-konto och Azure SQL-databas till din data fabrik. En länkad tjänst egenskap som är speciell för Azure Blob Storage finns i avsnittet [länkade tjänst egenskaper](#linked-service-properties) .
+2. Skapa data **uppsättningar** som representerar indata och utdata för kopierings åtgärden. I exemplet som nämns i det sista steget skapar du en data uppsättning för att ange BLOB-behållaren och mappen som innehåller indata. Du kan också skapa en annan data uppsättning för att ange den SQL-tabell i Azure SQL-databasen som innehåller data som kopieras från blob-lagringen. För data uppsättnings egenskaper som är speciella för Azure Blob Storage, se avsnittet [Egenskaper för data mängd](#dataset-properties) .
+3. Skapa en **pipeline** med en kopierings aktivitet som tar en data uppsättning som indata och en data uppsättning som utdata. I exemplet ovan använder du BlobSource som källa och SqlSink som mottagare för kopierings aktiviteten. På samma sätt kan du använda SqlSource och BlobSink i kopierings aktiviteten om du kopierar från Azure SQL Database till Azure Blob Storage. Information om kopiera aktivitets egenskaper som är speciella för Azure Blob Storage finns i avsnittet [Kopiera aktivitets egenskaper](#copy-activity-properties) . Om du vill ha mer information om hur du använder ett data lager som källa eller mottagare klickar du på länken i föregående avsnitt för ditt data lager.
 
-När du använder guiden skapas JSON-definitioner för dessa Data Factory-entiteter (länkade tjänster, datauppsättningar och pipeline) automatiskt åt dig. När du använder Verktyg/API: er (med undantag för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format.  Exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data till och från Azure Blob Storage finns [JSON-exempel](#json-examples-for-copying-data-to-and-from-blob-storage  ) i den här artikeln.
+När du använder guiden skapas JSON-definitioner för dessa Data Factory entiteter (länkade tjänster, data uppsättningar och pipelinen) automatiskt åt dig. När du använder verktyg/API: er (förutom .NET API) definierar du dessa Data Factory entiteter med hjälp av JSON-formatet.  Exempel med JSON-definitioner för Data Factory entiteter som används för att kopiera data till/från ett Azure-Blob Storage finns i avsnittet [JSON-exempel](#json-examples-for-copying-data-to-and-from-blob-storage  ) i den här artikeln.
 
-Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory-entiteter som är specifika för Azure Blob Storage.
+I följande avsnitt finns information om JSON-egenskaper som används för att definiera Data Factory entiteter som är speciella för Azure Blob Storage.
 
-## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
-Det finns två typer av länkade tjänster som du kan använda för att länka ett Azure Storage till en Azure-datafabrik. De är: **AzureStorage** länkad tjänst och **AzureStorageSas** länkad tjänst. Länkad Azure Storage-tjänsten tillhandahåller data factory med global åtkomst till Azure Storage. Medan det Azure Storage SAS (Shared Access Signature) länkad tillhandahåller service data factory med begränsade/Tidsbundna åtkomst till Azure Storage. Det finns inga andra skillnader mellan dessa två länkade tjänster. Välj den länkade tjänst som passar dina behov. Följande avsnitt innehåller mer information om dessa två länkade tjänster.
+## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
+Det finns två typer av länkade tjänster som du kan använda för att länka en Azure Storage till en Azure Data Factory. De är: **AzureStorage** länkade tjänst-och **AzureStorageSas** -länkade tjänster. Den länkade tjänsten Azure Storage tillhandahåller data fabriken med global åtkomst till Azure Storage. Den länkade tjänsten Azure Storage SAS (Shared Access Signature) tillhandahåller data fabriken med begränsad/tidsbunden åtkomst till Azure Storage. Det finns inga andra skillnader mellan dessa två länkade tjänster. Välj den länkade tjänst som passar dina behov. I följande avsnitt finns mer information om dessa två länkade tjänster.
 
 [!INCLUDE [data-factory-azure-storage-linked-services](../../../includes/data-factory-azure-storage-linked-services.md)]
 
-## <a name="dataset-properties"></a>Egenskaper för datamängd
-Om du vill ange en datauppsättning för att representera inkommande eller utgående data i Azure Blob Storage kan du ange egenskapen type på datauppsättningen till: **AzureBlob**. Ange den **linkedServiceName** egenskap med namnet på Azure Storage eller Azure Storage SAS länkad tjänst.  Typegenskaperna för datauppsättningen anger den **blobbehållare** och **mappen** i blob storage.
+## <a name="dataset-properties"></a>Egenskaper för data mängd
+Om du vill ange en data uppsättning som representerar indata eller utdata i ett Azure-Blob Storage anger du egenskapen type för data uppsättningen till: **AzureBlob**. Ange egenskapen **linkedServiceName** för data uppsättningen till namnet på Azure Storage eller Azure Storage länkade SAS-tjänsten.  Typ egenskaperna för data uppsättningen anger BLOB- **behållaren** och **mappen** i blob-lagringen.
 
-En fullständig lista över JSON-avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [skapar datauppsättningar](data-factory-create-datasets.md) artikeln. Avsnitt som struktur, tillgänglighet och princip av en datauppsättnings-JSON är liknande för alla datauppsättningstyper av (Azure SQL, Azure-blob, Azure-tabell osv.).
+En fullständig lista över JSON-avsnitt & egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) . Avsnitt som struktur, tillgänglighet och princip för en data uppsättnings-JSON liknar alla typer av data uppsättningar (Azure SQL, Azure Blob, Azure Table osv.).
 
-Data factory stöder följande CLS-kompatibel .NET baserat typvärden för att tillhandahålla anger du följande information i ”strukturen” för schema vid läsning-datakällor som Azure blob: Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset, Timespan. Data Factory utför typkonverteringar automatiskt när du flyttar data från källans datalager till mottagarens datalager.
+Data Factory stöder följande CLS-kompatibla .NET-baserade typ värden för att tillhandahålla typ information i "struktur" för data källor av typen Schema-on-Read, till exempel Azure Blob: Int16, Int32, Int64, enkel, Double, decimal, byte [], bool, sträng, GUID, DateTime, DateTimeOffset, TimeSpan. Data Factory utför automatiskt typ konverteringar när data flyttas från ett käll data lager till ett data lager för mottagare.
 
-Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information om plats, formatera osv, på data i datalagret. TypeProperties avsnittet för datauppsättningen av typen **AzureBlob** datauppsättning har följande egenskaper:
+**TypeProperties** -avsnittet skiljer sig åt för varje typ av data uppsättning och ger information om platsen, formatet osv, för data i data lagret. Avsnittet typeProperties för data uppsättning av typen **AzureBlob** data uppsättning har följande egenskaper:
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| folderPath |Sökvägen till behållaren och mappen i blob storage. Exempel: myblobcontainer\myblobfolder\ |Ja |
-| fileName |Namnet på bloben. Filnamnet är valfria och skiftlägeskänsliga.<br/><br/>Om du anger ett filename fungerar aktiviteten (inklusive kopia) på den specifika blobben.<br/><br/>Om filnamnet inte anges innehåller kopiera alla Blobbar i folderPath för datauppsättningen för indata.<br/><br/>När **fileName** har inte angetts för en utdatauppsättning och **preserveHierarchy** har inte angetts i aktiviteten mottagare, namnet på den genererade filen skulle vara i följande det här formatet: `Data.<Guid>.txt` (för Exempel:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nej |
-| partitionedBy |partitionedBy är en valfri egenskap. Du kan använda den för att ange en dynamisk folderPath och ett filnamn för time series-data. Till exempel kan folderPath parameteriseras för varje timme som data. Se den [med partitionedBy egenskapen](#using-partitionedby-property) information och exempel. |Nej |
-| format | Följande formattyper av stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Nej |
-| compression | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbaste**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
+| folderPath |Sökväg till behållaren och mappen i blob-lagringen. Exempel: myblobcontainer\myblobfolder\ |Ja |
+| fileName |Namn på blobben. fileName är valfritt och Skift läges känsligt.<br/><br/>Om du anger ett fil namn fungerar aktiviteten (inklusive kopia) på den aktuella blobben.<br/><br/>Om inget fil namn har angetts innehåller kopian alla blobbar i folderPath för indata-datauppsättning.<br/><br/>Om inget **fil namn** har angetts för en data uppsättning för utdata och **preserveHierarchy** inte har angetts i aktivitets mottagaren, skulle namnet på den genererade filen ha följande format: `Data.<Guid>.txt` (till exempel:: Data. 0a405f8a-93ff-4c6f-B3BE-f69616f1df7a. txt |Nej |
+| partitionedBy |partitionedBy är en valfri egenskap. Du kan använda den för att ange en dynamisk folderPath och ett fil namn för Time Series-data. FolderPath kan till exempel vara parameterstyrda för varje timme med data. Mer information och exempel finns i avsnittet om att [använda partitionedBy-egenskapen](#using-partitionedby-property) . |Nej |
+| formatering | Följande format typer **stöds: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange egenskapen **Type** under format till något av dessa värden. Mer information finns i [text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-format](data-factory-supported-file-and-compression-formats.md#avro-format), Orc- [format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format) -avsnitt. <br><br> Om du vill **Kopiera filer som är** mellan filbaserade butiker (binär kopia), hoppar du över avsnittet format i definitionerna för in-och utdata-datauppsättningar. |Nej |
+| komprimering | Ange typ och nivå för komprimeringen för data. De typer som stöds är: **gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**. De nivåer som stöds är: **optimalt** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 
-### <a name="using-partitionedby-property"></a>Med hjälp av egenskapen partitionedBy
-Som tidigare nämnts ovan kan du ange en dynamisk folderPath och ett filnamn för time series-data med den **partitionedBy** egenskapen [Data Factory-funktioner och systemvariablerna](data-factory-functions-variables.md).
+### <a name="using-partitionedby-property"></a>Använda egenskapen partitionedBy
+Som vi nämnt i föregående avsnitt kan du ange ett dynamiskt folderPath och ett fil namn för Time Series-data med egenskapen **partitionedBy** , [Data Factory Functions och systemvariablerna](data-factory-functions-variables.md).
 
-Läs mer på time series datauppsättningar, schemaläggning och segment, [skapar datauppsättningar](data-factory-create-datasets.md) och [schemaläggning och utförande](data-factory-scheduling-and-execution.md) artiklar.
+Mer information om data uppsättningar för Time Series, schemaläggning och segment finns i [skapa data uppsättningar](data-factory-create-datasets.md) och [Schemaläggning & körnings](data-factory-scheduling-and-execution.md) artiklar.
 
 #### <a name="sample-1"></a>Exempel 1
 
@@ -105,7 +105,7 @@ Läs mer på time series datauppsättningar, schemaläggning och segment, [skapa
 ],
 ```
 
-I det här exemplet {sektorn} ersätts med det angivna värdet av Data Factory systemvariabeln SliceStart i formatet (YYYYMMDDHH). SliceStart refererar starttid för sektorn. FolderPath är olika för varje segment. Till exempel: wikidatagateway/wikisampledataout/2014100103 eller wikidatagateway/wikisampledataout/2014100104
+I det här exemplet ersätts {slice} med värdet för Data Factory systemvariabeln SliceStart i det angivna formatet (YYYYMMDDHH). SliceStart refererar till Start tiden för sektorn. FolderPath är olika för varje sektor. Till exempel: wikidatagateway/wikisampledataout/2014100103 eller wikidatagateway/wikisampledataout/2014100104
 
 #### <a name="sample-2"></a>Exempel 2
 
@@ -121,162 +121,162 @@ I det här exemplet {sektorn} ersätts med det angivna värdet av Data Factory s
 ],
 ```
 
-I det här exemplet extraheras år, månad, dag och tid för SliceStart till olika variabler som används av egenskaper för folderPath och filnamn.
+I det här exemplet extraheras år, månad, dag och tid för SliceStart till separata variabler som används av folderPath-och fileName-egenskaperna.
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [skapa Pipelines](data-factory-create-pipelines.md) artikeln. Egenskaper, till exempel namn, beskrivning, indata och utdata datauppsättningar och principer är tillgängliga för alla typer av aktiviteter. Å andra sidan Egenskaper som är tillgängliga i den **typeProperties** avsnittet aktivitetens varierar med varje aktivitetstyp av. För kopieringsaktiviteten variera de beroende på vilka typer av källor och mottagare. Om du flyttar data från Azure Blob Storage måste du ange källtypen i kopieringsaktiviteten till **BlobSource**. På samma sätt om du flyttar data till Azure Blob Storage måste du ange Mottagartyp i kopieringsaktiviteten till **BlobSink**. Det här avsnittet innehåller en lista över egenskaper som stöds av BlobSource och BlobSink.
+En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [skapa pipeliner](data-factory-create-pipelines.md) . Egenskaper som namn, beskrivning, indata och utdata och principer är tillgängliga för alla typer av aktiviteter. De egenskaper som är tillgängliga i avsnittet **typeProperties** i aktiviteten varierar beroende på varje aktivitets typ. För kopierings aktivitet varierar de beroende på typerna av källor och mottagare. Om du flyttar data från en Azure-Blob Storage anger du käll typen i kopierings aktiviteten till **BlobSource**. På samma sätt, om du flyttar data till en Azure-Blob Storage, ställer du in mottagar typen i kopierings aktiviteten till **BlobSink**. Det här avsnittet innehåller en lista över egenskaper som stöds av BlobSource och BlobSink.
 
-**BlobSource** har stöd för följande egenskaper i den **typeProperties** avsnittet:
-
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
-| --- | --- | --- | --- |
-| recursive |Anger om data läses rekursivt från undermappar eller endast från den angivna mappen. |SANT (standard), FALSKT |Nej |
-
-**BlobSink** har stöd för följande egenskaper **typeProperties** avsnittet:
+**BlobSource** stöder följande egenskaper i avsnittet **typeProperties** :
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| copyBehavior |Definierar kopieringsbeteendet när källan är BlobSource eller filsystem. |<b>PreserveHierarchy</b>: bevarar filen hierarkin i målmappen. Den relativa sökvägen för källfilen för källmappen är identisk med den relativa sökvägen för målfilen till målmappen.<br/><br/><b>FlattenHierarchy</b>: alla filer från källmappen finns i den första nivån i målmappen. Målfiler har automatiskt genererad namn. <br/><br/><b>MergeFiles</b>: slår samman alla filer från källmappen till en fil. Om namnet på filen/blobben har angetts, blir namnet på sammanfogade filen det angivna namnet; annars skulle vara automatiskt genererade filnamn. |Nej |
+| rekursiva |Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. |Sant (standardvärde), falskt |Nej |
+
+**BlobSink** stöder följande egenskaper **typeProperties** avsnittet:
+
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| --- | --- | --- | --- |
+| copyBehavior |Definierar kopierings beteendet när källan är BlobSource eller FileSystem. |<b>PreserveHierarchy</b>: filens hierarki bevaras i målmappen. Den relativa sökvägen till käll filen till källmappen är identisk med den relativa sökvägen till mål filen i målmappen.<br/><br/><b>FlattenHierarchy</b>: alla filer från källmappen finns på den första nivån i målmappen. Målfilen har ett namn som skapats automatiskt. <br/><br/><b>MergeFiles</b>: sammanfogar alla filer från källmappen till en fil. Om filen/BLOB-namnet anges, är det sammanslagna fil namnet det angivna namnet. Annars skapas fil namnet automatiskt. |Nej |
 
 **BlobSource** stöder också dessa två egenskaper för bakåtkompatibilitet.
 
-* **treatEmptyAsNull**: Anger om du vill hantera null eller tomma strängar som null-värde.
-* **skipHeaderLineCount** – anger hur många rader måste hoppas över. Det gäller endast när datauppsättningen för indata använder TextFormat.
+* **treatEmptyAsNull**: anger om du vill behandla null-värden eller tomma strängar som null-värden.
+* **skipHeaderLineCount** – anger hur många rader som behöver hoppas över. Den kan endast användas när indata-dataset använder text form.
 
-På samma sätt **BlobSink** stöder följande egenskap för bakåtkompatibilitet.
+På samma sätt stöder **BlobSink** följande egenskap för bakåtkompatibilitet.
 
-* **blobWriterAddHeader**: Anger om du vill lägga till en rubrik för kolumndefinitionerna vid skrivning till en datauppsättning för utdata.
+* **blobWriterAddHeader**: anger om du vill lägga till ett kolumn definitions huvud vid skrivning till en data uppsättning för utdata.
 
-Datauppsättningar har nu stöd för följande egenskaper som implementerar samma funktion: **treatEmptyAsNull**, **skipLineCount**, **firstRowAsHeader**.
+Data uppsättningar stöder nu följande egenskaper som implementerar samma funktion: **treatEmptyAsNull**, **skipLineCount**, **firstRowAsHeader**.
 
-I följande tabell innehåller råd om hur du använder de nya egenskaperna för datamängd i stället för dessa egenskaper för blob-källa/mottagare.
+Följande tabell innehåller vägledning om hur du använder de nya egenskaperna för data uppsättningen i stället för dessa egenskaper för BLOB-källan/mottagare.
 
-| Kopiera aktivitetsegenskap | DataSet egenskapen |
+| Kopiera aktivitets egenskap | Data uppsättnings egenskap |
 |:--- |:--- |
-| skipHeaderLineCount på BlobSource |skipLineCount och firstRowAsHeader. Hoppas raderna över först och sedan läses den första raden som rubrik. |
-| treatEmptyAsNull på BlobSource |treatEmptyAsNull på datauppsättningen för indata |
-| blobWriterAddHeader på BlobSink |firstRowAsHeader på datauppsättningen för utdata |
+| skipHeaderLineCount på BlobSource |skipLineCount och firstRowAsHeader. Rader hoppas över först och sedan läses den första raden in som en rubrik. |
+| treatEmptyAsNull på BlobSource |treatEmptyAsNull för indata-datauppsättning |
+| blobWriterAddHeader på BlobSink |firstRowAsHeader för data uppsättning för utdata |
 
-Se [att ange TextFormat](data-factory-supported-file-and-compression-formats.md#text-format) för detaljerad information om dessa egenskaper.
+Mer information om dessa egenskaper finns i avsnittet [Ange](data-factory-supported-file-and-compression-formats.md#text-format) text format.
 
-### <a name="recursive-and-copybehavior-examples"></a>rekursiva och copyBehavior exempel
-Det här avsnittet beskrivs kopieringsåtgärden för olika kombinationer av värden för rekursiv och copyBehavior resulterande beteende.
+### <a name="recursive-and-copybehavior-examples"></a>rekursiva och copyBehavior-exempel
+I det här avsnittet beskrivs det resulterande beteendet för kopierings åtgärden för olika kombinationer av rekursiva och copyBehavior värden.
 
-| recursive | copyBehavior | Resulterande beteende |
+| rekursiva | copyBehavior | Resulterande beteende |
 | --- | --- | --- |
-| true |preserveHierarchy |För en källmapp Mapp1 med följande struktur: <br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>målmappen Mapp1 skapas med samma struktur som källa<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. |
-| true |flattenHierarchy |För en källmapp Mapp1 med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Målet Mapp1 skapas med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Automatiskt genererade namn på File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för File5 |
-| true |mergeFiles |För en källmapp Mapp1 med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Målet Mapp1 skapas med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1 + fil2 + fil3 + File4 + filen 5 innehållet slås samman i en fil med autogenererade filnamn |
-| false |preserveHierarchy |För en källmapp Mapp1 med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Målmappen Mapp1 skapas med följande struktur<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/><br/><br/>Subfolder1 med fil3, File4 och File5 plockas inte upp. |
-| false |flattenHierarchy |För en källmapp Mapp1 med följande struktur:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Målmappen Mapp1 skapas med följande struktur<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Automatiskt genererade namn på File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för fil2<br/><br/><br/>Subfolder1 med fil3, File4 och File5 plockas inte upp. |
-| false |mergeFiles |För en källmapp Mapp1 med följande struktur:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Målmappen Mapp1 skapas med följande struktur<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1 + fil2 innehållet slås samman i en fil med automatiskt genererade namnet. Automatiskt genererade namn på File1<br/><br/>Subfolder1 med fil3, File4 och File5 plockas inte upp. |
+| true |preserveHierarchy |För en källmapp Mapp1 med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>målmappen Mapp1 skapas med samma struktur som källan<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. |
+| true |flattenHierarchy |För en källmapp Mapp1 med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Mål-Mapp1 skapas med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för File5 |
+| true |mergeFiles |För en källmapp Mapp1 med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Mål-Mapp1 skapas med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1 + Fil2 + File3 + File4 + innehåll i fil 5 sammanfogas till en fil med automatiskt genererat fil namn |
+| false |preserveHierarchy |För en källmapp Mapp1 med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Målmappen Mapp1 skapas med följande struktur<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/><br/><br/>Subfolder1 med File3, File4 och File5 hämtas inte. |
+| false |flattenHierarchy |För en källmapp Mapp1 med följande struktur:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Målmappen Mapp1 skapas med följande struktur<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för Fil2<br/><br/><br/>Subfolder1 med File3, File4 och File5 hämtas inte. |
+| false |mergeFiles |För en källmapp Mapp1 med följande struktur:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Målmappen Mapp1 skapas med följande struktur<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1 + Fil2-innehåll sammanfogas till en fil med automatiskt genererat fil namn. automatiskt genererat namn för fil1<br/><br/>Subfolder1 med File3, File4 och File5 hämtas inte. |
 
-## <a name="walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage"></a>Genomgång: Använd guiden Kopiera för att kopiera data till och från Blob Storage
-Nu ska vi titta på hur du snabbt kopiera data till och från Azure blob storage. I den här genomgången lagrar både källa och mål data av typen: Azure Blob Storage. Pipelinen i den här genomgången kopierar data från en mapp till en annan mapp i samma blob-behållaren. Den här genomgången är avsiktligt enkelt att visa egenskaper eller inställningar när du använder Blob Storage som källa eller mottagare.
+## <a name="walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage"></a>Genom gång: Använd kopiera guiden för att kopiera data till/från Blob Storage
+Nu ska vi titta på hur du snabbt kopierar data till/från en Azure Blob Storage. I den här genom gången är både käll-och mål data lager av typen: Azure Blob Storage. Pipelinen i den här genom gången kopierar data från en mapp till en annan mapp i samma BLOB-behållare. Den här genom gången är avsiktligt enkel att Visa inställningar eller egenskaper när du använder Blob Storage som källa eller mottagare.
 
-### <a name="prerequisites"></a>Förutsättningar
-1. Skapa ett allmänt **Azure Storage-konto** om du inte redan har en. Du kan använda bloblagringen som båda **källa** och **mål** datalager i den här genomgången. om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md).
-2. Skapa en blobbehållare med namnet **adfblobconnector** i lagringskontot.
-4. Skapa en mapp med namnet **inkommande** i den **adfblobconnector** behållare.
-5. Skapa en fil med namnet **emp.txt** med följande innehåll och överför den till den **inkommande** mapp genom att använda verktyg som [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)
+### <a name="prerequisites"></a>Nödvändiga komponenter
+1. Skapa ett allmänt **Azure Storage konto** om du inte redan har ett. Du använder Blob Storage som både **käll** -och **mål** data lager i den här genom gången. om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md).
+2. Skapa en BLOB-behållare med namnet **adfblobconnector** i lagrings kontot.
+4. Skapa en mapp med namnet **inmatade** i behållaren **adfblobconnector** .
+5. Skapa en fil med namnet **EMP. txt** med följande innehåll och ladda upp den till mappen **indata** med hjälp av verktyg som [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)
     ```json
     John, Doe
     Jane, Doe
     ```
 
-### <a name="create-the-data-factory"></a>Skapa data factory
+### <a name="create-the-data-factory"></a>Skapa data fabriken
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Klicka på **skapa en resurs** i det övre vänstra hörnet, klickar du på **information + analys**, och klicka på **Data Factory**.
-3. I den **ny datafabrik** fönstret:  
-    1. Ange **ADFBlobConnectorDF** för den **namn**. Namnet på Azure Data Factory måste vara globalt unikt. Om du får felet: `*Data factory name “ADFBlobConnectorDF” is not available`, ändra namnet på datafabriken (till exempel yournameADFBlobConnectorDF) och försöker skapa igen. Se artikeln [Data Factory – namnregler](data-factory-naming-rules.md) för namnregler för Data Factory-artefakter.
+2. Klicka på **skapa en resurs** i det övre vänstra hörnet, klicka på **information + analys**och klicka på **Data Factory**.
+3. I fönstret **ny data fabrik** :  
+    1. Ange **ADFBlobConnectorDF** som **namn**. Namnet på Azure Data Factory måste vara globalt unikt. Om du får felet: `*Data factory name “ADFBlobConnectorDF” is not available`ändrar du namnet på data fabriken (till exempel yournameADFBlobConnectorDF) och försöker skapa igen. Se artikeln [Data Factory – namnregler](data-factory-naming-rules.md) för namnregler för Data Factory-artefakter.
     2. Välj din Azure-**prenumeration**.
-    3. Resursgrupp, Välj **Använd befintlig** att välja en befintlig resursgrupp (eller) Välj **Skapa nytt** och ange ett namn för en resursgrupp.
+    3. För resurs grupp väljer du **Använd befintlig** för att välja en befintlig resurs grupp (eller) Välj **Skapa ny** för att ange ett namn för en resurs grupp.
     4. Välj **plats** för datafabriken.
     5. Välj kryssrutan **PIN-kod för instrumentpanelen** längst ned på bladet.
     6. Klicka på **Skapa**.
-3. När datafabriken har skapats visas bladet **Datafabrik** enligt nedanstående bild:  ![Datafabrikens startsida](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
+3. När den har skapats visas bladet **Data Factory** som du ser i följande bild: ![Data Factory start sida](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
 
 ### <a name="copy-wizard"></a>Guiden Kopiera
-1. På startsidan Datafabrik klickar du på den **kopiera data** att starta **Data Kopieringsguiden** i en separat flik.  
+1. På Data Factory start sida klickar du på panelen **Kopiera data** för att starta **Kopiera data guiden** på en separat flik.  
     
     > [!NOTE]
-    > Om du ser att webbläsaren har fastnat på ”auktoriserar...”, inaktiverar/avmarkerar **blockera cookies från tredje part och platsdata** inställning (eller) behåller den aktiverad och skapar ett undantag för **login.microsoftonline.com**och försök sedan starta guiden igen.
+    > Om du ser att webbläsaren har fastnat på "auktoriserar...", inaktiverar/avmarkerar du inställningen **blockera cookies från tredje part och plats data** (eller) behåller den aktive rad och skapar ett undantag för **login.microsoftonline.com** . försök sedan starta guiden igen.
 2. På sidan **Egenskaper**:
-    1. Ange **CopyPipeline** för **aktivitetsnamn**. Uppgiftens namn är namnet på pipelinen i datafabriken.
-    2. Ange en **beskrivning** för aktiviteten (valfritt).
-    3. För **uppgift takt eller schemalägga**, hålla den **körs regelbundet enligt schema** alternativet. Om du vill köra den här uppgiften bara en gång i stället för att köras upprepade gånger enligt ett schema, väljer **kör en gång nu**. Om du väljer **kör en gång nu** alternativet en [enstaka pipeline](data-factory-create-pipelines.md#onetime-pipeline) har skapats.
-    4. Synkronisera inställningarna för **återkommande mönster**. Den här aktiviteten körs dagligen mellan start- och sluttider som du anger i nästa steg.
-    5. Ändra den **startdatum / tid** till **2017-04-21**.
-    6. Ändra den **Slutdatum / tid** till **2017-04-25**. Du kanske vill ange det datum då i stället för att gå igenom kalendern.
+    1. Ange **CopyPipeline** som **uppgifts namn**. Uppgifts namnet är namnet på pipelinen i din data fabrik.
+    2. Ange en **Beskrivning** av uppgiften (valfritt).
+    3. För **aktivitets takt eller aktivitets schema**bör du behålla alternativet **kör regelbundet på schema** . Om du bara vill köra den här uppgiften en gång i stället för att köras upprepade gånger enligt ett schema väljer du **kör en gång nu**. Om du väljer alternativet **kör en gång nu** skapas en [engångs pipeline](data-factory-create-pipelines.md#onetime-pipeline) .
+    4. Behåll inställningarna för **återkommande mönster**. Den här aktiviteten kör dagligen mellan start-och slut tiderna som du anger i nästa steg.
+    5. Ändra **start datum tiden** till **04/21/2017**.
+    6. Ändra **slutdatumets tid** till **04/25/2017**. Du kanske vill ange datumet i stället för att bläddra i kalendern.
     8. Klicka på **Nästa**.
-        ![Verktyget kopiera – sidan Egenskaper](./media/data-factory-azure-blob-connector/copy-tool-properties-page.png)
-3. På sidan **Källans datalager** klickar du på ikonen **Azure blobblagring**. Du kan använda den här sidan till att ange källans datalager för kopieringsaktiviteten. Du kan använda en länkad tjänst för ett befintligt datalager (eller) ange ett nytt datalager. Om du vill använda en befintlig länkad tjänst, väljer du **från befintliga LÄNKADE tjänster** och väljer lämplig länkad tjänst.
-    ![Verktyget kopiera – sidan källans datalager](./media/data-factory-azure-blob-connector/copy-tool-source-data-store-page.png)
+        ![kopierings verktyget – sidan Egenskaper](./media/data-factory-azure-blob-connector/copy-tool-properties-page.png)
+3. På sidan **Källans datalager** klickar du på ikonen **Azure blobblagring**. Du kan använda den här sidan till att ange källans datalager för kopieringsaktiviteten. Du kan använda en länkad tjänst för ett befintligt datalager (eller) ange ett nytt datalager. Om du vill använda en befintlig länkad tjänst väljer du **från befintliga länkade tjänster** och väljer rätt länkad tjänst.
+    ![kopierings verktyget – sidan käll data lager](./media/data-factory-azure-blob-connector/copy-tool-source-data-store-page.png)
 4. På sidan **Ange konto för Azure blobblagring**:
-    1. Behåll det automatisk genererade namnet för **anslutningsnamn**. Anslutningens namn är namnet på den länkade tjänsten av typen: Azure Storage.
+    1. Behåll det automatiskt genererade namnet för **anslutnings namnet**. Anslutnings namnet är namnet på den länkade tjänsten av typen: Azure Storage.
     2. Kontrollera att alternativet **Från Azure-prenumerationer** har valts för **Metod för kontoval**.
-    3. Välj din Azure-prenumeration eller Behåll **Markera alla** för **Azure-prenumeration**.
-    4. Välj ett **Azure-lagringskonto** i listan med Azure-lagringskonton som är tillgängliga för den prenumeration som du har valt. Du kan också välja att ange inställningar för lagringskontot manuellt genom att välja **ange manuellt** för den **Kontometod**.
+    3. Välj din Azure-prenumeration eller Behåll **Välj alla** för **Azure-prenumeration**.
+    4. Välj ett **Azure-lagringskonto** i listan med Azure-lagringskonton som är tillgängliga för den prenumeration som du har valt. Du kan också välja att ange inställningar för lagrings kontot manuellt genom att välja alternativet **ange manuellt** för **val metoden konto**.
     5. Klicka på **Nästa**.  
-        ![Verktyget kopiera - ange Azure Blob storage-konto](./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png)
+        ![kopierings verktyget – ange Azure Blob Storage-kontot](./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png)
 5. På sidan **Välj indatafil eller mapp**:
     1. Dubbelklicka på **adfblobcontainer**.
-    2. Välj **inkommande**, och klicka på **Välj**. I den här genomgången väljer du Indatamappen. Du kan även välja emp.txt-filen i mappen i stället.
-        ![Verktyget kopiera – Välj indatafil eller mapp](./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png)
-6. På den **Välj indatafil eller mapp** sidan:
-    1. Bekräfta att den **fil eller mapp** är inställd på **adfblobconnector/input**. Om filerna finns i undermappar, till exempel 2017-04-01, 2017/04/02 och så vidare, ange adfblobconnector/input / {year} / {month} / {day} för filen eller mappen. När du trycker på FLIKEN utanför textrutan visas tre listrutorna Välj format för år (åååå), månad (MM) och dag (dd).
-    2. Ange inte **kopiera filen rekursivt**. Välj det här alternativet för att rekursivt Bläddra igenom mapparna för filer som ska kopieras till målet.
-    3. Inte den **binär kopia** alternativet. Välj det här alternativet för att utföra en binär kopia av källfilen till målet. Markera inte den här genomgången så att du kan se fler alternativ i de följande sidorna.
-    4. Bekräfta att den **Komprimeringstypen** är inställd på **ingen**. Välj ett värde för det här alternativet om källfilerna är komprimerade i en av format som stöds.
+    2. Välj **inmatade**och klicka på **Välj**. I den här genom gången väljer du mappen indatamängden. Du kan också välja filen EMP. txt i mappen i stället.
+        Verktyget ![kopiering – Välj indatafilen eller mappen](./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png)
+6. På sidan **Välj indatafil eller mapp** :
+    1. Bekräfta att **filen eller mappen** har angetts till **adfblobconnector/indata**. Om filerna finns i undermappar, till exempel 2017/04/01, 2017/04/02 och så vidare, anger du adfblobconnector/indata/{year}/{month}/{Day} för filen eller mappen. När du trycker på TABB av text rutan visas tre List rutor för att välja format för år (åååå), månad (MM) och dag (dd).
+    2. Ange inte **kopierings filen rekursivt**. Välj det här alternativet för att rekursivt bläddra igenom mappar efter filer som ska kopieras till målet.
+    3. Gör inte alternativet för **binär kopia** . Välj det här alternativet om du vill göra en binär kopia av käll filen till målet. Välj inte för den här genom gången så att du kan se fler alternativ på nästa sida.
+    4. Bekräfta att **komprimerings typen** är inställd på **ingen**. Välj ett värde för det här alternativet om källfilerna komprimeras i något av de format som stöds.
     5. Klicka på **Nästa**.
-    ![Verktyget kopiera – Välj indatafil eller mapp](./media/data-factory-azure-blob-connector/chose-input-file-folder.png)
+    Verktyget ![kopiering – Välj indatafilen eller mappen](./media/data-factory-azure-blob-connector/chose-input-file-folder.png)
 7. På den **formatinställningar** kan du se avgränsare och det schema som upptäcks automatiskt i guiden genom att parsa filen.
-    1. Kontrollera följande alternativ:  
-        a. Den **filformat** är inställd på **textformat**. Du kan se alla format som stöds i den nedrullningsbara listan. Exempel: JSON, Avro, ORC, Parquet.
-       b. Den **kolumnavgränsare** är inställd på `Comma (,)`. Du kan se de andra kolumnen avgränsare stöds av Data Factory i den nedrullningsbara listan. Du kan också ange en anpassad avgränsare.
-       c. Den **radavgränsaren** är inställd på `Carriage Return + Line feed (\r\n)`. Du kan se de andra raden avgränsare stöds av Data Factory i den nedrullningsbara listan. Du kan också ange en anpassad avgränsare.
-       d. Den **hoppa över radnummer** är inställd på **0**. Om du vill att några rader som ska hoppas över överst i filen, anger du numret här.
-       e. Den **första dataraden innehåller kolumnnamn** har inte angetts. Om källfilerna som innehåller kolumnnamn i den första raden, väljer du det här alternativet.
-       f. Den **behandla tomma kolumnvärde som null** alternativet är inställt.
-    2. Expandera **avancerade inställningar** att se avancerade alternativ.
-    3. Längst ned på sidan finns i den **förhandsversion** av data från filen emp.txt.
-    4. Klicka på **schemat** flik längst ned att visa schemat som Kopieringsguiden härleds genom att titta på data i källfilen.
+    1. Bekräfta följande alternativ:  
+        a. **Fil formatet** är inställt på **text format**. Du kan se alla format som stöds i list rutan. Till exempel: JSON, Avro, ORC, Parquet.
+       b. **Kolumn avgränsaren** har angetts till `Comma (,)`. Du kan se de andra kolumn avgränsarna som stöds av Data Factory i den nedrullningsbara listan. Du kan också ange en anpassad avgränsare.
+       c. **Rad avgränsaren** har angetts till `Carriage Return + Line feed (\r\n)`. Du kan se de andra rad avgränsarna som stöds av Data Factory i den nedrullningsbara listan. Du kan också ange en anpassad avgränsare.
+       d. **Antalet rader för Skip** är inställt på **0**. Om du vill att några rader ska hoppas över överst i filen anger du numret här.
+       e. Den **första data raden innehåller kolumn namn** som inte har angetts. Om källfilerna innehåller kolumn namn på den första raden väljer du det här alternativet.
+       f. Alternativet **behandla tomt kolumn värde som null** är inställt.
+    2. Expandera **Avancerade inställningar** om du vill se avancerade alternativ som är tillgängliga.
+    3. Längst ned på sidan, se **förhands granskningen** av data från filen EMP. txt.
+    4. Klicka på fliken **schema** längst ned för att se schemat som kopierings guiden härledde genom att titta på data i käll filen.
     5. Klicka på **Nästa** när du har granskat avgränsarna och förhandsgranskat data.
-    ![Verktyget kopiera – filformatinställningar](./media/data-factory-azure-blob-connector/copy-tool-file-format-settings.png)
-8. På den **måldatalager lagra sidan**väljer **Azure Blob Storage**, och klicka på **nästa**. Du använder Azure Blob Storage som både käll- och datalager i den här genomgången.  
-    ![Verktyget kopiera – Välj måldatalager](media/data-factory-azure-blob-connector/select-destination-data-store.png)
-9. På **ange Azure Blob storage-konto** sidan:  
-    1. Ange **AzureStorageLinkedService** för den **anslutningsnamn** fält.
+    ![kopierings verktyg – inställningar för fil format](./media/data-factory-azure-blob-connector/copy-tool-file-format-settings.png)
+8. På **sidan mål data lager**väljer du **Azure Blob Storage**och klickar på **Nästa**. Du använder Azure-Blob Storage som både käll-och mål data lager i den här genom gången.  
+    Verktyget ![kopiering – Välj mål data lager](media/data-factory-azure-blob-connector/select-destination-data-store.png)
+9. På sidan **Ange Azure Blob Storage-konto** :  
+    1. Ange **AzureStorageLinkedService** i fältet **anslutnings namn** .
     2. Kontrollera att alternativet **Från Azure-prenumerationer** har valts för **Metod för kontoval**.
     3. Välj din Azure-**prenumeration**.
-    4. Välj ditt Azure storage-konto.
+    4. Välj ditt Azure Storage-konto.
     5. Klicka på **Nästa**.
-10. På den **Välj utdatafil eller mapp** sidan:  
-    1. Ange **mappsökväg** som **adfblobconnector/output / {year} / {month} / {day}** . Ange **FLIKEN**.
-    1. För den **år**väljer **åååå**.
-    1. För den **månad**, bekräfta att den är inställd på **MM**.
-    1. För den **dag**, bekräfta att den är inställd på **dd**.
-    1. Bekräfta att den **Komprimeringstypen** är inställd på **ingen**.
-    1. Bekräfta att den **kopiera beteende** är inställd på **Sammanfoga filer**. Om utdatafilen med samma namn redan finns läggs det nya innehållet till samma fil i slutet.
+10. På sidan **Välj utdatafil eller mapp** :  
+    1. Ange **mappsökväg** som **adfblobconnector/output/{year}/{month}/{Day}** . **Fliken**ange.
+    1. För **året**väljer du **åååå**.
+    1. I **månaden**bekräftar du att den är inställd på **mm**.
+    1. Bekräfta att den är inställd på **DD**för **dagen**.
+    1. Bekräfta att **komprimerings typen** är inställd på **ingen**.
+    1. Bekräfta att **kopierings beteendet** är inställt på **sammanfoga filer**. Om utdatafilen med samma namn redan finns, läggs det nya innehållet till i samma fil i slutet.
     1. Klicka på **Nästa**.
-       ![Verktyget kopiera – Välj utdatafil eller mapp](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
-11. På den **filformatinställningar** sidan, granskar du inställningarna och klicka på **nästa**. En av de ytterligare alternativen är att lägga till en rubrik till utdatafilen. Om du har valt alternativet läggs en rubrikrad med namnen på kolumnerna från schemat för källan. Du kan byta namn på standardkolumnvärdena när du visar schemat för källan. Du kan till exempel ändra den första kolumnen till förnamn och efternamn andra kolumn. Sedan skapas utdatafilen med ett huvud med namnen som kolumnnamn.
-    ![Verktyget kopiera – filformatinställningar för mål](media/data-factory-azure-blob-connector/file-format-destination.png)
-12. På den **prestandainställningar** bekräftar som **molnbaserade enheter** och **parallell kopior** är inställda på **automatisk**, och klicka på Nästa. Mer information om dessa inställningar finns i [kopiera aktivitet prestanda- och Justeringsguiden](data-factory-copy-activity-performance.md#parallel-copy).
-    ![Verktyget kopiera - prestandainställningar](media/data-factory-azure-blob-connector/copy-performance-settings.png)
-14. På den **sammanfattning** , granska alla inställningar (Aktivitetsegenskaper, inställningar för källa och mål och inställningar) och klicka på **nästa**.
-    ![Verktyget kopiera – sammanfattningssida](media/data-factory-azure-blob-connector/copy-tool-summary-page.png)
+       Verktyget ![kopiering – Välj utdatafil eller mapp](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
+11. På sidan **fil formats inställningar** granskar du inställningarna och klickar på **Nästa**. Ett av de ytterligare alternativen här är att lägga till en rubrik i utdatafilen. Om du väljer det alternativet läggs en rubrik rad till med namnen på kolumnerna från källans schema. Du kan byta namn på standard kolumn namnen när du visar schemat för källan. Du kan till exempel ändra den första kolumnen till förnamnet och andra kolumnen till efter namn. Sedan genereras utdatafilen med ett huvud med dessa namn som kolumn namn.
+    ![kopierings verktyg – inställningar för fil format för mål](media/data-factory-azure-blob-connector/file-format-destination.png)
+12. På sidan **prestanda inställningar** bekräftar du att **moln enheter** och **parallella kopior** är inställda på **Auto**och klickar på Nästa. Mer information om de här inställningarna finns i [Kopiera aktivitets prestanda och justerings guide](data-factory-copy-activity-performance.md#parallel-copy).
+    ![kopierings verktyget – prestanda inställningar](media/data-factory-azure-blob-connector/copy-performance-settings.png)
+14. På sidan **Sammanfattning** granskar du alla inställningar (aktivitets egenskaper, inställningar för källa och mål och kopiera inställningar) och klickar på **Nästa**.
+    ![kopierings verktyg – sammanfattnings sida](media/data-factory-azure-blob-connector/copy-tool-summary-page.png)
 15. Granska informationen på sidan **Sammanfattning** och klicka på **Slutför**. Guiden skapar två länkade tjänster, två datauppsättningar (indata och utdata) och en pipeline i datafabriken (från den plats där du startade guiden Kopiera).
-    ![Verktyget kopiera – distributionssida](media/data-factory-azure-blob-connector/copy-tool-deployment-page.png)
+    ![kopierings verktyget – distributions sidan](media/data-factory-azure-blob-connector/copy-tool-deployment-page.png)
 
-### <a name="monitor-the-pipeline-copy-task"></a>Övervaka pipelinen (kopieringsaktiviteten)
+### <a name="monitor-the-pipeline-copy-task"></a>Övervaka pipelinen (kopierings uppgift)
 
-1. Klicka på länken `Click here to monitor copy pipeline` på den **distribution** sidan.
-2. Du bör se den **övervaka och hantera program** i en separat flik.  ![Övervaka och hantera App](media/data-factory-azure-blob-connector/monitor-manage-app.png)
-3. Ändra den **starta** tid längst upp till `04/19/2017` och **slutet** till `04/27/2017`, och klicka sedan på **tillämpa**.
-4. Du bör se fem aktivitetsfönster i den **AKTIVITETSFÖNSTER** lista. Den **WindowStart** gånger ska täcka alla dagar från pipelinens start till pipeline-sluttid.
-5. Klicka på **uppdatera** för den **AKTIVITETSFÖNSTER** några gånger tills du ser status för alla aktivitetsfönster är inställd på klart.
-6. Nu, kontrollera att utdatafilerna som genereras i Utdatamappen för adfblobconnector behållare. Du bör se följande mappstrukturen i den utgående mappen:
+1. Klicka på länken `Click here to monitor copy pipeline` på **distributions** sidan.
+2. Du bör se **programmet övervaka och hantera** på en separat flik.  ![övervaka och hantera app](media/data-factory-azure-blob-connector/monitor-manage-app.png)
+3. Ändra **Start** tiden överst till `04/19/2017` och **slut** tid till `04/27/2017`och klicka sedan på **Använd**.
+4. Du bör se fem aktivitets fönster i listan **AKTIVITETS fönster** . **WindowStart** -tiderna bör gälla alla dagar från pipelinen från början till pipelinens slut tider.
+5. Klicka på knappen **Uppdatera** för **aktivitets Windows** -listan några gånger tills du ser att status för alla aktivitets fönster är inställd på klar.
+6. Kontrol lera nu att utdatafilerna genereras i mappen utdata i adfblobconnector container. Du bör se följande mappstruktur i mappen utdata:
     ```
     2017/04/21
     2017/04/22
@@ -284,29 +284,29 @@ Nu ska vi titta på hur du snabbt kopiera data till och från Azure blob storage
     2017/04/24
     2017/04/25
     ```
-   Detaljerad information om övervaka och hantera datafabriker finns i [övervaka och hantera Data Factory-pipeline](data-factory-monitor-manage-app.md) artikeln.
+   Detaljerad information om övervakning och hantering av data fabriker finns i artikeln [övervaka och hantera data Factory pipeline](data-factory-monitor-manage-app.md) .
 
-### <a name="data-factory-entities"></a>Data Factory-entiteter
-Gå tillbaka till fliken med Data Factory-startsidan. Observera att det finns två länkade tjänster, två datauppsättningar och en pipeline i data factory nu.
+### <a name="data-factory-entities"></a>Data Factory entiteter
+Gå nu tillbaka till fliken med Data Factory start sida. Observera att det finns två länkade tjänster, två data uppsättningar och en pipeline i din Data Factory nu.
 
-![Datafabrikens startsida med entiteter](media/data-factory-azure-blob-connector/data-factory-home-page-with-numbers.png)
+![Data Factory start sida med entiteter](media/data-factory-azure-blob-connector/data-factory-home-page-with-numbers.png)
 
-Klicka på **författare och distribuera** att starta Data Factory-redigeraren.
+Klicka på **Redigera och distribuera** för att starta Data Factory redigeraren.
 
 ![Data Factory-redigeraren](media/data-factory-azure-blob-connector/data-factory-editor.png)
 
-Du bör se följande Data Factory-entiteter i din datafabrik:
+Du bör se följande Data Factory entiteter i din data fabrik:
 
-- Två länkade tjänster. En för käll- och det andra för målet. Länkade tjänster finns på samma Azure Storage-konto i den här genomgången.
-- Två datauppsättningar. En indatauppsättning och en utdatauppsättning. I den här genomgången ska båda använder samma blobbehållare men referera till olika mappar (indata och utdata).
-- En pipeline. Pipelinen innehåller en Kopieringsaktivitet som använder en blobkälla och mottagare blob för att kopiera data från en Azure blobbplats till en annan Azure-blob.
+- Två länkade tjänster. En för källan och den andra för målet. Både de länkade tjänsterna refererar till samma Azure Storage konto i den här genom gången.
+- Två data uppsättningar. En data uppsättning och en data uppsättning för utdata. I den här genom gången ska du använda samma BLOB-behållare men referera till olika mappar (indata och utdata).
+- En pipeline. Pipelinen innehåller en kopierings aktivitet som använder en BLOB-källa och en BLOB-mottagare för att kopiera data från en Azure Blob-plats till en annan Azure Blob-plats.
 
-Följande avsnitt innehåller mer information om dessa entiteter.
+I följande avsnitt finns mer information om dessa entiteter.
 
 #### <a name="linked-services"></a>Länkade tjänster
-Du bör se två länkade tjänster. En för käll- och det andra för målet. I den här genomgången båda definitioner ser likadana ut förutom namnen. Den **typ** på den länkade tjänsten är inställd på **AzureStorage**. Den viktigaste egenskapen för den länkade tjänstdefinitionen är den **connectionString**, som används av Data Factory för att ansluta till Azure Storage-kontot vid körning. Ignorera egenskapen hubName i definitionen.
+Du bör se två länkade tjänster. En för källan och den andra för målet. I den här genom gången ser båda definitionerna likadana ut förutom namnen. Den länkade tjänstens **typ** är inställd på **AzureStorage**. Den viktigaste egenskapen för den länkade tjänst definitionen är **ConnectionString**, som används av Data Factory för att ansluta till ditt Azure Storage-konto vid körning. Ignorera egenskapen hubName i definitionen.
 
-##### <a name="source-blob-storage-linked-service"></a>Källa blob storage-länkad tjänst
+##### <a name="source-blob-storage-linked-service"></a>Länkad källa för blob-lagring
 ```json
 {
     "name": "Source-BlobStorage-z4y",
@@ -319,7 +319,7 @@ Du bör se två länkade tjänster. En för käll- och det andra för målet. I 
 }
 ```
 
-##### <a name="destination-blob-storage-linked-service"></a>Mål blob storage-länkad tjänst
+##### <a name="destination-blob-storage-linked-service"></a>Länkad Blob Storage-tjänst
 
 ```json
 {
@@ -333,18 +333,18 @@ Du bör se två länkade tjänster. En för käll- och det andra för målet. I 
 }
 ```
 
-Läs mer om Azure Storage-länkade tjänsten [länkade tjänstegenskaper](#linked-service-properties) avsnittet.
+Mer information om Azure Storage länkade tjänsten finns i avsnittet [länkade tjänst egenskaper](#linked-service-properties) .
 
 #### <a name="datasets"></a>Datauppsättningar
-Det finns två datauppsättningar: en indatauppsättning och en utdatauppsättning. Vilken typ av datauppsättningen är inställd på **AzureBlob** för båda.
+Det finns två data uppsättningar: en indata-datauppsättning och en utgående data uppsättning. Data uppsättningens typ är inställd på **AzureBlob** för båda.
 
-Den inkommande datauppsättningen pekar på den **inkommande** mappen för den **adfblobconnector** blob-behållare. Den **externa** är inställd på **SANT** för den här datauppsättningen eftersom data inte produceras av pipelinen med en Kopieringsaktivitet som använder den här datauppsättningen som indata.
+Indata-datauppsättningen pekar på **adfblobconnector** BLOB-behållarens **indata** -mapp. Den **externa** egenskapen har angetts till **True** för den här data uppsättningen eftersom data inte produceras av pipelinen med den kopierings aktivitet som använder den här data uppsättningen som indata.
 
-Datauppsättningen för utdata som pekar på den **utdata** mapp med samma blob-behållaren. Datauppsättningen för utdata använder också den år, månad och dagen i den **SliceStart** systemvariabeln att dynamiskt utvärdera sökvägen till utdatafilen. En lista över funktioner och systemvariabler som stöds av Data Factory finns i [Data Factory-funktioner och systemvariabler](data-factory-functions-variables.md). Den **externa** är inställd på **FALSKT** (standardvärde) eftersom den här datauppsättningen produceras av pipelinen.
+Data uppsättningen för utdata pekar på mappen **utdata** i samma BLOB-behållare. Data uppsättningen för utdata använder också året, månaden och dagen för **SliceStart** -systemvariabeln för att dynamiskt utvärdera sökvägen till utdatafilen. En lista över funktioner och systemvariabler som stöds av Data Factory finns i [Data Factory funktioner och systemvariabler](data-factory-functions-variables.md). Egenskapen **external** har angetts till **false** (standardvärde) eftersom den här data uppsättningen produceras av pipelinen.
 
-Läs mer om egenskaper som stöds av Azure Blob-datauppsättning, [egenskaper för datamängd](#dataset-properties) avsnittet.
+Mer information om egenskaper som stöds av Azure Blob-datauppsättningen finns i avsnittet [Egenskaper för data uppsättning](#dataset-properties) .
 
-##### <a name="input-dataset"></a>Datauppsättningen för indata
+##### <a name="input-dataset"></a>Indata-datauppsättning
 
 ```json
 {
@@ -373,7 +373,7 @@ Läs mer om egenskaper som stöds av Azure Blob-datauppsättning, [egenskaper f�
 }
 ```
 
-##### <a name="output-dataset"></a>Datauppsättningen för utdata
+##### <a name="output-dataset"></a>Data uppsättning för utdata
 
 ```json
 {
@@ -408,9 +408,9 @@ Läs mer om egenskaper som stöds av Azure Blob-datauppsättning, [egenskaper f�
 ```
 
 #### <a name="pipeline"></a>Pipeline
-Pipelinen har bara en aktivitet. Den **typ** för aktiviteten är inställd på **kopiera**. I typegenskaperna för aktiviteten finns två delar, en för källan och en för mottagaren. Källtypen är inställd på **BlobSource** som aktiviteten kopierar data från ett blob storage. Mottagartyp är inställd på **BlobSink** som aktiviteten kopiera data till ett blob storage. Kopieringsaktivitet tar InputDataset-z4y som indata och OutputDataset – z4y som utdata.
+Pipelinen har bara en aktivitet. Aktivitetens **typ** är inställd på **Kopiera**. I typ egenskaperna för aktiviteten finns det två avsnitt, en för källa och den andra för mottagare. Käll typen är inställd på **BlobSource** när aktiviteten kopierar data från en blob-lagring. Mottagar typen är inställd på **BlobSink** som aktivitet som kopierar data till en blob-lagring. Kopierings aktiviteten tar InputDataset-z4y som indata-och OutputDataset-z4y som utdata.
 
-Läs mer om egenskaper som stöds av BlobSource och BlobSink [kopiera Aktivitetsegenskaper](#copy-activity-properties) avsnittet.
+Mer information om egenskaper som stöds av BlobSource och BlobSink finns i avsnittet [Kopiera aktivitets egenskaper](#copy-activity-properties) .
 
 ```json
 {
@@ -466,18 +466,18 @@ Läs mer om egenskaper som stöds av BlobSource och BlobSink [kopiera Aktivitets
 ```
 
 ## <a name="json-examples-for-copying-data-to-and-from-blob-storage"></a>JSON-exempel för att kopiera data till och från Blob Storage
-I följande exempel får exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De visar hur du kopierar data till och från Azure Blob Storage och Azure SQL Database. Men du kan kopiera data **direkt** från källor till någon av de mottagare som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) använda Kopieringsaktivitet i Azure Data Factory.
+I följande exempel finns exempel på JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De visar hur du kopierar data till och från Azure Blob Storage och Azure SQL Database. Data kan dock kopieras **direkt** från någon av källorna till någon av de handfat som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med kopierings aktiviteten i Azure Data Factory.
 
-### <a name="json-example-copy-data-from-blob-storage-to-sql-database"></a>JSON-exempel: Kopiera data från Blob Storage till SQL-databas
-I följande exempel visas:
+### <a name="json-example-copy-data-from-blob-storage-to-sql-database"></a>JSON-exempel: kopiera data från Blob Storage till SQL Database
+Följande exempel visar:
 
 1. En länkad tjänst av typen [AzureSqlDatabase](data-factory-azure-sql-connector.md#linked-service-properties).
 2. En länkad tjänst av typen [AzureStorage](#linked-service-properties).
-3. Indata [datauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](#dataset-properties).
-4. Utdata [datauppsättning](data-factory-create-datasets.md) av typen [AzureSqlTable](data-factory-azure-sql-connector.md#dataset-properties).
-5. En [pipeline](data-factory-create-pipelines.md) med en Kopieringsaktivitet som använder [BlobSource](#copy-activity-properties) och [SqlSink](data-factory-azure-sql-connector.md#copy-activity-properties).
+3. En indata- [datauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](#dataset-properties).
+4. En utdata- [datauppsättning](data-factory-create-datasets.md) av typen [AzureSqlTable](data-factory-azure-sql-connector.md#dataset-properties).
+5. En [pipeline](data-factory-create-pipelines.md) med en kopierings aktivitet som använder [BlobSource](#copy-activity-properties) och [SqlSink](data-factory-azure-sql-connector.md#copy-activity-properties).
 
-Exempel-kopior time series-data från en Azure-blobb till en Azure SQL tabellen varje timme. JSON-egenskaper som används i exemplen beskrivs i exemplen i följande avsnitt.
+Exemplet kopierar Time Series-data från en Azure-blob till en Azure SQL-tabell varje timme. De JSON-egenskaper som används i de här exemplen beskrivs i avsnitten som följer efter exemplen.
 
 **Länkad Azure SQL-tjänst:**
 
@@ -492,7 +492,7 @@ Exempel-kopior time series-data från en Azure-blobb till en Azure SQL tabellen 
   }
 }
 ```
-**Länkad Azure Storage-tjänst:**
+**Azure Storage länkad tjänst:**
 
 ```json
 {
@@ -505,11 +505,11 @@ Exempel-kopior time series-data från en Azure-blobb till en Azure SQL tabellen 
   }
 }
 ```
-Azure Data Factory stöder två typer av Azure Storage-länkade tjänster: **AzureStorage** och **AzureStorageSas**. För den första som du anger anslutningssträngen som innehåller kontonyckeln och för det senare anger du Uri för signatur för delad åtkomst (SAS). Se [länkade tjänster](#linked-service-properties) information.
+Azure Data Factory stöder två typer av Azure Storage länkade tjänster: **AzureStorage** och **AzureStorageSas**. För det första anger du anslutnings strängen som innehåller konto nyckeln och för den senare, anger du URL: en för signatur för delad åtkomst (SAS). Mer information finns i avsnittet [länkade tjänster](#linked-service-properties) .
 
-**Indatauppsättning för Azure-Blobb:**
+**Data uppsättning för Azure Blob-indata:**
 
-Data hämtas från en ny blob varje timme (frequency: timme, intervall: 1). Mappnamn för sökvägen och filnamnet för bloben utvärderas dynamiskt baserat på starttiden för den sektor som bearbetas. Sökvägen till mappen använder år, månad och dag för starttiden och filnamnet använder timme en del av starttiden. ”external”: ”true” inställningen informerar Data Factory att tabellen är extern till datafabriken och inte kommer från en aktivitet i data factory.
+Data hämtas från en ny BLOB varje timme (frekvens: timme, intervall: 1). Mappsökvägen och fil namnet för blobben utvärderas dynamiskt baserat på Start tiden för den sektor som bearbetas. Mappsökvägen använder året, månaden och dag delen av start tiden och fil namnet använder Tim delen av start tiden. inställningen "extern": "true" informerar Data Factory att tabellen är extern i data fabriken och inte produceras av en aktivitet i data fabriken.
 
 ```json
 {
@@ -547,9 +547,9 @@ Data hämtas från en ny blob varje timme (frequency: timme, intervall: 1). Mapp
   }
 }
 ```
-**Utdatauppsättning för Azure SQL:**
+**Data uppsättning för Azure SQL-utdata:**
 
-Exemplet kopierar data till en tabell med namnet ”MyTable” i en Azure SQL database. Skapa tabell i Azure SQL-databasen med samma antal kolumner som du förväntar dig att Blob CSV-filen ska innehålla. Nya rader har lagts till i tabell varje timme.
+Exemplet kopierar data till en tabell med namnet "min tabell" i en Azure SQL-databas. Skapa tabellen i din Azure SQL-databas med samma antal kolumner som du förväntar sig att BLOB CSV-filen ska innehålla. Nya rader läggs till i tabellen varje timme.
 
 ```json
 {
@@ -567,9 +567,9 @@ Exemplet kopierar data till en tabell med namnet ”MyTable” i en Azure SQL da
   }
 }
 ```
-**En Kopieringsaktivitet i en pipeline med Blob-källan och SQL-mottagare:**
+**En kopierings aktivitet i en pipeline med BLOB-källa och SQL-mottagare:**
 
-Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för användning av in- och utdatauppsättningar och är schemalagd att köras varje timme. I pipeline-JSON-definitionen i **källa** är **BlobSource** och **mottagare** är **SqlSink**.
+Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att använda data uppsättningar för indata och utdata och är schemalagda att köras varje timme. I JSON-definitionen för pipelinen är **käll** typen inställt på **BlobSource** och **mottagar** typ är inställd på **SqlSink**.
 
 ```json
 {
@@ -616,16 +616,16 @@ Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för användn
   }
 }
 ```
-### <a name="json-example-copy-data-from-azure-sql-to-azure-blob"></a>JSON-exempel: Kopiera data från Azure SQL till Azure Blob
-I följande exempel visas:
+### <a name="json-example-copy-data-from-azure-sql-to-azure-blob"></a>JSON-exempel: kopiera data från Azure SQL till Azure-Blob
+Följande exempel visar:
 
 1. En länkad tjänst av typen [AzureSqlDatabase](data-factory-azure-sql-connector.md#linked-service-properties).
 2. En länkad tjänst av typen [AzureStorage](#linked-service-properties).
-3. Indata [datauppsättning](data-factory-create-datasets.md) av typen [AzureSqlTable](data-factory-azure-sql-connector.md#dataset-properties).
-4. Utdata [datauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](#dataset-properties).
-5. En [pipeline](data-factory-create-pipelines.md) med en Kopieringsaktivitet som använder [SqlSource](data-factory-azure-sql-connector.md#copy-activity-properties) och [BlobSink](#copy-activity-properties).
+3. En indata- [datauppsättning](data-factory-create-datasets.md) av typen [AzureSqlTable](data-factory-azure-sql-connector.md#dataset-properties).
+4. En utdata- [datauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](#dataset-properties).
+5. En [pipeline](data-factory-create-pipelines.md) med kopierings aktivitet som använder [SqlSource](data-factory-azure-sql-connector.md#copy-activity-properties) och [BlobSink](#copy-activity-properties).
 
-Exemplet kopierar time series-data från en Azure SQL-tabell till en Azure-blob per timme. JSON-egenskaper som används i exemplen beskrivs i exemplen i följande avsnitt.
+Exemplet kopierar Time Series-data från en Azure SQL-tabell till en Azure-Blob per timme. De JSON-egenskaper som används i de här exemplen beskrivs i avsnitten som följer efter exemplen.
 
 **Länkad Azure SQL-tjänst:**
 
@@ -640,7 +640,7 @@ Exemplet kopierar time series-data från en Azure SQL-tabell till en Azure-blob 
   }
 }
 ```
-**Länkad Azure Storage-tjänst:**
+**Azure Storage länkad tjänst:**
 
 ```json
 {
@@ -653,13 +653,13 @@ Exemplet kopierar time series-data från en Azure SQL-tabell till en Azure-blob 
   }
 }
 ```
-Azure Data Factory stöder två typer av Azure Storage-länkade tjänster: **AzureStorage** och **AzureStorageSas**. För den första som du anger anslutningssträngen som innehåller kontonyckeln och för det senare anger du Uri för signatur för delad åtkomst (SAS). Se [länkade tjänster](#linked-service-properties) information.
+Azure Data Factory stöder två typer av Azure Storage länkade tjänster: **AzureStorage** och **AzureStorageSas**. För det första anger du anslutnings strängen som innehåller konto nyckeln och för den senare, anger du URL: en för signatur för delad åtkomst (SAS). Mer information finns i avsnittet [länkade tjänster](#linked-service-properties) .
 
-**Indatauppsättning för Azure SQL:**
+**Data uppsättning för Azure SQL-indata:**
 
-Exemplet förutsätter att du har skapat en tabell ”MyTable” i Azure SQL och den innehåller en kolumn med namnet ”timestampcolumn” för time series-data.
+Exemplet förutsätter att du har skapat en tabell "Tabell" i Azure SQL och innehåller en kolumn med namnet "timestampcolumn" för Time Series-data.
 
-Ange ”external”: ”true” informerar Data Factory-tjänsten att tabellen är extern till datafabriken och inte kommer från en aktivitet i data factory.
+Inställningen "External": "true" informerar Data Factory tjänst som tabellen är extern i data fabriken och produceras inte av en aktivitet i data fabriken.
 
 ```json
 {
@@ -686,9 +686,9 @@ Ange ”external”: ”true” informerar Data Factory-tjänsten att tabellen �
 }
 ```
 
-**Utdatauppsättning för Azure Blob:**
+**Data uppsättning för Azure Blob-utdata:**
 
-Data skrivs till en ny blob varje timme (frequency: timme, intervall: 1). Sökvägen till mappen för bloben utvärderas dynamiskt baserat på starttiden för den sektor som bearbetas. Sökvägen till mappen använder år, månad, dag och timmar delar av starttiden.
+Data skrivs till en ny BLOB varje timme (frekvens: timme, intervall: 1). Mappsökvägen för blobben utvärderas dynamiskt baserat på Start tiden för den sektor som bearbetas. Mappens sökväg använder år, månad, dag och timmar delar av start tiden.
 
 ```json
 {
@@ -720,9 +720,9 @@ Data skrivs till en ny blob varje timme (frequency: timme, intervall: 1). Sökv�
 }
 ```
 
-**En Kopieringsaktivitet i en pipeline med SQL-käll- och Blob-mottagare:**
+**En kopierings aktivitet i en pipeline med SQL-källa och blob-mottagare:**
 
-Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för användning av in- och utdatauppsättningar och är schemalagd att köras varje timme. I pipeline-JSON-definitionen i **källa** är **SqlSource** och **mottagare** är **BlobSink**. SQL-frågan som angetts för den **SqlReaderQuery** egenskapen väljer vilka data under den senaste timmen att kopiera.
+Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att använda data uppsättningar för indata och utdata och är schemalagda att köras varje timme. I JSON-definitionen för pipelinen är **käll** typen inställt på **SqlSource** och **mottagar** typ är inställd på **BlobSink**. SQL-frågan som angetts för egenskapen **SqlReaderQuery** väljer data under den senaste timmen som ska kopieras.
 
 ```json
 {
@@ -772,7 +772,7 @@ Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för användn
 ```
 
 > [!NOTE]
-> Om du vill mappa kolumner från datauppsättningen för källan till kolumner från en datauppsättning för mottagare, se [mappning av kolumner för datauppsättningar i Azure Data Factory](data-factory-map-columns.md).
+> Information om hur du mappar kolumner från käll data uppsättning till kolumner från mottagar data uppsättningen finns [i mappa data mängds kolumner i Azure Data Factory](data-factory-map-columns.md).
 
-## <a name="performance-and-tuning"></a>Prestanda- och justering
-Se [kopiera aktivitet prestanda- och Justeringsguide](data-factory-copy-activity-performance.md) att lära dig om viktiga faktorer att påverka prestandan för dataförflyttning (Kopieringsaktiviteten) i Azure Data Factory och olika sätt att optimera den.
+## <a name="performance-and-tuning"></a>Prestanda och justering
+Se [Kopiera aktivitets prestanda & justerings guide](data-factory-copy-activity-performance.md) för att lära dig mer om viktiga faktorer som påverkar prestanda för data förflyttning (kopierings aktivitet) i Azure Data Factory och olika sätt att optimera den.

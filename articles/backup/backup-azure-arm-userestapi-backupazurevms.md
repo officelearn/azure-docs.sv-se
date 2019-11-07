@@ -1,5 +1,5 @@
 ---
-title: 'Azure Backup: Säkerhetskopiera virtuella Azure-datorer med REST API'
+title: 'Azure Backup: säkerhetskopiera virtuella Azure-datorer med REST API'
 description: Hantera säkerhets kopierings åtgärder för säkerhets kopiering av virtuella Azure-datorer med REST API
 ms.reviewer: pullabhk
 author: dcurwin
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 701972c32f3e80682e2a20d04b02bcd555532e08
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
-ms.translationtype: MT
+ms.openlocfilehash: 837401256aa264a527e2323b055713f4bd8e8d1c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954987"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671690"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Säkerhetskopiera en virtuell Azure-dator med hjälp av Azure Backup via REST API
 
@@ -35,13 +35,13 @@ Först ska valvet kunna identifiera den virtuella Azure-datorn. Detta utlöses m
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
 ```
 
-POST-URI: `{subscriptionId}`n `{vaultName}`har `{vaultresourceGroupName}`, `{fabricName}` ,, parametrar. `{fabricName}` Är "Azure". Som enligt vårt exempel `{vaultName}` är "testVault" och `{vaultresourceGroupName}` är "testVaultRG". Eftersom alla parametrar som krävs anges i URI: n behöver du inte ha någon separat brödtext i begäran.
+POST-URI: n har `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}``{fabricName}` parametrar. `{fabricName}` är "Azure". Som enligt vårt exempel är `{vaultName}` "testVault" och `{vaultresourceGroupName}` "testVaultRG". Eftersom alla parametrar som krävs anges i URI: n behöver du inte ha någon separat brödtext i begäran.
 
 ```http
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
 ```
 
-#### <a name="responses"></a>Responses
+#### <a name="responses"></a>Svar
 
 Åtgärden Uppdatera är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
 
@@ -50,7 +50,7 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |204 inget innehåll     |         |  OK utan innehåll som returneras      |
-|202 accepterad     |         |     Accepterad    |
+|202 accepterad     |         |     Accept    |
 
 ##### <a name="example-responses"></a>Exempel svar
 
@@ -112,7 +112,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
-|200 OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       Ok |
+|200 OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
 ##### <a name="example-responses-1"></a>Exempel svar
 
@@ -155,31 +155,31 @@ X-Powered-By: ASP.NET
 > [!TIP]
 > Antalet värden i *Get* -svaret är begränsat till 200 för en sida. Använd fältet ' nextLink ' för att hämta URL: en för nästa uppsättning svar.
 
-Svaret innehåller en lista över alla oskyddade virtuella Azure-datorer och varje `{value}` innehåller all information som krävs av Azure Recovery Service för att konfigurera säkerhets kopiering. Om du vill konfigurera säkerhets kopiering `{name}` noterar du fältet `{virtualMachineId}` och fältet `{properties}` i avsnittet. Konstruera två variabler från dessa fält värden enligt vad som anges nedan.
+Svaret innehåller en lista över alla oskyddade virtuella Azure-datorer och varje `{value}` innehåller all information som krävs av Azure Recovery Service för att konfigurera säkerhets kopiering. Om du vill konfigurera säkerhets kopieringen noterar du `{name}` fältet och fältet `{virtualMachineId}` i `{properties}` avsnittet. Konstruera två variabler från dessa fält värden enligt vad som anges nedan.
 
 - containerName = "iaasvmcontainer;" +`{name}`
-- protectedItemName = "VM;" +`{name}`
-- `{virtualMachineId}`används senare i [begär ande texten](#example-request-body)
+- protectedItemName = "VM;" + `{name}`
+- `{virtualMachineId}` används senare i [begär ande texten](#example-request-body)
 
 I exemplet översätts ovanstående värden till:
 
-- containerName = "iaasvmcontainer;iaasvmcontainerv2;testRG;testVM"
-- protectedItemName = "vm;iaasvmcontainerv2;testRG;testVM"
+- containerName = "iaasvmcontainer; iaasvmcontainerv2; testRG; testVM"
+- protectedItemName = "VM; iaasvmcontainerv2; testRG; testVM"
 
 ### <a name="enabling-protection-for-the-azure-vm"></a>Aktiverar skydd för den virtuella Azure-datorn
 
 När den aktuella virtuella datorn är "cachelagrad" och "identifierad" väljer du den princip som du vill skydda. Om du vill veta mer om befintliga principer i valvet, se [lista över princip-API](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). Välj sedan den [aktuella principen](https://docs.microsoft.com/rest/api/backup/protectionpolicies/get) genom att referera till princip namnet. Information om hur du skapar principer finns i [själv studie kursen skapa princip](backup-azure-arm-userestapi-createorupdatepolicy.md). "DefaultPolicy" är markerat i exemplet nedan.
 
-Aktivering av skydd är en asynkron placerings åtgärd som skapar ett skyddat objekt.
+Aktivering av skydd är en asynkron *placerings* åtgärd som skapar ett skyddat objekt.
 
 ```http
 https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2016-12-01
 ```
 
-`{containerName}` Och`{protectedItemName}` är som konstruerade ovan. `{fabricName}` Är "Azure". I vårt exempel översätts detta till:
+`{containerName}` och `{protectedItemName}` som skapats ovan. `{fabricName}` är "Azure". I vårt exempel översätts detta till:
 
 ```http
-PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2016-12-01
+PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
 ```
 
 #### <a name="create-the-request-body"></a>Skapa begär ande texten
@@ -206,9 +206,9 @@ Följande begär ande text definierar egenskaper som krävs för att skapa ett s
 }
 ```
 
-Är det `{virtualMachineId}` som nämns ovan från [svar på listan över skrivskyddade objekt.](#example-responses-1) `{sourceResourceId}`
+`{sourceResourceId}` är det `{virtualMachineId}` som anges ovan från [svar på lista objekt](#example-responses-1)som kan skyddas.
 
-#### <a name="responses"></a>Responses
+#### <a name="responses"></a>Svar
 
 Att skapa ett skyddat objekt är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
 
@@ -216,18 +216,18 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
-|200 OK     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  Ok       |
-|202 accepterad     |         |     Accepterad    |
+|200 OK     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
+|202 accepterad     |         |     Accept    |
 
 ##### <a name="example-responses"></a>Exempel svar
 
-När du skickar in begäran om att skapa eller uppdatera skyddade objekt är det första svaret 202 (accepteras) med ett plats huvud eller Azure-async-header.
+När du skickar in *begäran om att skapa* eller uppdatera skyddade objekt är det första svaret 202 (accepteras) med ett plats huvud eller Azure-async-header.
 
 ```http
 HTTP/1.1 202 Accepted
 Pragma: no-cache
 Retry-After: 60
-Azure-AsyncOperation: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2016-12-01
+Azure-AsyncOperation: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2019-05-13
 X-Content-Type-Options: nosniff
 x-ms-request-id: db785be0-bb20-4598-bc9f-70c9428b170b
 x-ms-client-request-id: e1f94eef-9b2d-45c4-85b8-151e12b07d03; e1f94eef-9b2d-45c4-85b8-151e12b07d03
@@ -237,7 +237,7 @@ x-ms-correlation-request-id: db785be0-bb20-4598-bc9f-70c9428b170b
 x-ms-routing-request-id: SOUTHINDIA:20180521T073907Z:db785be0-bb20-4598-bc9f-70c9428b170b
 Cache-Control: no-cache
 Date: Mon, 21 May 2018 07:39:06 GMT
-Location: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationResults/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2016-12-01
+Location: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationResults/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2019-05-13
 X-Powered-By: ASP.NET
 ```
 
@@ -290,10 +290,10 @@ Att utlösa en säkerhets kopiering på begäran är en *post* -åtgärd.
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/backup?api-version=2016-12-01
 ```
 
-Och är som konstruerade [ovan.](#responses-1) `{containerName}` `{protectedItemName}` `{fabricName}` Är "Azure". I vårt exempel översätts detta till:
+`{containerName}` och `{protectedItemName}` som skapats [ovan](#responses-1). `{fabricName}` är "Azure". I vårt exempel översätts detta till:
 
 ```http
-POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM/backup?api-version=2016-12-01
+POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM/backup?api-version=2019-05-13
 ```
 
 ### <a name="create-the-request-body"></a>Skapa begär ande texten
@@ -319,7 +319,7 @@ Följande begär ande text definierar egenskaper som krävs för att utlösa en 
 }
 ```
 
-### <a name="responses"></a>Responses
+### <a name="responses"></a>Svar
 
 Att utlösa en säkerhets kopiering på begäran är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
 
@@ -327,7 +327,7 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
-|202 accepterad     |         |     Accepterad    |
+|202 accepterad     |         |     Accept    |
 
 ##### <a name="example-responses-3"></a>Exempel svar
 
@@ -337,7 +337,7 @@ När du har skickat in *post* -begäran för en säkerhets kopiering på begära
 HTTP/1.1 202 Accepted
 Pragma: no-cache
 Retry-After: 60
-Azure-AsyncOperation: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testVaultRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/b8daecaa-f8f5-44ed-9f18-491a9e9ba01f?api-version=2016-12-01
+Azure-AsyncOperation: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testVaultRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/b8daecaa-f8f5-44ed-9f18-491a9e9ba01f?api-version=2019-05-13
 X-Content-Type-Options: nosniff
 x-ms-request-id: 7885ca75-c7c6-43fb-a38c-c0cc437d8810
 x-ms-client-request-id: 7df8e874-1d66-4f81-8e91-da2fe054811d; 7df8e874-1d66-4f81-8e91-da2fe054811d
@@ -354,7 +354,7 @@ X-Powered-By: ASP.NET
 Spåra sedan den resulterande åtgärden med hjälp av plats rubriken eller Azure-AsyncOperation-huvudet med ett enkelt *Get* -kommando.
 
 ```http
-GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2016-12-01
+GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2019-05-13
 ```
 
 När åtgärden har slutförts returneras 200 (OK) med ID: t för det resulterande säkerhets kopierings jobbet i svars texten.
@@ -393,7 +393,7 @@ Eftersom säkerhets kopierings jobbet är en tids krävande åtgärd måste det 
 
 ### <a name="changing-the-policy-of-protection"></a>Ändra principen för skydd
 
-Om du vill ändra principen som den virtuella datorn är skyddad med kan du använda samma format som att [Aktivera skydd](#enabling-protection-for-the-azure-vm). Ange bara det nya princip-ID: t i [begär ande texten](#example-request-body) och skicka begäran. Exempel: Om du vill ändra principen för testVM från "DefaultPolicy" till "ProdPolicy" anger du ProdPolicy-ID: t i begär ande texten.
+Om du vill ändra principen som den virtuella datorn är skyddad med kan du använda samma format som att [Aktivera skydd](#enabling-protection-for-the-azure-vm). Ange bara det nya princip-ID: t i [begär ande texten](#example-request-body) och skicka begäran. Exempel: om du vill ändra principen för testVM från "DefaultPolicy" till "ProdPolicy" anger du "ProdPolicy"-ID: t i begär ande texten.
 
 ```http
 {
@@ -427,16 +427,16 @@ Svaret följer samma format som det som nämnts [för att utlösa en säkerhets 
 
 Ta bort skyddet på en skyddad virtuell dator och ta bort säkerhetskopierade data också genom att utföra en borttagnings åtgärd som beskrivs [här](https://docs.microsoft.com/rest/api/backup/protecteditems/delete).
 
-Att stoppa skyddet och ta bort data är en borttagnings åtgärd.
+Att stoppa skyddet och ta bort data är en *borttagnings* åtgärd.
 
 ```http
-DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2016-12-01
+DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
 ```
 
-Och är som konstruerade [ovan.](#responses-1) `{containerName}` `{protectedItemName}` `{fabricName}`är "Azure". I vårt exempel översätts detta till:
+`{containerName}` och `{protectedItemName}` som skapats [ovan](#responses-1). `{fabricName}` är "Azure". I vårt exempel översätts detta till:
 
 ```http
-DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2016-12-01
+DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
 ```
 
 ### <a name="responses-2"></a>Registrera
@@ -447,8 +447,8 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
-|204 noåll     |         |  NoContent       |
-|202 accepterad     |         |     Accepterad    |
+|204 noåll     |         |  Inget innehåll       |
+|202 accepterad     |         |     Accept    |
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -457,4 +457,4 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 Mer information om Azure Backup REST API: er finns i följande dokument:
 
 - [Azure Recovery Services-Provider REST API](/rest/api/recoveryservices/)
-- [Kom igång med Azure REST API](/rest/api/azure/)
+- [Komma igång med Azure REST API](/rest/api/azure/)

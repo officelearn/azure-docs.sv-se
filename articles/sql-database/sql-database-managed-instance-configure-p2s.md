@@ -1,5 +1,5 @@
 ---
-title: Konfigurera P2S-Azure SQL Database Hanterad instans | Microsoft Docs
+title: 'Konfigurera P2S-Azure SQL Database Hanterad instans '
 description: Anslut till en Azure SQL Database Hanterad instans med SQL Server Management Studio hjälp av en punkt-till-plats-anslutning från en lokal klient dator.
 services: sql-database
 ms.service: sql-database
@@ -11,18 +11,18 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova, jovanpop
 ms.date: 03/13/2019
-ms.openlocfilehash: 3ba5190050d45385ad17a87f6dce88ffd601e83d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3b3a0ce28c4a936e185ac5f07ba3810c93f4c866
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567690"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689412"
 ---
-# <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Snabbstart: Konfigurera en punkt-till-plats-anslutning till en Azure SQL Database Hanterad instans från den lokala platsen
+# <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Snabb start: Konfigurera en punkt-till-plats-anslutning till en Azure SQL Database Hanterad instans från den lokala platsen
 
 Den här snabb starten visar hur du ansluter till en Azure SQL Database Hanterad instans med [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) från en lokal klient dator över en punkt-till-plats-anslutning. Information om punkt-till-plats-anslutningar finns i [om punkt-till-plats-VPN](../vpn-gateway/point-to-site-about.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här snabbstarten:
 
@@ -54,7 +54,7 @@ Den här snabbstarten:
      Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/attachVPNGateway.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters, $scriptUrlBase
      ```
 
-3. Klistra in skriptet i PowerShell-fönstret och ange de parametrar som krävs. Värdena för `<subscriptionId>` `<resourceGroup>`, och `<virtualNetworkName>` ska matcha de som du använde för snabb starten [skapa hanterad instans](sql-database-managed-instance-get-started.md) . Värdet för `<certificateNamePrefix>` kan vara en valfri sträng.
+3. Klistra in skriptet i PowerShell-fönstret och ange de parametrar som krävs. Värdena för `<subscriptionId>`, `<resourceGroup>`och `<virtualNetworkName>` ska matcha de som du använde för snabb starten [skapa hanterad instans](sql-database-managed-instance-get-started.md) . Värdet för `<certificateNamePrefix>` kan vara en valfri sträng.
 
 4. Kör PowerShell-skriptet.
 
@@ -95,8 +95,8 @@ Den här snabbstarten:
 ## <a name="use-ssms-to-connect-to-the-managed-instance"></a>Använd SSMS för att ansluta till den hanterade instansen
 
 1. Öppna SQL Server Management Studio (SSMS) på den lokala klient datorn.
-2. I den **Anslut till Server** dialogrutan anger du det fullständiga **värdnamn** för din hanterade instans i den **servernamn** box.
-3. Välj **SQL Server-autentisering**, ange ditt användarnamn och lösenord och välj sedan **Connect**.
+2. I dialog rutan **Anslut till Server** anger du det fullständigt kvalificerade **värd namnet** för din hanterade instans i rutan **Server namn** .
+3. Välj **SQL Server autentisering**, ange ditt användar namn och lösen ord och välj sedan **Anslut**.
 
     ![ssms anslut](./media/sql-database-managed-instance-configure-vm/ssms-connect.png)  
 
@@ -105,5 +105,5 @@ När du har anslutit kan du Visa system-och användar databaser i noden database
 ## <a name="next-steps"></a>Nästa steg
 
 - En snabb start som visar hur du ansluter från en virtuell Azure-dator finns i [Konfigurera en punkt-till-plats-anslutning](sql-database-managed-instance-configure-p2s.md).
-- En översikt över anslutningsalternativen för program finns i [Ansluta dina program till hanterad instans](sql-database-managed-instance-connect-app.md).
-- Om du vill återställa en befintlig SQL Server databas från en lokal plats till en hanterad instans kan du använda [Azure Database migration service (DMS) för migrering](../dms/tutorial-sql-server-to-managed-instance.md) eller [kommandot T-SQL](sql-database-managed-instance-get-started-restore.md) Restore för att återställa från en databas säkerhets kopia.
+- En översikt över anslutningsalternativen för olika program finns i [Ansluta dina program till Managed Instance](sql-database-managed-instance-connect-app.md).
+- Om du vill återställa en befintlig SQL Server databas från en lokal plats till en hanterad instans kan du använda [Azure Database migration service (DMS) för migrering](../dms/tutorial-sql-server-to-managed-instance.md) eller [kommandot T-SQL Restore](sql-database-managed-instance-get-started-restore.md) för att återställa från en databas säkerhets kopia.

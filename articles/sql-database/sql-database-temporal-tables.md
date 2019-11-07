@@ -1,5 +1,5 @@
 ---
-title: Komma igång med temporala tabeller i Azure SQL Database | Microsoft Docs
+title: Komma igång med temporala tabeller i Azure SQL Database
 description: Lär dig hur du kommer igång med att använda temporala tabeller i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 06/26/2019
-ms.openlocfilehash: 39c19661a71a8b466aa6ff25be9e895189dfbfb3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 44a5589357301f979bb094579626e1c02e582846
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566361"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686980"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Komma igång med temporala tabeller i Azure SQL Database
 
@@ -82,7 +82,7 @@ WITH (DROP_EXISTING = ON);
 
 Temporala tabeller representeras i Object Explorer med den speciella ikonen för enklare identifiering, medan historik tabellen visas som en underordnad nod.
 
-![AlterTable](./media/sql-database-temporal-tables/AzureTemporal4.png)
+![Det går att omvara](./media/sql-database-temporal-tables/AzureTemporal4.png)
 
 ### <a name="alter-existing-table-to-temporal"></a>Ändra befintlig tabell till temporal
 Vi ska gå igenom det alternativa scenariot där WebsiteUserInfo-tabellen redan finns, men inte har utformats för att bevara ändringar i historiken. I det här fallet kan du helt enkelt utöka den befintliga tabellen för att bli temporal, som du ser i följande exempel:
@@ -105,7 +105,7 @@ ON dbo.WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON); 
 ```
 
-## <a name="step-2-run-your-workload-regularly"></a>Steg 2: Kör din arbets belastning regelbundet
+## <a name="step-2-run-your-workload-regularly"></a>Steg 2: kör din arbets belastning regelbundet
 Den största fördelen med temporala tabeller är att du inte behöver ändra eller justera din webbplats på något sätt för att utföra ändrings spårning. När du har skapat en temporal tabell behålls tidigare rad versioner transparent varje gång du gör ändringar i dina data. 
 
 För att kunna utnyttja automatisk ändrings spårning för det här scenariot, ska vi bara uppdatera kolumnen **PagesVisited** varje gång en användare avslutar sin session på webbplatsen:
@@ -119,7 +119,7 @@ Det är viktigt att Observera att uppdaterings frågan inte behöver känna till
 
 ![TemporalArchitecture](./media/sql-database-temporal-tables/AzureTemporal5.png)
 
-## <a name="step-3-perform-historical-data-analysis"></a>Steg 3: Utföra historisk data analys
+## <a name="step-3-perform-historical-data-analysis"></a>Steg 3: utför historisk data analys
 Nu när temporal system versions hantering är aktive rad är historisk data analys bara en fråga från dig. I den här artikeln innehåller vi några exempel på hur du kan åtgärda vanliga analys scenarier – om du vill lära dig all information kan du utforska olika alternativ som introduceras med [for SYSTEM_TIME](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_3) -satsen.
 
 Kör den här frågan för att se de 10 främsta användare som beställts av antalet besökta webb sidor per timme sedan:

@@ -1,5 +1,5 @@
 ---
-title: Konfigurera ett befintligt virtuellt nätverk för Azure SQL Database Hanterad instans | Microsoft Docs
+title: Konfigurera ett befintligt virtuellt nätverk för Azure SQL Database Hanterad instans
 description: Den här artikeln beskriver hur du konfigurerar ett befintligt virtuellt nätverk och undernät där du kan distribuera Azure SQL Database Hanterad instans.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 01/15/2019
-ms.openlocfilehash: 509a08705d87e8f789e26ebbcec295a31f99f416
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0f6ababa9d25798f4b150c322d48d4c7af04a511
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567640"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689373"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>Konfigurera ett befintligt virtuellt nätverk för Azure SQL Database Hanterad instans
 
@@ -52,9 +52,9 @@ Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/prepar
 
 Skriptet förbereder under nätet i tre steg:
 
-1. Kontrollerar Den verifierar det valda virtuella nätverket och under nätet för nätverks krav för hanterade instanser.
-2. Confirm Den visar användaren en uppsättning ändringar som behöver göras för att förbereda under nätet för distribution av hanterade instanser. Den ber även om medgivande.
-3. Bered Det virtuella nätverket och under nätet konfigureras på rätt sätt.
+1. Verifiera: den verifierar det valda virtuella nätverket och under nätet för nätverks krav för hanterade instanser.
+2. Bekräfta: det visar användaren en uppsättning ändringar som behöver göras för att förbereda under nätet för distribution av hanterade instanser. Den ber även om medgivande.
+3. Förbered: det virtuella nätverket och under nätet konfigureras på rätt sätt.
 
 ## <a name="next-steps"></a>Nästa steg
 

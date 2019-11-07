@@ -15,16 +15,16 @@ ms.date: 06/12/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ff6d9e33e15aa04adfa03705172166492f87e30
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: ef2ce1ce7a754868a1adc2e78b4c0a83fc84f071
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330027"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641457"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory
 
-Azure Active Directory (Azure AD) gör att du kan automatisera skapandet, underhåll och borttagning av användar identiteter i moln program ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)), till exempel Dropbox, Salesforce, ServiceNow och mycket annat. Detta kallas automatisk användar etablering för SaaS-appar.
+Azure Active Directory (Azure AD) gör att du kan automatisera skapandet, underhåll och borttagning av användar identiteter i Cloud SaaS-program som [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)och mycket annat. Detta kallas automatisk användar etablering för SaaS-appar.
 
 > [!VIDEO https://www.youtube.com/embed/_ZjARPpI6NI]
 
@@ -56,11 +56,14 @@ Några vanliga orsaker till att använda den här funktionen är:
 
 **Azure AD Provisioning-tjänsten** etablerar användare för att SaaS appar och andra system genom att ansluta till användar hanterings-API-slutpunkter som tillhandahålls av varje program leverantör. Dessa API-slutpunkter för användar hantering tillåter Azure AD att program mässigt skapa, uppdatera och ta bort användare. För valda program kan etablerings tjänsten också skapa, uppdatera och ta bort ytterligare ID-relaterade objekt, till exempel grupper och roller.
 
-![Azure AD Provisioning-tjänsten @ no__t-1*bild 1: Azure AD Provisioning-tjänsten*
+![Azure AD Provisioning-tjänsten](./media/user-provisioning/provisioning0.PNG)
+*figur 1: Azure AD Provisioning-tjänsten*
 
-@no__t 0Outbound User Provisioning Workflow @ no__t-1*bild 2: "utgående" användar etablerings arbets flöde från Azure AD till populära SaaS-program*
+![arbets flöde för utgående användar etablering](./media/user-provisioning/provisioning1.PNG)
+*bild 2: "utgående" arbets flöde för användar etablering från Azure AD till populära SaaS-program*
 
-![Inbound användar etablering arbets flöde @ no__t-1*bild 3: "inkommande" användar etablerings arbets flöde från populära HCM-program (Human kapital Management) till Azure Active Directory och Windows Server Active Directory*
+![arbets flöde för inkommande användar etablering](./media/user-provisioning/provisioning2.PNG)
+*bild 3: "inkommande" arbets flöde för användar etablering från populära HCM-program (Human kapital Management) till Azure Active Directory och Windows Server Active Directory*
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Vilka program och system kan jag använda med automatisk användar etablering i Azure AD?
 
@@ -87,11 +90,7 @@ Använd Azure Active Directory Portal för att konfigurera Azure AD Provisioning
 
 1. Öppna **[Azure Active Directory-portalen](https://aad.portal.azure.com)** .
 1. Välj **företags program** i det vänstra fönstret. En lista över alla konfigurerade appar visas.
-1. Välj **+ nytt program** för att lägga till ett program. Lägg till något av följande beroende på ditt scenario:
-
-   - Alternativet **Lägg till din egen app** stöder anpassade scim-integrationer.
-   - Alla program i avsnittet **Lägg till i galleriet** > **aktuella program** stöder automatisk etablering. Se [listan över program självstudier för användar etablering](../saas-apps/tutorial-list.md) för ytterligare.
-
+1. Välj **+ nytt program** för att lägga till ett program. 
 1. Ange information och välj **Lägg till**. Den nya appen läggs till i listan över företags program och öppnas på program hanterings skärmen.
 1. Välj **etablering** för att hantera inställningar för etablering av användar konto för appen.
 
@@ -193,9 +192,9 @@ För scenariobaserade vägledning om hur du felsöker automatisk användar etabl
 
 > [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
 
-Ett exempel på en steg-för-steg-distributions plan för utgående användar etablering till ett program finns i [identitets distributions guiden för användar etablering](https://aka.ms/userprovisioningdeploymentplan).
+Ett exempel på en steg-för-steg-distributions plan för utgående användar etablering till ett program finns i [identitets distributions guiden för användar etablering](https://aka.ms/deploymentplans/userprovisioning).
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-b2b-users-in-azure-ad"></a>Fungerar automatisk användar etablering för SaaS-appar med B2B-användare i Azure AD?
 

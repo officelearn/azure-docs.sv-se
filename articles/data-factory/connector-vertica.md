@@ -1,6 +1,6 @@
 ---
-title: Kopiera data från Vertica med Azure Data Factory | Microsoft Docs
-description: Lär dig hur du kopierar data från Vertica till mottagarens datalager genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
+title: Kopiera data från Vertica med hjälp av Azure Data Factory
+description: Lär dig hur du kopierar data från Vertica till mottagar data lager som stöds med hjälp av en kopierings aktivitet i en Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: d33540aa60bdb86294c386314055a4c21c698902
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: bf3fd0a6a68575ecbfaa5738cd7ad5655dd6b1ba
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089101"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680068"
 ---
-# <a name="copy-data-from-vertica-using-azure-data-factory"></a>Kopiera data från Vertica med Azure Data Factory 
+# <a name="copy-data-from-vertica-using-azure-data-factory"></a>Kopiera data från Vertica med hjälp av Azure Data Factory 
 
-Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från Vertica. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
+Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från Vertica. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -30,29 +30,29 @@ Den här Vertica-anslutningen stöds för följande aktiviteter:
 - [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
 - [Sökningsaktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från Vertica till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från Vertica till alla mottagar data lager som stöds. En lista över data lager som stöds som källor/mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, måste du därför inte att manuellt installera en drivrutin som använder den här anslutningen.
+Azure Data Factory innehåller en inbyggd driv rutin som möjliggör anslutning, och du behöver därför inte installera någon driv rutin manuellt med hjälp av den här anslutningen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="getting-started"></a>Komma igång
 
-Du kan skapa en pipeline med en Kopieringsaktivitet med hjälp av .NET SDK, Python SDK, Azure PowerShell, REST API eller Azure Resource Manager-mall. Se [kopiera aktivitet självstudien](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+Du kan skapa en pipeline med kopierings aktivitet med hjälp av .NET SDK, python SDK, Azure PowerShell, REST API eller Azure Resource Manager mall. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](quickstart-create-data-factory-dot-net.md) .
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för Vertica-anslutningsapp.
+I följande avsnitt finns information om egenskaper som används för att definiera Data Factory entiteter som är speciella för Vertica-anslutaren.
 
-## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
+## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 
-Följande egenskaper har stöd för Vertica länkade tjänsten:
+Följande egenskaper stöds för den länkade tjänsten Vertica:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Egenskapen Type måste anges till: **Vertica** | Ja |
-| connectionString | En ODBC-anslutningssträng att ansluta till Vertica.<br/>Markera det här fältet som en SecureString för att lagra det på ett säkert sätt i Data Factory. Du kan också ställa in lösen ord i Azure Key Vault och `pwd` Hämta konfigurationen från anslutnings strängen. Se följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
-| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Nej |
+| typ | Egenskapen Type måste anges till: **Vertica** | Ja |
+| Begär | En ODBC-anslutningssträng för att ansluta till Vertica.<br/>Markera det här fältet som en SecureString för att lagra det på ett säkert sätt i Data Factory. Du kan också ange lösen ord i Azure Key Vault och hämta `pwd`-konfigurationen från anslutnings strängen. Se följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
+| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om inget värde anges används standard Azure Integration Runtime. |Nej |
 
 **Exempel:**
 
@@ -104,18 +104,18 @@ Följande egenskaper har stöd för Vertica länkade tjänsten:
 }
 ```
 
-## <a name="dataset-properties"></a>Egenskaper för datamängd
+## <a name="dataset-properties"></a>Egenskaper för data mängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Vertica datauppsättning.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Vertica DataSet.
 
-Kopiera data från Vertica genom att ange typegenskapen på datauppsättningen till **VerticaTable**. Följande egenskaper stöds:
+Om du vill kopiera data från Vertica anger du egenskapen type för data uppsättningen till **VerticaTable**. Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Data uppsättningens typ-egenskap måste anges till: **VerticaTable** | Ja |
-| schema | Schemats namn. |Nej (om ”query” i aktivitetskälla har angetts)  |
-| table | Namnet på tabellen. |Nej (om ”query” i aktivitetskälla har angetts)  |
-| tableName | Namnet på tabellen med schemat. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` och`table` för nya arbets belastningar. | Nej (om ”query” i aktivitetskälla har angetts) |
+| typ | Data uppsättningens typ-egenskap måste anges till: **VerticaTable** | Ja |
+| Schema | Schemats namn. |Nej (om "fråga" i aktivitets källan har angetts)  |
+| partitionstabell | Tabellens namn. |Nej (om "fråga" i aktivitets källan har angetts)  |
+| tableName | Namnet på tabellen med schemat. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` och `table` för nya arbets belastningar. | Nej (om "fråga" i aktivitets källan har angetts) |
 
 **Exempel**
 
@@ -136,16 +136,16 @@ Kopiera data från Vertica genom att ange typegenskapen på datauppsättningen t
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Vertica källa.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Vertica-källan.
 
 ### <a name="vertica-as-source"></a>Vertica som källa
 
-För att kopiera data från Vertica, ange typ av datakälla i kopieringsaktiviteten till **VerticaSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
+Om du vill kopiera data från Vertica anger du käll typen i kopierings aktiviteten till **VerticaSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **VerticaSource** | Ja |
-| query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **VerticaSource** | Ja |
+| query | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**
 
@@ -184,4 +184,4 @@ För att kopiera data från Vertica, ange typ av datakälla i kopieringsaktivite
 Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Azure Data Factory finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

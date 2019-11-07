@@ -1,5 +1,5 @@
 ---
-title: Skapa skalbara moln databaser | Microsoft Docs
+title: Skapa skalbara molndatabaser
 description: Bygg skalbara .NET Database-appar med klient biblioteket för Elastic Database
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/25/2018
-ms.openlocfilehash: 24b7f769be3f4db3c36412e162b5cda40e3ca959
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0b5b3c924a644c065327db36a6a8d64b4a552d40
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568717"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690523"
 ---
 # <a name="building-scalable-cloud-databases"></a>Skapa skalbara molndatabaser
 
@@ -50,10 +50,10 @@ Hämta:
 
 Att skala ut program som använder *horisontell partitionering* presenterar utmaningar för både utvecklare och administratören. Klient biblioteket fören klar hanterings åtgärderna genom att tillhandahålla verktyg som låter både utvecklare och administratörer hantera utskalade databaser. I ett typiskt exempel finns det många databaser, som kallas "Shards", för att hantera. Kunder är samplacerade i samma databas och det finns en databas per kund (ett schema med en enda klient). Klient biblioteket innehåller följande funktioner:
 
-- **Hantering av Shard-kartor**: En särskild databas med namnet "Shard Map Manager" skapas. Shard Map Management är möjligheten för ett program att hantera metadata om dess Shards. Utvecklare kan använda den här funktionen för att registrera databaser som Shards, beskriva mappningar av enskilda horisontell partitionering-nycklar eller nyckel intervall till dessa databaser och upprätthålla dessa metadata eftersom antalet och sammansättningen av databaserna utvecklas för att avspegla kapacitets ändringar. Utan klient biblioteket för Elastic Database skulle du behöva ägna mycket tid åt att skriva hanterings koden när du implementerar horisontell partitionering. Mer information finns i [Shard Map Management](sql-database-elastic-scale-shard-map-management.md).
+- **Hantering av Shard-kartor**: en särskild databas som kallas "Shard Map Manager" skapas. Shard Map Management är möjligheten för ett program att hantera metadata om dess Shards. Utvecklare kan använda den här funktionen för att registrera databaser som Shards, beskriva mappningar av enskilda horisontell partitionering-nycklar eller nyckel intervall till dessa databaser och upprätthålla dessa metadata eftersom antalet och sammansättningen av databaserna utvecklas för att avspegla kapacitets ändringar. Utan klient biblioteket för Elastic Database skulle du behöva ägna mycket tid åt att skriva hanterings koden när du implementerar horisontell partitionering. Mer information finns i [Shard Map Management](sql-database-elastic-scale-shard-map-management.md).
 
 - **Data beroende routning**: Föreställ dig att en begäran kommer till programmet. Baserat på horisontell partitionering nyckel värde för begäran måste programmet fastställa rätt databas baserat på nyckelvärdet. Sedan öppnas en anslutning till databasen för att bearbeta begäran. Data beroende routning ger möjlighet att öppna anslutningar med ett enkelt anrop till Shard-kartan för programmet. Data beroende routning var en annan del av infrastruktur koden som nu omfattas av funktioner i klient biblioteket för Elastic Database. Mer information finns i [data beroende routning](sql-database-elastic-scale-data-dependent-routing.md).
-- **Frågor för flera Shard (MSQ)** : Multi-Shard-frågor fungerar när en begäran omfattar flera (eller alla) Shards. En multi-Shard-fråga kör samma T-SQL-kod på alla Shards eller en uppsättning Shards. Resultatet från de deltagande Shards sammanfogas i en övergripande resultat uppsättning med UNION ALL semantik. De funktioner som exponeras via klient biblioteket hanterar många aktiviteter, inklusive hantering av anslutningar, tråd hantering, fel hantering och mellanliggande resultat bearbetning. MSQ kan fråga upp till hundratals Shards. Mer information finns i [multi-Shard-frågor](sql-database-elastic-scale-multishard-querying.md).
+- **Shard frågor (MSQ)** : multi-Shard-frågor fungerar när en begäran omfattar flera (eller alla) Shards. En multi-Shard-fråga kör samma T-SQL-kod på alla Shards eller en uppsättning Shards. Resultatet från de deltagande Shards sammanfogas i en övergripande resultat uppsättning med UNION ALL semantik. De funktioner som exponeras via klient biblioteket hanterar många aktiviteter, inklusive hantering av anslutningar, tråd hantering, fel hantering och mellanliggande resultat bearbetning. MSQ kan fråga upp till hundratals Shards. Mer information finns i [multi-Shard-frågor](sql-database-elastic-scale-multishard-querying.md).
 
 I allmänhet kan kunder som använder elastiska databas verktyg vänta med att få fullständiga T-SQL-funktioner när de skickar Shard-lokala åtgärder i stället för Shard-åtgärder som har egna semantik.
 

@@ -1,5 +1,5 @@
 ---
-title: Design vägledning för distribuerade tabeller – Azure SQL Data Warehouse | Microsoft Docs
+title: Design rikt linjer för distribuerade tabeller
 description: Rekommendationer för att utforma hash-distribuerade och resursallokering-tabeller med resursallokering i Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 4b322415592a7202387cb6776d2c040cda765b27
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f05e732e11fb9cd88d4671528d551c68e448a8d7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479357"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685478"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Vägledning för att utforma distribuerade tabeller i Azure SQL Data Warehouse
 Rekommendationer för att utforma hash-distribuerade och resursallokering-tabeller med resursallokering i Azure SQL Data Warehouse.
@@ -112,8 +113,8 @@ För att få rätt frågor om frågeresultat kan du flytta data från en Compute
 
 Om du vill minimera data flytten väljer du en distributions kolumn som:
 
-- `JOIN`Används i `GROUP BY` -,`OVER`-,- och`HAVING` -satser. `DISTINCT` När två stora fakta tabeller har frekventa kopplingar, ökar frågans prestanda när du distribuerar båda tabellerna på någon av kopplings kolumnerna.  När en tabell inte används i kopplingar bör du överväga att distribuera tabellen i en kolumn som ofta är i `GROUP BY` -satsen.
-- Används *inte* i `WHERE` satser. Detta kan begränsa frågan till att inte köras på alla distributioner. 
+- Används i `JOIN`-, `GROUP BY`-, `DISTINCT`-, `OVER`-och `HAVING`-satser. När två stora fakta tabeller har frekventa kopplingar, ökar frågans prestanda när du distribuerar båda tabellerna på någon av kopplings kolumnerna.  När en tabell inte används i kopplingar bör du överväga att distribuera tabellen i en kolumn som ofta finns i `GROUP BY`-satsen.
+- Används *inte* i `WHERE`-satser. Detta kan begränsa frågan till att inte köras på alla distributioner. 
 - Är *inte* en datum kolumn. WHERE-satser filtreras ofta efter datum.  När detta inträffar kan all bearbetning bara köras på några få distributioner.
 
 ### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>Vad du gör om ingen av kolumnerna är en bra distributions kolumn
@@ -135,7 +136,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 
 Så här identifierar du vilka tabeller som har fler än 10% data skevning:
 
-1. Skapa vyn dbo. vTableSizes som visas i översikts artikeln [tabeller](sql-data-warehouse-tables-overview.md#table-size-queries) .  
+1. Skapa vyn dbo. vTableSizes som visas i [översikts artikeln tabeller](sql-data-warehouse-tables-overview.md#table-size-queries) .  
 2. Kör följande fråga:
 
 ```sql

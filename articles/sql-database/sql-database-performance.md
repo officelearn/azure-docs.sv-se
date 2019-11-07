@@ -1,5 +1,5 @@
 ---
-title: Övervaka och förbättra prestanda-Azure SQL Database | Microsoft Docs
+title: Övervaka och förbättra prestanda-Azure SQL Database
 description: Azure SQL Database tillhandahåller prestanda verktyg som hjälper dig att identifiera områden som kan förbättra den aktuella frågans prestanda.
 ms.service: sql-database
 ms.subservice: performance
@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 39a100c487588fb717c642036c7713150a95e047
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 483cd9f185cfa626d21fe0a5b86ba782ebb2f612
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567075"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687660"
 ---
 # <a name="monitor-and-improve-performance"></a>Övervaka och förbättra prestanda
 
@@ -58,7 +58,7 @@ Du kan också hitta fullständig historik över justerings åtgärder som har ti
 
 Lär dig hur du hittar en rekommendationer för att tillämpa rekommendationer i artikeln [hitta och tillämpa prestanda rekommendationer](sql-database-advisor-portal.md) .
 
-## <a name="automatic-tuning"></a>Automatisk justering
+## <a name="automatic-tuning"></a>Automatisk inställning
 
 Azure SQL-databaser kan justera databas prestanda automatiskt genom att tillämpa [prestanda rekommendationer](sql-database-advisor.md). Läs mer i artikeln om [Automatisk justering](sql-database-automatic-tuning.md). Om du vill aktivera den kan du läsa [Aktivera automatisk justering](sql-database-automatic-tuning-enable.md).
 
@@ -70,7 +70,7 @@ Med [query Performance Insight](sql-database-query-performance.md) kan du ägna 
 * De främsta processor krävande frågorna, som kan vara anpassade för bättre prestanda. 
 * Möjlighet att öka detalj nivån till information om en fråga. 
 
-  ![instrument panel för prestanda](./media/sql-database-query-performance/performance.png)
+  ![Instrument panel för prestanda](./media/sql-database-query-performance/performance.png)
 
 Mer information om den här sidan finns i artikeln **[så här använder du Query Performance Insight](sql-database-query-performance.md)** .
 

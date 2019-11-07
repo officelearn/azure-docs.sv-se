@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 31d7299b0c14b35aad7a29c875630d8a7fa4827e
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: d8d5ecd64ba689dc9cce342513702d8359038162
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200600"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682261"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapacitets planering för HDInsight-kluster
 
@@ -31,13 +31,13 @@ Viktiga frågor att be om kapacitets planering är:
 
 Azure-regionen fastställer var klustret är fysiskt allokerat. För att minimera svars tiden för läsningar och skrivningar bör klustret vara nära dina data.
 
-HDInsight är tillgängligt i många Azure-regioner. För att hitta den närmaste regionen, se [produkt tillgänglighet per region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=hdinsight/).
+HDInsight är tillgängligt i många Azure-regioner. För att hitta den närmaste regionen, se [produkt tillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=hdinsight).
 
 ## <a name="choose-storage-location-and-size"></a>Välj lagrings plats och storlek
 
 ### <a name="location-of-default-storage"></a>Placering av standard lagring
 
-Standard lagringen, antingen ett Azure Storage konto eller Azure Data Lake Storage, måste finnas på samma plats som klustret. Azure Storage är tillgängligt på alla platser. Data Lake Storage Gen1 är tillgängligt i vissa regioner – se aktuell [data Lake Storage tillgänglighet](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=storage).
+Standard lagringen, antingen ett Azure Storage konto eller Azure Data Lake Storage, måste finnas på samma plats som klustret. Azure Storage är tillgängligt på alla platser. Data Lake Storage Gen1 är tillgängligt i vissa regioner – se aktuell [data Lake Storage tillgänglighet](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
 
 ### <a name="location-of-existing-data"></a>Plats för befintliga data
 
@@ -94,7 +94,7 @@ Ibland kan fel uppstå på grund av parallell körningen av flera Maps och minsk
 
 När du har fastställt storlek, skalning och typ för mål klustret, kontrollerar du prenumerationens aktuella kvot kapacitets gränser. När du når en kvot gräns kanske du inte kan distribuera nya kluster eller skala ut befintliga kluster genom att lägga till fler arbetsnoder. Den enda kvot gränsen är den processor kärnors kvot som finns på region nivå för varje prenumeration. Din prenumeration kan till exempel ha en gräns på 30 kärnor i regionen USA, östra. Gör så här om du behöver begära en kvot ökning:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 1. Välj **Hjälp + Support** längst ned till vänster på sidan.
 1. Välj **Ny supportbegäran**.
 1. På sidan **ny supportbegäran** , under fliken **grundläggande** , väljer du följande alternativ:

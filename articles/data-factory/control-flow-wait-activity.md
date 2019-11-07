@@ -1,5 +1,5 @@
 ---
-title: Vänta-aktivitet i Azure Data Factory | Microsoft Docs
+title: Vänta-aktivitet i Azure Data Factory
 description: Aktiviteten vänta pausar körningen av pipelinen för den angivna perioden.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: 48a722979e61209a855dd1fec22fcdcc756ae1ce
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f9dd53fded06eec169219d00993620a0f2aa2bf0
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142422"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73678246"
 ---
 # <a name="execute-wait-activity-in-azure-data-factory"></a>Kör vänta-aktivitet i Azure Data Factory
 När du använder en Wait-aktivitet i en pipeline väntar pipelinen under den angivna tidsperioden innan körningen återupptas med alla efterföljande aktiviteter. 
@@ -36,10 +36,10 @@ När du använder en Wait-aktivitet i en pipeline väntar pipelinen under den an
 
 ## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
+Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-name | `Wait` Aktivitetens namn. | Sträng | Ja
-type | Måste vara inställd på **wait**. | Sträng | Ja
+namn | `Wait` aktivitetens namn. | Sträng | Ja
+typ | Måste vara inställd på **wait**. | Sträng | Ja
 waitTimeInSeconds | Antalet sekunder som pipelinen väntar innan bearbetningen fortsätter. | Integer | Ja
 
 ## <a name="example"></a>Exempel
@@ -48,7 +48,7 @@ waitTimeInSeconds | Antalet sekunder som pipelinen väntar innan bearbetningen f
 > Det här avsnittet innehåller JSON-definitioner och exempel på PowerShell-kommandon för att köra pipelinen. En genom gång med stegvisa instruktioner för att skapa en Data Factory pipeline med hjälp av Azure PowerShell-och JSON-definitioner finns i [Självstudier: skapa en data fabrik med hjälp av Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### <a name="pipeline-with-wait-activity"></a>Pipeline med vänta-aktivitet
-I det här exemplet har pipelinen två aktiviteter: **Till** och med **vänta**. Vänta-aktiviteten är konfigurerad att vänta en sekund. Pipelinen kör webb aktiviteten i en slinga med en andra vänte tid mellan varje körning. 
+I det här exemplet har pipelinen två aktiviteter: **till** och med **vänta**. Vänta-aktiviteten är konfigurerad att vänta en sekund. Pipelinen kör webb aktiviteten i en slinga med en andra vänte tid mellan varje körning. 
 
 ```json
 {

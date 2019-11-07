@@ -1,5 +1,5 @@
 ---
-title: Migrera data från Amazon S3 till Azure Data Lake Storage Gen2 med Azure Data Factory | Microsoft Docs
+title: Migrera data från Amazon S3 till Azure Data Lake Storage Gen2 med Azure Data Factory
 description: Lär dig hur du använder en lösnings mall för att migrera data från Amazon S3 genom att använda en extern kontroll tabell för att lagra en partitionstabell på AWS S3 med Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/07/2019
-ms.openlocfilehash: e4567d79b70fc18622e4a5e927031e9849b96e99
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: a8591762bf4e8eccd5e1b7d67538674feed720b9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092292"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684190"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Migrera data från Amazon S3 till Azure Data Lake Storage Gen2
 
@@ -73,7 +73,7 @@ Mallen innehåller två parametrar:
 
     > [!NOTE]
     > Tabell namnet är s3_partition_control_table.
-    > Schemat för kontroll tabellen är PartitionPrefix och SuccessOrFailure, där PartitionPrefix är inställningen för prefixet i S3 för att filtrera mapparna och filerna i Amazon S3 efter namn och SuccessOrFailure är status för att kopiera varje partition: 0 innebär att den här partitionen inte har kopierats till Azure och 1 innebär att den här partitionen har kopierats till Azure.
+    > Schemat för kontroll tabellen är PartitionPrefix och SuccessOrFailure, där PartitionPrefix är inställningen för prefixet i S3 för att filtrera mapparna och filerna i Amazon S3 efter namn och SuccessOrFailure är status för kopiering av varje partition: 0 innebär att den här partitionen har inte kopierats till Azure och 1 innebär att den här partitionen har kopierats till Azure.
     > Det finns fem partitioner definierade i kontroll tabellen och standard status för kopiering av varje partition är 0.
 
     ```sql

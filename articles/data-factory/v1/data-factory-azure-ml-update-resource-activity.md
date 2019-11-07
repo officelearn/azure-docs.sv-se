@@ -1,5 +1,5 @@
 ---
-title: Uppdatera Machine Learning modeller med Azure Data Factory | Microsoft Docs
+title: Uppdatera Machine Learning modeller med Azure Data Factory
 description: Beskriver hur du skapar skapa förutsägande pipelines med hjälp av Azure Data Factory och Azure Machine Learning
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: a980f269c8b88618ffa3311c05310a88ade379ed
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 190a4e704b002a4d6d4876d048c693a5fffe0114
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140461"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683128"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Uppdatera Azure Machine Learning modeller med uppdatering av resurs aktivitet
 
@@ -36,7 +36,7 @@ ms.locfileid: "70140461"
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory kan du läsa mer [i uppdatera maskin inlärnings modeller i Data Factory](../update-machine-learning-models.md).
 
-Den här artikeln kompletterar huvud artikeln Azure Data Factory-Azure Machine Learning-integrering: [Skapa förutsägande pipelines med hjälp av Azure Machine Learning och Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). Läs igenom huvud artikeln innan du läser igenom den här artikeln, om du inte redan gjort det. 
+Den här artikeln kompletterar den huvudsakliga Azure Data Factory-Azure Machine Learning-integrerings artikeln: [skapa förutsägbara pipelines med hjälp av Azure Machine Learning och Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). Läs igenom huvud artikeln innan du läser igenom den här artikeln, om du inte redan gjort det. 
 
 ## <a name="overview"></a>Översikt
 Med tiden måste de förutsägande modellerna i test experimentet i Azure ML återanvändas med nya data uppsättningar. När du är färdig med omträningen vill du uppdatera bedömnings-webbtjänsten med den retränade ML-modellen. Vanliga steg för att aktivera omskolning och uppdatering av Azure ML-modeller via webb tjänster är:
@@ -46,7 +46,7 @@ Med tiden måste de förutsägande modellerna i test experimentet i Azure ML åt
 
 I följande tabell beskrivs de webb tjänster som används i det här exemplet.  Mer information finns i [omträna Machine Learning modeller program mässigt](../../machine-learning/machine-learning-retrain-models-programmatically.md) .
 
-- **Utbildning** -webbtjänst – tar emot utbildnings data och genererar utbildade modeller. Resultatet av omträningen är en. ilearner-fil i en Azure Blob Storage. **Standard slut punkten** skapas automatiskt åt dig när du publicerar övnings experimentet som en webb tjänst. Du kan skapa fler slut punkter, men exemplet använder bara standard slut punkten.
+- **Utbildning-webbtjänst** – tar emot utbildnings data och genererar utbildade modeller. Resultatet av omträningen är en. ilearner-fil i en Azure Blob Storage. **Standard slut punkten** skapas automatiskt åt dig när du publicerar övnings experimentet som en webb tjänst. Du kan skapa fler slut punkter, men exemplet använder bara standard slut punkten.
 - **Bedömnings webb tjänst** – tar emot omärkta data exempel och gör förutsägelser. Resultatet av förutsägelsen kan ha olika formulär, till exempel en CSV-fil eller rader i en Azure SQL-databas, beroende på hur experimentet är. Standard slut punkten skapas automatiskt åt dig när du publicerar ett förutsägelse experiment som en webb tjänst. 
 
 Följande bild illustrerar förhållandet mellan utbildning och poäng slut punkter i Azure ML.

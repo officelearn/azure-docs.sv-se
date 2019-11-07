@@ -1,5 +1,5 @@
 ---
-title: Översikt över Azure SQL Database elastisk fråga | Microsoft Docs
+title: Översikt över Azure SQL Database elastisk fråga
 description: Elastisk fråga gör det möjligt att köra en Transact-SQL-fråga som sträcker sig över flera databaser.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 07/01/2019
-ms.openlocfilehash: 313e8af0e42f5108a22261a475b5340208adb7bf
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 08c191742425c448618db255491c709130df33a1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568561"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690359"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Översikt över Azure SQL Database elastisk fråga (för hands version)
 
@@ -38,7 +38,7 @@ Elastiska frågor kan nu skicka SQL-parametrar till fjärrdatabaserna för körn
 
 ### <a name="stored-procedure-execution"></a>Körning av lagrad procedur
 
-Kör fjärranslutna procedur anrop eller fjärrfunktioner med hjälp av [\_SP EXECUTE \_Remote](https://msdn.microsoft.com/library/mt703714).
+Kör fjärranslutna procedur anrop eller fjärrfunktioner med hjälp av [sp\_köra \_fjärr anslutning](https://msdn.microsoft.com/library/mt703714).
 
 ### <a name="flexibility"></a>Flexibilitet
 
@@ -55,8 +55,8 @@ En elastisk fråga ger enkel åtkomst till en hel samling databaser via frågor 
 
 Kund scenarier för elastiska frågor kännetecknas av följande topologier:
 
-* **Vertikal partitionering-frågor mellan databaser** (Topologi 1): Data partitioneras lodrätt mellan ett antal databaser i en data nivå. Vanligt vis finns olika uppsättningar med tabeller i olika databaser. Det innebär att schemat är olika i olika databaser. Till exempel är alla tabeller för inventering i en databas medan alla redovisnings tabeller finns på en andra databas. Vanliga användnings fall med den här topologin kräver att en fråga över eller kompilerar rapporter över tabeller i flera databaser.
-* **Horisontell partitionering – horisontell partitionering** (Topologi 2): Data partitioneras vågrätt för att fördela rader över en utskalad data nivå. Med den här metoden är schemat identiskt på alla deltagande databaser. Den här metoden kallas även för "horisontell partitionering". Horisontell partitionering kan utföras och hanteras med hjälp av (1) de elastiska databas verktyg biblioteken eller (2) Self-horisontell partitionering. En elastisk fråga används för att fråga eller kompilera rapporter över flera Shards.
+* **Vertikal partitionering-frågor över flera databaser** (topologi 1): data partitioneras lodrätt mellan ett antal databaser i en data nivå. Vanligt vis finns olika uppsättningar med tabeller i olika databaser. Det innebär att schemat är olika i olika databaser. Till exempel är alla tabeller för inventering i en databas medan alla redovisnings tabeller finns på en andra databas. Vanliga användnings fall med den här topologin kräver att en fråga över eller kompilerar rapporter över tabeller i flera databaser.
+* **Horisontell partitionering-horisontell partitionering** (topologi 2): data är partitionerade vågrätt för att distribuera rader över en utskalad data nivå. Med den här metoden är schemat identiskt på alla deltagande databaser. Den här metoden kallas även för "horisontell partitionering". Horisontell partitionering kan utföras och hanteras med hjälp av (1) de elastiska databas verktyg biblioteken eller (2) Self-horisontell partitionering. En elastisk fråga används för att fråga eller kompilera rapporter över flera Shards.
 
 > [!NOTE]
 > Elastisk fråga fungerar bäst för rapporterings scenarier där merparten av bearbetningen (filtrering, agg regering) kan utföras på den externa käll sidan. Det är inte lämpligt för ETL-åtgärder där stora mängder data överförs från fjärrdatabaser. För tung rapportering av arbets belastningar eller data lager scenarier med mer komplexa frågor kan du även överväga att använda [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
@@ -72,13 +72,13 @@ En elastisk fråga kan användas för att göra data som finns i en SQL-databas 
 > Du måste ha behörighet för att ändra en extern DATA källa. Den här behörigheten ingår i ALTER DATABASE-behörigheten. ÄNDRA behörigheter för en extern DATA källa krävs för att referera till den underliggande data källan.
 >
 
-**Referens data**: Topologin används för referens data hantering. I bilden nedan sparas två tabeller (T1 och T2) med referens data i en dedikerad databas. Med en elastisk fråga kan du nu komma åt tabeller T1 och T2 via fjärr anslutning från andra databaser, som du ser i bilden. Använd topologi 1 om referens tabeller är små eller fjärranslutna frågor till referens tabellen har selektiva predikat.
+**Referens data**: topologin används för referens data hantering. I bilden nedan sparas två tabeller (T1 och T2) med referens data i en dedikerad databas. Med en elastisk fråga kan du nu komma åt tabeller T1 och T2 via fjärr anslutning från andra databaser, som du ser i bilden. Använd topologi 1 om referens tabeller är små eller fjärranslutna frågor till referens tabellen har selektiva predikat.
 
 **Bild 2** Vertikal partitionering-använda elastisk fråga för att fråga referens data
 
 ![Vertikal partitionering-använda elastisk fråga för att fråga referens data][3]
 
-**Fråga mellan databaser**: Elastiska frågor möjliggör användnings fall som kräver frågor i flera SQL-databaser. Bild 3 visar fyra olika databaser: CRM, Inventory, HR och Products. Frågor som utförs i en av databaserna måste också ha åtkomst till en eller alla andra databaser. Med en elastisk fråga kan du konfigurera databasen för det här fallet genom att köra några enkla DDL-uttryck på var och en av de fyra databaserna. Efter den här konfigurationen är det lika enkelt att komma åt en fjärrtabell som hänvisar till en lokal tabell från T-SQL-frågorna eller från dina BI-verktyg. Den här metoden rekommenderas om fjärrfrågor inte returnerar stora resultat.
+**Fråga**i flera databaser: elastiska frågor möjliggör användnings fall som kräver frågor över flera SQL-databaser. Bild 3 visar fyra olika databaser: CRM, Inventory, HR och Products. Frågor som utförs i en av databaserna måste också ha åtkomst till en eller alla andra databaser. Med en elastisk fråga kan du konfigurera databasen för det här fallet genom att köra några enkla DDL-uttryck på var och en av de fyra databaserna. Efter den här konfigurationen är det lika enkelt att komma åt en fjärrtabell som hänvisar till en lokal tabell från T-SQL-frågorna eller från dina BI-verktyg. Den här metoden rekommenderas om fjärrfrågor inte returnerar stora resultat.
 
 **Bild 3** Vertikal partitionering-använda elastisk fråga för att fråga mellan olika databaser
 
@@ -153,8 +153,8 @@ Dela feedback om din upplevelse med elastiska frågor med oss nedan, i MSDN-foru
 * En lodrät partitionerings guide finns i [komma igång med kors databas fråga (lodrät partitionering)](sql-database-elastic-query-getting-started-vertical.md).
 * För syntax och exempel frågor för lodrätt partitionerade data, se [fråga lodrätt partitionerade data)](sql-database-elastic-query-vertical-partitioning.md)
 * En självstudie för horisontell partitionering (horisontell partitionering) finns i [komma igång med elastisk fråga för horisontell partitionering (horisontell partitionering)](sql-database-elastic-query-getting-started.md).
-* För syntax och exempel frågor för vågrätt partitionerade data, se [fråga](sql-database-elastic-query-horizontal-partitioning.md) efter vågrätt partitionerade data)
-* Se [SP\_EXECUTE \_Remote](https://msdn.microsoft.com/library/mt703714) för en lagrad procedur som kör ett Transact-SQL-uttryck på en enskild fjärr Azure SQL Database eller uppsättning databaser som fungerar som Shards i ett schema med vågrät partitionering.
+* För syntax och exempel frågor för vågrätt partitionerade data, se [fråga efter vågrätt partitionerade data)](sql-database-elastic-query-horizontal-partitioning.md)
+* Se [sp\_köra \_-fjärråtkomst](https://msdn.microsoft.com/library/mt703714) för en lagrad procedur som kör ett Transact-SQL-uttryck på en enskild fjärr-Azure SQL Database eller uppsättning databaser som är som Shards i ett schema med vågrät partitionering.
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-overview/overview.png

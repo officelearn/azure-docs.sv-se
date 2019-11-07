@@ -1,5 +1,5 @@
 ---
-title: Kopiera data till/från ett fil system med Azure Data Factory | Microsoft Docs
+title: Kopiera data till/från ett fil system med hjälp av Azure Data Factory
 description: Lär dig hur du kopierar data till och från ett lokalt fil system med hjälp av Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: eea0b930ab26e3f4d816fed69ccf8e987e6d33c7
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 32649b1e13b49979af3ad5042054e1ee8917227a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881349"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682453"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Kopiera data till och från ett lokalt fil system med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -53,9 +53,9 @@ Om du vill använda en Linux-filresurs installerar du [Samba](https://www.samba.
 ## <a name="getting-started"></a>Komma igång
 Du kan skapa en pipeline med en kopierings aktivitet som flyttar data till/från ett fil system med hjälp av olika verktyg/API: er.
 
-Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Se [Självstudier: Skapa en pipeline med hjälp av guiden](data-factory-copy-data-wizard-tutorial.md) kopiera för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data.
+Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, **.NET API**och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
@@ -68,29 +68,29 @@ När du använder guiden skapas JSON-definitioner för dessa Data Factory entite
 
 Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory entiteter som är speciella för fil system:
 
-## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
+## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 Du kan länka ett lokalt fil system till en Azure-datafabrik med den **lokala fil serverns** länkade tjänst. Följande tabell innehåller beskrivningar av JSON-element som är speciella för den lokala fil Server länkade tjänsten.
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| type |Se till att egenskapen type har angetts till **OnPremisesFileServer**. |Ja |
-| host |Anger rotsökvägen i den mapp som du vill kopiera. Använd escape-tecknet "\" för specialtecken i strängen. Se [exempel länkad tjänst-och datauppsättningen](#sample-linked-service-and-dataset-definitions) exempel. |Ja |
-| userid |Ange ID för den användare som har åtkomst till servern. |Nej (om du väljer encryptedCredential) |
-| password |Ange lösenordet för användaren (användar-ID). |Nej (om du väljer encryptedCredential |
+| typ |Se till att egenskapen type har angetts till **OnPremisesFileServer**. |Ja |
+| värd |Anger rot Sök vägen till den mapp som du vill kopiera. Använd escape-tecknet "\" för specialtecken i strängen. Se [exempel på länkade tjänst-och data uppsättnings definitioner](#sample-linked-service-and-dataset-definitions) . |Ja |
+| userid |Ange ID: t för den användare som har åtkomst till servern. |Nej (om du väljer encryptedCredential) |
+| lösenord |Ange lösen ordet för användaren (UserID). |Nej (om du väljer encryptedCredential |
 | encryptedCredential |Ange de krypterade autentiseringsuppgifter som du kan få genom att köra cmdleten New-AzDataFactoryEncryptValue. |Nej (om du väljer att ange användar-ID och lösen ord som oformaterad text) |
 | gatewayName |Anger namnet på den gateway som Data Factory ska använda för att ansluta till den lokala fil servern. |Ja |
 
 
-### <a name="sample-linked-service-and-dataset-definitions"></a>Exempel på den länkade tjänsten och definitioner av datauppsättning
+### <a name="sample-linked-service-and-dataset-definitions"></a>Exempel på länkade tjänst-och data uppsättnings definitioner
 | Scenario | Värd i länkad tjänst definition | folderPath i data uppsättnings definition |
 | --- | --- | --- |
-| Lokal mapp på Data Management Gateway dator: <br/><br/>Exempel: D:\\ \* eller D:\folder\subfolder\\\* |D:\\ \\ (för data Management Gateway 2,0 och senare versioner) <br/><br/> localhost (för tidigare versioner än Data Management Gateway 2,0) |. \\ ellermapp\\-undermapp (för data Management Gateway 2,0 och senare versioner)\\ \\ <br/><br/>D:\\ \\ellerd\\: mapp-undermapp\\(för gateway-version under 2,0)\\\\ |
-| Delad fjärrmapp: <br/><br/>Exempel: \\ \\minserver\\dela\\ \* eller \\ \\minserver\\dela\\mappen\\undermapp\\\* |\\\\\\\\Server\\resurs\\ |. \\ ellermapp\\-undermapp \\ \\ |
+| Lokal mapp på Data Management Gateway dator: <br/><br/>Exempel: D:\\\* eller D:\folder\subfolder\\\* |D:\\\\ (för Data Management Gateway 2,0 och senare versioner) <br/><br/> localhost (för tidigare versioner än Data Management Gateway 2,0) |.\\\\ eller mapp\\\\undermapp (för Data Management Gateway 2,0 och senare versioner) <br/><br/>D:\\\\ eller D:\\\\mapp\\\\undermapp (för gateway-version under 2,0) |
+| Fjärran sluten delad mapp: <br/><br/>Exempel: \\\\Server\\resurs\\\* eller \\\\Server\\dela\\mapp\\\\\* |\\\\\\\\Server\\\\dela |.\\\\ eller mapp\\\\undermappen |
 
 >[!NOTE]
->När du skapar via Gränssnittet kan du behöver inte ange dubbla omvända snedstrecken (`\\`) för att undanta så som dul via JSON, ange omvänt snedstreck.
+>När du redigerar via användar gränssnittet behöver du inte ange dubbelt omvänt snedstreck (`\\`) för att undvika att du gör via JSON, ange enkelt omvänt snedstreck.
 
-### <a name="example-using-username-and-password-in-plain-text"></a>Exempel: Använda användar namn och lösen ord som oformaterad text
+### <a name="example-using-username-and-password-in-plain-text"></a>Exempel: använda användar namn och lösen ord i oformaterad text
 
 ```JSON
 {
@@ -107,7 +107,7 @@ Du kan länka ett lokalt fil system till en Azure-datafabrik med den **lokala fi
 }
 ```
 
-### <a name="example-using-encryptedcredential"></a>Exempel: Använda encryptedcredential
+### <a name="example-using-encryptedcredential"></a>Exempel: använda encryptedcredential
 
 ```JSON
 {
@@ -123,19 +123,19 @@ Du kan länka ett lokalt fil system till en Azure-datafabrik med den **lokala fi
 }
 ```
 
-## <a name="dataset-properties"></a>Egenskaper för datamängd
+## <a name="dataset-properties"></a>Egenskaper för data mängd
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i [skapa data uppsättningar](data-factory-create-datasets.md). Avsnitt som struktur, tillgänglighet och princip för en data uppsättnings-JSON liknar samma för alla data uppsättnings typer.
 
 Avsnittet typeProperties är olika för varje typ av data uppsättning. Den innehåller information som plats och format för data i data lagret. Avsnittet typeProperties för data uppsättningen av typen **fileshare** har följande egenskaper:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| folderPath |Anger under Sök vägen till mappen. Använd escape-tecknet\' för specialtecken i strängen. Jokerteckenfilter stöds inte. Se [exempel länkad tjänst-och datauppsättningen](#sample-linked-service-and-dataset-definitions) exempel.<br/><br/>Du kan kombinera den här egenskapen med **partitionby kolumndefinitionerna** för att ha mappsökvägar baserat på sektors start/slutdatum-gånger. |Ja |
-| fileName |Ange namnet på filen i **folderPath** om du vill att tabellen ska referera till en speciell fil i mappen. Om du inte anger något värde för den här egenskapen pekar tabellen på alla filer i mappen.<br/><br/>Om inget **fil namn** har angetts för en data uppsättning för utdata och **preserveHierarchy** inte har angetts i aktivitets mottagaren, är namnet på den genererade filen i följande format: <br/><br/>`Data.<Guid>.txt`Exempel Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Nej |
-| fileFilter |Ange ett filter som ska användas för att välja en delmängd av filer i folderPath i stället för alla filer. <br/><br/>Tillåtna värden är: `*` (flera tecken) och `?` (ett tecken).<br/><br/>Exempel 1: "fileFilter": "*. log"<br/>Exempel 2: "fileFilter": 2014-1-?. format<br/><br/>Observera att fileFilter är tillämpligt för en data uppsättning för en indata-FileShare. |Nej |
+| folderPath |Anger under Sök vägen till mappen. Använd escape-tecknet\' för specialtecken i strängen. Wildcard-filtret stöds inte. Se [exempel på länkade tjänst-och data uppsättnings definitioner](#sample-linked-service-and-dataset-definitions) .<br/><br/>Du kan kombinera den här egenskapen med **partitionby kolumndefinitionerna** för att ha mappsökvägar baserat på sektors start/slutdatum-gånger. |Ja |
+| fileName |Ange namnet på filen i **folderPath** om du vill att tabellen ska referera till en speciell fil i mappen. Om du inte anger något värde för den här egenskapen pekar tabellen på alla filer i mappen.<br/><br/>Om inget **fil namn** har angetts för en data uppsättning för utdata och **preserveHierarchy** inte har angetts i aktivitets mottagaren, är namnet på den genererade filen i följande format: <br/><br/>`Data.<Guid>.txt` (exempel: data. 0a405f8a-93ff-4c6f-B3BE-f69616f1df7a. txt) |Nej |
+| fileFilter |Ange ett filter som ska användas för att välja en delmängd av filer i folderPath i stället för alla filer. <br/><br/>Tillåtna värden är: `*` (flera tecken) och `?` (enstaka tecken).<br/><br/>Exempel 1: "fileFilter": "*. log"<br/>Exempel 2: "fileFilter": 2014-1-?. format<br/><br/>Observera att fileFilter är tillämpligt för en data uppsättning för en indata-FileShare. |Nej |
 | partitionedBy |Du kan använda partitionedBy för att ange ett dynamiskt folderPath/fileName för Time Series-data. Ett exempel är folderPath-parameter för varje timme med data. |Nej |
-| format | Följande format typer stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Nej |
-| compression | Ange typ och komprimeringsnivå för data. Typer som stöds: **Gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Se [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
+| formatering | Följande format typer **stöds: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange egenskapen **Type** under format till något av dessa värden. Mer information finns i [text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-format](data-factory-supported-file-and-compression-formats.md#avro-format), Orc- [format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format) -avsnitt. <br><br> Om du vill **Kopiera filer som är** mellan filbaserade butiker (binär kopia), hoppar du över avsnittet format i definitionerna för in-och utdata-datauppsättningar. |Nej |
+| komprimering | Ange typ och nivå för komprimeringen för data. De typer som stöds är: **gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**. De nivåer som stöds är: **optimalt** och **snabbast**. Se [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 
 > [!NOTE]
 > Du kan inte använda fileName och fileFilter samtidigt.
@@ -180,27 +180,27 @@ För kopierings aktivitet varierar de beroende på typerna av källor och mottag
 
 **FileSystemSource** stöder följande egenskaper:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| recursive |Anger om data läses rekursivt från undermapparna eller endast från den angivna mappen. |Sant, falskt (standard) |Nej |
+| rekursiva |Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. |Sant, falskt (standard) |Nej |
 
 **FileSystemSink** stöder följande egenskaper:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| copyBehavior |Definierar kopierings beteendet när källan är BlobSource eller FileSystem. |**PreserveHierarchy:** Bevarar filens hierarki i målmappen. Det vill säga att käll filens relativa sökväg är samma som den relativa sökvägen till mål filen i målmappen.<br/><br/>**FlattenHierarchy:** Alla filer från källmappen skapas på den första nivån i målmappen. Målattribut skapas med ett automatiskt genererat namn.<br/><br/>**MergeFiles** Sammanfogar alla filer från källmappen till en fil. Om fil namnet/blobb namnet anges, är det sammanslagna fil namnet det angivna namnet. Annars är det ett automatiskt genererat fil namn. |Nej |
+| copyBehavior |Definierar kopierings beteendet när källan är BlobSource eller FileSystem. |**PreserveHierarchy:** Bevarar filens hierarki i målmappen. Det vill säga att käll filens relativa sökväg är samma som den relativa sökvägen till mål filen i målmappen.<br/><br/>**FlattenHierarchy:** Alla filer från källmappen skapas på den första nivån i målmappen. Målattribut skapas med ett automatiskt genererat namn.<br/><br/>**MergeFiles:** Sammanfogar alla filer från källmappen till en fil. Om fil namnet/blobb namnet anges, är det sammanslagna fil namnet det angivna namnet. Annars är det ett automatiskt genererat fil namn. |Nej |
 
-### <a name="recursive-and-copybehavior-examples"></a>rekursiva och copyBehavior exempel
+### <a name="recursive-and-copybehavior-examples"></a>rekursiva och copyBehavior-exempel
 I det här avsnittet beskrivs det resulterande beteendet för kopierings åtgärden för olika kombinationer av värden för egenskaperna recursive och copyBehavior.
 
 | rekursivt värde | copyBehavior-värde | Resulterande beteende |
 | --- | --- | --- |
-| true |preserveHierarchy |För en källmapp Mapp1 med följande struktur,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Målmappen Mapp1 skapas med samma struktur som källan:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 |
-| true |flattenHierarchy |För en källmapp Mapp1 med följande struktur,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Mål-Mapp1 skapas med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Automatiskt genererade namn på File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för File5 |
-| true |mergeFiles |För en källmapp Mapp1 med följande struktur,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Mål-Mapp1 skapas med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Innehållet i fil1 + Fil2 + File3 + File4 + File 5 sammanfogas till en fil med ett automatiskt genererat fil namn. |
-| false |preserveHierarchy |För en källmapp Mapp1 med följande struktur,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Målmappen Mapp1 skapas med följande struktur:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/><br/>Subfolder1 med fil3, File4 och File5 hämtas inte. |
-| false |flattenHierarchy |För en källmapp Mapp1 med följande struktur,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Målmappen Mapp1 skapas med följande struktur:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Automatiskt genererade namn på File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för fil2<br/><br/>Subfolder1 med fil3, File4 och File5 hämtas inte. |
-| false |mergeFiles |För en källmapp Mapp1 med följande struktur,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Målmappen Mapp1 skapas med följande struktur:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1 + Fil2-innehåll sammanfogas till en fil med ett automatiskt genererat fil namn.<br/>&nbsp;&nbsp;&nbsp;&nbsp;Automatiskt genererat namn för fil1<br/><br/>Subfolder1 med fil3, File4 och File5 hämtas inte. |
+| true |preserveHierarchy |För en källmapp Mapp1 med följande struktur,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Målmappen Mapp1 skapas med samma struktur som källan:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 |
+| true |flattenHierarchy |För en källmapp Mapp1 med följande struktur,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Mål-Mapp1 skapas med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för File5 |
+| true |mergeFiles |För en källmapp Mapp1 med följande struktur,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Mål-Mapp1 skapas med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1 + Fil2 + File3 + File4 + innehåll i fil 5 sammanfogas till en fil med ett automatiskt genererat fil namn. |
+| false |preserveHierarchy |För en källmapp Mapp1 med följande struktur,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Målmappen Mapp1 skapas med följande struktur:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/><br/>Subfolder1 med File3, File4 och File5 hämtas inte. |
+| false |flattenHierarchy |För en källmapp Mapp1 med följande struktur,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Målmappen Mapp1 skapas med följande struktur:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för Fil2<br/><br/>Subfolder1 med File3, File4 och File5 hämtas inte. |
+| false |mergeFiles |För en källmapp Mapp1 med följande struktur,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Målmappen Mapp1 skapas med följande struktur:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1 + Fil2-innehåll sammanfogas till en fil med ett automatiskt genererat fil namn.<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för fil1<br/><br/>Subfolder1 med File3, File4 och File5 hämtas inte. |
 
 ## <a name="supported-file-and-compression-formats"></a>Fil-och komprimerings format som stöds
 Se [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artikel om information.
@@ -208,7 +208,7 @@ Se [fil-och komprimerings format i Azure Data Factory](data-factory-supported-fi
 ## <a name="json-examples-for-copying-data-to-and-from-file-system"></a>JSON-exempel för att kopiera data till och från fil systemet
 I följande exempel finns exempel på JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De visar hur du kopierar data till och från ett lokalt fil system och Azure Blob Storage. Du kan dock kopiera data *direkt* från någon av källorna till någon av de handfat som visas i [källor och mottagare som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av kopierings aktiviteten i Azure Data Factory.
 
-### <a name="example-copy-data-from-an-on-premises-file-system-to-azure-blob-storage"></a>Exempel: Kopiera data från ett lokalt fil system till Azure Blob Storage
+### <a name="example-copy-data-from-an-on-premises-file-system-to-azure-blob-storage"></a>Exempel: kopiera data från ett lokalt fil system till Azure Blob Storage
 Det här exemplet visar hur du kopierar data från ett lokalt fil system till Azure Blob Storage. Exemplet har följande Data Factory entiteter:
 
 * En länkad tjänst av typen [OnPremisesFileServer](#linked-service-properties).
@@ -258,7 +258,7 @@ Vi rekommenderar att du använder egenskapen **encryptedCredential** i stället 
 
 Data hämtas från en ny fil varje timme. Egenskaperna folderPath och fileName bestäms baserat på sektorns start tid.
 
-Inställningen `"external": "true"` informerar Data Factory att data uppsättningen är extern för data fabriken och inte produceras av en aktivitet i data fabriken.
+Om du anger `"external": "true"` informerar du Data Factory att data uppsättningen är extern i data fabriken och inte produceras av en aktivitet i data fabriken.
 
 ```JSON
 {
@@ -430,7 +430,7 @@ Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att a
 }
 ```
 
-### <a name="example-copy-data-from-azure-sql-database-to-an-on-premises-file-system"></a>Exempel: Kopiera data från Azure SQL Database till ett lokalt fil system
+### <a name="example-copy-data-from-azure-sql-database-to-an-on-premises-file-system"></a>Exempel: kopiera data från Azure SQL Database till ett lokalt fil system
 Följande exempel visar:
 
 * En länkad tjänst av typen [AzureSqlDatabase.](data-factory-azure-sql-connector.md#linked-service-properties)
@@ -478,7 +478,7 @@ Vi rekommenderar att du använder egenskapen **encryptedCredential** i stället 
 
 Exemplet förutsätter att du har skapat en tabell "Tabell" i Azure SQL och att den innehåller en kolumn med namnet "timestampcolumn" för Time Series-data.
 
-Inställningen ``“external”: ”true”`` informerar Data Factory att data uppsättningen är extern för data fabriken och inte produceras av en aktivitet i data fabriken.
+Om du anger ``“external”: ”true”`` informerar du Data Factory att data uppsättningen är extern i data fabriken och inte produceras av en aktivitet i data fabriken.
 
 ```JSON
 {

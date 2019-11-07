@@ -1,5 +1,5 @@
 ---
-title: Kopiera datas verktyget Azure Data Factory | Microsoft Docs
+title: Kopiera data verktyget Azure Data Factory
 description: Innehåller information om Kopiera data-verktyget i Azure Data Factory UI
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
-ms.openlocfilehash: 144a991eb911fa6a337b6711515bd5760456fc10
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: b5c93213199cac399487f949a3a8cb04c2d9addb
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996392"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73678322"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Kopiera datas verktyget i Azure Data Factory
 Med verktyget Azure Data Factory Kopiera data kan du enkelt och optimera processen med att mata in data i en data Lake, som vanligt vis är ett första steg i ett slut punkt till slut punkts data integrerings scenario.  Det sparar tid, särskilt när du använder Azure Data Factory för att mata in data från en data källa för första gången. Några av fördelarna med att använda det här verktyget är:

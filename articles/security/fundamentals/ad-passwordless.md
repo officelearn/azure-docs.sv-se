@@ -2,19 +2,19 @@
 title: Förstå en värld utan lösen ord med Azure Active Directory | Microsoft Docs
 description: 'Den här guiden hjälper CEOs, CIO: er, ciso, Chief Identity Architects, Enterprise Architects och IT-besluts fattare som ansvarar för att välja en lösenordsskyddad autentiseringsmetod för Azure Active Directory implementering.'
 keywords: lösen ords azuread,
-author: martincoetzer
-ms.author: martinco
+author: TerryLanfear
+ms.author: terrylan
 ms.date: 07/09/2019
 ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: d1c69cd1cf9990fc77a24e18d87690210453cf75
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: a24195dcf8f384db8d78d39ac7100e487f6c9272
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091957"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621285"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>En värld utan lösen ord med Azure Active Directory
 
@@ -109,7 +109,7 @@ En djupare titt på autentiseringsprocessen i andra scenarier som omfattar Windo
 
 [Microsofts tjänster för PIN-återställning](/windows/security/identity-protection/hello-for-business/hello-feature-pin-reset) är en funktion i Azure AD som gör det möjligt för användare att återställa sina PIN-koder vid behov. Med hjälp av en grup princip, Microsoft Intune eller en kompatibel MDM, kan en administratör konfigurera Windows 10-enheter för att säkert använda Microsofts tjänst för PIN-återställning som gör det möjligt för användare att återställa sina glömt PIN-koder via inställningar eller ovanför Lås skärmen utan att kräva omregistrering.
 
-Ibland måste användare använda lösen ord. [Lösen ords återställning](../../active-directory/authentication/howto-sspr-deployment.md) via självbetjäning (SSPR) är en annan Azure AD-funktion som gör det möjligt för användare att återställa sina lösen ord utan att behöva kontakta IT-personalen. Användare måste registreras för eller registreras för lösen ords återställning via självbetjäning innan tjänsten kan användas. Vid registreringen väljer användaren en eller flera autentiseringsmetoder som har Aktiver ATS av organisationen. SSPR gör det möjligt för användarna att snabbt få tag i blockering och fortsätta att arbeta oavsett var de befinner sig eller tiden på dagen. Genom att tillåta användare att avblockera sig själva kan din organisation minska den icke produktiva tiden och höga support kostnader för de flesta vanliga problem som rör lösen ord.
+Ibland måste användare använda lösen ord. [Lösen ords återställning via självbetjäning](../../active-directory/authentication/howto-sspr-deployment.md) (SSPR) är en annan Azure AD-funktion som gör det möjligt för användare att återställa sina lösen ord utan att behöva kontakta IT-personalen. Användare måste registreras för eller registreras för lösen ords återställning via självbetjäning innan tjänsten kan användas. Vid registreringen väljer användaren en eller flera autentiseringsmetoder som har Aktiver ATS av organisationen. SSPR gör det möjligt för användarna att snabbt få tag i blockering och fortsätta att arbeta oavsett var de befinner sig eller tiden på dagen. Genom att tillåta användare att avblockera sig själva kan din organisation minska den icke produktiva tiden och höga support kostnader för de flesta vanliga problem som rör lösen ord.
 
 ## <a name="passwordless-sign-in-with-microsoft-authenticator"></a>Inloggning med lösen ord med Microsoft Authenticator
 
@@ -150,7 +150,7 @@ Eftersom de flesta användare bara är vana vid att använda lösen ord för att
 
 Innan Microsoft Authenticator-appen kan användas som en lösen ords lös lösning för att logga in på ett Azure AD-konto måste steg utföras av både administratörer och slutanvändarna.
 
-Först måste administratören [aktivera användningen av appen som autentiseringsuppgifter](../../active-directory/authentication/howto-authentication-passwordless-phone.md) i klienten med hjälp av Windows PowerShell. Administratören måste också aktivera slutanvändare för Azure Multi-Factor Authentication (Azure MFA) och konfigurera Microsoft Authenticator-appen som en av verifierings [metoderna](../../active-directory/authentication/howto-mfa-mfasettings.md#verification-methods).
+Först måste administratören [aktivera användningen av appen som autentiseringsuppgifter](../../active-directory/authentication/howto-authentication-passwordless-phone.md) i klienten med hjälp av Windows PowerShell. Administratören måste också aktivera slutanvändare för Azure Multi-Factor Authentication (Azure MFA) och konfigurera Microsoft Authenticator-appen som en av [verifierings metoderna](../../active-directory/authentication/howto-mfa-mfasettings.md#verification-methods).
 
 Slutanvändare måste [Ladda ned och installera](../../active-directory/user-help/user-help-auth-app-download-install.md) Microsoft Authenticator-appen och [Konfigurera sitt konto](../../active-directory/user-help/security-info-setup-auth-app.md) för att använda Microsoft Authenticator-appen som en av verifierings metoderna.
 
@@ -228,7 +228,7 @@ Vi rekommenderar också att varje organisation skapar ett protokoll för använd
 
 Administratörer kan [manuellt etablera nycklar](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless) och distribuera dem till slutanvändare, och etablering och aktivering av FIDO2 på Windows 10-Lås-skärmen kommer att stödjas via [Intune](https://docs.microsoft.com/intune/windows-enrollment-methods). Administratörer måste också använda [Azure Portal](https://portal.azure.com/) för att aktivera maskinvaru-token-enheter som en metod för lösen ords lös autentisering.
 
-Att distribuera FIDO2 säkerhets nycklar kräver också att användarna registrerar sina nycklar med hjälp av [kombinerad registrering](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md). Med kombinerad registrering kan användarna registrera sig en gång och få fördelarna med både Azure Multi-Factor Authentication och återställning av lösen ord för enkel inloggning (SSPR).
+Att distribuera FIDO2 säkerhets nycklar kräver också att användarna registrerar sina nycklar med hjälp av [kombinerad registrering](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md). Med kombinerad registrering kan användarna registrera sig en gång och få fördelarna med både Azure Multi-Factor Authentication och lösen ords återställning med enkel inloggning (SSPR).
 
 Förutom att välja maskinvaru-token som standard metod för Multi-Factor Authentication, rekommenderar vi att du även väljer ett ytterligare verifierings alternativ.
 
@@ -283,7 +283,7 @@ Här följer några faktorer som du bör tänka på när du väljer Microsoft Pa
 
 ||**Windows Hello för företag**|**Lösen ords återsignering med Microsoft Authenticator-appen**|**FIDO2 säkerhets nycklar**|
 |:-|:-|:-|:-|
-|**Krav**| Windows 10, version 1809 eller senare<br>Azure Active Directory| Microsoft Authenticator-app<br>Telefon (iOS-och Android-enheter som kör Android 6,0 eller senare)|Windows 10, version 1809 eller senare<br>Azure Active Directory|
+|**Krav**| Windows 10, version 1809 eller senare<br>Azure Active Directory| Microsoft Authenticator-appen<br>Telefon (iOS-och Android-enheter som kör Android 6,0 eller senare)|Windows 10, version 1809 eller senare<br>Azure Active Directory|
 |**Offline**|Plattform|Programvara|Maskinvara|
 |**System och enheter**|PC med inbyggd Trusted Platform Module (TPM)<br>PIN-kod och biometrik-igenkänning |PIN-kod och biometrik-igenkänning på telefon|FIDO2 säkerhets enheter som är Microsoft-kompatibla|
 |**Användar upplevelse**|Logga in med en PIN-kod eller bio metrisk igenkänning (ansikts, iris eller finger avtryck) med Windows-enheter.<br>Windows Hello-autentisering är knuten till enheten. användaren behöver både enheten och en inloggnings komponent som en PIN-kod eller bio metrisk faktor för att få åtkomst till företags resurser.|Logga in med en mobil telefon med finger avtrycks skanning, ansikts-eller iris eller PIN-kod.<br>Användarna loggar in på arbetet eller det personliga kontot från sin dator eller mobil telefon.|Logga in med FIDO2-säkerhetsenheten (biometrik, PIN och NFC)<br>Användaren kan komma åt enheten baserat på organisations kontroller och autentiseras baserat på PIN-kod, biometrik med enheter som USB-säkerhetsnycklar och NFC-aktiverade smartkort, nycklar eller wearables.|
@@ -334,7 +334,7 @@ För att uppnå dessa mål rekommenderar vi följande:
 > [!NOTE]
 > På [sidan Azure Active Directory licensiering](https://azure.microsoft.com/pricing/details/active-directory/) finns mer information om licensierings kraven för lösen ords lös metoder.
 
-## <a name="conclusion"></a>Sammanfattning
+## <a name="conclusion"></a>Slutsats
 
 Under de senaste åren har Microsoft fortsatt engagemang för att aktivera en värld utan lösen ord. Med Windows 10 lanserade Microsoft Windows Hello för företag, en stark, maskin vara som skyddas av två faktorer som möjliggör enkel inloggning till Azure Active Directory och Active Directory. På samma sätt som med Windows Hello för företag, använder Microsoft Authenticator-appen nyckelbaserad autentisering för att aktivera autentiseringsuppgifter som är knutna till en mobil enhet och använder bio metrisk eller PIN-kod. Med FIDO2 säkerhets nycklar kan du överföra dina autentiseringsuppgifter med dig och logga in på Azure AD genom att välja säkerhets nyckeln som Credential-Provider på Lås skärmen för Windows 10. Alla tre av dessa lösningar för lösen ords lösa minskar risken för nätfiske, lösen ords sprutning och repetitions attacker och ger användare ett mycket säkert och bekvämt sätt att logga in och komma åt data från var som helst.
 

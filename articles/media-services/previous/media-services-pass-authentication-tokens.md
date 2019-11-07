@@ -1,11 +1,11 @@
 ---
 title: Skicka autentiseringstoken till Azure Media Services | Microsoft Docs
-description: Lär dig hur du skickar autentiseringstoken från klienten till Azure Media Services-nyckelleveranstjänst
+description: Lär dig hur du skickar autentiseringstoken från klienten till den Azure Media Services nyckel leverans tjänsten
 services: media-services
-keywords: Content protection DRM, tokenautentisering
+keywords: innehålls skydd, DRM, token-autentisering
 documentationcenter: ''
-author: dbgeorge
-manager: jasonsue
+author: Juliako
+manager: femila
 editor: ''
 ms.assetid: 7c3b35d9-1269-4c83-8c91-490ae65b0817
 ms.service: media-services
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
-ms.author: dwgeo
-ms.openlocfilehash: 71925a1ee67956df45901950b2a59fa4c1b458a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.openlocfilehash: 15d4cbc372f5d5ec0d323170189329152ed436e3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61463233"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684937"
 ---
-# <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Lär dig hur klienter skickar token till Azure Media Services-nyckelleveranstjänst
-Kunder frågar ofta hur en spelare kan skicka token till Azure Media Services-nyckelleveranstjänst för verifiering så spelaren kan hämta nyckeln. Media Services stöder simple webbtoken (SWT) och JSON Web Token (JWT)-format. Tokenautentisering tillämpas på alla typer av nyckel, oavsett om du använder vanlig kryptering eller Advanced Encryption Standard (AES) kuvert kryptering i systemet.
+# <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Lär dig hur klienter skickar token till den Azure Media Services nyckel leverans tjänsten
+Kunderna frågar ofta hur en spelare kan skicka token till den Azure Media Services nyckel leverans tjänsten för verifiering så att spelaren kan hämta nyckeln. Media Services stöder formatet simple web token (SWT) och JSON Web Token (JWT). Token-autentisering används för alla typer av nycklar, oavsett om du använder common Encryption eller Advanced Encryption Standard (AES) kryptering i systemet.
 
- Beroende på player och plattform som du riktar kan skicka du token med din player på följande sätt:
+ Beroende på vilken spelare och plattform du riktar in dig på, kan du skicka token med spelaren på följande sätt:
 
-- Via HTTP auktoriseringsrubriken.
+- Via HTTP-Authorization-huvudet.
     > [!NOTE]
-    > Prefixet ”ägar” förväntas per OAuth 2.0-specifikationer. En exempel-spelare med konfigurationen finns på Azure Media Player [Demonstrationssida](https://ampdemo.azureedge.net/). Om du vill ange videokällan väljer **AES (JWT-Token)** eller **AES (SWT Token)** . Token skickas via auktoriseringsrubriken.
+    > Prefixet "Bearer" förväntas enligt OAuth 2,0-specifikationerna. En exempels pelare med token-konfigurationen finns på Azure Media Player [demonstrations sidan](https://ampdemo.azureedge.net/). Ange video källan genom att välja **AES (JWT-token)** eller **AES (SWT-token)** . Token skickas via Authorization-huvudet.
 
-- Via tillägg av en URL-frågeparameter med ”token = tokenvalue”.  
+- Genom att lägga till en URL-frågeparameter med "token = tokenvalue".  
     > [!NOTE]
-    > Prefixet ”ägar” är inte förväntades. Du måste skydda token strängen eftersom token som skickas via en URL. Här är en C# exempelkod som visar hur du gör det:
+    > Prefixet "Bearer" förväntas inte. Eftersom token skickas via en URL måste du skydda token-strängen. Här är en C# exempel kod som visar hur du gör det:
 
     ```csharp
     string armoredAuthToken = System.Web.HttpUtility.UrlEncode(authToken);
@@ -41,8 +41,8 @@ Kunder frågar ofta hur en spelare kan skicka token till Azure Media Services-ny
     Uri keyDeliveryUrlWithTokenParameter = new Uri(uriWithTokenParameter);
     ```
 
-- Via CustomData-fält.
-Det här alternativet används för PlayReady-licenser, via fältet CustomData för PlayReady licens förvärv utmaning. I det här fallet måste token vara i XML-dokumentet enligt nedan:
+- Via fältet CustomData.
+Det här alternativet används endast för PlayReady License Acquisition genom CustomData-fältet i PlayReady License Acquisition Challenge. I det här fallet måste token finnas i XML-dokumentet som beskrivs här:
 
     ```xml
     <?xml version="1.0"?>
@@ -50,9 +50,9 @@ Det här alternativet används för PlayReady-licenser, via fältet CustomData f
         <Token></Token> 
     </CustomData>
     ```
-    Placera din autentiseringstoken i Token-elementet.
+    Lägg till din autentiseringstoken i token-elementet.
 
-- Via en annan spelningslista HTTP Live Streaming (HLS). Om du behöver konfigurera autentisering med enhetstoken för AES + HLS uppspelning på iOS/Safari, inte ett sätt som du kan skicka direkt i token. Mer information om hur du alternativ till spellistan för att aktivera det här scenariot finns i den här [blogginlägget](https://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+- Via en alternativ HTTP Live Streaming (HLS)-spelnings lista. Om du behöver konfigurera token-autentisering för AES + HLS-uppspelning på iOS/Safari, finns det inte något sätt som du kan skicka direkt i token. Mer information om hur du växlar spelnings listan för att aktivera det här scenariot finns i det här [blogg inlägget](https://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
 ## <a name="next-steps"></a>Nästa steg
 

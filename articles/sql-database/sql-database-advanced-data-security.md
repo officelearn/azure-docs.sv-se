@@ -1,5 +1,5 @@
 ---
-title: Avancerad data säkerhet – Azure SQL Database | Microsoft Docs
+title: Avancerad data säkerhet – Azure SQL Database
 description: Lär dig mer om funktioner för att identifiera och klassificera känsliga data, hantera dina databas sårbarheter och identifiera avvikande aktiviteter som kan tyda på ett hot mot din Azure SQL-databas.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: memildin
 manager: rkarlin
 ms.reviewer: vanto
 ms.date: 03/31/2019
-ms.openlocfilehash: 40e556b5d0fe22629eeca9a088d10ea5fc9b95ac
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: ce9cfa7e4b08dac878de52ba9765bcc204ed8196
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965488"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691292"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Avancerad data säkerhet för Azure SQL Database
 

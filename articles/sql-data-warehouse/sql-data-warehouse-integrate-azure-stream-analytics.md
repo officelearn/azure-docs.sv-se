@@ -1,5 +1,5 @@
 ---
-title: Använd Azure Stream Analytics med SQL Data Warehouse | Microsoft Docs
+title: Använd Azure Stream Analytics
 description: Tips för att använda Azure Stream Analytics med Azure SQL Data Warehouse för utveckling av lösningar.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,60 +10,61 @@ ms.subservice: integration
 ms.date: 03/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 94646c41d9894dd00018ff5ca44d76534d35e8c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 63803f3ac477e48d8d1c14a72e2ee9b9d4860047
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873272"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685731"
 ---
-# <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Använd Azure Stream Analytics med SQL Data Warehouse
-Azure Stream Analytics är en helt hanterad tjänst som ger låg latens, hög tillgänglighet och skalbar komplex händelsebearbetning över strömmande data i molnet. Du kan lära dig grunderna genom att läsa [introduktion till Azure Stream Analytics][Introduction to Azure Stream Analytics]. Sedan kan du lära dig hur du skapar en slutpunkt till slutpunkt-lösning med Stream Analytics genom att följa den [komma igång med Azure Stream Analytics] [ Get started using Azure Stream Analytics] självstudien.
+# <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Använda Azure Stream Analytics med SQL Data Warehouse
+Azure Stream Analytics är en helt hanterad tjänst som tillhandahåller låg latens, skalbar komplex händelse behandling med hög tillgänglighet för strömning av data i molnet. Du kan lära dig grunderna genom [att läsa introduktion till Azure Stream Analytics][Introduction to Azure Stream Analytics]. Du kan sedan lära dig hur du skapar en lösning från slut punkt till slut punkt med Stream Analytics genom att följa själv studie kursen [komma igång med Azure Stream Analytics][Get started using Azure Stream Analytics] .
 
-I den här artikeln får du lära dig hur du använder din Azure SQL Data Warehouse-databas som kanalmottagare för Stream Analytics-jobb.
+I den här artikeln får du lära dig hur du använder Azure SQL Data Warehouse-databasen som utgående mottagare för dina Stream Analytics jobb.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
-Först gå igenom följande steg i den [komma igång med Azure Stream Analytics] [ Get started using Azure Stream Analytics] självstudien.  
+Börja med att köra följande steg i själv studie kursen [komma igång med Azure Stream Analytics][Get started using Azure Stream Analytics] .  
 
-1. Skapa en Event Hub
-2. Konfigurera och starta händelsegeneratorprogrammet
-3. Etablera ett Stream Analytics-jobb
-4. Ange jobbindata och fråga
+1. Skapa en Event Hub-inmatare
+2. Konfigurera och starta Event Generator-programmet
+3. Etablera ett Stream Analytics jobb
+4. Ange inmatade jobb och fråga
 
 Skapa sedan en Azure SQL Data Warehouse-databas
 
-## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>Ange jobbutdata: Azure SQL Data Warehouse-databas
+## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>Ange utdata för jobb: Azure SQL Data Warehouse databas
 ### <a name="step-1"></a>Steg 1
-I ditt Stream Analytics-jobb klickar du på **utdata** högst upp på sidan och klicka sedan på **lägga till**.
+I ditt Stream Analytics jobb klickar du på **utdata** överst på sidan och sedan på **Lägg till**.
 
 ### <a name="step-2"></a>Steg 2
-Välj SQL-databas.
+Välj SQL Database.
 
 ### <a name="step-3"></a>Steg 3
 Ange följande värden på nästa sida:
 
-* *Utdata Alias*: Ange ett eget namn för den här jobbutdata.
+* *Alias för utdata*: Ange ett eget namn för jobbets utdata.
 * *Prenumeration*:
-  * Om SQL Data Warehouse-databasen är i samma prenumeration som Stream Analytics-jobb väljer du Använd SQL-databas från aktuella prenumerationen.
-  * Om databasen är i en annan prenumeration väljer du Använd SQL-databas från en annan prenumeration.
-* *Databasen*: Ange namnet på en måldatabas.
-* *Servernamn*: Ange namnet på servern för databasen som du precis angav. Du kan använda Azure-portalen för att hitta detta.
+  * Om din SQL Data Warehouse databas finns i samma prenumeration som Stream Analyticss jobbet väljer du Använd SQL Database från den aktuella prenumerationen.
+  * Om din databas finns i en annan prenumeration väljer du Använd SQL Database från en annan prenumeration.
+* *Databas*: Ange namnet på en mål databas.
+* *Server namn*: Ange Server namnet för den databas som du nyss angav. Du kan använda Azure Portal för att hitta detta.
 
 ![][server-name]
 
-* *Användarnamn*: Ange användarnamnet för ett konto som har skrivbehörighet för databasen.
-* *Lösenord*: Ange lösenordet för det angivna användarkontot.
-* *tabellen*: Ange namnet på måltabellen i databasen.
+* *Användar namn*: Ange användar namnet för ett konto som har Skriv behörighet för databasen.
+* *Lösen ord*: Ange lösen ordet för det angivna användar kontot.
+* *Tabell*: Ange namnet på mål tabellen i databasen.
 
 ![][add-database]
 
 ### <a name="step-4"></a>Steg 4
-Klicka på knappen Kontrollera för att lägga till den här jobbutdata och kontrollera att Stream Analytics kan ansluta till databasen.
+Klicka på knappen kontrol lera om du vill lägga till jobbets utdata och kontrol lera att Stream Analytics kan ansluta till databasen.
 
-När anslutningen till databasen lyckas visas ett meddelande i portalen. Du kan klicka på Testa för att testa anslutningen till databasen.
+När anslutningen till databasen lyckas visas ett meddelande i portalen. Du kan klicka på testa för att testa anslutningen till databasen.
 
 ## <a name="next-steps"></a>Nästa steg
-En översikt över integration finns i [översikt över SQL Data Warehouse-integration][SQL Data Warehouse integration overview].
+En översikt över integration finns i [Översikt över SQL Data Warehouse-integrering][SQL Data Warehouse integration overview].
 
 För fler utvecklingstips, se [Översikt över SQL Data Warehouse-utveckling][SQL Data Warehouse development overview].
 

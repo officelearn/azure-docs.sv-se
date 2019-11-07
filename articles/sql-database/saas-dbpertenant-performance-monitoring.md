@@ -1,5 +1,5 @@
 ---
-title: 'SaaS-app: Övervaka prestanda för många Azure SQL-databaser | Microsoft Docs'
+title: 'SaaS-app: övervaka prestanda för många Azure SQL-databaser '
 description: Övervaka och hantera prestanda för Azure SQL-databaser och pooler i en SaaS-app med flera innehavare
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 322cc2fd53972c7c084da76ac0c80b757d0d2297
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4860766ddb4214591dc2c77f2746f958cb101741
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570410"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692133"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för Azure SQL-databaser och pooler i en SaaS-app med flera innehavare
 
@@ -24,7 +24,7 @@ I den här självstudien får du utforska flera scenarier för viktiga prestanda
 
 Wingtip biljetter SaaS-databasen per klient-app använder en data modell med en enda klient, där varje plats (klient) har sin egen databas. Precis som för flera SaaS-program så är de förväntade belastningsmönstren för klienterna oberäkneliga och sporadiska. Biljettförsäljningar kan med andra ord ske när som helst. För att dra nytta av detta vanliga mönster för databas användning distribueras klient databaserna i elastiska pooler. Elastiska pooler optimerar kostnaderna för en lösning genom att dela resurser över flera databaser. Med den här typen av mönster är det viktigt att övervaka användningen av databas- och poolresurser för att försäkra att belastningarna balanseras över poolerna. Du behöver också se till att enskilda databaser har tillräckliga resurser och att pooler inte träffar sina [eDTU](sql-database-purchase-models.md#dtu-based-purchasing-model)-gränser. Den här guiden går igenom sätt att övervaka och hantera databaser och pooler och hur man vidtar åtgärder i respons på belastningsvariationer.
 
-I den här guiden får du lära dig hur man:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > 
@@ -37,7 +37,7 @@ I den här guiden får du lära dig hur man:
 Följande krav måste uppfyllas för att kunna köra den här självstudiekursen:
 
 * Wingtip biljetter SaaS-databasen per klient-app distribueras. Om du vill distribuera på mindre än fem minuter, se [distribuera och utforska Wingtip-biljetter SaaS-databas per klient program](saas-dbpertenant-get-started-deploy.md)
-* Azure PowerShell ska ha installerats. Mer information finns i [Komma igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+* Azure PowerShell ska ha installerats. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>Introduktion till SaaS prestanda hanterings mönster
 
@@ -68,7 +68,7 @@ Pooler kan vara kostnadseffektiva med bara två S3 databaser, men ju fler databa
 
 Om du redan har skapat en batch med klienter i en tidigare självstudie går du vidare till avsnittet [simulera användning på alla klient databaser](#simulate-usage-on-all-tenant-databases) .
 
-1. I **POWERSHELL ISE**öppnar du... Inlärnings\\moduler prestanda övervakning och\\hantering*performancemonitoringandmanagement. ps1.* \\ Ha det här skriptet öppet medan du kör scenarierna i den här guiden.
+1. I **POWERSHELL ISE**öppnar du\\Learning-moduler\\prestanda övervakning och hantering\\*performancemonitoringandmanagement. ps1*. Ha det här skriptet öppet medan du kör scenarierna i den här guiden.
 1. Ställ in **$DemoScenario** = **1**, **etablera en batch med klienter**
 1. Tryck **F5** för att köra skriptet.
 
@@ -90,20 +90,20 @@ Skriptet *performancemonitoringandmanagement. ps1* har angetts som simulerar en 
 
 Belastningsgeneratorn tillämpar en *syntetisk* enbart-CPU-belastning på varje klientdatabas. Generatorn startar ett jobb för varje klientdatabas som anropar en lagrad procedur med jämna mellanrum, vilket genererar belastningen. Belastningsnivåer (i eDTU:er), varaktighet och intervaller varierar över alla databaser, vilket simulerar oförutsägbar klientaktivitet.
 
-1. I **POWERSHELL ISE**öppnar du... Inlärnings\\moduler prestanda övervakning och\\hantering*performancemonitoringandmanagement. ps1.* \\ Ha det här skriptet öppet medan du kör scenarierna i den här guiden.
-1. Ange **$DemoScenario** = **2**, *generera normal intensitets belastning*.
+1. I **POWERSHELL ISE**öppnar du\\Learning-moduler\\prestanda övervakning och hantering\\*performancemonitoringandmanagement. ps1*. Ha det här skriptet öppet medan du kör scenarierna i den här guiden.
+1. Ange **$DemoScenario** = **2**, *generera normal belastnings belastning*.
 1. Tryck på **F5** för att tillämpa en belastning på alla dina klientdatabaser.
 
 Wingtip biljetter SaaS Database per klient är en SaaS-app och den verkliga belastningen på en SaaS-app är vanligt vis sporadisk och oförutsägbar. För att simulera det så skapar belastningsgeneratorn en slumpmässig belastning som distribueras över alla klienterna. Det krävs flera minuter för att inläsnings mönstret ska visas, så kör belastnings generatorn i 3-5 minuter innan du försöker övervaka belastningen i följande avsnitt.
 
 > [!IMPORTANT]
-> Belastningsgeneratorn körs som en serie jobb i din lokala PowerShell-session. Behåll fliken *Demo-PerformanceMonitoringAndManagement.ps1* öppen! Om du stänger fliken eller pausar din dator, stannar belastningsgeneratorn. Belastnings generatorn förblir i ett *jobb* som anropar ett tillstånd där den genererar belastning på alla nya klienter som tillhandahålls efter att generatorn har startats. Använd *CTRL-C* för att stoppa att anropa nya jobb och avsluta skriptet. Belastnings generatorn fortsätter att köras, men bara på befintliga klienter.
+> Belastningsgeneratorn körs som en serie jobb i din lokala PowerShell-session. Behåll fliken *Demo-PerformanceMonitoringAndManagement.ps1* öppen! Om du stänger fliken eller pausar din dator, stannar belastningsgeneratorn. Belastnings generatorn förblir i ett *jobb som anropar* ett tillstånd där den genererar belastning på alla nya klienter som tillhandahålls efter att generatorn har startats. Använd *CTRL-C* för att stoppa att anropa nya jobb och avsluta skriptet. Belastnings generatorn fortsätter att köras, men bara på befintliga klienter.
 
 ## <a name="monitor-resource-usage-using-the-azure-portal"></a>Övervaka resursanvändningen med hjälp av Azure Portal
 
 Om du vill övervaka resursanvändningen som beror på att belastningen används öppnar du portalen till poolen som innehåller klient databaserna:
 
-1. Öppna [Azure Portal](https://portal.azure.com) och bläddra till servern *tenants1-&lt;DPT-User.&gt;*
+1. Öppna [Azure Portal](https://portal.azure.com) och bläddra till&gt;Server för *tenants1-DPT-&lt;-användare* .
 1. Bläddra ned och hitta elastiska pooler och klicka på **Pool1**. Den här poolen innehåller alla klientdatabaser som skapats än så länge.
 
 Observera övervakningen av **elastiska pooler** och övervaknings diagram för **Elastic Database** .
@@ -121,7 +121,7 @@ Eftersom det finns fler databaser i poolen än de fem översta, visar pool anvä
 
 Ange en avisering för poolen som utlöser \>75%-användning enligt följande:
 
-1. Öppna *Pool1* (på *tenants1-DPT\<-User\>*  Server) i [Azure Portal](https://portal.azure.com).
+1. Öppna *Pool1* (på *tenants1-DPT-\<User\>* Server) i [Azure Portal](https://portal.azure.com).
 1. Klicka på **aviseringsregler** och därefter på **+ lägg till avisering**:
 
    ![lägg till avisering](media/saas-dbpertenant-performance-monitoring/add-alert.png)
@@ -158,7 +158,7 @@ Du kan simulera en upptagen pool genom att öka belastningen som generatorn skap
 1. Justera **pool-eDTU** -inställningen till **100**. Ändringar av pool-eDTU:er, ändrar inte inställningarna per databas (som fortfarande är 50 eDTU max per databas). Du kan se inställningarna per databas på höger sida av sidan **Konfigurera pool** .
 1. Klicka på **Spara** för att skicka begäran om att skala poolen.
 
-Gå tillbaka till **Pool1** > -**översikten** om du vill visa övervaknings diagrammen. Övervaka effekterna av att tillhandahålla poolen med fler resurser (även om det finns några databaser och en slumpmässig inläsning är det inte alltid lätt att se avgörande tills du kör en stund). När du tittar på diagrammen, tänk på att 100% i det övre diagrammet nu representerar 100 eDTU:er, medan 100% i det lägre diagrammet fortfarande är 50 eDTU:er eftersom max per databas fortfarande är 50 eDTU:er.
+Gå tillbaka till **Pool1** > **Översikt** för att Visa övervaknings diagrammen. Övervaka effekterna av att tillhandahålla poolen med fler resurser (även om det finns några databaser och en slumpmässig inläsning är det inte alltid lätt att se avgörande tills du kör en stund). När du tittar på diagrammen, tänk på att 100% i det övre diagrammet nu representerar 100 eDTU:er, medan 100% i det lägre diagrammet fortfarande är 50 eDTU:er eftersom max per databas fortfarande är 50 eDTU:er.
 
 Databaserna är online och fullt tillgängliga under hela processen. Under det sista ögonblicket när varje databas är redo att aktiveras med de nya pool-eDTU:erna, bryts alla aktiva anslutningar. Du ska alltid skriva programkod för att återförsöka brutna anslutningar, vilken då kommer att återansluta till databasen i den uppskalade poolen.
 
@@ -166,7 +166,7 @@ Databaserna är online och fullt tillgängliga under hela processen. Under det s
 
 Som ett alternativ till att skala upp poolen, kan du skapa en andra pool och flytta databaserna till den för att balansera belastningen mellan de två poolerna. Det gör du genom att skapa den nya poolen på samma server som den första.
 
-1. Öppna **tenants1-DPT-&lt;User&gt; -** servern i [Azure Portal](https://portal.azure.com).
+1. Öppna **användar&gt;servern tenants1-DPT-&lt;** på [Azure Portal](https://portal.azure.com).
 1. Klicka på **+ ny pool** för att skapa en pool på den aktuella servern.
 1. I mallen för **elastisk pool** :
 
@@ -177,14 +177,14 @@ Som ett alternativ till att skala upp poolen, kan du skapa en andra pool och fly
    1. Klicka på **Lägg till databaser** för att se en lista över databaser på servern som kan läggas till i *Pool2*.
    1. Välj 10 databaser för att flytta dem till den nya poolen och klicka sedan på **Välj**. Om du har kört belastnings generatorn vet tjänsten redan att prestanda profilen kräver en större pool än standard storleken 50 eDTU och rekommenderar att du börjar med en 100 eDTU-inställning.
 
-      ![rekommendation](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
+      ![Rekommenderade](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
 
    1. I den här självstudien lämnar du standardvärdet 50 eDTU: er och klickar på **Välj** igen.
    1. Välj **OK** för att skapa den nya poolen och flytta de markerade databaserna till den.
 
 Det tar några minuter att skapa poolen och flytta databaserna. När databaserna flyttas är de fortfarande online och fullständigt tillgängliga tills det allra sista tillfället, där alla öppna anslutningar är stängda. Så länge som du har en del omprövnings logik kommer klienterna att ansluta till databasen i den nya poolen.
 
-Bläddra till **Pool2** (på *tenants1-DPT\<-User\>*  Server) för att öppna poolen och övervaka dess prestanda. Om du inte ser det väntar du tills etableringen av den nya poolen har slutförts.
+Bläddra till **Pool2** (på *tenants1-DPT-\<User\>* Server) för att öppna poolen och övervaka dess prestanda. Om du inte ser det väntar du tills etableringen av den nya poolen har slutförts.
 
 Nu ser du att resursanvändningen på *Pool1* har släppts och att *Pool2* nu har lästs in på samma sätt.
 
@@ -194,19 +194,19 @@ Om en enskild databas i en pool får en hållbar hög belastning, beroende på k
 
 Den här övningen simulerar effekten av att Contosos konserthall upplever en hög belastning när biljetter börjar säljas för ett populärt evenemang.
 
-1. I **POWERSHELL ISE**öppnar du... *Performancemonitoringandmanagement. ps1* -skript. \\
+1. Öppna skriptet...\\*performancemonitoringandmanagement. ps1* i **PowerShell ISE**.
 1. Ange **$DemoScenario = 5, generera en normal belastning plus en hög belastning på en enskild klient (cirka 95 DTU).**
 1. Ställ in **$SingleTenantDatabaseName = contosoconcerthall**
 1. Kör skriptet med **F5**.
 
 
-1. I [Azure Portal](https://portal.azure.com)bläddrar du till listan över databaser på *tenants1-DPT\<-User\> -* servern. 
+1. I [Azure Portal](https://portal.azure.com)bläddrar du till listan över databaser på *användar\>servern tenants1-DPT-\<* . 
 1. Klicka på **contosoconcerthall** -databasen.
 1. Klicka på den pool som **contosoconcerthall** finns i. Leta upp poolen i avsnittet **elastisk pool** .
 
 1. Granska övervaknings diagrammet för **elastisk pool** och leta efter den ökade användningen av pool-eDTU. Efter någon minut sätter den högre belastningen in och du borde snabbt se att poolen når 100% användning.
 2. Kontrol lera visningen av **Elastic Database Monitoring** , som visar de hetaste databaserna under den senaste timmen. *Contosoconcerthall* -databasen bör snart visas som en av de fem hetaste databaserna.
-3. **Klicka på övervakning av Elastic Database** **diagrammet** och den öppnar sidan **databas resurs användning** där du kan övervaka någon av databaserna. På så sätt kan du isolera visningen för *contosoconcerthall* -databasen.
+3. **Klicka på diagrammet för övervakning av elastiska databaser** så öppnas sidan **databas resurs användning** där du kan övervaka någon av databaserna. På så sätt kan du isolera visningen för *contosoconcerthall* -databasen.
 4. Klicka på **contosoconcerthall**i listan över databaser.
 5. Klicka på **pris nivå (skala DTU: er)** för att öppna sidan **Konfigurera prestanda** där du kan ange en fristående beräknings storlek för databasen.
 6. Klicka på **Standard**-fliken för att öppna skalningsalternativen på standardnivån.

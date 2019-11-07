@@ -1,6 +1,6 @@
 ---
 title: Konfigurera Service Fabric Mesh CLI | Microsoft Docs
-description: Lär dig hur du konfigurerar Azure Service Fabric Mesh CLI.
+description: Service Fabric Mesh-kommandoradsgränssnittet (CLI) krävs för att distribuera och hantera resurser lokalt och i Azure Service Fabric Mesh. Så här konfigurerar du det.
 services: service-fabric-mesh
 keywords: ''
 author: dkkapur
@@ -9,23 +9,23 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 46b2a9a0c4d8a1d9e0fa069d512670dffb94fc28
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 5c9733a5fc5aec337a326fe39e78c3e5c0b8ca4f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173776"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686297"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Konfigurera Service Fabric Mesh CLI
-Service Fabric Mesh-kommandoradsgränssnittet (CLI) krävs för att distribuera och hantera resurser lokalt och i Azure Service Fabric Mesh. 
+Service Fabric Mesh-kommandoradsgränssnittet (CLI) krävs för att distribuera och hantera resurser lokalt och i Azure Service Fabric Mesh. Så här konfigurerar du det.
 
-Det finns tre typer av CLI som kan användas och de sammanfattas i tabellen nedan. 
+Det finns tre typer av CLI som kan användas och de sammanfattas i tabellen nedan.
 
 | CLI-modul | Målmiljö |  Beskrivning | 
 |---|---|---|
 | az mesh | Azure Service Fabric Mesh | Primärt CLI som gör att du kan distribuera dina program och hantera resurser mot Azure Service Fabric Mesh-miljön. 
 | sfctl | Lokala kluster | Service Fabric-CLI som möjliggör distribution och testning av Service Fabric-resurser mot lokala kluster.  
-| Maven CLI | Lokala kluster och Azure Service Fabric Mesh | `az mesh` EnomslutningsomgörattJava-utvecklarekananvändaenvälbekantkommandoradsupplevelseförlokalochAzure`sfctl` -utvecklings miljö.  
+| Maven CLI | Lokala kluster och Azure Service Fabric Mesh | En omslutning runt `az mesh` och `sfctl` som gör att Java-utvecklare kan använda en välbekant kommando rads upplevelse för lokal och Azure-utvecklings miljö.  
 
 För förhandsversionen är Azure Service Fabric Mesh CLI skrivet som ett tillägg till Azure CLI. Du kan installera det i Azure Cloud Shell eller en lokal installation av Azure CLI. 
 

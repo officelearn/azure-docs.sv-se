@@ -1,8 +1,6 @@
 ---
 title: Azure Functions distributions platser
 description: Lär dig att skapa och använda distributions fack med Azure Functions
-services: functions
-documentationcenter: na
 author: craigshoemaker
 manager: gwallace
 keywords: Azure Functions, Functions
@@ -10,12 +8,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 08/12/2019
 ms.author: cshoe
-ms.openlocfilehash: 50337745b008cdd38dd860a0329e44ee712e7acd
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 23a4870332266ce180c2e94aeb0b5ca24073878b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70085672"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576322"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions distributions platser
 
@@ -27,7 +25,7 @@ Följande visar hur funktioner påverkas av växlings platser:
 - Om en funktion körs under växlingen fortsätter körningen och efterföljande utlösare dirigeras till den utbytta App-instansen.
 
 > [!NOTE]
-> Det finns inga tillgängliga platser för Linux-förbruknings planen.
+> Platser är för närvarande inte tillgängliga för Linux-förbruknings planen.
 
 ## <a name="why-use-slots"></a>Varför ska jag använda platser?
 
@@ -111,8 +109,8 @@ Du kan växla mellan platser via [CLI](https://docs.microsoft.com/cli/azure/func
 
 1. Navigera till Function-appen
 1. Klicka på det käll plats namn som du vill byta
-1. På fliken *Översikt* klickar du på **växlings** knappen ![Swap Azure Functions distributions plats ](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
-1. Kontrol lera konfigurations inställningarna för din växling och klicka på **byt** ![Swap Azure Functions distributions plats ](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
+1. På fliken *Översikt* klickar du på **växlings** knappen ![växlar Azure Functions distributions plats](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
+1. Kontrol lera konfigurations inställningarna för växlingen och klicka på **Byt** plats för ![växlings Azure Functions distributions plats](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
 
 Åtgärden kan ta en stund medan växlings åtgärden körs.
 
@@ -182,10 +180,10 @@ Det finns två nivåer av stöd för distributions platser:
 | Operativ system/värd plan           | Support nivå     |
 | ------------------------- | -------------------- |
 | Windows-förbrukning       | Allmän tillgänglighet |
-| Windows Premium (för hands version) | Förhandsversion              |
+| Windows Premium           | Allmän tillgänglighet  |
 | Windows-dedikerad         | Allmän tillgänglighet |
 | Linux-förbrukning         | Stöd saknas          |
-| Linux Premium (för hands version)   | Förhandsversion              |
+| Linux Premium             | Allmän tillgänglighet  |
 | Linux-dedikerad           | Allmän tillgänglighet |
 
 ## <a name="next-steps"></a>Nästa steg

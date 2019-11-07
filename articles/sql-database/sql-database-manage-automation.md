@@ -1,5 +1,5 @@
 ---
-title: Hantera Azure SQL-databaser med Azure Automation | Microsoft Docs
+title: Hantera Azure SQL-databaser med hjälp av Azure Automation
 description: Lär dig mer om hur Azure Automation-tjänsten kan användas för att hantera Azure SQL-databaser i stor skala.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: bb195d5809ef0e2af2a4975a263a9739db1cdfa6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0e29cd85c63bb2f6e083f9cda9abd48fa6d9975a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567743"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689446"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Hantera Azure SQL-databaser med hjälp av Azure Automation
 
@@ -32,11 +32,11 @@ Sänk drifts kostnader och frigör IT/DevOps-personalen och fokusera på arbete 
 
 ## <a name="how-can-azure-automation-help-manage-azure-sql-databases"></a>Hur kan Azure Automation hjälpa till att hantera Azure SQL-databaser?
 
-Azure SQL Database kan hanteras i Azure Automation med hjälp av de [Azure SQL Database PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/#sql) -cmdletar som är tillgängliga i [Azure PowerShell-verktygen](/powershell/azure/overview). Azure Automation har dessa Azure SQL Database PowerShell-cmdlets tillgängliga i rutan så att du kan utföra alla dina hanterings uppgifter för SQL DB i tjänsten. Du kan också para ihop dessa cmdlets i Azure Automation med cmdletar för andra Azure-tjänster, för att automatisera komplexa uppgifter i Azure-tjänster och på olika system.
+Azure SQL Database kan hanteras i Azure Automation med hjälp av de [Azure SQL Database PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/servicemanagement/azure/#sql) som är tillgängliga i [Azure PowerShell-verktygen](/powershell/azure/overview). Azure Automation har dessa Azure SQL Database PowerShell-cmdlets tillgängliga i rutan så att du kan utföra alla dina hanterings uppgifter för SQL DB i tjänsten. Du kan också para ihop dessa cmdlets i Azure Automation med cmdletar för andra Azure-tjänster, för att automatisera komplexa uppgifter i Azure-tjänster och på olika system.
 
 Azure Automation kan också kommunicera med SQL-servrar direkt genom att utfärda SQL-kommandon med PowerShell.
 
-[Azure Automation Runbook](https://azure.microsoft.com/blog/20../../introducing-the-azure-automation-runbook-gallery/) -galleriet innehåller en rad produkt team och community-Runbooks för att komma igång med automatisering av hantering av Azure SQL-databaser, andra Azure-tjänster och tredje parts system. Galleri Runbooks innehåller:
+[Azure Automation Runbook-galleriet](https://azure.microsoft.com/blog/20../../introducing-the-azure-automation-runbook-gallery/) innehåller en rad produkt team och community-Runbooks för att komma igång med automatisering av hantering av Azure SQL-databaser, andra Azure-tjänster och tredje parts system. Galleri Runbooks innehåller:
 
 - [Köra SQL-frågor mot en SQL Server-databas](https://gallery.technet.microsoft.com/scriptcenter/How-to-use-a-SQL-Command-be77f9d2)
 - [Lodrätt skala (upp eller ned) ett Azure SQL Database enligt ett schema](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)
@@ -49,4 +49,4 @@ Nu när du har lärt dig grunderna om Azure Automation och hur det kan användas
 
 - [Översikt över Azure Automation](../automation/automation-intro.md)
 - [Min första Runbook](../automation/automation-first-runbook-graphical.md)
-- [Azure Automation: Din SQL-Agent i molnet](https://azure.microsoft.com/blog/20../../azure-automation-your-sql-agent-in-the-cloud/) 
+- [Azure Automation: din SQL-Agent i molnet](https://azure.microsoft.com/blog/20../../azure-automation-your-sql-agent-in-the-cloud/) 

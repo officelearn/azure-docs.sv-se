@@ -1,5 +1,5 @@
 ---
-title: Roller och behörigheter för Azure Data Factory | Microsoft Docs
+title: Roller och behörigheter för Azure Data Factory
 description: Beskriver de roller och behörigheter som krävs för att skapa data fabriker och arbeta med underordnade resurser.
 ms.date: 11/5/2018
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: 9df65322958bffd3182aaa8d734e8b29717d939d
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f5b4cbc670a429a84f42be79adb00057656a5483
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142530"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681432"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Roller och behörigheter för Azure Data Factory
 
@@ -46,7 +46,7 @@ Medlemskap i rollen **Data Factory Contributor** låter användare göra följan
 
 Mer information om den här rollen finns i [Data Factory Contributor-rollen](../role-based-access-control/built-in-roles.md#data-factory-contributor).
 
-### <a name="resource-manager-template-deployment"></a>Resource Manager för malldistribution
+### <a name="resource-manager-template-deployment"></a>Distribution av Resource Manager-mall
 
 Rollen **Data Factory Contributor** , på resurs grupps nivå eller över, låter användare distribuera Resource Manager-mallar. Till följd av detta kan medlemmar i rollen använda Resource Manager-mallar för att distribuera både data fabriker och deras underordnade resurser, inklusive data uppsättningar, länkade tjänster, pipelines, utlösare och integrerings körningar. Medlemskap i den här rollen låter inte användaren skapa andra resurser, men.
 
@@ -57,7 +57,7 @@ Behörigheter för Azure databaser och GitHub är oberoende av Data Factory beh�
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Anpassade scenarier och anpassade roller
 
-Ibland kan du behöva ge olika åtkomst nivåer för olika data fabriks användare. Exempel:
+Ibland kan du behöva ge olika åtkomst nivåer för olika data fabriks användare. Till exempel:
 - Du kan behöva en grupp där användare bara har behörighet för en speciell data fabrik.
 - Eller så kan du behöva en grupp där användare bara kan övervaka en data fabrik (eller fabriker), men inte ändra den.
 
@@ -78,7 +78,7 @@ Här följer några exempel som visar vad du kan uppnå med anpassade roller:
   Det här scenariot kräver två roll tilldelningar.
 
   1. Tilldela den inbyggda rollen **deltagare** på Data Factory-nivån.
-  2. Skapa en anpassad roll med behörigheten **Microsoft.** Resources/distributions/. Tilldela den här anpassade rollen till användaren på resurs grupps nivå.
+  2. Skapa en anpassad roll med behörigheten **Microsoft. Resources/distributions/** . Tilldela den här anpassade rollen till användaren på resurs grupps nivå.
 
 - Låt en användare bara kunna testa anslutningen i en länkad tjänst
 

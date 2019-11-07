@@ -8,26 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/26/2019
+ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 52e9fd986973c15d30790b981a5c2ccd1e6974d6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 2c1e6ef84a472ccec5116b12e18ad80c92b68960
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507697"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681886"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>Snabb start: asynkron syntes för lång Forms ljud i python (för hands version)
 
 I den här snabb starten använder du den långa ljud-API: n för att konvertera text till tal asynkront och hämta ljud resultatet från en URI som tillhandahålls av tjänsten. Den här REST API är idealisk för innehålls leverantörer som behöver konvertera textfiler som är större än 10 000 tecken eller 50 stycken till syntetiskt tal. Mer information finns i avsnittet om [långa ljud-API](../../long-audio-api.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För den här snabbstarten krävs:
 
 * Python 2.7. x eller 3. x.
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download)eller din favorit text redigerare.
-* En Azure-prenumeration och en prenumerations nyckel för en röst tjänst. [Skapa ett konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+* En Azure-prenumeration och en prenumerations nyckel för en röst tjänst. [Skapa ett Azure-konto](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account) och [skapa en tal resurs](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) för att hämta nyckeln. När du skapar tal resursen måste du kontrol lera att pris nivån är inställd på **S0**och att platsen är inställd på en [region som stöds](../../regions.md#standard-and-neural-voices).
 
 ## <a name="create-a-project-and-import-required-modules"></a>Skapa ett projekt och importera nödvändiga moduler
 
@@ -47,7 +47,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 ```
 
 > [!NOTE]
-> Om du inte har använt de här modulerna behöver du installera dem innan du kör programmet. För att installera de här paketen kör du: `pip install requests`.
+> Om du inte har använt de här modulerna behöver du installera dem innan du kör programmet. För att installera de här paketen kör du: `pip install requests urllib3`.
 
 Dessa moduler används för att parsa argument, konstruera HTTP-begäran och anropa text-till-tal-lång ljud REST API.
 

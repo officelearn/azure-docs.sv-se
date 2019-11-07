@@ -1,5 +1,5 @@
 ---
-title: Hanterings-API-referens för Azure SQL Database Hanterad instans | Microsoft Docs
+title: Hanterings-API-referens för Azure SQL Database Hanterad instans
 description: Lär dig mer om att skapa och hantera Azure SQL Database hanterade instanser.
 services: sql-database
 ms.service: sql-database
@@ -11,22 +11,22 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 6bbba3910315be39d9fca81b95083f32ebd60e64
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bdc17dd11269bafa271f69ec001f8dcad484b7b8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567613"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688191"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Hanterad API-referens för Azure SQL Database hanterade instanser
 
 Du kan skapa och hantera Azure SQL Database hanterade instanser med hjälp av Azure Portal, PowerShell, Azure CLI, REST API och Transact-SQL. I den här artikeln finns en översikt över funktioner och API som du kan använda för att skapa och konfigurera en hanterad instans.
 
-## <a name="azure-portal-create-a-managed-instance"></a>Azure-portalen: Skapa en hanterad instans
+## <a name="azure-portal-create-a-managed-instance"></a>Azure Portal: skapa en hanterad instans
 
-En snabb start som visar hur du skapar en Azure SQL Database Hanterad instans finns [i snabb start: Skapa en Azure SQL Database Hanterad](sql-database-managed-instance-get-started.md)instans.
+En snabb start som visar hur du skapar en Azure SQL Database Hanterad instans finns i [snabb start: skapa en Azure SQL Database Hanterad instans](sql-database-managed-instance-get-started.md).
 
-## <a name="powershell-create-and-manage-managed-instances"></a>PowerShell: Skapa och hantera hanterade instanser
+## <a name="powershell-create-and-manage-managed-instances"></a>PowerShell: skapa och hantera hanterade instanser
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -35,9 +35,9 @@ En snabb start som visar hur du skapar en Azure SQL Database Hanterad instans fi
 Om du vill skapa och hantera hanterade instanser med Azure PowerShell använder du följande PowerShell-cmdletar. Om du behöver installera eller uppgradera PowerShell, se [installera Azure PowerShell modul](/powershell/azure/install-az-ps).
 
 > [!TIP]
-> Skript för PowerShell-exempel finns [i snabb starts skript: Skapa en Azure SQL-hanterad instans](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/)med PowerShell-biblioteket.
+> Exempel skript för PowerShell finns i [snabb starts skript: skapa en Azure SQL-hanterad instans med PowerShell-biblioteket](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/).
 
-| Cmdlet: | Beskrivning |
+| Cmdlet | Beskrivning |
 | --- | --- |
 |[New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)|Skapar en Azure SQL Database Hanterad instans |
 |[Get-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstance)|Returnerar information om den hanterade Azure SQL-instansen|
@@ -48,14 +48,14 @@ Om du vill skapa och hantera hanterade instanser med Azure PowerShell använder 
 |[Remove-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabase)|Tar bort en Azure SQL-hanterad databas instans databas|
 |[Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase)|Återställer en Azure SQL-hanterad databas instans databas|
 
-## <a name="azure-cli-create-and-manage-managed-instances"></a>Azure CLI: Skapa och hantera hanterade instanser
+## <a name="azure-cli-create-and-manage-managed-instances"></a>Azure CLI: skapa och hantera hanterade instanser
 
-Om du vill skapa och hantera hanterade instanser med [Azure CLI](/cli/azure)använder du följande kommandon i [Azure CLI SQL](/cli/azure/sql/mi) -hanterade instanser. Använd [Cloud Shell](/azure/cloud-shell/overview) för att köra CLI i webbläsaren eller [installera](/cli/azure/install-azure-cli) det på macOS, Linux eller Windows.
+Om du vill skapa och hantera hanterade instanser med [Azure CLI](/cli/azure)använder du följande kommandon i [Azure CLI SQL-hanterade](/cli/azure/sql/mi) instanser. Använd [Cloud Shell](/azure/cloud-shell/overview) för att köra CLI i webbläsaren eller [installera](/cli/azure/install-azure-cli) det på macOS, Linux eller Windows.
 
 > [!TIP]
 > En snabb start för Azure CLI finns i [arbeta med SQL-hanterad instans med hjälp av Azure CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).
 
-| Cmdlet: | Beskrivning |
+| Cmdlet | Beskrivning |
 | --- | --- |
 |[AZ SQL mi Create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) |Skapar en hanterad instans|
 |[AZ SQL mi-lista](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-list)|Visar en lista över tillgängliga hanterade instanser|
@@ -67,12 +67,12 @@ Om du vill skapa och hantera hanterade instanser med [Azure CLI](/cli/azure)anv�
 |[AZ SQL EXTEXTB-återställning](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|Återställa en hanterad databas|
 |[ta bort AZ SQL EXTEXTB](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-delete)|Tar bort en hanterad databas|
 
-## <a name="transact-sql-create-and-manage-instance-databases"></a>Transact-SQL: Skapa och hantera instans databaser
+## <a name="transact-sql-create-and-manage-instance-databases"></a>Transact-SQL: skapa och hantera instans databaser
 
 Använd följande T-SQL-kommandon för att skapa och hantera instans databasen när den hanterade instansen har skapats. Du kan utfärda dessa kommandon med hjälp av Azure Portal [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio) [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is). [Visual Studio Code](https://code.visualstudio.com/docs)eller andra program som kan ansluta till en Azure SQL Database-Server och skicka Transact-SQL-kommandon.
 
 > [!TIP]
-> För snabb starter som visar att du måste konfigurera och ansluta till en hanterad instans med SQL Server Management Studio på Microsoft [Windows, se snabb start: Konfigurera en virtuell Azure-dator för att ansluta till en hanterad Azure SQL Database-instans](sql-database-managed-instance-configure-vm.md) och [Snabbstart: Konfigurera en punkt-till-plats-anslutning till en hanterad Azure SQL Database-instans lokalt](sql-database-managed-instance-configure-p2s.md).
+> För snabb starter som visar att du måste konfigurera och ansluta till en hanterad instans med SQL Server Management Studio på Microsoft Windows, se [snabb start: Konfigurera virtuell Azure-dator för att ansluta till en Azure SQL Database Hanterad instans](sql-database-managed-instance-configure-vm.md) och [snabb start: Konfigurera en punkt-till-plats-anslutning till en Azure SQL Database Hanterad instans från den lokala platsen](sql-database-managed-instance-configure-p2s.md).
 > [!IMPORTANT]
 > Du kan inte skapa eller ta bort en hanterad instans med hjälp av Transact-SQL.
 
@@ -81,7 +81,7 @@ Använd följande T-SQL-kommandon för att skapa och hantera instans databasen n
 |[SKAPA DATABAS](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Skapar en ny hanterad instans databas. Du måste vara ansluten till huvud databasen för att skapa en ny databas.|
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Ändrar en Azure SQL-hanterad instans databas.|
 
-## <a name="rest-api-create-and-manage-managed-instances"></a>REST API: Skapa och hantera hanterade instanser
+## <a name="rest-api-create-and-manage-managed-instances"></a>REST API: skapa och hantera hanterade instanser
 
 Använd dessa REST API begär Anden för att skapa och hantera hanterade instanser.
 

@@ -1,5 +1,5 @@
 ---
-title: Migrera till nya Elastic Databases jobb | Microsoft Docs
+title: 'Migrera till de nya Elastic Database jobben '
 description: Migrera till de nya Elastic Database jobben.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: johnpaulkee
 ms.author: joke
 ms.reviewer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: 9fa3444244cbd51c3f14abcfef5212a366cadbd2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2cba7ecb4be500a8f7007c8da009e03e6f33dfde
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68550561"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692274"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Migrera till den nya Elastic Database-jobb
 
@@ -25,7 +25,7 @@ En uppgraderad version av [Elastic Database jobb](elastic-jobs-overview.md) är 
 Om du har en befintlig version av Elastic Database jobb för en kund finns migrerings-cmdlets och skript för att enkelt migrera till den senaste versionen.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den uppgraderade versionen av Elastic Database-jobb har en ny uppsättning PowerShell-cmdlets som kan användas under migreringen. Dessa nya cmdletar överför alla befintliga autentiseringsuppgifter för jobb, mål (inklusive databaser, servrar, anpassade samlingar), jobb utlösare, jobb scheman, jobb innehåll och jobb till en ny elastisk jobb agent.
 
@@ -138,7 +138,7 @@ function Migrate-Credentials ($agent) {
 }
 ```
 
-Om du vill migrera dina autentiseringsuppgifter kör du följande kommando genom att `$agent` skicka in PowerShell-objektet från tidigare.
+Om du vill migrera dina autentiseringsuppgifter kör du följande kommando genom att skicka in `$agent` PowerShell-objektet från tidigare.
 
 ```powershell
 Migrate-Credentials $agent
@@ -368,7 +368,7 @@ function Setup-TargetGroup ($tgName, $agent) {
 
 Om du vill migrera dina mål (servrar, databaser och anpassade samlingar) till den nya jobb databasen kör du cmdleten **Migrate-TargetGroups** för att utföra följande:
 
-- Mål på rotnivå som är servrar och databaser kommer att migreras till en ny mål grupp med namnet\<"\>( \<servername\>, databasename)" som bara innehåller rot nivå målet.
+- Mål på rotnivå som är servrar och databaser kommer att migreras till en ny mål grupp med namnet "(\<serverName\>, \<databaseName\>)" som endast innehåller rot nivå målet.
 - En anpassad samling migreras till en ny mål grupp som innehåller alla underordnade mål.
 
 ```powershell
@@ -564,7 +564,7 @@ function Setup-JobStep ($newJob, $job) {
 
 Om du vill migrera dina jobb, jobb innehåll, jobb utlösare och jobb scheman till den nya elastiska jobb agentens databas kör du cmdleten **Migrate-** Job som skickas i din agent.
 
-- Jobb med flera utlösare med olika scheman är indelade i flera jobb med namngivnings\> schema:\>"\<jobName (\<scheduleName)".
+- Jobb med flera utlösare med olika scheman är indelade i flera jobb med namngivnings schema: "\<jobName\> (\<scheduleName\>)".
 - Jobb innehållet migreras till ett jobb genom att lägga till ett standard jobb steg med namnet JobStep med tillhör ande kommando text.
 - Jobb är inaktiverade som standard så att du kan verifiera dem innan du aktiverar dem.
 

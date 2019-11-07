@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor och svar om Azure SQL Database storskalig | Microsoft Docs
+title: Vanliga frågor och svar om Azure SQL Database storskalig
 description: Svar på vanliga frågor som kunder ställer om en Azure SQL-databas i den storskaliga tjänst nivån – vanligt vis kallas för en storskalig databas.
 services: sql-database
 ms.service: sql-database
@@ -7,16 +7,16 @@ ms.subservice: ''
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: dimitri-furman
+ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/12/2019
-ms.openlocfilehash: 379629cfe3c742bd247e02cdf7a891afab08107f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c7960ca4e2dc2e676bc8668981108ce0f8589c0d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496179"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687346"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Vanliga frågor och svar om Azure SQL Database storskalig
 
@@ -44,12 +44,12 @@ VCore-baserade tjänst nivåer särskiljs baserat på databasens tillgänglighet
 | **Bäst för** |Alla|Erbjuder budget orienterade balanserade beräknings-och lagrings alternativ.|De flesta företags arbets belastningar. Automatisk skalning av lagrings utrymme på upp till 100 TB, fast lodrät och vågrät beräknings skalning, snabb databas återställning.|OLTP-program med hög transaktions frekvens och låg IO-latens. Erbjuder högsta möjliga återhämtning till fel och snabba växlingar med hjälp av flera synkront uppdaterade repliker.|
 |  **Resurstyp** ||Enkel databas/elastisk pool/hanterad instans | Enskild databas | Enkel databas/elastisk pool/hanterad instans |
 | **Beräknings storlek**|Enkel databas/elastisk pool * | 1 till 80 virtuella kärnor | 1 till 80 virtuella kärnor * | 1 till 80 virtuella kärnor |
-| |Hanterad instans | 8, 16, 24, 32, 40, 64, 80 virtuella kärnor | Gäller inte | 8, 16, 24, 32, 40, 64, 80 virtuella kärnor |
+| |Hanterad instans | 8, 16, 24, 32, 40, 64, 80 virtuella kärnor | Saknas | 8, 16, 24, 32, 40, 64, 80 virtuella kärnor |
 | **Lagringstyp** | Alla |Premium-Fjärrlagring (per instans) | Fristående lagring med lokal SSD-cache (per instans) | Super-fast lokal SSD-lagring (per instans) |
 | **Lagrings storlek** | Enkel databas/elastisk pool *| 5 GB – 4 TB | Upp till 100 TB | 5 GB – 4 TB |
-| | Hanterad instans  | 32 GB – 8 TB | Gäller inte | 32 GB – 4 TB |
+| | Hanterad instans  | 32 GB – 8 TB | Saknas | 32 GB – 4 TB |
 | **IOPS** | Enskild databas | 500 IOPS per vCore med 7000 maximal IOPS | Hög skalning är en arkitektur med flera nivåer med cachelagring på flera nivåer. Effektiv IOPS är beroende av arbets belastningen. | 5000 IOPS med 200 000 högsta IOPS|
-| | Hanterad instans | Beror på fil storlek | Gäller inte | 1375 IOPS/vCore |
+| | Hanterad instans | Beror på fil storlek | Saknas | 1375 IOPS/vCore |
 |**Tillgänglighet**|Alla|1 replik, ingen Läs skalning, ingen lokal cache | Flera repliker, upp till 4 Läs skalbarhet, delvis lokal cache | 3 repliker, 1 Läs-och utskalning, zon-redundanta HA, fullständig lokal lagring |
 |**Regelbundet**|Alla|RA-GRS, 7-35 dag kvarhållning (7 dagar som standard)| RA-GRS, 7 dagars kvarhållning, konstant Time-Time-återställning (PITR) | RA-GRS, 7-35 dag kvarhållning (7 dagar som standard) |
 

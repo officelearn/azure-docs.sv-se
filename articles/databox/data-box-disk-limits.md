@@ -1,96 +1,97 @@
 ---
-title: Azure Data Box-Disk begränsar | Microsoft Docs
-description: Beskriver system gränser och storlekar som rekommenderas för Microsoft Azure Data Box-Disk.
+title: Azure Data Box Disk gränser | Microsoft Docs
+description: Beskriver system begränsningar och rekommenderade storlekar för Microsoft Azure Data Box Disk.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 32445e3f6859a6161eb2fae20233c598234f18a0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cd40c5d11414c91ff2f2febc0621e1e06f79e9cf
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60400634"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73646967"
 ---
-# <a name="azure-data-box-disk-limits"></a>Azure Data Box-Disk-gränser
+# <a name="azure-data-box-disk-limits"></a>Azure Data Box Disk gränser
 
 
-Överväg att dessa gränser som du distribuerar och använder din Microsoft Azure Data Box-Disk-lösning.
+Tänk på följande begränsningar när du distribuerar och använder Microsoft Azure Data Box Disk-lösningen.
 
-## <a name="data-box-service-limits"></a>Data Box-tjänstbegränsningar
+## <a name="data-box-service-limits"></a>Data Box-enhet tjänst gränser
 
- - Data Box-tjänsten är tillgänglig i Azure-regioner som anges i [regiontillgänglighet](data-box-disk-overview.md#region-availability).
- - Ett enda lagringskonto stöds med Data Box-Disk.
+ - Data Box-enhets tjänsten är tillgänglig i Azure-regionerna som anges i [regions tillgänglighet](data-box-disk-overview.md#region-availability).
+ - Ett enda lagrings konto stöds med Data Box Disk.
 
-## <a name="data-box-disk-performance"></a>Prestanda för data Box-Disk
+## <a name="data-box-disk-performance"></a>Data Box Disk prestanda
 
 Vid tester med diskar ansluta via USB 3.0 var diskprestandan upp till 430 MB/s. De faktiska hastigheterna varierar beroende på filstorleken. För mindre filer kan du se lägre prestanda.
 
-## <a name="azure-storage-limits"></a>Azure storage-begränsningar
+## <a name="azure-storage-limits"></a>Azure Storage-gränser
 
-Det här avsnittet beskriver begränsningar för Azure Storage-tjänsten och de nödvändiga namngivningskonventionerna för Azure Files, Azure blockblob-objekt och Azure-sidblobar, som gäller för Data Box-tjänsten. Granska Lagringsgränser noggrant och följer alla rekommendationer.
+I det här avsnittet beskrivs gränserna för Azure Storage tjänst och de namngivnings konventioner som krävs för Azure Files, Azure block-blobbar och Azure Page-blobbar, som är tillämpliga för Data Box-enhet-tjänsten. Granska lagrings gränserna noggrant och följ alla rekommendationer.
 
-Gå till den senaste informationen på tjänstbegränsningar för Azure storage och bästa praxis för namngivning av resurser, behållare och filer:
+Den senaste informationen om begränsningar för Azure Storage-tjänsten och metod tips för namngivning av resurser, behållare och filer finns på:
 
 - [Namnge och referera till behållare](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
 - [Namnge och referera till resurser](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
-- [Blockblob-objekt och konventioner för sidan blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
+- [Blockera blobbar och Page BLOB-konventioner](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]
-> Om det finns några filer eller kataloger som överskrider gränserna för Azure Storage-tjänsten eller inte följer namngivningskonventionerna i Azure-filer/Blob, sedan dessa filer eller kataloger är inte matas in i Azure Storage via Data Box-tjänsten.
+> Om det finns några filer eller kataloger som överskrider Azure Storage-tjänstens gränser eller inte uppfyller Azure Files/BLOB-namngivnings konventionerna, matas dessa filer eller kataloger inte in i Azure Storage via Data Box-enhet-tjänsten.
 
-## <a name="data-upload-caveats"></a>Överföra data varningar
+## <a name="data-upload-caveats"></a>Varningar om data överföring
 
-- Kopiera inte data direkt till diskarna. Kopiera data till färdiga *BlockBlob*,*PageBlob*, och *AzureFile* mappar.
-- En mapp under den *BlockBlob* och *PageBlob* är en behållare. Exempelvis behållare skapas som *BlockBlob/behållare* och *PageBlob/behållare*.
-- Om du har ett befintligt Azure objekt (till exempel en blob) i molnet med samma namn som det objekt som ska kopieras Data Box-Disk namnet på filen som file(1) i molnet.
-- Alla filer som skrivits till *BlockBlob* och *PageBlob* resurser överförs som en blockblob och sidblob respektive.
-- Eventuella tomma Kataloghierarki (utan några filer) som skapats under *BlockBlob* och *PageBlob* mappar inte laddas.
-- Om det finns några fel när du överför data till Azure, skapas en fellogg i mållagringskontot. Sökvägen till den här loggen är tillgänglig i portalen när överföringen är klar och du kan granska loggen för att vidta åtgärder. Ta inte bort data från källan utan att verifiera överförda data.
-- Om du har angett hanterade diskar i ordningen kan du läsa följande ytterligare överväganden:
+- Kopiera inte data direkt till diskarna. Kopiera data till i förväg skapade *BlockBlob*-,*PageBlob*-och *AzureFile* -mappar.
+- En mapp under *BlockBlob* och *PageBlob* är en behållare. Till exempel skapas behållare som *BlockBlob/container* och *PageBlob/container*.
+- Om du har ett befintligt Azure-objekt (till exempel en BLOB) i molnet med samma namn som det objekt som ska kopieras, kommer Data Box Disk byta namn på filen till filen (1) i molnet.
+- Varje fil som skrivs till *BlockBlob* -och *PageBlob* -resurser laddas upp som en Block-Blob och Page blob.
+- En tom katalogpartition (utan några filer) som skapats under *BlockBlob* och *PageBlob* mappar laddas inte upp.
+- Om det uppstår några fel när data överförs till Azure skapas en fellogg på mål lagrings kontot. Sökvägen till den här fel loggen är tillgänglig i portalen när överföringen är klar och du kan granska loggen för att vidta lämpliga åtgärder. Ta inte bort data från källan utan att verifiera överförda data.
+- Fil-metadata och NTFS-behörigheter bevaras inte när data överförs till Azure Files. Till exempel kommer det *senast ändrade* attributet för filerna inte att sparas när data kopieras.
+- Om du har angett hanterade diskar i ordningen bör du granska följande ytterligare överväganden:
 
-    - Du kan bara ha en hanterad disk med ett givet namn i en resursgrupp olika alla införande mappar och i alla de Data Box-Disk. Detta innebär att de virtuella hårddiskarna som överförts till mapparna införande bör ha unika namn. Kontrollera att det angivna namnet inte matchar en redan befintlig hanterad disk i en resursgrupp. Om virtuella hårddiskar har samma namn kan konverteras bara en virtuell Hårddisk till hanterade diskar med samma namn. De andra virtuella hårddiskarna laddas upp mellanlagringskontot som sidblobar.
-    - Kopiera alltid de virtuella hårddiskarna till någon av mapparna införande. Om du kopierar de virtuella hårddiskarna utanför dessa mappar eller i en mapp som du skapade de virtuella hårddiskarna överförs till Azure Storage-konto som sidblobar och hanterade inte diskar.
-    - Endast de fasta virtuella hårddiskarna kan laddas upp för att skapa hanterade diskar. Dynamiska virtuella hårddiskar, Differentierande virtuella hårddiskar eller VHDX-filer stöds inte.
+    - En hanterad disk i en resursgrupp måste ha ett unikt namn i de förskapade mapparna och på hela Data Box Disk. Det betyder att de virtuella hårddiskarna som laddats upp till de förskapade mapparna måste ha unika namn. Kontrollera att namnet inte matchar en redan befintlig hanterad disk i en resurs grupp. Om de virtuella hårddiskarna har samma namn, konverteras bara en virtuell hårddisk till den hanterade disken med det namnet. De andra virtuella hårddiskarna laddas upp som sidblobar till mellanlagringskontot.
+    - Kopiera alltid de virtuella hårddiskarna till en av de förskapade mapparna. Om du kopierar de virtuella hårddiskarna utanför dessa mappar eller i en mapp som du har skapat, laddas de virtuella hårddiskarna upp till Azure Storage-kontot som sidblobar i stället för som hanterade diskar.
+    - Endast fasta virtuella hårddiskar kan laddas upp för att skapa hanterade diskar. Dynamiska virtuella hårddiskar och differentierande VHD- eller VHDX-filer stöds inte.
 
-## <a name="azure-storage-account-size-limits"></a>Storleksgränser för Azure storage-konto
+## <a name="azure-storage-account-size-limits"></a>Storleks gränser för Azure Storage-kontot
 
-Här finns gränserna på mängden data som kopieras till storage-konto. Kontrollera att datan överensstämmer med de här gränserna. Gå till den senaste informationen om dessa begränsningar [prestandamål i Azure blob storage skala](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) och [Azure Files skala mål](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
+Här följer gränserna för storleken på de data som kopieras till lagrings kontot. Kontrol lera att de data som du överför följer dessa gränser. Om du vill ha den senaste informationen om de här gränserna går du till [skalnings mål för Azure Blob Storage](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) och [Azure Files skala mål](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
 
-| Storleken på data som kopieras till Azure storage-konto                      | Standardgräns          |
+| Storlek på data som kopieras till Azure Storage-kontot                      | Standardgräns          |
 |---------------------------------------------------------------------|------------------------|
-| Sidan och block Blob-blob                                            | 500 TB per lagringskonto. <br> Detta inkluderar data från alla källor, inklusive Data Box-Disk.|
+| Block Blob och Page BLOB                                            | 500 TB per lagrings konto. <br> Detta inkluderar data från alla källor, inklusive Data Box Disk.|
 
 
-## <a name="azure-object-size-limits"></a>Storleksgränser för Azure-objekt
+## <a name="azure-object-size-limits"></a>Storleks gränser för Azure-objekt
 
-Här följer storlekarna på de Azure-objekt som kan skrivas. Se till att alla filer som har laddats upp överensstämmer med de här gränserna.
+Här följer storleken på de Azure-objekt som kan skrivas. Se till att alla filer som överförs följer dessa gränser.
 
-| Azure objekttyp | Standardgräns                                             |
+| Objekt typ för Azure | Standardgräns                                             |
 |-------------------|-----------------------------------------------------------|
-| Blockblob        | ~ 4,75 TiB                                                 |
-| Sidblob         | 8 TiB <br> (Alla filer som överförts i sidans Blob-format måste vara 512 byte justerad, annars överföringen misslyckas. <br> Både VHD- och VHDX är 512 byte justerad.) |
-|Azure Files        | 1 TiB <br> Max. storleken på filresursen är 5 TiB     |
-| Hanterade diskar     |4 TiB <br> Mer information om storlek och begränsningar finns: <li>[Skalbarhetsmål för hanterade diskar](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
+| Blockera BLOB        | ~ 4,75 TiB                                                 |
+| Sid-BLOB         | 8 TiB <br> (Alla filer som laddats upp i sid-BLOB-format måste vara 512 byte justerade, annars Miss lyckas överföringen. <br> Både VHD och VHDX är 512 byte-justerade.) |
+|Azure Files        | 1 TiB <br> Max. resurs storleken är 5 TiB     |
+| Hanterade diskar     |4 TiB <br> Mer information om storlek och begränsningar finns i: <li>[Skalbarhets mål för Managed disks](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
 
 
-## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Azure blockblob, sidblob och namngivningsregler
+## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Konventioner för Azure Block Blob, Page blob och namngivning av filer
 
 | Entitet                                       | Konventioner                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Namn på behållare för blockblob och page blob <br> Namn på filresursen för Azure Files | Måste vara ett giltigt DNS-namn som är 3 till 63 tecken långt. <br>  Måste börja med en bokstav eller en siffra. <br> Kan innehålla endast gemener, siffror och bindestreck (-). <br> Varje bindestreck (-) måste föregås och följas av en bokstav eller siffra. <br> Flera bindestreck i rad tillåts inte i namn. |
-| Katalog- och filnamn för Azure files     |<li> Bevara, skiftlägesokänslig och får inte överstiga 255 tecken långt. </li><li> Får inte sluta med snedstreck (/). </li><li>Om det tas automatiskt bort. </li><li> Följande tecken är inte tillåtna: <code>" \\ / : \| < > * ?</code></li><li> Reserverade URL-tecken måste undantas korrekt. </li><li> Ogiltiga tecken i URL-sökväg är inte tillåtna. Code punkter som \\uE000 är inte giltig Unicode-tecken. Vissa ASCII eller Unicode-tecken som kontrolltecken (0x00 0x1F, \\u0081, etc.), också är inte tillåtna. Regler för att styra Unicode strängar i HTTP/1.1 finns i RFC 2616 avsnittet 2.2: Grundläggande regler och RFC 3987. </li><li> Följande filnamn är inte tillåtna: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, punkt (.), och två punkter tecken (.).</li>|
+| Behållar namn för Block-Blob och Page BLOB <br> Fileshare-namn för Azure Files | Måste vara ett giltigt DNS-namn som är mellan 3 och 63 tecken långt. <br>  Måste börja med en bokstav eller en siffra. <br> Får bara innehålla gemena bokstäver, siffror och bindestreck (-). <br> Varje bindestreck (-) måste föregås och följas av en bokstav eller siffra. <br> Flera bindestreck i rad tillåts inte i namn. |
+| Katalog-och fil namn för Azure Files     |<li> Skift läges känsligt, SKIFT läges okänsligt och får inte överskrida 255 tecken. </li><li> Kan inte sluta med snedstreck (/). </li><li>Om den anges tas den bort automatiskt. </li><li> Följande tecken är inte tillåtna: <code>" \\ / : \| < > * ?</code></li><li> Reserverade URL-tecken måste undantas korrekt. </li><li> Otillåtna Sök vägs tecken för URL är inte tillåtna. Kod punkter som \\uE000 är inte giltiga Unicode-tecken. Vissa ASCII-eller Unicode-tecken, t. ex. styr tecken (0x00 till 0x1F, \\u0081 osv.), är inte heller tillåtna. För regler som styr Unicode-strängar i HTTP/1.1 se RFC 2616, avsnitt 2,2: Basic rules och RFC 3987. </li><li> Följande fil namn är inte tillåtna: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, klock $, punkt tecken (.) och två punkt tecken (..).</li>|
 | Blobnamn för blockblobar och sidblobar      | Blobnamn är skiftlägeskänsliga och kan innehålla valfri kombination av tecken. <br> Ett blobnamn måste vara mellan 1 och 1 024 tecken långt. <br> Reserverade URL-tecken måste undantas korrekt. <br>Antalet sökvägssegment som blobnamnet består av får inte överskrida 254. Ett segment är strängen mellan avgränsningstecken (till exempel snedstreck ”/”) som motsvarar namnet på en virtuell katalog. |
 
-## <a name="managed-disk-naming-conventions"></a>Managed disk namngivningskonventioner
+## <a name="managed-disk-naming-conventions"></a>Namn konventioner för hanterade diskar
 
 | Entitet | Konventioner                                             |
 |-------------------|-----------------------------------------------------------|
-| Managed disk namn       | <li> Namnet måste vara 1 och 80 tecken långt. </li><li> Namnet måste börja med en bokstav eller siffra, sluta med en bokstav, siffra eller understreck. </li><li> Namnet får innehålla endast bokstäver, siffror, understreck, punkter eller bindestreck. </li><li>   Namnet får inte innehålla blanksteg eller `/`.                                              |
+| Hanterade disk namn       | <li> Namnet måste vara mellan 1 och 80 tecken långt. </li><li> Namnet måste börja med en bokstav eller en siffra, sluta med en bokstav, en siffra eller ett under streck. </li><li> Namnet får bara innehålla bokstäver, siffror, under streck, punkter eller bindestreck. </li><li>   Namnet får inte innehålla blank steg eller `/`.                                              |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska [systemkrav för Data Box-Disk](data-box-disk-system-requirements.md)
+- Granska [data Box disk system krav](data-box-disk-system-requirements.md)

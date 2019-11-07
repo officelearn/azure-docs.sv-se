@@ -1,6 +1,6 @@
 ---
-title: Exportera flöden från Microsoft Flow till Azure Logic Apps
-description: Migrera flöden från Microsoft Flow till Azure Logic Apps genom att exportera som Azure Resource Manager mallar
+title: Exportera flöden från Power automatisera till Azure Logic Apps
+description: Migrera flöden från Power automatisera till Azure Logic Apps genom att exportera som Azure Resource Manager mallar
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,31 +9,31 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 82c4e55eff36a7da70e0304fc8152491a8030e04
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: e0dda5c2097243143d18851c47e7006c81769c87
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441017"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583260"
 ---
-# <a name="export-flows-from-microsoft-flow-and-deploy-to-azure-logic-apps"></a>Exportera flöden från Microsoft Flow och distribuera till Azure Logic Apps
+# <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportera flöden från Power automatisera och distribuera till Azure Logic Apps
 
-Om du vill utöka och expandera ditt flödes funktioner kan du migrera det flödet från [Microsoft Flow](https://flow.microsoft.com) till [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Du kan exportera ditt flöde som en Azure Resource Manager mall för en Logic app, distribuera Logic app-mallen till en Azure-resurs grupp och sedan öppna den Logic-appen i Logic App Designer.
+Om du vill utöka och utöka ditt flödes funktioner kan du migrera flödet från [energi spar läge](https://flow.microsoft.com) till [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Du kan exportera ditt flöde som en Azure Resource Manager mall för en Logic app, distribuera Logic app-mallen till en Azure-resurs grupp och sedan öppna den Logic-appen i Logic App Designer.
 
 > [!NOTE]
-> Alla Microsoft Flow-kopplingar är inte tillgängliga i Azure Logic Apps. Du kan importera flöden som har [motsvarande kopplingar](../connectors/apis-list.md) i Azure Logic Apps. Till exempel är knappen utlösare, anslutnings programmet för godkännande och meddelande Connector särskilt för Microsoft Flow.
+> Alla Power inautomatiserade anslutningar är inte tillgängliga i Azure Logic Apps. Du kan importera flöden som har [motsvarande kopplingar](../connectors/apis-list.md) i Azure Logic Apps. Till exempel är knapp utlösaren, godkännande Connector och meddelande Connector särskilt för automatisk energi förbrukning.
 >
-> OpenAPI-baserade flöden som exporteras från Microsoft Flow stöds för närvarande inte för distribution som Logic app-mallar. 
+> OpenAPI-baserade flöden som exporteras från Power automate stöds för närvarande inte för distribution som Logic app-mallar. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-* Flödet som du vill exportera från Microsoft Flow
+* Flödet som du vill exportera från Energis par
 
 ## <a name="export-a-flow"></a>Exportera ett flöde
 
-1. Logga in på [Microsoft Flow](https://flow.microsoft.com)och välj **mina flöden**. Hitta och välj ditt flöde. Välj ellipser-knappen ( **...** ) i verktygsfältet. Välj **Exportera** > **Logic Apps mall (. JSON)** .
+1. Logga in för att [Automatisera energi](https://flow.microsoft.com)och välj **mina flöden**. Hitta och välj ditt flöde. Välj ellipser-knappen ( **...** ) i verktygsfältet. Välj **exportera** > **Logic Apps mall (. JSON)** .
 
    ![Exportera flöde](./media/export-from-microsoft-flow-logic-app-template/export-flow.png)
 
@@ -53,13 +53,13 @@ Mer information finns i [öka upp till Azure Logic Apps](https://flow.microsoft.
 
    ![Välj "Bygg din egen mall i redigeraren"](./media/export-from-microsoft-flow-logic-app-template/build-template-in-editor.png)
 
-1. I verktygsfältet **Redigera mall** väljer du **Läs in fil**. Leta upp och välj den JSON-mall som du exporterade från Microsoft Flow och välj **Öppna**.
+1. I verktygsfältet **Redigera mall** väljer du **Läs in fil**. Leta upp och välj den JSON-mall som du exporterade från Power automatisering och välj **Öppna**.
 
    ![Välj Läs in fil](./media/export-from-microsoft-flow-logic-app-template/load-file.png)
 
 1. När redigeraren visar JSON, parametrar och resurser i mallen väljer du **Spara**.
   
-   ![Spara mall](./media/export-from-microsoft-flow-logic-app-template/save-template.png)
+   ![Spara mallen](./media/export-from-microsoft-flow-logic-app-template/save-template.png)
 
 1. Ange nu följande indataparametrar för mallen:
 
@@ -76,7 +76,7 @@ Mer information finns i [öka upp till Azure Logic Apps](https://flow.microsoft.
   
    ![Ange indataparametrar för mall](./media/export-from-microsoft-flow-logic-app-template/template-input-parameters.png)
 
-   Azure distribuerar din mall som en Logic app till den angivna resurs gruppen. Alla Logic Apps som du migrerar från Microsoft Flow distribueras i ett inaktiverat tillstånd.
+   Azure distribuerar din mall som en Logic app till den angivna resurs gruppen. Alla Logi Kap par som du migrerar från energi spar läge distribueras i inaktiverat tillstånd.
 
 1. Innan du aktiverar din Logic app måste du godkänna alla nya anslutningar genom att följa dessa steg:
 
@@ -100,11 +100,11 @@ Mer information finns i [öka upp till Azure Logic Apps](https://flow.microsoft.
 
 ## <a name="deploy-template-by-using-visual-studio"></a>Distribuera mall med hjälp av Visual Studio
 
-Om du har konfigurerat Visual Studio med förutsättningarna [](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites) för att skapa Logi Kap par kan du distribuera den exporterade mallen från Visual Studio till Azure Logic Apps.
+Om du har konfigurerat Visual Studio med [förutsättningarna](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites) för att skapa Logi Kap par kan du distribuera den exporterade mallen från Visual Studio till Azure Logic Apps.
 
-1. Öppna mallfilen som du exporterade från Microsoft Flow i Visual Studio.
+1. I Visual Studio öppnar du mallfilen som du exporterade från Energis par automatisering.
 
-1. Skapa ett Azure Resource Group-projekt i Visual Studio och välj mallen **Logic app** genom att följa stegen i [snabb start: Skapa automatiserade uppgifter, processer och arbets flöden med Azure Logic Apps-Visual](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)Studio, till exempel:
+1. I Visual Studio skapar du ett Azure Resource Group-projekt och väljer **Logic app** -mallen genom att följa stegen i [snabb start: skapa automatiserade uppgifter, processer och arbets flöden med Azure Logic Apps-Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md), till exempel:
 
    ![Skapa ett projekt för en Azure-resursgrupp](./media/export-from-microsoft-flow-logic-app-template/create-azure-resource-group-project.png)
 
@@ -144,7 +144,7 @@ Om du har konfigurerat Visual Studio med förutsättningarna [](../logic-apps/qu
 
    ![Redigera distributions parametrar](./media/export-from-microsoft-flow-logic-app-template/edit-parameters-deployment.png)
 
-   När distributionen startar visas appens distributionsstatus i Visual Studios **utdatafönster**. Om statusen inte visas ska du öppna listan **Show output from** (Visa utdata från) och välja Azure-resursgruppen. Exempel:
+   När distributionen startar visas appens distributionsstatus i Visual Studios **utdatafönster**. Om statusen inte visas ska du öppna listan **Show output from** (Visa utdata från) och välja Azure-resursgruppen. Till exempel:
 
    ![Utdatafönster](./media/export-from-microsoft-flow-logic-app-template/output-window.png)
 
@@ -158,7 +158,7 @@ Om du har konfigurerat Visual Studio med förutsättningarna [](../logic-apps/qu
 
 1. Undvik att köra dubbla arbets flöden genom att inaktivera eller ta bort det ursprungliga flödet.
 
-Mer information om dessa distributions steg finns i [snabb start: Skapa automatiserade uppgifter, processer och arbets flöden med Azure Logic Apps-Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-to-Azure)
+Mer information om dessa distributions steg finns i [snabb start: skapa automatiserade uppgifter, processer och arbets flöden med Azure Logic Apps-Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-to-Azure)
 
 ## <a name="next-steps"></a>Nästa steg
 

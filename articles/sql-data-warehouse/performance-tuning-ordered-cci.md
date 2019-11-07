@@ -1,5 +1,5 @@
 ---
-title: Prestanda justering med Azure SQL Data Warehouse ordnat grupperat columnstore-index | Microsoft Docs
+title: Prestanda justering med ordnat grupperat columnstore-index
 description: Rekommendationer och överväganden som du bör känna till när du använder ordnat grupperat columnstore-index för att förbättra din frågas prestanda.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 37d8f17e825daa3a1c160509b1a38f8c70256d1c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 3cc2f140eeed0a4667a01aa8c5ccbad7e4411521
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595372"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686000"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Prestanda justering med ordnat grupperat columnstore-index  
 
@@ -43,7 +44,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> I en ordnad CCI-tabell, sorteras inte nya data som resulterar i DML-eller data inläsnings åtgärder automatiskt.  Användare kan återskapa de beställda CCI för att sortera alla data i tabellen.  I Azure SQL Data Warehouse är columnstore-indexet återbyggt en offline-åtgärd.  För en partitionerad tabell görs en ombyggning av en partition i taget.  Data i partitionen som återskapas är offline och otillgängliga tills återskapandet har slutförts för den partitionen. 
+> I en ordnad CCI-tabell, sorteras de nya data som skapas från samma sats av DML-eller data inläsnings åtgärder i batchen, men det finns ingen global sortering för alla data i tabellen.  Användare kan återskapa de beställda CCI för att sortera alla data i tabellen.  I Azure SQL Data Warehouse är columnstore-indexet återbyggt en offline-åtgärd.  För en partitionerad tabell görs en ombyggning av en partition i taget.  Data i partitionen som återskapas är offline och otillgängliga tills återskapandet har slutförts för den partitionen. 
 
 ## <a name="query-performance"></a>Frågeprestanda
 
@@ -63,7 +64,7 @@ ORDER (Col_C, Col_B, Col_A)
 
 ```
 
-Prestanda för fråga 1 kan dra nytta av mer från beställda CCI än de övriga tre frågorna. 
+Prestanda för fråga 1 kan dra nytta av mer från beställda CCI än de andra tre frågorna. 
 
 ```sql
 -- Query #1: 
@@ -112,7 +113,7 @@ OPTION (MAXDOP 1);
 - Sortera data efter sorterings nyckel (er) innan du läser in dem i Azure SQL Data Warehouse tabeller.
 
 
-Här är ett exempel på en ordnad tabell distribution som har noll segment som överlappar följande rekommendationer. Den ordnade CCI-tabellen skapas i en DWU1000c-databas via CTAS från en 20-heap-tabell med MAXDOP 1 och xlargerc.  CCI är ordnade i en BIGINT-kolumn utan dubbletter.  
+Här är ett exempel på en ordnad tabell distribution som har noll segment som överlappar följande rekommendationer. Den ordnade CCI-tabellen skapas i en DWU1000c-databas via CTAS från en heap-tabell med 20 GB med MAXDOP 1 och xlargerc.  CCI är ordnade i en BIGINT-kolumn utan dubbletter.  
 
 ![Segment_No_Overlapping](media/performance-tuning-ordered-cci/perfect-sorting-example.png)
 

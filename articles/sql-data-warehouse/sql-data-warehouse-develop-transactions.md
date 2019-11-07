@@ -1,5 +1,5 @@
 ---
-title: Använda transaktioner i Azure SQL Data Warehouse | Microsoft Docs
+title: Använda transaktioner
 description: Tips för att implementera transaktioner i Azure SQL Data Warehouse för utveckling av lösningar.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,17 +10,18 @@ ms.subservice: development
 ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 7f00f8a25d0abf3af6d76b372b44145546a79879
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 09fc0f7cee38f799322a1914848a5176e9a223a1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479613"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692784"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>Använda transaktioner i SQL Data Warehouse
 Tips för att implementera transaktioner i Azure SQL Data Warehouse för utveckling av lösningar.
 
-## <a name="what-to-expect"></a>Vad händer nu
+## <a name="what-to-expect"></a>Vad du kan förvänta dig
 Som du förväntar dig SQL Data Warehouse stöder transaktioner som en del av arbets belastningen för data lagret. Men för att se till att prestandan för SQL Data Warehouse underhålls i skala är vissa funktioner begränsade jämfört med SQL Server. I den här artikeln beskrivs skillnaderna och en lista över de andra. 
 
 ## <a name="transaction-isolation-levels"></a>Transaktions isolerings nivåer
@@ -38,39 +39,39 @@ I tabellen nedan har följande antaganden gjorts:
 
 | [DWU](sql-data-warehouse-overview-what-is.md) | Cap per distribution (GB) | Antal distributioner | MAXIMAL transaktions storlek (GB) | Antal rader per distribution | Maximalt antal rader per transaktion |
 | --- | --- | --- | --- | --- | --- |
-| DW100c |1 |60 |60 |4,000,000 |240,000,000 |
-| DW200c |1.5 |60 |90 |6,000,000 |360,000,000 |
-| DW300c |2.25 |60 |135 |9,000,000 |540,000,000 |
-| DW400c |3 |60 |180 |12,000,000 |720,000,000 |
-| DW500c |3.75 |60 |225 |15,000,000 |900,000,000 |
-| DW1000c |7.5 |60 |450 |30,000,000 |1,800,000,000 |
-| DW1500c |11.25 |60 |675 |45,000,000 |2,700,000,000 |
-| DW2000c |15 |60 |900 |60,000,000 |3,600,000,000 |
+| DW100c |1 |60 |60 |4 000 000 |240 000 000 |
+| DW200c |1.5 |60 |90 |6,000,000 |360 000 000 |
+| DW300c |2,25 |60 |135 |9 000 000 |540 000 000 |
+| DW400c |3 |60 |180 |12 000 000 |720 000 000 |
+| DW500c |3,75 |60 |225 |15 000 000 |900 000 000 |
+| DW1000c |7,5 |60 |450 |30 000 000 |1 800 000 000 |
+| DW1500c |11,25 |60 |675 |45 000 000 |2 700 000 000 |
+| DW2000c |15 |60 |900 |60 000 000 |3 600 000 000 |
 | DW2500c |18,75 |60 |1125 |75 000 000 |4 500 000 000 |
-| DW3000c |22.5 |60 |1,350 |90,000,000 |5,400,000,000 |
+| DW3000c |22,5 |60 |1 350 |90 000 000 |5 400 000 000 |
 | DW5000c |37,5 |60 |2 250 |150 000 000 |9 000 000 000 |
-| DW6000c |45 |60 |2,700 |180,000,000 |10,800,000,000 |
+| DW6000c |45 |60 |2 700 |180 000 000 |10 800 000 000 |
 | DW7500c |56,25 |60 |3 375 |225 000 000 |13 500 000 000 |
 | DW10000c |75 |60 |4 500 |300,000,000 |18 000 000 000 |
 | DW15000c |112,5 |60 |6 750 |450 000 000 |27 000 000 000 |
-| DW30000c |225 |60 |13 500 |900,000,000 |54 000 000 000 |
+| DW30000c |225 |60 |13 500 |900 000 000 |54 000 000 000 |
 
 ## <a name="gen1"></a>Gen1
 
 | [DWU](sql-data-warehouse-overview-what-is.md) | Cap per distribution (GB) | Antal distributioner | MAXIMAL transaktions storlek (GB) | Antal rader per distribution | Maximalt antal rader per transaktion |
 | --- | --- | --- | --- | --- | --- |
-| DW100 |1 |60 |60 |4,000,000 |240,000,000 |
-| DW200 |1.5 |60 |90 |6,000,000 |360,000,000 |
-| DW300 |2.25 |60 |135 |9,000,000 |540,000,000 |
-| DW400 |3 |60 |180 |12,000,000 |720,000,000 |
-| DW500 |3.75 |60 |225 |15,000,000 |900,000,000 |
-| DW600 |4.5 |60 |270 |18,000,000 |1,080,000,000 |
-| DW1000 |7.5 |60 |450 |30,000,000 |1,800,000,000 |
-| DW1200 |9 |60 |540 |36,000,000 |2,160,000,000 |
-| DW1500 |11.25 |60 |675 |45,000,000 |2,700,000,000 |
-| DW2000 |15 |60 |900 |60,000,000 |3,600,000,000 |
-| DW3000 |22.5 |60 |1,350 |90,000,000 |5,400,000,000 |
-| DW6000 |45 |60 |2,700 |180,000,000 |10,800,000,000 |
+| DW100 |1 |60 |60 |4 000 000 |240 000 000 |
+| DW200 kl |1.5 |60 |90 |6,000,000 |360 000 000 |
+| DW300 |2,25 |60 |135 |9 000 000 |540 000 000 |
+| DW400 |3 |60 |180 |12 000 000 |720 000 000 |
+| DW500 |3,75 |60 |225 |15 000 000 |900 000 000 |
+| DW600 |4,5 |60 |270 |18 000 000 |1 080 000 000 |
+| DW1000 |7,5 |60 |450 |30 000 000 |1 800 000 000 |
+| DW1200 |9 |60 |540 |36 000 000 |2 160 000 000 |
+| DW1500 |11,25 |60 |675 |45 000 000 |2 700 000 000 |
+| DW2000 |15 |60 |900 |60 000 000 |3 600 000 000 |
+| DW3000 |22,5 |60 |1 350 |90 000 000 |5 400 000 000 |
+| DW6000 |45 |60 |2 700 |180 000 000 |10 800 000 000 |
 
 Transaktions storleks gränsen tillämpas per transaktion eller åtgärd. Den används inte för alla samtidiga transaktioner. Varje transaktion tillåts därför att skriva denna data mängd till loggen. 
 
@@ -86,7 +87,7 @@ Information om hur du optimerar och minimerar mängden data som skrivs till logg
 SQL Data Warehouse använder funktionen XACT_STATE () för att rapportera en misslyckad transaktion med värdet-2. Det här värdet innebär att transaktionen har misslyckats och bara har marker ATS för återställning.
 
 > [!NOTE]
-> Användningen av-2 av XACT_STATE-funktionen för att beteckna en misslyckad transaktion representerar olika beteenden för SQL Server. SQL Server använder värdet-1 för att representera en allokerad-transaktion. SQL Server kan tolerera fel i en transaktion utan att den måste markeras som allokerad. Till exempel `SELECT 1/0` skulle orsaka ett fel, men inte framtvinga en transaktion i ett allokerad-tillstånd. SQL Server tillåter också läsningar i allokerad-transaktionen. Men SQL Data Warehouse låter dig inte göra detta. Om ett fel uppstår i en SQL Data Warehouse transaktion, anges-2-tillstånd automatiskt och du kommer inte att kunna göra några fler SELECT-instruktioner förrän instruktionen har återställts. Det är därför viktigt att kontrol lera att program koden för att se om den använder XACT_STATE () som du kan behöva göra kod ändringar.
+> Användningen av-2 av XACT_STATE-funktionen för att beteckna en misslyckad transaktion representerar olika beteenden för SQL Server. SQL Server använder värdet-1 för att representera en allokerad-transaktion. SQL Server kan tolerera fel i en transaktion utan att den måste markeras som allokerad. `SELECT 1/0` skulle exempelvis orsaka ett fel, men inte framtvinga en transaktion i ett allokerad-tillstånd. SQL Server tillåter också läsningar i allokerad-transaktionen. Men SQL Data Warehouse låter dig inte göra detta. Om ett fel uppstår i en SQL Data Warehouse transaktion, anges-2-tillstånd automatiskt och du kommer inte att kunna göra några fler SELECT-instruktioner förrän instruktionen har återställts. Det är därför viktigt att kontrol lera att program koden för att se om den använder XACT_STATE () som du kan behöva göra kod ändringar.
 > 
 > 
 
@@ -130,7 +131,7 @@ SELECT @xact_state AS TransactionState;
 
 Föregående kod ger följande fel meddelande:
 
-MSG 111233, nivå 16, tillstånd 1, rad 1 111233; Den aktuella transaktionen har avbrutits och alla väntande ändringar har återställts. Orsak: En transaktion i ett återställnings tillstånd återställs inte explicit före en DDL-, DML-eller SELECT-instruktion.
+MSG 111233, nivå 16, tillstånd 1, rad 1 111233; Den aktuella transaktionen har avbrutits och alla väntande ändringar har återställts. Orsak: en transaktion i ett återställnings tillstånd återställs inte explicit före en DDL-, DML-eller SELECT-instruktion.
 
 Du får inte ut resultatet av ERROR_ * functions.
 
@@ -175,7 +176,7 @@ Det förväntade beteendet observeras nu. Felet i transaktionen hanteras och ERR
 
 Allt som har ändrats är att återställningen av transaktionen måste ske innan fel informationen i CATCH-blocket lästes.
 
-## <a name="errorline-function"></a>Funktionen Error_Line ()
+## <a name="error_line-function"></a>Funktionen Error_Line ()
 Det är också värt att notera att SQL Data Warehouse inte implementerar eller stöder funktionen ERROR_LINE (). Om du har det här i din kod måste du ta bort den för att vara kompatibel med SQL Data Warehouse. Använd fråge etiketter i koden i stället för att implementera motsvarande funktioner. Mer information finns i artikeln om [Etiketter](sql-data-warehouse-develop-label.md) .
 
 ## <a name="using-throw-and-raiserror"></a>Använda THROW och RAISERROR

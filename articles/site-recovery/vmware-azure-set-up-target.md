@@ -1,6 +1,6 @@
 ---
-title: Förbereda målmiljö för VMware-replikering till Azure | Microsoft Docs
-description: Den här artikeln beskriver hur du förbereder mål-Azure-miljön för VMware-VM-replikering till Azure.
+title: Förbered målet för VMware VM-replikering i Azure Site Recovery
+description: Den här artikeln beskriver hur du förbereder din Azure-miljö för VMware VM-replikering till Azure.
 services: site-recovery
 author: mayurigupta13
 manager: rochakm
@@ -8,37 +8,37 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/03/2019
 ms.author: mayg
-ms.openlocfilehash: e75d4b1701944e206fcf6ded2dcb6d1e1fbc77cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c721234f2e1d806d51d31f3466e441bf8360f6b8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723823"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693161"
 ---
-# <a name="prepare-the-target-environment-for-disaster-recovery-of-vmware-vms-or-physical-servers-to-azure"></a>Förbereda målmiljö för haveriberedskap för virtuella VMware-datorer eller fysiska servrar till Azure
+# <a name="prepare-the-target-environment-for-disaster-recovery-of-vmware-vms-or-physical-servers-to-azure"></a>Förbered mål miljön för haveri beredskap för virtuella VMware-datorer eller fysiska servrar till Azure
 
-Den här artikeln beskriver hur du förbereder mål-Azure-miljön att börja replikera virtuella VMware-datorer eller fysiska servrar till Azure.
+Den här artikeln beskriver hur du förbereder din Azure-miljö så att du kan börja replikera virtuella VMware-datorer eller fysiska servrar till Azure.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Artikeln förutsätter:
-- Du har skapat ett Recovery Services-valv på [Azure-portalen](https://portal.azure.com "Azure-portalen") att skydda din källdatorer
-- Du har konfigurerat din lokala miljö för att replikera källan [virtuella VMware-datorer](vmware-azure-set-up-source.md) eller [fysiska servrar](physical-azure-set-up-source.md) till Azure.
+- Du har skapat ett Recovery Services-valv på [Azure Portal](https://portal.azure.com "Azure Portal") för att skydda dina käll datorer
+- Du har konfigurerat din lokala miljö för att replikera [virtuella VMware-datorer](vmware-azure-set-up-source.md) eller [fysiska servrar](physical-azure-set-up-source.md) till Azure.
 
 ## <a name="prepare-target"></a>Förbered målet
 
-När du har slutfört den **steg 1: Välj skyddsmål** och **steg 2: Förbered källa**, kommer du till **steg3: Mål**
+När du har slutfört **steg 1: Välj skydds mål** och **steg 2: förbereda källan**går du till **steg 3: mål**
 
 ![Förbered målet](./media/vmware-azure-set-up-target/prepare-target-vmware-to-azure.png)
 
-1. **Prenumeration:** Välj den prenumeration som du vill replikera dina virtuella datorer eller fysiska servrar till från den nedrullningsbara menyn.
-2. **Distributionsmodell:** Välj distributionsmodell (klassisk eller Resource Manager)
+1. **Prenumeration:** På den nedrullningsbara menyn väljer du den prenumeration som du vill replikera dina virtuella datorer eller fysiska servrar till.
+2. **Distributions modell:** Välj distributions modell (klassisk eller Resource Manager)
 
-Baserat på den valda distributionsmodellen, utförs en verifiering för att säkerställa att du har minst ett virtuellt nätverk i målprenumerationen att replikera och redundansväxla din virtuella dator eller fysisk server till.
+Baserat på den valda distributions modellen körs en verifiering för att se till att du har minst ett virtuellt nätverk i mål prenumerationen att replikera och Redundansväxla din virtuella dator eller fysiska server till.
 
-När verifieringar slutförs korrekt, klickar du på OK om du vill gå till nästa steg.
+När verifieringen har slutförts klickar du på OK för att gå till nästa steg.
 
-Om du inte har ett virtuellt nätverk kan du skapa en genom att klicka på den **+ nätverk** längst upp på sidan.
+Om du inte har ett virtuellt nätverk kan du skapa ett genom att klicka på knappen **+ nätverk** överst på sidan.
 
 ## <a name="next-steps"></a>Nästa steg
 [Konfigurera replikeringsinställningar](vmware-azure-set-up-replication.md).

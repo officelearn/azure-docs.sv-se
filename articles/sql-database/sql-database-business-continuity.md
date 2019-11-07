@@ -1,5 +1,5 @@
 ---
-title: Affärskontinuitet i molnet – databasåterställning – SQL Database | Microsoft Docs
+title: Moln affärs kontinuitet – databas återställning – SQL Database
 description: Lär dig hur Azure SQL Database stöder databasåterställning och affärskontinuitet i molnet och hur du kan köra verksamhetskritiska molnprogram.
 keywords: affärskontinuitet, molnaffärskontinuitet, databashaveriberedskap, databasåterställning
 services: sql-database
@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 69ff1a5681fbb0b434d7114b069610ed34d9e843
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c4e82b0311e010eb8a4b8f37f3ff817d9a5400ad
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492196"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691038"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Översikt över affärskontinuitet med Azure SQL Database
 

@@ -1,5 +1,5 @@
 ---
-title: Kopiera data från och till Dynamics CRM eller Dynamics 365 (Common Data Service) med hjälp av Azure Data Factory | Microsoft Docs
+title: Kopiera data från och till Dynamics CRM eller Dynamics 365 (Common Data Service) med hjälp av Azure Data Factory
 description: Lär dig hur du kopierar data från Microsoft Dynamics CRM eller Microsoft Dynamics 365 (Common Data Service) till mottagar data lager som stöds eller från käll data lager som stöds till Dynamics CRM eller Dynamics 365 genom att använda en kopierings aktivitet i en Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 3ad9ac3f0a3106b4562217a9c444b58423374318
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c9adcf72eeec82fd4b8f1805fca1f284c0b953b7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931114"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680986"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiera data från och till Dynamics 365 (Common Data Service) eller Dynamics CRM genom att använda Azure Data Factory
 
@@ -60,7 +60,7 @@ Den här Dynamics Connector bygger på [Dynamics XRM-verktyg](https://docs.micro
 >[!TIP]
 >Om du vill kopiera data från **ekonomi och åtgärder i dynamics 365**kan du använda [Dynamics AX-anslutningen](connector-dynamics-ax.md).
 
-## <a name="get-started"></a>Kom i gång
+## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -196,7 +196,7 @@ Om du vill kopiera data från Dynamics stöds följande egenskaper i avsnittet K
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till **DynamicsSource**, **DynamicsCrmSource**eller **CommonDataServiceForAppsSource**. | Ja |
-| DocumentDB | FetchXML är ett patentskyddat frågespråk som används i Dynamics (online och lokalt). Se följande exempel. Mer information finns i [Bygg frågor med FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | Nej (om "entityName" i data uppsättningen har angetts) |
+| query | FetchXML är ett patentskyddat frågespråk som används i Dynamics (online och lokalt). Se följande exempel. Mer information finns i [Bygg frågor med FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | Nej (om "entityName" i data uppsättningen har angetts) |
 
 >[!NOTE]
 >Kolumnen PK kommer alltid att kopieras, även om den kolumn projektion som du konfigurerar i FetchXML-frågan inte innehåller den.

@@ -1,5 +1,5 @@
 ---
-title: Kör Analytics-frågor mot klient databaser med Azure SQL Data Warehouse | Microsoft Docs
+title: 'Kör Analytics-frågor mot klient databaser med Azure SQL Data Warehouse '
 description: Analys frågor över flera klienter med data som extraherats från Azure SQL Database, SQL Data Warehouse, Azure Data Factory eller Power BI.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: b22a9cf8c79530fd931cbe944ef5bfc876a02243
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f4a89029d7ed90f1a2406dcf0f8046a1c651353f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570145"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691874"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Utforska SaaS Analytics med Azure SQL Database, SQL Data Warehouse, Data Factory och Power BI
 
@@ -64,7 +64,7 @@ Den här självstudien innehåller grundläggande exempel på insikter som kan u
 
 ## <a name="setup"></a>Konfiguration
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 > [!NOTE]
 > I den här självstudien används funktioner i Azure Data Factory som för närvarande finns i en begränsad för hands version (länkad tjänst Parameterisering). Om du vill göra den här själv studie kursen anger du ditt prenumerations-ID [här](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxrVywox1_tHk9wgd5P8SVJUNlFINjNEOElTVFdMUEREMjVVUlJCUDdIRyQlQCN0PWcu). Vi kommer att skicka en bekräftelse så snart din prenumeration har Aktiver ATS.
@@ -73,35 +73,35 @@ Se till att följande förhandskrav är slutförda för att kunna slutföra den 
 - Wingtip Ticket SaaS-databas per klient program har distribuerats. Information om hur du distribuerar på mindre än fem minuter finns i [distribuera och utforska Wingtip SaaS-programmet](saas-dbpertenant-get-started-deploy.md).
 - Wingtip-biljetterna SaaS-databas per klient skript och program [käll kod](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) hämtas från GitHub. Se hämtnings instruktioner. Se till att *avblockera zip-filen innan du* extraherar dess innehåll.
 - Power BI Desktop har installerats. [Ladda ned Power BI Desktop](https://powerbi.microsoft.com/downloads/).
-- Batchen med ytterligare klienter har etablerats finns i självstudien [**etablera klient organisationer**](saas-dbpertenant-provision-and-catalog.md).
+- Batchen med ytterligare klienter har etablerats finns i [**självstudien etablera klient organisationer**](saas-dbpertenant-provision-and-catalog.md).
 
 ### <a name="create-data-for-the-demo"></a>Skapa data för demon
 
-Den här självstudien utforskar analys över biljett försäljnings data. I det här steget genererar du biljett data för alla klienter. I ett senare steg extraheras dessa data för analys. _Se till att du har allokerat batchen över klient organisationer_ (som beskrivits tidigare) så att du har tillräckligt med data för att exponera ett antal olika biljett inköps mönster.
+Den här självstudien utforskar analys över biljett försäljnings data. I det här steget genererar du biljett data för alla klienter. I ett senare steg extraheras dessa data för analys. _Se till att du har upprättat batchen över klient organisationer_ (enligt beskrivningen ovan) så att du har tillräckligt med data för att exponera ett antal olika biljett inköps mönster.
 
 1. I PowerShell ISE öppnar du *. ..\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1*och anger följande värde:
-    - $DemoScenario = **1** Köp biljetter för händelser på alla platser
+    - **$DemoScenario** = **1** Köp biljetter för händelser på alla platser
 2. Tryck på **F5** för att köra skriptet och skapa biljett inköps historik för alla platser. Med 20 klienter genererar skriptet flera tusentals biljetter och kan ta 10 minuter eller mer.
 
 ### <a name="deploy-sql-data-warehouse-data-factory-and-blob-storage"></a>Distribuera SQL Data Warehouse, Data Factory och Blob Storage 
-I Wingtip biljetter-appen distribueras klientens transaktions data över flera databaser. Azure Data Factory (ADF) används för att dirigera extrahering, belastning och transformering (ELT) av dessa data till data lagret. För att läsa in data i SQL Data Warehouse mest effektiv extraherar ADF data till mellanliggande BLOB [](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) -filer och använder PolyBase för att läsa in data till data lagret.   
+I Wingtip biljetter-appen distribueras klientens transaktions data över flera databaser. Azure Data Factory (ADF) används för att dirigera extrahering, belastning och transformering (ELT) av dessa data till data lagret. För att läsa in data i SQL Data Warehouse mest effektiv extraherar ADF data till mellanliggande BLOB-filer och använder [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) för att läsa in data till data lagret.   
 
-I det här steget distribuerar du ytterligare resurser som används i självstudien: en SQL Data Warehouse som kallas _tenantanalytics_, en Azure Data Factory som kallas _\<dbtodwload-användare\>_ och ett Azure Storage-konto som kallas  _wingtipstaging\<-användare\>_ . Lagrings kontot används för att tillfälligt lagra extraherade datafiler som blobbar innan de läses in i data lagret. Det här steget distribuerar även data lagrets schema och definierar de ADF-pipeliner som dirigerar ELT-processen.
+I det här steget distribuerar du ytterligare resurser som används i självstudien: en SQL Data Warehouse som kallas _tenantanalytics_, en Azure Data Factory som kallas _dbtodwload-\<användar\>_ och ett Azure Storage-konto som kallas _wingtipstaging\<användar\>_ . Lagrings kontot används för att tillfälligt lagra extraherade datafiler som blobbar innan de läses in i data lagret. Det här steget distribuerar även data lagrets schema och definierar de ADF-pipeliner som dirigerar ELT-processen.
 1. I PowerShell ISE öppnar du *. ..\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* och anger:
-    - $DemoScenario = **2** distribuera klient analys data lager, Blob Storage och Data Factory 
+    - **$DemoScenario** = **2** distribuera klient analys data lager, Blob Storage och Data Factory 
 1. Tryck på **F5** för att köra demonstrations skriptet och Distribuera Azure-resurserna. 
 
 Granska nu de Azure-resurser som du har distribuerat:
 #### <a name="tenant-databases-and-analytics-store"></a>Klient databaser och analys lager
-Använd [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) för att ansluta till **tenants1-DPT&lt;-&gt; User-** och **catalog-&lt;DPT&gt; -User-** servrar. Ersätt &lt;User&gt; med det värde som används när du distribuerade appen. Använd login = Developer och Password = *P\@ssword1*. Mer information finns i [introduktions kursen](saas-dbpertenant-wingtip-app-overview.md) .
+Använd [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) för att ansluta till **tenants1-DPT-&lt;användare&gt;** och **katalog-DPT-&lt;användare&gt;-** servrar. Ersätt &lt;användar&gt; med det värde som används när du distribuerade appen. Använd login = *Developer* and password = *P\@ssword1*. Mer information finns i [introduktions kursen](saas-dbpertenant-wingtip-app-overview.md) .
 
 ![Anslut till SQL Database Server från SSMS](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
 
 I Object Explorer:
 
-1. Expandera *tenants1-DPT&lt;-User&gt;*  Server.
+1. Expandera *tenants1-DPT-&lt;user&gt;* Server.
 1. Expandera noden databaser och se listan över klient databaser.
-1. Expandera *katalogen-DPT&lt;-User&gt;*  Server.
+1. Expandera&gt;Server för *katalog-DPT-&lt;* .
 1. Kontrol lera att Analytics Store innehåller följande objekt:
     1. Tabellerna **raw_Tickets**, **raw_Customers**, **raw_Events** och **raw_Venues** innehåller råa extraherade data från klient databaserna.
     1. Stjärn schema tabellerna är **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**och **dim_Dates**.
@@ -110,22 +110,22 @@ I Object Explorer:
 ![DWtables](media/saas-tenancy-tenant-analytics/DWtables.JPG)
 
 #### <a name="blob-storage"></a>Blob Storage
-1. I [Azure Portal](https://ms.portal.azure.com)navigerar du till den resurs grupp som du använde för att distribuera programmet. Verifiera att ett lagrings konto **med\<namnet\> wingtipstaging-användare** har lagts till.
+1. I [Azure Portal](https://ms.portal.azure.com)navigerar du till den resurs grupp som du använde för att distribuera programmet. Verifiera att ett lagrings konto med namnet **wingtipstaging\<användar\>** har lagts till.
 
    ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
 
-1. Klicka **på\<wingtipstaging\> användar** lagrings konto för att utforska de objekt som finns.
-1. Klicka på blobs-panelen
+1. Klicka på **wingtipstaging\<användar\>** lagrings konto för att utforska de objekt som finns.
+1. Klicka på **blobs** -panelen
 1. Klicka på behållaren **configfile**
 1. Kontrol lera att **configfile** innehåller en JSON-fil med namnet **TableConfig. JSON**. Den här filen innehåller namn på käll-och mål tabell, kolumn namn och spår kolumn namn.
 
 #### <a name="azure-data-factory-adf"></a>Azure Data Factory (ADF)
-I [Azure-portalen](https://ms.portal.azure.com) i resurs gruppen kontrollerar du att en Azure Data Factory som kallas _dbtodwload-\<användare\>_  har lagts till. 
+I [Azure-portalen](https://ms.portal.azure.com) i resurs gruppen kontrollerar du att en Azure Data Factory som heter _dbtodwload-\<användar\>_ har lagts till. 
 
  ![adf_portal](media/saas-tenancy-tenant-analytics/adf-data-factory-portal.png)
 
 Det här avsnittet utforskar data fabriken som skapats. Följ stegen nedan för att starta data fabriken:
-1. I portalen klickar du på data fabriken kallas **\<dbtodwload-User\>** .
+1. I portalen klickar du på data fabriken som heter **dbtodwload-\<user\>** .
 2. Klicka på Redigera panelen för **& övervakare** för att starta Data Factory designer på en separat flik. 
 
 ## <a name="extract-load-and-transform-data"></a>Extrahera, läsa in och transformera data
@@ -134,7 +134,7 @@ Azure Data Factory används för att dirigera extrahering, inläsning och transf
 I föregående avsnitt har du distribuerat och initierat nödvändiga Azure-resurser, inklusive Data Factory. Den distribuerade data fabriken innehåller pipelines, data uppsättningar, länkade tjänster osv., som krävs för att extrahera, läsa in och transformera klient data. Låt oss utforska dessa objekt ytterligare och Utlös sedan pipelinen för att flytta data från klient databaser till data lagret.
 
 ### <a name="data-factory-pipeline-overview"></a>Översikt över Data Factory pipeline
-I det här avsnittet utforskas de objekt som skapats i data fabriken. I följande figur beskrivs det övergripande arbets flödet för den ADF-pipeline som används i den här självstudien. Om du hellre vill utforska pipelinen senare och se resultatet först kan du gå vidare till nästa avsnitt **Utlös pipeline**-körningen.
+I det här avsnittet utforskas de objekt som skapats i data fabriken. I följande figur beskrivs det övergripande arbets flödet för den ADF-pipeline som används i den här självstudien. Om du hellre vill utforska pipelinen senare och se resultatet först kan du gå vidare till nästa avsnitt **Utlös pipeline-körningen**.
 
 ![adf_overview](media/saas-tenancy-tenant-analytics/adf-data-factory.PNG)
 
@@ -167,7 +167,7 @@ Det sista steget i transformeringen tar bort de mellanlagrings data som är klar
 ### <a name="trigger-the-pipeline-run"></a>Utlös pipeline-körningen
 Följ stegen nedan för att köra den fullständiga pipelinen Extract, Load och Transform för alla klient databaser:
 1. På fliken **författare** i ADF-användargränssnittet väljer du **SQLDBToDW** pipeline i det vänstra fönstret.
-1. Klicka på utlösare och på den nedrullningsbara menyn Klicka på **Utlös nu**. Den här åtgärden kör pipelinen direkt. I ett produktions scenario definierar du en tidsplan för att köra pipelinen för att uppdatera data enligt ett schema.
+1. Klicka på **utlösare** och på den nedrullningsbara menyn Klicka på **Utlös nu**. Den här åtgärden kör pipelinen direkt. I ett produktions scenario definierar du en tidsplan för att köra pipelinen för att uppdatera data enligt ett schema.
   ![adf_trigger](media/saas-tenancy-tenant-analytics/adf_trigger.JPG)
 1. På sidan **pipeline-körning** klickar du på **Slutför**.
  
@@ -188,13 +188,13 @@ Data i stjärn schema innehåller alla biljett försäljnings data som behövs f
 Använd följande steg för att ansluta till Power BI och för att importera de vyer som du skapade tidigare:
 
 1. Starta Power BI skriv bord.
-2. Från menyfliksområdet start väljer du **Hämta data**och väljer **mer...** på menyn.
+2. Från menyfliksområdet start väljer du **Hämta data**och väljer **mer...** från menyn.
 3. I fönstret **Hämta data** väljer du **Azure SQL Database**.
-4. I fönstret databas inloggning anger du Server namnet (**Catalog-DPT-&lt;&gt;User. Database.Windows.net**). Välj **Importera** för **data anslutnings läge**och klicka sedan på **OK**. 
+4. I fönstret databas inloggning anger du Server namnet (**Catalog-DPT-&lt;User&gt;. Database.Windows.net**). Välj **Importera** för **data anslutnings läge**och klicka sedan på **OK**. 
 
     ![Logga in till Power BI](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Välj **databas** i den vänstra rutan och ange sedan användar namn = *utvecklare*och ange Password = *P\@ssword1*. Klicka på **Anslut**.  
+5. Välj **databas** i den vänstra rutan och ange sedan användar namn = *utvecklare*och ange lösen ord = *P\@ssword1*. Klicka på **Anslut**.  
 
     ![databas inloggning](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 

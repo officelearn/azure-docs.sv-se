@@ -1,29 +1,30 @@
 ---
-title: 'Självstudier: Hantera beräkning med Azure Functions i Azure SQL Data Warehouse | Microsoft Docs'
+title: 'Självstudie: hantera beräkning med Azure Functions'
 description: Så här använder du Azure Functions för att hantera beräkningar i ditt informationslager.
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: julieMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
 ms.date: 04/27/2018
-ms.author: kavithaj
+ms.author: jrasnick
 ms.reviewer: igorstan
-ms.openlocfilehash: b94e4c6f178119d6205c302cf35a9effaf2aa885
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: bc350ed092c063dcc7eca479f064114be9eb28f5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61083946"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693015"
 ---
-# <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Använd Azure Functions för att hantera beräkningsresurser i Azure SQL Data Warehouse
+# <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Använd Azure Functions för att hantera beräknings resurser i Azure SQL Data Warehouse
 
-Den här självstudien använder Azure Functions för att hantera beräkningsresurser för ett informationslager i Azure SQL Data Warehouse.
+I den här självstudien används Azure Functions för att hantera beräknings resurser för ett informations lager i Azure SQL Data Warehouse.
 
 Om du vill kunna använda Azures funktionsapp med SQL Data Warehouse måste du skapa ett [huvudkonto för tjänsten](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) med deltagarbehörighet inom ramen för samma prenumeration som används för din instans av informationslagret. 
 
-## <a name="deploy-timer-based-scaling-with-an-azure-resource-manager-template"></a>Distribuera timerbaserad skalning med en Azure Resource Manager-mall
+## <a name="deploy-timer-based-scaling-with-an-azure-resource-manager-template"></a>Distribuera timer-baserad skalning med en Azure Resource Manager-mall
 
 Om du vill distribuera mallen behöver du följande information:
 
@@ -35,15 +36,15 @@ Om du vill distribuera mallen behöver du följande information:
 - Program-ID för tjänstens huvudkonto
 - Hemlig nyckel för tjänstens huvudkonto
 
-När du har informationen ovan kan du distribuera den här mallen:
+När du har föregående information distribuerar du den här mallen:
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwTimerScaler%2Fazuredeploy.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
 </a>
 
-När du har distribuerat mallen bör du hitta tre nya resurser: en kostnadsfri Azure App Service-Plan, en förbrukningsbaserad Funktionsapp plan och ett lagringskonto som hanterar loggning och operations-kön. Fortsätta att läsa mer i andra avsnitt om du vill se hur du ändrar de distribuerade funktionerna så att de passar dina behov.
+När du har distribuerat mallen bör du hitta tre nya resurser: ett kostnads fritt Azure App Service plan, en förbruknings-baserad Funktionsapp-plan och ett lagrings konto som hanterar loggningen och drift kön. Fortsätta att läsa mer i andra avsnitt om du vill se hur du ändrar de distribuerade funktionerna så att de passar dina behov.
 
-## <a name="change-the-compute-level"></a>Ändra Beräkningsnivån
+## <a name="change-the-compute-level"></a>Ändra beräknings nivån
 
 1. Gå till funktionsapptjänsten. Om du har distribuerat mallen med standardvärden ska tjänsten ha namnet *DWOperations*. När funktionsappen är öppen bör du se fem funktioner som har driftsatts inom ramen för din funktionsapptjänst. 
 
@@ -53,7 +54,7 @@ När du har distribuerat mallen bör du hitta tre nya resurser: en kostnadsfri A
 
    ![Välj Integrera för funktionen](media/manage-compute-with-azure-functions/select-integrate.png)
 
-3. Det aktuella värdet ska antingen vara *%ScaleDownTime%* eller *%ScaleUpTime%* . Dessa värden anger att schemat baseras på värden som definierats i dina [programinställningar][Application Settings]. Nu kan du ignorera det här värdet och ändra schemat till önskad tid baserat på nästa steg.
+3. Det aktuella värdet ska antingen vara *%ScaleDownTime%* eller *%ScaleUpTime%* . Dessa värden anger att schemat baseras på värden som definierats i dina [program inställningar][Application Settings]. För närvarande kan du ignorera det här värdet och ändra schemat till önskad tid baserat på nästa steg.
 
 4. I schemaområdet kan du lägga till tid för det CRON-uttryck som du vill ska visa hur ofta du vill att SQL Data Warehouse ska skalas upp. 
 
@@ -64,10 +65,10 @@ När du har distribuerat mallen bör du hitta tre nya resurser: en kostnadsfri A
    {second} {minute} {hour} {day} {month} {day-of-week}
    ```
 
-   Till exempel *”0 30 9 ** 1-5”* skulle återspeglar en utlösare för varje veckodag kl. 9:30. Mer information finns i Azure Functions [schemaexempel][schedule examples].
+   Exempel: *"0 30 9 * * 1-5"* visar en utlösare varje vardag kl. 9:10:30. Mer information finns Azure Functions [schema exempel][schedule examples].
 
 
-## <a name="change-the-time-of-the-scale-operation"></a>Ändra tiden för åtgärden
+## <a name="change-the-time-of-the-scale-operation"></a>Ändra tid för skalnings åtgärden
 
 1. Gå till funktionsapptjänsten. Om du har distribuerat mallen med standardvärden ska tjänsten ha namnet *DWOperations*. När funktionsappen är öppen bör du se fem funktioner som har driftsatts inom ramen för din funktionsapptjänst. 
 
@@ -75,7 +76,7 @@ När du har distribuerat mallen bör du hitta tre nya resurser: en kostnadsfri A
 
    ![Ändra beräkningsnivån för funktionsutlösaren](media/manage-compute-with-azure-functions/index-js.png)
 
-3. Ändra värdet för *ServiceLevelObjective* till den nivå som du vill använda och klicka på Spara. Det här värdet är den beräkningsnivå som din informationslagerinstans skalas till baserat på det schema som definierats i avsnittet integrera.
+3. Ändra värdet för *ServiceLevelObjective* till den nivå som du vill använda och klicka på Spara. Det här värdet är den beräknings nivå som data lager instansen skalar till baserat på det schema som definierats i avsnittet integrera.
 
 ## <a name="use-pause-or-resume-instead-of-scale"></a>Använd funktionerna Pausa eller Återuppta istället för Skala 
 
@@ -92,14 +93,14 @@ Standardfunktionerna är för närvarande *DWScaleDownTrigger* och *DWScaleUpTri
 3. Navigera till fliken *Integrera* för respektive utlösare om du vill ändra schemat.
 
    > [!NOTE]
-   > Funktionell skillnad mellan skalning utlösare och pausa/återuppta utlösare är meddelandet som skickas till kön. Mer information finns i [lägga till en ny utlösare][Add a new trigger function].
+   > Den funktionella skillnaden mellan skalnings utlösare och paus-/återställnings utlösare är meddelandet som skickas till kön. Mer information finns i [lägga till en ny utlösare][Add a new trigger function].
 
 
 ## <a name="add-a-new-trigger-function"></a>Lägg till en ny utlösare
 
-För närvarande ingår bara två skalningsfunktioner i mallen. Med dessa funktioner kan under loppet av en dag, du endast skala ned en gång och upp en gång. För mer finmaskig kontroll, till exempel Nedskalning flera gånger per dag eller olika skalningsbeteenden på helgerna, som du behöver lägga till ännu en utlösare.
+För närvarande ingår bara två skalningsfunktioner i mallen. Med dessa funktioner, under en dag, kan du bara skala ned en gång och en gång. Om du vill ha mer detaljerad kontroll, till exempel skala ned flera gånger per dag eller om du har olika skalnings beteende på helgerna, måste du lägga till en annan utlösare.
 
-1. Skapa en ny tom funktion. Välj den *+* nära funktionsplatsen för att visa panelen funktion.
+1. Skapa en ny tom funktion. Välj knappen *+* nära funktions platsen för att visa fönstret funktion mall.
 
    ![Skapa ny funktion](media/manage-compute-with-azure-functions/create-new-function.png)
 
@@ -115,7 +116,7 @@ För närvarande ingår bara två skalningsfunktioner i mallen. Med dessa funkti
 
    ![Kopiera index.js](media/manage-compute-with-azure-functions/index-js.png)
 
-5. Ange åtgärden variabeln till önskat beteende enligt följande:
+5. Ställ in din åtgärds variabel på önskat beteende enligt följande:
 
    ```javascript
    // Resume the data warehouse instance
@@ -138,7 +139,7 @@ För närvarande ingår bara två skalningsfunktioner i mallen. Med dessa funkti
 
 ## <a name="complex-scheduling"></a>Komplex schemaläggning
 
-Det här avsnittet visar vad som är nödvändigt för att få mer komplex schemaläggning av pausa, återuppta och skala funktioner.
+Det här avsnittet visar kortfattat vad som krävs för att få en mer komplex schemaläggning av funktioner för att pausa, återuppta och skala.
 
 ### <a name="example-1"></a>Exempel 1:
 
@@ -151,7 +152,7 @@ Daglig uppskalning till DW600 kl. 08.00 och nedskalning till DW200 kl. 20.00.
 
 ### <a name="example-2"></a>Exempel 2: 
 
-Daglig uppskalning till DW1000, kl 8 Nedskalning till DW600 klockan 16.00 och Nedskalning till DW200 kl 10.
+Dags att skala upp på 8.00 till DW1000, skala ned en gång till DW600 vid 4pm och skala ned på 10pm till DW200 kl.
 
 | Funktion  | Schema     | Åtgärd                                |
 | :-------- | :----------- | :--------------------------------------- |

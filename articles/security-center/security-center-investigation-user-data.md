@@ -1,5 +1,5 @@
 ---
-title: Hantera användar data som finns i en Azure Security Center undersökning | Microsoft Docs
+title: Hantera användar data som finns i en Azure Security Center undersökning
 description: " Lär dig hur du hanterar användar data som finns i Azure Security Centers undersöknings funktion. "
 services: operations-management-suite
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
 ms.author: memildin
-ms.openlocfilehash: 8b6bde69f233fee9fe20b260e392966298f13a9a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 059ca2a26e50128d6bc4313dad9f995e97c06378
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202032"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686401"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Hantera användar data som finns i en Azure Security Center undersökning
 Den här artikeln innehåller information om hur du hanterar användar data som finns i Azure Security Centers undersöknings funktion. Gransknings data lagras i [Azure Monitor loggar](../log-analytics/log-analytics-overview.md) och exponeras i Security Center. Att hantera användar data innebär att du kan ta bort eller exportera data.
@@ -38,14 +38,14 @@ Se [inbyggda roller för rollbaserad åtkomst kontroll i Azure](../role-based-ac
 ## <a name="deleting-personal-data"></a>Ta bort personliga data
 En Security Center användare som tilldelats rollen ägare, deltagare eller konto administratör kan ta bort information om undersökningen.
 
-Om du vill ta bort en undersökning kan du `DELETE` skicka en begäran till Azure Resource Manager REST API:
+Om du vill ta bort en undersökning kan du skicka en `DELETE` begäran till Azure Resource Manager REST API:
 
 ```HTTP
 DELETE
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/features/security/incidents/{incidentName}
 ```
 
-Du `incidentName` kan hitta indatamängden genom att visa alla incidenter `GET` med en begäran:
+`incidentName`-inmatare kan hittas genom att lista alla incidenter med en `GET` begäran:
 
 ```HTTP
 GET

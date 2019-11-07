@@ -1,5 +1,5 @@
 ---
-title: 'Always Encrypted: SQL Database-Azure Key Vault | Microsoft Docs'
+title: 'Always Encrypted: SQL Database-Azure Key Vault '
 description: Den här artikeln visar hur du skyddar känsliga data i en SQL-databas med data kryptering med hjälp av guiden Always Encrypted i SQL Server Management Studio.
 keywords: data kryptering, krypterings nyckel, moln kryptering
 services: sql-database
@@ -12,14 +12,14 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 924ec20b9922d12da7291dc4f44b7413c68728c6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7ba19f3f3e03c414d651082898976c5bd17e89c9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569570"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691263"
 ---
-# <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted: Skydda känsliga data och lagra krypterings nycklar i Azure Key Vault
+# <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted: skydda känsliga data och lagra krypterings nycklar i Azure Key Vault
 
 Den här artikeln visar hur du skyddar känsliga data i en SQL-databas med data kryptering med hjälp av [guiden Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx) i [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Den innehåller också anvisningar som visar hur du lagrar varje krypterings nyckel i Azure Key Vault.
 
@@ -35,7 +35,7 @@ Följ stegen i den här artikeln och lär dig hur du konfigurerar Always Encrypt
 * Skapa en databas tabell och kryptera kolumner.
 * Skapa ett program som infogar, väljer och visar data från de krypterade kolumnerna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -84,14 +84,14 @@ Du kan snabbt skapa ett nyckel valv genom att köra följande skript. En detalje
 
 ## <a name="create-a-blank-sql-database"></a>Skapa en tom SQL-databas
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Gå till **skapa en resurs** > **databas** > **SQL Database**.
+2. Gå till **skapa en resurs** > **databaser** > **SQL Database**.
 3. Skapa en **Tom** databas med namnet **klinik** på en ny eller befintlig server. Detaljerade anvisningar om hur du skapar en databas i Azure Portal finns i [din första Azure SQL-databas](sql-database-single-database-get-started.md).
    
     ![Skapa en tom databas](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
 
 Du behöver anslutnings strängen senare i själv studie kursen, så när du har skapat databasen bläddrar du till den nya klinik-databasen och kopierar anslutnings strängen. Du kan hämta anslutnings strängen när som helst, men det är enkelt att kopiera den i Azure Portal.
 
-1. Gå till > lektionerför > SQL-databaser**Visa databas anslutnings strängar**.
+1. Gå till **SQL-databaser** > **klinik** > **Visa databas anslutnings strängar**.
 2. Kopiera anslutnings strängen för **ADO.net**.
    
     ![Kopiera anslutningssträngen](./media/sql-database-always-encrypted-azure-key-vault/connection-strings.png)
@@ -99,7 +99,7 @@ Du behöver anslutnings strängen senare i själv studie kursen, så när du har
 ## <a name="connect-to-the-database-with-ssms"></a>Ansluta till databasen med SSMS
 Öppna SSMS och Anslut till servern med klinik-databasen.
 
-1. Öppna SSMS. (Gå till **Anslut** > **databas motor** för att öppna fönstret **Anslut till Server** om det inte är öppet.)
+1. Öppna SSMS. (Gå till **anslut** > **Database Engine** för att öppna fönstret **Anslut till Server** om det inte är öppet.)
 2. Ange server namn och autentiseringsuppgifter. Du hittar Server namnet på bladet SQL Database och i anslutnings strängen som du kopierade tidigare. Ange det fullständiga Server namnet, inklusive *Database.Windows.net*.
    
     ![Kopiera anslutningssträngen](./media/sql-database-always-encrypted-azure-key-vault/ssms-connect.png)
@@ -132,12 +132,12 @@ I det här avsnittet ska du skapa en tabell för att lagra patient data. Den är
 ## <a name="encrypt-columns-configure-always-encrypted"></a>Kryptera kolumner (Konfigurera Always Encrypted)
 SSMS innehåller en guide som hjälper dig att enkelt konfigurera Always Encrypted genom att ställa in kolumnens huvud nyckel, kolumn krypterings nyckel och krypterade kolumner åt dig.
 
-1. Expandera > klinik- > **tabeller**för databaser.
+1. Expandera **databaser** > **klinik** > **tabeller**.
 2. Högerklicka på tabellen **patienter** och välj **kryptera kolumner** för att öppna guiden Always Encrypted:
    
     ![Kryptera kolumner](./media/sql-database-always-encrypted-azure-key-vault/encrypt-columns.png)
 
-Guiden Always Encrypted innehåller följande avsnitt: **Val av kolumn**, **huvud nyckel konfiguration**, **verifiering**och **Sammanfattning**.
+Guiden Always Encrypted innehåller följande avsnitt: **kolumn val**, **huvud nyckel konfiguration**, **verifiering**och **Sammanfattning**.
 
 ### <a name="column-selection"></a>Kolumn val
 Klicka på **Nästa** på sidan **Introduktion** för att öppna sidan **kolumn val** . På den här sidan kan du välja vilka kolumner du vill kryptera, [vilken typ av kryptering och vilken kolumn krypterings nyckel (CEK)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2) som ska användas.
@@ -174,7 +174,7 @@ När guiden har slutförts konfigureras databasen för Always Encrypted. Följan
 * Skapade en kolumn krypterings nyckel och lagrade den i Azure Key Vault.
 * Konfigurerade de markerade kolumnerna för kryptering. Tabellen patienter har för närvarande inga data, men alla befintliga data i de markerade kolumnerna är nu krypterade.
 
-Du kan kontrol lera att nycklarna skapas i SSMS genom att expandera**säkerhets** > **Always Encrypted nycklar**för **klinik** > .
+Du kan kontrol lera att nycklarna skapas i SSMS genom att utöka **klinik** > **säkerhets** > **Always Encrypted nycklar**.
 
 ## <a name="create-a-client-application-that-works-with-the-encrypted-data"></a>Skapa ett klient program som fungerar med krypterade data
 Nu när Always Encrypted har kon figurer ATS kan du skapa ett program som utför *infogningar* och *väljer* i de krypterade kolumnerna.  
@@ -615,7 +615,7 @@ Om du vill använda SSMS för att komma åt data i klartext måste du först se 
 Lägg sedan till *kolumn krypterings inställningen = aktive rad* parameter under anslutningen.
 
 1. I SSMS högerklickar du på din server i **Object Explorer** och väljer **Koppla från**.
-2. Klicka på **Anslut** > **databas motor** för att öppna fönstret **Anslut till Server** och klicka på **alternativ**.
+2. Klicka på **anslut** > **Database Engine** för att öppna fönstret **Anslut till Server** och klicka på **alternativ**.
 3. Klicka på **ytterligare anslutnings parametrar** och ange **kolumn krypterings inställning = aktive rad**.
    
     ![Nytt konsol program](./media/sql-database-always-encrypted-azure-key-vault/ssms-connection-parameter.png)
@@ -626,7 +626,7 @@ Lägg sedan till *kolumn krypterings inställningen = aktive rad* parameter unde
    ```
 
      Nu kan du se data i klartext i de krypterade kolumnerna.
-     ![Nytt konsol program](./media/sql-database-always-encrypted-azure-key-vault/ssms-plaintext.png)
+     ![nytt konsol program](./media/sql-database-always-encrypted-azure-key-vault/ssms-plaintext.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

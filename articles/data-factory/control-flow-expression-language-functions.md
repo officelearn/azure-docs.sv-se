@@ -1,5 +1,5 @@
 ---
-title: Uttryck och funktioner i Azure Data Factory | Microsoft Docs
+title: Uttryck och funktioner i Azure Data Factory
 description: Den här artikeln innehåller information om uttryck och funktioner som du kan använda för att skapa Data Factory-entiteter.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 9fc8dd1e22e16ef5342b405b602f8baaf8ce7edf
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 75441a398e654893601cb7375ad3674d2b8aff29
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692848"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679903"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Uttryck och funktioner i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -26,7 +26,7 @@ ms.locfileid: "72692848"
 Den här artikeln innehåller information om uttryck och funktioner som stöds av Azure Data Factory. 
 
 ## <a name="introduction"></a>Introduktion
-JSON-värden i definitionen kan vara literala eller uttryck som utvärderas vid körning. Exempel:  
+JSON-värden i definitionen kan vara literala eller uttryck som utvärderas vid körning. Till exempel:  
   
 ```json
 "name": "value"
@@ -39,14 +39,14 @@ JSON-värden i definitionen kan vara literala eller uttryck som utvärderas vid 
 ```
 
 ## <a name="expressions"></a>Uttryck  
-Uttryck kan finnas var som helst i ett JSON-sträng värde och resulterar alltid i ett annat JSON-värde. Om ett JSON-värde är ett uttryck extraheras bröd texten i uttrycket genom att ta bort at-sign (\@). Om en tecken sträng krävs som börjar med \@ måste den föregås av \@ \@. I följande exempel visas hur uttryck utvärderas.  
+Uttryck kan finnas var som helst i ett JSON-sträng värde och resulterar alltid i ett annat JSON-värde. Om ett JSON-värde är ett uttryck extraheras bröd texten i uttrycket genom att ta bort at-sign (\@). Om en tecken sträng krävs som börjar med \@måste den föregås av \@\@. I följande exempel visas hur uttryck utvärderas.  
   
 |JSON-värde|Resultat|  
 |----------------|------------|  
 |komponentparametrar|Tecknens parametrar returneras.|  
 |"parametrar [1]"|Tecknens parametrar [1] returneras.|  
-|"\@ \@"|En 1 tecken sträng som innehåller \@ returneras.|  
-|"\@"|En 2-tecken sträng som innehåller \@ returneras.|  
+|"\@\@"|En 1 tecken sträng som innehåller\@returneras.|  
+|"\@"|En 2-tecken sträng som innehåller \@returneras.|  
   
  Uttryck kan också visas i strängar med hjälp av en funktion som kallas *String-interpolation* där uttryck omsluts i `@{ ... }`. Exempel: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
@@ -54,13 +54,13 @@ Uttryck kan finnas var som helst i ett JSON-sträng värde och resulterar alltid
   
 |JSON-värde|Resultat|  
 |----------------|------------|  
-|"\@pipeline (). Parameters. prestring"| Returnerar `foo` som en sträng.|  
-|"\@ {pipeliner (). Parameters. unstring}"| Returnerar `foo` som en sträng.|  
+|"\@pipeline (). Parameters. unstring"| Returnerar `foo` som en sträng.|  
+|"\@{pipeliner (). Parameters. unstring}"| Returnerar `foo` som en sträng.|  
 |"\@pipeline (). Parameters. Number"| Returnerar `42` som ett *tal*.|  
-|"\@ {pipeliner (). Parameters. Number}"| Returnerar `42` som en *sträng*.|  
+|"\@{pipeliner (). Parameters. Number}"| Returnerar `42` som en *sträng*.|  
 |"Svar är: @ {pipeline (). Parameters. Number}"| Returnerar strängen `Answer is: 42`.|  
 |"\@concat (" svar är: ", sträng (pipeline (). Parameters. Number))"| Returnerar strängen `Answer is: 42`|  
-|"Svar är: \@ \@ {pipeliner (). Parameters. Number}"| Returnerar strängen `Answer is: @{pipeline().parameters.myNumber}`.|  
+|"Svar är: \@\@{pipeliner (). Parameters. Number}"| Returnerar strängen `Answer is: @{pipeline().parameters.myNumber}`.|  
   
 ### <a name="examples"></a>Exempel
 
@@ -138,7 +138,7 @@ I följande exempel använder pipelinen **inputPath** -och **outputPath** -param
     }
 }
 ```
-#### <a name="tutorial"></a>Självstudiekurs
+#### <a name="tutorial"></a>Självstudier
 Den här [självstudien](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) vägleder dig genom hur du skickar parametrar mellan en pipeline och aktivitet samt mellan aktiviteterna.
 
   
@@ -153,7 +153,7 @@ Den här [självstudien](https://azure.microsoft.com/mediahandler/files/resource
 |concat|Kombinerar valfritt antal strängar. Om Parameter1 exempelvis är `foo,` följande uttryck returnera `somevalue-foo-somevalue`: `concat('somevalue-',pipeline().parameters.parameter1,'-somevalue')`<br /><br /> **Parameter nummer**: 1... *n*<br /><br /> **Namn**: sträng *n*<br /><br /> **Beskrivning**: krävs. De strängar som ska kombineras till en enda sträng.|  
 |under sträng|Returnerar en delmängd av tecken från en sträng. Till exempel följande uttryck:<br /><br /> `substring('somevalue-foo-somevalue',10,3)`<br /><br /> avkastning<br /><br /> `foo`<br /><br /> **Parameter nummer**: 1<br /><br /> **Namn**: sträng<br /><br /> **Beskrivning**: krävs. Strängen som under strängen ska hämtas från.<br /><br /> **Parameter nummer**: 2<br /><br /> **Namn**: Start index<br /><br /> **Beskrivning**: krävs. Index för var under strängen börjar i parameter 1. Start index är noll-baserat. <br /><br /> **Parameter nummer**: 3<br /><br /> **Namn**: längd<br /><br /> **Beskrivning**: krävs. Längden på under strängen.|  
 |bytt|Ersätter en sträng med en specifik sträng. Till exempel uttrycket:<br /><br /> `replace('the old string', 'old', 'new')`<br /><br /> avkastning<br /><br /> `the new string`<br /><br /> **Parameter nummer**: 1<br /><br /> **Namn**: sträng<br /><br /> **Beskrivning**: krävs.  Om parameter 2 finns i parameter 1 är strängen som genomsöks efter parameter 2 och uppdaterad med parametern 3.<br /><br /> **Parameter nummer**: 2<br /><br /> **Namn**: gammal sträng<br /><br /> **Beskrivning**: krävs. Strängen som ska ersättas med parameter 3 när en matchning hittas i parameter 1<br /><br /> **Parameter nummer**: 3<br /><br /> **Namn**: ny sträng<br /><br /> **Beskrivning**: krävs. Strängen som används för att ersätta strängen i parameter 2 när en matchning hittas i parameter 1.|  
-|LED| Genererar en globalt unik sträng (aka. GUID). Följande utdata kan till exempel skapas `c2ecc88d-88c8-4096-912c-d6f2e2b138ce`:<br /><br /> `guid()`<br /><br /> **Parameter nummer**: 1<br /><br /> **Namn**: format<br /><br /> **Beskrivning**: valfritt. En enkel formats specifikation som anger [hur värdet för denna GUID ska formateras](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx). Format parametern kan vara "N", "D", "B", "P" eller "X". Om formatet inte anges används "D".|  
+|guid| Genererar en globalt unik sträng (aka. GUID). Följande utdata kan till exempel skapas `c2ecc88d-88c8-4096-912c-d6f2e2b138ce`:<br /><br /> `guid()`<br /><br /> **Parameter nummer**: 1<br /><br /> **Namn**: format<br /><br /> **Beskrivning**: valfritt. En enkel formats specifikation som anger [hur värdet för denna GUID ska formateras](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx). Format parametern kan vara "N", "D", "B", "P" eller "X". Om formatet inte anges används "D".|  
 |toLower|Konverterar en sträng till gemener. Följande returnerar till exempel `two by two is four`: `toLower('Two by Two is Four')`<br /><br /> **Parameter nummer**: 1<br /><br /> **Namn**: sträng<br /><br /> **Beskrivning**: krävs. Strängen som ska konverteras till mindre Skift läge. Om ett tecken i strängen inte har en motsvarande gemen, inkluderas det i den returnerade strängen.|  
 |toUpper|Konverterar en sträng till versaler. Till exempel returnerar följande uttryck `TWO BY TWO IS FOUR`: `toUpper('Two by Two is Four')`<br /><br /> **Parameter nummer**: 1<br /><br /> **Namn**: sträng<br /><br /> **Beskrivning**: krävs. Strängen som ska konverteras till versal hölje. Om ett tecken i strängen inte har en motsvarande versal, inkluderas det i den returnerade strängen.|  
 |indexof|Hitta indexet för ett värde i en sträng som inte är Skift läges känsligt. Indexet är noll-baserat. Till exempel returnerar följande uttryck `7`: `indexof('hello, world.', 'world')`<br /><br /> **Parameter nummer**: 1<br /><br /> **Namn**: sträng<br /><br /> **Beskrivning**: krävs. Strängen som kan innehålla värdet.<br /><br /> **Parameter nummer**: 2<br /><br /> **Namn**: sträng<br /><br /> **Beskrivning**: krävs. Värdet att söka i indexet för.|  
@@ -172,7 +172,7 @@ Den här [självstudien](https://azure.microsoft.com/mediahandler/files/resource
 |krävande|Returnerar antalet element i en matris eller sträng. Till exempel returnerar följande uttryck `3`: `length('abc')`<br /><br /> **Parameter nummer**: 1<br /><br /> **Namn**: samling<br /><br /> **Beskrivning**: krävs. Samlingen för att hämta längden på.|  
 |saknas|Returnerar true om objektet, matrisen eller strängen är tom. Följande uttryck returnerar till exempel `true`:<br /><br /> `empty('')`<br /><br /> **Parameter nummer**: 1<br /><br /> **Namn**: samling<br /><br /> **Beskrivning**: krävs. Samlingen för att kontrol lera om den är tom.|  
 |överlappning|Returnerar en enskild matris eller ett objekt med gemensamma element mellan matriserna eller objekten som skickats till den. Den här funktionen returnerar till exempel `[1, 2]`:<br /><br /> `intersection([1, 2, 3], [101, 2, 1, 10],[6, 8, 1, 2])`<br /><br /> Parametrarna för funktionen kan antingen vara en uppsättning objekt eller en uppsättning matriser (inte en blandning av dessa). Om det finns två objekt med samma namn visas det sista objektet med det namnet i det sista objektet.<br /><br /> **Parameter nummer**: 1... *n*<br /><br /> **Namn**: samling *n*<br /><br /> **Beskrivning**: krävs. De samlingar som ska utvärderas. Ett objekt måste finnas i alla samlingar som skickas in för att visas i resultatet.|  
-|Union|Returnerar en enskild matris eller ett objekt med alla element i matrisen eller objektet som skickas till den. Den här funktionen returnerar till exempel `[1, 2, 3, 10, 101]:`<br /><br /> : `union([1, 2, 3], [101, 2, 1, 10])`<br /><br /> Parametrarna för funktionen kan antingen vara en uppsättning objekt eller en uppsättning matriser (inte en blandning av dessa). Om det finns två objekt med samma namn i slut resultatet visas det sista objektet med det namnet i det sista objektet.<br /><br /> **Parameter nummer**: 1... *n*<br /><br /> **Namn**: samling *n*<br /><br /> **Beskrivning**: krävs. De samlingar som ska utvärderas. Ett objekt som visas i någon av samlingarna visas i resultatet.|  
+|union|Returnerar en enskild matris eller ett objekt med alla element i matrisen eller objektet som skickas till den. Den här funktionen returnerar till exempel `[1, 2, 3, 10, 101]:`<br /><br /> : `union([1, 2, 3], [101, 2, 1, 10])`<br /><br /> Parametrarna för funktionen kan antingen vara en uppsättning objekt eller en uppsättning matriser (inte en blandning av dessa). Om det finns två objekt med samma namn i slut resultatet visas det sista objektet med det namnet i det sista objektet.<br /><br /> **Parameter nummer**: 1... *n*<br /><br /> **Namn**: samling *n*<br /><br /> **Beskrivning**: krävs. De samlingar som ska utvärderas. Ett objekt som visas i någon av samlingarna visas i resultatet.|  
 |förstagångskörningen|Returnerar det första elementet i matrisen eller strängen som har skickats. Den här funktionen returnerar till exempel `0`:<br /><br /> `first([0,2,3])`<br /><br /> **Parameter nummer**: 1<br /><br /> **Namn**: samling<br /><br /> **Beskrivning**: krävs. Den samling som det första objektet ska tas från.|  
 |pågå|Returnerar det sista elementet i matrisen eller strängen som har skickats. Den här funktionen returnerar till exempel `3`:<br /><br /> `last('0123')`<br /><br /> **Parameter nummer**: 1<br /><br /> **Namn**: samling<br /><br /> **Beskrivning**: krävs. Den samling som det sista objektet ska tas från.|  
 |Gå|Returnerar de första **Count** -elementen från matrisen eller strängen som skickades, till exempel den här funktionen returnerar `[1, 2]`: `take([1, 2, 3, 4], 2)`<br /><br /> **Parameter nummer**: 1<br /><br /> **Namn**: samling<br /><br /> **Beskrivning**: krävs. Den samling som ska ta det första **antalet** objekt från.<br /><br /> **Parameter nummer**: 2<br /><br /> **Namn**: antal<br /><br /> **Beskrivning**: krävs. Antalet objekt som ska tas från **samlingen**. Måste vara ett positivt heltal.|  
@@ -212,10 +212,10 @@ Den här [självstudien](https://azure.microsoft.com/mediahandler/files/resource
 |-------------------|-----------------|  
 |int|Konvertera parametern till ett heltal. Följande uttryck returnerar till exempel 100 som ett tal i stället för en sträng: `int('100')`<br /><br /> **Parameter nummer**: 1<br /><br /> **Namn**: värde<br /><br /> **Beskrivning**: krävs. Värdet som konverteras till ett heltal.|  
 |sträng|Konvertera parametern till en sträng. Till exempel returnerar följande uttryck `'10'`: `string(10)` du kan även konvertera ett objekt till en sträng, till exempel om parametern **foo** är ett objekt med en egenskap `bar : baz`, returnerar följande `{"bar" : "baz"}` `string(pipeline().parameters.foo)`<br /><br /> **Parameter nummer**: 1<br /><br /> **Namn**: värde<br /><br /> **Beskrivning**: krävs. Värdet som konverteras till en sträng.|  
-|utgör|Konvertera parametern till ett JSON-värde. Det är motsatsen till sträng (). Till exempel returnerar följande uttryck `[1,2,3]` som en matris, i stället för en sträng:<br /><br /> `json('[1,2,3]')`<br /><br /> På samma sätt kan du konvertera en sträng till ett objekt. @No__t_0 returnerar till exempel:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Parameter nummer**: 1<br /><br /> **Namn**: sträng<br /><br /> **Beskrivning**: krävs. Strängen som konverteras till ett internt typ värde.<br /><br /> JSON-funktionen stöder även XML-indata. Till exempel parameter värde för:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> konverteras till följande JSON:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
+|utgör|Konvertera parametern till ett JSON-värde. Det är motsatsen till sträng (). Till exempel returnerar följande uttryck `[1,2,3]` som en matris, i stället för en sträng:<br /><br /> `json('[1,2,3]')`<br /><br /> På samma sätt kan du konvertera en sträng till ett objekt. `json('{"bar" : "baz"}')` returnerar till exempel:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Parameter nummer**: 1<br /><br /> **Namn**: sträng<br /><br /> **Beskrivning**: krävs. Strängen som konverteras till ett internt typ värde.<br /><br /> JSON-funktionen stöder även XML-indata. Till exempel parameter värde för:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> konverteras till följande JSON:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |flyt|Omvandla parameter argumentet till ett flyttal-nummer. Till exempel returnerar följande uttryck `10.333`: `float('10.333')`<br /><br /> **Parameter nummer**: 1<br /><br /> **Namn**: värde<br /><br /> **Beskrivning**: krävs. Värdet som konverteras till ett flytt ALS nummer.|  
 |bool|Konvertera parametern till ett booleskt värde. Till exempel returnerar följande uttryck `false`: `bool(0)`<br /><br /> **Parameter nummer**: 1<br /><br /> **Namn**: värde<br /><br /> **Beskrivning**: krävs. Värdet som konverteras till ett booleskt värde.|  
-|Coalesce|Returnerar det första icke-null-objektet i de angivna argumenten. Obs: en tom sträng är inte null. Om t. ex. parametrarna 1 och 2 inte har definierats returneras `fallback`: `coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **Parameter nummer**: 1... *n*<br /><br /> **Namn**: objekt*n*<br /><br /> **Beskrivning**: krävs. De objekt som ska sökas efter `null`.|  
+|coalesce|Returnerar det första icke-null-objektet i de angivna argumenten. Obs: en tom sträng är inte null. Om t. ex. parametrarna 1 och 2 inte har definierats returneras `fallback`: `coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **Parameter nummer**: 1... *n*<br /><br /> **Namn**: objekt*n*<br /><br /> **Beskrivning**: krävs. De objekt som ska sökas efter `null`.|  
 |Base64|Returnerar den base64-representation av Indatasträngen. Till exempel returnerar följande uttryck `c29tZSBzdHJpbmc=`: `base64('some string')`<br /><br /> **Parameter nummer**: 1<br /><br /> **Namn**: sträng 1<br /><br /> **Beskrivning**: krävs. Strängen som ska kodas i base64-representation.|  
 |base64ToBinary|Returnerar en binär representation av en Base64-kodad sträng. Till exempel returnerar följande uttryck en binär representation av en sträng: `base64ToBinary('c29tZSBzdHJpbmc=')`.<br /><br /> **Parameter nummer**: 1<br /><br /> **Namn**: sträng<br /><br /> **Beskrivning**: krävs. Den base64-kodade strängen.|  
 |base64ToString|Returnerar en sträng representation av en based64-kodad sträng. Till exempel returnerar följande uttryck en sträng: `base64ToString('c29tZSBzdHJpbmc=')`.<br /><br /> **Parameter nummer**: 1<br /><br /> **Namn**: sträng<br /><br /> **Beskrivning**: krävs. Den base64-kodade strängen.|  
@@ -259,7 +259,7 @@ Den här [självstudien](https://azure.microsoft.com/mediahandler/files/resource
 |addminutes|Lägger till ett heltal i minuter till en sträng tidstämpel som skickats in. Antalet minuter kan vara positivt eller negativt. Resultatet är en sträng i ISO 8601-format ("o") som standard, om inte en format specificerare anges. Till exempel `2015-03-15T14:00:36Z`:<br /><br /> `addminutes('2015-03-15T13:27:36Z', 33)`<br /><br /> **Parameter nummer**: 1<br /><br /> **Namn**: tidsstämpel<br /><br /> **Beskrivning**: krävs. En sträng som innehåller tiden.<br /><br /> **Parameter nummer**: 2<br /><br /> **Namn**: minuter<br /><br /> **Beskrivning**: krävs. Det antal minuter som ska läggas till. Kan vara negativt för att subtrahera minuter.<br /><br /> **Parameter nummer**: 3<br /><br /> **Namn**: format<br /><br /> **Beskrivning**: valfritt. Antingen ett [enda format](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) eller ett [anpassat format-mönster](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) som visar hur du formaterar värdet för den här tidsstämpeln. Om formatet inte anges används ISO 8601-formatet ("o").|  
 |addhours|Lägger till ett heltal i timmar till en sträng tidstämpel som skickats in. Antalet timmar kan vara positivt eller negativt. Resultatet är en sträng i ISO 8601-format ("o") som standard, om inte en format specificerare anges. Till exempel `2015-03-16T01:27:36Z`:<br /><br /> `addhours('2015-03-15T13:27:36Z', 12)`<br /><br /> **Parameter nummer**: 1<br /><br /> **Namn**: tidsstämpel<br /><br /> **Beskrivning**: krävs. En sträng som innehåller tiden.<br /><br /> **Parameter nummer**: 2<br /><br /> **Namn**: timmar<br /><br /> **Beskrivning**: krävs. Antalet timmar som ska läggas till. Kan vara negativt för att ta bort timmar.<br /><br /> **Parameter nummer**: 3<br /><br /> **Namn**: format<br /><br /> **Beskrivning**: valfritt. Antingen ett [enda format](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) eller ett [anpassat format-mönster](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) som visar hur du formaterar värdet för den här tidsstämpeln. Om formatet inte anges används ISO 8601-formatet ("o").|  
 |adddays|Lägger till ett heltals antal dagar till en sträng-tidsstämpel som skickats in. Antalet dagar kan vara positivt eller negativt. Resultatet är en sträng i ISO 8601-format ("o") som standard, om inte en format specificerare anges. Till exempel `2015-02-23T13:27:36Z`:<br /><br /> `adddays('2015-03-15T13:27:36Z', -20)`<br /><br /> **Parameter nummer**: 1<br /><br /> **Namn**: tidsstämpel<br /><br /> **Beskrivning**: krävs. En sträng som innehåller tiden.<br /><br /> **Parameter nummer**: 2<br /><br /> **Namn**: dagar<br /><br /> **Beskrivning**: krävs. Det antal dagar som ska läggas till. Kan vara negativt för att subtrahera dagar.<br /><br /> **Parameter nummer**: 3<br /><br /> **Namn**: format<br /><br /> **Beskrivning**: valfritt. Antingen ett [enda format](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) eller ett [anpassat format-mönster](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) som visar hur du formaterar värdet för den här tidsstämpeln. Om formatet inte anges används ISO 8601-formatet ("o").|  
-|formatDateTime|Returnerar en sträng i datum format. Resultatet är en sträng i ISO 8601-format ("o") som standard, om inte en format specificerare anges. Till exempel `2015-02-23T13:27:36Z`:<br /><br /> `formatDateTime('2015-03-15T13:27:36Z', 'o')`<br /><br />Om du vill formatera ett datum i formatet ÅÅÅÅ/MM/DD använder du formatDateTime (utcnow (), ÅÅÅÅ/MM/DD).</br>Om du vill lägga till ett namn i datumet använder @concat (' foo-', '/', formatDateTime (utcnow (), ' ÅÅÅÅ/MM/DD ')).<br><br> **Parameter nummer**: 1<br /><br /> **Namn**: datum<br /><br /> **Beskrivning**: krävs. En sträng som innehåller datumet.<br /><br /> **Parameter nummer**: 2<br /><br /> **Namn**: format<br /><br /> **Beskrivning**: valfritt. Antingen ett [enda format](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) eller ett [anpassat format-mönster](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) som visar hur du formaterar värdet för den här tidsstämpeln. Om formatet inte anges används ISO 8601-formatet ("o"). |  
+|formatDateTime|Returnerar en sträng i datum format. Resultatet är en sträng i ISO 8601-format ("o") som standard, om inte en format specificerare anges. Till exempel `2015-02-23T13:27:36Z`:<br /><br /> `formatDateTime('2015-03-15T13:27:36Z', 'o')`<br /><br />Om du vill formatera ett datum i formatet ÅÅÅÅ/MM/DD använder du formatDateTime (utcnow (), ÅÅÅÅ/MM/DD).</br>Om du vill lägga till ett namn i datumet använder @concat(' foo-', '/', formatDateTime (utcnow (), ' ÅÅÅÅ/MM/DD ')).<br><br> **Parameter nummer**: 1<br /><br /> **Namn**: datum<br /><br /> **Beskrivning**: krävs. En sträng som innehåller datumet.<br /><br /> **Parameter nummer**: 2<br /><br /> **Namn**: format<br /><br /> **Beskrivning**: valfritt. Antingen ett [enda format](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) eller ett [anpassat format-mönster](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) som visar hur du formaterar värdet för den här tidsstämpeln. Om formatet inte anges används ISO 8601-formatet ("o"). |  
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över systemvariabler som du kan använda i uttryck finns i [Systemvariabler](control-flow-system-variables.md).

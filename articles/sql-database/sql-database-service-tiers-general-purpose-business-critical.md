@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database generell användning och affärs kritiskt | Microsoft Docs
+title: 'Azure SQL Database generell användning och affärs kritisk '
 description: I artikeln beskrivs allmänna affärs kritiska tjänst nivåer i den vCore-baserade inköps modellen.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 10/01/2019
-ms.openlocfilehash: a971b428da72028bcabd874e848d53bc2392a0f6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c6af083c4b3d16fa695da0ccc968c90b5480b6c4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496108"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687268"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database tjänst nivåer
 
@@ -37,23 +37,23 @@ I följande tabell beskrivs viktiga skillnader mellan tjänst nivåer för den s
 | **Bäst för** | |  Erbjuder budget orienterade balanserade beräknings-och lagrings alternativ. | De flesta företags arbets belastningar. Automatisk skalning av lagrings storlek upp till 100 TB, flytande lodrät och vågrät beräknings skalning, snabb databas återställning. | OLTP-program med hög transaktions frekvens och låg IO-latens. Erbjuder högsta möjliga återhämtning till fel och snabba växlingar med hjälp av flera synkront uppdaterade repliker.|
 |  **Tillgängligt i resurs typ:** ||Enkel databas/elastisk pool/hanterad instans | Enskild databas | Enkel databas/elastisk pool/hanterad instans |
 | **Beräknings storlek**|Enkel databas/elastisk pool | 1 till 80 virtuella kärnor | 1 till 80 virtuella kärnor | 1 till 80 virtuella kärnor |
-| | Hanterad instans | 4, 8, 16, 24, 32, 40, 64, 80 virtuella kärnor | Gäller inte | 4, 8, 16, 24, 32, 40, 64, 80 virtuella kärnor |
-| | Hanterade instanser av pooler | 2, 4, 8, 16, 24, 32, 40, 64, 80 virtuella kärnor | Gäller inte | Gäller inte |
+| | Hanterad instans | 4, 8, 16, 24, 32, 40, 64, 80 virtuella kärnor | Saknas | 4, 8, 16, 24, 32, 40, 64, 80 virtuella kärnor |
+| | Hanterade instanser av pooler | 2, 4, 8, 16, 24, 32, 40, 64, 80 virtuella kärnor | Saknas | Saknas |
 | **Lagringstyp** | Alla | Premium-Fjärrlagring (per instans) | Fristående lagring med lokal SSD-cache (per instans) | Super-fast lokal SSD-lagring (per instans) |
 | **Databas storlek** | Enkel databas/elastisk pool | 5 GB – 4 TB | Upp till 100 TB | 5 GB – 4 TB |
-| | Hanterad instans  | 32 GB – 8 TB | Gäller inte | 32 GB – 4 TB |
+| | Hanterad instans  | 32 GB – 8 TB | Saknas | 32 GB – 4 TB |
 | **Lagrings storlek** | Enkel databas/elastisk pool | 5 GB – 4 TB | Upp till 100 TB | 5 GB – 4 TB |
-| | Hanterad instans  | 32 GB – 8 TB | Gäller inte | 32 GB – 4 TB |
+| | Hanterad instans  | 32 GB – 8 TB | Saknas | 32 GB – 4 TB |
 | **TempDB-storlek** | Enkel databas/elastisk pool | [32 GB per vCore](sql-database-vcore-resource-limits-single-databases.md#general-purpose---provisioned-compute---gen4) | [32 GB per vCore](sql-database-vcore-resource-limits-single-databases.md#hyperscale---provisioned-compute---gen5) | [32 GB per vCore](sql-database-vcore-resource-limits-single-databases.md#business-critical---provisioned-compute---gen4) |
-| | Hanterad instans  | [24 GB per vCore](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | Gäller inte | Upp till 4 TB – [begränsas av lagrings storlek](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
+| | Hanterad instans  | [24 GB per vCore](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | Saknas | Upp till 4 TB – [begränsas av lagrings storlek](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
 | **Logg skrivnings data flöde** | Enskild databas | [1,875 MB/s per vCore (max 30 MB/s)](sql-database-vcore-resource-limits-single-databases.md#general-purpose---provisioned-compute---gen4) | 100 MB/s | [6 MB/s per vCore (max 96 MB/s)](sql-database-vcore-resource-limits-single-databases.md#business-critical---provisioned-compute---gen4) |
-| | Hanterad instans | [3 MB/s per vCore (högst 22 MB/s)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | Gäller inte | [4 MB/s per vCore (max 48 MB/s)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
+| | Hanterad instans | [3 MB/s per vCore (högst 22 MB/s)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | Saknas | [4 MB/s per vCore (max 48 MB/s)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
 |**Tillgänglighet**|Alla| 99,99 % |  [99,95% med en sekundär replik, 99,99% med fler repliker](sql-database-service-tier-hyperscale-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99 % <br/> [99,995% med redundant zon i en enskild databas](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
 |**Regelbundet**|Alla|RA-GRS, 7-35 dagar (7 dagar som standard)| RA-GRS, 7 dagar, konstant tidpunkts återställning (PITR) | RA-GRS, 7-35 dagar (7 dagar som standard) |
-|**Minnes intern OLTP** | | Gäller inte | Gäller inte | Tillgängligt |
+|**Minnes intern OLTP** | | Saknas | Saknas | Tillgängligt |
 |**Skrivskyddade repliker**| | 0  | 0 - 4 | 1 (inbyggt, ingår i priset) |
 |**Priser/fakturering** | Enskild databas | [vCore, reserverad lagring och lagring av säkerhets kopior](https://azure.microsoft.com/pricing/details/sql-database/single/) debiteras. <br/>IOPS debiteras inte. | [vCore för varje replik och använt lagrings utrymme](https://azure.microsoft.com/pricing/details/sql-database/single/) debiteras. <br/>IOPS har ännu inte debiterats. | [vCore, reserverad lagring och lagring av säkerhets kopior](https://azure.microsoft.com/pricing/details/sql-database/single/) debiteras. <br/>IOPS debiteras inte. |
-|| Managed Instance | [vCore och reserverad lagring](https://azure.microsoft.com/pricing/details/sql-database/managed/) debiteras. <br/>IOPS debiteras inte.<br/>Lagring av säkerhets kopior debiteras inte ännu. | Gäller inte | [vCore och reserverad lagring](https://azure.microsoft.com/pricing/details/sql-database/managed/) debiteras. <br/>IOPS debiteras inte.<br/>Lagring av säkerhets kopior debiteras inte ännu. | 
+|| Managed Instance | [vCore och reserverad lagring](https://azure.microsoft.com/pricing/details/sql-database/managed/) debiteras. <br/>IOPS debiteras inte.<br/>Lagring av säkerhets kopior debiteras inte ännu. | Saknas | [vCore och reserverad lagring](https://azure.microsoft.com/pricing/details/sql-database/managed/) debiteras. <br/>IOPS debiteras inte.<br/>Lagring av säkerhets kopior debiteras inte ännu. | 
 |**Rabatt modeller**| | [Reserverade instanser](sql-database-reserved-capacity.md)<br/>[Azure Hybrid-förmån](sql-database-azure-hybrid-benefit.md) (inte tillgängligt för utveckling/testning-prenumerationer)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) och [betala](https://azure.microsoft.com/offers/ms-azr-0023p/) per användning-prenumerationer för utveckling och testning| [Azure Hybrid-förmån](sql-database-azure-hybrid-benefit.md) (inte tillgängligt för utveckling/testning-prenumerationer)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) och [betala](https://azure.microsoft.com/offers/ms-azr-0023p/) per användning-prenumerationer för utveckling och testning| [Reserverade instanser](sql-database-reserved-capacity.md)<br/>[Azure Hybrid-förmån](sql-database-azure-hybrid-benefit.md) (inte tillgängligt för utveckling/testning-prenumerationer)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) och [betala](https://azure.microsoft.com/offers/ms-azr-0023p/) per användning-prenumerationer för utveckling och testning|
 
 Mer information finns i de detaljerade skillnaderna mellan tjänst nivåerna i [en enskild databas (vCore)](sql-database-vcore-resource-limits-single-databases.md), vCore (Single [Database Pools](sql-database-dtu-resource-limits-single-databases.md)), [en enskild databas (DTU)](sql-database-dtu-resource-limits-single-databases.md), [en pool med ett enda databas (DTU) och en](sql-database-dtu-resource-limits-single-databases.md) [hanterad instans](sql-database-managed-instance-resource-limits.md) kodsidor.

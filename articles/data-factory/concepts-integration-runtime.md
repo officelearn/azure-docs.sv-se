@@ -1,5 +1,5 @@
 ---
-title: Integration Runtime i Azure Data Factory | Microsoft Docs
+title: Integration Runtime i Azure Data Factory
 description: Mer information om Integration Runtime i Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: ab82055d99401b0e7bc8aedf247fdf0d779f9f07
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 7475d660fd2fa64ce69e7c23e0bad518fffddd26
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875277"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681516"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime i Azure Data Factory
 Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Data Factory för att ge olika nätverksmiljöer integrationsfunktioner:
 
-- **Data flöde**: Kör ett [data flöde](concepts-data-flow-overview.md) i hanterad Azure Compute-miljö.  
-- **Data förflyttning**: Kopiera data mellan data lager i offentliga nätverk och data lager i privata nätverk (lokalt eller virtuellt privat nätverk). Den ger stöd åt inbyggda anslutningsappar, konvertering av format, kolumnmappning och bättre och skalbar dataöverföring.
-- **Aktivitets sändning**:  Utsändning och övervakning av omvandlings aktiviteter som körs på en mängd olika beräknings tjänster, till exempel Azure Databricks, Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server med mera.
-- **Körning av SSIS-paket**: Köra SQL Server Integration Services-paket (SSIS) internt i en hanterad Azure Compute-miljö.
+- **Data flöde**: kör ett [data flöde](concepts-data-flow-overview.md) i en hanterad Azure Compute-miljö.  
+- **Data förflyttning**: kopiera data mellan data lager i offentliga nätverk och data lager i privata nätverk (lokalt eller virtuellt privat nätverk). Den ger stöd åt inbyggda anslutningsappar, konvertering av format, kolumnmappning och bättre och skalbar dataöverföring.
+- **Aktivitets sändning**: sändnings-och övervaknings omvandlings aktiviteter som körs på en mängd olika beräknings tjänster, till exempel Azure Databricks, Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server med mera.
+- **SSIS paketkörning**: Internt köra SQL Server Integration Services-paket (SSIS) i en hanterad Azure-beräkningsmiljö.
 
 I Data Factory definierar en aktivitet åtgärden som ska utföras. En länkad tjänst definierar ett datalager som mål eller en beräkningstjänst. Integration Runtime utgör bryggan mellan aktiviteten och länkade tjänster.  Det refereras till av den länkade tjänsten eller aktiviteten och tillhandahåller beräknings miljön där aktiviteten antingen körs eller skickas från. På så sätt kan aktiviteten utföras i regionen som är den närmaste möjliga till måldatalagret eller beräkningstjänsten på det bästa sättet samtidigt som den uppfyller säkerhets- och efterlevnadsbehoven.
 
@@ -53,7 +53,7 @@ En Azure Integration Runtime kan:
 
 - Köra data flöden i Azure 
 - Köra kopieringsaktivitet mellan molndatalager
-- Skickar följande Transform-aktiviteter i offentliga nätverk: Databricks Notebook/jar/python-aktivitet, HDInsight Hive-aktivitet, HDInsight gris-aktivitet, HDInsight MapReduce-aktivitet, HDInsight Spark-aktivitet, HDInsight streaming-aktivitet, Machine Learning batch-körning, Machine Learning uppdatera resurs aktiviteter, lagrad procedur aktivitet, Data Lake Analytics U-SQL-aktivitet, .NET anpassad aktivitet, webb aktivitet, söknings aktivitet och hämta metadata-aktivitet.
+- Skickar följande Transform-aktiviteter i ett offentligt nätverk: Databricks Notebook/jar/python Activity, HDInsight Hive-aktivitet, HDInsight gris-aktivitet, HDInsight MapReduce-aktivitet, HDInsight Spark-aktivitet, HDInsight streaming-aktivitet, dator Körnings aktivitet för utbildning, Machine Learning uppdatering av resurs aktiviteter, lagrad procedur aktivitet, Data Lake Analytics U-SQL-aktivitet, anpassad aktivitet i .NET, webb aktivitet, söknings aktivitet och hämta metadata-aktivitet.
 
 ### <a name="azure-ir-network-environment"></a>Azure IR-nätverksmiljö
 Azure Integration Runtime stöder anslutning till data lager och beräknings tjänster med offentliga tillgängliga slut punkter. Använd Integration Runtime med egen värd för Azure Virtual Network-miljön.
@@ -74,10 +74,10 @@ Information om hur du skapar och konfigurerar Azure IR finns i How to create and
 En IR med egen värd kan:
 
 - Köra kopieringsaktivitet mellan molndatalager och ett datalager i privat nätverk.
-- Skickar följande Transform-aktiviteter mot beräknings resurser i lokala eller Azure-Virtual Network: HDInsight Hive-aktivitet (BYOC-ta med ditt eget kluster), HDInsight gris-aktivitet (BYOC), HDInsight MapReduce Activity (BYOC), HDInsight Spark-aktivitet (BYOC), HDInsight-direktuppspelning (BYOC), Machine Learning batch-körning, Machine Learning Uppdatera resurs aktiviteter, lagrad procedur aktivitet, Data Lake Analytics U-SQL-aktivitet, anpassad aktivitet (körs på Azure Batch), lookup-aktivitet och hämta metadata-aktivitet.
+- Skickar följande Transform-aktiviteter mot beräknings resurser i lokala eller Azure Virtual Network: HDInsight Hive-aktivitet (BYOC-ta med ditt eget kluster), HDInsight gris Activity (BYOC), HDInsight MapReduce Activity (BYOC), HDInsight Spark aktivitet (BYOC), HDInsight streaming Activity (BYOC), Machine Learning batch-körning, Machine Learning uppdatera resurs aktiviteter, lagrad procedur aktivitet, Data Lake Analytics U-SQL-aktivitet, anpassad aktivitet (körs på Azure Batch), sökning aktiviteten aktivitet och hämta metadata.
 
 > [!NOTE] 
-> Använda Integration Runtime med egen värd för att stödja datalager som kräver egen drivrutin, till exempel SAP Hana, MySQL osv.  Mer information finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+> Använd integration runtime med egen värd för att få stöd för data lager som kräver en egen driv rutin som SAP HANA, MySQL osv.  Mer information finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
 
 ### <a name="self-hosted-ir-network-environment"></a>IR-nätverksmiljö med egen värd
 Om du vill utföra dataintegration säkert i en privat nätverk-miljö, som har skymd sikt från offentligt moln-miljön, kan du installera IR med egen värd i en lokal miljö bakom företagsbrandväggen, eller i ett virtuellt privat nätverk.  IR med egen värd utför bara utgående HTTP-baserade anslutningar till öppet internet.
@@ -101,7 +101,7 @@ Om du vill ha mer information läser du artikeln om hur du skapar och konfigurer
 Mer information om Azure-SSIS runtime finns i följande artiklar: 
 
 - [Självstudie: distribuera SSIS-paket till Azure](tutorial-create-azure-ssis-runtime-portal.md). Den här artikeln innehåller stegvisa instruktioner för att skapa en Azure-SSIS IR och använder en Azure SQL-databas som värd för SSIS-katalogen. 
-- [Anvisningar: Skapa en Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md). Den här artikeln är utökad i självstudien och innehåller instruktioner om hur du använder Azure SQL Database hanterade instansen och ansluter till IR till ett virtuellt nätverk. 
+- [Så här skapar du en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln är utökad i självstudien och innehåller instruktioner om hur du använder Azure SQL Database hanterade instansen och ansluter till IR till ett virtuellt nätverk. 
 - [Övervaka en Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). Den här artikeln visar hur du hämtar information om en Azure-SSIS IR och innehåller beskrivningar av statusar i den returnerade informationen. 
 - [Hantera en Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). Den här artikeln visar hur du stoppar, startar eller tar bort en Azure-SSIS IR. Den också visar hur du skalar ut Azure-SSIS IR genom att lägga till fler noder i IR. 
 - [Anslut Azure-SSIS IR till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md). Den här artikeln innehåller begreppsrelaterad information om att ansluta Azure-SSIS IR till ett virtuellt Azure-nätverk. Den innehåller också steg för att använda Azure-portalen för att konfigurera ett virtuellt nätverk så att Azure-SSIS IR kan ansluta till ett virtuellt nätverk. 
@@ -138,9 +138,9 @@ När IR med egen värd används för att utföra dataflyttning extraherar den da
 ### <a name="azure-ssis-ir-location"></a>Azure-SSIS IR-plats
 Att välja rätt plats för Azure-SSIS IR är viktigt för att uppnå höga prestanda i dina arbetsflöden för extrahering, transformering och laddning (ETL).
 
-- Platsen för din Azure-SSIS IR behöver inte vara samma som platsen för din data fabrik, men den bör vara samma som platsen för din egen Azure SQL Database/Hanterad instans server där SSISDB ska vara värd. På så sätt kan din Azure-SSIS Integration Runtime enkelt få åtkomst till SSISDB utan att det medför överdriven trafik mellan olika platser.
-- Om du inte har en befintlig Azure SQL Database/Hanterad instans server som värd för SSISDB, men du har lokala data källor/destinationer, bör du skapa en ny Azure SQL Database/Hanterad instans server på samma plats som ett virtuellt nätverk som är anslutet till ditt lokala nätverk.  På så sätt kan du skapa din Azure-SSIS IR med hjälp av den nya Azure SQL Database/hanterade instans servern och ansluta till det virtuella nätverket, allt på samma plats, vilket effektivt minimerar data förflyttningar mellan olika platser.
-- Om platsen för din befintliga Azure SQL Database/hanterade instans server där SSISDB finns inte är samma som platsen för ett virtuellt nätverk som är anslutet till ditt lokala nätverk måste du först skapa en Azure-SSIS IR med en befintlig Azure SQL Database/ Hanterad instans Server och ansluta till ett annat virtuellt nätverk på samma plats och konfigurera sedan ett virtuellt nätverk till en virtuell nätverks anslutning mellan olika platser.
+- Platsen för din Azure-SSIS IR behöver inte vara samma som platsen för din data fabrik, men den bör vara samma som platsen för din egen Azure SQL Database/hanterade instans server där SSISDB är värd. På så sätt kan din Azure-SSIS Integration Runtime enkelt få åtkomst till SSISDB utan att det medför överdriven trafik mellan olika platser.
+- Om du inte har en befintlig Azure SQL Database/Hanterad instans server som värd för SSISDB, men du har lokala data källor/destinationer, bör du skapa en ny Azure SQL Database/Hanterad instans server på samma plats som ett virtuellt nätverk som är anslutet till ditt lokala nätverk.  På så sätt kan du skapa Azure-SSIS IR med hjälp av den nya Azure SQL Database/hanterade instans servern och ansluta till det virtuella nätverket, allt på samma plats, vilket effektivt minimerar data förflyttningar mellan olika platser.
+- Om platsen för din befintliga Azure SQL Database/hanterade instans server där SSISDB finns inte är samma som platsen för ett virtuellt nätverk som är anslutet till ditt lokala nätverk, måste du först skapa Azure-SSIS IR med en befintlig Azure SQL Database/ Hanterad instans Server och ansluta till ett annat virtuellt nätverk på samma plats och konfigurera sedan ett virtuellt nätverk till en virtuell nätverks anslutning mellan olika platser.
 
 I följande diagram visas platsinställningar för Data Factory och dess Integration Runtime-instanser:
 

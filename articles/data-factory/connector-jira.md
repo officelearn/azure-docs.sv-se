@@ -1,5 +1,5 @@
 ---
-title: Kopiera data från JIRA med Azure Data Factory | Microsoft Docs
+title: Kopiera data från JIRA med hjälp av Azure Data Factory
 description: Lär dig hur du kopierar data från JIRA till mottagar data lager som stöds med hjälp av en kopierings aktivitet i en Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: c48533175d21475a1c42eddc9dc6123f8e4050fb
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 277af8c0683897737fd5194aba68cd7be79d7dd7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935543"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680740"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory"></a>Kopiera data från JIRA med hjälp av Azure Data Factory
 
@@ -114,7 +114,7 @@ Om du vill kopiera data från JIRA anger du käll typen i kopierings aktiviteten
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **JiraSource** | Ja |
-| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
+| query | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**
 

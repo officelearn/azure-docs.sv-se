@@ -1,6 +1,6 @@
 ---
-title: Konfigurera prestanda för Azure-SSIS Integration Runtime | Microsoft Docs
-description: Lär dig hur du konfigurerar egenskaper för din Azure-SSIS Integration Runtime för höga prestanda
+title: Konfigurera prestanda för Azure-SSIS Integration Runtime
+description: Lär dig hur du konfigurerar egenskaperna för Azure-SSIS Integration Runtime för hög prestanda
 services: data-factory
 ms.date: 01/10/2018
 ms.topic: conceptual
@@ -10,23 +10,23 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 42c69653a002446552da998320a43730dfdaadf5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 518da092f690108111ca4456eaca66e4f3153c54
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65232519"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681443"
 ---
-# <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Konfigurera Azure-SSIS Integration Runtime för höga prestanda
+# <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Konfigurera Azure-SSIS Integration Runtime för hög prestanda
 
-Den här artikeln beskriver hur du konfigurerar en Azure-SSIS Integration Runtime (IR) för hög prestanda. Azure-SSIS IR kan du distribuera och kör SQL Server Integration Services (SSIS)-paket i Azure. Mer information om Azure-SSIS IR finns i [integreringskörningen](concepts-integration-runtime.md#azure-ssis-integration-runtime) artikeln. Information om att distribuera och köra SSIS-paket på Azure finns i [Lift and shift SQL Serverintegration Services-arbetsbelastningar till molnet](/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview).
+I den här artikeln beskrivs hur du konfigurerar en Azure-SSIS Integration Runtime (IR) för hög prestanda. Med Azure-SSIS IR kan du distribuera och köra SQL Server Integration Services-paket (SSIS) i Azure. Mer information om Azure-SSIS IR finns i artikeln om [integration runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime) . Information om hur du distribuerar och kör SSIS-paket på Azure finns i [hiss-och shift SQL Server Integration Services-arbetsbelastningar till molnet](/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview).
 
 > [!IMPORTANT]
-> Den här artikeln innehåller prestandaresultat och observationer från interna testning målserverkonfigureringen medlemmar i SSIS-Utvecklingsteamet. Resultaten kan variera. Göra egna tester innan du avslutar konfigurationsinställningarna, vilket kan påverkar både kostnad och prestanda.
+> Den här artikeln innehåller prestanda resultat och observationer från interna tester som gjorts av medlemmar i SSIS Development Team. Resultaten kan variera. Utför dina egna tester innan du slutför konfigurations inställningarna, vilket påverkar både kostnader och prestanda.
 
-## <a name="properties-to-configure"></a>Egenskaper för att konfigurera
+## <a name="properties-to-configure"></a>Egenskaper som ska konfigureras
 
-Följande delen av ett konfigurationsskript visar de egenskaper som du kan konfigurera när du skapar en Azure-SSIS Integration Runtime. Fullständig PowerShell-skript och beskrivning finns i [distribuera SQL Server Integration Services-paket till Azure](tutorial-deploy-ssis-packages-azure-powershell.md).
+Följande del av ett konfigurations skript visar de egenskaper som du kan konfigurera när du skapar en Azure-SSIS Integration Runtime. Fullständig PowerShell-skript och beskrivning finns i [distribuera SQL Server Integration Services-paket till Azure](tutorial-deploy-ssis-packages-azure-powershell.md).
 
 ```powershell
 # If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$"
@@ -66,7 +66,7 @@ $SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…
 ```
 
 ## <a name="azuressislocation"></a>AzureSSISLocation
-**AzureSSISLocation** är platsen för noden för integration runtime-worker. Arbetsnoden upprätthåller en anslutning till SSIS-katalogdatabasen (SSISDB) på en Azure SQL database. Ange den **AzureSSISLocation** till samma plats som SQL Database-server som är värd för SSISDB, vilket gör att integreringskörningen ska fungera så effektivt som möjligt.
+**AzureSSISLocation** är platsen för integration runtime Worker-noden. Arbetsnoden underhåller en konstant anslutning till SSIS-SSISDB () på en Azure SQL-databas. Ange **AzureSSISLocation** till samma plats som den SQL Database Server som är värd för SSISDB, vilket gör att integrerings körningen fungerar så effektivt som möjligt.
 
 ## <a name="azuressisnodesize"></a>AzureSSISNodeSize
 Data Factory, inklusive Azure-SSIS IR, stöder följande alternativ:
@@ -89,36 +89,36 @@ Data Factory, inklusive Azure-SSIS IR, stöder följande alternativ:
 -   Standard\_E32\_v3
 -   Standard\_E64\_v3
 
-I den inofficiella interna testning av SSIS-teknikerna, D-serien som verkar vara lämpligast för körning av SSIS-paket än A-serien.
+I det inofficiellt interna testet av SSIS Engineering-teamet verkar D-serien vara lämpligare för körning av SSIS-paket än en serie.
 
--   Prestanda/pris förhållandet i D-serien är högre än A-serien och prestanda/pris förhållandet i v3-serien är högre än v2-serien.
--   Dataflöde för D-serien är högre än A-serien till samma pris och dataflödet för v3-serien är högre än v2-serien till samma pris.
--   Noder för v2-serien för Azure-SSIS IR är inte lämpligt för anpassad installation, så Använd v3-serien noderna istället. Om du redan använder noder för v2-serien, växla för att använda noder för v3-serien så snart som möjligt.
--   E-serien är minnesoptimerade VM-storlekar som ger en högre minne att CPU-förhållande än andra datorer. Om ditt paket kräver mycket minne, kan du välja virtuella datorer för E-serien.
+-   Prestanda-/pris förhållandet i D-serien är högre än en serie och prestanda-/pris förhållandet för v3-serien är högre än v2-serien.
+-   Data flödet för D-serien är högre än en serie med samma pris och data flödet för v3-serien är högre än v2-serien till samma pris.
+-   Noderna i v2-serien i Azure-SSIS IR lämpar sig inte för anpassad installation, så Använd v3-seriens noder i stället. Om du redan använder noderna i v2-serien växlar du till att använda v3-serierna så snart som möjligt.
+-   E-serien är minnesoptimerade VM-storlekar som ger ett högre minne-till-CPU-förhållande än andra datorer. Om paketet kräver mycket minne kan du överväga att välja E-serien VM.
 
-### <a name="configure-for-execution-speed"></a>Konfigurera för körning hastighet
-Om du inte har många paket för att köra och du vill paket för att köra snabbt, Använd informationen i följande diagram för att välja en typ av virtuell dator som är lämpliga för ditt scenario.
+### <a name="configure-for-execution-speed"></a>Konfigurera för körnings hastighet
+Om du inte har många paket att köra och du vill att paketen ska köras snabbt, använder du informationen i följande diagram för att välja en typ av virtuell dator som passar ditt scenario.
 
-Dessa data representerar en och samma paketetkörning på en enskild worker-nod. Paketet läses in 3 miljoner poster med förnamn och senaste kolumner från Azure Blob Storage, genererar en kolumn för fullständigt namn och skriver poster som har det fullständiga namnet som är längre än 20 tecken till Azure Blob Storage.
+Den här informationen representerar ett enskilt paket som körs på en enskild arbetsnod. Paketet läser in 3 000 000 poster med kolumnerna förnamn och efter namn från Azure Blob Storage, genererar en kolumn med fullständigt namn och skriver poster som har det fullständiga namnet som är längre än 20 tecken till Azure Blob Storage.
 
-![SSIS Integration Runtime-paketet körning hastighet](media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speedV2.png)
+![Körnings hastighet för SSIS Integration Runtime-paket](media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speedV2.png)
 
-### <a name="configure-for-overall-throughput"></a>Konfigurera för hela dataflödet
+### <a name="configure-for-overall-throughput"></a>Konfigurera för övergripande data flöde
 
-Om du har massor av paket för att köra och du är mest intresserad det totala arbetsflödet, Använd informationen i följande diagram för att välja en typ av virtuell dator som är lämpliga för ditt scenario.
+Om du har många paket att köra och du bryr dig om det totala data flödet, använder du informationen i följande diagram för att välja en typ av virtuell dator som passar ditt scenario.
 
-![SSIS-Integreringskörning högsta totala arbetsflödet](media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughputV2.png)
+![SSIS Integration Runtime maximalt totalt data flöde](media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughputV2.png)
 
 ## <a name="azuressisnodenumber"></a>AzureSSISNodeNumber
 
-**AzureSSISNodeNumber** justerar skalbarhet för integreringskörningen. Dataflödet för integration runtime är proportionell mot den **AzureSSISNodeNumber**. Ange den **AzureSSISNodeNumber** övervaka genomflödet av integration runtime till ett litet värde först och sedan justera värdet för ditt scenario. Om du vill konfigurera om nodantal worker, se [hantera en Azure-SSIS integration runtime](manage-azure-ssis-integration-runtime.md).
+**AzureSSISNodeNumber** justerar skalbarheten för integration Runtime. Data flödet för integration runtime är proportionellt mot **AzureSSISNodeNumber**. Ange **AzureSSISNodeNumber** till ett litet värde först, övervaka data flödet för integrerings körningen och justera sedan värdet för ditt scenario. Information om hur du konfigurerar om antalet arbets noder finns i [hantera en Azure-SSIS integration runtime](manage-azure-ssis-integration-runtime.md).
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-När du redan använder en kraftfull arbetsnod för att köra paket, vilket ökar **AzureSSISMaxParallelExecutionsPerNode** kan öka det totala arbetsflödet av integration runtime. 1 – 4 parallella körningar per nod stöds för Standard_D1_v2 noder. För alla andra typer av noder stöds 1 max(2 x number of cores, 8) parallella körningar per nod. Om du vill att **AzureSSISMaxParallelExecutionsPerNode** utöver det högsta värde som vi stöds, kan du öppna ett supportärende och vi kan öka maxvärdet för dig och efter som du behöver använda Azure Powershell för att uppdatera  **AzureSSISMaxParallelExecutionsPerNode**.
-Du kan beräkna lämpligt värde baserat på kostnaden för ditt paket och följande konfigurationer för arbetsnoderna. Mer information finns i [allmänna virtuella datorstorlekar](../virtual-machines/windows/sizes-general.md).
+Om du redan använder en kraftfull arbetsnode för att köra paket kan du öka det totala data flödet för integrerings körningen genom att öka **AzureSSISMaxParallelExecutionsPerNode** . 1-4 parallella körningar per nod stöds för Standard_D1_v2-noder. För alla andra typer av noder stöds 1 – Max (2 x antal kärnor, 8) parallella körningar per nod. Om du vill ha **AzureSSISMaxParallelExecutionsPerNode** utöver det högsta värde som stöds, kan du öppna ett support ärende och vi kan öka Max värdet för dig och efter att du behöver använda Azure PowerShell för att uppdatera **AzureSSISMaxParallelExecutionsPerNode** .
+Du kan uppskatta lämpligt värde baserat på kostnaden för ditt paket och följande konfigurationer för arbetsnoderna. Mer information finns i [allmänna storlekar för virtuella datorer](../virtual-machines/windows/sizes-general.md).
 
-| Storlek             | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / läsning / Skriv Mbit/s | Maximalt antal datadiskar / dataflöde: IOPS | Maximalt antal nätverkskort/förväntade nätverksprestanda (Mbit/s) |
+| Storlek             | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Maximalt antal nätverkskort/förväntade nätverksprestanda (Mbit/s) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
 | Standard\_D1\_v2 | 1    | 3.5         | 50                     | 3 000 / 46 / 23                                             | 2 / 2 x 500                         | 2/750                                        |
 | Standard\_D2\_v2 | 2    | 7           | 100                    | 6 000 / 93 / 46                                             | 4 / 4 x 500                         | 2/1 500                                       |
@@ -126,39 +126,39 @@ Du kan beräkna lämpligt värde baserat på kostnaden för ditt paket och följ
 | Standard\_D4\_v2 | 8    | 28          | 400                    | 24 000 / 375 / 187                                          | 16 / 16 x 500                       | 8/6 000                                       |
 | Standard\_A4\_v2 | 4    | 8           | 40                     | 4 000 / 80 / 40                                             | 8 / 8 x 500                         | 4/1 000                                       |
 | Standard\_A8\_v2 | 8    | 16          | 80                     | 8 000 / 160 / 80                                            | 16 / 16 x 500                       | 8/2 000                                       |
-| Standard\_D2\_v3 | 2    | 8           | 50                     | 3 000 / 46 / 23                                             | 4 / 6 x 500                         | 2/1 000                                       |
-| Standard\_D4\_v3 | 4    | 16          | 100                    | 6 000 / 93 / 46                                             | 8 / 12 x 500                        | 2/2 000                                       |
-| Standard\_D8\_v3 | 8    | 32          | 200                    | 12 000 / 187 / 93                                           | 16 / 24 x 500                       | 4 / 4000                                       |
-| Standard\_D16\_v3| 16   | 64          | 400                    | 24 000 / 375 / 187                                          | 32 / 48 x 500                        | 8 / 8000                                       |
-| Standard\_D32\_v3| 32   | 128         | 800                    | 48 000 / 750 / 375                                          | 32 / 96 x 500                       | 8/16 000                                      |
-| Standard\_D64\_v3| 64   | 256         | 1600                   | 96000 / 1000 / 500                                         | 32 / 192 x 500                      | 8 / 30000                                      |
-| Standard\_E2\_v3 | 2    | 16          | 50                     | 3 000 / 46 / 23                                             | 4 / 6 x 500                         | 2/1 000                                       |
-| Standard\_E4\_v3 | 4    | 32          | 100                    | 6 000 / 93 / 46                                             | 8 / 12 x 500                        | 2/2 000                                       |
-| Standard\_E8\_v3 | 8    | 64          | 200                    | 12 000 / 187 / 93                                           | 16 / 24 x 500                       | 4 / 4000                                       |
-| Standard\_E16\_v3| 16   | 128         | 400                    | 24 000 / 375 / 187                                          | 32 / 48 x 500                       | 8 / 8000                                       |
-| Standard\_E32\_v3| 32   | 256         | 800                    | 48 000 / 750 / 375                                          | 32 / 96 x 500                       | 8/16 000                                      |
-| Standard\_E64\_v3| 64   | 432         | 1600                   | 96000 / 1000 / 500                                         | 32 / 192 x 500                      | 8 / 30000                                      |
+| Standard\_D2\_v3 | 2    | 8           | 50                     | 3 000 / 46 / 23                                             | 4/6x500                         | 2/1 000                                       |
+| Standard\_D4\_v3 | 4    | 16          | 100                    | 6 000 / 93 / 46                                             | 8/12x500                        | 2/2 000                                       |
+| Standard\_D8\_v3 | 8    | 32          | 200                    | 12 000 / 187 / 93                                           | 16/24x500                       | 4 / 4000                                       |
+| Standard\_D16\_v3| 16   | 64          | 400                    | 24 000 / 375 / 187                                          | 32/48x500                        | 8 / 8000                                       |
+| Standard\_D32\_v3| 32   | 128         | 800                    | 48 000 / 750 / 375                                          | 32/96x500                       | 8/16 000                                      |
+| Standard\_D64\_v3| 64   | 256         | 1600                   | 96000/1000/500                                         | 32/192x500                      | 8 / 30000                                      |
+| Standard\_E2\_v3 | 2    | 16          | 50                     | 3 000 / 46 / 23                                             | 4/6x500                         | 2/1 000                                       |
+| Standard\_E4\_v3 | 4    | 32          | 100                    | 6 000 / 93 / 46                                             | 8/12x500                        | 2/2 000                                       |
+| Standard\_E8\_v3 | 8    | 64          | 200                    | 12 000 / 187 / 93                                           | 16/24x500                       | 4 / 4000                                       |
+| Standard\_E16\_v3| 16   | 128         | 400                    | 24 000 / 375 / 187                                          | 32/48x500                       | 8 / 8000                                       |
+| Standard\_E32\_v3| 32   | 256         | 800                    | 48 000 / 750 / 375                                          | 32/96x500                       | 8/16 000                                      |
+| Standard\_E64\_v3| 64   | 432         | 1600                   | 96000/1000/500                                         | 32/192x500                      | 8 / 30000                                      |
 
-Här följer riktlinjerna för att ange rätt värde för den **AzureSSISMaxParallelExecutionsPerNode** egenskapen: 
+Här följer rikt linjerna för att ange rätt värde för egenskapen **AzureSSISMaxParallelExecutionsPerNode** : 
 
-1. Ange den till ett litet värde först.
-2. Öka det med en viss att kontrollera om det totala arbetsflödet har förbättrats.
-3. Stoppa öka värdet när det totala arbetsflödet når det högsta värdet.
+1. Ange det som ett litet värde först.
+2. Öka det med ett litet belopp för att kontrol lera om det totala data flödet har förbättrats.
+3. Sluta öka värdet när det totala data flödet når det maximala värdet.
 
 ## <a name="ssisdbpricingtier"></a>SSISDBPricingTier
 
-**SSISDBPricingTier** är prisnivån för SSIS-katalogdatabasen (SSISDB) på en Azure SQL database. Den här inställningen påverkar det maximala antalet arbeten i IR-instans, hur snabbt i kö för körning av ett paket och hastighet för att läsa in körningsloggen.
+**SSISDBPricingTier** är pris nivån för SSIS Catalog-databasen (SSISDB) på en Azure SQL-databas. Den här inställningen påverkar det maximala antalet arbetare i IR-instansen, hastigheten för att köa en paket körning och hastigheten för att läsa in körnings loggen.
 
--   Om du inte bryr dig om hastighet för körning av kön paket och inläsning körningsloggen, kan du välja den lägsta prisnivån för databasen. Azure SQL Database med priser för grundläggande stöder 8 arbetare i en integration runtime-instans.
+-   Om du inte bryr dig om hastigheten med att köa paket körningen och läsa in körnings loggen kan du välja den lägsta databas pris nivån. Azure SQL Database med Basic-prissättning stöder 8 arbetare i en integration runtime-instans.
 
--   Välj en kraftfullare databas än grundläggande om antal arbeten är mer än 8 eller antal kärnor är mer än 50. Annars blir flaskhals av integration runtime-instans för databasen och serverns prestanda påverkas negativt.
+-   Välj en kraftfullare databas än Basic om antalet anställda är mer än 8, eller om antalet kärnor är mer än 50. Annars blir databasen Flask halsen för integration runtime-instansen och den övergripande prestandan påverkas negativt.
 
--   Välj en kraftfullare databas, till exempel s3 om loggningsnivån anges till utförlig. Enligt våra inofficiella interna tester, har s3-prisinivå stöd för körning av SSIS-paket med 2 noder, 128 parallella antal och utförlig loggningsnivå.
+-   Välj en mer kraftfull databas, till exempel S3, om loggnings nivån är inställd på verbose. Enligt vår inofficiella interna testning kan pris nivån S3 stödja SSIS-paket körning med 2 noder, 128 parallella räknare och utförlig loggnings nivå.
 
-Du kan också justera databasprisnivå utifrån [database-transaktionsenhet](../sql-database/sql-database-what-is-a-dtu.md) (DTU) användning-information är tillgänglig på Azure portal.
+Du kan också justera pris nivån för databasen baserat på användnings informationen för DTU ( [databas transaktions enhet](../sql-database/sql-database-what-is-a-dtu.md) ) som är tillgänglig på Azure Portal.
 
 ## <a name="design-for-high-performance"></a>Design för hög prestanda
-Designa ett SSIS-paket för att köra i Azure skiljer sig från utforma ett paket för lokal körning. I stället för att kombinera flera oberoende aktiviteter i samma paket kan dela in dem i flera paket för effektivare körning i Azure-SSIS IR. Skapa en körning av paket för varje paket så att de inte behöver vänta på varandra för att slutföra. Den här metoden dra nytta av skalbarheten i Azure-SSIS integration runtime och förbättrar hela dataflödet.
+Att utforma ett SSIS-paket som ska köras på Azure skiljer sig från att utforma ett paket för lokal körning. I stället för att kombinera flera oberoende uppgifter i samma paket, separera dem till flera paket för mer effektiv körning i Azure-SSIS IR. Skapa en paket körning för varje paket, så att de inte behöver vänta på att de ska slutföras. Den här metoden ger fördelarna med skalbarheten för Azure-SSIS integration Runtime och förbättrar det totala data flödet.
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om Azure-SSIS Integration Runtime. Se [Azure SSIS-Integreringskörning](concepts-integration-runtime.md#azure-ssis-integration-runtime).
+Läs mer om Azure-SSIS Integration Runtime. Se [Azure-SSIS integration runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime).

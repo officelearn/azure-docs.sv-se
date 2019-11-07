@@ -1,6 +1,6 @@
 ---
-title: Kopiera filer från flera behållare med hjälp av Azure Data Factory | Microsoft Docs
-description: Lär dig hur du använder en lösningsmall för att kopiera filer från flera behållare med hjälp av Azure Data Factory.
+title: Kopiera filer från flera behållare med hjälp av Azure Data Factory
+description: Lär dig hur du använder en lösnings mall för att kopiera filer från flera behållare med hjälp av Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -12,40 +12,40 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/1/2018
-ms.openlocfilehash: a52729adf8d6df3f4e44e561b45b854db433628c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 004a623f0dfe251da9d452b53c2541e53339d965
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60635211"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684259"
 ---
 # <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Kopiera filer från flera behållare med Azure Data Factory
 
-Den här artikeln beskrivs en mall som du kan använda för att kopiera filer från flera behållare mellan fil. Du kan till exempel använda den för att migrera dina data lake från AWS S3 till Azure Data Lake Store. Eller du kan använda mallen för att replikera allt från en Azure Blob storage-konto till en annan.
+Den här artikeln beskriver en lösnings mall som du kan använda för att kopiera filer från flera behållare mellan fil arkiv. Du kan till exempel använda den för att migrera data Lake från AWS S3 till Azure Data Lake Store. Eller så kan du använda mallen för att replikera allt från ett Azure Blob Storage-konto till ett annat.
 
 > [!NOTE]
-> Om du vill kopiera filer från en enskild behållare är det mer effektivt att använda den [Data Kopieringsverktyget](copy-data-tool.md) att skapa en pipeline med en enda Kopieringsaktivitet. Mallen i den här artikeln är högre än vad du behöver för det enkla scenariot.
+> Om du vill kopiera filer från en enda behållare är det mer effektivt att använda [Kopiera data-verktyget](copy-data-tool.md) för att skapa en pipeline med en enda kopierings aktivitet. Mallen i den här artikeln är mer än du behöver för det enkla scenariot.
 
-## <a name="about-this-solution-template"></a>Om den här lösningsmallen
+## <a name="about-this-solution-template"></a>Om den här lösnings mal len
 
-Den här mallen räknar upp behållare från källan storage store. De här behållarna kopieras sedan till målarkivet.
+Den här mallen räknar upp behållarna från din käll lagrings lagring. Den kopierar sedan dessa behållare till mål lagret.
 
 Mallen innehåller tre aktiviteter:
-- **GetMetadata** söker igenom din butik för lagring av källa och hämtar listan över behållare.
-- **ForEach** hämtar listan över behållare från den **GetMetadata** aktiviteten itererar över listan och skickar varje behållare till kopieringsaktiviteten.
-- **Kopiera** kopierar varje behållare från storage källagringen till målarkiv.
+- **GetMetaData** genomsöker ditt käll lagrings lager och hämtar behållar listan.
+- Med **början hämtar du** behållar listan från **getMetaData** -aktiviteten och itererar sedan över listan och överför varje behållare till kopierings aktiviteten.
+- **Kopiera** kopierar varje behållare från käll lagrings lagret till mål arkivet.
 
 Mallen definierar två parametrar:
-- *SourceFilePath* är sökvägen till din datakällagring, där du kan få en lista över behållarna. I de flesta fall är sökvägen rotkatalog, som innehåller flera mappar i behållaren. Standardvärdet för den här parametern är `/`.
-- *DestinationFilePath* är den sökväg där filerna ska kopieras till i din målarkiv. Standardvärdet för den här parametern är `/`.
+- *SourceFilePath* är sökvägen till data käll arkivet där du kan hämta en lista över behållarna. I de flesta fall är sökvägen rot katalogen, som innehåller flera behållar-mappar. Standardvärdet för den här parametern är `/`.
+- *DestinationFilePath* är sökvägen dit filerna kopieras till i mål arkivet. Standardvärdet för den här parametern är `/`.
 
-## <a name="how-to-use-this-solution-template"></a>Hur du använder den här lösningsmallen
+## <a name="how-to-use-this-solution-template"></a>Så här använder du den här lösnings mal len
 
-1. Gå till den **kopiera flera filer behållare mellan filen** mall. Skapa en **New** anslutning till din butik för lagring av källa. Storage källagringen är där du vill kopiera filer från flera behållare från.
+1. Gå till mallen **Kopiera flera filer mellan fil Arkiv** . Skapa en **ny** anslutning till ditt käll lagrings lager. Käll lagrings platsen är den plats där du vill kopiera filer från flera behållare från.
 
     ![Skapa en ny anslutning till källan](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image1.png)
 
-2. Skapa en **New** anslutning till din målarkiv för lagring.
+2. Skapa en **ny** anslutning till mål lagrings platsen.
 
     ![Skapa en ny anslutning till målet](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image2.png)
 
@@ -53,11 +53,11 @@ Mallen definierar två parametrar:
 
     ![Använd den här mallen](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
     
-4. Pipelinen, som i följande exempel visas:
+4. Du ser pipelinen, som i följande exempel:
 
     ![Visa pipelinen](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png)
 
-5. Välj **felsöka**, ange den **parametrar**, och välj sedan **Slutför**.
+5. Välj **Felsök**, ange **parametrarna**och välj sedan **Slutför**.
 
     ![Köra en pipeline](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png)
 
@@ -67,6 +67,6 @@ Mallen definierar två parametrar:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Masskopiering från en databas med hjälp av en kontroll-tabell med Azure Data Factory](solution-template-bulk-copy-with-control-table.md)
+- [Mass kopiering från en databas med hjälp av en kontroll tabell med Azure Data Factory](solution-template-bulk-copy-with-control-table.md)
 
 - [Kopiera filer från flera behållare med Azure Data Factory](solution-template-copy-files-multiple-containers.md)

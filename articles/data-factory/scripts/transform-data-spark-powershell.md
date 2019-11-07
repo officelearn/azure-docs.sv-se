@@ -1,5 +1,5 @@
 ---
-title: PowerShell-skript – transformera data i molnet med Data Factory | Microsoft Docs
+title: 'PowerShell-skript – transformera data i molnet med hjälp av Data Factory '
 description: Det här PowerShell-skriptet transformerar data i molnet genom att köra Spark-program på ett Azure HDInsight Spark kluster.
 author: djpmsft
 ms.author: daperlov
@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/12/2017
-ms.openlocfilehash: 973efe90ea1da68e4c4e4b0dbbb4c191be18213d
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 53f64103819476e4efe918bd7a7be4ee2a1bcca3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140882"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684320"
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>PowerShell-skript – transformera data i molnet med hjälp av Azure Data Factory
 
@@ -24,7 +24,7 @@ Det här exemplet på PowerShell-skriptet skapar en pipeline som transformerar d
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * **Azure Storage-konto**. Skapa ett Python-skript och en indatafil och överför dem till Azure Storage. Spark-programmets utdata lagras på det här lagringskontot. Spark-klustret på begäran använder samma lagringskonto som den primära lagringen.  
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Överföra Python-skriptet till ditt Blob Storage-konto
@@ -62,7 +62,7 @@ Det här exemplet på PowerShell-skriptet skapar en pipeline som transformerar d
 
 ### <a name="upload-the-input-file"></a>Överför indatafilen
 1. Skapa en fil med namnet **minecraftstory.txt** med lite text. Spark-programmet räknar antalet ord i texten. 
-2. Skapa en undermapp med namnet `inputfiles` `spark` i mappen i BLOB-behållaren. 
+2. Skapa en undermapp med namnet `inputfiles` i mappen `spark` i BLOB-behållaren. 
 3. Överför `minecraftstory.txt` till mappen `inputfiles`. 
 
 ## <a name="sample-script"></a>Exempelskript

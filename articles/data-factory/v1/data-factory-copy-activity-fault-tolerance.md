@@ -1,6 +1,6 @@
 ---
-title: Lägga till feltolerans i Azure Data Factory-Kopieringsaktiviteten genom att hoppa över inkompatibla rader | Microsoft Docs
-description: Lär dig hur du lägger till feltolerans i Azure Data Factory-Kopieringsaktiviteten genom att hoppa över inkompatibla rader vid kopiering
+title: Lägg till fel tolerans i Azure Data Factory kopierings aktivitet genom att hoppa över inkompatibla rader
+description: Lär dig hur du lägger till fel tolerans i Azure Data Factory kopierings aktivitet genom att hoppa över inkompatibla rader under kopiering
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,47 +12,47 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3a255b21e8bfd7d78954603e9aa6e5ca39cee95b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 84f5cdff72abe210ac1e39234b455e506d52ba5e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60566077"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682956"
 ---
-# <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Lägga till feltolerans i Kopieringsaktiviteten genom att hoppa över inkompatibla rader
+# <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Lägg till fel tolerans i kopierings aktiviteten genom att hoppa över inkompatibla rader
 
-> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
+> [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-copy-activity-fault-tolerance.md)
 > * [Version 2 (aktuell version)](../copy-activity-fault-tolerance.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [feltolerans i kopieringsaktiviteten i Data Factory](../copy-activity-fault-tolerance.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory, se [fel tolerans i kopierings aktiviteten för Data Factory](../copy-activity-fault-tolerance.md).
 
-Azure Data Factory [Kopieringsaktiviteten](data-factory-data-movement-activities.md) ger dig två sätt att hantera inkompatibla rader vid kopiering av data mellan datalager för källa och mottagare:
+Azure Data Factory [kopierings aktivitet](data-factory-data-movement-activities.md) ger dig två sätt att hantera inkompatibla rader när du kopierar data mellan käll-och mottagar data lager:
 
-- Du kan avbryta och växla kopian aktivitet när det inkompatibla data påträffades (standardinställning).
-- Du kan fortsätta att kopiera alla data genom att lägga till feltolerans och hoppar över inkompatibel datarader. Du kan också logga inkompatibla rader i Azure Blob storage. Du kan sedan Kontrollera loggen om du vill lära dig orsaken till felet, rätta data på datakällan och försök kopieringsaktiviteten.
+- Du kan avbryta och avbryta kopierings aktiviteten när inkompatibla data påträffas (standard beteende).
+- Du kan fortsätta att kopiera alla data genom att lägga till fel tolerans och hoppa över inkompatibla data rader. Dessutom kan du logga de inkompatibla raderna i Azure Blob Storage. Du kan sedan granska loggen för att lära dig orsaken till felet, korrigera data på data källan och försöka kopiera aktiviteten igen.
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
-Kopieringsaktivitet stöder tre scenarier för att identifiera, hoppar över och loggning inkompatibla data:
+Kopierings aktiviteten stöder tre scenarier för att identifiera, hoppa över och logga inkompatibla data:
 
-- **Inkompatibilitet mellan källdatatyp och interna Mottagartyp**
+- **Inkompatibilitet mellan käll data typ och inbyggd typ av mottagare**
 
-    Exempel: Kopiera data från en CSV-fil i Blob storage till en SQL-databas med en schemadefinitionen som innehåller tre **INT** kolumner av typen. Rader för CSV-fil som innehåller numeriska data, till exempel `123,456,789` har kopierats till arkivet mottagare. Men raderna som innehåller icke-numeriska värden, till exempel `123,456,abc` identifieras som inkompatibel och hoppas över.
+    Exempel: kopiera data från en CSV-fil i Blob Storage till en SQL-databas med en schema definition som innehåller tre kolumner av typen **int** . CSV-filrader som innehåller numeriska data, till exempel `123,456,789` kopieras till mottagar lagret. Men de rader som innehåller icke-numeriska värden, till exempel `123,456,abc`, identifieras som inkompatibla och hoppas över.
 
-- **Matchar inte antalet kolumner mellan källan och mottagaren**
+- **Antalet kolumner mellan källan och sinken matchar inte**
 
-    Exempel: Kopiera data från en CSV-fil i Blob storage till en SQL-databas med en schemadefinitionen som innehåller sex kolumner. Rader för CSV-fil som innehåller sex kolumner är har kopierats till arkivet mottagare. Rader för CSV-fil som innehåller fler eller färre än sex kolumner identifieras som inkompatibel och hoppas över.
+    Exempel: kopiera data från en CSV-fil i Blob Storage till en SQL-databas med en schema definition som innehåller sex kolumner. CSV-filrader som innehåller sex kolumner kopieras till mottagar lagret. CSV-filrader som innehåller mer eller färre än sex kolumner identifieras som inkompatibla och hoppas över.
 
-- **Primär felet när du skriver till SQL Server/Azure SQL Database-/ Azure Cosmos DB**
+- **Fel vid skrivning till primär nyckel vid skrivning till SQL Server/Azure SQL Database/Azure Cosmos DB**
 
-    Exempel: Kopiera data från en SQLServer till en SQL-databas. En primärnyckel har definierats i mottagare SQL-databasen, men ingen primär nyckel har definierats i käll-SQL-servern. Duplicerade raderna som finns i källan kan inte kopieras till mottagaren. Kopieringsaktiviteten kopierar endast den första raden i källdata till mottagaren. Efterföljande källraderna som innehåller duplicerade primärnyckelvärdet identifieras som inkompatibel och hoppas över.
+    Exempel: kopiera data från en SQL-Server till en SQL-databas. En primär nyckel definieras i Sink-SQL-databasen, men ingen sådan primär nyckel definieras i SQL Server-källan. Det går inte att kopiera de duplicerade raderna som finns i källan till mottagaren. Kopierings aktiviteten kopierar bara den första raden i data källan till mottagaren. Efterföljande käll rader som innehåller värdet för duplicerad primär nyckel identifieras som inkompatibla och hoppas över.
 
 >[!NOTE]
->Den här funktionen gäller inte när kopieringsaktiviteten är konfigurerad för att anropa externa datainläsning mekanism inklusive [Azure SQL Data Warehouse PolyBase](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) eller [Amazon Redshift-avlastning](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift). För att läsa in data till SQL Data Warehouse med PolyBase kan du använda Polybases interna fault tolerance support genom att ange ”[polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)” i kopieringsaktiviteten.
+>Den här funktionen gäller inte när kopierings aktiviteten har kon figurer ATS för att anropa extern data inläsnings mekanism, inklusive [Azure SQL Data Warehouse PolyBase](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) eller [Amazon RedShift-inläsning](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift). Om du vill läsa in data i SQL Data Warehouse med PolyBase använder du polybases inbyggda fel tolerans stöd genom att ange "[polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)" i kopierings aktiviteten.
 
 ## <a name="configuration"></a>Konfiguration
-I följande exempel innehåller en JSON-definition för att konfigurera hoppar över inkompatibla rader i Kopieringsaktiviteten:
+I följande exempel visas en JSON-definition som hoppar över inkompatibla rader i kopierings aktiviteten:
 
 ```json
 "typeProperties": {
@@ -70,25 +70,25 @@ I följande exempel innehåller en JSON-definition för att konfigurera hoppar �
 }
 ```
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| **enableSkipIncompatibleRow** | Aktivera hoppas över inkompatibla rader vid kopiering eller inte. | True<br/>FALSKT (standard) | Nej |
-| **redirectIncompatibleRowSettings** | En grupp egenskaper som kan anges när du vill logga inkompatibla rader. | &nbsp; | Nej |
-| **linkedServiceName** | Den länkade tjänsten av Azure Storage för att lagra loggen som innehåller raderna hoppades över. | Namnet på en [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) eller [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) länkad tjänst som refererar till den storage-instans som du vill använda för att lagra loggfilen. | Nej |
-| **Sökväg** | Sökvägen till loggfilen som innehåller raderna hoppades över. | Ange sökvägen för Blob-lagring som du vill använda för att logga inkompatibla data. Om du inte anger en sökväg, skapar tjänsten en behållare. | Nej |
+| **enableSkipIncompatibleRow** | Aktivera hoppa över inkompatibla rader under kopian eller inte. | True<br/>Falskt (standard) | Nej |
+| **redirectIncompatibleRowSettings** | En grupp egenskaper som kan anges när du vill logga de inkompatibla raderna. | &nbsp; | Nej |
+| **linkedServiceName** | Den länkade tjänsten med Azure Storage för att lagra loggen som innehåller de överhoppade raderna. | Namnet på en länkad [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) -eller [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) -tjänst som refererar till den lagrings instans som du vill använda för att lagra logg filen. | Nej |
+| **path** | Sökvägen till logg filen som innehåller de överhoppade raderna. | Ange den Blob Storage-sökväg som du vill använda för att logga inkompatibla data. Om du inte anger en sökväg skapar tjänsten en behållare åt dig. | Nej |
 
 ## <a name="monitoring"></a>Övervakning
-När körningen av kopieringsaktiviteten är klar ser du hur många hoppades över rader i avsnittet övervakning:
+När körningen av kopierings aktiviteten är klar kan du se antalet rader som hoppats över i avsnittet övervakning:
 
-![Övervaka hoppades över inkompatibla rader](./media/data-factory-copy-activity-fault-tolerance/skip-incompatible-rows-monitoring.png)
+![Övervakaren hoppade över inkompatibla rader](./media/data-factory-copy-activity-fault-tolerance/skip-incompatible-rows-monitoring.png)
 
-Om du konfigurerar för att logga inkompatibla rader, hittar du i loggfilen på den här sökvägen: `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv` I loggfilen ser du de rader som har hoppats över och de grundläggande orsakerna till inkompatibilitet.
+Om du konfigurerar för att logga inkompatibla rader kan du hitta logg filen på den här sökvägen: `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv` i logg filen kan du se de rader som hoppades över och rotor saken till inkompatibiliteten.
 
-Både den ursprungliga informationen och motsvarande fel loggas i filen. Ett exempel på log filinnehållet är följande:
+Både den ursprungliga informationen och motsvarande fel loggas i filen. Ett exempel på logg filens innehåll är följande:
 ```
 data1, data2, data3, UserErrorInvalidDataValue,Column 'Prop_2' contains an invalid value 'data3'. Cannot convert 'data3' to type 'DateTime'.,
 data4, data5, data6, Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4).
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om Azure Data Factory Kopieringsaktivitet i [flytta data med hjälp av Kopieringsaktiviteten](data-factory-data-movement-activities.md).
+Läs mer om hur du Azure Data Factory kopierings aktivitet i [Flytta data med hjälp av kopierings aktivitet](data-factory-data-movement-activities.md).

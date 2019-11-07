@@ -1,5 +1,5 @@
 ---
-title: Översikt över SQL Database-programutveckling | Microsoft Docs
+title: Översikt över SQL Database-programutveckling
 description: Läs mer om tillgängliga anslutningsbibliotek och bästa praxis för program som ansluter till SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 02/07/2019
-ms.openlocfilehash: 42fc73b5557fba91cc132a0abe8561f0a72bbb64
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 58f823aad157657de5445b1010a405af01c70171
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568861"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690638"
 ---
 # <a name="sql-database-application-development-overview"></a>Översikt över SQL Database program utveckling
 
@@ -32,7 +32,7 @@ Du kan använda olika [programmeringsspråk och plattformar](sql-database-connec
 
 Du kan utnyttja verktyg med öppen källkod som [Cheetah](https://github.com/wunderlist/cheetah), [SQL-CLI](https://www.npmjs.com/package/sql-cli), [vs Code](https://code.visualstudio.com/). Azure SQL Database fungerar dessutom med Microsoft-verktyg som [Visual Studio](https://www.visualstudio.com/downloads/) och [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Du kan också använda API: erna Azure Portal, PowerShell och REST för att få ytterligare produktivitet.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autentisering
 
 Åtkomst till Azure SQL Database skyddas med inloggningar och brand väggar. Azure SQL Database stöder användare och inloggningar både SQL Server och [Azure Active Directory (AAD)-autentisering](sql-database-aad-authentication.md) . AAD-inloggningar är bara tillgängliga i hanterade instanser. 
 
@@ -55,7 +55,7 @@ Mer information om hur du förbereder för planerade underhålls händelser på 
 ## <a name="network-considerations"></a>Nätverks överväganden
 
 - På den dator som är värd för ditt klientprogram, ska du se till att brandväggen tillåter utgående TCP-kommunikation på port 1433.  Mer information: [Konfigurera en Azure SQL Database brand vägg](sql-database-configure-firewall-settings.md).
-- Om klient programmet ansluter till SQL Database medan klienten körs på en virtuell dator i Azure måste du öppna vissa port intervall på den virtuella datorn. Mer information: [Portar utöver 1433 för ADO.NET 4,5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
+- Om klient programmet ansluter till SQL Database medan klienten körs på en virtuell dator i Azure måste du öppna vissa port intervall på den virtuella datorn. Mer information: [portar utöver 1433 för ADO.NET 4,5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Klient anslutningar till Azure SQL Database ibland kringgå proxyn och interagera direkt med databasen. Andra portar än 1433 blir viktiga. Mer information [Azure SQL Database anslutnings arkitektur](sql-database-connectivity-architecture.md) och [portar utöver 1433 för ADO.NET 4,5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Nätverks konfiguration för en hanterad instans finns i [nätverks konfiguration för hanterade instanser](sql-database-howto-managed-instance.md#network-configuration).
 

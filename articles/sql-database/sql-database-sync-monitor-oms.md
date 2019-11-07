@@ -1,5 +1,5 @@
 ---
-title: Övervaka Azure-SQL Data Sync med Azure Monitor loggar | Microsoft Docs
+title: 'Övervaka Azure-SQL Data Sync med Azure Monitor loggar '
 description: Lär dig hur du övervakar Azure-SQL Data Sync med hjälp av Azure Monitor loggar
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 26dc1ebef1c627ed2b20eb0fda68b2ca2d01b82a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 9e89ad8e6ac556df87a674efdf2d3bbc2041c38b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791749"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687027"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Övervaka SQL Data Sync med Azure Monitor loggar 
 
@@ -61,7 +61,7 @@ Hämta följande två exempel:
 
 -   [Vyn data synkronisering Azure Monitor](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 Kontrol lera att du har ställt in följande saker:
 
@@ -135,7 +135,7 @@ Om du vill skapa en avisering som använder Azure Monitor loggar gör du följan
 
 1.  I Azure Portal väljer du **loggs ökning**.
 
-2.  Skapa en fråga för att välja fel och varningar efter synkroniseringsresursen inom det intervall som du har valt. Exempel:
+2.  Skapa en fråga för att välja fel och varningar efter synkroniseringsresursen inom det intervall som du har valt. Till exempel:
 
     `DataSyncLog_CL | where TimeGenerated > ago(60m) | where LogLevel_s != "Success" | summarize count() by SyncGroupName_s`
 
@@ -149,7 +149,7 @@ Om du vill skapa en avisering som använder Azure Monitor loggar gör du följan
 
 5.  Under **åtgärder**anger du **e-postavisering** till "Ja". Ange önskade e-postmottagare.
 
-6.  Klicka på **Save** (Spara). De angivna mottagarna får nu e-postaviseringar när fel inträffar.
+6.  Klicka på **Spara**. De angivna mottagarna får nu e-postaviseringar när fel inträffar.
 
 ## <a name="create-an-azure-monitor-view-for-monitoring"></a>Skapa en Azure Monitor vy för övervakning
 

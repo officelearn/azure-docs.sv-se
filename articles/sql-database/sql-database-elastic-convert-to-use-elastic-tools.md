@@ -1,5 +1,5 @@
 ---
-title: Migrera befintliga databaser för att skala ut | Microsoft Docs
+title: Migrera befintliga databaser för att skala ut
 description: Konvertera shardade-databaser till att använda Elastic Database-verktyg genom att skapa en Shard Map Manager
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 2d6d5c51cb381c089633ba010a1d64c8486ddcd8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b88c56872408a7ffe127a4e96d2313301d44c892
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568720"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690540"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrera befintliga databaser för att skala ut
 Hantera enkelt dina befintliga utskalade shardade-databaser med hjälp av Azure SQL Database databas verktyg (till exempel [Elastic Database klient bibliotek](sql-database-elastic-database-client-library.md)). Konvertera först en befintlig uppsättning databaser till att använda [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md). 
@@ -97,10 +97,10 @@ För att kunna använda detta mappnings mönster måste klient-ID-värdena vara 
     -RangeShardMapName 'RangeShardMap' 
     -ShardMapManager $ShardMapManager 
 
-### <a name="option-3-list-mappings-on-an-individual-database"></a>Alternativ 3: List mappningar i en enskild databas
+### <a name="option-3-list-mappings-on-an-individual-database"></a>Alternativ 3: lista mappningar i en enskild databas
 När du ställer in det här mönstret måste du också skapa en List karta som visas i steg 2, alternativ 1.
 
-## <a name="step-3-prepare-individual-shards"></a>Steg 3: Förbereda enskilda Shards
+## <a name="step-3-prepare-individual-shards"></a>Steg 3: förbereda enskilda Shards
 Lägg till varje Shard (databas) till Shard Map Manager. Detta förbereder de enskilda databaserna för lagring av mappnings information. Kör den här metoden på varje Shard.
 
     Add-Shard 
@@ -153,7 +153,7 @@ När du har slutfört installationen kan du börja använda Elastic Database kli
 ## <a name="next-steps"></a>Nästa steg
 Hämta PowerShell-skripten från [Azure SQL DB-Elastic Database tools-skript](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
-Verktygen finns också på GitHub: [Azure/elastiska dB-verktyg](https://github.com/Azure/elastic-db-tools).
+Verktygen finns också på GitHub: [Azure/Elastic-DB-tools](https://github.com/Azure/elastic-db-tools).
 
 Använd verktyget Dela och slå samman för att flytta data till eller från en modell med flera klienter till en enda klient modell. Se [verktyget Dela sammanslagning](sql-database-elastic-scale-get-started.md).
 

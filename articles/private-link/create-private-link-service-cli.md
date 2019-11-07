@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: c67d2cd4e90b2fa61a4d95e89a68c888a6e1fe3f
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 57ab18c8dfffb6994983179f434491b97589ebda
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273637"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693243"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Skapa en privat länk-tjänst med Azure CLI
 Den här artikeln visar hur du skapar en privat länk-tjänst i Azure med hjälp av Azure CLI.
@@ -104,11 +104,11 @@ az network private-link-service create \
 ```
 När du har skapat det tar du del av det privata länk tjänst-ID: t. Du kommer att behöva det senare för att begära anslutning till den här tjänsten.  
  
-I det här skedet har din privata länk tjänst skapats och är redo att ta emot trafiken. Observera att exemplet ovan bara visar hur du skapar en privat länk tjänst med Azure CLI.  Vi har inte konfigurerat backend-poolerna för belastningsutjämnare eller något program på backend-poolerna för att lyssna på trafiken. Om du vill se trafik flöden från slut punkt till slut punkt kan du starkt uppmanas att konfigurera ditt program bakom din Standard Load Balancer.  
+I det här skedet har din privata länk tjänst skapats och är redo att ta emot trafiken. Observera att exemplet ovan bara visar hur du skapar en privat länk tjänst med Azure CLI.  Vi har inte konfigurerat backend-poolerna för belastningsutjämnare eller något program på backend-poolerna för att lyssna på trafiken. Om du vill se trafik flöden från slut punkt till slut punkt rekommenderar vi starkt att du konfigurerar ditt program bakom Standard Load Balancer.  
  
 Härnäst visar vi hur du mappar den här tjänsten till en privat slut punkt i ett annat virtuellt nätverk med hjälp av Azure CLI. Återigen är exemplet begränsat till att skapa den privata slut punkten och ansluta till den privata länk tjänsten som skapats ovan med hjälp av Azure CLI. Dessutom kan du skapa virtuella datorer i det virtuella nätverket för att skicka/ta emot trafik till den privata slut punkten.        
  
-## <a name="private-endpoints"></a>Privata slutpunkter
+## <a name="private-endpoints"></a>Privata slut punkter
 
 ### <a name="create-the-virtual-network"></a>Skapa det virtuella nätverket 
 Skapa ett virtuellt nätverk med [AZ Network VNet Create](/cli/azure/network/vnet#az-network-vnet-create). I det här exemplet skapas ett virtuellt nätverk med namnet *myPEVNet* i resurs gruppen med namnet *myResourcegroup*: 
@@ -119,7 +119,7 @@ az network vnet create \
 --address-prefix 10.0.0.0/16  
 ```
 ### <a name="create-the-subnet"></a>Skapa under nätet 
-Skapa ett undernät i ett virtuellt nätverk med [AZ Network VNet Subnet Create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). I det här exemplet skapas ett undernät med namnet *mitt undernät* i det virtuella nätverket med namnet *myPEVnet* i resurs gruppen med namnet *myResourcegroup*: 
+Skapa ett undernät i ett virtuellt nätverk med [AZ Network VNet Subnet Create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). I det här exemplet skapas ett undernät med namnet mina *undernät* i det virtuella nätverket med namnet *myPEVnet* i resurs gruppen med namnet *myResourcegroup*: 
 
 ```azurecli-interactive 
 az network vnet subnet create \
@@ -151,7 +151,7 @@ az network private-endpoint create \
 --connection-name myPEConnectingPLS \
 --location westcentralus 
 ```
-Du kan hämta *privat anslutnings-resurs-ID* med `az network private-link-service show` en privat länk-tjänst. ID: t ser ut så här:   
+Du kan hämta *privat anslutnings-resurs-ID* med `az network private-link-service show` i privat länk-tjänsten. ID: t ser ut så här:   
 /subscriptions/subID/resourceGroups/*ResourceGroupName*/providers/Microsoft.Network/privateLinkServices/**privatelinkservicename** 
  
 ## <a name="show-private-link-service-connections"></a>Visa anslutningar för privata länk tjänster 

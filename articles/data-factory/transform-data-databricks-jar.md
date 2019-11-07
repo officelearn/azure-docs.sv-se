@@ -1,5 +1,5 @@
 ---
-title: Transformera data med Databricks jar – Azure | Microsoft Docs
+title: Transformera data med Databricks jar – Azure
 description: Lär dig hur du bearbetar eller transformerar data genom att köra en Databricks-jar.
 services: data-factory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.date: 03/15/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 924367c6bb85b64bafbcb8feb546eeb490e07a34
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 982f00b5de9fd3e84233e5fe3b68e22fa6f7fe2a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812786"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683953"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Transformera data genom att köra en jar-aktivitet i Azure Databricks
 
-Azure Databricks jar-aktivitet i en [Data Factory-pipeline](concepts-pipelines-activities.md) kör en spark-jar i ditt Azure Databricks-kluster. Den här artikeln bygger på artikeln [data omvandlings aktiviteter](transform-data.md) , som visar en allmän översikt över Datatransformeringen och de omvandlings aktiviteter som stöds. Azure Databricks är en hanterad plattform för att köra Apache Spark.
+Azure Databricks jar-aktivitet i en [Data Factory-pipeline](concepts-pipelines-activities.md) kör en spark-jar i ditt Azure Databricks-kluster. Den här artikeln bygger på [data Transformations aktiviteter](transform-data.md) artikeln, som visar en allmän översikt över Datatransformeringen och de omvandlings aktiviteter som stöds. Azure Databricks är en hanterad plattform för att köra Apache Spark.
 
 Om du vill se en introduktion och demonstration av den här funktionen rekommenderar vi följande videoklipp (11 minuter):
 
@@ -56,12 +56,12 @@ Här är exempel-JSON-definitionen för en Databricks jar-aktivitet:
 
 I följande tabell beskrivs de JSON-egenskaper som används i JSON-definitionen:
 
-|Egenskap|Beskrivning|Obligatorisk|
+|Egenskap|Beskrivning|Krävs|
 |:--|---|:-:|
-|name|Namnet på aktiviteten i pipelinen.|Ja|
+|namn|Namnet på aktiviteten i pipelinen.|Ja|
 |description|Text som beskriver vad aktiviteten gör.|Nej|
-|type|För Databricks jar-aktivitet är aktivitets typen DatabricksSparkJar.|Ja|
-|linkedServiceName|Namnet på den länkade Databricks-tjänst som jar-aktiviteten körs på. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) .|Ja|
+|typ|För Databricks jar-aktivitet är aktivitets typen DatabricksSparkJar.|Ja|
+|linkedServiceName|Namnet på den länkade Databricks-tjänst som jar-aktiviteten körs på. Mer information om den här länkade tjänsten finns i artikeln [Compute Linked services](compute-linked-services.md) .|Ja|
 |mainClassName|Det fullständiga namnet på klassen som innehåller den huvudsakliga metoden som ska köras. Den här klassen måste finnas i en JAR-form som är ett bibliotek.|Ja|
 |parameters|Parametrar som skickas till main-metoden.  Detta är en sträng mat ris.|Nej|
 |biblioteksfliken|En lista med bibliotek som ska installeras i klustret som ska köra jobbet. Det kan vara en matris med < sträng, objekt >|Ja (minst en som innehåller mainClassName-metoden)|

@@ -1,5 +1,5 @@
 ---
-title: PowerShell-exempel – failover-grupp – Azure SQL Database enskild databas | Microsoft Docs
+title: PowerShell-exempel – failover-grupp – Azure SQL Database enskild databas
 description: Azure PowerShell exempel skript för att skapa en Azure SQL Database enkel databas, lägga till den i en grupp för redundans och testa redundans.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 1f975eb11e546a0ece862ac239ac4321ed8e4110
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7315f747fb7319521b25e2eb6e7af72449867888
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570080"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691781"
 ---
 # <a name="use-powershell-to-add-an-azure-sql-database-single-database-to-a-failover-group"></a>Använd PowerShell för att lägga till en Azure SQL Database enkel databas i en failover-grupp 
 

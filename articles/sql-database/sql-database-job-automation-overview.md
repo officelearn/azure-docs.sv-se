@@ -1,5 +1,5 @@
 ---
-title: Azure SQL-jobbautomatisering | Microsoft Docs
+title: Automatisering av Azure SQL-jobb
 description: Använda jobbautomatisering för att köra Transact-SQL-skript (T-SQL) över en uppsättning med en eller flera Azure SQL-databaser
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 01/25/2019
-ms.openlocfilehash: 432580017cec548b7ecd7cf766aa8f5cdb2253cc
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: bbef299271618dc672daea17249f29866e75c430
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113597"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689668"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatisera hanteringsuppgifter med hjälp av databasjobb
 
@@ -61,7 +61,7 @@ Det finns flera viktiga begrepp vad gäller SQL Agent-jobb:
 
 - **Jobbsteg** är en uppsättning med ett eller flera steg som ska köras i jobbet. För varje jobbsteg kan du definiera strategi för återförsök och vilken åtgärd som ska vidtas om jobbsteget lyckas eller misslyckas.
 - **Scheman** definierar när jobbet ska köras.
-- Med aviseringar kan du definiera regler som ska användas för att meddela operatörer via e-post när jobbet har slutförts.
+- Med **aviseringar** kan du definiera regler som ska användas för att meddela operatörer via e-post när jobbet har slutförts.
 
 ### <a name="job-steps"></a>Jobbsteg
 
@@ -212,7 +212,7 @@ När en jobbagent skapas så skapas ett schema, tabeller och en roll som heter *
 
 |Rollnamn  |'jobs'-schemabehörigheter  |'jobs_internal'-schemabehörigheter  |
 |---------|---------|---------|
-|**jobs_reader**     |    VÄLJ     |    Inget     |
+|**jobs_reader**     |    VÄLJ     |    Ingen     |
 
 > [!IMPORTANT]
 > Tänk på säkerhetsaspekterna innan du beviljar åtkomst till *jobbdatabasen* som en databasadministratör. En användare som vill vålla skada och får behörigheter att skapa eller redigera jobb skulle kunna skapa eller redigera ett jobb som använder lagrade autentiseringsuppgifter för att ansluta till en databas som står under en sådan användares kontroll. Användaren skulle då kunna ta reda på lösenordet i autentiseringsuppgifterna.

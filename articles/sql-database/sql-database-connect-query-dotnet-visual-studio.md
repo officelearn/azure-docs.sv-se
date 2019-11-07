@@ -1,5 +1,5 @@
 ---
-title: Använda Visual Studio med .NET och C# för att köra frågor mot Azure SQL Database | Microsoft Docs
+title: Använd Visual Studio med .NET och C# för att fråga Azure SQL Database
 description: Använd Visual Studio för att skapa en C#-app som ansluter till en Azure SQL-databas och kör frågor mot den med Transact-SQL-instruktioner.
 services: sql-database
 ms.service: sql-database
@@ -11,26 +11,26 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 3ed11d2b1628cecc0696e4c37135cfc7d2190de5
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 42b7f553d88e130e0958bd38e4e5ff308b74e81f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597912"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690975"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Snabb start: använda .NET C# och i Visual Studio för att ansluta till och fråga en Azure SQL-databas
 
 Den här snabbstarten beskriver hur du använder [.NET Framework](https://www.microsoft.com/net/) och C#-kod i Visual Studio för att köra frågor mot en Azure SQL-databas med Transact-SQL-instruktioner.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande krävs för att slutföra den här snabbstarten:
 
 - En Azure SQL-databas. Du kan använda någon av dessa snabbstarter för att skapa och därefter konfigurera en databas i Azure SQL Database:
 
-  || Enkel databas | Hanterad instans |
+  || Enskild databas | Hanterad instans |
   |:--- |:--- |:---|
-  | Create| [Portalen](sql-database-single-database-get-started.md) | [Portalen](sql-database-managed-instance-get-started.md) |
+  | Skapa| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Konfigurera | [IP-brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md)| [Anslutning från en virtuell dator](sql-database-managed-instance-configure-vm.md)|
@@ -40,7 +40,7 @@ Följande krävs för att slutföra den här snabbstarten:
   |||
 
   > [!IMPORTANT]
-  > Skripten i den här artikeln skrivs för att använda Adventure Works-databasen. Med en hanterad instans måste du antingen importera Adventure Works-databasen till en instansdatabas, eller ändra skripten i den här artikeln om du vill använda Wide World Importers-databasen.
+  > Skripten i den här artikeln skrivs för att använda Adventure Works-databasen. Med en hanterad instans måste du antingen importera Adventure Works-databasen till en instansdatabas eller ändra skripten i den här artikeln om du vill använda Wide World Importers-databasen.
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) Community, Professional eller Enterprise Edition.
 
@@ -48,7 +48,7 @@ Följande krävs för att slutföra den här snabbstarten:
 
 Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-databasen. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 2. Navigera till sidan **SQL-databaser** eller **SQL-hanterade instanser**.
 
@@ -72,7 +72,7 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-da
    
 1. När installationen har slutförts kan du stänga **NuGet-pakethanteraren**. 
    
-1. Ersätt innehållet i **Program.cs** med följande kod i kodredigeraren. Ersätt värdena för `<server>`, `<username>`, `<password>` och `<database>`.
+1. Ersätt innehållet i **Program.cs** med följande kod i kodredigeraren. Ersätt värdena för `<server>`, `<username>`, `<password>`och `<database>`.
    
    >[!IMPORTANT]
    >Koden i det här exemplet använder AdventureWorksLT-exempeldata, som du kan välja som källa när du skapar din databas. Om din databas har andra data använder du tabeller från din egen databas i SELECT-frågan. 

@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: b50a21f9c1a4bae7ced8afd9a49c33cc936983ac
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 0136b101de870ce669e89e67679719e233343330
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389741"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622592"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Snabb start: kör din första resurs diagram fråga med Azure CLI
 
@@ -90,9 +90,10 @@ az extension remove -n resource-graph
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Få mer information om [frågespråket](./concepts/query-language.md)
-- Lär dig att [utforska resurser](./concepts/explore-resources.md)
-- Kör din första fråga med [Azure PowerShell](first-query-powershell.md)
-- Se exempel på [startfrågor](./samples/starter.md)
-- Se exempel på [avancerade frågor](./samples/advanced.md)
-- Ge feedback på [UserVoice](https://feedback.azure.com/forums/915958-azure-governance)
+- Få mer information om [frågespråket](./concepts/query-language.md).
+- Lär dig mer om hur du [utforskar resurser](./concepts/explore-resources.md).
+- Kör din första fråga med hjälp av [Azure Portal](first-query-portal.md).
+- Kör din första fråga med [Azure PowerShell](first-query-powershell.md).
+- Se exempel på [Start frågor](./samples/starter.md).
+- Se exempel på [avancerade frågor](./samples/advanced.md).
+- Ge feedback på [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).

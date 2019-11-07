@@ -1,5 +1,5 @@
 ---
-title: Köra frågor mot Azure SQL Database med hjälp av .NET Core | Microsoft Docs
+title: Använd .NET Core för att fråga Azure SQL Database
 description: Det här avsnittet beskriver hur du använder .NET Core till att skapa ett program som ansluter till en Azure SQL-databas och kör frågor mot den med hjälp av Transact-SQL-instruktioner.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/29/2019
-ms.openlocfilehash: 1c6fdc6f6d2e642db8b57745573260c819c6c307
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: e605b4255d61ff0cb6402b40b099449f0fbafa7a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640923"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690999"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Snabbstart: Köra frågor mot en Azure SQL-databas med hjälp av .NET Core (C#)
 
@@ -25,7 +25,7 @@ I den här snabbstarten använder du [.NET Core](https://www.microsoft.com/net/)
 > [!TIP]
 > Följande Microsoft Learn-modul hjälper dig att lära dig kostnads fritt hur du [utvecklar och konfigurerar ett ASP.NET-program som skickar frågor till en Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver följande för den här självstudien:
 
@@ -87,7 +87,7 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-da
     </ItemGroup>
     ```
 
-## <a name="insert-code-to-query-sql-database"></a>Infoga kod för att fråga SQL-databas
+## <a name="insert-code-to-query-sql-database"></a>Infoga kod för att fråga SQL Database
 
 1. Öppna **Program.cs** i ett redigeringsprogram.
 

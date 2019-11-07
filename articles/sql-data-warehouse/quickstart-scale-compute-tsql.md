@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skala ut beräkning i Azure SQL Data Warehouse – T-SQL | Microsoft Docs'
+title: 'Snabb start: skala Compute-T-SQL '
 description: Skala beräkning i Azure SQL Data Warehouse med hjälp av T-SQL och SQL Server Management Studio (SSMS). Skala ut beräkning för bättre prestanda eller skala ned beräkning om du vill sänka kostnaderna.
 services: sql-data-warehouse
 author: Antvgski
@@ -10,16 +10,17 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 9a2a11c2263500970e2f4294dd5d3711a57be349
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 6729552262d7bea619948ddba406418b80cf69dc
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574573"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685953"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Snabbstart: Skala beräkning i Azure SQL Data Warehouse med hjälp av T-SQL
 
-Skala beräkning i Azure SQL Data Warehouse med hjälp av T-SQL och SQL Server Management Studio (SSMS). [Skala ut beräkning](sql-data-warehouse-manage-compute-overview.md) för att få bättre prestanda eller skala ned beräkning om du vill sänka kostnaderna. 
+Skala beräkning i Azure SQL Data Warehouse med hjälp av T-SQL och SQL Server Management Studio (SSMS). [Skala ut beräkning](sql-data-warehouse-manage-compute-overview.md) för bättre prestanda eller skala ned beräkning om du vill sänka kostnaderna. 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -43,9 +44,9 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
    | servernamn | Fullständigt kvalificerat servernamn | Här är ett exempel: **mynewserver 20171113.database.windows.net**. |
-   | Authentication | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
-   | Logga in | Serveradministratörskontot | Kontot som du angav när du skapade servern. |
-   | lösenordsinställning | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
+   | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
+   | Inloggning | Serveradministratörskontot | Kontot som du angav när du skapade servern. |
+   | Lösenord | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
 
     ![Anslut till server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 

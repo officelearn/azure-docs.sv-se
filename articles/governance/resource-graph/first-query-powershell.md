@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: a7d65d975d43a63a38863721273debab46115045
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 9e41ca2e7c6d789b3d18fa98c4845118fa6538ef
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389714"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622557"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Snabb start: kör din första resurs diagram fråga med hjälp av Azure PowerShell
 
@@ -87,7 +87,7 @@ Nu när Azure PowerShell-modulen har lagts till i din valda miljö är det dags 
 När den sista frågan har körts flera gånger, och förutsatt att ingenting i din miljö ändras, kommer resultaten som returneras bli konsekventa och som förväntade – sorterade efter **Namn**-egenskapen men fortfarande begränsade till de fem främsta resultaten.
 
 > [!NOTE]
-> Om frågan inte returnerar resultat från en prenumeration som du redan har åtkomst till, noterar du att `Search-AzGraph`-cmdleten använder prenumerationer i standard kontexten. Om du vill visa en lista över prenumerations-ID: n som ingår i standard kontexten kör du den här `(Get-AzContext).Account.ExtendedProperties.Subscriptions` om du vill söka i alla prenumerationer som du har åtkomst till, kan du ställa in PSDefaultParameterValues för `Search-AzGraph`-cmdlet genom att köra `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
+> Om frågan inte returnerar resultat från en prenumeration som du redan har åtkomst till, Observera att `Search-AzGraph` cmdlet som standard har prenumerationer i standard kontexten. Om du vill visa en lista över prenumerations-ID: n som ingår i standard kontexten kör du den här `(Get-AzContext).Account.ExtendedProperties.Subscriptions` om du vill söka i alla prenumerationer som du har åtkomst till, kan du ange PSDefaultParameterValues för `Search-AzGraph`-cmdlet genom att köra `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
    
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -106,9 +106,10 @@ Uninstall-Module -Name 'Az.ResourceGraph'
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Få mer information om [frågespråket](./concepts/query-language.md)
-- Lär dig att [utforska resurser](./concepts/explore-resources.md)
-- Kör din första fråga med [Azure CLI](first-query-azurecli.md)
-- Se exempel på [startfrågor](./samples/starter.md)
-- Se exempel på [avancerade frågor](./samples/advanced.md)
-- Ge feedback på [UserVoice](https://feedback.azure.com/forums/915958-azure-governance)
+- Få mer information om [frågespråket](./concepts/query-language.md).
+- Lär dig mer om hur du [utforskar resurser](./concepts/explore-resources.md).
+- Kör din första fråga med hjälp av [Azure Portal](first-query-portal.md).
+- Kör din första fråga med [Azure CLI](first-query-azurecli.md).
+- Se exempel på [Start frågor](./samples/starter.md).
+- Se exempel på [avancerade frågor](./samples/advanced.md).
+- Ge feedback på [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).

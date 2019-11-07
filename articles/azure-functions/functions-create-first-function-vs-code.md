@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 06/25/2019
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 52f682f7c7f06056be122b33d27592a55a01be94
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: fbde3c939a23e4023c0403c27433717a11762b08
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70744076"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622060"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Skapa din första funktion med Visual Studio Code
 
@@ -26,11 +26,11 @@ I den här artikeln får du lära dig hur du använder [Azure Functions-tillägg
 
 ![Azure Functions-kod i ett Visual Studio-projekt](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-Tillägget stöder C#för närvarande funktioner, Java Script, Java och python. Stegen i den här artikeln och artikeln som följer stöder endast Java Script och C# functions. Information om hur du använder Visual Studio Code för att skapa och publicera python-funktioner finns i [distribuera python till Azure Functions](https://code.visualstudio.com/docs/python/tutorial-azure-functions). Information om hur du använder Visual Studio Code för att skapa och publicera PowerShell-funktioner finns i [skapa din första PowerShell-funktion i Azure](functions-create-first-function-powershell.md). 
+Tillägget stöder C#för närvarande funktioner, Java Script, Java och python. Stegen i den här artikeln och artikeln som följer stöder endast Java Script och C# functions. Information om hur du använder Visual Studio Code för att skapa och publicera python-funktioner finns i [skapa och distribuera Server lös Azure Functions i python med Visual Studio Code](/azure/python/tutorial-vs-code-serverless-python-01). Information om hur du använder Visual Studio Code för att skapa och publicera PowerShell-funktioner finns i [skapa din första PowerShell-funktion i Azure](functions-create-first-function-powershell.md). 
 
 Tillägget finns för närvarande i en förhandsversion. Mer information finns på sidan om [Azure Functions-tillägg för Visual Studio Code].
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -43,9 +43,9 @@ För att slutföra den här snabbstarten behöver du:
     | Språk | Krav |
     | -------- | --------- |
     | **C#** | [C#utöka](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)  |
-    | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> | 
+    | **JavaScript** | [Node. js](https://nodejs.org/) -<sup>*</sup> | 
  
-    <sup>*</sup>Aktiva LTS-och underhålls LTS-versioner (8.11.1 och 10.14.1 rekommenderas).
+    <sup>*</sup> Aktiva LTS-och underhålls LTS-versioner (8.11.1 och 10.14.1 rekommenderas).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -63,7 +63,7 @@ När du har kontrollerat att funktionen körs korrekt på den lokala datorn är 
 
 ## <a name="run-the-function-in-azure"></a>Kör funktionen i Azure
 
-1. Kopiera URL:en för HTTP-utlösaren från panelen **Utdata**. Denna URL innehåller funktions nyckeln, som skickas till `code` Frågeparametern. Lägg till frågesträngen `?name=<yourname>` i slutet av URL:en som tidigare och kör begäran.
+1. Kopiera URL:en för HTTP-utlösaren från panelen **Utdata**. Denna URL innehåller funktions nyckeln, som skickas till den `code` Frågeparametern. Lägg till frågesträngen `?name=<yourname>` i slutet av URL:en som tidigare och kör begäran.
 
     Den URL som anropar den HTTP-utlösta funktionen ska ha följande format:
 

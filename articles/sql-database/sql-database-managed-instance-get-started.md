@@ -1,5 +1,5 @@
 ---
-title: 'Azure-portalen: Skapa en SQL Database Hanterad instans | Microsoft Docs'
+title: 'Azure Portal: skapa en SQL Database Hanterad instans '
 description: Skapa en SQL Database Hanterad instans, nätverks miljö och virtuell klient dator för åtkomst.
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: 4f9ea699bd6d09f902a3ff97c95ff3455926a9d8
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: a1d5873d826f513d92a421f84e3b66a55262d906
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350917"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688081"
 ---
-# <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Snabbstart: Skapa en hanterad Azure SQL Database-instans
+# <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Snabb start: skapa en Azure SQL Database Hanterad instans
 
 Den här snabb starten vägleder dig genom hur du skapar en Azure SQL Database [hanterad instans](sql-database-managed-instance.md) i Azure Portal.
 
@@ -43,7 +43,7 @@ Följande steg visar hur du skapar en hanterad instans:
 
 4. Använd flikarna i etablerings formuläret **skapa Azure SQL Database Hanterad instans** för att lägga till obligatorisk och valfri information. I följande avsnitt beskrivs de här flikarna.
 
-### <a name="basics"></a>Grundinställningar
+### <a name="basics"></a>Grundläggande inställningar
 
 - Fyll i obligatorisk information som krävs på fliken **grundläggande** . Detta är en minsta uppsättning information som krävs för att etablera en hanterad instans.
 
@@ -64,7 +64,7 @@ Följande steg visar hur du skapar en hanterad instans:
 
    ![Formulär för hanterad instans](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-configure-performance.png)
 
-- Om du vill granska dina val innan du skapar en hanterad instans kan du välja **Granska + skapa**. Du kan också konfigurera nätverks alternativ genom **att välja nästa: Nätverk**.
+- Om du vill granska dina val innan du skapar en hanterad instans kan du välja **Granska + skapa**. Du kan också konfigurera nätverks alternativ genom att välja **Nästa: nätverk**.
 
 ### <a name="networking"></a>Nätverk
 
@@ -78,10 +78,10 @@ Följande steg visar hur du skapar en hanterad instans:
    | ------ | --------------- | ----------- |
    | **Virtuellt nätverk** | Välj antingen **Skapa nytt virtuellt nätverk** eller ett giltigt virtuellt nätverk och undernät.| Om ett nätverk eller undernät inte är tillgängligt, måste det [ändras för att uppfylla nätverks kraven](sql-database-managed-instance-configure-vnet-subnet.md) innan du väljer det som mål för den nya hanterade instansen. Information om kraven för att konfigurera nätverks miljön för en hanterad instans finns i [Konfigurera ett virtuellt nätverk för en hanterad instans](sql-database-managed-instance-connectivity-architecture.md). |
    | **Anslutnings typ** | Välj mellan en proxy och en Anslutnings typ för omdirigering.|Mer information om anslutnings typer finns i [Azure SQL Database anslutnings princip](sql-database-connectivity-architecture.md#connection-policy).|
-   | **Offentlig slutpunkt**  | Välj **aktivera**. | För att en hanterad instans ska kunna nås via den offentliga data slut punkten måste du aktivera det här alternativet. | 
-   | **Tillåt åtkomst från** (om den **offentliga slut punkten** är aktive rad) | Välj ett av alternativen.   |Med Portal upplevelsen kan du konfigurera en säkerhets grupp med en offentlig slut punkt. </br> </br> Välj något av följande alternativ baserat på ditt scenario: </br> <ul> <li>**Azure-tjänster**: Vi rekommenderar det här alternativet när du ansluter från Power BI eller en annan tjänst för flera innehavare. </li> <li> **Internet**: Används i test syfte när du snabbt vill skapa en hanterad instans. Vi rekommenderar det inte för produktions miljöer. </li> <li> **Ingen åtkomst**: Med det här alternativet skapas en säkerhets regel för **neka** . Ändra den här regeln för att göra en hanterad instans tillgänglig via en offentlig slut punkt. </li> </ul> </br> Mer information om säkerhet för offentliga slut punkter finns i [använda en Azure SQL Database Hanterad instans på ett säkert sätt med en offentlig slut punkt](sql-database-managed-instance-public-endpoint-securely.md).|
+   | **Offentlig slut punkt**  | Välj **Aktivera**. | För att en hanterad instans ska kunna nås via den offentliga data slut punkten måste du aktivera det här alternativet. | 
+   | **Tillåt åtkomst från** (om den **offentliga slut punkten** är aktive rad) | Välj ett av alternativen.   |Med Portal upplevelsen kan du konfigurera en säkerhets grupp med en offentlig slut punkt. </br> </br> Välj något av följande alternativ baserat på ditt scenario: </br> <ul> <li>**Azure-tjänster**: Vi rekommenderar det här alternativet när du ansluter från Power BI eller en annan tjänst för flera innehavare. </li> <li> **Internet**: används i test syfte när du snabbt vill skapa en hanterad instans. Vi rekommenderar det inte för produktions miljöer. </li> <li> **Ingen åtkomst**: det här alternativet skapar en säkerhets regel för **neka** . Ändra den här regeln för att göra en hanterad instans tillgänglig via en offentlig slut punkt. </li> </ul> </br> Mer information om säkerhet för offentliga slut punkter finns i [använda en Azure SQL Database Hanterad instans på ett säkert sätt med en offentlig slut punkt](sql-database-managed-instance-public-endpoint-securely.md).|
 
-- Välj **Granska + skapa** för att granska dina val innan du skapar en hanterad instans. Du kan också konfigurera fler anpassade inställningar genom **att välja nästa: Ytterligare inställningar**.
+- Välj **Granska + skapa** för att granska dina val innan du skapar en hanterad instans. Du kan också konfigurera fler anpassade inställningar genom att välja **Nästa: ytterligare inställningar**.
 
 ### <a name="additional-settings"></a>Ytterligare inställningar
 
@@ -93,10 +93,10 @@ Följande steg visar hur du skapar en hanterad instans:
 
    | Inställning| Föreslaget värde | Beskrivning |
    | ------ | --------------- | ----------- |
-   | **Sortering** | Välj den sortering som du vill använda för din hanterade instans. Om du migrerar databaser från SQL Server kontrollerar du käll sorteringen genom att `SELECT SERVERPROPERTY(N'Collation')` använda och använda det värdet.| Information om sorteringar finns i [Ange eller ändra Server sorteringen](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|   
+   | **Sortering** | Välj den sortering som du vill använda för din hanterade instans. Om du migrerar databaser från SQL Server kontrollerar du käll sorteringen genom att använda `SELECT SERVERPROPERTY(N'Collation')` och använder det värdet.| Information om sorteringar finns i [Ange eller ändra Server sorteringen](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|   
    | **Tidszon** | Välj den tidszon som din hanterade instans ska observera.|Mer information finns i [tids zoner](sql-database-managed-instance-timezone.md).|
    | **Använd som sekundär redundans** | Välj **Ja**. | Aktivera det här alternativet om du vill använda den hanterade instansen som en sekundär grupp för redundans.|
-   | **Primär hanterad instans** (om **Använd som sekundär redundans** är inställt på **Ja**) | Välj en befintlig primär hanterad instans som ska anslutas till samma DNS-zon med den hanterade instans som du skapar. | I det här steget aktive ras konfigurationen efter skapandet av gruppen redundans. Mer information finns i [Självstudie: Lägg till en SQL Database Hanterad instans i en](sql-database-managed-instance-failover-group-tutorial.md)failover-grupp.|
+   | **Primär hanterad instans** (om **Använd som sekundär redundans** är inställt på **Ja**) | Välj en befintlig primär hanterad instans som ska anslutas till samma DNS-zon med den hanterade instans som du skapar. | I det här steget aktive ras konfigurationen efter skapandet av gruppen redundans. Mer information finns i [Självstudier: Lägg till en SQL Database Hanterad instans i en failover-grupp](sql-database-managed-instance-failover-group-tutorial.md).|
 
 ### <a name="review--create"></a>Granska + skapa
 
@@ -133,7 +133,7 @@ Vid lyckad distribution av hanterad instans för att visa resurser som skapats:
 
 1. Öppna resurs gruppen för din hanterade instans. Visa dess resurser som har skapats för dig i snabb starten för att [skapa en hanterad instans](#create-a-managed-instance) .
 
-   ![Hanterade instansresurser](./media/sql-database-managed-instance-get-started/resources.png)
+   ![Resurser för hanterad instans](./media/sql-database-managed-instance-get-started/resources.png)
 
 ### <a name="view-and-fine-tune-network-settings"></a>Visa och finjustera nätverks inställningar
 
@@ -169,7 +169,7 @@ Följ dessa steg för att hämta värdnamn och fullständigt kvalificerat domän
 
 2. Leta upp **värd** egenskapen på fliken **Översikt** . Kopiera värd namnet för den hanterade instansen för användning i nästa snabb start.
 
-   ![Värddatornamn](./media/sql-database-managed-instance-get-started/host-name.png)
+   ![Värdnamn](./media/sql-database-managed-instance-get-started/host-name.png)
 
    Värdet som kopieras representerar ett fullständigt kvalificerat domän namn (FQDN) som kan användas för att ansluta till en hanterad instans. Det liknar följande adress exempel: *your_host_name. a1b2c3d4e5f6. Database. Windows. net*.
 

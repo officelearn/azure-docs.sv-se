@@ -1,7 +1,7 @@
 ---
-title: Vad hände med Machine Learning Workbench?
+title: Vad hände med Workbench?
 titleSuffix: Azure Machine Learning
-description: Lär dig mer om vad som hände med Machine Learning Workbench-programmet, vad som ändrades i Azure Machine Learning och vad tids linjen för support är.
+description: Lär dig mer om vad som är möjligt utan Workbench-program och vad som stöds av tids linjen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
-ms.date: 05/14/2019
+ms.date: 11/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c98da50d0c50a7fdb94f579444f3c09c1096d18
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 835024f7c8d77d67a2f6321df658c2f5c2007e62
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476414"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647105"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Vad hände med Azure Machine Learning Workbench?
 
@@ -64,12 +64,6 @@ Portalens instrumentpanel för arbetsytor stöds endast i webbläsarna Microsoft
 
 Börja träna dina modeller och spåra körhistorik med hjälp av nya CLI och SDK. Du kan lära dig mer i [kursen: träna modeller med Azure Machine Learning](tutorial-train-models-with-aml.md).
 
-## <a name="can-i-still-prep-data"></a>Går det fortfarande att förbereda data?
-
-Dina befintliga dataförberedelsefiler kan inte överföras till den senaste versionen eftersom vi inte längre har Machine Learning Workbench. Däremot kan du fortfarande förbereda datauppsättningar av valfri storlek för modellering.
-
-Med data mängder av valfri storlek kan du använda [data förberedelse paketet för Azure Machine Learning](https://aka.ms/data-prep-sdk) för att snabbt förbereda dina data före modellering genom att skriva python-kod.
-
 ## <a name="will-projects-persist"></a>Kommer projekt att bevaras?
 
 Du förlorar inte någon kod eller något arbete. I den äldre versionen är projekt molnentiteter med en lokal katalog. I den senaste versionen kopplar du lokala kataloger till Azure Machine Learning arbets ytan med hjälp av en lokal konfigurations fil. Se ett [diagram över den senaste arkitekturen](concept-azure-machine-learning-architecture.md).
@@ -97,22 +91,6 @@ I den senaste versionen distribueras modeller som webbtjänster till Azure Conta
 Mer information finns i följande artiklar:
 + [Var och hur du distribuerar modeller](how-to-deploy-and-where.md)
 + [Självstudie: Distribuera modeller med Azure Machine Learning](tutorial-deploy-models-with-aml.md)
-
-## <a name="what-about-the-old-sdk-and-cli"></a>Vad gäller för den gamla SDK:n och CLI?
-
-Se föregående [tidslinje](#timeline). Vi rekommenderar att du börjar skapa dina nya experiment och modeller med den senaste SDK:n eller CLI.
-
-Genom att använda den nya python SDK: n i den senaste versionen kan du interagera med Azure Machine Learning i valfri python-miljö. Lär dig hur du installerar den senast <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK:n</a>. Du kan också använda det uppdaterade [Azure Machine Learning-tillägget](reference-azure-machine-learning-cli.md) med den omfattande uppsättningen `az ml`-kommandon för att interagera med tjänsten i valfri kommandoradmiljö, inklusive Azure Cloud Shell.
-
-## <a name="what-about-visual-studio-code-tools-for-ai"></a>Vad gäller för Visual Studio Code Tools för AI?
-
-I den senaste versionen har tillägget bytt namn till Azure Machine Learning för Visual Studio Code. Det har även utökats och förbättrats för att fungera med föregående nya funktioner.
-
-[![Azure Machine Learning för Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png)](./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
-
-## <a name="what-about-domain-packages"></a>Vad gäller för domänpaket?
-
-Domänpaketen för visuellt innehåll, textanalys och prognostisering kan inte användas med den senaste versionen av Azure Machine Learning. Du kan dock fortfarande skapa och träna modeller för visuellt innehåll, textanalys och prognostisering med den senaste Azure Machine Learning Python-<a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK:n</a>.
 
 ## <a name="next-steps"></a>Nästa steg
 

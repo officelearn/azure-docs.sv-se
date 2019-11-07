@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/08/2019
 ms.author: mamccrea
 ms.custom: mvc
-ms.openlocfilehash: 149b83b9aacf23cde06a2b35aed06c164afe9647
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 1e86658422e444cb7104c3e3428a74d31d453a72
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243330"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605981"
 ---
 # <a name="what-is-azure-databricks"></a>Vad är Azure Databricks?
 
@@ -96,9 +96,9 @@ Genom omfattande integrering med Power BI gör Azure Databricks det möjligt att
 ## <a name="next-steps"></a>Nästa steg
 
 * [Snabbstart: Kör ett Spark-jobb på Azure Databricks](quickstart-create-databricks-workspace-portal.md)
-* [Arbeta med Spark-kluster](https://docs.azuredatabricks.net/user-guide/clusters/index.html)
-* [Arbeta med bärbara datorer](https://docs.azuredatabricks.net/user-guide/notebooks/index.html)
-* [Skapa Spark-jobb](https://docs.azuredatabricks.net/user-guide/jobs.html)
+* [Arbeta med Spark-kluster](/azure/databricks/clusters/index)
+* [Arbeta med bärbara datorer](/azure/databricks/notebooks/index)
+* [Skapa Spark-jobb](/azure/databricks/jobs)
 
  
 

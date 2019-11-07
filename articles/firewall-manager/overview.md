@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 10/30/2019
+ms.date: 11/05/2019
 ms.author: victorh
-ms.openlocfilehash: 3e19a2a45dde8a951e0ae3a4bd3c8d019609a5e1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: df649eab1f0e2946078f8efd3cdd6ab68c3b7938
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502382"
+ms.locfileid: "73580199"
 ---
 # <a name="what-is-azure-firewall-manager-preview"></a>Vad är för hands version av Azure Firewall Manager?
 
@@ -20,7 +20,7 @@ ms.locfileid: "73502382"
 
 För hands versionen av Azure Firewall Manager är en säkerhets hanterings tjänst som tillhandahåller centrala säkerhets principer och väg hantering för molnbaserade säkerhetsperimetern. Det fungerar med [Azure Virtual WAN Hub](../virtual-wan/virtual-wan-about.md#resources), en Microsoft-hanterad resurs som gör att du enkelt kan skapa Hubbs-och eker-arkitekturer. När säkerhets-och routningsprinciperna är associerade med en sådan hubb kallas den för en *[säker virtuell hubb](secured-virtual-hub.md)* . 
 
-![Firewall-Manager](media/overview/firewall-manager-conceptual.png)
+![Firewall-Manager](media/overview/firewallmanagerv3.png)
 
 ## <a name="azure-firewall-manager-preview-features"></a>Förhands gransknings funktioner i Azure Firewall Manager
 
@@ -59,7 +59,7 @@ Följande regioner stöds för den offentliga för hands versionen:
 
 - Västeuropa, Nord Europa, Frankrike, centrala, Frankrike, södra, Storbritannien, södra, Storbritannien, västra
 - Östra Australien, Australien, centrala Australien 2, Australien, sydöstra
-- Kanada, centrala
+- Centrala Kanada
 - Östra USA, västra USA, östra USA 2, södra centrala USA, västra USA 2, centrala USA, norra centrala USA, västra centrala USA
 
 Det går bara att skapa Azure Firewall-principer i dessa regioner, men de kan användas i olika regioner. Du kan till exempel skapa en princip i USA, västra och använda den i USA, östra. 
@@ -70,7 +70,7 @@ För hands versionen av Azure Firewall Manager har följande kända problem:
 
 |Problem  |Beskrivning  |Åtgärd  |
 |---------|---------|---------|
-|Manuellt skapade centrala virtuella nätverk stöds inte|Azure Firewall Manager stöder för närvarande nätverk som skapats med virtuella nav. Det finns ännu inte stöd för att använda egna manuellt skapade hubb-VNet.|För tillfället använder du Azure Firewall Manager med nav-och eker-nätverk som skapats med virtuella hubbar<br>Undersöker för närvarande.
+|Manuellt skapade centrala virtuella nätverk stöds inte|Azure Firewall Manager stöder för närvarande nätverk som skapats med virtuella nav. Det finns ännu inte stöd för att använda egna manuellt skapade hubb-VNet.|Nu ska du använda Azure Firewall Manager med nav-och eker-nätverk som skapats med virtuella hubbar.<br>Undersöker för närvarande.
 |Begränsningar för filtrering av tredje part|V2I trafik filtrering med tredjeparts leverantörer stöds inte med Azure Firewall B2V och V2V.|Undersöker för närvarande.|
 |Delning av trafik stöds inte för närvarande|Det finns för närvarande inte stöd för att dela upp Office 365 och Azure offentlig PaaS-trafik. Det innebär att om du väljer en tredjeparts-Provider för V2I eller B2I skickas även all Azures offentliga PaaS och Office 365-trafik via partner tjänsten.|Undersöker för närvarande trafik delning på hubben.
 |En hubb per region|Du kan inte ha mer än en hubb per region|Skapa flera virtuella WAN-näti en region.|

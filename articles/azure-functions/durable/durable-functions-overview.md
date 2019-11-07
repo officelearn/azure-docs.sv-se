@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 08/07/2019
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: a917a823d47d6a072cf5a3ee5d636b432913df9a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 0b85d6fbe8e66b94bad372ccb29e5489dd81587b
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299431"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614791"
 ---
 # <a name="what-are-durable-functions"></a>Vad är Durable Functions?
 
@@ -44,7 +44,7 @@ Det huvudsakliga användningsfallet för Durable Functions är att förenkla kom
 * [Mänsklig interaktion](#human)
 * [Aggregera](#aggregator)
 
-### <a name="chaining"></a>Mönster #1: Funktionslänkning
+### <a name="chaining"></a>Mönster #1: funktions länkning
 
 I funktions kedje mönstret körs en sekvens med funktioner i en speciell ordning. I det här mönstret tillämpas utdata från en funktion på indatan för en annan funktion.
 
@@ -57,7 +57,7 @@ Du kan använda Durable Functions för att implementera funktions länknings mö
 ```csharp
 [FunctionName("Chaining")]
 public static async Task<object> Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     try
     {
@@ -73,7 +73,7 @@ public static async Task<object> Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
+#### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -86,14 +86,14 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-I det här exemplet är värdena `F1` `F3`, `F2`, och `F4` namnen på andra funktioner i Function-appen. Du kan implementera kontroll flödet med hjälp av vanliga kodnings konstruktioner. Koden körs uppifrån och ned. Koden kan omfatta befintliga semantiska språk kontroll flöde, t. ex. villkor och slingor. Du kan inkludera fel hanterings logik `try` i / / `catch` `finally` block.
+I det här exemplet är värdena `F1`, `F2`, `F3`och `F4` namnen på andra funktioner i Function-appen. Du kan implementera kontroll flödet med hjälp av vanliga kodnings konstruktioner. Koden körs uppifrån och ned. Koden kan omfatta befintliga semantiska språk kontroll flöde, t. ex. villkor och slingor. Du kan inkludera fel hanterings logik i `try`/`catch`/`finally` block.
 
-Du kan använda `context` parametern [DurableOrchestrationContext] \(.net\) och `context.df` objektet (Java Script) för att anropa andra funktioner efter namn, pass parametrar och returnera funktions resultat. Varje gång koden anropar `await` (C#) eller `yield` (Java Script) visar Durable Functions Framework förloppet för den aktuella funktions instansen. Om processen eller den virtuella datorn återvinner mitt i körningen fortsätter funktions instansen från föregående `await` eller `yield` anropa. Mer information finns i nästa avsnitt, mönster #2: Fläkt ut/fläkt i.
+Du kan använda parametern `context` [IDurableOrchestrationContext] \(.NET\) och `context.df`-objektet (Java Script) för att anropa andra funktioner efter namn, pass parametrar och returnera funktions resultat. Varje gång koden anropar `await` (C#) eller `yield` (Java Script), checkpointrar Durable Functions Framework förloppet för den aktuella funktions instansen. Om processen eller den virtuella datorn återvinns mitt i körningen fortsätter funktions instansen från föregående `await` eller `yield` anrop. Mer information finns i nästa avsnitt, mönster #2: fläkt ut/fläkt i.
 
 > [!NOTE]
-> Objektet i Java Script representerar hela [funktions kontexten](../functions-reference-node.md#context-object), inte bara parametern [DurableOrchestrationContext]. `context`
+> `context`-objektet i Java Script representerar hela [funktions kontexten](../functions-reference-node.md#context-object), inte bara parametern [IDurableOrchestrationContext].
 
-### <a name="fan-in-out"></a>Mönster #2: Fläkt ut/fläkt i
+### <a name="fan-in-out"></a>Mönster #2: fläkt ut/fläkt i
 
 I mönstret fläkt ut/fläkt i, kör du flera funktioner parallellt och väntar sedan på att alla funktioner ska slutföras. Ofta utförs en del sammansättnings arbete på resultaten som returneras från funktionerna.
 
@@ -108,7 +108,7 @@ Durable Functions-tillägget hanterar det här mönstret med relativt enkel kod:
 ```csharp
 [FunctionName("FanOutFanIn")]
 public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     var parallelTasks = new List<Task<int>>();
 
@@ -128,7 +128,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
+#### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -150,14 +150,14 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Fläkt arbetet distribueras till flera instanser av `F2` funktionen. Arbetet spåras med hjälp av en dynamisk lista med aktiviteter. .Net `Task.WhenAll` API eller Java Script `context.df.Task.all` API anropas för att vänta tills alla anropade funktioner har slutförts. Sedan aggregeras `F3`funktionenutdata från den dynamiska uppgifts listan och skickas till funktionen. `F2`
+Fläkt arbetet distribueras till flera instanser av funktionen `F2`. Arbetet spåras med hjälp av en dynamisk lista med aktiviteter. .NET `Task.WhenAll` API eller Java Script `context.df.Task.all` API anropas för att vänta tills alla anropade funktioner har slutförts. Sedan aggregeras `F2`-funktionen utdata från den dynamiska uppgifts listan och skickas till funktionen `F3`.
 
-Den automatiska kontroll punkten som sker `await` vid eller `yield` anropar `Task.WhenAll` eller `context.df.Task.all` säkerställer att en eventuell halvvägs krasch eller omstart kräver att en redan slutförd aktivitet startas om.
+Den automatiska kontroll punkten som sker på `await` eller `yield` anrop till `Task.WhenAll` eller `context.df.Task.all` garanterar att en eventuell halvvägs krasch eller omstart inte kräver att en redan slutförd aktivitet startas om.
 
 > [!NOTE]
 > I sällsynta fall är det möjligt att en krasch kan inträffa i fönstret när en aktivitets funktion har slutförts, men innan slutförandet sparas i Orchestration-historiken. Om detta inträffar kommer aktivitets funktionen att köras igen från början efter att processen återställts.
 
-### <a name="async-http"></a>Mönster #3: Asynkrona HTTP API: er
+### <a name="async-http"></a>Mönster #3: asynkrona HTTP API: er
 
 Det asynkrona HTTP API-mönstret löser problemet med att koordinera tillstånden för långvariga åtgärder med externa klienter. Ett vanligt sätt att implementera det här mönstret är att ha en HTTP-slutpunkt som utlöser tids krävande åtgärder. Omdirigera sedan klienten till en status slut punkt som klienten avsöker för att lära sig när åtgärden har slutförts.
 
@@ -196,7 +196,7 @@ Durable Functions-tillägget visar inbyggda HTTP-API: er som hanterar långvarig
 
 Mer information finns i artikeln om [http-funktioner](durable-functions-http-features.md) , som förklarar hur du kan exponera asynkrona, långvariga processer över HTTP med Durable Functions-tillägget.
 
-### <a name="monitoring"></a>Mönster #4: Övervaka
+### <a name="monitoring"></a>Mönster #4: övervaka
 
 Övervaknings mönstret avser en flexibel, återkommande process i ett arbets flöde. Ett exempel är att avsöker tills vissa villkor är uppfyllda. Du kan använda en vanlig [timer-utlösare](../functions-bindings-timer.md) för att hantera ett grundläggande scenario, till exempel ett periodiskt rensnings jobb, men dess intervall är statiskt och hanteringen av instans livstider blir komplex. Du kan använda Durable Functions för att skapa flexibla upprepnings intervall, hantera aktivitets livs längder och skapa flera övervaknings processer från ett enda dirigering.
 
@@ -204,7 +204,7 @@ Ett exempel på ett övervaknings mönster är att byta till det tidigare asynkr
 
 ![Ett diagram över övervaknings mönstret](./media/durable-functions-concepts/monitor.png)
 
-I några få kodrader kan du använda Durable Functions för att skapa flera Övervakare som ser godtyckliga slut punkter. Övervakarna kan avsluta körningen när ett villkor är uppfyllt, eller så kan [DurableOrchestrationClient](durable-functions-instance-management.md) avsluta övervakarna. Du kan ändra en övervakares `wait` intervall baserat på ett speciellt villkor (till exempel exponentiell backoff.) 
+I några få kodrader kan du använda Durable Functions för att skapa flera Övervakare som ser godtyckliga slut punkter. Övervakarna kan avsluta körningen när ett villkor är uppfyllt, eller så kan `IDurableOrchestrationClient` avsluta övervakarna. Du kan ändra en övervakares `wait` intervall baserat på ett speciellt villkor (till exempel exponentiell backoff.) 
 
 Följande kod implementerar en grundläggande Övervakare:
 
@@ -213,7 +213,7 @@ Följande kod implementerar en grundläggande Övervakare:
 ```csharp
 [FunctionName("MonitorJobStatus")]
 public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     int jobId = context.GetInput<int>();
     int pollingInterval = GetPollingInterval();
@@ -238,7 +238,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
+#### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -266,9 +266,9 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-När en begäran tas emot skapas en ny Dirigerings instans för jobb-ID: t. Instansen avsöker en status tills ett villkor uppfylls och loopen avslutas. En varaktig timer styr avsöknings intervallet. Sedan kan du utföra mer arbete, eller så kan dirigeringen avslutas. När (.net) eller `context.df.currentUtcDateTime` `expiryTime` (Java Script) överskrider värdet, avslutas övervakaren. `context.CurrentUtcDateTime`
+När en begäran tas emot skapas en ny Dirigerings instans för jobb-ID: t. Instansen avsöker en status tills ett villkor uppfylls och loopen avslutas. En varaktig timer styr avsöknings intervallet. Sedan kan du utföra mer arbete, eller så kan dirigeringen avslutas. När `context.CurrentUtcDateTime` (.NET) eller `context.df.currentUtcDateTime` (Java Script) överskrider värdet för `expiryTime` är övervakaren slut.
 
-### <a name="human"></a>Mönster #5: Mänsklig interaktion
+### <a name="human"></a>Mönster #5: mänsklig interaktion
 
 Många automatiserade processer omfattar viss typ av mänsklig interaktion. Att involvera människor i en automatiserad process är knepigt eftersom människor inte är hög tillgängliga och svarar som moln tjänster. En automatiserad process kan tillåta den här interaktionen genom att använda tids gränser och kompensations logik.
 
@@ -285,7 +285,7 @@ Följande exempel skapar en godkännande process för att demonstrera de mänskl
 ```csharp
 [FunctionName("ApprovalWorkflow")]
 public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     await context.CallActivityAsync("RequestApproval", null);
     using (var timeoutCts = new CancellationTokenSource())
@@ -307,7 +307,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
+#### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -329,15 +329,15 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-För att skapa en varaktig timer, `context.CreateTimer` anropa (.net) `context.df.createTimer` eller (Java Script). Meddelandet tas emot av `context.WaitForExternalEvent` (.net) eller `context.df.waitForExternalEvent` (Java Script). Sedan anropas `context.df.Task.any`(.net ) eller (Java Script) för att bestämma om de ska eskalera (tids gräns sker först) eller behandla godkännandet (godkännandet tas emot före tids gränsen). `Task.WhenAny`
+Skapa en varaktig timer genom att anropa `context.CreateTimer` (.NET) eller `context.df.createTimer` (Java Script). Meddelandet tas emot av `context.WaitForExternalEvent` (.NET) eller `context.df.waitForExternalEvent` (Java Script). Sedan anropas `Task.WhenAny` (.NET) eller `context.df.Task.any` (Java Script) för att bestämma om du vill eskalera (tids gräns sker först) eller behandla godkännandet (godkännandet tas emot före tids gränsen).
 
-En extern klient kan leverera händelse meddelandet till en väntande Orchestrator-funktion genom att antingen använda [inbyggda http-API: er](durable-functions-http-api.md#raise-event) eller genom att använda [DurableOrchestrationClient. RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_System_String_System_String_System_Object_) -API: et från en annan funktion:
+En extern klient kan leverera händelse meddelandet till en väntande Orchestrator-funktion genom att antingen använda [inbyggda http-API: er](durable-functions-http-api.md#raise-event) eller genom att använda metoden `RaiseEventAsync` (.net) eller `raiseEvent` (Java Script) från en annan funktion:
 
 ```csharp
 [FunctionName("RaiseEventToOrchestration")]
 public static async Task Run(
     [HttpTrigger] string instanceId,
-    [OrchestrationClient] DurableOrchestrationClient client)
+    [DurableClient] IDurableOrchestrationClient client)
 {
     bool isApproved = true;
     await client.RaiseEventAsync(instanceId, "ApprovalEvent", isApproved);
@@ -358,7 +358,7 @@ module.exports = async function (context) {
 curl -d "true" http://localhost:7071/runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/ApprovalEvent -H "Content-Type: application/json"
 ```
 
-### <a name="aggregator"></a>Mönster #6: Aggregator (för hands version)
+### <a name="aggregator"></a>Mönster #6: Aggregator
 
 Det sjätte mönstret är att sammanställa händelse data under en viss tids period till en enda, adresser bar *entitet*. I det här mönstret kan de data som sammanställs komma från flera källor, levereras i batchar eller vara spridda över långa tids perioder. Aggregator kan behöva vidta åtgärder för händelse data när de anländer, och externa klienter kan behöva fråga de sammanställda data.
 
@@ -366,33 +366,50 @@ Det sjätte mönstret är att sammanställa händelse data under en viss tids pe
 
 Det är svårt att försöka implementera det här mönstret med normala, tillstånds lösa funktioner är att samtidighets kontroll blir en enorm utmaning. Du behöver inte bara bekymra dig om flera trådar som ändrar samma data samtidigt. du måste också bekymra dig om att se till att Aggregator bara körs på en enda virtuell dator i taget.
 
-Med en [hållbar enhets funktion](durable-functions-preview.md#entity-functions)kan en implementera det här mönstret enkelt som en enda funktion.
+Du kan använda [varaktiga entiteter](durable-functions-entities.md) för att enkelt implementera det här mönstret som en enda funktion.
 
 ```csharp
 [FunctionName("Counter")]
 public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 {
     int currentValue = ctx.GetState<int>();
-
     switch (ctx.OperationName.ToLowerInvariant())
     {
         case "add":
             int amount = ctx.GetInput<int>();
-            currentValue += amount;
+            ctx.SetState(currentValue + amount);
             break;
         case "reset":
-            currentValue = 0;
+            ctx.SetState(0);
             break;
         case "get":
             ctx.Return(currentValue);
             break;
     }
-
-    ctx.SetState(currentValue);
 }
 ```
 
-Varaktiga entiteter kan också modelleras som .NET-klasser. Den här modellen kan vara användbar om listan över åtgärder är fast och blir stor. Följande exempel är en motsvarande implementering av `Counter` entiteten med hjälp av .NET-klasser och-metoder.
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.entity(function(context) {
+    const currentValue = context.df.getState(() => 0);
+    switch (context.df.operationName) {
+        case "add":
+            const amount = context.df.getInput();
+            context.df.setState(currentValue + amount);
+            break;
+        case "reset":
+            context.df.setState(0);
+            break;
+        case "get":
+            context.df.return(currentValue);
+            break;
+    }
+});
+```
+
+Varaktiga entiteter kan också modelleras som klasser i .NET. Den här modellen kan vara användbar om listan över åtgärder är fast och blir stor. Följande exempel är en likvärdig implementering av `Counter` entiteten med hjälp av .NET-klasser och-metoder.
 
 ```csharp
 public class Counter
@@ -418,7 +435,7 @@ Klienter kan köa *åtgärder* för (kallas även "signalering") en entitets fun
 [FunctionName("EventHubTriggerCSharp")]
 public static async Task Run(
     [EventHubTrigger("device-sensor-events")] EventData eventData,
-    [OrchestrationClient] IDurableOrchestrationClient entityClient)
+    [DurableClient] IDurableOrchestrationClient entityClient)
 {
     var metricType = (string)eventData.Properties["metric"];
     var delta = BitConverter.ToInt32(eventData.Body, eventData.Body.Offset);
@@ -429,10 +446,21 @@ public static async Task Run(
 }
 ```
 
-Dynamiskt genererade proxyservrar är också tillgängliga för att signalera enheter på ett typ säkert sätt. Förutom att signalera kan klienter även fråga efter status för en entitets funktion med hjälp av [typ säkra metoder](durable-functions-bindings.md#entity-client-usage) i Dirigerings klient bindningen.
-
 > [!NOTE]
-> Enhets funktioner är för närvarande endast tillgängliga i .NET som en del av [Durable Functions 2,0-förhands granskningen](durable-functions-preview.md).
+> Dynamiskt genererade proxyservrar är också tillgängliga i .NET för att signalera enheter på ett typ säkert sätt. Förutom att signalera kan klienter även fråga efter status för en entitets funktion med hjälp av [typ säkra metoder](durable-functions-bindings.md#entity-client-usage) i Dirigerings klient bindningen.
+
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context) {
+    const client = df.getClient(context);
+    const entityId = new df.EntityId("Counter", "myCounter");
+    await context.df.signalEntity(entityId, "add", 1);
+};
+```
+
+Enhets funktioner är tillgängliga i [Durable Functions 2,0](durable-functions-versions.md) och senare.
 
 ## <a name="the-technology"></a>Tekniken
 
@@ -444,7 +472,7 @@ För att tillhandahålla pålitliga och långvariga körnings garantier har Orch
 
 ## <a name="billing"></a>Fakturering
 
-Durable Functions debiteras samma som Azure Functions. Mer information finns i [priser för Azure Functions](https://azure.microsoft.com/pricing/details/functions/). När du kör Orchestrator Functions i Azure Functions [förbruknings planen](../functions-scale.md#consumption-plan)finns det några fakturerings beteenden som du bör känna till. Mer information om dessa funktioner finns i artikeln [Durable Functions fakturering](durable-functions-billing.md) .
+Durable Functions debiteras samma som Azure Functions. Mer information finns i [prissättning för Azure Functions](https://azure.microsoft.com/pricing/details/functions/). När du kör Orchestrator Functions i Azure Functions [förbruknings planen](../functions-scale.md#consumption-plan)finns det några fakturerings beteenden som du bör känna till. Mer information om dessa funktioner finns i artikeln [Durable Functions fakturering](durable-functions-billing.md) .
 
 ## <a name="jump-right-in"></a>Kom igång snabbt
 
@@ -455,7 +483,7 @@ Du kan komma igång med Durable Functions på mindre än 10 minuter genom att sl
 
 I båda snabbstarterna skapar du och testar en beständig ”hello world”-funktion lokalt. Du publicerar sedan funktionskoden till Azure. Den funktion som du skapar orkestrerar och kedjar samman anrop till andra funktioner.
 
-## <a name="learn-more"></a>Lär dig mer
+## <a name="learn-more"></a>Läs mer
 
 Följande video visar fördelarna med Durable Functions:
 

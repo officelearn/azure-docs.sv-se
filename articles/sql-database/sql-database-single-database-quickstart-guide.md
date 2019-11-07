@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – enkla databaser i Azure SQL Database | Microsoft Docs
+title: Snabb start – enstaka databaser i Azure SQL Database
 description: Lär dig att snabbt komma igång med enkla databaser i Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 07/29/2019
-ms.openlocfilehash: 45b0b2bc7a2ef5c3cb6ca801668f7b5be7c8ac73
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 279d0a2016bc3323632651db256c43121d388412
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639990"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687150"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Komma igång med enkla databaser i Azure SQL Database
 

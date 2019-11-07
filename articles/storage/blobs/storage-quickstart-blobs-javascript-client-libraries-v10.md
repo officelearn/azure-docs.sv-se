@@ -2,19 +2,19 @@
 title: Snabb start – skapa en BLOB i Azure Storage med hjälp av Java Script och HTML i webbläsaren
 description: Lär dig att ladda upp, lista och ta bort blobar med hjälp av Java Script på en HTML-sida.
 services: storage
-author: KarlErickson
+author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
-ms.author: karler
+ms.author: mhopkins
 ms.date: 08/29/2019
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: de21791e1ae11554f7a57c17c3935c0993bea1f9
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 3eb6f68a443e29a7d4c7b4dedad38783f838dee5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73025369"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686683"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -22,7 +22,7 @@ ms.locfileid: "73025369"
 
 I den här snabb starten lär du dig att [Azure Storage använda v10 SDK-för Java Script-BLOB-](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob#readme) bibliotek för att hantera blobbar från JavaScript-kod som körs helt i webbläsaren. Den metod som används här visar hur du tillämpar de säkerhetsåtgärder som krävs för att garantera säker åtkomst till bloblagringskontot.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 

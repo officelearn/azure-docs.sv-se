@@ -10,12 +10,12 @@ keywords: Azure Automation, DSC, PowerShell, önskad tillstånds konfiguration, 
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 0178f27c39c065399208e7fc5afe7352ba4f8e30
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 57dbfa0c2063c2059955294ccc1337bb76b72614
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502004"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606093"
 ---
 # <a name="what-is-azure-arc-for-servers"></a>Vad är Azure-båge för servrar?
 
@@ -83,9 +83,9 @@ Se avsnittet [Proxy Server-konfiguration](quickstart-onboard-powershell.md#proxy
 
 ## <a name="register-the-required-resource-providers"></a>Registrera nödvändiga resurs leverantörer
 
-När du har godkänt registreringen av funktions flagga måste du registrera nödvändiga resurs leverantörer.
+För att kunna använda Azure-bågen för servrar måste du registrera nödvändiga resurs leverantörer.
 
-* **Microsoft. HybridCompute**
+* **Microsoft.HybridCompute**
 * **Microsoft. GuestConfiguration**
 
 Du kan registrera resurs leverantörerna med följande kommandon:

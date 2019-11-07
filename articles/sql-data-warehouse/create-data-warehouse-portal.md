@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa och fråga Azure SQL Data Warehouse-Azure Portal | Microsoft Docs'
+title: 'Snabb start: skapa och fråga ett informations lager – Azure Portal'
 description: Skapa och fråga ett informations lager med Azure SQL Data Warehouse i Azure Portal.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,15 +10,15 @@ ms.subservice: development
 ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: sqlfreshmay19
-ms.openlocfilehash: 83475af3cfdd83e718243d80b84599d53716a5d5
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 5acd9688f5029c2a62243254f06160b9907797dd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375846"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686212"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Snabbstart: Skapa och skicka frågor till en Azure SQL Data Warehouse i Azure Portal
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Snabb start: skapa och skicka frågor till en Azure SQL Data Warehouse i Azure Portal
 
 Skapa snabbt och fråga en Azure SQL Data Warehouse med hjälp av Azure Portal.
 
@@ -37,7 +37,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-data-warehouse"></a>Skapa ett datalager
 
-En Azure SQL Data Warehouse skapas med en definierad uppsättning [beräknings resurser](memory-and-concurrency-limits.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-logical-servers.md). 
+En Azure SQL Data Warehouse skapas med en definierad uppsättning [beräknings resurser](memory-concurrency-limits.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-logical-servers.md). 
 
 Följ dessa steg om du vill skapa en SQL Data Warehouse som innehåller exempel data för AdventureWorksDW. 
 
@@ -67,7 +67,7 @@ Följ dessa steg om du vill skapa en SQL Data Warehouse som innehåller exempel 
     | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
     | **Inloggning för serveradministratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
     | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
-    | **Location** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
+    | **Plats** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
     ||||
 
     ![skapa databasserver](media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
@@ -144,9 +144,9 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
    | :------ | :-------------- | :---------- |
    | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
    | servernamn | Fullständigt kvalificerat servernamn | Här är ett exempel: **mynewserver-20180430.Database.Windows.net**. |
-   | Authentication | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
-   | Logga in | Serveradministratörskontot | Kontot som du angav när du skapade servern. |
-   | lösenordsinställning | Lösenordet för serveradministratörskontot | Lösen ordet du angav när du skapade servern. |
+   | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
+   | Inloggning | Serveradministratörskontot | Kontot som du angav när du skapade servern. |
+   | Lösenord | Lösenordet för serveradministratörskontot | Lösen ordet du angav när du skapade servern. |
    ||||
 
     ![Anslut till server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
@@ -168,7 +168,7 @@ SQL Data Warehouse använder T-SQL som frågespråk. Använd följande steg om d
     SELECT * FROM sys.databases
     ```
 
-3. Klicka på **Kör**. Resultatet av frågan visar två databaser: **master** och **mySampleDataWarehouse**.
+3. Klicka på **Execute**. Resultatet av frågan visar två databaser: **master** och **mySampleDataWarehouse**.
 
     ![Skicka frågor mot databaser](media/create-data-warehouse-portal/query-databases.png)
 

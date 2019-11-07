@@ -1,6 +1,6 @@
 ---
-title: Introduktion till Data Factory, en dataintegreringstjänst | Microsoft Docs
-description: 'Läs om vad Azure Data Factory är: En tjänst för integrering av molndata som samordnar och automatiserar förflyttning och omvandling av data.'
+title: Introduktion till Data Factory, en data integrerings tjänst
+description: 'Detta är vad Azure Data Factory är: en molnbaserad dataintegreringstjänst som samordnar och automatiserar förflyttning och transformering av data.'
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 2e508839cd343820a36cc715ebde0f47c2ac4ab1
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 30578f204ff05443de82015627d67d3d4d357dce
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139507"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666804"
 ---
 # <a name="introduction-to-azure-data-factory"></a>introduktion till Azure Data Factory 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -118,7 +118,7 @@ Länkade tjänster används i två syften i Data Factory:
 
 ### <a name="relationship-between-data-factory-entities"></a>Förhållande mellan Data Factory-enheter
 
-![Diagram: Data Factory, en tjänst för integrering av molndata – nyckelbegrepp](./media/data-factory-introduction/data-integration-service-key-concepts.png)
+![Diagram: Data Factory, en molnbaserad dataintegreringstjänst – nyckelbegrepp](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 
 ## <a name="supported-regions"></a>Regioner som stöds
 För närvarande kan du skapa datafabriker i regionerna USA, västra; USA, östra och Europa, norra. Dock kan en datafabrik använda datalager och beräkningstjänster i andra Azure-regioner för att flytta data mellan datalager eller bearbeta data med hjälp av beräkningstjänster.
@@ -140,7 +140,7 @@ Du kan använda något av dessa verktyg eller API:er för att skapa datapipeline
 
 Följ de stegvisa anvisningarna i följande självstudier om du vill lära dig hur du skapar datafabriker med datapipeliner:
 
-| Självstudie | Beskrivning |
+| Självstudier | Beskrivning |
 | --- | --- |
 | [Flytta data mellan två molndatalager](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Skapa en datafabrik med en pipeline som flyttar data från Blob Storage till SQL Database. |
 | [Omvandla data med Hadoop-kluster](data-factory-build-your-first-pipeline.md) |Skapa din första Azure Data Factory med en datapipeline som bearbetar data genom att köra Hive-skriptet på ett Azure HDInsight-kluster (Hadoop). |

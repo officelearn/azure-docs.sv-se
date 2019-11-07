@@ -10,18 +10,18 @@ keywords: Azure Automation, DSC, PowerShell, önskad tillstånds konfiguration, 
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: 91d8ddf7d8051baeb42ceb58673c93555908f03a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ddade9472517d080d01b04c853db9dd1848fe0f3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501976"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73668474"
 ---
 # <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---powershell"></a>Snabb start: ansluta datorer till Azure med Azure Arc for servers – PowerShell
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Granska de klienter som stöds och nödvändig nätverks konfiguration i [översikten över Azure-bågen för servrar](overview.md).
 
@@ -198,6 +198,29 @@ Om du vill koppla bort en dator från Azure-bågen för servrar måste du utför
 
 1. Välj datorn i [portalen](https://aka.ms/hybridmachineportal), klicka på ellipsen (`...`) och välj **ta bort**.
 1. Avinstallera agenten från datorn.
+
+   I Windows kan du använda "apparna & funktioner" på kontroll panelen för att avinstallera agenten.
+  
+  ![Appar & funktioner](./media/quickstart-onboard/apps-and-features.png)
+
+   Om du vill skripta avinstallationen kan du använda följande exempel som hämtar **PackageId** och avinstallerar agenten med hjälp av `msiexec /X`.
+
+   Titta under register nyckeln `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall` och hitta **PackageId**. Sedan kan du avinstallera agenten med hjälp av `msiexec`.
+
+   Exemplet nedan visar hur du avinstallerar agenten.
+
+   ```powershell
+   Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
+   Get-ItemProperty | `
+   Where-Object {$_.DisplayName -eq "Azure Connected Machine Agent"} | `
+   ForEach-Object {MsiExec.exe /Quiet /X "$($_.PsChildName)"}
+   ```
+
+   Kör följande kommando i Linux för att avinstallera agenten.
+
+   ```bash
+   sudo apt purge hybridagent
+   ```
 
 ## <a name="next-steps"></a>Nästa steg
 

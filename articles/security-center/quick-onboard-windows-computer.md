@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center-snabbstart – Publicera Windows-datorer till Security Center | Microsoft Docs
+title: Publicera Windows-datorer till Azure Security Center
 description: Den här snabbstarten visar hur du etablerar Microsoft Monitoring Agent på en Windows-dator.
 services: security-center
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 46fffc40b315109c348247ac09f02f9bb8dbb3b7
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 417d8379d019a9ef0da41638cba4a1f9cb7b8bc2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202797"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686498"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Snabbstart: Publicera Windows-datorer till Azure Security Center
 När du har publicerat dina Azure-prenumerationer kan du aktivera Security Center for resurser som körs utanför Azure, till exempel lokalt eller i andra moln, genom att etablera Microsoft Monitoring Agent.
@@ -33,7 +33,7 @@ Innan du startar den här snabbstarten måste du ha standardnivån i Security Ce
 
 ## <a name="add-new-windows-computer"></a>Lägg till ny Windows-dator
 
-1. Logga in på [Azure-portalen](https://azure.microsoft.com/features/azure-portal/).
+1. Logga in på [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
 2. På menyn **Microsoft Azure** väljer du **Security Center**. **Security Center – Översikt** öppnas.
 
    ![Översikt över Security Center][2]
@@ -64,7 +64,7 @@ Nu måste du installera den hämtade filen på måldatorn.
 4. På sidan **Målmapp** ändrar du eller behåller standardinstallationsmappen och väljer **Nästa**.
 5. På sidan **Installationsalternativ för agent** väljer du att ansluta agenten till Azure Log Analytics och väljer **Nästa**.
 6. På sidan **Azure Log Analytics** klistrar du in **arbetsyte-ID** och **arbetsytenyckel (primär nyckel)** som du kopierade till Anteckningar i tidigare steg.
-7. Om datorn ska rapportera till en Log Analytics-arbetsyta i Azure Government-molnet väljer du **Azure US Government** i listrutan **Azure Cloud**.  Om datorn behöver kommunicera via en proxyserver till Log Analytics-tjänsten väljer du **Avancerat** och anger URL och portnummer för proxyservern.
+7. Om datorn ska rapportera till en Log Analytics-arbetsyta i Azure Government-molnet väljer du **Azure US Government** i listrutan **Azure Cloud**. Om datorn behöver kommunicera via en proxyserver till Log Analytics-tjänsten väljer du **Avancerat** och anger URL och portnummer för proxyservern.
 8. Välj **Nästa** när du har gjort de konfigurationsinställningar som krävs.
 
    ![Installera agenten][5]
@@ -76,13 +76,13 @@ När du är klar visas **Microsoft Monitoring Agent** i **Kontrollpanelen**. Du 
 
 Mer information om att installera och konfigurera agenten finns i dokumentationen om att [ansluta Windows-datorer](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
 
-Nu kan du övervaka dina virtuella Azure-datorer och datorer som inte är Azure-datorer på ett ställe. Under **Compute** (Beräkna) har du en översikt över alla virtuella datorer och datorer tillsammans med rekommendationer. I varje kolumn finns en typ av rekommendationer. Färgen representerar den virtuella datorns eller datorns aktuella säkerhetsstatus för den rekommendationen. Security Center hämtar också alla identifieringar för datorerna i Säkerhetsaviseringar.
+Nu kan du övervaka dina virtuella Azure-datorer och datorer som inte är Azure-datorer på ett ställe. Under **Compute** (Beräkna) har du en översikt över alla virtuella datorer och datorer tillsammans med rekommendationer. I varje kolumn finns en typ av rekommendationer. Färgen representerar den virtuella datorns eller datorns aktuella säkerhetsstatus för den rekommendationen. Security Center visar också eventuella identifieringar för dessa datorer i Säkerhetsaviseringar.
 
   ![Compute-bladet][6]
 
 Det finns två typer av ikoner på **Compute**-bladet:
 
-![icon1](./media/quick-onboard-windows-computer/security-center-monitoring-icon1.png) Datorer som inte är Azure-datorer
+![icon1](./media/quick-onboard-windows-computer/security-center-monitoring-icon1.png) Icke-Azure-dator
 
 ![icon2](./media/quick-onboard-windows-computer/security-center-monitoring-icon2.png) Azure VM
 
@@ -99,7 +99,7 @@ Så här tar du bort agenten:
 I den här snabbstarten etablerar du Microsoft Monitoring Agent på en Windows-dator. Om du vill läsa mer om hur du använder Security Center fortsätter du till självstudien om konfiguration av en säkerhetsprincip och utvärderar resursers säkerhet.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Definiera och utvärdera säkerhetsprinciper](tutorial-security-policy.md)
+> [Självstudie: Definiera och utvärdera säkerhetsprinciper](tutorial-security-policy.md)
 
 <!--Image references-->
 [2]: ./media/quick-onboard-windows-computer/overview.png

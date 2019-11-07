@@ -7,22 +7,22 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: overview
-ms.date: 08/31/2019
+ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: e3a83730e47686e9d4757f057d2e8da4629fdd7a
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 1a9ad16d6ecd7e75848ca1ea56e6238ee3b29c2d
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72312134"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614952"
 ---
-# <a name="entity-functions-preview"></a>Enhets funktioner (förhands granskning)
+# <a name="entity-functions"></a>Enhets funktioner
 
 Entitets funktioner definierar åtgärder för att läsa och uppdatera små delar av tillstånd, så kallade *varaktiga entiteter*. Precis som med Orchestrator Functions är enhets funktionerna funktioner med en särskild utlösnings typ, *enhets utlösare*. Till skillnad från Orchestrator-funktioner hanterar entiteter en entitets tillstånd explicit, i stället för implicit som representerar tillstånd via kontroll flödet.
 Entiteter ger ett sätt att skala ut program genom att distribuera arbetet över flera entiteter, var och en med ett mycket stort tillstånd.
 
 > [!NOTE]
-> Enhets funktioner och relaterade funktioner är bara tillgängliga i Durable Functions 2,0 och senare. Enhets funktioner finns för närvarande i offentlig för hands version.
+> Enhets funktioner och relaterade funktioner är bara tillgängliga i Durable Functions 2,0 och senare.
 
 ## <a name="general-concepts"></a>Allmänna begrepp
 
@@ -36,7 +36,7 @@ Entiteter nås via en unik identifierare, *entitets-ID: t*. Ett entitets-ID är 
 * Ett **entitetsnamn**: ett namn som identifierar entitetens typ (till exempel "Counter"). Namnet måste matcha namnet på den enhets funktion som implementerar entiteten. Det är inte känsligt för fall.
 * En **enhets nyckel**: en sträng som unikt identifierar entiteten bland alla andra entiteter av samma namn (till exempel ett GUID).
 
-En *Counter* -enhets funktion kan till exempel användas för att hålla poängen i ett onlinespel. Varje instans av spelet har ett unikt entitets-ID, till exempel `@Counter@Game1`, `@Counter@Game2` och så vidare. Alla åtgärder som är riktade till en viss entitet kräver att du anger ett entitets-ID som en parameter.
+En *Counter* -enhets funktion kan till exempel användas för att hålla poängen i ett onlinespel. Varje instans av spelet har ett unikt entitets-ID, till exempel `@Counter@Game1`, `@Counter@Game2`och så vidare. Alla åtgärder som är riktade till en viss entitet kräver att du anger ett entitets-ID som en parameter.
 
 ### <a name="entity-operations"></a>Enhets åtgärder ###
 
@@ -58,9 +58,9 @@ En **Function-baserad syntax** där entiteter representeras som Functions och å
 
 En **klass-baserad syntax** där entiteter och åtgärder representeras av klasser och metoder. Den här syntaxen ger enklare läsbar kod och gör att åtgärder kan anropas på ett typ säkert sätt. Den klassbaserade syntaxen är bara ett tunt lager ovanpå den Function-baserade syntaxen så att båda variantarna kan användas i samma program.
 
-### <a name="example-function-based-syntax"></a>Exempel: Function-baserad syntax
+### <a name="example-function-based-syntax---c"></a>Exempel: Function-baserad syntax-C#
 
-Följande kod är ett exempel på en enkel *Counter* -entitet som implementeras som en varaktig funktion. Den här funktionen definierar tre åtgärder, `add`, `reset` och `get`, som var och en använder ett heltals tillstånd.
+Följande kod är ett exempel på en enkel *Counter* -entitet som implementeras som en varaktig funktion. Den här funktionen definierar tre åtgärder, `add`, `reset`och `get`, som körs på ett heltals tillstånd.
 
 ```csharp
 [FunctionName("Counter")]
@@ -83,9 +83,9 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 
 Mer information om den Function-baserade syntaxen och hur du använder den finns i [Function-based syntax](durable-functions-dotnet-entities.md#function-based-syntax).
 
-### <a name="example-class-based-syntax"></a>Exempel: klass-baserad syntax
+### <a name="example-class-based-syntax---c"></a>Exempel: klass-baserad syntax-C#
 
-Följande exempel är en likvärdig implementering av entiteten `Counter` med hjälp av klasser och metoder.
+Följande exempel är en likvärdig implementering av `Counter` entiteten med hjälp av klasser och metoder.
 
 ```csharp
 [JsonObject(MemberSerialization.OptIn)]
@@ -109,6 +109,45 @@ public class Counter
 Status för den här entiteten är ett objekt av typen `Counter`, som innehåller ett fält som lagrar räknarens aktuella värde. För att spara objektet i lagret serialiseras det och deserialiseras av [JSON.net](https://www.newtonsoft.com/json) -biblioteket. 
 
 Mer information om den klassbaserade syntaxen och hur du använder den finns i [definiera enhets klasser](durable-functions-dotnet-entities.md#defining-entity-classes).
+
+### <a name="example-javascript-entity"></a>Exempel: JavaScript-entitet
+
+Varaktiga entiteter är tillgängliga i Java Script från och med version **1.3.0** av `durable-functions` NPM-paketet. Följande kod är *Counter* -entiteten som implementerats som en varaktig funktion skriven i Java Script.
+
+**function. JSON**
+```json
+{
+  "bindings": [
+    {
+      "name": "context",
+      "type": "entityTrigger",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+**index. js**
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.entity(function(context) {
+    const currentValue = context.df.getState(() => 0);
+    switch (context.df.operationName) {
+        case "add":
+            const amount = context.df.getInput();
+            context.df.setState(currentValue + amount);
+            break;
+        case "reset":
+            context.df.setState(0);
+            break;
+        case "get":
+            context.df.return(currentValue);
+            break;
+    }
+});
+```
 
 ## <a name="accessing-entities"></a>Åtkomst till entiteter
 
@@ -145,6 +184,16 @@ public static Task Run(
 }
 ```
 
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context) {
+    const client = df.getClient(context);
+    const entityId = new df.EntityId("Counter", "myCounter");
+    await context.df.signalEntity(entityId, "add", 1);
+};
+```
+
 Termen *signal* innebär att entitets-API-anropet är enkelriktat och asynkront. Det är inte möjligt att en *klient funktion* vet när entiteten har bearbetat åtgärden. Dessutom kan inte klient funktionen Observera resultat värden eller undantag. 
 
 ### <a name="example-client-reads-an-entity-state"></a>Exempel: klienten läser ett enhets tillstånd
@@ -163,6 +212,16 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context) {
+    const client = df.getClient(context);
+    const entityId = new df.EntityId("Counter", "myCounter");
+    return context.df.readEntityState(entityId);
+};
+```
+
 Frågor för enhets tillstånd skickas till lagrings platsen för beständig spårning och returnerar entitetens senast *sparade* tillstånd. Det här läget är alltid ett "dedikerat" tillstånd, det vill säga det är aldrig ett tillfälligt mellanliggande tillstånd som antas i mitten av körningen av en åtgärd. Det är dock möjligt att det här läget är inaktuellt jämfört med enhetens minnes tillstånd. Endast dirigering kan läsa en entitets minnes intern tillstånd enligt beskrivningen i följande avsnitt.
 
 ### <a name="example-orchestration-signals-and-calls-an-entity"></a>Exempel: Orchestration-signaler och anropa en entitet
@@ -176,7 +235,7 @@ public static async Task Run(
 {
     var entityId = new EntityId(nameof(Counter), "myCounter");
 
-   // Two-way call to the entity which returns a value - awaits the response
+    // Two-way call to the entity which returns a value - awaits the response
     int currentValue = await context.CallEntityAsync<int>(entityId, "Get");
     if (currentValue < 10)
     {
@@ -184,6 +243,21 @@ public static async Task Run(
         context.SignalEntity(entityId, "Add", 1);
     }
 }
+```
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context){
+    const entityId = new df.EntityId("Counter", "myCounter");
+
+    // Two-way call to the entity which returns a value - awaits the response
+    currentValue = yield context.df.callEntity(entityId, "get");
+    if (currentValue < 10) {
+        // One-way signal to the entity which updates the value - does not await a response
+        yield context.df.signalEntity(entityId, "add", 1);
+    }
+});
 ```
 
 Endast dirigering kan anropa entiteter och få svar, vilket kan vara antingen ett retur värde eller ett undantag. Klient funktioner som använder [klient bindningen](durable-functions-bindings.md#entity-client) kan bara *signalerar* entiteter.
@@ -198,87 +272,38 @@ Vi kan till exempel ändra entiteten Counter-exempel ovan så att den skickar en
 
 ```csharp
    case "add":
+        var currentValue = ctx.GetState<int>();
         var amount = ctx.GetInput<int>();
         if (currentValue < 100 && currentValue + amount >= 100)
         {
             ctx.SignalEntity(new EntityId("MonitorEntity", ""), "milestone-reached", ctx.EntityKey);
         }
-        currentValue += amount;
+
+        ctx.SetState(currentValue + amount);
         break;
 ```
 
-Följande kodfragment visar hur du införlivar den inmatade tjänsten i enhets klassen.
-
-```csharp
-public class HttpEntity
-{
-    private readonly HttpClient client;
-
-    public HttpEntity(IHttpClientFactory factory)
-    {
-        this.client = factory.CreateClient();
-    }
-
-    public async Task<int> GetAsync(string url)
-    {
-        using (var response = await this.client.GetAsync(url))
-        {
-            return (int)response.StatusCode;
+```javascript
+    case "add":
+        const amount = context.df.getInput();
+        if (currentValue < 100 && currentValue + amount >= 100) {
+            const entityId = new df.EntityId("MonitorEntity", "");
+            context.df.signalEntity(entityId, "milestone-reached", context.df.instanceId);
         }
-    }
-
-    // The function entry point must be declared static
-    [FunctionName(nameof(HttpEntity))]
-    public static Task Run([EntityTrigger] IDurableEntityContext ctx)
-        => ctx.DispatchAsync<HttpEntity>();
-}
+        context.df.setState(currentValue + amount);
+        break;
 ```
-
-> [!NOTE]
-> Till skillnad från när du använder konstruktorn för att använda konstruktorn i vanliga .NET-Azure Functions, *måste* funktions plats metoden för funktioner för klassbaserade entiteter deklareras `static`. Om du deklarerar en icke-statisk funktions start punkt kan det orsaka konflikter mellan den normala Azure Functions objekt initieraren och den varaktiga entitetens objekt initierare.
-
-### <a name="bindings-in-entity-classes-net"></a>Bindningar i entitets klasser (.NET)
-
-Till skillnad från vanliga funktioner har enhets klass metoder inte direkt åtkomst till indata-och utgående bindningar. I stället måste bindnings data samlas in i deklarationen för ingångs punkt funktionen och sedan skickas till metoden `DispatchAsync<T>`. Alla objekt som skickas till `DispatchAsync<T>` skickas automatiskt till konstruktorn för entity-klassen som ett argument.
-
-I följande exempel visas hur en `CloudBlobContainer`-referens från [BLOB-databindningen](../functions-bindings-storage-blob.md#input) kan göras tillgänglig för en klass baserad entitet.
-
-```csharp
-public class BlobBackedEntity
-{
-    private readonly CloudBlobContainer container;
-
-    public BlobBackedEntity(CloudBlobContainer container)
-    {
-        this.container = container;
-    }
-
-    // ... entity methods can use this.container in their implementations ...
-    
-    [FunctionName(nameof(BlobBackedEntity))]
-    public static Task Run(
-        [EntityTrigger] IDurableEntityContext context,
-        [Blob("my-container", FileAccess.Read)] CloudBlobContainer container)
-    {
-        // passing the binding object as a parameter makes it available to the
-        // entity class constructor
-        return context.DispatchAsync<BlobBackedEntity>(container);
-    }
-}
-```
-
-Mer information om bindningar i Azure Functions finns i dokumentationen för [Azure Functions-utlösare och bindningar](../functions-triggers-bindings.md) .
 
 ## <a name="entity-coordination"></a>Organisations samordning
 
 Det kan finnas tillfällen när du behöver koordinera åtgärder över flera entiteter. I ett bank program kan du till exempel ha entiteter som representerar enskilda bank konton. När du överför betalningar från ett konto till ett annat, måste du se till att _käll_ kontot har tillräckligt med belopp och att uppdateringarna på både _käll_ -och _mål_ kontona görs på ett konsekvent sätt.
 
-### <a name="example-transfer-funds"></a>Exempel: överförings fonder
+### <a name="example-transfer-funds-c"></a>Exempel: Transfer FundsC#()
 
 I följande exempel kod överförs fonder mellan två _konto_ enheter med en Orchestrator-funktion. Att koordinera enhets uppdateringar kräver att du använder metoden `LockAsync` för att skapa ett _kritiskt avsnitt_ i dirigeringen:
 
 > [!NOTE]
-> För enkelhetens skull återanvänder det här exemplet entiteten `Counter` som definierats tidigare. I ett verkligt program är det dock bättre att i stället definiera en mer detaljerad `BankAccount`-enhet.
+> För enkelhetens skull återanvänder det här exemplet `Counter` entiteten som definierats tidigare. I ett verkligt program är det dock bättre att i stället definiera en mer detaljerad `BankAccount` entitet.
 
 ```csharp
 // This is a method called by an orchestrator function
@@ -320,21 +345,21 @@ public static async Task<bool> TransferFundsAsync(
 }
 ```
 
-I .NET returnerar `LockAsync` en `IDisposable` som avslutar det kritiska avsnittet när det tas bort. Detta `IDisposable`-resultat kan användas tillsammans med ett `using`-block för att få en syntaktisk representation av det kritiska avsnittet.
+I .NET returnerar `LockAsync` en `IDisposable` som avslutar det kritiska avsnittet när den tas bort. Detta `IDisposable` resultat kan användas tillsammans med ett `using`-block för att få en syntaktisk representation av det kritiska avsnittet.
 
-I föregående exempel har en Orchestrator-funktion överfört fonder från en _källentiteten_ till en _målentitet_ . Metoden `LockAsync` låser både _käll_ -och _mål_ kontots entiteter. Den här låsningen säkerställer att ingen annan klient kan fråga eller ändra status för något av kontona tills Orchestration-logiken avbröt det _kritiska avsnittet_ i slutet av `using`-instruktionen. Detta förhindrade möjligheten att överformulera från _käll_ kontot.
+I föregående exempel har en Orchestrator-funktion överfört fonder från en _källentiteten_ till en _målentitet_ . Metoden `LockAsync` låser både _käll_ -och _mål_ kontots entiteter. Den här låsningen säkerställer att ingen annan klient kan fråga eller ändra status för något av kontona tills Orchestration-logiken avbröt det _kritiska avsnittet_ i slutet av `using`s instruktionen. Det här beteendet förhindrar möjlighet att förhindra att _käll_ kontot bearbetas.
 
 > [!NOTE] 
 > När en dirigering avslutas (antingen normalt eller med ett fel), avslutas alla kritiska delar som pågår implicit och alla Lås släpps.
 
 ### <a name="critical-section-behavior"></a>Beteende för kritiskt avsnitt
 
-Metoden `LockAsync` skapar ett _kritiskt avsnitt_ i en dirigering. Dessa _kritiska avsnitt_ förhindrar andra dirigeringar från att göra överlappande ändringar till en angiven uppsättning entiteter. Internt i `LockAsync`-API: et skickar "lås"-åtgärder till entiteterna och returnerar när det får ett meddelande om "Lås förvärvet" från var och en av dessa entiteter. Både *Lås* och *upplåsning* är inbyggda åtgärder som stöds av alla entiteter.
+Metoden `LockAsync` skapar ett _kritiskt avsnitt_ i en dirigering. Dessa _kritiska avsnitt_ förhindrar andra dirigeringar från att göra överlappande ändringar till en angiven uppsättning entiteter. Internt skickar `LockAsync`-API: et "lock"-åtgärder till entiteterna och returnerar när det får ett meddelande om "Lås förvärvet" från var och en av dessa entiteter. Både *Lås* och *upplåsning* är inbyggda åtgärder som stöds av alla entiteter.
 
 Inga åtgärder från andra klienter tillåts för en entitet medan den är låst. Det här beteendet säkerställer att endast en Dirigerings instans kan låsa en entitet i taget. Om en anropare försöker anropa en åtgärd på en entitet när den har låsts av ett dirigering, placeras den åtgärden i en *kö för väntande åtgärder*. Inga väntande åtgärder kommer att bearbetas förrän innehavaren har låst det.
 
 > [!NOTE] 
-> Detta skiljer sig något från primitiva primitiver som används i de flesta programmeringsspråk, till exempel `lock`- C#satsen i. I C#, till exempel, måste uttrycket `lock` användas av alla trådar för att säkerställa korrekt synchonization över flera trådar. Entiteter kräver dock inte att alla anropare uttryckligen _låser_ en entitet. Om någon anropare låser en entitet kommer alla andra åtgärder på den entiteten att blockeras och placeras bakom det låset.
+> Detta skiljer sig något från primitiva primitiver som används i de flesta programmeringsspråk, till exempel `lock`- C#satsen i. I C#, till exempel, måste `lock`-instruktionen användas av alla trådar för att säkerställa korrekt synchonization över flera trådar. Entiteter kräver dock inte att alla anropare uttryckligen _låser_ en entitet. Om någon anropare låser en entitet kommer alla andra åtgärder på den entiteten att blockeras och placeras bakom det låset.
 
 Lås på entiteter är varaktiga, så de förblir kvar även om processen som körs återvinns. Lås är internt bestående som en del av en enhets varaktiga tillstånd.
 
@@ -354,7 +379,7 @@ Till skillnad från primitiva primitiver på låg nivå i de flesta programmerin
 
 ## <a name="comparison-with-virtual-actors"></a>Jämförelse med virtuella aktörer
 
-Många av de varaktiga entiteternas funktioner inspireras av [aktörs modellen](https://en.wikipedia.org/wiki/Actor_model). Om du redan är bekant med aktörer kan du känna igen många av de begrepp som beskrivs i den här artikeln. Varaktiga enheter är särskilt likartade för [virtuella aktörer](https://research.microsoft.com/projects/orleans/), eller *kärnor*, som är populärt av [Orleans-projektet](http://dotnet.github.io/orleans/). Exempel:
+Många av de varaktiga entiteternas funktioner inspireras av [aktörs modellen](https://en.wikipedia.org/wiki/Actor_model). Om du redan är bekant med aktörer kan du känna igen många av de begrepp som beskrivs i den här artikeln. Varaktiga enheter är särskilt likartade för [virtuella aktörer](https://research.microsoft.com/projects/orleans/), eller *kärnor*, som är populärt av [Orleans-projektet](http://dotnet.github.io/orleans/). Till exempel:
 
 * Varaktiga entiteter kan adresseras via ett *entitets-ID*.
 * Varaktiga enhets åtgärder körs seriellt, en i taget, för att förhindra tävlings förhållanden.

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 10/24/2019
-ms.openlocfilehash: da0c4d6cd4b923033761a275e93c5a4d8a184647
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 25d6d1aa1cf7db0f448ec22ed7b5c84d840af3f5
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991066"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579655"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Snabb start: utforska Azure Time Series Insights demonstrations miljö för förhands granskning
 
@@ -30,7 +30,7 @@ I den här snabb starten får du lära dig hur du använder Time Series Insights
 
 ## <a name="explore-the-time-series-insights-explorer-in-a-demo-environment"></a>Se Time Series Insights-utforskaren i en demomiljö
 
-I Time Series Insights Preview Explorer visas historiska data och Rotors Aker analys. Så här kommer du igång:
+Time Series Insights Preview Explorer visar historiska data och rotor Saks analys. Så här kommer du igång:
 
 1. Gå till [Contosos grupp demonstrations](https://insights.timeseries.azure.com/preview/samples) miljö.  
 
@@ -71,22 +71,22 @@ I Time Series Insights Preview Explorer visas historiska data och Rotors Aker an
 
       [![Sök efter historiska mönster](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
 
-Med hjälp av Time Series Insights och vår sensor telemetri har vi upptäckt en långsiktig och problematisk trend som är dold i historiska data. Med dessa nya insikter kan vi:
+Genom att använda Time Series Insights och sensor telemetri har vi upptäckt en långsiktig trend som är dold i historiska data. Med dessa nya insikter kan vi:
 
 * Förklara vad som faktiskt hände.
 * Rätta till problemet.
-* Placera överlägsna varnings system på plats.
+* Placera bättre system för varnings meddelanden på plats.
 
 ## <a name="root-cause-analysis"></a>Rotorsaksanalys
 
-1. Vissa scenarier kräver avancerad analys för att få fram diskreta LED trådar i data. Välj Windmill- **W6** på datumet **6/25**.
+1. Vissa scenarier kräver avancerad analys för att få fram LED trådar i data. Välj Windmill- **W6** på datumet **6/25**.
 
     1. Ändra visnings intervallet till **6/1/17 20:00:00.00 till 7/1/17 20:00:00.00 (UTC)** .
     1. Välj **contoso planta 1** > **W6** > **säkerhets system** > **VoltageActuatorSwitchWarning**.
 
        [![ändra visnings intervallet och välj W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
 
-1. Varningen anger ett problem med spänningen från generatorn. Den totala strömförbrukningen för generatorn är i normala parametrar i det aktuella intervallet. Ett annat mönster uppstår genom att öka intervallet. En bestämd kombination är tydlig.
+1. Varningen indikerar ett problem med spänningen från generatorn. Den totala effekten av generatorn är inom normala parametrar i det aktuella intervallet. Genom att öka vårt intervall ser vi ett annat mönster. En kombination är tydlig.
 
     1. Ta bort **VoltageActuatorSwitchWarning** -sensorn.
     1. Välj **Generator System** > **ActivePower**.
@@ -117,9 +117,9 @@ Med hjälp av Time Series Insights och vår sensor telemetri har vi upptäckt en
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Nu när du har slutfört självstudien rensar du de resurser som du har skapat:
+Nu när du har slutfört snabb starten rensar du de resurser som du har skapat:
 
-1. På den vänstra menyn i [Azure Portal](https://portal.azure.com)väljer du **alla resurser**, letar reda på Azure Time Series Insights resurs gruppen.
+1. I den vänstra menyn i [Azure Portal](https://portal.azure.com)väljer du **alla resurser**och letar reda på Azure Time Series Insights resurs gruppen.
 1. Ta antingen bort hela resurs gruppen (och alla resurser som ingår i den) genom att välja **ta bort** eller ta bort varje resurs individuellt.
 
 ## <a name="next-steps"></a>Nästa steg
@@ -129,7 +129,7 @@ Du är redo att skapa din egen Time Series Insights för hands versions miljö. 
 > [!div class="nextstepaction"]
 > [Planera en förhandsversion av Time Series Insights-miljön](time-series-insights-update-plan.md)
 
-Lär dig att navigera i demonstrationen och dess funktioner:
+Lär dig att använda demonstrationen och dess funktioner:
 
 > [!div class="nextstepaction"]
 > [Time Series Insights Preview Explorer](time-series-insights-update-explorer.md)

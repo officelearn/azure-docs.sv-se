@@ -8,86 +8,89 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: overview
-ms.date: 10/22/2019
+ms.date: 10/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 588d6dafd3703743f5f4c50bea4f27ef0225bbf7
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 05f4c64adad184e761e2b5a01b8c033c024dbc49
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989751"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585259"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>Vad är Azure Time Series Insights (förhandsversion)?
 
-Azure Time Series Insights för hands version är ett PaaS-erbjudande (end-to-end service). Den används för att samla in, bearbeta, lagra, analysera och fråga mycket sammanhangsbaserade, tidsbaserad, tidsbaserad och optimerad IoT-Scale-data. Time Series Insights är idealiskt för ad hoc-dataundersökning och drift analys. Time Series Insights är en unikt utbyggbar och anpassad tjänst som uppfyller de omfattande behoven för industriella IoT-distributioner.
+Azure Time Series Insights för hands version är ett PaaS-erbjudande (end-to-end service). Du kan använda den för att samla in, bearbeta, lagra, analysera och fråga data på Sakernas Internet (IoT)-data som är mycket kontextuella och optimerade för Time Series. 
 
-> [!TIP]
-> Funktioner i allmän tillgänglighet (GA) finns i [Översikt över Azure Time Series Insights ga](time-series-insights-overview.md).
+Time Series Insights är utformad för ad hoc-dataundersökning och drift analys. Det är ett utöknings Bart och anpassat tjänst erbjudande som uppfyller de breda behoven i industriella IoT-distributioner.
 
 ## <a name="video"></a>Video
 
-### <a name="learn-more-about-azure-time-series-insights-preview-br"></a>Läs mer om Azure Time Series Insights för hands version. </br>
+Läs mer om Azure Time Series Insights för hands version.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Time-Series-Insights-e2e-solution-for-industrial-IoT-analytics/player]
 
-## <a name="define-iot-data"></a>Definiera IoT-data
+## <a name="definition-of-iot-data"></a>Definition av IoT-data
 
-IoT-data är alla industriella data som är tillgängliga i till gångs intensiva organisationer. IoT-data är ofta mycket ostrukturerade eftersom de skickas från tillgångar som registrerar mått med ganska mycket störningar. Dessa mått omfattar temperatur, rörelse och fuktighet. Dessa dataströmmar kännetecknas ofta av stora luckor, skadade meddelanden och falska värden. Data från dessa strömmar måste rensas innan någon analys kan ske.
+Industriella IoT-data i till gångs intensiva organisationer saknar ofta strukturell konsekvens på grund av den varierande typen av enheter och sensorer i en industriell inställning. Data från dessa data strömmar karakteriseras av betydande luckor och ibland skadade meddelanden och falsk läsning. IoT-data är ofta meningsfulla i samband med ytterligare data inmatning som kommer från första eller tredje källor, till exempel CRM eller ERP som lägger till kontext för slut punkt till slut punkt. Indata från tredje parts data källor som väder data kan bidra till att utöka telemetri strömmar i en specifik installation. 
 
-IoT-data är ofta bara betydelsefullt i samband med ytterligare datainmatningar som kommer från första partskällor, till exempel CRM eller ERP. Inmatningar kan också komma från datakällor från tredje part, till exempel väder eller plats.
-
-Därför används bara en bråkdel av dessa data för drifts- och affärsbehov. Sådana data ger konsekvent, omfattande, aktuell och korrekt information för företagsrapportering och -analys. Omvandlingen av insamlad IoT-data till användbara insikter kräver:
+Allt detta innebär att endast en bråkdel av data används för operativa och affärsmässiga behov, och analys kräver contextualization. Industriella data är ofta historiska för djupgående analys över längre tid i sträck att förstå och korrelera trender. Omvandlingen av insamlad IoT-data till användbara insikter kräver: 
 
 * Databehandling för att rensa, filtrera, interpolera, transformera och förbereda data för analys.
-* En struktur för att navigera och förstå data, alltså för att normalisera och kontextualisera data.
-* Kostnadseffektiv lagring för lång eller obegränsad kvarhållning för bearbetade eller härledda data och rådata från flera årtionden.
+* En struktur för att navigera genom och förstå data, det vill säga för att normalisera och sätta data.
+* Kostnads effektiv lagring för lång eller oändlig kvarhållning av bearbetade (eller härledda) data och rå data.
 
-Ett typiskt IoT-dataflödet visas i den efterföljande bilden.
+Sådana data ger konsekvent, omfattande, aktuell och korrekt information för företags analys och rapportering.
 
-  [![IoT-dataflöde](media/v2-update-overview/overview-one.png)](media/v2-update-overview/overview-one.png#lightbox)
+Följande bild visar ett typiskt IoT-dataflöde.
+
+[![IoT-dataflöde](media/v2-update-overview/overview-one.png)](media/v2-update-overview/overview-one.png#lightbox)
 
 ## <a name="azure-time-series-insights-for-industrial-iot"></a>Azure Time Series Insights för industriell IoT
 
-Dagens IoT datalandskap är mångskiftande. Kunder från branscher inom tillverkning, fordon, energi, allmännyttiga tjänster, smarta byggnader och konsultverksamhet. Scenarier innehåller ad hoc-dataundersökning där data formen är okänd. Scenarier innefattar också operativ analys schematiserade eller uttryckligen modellerade data för att driva operativ effektivitet. Dessa scenarier finns normalt bredvid varandra och stöder olika användningsfall. Plattformsfunktioner som är nyckeln till framgång för industriella IoT-företag och deras digitala revolution är:
+IoT-landskapet skiljer sig mellan kunder som sträcker sig över olika bransch segment, inklusive tillverkning, bil, energi, verktyg, smarta byggnader och konsult tjänster. I den här breda serien av industriella IoT-marknader utvecklas molnbaserade lösningar som tillhandahåller omfattande analyser riktade till storskaliga IoT-data i stor skala. 
 
-- Flera lager lagring, både varma och kalla.
-- Möjligheten att lagra decennier av Time Series-data.
-- Möjligheten att uttryckligen modellera och optimera frågor för tillgångsbaserad driftsinformation.
+Azure Time Series Insights åtgärdar marknadens behov genom att tillhandahålla en nyckel färdig lösning för IoT Analytics med omfattande semantisk modellering för contextualization av tids serie data, till gångs-baserade insikter och förstklassig användar upplevelse för identifiering, Trends, avvikelse identifiering och drift information. 
 
-Time Series Insights är ett omfattande PaaS-erbjudande från slut punkt till slut punkt för IoT data utforskning och Operational Insights. Time Series Insights är en fullständigt hanterad molntjänst för analys av tidsseriedata i IoT-skala.
+En intensiv drifts analys plattform tillsammans med våra interaktiva data utforsknings funktioner kan du använda Time Series Insights för att härleda mer värde av data som samlas in från IoT-tillgångar. Förhandsversionserbjudandet stöder: 
 
-Du kan lagra rådata i ett minnesinternt arkiv utan schema. Du kan sedan utföra interaktiva ad hoc-frågor via en distribuerad frågemotor och API. Använd den rika användarupplevelsen för att visualisera miljarder händelser på några sekunder. Läs mer om [datagranskningsfunktioner](./time-series-insights-overview.md).
+* Lagrings lösning med extra lager med varm och kall analys som ger kunderna möjlighet att dirigera data mellan varma och kalla för interaktiva analyser över varmt data och drifts information över årtionden av historiska data. 
 
-Time Series Insights tillhandahåller även funktioner för åtgärdsinformation som för närvarande är en förhandsversion. Tillsammans med interaktiv datagranskning och driftsinformation kan du använda Time Series Insights för att härleda mer värde ur data som samlas in från IoT-tillgångar. Förhandsversionserbjudandet stöder:
+    *   En mycket interaktiv lösning för varm lösning för att utföra frekventa och många frågor över kortare tids periods data 
+    *   En skalbar, genomförd och kostnads optimerad tids serie data Lake baserat på Azure Storage som gör det möjligt för kunder att trenda års tids serie data på några sekunder. 
 
-* Ett skalbart och kostnads optimerat data lager för tids serier. Den här molnbaserade IoT-lösningen kan svänga flera års tidsseriedata på några sekunder.
-* Stöd för semantisk modell som beskriver den domän och de metadata som är kopplade till härledda och icke härledda signaler från till gångar och enheter.
-* En förbättrad användar upplevelse som kombinerar till gångs data insikter med omfattande ad hoc data analys. Den här kombinationen styr affärs- och driftsinformation.
-* Integrering med avancerade verktyg för maskininlärning och analys. Verktygen inkluderar Azure Databricks, Apache Spark, Azure Machine Learning, Jupyter-notebooks och Power BI. Verktygen hjälper dig att hantera utmaningarna med tidsseriedata och öka effektiviteten.
+* Stöd för semantisk modell som beskriver den domän och de metadata som är kopplade till de härledda och råa signalerna från till gångar och enheter.
 
-Tillsammans tillhandahålls åtgärdsinformation och datagranskning med en enkel användningsbaserad prismodell för databehandling, lagring och frågor. Den här faktureringsmodellen passar varierande affärsbehov.
+* Flexibel analys plattform för att lagra historiska tids serie data i kundägda Azure Storage-konto, så att kunderna kan ha ägande rätt till sina IoT-data. Data lagras i Apache Parquet-format med öppen källkod som möjliggör anslutningar och interop i flera olika data scenarier, inklusive förutsägelse analyser, maskin inlärning och andra anpassade beräkningar som gjorts med hjälp av den välkända tekniken, inklusive Spark, Databricks och Jupyter.
 
-Det här avancerade dataflödesdiagrammet visar uppdateringarna.
+* Omfattande analyser med förbättrade API: er för frågor och användar upplevelse som kombinerar till gångs data insikter med omfattande ad hoc-dataanalys med stöd för interpolation, skalärfunktioner och mängd funktioner, kategoriska-variabler, punkt diagram och tids växlings tid serie signaler för djupgående analys.
+
+*   Plattform för företags klass som stöder skalnings-, prestanda-, säkerhets-och Tillförlitlighets behoven hos våra Enterprise IoT-kunder.
+
+* Utöknings-och integrations support för slut punkt till slut punkts analys. Time Series Insights tillhandahåller en utöknings bar analys plattform för flera olika data scenarier. Time Series Insights Power BI Connector gör det möjligt för kunderna att ta de frågor de gör i Time Series Insights direkt till Power BI för att få en enhetlig vy över sin BI-och Time Series-analys i ett enda fönster i glaset.
+
+I följande diagram visas data flödet på hög nivå.
 
   [![viktiga funktioner](media/v2-update-overview/overview-two.png)](media/v2-update-overview/overview-two.png#lightbox)
 
-Med introduktionen av dessa viktiga funktioner för industriell IoT tillhandahåller Time Series Insights följande viktiga fördelar.
+Azure Time Series Insights ger en skalbar pris modell enligt principen betala per användning för data bearbetning, lagring (data och metadata) och fråga, vilket gör det möjligt för kunderna att justera sin användning så att de passar deras affärs behov. 
+ 
+I introduktionen av de här viktiga industriella IoT-funktionerna har Time Series Insights även följande viktiga fördelar.  
 
 | | |
 | ---| ---|
-| Lagring med flera lager för IoT-Scale Time Series-data | Du kan lagra data i varm lagring för interaktiva frågor med en vanlig databehandlingspipeline för att mata in data. Du kan även lagra data i kall lagring för stora mängder data. Dra nytta av högpresterande tillgångsbaserade [frågor](./time-series-insights-update-tsq.md). |
-| Time Series-modell för sätta av RAW-telemetri och härledd till gångs-baserade insikter | Kontextualisera råtelemetridata med den beskrivande [tidsseriemodellen](./time-series-insights-update-tsm.md). Härled omfattande driftsinformation med högpresterande och kostnadsoptimerade enhetsbaserade frågor. |
-| Smidig och kontinuerlig integrering med andra data lösningar | Data i Time Series Insights [lagras](./time-series-insights-update-storage-ingress.md) i Apache Parquet-filer med öppen källkod. Den här integreringen med andra datalösningar, oavsett om de är från första eller tredje part, är enkel för slutpunkt-till-slutpunkt scenarier. Scenarierna innefattar Business Intelligence, avancerad maskininlärning och förutsägelseanalys. |
-| Datagranskning i nära realtid | Användargränssnittet i [Azure Time Series Insights Explorer förhandsversion](./time-series-insights-update-explorer.md) innehåller visualisering för alla data som strömmas genom datainmatningspipeline. Strax efter att du ansluter en händelsekälla kan du visa, utforska och fråga efter händelsedata. På så sätt kan du verifiera om en enhet genererar data som förväntat. Du kan också övervaka en IoT-tillgångs hälsotillstånd, produktivitet och övergripande effektivitet. |
-| Rotorsaksanalys och avvikelseidentifiering | [Azure Time Series Insights Explorer förhandsversion](./time-series-insights-update-explorer.md) stöder både mönster och perspektivvyer för att genomföra och spara rotorsaksanalys i flera steg. I kombination med Azure Stream Analytics kan du använda Time Series Insights för att upptäcka varningar och avvikelser i nära realtid. |
-| Anpassade program som bygger på Time Series Insights plattform | Time Series Insights stöder [JavaScript SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). SDK innehåller omfattande kontroller och förenklad åtkomst till frågor. Använd SDK för att skapa anpassade IoT-program ovanpå Time Series Insights som passar just dina affärsbehov. Du kan även använda [fråge-API:er](./time-series-insights-update-tsq.md) för Time Series Insights för att driva data till anpassade IoT-program. |
+| Lagring med flera lager för IoT-Scale Time Series-data | Med en data behandlings pipeline för delade data för att mata in data kan du mata in data i både varma och kalla butiker. Använd varmt Store för interaktiva frågor och kall lagring för lagring av stora mängder data. Om du vill veta mer om hur du kan dra nytta av högpresterande till gångs frågor, se [frågor](./time-series-insights-update-tsq.md). |
+| Time Series-modell för sätta av RAW-telemetri och härledd till gångs-baserade insikter | Du kan använda Time Series-modellen för att skapa instanser, hierarkier, typer och variabler för dina Time Series-data. Mer information om tids serie modellen finns i [tids serie modell](./time-series-insights-update-tsm.md).  |
+| Smidig och kontinuerlig integrering med andra data lösningar | Data i Time Series Insights kall lagring [lagras](./time-series-insights-update-storage-ingress.md) i Apache Parquet-filer med öppen källkod. Detta möjliggör data integrering med andra data lösningar, 1st eller tredje part, för scenarier som omfattar Business Intelligence, avancerad maskin inlärning och förutsägelse analys. |
+| Datagranskning i nära realtid | Användargränssnittet i [Azure Time Series Insights Explorer förhandsversion](./time-series-insights-update-explorer.md) innehåller visualisering för alla data som strömmas genom datainmatningspipeline. När du har anslutit en händelse källa kan du Visa, utforska och fråga händelse data. På så sätt kan du verifiera om en enhet genererar data som förväntat. Du kan också övervaka en IoT-tillgångs hälsotillstånd, produktivitet och övergripande effektivitet. | 
+| Utökning och integrering | Integreringen Azure Time Series Insights Power BI Connector är tillgänglig direkt i användar upplevelsen för Time Series Explorer via **export** alternativet, så att kunderna kan exportera tids serie frågorna som de skapar i vår användar upplevelse direkt i Power BI Skriv bordet och Visa tids serie diagram tillsammans med andra BI-analyser. Detta öppnar dörren till en ny klass med scenarier för industriella IoT-företag som har investerat i Power BI genom att tillhandahålla ett enda fönster för analys från olika data källor, inklusive IoT Time Series. | 
+| Anpassade program som bygger på Time Series Insightss plattformen | Time Series Insights stöder [JavaScript SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). SDK innehåller omfattande kontroller och förenklad åtkomst till frågor. Använd SDK: n för att bygga anpassade IoT-program ovanpå Time Series Insights som passar dina affärs behov. Du kan även använda [fråge-API:er](./time-series-insights-update-tsq.md) för Time Series Insights för att driva data till anpassade IoT-program. |
 
 ## <a name="next-steps"></a>Nästa steg
 
 Kom igång med Azure Time Series Insights för hands version:
 
 > [!div class="nextstepaction"]
-> [Läs snabbstartsguiden](./time-series-insights-update-quickstart.md)
+> [Snabb starts guide](./time-series-insights-update-quickstart.md)
 
 Läs mer om användarsituationer:
 

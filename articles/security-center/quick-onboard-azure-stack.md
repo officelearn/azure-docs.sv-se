@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center snabb start – publicera dina Azure Stack virtuella datorer på Security Center | Microsoft Docs
+title: Publicera Azure Stack virtuella datorer i Azure Security Center
 description: Den här snabb starten visar hur du etablerar tillägget Azure Monitor, uppdatering och konfigurations hantering för virtuella datorer på en Azure Stack virtuella datorer.
 services: security-center
 documentationcenter: na
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: fiseraci
-ms.openlocfilehash: 1772fd34a2d79b725b2b5ccaa66adb0b251b7e1d
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: c186dcb2d7d7d423f5c001bdb4d3f3503beebd9c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202862"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686523"
 ---
-# <a name="quickstart--onboard-your-azure-stack-virtual-machines-to-security-center"></a>Snabbstart:  Publicera dina Azure Stack virtuella datorer i Security Center
+# <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>Snabb start: publicera dina Azure Stack virtuella datorer i Security Center
 När du har publicerat din Azure-prenumeration kan du aktivera Security Center för att skydda dina virtuella datorer som körs på Azure Stack genom att lägga till tillägget **Azure Monitor, uppdatering och konfigurations hantering** för virtuella datorer från Azure Stack marknaden.
 
 Den här snabb starten visar hur du lägger till tillägget **Azure Monitor, uppdatering och konfigurations hantering** för virtuella datorer på en virtuell dator (Linux och Windows stöds båda) som körs på Azure Stack.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Om du inte har någon prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 
 Du måste ha en Azure-prenumeration på Security Center standard nivån innan du startar den här snabb starten. Läs [Publicera din Azure-prenumeration till Security Center Standard](security-center-get-started.md) för instruktioner om uppgradering. Du kan prova Security Center standard nivån kostnads fritt i 30 dagar. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="select-your-workspace-in-azure-security-center"></a>Välj din arbets yta i Azure Security Center
 
-1. Logga in på [Azure-portalen](https://azure.microsoft.com/features/azure-portal/).
+1. Logga in på [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
 2. På menyn **Microsoft Azure** väljer du **Security Center**. **Security Center – Översikt** öppnas. 
 
    ![Översikt över Security Center][2]
@@ -69,7 +69,7 @@ Nu måste du lägga till tillägget **Azure Monitor, uppdatering och konfigurati
 > Om du inte ser tillägget **Azure Monitor, uppdatering och konfigurations hantering** som visas på din Marketplace, kan du kontakta din Azure Stack-operatör för att göra det tillgängligt.
 
 6. På bladet **Installera tilläggs** konfiguration klistrar du in **arbets ytans ID** och den **arbets ytans nyckel (primär nyckel)** som du kopierade i anteckningar i föregående procedur.
-7.  När du är färdig med nödvändiga konfigurations inställningar klickar du på **OK**.
+7. När du är färdig med nödvändiga konfigurations inställningar klickar du på **OK**.
 8. När tillägget har slutförts visas statusen som **etableringen har slutförts**. Det kan ta upp till en timme innan den virtuella datorn visas i Security Center portalen.
 
 Mer information om hur du installerar och konfigurerar agenten för Windows finns i [ansluta Windows-datorer](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
@@ -82,7 +82,7 @@ Nu kan du övervaka dina virtuella Azure-datorer och datorer som inte är Azure-
 
 Det finns två typer av ikoner på **Compute**-bladet:
 
-![icon1](./media/quick-onboard-windows-computer/security-center-monitoring-icon1.png) Datorer som inte är Azure-datorer 
+![icon1](./media/quick-onboard-windows-computer/security-center-monitoring-icon1.png) Icke-Azure-dator 
 
 ![icon2](./media/quick-onboard-windows-computer/security-center-monitoring-icon2.png) Virtuell Azure-dator (Azure Stack virtuella datorer visas i den här gruppen)
 
@@ -100,7 +100,7 @@ Ta bort tillägget:
 I den här snabb starten har du allokerat tillägget Azure Monitor, uppdatering och konfigurations hantering på en virtuell dator som körs på Azure Stack. Om du vill läsa mer om hur du använder Security Center fortsätter du till självstudien om konfiguration av en säkerhetsprincip och utvärderar resursers säkerhet.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Definiera och utvärdera säkerhetsprinciper](tutorial-security-policy.md)
+> [Självstudie: Definiera och utvärdera säkerhetsprinciper](tutorial-security-policy.md)
 
 <!--Image references-->
 [2]: ./media/quick-onboard-windows-computer/overview.png

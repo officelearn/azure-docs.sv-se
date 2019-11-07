@@ -1,19 +1,19 @@
 ---
-title: Översikt över Azure HPC cache Preview
+title: Översikt över Azure HPC cache
 description: Beskriver Azure HPC cache, en lösning för fil åtkomst Accelerator för data behandling med höga prestanda
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 09/24/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: bfbbcd2d7d1bb44e260bedda54ca38ed6860ea67
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 2a008d22de5df8d091e868153205697b4bb343ee
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254481"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582134"
 ---
-# <a name="what-is-azure-hpc-cache-preview"></a>Vad är Azure HPC Cache? (Förhandsversion)
+# <a name="what-is-azure-hpc-cache"></a>Vad är Azure HPC Cache?
 
 Azure HPC cache ger åtkomst till dina data för HPC-uppgifter (data behandling med höga prestanda). Genom att cachelagra filer i Azure ger Azure HPC-cache skalbarhet för molnbaserad data behandling till ditt befintliga arbets flöde. Den här tjänsten kan användas även för arbets flöden där dina data lagras i WAN-länkar, t. ex. i din lokala NAS-miljö (Data Center Network-Attached Storage).
 
@@ -45,22 +45,26 @@ Azure HPC cache kan också användas för att förbättra effektiviteten i uppgi
 
 En Azure HPC cache-distribution kan hjälpa dig att påskynda kvantitativa analys beräkningar, riskhanterings arbets belastningar och Monte Carlo-simuleringar för att ge finansiella tjänste företag bättre insikt i att fatta strategiska beslut.
 
-## <a name="region-availability"></a>Tillgänglighet för regioner
+## <a name="region-availability"></a>Regional tillgänglighet
 
 Azure HPC-cache är tillgängligt i följande Azure-regioner:
 
-* Östra USA
-* Östra USA 2
-* Nordeuropa
-* Västeuropa
+* USA, östra
+* USA, östra 2
+* Norra Europa
+* Västra Europa
 * Sydostasien
-* USA, västra 2
+* Sydney
+* Västra USA 2
+* Sydkorea, centrala
 
 På [produkt sidan för Azure HPC cache](https://azure.microsoft.com/services/hpc-cache) finns den senaste tillgängliga informationen.
 
-## <a name="preview-availability"></a>Tillgänglighet för för hands version
+## <a name="service-availability"></a>Tjänsttillgänglighet
 
-Den offentliga för hands versionen av Azure HPC cache är begränsad för att säkerställa tjänst kvaliteten. Begär åtkomst genom att fylla i [det här formuläret](https://aka.ms/onboard-hpc-cache). När din prenumeration har lagts till i åtkomst listan kan du skapa test-cacheminnen.
+Du måste begära åtkomst för varje prenumeration som du kommer att använda med Azure HPC-cache. Den här begränsningen säkerställer service kvaliteten under de första månaderna av allmän tillgänglighet.
+
+Begär åtkomst genom att fylla i [det här formuläret](https://aka.ms/onboard-hpc-cache). När du har lagt till din prenumeration i åtkomst listan kan du skapa cacheminnen.
 
 ## <a name="next-steps"></a>Nästa steg
 

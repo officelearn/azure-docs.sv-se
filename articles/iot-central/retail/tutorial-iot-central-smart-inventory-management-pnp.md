@@ -4,14 +4,15 @@ description: En själv studie kurs om program mal len för smart inventerings ha
 author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
+ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 7c8b2379ccb7562a79077df026a7083831e5415b
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 8360db3e31899dc7ca0a2b502d0036358f0858d6
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027266"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615235"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Självstudie: Distribuera och gå igenom en mall för hantering av Smart inventerings program
 
@@ -23,7 +24,7 @@ I den här självstudien får du lära dig att
 * Skapa program för smart inventerings hantering 
 * gå igenom programmet 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * Inga särskilda krav krävs för att distribuera den här appen
 * Vi rekommenderar att du har en Azure-prenumeration, men du kan även prova utan den
 

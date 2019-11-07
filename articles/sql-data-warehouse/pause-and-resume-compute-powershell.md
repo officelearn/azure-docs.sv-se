@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Pausa och återuppta beräkning i Azure SQL Data Warehouse – PowerShell | Microsoft Docs'
+title: 'Snabb start: pausa & återuppta beräkning – PowerShell '
 description: Använd PowerShell för att pausa beräkning i Azure SQL Data Warehouse för att spara kostnader. Återuppta beräkning när du är redo att använda data lagret.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,14 +10,15 @@ ms.subservice: manage
 ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: da9c3d42919bba6ce04fc54bafc2fb5d245379f5
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 2ad83e51a11e08373f2132e861ec1c8f3ac20458
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306097"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686006"
 ---
-# <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-azure-powershell"></a>Snabbstart: Pausa och återuppta beräkning i Azure SQL Data Warehouse med Azure PowerShell
+# <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-azure-powershell"></a>Snabb start: pausa och återuppta beräkning i Azure SQL Data Warehouse med Azure PowerShell
 
 Använd PowerShell för att pausa beräkning i Azure SQL Data Warehouse för att spara kostnader. [Återuppta beräkning](sql-data-warehouse-manage-compute-overview.md) när du är redo att använda data lagret.
 
@@ -56,7 +57,7 @@ Leta upp databasens namn, servernamnet och resursgruppen för det informationsla
 Följ de här anvisningarna för att hitta platsen för ditt informationslager.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Klicka på **SQL-databaser** på den vänstra sidan i Azure-portalen.
+2. Klicka på **SQL-databaser** på den vänstra sidan i Azure Portal.
 3. Välj **mySampleDataWarehouse** på sidan **SQL-databaser**. Informationslagret öppnas.
 
     ![Servernamn och resursgrupp](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)

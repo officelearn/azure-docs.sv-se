@@ -1,27 +1,33 @@
 ---
-title: 'Snabb start: starta ett program med hjälp av maven – Azure våren Cloud'
-description: Starta ett exempel program med hjälp av maven
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
+title: 'Snabb start: starta ett program med maven – Azure våren Cloud'
+description: Starta ett exempel program med maven
+author: jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 10/05/2019
-ms.author: v-vasuke
-ms.openlocfilehash: ce07d43a289cf527664b120dd832cf832fb2b05e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.author: jeconnoc
+ms.openlocfilehash: 440dac3ff26c838458f91e453e2c62fc0953d4f6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161412"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686182"
 ---
-# <a name="quickstart-launch-an-azure-spring-cloud-app-by-using-the-maven-plug-in"></a>Snabb start: starta en Azure våren Cloud-App med hjälp av maven-plugin-programmet
+# <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Snabb start: starta en Azure våren Cloud-App med maven-plugin-programmet
 
-Med Azure våren Cloud maven-plugin-programmet kan du enkelt skapa och uppdatera Azure våren Cloud Service-programmen. Genom att fördefiniera en konfiguration kan du distribuera program till din befintliga Azure våren Cloud-tjänst. I den här artikeln använder du ett exempel program som heter PiggyMetrics för att demonstrera den här funktionen.
+Med hjälp av Azure våren Cloud maven-plugin-programmet kan du enkelt skapa och uppdatera dina Azure våren Cloud-program. Genom att fördefiniera en konfiguration kan du distribuera program till din befintliga Azure våren Cloud-tjänst. I den här artikeln använder du ett exempel program som heter PiggyMetrics för att demonstrera den här funktionen.
+
+Efter den här snabb starten får du lära dig att:
+
+> [!div class="checklist"]
+> * Etablera en tjänst instans
+> * Konfigurera en konfigurations Server för en instans
+> * Klona och bygg program för mikrotjänster lokalt
+> * Distribuera varje mikrotjänst
+> * Tilldela en offentlig slut punkt för ditt program
 
 >[!Note]
-> Innan du påbörjar den här snabb starten ska du se till att din Azure-prenumeration har åtkomst till Azure våren Cloud. Som för hands versions tjänst ber vi dig att kontakta oss så att vi kan lägga till din prenumeration i vår lista över tillåtna. Om du vill utforska funktionerna i Azure våren Cloud, fyller du i och skickar [Azure våren Cloud (privat för hands version) – intresse form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u). Även om Azure våren-molnet är i för hands version erbjuder Microsoft begränsad support utan service avtal.  Mer information om support under för hands versionerna finns i [vanliga frågor och svar om support](https://azure.microsoft.com/support/faq/).
+> > Azure våren Cloud erbjuds för närvarande som en offentlig för hands version. Med den offentliga för hands versionen kan kunder experimentera med nya funktioner före den officiella versionen.  Funktioner och tjänster för offentliga för hands versioner är inte avsedda för användning i produktion.  Om du vill ha mer information om stöd under för hands versionerna kan du skicka en [supportbegäran](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
 
 >[!TIP]
 > Azure Cloud Shell är ett kostnads fritt interaktivt gränssnitt som du kan använda för att köra kommandona i den här artikeln. Den har ett förinstallerat vanligt Azure-verktyg, inklusive de senaste versionerna av Git, Java Development Kit (JDK), Maven och Azure CLI. Om du är inloggad på din Azure-prenumeration startar du [Azure Cloud Shell](https://shell.azure.com). Mer information finns i [Översikt över Azure Cloud Shell](../cloud-shell/overview.md).
@@ -39,32 +45,39 @@ För att slutföra den här snabbstarten behöver du:
 Installera Azure våren Cloud-tillägget för Azure CLI med hjälp av följande kommando:
 
 ```Azure CLI
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+az extension add --name spring-cloud
 ```
 
 ## <a name="provision-a-service-instance-on-the-azure-portal"></a>Etablera en tjänst instans på Azure Portal
 
-1. Öppna den [Azure Portal](https://portal.azure.com)i en webbläsare och logga in på ditt konto.
+1. Öppna [den här länken till Azure våren Cloud i den Azure Portal](https://ms.portal.azure.com/#create/Microsoft.AppPlatform)i en webbläsare och logga in på ditt konto.
 
-1. Sök efter och välj sedan **Azure våren Cloud**. 
-1. På sidan Översikt väljer du **skapa**och gör sedan följande:  
+1. Öppna dialog rutan skapa genom att välja **skapa** på sidan **Översikt** .
 
-    a. I rutan **tjänst namn** anger du namnet på din tjänst instans. Namnet måste vara mellan 4 och 32 tecken långt och får bara innehålla gemena bokstäver, siffror och bindestreck. Det första tecknet i tjänst namnet måste vara en bokstav och det sista tecknet måste vara en bokstav eller en siffra.  
+1. Ange **projekt informationen** för exempel programmet på följande sätt:
 
-    b. I list rutan **prenumeration** väljer du den prenumeration som du vill fakturera för resursen. Se till att den här prenumerationen har lagts till i listan över tillåtna för Azure våren-molnet.  
+    1. Välj den **prenumeration** som programmet ska associeras med.
+    1. Välj eller skapa en resurs grupp för programmet. Vi rekommenderar att du skapar en ny resurs grupp.  I exemplet nedan visas en ny resurs grupp med namnet `myspringservice`.
+    1. Ange ett namn för den nya moln tjänsten Azure våren.  Namnet måste vara mellan 4 och 32 tecken långt och får bara innehålla gemena bokstäver, siffror och bindestreck. Det första tecknet i tjänst namnet måste vara en bokstav och det sista tecknet måste vara en bokstav eller en siffra.  Tjänsten i exemplet nedan har namnet `contosospringcloud`.
+    1. Välj en plats för programmet från de tillhandahållna alternativen.  I det här exemplet väljer vi `East US`.
+    1. Välj **Granska + skapa** för att granska en sammanfattning av den nya tjänsten.  Om allting ser korrekt ut väljer du **skapa**.
 
-    c. I rutan **resurs grupp** skapar du en ny resurs grupp. Det är en bra idé att skapa resurs grupper för nya resurser.  
+    > [!div class="mx-imgBorder"]
+    > ![Välj granska + skapa](media/maven-qs-review-create.jpg)
 
-    d. I list rutan **plats** väljer du platsen för din tjänst instans. De platser som stöds för närvarande är USA, västra USA 2, Västeuropa och Sydostasien.
-    
-Det tar ungefär 5 minuter för tjänsten att distribueras. När tjänsten har distribuerats visas **översikts** sidan för tjänst instansen.
+Det tar ungefär 5 minuter för tjänsten att distribueras. När tjänsten har distribuerats väljer **du gå till resurs** så visas sidan **Översikt** för tjänst instansen.
 
 ## <a name="set-up-your-configuration-server"></a>Konfigurera konfigurations servern
 
 1. På sidan tjänst **Översikt** väljer du **konfigurations Server**.
 1. I avsnittet **standard databas** ställer du in **URI** till **https://github.com/Azure-Samples/piggymetrics** , anger **etikett** till **config**och väljer sedan **tillämpa** för att spara ändringarna.
 
+    > [!div class="mx-imgBorder"]
+    > ![definiera och tillämpa konfigurations inställningar](media/maven-qs-apply-config.jpg)
+
 ## <a name="clone-and-build-the-sample-application-repository"></a>Klona och bygga exempel program databasen
+
+1. Starta [Azure Cloud Shell](https://shell.azure.com).
 
 1. Klona git-lagringsplatsen genom att köra följande kommando:
 
@@ -75,34 +88,16 @@ Det tar ungefär 5 minuter för tjänsten att distribueras. När tjänsten har d
 1. Ändra katalog och bygg projektet genom att köra följande kommando:
 
     ```azurecli
-    cd PiggyMetrics
+    cd piggymetrics
     mvn clean package -DskipTests
     ```
 
-## <a name="generate-and-deploy-the-azure-spring-cloud-configuration"></a>Skapa och Distribuera Azure våren Cloud-konfigurationen
+## <a name="generate-configurations-and-deploy-to-the-azure-spring-cloud"></a>Generera konfigurationer och distribuera till Azure våren-molnet
 
-1. Om du vill göra det möjligt för maven att arbeta med Azure våren Cloud lägger du till följande kod i filen *Pom. XML* eller *Settings. XML* .
-
-    ```xml
-    <pluginRepositories>
-      <pluginRepository>
-        <id>maven.snapshots</id>
-        <name>Maven Central Snapshot Repository</name>
-        <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-        <releases>
-          <enabled>false</enabled>
-        </releases>
-        <snapshots>
-          <enabled>true</enabled>
-        </snapshots>
-      </pluginRepository>
-    </pluginRepositories>
-    ```
-
-1. Generera en konfiguration genom att köra följande kommando:
+1. Generera konfigurationer genom att köra följande kommando i rotmappen för PiggyMetrics som innehåller den överordnade POM:
 
     ```azurecli
-    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:0.1.0-SNAPSHOT:config
+    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.0.0:config
     ```
 
     a. Välj modulerna `gateway`, `auth-service` och `account-service`.
@@ -113,13 +108,13 @@ Det tar ungefär 5 minuter för tjänsten att distribueras. När tjänsten har d
     
     d. Bekräfta konfigurationen.
 
-1. Distribuera apparna med hjälp av följande kommando:
+1. POM innehåller nu plugin-beroenden och konfigurationer. Distribuera apparna med följande kommando:
 
    ```azurecli
-   mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:0.1.0-SNAPSHOT:deploy
+   mvn azure-spring-cloud:deploy
    ```
 
-1. Du kan komma åt PiggyMetrics genom att använda URL: en som finns i utdata från föregående kommando.
+1. När distributionen är färdig kan du komma åt PiggyMetrics genom att använda URL: en som finns i utdata från föregående kommando.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -127,3 +122,4 @@ I den här snabb starten har du distribuerat ett fjäder moln program från en m
 
 > [!div class="nextstepaction"]
 > [Förbered ditt Azure våren Cloud-program för distribution](spring-cloud-tutorial-prepare-app-deployment.md)
+> [Lär dig mer om maven-plugin-program för Azure](https://github.com/microsoft/azure-maven-plugin)

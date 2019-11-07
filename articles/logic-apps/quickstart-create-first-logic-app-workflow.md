@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 246bd7935bf5aaaae569e589e4efa0ea7d39c90a
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: d5ac23da7b4460211100f1140c24f6ed28ab3e39
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821185"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73584349"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Snabbstart: Skapa ditt första automatiserade arbetsflöde med Azure Logic Apps – Azure Portal
 
@@ -24,13 +24,13 @@ I den här snabbstarten beskrivs hur du bygger ditt första automatiserade arbet
 
 ![Exempel på högnivås exempel på Logic app-arbetsflöde](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
-Om du vill följa den här snabbstarten måste du ha ett e-postkonto från en provider som stöds av Logic Apps, som Office 365 Outlook, Outlook.com eller Gmail. För andra providrar [läser du listan med anslutningsappar här](https://docs.microsoft.com/connectors/). För den här logikappen används ett Office 365 Outlook-konto. Om du använder något annat e-postkonto är de övergripande stegen desamma, men användargränssnittet kan skilja sig något.
+Om du vill följa den här snabb starten behöver du ett e-postkonto från en provider som stöds av Azure Logic Apps, till exempel Office 365 Outlook, Outlook.com eller Gmail. För andra providrar [läser du listan med anslutningsappar här](https://docs.microsoft.com/connectors/). För den här logikappen används ett Office 365 Outlook-konto. Om du använder ett annat e-postkonto är de övergripande stegen desamma, men användar gränssnittet kan skilja sig något.
 
 Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifterna för ditt Azure-konto.
+Logga in på [Azure Portal](https://portal.azure.com) med dina Azure-kontoautentiseringsuppgifter.
 
 ## <a name="create-your-logic-app"></a>Skapa en logikapp
 
@@ -42,20 +42,20 @@ Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifte
 
    ![Lägg till ny Logic-app](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
-1. Under **Skapa en logikapp** anger du information om din logikapp så som det visas här. När du är klar väljer du **skapa**.
+1. I fönstret Logic app anger du information om din Logi Kap par som visas nedan. När du är klar väljer du **skapa**.
 
    ![Ange information om den nya Logic-appen](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
    | Egenskap | Värde | Beskrivning |
    |----------|-------|-------------|
-   | **Namn** | <*logik-app-name*> | Ditt Logic app-namn, som endast får innehålla bokstäver, siffror, bindestreck (`-`), under streck (`_`), parenteser (`(`, `)`) och punkter (`.`). I det här exemplet används "min-First-Logic-app". |
+   | **Namn** | <*Logic – app-name*> | Ditt Logic app-namn, som endast får innehålla bokstäver, siffror, bindestreck (`-`), under streck (`_`), parenteser (`(`, `)`) och punkter (`.`). I det här exemplet används "min-First-Logic-app". |
    | **Prenumeration** | <*Azure-prenumerationsnamn*> | Ditt Azure-prenumerations namn |
-   | **Resursgrupp** | <*Azure-resurs-grupp-namn* > | Namnet på den [Azure-resurs grupp](../azure-resource-manager/resource-group-overview.md) som används för att organisera relaterade resurser. I det här exemplet används "My-First-LA-RG". |
+   | **Resursgrupp** | <*Azure-resurs-grupp-namn*> | Namnet på den [Azure-resurs grupp](../azure-resource-manager/resource-group-overview.md) som används för att organisera relaterade resurser. I det här exemplet används "My-First-LA-RG". |
    | **Plats** | <*Azure-region*> | Den region där du vill lagra information om din Logic Apps. I det här exemplet används "västra USA". |
    | **Log Analytics** | Av | Behåll inställningen **Av** för diagnostisk loggning. |
    ||||
 
-1. När Azure har distribuerat din app går du till Azure-verktygsfältet och väljer **aviseringar**  > **gå till resurs** för din distribuerade Logic-app.
+1. När Azure har distribuerat din app går du till Azure-verktygsfältet och väljer **aviseringar** > **gå till resurs** för din distribuerade Logic-app.
 
    ![Gå till en nyligen skapad Logic app-resurs](./media/quickstart-create-first-logic-app-workflow/go-to-new-logic-app-resource.png)
 
@@ -65,15 +65,15 @@ Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifte
 
    ![Välj tom mall för Logic app](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
-Lägg därefter till en [utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts) som utlöses när ett nytt RSS-flödesobjekt kommer. Varje logikapp måste börja med en utlösare som utlöses när en specifik händelse sker eller när ett särskilt villkor uppfylls. Varje gång utlösaren körs skapar Logic Apps-motorn en logikappinstans som startar och kör ditt arbetsflöde.
+Lägg därefter till en [utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts) som utlöses när ett nytt RSS-flödesobjekt kommer. Varje logikapp måste börja med en utlösare som utlöses när en specifik händelse sker eller när ett särskilt villkor uppfylls. Varje gång utlösaren utlöses skapar Azure Logic Apps-motorn en Logic App-instans som startar och kör ditt arbets flöde.
 
 <a name="add-rss-trigger"></a>
 
 ## <a name="check-rss-feed-with-a-trigger"></a>Kontrollera RSS-feed med en utlösare
 
-1. I Logic App Designer väljer du **alla**under sökrutan.
+1. I **Logic App Designer**väljer du **alla**under sökrutan.
 
-1. Skriv `rss` i sökrutan. Välj den här utlösaren i listan utlösare: **när ett feed-objekt publiceras**
+1. Skriv `rss` i sökrutan. Välj den här utlösaren i listan utlösare: **när ett feed-objekt publiceras**.
 
    ![Välj "när ett feed-objekt publiceras" utlösare](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
@@ -100,7 +100,7 @@ Logikappen har nu lanserats men gör inget annat än att kontrollera RSS-flödet
 
 ## <a name="send-email-with-an-action"></a>Skicka e-post med en åtgärd
 
-Nu lägger du till en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) som skickar e-postmeddelande när ett nytt objekt visas i RSS-flödet.
+Lägg nu till en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) som skickar ett e-postmeddelande när ett nytt objekt visas i RSS-flödet.
 
 1. Under **när ett flödes objekt publiceras** utlösare väljer du **nytt steg**.
 
@@ -121,7 +121,7 @@ Nu lägger du till en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-
 
 1. I åtgärden **Skicka ett e-postmeddelande** anger du de data som du vill att e-postmeddelandet ska innehålla.
 
-   1. Ange mottagarens e-postadress i fältet **Till**. I testsyfte kan du använda din egen e-postadress.
+   1. Ange mottagarens e-postadress i fältet **Till**. I test syfte kan du använda din e-postadress.
 
       För närvarande kan du listan **Lägg till dynamiskt innehåll** som visas. När du klickar i vissa redigeringsrutor blir listan synlig och visar eventuella tillgängliga parametrar från föregående steg som du kan ta med som indata i arbetsflödet.
 
@@ -162,7 +162,7 @@ Här är ett exempel på ett e-postmeddelande som den här logikappen skickar.
 
 ![Exempel på e-postmeddelande som skickas när ett nytt RSS-flöde visas](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
-När utlösaren kontrollerar RSS-flödet och hittar nya objekt utlöses den och Logic Apps-motorn skapar en instans av ditt logikapparbetsflöde som kör åtgärderna i arbetsflödet. Om utlösaren inte hittar nya objekt utlöses den inte, och den ”hoppar över” att instansiera arbetsflödet.
+Tekniskt, när utlösaren kontrollerar RSS-flödet och hittar nya objekt, utlöses utlösaren och Azure Logic Apps motor skapar en instans av ditt Logic app-arbetsflöde som kör åtgärderna i arbets flödet. Om utlösaren inte hittar nya objekt utlöses den inte, och den ”hoppar över” att instansiera arbetsflödet.
 
 Grattis, nu har du skapat och kört din första Logic-app med Azure Portal.
 

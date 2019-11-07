@@ -8,12 +8,12 @@ ms.date: 10/11/2019
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: d843e288297db656cca6e2a07f2e1f3322ebfa89
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 99863f68c20a2f95dfc744e13a977bf3ccbbf639
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299646"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580433"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introduktion till Azure Data Lake Storage Gen2
 
@@ -43,7 +43,7 @@ Tidigare var molnbaserad analys en kompromiss i områden med prestanda, hanterin
 
 -   **Kostnads effektiv**: data Lake Storage Gen2 erbjuder lagrings kapacitet och transaktioner med låg kostnad. Som data över gångar via hela livs cykeln, ändrar fakturerings taxan kostnaderna till ett minimum via inbyggda funktioner, till exempel [Azure Blob Storage livs cykel](storage-lifecycle-management-concepts.md).
 
--   **Optimerad driv rutin**: ABFS-drivrutinen har [optimerats specifikt](data-lake-storage-abfs-driver.md) för stor data analys. Motsvarande REST-API: er visas genom slut punkten `dfs.core.windows.net`.
+-   **Optimerad driv rutin**: ABFS-drivrutinen har [optimerats specifikt](data-lake-storage-abfs-driver.md) för stor data analys. Motsvarande REST-API: er finns i slut punkts `dfs.core.windows.net`.
 
 ### <a name="scalability"></a>Skalbarhet
 
@@ -83,7 +83,7 @@ Flera plattformar med öppen källkod har stöd för Data Lake Storage Gen2. Des
 
 ## <a name="supported-azure-services"></a>Azure-tjänster som stöds
 
-Data Lake Storage Gen2 stöder flera Azure-tjänster som du kan använda för att mata in data, utföra analyser och skapa visuella representationer. En lista över Azure-tjänster som stöds finns i [integrera Azure Data Lake Storage med Azure-tjänster](data-lake-store-integrate-with-azure-services.md).
+Data Lake Storage Gen2 stöder flera Azure-tjänster som du kan använda för att mata in data, utföra analyser och skapa visuella representationer. En lista över Azure-tjänster som stöds finns i [integrera Azure Data Lake Storage med Azure-tjänster](data-lake-storage-integrate-with-azure-services.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -92,4 +92,4 @@ I följande artiklar beskrivs några av de viktigaste begreppen i Data Lake Stor
 - [Hierarkiskt namn område](data-lake-storage-namespace.md)
 - [Skapa ett lagringskonto](data-lake-storage-quickstart-create-account.md)
 - [Åtkomst till flera protokoll på Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)
-- [Integrera Azure Data Lake Storage med Azure-tjänster](data-lake-store-integrate-with-azure-services.md);
+- [Integrera Azure Data Lake Storage med Azure-tjänster](data-lake-storage-integrate-with-azure-services.md);

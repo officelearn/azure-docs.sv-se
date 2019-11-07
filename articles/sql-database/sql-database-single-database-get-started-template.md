@@ -1,5 +1,5 @@
 ---
-title: 'Azure Resource Manager: Skapa en enkel databas – Azure SQL Database | Microsoft Docs'
+title: 'Azure Resource Manager: skapa en enskild databas – Azure SQL Database '
 description: Skapa en enda databas i Azure SQL Database med hjälp av Azure Resource Manager-mallen.
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: mumian
 ms.author: jgao
 ms.reviewer: carlrab
 ms.date: 06/28/2019
-ms.openlocfilehash: f3e9bb0e9a2c4c58a205798441ddc2208019e7d2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3c46dbe5cac4407eda8b4198613eda1c1742ed35
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566576"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687205"
 ---
-# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>Snabbstart: Skapa en enskild databas i Azure SQL Database med hjälp av Azure Resource Manager-mallen
+# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>Snabb start: skapa en enda databas i Azure SQL Database med hjälp av Azure Resource Manager-mallen
 
 Att skapa en [enkel databas](sql-database-single-database.md) är det snabbaste och enklaste distributionsalternativet för att skapa en databas i Azure SQL Database. Den här snabb starten visar hur du skapar en enskild databas med hjälp av Azure Resource Manager-mallen. Mer information finns i [Azure Resource Manager-dokumentationen](/azure/azure-resource-manager/).
 
@@ -77,7 +77,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 - Skapa en brandväggsregel på servernivå för att ansluta till den enkla databasen från lokala eller fjärranslutna verktyg. Mer information finns i [Skapa en brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md).
 - När du har skapat en brandväggsregel på servernivå [ansluter du till och kör frågor mot](sql-database-connect-query.md) databasen med hjälp av flera olika verktyg och språk.
-  - [Ansluta och köra frågor med SQL Server Management Studio](sql-database-connect-query-ssms.md)
+  - [Ansluta och köra frågor med hjälp av SQL Server Management Studio](sql-database-connect-query-ssms.md)
   - [Ansluta och köra frågor med Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - Information om hur du skapar en enskild databas med Azure CLI finns i [Azure CLI-exempel](sql-database-cli-samples.md).
 - Om du vill skapa en enskild databas med hjälp av Azure PowerShell, se [Azure PowerShell exempel](sql-database-powershell-samples.md).

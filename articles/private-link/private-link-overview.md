@@ -5,14 +5,14 @@ services: private-link
 author: KumudD
 ms.service: private-link
 ms.topic: overview
-ms.date: 09/16/2019
+ms.date: 11/04/2019
 ms.author: kumud
-ms.openlocfilehash: 9e6206e6f7e09ebe03659eb6e515a9b26d3469bd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: aa176cb5ffc67ebba826cf13a1a66608301af5e5
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475930"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601532"
 ---
 # <a name="what-is-azure-private-link-preview"></a>Vad är Azure Privat Link? (Förhandsversion)
 Med Azures privata länk kan du komma åt Azure PaaS Services (till exempel Azure Storage, Azure Cosmos DB och SQL Database) och Azure-värdbaserade kund-/partner tjänster via en [privat slut punkt](private-endpoint-overview.md) i det virtuella nätverket. Trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsofts stamnätverk, vilket eliminerar exponering från det offentliga Internet. Du kan också skapa en egen [privat länk-tjänst](private-link-service-overview.md) i ditt virtuella nätverk (VNet) och leverera den privat för kunderna. Installations-och användnings upplevelsen med Azure Private Link är konsekvent i Azure PaaS, kundägda och delade partner tjänster.
@@ -40,12 +40,12 @@ Azure Private-länken ger följande fördelar:
 
 |Scenario  |Tjänster som stöds   |Tillgängliga regioner | Status   |
 |---------|---------|---------|---------|
-|Privat länk för kundägda tjänster|Privata länk tjänster bakom Standard Load Balancer |USA, västra centrala; WestUS Södra centrala USA; USA, östra; Norra centrala USA  |  Förhandsversion  |
-|Privat länk för Azure PaaS Services   | Azure Storage        |  Östra USA, västra USA, västra centrala USA       | Förhandsversion         |
-|  | Azure Data Lake Storage Gen2        |  Östra USA, västra USA, västra centrala USA       | Förhandsversion         |
-|  |  Azure SQL Database         | USA, västra centrala; WestUS Södra centrala USA; USA, östra; Norra centrala USA      |   Förhandsversion      |
-||Azure SQL Data Warehouse| USA, västra centrala; WestUS Södra centrala USA; USA, östra; Norra centrala USA |Förhandsversion|
-||Azure Cosmos DB| USA, västra centrala; WestUS Platsen eastus Norra centrala USA; Östra 2; Väster 2 |Förhandsversion|
+|Privat länk för kundägda tjänster|Privata länk tjänster bakom Standard Load Balancer | Alla offentliga regioner  |  Förhandsversion  |
+|Privat länk för Azure PaaS Services   | Azure Storage        |  Alla offentliga regioner      | Förhandsversion         |
+|  | Azure Data Lake Storage Gen2        |  Alla offentliga regioner      | Förhandsversion         |
+|  |  Azure SQL Database         | Alla offentliga regioner      |   Förhandsversion      |
+||Azure SQL Data Warehouse| Alla offentliga regioner |Förhandsversion|
+||Azure Cosmos DB| Västra centrala USA, västra USA, norra centrala USA |Förhandsversion|
 
 Du hittar de senaste aviseringarna på [sidan för Azure Virtual Network-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).
 

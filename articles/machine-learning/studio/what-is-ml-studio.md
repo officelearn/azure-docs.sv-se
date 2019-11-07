@@ -11,12 +11,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
 ms.date: 10/17/2019
-ms.openlocfilehash: 327bc40e5989cc3bca148f415113de32b19a7022
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 325278ee0222070ce7c02c1d72961f0431284677
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500119"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73670550"
 ---
 # <a name="what-is-machine-learning-studio-classic"></a>Vad är Machine Learning Studio (klassisk)?
 
@@ -107,7 +107,7 @@ En modul kan ha en uppsättning parametrar som du kan använda för att konfigur
 Information om hur du navigerar genom det stora biblioteket med Machine Learning-algoritmer finns i [så här väljer du algoritmer för Microsoft Azure Machine Learning Studio (klassisk)](algorithm-choice.md).
 
 ## <a name="deploying-a-predictive-analytics-web-service"></a>Distribuera en prediktiv analysmodell som webbtjänst
-När din förutsägelse analys modell är klar kan du distribuera den som en webb tjänst direkt från Machine Learning Studio (klassisk). Mer information om den här processen finns i [distribuera en Azure Machine Learning-webbtjänst](publish-a-machine-learning-web-service.md).
+När din förutsägelse analys modell är klar kan du distribuera den som en webb tjänst direkt från Machine Learning Studio (klassisk). Mer information om den här processen finns i [distribuera en Azure Machine Learning-webbtjänst](deploy-a-machine-learning-web-service.md).
 
 ## <a name="next-steps"></a>Nästa steg
 Du kan lära dig grunderna i förutsägelseanalyser och maskininlärning genom att gå en [snabbstart med stegvisa anvisningar](create-experiment.md) och genom att [bygga vidare på prover](sample-experiments.md).

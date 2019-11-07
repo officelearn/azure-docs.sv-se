@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center-snabbstart – Publicera din Azure-prenumeration till Security Center Standard | Microsoft Docs
+title: Uppgradera till standard nivå – Azure Security Center
 description: I den här snabbstarten får du lära dig att uppgradera till Security Centers Standard-prisnivå för ytterligare säkerhet.
 services: security-center
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 689949b2b6fea1dcd06741fd3fc19c9371a96784
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 26d62f2c027a093ba518b98fa37ce3a31a14f175
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676381"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664287"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Snabbstart: Publicera din Azure-prenumeration till Security Center Standard
 Azure Security Center erbjuder enhetlig säkerhetshantering och skydd mot hot i olika hybridmolnarbetsbelastningar. På den kostnadsfria nivån erbjuds endast begränsad säkerhet för dina Azure-resurser, medan Standard-nivån utökar funktionerna till lokala resurser och andra moln. Med Security Center Standard kan du hitta och åtgärda säkerhetsproblem, tillämpa åtkomst- och programkontroller för att blockera skadlig aktivitet, upptäcka hot med analys och intelligens och svara snabbt under attacker. Du kan prova Security Center Standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
@@ -33,7 +33,7 @@ Om du vill uppgradera en prenumeration till standardnivån måste du vara tillde
 
 ## <a name="enable-your-azure-subscription"></a>Aktivera din Azure-prenumeration
 
-1. Logga in på [Azure-portalen](https://azure.microsoft.com/features/azure-portal/).
+1. Logga in på [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
 2. På menyn **Microsoft Azure** väljer du **Security Center**. **Security Center – Översikt** öppnas.
 
    ![Översikt över Security Center][2]

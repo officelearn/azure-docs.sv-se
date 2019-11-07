@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: köra ett arbets flöde'
+title: 'Snabb start: köra ett arbets flöde – Microsoft Genomics'
 description: I den här snabbstarten får du se hur du läser in indata i Azure Blob Storage och kör ett arbetsflöde genom Microsoft Genomics-tjänsten.
 services: genomics
 author: grhuynh
@@ -8,12 +8,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
-ms.openlocfilehash: e7c90cc0ce85f2a90cc2ddc2cd086fd2626f4d96
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 5a84c5a8af4d11f3ff2a03c228475154f98b8744
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248527"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606120"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Snabbstart: Köra ett arbetsflöde genom Microsoft Genomics-tjänsten
 
@@ -30,7 +30,7 @@ Mer information om Microsoft Genomics finns i [Vad är Microsoft Genomics?](over
 
 Skapa ett Microsoft Genomics-konto genom att gå till på [Azure-portalen](https://portal.azure.com/#create/Microsoft.Genomics). Om du ännu inte har en Azure-prenumeration kan du skapa en innan du skapar ett Microsoft Genomics-konto. 
 
-![Microsoft Genomics på Azure-portalen](./media/quickstart-run-genomics-workflow-portal/genomics-create-blade.png "Microsoft Genomics på Azure-portalen")
+![Microsoft Genomics på Azure Portal](./media/quickstart-run-genomics-workflow-portal/genomics-create-blade.png "Microsoft Genomics på Azure Portal")
 
 
 
@@ -41,13 +41,13 @@ Skapa ditt Genomics-konto med följande information (se föregående bild):
  |Prenumeration         | Ditt prenumerationsnamn|Detta är faktureringsenheten för dina Azure-tjänster – mer information om din prenumeration finns under [Prenumerationer](https://account.azure.com/Subscriptions) |      
  |Resursgrupp       | MinResursgrupp       |  Resursgrupper gör att du kan gruppera flera Azure-resurser (lagringskonto, Genomics-konto, o.s.v.) i en enda grupp för enkel hantering. Mer information finns i [Resursgrupper](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Information om giltiga resursgruppnamn finns under [Namngivningsregler](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
  |Kontonamn         | MittGenomicsKonto     |Välj ett unikt konto-ID. Se [Namngivningsregler](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) för giltiga namn |
- |Plats                   | USA, västra 2                    |    Tjänsten är tillgänglig i USA, västra 2, Europa, västra och Sydostasien |
+ |Plats                   | Västra USA 2                    |    Tjänsten är tillgänglig i USA, västra 2, Europa, västra och Sydostasien |
 
 
 
 
 Du kan klicka på Aviseringar i det översta verktygsfältet för att övervaka distributionsprocessen.
-![Microsoft Genomics-aviseringar](./media/quickstart-run-genomics-workflow-portal/genomics-notifications-box.png "Microsoft Genomics-aviseringar")
+![Microsoft Genomics meddelanden](./media/quickstart-run-genomics-workflow-portal/genomics-notifications-box.png "Microsoft genomik-aviseringar ")
 
 
 
@@ -90,13 +90,13 @@ Du kan installera de här paketen med `pip`, `easy_install` eller via `setup.py`
 Ladda ned konfigurationsfilen från ditt Genomics-konto för att testa Microsoft Genomics-klienten. Navigera till ditt Genomics-konto genom att klicka på **Alla tjänster** längst ned till vänster, filtrera och välja Genomics-konton.
 
 
-![Filtrera efter Microsoft Genomics på Azure-portalen](./media/quickstart-run-genomics-workflow-portal/genomics-filter-box.png "Filtrera efter Microsoft Genomics på Azure-portalen")
+![Filtrera för Microsoft Genomics på Azure Portal](./media/quickstart-run-genomics-workflow-portal/genomics-filter-box.png "Filtrera för Microsoft Genomics på Azure Portal")
 
 
 
 Välj det Genomics-konto du just skapade, gå till **Åtkomstnycklar** och ladda ned konfigurationsfilen.
 
-![Ladda ned konfigurationsfilen från Microsoft Genomics](./media/quickstart-run-genomics-workflow-portal/genomics-mygenomicsaccount-box.png "Ladda ned konfigurationsfilen från Microsoft Genomics")
+![Ladda ned konfigurations filen från Microsoft Genomics](./media/quickstart-run-genomics-workflow-portal/genomics-mygenomicsaccount-box.png "Ladda ned konfigurations filen från Microsoft Genomics")
 
 
 Kontrollera att Microsoft Genomics Python-klienten fungerar med följande kommando
@@ -110,7 +110,7 @@ msgen list -f “<full path where you saved the config file>”
 I Microsoft Genomics-tjänsten förväntas indata lagras som blockblobar i ett Azure Storage-konto. Utdatafilerna skrivs också som blockblobar till en container som angetts av användaren i ett Azure Storage-konto. In- och utdata kan finnas i olika lagringskonton.
 Om du redan har data i ett Azure Storage-konto behöver du bara se till att det finns på samma plats som Genomics-kontot. Annars debiteras du för utgående trafik när du kör Genomics-tjänsten. Om du ännu inte har ett Microsoft Azure Storage-konto måste du skapa ett och ladda upp data. Du hittar mer information om Azure Storage-konton [här](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account), bland annat om vad ett lagringskonto är och vilka tjänster det omfattar. Om du vill skapa ett Microsoft Azure Storage-konto ska du gå till [Azure-portalen](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM ).  
 
-![Bladet Skapa lagring](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "Bladet Skapa lagring")
+![Bladet skapa lagring](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "Bladet skapa lagring")
 
 Konfigurera ditt lagringskonto med följande information (se föregående bild). Använda de flesta standardalternativen för ett lagringskonto, men ange att kontot är blob-lagring och inte för generell användning. Blob-lagring kan vara 2–5 gånger snabbare för ned- och uppladdningar.  Standard distributions modellen Azure Resource Manager rekommenderas.  
 
@@ -120,9 +120,9 @@ Konfigurera ditt lagringskonto med följande information (se föregående bild).
  |Prenumeration         | Din Azure-prenumeration |Mer information om din prenumeration finns i [Prenumerationer](https://account.azure.com/Subscriptions) |      
  |Resursgrupp       | MinResursgrupp       |  Du kan välja samma resursgrupp som ditt Genomics-konto. Information om giltiga resursgruppnamn finns under [Namngivningsregler](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
  |Lagringskontots namn         | MittLagringskonto     |Välj ett unikt konto-ID. Se [Namngivningsregler](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) för giltiga namn |
- |Plats                  | USA, västra 2                  | Använd samma plats som platsen för Genomics-kontot för att minska kostnaderna för utgående trafik och minska svarstiden.  | 
+ |Plats                  | Västra USA 2                  | Använd samma plats som platsen för Genomics-kontot för att minska kostnaderna för utgående trafik och minska svarstiden.  | 
  |Prestanda                  | Standard                   | Standardinställningen är Standard. Mer information om standard- och premiumlagringskonton finns i [introduktion till Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
- |Typ av konto       | Blobb-lagring       |  Blob-lagring kan vara 2–5 gånger snabbare än lagring generell användning för ned- och uppladdningar. |
+ |Typ av konto       | Blob Storage       |  Blob-lagring kan vara 2–5 gånger snabbare än lagring generell användning för ned- och uppladdningar. |
  |Replikering                  | Lokalt redundant lagring                  | Med lokalt redundant lagring replikeras dina data i datacentret i den region där du har skapat ditt lagringskonto. Mer information finns i [Azure Storage-replikering](https://docs.microsoft.com/azure/storage/common/storage-redundancy)    |
  |Åtkomstnivå                  | Frekvent                   | Frekvent åtkomst indikerar att objekten på lagringskontot kommer att användas oftare.    |
 
@@ -149,10 +149,10 @@ Om du vill köra ett arbetsflöde genom Microsoft Genomics-tjänsten ska du redi
 Öppna filen config.txt som du laddade ned från Genomics-kontot. De avsnitt du måste ange är din prenumerationsnyckel och de sex elementen längst ned, lagringskontonamnet, nyckel och containernamn för både indata och utdata. Du kan hitta den här informationen på portalen genom att gå till **Åtkomstnycklar** för ditt lagringskonto, eller direkt från Azure Storage Explorer.  
 
 
-![Genomics-konfiguration](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Genomics-konfiguration")
+![Genomik-konfiguration](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Genomik-konfiguration")
 
 
-Om du vill köra GATK4 anger du parametern `process_name` till `gatk4`.
+Om du vill köra GATK4 anger du parametern `process_name` för att `gatk4`.
 
 Som standard visar Genomics-tjänsten VCF-filer. Om du vill ha gVCF-utdata i stället för VCF-utdata (motsvarar `-emitRefConfidence` i GATK 3.x och `emit-ref-confidence` i GATK 4.x) lägger du till parametern `emit_ref_confidence` till `config.txt` och ger den värdet `gvcf`, vilket visas i bilden ovan.  Om du vill ändra tillbaka till VCF-utdata tar du antingen bort den från filen `config.txt` eller ställer in parametern `emit_ref_confidence` på `none`. 
 

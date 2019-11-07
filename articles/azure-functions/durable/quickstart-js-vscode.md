@@ -11,16 +11,18 @@ ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: glenga
 ms.reviewer: azfuncdf, cotresne
-ms.openlocfilehash: b47e828f3b8d760594cb04ba40ceaa7248050c52
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 1a1586124a1cfb05f2b7c4e9c3b0070170447b96
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933477"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614570"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Skapa din första beständiga funktion i JavaScript
 
 *Durable Functions* är en utökning av [Azure Functions](../functions-overview.md) som gör att du kan skriva tillståndskänsliga funktioner i en serverlös miljö. Tillägget hanterar tillstånd, kontrollpunkter och omstarter.
+
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 I den här artikeln får du lära dig hur du använder Azure Functions-tillägget för Visual Studio Code för att skapa och testa en beständig ”Hello World”-funktion lokalt.  Den här funktionen orkestrerar och kedjar samman anrop till andra funktioner. Du publicerar sedan funktionskoden till Azure.
 
@@ -56,7 +58,7 @@ Nu ska vi skapa de tre funktioner som du behöver för att komma igång med Dura
 
 Skapa först en HTTP-utlöst funktion som startar en orkestrering av beständig funktion.
 
-1. I *Azure: Funktioner*, Välj ikonen **skapa funktion** .
+1. Välj ikonen **skapa funktion** från *Azure:* functions.
 
     ![Skapa en funktion](./media/quickstart-js-vscode/create-function.png)
 
@@ -74,7 +76,7 @@ Nu har vi skapat en startpunkt till vår beständiga funktion. Vi lägger till e
 
 Nu ska vi skapa en Orchestrator för att koordinera aktivitets funktioner.
 
-1. I *Azure: Funktioner*, Välj ikonen **skapa funktion** .
+1. Välj ikonen **skapa funktion** från *Azure:* functions.
 
     ![Skapa en funktion](./media/quickstart-js-vscode/create-function.png)
 
@@ -88,7 +90,7 @@ Vi har lagt till en orkestrerare för att samordna aktivitetsfunktioner. Nu läg
 
 Nu ska vi skapa en aktivitets funktion för att faktiskt utföra lösningens arbete.
 
-1. I *Azure: Funktioner*, Välj ikonen **skapa funktion** .
+1. Välj ikonen **skapa funktion** från *Azure:* functions.
 
     ![Skapa en funktion](./media/quickstart-js-vscode/create-function.png)
 
@@ -102,14 +104,14 @@ Nu har vi lagt till alla komponenter som behövs för att påbörja en orkestrer
 
 Med Azure Functions Core Tools kan du köra ett Azure Functions-projekt på din lokala utvecklingsdator. Du uppmanas att installera de här verktygen första gången du startar en funktion från Visual Studio Code.
 
-1. Starta Azure Storage emulator på en Windows-dator och se till att egenskapen **AzureWebJobsStorage** för *Local. Settings. JSON* har angetts till `UseDevelopmentStorage=true`.
+1. Starta Azure Storage emulator på en Windows-dator och se till att egenskapen **AzureWebJobsStorage** för *Local. Settings. JSON* är inställd på `UseDevelopmentStorage=true`.
 
-    För Storage-emulator 5,8 ser du till att egenskapen **AzureWebJobsSecretStorageType** för Local. Settings. JSON har `files`angetts till. På en Mac-eller Linux-dator måste du ange **AzureWebJobsStorage** -egenskapen till anslutnings strängen för ett befintligt Azure Storage-konto. Du skapar ett lagringskonto senare i den här artikeln.
+    För Storage-emulator 5,8 ser du till att egenskapen **AzureWebJobsSecretStorageType** för Local. Settings. JSON har angetts till `files`. På en Mac-eller Linux-dator måste du ange **AzureWebJobsStorage** -egenskapen till anslutnings strängen för ett befintligt Azure Storage-konto. Du skapar ett lagringskonto senare i den här artikeln.
 
 2. Ange en brytpunkt i funktionskoden och tryck på F5 för att starta funktionsappsprojektet om du vill testa funktionen. Utdata från Core Tools visas på panelen **Terminal**. Om det här är första gången du Durable Functions installeras Durable Functions-tillägget, och bygget kan ta några sekunder.
 
     > [!NOTE]
-    > JavaScript Durable Functions kräver version **1.7.0** eller senare av tillägget **Microsoft.Azure.WebJobs.Extensions.DurableTask**. Kör följande kommando från rotmappen i Azure Functions-appen för att installera Durable Functions-tillägget`func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.7.0`
+    > JavaScript Durable Functions kräver version **1.7.0** eller senare av tillägget **Microsoft.Azure.WebJobs.Extensions.DurableTask**. Kör följande kommando från rotmappen i Azure Functions-appen för att installera Durable Functions-tillägget `func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.7.0`
 
 3. På panelen **Terminal** kopierar du URL-slutpunkten för den HTTP-utlösta funktionen.
 

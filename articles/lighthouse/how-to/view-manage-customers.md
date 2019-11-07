@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.date: 10/23/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: f6c98a67394db8028901f3f1f8e799af4c7a8c5f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d68ac0a1b6a66482a85f7ab79840099a34c731c2
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898901"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615543"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Visa och hantera kunder och delegerade resurser
 
@@ -30,6 +30,9 @@ Tänk på att den översta delen av sidan **Mina kunder** endast visar informati
 Om du vill visa kund information väljer du **kunder** till vänster på sidan **Mina kunder** .
 
 För varje kund ser du kundens namn, kund-ID (klient-ID) och erbjudandet som är associerat med ärendet. I kolumnen **delegeringar** ser du antalet delegerade prenumerationer och/eller antalet delegerade resurs grupper.
+
+> [!IMPORTANT]
+> För att kunna se en delegering måste användarna ha fått rollen [läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) (eller en annan inbyggd roll som inkluderar läsar åtkomst) i onboarding-processen.
 
 Med filter överst på sidan kan du sortera och gruppera kund information eller filtrera efter specifika kunder, erbjudanden eller nyckelord.
 

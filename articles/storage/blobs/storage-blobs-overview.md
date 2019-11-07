@@ -1,20 +1,19 @@
 ---
-title: Introduktion till Blob Storage – objektlagring i Azure
+title: Om BLOB (Object) Storage – Azure Storage
 description: Blob Storage kan lagra stora mängder ostrukturerade objektdata, som text eller binära data. Blob Storage stöder även Azure Data Lake Storage Gen2 för analys av stordata.
 services: storage
-author: WenJason
+author: tamram
 ms.service: storage
 ms.topic: overview
-origin.date: 11/19/2018
-ms.date: 04/22/2019
-ms.author: v-jay
+ms.date: 11/04/2019
+ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 35a428c2ae706d7838778c7590e5378ab5df40f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8f9c1b1762c4e6028d935e03a630dfc0ca4ee4b9
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60708515"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615751"
 ---
 # <a name="what-is-azure-blob-storage"></a>Vad är Azure Blob Storage? 
 

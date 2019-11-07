@@ -1,5 +1,5 @@
 ---
-title: Vad är Windows Virtual Desktop?  – Azure
+title: Vad är Windows Virtual Desktop? – Azure
 description: En översikt över virtuella Windows-datorer.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: e1ae0501e2a558967b7d53229dc629e035c5e067
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 058cf516fd8d10cef1e1c93e5493f8c19bdc679d
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597907"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607484"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop? 
 
@@ -64,7 +64,7 @@ Det finns några saker du behöver för att konfigurera virtuella Windows-datore
 
 Vi planerar att lägga till stöd för följande operativ system, så se till att du har [lämpliga licenser](https://azure.microsoft.com/pricing/details/virtual-desktop/) för dina användare baserat på Skriv bordet och appar som du planerar att distribuera:
 
-|OS|Nödvändig licens|
+|Operativsystem|Nödvändig licens|
 |---|---|
 |Windows 10 Enterprise multi-session eller Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, företag<br>Windows E3, E5, A3, A5|
 |Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F1, företag<br>Windows E3, E5, A3, A5|
@@ -134,7 +134,7 @@ Tillgängliga alternativ för Automation och distribution beror på vilket opera
 |Windows 10 multi-session, version 1809|Ja|Ja|Nej|Nej|Automatisk|
 |Windows 10 Enterprise, version 1903|Ja|Ja|Ja|Ja|Automatisk|
 |Windows 10 Enterprise, version 1809|Ja|Ja|Nej|Nej|Automatisk|
-|Windows 7 Enterprise|Ja|Ja|Nej|Nej|Manuellt|
+|Windows 7 Enterprise|Ja|Ja|Nej|Nej|Manuell|
 |Windows Server 2019|Ja|Ja|Nej|Nej|Automatisk|
 |Windows Server 2016|Ja|Ja|Ja|Ja|Automatisk|
 |Windows Server 2012 R2|Ja|Ja|Nej|Nej|Automatisk|

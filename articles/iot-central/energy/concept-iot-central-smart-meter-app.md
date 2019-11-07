@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 8272764e967fccfbfa88d54e688f9d7aaf4e0917
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: cab593990369bb8a4135e82534a2eb409b574e96
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027690"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582769"
 ---
 # <a name="azure-iot-central---smart-meter-app-architecture"></a>Azure IoT Central – arkitektur för smart avläsning av program vara
 
@@ -21,8 +21,8 @@ ms.locfileid: "73027690"
 
 Den här artikeln innehåller en översikt över arkitekturen för appar för smart avläsning av övervakning. Diagrammet nedan visar en arkitektur för smart avläsning av appar på Azure med hjälp av IoT Centrals plattform.
 
-[!div class="mx-imgBorder"]
-![Smart meters arkitektur](media/concept-iot-central-smart-meter/smart-meter-app-architecture.png)
+> [!div class="mx-imgBorder"]
+> ![Smart meters arkitektur](media/concept-iot-central-smart-meter/smart-meter-app-architecture.png)
 
 Den här arkitekturen består av följande komponenter. Vissa lösningar kanske inte kräver varje komponent som visas här.
 

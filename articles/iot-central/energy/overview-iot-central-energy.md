@@ -8,14 +8,14 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: aaf591bcc75521cb83d8c74f5220d37f77f1f349
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 8c7d2481fe3ef361386bacc652d87744c1c790bb
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027662"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581507"
 ---
-# <a name="build-energy-solutions-with-iot-central"></a>Bygg energi lösningar med IoT Central 
+# <a name="build-energy-solutions-with-iot-central"></a>Skapa energilösningar med IoT Central 
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
@@ -40,8 +40,8 @@ Du kan prova [appen för smart avläsning av övervakning utan kostnad](https://
 
 När du har distribuerat appen visas de simulerade mätar data på instrument panelen, som du ser i bilden nedan. Den här mallen är en exempel-app som du enkelt kan utöka och anpassa efter dina egna användnings fall.
 
-[!div class="mx-imgBorder"]
-![Smart mätar app-instrumentpanel](media/overview-iot-central-energy/smart-meter-app-dashboard.png)
+> [!div class="mx-imgBorder"]
+> ![Smart mätar app-instrumentpanel](media/overview-iot-central-energy/smart-meter-app-dashboard.png)
 
 
 ## <a name="what-is-the-solar-panel-monitoring-application"></a>Vad är en övervaknings applikation i sol-panelen?

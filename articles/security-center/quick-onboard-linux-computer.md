@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center-snabbstart – Publicera dina Linux-datorer till Security Center | Microsoft Docs
+title: Publicera Linux-datorer till Azure Security Center | Microsoft Docs
 description: I den här snabbstarten får du veta hur du publicerar dina Linux-datorer till Security Center.
 services: security-center
 documentationcenter: na
@@ -14,32 +14,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: memildin
-ms.openlocfilehash: 82ce466f12acef529b5e45e5dd94c64b94be0f7e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 9f49b858a23d0a1f58505d9f9971a31e8c9167e9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202881"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664500"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Snabbstart: Publicera Linux-datorer till Azure Security Center
 När du har publicerat dina Azure-prenumerationer kan du aktivera Security Center för Linux-resurser som körs utanför Azure, till exempel lokalt eller i andra moln, genom att tillhandahålla en agent. Agenten kallas Microsoft Monitoring Agent (MMA), men kallas även OMS-agenten.
 
 Den här snabb starten visar hur du installerar agenten på en Linux-dator.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Om du inte har någon prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 
 Innan du startar den här snabbstarten måste du ha standardnivån i Security Center. Läs [Publicera din Azure-prenumeration till Security Center Standard](security-center-get-started.md) för instruktioner om uppgradering. Du kan prova Security Center Standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="add-new-linux-computer"></a>Lägga till ny Linux-dator
 
-1. Logga in på [Azure-portalen](https://azure.microsoft.com/features/azure-portal/).
+1. Logga in på [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
 2. På menyn **Microsoft Azure** väljer du **Security Center**. **Security Center – Översikt** öppnas.
 
    ![Översikt över Security Center][2]
 
 3. På huvudmenyn i Security Center väljer du **Komma igång**.
-4. Välj fliken **Kom igång**. ![Komma igång][3]
+4. Välj fliken **Kom igång** . ![kom igång][3]
 
 5. Klicka på **Konfigurera** under **Lägg till datorer som inte är Azure-datorer** så visas en lista över dina Log Analytics-arbetsytor. Om det är tillämpligt innehåller listan standardarbetsytan som har skapats för dig av Security Center när automatisk etablering aktiverades. Välj den här arbetsytan eller någon annan arbetsyta som du vill använda.
 
@@ -56,7 +56,7 @@ Innan du startar den här snabbstarten måste du ha standardnivån i Security Ce
 
    ![Installera agenten][5]
 
-Loggarna för agenten finns på: */var/opt/Microsoft/omsagent/\<arbetsyte-ID >/log/*
+Loggarna för agenten finns på: */var/opt/microsoft/omsagent/\<arbetsyte-id >/log/*
 
   ![Loggar för agent][6]
 
@@ -66,7 +66,7 @@ Nu kan du övervaka dina virtuella Azure-datorer och datorer som inte är Azure-
 
   ![Compute-blad][7] Det finns två typer av ikoner på **Compute**-bladet:
 
-  ![icon1](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Datorer som inte är Azure-datorer
+  ![icon1](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Icke-Azure-dator
 
   ![icon2](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
 
@@ -84,7 +84,7 @@ Så här tar du bort agenten:
 I den här snabb starten etablerade du agenten på en Linux-dator. Om du vill läsa mer om hur du använder Security Center fortsätter du till självstudien om konfiguration av en säkerhetsprincip och utvärderar resursers säkerhet.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Definiera och utvärdera säkerhetsprinciper](tutorial-security-policy.md)
+> [Självstudie: Definiera och utvärdera säkerhetsprinciper](tutorial-security-policy.md)
 
 <!--Image references-->
 [1]: ./media/quick-onboard-linux-computer/portal.png

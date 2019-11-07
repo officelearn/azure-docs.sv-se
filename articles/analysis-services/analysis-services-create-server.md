@@ -1,24 +1,24 @@
 ---
-title: Snabbstart – Skapa en Analysis Services-server med hjälp av Azure-portalen | Microsoft Docs
-description: Lär dig hur du skapar en Analysis Services-serverinstans i Azure.
+title: Snabb start – skapa en Analysis Services-server i Azure Portal | Microsoft Docs
+description: Lär dig hur du snabbt skapar en Azure Analysis Services Server instans med hjälp av Azure Portal.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 07/02/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c104af3bcfddb4b0863f69b6571d4cd62ca9c2b8
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: cfd624ce49add0f8fd04bfccca9d6b7c3f1f71bd
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73147116"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573072"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Snabbstart: Skapa en server – portalen
 
 Den här snabbstarten beskriver hur du skapar en Analysis Services-serverresurs i Azure-prenumerationen med hjälp av portalen.
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Nödvändiga komponenter 
 
 * **Azure-prenumeration**: Gå till [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) för att skapa ett konto.
 * **Azure Active Directory**: Prenumerationen måste vara kopplad till en Azure Active Directory-klientorganisation. Och du måste vara inloggad på Azure med ett konto i den Azure Active Directory. Mer information finns i [Autentisering och användarbehörigheter](analysis-services-manage-users.md).

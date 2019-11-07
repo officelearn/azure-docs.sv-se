@@ -10,24 +10,24 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: f7f8c94504eef1023939ed41aa6124baef354e39
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 16de2054864a42d978d149353a89d65e8de7d155
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "72791587"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605676"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure Portal
 
 I den här snabb starten använder du Azure Portal för att skapa en Azure Databricks arbets yta med ett Apache Spark-kluster. Du kör ett jobb i klustret och använder anpassade diagram för att skapa rapporter i real tid från säkerhets data i Boston.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 > [!Note]
 > Den här självstudien kan inte utföras med **Azures kostnads fri utvärderings prenumeration**.
@@ -41,7 +41,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
     ![Databricks på Azure Portal](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks på Azure Portal")
 
-2. Under **Azure Databricks Service** (Azure Databricks-tjänsten) fyller du i värdena för att skapa en Databricks-arbetsyta.
+2. Under **Azure Databricks-tjänst** anger du värden för att skapa en Databricks-arbetsyta.
 
     ![Skapa en Azure Databricks-arbetsyta](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Skapa en Azure Databricks-arbetsyta")
 
@@ -52,7 +52,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
     |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan        |
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
     |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../azure-resource-manager/resource-group-overview.md). |
-    |**Plats**     | Välj **Västra USA 2**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).        |
+    |**Plats**     | Välj **USA, västra 2**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).        |
     |**Prisnivå**     |  Välj mellan **standard**, **Premium**eller **utvärdering**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
     |**Virtual Network**     |  Välj att distribuera en Azure Databricks arbets yta i din egen Virtual Network (VNet). Mer information finns i [distribuera Azure Databricks i Azure-Virtual Network (VNet-insprutning)](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).        |
 
@@ -85,7 +85,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
     
      Välj **Skapa kluster**. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
 
-Mer information om att skapa kluster finns i [Skapa ett Spark-kluster i Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
+Mer information om att skapa kluster finns i [Skapa ett Spark-kluster i Azure Databricks](/azure/databricks/clusters/create).
 
 ## <a name="run-a-spark-sql-job"></a>Köra ett Spark SQL-jobb
 
@@ -164,7 +164,7 @@ Om du inte manuellt avslutar klustret kommer det att stoppas automatiskt, förut
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du skapat ett Spark-kluster i Azure Databricks och körde ett Spark-jobb med hjälp av data från Azure Open-datauppsättningar. Du kan också titta på [Spark-datakällor](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) för att lära dig att importera data från andra datakällor till Azure Databricks. Gå till nästa artikel om du vill lära dig hur du utför en ETL-åtgärd (extrahera, transformera och läsa in data) med Azure Databricks.
+I den här artikeln har du skapat ett Spark-kluster i Azure Databricks och körde ett Spark-jobb med hjälp av data från Azure Open-datauppsättningar. Du kan också titta på [Spark-datakällor](/azure/databricks/data/data-sources/index.html) för att lära dig att importera data från andra datakällor till Azure Databricks. Gå till nästa artikel om du vill lära dig hur du utför en ETL-åtgärd (extrahera, transformera och läsa in data) med Azure Databricks.
 
 > [!div class="nextstepaction"]
 >[Extrahera, transformera och läsa in data med Azure Databricks](databricks-extract-load-sql-data-warehouse.md)

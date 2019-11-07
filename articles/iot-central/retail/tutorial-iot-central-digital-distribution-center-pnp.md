@@ -4,14 +4,15 @@ description: En själv studie kurs om program mal len för digital distributions
 author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
+ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 3abedb2e2e8cd2ede8e148a68a63672f28f931bb
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 1965cc17f3d58932321c3ff14c99a962830d07b4
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73026192"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615243"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Självstudie: Distribuera och gå igenom en app-mall för digital distributions Center
 
@@ -23,7 +24,7 @@ I den här självstudien får du lära dig att
 * Skapa ett program för digital distributions Center 
 * gå igenom programmet 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * Inga särskilda krav krävs för att distribuera den här appen
 * Vi rekommenderar att du har en Azure-prenumeration, men du kan även prova utan den
 

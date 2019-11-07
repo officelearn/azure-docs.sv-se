@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – Skapa en Azure Analysis Services-server med hjälp av PowerShell | Microsoft Docs
+title: Snabb start – skapa Azure Analysis Services med PowerShell-Azure Analysis Services | Microsoft Docs
 description: Lär dig hur du skapar en Azure Analysis Services-server med PowerShell
 author: minewiskan
 ms.service: azure-analysis-services
@@ -7,18 +7,18 @@ ms.topic: quickstart
 ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a5517d62e0fa4070411a087e241cad9d82f379b2
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 073193329950e1d7e6a812da4555ec8ba76f65e3
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72295089"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573184"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>Snabbstart: Skapa en server – PowerShell
 
 I den här snabbstarten beskrivs hur du använder PowerShell från kommandoraden för att skapa en Azure Analysis Services-server i din Azure-prenumeration.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

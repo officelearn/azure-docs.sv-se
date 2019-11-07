@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/12/2019
-ms.openlocfilehash: bd9b9edde0f4c5e3bea6e31342298f2df5a2b5fe
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 782c860ca50c1ef12eda1ec33f29c5103b396349
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241868"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73665293"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Vad är ML-tjänster i Azure HDInsight
 
@@ -23,7 +23,7 @@ Med ML tjänster i HDInsight får du de senaste funktionerna för R-baserade ana
 
 Edge-noden i ett kluster är en praktisk plats för att ansluta till klustret och köra R-skript. Med en Edge-nod kan du välja att köra de parallellt distribuerade funktionerna i skalan över gränserna för Edge-nodens Server. Du kan också köra dem över noderna i klustret med hjälp av skalnings tjänstens Hadoop-karta minska eller Apache Spark Compute-kontexter.
 
-De modeller eller förutsägelser som orsakas av analyser kan laddas ned för lokal användning. De kan också användas på andra platser i Azure, särskilt via [Azure Machine Learning Studio (klassisk)](https://studio.azureml.net) [-webb tjänst](../../machine-learning/studio/publish-a-machine-learning-web-service.md).
+De modeller eller förutsägelser som orsakas av analyser kan laddas ned för lokal användning. De kan också användas på andra platser i Azure, särskilt via [Azure Machine Learning Studio (klassisk)](https://studio.azureml.net) [-webb tjänst](../../machine-learning/studio/deploy-a-machine-learning-web-service.md).
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>Kom igång med ML-tjänster i HDInsight
 
@@ -134,7 +134,7 @@ Dessutom kan du installera en Desktop IDE och använda den för att få åtkomst
 
 Dessutom kan du komma åt R-konsolen på Edge-noden genom att skriva **R** i kommando tolken i Linux när du har anslutit via SSH eller SparaTillFil. När du använder-konsol gränssnittet är det praktiskt att köra en text redigerare för R-skript utveckling i ett annat fönster och klippa ut och klistra in avsnitt i skriptet i R-konsolen efter behov.
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 Priserna som är associerade med ett ML-kluster i ML-tjänster struktureras på samma sätt som priserna för andra typer av HDInsight-kluster. De baseras på storleken på de underliggande virtuella datorerna över namn-, data-och Edge-noderna, med tillägg av en prishöjning på en timme. Mer information finns i avsnittet om [priser för HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: c4faa29e092c7cbb550bca1daa87ce369bf03a14
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 1a3d917775f6ba5b0b7f62d19de2b970a8b36838
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73099530"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571225"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Snabb start: Lägg till funktions flaggor i en ASP.NET Core app
 
@@ -27,7 +27,7 @@ I den här snabb starten inkluderar du Azure App konfiguration i en ASP.NET Core
 
 Biblioteken för .NET Core Feature Management utökar ramverket med omfattande stöd för funktions flaggor. Dessa bibliotek skapas ovanpå konfigurations systemet för .NET Core. De integreras sömlöst med app-konfigurationen via sin .NET Core-Konfigurationsprovider.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [.Net Core SDK](https://dotnet.microsoft.com/download).
@@ -81,7 +81,7 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
 
 ## <a name="connect-to-an-app-configuration-store"></a>Anslut till ett konfigurations Arkiv för appen
 
-1. Lägg till referens till `Microsoft.Azure.AppConfiguration.AspNetCore` och `Microsoft.FeatureManagement.AspNetCore` NuGet-paket genom att köra följande kommandon:
+1. Lägg till referens till `Microsoft.Azure.AppConfiguration.AspNetCore`-och `Microsoft.FeatureManagement.AspNetCore`-NuGet-paketen genom att köra följande kommandon:
 
     ```
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
@@ -96,7 +96,7 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
 
 1. Lägg till en hemlighet med namnet **ConnectionStrings:AppConfig** i Secret Manager.
 
-    Den här hemligheten innehåller anslutnings strängen för att komma åt appens konfigurations arkiv. Ersätt `<your_connection_string>`-värdet i följande kommando med anslutnings strängen för appens konfigurations lager.
+    Den här hemligheten innehåller anslutnings strängen för att komma åt appens konfigurations arkiv. Ersätt värdet `<your_connection_string>` i följande kommando med anslutnings strängen för appens konfigurations arkiv.
 
     Det här kommandot måste köras i samma katalog som *.csproj*-filen.
 
@@ -127,7 +127,10 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
+                config.AddAzureAppConfiguration(options => {
+                    options.Connect(settings["ConnectionStrings:AppConfig"])
+                            .UseFeatureFlags();
+                });
             })
             .UseStartup<Startup>();
     ```
@@ -141,7 +144,8 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
         webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
         {
             var settings = config.Build();
-            config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
+            config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"])
+                .UseFeatureFlags();
         })
         .UseStartup<Startup>());
     ```
@@ -153,7 +157,7 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
     using Microsoft.FeatureManagement;
     ```
 
-1. Uppdatera `ConfigureServices`-metoden för att lägga till stöd för funktions flaggor genom att anropa metoden `services.AddFeatureManagement()`. Du kan också ta med alla filter som ska användas med funktions flaggor genom att anropa `services.AddFeatureFilter<FilterType>()`:
+1. Uppdatera metoden `ConfigureServices` om du vill lägga till stöd för funktions flaggor genom att anropa metoden `services.AddFeatureManagement()`. Du kan också ta med alla filter som ska användas med funktions flaggor genom att anropa `services.AddFeatureFilter<FilterType>()`:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -162,7 +166,7 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
     }
     ```
 
-1. Uppdatera `Configure`-metoden för att lägga till ett mellanprogram så att funktions flagg värden kan uppdateras vid ett återkommande intervall medan ASP.NET Core webbappen fortsätter att ta emot begär Anden.
+1. Uppdatera metoden `Configure` om du vill lägga till ett mellanprogram så att funktions flagg värden kan uppdateras vid ett återkommande intervall medan ASP.NET Core webbappen fortsätter att ta emot begär Anden.
 
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -276,7 +280,7 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
 
     ![Snabbstart av lokal app](./media/quickstarts/aspnet-core-feature-flag-local-before.png)
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **alla resurser**och välj den instans av app Configuration Store som du skapade i snabb starten.
+1. Logga in på [Azure Portal](https://portal.azure.com). Välj **alla resurser**och välj den instans av app Configuration Store som du skapade i snabb starten.
 
 1. Välj **funktions hanteraren**och ändra status för **beta** nyckeln till **på**:
 

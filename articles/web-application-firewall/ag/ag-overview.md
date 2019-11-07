@@ -4,15 +4,15 @@ description: Den här artikeln innehåller en översikt över brand vägg för w
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/16/2019
+ms.date: 11/05/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 3cc0af122143d2ee702f1f16ee26c010befa1155
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 6d073648dc908cbbe40962f7ba079abcfe85ce45
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502347"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607313"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Azure Web Application-brandvägg på Azure Application Gateway
 
@@ -20,10 +20,10 @@ Azure Web Application Firewall (WAF) på Azure Application Gateway tillhandahål
 
 WAF på Application Gateway baseras på [kärn regel uppsättningen (datoriserat system)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3,1, 3,0 eller 2.2.9 från det öppna webb programmet säkerhets projekt (OWASP). WAF uppdateras automatiskt för att ta med skydd mot nya sårbarheter, utan ytterligare konfiguration som behövs. 
 
-Alla WAF-funktioner i listan nedan finns i en WAF-princip. Du kan skapa så många principer du vill, och de kan associeras med en Application Gateway, till enskilda lyssnare eller till sökvägar baserade routningsregler på en Application Gateway. På så sätt kan du ha separata principer för varje plats bakom Application Gateway vid behov. Mer information om WAF-principer finns i [skapa en WAF-princip](create-waf-policy-ag.md).
+Alla WAF-funktioner i listan nedan finns i en WAF-princip. Du kan skapa flera principer och de kan associeras med en Application Gateway, till enskilda lyssnare eller till sökvägar baserade routningsregler på en Application Gateway. På så sätt kan du ha separata principer för varje plats bakom Application Gateway vid behov. Mer information om WAF-principer finns i [skapa en WAF-princip](create-waf-policy-ag.md).
 
    > [!NOTE]
-   > WAF-principer per plats och per URI finns i offentlig för hands version. Det innebär att den här funktionen omfattas av Microsofts kompletterande användnings villkor. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
+   > WAF-principer per plats och per URI finns i offentlig för hands version. Det innebär att den här funktionen omfattas av Microsofts kompletterande användnings villkor. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Application Gateway WAF-diagram](../media/ag-overview/waf1.png)
 
@@ -39,9 +39,11 @@ I det här avsnittet beskrivs de grundläggande fördelar som WAF i Application 
 
 * Skydda dina webb program från webb sårbarheter och attacker utan att ändra till backend-koden.
 
-* Skydda flera webb program samtidigt. En instans av Application Gateway kan vara värd för upp till 100 webbplatser som skyddas av en brand vägg för webbaserade program.
+* Skydda flera webb program samtidigt. En instans av Application Gateway kan vara värd för upp till 40 webbplatser som skyddas av en brand vägg för webbaserade program.
 
-* Skydda dina webb program från skadliga robotar med IP-rykte ruleset
+* Skapa anpassade WAF-principer för olika platser bakom samma WAF 
+
+* Skydda dina webb program från skadliga robotar med IP-rykte ruleset (för hands version)
 
 ### <a name="monitoring"></a>Övervakning
 
@@ -51,9 +53,11 @@ I det här avsnittet beskrivs de grundläggande fördelar som WAF i Application 
 
 ### <a name="customization"></a>Anpassning
 
-* Du kan anpassa WAF-regler och regel grupper så att de passar dina program krav och eliminera falska positiva identifieringar.
+* Anpassa WAF-regler och regel grupper så att de passar dina program krav och eliminera falska positiva identifieringar.
 
-* Du kan associera en WAF-princip för varje plats bakom din WAF för att tillåta platsspecifika konfiguration
+* Koppla en WAF-princip för varje plats bakom din WAF för att tillåta platsspecifika konfiguration
+
+* Skapa anpassade regler som passar ditt programs behov
 
 ## <a name="features"></a>Funktioner
 
@@ -62,10 +66,13 @@ I det här avsnittet beskrivs de grundläggande fördelar som WAF i Application 
 - Skydd mot andra vanliga webb attacker, till exempel kommando inmatning, HTTP-begäran dold, delning av HTTP-svar och inkludering av fjärrfiler.
 - Skydd mot HTTP-protokollfel.
 - Skydd mot avvikelser i HTTP-protokollet, t. ex. saknade värd användar agenter och ta emot huvuden.
-- Skydd mot robotar, Crawler och skannrar.
+- Skydd mot robotar och skannrar.
 - Identifiering av vanliga program konfigurationer (till exempel Apache och IIS).
 - Konfigurerbara storleks gränser för begäran med nedre och övre gräns.
 - Med undantags listor kan du utelämna vissa begär ande attribut från en WAF-utvärdering. Ett vanligt exempel är Active Directory-infogade tokens som används för autentiserings-eller lösen ords fält.
+- Skapa anpassade regler som passar de olika behoven i dina program.
+- Geo-filter-trafik för att tillåta eller blockera vissa länder från att få åtkomst till dina program. (förhandsversion)
+- Skydda dina program från robotar med ruleset för bot. (förhandsversion)
 
 ## <a name="waf-policy"></a>WAF-princip
 
@@ -79,7 +86,7 @@ Mer information finns i [regel grupper och regler för webb programs brand vägg
 
 ### <a name="custom-rules"></a>Anpassade regler
 
-Application Gateway också stöd för anpassade regler. Med anpassade regler kan du skapa egna regler som utvärderas för varje begäran som passerar genom WAF. Dessa regler innehåller högre prioritet än resten av reglerna i de hanterade regel uppsättningarna. Om en uppsättning villkor är uppfyllda vidtas en åtgärd för att tillåta eller blockera. 
+Application Gateway stöder också anpassade regler. Med anpassade regler kan du skapa egna regler som utvärderas för varje begäran som passerar genom WAF. Dessa regler innehåller högre prioritet än resten av reglerna i de hanterade regel uppsättningarna. Om en uppsättning villkor är uppfyllda vidtas en åtgärd för att tillåta eller blockera. 
 
 Mer information finns i [anpassade regler för Application Gateway.](custom-waf-rules-overview.md)
 
@@ -138,6 +145,15 @@ Application Gateway loggar är integrerade i [Azure Monitor](../../azure-monitor
 
 ![Fönstret Security Center översikt](../media/ag-overview/figure1.png)
 
+#### <a name="azure-sentinel"></a>Azure Sentinel
+
+Microsoft Azure Sentinel är en skalbar, molnbaserad, molnbaserad, SIEM (Security information Event Management) och SOAR-lösning (Security Orchestration autoresponse). Azure Sentinel ger intelligent säkerhets analys och hot information i hela företaget, vilket ger en enda lösning för aviserings identifiering, Hot synlighet, proaktiv jakt och hot svar.
+
+Med den inbyggda arbets boken för Azure WAF Firewall-händelser kan du få en översikt över säkerhets händelserna på din WAF. Detta inkluderar händelser, matchade och blockerade regler och allt annat som loggas i brand Väggs loggarna. Läs mer om loggning nedan. 
+
+
+![Indikator](../media/ag-overview/sentinel.png)
+
 #### <a name="logging"></a>Loggning
 
 Application Gateway WAF innehåller detaljerad rapportering om varje hot som identifieras. Loggning är integrerat med Azure-diagnostik loggar. Aviseringar registreras i JSON-format. Dessa loggar kan integreras med [Azure Monitor loggar](../../azure-monitor/insights/azure-networking-analytics.md).
@@ -186,4 +202,8 @@ Pris modellerna skiljer sig åt för WAF_v1-och WAF_v2-SKU: er. Mer information 
 
 ## <a name="next-steps"></a>Nästa steg
 
+- Kom igång genom att [skapa en WAF-princip](create-waf-policy-ag.md)
+- Läs mer om [WAF-hanterade regler](application-gateway-crs-rulegroups-rules.md)
+- Läs mer om [anpassade regler](custom-waf-rules-overview.md)
 - Lär dig mer om [brand vägg för webbaserade program på Azures front dörr](../afds/afds-overview.md)
+

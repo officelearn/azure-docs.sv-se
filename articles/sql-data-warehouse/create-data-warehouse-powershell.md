@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa en Azure SQL Data Warehouse – Azure PowerShell | Microsoft Docs'
+title: 'Snabb start: skapa ett lager – Azure PowerShell'
 description: Skapa snabbt en SQL Database logisk server, brand Väggs regel på server nivå och data lager med Azure PowerShell.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,14 +10,15 @@ ms.subservice: development
 ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: f5ee4227b0aeb53be4512dafc91f814468b50c12
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: cfc427b11944cb81d8bc3d12d13668d53be698b7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574901"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693093"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Snabbstart: Skapa och skicka frågor till en Azure SQL Data Warehouse med Azure PowerShell
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Snabb start: skapa och skicka frågor till en Azure SQL Data Warehouse med Azure PowerShell
 
 Skapa snabbt en Azure SQL Data Warehouse med hjälp av Azure PowerShell.
 
@@ -79,7 +80,7 @@ New-AzResourceGroup -Name $resourcegroupname -Location $location
 ```
 ## <a name="create-a-logical-server"></a>Skapa en logisk server
 
-Skapa en [logisk Azure SQL-Server](../sql-database/sql-database-logical-servers.md) med kommandot [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) . En logisk server innehåller en uppsättning databaser som hanteras som en grupp. I följande exempel skapas en slumpvis namngiven server i resurs gruppen med en administratörs användare med `ServerAdmin` namnet och ett lösen `ChangeYourAdminPassword1`ord för. Ersätt dessa fördefinierade värden efter behov.
+Skapa en [logisk Azure SQL-Server](../sql-database/sql-database-logical-servers.md) med kommandot [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) . En logisk server innehåller en uppsättning databaser som hanteras som en grupp. I följande exempel skapas en slumpmässigt namngiven server i resurs gruppen med en administratörs användare med namnet `ServerAdmin` och ett lösen ord för `ChangeYourAdminPassword1`. Ersätt dessa fördefinierade värden efter behov.
 
 ```powershell
 New-AzSqlServer -ResourceGroupName $resourcegroupname `
@@ -119,16 +120,16 @@ New-AzSqlDatabase `
 
 Erfordrade parametrar är:
 
-* **RequestedServiceObjectiveName**: Mängden [data lager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md) som du begär. Om du ökar värdet ökar beräknings kostnaden. En lista över värden som stöds finns i [minnes-och samtidiga gränser](memory-and-concurrency-limits.md).
-* **Databasename**: Namnet på SQL Data Warehouse som du skapar.
-* **Server namn**: Namnet på den server som du använder för att skapa.
-* **ResourceGroupName**: Resurs grupp som du använder. Använd Get-AzureResource för att hitta tillgängliga resursgrupper i din prenumeration.
-* **Utgåva**: Måste vara "DataWarehouse" för att skapa en SQL Data Warehouse.
+* **RequestedServiceObjectiveName**: mängden [data lager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md) som du begär. Om du ökar värdet ökar beräknings kostnaden. En lista över värden som stöds finns i [minnes-och samtidiga gränser] minnes-samtidighets-limits.md).
+* **Databasename**: namnet på SQL Data Warehouse som du skapar.
+* **Server**namn: namnet på den server som du använder för att skapa.
+* **ResourceGroupName**: resurs gruppen som du använder. Använd Get-AzureResource för att hitta tillgängliga resursgrupper i din prenumeration.
+* **Version**: Måste vara ”DataWarehouse” för att skapa ett SQL Data Warehouse.
 
 Valfria parametrar är:
 
-- **CollationName**: Standard sorteringen om inget värde anges är SQL_Latin1_General_CP1_CI_AS. Det går inte att ändra sorteringen för en databas.
-- **MaxSizeBytes**: Standard Max storleken för en databas är 240TB. Max storleken begränsar rowstore-data. Det finns obegränsad lagring för kolumn data.
+- **CollationName**: Standardsortering om inte annat anges är SQL_Latin1_General_CP1_CI_AS. Det går inte att ändra sorteringen för en databas.
+- **MaxSizeBytes**: standard Max storleken för en databas är 240TB. Max storleken begränsar rowstore-data. Det finns obegränsad lagring för kolumn data.
 
 Mer information om parameter alternativen finns i [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase).
 

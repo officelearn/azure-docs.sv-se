@@ -1,5 +1,5 @@
 ---
-title: 'SSMS: Ansluta till och fråga efter data i en Azure SQL-databas | Microsoft Docs'
+title: 'SSMS: ansluta och fråga efter data i en Azure SQL-databas '
 description: Lär dig hur du ansluter till SQL Database på Azure med hjälp av SQL Server Management Studio (SSMS). Kör sedan Transact-SQL-uttryck (T-SQL) för att skicka frågor mot och redigera data.
 keywords: anslut till sql database, sql server management studio
 services: sql-database
@@ -12,18 +12,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 0a08ee9d38065b0dff13f68a7b5473aa93787cf5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0744b8bc8e3582a23802d87424bba9f92bf43073
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569191"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690897"
 ---
-# <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Snabbstart: Använda SQL Server Management Studio för att ansluta till och fråga i en Azure SQL-databas
+# <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Snabb start: använda SQL Server Management Studio för att ansluta och skicka frågor till en Azure SQL-databas
 
 I den här snabb starten använder du [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) för att ansluta till en Azure SQL-databas. Därefter kör du Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data. Du kan använda SSMS för att hantera all SQL-infrastruktur, från SQL Server till SQL Database för Microsoft Windows.  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 En Azure SQL-databas. Du kan använda någon av dessa snabbstarter för att skapa och därefter konfigurera en databas i Azure SQL Database:
 
@@ -87,7 +87,7 @@ Anslut till din Azure SQL Database-server i SMSS.
 
    ![mySampleDatabase-objekt](./media/sql-database-connect-query-ssms/connected.png)  
 
-## <a name="query-data"></a>Söka i data
+## <a name="query-data"></a>Frågedata
 
 Kör den här [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL-koden för att fråga efter de 20 viktigaste produkterna efter kategori.
 

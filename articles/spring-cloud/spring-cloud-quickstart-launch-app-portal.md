@@ -1,26 +1,23 @@
 ---
-title: Starta ett Azure våren Cloud-program med hjälp av Azure Portal
+title: 'Snabb start: starta ett Azure våren Cloud-program med hjälp av Azure Portal'
 description: Distribuera ett exempel program till Azure våren-molnet med hjälp av Azure Portal.
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 10/04/2019
-ms.author: v-vasuke
-ms.openlocfilehash: 87826b4c898f67873c2ec8188b934abd467c8a5b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
-ms.translationtype: MT
+ms.date: 11/4/2019
+ms.author: jeconnoc
+ms.openlocfilehash: ab2950ed85d2409cd81ea562ec977c0eee2f6bab
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162810"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693131"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Snabb start: starta ett Azure våren Cloud-program med hjälp av Azure Portal
 
 Med Azures våren Cloud kan du enkelt köra vår molnbaserade mikrotjänstprogram på Azure.
 
-Den här snabb starten visar hur du distribuerar ett befintligt våren Cloud-program till Azure. [Här är en länk](https://github.com/Azure-Samples/PiggyMetrics) till exempel programmets kod som används i den här självstudien. När du är klar kommer det angivna exempel programmet att vara tillgängligt online och redo att hanteras via Azure Portal.
+Den här snabb starten visar hur du distribuerar ett befintligt våren Cloud-program till Azure.  Du hittar exempel koden som används i den här självstudien i vår [GitHub-exempel databas](https://github.com/Azure-Samples/PiggyMetrics). När du är klar kommer det angivna exempel programmet att vara tillgängligt online och redo att hanteras via Azure Portal.
 
 Efter den här snabb starten får du lära dig att:
 
@@ -31,10 +28,10 @@ Efter den här snabb starten får du lära dig att:
 > * Distribuera varje mikrotjänst
 > * Tilldela en offentlig slut punkt för ditt program
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 >[!Note]
-> Innan du påbörjar den här snabb starten ska du se till att din Azure-prenumeration har åtkomst till Azure våren Cloud.  Som förhands gransknings tjänst ber vi kunderna att kontakta oss så att vi kan lägga till din prenumeration i vår lista över tillåtna.  Om du vill utforska funktionerna i Azure våren Cloud, fyller du i och skickar [Azure våren Cloud (privat för hands version) – intresse form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u). Även om Azure våren-molnet är i för hands version erbjuder Microsoft begränsad support utan service avtal.  Mer information om support under för hands versionerna finns i [vanliga frågor och svar om support](https://azure.microsoft.com/support/faq/).
+> Azure våren Cloud erbjuds för närvarande som en offentlig för hands version. Med den offentliga för hands versionen kan kunder experimentera med nya funktioner före den officiella versionen.  Funktioner och tjänster för offentliga för hands versioner är inte avsedda för användning i produktion.  Om du vill ha mer information om stöd under för hands versionerna kan du skicka en [supportbegäran](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
 
 >[!TIP]
 > Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln.  Den har ett förinstallerat vanligt Azure-verktyg, inklusive de senaste versionerna av Git, JDK, Maven och Azure CLI. Om du är inloggad på din Azure-prenumeration startar du [Azure Cloud Shell](https://shell.azure.com) från Shell.Azure.com.  Du kan lära dig mer om Azure Cloud Shell genom att [läsa vår dokumentation](../cloud-shell/overview.md)
@@ -52,16 +49,14 @@ För att slutföra den här snabbstarten behöver du:
 Installera Azure våren Cloud-tillägget för Azure CLI med hjälp av följande kommando
 
 ```Azure CLI
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+az extension add --name spring-cloud
 ```
 
 ## <a name="provision-a-service-instance-on-the-azure-portal"></a>Etablera en tjänst instans på Azure Portal
 
-1. Öppna [den här länken till Azure våren Cloud i den Azure Portal](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=AppPlatformExtension#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/Azure%20Spring%20Cloud)i en webbläsare.
+1. Öppna [den här länken till Azure våren Cloud i den Azure Portal](https://ms.portal.azure.com/#create/Microsoft.AppPlatform)i en webbläsare.
 
-    ![Skärm bild av ASC-portalen](media/spring-cloud-quickstart-launch-app-portal/goto-portal.png)
-
-1. Välj **Azure våren Cloud** för att gå till översikts sidan. Välj sedan knappen **skapa** för att komma igång.
+1. Välj **Azure våren Cloud** för att gå till översikts sidan. Välj knappen **skapa** för att komma igång.
 
 1. Fyll i formuläret, med beaktande av följande rikt linjer:
     - Tjänst namn: Ange namnet på din tjänst instans.  Namnet måste vara mellan 4 och 32 tecken långt och får bara innehålla gemena bokstäver, siffror och bindestreck.  Det första tecknet i tjänst namnet måste vara en bokstav och det sista tecknet måste vara en bokstav eller en siffra.
@@ -77,26 +72,28 @@ Det tar ungefär 5 minuter för tjänsten att distribueras.  När den har distri
 
 1. I avsnittet **standard databas** ställer du in **URI** till "https\://GitHub.com/Azure-samples/piggymetrics", anger **etikett** till "config" och väljer **tillämpa** för att spara ändringarna.
 
-    ![Skärm bild av ASC-portalen](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+    ![Skärm bild av ASC-portalen](media/spring-cloud-tutorial-config-server/portal-config-server.png)
 
 ## <a name="build-and-deploy-microservice-applications"></a>Utveckla och distribuera program för mikrotjänster
 
-1. Öppna ett kommando fönster och kör följande kommando för att klona exempel App-lagringsplatsen till den lokala datorn.
+1. Öppna en [Azure-Cloudshell](https://shell.azure.com) och klona exempel App-lagringsplatsen till den lokala datorn.  Här skapar vi först en tillfällig katalog med namnet `source-code` innan appen klonas.
 
-    ```cli
+    ```azurecli
+    mkdir source-code
+    cd source-code
     git clone https://github.com/Azure-Samples/piggymetrics
     ```
 
-1. Bygg kommandot projektet genom att köra nedan.
+1. Bygg det klonade paketet.
 
-    ```cli
-    cd PiggyMetrics
+    ```azurecli
+    cd piggymetrics
     mvn clean package -DskipTests
     ```
 
 1. Logga in på Azure CLI och ange din aktiva prenumeration.
 
-    ```cli
+    ```azurecli
     # Login to Azure CLI
     az login
 
@@ -123,7 +120,7 @@ Det tar ungefär 5 minuter för tjänsten att distribueras.  När den har distri
 
 1. Med samma mönster skapar du `account-service`-och `auth-service`-program och distribuerar deras JAR-filer.
 
-    ```cli
+    ```azurecli
     az spring-cloud app create -n account-service
     az spring-cloud app deploy -n account-service --jar-path ./account-service/target/account-service.jar
     az spring-cloud app create -n auth-service
@@ -135,8 +132,10 @@ Det tar ungefär 5 minuter för tjänsten att distribueras.  När den har distri
 ## <a name="assign-a-public-endpoint-to-gateway"></a>Tilldela en offentlig slut punkt till gateway
 
 1. Öppna fliken **appar** på menyn till vänster.
-2. Välj programmet `gateway` för att visa **översikts** sidan.
-3. Välj **tilldela domän** för att tilldela en offentlig slut punkt till gateway. Detta kan några minuter.
+
+1. Välj `gateway` programmet för att visa **översikts** sidan.
+
+1. Välj **tilldela domän** för att tilldela en offentlig slut punkt till gateway. Detta kan några minuter.
 
     ![Skärm bild av ASC-portalen](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
 

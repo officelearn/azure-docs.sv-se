@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Pausa och återuppta beräkning i Azure SQL Data Warehouse-Azure Portal | Microsoft Docs'
+title: 'Snabb start: pausa & återuppta beräkning-Azure Portal '
 description: Använd Azure Portal för att pausa beräknings Azure SQL Data Warehouse för att spara kostnader. Återuppta beräkning när du är redo att använda data lagret.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,14 +10,15 @@ ms.subservice: manage
 ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 46fb1fc6455cd35d8bb1eaf0a1b7ee499f5c1caf
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 14f66f71948f75a723c9fdbed7490d54c2c3e2b2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574885"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692995"
 ---
-# <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Snabbstart: Pausa och återuppta beräkning för en Azure SQL Data Warehouse i Azure Portal
+# <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Snabb start: pausa och återuppta beräkning för en Azure SQL Data Warehouse i Azure Portal
 
 Använd Azure Portal för att pausa beräknings Azure SQL Data Warehouse för att spara kostnader. [Återuppta beräkning](sql-data-warehouse-manage-compute-overview.md) när du är redo att använda data lagret.
 
@@ -37,7 +38,7 @@ För att spara kostnader kan du pausa och återuppta beräknings resurser på be
 
 Följ dessa steg om du vill pausa en SQL Data Warehouse.
 
-1. Klicka på **SQL-databaser** på den vänstra sidan i Azure-portalen.
+1. Klicka på **SQL-databaser** på den vänstra sidan i Azure Portal.
 2. Välj **mySampleDataWarehouse** på sidan **SQL-databaser**. Informationslagret öppnas. 
 3. Meddelande **status** är **online**på sidan **mySampleDataWarehouse** .
 
@@ -45,11 +46,11 @@ Följ dessa steg om du vill pausa en SQL Data Warehouse.
 
 4. Klicka på knappen **pausa** om du vill pausa data lagret. 
 5. En bekräftelse fråga visas där du tillfrågas om du vill fortsätta. Klicka på **Ja**.
-6. Vänta en stund och se sedan till att **statusen** pausas.
+6. Vänta en stund och se sedan till att **statusen** **pausas**.
 
-    ![Pausar](media/pause-and-resume-compute-portal/pausing.png)
+    ![Gör](media/pause-and-resume-compute-portal/pausing.png)
 
-7. När paus åtgärden är klar pausas statusen och alternativ knappen **startas**.
+7. När paus åtgärden är klar **pausas** statusen och alternativ knappen **startas**.
 8. Beräknings resurserna för data lagret är nu offline. Du debiteras inte för beräkning förrän du återupptar tjänsten.
 
     ![Beräkna offline](media/pause-and-resume-compute-portal/compute-offline.png)
@@ -59,9 +60,9 @@ Följ dessa steg om du vill pausa en SQL Data Warehouse.
 
 Följ de här stegen för att återuppta en SQL Data Warehouse.
 
-1. Klicka på **SQL-databaser** på den vänstra sidan i Azure-portalen.
+1. Klicka på **SQL-databaser** på den vänstra sidan i Azure Portal.
 2. Välj **mySampleDataWarehouse** på sidan **SQL-databaser**. Informationslagret öppnas. 
-3. På sidan **mySampleDataWarehouse** har meddelande **status** pausats.
+3. På sidan **mySampleDataWarehouse** har meddelande **status** **pausats**.
 
     ![Beräkna offline](media/pause-and-resume-compute-portal/compute-offline.png)
 

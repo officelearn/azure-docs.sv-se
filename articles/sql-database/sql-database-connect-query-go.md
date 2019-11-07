@@ -1,5 +1,5 @@
 ---
-title: Använda Go för att köra frågor mot Azure SQL Database | Microsoft Docs
+title: Använd gå till fråga Azure SQL Database
 description: Använd Go för att skapa ett program som ansluter till en Azure SQL-databas, och använd Transact-SQL-uttryck för att köra frågor mot och ändra data.
 services: sql-database
 ms.service: sql-database
@@ -11,18 +11,18 @@ author: David-Engel
 ms.author: craigg
 ms.reviewer: MightyPen
 ms.date: 02/12/2019
-ms.openlocfilehash: baa43a93ff0c1e814478bdc195b2fd525d4dbbf3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 510f5e0fe62043d592306d2d689174c0d87e129d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569262"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690953"
 ---
-# <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Snabbstart: Använda Golang för att fråga en Azure SQL-databas
+# <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Snabb start: använda Golang för att fråga en Azure SQL-databas
 
 I den här snabbstarten kommer du att använda programmeringsspråket [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) för att ansluta till en Azure SQL-databas. Därefter kommer du att köra Transact-SQL-uttryck för att fråga och redigera data. [Golang](https://golang.org/) är ett programmeringsspråk med öppen källkod som gör det enkelt att skapa enkel, pålitlig och effektiv programvara.  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här kursen behöver du:
 
@@ -44,9 +44,9 @@ För att slutföra den här kursen behöver du:
 
 - Golang och relaterad programvara för ditt operativsystem installerat:
 
-  - **MacOS**: Installera Homebrew och Golang. Se [Steg 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
-  - **Ubuntu**:  Installera Golang. Se [Steg 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
-  - **Windows**: Installera Golang. Se [Steg 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).
+  - **MacOS**: installera homebrew och Golang. Se [Steg 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
+  - **Ubuntu**: installera Golang. Se [Steg 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
+  - **Windows**: installera Golang. Se [Steg 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).
 
 ## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
 
@@ -105,7 +105,7 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-da
    sqlcmd -S <your_server>.database.windows.net -U <your_username> -P <your_password> -d <your_database> -i ./CreateTestData.sql
    ```
 
-## <a name="insert-code-to-query-sql-database"></a>Infoga kod för att fråga SQL-databas
+## <a name="insert-code-to-query-sql-database"></a>Infoga kod för att fråga SQL Database
 
 1. Skapa en fil med namnet **sample.go** i mappen **SqlServerSample**.
 

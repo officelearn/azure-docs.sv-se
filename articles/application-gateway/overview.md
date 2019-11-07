@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 5/31/2019
+ms.date: 11/05/2019
 ms.author: victorh
-ms.openlocfilehash: b30b96e6ae931e0df41b60e16f04127e82a068ad
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: a51276cd54a88c5e566afef0d06673f14b5862cf
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469758"
+ms.locfileid: "73572036"
 ---
 # <a name="what-is-azure-application-gateway"></a>Vad är Azure Application Gateway?
 
@@ -47,11 +47,11 @@ Programgatewayens VIP på Standard_v2-eller WAF_v2-SKU: n stöder enbart statisk
 
 ## <a name="web-application-firewall"></a>Brandvägg för webbaserade program
 
-Brandvägg för webbaserade program (WAF) är en funktion i Application Gateway som ger ett centraliserat skydd för dina webbappar mot vanliga kryphål och säkerhetsproblem. WAF baseras på regler från [OWASP (Open Web Application Security Project) Core Rule set](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3,1 (endast WAF_v2), 3,0 och 2.2.9. 
+Brand vägg för webbaserade program (WAF) är en tjänst som tillhandahåller centraliserat skydd av dina webb program från vanliga sårbarheter och sårbarheter. WAF baseras på regler från [OWASP (Open Web Application Security Project) Core Rule set](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3,1 (endast WAF_v2), 3,0 och 2.2.9. 
 
 Webbprogram blir i allt större utsträckning föremål för attacker där kända svagheter i programmen utnyttjas. Bland annat är SQL-inmatningsattacker och skriptangrepp mellan webbplatser vanliga. Det kan vara svårt att förhindra sådana attacker i programkoden och kräver ofta omfattande underhåll, korrigeringar och övervakning av många skikt i programtopologin. Med en centraliserad brandvägg för webbaserade program blir det enklare att hantera säkerheten och programadministratörer får bättre möjligheter skydda mot intrång. En brandväggslösning för webbaserade program kan även reagera snabbare på ett säkerhetshot genom att åtgärda en känd svaghet på en central plats jämfört med om korrigeringar ska utföras i varje enskilt webbprogram. Befintliga programgatewayer kan enkelt konverteras till en Application Gateway med brandväggen för webbprogram.
 
-Mer information finns i [brand vägg för webbaserade program (WAF) i Application Gateway](https://docs.microsoft.com/azure/application-gateway/waf-overview).
+Mer information finns i [Vad är en brand vägg för Azure Web Application?](../web-application-firewall/overview.md).
 
 ## <a name="ingress-controller-for-aks"></a>Ingress Controller för AKS
 Med Application Gateway ingångs kontroll (AGIC) kan du använda Application Gateway som ingångs punkt för ett [Azure Kubernetes service-kluster (AKS)](https://azure.microsoft.com/services/kubernetes-service/) . 

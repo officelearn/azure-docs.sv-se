@@ -7,12 +7,12 @@ ms.author: jenhayes
 ms.date: 07/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 8cc75fde348d070a19d1987d1403c63e8e6d2278
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: c2aa393f04a8db470dd8b739c0ed003477df0221
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286629"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615420"
 ---
 # <a name="azure-delegated-resource-management"></a>Azure-delegerad resurshantering
 
@@ -23,7 +23,7 @@ Azure-delegerad resurs hantering är en av de viktigaste komponenterna i Azure d
 Azure-delegerad resurs hantering möjliggör logisk projektion av resurser från en klient organisation till en annan klient organisation. Detta gör det möjligt för behöriga användare i en Azure Active Directory (Azure AD) att utföra hanterings åtgärder för olika Azure AD-klienter som tillhör sina kunder. Tjänste leverantörer kan logga in på sin egen Azure AD-klient och ha behörighet att arbeta i delegerade kund prenumerationer och resurs grupper. Detta gör det möjligt för dem att utföra hanterings åtgärder på uppdrag av sina kunder, utan att behöva logga in på varje enskild kund klient.
 
 > [!NOTE]
-> Azure-delegerad resurs hantering kan också användas inom ett företag som har flera Azure AD-klienter för att förenkla hanteringen av flera innehavare.
+> Azure-delegerad resurs hantering kan också användas [inom ett företag som har flera Azure AD-klienter för](enterprise.md) att förenkla hanteringen av flera innehavare.
 
 Med Azure-delegerad resurs hantering kan behöriga användare arbeta direkt i kontexten för en kund prenumeration utan att ha ett konto i den kundens klient organisation eller som medägare till kundens klient. De kan också [Visa och hantera alla delegerade kund prenumerationer på sidan nya **Mina kunder** ](../how-to/view-manage-customers.md) i Azure Portal.
 

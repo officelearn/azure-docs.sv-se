@@ -1,226 +1,336 @@
 ---
-title: 'Snabb start: skapa en BLOB i Azure Blob Storage med python'
-description: I den här snabbstarten skapar du ett lagringskonto och en container i objektlagring (Blob). Sedan använder du lagringsklientbiblioteket för Python och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en container.
+title: 'Snabb start: Azure Blob Storage-bibliotek V12 – python'
+description: I den här snabb starten får du lära dig hur du använder Azure Blob Storage klient bibliotek version 12 för python för att skapa en behållare och en BLOB i blob-lagring (objekt). Du får lära dig hur du hämtar bloben till din lokala dator och hur du visar alla blobar i en container.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 09/11/2019
+ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: seo-python-october2019
-ms.openlocfilehash: 8a3f8b5f8944552c92ac5a1c1d5fb2eabffad2c9
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 0851ee9061fcb01a5e007f0cc4989d6a3febc665
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430149"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605162"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-in-azure-blob-storage-with-python"></a>Snabb start: Ladda upp, ladda ned och lista blobar i Azure Blob Storage med python
+# <a name="quickstart-azure-blob-storage-client-library-v12-for-python"></a>Snabb start: klient biblioteket för Azure Blob Storage-V12 för python
 
-I den här artikeln använder du python för att ladda upp, ladda ned och lista block-blobar i en behållare i Azure Blob Storage. Blobbar är bara objekt som kan innehålla stora mängder text eller binära data, inklusive bilder, dokument, strömmande media och Arkiv data. Blobbar i Azure Storage skiljer sig från fil resurser, schema lösa tabeller och meddelande köer.  Mer information finns i [Introduktion till Azure Storage](/azure/storage/common/storage-introduction).
+Kom igång med Azure Blob Storages klient bibliotek V12 för python. Azure Blob Storage är Microsofts objektlagringslösning för molnet. Följ stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Blobblagring är optimerat för att lagra stora mängder ostrukturerade data.
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+> [!NOTE]
+> För att komma igång med den tidigare SDK-versionen, se [snabb start: Azure Blob Storage klient bibliotek för python](storage-quickstart-blobs-python-legacy.md).
 
-## <a name="prerequisites"></a>Krav
+Använd klient biblioteket för Azure Blob Storage för att:
 
-[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
+* Skapa en container
+* Ladda upp en blob till Azure Storage
+* Lista alla blobar i en behållare
+* Ladda ned blobben till den lokala datorn
+* Ta bort en container
 
-Kontrollera att du har följande ytterligare krav installerade:
+[API Reference-dokumentation](/python/api/azure-storage-blob) | [biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob) | [paket (Python-paket index)](https://pypi.org/project/azure-storage-blob/) | [exempel](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
-* [Python](https://www.python.org/downloads/)
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* [Azure Storage SDK för Python](https://github.com/Azure/azure-sdk-for-python)
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+* Azure Storage-konto – [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* [Python](https://www.python.org/downloads/) för ditt operativ system – 2,7, 3,5 eller högre
 
-## <a name="download-the-sample-application"></a>Hämta exempelprogrammet
+## <a name="setting-up"></a>Konfigurera
 
-[Exempelprogrammet](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) i den här snabbstarten är ett grundläggande Python-program.  
+Det här avsnittet beskriver hur du förbereder ett projekt så att det fungerar med Azure Blob Storage-V12 för python.
 
-Använd följande [git](https://git-scm.com/) -kommando för att ladda ned programmet till utvecklings miljön. 
+### <a name="create-the-project"></a>Skapa projektet
 
-```bash
-git clone https://github.com/Azure-Samples/storage-blobs-python-quickstart.git 
+Skapa ett python-program med namnet *BLOB-snabb start-V12*.
+
+1. Skapa en ny katalog för projektet i ett konsol fönster (till exempel cmd, PowerShell eller bash).
+
+    ```console
+    mkdir blob-quickstart-v12
+    ```
+
+1. Växla till den nyss skapade *V12-katalogen för BLOB-snabb start* .
+
+    ```console
+    cd blob-quickstart-v12
+    ```
+
+1. På sidan *BLOB-snabb start-V12-* katalogen skapar du en annan katalog med namnet *data*. Det är här som BLOB-datafilerna ska skapas och lagras.
+
+    ```console
+    mkdir data
+    ```
+
+### <a name="install-the-package"></a>Installera paketet
+
+När du fortfarande är i program katalogen installerar du Azure Blob Storage-klient biblioteket för python-paket med hjälp av kommandot `pip install`.
+
+```console
+pip install azure-storage-blob
 ```
 
-Om du vill granska python-programmet öppnar du *example.py* -filen i lagrings platsens rot.  
+Det här kommandot installerar Azure Blob Storage-klientprogrammet för python-paket och alla bibliotek som det är beroende av. I det här fallet är det bara Azures kärn bibliotek för python.
 
-[!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
+### <a name="set-up-the-app-framework"></a>Konfigurera app Framework
 
-## <a name="configure-your-storage-connection-string"></a>Konfigurera anslutningssträngen för lagring
+Från projekt katalogen:
 
-I programmet måste du ange ditt lagringskontonamn och kontonyckel för att skapa ett `BlockBlobService`-objekt.
+1. Öppna en ny textfil i kod redigeraren
+1. Lägg till `import`-uttryck
+1. Skapa strukturen för programmet, inklusive mycket grundläggande undantags hantering
 
-1. Öppna filen *example.py* från Solution Explorer i IDE.
-
-1. Ersätt värdena `accountname` och `accountkey` med ditt lagrings konto namn och nyckel:
+    Här är koden:
 
     ```python
-    block_blob_service = BlockBlobService(
-        account_name='accountname', account_key='accountkey')
+    import os, uuid
+    from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
+
+    try:
+        print("Azure Blob storage v12 - Python quickstart sample")
+        # Quick start code goes here
+    except Exception as ex:
+        print('Exception:')
+        print(ex)
     ```
 
-1. Spara och stäng filen.
+1. Spara den nya filen som *BLOB-QuickStart-V12.py* i katalogen *BLOB-snabb start-V12* .
 
-## <a name="run-the-sample"></a>Kör exemplet
+### <a name="copy-your-credentials-from-the-azure-portal"></a>Kopiera dina autentiseringsuppgifter från Azure-portalen
 
-Exempel programmet skapar en test fil i mappen *dokument* , laddar upp filen till Blob Storage, listar blobarna i filen och laddar ned filen med ett nytt namn.
+När exempel programmet gör en begäran för att Azure Storage, måste det vara auktoriserat. Om du vill auktorisera en begäran lägger du till autentiseringsuppgifterna för ditt lagrings konto i programmet som en anslutnings sträng. Visa autentiseringsuppgifterna för lagringskontot genom att följa dessa steg:
 
-1. Installera beroendena:
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Leta rätt på ditt lagringskonto.
+3. Välj **Åtkomstnycklar** i avsnittet **Inställningar** i lagringskontoöversikten. Här kan du visa åtkomstnycklarna för kontot och den fullständiga anslutningssträngen för varje nyckel.
+4. Sök efter värdet för **Anslutningssträng** under **key1** och kopiera anslutningssträngen genom att välja **Kopiera**. Du lägger till strängvärdet för anslutningen till en miljövariabel i nästa steg.
 
-    ```console
-    pip install azure-storage-blob
-    ```
+    ![Skärmbild som visar hur man kopierar en anslutningssträng från Azure-portalen](../../../includes/media/storage-copy-connection-string-portal/portal-connection-string.png)
 
-1. Gå till exempel programmet:
+### <a name="configure-your-storage-connection-string"></a>Konfigurera anslutningssträngen för lagring
 
-    ```console
-    cd storage-blobs-python-quickstart
-    ```
+När du har kopierat anslutningssträngen ska du skriva den till en ny miljövariabel på den lokala dator där programmet körs. Konfigurera miljövariabeln genom att öppna ett konsolfönster och följa anvisningarna för ditt operativsystem. Ersätt `<yourconnectionstring>` med den faktiska anslutnings strängen.
 
-1. Kör exemplet:
+#### <a name="windows"></a>Windows
 
-    ```console
-    python example.py
-    ```
-
-    Meddelandena ser ut ungefär som i följande utdata:
-  
-    ```output
-    Temp file = C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
-
-    Uploading to Blob storage as blobQuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
-
-    List blobs in the container
-             Blob name: QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
-
-    Downloading blob to     C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078_DOWNLOADED.txt
-    ```
-
-1. Gå till mappen *dokument* och Sök efter de två filerna innan du fortsätter.
-
-    * *QuickStart_ @ no__t-1universally-Unique-Identifier @ no__t-2*
-    * *QuickStart_ @ no__t-1universally-Unique-Identifier @ no__t-2_DOWNLOADED*
-
-1. Du kan öppna dem och se att de är samma.
-
-    Du kan också använda ett verktyg som [Azure Storage Explorer](https://storageexplorer.com). Det är lämpligt att visa filerna i Blob Storage. Azure Storage Explorer är ett kostnads fritt plattforms oberoende verktyg som ger dig åtkomst till lagrings konto informationen. 
-
-1. När du har tittat på filerna trycker du på valfri tangent för att slutföra exemplet och ta bort testfilerna.
-
-## <a name="learn-about-the-sample-code"></a>Lär dig mer om exempel koden
-
-Nu när du vet vad exemplet gör kan du öppna filen *example.py* och titta på koden.
-
-### <a name="get-references-to-the-storage-objects"></a>Hämta referenser till lagringsobjekten
-
-I det här avsnittet skapar du instanser av objekten, skapar en ny container och anger sedan behörigheter för containern så att blobarna är offentliga. Du anropar behållaren `quickstartblobs`. 
-
-```python
-# Create the BlockBlockService that the system uses to call the Blob service for the storage account.
-block_blob_service = BlockBlobService(
-    account_name='accountname', account_key='accountkey')
-
-# Create a container called 'quickstartblobs'.
-container_name = 'quickstartblobs'
-block_blob_service.create_container(container_name)
-
-# Set the permission so the blobs are public.
-block_blob_service.set_container_acl(
-    container_name, public_access=PublicAccess.Container)
+```cmd
+setx CONNECT_STR "<yourconnectionstring>"
 ```
 
-Först skapar du referenser till objekten som används för att komma åt och hantera Blob Storage. De här objekten bygger på varandra, och vart och ett används av nästa i listan.
+När du har lagt till miljövariabeln i Windows måste du starta en ny instans av kommando fönstret.
 
-* Skapa en instans av objektet **BlockBlobService**, som pekar mot Blob Service i lagringskontot. 
+#### <a name="linux"></a>Linux
 
-* Skapa en instans av objektet **CloudBlobContainer**, som representerar den container du får åtkomst till. Systemet använder behållare för att organisera dina blobbar, som du använder mappar på datorn för att organisera dina filer.
+```bash
+export CONNECT_STR="<yourconnectionstring>"
+```
 
-När du har molnblobcontainern kan du instansiera objektet **CloudBlockBlob** som pekar mot den specifika blob du är intresserad av. Du kan sedan ladda upp, hämta och kopiera bloben efter behov.
+#### <a name="macos"></a>macOS
 
-> [!IMPORTANT]
-> Containernamn måste använda gemener. Mer information om containrar och blobnamn finns i [Namngivning och referens av containrar, blobar och metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+```bash
+export CONNECT_STR="<yourconnectionstring>"
+```
 
-### <a name="upload-blobs-to-the-container"></a>Ladda upp blobar i containern
+#### <a name="restart-programs"></a>Starta om program
 
-Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. Blockblobar kan vara så stora som 4,7 TB och kan vara allt från Excel-kalkylblad till stora videofiler. Du kan använda Lägg till blobar för loggning när du vill skriva till en fil och sedan fortsätta lägga till mer information. Page blobbar används främst för virtuella hård diskar (VHD) som backar upp infrastruktur som virtuella datorer i tjänsten (IaaS VM). Blockblobar är de vanligaste. I den här snabb starten används block-blobbar.
+När du har lagt till miljövariabeln startar du om alla program som körs som behöver läsa miljövariabeln. Starta till exempel utvecklings miljön eller redigeraren innan du fortsätter.
 
-Om du vill överföra en fil till en blob hämtar du den fullständiga sökvägen genom att slå ihop katalognamnet och filnamnet på den lokala enheten. Du kan sedan ladda upp filen till angiven sökväg med hjälp av metoden `create_blob_from_path`. 
+## <a name="object-model"></a>Objekt modell
 
-Exempel koden skapar en lokal fil som systemet använder för att ladda upp och ladda ned, lagra filen som systemet laddar upp som *full_path_to_file* och namnet på blobben som *local_file_name*. I det här exemplet överförs filen till behållaren med namnet `quickstartblobs`:
+Azure Blob Storage är optimerat för att lagra enorma mängder ostrukturerade data. Ostrukturerade data är data som inte följer en viss datamodell eller definition, till exempel text eller binära data. I blobblagringen finns tre typer av resurser:
+
+* Lagrings kontot
+* En behållare i lagrings kontot
+* En BLOB i behållaren
+
+Följande diagram visar relationen mellan de här resurserna.
+
+![Diagram över blobblagringens arkitektur](./media/storage-blob-introduction/blob1.png)
+
+Använd följande python-klasser för att interagera med dessa resurser:
+
+* [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient): klassen `BlobServiceClient` gör att du kan ändra Azure Storage resurser och blob-behållare.
+* [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient): klassen `ContainerClient` gör att du kan ändra Azure Storage behållare och deras blobbar.
+* [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient): klassen `BlobClient` gör att du kan ändra Azure Storage blobbar.
+
+## <a name="code-examples"></a>Kod exempel
+
+I de här exempel kods tycken visas hur du gör följande med klient biblioteket för Azure Blob Storage för python:
+
+* [Hämta anslutnings strängen](#get-the-connection-string)
+* [Skapa en behållare](#create-a-container)
+* [Ladda upp blobbar till en behållare](#upload-blobs-to-a-container)
+* [Visa en lista över blobarna i en behållare](#list-the-blobs-in-a-container)
+* [Ladda ned blobbar](#download-blobs)
+* [Ta bort en container](#delete-a-container)
+
+### <a name="get-the-connection-string"></a>Hämta anslutningssträngen
+
+Koden nedan hämtar anslutnings strängen för lagrings kontot från den miljö variabel som skapades i avsnittet [Konfigurera din lagrings anslutnings sträng](#configure-your-storage-connection-string) .
+
+Lägg till den här koden inuti `try` blocket:
 
 ```python
-# Create a file in Documents to test the upload and download.
-local_path = os.path.expanduser("~\Documents")
-local_file_name = "QuickStart_" + str(uuid.uuid4()) + ".txt"
-full_path_to_file = os.path.join(local_path, local_file_name)
+# Retrieve the connection string for use with the application. The storage
+# connection string is stored in an environment variable on the machine
+# running the application called CONNECT_STR. If the environment variable is
+# created after the application is launched in a console or with Visual Studio,
+# the shell or application needs to be closed and reloaded to take the
+# environment variable into account.
+connect_str = os.getenv('CONNECT_STR')
+```
 
-# Write text to the file.
-file = open(full_path_to_file, 'w')
+### <a name="create-a-container"></a>Skapa en container
+
+Välj ett namn för den nya behållaren. Koden nedan lägger till ett UUID-värde till behållar namnet för att säkerställa att det är unikt.
+
+> [!IMPORTANT]
+> Containernamn måste använda gemener. Mer information om namngivning av containrar och blobar finns i [Namngivning och referens av containrar, blobar och metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+
+Skapa en instans av klassen [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) genom att anropa [from_connection_string](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient#from-connection-string-conn-str--credential-none----kwargs-) -metoden. Anropa sedan [create_container](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient#create-container-name--metadata-none--public-access-none----kwargs-) -metoden för att skapa behållaren i ditt lagrings konto.
+
+Lägg till den här koden i slutet av `try` blocket:
+
+```python
+# Create the BlobServiceClient object which will be used to create a container client
+blob_service_client = BlobServiceClient.from_connection_string(connect_str)
+
+# Create a unique name for the container
+container_name = "quickstart" + str(uuid.uuid4())
+
+# Create the container
+container_client = blob_service_client.create_container(container_name)
+```
+
+### <a name="upload-blobs-to-a-container"></a>Ladda upp blobbar till en behållare
+
+Följande kodfragment:
+
+1. Skapar en textfil i den lokala katalogen.
+1. Hämtar en referens till ett [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient) -objekt genom att anropa metoden [get_blob_client](/python/api/azure-storage-blob/azure.storage.blob.containerclient#get-blob-client-blob--snapshot-none-) på [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) från avsnittet [skapa en behållare](#create-a-container) .
+1. Överför den lokala text filen till blobben genom att anropa metoden [upload_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#upload-blob-data--blob-type--blobtype-blockblob---blockblob----length-none--metadata-none----kwargs-) .
+
+Lägg till den här koden i slutet av `try` blocket:
+
+```python
+# Create a file in local Documents directory to upload and download
+local_path = "./data"
+local_file_name = "quickstart" + str(uuid.uuid4()) + ".txt"
+upload_file_path = os.path.join(local_path, local_file_name)
+
+# Write text to the file
+file = open(upload_file_path, 'w')
 file.write("Hello, World!")
 file.close()
 
-print("Temp file = " + full_path_to_file)
-print("\nUploading to Blob storage as blob" + local_file_name)
+# Create a blob client using the local file name as the name for the blob
+blob_client = blob_service_client.get_blob_client(container=container_name, blob=local_file_name)
 
-# Upload the created file, use local_file_name for the blob name.
-block_blob_service.create_blob_from_path(
-    container_name, local_file_name, full_path_to_file)
+print("\nUploading to Azure Storage as blob:\n\t" + local_file_name)
+
+# Upload the created file
+with open(upload_file_path, "rb") as data:
+    blob_client.upload_blob(data)
 ```
-
-Det går att använda flera uppladdningsmetoder med Blob Storage. Om du till exempel har en minnesström kan du kan använda metoden `create_blob_from_stream` snarare än `create_blob_from_path`. 
 
 ### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
 
-Följande kod skapar en `generator` för metoden `list_blobs`. Koden går igenom listan över blobbar i behållaren och skriver ut deras namn till-konsolen.
+Visa en lista över blobarna i behållaren genom att anropa metoden [list_blobs](/python/api/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-) . I det här fallet har endast en BLOB lagts till i behållaren, så List åtgärden returnerar bara den en blob.
+
+Lägg till den här koden i slutet av `try` blocket:
 
 ```python
-# List the blobs in the container.
-print("\nList blobs in the container")
-generator = block_blob_service.list_blobs(container_name)
-for blob in generator:
-    print("\t Blob name: " + blob.name)
+print("\nListing blobs...")
+
+# List the blobs in the container
+blob_list = container_client.list_blobs()
+for blob in blob_list:
+    print("\t" + blob.name)
 ```
 
-### <a name="download-the-blobs"></a>Ladda ned blobarna
+### <a name="download-blobs"></a>Ladda ned blobbar
 
+Ladda ned den tidigare skapade blobben genom att anropa [download_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#download-blob-offset-none--length-none----kwargs-) -metoden. Exempel koden lägger till suffixet "DOWNLOAD" i fil namnet så att du kan se båda filerna i det lokala fil systemet.
 
-Ladda ned blobar till din lokala disk med hjälp av metoden `get_blob_to_path`.
-Följande kod laddar ned bloben som du laddade upp tidigare. Systemet lägger till *_DOWNLOADED* till BLOB-namnet så att du kan se båda filerna på den lokala disken.
+Lägg till den här koden i slutet av `try` blocket:
 
 ```python
-# Download the blob(s).
-# Add '_DOWNLOADED' as prefix to '.txt' so you can see both files in Documents.
-full_path_to_file2 = os.path.join(local_path, local_file_name.replace(
-   '.txt', '_DOWNLOADED.txt'))
-print("\nDownloading blob to " + full_path_to_file2)
-block_blob_service.get_blob_to_path(
-    container_name, local_file_name, full_path_to_file2)
+# Download the blob to a local file
+# Add 'DOWNLOAD' before the .txt extension so you can see both files in Documents
+download_file_path = os.path.join(local_path, str.replace(local_file_name ,'.txt', 'DOWNLOAD.txt'))
+print("\nDownloading blob to \n\t" + download_file_path)
+
+with open(download_file_path, "wb") as download_file:
+    download_file.write(blob_client.download_blob().readall())
 ```
 
-### <a name="clean-up-resources"></a>Rensa resurser
-Om du inte längre behöver blobarna som laddades upp i denna snabbstart kan du ta bort hela containern med hjälp av metoden `delete_container`. Om du vill ta bort enskilda filer använder du i stället metoden `delete_blob`.
+### <a name="delete-a-container"></a>Ta bort en container
+
+Följande kod rensar resurserna som skapats av appen genom att ta bort hela behållaren med hjälp av metoden [delete_container](/python/api/azure-storage-blob/azure.storage.blob.containerclient#delete-container---kwargs-) . Du kan också ta bort de lokala filerna, om du vill.
+
+Appen pausar indata från användaren genom att anropa `input()` innan den tar bort BLOB, container och lokala filer. Det här är en bra chans att verifiera att resurserna faktiskt har skapats korrekt innan de tas bort.
+
+Lägg till den här koden i slutet av `try` blocket:
 
 ```python
-# Clean up resources. This includes the container and the temp files.
-block_blob_service.delete_container(container_name)
-os.remove(full_path_to_file)
-os.remove(full_path_to_file2)
+# Clean up
+print("\nPress the Enter key to begin clean up")
+input()
+
+print("Deleting blob container...")
+container_client.delete_container()
+
+print("Deleting the local source and downloaded files...")
+os.remove(upload_file_path)
+os.remove(download_file_path)
+
+print("Done")
 ```
 
-## <a name="resources-for-developing-python-applications-with-blobs"></a>Resurser för att utveckla Python-tillämpningar med blobar
+## <a name="run-the-code"></a>Kör koden
 
-Mer information om python-utveckling med Blob Storage finns i följande ytterligare resurser:
+Den här appen skapar en test fil i din lokala mapp och laddar upp den till Blob Storage. Exemplet visar sedan blobarna i behållaren och laddar ned filen med ett nytt namn så att du kan jämföra de gamla och nya filerna.
 
-### <a name="binaries-and-source-code"></a>Binärfiler och källkod
+Navigera till den katalog som innehåller *BLOB-QuickStart-V12.py* -filen och kör sedan följande `python` kommando för att köra appen.
 
-- Visa, ladda ned och installera [Python-klientens bibliotekskällkod](https://github.com/Azure/azure-storage-python) för Azure Storage på GitHub.
+```console
+python blob-quickstart-v12.py
+```
 
-### <a name="client-library-reference-and-samples"></a>Referens och exempel för klientbiblioteket
+Utdata från appen liknar följande exempel:
 
-- Mer information om python-klient biblioteket finns i [Azure Storage bibliotek för python](https://docs.microsoft.com/python/api/overview/azure/storage).
-- Utforska [Bloblagringsexempel](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=python&term=blob) som skrivits med Python-klientbiblioteket.
+```output
+Azure Blob storage v12 - Python quickstart sample
+
+Uploading to Azure Storage as blob:
+        quickstartcf275796-2188-4057-b6fb-038352e35038.txt
+
+Listing blobs...
+        quickstartcf275796-2188-4057-b6fb-038352e35038.txt
+
+Downloading blob to
+        ./data/quickstartcf275796-2188-4057-b6fb-038352e35038DOWNLOAD.txt
+
+Press the Enter key to begin clean up
+
+Deleting blob container...
+Deleting the local source and downloaded files...
+Done
+```
+
+Innan du påbörjar rensnings processen kontrollerar du mappen *dokument* för de två filerna. Du kan öppna dem och se att de är identiska.
+
+När du har verifierat filerna trycker du på **RETUR** -tangenten för att ta bort testfilerna och slutföra demon.
 
 ## <a name="next-steps"></a>Nästa steg
- 
-I den här snabbstarten har du lärt dig hur du överför filer mellan en lokal disk och Azure Blob Storage med Python. 
 
-Mer information om Storage Explorer och blobbar finns i [Hantera Azure Blob Storage-resurser med Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+I den här snabb starten har du lärt dig att ladda upp, ladda ned och lista blobar med python.
+
+Om du vill se exempel appar för Blob Storage fortsätter du till:
+
+> [!div class="nextstepaction"]
+> [Azure Blob Storage SDK V12 python-exempel](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
+
+* Mer information finns i [Azure SDK för python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/README.md).
+* För självstudier, exempel, snabb starter och annan dokumentation går du [till Azure för python-utvecklare](/azure/python/).

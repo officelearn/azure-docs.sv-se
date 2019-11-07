@@ -8,18 +8,20 @@ manager: jeconnoc
 keywords: azure functions, functions, event processing, compute, serverless architecture
 ms.service: azure-functions
 ms.topic: quickstart
-ms.date: 07/19/2019
+ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1579a4dfbab1ec9d9aa6bb3995bd88d948d6d5e2
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 563412fbc5e8d9af3c399b1f75696053549143c4
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933961"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615016"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Skapa din första beständiga funktion i C\#
 
 *Durable Functions* är en utökning av [Azure Functions](../functions-overview.md) som gör att du kan skriva tillståndskänsliga funktioner i en serverlös miljö. Tillägget hanterar tillstånd, kontrollpunkter och omstarter.
+
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 I den här artikeln får du lära dig hur du använder Visual Studio 2019 för att lokalt skapa och testa en "Hello World"-beständig funktion.  Den här funktionen orkestrerar och kedjar samman anrop till andra funktioner. Du publicerar sedan funktionskoden till Azure. De här verktygen är tillgängliga som en del av arbets belastningen Azure Development i Visual Studio 2019.
 
@@ -41,7 +43,7 @@ Med Azure Functions-mallen skapas ett projekt som kan publiceras till en funktio
 
 1. Välj **Nytt** > **Projekt** från **Arkiv**-menyn i Visual Studio.
 
-1. I dialog rutan **Lägg till ett nytt projekt** söker du `functions`efter, väljer mallen **Azure Functions** och väljer **Nästa**. 
+1. I dialog rutan **Lägg till ett nytt projekt** söker du efter `functions`, väljer **Azure Functions** mal len och väljer **Nästa**. 
 
     ![Dialogrutan Nytt projekt för att skapa en funktion i Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-project.png)
 
@@ -53,8 +55,8 @@ Med Azure Functions-mallen skapas ett projekt som kan publiceras till en funktio
 
     | Inställning      | Föreslaget värde  | Beskrivning                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **Version** | Azure Functions 2.x <br />(.NET Core) | Skapar ett funktionsprojekt som använder körningsversion 2.x av Azure Functions, som har stöd för .Net Core. Azure Functions 1.x har stöd för .NET Framework. Läs mer i informationen om att [köra rätt körningsversion av Azure Functions](../functions-versions.md).   |
-    | **Mall** | Tomt | Detta skapar en tom funktionsapp. |
+    | **Version** | Azure Functions 2,0 <br />(.NET Core) | Skapar ett funktions projekt som använder version 2,0-körningen av Azure Functions, som har stöd för .NET Core. Azure Functions 1,0 stöder .NET Framework. Läs mer i informationen om att [köra rätt körningsversion av Azure Functions](../functions-versions.md).   |
+    | **Mall** | Tom | Detta skapar en tom funktionsapp. |
     | **Lagringskonto**  | Lagringsemulator | Det krävs ett lagringskonto för tillståndshanteringen för den beständiga funktionen. |
 
 4. Välj **skapa** för att skapa ett tomt funktions projekt. Det här projektet har grundläggande konfigurationsfiler som behövs för att köra dina funktioner.
@@ -73,12 +75,15 @@ Följande steg använder en mall för att skapa varaktig funktionskod.
 
     ![Välja mall för beständig](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)  
 
+> [!NOTE]
+> Den här mallen skapar för närvarande en varaktig funktion med en äldre 1. x-version av tillägget. Se artikeln [Durable Functions versioner](durable-functions-versions.md) för information om hur du uppgraderar till nyare 2. x-versioner av Durable functions.
+
 En ny beständig funktion läggs till i appen.  Öppna den nya .cs-filen för att visa innehållet. Det här beständiga funktionen är ett enkelt funktionslänkningsexempel med följande metoder:  
 
 | Metod | FunctionName | Beskrivning |
 | -----  | ------------ | ----------- |
 | **`RunOrchestrator`** | `<file-name>` | Hanterar varaktig orkestrering. I det här fallet startar orkestreringen, den skapar en lista och lägger till resultatet av tre funktionsanrop i listan.  När de tre funktionsanropen har slutförts returnerar den listan. |
-| **`SayHello`** | `<file-name>_Hello` | Funktionen returnerar ett ”hello”. Det här är den funktion som innehåller affärslogiken som orkestreras. |
+| **`SayHello`** | `<file-name>_Hello` | Funktionen returnerar ett ”hello”. Funktionen som innehåller affärs logiken som dirigeras. |
 | **`HttpStart`** | `<file-name>_HttpStart` | En [HTTP-utlöst funktion](../functions-bindings-http-webhook.md) som startar en instans av orkestreraren och returnerar ett statuskontrollsvar. |
 
 Nu när du har skapat ditt funktionsprojekt och en beständig funktion kan du testa den på en lokal dator.
@@ -101,7 +106,7 @@ Med Azure Functions Core Tools kan du köra ett Azure Functions-projekt på din 
 
 4. Kopiera URL-värdet för `statusQueryGetUri`, klistra in det i webbläsarens adressfält och kör begäran.
 
-    Begäran kör en fråga mot orkestreringsinstansen om statusen. Du bör så småningom få ett svar som liknar följande.  Detta visar att instansen har slutförts och innehåller utdata eller resultat för den beständiga funktionen.
+    Begäran kör en fråga mot orkestreringsinstansen om statusen. Du bör så småningom få ett svar som liknar följande.  Det här resultatet visar att instansen har slutförts och innehåller utdata eller resultat från den varaktiga funktionen.
 
     ```json
     {
@@ -114,8 +119,8 @@ Med Azure Functions Core Tools kan du köra ett Azure Functions-projekt på din 
             "Hello Seattle!",
             "Hello London!"
         ],
-        "createdTime": "2018-11-08T07:07:40Z",
-        "lastUpdatedTime": "2018-11-08T07:07:52Z"
+        "createdTime": "2019-11-02T07:07:40Z",
+        "lastUpdatedTime": "2019-11-02T07:07:52Z"
     }
     ```
 

@@ -1,24 +1,24 @@
 ---
-title: Snabbstart – Konfigurera en brandvägg för en Analysis Services-server i Azure | Microsoft Docs
-description: Lär dig hur du konfigurerar en brandvägg för en Analysis Services-serverinstans i Azure.
+title: Snabb start – konfigurera Azure Analysis Services server-brandvägg | Microsoft Docs
+description: Den här snabb starten hjälper dig att konfigurera en brand vägg för en Azure Analysis Services-server med hjälp av Azure Portal.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 07/02/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c3c8de80f90fe203029b38171502e3d4a9b9dd46
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 8a1f774aae071a561bdda2d8c349861d640cb287
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298527"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572481"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>Snabbstart: Konfigurera serverbrandvägg – portalen
 
 Den här snabbstarten hjälper dig att konfigurera en brandvägg för Azure Analysis Services-servern. Att kunna aktivera en brandvägg och konfigurera IP-adressintervall enbart för de datorer som har åtkomst till servern är en viktig del i skyddet av din server och dina data.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En Analysis Services-server i din prenumeration. Mer information finns i [Snabbstart: Skapa en server – Portal](analysis-services-create-server.md) eller [Snabbstart: Skapa en server – PowerShell](analysis-services-create-powershell.md)
 - Ett eller flera IP-adressintervall för klientdatorer (om så behövs).
@@ -31,10 +31,10 @@ Den här snabbstarten hjälper dig att konfigurera en brandvägg för Azure Anal
 ## <a name="configure-a-firewall"></a>Konfigurera en brandvägg
 
 1. Öppna sidan Översikt genom att klicka på servern. 
-2. Klicka på **På** i **INSTÄLLNINGAR** > **Brandvägg** > **Aktivera brandvägg**.
+2. Klicka på **På** i  > INSTÄLLNINGAR > Brandvägg**Aktivera brandvägg**.
 3. Klicka på **På** i **Tillåt åtkomst från Power BI** om du vill ge DirectQuery åtkomst från Power BI-tjänsten.  
 4. (Valfritt) Ange ett eller flera IP-adressintervall. Ange ett namn, och start- och slut-IP-adress för varje intervall. Brand Väggs regelns namn får inte vara längre än 128 tecken och får bara innehålla versaler, gemener, siffror, under streck och bindestreck. Blank steg och andra specialtecken är inte tillåtna.
-5. Klicka på **Save** (Spara).
+5. Klicka på **Spara**.
 
      ![Brandväggsinställningar](./media/analysis-services-qs-firewall/aas-qs-firewall.png)
 

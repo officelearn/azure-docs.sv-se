@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.date: 10/17/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 10105d06e48a727e71ea5cb03f2ffceb589df50a
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4b2ce1253fd4421b36105fdbae68c6e89173a3c6
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595260"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615465"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publicera ett erbjudande för hanterade tjänster på Azure Marketplace
 
@@ -52,9 +52,11 @@ När du är klar väljer du **Spara**. Nu är du redo att gå vidare till avsnit
 
 Varje erbjudande måste ha en eller flera planer (kallas ibland SKU: er). Du kan lägga till flera planer för att stödja olika funktions uppsättningar i olika priser eller för att anpassa en viss plan för en begränsad mål grupp för vissa kunder. Kunder kan se de planer som är tillgängliga för dem under det överordnade erbjudandet.
 
-I avsnittet planer väljer du **ny plan**för varje plan du vill skapa. Ange sedan ett **plan-ID**. Detta ID får bara innehålla gemena alfanumeriska tecken, bindestreck och under streck, med högst 50 tecken. Plan-ID kan vara synligt för kunder på platser som i produkt-URL: er och fakturerings rapporter. När du har publicerat erbjudandet kan du inte ändra det här värdet.
+I avsnittet planer väljer du **ny plan**. Ange sedan ett **plan-ID**. Detta ID får bara innehålla gemena alfanumeriska tecken, bindestreck och under streck, med högst 50 tecken. Plan-ID kan vara synligt för kunder på platser som i produkt-URL: er och fakturerings rapporter. När du har publicerat erbjudandet kan du inte ändra det här värdet.
 
-Därefter fyller du i följande avsnitt i avsnittet med **plan information** :
+### <a name="plan-details"></a>Plan information
+
+Slutför följande avsnitt i avsnittet med **plan information** :
 
 |Fält  |Beskrivning  |
 |---------|---------|
@@ -64,27 +66,36 @@ Därefter fyller du i följande avsnitt i avsnittet med **plan information** :
 |**Fakturerings modell**     | Det finns två fakturerings modeller som visas här, men du måste välja **Bring Your Own License** för Managed Services-erbjudanden. Det innebär att du debiteras kunderna direkt för kostnader som rör erbjudandet, och Microsoft debiterar inte några avgifter till dig.   |
 |**Är det en privat plan?**     | Anger om SKU: n är privat eller offentlig. Standardvärdet är **no** (public). Om du lämnar det här alternativet begränsas inte din prenumeration till specifika kunder (eller till ett visst antal kunder). När du har publicerat en offentlig plan kan du inte senare ändra den till privat. Välj **Ja**om du vill att den här planen bara är tillgänglig för vissa kunder. När du gör det måste du identifiera kunderna genom att ange deras prenumerations-ID. De kan anges en i taget (för upp till 10 prenumerationer) eller genom att ladda upp en. csv-fil (för upp till 20 000 prenumerationer). Se till att ta med dina egna prenumerationer här så att du kan testa och validera erbjudandet. Mer information finns i [privata SKU: er och planer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus).  |
 
-Slutför Slutligen avsnittet **manifest information** . Detta skapar ett manifest med autentiseringsinformation för att hantera kund resurser. Den information du anger här är nödvändig för att publicera dina kunder för Azure-delegerad resurs hantering. Som nämnts ovan gäller dessa behörigheter för alla kunder som köper planen, så om du vill begränsa åtkomsten till en specifik kund måste du publicera en privat plan för deras exklusiva användning.
+### <a name="manifest-details"></a>Manifest information
 
-- Ange först en **version** för manifestet. Använd formatet *n. n. n* (till exempel 1.2.5).
-- Ange sedan **klient-ID: t**. Detta är ett GUID som är kopplat till organisationens Azure Active Directory-ID (dvs. den klient som du kommer att arbeta i för att hantera kundernas resurser). Om du inte har det här är praktiskt kan du hitta det genom att hovra över ditt konto namn längst upp till höger i Azure Portal eller genom att välja **Växla katalog**. 
-- Slutligen lägger du till en eller flera **Authorization** -poster i planen. Auktoriseringar definierar de entiteter som har åtkomst till resurser och prenumerationer för kunder som köper planen. Du måste ange den här informationen för att få åtkomst till resurser för kundens räkning med Azure-delegerad resurs hantering.
-  Ange följande för varje auktorisering. Du kan sedan välja **ny auktorisering** så många gånger som behövs för att lägga till fler användare/roll definitioner.
+Slutför ditt abonnemang genom att fylla i avsnittet **manifest information** . Detta skapar ett manifest med autentiseringsinformation för att hantera kund resurser. Den här informationen krävs för att aktivera Azure-delegerad resurs hantering.
+
+> [!NOTE]
+> Som anges ovan gäller användare och roller i dina **Authorization** -poster för alla kunder som köper planen. Om du vill begränsa åtkomsten till en specifik kund måste du publicera en privat plan för deras exklusiva användning.
+
+Ange först en **version** för manifestet. Använd formatet *n. n. n* (till exempel 1.2.5).
+
+Ange sedan **klient-ID: t**. Detta är ett GUID som är kopplat till organisationens Azure Active Directory-ID (dvs. den klient som du kommer att arbeta i för att hantera kundernas resurser). Om du inte har det här är praktiskt kan du hitta det genom att hovra över ditt konto namn längst upp till höger i Azure Portal eller genom att välja **Växla katalog**.
+
+Slutligen lägger du till en eller flera **Authorization** -poster i planen. Auktoriseringar definierar de entiteter som har åtkomst till resurser och prenumerationer för kunder som köper planen och tilldelar roller som beviljar vissa åtkomst nivåer. Mer information om vilka roller som stöds finns i [innehavare, roller och användare i scenarier med Azure Lighthouse](../concepts/tenants-users-roles.md).
+
+För varje **auktorisering**måste du ange följande. Du kan sedan välja **ny auktorisering** så många gånger som behövs för att lägga till fler användare och roll definitioner.
+
   - **Azure AD-objekt-ID**: Azure AD-identifieraren för en användare, användar grupp eller ett program som kommer att beviljas vissa behörigheter (som beskrivs av roll definitionen) till dina kunders resurser.
   - **Visnings namn för Azure AD-objekt**: ett eget namn som hjälper kunden att förstå syftet med den här auktoriseringen. Kunden ser det här namnet när resurser delegeras.
-  - **Roll definition**: Välj en av de tillgängliga inbyggda Azure AD-rollerna i listan. Den här rollen avgör de behörigheter som användaren i fältet **Azure AD-objekt-ID** kommer att ha på dina kunders resurser. Information om dessa roller finns i [inbyggda roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
-  - **Tilldelnings bara roller**: detta krävs endast om du har valt administratör för användar åtkomst i **roll definitionen** för den här auktoriseringen. I så fall måste du lägga till en eller flera tilldelnings bara roller här. Användaren i fältet **Azure AD-objekt-ID** kommer att kunna tilldela dessa tilldelnings bara **roller** till [hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Observera att inga andra behörigheter som normalt är kopplade till rollen administratör för användar åtkomst gäller för den här användaren. Om du inte väljer en eller flera roller här skickas inte certifieringen. (Om du inte har valt administratör för användar åtkomst för den här användarens roll definition har det här fältet ingen inverkan.)
+  - **Roll definition**: Välj en av de tillgängliga inbyggda Azure AD-rollerna i listan. Den här rollen avgör de behörigheter som användaren i fältet **Azure AD-objekt-ID** kommer att ha på dina kunders resurser. Beskrivningar av dessa roller finns [inbyggda roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) och [roll stöd för Azure-delegerad resurs hantering](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)
+  - **Tilldelnings bara roller**: detta krävs endast om du har valt administratör för användar åtkomst i **roll definitionen** för den här auktoriseringen. I så fall måste du lägga till en eller flera tilldelnings bara roller här. Användaren i fältet **Azure AD-objekt-ID** kommer att kunna tilldela dessa tilldelnings bara **roller** till [hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), vilket krävs för att [distribuera principer som kan åtgärdas](deploy-policy-remediation.md). Observera att inga andra behörigheter som normalt är kopplade till rollen administratör för användar åtkomst gäller för den här användaren. Om du inte väljer en eller flera roller här skickas inte certifieringen. (Om du inte har valt administratör för användar åtkomst för den här användarens roll definition har det här fältet ingen inverkan.)
 
 > [!TIP]
-> I de flesta fall vill du tilldela behörigheter till en användar grupp eller ett tjänst huvud namn i Azure AD, i stället för till en serie med enskilda användar konton. På så sätt kan du lägga till eller ta bort åtkomst för enskilda användare utan att behöva uppdatera och publicera om planen när dina åtkomst krav ändras.
+> I de flesta fall vill du tilldela behörigheter till en användar grupp eller ett tjänst huvud namn i Azure AD, i stället för till en serie med enskilda användar konton. På så sätt kan du lägga till eller ta bort åtkomst för enskilda användare utan att behöva uppdatera och publicera om planen när dina åtkomst krav ändras. Ytterligare rekommendationer finns i [klienter, roller och användare i Azure Lighthouse-scenarier](../concepts/tenants-users-roles.md).
 
-När du är klar med att lägga till planer väljer du **Spara**och fortsätter till **Marketplace** -avsnittet.
+När du har slutfört informationen kan du välja **ny plan** så många gånger du behöver för att skapa ytterligare planer. När du är klar väljer du **Spara**och fortsätter sedan till **Marketplace** -avsnittet.
 
 ## <a name="provide-marketplace-text-and-images"></a>Ange text och bilder i Marketplace
 
 I avsnittet **Marketplace** kan du ange den text och de bilder som kunderna ser i Azure Marketplace och Azure Portal.
 
-Ange information för följande fält i **översikts** avsnittet:
+Fyll i följande fält i **översikts** avsnittet:
 
 |Fält  |Beskrivning  |
 |---------|---------|
@@ -128,7 +139,7 @@ När du har lagt till den här informationen väljer du **Spara.**
 
 ## <a name="publish-your-offer"></a>Publicera ditt erbjudande
 
-När du är nöjd med all information som du har angett är nästa steg att publicera erbjudandet på Azure Marketplace. Välj knappen **publicera** för att påbörja processen med att göra erbjudandet Live. Mer information om den här processen finns i [publicera Azure Marketplace-och AppSource-erbjudanden](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer).
+När du har slutfört alla avsnitt är nästa steg att publicera erbjudandet på Azure Marketplace. Välj knappen **publicera** för att påbörja processen med att göra erbjudandet Live. Mer information om den här processen finns i [publicera Azure Marketplace-och AppSource-erbjudanden](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer).
 
 ## <a name="the-customer-onboarding-process"></a>Kundens onboarding-process
 
@@ -138,7 +149,7 @@ Innan en prenumeration (eller resurs grupper inom en prenumeration) kan registre
 
 Kunden kan sedan bekräfta att prenumerationen är redo för onboarding på något av följande sätt.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 1. I Azure Portal väljer du prenumerationen.
 1. Välj **Resursprovidrar**.

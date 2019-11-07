@@ -10,14 +10,14 @@ ms.topic: quickstart
 description: Team Kubernetes-utveckling med behållare och mikrotjänster på Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: 15833294e1dd5b75251ad54fa1f33bc4ed5e2c20
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 9bdd52f2c120d338859259b046f7f4b97bbc4eed
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035160"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585199"
 ---
-# <a name="quickstart-team-development-on-kubernetes-using-azure-dev-spaces"></a>Snabbstart: Grupp utveckling på Kubernetes med hjälp av Azure dev Spaces
+# <a name="quickstart-team-development-on-kubernetes-using-azure-dev-spaces"></a>Snabb start: grupp utveckling på Kubernetes med hjälp av Azure dev Spaces
 
 I den här guiden får du lära dig hur du:
 
@@ -27,11 +27,11 @@ I den här guiden får du lära dig hur du:
 
 ![Grupp utveckling för Azure dev Spaces](media/azure-dev-spaces/collaborate-graphic.gif)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
 - [Azure CLI installerat](/cli/azure/install-azure-cli?view=azure-cli-latest).
-- [Helm 2,13 eller senare installerad](https://github.com/helm/helm/blob/master/docs/install.md).
+- [Helm 2,13 eller senare installerad][helm-installed].
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Skapa ett Azure Kubernetes service-kluster
 
@@ -66,7 +66,7 @@ cd dev-spaces/samples/BikeSharingApp/
 
 ## <a name="retrieve-the-hostsuffix-for-dev"></a>Hämta HostSuffix för *utveckling*
 
-Använd kommandot `azds show-context` om du vill visa HostSuffix för *dev*.
+Använd kommandot `azds show-context` för att Visa HostSuffix för *dev*.
 
 ```cmd
 $ azds show-context
@@ -118,7 +118,7 @@ reservationengine  1/1    1           1          4m32s
 users              1/1    1           1          4m32s
 ```
 
-När exempel programmet har installerats på klustret och eftersom du har aktiverat dev Spaces i klustret, använder du kommandot `azds list-uris` för att visa URL: erna för exempel programmet i *dev* som är markerat.
+När exempel programmet har installerats på klustret och eftersom du har aktiverat dev Spaces i klustret, använder du kommandot `azds list-uris` för att visa URL: erna för exempel programmet i den aktuella *utvecklings* gruppen.
 
 ```cmd
 $ azds list-uris
@@ -143,7 +143,7 @@ azds space select -n dev/azureuser2 -y
 
 Kommandona ovan skapar två underordnade utrymmen under *dev* med namnet *azureuser1* och *azureuser2*. Dessa två underordnade utrymmen representerar distinkta dev Spaces för utvecklarna " *azureuser1* och *azureuser2* " som ska användas för att göra ändringar i exempel programmet.
 
-Använd kommandot `azds space list` för att visa alla dev Spaces och Confirm *dev/azureuser2* är markerat.
+Använd kommandot `azds space list` för att visa en lista över alla dev Spaces och bekräfta *dev/azureuser2* är markerat.
 
 ```cmd
 $ azds space list
@@ -165,7 +165,7 @@ http://azureuser2.s.dev.bikesharingweb.fedcab0987.eus.azds.io/  Available
 http://azureuser2.s.dev.gateway.fedcab0987.eus.azds.io/         Available
 ```
 
-Bekräfta att URL: erna som visas med kommandot `azds list-uris` har *azureuser2. s. dev* -prefixet. Det här prefixet bekräftar att det aktuella utrymmet som valts är *azureuser2*, vilket är underordnat en *dev*.
+Bekräfta att URL: erna som visas av `azds list-uris`-kommandot har *azureuser2. s. dev* -prefixet. Det här prefixet bekräftar att det aktuella utrymmet som valts är *azureuser2*, vilket är underordnat en *dev*.
 
 Navigera till *bikesharingweb* -tjänsten för *dev/azureuser2* dev-utrymmet genom att öppna den offentliga URL: en från kommandot `azds list-uris`. I exemplet ovan är den offentliga URL: en för *bikesharingweb* -tjänsten `http://azureuser2.s.dev.bikesharingweb.fedcab0987.eus.azds.io/`. Välj *Aurelia Briggs (kund)* som användare. Kontrol lera att du ser texten *Hi-Aurelia Briggs | Logga ut* överst.
 
@@ -199,7 +199,7 @@ Service 'bikesharingweb' port 80 (http) is available at http://localhost:54256
 
 Det här kommandot skapar och kör *bikesharingweb* -tjänsten i dev */azureuser2 dev-* ytan. Den här tjänsten körs utöver *bikesharingweb* -tjänsten som körs i *dev* och används endast för begär Anden med URL-prefixet *azureuser2. s* . Mer information om hur routning fungerar mellan över-och underordnade dev-Spaces finns i [så här fungerar Azure dev Spaces och har kon figurer ATS](how-dev-spaces-works.md).
 
-Navigera till *bikesharingweb* -tjänsten för *dev/azureuser2* dev Space genom att öppna den offentliga URL: en som visas i utdata från kommandot `azds up`. Välj *Aurelia Briggs (kund)* som användare. Kontrol lera att den uppdaterade texten finns i det övre högra hörnet. Du kan behöva uppdatera sidan eller rensa webbläsarens cacheminne om du inte omedelbart ser den här ändringen.
+Navigera till *bikesharingweb* -tjänsten för *dev/azureuser2* dev-utrymmet genom att öppna den offentliga URL: en som visas i utdata från kommandot `azds up`. Välj *Aurelia Briggs (kund)* som användare. Kontrol lera att den uppdaterade texten finns i det övre högra hörnet. Du kan behöva uppdatera sidan eller rensa webbläsarens cacheminne om du inte omedelbart ser den här ändringen.
 
 ![Azure dev Spaces cykel delning exempel program uppdaterat](media/quickstart-team-development/bikeshare-update.png)
 
@@ -208,7 +208,7 @@ Navigera till *bikesharingweb* -tjänsten för *dev/azureuser2* dev Space genom 
 
 ## <a name="verify-other-dev-spaces-are-unchanged"></a>Kontrol lera att andra dev-rymder är oförändrade
 
-Tryck på *CTRL + c*om kommandot `azds up` fortfarande körs.
+Tryck på *CTRL + c*om `azds up` kommandot fortfarande körs.
 
 ```cmd
 $ azds list-uris --all
@@ -239,5 +239,5 @@ Lär dig hur Azure Dev Spaces hjälper dig att utveckla mer komplexa appar över
 > [!div class="nextstepaction"]
 > [Arbeta med flera containrar och utveckling i team](multi-service-nodejs.md)
 
-
+[helm-installed]: https://helm.sh/docs/using_helm/#installing-helm
 [supported-regions]: about.md#supported-regions-and-configurations

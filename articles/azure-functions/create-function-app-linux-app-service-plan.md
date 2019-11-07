@@ -1,21 +1,18 @@
 ---
 title: Skapa en Function-app på Linux från Azure Portal | Microsoft Docs
 description: Lär dig hur du skapar din första Azure-funktion för serverfri körning i Azure Portal.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: glenga
-ms.custom: ''
-ms.openlocfilehash: a612505acdc37591377eebf290365b65cc3836cd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 89755e8b70a490f1c5746b23e0d36c5d90b624c1
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098296"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571658"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Skapa en Function-app i Linux i ett Azure App Service plan
 
@@ -33,7 +30,7 @@ Logga in på Azure-portalen på <https://portal.azure.com> med ditt Azure-konto.
 
 Du måste ha en funktionsapp som värd för körning av dina funktioner i Linux. Funktionsappen är en miljö för körning av funktionskoden. Där kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser. I den här artikeln skapar du en App Service plan när du skapar din Function-app.
 
-1. Välj knappen **skapa en resurs** i det övre vänstra hörnet av Azure Portal och välj sedan > Compute**Funktionsapp**.
+1. Välj knappen **skapa en resurs** i det övre vänstra hörnet av Azure Portal och välj sedan **Compute** > **Funktionsapp**.
 
     ![Skapa en funktionsapp i Azure Portal](./media/create-function-app-linux-app-service-plan/function-app-create-flow.png)
 
@@ -47,12 +44,12 @@ Du måste ha en funktionsapp som värd för körning av dina funktioner i Linux.
     | **Prenumeration** | Din prenumeration | Prenumerationen som den nya funktionsappen skapas under. | 
     | **[Resursgrupp](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Namnet på den nya resursgrupp där du vill skapa funktionsappen. |
     | **OS** | Linux | Function-appen körs på Linux. |
-    | **Publicera** | Kod | Standard-Linux-behållaren för **körnings stacken** används. Allt du behöver ange är din projekt kod för Function-appen. Ett annat alternativ är att publicera en anpassad Docker- [avbildning](functions-create-function-linux-custom-image.md). |
+    | **Publicera** | Kod | Standard-Linux-behållaren för **körnings stacken** används. Allt du behöver ange är din projekt kod för Function-appen. Ett annat alternativ är att publicera en anpassad [Docker-avbildning](functions-create-function-linux-custom-image.md). |
     | **[Värdplan](functions-scale.md)** | App Service-plan | Värdplan som definierar hur resurser allokeras till din funktionsapp. När du kör i ett App Service plan kan du kontrol lera [skalningen för din Function-app](functions-scale.md).  |
     | **App Service plan/plats** | Skapa plan | Välj **Skapa nytt** och ange ett **App Service plan** namn. Välj en **plats** i en [region](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som dina funktioner har åtkomst till. Välj önskad **[pris nivå](https://azure.microsoft.com/pricing/details/app-service/linux/)** . <br/>Du kan inte köra både Linux-och Windows-funktionella appar i samma App Service plan. |
-    | **Körningsstack** | Önskat språk | Välj en körning som stöder det funktionsprogrammeringsspråk som du föredrar. Välj **.NET** för C#- och F#-funktioner. [Python](functions-reference-python.md) -supporten är i för hands version för tillfället. |
+    | **Körningsstack** | Önskat språk | Välj en körning som stöder det funktionsprogrammeringsspråk som du föredrar. Välj **.NET** för C#- och F#-funktioner. |
     | **[Storage](../storage/common/storage-quickstart-create-account.md)** |  Globalt unikt namn |  Skapa ett lagringskonto som används av din funktionsapp. Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener. Du kan också använda ett befintligt konto, som måste uppfylla [kraven för ett lagringskonto](functions-scale.md#storage-account-requirements). |
-    | **[Application Insights](functions-monitoring.md)** | Aktiverad | Application Insights är inaktiverat som standard. Vi rekommenderar att du aktiverar Application Insights integration nu och väljer en värd plats nära din App Service plan plats. Om du vill göra detta senare, se [övervaka Azure Functions](functions-monitoring.md).  |
+    | **[Application Insights](functions-monitoring.md)** | Enabled | Application Insights är inaktiverat som standard. Vi rekommenderar att du aktiverar Application Insights integration nu och väljer en värd plats nära din App Service plan plats. Om du vill göra detta senare, se [övervaka Azure Functions](functions-monitoring.md).  |
 
 3. Välj **Skapa** för att etablera och distribuera funktionsappen.
 

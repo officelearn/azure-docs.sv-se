@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/22/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 117c74eac1e234f84af6be2d275637d7b8f4e2a7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 03cf8eb2036a9670dbc75e3efb55e52a70de5c54
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794012"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607272"
 ---
 # <a name="what-is-azure-event-grid"></a>Vad är Azure Event Grid?
 
@@ -53,10 +53,10 @@ Fullständig information om funktionerna för varje hanterare samt relaterade ar
 * [Azure Functions](event-handlers.md#azure-functions)
 * [Event Hubs](event-handlers.md#event-hubs)
 * [Hybridanslutningar](event-handlers.md#hybrid-connections)
-* [Logic Apps](event-handlers.md#logic-apps)
+* [Logikappar](event-handlers.md#logic-apps)
 * [Microsoft Flow](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
 * [Queue Storage](event-handlers.md#queue-storage)
-* [Service Bus](event-handlers.md#service-bus-queue-preview) (för hands version)
+* [Service Bus](event-handlers.md#service-bus-queue)
 * [WebHooks](event-handlers.md#webhooks)
 
 ## <a name="concepts"></a>Koncept
@@ -71,7 +71,7 @@ Det finns fem begrepp i Azure Event Grid som hjälper dig igång:
 
 Mer information om de här begreppen finns i [Begrepp i Azure Event Grid](concepts.md).
 
-## <a name="capabilities"></a>Kapacitet
+## <a name="capabilities"></a>Funktioner
 
 Här följer några viktiga funktioner i Azure Event Grid:
 
@@ -102,7 +102,7 @@ Event Grid kopplar samman datakällor och händelsehanterare. Använd till exemp
 
 Event Grid ger snabbare automatisering och enklare principtillämpning. Använd till exempel Event Grid för att meddela Azure Automation när en virtuell dator eller SQL-databas skapas. Använd de här händelserna för att automatiskt kontrollera att tjänstkonfigurationer följer standard, placera metadata i åtgärdsverktyg, tagga virtuella datorer eller arkivera arbetsobjekt.
 
-### <a name="application-integration"></a>Integrering av applikationer
+### <a name="application-integration"></a>Integrering av program
 
 ![Integrering av program med Azure](./media/overview/app_integration.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Privat länk för Azure SQL Database och informations lager | Microsoft Docs
+title: Privat länk för Azure SQL Database och informations lager
 description: Översikt över funktionen för privat slut punkt
 author: rohitnayakmsft
 ms.author: rohitna
@@ -7,12 +7,12 @@ ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
 ms.date: 09/17/2019
-ms.openlocfilehash: 3adcccde89823f865535c9e1350ac4c3e541eef6
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: a056c4beeeb05886d4b4ed492a05d1963372b366
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "71066262"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687606"
 ---
 # <a name="private-link-for-azure-sql-database-and-data-warehouse-preview"></a>Privat länk för Azure SQL Database och informations lager (för hands version)
 
@@ -49,7 +49,7 @@ Med privat länk kan kunder aktivera åtkomst över hela nätverket till den pri
 
 ### <a name="creation-process"></a>Skapande process
 Privata slut punkter kan skapas med hjälp av portalen, PowerShell eller Azure CLI:
-- [Portalen](../private-link/create-private-endpoint-portal.md)
+- [Portal](../private-link/create-private-endpoint-portal.md)
 - [PowerShell](../private-link/create-private-endpoint-powershell.md)
 - [CLI](../private-link/create-private-endpoint-cli.md)
 
@@ -60,16 +60,16 @@ När nätverks administratören skapar den privata slut punkten (PE) kan SQL-adm
 
     - (1) Välj de privata slut punkts anslutningarna i det vänstra fönstret
     - (2) visar en lista över alla anslutningar för privata slut punkter (PECs)
-    - (3) motsvarande privata slut punkt (PE) skapade ![Screenshot för alla PECs @ no__t-1
+    - (3) motsvarande privata slut punkt (PE) skapade ![skärm bild av alla PECs][3]
 
 1. Välj en enskild PEC från listan genom att markera den.
-![Screenshot valda PEC @ no__t-1
+![skärm bild vald PEC][6]
 
 1. SQL-administratören kan välja att godkänna eller avvisa en PEC och eventuellt lägga till ett kort text svar.
-![Screenshot av PEC-godkännande @ no__t-1
+![skärm bild av PEC-godkännande][4]
 
 1. Efter godkännande eller avvisande visar listan lämpligt tillstånd tillsammans med svars texten.
-![Screenshot för alla PECs efter godkännande @ no__t-1
+![skärm bild av alla PECs efter godkännande][5]
 
 ## <a name="use-cases-of-private-link-for-azure-sql-database"></a>Använd fall av privat länk för Azure SQL Database 
 

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 10/25/2019
-ms.openlocfilehash: 45d76328f4a5de4a5cf26b0a126825c1b0a906c7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/06/2019
+ms.openlocfilehash: 9055223d1e4ed056ad606533219925972b623f86
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496954"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682079"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuera en modell till ett Azure Kubernetes service-kluster
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,7 +37,7 @@ När du distribuerar till Azure Kubernetes-tjänsten distribuerar du till ett AK
 > [!IMPORTANT]
 > Processen för att skapa eller bifogad fil är en engångs uppgift. När ett AKS-kluster är anslutet till arbets ytan kan du använda det för distributioner. Du kan koppla bort eller ta bort AKS-klustret om du inte längre behöver det. När detatched eller tagits bort kommer du inte längre att kunna distribuera till klustret.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
@@ -122,12 +122,16 @@ Om du redan har AKS-kluster i din Azure-prenumeration och det är lägre än ver
 >
 > Om du vill skydda ditt AKS-kluster med hjälp av ett Azure-Virtual Network måste du först skapa det virtuella nätverket. Mer information finns i [säker experimentering och härledning med Azure Virtual Network](how-to-enable-virtual-network.md#aksvnet).
 
+När du kopplar ett AKS-kluster till en arbets yta kan du definiera hur du ska använda klustret genom att ange parametern `cluster_purpose`.
+
+Om du inte anger parametern `cluster_purpose` eller anger `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`måste klustret ha minst 12 virtuella processorer tillgängliga.
+
+Om du anger `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`behöver klustret inte ha 12 virtuella processorer. Vi rekommenderar minst 2 virtuella processorer för utveckling/testning. Men ett kluster som har kon figurer ATS för utveckling/testning är inte lämpligt för trafik på produktions nivå och kan öka eventuella härlednings tider. Utvecklings-och test kluster garanterar inte heller fel tolerans.
+
 > [!WARNING]
-> När du kopplar ett AKS-kluster till en arbets yta kan du definiera hur du ska använda klustret genom att ange parametern `cluster_purpose`.
+> Skapa inte flera, samtidiga bilagor till samma AKS-kluster från din arbets yta. Du kan till exempel koppla ett AKS-kluster till en arbets yta med två olika namn. Varje ny bilaga kommer att dela upp de tidigare befintliga bifogade filerna.
 >
-> Om du inte anger parametern `cluster_purpose` eller anger `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`måste klustret ha minst 12 virtuella processorer tillgängliga.
->
-> Om du anger `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`behöver klustret inte ha 12 virtuella processorer. Vi rekommenderar minst 2 virtuella processorer för utveckling/testning. Men ett kluster som har kon figurer ATS för utveckling/testning är inte lämpligt för trafik på produktions nivå och kan öka eventuella härlednings tider. Utvecklings-och test kluster garanterar inte heller fel tolerans.
+> Om du vill koppla ett AKS-kluster på nytt, t. ex. ändra SSL eller någon annan kluster konfigurations inställning, måste du först ta bort den befintliga bilagan med hjälp av [AksCompute. Detached ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#detach--).
 
 Mer information om hur du skapar ett AKS-kluster med hjälp av Azure CLI eller portalen finns i följande artiklar:
 

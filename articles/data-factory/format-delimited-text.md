@@ -1,5 +1,5 @@
 ---
-title: Avgränsat text format i Azure Data Factory | Microsoft Docs
+title: Avgränsat text format i Azure Data Factory
 description: I det här avsnittet beskrivs hur du hanterar avgränsat text format i Azure Data Factory.
 author: linda33wj
 manager: craigg
@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: fb836b44ebd567f0ce1c833ca523b1c199ed9c9a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: b710492b3416371d8d554945a60160261e5a8c6a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72785983"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73674828"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Avgränsat text format i Azure Data Factory
 
@@ -29,16 +29,16 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 | Egenskap         | Beskrivning                                                  | Krävs |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | typ             | Data uppsättningens typ-egenskap måste anges till **DelimitedText**. | Ja      |
-| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och egenskaper som stöds under `location`.  | Ja      |
-| columnDelimiter  | De/tecknen som används för att avgränsa kolumner i en fil. För närvarande stöds inte Multi-char-avgränsare för att mappa data flöde, men inte kopiera aktivitet. <br>Standardvärdet är **kommatecken `,`** , när kolumn avgränsaren har definierats som en tom sträng, vilket innebär att ingen avgränsare tas hela raden som en enda kolumn. | Nej       |
-| rowDelimiter     | Det enstaka tecknen eller "\r\n" som används för att avgränsa rader i en fil.<br>Standardvärdet är något av följande värden **vid läsning: ["\r\n", "\r", "\n"]** och **"\n" eller "\r\n" vid skrivning** genom att mappa data flöde och kopiera aktivitet. <br>När `rowDelimiter` har angetts till ingen avgränsare (tom sträng), måste `columnDelimiter` anges som ingen avgränsare (tom sträng), vilket innebär att hela innehållet ska behandlas som ett enda värde. | Nej       |
-| quoteChar        | Det enkla tecknet för att citera kolumn värden om det innehåller kolumn avgränsare. <br>Standardvärdet är **dubbla citat tecken** `"`. <br>`quoteChar` kan inte vara en tom sträng för att mappa data flödet. <br>När `quoteChar` definieras som en tom sträng i kopierings aktiviteten betyder det att det inte finns något citat tecken och kolumnvärdet inte är citerat, och `escapeChar` används för att undanta kolumn avgränsaren och sig själv. | Nej       |
+| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har en egen plats typ och egenskaper som stöds under `location`.  | Ja      |
+| columnDelimiter  | De/tecknen som används för att avgränsa kolumner i en fil. För närvarande stöds inte Multi-char-avgränsare för att mappa data flöde, men inte kopiera aktivitet. <br>Standardvärdet är **kommatecken `,`** när kolumn avgränsaren definieras som en tom sträng, vilket innebär att ingen avgränsare tas hela raden som en enda kolumn. | Nej       |
+| rowDelimiter     | Det enstaka tecknen eller "\r\n" som används för att avgränsa rader i en fil.<br>Standardvärdet är något av följande värden **vid läsning: ["\r\n", "\r", "\n"]** och **"\n" eller "\r\n" vid skrivning** genom att mappa data flöde och kopiera aktivitet. <br>När `rowDelimiter` har angetts till ingen avgränsare (tom sträng), måste `columnDelimiter` anges som ingen avgränsare (tom sträng), vilket innebär att hela innehållet behandlas som ett enda värde. | Nej       |
+| quoteChar        | Det enkla tecknet för att citera kolumn värden om det innehåller kolumn avgränsare. <br>Standardvärdet är **dubbla citat tecken** `"`. <br>`quoteChar` kan inte vara en tom sträng för att mappa data flödet. <br>När `quoteChar` definieras som en tom sträng i kopierings aktiviteten, betyder det att det inte finns något citat tecken och kolumnvärdet inte är citerat, och `escapeChar` används för att undanta kolumn avgränsaren och sig själv. | Nej       |
 | escapeChar       | Det enda tecken som ska Escape-citat innanför ett citerat värde.<br>Standardvärdet är **omvänt snedstreck `\`** . <br>`escapeChar` kan inte vara en tom sträng för att mappa data flödet. <br/>För kopierings aktiviteten, när `escapeChar` definieras som en tom sträng, måste `quoteChar` anges som en tom sträng, och i så fall se till att alla kolumn värden inte innehåller avgränsare. | Nej       |
 | firstRowAsHeader | Anger om du vill behandla/skapa den första raden som en rubrik rad med kolumn namn.<br>Tillåtna värden är **True** och **false** (standard). | Nej       |
 | nullValue        | Anger sträng representationen för null-värde. <br>Standardvärdet är en **tom sträng**. | Nej       |
 | encodingName     | Kodnings typen som används för att läsa/skriva testfiler. <br>Tillåtna värden är följande: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", " IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149" , "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13", "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", " WINDOWS-1252 "," WINDOWS-1253 "," WINDOWS-1254 "," WINDOWS-1255 "," WINDOWS-1256 "," WINDOWS-1257 "," WINDOWS-1258 ".<br>Data flödet för antecknings mappning stöder inte UTF-7-kodning. | Nej       |
 | compressionCodec | Komprimerings-codec som används för att läsa/skriva textfiler. <br>Tillåtna värden är **bzip2**, **gzip**, **DEFLATE**, **ZipDeflate**, **fästfunktionen**eller **lz4**. att använda när du sparar filen. <br>Obs! kopierings aktiviteten stöder för närvarande inte "fästfunktionen" & "lz4" och kart data flödet stöder inte "ZipDeflate". | Nej       |
-| compressionLevel | Komprimerings förhållandet. <br>Tillåtna värden är **optimalt** eller **snabbast**.<br>- **snabbast:** komprimerings åtgärden bör utföras så fort som möjligt, även om den resulterande filen inte komprimeras optimalt.<br>- **optimalt**: komprimerings åtgärden bör komprimeras optimalt, även om åtgärden tar längre tid att slutföra. Mer information finns i avsnittet [komprimerings nivå](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Nej       |
+| compressionLevel | Komprimerings förhållandet. <br>Tillåtna värden är **optimalt** eller **snabbast**.<br>- **snabbast:** komprimerings åtgärden bör utföras så snart som möjligt, även om den resulterande filen inte är optimalt komprimerad.<br>- **optimalt**: komprimerings åtgärden bör komprimeras optimalt, även om åtgärden tar längre tid att slutföra. Mer information finns i avsnittet [komprimerings nivå](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Nej       |
 
 Nedan visas ett exempel på en avgränsad text uppsättning på Azure Blob Storage:
 
@@ -103,7 +103,7 @@ Följande egenskaper stöds i avsnittet kopierings aktivitet ***\*mottagare\****
 | Egenskap      | Beskrivning                                                  | Krävs                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | typ          | Typen för formatSettings måste anges till **DelimitedTextWriteSetting**. | Ja                                                   |
-| fileExtension | Fil namns tillägget som används för att namnge utdatafilerna, t. ex. `.csv`, `.txt`. Det måste anges om `fileName` inte anges i data uppsättningen utgående DelimitedText. | Ja när fil namnet inte anges i data uppsättningen för utdata |
+| fileExtension | Fil namns tillägget som används för att namnge utdatafilerna, t. ex. `.csv``.txt`. Det måste anges när `fileName` inte anges i data uppsättningen för utdata DelimitedText. | Ja när fil namnet inte anges i data uppsättningen för utdata |
 
 ## <a name="mapping-data-flow-properties"></a>Mappa data flödes egenskaper
 

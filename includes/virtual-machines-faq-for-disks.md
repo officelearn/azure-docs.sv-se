@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f8c049cc8d2b09cb37dbd444427b03c1013da65c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 95fe5471789b66c253aa21d73433f5192cd01e6b
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73523907"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73612190"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om Azure IaaS VM-diskar och hanterade och ohanterade Premium-diskar
 
@@ -170,15 +170,6 @@ Azure disks-reservationen köps för en bestämd region och SKU (som P30 i USA, 
 Du får e-postmeddelanden 30 dagar innan det går ut och sedan på förfallo datumet. När reservationen går ut fortsätter de distribuerade diskarna att köras och debiteras enligt de senaste priserna enligt principen [betala per](https://azure.microsoft.com/pricing/details/managed-disks/)användning.
 
 ## <a name="ultra-disks"></a>Ultra disks
-
-**Vilka regioner stöder för närvarande Ultra disks?**
-- USA, östra 2
-- Asien, Sydostasien
-- Norra Europa
-
-**Vilken VM Series stöder för närvarande Ultra disks?**
-- ESv3
-- DSv3
 
 **Vad ska jag ställa in mitt hård disk data flöde på?**
 Om du är osäker på vad du ska ställa in disk data flödet på rekommenderar vi att du börjar med att anta en i/o-storlek på 16 KiB och justerar prestandan därifrån när du övervakar ditt program. Formeln är: data flöde i Mbit/s = # av IOPS * 16/1000.

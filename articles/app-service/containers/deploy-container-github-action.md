@@ -3,58 +3,67 @@ title: Distribuera din behållare från en CI/CD-pipeline med GitHub-åtgärder 
 description: Lär dig hur du använder GitHub-åtgärder för att distribuera din behållare till App Service
 services: app-service
 documentationcenter: ''
-author: jasonfreeberg
-writer: ''
-manager: ''
-editor: ''
-ms.assetid: ''
+author: cephalin
+manager: gwallace
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 10/25/2019
 ms.author: jafreebe
-ms.openlocfilehash: 2341eba2c24c06d654c9d2eeda96788d168fe27c
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.reviewer: ushan
+ms.openlocfilehash: 7fbd7b571f5590ff35d52062cc621069a47b619c
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809817"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620219"
 ---
-# <a name="github-actions-for-deploying-to-web-app-for-containers"></a>GitHub-åtgärder för att distribuera till Web App for Containers
+# <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Distribuera en anpassad behållare för att App Service med GitHub-åtgärder
 
-[GitHub-åtgärder](https://help.github.com/en/articles/about-github-actions) ger dig flexibiliteten att bygga ett arbets flöde för automatiserad livs cykel för program utveckling. Med Azure App Service åtgärder för GitHub kan du automatisera arbets flödet för att distribuera [Azure Web Apps för behållare](https://azure.microsoft.com/services/app-service/containers/) med hjälp av GitHub-åtgärder.
+[GitHub-åtgärder](https://help.github.com/en/articles/about-github-actions) ger dig flexibiliteten att bygga ett arbets flöde för automatiserad livs cykel för program utveckling. Med [Azure App Service åtgärden för behållare](https://github.com/Azure/webapps-container-deploy)kan du automatisera arbets flödet för att distribuera appar som [anpassade behållare för att App Service](https://azure.microsoft.com/services/app-service/containers/) med hjälp av GitHub åtgärder.
 
 > [!IMPORTANT]
 > GitHub-åtgärder är för närvarande Beta versioner. Du måste först [Registrera dig för att kunna ansluta till förhands granskningen](https://github.com/features/actions) med ditt GitHub-konto.
 > 
 
-Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sökvägen i lagrings platsen. Den här definitionen innehåller de olika stegen och parametrarna som utgör arbets flödet.
+Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/`-sökvägen i lagrings platsen. Den här definitionen innehåller de olika stegen och parametrarna som utgör arbets flödet.
 
-För ett arbets flöde för en Azure Web App-behållare har filen tre delar:
+För ett arbets flöde för Azure App Service container har filen tre delar:
 
 |Section  |Uppgifter  |
 |---------|---------|
-|**Autentisering** | 1. definiera ett huvud namn för tjänsten <br /> 2. skapa en GitHub-hemlighet |
-|**Konstruktion** | 1. Konfigurera miljön <br /> 2. Bygg behållar avbildningen |
-|**Distribuera** | 1. distribuera behållar avbildningen |
+|**Autentisering** | 1. definiera ett huvud namn för tjänsten. <br /> 2. skapa en GitHub-hemlighet. |
+|**Konstruktion** | 1. Konfigurera miljön. <br /> 2. Bygg behållar avbildningen. |
+|**Distribuera** | 1. distribuera behållar avbildningen. |
 
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 
 Du kan skapa ett [huvud namn för tjänsten](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) med hjälp av kommandot [AZ AD SP Create-for-RBAC](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) i [Azure CLI](https://docs.microsoft.com/cli/azure/). Du kan köra det här kommandot med [Azure Cloud Shell](https://shell.azure.com/) i Azure Portal eller genom att välja knappen **prova** .
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME> --sdk-auth
+az ad sp create-for-rbac --name "myApp" --role contributor \
+                            --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
+                            --sdk-auth
+                            
+  # Replace {subscription-id}, {resource-group} with the subscription, resource group details of the WebApp
 ```
 
-I det här exemplet ersätter du plats hållarna i resursen med ditt prenumerations-ID, resurs grupp och webb program namn. Utdata är de autentiseringsuppgifter för roll tilldelning som ger åtkomst till din webbapp. Kopiera det här JSON-objektet, som du kan använda för att autentisera från GitHub.
+Utdata är ett JSON-objekt med roll tilldelningens autentiseringsuppgifter som ger åtkomst till din App Service-app på liknande sätt som nedan. Kopiera det här JSON-objektet för att autentisera från GitHub.
 
-> [!NOTE]
-> Du behöver inte skapa ett huvud namn för tjänsten om du bestämmer dig för att använda publicerings profilen för autentisering.
+ ```azurecli 
+  {
+    "clientId": "<GUID>",
+    "clientSecret": "<GUID>",
+    "subscriptionId": "<GUID>",
+    "tenantId": "<GUID>",
+    (...)
+  }
+```
 
 > [!IMPORTANT]
-> Det är alltid en bra idé att bevilja minimal åtkomst. Detta är anledningen till att omfånget i föregående exempel är begränsat till den särskilda webbappen och inte hela resurs gruppen.
+> Det är alltid en bra idé att bevilja minimal åtkomst. Du kan begränsa omfattningen i ovanstående AZ CLI-kommando till den speciella App Service-appen och Azure Container Registry där behållar avbildningarna flyttas till.
 
 ## <a name="configure-the-github-secret"></a>Konfigurera GitHub-hemligheten
 
@@ -102,7 +111,7 @@ jobs:
       uses: actions/checkout@master
     
     - name: 'Login via Azure CLI'
-      uses: azure/actions/login@v1
+      uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     
@@ -117,19 +126,19 @@ jobs:
         docker push contoso.azurecr.io/nodejssampleapp:${{ github.sha }}
 ```
 
-## <a name="deploy-to-web-app-container"></a>Distribuera till Web App-behållare
+## <a name="deploy-to-an-app-service-container"></a>Distribuera till en App Service-behållare
 
-Om du vill distribuera avbildningen till en Web App-behållare måste du använda `Azure/appservice-actions/webapp@master` åtgärden. Den här åtgärden har 5 parametrar:
+Om du vill distribuera avbildningen till en anpassad behållare i App Service använder du åtgärden `azure/webapps-container-deploy@v1`. Den här åtgärden har fem parametrar:
 
 | **ProfileServiceApplicationProxy**  | **Förklaring**  |
 |---------|---------|
-| **App-Name** | Kunna Namn på Azure-webbappen | 
+| **App-Name** | Kunna Namnet på App Service-appen | 
 | **plats namn** | Valfritt Ange en befintlig plats förutom produktions platsen |
-| **avbildningar** | Kunna Ange det fullständigt kvalificerade behållar avbildnings namnet. Till exempel "myregistry.azurecr.io/nginx:latest" eller "python: 3.7.2-alpina/". För scenario med flera behållare kan du ange namn på flera behållar avbildningar (flera rader separerade) |
-| **konfiguration – fil** | Valfritt Sökväg till Docker-Skriv filen. Måste vara en fullständigt kvalificerad sökväg eller i förhållande till standard arbets katalogen. Krävs för scenario med flera behållare |
+| **avbildningar** | Kunna Ange det fullständigt kvalificerade behållar avbildnings namnet. Till exempel "myregistry.azurecr.io/nginx:latest" eller "python: 3.7.2-alpina/". För en app med flera behållare kan du ange flera behållar avbildnings namn (flera rader separerade) |
+| **konfiguration – fil** | Valfritt Sökväg till Docker-Skriv filen. Måste vara en fullständigt kvalificerad sökväg eller i förhållande till standard arbets katalogen. Krävs för appar med flera behållare. |
 | **container-Command** | Valfritt Ange start kommandot. För t. ex. dotNet-körning eller dotNet filename. dll |
 
-Nedan visas exempel arbets flödet för att bygga och distribuera en Node. js-webbapp till Azure Web App-behållaren.
+Nedan visas exempel arbets flödet för att bygga och distribuera en Node. js-app till en anpassad behållare i App Service.
 
 ```yaml
 on: [push]
@@ -145,7 +154,7 @@ jobs:
       uses: actions/checkout@master
     
     - name: 'Login via Azure CLI'
-      uses: azure/actions/login@v1
+      uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     
@@ -173,7 +182,7 @@ jobs:
 
 Du hittar vår uppsättning åtgärder grupperade i olika databaser på GitHub, var och en innehåller dokumentation och exempel som hjälper dig att använda GitHub för CI/CD och distribuera dina appar till Azure.
 
-- [Azure-inloggning](https://github.com/Azure/actions)
+- [Azure-inloggning](https://github.com/Azure/login)
 
 - [Azure WebApp](https://github.com/Azure/webapps-deploy)
 
@@ -185,4 +194,6 @@ Du hittar vår uppsättning åtgärder grupperade i olika databaser på GitHub, 
 
 - [K8s-distribution](https://github.com/Azure/k8s-deploy)
 
-- [Start arbets flöden](https://github.com/actions/starter-workflows)
+- [Starter CI-arbetsflöden](https://github.com/actions/starter-workflows)
+
+- [Start arbets flöden att distribuera till Azure](https://github.com/Azure/actions-workflow-samples)

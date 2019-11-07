@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: b882b8ee08c38b6313558916ab46f80ce9dd5130
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: f0e4540f3f5ab3fdbb5953cbf100c5fdc2b2542a
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129338"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621984"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Säkerhetsfunktioner som hjälper dig att skydda moln arbets belastningar som använder Azure Backup
 
@@ -70,25 +70,48 @@ Det här Flow-diagrammet visar de olika stegen och tillstånden för ett säkerh
 
 Mer information finns i avsnittet [vanliga frågor och svar](backup-azure-security-feature-cloud.md#frequently-asked-questions) nedan.
 
+## <a name="disabling-soft-delete"></a>Inaktiverar mjuk borttagning
+
+Mjuk borttagning är aktiverat som standard på nyligen skapade valv. Om funktionen för mjuk borttagning är inaktive rad skyddas inte säkerhetskopierade data från oavsiktliga eller skadliga borttagningar. Utan funktionen mjuk borttagning leder all borttagning av skyddade objekt till omedelbar borttagning, utan möjlighet att återställa. Eftersom säkerhets kopierings data i läget "mjuk borttagning" inte kostar någon kostnad för kunden, rekommenderas inte att du inaktiverar den här funktionen. Den enda omständigheterna där du bör inaktivera mjuk borttagning är om du planerar att flytta dina skyddade objekt till ett nytt valv. det går inte att vänta 14 dagar innan du tar bort och återskyddar (till exempel i en test miljö).
+
+### <a name="prerequisites-for-disabling-soft-delete"></a>Krav för att inaktivera mjuk borttagning
+
+- Det går bara att göra Azure Portal att aktivera eller inaktivera mjuk borttagning för valv (utan skyddade objekt). Detta gäller för:
+  - Nyligen skapade valv som inte innehåller skyddade objekt
+  - Befintliga valv vars skyddade objekt har tagits bort och upphört att gälla (utöver den fasta bevarande perioden på 14 dagar)
+- Om funktionen för mjuk borttagning är inaktive rad för valvet kan du återaktivera den, men du kan inte ångra det alternativet och inaktivera det igen om valvet innehåller skyddade objekt.
+- Du kan inte inaktivera mjuk borttagning för valv som innehåller skyddade objekt eller objekt i läget Soft-Deleted. Följ dessa steg om du behöver göra det:
+  - Sluta skydda borttagna data för alla skyddade objekt.
+  - Vänta tills säkerhets kvarhållning 14 dagar upphör att gälla.
+  - Inaktivera mjuk borttagning.
+
+Om du vill inaktivera mjuk borttagning kontrollerar du att kraven är uppfyllda och följer sedan de här stegen:
+
+1. Gå till ditt valv i Azure Portal och gå sedan till **inställningar** -> **Egenskaper**.
+2. I fönstret Egenskaper väljer du **säkerhets inställningar** -> **uppdatering**.
+3. I rutan säkerhets inställningar under mjuk borttagning väljer du **inaktivera**.
+
+![Inaktivera mjuk borttagning](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
+
 ## <a name="other-security-features"></a>Andra säkerhetsfunktioner
 
-### <a name="storage-side-encryption"></a>Kryptering för lagring på serversidan
+### <a name="storage-side-encryption"></a>Kryptering på lagrings Sidan
 
 Azure Storage krypterar dina data automatiskt när de behålls i molnet. Kryptering skyddar dina data och hjälper dig att uppfylla organisationens säkerhets-och efterlevnads åtaganden. Data i Azure Storage krypteras och dekrypteras transparent med 256-bitars AES-kryptering, en av de starkaste block chiffer som är tillgängliga och är FIPS 140-2-kompatibel. Azure Storage kryptering liknar BitLocker-kryptering på Windows. Azure Backup krypterar automatiskt data innan de lagras. Azure Storage dekrypterar data innan de hämtas.  
 
 I Azure skyddas data i överföring mellan Azure Storage och valvet av HTTPS. Dessa data finns kvar i Azure stamnät nätverket.
 
-Mer information finns i [Azure Storage kryptering för data i vila](https://docs.microsoft.com/en-in/azure/storage/common/storage-service-encryption).
+Mer information finns i [Azure Storage kryptering för data i vila](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
 
 ### <a name="vm-encryption"></a>VM-kryptering
 
-Du kan säkerhetskopiera och återställa virtuella Windows-eller Linux Azure-datorer (VM: ar) med krypterade diskar med hjälp av tjänsten Azure Backup. Anvisningar finns i [säkerhetskopiera och återställa krypterade virtuella datorer med Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).
+Du kan säkerhetskopiera och återställa virtuella Windows-eller Linux Azure-datorer (VM: ar) med krypterade diskar med hjälp av tjänsten Azure Backup. Anvisningar finns i [säkerhetskopiera och återställa krypterade virtuella datorer med Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
 ### <a name="protection-of-azure-backup-recovery-points"></a>Skydd av Azure Backup återställnings punkter
 
 Lagrings konton som används av Recovery Services-valven är isolerade och kan inte användas av användare i något skadligt syfte. Åtkomst tillåts endast via Azure Backup hanterings åtgärder, till exempel Restore. Dessa hanterings åtgärder styrs via rollbaserad Access Control (RBAC).
 
-Mer information finns i [använda rollbaserad Access Control för att hantera Azure Backup återställnings punkter](https://docs.microsoft.com/en-us/azure/backup/backup-rbac-rs-vault).
+Mer information finns i [använda rollbaserad Access Control för att hantera Azure Backup återställnings punkter](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault).
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -101,23 +124,23 @@ Nej, den skapas och aktive ras som standard för alla Recovery Services-valv.
 #### <a name="can-i-configure-the-number-of-days-for-which-my-data-will-be-retained-in-soft-deleted-state-after-delete-operation-is-complete"></a>Kan jag konfigurera det antal dagar för vilka mina data ska bevaras i läget Soft-Deleted när borttagningen har slutförts?
 
 Nej, det har åtgärd ATS till 14 dagar efter ytterligare kvarhållning efter borttagnings åtgärden.
- 
+
 #### <a name="do-i-need-to-pay-the-cost-for-this-additional-14-day-retention"></a>Behöver jag betala kostnaden för ytterligare 14-dagars kvarhållning?
 
 Nej, den här 14-dagars ytterligare kvarhållning kommer kostnads fritt som en del av funktionen för mjuk borttagning.
- 
+
 #### <a name="can-i-perform-a-restore-operation-when-my-data-is-in-soft-delete-state"></a>Kan jag utföra en återställnings åtgärd när mina data är i läget för tyst Borttagning?
 
 Nej, du måste ta bort den mjuka borttagna resursen för att kunna återställa. Åtgärden ta bort tar tillbaka resursen i **stopp skyddet med Behåll data tillstånd** där du kan återställa till en viss tidpunkt. Skräp insamlaren förblir pausad i det här läget.
- 
+
 #### <a name="will-my-snapshots-follow-the-same-lifecycle-as-my-recovery-points-in-the-vault"></a>Kommer mina ögonblicks bilder att följa samma livs cykel som mina återställnings punkter i valvet?
 
 Ja.
- 
+
 #### <a name="how-can-i-trigger-the-scheduled-backups-again-for-a-soft-deleted-resource"></a>Hur kan jag aktivera schemalagda säkerhets kopieringar igen för en mjuk borttagen resurs?
 
 Undelete följt av Resume-åtgärden skyddar resursen igen. Återuppta åtgärd associerar en säkerhets kopierings princip för att utlösa de schemalagda säkerhets kopieringarna med den valda kvarhållningsperioden. Dessutom körs skräp insamlaren så fort återställnings åtgärden har slutförts. Om du vill utföra en återställning från en återställnings punkt som har passerat förfallo datumet, rekommenderar vi att du gör det innan du utlöser återställnings åtgärden.
- 
+
 #### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>Kan jag ta bort mitt valv om det finns mjuka borttagna objekt i valvet?
 
 Det går inte att ta bort Recovery Services valv om det finns säkerhets kopierings objekt i läget Soft-Deleted i valvet. De mjuka borttagna objekten tas bort permanent efter 14 dagars borttagnings åtgärd. Du kan bara ta bort valvet när alla mjuka borttagna objekt har rensats.  
@@ -136,4 +159,4 @@ Nej. För tillfället mjuk borttagning stöds bara för virtuella Azure-datorer.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs om [säkerhets kontroller för Azure Backup](backup-security-controls.md).
+- Läs om [säkerhets kontroller för Azure Backup](backup-security-controls.md).

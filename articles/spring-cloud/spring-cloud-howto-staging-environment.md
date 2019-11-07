@@ -1,51 +1,40 @@
 ---
 title: Konfigurera en utvecklings miljö i Azure våren Cloud | Microsoft Docs
 description: Lär dig hur du använder blå-grön-distribution med Azure våren Cloud
-services: spring-cloud
-author: v-vasuke
-manager: gwallace
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
-ms.date: 10/07/2019
-ms.author: v-vasuke
-ms.openlocfilehash: 454eeaa2568891ec35fe698cdb20c5448e10887e
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.topic: conceptual
+ms.date: 10/31/2019
+ms.author: jeconnoc
+ms.openlocfilehash: 24ce4dee04e4daf3eaee4144f8dc56de5867bbca
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038988"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607213"
 ---
-# <a name="how-to-set-up-a-staging-environment"></a>Konfigurera en utvecklings miljö
+# <a name="how-to-set-up-a-staging-environment"></a>Så här konfigurerar du en mellanlagringsmiljö
 
 Den här artikeln visar hur du utnyttjar en mellanlagrings distribution med hjälp av ett blått-grönt distributions mönster i Azure våren Cloud. Du får också se hur du kan använda mellanlagrings distributionen i produktion utan att ändra produktions distributionen direkt.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här artikeln förutsätter att du redan har distribuerat PiggyMetrics-programmet från vår [självstudie om att starta ett program](spring-cloud-quickstart-launch-app-portal.md). PiggyMetrics består av tre program: "Gateway", "Account-service" och "auth-service".  
 
 Om du har ett annat program som du vill använda för det här exemplet måste du göra en enkel ändring i en offentlig riktad del av programmet.  Den här ändringen särskiljer mellanlagrings distributionen från produktionen.
-
->[!NOTE]
-> Innan du påbörjar den här snabb starten ska du se till att din Azure-prenumeration har åtkomst till Azure våren Cloud.  Som förhands gransknings tjänst ber vi dig att kontakta oss så att vi kan lägga till din prenumeration i vår lista över tillåtna.  Om du vill utforska funktionerna i Azure våren Cloud kan du kontakta oss via e-post: azure-spring-cloud@service.microsoft.com.
 
 >[!TIP]
 > Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln.  Den har ett förinstallerat vanligt Azure-verktyg, inklusive de senaste versionerna av Git, JDK, Maven och Azure CLI. Om du är inloggad på din Azure-prenumeration startar du [Azure Cloud Shell](https://shell.azure.com) från Shell.Azure.com.  Du kan lära dig mer om Azure Cloud Shell genom att [läsa vår dokumentation](../cloud-shell/overview.md)
 
 För att slutföra den här artikeln:
 
-1. [Installera Git](https://git-scm.com/)
-1. [Installera JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
-1. [Installera maven 3,0 eller senare](https://maven.apache.org/download.cgi)
-1. [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-1. [Registrera dig för en Azure-prenumeration](https://azure.microsoft.com/free/)
 
 ## <a name="install-the-azure-cli-extension"></a>Installera Azure CLI-tillägget
 
 Installera Azure våren Cloud-tillägget för Azure CLI med hjälp av följande kommando
 
 ```azurecli
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+az extension add --name spring-cloud
 ```
     
 ## <a name="view-all-deployments"></a>Visa alla distributioner
@@ -79,10 +68,10 @@ Gå till tjänst instansen i Azure Portal och välj **distributions hantering** 
 
 >[!TIP]
 > * Bekräfta att test slut punkten slutar med "/" för att säkerställa att CSS-inläsningen är korrekt.  
-> * Om din webbläsare kräver att du anger inloggnings uppgifter för att visa sidan använder du [URL-avkodning](https://www.urldecoder.org/) för att avkoda test slut punkten. URL-avkodning returnerar en URL i formatet "https://\<username >: \<Password > @ \<cluster-Name >. test. azureapps. io/Gateway/grönt".  Använd detta för att få åtkomst till din slut punkt.
+> * Om din webbläsare kräver att du anger inloggnings uppgifter för att visa sidan använder du [URL-avkodning](https://www.urldecoder.org/) för att avkoda test slut punkten. URL-avkodning returnerar en URL i formatet "https://\<användar namn >:\<lösen ord > @\<kluster namn >. test. azureapps. io/Gateway/grönt".  Använd detta för att få åtkomst till din slut punkt.
 
 >[!NOTE]    
-> Konfigurations Server inställningarna gäller för din utvecklings miljö samt produktion. Om du till exempel anger kontext Sök väg (`server.servlet.context-path`) för din app-gateway i konfigurations servern som *somepath*ändras sökvägen till din gröna distribution: "https://\<username >: \<password > @ \<cluster-Name >. test. azureapps. io/ Gateway/grön/somepath/... "
+> Konfigurations Server inställningarna gäller för din utvecklings miljö samt produktion. Om du till exempel ställer in kontext Sök vägen (`server.servlet.context-path`) för din app-gateway i config server som *somepath*, ändras sökvägen till din gröna distribution: "https://\<användar namn >:\<lösen ord > @\<Cluster-Name >. test.azureapps.io/gateway/green/somepath/... "
  
  Om du besöker din publika app gateway bör du se den gamla sidan utan din nya ändring.
     

@@ -1,5 +1,5 @@
 ---
-title: Data flödes aktivitet i Azure Data Factory | Microsoft Docs
+title: Data flödes aktivitet i Azure Data Factory
 description: Så här kör du data flöden inifrån en Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 10/07/2019
-ms.openlocfilehash: cbfa1acac34187263f8c4203e41bbe61d7e4c745
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 5623907346ee3882ad53a27695336ba4bc449db8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030507"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679952"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Data flödes aktivitet i Azure Data Factory
 
@@ -56,7 +56,7 @@ integrationRuntime | Beräknings miljön som data flödet körs på | Integratio
 mellanlagring. linkedService | Om du använder en SQL DW-källa eller-mottagare är det lagrings konto som används för PolyBase-mellanlagring | LinkedServiceReference | Endast om data flödet läser eller skriver till en SQL DW
 mellanlagring. folderPath | Om du använder en SQL DW-källa eller mottagare, är mappsökvägen i Blob Storage-kontot som används för PolyBase-mellanlagring | Sträng | Endast om data flödet läser eller skriver till en SQL DW
 
-Kör(media/data-flow/activity-data-flow.png "data flöde") för körning av ![data flöde]
+![Kör data flöde](media/data-flow/activity-data-flow.png "Kör data flöde")
 
 ### <a name="data-flow-integration-runtime"></a>Integration runtime för data flöde
 
@@ -64,7 +64,7 @@ Välj vilken Integration Runtime som ska användas för körningen av data flöd
 
 För pipeline-körningar är klustret ett jobb kluster, vilket tar flera minuter att starta innan körningen börjar. Om du inte anger något TTL-värde krävs den här start tiden för varje pipeline-körning. Om du anger ett TTL-värde förblir en varm klustrad pool aktiv under den tid som anges efter den senaste körningen, vilket leder till kortare start tider. Om du till exempel har en TTL på 60 minuter och kör ett data flöde på den en gång i timmen förblir anslutningspoolen aktiv. Mer information finns i [Azure integration runtime](concepts-integration-runtime.md).
 
-![Azure Integration Runtime](media/data-flow/ir-new.png "Azure integration runtime")
+![Azure Integration Runtime](media/data-flow/ir-new.png "Azure Integration Runtime")
 
 > [!NOTE]
 > Integration Runtime valet i data flödes aktiviteten gäller endast *utlösta körningar* av din pipeline. Fel sökning av din pipeline med data flöden körs på det kluster som anges i felsökningssessionen.
@@ -79,19 +79,19 @@ Om du använder en Azure SQL Data Warehouse som mottagare eller källa måste du
 
 Om data flödet använder parametriserade data uppsättningar anger du parameter värden på fliken **Inställningar** .
 
-(media/data-flow/params.png "Parametrar för") ![körning av data flödes parametrar]
+![Kör data flödes parametrar](media/data-flow/params.png "Parametrar")
 
 ### <a name="parameterized-data-flows"></a>Parameter data flöden
 
 Om ditt data flöde är parameterstyrda anger du de dynamiska värdena för data flödes parametrarna på fliken **parametrar** . Du kan använda antingen uttrycks språket ADF-pipeline (endast för sträng typer) eller språket för data flödes uttrycket för att tilldela dynamiska eller exakta parameter värden. Mer information finns i [data flödes parametrar](parameters-data-flow.md).
 
-Exempel(media/data-flow/parameter-example.png "parametern kör parameter") ![exempel för data flöde]
+![Exempel på körning av data flödes parameter](media/data-flow/parameter-example.png "Parameter exempel")
 
 ## <a name="pipeline-debug-of-data-flow-activity"></a>Fel sökning av pipeline för data flödes aktivitet
 
 Om du vill köra en pipeline för fel sökning med en data flödes aktivitet måste du växla till fel söknings läge för data flöde via skjutreglaget för **fel sökning av data flöde** i det översta fältet. Med fel söknings läge kan du köra data flödet mot ett aktivt Spark-kluster. Mer information finns i [fel söknings läge](concepts-data-flow-debug-mode.md).
 
-Knappen(media/data-flow/debugbutton.png "Felsök i") fel ![söknings]knapp
+![Knappen Felsök](media/data-flow/debugbutton.png "Knappen Felsök")
 
 Fel söknings pipelinen körs mot det aktiva fel söknings klustret, inte integrerings körnings miljön som anges i inställningarna för data flödes aktiviteten. Du kan välja beräknings miljö för fel sökning när du startar fel söknings läge.
 

@@ -1,24 +1,24 @@
 ---
-title: Distribuera till Azure Analysis Services med hjälp av Visual Studio | Microsoft Docs
+title: Distribuera en modell till Azure Analysis Services med hjälp av Visual Studio | Microsoft Docs
 description: Lär dig hur du distribuerar en tabell modell till en Azure Analysis Services-server med hjälp av Visual Studio.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 60681739854515078a521a4ff795e52aa7d74183
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 71b3b7815d2a4b0b4de3afdca9db93156f505445
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146964"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572885"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Distribuera en modell från Visual Studio
 
 När du har skapat en server i din Azure-prenumeration är du redo att distribuera en tabellmodelldatabas till den. Du kan använda Visual Studio med Analysis Services projekt för att bygga och distribuera ett tabell modell projekt som du arbetar med. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver följande för att komma igång:
 
@@ -53,7 +53,7 @@ Välj **Azure Portal** > server > **Översikt** > **Servernamn** och kopiera ser
 Det var allt!
 
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Om distributionen Miss lyckas när du distribuerar metadata är det troligt att Visual Studio inte kunde ansluta till servern. Kontrollera att du kan ansluta till servern med hjälp av SSMS. Kontrollera egenskapen Distributionsserver för projektet är korrekt.
 

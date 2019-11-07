@@ -1,5 +1,5 @@
 ---
-title: Offentliga data uppsättningar för Azure Analytics | Microsoft Docs
+title: Offentliga data uppsättningar för Azure Analytics
 description: Lär dig mer om offentliga data uppsättningar som du kan använda för att prototyp och testa Azure Analytics-tjänster och-lösningar.
 services: sql-database
 ms.service: sql-database
@@ -11,25 +11,25 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
-ms.openlocfilehash: a16f6d6b0bf8600270fdf4e00cfa379ee4422fd0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: dc8b2a00882abc2e88b357d5778eaf96ec71b1bd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566987"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687584"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Offentliga data uppsättningar för testning och prototypering
 
 Bläddra i listan över offentliga data uppsättningar för data som du kan använda för att prototyp och testa lagrings-och analys tjänster och-lösningar.
 
-## <a name="us-government-and-agency-data"></a>Amerikansk Myndighets-och byrå uppgifter
+## <a name="us-government-and-agency-data"></a>Amerikanska myndigheter och byrå uppgifter
 
-| Datakälla | Om de data som används | Om filerna |
+| Data Källa | Om de data som används | Om filerna |
 |---|---|---|
 | [AMERIKANSKA myndighets data](https://www.census.gov/data.html) | Över 190 000 data uppsättningar som omfattar jordbruk, klimat, konsument, eko system, utbildning, energi, ekonomi, hälsa, lokal myndighet, tillverkning, sjö, hav, offentlig säkerhet, vetenskap och forskning i USA | Filer av olika storlekar i olika format, inklusive HTML, XML, CSV, JSON, Excel och många andra. Du kan filtrera tillgängliga data uppsättningar efter fil format. |
 | [AMERIKANSKA inventerings data](https://www.census.gov/data.html) | Statistisk information om befolkningen i USA | Data uppsättningar är i olika format. |
 | [Earth Science-data från NASA](https://earthdata.nasa.gov/) | Över 32 000 data samlingar som omfattar jord-, atmosfär-, biosfär-, klimat-, cryosphere-, mänsklig-, hydrosphere-, yt-, havs-, havs-och jord-och. | Data uppsättningar är i olika format. |
-| [Flyg fördröjningar och andra transport data](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | "USA Avdelning för transportens (punkt) Bureau of transport Statistics (BTS) spårar den dagliga prestandan hos inhemskt flyg bolag som drivs av stora lufttrafik företag. Sammanfattande information om antalet försenade, annullerade och avvisade flygningar visas... i sammanfattnings tabeller som publicerats på den här webbplatsen. " | Filerna är i CSV-format. |
+| [Flyg fördröjningar och andra transport data](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | "Det amerikanska departementet transport (punkt) Bureau of transport Statistics (BTS) spårar den dagliga prestandan hos inrikes flygningar som drivs av stora lufttrafik företag. Sammanfattande information om antalet försenade, annullerade och avvisade flygningar visas... i sammanfattnings tabeller som publicerats på den här webbplatsen. " | Filerna är i CSV-format. |
 | [Oåterkalleliga trafik – US oåterkalleligt analys rapporterings system (FARS)](https://www.nhtsa.gov/FARS) | "FARS är en Nationwide-räkning som tillhandahåller NHTSA, Congress och amerikanska offentliga årliga data om allvarliga skador som uppstått i motor fordons trafik krascher." | "Skapa dina egna data för allvarliga data kör online med hjälp av FARS Query system. Du kan också hämta alla FARS-data från 1975 för att presentera dem från FTP-platsen. " |
 | [Giftiga kemiska data – EPA-ToxCast (information om toxicitet (™)](https://www.epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data) | "EPA: s mest uppdaterade, allmänt tillgängliga data flödes toxiska data på tusentals kemikalier. Dessa data genereras via EPA: s ToxCast Research ansträngning. " | Data uppsättningar är tillgängliga i olika format, inklusive kalkyl blad, R-paket och MySQL-databasfiler. |
 | [Giftiga kemiska data – NIH Tox21 data Challenge 2014](https://tripod.nih.gov/tox21/challenge/) | "2014 Tox21-datautmaningen är utformad för att hjälpa forskare att förstå potentialen för de kemikalier och föreningar som testas genom toxikologi i ett på 2000-talet för att störa biologiska vägar på ett sätt som kan resultera i toxiska effekter." | Data uppsättningar är tillgängliga i leende-och SDF-format. Datan innehåller "analys av aktivitets data och kemiska strukturer i Tox21-samlingen på ~ 10 000-föreningar (Tox21 10K)." |
@@ -37,7 +37,7 @@ Bläddra i listan över offentliga data uppsättningar för data som du kan anv�
 
 ## <a name="other-statistical-and-scientific-data"></a>Andra statistiska och vetenskapliga data
 
-| Datakälla | Om de data som används | Om filerna |
+| Data Källa | Om de data som används | Om filerna |
 |---|---|---|
 | [New York, stad, taxi data](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | "Taxi resor innehåller fält som fångar in hämtnings-och DropOff-datum/-tider, hämtnings-och DropOff-platser, rese sträckor, avgiftsbelagda priser, pris typer, betalnings typer och driv rutins rapporterad person antal." | Data uppsättningar är i CSV-filer per månad. |
 | [Microsoft Research data uppsättningar – "data vetenskap för forskning"](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Flera data uppsättningar som täcker interaktion med mänsklig dator, ljud/video, Data utvinning/informations hämtning, geospatialt/plats, naturlig språk bearbetning och Robotics/dator vision. | Data uppsättningar är i olika format, zippade för hämtning. |
@@ -50,7 +50,7 @@ Bläddra i listan över offentliga data uppsättningar för data som du kan anv�
 
 ## <a name="online-service-data"></a>Online tjänst data
 
-| Datakälla | Om de data som används | Om filerna |
+| Data Källa | Om de data som används | Om filerna |
 |---|---|---|
 | [GitHub-Arkiv](https://www.githubarchive.org/) | "GitHub Archive är ett projekt för att registrera den offentliga GitHub-tidslinjen [av händelser], arkivera den och göra det enkelt att komma åt ytterligare analyser." | Ladda ned JSON-kodade händelse Arkiv i formatet. gz (gzip) från en webb klient. |
 | [GitHub-aktivitets data från GHTorrent-projektet](http://ghtorrent.org/) | "GHTorrent-projektet [är] ett arbete för att skapa en skalbar, fråga offline-spegling av data som erbjuds via GitHub-REST API. GHTorrent övervakar den GitHub offentliga händelsens tids linje. För varje händelse hämtas dess innehåll och deras beroenden, så omfattande. " | MySQL-databasens dumpar är i CSV-format. |

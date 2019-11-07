@@ -1,5 +1,5 @@
 ---
-title: 'Always Encrypted: Azure SQL Database-Windows certifikat Arkiv | Microsoft Docs'
+title: 'Always Encrypted: Azure SQL Database-Windows certifikat Arkiv '
 description: Den här artikeln visar hur du skyddar känsliga data i en SQL-databas med databas kryptering med hjälp av guiden Always Encrypted i SQL Server Management Studio (SSMS). Det visar också hur du lagrar dina krypterings nycklar i Windows certifikat arkiv.
 keywords: kryptera data, SQL-kryptering, databas kryptering, känsliga data Always Encrypted
 services: sql-database
@@ -12,14 +12,14 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 03/08/2019
-ms.openlocfilehash: e9aaa7cb022d4096ec8a175611d0b4c118007b40
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e19055f83ef9b943d5ac0068d38b4f58a2b3b17c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569552"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691226"
 ---
-# <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: Skydda känsliga data och lagra krypterings nycklar i Windows certifikat Arkiv
+# <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: skydda känsliga data och lagra krypterings nycklar i Windows certifikat Arkiv
 
 Den här artikeln visar hur du skyddar känsliga data i en SQL-databas med databas kryptering med hjälp av [guiden Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx) i [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Det visar också hur du lagrar dina krypterings nycklar i Windows certifikat arkiv.
 
@@ -35,7 +35,7 @@ Följ stegen i den här artikeln för att lära dig hur du konfigurerar Always E
 * Skapa en databas tabell och kryptera kolumner.
 * Skapa ett program som infogar, väljer och visar data från de krypterade kolumnerna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 I den här självstudien behöver du:
 
@@ -47,14 +47,14 @@ I den här självstudien behöver du:
 ## <a name="create-a-blank-sql-database"></a>Skapa en tom SQL-databas
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Klicka på **skapa en resurs** > **data + lagrings** > **SQL Database**.
+2. Klicka på **skapa en resurs** > **Data + lagring** > **SQL Database**.
 3. Skapa en **Tom** databas med namnet **klinik** på en ny eller befintlig server. Detaljerade anvisningar om hur du skapar en databas i Azure Portal finns i [din första Azure SQL-databas](sql-database-single-database-get-started.md).
 
     ![Skapa en tom databas](./media/sql-database-always-encrypted/create-database.png)
 
 Du behöver anslutnings strängen senare i självstudien. När databasen har skapats går du till den nya klinik-databasen och kopierar anslutnings strängen. Du kan hämta anslutnings strängen när som helst, men det är enkelt att kopiera den när du befinner dig i Azure Portal.
 
-1. Klicka **på SQL-databaser** > **klinik** > **Visa databas anslutnings strängar**.
+1. Klicka på **SQL-databaser** > **klinik** > **Visa databas anslutnings strängar**.
 2. Kopiera anslutnings strängen för **ADO.net**.
 
     ![Kopiera anslutningssträngen](./media/sql-database-always-encrypted/connection-strings.png)
@@ -63,7 +63,7 @@ Du behöver anslutnings strängen senare i självstudien. När databasen har ska
 
 Öppna SSMS och Anslut till servern med klinik-databasen.
 
-1. Öppna SSMS. (Klicka på **Anslut** > **databas motor** för att öppna fönstret **Anslut till Server** om det inte är öppet).
+1. Öppna SSMS. (Klicka på **anslut** > **Database Engine** för att öppna fönstret **Anslut till Server** om det inte är öppet).
 2. Ange server namn och autentiseringsuppgifter. Du hittar Server namnet på bladet SQL Database och i anslutnings strängen som du kopierade tidigare. Ange det fullständiga Server namnet, inklusive *Database.Windows.net*.
 
     ![Kopiera anslutningssträngen](./media/sql-database-always-encrypted/ssms-connect.png)
@@ -96,12 +96,12 @@ I det här avsnittet ska du skapa en tabell för att lagra patient data. Detta �
 
 SSMS innehåller en guide för att enkelt konfigurera Always Encrypted genom att konfigurera CMK, CEK och krypterade kolumner åt dig.
 
-1. Expandera > klinik- > **tabeller**för databaser.
+1. Expandera **databaser** > **klinik** > **tabeller**.
 2. Högerklicka på tabellen **patienter** och välj **kryptera kolumner** för att öppna guiden Always Encrypted:
 
     ![Kryptera kolumner](./media/sql-database-always-encrypted/encrypt-columns.png)
 
-Guiden Always Encrypted innehåller följande avsnitt: **Val av kolumn**, **huvud nyckel konfiguration** (CMK), **verifiering**och **Sammanfattning**.
+Guiden Always Encrypted innehåller följande avsnitt: **kolumn val**, **huvud nyckel konfiguration** (CMK), **verifiering**och **Sammanfattning**.
 
 ### <a name="column-selection"></a>Kolumn val
 
@@ -139,7 +139,7 @@ När guiden har slutförts konfigureras databasen för Always Encrypted. Följan
 * Skapade en CEK.
 * Konfigurerade de markerade kolumnerna för kryptering. Din **patienter** -tabell har för närvarande inga data, men alla befintliga data i de markerade kolumnerna är nu krypterade.
 
-Du kan kontrol lera att nycklarna skapas i SSMS genom att gå till**Always Encrypted nycklar**för **klinik** > -**säkerhet** > . Nu kan du se de nya nycklar som skapas av guiden.
+Du kan kontrol lera att nycklarna skapas i SSMS genom att gå till **klinik** > **säkerhets** > **Always Encrypted nycklar**. Nu kan du se de nya nycklar som skapas av guiden.
 
 ## <a name="create-a-client-application-that-works-with-the-encrypted-data"></a>Skapa ett klient program som fungerar med krypterade data
 
@@ -500,7 +500,7 @@ namespace AlwaysEncryptedConsoleApp
 
 ## <a name="verify-that-the-data-is-encrypted"></a>Verifiera att data är krypterade
 
-Du kan snabbt kontrol lera att faktiska data på servern är krypterade genom att fråga patienternas data med SSMS. (Använd din aktuella anslutning där kolumn krypterings inställningen inte har Aktiver ATS än.)
+Du kan snabbt kontrol lera att faktiska data på servern är krypterade genom att fråga **patienternas** data med SSMS. (Använd din aktuella anslutning där kolumn krypterings inställningen inte har Aktiver ATS än.)
 
 Kör följande fråga i klinik-databasen.
 
@@ -513,7 +513,7 @@ Du kan se att de krypterade kolumnerna inte innehåller några oformaterade data
 Om du vill använda SSMS för att komma åt data i klartext kan du lägga till **kolumn krypterings inställningen = aktive rad** parameter till anslutningen.
 
 1. I SSMS högerklickar du på servern i **Object Explorer**och klickar sedan på **Koppla från**.
-2. Klicka på **Anslut** > **databas motor** för att öppna fönstret **Anslut till Server** och klicka sedan på **alternativ**.
+2. Klicka på **anslut** > **Database Engine** för att öppna fönstret **Anslut till Server** och klicka sedan på **alternativ**.
 3. Klicka på **ytterligare anslutnings parametrar** och ange **kolumn krypterings inställning = aktive rad**.
 
     ![Nytt konsol program](./media/sql-database-always-encrypted/ssms-connection-parameter.png)
@@ -535,7 +535,7 @@ När du har skapat en databas som använder Always Encrypted kanske du vill gör
 * Kör det här exemplet från en annan dator. Den har inte åtkomst till krypterings nycklarna, så den kommer inte att ha åtkomst till data i klartext och kommer inte att kunna köras.
 * [Rotera och rensa dina nycklar](https://msdn.microsoft.com/library/mt607048.aspx).
 * [Migrera data som redan är krypterade med Always Encrypted](https://msdn.microsoft.com/library/mt621539.aspx).
-* [Distribuera Always Encrypted certifikat till andra klient datorer](https://msdn.microsoft.com/library/mt723359.aspx#Anchor_1) (mer information finns i avsnittet "göra certifikat tillgängliga för program och användare").
+* [Distribuera Always Encrypted certifikat till andra klient datorer](https://msdn.microsoft.com/library/mt723359.aspx#Anchor_1) (se avsnittet "göra certifikat tillgängliga för program och användare").
 
 ## <a name="related-information"></a>Relaterad information
 

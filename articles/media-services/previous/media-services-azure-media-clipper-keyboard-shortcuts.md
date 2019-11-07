@@ -1,26 +1,26 @@
 ---
-title: Konfigurera inställningar för Azure Media Clipper tangentbord | Microsoft Docs
-description: För att konfigurera konfigurerbara kortkommandon för Azure Media Clipper
+title: Konfigurera inställningar för Azure Media Clipper-tangentbord | Microsoft Docs
+description: Steg för att konfigurera konfigurerbara kortkommandon för Azure Media Clipper
 services: media-services
-keywords: Clip, underklipp, kodning, media
-author: dbgeorge
-manager: jasonsue
-ms.author: dwgeo
+keywords: klipp; subclip; encoding; Media
+author: Juliako
+manager: femila
+ms.author: juliako
 ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 2eb32b8ec265a4afa2581374c1f07ac06958a576
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 013ca640d30baceeb41e9cb38fab69020b3c50dd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61466114"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685068"
 ---
 # <a name="configure-azure-media-clipper-keyboard-shortcuts"></a>Konfigurera kortkommandon för Azure Media Clipper 
 
-Azure Media Clipper stöder anpassa standardkortkommandon genom att tillhandahålla en valfri `keymap` JSON-parametern.
+Azure Media Clipper stöder anpassning av standard kortkommandona genom att tillhandahålla en valfri `keymap` JSON-parameter.
 
-I följande exempel JSON visas standardkortkommandon. Du kan anpassa dessa inställningar genom att ändra nyckelfälten och skicka parametern när initieras Clipper.
+Följande exempel-JSON visar standard kortkommandona. Du kan anpassa dessa inställningar genom att ändra nyckel fälten och skicka i parametern när du initierar Clipper.
 
 ```json
 {

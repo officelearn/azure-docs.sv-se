@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 62af688c6090b61f2596ab376cb479c270b87759
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 78e085aae97114e6848b736c40b16c755256d0cd
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274111"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571122"
 ---
 # <a name="load-balancer-health-probes"></a>Hälsoavsökningar för Load Balancer
 
@@ -48,6 +48,9 @@ Konfigurationen av hälso avsökningen består av följande element:
 - Protokoll för avsökningen
 - Port för avsökningen
 - HTTP-sökväg som ska användas för HTTP GET vid användning av HTTP (S)-avsökningar
+
+> [!NOTE]
+> En avsöknings definition är inte obligatorisk eller kontrol leras när du använder Azure PowerShell, Azure CLI, mallar eller API. Verifierings test för avsökning görs bara när du använder Azure-portalen.
 
 ## <a name="understanding-application-signal-detection-of-the-signal-and-reaction-of-the-platform"></a>Förstå program signal, identifiering av signal och plattformens reaktion
 

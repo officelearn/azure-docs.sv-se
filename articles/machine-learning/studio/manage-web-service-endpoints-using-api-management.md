@@ -1,6 +1,6 @@
 ---
 title: Hantera webb tjänster med API Management
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: En guide som visar hur du hanterar AzureML-webbtjänster med API Management. Hantera dina REST API-slutpunkter genom att definiera användar åtkomst, användnings begränsning och övervakning av instrument paneler.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 60f890912874cfda993ae45f84fa3d1c04503d00
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 227a7205788194cc507dcd9dab7e5cad57abc7f9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489268"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671581"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Hantera Azure Machine Learning Studio (klassiska) webb tjänster med API Management
 ## <a name="overview"></a>Översikt
@@ -24,18 +24,18 @@ Den här guiden visar hur du snabbt kommer igång med API Management för att ha
 ## <a name="what-is-azure-api-management"></a>Vad är Azure API Management?
 Azure API Management är en Azure-tjänst som låter dig hantera dina REST API-slutpunkter genom att definiera användar åtkomst, användnings begränsning och övervakning av instrument paneler. Mer information finns på [webbplatsen för Azure API Management](https://azure.microsoft.com/services/api-management/) . Information om hur du kommer igång med Azure API Management finns i [import-och publicerings guiden](/azure/api-management/import-and-publish). Den här guiden, som den här guiden bygger på, omfattar fler ämnen, inklusive aviserings konfiguration, nivå priser, svars hantering, användarautentisering, skapa produkter, prenumerationer för utvecklare och användnings instrument paneler.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Du behöver följande för att kunna slutföra den här guiden:
 
 * Ett Azure-konto.
 * Ett AzureML-konto.
-* Arbets ytan, tjänsten och api_key för ett AzureML experiment som distribueras som en webb tjänst. Mer information om hur du skapar ett AzureML-experiment finns i [snabb start för Studio](create-experiment.md). Information om hur du distribuerar ett Studio-experiment (klassiskt) som en webb tjänst finns i avsnittet om hur du distribuerar ett AzureML experiment som en webb tjänst i avsnittet om [distribution av Studio-distribution](publish-a-machine-learning-web-service.md) . Alternativt har bilaga A instruktioner för hur du skapar och testar ett enkelt AzureML experiment och distribuerar det som en webb tjänst.
+* Arbets ytan, tjänsten och api_key för ett AzureML experiment som distribueras som en webb tjänst. Mer information om hur du skapar ett AzureML-experiment finns i [snabb start för Studio](create-experiment.md). Information om hur du distribuerar ett Studio-experiment (klassiskt) som en webb tjänst finns i avsnittet om hur du distribuerar ett AzureML experiment som en webb tjänst i avsnittet om [distribution av Studio-distribution](deploy-a-machine-learning-web-service.md) . Alternativt har bilaga A instruktioner för hur du skapar och testar ett enkelt AzureML experiment och distribuerar det som en webb tjänst.
 
 ## <a name="create-an-api-management-instance"></a>Skapa en API Management-instans
 
 Du kan hantera Azure Machine Learning-webbtjänsten med en API Management instans.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **+ Skapa en resurs**.
 3. I sökrutan skriver du "API Management" och väljer sedan "API Management"-resursen.
 4. Klicka på **Skapa**.

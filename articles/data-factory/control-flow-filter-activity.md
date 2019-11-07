@@ -1,5 +1,5 @@
 ---
-title: Filtrera aktivitet i Azure Data Factory | Microsoft Docs
+title: Filtrera aktivitet i Azure Data Factory
 description: Filter aktiviteten filtrerar indata.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.openlocfilehash: c0f5d3264d953498af61c6e8d36dadee7dd61931
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 5794a2c754e2082fdf45ad689bdb89ea494541c2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915518"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679858"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Filtrera aktivitet i Azure Data Factory
 Du kan använda en filter aktivitet i en pipeline för att tillämpa ett filter uttryck på en indatakälla. 
@@ -36,16 +36,16 @@ Du kan använda en filter aktivitet i en pipeline för att tillämpa ett filter 
 
 ## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
+Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-name | `Filter` Aktivitetens namn. | Sträng | Ja
-type | Måste vara inställd på **filter**. | Sträng | Ja
-condition | Villkor som ska användas för att filtrera indatatypen. | Uttryck | Ja
-items | Ange matrisen som filtret ska tillämpas på. | Uttryck | Ja
+namn | `Filter` aktivitetens namn. | Sträng | Ja
+typ | Måste vara inställd på **filter**. | Sträng | Ja
+moduletype | Villkor som ska användas för att filtrera indatatypen. | Uttryck | Ja
+objekt | Ange matrisen som filtret ska tillämpas på. | Uttryck | Ja
 
 ## <a name="example"></a>Exempel
 
-I det här exemplet har pipelinen två aktiviteter: **Filtrera** och. Filter aktiviteten har kon figurer ATS för att filtrera Indataporten för objekt med ett värde som är större än 3. Förgrunds aktiviteten itererar sedan över de filtrerade värdena och ställer in variabel **testet** till det aktuella värdet.
+I det här exemplet har pipelinen två aktiviteter: **filter** **och**förloppet. Filter aktiviteten har kon figurer ATS för att filtrera Indataporten för objekt med ett värde som är större än 3. Förgrunds aktiviteten itererar sedan över de filtrerade värdena och ställer in variabel **testet** till det aktuella värdet.
 
 ```json
 {

@@ -1,5 +1,5 @@
 ---
-title: Kapacitets gränser – Azure Synapse Analytics (tidigare SQL DW) | Microsoft Docs
+title: Kapacitets gränser – Azure Synapse Analytics (tidigare SQL DW)
 description: Högsta tillåtna värden för olika komponenter i SQL Analytics i Azure dataSynapses.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,25 +10,26 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 702f78f5bae12b2eba6669a344af14f6d1236856
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c4ab9d9cc8007281e0e5729fe883e654107be6fe
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475809"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73645297"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Kapacitets gränser för Azure Synapse Analytics (tidigare SQL DW)
 
 Högsta tillåtna värden för olika komponenter i Azure-Synapse.
 
 ## <a name="workload-management"></a>Arbetsbelastningshantering
+
 | Kategori | Beskrivning | Maximal |
 |:--- |:--- |:--- |
 | [Informations lager enheter (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Max DWU för en enskild SQL-pool (data lager) enhet | Gen1: DW6000<br></br>Gen2: DW30000c |
 | [Informations lager enheter (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Standard-DTU per server |54 000<br></br>Varje SQL Server (t. ex. myserver.database.windows.net) har som standard en DTU-kvot på 54 000, vilket tillåter upp till 9 DW6000c. Kvoten är helt enkelt en säkerhetsgräns. Du kan öka kvoten genom att [skapa ett support ärende](sql-data-warehouse-get-started-create-support-ticket.md) och välja *kvot* som typ av begäran.  För att beräkna dina DTU-behov multiplicerar du 7,5 med den totala DWU som krävs, eller multiplicerar 9,0 med den totala cDWU som behövs. Till exempel:<br></br>DW6000 x 7,5 = 45 000 DTU: er<br></br>DW6000c x 9,0 = 54 000 DTU: er.<br></br>Du kan visa den aktuella DTU-förbrukningen från SQL Server-alternativet i portalen. Både pausade och inte pausade databaser räknas i förhållande till DTU-kvoten. |
 | Databas anslutning |Maximalt antal samtidiga öppna sessioner |1024<br/><br/>Antalet samtidiga öppna sessioner varierar beroende på den valda DWU. DWU600c och högre stöder högst 1024 öppna sessioner. DWU500c och nedan stöder maximalt antal samtidiga sessioner av öppen session på 512. Obs! det finns gränser för hur många frågor som kan köras samtidigt. Om samtidigheten överskrids hamnar begäran i en intern kö där den väntar på att bearbetas. |
 | Databas anslutning |Maximalt minne för för beredda uttryck |20 MB |
-| [Arbetsbelastningshantering](resource-classes-for-workload-management.md) |Maximalt antal samtidiga frågor |128<br/><br/>  Högst 128 samtidiga frågor kommer att köras och återstående frågor placeras i kö.<br/><br/>Antalet samtidiga frågor kan minska när användare tilldelas högre resurs klasser eller när inställningen för [data lagrets enhet](memory-and-concurrency-limits.md) sänks. Vissa frågor, som DMV-frågor, tillåts alltid att köras och påverkar inte gränsen för samtidiga frågor. Mer information om körning av samtidiga frågor finns i artikeln om [högsta antal](memory-and-concurrency-limits.md#concurrency-maximums) samtidiga frågor. |
+| [Arbetsbelastningshantering](resource-classes-for-workload-management.md) |Maximalt antal samtidiga frågor |128<br/><br/>  Högst 128 samtidiga frågor kommer att köras och återstående frågor placeras i kö.<br/><br/>Antalet samtidiga frågor kan minska när användare tilldelas högre resurs klasser eller när inställningen [Data Warehouse Unit] Memory-samtidighets-limits.md) sänks. Vissa frågor, som DMV-frågor, tillåts alltid att köras och påverkar inte gränsen för samtidiga frågor. Mer information om körning av samtidiga frågor finns i artikeln [samtidighets gräns] minnes-samtidighets-limits.md). |
 | [TempDB](sql-data-warehouse-tables-temporary.md) |Maximalt GB |399 GB per DW100. I DWU1000 är tempdb därför storleken 3,99 TB. |
 
 ## <a name="database-objects"></a>Databas objekt

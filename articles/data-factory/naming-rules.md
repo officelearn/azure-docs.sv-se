@@ -1,5 +1,5 @@
 ---
-title: Regler för namngivning av Azure Data Factory entiteter | Microsoft Docs
+title: Regler för namngivning av Azure Data Factory entiteter
 description: Beskriver namngivnings regler för Data Factory entiteter.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: c31cffd3c1734e8f71f8971d597eb9e3703ae331
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 04de8a72d248311729fbee647322679634b5c982
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166430"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684591"
 ---
 # <a name="azure-data-factory---naming-rules"></a>Namngivnings regler för Azure Data Factory
 Följande tabell innehåller namngivnings regler för Data Factory artefakter.

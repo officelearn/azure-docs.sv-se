@@ -1,5 +1,5 @@
 ---
-title: Köra SQL Server Integration Services-paket (SSIS) med Azure-aktiverat Dtexec-verktyget | Microsoft Docs
+title: Köra SQL Server Integration Services-paket (SSIS) med det Azure-aktiverade Dtexec-verktyget
 description: Lär dig hur du kör SQL Server Integration Services-paket (SSIS) med det Azure-aktiverade Dtexec-verktyget.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 472792351b8b7ab96e055bacd64141840ce7a630
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 9ab308d0e2145a0d0b40e8b37c8c5be07b55dac6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596949"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73673561"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Köra SQL Server Integration Services-paket med Azure-aktiverat Dtexec-verktyget
 Den här artikeln beskriver kommando tolks verktyget för Azure-aktiverad Dtexec (AzureDTExec). Den används för att köra SQL Server Integration Services-paket (SSIS) på Azure-SSIS Integration Runtime (IR) i Azure Data Factory.
@@ -30,11 +30,11 @@ AzureDTExec kör paketen som kör SSIS-paket aktiviteter i Data Factory pipeline
 
 AzureDTExec kan konfigureras via SSMS för att använda ett Azure Active Directory-program (Azure AD) som genererar pipelines i din data fabrik. Den kan också konfigureras för att komma åt fil system, fil resurser eller Azure Files där du lagrar dina paket. Baserat på de värden som du anger för sina anrops alternativ genererar AzureDTExec och kör en unik Data Factory pipeline med en aktivitet för att köra SSIS-paket. Att anropa AzureDTExec med samma värden för dess alternativ kör om den befintliga pipelinen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Om du vill använda AzureDTExec hämtar och installerar du den senaste versionen av SSMS, som är version 18,3 eller senare. Ladda ned den från [den här webbplatsen](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
 
 ## <a name="configure-the-azuredtexec-utility"></a>Konfigurera AzureDTExec-verktyget
-När du installerar SSMS på den lokala datorn installeras även AzureDTExec. Om du vill konfigurera inställningarna startar du SSMS med alternativet **Kör som administratör** . Välj sedan **verktyg**  > **migrera till Azure**  > **Konfigurera Azure-aktiverade Dtexec**.
+När du installerar SSMS på den lokala datorn installeras även AzureDTExec. Om du vill konfigurera inställningarna startar du SSMS med alternativet **Kör som administratör** . Välj sedan **verktyg** > **migrera till Azure** > **Konfigurera Azure-aktiverade Dtexec**.
 
 ![Konfigurera Azure-aktiverad Dtexec-menyn](media/how-to-invoke-ssis-package-azure-enabled-dtexec/ssms-azure-enabled-dtexec-menu.png)
 
@@ -85,8 +85,8 @@ När du anropar AzureDTExec finns liknande alternativ som när du anropar Dtexec
 - **/F [Il]** : läser in ett paket som lagras i fil system, fil resurs eller Azure Files. Som värde för det här alternativet kan du ange UNC-sökvägen för paket filen i fil system, fil resurs eller Azure Files med tillägget. dtsx. Om UNC-sökvägen som anges innehåller ett blank steg, så omge hela sökvägen med citat tecken.
 - **/Conf [igFile]** : anger en konfigurations fil för extrahering av värden från. Med det här alternativet kan du ange en körnings konfiguration för ditt paket som skiljer sig från det som anges i design läge. Du kan lagra olika inställningar i en XML-konfigurationsfil och sedan läsa in dem innan du kör paketet. Mer information finns i [SSIS Package Configurations](https://docs.microsoft.com/sql/integration-services/packages/package-configurations?view=sql-server-2017). Om du vill ange värdet för det här alternativet använder du UNC-sökvägen för konfigurations filen i fil system, fil resurs eller Azure Files med dess dtsConfig-tillägg. Om UNC-sökvägen som anges innehåller ett blank steg, så omge hela sökvägen med citat tecken.
 - **/Conn [et]** : anger anslutnings strängar för befintliga anslutnings hanterare i paketet. Med det här alternativet kan du ange körnings anslutnings strängar för befintliga anslutnings hanterare i ditt paket som skiljer sig från de som anges i design läge. Ange värdet för det här alternativet enligt följande: `connection_manager_name_or_id;connection_string [[;connection_manager_name_or_id;connection_string]...]`.
-- **/Set**: åsidosätter konfigurationen av en parameter, variabel, egenskap, container, log Provider, uppräknare för uppräknare eller anslutning i ditt paket. Det här alternativet kan anges flera gånger. Ange värdet för det här alternativet enligt följande: `property_path;value`. @No__t_0 åsidosätter till exempel värdet för `counter` variabel som 1. Du kan använda guiden **paket konfiguration** för att hitta, kopiera och klistra in värdet för `property_path` för objekt i ditt paket vars värde du vill åsidosätta. Mer information finns i [guiden paket konfiguration](https://docs.microsoft.com/sql/integration-services/package-configuration-wizard-ui-reference?view=sql-server-2014).
-- **/De [crypt]** : Anger krypterings lösen ordet för ditt paket som har kon figurer ATS med **EncryptAllWithPassword** / skydds nivå för**EncryptSensitiveWithPassword** .
+- **/Set**: åsidosätter konfigurationen av en parameter, variabel, egenskap, container, log Provider, uppräknare för uppräknare eller anslutning i ditt paket. Det här alternativet kan anges flera gånger. Ange värdet för det här alternativet enligt följande: `property_path;value`. `\package.variables[counter].Value;1` åsidosätter till exempel värdet för `counter` variabel som 1. Du kan använda guiden **paket konfiguration** för att hitta, kopiera och klistra in värdet för `property_path` för objekt i ditt paket vars värde du vill åsidosätta. Mer information finns i [guiden paket konfiguration](https://docs.microsoft.com/sql/integration-services/package-configuration-wizard-ui-reference?view=sql-server-2014).
+- **/De [crypt]** : Anger krypterings lösen ordet för ditt paket som har kon figurer ATS med **EncryptAllWithPassword**/skydds nivå för **EncryptSensitiveWithPassword** .
 
 > [!NOTE]
 > När du anropar AzureDTExec med nya värden för dess alternativ genereras en ny pipeline förutom alternativet **/de [kript]** .

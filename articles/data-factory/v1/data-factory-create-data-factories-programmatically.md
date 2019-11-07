@@ -1,5 +1,5 @@
 ---
-title: Skapa datapipelines med hjälp av Azure .NET SDK | Microsoft Docs
+title: Skapa datapipelines med hjälp av Azure .NET SDK
 description: Lär dig att program mässigt skapa, övervaka och hantera Azure-datafabriker med hjälp av Data Factory SDK.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 11120a84f2796061d76d8d813ba906da073b57c6
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: cabeb6314c16aa5bc37f1139954f8829a37af5bb
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140216"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682766"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Skapa, övervaka och hantera Azure-datafabriker med Azure Data Factory .NET SDK
 > [!NOTE]
@@ -29,12 +29,12 @@ Du kan skapa, övervaka och hantera Azure-datafabriker via programmering med Dat
 > [!NOTE]
 > Den här artikeln beskriver inte hela .NET-API:et för Data Factory. Läs [Data Factory .NET API-referens](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) för omfattande dokumentation om .net api för Data Factory. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * Visual Studio 2012, 2013 eller 2015
-* Ladda ned och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/).
+* Hämta och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 * Azure PowerShell. Följ instruktionerna i artikeln [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) för att installera Azure PowerShell på datorn. Du kan använda Azure PowerShell för att skapa ett Azure Active Directory-program.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Skapa ett program i Azure Active Directory
@@ -138,7 +138,7 @@ Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten d
         </appSettings>
     </configuration>
     ```
-5. Uppdatera värden för  **&lt;program-ID&gt;** ,  **&lt;lösen ord&gt;** , **&gt;prenumerations-ID och klient-ID i filen app. config &lt;** **&lt; med&gt;** dina egna värden.
+5. I filen app. config uppdaterar du värdena för **&lt;program-ID&gt;** , **&lt;lösen ord&gt;** , **&lt;prenumerations-ID&gt;** och **&lt;klient-ID&gt;** med dina egna värden.
 6. Lägg till följande **using** -uttryck i **program.cs** -filen i projektet.
 
     ```csharp
@@ -446,7 +446,7 @@ Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten d
     }
     ```
 
-15. Expandera projektet i Solution Explorer: **DataFactoryAPITestApp**, högerklicka på **referenser**och klicka på **Lägg till referens**. Markera kryss rutan för `System.Configuration` sammansättning och klicka på **OK**.
+15. I Solution Explorer expanderar du projektet: **DataFactoryAPITestApp**, högerklickar på **referenser**och klickar på **Lägg till referens**. Markera kryss rutan för `System.Configuration` sammansättning och klicka på **OK**.
 15. Skapa konsolprogrammet. Klicka på **Skapa** på menyn och klicka sedan på **Build Solution** (Skapa lösning).
 16. Bekräfta att det finns minst en fil i adftutorial-behållaren i Azure Blob Storage. Om inte skapar du filen EMP. txt i anteckningar med följande innehåll och laddar upp den till adftutorial-behållaren.
 

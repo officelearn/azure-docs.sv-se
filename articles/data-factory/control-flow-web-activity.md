@@ -1,5 +1,5 @@
 ---
-title: Webb aktivitet i Azure Data Factory | Microsoft Docs
+title: Webb aktivitet i Azure Data Factory
 description: Lär dig hur du kan använda webb aktivitet, en av de kontroll flödes aktiviteter som stöds av Data Factory, för att anropa en REST-slutpunkt från en pipeline.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 73770e559af8a999c17fff5ea1aa6ee53ac17e83
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 5929d4edac53b2be87e168b527034c5a473f154f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141591"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73678177"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Webb aktivitet i Azure Data Factory
 Webbaktiviteten kan används till att anropa en anpassad REST-slutpunkt från en Data Factory-pipeline. Du kan överföra datauppsättningar och länkade tjänster så att de förbrukas och används av aktiviteten.
@@ -63,17 +63,17 @@ Webbaktiviteten kan används till att anropa en anpassad REST-slutpunkt från en
 
 ## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
+Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-name | Namn på webb aktiviteten | Sträng | Ja
-type | Måste vara inställt på **webactivity**. | Sträng | Ja
-method | REST API-metod för mål slut punkten. | Nollängd. <br/><br/>Typer som stöds: "GET", "POST", "PLACERA" | Ja
+namn | Namn på webb aktiviteten | Sträng | Ja
+typ | Måste vara inställt på **webactivity**. | Sträng | Ja
+metod | REST API-metod för mål slut punkten. | nollängd. <br/><br/>Typer som stöds: "GET", "POST", "placera" | Ja
 url | Mål slut punkt och sökväg | Sträng (eller uttryck med resultType för sträng). Aktiviteten avbryts vid 1 minut med ett fel om den inte får något svar från slut punkten. | Ja
 sidhuvud | Huvuden som skickas till begäran. Om du till exempel vill ange språk och typ på en begäran: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Sträng (eller uttryck med resultType för sträng) | Ja, innehålls typ rubrik krävs. `"headers":{ "Content-Type":"application/json"}`
 brödtext | Representerar den nytto last som skickas till slut punkten.  | Sträng (eller uttryck med resultType för sträng). <br/><br/>Se schemat för nytto lasten för begäran i [nytto Last schema](#request-payload-schema) avsnittet. | Krävs för metoderna POST/infört.
 autentisering | Autentiseringsmetod som används för att anropa slut punkten. Typer som stöds är Basic eller ClientCertificate. Mer information finns i avsnittet [Authentication](#authentication) . Om autentisering inte krävs utelämnar du den här egenskapen. | Sträng (eller uttryck med resultType för sträng) | Nej
-datasets | Lista över data uppsättningar som skickats till slut punkten. | Matris med data uppsättnings referenser. Kan vara en tom matris. | Ja
-linkedServices | Lista över länkade tjänster som skickats till slut punkten. | Matris med länkade tjänst referenser. Kan vara en tom matris. | Ja
+Data uppsättningar | Lista över data uppsättningar som skickats till slut punkten. | Matris med data uppsättnings referenser. Kan vara en tom matris. | Ja
+LinkedServices | Lista över länkade tjänster som skickats till slut punkten. | Matris med länkade tjänst referenser. Kan vara en tom matris. | Ja
 
 > [!NOTE]
 > REST-slutpunkter som webb aktiviteten anropar måste returnera ett svar av typen JSON. Aktiviteten avbryts vid 1 minut med ett fel om den inte får något svar från slut punkten.
@@ -83,14 +83,14 @@ I följande tabell visas kraven för JSON-innehåll:
 | Värdetyp | Begärandetext | Svars text |
 |---|---|---|
 |JSON-objekt | Stöds | Stöds |
-|JSON-matris | Stöds <br/>(För närvarande fungerar JSON-matriser inte som ett resultat av ett fel. En korrigering pågår.) | Stöds inte |
-| JSON-värde | Stöds | Stöds inte |
-| Icke-JSON-typ | Stöds inte | Stöds inte |
+|JSON-matris | Stöds <br/>(För närvarande fungerar JSON-matriser inte som ett resultat av ett fel. En korrigering pågår.) | Stöd saknas |
+| JSON-värde | Stöds | Stöd saknas |
+| Icke-JSON-typ | Stöd saknas | Stöd saknas |
 ||||
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autentisering
 
-### <a name="none"></a>Inga
+### <a name="none"></a>Ingen
 Om autentisering inte krävs inkluderar du inte egenskapen "Authentication".
 
 ### <a name="basic"></a>Basic
@@ -104,7 +104,7 @@ Ange användar namn och lösen ord som ska användas med grundläggande autentis
 }
 ```
 
-### <a name="client-certificate"></a>Klientcertifikat
+### <a name="client-certificate"></a>Klient certifikat
 Ange Base64-kodat innehåll för en PFX-fil och lösen ordet.
 
 ```json

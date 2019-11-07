@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 647edcab5ec2925016e8a099ae43b6133037f8de
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: efb2fd8fd6b77a27130b834c2b192c1e88eec97c
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491174"
+ms.locfileid: "73578389"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installera och kör tal tjänst behållare
 
@@ -35,7 +35,7 @@ Tal behållare gör det möjligt för kunderna att bygga en tal program arkitekt
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande krav gäller innan du använder tal behållare:
 
@@ -167,19 +167,7 @@ Följande tagg är ett exempel på formatet:
 2.0.0-amd64-en-us-preview
 ```
 
-I följande tabell visas de språk som stöds för **tal till text** i 2.0.0-versionen av behållaren:
-
-| Språk språk | Taggar |
-|--|--|
-| Kinesiska | `zh-CN` |
-| Svenska | `en-US`<br>`en-GB`<br>`en-AU`<br>`en-IN` |
-| Franska | `fr-CA`<br>`fr-FR` |
-| Tyska | `de-DE` |
-| Italienska | `it-IT` |
-| Japanska | `ja-JP` |
-| Koreanska | `ko-KR` |
-| Portugisiska | `pt-BR` |
-| Spanska | `es-ES`<br>`es-MX` |
+För alla språk som stöds i 2.0.0-versionen av " **tal-till-text"-** behållaren, se **container support** -kolumnen i stöd tabellen för [tal-till-text-språk](language-support.md#speech-to-text) .
 
 # <a name="custom-speech-to-texttabcstt"></a>[Custom Speech till text](#tab/cstt)
 
@@ -221,24 +209,7 @@ Följande tagg är ett exempel på formatet:
 1.3.0-amd64-en-us-jessarus-preview
 ```
 
-I följande tabell visas de språk som stöds för **text till tal** i 1.3.0-versionen av behållaren:
-
-| Språk språk | Taggar | Röster som stöds |
-|--|--|--|
-| Kinesiska | `zh-CN` | huihuirus<br>kangkang-apollo<br>yaoyao-apollo |
-| Svenska | `en-AU` | catherine<br>hayleyrus |
-| Svenska | `en-GB` | George – Apollo<br>hazelrus<br>Susan – Apollo |
-| Svenska | `en-IN` | heera-apollo<br>priyarus<br>ravi-apollo<br> |
-| Svenska | `en-US` | jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus |
-| Franska | `fr-CA` | caroline<br>harmonierus |
-| Franska | `fr-FR` | hortenserus<br>julie-apollo<br>Paul – Apollo |
-| Tyska | `de-DE` | hedda<br>heddarus<br>Stefan – Apollo |
-| Italienska | `it-IT` | cosimo-apollo<br>luciarus |
-| Japanska | `ja-JP` | ayumi-apollo<br>harukarus<br>ichiro-apollo |
-| Koreanska | `ko-KR` | heamirus |
-| Portugisiska | `pt-BR` | Daniel – Apollo<br>heloisarus |
-| Spanska | `es-ES` | elenarus<br>Lisa – Apollo<br>pablo-apollo<br> |
-| Spanska | `es-MX` | hildarus<br>raul-apollo |
+För alla språk som stöds och motsvarande röster i 1.3.0-versionen av **text till tal-** behållaren, se kolumnen **container support** i [standard språk support](language-support.md#standard-voices) tabellen.
 
 > [!IMPORTANT]
 > När du konstruerar ett *standard text-till-tal* -http-post kräver [SSML-](speech-synthesis-markup.md) meddelandet ett `voice`-element med ett `name`-attribut. Värdet är motsvarande behållares nationella inställningar och röst, även kallat ["kort namn"](language-support.md#standard-voices). Till exempel skulle taggen `latest` ha röst namnet `en-US-JessaRUS`.
@@ -260,7 +231,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-text
 
 ## <a name="how-to-use-the-container"></a>Använda behållaren
 
-När behållaren är på [värddatorn](#the-host-computer)använder du följande process för att arbeta med behållaren.
+När behållaren är på [värddatorn](#the-host-computer) använder du följande process för att arbeta med behållaren.
 
 1. [Kör behållaren](#run-the-container-with-docker-run)med de fakturerings inställningar som krävs. Fler [exempel](speech-container-configuration.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga.
 1. [Fråga behållarens förutsägelse slut punkt](#query-the-containers-prediction-endpoint).

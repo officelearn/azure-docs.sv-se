@@ -1,20 +1,17 @@
 ---
 title: Förstå mått för Azure våren Cloud
 description: Lär dig hur du granskar mått i Azure våren-molnet
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 10/06/2019
-ms.author: v-vasuke
-ms.openlocfilehash: d9c6f14b7ecfc2929dc48c11e0df1fe80303c8b1
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.author: jeconnoc
+ms.openlocfilehash: 952dfc1c707df3b7fa61443ea6ea18630352f0dc
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72039128"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607815"
 ---
 # <a name="metrics-for-azure-spring-cloud"></a>Mått för Azure våren Cloud
 
@@ -26,11 +23,11 @@ På sidan **program översikt** för varje program visas ett mått diagram som g
 
 Vi tillhandahåller 5 diagram med mått som uppdateras varje minut för följande:
 
-* **Http-server fel**: Fel antal för HTTP-begäranden till din app.
-* **Data i**: Byte som tagits emot av din app.
-* **Data ut**: Byte som skickats till din app.
-* **Begär Anden**: Förfrågningar som tagits emot av din app.
-* **Genomsnittlig svars tid**: Genomsnittlig svars tid från din app.
+* **Http-server fel**: fel antal för HTTP-begäranden till din app.
+* **Data i**: byte mottagna av din app.
+* **Data ut**: byte som skickats till din app.
+* **Begär Anden**: begär Anden som tagits emot av din app.
+* **Genomsnittlig svars tid**: genomsnittlig svars tid från din app.
 
 Du kan välja ett tidsintervall för diagrammet mellan 1 timme och upp till 7 dagar.
 
@@ -44,9 +41,9 @@ Om du vill granska mått data väljer du ditt mått, din **agg regering**och dit
 
 Azure-avsökningar och uppdaterar mått varje minut. Azure tillhandahåller tre sätt att aggregera data för en vald tids period:
 
-* **Totalt**: Summera alla mått som mål utdata.
-* **Genomsnitt**: Använd det genomsnittliga värdet i perioden som mål utdata.
-* **Max/min**: Använd värdet max/min i perioden som mål utdata.
+* **Totalt**: summera alla mått som mål utdata.
+* **Genomsnittligt**värde: Använd medelvärdet i perioden som mål för utdata.
+* **Max/min**: Använd max-/min-värdet i perioden som mål utdata.
 
 ### <a name="time-range"></a>Tidsintervall
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 36e0742101203764a731dd2007d239593a500bfa
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1ae3caa2d1f90bbbae1070d95d676eb206a361a0
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507928"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647356"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Konfigurera virtuella Azure Cognitive Services-nätverk
 
@@ -24,7 +24,7 @@ Ett program som har åtkomst till en Cognitive Services-resurs när nätverks re
 
 > [!IMPORTANT]
 > Om du aktiverar brand Väggs regler för ditt Cognitive Services-konto blockeras inkommande begär Anden för data som standard. För att tillåta begär Anden genom måste något av följande villkor vara uppfyllda:
-> * Begäran bör härstamma från en tjänst som körs i ett Azure-Virtual Network (VNet) i listan över tillåtna undernät för mål Cognitive Services kontot.
+> * Begäran bör härstamma från en tjänst som körs i ett Azure-Virtual Network (VNet) i listan över tillåtna undernät för mål Cognitive Services kontot. Slut punkten i begär Anden som kommer från VNet måste anges som den [anpassade under domänen](cognitive-services-custom-subdomains.md) för ditt Cognitive Services-konto.
 > * Eller så måste begäran härstamma från en lista över tillåtna IP-adresser.
 >
 > Begär Anden som blockeras inkluderar de från andra Azure-tjänster, från Azure Portal, från loggnings-och mått tjänster och så vidare.
@@ -372,7 +372,7 @@ Du kan hantera IP-nätverks regler för Cognitive Services resurser via Azure Po
     (Get-AzCognitiveServicesAccountNetworkRuleSet @parameters).IPRules
     ```
 
-1. Lägg till en nätverks regel för en enskild IP-adress.
+1. Lägg till en regel för en enskild IP-adress.
 
     ```azurepowershell-interactive
     $parameters = @{
@@ -427,7 +427,7 @@ Du kan hantera IP-nätverks regler för Cognitive Services resurser via Azure Po
         -g "myresourcegroup" -n "myaccount" --query ipRules
     ```
 
-1. Lägg till en nätverks regel för en enskild IP-adress.
+1. Lägg till en regel för en enskild IP-adress.
 
     ```azurecli-interactive
     az cognitiveservices account network-rule add \

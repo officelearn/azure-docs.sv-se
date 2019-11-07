@@ -1,5 +1,5 @@
 ---
-title: Skala ut en Azure SQL-databas | Microsoft Docs
+title: Skala ut en Azure SQL-databas
 description: Använda klient biblioteket ShardMapManager, Elastic Database
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 3e7e2294938179da83fb5ad03db177c1142ad096
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d704e22dcd9ce4442ed16ae901c9c447fc025ebd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568338"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690166"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Skala ut databaser med mappnings hanteraren för Shard
 
@@ -53,13 +53,13 @@ Elastisk skalning stöder följande typer som horisontell partitionering-nycklar
 
 | .NET | Java |
 | --- | --- |
-| integer |integer |
-| long |long |
-| LED |uuid |
-| byte[]  |byte[] |
-| datetime | timestamp |
-| TimeSpan | duration|
-| datetimeoffset |offsetdatetime |
+| heltal |heltal |
+| som |som |
+| guid |uuid |
+| byte []  |byte [] |
+| datetime | tidsstämpel |
+| intervall | Giltighet|
+| DateTimeOffset |offsetdatetime |
 
 ### <a name="list-and-range-shard-maps"></a>List-och intervall Shard Maps
 
@@ -85,10 +85,10 @@ Till exempel innehåller **[0, 100)** alla heltal som är större än eller lika
 
 | Nyckel | Shard-plats |
 | --- | --- |
-| [1,50) |Database_A |
-| [50,100) |Database_B |
-| [100,200) |Database_C |
-| [400,600) |Database_C |
+| [1, 50) |Database_A |
+| [50 100) |Database_B |
+| [100 200) |Database_C |
+| [400 600) |Database_C |
 | ... |... |
 
 Var och en av de tabeller som visas ovan är ett konceptuellt exempel på ett **ShardMap** -objekt. Varje rad är ett förenklat exempel på en enskild **PointMapping** (för List Shard Map) eller **RangeMapping** (för Range Shard Map)-objektet.
@@ -97,15 +97,15 @@ Var och en av de tabeller som visas ovan är ett konceptuellt exempel på ett **
 
 I klient biblioteket är Shard Map Manager en samling Shard Maps. De data som hanteras av en **ShardMapManager** -instans lagras på tre platser:
 
-1. **GSM (global Shard Map)** : Du anger en databas som ska fungera som lagrings plats för alla Shard Maps och mappningar. Särskilda tabeller och lagrade procedurer skapas automatiskt för att hantera informationen. Detta är vanligt vis en liten databas och lätt att komma åt och bör inte användas för andra programs behov. Tabellerna är i ett särskilt schema med namnet **__ShardManagement**.
-2. **LSM (Local Shard Map)** : Varje databas som du anger som Shard ändras till att innehålla flera små tabeller och särskilda lagrade procedurer som innehåller och hanterar Shard kart information som är specifik för den Shard. Den här informationen är överflödig med informationen i GSM och gör det möjligt för programmet att verifiera cachelagrade Shard för kart information utan att placera någon belastning på GSMen. programmet använder LSM för att avgöra om en cachelagrad mappning fortfarande är giltig. Tabellerna som motsvarar LSM på varje Shard finns också i schemat **__ShardManagement**.
-3. **Programcache**: Varje program instans som använder ett **ShardMapManager** -objekt underhåller en lokal minnes intern cache med mappningarna. Den innehåller routningsinformation som nyligen har hämtats.
+1. **GSM (global Shard Map)** : du anger en databas som ska användas som lagrings plats för alla dess Shard-kartor och mappningar. Särskilda tabeller och lagrade procedurer skapas automatiskt för att hantera informationen. Detta är vanligt vis en liten databas och lätt att komma åt och bör inte användas för andra programs behov. Tabellerna är i ett särskilt schema med namnet **__ShardManagement**.
+2. **Lokal Shard Map (LSM)** : varje databas som du anger som en Shard ändras till att innehålla flera små tabeller och särskilda lagrade procedurer som innehåller och hanterar Shard kart information som är specifik för den Shard. Den här informationen är överflödig med informationen i GSM och gör det möjligt för programmet att verifiera cachelagrade Shard för kart information utan att placera någon belastning på GSMen. programmet använder LSM för att avgöra om en cachelagrad mappning fortfarande är giltig. Tabellerna som motsvarar LSM på varje Shard finns också i schemat **__ShardManagement**.
+3. **Programcache**: varje program instans som använder ett **ShardMapManager** -objekt har en lokal minnes intern cache med mappningarna. Den innehåller routningsinformation som nyligen har hämtats.
 
 ## <a name="constructing-a-shardmapmanager"></a>Skapa en ShardMapManager
 
 Ett **ShardMapManager** -objekt konstrueras med ett fabriks mönster ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory), [.net](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory)). Metoden **ShardMapManagerFactory. GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.net](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)) använder autentiseringsuppgifter (inklusive Server namnet och databas namnet som innehåller GSM) i form av en **ConnectionString** och returnerar en instans av en  **ShardMapManager**.  
 
-**Obs!** **ShardMapManager** ska endast instansieras en gång per app-domän, inom initierings koden för ett program. Skapandet av ytterligare instanser av ShardMapManager i samma app-domän resulterar i ökad minnes-och CPU-användning av programmet. En **ShardMapManager** kan innehålla valfritt antal Shard Maps. Även om en enda Shard-karta kan vara tillräcklig för många program, finns det tillfällen då olika uppsättningar databaser används för olika scheman eller för unika syfte. i dessa fall kan flera Shard Maps vara bättre.
+**Observera:** **ShardMapManager** ska endast instansieras en gång per app-domän, inom initierings koden för ett program. Skapandet av ytterligare instanser av ShardMapManager i samma app-domän resulterar i ökad minnes-och CPU-användning av programmet. En **ShardMapManager** kan innehålla valfritt antal Shard Maps. Även om en enda Shard-karta kan vara tillräcklig för många program, finns det tillfällen då olika uppsättningar databaser används för olika scheman eller för unika syfte. i dessa fall kan flera Shard Maps vara bättre.
 
 I den här koden försöker ett program öppna en befintlig **ShardMapManager** med TryGetSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.trygetsqlshardmapmanager), [.net](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) -metod. Om objekt som representerar en global **ShardMapManager** (GSM) ännu inte finns i databasen, skapar klient biblioteket dem med hjälp av metoden CreateSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.createsqlshardmapmanager), [.net](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)).
 

@@ -1,6 +1,6 @@
 ---
-title: Konfigurera vikten för arbetsbelastningen i Azure SQL Data Warehouse | Microsoft Docs
-description: Lär dig mer om att begäran på prioritet.
+title: Konfigurera arbetsbelastningsprioritet
+description: Lär dig hur du ställer in prioritet för ärende nivån.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
@@ -10,26 +10,27 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: e4d410f32068b4d3035dcab0c61b7b9205103690
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 59ba4b936f6098b0d0b3f5e571f107af088206e0
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67588684"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692686"
 ---
-# <a name="configure-workload-importance-in-azure-sql-data-warehouse"></a>Konfigurera vikten för arbetsbelastningen i Azure SQL Data Warehouse
+# <a name="configure-workload-importance-in-azure-sql-data-warehouse"></a>Konfigurera prioritet för arbets belastning i Azure SQL Data Warehouse
 
-Ange prioritet i SQL Data Warehouse kan du påverka planeringen av frågor. Frågor med högre prioritet schemaläggs att köras innan frågor med lägre prioritet. Om du vill ange prioritet frågor, måste du skapa en klassificerare för arbetsbelastning.
+Genom att ange prioritet i SQL Data Warehouse kan du påverka schemaläggningen av frågor. Frågor med högre prioritet schemaläggs att köras innan frågor med lägre prioritet. Om du vill tilldela prioritet för frågor måste du skapa en klassificering för arbets belastning.
 
-## <a name="create-a-workload-classifier-with-importance"></a>Skapa en klassificerare för arbetsbelastning med prioritet
+## <a name="create-a-workload-classifier-with-importance"></a>Skapa en klassificering av arbets belastningar med prioritet
 
-I ett scenario med data warehouse har ofta användare som behöver deras frågor körs snabbt.  Användaren kan chefer på företaget som behöver köra rapporter eller användaren kan vara en analytiker som en ad hoc-fråga som körs. Du skapar en arbetsbelastning klassificerare för att ange prioritet till en fråga.  Exemplen nedan använder den nya [skapa arbetsbelastning klassificerare](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) syntaxen för att skapa två klassificerare.  Medlemsnamn kan vara en enskild användare eller en grupp. Enskilda användare klassificeringar företräde framför rollen klassificeringar. Om du vill hitta befintliga data warehouse-användare, kör du:
+I ett informations lager scenario har du ofta användare som behöver sina frågor för att kunna köras snabbt.  Användaren kan vara chefer för företaget som behöver köra rapporter eller så kan användaren vara en analytiker som kör en adhoc-fråga. Du skapar en arbets belastnings klassificerare för att tilldela prioritet för en fråga.  I exemplen nedan används den nya klassificerings-syntaxen för [create-arbetsbelastning](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) för att skapa två klassificerare.  Membername kan vara en enskild användare eller en grupp. Enskilda användar klassificeringar prioriteras framför roll klassificeringar. Om du vill hitta befintliga data lager användare kör du:
 
 ```sql
 Select name from sys.sysusers
 ```
 
-Om du vill skapa en klassificerare för arbetsbelastning för en användare med högre prioritet kör:
+För att skapa en arbets belastnings klassificering för en användare med en högre prioritets körning:
 
 ```sql
 CREATE WORKLOAD CLASSIFIER ExecReportsClassifier  
@@ -39,7 +40,7 @@ CREATE WORKLOAD CLASSIFIER ExecReportsClassifier 
 
 ```
 
-Skapa en klassificerare för arbetsbelastning för en användare som kör ad hoc-frågor med lägre prioritet som kör:  
+Så här skapar du en arbets belastnings klassificering för en användare som kör adhoc-frågor med lägre prioritets körning:  
 
 ```sql
 CREATE WORKLOAD CLASSIFIER AdhocClassifier  
@@ -49,8 +50,8 @@ CREATE WORKLOAD CLASSIFIER AdhocClassifier 
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om hantering av arbetsbelastning, [arbetsbelastning klassificering](sql-data-warehouse-workload-classification.md)
-- Läs mer på vikten [arbetsbelastning prioritet](sql-data-warehouse-workload-importance.md)
+- Mer information om arbets belastnings hantering finns i avsnittet om [arbets belastnings klassificering](sql-data-warehouse-workload-classification.md)
+- Mer information om prioritet finns i [arbets belastnings prioritet](sql-data-warehouse-workload-importance.md)
 
 > [!div class="nextstepaction"]
-> [Gå till hantera och övervaka arbetsbelastningen prioritet](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)
+> [Gå till hantera och övervaka arbets belastnings prioritet](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)

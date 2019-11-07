@@ -1,5 +1,5 @@
 ---
-title: Begränsningar för Azure SQL Database Server resurser | Microsoft Docs
+title: Begränsningar för Azure SQL Database Server resurser
 description: Den här artikeln innehåller en översikt över gränsen för Azure SQL Database Server resurser för enskilda databaser och elastiska pooler. Den innehåller också information om vad som händer när dessa resurs gränser nåtts eller överskrids.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 04/18/2019
-ms.openlocfilehash: 175f694cbe46f871349136c9ce91888b6de48d21
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b358e69df1df579e91a9098c120c7e6b4e3f2ead
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566860"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687498"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>SQL Database resurs gränser för Azure SQL Database Server
 
@@ -27,12 +27,12 @@ Den här artikeln innehåller en översikt över SQL Database resurs gränser f�
 
 ## <a name="maximum-resource-limits"></a>Högsta antal resurs gränser
 
-| Resource | Gräns |
+| Resurs | Gräns |
 | :--- | :--- |
 | Databaser per server | 5000 |
 | Standard antal servrar per prenumeration i valfri region | 20 |
 | Maximalt antal servrar per prenumeration i valfri region | 200 |  
-| Kvot för DTU/eDTU per server | 54,000 |  
+| Kvot för DTU/eDTU per server | 54 000 |  
 | vCore-kvot per Server/instans | 540 |
 | Högsta antal pooler per server | Begränsas av antalet DTU: er eller virtuella kärnor. Om varje pool till exempel är 1000 DTU: er, kan en server stödja 54-pooler.|
 |||
@@ -44,7 +44,7 @@ Den här artikeln innehåller en översikt över SQL Database resurs gränser f�
 > - Ökande svars tid för att köra frågor mot huvud databasen.  Detta inkluderar vyer av statistik över resursutnyttjande, till exempel sys. resource_stats.
 > - Ökande svars tid i hanterings åtgärder och åter givning av Portal synvinklar som innefattar att räkna upp databaser på servern.
 
-### <a name="storage-size"></a>Lagringsstorlek
+### <a name="storage-size"></a>Lagrings storlek
 - Rources för enskilda databaser hänvisar till antingen [DTU-baserade resurs gränser](sql-database-dtu-resource-limits-single-databases.md) eller [vCore resurs gränser](sql-database-vcore-resource-limits-single-databases.md) för lagrings storleks gränser per pris nivå.
 
 ## <a name="what-happens-when-database-resource-limits-are-reached"></a>Vad händer när databas resurs gränser nås

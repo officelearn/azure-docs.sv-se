@@ -1,5 +1,5 @@
 ---
-title: Hantera historiska data i temporala tabeller med bevarande princip | Microsoft Docs
+title: Hantera historiska data i temporala tabeller med bevarande princip
 description: Lär dig hur du använder temporal bevarande princip för att behålla historiska data under din kontroll.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 09/25/2018
-ms.openlocfilehash: 72022510676548fad79031d4334a2c95571fc16d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2568f3be96604856d5353f7f5f94926162880bfd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566389"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686991"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Hantera historiska data i temporala tabeller med bevarande princip
 
@@ -41,7 +41,7 @@ SELECT is_temporal_history_retention_enabled, name
 FROM sys.databases
 ```
 
-Databas flaggan **is_temporal_history_retention_enabled** är inställd på som standard, men användare kan ändra den med Alter Database-instruktionen. Den anges också automatiskt till av efter återställnings åtgärden vid tidpunkten. [](sql-database-recovery-using-backups.md) Om du vill aktivera rensning av temporala historik för databasen kör du följande instruktion:
+Databas flaggan **is_temporal_history_retention_enabled** är inställd på som standard, men användare kan ändra den med Alter Database-instruktionen. Den anges också automatiskt till av efter [återställnings](sql-database-recovery-using-backups.md) åtgärden vid tidpunkten. Om du vill aktivera rensning av temporala historik för databasen kör du följande instruktion:
 
 ```sql
 ALTER DATABASE <myDB>
@@ -73,7 +73,7 @@ CREATE TABLE dbo.WebsiteUserInfo
  );
 ```
 
-Med Azure SQL Database kan du ange kvarhållningsperiod genom att använda olika tidsenheter: DAGAR, veckor, månader och år. Om HISTORY_RETENTION_PERIOD utelämnas förutsätts oändlig kvarhållning. Du kan också använda OÄNDLIGt nyckelord explicit.
+Med Azure SQL Database kan du ange kvarhållningsperiod genom att använda olika tidsenheter: dagar, veckor, månader och år. Om HISTORY_RETENTION_PERIOD utelämnas förutsätts oändlig kvarhållning. Du kan också använda OÄNDLIGt nyckelord explicit.
 
 I vissa fall kanske du vill konfigurera kvarhållning när tabellen har skapats, eller ändra det tidigare konfigurerade värdet. I så fall använder du ALTER TABLE-instruktionen:
 
@@ -83,7 +83,7 @@ SET (SYSTEM_VERSIONING = ON (HISTORY_RETENTION_PERIOD = 9 MONTHS));
 ```
 
 > [!IMPORTANT]
-> Att ange SYSTEM_VERSIONING till OFF bevarar *inte* värdet för kvarhållning av period. Om du anger SYSTEM_VERSIONING till på utan HISTORY_RETENTION_PERIOD anges explicit i den oändliga kvarhållningsperioden.
+> Att ange SYSTEM_VERSIONING till OFF *bevarar inte* värdet för kvarhållning av period. Om du anger SYSTEM_VERSIONING till på utan HISTORY_RETENTION_PERIOD anges explicit i den oändliga kvarhållningsperioden.
 
 Om du vill granska aktuell status för bevarande principen använder du följande fråga som ansluter flaggan temporal kvarhållning av aktivering på databas nivå med kvarhållningsperiod för enskilda tabeller:
 
@@ -116,11 +116,11 @@ Med utmärkt data komprimering och effektiv kvarhållning av rensning görs ett 
 
 Rensnings aktiviteten för tabeller med rowstore-grupperat index kräver index att börja med kolumnen som motsvarar slutet av SYSTEM_TIME-perioden. Om detta index inte finns kan du inte konfigurera en begränsad kvarhållningsperiod:
 
-*MSG 13765, nivå 16, tillstånd 1 <br> </br> inställning av begränsad kvarhållningsperiod misslyckades för den temporala system versions tabellen ' temporalstagetestdb. dbo. WebsiteUserInfo ' eftersom historik tabellen ' temporalstagetestdb. dbo. WebsiteUserInfoHistory innehåller inte det obligatoriska grupperade indexet. Överväg att skapa ett grupperat columnstore-eller B-träd-index som börjar med den kolumn som matchar slutet av SYSTEM_TIME-perioden, i historik tabellen.*
+*MSG 13765, nivå 16, tillstånd 1 <br></br> inställning av begränsad kvarhållningsperiod misslyckades för den temporala system versions tabellen "temporalstagetestdb. dbo. WebsiteUserInfo" eftersom historik tabellen "temporalstagetestdb. dbo. WebsiteUserInfoHistory" inte innehåller nödvändigt grupperat index. Överväg att skapa ett grupperat columnstore-eller B-träd-index som börjar med den kolumn som matchar slutet av SYSTEM_TIME-perioden, i historik tabellen.*
 
 Det är viktigt att Observera att standard historik tabellen som skapats av Azure SQL Database redan har grupperat index, vilket är kompatibelt med bevarande principen. Om du försöker ta bort indexet i en tabell med begränsad kvarhållningsperioden, Miss lyckas åtgärden med följande fel:
 
-*MSG 13766, Level 16, State 1 <br> </br> kan inte släppa det grupperade indexet WebsiteUserInfoHistory. IX_WebsiteUserInfoHistory eftersom det används för automatisk rensning av föråldrade data. Överväg att ange HISTORY_RETENTION_PERIOD till OÄNDLIGt i motsvarande system versions temporal tabell om du behöver släppa det här indexet.*
+*MSG 13766, nivå 16, tillstånd 1 <br></br> det går inte att släppa det grupperade indexet WebsiteUserInfoHistory. IX_WebsiteUserInfoHistory eftersom det används för automatisk rensning av föråldrade data. Överväg att ange HISTORY_RETENTION_PERIOD till OÄNDLIGt i motsvarande system versions temporal tabell om du behöver släppa det här indexet.*
 
 Rensning av det grupperade columnstore-indexet fungerar optimalt om historiska rader infogas i stigande ordning (sorteras efter periodens slut), vilket alltid är fallet när historik tabellen fylls exklusivt av SYSTEM_VERSIONIOING-mekanismen. Om rader i historik tabellen inte sorteras efter periodens slut punkt (som kan vara fallet om du migrerade befintliga historiska data) bör du återskapa ett grupperat columnstore-index över B-Tree rowstore-indexet som är korrekt beställt för att uppnå optimalt historik.
 
@@ -144,7 +144,7 @@ CREATE NONCLUSTERED INDEX IX_WebHistNCI ON WebsiteUserInfoHistory ([UserName])
 
 Ett försök att köra ovanstående instruktionen Miss lyckas med följande fel:
 
-*MSG 13772, Level 16, State 1 <br> </br> kan inte skapa icke-grupperat index för en temporal historik tabell ' WebsiteUserInfoHistory ' eftersom den har en begränsad kvarhållningsperiod och ett grupperat columnstore-index har definierats.*
+*MSG 13772, Level 16, State 1 <br></br> kan inte skapa icke-grupperat index för en temporal historik tabell ' WebsiteUserInfoHistory ' eftersom den har en begränsad kvarhållningsperiod och ett grupperat columnstore-index har definierats.*
 
 ## <a name="querying-tables-with-retention-policy"></a>Frågar tabeller med bevarande princip
 

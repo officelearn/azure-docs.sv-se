@@ -1,5 +1,5 @@
 ---
-title: Skapa, uppdatera statistik – Azure SQL Data Warehouse | Microsoft Docs
+title: Skapa, uppdatera statistik
 description: Rekommendationer och exempel för att skapa och uppdatera statistik för att optimera frågor i tabeller i Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,13 +10,13 @@ ms.subservice: development
 ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seoapril2019
-ms.openlocfilehash: 00643e303b3352ce9ce39e5a27fd8b42246aac51
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: c995358fc0135a1f9b504b57b23ecb3f6b41d6da
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479173"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692406"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Tabell statistik i Azure SQL Data Warehouse
 
@@ -46,7 +46,7 @@ SET AUTO_CREATE_STATISTICS ON
 
 Dessa uttryck utlöser automatisk skapande av statistik:
 
-- Välj
+- VÄLJ
 - INFOGA-VÄLJ
 - CTAS
 - UPDATE
@@ -61,7 +61,7 @@ Automatisk generering av statistik görs synkront så att du kan få en försäm
 > [!NOTE]
 > Statistik skapandet loggas i [sys. DM-_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) under en annan användar kontext.
 
-När automatisk statistik skapas, kommer de att ha formen: _WA_Sys_< 8 siffrors kolumn-ID i hex > _ < 8 siffer tabell-ID i hex >. Du kan visa statistik som redan har skapats genom att köra [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest) -kommandot:
+När automatisk statistik skapas, kommer de att ha formatet: _WA_Sys_< 8 siffror kolumn-ID i hex > _ < 8 siffer tabell-ID i hex >. Du kan visa statistik som redan har skapats genom att köra [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest) -kommandot:
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -77,7 +77,7 @@ Följande är rekommendationer om uppdaterings statistik:
 
 |||
 |-|-|
-| **Frekvens för statistik uppdateringar**  | Restriktiv Dagligen </br> När du har läst in eller omvandlat dina data |
+| **Frekvens för statistik uppdateringar**  | Försiktigt: varje dag </br> När du har läst in eller omvandlat dina data |
 | **Sampling** |  Färre än 1 000 000 000 rader, Använd standard sampling (20 procent). </br> Med fler än 1 000 000 000 rader använder du samplingen av två procent. |
 
 En av de första frågorna för att fråga när du felsöker en fråga är **"är statistiken uppdaterad?"**
@@ -130,11 +130,11 @@ Följande GUID-principer används för att uppdatera din statistik under inläsn
 * Fokusera på kolumner som ingår i JOIN-, GROUP BY-, ORDER BY-och DISTINCT-satser.
 * Överväg att uppdatera "ascending Key"-kolumner som transaktions datum oftare, eftersom dessa värden inte kommer att ingå i statistik histogrammet.
 * Överväg att uppdatera statiska distributions kolumner mindre ofta.
-* Kom ihåg att varje statistik objekt uppdateras i följd. Att bara `UPDATE STATISTICS <TABLE_NAME>` implementera är inte alltid idealiskt, särskilt för breda tabeller med massor av statistik objekt.
+* Kom ihåg att varje statistik objekt uppdateras i följd. Att bara implementera `UPDATE STATISTICS <TABLE_NAME>` är inte alltid idealiskt, särskilt för breda tabeller med massor av statistik objekt.
 
-Mer information finns i [beräkning](/sql/relational-databases/performance/cardinality-estimation-sql-server)av kardinalitet.
+Mer information finns i [beräkning av kardinalitet](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 
-## <a name="examples-create-statistics"></a>Exempel: Skapa statistik
+## <a name="examples-create-statistics"></a>Exempel: skapa statistik
 
 I de här exemplen visas hur du använder olika alternativ för att skapa statistik. De alternativ som du använder för varje kolumn beror på egenskaperna för dina data och hur kolumnen kommer att användas i frågor.
 
@@ -148,7 +148,7 @@ I den här syntaxen används alla standard alternativ. Som standard SQL Data War
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
 ```
 
-Exempel:
+Till exempel:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
@@ -164,7 +164,7 @@ Använd följande syntax för att sampla den fullständiga tabellen:
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
 ```
 
-Exempel:
+Till exempel:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
@@ -210,7 +210,7 @@ Om du vill skapa ett statistik objekt med flera kolumner, använder du bara för
 > [!NOTE]
 > Histogrammet, som används för att uppskatta antalet rader i frågeresultatet, är bara tillgängligt för den första kolumnen som anges i statistik objekt definitionen.
 
-I det här exemplet är histogrammet i *produkt\_kategorin*. Statistik över kolumner beräknas i *produkt\_kategori* och *produkt\_sub_category*:
+I det här exemplet är histogrammet i *kategorin produkt\_* . Statistik över kolumner beräknas för *produkt\_kategori* och *produkt\_sub_category*:
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
@@ -352,7 +352,7 @@ EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 
 Så här skapar du exempel statistik för alla kolumner
 
-## <a name="examples-update-statistics"></a>Exempel: Uppdatera statistik
+## <a name="examples-update-statistics"></a>Exempel: uppdatera statistik
 
 Om du vill uppdatera statistiken kan du:
 
@@ -367,7 +367,7 @@ Använd följande syntax för att uppdatera ett enskilt statistik objekt:
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
-Exempel:
+Till exempel:
 
 ```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
@@ -383,7 +383,7 @@ En enkel metod för att uppdatera alla statistik objekt i en tabell är:
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
-Exempel:
+Till exempel:
 
 ```sql
 UPDATE STATISTICS dbo.table1;
@@ -394,7 +394,7 @@ UPDATE STATISTICS-instruktionen är enkel att använda. Kom bara ihåg att den u
 > [!NOTE]
 > När du uppdaterar all statistik för en tabell, SQL Data Warehouse göra en genomsökning för att sampla tabellen för varje statistik objekt. Om tabellen är stor och har många kolumner och många statistik, kan det vara mer effektivt att uppdatera individuell statistik utifrån behov.
 
-En implementering av en `UPDATE STATISTICS` procedur finns i temporära [tabeller](sql-data-warehouse-tables-temporary.md). Implementerings metoden skiljer sig något från föregående `CREATE STATISTICS` procedur, men resultatet är detsamma.
+En implementering av en `UPDATE STATISTICS` procedur finns i [temporära tabeller](sql-data-warehouse-tables-temporary.md). Implementerings metoden skiljer sig något från föregående `CREATE STATISTICS` procedur, men resultatet är detsamma.
 
 Fullständig syntax finns i [Uppdatera statistik](/sql/t-sql/statements/update-statistics-transact-sql).
 
@@ -406,15 +406,15 @@ Det finns flera systemvyer och funktioner som du kan använda för att hitta inf
 
 Dessa system visningar innehåller information om statistik:
 
-| Katalogvy | Beskrivning |
+| katalogvy | Beskrivning |
 |:--- |:--- |
-| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |En rad för varje kolumn. |
+| [sys. columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |En rad för varje kolumn. |
 | [sys. Objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |En rad för varje objekt i databasen. |
-| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |En rad för varje schema i databasen. |
+| [sys. schema](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |En rad för varje schema i databasen. |
 | [sys. stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql) |En rad för varje statistik objekt. |
-| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql) |En rad för varje kolumn i objektet statistik. Länkar tillbaka till sys. columns. |
-| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |En rad för varje tabell (inklusive externa tabeller). |
-| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql) |En rad för varje datatyp. |
+| [sys. stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql) |En rad för varje kolumn i objektet statistik. Länkar tillbaka till sys. columns. |
+| [sys. tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |En rad för varje tabell (inklusive externa tabeller). |
+| [sys. table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql) |En rad för varje datatyp. |
 
 ### <a name="system-functions-for-statistics"></a>System funktioner för statistik
 
@@ -465,13 +465,13 @@ AND     st.[user_created] = 1
 ;
 ```
 
-## <a name="dbcc-showstatistics-examples"></a>DBCC SHOW_STATISTICS ()-exempel
+## <a name="dbcc-show_statistics-examples"></a>DBCC SHOW_STATISTICS ()-exempel
 
 DBCC SHOW_STATISTICS () visar data som lagras i ett statistik objekt. Dessa data ingår i tre delar:
 
 - Huvud
 - Densitets vektor
-- Histogram
+- Tillägget
 
 Metadata för sidhuvudet om statistiken. Histogrammet visar fördelningen av värden i den första nyckel kolumnen i statistik-objektet. Täthets vektorn mäter en jämförelse mellan kolumner. SQL Data Warehouse beräknar kardinalitet uppskattningar med alla data i objektet statistik.
 
@@ -483,27 +483,27 @@ Det här enkla exemplet visar alla tre delarna i ett statistik objekt:
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
-Exempel:
+Till exempel:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
-### <a name="show-one-or-more-parts-of-dbcc-showstatistics"></a>Visa en eller flera delar av DBCC SHOW_STATISTICS ()
+### <a name="show-one-or-more-parts-of-dbcc-show_statistics"></a>Visa en eller flera delar av DBCC SHOW_STATISTICS ()
 
-Om du bara vill visa vissa delar använder `WITH` du satsen och anger vilka delar du vill se:
+Om du bara vill visa vissa delar använder du `WITH`-satsen och anger vilka delar du vill se:
 
 ```sql
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
 ```
 
-Exempel:
+Till exempel:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
-## <a name="dbcc-showstatistics-differences"></a>DBCC SHOW_STATISTICS () skillnader
+## <a name="dbcc-show_statistics-differences"></a>DBCC SHOW_STATISTICS () skillnader
 
 DBCC SHOW_STATISTICS () är mer strikt implementerad i SQL Data Warehouse jämfört med SQL Server:
 

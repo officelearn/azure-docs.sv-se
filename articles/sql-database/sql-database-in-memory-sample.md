@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database InMemory-exempel | Microsoft Docs
+title: Azure SQL Database minnes intern exempel
 description: Prova Azure SQL Database minnes intern teknik med OLTP-och columnstore-exempel.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: e3e819fc90e8900219ebc7809adb293369084a72
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 8526236afdb0a312879cb3c1635a7fd85985278f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828217"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689817"
 ---
 # <a name="in-memory-sample"></a>InMemory-exempel
 
@@ -51,7 +51,7 @@ För en mer förenklad, men mer visuellt tilltalande prestanda demonstration fö
 
 3. Kopiera [InMemory OLTP Transact-SQL-skriptet](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_oltp_sample.sql) till Urklipp. T-SQL-skriptet skapar nödvändiga minnes objekt i AdventureWorksLT-exempel databasen som du skapade i steg 1.
 
-4. Klistra in T-SQL-skriptet i SSMS och kör skriptet. @No__t-0-satsen CREATE TABLE uttryck är viktiga. Exempel:
+4. Klistra in T-SQL-skriptet i SSMS och kör skriptet. `MEMORY_OPTIMIZED = ON` satsen CREATE TABLE-uttryck är viktiga. Till exempel:
 
 
 ```sql
@@ -78,16 +78,16 @@ Resultatet **0** innebär att minnet inte stöds och **1** betyder att det stöd
 
 #### <a name="about-the-created-memory-optimized-items"></a>Om de färdiga minnesoptimerade objekten
 
-**Tabeller**: Exemplet innehåller följande minnesoptimerade tabeller:
+**Tabeller**: exemplet innehåller följande minnesoptimerade tabeller:
 
 - SalesLT. Product_inmem
-- SalesLT.SalesOrderHeader_inmem
-- SalesLT.SalesOrderDetail_inmem
+- SalesLT. SalesOrderHeader_inmem
+- SalesLT. SalesOrderDetail_inmem
 - Demo. DemoSalesOrderHeaderSeed
 - Demo. DemoSalesOrderDetailSeed
 
 
-Du kan granska minnesoptimerade tabeller genom **Object Explorer** i SSMS. Högerklicka på **tabeller** > **filter** > **filter inställningar** > **är**minnesoptimerade. Värdet är lika med 1.
+Du kan granska minnesoptimerade tabeller genom **Object Explorer** i SSMS. Högerklicka på **tabeller** > **filtrera** > **filter inställningarna** > **är minnesoptimerade**. Värdet är lika med 1.
 
 
 Du kan också fråga i katalogvyer, till exempel:
@@ -100,7 +100,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
 ```
 
 
-**Internt kompilerad lagrad procedur**: Du kan granska SalesLT. USP-_InsertSalesOrder_inmem via en katalog visnings fråga:
+**Internt kompilerad lagrad procedur**: du kan granska SalesLT. USP _insertsalesorder_inmem via en katalog visnings fråga:
 
 
 ```sql
@@ -140,8 +140,8 @@ I det här avsnittet visas T-SQL-skriptet som är inbäddat i vår kommando rad 
 
 Följande skript infogar en exempel försäljnings order med fem rad objekt i följande minnesoptimerade *tabeller*:
 
-- SalesLT.SalesOrderHeader_inmem
-- SalesLT.SalesOrderDetail_inmem
+- SalesLT. SalesOrderHeader_inmem
+- SalesLT. SalesOrderDetail_inmem
 
 
 ```sql
@@ -201,7 +201,7 @@ whereas for SQL 2016+
 ### <a name="run-the-_inmem-stress-workload-first"></a>Kör *_inmem* stress-arbetsbelastningen först
 
 
-Du kan använda ett *RML cmd-kommandotolk* -fönster för att köra vår ostress. exe-kommandorad. Kommando rads parametrarna Direct `ostress` till:
+Du kan använda ett *RML cmd-kommandotolk* -fönster för att köra vår ostress. exe-kommandorad. Kommando rads parametrarna dirigerar `ostress` till:
 
 - Kör 100 anslutningar samtidigt (-N100).
 - Varje anslutning kör T-SQL-skriptet 50 gånger (-R50).
@@ -231,7 +231,7 @@ Köra föregående ostress. exe-kommando rad:
 #### <a name="result-is-a-duration"></a>Resultatet är en varaktighet
 
 
-När `ostress.exe` har slutförts skrivs körnings tiden som den sista raden i utdata i RML cmd-fönstret. Till exempel, en kortare test körning senast 1,5 minuter:
+När `ostress.exe` har slutförts, skrivs körnings tiden som den sista raden i utdata i RML cmd-fönstret. Till exempel, en kortare test körning senast 1,5 minuter:
 
 `11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`
 
@@ -309,7 +309,7 @@ Det finns [flera typer av T-SQL-frågetyper som du kan köra](https://raw.github
 - `FROM FactResellerSalesXL_CCI a`
 
 
-Ett grupperat columnstore-index finns i tabellen FactResellerSalesXL @ no__t-0CCI.
+Ett grupperat columnstore-index finns i FactResellerSalesXL\_CCI-tabellen.
 
 Följande T-SQL script-utdrag skriver ut statistik för IO och tid för frågan för varje tabell.
 
@@ -382,7 +382,7 @@ I en databas med P2-pris nivån kan du förväntar dig nio gånger prestanda vin
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Quickstart 1: InMemory OLTP-teknik för snabbare T-SQL prestanda @ no__t-0
+- [Snabb start 1: minnes intern OLTP-teknik för snabbare T-SQL-prestanda](https://msdn.microsoft.com/library/mt694156.aspx)
 
 - [Använda minnes intern OLTP i ett befintligt Azure SQL-program](sql-database-in-memory-oltp-migration.md)
 

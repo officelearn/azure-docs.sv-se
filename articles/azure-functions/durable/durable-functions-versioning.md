@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 0bac6f9105d505bdfc1492b6966c2352771e73b0
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 4b4e82acbd3037c70b87731c0661605041090435
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791296"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614516"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Versions hantering i Durable Functions (Azure Functions)
 
@@ -32,7 +32,7 @@ Anta till exempel att vi har följande Orchestrator-funktion.
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     await context.CallActivityAsync("Bar", result);
@@ -43,16 +43,19 @@ Den här förenklad-funktionen tar resultatet av **foo** och skickar det till **
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     int result = await context.CallActivityAsync<int>("Foo");
     await context.CallActivityAsync("Bar", result);
 }
 ```
 
-Den här ändringen fungerar bra för alla nya instanser av Orchestrator-funktionen men alla eventuella instansen bryts. Anta till exempel att en Dirigerings instans anropar **foo**, hämtar ett booleskt värde och sedan kontroll punkter. Om ändring av signaturen har distribuerats i det här läget Miss kan den inloggade instansen omedelbart när den återupptas och spela upp anropet till `context.CallActivityAsync<int>("Foo")`. Detta beror på att resultatet i historik tabellen är `bool` men den nya koden försöker deserialisera den till `int`.
+> [!NOTE]
+> Föregående C# exempel riktar Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-Det här är bara en av många olika sätt att ändra en signatur kan bryta befintliga instanser. I allmänhet är det troligt att om en Orchestrator behöver ändra hur den anropar en funktion, är ändringen sannolikt problematisk.
+Den här ändringen fungerar bra för alla nya instanser av Orchestrator-funktionen men alla eventuella instansen bryts. Anta till exempel att en Dirigerings instans anropar en funktion med namnet `Foo`, hämtar ett booleskt värde och sedan kontroll punkter. Om ändring av signaturen har distribuerats i det här läget Miss kan den inloggade instansen omedelbart när den återupptas och spela upp anropet till `context.CallActivityAsync<int>("Foo")`. Det här felet uppstår eftersom resultatet i historik tabellen är `bool` men den nya koden försöker deserialisera den till `int`.
+
+Det här exemplet är bara en av många olika sätt att en signaturverifiering kan bryta befintliga instanser. I allmänhet är det troligt att om en Orchestrator behöver ändra hur den anropar en funktion, är ändringen sannolikt problematisk.
 
 ### <a name="changing-orchestrator-logic"></a>Ändra Orchestrator-logik
 
@@ -62,7 +65,7 @@ Den andra klassen av versions problem kommer att ändra koden för Orchestrator-
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     await context.CallActivityAsync("Bar", result);
@@ -73,7 +76,7 @@ Nu ska vi anta att du vill göra en synes Innocent ändring för att lägga till
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     if (result)
@@ -85,7 +88,10 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 }
 ```
 
-Den här ändringen lägger till ett nytt funktions anrop till **SendNotification** mellan **foo** och **bar**. Det finns inga ändringar i signaturen. Problemet uppstår när en befintlig instans återupptas från anropet till **bar**. Om det ursprungliga anropet till **foo** returnerade `true`under uppspelningen, kommer Orchestrator-uppspelningen att anropas i **SendNotification** som inte finns i sin körnings historik. Därför Miss lyckas det ständiga aktivitets ramverket med en `NonDeterministicOrchestrationException` eftersom det påträffade ett anrop till **SendNotification** när det förväntades Visa ett anrop till **bar**. Samma typ av problem kan uppstå när du lägger till anrop till "varaktiga" API: er, inklusive `CreateTimer`, `WaitForExternalEvent`osv.
+> [!NOTE]
+> Föregående C# exempel riktar Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
+
+Den här ändringen lägger till ett nytt funktions anrop till **SendNotification** mellan **foo** och **bar**. Det finns inga ändringar i signaturen. Problemet uppstår när en befintlig instans återupptas från anropet till **bar**. Om det ursprungliga anropet till **foo** returnerade `true`under uppspelningen, kommer Orchestrator-uppspelningen att anropa till **SendNotification**, som inte finns i dess körnings historik. Därför Miss lyckas det ständiga aktivitets ramverket med en `NonDeterministicOrchestrationException` eftersom det påträffade ett anrop till **SendNotification** när det förväntades Visa ett anrop till **bar**. Samma typ av problem kan uppstå när du lägger till anrop till "varaktiga" API: er, inklusive `CreateTimer`, `WaitForExternalEvent`osv.
 
 ## <a name="mitigation-strategies"></a>Strategier för minskning
 
@@ -99,11 +105,11 @@ Här följer några av strategierna för att hantera problem med versions hanter
 
 Det enklaste sättet att hantera en brytande ändring är att tillåta att instansen av flygbaserade Orchestration-instanser inte fungerar. Nya instanser har kört den ändrade koden.
 
-Om det här är ett problem beror det på din flyg instanss betydelse. Om du arbetar i aktiv utveckling och inte bryr dig om instansen av flyg kan detta vara tillräckligt tillräckligt. Men du kommer att behöva hantera undantag och fel i din diagnostiska pipeline. Om du vill undvika dessa saker bör du överväga de andra versions alternativen.
+Om den här typen av fel är ett problem beror på hur viktigt dina instansen är. Om du arbetar i aktiv utveckling och inte bryr dig om instansen av flyg kan detta vara tillräckligt tillräckligt. Du måste dock hantera undantag och fel i din diagnostiska pipeline. Om du vill undvika dessa saker bör du överväga de andra versions alternativen.
 
 ### <a name="stop-all-in-flight-instances"></a>Stoppa alla instansen av flyg
 
-Ett annat alternativ är att stoppa alla instansen av flyg. Detta kan göras genom att rensa innehållet i köerna för interna **kontroller** , köer och **WorkItem-** köer. Instanserna har alltid fastnat där de är, men de kommer inte att röra sig om Telemetrin med felaktiga meddelanden. Detta är idealiskt i snabb prototyp utveckling.
+Ett annat alternativ är att stoppa alla instansen av flyg. Du kan stoppa alla instanser genom att rensa innehållet i köerna för intern **kontroll-kö** och **WorkItem-** köer. Instanserna kommer alltid att ha fastnat där de är, men de kommer inte att göra dina loggar med meddelanden om problem. Den här metoden är idealisk i snabb prototyp utveckling.
 
 > [!WARNING]
 > Informationen om dessa köer kan ändras med tiden, så du behöver inte använda den här metoden för produktions arbets belastningar.
@@ -114,7 +120,7 @@ Det vanligaste sättet att se till att de hårda ändringarna distribueras på e
 
 * Distribuera alla uppdateringar som helt nya funktioner och lämna befintliga funktioner i befintligt skick. Detta kan vara svårt eftersom anroparna i de nya funktions versionerna måste uppdateras och följer samma rikt linjer.
 * Distribuera alla uppdateringar som en ny function-app med ett annat lagrings konto.
-* Distribuera en ny kopia av Function-appen med samma lagrings konto, men med ett uppdaterat `taskHub` namn. Detta är den rekommenderade metoden.
+* Distribuera en ny kopia av Function-appen med samma lagrings konto, men med ett uppdaterat `taskHub` namn. Distributioner sida vid sida är den rekommenderade metoden.
 
 ### <a name="how-to-change-task-hub-name"></a>Ändra namn på aktivitets hubb
 
@@ -130,7 +136,7 @@ Aktivitets navet kan konfigureras i *Host. JSON* -filen på följande sätt:
 }
 ```
 
-#### <a name="functions-2x"></a>Functions 2.x
+#### <a name="functions-20"></a>Functions 2,0
 
 ```json
 {

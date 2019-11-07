@@ -1,5 +1,5 @@
 ---
-title: Slut punkts skydds lösningar identifiering och hälso utvärdering i Azure Security Center | Microsoft Docs
+title: Rekommendationer för Endpoint Protection i Azure Security Center
 description: Hur lösningar för slut punkts skydd identifieras och identifieras som felfria.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2019
 ms.author: memildin
-ms.openlocfilehash: 8de0caa5db4a7e1d97c7d6c055bcb01fed635821
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
-ms.translationtype: MT
+ms.openlocfilehash: dad8c6173495d11abd6c9f5babb4ef8bc789e4ce
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202253"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686415"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Endpoint Protection-utvärdering och rekommendationer i Azure Security Center
 
@@ -29,29 +29,29 @@ Azure Security Center tillhandahåller hälso utvärdering av versioner av Endpo
 
 ## <a name="windows-defender"></a>Windows Defender
 
-* Security Center rekommenderar att du **installerar Endpoint Protection-lösningar på den virtuella datorn** när [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) körs och resultatet är **AMServiceEnabled: !**
+* Security Center rekommenderar att du **installerar Endpoint Protection-lösningar på den virtuella datorn** när [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) körs och resultatet är **AMServiceEnabled: falskt**
 
 * Security Center rekommenderar att du **löser problem med hälso tillstånd för slut punkts skydd på dina datorer** när [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) körs och något av följande inträffar:
 
   * Någon av följande egenskaper är falskt:
 
-     **AMServiceEnabled**
+    **AMServiceEnabled**
 
-     **AntispywareEnabled**
+    **AntispywareEnabled**
 
-     **RealTimeProtectionEnabled**
+    **RealTimeProtectionEnabled**
 
-     **BehaviorMonitorEnabled**
+    **BehaviorMonitorEnabled**
 
-     **IoavProtectionEnabled**
+    **IoavProtectionEnabled**
 
-     **OnAccessProtectionEnabled**
+    **OnAccessProtectionEnabled**
 
   * Om en eller båda av följande egenskaper är 7 eller mer.
 
-     **AntispywareSignatureAge**
+    **AntispywareSignatureAge**
 
-     **AntivirusSignatureAge**
+    **AntivirusSignatureAge**
 
 ## <a name="microsoft-system-center-endpoint-protection"></a>Microsoft System Center Endpoint Protection
 
@@ -61,23 +61,23 @@ Azure Security Center tillhandahåller hälso utvärdering av versioner av Endpo
 
     * Minst en av följande egenskaper är falsk:
 
-       **AMServiceEnabled**
+            **AMServiceEnabled**
+
+            **AntispywareEnabled**
     
-       **AntispywareEnabled**
+            **RealTimeProtectionEnabled**
     
-       **RealTimeProtectionEnabled**
+            **BehaviorMonitorEnabled**
     
-       **BehaviorMonitorEnabled**
+            **IoavProtectionEnabled**
     
-       **IoavProtectionEnabled**
-    
-       **OnAccessProtectionEnabled**
+            **OnAccessProtectionEnabled**
           
     * Om en eller båda av följande uppdateringar av signaturen är större än eller lika med 7. 
 
-       **AntispywareSignatureAge**
+            **AntispywareSignatureAge**
     
-       **AntivirusSignatureAge**
+            **AntivirusSignatureAge**
 
 ## <a name="trend-micro"></a>Trend Micro
 
@@ -92,27 +92,27 @@ Security Center rekommenderar att du **installerar Endpoint Protection-lösninga
 
 * **HKLM: \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-* **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+* **HKLM: \ Software\Symantec\Symantec-slutpunkt Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
 Eller
 
 * **HKLM: \ Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-* **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+* **HKLM: \ Software\Wow6432Node\Symantec\Symantec-slutpunkt Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
 Security Center rekommenderar att du **löser problem med hälso tillstånd för slut punkts skydd på dina datorer** när någon av följande kontroller inte är uppfyllda:
 
-* Kontrol lera Symantec-versionen > = 12:  Register plats: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Value "PRODUCTVERSION"**
+* Kontrol lera Symantec-versionen > = 12: register plats: **HKLM: \ Software\Symantec\Symantec slut punkt Protection\CurrentVersion "-value" PRODUCTVERSION "**
 
-* Kontrol lera status för real tids skydd: **HKLM: \ Software\Wow6432Node\Symantec\Symantec-slutpunkt Protection\AV\Storages\Filesystem\RealTimeScan\OnOff = = 1**
+* Kontrol lera real tids skydds status: **HKLM: \ Software\Wow6432Node\Symantec\Symantec-slutpunkt Protection\AV\Storages\Filesystem\RealTimeScan\OnOff = = 1**
 
 * Kontrol lera status för uppdatering av signatur: **HKLM\Software\Symantec\Symantec-slutpunkt Protection\CurrentVersion\public-opstate\LatestVirusDefsDate < = 7 dagar**
 
-* Kontrol lera status för fullständig sökning: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LastSuccessfulScanDateTime <= 7 days**
+* Kontrol lera fullständig skannings status: **HKLM: \ Software\Symantec\Symantec-slutpunkt Protection\CurrentVersion\public-opstate\LastSuccessfulScanDateTime < = 7 dagar**
 
-* Sök efter signatur version nummer sökväg till signatur version för Symantec 12: **Registry Paths+ "CurrentVersion\SharedDefs" -Value "SRTSP"** 
+* Sök efter signatur version nummer sökväg till signatur version för Symantec 12: **register Sök vägar + "CurrentVersion\SharedDefs"-värde "SRTSP"** 
 
-* Sökväg till Signature version för Symantec 14: **Registry Paths+ "CurrentVersion\SharedDefs\SDSDefs" -Value "SRTSP"**
+* Sökväg till Signature version för Symantec 14: **register Sök vägar + "CurrentVersion\SharedDefs\SDSDefs"-värde "SRTSP"**
 
 Register Sök vägar:
 
@@ -131,9 +131,9 @@ Security Center rekommenderar att du **löser problem med hälso tillstånd för
 
 * McAfee-version: **HKLM: \ SOFTWARE\McAfee\Endpoint\AV\ProductVersion > = 10**
 
-* Sök efter signatur version: **HKLM:\Software\McAfee\AVSolution\DS\DS -Value "dwContentMajorVersion"**
+* Hitta Signature-version: **HKLM: \ Software\McAfee\AVSolution\DS\DS-Value "dwContentMajorVersion"**
 
-* Sök efter datum för signatur: **HKLM: \ Software\McAfee\AVSolution\DS\DS-Value "szContentCreationDate" > = 7 dagar**
+* Sök efter signatur datum: **HKLM: \ Software\McAfee\AVSolution\DS\DS-Value "szContentCreationDate" > = 7 dagar**
 
 * Sök efter genomsöknings datum: **HKLM: \ Software\McAfee\Endpoint\AV\ODS-Value "LastFullScanOdsRunTime" > = 7 dagar**
 
@@ -143,7 +143,7 @@ Security Center rekommenderar att du **installerar Endpoint Protection-lösninga
 
 - Filen **/opt/ISEC/ens/threatprevention/bin/isecav** avslutas 
 
-- **"/opt/ISEC/ens/threatprevention/bin/isecav--version"-** utdata är: **McAfee-namn = McAfees slut punkts säkerhet för Linux Threat förebygga och McAfee-version > = 10**
+- **"/opt/ISEC/ens/threatprevention/bin/isecav--version"-** utdata är: **McAfee Name = McAfee-slutpunktens säkerhet för Linux-skydd och McAfee-version > = 10**
 
 Security Center rekommenderar att du **löser problem med hälso tillstånd för slut punkts skydd på dina datorer** när någon av följande kontroller inte är uppfyllda:
 
@@ -163,23 +163,22 @@ Security Center rekommenderar att du **installerar Endpoint Protection-lösninga
 
 Security Center rekommenderar att du **löser problem med hälso tillstånd för slut punkts skydd på dina datorer** när någon av följande kontroller inte är uppfyllda:
 
-- **"/opt/Sophos-av/bin/savlog--MaxAge = 7 | grep-i "schemalagd sökning. \* slutfört "| svan-1"** , returnerar ett värde   
+- **"/opt/Sophos-av/bin/savlog--MaxAge = 7 | grep-i "schemalagd sökning.\* slutfört | pilslut-1 "** , returnerar ett värde
 
-- **"/opt/Sophos-av/bin/savlog--MaxAge = 7 | grep "skanningen är färdig"** | pilslut-1 ", returnerar ett värde   
+- **"/opt/Sophos-av/bin/savlog--MaxAge = 7 | grep "skanningen är färdig"** | pilslut-1 ", returnerar ett värde
 
 - **"/opt/Sophos-av/bin/savdstatus--lastupdate"** returnerar lastupdate, vilket ska vara < = 7 dagar 
 
 - **"/opt/Sophos-av/bin/savdstatus-v"** är lika med **"Genomsökning vid åtkomst körs"** 
 
-- **"/opt/Sophos-av/bin/savconfig get LiveProtection"** returnerar aktiverat  
+- **"/opt/Sophos-av/bin/savconfig get LiveProtection"** returnerar aktiverat
 
-## <a name="troubleshoot-and-support"></a>Felsökning och support
+## <a name="troubleshoot-and-support"></a>Felsöka och support
 
 ### <a name="troubleshoot"></a>Felsöka
 
-Microsofts tilläggs loggar för program mot skadlig kod finns på:  
-**%Systemdrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware (eller PaaSAntimalware) \1.5.5.x (version #) \CommandExecution.log**
+Microsoft-tilläggs loggar för program mot skadlig kod finns på: **%systemdrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware (eller PaaSAntimalware) \1.5.5.x (version #) \CommandExecution.log**
 
 ### <a name="support"></a>Support
 
-Om du behöver mer hjälp kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Eller fil en support incident för Azure. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och väljer Get support. Information om hur du använder Azure-supporten finns i [vanliga frågor om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).
+Om du behöver mer hjälp kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Eller fil en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj få support. Information om hur du använder Azure-support finns i [vanliga frågor och svar om Microsoft Azure support](https://azure.microsoft.com/support/faq/).

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 8a78c854e9c842915700d4a20c1a57e4f1594a2e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 3495d62c7447ba50d9ffe48e68b15dbe36867ac9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472454"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73662584"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Skapa och hantera flera Node-pooler för ett kluster i Azure Kubernetes service (AKS)
 
@@ -33,19 +33,20 @@ Följande begränsningar gäller när du skapar och hanterar AKS-kluster som st�
 
 * Du kan inte ta bort standard-noden (första).
 * Det går inte att använda Dirigerings tillägget för HTTP-program.
+* AKS-klustret måste använda standard-SKU: n för att använda flera noder, och funktionen stöds inte med Basic SKU-belastningsutjämnare.
+* AKS-klustret måste använda skalnings uppsättningar för virtuella datorer för noderna.
 * Du kan inte lägga till eller ta bort resurspooler med en befintlig Resource Manager-mall som i de flesta åtgärder. Använd i stället [en separat Resource Manager-mall](#manage-node-pools-using-a-resource-manager-template) för att göra ändringar i nodkonfigurationer i ett AKS-kluster.
 * Namnet på en Node-pool måste börja med en gemen bokstav och får bara innehålla alfanumeriska tecken. För Linux-nodkonfigurationer måste längden vara mellan 1 och 12 tecken, och längden måste vara mellan 1 och 6 tecken för Windows-noder.
 * AKS-klustret kan ha högst åtta noder i pooler.
 * AKS-klustret kan ha högst 400 noder i de åtta noderna i poolen.
 * Alla noder i pooler måste finnas i samma undernät.
-* AKS-klustret måste använda skalnings uppsättningar för virtuella datorer för noderna.
 
 ## <a name="create-an-aks-cluster"></a>Skapa ett AKS-kluster
 
 Kom igång genom att skapa ett AKS-kluster med en enda Node-pool. I följande exempel används kommandot [AZ Group Create][az-group-create] för att skapa en resurs grupp med namnet *myResourceGroup* i regionen *östra* . Ett AKS-kluster med namnet *myAKSCluster* skapas sedan med kommandot [AZ AKS Create][az-aks-create] . A *--Kubernetes-versionen* av *1.13.10* används för att visa hur du uppdaterar en Node-pool i ett följande steg. Du kan ange en [Kubernetes-version som stöds][supported-versions].
 
 > [!NOTE]
-> *Basic* load balanacer SKU stöds inte när du använder flera noder i en pool. Som standard skapas AKS-kluster med *standard* -SKU: n för loadbalacer.
+> *Basic* load balanacer SKU stöds inte när du använder flera noder i en pool. Som standard skapas AKS-kluster med SKU: n för *standard* belastnings utjämning från Azure CLI och Azure Portal.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -547,20 +548,7 @@ AKS-noder kräver inte sina egna offentliga IP-adresser för kommunikation. Viss
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-När registreringen är klar distribuerar du en Azure Resource Manager-mall enligt samma instruktioner som [ovan](#manage-node-pools-using-a-resource-manager-template) och lägger till följande booleska värdes egenskap "enableNodePublicIP" på agentPoolProfiles. Ange detta till `true` som standard anges det som `false` om inget värde anges. Detta är endast en egenskap för att skapa en tid och kräver en lägsta API-version på 2019-06-01. Detta kan användas för både Linux-och Windows-adresspooler.
-
-```
-"agentPoolProfiles":[  
-    {  
-      "maxPods": 30,
-      "osDiskSizeGB": 0,
-      "agentCount": 3,
-      "agentVmSize": "Standard_DS2_v2",
-      "osType": "Linux",
-      "vnetSubnetId": "[parameters('vnetSubnetId')]",
-      "enableNodePublicIP":true
-    }
-```
+När registreringen är klar distribuerar du en Azure Resource Manager-mall enligt samma instruktioner som [ovan](#manage-node-pools-using-a-resource-manager-template) och lägger till egenskapen booleskt värde `enableNodePublicIP` till agentPoolProfiles. Ange värdet som `true` som standard anges det som `false` om inget värde anges. Detta är endast en egenskap för att skapa en tid och kräver en lägsta API-version på 2019-06-01. Detta kan användas för både Linux-och Windows-adresspooler.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

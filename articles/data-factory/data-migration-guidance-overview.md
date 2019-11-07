@@ -1,5 +1,5 @@
 ---
-title: Använd Azure Data Factory för att migrera data från data Lake och Data Warehouse till Azure | Microsoft Docs
+title: Använd Azure Data Factory för att migrera data från data Lake och Data Warehouse till Azure
 description: Använd Azure Data Factory för att migrera data från data Lake och data lagret till Azure.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 7/30/2019
-ms.openlocfilehash: 2d2fc1e2992e379c80a16dee2c1983f9559470c5
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 0be9cbc9c5af2e0778654ef70c5350b48f10c35d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931136"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675764"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-your-data-lake-or-data-warehouse-to-azure"></a>Använd Azure Data Factory för att migrera data från data Lake eller data lager till Azure
 
@@ -36,7 +36,7 @@ Azure Data Factory kan flytta petabyte (PB) data för data Lake migration och m�
   - Azure Data Factory använder en metod för att betala per användning, så att du bara betalar för den tid som du faktiskt använder för att köra datamigreringen till Azure.  
 - Azure Data Factory kan utföra historisk och schemalagda inläsningar både vid en och samma tidpunkt.
 - Azure Data Factory använder Azure integration Runtime (IR) för att flytta data mellan offentligt tillgängliga data Lake-och lager slut punkter. Den kan också använda IR med egen värd för att flytta data för data Lake-och lager slut punkter i Azure Virtual Network (VNet) eller bakom en brand vägg.
-- Azure Data Factory har säkerhet i företags klass: Du kan använda Windows Installer (MSI) eller tjänst identitet för skyddad tjänst-till-tjänst-integrering eller använda Azure Key Vault för hantering av autentiseringsuppgifter.
+- Azure Data Factory har säkerhet i företags klass: du kan använda Windows Installer (MSI) eller tjänst identitet för skyddad tjänst-till-tjänst-integrering eller använda Azure Key Vault för hantering av autentiseringsuppgifter.
 - Azure Data Factory ger en kod fri redigerings upplevelse och en omfattande inbyggd övervaknings instrument panel.  
 
 ## <a name="online-vs-offline-data-migration"></a>Online vs. offline-datamigrering
@@ -51,7 +51,7 @@ Det finns tre viktiga överväganden när du väljer mellan en metod för online
 
 Anta till exempel att du planerar att använda Azure Data Factory för att slutföra datamigreringen inom två veckor ( *fönstret migrering*). Lägg märke till den rosa/blå urklipps linjen i följande tabell. Den lägsta rosa cellen för en specifik kolumn visar data storlek/nätverks bandbredds länkning vars migreringsjobb närmar sig, men mindre än två veckor. (Alla storleks-och bandbredds par i en blå cell har ett online-Migreringsverktyg på mer än två veckor.) 
 
-![Online vs. offline](media/data-migration-guidance-overview/online-offline.png) den här tabellen hjälper dig att avgöra om du kan uppfylla det avsedda flyttnings fönstret genom en online-migrering (Azure Data Factory) baserat på storleken på dina data och din tillgängliga nätverks bandbredd. Om fönstret online-migrering är mer än två veckor ska du använda offline-migrering.
+![online vs. offline](media/data-migration-guidance-overview/online-offline.png) den här tabellen och hjälper dig att avgöra om du kan uppfylla det avsedda flyttnings fönstret via online-migrering (Azure Data Factory) baserat på storleken på dina data och din tillgängliga nätverks bandbredd. Om fönstret online-migrering är mer än två veckor ska du använda offline-migrering.
 
 > [!NOTE]
 > Med hjälp av online-migrering kan du uppnå både historiska data inläsningar och stegvisa flöden från slut punkt till slut punkt via ett enda verktyg.  Med den här metoden kan dina data vara synkroniserade mellan det befintliga arkivet och den nya butiken i hela migreringstabellen. Det innebär att du kan återskapa din ETL-logik på den nya butiken med uppdaterade data.

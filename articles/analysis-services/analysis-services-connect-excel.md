@@ -1,20 +1,20 @@
 ---
 title: Ansluta till Azure Analysis Services med Excel | Microsoft Docs
-description: Lär dig hur du ansluter till en Azure Analysis Services-server med hjälp av Excel.
+description: Lär dig hur du ansluter till en Azure Analysis Services-server med hjälp av Excel. När du är ansluten kan användarna skapa pivottabeller för att utforska data.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1ba6864d0bab460b270f6f27acced57d7943a17a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: bb76accfef94327386d0ff58d003782a9fe3b0d2
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72295329"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573139"
 ---
-# <a name="connect-with-excel"></a>Anslut till Excel
+# <a name="connect-with-excel"></a>Anslut med Excel
 
 När du har skapat en server och distribuerat en tabell modell till den, kan klienterna ansluta till och börja utforska data. 
 
@@ -28,7 +28,7 @@ Att ansluta till en server i Excel stöds med hämta data i Excel 2016 och senar
 
 1. I Excel, i menyfliksområdet för **data** , klickar du på **hämta externa data** > **från andra källor** > **från Analysis Services**.
 
-2. I guiden data anslutning, i **Server namn**, anger du Server namnet inklusive protokoll och URI. Till exempel asazure://westcentralus.asazure.windows.net/advworks. I **inloggnings uppgifter**väljer du sedan **Använd följande användar namn och lösen ord**och anger sedan organisationens användar namn, till exempel nancy@adventureworks.com och lösen ord.
+2. I guiden data anslutning, i **Server namn**, anger du Server namnet inklusive protokoll och URI. Till exempel asazure://westcentralus.asazure.windows.net/advworks. I **inloggnings uppgifter**väljer du sedan **Använd följande användar namn och lösen ord**och anger sedan organisationens användar namn, till exempel nancy@adventureworks.comoch lösen ord.
 
     > [!IMPORTANT]
     > Om du loggar in med ett Microsoft-konto, Live ID, Yahoo, Gmail osv. eller om du behöver logga in med Multi-Factor Authentication lämnar du fältet lösen ord tomt. Du uppmanas att ange ett lösen ord när du klickar på Nästa. 
@@ -40,7 +40,7 @@ Att ansluta till en server i Excel stöds med hämta data i Excel 2016 och senar
     ![Anslut från Excel Välj modell](./media/analysis-services-connect-excel/aas-connect-excel-select.png)
 
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 [Klient bibliotek](analysis-services-data-providers.md)   
 [Hantera servern](analysis-services-manage.md)     

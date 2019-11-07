@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Language Understanding (LUIS) redigerings klient bibliotek för .NET'
+title: 'Snabb start: Language Understanding (LUIS) Redigera klient bibliotek för .NET'
 titleSuffix: Azure Cognitive Services
-description: Kom igång med klient biblioteket för Language Understanding (LUIS) för .NET. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter.  Med Language Understanding (LUIS) kan du använda anpassad maskin inlärnings information till en användares svars-och naturligt språk text för att förutsäga den övergripande innebörden och hämta relevant, detaljerad information.
+description: Kom igång med LUIS-klient biblioteket för .NET. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: d7668f49df1caca6b4261424b0d2c025a640d572
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 6af076f585e7fc9afe870acada744ead2d2e9118
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258771"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672097"
 ---
-# <a name="quickstart-language-understanding-luis-authoring-client-library-for-net"></a>Snabbstart: Language Understanding (LUIS) redigerings klient bibliotek för .NET
+# <a name="quickstart-language-understanding-luis-authoring-client-library-for-net"></a>Snabb start: Language Understanding (LUIS) Redigera klient bibliotek för .NET
 
 Kom igång med klient biblioteket Language Understanding (LUIS) Authoring för .NET. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter.  Med Language Understanding (LUIS) kan du använda anpassad maskin inlärnings information till en användares svars-och naturligt språk text för att förutsäga den övergripande innebörden och hämta relevant, detaljerad information. 
 
@@ -28,9 +28,9 @@ Använd det Language Understanding (LUIS) som redigerar klient biblioteket för 
 * Lägga till funktioner som en fras lista
 * Träna och publicera appen
 
-[Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.LUIS.Authoring) | [redigerings paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)  |  [ C# exempel](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/LUIS/LUIS.cs)
+[Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet) | [biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.LUIS.Authoring) | [redigerings paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/) | [ C# exempel](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/LUIS/LUIS.cs)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Language Understanding (LUIS) Portal konto – [skapa ett kostnads fritt](https://www.luis.ai)
 * Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
@@ -45,7 +45,7 @@ Hämta din [Start nyckel](luis-how-to-azure-subscription.md#starter-key)och [ska
 
 Skapa ett nytt .NET Core-program i önskat redigerings program eller IDE. 
 
-1. I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du kommandot dotNet `new` för att skapa en ny konsol app med namnet. `language-understanding-quickstart` Det här kommandot skapar ett enkelt "Hello World C# "-projekt med en enda käll `Program.cs`fil:. 
+1. I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du kommandot dotNet `new` för att skapa en ny konsol-app med namnet `language-understanding-quickstart`. Det här kommandot skapar ett enkelt "Hello World C# "-projekt med en enda källfil: `Program.cs`. 
 
     ```console
     dotnet new console -n language-understanding-quickstart
@@ -109,18 +109,18 @@ De här kodfragmenten visar hur du gör följande med redigerings klient bibliot
 
 ## <a name="add-the-dependencies"></a>Lägg till beroenden
 
-Från projekt katalogen öppnar du **program.cs** -filen i önskat redigerings program eller IDE. Ersätt den befintliga `using` koden med följande `using` direktiv:
+Från projekt katalogen öppnar du **program.cs** -filen i önskat redigerings program eller IDE. Ersätt den befintliga `using`s koden med följande `using`-direktiv:
 
 [!code-csharp[Using statements](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=Dependencies)]
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
-1. Skapa en variabel för att hantera redigerings nyckeln som hämtas från en miljö variabel med `COGNITIVESERVICES_AUTHORING_KEY`namnet. Om du har skapat miljövariabeln när programmet har startats måste redigeraren, IDE eller gränssnittet som kör den stängas och läsas in igen för att få åtkomst till variabeln. Metoderna kommer att skapas senare.
+1. Skapa en variabel för att hantera redigerings nyckeln som hämtas från en miljö variabel med namnet `COGNITIVESERVICES_AUTHORING_KEY`. Om du har skapat miljövariabeln när programmet har startats måste redigeraren, IDE eller gränssnittet som kör den stängas och läsas in igen för att få åtkomst till variabeln. Metoderna kommer att skapas senare.
 
 1. Skapa variabler för att hålla din redigerings region och slut punkt. Redigerings nyckelns region är beroende av var du redigerar. De [tre redigerings regionerna](luis-reference-regions.md) är:
 
-    * Ske`australiaeast`
-    * Östeuropa`westeurope`
+    * Australien – `australiaeast`
+    * Europa – `westeurope`
     * USA och andra regioner – `westus` (standard)
     
     [!code-csharp[Authorization to resource key](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=Variables)]
@@ -150,7 +150,7 @@ Skapa en [ModelCreateObject](https://docs.microsoft.com/dotnet/api/microsoft.azu
 
 Även om entiteter inte krävs finns de i de flesta appar. Entiteten extraherar information från användar uttryck, som krävs för att fullfil användarens avsikt. Det finns flera typer av [färdiga](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.modelextensions.addprebuiltasync?view=azure-dotnet) och anpassade entiteter, var och en med sina egna DTO-modeller (data Transformation Object).  Vanliga fördefinierade entiteter som ska läggas till i din app är [Number](luis-reference-prebuilt-number.md), [datetimeV2](luis-reference-prebuilt-datetimev2.md), [geographyV2](luis-reference-prebuilt-geographyv2.md), [ordinal](luis-reference-prebuilt-ordinal.md). 
 
-Den här **AddEntities** -metoden `Location` skapade en enkel entitet med två roller `Class` , en enkel entitet `Flight` , en sammansatt entitet och lägger till flera fördefinierade entiteter.
+Den här **AddEntities** -metoden skapade en `Location` enkel entitet med två roller, en `Class` enkel entitet, en `Flight` sammansatt entitet och lägger till flera fördefinierade entiteter.
 
 Det är viktigt att veta att entiteter inte har marker ATS med ett avsikts syfte. De kan och används vanligt vis för många syften. Endast yttranden är markerade för ett visst, enskilt syfte.
 

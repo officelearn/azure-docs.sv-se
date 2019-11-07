@@ -1,5 +1,5 @@
 ---
-title: Transaktionell replikering med Azure SQL Database | Microsoft Docs "
+title: Transaktionsreplikering med Azure SQL Database "
 description: Lär dig mer om att använda SQL Server transaktionell replikering med enkla, pooliska och instans databaser i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 02/08/2019
-ms.openlocfilehash: 86bd479eff48a7feb42557eb1d175345728f0a69
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 016b4f2ee191443cf608af18d1be6a94b6d53a39
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879057"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687827"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Transaktionell replikering med enkel-, pool-och instans databaser i Azure SQL Database
 
@@ -43,13 +43,13 @@ Nyckel komponenterna i Transaktionsreplikering visas på följande bild:
 - SQL Server 2014 RTM-CU10 (12.00.2556)
 - SQL Server 2012 SP3 eller senare (11.0.6020)
 - SQL Server 2012 SP2 CU8 (11.0.5634.0)
-- För andra versioner av SQL Server som inte stöder publicering till objekt i Azure är det möjligt att använda metoden republishing för att flytta data till nyare versioner av SQL Server. [](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) 
+- För andra versioner av SQL Server som inte stöder publicering till objekt i Azure är det möjligt att använda metoden [republishing](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) för att flytta data till nyare versioner av SQL Server. 
 
 **Distributören** är en instans eller server som samlar in ändringar i artiklarna från en utgivare och distribuerar dem till prenumeranterna. Distributören kan antingen Azure SQL Database Hanterad instans eller SQL Server (vilken version som helst som är lika med eller högre än utgivar versionen). 
 
 **Prenumeranten** är en instans eller server som tar emot de ändringar som gjorts i utgivaren. Prenumeranter kan vara antingen enskilda, pooler och instans databaser i Azure SQL Database-eller SQL Server-databaser. En prenumerant på en databas med en eller flera databaser måste konfigureras som push-prenumerant. 
 
-| Role | Enkla databaser och databaser i pooler | Instans databaser |
+| Roll | Enkla databaser och databaser i pooler | Instans databaser |
 | :----| :------------- | :--------------- |
 | **Utgivare** | Nej | Ja | 
 | **Möjligheter** | Nej | Ja|
@@ -74,7 +74,7 @@ Det finns olika [typer av replikering](https://docs.microsoft.com/sql/relational
 | &nbsp; | &nbsp; | &nbsp; |
 
   >[!NOTE]
-  > - Försök att konfigurera replikering med en äldre version kan resultera i fel nummer MSSQL_REPL20084 (processen kunde inte ansluta till prenumeranten.) och MSSQ_REPL40532 (det går inte att öppna \<Server namnet > begärd av inloggningen. Inloggningen misslyckades.)
+  > - Försök att konfigurera replikering med en äldre version kan resultera i fel nummer MSSQL_REPL20084 (processen kunde inte ansluta till prenumeranten.) och MSSQ_REPL40532 (det går inte att öppna Server \<namn > begärd av inloggningen. Inloggningen misslyckades.)
   > - Om du vill använda alla funktioner i Azure SQL Database måste du använda de senaste versionerna av [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) och [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
   
   ### <a name="supportability-matrix-for-instance-databases-and-on-premises-systems"></a>Support mat ris för instans databaser och lokala system

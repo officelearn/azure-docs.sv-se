@@ -1,5 +1,5 @@
 ---
-title: Diagnostisera problem med grafik prestanda i fjärr skrivbord – Azure
+title: Diagnostisera grafik prestanda problem fjärr skrivbord – Azure
 description: Den här artikeln beskriver hur du använder RemoteFX-grafikkort i sessioner med fjärr skrivbords protokoll för att diagnostisera prestanda problem med grafik i Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: helohr
-ms.openlocfilehash: b6a78fbf2fcb12962b42537965deea6c7912315d
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: c41a433ee19969546e1db2aa583c72ed166b7ebf
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676532"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607468"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnostisera problem med grafik prestanda i fjärr skrivbord
 
@@ -24,8 +24,8 @@ Du behöver Fjärrsessionens namn för att identifiera grafik prestanda räknarn
 
 1. Öppna kommando tolken i Windows från fjärrsessionen.
 2. Kör kommandot **Qwinsta** och leta reda på namnet på sessionen.
-    - Om sessionen finns i en virtuell dator med flera sessioner (VM): Din instans av varje räknare har suffix med samma nummer som suffix för ditt sessionsnamn, till exempel RDP-TCP 37.
-    - Om sessionen finns i en virtuell dator som stöder virtuella grafik processorer (vGPU): Din instans av varje räknare lagras på-servern i stället för på den virtuella datorn. Dina räknar instanser inkluderar det virtuella dator namnet i stället för numret i sessionsnamnet, till exempel "Win8 Enterprise VM".
+    - Om sessionen finns i en virtuell dator med flera sessioner (VM): din instans av varje räknare har suffix till samma nummer som suffixen för ditt sessionsnamn, till exempel RDP-TCP 37.
+    - Om sessionen finns i en virtuell dator som har stöd för virtuella grafik processorer (vGPU): din instans av varje räknare lagras på servern i stället för på den virtuella datorn. Dina räknar instanser inkluderar det virtuella dator namnet i stället för numret i sessionsnamnet, till exempel "Win8 Enterprise VM".
 
 >[!NOTE]
 > Medan räknare har RemoteFX i sina namn, inkluderar de även fjärr skrivbords grafik i vGPU-scenarier.
@@ -34,7 +34,7 @@ Du behöver Fjärrsessionens namn för att identifiera grafik prestanda räknarn
 
 När du har bestämt namnet på fjärrsessionen följer du dessa anvisningar för att samla in prestanda räknare för RemoteFX-bilder för din fjärrsession.
 
-1. Välj **Starta** > **administrations verktyg** > **prestanda övervakaren**.
+1. Välj **Start** > **administrations verktyg** > **prestanda övervakaren**.
 2. I dialog rutan **prestanda övervakaren** expanderar du **övervaknings verktyg**, väljer **prestanda övervakare**och väljer sedan **Lägg till**.
 3. I dialog rutan **Lägg till räknare** , i listan **tillgängliga räknare** , expanderar du avsnittet för RemoteFX-grafik.
 4. Välj de räknare som ska övervakas.

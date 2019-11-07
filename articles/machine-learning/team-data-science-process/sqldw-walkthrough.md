@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fc70e2e6475620bfb8842fc740772e326f8ee8d0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 76afafb59de762776b7d2614e383320b7d8f79e4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480343"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669409"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team data vetenskaps processen i praktiken: använda SQL Data Warehouse
 I den här självstudien vägleder vi dig genom att skapa och distribuera en maskin inlärnings modell med SQL Data Warehouse (SQL DW) för en offentligt tillgänglig data uppsättning – [NYC taxi TRIPs](https://www.andresmh.com/nyctaxitrips/) -datauppsättningen. Den binära klassificerings modellen är konstruerad för att förutsäga om ett tips är betalt för en resa, och modeller för klassificering av multiklasser och regression diskuteras också som förutsäga fördelningen av de belopp som betalas ut.
@@ -851,7 +851,7 @@ Ett exempel på en binära klassificering som experimenterar att läsa data dire
 >
 
 ## <a name="mldeploy"></a>Distribuera modeller i Azure Machine Learning
-När modellen är klar kan du enkelt distribuera den som en webb tjänst direkt från experimentet. Mer information om hur du distribuerar Azure ML-webbtjänster finns i [distribuera en Azure Machine Learning-webbtjänst](../studio/publish-a-machine-learning-web-service.md).
+När modellen är klar kan du enkelt distribuera den som en webb tjänst direkt från experimentet. Mer information om hur du distribuerar Azure ML-webbtjänster finns i [distribuera en Azure Machine Learning-webbtjänst](../studio/deploy-a-machine-learning-web-service.md).
 
 Om du vill distribuera en ny webb tjänst måste du:
 

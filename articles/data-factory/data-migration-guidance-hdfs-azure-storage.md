@@ -1,5 +1,5 @@
 ---
-title: Använd Azure Data Factory för att migrera data från ett lokalt Hadoop-kluster till Azure Storage | Microsoft Docs
+title: Använd Azure Data Factory för att migrera data från ett lokalt Hadoop-kluster till Azure Storage
 description: Lär dig hur du använder Azure Data Factory för att migrera data från ett lokalt Hadoop-kluster till Azure Storage.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 8/30/2019
-ms.openlocfilehash: a2e98e46b168ff2e1270c6512aa515278190350f
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: b952be49bf5bc00b338aa04ed51e9dc451b5c4f9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677944"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675822"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Använd Azure Data Factory för att migrera data från ett lokalt Hadoop-kluster till Azure Storage 
 
@@ -25,7 +25,7 @@ Azure Data Factory tillhandahåller en genomförd, robust och kostnads effektiv 
 
 Data Factory erbjuder två grundläggande metoder för att migrera data från en lokal HDFS till Azure. Du kan välja metod baserat på ditt scenario. 
 
-- **Data Factory DistCp-läge** (rekommenderas): I Data Factory kan du använda [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) (distribuerad kopia) för att kopiera filer som-är till Azure Blob Storage (inklusive [mellanlagrad kopia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#staged-copy)) eller Azure Data Lake Store Gen2. Använd Data Factory integrerat med DistCp för att dra nytta av ett befintligt kraftfullt kluster för att uppnå bästa kopiering av data flödet. Du får också fördelarna med flexibel schemaläggning och en enhetlig övervaknings upplevelse från Data Factory. Beroende på din Data Factory konfiguration konstruerar kopierings aktiviteten automatiskt ett DistCp-kommando, skickar data till ditt Hadoop-kluster och övervakar sedan kopierings statusen. Vi rekommenderar Data Factory DistCp-läge för att migrera data från ett lokalt Hadoop-kluster till Azure.
+- **Data Factory DistCp-läge** (rekommenderas): i Data Factory kan du använda [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) (distribuerad kopia) för att kopiera filer som-är till Azure Blob Storage (inklusive [mellanlagrad kopia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#staged-copy)) eller Azure Data Lake Store Gen2. Använd Data Factory integrerat med DistCp för att dra nytta av ett befintligt kraftfullt kluster för att uppnå bästa kopiering av data flödet. Du får också fördelarna med flexibel schemaläggning och en enhetlig övervaknings upplevelse från Data Factory. Beroende på din Data Factory konfiguration konstruerar kopierings aktiviteten automatiskt ett DistCp-kommando, skickar data till ditt Hadoop-kluster och övervakar sedan kopierings statusen. Vi rekommenderar Data Factory DistCp-läge för att migrera data från ett lokalt Hadoop-kluster till Azure.
 - **Data Factory ursprungligt integrerings körnings läge**: DistCp är inte ett alternativ i alla scenarier. I en Azure Virtual Networks-miljö stöder t. ex. DistCp-verktyget inte Azure ExpressRoute Private-peering med en Azure Storage virtuell nätverks slut punkt. I vissa fall vill du inte använda ditt befintliga Hadoop-kluster som en motor för att migrera data så att du inte lägger till tung belastning i klustret, vilket kan påverka prestanda för befintliga ETL-jobb. I stället kan du använda den inbyggda funktionen i Data Factory integration runtime som motor som kopierar data från en lokal HDFS till Azure.
 
 Den här artikeln innehåller följande information om båda metoderna:
@@ -52,7 +52,7 @@ Mer information finns i [prestanda guiden för kopierings aktivitet](https://doc
 
 ## <a name="resilience"></a>Elasticitet
 
-I Data Factory DistCp-läge kan du använda olika DistCp-kommando rads parametrar (till exempel `-i`, ignorera skrivfel eller `-update`, skriva data när käll filen och målfilen skiljer sig i storlek) för olika återhämtnings nivåer.
+I Data Factory DistCp-läge kan du använda olika DistCp-kommando rads parametrar (till exempel `-i`, ignorera problem eller `-update`, skriva data när käll filen och målfilen skiljer sig i storlek) för olika återhämtnings nivåer.
 
 I en enskild kopierings aktivitets körning i Data Factory Native integration runtime-läge har Data Factory en inbyggd metod för att försöka igen. Den kan hantera en viss nivå av tillfälliga haverier i data lager eller i det underliggande nätverket. 
 
@@ -107,7 +107,7 @@ Om något av kopierings jobben Miss lyckas på grund av tillfälliga problem med
 
 ### <a name="delta-data-migration"></a>Migrering av delta data 
 
-I Data Factory DistCp-läge kan du använda kommando rads parametern DistCp `-update`, skriva data när käll filen och mål filen skiljer sig i storlek, vid migrering av delta data.
+I Data Factory DistCp-läge kan du använda kommando rads parametern DistCp `-update`, skriva data när käll filen och målfilen skiljer sig i storlek, för migrering av delta data.
 
 I Data Factory enhetligt integrerings läge, är det mest presterande sättet att identifiera nya eller ändrade filer från HDFS genom att använda en tidspartitionerad namngivnings konvention. När dina data i HDFS har tidspartitioner ATS med Time-slice-information i fil-eller mappnamnet (till exempel */YYYY/MM/DD/File.csv*) kan pipelinen enkelt identifiera vilka filer och mappar som ska kopieras stegvis.
 
@@ -140,7 +140,7 @@ Här är det uppskattade priset baserat på våra antaganden:
 
 ### <a name="additional-references"></a>Ytterligare referenser
 
-- [HDFS-koppling](https://docs.microsoft.com/azure/data-factory/connector-hdfs)
+- [HDFS-anslutning](https://docs.microsoft.com/azure/data-factory/connector-hdfs)
 - [Azure Blob Storage-anslutning](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
 - [Azure Data Lake Storage Gen2 koppling](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
 - [Prestanda justerings guide för kopierings aktivitet](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)

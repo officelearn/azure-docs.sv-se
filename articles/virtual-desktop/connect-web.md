@@ -1,5 +1,5 @@
 ---
-title: Ansluta till virtuella Windows-datorer från en webbläsare – Azure
+title: Anslut Windows Virtual Desktop webb klient – Azure
 description: Ansluta till virtuella Windows-datorer med hjälp av webb klienten.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: helohr
-ms.openlocfilehash: e7fa1d2b21bfde6495a63676bc2aa1faa07e6bc5
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: a29081f77587a96dc48930eab359610a42fc0be5
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676761"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605820"
 ---
 # <a name="connect-with-the-web-client"></a>Ansluta med webbklienten
 
@@ -25,7 +25,7 @@ Med webb klienten kan du komma åt dina Windows-resurser för virtuella skriv bo
 
 Även om en HTML5-kompatibel webbläsare ska fungera, har vi officiellt stöd för följande operativ system och webbläsare.
 
-| Browser           | OS som stöds                     | Anteckningar               |
+| Webbläsare           | OS som stöds                     | Anteckningar               |
 |-------------------|----------------------------------|---------------------|
 | Microsoft Edge    | Windows                          |                     |
 | Internet Explorer | Windows                          |                     |

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database servrar | Microsoft Docs
+title: Azure SQL Database servrar
 description: Lär dig mer om Azure SQL Database-servrar och deras hantering.
 services: sql-database
 ms.service: sql-database
@@ -11,18 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 02d57c297926ef375eecaa76af55ffed60668cf1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8ebe08f37255743578cbc3dd44f7d84d79b9d17a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566768"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687404"
 ---
 # <a name="azure-sql-database-servers-and-their-management"></a>Azure SQL Database servrar och deras hantering
 
 ## <a name="what-is-an-azure-sql-database-server"></a>Vad är en Azure SQL Database-Server
 
-En SQL Database-Server är en logisk konstruktion som fungerar som en central administrativ punkt för [flera databaser,](sql-database-elastic-pool.md) inloggningar, [](sql-database-manage-logins.md) [brand Väggs regler](sql-database-firewall-configure.md), [gransknings regler](sql-database-auditing.md), [hot identifierings principer](sql-database-threat-detection.md)och [ redundansväxlingen grupper](sql-database-auto-failover-group.md) en SQL Database-Server kan finnas i en annan region än dess resurs grupp. SQL Database-servern måste finnas innan du kan skapa Azure SQL-databasen. Alla databaser som hanteras av en SQL Database-Server skapas i samma region som SQL Database-servern.
+En SQL Database-Server är en logisk konstruktion som fungerar som en central administrativ punkt för [flera databaser,](sql-database-elastic-pool.md) [inloggningar](sql-database-manage-logins.md), [brand Väggs regler](sql-database-firewall-configure.md), [gransknings regler](sql-database-auditing.md), [hot identifierings principer](sql-database-threat-detection.md)och [ redundansväxlingen grupper](sql-database-auto-failover-group.md) en SQL Database-Server kan finnas i en annan region än dess resurs grupp. SQL Database-servern måste finnas innan du kan skapa Azure SQL-databasen. Alla databaser som hanteras av en SQL Database-Server skapas i samma region som SQL Database-servern.
 
 En SQL Database-Server skiljer sig från en SQL Server instans som du kanske känner till i den lokala världen. Mer specifikt ger SQL Database tjänsten inga garantier avseende platsen för databaserna i relation till den SQL Database-Server som hanterar dem, och exponerar inte åtkomst eller funktioner på instans nivå. Instans databaser i en hanterad instans är däremot samplacerade på samma sätt som du känner till SQL Server i den lokala världen.
 
@@ -45,7 +45,7 @@ En SQL Database Server:
 - Är versions definitions området för funktioner som är aktiverade på inneslutna resurser
 - Huvudkontoinloggningar på servernivå kan hantera alla databaser på en server.
 - Kan innehålla inloggningar som liknar de i instanser av SQL Server i din lokala miljö som har åtkomst till en eller flera databaser på servern, samt kan beviljas begränsade administrativa rättigheter. Mer information finns i avsnittet om [inloggningar](sql-database-manage-logins.md).
-- Standard sorteringen för alla databaser som skapats på en SQL Database-Server `SQL_LATIN1_GENERAL_CP1_CI_AS`är, `LATIN1_GENERAL` där är engelska (USA) `CP1` , är tecken tabell 1252 `CI` , är Skift läges okänslig och `AS` är dekor känslig.
+- Standard sorteringen för alla databaser som skapats på en SQL Database-Server är `SQL_LATIN1_GENERAL_CP1_CI_AS`, där `LATIN1_GENERAL` är engelska (USA), `CP1` är tecken tabell 1252, `CI` är Skift läges okänslig och `AS` är accenttecken.
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-portal"></a>Hantera Azure SQL-servrar, databaser och brand väggar med hjälp av Azure Portal
 
@@ -70,7 +70,7 @@ Information om hur du skapar en hanterad instans finns i [skapa en hanterad inst
 
 Om du vill hantera en befintlig server navigerar du till servern med ett antal metoder – till exempel från en speciell SQL Database-sida, sidan **SQL-servrar** eller sidan **alla resurser** .
 
-Om du vill hantera en befintlig databas går du till sidan **SQL-databaser** och klickar på den databas som du vill hantera. Följande skärm bild visar hur du börjar ställa in en brand vägg på server nivå för en databas från översikts sidan för en databas.
+Om du vill hantera en befintlig databas går du till sidan **SQL-databaser** och klickar på den databas som du vill hantera. Följande skärm bild visar hur du börjar ställa in en brand vägg på server nivå för en databas från **översikts** sidan för en databas.
 
    ![brandväggsregler för server](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
@@ -87,7 +87,7 @@ Om du vill hantera en befintlig databas går du till sidan **SQL-databaser** och
 
 Om du vill skapa och hantera Azure SQL Server, databaser och brand väggar med Azure PowerShell använder du följande PowerShell-cmdletar. Om du behöver installera eller uppgradera PowerShell, se [installera Azure PowerShell modul](/powershell/azure/install-az-ps). Information om hur du skapar och hanterar elastiska pooler finns i [elastiska pooler](sql-database-elastic-pool.md).
 
-| Cmdlet: | Beskrivning |
+| Cmdlet | Beskrivning |
 | --- | --- |
 |[New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)|Skapar en databas |
 |[Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase)|Hämtar en eller flera databaser|
@@ -112,7 +112,7 @@ Om du vill skapa och hantera Azure SQL Server, databaser och brand väggar med A
 
 Använd följande [Azure cli SQL Database](/cli/azure/sql/db) -kommandon för att skapa och hantera Azure SQL Server, databaser och brand väggar med [Azure CLI](/cli/azure). Använd [Cloud Shell](/azure/cloud-shell/overview) för att köra CLI i webbläsaren eller [installera](/cli/azure/install-azure-cli) det på macOS, Linux eller Windows. Information om hur du skapar och hanterar elastiska pooler finns i [elastiska pooler](sql-database-elastic-pool.md).
 
-| Cmdlet: | Beskrivning |
+| Cmdlet | Beskrivning |
 | --- | --- |
 |[az sql db create](/cli/azure/sql/db#az-sql-db-create) |Skapar en databas|
 |[AZ SQL DB-lista](/cli/azure/sql/db#az-sql-db-list)|Visar alla databaser och informations lager på en server, eller alla databaser i en elastisk pool|
@@ -152,20 +152,20 @@ Använd följande T-SQL-kommandon för att skapa och hantera Azure SQL Server, d
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Ändrar en Azure SQL-databas. |
 |[ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)|Ändrar en Azure SQL Data Warehouse.|
 |[SLÄPP databas (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Tar bort en databas.|
-|[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returnerar utgåvan (tjänst nivå), tjänst mål (pris nivå) och namn på elastisk pool, om det finns någon, för en Azure SQL-databas eller en Azure SQL Data Warehouse. Om du är inloggad på huvud databasen på en Azure SQL Database-Server returneras information om alla databaser. För Azure SQL Data Warehouse måste du vara ansluten till huvud databasen.|
-|[sys.dm_db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Returnerar CPU-, IO-och minnes förbrukning för en Azure SQL Database databas. Det finns en rad för var 15: e sekund, även om det inte finns någon aktivitet i databasen.|
+|[sys. database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returnerar utgåvan (tjänst nivå), tjänst mål (pris nivå) och namn på elastisk pool, om det finns någon, för en Azure SQL-databas eller en Azure SQL Data Warehouse. Om du är inloggad på huvud databasen på en Azure SQL Database-Server returneras information om alla databaser. För Azure SQL Data Warehouse måste du vara ansluten till huvud databasen.|
+|[sys. DM-_db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Returnerar CPU-, IO-och minnes förbrukning för en Azure SQL Database databas. Det finns en rad för var 15: e sekund, även om det inte finns någon aktivitet i databasen.|
 |[sys. resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Returnerar CPU-användning och lagrings data för en Azure SQL Database. Data samlas in och sammanställs inom fem minuters intervall.|
 |[sys. database_connection_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)|Innehåller statistik för SQL Database databas anslutnings händelser som ger en översikt över lyckade och misslyckade databas anslutningar. |
-|[sys.event_log (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database)|Returnerar lyckade Azure SQL Database databas anslutningar, anslutnings problem och död lägen. Du kan använda den här informationen för att spåra eller felsöka din databas aktivitet med SQL Database.|
+|[sys. event_log (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database)|Returnerar lyckade Azure SQL Database databas anslutningar, anslutnings problem och död lägen. Du kan använda den här informationen för att spåra eller felsöka din databas aktivitet med SQL Database.|
 |[sp_set_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database)|Skapar eller uppdaterar brand Väggs inställningarna på server nivå för din SQL Database-Server. Den här lagrade proceduren är bara tillgänglig i huvud databasen för inloggning på server nivå. Det går bara att skapa en brand Väggs regel på server nivå med hjälp av Transact-SQL när den första brand Väggs regeln på server nivå har skapats av en användare med Azure-nivå behörigheter|
-|[sys.firewall_rules (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-firewall-rules-azure-sql-database)|Returnerar information om de brand Väggs inställningar på server nivå som är associerade med din Microsoft Azure SQL Database.|
+|[sys. firewall_rules (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-firewall-rules-azure-sql-database)|Returnerar information om de brand Väggs inställningar på server nivå som är associerade med din Microsoft Azure SQL Database.|
 |[sp_delete_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-delete-firewall-rule-azure-sql-database)|Tar bort brand Väggs inställningar på server nivå från SQL Database-servern. Den här lagrade proceduren är bara tillgänglig i huvud databasen för inloggning på server nivå.|
 |[sp_set_database_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)|Skapar eller uppdaterar brand Väggs reglerna på databas nivå för din Azure SQL Database eller SQL Data Warehouse. Regler för databas brand vägg kan konfigureras för huvud databasen och för användar databaser på SQL Database. Regler för databas brand väggar är användbara när inneslutna databas användare används. |
-|[sys.database_firewall_rules (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|Returnerar information om de brand Väggs inställningar på databas nivå som är associerade med din Microsoft Azure SQL Database. |
+|[sys. database_firewall_rules (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|Returnerar information om de brand Väggs inställningar på databas nivå som är associerade med din Microsoft Azure SQL Database. |
 |[sp_delete_database_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Tar bort brand Väggs inställningen på databas nivå från Azure SQL Database eller SQL Data Warehouse. |
 
 > [!TIP]
-> En snabb start som använder SQL Server Management Studio på Microsoft Windows finns [Azure SQL Database: Använd SQL Server Management Studio för att ansluta och fråga](sql-database-connect-query-ssms.md)efter data. En snabb start med Visual Studio Code på MacOS, Linux eller Windows finns [Azure SQL Database: Använd Visual Studio Code för att ansluta och fråga](sql-database-connect-query-vscode.md)efter data.
+> En snabb start som använder SQL Server Management Studio på Microsoft Windows finns [Azure SQL Database: använd SQL Server Management Studio för att ansluta och fråga efter data](sql-database-connect-query-ssms.md). En snabb start med Visual Studio Code på macOS, Linux eller Windows finns [Azure SQL Database: använda Visual Studio Code för att ansluta och fråga efter data](sql-database-connect-query-vscode.md).
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-rest-api"></a>Hantera Azure SQL-servrar, databaser och brand väggar med hjälp av REST API
 

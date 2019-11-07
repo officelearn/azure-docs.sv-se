@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/29/2019
+ms.date: 11/04/2019
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d48aa3ead28ab0b0a22478a0c4183995483058a
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: c6e0c697f9ab9796feade9b4d5c2a64794f3980b
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70983505"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73612802"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Etablering av rapporter i Azure Active Directory portal (för hands version)
 
@@ -30,7 +30,7 @@ Rapporterings arkitekturen i Azure Active Directory (Azure AD) består av följa
 
 - **Aktivitet** 
     - **Inloggningar** – information om användningen av hanterade program och användar inloggnings aktiviteter.
-    - **Gransknings loggar**  - [gransknings loggar](concept-audit-logs.md) innehåller information om system aktivitet för användare och grupp hantering, hanterade program och katalog aktiviteter.
+    - **Gransknings loggar** - [gransknings loggar](concept-audit-logs.md) innehåller information om system aktivitet för användare och grupp hantering, hanterade program och katalog aktiviteter.
     - **Etablerings loggar** – ger system aktivitet om användare, grupper och roller som tillhandahålls av Azure AD Provisioning-tjänsten. 
 
 - **Säkerhet** 
@@ -39,7 +39,7 @@ Rapporterings arkitekturen i Azure Active Directory (Azure AD) består av följa
 
 I det här avsnittet får du en översikt över etablerings rapporten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ### <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
 * Användare i rollerna säkerhets administratör, säkerhets läsare, rapport läsare, program administratör och moln program administratör
@@ -85,7 +85,7 @@ På så sätt kan du visa ytterligare fält eller ta bort fält som redan visas.
 
 Välj ett objekt i listvyn om du vill ha mer detaljerad information.
 
-![Detaljerad information](./media/concept-provisioning-logs/steps.png "Filtrera")
+![Detaljerad information](./media/concept-provisioning-logs/steps.png "Filter")
 
 
 ## <a name="filter-provisioning-activities"></a>Filtrera etablerings aktiviteter
@@ -97,10 +97,10 @@ Om du vill begränsa de rapporterade data till en nivå som passar dig kan du fi
 - Käll system
 - Mål system
 - Status
-- Datum
+- Date
 
 
-![Synkroniseringsfilter](./media/concept-provisioning-logs/filter.png "Filtrera")
+![Synkroniseringsfilter](./media/concept-provisioning-logs/filter.png "Filter")
 
 Med filtret **identitet** kan du ange namnet eller identiteten som du bryr dig om. Den här identiteten kan vara en användare, grupp, roll eller något annat objekt. Du kan söka efter objektets namn eller ID. ID varierar beroende på scenario. När ett objekt till exempel konfigureras från Azure AD till SalesForce, är käll-ID: t objekt-ID för användaren i Azure AD medan TargetID är användarens ID i Salesforce. Vid etablering från arbets dagar till Active Directory, är käll-ID: t arbets dagen anställdas anställnings-ID. Observera att namnet på användaren kanske inte alltid finns i identitets kolumnen. Det kommer alltid att finnas ett ID. 
 
@@ -117,11 +117,11 @@ Med **status** filtret kan du välja:
 
 Med **Åtgärds** filtret kan du filtrera:
 
-- Create 
-- Uppdatera
+- Skapa 
+- Uppdatering
 - Ta bort
 - Inaktivera
-- Övrigt
+- Annat
 
 Med filtret **Datum** kan du definiera en tidsram för de data som returneras.  
 Möjliga värden:
@@ -176,7 +176,7 @@ På fliken **steg** beskrivs de steg som vidtas för att etablera ett objekt. Et
 
 
 
-![Synkroniseringsfilter](./media/concept-provisioning-logs/steps.png "Filtrera")
+![Synkroniseringsfilter](./media/concept-provisioning-logs/steps.png "Filter")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Felsöka och rekommendationer
@@ -205,6 +205,29 @@ Fliken **Sammanfattning** ger en översikt över vad som hände och identifierar
 - Det finns för närvarande inget stöd för Log Analytics.
 
 - När du har åtkomst till etablerings loggarna från kontexten för en app filtrerar den inte automatiskt händelser till den aktuella appen som gransknings loggar gör.
+
+## <a name="error-codes"></a>Felkoder
+
+Använd tabellen nedan för att bättre förstå hur du löser fel som du kan hitta i etablerings loggarna. För felkoder som saknas ger du feedback med hjälp av länken längst ned på sidan. 
+
+|Felkod|Beskrivning|
+|---|---|
+|Konflikt, EntryConflict|Korrigera attributvärdena i konflikt antingen i Azure AD eller i programmet eller granska konfigurationen av matchande attribut om det användar konto som står i konflikt skulle matchas och tas över. Läs följande [dokumentation](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) om du vill ha mer information om hur du konfigurerar matchande attribut.|
+|TooManyRequests|Mål appen avvisade det här försöket att uppdatera användaren eftersom den är överbelastad och tar emot för många begär Anden. Det finns inget att göra. Detta försök kommer automatiskt att dras tillbaka. Microsoft har också fått ett meddelande om det här problemet.|
+|InternalServerError |Mål appen returnerade ett oväntat fel. Det kan finnas ett tjänst problem med mål programmet som hindrar detta från att fungera. Detta försök kommer automatiskt att dras tillbaka om 40 minuter.|
+|InsufficientRights, MethodNotAllowed, NotPermitted, obehörig| Azure AD kunde autentiseras med mål programmet, men har inte behörighet att utföra uppdateringen. Granska eventuella instruktioner från mål programmet samt [själv studie kursen](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)för programmet.|
+|UnprocessableEntity|Mål programmet returnerade ett oväntat svar. Konfigurationen av mål programmet kanske inte är korrekt, eller så kan det finnas ett tjänst problem med mål programmet som hindrar detta från att fungera.|
+|WebExceptionProtocolError |Ett HTTP-protokollfel inträffade vid anslutning till mål programmet. Det finns inget att göra. Detta försök kommer automatiskt att dras tillbaka om 40 minuter.|
+|InvalidAnchor|En användare som tidigare har skapats eller matchade av etablerings tjänsten finns inte längre. Kontrol lera att användaren finns. Om du vill tvinga fram en ny matchning av alla användare använder du MS Graph API för att [starta om jobbet](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Observera att om du startar om etableringen utlöses en första cykel, vilket kan ta tid att slutföra. Det tar också bort det cacheminne som etablerings tjänsten använder för att hantera, vilket innebär att alla användare och grupper i klienten måste utvärderas igen och att vissa etablerings händelser kan släppas.|
+|NotImplemented | Mål appen returnerade ett oväntat svar. Appens konfiguration kanske inte är korrekt, eller så kan det finnas ett tjänst problem med den målfil som hindrar detta från att fungera. Granska eventuella instruktioner från mål programmet samt [själv studie kursen](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)för programmet. |
+|MandatoryFieldsMissing, MissingValues |Det gick inte att skapa användaren eftersom de värden som krävs saknas. Korrigera attributvärdena som saknas i käll posten eller granska konfigurationen av matchande attribut för att se till att de obligatoriska fälten inte utelämnas. [Läs mer](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) om hur du konfigurerar matchande attribut.|
+|SchemaAttributeNotFound |Det gick inte att utföra åtgärden eftersom ett attribut som inte finns i mål programmet har angetts. Se [dokumentationen](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) om attribut anpassning och se till att konfigurationen är korrekt.|
+|InternalError |Ett internt tjänst fel uppstod i Azure AD Provisioning-tjänsten. Det finns inget att göra. Det här försöket görs automatiskt om 40 minuter.|
+|InvalidDomain |Det gick inte att utföra åtgärden på grund av ett attributvärde som innehåller ett ogiltigt domän namn. Uppdatera domän namnet på användaren eller Lägg till det i listan över tillåtna i mål programmet. |
+|standardvärde |Det gick inte att utföra åtgärden eftersom mål programmet tog för lång tid att svara. Det finns inget att göra. Det här försöket görs automatiskt om 40 minuter.|
+|LicenseLimitExceeded|Det gick inte att skapa användaren i mål programmet eftersom det inte finns några tillgängliga licenser för den här användaren. Du kan antingen köpa ytterligare licenser för mål programmet eller granska användar tilldelningarna och mappnings konfigurationen för attribut för att säkerställa att rätt användare tilldelas rätt attribut.|
+|DuplicateTargetEntries  |Det gick inte att slutföra åtgärden eftersom mer än en användare i mål programmet hittades med de konfigurerade matchande attributen. Ta antingen bort den duplicerade användaren från mål programmet eller konfigurera om dina mappningar för attribut enligt beskrivningen [här](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
+|DuplicateSourceEntries | Det gick inte att slutföra åtgärden eftersom mer än en användare hittades med de konfigurerade matchande attributen. Ta antingen bort den duplicerade användaren eller konfigurera om dina mappningar för attribut enligt beskrivningen [här](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
 
 ## <a name="next-steps"></a>Nästa steg
 

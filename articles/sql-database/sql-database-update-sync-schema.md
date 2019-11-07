@@ -1,5 +1,5 @@
 ---
-title: Automatisera replikeringen av schema ändringar i Azure SQL Data Sync | Microsoft Docs
+title: Automatisera replikeringen av schema ändringar i Azure SQL Data Sync
 description: Lär dig hur du automatiserar replikeringen av schema ändringar i Azure SQL Data Sync.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 11/14/2018
-ms.openlocfilehash: b1c3f49808a59576f02178dee1107b4019e34b5e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 01cc82a2ada1f4ac8f26b223b7168b2cca157793
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566256"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686878"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatisera replikeringen av schema ändringar i Azure SQL Data Sync
 
@@ -161,7 +161,7 @@ När schema ändringarna har repliker ATS till alla slut punkter måste du ocks�
 
 1.  Uppdatera databasschemat.
 
-1.  Om de nya och gamla data typerna inte är helt kompatibla, till exempel om du ändrar från `int` till `bigint` Sync kan Miss lyckas innan stegen som skapar utlösarna har slutförts. Synkroniseringen lyckas efter ett nytt försök.
+1.  Om de nya och gamla data typerna inte är helt kompatibla, till exempel om du ändrar från `int` till `bigint`-synkronisering kan Miss lyckas innan stegen som skapar utlösarna har slutförts. Synkroniseringen lyckas efter ett nytt försök.
 
 #### <a name="rename-columns-or-tables"></a>Byt namn på kolumner eller tabeller
 
@@ -223,10 +223,10 @@ Mer information om SQL Data Sync finns i:
 
 -   Översikt – [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](sql-database-sync-data.md)
 -   Konfigurera Data Sync
-    - I portalen – [Självstudie: Konfigurera SQL Data Sync för att synkronisera data mellan Azure SQL Database och SQL Server lokalt](sql-database-get-started-sql-data-sync.md)
+    - I portalen – [Självstudie: Konfigurera SQL Data Sync att synkronisera data mellan Azure SQL Database och SQL Server lokalt](sql-database-get-started-sql-data-sync.md)
     - Med PowerShell
         -  [Använda PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)
-        -  [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)
+        -  [Använd PowerShell för att synkronisera mellan en Azure SQL-databas och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   Datasynkroniseringsagent – [Datasynkroniseringsagent för Azure SQL Data Sync](sql-database-data-sync-agent.md)
 -   Metodtips – [Metodtips för Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
 -   Övervaka [SQL Data Sync med Azure Monitor loggar](sql-database-sync-monitor-oms.md)

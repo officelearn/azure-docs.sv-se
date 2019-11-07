@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 11/05/2019
 ms.author: helohr
-ms.openlocfilehash: b62351f1d99ef54d2416a2427264aea225afc5a8
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: cf344d6c551ecd3d301d79c29efe9e7adb7f8d83
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73171603"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73646869"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integration av Windows-partner för virtuella skriv bord
 
@@ -22,9 +22,9 @@ Den här artikeln innehåller partner för virtuella Windows-datorer.
 
 ![Citrix-logotyp](./media/partners/citrix.png)
 
-Citrix är en godkänd provider som erbjuder företag centraliserad hybrid hantering av virtuella appar och skriv bords arbets belastningar i Azure, sida-vid-sida med lokala distributioner. Citrix-arbetsytan med tjänsten virtuella appar och skriv bord ger användare åtkomst till appar och skriv bord från vilken enhet som helst, med hjälp av det avancerade Citrix HDX-protokollet för att leverera en hög definitions upplevelse var som helst.
+Citrix är en godkänd provider som erbjuder företag centraliserad hybrid hantering av virtuella appar och Station ära arbets belastningar i Azure, sida vid sida med lokala distributioner. Citrix-arbetsytan med tjänsten virtuella appar och skriv bord ger användare åtkomst till appar och skriv bord från vilken enhet som helst, med hjälp av det avancerade Citrix HDX-protokollet för att leverera en hög definitions upplevelse var som helst.
 
-Citrix utökar värdet för virtuella Windows-datorer med robusta Enterprise-verktyg för att förbättra användarens densitet och prestanda, etablera arbets belastningar på begäran och förenkla hanteringen av avbildningar och program. Det kan optimera kostnaderna med intelligenta skalnings verktyg, medan det ger en otrolig slutanvändares upplevelse som har testats med de svåraste programmen i flera branscher.
+Citrix utökar värdet för virtuella Windows-datorer med robusta Enterprise-verktyg för att förbättra användarens densitet och prestanda, etablera arbets belastningar på begäran och förenkla hanteringen av avbildningar och program. Det kan optimera kostnaderna med intelligenta skalnings verktyg, samtidigt som vi levererar en otrolig användar upplevelse som är testade mot de tuffaste programmen i olika branscher. Dessutom är Citrix Managed Station ära datorer ett Windows-program med virtuella skriv bord som en tjänst som tillhandahåller en enkel, molnbaserad hanterings lösning för att leverera virtuella appar och skriv bord till alla enheter.
 
 - [Gå till partner webbplatsen](https://more.citrix.com/wvd).
 
@@ -44,7 +44,7 @@ Som godkänd leverantör kommer fördelarna med Windows Virtual Desktop att utö
 
 ![CloudJumper-logotyp](./media/partners/cloudjumper.png)
 
-CloudJumper är en Windows Virtual Desktop-tjänst för mervärdes tjänster som förser lösnings leverantörer och företagets IT-program med program vara för att kunna etablera och hantera Windows-miljöer med virtuella skriv bord. Med CloudJumper-programvara kan den hantera alla lager i en distribution av virtuella Windows-datorer. Leverans av arbets belastningar och program automatiseras och säkerställer att användarna snabbt kan komma åt sina datorer var som helst på valfri enhet.
+CloudJumper är en Windows-Provider för mervärdes tjänster för virtuella datorer som förser lösnings leverantörer och företags IT med program vara för att etablera och hantera Windows Virtual Desktop-miljöer holistiskt. Med CloudJumper-programvara kan den hantera alla lager i en distribution av virtuella Windows-datorer. Leverans av arbets belastningar och program automatiseras och säkerställer att användarna snabbt kan komma åt sina datorer var som helst på valfri enhet.
 
 CloudJumper-programvaran, Cloud Workspace Management Suite utökar värdet för Windows Virtual Desktop genom att förenkla distribution och pågående administrations uppgifter i Azure. Från en enda ruta i glaset kan du etablera, hantera och optimera infrastrukturen för användar arbets ytor. CloudJumper för den enkla skript utlösaren integreras med IT-plattformar för att automatisera uppgifter som rör etablering av virtuella Windows-datorer. Dessutom tillåter CloudJumper-API: er ytterligare utökning och integrering med andra företags system som ServiceNow och BMC Ready.
 
@@ -55,7 +55,7 @@ CloudJumper-programvaran, Cloud Workspace Management Suite utökar värdet för 
 
 ![ControlUp-logotyp](./media/partners/controlup.png)
 
-ControlUp är en Windows-Provider för mervärdes tjänster för virtuella datorer som gör det möjligt för IT-grupper att övervaka, felsöka, analysera och direkt åtgärda problem i sina lokala, hybrid moln och moln infrastruktur i real tid från en enda konsol. ControlUps analys-och hanterings plattform gör det också möjligt för IT att proaktivt automatisera korrigeringar för en snabbt växande uppsättning användnings fall.
+ControlUp är en Windows-Provider för mervärdes tjänster för virtuella datorer som gör det möjligt för IT-grupper att övervaka, felsöka, analysera och direkt åtgärda problem i sitt lokala, hybrid moln och moln infrastruktur i real tid från en enda konsol. ControlUps analys-och hanterings plattform gör det också möjligt för IT att proaktivt automatisera korrigeringar för en snabbt växande uppsättning användnings fall.
 
 När det används med Windows Virtual Desktop tillhandahåller ControlUp ytterligare funktioner för att optimera Windows-miljöer för virtuella skriv bord och slutanvändaren. Från ControlUp-konsolen får du en miljö för slut användar miljö för att effektivt övervaka och felsöka prestanda problem. En intuitiv instrument panel ger insikter och analyser för distributioner av virtuella skriv bord, samt alternativ för automatiserad rapportering som berikas med community-benchmarks. ControlUp kan hantera flera data källor och-typer och organisera dem i data uppsättningar med hög prestanda som sammanställs i beräknings-, lagrings-och Windows-infrastruktur för virtuella datorer, vilket ger detaljerad insyn från en enda ruta i glaset.
 
@@ -66,11 +66,21 @@ När det används med Windows Virtual Desktop tillhandahåller ControlUp ytterli
 
 ![deviceTRUST-logotyp](./media/partners/devicetrust.png)
 
-deviceTRUST är en Windows-Provider för mervärdes tjänster för virtuella datorer som contextualizes företags företaget, vilket gör det möjligt för användarna att få åtkomst till sina virtuella Windows-datorer från valfri plats, på valfri enhet, över alla nätverk, samtidigt som de ger dem avdelningar den information och kontroll de behöver för att uppfylla sina styrnings krav. 
+deviceTRUST är en Windows-Provider för mervärdes tjänster för virtuella datorer som contextualizes företags företaget. Det gör det möjligt för användarna att få åtkomst till sina virtuella Windows-datorer från vilken plats som helst, på alla enheter, över alla nätverk, samtidigt som de ger IT-avdelningen den information och kontroll de behöver för att uppfylla sina styrnings krav. 
 
 deviceTRUST utökar värdet för virtuella Windows-datorer med deras sammanhangsbaserade säkerhets teknik. deviceTRUST möjliggör villkorlig åtkomst för en säker åtkomst till virtuella Windows-datorer, villkorlig program åtkomst i Windows Virtual Desktop och att tillämpa villkorliga Windows-principer för virtuella skriv bord utan ytterligare infrastruktur. Med deviceTRUST kan du använda en mobil, flexibel arbets yta som uppfyller alla krav på säkerhet, efterlevnad och regler. 
 
 - [Gå till partner webbplatsen](https://devicetrust.com/wvd).
+
+## <a name="igel"></a>IGEL
+
+![IGEL-logotyp](./media/partners/igel.png)
+
+IGEL är en godkänd och verifierad partner av Microsoft Azure-och Windows-tjänster för virtuella skriv bord. IGEL erbjuder IGEL OS, nästa generations operativ system för moln arbets ytor som har utformats för att komma åt virtuella appar, skriv bords datorer och moln arbets ytor från en eller flera användar enheter med en enkel, enkel och säker Linux-baserad slut punkt. En plattforms oberoende program varu lösning, IGEL OS och dess serverbaserade hanterings-och kontroll program vara, IGEL Universal Management Suite (UMS) utgör en hanterings-och kontroll lösning för slut punkter som gör att företag kan dra full nytta av Azure-baserade moln instanser och Windows virtuella Skriv bords datorer, inklusive ekonomiskt virtuellt Windows-skrivbord med flera sessioner, samtidigt som du minskar kostnaderna för slut punkts maskin vara och drifts hanterings enheter.
+ 
+IGEL OS stöder alla populära virtuella appar, Station ära datorer och klient protokoll för moln arbets ytor från Citrix, Microsoft och VMware. Den innehåller integrerad teknik från 85-kring utrustning, gränssnitt och protokoll för att hjälpa organisationer att snabbt använda Windows-tjänster för virtuella skriv bord i sina egna unika användar miljöer. IGEL OS är ett skrivskyddat, modulärt slut punkts operativ system som hjälper till att skydda det från manipulering. Nu finns det också en fullständig "förtroende kedja" som verifierar integriteten för alla viktiga huvud processer som körs på slut punkten, från slut punkts maskin varan (vissa valda modeller) eller UEFI-processen hela vägen till Azure-molnet och Windows-tjänster för virtuella skriv bord. Med IGEL OS kan företag prenumerera på virtuella Windows-datorer från Azure-molnet med fullt förtroende för integritet, säkerhet och hanterbarhet för användarnas slut punkts enheter.
+
+- [Gå till partner webbplatsen.](https://www.igel.com/igel-os-universal-desktop-operating-system/)
 
 ## <a name="ivanti"></a>Ivanti
 
@@ -78,7 +88,7 @@ deviceTRUST utökar värdet för virtuella Windows-datorer med deras sammanhangs
 
 Ivanti User Workspace Manager är en Windows-tjänst för virtuella skriv bord som är till för att under lätta Skriv bords distribution och-hantering genom att skilja användar data från Skriv bordet till sömlös portabilitet. Med Ivanti kan användarna leverera komplexa projekt som att migrera till Windows 10, anta Office 365 eller flytta tjänster till molnet snabbare. 
 
-När den används med Windows Virtual Desktop, ger Ivanti User Workspace Manager enkel kontext hantering av användar Skriv bords miljö, vilket eliminerar lång inloggnings tider och utrotning av Nightmares för grup principer. Ivanti User Workspace Manager är färdiga mallar som fören klar installationen av användare via agenter och den befintliga konsolen. Ivanti User Workspace Manager ger svar, säkra skriv bord som användare älskar, sparar pengar på servrar, hanterar användare effektivare och minskar slut punkts säkerhets risken. 
+När den används med Windows Virtual Desktop ger Ivanti User Workspace Manager enkel kontext hantering av användar Skriv bords miljö, vilket eliminerar långa inloggnings tider och utrotning av Nightmares för grup principer. Ivanti User Workspace Manager är färdiga mallar som fören klar installationen av användare via agenter och den befintliga konsolen. Ivanti User Workspace Manager ger svar, säkra skriv bord som användare älskar, sparar pengar på servrar, hanterar användare effektivare och minskar slut punkts säkerhets risken. 
 
 - [Gå till partner webbplatsen](https://www.ivanti.com/products/user-workspace-manager).
 
@@ -137,7 +147,7 @@ De vanligaste användnings fallen för PolicyPak är att ta bort lokala administ
 
 ![PrinterLogic-logotyp](./media/partners/printerlogic.png)
 
-PrinterLogic är en Windows Virtual Desktop-tjänst för mervärdes tjänst leverantör som gör det möjligt för IT-proffs att ta bort alla utskrifts servrar och leverera en server lös utskrifts infrastruktur med hög tillgänglighet. PrinterLogic utökar värdet för virtuella Windows-datorer och Azure genom att göra det enkelt att centralt hantera och distribuera skrivar objekt till valfri skrivare eller slut punkts operativ system.   
+PrinterLogic är en Windows Virtual Desktop-tjänst för mervärdes tjänst leverantörer som gör det möjligt för IT-proffs att ta bort alla utskrifts servrar och leverera en server lös utskrifts infrastruktur med hög tillgänglighet. PrinterLogic utökar värdet för virtuella Windows-datorer och Azure genom att göra det enkelt att hantera ett centralt och distribuera skrivar objekt till valfri skrivare eller slut punkts operativ system.   
 
 PrinterLogic-plattformen är tillgänglig som SaaS eller som en webbstack i ditt eget privata moln, men-plattformen ser till att användarna alltid har rätt skrivare de behöver i sina virtuella sessioner baserat på användar-ID, enhets namn eller plats. Den här funktionen kompletteras av en fullständig uppsättning funktioner för utskrifts hantering i företags form, till exempel utskrifts spårning och rapportering, mobil utskrift och säker utskrift av säkerhet för bricka. 
 
@@ -147,9 +157,9 @@ PrinterLogic-plattformen är tillgänglig som SaaS eller som en webbstack i ditt
 
 ![Numecent-logotyp](./media/partners/numecent.png)
 
-Numecent är en Windows Virtual Desktop-tjänst för mervärdes tjänster som avsevärt minskar den totala drift kostnaden genom snabb onboarding och migrering av komplicerade eller inkompatibla Windows-appar i Windows-miljöer för virtuella skriv bord. Numecent minimerar också mängden konfigurations användare som behöver göra, minskar program uppdateringar och fören klar komplexa processer. Eftersom Numecent Cloudpaging har stöd för fler program än något annat program leverans verktyg minskar tiden och IT-arbetsbelastningar i miljöer med en mängd olika program. 
+Numecent är en Windows Virtual Desktop-tjänst för mervärdes tjänster som avsevärt minskar den totala drift kostnaden genom snabb onboarding och migrering av komplicerade eller inkompatibla Windows-appar i Windows-miljöer för virtuella skriv bord. Numecent minimerar också mängden konfiguration som användarna behöver göra, minskar program uppdateringar och fören klar komplexa processer. Eftersom Numecent Cloudpaging har stöd för fler program än något annat program leverans verktyg minskar tiden och IT-arbetsbelastningar i miljöer med en mängd olika program. 
 
-När det används med Windows Virtual Desktop minskar Cloudpaging ytterligare kostnader genom att slutföra livs cykeln för program varu till gång från distribution till uppgradering, avläsning och borttagning av program. Cloudpaging fören klar avbildnings hanteringen genom att dynamiskt konfigurera appar efter behov i real tid till Windows-distributioner för virtuella datorer. Cloudpaging gör det möjligt för program att köras utan administration eller åtgärder genom de periodiska Windows 10-uppdateringarna. Cloudpaging minskar också licens kostnaden för dyra program genom att aktivera effektivare distribution och användning av dessa program. 
+När det används med Windows Virtual Desktop minskar Cloudpaging ytterligare kostnader genom att slutföra livs cykeln för program varu till gång från distribution till uppgradering, avläsning och borttagning av program. Cloudpaging fören klar avbildnings hanteringen genom att dynamiskt konfigurera appar efter behov i real tid till Windows-distributioner av virtuella datorer. Cloudpaging gör det möjligt för program att köras utan administration eller åtgärder genom de periodiska Windows 10-uppdateringarna. Cloudpaging minskar också licens kostnaden för dyra program genom att aktivera effektivare distribution och användning av dessa program. 
 
 - [Gå till partner webbplatsen](https://www.numecent.com/partners/cloudpaging-for-windows-applications-windows-virtual-desktop/).
 

@@ -1,5 +1,5 @@
 ---
-title: Hantera Azure SQL Database-schema i en app för flera klienter | Microsoft Docs
+title: Hantera Azure SQL Database schema i en app för flera klienter
 description: Hantera scheman för flera klienter i ett program för flera klienter som använder Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: db6f471438324e984434704a2cab01d57c800ba5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a4838e571c6dc678fba470ef7f1026388f55d444
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570255"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691980"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Hantera schema i ett SaaS-program som använder shardade för flera innehavare av SQL-databaser
 
@@ -40,7 +40,7 @@ I den här självstudiekursen får du lära du dig att:
 > * Uppdatera referens data i alla klient databaser.
 > * Skapa ett index i en tabell i alla klient databaser.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Wingtip Ticket-appen för flera klient organisationer måste redan vara distribuerad:
     - Mer information finns i den första självstudien som presenterar Wingtip-biljetterna SaaS för flera klient organisationer:<br />[Distribuera och utforska ett shardade-program för flera innehavare som använder Azure SQL Database](saas-multitenantdb-get-started-deploy.md).
@@ -64,7 +64,7 @@ Shardade-modellen för flera klient organisationer som används i det här exemp
 
 Det finns en ny version av elastiska jobb som nu är en integrerad funktion i Azure SQL Database. Den här nya versionen av elastiska jobb är för närvarande i begränsad förhandsvisning. Den begränsade för hands versionen stöder för närvarande användning av PowerShell för att skapa en jobb agent och T-SQL för att skapa och hantera jobb.
 > [!NOTE]
-> I den här självstudien används funktioner i SQL Databases tjänsten som är i en begränsad förhands granskning (Elastic Database-jobb). Om du vill göra den här själv studie kursen anger du ditt prenumerations-ID till med ämne = för SaaSFeedback@microsoft.com hands version av elastiska jobb. När du har fått en bekräftelse på att din prenumeration har Aktiver ATS laddar du ned och installerar de senaste cmdletarna för för hands versions jobb. Den här för hands versionen är begränsad SaaSFeedback@microsoft.com , så kontakta dig för relaterade frågor eller support.
+> I den här självstudien används funktioner i SQL Databases tjänsten som är i en begränsad förhands granskning (Elastic Database-jobb). Om du vill göra den här själv studie kursen anger du ditt prenumerations-ID till SaaSFeedback@microsoft.com med ämnet = för hands version av elastiska jobb. När du har fått en bekräftelse på att din prenumeration har Aktiver ATS laddar du ned och installerar de senaste cmdletarna för för hands versions jobb. Den här för hands versionen är begränsad, så kontakta SaaSFeedback@microsoft.com för relaterade frågor eller support.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Hämta Wingtip-biljetterna SaaS källkod och skript för databas program för flera innehavare
 
@@ -74,21 +74,21 @@ Wingtip-biljetterna SaaS databas skript för flera innehavare och program käll 
 
 I den här självstudien krävs att du använder PowerShell för att skapa jobb Agent databasen och jobb agenten. Precis som MSDB-databasen som används av SQL Agent använder en jobb agent en Azure SQL-databas för att lagra jobb definitioner, jobb status och historik. När jobb agenten har skapats kan du skapa och övervaka jobb direkt.
 
-1. I **POWERSHELL ISE**öppnar du *... Inlärningsmoduler\\schemahantering\\schemamanagement. ps1. \\*
+1. I **POWERSHELL ISE**öppnar du *...\\Learning-moduler\\schema hantering\\schemamanagement. ps1*.
 2. Tryck **F5** för att köra skriptet.
 
 Skriptet *schemamanagement. ps1* anropar skriptet *Deploy-SchemaManagement. ps1* för att skapa en databas med namnet _JobAgent_ på katalog servern. Skriptet skapar sedan jobb agenten och skickar _JobAgent_ -databasen som en parameter.
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Skapa ett jobb för att distribuera nya referensdata till alla klienter
 
-#### <a name="prepare"></a>Förbered
+#### <a name="prepare"></a>Förbereda
 
-Varje innehavares databas innehåller en uppsättning plats typer i **VenueTypes** -tabellen. Varje platstyp definierar typ av händelser som kan finnas på en plats. Dessa typer av platser motsvarar de bakgrunds bilder som visas i appen klient organisations händelser.  I den här övningen distribuerar du en uppdatering till alla databaser för att lägga till två ytterligare plats typer: *Motorcykel tävling* och *SIM-klubb*.
+Varje innehavares databas innehåller en uppsättning plats typer i **VenueTypes** -tabellen. Varje platstyp definierar typ av händelser som kan finnas på en plats. Dessa typer av platser motsvarar de bakgrunds bilder som visas i appen klient organisations händelser.  I den här övningen distribuerar du en uppdatering till alla databaser för att lägga till två ytterligare plats typer: *motorcykel tävling* och *SIM-klubb*.
 
 Börja med att granska de plats typer som ingår i varje klient databas. Anslut till en av klient databaserna i SQL Server Management Studio (SSMS) och granska VenueTypes-tabellen.  Du kan också fråga den här tabellen i Frågeredigeraren i Azure Portal, som öppnas från databas sidan.
 
-1. Öppna SSMS och Anslut till klient servern: *tenants1-DPT-&lt;&gt;User. Database.Windows.net*
-1. För att bekräfta *att motorcykelns racing* -och *SIM-klubb* **inte** ingår, bläddrar du till *contosoconcerthall* -databasen på *tenants1&lt;-&gt; DPT-User-* servern och frågar  *VenueTypes* -tabell.
+1. Öppna SSMS och Anslut till klient servern: *tenants1-DPT-&lt;user&gt;. Database.Windows.net*
+1. För att bekräfta att *motorcykelns racing* -och *SIM-klubb* **inte** ingår, kan du bläddra till *contosoconcerthall* -databasen på *tenants1-DPT-&lt;User&gt;* Server och fråga *VenueTypes* tabell.
 
 
 
@@ -98,60 +98,60 @@ Nu skapar du ett jobb för att uppdatera **VenueTypes** -tabellen i varje klient
 
 Om du vill skapa ett nytt jobb använder du uppsättningen med jobb system lagrade procedurer som skapades i _JobAgent_ -databasen. De lagrade procedurerna skapades när jobb agenten skapades.
 
-1. I SSMS ansluter du till klient servern: tenants1-MT-&lt;User&gt;. Database.Windows.net
+1. I SSMS ansluter du till klient servern: tenants1-MT-&lt;User&gt;. database.windows.net
 
 2. Bläddra till *tenants1* -databasen.
 
 3. Fråga *VenueTypes* -tabellen för att bekräfta att *motorcykelns racing* -och *SIM-klubb* ännu inte finns i resultat listan.
 
-4. Anslut till katalog servern, som är *Catalog-MT-&lt;&gt;User. Database.Windows.net*.
+4. Anslut till katalog servern, som är *katalog-MT-&lt;user&gt;. Database.Windows.net*.
 
 5. Anslut till _JobAgent_ -databasen på katalog servern.
 
-6. Öppna filen i SSMS *... Inlärningsmoduler\\schemahantering\\DeployReferenceData. SQL. \\*
+6. I SSMS öppnar du filen *...\\Learning-moduler\\schema hantering\\DeployReferenceData. SQL*.
 
-7. Ändra instruktionen: set @User = &lt;User&gt; och ersätt User Value som används när du distribuerade Wingtip Ticket SaaS-databasprogram för flera innehavare.
+7. Ändra instruktionen: Ange @User = &lt;användar&gt; och Ersätt det användar värde som användes när du distribuerade Wingtip-biljetterna SaaS-databasen för flera klient organisationer.
 
 8. Tryck **F5** för att köra skriptet.
 
-#### <a name="observe"></a>Observera
+#### <a name="observe"></a>Närmare
 
 Observera följande objekt i *DeployReferenceData. SQL* -skriptet:
 
-- **SP\_Add\_TargetGroup\_** skapar mål grupp namnet *DemoServerGroup*och lägger till mål medlemmar i gruppen.
+- **sp\_Lägg till\_mål\_grupp** skapar mål grupp namnet *DemoServerGroup*och lägger till mål medlemmar i gruppen.
 
-- **SP\_Läggtill\_mål\_gruppmedlem\_** lägger till följande objekt:
+- **sp\_Lägg till\_mål\_grupp\_medlem** lägger till följande objekt:
     - En medlems typ för *Server* mål.
-        - Detta är den *tenants1-MT-&lt;User&gt; -* server som innehåller klienternas databaser.
+        - Det här är den *tenants1-MT-&lt;användar&gt;-* server som innehåller klient databaserna.
         - Inklusive-servern omfattar de klient databaser som finns när jobbet körs.
-    - En *databas* mål medlems typ för den mall databas (*basetenantdb*) som finns på *katalogen –&lt;MT-User&gt;*  Server
+    - En medlems typ av *databas* mål för den mall databas (*basetenantdb*) som finns i *katalogen – MT-&lt;användar&gt;* Server,
     - En medlems typ av *databas* mål som innehåller *AdHocReporting* -databasen som används i en senare själv studie kurs.
 
-- **SP\_Add\_Job** skapar ett jobb med namnet *referens data distribution*.
+- **sp\_Lägg till\_jobb** skapar ett jobb med namnet *referens data distribution*.
 
-- **SP\_Add\_Jobstep** skapar det jobb steg som innehåller T-SQL-kommando texten för att uppdatera referens tabellen, VenueTypes.
+- **sp\_Lägg till\_Jobstep** skapar jobb steget som innehåller t-SQL-kommando texten för att uppdatera referens tabellen, VenueTypes.
 
 - De återstående vyerna i skriptet visar att jobbet finns och övervakar jobbkörningen. Använd de här frågorna för att granska status värdet i kolumnen **livs cykel** för att fastställa när jobbet har avslut ATS. Jobbet uppdaterar klient databasen och uppdaterar de två ytterligare databaser som innehåller referens tabellen.
 
-I SSMS bläddrar du till klient databasen på *tenants1-MT-User&lt;&gt; -* servern. Fråga *VenueTypes* -tabellen för att bekräfta att *motorcykelns racing* och *SIM-klubb* nu läggs till i tabellen. Det totala antalet typer av platser bör ha ökat med två.
+I SSMS bläddrar du till klient databasen på *tenants1-MT-&lt;user&gt;-* servern. Fråga *VenueTypes* -tabellen för att bekräfta att *motorcykelns racing* och *SIM-klubb* nu läggs till i tabellen. Det totala antalet typer av platser bör ha ökat med två.
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Skapa ett jobb för att hantera referenstabellindexet
 
 Den här övningen skapar ett jobb för att återskapa indexet för primär nyckeln för referens tabellen på alla klient databaser. En index återskapning är en typisk databas hanterings åtgärd som en administratör kan köra efter att ha läst in en stor mängd data belastning för att förbättra prestandan.
 
-1. I SSMS ansluter du till _JobAgent_ Database i *katalogen-MT-&lt;User&gt;. Database.Windows.net-* servern.
+1. I SSMS ansluter du till _JobAgent_ Database i *katalogen – MT-&lt;User&gt;. Database.Windows.net* Server.
 
-2. Öppna i SSMS *... Inlärningsmoduler\\schemahantering\\OnlineReindex. SQL. \\*
+2. I SSMS öppnar du *...\\Learning-moduler\\schema hantering\\OnlineReindex. SQL*.
 
 3. Tryck **F5** för att köra skriptet.
 
-#### <a name="observe"></a>Observera
+#### <a name="observe"></a>Närmare
 
 Observera följande objekt i *OnlineReindex. SQL* -skriptet:
 
-* **SP\_Add\_Job** skapar ett nytt jobb med namnet *online Reindex\_PK\_\_\_VenueTyp 265E44FD7FD4C885*.
+* **sp\_Lägg till\_jobb** skapar ett nytt jobb med namnet *online reindexe PK\_\_VENUETYP\_\_265E44FD7FD4C885*.
 
-* **SP\_Add\_Jobstep** skapar det jobb steg som innehåller kommando texten T-SQL för att uppdatera indexet.
+* **sp\_Lägg till\_Jobstep** skapar det jobb steg som innehåller t-SQL-kommando texten för att uppdatera indexet.
 
 * Återstående vyer i skript övervaknings jobb körningen. Använd de här frågorna för att granska status värdet i kolumnen **livs cykel** för att fastställa när jobbet har slutförts på alla mål grupps medlemmar.
 
@@ -164,7 +164,7 @@ Observera följande objekt i *OnlineReindex. SQL* -skriptet:
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig att:
+I den här guiden lärde du dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en jobb agent för att köra T-SQL-jobb över flera databaser

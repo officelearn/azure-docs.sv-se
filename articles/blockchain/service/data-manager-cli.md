@@ -8,12 +8,12 @@ ms.date: 11/04/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: chroyal
-ms.openlocfilehash: 1e92ae36aee5e62cd05b40bbaa38a226943f0adb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 9f408b090db40e5145b424034c39cdba4de14a8f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518026"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605907"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Konfigurera blockchain Data Manager med Azure CLI
 
@@ -27,7 +27,7 @@ Om du vill konfigurera en blockchain Data Manager instans:
 * Lägg till ett blockchain-program
 * Starta en instans
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Installera den senaste versionen av [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) och logga in med `az login`.
 * Slutför [snabb start: Använd Visual Studio Code för att ansluta till ett Azure blockchain service Consortium-nätverk](connect-vscode.md)
@@ -259,6 +259,10 @@ az resource create \
 
 Om du lägger till ett blockchain-program avkodar Data Manager blockchain händelse-och egenskaps tillstånd för programmet. Annars skickas endast rå block och rå transaktions information. Blockchain Data Manager identifierar också kontrakts adresser när kontraktet distribueras. Du kan lägga till flera blockchain-program till en blockchain Data Manager-instans.
 
+
+> [!IMPORTANT]
+> Blockchain-program som deklarerar [mat ris typer](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) eller [mappnings typer](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) stöds för närvarande inte fullt ut. Egenskaper som är deklarerade som matris-eller mappnings typer avkodas inte i *ContractPropertiesMsg* -eller *DecodedContractEventsMsg* -meddelanden.
+
 ``` azurecli
 az resource create \
                    --resource-group <Resource group> \
@@ -306,7 +310,7 @@ Konfigurations-JSON-exempel för att skapa en program resurs i regionen *USA, ö
 | location | Region där program resursen ska skapas. |
 | artifactType | Typ av program. **EthereumSmartContract** stöds för närvarande. |
 | abiFileUrl | URL för ABI JSON-fil för smart kontrakt. Mer information om hur du skaffar kontrakts ABI och skapar en URL finns i [Hämta kontrakt ABI och bytekod](data-manager-portal.md#get-contract-abi-and-bytecode) och [skapa kontrakt ABI och bytekod URL](data-manager-portal.md#create-contract-abi-and-bytecode-url). |
-| bytecodeFileUrl | URL för smart kontrakts bytekod-JSON-fil. Mer information om hur du hämtar det smarta kontraktets bytekod och skapar en URL finns i [Hämta kontrakt ABI och bytekod](data-manager-portal.md#get-contract-abi-and-bytecode) och [skapa kontrakts ABI och bytekod-URL](data-manager-portal.md#create-contract-abi-and-bytecode-url). |
+| bytecodeFileUrl | URL för smart kontrakts distribuerad bytekod-JSON-fil. Mer information om hur du hämtar det smarta kontraktets distribuerade bytekod och skapar en URL finns i [Hämta kontrakt ABI och bytekod](data-manager-portal.md#get-contract-abi-and-bytecode) och [skapa kontrakt ABI och bytekod URL](data-manager-portal.md#create-contract-abi-and-bytecode-url). Obs: blockchain Data Manager kräver den **distribuerade bytekod**. |
 | queryTargetTypes | Publicerade meddelande typer. Ange **ContractProperties** publicerar *ContractPropertiesMsg* meddelande typ. Ange **ContractEvents** publicerar *DecodedContractEventsMsg* meddelande typ. Obs: *RawBlockAndTransactionMsg* -och *RawTransactionContractCreationMsg* -meddelande typer publiceras alltid. |
 
 Skapa ett program med namnet ' Mina *program* för *bevakare* som övervakar ett smart kontrakt som definieras av en JSON-sträng.
@@ -415,4 +419,7 @@ az resource delete \
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [händelse hanterare i Azure Event Grid](../../event-grid/event-handlers.md).
+Försök att skapa en transaktions meddelande Utforskare i blockchain med blockchain Data Manager och Azure Cosmos DB.
+
+> [!div class="nextstepaction"]
+> [Självstudie: Använd blockchain Data Manager för att skicka data till Azure Cosmos DB](data-manager-cosmosdb.md)

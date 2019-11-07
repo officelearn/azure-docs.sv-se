@@ -1,18 +1,18 @@
 ---
-title: Klient bibliotek som krävs för att ansluta till Azure Analysis Services | Microsoft Docs
+title: Azure Analysis Services klient bibliotek | Microsoft Docs
 description: Beskriver klient bibliotek som krävs för klient program och-verktyg för att ansluta Azure Analysis Services
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8ce5083d444aa05b59677fb46e7aa80200835412
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: f78ac8686f23c47995cab9686c2ca3f6cf88fa6b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73147088"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573058"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Klient bibliotek för anslutning till Azure Analysis Services
 
@@ -54,7 +54,7 @@ Klient bibliotek för klient anslutningar skiljer sig från data leverantörer s
   
  Analysis Services OLE DB-provider installeras automatiskt av de flesta verktyg och klient program som används för att få åtkomst till Analysis Services-databaser. Den måste installeras på datorer som används för att komma åt Analysis Services data.  
   
- OLE DB-providers anges ofta i anslutnings strängar. En Analysis Services anslutnings sträng använder en annan nomenklatur för att referera till OLE DB provider: MSOLAP. \<Version >. dll.
+ OLE DB-providers anges ofta i anslutnings strängar. En Analysis Services anslutnings sträng använder en annan nomenklatur för att referera till OLE DB providern: MSOLAP.\<version >. dll.
 
 ### <a name="amo"></a>AMO  
 
@@ -74,7 +74,7 @@ Klient bibliotek för klient anslutningar skiljer sig från data leverantörer s
   
 1.  Gå till `C:\Program Files\Microsoft Analysis Services\AS OLEDB\`. Om du har mer än en mapp väljer du det högre talet.
   
-2.  Högerklicka på **MSOLAP. dll** > **Egenskaper** > **Detaljer**. Om fil namnet är msolap140. dll, är det äldre än den senaste versionen och bör uppgraderas.
+2.  Högerklicka på **MSOLAP. dll** > **Egenskaper** > **information**. Om fil namnet är msolap140. dll, är det äldre än den senaste versionen och bör uppgraderas.
     
     ![Information om klient bibliotek](media/analysis-services-data-providers/aas-msolap-details.png)
     
@@ -82,12 +82,12 @@ Klient bibliotek för klient anslutningar skiljer sig från data leverantörer s
 ### <a name="amo"></a>AMO
 
 1. Gå till `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices\`. Om du har mer än en mapp väljer du det högre talet.
-2. Högerklicka på **Microsoft. AnalysisServices** > **Egenskaper** > **Detaljer**.  
+2. Högerklicka på **Microsoft. AnalysisServices** > **Egenskaper** > **information**.  
 
 ### <a name="adomd"></a>ADOMD
 
 1. Gå till `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices.AdomdClient\`. Om du har mer än en mapp väljer du det högre talet.
-2. Högerklicka på **Microsoft. AnalysisServices. AdomdClient** > **Egenskaper** > **Detaljer**.  
+2. Högerklicka på **Microsoft. AnalysisServices. AdomdClient** > **Egenskaper** > **information**.  
 
 
 ## <a name="next-steps"></a>Nästa steg

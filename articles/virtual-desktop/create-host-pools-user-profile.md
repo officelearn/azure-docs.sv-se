@@ -1,5 +1,5 @@
 ---
-title: Skapa en FSLogix profil behållare för en adresspool med en virtuell dator baserad fil resurs – Azure
+title: Windows Virtual Desktop FSLogix profil container Share-Azure
 description: Konfigurera en FSLogix profil behållare för en Windows-pool för virtuella skriv bord med en virtuell dator baserad fil resurs.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: helohr
-ms.openlocfilehash: 0e7516fc4874e4cbc387f2f494efc6ef745d64f7
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 65d800cc6c1b6818369807ffeae9cd350a34066f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311586"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606992"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Skapa en profilcontainer för en värdpool med hjälp av en filresurs
 
@@ -59,9 +59,9 @@ Om du vill konfigurera de virtuella datorerna med FSLogix-programvaran gör du f
 
 1. [Anslut till den virtuella datorn](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) med de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
 2. Starta en webbläsare och navigera till [den här länken](https://go.microsoft.com/fwlink/?linkid=2084562) för att ladda ned FSLogix-agenten.
-3. Gå till antingen \\ @ no__t-1Win32 @ no__t-2Release eller \\ @ no__t-4X64 @ no__t-5Release i. zip-filen och kör **FSLogixAppsSetup** för att installera FSLogix-agenten.  Mer information om hur du installerar FSLogix finns i [Hämta och installera FSLogix](https://docs.microsoft.com/fslogix/install-ht).
-4. Navigera till **programfiler** > **FSLogix** > -**appar** för att bekräfta att agenten är installerad.
-5. Från Start-menyn kör du **regedit** som administratör. Navigera till **datorn @ no__t-1HKEY_LOCAL_MACHINE @ no__t-2software @ no__t-3FSLogix**.
+3. Gå till \\\\Win32\\-versionen eller \\\\x64\\version i. zip-filen och kör **FSLogixAppsSetup** för att installera FSLogix-agenten.  Mer information om hur du installerar FSLogix finns i [Hämta och installera FSLogix](https://docs.microsoft.com/fslogix/install-ht).
+4. Gå till **programfiler** > **FSLogix** > **appar** för att bekräfta att agenten är installerad.
+5. Från Start-menyn kör du **regedit** som administratör. Gå till **dator\\HKEY_LOCAL_MACHINE\\software\\FSLogix**.
 6. Skapa en nyckel med namnet **profiler**.
 7. Skapa följande värden för profil nyckeln:
 

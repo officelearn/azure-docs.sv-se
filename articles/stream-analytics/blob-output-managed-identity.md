@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: 4215dc85da6d507b08f23cf248044ea807fe5319
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 1854a99cac3ead386f38c1c7fe27a56b672f365c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935126"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664304"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output-preview"></a>Använd hanterad identitet för att autentisera ditt Azure Stream Analytics jobb till Azure Blob Storage utdata (för hands version)
 
@@ -23,7 +23,7 @@ Den här artikeln visar hur du aktiverar hanterad identitet för BLOB-utdata fö
 
 1. Skapa ett nytt Stream Analytics jobb eller öppna ett befintligt jobb i Azure Portal. Välj **hanterad identitet** som finns under **Konfigurera**på Meny raden på vänster sida av skärmen. Se till att "Använd systemtilldelad hanterad identitet" är markerat och klicka sedan på knappen **Spara** längst ned på skärmen.
 
-   ![Konfigurera Stream Analytics hanterad identitet](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-enable-managed-identity.png)
+   ![Konfigurera Stream Analytics hanterad identitet](./media/common/stream-analytics-enable-managed-identity.png)
 
 2. I fönstret utdata-egenskaper i Azure Blob Storage utgående mottagare väljer du List rutan autentiseringsläge och väljer **hanterad identitet**. Information om andra egenskaper för utdata finns i [förstå utdata från Azure Stream Analytics](./stream-analytics-define-outputs.md). Klicka på **Spara**när du är färdig.
 

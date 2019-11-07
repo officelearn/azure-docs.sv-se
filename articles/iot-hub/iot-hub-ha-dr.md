@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: philmea
-ms.openlocfilehash: f1944e06989844528a55c89f82c3db3b3a28dca1
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
-ms.translationtype: MT
+ms.openlocfilehash: 533a199f75baa5a27ed06698f22d4d046be45507
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876900"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607876"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub hög tillgänglighet och haveri beredskap
 
@@ -32,7 +32,7 @@ Beroende på de drift tids mål som du definierar för dina IoT-lösningar bör 
 
 ## <a name="intra-region-ha"></a>HA inom region
 
-IoT Hubs tjänsten ger till gång till flera regioner genom att implementera redundans i nästan alla lager i tjänsten. Service [avtalet som publiceras av IoT Hubs tjänsten](https://azure.microsoft.com/support/legal/sla/iot-hub) uppnås genom att använda dessa redundanser. Inga ytterligare arbete krävs av utvecklare av en IoT-lösning för att dra nytta av dessa HA-funktioner. Även om IoT Hub erbjuder en rimlig hög drifts garanti, kan tillfälliga problem fortfarande förväntas som med en distribuerad dator plattform. Om du precis har kommit igång med att migrera dina lösningar till molnet från en lokal lösning, måste du växla från att optimera "genomsnittlig tid mellan fel" till "genomsnittlig tid för att återställa". Med andra ord anses tillfälliga haverier vara normala när du arbetar med molnet i blandningen. Lämpliga [principer](iot-hub-reliability-features-in-sdks.md) för återförsök måste vara inbyggda i komponenterna som samverkar med ett moln program för att hantera tillfälliga fel.
+IoT Hubs tjänsten ger till gång till flera regioner genom att implementera redundans i nästan alla lager i tjänsten. Service [avtalet som publiceras av IoT Hubs tjänsten](https://azure.microsoft.com/support/legal/sla/iot-hub) uppnås genom att använda dessa redundanser. Inga ytterligare arbete krävs av utvecklare av en IoT-lösning för att dra nytta av dessa HA-funktioner. Även om IoT Hub erbjuder en rimlig hög drifts garanti, kan tillfälliga problem fortfarande förväntas som med en distribuerad dator plattform. Om du precis har kommit igång med att migrera dina lösningar till molnet från en lokal lösning, måste du växla från att optimera "genomsnittlig tid mellan fel" till "genomsnittlig tid för att återställa". Med andra ord anses tillfälliga haverier vara normala när du arbetar med molnet i blandningen. Lämpliga [principer för återförsök](iot-hub-reliability-features-in-sdks.md) måste vara inbyggda i komponenterna som samverkar med ett moln program för att hantera tillfälliga fel.
 
 > [!NOTE]
 > Vissa Azure-tjänster ger också ytterligare tillgänglighets nivåer inom en region genom integrering med [Tillgänglighetszoner (AZS)](../availability-zones/az-overview.md). AZs stöds för närvarande inte av tjänsten IoT Hub.
@@ -60,9 +60,9 @@ Båda dessa alternativ för redundans erbjuder följande mål för återställni
 När redundansväxlingen för IoT Hub har slutförts förväntas alla åtgärder från enhets-och backend-programmen fortsätta att fungera utan att det krävs någon manuell åtgärd. Det innebär att meddelanden från enhet till molnet bör fortsätta att fungera och hela enhets registret är intakt. Händelser som skickas via Event Grid kan förbrukas via samma prenumeration (er) som kon figurer ATS tidigare så länge som de Event Grid prenumerationerna fortsätter att vara tillgängliga.
 
 > [!CAUTION]
-> - Det Event Hub-kompatibla namnet och slut punkten för den IoT Hub inbyggda händelse slut punkten ändras efter redundansväxlingen. När du tar emot telemetri-meddelanden från den inbyggda slut punkten med hjälp av Event Hub-klienten eller händelse processor värden bör du [använda IoT Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) -anslutningssträngen för att upprätta anslutningen. Detta säkerställer att dina backend-program fortsätter att fungera utan att behöva utföra manuella åtgärder efter redundansväxlingen. Om du använder det Event Hub-kompatibla namnet och slut punkten i ditt backend-program direkt måste du konfigurera om programmet genom [att hämta det nya Event Hub-kompatibla namnet och slut punkten](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) efter redundansväxlingen för att fortsätta.
+> - Det Event Hub-kompatibla namnet och slut punkten för den IoT Hub inbyggda händelse slut punkten ändras efter redundansväxlingen. När du tar emot telemetri-meddelanden från den inbyggda slut punkten med hjälp av Event Hub-klienten eller händelse processor värden bör du [använda IoT Hub-anslutningssträngen](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) för att upprätta anslutningen. Detta säkerställer att dina backend-program fortsätter att fungera utan att behöva utföra manuella åtgärder efter redundansväxlingen. Om du använder det Event Hub-kompatibla namnet och slut punkten i ditt backend-program direkt måste du konfigurera om programmet genom [att hämta det nya Event Hub-kompatibla namnet och slut punkten](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) efter redundansväxlingen för att fortsätta.
 >
-> - Vid routning till Blob Storage rekommenderar vi att du skapar en lista över Blobbarna och sedan går över dem, för att se till att alla behållare är lästa utan att behöva göra några antaganden om partitionen. Partitions intervallet kan eventuellt ändras under en Microsoft-initierad redundans eller manuell redundans. Information om hur du räknar upp listan över blobbar finns i [routning till Blob Storage](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
+> - Vid routning till lagring rekommenderar vi att du skapar en lista över lagrings behållaren och sedan går över dem, för att se till att alla behållare är lästa utan att behöva göra några antaganden om partitionen. Partitions intervallet kan eventuellt ändras under en Microsoft-initierad redundans eller manuell redundans. Information om hur du räknar upp listan över blobbar finns i [routning till Azure Storage](iot-hub-devguide-messages-d2c.md#azure-storage).
 
 ## <a name="microsoft-initiated-failover"></a>Microsoft-initierad redundans
 
@@ -70,7 +70,7 @@ Microsoft-initierad redundans utnyttjas av Microsoft i sällsynta fall för att 
 
 Den stora RTO är att Microsoft måste utföra redundansväxlingen på uppdrag av alla berörda kunder i den regionen. Om du kör en mindre viktig IoT-lösning som kan ha en stillestånds tid på ungefär en dag, är det OK att du kan ta ett beroende på det här alternativet för att uppfylla de totala haveri återställnings målen för din IoT-lösning. Den totala tiden för körnings åtgärder som ska utföras fullständigt när den här processen har utlösts beskrivs i avsnittet "tid att återställa".
 
-## <a name="manual-failover"></a>Manuell redundansväxling
+## <a name="manual-failover"></a>Manuell redundans
 
 Om dina affärs drifts mål inte uppfylls av RTO som Microsoft har initierat redundans, bör du överväga att använda manuell redundans för att utlösa redundansväxlingen själv. RTO med det här alternativet kan vara var som helst mellan 10 minuter och ett par timmar. RTO är för närvarande en funktion i antalet enheter som registrerats mot IoT Hub-instansen som har redundansväxlats. Du kan vänta på att RTO för ett nav som är värd för cirka 100 000 enheter är i ungefärligt på 15 minuter. Den totala tiden för körnings åtgärder som ska utföras fullständigt när den här processen har utlösts beskrivs i avsnittet "tid att återställa".
 
@@ -108,14 +108,14 @@ I en regional redundansväxling körs lösningens Server del främst på en data
 
 För att implementera en regional växlings modell med IoT Hub måste du utföra följande steg på hög nivå:
 
-* **En sekundär IoT-hubb och enhets cirkulations logik**: Om tjänsten i din primära region avbryts måste enheterna börja ansluta till den sekundära regionen. Med tanke på den viktigaste arten av de flesta tjänster är det vanligt att administratörerna kan utlösa redundansväxlingen mellan regioner. Det bästa sättet att kommunicera den nya slut punkten till enheter, och samtidigt behålla kontrollen över processen, är att regelbundet kontrol lera en *Concierge* -tjänst för den aktuella aktiva slut punkten. Tjänsten concierge kan vara ett webb program som replikeras och hålls tillgängligt med metoder för DNS-omdirigering (till exempel med hjälp av [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)).
+* **En sekundär IoT-hubb och enhets cirkulations logik**: om tjänsten i din primära region avbryts måste enheterna börja ansluta till den sekundära regionen. Med tanke på den viktigaste arten av de flesta tjänster är det vanligt att administratörerna kan utlösa redundansväxlingen mellan regioner. Det bästa sättet att kommunicera den nya slut punkten till enheter, och samtidigt behålla kontrollen över processen, är att regelbundet kontrol lera en *Concierge* -tjänst för den aktuella aktiva slut punkten. Tjänsten concierge kan vara ett webb program som replikeras och hålls tillgängligt med metoder för DNS-omdirigering (till exempel med hjälp av [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)).
 
    > [!NOTE]
    > Tjänsten IoT Hub är en slut punkts typ som inte stöds i Azure Traffic Manager. Rekommendationen är att integrera den föreslagna tjänsten Concierge med Azure Traffic Manager genom att implementera slut punktens hälso avsöknings-API.
 
-* **Identitets register-replikering**: För att kunna användas måste den sekundära IoT-hubben innehålla alla enhets identiteter som kan ansluta till lösningen. Lösningen bör behålla geo-replikerade säkerhets kopior av enhets identiteter och överföra dem till den sekundära IoT-hubben innan du växlar den aktiva slut punkten för enheterna. Funktionen för export av enhets identiteter i IoT Hub är användbar i den här kontexten. Mer information finns i [IoT Hub Developer Guide-Identity Registry](iot-hub-devguide-identity-registry.md).
+* **Identitets registrets replikering**: för att kunna användas måste den sekundära IoT-hubben innehålla alla enhets identiteter som kan ansluta till lösningen. Lösningen bör behålla geo-replikerade säkerhets kopior av enhets identiteter och överföra dem till den sekundära IoT-hubben innan du växlar den aktiva slut punkten för enheterna. Funktionen för export av enhets identiteter i IoT Hub är användbar i den här kontexten. Mer information finns i [IoT Hub Developer Guide-Identity Registry](iot-hub-devguide-identity-registry.md).
 
-* **Sammanfogar logik**: När den primära regionen blir tillgänglig igen måste alla tillstånd och data som har skapats på den sekundära platsen migreras tillbaka till den primära regionen. Det här läget och data relaterar mest till enhets identiteter och programmetadata, som måste slås samman med den primära IoT-hubben och andra programspecifika butiker i den primära regionen. 
+* **Sammanfoga logik**: när den primära regionen blir tillgänglig igen måste alla tillstånd och data som har skapats på den sekundära platsen migreras tillbaka till den primära regionen. Det här läget och data relaterar mest till enhets identiteter och programmetadata, som måste slås samman med den primära IoT-hubben och andra programspecifika butiker i den primära regionen. 
 
 För att förenkla det här steget bör du använda idempotenta-åtgärder. Idempotenta-åtgärder minimerar sido effekterna från den eventuella konsekventa distributionen av händelser och från dubbletter eller direkt leverans av händelser. Dessutom bör program logiken utformas för att tolerera potentiella inkonsekvenser eller något inaktuell. Den här situationen kan inträffa på grund av den ytterligare tid det tar för systemet att laga kraft baserat på återställnings punkt mål.
 
@@ -123,14 +123,14 @@ För att förenkla det här steget bör du använda idempotenta-åtgärder. Idem
 
 Här är en sammanfattning av de HA/DR-alternativ som visas i den här artikeln som kan användas som referens ram för att välja rätt alternativ som passar din lösning.
 
-| HA/DR-alternativ | RTO | Mål för återställningspunkt | Krävs manuell åtgärd? | Implementerings komplexitet | Ytterligare kostnads påverkan|
+| HA/DR-alternativ | RTO | BEGÄRT | Krävs manuell åtgärd? | Implementerings komplexitet | Ytterligare kostnads påverkan|
 | --- | --- | --- | --- | --- | --- |
-| Microsoft-initierad redundans |2-26 timmar|Referera till tabellen återställnings punkt ovan|Nej|Inga|Inga|
-| Manuell redundansväxling |10 min – 2 timmar|Referera till tabellen återställnings punkt ovan|Ja|Mycket låg. Du behöver bara utlösa den här åtgärden från portalen.|Inga|
+| Microsoft-initierad redundans |2-26 timmar|Referera till tabellen återställnings punkt ovan|Nej|Ingen|Ingen|
+| Manuell redundans |10 min – 2 timmar|Referera till tabellen återställnings punkt ovan|Ja|Mycket låg. Du behöver bara utlösa den här åtgärden från portalen.|Ingen|
 | Flera regioner HA |< 1 min|Beror på replikeringsfrekvens för din anpassade HA-lösning|Nej|Hög|> 1x kostnaden för 1 IoT Hub|
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Vad är Azure IoT Hub?](about-iot-hub.md)
 * [Kom igång med IoT Hub (snabb start)](quickstart-send-telemetry-dotnet.md)
-* [Självstudier: Utföra manuell redundans för en IoT-hubb](tutorial-manual-failover.md)
+* [Självstudie: utföra manuell redundans för en IoT-hubb](tutorial-manual-failover.md)

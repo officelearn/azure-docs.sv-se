@@ -1,5 +1,5 @@
 ---
-title: Lagra Azure SQL Database säkerhets kopior i upp till 10 år | Microsoft Docs
+title: Lagra Azure SQL Database säkerhets kopior i upp till 10 år
 description: Läs om hur Azure SQL Database har stöd för lagring av fullständiga säkerhets kopior av databaser i upp till 10 år.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 05/18/2019
-ms.openlocfilehash: b43097dee6a3b4e8ec762e193dc2faf006ec796c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5d6f0797802a622ada1916752bc35c1bae2cde9f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567763"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689508"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Lagra Azure SQL Database säkerhets kopior i upp till 10 år
 

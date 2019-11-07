@@ -1,5 +1,5 @@
 ---
-title: Om villkors aktivitet i Azure Data Factory | Microsoft Docs
+title: Om villkors aktivitet i Azure Data Factory
 description: Med aktiviteten if-villkor kan du styra bearbetnings flödet baserat på ett villkor.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: fc6318b5033ff1297f917ab95b28f8ed9285e930
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 562e84b4fe51603ae32884057578541f5536ebd4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142495"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679847"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Om villkors aktivitet i Azure Data Factory
 If-villkoret fungerar på samma sätt som en if-sats i ett programmeringsspråk. Det utvärderar en uppsättning aktiviteter om villkoret utvärderas till `true` och en annan uppsättning aktiviteter när villkoret utvärderas till `false`. 
@@ -63,13 +63,13 @@ If-villkoret fungerar på samma sätt som en if-sats i ett programmeringsspråk.
 
 ## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
+Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-name | Namnet på IF-condition-aktiviteten. | Sträng | Ja
-type | Måste anges till **IfCondition** | Sträng | Ja
-expression | Uttryck som måste utvärderas till sant eller falskt | Uttryck med resultat typen Boolean | Ja
-ifTrueActivities | Uppsättning aktiviteter som körs när uttrycket utvärderas till `true`. | Array | Ja
-ifFalseActivities | Uppsättning aktiviteter som körs när uttrycket utvärderas till `false`. | Array | Ja
+namn | Namnet på IF-condition-aktiviteten. | Sträng | Ja
+typ | Måste anges till **IfCondition** | Sträng | Ja
+uttryck | Uttryck som måste utvärderas till sant eller falskt | Uttryck med resultat typen Boolean | Ja
+ifTrueActivities | Uppsättning aktiviteter som körs när uttrycket utvärderas till `true`. | Matris | Ja
+ifFalseActivities | Uppsättning aktiviteter som körs när uttrycket utvärderas till `false`. | Matris | Ja
 
 ## <a name="example"></a>Exempel
 Pipelinen i det här exemplet kopierar data från en mapp till en utdatafil. Mappen utdata bestäms av värdet för pipeline-parametern: routeSelection. Om värdet för routeSelection är sant kopieras data till outputPath1. Om värdet för routeSelection är false kopieras data till outputPath2. 

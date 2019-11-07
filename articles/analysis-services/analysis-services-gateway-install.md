@@ -1,18 +1,18 @@
 ---
 title: Installera lokal datagateway för Azure Analysis Services | Microsoft Docs
-description: Lär dig hur du installerar och konfigurerar en lokal datagateway.
+description: Lär dig hur du installerar och konfigurerar en lokal datagateway för att ansluta till lokala data källor från en Azure Analysis Services-server.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 99b5a0ff9cc0fd7fdc3b8a0e453ed287c45e1c60
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 37658ea6b94d6369d282c49f79947a1f183b61c7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73147120"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572844"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installera och konfigurera lokal datagateway
 
@@ -20,7 +20,7 @@ En lokal datagateway krävs när en eller flera Azure Analysis Services-servrar 
 
 Om du vill veta mer om gatewayen och hur den används av Azure Analysis Services, se [ansluta till lokala data källor](analysis-services-gateway.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 **Minimi krav:**
 
@@ -127,7 +127,7 @@ När du har installerat och registrerat din gateway måste du skapa en gateway-r
 
     ![Anslutning av server till gateway-resurs lyckades](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
 
-Det var allt. Om du behöver öppna portar eller göra en fel sökning måste du ta en titt [på den lokala datagatewayen](analysis-services-gateway.md).
+Klart! Om du behöver öppna portar eller göra en fel sökning måste du ta en titt [på den lokala datagatewayen](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

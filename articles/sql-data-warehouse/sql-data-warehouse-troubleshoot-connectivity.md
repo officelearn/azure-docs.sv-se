@@ -1,6 +1,6 @@
 ---
-title: Felsöka Azure SQL Data Warehouse | Microsoft Docs
-description: Felsöka Azure SQL Data Warehouse.
+title: Felsöka anslutning
+description: Felsöka anslutningen i Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -10,23 +10,24 @@ ms.subservice: supportability
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: ebdeaf21253e89a9a14e3a56ca7be0f6e8adceb0
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.custom: seo-lt-2019
+ms.openlocfilehash: d1139032176b3b44c58471b87cabd10ffeaa3d20
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859225"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692418"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>Felsöka anslutnings problem
 
 Den här artikeln innehåller vanliga fel söknings tekniker för att ansluta till din SQL Data Warehouse.
 - [Kontrol lera tjänstens tillgänglighet](./sql-data-warehouse-troubleshoot-connectivity.md#check-service-availability)
-- [Sök efter pausad eller skalnings åtgärd](./sql-data-warehouse-troubleshoot-connectivity.md#check-for-paused-or-scaling-operation)
-- [Kontrol lera brand Väggs inställningarna](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-firewall-settings)
-- [Kontrol lera inställningarna för VNet/service-slutpunkt](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-vnetservice-endpoint-settings)
-- [Sök efter de senaste driv rutinerna](./sql-data-warehouse-troubleshoot-connectivity.md#check-for-the-latest-drivers)
-- [Kontrol lera anslutnings strängen](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-connection-string)
-- [Tillfälliga anslutnings problem](./sql-data-warehouse-troubleshoot-connectivity.md#intermittent-connection-issues)
+- [Kontrollera om tjänsten är pausad eller håller på att skalas om](./sql-data-warehouse-troubleshoot-connectivity.md#check-for-paused-or-scaling-operation)
+- [Kontrollera brandväggsinställningarna](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-firewall-settings)
+- [Kontrollera inställningarna för det virtuella nätverket/tjänstslutpunkten](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-vnetservice-endpoint-settings)
+- [Kontrollera om det finns nya drivrutiner](./sql-data-warehouse-troubleshoot-connectivity.md#check-for-the-latest-drivers)
+- [Kontrollera anslutningssträngen](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-connection-string)
+- [Tillfälliga anslutningsproblem](./sql-data-warehouse-troubleshoot-connectivity.md#intermittent-connection-issues)
 - [Vanliga felmeddelanden](./sql-data-warehouse-troubleshoot-connectivity.md#common-error-messages)
 
 ## <a name="check-service-availability"></a>Kontrol lera tjänstens tillgänglighet
@@ -41,7 +42,7 @@ Status för SQL Data Warehouse visas här. Om tjänsten inte visas som **tillgä
 
 Om din resurs hälsa visar att informations lagret har pausats eller skalas, följer du anvisningarna för att återuppta ditt informations lager.
 
-![Tjänsten har pausats](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) ytterligare information om Resource Health finns här.
+![tjänsten har pausats](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) ytterligare information om Resource Health finns här.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Sök efter pausad eller skalnings åtgärd
 
@@ -57,7 +58,7 @@ Annars kan du kontakta IT-administratören för att kontrol lera att det här un
 
 ## <a name="check-your-firewall-settings"></a>Kontrol lera brand Väggs inställningarna
 
-SQL Database Warehouse kommunicerar via port 1433.   Om du försöker ansluta inifrån ett företagsnätverk kan det hända att utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kan du inte ansluta till din Azure SQL Database-Server om inte din IT-avdelning öppnar port 1433. Ytterligare information om brand Väggs konfigurationer finns [här](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules).
+SQL Database Warehouse kommunicerar via port 1433.   Om du försöker ansluta inifrån ett företags nätverk kanske utgående trafik via port 1433 inte tillåts av nätverkets brand vägg. I så fall kan du inte ansluta till Azure SQL Database-servern såvida inte IT-avdelningen öppnar port 1433. Ytterligare information om brand Väggs konfigurationer finns [här](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules).
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Kontrol lera inställningarna för VNet/service-slutpunkt
 
@@ -84,7 +85,7 @@ Kontrol lera att du använder de senaste driv rutins versionerna.  Om du anvä
 
 ## <a name="check-your-connection-string"></a>Kontrol lera anslutnings strängen
 
-Kontrol lera att anslutnings strängarna är korrekt inställda.  Nedan visas några exempel.  Du hittar ytterligare information kring [anslutnings strängarna här](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-connection-strings).
+Se till att anslutningssträngarna är inställda på rätt sätt.  Nedan visas några exempel.  Du kan läsa mer om [anslutningssträngar här](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-connection-strings).
 
 ADO.NET-anslutningssträng
 
@@ -112,7 +113,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="intermittent-connection-issues"></a>Tillfälliga anslutnings problem
 
-Kontrol lera om du är hårt belastad på servern med ett stort antal köade begär Anden. Du kan behöva skala upp data lagret för ytterligare resurser.
+Kontrollera om servern är hårt belastad med ett stort antal köade förfrågningar. Du kan behöva skala upp Data Warehouse-instansen med ytterligare resurser.
 
 ## <a name="common-error-messages"></a>Vanliga felmeddelanden
 

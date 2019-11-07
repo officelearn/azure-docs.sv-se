@@ -1,5 +1,5 @@
 ---
-title: Hot identifiering för Azure Service Layer i Azure Security Center | Microsoft Docs
+title: Hot identifiering i Azure Service Layer – Azure Security Center
 description: I det här avsnittet presenteras Azure Service Layer-aviseringar som är tillgängliga i Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/25/2019
 ms.author: memildin
-ms.openlocfilehash: 9a600b6b45dbef49f600a5e9e913c9d1839eff93
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b82eab9d20966ddd0678c9213bf25a14b5313f58
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202441"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686450"
 ---
 # <a name="threat-detection-for-the-azure-service-layer-in-azure-security-center"></a>Hot identifiering för Azure Service Layer i Azure Security Center
 
@@ -66,7 +66,7 @@ Security Center erbjuder ett extra skydds lager genom att använda Azure Resourc
 |**Misstänkt hanterings-session med ett inaktivt konto**|Analysen av prenumerations aktivitets loggar har identifierat ett misstänkt beteende. Ett huvud konto som inte används under en lång tids period utför nu åtgärder som kan skydda beständigheten för en angripare.|
 |**Misstänkt hanterings-session med PowerShell**|Analysen av prenumerations aktivitets loggar har identifierat ett misstänkt beteende. Ett huvud konto som inte regelbundet använder PowerShell för att hantera prenumerations miljön är nu att använda PowerShell, och utföra åtgärder som kan skydda beständigheten för en angripare.|
 |**Användning av avancerade metoder för Azure-persistence**|Analysen av prenumerations aktivitets loggar har identifierat ett misstänkt beteende. Anpassade roller har fått legitimized identitets enheter. Detta kan leda till att angriparen får persistency i en Azure-kundmiljö.|
-|**Aktivitet från ovanligt land**|Aktivitet från en plats som inte nyligen har ägt rum eller någonsin varit besökt av någon användare i organisationen har inträffat.<br/>Den här identifieringen tar hänsyn till de senaste aktivitet platser att fastställa nya och ovanliga platser. Avvikelseidentifieringsmotorn lagrar information om tidigare platser som används av användarna i organisationen. 
+|**Aktivitet från ovanligt land**|Aktivitet från en plats som inte nyligen har ägt rum eller någonsin varit besökt av någon användare i organisationen har inträffat.<br/>Den här identifieringen tar hänsyn till tidigare aktivitets platser för att fastställa nya och ovanliga platser. Motorn för avvikelse identifiering lagrar information om tidigare platser som används av användare i organisationen. 
 |**Aktivitet från anonyma IP-adresser**|Användares aktivitet från en IP-adress som har identifierats som en anonym proxy-IP-adress har identifierats. <br/>Dessa proxyservrar används av personer som vill dölja deras enhets IP-adress och som kan användas för skadliga avsikter. Den här identifieringen använder en Machine Learning-algoritm som minskar falska positiva identifieringar, till exempel felmärkta IP-adresser som används ofta av användare i organisationen.|
 |**Omöjlig resa upptäcktes**|Två användar aktiviteter (i en eller flera sessioner) har inträffat och härstammar från geografiskt avlägsna platser. Detta inträffar inom en tids period som är kortare än den tid det skulle ha tagit användaren att resa från den första platsen till den andra. Detta indikerar att en annan användare använder samma autentiseringsuppgifter. <br/>Den här identifieringen använder en Machine Learning-algoritm som ignorerar uppenbara falska positiva identifieringar som bidrar till omöjliga rese villkor, t. ex. VPN och platser som regelbundet används av andra användare i organisationen. Identifieringen har en inledande inlärnings period på sju dagar, under vilken den lär sig en ny användares aktivitets mönster.|
 

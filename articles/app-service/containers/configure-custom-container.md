@@ -1,6 +1,6 @@
 ---
-title: Konfigurera anpassade behållare – Azure App Service | Microsoft Docs
-description: Lär dig att konfigurera Node.js-appar att fungera i Azure App Service
+title: Konfigurera anpassad container – Azure App Service | Microsoft Docs
+description: Lär dig hur du konfigurerar Node. js-appar så att de fungerar i Azure App Service
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -13,22 +13,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 02231f86d4ceddd6cde53fd242c2c91158d744a9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 7290e2b09c316a97bfb88744307e185aef72852a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480753"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73668973"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Konfigurera en anpassad Linux-behållare för Azure App Service
 
-Den här artikeln visar hur du konfigurerar en anpassad Linux-behållare för att köra på Azure App Service.
+Den här artikeln visar hur du konfigurerar en anpassad Linux-behållare som ska köras på Azure App Service.
 
-Den här guiden innehåller huvudbegrepp och instruktioner för skapande av Linux-appar i App Service. Om du aldrig har använt Azure App Service, följer du de [anpassad behållare Snabbstart](quickstart-docker-go.md) och [självstudien](tutorial-custom-docker-image.md) första. Det finns också en [Snabbstart för flera behållare](quickstart-multi-container.md) och [självstudien](tutorial-multi-container-app.md).
+Den här guiden innehåller viktiga begrepp och instruktioner för skapa behållare av Linux-appar i App Service. Om du aldrig har använt Azure App Service följer du snabb starten och [självstudien](tutorial-custom-docker-image.md) för [egen behållare](quickstart-docker-go.md) först. Det finns också en [snabb start](quickstart-multi-container.md) och [självstudier](tutorial-multi-container-app.md)för flera behållare.
 
-## <a name="configure-port-number"></a>Konfigurera portnummer
+## <a name="configure-port-number"></a>Konfigurera port nummer
 
-Webbservern i den anpassade avbildningen kan använda en annan port än 80. Du kan informera Azure om den port som används av den anpassade behållaren med hjälp av den `WEBSITES_PORT` appinställningen. GitHub-sidan för [Python-exemplet i den här självstudien](https://github.com/Azure-Samples/docker-django-webapp-linux) visar att du behöver ställa in `WEBSITES_PORT` på _8000_. Du kan ställa in den genom att köra [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. Exempel:
+Webb servern i din anpassade avbildning kan använda en annan port än 80. Du talar om för Azure om porten som din anpassade behållare använder med hjälp av inställningen `WEBSITES_PORT` app. GitHub-sidan för [Python-exemplet i den här självstudien](https://github.com/Azure-Samples/docker-django-webapp-linux) visar att du behöver ställa in `WEBSITES_PORT` på _8000_. Du kan ställa in den genom att köra kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. Till exempel:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_PORT=8000
@@ -36,46 +36,46 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="configure-environment-variables"></a>Konfigurera miljövariabler
 
-Den anpassade behållaren kan använda miljövariabler som måste anges externt. Du kan skicka dem i genom att köra [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. Exempel:
+Din anpassade behållare kan använda miljövariabler som behöver anges externt. Du kan skicka dem genom att köra kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. Till exempel:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WORDPRESS_DB_HOST="myownserver.mysql.database.azure.com"
 ```
 
-Den här metoden fungerar både för enskild behållare appar eller appar för flera behållare, där miljövariablerna som anges i den *docker-compose.yml* fil.
+Den här metoden fungerar både för appar med en container eller flera behållare, där miljövariablerna anges i filen *filen Docker. yml* .
 
-## <a name="use-persistent-shared-storage"></a>Använda beständiga delad lagring
+## <a name="use-persistent-shared-storage"></a>Använd beständig delad lagring
 
-Du kan använda den */home* katalogen i filsystemet för din app kan spara filer mellan omstarter och dela dem mellan instanser. Den `/home` i din app har angetts för att konfigurera appen behållare för att få åtkomst till beständig lagring.
+Du kan använda */Home* -katalogen i appens fil system för att spara filer mellan omstarter och dela dem över instanser. `/home` i din app tillhandahålls för att ge behållar appen åtkomst till beständig lagring.
 
-När beständig lagring är inaktiverad och skriver sedan till den `/home` directory är inte beständiga mellan omstarter av appen eller över flera instanser. Det enda undantaget är den `/home/LogFiles` directory som används för att lagra loggarna för Docker och behållare. När beständig lagring är aktiverat, alla skrivningar till den `/home` directory sparas och kan nås av alla instanser av en utskalad-app.
+När beständig lagring är inaktive rad behålls inte skrivningen till den `/home` katalogen i appen startas om eller över flera instanser. Det enda undantaget är `/home/LogFiles` Directory, som används för att lagra Docker-och container loggar. När beständig lagring är aktive rad är alla skrivningar till `/home` katalogen bestående och kan nås av alla instanser av en utskalad app.
 
-Som standard är beständig lagring *aktiverat* och inställningen visas inte i programinställningarna. Om du vill inaktivera den, ange den `WEBSITES_ENABLE_APP_SERVICE_STORAGE` appinställningen genom att köra [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. Exempel:
+Beständig lagring är *aktive rad* som standard och inställningen visas inte i program inställningarna. Om du vill inaktivera den anger du `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app-inställningen genom att köra [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) kommandot i Cloud Shell. Till exempel:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
 ```
 
 > [!NOTE]
-> Du kan också [konfigurera egna beständig lagring](how-to-serve-content-from-azure-storage.md).
+> Du kan också [Konfigurera en egen beständig lagring](how-to-serve-content-from-azure-storage.md).
 
 ## <a name="enable-ssh"></a>Aktivera SSH
 
-SSH möjliggör säker kommunikation mellan en container och en klient. För en anpassad behållare ska stödja SSH måste du lägga till den i Dockerfile som själva.
+SSH möjliggör säker kommunikation mellan en container och en klient. För att en anpassad behållare ska stödja SSH måste du lägga till den i själva Dockerfile.
 
 > [!TIP]
-> Alla inbyggda Linux-behållare har lagt till SSH-instruktionerna i deras bild-databaser. Du kan gå igenom följande instruktioner med den [Node.js 10.14 databasen](https://github.com/Azure-App-Service/node/blob/master/10.14) att se hur det är det aktiverat.
+> Alla inbyggda Linux-behållare har lagt till SSH-instruktionerna i sina avbildnings databaser. Du kan gå igenom följande instruktioner med [Node. js 10,14-lagringsplatsen](https://github.com/Azure-App-Service/node/blob/master/10.14) för att se hur den är aktive rad där.
 
-- Använd den [kör](https://docs.docker.com/engine/reference/builder/#run) anvisningarna för att installera SSH-servern och ange lösenordet för rotkontot på `"Docker!"`. Till exempel för en avbildning baserat på [Alpine Linux](https://hub.docker.com/_/alpine), behöver du följande kommandon:
+- Använd [Kör](https://docs.docker.com/engine/reference/builder/#run) -instruktionen för att installera SSH-servern och ange lösen ordet för rot kontot till `"Docker!"`. För en avbildning som baseras på [Alpine Linux](https://hub.docker.com/_/alpine)behöver du till exempel följande kommandon:
 
     ```Dockerfile
     RUN apk add openssh \
          && echo "root:Docker!" | chpasswd 
     ```
 
-    Den här konfigurationen tillåter inte att externa anslutningar till behållaren. SSH är endast tillgängligt via `https://<app-name>.scm.azurewebsites.net` och autentiseras med autentiseringsuppgifterna för publicering.
+    Den här konfigurationen tillåter inte externa anslutningar till behållaren. SSH är endast tillgängligt via `https://<app-name>.scm.azurewebsites.net` och autentiseras med autentiseringsuppgifterna för publicering.
 
-- Lägg till [sshd_config-filen](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config) till lagringsplatsen för avbildningen och Använd den [kopia](https://docs.docker.com/engine/reference/builder/#copy) anvisningarna för att kopiera filen till den */etc/ssh/* directory. Mer information om *sshd_config* filer, se [OpenBSD dokumentation](https://man.openbsd.org/sshd_config).
+- Lägg till [den här sshd_config-filen](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config) till avbildnings lagrings platsen och Använd [kopierings](https://docs.docker.com/engine/reference/builder/#copy) instruktionen för att kopiera filen till katalogen */etc/ssh/* . Mer information om *sshd_config* -filer finns i [OpenBSD-dokumentationen](https://man.openbsd.org/sshd_config).
 
     ```Dockerfile
     COPY sshd_config /etc/ssh/
@@ -86,43 +86,43 @@ SSH möjliggör säker kommunikation mellan en container och en klient. För en 
     > - `Ciphers`måste innehålla minst ett objekt i listan: `aes128-cbc,3des-cbc,aes256-cbc`.
     > - `MACs`måste innehålla minst ett objekt i listan: `hmac-sha1,hmac-sha1-96`.
 
-- Använd den [EXPONERA](https://docs.docker.com/engine/reference/builder/#expose) anvisningarna för att öppna port 2222 i behållaren. Även om rotlösenordet är känt är port 2222 inte tillgänglig från internet. Det är tillgängligt endast via behållare inom ett privat virtuellt nätverks nätverksbrygga.
+- Använd instruktionen [exponera](https://docs.docker.com/engine/reference/builder/#expose) för att öppna port 2222 i behållaren. Även om rot lösen ordet är känt är port 2222 inte tillgänglig från Internet. Den är endast tillgänglig för behållare i brygga nätverket i ett privat virtuellt nätverk.
 
     ```Dockerfile
     EXPOSE 80 2222
     ```
 
-- I Start-skriptet för din behållare börjar du SSH-servern.
+- Starta SSH-servern i Start skriptet för din behållare.
 
     ```bash
     /usr/sbin/sshd
     ```
 
-    Ett exempel finns i hur standard [Node.js 10.14 behållare](https://github.com/Azure-App-Service/node/blob/master/10.14/startup/init_container.sh) startar SSH-servern.
+    Ett exempel finns i hur [noden default Node. js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14/startup/init_container.sh) startar SSH-servern.
 
 ## <a name="access-diagnostic-logs"></a>Få åtkomst till diagnostikloggar
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
-## <a name="configure-multi-container-apps"></a>Konfigurera appar för flera behållare
+## <a name="configure-multi-container-apps"></a>Konfigurera appar med flera behållare
 
-- [Använd beständig lagring i Docker Compose](#use-persistent-storage-in-docker-compose)
-- [Begränsningar i förhandsversionen](#preview-limitations)
-- [Alternativ för docker Compose](#docker-compose-options)
+- [Använd beständigt lagrings utrymme i Docker Compose](#use-persistent-storage-in-docker-compose)
+- [För hands versions begränsningar](#preview-limitations)
+- [Docker Skriv alternativ](#docker-compose-options)
 
-### <a name="use-persistent-storage-in-docker-compose"></a>Använd beständig lagring i Docker Compose
+### <a name="use-persistent-storage-in-docker-compose"></a>Använd beständigt lagrings utrymme i Docker Compose
 
-Appar för flera behållare som WordPress behöver beständig lagring ska fungera korrekt. Om du vill aktivera den Docker Compose-konfiguration måste peka på en lagringsplats *utanför* din behållare. Lagringsplatser i di behållare Spara inte ändringar efter omstart av app.
+Appar med flera behållare som WordPress behöver beständig lagring för att fungera korrekt. För att aktivera den måste Docker-konfigurationen peka på en lagrings plats *utanför* din behållare. Lagrings platser i din behållare har inte kvar ändringar än starta om appar.
 
-Aktivera beständig lagring genom att ange den `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app inställningen, med den [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell.
+Aktivera beständig lagring genom att ange `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app-inställningen med hjälp av kommandot [AZ webapp config appSettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
 ```
 
-I din *docker-compose.yml* filen, mappa den `volumes` alternativet att `${WEBAPP_STORAGE_HOME}`. 
+I filen *filen Docker. yml* mappar du `volumes` alternativet för att `${WEBAPP_STORAGE_HOME}`. 
 
-`WEBAPP_STORAGE_HOME` är en miljövariabel i App Service som är mappad till beständig lagring för din app. Exempel:
+`WEBAPP_STORAGE_HOME` är en miljövariabel i App Service som är mappad till beständig lagring för din app. Till exempel:
 
 ```yaml
 wordpress:
@@ -135,14 +135,14 @@ wordpress:
 
 ### <a name="preview-limitations"></a>Begränsningar för förhandsversion
 
-Flera behållare förhandsvisas just nu. Följande funktioner i App Service-plattformen stöds inte:
+Multi-container är för närvarande en för hands version. Följande App Service plattforms funktioner stöds inte:
 
 - Autentisering/auktorisering
 - Hanterade identiteter
 
-### <a name="docker-compose-options"></a>Alternativ för docker Compose
+### <a name="docker-compose-options"></a>Docker Skriv alternativ
 
-I listan nedan visas som stöds respektive Docker Compose konfigurationsalternativ:
+I följande listor visas en Docker-konfigurations alternativ som stöds och inte stöds:
 
 #### <a name="supported-options"></a>Alternativ som stöds
 
@@ -164,12 +164,16 @@ I listan nedan visas som stöds respektive Docker Compose konfigurationsalternat
 - andra portar än 80 och 8080 (ignoreras)
 
 > [!NOTE]
-> Andra alternativ som inte uttryckligen påpekas ignoreras i offentlig förhandsversion.
+> Andra alternativ som inte uttryckligen anropas ignoreras i den offentliga för hands versionen.
+
+## <a name="configure-vnet-integration"></a>Konfigurera VNet-integrering
+
+Användning av en anpassad behållare med VNet-integrering kan kräva ytterligare container konfiguration. Se [integrera din app med en Azure-Virtual Network](../web-sites-integrate-with-vnet.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: Distribuera från privata lagringsplats](tutorial-custom-docker-image.md)
+> [Självstudie: Distribuera från privat container-lagringsplats](tutorial-custom-docker-image.md)
 
 > [!div class="nextstepaction"]
-> [Självstudie: Flera behållare WordPress-appen](tutorial-multi-container-app.md)
+> [Självstudie: WordPress-app med flera behållare](tutorial-multi-container-app.md)

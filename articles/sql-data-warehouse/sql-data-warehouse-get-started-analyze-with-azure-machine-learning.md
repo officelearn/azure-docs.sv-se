@@ -1,5 +1,5 @@
 ---
-title: Analysera data med Azure Machine Learning | Microsoft Docs
+title: Analysera data med Azure Machine Learning
 description: Använd Azure Machine Learning för att skapa en förutsägbar Machine Learning-modell som baseras på data lagrade i Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,12 +10,13 @@ ms.subservice: integration
 ms.date: 03/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: cae2acf98f39030f4ff340d32f1911bb2b5763ae
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f91960eaac92047e76275e63b1feaf471de3bac3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "65860830"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692798"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analysera data med Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -33,7 +34,7 @@ Denna självstudie använder Azure Machine Learning för att skapa en förutsäg
 > 
 > 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 För att gå igenom de här självstudierna, behöver du:
 
 * Ett SQL Data Warehouse förinstallerat med AdventureWorksDW som exempeldatabas. Om du vill distribuera detta, se [Skapa ett SQL Data Warehouse][Create a SQL Data Warehouse] och välj att läsa in exempeldata. Om du redan har ett Data Warehouse men inte har exempeldata, kan du [läsa in exempeldata manuellt][load sample data manually].
@@ -43,7 +44,7 @@ Aktuella data finns i dbo.vTargetMail-vyn i AdventureWorksDW-databasen. Så här
 
 1. Logga in på [Azure Machine Learning-studio][Azure Machine Learning studio] och klicka på mina experiment.
 2. Klicka på **+ ny** längst ned till vänster på skärmen och välj **Tom experiment**.
-3. Ange ett namn på experimentet: Riktad marknadsföring.
+3. Ange ett namn för experimentet: Riktad marknadsföring.
 4. Dra modulen **Importera data** under **data inmatning och utdata** från fönstret moduler till arbets ytan.
 5. Ange information om din SQL Data Warehouse-databas i fönstret Egenskaper.
 6. Ange **fråga** för databasen för att läsa data av intresse.
@@ -83,8 +84,8 @@ För att rensa data kommer vi att släppa vissa kolumner som inte är relevanta 
 3. Exkludera två kolumner: CustomerAlternateKey och GeographyKey.
    ![Ta bort onödiga kolumner][5]
 
-## <a name="3-build-the-model"></a>3. Skapa modellen
-Vi kommer att dela data 80-20: 80% för att träna en Machine Learning-modell och 20% för att testa modellen. Vi använder ”Tvåklassalgoritmer” för detta binära klassificeringsproblem.
+## <a name="3-build-the-model"></a>3. Bygg modellen
+Vi delar data 80–20: 80 % för att träna en maskininlärningsmodell och 20 % för att testa modellen. Vi använder ”Tvåklassalgoritmer” för detta binära klassificeringsproblem.
 
 1. Dra modulen **Dela** till arbetsytan.
 2. I rutan egenskaper anger du 0,8 för bråk delar i den första utdata-datauppsättningen.
@@ -95,11 +96,11 @@ Vi kommer att dela data 80-20: 80% för att träna en Machine Learning-modell oc
 5. Klicka sedan på **Starta kolumnväljaren** i fönstret Egenskaper. Välj kolumnen **BikeBuyer** som kolumn att förutsäga.
    ![Välj kolumn att förutsäga][8]
 
-## <a name="4-score-the-model"></a>4. Poängsätt modellen
+## <a name="4-score-the-model"></a>4. betygs ätt modellen
 Vi kommer nu att testa hur modellen presterar på testdata. Vi kommer att jämföra algoritmen vi valt med en annan algoritm för att se vilken som presterar bäst.
 
 1. Dra modulen **Poäng modell** till arbets ytan och Anslut den till **träna modell** -och **delade** Datamoduler.
-   ![Betygs ätt modellen][9]
+   ![Poäng modellen][9]
 2. Dra **Tvåklass, Bayes Point-dator** till arbetsytan för experimentet. Vi kommer att jämföra hur den här algoritmen presterar i jämförelse med det tvåklassförhöjda beslutsträdet.
 3. Kopiera och klistra in modulerna Träningsmodell och Poängmodell i arbetsytan.
 4. Dra modulen **Utvärdera modell** till arbetsytan för att jämföra de två algoritmerna.

@@ -1,7 +1,7 @@
 ---
-title: Vad är tjänsten Azure SQL Database? | Microsoft Docs
+title: Vad är tjänsten Azure SQL Database?
 description: 'Få en introduktion till SQL Database: teknisk information och funktioner i Microsoft Relations databas hanterings system (RDBMS) i molnet.'
-keywords: introduktion till sql, sql-introduktion, vad är sql database
+keywords: introduktion till sql, sql-introduktion, vad är sql-databas
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: e5782ba016cf58335de17cdacabbcca95914f59a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: d22408904ae21bc7512d4ebe8792666227893337
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066286"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687023"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Vad är tjänsten Azure SQL Database?
 
@@ -99,9 +99,9 @@ Azure SQL Database tillhandahåller avancerade övervaknings-och fel söknings f
 
 Azure innehåller [inbyggda verktyg för prestanda övervakning](sql-database-performance.md) och [avisering](sql-database-insights-alerts-portal.md) , kombinerat med prestanda klassificeringar som gör att du kan övervaka status för tusentals databaser. Med dessa verktyg kan du snabbt utvärdera effekten av att skala upp eller ned baserat på dina aktuella eller planerade prestanda behov. Dessutom kan SQL-databasen [skapa mått och diagnostikloggar](sql-database-metrics-diag-logging.md) för lättare övervakning. Du kan konfigurera SQL-databasen för att lagra resursanvändning, personal och sessioner och anslutning till en av dessa Azure-resurser:
 
-- **Azure Storage**: För arkivering av stora mängder telemetri för ett litet pris.
-- **Azure-Event Hubs**: För att integrera SQL Database telemetri med din anpassade övervaknings lösning eller aktiva pipeliner.
-- **Azure Monitor loggar**: För en inbyggd övervaknings lösning med rapporter, aviseringar och mildrande funktioner.
+- **Azure Storage**: För arkivering av stora mängder telemetridata till ett lågt pris.
+- **Azure Event Hubs**: för att integrera SQL Database telemetri med din anpassade övervaknings lösning eller aktiva pipeliner.
+- **Azure Monitor loggar**: för en inbyggd övervaknings lösning med rapporter, aviseringar och mildrande funktioner.
 
 ![Diagram över Azures övervaknings arkitektur](./media/sql-database-metrics-diag-logging/architecture.png)
 
@@ -152,8 +152,8 @@ Många av våra partner som kör [SaaS för flera klient](sql-database-design-pa
 
 Det finns två automatiska justerings aspekter [i SQL Database](sql-database-automatic-tuning.md):
 
-- **Automatisk index hantering**: Identifierar index som ska läggas till i din databas och index som ska tas bort.
-- **Automatisk plan korrigering**: Identifierar problematiska planer och åtgärdar prestanda problem i SQL-plan.
+- **Automatisk indexhantering**: Identifierar index som bör läggas till i din databas och index som ska tas bort.
+- **Automatisk plan korrigering**: identifierar problematiska planer och åtgärdar prestanda problem i SQL-plan.
 
 ### <a name="adaptive-query-processing"></a>Anpassningsbar frågebearbetning
 
@@ -221,7 +221,7 @@ Den aktuella versionen av SQL Database är V12. Version V11 har dragits tillbaka
 
 ### <a name="can-i-control-when-patching-downtime-occurs"></a>Kan jag styra när uppdaterings stopp inträffar?
 
-Nej. Effekten av korrigeringen är vanligt vis inte märkbart om du [använder logik](sql-database-develop-overview.md#resiliency) för omprövning i din app. Mer information finns i [Planera för underhålls händelser i Azure i Azure SQL Database](sql-database-planned-maintenance.md).
+Nej. Effekten av korrigeringen är vanligt vis inte märkbart om du [använder logik för omprövning](sql-database-develop-overview.md#resiliency) i din app. Mer information finns i [Planera för underhålls händelser i Azure i Azure SQL Database](sql-database-planned-maintenance.md).
 
 ### <a name="azure-hybrid-benefit-questions"></a>Azure Hybrid-förmån frågor
 
@@ -253,8 +253,8 @@ SQL Database kunder har följande rättigheter som är kopplade till Azure Hybri
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Ställ frågor om databas administration.
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/sql-server): Ställ frågor om utveckling.
 - [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): Ställ tekniska frågor.
-- [Feedback](https://aka.ms/sqlfeedback): Rapportera buggar och begär ande funktionen.
-- [Reddit](https://www.reddit.com/r/SQLServer/): Diskutera SQL Server.
+- [Feedback](https://aka.ms/sqlfeedback): rapportera buggar och begär ande funktion.
+- [Reddit](https://www.reddit.com/r/SQLServer/): diskutera SQL Server.
 
 ## <a name="next-steps"></a>Nästa steg
 

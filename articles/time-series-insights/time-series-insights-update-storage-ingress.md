@@ -8,35 +8,57 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0b61e194bdea5fd8272ffc0fc9e16a2d80d3cf60
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: d0cdd78aaa2b58743e16a2e7cfe213a9daed85ff
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989694"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605889"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Data lagring och Inträng i Azure Time Series Insights för hands version
 
-I den här artikeln beskrivs uppdateringar av data lagring och ingångs information för Azure Time Series Insights för hands version. Den täcker de underliggande egenskaperna för lagrings struktur, fil format och Time Series ID. Den diskuterar även underliggande process, data flöde och begränsningar.
+I den här artikeln beskrivs uppdateringar av data lagring och ingångs information för Azure Time Series Insights för hands version. Den täcker de underliggande egenskaperna för lagrings struktur, fil format och Time Series ID. Den diskuterar också den underliggande ingångs processen, metod tips och aktuella begränsningar för för hands versionen.
 
 ## <a name="data-ingress"></a>Inkommande data
 
-I Time Series Insights för hands versionen bestämmer data ingångs principerna var data kan hämtas från och vilket format data ska ha.
-
-[Översikt över![tids serie modell](media/v2-update-storage-ingress/tsi-data-ingress.png)](media/v2-update-storage-ingress/tsi-data-ingress.png#lightbox)
+Din Azure Time Series Insightss miljö innehåller en inmatnings motor för att samla in, bearbeta och lagra Time Series-data. När du planerar din miljö finns det några saker att tänka på att ta hänsyn till för att säkerställa att alla inkommande data bearbetas och att uppnå höga ingångs skala och minimera inmatnings fördröjningen (den tid som krävs av TSD för att läsa och bearbeta data från händelsen Källa). I Time Series Insights för hands versionen bestämmer data ingångs principerna var data kan hämtas från och vilket format data ska ha.
 
 ### <a name="ingress-policies"></a>Ingress-principer
 
-Time Series Insights för hands versionen stöder samma händelse källor som Time Series Insights för närvarande stöder:
+Time Series Insights för hands version stöder följande händelse källor:
 
 - [Azure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
 
 Time Series Insights för hands versionen stöder högst två händelse källor per instans.
   
-Azure Time Series Insights stöder JSON som skickas via Azure IoT Hub eller Azure Event Hubs. Om du vill optimera dina IoT JSON-data, lär du dig [hur du formar JSON](./time-series-insights-send-events.md#supported-json-shapes).
+Azure Time Series Insights stöder JSON som skickas via Azure IoT Hub eller Azure Event Hubs.
+
+> [!WARNING] 
+> När du bifogar en ny händelse källa till din Time Series Insights för hands version, beroende på antalet händelser som för närvarande finns i din IoT Hub eller Händelsehubben, kan du få svars tiden för hög inledande inmatning. När data matas in bör du förvänta dig den här långa svars tiden till under sidan, men om du anger något annat kan du kontakta oss genom att skicka in ett support ärende via Azure Portal.
+
+## <a name="ingress-best-practices"></a>Ingress metod tips
+
+Vi rekommenderar att du använder följande bästa praxis:
+
+* Konfigurera Time Series Insights och en IoT-hubb eller Event Hub i samma region. Detta minskar inmatnings fördröjningen som uppstår på grund av nätverket.
+* Planera för skalnings behoven genom att beräkna den förväntade inmatnings takten och kontrol lera att den ligger inom den frekvens som stöds nedan
+* Lär dig hur du optimerar och formar dina JSON-data, samt de aktuella begränsningar som finns i förhands granskningen, genom [att läsa hur du kan forma JSON för ingress och fråga](./time-series-insights-update-how-to-shape-events.md).
+
+### <a name="ingress-scale-and-limitations-in-preview"></a>Ingress-skalning och begränsningar i för hands versionen
+
+Som standard har Time Series Insights för hands versionen stöd för en första ingångs skala på upp till 1 megabyte per sekund (MB/s) per miljö. Upp till 16 MB/s-dataflöde är tillgängligt vid behov, kontakta oss genom att skicka in ett support ärende i Azure Portal om det behövs. Det finns dessutom en gräns per partition på 0,5 MB/s. Detta har konsekvenser för kunder som använder IoT Hub specifikt, baserat på tillhörigheten mellan en IoT Hub enhets partition. I scenarier där en gateway-enhet vidarebefordrar meddelanden till hubben med hjälp av egna enhets-ID och anslutnings sträng, finns det risk för att nå 0,5 MB/s-gränsen för att meddelanden kommer att tas emot i en enda partition, även om händelse nytto lasten anger olika TS Kompatibilitet. I allmänhet visas ingångs pris som en faktor för antalet enheter i din organisation, frekvens för händelse utsläpp och storleken på en händelse. När du beräknar inmatnings takten bör IoT Hub användare använda antalet nav-anslutningar som används, snarare än totalt antal enheter i organisationen. Stöd för förbättrad skalning pågår. Den här dokumentationen kommer att uppdateras för att avspegla dessa förbättringar. 
+
+> [!WARNING]
+> För miljöer som använder IoT Hub som händelse källa beräknar du inmatnings takten med antalet NAV enheter som används.
+
+Se följande länkar om du vill ha mer information om data flödes enheter och partitioner:
+
+* [IoT Hub skala](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling)
+* [Event Hub-skala](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
+* [Event Hub-partitioner](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#partitions)
 
 ### <a name="data-storage"></a>Datalagring
 
@@ -53,19 +75,11 @@ Time Series Insights för hands version sparar dina kall data till Azure Blob St
 > Som ägare av Azure Blob Storage-kontot där data från kyl lagret finns har du fullständig åtkomst till alla data i kontot. Den här åtkomsten inkluderar Skriv-och borttagnings behörigheter. Redigera inte eller ta bort de data som Time Series Insights för hands versions skrivningar, eftersom det kan orsaka data förlust.
 
 ### <a name="data-availability"></a>Data tillgänglighet
+
 Time Series Insights förhandsgranska partitioner och indexera data för optimala frågor. Data blir tillgängliga för frågor efter att de indexerats. Mängden data som matas in kan påverka denna tillgänglighet.
 
 > [!IMPORTANT]
-> Den allmänna tillgänglighets versionen av Time Series Insights gör data tillgängliga i 60 sekunder efter det att den lästs från händelse källan. Under förhands granskningen kan det uppstå en längre period innan data blir tillgängliga. Om du får en betydande fördröjning utöver 60 sekunder kan du kontakta oss.
-
-### <a name="scale"></a>Skala
-
-Som standard har Time Series Insights för hands versionen stöd för en första ingångs skala på upp till 1 megabyte per sekund (MB/s) per miljö. Ett data flöde på upp till 16 MB/s är tillgängligt om du behöver det. Om du behöver förbättrat stöd för skalning kan du kontakta oss.
-
-Du kan få ytterligare ingångs-och skalnings funktioner för händelse källan:
-
-* [IoT Hub](../iot-hub/iot-hub-scaling.md)
-* [Event Hubs](../event-hubs/event-hubs-scalability.md)
+> Den kommande allmänna tillgänglighets versionen av Time Series Insights kommer att göra data tillgängliga i 60 sekunder efter att den lästs från händelse källan. Under förhands granskningen kan det uppstå en längre period innan data blir tillgängliga. Om du får en betydande fördröjning utöver 60 sekunder kan du skicka ett support ärende via Azure Portal.
 
 ## <a name="azure-storage"></a>Azure Storage
 

@@ -1,5 +1,5 @@
 ---
-title: InMemory OLTP förbättrar SQL-TXN prestanda | Microsoft Docs
+title: InMemory OLTP förbättrar SQL TXN-prestanda
 description: Använd minnes intern OLTP för att förbättra transaktions prestanda i en befintlig SQL-databas.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 11/07/2018
-ms.openlocfilehash: e869b2bba3bd64b58d9063e9445889ef709efdc3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 82b24b51a103d31bf20bbb7a9fc304095be523d5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567939"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689838"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Använd minnes intern OLTP för att förbättra programmets prestanda i SQL Database
 
@@ -28,7 +28,7 @@ ms.locfileid: "68567939"
 
 Följ dessa steg om du vill använda minnes intern OLTP i den befintliga databasen.
 
-## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>Steg 1: Se till att du använder en Premium-och Affärskritisk nivå databas
+## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>Steg 1: kontrol lera att du använder en Premium-och Affärskritisk nivå databas
 
 Minnes intern OLTP stöds endast i Premium-och Affärskritisk-Tier-databaser. InMemory stöds om det returnerade resultatet är 1 (inte 0):
 
@@ -40,17 +40,17 @@ SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
 
 
 
-## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>Steg 2: Identifiera objekt att migrera till minnes intern OLTP
+## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>Steg 2: identifiera objekt som ska migreras till minnes intern OLTP
 SSMS innehåller en **översikts rapport över transaktions prestanda analys** som du kan köra mot en databas med en aktiv arbets belastning. Rapporten identifierar tabeller och lagrade procedurer som är kandidater för migrering till InMemory OLTP.
 
 För att generera rapporten i SSMS:
 
 * Högerklicka på noden databas i **Object Explorer**.
-* Klicka på **rapporter** > **Översikt över prestanda analys av transaktioner**i**standard rapporter** > .
+* Klicka på **rapporter** > **standard rapporter** > **Översikt över transaktions prestanda analys**.
 
 Mer information finns i [avgöra om en tabell eller lagrad procedur ska hamna på minnes intern OLTP](https://msdn.microsoft.com/library/dn205133.aspx).
 
-## <a name="step-3-create-a-comparable-test-database"></a>Steg 3: Skapa en jämförbar test databas
+## <a name="step-3-create-a-comparable-test-database"></a>Steg 3: skapa en jämförbar test databas
 Anta att rapporten visar att databasen har en tabell som kan dra nytta av att konverteras till en minnesoptimerade tabell. Vi rekommenderar att du först testar att bekräfta indikeringen genom att testa.
 
 Du behöver en test kopia av produktions data basen. Test databasen ska ha samma service nivå nivå som produktions databasen.
@@ -93,7 +93,7 @@ Använd detta alternativ för migrering:
 2. Hämta det fullständiga T-SQL-skriptet för din tabell och dess index.
    
    * I SSMS högerklickar du på noden tabell.
-   * Klicka på **skript tabell som** > **skapa till** > **ny fråga**.
+   * Klicka på **skript tabell som** > **skapa för att** > **fönstret ny fråga**.
 3. I fönstret skript lägger du till WITH (MEMORY_OPTIMIZED = ON) i CREATE TABLE-instruktionen.
 4. Om det finns ett GRUPPERat index ändrar du det till inklustrat.
 5. Byt namn på den befintliga tabellen med hjälp av SP_RENAME.
@@ -150,7 +150,7 @@ Stegen för migreringen är:
 4. Byt namn på den gamla lagrade proceduren med hjälp av SP_RENAME. Eller helt enkelt släppa det.
 5. Kör den redigerade CREATE PROCEDURe T-SQL-skriptet.
 
-## <a name="step-6-run-your-workload-in-test"></a>Steg 6: Kör din arbets belastning i test
+## <a name="step-6-run-your-workload-in-test"></a>Steg 6: kör din arbets belastning i testet
 Kör en arbets belastning i test databasen som liknar den arbets belastning som körs i produktions databasen. Detta bör se till att prestanda uppnås genom att använda InMemory-funktionen för tabeller och lagrade procedurer.
 
 Större attribut för arbets belastningen är:
@@ -162,7 +162,7 @@ För att skräddarsy och köra test arbets belastningen bör du överväga att a
 
 Du kan minimera nätverks fördröjningen genom att köra testet i samma Azure-geografiska region där databasen finns.
 
-## <a name="step-7-post-implementation-monitoring"></a>Steg 7: Övervakning efter implementering
+## <a name="step-7-post-implementation-monitoring"></a>Steg 7: övervakning efter implementering
 Överväg att övervaka prestanda effekterna för dina minnes implementeringar i produktionen:
 
 * [Övervaka minnes intern lagring](sql-database-in-memory-oltp-monitoring.md).

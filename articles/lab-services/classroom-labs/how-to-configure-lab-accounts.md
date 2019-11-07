@@ -1,6 +1,6 @@
 ---
-title: Konfigurera lab-konton i Azure Lab Services | Microsoft Docs
-description: Lär dig mer om att konfigurera ett labbkonto när den har skapats.
+title: Konfigurera labb konton i Azure Lab Services | Microsoft Docs
+description: Lär dig hur du konfigurerar ett labb konto när det har skapats.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,56 +13,56 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: spelluru
-ms.openlocfilehash: ba469c038f04a31a57e798b97b5120bec573feae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9faf7de25b8bf227dd4c7f3588972f98f7493439
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65414046"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583961"
 ---
-# <a name="configure-lab-accounts-in-azure-lab-services"></a>Konfigurera lab-konton i Azure Lab Services 
-Ett labbkonto är en behållare för hanterade lab typer, till exempel klassrum labb i Azure Lab Services. En administratör konfigurerar ett testlabb-konto med Azure Lab Services och ger åtkomst till labbägare som kan skapa labb i kontot. Den här artikeln beskriver hur du skapar ett labbkonto, visa alla lab-konton eller ta bort ett labbkonto.
+# <a name="configure-lab-accounts-in-azure-lab-services"></a>Konfigurera labb konton i Azure Lab Services 
+I Azure Lab Services är ett labb konto en behållare för hanterade labb typer, till exempel klass rums labb. En administratör konfigurerar ett labb konto med Azure Lab Services och ger till gång till labb ägare som kan skapa labb i kontot. Den här artikeln beskriver hur du skapar ett labb konto, visar alla labb konton eller tar bort ett labb konto.
 
-## <a name="connect-with-a-peer-virtual-network"></a>Ansluta med ett peer virtuellt nätverk
-Följ dessa steg om du vill ansluta ett virtuellt nätverk som en peer-nätverket till den testmiljön virtuellt nätverk:
+## <a name="connect-with-a-peer-virtual-network"></a>Ansluta till ett virtuellt peer-nätverk
+Följ dessa steg om du vill ansluta ett virtuellt nätverk som ett peer-nätverk till Labbets virtuella nätverk:
 
-1. På den **Labbkonto** väljer **Labs configuration** på den vänstra menyn.
+1. På sidan **labb konto** väljer du **labb konfiguration** på den vänstra menyn.
 
-    ![Konfigurationssidan för labb](../media/how-to-manage-lab-accounts/labs-configuration-page.png) 
-1. För **Peerkopplade virtuella nätverket**väljer **aktiverad** eller **inaktiverad**. Standardvärdet är **inaktiverad**. Om du vill aktivera det peerkopplade virtuella nätverket, gör du följande: 
-    1. Välj **aktiverat**.
-    2. Välj den **VNet** från den nedrullningsbara listan. 
+    ![Sidan labb konfiguration](../media/how-to-manage-lab-accounts/labs-configuration-page.png) 
+1. För **peer Virtual Network**väljer du **aktive rad** eller **inaktive**rad. Standardvärdet är **inaktiverat**. Gör så här för att aktivera det virtuella peer-nätverket: 
+    1. Välj **aktive rad**.
+    2. Välj **VNet** i list rutan. 
 3. Välj **Spara** i verktygsfältet. 
 
-Labs som skapats i det här kontot är anslutna till det valda virtuella nätverket. De har åtkomst till resurser i det valda virtuella nätverket. Mer information finns i [ansluta ditt labb nätverk med en peer virtuellt nätverk i Azure Lab Services](how-to-connect-peer-virtual-network.md).
+Labb som skapats i det här kontot är anslutna till det valda virtuella nätverket. De kan komma åt resurserna i det valda virtuella nätverket. Mer information finns i [ansluta ditt labb nätverk till ett virtuellt peer-nätverk i Azure Lab Services](how-to-connect-peer-virtual-network.md).
 
-När du väljer ett virtuellt nätverk för den **Peerkopplade virtuella nätverket** fält, de **Tillåt labbskaparen att välja lab platsen** alternativet är inaktiverat. Det beror på att labs i labb-kontot måste finnas i samma region som labbkonto att ansluta till resurser i det peerkopplade virtuella nätverket. 
+När du väljer ett virtuellt nätverk för det **virtuella peer-nätverket** är alternativet **Tillåt att labb skaparen att välja labb plats** inaktiverat. Det beror på att labb i labb kontot måste finnas i samma region som labb kontot för att de ska kunna ansluta till resurser i det virtuella peer-nätverket. 
 
-## <a name="allow-lab-creator-to-pick-location-for-the-lab"></a>Tillåt labbskaparen att välja platsen för övningen
-Du kan tillåta labbskaparen du skapa labb i en annan plats än platsen för labb-kontot genom att följa dessa steg: 
+## <a name="allow-lab-creator-to-pick-location-for-the-lab"></a>Tillåt labb skapare att välja plats för labbet
+Du kan låta labb skaparen skapa labb på en annan plats än labb kontots placering genom att följa dessa steg: 
 
-1. På den **Labbkonto** väljer **Labs configuration** på den vänstra menyn.
-2. För den **Tillåt labbskaparen att välja lab platsen**väljer **aktiverad** om du vill att labbskaparen för att kunna välja en plats för övningen. Om den är inaktiverad skapas automatiskt labbarna på samma plats där labbkonto finns. 
+1. På sidan **labb konto** väljer du **labb konfiguration** på den vänstra menyn.
+2. För att **Tillåt labb skaparen att välja labb plats**väljer du **aktive rad** om du vill att labb skaparen ska kunna välja en plats för labbet. Om den är inaktive rad skapas labben automatiskt på samma plats som labb kontot finns i. 
     
-    Det här fältet inaktiveras när du väljer ett virtuellt nätverk för den **Peerkopplade virtuella nätverket** fält. Det beror på att labs i labb-kontot måste finnas i samma region som labbkonto att komma åt resurser i det peerkopplade virtuella nätverket. 
+    Det här fältet är inaktiverat när du väljer ett virtuellt nätverk för fältet **peer Virtual Network** . Det beror på att labb i labb kontot måste finnas i samma region som labb kontot för att få åtkomst till resurser i det virtuella peer-nätverket. 
 1. Välj **Spara** i verktygsfältet. 
 
-    ![Konfigurera plats labbmiljö](../media/how-to-manage-lab-accounts/labs-configuration-page-lab-location.png)
+    ![Konfigurera inställningen för labb plats](../media/how-to-manage-lab-accounts/labs-configuration-page-lab-location.png)
 
 
-## <a name="specify-an-address-range-for-vms-in-the-lab"></a>Ange ett adressintervall för virtuella datorer i labbet
-Följande procedur innehåller steg för att ange ett adressintervall för virtuella datorer i labbet. Om du uppdaterar det adressintervall som du angav tidigare gäller ändrade adressintervallet endast virtuella datorer som skapas efter att ändringen har gjorts. 
+## <a name="specify-an-address-range-for-vms-in-the-lab"></a>Ange ett adress intervall för virtuella datorer i labbet
+Följande procedur innehåller steg för att ange ett adress intervall för virtuella datorer i labbet. Om du uppdaterar intervallet som du har angett gäller det ändrade adress intervallet endast för virtuella datorer som skapas när ändringen har gjorts. 
 
-Här finns vissa begränsningar när du anger det adressintervall som du bör tänka på. 
+Här följer några begränsningar när du anger adress intervallet som du bör ha i åtanke. 
 
 - Prefixet måste vara mindre än eller lika med 23. 
-- Om ett virtuellt nätverk är peer-kopplat till kontot lab, får inte tillhandahållna adressintervallet överlappa med adressintervall från peer-kopplade virtuella nätverket.
+- Om ett virtuellt nätverk är peer-kopplat till labb kontot kan det angivna adress intervallet inte överlappa med adress intervallet från det peer-kopplade virtuella nätverket.
 
-1. På den **Labbkonto** väljer **Labs configuration** på den vänstra menyn.
-2. För den **adressintervall** fältet, ange adressintervallet för virtuella datorer som kommer att skapas i labbet. Adressintervallet ska vara i classless Inter-Domain routing (CIDR)-format (exempel: 10.20.0.0/23). Virtuella datorer i labbet skapas i den här adressintervall.
+1. På sidan **labb konto** väljer du **labb konfiguration** på den vänstra menyn.
+2. I fältet **adress intervall** anger du adress intervall för virtuella datorer som ska skapas i labbet. Adress intervallet bör vara i CIDR-notation (Classless Inter-Domain routing) (exempel: 10.20.0.0/23). Virtuella datorer i labbet skapas i det här adress intervallet.
 3. Välj **Spara** i verktygsfältet. 
 
-    ![Konfigurera adressintervall](../media/how-to-manage-lab-accounts/labs-configuration-page-address-range.png)
+    ![Konfigurera adress intervall](../media/how-to-manage-lab-accounts/labs-configuration-page-address-range.png)
 
 ## <a name="add-a-user-to-the-lab-creator-role"></a>Lägga till en användare i rollen Labbskapare
 Om du vill konfigurera ett klassrumslabb i ett labbkonto måste användaren vara medlem i rollen **Lab Creator** i labbkontot. Det konto som du använde för att skapa labbkontot läggs automatiskt till i den här rollen. Om du planerar att använda samma användarkonto för att skapa ett klassrumslabb kan du hoppa över det här steget. Om du vill använda ett annat konto för att skapa ett klassrumslabb gör du följande: 
@@ -75,6 +75,9 @@ Ge lärarna behörighet att skapa labb åt sina klasser genom att lägga till de
 1. På sidan **Lägg till rolltilldelning** väljer du **Labbskapare** som **Roll**. Välj den användare som du vill lägga till rollen Labbskapare och välj **Spara**. 
 
     ![Lägg till labbuppgiftsförfattare](../media/tutorial-setup-lab-account/add-lab-creator.png)
+
+    > [!NOTE]
+    > Om du lägger till en icke-Microsoft-konto användare som en labb skapare, se avsnittet [Lägg till en icke-Microsoft-konto användare som en labb skapare](#add-a-non-microsoft-account-user-as-a-lab-creator) . 
 
 ## <a name="specify-marketplace-images-available-to-lab-creators"></a>Ange Marketplace-avbildningar som är tillgängliga för labbuppgiftsförfattare
 Som labbkontoägare kan du ange Marketplace-avbildningar som labbskapare kan använda för att skapa labb i labbkontot. 
@@ -99,7 +102,36 @@ Som labbkontoägare kan du ange Marketplace-avbildningar som labbskapare kan anv
     1. Välj **... (ellips)** i den sista kolumnen och välj **Aktivera avbildning**. 
     2. Välj en eller flera avbildningar från listan genom att markera kryssrutorna före avbildningsnamnen i listan och välja **Aktivera valda avbildningar**. 
 
+## <a name="add-a-non-microsoft-account-user-as-a-lab-creator"></a>Lägg till en icke-Microsoft-konto användare som en labb skapare
+Om du vill lägga till en användare som en labb skapare, använder du deras e-postkonton. Följande typer av e-postkonton kan användas:
 
+- Ett e-postkonto som tillhandahålls av ditt universitets Office 365 Azure Active Directory (AAD). 
+- Ett Microsoft-e-postkonto, till exempel `@outlook.com`, `@hotmail.com`, `@msn.com`eller `@live.com`.
+- Ett e-postkonto som inte kommer från Microsoft, till exempel ett som tillhandahålls av Yahoo eller Google. Dessa typer av konton måste dock länkas till ett Microsoft-konto.
+- Ett GitHub-konto. Kontot måste vara länkat till ett Microsoft-konto.
+
+### <a name="using-a-non-microsoft-email-account"></a>Använda ett e-postkonto som inte kommer från Microsoft
+Labb skapare/lärare kan använda e-postkonton som inte kommer från Microsoft för att registrera sig och logga in i ett klass rums labb.  Inloggningen till labb tjänst portalen kräver dock att instruktörerna först skapar en Microsoft-konto som är länkad till den e-postadress som inte kommer från Microsoft.
+
+Många instruktörer kanske redan har ett Microsoft-konto kopplat till sina e-postadresser som inte kommer från Microsoft. Lärare har till exempel redan en Microsoft-konto om de har använt sin e-postadress med Microsofts andra produkter eller tjänster, t. ex. Office, Skype, OneDrive eller Windows.  
+
+När lärare loggar in på labb tjänst portalen uppmanas de att ange sina e-postadresser och lösen ord. Om instruktören försöker logga in med en icke-Microsoft-konto som inte har något Microsoft-konto länkat, får instruktören följande fel meddelande: 
+
+![Felmeddelande](../media/how-to-configure-student-usage/cant-find-account.png)
+
+Om du vill registrera dig för en Microsoft-konto bör instruktörer gå till [http://signup.live.com](http://signup.live.com).  
+
+
+### <a name="using-a-github-account"></a>Använda ett GitHub-konto
+Lärare kan också använda ett befintligt GitHub-konto för att registrera sig och logga in i ett klass rums labb. Om instruktören redan har en Microsoft-konto länkat till sitt GitHub-konto kan de logga in och ange sitt lösen ord som visas i föregående avsnitt. Om de inte har länkat sitt GitHub-konto till en Microsoft-konto bör de välja **inloggnings alternativ**:
+
+![Länk för inloggnings alternativ](../media/how-to-configure-student-usage/signin-options.png)
+
+På sidan **inloggnings alternativ** väljer du logga in **med GitHub**.
+
+![Logga in med GitHub-länk](../media/how-to-configure-student-usage/signin-github.png)
+
+Slutligen uppmanas de att skapa en Microsoft-konto som är länkad till sitt GitHub-konto. Det sker automatiskt när instruktören väljer **Nästa**.  Instruktören är sedan omedelbart inloggad och ansluten till klass rummets labb.
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -108,4 +140,4 @@ Se följande artiklar:
 - [Skapa och hantera labb som labbägare](how-to-manage-classroom-labs.md)
 - [Konfigurera och publicera mallar som labbägare](how-to-create-manage-template.md)
 - [Konfigurera och kontroller användning av ett labb som labbägare](how-to-configure-student-usage.md)
-- [Som en lab-användare åtkomst till labb för klassrum](how-to-use-classroom-lab.md)
+- [Som labb användare, åtkomst till klass rum labb](how-to-use-classroom-lab.md)

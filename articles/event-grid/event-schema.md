@@ -1,6 +1,6 @@
 ---
-title: Schema för Azure Event Grid-händelse
-description: Beskriver de egenskaper som har angetts för händelser med Azure Event Grid
+title: Azure Event Grid händelse schema
+description: Beskriver de egenskaper som anges för händelser med Azure Event Grid
 services: event-grid
 author: banisadr
 manager: timlt
@@ -8,29 +8,29 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/20/2019
 ms.author: babanisa
-ms.openlocfilehash: 8a8193d21bbc1d0af933657705e605ce31589cbf
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 44cc611a9a7d71a3ac4ac7b0d779b18778d0aacd
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785852"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607611"
 ---
-# <a name="azure-event-grid-event-schema"></a>Schema för Azure Event Grid-händelse
+# <a name="azure-event-grid-event-schema"></a>Azure Event Grid händelse schema
 
-Den här artikeln beskriver egenskaper och scheman som är tillgängliga för alla händelser. Händelser som består av en uppsättning med fem obligatoriska strängegenskaper och ett nödvändiga data-objekt. Egenskaperna är vanliga i alla händelser från valfri utgivare. Dataobjektet har egenskaper som är specifika för varje utgivare. De här egenskaperna är specifika för resursleverantör, till exempel Azure Storage eller Azure Event Hubs för system-ämnen.
+I den här artikeln beskrivs de egenskaper och schema som finns för alla händelser. Händelser består av en uppsättning av fem obligatoriska sträng egenskaper och ett obligatoriskt data objekt. Egenskaperna är gemensamma för alla händelser från vilken utgivare som helst. Dataobjektet har egenskaper som är speciella för varje utgivare. För system ämnen är dessa egenskaper specifika för resurs leverantören, till exempel Azure Storage eller Azure Event Hubs.
 
-Händelsekällor används för att skicka händelser till Azure Event Grid i en matris som kan ha flera händelseobjekt. När skicka händelser till en event grid-ämne kan matrisen ha en total storlek på upp till 1 MB. Varje händelse i matrisen är begränsat till 64 KB (allmän tillgänglighet) eller 1 MB (förhandsversion). Om en händelse eller matrisen är större än storleksgränserna, får du svaret **413 nyttolasten är för stor**.
+Händelse källor skickar händelser till Azure Event Grid i en matris som kan ha flera händelse objekt. När du publicerar händelser i ett event Grid-ämne kan matrisen ha en total storlek på upp till 1 MB. Varje händelse i matrisen är begränsad till 64 KB (allmän tillgänglighet) eller 1 MB (för hands version). Om en händelse eller matrisen är större än storleks gränserna får du svar 413- **nytto lasten för stor**.
 
 > [!NOTE]
-> En händelse av storlek på upp till 64 KB omfattas av allmän tillgänglighet (GA) serviceavtal (SLA). Stöd för en händelse av storlek på upp till 1 MB förhandsvisas just nu. Händelser över 64 KB debiteras i steg om 64 KB. 
+> En händelse av en storlek på upp till 64 KB omfattas av allmän tillgänglighet (GA) Serviceavtal (SLA). Stöd för en händelse av en storlek på upp till 1 MB är för närvarande en för hands version. Händelser över 64 KB debiteras i steg om 64 KB. 
 
-Event Grid skickar händelser till prenumeranter i en matris som har en enda händelse. Det här beteendet kan ändras i framtiden.
+Event Grid skickar händelserna till prenumeranter i en matris som har en enda händelse. Det här beteendet kan ändras i framtiden.
 
-Du kan hitta JSON-schemat för Event Grid-händelse och varje Azure utgivare datanyttolasten i den [Händelseschema store](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/eventgrid/data-plane).
+Du kan hitta JSON-schemat för Event Grid-händelsen och varje Azure-utgivares data nytto Last i [händelse schema arkivet](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/eventgrid/data-plane).
 
 ## <a name="event-schema"></a>Händelseschema
 
-I följande exempel visas de egenskaper som används av alla utgivare:
+I följande exempel visas de egenskaper som används av alla händelse utgivare:
 
 ```json
 [
@@ -49,7 +49,7 @@ I följande exempel visas de egenskaper som används av alla utgivare:
 ]
 ```
 
-Schemat som publicerats för en Azure Blob storage-händelse är till exempel:
+Till exempel är schemat som publicerats för en Azure Blob Storage-händelse:
 
 ```json
 [
@@ -79,40 +79,41 @@ Schemat som publicerats för en Azure Blob storage-händelse är till exempel:
 ]
 ```
 
-## <a name="event-properties"></a>Egenskaper för händelse
+## <a name="event-properties"></a>Händelse egenskaper
 
-Alla händelser har samma följande översta data:
+Alla händelser har samma följande toppnivå data:
 
-| Egenskap | Type | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| topic | string | Fullständig resurssökväg till händelsekällan. Det här fältet är inte skrivbar. Event Grid ger det här värdet. |
-| topic | string | Publisher-definierade sökvägen till ämne för händelsen. |
-| eventType | string | En av typerna som registrerade händelsen för den här händelsekällan. |
-| eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| id | string | Unik identifierare för händelsen. |
-| data | object | Händelsedata är specifika för resursprovidern. |
-| dataVersion | string | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
-| metadataVersion | string | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
+| ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
+| Motiv | sträng | Publisher-definierad sökväg till händelsens ämne. |
+| Typ | sträng | En av de registrerade händelse typerna för den här händelse källan. |
+| eventTime | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
+| id | sträng | Unikt ID för händelsen. |
+| data | objekt | Händelse data som är speciella för resurs leverantören. |
+| dataVersion | sträng | Data objektets schema version. Utgivaren definierar schema versionen. |
+| metadataVersion | sträng | Schema versionen för händelsens metadata. Event Grid definierar schemat för de högsta nivå egenskaperna. Event Grid ger det här värdet. |
 
-Mer information om egenskaperna i dataobjektet, se händelsekällan:
+Information om egenskaperna i data-objektet finns i händelse källan:
 
-* [Azure-prenumerationer (åtgärder)](event-schema-subscriptions.md)
+* [Azure-prenumerationer (hanterings åtgärder)](event-schema-subscriptions.md)
 * [Container Registry](event-schema-container-registry.md)
 * [Blob Storage](event-schema-blob-storage.md)
 * [Event Hubs](event-schema-event-hubs.md)
 * [IoT Hub](event-schema-iot-hub.md)
 * [Media Services](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)
-* [Resursgrupper (åtgärder)](event-schema-resource-groups.md)
+* [Resurs grupper (hanterings åtgärder)](event-schema-resource-groups.md)
 * [Service Bus](event-schema-service-bus.md)
 * [Azure SignalR](event-schema-azure-signalr.md)
+* [Azure Machine Learning](event-schema-machine-learning.md)
 
-För anpassade ämnen anger händelseutfärdaren dataobjektet. Översta data bör ha samma fält som standard resurs-definierade händelser.
+För anpassade ämnen bestämmer händelse utgivaren dataobjektet. Data på den översta nivån ska ha samma fält som standard resurs definierade händelser.
 
-När du publicerar händelser till anpassade ämnen, skapa ämnen för händelser som gör det enkelt för prenumeranter att veta om de är intresserad av händelsen. Prenumeranter använda ämne på filtret och dirigera händelser. Ställ in sökvägen för där händelsen har inträffat, så prenumeranter kan filtrera efter segment i sökvägen. Sökvägen kan prenumeranter att snävare eller brett Filtrera händelser. Exempel: Om du anger en sökväg för tre segment som `/A/B/C` på ämnesraden prenumeranter kan filtrera efter det första segmentet `/A` att hämta en rad olika händelser. Dessa prenumeranter får händelser med ämnen som `/A/B/C` eller `/A/D/E`. Andra prenumeranter kan filtrera efter `/A/B` att hämta en smalare uppsättning händelser.
+När du publicerar händelser till anpassade ämnen skapar du ämnen för dina händelser som gör det enkelt för prenumeranter att veta om de är intresserade av evenemanget. Prenumeranter använder ämnet för att filtrera och dirigera händelser. Överväg att ange sökvägen till den plats där händelsen inträffade, så att prenumeranter kan filtrera efter segment i den sökvägen. Med hjälp av sökvägen kan prenumeranter begränsa eller filtrera händelser på ett stort sätt. Om du till exempel anger en tre segment Sök väg som `/A/B/C` i ämnet kan prenumeranter filtrera efter det första segmentet `/A` för att få en bred uppsättning händelser. Dessa prenumeranter får händelser med ämnen som `/A/B/C` eller `/A/D/E`. Andra prenumeranter kan filtrera efter `/A/B` för att få en smalare uppsättning händelser.
 
-Ibland behöver dina mer information om vad som hände. Till exempel den **Lagringskonton** publisher innehåller ämnesraden `/blobServices/default/containers/<container-name>/blobs/<file>` när en fil läggs till i en behållare. En prenumerant kan filtrera efter sökvägen `/blobServices/default/containers/testcontainer` att hämta alla händelser för den behållaren men inte andra behållare i lagringskontot. En prenumerant kan också filtrera eller dirigera efter suffixet `.txt` till fungerar bara med textfiler.
+Ibland behöver ditt ämne mer information om vad som hände. **Lagrings kontoren** tillhandahåller till exempel ämnes `/blobServices/default/containers/<container-name>/blobs/<file>` när en fil läggs till i en behållare. En prenumerant kan filtrera efter sökvägen `/blobServices/default/containers/testcontainer` för att hämta alla händelser för behållaren, men inte andra behållare i lagrings kontot. En prenumerant kan också filtrera eller dirigera med suffixet `.txt` för att bara arbeta med textfiler.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till Azure Event Grid finns i [vad är Event Grid?](overview.md)
-* Läs mer om hur du skapar en Azure Event Grid-prenumeration, [Event Grid prenumerationsschema](subscription-creation-schema.md).
+* En introduktion till Azure Event Grid finns i [Vad är event Grid?](overview.md)
+* Mer information om hur du skapar en Azure Event Grid-prenumeration finns i [Event Grid prenumerations schema](subscription-creation-schema.md).

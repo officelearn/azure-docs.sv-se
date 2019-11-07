@@ -1,7 +1,7 @@
 ---
-title: Vad är en BLEU Poäng? – Anpassade Translator
+title: Vad är en BLEU Poäng? – Anpassad översättare
 titleSuffix: Azure Cognitive Services
-description: BLEU är ett mått på skillnaderna mellan en automatisk översättning och en eller flera referens översättningar som skapats av en person som skapats av samma käll mening. BLEU-algoritmen jämför upprepade fraser i den automatiska översättningen med de efterföljande fraserna som hittas i referens översättningen och räknar antalet matchningar i viktat mode.
+description: BLEU är ett mått på skillnaderna mellan maskin översättning och de mänskliga referens översättningarna av samma käll mening.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: swmachan
-ms.openlocfilehash: 1993819ad227d7e9aa5ef899045e00447a6740b8
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 85c4ee27a828a05c64ca6cbf84bff438535328be
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595411"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647357"
 ---
 # <a name="what-is-a-bleu-score"></a>Vad är en BLEU Poäng?
 

@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 7b395bd6024beb52b9263ac4fe655b5328a8e662
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 555b4d95358978e84e14e8a2e8b3d1c9cb2efc18
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "70933156"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614603"
 ---
 # <a name="durable-functions-types-and-features-azure-functions"></a>Durable Functions typer och funktioner (Azure Functions)
 
@@ -24,7 +24,7 @@ Det finns för närvarande fyra varaktiga funktions typer i Azure Functions: akt
 
 ## <a name="orchestrator-functions"></a>Orchestrator-funktioner
 
-Orchestrator Functions beskriver hur åtgärder utförs och i vilken ordning åtgärder utförs. Orchestrator Functions beskriver dirigeringen i kod (C# eller Java Script) som visas i [Durable Functions program mönster](durable-functions-overview.md#application-patterns). En dirigering kan ha många olika typer av åtgärder, inklusive [aktivitets funktioner](#activity-functions), [under dirigering](durable-functions-orchestrations.md#sub-orchestrations), [som väntar på externa händelser](durable-functions-orchestrations.md#external-events), [http](durable-functions-orchestrations.md#calling-http-endpoints)och [timers](durable-functions-orchestrations.md#durable-timers). Orchestrator-funktioner kan också samverka med [enhets funktioner](#entity-functions).
+Orchestrator Functions beskriver hur åtgärder utförs och i vilken ordning åtgärder utförs. Orchestrator Functions beskriver dirigeringen i kod (C# eller Java Script) som visas i [Durable Functions program mönster](durable-functions-overview.md#application-patterns). En dirigering kan ha många olika typer av åtgärder, inklusive [aktivitets funktioner](#activity-functions), [under dirigering](durable-functions-orchestrations.md#sub-orchestrations), [som väntar på externa händelser](durable-functions-orchestrations.md#external-events), [http](durable-functions-http-features.md)och [timers](durable-functions-orchestrations.md#durable-timers). Orchestrator-funktioner kan också samverka med [enhets funktioner](#entity-functions).
 
 > [!NOTE]
 > Orchestrator-funktioner skrivs med vanlig kod, men det finns strikta krav på hur du skriver koden. Mer specifikt måste Orchestrator-funktions koden vara *deterministisk*. Om du inte följer dessa determinism-krav kan det leda till att Orchestrator-funktioner inte kan köras på rätt sätt. Detaljerad information om dessa krav och hur du kan lösa dem finns i avsnittet [kod begränsningar](durable-functions-code-constraints.md) .
@@ -40,7 +40,7 @@ Till skillnad från Orchestrator Functions är aktivitets funktioner inte begrä
 > [!NOTE]
 > Eftersom aktivitets funktioner endast garanterar *minst en gång* , rekommenderar vi att du gör din aktivitets funktions logik *idempotenta* närhelst det är möjligt.
 
-Använd en [aktivitets utlösare](durable-functions-bindings.md#activity-trigger) för att definiera en aktivitets funktion. .NET Functions tar emot en [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) som en parameter. Du kan också binda utlösaren till alla andra JSON-serializeable-objekt för att överföra indata till funktionen. I Java Script kan du komma åt inmatade objekt via egenskapen `<activity trigger binding name>` på [`context.bindings`-objektet](../functions-reference-node.md#bindings). Aktivitets funktioner kan bara ha ett enda värde. Om du vill skicka flera värden måste du använda tupler, matriser eller komplexa typer.
+Använd en [aktivitets utlösare](durable-functions-bindings.md#activity-trigger) för att definiera en aktivitets funktion. .NET Functions får en `DurableActivityContext` som en parameter. Du kan också binda utlösaren till alla andra JSON-serializeable-objekt för att överföra indata till funktionen. I Java Script kan du komma åt inmatade objekt via egenskapen `<activity trigger binding name>` i [`context.bindings`-objektet](../functions-reference-node.md#bindings). Aktivitets funktioner kan bara ha ett enda värde. Om du vill skicka flera värden måste du använda tupler, matriser eller komplexa typer.
 
 > [!NOTE]
 > Du kan endast utlösa en aktivitets funktion från en Orchestrator-funktion.
@@ -50,7 +50,7 @@ Använd en [aktivitets utlösare](durable-functions-bindings.md#activity-trigger
 Entitets funktioner definierar åtgärder för att läsa och uppdatera små delar av tillstånd. Vi refererar ofta till dessa tillstånds känsliga entiteter som *varaktiga enheter*. Precis som med Orchestrator Functions är enhets funktionerna funktioner med en särskild utlösnings typ, *enhets utlösare*. De kan också anropas från klient funktioner eller från Orchestrator-funktioner. Till skillnad från Orchestrator-funktioner har enhets funktioner inga speciella kod begränsningar. Enhets funktionerna hanterar också tillstånd explicit snarare än implicit som representerar tillstånd via kontroll flödet.
 
 > [!NOTE]
-> Enhets funktioner och relaterade funktioner är bara tillgängliga i Durable Functions 2,0 och senare. Enhets funktioner finns för närvarande i offentlig för hands version.
+> Enhets funktioner och relaterade funktioner är bara tillgängliga i Durable Functions 2,0 och senare.
 
 Mer information om entitets funktioner finns i artikeln [beständiga entiteter](durable-functions-entities.md) .
 

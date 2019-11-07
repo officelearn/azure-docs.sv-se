@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: f0fc1e143ce7d271d5faaa8dda0eb40cdfc9e006
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: fd3396a98359aef966cd8bb2f984e556fc6abcc7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332754"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73584806"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Skapa och hantera en klass rums mall i Azure Lab Services
 En mall i ett labb är en basavbildning av en virtuell dator som alla användares virtuella datorer skapas från. Konfigurera mallen för virtuella datorer så att den är konfigurerad med exakt det som du vill förse labbanvändarna med. Du kan ange ett namn och en beskrivning av mallen som visas för labbanvändarna. Sedan publicerar du mallen för att skapa instanser av den virtuella mallen som är tillgänglig för dina labb användare. När du publicerar en mall skapar Azure Lab Services virtuella datorer i labbet med hjälp av mallen. Antalet virtuella datorer som skapas i den här processen är samma som det högsta antalet användare som tillåts i labbet. Du kan definiera antalet i användningsprincipen för labbet. Alla virtuella datorer har samma konfiguration som mallen.
@@ -40,12 +40,10 @@ Använd följande steg för att ange titel och beskrivning för första gången 
 Använd följande steg för att uppdatera en mall-VM.  
 
 1. På sidan **mall** väljer du **Anpassa mall** i verktygsfältet. 
-
-    ![Knappen anpassa mall](../media/how-to-create-manage-template/customize-template-button.png)
 2. I dialog rutan **Anpassa mall** väljer du **Fortsätt**. När du har startat mallen och gjort ändringar kommer den inte längre att ha samma konfiguration som de virtuella datorer som senast publicerades till användarna. Ändringar i mallen visas inte på användarnas befintliga virtuella datorer förrän du har publicerat dem igen.
 
     ![Dialog rutan Anpassa](../media/how-to-create-manage-template/customize-template-dialog.png)
-1. Klicka på knappen **Anslut till mall** i verktygsfältet för att ansluta till mallen VM och följ instruktionerna. Om det är en Windows-dator visas ett alternativ för att ladda ned RDP-filen. 
+1. Vänta tills mallen VM startas och välj sedan **Anslut till mall** i verktygsfältet för att ansluta till mallen VM och följ instruktionerna. Om det är en Windows-dator visas ett alternativ för att ladda ned RDP-filen. 
 
     ![Ansluta till den virtuella malldatorn](../media/how-to-create-manage-template/connect-template-vm.png)
 1. Installera all programvara som krävs för studenterna ska kunna utföra labbet (till exempel Visual Studio, Azure Storage Explorer osv.). 

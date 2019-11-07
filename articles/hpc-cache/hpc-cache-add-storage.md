@@ -1,17 +1,17 @@
 ---
-title: Lägga till lagring till en Azure HPC-cache (för hands version)
+title: Lägga till lagring till en Azure HPC-cache
 description: Definiera lagrings mål så att Azure HPC-cachen kan använda ditt lokala NFS-system eller Azure Blob-behållare för långsiktig fil lagring
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: dbcc68bacf8a11a7a85d5fad7fb4435fd03c7f93
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: b10692e352007ee2b0fd18543d8ae2ad8f9819dc
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72024560"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621456"
 ---
 # <a name="add-storage-targets"></a>Lägga till lagringsmål
 
@@ -74,7 +74,7 @@ Steg för att lägga till RBAC-roller:
 1. I **Välj** -fältet söker du efter "HPC".  Den här strängen ska matcha ett tjänst huvud namn med namnet "HPC-Provider för HPC-cache". Klicka på det primära objektet för att välja det.
 
    > [!NOTE]
-   > Om en sökning efter "HPC" inte fungerar kan du prova att använda strängen "storagecache" i stället. Användare som anslöt till förhands granskningen kan behöva använda det äldre namnet för tjänstens huvud namn.
+   > Om en sökning efter "HPC" inte fungerar kan du prova att använda strängen "storagecache" i stället. Användare som har anslutit till hands versionerna (före GA) kan behöva använda det äldre namnet för tjänstens huvud namn.
 
 1. Klicka på knappen **Spara** för att lägga till roll tilldelningen i lagrings kontot.
 
@@ -134,3 +134,5 @@ När du har skapat lagrings mål bör du överväga något av följande:
 
 * [Montera Azure HPC-cachen](hpc-cache-mount.md)
 * [Flytta data till Azure Blob Storage](hpc-cache-ingest.md)
+
+Om du behöver ändra ett lagrings mål läser du [Redigera lagrings mål](hpc-cache-edit-storage.md) för att lära dig hur.

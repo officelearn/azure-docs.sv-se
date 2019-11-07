@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 07/01/2019
 ms.author: moderakh
-ms.openlocfilehash: 61824d1f979d54f49d23f3805ff249c75a62baa4
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 05f597093c27f84d7f20cf0abd5858f44645b88d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063930"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73574918"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB asynkron Java SDK för SQL API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "73063930"
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
-> * [REST-resursprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
+> * [REST-resursleverantör](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [Mass utförar – .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Mass utförar – Java](sql-api-sdk-bulk-executor-java.md)
@@ -42,10 +42,10 @@ SQL API async Java SDK skiljer sig från SQL API Java SDK genom att tillhandahå
 | **Prestandatips**| [GitHub – viktigt](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)| 
 | **Lägsta körnings tid som stöds**|[JDK 8](https://aka.ms/azure-jdks) | 
 
-[!INCLUDE[Release notes](~/azure-cosmosdb-java-v2/changelog/README.md)]
-## <a name="faq"></a>FAQ
+[!INCLUDE [Release notes](~/azure-cosmosdb-java-v2/changelog/README.md)]
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 Mer information om Cosmos DB finns i [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service-sidan.
 

@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 540e72a4472fce626822f0b22bfac11a23aea205
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 6ed04c875140f3ecd14eff31829e931efbe84ea2
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466768"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606655"
 ---
 # <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Vanliga fel och varningar för AI-pipeline i Azure Kognitiv sökning
 
@@ -224,7 +224,12 @@ Möjligheten att återuppta ett index jobb som inte är klart är predikat på a
 
 Det är möjligt att åsidosätta det här beteendet, aktivera stegvisa framsteg och ignorera den här varningen med hjälp av konfigurations egenskapen `assumeOrderByHighWatermarkColumn`.
 
-[Mer information om hur du Cosmos DB stegvisa framsteg och anpassade frågor.](https://go.microsoft.com/fwlink/?linkid=2099593)
+Mer information finns i [stegvisa framsteg och anpassade frågor](search-howto-index-cosmosdb.md#IncrementalProgress).
+
+### <a name="truncated-extracted-text-to-x-characters"></a>Trunkerad extraherad text till X tecken
+Indexerare begränsar hur mycket text som kan extraheras från ett dokument. Den här gränsen är beroende av pris nivån: 32 000 tecken för kostnads fri nivå, 64 000 för Basic och 4 000 000 för standard-, standard S2-och standard S3-nivåer. Text som trunkerades kommer inte att indexeras. Undvik den här varningen genom att dela upp dokument med stora mängder text till flera mindre dokument. 
+
+Mer information finns i [gränser för indexerare](search-limits-quotas-capacity.md#indexer-limits).
 
 ### <a name="could-not-map-output-field-x-to-search-index"></a>Det gick inte att mappa utmatnings fältet "X" till Sök indexet
 Mappningar av utdatakolumner som refererar till icke-existerande/null-data genererar varningar för varje dokument och resulterar i ett tomt index fält. Du kan lösa det här problemet genom att dubbelklicka på käll Sök vägar för mappning av utdata för möjliga skrivfel eller ange ett standardvärde med hjälp av den [villkorliga kompetensen](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist).

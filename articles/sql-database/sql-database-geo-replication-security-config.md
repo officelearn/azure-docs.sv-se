@@ -1,5 +1,5 @@
 ---
-title: Konfigurera Azure SQL Database säkerhet för haveri beredskap | Microsoft Docs
+title: Konfigurera Azure SQL Database säkerhet för haveri beredskap
 description: Lär dig mer om säkerhets överväganden för att konfigurera och hantera säkerhet efter en databas återställning eller redundansväxling till en sekundär server.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
-ms.openlocfilehash: 4d4939b7a0179216d11f594ce12f384276d15e05
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3c08ba1a37d7b0d16042d6496c27e0de8d070b75
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568130"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689966"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Konfigurera och hantera Azure SQL Database säkerhet för geo-återställning eller redundans
 
@@ -48,7 +48,7 @@ Att förbereda användar åtkomst till en sekundär geo-replikering bör utföra
 
 Att konfigurera inloggningar på mål servern omfattar tre steg som beskrivs nedan:
 
-#### <a name="1-determine-logins-with-access-to-the-primary-database"></a>1. Fastställa inloggningar med åtkomst till den primära databasen
+#### <a name="1-determine-logins-with-access-to-the-primary-database"></a>1. Bestäm inloggningar med åtkomst till den primära databasen
 
 Det första steget i processen är att avgöra vilka inloggningar som måste dupliceras på mål servern. Detta åstadkoms med ett par med SELECT-instruktioner, en i den logiska huvud databasen på käll servern och en i själva databasen i den primära databasen.
 
@@ -64,7 +64,7 @@ Endast en medlem i databas rollen db_owner, dbo-användaren eller Server adminis
     FROM [sys].[database_principals]
     WHERE [type_desc] = 'SQL_USER'
 
-#### <a name="2-find-the-sid-for-the-logins-identified-in-step-1"></a>2. Hitta SID för de inloggningar som identifierades i steg 1
+#### <a name="2-find-the-sid-for-the-logins-identified-in-step-1"></a>2. hitta SID för de inloggningar som identifierades i steg 1
 
 Genom att jämföra utdata från frågorna från föregående avsnitt och matcha sid, kan du mappa Server inloggningen till databas användare. Inloggningar som har en databas användare med ett matchande SID har användar åtkomst till databasen som databasens huvud konto.
 
@@ -77,7 +77,7 @@ Följande fråga kan användas för att se alla användares huvud namn och deras
 > [!NOTE]
 > **INFORMATION_SCHEMA** -och **sys** -användarna har *Null* -sid och **gäst** -sid är **0x00**. **Dbo** -sid kan starta med *0x01060000000001648000000000048454*, om databasens skapare var Server administratören i stället för en medlem i **DBManager**.
 
-#### <a name="3-create-the-logins-on-the-target-server"></a>3. Skapa inloggningar på mål servern
+#### <a name="3-create-the-logins-on-the-target-server"></a>3. skapa inloggningar på mål servern
 
 Det sista steget är att gå till mål servern eller servrarna och generera inloggningar med rätt sid. Den grundläggande syntaxen är följande.
 
@@ -96,7 +96,7 @@ Det sista steget är att gå till mål servern eller servrarna och generera inlo
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om hur du hanterar databas åtkomst och inloggningar finns [i SQL Database säkerhet: Hantera databas åtkomst och inloggnings](sql-database-manage-logins.md)säkerhet.
+* Mer information om hur du hanterar databas åtkomst och inloggningar finns i [SQL Database säkerhet: Hantera databas åtkomst och inloggnings säkerhet](sql-database-manage-logins.md).
 * Mer information om inneslutna databas användare finns i [inneslutna databas användare – göra databasen portabel](https://msdn.microsoft.com/library/ff929188.aspx).
 * Mer information om aktiv geo-replikering finns i [aktiv geo-replikering](sql-database-active-geo-replication.md).
 * Mer information om grupper för automatisk redundans finns i [grupper för automatisk redundans](sql-database-auto-failover-group.md).

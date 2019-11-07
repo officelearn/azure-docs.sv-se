@@ -1,35 +1,37 @@
 ---
-title: BLOB-inmatning från slut punkt till slut punkt i Azure Datautforskaren med python
-description: I den här artikeln får du lära dig hur du använder inmatnings blobbar i Azure Datautforskaren med ett slutpunkts-till-slutpunkts exempel med python.
+title: BLOB-inmatning från slut punkt till slut punkt i Azure Datautforskaren via python
+description: I den här artikeln får du lära dig hur du matar in blobbar i Azure Datautforskaren med ett slut punkt till slut punkt-exempel som använder python.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 2cb3e73abf8a97e481a4260ee6abe79115521d18
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 1c78336880d685090ae21c725becc90d689c1817
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809610"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581819"
 ---
-# <a name="end-to-end-blob-ingestion-into-azure-data-explorer-using-python"></a>BLOB-inmatning från slut punkt till slut punkt i Azure Datautforskaren med python
+# <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-python"></a>BLOB-inmatning från slut punkt till slut punkt i Azure Datautforskaren via python
 
 > [!div class="op_single_selector"]
 > * [C#](end-to-end-csharp.md)
 > * [Python](end-to-end-python.md)
 >
 
-Azure Datautforskaren är en snabb och skalbar data utforsknings tjänst för logg-och telemetridata. Den här artikeln ger dig ett exempel på hur du matar in data från Blob Storage i Azure Datautforskaren. Du får lära dig att program mässigt skapa en resurs grupp, ett lagrings konto och en behållare, en Händelsehubben och ett Azure Datautforskaren-kluster och-databas. Du får också lära dig att program mässigt konfigurera Azure-Datautforskaren för att mata in data från det nya lagrings kontot.
+Azure Datautforskaren är en snabb och skalbar data utforsknings tjänst för logg-och telemetridata. Den här artikeln ger dig ett exempel på hur du matar in data från Azure Blob Storage till Azure Datautforskaren. 
 
-## <a name="prerequisites"></a>Krav
+Du får lära dig att program mässigt skapa en resurs grupp, ett lagrings konto och en behållare, en händelsehubben och ett Azure Datautforskaren-kluster och-databas. Du lär dig också att program mässigt konfigurera Azure-Datautforskaren för att mata in data från det nya lagrings kontot.
+
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="install-python-package"></a>Installera python-paket
+## <a name="install-the-python-package"></a>Installera Python-paketet
 
-Om du vill installera python-paketet för Azure Datautforskaren (Kusto) öppnar du en kommando tolk med python i sökvägen. Kör följande kommando:
+Om du vill installera python-paketet för Azure Datautforskaren (Kusto) öppnar du en kommando tolk med python i sökvägen. Kör följande kommandon:
 
 ```
 pip install azure-common
@@ -44,7 +46,9 @@ pip install azure-storage-blob
 
 ## <a name="code-example"></a>Kodexempel 
 
-I följande kod exempel får du en stegvis process som resulterar i data inmatning i Azure Datautforskaren. Först skapar du en resurs grupp och Azure-resurser, till exempel ett lagrings konto och en behållare, en Event Hub och ett Azure Datautforskaren-kluster och-databas. Sedan skapar du en Event Grid prenumeration och tabell-och kolumn mappning i Azure Datautforskaren-databasen. Slutligen skapar du data anslutningen för att konfigurera Azure-Datautforskaren för att mata in data från det nya lagrings kontot.
+I följande kod exempel får du en stegvis process som resulterar i data inhämtning i Azure Datautforskaren. 
+
+Först skapar du en resurs grupp. Du kan också skapa Azure-resurser, till exempel ett lagrings konto och en behållare, en händelsehubben och ett Azure Datautforskaren-kluster och-databas. Sedan skapar du en Azure Event Grid-prenumeration, tillsammans med en tabell-och kolumn mappning, i Azure Datautforskaren-databasen. Slutligen skapar du data anslutningen för att konfigurera Azure-Datautforskaren för att mata in data från det nya lagrings kontot.
 
 ```python
 from azure.common.credentials import ServicePrincipalCredentials
@@ -61,12 +65,12 @@ from azure.mgmt.kusto.models import EventGridDataConnection
 tenant_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
 #Application ID
 client_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
-#Client Secret
+#Client secret
 client_secret = "xxxxxxxxxxxxxx"
 subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
 location = "West Europe"
 location_small_case = "westeurope"
-#path to the Azure Resource Manager template json from the previous section
+#Path to the Azure Resource Manager template JSON from the previous section
 azure_resource_template_path = "xxxxxxxxx/template.json";
 
 deployment_name = 'e2eexample'
@@ -118,7 +122,7 @@ deployment_properties = {
     'parameters': parameters
 }
 
-#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
+#Returns an instance of LROPoller; see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = resource_client.deployments.create_or_update(
     resource_group_name,
     deployment_name,
@@ -161,7 +165,7 @@ kusto_client.execute_mgmt(database_name, create_column_mapping_command)
 print('Step 5: Add an Event Grid data connection. Azure Data Explorer will automatically ingest the data when new blobs are created.')
 kusto_management_client = KustoManagementClient(credentials, subscription_id)
 data_connections = kusto_management_client.data_connections
-#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
+#Returns an instance of LROPoller; see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = data_connections.create_or_update(resource_group_name=resource_group_name, cluster_name=kusto_cluster_name, database_name=kusto_database_name, data_connection_name=kusto_data_connection_name,
                                            parameters=EventGridDataConnection(storage_account_resource_id=storage_resource_id,
                                                                               event_hub_resource_id=event_hub_resource_id, consumer_group="$Default", location=location, table_name=kusto_table_name, mapping_rule_name=kusto_column_mapping_name, data_format="csv"))
@@ -169,14 +173,14 @@ poller.wait()
 ```
 |**Inställning** | **Fältbeskrivning**|
 |---|---|---|
-| tenant_id | Ditt klient-ID. Även känt som katalog-ID.|
+| tenant_id | Ditt klient-ID. Det kallas även för ett katalog-ID.|
 | subscription_id | Det prenumerations-ID som du använder för att skapa resurser.|
 | client_id | Klient-ID för programmet som har åtkomst till resurser i din klient organisation.|
 | client_secret | Klient hemligheten för programmet som har åtkomst till resurser i din klient organisation. |
 
 ## <a name="test-the-code-example"></a>Testa kod exemplet
 
-1. Ladda upp en fil till lagrings kontot
+1. Ladda upp en fil till lagrings kontot.
 
     ```python
     account_key = "xxxxxxxxxxxxxx"
@@ -190,7 +194,7 @@ poller.wait()
     |---|---|---|
     | account_key | Åtkomst nyckeln för det program mässigt skapade lagrings kontot.|
 
-2. Kör en test fråga i Azure Datautforskaren
+2. Kör en test fråga i Azure Datautforskaren.
 
     ```python
     kusto_uri = "https://{}.{}.kusto.windows.net".format(kusto_cluster_name, location_small_case)
@@ -206,14 +210,14 @@ poller.wait()
 Om du vill ta bort resurs gruppen och rensa resurser använder du följande kommando:
 
 ```python
-#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
+#Returns an instance of LROPoller; see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = resource_client.resource_groups.delete(resource_group_name=resource_group_name)
 poller.wait()
 ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-*  [Skapa ett Azure datautforskaren-kluster och-databas och](create-cluster-database-python.md) lär dig mer om andra sätt att skapa ett kluster och en databas.
-* [Azure datautforskaren data inmatning](ingest-data-overview.md) för att lära dig mer om inmatnings metoder.
-* [Snabb start: fråga efter data i Azure datautforskaren](web-query-data.md) Webb gränssnitt.
+*  Information om andra sätt att skapa ett kluster och en databas finns i [skapa ett Azure datautforskaren-kluster och-databas](create-cluster-database-python.md).
+* Mer information om inmatnings metoder finns i [Azure datautforskaren data inmatning](ingest-data-overview.md).
+* Mer information om webb programmet finns i [snabb start: fråga efter data i Azure datautforskaren Web UI](web-query-data.md).
 * [Skriv frågor](write-queries.md) med Kusto-frågespråk.

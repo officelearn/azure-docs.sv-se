@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: bcc272a8189ebb175f546f6a50c2c117a7975216
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 44f31a8c9e5b47fdcc62c87f6181a3812697aa4b
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72800178"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622613"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Arbeta med stora Azure-resurs data uppsättningar
 
@@ -47,7 +47,7 @@ För **närvarande har** det högsta tillåtna värdet _5000_.
 Nästa alternativ för att arbeta med stora data mängder är **Skip** -kontrollen. Den här kontrollen tillåter att din fråga hoppar över eller hoppar över det definierade antalet poster innan resultatet returneras. **Skip** är användbart för frågor som sorterar resultat på ett meningsfullt sätt där avsikten är att hämta poster någonstans mitt i resultat uppsättningen. Om de resultat som behövs finns i slutet av den returnerade data uppsättningen, är det mer effektivt att använda en annan sorterings konfiguration och hämta resultaten från data uppsättningens överkant i stället.
 
 > [!NOTE]
-> När du använder **Skip**rekommenderar vi att du sorterar resultaten efter minst en kolumn med `asc` eller `desc`. Utan sortering är de resultat som returneras slumpmässiga och inte repeterbara.
+> När du använder **Skip**rekommenderar vi att du ordnar resultaten efter minst en kolumn med `asc` eller `desc`. Utan sortering är de resultat som returneras slumpmässiga och inte repeterbara.
 
 I följande exempel visas hur du hoppar över de första _10_ posterna som en fråga resulterar i, i stället för att starta den returnerade resultat uppsättningen med den elfte posten:
 
@@ -171,4 +171,4 @@ response = client.resources(request)
 
 - Se språket som används i [Start frågor](../samples/starter.md).
 - Se avancerade användnings områden i [avancerade frågor](../samples/advanced.md).
-- Lär dig att [utforska resurser](explore-resources.md).
+- Lär dig mer om hur du [utforskar resurser](explore-resources.md).

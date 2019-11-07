@@ -3,20 +3,20 @@ title: Välj en disktyp för Azure IaaS Windows-hanterade diskar för virtuella 
 description: Lär dig mer om tillgängliga Azure-diskenheter för virtuella Windows-datorer, inklusive Ultra disks, Premium SSD, standard SSD och standard hård diskar.
 author: roygara
 ms.author: rogarana
-ms.date: 08/15/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 634ff02b216403788c1ded9223909e2cce230207
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 5f06af41f2ad75d704836944e9d8d8d180aed730
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512659"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606589"
 ---
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-overview.md)]
 
-Om du vill börja använda Ultra disks läser du vår artikel om ämnet: [Använda Azure Ultra disks](disks-enable-ultra-ssd.md).
+Om du vill börja använda Ultra disks, se vår artikel på ämnet: [använda Azure Ultra disks](disks-enable-ultra-ssd.md).
 
 [!INCLUDE [virtual-machines-managed-disks-types-ga](../../../includes/virtual-machines-managed-disks-types-ga.md)]
 

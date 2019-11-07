@@ -7,21 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: 725a9d67e6a6412fc48a4278b5a8a163272e5133
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 76807c8ed10e30c554b6aa06ec096c830a86e36e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000989"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571986"
 ---
 # <a name="ssl-termination-with-key-vault-certificates"></a>SSL-avslutning med Key Vault certifikat
 
-[Azure Key Vault](../key-vault/key-vault-overview.md) är ett plattforms hanterat hemligt arkiv som du kan använda för att skydda hemligheter, nycklar och SSL-certifikat. Azure Application Gateway stöder integrering med Key Vault (i offentlig för hands version) för Server certifikat som är anslutna till HTTPS-aktiverade lyssnare. Detta stöd är begränsat till v2-SKU: n för Application Gateway.
+[Azure Key Vault](../key-vault/key-vault-overview.md) är ett plattforms hanterat hemligt arkiv som du kan använda för att skydda hemligheter, nycklar och SSL-certifikat. Azure Application Gateway stöder integrering med Key Vault för Server certifikat som är anslutna till HTTPS-aktiverade lyssnare. Detta stöd är begränsat till v2-SKU: n för Application Gateway.
 
-> [!IMPORTANT]
-> Integrering av Application Gateway med Key Vault finns för närvarande i offentlig för hands version. Den här för hands versionen tillhandahålls utan service avtal (SLA) och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Den här offentliga för hands versionen innehåller två modeller för SSL-avslutning:
+Key Vault integration erbjuder två modeller för SSL-avslutning:
 
 - Du kan uttryckligen tillhandahålla SSL-certifikat som är kopplade till lyssnaren. Den här modellen är det traditionella sättet att skicka SSL-certifikat till Application Gateway för SSL-avslutning.
 - Du kan också ange en referens till ett befintligt Key Vault certifikat eller hemlighet när du skapar en HTTPS-aktiverad lyssnare.

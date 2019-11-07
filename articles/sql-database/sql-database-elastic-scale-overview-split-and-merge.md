@@ -1,5 +1,5 @@
 ---
-title: Flytta data mellan utskalade moln databaser | Microsoft Docs
+title: Flytta data mellan utskalade molndatabaser
 description: 'Förklarar hur du hanterar Shards och flyttar data via en lokal tjänst med hjälp av Elastic Database-API: er.'
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 841794dcbb41249ea25f615524150df4bd257b45
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9b2203b7fb9e168b251eda16a9505ae2004b0460
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568389"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690188"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Flytta data mellan utskalade molndatabaser
 
@@ -28,7 +28,7 @@ Verktyget Dela och slå samman körs som en Azure-webbtjänst. En administratör
 
 ## <a name="download"></a>Ladda ned
 
-[Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
+[Microsoft. Azure. SqlDatabase. ElasticScale. service. SplitMerge](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
 ## <a name="documentation"></a>Dokumentation
 
@@ -62,7 +62,7 @@ Verktyget Dela och slå samman körs som en Azure-webbtjänst. En administratör
 
 - **Kund värd tjänster**
 
-  Delnings sammanslagningen levereras som en kund värd tjänst. Du måste distribuera och vara värd för tjänsten i Microsoft Azure prenumerationen. Paketet som du hämtar från NuGet innehåller en konfigurations mal len som du kan använda för att slutföra informationen för din aktuella distribution. Mer information finns i självstudierna [dela och slå samman](sql-database-elastic-scale-configure-deploy-split-and-merge.md) . Eftersom tjänsten körs i din Azure-prenumeration kan du kontrol lera och konfigurera de flesta säkerhets aspekter av tjänsten. Standard mal len innehåller alternativ för att konfigurera SSL, certifikatbaserad klientautentisering, kryptering för lagrade autentiseringsuppgifter, DoS-skydd och IP-begränsningar. Du hittar mer information om säkerhets aspekterna i följande dokument [delnings-och säkerhets konfiguration för delad sammanslagning](sql-database-elastic-scale-split-merge-security-configuration.md).
+  Delnings sammanslagningen levereras som en kund värd tjänst. Du måste distribuera och vara värd för tjänsten i Microsoft Azure prenumerationen. Paketet som du hämtar från NuGet innehåller en konfigurations mal len som du kan använda för att slutföra informationen för din aktuella distribution. Mer information finns i [självstudierna dela och slå samman](sql-database-elastic-scale-configure-deploy-split-and-merge.md) . Eftersom tjänsten körs i din Azure-prenumeration kan du kontrol lera och konfigurera de flesta säkerhets aspekter av tjänsten. Standard mal len innehåller alternativ för att konfigurera SSL, certifikatbaserad klientautentisering, kryptering för lagrade autentiseringsuppgifter, DoS-skydd och IP-begränsningar. Du hittar mer information om säkerhets aspekterna i följande dokument [delnings-och säkerhets konfiguration för delad sammanslagning](sql-database-elastic-scale-split-merge-security-configuration.md).
 
   Den distribuerade standard tjänsten körs med en anställd och en webb roll. Varje använder storleken på den virtuella a1-datorn i Azure Cloud Services. Du kan inte ändra de här inställningarna när du distribuerar paketet, men du kan ändra dem efter en lyckad distribution i moln tjänsten som körs (via Azure Portal). Observera att arbets rollen inte får konfigureras för mer än en enskild instans av tekniska skäl.
 
@@ -82,7 +82,7 @@ Verktyget Dela och slå samman körs som en Azure-webbtjänst. En administratör
 
   Tjänsten för delad sammanslagning använder en databas för att underhålla dess status och för att spara loggar under bearbetning av begär Anden. Användaren skapar den här databasen i sin prenumeration och tillhandahåller anslutnings strängen för den i konfigurations filen för tjänst distributionen. Administratörer från användarens organisation kan också ansluta till den här databasen för att granska begär ande förloppet och undersöka detaljerad information om potentiella problem.
 
-- **Sharding-awareness**
+- **Horisontell partitionering – medvetenhet**
 
   Tjänsten för delad sammanslagning skiljer sig mellan (1) shardade-tabeller, (2) referens tabeller och (3) normala tabeller. Semantiken för en delnings-/sammanfognings-/flyttnings åtgärd beror på vilken typ av tabell som används och definieras enligt följande:
 
@@ -98,7 +98,7 @@ Verktyget Dela och slå samman körs som en Azure-webbtjänst. En administratör
 
     Andra tabeller kan finnas antingen på källan eller målet för en delnings-och sammanslagnings åtgärd. Tjänsten för delad sammanslagning ignorerar de här tabellerna för data förflyttning eller kopierings åtgärder. Observera dock att de kan störa dessa åtgärder i händelse av begränsningar.
 
-    Informationen om referens vs. shardade-tabeller tillhandahålls av `SchemaInfo` API: erna på Shard-kartan. Följande exempel illustrerar användningen av dessa API: er på ett angivet Shard Map Manager-objekt:
+    Informationen om referenser till shardade-tabeller tillhandahålls av `SchemaInfo` API: er på Shard-kartan. Följande exempel illustrerar användningen av dessa API: er på ett angivet Shard Map Manager-objekt:
 
     ```csharp
     // Create the schema annotations
@@ -115,7 +115,7 @@ Verktyget Dela och slå samman körs som en Azure-webbtjänst. En administratör
     smm.GetSchemaInfoCollection().Add(Configuration.ShardMapName, schemaInfo);
     ```
 
-    Tabellerna region och nation definieras som referens tabeller och kopieras med åtgärder för att dela/sammanfoga/flytta. "kund" och "order" i sin tur definieras som shardade-tabeller. `C_CUSTKEY`och `O_CUSTKEY` fungerar som horisontell partitionering-nyckel.
+    Tabellerna region och nation definieras som referens tabeller och kopieras med åtgärder för att dela/sammanfoga/flytta. "kund" och "order" i sin tur definieras som shardade-tabeller. `C_CUSTKEY` och `O_CUSTKEY` fungera som horisontell partitionering-nyckel.
 
 - **Referens integritet**
 
@@ -211,7 +211,7 @@ Tjänsten för delad sammanslagning innehåller tabellen **RequestStatus** i dat
 
 ### <a name="azure-diagnostics"></a>Azure Diagnostics
 
-Tjänsten för delad sammanslagning använder Azure-diagnostik som baseras på Azure SDK 2,5 för övervakning och diagnostik. Du styr den diagnostiska konfigurationen som beskrivs här: [Aktivera diagnostik i Azure Cloud Services och Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md). Hämtnings paketet innehåller två diagnostiska konfigurationer – en för webb rollen och en för arbets rollen. Den innehåller definitionerna för att logga prestanda räknare, IIS-loggar, Windows-händelseloggen och händelse loggar för att dela sammanslagna program.
+Tjänsten för delad sammanslagning använder Azure-diagnostik som baseras på Azure SDK 2,5 för övervakning och diagnostik. Du styr konfigurationen för diagnostik enligt beskrivningen här: [Aktivera diagnostik i Azure Cloud Services och Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md). Hämtnings paketet innehåller två diagnostiska konfigurationer – en för webb rollen och en för arbets rollen. Den innehåller definitionerna för att logga prestanda räknare, IIS-loggar, Windows-händelseloggen och händelse loggar för att dela sammanslagna program.
 
 ## <a name="deploy-diagnostics"></a>Distribuera diagnostik
 
@@ -237,7 +237,7 @@ Du hittar mer information om hur du konfigurerar och distribuerar diagnostikinst
 
 ## <a name="retrieve-diagnostics"></a>Hämta diagnostik
 
-Du kan enkelt komma åt diagnostiken från Visual Studio-Server Explorer i Azure-delen av Server Explorers trädet. Öppna en Visual Studio-instans och klicka på Visa i meny raden och Server Explorer. Klicka på Azure-ikonen för att ansluta till din Azure-prenumeration. Gå sedan till Azure-> lagrings- `<your storage account>` >->-tabeller – > WADLogsTable. Mer information finns i [Server Explorer](https://msdn.microsoft.com/library/x603htbk.aspx).
+Du kan enkelt komma åt diagnostiken från Visual Studio-Server Explorer i Azure-delen av Server Explorers trädet. Öppna en Visual Studio-instans och klicka på Visa i meny raden och Server Explorer. Klicka på Azure-ikonen för att ansluta till din Azure-prenumeration. Gå sedan till Azure-> Storage-> `<your storage account>`-> tabeller – > WADLogsTable. Mer information finns i [Server Explorer](https://msdn.microsoft.com/library/x603htbk.aspx).
 
 ![WADLogsTable][2]
 
@@ -266,7 +266,7 @@ Du behöver inte tillhandahålla en ny metadata-databas för att dela upp och up
 
 - Definiera en test klient och utöva de viktigaste åtgärderna för att dela/slå samman/flytta med test klienten över flera Shards. Se till att alla metadata är korrekt definierade i Shard-kartan och att åtgärderna inte bryter mot begränsningar eller sekundär nycklar.
 - Behåll klientens data storlek ovanför den maximala data storleken för den största klienten för att se till att du inte stöter på problem med data storlek. Detta hjälper dig att utvärdera en övre gräns på den tid det tar att flytta en enskild klient organisation.
-- Se till att schemat tillåter borttagningar. Tjänsten för delad sammanslagning kräver möjlighet att ta bort data från käll-Shard när data har kopierats till målet. **Ta bort** utlösare kan till exempel förhindra att tjänsten tar bort data på källan och kan leda till att åtgärder Miss lyckas.
+- Se till att schemat tillåter borttagningar. Tjänsten för delad sammanslagning kräver möjlighet att ta bort data från käll-Shard när data har kopierats till målet. **Ta bort utlösare** kan till exempel förhindra att tjänsten tar bort data på källan och kan leda till att åtgärder Miss lyckas.
 - Horisontell partitionering-nyckeln bör vara den inledande kolumnen i primär nyckeln eller en unik index definition. Det säkerställer bästa prestanda för delnings-eller sammanfognings frågorna och för den faktiska data flytten och de borttagnings åtgärder som alltid fungerar i horisontell partitionering nyckel intervall.
 - Samordna tjänsten för delnings sammanslagning i regionen och data centret där databaserna finns.
 

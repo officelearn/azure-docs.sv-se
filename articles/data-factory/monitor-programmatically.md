@@ -1,5 +1,5 @@
 ---
-title: Övervaka en Azure-datafabrik på ett program Microsoft Docs
+title: Övervaka en Azure-datafabrik via programmering
 description: 'Lär dig hur du övervakar en pipeline i en data fabrik med hjälp av olika SDK: er (Software Development Kits).'
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 01/16/2018
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: 5c1f64282f1e0b1f225bcad0935c4c9b9a0f96b4
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f9e85a2660ffe1088a9897e9936b6fd0360f87d5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141044"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684609"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Övervaka en Azure-datafabrik via programmering
 Den här artikeln beskriver hur du övervakar en pipeline i en data fabrik med hjälp av olika SDK: er (Software Development Kits). 
@@ -25,7 +25,7 @@ Den här artikeln beskriver hur du övervakar en pipeline i en data fabrik med h
 
 ## <a name="data-range"></a>Data intervall
 
-Data Factory lagrar endast pipeline-körnings data i 45 dagar. När du frågar program mässigt efter data om Data Factory pipelines körs, till exempel med PowerShell-kommandot `Get-AzDataFactoryV2PipelineRun` , finns det inga maximala datum för valfria `LastUpdatedAfter` -och `LastUpdatedBefore` -parametrarna. Men om du frågar efter data för det gångna året returnerar inte frågan ett fel, men returnerar bara pipelines kör data från de senaste 45 dagarna.
+Data Factory lagrar endast pipeline-körnings data i 45 dagar. När du frågar program mässigt efter data om Data Factory pipelines körs, till exempel med PowerShell-kommandot `Get-AzDataFactoryV2PipelineRun`, finns det inga maximala datum för de valfria `LastUpdatedAfter`-och `LastUpdatedBefore` parametrarna. Men om du frågar efter data för det gångna året returnerar inte frågan ett fel, men returnerar bara pipelines kör data från de senaste 45 dagarna.
 
 Om du vill spara pipelines körnings data i mer än 45 dagar konfigurerar du din egen diagnostiska loggning med [Azure Monitor](monitor-using-azure-monitor.md).
 
@@ -88,7 +88,7 @@ Fullständig dokumentation om python SDK finns [Data Factory python SDK-referens
 ## <a name="rest-api"></a>REST-API
 En fullständig genom gång av hur du skapar och övervakar en pipeline med hjälp av REST API finns i [skapa en data fabrik och pipeline med hjälp av REST API](quickstart-create-data-factory-rest-api.md).
  
-1. Kör följande skript för att kontinuerligt kontrollera pipelinekörningens status tills kopieringen av data är klar.
+1. Kör följande skript för att kontinuerligt kontroller pipelinekörningens status tills kopieringen av data är klar.
 
     ```powershell
     $request = "https://management.azure.com/subscriptions/${subsId}/resourceGroups/${resourceGroup}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/pipelineruns/${runId}?api-version=${apiVersion}"
@@ -118,7 +118,7 @@ Fullständig dokumentation om REST API finns i [Data Factory REST API referens](
 ## <a name="powershell"></a>PowerShell
 En fullständig genom gång av hur du skapar och övervakar en pipeline med hjälp av PowerShell finns i [skapa en data fabrik och pipeline med hjälp av PowerShell](quickstart-create-data-factory-powershell.md).
 
-1. Kör följande skript för att kontinuerligt kontrollera pipelinekörningens status tills kopieringen av data är klar.
+1. Kör följande skript för att kontinuerligt kontroller pipelinekörningens status tills kopieringen av data är klar.
 
     ```powershell
     while ($True) {

@@ -1,5 +1,5 @@
 ---
-title: Kopiera nya och ändrade filer genom LastModifiedDate med Azure Data Factory | Microsoft Docs
+title: Kopiera nya och ändrade filer genom LastModifiedDate med Azure Data Factory
 description: Lär dig hur du använder en lösnings mall för att kopiera nya och ändrade filer genom att LastModifiedDate med Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/8/2019
-ms.openlocfilehash: a2a8f0478d1ae4fb19cb911b02572145ff59839b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: aaa7114113d5f0330d2dc7d656b0d91963931512
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030070"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684227"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Kopiera nya och ändrade filer genom LastModifiedDate med Azure Data Factory
 
@@ -60,7 +60,7 @@ Mallen definierar fyra parametrar:
     ![Visa pipelinen](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate5.png)
 
 6. Välj **Felsök**, Skriv värdet för **parametrarna** och välj **Slutför**.  I bilden nedan anger vi parametrarna som följer.
-   - **FolderPath_Source** =  **/source/**
+   - **FolderPath_Source** =  **/Source/**
    - **FolderPath_Destination** =  **/destination/**
    - **LastModified_From** =  **2019-02-01T00:00:00Z**
    - **LastModified_To** = **2019-03-01T00:00:00Z**

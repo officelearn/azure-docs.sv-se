@@ -1,5 +1,5 @@
 ---
-title: Sortering – Azure SQL Data Warehouse | Microsoft Docs
+title: Sortering
 description: Sorterings typer som stöds i Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: antvgski
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 598ad4c103035ec2d94015e1f8e12194d1b723fc
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f05e54a3dd4b69fff2bc7d122391d145b222b295
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935100"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692563"
 ---
 # <a name="database-collation-support-for-azure-sql-data-warehouse"></a>Stöd för databas sortering för Azure SQL Data Warehouse
 
@@ -99,5 +100,5 @@ Om du till exempel vill ändra standard sorteringen till Skift läges känslig, 
 *   SQL_EBCDIC277_2_CP1_CS_AS
 
 ## <a name="checking-the-current-collation"></a>Kontrollerar den aktuella sorteringen
-Om du vill kontrol lera den aktuella sorteringen för databasen kan du köra följande T-SQL-kodfragment: Välj DATABASEPROPERTYEX (DB_NAME (), "sortering") som sortering; När den skickade sorteringen som egenskaps parameter returnerar funktionen DatabasePropertyEx den aktuella sorteringen för den angivna databasen. Du kan lära dig mer om DatabasePropertyEx-funktionen på MSDN.
+Om du vill kontrol lera den aktuella sorteringen för databasen kan du köra följande T-SQL-kodfragment: SELECT DATABASEPROPERTYEX (DB_NAME (), ' COLLATE ') som sortering; När den skickade sorteringen som egenskaps parameter returnerar funktionen DatabasePropertyEx den aktuella sorteringen för den angivna databasen. Du kan lära dig mer om DatabasePropertyEx-funktionen på MSDN.
 

@@ -1,5 +1,5 @@
 ---
-title: PowerShell för DNS-alias Azure SQL | Microsoft Docs
+title: PowerShell för DNS-alias Azure SQL
 description: PowerShell-cmdletar som New-AzSqlServerDNSAlias gör att du kan omdirigera nya klient anslutningar till en annan Azure SQL Database Server, utan att behöva trycka på någon klient konfiguration.
 keywords: DNS SQL-databas
 services: sql-database
@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, amagarwa, maboja, jrasnick, vanto
 ms.date: 05/14/2019
-ms.openlocfilehash: 47afd905b1fa28ce65163203b9d43781f434233d
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: ebbca309b7f6acd071c7075e63e670a8efa49f4e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058552"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685318"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>PowerShell för DNS-alias till Azure SQL Database
 
@@ -26,10 +26,10 @@ Den här artikeln innehåller ett PowerShell-skript som visar hur du kan hantera
 
 De cmdletar som används i kod exemplet är följande:
 
-- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): Skapar ett nytt DNS-alias i Azure SQL Database tjänst systemet. Aliaset refererar till Azure SQL Database Server 1.
-- [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): Hämta och ange alla DNS-alias som har tilldelats till SQL DB server 1.
-- [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): Ändrar Server namnet som aliaset är konfigurerat att referera till, från Server 1 till SQL DB server 2.
-- [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Ta bort DNS-aliaset från SQL DB server 2 med hjälp av namnet på aliaset.
+- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): skapar ett nytt DNS-alias i Azure SQL Database tjänst systemet. Aliaset refererar till Azure SQL Database Server 1.
+- [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): Hämta och lista alla DNS-alias som har tilldelats till SQL DB server 1.
+- [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): ändrar Server namnet som aliaset är konfigurerat att referera till, från Server 1 till SQL DB server 2.
+- [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): ta bort DNS-aliaset från SQL DB server 2 med hjälp av namnet på aliaset.
 
 ## <a name="dns-alias-in-connection-string"></a>DNS-alias i anslutnings sträng
 
@@ -37,11 +37,11 @@ Om du vill ansluta en viss Azure SQL Database Server kan en klient som SQL Serve
 
 - Exempel Server sträng: `any-unique-alias-name.database.windows.net`.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill köra demonstrations PowerShell-skriptet som du fick i den här artikeln gäller följande krav:
 
-- En Azure-prenumeration och ett konto. Klicka på [https://azure.microsoft.com/free/][https://azure.microsoft.com/free/]om du vill ha en kostnads fri utvärderings version.
+- En Azure-prenumeration och ett konto. Klicka [https://azure.microsoft.com/free/][https://azure.microsoft.com/free/]om du vill ha en kostnads fri utvärderings version.
 - Azure PowerShell modul med cmdlet **New-AzSqlServerDNSAlias**.
   - Information om att installera och uppgradera finns i [Install Azure PowerShell module][install-Az-ps-84p] (Installera Azure PowerShell-modul).
   - Kör `Get-Module -ListAvailable Az;` i PowerShell\_ISE. exe för att hitta versionen.

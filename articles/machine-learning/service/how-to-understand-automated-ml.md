@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 93695e0bbcb81a570519a6f74cfdeab4ef85f076
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 7f8789076b00cd2b5a0694cf1f52e5dfe1569aee
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489391"
+ms.locfileid: "73571340"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Förstå automatiserade maskin inlärnings resultat
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ Läs mer om:
 + [Mått, diagram och diagram för Regressions modeller](#regression)
 + [Modellens tolknings-och funktions prioritet](#explain-model)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
@@ -50,11 +50,11 @@ När du har kört ett automatiserat experiment med Machine Learning finns en his
 
    [![experiment lista](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list-expanded.png)
 
-1. Välj **körnings numret**i den nedre tabellen.
+1. Välj kommandot **Kör**i den nedre tabellen.
 
    [![experiment körning](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run-expanded.png))
 
-1. I upprepnings tabellen väljer du **upprepnings numret** för den modell som du vill utforska vidare.
+1. I modellerna väljer du **algoritmens namn** för den modell som du vill utforska ytterligare.
 
    [![experiment modell](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model-expanded.png)
 
@@ -67,7 +67,7 @@ Thee följande mått och diagram är tillgängliga för alla klassificerings mod
 + [Mått](#classification-metrics)
 + [Förvirring mat ris](#confusion-matrix)
 + [Diagram över precisions återställning](#precision-recall-chart)
-+ [Egenskaper för mottagar drift (eller ROC)](#roc)
++ [Mottagare operativa egenskaper (eller ROC)](#roc)
 + [Lyft kurva](#lift-curve)
 + [Vinster-kurva](#gains-curve)
 + [Kalibrerings område](#calibration-plot)
@@ -91,12 +91,12 @@ f1_score_micro|F1-Poäng är det harmoniska medelvärdet av precision och återk
 f1_score_weighted|F1-Poäng är det harmoniska medelvärdet av precision och återkallande. Viktat medelvärde efter klass frekvens för F1-Poäng för varje klass|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|Average = "viktad"|
 log_loss|Detta är den förlust funktion som används i (MULTINOMIAL) Logistisk regression och tillägg, till exempel neurala Networks, definierad som den negativa logg sannolikheten för de faktiska etiketterna med en Probabilistic klassificerares förutsägelser. För ett enda exempel med True Label yt i {0,1} och uppskattad sannolikhet YP som yt = 1, är logg förlusten-log P (&#124;yt YP) =-(yt logg (YP) + (1-yt) log (1-YP)).|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|Ingen|
 norm_macro_recall|Normaliserat makro återkallande är ett makro som är normaliserat så att slumpmässiga prestanda har en poäng på 0 och perfekt prestanda har en poäng på 1. Detta uppnås av norm_macro_recall: = (recall_score_macro-R)/(1-R), där R är det förväntade värdet för recall_score_macro för slumpmässiga förutsägelser (t. ex. R = 0,5 för binär klassificering och R = (1/C) för klassificerings problem i C-klass).|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|genomsnitt = "makro" |
-precision_score_macro|Precision är procent andelen element som är märkta som en viss klass som faktiskt finns i klassen. Makro är det aritmetiska medelvärdet för varje klass.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|genomsnitt = "makro"|
-precision_score_micro|Precision är procent andelen element som är märkta som en viss klass som faktiskt finns i klassen. Micro beräknas globalt genom att räkna antalet sanna positiva positiva och falska positiva identifieringar.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|genomsnitt = "Micro"|
-precision_score_weighted|Precision är procent andelen element som är märkta som en viss klass som faktiskt finns i klassen. Viktat är det aritmetiska medelvärdet för varje klass, viktat med antalet sanna instanser i varje klass.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|Average = "viktad"|
-recall_score_macro|Återkallande är procent andelen element som faktiskt är i en viss klass som är korrekt märkt. Makro är det aritmetiska medelvärdet för återkallning för varje klass.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|genomsnitt = "makro"|
-recall_score_micro|Återkallande är procent andelen element som faktiskt är i en viss klass som är korrekt märkt. Micro beräknas globalt genom att räkna antalet sanna positiva identifieringar, falska negativa negativa och falska positiva identifieringar|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|genomsnitt = "Micro"|
-recall_score_weighted|Återkallande är procent andelen element som faktiskt är i en viss klass som är korrekt märkt. Viktat är det aritmetiska medelvärdet för återkallning för varje klass, viktat med antalet sanna instanser i varje klass.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Average = "viktad"|
+precision_score_macro|Precision är procent andelen positiva element som är korrekt märkta. Makro är det aritmetiska medelvärdet för varje klass.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|genomsnitt = "makro"|
+precision_score_micro|Precision är procent andelen positiva element som är korrekt märkta. Micro beräknas globalt genom att räkna antalet sanna positiva positiva och falska positiva identifieringar.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|genomsnitt = "Micro"|
+precision_score_weighted|Precision är procent andelen positiva element som är korrekt märkta. Viktat är det aritmetiska medelvärdet för varje klass, viktat med antalet sanna instanser i varje klass.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|Average = "viktad"|
+recall_score_macro|Återkallande är den procent andel av korrekt märkta element i en viss klass. Makro är det aritmetiska medelvärdet för återkallning för varje klass.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|genomsnitt = "makro"|
+recall_score_micro|Återkallande är den procent andel av korrekt märkta element i en viss klass. Micro beräknas globalt genom att räkna antalet sanna positiva identifieringar, falska negativa negativa och falska positiva identifieringar|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|genomsnitt = "Micro"|
+recall_score_weighted|Återkallande är den procent andel av korrekt märkta element i en viss klass. Viktat är det aritmetiska medelvärdet för återkallning för varje klass, viktat med antalet sanna instanser i varje klass.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Average = "viktad"|
 weighted_accuracy|Viktad noggrannhet är exakthet där vikten för varje exempel motsvarar proportionerna för de sanna instanserna i det här exemplets sanna klass.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight är en Vector som motsvarar den andel av klassen för varje element i målet|
 
 ### <a name="confusion-matrix"></a>Förvirring mat ris

@@ -1,5 +1,5 @@
 ---
-title: Kör pipeline-aktivitet i Azure Data Factory | Microsoft Docs
+title: Kör pipeline-aktivitet i Azure Data Factory
 description: Lär dig hur du kan använda aktiviteten kör pipeliner för att anropa en Data Factory pipeline från en annan Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 1611f740f6b55ecf9f15ecd234d63b5e95baeba1
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 093050952ed826a540c35b2b73acd107fafc45ab
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141709"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679921"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Kör pipeline-aktivitet i Azure Data Factory
 Med aktiviteten kör pipeliner kan en Data Factory pipeline anropa en annan pipeline.
@@ -59,19 +59,19 @@ Med aktiviteten kör pipeliner kan en Data Factory pipeline anropa en annan pipe
 
 ## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
+Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-name | Namnet på aktiviteten kör pipeliner. | Sträng | Ja
-type | Måste vara inställt på: **ExecutePipeline**. | Sträng | Ja
-pipelina | Pipeline-referens till den beroende pipelinen som den här pipelinen anropar. Ett pipeline-referens objekt har två egenskaper: **referenceName** och **Type**. Egenskapen referenceName anger namnet på referens pipelinen. Egenskapen Type måste anges till PipelineReference. | PipelineReference | Ja
+namn | Namnet på aktiviteten kör pipeliner. | Sträng | Ja
+typ | Måste vara inställt på: **ExecutePipeline**. | Sträng | Ja
+Pipeline | Pipeline-referens till den beroende pipelinen som den här pipelinen anropar. Ett pipeline-referens objekt har två egenskaper: **referenceName** och **Type**. Egenskapen referenceName anger namnet på referens pipelinen. Egenskapen Type måste anges till PipelineReference. | PipelineReference | Ja
 parameters | Parametrar som ska skickas till den anropade pipelinen | Ett JSON-objekt som mappar parameter namn till argument värden | Nej
 waitOnCompletion | Definierar om aktivitets körningen väntar på att körningen av beroende pipelinen ska slutföras. Standardvärdet är false. | Boolesk | Nej
 
 ## <a name="sample"></a>Exempel
 Det här scenariot har två pipeliner:
 
-- **Huvud pipeline** – den här pipelinen har en utför pipeline-aktivitet som anropar den anropade pipelinen. Huvud-pipeline tar två parametrar: `masterSourceBlobContainer`,. `masterSinkBlobContainer`
-- **Anropad pipeline** – den här pipelinen har en kopierings aktivitet som kopierar data från en Azure Blob-källa till Azure Blob-mottagare. Den anropade pipelinen tar två parametrar: `sourceBlobContainer`, `sinkBlobContainer`.
+- **Huvud pipeline** – den här pipelinen har en utför pipeline-aktivitet som anropar den anropade pipelinen. Huvud-pipeline tar två parametrar: `masterSourceBlobContainer``masterSinkBlobContainer`.
+- **Anropad pipeline** – den här pipelinen har en kopierings aktivitet som kopierar data från en Azure Blob-källa till Azure Blob-mottagare. Den anropade pipelinen tar två parametrar: `sourceBlobContainer``sinkBlobContainer`.
 
 ### <a name="master-pipeline-definition"></a>Huvud pipeline-definition
 

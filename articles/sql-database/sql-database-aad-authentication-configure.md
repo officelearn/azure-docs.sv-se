@@ -1,5 +1,5 @@
 ---
-title: Konfigurera Azure Active Directory autentisering-SQL | Microsoft Docs
+title: Konfigurera Azure Active Directory autentisering-SQL
 description: Lär dig hur du ansluter till SQL Database, hanterad instans och SQL Data Warehouse med hjälp av Azure Active Directory autentisering – när du har konfigurerat Azure AD.
 services: sql-database
 ms.service: sql-database
@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 10/16/2019
-ms.openlocfilehash: 1dbccf43d03907cefb68315b6908a35735f373ce
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.date: 11/06/2019
+ms.openlocfilehash: d23fcb781f5eddd71d5ddce9344d988d2e323611
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177648"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691383"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Konfigurera och hantera Azure Active Directory autentisering med SQL
 
@@ -57,6 +57,9 @@ När du använder Azure Active Directory med geo-replikering måste Azure Active
 
 > [!IMPORTANT]
 > Följ bara de här stegen om du konfigurerar en hanterad instans. Den här åtgärden kan bara utföras av en global/företags administratör eller en privilegie rad roll administratör i Azure AD. Följande steg beskriver hur du beviljar behörigheter för användare med olika behörigheter i katalogen.
+
+> [!NOTE]
+> För Azure AD-administratörer för MI som skapats före GA, men som fortsätter att fungera, finns det ingen funktionell förändring i det befintliga beteendet. Mer information finns i avsnittet [nya administratörs funktioner för Azure AD i mi](#new-azure-ad-admin-functionality-for-mi) .
 
 Din hanterade instans måste ha behörighet att läsa Azure AD för att kunna utföra uppgifter som autentisering av användare via säkerhets grupp medlemskap eller skapande av nya användare. För att detta ska fungera måste du bevilja behörigheter till hanterad instans för att läsa Azure AD. Det finns två sätt att göra det: från portalen och PowerShell. Följande steg båda metoderna.
 
@@ -146,10 +149,34 @@ Din hanterade instans måste ha behörighet att läsa Azure AD för att kunna ut
 
     Processen med att ändra administratör kan ta några minuter. Sedan visas den nya administratören i rutan Active Directory administratör.
 
-Efter etableringen av en Azure AD-administratör för din hanterade instans kan du börja skapa Azure AD server-huvudobjekt (inloggningar) (**offentlig för hands version**) med syntaxen för att <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Skapa inloggning</a> . Mer information finns i [Översikt över hanterade instanser](sql-database-managed-instance.md#azure-active-directory-integration).
+När du har skapat en Azure AD-administratör för din hanterade instans kan du börja skapa Azure AD server-huvudobjekt (inloggningar) med syntaxen för att <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Skapa inloggning</a> . Mer information finns i [Översikt över hanterade instanser](sql-database-managed-instance.md#azure-active-directory-integration).
 
 > [!TIP]
 > Om du senare vill ta bort en administratör väljer du **ta bort administratör**längst upp på sidan Active Directory administratör och väljer sedan **Spara**.
+
+### <a name="new-azure-ad-admin-functionality-for-mi"></a>Nya administratörs funktioner i Azure AD för MI
+
+Tabellen nedan sammanfattar funktionerna i den offentliga för hands versionen av Azure AD-inloggnings administratören för MI, jämfört med en ny funktion som levereras med GA för Azure AD-inloggningar.
+
+| Azure AD-inloggning administratör för MI under offentlig för hands version | GA-funktioner för Azure AD-administratör för MI |
+| --- | ---|
+| Fungerar på samma sätt som Azure AD-administratör för SQL Database, vilket möjliggör Azure AD-autentisering, men Azure AD-administratören kan inte skapa Azure AD-eller SQL-inloggningar i huvud databasen för MI. | Azure AD-administratören har sysadmin-behörighet och kan skapa AAD-och SQL-inloggningar i huvud databasen för MI. |
+| Finns inte i sys. server_principals-vyn | Finns i sys. server_principals-vyn |
+| Gör det möjligt för enskilda Azure AD-gäst användare att konfigureras som Azure AD-administratör för MI. Mer information finns i [Lägg till Azure Active Directory B2B-samarbets användare i Azure Portal](../active-directory/b2b/add-users-administrator.md). | Kräver att en Azure AD-grupp skapas med gäst användare som medlemmar för att konfigurera den här gruppen som en Azure AD-administratör för MI. Mer information finns i [Azure AD Business to Business Support](sql-database-ssms-mfa-authentication.md#azure-ad-business-to-business-support). |
+
+Som bästa praxis för befintliga Azure AD-administratörer för MI som skapats före GA, och fortfarande drift post GA, återställer du Azure AD-administratören med alternativet Azure Portal "ta bort administratör" och "Ange administratör" för samma Azure AD-användare eller grupp.
+
+### <a name="known-issues-with-the-azure-ad-login-ga-for-mi"></a>Kända problem med Azure AD login GA för MI
+
+- Om det finns en Azure AD-inloggning i huvud databasen för MI, som skapats med T-SQL-kommandot `CREATE LOGIN [myaadaccount] FROM EXTERNAL PROVIDER`, kan den inte konfigureras som en Azure AD-administratör för MI. Du får ett fel när du anger inloggningen som en Azure AD-administratör med hjälp av Azure Portal-, PowerShell-eller CLI-kommandona för att skapa Azure AD-inloggningen. 
+  - Inloggningen måste tas bort från huvud databasen med hjälp av kommandot `DROP LOGIN [myaadaccount]`, innan kontot kan skapas som en Azure AD-administratör.
+  - Konfigurera Azure AD-administratörskontot i Azure Portal när `DROP LOGIN` har slutförts. 
+  - Om du inte kan konfigurera Azure AD-administratörskontot, checkar du in huvud databasen för den hanterade instansen för inloggningen. Använd följande kommando: `SELECT * FROM sys.server_principals`
+  - Genom att konfigurera en Azure AD-administratör för MI skapas automatiskt en inloggning i huvud databasen för det här kontot. Om du tar bort Azure AD-administratören tas inloggningen bort automatiskt från huvud databasen.
+   
+- Enskilda Azure AD-gäst användare stöds inte som Azure AD-administratörer för MI. Gäst användare måste vara en del av en Azure AD-grupp som ska konfigureras som Azure AD-administratör. Azure Portal bladet är för närvarande inte grå gäst användare för en annan Azure AD, så att användarna kan fortsätta med administratörs installationen. Att spara gäst användare som en Azure AD-administratör kommer att Miss förorsakar installationen. 
+  - Om du vill göra en gäst användare till en Azure AD-administratör för MI inkluderar du gäst användaren i en Azure AD-grupp och anger den här gruppen som en Azure AD-administratör.
+
 
 ### <a name="powershell-for-sql-managed-instance"></a>PowerShell för SQL-hanterad instans
 
@@ -206,7 +233,7 @@ Mer information om CLI-kommandon finns i [AZ SQL mi](https://docs.microsoft.com/
 
 Följande två procedurer visar hur du etablerar en Azure Active Directory administratör för din Azure SQL-Server i Azure Portal och med hjälp av PowerShell.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 1. På [Azure-portalen](https://portal.azure.com/) väljer du din anslutning i det övre högra hörnet för att visa en lista över möjliga Active Directories. Välj rätt Active Directory som standard-Azure AD. Det här steget länkar prenumerationsassocierad Active Directory till Azure SQL-servern, vilket gör att samma prenumeration används för både Azure AD och SQL Server. (Azure SQL Server kan vara värd för antingen Azure SQL Database eller Azure SQL Data Warehouse.) ![Välj AD][8]
 
@@ -318,8 +345,8 @@ Du kan uppfylla dessa krav genom att:
 
 ## <a name="create-contained-database-users-in-your-database-mapped-to-azure-ad-identities"></a>Skapa inneslutna databas användare i databasen som har mappats till Azure AD-identiteter
 
->[!IMPORTANT]
->Hanterad instans har nu stöd för Azure AD server-Huvudkonton (inloggningar) (**offentlig för hands version**), vilket gör att du kan skapa inloggningar från Azure AD-användare,-grupper eller-program. Azure AD server-Huvudkonton (inloggningar) ger möjlighet att autentisera till din hanterade instans utan att databas användare måste skapas som en innesluten databas användare. Mer information finns i [Översikt över hanterade instanser](sql-database-managed-instance.md#azure-active-directory-integration). En syntax för att skapa Azure AD server-huvudobjekt (inloggningar) finns i <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Skapa inloggning</a>.
+> [!IMPORTANT]
+> Hanterad instans har nu stöd för Azure AD server-Huvudkonton (inloggningar), vilket gör att du kan skapa inloggningar från Azure AD-användare,-grupper eller-program. Azure AD server-Huvudkonton (inloggningar) ger möjlighet att autentisera till din hanterade instans utan att databas användare måste skapas som en innesluten databas användare. Mer information finns i [Översikt över hanterade instanser](sql-database-managed-instance.md#azure-active-directory-integration). En syntax för att skapa Azure AD server-huvudobjekt (inloggningar) finns i <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Skapa inloggning</a>.
 
 Azure Active Directory-autentisering kräver att databasanvändare skapas som användare av oberoende databas. En användare av oberoende databas baserad på en Azure AD-identitet är en databasanvändare som inte har någon inloggning i huvuddatabasen, och som mappas till en identitet i den Azure AD-katalog som är associerad med databasen. Azure AD-identiteten kan vara antingen ett enskilt användarkonto eller en grupp. Mer information om användare av oberoende databas finns i avsnittet om [användare av oberoende databas – så gör du din databas portabel](https://msdn.microsoft.com/library/ff929188.aspx).
 
@@ -405,7 +432,7 @@ Använd den här metoden vid anslutning med ett huvud namn för Azure AD med hj�
 Använd den här metoden för att autentisera till SQL DB/DW med Azure AD för interna eller federerade Azure AD-användare. En inbyggd användare skapas explicit i Azure AD och autentiseras med hjälp av användar namn och lösen ord, medan en federerad användare är en Windows-användare vars domän är federerad med Azure AD. Den senare metoden (med hjälp av användar & lösen ord) kan användas när en användare vill använda sina Windows-autentiseringsuppgifter, men den lokala datorn är inte ansluten till domänen (till exempel med hjälp av fjärråtkomst). I det här fallet kan en Windows-användare ange sitt domän konto och lösen ord och kan autentisera till SQL DB/DW med federerade autentiseringsuppgifter.
 
 1. Starta Management Studio eller data verktyg och i dialog rutan **Anslut till Server** (eller **Anslut till databas motor**) i rutan **autentisering** väljer du **Active Directory-Password**.
-2. I rutan **användar namn** anger du ditt Azure Active Directory användar namn i formatet användar namn **\@domain. com**. Användar namn måste vara ett konto från Azure Active Directory eller ett konto från en domän Federer med Azure Active Directory.
+2. I rutan **användar namn** anger du ditt Azure Active Directory användar namn i formatet användar namn **\@Domain.com**. Användar namn måste vara ett konto från Azure Active Directory eller ett konto från en domän Federer med Azure Active Directory.
 3. I rutan **lösen ord** skriver du ditt användar lösen ord för det Azure Active Directory kontot eller det federerade domän kontot.
 
     ![Välj AD Password Authentication][12]

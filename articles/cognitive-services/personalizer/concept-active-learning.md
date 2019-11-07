@@ -1,7 +1,7 @@
 ---
 title: Aktiva och inaktiva händelser – Personanpassare
 titleSuffix: Azure Cognitive Services
-description: ''
+description: Den här artikeln beskriver hur du använder aktiva och inaktiva händelser, inlärnings inställningar och utbildnings principer i tjänsten personanpassa.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,51 +10,50 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: 321f12fef44cae43caf53d78b2908e68f9edd0a8
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 1641a1020193395d7d2ddb9c4893bd7bc89cdcd0
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043894"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681866"
 ---
 # <a name="active-and-inactive-events"></a>Aktiva och inaktiva händelser
 
-När programmet anropar rang-API: et får du vilken åtgärd programmet ska visa i fältet rewardActionId.  Från och med den tidpunkten förväntar sig personanpassa ett belönings samtal med samma eventId. Belönings poängen kommer att användas för att träna modellen som ska användas för framtida Rangbaserade samtal. Om inget belönings anrop tas emot för eventId kommer en defaul-belöning att tillämpas. Standard förmåner upprättas i Azure-portalen.
+När programmet anropar rang-API: et får du den åtgärd som programmet ska visa i fältet **rewardActionId** .  Från och med den tidpunkten förväntar sig personanpassa ett belönings samtal som har samma eventId. Belönings poängen kommer att användas för att träna modellen för framtida Rangbaserade samtal. Om inget belönings anrop tas emot för eventId tillämpas en standard belöning. Standard förmåner anges i Azure Portal.
 
-I vissa fall kan programmet behöva anropa rang innan det vet om resultatet ska användas eller visas för användaren. Detta kan inträffa i situationer där exempelvis sid åter givningen av framhävda innehåll skrivs över med en marknadsförings kampanj. Om resultatet av rang anropet aldrig har använts och användaren aldrig kunde se det, skulle det vara fel på att träna det med all belöning, noll eller på annat sätt.
-Detta inträffar vanligt vis när:
+I vissa fall kan programmet behöva anropa rang innan det vet om resultatet ska användas eller visas för användaren. Detta kan inträffa i situationer där exempelvis sid åter givningen av framhävda innehåll skrivs över av en marknadsförings kampanj. Om resultatet av rang anropet aldrig har använts och användaren aldrig har sett det, ska du inte skicka ett motsvarande belönings samtal.
 
-* Du kanske för hands återger ett användar gränssnitt som användaren kanske inte kan se. 
-* Ditt program kan göra en förutsägelse anpassning i vilka Rangbaserade anrop görs med mindre real tids sammanhang och deras utdata kan eventuellt inte användas av programmet. 
+De här scenarierna inträffar vanligt vis när:
 
-I dessa fall är det rätt sätt att använda Personanpassaren genom att anropa rangen som begär händelsen som _inaktiv_. Personanpassaren förväntar sig inte en belöning för den här händelsen och kommer inte att tillämpa någon standard belöning. Om programmet använder informationen från rang anropet senare i din affärs logik måste du _Aktivera_ händelsen. Från den tidpunkt då händelsen är aktiv förväntar sig Personanpassan en belöning för evenemanget eller använder en standard belöning om inget uttryckligt anrop görs till belönings-API: et.
+* Du föråterger användar gränssnittet som användaren kan eller inte kan se. 
+* Ditt program gör en förutsägelse anpassning i vilken ranknings anrop görs med en liten real tids kontext och programmet kan eventuellt inte använda utdata. 
 
-## <a name="get-inactive-events"></a>Hämta inaktiva händelser
+I dessa fall använder du Personanpassare för att anropa rang, vilket begär att händelsen ska vara _inaktiv_. Personanpassaren förväntar sig inte en belöning för den här händelsen och kommer inte att tillämpa en standard belöning. Om programmet använder informationen från rang anropet senare i din affärs logik _aktiverar_ du bara händelsen. Så snart händelsen är aktiv förväntar sig en händelse genom att göra en händelse belöning. Om inget uttryckligt anrop görs till belönings-API: et, tillämpar Personanpassaren en standard belöning.
 
-Om du vill inaktivera utbildning för en händelse anropar du rang med `learningEnabled = False`.
+## <a name="inactive-events"></a>Inaktiva händelser
 
-Inlärningen för en inaktiv händelse aktive ras implicit om du skickar en belöning för eventId eller anropar `activate`-API: et för eventId.
+Om du vill inaktivera utbildning för en händelse anropar du rang genom att använda `learningEnabled = False`. Vid inaktivitet aktive ras inlärningen implicit om du skickar en belöning för eventId eller anropar `activate` API för eventId.
 
 ## <a name="learning-settings"></a>Utbildnings inställningar
 
-Inlärnings inställningarna bestämmer de exaktaste *parametrarna* för modell träningen. Två modeller av samma data, som har tränats på olika inlärnings inställningar, kommer att få en annan modell.
+Inlärnings inställningarna bestämmer modell utbildningens *Egenskaper* . Två modeller av samma data som har tränats på olika inlärnings inställningar kommer att upphöra annorlunda.
 
 ### <a name="import-and-export-learning-policies"></a>Importera och exportera utbildnings principer
 
-Du kan importera och exportera learning policy-filer från Azure Portal. På så sätt kan du spara befintliga principer, testa dem, ersätta dem och arkivera dem i käll kods kontrollen som artefakter för framtida referens och granskning.
+Du kan importera och exportera filer för inlärnings principer från Azure Portal. Använd den här metoden för att spara befintliga principer, testa dem, ersätta dem och arkivera dem i käll kods kontrollen som artefakter för framtida referens och granskning.
 
-### <a name="learning-policy-settings"></a>Policy inställningar för inlärning
+### <a name="understand-learning-policy-settings"></a>Förstå policy inställningar för inlärning
 
-Inställningarna i **inlärnings principen** är inte avsedda att ändras. Ändra bara inställningarna när du förstår hur de påverkar Personanpassaren. Om du ändrar inställningar utan den här kunskapen kan det orsaka sido effekter, inklusive invalidering av anpassnings modeller.
+Inställningarna i inlärnings principen är inte avsedda att ändras. Ändra endast inställningar om du förstår hur de påverkar Personanpassaren. Utan den här kunskapen kan du orsaka problem, t. ex. invaliderar anpassnings modeller.
 
-### <a name="comparing-effectiveness-of-learning-policies"></a>Jämför effektiviteten för utbildnings principer
+### <a name="compare-learning-policies"></a>Jämför inlärnings principer
 
-Du kan jämföra hur olika inlärnings principer har utförts mot tidigare data i personanpassa loggar genom att göra [offline-utvärderingar](concepts-offline-evaluation.md).
+Du kan jämföra hur olika inlärnings principer fungerar mot tidigare data i personanpassa loggar genom att göra [offline-utvärderingar](concepts-offline-evaluation.md).
 
-[Ladda upp dina egna utbildnings principer](how-to-offline-evaluation.md) för att jämföra med den aktuella inlärnings policyn.
+[Ladda upp dina egna utbildnings principer](how-to-offline-evaluation.md) för att jämföra dem med den aktuella inlärnings policyn.
 
-### <a name="discovery-of-optimized-learning-policies"></a>Identifiering av optimerade utbildnings principer
+### <a name="optimize-learning-policies"></a>Optimera inlärnings principer
 
-En personanpassare kan skapa en mer optimerad inlärnings princip när du gör en [offline-utvärdering](how-to-offline-evaluation.md). En mer optimerad inlärnings policy, som visas som en bättre belöning i en offline-utvärdering, ger bättre resultat när de används online i Personanpassaren.
+En personanpassare kan skapa en optimerad utbildnings princip i en [offline-utvärdering](how-to-offline-evaluation.md). En optimerad utbildnings princip som har bättre fördelar i en offline-utvärdering ger bättre resultat när den används online i personanpassa företaget.
 
-När en optimerad inlärnings princip har skapats kan du tillämpa den direkt på en Personligre så att den ersätter den aktuella principen omedelbart, eller så kan du spara den för ytterligare utvärdering och besluta i framtiden om du vill ta bort, Spara eller tillämpa den senare.
+När du har optimerat en inlärnings princip kan du tillämpa den direkt på en Personanpassare så att den omedelbart ersätter den aktuella principen. Eller så kan du spara den optimerade principen för ytterligare utvärdering och senare bestämma om du vill ignorera, Spara eller tillämpa den.

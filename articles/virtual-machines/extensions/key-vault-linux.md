@@ -7,12 +7,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 09/23/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 60d5b8197e142306a51922ce0e042ed2463457d6
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 5991d3d2197822b239b946de66f020dd258f835a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301235"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73584371"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Key Vault tillägg för virtuell dator för Linux
 
@@ -29,7 +29,7 @@ Key Vault VM-tillägget stöder dessa Linux-distributioner:
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
-Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver inte skyddade inställningar. alla dess inställningar betraktas som information utan att säkerheten påverkas. Tillägget kräver en lista över övervakade hemligheter, avsöknings frekvens och mål certifikat arkivet. Närmare bestämt:  
+Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver inte skyddade inställningar. alla dess inställningar betraktas som information utan att säkerheten påverkas. Tillägget kräver en lista över övervakade hemligheter, avsöknings frekvens och mål certifikat arkivet. Mer specifikt:  
 ```json
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -59,9 +59,9 @@ Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver in
 ```
 
 > [!NOTE]
-> Dina observerade certifikat webb adresser ska ha formatet `https://myVaultName.vault.azure.net/secrets/myCertName`.
+> URL: er för dina observerade certifikat bör ha formatet `https://myVaultName.vault.azure.net/secrets/myCertName`.
 > 
-> Detta beror på att sökvägen för `/secrets` returnerar det fullständiga certifikatet, inklusive den privata nyckeln, medan `/certificates`-sökvägen inte gör det. Mer information om certifikat hittar du här: [Key Vault certifikat](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> Detta beror på att `/secrets` sökvägen returnerar det fullständiga certifikatet, inklusive den privata nyckeln, medan `/certificates` Sök vägen inte gör det. Mer information om certifikat hittar du här: [Key Vault certifikat](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
 
 
 ### <a name="property-values"></a>Egenskaps värden
@@ -72,11 +72,11 @@ Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver in
 | Förläggare | Microsoft. Azure. EdP | sträng |
 | typ | KeyVaultForLinux | sträng |
 | typeHandlerVersion | 1.0 | int |
-| pollingIntervalInS | 3600 | int |
+| pollingIntervalInS | 3600 | sträng |
 | Certifikat Arkiv | MY | sträng |
 | linkOnRenewal | false | boolesk |
 | certificateStoreLocation  | LocalMachine | sträng |
-| requiredInitialSync | sant | boolesk |
+| requiredInitialSync | true | boolesk |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | sträng mat ris
 
 
@@ -84,7 +84,7 @@ Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver in
 
 Azure VM-tillägg kan distribueras med Azure Resource Manager mallar. Mallar är idealiska när du distribuerar en eller flera virtuella datorer som kräver uppdatering av certifikat. Tillägget kan distribueras till enskilda virtuella datorer eller skalnings uppsättningar för virtuella datorer. Schemat och konfigurationen är gemensamma för båda typerna av mallar. 
 
-JSON-konfigurationen för ett tillägg för virtuell dator måste kapslas i den virtuella datorns resurs fragment, särskilt `"resources": []`-objekt för mallen för den virtuella datorn och i händelse av skalnings uppsättning för virtuella datorer under `"virtualMachineProfile":"extensionProfile":{"extensions" :[]`-objekt.
+JSON-konfigurationen för ett tillägg för virtuell dator måste kapslas i den virtuella datorns resurs fragment, särskilt `"resources": []` objekt för mallen för den virtuella datorn och i händelse av skalnings uppsättning för virtuella datorer under `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` objekt.
 
 ```json
     {
@@ -192,7 +192,7 @@ Observera följande begränsningar/krav:
 
 ## <a name="troubleshoot-and-support"></a>Felsöka och support
 
-### <a name="troubleshoot"></a>Felsökning
+### <a name="troubleshoot"></a>Felsöka
 
 Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och genom att använda Azure PowerShell. Om du vill se distributions statusen för tillägg för en virtuell dator kör du följande kommando med hjälp av Azure PowerShell.
 

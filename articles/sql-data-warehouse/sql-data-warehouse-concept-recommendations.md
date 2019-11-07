@@ -1,6 +1,6 @@
 ---
-title: SQL Data Warehouse-rekommendationer – begrepp | Microsoft Docs
-description: Läs mer om rekommendationer för SQL Data Warehouse och hur de genereras
+title: SQL Data Warehouse rekommendationer
+description: Lär dig mer om SQL Data Warehouse rekommendationer och hur de genereras
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
@@ -10,56 +10,57 @@ ms.subservice: manage
 ms.date: 11/05/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b275f23209979e1a8068ecd99465f7b52392bc6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 09dff2c8ddf5b9038aa715cef02e099ccbc68f8a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61421230"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685918"
 ---
-# <a name="sql-data-warehouse-recommendations"></a>Rekommendationer för SQL Data Warehouse
+# <a name="sql-data-warehouse-recommendations"></a>SQL Data Warehouse rekommendationer
 
-Den här artikeln beskriver de rekommendationer som hanteras av SQL Data Warehouse med Azure Advisor.  
+I den här artikeln beskrivs rekommendationer som hanteras av SQL Data Warehouse via Azure Advisor.  
 
-SQL Data Warehouse ger rekommendationer för att se till att ditt informationslager konsekvent har optimerats för prestanda. Data warehouse rekommendationer är nära integrerad med [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) att förse dig med metodtips direkt inom den [Azure-portalen](https://aka.ms/Azureadvisor). SQL Data Warehouse analyserar det aktuella tillståndet för ditt informationslager, samlar in telemetri och ytor rekommendationer för din aktiva arbetsbelastning på en daglig takt. Stöds data warehouse rekommendation scenarier som beskrivs nedan tillsammans med hur du tillämpa rekommenderade åtgärder.
+SQL Data Warehouse ger rekommendationer för att säkerställa att informations lagret är konsekvent optimerat för prestanda. Informations lager rekommendationerna är nära integrerade med [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) för att ge dig bästa praxis direkt i [Azure Portal](https://aka.ms/Azureadvisor). SQL Data Warehouse analyserar det aktuella läget för ditt informations lager, samlar in telemetri och underlags rekommendationer för din aktiva arbets belastning på en daglig takt. De scenarier som stöds av data lagrets rekommendationer beskrivs nedan tillsammans med hur du använder rekommenderade åtgärder.
 
-Om du har synpunkter på SQL Data Warehouse Advisor eller stöter på problem, nå ut till [ sqldwadvisor@service.microsoft.com ](mailto:sqldwadvisor@service.microsoft.com).   
+Om du har några synpunkter på SQL Data Warehouse Advisor eller om du får problem kan du kontakta [sqldwadvisor@service.microsoft.com](mailto:sqldwadvisor@service.microsoft.com).   
 
-Klicka på [här](https://aka.ms/Azureadvisor) att kontrollera dina rekommendationer idag! Den här funktionen är för närvarande gäller för Gen2-informationslager. 
+Klicka [här](https://aka.ms/Azureadvisor) för att kontrol lera dina rekommendationer idag! Den här funktionen gäller för närvarande endast för Gen2-informations lager. 
 
-## <a name="data-skew"></a>Datasnedställning
+## <a name="data-skew"></a>Data skevning
 
-Datasnedställning kan orsaka ytterligare data movement eller resurs flaskhalsar när du kör din arbetsbelastning. Följande dokumentation beskriver att identifiera datasnedställning och förhindra att det inträffar genom att välja en optimal distributionsnyckeln.
+Dataskevning kan orsaka ytterligare data flytt eller resurs Flask halsar när du kör arbets belastningen. I följande dokumentation beskrivs hur du identifierar data skevning och förhindrar att den kan utföras genom att välja en optimal distributions nyckel.
 
-- [Identifiera och ta bort skeva](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice) 
+- [Identifiera och ta bort skevning](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice) 
 
-## <a name="no-or-outdated-statistics"></a>Inte eller är inaktuella statistik
+## <a name="no-or-outdated-statistics"></a>Ingen eller inaktuell statistik
 
-Att använda icke-optimal statistik kan frågeprestanda kraftigt försämras eftersom detta kan medföra Frågeoptimeringen SQL Data Warehouse att skapa icke-optimal frågeplaner. Följande dokumentation innehåller metodtips kring skapar och uppdaterar statistik:
+Om du har en underoptimerad statistik kan du kraftigt påverka frågeresultatet eftersom det kan orsaka att SQL Data Warehouse Query Optimering genererar underoptimala fråge planer. I följande dokumentation beskrivs de bästa metoderna för att skapa och uppdatera statistik:
 
-- [Skapa och uppdatera tabellstatistik](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics)
+- [Skapa och uppdatera tabell statistik](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics)
 
-Om du vill se en lista över tabeller som påverkas av de här rekommendationerna, kör du följande [T-SQL-skript](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables). Advisor körs kontinuerligt samma T-SQL-skript för att generera rekommendationerna.
+Om du vill se en lista över berörda tabeller med dessa rekommendationer kör du följande [T-SQL-skript](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables). Advisor kör kontinuerligt samma T-SQL-skript för att skapa rekommendationerna.
 
 ## <a name="replicate-tables"></a>Replikera tabeller
 
-Advisor identifierar tabell kandidaterna utifrån följande fysiska egenskaper för replikerad tabell rekommendationer:
+För replikerade tabell rekommendationer identifierar Advisor tabell kandidater baserat på följande fysiska egenskaper:
 
-- Replikerad tabellstorlek
-- Antalet kolumner
-- Tabelltyp för distribution
-- Antalet partitioner
+- Replikerad tabell storlek
+- Antal kolumner
+- Tabell distributions typ
+- Antal partitioner
 
-Advisor utnyttjar kontinuerligt arbetsbelastning-baserade heuristik, till exempel tabellen åtkomst frekvens, rader returneras i genomsnitt och tröskelvärden runt data warehouse-storlek och aktiviteten för att säkerställa hög kvalitet rekommendationer genereras. 
+Advisor utnyttjar kontinuerligt arbets belastnings heuristik, till exempel tabell åtkomst frekvens, rader som returneras i genomsnitt och tröskelvärden kring storlek och aktivitet för data lagret för att säkerställa att rekommendationerna skapas med hög kvalitet. 
 
-Nedan beskrivs arbetsbelastning-baserade heuristik kanske i Azure-portalen för varje rekommendation för replikerad tabell:
+Här följer en beskrivning av de arbets belastnings-baserade heuristik som du kan hitta i Azure Portal för varje replikerad tabell rekommendation:
 
-- Skanna avg-genomsnittliga procentandelen rader som returnerades från tabellen för varje tabellåtkomst under de senaste sju dagarna
-- Frekventa Läs-, utan uppdatering - anger att tabellen inte har uppdaterats under de senaste sju dagarna samtidigt som visar åtkomstaktivitet
-- Läs/uppdatera förhållande - förhållandet mellan hur ofta tabellen användes i förhållande till när den uppdateras under de senaste sju dagarna
-- Aktivitet – mäter användningen baserat på åtkomstaktivitet. Detta jämför tabellen åtkomstaktivitet i förhållande till åtkomstaktivitet genomsnittliga tabell över datalagret under de senaste sju dagarna. 
+- I genomsnitt används den genomsnittliga procent andelen av rader som returnerades från tabellen för varje tabell åtkomst under de senaste sju dagarna
+- Frekvent läsning, ingen uppdatering – visar att tabellen inte har uppdaterats under de senaste sju dagarna vid visning av åtkomst aktivitet
+- Läs-/uppdaterings kvot – förhållandet mellan hur ofta tabellen användes i relation till när den uppdaterades de senaste sju dagarna
+- Aktivitet – mäter användningen baserat på åtkomst aktivitet. Detta jämför tabell åtkomst aktiviteten i förhållande till den genomsnittliga tabell åtkomst aktiviteten i data lagret under de senaste sju dagarna. 
 
-För närvarande visar Advisor endast högst fyra replikerad tabell kandidater samtidigt med prioritera aktiviteten högsta grupperade columnstore-index.
+För närvarande kan Advisor bara visa högst fyra replikerade tabell kandidater samtidigt med grupperade columnstore-index som prioriterar den högsta aktiviteten.
 
 > [!IMPORTANT]
-> Replikerad tabell rekommendationen är inte fullständig bevis och tar inte hänsyn till kontot dataflyttningsåtgärder. Vi arbetar på att lägga till detta som en tumregel men under tiden kan du alltid bör verifiera din arbetsbelastning efter att ha tillämpat rekommendationen. Kontakta sqldwadvisor@service.microsoft.com om du upptäcker replikerad tabell rekommendationer som gör att arbetsbelastningen och affärsmöjlighetens. Läs mer om replikerade tabeller på följande [dokumentation](https://docs.microsoft.com/azure/sql-data-warehouse/design-guidance-for-replicated-tables#what-is-a-replicated-table).
+> Den replikerade tabell rekommendationen är inte full och tar inte hänsyn till data flyttnings åtgärder. Vi arbetar med att lägga till detta som en tumregel, men under tiden bör du alltid validera din arbets belastning när du har tillämpat rekommendationen. Kontakta sqldwadvisor@service.microsoft.com om du upptäcker replikerade tabell rekommendationer som leder till att din arbets belastning regress. Mer information om replikerade tabeller finns i följande [dokumentation](https://docs.microsoft.com/azure/sql-data-warehouse/design-guidance-for-replicated-tables#what-is-a-replicated-table).

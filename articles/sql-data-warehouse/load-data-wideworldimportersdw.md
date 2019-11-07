@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Läs in data till Azure SQL Data Warehouse | Microsoft Docs'
+title: 'Självstudie: läsa in data med Azure Portal & SSMS'
 description: Självstudier använder Azure Portal och SQL Server Management Studio för att läsa in informations lagret wideworldimportersdw Data Warehouse från en global Azure-blob till Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,20 +10,21 @@ ms.subservice: load-data
 ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: f81a19631b29954f9bd3da55a4b332e37746152e
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: c59c5ba4e5447d01bb66b9f0ed2edcb948d34d40
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574929"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693064"
 ---
-# <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Självstudier: Läs in data till Azure SQL Data Warehouse
+# <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Självstudie: Läsa in data till Azure SQL Data Warehouse
 
 I den här självstudien används PolyBase för att läsa in informationslagret WideWorldImportersDW från Azure Blob Storage till Azure SQL Data Warehouse. I självstudierna används [Azure-portalen](https://portal.azure.com) och [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) för att:
 
 > [!div class="checklist"]
 > * Skapa ett informationslager på Azure-portalen
-> * Skapa en brandväggsregel på servernivå på Azure-portalen
+> * Skapade en brandväggsregel på servernivå på Azure-portalen
 > * Ansluta till informationslagret med SSMS
 > * Skapa en användare som utsetts för att läsa in data
 > * Skapa externa tabeller som använder Azure-blobb som datakälla
@@ -44,7 +45,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Skapa en tom SQL Data Warehouse
 
-En Azure SQL Data Warehouse skapas med en definierad uppsättning beräknings [resurser](memory-and-concurrency-limits.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-features.md). 
+En Azure SQL Data Warehouse skapas med en definierad uppsättning [beräknings resurser] minnes-samtidighets-limits.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-features.md). 
 
 Följ de här stegen för att skapa en tom SQL Data Warehouse. 
 
@@ -72,7 +73,7 @@ Följ de här stegen för att skapa en tom SQL Data Warehouse.
     | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
     | **Inloggning för serveradministratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
     | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
-    | **Location** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
+    | **Plats** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
 
     ![skapa databasserver](media/load-data-wideworldimportersdw/create-database-server.png)
 
@@ -150,9 +151,9 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
     | ------------ | --------------- | ----------- | 
     | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
     | servernamn | Fullständigt kvalificerat servernamn | Ett exempel på ett fullständigt servernamn är **sample-svr.database.windows.net**. |
-    | Authentication | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
-    | Logga in | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
-    | lösenordsinställning | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
+    | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
+    | Inloggning | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
+    | Lösenord | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
 
     ![Anslut till server](media/load-data-wideworldimportersdw/connect-to-server.png)
 
@@ -181,7 +182,7 @@ Eftersom du för närvarande är ansluten som serveradministratör kan du skapa 
     CREATE USER LoaderRC60 FOR LOGIN LoaderRC60;
     ```
 
-3. Klicka på **Kör**.
+3. Klicka på **Execute**.
 
 4. Högerklicka på **SampleDW** och välj **Ny fråga**. Ett nytt frågefönster öppnas.  
 
@@ -195,7 +196,7 @@ Eftersom du för närvarande är ansluten som serveradministratör kan du skapa 
     EXEC sp_addrolemember 'staticrc60', 'LoaderRC60';
     ```
 
-6. Klicka på **Kör**.
+6. Klicka på **Execute**.
 
 ## <a name="connect-to-the-server-as-the-loading-user"></a>Ansluta till servern som inläsningsanvändare
 

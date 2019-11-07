@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1b056ce8afe86fcd6629aff23ac95acae02ed9ba
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: d7e77907e2d394d2a4c1679ec50af8d4f72fa6f1
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299878"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615060"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Bindningar för Durable Functions (Azure Functions)
 
@@ -24,9 +24,9 @@ ms.locfileid: "72299878"
 
 Genom Orchestration-utlösaren kan du skapa [robusta Orchestrator-funktioner](durable-functions-types-features-overview.md#orchestrator-functions). Den här utlösaren stöder start av nya Orchestrator Function-instanser och återupptar befintliga Orchestrator-funktioner som väntar på en aktivitet.
 
-När du använder Visual Studio-verktygen för Azure Functions konfigureras Orchestration-utlösaren med hjälp av attributet [OrchestrationTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationTriggerAttribute.html) .net.
+När du använder Visual Studio-verktygen för Azure Functions konfigureras Orchestration-utlösaren med hjälp av attributet [OrchestrationTriggerAttribute](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.OrchestrationTriggerAttribute?view=azure-dotnet) .net.
 
-När du skriver Orchestrator-funktioner i skript språk (till exempel Java Script C# eller skript) definieras Orchestration-utlösaren av följande JSON-objekt i `bindings`-matrisen i *Function. JSON* -filen:
+När du skriver Orchestrator-funktioner i skript språk (till exempel Java Script C# eller skript) definieras Orchestration-utlösaren av följande JSON-objekt i `bindings`-matrisen för *Function. JSON* -filen:
 
 ```json
 {
@@ -37,7 +37,7 @@ När du skriver Orchestrator-funktioner i skript språk (till exempel Java Scrip
 }
 ```
 
-* `orchestration` är namnet på dirigeringen. Detta är det värde som klienter måste använda när de vill starta nya instanser av den här Orchestrator-funktionen. Den här egenskapen är valfri. Om inget anges används namnet på funktionen.
+* `orchestration` är namnet på den dirigering som klienter måste använda när de vill starta nya instanser av den här Orchestrator-funktionen. Den här egenskapen är valfri. Om inget anges används namnet på funktionen.
 
 Internt denna Utlös ande bindning avsöker en serie med köer i standard lagrings kontot för Function-appen. Dessa köer är interna implementerings information om tillägget, vilket är anledningen till att de inte uttryckligen konfigureras i bindnings egenskaperna.
 
@@ -60,8 +60,8 @@ Här följer några anmärkningar om Dirigerings utlösaren:
 
 Bindningen för Dirigerings utlösare stöder både indata och utdata. Här är några saker du behöver veta om indata och utdata:
 
-* **indata** – .net-Orchestration-funktioner stöder endast [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) som parameter typ. Deserialisering av indata direkt i funktions signaturen stöds inte. Koden måste använda metoden [GetInput @ no__t-1T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1)(.net) eller `getInput` (Java Script) för att hämta data från Orchestrator-funktionen. Dessa indata måste vara JSON-serialiserbara typer.
-* **utdata** -Orchestration-utlösare stöder utdataparametrar samt indata. Returvärdet för funktionen används för att tilldela utdata-värdet och måste vara JSON-serialiserbar. Om en .NET-funktion returnerar `Task` eller `void`, kommer ett `null`-värde att sparas som utdata.
+* **indata** – .net-Orchestration-funktioner stöder bara `DurableOrchestrationContext` som parameter typ. Deserialisering av indata direkt i funktions signaturen stöds inte. Koden måste använda metoden `GetInput<T>` (.NET) eller `getInput` (Java Script) för att hämta data från Orchestrator-funktionen. Dessa indata måste vara JSON-serialiserbara typer.
+* **utdata** -Orchestration-utlösare stöder utdataparametrar samt indata. Returvärdet för funktionen används för att tilldela utdata-värdet och måste vara JSON-serialiserbar. Om en .NET-funktion returnerar `Task` eller `void`kommer ett `null` värde att sparas som utdata.
 
 ### <a name="trigger-sample"></a>Utlös exempel
 
@@ -71,14 +71,16 @@ Följande exempel kod visar vad den enklaste "Hello World" Orchestrator-funktion
 
 ```csharp
 [FunctionName("HelloWorld")]
-public static string Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static string Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     string name = context.GetInput<string>();
     return $"Hello {name}!";
 }
 ```
+> [!NOTE]
+> Föregående kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-#### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
+#### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -90,10 +92,10 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!NOTE]
-> @No__t-0-objektet i Java Script representerar inte DurableOrchestrationContext, men [funktions kontexten som helhet](../functions-reference-node.md#context-object). Du kan komma åt Orchestration-metoder via `context`-objektets egenskap `df`.
+> `context`-objektet i Java Script representerar inte DurableOrchestrationContext, men [funktionen context som helhet](../functions-reference-node.md#context-object). Du kan komma åt Orchestration-metoder via `context` objektets `df` egenskap.
 
 > [!NOTE]
-> JavaScript-dirigering bör använda `return`. @No__t-0-biblioteket tar hand om att anropa metoden `context.done`.
+> JavaScript-dirigering bör använda `return`. `durable-functions`s biblioteket tar hand om att anropa `context.done`-metoden.
 
 De flesta funktioner för att anropa aktiviteter i Orchestrator, så här är ett "Hello World"-exempel som visar hur du anropar en aktivitets funktion:
 
@@ -102,7 +104,7 @@ De flesta funktioner för att anropa aktiviteter i Orchestrator, så här är et
 ```csharp
 [FunctionName("HelloWorld")]
 public static async Task<string> Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     string name = context.GetInput<string>();
     string result = await context.CallActivityAsync<string>("SayHello", name);
@@ -110,7 +112,10 @@ public static async Task<string> Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
+> [!NOTE]
+> Föregående kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
+
+#### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -126,9 +131,9 @@ module.exports = df.orchestrator(function*(context) {
 
 Med aktivitets utlösaren kan du redigera funktioner som anropas av Orchestrator functions, kallas [aktivitets funktioner](durable-functions-types-features-overview.md#activity-functions).
 
-Om du använder Visual Studio konfigureras aktivitets utlösaren med hjälp av attributet [ActivityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) .net.
+Om du använder Visual Studio konfigureras aktivitets utlösaren med hjälp av attributet `ActivityTriggerAttribute` .NET.
 
-Om du använder VS Code eller Azure Portal för utveckling definieras aktivitets utlösaren av följande JSON-objekt i matrisen `bindings` i *Function. JSON*:
+Om du använder VS Code eller Azure Portal för utveckling, definieras aktivitets utlösaren av följande JSON-objekt i `bindings`-matrisen för *Function. JSON*:
 
 ```json
 {
@@ -159,9 +164,9 @@ Här följer några anmärkningar om aktivitets utlösaren:
 
 Bindningen för aktivitets utlösare stöder både indata och utdata, precis som Orchestration-utlösaren. Här är några saker du behöver veta om indata och utdata:
 
-* **indata** -.net-aktivitets funktioner använder internt [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) som parameter typ. Alternativt kan en aktivitets funktion deklareras med valfri parameter typ som är JSON-serialiserbar. När du använder `DurableActivityContext` kan du anropa [GetInput @ no__t-2T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1) för att hämta och deserialisera aktivitetens funktions ingångar.
-* **utdata** – aktivitets funktioner stöder utdataparametrar samt indata. Returvärdet för funktionen används för att tilldela utdata-värdet och måste vara JSON-serialiserbar. Om en .NET-funktion returnerar `Task` eller `void`, kommer ett `null`-värde att sparas som utdata.
-* **metadata** – .net-aktivitets funktioner kan bindas till en `string instanceId`-parameter för att hämta instans-ID: t för den överordnade dirigeringen.
+* **indata** -.net-aktivitets funktioner använder internt `DurableActivityContext` som parameter typ. Alternativt kan en aktivitets funktion deklareras med valfri parameter typ som är JSON-serialiserbar. När du använder `DurableActivityContext`kan du anropa `GetInput<T>` för att hämta och deserialisera aktivitetens funktions ingångar.
+* **utdata** – aktivitets funktioner stöder utdataparametrar samt indata. Returvärdet för funktionen används för att tilldela utdata-värdet och måste vara JSON-serialiserbar. Om en .NET-funktion returnerar `Task` eller `void`kommer ett `null` värde att sparas som utdata.
+* **metadata** – .net-aktivitets funktioner kan bindas till en `string instanceId` parameter för att hämta instans-ID: t för den överordnade dirigeringen.
 
 ### <a name="trigger-sample"></a>Utlös exempel
 
@@ -171,14 +176,17 @@ Följande exempel kod visar hur en enkel "Hello World"-aktivitets funktion kan s
 
 ```csharp
 [FunctionName("SayHello")]
-public static string SayHello([ActivityTrigger] DurableActivityContext helloContext)
+public static string SayHello([ActivityTrigger] IDurableActivityContext helloContext)
 {
     string name = helloContext.GetInput<string>();
     return $"Hello {name}!";
 }
 ```
 
-Standard parameter typen för .NET-`ActivityTriggerAttribute`-bindningen är `DurableActivityContext`. .NET-aktivitets utlösare stöder dock också bindning direkt till JSON-serializeable typer (inklusive primitiva typer), så att samma funktion kan för enklas på följande sätt:
+> [!NOTE]
+> Föregående kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableActivityContext` i stället för `IDurableActivityContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
+
+Standard parameter typen för .NET `ActivityTriggerAttribute`-bindningen är `IDurableActivityContext`. .NET-aktivitets utlösare stöder dock också bindning direkt till JSON-serializeable typer (inklusive primitiva typer), så att samma funktion kan för enklas på följande sätt:
 
 ```csharp
 [FunctionName("SayHello")]
@@ -188,7 +196,7 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
+#### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
 
 ```javascript
 module.exports = async function(context) {
@@ -244,9 +252,9 @@ Genom att dirigera klient bindningen kan du skriva funktioner som interagerar me
 * Skicka händelser till dem när de är igång.
 * Rensa instans historik.
 
-Om du använder Visual Studio kan du binda till Orchestration-klienten med hjälp av [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) .NET-attributet för Durable Functions 1,0. Från för hands versionen av Durable Functions 2,0 kan du binda till Orchestration-klienten genom att använda attributet `DurableClientAttribute` .NET.
+Om du använder Visual Studio kan du binda till Orchestration-klienten genom att använda attributet `OrchestrationClientAttribute` .NET för Durable Functions 1,0. Från och med Durable Functions 2,0 kan du binda till Orchestration-klienten med hjälp av attributet `DurableClientAttribute` .NET.
 
-Om du använder skript språk (till exempel *. CSX* -eller *. js* -filer) för utveckling definieras Orchestration-utlösaren av följande JSON-objekt i `bindings`-matrisen för *Function. JSON*:
+Om du använder skript språk (till exempel *. CSX* -eller *. js* -filer) för utveckling, definieras Orchestration-utlösaren av följande JSON-objekt i den `bindings` matrisen för *Function. JSON*:
 
 ```json
 {
@@ -266,19 +274,19 @@ Om du använder skript språk (till exempel *. CSX* -eller *. js* -filer) för u
 
 ### <a name="client-usage"></a>Klient användning
 
-I .NET-funktioner binder du normalt till `DurableOrchestrationClient`, vilket ger dig fullständig åtkomst till alla klient-API: er som stöds av Durable Functions. Från och med Durable Functions 2,0 binder du i stället till `IDurableOrchestrationClient`-gränssnittet. I Java Script exponeras samma API: er av objektet som returneras från `getClient`. API: er för klient objekt är:
+I .NET-funktioner binder du normalt till `IDurableOrchestrationClient`, vilket ger dig fullständig åtkomst till alla Dirigerings klient-API: er som stöds av Durable Functions. I äldre Durable Functions 2. x-versioner binder du i stället till `DurableOrchestrationClient`-klassen. I Java Script visas samma API: er av det objekt som returneras från `getClient`. API: er för klient objekt är:
 
-* [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_)
-* [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_)
-* [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_)
-* [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_)
-* [PurgeInstanceHistoryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_PurgeInstanceHistoryAsync_)
-* [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_)
-* [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_)
+* `StartNewAsync`
+* `GetStatusAsync`
+* `TerminateAsync`
+* `RaiseEventAsync`
+* `PurgeInstanceHistoryAsync`
+* `CreateCheckStatusResponse`
+* `CreateHttpManagementPayload`
 
-.NET-funktioner kan också bindas till `IAsyncCollector<T>` där `T` är [StartOrchestrationArgs](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.StartOrchestrationArgs.html) eller `JObject`.
+.NET-funktioner kan också bindas till `IAsyncCollector<T>` där `T` är `StartOrchestrationArgs` eller `JObject`.
 
-Mer information om dessa åtgärder finns i [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) API-dokumentationen.
+Mer information om dessa åtgärder finns i `IDurableOrchestrationClient` API-dokumentationen.
 
 ### <a name="client-sample-visual-studio-development"></a>Klient exempel (Visual Studio-utveckling)
 
@@ -288,12 +296,15 @@ Här är ett exempel på en Queue-utlöst funktion som startar en "HelloWorld"-d
 [FunctionName("QueueStart")]
 public static Task Run(
     [QueueTrigger("durable-function-trigger")] string input,
-    [OrchestrationClient] DurableOrchestrationClient starter)
+    [DurableClient] IDurableOrchestrationClient starter)
 {
     // Orchestration input comes from the queue message content.
     return starter.StartNewAsync("HelloWorld", input);
 }
 ```
+
+> [!NOTE]
+> Föregående C# kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `OrchestrationClient` attribut i stället för attributet `DurableClient` och du måste använda `DurableOrchestrationClient` parameter typ i stället för `IDurableOrchestrationClient`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
 ### <a name="client-sample-not-visual-studio"></a>Klient exempel (inte Visual Studio)
 
@@ -310,27 +321,35 @@ Om du inte använder Visual Studio för utveckling kan du skapa följande *funkt
     },
     {
       "name": "starter",
-      "type": "orchestrationClient",
+      "type": "durableClient",
       "direction": "in"
     }
   ]
 }
 ```
 
+> [!NOTE]
+> Föregående JSON är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `orchestrationClient` i stället för `durableClient` som utlösnings typ. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
+
 Nedan visas språkspecifika exempel som startar nya Orchestrator Function-instanser.
 
-#### <a name="c-sample"></a>C#Urvalsundersökningar
+#### <a name="c-script-sample"></a>C#Skript exempel
 
-Följande exempel visar hur du använder den varaktiga Dirigerings klient bindningen för att starta en ny funktions instans C# från en skript funktion:
+Följande exempel visar hur du använder den varaktiga Dirigerings klient bindningen för att starta en ny funktions instans från en köade C# funktion:
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
 
-public static Task<string> Run(string input, DurableOrchestrationClient starter)
+using Microsoft.Azure.WebJobs.Extensions.DurableTask;
+
+public static Task Run(string input, IDurableOrchestrationClient starter)
 {
     return starter.StartNewAsync("HelloWorld", input);
 }
 ```
+
+> [!NOTE]
+> Föregående kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda parameter typen `DurableOrchestrationClient` i stället för `IDurableOrchestrationClient`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
 #### <a name="javascript-sample"></a>JavaScript-exempel
 
@@ -354,7 +373,7 @@ Med enhets utlösare kan du redigera [entitets funktioner](durable-functions-ent
 När du använder Visual Studio-verktygen för Azure Functions konfigureras enhets utlösaren med hjälp av attributet `EntityTriggerAttribute` .NET.
 
 > [!NOTE]
-> Enhets utlösare är tillgängliga i Durable Functions 2,0 och senare. Enhets utlösare är ännu inte tillgängliga för Java Script.
+> Enhets utlösare är tillgängliga från och med Durable Functions 2. x.
 
 Internt denna Utlös ande bindning avsöker en serie med köer i standard lagrings kontot för Function-appen. Dessa köer är interna implementerings information om tillägget, vilket är anledningen till att de inte uttryckligen konfigureras i bindnings egenskaperna.
 
@@ -378,20 +397,20 @@ Varje entitets funktion har parameter typen `IDurableEntityContext`, som har fö
 * **EntityId**: ID för entiteten som körs för tillfället.
 * **OperationName**: namnet på den aktuella åtgärden.
 * **HasState**: huruvida entiteten finns, det har en viss status. 
-* **GetState @ no__t-1TState > ()** : hämtar entitetens aktuella status. Om den inte redan finns skapas och initieras den till `default<TState>`. Parametern `TState` måste vara en primitiv eller JSON-serializeable typ. 
-* **GetState @ no__t-1TState > (initfunction)** : hämtar entitetens aktuella status. Om den inte redan finns skapas den genom att anropa den angivna `initfunction`-parametern. Parametern `TState` måste vara en primitiv eller JSON-serializeable typ. 
+* **GetState\<TState > ()** : hämtar entitetens aktuella status. Om den inte redan finns skapas och initieras den till `default<TState>`. Parametern `TState` måste vara en primitiv eller JSON-serializeable typ. 
+* **GetState\<TState > (initfunction)** : hämtar entitetens aktuella status. Om den inte redan finns skapas den genom att anropa den tillhandahållna `initfunction`-parametern. Parametern `TState` måste vara en primitiv eller JSON-serializeable typ. 
 * **SetState (arg)** : skapar eller uppdaterar status för entiteten. Parametern `arg` måste vara ett JSON-serializeable-objekt eller en primitiv.
 * **DeleteState ()** : tar bort status för entiteten. 
-* **GetInput @ no__t-1TInput > ()** : hämtar InInformationen för den aktuella åtgärden. Parametern `TInput` måste vara en primitiv eller JSON-serializeable typ.
+* **GetInput\<TInput > ()** : hämtar InInformationen för den aktuella åtgärden. Parametern `TInput` Type måste vara en primitiv eller JSON-serializeable typ.
 * **Return (arg)** : returnerar ett värde till den dirigering som anropade åtgärden. Parametern `arg` måste vara ett primitivt eller JSON-serializeable-objekt.
-* **SignalEntity (EntityId, åtgärd, Indatatyp)** : skickar ett envägs meddelande till en entitet. Parametern `operation` måste vara en icke-null-sträng och parametern `input` måste vara ett primitivt eller JSON-serializeable-objekt.
+* **SignalEntity (EntityId, åtgärd, Indatatyp)** : skickar ett envägs meddelande till en entitet. Parametern `operation` måste vara en sträng som inte är null och parametern `input` måste vara ett primitivt eller JSON-serializeable-objekt.
 * **CreateNewOrchestration (orchestratorFunctionName, Indatatyp)** : startar ett nytt dirigering. Parametern `input` måste vara ett primitivt eller JSON-serializeable-objekt.
 
-Det `IDurableEntityContext`-objekt som överförts till entitets-funktionen kan nås med hjälp av egenskapen `Entity.Current` async-Local. Den här metoden är praktisk när du använder den klassbaserade programmerings modellen.
+`IDurableEntityContext`-objektet som skickades till entitet-funktionen kan nås med hjälp av egenskapen `Entity.Current` async-Local. Den här metoden är praktisk när du använder den klassbaserade programmerings modellen.
 
-### <a name="trigger-sample-function-based-syntax"></a>Utlösnings exempel (Function-baserad syntax)
+### <a name="trigger-sample-c-function-based-syntax"></a>UtlösningsC# exempel (Function-baserad syntax)
 
-Följande kod är ett exempel på en enkel *Counter* -entitet som implementeras som en varaktig funktion. Den här funktionen definierar tre åtgärder, `add`, `reset` och `get`, som var och en använder ett heltals tillstånd.
+Följande kod är ett exempel på en enkel *Counter* -entitet som implementeras som en varaktig funktion. Den här funktionen definierar tre åtgärder, `add`, `reset`och `get`, som körs på ett heltals tillstånd.
 
 ```csharp
 [FunctionName("Counter")]
@@ -414,9 +433,9 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 
 Mer information om den Function-baserade syntaxen och hur du använder den finns i [Function-based syntax](durable-functions-dotnet-entities.md#function-based-syntax).
 
-### <a name="trigger-sample-class-based-syntax"></a>Utlösnings exempel (klass-baserad syntax)
+### <a name="trigger-sample-c-class-based-syntax"></a>UtlösningsC# exempel (klass-baserad syntax)
 
-Följande exempel är en likvärdig implementering av entiteten `Counter` med hjälp av klasser och metoder.
+Följande exempel är en likvärdig implementering av `Counter` entiteten med hjälp av klasser och metoder.
 
 ```csharp
 [JsonObject(MemberSerialization.OptIn)]
@@ -442,9 +461,51 @@ Status för den här entiteten är ett objekt av typen `Counter`, som innehålle
 Mer information om den klassbaserade syntaxen och hur du använder den finns i [definiera enhets klasser](durable-functions-dotnet-entities.md#defining-entity-classes).
 
 > [!NOTE]
-> Funktions plats metoden med attributet `[FunctionName]` *måste* deklareras `static` när du använder entitets klasser. Metoder som inte är statiska kan leda till att flera objekt initieras och potentiellt andra odefinierade beteenden.
+> Funktions plats metoden med `[FunctionName]`-attributet *måste* deklareras `static` när du använder entitets klasser. Metoder som inte är statiska kan leda till att flera objekt initieras och potentiellt andra odefinierade beteenden.
 
 Enhets klasser har särskilda metoder för att interagera med bindningar och .NET-beroende inmatning. Mer information finns i [entitets konstruktion](durable-functions-dotnet-entities.md#entity-construction).
+
+### <a name="trigger-sample-javascript"></a>Utlösnings exempel (Java Script)
+
+Följande kod är ett exempel på en enkel *Counter* -entitet som implementeras som en varaktig funktion som skrivits i Java Script. Den här funktionen definierar tre åtgärder, `add`, `reset`och `get`, som körs på ett heltals tillstånd.
+
+**function. JSON**
+```json
+{
+  "bindings": [
+    {
+      "name": "context",
+      "type": "entityTrigger",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+**index. js**
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.entity(function(context) {
+    const currentValue = context.df.getState(() => 0);
+    switch (context.df.operationName) {
+        case "add":
+            const amount = context.df.getInput();
+            context.df.setState(currentValue + amount);
+            break;
+        case "reset":
+            context.df.setState(0);
+            break;
+        case "get":
+            context.df.return(currentValue);
+            break;
+    }
+});
+```
+
+> [!NOTE]
+> Varaktiga entiteter är tillgängliga i Java Script från och med version **1.3.0** av `durable-functions` NPM-paketet.
 
 ## <a name="entity-client"></a>Enhets klient
 
@@ -453,9 +514,9 @@ Med enhets klientens bindning kan du utlösa [enhets funktioner](#entity-trigger
 Om du använder Visual Studio kan du binda till enhets klienten med hjälp av attributet `DurableClientAttribute` .NET.
 
 > [!NOTE]
-> @No__t-0 kan också användas för att binda till Orchestration- [klienten](#orchestration-client).
+> `[DurableClientAttribute]` kan också användas för att binda till Orchestration- [klienten](#orchestration-client).
 
-Om du använder skript språk (till exempel *. CSX* -eller *. js* -filer) för utveckling, definieras enhets utlösaren av följande JSON-objekt i matrisen `bindings` i *Function. JSON*:
+Om du använder skript språk (till exempel *. CSX* -eller *. js* -filer) för utveckling, definieras enhets utlösaren av följande JSON-objekt i den `bindings` matrisen för *Function. JSON*:
 
 ```json
 {
@@ -475,17 +536,17 @@ Om du använder skript språk (till exempel *. CSX* -eller *. js* -filer) för u
 
 ### <a name="entity-client-usage"></a>Användning av enhets klient
 
-I .NET-funktioner binder du normalt till `IDurableEntityClient`, vilket ger dig fullständig åtkomst till alla klient-API: er som stöds av varaktiga entiteter. Du kan också binda till `IDurableClient`-gränssnittet, som ger åtkomst till klient-API: er för både entiteter och dirigeringar. API: er för klient objekt är:
+I .NET-funktioner binder du normalt till `IDurableEntityClient`, vilket ger dig fullständig åtkomst till alla klient-API: er som stöds av varaktiga entiteter. Du kan också binda till `IDurableOrchestrationClient`-gränssnittet, som ger åtkomst till klient-API: er för både entiteter och dirigeringar. API: er för klient objekt är:
 
-* **ReadEntityStateAsync @ no__t-1T >** : läser status för en entitet. Det returnerar ett svar som anger om målentiteten finns, och i så fall, vad dess tillstånd är.
+* **ReadEntityStateAsync\<t >** : läser status för en entitet. Det returnerar ett svar som anger om målentiteten finns, och i så fall, vad dess tillstånd är.
 * **SignalEntityAsync**: skickar ett envägs meddelande till en entitet och väntar på att det ska placeras i kö.
 
 Du behöver inte skapa målentiteten innan du skickar en signal – enhets statusen kan skapas från den enhets funktion som hanterar signalen.
 
 > [!NOTE]
-> Det är viktigt att förstå att "signaler" som skickas från klienten bara placeras i kö för att bearbetas asynkront vid ett senare tillfälle. I synnerhet returnerar `SignalEntityAsync` vanligt vis innan entiteten även startar åtgärden, och det går inte att komma tillbaka till returvärdet eller följa undantag. Om det krävs starkare garantier (t. ex. för arbets flöden) bör *Orchestrator-funktioner* användas, vilket kan vänta på att entitets åtgärder ska slutföras och kan bearbeta retur värden och följa undantag.
+> Det är viktigt att förstå att "signaler" som skickas från klienten bara placeras i kö för att bearbetas asynkront vid ett senare tillfälle. I synnerhet returnerar `SignalEntityAsync` vanligt vis innan entiteten även startar åtgärden och det går inte att komma tillbaka till returvärdet eller följa undantag. Om det krävs starkare garantier (t. ex. för arbets flöden) bör *Orchestrator-funktioner* användas, vilket kan vänta på att entitets åtgärder ska slutföras och kan bearbeta retur värden och följa undantag.
 
-### <a name="example-client-signals-entity-directly"></a>Exempel: klient signalerar entiteten direkt
+### <a name="example-client-signals-entity-directly---c"></a>Exempel: klient signalerar entiteten direktC#
 
 Här är ett exempel på en kö – utlöst funktion som anropar en "Counter"-entitet.
 
@@ -502,9 +563,9 @@ public static Task Run(
 }
 ```
 
-### <a name="example-client-signals-entity-via-interface"></a>Exempel: klient Signals-entitet via gränssnitt
+### <a name="example-client-signals-entity-via-interface---c"></a>Exempel: klient Signals-entitet via gränssnitt –C#
 
-Om möjligt rekommenderar vi [att du använder entiteter via gränssnitt](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) eftersom det ger mer typ kontroll. Anta till exempel att entiteten `Counter` som nämnts tidigare implementerade ett `ICounter`-gränssnitt, som definieras enligt följande:
+Om möjligt rekommenderar vi [att du använder entiteter via gränssnitt](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) eftersom det ger mer typ kontroll. Anta till exempel att `Counter` entiteten som nämnts tidigare implementerade ett `ICounter` gränssnitt, som definieras enligt följande:
 
 ```csharp
 public interface ICounter
@@ -534,12 +595,50 @@ public static async Task AddValueClient(
 }
 ```
 
-Parametern `proxy` är en dynamiskt genererad instans av `ICounter`, som internt översätter anropet till `Add` till motsvarande (ej avskrivna) anrop till `SignalEntityAsync`.
+Parametern `proxy` är en dynamiskt genererad instans av `ICounter`, som internt översätter anropet till `Add` till motsvarande (avskrivet) anrop till `SignalEntityAsync`.
 
 > [!NOTE]
-> API: erna `SignalEntityAsync` representerar enkelriktade åtgärder. Om ett enhets gränssnitt returnerar `Task<T>`, kommer värdet för parametern `T` alltid vara null eller `default`.
+> `SignalEntityAsync`-API: erna representerar enkelriktade åtgärder. Om ett enhets gränssnitt returnerar `Task<T>`, kommer värdet för parametern `T` alltid vara null eller `default`.
 
-I synnerhet är det inte bra att signalera `Get`-åtgärden eftersom inget värde returneras. Klienter kan i stället använda antingen `ReadStateAsync` för att få åtkomst till räknar statusen direkt, eller så kan starta en Orchestrator-funktion som anropar åtgärden `Get`. 
+I synnerhet är det inte bra att signalera `Get` åtgärden eftersom inget värde returneras. Klienter kan i stället använda antingen `ReadStateAsync` för att få åtkomst till räknar statusen direkt, eller så kan starta en Orchestrator-funktion som anropar `Get`-åtgärden.
+
+### <a name="example-client-signals-entity---javascript"></a>Exempel: klient signaler entitet-Java Script
+
+Här är ett exempel på en Queue-utlöst funktion som signalerar en "Counter"-entitet i Java Script.
+
+**function. JSON**
+```json
+{
+    "bindings": [
+      {
+        "name": "input",
+        "type": "queueTrigger",
+        "queueName": "durable-entity-trigger",
+        "direction": "in",
+      },
+      {
+        "name": "starter",
+        "type": "durableClient",
+        "direction": "in"
+      }
+    ],
+    "disabled": false
+  }
+```
+
+**index. js**
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context) {
+    const client = df.getClient(context);
+    const entityId = new df.EntityId("Counter", "myCounter");
+    await context.df.signalEntity(entityId, "add", 1);
+};
+```
+
+> [!NOTE]
+> Varaktiga entiteter är tillgängliga i Java Script från och med version **1.3.0** av `durable-functions` NPM-paketet.
 
 <a name="host-json"></a>
 ## <a name="hostjson-settings"></a>Host. JSON-inställningar

@@ -1,5 +1,5 @@
 ---
-title: Själv studie kurs om SaaS för enskild klient – Azure SQL Database | Microsoft Docs
+title: Själv studie kurs om SaaS för enskild klient – Azure SQL Database
 description: Distribuera och utforska ett fristående SaaS-program med en enda klient, som använder Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 11/07/2018
-ms.openlocfilehash: 2e6b18e53358cad1bfe89e8c0ae7fbacec24d179
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: df9c3913851055f1bb477264cf5a7486f79b56b0
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570210"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691956"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Distribuera och utforska ett fristående program med en enda klient som använder Azure SQL Database
 
@@ -43,11 +43,11 @@ Ytterligare självstudier kommer att släppas. De gör att du kan utforska en m�
 Distribuera appen för de tre tillhandahållna klient organisationerna:
 
 1. Klicka på knappen för varje blå **distribution till Azure** för att öppna distributions mal len i [Azure Portal](https://portal.azure.com). Varje mall kräver två parameter värden. ett namn för en ny resurs grupp och ett användar namn som särskiljer den här distributionen från andra distributioner av appen. Nästa steg innehåller information om hur du anger dessa värden.<br><br>
-    <a href="https://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>**Contoso konsert Hall** &nbsp;
+    <a href="https://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **contoso konsert Hall**
 <br><br>
-    <a href="https://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Dogwood Dojo**
+    <a href="https://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Dogwood Dojo**
 <br><br>
-    <a href="https://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Fabrikam Jazz Club**
+    <a href="https://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Fabrikam jazz-klubb**
 
 2. Ange nödvändiga parameter värden för varje distribution.
 
@@ -55,7 +55,7 @@ Distribuera appen för de tre tillhandahållna klient organisationerna:
     > Vissa autentiserings-och Server brand väggar är avsiktligt oskyddade i demonstrations syfte. **Skapa en ny resurs grupp** för varje program distribution.  Använd inte en befintlig resurs grupp. Använd inte det här programmet eller några resurser som skapas för produktion. Ta bort alla resurs grupper när du är färdig med programmen för att stoppa relaterad fakturering.
 
     Det är bäst att endast använda gemena bokstäver, siffror och bindestreck i resurs namnen.
-    * För **resurs grupp**väljer du skapa ny och anger sedan ett gement namn för resurs gruppen. **Wingtip-sa –\<venueName\>-User\>är det rekommenderade mönstret.\<**  För \<venueName\>ersätter du plats namnet utan blank steg. Ersätt \<User\>-värdet nedan för användare.  Med det här mönstret kan resurs grupp namn vara *Wingtip-sa-contosoconcerthall-AF1*, *Wingtip-sa-dogwooddojo-AF1*, *Wingtip-sa-fabrikamjazzclub-AF1*.
+    * För **resurs grupp**väljer du skapa ny och anger sedan ett gement namn för resurs gruppen. **Wingtip-sa-\<venueName\>-\<användar\>** är det rekommenderade mönstret.  För \<venueName\>ersätter du plats namnet utan blank steg. För \<användar\>ersätter du användar värdet nedan.  Med det här mönstret kan resurs grupp namn vara *Wingtip-sa-contosoconcerthall-AF1*, *Wingtip-sa-dogwooddojo-AF1*, *Wingtip-sa-fabrikamjazzclub-AF1*.
     * Välj en **plats** i list rutan.
 
     * För **användare** – vi rekommenderar ett kort användar värde, till exempel dina initialer plus en siffra: till exempel *AF1*.
@@ -66,7 +66,7 @@ Distribuera appen för de tre tillhandahållna klient organisationerna:
     * Klicka om du vill godkänna de allmänna villkoren.
     * Klicka på **Köp**.
 
-4. Övervaka status för alla tre distributioner genom att klicka på aviseringar (klock ikonen till höger om sökrutan). Det tar cirka fem minuter att distribuera apparna.
+4. Övervaka status för alla tre distributioner genom att klicka på **aviseringar** (klock ikonen till höger om sökrutan). Det tar cirka fem minuter att distribuera apparna.
 
 
 ## <a name="run-the-applications"></a>Köra programmen
@@ -75,16 +75,16 @@ I appen demonstreras platser som är värdar för händelser.  Platserna är kli
 
 1. Öppna sidan händelser för var och en av de tre klient organisationerna i separata flikar i webbläsaren:
 
-   - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
-   - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
-   - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
+   - http://events.contosoconcerthall.&lt; User&gt;. trafficmanager.net
+   - http://events.dogwooddojo.&lt; User&gt;. trafficmanager.net
+   - http://events.fabrikamjazzclub.&lt; User&gt;. trafficmanager.net
 
-     (I varje URL ersätter &lt;du användare&gt; med distributionens användar värde.)
+     (I varje URL ersätter du &lt;användar&gt; med distributionens användar värde.)
 
-   ![Events](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
+   ![Händelser](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
 Appen använder [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md)för att kontrol lera distributionen av inkommande begär Anden. Varje klient-/regionsspecifika App-instans innehåller klient namnet som en del av domän namnet i URL: en. Alla klient-URL: er innehåller ditt speciella **användar** värde. URL: erna följer följande format:
-- http://events.&lt; venuename&gt;.&lt; User&gt;. trafficmanager.net
+- http://events.&lt; venuename&gt;.&lt;User&gt;. trafficmanager.net
 
 Varje klients databas **plats** ingår i appens inställningar för den motsvarande distribuerade appen.
 
@@ -97,7 +97,7 @@ Nu ska vi titta på några av de resurser som har distribuerats:
 
 1. I [Azure Portal](https://portal.azure.com)bläddrar du till listan över resurs grupper.
 2. Du bör se de tre resurs grupperna för klient organisationen.
-3. Öppna resurs gruppen **Wingtip-sa-Fabrikam&lt;-&gt; User** som innehåller resurserna för Fabrikam Jazz-distributionen.  **Fabrikamjazzclub-User&lt;&gt; -** servern innehåller **fabrikamjazzclub** -databasen.
+3. Öppna resurs gruppen **Wingtip-sa-Fabrikam-&lt;user&gt;** som innehåller resurserna för fabriks distributionen Fabrikam Jazz.  **Fabrikamjazzclub-&lt;användar&gt;-** servern innehåller **fabrikamjazzclub** -databasen.
 
 Varje klient databas är en *fristående* 50 DTU-databas.
 

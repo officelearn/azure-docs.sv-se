@@ -1,6 +1,6 @@
 ---
 title: Lokala SQL Server
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Använd data från en lokal SQL Server databas för att utföra avancerad analys med den klassiska versionen av Azure Machine Learning Studio.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 78b50ac5f0c39a38815b01ab7510d17eda941425
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7f525a2a81d6cda52b363d1fb808327c9d3c1fb1
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492532"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622091"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-an-on-premises-sql-server-database"></a>Utföra analyser med Azure Machine Learning Studio (klassisk) med hjälp av en lokal SQL Server-databas
 
@@ -43,7 +43,7 @@ Den Data Factory egen värd Integration Runtime har följande krav:
 * Den Data Factory egen värd integrering kräver ett 64-bitars operativ system med .NET Framework 4.6.1 eller senare.
 * De versioner av Windows operativ system som stöds är Windows 10, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016. 
 * Den rekommenderade konfigurationen för IR-datorn är minst 2 GHz, 4 kärnor, 8 GB RAM och 80 GB disk.
-* Om värddatorn försätts i vilo läge svarar IR inte på data begär Anden. Konfigurera därför ett lämpligt energi schema på datorn innan du installerar IR. Om datorn är konfigurerad för vilo läge visar IR-installationen ett meddelande.
+* Om värddatorn i viloläge, svara IR inte på begäranden. Konfigurera därför ett lämpligt energi schema på datorn innan du installerar IR. Om datorn är konfigurerad för vilo läge visar IR-installationen ett meddelande.
 * Eftersom kopierings aktiviteten sker med en speciell frekvens, följer resursanvändningen (CPU, minne) på datorn även samma mönster med hög belastnings tid. Resursutnyttjande beror också på mängden data som flyttas. När flera kopierings jobb pågår, ser du att resursanvändningen går upp under hög belastnings tider. Även om den minsta konfigurationen som anges ovan är tekniskt tillräcklig, kanske du vill ha en konfiguration med fler resurser än den minsta konfigurationen beroende på din speciella belastning för data förflyttning.
 
 Tänk på följande när du konfigurerar och använder en Data Factory Integration Runtime med egen värd:

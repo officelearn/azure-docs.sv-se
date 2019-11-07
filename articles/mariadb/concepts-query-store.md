@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: ab543ee8e379b89aaa9a1133bb75387ed9904002
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.date: 11/04/2019
+ms.openlocfilehash: 67ca6aa36166e8ae08bedec82441e45930976b80
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598402"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604004"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Övervaka Azure Database for MariaDB prestanda med Query Store
 
 **Gäller för:** Azure Database for MariaDB 10,2
-
-> [!IMPORTANT]
-> Query Store är i för hands version.
 
 Funktionen Query Store i Azure Database for MariaDB är ett sätt att spåra frågeresultat över tid. Query Store fören klar prestanda fel sökningen genom att hjälpa dig att snabbt hitta de allra som körs och de flesta resurs intensiva frågor. Query Store samlar automatiskt in en historik över frågor och körnings statistik och behåller dem för din granskning. Den separerar data efter tids period, så att du kan se databas användnings mönster. Data för alla användare, databaser och frågor lagras i databasen **MySQL** schema i Azure Database for MariaDB-instansen.
 
@@ -174,10 +171,10 @@ Den här vyn returnerar information om väntande händelser i Frågearkivet. Det
 
 ## <a name="limitations-and-known-issues"></a>Begränsningar och kända problem
 
-- Om en MariaDB-Server har parametern `default_transaction_read_only` på, kan Query Store inte samla in data.
+- Om en MariaDB-Server har parametern `default_transaction_read_only` på kan Frågearkivet inte samla in data.
 - Query Store-funktionen kan avbrytas om den påträffar långa Unicode-frågor (\> = 6000 byte).
 - Kvarhållningsperioden för väntande statistik är 24 timmar.
-- Väntande statistik använder exempel på Värdejämföring för att avbilda en bråkdel av händelser. Frekvensen kan ändras med hjälp av parametern `query_store_wait_sampling_frequency`.
+- Väntande statistik använder exempel på Värdejämföring för att avbilda en bråkdel av händelser. Frekvensen kan ändras med parametern `query_store_wait_sampling_frequency`.
 
 ## <a name="next-steps"></a>Nästa steg
 

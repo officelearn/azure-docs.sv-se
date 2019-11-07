@@ -1,5 +1,5 @@
 ---
-title: Konfiguration av virtuell dator i sessionen – Azure
+title: Felsök Windows Virtual Desktop-Session värd – Azure
 description: Så här löser du problem när du konfigurerar virtuella Windows-datorer för fjärrskrivbordssessioner-värd.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: a847ba7d782b332d9cae7f83bc1278fea58b8811
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 1470bb049cffce52ae921057bdaece40f3d3161c
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330827"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607401"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Session för konfiguration av virtuell värddator
 
@@ -309,7 +309,7 @@ Om något av dessa meddelanden visas innebär det att avbildningen inte har de s
 
 ### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Inaktivera grup princip inställningen för fjärr skrivbords licensierings läge
 
-Kontrol lera grup princip inställningen genom att öppna grupprincip redigeraren på den virtuella datorn och gå till **Administrativa mallar** > **Windows-komponenter** > **Fjärrskrivbordstjänster** > **värd**för fjärrskrivbordssession @no __t – 7**licens** > **Ange licensierings läget för fjärr skrivbord**. Om grup princip inställningen är **aktive rad**ändrar du den till **inaktive rad**. Om den redan är inaktive rad lämnar du den som den är.
+Kontrol lera grup princip inställningen genom att öppna grupprincip redigeraren på den virtuella datorn och gå till **Administrativa mallar** > **Windows-komponenter** > **Fjärrskrivbordstjänster** > **värd** för fjärrskrivbordssession > **licens** > **ställer in licensierings läget för fjärr skrivbord**. Om grup princip inställningen är **aktive rad**ändrar du den till **inaktive rad**. Om den redan är inaktive rad lämnar du den som den är.
 
 >[!NOTE]
 >Om du anger grup princip via din domän inaktiverar du den här inställningen för principer som riktar sig mot de här Windows 10 Enterprise-datorer med flera sessioner.

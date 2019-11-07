@@ -1,5 +1,5 @@
 ---
-title: Kopiera data från Salesforce Marketing Cloud med Azure Data Factory | Microsoft Docs
+title: Kopiera data från Salesforce Marketing Cloud med Azure Data Factory
 description: Lär dig hur du kopierar data från Salesforce Marketing-moln till mottagar data lager som stöds med hjälp av en kopierings aktivitet i en Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 93d875fa67e9954268cec26f7413b6a4a4131f9c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d66341507b9237e4d41c31997fd59b8a038cb433
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931034"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680362"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory"></a>Kopiera data från Salesforce Marketing Cloud med Azure Data Factory
 
@@ -117,7 +117,7 @@ Om du vill kopiera data från Salesforce Marketing-molnet anger du käll typen i
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **SalesforceMarketingCloudSource** | Ja |
-| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
+| query | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**
 

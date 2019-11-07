@@ -1,5 +1,5 @@
 ---
-title: Meddelande om migrering av Gateway-trafik för Azure SQL Database | Microsoft Docs
+title: Meddelande om migrering av Gateway-trafik för Azure SQL Database
 description: Artikeln innehåller information om migrering av Azure SQL Database Gateway-IP-adresser
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: a2064e0012abea237c1b4c0c6f7e35119c1aeff5
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 37c6c8e0f26d0281c3f6e76cb891fe14eb2ef04e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71686809"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690002"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database trafikmigrering till nyare gateways
 
@@ -29,7 +29,7 @@ Den första avrundingen av trafikmigrering till nyare gateways har schemalagts f
 - Södra Brasilien
 - Västra USA
 - Västra Europa
-- East US
+- Östra USA
 - Centrala USA
 - Sydostasien
 - Södra centrala USA

@@ -1,5 +1,5 @@
 ---
-title: Visuell redigering i Azure Data Factory | Microsoft Docs
+title: Visuell redigering i Azure Data Factory
 description: Lär dig hur du använder visuell redigering i Azure Data Factory
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: e8b9aa3af6b15272e19589eb422016f4abd9380f
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 71f0e283c9609e949cc9b09f20a16c6f5c9c3e50
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883611"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681615"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visuell redigering i Azure Data Factory
 

@@ -1,5 +1,5 @@
 ---
-title: Uppgradera till det senaste klient biblioteket för Elastic Database | Microsoft Docs
+title: Uppgradera till det senaste klient biblioteket för Elastic Database
 description: Använd NuGet för att uppgradera klient biblioteket för Elastic Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: 286fa60fef8de5240fb2ccd0f14ced0c4e38ff73
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: acf722268ae7ea5c8b444467f0b5c658d919096c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981355"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690124"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Uppgradera en app för att använda det senaste klient biblioteket för Elastic Database
 
@@ -30,7 +30,7 @@ Genom att utföra de här stegen i ordning ser du till att gamla versioner av kl
 
 ## <a name="upgrade-steps"></a>Uppgraderings steg
 
-**1. Uppgradera dina program.** I Visual Studio kan du hämta och referera till den senaste klient biblioteks versionen i alla dina utvecklings projekt som använder biblioteket. återskapa och distribuera sedan.
+**1. uppgradera dina program.** I Visual Studio kan du hämta och referera till den senaste klient biblioteks versionen i alla dina utvecklings projekt som använder biblioteket. återskapa och distribuera sedan.
 
 * I din Visual Studio-lösning väljer du **verktyg** --> **NuGet Package Manager** -->  **Hantera NuGet-paket för lösningen**.
 * (Visual Studio 2013) Välj **uppdateringar**i den vänstra panelen och välj sedan knappen **uppdatera** i paketet **Azure SQL Database klient biblioteket för elastisk skala** som visas i fönstret.
@@ -38,21 +38,21 @@ Genom att utföra de här stegen i ordning ser du till att gamla versioner av kl
 * (Visual Studio 2017) Överst i dialog rutan väljer du **uppdateringar**. Välj det paket som ska uppdateras och klicka på knappen **Uppdatera** .
 * Bygg och distribuera.
 
-**2. Uppgradera dina skript.** Om du använder **PowerShell** -skript för att hantera Shards, [laddar du ned den nya biblioteks versionen](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) och kopierar den till den katalog som du kör skripten från.
+**2. uppgradera skripten.** Om du använder **PowerShell** -skript för att hantera Shards, [laddar du ned den nya biblioteks versionen](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) och kopierar den till den katalog som du kör skripten från.
 
-**3. Uppgradera tjänsten för delad sammanslagning.** Om du använder verktyget för delning och sammanslagning av elastiska databaser för att omorganisera shardade-data, [laddar du ned och distribuerar den senaste versionen av verktyget](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/). Detaljerade uppgraderings steg för tjänsten hittar du [här](sql-database-elastic-scale-overview-split-and-merge.md).
+**3. uppgradera tjänsten för delad sammanslagning.** Om du använder verktyget för delning och sammanslagning av elastiska databaser för att omorganisera shardade-data, [laddar du ned och distribuerar den senaste versionen av verktyget](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/). Detaljerade uppgraderings steg för tjänsten hittar du [här](sql-database-elastic-scale-overview-split-and-merge.md).
 
-**4. Uppgradera dina Shard Map Manager-** databaser. Uppgradera metadata som stöder dina Shard-kartor i Azure SQL Database.  Det finns två sätt som du kan utföra med hjälp av PowerShell C#eller. Båda alternativen visas nedan.
+**4. uppgradera Shard Map Manager-databaserna**. Uppgradera metadata som stöder dina Shard-kartor i Azure SQL Database.  Det finns två sätt som du kan utföra med hjälp av PowerShell C#eller. Båda alternativen visas nedan.
 
-***Alternativ 1: Uppgradera metadata med PowerShell***
+***Alternativ 1: uppgradera metadata med PowerShell***
 
-1. Hämta det senaste kommando rads verktyget för NuGet härifrån och [](https://nuget.org/nuget.exe) Spara det i en mapp.
-2. Öppna en kommando tolk, navigera till samma mapp och utfärda kommandot:`nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`
-3. Navigera till undermappen som innehåller den nya klient-DLL-version som du precis har laddat ned, till exempel:`cd .\Microsoft.Azure.SqlDatabase.ElasticScale.Client.1.0.0\lib\net45`
+1. Hämta det senaste kommando rads verktyget för NuGet [härifrån och spara det i en](https://nuget.org/nuget.exe) mapp.
+2. Öppna en kommando tolk, navigera till samma mapp och utfärda kommandot: `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`
+3. Navigera till undermappen som innehåller den nya klient-DLL-version som du precis har laddat ned, till exempel: `cd .\Microsoft.Azure.SqlDatabase.ElasticScale.Client.1.0.0\lib\net45`
 4. Hämta klient uppgraderings skriptet för Elastic Database från [Script Center](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-Elastic-6442e6a9)och spara det i samma mapp som innehåller DLL-filen.
 5. Från den mappen kör du PowerShell-.\upgrade.ps1 från kommando tolken och följer anvisningarna.
 
-***Alternativ 2: Uppgradera metadata medC#***
+***Alternativ 2: uppgradera metadata medC#***
 
 Du kan också skapa ett Visual Studio-program som öppnar din ShardMapManager, itereras över alla Shards och utför metadata-uppgraderingen genom att anropa metoderna [UpgradeLocalStore](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradelocalstore) och [UpgradeGlobalStore](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradeglobalstore) som i det här exemplet:
 

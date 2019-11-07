@@ -1,5 +1,5 @@
 ---
-title: Tills aktivitet i Azure Data Factory | Microsoft Docs
+title: Tills aktivitet i Azure Data Factory
 description: Aktiviteten until kör en uppsättning aktiviteter i en slinga tills villkoret som är associerat med aktiviteten utvärderas till sant eller tids gränsen uppnås.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 80eebf0813b6403d5e1e8ff510003f7f0f57c821
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: ab24b4f3a819e2b44c68d052c355f10219eb1dc4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142455"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679346"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Tills aktivitet i Azure Data Factory
 Aktiviteten until ger samma funktioner som en göra-till-slinga-struktur i programmeringsspråk. En uppsättning aktiviteter körs i en loop tills det villkor som är associerat med aktiviteten utvärderas till sant. Du kan ange en tidsgräns för Until-aktiviteten i Data Factory. 
@@ -51,12 +51,12 @@ Aktiviteten until ger samma funktioner som en göra-till-slinga-struktur i progr
 
 ## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
+Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-name | `Until` Aktivitetens namn. | Sträng | Ja
-type | Måste anges till till. | Sträng | Ja
-expression | Uttryck som måste utvärderas till sant eller falskt | Uttryck.  | Ja
-timeout | Loopen för att göra-tills-tiden är slut efter den angivna tiden här. | Nollängd. `d.hh:mm:ss`eller `hh:mm:ss`. Standardvärdet är 7 dagar. Högsta värde är: 90 dagar. | Nej
+namn | `Until` aktivitetens namn. | Sträng | Ja
+typ | Måste **anges till till.** | Sträng | Ja
+uttryck | Uttryck som måste utvärderas till sant eller falskt | Uttryck.  | Ja
+timeout | Loopen för att göra-tills-tiden är slut efter den angivna tiden här. | nollängd. `d.hh:mm:ss` (eller) `hh:mm:ss`. Standardvärdet är 7 dagar. Högsta värde är: 90 dagar. | Nej
 Aktiviteter | Uppsättning aktiviteter som körs tills uttrycket utvärderas till `true`. | Matris med aktiviteter. |  Ja
 
 ## <a name="example-1"></a>Exempel 1
@@ -65,7 +65,7 @@ Aktiviteter | Uppsättning aktiviteter som körs tills uttrycket utvärderas til
 > Det här avsnittet innehåller JSON-definitioner och exempel på PowerShell-kommandon för att köra pipelinen. En genom gång med stegvisa instruktioner för att skapa en Data Factory pipeline med hjälp av Azure PowerShell-och JSON-definitioner finns i [Självstudier: skapa en data fabrik med hjälp av Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### <a name="pipeline-with-until-activity"></a>Pipeline med till-aktivitet
-I det här exemplet har pipelinen två aktiviteter: **Till** och med **vänta**. Vänta-aktiviteten väntar under den angivna tids perioden innan webb aktiviteten körs i slingan. Information om uttryck och funktioner i Data Factory finns i uttrycks [språk och funktioner](control-flow-expression-language-functions.md). 
+I det här exemplet har pipelinen två aktiviteter: **till** och med **vänta**. Vänta-aktiviteten väntar under den angivna tids perioden innan webb aktiviteten körs i slingan. Information om uttryck och funktioner i Data Factory finns i [uttrycks språk och funktioner](control-flow-expression-language-functions.md). 
 
 ```json
 {

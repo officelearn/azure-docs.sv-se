@@ -1,5 +1,5 @@
 ---
-title: Använda identitet för att skapa surrogat nycklar – Azure SQL Data Warehouse | Microsoft Docs
+title: Använda identitet för att skapa surrogat nycklar
 description: Rekommendationer och exempel för att använda identitets egenskapen för att skapa surrogat nycklar i tabeller i Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 4c65bf7cc8edfa246508bb22001aed40c34414f3
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 0ee15b975b5513077b26cceeb80ea3fb8c02456b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515592"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692466"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Använda identitet för att skapa surrogat nycklar i Azure SQL Data Warehouse
 
@@ -76,13 +77,13 @@ FROM dbo.T1;
 DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
-I föregående exempel är två rader som landats i distribution 1. Den första raden har surrogat värdet 1 i kolumnen `C1`och den andra raden har surrogat värdet 61. Båda värdena genererades av identitets egenskapen. Allokeringen av värdena är dock inte sammanhängande. Det här beteendet är avsiktligt.
+I föregående exempel är två rader som landats i distribution 1. Den första raden har surrogat värdet 1 i kolumn `C1`och den andra raden har surrogat värdet 61. Båda värdena genererades av identitets egenskapen. Allokeringen av värdena är dock inte sammanhängande. Det här beteendet är avsiktligt.
 
 ### <a name="skewed-data"></a>Skevade data
 
 Intervallet av värden för data typen sprids jämnt över distributionerna. Om en distribuerad tabell lider av skevade data kan det förfallna intervallet av värden som är tillgängliga för data typen vara förbrukat för tidigt. Om till exempel alla data avslutas i en enda distribution, så har tabellen i praktiken bara åtkomst till en-sixtieth av värdena för data typen. Av den anledningen är identitets egenskapen begränsad till `INT` och `BIGINT` endast data typer.
 
-### <a name="selectinto"></a>VÄLJ... IKRAFTTRÄDANDE
+### <a name="selectinto"></a>Välj... IKRAFTTRÄDANDE
 
 När en befintlig identitets kolumn väljs i en ny tabell ärver den nya kolumnen identitets egenskapen, om inte något av följande villkor är uppfyllt:
 
@@ -95,7 +96,7 @@ Om något av dessa villkor är uppfyllt, skapas kolumnen inte NULL i stället f�
 
 ### <a name="create-table-as-select"></a>CREATE TABLE SOM VÄLJ
 
-CREATE TABLE AS SELECT (CTAS) följer samma SQL Server beteende som dokumenteras för SELECT. Ikraftträdande. Du kan dock inte ange en identitets egenskap i kolumn definitionen för `CREATE TABLE` -instruktionens del. Du kan inte heller använda funktionen Identity i `SELECT` den del av CTAs. För att fylla i en tabell måste du använda `CREATE TABLE` för att definiera tabellen följt av `INSERT..SELECT` för att fylla i den.
+CREATE TABLE AS SELECT (CTAS) följer samma SQL Server beteende som dokumenteras för SELECT. Ikraftträdande. Du kan dock inte ange en identitets egenskap i kolumn definitionen för `CREATE TABLE` delen av instruktionen. Du kan inte heller använda funktionen IDENTITY i `SELECT` delen av CTAS. Om du vill fylla i en tabell måste du använda `CREATE TABLE` för att definiera tabellen följt av `INSERT..SELECT` att fylla i den.
 
 ## <a name="explicitly-inserting-values-into-an-identity-column"></a>Infoga värden explicit i en identitets kolumn
 
@@ -122,7 +123,7 @@ FROM    dbo.T1
 ;
 ```
 
-## <a name="loading-data"></a>Läser in data
+## <a name="loading-data"></a>Läsa in data
 
 Förekomsten av egenskapen IDENTITY har vissa följder för din data inläsnings kod. I det här avsnittet beskrivs några grundläggande mönster för att läsa in data i tabeller med hjälp av identitet.
 
@@ -211,7 +212,7 @@ Kolumn C1 är IDENTITETen i alla följande uppgifter.
 
 ### <a name="find-the-highest-allocated-value-for-a-table"></a>Hitta det högsta allokerade värdet för en tabell
 
-`MAX()` Använd funktionen för att fastställa det högsta tilldelade värdet för en distribuerad tabell:
+Använd funktionen `MAX()` för att fastställa det högsta tilldelade värdet för en distribuerad tabell:
 
 ```sql
 SELECT MAX(C1)

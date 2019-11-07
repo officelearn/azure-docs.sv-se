@@ -1,5 +1,5 @@
 ---
-title: PowerShell för VNet-slutpunkter och regler för databaser med enkel och pool i Azure SQL | Microsoft Docs
+title: 'PowerShell för VNet-slutpunkter och regler för databaser med enkel och pool i Azure SQL '
 description: Tillhandahåller PowerShell-skript för att skapa och hantera slut punkter för virtuella tjänster för Azure SQL Database och SQL Data Warehouse.
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 326eec68ed3ca1d42552b89fe4519d24c62cf12a
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 0f3c44d705cb3d8b6ff2d855686394d9e9f1575e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841366"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686843"
 ---
-# <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell:  Skapa en virtuell tjänst slut punkt och VNet-regel för SQL
+# <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell: skapa en virtuell tjänst slut punkt och VNet-regel för SQL
 
 *Regler för virtuella nätverk* är en brand Väggs säkerhetsfunktion som styr om databas servern för dina enskilda databaser och elastisk pool i Azure [SQL Database](sql-database-technical-overview.md) eller för dina databaser i [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepterar kommunikation som skickas från särskilda undernät i virtuella nätverk.
 
@@ -30,7 +30,7 @@ Den här artikeln innehåller och förklarar ett PowerShell-skript som vidtar f�
 1. Skapar en Microsoft Azure *virtuell tjänst slut punkt* i ditt undernät.
 2. Lägger till slut punkten i brand väggen för din Azure SQL Database-Server för att skapa en *regel för virtuella nätverk*.
 
-Dina motivation för att skapa en regel beskrivs i: [Virtuella tjänst slut punkter för Azure SQL Database][sql-db-vnet-service-endpoint-rule-overview-735r].
+Dina motivation för att skapa en regel beskrivs i: [Virtual service-slutpunkter för Azure SQL Database][sql-db-vnet-service-endpoint-rule-overview-735r].
 
 > [!TIP]
 > Om allt du behöver är att utvärdera eller lägga till namnet på den virtuella tjänstens slut punkts *typ* för SQL Database till ditt undernät kan du gå vidare till vårt mer [direkt PowerShell-skript](#a-verify-subnet-is-endpoint-ps-100).
@@ -45,11 +45,11 @@ Den här artikeln betonar cmdleten **New-AzSqlServerVirtualNetworkRule** som lä
 
 I följande lista visas sekvensen för andra *större* cmdlets som du måste köra för att förbereda för ditt anrop till **New-AzSqlServerVirtualNetworkRule**. I den här artikeln sker dessa anrop i [skript 3 "regel för virtuellt nätverk"](#a-script-30):
 
-1. [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig): Skapar ett under näts objekt.
-2. [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork): Skapar det virtuella nätverket, vilket ger det under nätet.
-3. [Set-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetworkSubnetConfig): Tilldelar ditt undernät en virtuell tjänst slut punkt.
-4. [Set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetwork): Behåller uppdateringar som gjorts i det virtuella nätverket.
-5. [New-AzSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule): När under nätet är en slut punkt lägger du till ditt undernät som en virtuell nätverks regel i åtkomst kontrol listan för din Azure SQL Database Server.
+1. [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig): skapar ett under näts objekt.
+2. [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork): skapar ditt virtuella nätverk, vilket ger det under nätet.
+3. [Set-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetworkSubnetConfig): tilldelar en virtuell tjänst slut punkt till ditt undernät.
+4. [Set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetwork): behåller uppdateringar som gjorts i det virtuella nätverket.
+5. [New-AzSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule): när under nätet är en slut punkt lägger du till ditt undernät som en virtuell nätverks regel i åtkomst kontrol listan för din Azure SQL Database Server.
    - Denna cmdlet erbjuder parametern **-IgnoreMissingVNetServiceEndpoint**, som startar i Azure RM PowerShell-modul version 5.1.1.
 
 ## <a name="prerequisites-for-running-powershell"></a>Krav för att köra PowerShell
@@ -66,7 +66,7 @@ PowerShell-skriptet i demonstrationen är indelat i en sekvens med mindre skript
 
 <a name="a-script-10" />
 
-### <a name="script-1-variables"></a>Skript 1: Variabler
+### <a name="script-1-variables"></a>Skript 1: variabler
 
 Det första PowerShell-skriptet tilldelar variabler värden. De efterföljande skripten är beroende av dessa variabler.
 
@@ -115,7 +115,7 @@ Write-Host 'Completed script 1, the "Variables".';
 
 <a name="a-script-20" />
 
-### <a name="script-2-prerequisites"></a>Skript 2: Förutsättningar
+### <a name="script-2-prerequisites"></a>Skript 2: krav
 
 Det här skriptet förbereder för nästa skript, där slut punkts åtgärden är. Det här skriptet skapar för dig följande objekt i listan, men endast om de inte redan finns. Du kan hoppa över skript 2 om du är säker på att dessa objekt redan finns:
 
@@ -206,7 +206,7 @@ Write-Host 'Completed script 2, the "Prerequisites".';
 
 <a name="a-script-30" />
 
-## <a name="script-3-create-an-endpoint-and-a-rule"></a>Skript 3: Skapa en slut punkt och en regel
+## <a name="script-3-create-an-endpoint-and-a-rule"></a>Skript 3: skapa en slut punkt och en regel
 
 Det här skriptet skapar ett virtuellt nätverk med ett undernät. Sedan tilldelar skriptet **Microsoft. SQL** -slutpunkts typen till ditt undernät. Slutligen lägger skriptet till ditt undernät i åtkomst kontrol listan (ACL) för SQL Database-servern, vilket skapar en regel.
 

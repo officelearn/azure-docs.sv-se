@@ -1,5 +1,5 @@
 ---
-title: Microsoft Defender Avancerat skydd med Azure Security Center
+title: Microsoft Defender Avancerat skydd – Azure Security Center
 description: Det här dokumentet beskriver integrationen mellan Azure Security Center och Microsoft Defender Avancerat skydd.
 services: security-center
 documentationcenter: na
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: 6ceed914d1c69ccdfce5d7acb6dcfc1afc9ef868
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 46b9fe5c6a038aa98cf8df64c40bf8ea1747efec
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819882"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663597"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Microsoft Defender Avancerat skydd med Azure Security Center
 
@@ -95,7 +95,7 @@ Om du har en proxy eller brand vägg som blockerar anonym trafik, som en Microso
 
 Så här skapar du en ofarlig test avisering för Microsoft Defender ATP:
 
-1. Använd fjärr skrivbord för att få åtkomst till antingen en virtuell Windows Server 2012 R2-dator eller en virtuell Windows Server 2016-dator.  Öppna ett kommandotolksfönster.
+1. Använd fjärr skrivbord för att få åtkomst till antingen en virtuell Windows Server 2012 R2-dator eller en virtuell Windows Server 2016-dator. Öppna ett kommandotolksfönster.
 
 2. Kopiera och kör följande kommando i kommando tolken. Kommando tolks fönstret stängs automatiskt.
 
@@ -107,7 +107,7 @@ Så här skapar du en ofarlig test avisering för Microsoft Defender ATP:
 
 3. Om kommandot lyckas visas en ny avisering på instrument panelen för Azure Security Center och Microsoft Defender ATP-portalen. Den här aviseringen kan ta några minuter innan den visas.
 
-4. Om du vill granska aviseringen i Security Center går du till **säkerhets aviseringar** >  **misstänkt PowerShell-kommandorad**.
+4. Om du vill granska aviseringen i Security Center går du till **säkerhets aviseringar** > **misstänkt PowerShell-kommandorad**.
 
 5. I undersöknings fönstret väljer du länken för att gå till Microsoft Defender ATP-portalen.
 

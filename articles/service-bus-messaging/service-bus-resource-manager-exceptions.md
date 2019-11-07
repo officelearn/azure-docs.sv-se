@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2019
 ms.author: aschhab
-ms.openlocfilehash: 9a2d25aba03156d6d14fe5ef9aa58b3748033b85
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 25b0c14fb94cba611dfa9fa9bece1b728f39a905
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72296381"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585212"
 ---
 # <a name="service-bus-resource-manager-exceptions"></a>Undantag för Service Bus Resource Manager
 
@@ -72,3 +72,20 @@ Den här fel klassen anger att resursen inte hittades.
 | Hittades inte | ingen | Hittades inte. Åtgärden finns inte. | Åtgärden som du försöker utföra finns inte. | Kontrol lera åtgärden och försök igen. |
 | Hittades inte | ingen | Den inkommande begäran identifieras inte som en begäran om att lagra en namn områdes princip. | Den inkommande begär ande texten är null och kan därför inte köras som en begäran. | Kontrol lera begär ande texten och se till att den inte är null. | 
 | Hittades inte | ingen | Det gick inte att hitta *enhets namnet* för meddelande enheten. | Det gick inte att hitta den entitet som du försöker köra åtgärden mot. | Kontrol lera om entiteten finns och försök sedan igen. |
+
+## <a name="error-code-internal-server-error"></a>Felkod: internt Server fel
+
+Den här fel klassen anger att det uppstod ett internt Server fel
+
+| Felkod | Fel under kod | Felmeddelande | Beskrivning | Rekommendation |
+| ---------- | ------------- | ------------- | ----------- | -------------- |
+| Internt Server fel | 50000 | Under kod = 50000. Internt Server fel| Kan bero på olika orsaker. Några av symptomen är- <ul> <li> Klientbegäran/bröd texten är skadad och leder till ett fel. </li> <li> Klientbegäran nådde tids gränsen på grund av bearbetnings problem på tjänsten. </li> </ul> | Så här löser du detta <ul> <li> Se till att parametrarna för begär Anden inte är null eller felaktiga. </li> <li> Gör om begäran. </li> </ul> |
+
+## <a name="error-code-unauthorized"></a>Felkod: obehörig
+
+Den här fel klassen indikerar frånvaron av auktorisering för att köra kommandot.
+
+| Felkod | Fel under kod | Felmeddelande | Beskrivning | Rekommendation |
+| ---------- | ------------- | ------------- | ----------- | -------------- |
+| Behörighet saknas | ingen | Ogiltig åtgärd för sekundärt namn område. Det sekundära namn området är skrivskyddat. | Åtgärden utfördes mot det sekundära namn området, som installeras som en skrivskyddad namnrymd. | Gör om kommandot mot det primära namn området. Läs mer om [sekundär namnrymd](service-bus-geo-dr.md) |
+| Behörighet saknas | ingen | MissingToken: det gick inte att hitta Authorization-huvudet. | Felet uppstår när auktoriseringen har null eller felaktiga värden. | Se till att det token-värde som anges i Authorization-huvudet är korrekt och inte null. |

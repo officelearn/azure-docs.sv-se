@@ -9,12 +9,12 @@ ms.date: 07/25/2019
 ms.topic: conceptual
 description: Lär dig hur du kör Azure dev Spaces i ett befintligt kluster med Windows-behållare
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes-tjänsten, behållare, Windows-behållare
-ms.openlocfilehash: 6c15534d5d47ba384a0f368f5d212fb1350e5229
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 90d7c8e5fc08405178ab6596b765f289b9bd716f
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858594"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582779"
 ---
 # <a name="use-azure-dev-spaces-to-interact-with-windows-containers"></a>Använd Azure dev Spaces för att interagera med Windows-behållare
 
@@ -57,7 +57,7 @@ kubectl taint node aksnpwin987654 sku=win-node:NoSchedule
 
 Kör Windows-tjänsten på ditt AKS-kluster och kontrol lera att den är i ett *Kör* tillstånd. I den här artikeln används ett [exempel program][sample-application] för att demonstrera en Windows-och Linux-tjänst som körs i klustret.
 
-Klona exempel programmet från GitHub och navigera till `dev-spaces/samples/existingWindowsBackend/mywebapi-windows` katalogen:
+Klona exempel programmet från GitHub och navigera till `dev-spaces/samples/existingWindowsBackend/mywebapi-windows`-katalogen:
 
 ```console
 git clone https://github.com/Azure/dev-spaces
@@ -73,7 +73,7 @@ kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admi
 kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
 ``` 
 
-Navigera till `charts` katalogen och kör Windows-tjänsten:
+Navigera till `charts` Directory och kör Windows-tjänsten:
 
 ```console
 cd charts/
@@ -82,7 +82,7 @@ helm install . --namespace dev
 
 Kommandot ovan använder Helm för att köra Windows-tjänsten i *dev* -namnområdet. Om du inte har ett namn område med namnet *dev*kommer det att skapas.
 
-`kubectl get pods` Använd kommandot för att kontrol lera att Windows-tjänsten körs i klustret. 
+Använd kommandot `kubectl get pods` för att kontrol lera att Windows-tjänsten körs i klustret. 
 
 ```console
 $ kubectl get pods --namespace dev --watch
@@ -102,9 +102,9 @@ az aks use-dev-spaces -g myResourceGroup -n myAKSCluster --space dev --yes
 
 ## <a name="update-your-windows-service-for-dev-spaces"></a>Uppdatera din Windows-tjänst för dev Spaces
 
-När du aktiverar dev Spaces i ett befintligt namn område med behållare som redan körs, kommer som standard att försöka utföra och instrumentera nya behållare som körs i namn området. Dev-utrymmen kommer också att prova och instrumentera nya behållare som skapats för tjänsten som redan körs i namn området. Om du vill förhindra att dev-Spaces instrumenterar en behållare som körs i namn området lägger du till huvudet `deployment.yaml` *no-proxy* i.
+När du aktiverar dev Spaces i ett befintligt namn område med behållare som redan körs, kommer som standard att försöka utföra och instrumentera nya behållare som körs i namn området. Dev-utrymmen kommer också att prova och instrumentera nya behållare som skapats för tjänsten som redan körs i namn området. Om du vill förhindra att dev-Spaces instrumenterar en behållare som körs i namn området lägger du till huvudet *no-proxy* i `deployment.yaml`.
 
-Lägg `azds.io/no-proxy: "true"` till`existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml` i filen:
+Lägg till `azds.io/no-proxy: "true"` i `existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml`-filen:
 
 ```yaml
 apiVersion: apps/v1
@@ -123,7 +123,7 @@ spec:
         azds.io/no-proxy: "true"
 ```
 
-Använd `helm list` för att visa en lista över distributionen för din Windows-tjänst:
+Använd `helm list` för att Visa distributionen för din Windows-tjänst:
 
 ```cmd
 $ helm list
@@ -131,18 +131,18 @@ NAME            REVISION    UPDATED                     STATUS      CHART       
 gilded-jackal   1           Wed Jul 24 15:45:59 2019    DEPLOYED    mywebapi-0.1.0  1.0         dev  
 ```
 
-I ovanstående exempel är namnet på din distribution *Gilded-Jackal*. Uppdatera din Windows-tjänst med den nya konfigurationen `helm upgrade`med hjälp av:
+I ovanstående exempel är namnet på din distribution *Gilded-Jackal*. Uppdatera din Windows-tjänst med den nya konfigurationen med hjälp av `helm upgrade`:
 
 ```cmd
 $ helm upgrade gilded-jackal . --namespace dev
 Release "gilded-jackal" has been upgraded.
 ```
 
-Eftersom du `deployment.yaml`har uppdaterat kommer inte dev Spaces att försöka utföra och instrumentera din tjänst.
+Eftersom du har uppdaterat din `deployment.yaml`kommer inte dev Spaces att försöka utföra och instrumentera din tjänst.
 
 ## <a name="run-your-linux-application-with-azure-dev-spaces"></a>Köra Linux-programmet med Azure dev Spaces
 
-Navigera till `webfrontend` katalogen och `azds prep` Använd-och `azds up` -kommandona för att köra Linux-programmet i klustret.
+Navigera till `webfrontend` katalogen och Använd kommandot `azds prep` och `azds up` för att köra Linux-programmet i klustret.
 
 ```console
 cd ../../webfrontend-linux/
@@ -150,7 +150,7 @@ azds prep --public
 azds up
 ```
 
-`azds prep --public` Kommandot genererar Helm-diagrammet och Dockerfiles för ditt program. `azds up` Kommandot kör tjänsten i namn området.
+Kommandot `azds prep --public` genererar Helm-diagrammet och Dockerfiles för ditt program. Kommandot `azds up` kör tjänsten i namn området.
 
 ```console
 $ azds up
@@ -168,7 +168,7 @@ Service 'webfrontend' port 'http' is available at http://dev.webfrontend.abcdef0
 Service 'webfrontend' port 80 (http) is available via port forwarding at http://localhost:57648
 ```
 
-Du kan se den tjänst som körs genom att öppna den offentliga URL: en, som visas i utdata från kommandot azds up. I det här exemplet är `http://dev.webfrontend.abcdef0123.eus.azds.io/`den offentliga URL: en. Navigera till tjänsten i en webbläsare och *Klicka på överst* . Kontrol lera att du ser ett meddelande från *mywebapi* -tjänsten som innehåller den version av Windows som behållaren använder.
+Du kan se den tjänst som körs genom att öppna den offentliga URL: en, som visas i utdata från kommandot azds up. I det här exemplet är den offentliga URL: en `http://dev.webfrontend.abcdef0123.eus.azds.io/`. Navigera till tjänsten i en webbläsare och *Klicka på överst* . Kontrol lera att du ser ett meddelande från *mywebapi* -tjänsten som innehåller den version av Windows som behållaren använder.
 
 ![Exempel program som visar Windows-version från mywebapi](../media/run-dev-spaces-windows-containers/sample-app.png)
 
@@ -181,7 +181,7 @@ Lär dig hur Azure dev Spaces hjälper dig att utveckla mer komplexa program öv
 
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[helm-installed]: https://github.com/helm/helm/blob/master/docs/install.md
+[helm-installed]: https://helm.sh/docs/using_helm/#installing-helm
 [sample-application]: https://github.com/Azure/dev-spaces/tree/master/samples/existingWindowsBackend
 [sample-application-toleration-example]: https://github.com/Azure/dev-spaces/blob/master/samples/existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml#L24-L27
 [team-development-qs]: ../quickstart-team-development.md

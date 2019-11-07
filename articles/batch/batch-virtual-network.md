@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: b4be715bd910326b3d06837508e7a07ac853189f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 78f29bacaadac5f01e4a8dd26bf03b2bda84f2bf
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322653"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73577568"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Skapa en Azure Batch pool i ett virtuellt nätverk
 
@@ -24,7 +24,7 @@ När du skapar en Azure Batch pool kan du etablera poolen i ett undernät för e
 
 En Azure Batch pool har inställningar för att tillåta att Compute-noder kommunicerar med varandra, till exempel för att köra aktiviteter med flera instanser. De här inställningarna kräver inte ett separat VNet. Noderna kan som standard inte kommunicera med virtuella datorer som inte ingår i batch-poolen, till exempel en licens Server eller en fil server. Om du vill tillåta att datornoder i pooler kommunicerar säkert med andra virtuella datorer eller med ett lokalt nätverk kan du etablera poolen i ett undernät för ett Azure VNet. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * **Autentisering**. Om du vill använda ett Azure VNet-nätverk måste Batch-klientens API använda Azure Active Directory-autentisering (AD). Mer dokumentation om stödet för Azure Batch i Azure Active Directory finns i [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md) (Autentisera lösningar för Batch-tjänsten med Active Directory). 
 
@@ -56,9 +56,9 @@ Du kan ha krav i din organisation för att omdirigera (tvinga) Internet-baserad 
 
 Du måste lägga till följande [användardefinierade vägar](../virtual-network/virtual-networks-udr-overview.md) för under nätet för att säkerställa att beräknings noder för Azure Batch pool fungerar i ett VNet som har Tvingad tunnel trafik aktiverat:
 
-* Batch-tjänsten måste kommunicera med datornoder för att schemalägga aktiviteter. Om du vill aktivera den här kommunikationen lägger du till en användardefinierad väg för varje IP-adress som används av batch-tjänsten i den region där ditt batch-konto finns. Information om hur du hämtar listan över IP-adresser för batch-tjänsten finns i [tjänst Taggar i lokalt](../virtual-network/security-overview.md#service-tags-in-on-premises)
+* Batch-tjänsten måste kommunicera med datornoder för att schemalägga aktiviteter. Om du vill aktivera den här kommunikationen lägger du till en användardefinierad väg för varje IP-adress som används av batch-tjänsten i den region där ditt batch-konto finns. Information om hur du hämtar listan över IP-adresser för batch-tjänsten finns i [tjänst Taggar i lokalt](../virtual-network/service-tags-overview.md)
 
-* Se till att den utgående trafiken till Azure Storage (särskilt webb adresserna `<account>.table.core.windows.net`i `<account>.queue.core.windows.net`formuläret, `<account>.blob.core.windows.net`och) inte är blockerad via den lokala nätverks enheten.
+* Se till att utgående trafik till Azure Storage (särskilt URL-adresser i formulär `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`och `<account>.blob.core.windows.net`) inte blockeras via din lokala nätverks enhet.
 
 När du lägger till en användardefinierad väg definierar du vägen för varje relaterat kommando-IP-adressprefix och anger **nästa hopp typ** till **Internet**. Se följande exempel:
 

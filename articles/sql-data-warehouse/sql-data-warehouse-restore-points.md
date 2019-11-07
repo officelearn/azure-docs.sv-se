@@ -1,5 +1,5 @@
 ---
-title: Användardefinierade återställnings punkter | Microsoft Docs
+title: Användardefinierade återställnings punkter
 description: Så här skapar du en återställnings punkt Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: anumjs
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 07/03/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 9dcb8b2e9c1b75aac3c195f89777ac9c6eb030d7
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 61ceb2f1271d085321215aff1c6d138feb95d743
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575259"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692507"
 ---
 # <a name="user-defined-restore-points"></a>Användardefinierade återställnings punkter
 
@@ -65,7 +66,7 @@ Användardefinierade återställnings punkter kan också skapas via Azure Portal
 
 3. Välj **Översikt** i den vänstra rutan och välj **+ ny återställnings punkt**. Om knappen Ny återställnings punkt inte är aktive rad kontrollerar du att informations lagret inte har pausats.
 
-    ![Ny återställningspunkt](./media/sql-data-warehouse-restore-points/creating-restore-point-01.png)
+    ![Ny återställnings punkt](./media/sql-data-warehouse-restore-points/creating-restore-point-01.png)
 
 4. Ange ett namn för den användardefinierade återställnings punkten och klicka på **Använd**. Användardefinierade återställnings punkter har en standard kvarhållningsperiod på sju dagar.
 

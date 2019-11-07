@@ -1,5 +1,5 @@
 ---
-title: Distribuera en tjänst för delad sammanslagning | Microsoft Docs
+title: Distribuera en tjänst för att dela/sammanslå
 description: Använd dela-merge för att flytta data mellan shardade-databaser.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: a8c50f492c28bf1e009d15d6332e939959190a49
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 009fb4be61aad5c700c7520764e9414ed9422721
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568503"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690310"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Distribuera en tjänst för delad sammanslagning för att flytta data mellan shardade-databaser
 
@@ -32,7 +32,7 @@ Med verktyget Dela-sammanslagning kan du flytta data mellan shardade-databaser. 
 
 Filerna placeras i en katalog med namnet **Microsoft. Azure. SqlDatabase. ElasticScale. service. SplitMerge. x. x. xxx. x** där *x. x. xxx. x* visar versions numret. Hitta filerna för delade sammanslagna tjänster i **content\splitmerge\service** under katalog och PowerShell-skripten för delad sammanslagning (och obligatoriska klient-dll: er) i under katalogen för **content\splitmerge\powershell** .
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 1. Skapa en Azure SQL DB-databas som ska användas som databas för delad sammanslagnings status. Gå till [Azure-portalen](https://portal.azure.com). Skapa en ny **SQL Database**. Ge databasen ett namn och skapa en ny administratör och ett nytt lösen ord. Se till att du registrerar namnet och lösen ordet för senare användning.
 2. Se till att Azure SQL DB-servern tillåter att Azure-tjänster ansluter till den. I **brand Väggs inställningarna**i portalen kontrollerar du att inställningen **Tillåt åtkomst till Azure-tjänster** är inställd på **på**. Klicka på ikonen "Spara".
 3. Skapa ett Azure Storage-konto för diagnostiska utdata.
@@ -45,7 +45,7 @@ Filerna placeras i en katalog med namnet **Microsoft. Azure. SqlDatabase. Elasti
 3. Skapa en ny databas eller Välj en befintlig databas som ska fungera som status databas för delnings sammanslagnings åtgärder och hämta anslutnings strängen för databasen. 
    
    > [!IMPORTANT]
-   > För tillfället måste status databasen använda den latinska\_sorteringen (SQL Latin1\_General\_CP1\_CI\_as). Mer information finns i [Windows sorterings namn (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
+   > För tillfället måste status databasen använda den latinska sorteringen (SQL\_Latin1\_General\_CP1\_CI\_AS). Mer information finns i [Windows sorterings namn (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
    >
 
    Med Azure SQL DB är anslutnings strängen vanligt vis av formatet:
@@ -146,7 +146,7 @@ Om din arbets roll inte kan anslutas, men din webb roll lyckas, är det förmodl
 
 ## <a name="test-the-service-deployment"></a>Testa tjänst distributionen
 ### <a name="connect-with-a-web-browser"></a>Ansluta till en webbläsare
-Bestäm webb slut punkten för din tjänst för delad sammanslagning. Du hittar detta i portalen genom att gå till översikten över moln tjänsten och titta under webbplats- **URL** till höger. Ersätt **http://** med **https://** eftersom standard säkerhets inställningarna inaktiverar http-slutpunkten. Läs in sidan för denna URL i webbläsaren.
+Bestäm webb slut punkten för din tjänst för delad sammanslagning. Du hittar detta i portalen genom att gå till **översikten** över moln tjänsten och titta under webbplats- **URL** till höger. Ersätt **http://** med **https://** eftersom standard säkerhets inställningarna inaktiverar http-slutpunkten. Läs in sidan för denna URL i webbläsaren.
 
 ### <a name="test-with-powershell-scripts"></a>Testa med PowerShell-skript
 Du kan testa distributionen och din miljö genom att köra PowerShell-skript som ingår i exemplet.
@@ -165,7 +165,7 @@ De skript filer som ingår är:
        <th>Steg</th>
      </tr>
      <tr>
-       <th rowspan="5">SetupSampleSplitMergeEnvironment.ps1</th>
+       <th rowspan="5">SetupSampleSplitMergeEnvironment. ps1</th>
        <td>1.    Skapar en Shard Map Manager-databas</td>
      </tr>
      <tr>

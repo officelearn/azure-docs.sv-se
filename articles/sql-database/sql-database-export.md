@@ -1,5 +1,5 @@
 ---
-title: Exportera en enstaka eller en pool av en Azure SQL-databas till en BACPAC-fil | Microsoft Docs
+title: Exportera en enstaka eller en pool av en Azure SQL-databas till en BACPAC-fil
 description: Exportera en Azure SQL-databas till en BACPAC-fil med hjälp av Azure Portal
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 9b4770f565f256d444ab6a6f06bb369b8417eb18
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f3f6071d42d77ffa07dd27080b1bc18d7bbc6952
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568245"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690081"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Exportera en Azure SQL-databas till en BACPAC-fil
 
@@ -42,15 +42,15 @@ När du behöver exportera en databas för arkivering eller för att flytta till
 Det finns för närvarande inte stöd för att exportera en BACPAC av en databas från en [hanterad instans](sql-database-managed-instance.md) med hjälp av Azure PowerShell. Använd SQL Server Management Studio eller SQLPackage i stället.
 
 > [!NOTE]
-> Datorer som bearbetar import/export-begäranden som skickas via Azure Portal eller PowerShell måste lagra BACPAC-filen och temporära filer som genereras av DacFX (data-Tier Application Framework). Det disk utrymme som krävs varierar kraftigt mellan databaser med samma storlek och kan kräva disk utrymme upp till 3 gånger databasens storlek. Datorer som kör import/export-begäran har bara 450GB lokalt disk utrymme. Därför kan vissa begär Anden Miss lyckas med felet `There is not enough space on the disk`. I det här fallet är lösningen att köra sqlpackage. exe på en dator med tillräckligt lokalt disk utrymme. Vi rekommenderar att du använder [SqlPackage](#export-to-a-bacpac-file-using-the-sqlpackage-utility) för att importera/exportera databaser som är större än 150 GB för att undvika det här problemet.
+> Datorer som bearbetar import/export-begäranden som skickas via Azure Portal eller PowerShell måste lagra BACPAC-filen och temporära filer som genereras av DacFX (data-Tier Application Framework). Det disk utrymme som krävs varierar kraftigt mellan databaser med samma storlek och kan kräva disk utrymme upp till 3 gånger databasens storlek. Datorer som kör import/export-begäran har bara 450GB lokalt disk utrymme. Därför kan vissa förfrågningar Miss lyckas med fel `There is not enough space on the disk`. I det här fallet är lösningen att köra sqlpackage. exe på en dator med tillräckligt lokalt disk utrymme. Vi rekommenderar att du använder [SqlPackage](#export-to-a-bacpac-file-using-the-sqlpackage-utility) för att importera/exportera databaser som är större än 150 GB för att undvika det här problemet.
 
 1. Om du vill exportera en databas med hjälp av [Azure Portal](https://portal.azure.com)öppnar du sidan för din databas och klickar på **Exportera** i verktygsfältet.
 
-   ![Databas export](./media/sql-database-export/database-export1.png)
+   ![databas export](./media/sql-database-export/database-export1.png)
 
 2. Ange BACPAC-filnamn, Välj ett befintligt Azure Storage-konto och container för exporten och ange sedan lämpliga autentiseringsuppgifter för åtkomst till käll databasen. En SQL **Server Admin-inloggning** krävs här även om du är Azure-administratören, eftersom det är en Azure-administratör som inte motsvarar SQL Server administratörs behörighet.
 
-    ![Databas export](./media/sql-database-export/database-export2.png)
+    ![databas export](./media/sql-database-export/database-export2.png)
 
 3. Klicka på **OK**.
 
@@ -87,7 +87,7 @@ $exportRequest = New-AzSqlDatabaseExport -ResourceGroupName $ResourceGroupName -
   -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
 ```
 
-Om du vill kontrol lera status för export förfrågan använder du cmdleten [Get-AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) . Att köra detta omedelbart efter att begäran vanligt **vis returnerar status: Pågår**. När du ser **status:**  Exporten har slutförts.
+Om du vill kontrol lera status för export förfrågan använder du cmdleten [Get-AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) . Om du kör det omedelbart efter det att begäran vanligt vis returnerar **status: pågår**. När du ser **status:** exporten har slutförts.
 
 ```powershell
 $exportStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
@@ -110,4 +110,4 @@ $exportStatus
 - Information om hur du exporterar en BACPAC från en SQL Server-databas finns i [Exportera ett data skikts program](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
 - Information om hur du migrerar en databas med hjälp av tjänsten datamigrering finns i [migrera SQL Server till Azure SQL Database offline med DMS](../dms/tutorial-sql-server-to-azure-sql.md).
 - Om du exporterar från SQL Server som en inledning för migrering till Azure SQL Database, se [Migrera en SQL Server databas till Azure SQL Database](sql-database-single-database-migrate.md).
-- Lär dig hur du hantera och dela lagringsnycklar och delad åtkomst signaturer på ett säkert sätt, finns i [säkerhetsguiden för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-security-guide).
+- Information om hur du hanterar och delar lagrings nycklar och signaturer för delad åtkomst på ett säkert sätt finns i [Azure Storage Security guide](https://docs.microsoft.com/azure/storage/common/storage-security-guide).

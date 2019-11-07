@@ -1,5 +1,5 @@
 ---
-title: Flytta filer mellan filbaserad lagring genom att använda Azure Data Factory | Microsoft Docs
+title: Flytta filer mellan filbaserad lagring med hjälp av Azure Data Factory
 description: Lär dig hur du använder en lösnings mall för att flytta filer mellan filbaserad lagring med hjälp av Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 7/12/2019
-ms.openlocfilehash: 9eb82a23aac5a98a521976118c1e859d0be253d0
-ms.sourcegitcommit: 1b7b0e1c915f586a906c33d7315a5dc7050a2f34
+ms.openlocfilehash: f6f83917e84a880fb86b5f592c4d51b03462753d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67881248"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684178"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Flytta filer med Azure Data Factory
 
-Den här artikeln beskriver en lösnings mall som du kan använda för att flytta filer från en mapp till en annan mellan filbaserade arkiv. Ett av de vanligaste scenarierna med den här mallen: Filerna släpps kontinuerligt till en landnings katalog i käll arkivet. Genom att skapa en schema utlösare kan ADF-pipeline regelbundet flytta filerna från källan till mål lagret.  Det sätt på vilket ADF-pipelinen når "flytta filer" hämtar filerna från landnings mappen, kopierar var och en av dem till en annan mapp på mål lagret och sedan tar bort samma filer från landnings-mappen i käll arkivet.
+Den här artikeln beskriver en lösnings mall som du kan använda för att flytta filer från en mapp till en annan mellan filbaserade arkiv. Ett av de vanliga scenarierna med den här mallen: filer släpps kontinuerligt till en landnings katalog i käll arkivet. Genom att skapa en schema utlösare kan ADF-pipeline regelbundet flytta filerna från källan till mål lagret.  Det sätt på vilket ADF-pipelinen når "flytta filer" hämtar filerna från landnings mappen, kopierar var och en av dem till en annan mapp på mål lagret och sedan tar bort samma filer från landnings-mappen i käll arkivet.
 
 > [!NOTE]
 > Tänk på att den här mallen är utformad för att flytta filer i stället för att flytta mappar.  Om du vill flytta mappen genom att ändra data uppsättningen så att den bara innehåller en mappsökväg, och sedan använda aktiviteten Kopiera aktivitet och ta bort för att referera till samma data uppsättning som representerar en mapp, måste du vara mycket försiktig. Det beror på att du måste se till att det inte finns nya filer som kommer in i mappen mellan kopierings åtgärden och borttagnings åtgärden. Om det finns nya filer som kommer till mappen när kopierings aktiviteten precis har slutfört kopieringen men borttagnings aktiviteten inte har varit avslutad, är det möjligt att borttagnings aktiviteten tar bort den här nya inkommande filen som inte har kopierats till destinati ännu genom att ta bort hela mappen.

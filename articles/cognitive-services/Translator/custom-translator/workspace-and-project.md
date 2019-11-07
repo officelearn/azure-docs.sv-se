@@ -1,7 +1,7 @@
 ---
-title: Vad är en arbets yta och ett projekt? – Anpassade Translator
+title: Vad är en arbets yta och ett projekt? – Anpassad översättare
 titleSuffix: Azure Cognitive Services
-description: En arbets yta är en arbets yta för att skriva och skapa ett anpassat översättnings system. En arbets yta kan innehålla flera projekt, modeller och dokument. Ett projekt är ett omslutnings gränssnitt för en modell, dokument och tester. Varje projekt innehåller automatiskt alla dokument som överförs till den arbets ytan som har rätt språk par.
+description: I den här artikeln förklaras skillnaderna mellan en arbets yta och ett projekt samt projekt kategorier och etiketter för tjänsten Custom Translator.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 23db27ba7b51b0f5a312498dbcb1d0f2741245bb
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: d2f7903fa85c645357e46a753d1cb043e0893254
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595338"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647307"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>Vad är en anpassad översättare-arbetsyta?
 
@@ -41,7 +41,7 @@ Med anpassad översättare kan du tilldela en projekt etikett till projektet. Pr
 
 Projekt etiketten används som en del av kategorin kategori. Om projekt etiketten lämnas kvar eller anges identiskt mellan projekt, kommer projekt med samma kategori och *olika* språk par att dela samma kategori. Den här metoden är fördelaktig eftersom det låter dig eller din kund växla mellan språk när du använder API: et för text översättning utan att oroa dig för en kategori som är unik för varje projekt.
 
-Om jag till exempel ville aktivera översättningar i teknik domänen från engelska till franska och från franska till engelska, skulle jag skapa två projekt: ett för engelska\> och franska, och ett för franska –\> engelska. Jag skulle ange samma kategori (teknik) för båda och lämna projekt etiketten tom. Kategorin för båda projekten skulle matcha, så jag kan fråga API: t för både engelska och franska översättningar utan att behöva ändra min kategori.
+Om jag till exempel ville aktivera översättningar i teknik domänen från engelska till franska och från franska till engelska, skulle jag skapa två projekt: ett för engelska –\> franska och ett för franska-\> engelska. Jag skulle ange samma kategori (teknik) för båda och lämna projekt etiketten tom. Kategorin för båda projekten skulle matcha, så jag kan fråga API: t för både engelska och franska översättningar utan att behöva ändra min kategori.
 
 Om du är en språk tjänst leverantör och vill betjäna flera kunder med olika modeller som behåller samma kategori-och språk par, är det ett bra beslut att använda en projekt etikett för att skilja mellan kunderna.
 

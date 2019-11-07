@@ -1,5 +1,5 @@
 ---
-title: Metod tips för Azure SQL Data Sync | Microsoft Docs
+title: 'Metod tips för Azure SQL Data Sync '
 description: Lär dig mer om metod tips för att konfigurera och köra Azure SQL Data Sync.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 01962770c011a0107abd4e035c25d6c0d45fa0a0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 728ac8ab42573e1cab30eaf12dd38a6d33b97aac
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569370"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691081"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Regelverk för SQL Data Sync 
 
@@ -56,7 +56,7 @@ Azure SQL Database stöder endast en uppsättning autentiseringsuppgifter. Över
 
 #### <a name="sql-database-instance-size"></a>SQL Database instans storlek
 
-När du skapar en ny SQL Database-instans anger du den maximala storleken så att den alltid är större än den databas som du distribuerar. Om du inte anger den maximala storleken till större än den distribuerade databasen, Miss lyckas synkroniseringen. Även om SQL Data Sync inte erbjuder automatisk tillväxt, kan du köra `ALTER DATABASE` kommandot för att öka storleken på databasen när den har skapats. Se till att du håller dig inom gränsen för SQL Database instans storlek.
+När du skapar en ny SQL Database-instans anger du den maximala storleken så att den alltid är större än den databas som du distribuerar. Om du inte anger den maximala storleken till större än den distribuerade databasen, Miss lyckas synkroniseringen. Även om SQL Data Sync inte erbjuder automatisk tillväxt, kan du köra kommandot `ALTER DATABASE` för att öka storleken på databasen när den har skapats. Se till att du håller dig inom gränsen för SQL Database instans storlek.
 
 > [!IMPORTANT]
 > SQL Data Sync lagrar ytterligare metadata för varje databas. Se till att du tar hänsyn till dessa metadata när du beräknar utrymmet som behövs. Mängden extra kostnader är relaterad till bredden på tabellerna (till exempel smala tabeller kräver mer kostnader) och mängden trafik.
@@ -67,7 +67,7 @@ När du skapar en ny SQL Database-instans anger du den maximala storleken så at
 
 Du behöver inte inkludera alla tabeller som finns i en databas i en Sync-grupp. De tabeller som du lägger till i en Sync-grupp påverkar effektiviteten och kostnaderna. Inkludera tabeller och de tabeller som de är beroende av, i en Sync-grupp endast om affärs behoven kräver det.
 
-#### <a name="primary-keys"></a>Primärnycklar
+#### <a name="primary-keys"></a>Primära nycklar
 
 Varje tabell i en Sync-grupp måste ha en primär nyckel. Tjänsten SQL Data Sync kan inte synkronisera en tabell som inte har en primär nyckel.
 
@@ -116,7 +116,7 @@ För att minimera fördröjningen bör du hålla Hub-databasen nära den störst
 
 Tillämpa de föregående rikt linjerna för komplexa inställningar för synkronisering av grupper, t. ex. sådana som är en blandning av företags-till-moln-och moln-till-moln-scenarier.
 
-## <a name="sync"></a>Synkronisera
+## <a name="sync"></a>Sync
 
 ### <a name="avoid-a-slow-and-costly-initial-synchronization"></a>Undvik långsam och kostsam inledande synkronisering
 
@@ -150,7 +150,7 @@ Se till att du undviker synkroniseringsfel, eftersom de orsakar prestanda förs�
 
 #### <a name="what-happens-when-changes-fail-to-propagate"></a>Vad händer om det inte går att sprida ändringar?
 
--   Sync-gruppen visar att den är i ett varnings tillstånd.
+-   Sync-gruppen visar att den är i ett **varnings** tillstånd.
 -   Information visas i portalens GRÄNSSNITTs logg visare.
 -   Om problemet inte är löst i 45 dagar blir databasen inaktuell.
 
@@ -170,11 +170,11 @@ En Sync-grupp eller en databas i en Sync-grupp kan bli inaktuell. När en synkro
 
 #### <a name="avoid-out-of-date-databases"></a>Undvik inaktuella databaser
 
-En databas status är inaktuell när den har varit offline i 45 dagar eller mer. För att undvika **inaktuella** status för en databas, se till att ingen av databaserna är offline i 45 dagar eller mer.
+En databas status är **inaktuell** när den har varit offline i 45 dagar eller mer. För att undvika **inaktuella** status för en databas, se till att ingen av databaserna är offline i 45 dagar eller mer.
 
 #### <a name="avoid-out-of-date-sync-groups"></a>Undvik inaktuella Sync-grupper
 
-Statusen för en synkroniseringsstatus är inaktuell när en ändring i Sync-gruppen inte kan spridas till resten av Sync-gruppen i 45 dagar eller mer. Om du vill undvika en inaktuell status för en Sync-grupp kontrollerar du regelbundet den synkroniserade gruppens historik logg. Se till att alla konflikter är lösta och att ändringarna har spridits i grupp databaserna för synkronisering.
+Statusen för en synkroniseringsstatus är **inaktuell** när en ändring i Sync-gruppen inte kan spridas till resten av Sync-gruppen i 45 dagar eller mer. Om du vill undvika en **inaktuell** status för en Sync-grupp kontrollerar du regelbundet den synkroniserade gruppens historik logg. Se till att alla konflikter är lösta och att ändringarna har spridits i grupp databaserna för synkronisering.
 
 En synkroniseringsresurs kanske inte kan tillämpa någon ändring av följande orsaker:
 
@@ -198,7 +198,7 @@ I vissa fall kan avregistrering av en databas med en klient agent leda till att 
 1. Sync Group A har skapats med hjälp av en SQL Database-instans och en lokal SQL Server-databas som är associerad med lokal agent 1.
 2. Samma lokala databas har registrerats med lokal Agent 2 (den här agenten är inte kopplad till någon Sync-grupp).
 3. Om du avregistrerar den lokala databasen från lokal Agent 2 raderas spårnings-och meta-tabellerna för Sync Group A för den lokala databasen.
-4. Det gick inte att synkronisera en åtgärd med det här felet: "Det gick inte att slutföra den aktuella åtgärden eftersom databasen inte är etablerad för synkronisering eller så har du inte behörighet till konfigurations tabellerna för synkronisering."
+4. Det gick inte att synkronisera en åtgärd med det här felet: "den aktuella åtgärden kunde inte slutföras eftersom databasen inte är etablerad för synkronisering eller så har du inte behörighet till konfigurations tabellerna för synkronisering."
 
 #### <a name="solution"></a>Lösning
 
@@ -223,10 +223,10 @@ Mer information om SQL Data Sync finns i:
 
 -   Översikt – [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](sql-database-sync-data.md)
 -   Konfigurera Data Sync
-    - I portalen – [Självstudie: Konfigurera SQL Data Sync för att synkronisera data mellan Azure SQL Database och SQL Server lokalt](sql-database-get-started-sql-data-sync.md)
+    - I portalen – [Självstudie: Konfigurera SQL Data Sync att synkronisera data mellan Azure SQL Database och SQL Server lokalt](sql-database-get-started-sql-data-sync.md)
     - Med PowerShell
         -  [Använda PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)
-        -  [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)
+        -  [Använd PowerShell för att synkronisera mellan en Azure SQL-databas och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   Datasynkroniseringsagent – [Datasynkroniseringsagent för Azure SQL Data Sync](sql-database-data-sync-agent.md)
 -   Övervaka [SQL Data Sync med Azure Monitor loggar](sql-database-sync-monitor-oms.md)
 -   Felsökning – [Felsöka problem med Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)

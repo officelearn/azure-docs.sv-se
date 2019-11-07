@@ -1,6 +1,6 @@
 ---
-title: Hantera en Machine Learning Studio (klassisk)-arbets yta
-titleSuffix: Azure Machine Learning Studio (classic)
+title: Hantera arbetsytor
+titleSuffix: ML Studio (classic) Azure
 description: Hantera åtkomst till Azure Machine Learning Studio (klassiska) arbets ytor och distribuera och hantera Machine Learning API-webbtjänster
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/27/2017
-ms.openlocfilehash: f514079379143e001d72c0e6618c88e2fbb283b8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0ec619e765dde39f6d4c24cdadaab8bff4729f79
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489222"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684757"
 ---
 # <a name="manage-an-azure-machine-learning-studio-classic-workspace"></a>Hantera en Azure Machine Learning Studio (klassisk)-arbets yta
 

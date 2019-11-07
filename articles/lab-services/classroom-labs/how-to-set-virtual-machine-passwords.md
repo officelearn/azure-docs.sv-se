@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: 40cdd0adf7bf100e1dbca64dbba68db3bc59a4fe
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: d89d506d8912706bbdb802801b16d01036ecb8e2
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331471"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583566"
 ---
-# <a name="set-up-and-manage-virtual-machine-pool"></a>Konfigurera och hantera poolen för virtuella datorer 
+# <a name="set-up-and-manage-virtual-machine-pool"></a>Konfigurera och hantera en pool för virtuella datorer 
 Den här artikeln visar hur du utför följande uppgifter:
 
 - Öka antalet virtuella datorer (VM) i labbet
@@ -30,12 +30,12 @@ Den här artikeln visar hur du utför följande uppgifter:
 ## <a name="update-the-lab-capacity"></a>Uppdatera labb kapaciteten
 Gör så här för att öka eller minska labb kapaciteten (antal virtuella datorer i ett labb):
 
-1. På sidan **pool för virtuell dator** väljer du **labb kapacitet: &lt;number @ no__t-3 datorer**.
+1. På sidan **pool för virtuell dator** väljer du **labb kapacitet: &lt;antalet&gt; datorer**.
 2. Ange det nya **antal virtuella datorer** som du vill ha i labbet. Antalet måste vara större än eller lika med antalet användare som registrerats i labbet. 
 3. Välj sedan **Spara**. 
 
     ![Knappen starta alla](../media/how-to-set-virtual-machine-passwords/number-of-vms-in-lab.png)
-4. Om du har ökat kapaciteten kan du se att den virtuella datorn eller de virtuella datorerna skapas. 
+4. Om du har ökat kapaciteten kan du se att den virtuella datorn eller de virtuella datorerna skapas. Om du inte ser den nya virtuella datorn i listan uppdaterar du sidan. 
 
     ![Virtuell dator skapas](../media/how-to-set-virtual-machine-passwords/vm-being-created.png)
 
@@ -51,11 +51,13 @@ Gör så här för att öka eller minska labb kapaciteten (antal virtuella dator
     ![Knappen Stoppa alla](../media/how-to-set-virtual-machine-passwords/stop-all-vms-button.png)
 
 ### <a name="start-selected-vms"></a>Starta valda virtuella datorer
-Det finns två sätt att starta valda virtuella datorer (en eller flera). Det första sättet är att markera den virtuella datorn eller de virtuella datorerna i listan och sedan välja **Starta** i verktygsfältet. Det andra sättet är att markera den virtuella datorn eller de virtuella datorerna i listan, välja listruta i kolumnen **tillstånd** i en av raderna och sedan välja **Start**. 
+Det finns två sätt att starta valda virtuella datorer (en eller flera). Det första sättet är att markera den virtuella datorn eller de virtuella datorerna i listan och sedan välja **Starta** i verktygsfältet. 
+
+Det andra sättet är att välja en eller flera virtuella datorer i listan och växla knappen i kolumnen **State** . 
 
 ![Starta valda virtuella datorer](../media/how-to-set-virtual-machine-passwords/start-selected-vms.png)
 
-På samma sätt kan du stoppa en eller flera virtuella datorer med hjälp av list rutan i kolumnen **tillstånd** eller **stoppa** i verktygsfältet. 
+På samma sätt kan du stoppa en eller flera virtuella datorer genom att växla knappen i kolumnen **tillstånd** eller välja **stoppa** i verktygsfältet. 
 
 ## <a name="reset-vms"></a>Återställ virtuella datorer
 Om du vill återställa en eller flera virtuella datorer markerar du dem i listan och väljer sedan **Återställ** i verktygsfältet. 
@@ -81,11 +83,19 @@ Genom att aktivera/inaktivera alternativet **Använd samma lösen ord för alla 
 ### <a name="reset-password-later"></a>Återställ lösen ord senare
 
 1. Välj **Återställ lösen ord** i verktygsfältet på sidan **mall** i labbet. 
-
-    ![Återställa lösen ords menyn på Start Sidan](../media/how-to-set-virtual-machine-passwords/reset-password-menu-dashboard.png)
 1. I dialog rutan **Återställ lösen ord** anger du ett lösen ord och väljer **Återställ lösen ord**.
     
     ![Dialog rutan Ange lösen ord](../media/how-to-set-virtual-machine-passwords/set-password.png)
+
+## <a name="connect-to-student-vms"></a>Ansluta till student virtuella datorer
+Labb skaparen (instruktör/lärare) kan ansluta till en elev-VM om följande villkor är uppfyllda: 
+
+- Alternativet **Använd samma lösen ord för alla virtuella datorer** valdes när labbet skapades
+- Den virtuella datorn körs 
+
+ För att ansluta till den virtuella student datorn, hovrar du över musen på den virtuella datorn i listan och väljer knappen dator.  
+
+![Knappen Anslut till virtuell dator för student](../media/how-to-set-virtual-machine-passwords/connect-student-vm.png)
 
 ## <a name="next-steps"></a>Nästa steg
 Information om andra alternativ för elev användning som du (som labb ägare) kan konfigurera finns i följande artikel: [Konfigurera elev användning](how-to-configure-student-usage.md).

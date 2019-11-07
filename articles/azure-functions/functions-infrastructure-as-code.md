@@ -1,23 +1,20 @@
 ---
 title: Automatisera resurs distributionen för en Function-app i Azure Functions | Microsoft Docs
 description: Lär dig hur du skapar en Azure Resource Manager mall som distribuerar din Function-app.
-services: Functions
-documtationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 keywords: Azure Functions, functions, arkitektur utan server, infrastruktur som kod, Azure Resource Manager
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.service: azure-functions
-ms.server: functions
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: glenga
-ms.openlocfilehash: ff5b104c9fa1bedf1f710c06761b6449b20bbf05
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 8435aab65d26627de26fb8b5ad0510fcd7c57c33
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263191"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73575943"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatisera resurs distributionen för din Function-app i Azure Functions
 
@@ -29,9 +26,6 @@ Exempel på mallar finns i:
 - [Function app i förbruknings plan]
 - [Function-app på Azure App Service plan]
 
-> [!NOTE]
-> Premium-planen för Azure Functions värd är för närvarande en för hands version. Mer information finns i [Azure Functions Premium-plan](functions-premium-plan.md).
-
 ## <a name="required-resources"></a>Nödvändiga resurser
 
 En Azure Functions distribution består vanligt vis av följande resurser:
@@ -40,7 +34,7 @@ En Azure Functions distribution består vanligt vis av följande resurser:
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
 | En Function-app                                                                     | Krävs    | [Microsoft. Web/Sites](/azure/templates/microsoft.web/sites)                             |   |
 | Ett [Azure Storage](../storage/index.yml) konto                                   | Krävs    | [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
-| En [Application Insights](../azure-monitor/app/app-insights-overview.md) -komponent | Valfritt    | [Microsoft. Insights/komponenter](/azure/templates/microsoft.insights/components)         |   |
+| En [Application Insights](../azure-monitor/app/app-insights-overview.md) -komponent | Valfri    | [Microsoft. Insights/komponenter](/azure/templates/microsoft.insights/components)         |   |
 | En [värd plan](./functions-scale.md)                                             | Valfria<sup>1</sup>    | [Microsoft. Web/Server grupper](/azure/templates/microsoft.web/serverfarms)                 |   |
 
 <sup>1</sup> En värd plan krävs bara när du väljer att köra din Function-app på en [Premium-plan](./functions-premium-plan.md) (i för hands version) eller på en [App Service plan](../app-service/overview-hosting-plans.md).
@@ -66,11 +60,11 @@ Ett Azure Storage-konto krävs för en Function-app. Du behöver ett allmänt sy
 }
 ```
 
-Dessutom måste egenskapen `AzureWebJobsStorage` anges som en app-inställning i plats konfigurationen. Om Function-appen inte använder Application Insights för övervakning bör den också ange `AzureWebJobsDashboard` som en app-inställning.
+Dessutom måste egenskaps `AzureWebJobsStorage` anges som en app-inställning i plats konfigurationen. Om Function-appen inte använder Application Insights för övervakning bör den också ange `AzureWebJobsDashboard` som en app-inställning.
 
-Azure Functions runtime använder anslutnings strängen `AzureWebJobsStorage` för att skapa interna köer.  När Application Insights inte är aktive rad använder körningen `AzureWebJobsDashboard`-anslutningssträngen för att logga till Azure Table Storage och på fliken **övervaka** i portalen.
+Azure Functions runtime använder anslutnings strängen `AzureWebJobsStorage` för att skapa interna köer.  När Application Insights inte är aktive rad använder körningen `AzureWebJobsDashboard` anslutnings sträng för att logga till Azure Table Storage och på fliken **övervaka** i portalen.
 
-Dessa egenskaper anges i `appSettings`-samlingen i objektet `siteConfig`:
+Dessa egenskaper anges i `appSettings`-samlingen i `siteConfig`-objektet:
 
 ```json
 "appSettings": [
@@ -106,7 +100,7 @@ Application Insights rekommenderas för övervakning av dina funktions appar. Ap
         },
 ```
 
-Dessutom måste instrument ställnings nyckeln tillhandahållas till Function-appen med hjälp av program inställningen `APPINSIGHTS_INSTRUMENTATIONKEY`. Den här egenskapen anges i `appSettings`-samlingen i objektet `siteConfig`:
+Dessutom måste instrument ställnings nyckeln tillhandahållas till Function-appen med hjälp av inställningen `APPINSIGHTS_INSTRUMENTATIONKEY` program. Den här egenskapen anges i `appSettings`-samlingen i `siteConfig`-objektet:
 
 ```json
 "appSettings": [
@@ -150,10 +144,10 @@ En Function-app måste innehålla följande program inställningar:
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
 | AzureWebJobsStorage          | En anslutnings sträng till ett lagrings konto som Functions runtime för intern kö | Se [lagrings konto](#storage)       |
 | FUNCTIONS_EXTENSION_VERSION  | Versionen av Azure Functions runtime                                                | `~2`                                  |
-| FUNCTIONS_WORKER_RUNTIME     | Språk stacken som ska användas för funktioner i den här appen                                   | `dotnet`, `node`, `java` eller `python` |
-| WEBSITE_NODE_DEFAULT_VERSION | Krävs endast om du använder språks Tacken `node`, anger vilken version som ska användas              | `10.14.1`                             |
+| FUNCTIONS_WORKER_RUNTIME     | Språk stacken som ska användas för funktioner i den här appen                                   | `dotnet`, `node`, `java`eller `python` |
+| WEBSITE_NODE_DEFAULT_VERSION | Krävs endast om du använder `node` språks Tacken, anger vilken version som ska användas              | `10.14.1`                             |
 
-Dessa egenskaper anges i `appSettings`-samlingen i egenskapen `siteConfig`:
+De här egenskaperna anges i `appSettings`-samlingen i `siteConfig`-egenskapen:
 
 ```json
 "properties": {
@@ -192,7 +186,7 @@ Ett exempel på en Azure Resource Manager mall finns i [Function app i förbrukn
 
 En förbruknings plan behöver inte definieras. Den ena skapas eller väljs automatiskt baserat på varje region när du skapar själva Function-appens resurs.
 
-Förbruknings planen är en särskild typ av "Server klustret"-resurs. För Windows kan du ange det genom att använda värdet `Dynamic` för egenskaperna `computeMode` och `sku`:
+Förbruknings planen är en särskild typ av "Server klustret"-resurs. För Windows kan du ange det genom att använda `Dynamic`-värdet för `computeMode` och `sku` egenskaper:
 
 ```json
 {  
@@ -217,7 +211,7 @@ Förbruknings planen är en särskild typ av "Server klustret"-resurs. För Wind
 > [!NOTE]
 > Förbruknings planen kan inte uttryckligen definieras för Linux. Den kommer att skapas automatiskt.
 
-Om du uttryckligen definierar förbruknings planen måste du ange egenskapen `serverFarmId` i appen så att den pekar på planens resurs-ID. Du bör se till att Function-appen har en inställning för `dependsOn` för planen också.
+Om du uttryckligen definierar förbruknings planen måste du ange `serverFarmId` egenskapen i appen så att den pekar på planens resurs-ID. Du bör se till att Function-appen har en `dependsOn`s inställning för planen också.
 
 ### <a name="create-a-function-app"></a>Skapa en funktionsapp
 
@@ -270,7 +264,7 @@ I Windows kräver en förbruknings plan två ytterligare inställningar i plats 
 
 #### <a name="linux"></a>Linux
 
-I Linux måste Function-appen ha sin `kind` inställt på `functionapp,linux` och måste ha egenskapen `reserved` inställd på `true`:
+I Linux måste appens `kind` vara inställd på `functionapp,linux`, och egenskapen `reserved` måste vara inställd på `true`:
 
 ```json
 {
@@ -314,11 +308,11 @@ I Linux måste Function-appen ha sin `kind` inställt på `functionapp,linux` oc
 
 ## <a name="deploy-on-premium-plan"></a>Distribuera i Premium-plan
 
-Premium-planen ger samma skalning som förbruknings planen men innehåller dedikerade resurser och ytterligare funktioner. Läs mer i [Azure Functions Premium plan (för hands version)](./functions-premium-plan.md).
+Premium-planen ger samma skalning som förbruknings planen men innehåller dedikerade resurser och ytterligare funktioner. Läs mer i [Azure Functions Premium-plan](./functions-premium-plan.md).
 
 ### <a name="create-a-premium-plan"></a>Skapa en Premium-plan
 
-En Premium-plan är en särskild typ av "Server klustret"-resurs. Du kan ange det genom att antingen använda `EP1`, `EP2` eller `EP3` för egenskap svärdet `sku`.
+En Premium-plan är en särskild typ av "Server klustret"-resurs. Du kan ange det genom att antingen använda `EP1`, `EP2`eller `EP3` för värdet `sku` egenskap.
 
 ```json
 {
@@ -411,7 +405,7 @@ En App Service plan definieras av en "Server klustret"-resurs.
 }
 ```
 
-Om du vill köra din app på Linux måste du också ange `kind` till `Linux`:
+Om du vill köra din app på Linux måste du också ange `kind` `Linux`:
 
 ```json
 {
@@ -517,7 +511,7 @@ Linux-appar bör också innehålla en `linuxFxVersion`-egenskap under `siteConfi
 }
 ```
 
-Om du [distribuerar en anpassad behållar avbildning](./functions-create-function-linux-custom-image.md)måste du ange den med `linuxFxVersion` och inkludera konfiguration som gör att avbildningen kan hämtas, som i [Web App for containers](/azure/app-service/containers). Ange också `WEBSITES_ENABLE_APP_SERVICE_STORAGE` till `false`, eftersom ditt Apps finns i själva behållaren:
+Om du [distribuerar en anpassad behållar avbildning](./functions-create-function-linux-custom-image.md)måste du ange den med `linuxFxVersion` och inkludera konfiguration som gör att avbildningen kan hämtas, som i [Web App for containers](/azure/app-service/containers). Ange också `WEBSITES_ENABLE_APP_SERVICE_STORAGE` `false`, eftersom ditt appdata finns i själva behållaren:
 
 ```json
 {
@@ -650,7 +644,7 @@ Du kan använda något av följande sätt för att distribuera mallen:
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Azure-portalen](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Knappen distribuera till Azure

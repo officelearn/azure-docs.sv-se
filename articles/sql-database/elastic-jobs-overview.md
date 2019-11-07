@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Elastic Database-jobb (förhands granskning) | Microsoft Docs
+title: Azure SQL Elastic Database-jobb (för hands version)
 description: Konfigurera Elastic Database jobb (för hands version) för att köra Transact-SQL-skript (T-SQL) i en uppsättning med en eller flera Azure SQL-databaser
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 3a0aa6e28ea4c40d5cad5ba99edec344c7979acf
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 2afe7d5c9667002c97d354cd1e94f292c6302558
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935084"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685305"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Skapa, konfigurera och hantera elastiska jobb
 
@@ -48,7 +48,7 @@ Jobbet använder [databasbegränsade autentiseringsuppgifter](/sql/t-sql/stateme
 Att konfigurera rätt autentiseringsuppgifter för att köra ett jobb kan vara något förvirrande, så tänk på följande punkter:
 
 - De databasbegränsade autentiseringsuppgifterna måste skapas i *jobbdatabasen*.
-- **Alla mål databaser måste ha en inloggning med [tillräckliga behörigheter](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) för att jobbet ska** kunna slutföras (`jobuser` i diagrammet nedan).
+- **Alla mål databaser måste ha en inloggning med [tillräckliga behörigheter](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) för att jobbet ska kunna slutföras** (`jobuser` i diagrammet nedan).
 - Autentiseringsuppgifter kan återanvändas mellan jobb och lösen ord för autentiseringsuppgifter krypteras och skyddas från användare som har skrivskyddad åtkomst till jobb objekt.
 
 Följande bild är utformad för att underlätta förståelse och konfiguration av rätt autentiseringsuppgifter för jobb. **Kom ihåg att skapa användaren i varje databas (alla *målanvändardatabaser*) som jobbet behöver köras mot**.
@@ -75,7 +75,7 @@ För tillfället är förhandsgranskningen begränsad till 100 samtidiga jobb.
 
 För att resurser inte ska överbelastas vid körning av jobb mot databaser i en elastisk SQL-pool kan jobb konfigureras för att begränsa antalet databaser som ett jobb kan köras mot samtidigt.
 
-Ange antalet samtidiga databaser som ett jobb körs på genom att `sp_add_jobstep` ange den lagrade `@max_parallelism` procedurens parameter i T-SQL `Add-AzSqlElasticJobStep -MaxParallelism` eller i PowerShell.
+Ange antalet samtidiga databaser som ett jobb körs på genom att ange den `sp_add_jobstep` lagrade procedurens `@max_parallelism` parameter i T-SQL eller `Add-AzSqlElasticJobStep -MaxParallelism` i PowerShell.
 
 ## <a name="best-practices-for-creating-jobs"></a>Metodtips för att skapa jobb
 

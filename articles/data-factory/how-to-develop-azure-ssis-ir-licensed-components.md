@@ -1,5 +1,5 @@
 ---
-title: Installera licensierade komponenter för Azure-SSIS integration runtime | Microsoft Docs
+title: 'Installera licensierade komponenter för Azure-SSIS integration runtime '
 description: Lär dig hur en ISV kan utveckla och installera betalda eller licensierade anpassade komponenter för integrerings körningen för Azure-SSIS
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 1c574578e6ed6ee032be01718eb3e8afd27fdf6f
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: f1f8a017153d95beed4979b6059383a41cd6a972
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708010"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73673586"
 ---
 # <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Installera betalda eller licensierade anpassade komponenter för integrerings körningen av Azure-SSIS
 
@@ -29,20 +29,20 @@ Typen av Azure-SSIS integration runtime visar flera utmaningar, vilket gör de t
 
 -   Noderna i Azure-SSIS IR är temporära och kan tilldelas eller släppas när som helst. Du kan till exempel starta eller stoppa noder för att hantera kostnaden eller skala upp och ned genom olika noder. Därför är det inte längre att binda en komponent licens från tredje part till en viss nod med hjälp av datorspecifik information, till exempel MAC-adress eller CPU-ID.
 
--   Du kan också skala Azure-SSIS IR in eller out, så att antalet noder kan krympa eller expandera när som helst.
+-   Du kan också skala Azure-SSIS IR in eller ut, så att antalet noder kan krympa eller expandera när som helst.
 
 ## <a name="the-solution"></a>Lösningen
 
-Som ett resultat av begränsningarna för traditionella licens metoder som beskrivs i föregående avsnitt, tillhandahåller Azure-SSIS IR en ny lösning. I den här lösningen används Windows-miljövariabler och SSIS-systemvariabler för licens bindning och validering av komponenter från tredje part. ISV: er kan använda dessa variabler för att hämta unik och beständig information för en Azure-SSIS IR, till exempel kluster-ID och antal klusternoder. Med den här informationen kan ISV: er sedan binda licensen för sin komponent till ett Azure-SSIS IR *som ett kluster*. Den här bindningen använder ett ID som inte ändras när kunder startar eller stoppar, skalar upp eller ned, skalar in eller ut eller omkonfigurerar Azure-SSIS IR på valfritt sätt.
+Som ett resultat av begränsningarna för traditionella licens metoder som beskrivs i föregående avsnitt, tillhandahåller Azure-SSIS IR en ny lösning. I den här lösningen används Windows-miljövariabler och SSIS-systemvariabler för licens bindning och validering av komponenter från tredje part. ISV: er kan använda dessa variabler för att hämta unik och beständig information för en Azure-SSIS IR, till exempel kluster-ID och antal klusternoder. Med den här informationen kan ISV: er sedan binda licensen för sin komponent till ett Azure-SSIS IR *som ett kluster*. Den här bindningen använder ett ID som inte ändras när kunder startar eller stoppar, skalar upp eller ned, skalar in eller ut eller omkonfigurerar Azure-SSIS IR på något sätt.
 
 I följande diagram visas typiska installations-, aktiverings-och licens bindningar och validerings flöden för komponenter från tredje part som använder dessa nya variabler:
 
 ![Installation av licensierade komponenter](media/how-to-configure-azure-ssis-ir-licensed-components/licensed-component-installation.png)
 
-## <a name="instructions"></a>Anvisningar
-1. ISV: er kan erbjuda sina licensierade komponenter på olika SKU: er eller nivåer (till exempel en nod, upp till 5 noder, upp till 10 noder och så vidare). ISV: en tillhandahåller motsvarande produkt nyckel när kunderna köper en produkt. ISV: en kan också tillhandahålla en Azure Storage BLOB-behållare som innehåller ett installations skript för ISV och tillhör ande filer. Kunder kan kopiera dessa filer till sina egna lagrings behållare och ändra dem med sin egen produkt nyckel (till exempel genom att `IsvSetup.exe -pid xxxx-xxxx-xxxx`köra). Kunderna kan sedan etablera eller konfigurera om Azure-SSIS IR med SAS-URI: n för deras behållare som parameter. Mer information finns i [Anpassad konfiguration för Azure-SSIS integreringskörning](how-to-configure-azure-ssis-ir-custom-setup.md).
+## <a name="instructions"></a>Instruktioner
+1. ISV: er kan erbjuda sina licensierade komponenter på olika SKU: er eller nivåer (till exempel en nod, upp till 5 noder, upp till 10 noder och så vidare). ISV: en tillhandahåller motsvarande produkt nyckel när kunderna köper en produkt. ISV: en kan också tillhandahålla en Azure Storage BLOB-behållare som innehåller ett installations skript för ISV och tillhör ande filer. Kunder kan kopiera dessa filer till sina egna lagrings behållare och ändra dem med sin egen produkt nyckel (till exempel genom att köra `IsvSetup.exe -pid xxxx-xxxx-xxxx`). Kunderna kan sedan etablera eller konfigurera om Azure-SSIS IR med SAS-URI: n för deras behållare som parameter. Mer information finns i [Anpassad konfiguration för Azure-SSIS integreringskörning](how-to-configure-azure-ssis-ir-custom-setup.md).
 
-2. När Azure-SSIS IR är etablerad eller omkonfigureras körs ISV-installationen på varje nod för att fråga Windows- `SSIS_CLUSTERID` miljövariablerna och. `SSIS_CLUSTERNODECOUNT` Sedan skickar Azure-SSIS IR sitt kluster-ID och produkt nyckeln för den licensierade produkten till ISV Activation-servern för att generera en aktiverings nyckel.
+2. När Azure-SSIS IR är etablerad eller omkonfigureras körs ISV-installationen på varje nod för att fråga Windows-miljövariablerna `SSIS_CLUSTERID` och `SSIS_CLUSTERNODECOUNT`. Sedan skickar Azure-SSIS IR sitt kluster-ID och produkt nyckeln för den licensierade produkten till ISV Activation-servern för att generera en aktiverings nyckel.
 
 3. När du har tagit emot aktiverings nyckeln kan ISV-installationen lagra nyckeln lokalt på varje nod (till exempel i registret).
 
@@ -76,7 +76,7 @@ I följande diagram visas typiska installations-, aktiverings-och licens bindnin
 
 ## <a name="isv-partners"></a>ISV-partner
 
-Du hittar en lista över ISV-partner som har anpassat sina komponenter och tillägg för Azure-SSIS IR i slutet av det här blogg inlägget- [Enterprise-utgåvan, anpassad installation och utökning av tredje part för SSIS i ADF](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Enterprise-Edition-Custom-Setup-and-3rd-Party-Extensibility-for/ba-p/388360).
+Du hittar en lista över ISV-partner som har anpassat sina komponenter och tillägg för Azure-SSIS IR i slutet av det här blogg inlägget- [Enterprise-utgåvan, anpassad installation och tredje parts utöknings barhet för SSIS i ADF](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Enterprise-Edition-Custom-Setup-and-3rd-Party-Extensibility-for/ba-p/388360).
 
 ## <a name="next-steps"></a>Nästa steg
 

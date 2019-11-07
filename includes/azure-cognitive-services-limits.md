@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 07/30/2019
 ms.author: erhopf
 ms.openlocfilehash: ffefde7d692950fc272ab2502ad8afe254bf48f1
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "68703097"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73591464"
 ---
 Följande begränsningar gäller för antalet Cognitive Services resurser per Azure-prenumeration. Var och en av Cognitive Services kan ha ytterligare begränsningar, mer information finns i [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/).
 
-| type | Gräns | Exempel |
+| Typ | Gräns | Exempel |
 |------|-------|---------|
 | En blandning av Cognitive Services resurser | Högst 200 sammanlagt Cognitive Services resurser. | 100 Visuellt innehåll resurser i västra USA 2, 50 tal tjänst resurser i västra USA och 50 Textanalys resurser i USA, östra. |
 | En viss typ av Cognitive Services resurser. | Högst 100 resurser per region, med högst 200 totalt Cognitive Services resurser. | 100 Visuellt innehåll resurser i USA, västra 2 och 100 Visuellt innehåll resurser i USA, östra. |

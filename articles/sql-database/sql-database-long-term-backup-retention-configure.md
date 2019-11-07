@@ -1,5 +1,5 @@
 ---
-title: Hantera Azure SQL Database långsiktig kvarhållning av säkerhets kopior | Microsoft Docs
+title: 'Hantera Azure SQL Database långsiktig kvarhållning av säkerhets kopior '
 description: Lär dig hur du lagrar automatiska säkerhets kopieringar i SQL Azure lagring och sedan återställer dem
 services: sql-database
 ms.service: sql-database
@@ -12,19 +12,19 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 08/21/2019
-ms.openlocfilehash: b90e364442e46269fc949ef4aecd9a756cff5595
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 32eb021ecd584e0b1b734abb236f383a32b79131
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904628"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689546"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Hantera Azure SQL Database långsiktig kvarhållning av säkerhets kopior
 
 I Azure SQL Database kan du konfigurera en enskild databas eller en pool med en [långsiktig säkerhets kopierings](sql-database-long-term-retention.md) princip (LTR) för att automatiskt behålla databas säkerhets kopiorna i separata Azure Blob Storage-behållare i upp till 10 år. Du kan sedan återställa en databas med hjälp av de här säkerhets kopiorna med hjälp av Azure Portal eller PowerShell.
 
 > [!IMPORTANT]
-> [Azure SQL Database hanterade](sql-database-managed-instance.md) instansen stöder för närvarande inte långsiktig kvarhållning av säkerhets kopior.
+> [Azure SQL Database hanterade instansen](sql-database-managed-instance.md) stöder för närvarande inte långsiktig kvarhållning av säkerhets kopior.
 
 ## <a name="use-the-azure-portal-to-manage-long-term-backups"></a>Använd Azure Portal för att hantera långsiktiga säkerhets kopior
 
@@ -99,13 +99,13 @@ För **Remove-AzSqlDatabaseLongTermRetentionBackup**måste du ha en av följande
 - Prenumerations ägarens roll eller
 - Anpassad roll med följande behörighet:
 
-   Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
+   Microsoft. SQL/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/Delete
 
 
 > [!NOTE]
 > Rollen SQL Server Contributor har inte behörighet att ta bort LTR-säkerhetskopieringar.
 
-RBAC-behörigheter kan beviljas i antingen *prenumerations* -eller *resurs grupps* omfång. Men för att få åtkomst till LTR-säkerhets kopieringar som tillhör en tappad Server måste behörigheten beviljas i prenumerations omfånget för den servern.
+RBAC-behörigheter kan beviljas i antingen *prenumerations* -eller *resurs grupps* omfång. Men för att få åtkomst till LTR-säkerhets kopieringar som tillhör en tappad Server måste behörigheten beviljas i *prenumerations* omfånget för den servern.
 
 
 ### <a name="create-an-ltr-policy"></a>Skapa en LTR-princip

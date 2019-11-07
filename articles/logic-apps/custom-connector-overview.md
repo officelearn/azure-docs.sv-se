@@ -1,6 +1,6 @@
 ---
-title: Anpassad anslutningsapp artikel länkar – Azure Logic Apps | Microsoft Docs
-description: Länkar till avsnitt om hur du skapar, använda, dela och certifiera anpassade anslutningsappar
+title: Avsnitts Länkar för anpassat anslutnings program – Azure Logic Apps | Microsoft Docs
+description: Länkar till avsnitt om hur du skapar, använder, delar och certifierar anpassade anslutningar
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,20 +9,20 @@ ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 1/30/2018
-ms.openlocfilehash: 6b02954f9f89074c5eff7e3b7fad2bc6afb29540
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c4cc0201b8ac61c54aadcc59b549877238b95e54
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64689783"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73574465"
 ---
-# <a name="custom-connectors-in-logic-apps"></a>Anpassade anslutningsappar i Logic Apps
+# <a name="custom-connectors-in-logic-apps"></a>Anpassade anslutningar i Logic Apps
 
-Du kan skapa arbetsflöden och appar med [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps), [Microsoft Flow](https://flow.microsoft.com), och [PowerApps](https://powerapps.microsoft.com) utan att behöva skriva någon kod. För att hjälpa dig integrera appar, data och affärsprocesser, erbjuder tjänsterna [~ 200 anslutningsappar](https://docs.microsoft.com/connectors/) – för Microsoft-tjänster och produkter, samt andra tjänster som GitHub, Salesforce, Twitter och mer.
+Utan att behöva skriva någon kod kan du bygga arbets flöden och appar med [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps), [energi automatisering](https://flow.microsoft.com)och [Power Apps](https://powerapps.microsoft.com). För att hjälpa dig att integrera appar, data och affärs processer erbjuder dessa tjänster [~ 200 anslutningar](https://docs.microsoft.com/connectors/) – för Microsoft-tjänster och produkter, samt andra tjänster som GitHub, Salesforce, Twitter och mer.
 
-Men ibland kanske du vill anropa API:er, tjänster och system som inte finns tillgängliga som färdiga anslutningsappar. För att få stöd för mer skräddarsydda scenarier kan du skapa *anpassade anslutningsappar* med egna utlösare och åtgärder. Dokumentationsplatsen har slutförts grundläggande och avancerade självstudier om anpassade anslutningsappar. Du kan börja med den [översikten över anpassade anslutningsappar](https://docs.microsoft.com/connectors/custom-connectors/), men du kan även gå direkt till det här avsnittet för information om ett visst område:
+Men ibland kanske du vill anropa API:er, tjänster och system som inte finns tillgängliga som färdiga anslutningsappar. För att få stöd för mer skräddarsydda scenarier kan du skapa *anpassade anslutningsappar* med egna utlösare och åtgärder. Dokumentations webbplatsen för-anslutningar har fullständiga grundläggande och avancerade självstudier om anpassade anslutningar. Du kan börja med [översikten för anpassade anslutningar](https://docs.microsoft.com/connectors/custom-connectors/), men du kan också gå direkt till följande avsnitt för information om ett angivet utrymme:
 
-* [Skapa en anslutningsapp för Logic Apps](https://docs.microsoft.com/connectors/custom-connectors/create-logic-apps-connector)
+* [Skapa en Logic Apps-anslutning](https://docs.microsoft.com/connectors/custom-connectors/create-logic-apps-connector)
 
 * [Skapa en anpassad anslutningsapp från en OpenAPI-definition](https://docs.microsoft.com/connectors/custom-connectors/define-openapi-definition)
 
@@ -30,8 +30,8 @@ Men ibland kanske du vill anropa API:er, tjänster och system som inte finns til
 
 * [Använda en anpassad anslutningsapp från en logikapp](https://docs.microsoft.com/connectors/custom-connectors/use-custom-connector-logic-apps)
 
-* [Dela anpassade anslutnignsappar i din organisation](https://docs.microsoft.com/connectors/custom-connectors/share)
+* [Dela anpassade anslutningar i din organisation](https://docs.microsoft.com/connectors/custom-connectors/share)
 
-* [Skicka in dina anslutningsappar för Microsoft-certifiering](https://docs.microsoft.com/connectors/custom-connectors/submit-certification)
+* [Skicka in dina anslutningar för Microsoft-certifiering](https://docs.microsoft.com/connectors/custom-connectors/submit-certification)
 
 * [Vanliga frågor och svar för anpassade anslutningsappar](https://docs.microsoft.com/connectors/custom-connectors/faq)

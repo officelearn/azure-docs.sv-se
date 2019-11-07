@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 856f00b17a5ee994f8864c5d46ce4d796d68d367
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: df2f22f91cbed17035485d25369965d3284dbaf7
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497000"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622396"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuera modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Arbets flödet är ungefär oavsett [var du distribuerar](#target) din modell:
 
 Mer information om de begrepp som ingår i distributions arbets flödet finns i [Hantera, distribuera och övervaka modeller med Azure Machine Learning](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
@@ -254,7 +254,7 @@ Dessa typer stöds för närvarande:
 * `pyspark`
 * Standard python-objekt
 
-Om du vill använda schema generering inkluderar du `inference-schema`-paketet i din Conda-miljö fil.
+Om du vill använda schema generering inkluderar du `inference-schema`-paketet i din Conda-miljö fil. Mer information om det här paketet finns [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema).
 
 ##### <a name="example-dependencies-file"></a>Exempel beroende fil
 
@@ -608,9 +608,9 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 
 Mer information finns i dokumentationen för [AZ ml-modellen Deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) .
 
-### <a id="notebookvm"></a>Beräknings instans webb tjänst (dev/test)
+### <a id="notebookvm"></a>Webb tjänst för notebook VM (dev/test)
 
-Se [distribuera en modell för att Azure Machine Learning beräknings instans](how-to-deploy-local-container-notebook-vm.md).
+Se [distribuera en modell till Azure Machine Learning Notebook VM](how-to-deploy-local-container-notebook-vm.md).
 
 ### <a id="aci"></a>Azure Container Instances (dev/test)
 
@@ -999,10 +999,12 @@ Använd `model.delete()`om du vill ta bort en registrerad modell.
 Mer information finns i dokumentationen för [WebService. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) och [Model. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
 ## <a name="preview-no-code-model-deployment"></a>Förhandsgranskningsvyn Distribution utan kod modell
+
 Ingen kod modell distribution är för närvarande en för hands version och stöder följande ramverk för Machine Learning:
 
 ### <a name="tensorflow-savedmodel-format"></a>Tensorflow SavedModel-format
-```
+
+```python
 from azureml.core import Model
 
 model = Model.register(workspace=ws,
@@ -1017,10 +1019,12 @@ service = Model.deploy(ws, service_name, [model])
 ```
 
 ### <a name="onnx-models"></a>ONNX-modeller
+
 ONNX-modell registrering och-distribution stöds för ett ONNX-diagram för härledning. Det finns för närvarande inte stöd för preprocess-och postprocess-stegen.
 
 Här är ett exempel på hur du registrerar och distribuerar en MNIST ONNX-modell:
-```
+
+```python
 from azureml.core import Model
 
 model = Model.register(workspace=ws,
@@ -1033,11 +1037,14 @@ model = Model.register(workspace=ws,
 service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
+
 ### <a name="scikit-learn-models"></a>Scikit – lär dig modeller
+
 Ingen distribution av kod modeller stöds för alla inbyggda scikit – lär dig modell typer.
 
 Här är ett exempel på hur du registrerar och distribuerar en sklearn-modell utan extra kod:
-```
+
+```python
 from azureml.core import Model
 from azureml.core.resource_configuration import ResourceConfiguration
 
@@ -1055,7 +1062,8 @@ service = Model.deploy(ws, service_name, [model])
 ```
 
 Obs! de här beroendena ingår i den förskapade sklearn-härlednings containern:
-```
+
+```yaml
     - azureml-defaults
     - inference-schema[numpy-support]
     - scikit-learn
@@ -1063,6 +1071,7 @@ Obs! de här beroendena ingår i den förskapade sklearn-härlednings containern
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 * [Så här distribuerar du en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
 * [Distributions fel sökning](how-to-troubleshoot-deployment.md)
 * [Skydda Azure Machine Learning webb tjänster med SSL](how-to-secure-web-service.md)

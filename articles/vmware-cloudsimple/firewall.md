@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 798f95281740213ac23892eb3b54ff780ca18395
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 411b4bb74c21a445f4001c949e1c7811af212453
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772350"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606442"
 ---
 # <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Konfigurera brand Väggs tabeller och regler för privata moln
 
@@ -33,6 +33,9 @@ Med brand Väggs tabeller och associerade regler kan du ange begränsningar för
 4. Ange ett namn för tabellen.
 5. En standard regel för tabellen visas. Klicka på **Skapa ny regel** för att skapa en ytterligare regel. Se följande procedur för mer information.
 6. Klicka på **färdig** för att spara brand Väggs tabellen.
+
+> [!IMPORTANT]
+> Du kan skapa upp till två brand Väggs tabeller per privat moln.
 
 ## <a name="firewall-rules"></a>Brandväggsregler
 
@@ -61,6 +64,9 @@ Brand Väggs regler avgör hur brand väggen behandlar vissa typer av trafik. Fl
     ![Tilläggs regel för brand Väggs tabell](media/firewall-rule-create.png)
 
 3. Klicka på **Slutför** för att spara regeln och lägga till den i listan över regler för brand Väggs tabellen.
+
+> [!IMPORTANT]
+> Varje brand Väggs tabell kan ha upp till 10 regler för inkommande trafik och 20 utgående regler. Du kan öka gränserna genom att [kontakta supporten](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="attach-vlanssubnets"></a>Bifoga VLAN/undernät
 

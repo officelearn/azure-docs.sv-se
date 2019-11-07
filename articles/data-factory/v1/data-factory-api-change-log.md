@@ -1,5 +1,5 @@
 ---
-title: Data Factory-.NET API-ändrings logg | Microsoft Docs
+title: Data Factory-.NET API-ändrings logg
 description: Beskriver hur du bryter ändringar, funktions tillägg, fel korrigeringar osv... i en speciell version av .NET API för Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 robots: noindex
 ms.date: 01/22/2018
-ms.openlocfilehash: 35f0145526aa596691fde26e92695f64f5ac35e0
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: e1902db6bc3a127262f5e37f36e82b07ab15c7c9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140521"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683200"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory-.NET API-ändrings logg
 > [!NOTE]
@@ -101,7 +101,7 @@ Funktions tillägg:
 * Följande typer av data uppsättningar har lagts till:
   * [ODataResourceDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.odataresourcedataset.aspx), [WebTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.webtabledataset.aspx)
 * Följande kopierings käll typer har lagts till:     
-  * [WebSource](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.websource.aspx)
+  * [Webbkälla](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.websource.aspx)
 
 ## <a name="version-440"></a>Version 4.4.0
 ### <a name="feature-additions"></a>Funktions tillägg

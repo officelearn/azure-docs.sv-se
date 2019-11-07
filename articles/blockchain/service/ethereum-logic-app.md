@@ -6,22 +6,22 @@ keywords: ''
 author: PatAltimore
 ms.author: patricka
 ms.date: 10/14/2019
-ms.topic: tutorial
+ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: chrisseg
 manager: femila
-ms.openlocfilehash: cff1085d14f2f849134b0b6f602e272fbb5bc561
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: bb23d6b9b42e1c51646765255870a14a1b5d39f7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329279"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579946"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Använd Ethereum blockchain-anslutningen med Azure Logic Apps
 
 Använd [Ethereum blockchain-anslutningen](https://docs.microsoft.com/connectors/blockchainethereum/) med [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) för att utföra åtgärder för smarta kontrakt och reagera på smarta kontrakt händelser. Anta till exempel att du vill skapa en REST-baserad mikrotjänst som returnerar information från en blockchain-redovisning. Genom att använda en Logic app kan du godkänna HTTP-begäranden som efterfrågar information som lagras i en blockchain-redovisning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Slutför den valfria snabb starten [: Använd Visual Studio Code för att ansluta till ett Azure blockchain service Consortium-nätverk](connect-vscode.md). Snabb starten guidar dig när du installerar [Azure blockchain Development Kit för Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) och ställer in din blockchain Development-miljö.
 
@@ -138,7 +138,7 @@ Följande steg genererar till exempel en REST-baserad Logic-app som baseras på 
 
     ![Logic Apps Designer-fönstret med HTTP POST-URL: en](./media/ethereum-logic-app/post-url.png)
 
-1. Använd sväng för att skapa en HTTP POST-begäran. Ersätt platshållartexten *\<HTTP post URL @ no__t-2* med URL: en från föregående steg.
+1. Använd sväng för att skapa en HTTP POST-begäran. Ersätt platshållartexten *\<http post url\>* med URL: en från föregående steg.
 
     ``` bash
     curl -d "{}" -H "Content-Type: application/json" -X POST "<HTTP POST URL>"
@@ -182,7 +182,7 @@ Azure blockchain-tjänstens RPC-slutpunkt krävs för att ansluta till ett block
 
 **Så här använder du Azure Portal:**
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Gå till din Azure blockchain service-medlem. Välj **Transactions-noder** och noden standard transaktions nod.
 
     ![Sidan Transaction Nodes med valet (standard nod)](./media/ethereum-logic-app/transaction-nodes.png)
@@ -267,7 +267,7 @@ Om du har använt utvecklings paketet eller Truffle för att bygga ditt smarta k
 
 **Så här använder du en halvledare-kompilator:**
 
-Använd kommandot `solc --bin <smart contract>.sol` om du vill generera kontraktets bytekod.
+Använd kommandot `solc --bin <smart contract>.sol` för att generera kontraktets bytekod.
 
 ## <a name="get-the-contract-address"></a>Hämta kontrakt adressen
 

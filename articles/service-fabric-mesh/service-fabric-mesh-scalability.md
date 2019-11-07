@@ -1,6 +1,6 @@
 ---
-title: Skalbarheten i Azure Service Fabric nät appar | Microsoft Docs
-description: Mer information om skalning tjänster i Azure Service Fabric-nät.
+title: Skalbarhet för Azure Service Fabric nät-appar | Microsoft Docs
+description: En av fördelarna med att distribuera program till Service Fabric nät är möjligheten att enkelt skala dina tjänster, antingen manuellt eller med principer för automatisk skalning.
 services: service-fabric-mesh
 keywords: ''
 author: dkkapur
@@ -9,34 +9,34 @@ ms.date: 10/26/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 1688cac35ea9de43bac529a4994bd4ea55eb0ab7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 59fdf68ed1ead4665ec8944d67f2d5112d370716
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60811102"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663003"
 ---
-# <a name="scaling-service-fabric-mesh-applications"></a>Skala Service Fabric-nät program
+# <a name="scaling-service-fabric-mesh-applications"></a>Skala Service Fabric nätprogram
 
-En av de största fördelarna med att distribuera program till Service Fabric Mesh är att du enkelt kan skala in eller ut dina tjänster. Detta hjälper dig att hantera varierande belastningsstorlekar på dina tjänster eller att förbättra tillgängligheten. Du kan manuellt skala ditt services in eller ut eller principer för automatisk skalning av installationsprogrammet.
+En av de största fördelarna med att distribuera program till Service Fabric nät är möjligheten att enkelt skala dina tjänster i eller ut. Detta bör användas för att hantera olika belastnings mängder på dina tjänster eller förbättra tillgängligheten. Du kan skala dina tjänster manuellt i eller ut eller konfigurera principer för automatisk skalning.
 
-## <a name="manual-scaling-instances"></a>Manuell skalning instanser
+## <a name="manual-scaling-instances"></a>Manuella skalnings instanser
 
 I distributionsmallen för programresursen har varje tjänst en *replicaCount*-egenskap som kan användas för att ange hur många gånger du vill att tjänsten distribueras. Ett program kan bestå av flera tjänster, och varje tjänst kan ha ett unikt *replicaCount*-värde, som distribueras och hanteras tillsammans. Om du vill skala antalet tjänstrepliker ändra du *replicaCount*-värdet för varje tjänst som du vill skala i distributionsmallen eller parameterfilen. Sedan uppgraderar du programmet.
 
-Exempel på skala manuellt services-instanser finns [manuellt skala dina tjänster in eller ut](service-fabric-mesh-tutorial-template-scale-services.md).
+Exempel på manuell skalning av tjänst instanser finns i [manuellt skala dina tjänster i eller ut](service-fabric-mesh-tutorial-template-scale-services.md).
 
-## <a name="autoscaling-service-instances"></a>Instanser av tjänsten för automatisk skalning
-Automatisk skalning är en ytterligare funktion av Service Fabric dynamiskt skala antalet dina service-instanser (horisontell skalning). Automatisk skalning ger bra elasticitet och möjliggör etablering eller borttagning av instanser av tjänsten baserat på användning av CPU eller minne.  Automatisk skalning kan du köra rätt antal instanser av tjänsten för din arbetsbelastning och optimera för kostnaden.
+## <a name="autoscaling-service-instances"></a>Tjänst instanser för automatisk skalning
+Automatisk skalning är en ytterligare funktion i Service Fabric för att dynamiskt skala antalet tjänst instanser (vågrät skalning). Automatisk skalning ger bra elastiskhet och möjliggör etablering eller borttagning av tjänst instanser baserat på processor-eller minnes användning.  Med automatisk skalning kan du köra rätt antal tjänst instanser för din arbets belastning och optimera för kostnad.
 
-Ett automatiskt skalningsprincip definieras per tjänst i resursfil för tjänsten. Varje skalningsprincip består av två delar:
+En princip för automatisk skalning definieras per tjänst i tjänst resurs filen. Varje skalnings princip består av två delar:
 
-- En skalning utlösare, som beskriver vid skalning av tjänsten kommer att utföras. Det finns tre faktorer som bestämmer när tjänsten skalas. *Lägre tröskelvärde* är ett värde som anger när tjänsten kommer att skalas i. Om den genomsnittliga belastningen över alla instanser av partitionerna är lägre än det här värdet, kommer tjänsten att skalas i. *Övre tröskelvärdet för inläsning* är ett värde som anger när tjänsten kommer att skalas ut. Om den genomsnittliga belastningen över alla instanser av partitionen är högre än det här värdet, kommer tjänsten att skalas ut. *Skalningsintervall* avgör hur ofta (i sekunder) utlösaren ska kontrolleras. När utlösaren kontrolleras om skalning krävs mekanismen används. Om skalning inte krävs vidtas någon åtgärd. I båda fallen kontrolleras utlösaren inte igen innan skalningsintervall upphör att gälla.
+- En skalnings utlösare som beskriver när skalningen av tjänsten ska utföras. Det finns tre faktorer som avgör när tjänsten ska skalas. *Lägre tröskelvärde för inläsning* är ett värde som avgör när tjänsten ska skalas i. Om den genomsnittliga belastningen för alla instanser av partitionerna är lägre än det här värdet kommer tjänsten att skalas i. Det *övre tröskelvärdet för inläsning* är ett värde som anger när tjänsten ska skalas ut. Om den genomsnittliga belastningen för alla instanser av partitionen är högre än det här värdet kommer tjänsten att skalas ut. *Skalnings intervallet* avgör hur ofta (i sekunder) utlösaren ska kontrol leras. När utlösaren är markerad kommer mekanismen att tillämpas om skalning krävs. Om skalning inte behövs vidtas ingen åtgärd. I båda fallen kontrol leras inte utlösaren igen innan skalnings intervallet upphör att gälla.
 
-- En skalning mekanism, som beskriver hur skalning ska utföras när den utlöses. *Skala ökningen* avgör hur många instanser ska läggas till eller tas bort när mekanismen utlöses. *Maximalt instansantal* definierar den övre gränsen för skalning. Om antalet instanser når den här gränsen kan sedan skalas tjänsten inte ut oavsett belastningen. *Minsta instansantal* definierar den nedre gränsen för skalning. Om antalet instanser av partitionen når den här gränsen kan sedan skalas tjänsten inte i oavsett belastningen.
+- En skalnings funktion som beskriver hur skalningen ska utföras när den utlöses. Med *skalnings ökningen* bestäms hur många instanser som ska läggas till eller tas bort när mekanismen utlöses. *Maximalt antal instanser* definierar den övre gränsen för skalning. Om antalet instanser når den här gränsen kommer tjänsten inte att skalas ut oavsett belastningen. *Lägsta instans antal* definierar den nedre gränsen för skalning. Om antalet instanser av partitionen når den här gränsen kommer tjänsten inte att skalas i oberoende av belastningen.
 
-Läs hur du ställer in en princip för automatisk skalning för din tjänst, [Autoskala services](service-fabric-mesh-howto-auto-scale-services.md).
+Läs [tjänsterna för autoskalning](service-fabric-mesh-howto-auto-scale-services.md)för att lära dig hur du ställer in en princip för autoskalning för tjänsten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om programmodellen finns [Service Fabric-resurser](service-fabric-mesh-service-fabric-resources.md)
+Information om program modellen finns [Service Fabric resurser](service-fabric-mesh-service-fabric-resources.md)

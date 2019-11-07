@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: raynew
-ms.openlocfilehash: e2faa47a58283623747ae569de22e1c57df1a51f
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 249cbea173afe1671118446e0714b721b8c7f72b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231140"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685089"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate-installation
 
@@ -42,7 +42,7 @@ De här agenterna är installerade på enheten.
 
 **Agent** | **Detaljer**
 --- | ---
-Identifieringsagent | Samlar in konfigurations data för lokala virtuella datorer
+Identifierings agent | Samlar in konfigurations data för lokala virtuella datorer
 Utvärderingsagent | Profiler den lokala miljön för att samla in prestanda data för virtuella datorer.
 Migration adapter | Dirigerar VM-replikering och samordnar kommunikation mellan virtuella datorer och Azure.
 Gateway för migrering | Skickar replikerade VM-data till Azure.
@@ -60,14 +60,14 @@ Här är de prestanda data för VMware VM som enheten samlar in och skickar till
 
 **Data** | **Medelvärde** | **Utvärderings påverkan**
 --- | --- | ---
-CPU-användning | processor. Usage. genomsnitt | Rekommenderad storlek/kostnad för virtuell dator
-Minnesanvändning | mem.usage.average | Rekommenderad storlek/kostnad för virtuell dator
+PROCESSOR användning | processor. Usage. genomsnitt | Rekommenderad storlek/kostnad för virtuell dator
+Minnes användning | minnes användning. genomsnitt | Rekommenderad storlek/kostnad för virtuell dator
 Disk läsnings data flöde (MB per sekund) | virtualDisk. Read. Average | Beräkning för disk storlek, lagrings kostnad, VM-storlek
 Disk skrivnings data flöde (MB per sekund) | virtualDisk. Write. Average | Beräkning för disk storlek, lagrings kostnad, VM-storlek
 Disk läsnings åtgärder per sekund | virtualDisk. numberReadAveraged. Average | Beräkning för disk storlek, lagrings kostnad, VM-storlek
-Disk skrivnings åtgärder per sekund | virtualDisk.numberWriteAveraged.average  | Beräkning för disk storlek, lagrings kostnad, VM-storlek
-NIC-läst data flöde (MB per sekund) | net.received.average | Beräkning för VM-storlek
-NÄTVERKSKORT Skriv data flöde (MB per sekund) | net.transmitted.average  |Beräkning för VM-storlek
+Disk skrivnings åtgärder per sekund | virtualDisk. numberWriteAveraged. Average  | Beräkning för disk storlek, lagrings kostnad, VM-storlek
+NIC-läst data flöde (MB per sekund) | net. Received. Average | Beräkning för VM-storlek
+NÄTVERKSKORT Skriv data flöde (MB per sekund) | net. överföring. genomsnitt  |Beräkning för VM-storlek
 
 
 ## <a name="collected-metadata-vmware"></a>Insamlade metadata – VMware
@@ -80,44 +80,44 @@ Här är en fullständig lista över de virtuella VMware-metadata som enheten sa
 **Data** | **Medelvärde**
 --- | --- 
 **Dator information** | 
-ID FÖR VIRTUELL DATOR | vm.Config.InstanceUuid 
-VM-namn | vm.Config.Name
+VM-ID | datorn. Config. InstanceUuid 
+VM-namn | datorn. Config.Name
 vCenter Server-ID | VMwareClient.Instance.Uuid
-Beskrivning av virtuell dator | vm.Summary.Config.Annotation
-Licens produkt namn | vm.Client.ServiceContent.About.LicenseProductName
+Beskrivning av virtuell dator | datorn. Summary. config. Annotation
+Licens produkt namn | datorn. Client. ServiceContent. about. LicenseProductName
 Typ av operativ system | vm.SummaryConfig.GuestFullName
-Starttyp | vm.Config.Firmware
-Antal kärnor | vm.Config.Hardware.NumCPU
+Start typ | datorn. Config. firmware
+Antal kärnor | datorn. Config. Hardware. NumCPU
 Minne (MB) | datorn. Config. Hardware. MemoryMB
 Antal diskar | datorn. Config. Hardware. Device. ToList (). FindAll (x = > är VirtualDisk). Count
 Lista över disk storlekar | datorn. Config. Hardware. Device. ToList (). FindAll (x = > är VirtualDisk)
 Lista med nätverkskort | datorn. Config. Hardware. Device. ToList (). FindAll (x = > är VirtualEthernet). Count
-CPU-användning | processor. Usage. genomsnitt
-Minnesanvändning |mem.usage.average
+PROCESSOR användning | processor. Usage. genomsnitt
+Minnes användning |minnes användning. genomsnitt
 **Per disk information** | 
 Disk nyckel värde | diskdefragmenter. Knapp
 Dikunit-nummer | diskdefragmenter. UnitNumber
-Nyckel värde för disk styrenhet | disk.ControllerKey.Value
-Gigabyte etablerad | virtualDisk.DeviceInfo.Summary
+Nyckel värde för disk styrenhet | diskdefragmenter. ControllerKey. Value
+Gigabyte etablerad | virtualDisk. DeviceInfo. Summary
 Disk namn | Värde som genereras med disk. UnitNumber, disk. Nyckel, disk. ControllerKey. VAlue
 Läs åtgärder per sekund | virtualDisk. numberReadAveraged. Average
-Skriv åtgärder per sekund | virtualDisk.numberWriteAveraged.average
+Skriv åtgärder per sekund | virtualDisk. numberWriteAveraged. Average
 Läs data flöde (MB per sekund) | virtualDisk. Read. Average
 Skriv data flöde (MB per sekund) | virtualDisk. Write. Average
 **Per NIC-information** | 
 Nätverkskortets namn | NIC. Knapp
-MAC-adress | ((VirtualEthernetCard)nic).MacAddress
-IPv4-adresser | vm.Guest.Net
-IPv6-adresser | vm.Guest.Net
-Läs data flöde (MB per sekund) | net.received.average
-Skriv data flöde (MB per sekund) | net.transmitted.average
+MAC-adress | ((VirtualEthernetCard) NIC). MacAddress
+IPv4-adresser | datorn. Guest.Net
+IPv6-adresser | datorn. Guest.Net
+Läs data flöde (MB per sekund) | net. Received. Average
+Skriv data flöde (MB per sekund) | net. överföring. genomsnitt
 **Information om lager Sök väg** | 
-Name | container.GetType().Name
+Namn | fönster. GetType (). Namn
 Typ av underordnat objekt | fönster. ChildType
-Referens information | container.MoRef
+Referens information | fönster. MoRef
 Överordnad information | Container. parent
 Information om mappar per virtuell dator | ((Mapp)-behållare). ChildEntity. Type
-Data Center information per virtuell dator | ((Datacenter)container).VmFolder
+Data Center information per virtuell dator | ((Data Center)-behållare). VmFolder
 Data Center information per värd-mapp | ((Data Center)-behållare). HostFolder
 Kluster information per värd | ((ClusterComputeResource) container). Värd
 Värd information per virtuell dator | ((HostSystem) container). DATORN
@@ -129,7 +129,7 @@ Värd information per virtuell dator | ((HostSystem) container). DATORN
 > [!NOTE]
 > Metadata som upptäckts av Azure Migrate-installationen används för att hjälpa dig att ge dina program rätt storlek när du migrerar dem till Azure, utför Azures analys av lämplighet, program beroende analys och kostnads planering. Microsoft använder inte dessa data i förhållande till någon granskning av licens efterlevnad.
 
-Här är de prestanda data för VMware VM som enheten samlar in och skickar till Azure.
+Här är de prestanda data för virtuella Hyper-datorer som enheten samlar in och skickar till Azure.
 
 **Prestanda räknar klass** | **Medelvärde** | **Utvärderings påverkan**
 --- | --- | ---
@@ -162,7 +162,7 @@ Operativ systemets namn/version/FQDN | Msvm_KvpExchangeComponent | GuestIntrinsi
 Energi status för virtuell dator | Msvm_ComputerSystem | EnabledState
 **Per disk information** | 
 Disk-ID | Msvm_VirtualHardDiskSettingData | VirtualDiskId
-Typ av virtuell hård disk | Msvm_VirtualHardDiskSettingData | type
+Typ av virtuell hård disk | Msvm_VirtualHardDiskSettingData | Typ
 Storlek på virtuell hård disk | Msvm_VirtualHardDiskSettingData | MaxInternalSize
 Överordnad virtuell hård disk | Msvm_VirtualHardDiskSettingData | ParentPath
 **Per NIC-information** | 
@@ -187,14 +187,14 @@ Enheten kommunicerar med vCenter-servrar och Hyper-V-värdar/-kluster med följa
 2. **Samla in metadata och prestanda data**:
     - Enheten använder en Common Information Model-session (CIM) för att samla in virtuella Hyper-V-Datadata från Hyper-V-värden på portarna 5985 och 5986.
     - Enheten kommunicerar med port 443 som standard för att samla in virtuella VMware-Datadata från vCenter Server.
-3. **Skicka data**: Enheten skickar insamlade data till Azure Migrate Server utvärdering och migrering av Azure Migrate Server över SSL-port 443.
+3. **Skicka data**: enheten skickar insamlade data till Azure Migrate Server utvärdering och migrering av Azure Migrate Server över SSL-port 443.
     - För prestanda data samlar enheten in real tids användnings data.
         - Prestanda data samlas in var 20: e sekund för VMware och var 30: e sekund för Hyper-V för varje prestanda mått.
         - Insamlade data samlas in för att skapa en enda data punkt i tio minuter.
         - Värdet för högsta användning väljs från alla de 20/30 andra data punkterna och skickas till beräkningen av Azure för bedömning.
         - Baserat på percentilvärdet som anges i bedömnings egenskaperna (50/nittionde/95/99), sorteras 10-minuters punkterna i stigande ordning och lämpligt percentilvärdet används för att beräkna utvärderingen
     - Vid Server migrering börjar installations programmet samla in VM-data och replikerar dem till Azure.
-4. **Utvärdera och migrera**: Nu kan du skapa utvärderingar från de metadata som samlas in av installationen med hjälp av Azure Migrate Server bedömning. Dessutom kan du börja migrera virtuella VMware-datorer med hjälp av Azure Migrate Server-migrering för att dirigera agent lös VM-replikering.
+4. **Utvärdera och migrera**: nu kan du skapa utvärderingar från de metadata som samlas in av installations programmet med hjälp av Azure Migrate Server bedömning. Dessutom kan du börja migrera virtuella VMware-datorer med hjälp av Azure Migrate Server-migrering för att dirigera agent lös VM-replikering.
 
 
 ![Arkitektur](./media/migrate-appliance/architecture.png)

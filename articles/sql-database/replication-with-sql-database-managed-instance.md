@@ -1,5 +1,5 @@
 ---
-title: Konfigurera replikering i en Azure SQL Database Hanterad instans databas | Microsoft Docs
+title: 'Konfigurera replikering i en Azure SQL Database Hanterad instans databas '
 description: Läs mer om hur du konfigurerar Transaktionsreplikering i en Azure SQL Database Hanterad instans databas
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: b940be1d1b68e4e2a41e3f8353cb54fdb51bb886
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 21275ce7716ffc394c1e7445c3f6836f09b44c87
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338741"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692159"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Konfigurera replikering i en Azure SQL Database Hanterad instans databas
 
@@ -41,7 +41,7 @@ Att konfigurera en hanterad instans så att den fungerar som en utgivare och/ell
 - Att utgivarens hanterade instans finns i samma virtuella nätverk som distributören och prenumeranten eller att [vNet-peering](../virtual-network/tutorial-connect-virtual-networks-powershell.md) har upprättats mellan de virtuella nätverken i alla tre entiteter. 
 - Anslutningen använder SQL-autentisering mellan replikeringsdeltagare.
 - En Azure Storage konto resurs för replikeringens arbets katalog.
-- Port 445 (TCP utgående) är öppen i säkerhets reglerna för NSG för de hanterade instanserna för åtkomst till Azure-filresursen.  Om felet "Det gick inte att ansluta till Azure Storage \<storage konto namn > med OS-fel 53", måste du lägga till en utgående regel i NSG för det aktuella SQL Managed instance-undernätet.
+- Port 445 (TCP utgående) är öppen i säkerhets reglerna för NSG för de hanterade instanserna för åtkomst till Azure-filresursen.  Om felet "Det gick inte att ansluta till Azure Storage \<lagrings kontots namn > med OS-fel 53", måste du lägga till en utgående regel i NSG för rätt undernät för SQL-hanterad instans.
 
 
  > [!NOTE]
@@ -154,7 +154,7 @@ GO
 
 ## <a name="7---configure-publisher-to-use-distributor"></a>7 – Konfigurera utgivare att använda distributör 
 
-På din Publisher-hanterade instans `sql-mi-pub` ändrar du frågekörningen till [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) -läge och kör följande kod för att registrera den nya distributören hos utgivaren. 
+På den hanterade instansen av Publisher `sql-mi-pub`ändrar du frågekörningen till [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) -läge och kör följande kod för att registrera den nya distributören hos utgivaren. 
 
 ```sql
 :setvar username loginUsedToAccessSourceManagedInstance

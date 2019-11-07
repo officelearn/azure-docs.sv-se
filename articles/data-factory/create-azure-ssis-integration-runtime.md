@@ -1,5 +1,5 @@
 ---
-title: Skapa en Azure-SSIS integration runtime i Azure Data Factory | Microsoft Docs
+title: Skapa en Azure-SSIS integration runtime i Azure Data Factory
 description: Lär dig hur du skapar en Azure-SSIS integration runtime i Azure Data Factory så att du kan distribuera och köra SSIS-paket i Azure.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ddc91a3317d362f6b56e486556f2edf6cdb85131
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: ce688248a205981f4a4c60ad01231c0b8f6bae3d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326683"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73677363"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Skapa en Azure-SSIS integration runtime i Azure Data Factory
 
@@ -26,7 +26,7 @@ Den här artikeln innehåller steg för att få en Azure-SQL Server Integration 
 - Köra paket som distribuerats till SSIS-katalogen (SSISDB) som finns på en Azure SQL Database-Server eller en hanterad instans (projekt distributions modell).
 - Köra paket som distribuerats i fil system, fil resurser eller Azure Files (paket distributions modell). 
 
-När en Azure-SSIS IR har tillhandahållits kan du använda välbekanta verktyg för att distribuera och köra dina paket i Azure. Dessa verktyg omfattar SQL Server Data Tools, SQL Server Management Studio och kommando rads verktyg som `dtinstall`, `dtutil` och `dtexec`.
+När en Azure-SSIS IR har tillhandahållits kan du använda välbekanta verktyg för att distribuera och köra dina paket i Azure. Dessa verktyg omfattar SQL Server Data Tools, SQL Server Management Studio och kommando rads verktyg som `dtinstall`, `dtutil`och `dtexec`.
 
 I självstudierna för [etablering Azure-SSIS IR](tutorial-create-azure-ssis-runtime-portal.md) visas hur du skapar en Azure-SSIS IR via Azure Portal eller Data Factory app. I kursen visas också hur du kan använda en Azure SQL Database-Server eller en hanterad instans som värd för SSISDB. Den här artikeln är utökad i självstudien och beskriver hur du gör dessa valfria uppgifter:
 
@@ -38,7 +38,7 @@ I självstudierna för [etablering Azure-SSIS IR](tutorial-create-azure-ssis-run
 
 Den här artikeln visar hur du etablerar en Azure-SSIS IR med hjälp av Azure Portal, Azure PowerShell och en Azure Resource Manager mall.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -182,7 +182,7 @@ När data fabriken har skapats öppnar du dess översikts sida i Azure Portal. V
 
    c. För **mellanlagringsplats**anger du en BLOB-behållare i ditt valda Azure Blob Storage-konto. Eller lämna det tomt om du vill använda en standard för mellanlagring.
 
-7. Välj **VNet-validering** > **härnäst**. 
+7. Välj **VNet-validering** > **Nästa**. 
 
 8. På sidan **Sammanfattning** granskar du alla inställningar för etablering, bok märken rekommenderade dokumentations länkar och väljer **Slutför** för att starta skapandet av integration Runtime.
 
@@ -355,7 +355,7 @@ Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 
 Kör följande kommandon för att skapa en Azure-SSIS integration runtime som kör SSIS-paket i Azure.
 
-Om du inte använder SSISDB kan du utelämna parametrarna `CatalogServerEndpoint`, `CatalogPricingTier` och `CatalogAdminCredential`.
+Om du inte använder SSISDB kan du utelämna parametrarna `CatalogServerEndpoint`, `CatalogPricingTier`och `CatalogAdminCredential`.
 
 Om du inte använder en Azure SQL Database-Server med tjänst slut punkter för virtuella nätverk eller en hanterad instans med en privat slut punkt som värd för SSISDB, eller om du behöver åtkomst till lokala data, kan du utelämna parametrarna `VNetId` och `Subnet` eller skicka tomma värden för objekten. Du kan också utelämna dem om du konfigurerar IR med egen värd som en proxy för din Azure-SSIS IR att komma åt data lokalt. Annars kan du inte utelämna dem och måste skicka giltiga värden från konfigurationen av det virtuella nätverket. Mer information finns i [ansluta ett Azure-SSIS IR till ett virtuellt nätverk](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
 
@@ -636,7 +636,7 @@ I det här avsnittet ska du använda en Azure Resource Manager-mall för att ska
     }
     ```
 
-2. Distribuera Azure Resource Manager-mallen genom att köra kommandot `New-AzResourceGroupDeployment`, som visas i följande exempel. I exemplet är `ADFTutorialResourceGroup` namnet på din resurs grupp. `ADFTutorialARM.json` är den fil som innehåller JSON-definitionen för din data fabrik och Azure-SSIS IR.
+2. Distribuera Azure Resource Manager-mallen genom att köra `New-AzResourceGroupDeployment` kommandot som visas i följande exempel. I exemplet är `ADFTutorialResourceGroup` namnet på din resurs grupp. `ADFTutorialARM.json` är den fil som innehåller JSON-definitionen för din data fabrik och Azure-SSIS IR.
 
     ```powershell
     New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json
@@ -668,7 +668,7 @@ Om du använder SSISDB kan du distribuera dina paket till den och köra dem på 
 - För en hanterad instans med en privat slut punkt är Server slut punktens format `<server name>.<dns prefix>.database.windows.net`.
 - För en hanterad instans med en offentlig slut punkt är Server slut punktens format `<server name>.public.<dns prefix>.database.windows.net,3342`. 
 
-Om du inte använder SSISDB kan du distribuera paketen i fil system, fil resurser eller Azure Files. Du kan sedan köra dem på Azure-SSIS IR med hjälp av kommando rads verktygen `dtinstall`, `dtutil` och @no__t 2. Mer information finns i [distribuera SSIS-paket](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server). 
+Om du inte använder SSISDB kan du distribuera paketen i fil system, fil resurser eller Azure Files. Du kan sedan köra dem på Azure-SSIS IR med hjälp av kommando rads verktygen `dtinstall`, `dtutil`och `dtexec`. Mer information finns i [distribuera SSIS-paket](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server). 
 
 I båda fallen kan du också köra dina distribuerade paket på Azure-SSIS IR med hjälp av aktiviteten kör SSIS-paket i Data Factory pipeliner. Mer information finns i [anropa SSIS-paket körning som en första klass Data Factory aktivitet](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
 

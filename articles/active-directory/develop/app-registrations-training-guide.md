@@ -1,6 +1,6 @@
 ---
-title: App-registreringar i Azure portal-utbildning för - Azure
-description: Skapa inbäddad och ge webbläsaren utan autentiseringsflöden med hjälp av kod för enheten.
+title: Appregistreringar i guiden Azure Portal-utbildning – Azure
+description: En introduktion till den nya program registrerings upplevelsen i Microsoft Identity Platform.
 services: active-directory
 documentationcenter: ''
 author: archieag
@@ -17,90 +17,91 @@ ms.author: aragra
 ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 118c6ecb16d325a384246a0b3d9e685f6f6f04ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a539859fb4853467863f3fd2ab4144bcb789b9f5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64870124"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73662505"
 ---
-# <a name="training-guide-app-registrations-in-the-azure-portal"></a>Utbildning-guide: App-registreringar i Azure portal  
+# <a name="training-guide-app-registrations-in-the-azure-portal"></a>Tränings guide: Appregistreringar i Azure Portal
 
-Du kan hitta ett antal förbättringar i den nya [appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) upplevelse i Azure-portalen. Om du är mer bekant med den äldre upplevelsen kan du använda den här utbildning-guiden för att komma igång med den nya upplevelsen.
+Du kan hitta flera förbättringar i den nya [Appregistreringars](https://go.microsoft.com/fwlink/?linkid=2083908) upplevelsen i Azure Portal. Om du är bekant med den äldre upplevelsen kan du använda den här tränings guiden för att komma igång med den nya upplevelsen.
 
-## <a name="key-changes"></a>Ändringar i entitetsnyckeln
+I Azure Active Directory är den nya program registrerings upplevelsen som beskrivs här allmänt tillgänglig (GA). I Azure Active Directory B2C (Azure AD B2C) är den här upplevelsen i för hands versionen.
 
-- App-registreringar inte är begränsade till att antingen en **web app/API** eller en **interna** app. Du kan använda samma appregistreringen för alla dessa genom att registrera respektive omdirigerade URI: er.
-- Äldre upplevelsen stöds-App som loggar in organisationens (Azure AD)-konton endast. Appar som registrerats som en enda klient (stöder bara organisationskonton från appen har registrerats i katalogen) och kan ändras om du vill att flera innehavare (stöder alla organisationskonton). Den nya upplevelsen kan du registrera appar som kan stödja båda alternativen samt ett tredje alternativ: alla organisationskonton samt personliga Microsoft-konton.
-- Den äldre upplevelsen var bara tillgängliga när du loggat in på Azure-portalen med ett organisationskonto. Du kan använda personliga Microsoft-konton som inte är associerade med en katalog med den nya upplevelsen.
+## <a name="key-changes"></a>Nyckel ändringar
+
+- Appregistreringar är inte begränsade till antingen en webbapp **/API** eller en **inbyggd** app. Du kan använda samma app-registrering för alla dessa genom att registrera respektive omdirigerings-URI: er.
+- Appar som stöds av äldre versioner som bara loggar in organisations konton (Azure AD). Appar registrerades som en enskild klient (stöd endast organisations konton från katalogen som appen registrerades i) och kan ändras till att vara flera innehavare (stöd för alla organisations konton). Med den nya upplevelsen kan du registrera appar som har stöd för både dessa alternativ och ett tredje alternativ: alla organisations konton och personliga Microsoft-konton.
+- Den äldre upplevelsen var bara tillgänglig när du loggade in på Azure Portal med ett organisations konto. Med den nya upplevelsen kan du använda personliga Microsoft-konton som inte är associerade med en katalog.
 
 ## <a name="list-of-applications"></a>Lista över program
 
-- Den nya applistan innehåller program som har registrerats via appen äldre registreringar upplevelse i Azure-portalen (appar som loggar in i Azure AD-konton) samt appar registrerad men den [Programregistreringsportalen](https://apps.dev.microsoft.com/) (appar som loggar in i Azure AD och personliga Microsoft-konton).
-- Den nya applistan inte har en **programtyp** kolumnen (eftersom en enda app-registrering kan vara flera typer) och har två ytterligare kolumner: en **skapas på** kolumn och en **certifikat & hemligheter** kolumn som visar status (aktuella, upphör snart att gälla eller upphört att gälla) av autentiseringsuppgifter som har registrerats i appen.
+- I listan med nya appar visas program som har registrerats via den äldre appens registrering i Azure Portal (appar som loggar in på Azure AD-konton) samt appar som registrerats, även om [program registrerings portalen](https://apps.dev.microsoft.com/) (appar som loggar in Azure AD och personliga Microsoft-konton).
+- Den nya applistan har ingen **program typ** kolumn (eftersom en registrering av en enda app kan vara flera typer) och har två ytterligare kolumner: en **skapad i** kolumn och en **certifikat & hemligheter** som visar status (aktuell, förfaller snart eller har gått ut) autentiseringsuppgifter som har registrerats i appen.
 
-## <a name="new-app-registration"></a>Ny appregistrering
+## <a name="new-app-registration"></a>Ny app-registrering
 
-I den äldre upplevelsen för att registrera en app tvungen du att tillhandahålla: **Namnet**, **programtyp**, och **inloggnings-URL/Redirect URI**. Appar som har skapats har vilket innebär att de endast stöd för organisationskonton från den katalog som appen har registrerats i Azure AD endast enda klient-program.
+I den tidigare versionen av kan du registrera en app som du krävde för att tillhandahålla: **namn**, **program typ**och **inloggnings-URL/omdirigerings-URI**. De appar som har skapats var endast Azure AD-program med en enda klient, vilket innebär att de bara har stöd för organisations konton från katalogen som appen registrerades i.
 
-I den nya upplevelsen, måste du ange en **namn** för appen och välj den **stöds kontotyper**. Du kan också bifoga en **omdirigerings-URI**. Om du anger en omdirigerings-URI måste du ange om är det web/offentlig (mobila och stationära). Mer information om hur du registrerar en app med de nya app-registreringarna Upplev, se [snabbstarten](quickstart-register-app.md).
+I den nya upplevelsen måste du ange ett **namn** för appen och välja de **konto typer som stöds**. Du kan också ange en **omdirigerings-URI**. Om du anger en omdirigerings-URI måste du ange om den är webb/offentlig (mobil och stationär). Mer information om hur du registrerar en app med hjälp av den nya program registreringen finns i [Registrera en app med Microsoft Identity Platform](quickstart-register-app.md). Mer Azure AD B2C finns [i registrera ett program i Azure Active Directory B2C](../../active-directory-b2c/tutorial-register-applications.md).
 
-## <a name="the-legacy-properties-page"></a>Äldre egenskapssidan
+## <a name="the-legacy-properties-page"></a>Sidan med gamla egenskaper
 
-Den äldre upplevelsen hade en **egenskaper** sida som inte har den nya upplevelsen. Den **egenskaper** bladet hade följande fält: **Namnet**, **objekt-ID**, **program-ID**, **Appidentitets-URI**, **logotyp**, **URL-Adressen** , **URL för utloggning**, **URL för Tjänstvillkor**, **URL till sekretesspolicy**, **programtyp**, och  **Flera innehavare.**
+Den tidigare upplevelsen hade en **egenskaps** sida som den nya upplevelsen inte har. **Egenskaps** bladet hade följande fält: **namn**, **objekt-ID**, **program-ID**, **app-ID URI**, **logo typ**, **Start sidans URL**, **utloggnings-URL**, **villkor för tjänsten URL**, **sekretess policy URL**, **program typ**och **flera innehavare.**
 
-Här är där du hittar motsvarande funktioner i den nya miljön:
+Här kan du hitta motsvarande funktioner i den nya upplevelsen:
 
-- **Namnet**, **logotyp**, **URL-Adressen**, **URL för Tjänstvillkor**, och **URL till sekretesspolicy** är nu på appens  **Anpassning av** sidan.
-- **Objekt-ID** och **(klient)-ID: T** finns på den **översikt** sidan.
-- Funktionen styrs av den **flera innehavare** växling i den äldre upplevelsen har ersatts av **stöds kontotyper** på den **autentisering** sidan. Läs mer om hur flera innehavare mappar till stöds kontotyperna [snabbstarten](quickstart-modify-supported-accounts.md).
-- **URL för utloggning** är nu på den **autentisering** sidan.
-- **Programtyp** är inte längre giltigt fält. I stället omdirigerings-URI: er (som finns på den **autentisering** sidan) avgör vilka typer av appar som stöds.
-- **App-ID-URI** kallas nu **program-ID-URI** och du hittar den på den **exponerar ett API** bladet. Den äldre upplevelsen kan den här egenskapen automatiskt-registrerades med hjälp av följande format: `https://{tenantdomain}/{appID}` (till exempel `https://microsoft.onmicrosoft.com/aeb4be67-a634-4f20-9a46-e0d4d4f1f96d`). I det nya formatet är det automatiskt genererade som `api://{appID}`, men du måste uttryckligen att spara.
+- **Namn**, **logo typ**, **Start sidans URL**, **villkor för tjänste**-URL och **URL för sekretess policyn** finns nu på appens **varumärkes** sida.
+- **Objekt-ID** och **program (klient) ID** finns på **översikts** sidan.
+- De funktioner som styrs av växling vid **flera innehavare** i den tidigare versionen har ersatts av **konto typer som stöds** på sidan **autentisering** . Mer information om hur flera innehavare mappar till alternativen för konto typ som stöds finns i [den här snabb](quickstart-modify-supported-accounts.md)starten.
+- **URL för utloggning** finns nu på sidan **autentisering** .
+- **Program typen** är inte längre ett giltigt fält. I stället ska du använda omdirigerings-URI: er (som du hittar på sidan **autentisering** ) och bestämma vilka typer av appar som stöds.
+- **App-ID-URI** heter nu **program-ID URI** och du hittar det på sidan **exponera ett API** . I den tidigare versionen registrerades den här egenskapen automatiskt med följande format: `https://{tenantdomain}/{appID}` (till exempel `https://microsoft.onmicrosoft.com/aeb4be67-a634-4f20-9a46-e0d4d4f1f96d`). I den nya upplevelsen genereras den automatiskt som `api://{appID}`, men den måste sparas explicit. I Azure AD B2C klienter används fortfarande formatet `https://{tenantdomain}/{appID}`.
 
-## <a name="reply-urlsredirect-urls"></a>Svars-URL: er/omdirigerings-URL
+## <a name="reply-urlsredirect-urls"></a>Svars webb adresser/omdirigerings-URL
 
-I den äldre upplevelsen kan en app hade en **Svarswebbadresser** sidan. I den nya upplevelsen svars-URL finns på en app **autentisering** avsnittet. Dessutom kan de kallas **omdirigerings-URI: er**. Dessutom format för omdirigeras URI: er har ändrats. De är obligatoriska som ska associeras med en typ av app (webb- eller offentlig). Dessutom av säkerhetsskäl jokertecken och http:// scheman stöds inte (med undantag för http://localhost).
+I den tidigare versionen hade en app en sida med **svars-URL: er** . I den nya upplevelsen hittar du svars-URL: er i avsnittet **Authentication** i appen. Dessutom kallas de **omdirigerings-URI: er**. Dessutom har formatet för omdirigerings-URI: er ändrats. De måste vara kopplade till en app-typ (webb eller offentlig). Av säkerhets skäl stöds inte jokertecken och http://-scheman (med undantag för http://localhost).
 
-## <a name="keyscertificates--secrets"></a>Nycklar/certifikat och hemligheter
+## <a name="keyscertificates--secrets"></a>Nycklar/certifikat & hemligheter
 
-I den äldre upplevelsen kan en app hade **nycklar** sidan. I den nya upplevelsen, det har bytt namn till **certifikat och hemligheter**. Dessutom **offentliga nycklar** kallas **certifikat** och **lösenord** kallas **klienten hemligheter**.
+I den äldre upplevelsen hade appen **nycklar** på sidan. I den nya upplevelsen har den bytt namn till **certifikat & hemligheter**. Dessutom kallas **offentliga nycklar** för **certifikat** och **lösen ord** som **klient hemligheter**.
 
 ## <a name="required-permissionsapi-permissions"></a>Nödvändiga behörigheter/API-behörigheter
 
-- I den äldre upplevelsen kan en app hade en **nödvändiga behörigheter** sidan. I den nya upplevelsen, det har bytt namn till **API-behörigheter**.
-- När du väljer ett API i den äldre upplevelsen kan du välja från en lista över Microsoft APIs eller Sök igenom tjänstens huvudnamn i klientorganisationen. I den nya upplevelsen kan du välja bland flera flikar: **Microsoft APIs**, **API: er som min organisation använder**, eller **Mina API: er**. Sökfältet på **API: er min organisation** använder fliken söker igenom tjänstens huvudnamn i klientorganisationen. 
+- I den tidigare versionen hade en app en **nödvändig behörighets** sida. I den nya upplevelsen har den bytt namn till API- **behörigheter**.
+- När du väljer ett API i den äldre miljön kan du välja från en liten lista med Microsoft API: er eller söka igenom tjänstens huvud namn i klient organisationen. I den nya upplevelsen kan du välja mellan flera flikar: **Microsoft API**: er, **API: er som används i organisationen**eller **Mina API**: er. Sök fältet i **API: er i min organisation** använder TABB-sökningar via tjänstens huvud namn i klient organisationen.
 
    > [!NOTE]
-   > Den här fliken visas inte om ditt program är inte kopplad till en klient. Mer information om hur du begär behörigheter med hjälp av den nya upplevelsen finns i [snabbstarten](quickstart-configure-app-access-web-apis.md).
+   > Den här fliken visas inte om programmet inte är associerat med en klient. Mer information om hur du begär behörigheter med hjälp av den nya upplevelsen finns i [den här snabb](quickstart-configure-app-access-web-apis.md)starten.
 
-- Den äldre upplevelsen hade en **bevilja** längst upp på den **begärda behörigheter** sidan. I den nya upplevelse, finns det en **ge medgivande** med en **bevilja administratörsmedgivande** knappen i en app **API-behörigheter** avsnittet. Dessutom finns vissa skillnader i hur funktionen knappar:
-   - I den äldre upplevelsen logiken variera beroende på den inloggade användaren och de behörigheter som begärts. Logiken som var:
-      - Om bara samtycke kan användarbehörigheter begärdes och den inloggade användaren har inte en administratör, kunde användaren att bevilja tillstånd för behörigheterna som krävs.
-      - Om minst en behörighet som kräver administratörens godkännande begärdes och den inloggade användaren har inte en administratör kan får användaren ett felmeddelande när du försöker ge ditt medgivande.
-      - Om den inloggade användaren är administratör kan har administratörens godkännande beviljats för behörigheterna som krävs.
-   - I den nya upplevelsen kan bara en administratör ge ditt medgivande. När en administratör väljer den **bevilja administratörens godkännande** knappen administratörens godkännande har beviljats behörigheterna som krävs.
+- Den tidigare upplevelsen hade fått knappen **bevilja behörighet** överst på den **begärda behörighets** sidan. I den nya upplevelsen finns avsnittet **beviljande medgivande** med knappen **bevilja administratörs medgivande** i avsnittet **API-behörigheter** för appen. Dessutom finns det vissa skillnader i hur knapparna fungerar:
+   - I den tidigare miljön varierar logiken beroende på den inloggade användaren och de behörigheter som begärs. Logiken var:
+      - Om endast användare som har tillstånds behörighet begärs och den inloggade användaren inte var administratör, kunde användaren bevilja användar medgivande för de begärda behörigheterna.
+      - Om minst en behörighet som kräver administratörs medgivande begärs och den inloggade användaren inte var administratör, fick användaren ett fel vid försök att bevilja medgivande.
+      - Om den inloggade användaren var administratör beviljas administratörs medgivande för alla begärda behörigheter.
+   - I den nya upplevelsen kan endast en administratör bevilja medgivande. När en administratör väljer knappen **bevilja administratörs medgivande** beviljas administratörs medgivande till alla begärda behörigheter.
 
-## <a name="deleting-an-app-registration"></a>Tar bort en appregistrering
+## <a name="deleting-an-app-registration"></a>Ta bort en app-registrering
 
-I den äldre upplevelsen hade en app ska vara en enda klient som ska tas bort. Knappen Ta bort har inaktiverats för appar för flera klienter. Appar kan tas bort i varje delstat i den nya upplevelsen, men du måste bekräfta åtgärden. Läs mer om att ta bort appregistreringar [snabbstarten](quickstart-remove-app.md).
+I den tidigare versionen måste en app vara en-klient för att kunna tas bort. Knappen Ta bort har inaktiverats för appar för flera klienter. I den nya upplevelsen kan appar tas bort i vilket tillstånd som helst, men du måste bekräfta åtgärden. Mer information om hur du tar bort registrerings program finns i [den här snabb](quickstart-remove-app.md)starten.
 
 ## <a name="application-manifest"></a>Programmanifest
 
-Gamla och nya upplevelser använder olika versioner för formatet för JSON i redigeringsprogrammet för applikationsmanifestet. Mer information finns i [programmanifestet](reference-app-manifest.md).
+De äldre och nya upplevelserna använder olika versioner av JSON-formatet i manifest redigeraren. Mer information finns i [program manifestet](reference-app-manifest.md).
 
-## <a name="new-ui"></a>Nytt användargränssnitt
+## <a name="new-ui"></a>Nytt användar gränssnitt
 
-Det finns nya Användargränssnittet för egenskaper som kunde tidigare bara anges med hjälp av redigeringsprogrammet för applikationsmanifestet eller API: et eller inte fanns.
+Det finns ett nytt gränssnitt för egenskaper som tidigare endast kunde anges med hjälp av manifest redigeraren eller API: t eller som inte finns.
 
-- **Implicit flöde beviljat med** (oauth2AllowImplicitFlow) finns på den **autentisering** sidan. Till skillnad från i den äldre upplevelsen kan du aktivera **åtkomsttoken** eller **id-token**, eller båda.
-- **Omfattningar som definieras av den här API: et** (oauth2Permissions) och **behörighet klientprogram** (preAuthorizedApplications) kan konfigureras via den **exponerar ett API** sidan. Mer information om hur du konfigurerar en app för att vara ett webb-API och exponera behörigheter/scope finns i [snabbstarten](quickstart-configure-app-expose-web-apis.md).
-- **Apputgivarens domän** (som visas för användarna på den [medgivandetext för programmets](application-consent-experience.md)) finns på den **varumärkesriktlinjer bladet** sidan. Mer information om hur du konfigurerar en utgivardomän finns i [den här anvisningen](howto-configure-publisher-domain.md).
+- Du hittar oauth2AllowImplicitFlow ( **implicita tilldelnings flöde** ) på sidan **autentisering** . Till skillnad från den äldre upplevelsen kan du aktivera **åtkomsttoken** eller **ID-token**, eller båda.
+- **Omfattningar som definieras av denna API** (oauth2Permissions) och **auktoriserade klient program** (preAuthorizedApplications) kan konfigureras via sidan **exponera en API** . Mer information om hur du konfigurerar en app så att den är ett webb-API och visar behörigheter/omfattningar finns i [den här snabb](quickstart-configure-app-expose-web-apis.md)starten.
+- **Publisher-domän** (som visas för användare i [programmets medgivande fråga](application-consent-experience.md)) finns på **bladet varumärkes blad** . Mer information om hur du konfigurerar en Publisher-domän finns i [den här instruktionen](howto-configure-publisher-domain.md).
 
 ## <a name="limitations"></a>Begränsningar
 
-Den nya miljön har följande begränsningar:
+Den nya upplevelsen har följande begränsningar:
 
-- Den nya upplevelsen är för närvarande inte tillgänglig i Azure AD B2C-klienter.
-- Formatet på klienten hemligheter (lösenord) skiljer sig från som den äldre upplevelsen och delar upp CLI.
-- Ändra värdet för stöds konton stöds inte i Användargränssnittet. Du måste använda appmanifestet såvida inte du växlar mellan Azure AD enda klient och flera innehavare.
+- Formatet på klient hemligheter (applösenord) skiljer sig från den äldre upplevelsen och kan bryta CLI.
+- Det finns inte stöd för att ändra värdet för konton som stöds i användar gränssnittet. Du måste använda app-manifestet om du inte växlar mellan Azure AD Single-Tenant och multi-Tenant.

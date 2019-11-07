@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: e7c63d3b52a57a952c311937036f0f7da15ebefc
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: ab28203a240cf360fb990ac42fdbc2d83864f68b
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299612"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604775"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Konfigurera Azure CNI Networking i Azure Kubernetes service (AKS)
 
@@ -22,11 +22,11 @@ Med [Azure Container Network Interface (cni)][cni-networking]hämtar varje Pod e
 
 Den här artikeln visar hur du använder *Azure cni* Networking för att skapa och använda ett virtuellt nätverks under nät för ett AKS-kluster. Mer information om nätverks alternativ och överväganden finns i [nätverks koncept för Kubernetes och AKS][aks-network-concepts].
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Det virtuella nätverket för AKS-klustret måste tillåta utgående Internet anslutning.
 * Skapa inte fler än ett AKS-kluster i samma undernät.
-* AKS-kluster får inte använda `169.254.0.0/16` `172.31.0.0/16`, `172.30.0.0/16`, eller `192.0.2.0/24` för Kubernetes-tjänstens adress intervall.
+* AKS-kluster får inte använda `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`eller `192.0.2.0/24` för adress intervallet för Kubernetes-tjänsten.
 * Tjänstens huvud namn som används av AKS-klustret måste ha minst [nätverks deltagar](../role-based-access-control/built-in-roles.md#network-contributor) behörighet för under nätet i det virtuella nätverket. Om du vill definiera en [anpassad roll](../role-based-access-control/custom-roles.md) i stället för att använda den inbyggda rollen nätverks deltagare, krävs följande behörigheter:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
@@ -52,14 +52,14 @@ IP-adressboken för ett AKS-kluster består av ett virtuellt nätverk, minst ett
 | Adress intervall/Azure-resurs | Gränser och storlek |
 | --------- | ------------- |
 | Virtuellt nätverk | Det virtuella Azure-nätverket kan vara så stort som/8, men det är begränsat till 65 536 konfigurerade IP-adresser. |
-| Subnet | Måste vara tillräckligt stor för att rymma noderna, poddar och alla Kubernetes och Azure-resurser som kan vara etablerade i klustret. Om du till exempel distribuerar en intern Azure Load Balancer allokeras klientens IP-adresser från klustrets undernät, inte offentliga IP-adresser. Under näts storleken bör också ta hänsyn till uppgraderings åtgärder eller framtida skalnings behov.<p />Beräkna den *minsta* under näts storleken inklusive ytterligare en nod för uppgraderings åtgärder:`(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Exempel på ett 50-nods kluster `(51) + (51  * 30 (default)) = 1,581` : (/21 eller större)<p/>Exempel för ett 50-nods kluster som även omfattar etablering för att skala upp ytterligare 10 noder `(61) + (61 * 30 (default)) = 1,891` : (/21 eller större)<p>Om du inte anger ett maximalt antal poddar per nod när du skapar klustret, anges det maximala antalet poddar per nod till *30*. Det minsta antalet IP-adresser som krävs baseras på det värdet. Om du beräknar krav för minsta IP-adress på ett annat Max värde, se [så här konfigurerar du det maximala antalet poddar per nod](#configure-maximum---new-clusters) för att ange det här värdet när du distribuerar klustret. |
-| Kubernetes Service-adressintervall | Intervallet ska inte användas av något nätverks element på eller är anslutet till det här virtuella nätverket. Tjänst adressens CIDR måste vara mindre än/12. |
+| Undernät | Måste vara tillräckligt stor för att rymma noderna, poddar och alla Kubernetes och Azure-resurser som kan vara etablerade i klustret. Om du till exempel distribuerar en intern Azure Load Balancer allokeras klientens IP-adresser från klustrets undernät, inte offentliga IP-adresser. Under näts storleken bör också ta hänsyn till uppgraderings åtgärder eller framtida skalnings behov.<p />För att beräkna den *minsta* under näts storleken inklusive ytterligare en nod för uppgraderings åtgärder: `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Exempel för ett 50-nods kluster: `(51) + (51  * 30 (default)) = 1,581` (/21 eller större)<p/>Exempel för ett 50-nods kluster som även omfattar etablering för att skala upp ytterligare 10 noder: `(61) + (61 * 30 (default)) = 1,891` (/21 eller större)<p>Om du inte anger ett maximalt antal poddar per nod när du skapar klustret, anges det maximala antalet poddar per nod till *30*. Det minsta antalet IP-adresser som krävs baseras på det värdet. Om du beräknar krav för minsta IP-adress på ett annat Max värde, se [så här konfigurerar du det maximala antalet poddar per nod](#configure-maximum---new-clusters) för att ange det här värdet när du distribuerar klustret. |
+| Adress intervall för Kubernetes-tjänst | Intervallet ska inte användas av något nätverks element på eller är anslutet till det här virtuella nätverket. Tjänst adressens CIDR måste vara mindre än/12. |
 | IP-adress för Kubernetes DNS-tjänst | IP-adress inom Kubernetes-tjänstens adress intervall som ska användas av kluster tjänst identifiering (Kube-DNS). Använd inte den första IP-adressen i adress intervallet, till exempel. 1. Den första adressen i under nätets intervall används för *Kubernetes. default. svc. Cluster. local* . |
 | Docker Bridge-adress | Nätverks adressen Docker Bridge representerar den standard nätverks adress för *docker0* -brygga som finns i alla Docker-installationer. Även om *docker0* -bryggan inte används av AKS-kluster eller själva poddar, måste du ange den här adressen så att den fortfarande stöder scenarier som *Docker-build* i AKS-klustret. Det krävs att du väljer en CIDR för Docker-bryggans nätverks adress eftersom en annan Docker kommer att välja ett undernät automatiskt som kan hamna i konflikt med andra CIDR-enheter. Du måste välja ett adress utrymme som inte kolliderar med resten av CIDR-inställningarna i dina nätverk, inklusive klustrets tjänst-CIDR och Pod CIDR. Standard för 172.17.0.1/16. |
 
 ## <a name="maximum-pods-per-node"></a>Maximalt antal poddar per nod
 
-Det maximala antalet poddar per nod i ett AKS-kluster är 250. Standardvärdet för högsta antal poddar per nod varierar mellan *Kubernetes* och *Azure cni* -nätverk och metoden för kluster distribution.
+Det maximala antalet poddar per nod i ett AKS-kluster är 250. *Standardvärdet* för högsta antal poddar per nod varierar mellan *KUBERNETES* och *Azure cni* -nätverk och metoden för kluster distribution.
 
 | Distributions metod | Kubernetes standard | Standard för Azure-CNI | Kan konfigureras vid distribution |
 | -- | :--: | :--: | -- |
@@ -71,17 +71,19 @@ Det maximala antalet poddar per nod i ett AKS-kluster är 250. Standardvärdet f
 
 Du kan konfigurera maximalt antal poddar per nod *vid kluster distributions tiden*. Om du distribuerar med Azure CLI eller med en Resource Manager-mall, kan du ange den maximala poddar per nod-värde så högt som 250.
 
+Ett minsta värde för maximalt poddar per nod upprätthålls för att garantera utrymme för system poddar som är viktiga för kluster hälsan. Det minsta värdet som kan ställas in för maximalt poddar per nod är 10 om och bara om konfigurationen för varje nod har utrymme för minst 30 poddar. Om du till exempel ställer in den maximala poddar per nod till minst 10 måste varje enskild nod ha minst tre noder. Detta krav gäller för varje ny nod som skapas också, så om 10 definieras som maximalt poddar per nod måste varje efterföljande nod som läggs till ha minst 3 noder.
+
 | Nätverk | Minimum | Maximal |
 | -- | :--: | :--: |
-| Azure CNI | 30 | 250 |
-| Kubernetes | 30 | 110 |
+| Azure-CNI | 10 | 250 |
+| Kubernetes | 10 | 110 |
 
 > [!NOTE]
 > Det minimala värdet i tabellen ovan tillämpas helt av AKS-tjänsten. Du kan inte ange ett maxPods-värde som är lägre än det minsta antalet som visas på så sätt kan förhindra att klustret startar.
 
-* **Azure CLI**: Ange argumentet när du distribuerar ett kluster med kommandot [AZ AKS Create.][az-aks-create] `--max-pods` Det maximala värdet är 250.
-* **Resource Manager-mall**: Ange egenskapen i ManagedClusterAgentPoolProfile-objektet när du distribuerar ett kluster med en Resource Manager-mall. [] `maxPods` Det maximala värdet är 250.
-* **Azure Portal**: Du kan inte ändra det maximala antalet poddar per nod när du distribuerar ett kluster med Azure Portal. Azure CNI nätverks kluster är begränsade till 30 poddar per nod när du distribuerar med hjälp av Azure Portal.
+* **Azure CLI**: Ange `--max-pods` argumentet när du distribuerar ett kluster med kommandot [AZ AKS Create][az-aks-create] . Det maximala värdet är 250.
+* **Resource Manager-mall**: Ange `maxPods` egenskapen i [ManagedClusterAgentPoolProfile] -objektet när du distribuerar ett kluster med en Resource Manager-mall. Det maximala värdet är 250.
+* **Azure Portal**: du kan inte ändra det maximala antalet poddar per nod när du distribuerar ett kluster med Azure Portal. Azure CNI nätverks kluster är begränsade till 30 poddar per nod när du distribuerar med hjälp av Azure Portal.
 
 ### <a name="configure-maximum---existing-clusters"></a>Konfigurera maximalt antal befintliga kluster
 
@@ -91,22 +93,22 @@ Du kan inte ändra den maximala poddar per nod i ett befintligt AKS-kluster. Du 
 
 När du skapar ett AKS-kluster kan följande parametrar konfigureras för Azure CNI-nätverk:
 
-**Virtuellt nätverk**: Det virtuella nätverk som du vill distribuera Kubernetes-klustret till. Om du vill skapa ett nytt virtuellt nätverk för klustret väljer du *Skapa nytt* och följer stegen i avsnittet *Skapa virtuellt nätverk* . Information om gränser och kvoter för ett virtuellt Azure-nätverk finns i [Azure-prenumerationer, tjänst gränser, kvoter och begränsningar](../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
+**Virtuellt nätverk**: det virtuella nätverk som du vill distribuera Kubernetes-klustret till. Om du vill skapa ett nytt virtuellt nätverk för klustret väljer du *Skapa nytt* och följer stegen i avsnittet *Skapa virtuellt nätverk* . Information om gränser och kvoter för ett virtuellt Azure-nätverk finns i [Azure-prenumerationer, tjänst gränser, kvoter och begränsningar](../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
-**Undernät**: Under nätet i det virtuella nätverket där du vill distribuera klustret. Om du vill skapa ett nytt undernät i det virtuella nätverket för klustret väljer du *Skapa nytt* och följer stegen i avsnittet *skapa undernät* . För Hybrid anslutning bör adress intervallet inte överlappa några andra virtuella nätverk i din miljö.
+**Undernät**: under nätet i det virtuella nätverket där du vill distribuera klustret. Om du vill skapa ett nytt undernät i det virtuella nätverket för klustret väljer du *Skapa nytt* och följer stegen i avsnittet *skapa undernät* . För Hybrid anslutning bör adress intervallet inte överlappa några andra virtuella nätverk i din miljö.
 
-**Adress intervall för Kubernetes-tjänst**: Detta är en uppsättning virtuella IP-adresser som Kubernetes tilldelar interna [tjänster][services] i klustret. Du kan använda ett privat adress intervall som uppfyller följande krav:
+**Kubernetes-tjänstens adress intervall**: Detta är den uppsättning virtuella IP-adresser som Kubernetes tilldelar interna [tjänster][services] i klustret. Du kan använda ett privat adress intervall som uppfyller följande krav:
 
 * Får inte ligga inom det virtuella nätverkets IP-adressintervall för klustret
 * Får inte överlappa några andra virtuella nätverk som klustrets virtuella nätverk peer-kopplas till
 * Får inte överlappa alla lokala IP-adresser
-* Får inte ligga inom intervallet `169.254.0.0/16` `172.31.0.0/16`, `172.30.0.0/16`, eller`192.0.2.0/24`
+* Får inte ligga inom intervallet `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`eller `192.0.2.0/24`
 
 Även om det är tekniskt möjligt att ange ett tjänst adress intervall inom samma virtuella nätverk som klustret, rekommenderas det inte. Oförutsägbart beteende kan uppstå om överlappande IP-intervall används. Mer information finns i avsnittet [vanliga frågor och svar](#frequently-asked-questions) i den här artikeln. Mer information om Kubernetes-tjänster finns i [tjänster][services] i Kubernetes-dokumentationen.
 
-**IP-adress för KUBERNETES DNS-tjänst**:  IP-adressen för klustrets DNS-tjänst. Adressen måste ligga inom *Kubernetes-tjänstens adress intervall*. Använd inte den första IP-adressen i adress intervallet, till exempel. 1. Den första adressen i under nätets intervall används för *Kubernetes. default. svc. Cluster. local* .
+**IP-adress för KUBERNETES DNS-tjänst**: IP-adressen för KLUSTRETs DNS-tjänst. Adressen måste ligga inom *Kubernetes-tjänstens adress intervall*. Använd inte den första IP-adressen i adress intervallet, till exempel. 1. Den första adressen i under nätets intervall används för *Kubernetes. default. svc. Cluster. local* .
 
-**Docker Bridge-adress**: Nätverks adressen Docker Bridge representerar den standard nätverks adress för *docker0* -brygga som finns i alla Docker-installationer. Även om *docker0* -bryggan inte används av AKS-kluster eller själva poddar, måste du ange den här adressen så att den fortfarande stöder scenarier som *Docker-build* i AKS-klustret. Det krävs att du väljer en CIDR för Docker-bryggans nätverks adress eftersom en annan Docker kommer att välja ett undernät automatiskt som kan hamna i konflikt med andra CIDR-enheter. Du måste välja ett adress utrymme som inte kolliderar med resten av CIDR-inställningarna i dina nätverk, inklusive klustrets tjänst-CIDR och Pod CIDR.
+**Docker-bryggans adress**: Docker-bryggans nätverks adress representerar den standard nätverks adress för *docker0* -brygga som finns i alla Docker-installationer. Även om *docker0* -bryggan inte används av AKS-kluster eller själva poddar, måste du ange den här adressen så att den fortfarande stöder scenarier som *Docker-build* i AKS-klustret. Det krävs att du väljer en CIDR för Docker-bryggans nätverks adress eftersom en annan Docker kommer att välja ett undernät automatiskt som kan hamna i konflikt med andra CIDR-enheter. Du måste välja ett adress utrymme som inte kolliderar med resten av CIDR-inställningarna i dina nätverk, inklusive klustrets tjänst-CIDR och Pod CIDR.
 
 ## <a name="configure-networking---cli"></a>Konfigurera nätverk – CLI
 
@@ -123,7 +125,7 @@ $ az network vnet subnet list \
 /subscriptions/<guid>/resourceGroups/myVnet/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/default
 ```
 
-Använd kommandot [AZ AKS Create][az-aks-create] med `--network-plugin azure` argumentet för att skapa ett kluster med avancerade nätverk. `--vnet-subnet-id` Uppdatera värdet med det Undernäts-ID som samlades in i föregående steg:
+Använd kommandot [AZ AKS Create][az-aks-create] med argumentet `--network-plugin azure` för att skapa ett kluster med avancerade nätverk. Uppdatera `--vnet-subnet-id`-värdet med det Undernäts-ID som samlats in i föregående steg:
 
 ```azurecli-interactive
 az aks create \

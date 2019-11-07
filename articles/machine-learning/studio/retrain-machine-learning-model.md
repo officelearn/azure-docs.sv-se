@@ -1,6 +1,6 @@
 ---
-title: Omträna och distribuera en webb tjänst
-titleSuffix: Azure Machine Learning Studio (classic)
+title: Omtrimning av en webbtjänst
+titleSuffix: ML Studio (classic) Azure
 description: Lär dig hur du uppdaterar en webb tjänst för att använda en nytränad maskin inlärnings modell i Azure Machine Learning Studio (klassisk).
 services: machine-learning
 ms.service: machine-learning
@@ -10,18 +10,18 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: 55b054ffe55430ea106c72cdd91fdfba3a457cf5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e35ab4b3a45edd5a1172bc3a07d7c31abd2135f7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73483001"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684765"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Omträna och distribuera en maskin inlärnings modell
 
 Retraining är ett sätt att se till att maskin inlärnings modeller hålls korrekta och baseras på de mest relevanta data som finns tillgängliga. Den här artikeln visar hur du omtränar och distribuerar en maskin inlärnings modell som en ny webb tjänst i Studio (klassisk). Om du vill träna en klassisk webb tjänst kan du [läsa den här instruktions artikeln.](retrain-classic-web-service.md)
 
-Den här artikeln förutsätter att du redan har en förutsägbar webb tjänst distribuerad. Om du inte redan har en förutsägbar webb tjänst, lär du [dig hur du distribuerar en Studio-webbtjänst (klassisk) här.](publish-a-machine-learning-web-service.md)
+Den här artikeln förutsätter att du redan har en förutsägbar webb tjänst distribuerad. Om du inte redan har en förutsägbar webb tjänst, lär du [dig hur du distribuerar en Studio-webbtjänst (klassisk) här.](deploy-a-machine-learning-web-service.md)
 
 Du följer de här stegen för att omträna och distribuera en ny webb tjänst för Machine Learning:
 

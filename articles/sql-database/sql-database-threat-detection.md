@@ -1,20 +1,21 @@
 ---
-title: Avancerat skydd – Azure SQL Database | Microsoft Docs
+title: Konfigurera Avancerat skydd – Azure SQL Database
 description: Avancerad hot skydd identifierar avvikande databas aktiviteter som indikerar potentiella säkerhetshot till databasen i en enskild databas eller elastisk pool.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
+ms.custom: seo-dt-2019
 ms.topic: conceptual
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 ms.date: 08/05/2019
-ms.openlocfilehash: 755a3b391cb7b4909169b034cc8d89892ec2ed05
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 8a6d40f37dec3488009a702d52d6437cd345717b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816532"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686954"
 ---
 # <a name="azure-sql-database-advanced-threat-protection-for-single-or-pooled-databases"></a>Azure SQL Database Avancerat skydd för databaser med enkel eller pool
 

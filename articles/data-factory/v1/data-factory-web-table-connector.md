@@ -1,6 +1,6 @@
 ---
-title: Flytta data från Webbtabell med Azure Data Factory | Microsoft Docs
-description: Läs mer om hur du flyttar data från en tabell i en webbsida med Azure Data Factory.
+title: Flytta data från en webb tabell med Azure Data Factory
+description: Lär dig mer om hur du flyttar data från en tabell på en webb sida med hjälp av Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,31 +13,31 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5b84e49bac35ef8fc9a6c8c7ca90bfd6048dc1c4
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 957b47244744f161ad9cc8019a411e2e59c29418
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839597"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682307"
 ---
-# <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Flytta data från en webbadress för tabellen med Azure Data Factory
-> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
+# <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Flytta data från en webb tabell källa med Azure Data Factory
+> [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-web-table-connector.md)
 > * [Version 2 (aktuell version)](../connector-web-table.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [tabell Webbanslutning i V2](../connector-web-table.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory, se [webb tabells koppling i v2](../connector-web-table.md).
 
-Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att flytta data från en tabell i en webbsida till ett datalager för mottagare som stöds. Den här artikeln bygger vidare på den [dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikel som ger en allmän översikt över dataförflyttning Kopieringsaktivitet och en lista över datalager som stöds som källor/mottagare.
+Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att flytta data från en tabell på en webb sida till ett mottagar data lager som stöds. Den här artikeln bygger på artikeln [data förflyttnings aktiviteter](data-factory-data-movement-activities.md) som visar en allmän översikt över data förflyttning med kopierings aktivitet och listan över data lager som stöds som källor/mottagare.
 
-Data factory stöder för närvarande endast flyttar data från en webbtabell till datalager, men inte flyttar data från andra data lagrar till ett mål för Web-tabellen.
+Data Factory har för närvarande endast stöd för att flytta data från en webb tabell till andra data lager, men inte flytta data från andra data lager till ett webb tabell mål.
 
 > [!IMPORTANT]
-> Den här Webbanslutning stöder för närvarande endast extrahering tabellinnehåll från en HTML-sida. Använd för att hämta data från en HTTP/s-slutpunkt, [HTTP-anslutningsappen](data-factory-http-connector.md) i stället.
+> Denna webb anslutning stöder för närvarande endast extrahering av tabell innehåll från en HTML-sida. Om du vill hämta data från en HTTP/s-slutpunkt använder du [http-anslutning](data-factory-http-connector.md) i stället.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Om du vill använda den här tabellen Webbanslutning måste du konfigurera en lokal Integration Runtime (även kallat Data Management Gateway) och konfigurera den `gatewayName` -egenskapen i sink länkad tjänst. Till exempel för att kopiera från Webbtabell till Azure Blob storage, konfigurera Azure Storage-länkade tjänst som följande:
+Om du vill använda den här webb tabell anslutningen måste du konfigurera en egen värd Integration Runtime (aka Data Management Gateway) och konfigurera egenskapen `gatewayName` i den länkade tjänsten mottagare. Om du till exempel vill kopiera från webb tabellen till Azure Blob Storage konfigurerar du Azure Storage länkade tjänsten som följer:
 
 ```json
 {
@@ -53,31 +53,31 @@ Om du vill använda den här tabellen Webbanslutning måste du konfigurera en lo
 ```
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data från ett datalager för lokal Cassandra med hjälp av olika verktyg/API: er. 
+Du kan skapa en pipeline med en kopierings aktivitet som flyttar data från ett lokalt Cassandra data lager med hjälp av olika verktyg/API: er. 
 
-- Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. Se [självstudien: Skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data. 
-- Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
+- Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data. 
+- Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) . 
 
-Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager:
+Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
-1. Skapa **länkade tjänster** länka inkommande och utgående data du lagrar till din datafabrik.
-2. Skapa **datauppsättningar** som representerar inkommande och utgående data för kopieringen. 
-3. Skapa en **pipeline** med en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata. 
+1. Skapa **länkade tjänster** för att länka indata och utdata från data lager till din data fabrik.
+2. Skapa data **uppsättningar** som representerar indata och utdata för kopierings åtgärden. 
+3. Skapa en **pipeline** med en kopierings aktivitet som tar en data uppsättning som indata och en data uppsättning som utdata. 
 
-När du använder guiden skapas JSON-definitioner för dessa Data Factory-entiteter (länkade tjänster, datauppsättningar och pipeline) automatiskt åt dig. När du använder Verktyg/API: er (med undantag för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format.  Ett exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data från en webbtabell hittar [JSON-exempel: Kopiera data från Webbtabell till Azure Blob](#json-example-copy-data-from-web-table-to-azure-blob) i den här artikeln. 
+När du använder guiden skapas JSON-definitioner för dessa Data Factory entiteter (länkade tjänster, data uppsättningar och pipelinen) automatiskt åt dig. När du använder verktyg/API: er (förutom .NET API) definierar du dessa Data Factory entiteter med hjälp av JSON-formatet.  Ett exempel med JSON-definitioner för Data Factory entiteter som används för att kopiera data från en webb tabell finns i [JSON-exempel: kopiera data från webb tabellen till Azure Blob](#json-example-copy-data-from-web-table-to-azure-blob) i den här artikeln. 
 
-Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory-entiteter som är specifika för en webbtabell:
+I följande avsnitt finns information om JSON-egenskaper som används för att definiera Data Factory entiteter som är speciella för en webb tabell:
 
-## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
-Följande tabell innehåller en beskrivning för JSON-element som är specifika för länkade webbtjänsten.
+## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
+Följande tabell innehåller en beskrivning av JSON-element som är speciella för länkad webb tjänst.
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| type |Type-egenskapen måste anges till: **Webb** |Ja |
-| url |URL: en till webbadressen |Ja |
-| authenticationType |Anonym. |Ja |
+| typ |Egenskapen Type måste anges till: **webb** |Ja |
+| URL |URL till webb adressen |Ja |
+| authenticationType |Antal. |Ja |
 
-### <a name="using-anonymous-authentication"></a>Använder anonym autentisering
+### <a name="using-anonymous-authentication"></a>Använda anonym autentisering
 
 ```json
 {
@@ -94,16 +94,16 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 }
 ```
 
-## <a name="dataset-properties"></a>Egenskaper för datamängd
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [skapar datauppsättningar](data-factory-create-datasets.md) artikeln. Avsnitt som struktur, tillgänglighet och princip av en datauppsättnings-JSON är liknande för alla datauppsättningstyper av (Azure SQL, Azure-blob, Azure-tabell osv.).
+## <a name="dataset-properties"></a>Egenskaper för data mängd
+En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) . Avsnitt som struktur, tillgänglighet och princip för en data uppsättnings-JSON liknar alla typer av data uppsättningar (Azure SQL, Azure Blob, Azure Table osv.).
 
-Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information om platsen för data i datalagret. TypeProperties avsnittet för datauppsättningen av typen **WebTable** har följande egenskaper
+Avsnittet **typeProperties** är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet typeProperties för data uppsättning av typen **webtable** har följande egenskaper
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type |Typ av datauppsättningen. måste vara inställt på **WebTable** |Ja |
-| path |En relativ URL till den resurs som innehåller tabellen. |Nej. Om sökvägen inte anges används bara den URL som anges i länkade tjänstedefinition. |
-| index |Index för tabellen i resursen. Se [Get index för en tabell i en HTML-sida](#get-index-of-a-table-in-an-html-page) avsnittet anvisningar för hur du hämtar index för en tabell i en HTML-sida. |Ja |
+| typ |Typ av data uppsättning. måste vara inställd på **Webtable** |Ja |
+| sökväg |En relativ URL till den resurs som innehåller tabellen. |Nej. Om ingen sökväg anges används endast den URL som angavs i den länkade tjänst definitionen. |
+| index |Indexet för tabellen i resursen. Se avsnittet [Hämta index för en tabell i en HTML-sida](#get-index-of-a-table-in-an-html-page) för steg för att hämta index för en tabell på en HTML-sida. |Ja |
 
 **Exempel:**
 
@@ -127,27 +127,27 @@ Den **typeProperties** avsnittet är olika för varje typ av datauppsättning oc
 ```
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [skapa Pipelines](data-factory-create-pipelines.md) artikeln. Egenskaper, till exempel namn, beskrivning, indata och utdata tabeller och principen är tillgängliga för alla typer av aktiviteter.
+En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [skapa pipeliner](data-factory-create-pipelines.md) . Egenskaper som namn, beskrivning, indata och utdata-tabeller och policy är tillgängliga för alla typer av aktiviteter.
 
-Medan egenskaper som är tillgängliga i avsnittet typeProperties aktivitetens varierar med varje aktivitetstyp av. För kopieringsaktiviteten variera de beroende på vilka typer av källor och mottagare.
+De egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten varierar beroende på varje aktivitets typ. För kopierings aktivitet varierar de beroende på typerna av källor och mottagare.
 
-För närvarande när källan i kopieringsaktiviteten är av typen **WebSource**, inga ytterligare egenskaper som stöds.
+För närvarande stöds inte ytterligare egenskaper när källan i kopierings aktiviteten är av typen **Websource**.
 
 
-## <a name="json-example-copy-data-from-web-table-to-azure-blob"></a>JSON-exempel: Kopiera data från Webbtabell till Azure Blob
-I följande exempel visas:
+## <a name="json-example-copy-data-from-web-table-to-azure-blob"></a>JSON-exempel: kopiera data från webb tabell till Azure-Blob
+Följande exempel visar:
 
 1. En länkad tjänst av typen [Web](#linked-service-properties).
 2. En länkad tjänst av typen [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-3. Indata [datauppsättning](data-factory-create-datasets.md) av typen [WebTable](#dataset-properties).
-4. Utdata [datauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-5. En [pipeline](data-factory-create-pipelines.md) med en Kopieringsaktivitet som använder [WebSource](#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+3. En indata- [datauppsättning](data-factory-create-datasets.md) av typen [webtable](#dataset-properties).
+4. En utdata- [datauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. En [pipeline](data-factory-create-pipelines.md) med kopierings aktivitet som använder [Websource](#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-Exemplet kopierar data från en webbtabell till en Azure-blob varje timme. JSON-egenskaper som används i exemplen beskrivs i exemplen i följande avsnitt.
+Exemplet kopierar data från en webb tabell till en Azure-Blob varje timme. De JSON-egenskaper som används i de här exemplen beskrivs i avsnitten som följer efter exemplen.
 
-I följande exempel visas hur du kopierar data från en webbtabell till en Azure-blob. Dock datan kan kopieras direkt till någon av de mottagare som anges i den [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikeln med hjälp av Kopieringsaktiviteten i Azure Data Factory.
+Följande exempel visar hur du kopierar data från en webb tabell till en Azure-blob. Data kan dock kopieras direkt till någon av de handfat som anges i artikeln [data förflyttnings aktiviteter](data-factory-data-movement-activities.md) med hjälp av kopierings aktiviteten i Azure Data Factory.
 
-**Web-länkade tjänst** det här exemplet använder tjänsten Webblänkade med anonym autentisering. Se [Web länkad tjänst](#linked-service-properties) för olika typer av autentisering som du kan använda.
+**Länkad webb tjänst** I det här exemplet används den länkade webb tjänsten med anonym autentisering. Se avsnittet [webb länkad tjänst](#linked-service-properties) för olika typer av autentisering som du kan använda.
 
 ```json
 {
@@ -179,10 +179,10 @@ I följande exempel visas hur du kopierar data från en webbtabell till en Azure
 }
 ```
 
-**WebTable indatauppsättningen** inställningen **externa** till **SANT** informerar Data Factory-tjänsten att datauppsättningen är extern till datafabriken och inte kommer från en aktivitet i data factory.
+Data **uppsättning för Webtable-indata** Om du anger **external** till **True** informerar Data Factory tjänsten att data uppsättningen är extern i data fabriken och inte produceras av en aktivitet i data fabriken.
 
 > [!NOTE]
-> Se [Get index för en tabell i en HTML-sida](#get-index-of-a-table-in-an-html-page) avsnittet anvisningar för hur du hämtar index för en tabell i en HTML-sida.  
+> Se avsnittet [Hämta index för en tabell i en HTML-sida](#get-index-of-a-table-in-an-html-page) för steg för att hämta index för en tabell på en HTML-sida.  
 >
 >
 
@@ -208,7 +208,7 @@ I följande exempel visas hur du kopierar data från en webbtabell till en Azure
 
 **Utdatauppsättning för Azure-blob**
 
-Data skrivs till en ny blob varje timme (frequency: timme, intervall: 1).
+Data skrivs till en ny BLOB varje timme (frekvens: timme, intervall: 1).
 
 ```json
 {
@@ -232,11 +232,11 @@ Data skrivs till en ny blob varje timme (frequency: timme, intervall: 1).
 
 
 
-**Pipeline med en Kopieringsaktivitet**
+**Pipeline med kopierings aktivitet**
 
-Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för användning av in- och utdatauppsättningar och är schemalagd att köras varje timme. I pipeline-JSON-definitionen i **källa** är **WebSource** och **mottagare** är **BlobSink**.
+Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att använda data uppsättningar för indata och utdata och är schemalagda att köras varje timme. I JSON-definitionen för pipelinen har **käll** typen angetts till **Websource** och **mottagar** typ är inställd på **BlobSink**.
 
-Visa WebSource Typegenskaper för en lista över egenskaper som stöds av WebSource.
+Se egenskaper för Websource-typ för listan över egenskaper som stöds av Websource.
 
 ```json
 {  
@@ -285,32 +285,32 @@ Visa WebSource Typegenskaper för en lista över egenskaper som stöds av WebSou
 ```
 
 ## <a name="get-index-of-a-table-in-an-html-page"></a>Hämta index för en tabell i en HTML-sida
-1. Starta **Excel 2016** och växla till den **Data** fliken.  
-2. Klicka på **ny fråga** i verktygsfältet, pekar på **från andra källor** och klicka på **från webben**.
+1. Starta **Excel 2016** och växla till fliken **data** .  
+2. Klicka på **ny fråga** i verktygsfältet, peka på **från andra källor** och klicka på **från webben**.
 
     ![Power Query-menyn](./media/data-factory-web-table-connector/PowerQuery-Menu.png)
-3. I den **från webben** dialogrutan anger **URL** som du vill använda i länkad tjänst JSON (till exempel: https://en.wikipedia.org/wiki/) tillsammans med sökvägen som du anger för datauppsättningen (till exempel: Afrika % 27s_100_Years... 100_Movies), och klicka på **OK**.
+3. I dialog rutan **från webben** anger du den **URL** som du skulle använda i länkad tjänst-JSON (till exempel: https://en.wikipedia.org/wiki/) tillsammans med sökvägen som du anger för data uppsättningen (till exempel: AFI% 27s_100_Years... 100_Movies) och klicka på **OK**.
 
-    ![Web-dialogrutan](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
+    ![Från webben-dialog](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
 
     URL som används i det här exemplet: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
-4. Om du ser **åtkomst webbinnehåll** dialogrutan väljer du rätt **URL**, **autentisering**, och klicka på **Connect**.
+4. Om dialog rutan **Öppna webb innehåll** visas väljer du rätt **URL**, **autentisering**och klickar på **Anslut**.
 
-   ![Dialogrutan för åtkomst till webb-innehåll](./media/data-factory-web-table-connector/AccessWebContentDialog.png)
-5. Klicka på en **tabell** objekt i trädvyn se innehåll från tabellen och klicka sedan på **redigera** längst ned.  
+   ![Dialog rutan för att komma åt webb innehåll](./media/data-factory-web-table-connector/AccessWebContentDialog.png)
+5. Klicka på ett **tabell** objekt i trädvyn om du vill visa innehåll från tabellen och klicka sedan på knappen **Redigera** längst ned.  
 
-   ![Storleksändras](./media/data-factory-web-table-connector/Navigator-DialogBox.png)
-6. I den **frågeredigeraren** fönstret klickar du på **Avancerad redigerare** i verktygsfältet.
+   ![Navigerings dialog ruta](./media/data-factory-web-table-connector/Navigator-DialogBox.png)
+6. I fönstret **Frågeredigeraren** klickar du på **avancerad redigerare** knapp i verktygsfältet.
 
-    ![Knappen Avancerat redigeringsprogram](./media/data-factory-web-table-connector/QueryEditor-AdvancedEditorButton.png)
-7. I dialogrutan Avancerad redigerare är talet bredvid ”källa” indexet.
+    ![Avancerad redigerare knapp](./media/data-factory-web-table-connector/QueryEditor-AdvancedEditorButton.png)
+7. I dialog rutan Avancerad redigerare är talet intill "källa" indexet.
 
-    ![Avancerad redigerare - Index](./media/data-factory-web-table-connector/AdvancedEditor-Index.png)
+    ![Avancerad redigerare-index](./media/data-factory-web-table-connector/AdvancedEditor-Index.png)
 
-Om du använder Excel 2013 kan du använda [Microsoft Power Query för Excel](https://www.microsoft.com/download/details.aspx?id=39379) att hämta index. Se [Anslut till en webbsida](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) nedan för information. Stegen är liknande om du använder [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/).
+Om du använder Excel 2013 använder du [Microsoft Power Query för Excel](https://www.microsoft.com/download/details.aspx?id=39379) för att hämta indexet. Mer information finns i artikeln om [att ansluta till en webb sida](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) . Stegen är liknande om du använder [Microsoft Power BI för skriv bord](https://powerbi.microsoft.com/desktop/).
 
 > [!NOTE]
-> Om du vill mappa kolumner från datauppsättningen för källan till kolumner från en datauppsättning för mottagare, se [mappning av kolumner för datauppsättningar i Azure Data Factory](data-factory-map-columns.md).
+> Information om hur du mappar kolumner från käll data uppsättning till kolumner från mottagar data uppsättningen finns [i mappa data mängds kolumner i Azure Data Factory](data-factory-map-columns.md).
 
-## <a name="performance-and-tuning"></a>Prestanda- och justering
-Se [kopiera aktivitet prestanda- och Justeringsguide](data-factory-copy-activity-performance.md) att lära dig om viktiga faktorer att påverka prestandan för dataförflyttning (Kopieringsaktiviteten) i Azure Data Factory och olika sätt att optimera den.
+## <a name="performance-and-tuning"></a>Prestanda och justering
+Se [Kopiera aktivitets prestanda & justerings guide](data-factory-copy-activity-performance.md) för att lära dig mer om viktiga faktorer som påverkar prestanda för data förflyttning (kopierings aktivitet) i Azure Data Factory och olika sätt att optimera den.

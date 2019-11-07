@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 24ce6de63d06402e24abdeb33996a3853175ce91
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 4e04ae7d9594ac064c9f3707c797fb2709a79cb6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954414"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583010"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Ansluta en MXChip IoT DevKit-enhet till ditt Azure IoT Central-program
 
@@ -119,7 +119,7 @@ Skaka enheten för att skicka en rapporterad egenskap. Enheten skickar ett slump
 
 Du kan visa mått för telemetri och rapporterade egenskaps värden och konfigurera inställningar i Azure IoT Central:
 
-1. Använd **Device Explorer** för att navigera till sidan **mått** för den verkliga MXChip-enhet som du har lagt till:
+1. Använd **enheter** för att navigera till sidan **mått** för den verkliga MXChip-enhet som du har lagt till:
 
     ![Navigera till den riktiga enheten](media/howto-connect-devkit/realdevicenew.png)
 
@@ -162,7 +162,7 @@ Föregående kommando hämtar käll koden till en mapp med namnet `iot-central-f
 
 Använd Visual Studio Code för att öppna mappen `MXCHIP/mxchip_advanced` i mappen `iot-central-firmware`:
 
-![Visual Studio-kod](media/howto-connect-devkit/vscodeview.png)
+![Visual Studio-koden](media/howto-connect-devkit/vscodeview.png)
 
 Om du vill se hur telemetri skickas till Azure IoT Central-programmet öppnar du filen **telemetri. cpp** i mappen `src`:
 
@@ -199,9 +199,9 @@ Ett program som skapats från Devkits program mal len innehåller en MXChip enhe
 | luftfuktighet       | %      | 0       | 100     | 0              |
 | styr           | C     | – 40     | 120     | 0              |
 | tryck       | hPa    | 260     | 1260    | 0              |
-| magnetometerX  | mgauss | – 1000   | 1 000    | 0              |
-| magnetometerY  | mgauss | – 1000   | 1 000    | 0              |
-| magnetometerZ  | mgauss | – 1000   | 1 000    | 0              |
+| magnetometerX  | mgauss | – 1000   | 1000    | 0              |
+| magnetometerY  | mgauss | – 1000   | 1000    | 0              |
+| magnetometerZ  | mgauss | – 1000   | 1000    | 0              |
 | accelerometerX | MB     | – 2000   | 2000    | 0              |
 | accelerometerY | MB     | – 2000   | 2000    | 0              |
 | accelerometerZ | MB     | – 2000   | 2000    | 0              |
@@ -214,7 +214,7 @@ Ett program som skapats från Devkits program mal len innehåller en MXChip enhe
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | Enhetstillstånd   | Grön  | Orange  | Röd    | 
 
-#### <a name="events"></a>Events 
+#### <a name="events"></a>Händelser 
 | Namn             | Visningsnamn      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | Knapp B nedtryckt  | 
@@ -227,7 +227,7 @@ Numeriska inställningar
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Strömförsörjning      | setVoltage | Volt | 0              | 0       | 240     | 0       |
 | Tillfället      | setCurrent | A  | 0              | 0       | 100     | 0       |
-| Fläkt hastighet    | fanSpeed   | VARVTAL   | 0              | 0       | 1 000    | 0       |
+| Fläkt hastighet    | fanSpeed   | VARVTAL   | 0              | 0       | 1000    | 0       |
 
 Växla inställningar
 
@@ -241,7 +241,7 @@ Växla inställningar
 | --------------- | ------------ | ---------- | --------- |
 | Enhets egenskap | Tärnings nummer   | dieNumber  | nummer    |
 | Enhets egenskap | Enhets plats   | location  | location    |
-| Text            | Tillverkad i     | tillverkade   | Gäller inte       |
+| Text            | Tillverkad i     | tillverkade   | Saknas       |
 
 ### <a name="commands"></a>Kommandon
 

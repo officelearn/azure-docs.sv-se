@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: b261594076857b841ba288dfaba8b5b8e9250065
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 64c99c6e7e33be5856e67db0500bf48123cdcf09
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72987938"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614487"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Service Bus bindningar för Azure Functions
 
@@ -32,7 +32,7 @@ Service Bus bindningarna finns i [Microsoft. Azure. WebJobs. Service Bus](https:
 
 ## <a name="packages---functions-2x"></a>Paket-funktioner 2. x
 
-Service Bus-bindningarna finns i [Microsoft. Azure. WebJobs. Extensions. Service Bus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) NuGet-paketet, version 3. x. Käll koden för paketet finns i [Azure-WebJobs-SDK GitHub-](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/) lagringsplatsen.
+Service Bus-bindningarna finns i [Microsoft. Azure. WebJobs. Extensions. Service Bus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) NuGet-paketet, version 3. x. Käll koden för paketet finns i GitHub-lagringsplatsen [Azure-Functions-Service Bus-Extensions](https://github.com/Azure/azure-functions-servicebus-extension) .
 
 > [!NOTE]
 > Version 2. x skapar inte ämnet eller prenumerationen som kon figurer ATS i `ServiceBusTrigger`-instansen. Version 2. x är baserad på [Microsoft. Azure. Service Bus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) och hanterar inte Queue Management.
@@ -325,9 +325,9 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 |function. JSON-egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Ej tillämpligt | Måste vara inställd på "serviceBusTrigger". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
-|**riktning** | Ej tillämpligt | Måste vara inställt på "in". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
-|**Namn** | Ej tillämpligt | Namnet på variabeln som representerar kön eller ämnes meddelandet i funktions koden. Ange till "$return" för att referera till funktionens retur värde. |
+|**typ** | Saknas | Måste vara inställd på "serviceBusTrigger". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
+|**riktning** | Saknas | Måste vara inställt på "in". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
+|**Namn** | Saknas | Namnet på variabeln som representerar kön eller ämnes meddelandet i funktions koden. Ange till "$return" för att referera till funktionens retur värde. |
 |**queueName**|**QueueName**|Namnet på kön som ska övervakas.  Ange endast om övervakning av en kö, inte för ett ämne.
 |**topicName**|**TopicName**|Namn på det ämne som ska övervakas. Ange endast om du övervakar ett ämne, inte för en kö.|
 |**subscriptionName**|**SubscriptionName**|Namnet på den prenumeration som ska övervakas. Ange endast om du övervakar ett ämne, inte för en kö.|
@@ -398,8 +398,8 @@ Se [kod exempel](#trigger---example) som använder dessa egenskaper tidigare i d
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------|
-|maxConcurrentCalls|16|Det maximala antalet samtidiga anrop till motringning som meddelande pumpen ska initiera. Som standard bearbetar Functions-körningen flera meddelanden samtidigt. Ange `maxConcurrentCalls` till 1 för att dirigera körningen för att endast bearbeta en enskild kö eller ett ämne i taget. |
-|prefetchCount|Ej tillämpligt|Standard-PrefetchCount som ska användas av den underliggande MessageReceiver.|
+|maxConcurrentCalls|16|Det maximala antalet samtidiga anrop till motringning som meddelande pumpen ska initiera. Som standard bearbetar Functions-körningen flera meddelanden samtidigt. Ange `maxConcurrentCalls` till 1 om du vill att körningen bara ska bearbeta en enskild kö eller ett ämne i taget. |
+|prefetchCount|Saknas|Standard-PrefetchCount som ska användas av den underliggande MessageReceiver.|
 |maxAutoRenewDuration|00:05:00|Den längsta tid som meddelande låset ska förnyas automatiskt.|
 
 ## <a name="output"></a>Resultat
@@ -473,12 +473,12 @@ public static void Run(TimerInfo myTimer, ILogger log, out string outputSbQueue)
 Här är C# skript koden som skapar flera meddelanden:
 
 ```cs
-public static void Run(TimerInfo myTimer, ILogger log, ICollector<string> outputSbQueue)
+public static async Task Run(TimerInfo myTimer, ILogger log, IAsyncCollector<string> outputSbQueue)
 {
     string message = $"Service Bus queue messages created at: {DateTime.Now}";
     log.LogInformation(message); 
-    outputSbQueue.Add("1 " + message);
-    outputSbQueue.Add("2 " + message);
+    await outputSbQueue.AddAsync("1 " + message);
+    await outputSbQueue.AddAsync("2 " + message);
 }
 ```
 
@@ -692,9 +692,9 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 |function. JSON-egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Ej tillämpligt | Måste vara inställd på "Service Bus". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
-|**riktning** | Ej tillämpligt | Måste anges till "out". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
-|**Namn** | Ej tillämpligt | Namnet på variabeln som representerar kön eller ämnet i funktions koden. Ange till "$return" för att referera till funktionens retur värde. |
+|**typ** | Saknas | Måste vara inställd på "Service Bus". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
+|**riktning** | Saknas | Måste anges till "out". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
+|**Namn** | Saknas | Namnet på variabeln som representerar kön eller ämnet i funktions koden. Ange till "$return" för att referera till funktionens retur värde. |
 |**queueName**|**QueueName**|Köns namn.  Ange endast om köa meddelanden ska skickas, inte för ett ämne.
 |**topicName**|**TopicName**|Namn på det ämne som ska övervakas. Ange endast om meddelande ämnen skickas, inte för en kö.|
 |**anslutningen**|**Anslutning**|Namnet på en app-inställning som innehåller den Service Bus anslutnings sträng som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet. Om du till exempel ställer in `connection` till "MyServiceBus" söker Functions-körningen efter en app-inställning med namnet "AzureWebJobsMyServiceBus". Om du lämnar `connection` tomt använder Functions-körningen standard anslutnings strängen Service Bus i appens inställning med namnet "AzureWebJobsServiceBus".<br><br>Om du vill hämta en anslutnings sträng följer du stegen som visas i [Hämta autentiseringsuppgifter för hantering](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). Anslutnings strängen måste vara för ett Service Bus-namnområde, inte begränsat till en viss kö eller ett ämne.|
@@ -760,9 +760,9 @@ I det här avsnittet beskrivs globala konfigurations inställningar som är till
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------|
 |maxAutoRenewDuration|00:05:00|Den längsta tid som meddelande låset ska förnyas automatiskt.|
-|Automatisk|sant|Om utlösaren omedelbart ska markeras som slutförd (komplettera automatiskt) eller vänta på bearbetningen slutförs.|
-|maxConcurrentCalls|16|Det maximala antalet samtidiga anrop till motringning som meddelande pumpen ska initiera. Som standard bearbetar Functions-körningen flera meddelanden samtidigt. Ange `maxConcurrentCalls` till 1 för att dirigera körningen för att endast bearbeta en enskild kö eller ett ämne i taget. |
-|prefetchCount|Ej tillämpligt|Standard-PrefetchCount som ska användas av den underliggande MessageReceiver.|
+|Automatisk|true|Om utlösaren omedelbart ska markeras som slutförd (komplettera automatiskt) eller vänta på bearbetningen slutförs.|
+|maxConcurrentCalls|16|Det maximala antalet samtidiga anrop till motringning som meddelande pumpen ska initiera. Som standard bearbetar Functions-körningen flera meddelanden samtidigt. Ange `maxConcurrentCalls` till 1 om du vill att körningen bara ska bearbeta en enskild kö eller ett ämne i taget. |
+|prefetchCount|Saknas|Standard-PrefetchCount som ska användas av den underliggande MessageReceiver.|
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,5 +1,5 @@
 ---
-title: Definiera en teknisk profil för SAML i en anpassad princip i Azure Active Directory B2C | Microsoft Docs
+title: Definiera en teknisk profil för SAML i en anpassad princip i Azure Active Directory B2C
 description: Definiera en teknisk profil för SAML i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/21/2018
+ms.date: 11/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 38215ef49bdc5788e43e4ea0fedef2efd32d8213
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: b75367a90ce557f055ff4a9b1ff85f5b1f8f9637
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063791"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603069"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för SAML i en Azure Active Directory B2C anpassad princip
 
@@ -58,7 +58,6 @@ Följande diagram visar metadata och certifikat utbyte:
 
 ![metadata och certifikat utbyte](media/saml-technical-profile/technical-profile-idp-saml-metadata.png)
 
-
 ## <a name="digital-encryption"></a>Digital kryptering
 
 För att kryptera SAML-svarets kontroll, använder identitets leverantören alltid en offentlig nyckel för ett krypterings certifikat i en Azure AD B2C teknisk profil. När Azure AD B2C behöver dekryptera data, använder den den privata delen av krypterings certifikatet.
@@ -66,9 +65,9 @@ För att kryptera SAML-svarets kontroll, använder identitets leverantören allt
 Kryptera SAML-svars kontroll:
 
 1. Ladda upp ett giltigt X509-certifikat med den privata nyckeln (. pfx-fil) till lagrings platsen för Azure AD B2Cs princip.
-2. Lägg till ett **CryptographicKey** -element med en `SamlAssertionDecryption` identifierare för till den tekniska profilen **CryptographicKeys** -samlingen. Ange **StorageReferenceId** till namnet på den princip nyckel som du skapade i steg 1.
+2. Lägg till ett **CryptographicKey** -element med en identifierare för `SamlAssertionDecryption` till den tekniska profilen **CryptographicKeys** -samlingen. Ange **StorageReferenceId** till namnet på den princip nyckel som du skapade i steg 1.
 3. Ange **WantsEncryptedAssertions** för den tekniska profilen till `true`.
-4. Uppdatera identitets leverantören med de nya metadata för Azure AD B2C teknisk profil. Du bör se `encryption` nyckel **beskrivningen** med egenskapen **use** som innehåller den offentliga nyckeln för ditt certifikat.
+4. Uppdatera identitets leverantören med de nya metadata för Azure AD B2C teknisk profil. Du bör se nyckel **beskrivningen** med egenskapen **use** inställd på `encryption` som innehåller certifikatets offentliga nyckel.
 
 I följande exempel visas avsnittet Azure AD B2C teknisk profil kryptering i metadata:
 
@@ -82,15 +81,15 @@ I följande exempel visas avsnittet Azure AD B2C teknisk profil kryptering i met
 </KeyDescriptor>
 ```
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>Protokoll
 
 Namnattributet **för** protokoll elementet måste anges till `SAML2`.
 
 ## <a name="output-claims"></a>Utgående anspråk
 
-**OutputClaims** -elementet innehåller en lista över anspråk som returnerats av SAML Identity Provider under `AttributeStatement` avsnittet. Du kan behöva mappa namnet på det anspråk som definierats i principen till det namn som definierats i identitets leverantören. Du kan också inkludera anspråk som inte returneras av identitets leverantören så länge som du ställer in `DefaultValue` attributet.
+**OutputClaims** -elementet innehåller en lista över anspråk som returnerats av SAML Identity Provider i avsnittet `AttributeStatement`. Du kan behöva mappa namnet på det anspråk som definierats i principen till det namn som definierats i identitets leverantören. Du kan också ta med anspråk som inte returneras av identitets leverantören så länge som du ställer in `DefaultValue`-attributet.
 
-Om du vill läsa SAML Assertion **NamedId** i **ämnet** som ett normaliserat anspråk ställer du in anspråks `assertionSubjectName` **PartnerClaimType** på. Kontrol lera att **NameId** är det första värdet i Assertion XML. När du definierar fler än en kontroll, Azure AD B2C väljer subject-värdet från den senaste försäkran.
+Om du vill läsa SAML Assertion **NamedId** i **ämnet** som ett normaliserat anspråk ställer du in anspråks **PartnerClaimType** till `assertionSubjectName`. Kontrol lera att **NameId** är det första värdet i Assertion XML. När du definierar fler än en kontroll, Azure AD B2C väljer subject-värdet från den senaste försäkran.
 
 **OutputClaimsTransformations** -elementet kan innehålla en samling av **OutputClaimsTransformation** -element som används för att ändra de utgående anspråken eller skapa nya.
 
@@ -121,45 +120,34 @@ Den tekniska profilen returnerar även anspråk som inte returneras av identitet
 
 ## <a name="metadata"></a>Metadata
 
-| Attribut | Obligatorisk | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| PartnerEntity | Ja | URL för metadata för SAML Identity Provider. Kopiera metadata för identitets leverantören och Lägg till dem i CDATA-elementet`<![CDATA[Your IDP metadata]]>` |
-| WantsSignedRequests | Nej | Anger om den tekniska profilen kräver att alla utgående autentiseringsbegäranden signeras. Möjliga värden: `true` eller `false`. Standardvärdet är `true`. När värdet är inställt `true`på måste den kryptografiska nyckeln **SamlMessageSigning** anges och alla utgående autentiseringsbegäranden signeras. Om värdet är inställt `false`på, utelämnas parametrarna **SigAlg** och **Signature** (frågesträng eller post parameter) från begäran. Dessa metadata styr också attributet metadata **AuthnRequestsSigned** , som är utdata i metadata för den Azure AD B2C tekniska profil som delas med identitets leverantören. Azure AD B2C signerar inte begäran om värdet för **WantsSignedRequests** i metadata för teknisk profil är inställt `false` på och **WantAuthnRequestsSigned** för identitetsprovider har angetts till `false` eller har inte angetts. |
-| XmlSignatureAlgorithm | Nej | Metoden som Azure AD B2C använder för att signera SAML-begäran. Dessa metadata styr värdet för parametern **SigAlg** (frågesträng eller post parameter) i SAML-begäran. Möjliga värden: `Sha256`, `Sha384`, `Sha512`eller. `Sha1` Se till att du konfigurerar signeringsalgoritmen på båda sidor med samma värde. Använd bara den algoritm som ditt certifikat stöder. |
-| WantsSignedAssertions | Nej | Anger om den tekniska profilen kräver att all inkommande kontroll ska signeras. Möjliga värden: `true` eller `false`. Standardvärdet är `true`. Om värdet är inställt `true`på, måste alla intygs avsnitt `saml:Assertion` skickas av identitets leverantören till Azure AD B2C signeras. Om värdet är inställt `false`på, ska identitets leverantören inte signera intygen, men även om den gör det kan Azure AD B2C inte validera signaturen. Dessa metadata styr också metadata-flaggan **WantsAssertionsSigned**, som är utdata i metadata för den Azure AD B2C tekniska profil som delas med identitets leverantören. Om du inaktiverar validerings verifieringen kanske du också vill inaktivera verifiering av svars signatur (mer information finns i **ResponsesSigned**). |
-| ResponsesSigned | Nej | Möjliga värden: `true` eller `false`. Standardvärdet är `true`. Om värdet är inställt `false`på, ska identitets leverantören inte signera SAML-svaret, men även om det gör det, verifierar Azure AD B2C inte signaturen. Om värdet är inställt `true`på, är det SAML-svar som skickas av identitets leverantören till Azure AD B2C signerat och måste verifieras. Om du inaktiverar verifieringen av SAML-svar kan du också vilja inaktivera verifiering av kontrollerad signatur (mer information finns i **WantsSignedAssertions**). |
-| WantsEncryptedAssertions | Nej | Anger om den tekniska profilen kräver att all inkommande kontroll ska krypteras. Möjliga värden: `true` eller `false`. Standardvärdet är `false`. Om värdet är inställt `true`på, måste intyg som skickas av identitets leverantören till Azure AD B2C vara signerade och **SamlAssertionDecryption** krypterings nyckel måste anges. Om värdet är inställt `true`på, innehåller metadata för den Azure AD B2C tekniska profilen **krypterings** avsnittet. Identitets leverantören läser metadata och krypterar SAML-svars kontrollen med den offentliga nyckel som anges i metadata för den Azure AD B2C tekniska profilen. Om du aktiverar intygs kryptering kan du behöva inaktivera verifiering av svars signatur (mer information finns i **ResponsesSigned**). |
+| PartnerEntity | Ja | URL för metadata för SAML Identity Provider. Kopiera metadata för identitets leverantören och Lägg till dem i CDATA-elementet `<![CDATA[Your IDP metadata]]>` |
+| WantsSignedRequests | Nej | Anger om den tekniska profilen kräver att alla utgående autentiseringsbegäranden signeras. Möjliga värden: `true` eller `false`. Standardvärdet är `true`. När värdet är inställt på `true`måste den kryptografiska nyckeln **SamlMessageSigning** anges och alla utgående autentiseringsbegäranden signeras. Om värdet är inställt på `false`utelämnas parametrarna **SigAlg** och **Signature** (frågesträng eller post parameter) från begäran. Dessa metadata styr också attributet metadata **AuthnRequestsSigned** , som är utdata i metadata för den Azure AD B2C tekniska profil som delas med identitets leverantören. Azure AD B2C signerar inte begäran om värdet för **WantsSignedRequests** i metadata för teknisk profil är inställt på `false` och **WantAuthnRequestsSigned** för identitetsprovider har angetts till `false` eller inte har angetts. |
+| XmlSignatureAlgorithm | Nej | Metoden som Azure AD B2C använder för att signera SAML-begäran. Dessa metadata styr värdet för parametern **SigAlg** (frågesträng eller post parameter) i SAML-begäran. Möjliga värden: `Sha256`, `Sha384`, `Sha512`eller `Sha1`. Se till att du konfigurerar signeringsalgoritmen på båda sidor med samma värde. Använd bara den algoritm som ditt certifikat stöder. |
+| WantsSignedAssertions | Nej | Anger om den tekniska profilen kräver att all inkommande kontroll ska signeras. Möjliga värden: `true` eller `false`. Standardvärdet är `true`. Om värdet är inställt på `true`måste alla intygs avsnitt `saml:Assertion` skickas av identitets leverantören till Azure AD B2C signeras. Om värdet är inställt på `false`, ska identitets leverantören inte signera intygen, men även om det sker Azure AD B2C verifierar inte signaturen. Dessa metadata styr också metadata-flaggan **WantsAssertionsSigned**, som är utdata i metadata för den Azure AD B2C tekniska profil som delas med identitets leverantören. Om du inaktiverar validerings verifieringen kanske du också vill inaktivera verifiering av svars signatur (mer information finns i **ResponsesSigned**). |
+| ResponsesSigned | Nej | Möjliga värden: `true` eller `false`. Standardvärdet är `true`. Om värdet är inställt på `false`, ska identitets leverantören inte signera SAML-svaret, men även om det gör det verifierar Azure AD B2C inte signaturen. Om värdet är inställt på `true`signeras det SAML-svar som skickas av identitets leverantören till Azure AD B2C och måste verifieras. Om du inaktiverar verifieringen av SAML-svar kan du också vilja inaktivera verifiering av kontrollerad signatur (mer information finns i **WantsSignedAssertions**). |
+| WantsEncryptedAssertions | Nej | Anger om den tekniska profilen kräver att all inkommande kontroll ska krypteras. Möjliga värden: `true` eller `false`. Standardvärdet är `false`. Om värdet är inställt på `true`måste intyg som skickas av identitets leverantören till Azure AD B2C signeras och **SamlAssertionDecryption** kryptografiska nyckel måste anges. Om värdet är inställt på `true`, innehåller metadata för den Azure AD B2C tekniska profilen **krypterings** avsnittet. Identitets leverantören läser metadata och krypterar SAML-svars kontrollen med den offentliga nyckel som anges i metadata för den Azure AD B2C tekniska profilen. Om du aktiverar intygs kryptering kan du behöva inaktivera verifiering av svars signatur (mer information finns i **ResponsesSigned**). |
 | IdpInitiatedProfileEnabled | Nej | Anger om en enkel inloggnings-sessionsnyckel har Aktiver ATS som initierades av en SAML Identity Provider-profil. Möjliga värden: `true` eller `false`. Standardvärdet är `false`. I flödet som initieras av identitets leverantören, autentiseras användaren externt och ett oönskat svar skickas till Azure AD B2C, som sedan använder token, kör Orchestration-steg och skickar sedan ett svar till förlitande part-programmet. |
 | NameIdPolicyFormat | Nej | Anger begränsningar i namn identifieraren som ska användas för att representera det begärda ämnet. Om detta utelämnas kan alla typer av identifierare som stöds av identitets leverantören för det begärda ämnet användas. Till exempel `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`. **NameIdPolicyFormat** kan användas med **NameIdPolicyAllowCreate**. I dokumentationen för identitets leverantören hittar du information om vilka namn-ID-principer som stöds. |
-| NameIdPolicyAllowCreate | Nej | När du använder **NameIdPolicyFormat**kan du också ange `AllowCreate` egenskapen för **NameIDPolicy**. Värdet för dessa metadata är `true` eller `false` för att ange om identitets leverantören tillåts att skapa ett nytt konto under inloggnings flödet. Mer information om hur du gör detta finns i identitets leverantörens dokumentation. |
-| AuthenticationRequestExtensions | Nej | Valfria protokoll meddelande tilläggs element som överenskommits mellan Azure AD BC och identitets leverantören. Tillägget visas i XML-format. Du lägger till XML-data inuti CDATA- `<![CDATA[Your IDP metadata]]>`elementet. Se efter i identitets leverantörens dokumentation om tillägg elementet stöds. |
-| IncludeAuthnContextClassReferences | Nej | Anger en eller flera URI-referenser som identifierar autentiserings kontext klasser. Om du till exempel vill tillåta att en användare loggar in med användar namn och lösen ord, ställer du `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`in värdet på. Om du vill tillåta inloggning via användar namn och lösen ord via en skyddad session (SSL/TLS) `PasswordProtectedTransport`anger du. Läs dokumentationen om identitets leverantören för information om de **AuthnContextClassRef** -URI: er som stöds. |
-| IncludeKeyInfo | Nej | Anger om SAML-autentiseringsbegäran innehåller certifikatets offentliga nyckel när bindningen är inställd på `HTTP-POST`. Möjliga värden: `true` eller `false`. |
+| NameIdPolicyAllowCreate | Nej | När du använder **NameIdPolicyFormat**kan du också ange egenskapen `AllowCreate` för **NameIDPolicy**. Värdet för dessa metadata är `true` eller `false` för att indikera om identitetsprovider tillåts att skapa ett nytt konto under inloggnings flödet. Mer information om hur du gör detta finns i identitets leverantörens dokumentation. |
+| AuthenticationRequestExtensions | Nej | Valfria protokoll meddelande tilläggs element som överenskommits mellan Azure AD BC och identitets leverantören. Tillägget visas i XML-format. Du lägger till XML-data i CDATA-elementet `<![CDATA[Your IDP metadata]]>`. Se efter i identitets leverantörens dokumentation om tillägg elementet stöds. |
+| IncludeAuthnContextClassReferences | Nej | Anger en eller flera URI-referenser som identifierar autentiserings kontext klasser. Om du till exempel vill tillåta att en användare loggar in med användar namn och lösen ord, ställer du in värdet på `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`. Ange `PasswordProtectedTransport`för att tillåta inloggning via användar namn och lösen ord över en skyddad session (SSL/TLS). Läs dokumentationen om identitets leverantören för information om de **AuthnContextClassRef** -URI: er som stöds. Ange flera URI: er som en kommaavgränsad lista. |
+| IncludeKeyInfo | Nej | Anger om SAML-autentiseringsbegäran innehåller certifikatets offentliga nyckel när bindningen har angetts till `HTTP-POST`. Möjliga värden: `true` eller `false`. |
 
 ## <a name="cryptographic-keys"></a>Kryptografiska nycklar
 
 **CryptographicKeys** -elementet innehåller följande attribut:
 
-| Attribut |Obligatorisk | Beskrivning |
+| Attribut |Krävs | Beskrivning |
 | --------- | ----------- | ----------- |
 | SamlMessageSigning |Ja | X509-certifikatet (RSA-nyckel uppsättning) som används för att signera SAML-meddelanden. Azure AD B2C använder den här nyckeln för att signera förfrågningarna och skicka dem till identitets leverantören. |
 | SamlAssertionDecryption |Ja | X509-certifikatet (RSA-nyckel uppsättning) som används för att dekryptera SAML-meddelanden. Det här certifikatet bör tillhandahållas av identitets leverantören. Azure AD B2C använder det här certifikatet för att dekryptera data som skickas av identitets leverantören. |
 | MetadataSigning |Nej | X509-certifikatet (RSA-nyckel uppsättning) som används för att signera SAML-metadata. Azure AD B2C använder den här nyckeln för att signera metadata.  |
 
-## <a name="examples"></a>Exempel
+## <a name="next-steps"></a>Nästa steg
+
+I följande artiklar finns exempel på hur du arbetar med SAML Identity providers i Azure AD B2C:
 
 - [Lägg till ADFS som en SAML Identity Provider med anpassade principer](active-directory-b2c-custom-setup-adfs2016-idp.md)
 - [Logga in med Salesforce-konton via SAML](active-directory-b2c-setup-sf-app-custom.md)
-
-
-
-
-
-
-
-
-
-
-
-
-

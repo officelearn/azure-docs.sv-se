@@ -1,25 +1,25 @@
 ---
 title: 'Snabb start: skapa en LUIS-nyckel'
 titleSuffix: Azure Cognitive Services
-description: I den här självstudien får du lära dig hur du snabbt skapar ett LUIS-program.
+description: I den här snabb starten får du lära dig hur du skapar ett LUIS-program och hämtar en nyckel.
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 11/04/2019
 ms.author: wolfma
-ms.openlocfilehash: 95becb2574a45536610aef87f8045b3dad5a5003
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2ee2b25958feac2387779d9e60734a6600b60a2e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504083"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682075"
 ---
 # <a name="quickstart-getting-a-luis-endpoint-key"></a>Snabb start: Hämta en LUIS-slutpunkt-nyckel
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Se till att du har följande saker innan du påbörjar den här självstudien:
 
@@ -54,7 +54,7 @@ På sidan **nycklar och inställningar för slut punkt** :
    * Under **prenumerations namn**väljer du den Azure-prenumeration som innehåller den Luis-resurs som du vill använda.
    * Under **nyckel**väljer du den Luis-resurs som du vill använda med appen.
 
-   Om en stund visas den nya prenumerationen i tabellen längst ned på sidan. 
+   Om en stund visas den nya prenumerationen i tabellen längst ned på sidan.
 
 1. Välj ikonen bredvid en tangent för att kopiera den till Urklipp. (Du kan använda valfri nyckel.)
 

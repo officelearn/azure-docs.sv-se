@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: e41a037e657a8d2b484a3fcb62eb3bc03f53682d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 62210bf480d09ce2a256a44b7554ac53aa06eb0c
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507092"
+ms.locfileid: "73579709"
 ---
 # <a name="custom-commands-preview"></a>Anpassade kommandon (förhands granskning)
 
 [Röst assistenter](voice-assistants.md) lyssnar på användare och utför en åtgärd som svar, och talar ofta tillbaka. De använder [tal-till-text](speech-to-text.md) för att skriva över användarens tal och sedan vidta åtgärder för textens naturliga språk förståelse. Den här åtgärden innehåller ofta talade utdata från assistenten som genererades med [text till tal](text-to-speech.md). Enheter ansluter till assistenter med tal SDK: s `DialogServiceConnector`-objekt.
 
-**Anpassade kommandon (förhands granskning)** är en strömlinjeformad lösning för att skapa en röst assistent. Det ger en enhetlig redigerings upplevelse, en automatisk värd modell och relativt lägre komplexitet jämfört med andra alternativ för att skapa assistenter, t. ex. [direkt linje tal](direct-line-speech.md). Den här förenklingen kommer dock att ha en lägre flexibilitet. Det innebär att anpassade kommandon (förhands granskning) passar bäst för slut för ande av aktiviteter eller kommando-och-kontroll-scenarier.
+**Anpassade kommandon (förhands granskning)** är en strömlinjeformad lösning för att skapa en röst assistent. Det ger en enhetlig redigerings upplevelse, en automatisk värd modell och relativt lägre komplexitet jämfört med andra alternativ för att skapa assistenter, t. ex. [direkt linje tal](direct-line-speech.md). Den här förenklingen kommer dock att ha en lägre flexibilitet. Det innebär att anpassade kommandon (förhands granskning) passar bäst för slut för ande av aktiviteter eller kommando-och-kontroll-scenarier. Den är särskilt väl matchad för Sakernas Internet (IoT) och omdirigerings enheter.
 
 För komplex interaktion och integrering med andra lösningar som den [virtuella assistent lösningen och företags mal len](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) rekommenderar vi att du använder direkt linje tal.
 

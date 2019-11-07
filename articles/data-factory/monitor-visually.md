@@ -1,5 +1,5 @@
 ---
-title: Övervaka Azure-datafabriker visuellt Microsoft Docs
+title: Övervaka Azure-datafabriker visuellt
 description: Lär dig att visuellt övervaka Azures data fabriker
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: f7c27bde3806684045bc43f8ff99eefb14c8d04a
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 7b79fd9c87e97e624cce567b57c1c65fefcc151e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029137"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684640"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Övervaka Azure-datafabriker visuellt
 Azure Data Factory är en molnbaserad data integrerings tjänst. Du kan använda den för att skapa data drivna arbets flöden i molnet för att dirigera och automatisera data förflyttning och data omvandling. Med hjälp av Azure Data Factory kan du:
@@ -40,14 +40,14 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 ## <a name="monitor-pipeline-runs"></a>Övervaka pipelinekörningar
 I listvyn visas varje pipeline-körning för Data Factory pipeliner. Den innehåller följande kolumner:
 
-| **Kolumnnamn** | **Beskrivning** |
+| **Kolumn namn** | **Beskrivning** |
 | --- | --- |
 | Pipeline-namn | Namn på pipelinen |
 | Åtgärder | Enskild åtgärd som är tillgänglig för att Visa aktivitets körningar |
 | Kör Start | Start datum och-tid för pipeline-körningen (MM/DD/ÅÅÅÅ, HH: MM: SS fm/em) |
-| Duration | Körnings tid (HH: MM: SS) |
+| Varaktighet | Körnings tid (HH: MM: SS) |
 | Utlöst av | Manuell utlösare eller schemalagd utlösare |
-| State | **Misslyckades**, **lyckades**eller **pågår** |
+| Status | **Misslyckades**, **lyckades**eller **pågår** |
 | Parametrar | Parametrar för pipeline-körningen (namn/värde-par) |
 | Fel | Fel i pipeline-körning (om det finns) |
 | Körnings-ID | ID för pipeline-körningen |
@@ -57,15 +57,15 @@ I listvyn visas varje pipeline-körning för Data Factory pipeliner. Den innehå
 ## <a name="monitor-activity-runs"></a>Övervaka aktivitetskörningar
 Listvyn visar aktivitets körningar som motsvarar varje pipeline-körning. Om du vill visa aktivitets körningar för varje pipeline-körning väljer du ikonen **aktivitet körs** under kolumnen **åtgärder** . Listvyn innehåller följande kolumner:
 
-| **Kolumnnamn** | **Beskrivning** |
+| **Kolumn namn** | **Beskrivning** |
 | --- | --- |
 | Aktivitets namn | Namn på aktiviteten inuti pipelinen |
 | Aktivitets typ | Typ av aktivitet, till exempel **copy**, **HDInsightSpark**eller **HDInsightHive** |
 | Kör Start | Start datum och-tid för aktivitets körningen (MM/DD/ÅÅÅÅ, HH: MM: SS fm/em) |
-| Duration | Körnings tid (HH: MM: SS) |
-| State | **Misslyckades**, **lyckades**eller **pågår** |
+| Varaktighet | Körnings tid (HH: MM: SS) |
+| Status | **Misslyckades**, **lyckades**eller **pågår** |
 | Indata | JSON-matris som beskriver aktivitetens indata |
-| Output | JSON-matris som beskriver aktivitetens utdata |
+| Resultat | JSON-matris som beskriver aktivitetens utdata |
 | Fel | Aktivitets körnings fel (om det finns) |
 
 ![Listvy för övervakning av aktivitets körningar](media/monitor-visually/activity-runs.png)
@@ -86,11 +86,11 @@ Hovra över **Data Factory** ikonen längst upp till vänster. Välj pilen för 
 
 Order pipelinen körs i DESC/ASC enligt kör Start tiden. Filtrera Pipeline-körningar med hjälp av följande kolumner:
 
-| **Kolumnnamn** | **Beskrivning** |
+| **Kolumn namn** | **Beskrivning** |
 | --- | --- |
 | Pipeline-namn | Namnet på pipeline. Alternativen inkluderar snabb filter för de **senaste 24 timmarna**, **senaste veckan**och de **senaste 30 dagarna**. Eller Välj ett anpassat datum och tid. |
 | Kör Start | Start datum och-tid för pipeline-körningen. |
-| Körnings status | Filter körs efter status: **Lyckades**, **misslyckades**eller **pågår**. |
+| Körnings status | Filter körs efter status: **lyckades**, **misslyckades**eller **pågår**. |
 
 ![Alternativ för filtrering](media/monitor-visually/filter.png)
 
@@ -161,7 +161,7 @@ Välj **feedback** -ikonen för att ge oss feedback om olika funktioner eller pr
 
 ## <a name="alerts"></a>Aviseringar
 
-Du kan generera aviseringar för mått som stöds i Data Factory. Välj **övervaka** > -**aviseringar & mått** på sidan Data Factory övervakning för att komma igång.
+Du kan generera aviseringar för mått som stöds i Data Factory. Välj **övervaka** > **varningar & mått** på sidan Data Factory övervakning för att komma igång.
 
 ![Sidan Data Factory Monitor](media/monitor-visually/alerts01.png)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e2328bcd2b2d9fe957df82c46730091ffdf9366
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 695bd461ae7e979c0a803cd2d6cb450003a6bcee
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474289"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603004"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuera Azure AD-lösenordsskydd
 
@@ -135,7 +135,7 @@ Det finns två installations program som krävs för lösen ords skydd i Azure A
 
      Denna cmdlet kräver globala administratörsautentiseringsuppgifter för din Azure-klient. Du måste också ha lokala Active Directory domän administratörs behörighet i skogs rots domänen. När det här kommandot har slutförts en gång för en proxyserver kommer ytterligare anrop att lyckas, men är onödigt.
 
-      `Register-AzureADPasswordProtectionProxy`-cmdleten stöder följande tre autentiseringsläge.
+      `Register-AzureADPasswordProtectionProxy`-cmdleten stöder följande tre autentiseringsläge. De två första lägena har stöd för Azure Multi-Factor Authentication men det tredje läget fungerar inte. Mer information finns i kommentarerna nedan.
 
      * Interaktivt autentiseringsläge:
 
@@ -179,7 +179,7 @@ Det finns två installations program som krävs för lösen ords skydd i Azure A
 1. Registrera skogen.
    * Du måste initiera den lokala Active Directory skogen med de autentiseringsuppgifter som krävs för att kommunicera med Azure med hjälp av `Register-AzureADPasswordProtectionForest` PowerShell-cmdleten. Cmdleten kräver autentiseringsuppgifter för global administratör för din Azure-klient. Det kräver också lokala Active Directory företags administratörs behörighet. Det här steget körs en gång per skog.
 
-      `Register-AzureADPasswordProtectionForest`-cmdleten stöder följande tre autentiseringsläge.
+      `Register-AzureADPasswordProtectionForest`-cmdleten stöder följande tre autentiseringsläge. De två första lägena har stöd för Azure Multi-Factor Authentication men det tredje läget fungerar inte. Mer information finns i kommentarerna nedan.
 
      * Interaktivt autentiseringsläge:
 

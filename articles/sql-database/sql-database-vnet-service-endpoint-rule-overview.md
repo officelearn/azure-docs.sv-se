@@ -1,5 +1,5 @@
 ---
-title: VNet-slutpunkter och regler för databaser med enkel och pool i Azure SQL | Microsoft Docs
+title: 'VNet-slutpunkter och regler för databaser med enkel och pool i Azure SQL '
 description: 'Markera ett undernät som en Virtual Network tjänst slut punkt. Sedan kan slut punkten som en virtuell nätverks regel till ACL: en Azure SQL Database. Du SQL Database acceptera sedan kommunikation från alla virtuella datorer och andra noder i under nätet.'
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 08/27/2019
-ms.openlocfilehash: 5506f95d532f69286bf29ec8916485bd63ce94da
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: e1f8ab6725c58d9e1f15f88e6d2465ab88df79e2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828814"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686914"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Använd tjänst slut punkter och regler för virtuella nätverk för databas servrar
 
@@ -53,8 +53,8 @@ Varje virtuell nätverks regel gäller hela Azure SQL Database-servern, inte bar
 
 Det finns en separation av säkerhets roller i administration av Virtual Network tjänstens slut punkter. Åtgärd krävs från var och en av följande roller:
 
-- **Nätverks administratör:** &nbsp;Aktivera slut punkten.
-- **Databas administratör:** &nbsp;Uppdatera åtkomst kontrol listan (ACL) för att lägga till angivet undernät till SQL Database servern.
+- **Nätverks administratör:** &nbsp; aktivera slut punkten.
+- **Databas administratör:** &nbsp; uppdatera åtkomst kontrol listan (ACL) för att lägga till angivet undernät till SQL Database-servern.
 
 *RBAC-alternativ:*
 
@@ -89,7 +89,7 @@ För Azure SQL Database har funktionen regler för virtuellt nätverk följande 
 
 När du använder tjänst slut punkter för Azure SQL Database bör du gå igenom följande överväganden:
 
-- **Utgående till Azure SQL Database offentliga IP-adresser krävs**: Nätverks säkerhets grupper (NSG: er) måste öppnas för att Azure SQL Database IP-adresser för att tillåta anslutning. Du kan göra detta med hjälp av NSG [service-Taggar](../virtual-network/security-overview.md#service-tags) för Azure SQL Database.
+- **Utgående till Azure SQL Database offentliga IP-adresser krävs**: nätverks säkerhets grupper (NSG: er) måste öppnas för att Azure SQL Database IP-adresser för att tillåta anslutning. Du kan göra detta med hjälp av NSG [service-Taggar](../virtual-network/security-overview.md#service-tags) för Azure SQL Database.
 
 ### <a name="expressroute"></a>ExpressRoute
 
@@ -112,7 +112,7 @@ Azure Storage har implementerat samma funktion som gör det möjligt att begrän
 
 PolyBase används ofta för att läsa in data i Azure SQL Data Warehouse från Azure Storage-konton. Om Azure Storage konto som du läser in data från begränsar åtkomsten till en uppsättning VNet-undernät, kommer anslutningen från PolyBase till kontot att avbrytas. Följ stegen nedan för att aktivera både polybases import-och export scenarier med Azure SQL Data Warehouse ansluter till Azure Storage som skyddas av VNet:
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -191,19 +191,19 @@ Anslutnings fel 40914 relaterar till *virtuella nätverks regler*, enligt vad so
 
 *Meddelande text:* Det går inte att öppna servern *[Server Name]* som begärdes av inloggningen. Klienten har inte behörighet att komma åt servern.
 
-*Fel Beskrivning:* Klienten finns i ett undernät som har Server slut punkter för virtuella nätverk. Men Azure SQL Database servern har ingen regel för virtuella nätverk som ger under nätet rätt att kommunicera med SQL Database.
+*Fel Beskrivning:* Klienten finns i ett undernät som har Server slut punkter för virtuella nätverk. Azure SQL Database-servern har däremot ingen regel för det virtuella nätverket som ger undernätet behörighet att kommunicera med SQL-databasen.
 
 *Fel matchning:* I fönstret brand vägg i Azure Portal använder du kontrollen regler för virtuellt nätverk för att [lägga till en virtuell nätverks regel](#anchor-how-to-by-using-firewall-portal-59j) för under nätet.
 
 ### <a name="error-40615"></a>Fel 40615
 
-*Meddelande text:* Det går inte att{0}öppna servern som begärdes av inloggningen. Klienten med IP-adressen{1}är inte tillåten för att komma åt servern.
+*Meddelande text:* Det går inte att öppna servern{0}som begärdes vid inloggningen. Klienten med IP-adressen {1} får inte åtkomst till servern.
 
 *Fel Beskrivning:* Klienten försöker ansluta från en IP-adress som inte har behörighet att ansluta till den Azure SQL Database servern. Serverbrandväggen har ingen IP-adressregel som gör att en klient kan kommunicera från den givna IP-adressen till SQL-databasen.
 
-*Fel matchning:* Ange klientens IP-adress som en IP-regel. Gör detta med hjälp av brand Väggs fönstret i Azure Portal.
+*Fel matchning:* Ange klientens IP-adress som en IP-regel. Gör det här i brandväggsfönstret i Azure-portalen.
 
-En lista över flera SQL Database fel meddelanden dokumenteras [här][sql-database-develop-error-messages-419g].
+Du hittar en lista med fler SQL Database-felmeddelanden [här][sql-database-develop-error-messages-419g].
 
 <a name="anchor-how-to-by-using-firewall-portal-59j" />
 
@@ -224,9 +224,9 @@ Ett PowerShell-skript kan också skapa regler för virtuella nätverk. Den vikti
 
 Internt anropar PowerShell-cmdletar för SQL VNet-åtgärder REST-API: er. Du kan anropa REST-API: erna direkt.
 
-- [Virtual Network regler: Verksamhetshanteraren][rest-api-virtual-network-rules-operations-862r]
+- [Virtual Network regler: åtgärder][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du måste redan ha ett undernät som är taggat med det specifika Virtual Network tjänst slut punkts *typ namn* som är relevant för Azure SQL Database.
 
@@ -239,7 +239,7 @@ Du måste redan ha ett undernät som är taggat med det specifika Virtual Networ
 
 1. Logga in på [Azure Portal][http-azure-portal-link-ref-477t].
 
-2. Navigera sedan till portalen för **SQL Server** &gt; **-brandvägg/Virtual Networks**.
+2. Navigera sedan portalen till **SQL-servrar** &gt; **brand vägg/virtuella nätverk**.
 
 3. Ange alternativet **Tillåt åtkomst till Azure-tjänster** till av.
 
@@ -254,7 +254,7 @@ Du måste redan ha ett undernät som är taggat med det specifika Virtual Networ
 
     > [!TIP]
     > Du måste inkludera rätt **adressprefix** för ditt undernät. Du kan hitta värdet i portalen.
-    > Navigera **alla resurser** &gt; **alla typer** &gt; av **virtuella nätverk**. Filtret visar dina virtuella nätverk. Klicka på det virtuella nätverket och klicka sedan på **undernät**. I kolumnen **adress intervall** finns det adressprefix du behöver.
+    > Navigera **alla resurser** &gt; **alla typer** &gt; **virtuella nätverk**. Filtret visar dina virtuella nätverk. Klicka på det virtuella nätverket och klicka sedan på **undernät**. I kolumnen **adress intervall** finns det adressprefix du behöver.
 
     ![Fyll i fält för ny regel.][image-portal-firewall-create-update-vnet-rule-20-png]
 
@@ -266,10 +266,10 @@ Du måste redan ha ett undernät som är taggat med det specifika Virtual Networ
 
 > [!NOTE]
 > Följande status eller tillstånd gäller för reglerna:
-> - **Redo** Anger att åtgärden som du initierade har slutförts.
-> - **Bröt** Anger att åtgärden som du initierade har misslyckats.
-> - **Tar** Gäller endast borttagnings åtgärden och anger att regeln har tagits bort och inte längre gäller.
-> - **Pågår** Anger att åtgärden pågår. Den gamla regeln gäller när åtgärden är i det här läget.
+> - **Klart:** Anger att åtgärden som du initierade har slutförts.
+> - **Misslyckades:** Anger att åtgärden som du initierade har misslyckats.
+> - **Borttagen:** Gäller endast borttagnings åtgärden och anger att regeln har tagits bort och inte längre gäller.
+> - **Förlopp:** Anger att åtgärden pågår. Den gamla regeln gäller när åtgärden är i det här läget.
 
 <a name="anchor-how-to-links-60h" />
 
@@ -283,7 +283,7 @@ Funktionen för regel för virtuella nätverk för Azure SQL Database blev tillg
 ## <a name="next-steps"></a>Nästa steg
 
 - [Använd PowerShell för att skapa en tjänst slut punkt för virtuellt nätverk och sedan en regel för virtuella nätverk för Azure SQL Database.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
-- [Virtual Network regler: Åtgärder][rest-api-virtual-network-rules-operations-862r] med REST API: er
+- [Virtual Network regler: åtgärder][rest-api-virtual-network-rules-operations-862r] med REST API: er
 
 <!-- Link references, to images. -->
 

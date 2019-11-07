@@ -1,5 +1,5 @@
 ---
-title: Haveri beredskap för SaaS-appar som använder Azure SQL Database geo-replikering | Microsoft Docs
+title: Haveri beredskap för SaaS-appar som använder Azure SQL Database geo-replikering
 description: Lär dig hur du använder Azure SQL Database geo-Replicas för att återställa en SaaS-app med flera innehavare i händelse av ett avbrott
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: AyoOlubeko
 ms.author: craigg
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: bebbb3d053db37a9716230dfbb14372696dd4936
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f6f8ed39de36ce38b0bc4b879980a054bf480d0e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570523"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692237"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Haveri beredskap för ett SaaS-program för flera innehavare med hjälp av databas geo-replikering
 
@@ -36,7 +36,7 @@ I den här självstudien utforskas arbets flöden för redundans och återställ
 
 Kontrol lera att följande krav är uppfyllda innan du påbörjar den här självstudien:
 * Wingtip biljetter SaaS-databasen per klient-app distribueras. Om du vill distribuera på mindre än fem minuter, se [distribuera och utforska Wingtip-biljetter SaaS-databas per klient program](saas-dbpertenant-get-started-deploy.md)  
-* Azure PowerShell ska ha installerats. Mer information finns i [Komma igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+* Azure PowerShell ska ha installerats. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-the-geo-replication-recovery-pattern"></a>Introduktion till återställnings mönstret för geo-replikering
 
@@ -68,7 +68,7 @@ I den här självstudien åtgärdas de här utmaningarna med hjälp av funktione
 * [Azure Resource Manager mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)för att reservera all nödvändig kapacitet så snabbt som möjligt. Azure Resource Manager mallar används för att etablera en spegel avbildning av produktions servrarna och elastiska pooler i återställnings regionen.
 * [Geo-replikering](sql-database-geo-replication-overview.md), för att skapa asynkront replikerade skrivskyddade sekundär servrar för alla databaser. Under ett avbrott växlar du över till replikerna i återställnings regionen.  När avbrottet har åtgärd ATS växlar du tillbaka till databaserna i den ursprungliga regionen utan data förlust.
 * [Asynkrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) redundansväxlingen skickas i klient organisations prioritetsordning för att minimera redundansväxlingen för stora mängder databaser.
-* [Shard hantering](sql-database-elastic-database-recovery-manager.md)av återställnings funktioner, för att ändra databas poster i katalogen under återställning och Repatriation. Dessa funktioner tillåter att appen ansluter till klient databaser oavsett plats utan att konfigurera om appen.
+* [Shard hantering av återställnings funktioner](sql-database-elastic-database-recovery-manager.md), för att ändra databas poster i katalogen under återställning och Repatriation. Dessa funktioner tillåter att appen ansluter till klient databaser oavsett plats utan att konfigurera om appen.
 * [SQL Server-DNS-alias](dns-alias-overview.md)för att möjliggöra sömlös etablering av nya klienter oavsett vilken region appen körs i. DNS-alias används också för att tillåta katalogens synkronisering för att ansluta till den aktiva katalogen oavsett dess plats.
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Hämta Disaster Recovery-skript 
@@ -89,10 +89,10 @@ Senare i ett separat Repatriation-steg växlar du över katalogen och klient dat
 ## <a name="review-the-healthy-state-of-the-application"></a>Granska det felfria tillståndet för programmet
 
 Innan du påbörjar återställnings processen granskar du det normala hälso tillståndet för programmet.
-1. I webbläsaren öppnar du http://events.wingtip-dpt.&lt Wingtip Ticket Events Hub (; User&gt;. trafficmanager.net – Ersätt &lt; User&gt; med distributionens användar värde).
+1. I webbläsaren öppnar du Wingtip Ticket Events Hub (http://events.wingtip-dpt.&lt; User&gt;. trafficmanager.net – Ersätt &lt;användar&gt; med distributionens användar värde).
     * Rulla längst ned på sidan och Lägg märke till katalog serverns namn och plats i sidfoten. Platsen är den region där du distribuerade appen.
-    *BESKRIVNING Hovra musen över platsen för att förstora visningen. Felfritt tillstånd för events Hub i den ursprungliga regionen*
-    ![](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
+    *Tips: Hovra musen över platsen för att förstora visningen.* 
+    ![Events Hub-felfritt tillstånd i den ursprungliga regionen](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
 
 2. Klicka på Contoso konsert Hall-klienten och öppna dess händelse sida.
     * Lägg märke till klient serverns namn i sidfoten. Platsen kommer att vara samma som katalog serverns plats.
@@ -107,13 +107,13 @@ I den här uppgiften startar du en process som synkroniserar konfigurationen av 
 > [!IMPORTANT]
 > För enkelhetens skull implementeras Sync-processen och andra tids krävande återställnings-och Repatriation-processer i de här självstudierna som lokala PowerShell-jobb eller sessioner som körs under klientens användar inloggning. De autentiseringstoken som utfärdas när du loggar in upphör att gälla efter flera timmar och jobben kommer att Miss sen. I ett produktions scenario bör långvariga processer implementeras som pålitliga Azure-tjänster av någon typ, som körs under ett huvud namn för tjänsten. Se [använda Azure PowerShell för att skapa ett huvud namn för tjänsten med ett certifikat](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
 
-1. Öppna filen. ..\Learning Modules\UserConfig.psm1 i _POWERSHELL ISE_. Ersätt `<resourcegroup>` och`<user>` på raderna 10 och 11 med det värde som används när du distribuerade appen.  Spara filen!
+1. Öppna filen. ..\Learning Modules\UserConfig.psm1 i _POWERSHELL ISE_. Ersätt `<resourcegroup>` och `<user>` på raderna 10 och 11 med det värde som används när du distribuerade appen.  Spara filen!
 
 2. I *POWERSHELL ISE*öppnar du skriptet. ..\Learning Modules\Business kontinuitet och katastrof Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 och anger:
     * **$DemoScenario = 1**, starta ett bakgrunds jobb som synkroniserar klient servern och konfigurations information för poolen i katalogen
 
 3. Tryck på **F5** för att köra Sync-skriptet. En ny PowerShell-session öppnas för att synkronisera konfigurationen av klient resurserna.
-![Synkronisera process](media/saas-dbpertenant-dr-geo-replication/sync-process.png)
+![Sync-process](media/saas-dbpertenant-dr-geo-replication/sync-process.png)
 
 Låt PowerShell-fönstret köras i bakgrunden och fortsätt med resten av självstudien. 
 
@@ -131,7 +131,7 @@ I den här uppgiften startar du en process som distribuerar en duplicerad App-in
     * **$DemoScenario = 2**, skapa spegel avbildnings återställnings miljö och replikera katalog-och klient databaser
 
 2. Tryck **F5** för att köra skriptet. En ny PowerShell-session öppnas för att skapa replikerna.
-![Synkronisera process](media/saas-dbpertenant-dr-geo-replication/replication-process.png)  
+![Sync-process](media/saas-dbpertenant-dr-geo-replication/replication-process.png)  
 
 ## <a name="review-the-normal-application-state"></a>Granska det normala program läget
 
@@ -141,7 +141,7 @@ I det här läget körs programmet normalt i den ursprungliga regionen och skydd
 
 2. Utforska resurserna i återställnings resurs gruppen.  
 
-3. Klicka på Contoso konsert Hall-databasen på _tenants1-DPT-User&lt;&gt;-Recovery-_ servern.  Klicka på geo-replikering på vänster sida. 
+3. Klicka på Contoso konsert Hall-databasen på _tenants1-DPT-&lt;användar&gt;-återställnings_ Server.  Klicka på geo-replikering på vänster sida. 
 
     ![Contoso konsert geo-replikeringslänken-länk](media/saas-dbpertenant-dr-geo-replication/contoso-geo-replication.png) 
 
@@ -188,7 +188,7 @@ Tänk på att det finns ett avbrott i den region där programmet distribueras oc
     * Återställnings regionen är den _kopplade region_ som är kopplad till den Azure-region där du distribuerade programmet. Mer information finns i [Azure-kopplade regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
 
 3. Övervaka status för återställnings processen i PowerShell-fönstret.
-    ![redundansväxling](media/saas-dbpertenant-dr-geo-replication/failover-process.png)
+    ![redundansväxlingen](media/saas-dbpertenant-dr-geo-replication/failover-process.png)
 
 > [!Note]
 > Om du vill utforska koden för återställnings jobben granskar du PowerShell-skripten i mappen. ..\Learning Modules\Business kontinuitet och katastrof Recovery\DR-FailoverToReplica\RecoveryJobs.
@@ -206,7 +206,7 @@ När program slut punkten är inaktive rad i Traffic Manager är programmet inte
  
      ![Events Hub offline](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
 
-   * Om du öppnar en offline-klients händelse sida direkt visas ett meddelande om klientens offline. Om contoso konsert Hall till exempel är offline kan du försöka öppna http://events.wingtip-dpt.&lt. användare&gt;. trafficmanager.net/contosoconcerthall ![ contoso offline-sida](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
+   * Om du öppnar en offline-klients händelse sida direkt visas ett meddelande om klientens offline. Om contoso konsert Hall till exempel är offline kan du försöka öppna http://events.wingtip-dpt.&lt; användare&gt;. trafficmanager.net/contosoconcerthall ![contoso offline-sida](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
 
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>Etablera en ny klient i återställnings regionen
 Du kan etablera nya klienter i återställnings regionen även innan alla befintliga klient databaser har redundansväxlats.  
@@ -217,7 +217,7 @@ Du kan etablera nya klienter i återställnings regionen även innan alla befint
 2. Tryck på **F5** för att köra skriptet och etablera den nya klienten. 
 
 3. Sidan Hawthorn Hall-händelser öppnas i webbläsaren när den är klar. Observera från sidfoten att Hawthorn-databasen är etablerad i återställnings regionen.
-    ![Sidan Hawthorn, evenemang](media/saas-dbpertenant-dr-geo-replication/hawthornhallevents.png) 
+    Sidan ![Hawthorn Hall-evenemang](media/saas-dbpertenant-dr-geo-replication/hawthornhallevents.png) 
 
 4. I webbläsaren uppdaterar du sidan Wingtip Ticket Events Hub för att se Hawthorn Hall ingår. 
     * Om du etablerade Hawthorn Hall utan att behöva vänta på att de andra klienterna ska kunna återställas, kan andra klienter fortfarande vara offline.
@@ -229,7 +229,7 @@ När återställnings processen har slutförts fungerar programmet och alla klie
 
 1. När visningen i fönstret i PowerShell-konsolen visar att alla klienter återställs, uppdaterar du Events-hubben.  Klienterna kommer att visas online, inklusive den nya klienten, Hawthorn Hall.
 
-    ![återställda och nya klienter i hubben Events](media/saas-dbpertenant-dr-geo-replication/events-hub-with-hawthorn-hall.png)
+    ![Återställda och nya klienter i hubben Events](media/saas-dbpertenant-dr-geo-replication/events-hub-with-hawthorn-hall.png)
 
 2. Öppna listan över resurs grupper i [Azure Portal](https://portal.azure.com).  
     * Lägg märke till den resurs grupp som du har distribuerat, plus återställnings resurs gruppen med _-återställnings-_ suffixet.  Återställnings resurs gruppen innehåller alla resurser som skapats under återställnings processen, plus nya resurser som skapas under avbrottet.  
@@ -237,14 +237,14 @@ När återställnings processen har slutförts fungerar programmet och alla klie
 3. Öppna återställnings resurs gruppen och Lägg märke till följande objekt:
    * Återställnings versionerna av katalogen och tenants1-servrar, med _-Recovery-_ suffix.  Den återställda katalogen och klient databaserna på dessa servrar har alla namn som används i den ursprungliga regionen.
 
-   * _Tenants2-DPT-&lt;User&gt;-Recovery_ SQL Server.  Den här servern används för att tillhandahålla nya klienter under avbrottet.
-   * App Service som heter, _Events-Wingtip-DPT&lt;-&gt;recoveryregion-&lt;User & gt_;, som är återställnings instansen av events-appen. 
+   * _Tenants2-DPT-&lt;user&gt;-Recovery_ SQL Server.  Den här servern används för att tillhandahålla nya klienter under avbrottet.
+   * App Service som heter, _Events – Wingtip-DPT-&lt;recoveryregion&gt;-&lt;användare & gt_;, som är återställnings instansen av events-appen. 
 
      ![Azure Recovery-resurser](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png) 
     
-4. Öppna SQL Server _-tenants2-&lt;DPT&gt;-User-Recovery_ .  Observera att den innehåller databasen _hawthornhall_ och den elastiska poolen _Pool1_.  _Hawthornhall_ -databasen har kon figurer ATS som en elastisk databas i den elastiska _Pool1_ -poolen.
+4. Öppna _tenants2-DPT-&lt;user&gt;-Recovery_ SQL Server.  Observera att den innehåller databasen _hawthornhall_ och den elastiska poolen _Pool1_.  _Hawthornhall_ -databasen har kon figurer ATS som en elastisk databas i den elastiska _Pool1_ -poolen.
 
-5. Gå tillbaka till resurs gruppen och klicka på Contoso konsert Hall-databasen på _tenants1-DPT-User&gt;-&lt;Recovery-_ servern. Klicka på geo-replikering på vänster sida.
+5. Gå tillbaka till resurs gruppen och klicka på Contoso konsert Hall-databasen på _tenants1-DPT-&lt;user&gt;-Recovery-_ servern. Klicka på geo-replikering på vänster sida.
     
     ![Contoso-databas efter redundans](media/saas-dbpertenant-dr-geo-replication/contoso-geo-replication-after-failover.png)
 
@@ -255,7 +255,7 @@ I den här uppgiften uppdaterar du en av klient databaserna.
 2. I *POWERSHELL ISE*i avsnittet. ..\Learning Modules\Business kontinuitet och katastrof Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 anger du följande värde:
     * **$DemoScenario = 5** Ta bort en händelse från en klient i återställnings regionen
 3. Tryck på **F5** för att köra skriptet
-4. Uppdatera sidan contoso http://events.wingtip-dpt.&lt konsert evenemang (; User&gt;. trafficmanager.net/contosoconcerthall – ersätta &lt; användare&gt; med din distributions användar värde) och Observera att den senaste händelsen har tagits bort.
+4. Uppdatera sidan contoso konsert evenemang (http://events.wingtip-dpt.&lt; User&gt;. trafficmanager.net/contosoconcerthall – Ersätt &lt;användar&gt; med distributionens användar värde) och Observera att den senaste händelsen har tagits bort.
 
 ## <a name="repatriate-the-application-to-its-original-production-region"></a>Repatriate programmet till den ursprungliga produktions regionen
 
@@ -288,11 +288,11 @@ Nu ska vi föreställa dig att avbrottet är löst och köra Repatriation-skript
     * Tryck på **F5** för att köra återställnings skriptet i ett nytt PowerShell-fönster.  Repatriation tar flera minuter och kan övervakas i PowerShell-fönstret.
     ![Repatriation process](media/saas-dbpertenant-dr-geo-replication/repatriation-process.png)
 
-4. När skriptet körs uppdaterar du sidan Events Hub (http://events.wingtip-dpt.&lt ; User&gt;. trafficmanager.net)
+4. När skriptet körs uppdaterar du sidan Events Hub (http://events.wingtip-dpt.&lt; User&gt;. trafficmanager.net)
     * Observera att alla klienter är online och tillgängliga i hela den här processen.
 
 5. När Repatriation har slutförts uppdaterar du Events-hubben och öppnar sidan händelser för Hawthorn Hall. Observera att den här databasen har repatriated till den ursprungliga regionen.
-    ![Events Hub-repatriated](media/saas-dbpertenant-dr-geo-replication/events-hub-repatriated.png)
+    ![Events Hub repatriated](media/saas-dbpertenant-dr-geo-replication/events-hub-repatriated.png)
 
 
 ## <a name="designing-the-application-to-ensure-app-and-database-are-colocated"></a>Utforma programmet för att säkerställa att appen och databasen samplaceras 
@@ -302,7 +302,7 @@ Klient databaser kan spridas över återställnings-och original regioner under 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig att:
+I den här guiden lärde du dig hur man:
 > [!div class="checklist"]
 > 
 > * Synkronisera databas och konfigurations information för elastisk pool i klient katalogen
@@ -311,7 +311,7 @@ I den här självstudiekursen lärde du dig att:
 > * Redundansväxla program-och katalog-och klient databaserna till återställnings regionen 
 > * Återställ program-, katalog-och klient databaserna till den ursprungliga regionen efter det att avbrott har åtgärd ATS
 
-Du kan lära dig mer om teknikerna i Azure SQL Database som ger affärs kontinuitet i översikts dokumentationen för [affärs kontinuitet](sql-database-business-continuity.md) .
+Du kan lära dig mer om teknikerna i Azure SQL Database som ger affärs kontinuitet i [översikts dokumentationen för affärs kontinuitet](sql-database-business-continuity.md) .
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

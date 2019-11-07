@@ -1,5 +1,5 @@
 ---
-title: Transformera data med Databricks python – Azure | Microsoft Docs
+title: Transformera data med Databricks python – Azure
 description: Lär dig hur du bearbetar eller transformerar data genom att köra en Databricks python.
 services: data-factory
 documentationcenter: ''
@@ -12,16 +12,16 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: maghan
 manager: craigg
-ms.openlocfilehash: 02c4644c4440c3a00a21ef22674bcc0d00902ac2
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 47654e8183dab120376f94df63d7664ead5dd580
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140795"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683945"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Transformera data genom att köra en python-aktivitet i Azure Databricks
 
-Azure Databricks python-aktivitet i en [Data Factory pipeline](concepts-pipelines-activities.md) kör en python-fil i Azure Databricks klustret. Den här artikeln bygger på artikeln [data omvandlings aktiviteter](transform-data.md) , som visar en allmän översikt över Datatransformeringen och de omvandlings aktiviteter som stöds. Azure Databricks är en hanterad plattform för att köra Apache Spark.
+Azure Databricks python-aktivitet i en [Data Factory pipeline](concepts-pipelines-activities.md) kör en python-fil i Azure Databricks klustret. Den här artikeln bygger på [data Transformations aktiviteter](transform-data.md) artikeln, som visar en allmän översikt över Datatransformeringen och de omvandlings aktiviteter som stöds. Azure Databricks är en hanterad plattform för att köra Apache Spark.
 
 Om du vill se en introduktion och demonstration av den här funktionen rekommenderar vi följande videoklipp (11 minuter):
 
@@ -62,12 +62,12 @@ Här är exempel-JSON-definitionen för en Databricks python-aktivitet:
 
 I följande tabell beskrivs de JSON-egenskaper som används i JSON-definitionen:
 
-|Egenskap|Beskrivning|Obligatorisk|
+|Egenskap|Beskrivning|Krävs|
 |---|---|---|
-|name|Namnet på aktiviteten i pipelinen.|Ja|
+|namn|Namnet på aktiviteten i pipelinen.|Ja|
 |description|Text som beskriver vad aktiviteten gör.|Nej|
-|type|Aktivitets typen är DatabricksSparkPython för Databricks python-aktivitet.|Ja|
-|linkedServiceName|Namnet på den länkade Databricks-tjänst som python-aktiviteten körs på. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) .|Ja|
+|typ|Aktivitets typen är DatabricksSparkPython för Databricks python-aktivitet.|Ja|
+|linkedServiceName|Namnet på den länkade Databricks-tjänst som python-aktiviteten körs på. Mer information om den här länkade tjänsten finns i artikeln [Compute Linked services](compute-linked-services.md) .|Ja|
 |pythonFile|URI för python-filen som ska köras. Endast DBFS-sökvägar stöds.|Ja|
 |parameters|Kommando rads parametrar som ska skickas till python-filen. Detta är en sträng mat ris.|Nej|
 |biblioteksfliken|En lista med bibliotek som ska installeras i klustret som ska köra jobbet. Det kan vara en matris med < sträng, objekt >|Nej|

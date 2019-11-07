@@ -1,5 +1,5 @@
 ---
-title: Tilldela variabler i Azure SQL Data Warehouse | Microsoft Docs
+title: Tilldela variabler
 description: Tips för att tilldela T-SQL-variabler i Azure SQL Data Warehouse för utveckling av lösningar.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 6c943478f3904aac17a572f012f2b2b69ffa2223
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 1ae5285a8d1cf6fa391c082d0196b213e6b6a9c5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479549"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692758"
 ---
 # <a name="assigning-variables-in-azure-sql-data-warehouse"></a>Tilldela variabler i Azure SQL Data Warehouse
 
@@ -23,7 +24,7 @@ Tips för att tilldela T-SQL-variabler i Azure SQL Data Warehouse för utvecklin
 
 ## <a name="setting-variables-with-declare"></a>Anger variabler med DECLARE
 
-Variabler i SQL Data Warehouse anges med `DECLARE` instruktionen `SET` eller instruktionen. Att initiera variabler med deklarera är ett av de mest flexibla sätten att ange ett variabel värde i SQL Data Warehouse.
+Variabler i SQL Data Warehouse anges med hjälp av `DECLARE`-instruktionen eller `SET`-instruktionen. Att initiera variabler med deklarera är ett av de mest flexibla sätten att ange ett variabel värde i SQL Data Warehouse.
 
 ```sql
 DECLARE @v  int = 0
@@ -38,7 +39,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-Det går inte att initiera och använda en variabel i samma DECLARE-instruktion. Följande exempel tillåts **inte** eftersom @p1 är både initierad och används i samma declare-instruktion för att illustrera punkten. Följande exempel ger ett fel.
+Det går inte att initiera och använda en variabel i samma DECLARE-instruktion. För att illustrera punkten är följande exempel **inte** tillåtet eftersom @p1 både initieras och används i samma declare-instruktion. Följande exempel ger ett fel.
 
 ```sql
 DECLARE @p1 int = 0

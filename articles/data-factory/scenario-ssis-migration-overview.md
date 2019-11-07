@@ -1,5 +1,5 @@
 ---
-title: Migrera lokala SSIS-arbetsbelastningar till SSIS i Azure Data Factory | Microsoft Docs
+title: Migrera lokala SSIS-arbetsbelastningar till SSIS i Azure Data Factory
 description: Migrera lokala SSIS-arbetsbelastningar till SSIS i ADF.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/3/2019
-ms.openlocfilehash: 3bf5ddebd59c95d00d0d3270f0e8e1a2d29b379a
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: e75e6bc78740ffb8aba0faa0ef95f4b13a8c56ef
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968476"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684424"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>Migrera lokala SSIS-arbetsbelastningar till SSIS i ADF
 
@@ -27,7 +27,7 @@ När du migrerar dina databas arbets belastningar från SQL Server lokalt till A
 
 Azure-SSIS Integration Runtime (IR) i Azure Data Factory (ADF) stöder körning av SSIS-paket. När Azure-SSIS IR har skapats kan du sedan använda välbekanta verktyg, till exempel SQL Server Data Tools (SSDT)/SQL Server Management Studio (SSMS) och kommando rads verktyg, till exempel dtinstall/dtutil/Dtexec, för att distribuera och köra dina paket i Azure. Mer information finns i [Översikt över Azure SSIS-och-Shift](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview).
 
-I den här artikeln beskrivs migreringsprocessen för dina ETL-arbetsbelastningar från lokala SSIS till SSIS i ADF. Migreringsprocessen består av två faser: **Utvärdering** och **migrering**.
+I den här artikeln beskrivs migreringsprocessen för dina ETL-arbetsbelastningar från lokala SSIS till SSIS i ADF. Migreringsprocessen består av två faser: **utvärdering** och **migrering**.
 
 ## <a name="assessment"></a>Utvärdering
 
@@ -35,9 +35,9 @@ För att upprätta en komplett migrations plan kan en grundlig utvärdering hjä
 
 Data Migration Assistant (DMA) är ett fritt nedladdnings Bart verktyg för det här syftet som kan installeras och köras lokalt. DMA-utvärderings projekt av typen **integrerings tjänster** kan skapas för att utvärdera SSIS-paket i batchar och identifiera kompatibilitetsproblem som presenteras i följande kategorier:
 
-- Migrations Blocker: Detta är kompatibilitetsproblem som blockerar migreringens käll paket för att köras på Azure-SSIS IR. DMA ger vägledning som hjälper dig att åtgärda problemen.
+- Migration-blockerare: dessa är kompatibilitetsproblem som blockerar migreringens käll paket för att köras på Azure-SSIS IR. DMA ger vägledning som hjälper dig att åtgärda problemen.
 
-- Informativa problem: Detta är delvis stödda eller inaktuella funktioner som används i käll paket. DMA tillhandahåller en omfattande uppsättning rekommendationer, alternativa metoder som är tillgängliga i Azure och åtgärder för att lösa problemet.
+- Informativa problem: de här är delvis stödda eller inaktuella funktioner som används i käll paket. DMA tillhandahåller en omfattande uppsättning rekommendationer, alternativa metoder som är tillgängliga i Azure och åtgärder för att lösa problemet.
 
 ### <a name="four-storage-types-for-ssis-packages"></a>Fyra lagrings typer för SSIS-paket
 

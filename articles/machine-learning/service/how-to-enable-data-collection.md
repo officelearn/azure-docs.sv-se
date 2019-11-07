@@ -11,12 +11,12 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 10/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 845d271c60762177ea88912f2100f3b47aedde46
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 2ca091a1bbf56e2d2850a464d0109020b06483d0
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489988"
+ms.locfileid: "73576699"
 ---
 # <a name="collect-data-for-models-in-production"></a>Samla in data för modeller i produktion
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -55,7 +55,7 @@ Sökvägen till utdata i bloben följer den här syntaxen:
 >[!Note]
 > I tidigare versioner av SDK: n innan `0.1.0a16` `designation` argumentet `identifier`. Om din kod har utvecklats med en tidigare version måste du uppdatera detta.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
@@ -124,7 +124,7 @@ Om du redan har en tjänst med beroenden som är installerade i **miljö filen**
 
    ![Redigera tjänst](media/how-to-enable-data-collection/EditService.PNG)
 
-1. Avmarkera **Aktivera modell data insamling**i **Avancerade inställningar**. 
+1. I **Avancerade inställningar**väljer du **Aktivera modell data insamling**. 
 
     [![kontrol lera data insamling](media/how-to-enable-data-collection/CheckDataCollection.png)](./media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
 

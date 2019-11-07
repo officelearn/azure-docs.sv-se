@@ -9,22 +9,22 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: mamccrea
-ms.openlocfilehash: b327403b29f26f6c1f43f9dfe7aabd5c3c7e0a68
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: efb0d3222bfd98b15502163979425d47fa459e07
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299903"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605724"
 ---
 # <a name="use-databricks-cli-from-azure-cloud-shell"></a>Använda Databricks CLI från Azure Cloud Shell
 
 Lär dig hur du använder Databricks CLI från Azure Cloud Shell för att utföra åtgärder på Databricks.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure Databricks arbets yta och ett kluster. Instruktioner finns i [Kom igång med Azure Databricks](quickstart-create-databricks-workspace-portal.md). 
 
-* Konfigurera en personlig åtkomsttoken i Databricks. Instruktioner finns i [token Management](https://docs.azuredatabricks.net/api/latest/authentication.html#token-management).
+* Konfigurera en personlig åtkomsttoken i Databricks. Instruktioner finns i [token Management](/azure/databricks/dev-tools/api/latest/authentication).
 
 ## <a name="use-the-azure-cloud-shell"></a>Använd Azure Cloud Shell
 
@@ -73,13 +73,13 @@ Du kan också använda följande kommando för att komma åt Databricks-fil syst
     databricks fs ls
 
 
-En fullständig referens för kommandon finns i [DATABRICKS CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html).
+En fullständig referens för kommandon finns i [DATABRICKS CLI](/azure/databricks/dev-tools/databricks-cli).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Mer information om Azure CLI finns i [Översikt över Azure CLI](../cloud-shell/overview.md)
 * En lista över kommandon för Azure CLI finns i [Azure CLI-referens](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest)
-* Om du vill se en lista över kommandon för Databricks CLI, se [DATABRICKS CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)
+* Om du vill se en lista över kommandon för Databricks CLI, se [DATABRICKS CLI](/azure/databricks/dev-tools/databricks-cli)
 
 

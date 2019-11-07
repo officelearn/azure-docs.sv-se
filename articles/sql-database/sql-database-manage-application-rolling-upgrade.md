@@ -1,5 +1,5 @@
 ---
-title: Rullande program uppgraderingar – Azure SQL Database | Microsoft Docs
+title: Rullande program uppgraderingar – Azure SQL Database
 description: Lär dig hur du använder Azure SQL Database geo-replikering för att stödja online-uppgraderingar av ditt moln program.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
-ms.openlocfilehash: 55b23b8d8e03a79aa0806a68306017f89c747760
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 253a10e75832cf6ee8294405e34fa93b801c1b49
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567774"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689495"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Hantera löpande uppgraderingar av moln program med SQL Database aktiv geo-replikering
 
@@ -31,10 +31,10 @@ När du utvärderar uppgraderings alternativ bör du tänka på följande faktor
 
 ## <a name="upgrade-applications-that-rely-on-database-backups-for-disaster-recovery"></a>Uppgradera program som förlitar sig på databas säkerhets kopieringar för haveri beredskap
 
-Om ditt program är beroende av automatisk säkerhets kopiering av databasen och använder geo-återställning för haveri beredskap, distribueras det till en enda Azure-region. Du kan minimera användar avbrott genom att skapa en mellanlagrings miljö i regionen med alla program komponenter som ingår i uppgraderingen. Det första diagrammet illustrerar drift miljön före uppgraderings processen. Slut punkten `contoso.azurewebsites.net` representerar en produktions miljö för webbappen. Om du vill kunna återställa uppgraderingen måste du skapa en mellanlagringsplats med en helt synkroniserad kopia av databasen. Följ de här stegen för att skapa en utvecklings miljö för uppgraderingen:
+Om ditt program är beroende av automatisk säkerhets kopiering av databasen och använder geo-återställning för haveri beredskap, distribueras det till en enda Azure-region. Du kan minimera användar avbrott genom att skapa en mellanlagrings miljö i regionen med alla program komponenter som ingår i uppgraderingen. Det första diagrammet illustrerar drift miljön före uppgraderings processen. Slut punkts `contoso.azurewebsites.net` representerar en produktions miljö för webbappen. Om du vill kunna återställa uppgraderingen måste du skapa en mellanlagringsplats med en helt synkroniserad kopia av databasen. Följ de här stegen för att skapa en utvecklings miljö för uppgraderingen:
 
 1. Skapa en sekundär databas i samma Azure-region. Övervaka den sekundära för att se om initierings processen har slutförts (1).
-2. Skapa en ny miljö för din webbapp och anropa den "mellanlagringen". Den registreras i Azure DNS med URL `contoso-staging.azurewebsites.net` (2).
+2. Skapa en ny miljö för din webbapp och anropa den "mellanlagringen". Den registreras i Azure DNS med URL: en `contoso-staging.azurewebsites.net` (2).
 
 > [!NOTE]
 > Dessa förberedelse steg påverkar inte produktions miljön, som kan fungera i full åtkomst läge.
@@ -51,7 +51,7 @@ När förberedelse stegen har slutförts är programmet redo för den faktiska u
 
 Om uppgraderingen har slutförts är du nu redo att växla användare till den uppgraderade kopian av programmet, vilket blir en produktions miljö. Växling innebär några fler steg, som du ser i nästa diagram:
 
-1. Aktivera en växlings åtgärd mellan produktions-och mellanlagrings miljöer i webbappen (6). Den här åtgärden växlar URL: er för de två miljöerna. Pekar `contoso.azurewebsites.net` nu på v2-versionen av webbplatsen och databasen (produktions miljön). 
+1. Aktivera en växlings åtgärd mellan produktions-och mellanlagrings miljöer i webbappen (6). Den här åtgärden växlar URL: er för de två miljöerna. Nu `contoso.azurewebsites.net` pekar på v2-versionen av webbplatsen och databasen (produktions miljön). 
 2. Om du inte längre behöver v1-versionen, som blev en mellanlagrings kopia efter växlingen, kan du inaktivera mellanlagrings miljön (7).
 
 ![SQL Database geo-replikeringskonfiguration för haveri beredskap för molnet.](media/sql-database-manage-application-rolling-upgrade/option1-3.png)
@@ -79,13 +79,13 @@ Om programmet använder aktiv geo-replikering eller grupper för automatisk redu
 * Programmet förblir skyddat från oåterkalleliga försök hela tiden under uppgraderings processen.
 * De geo-redundanta komponenterna i programmet uppgraderas parallellt med de aktiva komponenterna.
 
-För att uppnå dessa mål kan du, förutom att använda Web Appss miljöer, dra nytta av Azure Traffic Manager genom att använda en växlings profil med en aktiv slut punkt och en slut punkt för säkerhets kopiering. Nästa diagram illustrerar drift miljön före uppgraderings processen. Webbplatser `contoso-1.azurewebsites.net` och`contoso-dr.azurewebsites.net` representerar en produktions miljö för programmet med fullständig geografisk redundans. Produktions miljön innehåller följande komponenter:
+För att uppnå dessa mål kan du, förutom att använda Web Appss miljöer, dra nytta av Azure Traffic Manager genom att använda en växlings profil med en aktiv slut punkt och en slut punkt för säkerhets kopiering. Nästa diagram illustrerar drift miljön före uppgraderings processen. Webbplatserna `contoso-1.azurewebsites.net` och `contoso-dr.azurewebsites.net` representerar en produktions miljö för programmet med fullständig geografisk redundans. Produktions miljön innehåller följande komponenter:
 
 * Produktions miljön för webbappen `contoso-1.azurewebsites.net` i den primära regionen (1)
 * Den primära databasen i den primära regionen (2)
 * En standby-instans av webbappen i säkerhets kopierings regionen (3)
 * Den geo-replikerade sekundära databasen i säkerhets kopierings regionen (4)
-* En Traffic Manager prestanda profil med en online-slutpunkt `contoso-1.azurewebsites.net` som kallas och en offline-slutpunkt som kallas`contoso-dr.azurewebsites.net`
+* En Traffic Manager prestanda profil med en online-slutpunkt som kallas `contoso-1.azurewebsites.net` och en offline-slutpunkt med namnet `contoso-dr.azurewebsites.net`
 
 För att göra det möjligt att återställa uppgraderingen måste du skapa en mellanlagrings miljö med en helt synkroniserad kopia av programmet. Eftersom du måste se till att programmet snabbt kan återställas om det uppstår ett oåterkalleligt fel under uppgraderings processen, måste mellanlagrings miljön vara Geo-redundant också. Följande steg krävs för att skapa en utvecklings miljö för uppgraderingen:
 

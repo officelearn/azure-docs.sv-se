@@ -6,16 +6,16 @@ keywords: ''
 author: PatAltimore
 ms.author: patricka
 ms.date: 10/14/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: b3e7ff18dddeaeb1a42d69b9ed57d163410fbfa1
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 7176cddae6affd19df4fe418afcf420f92d624ab
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329231"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579793"
 ---
 # <a name="smart-contract-integration-patterns"></a>Integreringsmönster för smart kontrakt
 
@@ -200,11 +200,11 @@ Processen visar ett mönster:
 -   Azure blockchain Workbench initierar ett anrop till redovisningen och skickar data från det externa systemet till ett speciellt kontrakt.
 -   När meddelandet har mottagits utvärderar kontraktet data och kan ändra tillstånd baserat på resultatet av utvärderingen, till exempel för en hög temperatur, ändra tillstånd till *inkompatibilitet*.
 
-## <a name="data-integration"></a>Dataintegration
+## <a name="data-integration"></a>Dataintegrering
 
 Förutom REST-och meddelandebaserade API ger Azure blockchain Workbench även åtkomst till en SQL DB ifylld med program-och kontrakts-meta-data samt transaktions data från distribuerade transaktioner.
 
-![Dataintegration](./media/integration-patterns/data-integration.png)
+![Dataintegrering](./media/integration-patterns/data-integration.png)
 
 Data integreringen är välkänd:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Data Factory: vanliga frågor och svar | Microsoft Docs'
+title: 'Azure Data Factory: vanliga frågor och svar '
 description: Få svar på vanliga frågor om Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -9,20 +9,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 7ebcf865ad23e75b2aa9070fe14fc3ee8f1397c7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2da12bbc760ff06ad0737ed9d48e12ea81260655
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73481139"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73674718"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory vanliga frågor och svar
 Den här artikeln innehåller svar på vanliga frågor om Azure Data Factory.  
 
 ## <a name="what-is-azure-data-factory"></a>Vad är Azure Data Factory? 
-Data Factory är en helt hanterad, molnbaserad, data integrerings tjänst som automatiserar flytt och transformering av data. Som en fabrik som kör utrustning för att transformera råmaterial till färdiga varor, Azure Data Factory dirigerar befintliga tjänster som samlar in rå data och omvandlar dem till information som är klar att använda. 
+Data Factory är en fullständigt hanterad, molnbaserad tjänst för data integrering som automatiserar flytt och transformering av data. Som en fabrik som kör utrustning för att transformera råmaterial till färdiga varor, Azure Data Factory dirigerar befintliga tjänster som samlar in rå data och omvandlar dem till information som är klar att använda. 
 
-Med hjälp av Azure Data Factory kan du skapa data drivna arbets flöden för att flytta data mellan lokala och molnbaserade data lager. Och du kan bearbeta och transformera data med hjälp av beräknings tjänster som Azure HDInsight, Azure Data Lake Analytics och integrerings körningen för SQL Server Integration Services (SSIS). 
+Med hjälp av Azure Data Factory kan du skapa data drivna arbets flöden för att flytta data mellan lokala och molnbaserade data lager. Och du kan bearbeta och transformera data med data flöden. ADF stöder även externa beräknings motorer för manuella omvandlingar genom att använda beräknings tjänster som Azure HDInsight, Azure Databricks och integrerings körningen SQL Server Integration Services (SSIS). 
 
 Med Data Factory kan du köra din data behandling antingen på en Azure-baserad moln tjänst eller i din egen dator med egen värd miljö, till exempel SSIS, SQL Server eller Oracle. När du har skapat en pipeline som utför den åtgärd du behöver kan du schemalägga att den ska köras regelbundet (varje timme, varje dag eller varje vecka, till exempel), tids periods schemaläggning eller utlösa pipelinen från en händelse förekomst. Mer information finns i [Introduktion till Azure Data Factory](introduction.md).
 
@@ -108,6 +108,9 @@ En Azure-prenumeration kan ha en eller flera Azure Data Factory-instanser (eller
 
 ### <a name="pipelines"></a>Pipelines
 En datafabrik kan ha en eller flera pipelines. En pipeline är en logisk gruppering av aktiviteter för att utföra en arbets enhet. Aktiviteterna i en pipeline utför en uppgift tillsammans. En pipeline kan till exempel innehålla en grupp med aktiviteter som matar in data från en Azure-blob och sedan kör en Hive-fråga på ett HDInsight-kluster för att partitionera data. Fördelen är att du kan använda en pipeline för att hantera aktiviteterna som en uppsättning i stället för att behöva hantera varje aktivitet individuellt. Du kan kedja samman aktiviteterna i en pipeline för att kunna använda dem i tur och ordning, eller så kan du använda dem oberoende av varandra parallellt.
+
+### <a name="data-flows"></a>Data flöden
+Data flöden är objekt som du skapar visuellt i Data Factory som transformerar data i skala på backend-tjänster. Du behöver inte förstå programmering eller Spark-internt. Du behöver bara utforma data omvandlings avsikten med grafer (mappning) eller kalkyl blad (Datatransformering).
 
 ### <a name="activities"></a>Aktiviteter
 Aktiviteter representerar ett bearbetningssteg i en pipeline. Du kan till exempel använda en kopierings aktivitet för att kopiera data från ett data lager till ett annat data lager. På samma sätt kan du använda en Hive-aktivitet som kör en Hive-fråga på ett Azure HDInsight-kluster för att transformera eller analysera dina data. Data Factory stöder tre typer av aktiviteter: dataförflyttning, datatransformering och kontroll.
@@ -199,19 +202,19 @@ IR med egen värd är en ADF-baserad pipeline-konstruktion som du kan använda m
 Datatransformering Data Flow stöds för närvarande i data fabriker som skapats i följande regioner:
 
 * Östra Australien
-* Kanada, centrala
+* Centrala Kanada
 * Indien, centrala
 * Centrala USA
-* USA, östra
+* Östra USA
 * USA, östra 2
-* Japan, östra
+* Östra Japan
 * Norra Europa
 * Sydostasien
 * Södra centrala USA
 * Storbritannien, södra
 * Västra centrala USA
 * Västra Europa
-* USA, västra
+* Västra USA
 * Västra USA 2
 
 ### <a name="what-are-the-limitations-and-constraints-with-wrangling-data-flow"></a>Vad är begränsningarna och begränsningarna med datatransformering Data Flow?

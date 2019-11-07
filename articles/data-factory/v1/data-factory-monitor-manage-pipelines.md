@@ -1,5 +1,5 @@
 ---
-title: Övervaka och hantera pipelines med hjälp av Azure Portal och PowerShell | Microsoft Docs
+title: Övervaka och hantera pipelines med hjälp av Azure Portal och PowerShell
 description: Lär dig hur du använder Azure Portal och Azure PowerShell för att övervaka och hantera Azure-datafabriker och pipeliner som du har skapat.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 8e8215d9737087cf1a5632dc8514c12988ff999f
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 44aadecfa80524345932c03abb51e8ebd040a902
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139663"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666967"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Övervaka och hantera Azure Data Factory pipelines med hjälp av Azure Portal och PowerShell
 > [!div class="op_single_selector"]
@@ -87,10 +87,10 @@ Data uppsättnings sektorerna i data fabriken kan ha en av följande status:
 
 <table>
 <tr>
-    <th align="left">State</th><th align="left">Undertillstånd</th><th align="left">Beskrivning</th>
+    <th align="left">Status</th><th align="left">Delstat</th><th align="left">Beskrivning</th>
 </tr>
 <tr>
-    <td rowspan="8">Väntar på</td><td>ScheduleTime</td><td>Tiden har inte kommit för att sektorn ska kunna köras.</td>
+    <td rowspan="8">Väntar</td><td>ScheduleTime</td><td>Tiden har inte kommit för att sektorn ska kunna köras.</td>
 </tr>
 <tr>
 <td>DatasetDependencies</td><td>De överordnade beroendena är inte klara.</td>
@@ -115,13 +115,13 @@ Data uppsättnings sektorerna i data fabriken kan ha en av följande status:
 </tr>
 <tr>
 <tr>
-<td rowspan="2">Pågår</td><td>Verifierar</td><td>Verifiering pågår.</td>
+<td rowspan="2">Pågår</td><td>Verifiera</td><td>Verifiering pågår.</td>
 </tr>
 <td>-</td>
 <td>Sektorn bearbetas.</td>
 </tr>
 <tr>
-<td rowspan="4">Misslyckad</td><td>TimedOut</td><td>Aktivitets körningen tog längre tid än vad som tillåts av aktiviteten.</td>
+<td rowspan="4">Misslyckad</td><td>Stängningsåtgärd</td><td>Aktivitets körningen tog längre tid än vad som tillåts av aktiviteten.</td>
 </tr>
 <tr>
 <td>Avbrutna</td><td>Sektorn avbröts av en användar åtgärd.</td>
@@ -132,13 +132,13 @@ Data uppsättnings sektorerna i data fabriken kan ha en av följande status:
 <tr>
 <td>-</td><td>Det gick inte att generera sektorn och/eller verifiera den.</td>
 </tr>
-<td>Klar</td><td>-</td><td>Sektorn är klar för användning.</td>
+<td>Redo</td><td>-</td><td>Sektorn är klar för användning.</td>
 </tr>
 <tr>
-<td>Hoppades över</td><td>Inga</td><td>Sektorn bearbetas inte.</td>
+<td>Hoppades</td><td>Ingen</td><td>Sektorn bearbetas inte.</td>
 </tr>
 <tr>
-<td>Inga</td><td>-</td><td>En sektor som används för att existera med en annan status, men som har återställts.</td>
+<td>Ingen</td><td>-</td><td>En sektor som används för att existera med en annan status, men som har återställts.</td>
 </tr>
 </table>
 
@@ -152,7 +152,7 @@ Om sektorn har körts flera gånger visas flera rader i listan **aktivitets kör
 
 ![Aktivitetskörningsinformation](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
-Om sektorn inte har statusen **klar** kan du se de överordnade segmenten som inte är klara och blockerar den aktuella sektorn från att köras i de **överordnade segment som inte är klara** . Den här funktionen är användbar när din sektor är i vänte läge och du vill förstå de överordnade överordnade beroenden som sektorn väntar på.
+Om sektorn inte har statusen **klar** kan du se de överordnade segmenten som inte är klara och blockerar den aktuella sektorn från att köras i de **överordnade segment som inte är klara** . Den här funktionen är användbar när din sektor är i **vänte** läge och du vill förstå de överordnade överordnade beroenden som sektorn väntar på.
 
 ![Överordnade segment som inte är klara](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
@@ -161,7 +161,7 @@ När du har distribuerat en data fabrik och pipelinen har en giltig aktiv period
 
 ![Tillstånds diagram](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
 
-Flödet för data uppsättnings överföring i Data Factory är följande: Väntar-> pågående/pågående (validering)-> redo/misslyckade.
+Flödet för data uppsättnings överföring i Data Factory är följande: väntar-> pågående/pågående (validering)-> klart/misslyckade.
 
 Sektorn startar i ett **vänte** läge, vilket väntar på att villkor ska uppfyllas innan den körs. Sedan startar aktiviteten och sektorn hamnar **i ett pågående** tillstånd. Aktivitets körningen kan lyckas eller Miss lyckas. Sektorn har marker ATS som **klar** eller **misslyckad**, baserat på resultatet av körningen.
 
@@ -178,7 +178,7 @@ Du kan pausa/pausa pipelines med hjälp av PowerShell-cmdleten **suspend-AzDataF
 ```powershell
 Suspend-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Exempel:
+Till exempel:
 
 ```powershell
 Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -189,7 +189,7 @@ När problemet har åtgärd ATS med pipelinen kan du återuppta den pausade pipe
 ```powershell
 Resume-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Exempel:
+Till exempel:
 
 ```powershell
 Resume-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -222,7 +222,7 @@ Om aktivitets körningen Miss lyckas i en pipeline, är data uppsättningen som 
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
-   Exempel:
+   Till exempel:
 
     ```powershell   
     Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
@@ -236,7 +236,7 @@ Om aktivitets körningen Miss lyckas i en pipeline, är data uppsättningen som 
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
-    Exempel:
+    Till exempel:
 
     ```powershell   
     Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"

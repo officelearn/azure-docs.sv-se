@@ -1,6 +1,6 @@
 ---
-title: Skapa en delad lokal integration runtime i Azure Data Factory med PowerShell | Microsoft Docs
-description: Lär dig mer om att skapa en delad lokal integration runtime i Azure Data Factory, så att flera olika datafabriker för som har åtkomst till integration runtime.
+title: Skapa en delad integration runtime med egen värd i Azure Data Factory
+description: Lär dig hur du skapar en delad integration runtime med egen värd i Azure Data Factory, så att flera data fabriker kan komma åt integrerings körningen.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -11,39 +11,62 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: f038510c20e70c9d6b9dc8e396d9a15beb7270ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fcda60863f78dd338bbfc64c1679561262c554a9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66155156"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73677061"
 ---
-# <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory-with-powershell"></a>Skapa en delad lokal integration runtime i Azure Data Factory med PowerShell
+# <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Skapa en delad integration runtime med egen värd i Azure Data Factory
 
-Den här stegvisa guiden visar hur du skapar en delad lokal integration runtime i Azure Data Factory med hjälp av Azure PowerShell. Du kan använda delade lokal integration runtime i en annan data factory. I den här självstudien gör du följande: 
+Den här guiden visar hur du skapar en delad integration runtime med egen värd i Azure Data Factory. Sedan kan du använda den delade integrerings körningen med egen värd i en annan data fabrik.
 
+## <a name="create-a-shared-self-hosted-ir-using-azure-data-factory-ui"></a>Skapa en delad IR med egen värd med Azure Data Factory användar gränssnitt
+
+Om du vill skapa en delad IR med egen värd med Azure Data Factory användar gränssnitt kan du utföra följande steg:
+
+1. I den egen värdbaserade IR-filen som ska delas ger du behörighet till den data fabrik där du vill skapa den länkade IR-filen.
+      
+    ![Knapp för att bevilja behörighet på fliken Delning](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)
+      
+    ![Val för att tilldela behörigheter](media/create-self-hosted-integration-runtime/3_rbac_permissions.png)     
+    
+2. Observera resurs-ID: t för den egen värd-IR som ska delas.
+      
+   ![Plats för resurs-ID](media/create-self-hosted-integration-runtime/4_ResourceID_self-hostedIR.png)
+    
+3. I data fabriken som behörigheterna har beviljats skapar du en ny lokal IR-anslutning (länkad) och anger resurs-ID: t.
+      
+   ![Knapp för att skapa en länkad integration runtime med egen värd](media/create-self-hosted-integration-runtime/6_create-linkedIR_2.png)
+      
+    ![Rutor för namn och resurs-ID](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
+
+## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>Skapa en delad IR med egen värd med Azure PowerShell
+
+För att skapa en delad IR med egen värd med Azure PowerShell kan du utföra följande steg: 
 1. Skapa en datafabrik. 
 1. Skapa Integration Runtime med egen värd.
-1. Dela en lokal integration runtime med andra datafabriker.
-1. Skapa en länkad integration runtime.
-1. Återkalla delning.
+1. Dela den egna värdbaserade integrerings körningen med andra data fabriker.
+1. Skapa en länkad integration Runtime.
+1. Återkalla delningen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter 
+### <a name="prerequisites"></a>Nödvändiga komponenter 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 - **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar. 
 
-- **Azure PowerShell**. Följ instruktionerna i [installera Azure PowerShell på Windows med PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps). Du kan använda PowerShell för att köra ett skript för att skapa en lokal integration runtime som kan delas med andra datafabriker. 
+- **Azure PowerShell**. Följ instruktionerna i [installera Azure PowerShell på Windows med PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps). Du använder PowerShell för att köra ett skript för att skapa en integration runtime med egen värd som kan delas med andra data fabriker. 
 
 > [!NOTE]  
-> Välj de regioner som intresserar dig på en lista över Azure-regioner som Data Factory är för närvarande tillgängligt [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
+> Om du vill ha en lista över Azure-regioner där Data Factory för närvarande är tillgängligt väljer du de regioner som intresserar dig för [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
 
-## <a name="create-a-data-factory"></a>Skapa en datafabrik
+### <a name="create-a-data-factory"></a>Skapa en datafabrik
 
 1. Starta Windows PowerShell ISE.
 
-1. Skapa variabler. Kopiera och klistra in följande skript. Ersätt variabler, till exempel **SubscriptionName** och **ResourceGroupName**, med faktiska värden: 
+1. Skapa variabler. Kopiera och klistra in följande skript. Ersätt variablerna, till exempel **SubscriptionName** och **ResourceGroupName**, med faktiska värden: 
 
     ```powershell
     # If input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
@@ -64,19 +87,19 @@ Den här stegvisa guiden visar hur du skapar en delad lokal integration runtime 
     $LinkedIntegrationRuntimeDescription = "[Description for Linked Integration Runtime]"
     ```
 
-1. Logga in och välj en prenumeration. Lägg till följande kod till skriptet för att logga in och välj din Azure-prenumeration:
+1. Logga in och välj en prenumeration. Lägg till följande kod i skriptet för att logga in och välj din Azure-prenumeration:
 
     ```powershell
     Connect-AzAccount
     Select-AzSubscription -SubscriptionName $SubscriptionName
     ```
 
-1. Skapa en resursgrupp och en data factory.
+1. Skapa en resurs grupp och en data fabrik.
 
     > [!NOTE]  
-    > Det här steget är valfritt. Om du redan har en data factory kan du hoppa över det här steget. 
+    > Det här steget är valfritt. Hoppa över det här steget om du redan har en data fabrik. 
 
-    Skapa en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med hjälp av den [New AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) kommando. En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras som en grupp. I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på WestEurope plats: 
+    Skapa en [Azure-resurs grupp](../azure-resource-manager/resource-group-overview.md) med kommandot [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) . En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras som en grupp. I följande exempel skapas en resurs grupp med namnet `myResourceGroup` på WestEurope-platsen: 
 
     ```powershell
     New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
@@ -90,12 +113,12 @@ Den här stegvisa guiden visar hur du skapar en delad lokal integration runtime 
                              -Name $SharedDataFactoryName
     ```
 
-## <a name="create-a-self-hosted-integration-runtime"></a>Skapa en lokal Integration Runtime
+### <a name="create-a-self-hosted-integration-runtime"></a>Skapa en lokal Integration Runtime
 
 > [!NOTE]  
-> Det här steget är valfritt. Om du redan har en lokal integration runtime som du vill dela med andra datafabriker kan du hoppa över det här steget.
+> Det här steget är valfritt. Hoppa över det här steget om du redan har den egen värdbaserade integrerings körningen som du vill dela med andra data fabriker.
 
-Kör följande kommando för att skapa en lokal integration runtime:
+Kör följande kommando för att skapa en integration runtime med egen värd:
 
 ```powershell
 $SharedIR = Set-AzDataFactoryV2IntegrationRuntime `
@@ -106,9 +129,9 @@ $SharedIR = Set-AzDataFactoryV2IntegrationRuntime `
     -Description $SharedIntegrationRuntimeDescription
 ```
 
-### <a name="get-the-integration-runtime-authentication-key-and-register-a-node"></a>Hämta nyckel för integration runtime-autentisering och registrera en nod
+#### <a name="get-the-integration-runtime-authentication-key-and-register-a-node"></a>Hämta nyckeln för integration runtime-autentisering och registrera en nod
 
-Kör följande kommando för att hämta autentiseringsnyckeln för lokal integration runtime:
+Kör följande kommando för att hämta autentiseringsnyckel för integration runtime med egen värd:
 
 ```powershell
 Get-AzDataFactoryV2IntegrationRuntimeKey `
@@ -117,31 +140,31 @@ Get-AzDataFactoryV2IntegrationRuntimeKey `
     -Name $SharedIntegrationRuntimeName
 ```
 
-Svaret innehåller autentiseringsnyckeln för den här lokal integration runtime. Du kan använda den här nyckeln när du registrerar noden för integration runtime.
+Svaret innehåller en autentiseringsnyckel för den här integration runtime med egen värd. Du använder den här nyckeln när du registrerar integration runtime-noden.
 
-### <a name="install-and-register-the-self-hosted-integration-runtime"></a>Installera och registrera den lokala integreringskörningen
+#### <a name="install-and-register-the-self-hosted-integration-runtime"></a>Installera och registrera integration runtime med egen värd
 
-1. Hämta lokal integration runtime-installationsprogrammet från [Azure Data Factory Integration Runtime](https://aka.ms/dmg).
+1. Hämta installations programmet för den egen värdbaserade integrerings körningen från [Azure Data Factory integration runtime](https://aka.ms/dmg).
 
-2. Kör installationsprogrammet för att installera IR på en lokal dator.
+2. Kör installations programmet för att installera den lokala integrationen på en lokal dator.
 
-3. Registrera den nya IR med den autentiseringsnyckel som du hämtade i föregående steg.
+3. Registrera den nya egen värdbaserade integreringen med den autentiseringsnyckel som du hämtade i föregående steg.
 
-## <a name="share-the-self-hosted-integration-runtime-with-another-data-factory"></a>Dela en lokal integration runtime med en annan data factory
+### <a name="share-the-self-hosted-integration-runtime-with-another-data-factory"></a>Dela integration runtime med egen värd med en annan data fabrik
 
-### <a name="create-another-data-factory"></a>Skapa en annan datafabrik
+#### <a name="create-another-data-factory"></a>Skapa en annan data fabrik
 
 > [!NOTE]  
-> Det här steget är valfritt. Hoppa över det här steget om du redan har data factory som du vill dela med.
+> Det här steget är valfritt. Hoppa över det här steget om du redan har den data fabrik som du vill dela med.
 
 ```powershell
 $factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
     -Location $DataFactoryLocation `
     -Name $LinkedDataFactoryName
 ```
-### <a name="grant-permission"></a>Bevilja behörighet
+#### <a name="grant-permission"></a>Bevilja behörighet
 
-Bevilja behörighet till data factory som behöver åtkomst till den lokala integreringskörningen du skapat och registrerad.
+Bevilja behörighet till den data fabrik som behöver åtkomst till den integration runtime som du har skapat och registrerat med egen värd.
 
 > [!IMPORTANT]  
 > Hoppa inte över det här steget!
@@ -153,9 +176,9 @@ New-AzRoleAssignment `
     -Scope $SharedIR.Id
 ```
 
-## <a name="create-a-linked-self-hosted-integration-runtime"></a>Skapa en länkad lokal integration runtime
+### <a name="create-a-linked-self-hosted-integration-runtime"></a>Skapa en länkad egen värd för integration runtime
 
-Kör följande kommando för att skapa en länkad lokal integration runtime:
+Kör följande kommando för att skapa en länkad egen värd för integration Runtime:
 
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime `
@@ -167,11 +190,11 @@ Set-AzDataFactoryV2IntegrationRuntime `
     -Description $LinkedIntegrationRuntimeDescription
 ```
 
-Nu kan du använda den här länkade integration runtime i alla länkade tjänsten. Länkade integreringskörningen använder delade integration runtime för att köra aktiviteter.
+Nu kan du använda den här länkade integrerings körningen i en länkad tjänst. Den länkade integrerings körningen använder den delade integrerings körningen för att köra aktiviteter.
 
-## <a name="revoke-integration-runtime-sharing-from-a-data-factory"></a>Återkalla delning från en data factory-integreringskörning
+### <a name="revoke-integration-runtime-sharing-from-a-data-factory"></a>Återkalla integration runtime-delning från en data fabrik
 
-Om du vill återkalla åtkomst till en data factory från delade integration runtime kör du följande kommando:
+Om du vill återkalla åtkomsten till en data fabrik från den delade integrerings körningen kör du följande kommando:
 
 ```powershell
 Remove-AzRoleAssignment `
@@ -180,7 +203,7 @@ Remove-AzRoleAssignment `
     -Scope $SharedIR.Id
 ```
 
-Kör följande kommando för att ta bort befintliga länkade integreringskörningen mot delade integration runtime:
+Om du vill ta bort den befintliga länkade integration runtime kör du följande kommando mot den delade integrerings körningen:
 
 ```powershell
 Remove-AzDataFactoryV2IntegrationRuntime `
@@ -191,8 +214,8 @@ Remove-AzDataFactoryV2IntegrationRuntime `
     -LinkedDataFactoryName $LinkedDataFactoryName
 ```
 
-## <a name="next-steps"></a>Nästa steg
+### <a name="next-steps"></a>Nästa steg
 
 - Granska [integration runtime-koncept i Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime).
 
-- Lär dig hur du [skapa en lokal integration runtime i Azure-portalen](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+- Lär dig hur du [skapar en integration runtime med egen värd i Azure Portal](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).

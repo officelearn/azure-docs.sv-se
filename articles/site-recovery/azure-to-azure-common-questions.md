@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor om haveri beredskap från Azure till Azure med Azure Site Recovery
+title: Vanliga frågor om haveri beredskap för virtuella Azure-datorer med Azure Site Recovery
 description: I den här artikeln besvaras vanliga frågor om haveri beredskap för virtuella Azure-datorer till en annan Azure-region med Azure Site Recovery
 author: asgang
 manager: rochakm
@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: cd1c6cf0ff5a963720df7420a5d983d24e7b4d3e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 5ed501a9f11e790bcc2196d57c6479beb54f1a17
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861386"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621072"
 ---
-# <a name="common-questions-azure-to-azure-disaster-recovery"></a>Vanliga frågor: Azure till Azure-haveriberedskap
+# <a name="common-questions-azure-to-azure-disaster-recovery"></a>Vanliga frågor: katastrof återställning från Azure till Azure
 
 Den här artikeln innehåller svar på vanliga frågor om haveri beredskap för virtuella Azure-datorer till en annan Azure-region med hjälp av [Site Recovery](site-recovery-overview.md). 
 
@@ -87,7 +87,7 @@ Nej, Site Recovery kräver ingen Internet anslutning. Men det krävs åtkomst ti
 
 ### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>Kan jag replikera programmet med separata resurs grupper för separata nivåer?
 Ja, du kan replikera programmet och behålla haveri beredskaps konfigurationen i separat resurs grupp också.
-Om du till exempel har ett program med varje nivå app, DB och webb i separat resurs grupp måste du klicka [på tre gånger om för](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) att skydda alla nivåer. Site Recovery kommer att replikera dessa tre nivåer i tre olika resurs grupper.
+Om du till exempel har ett program med varje nivå app, DB och webb i separat resurs grupp måste du klicka [på tre gånger om för att skydda](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) alla nivåer. Site Recovery kommer att replikera dessa tre nivåer i tre olika resurs grupper.
 
 ## <a name="replication-policy"></a>Replikeringsprincip
 
@@ -137,7 +137,7 @@ Den äldsta återställnings punkten som du kan använda är 72 timmar.
 Nej, Site Recovery kommer att behålla alla dina tidigare återställnings punkter. Beroende på vilka återställnings punkter som kvarhålls, 24 timmar i det här fallet Site Recovery ersätter den äldsta punkten endast om det finns en generering av nya punkter. I det här fallet, eftersom det inte finns någon ny återställnings punkt som genereras på grund av problem, kommer alla gamla punkter att förbli intakta när vi når fönstret med kvarhållning.
 
 ### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Hur ändrar jag replikeringsprincipen när replikering har Aktiver ATS på en virtuell dator?
-Gå till **Site Recovery valv** > **Site Recovery Infrastructure** > **Replication policies**. Välj den princip som du vill redigera och spara ändringarna. Alla ändringar kommer också att gälla för alla befintliga replikeringar.
+Gå till **Site Recovery valv** > **Site Recovery infrastruktur** > **replikeringsprinciper**. Välj den princip som du vill redigera och spara ändringarna. Alla ändringar kommer också att gälla för alla befintliga replikeringar.
 
 ### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>Är alla återställnings punkter en fullständig kopia av den virtuella datorn eller en differentiell?
 Den första återställnings punkten som genereras har en fullständig kopia. Eventuella återställnings punkter har delta ändringar.
@@ -194,7 +194,7 @@ Det **senaste (lägsta** återställnings alternativet) bearbetar först alla da
 ### <a name="do-latest-lowest-rpo-recovery-points-have-an-impact-on-failover-rto"></a>Har de **senaste (lägsta** återställnings punkten) återställnings punkter inverkan på redundans RTO?
 Ja. Site Recovery bearbetar alla väntande data innan de växlar över, så det här alternativet har ett högre återställnings tids mål (RTO) jämfört med andra alternativ.
 
-### <a name="what-does-the-latest-processed-option-in-recovery-points-mean"></a>Vad betyder det **senaste** bearbetade alternativet i återställnings punkter?
+### <a name="what-does-the-latest-processed-option-in-recovery-points-mean"></a>Vad betyder det **senaste bearbetade** alternativet i återställnings punkter?
 Det **senast bearbetade** alternativet växlar över alla virtuella datorer i planen till den senaste återställnings punkten som Site Recovery bearbetas. Om du vill se den senaste återställnings punkten för en viss virtuell dator kontrollerar du de **senaste återställnings punkterna** i VM-inställningarna. Det här alternativet ger en låg RTO, eftersom ingen tid ägnas åt att bearbeta obearbetade data.
 
 ### <a name="what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>Vad händer om min primära region upplever ett oväntat avbrott?
@@ -203,7 +203,7 @@ Du kan utlösa en redundansväxling efter avbrottet. Site Recovery behöver inte
 ### <a name="what-is-a-rto-of-a-vm-failover-"></a>Vad är en RTO för en VM-redundans?
 Site Recovery har ett [RTO-SLA på 2 timmar](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Men det mesta av tiden Site Recovery redundansväxla virtuella datorer på några minuter. Du kan beräkna RTO genom att gå till jobben med redundans som visar hur lång tid det tog att ta upp den virtuella datorn. För återställnings planens RTO, se avsnittet nedan.
 
-## <a name="recovery-plans"></a>Återställningsplaner
+## <a name="recovery-plans"></a>Återställnings planer
 
 ### <a name="what-is-a-recovery-plan"></a>Vad är en återställnings plan?
 En återställnings plan i Site Recovery dirigerar redundansväxlingen av virtuella datorer. Det hjälper dig att göra återställningen konsekvent korrekt, upprepnings bar och automatiserad. En återställnings plan hanterar följande behov för användaren:

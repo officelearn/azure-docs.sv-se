@@ -1,73 +1,73 @@
 ---
-title: Lägga till ytterligare Azure storage-konton i HDInsight
-description: Lär dig hur du lägger till ytterligare Azure storage-konton i ett befintligt HDInsight-kluster.
+title: Lägg till ytterligare Azure Storage-konton i HDInsight
+description: Lär dig hur du lägger till ytterligare Azure Storage-konton i ett befintligt HDInsight-kluster.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/08/2019
-ms.author: hrasheed
-ms.openlocfilehash: 8a844465f7ba2222acd7efaf100c7b682c15adb2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 10/31/2019
+ms.openlocfilehash: e29041942157e720cce3414f7b6e6904667c1894
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433522"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73665476"
 ---
-# <a name="add-additional-storage-accounts-to-hdinsight"></a>Lägga till ytterligare lagringskonton till HDInsight
+# <a name="add-additional-storage-accounts-to-hdinsight"></a>Lägg till ytterligare lagrings konton i HDInsight
 
-Lär dig hur du använder skriptåtgärder för att lägga till ytterligare Azure storage *konton* till HDInsight. Stegen i det här dokumentet lägga till ett lagringskonto *konto* i ett befintligt Linux-baserade HDInsight-kluster. Den här artikeln gäller lagring *konton* (inte klustret standardkontot för lagring), och inte ytterligare lagringsutrymme som [Azure Data Lake Storage Gen1](hdinsight-hadoop-use-data-lake-store.md) och [Azure Data Lake Storage Gen2 ](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Lär dig hur du använder skript åtgärder för att lägga till ytterligare Azure Storage- *konton* i HDInsight. Stegen i det här dokumentet lägger till ett lagrings *konto* i ett befintligt Linux-baserat HDInsight-kluster. Den här artikeln gäller lagrings *konton* (inte standard klustrets lagrings konto) och inte ytterligare lagrings utrymme, till exempel [Azure Data Lake Storage gen1](hdinsight-hadoop-use-data-lake-store.md) och [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 > [!IMPORTANT]  
-> Informationen i det här dokumentet handlar om att lägga till ytterligare lagringsutrymme i ett kluster när den har skapats. Information om att lägga till lagringskonton när klustret skapas finns i [Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera](hdinsight-hadoop-provision-linux-clusters.md).
+> Informationen i det här dokumentet är att lägga till ytterligare lagrings konton i ett kluster när det har skapats. Information om hur du lägger till lagrings konton när du skapar kluster finns i [Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera](hdinsight-hadoop-provision-linux-clusters.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Ett Hadoop-kluster på HDInsight. Se [Kom igång med HDInsight på Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
-* Lagringskontonamn och nyckel. Se [hantera inställningarna för lagringskontot i Azure-portalen](../storage/common/storage-account-manage.md).
-* [Korrekt bokstäver klusternamnet](hdinsight-hadoop-manage-ambari-rest-api.md#identify-correctly-cased-cluster-name).
-* Om du använder PowerShell måste AZ-modulen.  Se [översikt över Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
-* Om du inte har installerat Azure CLI, se [Azure kommandoradsgränssnitt (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
-* Om du använder bash- eller en windows-kommandotolk, du måste också **jq**, en kommandorad JSON-processor.  Se [ https://stedolan.github.io/jq/ ](https://stedolan.github.io/jq/). Bash i Ubuntu för Windows 10 finns [Windows-undersystem for Linux Installation Guide för Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).
+* Ett Hadoop-kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* Lagrings kontots namn och nyckel. Se [Hantera inställningar för lagrings konton i Azure Portal](../storage/common/storage-account-manage.md).
+* [Korrekt bokstäver kluster namn](hdinsight-hadoop-manage-ambari-rest-api.md#identify-correctly-cased-cluster-name).
+* Om du använder PowerShell behöver du AZ-modulen.  Se [Översikt över Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+* Om du inte har installerat Azure CLI kan du läsa mer i [Azure kommando rads gränssnitt (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+* Om du använder bash eller en kommando tolk i Windows behöver du också **JQ**, en JSON-processor med kommando rad.  Se [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/). För bash på Ubuntu i Windows 10 Se [Windows-undersystemet för Linux installations guide för Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
 Det här skriptet använder följande parametrar:
 
-* __Azure storage-kontonamn__: Namnet på lagringskontot för att lägga till i HDInsight-klustret. När skriptet har körts, HDInsight läser och skriver data lagras i det här lagringskontot.
+* __Namn på Azure Storage-konto__: namnet på det lagrings konto som ska läggas till i HDInsight-klustret. När du har kört skriptet kan HDInsight läsa och skriva data som lagras i det här lagrings kontot.
 
-* __Azure storage-kontonyckel__: En nyckel som ger åtkomst till lagringskontot.
+* __Azure Storage-konto nyckel__: en nyckel som beviljar åtkomst till lagrings kontot.
 
-* __-p__ (valfritt): Om nyckeln inte är krypterad och lagras i filen core-site.xml som oformaterad text.
+* __-p__ (valfritt): om det här alternativet har angetts krypteras nyckeln inte och lagras i filen site. xml som oformaterad text.
 
-Under bearbetning utför skriptet följande åtgärder:
+Under bearbetningen utför skriptet följande åtgärder:
 
-* Om lagringskontot finns redan i core-site.xml-konfigurationen för klustret, skriptet avslutas och inga ytterligare åtgärder utförs.
+* Om lagrings kontot redan finns i site. XML-konfigurationen för klustret, avslutas skriptet och inga ytterligare åtgärder utförs.
 
-* Verifierar att lagringskontot finns och kan nås med hjälp av nyckeln.
+* Kontrollerar att lagrings kontot finns och kan nås med hjälp av nyckeln.
 
-* Krypterar nyckeln med hjälp av autentiseringsuppgifter för klustret.
+* Krypterar nyckeln med hjälp av kluster autentiseringsuppgiften.
 
-* Lägger till lagringskontot i filen core-site.xml.
+* Lägger till lagrings kontot i site. XML-filen.
 
-* Stoppar och startar om den [Apache Oozie](https://oozie.apache.org/), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Apache Hadoop MapReduce2](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html), och [Apache Hadoop HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) tjänster. Stoppa och starta dessa tjänster gör att de kan använda det nya lagringskontot.
+* Stoppar och startar om [Apache Oozie](https://oozie.apache.org/), [Apache Hadoop garn](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Apache Hadoop MapReduce2](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html)och [Apache Hadoop HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) -tjänster. Genom att stoppa och starta dessa tjänster kan de använda det nya lagrings kontot.
 
 > [!WARNING]  
-> Med ett storage-konto i en annan plats än HDInsight-kluster stöds inte.
+> Det finns inte stöd för att använda ett lagrings konto på en annan plats än HDInsight-klustret.
 
 ## <a name="the-script"></a>Skriptet
 
-__Skriptplats__: [https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)
+__Skript plats__: [https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)
 
-__Krav för__:  Skriptet måste tillämpas på den __huvudnoder__. Du behöver inte att markera det här skriptet som __bevarade__, som uppdateras direkt Ambari-konfigurationen för klustret.
+__Krav__: skriptet måste appliceras på __huvudnoderna__. Du behöver inte markera det här skriptet som __beständigt__, eftersom det uppdaterar Ambari-konfigurationen direkt för klustret.
 
-## <a name="to-use-the-script"></a>Du använder skriptet
+## <a name="to-use-the-script"></a>Använda skriptet
 
-Det här skriptet kan användas från Azure PowerShell, Azure CLI eller Azure-portalen.
+Det här skriptet kan användas från Azure PowerShell, Azure CLI eller Azure Portal.
 
 ### <a name="powershell"></a>PowerShell
 
-Med hjälp av [skicka AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/submit-azhdinsightscriptaction). Ersätt `CLUSTERNAME`, `ACCOUNTNAME`, och `ACCOUNTKEY` med lämpliga värden.
+Använder [Submit-AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/submit-azhdinsightscriptaction). Ersätt `CLUSTERNAME`, `ACCOUNTNAME`och `ACCOUNTKEY` med lämpliga värden.
 
 ```powershell
 # Update these parameters
@@ -88,7 +88,7 @@ Submit-AzHDInsightScriptAction `
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Med hjälp av [az hdinsight-skriptåtgärder köra](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute).  Ersätt `CLUSTERNAME`, `RESOURCEGROUP`, `ACCOUNTNAME`, och `ACCOUNTKEY` med lämpliga värden.
+Använda [AZ HDInsight-skript – åtgärd kör](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute).  Ersätt `CLUSTERNAME`, `RESOURCEGROUP`, `ACCOUNTNAME`och `ACCOUNTKEY` med lämpliga värden.
 
 ```cli
 az hdinsight script-action execute ^
@@ -102,129 +102,124 @@ az hdinsight script-action execute ^
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Se [gäller en skriptåtgärd för ett aktivt kluster](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
+Se [tillämpa en skript åtgärd på ett kluster som körs](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
 
 ## <a name="known-issues"></a>Kända problem
 
-### <a name="storage-firewall"></a>Storage-brandväggen
+### <a name="storage-firewall"></a>Lagrings brand vägg
 
-Om du väljer att skydda ditt lagringskonto med den **brandväggar och virtuella nätverk** begränsningar för **valda nätverk**, måste du aktivera undantaget **Tillåt att betrodda Microsoft tjänster...**  så att HDInsight kan komma åt ditt storage-konto.
+Om du väljer att skydda ditt lagrings konto med **brand väggar och begränsningar för virtuella nätverk** på **valda nätverk**måste du aktivera undantaget **Tillåt betrodda Microsoft-tjänster...** så att HDInsight kan komma åt din lagring redovisning.
 
-### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>Storage-konton som inte visas i Azure-portalen eller verktyg
+### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>Lagrings konton som inte visas i Azure Portal eller verktyg
 
-När du visar HDInsight-kluster i Azure portal, välja den __Lagringskonton__ posten under __egenskaper__ visas inte storage-konton som har lagts till via den här skriptåtgärden. Azure PowerShell och Azure CLI visas inte ytterligare storage-konto.
+När du visar HDInsight-klustret i Azure Portal, visas inte lagrings konton som lagts till genom den här skript åtgärden om du väljer posten __lagrings konton__ under __Egenskaper__ . Azure PowerShell och Azure CLI visar inte det ytterligare lagrings kontot antingen.
 
-Information om visas inte eftersom skriptet ändras endast core-site.xml-konfigurationen för klustret. Den här informationen används inte vid hämtning av klusterinformationen med hjälp av API: er för Azure hantering.
+Lagrings informationen visas inte eftersom skriptet bara ändrar site. XML-konfigurationen för klustret. Den här informationen används inte när du hämtar kluster informationen med hjälp av API: er för Azure Management.
 
-Använda Ambari REST API för att visa information på lagringskontot läggs till klustret med det här skriptet. Använd följande kommandon för att hämta den här informationen för klustret:
+Om du vill visa information om lagrings kontot som har lagts till i klustret med det här skriptet använder du Ambari-REST API. Använd följande kommandon för att hämta den här informationen för klustret:
 
 ### <a name="powershell"></a>PowerShell
 
-Ersätt `CLUSTERNAME` med korrekt alltid i klustrets namn. Först identifiera service config-version som används genom att ange kommandot nedan:
-
-```powershell
-# getting service_config_version
-$clusterName = "CLUSTERNAME"
-
-$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName`?fields=Clusters/desired_service_config_versions/HDFS" `
-    -Credential $creds -UseBasicParsing
-$respObj = ConvertFrom-Json $resp.Content
-$respObj.Clusters.desired_service_config_versions.HDFS.service_config_version
-```
-
-Ersätt `ACCOUNTNAME` med de faktiska namnen. Ersätt sedan `4` med den faktiska tjänsten config-versionen och ange kommando. När du uppmanas, anger du lösenordet för klusterinloggning.
+Ersätt `CLUSTERNAME` med rätt bokstäver-kluster namn. Ersätt `ACCOUNTNAME` med faktiska namn. När du uppmanas till det anger du lösen ordet för kluster inloggning.
 
 ```powershell
 # Update values
+$clusterName = "CLUSTERNAME"
 $accountName = "ACCOUNTNAME"
-$version = 4
 
 $creds = Get-Credential -UserName "admin" -Message "Enter the cluster login credentials"
-$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=$version" `
+
+# getting service_config_version
+$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName`?fields=Clusters/desired_service_config_versions/HDFS" `
+    -Credential $creds -UseBasicParsing
+$respObj = ConvertFrom-Json $resp.Content
+
+$configVersion=$respObj.Clusters.desired_service_config_versions.HDFS.service_config_version
+
+$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=$configVersion" `
     -Credential $creds
 $respObj = ConvertFrom-Json $resp.Content
 $respObj.items.configurations.properties."fs.azure.account.key.$accountName.blob.core.windows.net"
 ```
 
-### <a name="bash"></a>Bash
-Ersätt `myCluster` med korrekt alltid i klustrets namn.
+### <a name="bash"></a>bash
+
+Ersätt `CLUSTERNAME` med rätt bokstäver-kluster namn. Ersätt `PASSWORD` med lösen ordet för kluster administratören. Ersätt `STORAGEACCOUNT` med det faktiska lagrings konto namnet.
 
 ```bash
-export CLUSTERNAME='myCluster'
+export clusterName="CLUSTERNAME"
+export password='PASSWORD'
+export storageAccount="STORAGEACCOUNT"
 
-curl --silent -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_service_config_versions/HDFS" \
-| jq ".Clusters.desired_service_config_versions.HDFS[].service_config_version" 
-```
+export ACCOUNTNAME='"'fs.azure.account.key.$storageAccount.blob.core.windows.net'"'
 
-Ersätt `myAccount` med faktiska lagringskontonamn. Ersätt sedan `4` med den faktiska tjänsten config-versionen och ange kommando:
+export configVersion=$(curl --silent -u admin:$password -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName?fields=Clusters/desired_service_config_versions/HDFS" \
+| jq ".Clusters.desired_service_config_versions.HDFS[].service_config_version")
 
-```bash
-export ACCOUNTNAME='"fs.azure.account.key.myAccount.blob.core.windows.net"'
-export VERSION='4'
-
-curl --silent -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=$VERSION" \
+curl --silent -u admin:$password -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=$configVersion" \
 | jq ".items[].configurations[].properties[$ACCOUNTNAME] | select(. != null)"
 ```
 
-### <a name="cmd"></a>cmd
+### <a name="cmd"></a>kommandot
 
-Ersätt `CLUSTERNAME` med korrekt bokstäver klusternamnet i båda skripten. Först identifiera service config-version som används genom att ange kommandot nedan:
+Ersätt `CLUSTERNAME` med det bokstäver kluster namnet korrekt i båda skripten. Identifiera först den tjänst konfigurations version som används genom att ange kommandot nedan:
 
 ```cmd
 curl --silent -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME?fields=Clusters/desired_service_config_versions/HDFS" | ^
-jq-win64 ".Clusters.desired_service_config_versions.HDFS[].service_config_version" 
+jq-win64 ".Clusters.desired_service_config_versions.HDFS[].service_config_version"
 ```
 
-Ersätt `ACCOUNTNAME` med faktiska lagringskontonamn. Ersätt sedan `4` med den faktiska tjänsten config-versionen och ange kommando:
+Ersätt `ACCOUNTNAME` med det faktiska lagrings konto namnet. Ersätt sedan `4` med den faktiska service config-versionen och ange kommandot:
 
 ```cmd
 curl --silent -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=4" | ^
 jq-win64 ".items[].configurations[].properties["""fs.azure.account.key.ACCOUNTNAME.blob.core.windows.net"""] | select(. != null)"
 ```
+
 ---
 
- Information som returneras från det här kommandot ser ut som följande text:
+Information som returneras från det här kommandot ser ut ungefär som i följande text:
 
     "MIIB+gYJKoZIhvcNAQcDoIIB6zCCAecCAQAxggFaMIIBVgIBADA+MCoxKDAmBgNVBAMTH2RiZW5jcnlwdGlvbi5henVyZWhkaW5zaWdodC5uZXQCEA6GDZMW1oiESKFHFOOEgjcwDQYJKoZIhvcNAQEBBQAEggEATIuO8MJ45KEQAYBQld7WaRkJOWqaCLwFub9zNpscrquA2f3o0emy9Vr6vu5cD3GTt7PmaAF0pvssbKVMf/Z8yRpHmeezSco2y7e9Qd7xJKRLYtRHm80fsjiBHSW9CYkQwxHaOqdR7DBhZyhnj+DHhODsIO2FGM8MxWk4fgBRVO6CZ5eTmZ6KVR8wYbFLi8YZXb7GkUEeSn2PsjrKGiQjtpXw1RAyanCagr5vlg8CicZg1HuhCHWf/RYFWM3EBbVz+uFZPR3BqTgbvBhWYXRJaISwssvxotppe0ikevnEgaBYrflB2P+PVrwPTZ7f36HQcn4ifY1WRJQ4qRaUxdYEfzCBgwYJKoZIhvcNAQcBMBQGCCqGSIb3DQMHBAhRdscgRV3wmYBg3j/T1aEnO3wLWCRpgZa16MWqmfQPuansKHjLwbZjTpeirqUAQpZVyXdK/w4gKlK+t1heNsNo1Wwqu+Y47bSAX1k9Ud7+Ed2oETDI7724IJ213YeGxvu4Ngcf2eHW+FRK"
 
-Den här texten är ett exempel på en krypterad nyckel som används för att komma åt lagringskontot.
+Den här texten är ett exempel på en krypterad nyckel som används för att komma åt lagrings kontot.
 
-### <a name="unable-to-access-storage-after-changing-key"></a>Det går inte att komma åt lagring när du har ändrat nyckel
+### <a name="unable-to-access-storage-after-changing-key"></a>Det gick inte att komma åt lagring efter ändring av nyckel
 
-Om du ändrar nyckeln för ett lagringskonto, HDInsight inte längre komma åt lagringskontot. HDInsight använder en cachelagrad kopia av nyckeln i core-site.xml för klustret. Den här cachelagrade kopian måste uppdateras så att den matchar den nya nyckeln.
+Om du ändrar nyckeln för ett lagrings konto kan HDInsight inte längre komma åt lagrings kontot. HDInsight använder en cachelagrad kopia av nyckeln i site. xml för klustret. Den cachelagrade kopian måste uppdateras för att matcha den nya nyckeln.
 
-Kör skriptet igen har __inte__ uppdatera nyckeln, eftersom skriptet kontrollerar om det redan finns en post för lagringskontot. Om det finns redan en post, den inte göra några ändringar.
+Om du kör skript åtgärden igen uppdateras __inte__ nyckeln eftersom skriptet kontrollerar om det redan finns en post för lagrings kontot. Om det redan finns en post görs inga ändringar.
 
-Om du vill undvika det här problemet måste du ta bort den befintliga posten för lagringskontot. Använd följande steg för att ta bort den befintliga posten:
+För att undvika det här problemet måste du ta bort den befintliga posten för lagrings kontot. Använd följande steg för att ta bort den befintliga posten:
 
 > [!IMPORTANT]  
-> Rotera lagringsnyckel för det primära lagringskontot som är kopplat till ett kluster stöds inte.
+> Det går inte att rotera lagrings nyckeln för det primära lagrings kontot som är kopplat till ett kluster.
 
-1. Öppna Ambari-Webbgränssnittet för ditt HDInsight-kluster i en webbläsare. URI: N är `https://CLUSTERNAME.azurehdinsight.net`. Ersätt `CLUSTERNAME` med namnet på klustret.
+1. Öppna Ambari-webbgränssnittet för ditt HDInsight-kluster i en webbläsare. URI: n är `https://CLUSTERNAME.azurehdinsight.net`. Ersätt `CLUSTERNAME` med namnet på klustret.
 
-    När du uppmanas, anger du http-logga in användare och lösenord för klustret.
+    När du uppmanas till det anger du användar namn och lösen ord för HTTP-inloggning för klustret.
 
-2. I listan över tjänster till vänster på sidan Välj __HDFS__. Välj sedan den __Peeringkonfigurationer__ fliken i mitten av sidan.
+2. I listan över tjänster till vänster på sidan väljer du __HDFS__. Välj sedan fliken __konfigurationer__ i mitten av sidan.
 
-3. I den __Filter...__  fältet, anger du värdet __fs.azure.account__. Det här returnerar poster för alla ytterligare lagringskonton som har lagts till i klustret. Det finns två typer av uppgifter. __keyprovider__ och __nyckeln__. Båda innehåller namnet på lagringskontot som en del av nyckelnamnet.
+3. I fältet __filter...__ anger du ett värde för __FS. Azure. account__. Detta returnerar poster för eventuella ytterligare lagrings konton som har lagts till i klustret. Det finns två typer av poster: nyckel __utfärdare__ och __nyckel__. Båda innehåller namnet på lagrings kontot som en del av nyckel namnet.
 
-    Följande är Exempelposter för ett lagringskonto med namnet __mystorage__:
+    Följande är exempel poster för ett lagrings konto med namnet __unstorage__:
 
         fs.azure.account.keyprovider.mystorage.blob.core.windows.net
         fs.azure.account.key.mystorage.blob.core.windows.net
 
-4. När du har identifierat nycklarna för lagringskontot som du vill ta bort kan du använda röda '-' ikonen till höger i posten för att ta bort den. Använd sedan den __spara__ för att spara dina ändringar.
+4. När du har identifierat nycklarna för det lagrings konto du behöver ta bort, använder du den röda ikonen till höger om posten för att ta bort den. Använd sedan knappen __Spara__ för att spara ändringarna.
 
-5. När ändringar har sparats, kan du använda skriptåtgärden för att lägga till lagringskontot och det nya nyckelvärdet i klustret.
+5. När ändringarna har sparats använder du skript åtgärden för att lägga till lagrings kontot och ett nytt nyckel värde i klustret.
 
-### <a name="poor-performance"></a>Sämre prestanda
+### <a name="poor-performance"></a>Dåliga prestanda
 
-Om lagringskontot är i en annan region än HDInsight-kluster kan uppstå det sämre prestanda. Åtkomst till data i en annan region skickar nätverkstrafik utanför regionala Azure-datacentret och över offentliga internet, vilket kan medföra svarstid.
+Om lagrings kontot finns i en annan region än HDInsight-klustret kan det uppstå dåliga prestanda. Att komma åt data i en annan region skickar nätverks trafik utanför det regionala Azure-datacenteret och över det offentliga Internet, vilket kan leda till svars tid.
 
 ### <a name="additional-charges"></a>Ytterligare avgifter
 
-Om lagringskontot är i en annan region än HDInsight-kluster kan märka du kostnader för ytterligare utgående trafik på din Azure-fakturering. En utgående avgift tillämpas när data lämnar ett regionala datacenter. Den här avgiften tillämpas även om trafiken som är avsedd för en annan Azure-datacenter i en annan region.
+Om lagrings kontot finns i en annan region än HDInsight-klustret kan du lägga märke till ytterligare utgående kostnader på din Azure-fakturering. En utgående avgift används när data lämnar ett regionalt Data Center. Den här avgiften används även om trafiken är avsedd för ett annat Azure-datacenter i en annan region.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har lärt dig hur du lägger till ytterligare lagringskonton i ett befintligt HDInsight-kluster. Mer information om skriptåtgärder finns i [anpassa Linux-baserade HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md)
+Du har lärt dig hur du lägger till ytterligare lagrings konton i ett befintligt HDInsight-kluster. Mer information om skript åtgärder finns i [Anpassa Linux-baserade HDInsight-kluster med skript åtgärd](hdinsight-hadoop-customize-cluster-linux.md)

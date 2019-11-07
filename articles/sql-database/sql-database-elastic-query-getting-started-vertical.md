@@ -1,5 +1,5 @@
 ---
-title: Kom igång med frågor över databaser (lodrät partitionering) | Microsoft Docs
+title: Kom igång med frågor mellan databaser (vertikal partitionering)
 description: använda elastisk databas fråga med lodrätt partitionerade databaser
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: a6a87f90586dc4392dc1304a83349bc386590ee4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b6d9ba0c57850c61626d7b6d99fcb1fffc2d3c25
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568585"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690397"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Kom igång med frågor mellan databaser (vertikal partitionering) (för hands version)
 
@@ -26,7 +26,7 @@ När du är klar kan du: Lär dig hur du konfigurerar och använder en Azure SQL
 
 Mer information om funktionen för Elastic Database-frågor finns i [Översikt över Azure SQL Database Elastic Database Query](sql-database-elastic-query-overview.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ÄNDRA behörigheter för en extern DATA källa krävs. Den här behörigheten ingår i ALTER DATABASE-behörigheten. ÄNDRA behörigheter för en extern DATA källa krävs för att referera till den underliggande data källan.
 
@@ -73,7 +73,7 @@ Kör nu följande fråga på **kund** databasen för att skapa tabellen **Custom
     "Username" och "Password" ska vara användar namn och lösen ord som används för att logga in i kund databasen.
     Autentisering med Azure Active Directory med elastiska frågor stöds inte för närvarande.
 
-### <a name="external-data-sources"></a>Externa datakällor
+### <a name="external-data-sources"></a>Externa data källor
 
 Om du vill skapa en extern data källa kör du följande kommando på order-databasen:
 
@@ -115,5 +115,5 @@ Information om priser finns i [SQL Database priser](https://azure.microsoft.com/
 * En översikt över elastisk fråga finns i [Översikt över elastiska frågor](sql-database-elastic-query-overview.md).
 * För syntax och exempel frågor för lodrätt partitionerade data, se [fråga lodrätt partitionerade data)](sql-database-elastic-query-vertical-partitioning.md)
 * En självstudie för horisontell partitionering (horisontell partitionering) finns i [komma igång med elastisk fråga för horisontell partitionering (horisontell partitionering)](sql-database-elastic-query-getting-started.md).
-* För syntax och exempel frågor för vågrätt partitionerade data, se [fråga](sql-database-elastic-query-horizontal-partitioning.md) efter vågrätt partitionerade data)
-* Se [SP\_EXECUTE \_Remote](https://msdn.microsoft.com/library/mt703714) för en lagrad procedur som kör ett Transact-SQL-uttryck på en enskild fjärr Azure SQL Database eller uppsättning databaser som fungerar som Shards i ett schema med vågrät partitionering.
+* För syntax och exempel frågor för vågrätt partitionerade data, se [fråga efter vågrätt partitionerade data)](sql-database-elastic-query-horizontal-partitioning.md)
+* Se [sp\_köra \_-fjärråtkomst](https://msdn.microsoft.com/library/mt703714) för en lagrad procedur som kör ett Transact-SQL-uttryck på en enskild fjärr-Azure SQL Database eller uppsättning databaser som är som Shards i ett schema med vågrät partitionering.

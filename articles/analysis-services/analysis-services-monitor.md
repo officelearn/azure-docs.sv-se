@@ -1,18 +1,18 @@
 ---
 title: Övervaka Azure Analysis Services server mått | Microsoft Docs
-description: Lär dig hur du övervakar Analysis Services server mått i Azure Portal.
+description: Lär dig hur Analysis Services använder Azure Metrics Explorer, ett kostnads fritt verktyg i portalen, för att hjälpa dig att övervaka serverns prestanda och hälsa.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 57bcffad2634ea556cc0dd53763011f921acc5e0
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 9e6eab38e0f7bd55fa671aa8c1e99693eeb54c84
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146794"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572738"
 ---
 # <a name="monitor-server-metrics"></a>Övervaka servermått
 

@@ -1,20 +1,20 @@
 ---
 title: Säkerhets kopiering och återställning av Azure Analysis Services databasen | Microsoft Docs
-description: Beskriver hur du säkerhetskopierar och återställer en Azure Analysis Services databas.
+description: Den här artikeln beskriver hur du säkerhetskopierar och återställer modell-metadata och data från en Azure Analysis Services databas.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fde545f3764f5910d00da5a8ce7f0e8c1772c7ea
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 3f63ecf560a14248fed6dea53c30a27acdf9a938
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72295408"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573438"
 ---
-# <a name="backup-and-restore"></a>Säkerhetskopiera och återställ
+# <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
 
 Att säkerhetskopiera tabell modell databaser i Azure Analysis Services är ungefär samma som för lokala Analysis Services. Den främsta skillnaden är den plats där du lagrar dina säkerhets kopior. Säkerhetskopierade filer måste sparas i en behållare i ett [Azure Storage-konto](../storage/common/storage-create-storage-account.md). Du kan använda ett lagrings konto och en behållare som du redan har, eller så kan de skapas när du konfigurerar lagrings inställningar för servern.
 
@@ -55,7 +55,7 @@ Innan du säkerhetskopierar måste du konfigurera lagrings inställningarna för
 
 1. I SSMS högerklickar du på en databas > **säkerhets kopiering**.
 
-2. I **säkerhets kopierings databasen** > **säkerhets kopierings fil**klickar du på **Bläddra**.
+2. I **säkerhets kopierings databasen** > **säkerhets kopierings filen**klickar du på **Bläddra**.
 
 3. I dialog rutan **Spara filen som** kontrollerar du mappsökvägen och skriver sedan ett namn för säkerhets kopian. 
 

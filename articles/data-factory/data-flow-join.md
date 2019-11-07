@@ -1,5 +1,5 @@
 ---
-title: Koppla omvandling i Azure Data Factory mappa data flöde | Microsoft Docs
+title: Koppla omvandling i Azure Data Factory mappa data flöde
 description: Kombinera data från två data källor med hjälp av kopplings omvandlingen i Azure Data Factory mappa data flöde
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 78de9f2bedfc36add567053e1de47e8893bfaf3c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4680804017a9b08248bb41ff999c6ba6371e99c8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597047"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675913"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Koppla omvandling i data flöde för mappning
 
@@ -32,7 +32,7 @@ Vänster yttre koppling returnerar alla rader från den vänstra strömmen och m
 
 ### <a name="right-outer"></a>Höger yttre
 
-Vänster yttre koppling returnerar alla rader från den högra strömmen och matchade poster från den vänstra data strömmen. Om en rad från den högra data strömmen saknar matchning, anges utdatakolumner från den högra data strömmen till NULL. Utdata blir de rader som returneras av en inre koppling och de omatchade raderna från den högra strömmen.
+Höger yttre koppling returnerar alla rader från den högra strömmen och matchade poster från den vänstra data strömmen. Om en rad från den högra data strömmen saknar matchning, anges utdatakolumner från den vänstra data strömmen till NULL. Utdata blir de rader som returneras av en inre koppling och de omatchade raderna från den högra strömmen.
 
 ### <a name="full-outer"></a>Fullständig yttre
 
@@ -83,7 +83,7 @@ När du testar kopplings Transformationerna med data förhands granskning i fel 
 
 ### <a name="inner-join-example"></a>Exempel på inre koppling
 
-Exemplet nedan är en JOIN-omvandling med namnet `JoinMatchedData` som tar vänster ström `TripData` och direkt uppspelnings `TripFare`.  Kopplings villkoret är det uttryck `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` som returnerar true om kolumnerna `hack_license`, `medallion`, `vendor_id` och `pickup_datetime` i varje data ström matchar. @No__t_0 är `'inner'`. Vi aktiverar sändning i endast den vänstra strömmen så `broadcast` har ett värde `'left'`.
+Exemplet nedan är en JOIN-omvandling med namnet `JoinMatchedData` som tar vänster ström `TripData` och direkt uppspelnings `TripFare`.  Kopplings villkoret är det uttryck `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` som returnerar true om kolumnerna `hack_license`, `medallion`, `vendor_id`och `pickup_datetime` i varje data ström matchar. `joinType` är `'inner'`. Vi aktiverar sändning i endast den vänstra strömmen så `broadcast` har ett värde `'left'`.
 
 I Data Factory UX ser den här omvandlingen ut som på bilden nedan:
 
@@ -105,7 +105,7 @@ TripData, TripFare
 
 ### <a name="cross-join-example"></a>Exempel på kors koppling
 
-Exemplet nedan är en JOIN-omvandling med namnet `CartesianProduct` som tar vänster ström `TripData` och direkt uppspelnings `TripFare`. Den här omvandlingen tar i två strömmar och returnerar en kartesiska-produkt av sina rader. Kopplings villkoret är `true()` eftersom en fullständig kartesiska-produkt matas ut. @No__t_0 i `cross`. Vi aktiverar sändning i endast den vänstra strömmen så `broadcast` har ett värde `'left'`.
+Exemplet nedan är en JOIN-omvandling med namnet `CartesianProduct` som tar vänster ström `TripData` och direkt uppspelnings `TripFare`. Den här omvandlingen tar i två strömmar och returnerar en kartesiska-produkt av sina rader. Kopplings villkoret är `true()` eftersom en fullständig kartesiska-produkt matas ut. `joinType` i `cross`. Vi aktiverar sändning i endast den vänstra strömmen så `broadcast` har ett värde `'left'`.
 
 I Data Factory UX ser den här omvandlingen ut som på bilden nedan:
 

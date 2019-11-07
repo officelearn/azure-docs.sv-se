@@ -1,5 +1,5 @@
 ---
-title: Köra Analytics-frågor mot Azure SQL-databaser | Microsoft Docs
+title: 'Köra Analytics-frågor mot Azure SQL-databaser '
 description: Analys frågor mellan klienter med data som extraherats från flera Azure SQL Database databaser i en app med flera klienter.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 ms.date: 09/19/2018
-ms.openlocfilehash: b36911d274a3afb3582d60ea7e85b5afd5f52ece
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2044e72697526a1c757fa13aeffb85260a9b821e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570290"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691997"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Analys av flera klienter med extraherade data-multi-Apps-appen
  
@@ -65,14 +65,14 @@ Att förstå hur konsekvent varje klient använder tjänsten ger möjlighet att 
 
 ## <a name="setup"></a>Konfiguration
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 Se till att följande förhandskrav är slutförda för att kunna slutföra den här guiden:
 
 - Wingtip biljetter SaaS-programmet för flera klient organisationer har distribuerats. Om du vill distribuera på mindre än fem minuter läser du [distribuera och utforska Wingtip-biljetterna SaaS-databas program för flera innehavare](saas-multitenantdb-get-started-deploy.md)
 - Wingtip SaaS-skript och program [käll kod](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) hämtas från GitHub. Se till att *avblockera zip-filen innan du* extraherar dess innehåll. Ta en titt på den [allmänna vägledningen](saas-tenancy-wingtip-app-guidance-tips.md) för steg för att ladda ned och avblockera Wingtip Ticket SaaS-skript.
 - Power BI Desktop har installerats. [Ladda ned Power BI Desktop](https://powerbi.microsoft.com/downloads/)
-- Batchen med ytterligare klienter har etablerats finns i självstudien [**etablera klient organisationer**](saas-multitenantdb-provision-and-catalog.md).
+- Batchen med ytterligare klienter har etablerats finns i [**självstudien etablera klient organisationer**](saas-multitenantdb-provision-and-catalog.md).
 - En jobb agent och en jobb agent databas har skapats. Se lämpliga steg i [**själv studie kursen om schema hantering**](saas-multitenantdb-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### <a name="create-data-for-the-demo"></a>Skapa data för demon
@@ -80,7 +80,7 @@ Se till att följande förhandskrav är slutförda för att kunna slutföra den 
 I den här självstudien utförs analysen på biljett försäljnings data. I det aktuella steget genererar du biljett data för alla klienter.  Senare extraheras dessa data för analys. *Se till att du har etablerad batchen över klienter enligt beskrivningen ovan, så att du har en meningsfull mängd data*. En tillräckligt stor mängd data kan exponera en rad olika biljett inköps mönster.
 
 1. I **POWERSHELL ISE**öppnar du *. ..\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1*och anger följande värde:
-    - $DemoScenario = **1** Köp biljetter för händelser på alla platser
+    - **$DemoScenario** = **1** Köp biljetter för händelser på alla platser
 2. Tryck på **F5** för att köra skriptet och skapa biljett inköps historik för varje händelse på varje plats.  Skriptet körs i flera minuter för att generera flera tusen biljetter.
 
 ### <a name="deploy-the-analytics-store"></a>Distribuera Analytics Store
@@ -93,15 +93,15 @@ I följande steg distribuerar du Analytics Store, som kallas **tenantanalytics**
     - Ange **$DemoScenario** = **3** om du vill använda SQL Database med columnstore  
 3. Tryck på **F5** för att köra demonstrations skriptet (som anropar skriptet *Deploy-TenantAnalytics\<XX >. ps1* ) som skapar klient analys arkivet. 
 
-Nu när du har distribuerat programmet och fyllt det med intressanta klient data använder du [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) för att ansluta **tenants1-MT-\<User\>**  och **Catalog-MT-\<User\>** servrar som använder login = *Developer*, Password = *P\@ssword1*.
+Nu när du har distribuerat programmet och fyllt det med intressanta klient data använder du [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) för att ansluta **tenants1-MT-\<användare\>** och **katalog-MT-\<användare\>** -servrar med Login = *Developer*, Password = *P\@ssword1*.
 
 ![architectureOverView](media/saas-multitenantdb-tenant-analytics/ssmsSignIn.png)
 
 Utför följande steg i Object Explorer:
 
-1. Expandera *tenants1-MT-User\<\> -* servern.
+1. Expandera *tenants1-MT-\<User\>* Server.
 2. Expandera noden databaser och se *tenants1* -databasen som innehåller flera klienter.
-3. Expandera *katalogen-MT\<-User\>*  Server.
+3. Expandera *katalogen-MT-\<användar\>* -servern.
 4. Kontrol lera att Analytics Store och jobaccount-databasen visas.
 
 Se följande databas objekt i SSMS-Object Explorer genom att expandera noden analys Arkiv:
@@ -112,15 +112,15 @@ Se följande databas objekt i SSMS-Object Explorer genom att expandera noden ana
 
 ![tenantAnalytics](media/saas-multitenantdb-tenant-analytics/tenantAnalytics.png)
 
-## <a name="data-extraction"></a>Extrahering av data 
+## <a name="data-extraction"></a>Data extrahering 
 
 ### <a name="create-target-groups"></a>Skapa mål grupper 
 
 Innan du fortsätter bör du kontrol lera att du har distribuerat jobb kontot och jobaccount-databasen. I nästa uppsättning steg används elastiska jobb för att extrahera data från shardade-databasen och för att lagra data i Analytics Store. Sedan shreds det andra jobbet data och lagrar dem i tabeller i stjärn schemat. De här två jobben körs mot två olika mål grupper, nämligen **TenantGroup** och **AnalyticsGroup**. Extraherings jobbet körs mot TenantGroup, som innehåller alla klient databaser. Fragmenterings jobbet körs mot AnalyticsGroup, som bara innehåller analys lagret. Skapa mål grupper med hjälp av följande steg:
 
-1. I SSMS ansluter du till **jobaccount** -databasen i katalogen – MT-\<User\>.
+1. I SSMS ansluter du till **jobaccount** -databasen i katalogen – mt-\<användar\>.
 2. I SSMS öppnar du *. ..\Learning Modules\Operational Analytics\Tenant Analytics \ TargetGroups. SQL* 
-3. Ändra variabeln överst i skriptet och Ersätt `<User>` med det användar värde som användes när du distribuerade Wingtip-biljetterna SaaS-databasen för flera klient organisationer. @User
+3. Ändra variabeln @User överst i skriptet, och ersätt `<User>` med det användar värde som användes när du distribuerade Wingtip-biljetterna SaaS-databasen för flera klient organisationer.
 4. Tryck på **F5** för att köra skriptet som skapar de två mål grupperna.
 
 ### <a name="extract-raw-data-from-all-tenants"></a>Extrahera rå data från alla klienter
@@ -132,9 +132,9 @@ Transaktioner kan inträffa oftare för *biljett-och kund* information än för 
 
 Varje jobb extraherar data och publicerar dem i Analytics Store. Det finns ett separat jobb som shreds de extraherade data i analys stjärn schema.
 
-1. I SSMS ansluter du till **jobaccount** -databasen i katalogen – MT-\<User\> Server.
+1. I SSMS ansluter du till **jobaccount** -databasen i katalogen – mt-\<User\> Server.
 2. I SSMS öppnar du *. ..\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.SQL*.
-3. Ändra @User överst i skriptet och Ersätt `<User>` med det användar namn som användes när du distribuerade Wingtip Ticket SaaS-databasprogram för flera innehavare. 
+3. Ändra @User överst i skriptet och ersätt `<User>` med det användar namn som användes när du distribuerade Wingtip Ticket SaaS-databasprogram för flera innehavare. 
 4. Tryck på **F5** för att köra skriptet som skapar och kör jobbet som extraherar biljetter och kund data från varje klient databas. Jobbet sparar data i Analytics Store.
 5. Fråga TicketsRawData-tabellen i tenantanalytics-databasen för att säkerställa att tabellen fylls med biljett information från alla klienter.
 
@@ -152,7 +152,7 @@ Nästa steg är att Shred extraherade rå data till en uppsättning tabeller som
 
 I det här avsnittet av självstudien definierar och kör du ett jobb som sammanfogar extraherade rå data med data i stjärn schema tabeller. När sammanfognings jobbet är klart raderas rå data, och de tabeller som är klara att fyllas i av nästa klient data extraherings jobb tas bort.
 
-1. I SSMS ansluter du till **jobaccount** -databasen i katalogen – MT-\<User\>.
+1. I SSMS ansluter du till **jobaccount** -databasen i katalogen – mt-\<användar\>.
 2. I SSMS öppnar du *. ..\Learning Modules\Operational Analytics\Tenant Analytics\ShredRawExtractedData.SQL*.
 3. Tryck på **F5** för att köra skriptet för att definiera ett jobb som anropar den lagrade proceduren sp_ShredRawExtractedData i Analytics Store.
 4. Tillåt tillräckligt med tid för att jobbet ska kunna köras.
@@ -169,13 +169,13 @@ Data i stjärn schema-tabellen innehåller alla biljett försäljnings data som 
 Använd följande steg för att ansluta till Power BI och för att importera de vyer som du skapade tidigare:
 
 1. Starta Power BI skriv bord.
-2. Från menyfliksområdet start väljer du **Hämta data**och väljer **mer...** på menyn.
+2. Från menyfliksområdet start väljer du **Hämta data**och väljer **mer...** från menyn.
 3. I fönstret **Hämta data** väljer du Azure SQL Database.
-4. I fönstret databas inloggning anger du Server namnet (Catalog-MT-\<User\>. Database.Windows.net). Välj **Importera** för **data anslutnings läge**och klicka sedan på OK. 
+4. I fönstret databas inloggning anger du Server namnet (katalog-MT-\<User\>. database.windows.net). Välj **Importera** för **data anslutnings läge**och klicka sedan på OK. 
 
     ![powerBISignIn](media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
 
-5. Välj **databas** i den vänstra rutan och ange sedan användar namn = *utvecklare*och ange Password = *P\@ssword1*. Klicka på **Anslut**.  
+5. Välj **databas** i den vänstra rutan och ange sedan användar namn = *utvecklare*och ange lösen ord = *P\@ssword1*. Klicka på **Anslut**.  
 
     ![DatabaseSignIn](media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 

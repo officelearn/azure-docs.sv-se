@@ -1,5 +1,5 @@
 ---
-title: Kopiera data till och från Azure SQL Data Warehouse med Azure Data Factory | Microsoft Docs
+title: Kopiera data till och från Azure SQL Data Warehouse med Azure Data Factory
 description: Lär dig hur du kopierar data från käll arkiv som stöds till Azure SQL Data Warehouse eller från SQL Data Warehouse till Sink-butiker som stöds med hjälp av Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: jingwang
-ms.openlocfilehash: 5351f7f01bbe99b1e3ebc3c94a0805f0419cc1cf
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b64bfd046a42a630e7913c45213053e84377a037
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387920"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681155"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera data till eller från Azure SQL Data Warehouse med Azure Data Factory 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -45,7 +45,7 @@ Mer specifikt har den här Azure SQL Data Warehouse-anslutningen stöd för dess
 > Om du kopierar data genom att använda Azure Data Factory Integration Runtime konfigurerar du en [Azure SQL Server-brandvägg](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) så att Azure-tjänsterna kan komma åt servern.
 > Om du kopierar data med hjälp av en lokal integration runtime konfigurerar du Azure SQL Server-brandväggen så att rätt IP-intervall tillåts. Detta intervall inkluderar datorns IP-adress som används för att ansluta till Azure SQL Database.
 
-## <a name="get-started"></a>Kom i gång
+## <a name="get-started"></a>Kom igång
 
 > [!TIP]
 > Använd PolyBase för att läsa in data i Azure SQL Data Warehouse för att uppnå bästa prestanda. [Använd PolyBase för att läsa in data i Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) avsnittet innehåller information. För en genom gång med ett användnings fall, se [load 1 TB till Azure SQL Data Warehouse under 15 minuter med Azure Data Factory](load-azure-sql-data-warehouse.md).
@@ -61,7 +61,7 @@ Följande egenskaper stöds för en Azure SQL Data Warehouse länkad tjänst:
 | Egenskap            | Beskrivning                                                  | Krävs                                                     |
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | typ                | Egenskapen Type måste anges till **AzureSqlDW**.             | Ja                                                          |
-| Begär    | Ange den information som krävs för att ansluta till Azure SQL Data Warehouse-instansen för egenskapen **ConnectionString** . <br/>Markera det här fältet som en SecureString för att lagra det på ett säkert sätt i Data Factory. Du kan också ange lösen ord/tjänstens huvud namn i Azure Key Vault, och om det är SQL-autentisering hämtar du @no__t 0-konfigurationen från anslutnings strängen. Se JSON-exemplet under tabellen och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja                                                          |
+| Begär    | Ange den information som krävs för att ansluta till Azure SQL Data Warehouse-instansen för egenskapen **ConnectionString** . <br/>Markera det här fältet som en SecureString för att lagra det på ett säkert sätt i Data Factory. Du kan också ange lösen ord/tjänstens huvud namn i Azure Key Vault, och om det är SQL-autentisering hämtar du `password`-konfigurationen från anslutnings strängen. Se JSON-exemplet under tabellen och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja                                                          |
 | servicePrincipalId  | Ange programmets klient-ID.                         | Ja, när du använder Azure AD-autentisering med ett huvud namn för tjänsten. |
 | servicePrincipalKey | Ange programmets nyckel. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja, när du använder Azure AD-autentisering med ett huvud namn för tjänsten. |
 | innehav              | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Du kan hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Ja, när du använder Azure AD-autentisering med ett huvud namn för tjänsten. |
@@ -74,7 +74,7 @@ För olika typer av autentiseringar, se följande avsnitt om krav respektive JSO
 - Azure AD Application token-autentisering: [hanterade identiteter för Azure-resurser](#managed-identity)
 
 >[!TIP]
->Om du stöter på fel med felkoden "UserErrorFailedToConnectToSqlServer" och "meddelande" som "sessionsgränsen för databasen är XXX och har nåtts." lägger du till `Pooling=false` till anslutnings strängen och försöker igen.
+>Om du får ett fel meddelande med felkoden "UserErrorFailedToConnectToSqlServer" och "meddelande" som "databasens sessionsgräns är XXX och har nåtts." lägger du till `Pooling=false` i anslutnings strängen och försöker igen.
 
 ### <a name="sql-authentication"></a>SQL-autentisering
 
@@ -235,7 +235,7 @@ Följande egenskaper stöds för att kopiera data från eller till Azure SQL Dat
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | typ      | Data uppsättningens **typ** -egenskap måste anges till **AzureSqlDWTable**. | Ja                         |
 | Schema | Schemats namn. |Nej för källa, Ja för mottagare  |
-| Partitionstabell | Namnet på tabellen/vyn. |Nej för källa, Ja för mottagare  |
+| partitionstabell | Namnet på tabellen/vyn. |Nej för källa, Ja för mottagare  |
 | tableName | Namnet på tabellen/vyn med schemat. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` och `table` för ny arbets belastning. | Nej för källa, Ja för mottagare |
 
 #### <a name="dataset-properties-example"></a>Exempel på data uppsättnings egenskaper
@@ -383,7 +383,7 @@ Om du vill kopiera data till Azure SQL Data Warehouse anger du mottagar typen i 
 | writeBatchTimeout | Vänte tid för att slutföra batch-infogningen innan tids gränsen uppnåddes. Gäller endast när PolyBase inte används.<br/><br/>Det tillåtna värdet är **TimeSpan**. Exempel: "00:30:00" (30 minuter). | Nej                                            |
 | preCopyScript     | Ange en SQL-fråga för kopierings aktivitet som ska köras innan data skrivs till Azure SQL Data Warehouse i varje körning. Använd den här egenskapen för att rensa de förinstallerade data. | Nej                                            |
 | tableOption | Anger om mottagar tabellen ska skapas automatiskt om den inte finns, baserat på käll schemat. Det går inte att skapa en automatisk tabell när mellanlagrad kopiering har kon figurer ATS i kopierings aktiviteten. Tillåtna värden är: `none` (standard) `autoCreate`. |Nej |
-| disableMetricsCollection | Data Factory samlar in mått som SQL Data Warehouse DWU: er för att kopiera prestanda optimering och rekommendationer. Om du är orolig för det här beteendet anger du `true` för att inaktivera det. | Nej (Standardvärdet är `false`) |
+| disableMetricsCollection | Data Factory samlar in mått som SQL Data Warehouse DWU: er för att kopiera prestanda optimering och rekommendationer. Om du är orolig för det här beteendet anger du `true` att inaktivera det. | Nej (standard är `false`) |
 
 #### <a name="sql-data-warehouse-sink-example"></a>Exempel på SQL Data Warehouse mottagare
 
@@ -436,14 +436,14 @@ Om kraven inte uppfylls kontrollerar Azure Data Factory inställningarna och åt
 2. **Käll data formatet** är av **Parquet**, **Orc**eller **avgränsad text**, med följande konfigurationer:
 
    1. Mappsökvägen innehåller inte något filter för jokertecken.
-   2. Fil namnet är tomt eller pekar på en enskild fil. Om du anger jokertecken för fil namn i kopierings aktiviteten, kan det bara vara `*` eller `*.*`.
+   2. Fil namnet är tomt eller pekar på en enskild fil. Om du anger jokertecken i kopierings aktiviteten kan du bara `*` eller `*.*`.
    3. `rowDelimiter` är **standard**, **\n**, **\r\n**eller **\r**.
-   4. `nullValue` är kvar som standard eller anges till **tom sträng** (""), och `treatEmptyAsNull` är kvar som standard eller anges till sant.
+   4. `nullValue` lämnas som standard eller inställd på **tom sträng** (""), och `treatEmptyAsNull` lämnas som standard eller anges till sant.
    5. `encodingName` är kvar som standard eller anges till **UTF-8**.
-   6. `quoteChar`, `escapeChar` och `skipLineCount` har inte angetts. Huvud stöd för att hoppa över rubrik rad, som kan konfigureras som `firstRowAsHeader` i ADF.
+   6. `quoteChar`, `escapeChar`och `skipLineCount` har inte angetts. Huvud stöd för att hoppa över rubrik rad, som kan konfigureras som `firstRowAsHeader` i ADF.
    7. `compression` kan inte vara **komprimering**, **gzip**eller **DEFLATE**.
 
-3. Om din källa är en mapp måste `recursive` i kopierings aktiviteten anges till sant.
+3. Om din källa är en mapp måste `recursive` i kopierings aktiviteten vara inställd på sant.
 
 >[!NOTE]
 >Om din källa är en mapp hämtas filer från mappen och alla dess undermappar, och data hämtas inte från filer vars fil namn börjar med en understrykning (_) eller en punkt (.), enligt beskrivningen [här – plats argument](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#arguments-2).
@@ -486,7 +486,7 @@ Om kraven inte uppfylls kontrollerar Azure Data Factory inställningarna och åt
 
 När dina källdata inte uppfyller kriterierna i föregående avsnitt aktiverar du data kopiering via en tillfällig mellanlagringsplats av Azure Blob Storage-instansen. Det får inte vara Azure-Premium Storage. I det här fallet kör Azure Data Factory automatiskt omvandlingar av data för att uppfylla data format kraven för PolyBase. Sedan använder den PolyBase för att läsa in data i SQL Data Warehouse. Slutligen rensar den temporära data från blob-lagringen. Se [mellanlagrad kopia](copy-activity-performance.md#staged-copy) för information om hur du kopierar data via en mellanlagringsplats av Azure Blob Storage-instansen.
 
-Om du vill använda den här funktionen skapar du en [länkad Azure Blob Storage-tjänst](connector-azure-blob-storage.md#linked-service-properties) som refererar till Azure Storage-kontot med Interim Blob Storage. Ange sedan egenskaperna `enableStaging` och `stagingSettings` för kopierings aktiviteten, som du ser i följande kod.
+Om du vill använda den här funktionen skapar du en [länkad Azure Blob Storage-tjänst](connector-azure-blob-storage.md#linked-service-properties) som refererar till Azure Storage-kontot med Interim Blob Storage. Ange sedan `enableStaging` och `stagingSettings` egenskaper för kopierings aktiviteten som du ser i följande kod.
 
 >[!IMPORTANT]
 >Om din mellanlagrings Azure Storage har kon figurer ATS med VNet-tjänstens slut punkt måste du använda hanterad identitets autentisering – Se [effekten av att använda VNet-tjänstens slut punkter med Azure Storage](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Lär dig de konfigurationer som krävs i Data Factory från [Azure Blob-hanterad identitetsautentisering](connector-azure-blob-storage.md#managed-identity).
@@ -612,7 +612,7 @@ När du kopierar data från eller till Azure SQL Data Warehouse, används följa
 | Decimal                               | Decimal                        |
 | FILESTREAM-attribut (varbinary (max)) | Byte []                         |
 | Flyta                                 | Dubbelklicka                         |
-| mallar                                 | Byte []                         |
+| image                                 | Byte []                         |
 | int                                   | Int32                          |
 | mynt                                 | Decimal                        |
 | nchar                                 | Sträng, char []                 |

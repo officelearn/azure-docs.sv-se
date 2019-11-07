@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66102a92ce279b594d61c8b2d484c89a8532057a
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 50af82e79e7ba8b979ab28a1b3f608ec7e41bfb2
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73171996"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603432"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Aktivera lösen ords skydd med lösen ords skydd (för hands version)
 
@@ -50,7 +50,7 @@ Registrerings funktioner för metoder för lösen ords kryptering förlitar sig 
 
 ### <a name="enable-fido2-security-key-method"></a>Aktivera FIDO2 säkerhets nyckel metod
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Bläddra till **Azure Active Directory** > **säkerhets** > **autentiseringsmetoder** > **principen för autentiserings metoden (för hands version)** .
 1. Under metod **FIDO2 säkerhets nyckel**väljer du följande alternativ:
    1. **Aktivera** – Ja eller Nej
@@ -68,7 +68,7 @@ Registrerings funktioner för metoder för lösen ords kryptering förlitar sig 
 1. Välj **USB-enhet** eller **NFC-enhet**.
 1. Låt nyckeln vara klar och välj **Nästa**.
 1. En ruta visas och ber användaren att skapa/ange en PIN-kod för din säkerhets nyckel och sedan utföra den begärda gesten för nyckeln, antingen bio metrisk eller touch.
-1. Användaren kommer att returneras till den kombinerade registrerings upplevelsen och uppmanas att ange ett beskrivande namn för nyckeln så att användaren kan identifiera vilken av dem som har flera. Klicka på **Next**.
+1. Användaren kommer att returneras till den kombinerade registrerings upplevelsen och uppmanas att ange ett beskrivande namn för nyckeln så att användaren kan identifiera vilken av dem som har flera. Klicka på **Nästa**.
 1. Slutför processen genom att klicka på **klar** .
 
 ## <a name="sign-in-with-passwordless-credential"></a>Logga in med autentiseringsuppgifter för lösen ord
@@ -95,7 +95,7 @@ Administratörs etablering och avetablering av säkerhets nycklar är inte tillg
 
 ### <a name="upn-changes"></a>UPN-ändringar
 
-Vi arbetar med att stödja en funktion som tillåter UPN-ändring på Hybrid Azure AD-anslutna och Azure AD-anslutna enheter. Om en användares UPN-ändringar ändras kan du inte längre ändra FIDO2-säkerhetsnycklar för att ändra konto för ändringen. Lösningen är att återställa enheten och användaren måste registrera den igen.
+Om en användares UPN-ändringar ändras kan du inte längre ändra FIDO2-säkerhetsnycklar för att ändra konto för ändringen. Lösningen är att återställa enheten och användaren måste registrera sina FIDO2-säkerhetsnycklar på nytt.
 
 ## <a name="next-steps"></a>Nästa steg
 

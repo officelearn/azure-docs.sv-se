@@ -1,6 +1,6 @@
 ---
-title: Transformera data med Hadoop Pig-aktivitet i Azure Data Factory | Microsoft Docs
-description: Lär dig hur du kan använda Pig-aktivitet i en Azure-datafabrik för att köra Pig-skript på ett på-begäran/your own HDInsight-kluster.
+title: Transformera data med Hadoop gris-aktivitet i Azure Data Factory
+description: Lär dig hur du kan använda gris-aktiviteten i en Azure Data Factory för att köra gris-skript på ett eget HDInsight-kluster på begäran.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -11,21 +11,21 @@ ms.date: 01/16/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 914bc37552a80886df16ed69fba4e31b3f22ac22
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85478c128e2a61ed6a3f4da5cacdcb425038c639
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61399530"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683833"
 ---
-# <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Transformera data med Hadoop Pig-aktivitet i Azure Data Factory
-> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
+# <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Transformera data med Hadoop gris-aktivitet i Azure Data Factory
+> [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-pig-activity.md)
 > * [Aktuell version](transform-data-using-hadoop-pig.md)
 
-HDInsight-piggningsåtgärd i en Datafabrik [pipeline](concepts-pipelines-activities.md) kör Pig frågor på [egna](compute-linked-services.md#azure-hdinsight-linked-service) eller [på begäran](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight-kluster. Den här artikeln bygger vidare på den [datatransformeringsaktiviteter](transform-data.md) artikel som anger en allmän översikt över Dataomvandling och stöds transformeringsaktiviteter.
+HDInsight gris-aktiviteten i en Data Factory [pipeline](concepts-pipelines-activities.md) kör gris-frågor på [ditt eget](compute-linked-services.md#azure-hdinsight-linked-service) eller [på begäran HDInsight-](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) kluster. Den här artikeln bygger på artikeln [data omvandlings aktiviteter](transform-data.md) , som visar en allmän översikt över Datatransformeringen och de omvandlings aktiviteter som stöds.
 
-Om du är nybörjare på Azure Data Factory, Läs igenom [introduktion till Azure Data Factory](introduction.md) och gör den [självstudie: omvandla data](tutorial-transform-data-spark-powershell.md) innan du läser den här artikeln. 
+Om du är nybörjare på Azure Data Factory läser du [Introduktion till Azure Data Factory](introduction.md) och gör [självstudien: transformera data](tutorial-transform-data-spark-powershell.md) innan du läser den här artikeln. 
 
 ## <a name="syntax"></a>Syntax
 
@@ -58,24 +58,24 @@ Om du är nybörjare på Azure Data Factory, Läs igenom [introduktion till Azur
 
 | Egenskap            | Beskrivning                              | Krävs |
 | ------------------- | ---------------------------------------- | -------- |
-| name                | Namn på aktiviteten                     | Ja      |
-| description         | Text som beskriver vad aktiviteten används till | Nej       |
-| type                | Aktivitetstypen är HDinsightPig för Hive-aktivitet | Ja      |
-| linkedServiceName   | Referens till HDInsight-kluster som är registrerad som en länkad tjänst i Datafabriken. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln. | Ja      |
-| scriptLinkedService | Referens till en Azure Storage-länkade tjänst som används för att lagra Pig-skript som ska köras. Om du inte anger den här länkade tjänsten, används den Azure Storage länkade tjänsten definieras i den länkade tjänsten HDInsight. | Nej       |
-| scriptPath          | Ange sökvägen till skriptfilen som lagras i Azure Storage som anges med scriptLinkedService. Filnamnet är skiftlägeskänsligt. | Nej       |
-| getDebugInfo        | Anger om filerna kopieras till Azure Storage används av HDInsight-kluster (eller) anges med scriptLinkedService. Tillåtna värden: Ingen alltid kan eller inte. Standardvärde: Ingen. | Nej       |
-| argument           | Anger en matris med argumenten för ett Hadoop-jobb. Argumenten skickas till varje aktivitet som kommandoradsargument. | Nej       |
-| defines             | Ange parametrar som nyckel/värde-par för den refererade Pig-skript. | Nej       |
+| namn                | Namn på aktiviteten                     | Ja      |
+| description         | Text som beskriver vad aktiviteten används för | Nej       |
+| typ                | För Hive-aktivitet är aktivitets typen HDinsightPig | Ja      |
+| linkedServiceName   | Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) . | Ja      |
+| scriptLinkedService | Referens till en Azure Storage länkad tjänst som används för att lagra det gris-skript som ska köras. Om du inte anger den här länkade tjänsten används den Azure Storage länkade tjänsten som definierats i den länkade HDInsight-tjänsten. | Nej       |
+| scriptPath          | Ange sökvägen till skript filen som lagras i Azure Storage som refereras av scriptLinkedService. Fil namnet är Skift läges känsligt. | Nej       |
+| getDebugInfo        | Anger när loggfilerna kopieras till Azure Storage som används av HDInsight-kluster (eller) som anges av scriptLinkedService. Tillåtna värden: ingen, Always eller Failure. Standardvärde: ingen. | Nej       |
+| ogiltiga           | Anger en matris med argument för ett Hadoop-jobb. Argumenten skickas som kommando rads argument till varje aktivitet. | Nej       |
+| definierar             | Ange parametrar som nyckel/värde-par för referenser i gris-skriptet. | Nej       |
 
 ## <a name="next-steps"></a>Nästa steg
-Se följande artiklar som beskriver hur du omvandlar data på andra sätt: 
+Se följande artiklar som förklarar hur du omformar data på andra sätt: 
 
 * [U-SQL-aktivitet](transform-data-using-data-lake-analytics.md)
 * [Hive-aktivitet](transform-data-using-hadoop-hive.md)
 * [MapReduce-aktivitet](transform-data-using-hadoop-map-reduce.md)
-* [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md)
+* [Hadoop streaming-aktivitet](transform-data-using-hadoop-streaming.md)
 * [Spark-aktivitet](transform-data-using-spark.md)
 * [.NET-anpassad aktivitet](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning-batchkörningsaktivitet](transform-data-using-machine-learning.md)
-* [Lagrad proceduraktivitet](transform-data-using-stored-procedure.md)
+* [Machine Learning batch-körning, aktivitet](transform-data-using-machine-learning.md)
+* [Lagrad procedur aktivitet](transform-data-using-stored-procedure.md)

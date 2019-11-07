@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 06ab1783a6e0f4884ab46d3f00a26c47f28d02b0
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 410b945f1a9a8d659f55668e272e2d9d08482bde
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596905"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601750"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Regional haveri beredskap för Azure Databricks kluster
 
@@ -47,7 +47,7 @@ Följ dessa krav för att skapa en egen regional haveri beredskaps topologi:
 
    I den här artikeln visas ett antal kod exempel som använder kommando rads gränssnittet för de flesta automatiserade steg, eftersom det är en lätt att användare i Azure Databricks REST API.
 
-   Innan du utför några steg i migreringen installerar du databricks-CLI på din station ära dator eller på en virtuell dator där du planerar att utföra arbetet. Mer information finns i [Installera DATABRICKS CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)
+   Innan du utför några steg i migreringen installerar du databricks-CLI på din station ära dator eller på en virtuell dator där du planerar att utföra arbetet. Mer information finns i [Installera DATABRICKS CLI](/azure/databricks/dev-tools/databricks-cli)
 
    ```bash
    pip install databricks-cli
@@ -286,7 +286,7 @@ Följ dessa krav för att skapa en egen regional haveri beredskaps topologi:
 
 8. **Migrera Azure Blob Storage och Azure Data Lake Storage monteras**
 
-   Montera manuellt alla [Azure Blob Storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) och [Azure Data Lake Storage (Gen 2)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) monterings punkter med en Notebook-baserad lösning. Lagrings resurserna skulle ha monterats på den primära arbets ytan och måste upprepas på den sekundära arbets ytan. Det finns inget externt API för monteringar.
+   Montera manuellt alla [Azure Blob Storage](/azure/databricks/data/data-sources/azure/azure-storage.html) och [Azure Data Lake Storage (Gen 2)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2.html) monterings punkter med en Notebook-baserad lösning. Lagrings resurserna skulle ha monterats på den primära arbets ytan och måste upprepas på den sekundära arbets ytan. Det finns inget externt API för monteringar.
 
 9. **Migrera kluster init-skript**
 
@@ -302,7 +302,7 @@ Följ dessa krav för att skapa en egen regional haveri beredskaps topologi:
 
 10. **Konfigurera om och tillämpa åtkomst kontroll manuellt.**
 
-    Om din befintliga primära arbets yta har kon figurer ATS för att använda Premium nivån (SKU), är det troligt att du också använder [Access Control funktionen](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control).
+    Om din befintliga primära arbets yta har kon figurer ATS för att använda Premium nivån (SKU), är det troligt att du också använder [Access Control funktionen](/azure/databricks/administration-guide/access-control/index).
 
     Om du använder funktionen Access Control, tillämpa manuellt åtkomst kontrollen på resurserna (antecknings böcker, kluster, jobb, tabeller).
 
@@ -312,4 +312,4 @@ Om du använder andra Azure-tjänster bör du även implementera metod tips för
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns i [Azure Databricks-dokumentationen](https://docs.azuredatabricks.net/user-guide/index.html).
+Mer information finns i [Azure Databricks-dokumentationen](index.yml).

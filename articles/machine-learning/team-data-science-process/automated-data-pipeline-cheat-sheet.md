@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye
-ms.openlocfilehash: b41241d3f0223e7c96dce4a9e98262b403cb0660
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7c7011991deb632110264233ea0e7aeabe793fbb
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495067"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73670474"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Facit för en automatiserad datapipeline för Azure Machine Learning-förutsägelser
 **Lathund-bladet för automatisk datapipeline i Microsoft Azure Machine Learning** hjälper dig att navigera genom den teknik som du kan använda för att hämta dina data till din Machine Learning-webbtjänst där den kan visas av modellen för förutsägelse analys.
@@ -36,6 +36,6 @@ Hämta lathund-bladet här:  **[Microsoft Azure Machine Learning automatisk data
 
 ## <a name="more-help-with-machine-learning-studio"></a>Mer hjälp med Machine Learning Studio
 * En översikt över Microsoft Azure Machine Learning finns i [Introduktion till Machine Learning på Microsoft Azure](../studio/what-is-machine-learning.md).
-* En förklaring av hur du distribuerar en bedömnings webb tjänst finns i [distribuera en Azure Machine Learning-webbtjänst](../studio/publish-a-machine-learning-web-service.md).
+* En förklaring av hur du distribuerar en bedömnings webb tjänst finns i [distribuera en Azure Machine Learning-webbtjänst](../studio/deploy-a-machine-learning-web-service.md).
 * En beskrivning av hur du använder en bedömnings webb tjänst finns i [så här använder du en Azure Machine Learning-webbtjänst](../studio/consume-web-services.md).
 

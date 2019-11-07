@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.author: panosper
-ms.openlocfilehash: 1f934bc5627331cc92ad3f497f1f7e4e0e5526cd
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 3b957181015cba06eb361272ca1004ba3e7a7008
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595327"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579686"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Vanliga frågor och svar om tal till text
 
@@ -176,7 +176,19 @@ S **: samla**in data som är så nära program scenariot och användnings fallet
 
 **A**: när en lista med ord laddas upp läggs orden till i ord listan, men det visar inte hur orden används vanligt vis. Genom att tillhandahålla fullständig eller partiell yttranden (meningar eller fraser av saker som användare sannolikt kommer att säga) kan språk modellen lära sig de nya orden och hur de används. Den anpassade språk modellen är inte bara till för att lägga till nya ord i systemet, utan även för att justera sannolikheten för kända ord för ditt program. Att tillhandahålla fullständig yttranden hjälper systemet att lära sig bättre. 
 
+## <a name="tenant-model-custom-speech-with-office-365-data"></a>Klient organisations modell (Custom Speech med Office 365-data)
+
+**F: vilken information ingår i klient modellen och hur skapas den?**
+
+**A:** En klient modell skapas med e-postmeddelanden och dokument i [offentliga grupper](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) som kan ses av alla i din organisation. 
+ 
+**F: vilka tal upplevelser förbättras av klient organisations modellen?**
+
+**A:** När klient organisations modellen är aktive rad, skapas och publiceras, används den för att förbättra igenkänningen för alla företags program som skapats med Speech service. Det kan också skicka en användare AAD-token som anger medlemskap i företaget. 
+ 
+De tal upplevelser som är inbyggda i Office 365, t. ex. Diktering och PowerPoint-textning, ändras inte när du skapar en klient modell för dina tal tjänst program.
+
 ## <a name="next-steps"></a>Nästa steg
 
-* [Troubleshooting](troubleshooting.md) (Felsökning)
+* [Felsökning](troubleshooting.md)
 * [Viktig information](releasenotes.md)

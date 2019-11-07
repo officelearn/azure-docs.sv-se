@@ -2,25 +2,25 @@
 title: Välj rätt autentiseringsmetod för din Azure AD hybrid identitets lösning | Microsoft Docs
 description: 'Den här guiden hjälper CEOs, CIO: er, ciso, Chief Identity Architects, Enterprise Architects och IT-besluts fattare som ansvarar för att välja en autentiseringsmetod för sin Azure AD hybrid identitets lösning i medel stora och stora organisationer.'
 keywords: ''
-author: martincoetzer
-ms.author: martinco
+author: TerryLanfear
+ms.author: terrylan
 ms.date: 10/30/2019
 ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 524e923f005e2631e42f1d6b89b13cafdd646c2a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 564175141a8076d2ac4324b0dccf02cc250a613c
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159706"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621183"
 ---
-# <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Välj rätt autentiseringsmetod för din Azure Active Directory hybrid identitets lösning 
+# <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Välj rätt autentiseringsmetod för din Azure Active Directory hybrid identitets lösning
 
 Att välja rätt autentiseringsmetod är det första sättet för organisationer som vill flytta sina appar till molnet. Gör inte det här beslutet lätt, av följande skäl:
 
-1. Det är det första beslutet för en organisation som vill flytta till molnet. 
+1. Det är det första beslutet för en organisation som vill flytta till molnet.
 
 2. Autentiseringsmetoden är en viktig komponent i en organisations närvaro i molnet. Den styr åtkomsten till alla moln data och resurser.
 
@@ -36,21 +36,21 @@ Organisationer som inte har något befintligt lokalt katalog utrymme är inte fo
 ## <a name="authentication-methods"></a>Autentiseringsmetoder
 När Azure AD hybrid Identity-lösningen är ditt nya kontroll plan är autentiseringen grunden för moln åtkomst. Att välja rätt autentiseringsmetod är ett viktigt första beslut när du konfigurerar en Azure AD hybrid Identity-lösning. Implementera autentiseringsmetoden som konfigureras med hjälp av Azure AD Connect, som också etablerar användare i molnet.
 
-Om du vill välja en autentiseringsmetod måste du ta hänsyn till tiden, den befintliga infrastrukturen, komplexiteten och kostnaden för att implementera ditt val. Dessa faktorer är olika för alla organisationer och kan ändras med tiden. 
+Om du vill välja en autentiseringsmetod måste du ta hänsyn till tiden, den befintliga infrastrukturen, komplexiteten och kostnaden för att implementera ditt val. Dessa faktorer är olika för alla organisationer och kan ändras med tiden.
 
 >[!VIDEO https://www.youtube.com/embed/YtW2cmVqSEw]
 
 Azure AD stöder följande autentiseringsmetoder för Hybrid identitets lösningar.
 
 ### <a name="cloud-authentication"></a>Molnbaserad autentisering
-När du väljer den här autentiseringsmetoden hanterar Azure AD användarnas inloggnings processer. Tillsammans med sömlös enkel inloggning (SSO) kan användarna logga in till molnappar utan att behöva ange sina autentiseringsuppgifter på annat sätt. Med molnbaserad autentisering kan du välja mellan två alternativ: 
+När du väljer den här autentiseringsmetoden hanterar Azure AD användarnas inloggnings processer. Tillsammans med sömlös enkel inloggning (SSO) kan användarna logga in till molnappar utan att behöva ange sina autentiseringsuppgifter på annat sätt. Med molnbaserad autentisering kan du välja mellan två alternativ:
 
 **Azure AD Password hash-synkronisering**. Det enklaste sättet att aktivera autentisering för lokala katalog objekt i Azure AD. Användare kan använda samma användar namn och lösen ord som de använder lokalt utan att behöva distribuera någon ytterligare infrastruktur. Vissa Premium funktioner i Azure AD, som identitets skydd och [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md), kräver synkronisering av lösen ords-hash, oavsett vilken autentiseringsmetod du väljer.
 
-> [!NOTE] 
-> Lösen ord lagras aldrig i klartext eller krypteras med en omvänd algoritm i Azure AD. Mer information om den faktiska processen för synkronisering av lösen ords-hash finns i [implementera hash-synkronisering av lösen ord med Azure AD Connect Sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
+> [!NOTE]
+> Lösen ord lagras aldrig i klartext eller krypteras med en omvänd algoritm i Azure AD. Mer information om den faktiska processen för synkronisering av lösen ords-hash finns i [implementera hash-synkronisering av lösen ord med Azure AD Connect Sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
 
-**Autentisering med Azure AD-vidarekoppling**. Ger en enkel lösen ords validering för Azure AD Authentication Services med hjälp av en program varu agent som körs på en eller flera lokala servrar. Servrarna verifierar användarna direkt med din lokala Active Directory, vilket garanterar att lösen ords verifieringen inte sker i molnet. 
+**Autentisering med Azure AD-vidarekoppling**. Ger en enkel lösen ords validering för Azure AD Authentication Services med hjälp av en program varu agent som körs på en eller flera lokala servrar. Servrarna verifierar användarna direkt med din lokala Active Directory, vilket garanterar att lösen ords verifieringen inte sker i molnet.
 
 Företag med ett säkerhets krav för att omedelbart framtvinga lokala användar konto tillstånd, lösen ords principer och inloggnings tider kan använda den här autentiseringsmetoden. Mer information om den faktiska processen för direktautentisering finns i [användar inloggning med Azure AD-direktautentisering](../../active-directory/hybrid/how-to-connect-pta.md).
 
@@ -106,21 +106,21 @@ Se [implementera synkronisering av lösen ords-hash](../../active-directory/hybr
 
 ### <a name="cloud-authentication-pass-through-authentication"></a>Molnbaserad autentisering: direktautentisering  
 
-* **Ansträngning**. För direktautentisering måste du ha en eller flera (vi rekommenderar tre) Lightweight-agenter installerade på befintliga servrar. Dessa agenter måste ha åtkomst till din lokala Active Directory Domain Services, inklusive dina lokala AD-domänkontrollanter. De behöver utgående åtkomst till Internet och åtkomst till dina domänkontrollanter. Därför finns det inte stöd för att distribuera agenterna i ett perimeternätverk. 
+* **Ansträngning**. För direktautentisering måste du ha en eller flera (vi rekommenderar tre) Lightweight-agenter installerade på befintliga servrar. Dessa agenter måste ha åtkomst till din lokala Active Directory Domain Services, inklusive dina lokala AD-domänkontrollanter. De behöver utgående åtkomst till Internet och åtkomst till dina domänkontrollanter. Därför finns det inte stöd för att distribuera agenterna i ett perimeternätverk.
 
     Direktautentisering kräver obegränsad nätverks åtkomst till domänkontrollanter. All nätverks trafik är krypterad och begränsad till autentiseringsbegäranden. Mer information om den här processen finns i [säkerhets djupet](../../active-directory/hybrid/how-to-connect-pta-security-deep-dive.md) om direkt autentisering.
 
 * **Användar upplevelse**. För att förbättra användarnas inloggnings upplevelser distribuerar du sömlös SSO med direktautentisering. Sömlös SSO eliminerar onödiga meddelanden när användarna loggar in.
 
-* **Avancerade scenarier**. Direktautentisering använder den lokala konto principen vid tidpunkten för inloggningen. Till exempel nekas åtkomst när en lokal användares konto status är inaktive rad, låst eller om [lösen ordet har upphört att gälla](../../active-directory/hybrid/how-to-connect-pta-faq.md#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) eller faller utanför de timmar då användaren får logga in. 
+* **Avancerade scenarier**. Direktautentisering använder den lokala konto principen vid tidpunkten för inloggningen. Till exempel nekas åtkomst när en lokal användares konto status är inaktive rad, låst eller om [lösen ordet har upphört att gälla](../../active-directory/hybrid/how-to-connect-pta-faq.md#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) eller faller utanför de timmar då användaren får logga in.
 
     Organisationer som kräver multifaktorautentisering med direktautentisering måste använda Azure Multi-Factor Authentication (MFA) eller [anpassade kontroller för villkorlig åtkomst](../../active-directory/conditional-access/controls.md#custom-controls-preview). Dessa organisationer kan inte använda en tredjeparts-autentiseringsmetod eller en lokal autentiseringsmetod som förlitar sig på Federation. Avancerade funktioner kräver att hash-synkronisering av lösen ord distribueras oavsett om du väljer direktautentisering eller inte. Ett exempel är en avslöjad identifierings rapport för identitets skydd.
 
-* **Affärs kontinuitet**. Vi rekommenderar att du distribuerar två extra genom strömnings agenter. Dessa tillägg är utöver den första agenten på Azure AD Connect-servern. Den här ytterligare distributionen säkerställer hög tillgänglighet för autentiseringsbegäranden. När du har installerat tre agenter kan en agent fortfarande fungera när en annan agent är nere för underhåll. 
+* **Affärs kontinuitet**. Vi rekommenderar att du distribuerar två extra genom strömnings agenter. Dessa tillägg är utöver den första agenten på Azure AD Connect-servern. Den här ytterligare distributionen säkerställer hög tillgänglighet för autentiseringsbegäranden. När du har installerat tre agenter kan en agent fortfarande fungera när en annan agent är nere för underhåll.
 
     Det finns en annan fördel med att distribuera hash-synkronisering av lösen ord, förutom direktautentisering. Den fungerar som en autentiseringsmetod för säkerhets kopiering när den primära autentiseringsmetoden inte längre är tillgänglig.
 
-* **Överväganden**. Du kan använda Password hash-synkronisering som en autentiseringsmetod för säkerhets kopiering för direktautentisering, när agenterna inte kan verifiera en användares autentiseringsuppgifter på grund av ett betydande lokalt haveri. Växling vid växling till hash-synkronisering sker inte automatiskt och du måste använda Azure AD Connect för att byta inloggnings metod manuellt. 
+* **Överväganden**. Du kan använda Password hash-synkronisering som en autentiseringsmetod för säkerhets kopiering för direktautentisering, när agenterna inte kan verifiera en användares autentiseringsuppgifter på grund av ett betydande lokalt haveri. Växling vid växling till hash-synkronisering sker inte automatiskt och du måste använda Azure AD Connect för att byta inloggnings metod manuellt.
 
     Andra överväganden vid direktautentisering, inklusive stöd för alternativa ID: n, finns i [vanliga frågor och svar](../../active-directory/hybrid/how-to-connect-pta-faq.md).
 
@@ -128,7 +128,7 @@ Se [implementering av direktautentisering](../../active-directory/hybrid/how-to-
 
 ### <a name="federated-authentication"></a>Federerad autentisering
 
-* **Ansträngning**. Ett federerat Authentication-system förlitar sig på ett externt betrott system för att autentisera användare. Vissa företag vill återanvända sina befintliga sammanslagna system investeringar med sin Azure AD hybrid identitets lösning. Underhåll och hantering av det federerade systemet faller utanför kontrollen över Azure AD. Det är upp till organisationen genom att använda det federerade systemet för att se till att det distribueras säkert och kan hantera inläsningen av autentiseringen. 
+* **Ansträngning**. Ett federerat Authentication-system förlitar sig på ett externt betrott system för att autentisera användare. Vissa företag vill återanvända sina befintliga sammanslagna system investeringar med sin Azure AD hybrid identitets lösning. Underhåll och hantering av det federerade systemet faller utanför kontrollen över Azure AD. Det är upp till organisationen genom att använda det federerade systemet för att se till att det distribueras säkert och kan hantera inläsningen av autentiseringen.
 
 * **Användar upplevelse**. Användarens upplevelse av federerad autentisering beror på implementeringen av funktioner, topologi och konfiguration av Federations gruppen. Vissa organisationer behöver den här flexibiliteten för att anpassa och konfigurera åtkomsten till Federations gruppen så att den passar deras säkerhets krav. Det är till exempel möjligt att konfigurera internt anslutna användare och enheter för att logga in användare automatiskt, utan att fråga dem om autentiseringsuppgifter. Den här konfigurationen fungerar eftersom de redan har loggat in på sina enheter. Om det behövs kan vissa avancerade säkerhetsfunktioner göra användarnas inloggnings process svårare.
 
@@ -149,7 +149,7 @@ För en nonroutable-domän som inte kan verifieras i Azure AD behöver du ytterl
 
 Se [distribuera Federations Servrar](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/deploying-federation-servers) för distributions steg.
 
-> [!NOTE] 
+> [!NOTE]
 > När du distribuerar din Azure AD hybrid Identity-lösning måste du implementera en av de topologier som stöds av Azure AD Connect. Läs mer om konfigurationer som stöds och som inte stöds vid [topologier för Azure AD Connect](../../active-directory/hybrid/plan-connect-topologies.md).
 
 ## <a name="architecture-diagrams"></a>Arkitektur diagram
@@ -172,9 +172,9 @@ Följande diagram innehåller en översikt över de hög nivå arkitektur kompon
 
 |Beaktas|Password-hash-synkronisering + sömlös SSO|Direktautentisering + sömlös SSO|Federation med AD FS|
 |:-----|:-----|:-----|:-----|
-|Var sker autentiseringen?|I molnet|I molnet efter ett säkert utbyte av lösen ords verifiering med den lokala Autentiseringstjänsten|Lokalt|
-|Vilka är de lokala server kraven utöver etablerings systemet: Azure AD Connect?|Inget|En server för varje ytterligare Authentication agent|Två eller flera AD FS-servrar<br><br>Två eller flera WAP-servrar i perimeternätverket/DMZ-nätverket|
-|Vilka är kraven för lokal Internet och nätverk utöver etablerings systemet?|Inget|[Utgående Internet åtkomst](../../active-directory/hybrid/how-to-connect-pta-quick-start.md) från servrar som kör autentiseringsprinciper|[Inkommande Internet åtkomst](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) till WAP-servrar i perimeternätverket<br><br>Inkommande nätverks åtkomst till AD FS servrar från WAP-servrar i perimeternätverket<br><br>Utjämning av nätverksbelastning|
+|Var sker autentiseringen?|I molnet|I molnet efter ett säkert utbyte av lösen ords verifiering med den lokala Autentiseringstjänsten|Lokal|
+|Vilka är de lokala server kraven utöver etablerings systemet: Azure AD Connect?|Ingen|En server för varje ytterligare Authentication agent|Två eller flera AD FS-servrar<br><br>Två eller flera WAP-servrar i perimeternätverket/DMZ-nätverket|
+|Vilka är kraven för lokal Internet och nätverk utöver etablerings systemet?|Ingen|[Utgående Internet åtkomst](../../active-directory/hybrid/how-to-connect-pta-quick-start.md) från servrar som kör autentiseringsprinciper|[Inkommande Internet åtkomst](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) till WAP-servrar i perimeternätverket<br><br>Inkommande nätverks åtkomst till AD FS servrar från WAP-servrar i perimeternätverket<br><br>Utjämning av nätverksbelastning|
 |Finns det ett krav för SSL-certifikat?|Nej|Nej|Ja|
 |Finns det en lösning för hälso övervakning?|Krävs inte|Agent status som tillhandahålls av [Azure Active Directory administrations Center](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
 |Får användarna enkel inloggning till moln resurser från domänanslutna enheter i företags nätverket?|Ja med [sömlös SSO](../../active-directory/hybrid/how-to-connect-sso.md)|Ja med [sömlös SSO](../../active-directory/hybrid/how-to-connect-sso.md)|Ja|
@@ -187,7 +187,7 @@ Följande diagram innehåller en översikt över de hög nivå arkitektur kompon
 |Kan du anpassa logo typen, avbildningen och beskrivningen på inloggnings sidorna?|[Ja, med Azure AD Premium](../../active-directory/fundamentals/customize-branding.md)|[Ja, med Azure AD Premium](../../active-directory/fundamentals/customize-branding.md)|[Ja](../../active-directory/hybrid/how-to-connect-fed-management.md)|
 |Vilka avancerade scenarier stöds?|[Smart lösen ords utelåsning](../../active-directory/authentication/concept-sspr-howitworks.md)<br><br>[Läckta autentiseringsuppgifter-rapporter, med Azure AD Premium P2](../../active-directory/reports-monitoring/concept-risk-events.md)|[Smart lösen ords utelåsning](../../active-directory/authentication/howto-password-smart-lockout.md)|Autentiserings system med låg latens för Multisite<br><br>[AD FS extra näts utelåsning](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)<br><br>[Integrering med identitets system från tredje part](../../active-directory/hybrid/how-to-connect-fed-compatibility.md)|
 
-> [!NOTE] 
+> [!NOTE]
 > Anpassade kontroller i villkorlig åtkomst för Azure AD stöder inte enhets registrering.
 
 ## <a name="recommendations"></a>Rekommendationer
@@ -195,7 +195,7 @@ Ditt identitets system ser till att användarnas åtkomst till molnappar och de 
 
 Använd eller aktivera hash-synkronisering av lösen ord för vilken autentiseringsmetod du väljer, av följande skäl:
 
-1. **Hög tillgänglighet och katastrof återställning**. Direktautentisering och Federation förlitar sig på lokal infrastruktur. Vid direktautentisering kräver den lokala lagrings platsen server maskin vara och nätverk som krävs för direktautentisering. För Federation är det lokala utrymmet ännu större. Det kräver att servrar i perimeternätverket för att kunna proxy-autentiseringsbegäranden och interna Federations servrar. 
+1. **Hög tillgänglighet och katastrof återställning**. Direktautentisering och Federation förlitar sig på lokal infrastruktur. Vid direktautentisering kräver den lokala lagrings platsen server maskin vara och nätverk som krävs för direktautentisering. För Federation är det lokala utrymmet ännu större. Det kräver att servrar i perimeternätverket för att kunna proxy-autentiseringsbegäranden och interna Federations servrar.
 
     Du kan undvika enskilda felpunkter genom att distribuera redundanta servrar. Sedan kommer autentiseringsbegäranden alltid att servas om någon komponent Miss lyckas. Både direkt autentisering och Federation förlitar sig även på domänkontrollanter för att svara på autentiseringsbegäranden, vilket också kan fungera. Många av dessa komponenter behöver underhåll för att vara felfria. Avbrott är mer sannolik när underhåll inte planeras och implementeras korrekt. Undvik avbrott med hjälp av hash-synkronisering av lösen ord eftersom Microsoft Azure AD Cloud Authentication Service skalar globalt och alltid är tillgängligt.
 
@@ -207,9 +207,9 @@ Använd eller aktivera hash-synkronisering av lösen ord för vilken autentiseri
 
 3. **Identitets skydd**. Ett av de bästa sätten att skydda användare i molnet är Azure AD Identity Protection med Azure AD Premium P2. Microsoft genomsöker kontinuerligt Internet efter användar-och lösen ords listor som dåliga aktörer säljer och gör tillgängliga på den mörka webben. Azure AD kan använda den här informationen för att kontrol lera om något av användar namn och lösen ord i din organisation har komprometterats. Det är därför viktigt att aktivera Lösenordssynkronisering oavsett vilken autentiseringsmetod du använder, oavsett om det är federerad eller direktautentisering. Läckta autentiseringsuppgifter visas som en rapport. Använd den här informationen för att blockera eller tvinga användare att ändra sina lösen ord när de försöker logga in med läckta lösen ord.
 
-## <a name="conclusion"></a>Sammanfattning
+## <a name="conclusion"></a>Slutsats
 
-Den här artikeln beskriver olika autentiseringsalternativ som organisationer kan konfigurera och distribuera för att ge stöd åt molnappar. För att möta olika affärs-, säkerhets-och teknik krav kan organisationer välja mellan Lösenordssynkronisering, direktautentisering och Federation. 
+Den här artikeln beskriver olika autentiseringsalternativ som organisationer kan konfigurera och distribuera för att ge stöd åt molnappar. För att möta olika affärs-, säkerhets-och teknik krav kan organisationer välja mellan Lösenordssynkronisering, direktautentisering och Federation.
 
 Överväg varje autentiseringsmetod. Kan du distribuera lösningen och användarens upplevelse av inloggnings processen och hantera dina affärs behov? Utvärdera om din organisation behöver de avancerade scenarierna och affärs kontinuitets funktionerna i varje autentiseringsmetod. Utvärdera slutligen överväganden för varje autentiseringsmetod. Hindrar du någon av dem från att implementera ditt val?
 

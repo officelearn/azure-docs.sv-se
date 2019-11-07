@@ -1,5 +1,5 @@
 ---
-title: Schemaläggning och körning med Data Factory | Microsoft Docs
+title: Schemaläggning och körning med Data Factory
 description: Läs om schemaläggning och körnings aspekter av Azure Data Factory program modellen.
 services: data-factory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 6ea8a03f45a3655c5761e0011876c6232b5bf36b
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 15a2d6ae5d8b80468ffcdd00d60b1f36843ed677
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135294"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666140"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Data Factory schemaläggning och körning
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten kan du läsa artikeln [pipeline-körning och](../concepts-pipeline-execution-triggers.md) utlösare.
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten kan du läsa artikeln [pipeline-körning och utlösare](../concepts-pipeline-execution-triggers.md) .
 
 I den här artikeln beskrivs aspekter för schemaläggning och körning av Azure Data Factory-programmodellen. Den här artikeln förutsätter att du förstår grunderna i Data Factory program modell koncept, inklusive aktivitet, pipeliner, länkade tjänster och data uppsättningar. Grundläggande begrepp för Azure Data Factory finns i följande artiklar:
 
@@ -59,9 +59,9 @@ Som du ser i följande diagram skapar ett schema för en aktivitet en serie rull
 ## <a name="specify-schedule-for-a-dataset"></a>Ange schema för en data uppsättning
 En aktivitet i en Data Factory pipeline kan ta noll eller fler data **uppsättningar** och skapa en eller flera data uppsättningar. För en aktivitet kan du ange takt som indata är tillgängliga för eller när utdata skapas med hjälp av avsnittet **tillgänglighet** i data uppsättnings definitionerna. 
 
-**Frekvens** i avsnittet **tillgänglighet** anger tidsenheten. De tillåtna värdena för frekvens är: Minut, timme, dag, vecka och månad. Egenskapen **Interval** i avsnittet tillgänglighet anger en multiplikator för frekvens. Exempel: om frekvensen är inställd på dag och intervall är inställt på 1 för en data uppsättning för utdata skapas utdata varje dag. Om du anger frekvensen som minut rekommenderar vi att du anger intervallet till högst 15. 
+**Frekvens** i avsnittet **tillgänglighet** anger tidsenheten. De tillåtna värdena för frekvens är: minut, timme, dag, vecka och månad. Egenskapen **Interval** i avsnittet tillgänglighet anger en multiplikator för frekvens. Exempel: om frekvensen är inställd på dag och intervall är inställt på 1 för en data uppsättning för utdata skapas utdata varje dag. Om du anger frekvensen som minut rekommenderar vi att du anger intervallet till högst 15. 
 
-I följande exempel är indata tillgängliga varje timme och utdata skapas varje timme (`"frequency": "Hour", "interval": 1`). 
+I följande exempel är indata tillgängliga varje timme och utdata skapas per timme (`"frequency": "Hour", "interval": 1`). 
 
 **Data mängd för indata:** 
 
@@ -172,7 +172,7 @@ Diagrammet visar data sektorerna per timme för data uppsättningen för indata 
 
 Du kan komma åt det tidsintervall som är associerat med den aktuella sektorn i data uppsättnings-JSON med hjälp av variabler: [SliceStart](data-factory-functions-variables.md#data-factory-system-variables) och [SliceEnd](data-factory-functions-variables.md#data-factory-system-variables). På samma sätt kan du komma åt tidsintervallet som är associerat med ett aktivitets fönster genom att använda WindowStart och WindowEnd. Schemat för en aktivitet måste matcha schemat för den utgående data uppsättningen för aktiviteten. Därför är värdena SliceStart och SliceEnd samma som WindowStart-och WindowEnd-värdena. Mer information om dessa variabler finns i artikeln [Data Factory Functions and system Variables](data-factory-functions-variables.md#data-factory-system-variables) .  
 
-Du kan använda dessa variabler för olika syfte i din aktivitets-JSON. Du kan till exempel använda dem för att välja data från data uppsättningar för indata och utdata som representerar tids serie data (till exempel: 8 till 9 AM). I det här exemplet används också **WindowStart** och **WindowEnd** för att välja relevanta data för en aktivitets körning och kopiera den till en blob med lämplig **folderPath**. **FolderPath** är parameterstyrda att ha en separat mapp i varje timme.  
+Du kan använda dessa variabler för olika syfte i din aktivitets-JSON. Du kan till exempel använda dem för att välja data från data uppsättningar för indata och utdata som representerar tids serie data (till exempel: 8 AM till 9 AM). I det här exemplet används också **WindowStart** och **WindowEnd** för att välja relevanta data för en aktivitets körning och kopiera den till en blob med lämplig **folderPath**. **FolderPath** är parameterstyrda att ha en separat mapp i varje timme.  
 
 I föregående exempel är det schema som har angetts för data uppsättningar för indata och utdata samma (varje timme). Om data uppsättningen för indata-datauppsättningen för aktiviteten är tillgänglig med en annan frekvens, var 15: e minut, så körs den aktivitet som skapar den här data uppsättningen fortfarande en gång i timmen eftersom den utgående data uppsättningen är det som driver aktivitets schemat. Mer information finns i [modell data uppsättningar med olika frekvenser](#model-datasets-with-different-frequencies).
 
@@ -182,16 +182,16 @@ Du har sett användningen av frekvens-och intervall egenskaper i avsnittet tillg
 ### <a name="dataset-availability"></a>Tillgänglighet för data uppsättning 
 I följande tabell beskrivs de egenskaper som du kan använda i avsnittet **tillgänglighet** :
 
-| Egenskap | Beskrivning | Obligatorisk | Standard |
+| Egenskap | Beskrivning | Krävs | Standard |
 | --- | --- | --- | --- |
-| frequency |Anger tidsenheten för data uppsättnings sektorns produktion.<br/><br/><b>Frekvens som stöds</b>: Minut, timme, dag, vecka, månad |Ja |Ej tillämpligt |
-| intervall |Anger en multiplikator för frekvens<br/><br/>"Frekvens x-intervall" anger hur ofta sektorn produceras.<br/><br/>Om du vill att data uppsättningen ska segmenteras per timme anger du <b>frekvens</b> till <b>timme</b>och <b>intervall</b> till <b>1</b>.<br/><br/><b>Obs!</b> Om du anger frekvensen som minut rekommenderar vi att du anger intervallet till högst 15 |Ja |Ej tillämpligt |
-| style |Anger om sektorn ska skapas i början/slutet av intervallet.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Om frekvensen är inställd på månad och format är inställt på EndOfInterval, produceras sektorn den sista dagen i månaden. Om formatet är inställt på StartOfInterval produceras sektorn den första dagen i månaden.<br/><br/>Om frekvens är inställt på dag och format är inställt på EndOfInterval skapas sektorn under den senaste timmen på dagen.<br/><br/>Om frekvensen är inställd på timme och formatet är inställt på EndOfInterval, skapas sektorn i slutet av timmen. För till exempel en sektor på en timme – 2-timmarsperiod skapas sektorn på 2 PM. |Nej |EndOfInterval |
-| anchorDateTime |Definierar den absoluta position i tid som används av Scheduler för att beräkna data uppsättningens sektor gränser. <br/><br/><b>Obs!</b> Om AnchorDateTime har datum delar som är mer detaljerade än frekvensen ignoreras fler detaljerade delar. <br/><br/>Till exempel om <b>intervallet</b> är <b>per timme</b> (frekvens: timme och intervall: 1) och <b>AnchorDateTime</b> innehåller <b>minuter och sekunder</b>ignoreras de <b>minuter och sekunderna</b> delar av AnchorDateTime. |Nej |01/01/0001 |
-| redovisningsmotkonto |TimeSpan som startar och slutar på alla mängd uppsättnings segment flyttas. <br/><br/><b>Obs!</b> Om både anchorDateTime och offset anges, är resultatet det kombinerade skiftet. |Nej |Ej tillämpligt |
+| frequency |Anger tidsenheten för data uppsättnings sektorns produktion.<br/><br/><b>Frekvens som stöds</b>: minut, timme, dag, vecka, månad |Ja |Ej tillämpligt |
+| interval |Anger en multiplikator för frekvens<br/><br/>"Frekvens x-intervall" anger hur ofta sektorn produceras.<br/><br/>Om du vill att data uppsättningen ska segmenteras per timme anger du <b>frekvens</b> till <b>timme</b>och <b>intervall</b> till <b>1</b>.<br/><br/><b>Obs!</b>om du anger frekvensen som minut rekommenderar vi att du anger intervallet till högst 15 |Ja |Ej tillämpligt |
+| ATS |Anger om sektorn ska skapas i början/slutet av intervallet.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Om frekvensen är inställd på månad och format är inställt på EndOfInterval, produceras sektorn den sista dagen i månaden. Om formatet är inställt på StartOfInterval produceras sektorn den första dagen i månaden.<br/><br/>Om frekvens är inställt på dag och format är inställt på EndOfInterval skapas sektorn under den senaste timmen på dagen.<br/><br/>Om frekvensen är inställd på timme och formatet är inställt på EndOfInterval, skapas sektorn i slutet av timmen. För till exempel en sektor på en timme – 2-timmarsperiod skapas sektorn på 2 PM. |Nej |EndOfInterval |
+| anchorDateTime |Definierar den absoluta position i tid som används av Scheduler för att beräkna data uppsättningens sektor gränser. <br/><br/><b>Obs!</b>om AnchorDateTime har datum delar som är mer detaljerade än frekvensen ignoreras fler detaljerade delar. <br/><br/>Om <b>intervallet</b> exempelvis är <b>per timme</b> (frekvens: timme och intervall: 1) och <b>AnchorDateTime</b> innehåller <b>minuter och sekunder</b>, ignoreras de <b>minuter och sekunder</b> som delar av AnchorDateTime. |Nej |01/01/0001 |
+| redovisningsmotkonto |TimeSpan som startar och slutar på alla mängd uppsättnings segment flyttas. <br/><br/><b>Obs</b>: om både anchorDateTime och offset anges, är resultatet det kombinerade skiftet. |Nej |Ej tillämpligt |
 
 ### <a name="offset-example"></a>förskjutnings exempel
-Som standard börjar de dagliga`"frequency": "Day", "interval": 1`sektorerna () med 12 am UTC-tid (midnatt). Om du vill att start tiden ska vara 6 UTC-tid i stället anger du förskjutningen enligt följande kodfragment: 
+Som standard börjar de dagliga (`"frequency": "Day", "interval": 1`) sektorerna från 12 AM UTC-tid (midnatt). Om du vill att start tiden ska vara 6 UTC-tid i stället anger du förskjutningen enligt följande kodfragment: 
 
 ```json
 "availability":
@@ -230,7 +230,7 @@ En data uppsättning kan ha en definierad validerings princip som anger hur data
 
 I **princip** avsnittet i data uppsättnings definitionen definieras villkoren eller villkoret som data uppsättnings sektorerna måste uppfylla. I följande tabell beskrivs de egenskaper som du kan använda i **princip** avsnittet:
 
-| Principnamn | Beskrivning | Tillämpas på | Obligatorisk | Standard |
+| Principnamn | Beskrivning | Tillämpas på | Krävs | Standard |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB | Kontrollerar att data i en Azure- **BLOB** uppfyller minimi kraven för storlek (i megabyte). |Azure-blobb |Nej |Ej tillämpligt |
 | minimumRows | Verifierar att data i en **Azure SQL-databas** eller en **Azure-tabell** innehåller det lägsta antalet rader. |<ul><li>Azure SQL Database</li><li>Azure-tabell</li></ul> |Nej |Ej tillämpligt |
@@ -263,25 +263,25 @@ I **princip** avsnittet i data uppsättnings definitionen definieras villkoren e
 
 Mer information om dessa egenskaper och exempel finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) . 
 
-## <a name="activity-policies"></a>Aktivitetsprinciper
+## <a name="activity-policies"></a>Aktivitets principer
 Principer påverkar körnings beteendet för en aktivitet, särskilt när en tabell sektor bearbetas. I följande tabell finns information.
 
-| Egenskap | Tillåtna värden | Default Value | Beskrivning |
+| Egenskap | Tillåtna värden | Standardvärde | Beskrivning |
 | --- | --- | --- | --- |
-| concurrency |Integer <br/><br/>Max värde: 10 |1 |Antalet samtidiga körningar av aktiviteten.<br/><br/>Det avgör antalet parallella aktivitets körningar som kan ske på olika sektorer. Om en aktivitet till exempel behöver gå igenom en stor uppsättning tillgängliga data, desto högre samtidiga värde, desto snabbare data bearbetning. |
+| samtidighet |Integer <br/><br/>Max värde: 10 |1 |Antalet samtidiga körningar av aktiviteten.<br/><br/>Det avgör antalet parallella aktivitets körningar som kan ske på olika sektorer. Om en aktivitet till exempel behöver gå igenom en stor uppsättning tillgängliga data, desto högre samtidiga värde, desto snabbare data bearbetning. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Bestämmer ordningen på data sektorer som bearbetas.<br/><br/>Om du till exempel har 2 segment (en på 4pm och en annan på 17) och båda väntar på att köras. Om du ställer in executionPriorityOrder som NewestFirst bearbetas sektorn på 5 PM först. På samma sätt som om du anger att executionPriorityORder ska vara OldestFIrst bearbetas sektorn på 4 PM. |
 | retry |Integer<br/><br/>Max värdet kan vara 10 |0 |Antal försök innan data bearbetningen för sektorn markeras som ett haveri. Aktivitets körningen för en data sektor görs igen till det angivna antalet försök. Återförsöket görs så snart som möjligt efter fel. |
-| timeout |TimeSpan |00:00:00 |Tids gräns för aktiviteten. Exempel: 00:10:00 (betyder timeout 10 minuter)<br/><br/>Om ett värde inte anges eller är 0, är tids gränsen oändlig.<br/><br/>Om data bearbetnings tiden i en sektor överskrider tids gräns värdet avbryts det och systemet försöker försöka utföra bearbetningen igen. Antalet återförsök beror på egenskapen försök igen. När timeout inträffar anges statusen till stängningsåtgärd. |
-| delay |TimeSpan |00:00:00 |Ange fördröjningen innan data bearbetning av sektorn startar.<br/><br/>Körningen av en aktivitet för en data sektor startas efter fördröjningen efter den förväntade körnings tiden.<br/><br/>Exempel: 00:10:00 (betyder fördröjning på 10 minuter) |
-| longRetry |Integer<br/><br/>Max värde: 10 |1 |Antalet nya försök innan sektor körningen misslyckades.<br/><br/>longRetry-försök fördelas med longRetryInterval. Om du behöver ange en tid mellan återförsök ska du använda longRetry. Om både återförsök och longRetry har angetts innehåller varje longRetry-försök nya försök och det högsta antalet försök är att försöka igen * longRetry.<br/><br/>Om vi till exempel har följande inställningar i aktivitets principen:<br/>Försök igen 3<br/>LongRetry 2<br/>longRetryInterval: 01:00:00<br/><br/>Anta att det bara finns en sektor att köra (status väntar) och aktivitets körningen Miss lyckas varje gång. Från början skulle det finnas tre körnings försök i följd. Efter varje försök skulle sektor statusen att försöka igen. Efter de första tre försöken är segmentets status LongRetry.<br/><br/>Efter en timme (det vill säga longRetryInteval värde), skulle det finnas en annan uppsättning av tre körnings försök i följd. Därefter skulle sektor statusen att Miss lyckas och inga fler återförsök skulle göras. Därför gjordes 6 försök.<br/><br/>Om körningen lyckas är segment statusen klar och inga fler återförsök görs.<br/><br/>longRetry kan användas i situationer där beroende data anländer till icke-deterministiska tider eller om den övergripande miljön är flaky under vilken data bearbetning sker. I sådana fall kan du göra nya försök en efter det att en annan kanske inte kan hjälpa dig och göra det när ett tidsintervall ger önskad utdata.<br/><br/>Varnings ord: Ange inte höga värden för longRetry eller longRetryInterval. Vanligt vis innebär högre värden andra problem med systemet. |
-| longRetryInterval |TimeSpan |00:00:00 |Fördröjningen mellan långsamma försök |
+| timeout |Intervall |00:00:00 |Tids gräns för aktiviteten. Exempel: 00:10:00 (betyder timeout 10 minuter)<br/><br/>Om ett värde inte anges eller är 0, är tids gränsen oändlig.<br/><br/>Om data bearbetnings tiden i en sektor överskrider tids gräns värdet avbryts det och systemet försöker försöka utföra bearbetningen igen. Antalet återförsök beror på egenskapen försök igen. När timeout inträffar anges statusen till stängningsåtgärd. |
+| förskjutning |Intervall |00:00:00 |Ange fördröjningen innan data bearbetning av sektorn startar.<br/><br/>Körningen av en aktivitet för en data sektor startas efter fördröjningen efter den förväntade körnings tiden.<br/><br/>Exempel: 00:10:00 (betyder fördröjning på 10 minuter) |
+| longRetry |Integer<br/><br/>Max värde: 10 |1 |Antalet nya försök innan sektor körningen misslyckades.<br/><br/>longRetry-försök fördelas med longRetryInterval. Om du behöver ange en tid mellan återförsök ska du använda longRetry. Om både återförsök och longRetry har angetts innehåller varje longRetry-försök nya försök och det högsta antalet försök är att försöka igen * longRetry.<br/><br/>Om vi till exempel har följande inställningar i aktivitets principen:<br/>Nytt försök: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Anta att det bara finns en sektor att köra (status väntar) och aktivitets körningen Miss lyckas varje gång. Från början skulle det finnas tre körnings försök i följd. Efter varje försök skulle sektor statusen att försöka igen. Efter de första tre försöken är segmentets status LongRetry.<br/><br/>Efter en timme (det vill säga longRetryInteval värde), skulle det finnas en annan uppsättning av tre körnings försök i följd. Därefter skulle sektor statusen att Miss lyckas och inga fler återförsök skulle göras. Därför gjordes 6 försök.<br/><br/>Om körningen lyckas är segment statusen klar och inga fler återförsök görs.<br/><br/>longRetry kan användas i situationer där beroende data anländer till icke-deterministiska tider eller om den övergripande miljön är flaky under vilken data bearbetning sker. I sådana fall kan du göra nya försök en efter det att en annan kanske inte kan hjälpa dig och göra det när ett tidsintervall ger önskad utdata.<br/><br/>Varnings ord: Ange inte höga värden för longRetry eller longRetryInterval. Vanligt vis innebär högre värden andra problem med systemet. |
+| longRetryInterval |Intervall |00:00:00 |Fördröjningen mellan långsamma försök |
 
 Mer information finns i [pipeline](data-factory-create-pipelines.md) -artikeln. 
 
 ## <a name="parallel-processing-of-data-slices"></a>Parallell bearbetning av data sektorer
 Du kan ange start datum för pipelinen tidigare. När du gör detta beräknar Data Factory automatiskt alla data sektorer i det förflutna och börjar bearbeta dem. Exempel: om du skapar en pipeline med start datumet 2017-04-01 och det aktuella datumet är 2017-04-10. Om takt för data uppsättningen för utdata är dagligen börjar Data Factory bearbeta alla sektorer från 2017-04-01 till 2017-04-09 omedelbart eftersom start datumet redan har passerat. Sektorn från 2017-04-10 bearbetas inte ännu eftersom värdet för Style-egenskapen i Availability-avsnittet är EndOfInterval som standard. Den äldsta sektorn bearbetas först eftersom standardvärdet för executionPriorityOrder är OldestFirst. En beskrivning av egenskapen Style finns i avsnittet [data uppsättnings tillgänglighet](#dataset-availability) . En beskrivning av avsnittet executionPriorityOrder finns i avsnittet [aktivitets principer](#activity-policies) . 
 
-Du kan konfigurera backend-fyllda data sektorer som ska bearbetas parallellt genom att ange den samtidiga egenskapen i **princip** avsnittet för aktivitets-JSON. Den här egenskapen bestämmer antalet parallella aktivitets körningar som kan inträffa på olika sektorer. Standardvärdet för samtidighets egenskapen är 1. Därför bearbetas en sektor i taget som standard. Det maximala värdet är 10. När en pipeline måste gå igenom en stor uppsättning tillgängliga data, desto högre samtidiga värde, så påskyndas data bearbetningen. 
+Du kan konfigurera backend-fyllda data sektorer som ska bearbetas parallellt genom att ange den **samtidiga** egenskapen i **princip** avsnittet för aktivitets-JSON. Den här egenskapen bestämmer antalet parallella aktivitets körningar som kan inträffa på olika sektorer. Standardvärdet för samtidighets egenskapen är 1. Därför bearbetas en sektor i taget som standard. Det maximala värdet är 10. När en pipeline måste gå igenom en stor uppsättning tillgängliga data, desto högre samtidiga värde, så påskyndas data bearbetningen. 
 
 ## <a name="rerun-a-failed-data-slice"></a>Köra en felaktig data sektor igen
 När ett fel uppstår när en data sektor bearbetas kan du ta reda på varför bearbetningen av en sektor misslyckades med hjälp av Azure Portal blad eller övervaka och hantera appar. Mer information finns i [övervaka och hantera pipelines med Azure Portal blad](data-factory-monitor-manage-pipelines.md) eller [övervaknings-och hanterings program](data-factory-monitor-manage-app.md) .
@@ -323,14 +323,14 @@ Se avsnittet Kopiera sekventiellt i bilagan för ett exempel.
 ## <a name="model-datasets-with-different-frequencies"></a>Modell data uppsättningar med olika frekvenser
 I exemplen var frekvenserna för indata och utdata och fönstret aktivitets schema samma. Vissa scenarier kräver möjlighet att skapa utdata med en frekvens som skiljer sig från en eller flera indatas frekvenser. Data Factory stöder modellering av dessa scenarier.
 
-### <a name="sample-1-produce-a-daily-output-report-for-input-data-that-is-available-every-hour"></a>Exempel 1: Skapa en daglig utmatnings rapport för indata som är tillgängliga varje timme
+### <a name="sample-1-produce-a-daily-output-report-for-input-data-that-is-available-every-hour"></a>Exempel 1: skapa en daglig utmatnings rapport för indata som är tillgängliga varje timme
 Överväg ett scenario där du har indata från sensorer tillgängliga varje timme i Azure Blob Storage. Du vill skapa en daglig sammanställd rapport med statistik som medelvärde, maximum och minimum för dagen med [Data Factory Hive-aktivitet](data-factory-hive-activity.md).
 
 Så här kan du modellera det här scenariot med Data Factory:
 
 **Indata-datauppsättning**
 
-De indatafilerna i timmen tas bort i mappen för den angivna dagen. Tillgängligheten för indatamängden anges i **timmen** (frekvens: Timme, intervall: 1).
+De indatafilerna i timmen tas bort i mappen för den angivna dagen. Tillgängligheten för indatamängden anges i **timmen** (frekvens: timme, intervall: 1).
 
 ```json
 {
@@ -359,7 +359,7 @@ De indatafilerna i timmen tas bort i mappen för den angivna dagen. Tillgänglig
 ```
 **Data uppsättning för utdata**
 
-En utdatafil skapas varje dag i mappen Day. Tillgängligheten för utdata anges till **dag** (frekvens: Dag och intervall: 1).
+En utdatafil skapas varje dag i mappen Day. Tillgängligheten för utdata anges till **dag** (frekvens: dag och intervall: 1).
 
 ```json
 {
@@ -450,7 +450,7 @@ Den enkla metoden där Data Factory automatiskt avgränsade rätt indata-segment
 
 Du måste ange att för varje aktivitets körning ska Data Factory använda den senaste vecko data sektorn för vecko indata-datauppsättningen. Använd Azure Data Factory funktioner som du ser i följande kodfragment för att implementera det här beteendet.
 
-**Input1: Azure-Blob**
+**INPUT1: Azure-Blob**
 
 Den första indatamängden är Azure-blobben som uppdateras dagligen.
 
@@ -510,9 +510,9 @@ Input2 är Azure-blobben som uppdateras varje vecka.
 }
 ```
 
-**Utdataparametrar Azure-Blob**
+**Utdata: Azure-Blob**
 
-En utdatafil skapas varje dag i mappen för dagen. Tillgängligheten för utdata anges till **Day** (frekvens: Dag, intervall: 1).
+En utdatafil skapas varje dag i mappen för dagen. Tillgängligheten för output anges till **Day** (frekvens: dag, intervall: 1).
 
 ```json
 {
@@ -604,11 +604,11 @@ Det går att köra flera kopierings åtgärder en efter varandra på ett sekvent
 
 CopyActivity1
 
-Indata: Data uppsättning. Resultat: Dataset2.
+Indata: data uppsättning. Utdata: Dataset2.
 
 CopyActivity2
 
-Indata: Dataset2.  Resultat: Dataset3.
+Inmatade: Dataset2.  Utdata: Dataset3.
 
 CopyActivity2 skulle endast köras om CopyActivity1 har körts och Dataset2 är tillgänglig.
 
@@ -695,15 +695,15 @@ Här är exempel på pipeline-JSON:
 
 Observera att i exemplet anges utdata-datauppsättningen för den första kopierings aktiviteten (Dataset2) som indata för den andra aktiviteten. Den andra aktiviteten körs därför bara när data uppsättningen för utdata från den första aktiviteten är klar.  
 
-I exemplet kan CopyActivity2 ha olika ingångar, t. ex. Dataset3, men du anger Dataset2 som indatamängd för CopyActivity2, så aktiviteten körs inte förrän CopyActivity1 har slutförts. Exempel:
+I exemplet kan CopyActivity2 ha olika ingångar, t. ex. Dataset3, men du anger Dataset2 som indatamängd för CopyActivity2, så aktiviteten körs inte förrän CopyActivity1 har slutförts. Till exempel:
 
 CopyActivity1
 
-Indata: Dataset1. Resultat: Dataset2.
+Inmatade: Dataset1. Utdata: Dataset2.
 
 CopyActivity2
 
-Tillför Dataset3, Dataset2. Resultat: Dataset4.
+Indata: Dataset3, Dataset2. Utdata: Dataset4.
 
 ```json
 {

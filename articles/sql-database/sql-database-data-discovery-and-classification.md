@@ -1,5 +1,5 @@
 ---
-title: '& Klassificering för Azure SQL Database och SQL Data Warehouse data identifiering | Microsoft Docs'
+title: '& Klassificering för Azure SQL Database och SQL Data Warehouse data identifiering'
 description: Klassificering av Azure SQL Database och data identifiering &
 services: sql-database
 ms.service: sql-database
@@ -11,16 +11,16 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: b85793223e23aa3d668d6f86494da3ee78c43e91
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 9bcb8ce69a65892109702f0f0a409310945b6781
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009998"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690766"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>& Klassificering för Azure SQL Database och SQL Data Warehouse data identifiering
 
-Data identifierings & klassificering innehåller avancerade funktioner som är inbyggda i Azure SQL Database för att **upptäcka**, &  **klassificera**och märka,**skydda** känsliga data i dina databaser.
+Data identifierings & klassificering innehåller avancerade funktioner som är inbyggda i Azure SQL Database för att **upptäcka**, **klassificera**och **märka** & **skydda** känsliga data i dina databaser.
 
 Att identifiera och klassificera dina mest känsliga data (företags-, finans-, sjukvårds-och person uppgifter) och så vidare kan du spela en pivot-roll i din organisations informations skydds datasekretesstandarder. Den kan fungera som infrastruktur för:
 
@@ -125,7 +125,7 @@ När du har definierat principen för hela klienten kan du fortsätta med klassi
 
 En viktig aspekt av informations skydds paradigmet är möjligheten att övervaka åtkomsten till känsliga data. [Azure SQL Database granskning](sql-database-auditing.md) har förbättrats för att innehålla ett nytt fält i gransknings loggen med namnet *data_sensitivity_information*, som loggar känslighets klassificeringarna (etiketter) för de faktiska data som returnerades av frågan.
 
-![Granskningslogg](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
+![Gransknings logg](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
 ## <a id="subheading-4"></a>Hantera data klassificering med T-SQL
 
@@ -134,8 +134,8 @@ Du kan använda T-SQL för att lägga till/ta bort kolumn klassificeringar, samt
 > [!NOTE]
 > När du använder T-SQL för att hantera etiketter, finns det ingen validering av etiketter som lagts till i en kolumn i principen för organisations informations skydd (den uppsättning etiketter som visas i Portal rekommendationer). Det är därför upp till dig att verifiera detta.
 
-- Lägg till/uppdatera klassificeringen för en eller flera kolumner: [LÄGG TILL KÄNSLIGHETS KLASSIFICERING](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
-- Ta bort klassificeringen från en eller flera kolumner: [SLÄPP KÄNSLIGHETS KLASSIFICERING](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+- Lägg till/uppdatera klassificeringen för en eller flera kolumner: [Lägg till känslighets klassificering](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+- Ta bort klassificeringen från en eller flera kolumner: [släpp känslighets klassificering](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - Visa alla klassificeringar för databasen: [sys. sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 ### <a name="manage-classifications-using-rest-apis"></a>Hantera klassificeringar med REST API: er
@@ -144,8 +144,8 @@ Du kan också använda REST-API: er för att hantera klassificeringar program m�
 
 - [Skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) – skapar eller uppdaterar känslighets etiketten för en specifik kolumn
 - [Ta bort](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) – tar bort känslighets etiketten för en specifik kolumn
-- [Inaktivera rekommendation](https://docs.microsoft.com/en-us/rest/api/sql/sensitivitylabels/disablerecommendation) – inaktiverar känslighets rekommendationer för en specifik kolumn
-- [Aktivera rekommendation](https://docs.microsoft.com/en-us/rest/api/sql/sensitivitylabels/enablerecommendation) – möjliggör känslighets rekommendationer för en specifik kolumn (rekommendationer är aktiverade som standard för alla kolumner)
+- [Inaktivera rekommendation](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/disablerecommendation) – inaktiverar känslighets rekommendationer för en specifik kolumn
+- [Aktivera rekommendation](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation) – möjliggör känslighets rekommendationer för en specifik kolumn (rekommendationer är aktiverade som standard för alla kolumner)
 - [Get](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) -hämtar en kolumns känslighets etikett
 - [Lista aktuella efter databas](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) – hämtar de aktuella känslighets etiketterna för en specifik databas
 
@@ -171,9 +171,9 @@ Du kan använda PowerShell för att hämta alla rekommenderade kolumner i en Azu
 
 ## <a name="permissions"></a>Behörigheter
 
-Följande inbyggda roller kan läsa data klassificeringen för en Azure SQL-databas: `Owner` `Contributor`, `Reader` `SQL Security Manager` , och `User Access Administrator`.
+Följande inbyggda roller kan läsa data klassificeringen för en Azure SQL-databas: `Owner`, `Reader`, `Contributor`, `SQL Security Manager` och `User Access Administrator`.
 
-Följande inbyggda roller kan ändra data klassificeringen för en Azure SQL-databas: `Owner`, `Contributor`, `SQL Security Manager`.
+Följande inbyggda roller kan ändra data klassificeringen för en Azure SQL-databas: `Owner``Contributor``SQL Security Manager`.
 
 Lär dig mer om [RBAC för Azure-resurser](https://docs.microsoft.com/azure/role-based-access-control/overview)
 

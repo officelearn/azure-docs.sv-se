@@ -1,5 +1,5 @@
 ---
-title: Felsöka virtuella Windows 7-datorer i Windows Virtual Desktop – Azure
+title: Windows 7 Virtual Machines Windows Virtual Desktop – Azure
 description: Så här löser du problem med virtuella Windows 7-datorer (VM) i en Windows Virtual Desktop-miljö.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.author: helohr
-ms.openlocfilehash: 282a4d166e48a41015cb2f08496fe39419bdcaf7
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: ee641a694371ffd3fbc691a05edac707e37e959d
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374265"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607333"
 ---
 # <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop"></a>Felsöka en virtuell Windows 7-dator i Windows Virtual Desktop
 

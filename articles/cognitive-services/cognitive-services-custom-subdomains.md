@@ -1,7 +1,7 @@
 ---
 title: Anpassade under domäner
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services använda anpassade under domän namn för varje resurs som skapats via Azure Portal, Azure Cloud Shell eller Azure CLI. Till skillnad från regionala slut punkter, som var vanliga för alla kunder i en angiven Azure-region, är anpassade under domän namn unika för resursen. Anpassade under domän namn krävs för att aktivera funktioner som Azure Active Directory (Azure AD) för autentisering.
+description: Anpassade under domän namn för varje kognitiv tjänst resurs skapas via Azure Portal, Azure Cloud Shell eller Azure CLI.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 7153735052f96bef65bf3daaccde4eab3e61b0f9
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 108e5ebfa34db711af4ff33cbf4fbba897b8947d
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68473055"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647681"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Anpassade under domän namn för Cognitive Services
 
@@ -51,7 +51,7 @@ Ja. Om du använder ett eget under domän namn ändras inte några av de regiona
 
 ## <a name="what-are-the-requirements-for-a-custom-subdomain-name"></a>Vilka är kraven för ett anpassat under domän namn?
 
-Ett eget under domän namn är unikt för din resurs. Namnet får bara innehålla alfanumeriska tecken och `-` tecknet. det måste vara mellan 2 och 64 tecken långt och får inte sluta med ett. `-`
+Ett eget under domän namn är unikt för din resurs. Namnet får bara innehålla alfanumeriska tecken och `-` tecknet. Det måste vara mellan 2 och 64 tecken långt och får inte sluta med en `-`.
 
 ## <a name="can-i-change-a-custom-domain-name"></a>Kan jag ändra ett anpassat domän namn?
 
@@ -68,7 +68,7 @@ Ja. Det här är en lista över regionala slut punkter som du kan använda med A
 > [!NOTE]
 > Translator Text API och API:er för Bing-sökresultat använder globala slut punkter.
 
-| Typ av slutpunkt | Region | Slutpunkt |
+| Slut punkts typ | Region | Slutpunkt |
 |---------------|--------|----------|
 | Offentligt | Global (Translator Text & Bing) | `https://api.cognitive.microsoft.com` |
 | | Östra Australien | `https://australiaeast.api.cognitive.microsoft.com` |
@@ -76,7 +76,7 @@ Ja. Det här är en lista över regionala slut punkter som du kan använda med A
 | | Centrala Kanada | `https://canadacentral.api.cognitive.microsoft.com` |
 | | Centrala USA | `https://centralus.api.cognitive.microsoft.com` |
 | | Östasien | `https://eastasia.api.cognitive.microsoft.com` |
-| | East US | `https://eastus.api.cognitive.microsoft.com` |
+| | Östra USA | `https://eastus.api.cognitive.microsoft.com` |
 | | USA, östra 2 | `https://eastus2.api.cognitive.microsoft.com` |
 | | Frankrike, centrala | `https://francecentral.api.cognitive.microsoft.com` |
 | | Centrala Indien | `https://centralindia.api.cognitive.microsoft.com` |
@@ -92,11 +92,11 @@ Ja. Det här är en lista över regionala slut punkter som du kan använda med A
 | | Västra Europa | `https://westeurope.api.cognitive.microsoft.com` |
 | | Västra USA | `https://westus.api.cognitive.microsoft.com` |
 | | Västra USA 2 | `https://westus2.api.cognitive.microsoft.com` |
-| US Gov | Virginia (USA-förvaltad region) | `https://virginia.api.cognitive.microsoft.us` |
+| USA-förvaltad region | Virginia (USA-förvaltad region) | `https://virginia.api.cognitive.microsoft.us` |
 | Kina | Kina, östra 2 | `https://chinaeast2.api.cognitive.azure.cn` |
 | | Kina, norra | `https://chinanorth.api.cognitive.azure.cn` |
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [Vad är Cognitive Services?](Welcome.md)
 * [Autentisering](authentication.md)

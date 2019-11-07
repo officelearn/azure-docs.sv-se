@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 9fbe4f34bb27d2de662f11dbdd047356ff3d3941
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 4fe405d4027535eb6b0211f7a3f997194b8819aa
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497366"
+ms.locfileid: "73580754"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Vad är en Azure Machine Learning arbets yta?
 
@@ -32,7 +32,7 @@ En taxonomi i arbets ytan illustreras i följande diagram:
 
 Diagrammet visar följande komponenter för en arbets yta:
 
-+ En arbets yta kan innehålla [Azure Machine Learning beräknings instanser](concept-compute-instance.md), moln resurser som kon figurer ATS med python-miljön som krävs för att köra Azure Machine Learning.
++ En arbets yta kan innehålla Azure Machine Learning virtuella notebook-datorer, moln resurser som kon figurer ATS med python-miljön som krävs för att köra Azure Machine Learning.
 + Med [användar roller](how-to-assign-roles.md) kan du dela din arbets yta med andra användare, team eller projekt.
 + [Beräknings mål](concept-azure-machine-learning-architecture.md#compute-targets) används för att köra experimenten.
 + När du skapar arbets ytan skapas även [tillhör ande resurser](#resources) .
@@ -69,17 +69,14 @@ Machine Learning-uppgifter läser och/eller skriver artefakter till din arbets y
 
 Du kan också utföra följande hanterings uppgifter för arbets ytan:
 
-| Arbets ytans hanterings aktivitet   | Portal              | Studio | Python SDK/R SDK       | CLI        |
+| Arbets ytans hanterings aktivitet   | Portalen              | Studio | Python SDK/R SDK       | CLI        |
 |---------------------------|---------|---------|------------|------------|
 | Skapa en arbetsyta        | **&check;**     | | **&check;** | **&check;** |
 | Hantera åtkomst till arbets ytan    | **&check;**   || |  **&check;**    |
 | Uppgradera till Enterprise Edition    | **&check;** |  | |     |
 | Skapa och hantera beräknings resurser    |   | **&check;** | **&check;** |  **&check;**   |
-| Skapa en beräknings instans | **&check;**  | **&check;** | **&check;** |     |
+| Skapa en virtuell dator för Notebook |   | **&check;** | |     |
 
-> [!NOTE]
-> Beräknings instanser är endast tillgängliga för arbets ytor med en region i **norra centrala USA** eller **Storbritannien, södra**.
->Om din arbets yta finns i en annan region kan du fortsätta att skapa och använda en [virtuell dator](concept-compute-instance.md#notebookvm) i stället.
 
 ## <a name='create-workspace'></a>Skapa en arbets yta
 
@@ -101,7 +98,7 @@ Du kan [uppgradera din arbets yta från Basic till Enterprise Edition](how-to-ma
 När du skapar en ny arbets yta skapar den automatiskt flera Azure-resurser som används av arbets ytan:
 
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): registrerar Docker-behållare som du använder under utbildningen och när du distribuerar en modell. För att minimera kostnaderna är ACR en **Lazy-inläst** tills distributions avbildningar skapas.
-+ [Azure Storage konto](https://azure.microsoft.com/services/storage/): används som standard data lager för arbets ytan.  Jupyter-anteckningsböcker som används med din Azure Machine Learning beräknings instans lagras också här.
++ [Azure Storage konto](https://azure.microsoft.com/services/storage/): används som standard data lager för arbets ytan.  Jupyter-anteckningsböcker som används med din Azure Machine Learning VM-anteckningsbok lagras också här.
 + [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): lagrar övervaknings information om dina modeller.
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): lagrar hemligheter som används av beräknings mål och annan känslig information som krävs av arbets ytan.
 

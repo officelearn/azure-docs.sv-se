@@ -1,5 +1,5 @@
 ---
-title: Parquet-format i Azure Data Factory | Microsoft Docs
+title: Parquet-format i Azure Data Factory
 description: I det här avsnittet beskrivs hur du hanterar Parquet-format i Azure Data Factory.
 author: linda33wj
 manager: craigg
@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 92950a79be43bc656d50e2ced106a2fdb47f53bf
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 9047e82713b709027275c75b17eb955877c62f08
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387708"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73674773"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Parquet-format i Azure Data Factory
 
@@ -29,7 +29,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 | Egenskap         | Beskrivning                                                  | Krävs |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | typ             | Data uppsättningens typ-egenskap måste anges till **Parquet**. | Ja      |
-| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och egenskaper som stöds under `location`. **Se information i avsnittet kopplings artikel – egenskaper för > data uppsättning**. | Ja      |
+| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har en egen plats typ och egenskaper som stöds under `location`. **Se information i avsnittet kopplings artikel – egenskaper för > data uppsättning**. | Ja      |
 | compressionCodec | Den komprimerings-codec som ska användas när du skriver till Parquet-filer. Vid läsning från Parquet-filer bestämmer Data Factory automatiskt komprimerings-codecen baserat på filens metadata.<br>De typer som stöds är "**none**", "**gzip**", "**fästfunktionen**" (standard) och "**LZO**". Obs! kopierings aktiviteten stöder för närvarande inte LZO. | Nej       |
 
 > [!NOTE]
@@ -65,7 +65,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 ### <a name="parquet-as-source"></a>Parquet som källa
 
-Följande egenskaper stöds i avsnittet kopierings aktivitet ***\*source @ no__t-2*** .
+Följande egenskaper stöds i avsnittet Kopiera aktivitet ***\*käll\**** .
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -74,7 +74,7 @@ Följande egenskaper stöds i avsnittet kopierings aktivitet ***\*source @ no__t
 
 ### <a name="parquet-as-sink"></a>Parquet som mottagare
 
-Följande egenskaper stöds i avsnittet kopierings aktivitet ***\*sink @ no__t-2*** .
+Följande egenskaper stöds i avsnittet kopierings aktivitet ***\*mottagare\**** .
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -104,7 +104,7 @@ För kopiering som körs på egen värd-IR med Parquet-filserialisering/deserial
 
 ![Ange JVM heap-storlek för IR med egen värd](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 
-Exempel: ange variabel `_JAVA_OPTIONS` med värdet `-Xms256m -Xmx16g`. Flaggan `Xms` anger den första poolen för minnesallokering för en Java Virtual Machine (JVM), medan `Xmx` anger den maximala poolen för minnesallokering. Det innebär att JVM kommer att startas med `Xms` minnes mängd och kommer att kunna använda maximalt `Xmx` minnes mängd. Som standard använder ADF den minsta 64 MB och Max 1G.
+Exempel: ange variabel `_JAVA_OPTIONS` med värde `-Xms256m -Xmx16g`. Flaggan `Xms` anger den första poolen för minnesallokering för en Java Virtual Machine (JVM), medan `Xmx` anger den maximala poolen för minnesallokering. Det innebär att JVM startas med `Xms` mängden minne och kommer att kunna använda maximalt `Xmx` mängd minne. Som standard använder ADF den minsta 64 MB och Max 1G.
 
 ## <a name="next-steps"></a>Nästa steg
 

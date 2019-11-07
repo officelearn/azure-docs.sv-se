@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: b141677e60705dc4176630ee7fd195ae03bba842
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 225fcd475d488cedb8bd210fe2fa9371849314ac
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72816932"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615526"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Överföra data med AzCopy och fil lagring 
 
@@ -34,7 +34,7 @@ Du kan använda kommandot [AzCopy make](storage-ref-azcopy-make.md) för att ska
 
 För detaljerade referens dokument, se [AzCopy-fabrikat](storage-ref-azcopy-make.md).
 
-## <a name="upload-files"></a>Ladda upp filer
+## <a name="upload-files"></a>Överföra filer
 
 Du kan använda kommandot [AzCopy Copy](storage-ref-azcopy-copy.md) för att ladda upp filer och kataloger från den lokala datorn.
 
@@ -61,7 +61,7 @@ För detaljerade referens dokument se [AzCopy Copy](storage-ref-azcopy-copy.md).
 | **Uttryck** | `azcopy copy '<local-file-path>' 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-name>?<SAS-token>'` |
 | **Exempel** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
-Du kan också ladda upp en fil med en jokertecken (*) var som helst i fil Sök vägen eller fil namnet. Exempel: `'C:\myDirectory\*.txt'` eller `C:\my*\*.txt`.
+Du kan också ladda upp en fil med en jokertecken (*) var som helst i fil Sök vägen eller fil namnet. Till exempel: `'C:\myDirectory\*.txt'`eller `C:\my*\*.txt`.
 
 ### <a name="upload-a-directory"></a>Ladda upp en katalog
 
@@ -105,9 +105,9 @@ Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med alternativet `-
 | **Uttryck** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name>?<SAS-token>' --include-path <semicolon-separated-file-list>` |
 | **Exempel** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --include-path 'photos;documents\myFile.txt'` |
 
-I det här exemplet överför AzCopy katalogen `C:\myDirectory\photos` och filen `C:\myDirectory\documents\myFile.txt`. Du måste inkludera alternativet `--recursive` för att överföra alla filer i katalogen `C:\myDirectory\photos`.
+I det här exemplet överför AzCopy katalogen `C:\myDirectory\photos` och `C:\myDirectory\documents\myFile.txt`s filen. Du måste inkludera alternativet `--recursive` för att överföra alla filer i katalogen `C:\myDirectory\photos`.
 
-Du kan också utesluta filer med alternativet `--exclude-path`. Mer information finns i referens dokument för [AzCopy Copy](storage-ref-azcopy-copy.md) .
+Du kan också utesluta filer med hjälp av alternativet `--exclude-path`. Mer information finns i referens dokument för [AzCopy Copy](storage-ref-azcopy-copy.md) .
 
 #### <a name="use-wildcard-characters"></a>Använd jokertecken
 
@@ -118,7 +118,7 @@ Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med alternativet `-
 | **Uttryck** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name>?<SAS-token>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` |
 | **Exempel** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --include-pattern 'myFile*.txt;*.pdf*'` |
 
-Du kan också utesluta filer med alternativet `--exclude-pattern`. Mer information finns i referens dokument för [AzCopy Copy](storage-ref-azcopy-copy.md) .
+Du kan också utesluta filer med hjälp av alternativet `--exclude-pattern`. Mer information finns i referens dokument för [AzCopy Copy](storage-ref-azcopy-copy.md) .
 
 Alternativen `--include-pattern` och `--exclude-pattern` gäller endast för fil namn och inte till sökvägen.  Om du vill kopiera alla textfiler som finns i ett katalog träd, använder du alternativet `–recursive` för att hämta hela katalog trädet och använder sedan `–include-pattern` och anger `*.txt` för att hämta alla textfiler.
 
@@ -135,7 +135,7 @@ Det här avsnittet innehåller följande exempel:
 > * Hämta vissa filer
 
 > [!NOTE]
-> Om värdet för egenskapen `Content-md5` för en fil innehåller en hash, beräknar AzCopy en MD5-hash för hämtade data och kontrollerar att MD5-hashen som lagras i filens `Content-md5`-egenskap matchar den beräknade hashen. Om dessa värden inte matchar, Miss lyckas nedladdningen om du inte åsidosätter det här beteendet genom att lägga till `--check-md5=NoCheck` eller `--check-md5=LogOnly` till kommandot Copy.
+> Om `Content-md5` egenskap svärdet för en fil innehåller en hash, beräknar AzCopy en MD5-hash för hämtade data och verifierar att MD5-hashen som lagras i filens `Content-md5`-egenskap matchar den beräknade hashen. Om dessa värden inte matchar, Miss lyckas nedladdningen om du inte åsidosätter det här beteendet genom att lägga till `--check-md5=NoCheck` eller `--check-md5=LogOnly` till kommandot Copy.
 
 För detaljerade referens dokument se [AzCopy Copy](storage-ref-azcopy-copy.md).
 
@@ -153,8 +153,9 @@ För detaljerade referens dokument se [AzCopy Copy](storage-ref-azcopy-copy.md).
 
 |    |     |
 |--------|-----------|
-| **Uttryck** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<directory-path>?<SAS-token>' '<local-directory-path>' --recursive` |
-| **Exempel** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D' 'C:\myDirectory'  --recursive` |
+| **Uttryck** | "AzCopy Copy" https://< lagrings konto namn >. File. Core. Windows. net/< File-Share-Name >/< Directory-path >? < SAS-token > " 
+"< lokal-katalog-sökväg >"--recursive " |
+| **Exempel** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myDirectory"  --recursive` |
 
 Det här exemplet resulterar i en katalog med namnet `C:\myDirectory\myFileShareDirectory` som innehåller alla hämtade filer.
 
@@ -176,16 +177,16 @@ Du kan ange fullständiga fil namn eller använda partiella namn med jokertecken
 
 #### <a name="specify-multiple-complete-file-names"></a>Ange flera fullständiga fil namn
 
-Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med alternativet `--include-path`. Separera enskilda fil namn genom att använda en semicolin (`;`).
+Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med alternativet `--include-path`. Separera enskilda fil namn med hjälp av en semicolin (`;`).
 
 |    |     |
 |--------|-----------|
 | **Uttryck** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name>?<SAS-token>' '<local-directory-path>'  --include-path <semicolon-separated-file-list>` |
 | **Exempel** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt' --recursive` |
 
-I det här exemplet överför AzCopy katalogen `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` och filen `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/documents/myFile.txt`. Du måste inkludera alternativet `--recursive` för att överföra alla filer i katalogen `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos`.
+I det här exemplet överför AzCopy katalogen `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` och `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/documents/myFile.txt`s filen. Du måste inkludera alternativet `--recursive` för att överföra alla filer i katalogen `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos`.
 
-Du kan också utesluta filer med alternativet `--exclude-path`. Mer information finns i referens dokument för [AzCopy Copy](storage-ref-azcopy-copy.md) .
+Du kan också utesluta filer med hjälp av alternativet `--exclude-path`. Mer information finns i referens dokument för [AzCopy Copy](storage-ref-azcopy-copy.md) .
 
 #### <a name="use-wildcard-characters"></a>Använd jokertecken
 
@@ -196,7 +197,7 @@ Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med alternativet `-
 | **Uttryck** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>?<SAS-token>' '<local-directory-path>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` |
 | **Exempel** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory'  --include-pattern 'myFile*.txt;*.pdf*'` |
 
-Du kan också utesluta filer med alternativet `--exclude-pattern`. Mer information finns i referens dokument för [AzCopy Copy](storage-ref-azcopy-copy.md) .
+Du kan också utesluta filer med hjälp av alternativet `--exclude-pattern`. Mer information finns i referens dokument för [AzCopy Copy](storage-ref-azcopy-copy.md) .
 
 Alternativen `--include-pattern` och `--exclude-pattern` gäller endast för fil namn och inte till sökvägen.  Om du vill kopiera alla textfiler som finns i ett katalog träd, använder du alternativet `–recursive` för att hämta hela katalog trädet och använder sedan `–include-pattern` och anger `*.txt` för att hämta alla textfiler.
 
@@ -254,9 +255,9 @@ Du kan synkronisera innehållet i en fil resurs med en annan fil resurs. Du kan 
 > [!NOTE]
 > För närvarande stöds det här scenariot endast för konton som inte har ett hierarkiskt namn område. Den aktuella versionen av AzCopy synkroniseras inte mellan Azure Files och Blob Storage.
 
-Kommandot [Sync](storage-ref-azcopy-sync.md) jämför fil namn och senaste ändrade tidsstämplar. Ange värdet `true` för den valfria flaggan `--delete-destination` eller `prompt` för att ta bort filer i mål katalogen om filerna inte längre finns i käll katalogen.
+Kommandot [Sync](storage-ref-azcopy-sync.md) jämför fil namn och senaste ändrade tidsstämplar. Ange `--delete-destination` valfri flagga till värdet `true` eller `prompt` för att ta bort filer i mål katalogen om filerna inte längre finns i käll katalogen.
 
-Om du ställer in flaggan `--delete-destination` till `true` AzCopy ta bort filer utan att ange någon prompt. Om du vill att en prompt ska visas innan AzCopy tar bort en fil ställer du in flaggan `--delete-destination` på `prompt`.
+Om du ställer in `--delete-destination`-flaggan på `true` AzCopy tar bort filer utan att ange någon prompt. Om du vill att en prompt ska visas innan AzCopy tar bort en fil ställer du in flaggan `--delete-destination` `prompt`.
 
 Detaljerade referens dokument finns i [AzCopy Sync](storage-ref-azcopy-sync.md).
 

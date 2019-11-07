@@ -1,5 +1,5 @@
 ---
-title: Konfigurera Avancerat skydd – Azure SQL Database Hanterad instans | Microsoft Docs
+title: Konfigurera Avancerat skydd – Azure SQL Database Hanterad instans
 description: Avancerad hot skydd identifierar avvikande databas aktiviteter som indikerar potentiella säkerhetshot till databasen i en hanterad instans.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: eb6d8229e85e54a6a3fc8591dc4688a73773fd8b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 8e419031c34a693bac7ab9f9825c24576e80ba14
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816570"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687874"
 ---
 # <a name="configure-advanced-threat-protection-in-azure-sql-database-managed-instance"></a>Konfigurera Avancerat skydd i Azure SQL Database Hanterad instans
 
@@ -31,13 +31,13 @@ Du kan få meddelanden om identifierade hot via [e-postmeddelanden](sql-database
 1. Starta Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 2. Gå till konfigurations sidan för den hanterade instans som du vill skydda. På sidan **Inställningar** väljer du **Avancerad data säkerhet**.
 3. På sidan Avancerad data säkerhets konfiguration
-   - Aktivera avancerad data säkerhet.
+   - Aktivera **Avancerad** data säkerhet.
    - Konfigurera **listan med e-postmeddelanden** som ska ta emot säkerhets aviseringar vid identifiering av avvikande databas aktiviteter.
    - Välj det **Azure Storage-konto** där avvikande hot gransknings poster sparas.
    - Välj de **typer av avancerade hot skydd** som du vill konfigurera. Läs mer om [aviseringar om Avancerat skydd](sql-database-threat-detection-overview.md).
 4. Klicka på **Spara** för att spara den nya eller uppdaterade avancerade data säkerhets principen.
 
-   ![Avancerat skydd](./media/sql-database-managed-instance-threat-detection/threat-detection.png)
+   ![Advanced Threat Protection](./media/sql-database-managed-instance-threat-detection/threat-detection.png)
 
    > [!NOTE]
    > Priserna i skärm bilderna återspeglar inte alltid det aktuella priset och är ett exempel.

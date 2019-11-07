@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 7ad3f932e9a10723d6cc1bae2fc4854c932d4c64
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: eccf2a7a1b9c7ea7a21cd5d0cf0f60728284c05d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507081"
+ms.locfileid: "73579673"
 ---
 # <a name="voice-assistants-frequently-asked-questions"></a>Röst assistenter: vanliga frågor och svar
 
@@ -29,7 +29,7 @@ Om du inte kan hitta svar på dina frågor i det här dokumentet kan du titta n�
 
 **F: ska jag använda anpassade kommandon (förhands granskning) eller direkt linje tal? Vad är skillnaden?**
 
-S **:** [anpassade kommandon (förhands granskning)](custom-commands.md) är en lägre komplexitets uppsättning med verktyg som gör det enkelt att skapa och vara värd för en assistent som är väl lämpad för scenarier med uppgift att slutföra. [Direkt linje tal](direct-line-speech.md) ger bättre och mer sofistikerade funktioner som kan möjliggöra robusta konversations scenarier. Mer information finns i [jämförelse av Assistant-lösningar](voice-assistants.md#comparing-assistant-solutions) .
+S **:** [anpassade kommandon (förhands granskning)](custom-commands.md) är en lägre komplexitets uppsättning med verktyg som gör det enkelt att skapa och vara värd för en assistent som är väl lämpad för scenarier med uppgift att slutföra. [Direkt linje tal](direct-line-speech.md) ger bättre och mer sofistikerade funktioner som kan möjliggöra robusta konversations scenarier. Mer information finns i [jämförelse av Assistant-lösningar](voice-assistants.md#choosing-an-assistant-solution) .
 
 **F: Hur gör jag för att kom igång?**
 
@@ -40,6 +40,17 @@ S **:** [anpassade kommandon (förhands granskning)](custom-commands.md) är en 
 * [Anslut en robot till den direkta linjens tal kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
 ## <a name="debugging"></a>Felsökning
+
+**F: var är min kanal hemlighet?**
+
+**A:** Om du har använt för hands versionen av direkt linje tal eller läser relaterad dokumentation kan du vänta på att hitta en hemlig nyckel på registrerings sidan för direkt rad igenkänning av tal kanaler. Den `DialogServiceConfig` fabriks metoden för v 1.7 `FromBotSecret` i tal-SDK förväntar sig även det här värdet.
+
+Den senaste versionen av direkt linje tal fören klar processen med att kontakta din robot från en enhet. På sidan kanal registrering associerar List rutan längst upp din direkta serie för tal kanal registrering med en tal resurs. När det är associerat innehåller v 1.8 tal-SDK en `BotFrameworkConfig::FromSubscription` fabriks metod som konfigurerar ett `DialogServiceConnector` för att kontakta den bot som du har associerat med din prenumeration.
+
+Om du fortfarande migrerar klient programmet från v 1.7 till v 1.8 kan `DialogServiceConfig::FromBotSecret` fortsätta att arbeta med ett värde som inte är tomt för den kanal hemliga parametern, t. ex. den tidigare hemlighet som du använde. Det kommer bara att ignoreras när du använder en tal prenumeration som är associerad med en nyare kanal registrering. Observera att värdet inte *får* vara null och icke-tomt, eftersom de är markerade för enheten innan associationen på tjänst sidan är relevant.
+
+
+En mer detaljerad guide finns i [avsnittet om självstudier](tutorial-voice-enable-your-bot-speech-sdk.md#register-the-direct-line-speech-channel) som går igenom kanal registreringen.
 
 **F: Jag får ett 401-fel när jag ansluter och ingenting fungerar. Jag vet att min röst prenumerations nyckel är giltig. Vad är det som händer?**
 

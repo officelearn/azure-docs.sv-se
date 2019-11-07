@@ -1,5 +1,5 @@
 ---
-title: Lägga till en Shard med Elastic Database-verktyg | Microsoft Docs
+title: Lägga till en Shard med Elastic Database-verktyg
 description: 'Använda API: er för elastisk skalning för att lägga till nya Shards i en Shard-uppsättning.'
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: 679c1bea640644cd46c436ec04278558f610ceda
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3243c8dfcfa83129f57bcd3ea7969fb4f8b07156
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568521"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690348"
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>Lägga till en Shard med hjälp av Elastic Database verktyg
 
@@ -78,6 +78,6 @@ upd.Shard = shard2;
 sm.MarkMappingOnline(sm.UpdateMapping(sm.GetMappingForKey(25), upd));
 ```
 
-**Viktigt**:  Använd endast den här tekniken om du är säker på att intervallet för den uppdaterade mappningen är tomt.  Föregående metoder kontrollerar inte data för det område som flyttas, så det är bäst att inkludera kontroller i koden.  Om det finns rader i det område som flyttas matchar den faktiska data distributionen inte den uppdaterade Shard-kartan. Använd [verktyget Dela-sammanslagning](sql-database-elastic-scale-overview-split-and-merge.md) för att utföra åtgärden i stället i dessa fall.  
+**Viktigt**: Använd bara den här tekniken om du är säker på att intervallet för den uppdaterade mappningen är tomt.  Föregående metoder kontrollerar inte data för det område som flyttas, så det är bäst att inkludera kontroller i koden.  Om det finns rader i det område som flyttas matchar den faktiska data distributionen inte den uppdaterade Shard-kartan. Använd [verktyget Dela-sammanslagning](sql-database-elastic-scale-overview-split-and-merge.md) för att utföra åtgärden i stället i dessa fall.  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

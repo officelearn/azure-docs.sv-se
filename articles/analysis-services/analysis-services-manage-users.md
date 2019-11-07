@@ -1,18 +1,18 @@
 ---
-title: Autentisering och användar behörigheter i Azure Analysis Services | Microsoft Docs
-description: Läs mer om autentisering och användar behörigheter i Azure Analysis Services.
+title: Azure Analysis Services autentisering och användar behörigheter | Microsoft Docs
+description: I den här artikeln beskrivs hur Azure Analysis Services använder Azure Active Directory (Azure AD) för identitets hantering och användarautentisering.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a48292b7600d8b9e400bf1e2d61aec313ce29f4b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 4a054c3c042e18f1679acd75e5ba5ad74f66edff
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146870"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572754"
 ---
 # <a name="authentication-and-user-permissions"></a>Autentisering och användarbehörigheter
 

@@ -9,24 +9,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 10/23/2019
+ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: 4acf6e4df978ffee6e0f8320bafbb64994aa0639
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 22a37dbd0b76710a14183aec1795639614207d16
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495454"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73613727"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Snabbstart: Använda en färdig hemautomatiseringsapp
 
+[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
+
 I den här snabbstarten skapar du en LUIS-app som använder den fördefinierade domänen `HomeAutomation` för att släcka lampor och stänga av apparater. Den fördefinierade domänen ger dig avsikter, entiteter och exempelyttranden. När du är klar har du en LUIS-slutpunkt som körs i molnet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För den här artikeln behöver du ett kostnadsfritt LUIS-konto som skapas på LUIS-portalen på [https://www.luis.ai](https://www.luis.ai). 
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
+
+[!INCLUDE [Select authoring resource](./includes/select-authoring-resource.md)]
 
 ## <a name="create-a-new-app"></a>Skapa en ny app
 Du kan skapa och hantera dina appar på **Mina appar**. 
@@ -35,7 +39,7 @@ Du kan skapa och hantera dina appar på **Mina appar**.
 
     ![I LUIS-portalen i listan Mina appar väljer du + skapa.](./media/create-app-in-portal.png)
 
-1. I dialog rutan namnger du ditt program `Home Automation` väljer sedan **slutfört**. LUIS skapar appen.
+1. I dialog rutan namnger du ditt program `Home Automation` väljer sedan **slutfört**. LUIS skapar appen. Beskrivningen är valfri och används inte för redigering eller förutsägelse. Förutsägelse resursen är också valfri när du skapar en LUIS-app. När du publicerar din app till produktion bör du tilldela en förutsägelse resurs så att din app kan hantera många begär Anden.  
 
     ![I dialog rutan namnger du appens hem automatisering](./media/create-new-app-details.png)
 
@@ -65,7 +69,7 @@ Välj avsikten **HomeAutomation.TurnOff** (stänga av). Du kan se att avsikten i
 
 ## <a name="train-the-luis-app"></a>Träna LUIS-appen
 
-[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## <a name="test-your-app"></a>Testa din app
 När du har tränat appen kan du testa den. Välj **test**. Skriv ett test-uttryck som `Turn off the lights` i det interaktiva test fönstret och tryck på RETUR. 
@@ -114,7 +118,25 @@ Välj **Test** igen för att dölja testfönstret.
             "topIntent": "HomeAutomation.TurnOff",
             "intents": {
                 "HomeAutomation.TurnOff": {
-                    "score": 0.967174649
+                    "score": 0.984315455
+                },
+                "HomeAutomation.QueryState": {
+                    "score": 0.009912962
+                },
+                "HomeAutomation.TurnDown": {
+                    "score": 0.00626645749
+                },
+                "HomeAutomation.TurnUp": {
+                    "score": 0.00572059769
+                },
+                "HomeAutomation.SetDevice": {
+                    "score": 0.00379381469
+                },
+                "HomeAutomation.TurnOn": {
+                    "score": 0.00366983772
+                },
+                "None": {
+                    "score": 0.000623856
                 }
             },
             "entities": {
@@ -138,7 +160,7 @@ Välj **Test** igen för att dölja testfönstret.
                             "text": "living room",
                             "startIndex": 13,
                             "length": 11,
-                            "score": 0.9494325,
+                            "score": 0.907323956,
                             "modelTypeId": 1,
                             "modelType": "Entity Extractor",
                             "recognitionSources": [

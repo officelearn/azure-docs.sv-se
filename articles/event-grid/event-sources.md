@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 5e8dc6629cfbbc3e42aeeb4dc94f33d13867ca9f
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 8c9258f099587ba4dbdfe3a7e46f72cd7a825024
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024800"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603824"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Händelse källor i Azure Event Grid
 
@@ -129,7 +129,7 @@ Prenumerera på Service Bus händelser för att svara på meddelanden utan en ak
 | [Översikt: Azure Service Bus till Event Grid-integrering](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Översikt över att integrera Service Bus med Event Grid. |
 | [Händelse schema](event-schema-service-bus.md) | Visar fält i Service Bus händelser. |
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 
 Prenumerera på Blob Storage händelser för att svara på BLOB-skapade och borttagna händelser.
 
@@ -144,7 +144,7 @@ Prenumerera på Blob Storage händelser för att svara på BLOB-skapade och bort
 | [Översikt: reagerar på Blob Storage-händelser](../storage/blobs/storage-blob-event-overview.md) | Översikt över integrering av Blob Storage med Event Grid. |
 | [Händelse schema](event-schema-blob-storage.md) | Visar fält i Blob Storage händelser. |
 
-## <a name="maps"></a>Maps
+## <a name="maps"></a>Kartor
 Prenumerera på Azure Maps händelser för att svara på händelser på en inhägnad. Ett program kan till exempel leverera ett e-postmeddelande varje gång en enhet går in eller avslutar ett avgränsnings tecken.
 
 |Rubrik  |Beskrivning  |
@@ -171,7 +171,14 @@ Prenumerera på händelser i Azure SignalR service och svara på klient anslutni
 | [Så här skickar du Azure SignalR service-händelser till Event Grid](../azure-signalr/signalr-howto-event-grid-integration.md) | Visar hur du skickar Azure SignalR service-händelser till ett program via Event Grid. |
 | [Händelse schema](event-schema-azure-signalr.md) | Visar fält i Azure SignalR service-händelser. |
 
+## <a name="azure-machine-learning"></a>Azure Machine Learning
 
+Prenumerera på Azure Machine Learning arbets ytans händelser för att svara på modell registrering.
+
+| Rubrik | Beskrivning |
+| ----- | ----- |
+| [Använda Azure Machine Learning händelser](../machine-learning/service/concept-event-grid-integration.md) | Översikt över att integrera Azure Machine Learning med Event Grid. |
+| [Azure Event Grid händelse schema för Azure Machine Learning](event-schema-machine-learning.md) | Visar fält i Azure Machine Learning händelser. |
 
 ## <a name="next-steps"></a>Nästa steg
 

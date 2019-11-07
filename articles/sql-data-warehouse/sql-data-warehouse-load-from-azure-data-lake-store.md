@@ -1,5 +1,5 @@
 ---
-title: Kurs inläsning från Azure Data Lake Storage till Azure SQL Data Warehouse | Microsoft Docs
+title: Självstudier läsa in data från Azure Data Lake Storage
 description: Använd PolyBase-externa tabeller för att läsa in data från Azure Data Lake Storage till Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,13 @@ ms.subservice: load-data
 ms.date: 08/08/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 3db355cf5782620bda3a9e04afbee073c8929856
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 522cb9b75d5c0db270f8ba4a65850e35a2e8c4fd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935123"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685689"
 ---
 # <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Läsa in data från Azure Data Lake Storage till SQL Data Warehouse
 Använd PolyBase-externa tabeller för att läsa in data från Azure Data Lake Storage till Azure SQL Data Warehouse. Även om du kan köra adhoc-frågor på data som lagras i Data Lake Storage rekommenderar vi att du importerar data till SQL Data Warehouse för bästa prestanda.
@@ -203,7 +204,7 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 ## <a name="optimize-statistics"></a>Optimera statistik
 Det är bäst att skapa statistik med en kolumn direkt efter en belastning. Det finns några val för statistik. Om du till exempel skapar en statistik med en kolumn på varje kolumn kan det ta lång tid att bygga om all statistik. Om du vet att vissa kolumner inte kommer att finnas i frågesyntaxen kan du hoppa över att skapa statistik för dessa kolumner.
 
-Om du väljer att skapa en statistik med en kolumn på varje kolumn i varje tabell, kan du använda exemplet `prc_sqldw_create_stats` på den lagrade procedur koden i [statistik](sql-data-warehouse-tables-statistics.md) artikeln.
+Om du bestämmer dig för att skapa en statistik med en kolumn på varje kolumn i varje tabell kan du använda exempel koden för den lagrade proceduren `prc_sqldw_create_stats` i [statistik](sql-data-warehouse-tables-statistics.md) artikeln.
 
 I följande exempel visas en start punkt för att skapa statistik. Den skapar statistik med en kolumn för varje kolumn i tabellen dimension och i varje kopplings kolumn i fakta tabellerna. Du kan alltid lägga till en eller flera kolumn statistik i andra fakta tabell kolumner senare.
 

@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: fbc24705288d9bb4acf0d1b2d99dfbda32149614
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 8679f5dcd01a6cc660561097fc607fabdfdbba71
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163561"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607003"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Anpassa Remote Desktop Protocol egenskaper för en värd pool
 
 Genom att anpassa en värd Pools egenskaper för Remote Desktop Protocol (RDP), till exempel flera skärmar och omdirigering av ljud, kan du leverera en optimal upplevelse för dina användare utifrån deras behov. Du kan anpassa RDP-egenskaperna i Windows Virtual Desktop med parametern **-CustomRdpProperty** i cmdleten **set-RdsHostPool** .
 
-Se en fullständig lista över vilka egenskaper som stöds och standardvärden för RDP-filinställningar för [fjärr skrivbord](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files) .
+Se en fullständig lista över vilka egenskaper som stöds och standardvärden för [RDP-filinställningar för fjärr skrivbord](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files) .
 
 Börja med att [Hämta och importera Windows Virtual Desktop PowerShell-modulen](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) som ska användas i PowerShell-sessionen om du inte redan gjort det. Sedan kör du följande cmdlet för att logga in på ditt konto:
 

@@ -1,6 +1,6 @@
 ---
-title: Undanta diskar från replikering för VMware-haveriberedskap till Azure med hjälp av Azure Site Recovery | Microsoft Docs
-description: Beskriver varför och hur du undantar VM-diskar från replikering för VMware-haveriberedskap till Azure.
+title: Undanta virtuella VMware-diskar från haveri beredskap till Azure med Azure Site Recovery
+description: Beskriver varför och hur du undantar VM-diskar från replikering för VMware haveri beredskap till Azure.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,16 +8,16 @@ ms.workload: storage-backup-recovery
 ms.date: 3/3/2019
 ms.author: mayg
 ms.topic: conceptual
-ms.openlocfilehash: 105074892cc6dfa4da1e7c8ddd0a0aad9f1b60a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c003620420611f3416e6481c575f987fbd1bd05f
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60922109"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622379"
 ---
-# <a name="exclude-disks-from-replication-of-vmware-vms-to-azure"></a>Undanta diskar från replikering av virtuella VMware-datorer till Azure
+# <a name="exclude-disks-from-vmware-vm-replication-to-azure"></a>Exkludera diskar från VMware VM-replikering till Azure
 
-Den här artikeln beskriver hur du undantar diskar när du replikerar virtuella VMware-datorer till Azure. Det här undantaget kan optimera replikeringsbandbredden som används eller optimera resurser som används av dessa diskar på målsidan. Om du behöver information om att undanta diskar för Hyper-V läser [i den här artikeln](hyper-v-exclude-disk.md)
+Den här artikeln beskriver hur du undantar diskar när du replikerar virtuella VMware-datorer till Azure. Det här undantaget kan optimera replikeringsbandbredden som används eller optimera resurser som används av dessa diskar på målsidan. Läs [den här artikeln](hyper-v-exclude-disk.md) om du behöver information om exklusive diskar för Hyper-V
 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
@@ -45,19 +45,19 @@ På samma sätt kan du följa stegen nedan för att optimera en disk som har bå
 
 ## <a name="how-to-exclude-disks-from-replication"></a>Hur undantar jag en disk från replikering?
 
-Följ arbetsflödet i [Aktivera replikering](vmware-azure-enable-replication.md) för att skydda en virtuell dator med hjälp av Azure Site Recovery-portalen. I det fjärde steget i arbetsflödet ska du använda kolumnen **DISK TO REPLICATE** (DISK ATT REPLIKERA) för att exkludera diskar från replikering. Som standard är alla diskar markerade för replikering. Avmarkera den disk som du vill undanta från replikeringen och följ stegen för att aktivera replikering.
+Följ arbetsflödet i [Aktivera replikering](vmware-azure-enable-replication.md) för att skydda en virtuell dator från Azure Site Recovery-portalen. I det fjärde steget i arbetsflödet ska du använda kolumnen **DISK TO REPLICATE** (DISK ATT REPLIKERA) för att exkludera diskar från replikering. Som standard är alla diskar markerade för replikering. Avmarkera den disk som du vill undanta från replikeringen och följ stegen för att aktivera replikering.
 
 ![Exkludera diskar från replikering och aktivera replikering för VMware till Azure-återställning efter fel](./media/vmware-azure-exclude-disk/enable-replication-exclude-disk1.png)
 
 
 >[!NOTE]
 >
-> * Du kan endast utesluta diskar på virtuella datorer som redan har mobilitetstjänsten installerad. Du måste installera mobilitetstjänsten manuellt eftersom den endast installeras med push-mekanismen när replikering har aktiverats.
+> * Du kan bara utesluta diskar på virtuella datorer där mobilitets tjänsten redan är installerad. Du måste installera mobilitetstjänsten manuellt eftersom den endast installeras med push-mekanismen när replikering har aktiverats.
 > * Endast standarddiskar kan undantas från replikering. Du kan inte undanta operativsystemdiskar eller dynamiska diskar.
 > * När du har aktiverat replikering kan du inte lägga till eller ta bort diskar för replikering. Om du vill lägga till eller undanta en disk måste du inaktivera skyddet för datorn och sedan aktivera det igen.
 > * Om du undantar en disk som behövs för att ett program ska fungera efter redundansväxlingen till Azure måste du skapa disken manuellt i Azure så att det replikerade programmet kan köras. Du kan också integrera Azure Automation i en återställningsplan för att skapa disken under en redundansväxling av datorn.
-> * Windows-dator: Diskar som du skapar manuellt i Azure växlas inte tillbaka igen. Om du till exempel växlar över tre diskar och skapar två diskar direkt i Azure Virtual Machines kommer endast tre diskar som växlades över att växlas tillbaka. Du kan inte ta med diskar som har skapats manuellt i redundansväxlingar eller vars skydd har återaktiverats från en lokal plats till Azure.
-> * Linux-dator: Diskar som du skapar manuellt i Azure växlas tillbaka igen. Om du till exempel växlar över tre diskar och skapar två diskar direkt i Azure Virtual Machines kommer alla fem diskar att växlas tillbaka. Du kan inte undanta diskar som har skapats manuellt från återställningen.
+> * Virtuell Windows-dator: Diskar som du skapar manuellt i Azure växlas inte tillbaka igen. Om du till exempel växlar över tre diskar och skapar två diskar direkt i Azure Virtual Machines kommer endast tre diskar som växlades över att växlas tillbaka. Du kan inte ta med diskar som har skapats manuellt i redundansväxlingar eller vars skydd har återaktiverats från en lokal plats till Azure.
+> * Virtuell Linux-dator: Diskar som du skapar manuellt i Azure växlas tillbaka igen. Om du till exempel växlar över tre diskar och skapar två diskar direkt i Azure Virtual Machines kommer alla fem diskar att växlas tillbaka. Du kan inte undanta diskar som har skapats manuellt från återställningen.
 >
 
 
@@ -80,7 +80,7 @@ Diskarna på den virtuella källdatorn är följande:
 DB-Disk0-OS | DISK0 | C:\ | Operativsystemdisk
 DB-Disk1| Disk1 | D:\ | SQL-systemdatabas och användardatabas1
 DB-Disk2 (disken har undantagits från skydd) | Disk2 | E:\ | Tillfälliga filer
-DB-Disk3 (disken har undantagits från skydd) | Disk3 | F:\ | SQL tempdb-databasen (mappsökväg (F:\MSSQL\Data\) <br /> <br />Skriv ned mappsökvägen före redundansväxling.
+DB-Disk3 (disken har undantagits från skydd) | Disk3 | F:\ | SQL tempdb-databasen (mappsökväg (F:\MSSQL\Data\) <br /> <br />Anteckna sökvägen till mappen före redundansväxlingen.
 DB-Disk4 | Disk4 |G:\ |Användardatabas2
 
 Eftersom dataomsättning på två diskar i den virtuella datorn är tillfällig ska du undanta Disk2 och Disk3 från replikering när du skyddar den virtuella SalesDB-datorn. Azure Site Recovery replikerar inte diskarna. Vid redundansväxlingen visas inte dessa diskar på den virtuella datorn som redundansväxlas på Azure.
@@ -90,7 +90,7 @@ Diskar på virtuella Azure-datorer efter redundansväxling är följande:
 **Antal gästoperativsystem** | **Enhetsbeteckning** | **Datatyp på disken**
 --- | --- | ---
 DISK0 | C:\ | Operativsystemdisk
-Disk1 | E:\ | Tillfällig lagring<br /> <br />Azure lägger till den här disken och tilldelar den första tillgängliga enhetsbeteckningen.
+Disk1 | E:\ | Tillfällig lagring<br /> <br />Azure lägger till den här disken och tilldelar den första tillgängliga enhets beteckningen.
 Disk2 | D:\ | SQL-systemdatabas och användardatabas1
 Disk3 | G:\ | Användardatabas2
 
@@ -154,7 +154,7 @@ I föregående exempel är diskkonfigurationen av den virtuella Azure-datorn fö
 **Antal gästoperativsystem** | **Enhetsbeteckning** | **Datatyp på disken**
 --- | --- | ---
 DISK0 | C:\ | Operativsystemdisk
-Disk1 | E:\ | Tillfällig lagring<br /> <br />Azure lägger till den här disken och tilldelar den första tillgängliga enhetsbeteckningen.
+Disk1 | E:\ | Tillfällig lagring<br /> <br />Azure lägger till den här disken och tilldelar den första tillgängliga enhets beteckningen.
 Disk2 | D:\ | SQL-systemdatabas och användardatabas1
 Disk3 | G:\ | Användardatabas2
 
@@ -203,7 +203,7 @@ Här följer inställningarna för växlingsfiler på den virtuella Azure-källd
 
 ![Inställningar för växlingsfiler på den virtuella Azure-datorn](./media/vmware-azure-exclude-disk/pagefile-on-azure-vm-after-failover.png)
 
-### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Fall 2: Växlingsfilen är konfigurerad på en annan enhet (än d:)
+### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Fall 2: Växlingsfilen är konfigurerad på en annan enhet (än D:)
 
 Här är diskkonfigurationen av den virtuella källdatorn:
 

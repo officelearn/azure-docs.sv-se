@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 730ccd7c64ac9ca87fb6da5add130feb3b6ce502
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 73b99b9ebcd18e1eb5b670d0809d1f0f6cbf8f9a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201946"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582915"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Få överblick över hela organisationen för Azure Security Center
 Den här artikeln hjälper dig att komma igång genom att utföra flera åtgärder som maximerar fördelarna Azure Security Center ger. Genom att utföra de här åtgärderna kan du få insyn i alla Azure-prenumerationer som är länkade till din Azure Active Directory-klient och effektivt hantera din organisations säkerhets position i stor skala genom att tillämpa säkerhets principer över flera prenumerationer på ett samlings sätt.
@@ -41,7 +41,7 @@ Du kan organisera prenumerationer i hanterings grupper och tillämpa dina styrni
 
  
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj **alla tjänst** > **hanterings grupper**.
+2. Välj **alla tjänster** > **hanterings grupper**.
 3. På huvud sidan väljer du **ny hanterings grupp.** 
 
     ![Huvud grupp](./media/security-center-management-groups/main.png) 
@@ -50,7 +50,7 @@ Du kan organisera prenumerationer i hanterings grupper och tillämpa dina styrni
     - Fältet visnings namn är det namn som visas i Azure Portal. Ett separat visnings namn är ett valfritt fält när du skapar hanterings gruppen och kan ändras när som helst.  
 
       ![Skapa](./media/security-center-management-groups/create_context_menu.png)  
-5.  Välj **spara**
+5.  Välj **Spara**
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Visa hanterings grupper i Azure Portal
 1. Logga in på [Azure Portal](https://portal.azure.com).
@@ -102,7 +102,7 @@ För att få insyn i alla prenumerationer måste klient organisations administra
  
 1. Klicka på **åtkomst kontroll (IAM)** och sedan **roll tilldelningar**.
 
-1. Klicka på **Lägg till rolltilldelning**.
+1. Klicka på **Lägg till roll tilldelning**.
 
 1. Välj den roll som ska tilldelas och användaren och klicka sedan på **Spara**.  
    
@@ -168,7 +168,7 @@ När RBAC-rollerna har tilldelats till användarna bör klient administratören 
 
 
 
-## <a name="adding-subscriptions-to-a-management-groups"></a>Lägga till prenumerationer i en hanterings grupp
+## <a name="adding-subscriptions-to-a-management-group"></a>Lägga till prenumerationer i en hanterings grupp
 Du kan lägga till prenumerationer i hanterings gruppen som du skapade. De här stegen är inte obligatoriska för att få insyn i hela klienten och global princip-och åtkomst hantering.
 
 1. Under **hanteringsgrupper**väljer du en hanterings grupp som du vill lägga till din prenumeration i.

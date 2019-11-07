@@ -1,6 +1,6 @@
 ---
-title: Kopiera data från Google BigQuery med hjälp av Azure Data Factory | Microsoft Docs
-description: Lär dig hur du kopierar data från Google BigQuery till mottagarens datalager genom att använda en Kopieringsaktivitet i en data factory-pipeline.
+title: Kopiera data från Google BigQuery med hjälp av Azure Data Factory
+description: Lär dig hur du kopierar data från Google BigQuery till mottagar data lager som stöds med hjälp av en kopierings aktivitet i en Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: e46bb5e79b20c303dc2d3c29277047aad9f3ffb1
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: d57260db74a1373eb461c560e013be620910eee9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090321"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680924"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Kopiera data från Google BigQuery med hjälp av Azure Data Factory
 
-Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från Google BigQuery. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över kopieringsaktiviteten.
+Den här artikeln beskriver hur du använder kopierings aktivitet i Azure Data Factory för att kopiera data från Google BigQuery. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -30,40 +30,40 @@ Den här Google BigQuery-anslutningen stöds för följande aktiviteter:
 - [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
 - [Sökningsaktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från Google BigQuery till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor och mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från Google BigQuery till alla mottagar data lager som stöds. En lista över data lager som stöds som källor eller mottagare av kopierings aktiviteten finns i tabellen med [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-Data Factory tillhandahåller en inbyggd drivrutin om du vill aktivera anslutningen. Därför behöver du inte manuellt har installerat en drivrutin för att använda den här anslutningen.
+Data Factory innehåller en inbyggd driv rutin som möjliggör anslutning. Därför behöver du inte installera en driv rutin manuellt för att använda den här anslutningen.
 
 >[!NOTE]
->Det här Google BigQuery-anslutningsapp är byggt på BigQuery APIs. Tänk på att BigQuery begränsningar av inkommande begäranden och tillämpar lämpliga kvoter på basis av per projekt, referera till [kvoter och gränser - API: et begär](https://cloud.google.com/bigquery/quotas#api_requests). Kontrollera att du inte utlösa för många samtidiga begäranden till kontot.
+>Den här Google BigQuery-anslutningen är byggd ovanpå BigQuery-API: erna. Tänk på att BigQuery begränsar Max antalet inkommande begär Anden och tillämpar lämpliga kvoter per projekt, se [kvoter & gränser – API-begäranden](https://cloud.google.com/bigquery/quotas#api_requests). Se till att du inte utlöser för många samtidiga begär anden till kontot.
 
 ## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för Google BigQuery-anslutningsapp.
+Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter som är speciella för Google BigQuery-anslutningen.
 
-## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
+## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 
-Följande egenskaper stöds för Google BigQuery länkad tjänst.
+Följande egenskaper stöds för den länkade Google BigQuery-tjänsten.
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen måste anges till **GoogleBigQuery**. | Ja |
-| project | Projekt-ID för BigQuery standardprojekt att fråga mot.  | Ja |
-| additionalProjects | En kommaavgränsad lista över projekt-ID: N offentliga BigQuery projekt till åtkomst.  | Nej |
-| requestGoogleDriveScope | Om du vill begära åtkomst till Google Drive. Att tillåta åtkomst för Google Drive aktiverar stöd för externa tabeller som kombinerar BigQuery-data med data från Google Drive. Standardvärdet är **FALSKT**.  | Nej |
-| authenticationType | OAuth 2.0 autentiseringsmekanism som används för autentisering. ServiceAuthentication kan användas endast på lokal Integration Runtime. <br/>Tillåtna värden är **UserAuthentication** och **ServiceAuthentication**. Avse respektive avsnitt under den här tabellen på fler egenskaper och JSON-exempel för dessa typer av autentisering. | Ja |
+| typ | Egenskapen Type måste anges till **GoogleBigQuery**. | Ja |
+| projektfilerna | Projekt-ID: t för det standard BigQuery-projekt som frågas mot.  | Ja |
+| additionalProjects | En kommaavgränsad lista med projekt-ID: n för offentliga BigQuery-projekt att komma åt.  | Nej |
+| requestGoogleDriveScope | Om du vill begära åtkomst till Google Drive. Att tillåta Google Drive Access aktiverar stöd för federerade tabeller som kombinerar BigQuery-data med data från Google Drive. Standardvärdet är **false**.  | Nej |
+| authenticationType | OAuth 2,0-autentiseringsmekanismen som används för autentisering. ServiceAuthentication kan bara användas på egna värdbaserade Integration Runtime. <br/>Tillåtna värden är **UserAuthentication** och **ServiceAuthentication**. I avsnitt under den här tabellen hittar du fler egenskaper och JSON-exempel för de typerna av autentisering. | Ja |
 
-### <a name="using-user-authentication"></a>Med hjälp av autentisering av användare
+### <a name="using-user-authentication"></a>Använda användarautentisering
 
-Ange egenskapen ”authenticationType” som **UserAuthentication**, och ange följande egenskaper tillsammans med allmänna egenskaper som beskrivs i föregående avsnitt:
+Ange egenskapen "authenticationType" till **UserAuthentication**och ange följande egenskaper tillsammans med allmänna egenskaper som beskrivs i föregående avsnitt:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | clientId | ID för programmet som används för att generera uppdateringstoken. | Nej |
-| clientSecret | Hemligheten för programmet som används för att generera uppdateringstoken. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
-| refreshToken | Uppdateringstoken som hämtas från Google som används för att auktorisera åtkomst till BigQuery. Lär dig hur du skaffa ett från [hämta OAuth 2.0-åtkomsttoken](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens) och [community-blogg](https://jpd.ms/getting-your-bigquery-refresh-token-for-azure-datafactory-f884ff815a59). Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
+| clientSecret | Hemlighet för det program som används för att generera uppdateringstoken. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
+| refreshToken | Den uppdateringstoken som hämtades från Google som används för att ge åtkomst till BigQuery. Lär dig hur du får en från att [Skaffa OAuth 2,0](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens) -åtkomsttoken och [den här Community-bloggen](https://jpd.ms/getting-your-bigquery-refresh-token-for-azure-datafactory-f884ff815a59). Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 
 **Exempel:**
 
@@ -91,16 +91,16 @@ Ange egenskapen ”authenticationType” som **UserAuthentication**, och ange f�
 }
 ```
 
-### <a name="using-service-authentication"></a>Med hjälp av tjänst-autentisering
+### <a name="using-service-authentication"></a>Använda tjänsteautentisering
 
-Ange egenskapen ”authenticationType” som **ServiceAuthentication**, och ange följande egenskaper tillsammans med allmänna egenskaper som beskrivs i föregående avsnitt. Den här autentiseringstypen kan användas enbart på lokal Integration Runtime.
+Ange egenskapen "authenticationType" till **ServiceAuthentication**och ange följande egenskaper tillsammans med allmänna egenskaper som beskrivs i föregående avsnitt. Den här autentiseringstypen kan endast användas på egna värdbaserade Integration Runtime.
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| email | Tjänsten konto e-ID som används för ServiceAuthentication. Den kan användas enbart på lokal Integration Runtime.  | Nej |
-| keyFilePath | Den fullständiga sökvägen till den .p12-nyckelfil som används för att autentisera den tjänst e-postadressen. | Nej |
-| trustedCertPath | Den fullständiga sökvägen till PEM-fil som innehåller certifikat från betrodda Certifikatutfärdare används för att verifiera servern när du ansluter via SSL. Den här egenskapen kan anges endast när du använder SSL på lokal Integration Runtime. Standardvärdet är filen cacerts.pem installerad med integration runtime.  | Nej |
-| useSystemTrustStore | Anger om du vill använda ett CA-certifikat från arkivet med betrodda system eller från en angiven .pem-fil. Standardvärdet är **FALSKT**.  | Nej |
+| e-post | E-postadressen för tjänst kontot som används för ServiceAuthentication. Den kan endast användas på egna värdbaserade Integration Runtime.  | Nej |
+| keyFilePath | Den fullständiga sökvägen till nyckel filen. p12 som används för att autentisera tjänst kontots e-postadress. | Nej |
+| trustedCertPath | Den fullständiga sökvägen till. pem-filen som innehåller certifikat från betrodda certifikat utfärdare som används för att verifiera servern när du ansluter via SSL. Den här egenskapen kan bara anges när du använder SSL på egen värd Integration Runtime. Standardvärdet är cacerts. pem-filen som installeras med integration Runtime.  | Nej |
+| useSystemTrustStore | Anger om du vill använda ett CA-certifikat från systemets betrodda lager eller från en angiven. PEM-fil. Standardvärdet är **false**.  | Nej |
 
 **Exempel:**
 
@@ -124,18 +124,18 @@ Ange egenskapen ”authenticationType” som **ServiceAuthentication**, och ange
 }
 ```
 
-## <a name="dataset-properties"></a>Egenskaper för datamängd
+## <a name="dataset-properties"></a>Egenskaper för data mängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Google BigQuery-datauppsättningen.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Google BigQuery-datauppsättningen.
 
-Om du vill kopiera data från Google BigQuery, ange typegenskapen på datauppsättningen till **GoogleBigQueryObject**. Följande egenskaper stöds:
+Om du vill kopiera data från Google BigQuery anger du egenskapen type för data uppsättningen till **GoogleBigQueryObject**. Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Data uppsättningens typ-egenskap måste anges till: **GoogleBigQueryObject** | Ja |
-| data uppsättning | Namnet på Google BigQuery-datauppsättningen. |Nej (om ”query” i aktivitetskälla har angetts)  |
-| table | Namnet på tabellen. |Nej (om ”query” i aktivitetskälla har angetts)  |
-| tableName | Namnet på tabellen. Den här egenskapen stöds för bakåtkompatibilitet. Använd `dataset` och`table`för ny arbets belastning. | Nej (om ”query” i aktivitetskälla har angetts) |
+| typ | Data uppsättningens typ-egenskap måste anges till: **GoogleBigQueryObject** | Ja |
+| Data uppsättning | Namnet på Google BigQuery-datauppsättningen. |Nej (om "fråga" i aktivitets källan har angetts)  |
+| partitionstabell | Tabellens namn. |Nej (om "fråga" i aktivitets källan har angetts)  |
+| tableName | Tabellens namn. Den här egenskapen stöds för bakåtkompatibilitet. Använd `dataset` och `table` för ny arbets belastning. | Nej (om "fråga" i aktivitets källan har angetts) |
 
 **Exempel**
 
@@ -156,16 +156,16 @@ Om du vill kopiera data från Google BigQuery, ange typegenskapen på datauppsä
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av typen av datakälla Google BigQuery.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av käll typen Google BigQuery.
 
-### <a name="googlebigquerysource-as-a-source-type"></a>GoogleBigQuerySource som en typ av datakälla
+### <a name="googlebigquerysource-as-a-source-type"></a>GoogleBigQuerySource som typ av källa
 
-Om du vill kopiera data från Google BigQuery, ange typ av datakälla i kopieringsaktiviteten till **GoogleBigQuerySource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet.
+Om du vill kopiera data från Google BigQuery anger du käll typen i kopierings aktiviteten till **GoogleBigQuerySource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** .
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till **GoogleBigQuerySource**. | Ja |
-| query | Använda anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till **GoogleBigQuerySource**. | Ja |
+| query | Använd den anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**
 
@@ -204,4 +204,4 @@ Om du vill kopiera data från Google BigQuery, ange typ av datakälla i kopierin
 Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Data Factory finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 33b4ed3974c3e4e88e5d74ff31a3b8008ab565e9
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 0f45af2730b05998fc82212c63778c89bb16b6ef
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657325"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585078"
 ---
 # <a name="use-remote-desktop-for-linux-virtual-machines-in-a-classroom-lab-of-azure-lab-services"></a>Använd fjärr skrivbord för virtuella Linux-datorer i ett klass rums labb i Azure Lab Services
 Den här artikeln visar hur studenter kan ansluta till en virtuell Linux-dator (VM) i ett labb med hjälp av RDP/SSH. 
@@ -32,7 +32,7 @@ En instruktör måste aktivera funktionen anslutning till fjärr skrivbord innan
 Studenter kan RDP i sina virtuella Linux-datorer efter labb ägaren (lärare/lärare) **publicerar** mallen VM med RDP-och GUI-paket som är installerade på datorn. Här är stegen: 
 
 1. När en student loggar in på labb portalen direkt (`https://labs.azure.com`) eller genom att använda en registrerings länk (`https://labs.azure.com/register/<registrationCode>`), visas en panel för varje labb som eleven har åtkomst till. 
-2. På panelen väljer du **Starta** om den virtuella datorn har stoppats. 
+2. På panelen växlar du knappen för att starta den virtuella datorn om den är i stoppat läge. 
 3. Välj **Anslut**. Du ser två alternativ för att ansluta till den virtuella datorn: **SSH** och **fjärr skrivbord**.
 
     ![Elev VM – anslutnings alternativ](../media/how-to-enable-remote-desktop-linux/student-vm-connect-options.png)

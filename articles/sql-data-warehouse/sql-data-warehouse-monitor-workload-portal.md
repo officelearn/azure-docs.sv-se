@@ -1,5 +1,5 @@
 ---
-title: Övervaka arbets belastning – Azure Portal | Microsoft Docs
+title: Övervaka arbets belastning – Azure Portal
 description: Övervaka Azure SQL Data Warehouse att använda Azure Portal
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,21 +10,21 @@ ms.subservice: manage
 ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 176762e0d1c007f924d779a1b77dd52c7ed56e01
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 73d837c34dd5a480cae08a41c89939414899052a
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981492"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73645625"
 ---
 # <a name="monitor-workload---azure-portal"></a>Övervaka arbets belastning – Azure Portal
 
 Den här artikeln beskriver hur du använder Azure Portal för att övervaka arbets belastningen. Detta innefattar att ställa in Azure Monitor loggar för att undersöka frågor om körning och arbets belastnings trender med Log Analytics för [Azure SQL Data Warehouse](https://azure.microsoft.com/blog/workload-insights-with-sql-data-warehouse-delivered-through-azure-monitor-diagnostic-logs-pass/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- Azure-prenumeration: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-- Azure SQL Data Warehouse: Vi kommer att samla in loggar för en SQL Data Warehouse. Om du inte har en SQL Data Warehouse etablerad kan du läsa anvisningarna i [skapa en SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial).
+- Azure-prenumeration: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+- Azure SQL Data Warehouse: vi kommer att samla in loggar för en SQL Data Warehouse. Om du inte har en SQL Data Warehouse etablerad kan du läsa anvisningarna i [skapa en SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial).
 
 ## <a name="create-a-log-analytics-workspace"></a>Skapa en Log Analytics arbets yta
 
@@ -61,7 +61,7 @@ Navigera till din Log Analytics arbets yta där du kan göra följande:
 
 - Analysera loggar med hjälp av logg frågor och spara frågor för åter användning
 - Spara frågor för åter användning
-- Skapa logg aviseringar
+- Skapa loggaviseringar
 - Fäst frågeresultat på en instrument panel
 
 Mer information om funktionerna i logg frågor finns i följande [dokumentation](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
@@ -99,4 +99,4 @@ AzureDiagnostics
 ```
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har konfigurerat och konfigurerat Azure Monitor-loggar, [anpassar du Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) -instrumentpaneler så att de delas i hela teamet.
+Nu när du har konfigurerat och konfigurerat Azure Monitor-loggar, [anpassar du Azure-instrumentpaneler](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) så att de delas i hela teamet.

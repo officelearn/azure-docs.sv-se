@@ -1,5 +1,5 @@
 ---
-title: Förbrukade Azure SQL Database Premium RS service nivå | Microsoft Docs
+title: Förbrukade Azure SQL Database Premium RS service nivå
 description: Den Premium RS tjänst nivån dras tillbaka och support för den slutar att se migreringen.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/07/2019
-ms.openlocfilehash: d2637618ea9e2a0a0d0369eddce01fae073be221
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 688fd3fdefb54fc25d5236277c85dd4262df5f34
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566632"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687238"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Azure SQL Database Premium RS tjänst nivå (för hands version) dras tillbaka – alternativ för migrering
 
@@ -26,7 +26,7 @@ Följande är de destinationer för migrering och pris alternativ som kan vara l
 
 - vCore tjänst nivåer
 
-  **Generell användning** -och **affärskritisk** tjänst nivåerna i den [vCore-baserade inköps modellen](sql-database-service-tiers-vcore.md). Dessa två tjänst nivåer är allmänt tillgängliga. Den vCore-baserade inköps modellen erbjuder också den storskaliga tjänst nivån som anpassar efter behov till din arbets belastnings behov med automatisk skalning upp till 100 TB per databas. Den storskaliga Service nivån ger i/o-prestanda som är jämförbar med Premium service-nivån i den [DTU-baserade inköps modellen](sql-database-service-tiers-dtu.md) till ett pris närmare Premium RS tjänst nivå.
+  **Generell användning** -och **affärskritisk** tjänst nivåerna i den [vCore-baserade inköps modellen](sql-database-service-tiers-vcore.md). Dessa två tjänst nivåer är allmänt tillgängliga. Den vCore-baserade inköps modellen erbjuder också den **storskaliga** tjänst nivån som anpassar efter behov till din arbets belastnings behov med automatisk skalning upp till 100 TB per databas. Den storskaliga Service nivån ger i/o-prestanda som är jämförbar med Premium service-nivån i den [DTU-baserade inköps modellen](sql-database-service-tiers-dtu.md) till ett pris närmare Premium RS tjänst nivå.
 - Priser för Dev/Test
 
   [Prissättningen för utveckling/testning](https://azure.microsoft.com/pricing/dev-test/) ger besparingar på upp till 55% jämfört med licens avgifter med din Visual Studio-prenumeration.
@@ -83,7 +83,7 @@ Vi rekommenderar att du migrerar dina IO-intensiva enkla databaser till vår vCo
 
 ## <a name="take-advantage-of-our-new-offers"></a>Dra nytta av våra nya erbjudanden
 
-Våra tjänst nivåer i den vCore-baserade inköps modellen är berättigade till Special erbjudanden som kan spara upp till 80% jämfört med licens priset. Använd SQL Server Standard-eller Enterprise Edition-licenser med aktiv Software Assurance för att spara upp till 55% jämfört med licens priset med [Azure Hybrid-förmån för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Du kan kombinera hybrid-förmånen med [Azure SQL Database](sql-database-reserved-capacity.md) reserverat kapacitets priser och Spara upp till 80% när du betjänar på ett eller tre år.  Aktivera båda fördelarna idag från Azure Portal.
+Våra tjänst nivåer i den vCore-baserade inköps modellen är berättigade till Special erbjudanden som kan spara upp till 80% jämfört med licens priset. Använd SQL Server Standard-eller Enterprise Edition-licenser med aktiv Software Assurance för att spara upp till 55% jämfört med licens priset med [Azure Hybrid-förmån för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Du kan kombinera hybrid-förmånen med [Azure SQL Database reserverat kapacitets](sql-database-reserved-capacity.md) priser och Spara upp till 80% när du betjänar på ett eller tre år.  Aktivera båda fördelarna idag från Azure Portal.
 
 Kontakta [Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)om du har några frågor eller problem angående den här ändringen eller om du behöver hjälp med migreringen.
 

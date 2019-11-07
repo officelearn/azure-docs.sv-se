@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef3d6a47986056925f9964638c9c7192341ca5f9
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 82c1a536bb86f0b3a4fe6a24af00379686ccc292
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72240999"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641493"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Anpassa attribut för användar etablering för SaaS-program i Azure Active Directory
 
@@ -77,6 +77,16 @@ Tillsammans med den här egenskapen stöder attribut-mappningar även följande 
   - **Alltid** – Använd den här mappningen för både skapande av användare och uppdaterings åtgärder.
   - **Endast vid skapande** – Använd endast den här mappningen för åtgärder för att skapa användare.
 
+## <a name="matching-users-in-the-source-and-target--systems"></a>Matcha användare i käll-och mål systemen
+Azure AD Provisioning-tjänsten kan distribueras i båda Bygg (användarna avslutas inte i mål systemet) och brownfield (användare finns redan i mål systemet) scenarier. För att stödja båda scenarierna använder etablerings tjänsten begreppet eller de matchande attributen. Med matchande attribut (n) kan du bestämma hur en användare ska identifieras unikt i källan och matcha användaren i målet. Som en del av planeringen av distributionen identifierar du det attribut som kan användas för att unikt identifiera en användare i käll-och mål systemen. Saker att Observera:
+
+- **Matchande attribut ska vara unika:** Kunder använder ofta attribut som userPrincipalName, mail eller objekt-ID som matchande attribut.
+- **Du kan använda flera attribut som matchande attribut:** Du kan definiera flera attribut som ska utvärderas vid matchning av användare och i vilken ordning de utvärderas (definieras som matchnings prioritet i användar gränssnittet). Om du till exempel definierar tre attribut som matchande attribut, och en användare är unikt matchade efter utvärdering av de två första attributen, kommer tjänsten inte att evaluat det tredje attributet. Tjänsten utvärderar matchande attribut i den angivna ordningen och slutar att utvärdera när en matchning hittas.  
+- **Värdet i källan och målet behöver inte matcha exakt:** Värdet i målet kan vara en enkel funktion av värdet i källan. Det kan därför ha ett emailAddress-attribut i källan och userPrincipalName i målet, och matcha med en funktion av attributet emailAddress som ersätter vissa tecken med ett konstant värde.  
+- **Matchning baserat på en kombination av attribut stöds inte:** De flesta program har inte stöd för frågor som baseras på två egenskaper och therfore det går inte att matcha baserat på en kombination av attribut. Det går att utvärdera enskilda egenskaper på efter en annan.
+- **Alla användare måste ha ett värde för minst ett matchande attribut:** Om du definierar ett matchande attribut måste alla användare ha ett värde för det attributet i käll systemet. Om du till exempel definierar userPrincipalName som matchande attribut, måste alla användare ha ett userPrincipalName. Om du definierar flera matchande attribut (t. ex. extensionAttribute1 och mail) måste inte alla användare ha samma matchande attribut. En användare kan ha en extensionAttribute1 men inte e-post medan en annan användare kan ha e-post men inte extensionAttribute1. 
+- **Mål programmet måste ha stöd för filtrering av matchande attribut:** Programutvecklare tillåter filtrering av en delmängd av attribut i deras användar-eller grupp-API. För program i galleriet ser vi till att standardattributets mappning är för ett attribut som mål programmets API stöder filtrering på. När du ändrar standardvärdet för det matchande attributet för mål programmet kontrollerar du API-dokumentationen från tredje part för att se till att attributet kan filtreras.  
+
 ## <a name="editing-group-attribute-mappings"></a>Redigera Gruppattribut – mappningar
 
 Ett valt antal program, till exempel ServiceNow, Box och G Suite, stöder möjligheten att etablera grupp objekt och användar objekt. Grupp objekt kan innehålla grupp egenskaper, till exempel visnings namn och e-postalias, tillsammans med grupp medlemmar.
@@ -125,6 +135,113 @@ När du redigerar listan över attribut som stöds anges följande egenskaper:
 - **Refererat objektattribut** – om det är ett attribut för referens typ kan du välja tabell och attribut i mål programmet som innehåller värdet som är kopplat till attributet. Om du till exempel har ett attribut med namnet "avdelning" vars lagrade värde refererar till ett objekt i en separat "avdelnings tabell" väljer du "Departments.Name". Referens tabellerna och de primära ID-fälten som stöds för ett angivet program är förkonfigurerade och kan för närvarande inte redige ras med hjälp av Azure Portal, men det går att redigera med hjälp av [Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
 Om du vill lägga till ett nytt attribut bläddrar du till slutet av listan över attribut som stöds, fyller i fälten ovan med de angivna indatana och väljer **Lägg till attribut**. Välj **Spara** när du är färdig med att lägga till attribut. Sedan måste du läsa in fliken **etablering** för de nya attributen så att de blir tillgängliga i redigeraren för attribut-mappning.
+## <a name="provisioning-a-role-to-a-scim-app"></a>Etablering av en roll för en SCIM-app
+Använd stegen nedan för att etablera roller för en användare till ditt program. Observera att beskrivningen nedan är speciell för anpassade SCIM-program. För Galleri program som Salesforce och ServiceNow använder du fördefinierade roll mappningar. Punkterna nedan beskriver hur du transformerar attributet AppRoleAssignments till formatet som programmet förväntar sig.
+
+- Att mappa en appRoleAssignment i Azure AD till en roll i programmet kräver att du transformerar attributet med ett [uttryck](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data). Attributet appRoleAssignment **ska inte mappas direkt** till ett roll-attribut utan att använda ett uttryck för att parsa roll informationen. 
+
+- **SingleAppRoleAssignment** 
+  - **När du ska använda:** Använd SingleAppRoleAssignment-uttrycket för att etablera en enskild roll för en användare och för att ange den primära rollen. 
+  - **Så här konfigurerar du:** Använd stegen som beskrivs ovan för att navigera till sidan mappningar för attribut och Använd SingleAppRoleAssignment-uttrycket för att mappa till roles-attributet. Det finns tre roll-attribut att välja mellan: (roller [Primary EQ "true"]. display, roles [Primary EQ "true]. type och Roles [Primary EQ" true "]. Value). Du kan välja att inkludera alla eller alla roll-attribut i dina mappningar. Om du vill inkludera mer än en lägger du bara till en ny mappning och inkluderar den som målattribut.  
+  
+  ![Lägg till SingleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
+  - **Saker att tänka på**
+    - Se till att flera roller inte är tilldelade till en användare. Vi kan inte garantera vilken roll som ska tillhandahållas.
+    
+  - **Exempel på utdata** 
+
+   ```json
+    {
+      "schemas": [
+          "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "externalId": "alias",
+      "userName": "alias@contoso.OnMicrosoft.com",
+      "active": true,
+      "displayName": "First Name Last Name",
+      "meta": {
+           "resourceType": "User"
+      },
+      "roles": [
+         {
+               "primary": true,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "value": "Admin"
+         }
+      ]
+   }
+   ```
+  
+- **AppRoleAssignmentsComplex** 
+  - **När du ska använda:** Använd AppRoleAssignmentsComplex-uttrycket för att etablera flera roller för en användare. 
+  - **Så här konfigurerar du:** Redigera listan över attribut som stöds enligt beskrivningen ovan för att inkludera ett nytt attribut för roller: 
+  
+    ![Lägg till roller](./media/customize-application-attributes/add-roles.png)<br>
+
+    Använd sedan AppRoleAssignmentsComplex-uttrycket för att mappa till attributet anpassad roll som visas på bilden nedan:
+
+    ![Lägg till AppRoleAssignmentsComplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
+  - **Saker att tänka på**
+    - Alla roller kommer att tillhandahållas som primär = falskt.
+    - INLÄGGET innehåller roll typen. PATCH-begäran innehåller ingen typ. Vi arbetar med att skicka in typen i både POST-och PATCH-begäranden.
+    
+  - **Exempel på utdata** 
+  
+   ```json
+   {
+       "schemas": [
+           "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "externalId": "alias",
+      "userName": "alias@contoso.OnMicrosoft.com",
+      "active": true,
+      "displayName": "First Name Last Name",
+      "meta": {
+           "resourceType": "User"
+      },
+      "roles": [
+         {
+               "primary": false,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "display": "Admin",
+               "value": "Admin"
+         },
+         {
+               "primary": false,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "display": "User",
+             "value": "User"
+         }
+      ]
+   }
+   ```
+
+  
+
+
+## <a name="provisioning-a-multi-value-attribute"></a>Etablering av ett flervärdesattribut
+Vissa attribut, till exempel phoneNumbers och e-postmeddelanden, är flervärdesattribut där du kan behöva ange olika typer av telefonnummer eller e-postmeddelanden. Använd uttrycket nedan för attribut med flera värden. Det gör att du kan ange attributtypen och mappningen till motsvarande Azure AD-användarattribut för värdet. 
+
+* phoneNumbers [typ EQ "Work"]. värde
+* phoneNumbers [Type EQ "Mobile"]. värde
+* phoneNumbers [Type EQ "fax"]. värde
+
+   ```json
+   "phoneNumbers": [
+       {
+         "value": "555-555-5555",
+         "type": "work"
+      },
+      {
+         "value": "555-555-5555",
+         "type": "mobile"
+      },
+      {
+         "value": "555-555-5555",
+         "type": "fax"
+      }
+   ]
+   ```
 
 ## <a name="restoring-the-default-attributes-and-attribute-mappings"></a>Återställa standardattribut och attribut mappningar
 

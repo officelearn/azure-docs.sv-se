@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database skala resurser | Microsoft Docs
+title: Azure SQL Database skala resurser
 description: Den här artikeln förklarar hur du skalar databasen genom att lägga till eller ta bort allokerade resurser.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 98d24b4f497f09e982101917296b572a5c381f42
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: fe93dbac74348166ed623754e5e1460132ca968c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053602"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687433"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Skala databas resurser dynamiskt med minimal stillestånds tid
 

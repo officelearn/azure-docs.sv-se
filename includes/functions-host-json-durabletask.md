@@ -9,14 +9,16 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 2e30184c7273fad2f9bc8adb34834ee14840733b
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 614d93a16b9149a217b5ff1004031e0a2d7337ca
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67608389"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615067"
 ---
-Konfigurationsinställningar för [varaktiga funktioner](../articles/azure-functions/durable-functions-overview.md).
+Konfigurations inställningar för [Durable Functions](../articles/azure-functions/durable-functions-overview.md).
+
+### <a name="durable-functions-1x"></a>Durable Functions 1. x
 
 ```json
 {
@@ -43,27 +45,69 @@ Konfigurationsinställningar för [varaktiga funktioner](../articles/azure-funct
 }
 ```
 
-Namn på aktiviteten måste börja med en bokstav och bestå av endast bokstäver och siffror. Om inte anges är standardnamnet på uppgiften hub för en funktionsapp **DurableFunctionsHub**. Mer information finns i [uppgift hubs](../articles/azure-functions/durable-functions-task-hubs.md).
+### <a name="durable-functions-2-0-host-json"></a>Durable Functions 2. x
+
+```json
+{
+  "durableTask": {
+    "hubName": "MyTaskHub",
+    "storageProvider": {
+      "controlQueueBatchSize": 32,
+      "partitionCount": 4,
+      "controlQueueVisibilityTimeout": "00:05:00",
+      "workItemQueueVisibilityTimeout": "00:05:00",
+      "maxQueuePollingInterval": "00:00:30",
+      "connectionStringName": "AzureWebJobsStorage",
+      "trackingStoreConnectionStringName": "TrackingStorage",
+      "trackingStoreNamePrefix": "DurableTask"
+    },
+    "tracing": {
+      "traceInputsAndOutputs": false,
+      "traceReplayEvents": false,
+    },
+    "notifications": {
+      "eventGrid": {
+        "topicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
+        "keySettingName": "EventGridKey",
+        "publishRetryCount": 3,
+        "publishRetryInterval": "00:00:30",
+        "publishEventTypes": [
+          "Started",
+          "Pending",
+          "Failed",
+          "Terminated"
+        ]
+      }
+    },
+    "maxConcurrentActivityFunctions": 10,
+    "maxConcurrentOrchestratorFunctions": 10,
+    "extendedSessionsEnabled": false,
+    "extendedSessionIdleTimeoutInSeconds": 30
+  }
+}
+```
+
+Namn på uppgifts hubbar måste börja med en bokstav och får bara bestå av bokstäver och siffror. Om inget värde anges är standard namnet på uppgifts navet för en Function-app **DurableFunctionsHub**. Mer information finns i [aktivitets nav](../articles/azure-functions/durable-functions-task-hubs.md).
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------|
-|hubName|DurableFunctionsHub|Alternativa [uppgift hub](../articles/azure-functions/durable-functions-task-hubs.md) namn kan användas för att isolera program för flera varaktiga funktioner från varandra, även om de använder samma lagringserverdel.|
-|controlQueueBatchSize|32|Antal meddelanden att hämta från kön kontroll i taget.|
-|partitionCount |4|Antalet partitioner för kön kontroll. Kan vara ett positivt heltal mellan 1 och 16.|
-|controlQueueVisibilityTimeout |5 minuter|Synlighetstimeout för tagits bort från kön kontroll Kömeddelanden.|
-|workItemQueueVisibilityTimeout |5 minuter|Synlighetstimeout för tagits bort från kön work item Kömeddelanden.|
-|maxConcurrentActivityFunctions |10 gånger antalet processorer på den aktuella datorn|Det maximala antalet Aktivitetsfunktioner som kan bearbetas samtidigt på en enda värd-instans.|
-|maxConcurrentOrchestratorFunctions |10 gånger antalet processorer på den aktuella datorn|Det maximala antalet orchestrator-funktioner som kan bearbetas samtidigt på en enda värd-instans.|
-|maxQueuePollingInterval|30 sekunder|Kontroll och arbetsobjektet kö avsökningsintervall i den *: mm: ss* format. Högre värden kan resultera i högre svarstider för meddelandebehandling. Lägre värden kan resultera i högre kostnader för lagring på grund av ökad lagringstransaktioner.|
-|azureStorageConnectionStringName |AzureWebJobsStorage|Namnet på den appinställning som har Azure Storage-anslutningssträng som används för att hantera de underliggande Azure-lagringsresurserna.|
-|trackingStoreConnectionStringName||Namnet på en anslutningssträng att använda för tabellerna historik och instanser. Om inte anges den `azureStorageConnectionStringName` anslutningen används.|
-|trackingStoreNamePrefix||Prefixet som ska användas för historik och instanser tabeller när `trackingStoreConnectionStringName` har angetts. Om inte har angetts prefixvärdet standard blir `DurableTask`. Om `trackingStoreConnectionStringName` inte anges i tabellerna historik och instanser att använda den `hubName` värde som deras prefix och alla andra inställningar för `trackingStoreNamePrefix` kommer att ignoreras.|
-|traceInputsAndOutputs |false|Ett värde som anger om du vill spåra indata och utdata av funktionsanrop. Standardbeteende när spårning av händelser för körning av funktionen är att inkludera antalet byte i serialiserade indata och utdata för funktionsanrop. Det här beteendet ger minimalt med information om hur indata och utdata ut utan svullen buk loggarna eller av misstag exponera känslig information. Denna egenskap anges till true kommer funktionen Standardloggning logga hela innehållet i funktionen indata och utdata.|
-|logReplayEvents|false|Ett värde som anger om du vill skriva orchestration repetitionsattacker händelser till Application Insights.|
-|eventGridTopicEndpoint ||URL till en slutpunkt för Azure Event Grid-anpassat ämne. När den här egenskapen anges publiceras orchestration livscykeln meddelandehändelser till den här slutpunkten. Den här egenskapen stöder Appinställningar skärmupplösning.|
-|eventGridKeySettingName ||Namnet på den appinställning som innehåller den nyckel som används för att autentisera med det anpassade ämnet Azure Event Grid på `EventGridTopicEndpoint`.|
-|eventGridPublishRetryCount|0|Det går inte att antalet gånger att försöka igen om publicering till Event Grid-ämne.|
-|eventGridPublishRetryInterval|5 minuter|Event Grid publicerar återförsöksintervallet i den *: mm: ss* format.|
-|eventGridPublishEventTypes||En lista över typer av att publicera till Event Grid. Om inte anges kommer att publiceras alla händelsetyper. Tillåtna värden är `Started`, `Completed`, `Failed`, `Terminated`.|
+|hubName|DurableFunctionsHub|Alternativa [aktivitets Hubbs](../articles/azure-functions/durable-functions-task-hubs.md) namn kan användas för att isolera flera Durable Functions program från varandra, även om de använder samma lagrings Server del.|
+|controlQueueBatchSize|32|Antalet meddelanden att hämta från kontroll kön i taget.|
+|partitionCount |4|Antalet partitioner för kontroll kön. Kan vara ett positivt heltal mellan 1 och 16.|
+|controlQueueVisibilityTimeout |5 minuter|Timeout för visning av köade kontrollmeddelanden.|
+|workItemQueueVisibilityTimeout |5 minuter|Tids gränsen för visning av meddelanden i kö för arbets objekt i kö.|
+|maxConcurrentActivityFunctions |10X antalet processorer på den aktuella datorn|Det maximala antalet aktivitets funktioner som kan bearbetas samtidigt på en enda värd instans.|
+|maxConcurrentOrchestratorFunctions |10X antalet processorer på den aktuella datorn|Det maximala antalet Orchestrator-funktioner som kan bearbetas samtidigt på en enda värd instans.|
+|maxQueuePollingInterval|30 sekunder|Det maximala avsöknings intervallet för kontroll och arbets objekt kön i formatet *hh: mm: SS* . Högre värden kan resultera i högre meddelande fördröjning. Lägre värden kan resultera i högre lagrings kostnader på grund av ökade lagrings transaktioner.|
+|azureStorageConnectionStringName |AzureWebJobsStorage|Namnet på den app-inställning som har Azure Storage anslutnings strängen som används för att hantera de underliggande Azure Storage resurserna.|
+|trackingStoreConnectionStringName||Namnet på en anslutnings sträng som ska användas för tabellerna historik och instans. Om inget anges används `azureStorageConnectionStringName` anslutningen.|
+|trackingStoreNamePrefix||Det prefix som ska användas för tabellerna historik och instans när `trackingStoreConnectionStringName` anges. Om inget värde anges kommer standardvärdet för prefix att `DurableTask`. Om `trackingStoreConnectionStringName` inte anges använder tabellerna historik och instans `hubName` värdet som prefix, och alla inställningar för `trackingStoreNamePrefix` kommer att ignoreras.|
+|traceInputsAndOutputs |false|Ett värde som anger om indata och utdata för funktions anrop ska spåras. Standard beteendet vid körning av spårning av funktions händelser är att inkludera antalet byte i de serialiserade indata och utdata för funktions anrop. Det här beteendet ger minimal information om vad indata och utdata ser ut som om de inte bloating loggar eller oavsiktligt exponerar känslig information. Om den här egenskapen ställs in på Sant loggas hela innehållet i funktions inmatning och utdata.|
+|logReplayEvents|false|Ett värde som anger om omdirigerings händelser ska skrivas till Application Insights.|
+|eventGridTopicEndpoint ||URL för en Azure Event Grid anpassad ämnes slut punkt. När den här egenskapen anges publiceras Dirigerings livs cykel meddelande händelser till den här slut punkten. Den här egenskapen stöder App Settings-matchning.|
+|eventGridKeySettingName ||Namnet på den app-inställning som innehåller den nyckel som används för att autentisera med Azure Event Grid anpassade avsnittet på `EventGridTopicEndpoint`.|
+|eventGridPublishRetryCount|0|Antalet gånger som försök görs om publicering till Event Grid avsnittet Miss lyckas.|
+|eventGridPublishRetryInterval|5 minuter|Återförsöks intervallet för Event Grid publiceras i formatet *hh: mm: SS* .|
+|eventGridPublishEventTypes||En lista med händelse typer att publicera till Event Grid. Om inget värde anges kommer alla händelse typer att publiceras. Tillåtna värden är `Started`, `Completed`, `Failed`, `Terminated`.|
 
 Många av de här inställningarna är för att optimera prestanda. Mer information finns i [prestanda och skalning](../articles/azure-functions/durable-functions-perf-and-scale.md).

@@ -5,31 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 11/1/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b26679542753d5fb429c33e4220c23a3937c5cb
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 68acf32660fe36ddd4c2982b818ce21adde7ddab
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430436"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603596"
 ---
-# <a name="add-google-as-an-identity-provider-for-b2b-guest-users-preview"></a>Lägg till Google som en identitets leverantör för B2B-gäst användare (för hands version)
+# <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Lägg till Google som en identitets leverantör för B2B-gäst användare
 
-|     |
-| --- |
-| Google Federation är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om förhandsversioner finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+Genom att konfigurera Federation med Google kan du tillåta att inbjudna användare loggar in på dina delade appar och resurser med egna Gmail-konton, utan att behöva skapa Microsoft-konton (MSA: er). 
 
-Genom att konfigurera Federation med Google kan du tillåta att inbjudna användare loggar in på dina delade appar och resurser med egna Gmail-konton, utan att behöva skapa Microsoft-konton (MSA: er) eller Azure AD-konton. Google Federation är särskilt utformat för Gmail-användare. Använd [funktionen Direct Federation](direct-federation.md) i stället för att federera med G Suite-domäner.
 > [!NOTE]
-> Dina Google gäst användare måste logga in med en länk som innehåller klient kontexten (till exempel `https://myapps.microsoft.com/?tenantid=<tenant id>` eller `https://portal.azure.com/<tenant id>` eller om en verifierad domän är `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Direkt länkar till program och resurser fungerar även så länge de omfattar klient kontexten. Gäst användare kan för närvarande inte logga in med slut punkter som inte har någon klient kontext. Om du till exempel använder `https://myapps.microsoft.com`, `https://portal.azure.com` eller arbets gruppens gemensamma slut punkt resulterar det i ett fel.
- 
+> Google Federation är särskilt utformat för Gmail-användare. Använd [funktionen Direct Federation](direct-federation.md)för att federera med G Suite-domäner.
+
 ## <a name="what-is-the-experience-for-the-google-user"></a>Vad är upplevelsen av Google User?
 När du skickar en inbjudan till en Google Gmail-användare bör gäst användaren komma åt dina delade appar eller resurser med en länk som innehåller klient kontexten. Deras upplevelse varierar beroende på om de redan är inloggade på Google:
   - Om gäst användaren inte är inloggad på Google uppmanas de att logga in på Google.
@@ -39,14 +35,27 @@ Om gäst användaren ser ett fel meddelande om att huvudet är för långt, kan 
 
 ![Skärm bild som visar Google-inloggnings Sidan](media/google-federation/google-sign-in.png)
 
+## <a name="limitations"></a>Begränsningar
+
+Team stöder fullständigt Google gäst användare på alla enheter. Google-användare kan logga in till Teams från en gemensam slut punkt som `https://teams.microsoft.com`.
+
+Vanliga slut punkter för andra program kanske inte stöder Google-användare. Google gäst användare måste logga in med en länk som innehåller din klient information. Följande är exempel:
+  * `https://myapps.microsoft.com/?tenantid=<your tenant id>`
+  * `https://portal.azure.com/<your tenant id>`
+  * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
+
+   Om Google gäst användare försöker använda en länk som `https://myapps.microsoft.com` eller `https://portal.azure.com`får de ett fel meddelande.
+
+Du kan också ge Google gäst användare en direkt länk till ett program eller en resurs, så länge den här länken innehåller din klient information, till exempel `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`. 
+
 ## <a name="step-1-configure-a-google-developer-project"></a>Steg 1: Konfigurera ett Google Developer-projekt
 Börja med att skapa ett nytt projekt i Google Developer-konsolen för att hämta ett klient-ID och en klient hemlighet som du senare kan lägga till i Azure AD. 
-1. Gå till Google-API: erna på https://console.developers.google.com och logga in med ditt Google-konto. Vi rekommenderar att du använder ett delat team Google-konto.
+1. Gå till Google-API: erna på https://console.developers.google.comoch logga in med ditt Google-konto. Vi rekommenderar att du använder ett delat team Google-konto.
 2. Skapa ett nytt projekt: Välj **skapa projekt**på instrument panelen och välj sedan **skapa**. På sidan nytt projekt anger du ett **projekt namn**och väljer sedan **skapa**.
    
    ![Skärm bild som visar en ny projekt sida för Google](media/google-federation/google-new-project.png)
 
-3. Se till att det nya projektet är markerat i menyn projekt. Öppna sedan menyn längst upp till vänster och välj **API: er & tjänster** > **autentiseringsuppgifter**.
+3. Se till att det nya projektet är markerat i menyn projekt. Öppna sedan menyn längst upp till vänster och välj **API: er & Services** > **autentiseringsuppgifter**.
 
    ![Skärm bild som visar alternativet Google API-autentiseringsuppgifter](media/google-federation/google-api.png)
  
@@ -66,10 +75,10 @@ Börja med att skapa ett nytt projekt i Google Developer-konsolen för att hämt
 
 8. Under **program typ**väljer du **webb program**och under **auktoriserade omdirigerings-URI: er**anger du följande URI: er:
    - `https://login.microsoftonline.com` 
-   - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(där `<directory id>` är ditt katalog-ID)
+   - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(där `<directory id>` är katalog-ID)
    
      > [!NOTE]
-     > Om du vill hitta ditt katalog-ID går du till https://portal.azure.com och väljer sedan **Egenskaper** under **Azure Active Directory**och kopierar **katalog-ID: t**.
+     > Om du vill hitta ditt katalog-ID går du till https://portal.azure.comoch väljer sedan **Egenskaper** under **Azure Active Directory**och kopierar **katalog-ID: t**.
 
    ![Skärm bild som visar avsnittet behöriga omdirigerings-URI: er](media/google-federation/google-create-oauth-client-id.png)
 

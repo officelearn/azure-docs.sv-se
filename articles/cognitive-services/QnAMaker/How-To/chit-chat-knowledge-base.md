@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 11/04/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 15253e67283d1ad53bb1d4c018987dceaafac6c8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 418324ea0d50cb2f8ff4a30018a31e7807d52eac
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486758"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73602585"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Lägga till en Chi2test-chatt i en kunskaps bas
 
@@ -45,15 +45,15 @@ Data uppsättningar för CHI2TEST-chatt stöds på följande språk:
 
 |Språk|
 |--|
-|Kinesiska, `zh-cn`|
-|Engelska, `en-us`|
-|Franska, `fr-fr`|
-|Tyskland, `de-de`|
-|Italienska, `it-it`|
-|Japanska, `ja-jp`|
-|Koreanska, `ko-kr`|
-|Portugisiska, `pr-br`|
-|Spanska, `es-es`|
+|Kinesiska|
+|Svenska|
+|Franska|
+|Tyskland|
+|Italienska|
+|Japanska|
+|Koreanska|
+|Portugisiska|
+|Spanska|
 
 
 ## <a name="add-chit-chat-during-kb-creation"></a>Lägga till en CHI2TEST-chatt när KB skapas

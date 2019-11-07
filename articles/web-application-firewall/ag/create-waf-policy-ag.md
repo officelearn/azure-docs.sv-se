@@ -7,16 +7,19 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 10/26/2019
 ms.author: victorh
-ms.openlocfilehash: a7622489008a8fabef8aee3ffb2ffc4f33b48296
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 31a5ad92942b40e42b66e404df2d09cd8158f7a2
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516674"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606489"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Skapa brand Väggs principer för webb program för Application Gateway
 
 Att associera en WAF-princip med lyssnare tillåter att flera platser bakom en enda WAF skyddas av olika principer. Om det till exempel finns fem platser bakom din WAF, kan du ha fem separata WAF-principer (en för varje lyssnare) för att anpassa undantag, anpassade regler och hanterade rulesets för en plats utan att påverka de andra fyra. Om du vill att en enda princip ska tillämpas på alla platser kan du associera principen med Application Gateway, i stället för de enskilda lyssnarna, så att den tillämpas globalt. Principer kan också tillämpas på en Sök vägs baserad regel för routning. 
+
+   > [!NOTE]
+   > WAF-principen per plats är tillgänglig i södra centrala USA och Europa, norra. Om du vill komma åt dem i portalen använder du [den här länken](https://aka.ms/AppgwwafWithAllFeatureFlags) tills den går live för alla.  
 
 Du kan skapa så många principer du vill. När du har skapat en princip måste den kopplas till en Application Gateway för att börja gälla, men den kan associeras med valfri kombination av programgatewayer och lyssnare. 
 

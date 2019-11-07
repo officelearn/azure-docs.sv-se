@@ -1,5 +1,5 @@
 ---
-title: T-SQL-uttryck – Azure SQL Data Warehouse | Microsoft Docs
+title: Instruktioner för T-SQL
 description: Länkar till dokumentationen för T-SQL-uttryck som stöds i Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: query
 ms.date: 05/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 5704ee4bf84b396dcef5a4f9edd887128ba95fb1
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 861675941693697a20da189edebe33d91918782c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479401"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685515"
 ---
 # <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>T-SQL-uttryck som stöds i Azure SQL Data Warehouse
 Länkar till dokumentationen för T-SQL-uttryck som stöds i Azure SQL Data Warehouse.
@@ -23,7 +24,7 @@ Länkar till dokumentationen för T-SQL-uttryck som stöds i Azure SQL Data Ware
 ## <a name="data-definition-language-ddl-statements"></a>DDL-uttryck (Data Definition Language)
 * [ALTER DATABASE](https://msdn.microsoft.com/library/mt204042.aspx)
 * [ÄNDRA INDEX](https://msdn.microsoft.com/library/ms188388.aspx)
-* [ändra materialiserad vy](/sql/t-sql/statements/alter-materialized-view-transact-sql?view=azure-sqldw-latest) Förhandsgranskningsvyn 
+* [Ändra materialiserad vy](/sql/t-sql/statements/alter-materialized-view-transact-sql?view=azure-sqldw-latest) (förhands granskning) 
 * [ÄNDRA PROCEDUR](https://msdn.microsoft.com/library/ms189762.aspx)
 * [ÄNDRA SCHEMA](https://msdn.microsoft.com/library/ms173423.aspx)
 * [ALTER TABLE](https://msdn.microsoft.com/library/ms190273.aspx)
@@ -35,7 +36,7 @@ Länkar till dokumentationen för T-SQL-uttryck som stöds i Azure SQL Data Ware
 * [SKAPA EXTERN TABELL](https://msdn.microsoft.com/library/dn935021.aspx)
 * [SKAPA FUNKTION](https://msdn.microsoft.com/library/mt203952.aspx)
 * [SKAPA INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [skapa materialiserad vy som Välj](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest) Förhandsgranskningsvyn 
+* [Skapa materialiserad vy som Välj](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest) (förhands granskning) 
 * [SKAPA PROCEDUR](https://msdn.microsoft.com/library/ms187926.aspx)
 * [SKAPA SCHEMA](https://msdn.microsoft.com/library/ms189462.aspx)
 * [CREATE STATISTICS](https://msdn.microsoft.com/library/ms188038.aspx)
@@ -65,12 +66,12 @@ Länkar till dokumentationen för T-SQL-uttryck som stöds i Azure SQL Data Ware
 
 ## <a name="database-console-commands"></a>Databas konsol kommandon
 * [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/library/ms187762.aspx)
-* [DBCC DROPRESULTSETCACHE](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest) Förhandsgranskningsvyn
+* [DBCC DROPRESULTSETCACHE](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest) (för hands version)
 * [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/mt204018.aspx)
 * [DBCC SHRINKLOG](https://msdn.microsoft.com/library/mt204020.aspx)
 * [DBCC PDW_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/library/mt204017.aspx)
 * [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest)
-* [DBCC SHOWRESULTCACHESPACEUSED](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql) Förhandsgranskningsvyn
+* [DBCC SHOWRESULTCACHESPACEUSED](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql) (för hands version)
 * [DBCC PDW_SHOWPARTITIONSTATS](https://msdn.microsoft.com/library/mt204013.aspx)
 * [DBCC PDW_SHOWSPACEUSED](https://msdn.microsoft.com/library/mt204028.aspx)
 * [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/mt204043.aspx)
@@ -79,11 +80,11 @@ Länkar till dokumentationen för T-SQL-uttryck som stöds i Azure SQL Data Ware
 * [SELECT](https://msdn.microsoft.com/library/ms189499.aspx)
 * [MED common_table_expression](https://msdn.microsoft.com/library/ms175972.aspx)
 * [UTOM och Intersect](https://msdn.microsoft.com/library/ms188055.aspx)
-* [VAD](https://msdn.microsoft.com/library/mt631615.aspx)
-* [FROM](https://msdn.microsoft.com/library/ms177634.aspx)
+* [Vad](https://msdn.microsoft.com/library/mt631615.aspx)
+* [SOM](https://msdn.microsoft.com/library/ms177634.aspx)
 * [Använda PIVOT och unpivot](https://msdn.microsoft.com/library/ms177410.aspx)
 * [GRUPPERA EFTER](https://msdn.microsoft.com/library/ms177673.aspx)
-* [JAG](https://msdn.microsoft.com/library/ms180199.aspx)
+* [Jag](https://msdn.microsoft.com/library/ms180199.aspx)
 * [SORTERA EFTER](https://msdn.microsoft.com/library/ms188385.aspx)
 * [OPTION](https://msdn.microsoft.com/library/ms190322.aspx)
 * [UNION](https://msdn.microsoft.com/library/ms180026.aspx)
@@ -94,7 +95,7 @@ Länkar till dokumentationen för T-SQL-uttryck som stöds i Azure SQL Data Ware
 * [Under frågor](https://msdn.microsoft.com/library/mt631613.aspx)
 
 ## <a name="security-statements"></a>Säkerhetsuttryck
-* Behörigheter: [BEVILJA](https://msdn.microsoft.com/library/ms187965.aspx), [NEKA](https://msdn.microsoft.com/library/ms188338.aspx), [ÅTERKALLA](https://msdn.microsoft.com/library/ms187728.aspx)
+* Behörigheter: [bevilja](https://msdn.microsoft.com/library/ms187965.aspx), [neka](https://msdn.microsoft.com/library/ms188338.aspx), [återkalla](https://msdn.microsoft.com/library/ms187728.aspx)
 * [ÄNDRA AUKTORISERING](https://msdn.microsoft.com/library/ms187359.aspx)
 * [ÄNDRA CERTIFIKAT](https://msdn.microsoft.com/library/ms189511.aspx)
 * [ÄNDRA DATABAS KRYPTERINGS NYCKEL](https://msdn.microsoft.com/library/bb630389.aspx)
@@ -119,4 +120,4 @@ Länkar till dokumentationen för T-SQL-uttryck som stöds i Azure SQL Data Ware
 * [ÖPPNA HUVUD NYCKEL](https://msdn.microsoft.com/library/ms174433.aspx)
 
 ## <a name="next-steps"></a>Nästa steg
-Mer referensinformation finns i [språk element för T-SQL i Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-language-elements.md)och systemvyer [i Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-system-views.md).
+Mer referensinformation finns i [språk element för T-SQL i Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-language-elements.md)och [systemvyer i Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-system-views.md).

@@ -1,5 +1,5 @@
 ---
-title: Övervaka och hantera data pipelines – Azure | Microsoft Docs
+title: Övervaka och hantera data pipelines – Azure
 description: Lär dig hur du använder appen för övervakning och hantering för att övervaka och hantera Azure-datafabriker och pipeliner.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 052ea99f0489458269adf4dca2c6713535933638
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139579"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666932"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Övervaka och hantera Azure Data Factory pipelines med hjälp av appen övervakning och hantering
 > [!div class="op_single_selector"]
@@ -108,7 +108,7 @@ Klicka på alternativet **Öppna pipeline** om du vill visa alla aktiviteter i p
 
 ![Menyn Öppna pipeline](./media/data-factory-monitor-manage-app/OpenPipelineMenu.png)
 
-I vyn öppen pipeline visas alla aktiviteter i pipelinen. I det här exemplet finns det bara en aktivitet: kopieringsaktiviteten. 
+I vyn öppen pipeline visas alla aktiviteter i pipelinen. I det här exemplet finns det bara en aktivitet: kopierings aktivitet. 
 
 ![Öppen pipeline](./media/data-factory-monitor-manage-app/OpenedPipeline.png)
 
@@ -144,7 +144,7 @@ I fönstret aktivitets fönster i popup-fönstret och aktivitets fönstret i Win
 
 ![Aktivitets fönster i Utforskaren vänster-/högerpil](./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png)
 
-Längst ned i diagramvyn visas följande knappar: Zooma in, zooma ut, zooma för att passa, zooma 100%, Lås layout. Med knappen **Lås layout** kan du inte flytta tabeller och pipeliner oavsiktligt i diagramvyn. Den är på som standard. Du kan inaktivera det och flytta entiteter runt i diagrammet. När du inaktiverar det kan du använda den sista knappen för att automatiskt placera tabeller och pipeliner. Du kan också zooma in eller ut med hjälp av mus hjulet.
+Längst ned i diagramvyn visas följande knappar: zooma in, zooma ut, zooma för att passa, zooma 100%, Lås layout. Med knappen **Lås layout** kan du inte flytta tabeller och pipeliner oavsiktligt i diagramvyn. Den är på som standard. Du kan inaktivera det och flytta entiteter runt i diagrammet. När du inaktiverar det kan du använda den sista knappen för att automatiskt placera tabeller och pipeliner. Du kan också zooma in eller ut med hjälp av mus hjulet.
 
 ![Zoomnings kommandon för diagramvyn](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
@@ -159,10 +159,10 @@ Aktivitets fönster kan ha någon av följande statusar:
 
 <table>
 <tr>
-    <th align="left">State</th><th align="left">Substatus</th><th align="left">Beskrivning</th>
+    <th align="left">Status</th><th align="left">Substatus</th><th align="left">Beskrivning</th>
 </tr>
 <tr>
-    <td rowspan="8">Väntar på</td><td>ScheduleTime</td><td>Det går inte att köra tids perioden för aktivitets fönstret.</td>
+    <td rowspan="8">Väntar</td><td>ScheduleTime</td><td>Det går inte att köra tids perioden för aktivitets fönstret.</td>
 </tr>
 <tr>
 <td>DatasetDependencies</td><td>De överordnade beroendena är inte klara.</td>
@@ -187,13 +187,13 @@ Aktivitets fönster kan ha någon av följande statusar:
 </tr>
 <tr>
 <tr>
-<td rowspan="2">Pågår</td><td>Verifierar</td><td>Verifiering pågår.</td>
+<td rowspan="2">Pågår</td><td>Verifiera</td><td>Verifiering pågår.</td>
 </tr>
 <td>-</td>
 <td>Aktivitets fönstret bearbetas.</td>
 </tr>
 <tr>
-<td rowspan="4">Misslyckad</td><td>TimedOut</td><td>Aktivitets körningen tog längre tid än vad som tillåts av aktiviteten.</td>
+<td rowspan="4">Misslyckad</td><td>Stängningsåtgärd</td><td>Aktivitets körningen tog längre tid än vad som tillåts av aktiviteten.</td>
 </tr>
 <tr>
 <td>Avbrutna</td><td>Aktivitets fönstret avbröts av en användar åtgärd.</td>
@@ -204,13 +204,13 @@ Aktivitets fönster kan ha någon av följande statusar:
 <tr>
 <td>-</td><td>Det gick inte att skapa eller verifiera aktivitets fönstret.</td>
 </tr>
-<td>Klar</td><td>-</td><td>Aktivitets fönstret är klart för användning.</td>
+<td>Redo</td><td>-</td><td>Aktivitets fönstret är klart för användning.</td>
 </tr>
 <tr>
-<td>Hoppades över</td><td>-</td><td>Aktivitets fönstret behandlades inte.</td>
+<td>Hoppades</td><td>-</td><td>Aktivitets fönstret behandlades inte.</td>
 </tr>
 <tr>
-<td>Inga</td><td>-</td><td>Ett aktivitets fönster som används för att finnas med en annan status, men som har återställts.</td>
+<td>Ingen</td><td>-</td><td>Ett aktivitets fönster som används för att finnas med en annan status, men som har återställts.</td>
 </tr>
 </table>
 
@@ -266,7 +266,7 @@ Du kan använda vyn för **misslyckad aktivitet i Windows** för att se alla mis
 >
 >
 
-I **listan aktivitets fönster**klickar du på namnet på en kolumn (till exempel: Status).
+I **listan aktivitets fönster**klickar du på namnet på en kolumn (till exempel: status).
 
 ![Kolumn meny för aktivitets lista i Windows](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
 
@@ -286,10 +286,10 @@ Du kan använda samma popup-fönster för att rensa filter. Om du vill rensa all
 
 ## <a name="perform-batch-actions"></a>Utföra batch-åtgärder
 ### <a name="rerun-selected-activity-windows"></a>Kör om valt aktivitets fönster
-Välj ett aktivitets fönster, klicka på nedpilen för det första kommando fältet och välj **Kör** / om**Kör igen med Uppström i pipeline**. När du väljer alternativet **Kör om med uppströms i pipeline, kör** den även om alla överordnade aktivitets fönster.
-    ![Kör ett aktivitets fönster igen](./media/data-factory-monitor-manage-app/ReRunSlice.png)
+Välj ett aktivitets fönster, klicka på nedpilen för det första kommando fältet och välj **Kör igen** / **Kör om med överordnad pipeline**. När du väljer alternativet **Kör om med uppströms i pipeline, kör** den även om alla överordnade aktivitets fönster.
+    ![köra ett aktivitets fönster](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
-Du kan också välja flera aktivitets fönster i listan och köra om dem på samma tidpunkt. Du kanske vill filtrera aktivitets fönster baserat på status (till exempel: **Misslyckades**) --och kör sedan de misslyckade aktivitets Fönstren igen efter att ha åtgärdat problemet som gör att aktivitets Fönstren Miss lyckas. I följande avsnitt finns information om filtrering av aktivitets fönster i listan.  
+Du kan också välja flera aktivitets fönster i listan och köra om dem på samma tidpunkt. Du kanske vill filtrera aktivitets fönster baserat på status (till exempel: **misslyckades**)--och sedan köra Fönstren för misslyckad aktivitet igen efter att ha åtgärdat problemet som gör att aktivitets Fönstren Miss lyckas. I följande avsnitt finns information om filtrering av aktivitets fönster i listan.  
 
 ### <a name="pauseresume-multiple-pipelines"></a>Pausa/återuppta flera pipelines
 Du kan välja två eller fler pipeliner genom att använda Ctrl-tangenten. Du kan använda kommando fälts knapparna (som är markerade i den röda rektangeln i följande bild) för att pausa/återuppta dem.

@@ -1,5 +1,5 @@
 ---
-title: Kom igång med Azure SQL Database-granskning | Microsoft Docs
+title: Kom igång med Azure SQL Database-granskning
 description: Använd Azure SQL Database-granskning för att spåra databas händelser i en Gransknings logg.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 1171a3b6d38fe04a4213513e934be258d79a1aa0
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 9a154e677a7308553bbef16837efae39006d3dae
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045190"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691189"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 
@@ -94,7 +94,7 @@ I följande avsnitt beskrivs konfigurationen av granskning med hjälp av Azure P
 
     ![lagrings alternativ](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
-6. Om du vill konfigurera att skriva gransknings loggar till ett lagrings konto väljer du **lagring** och öppna **lagrings information**. Välj det Azure Storage-konto där loggar ska sparas och välj sedan kvarhållningsperioden. De gamla loggarna tas bort. Klicka på **OK**.
+6. Om du vill konfigurera att skriva gransknings loggar till ett lagrings konto väljer du **lagring** och öppna **lagrings information**. Välj det Azure Storage-konto där loggar ska sparas och välj sedan kvarhållningsperioden. De gamla loggarna tas bort. Klicka sedan på **OK**.
 
    > [!IMPORTANT]
    > - Standardvärdet för kvarhållningsperiod är 0 (obegränsad kvarhållning). Du kan ändra det här värdet genom att flytta skjutreglaget för **kvarhållning (dagar)** i **lagrings inställningarna** när du konfigurerar lagrings kontot för granskning.
@@ -110,7 +110,7 @@ I följande avsnitt beskrivs konfigurationen av granskning med hjälp av Azure P
 
     ![Händelsehubb](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
 
-9. Klicka på **Save** (Spara).
+9. Klicka på **Spara**.
 10. Om du vill anpassa de granskade händelserna kan du göra detta via PowerShell- [cmdletar](#subheading-7) eller [REST API](#subheading-9).
 11. När du har konfigurerat dina gransknings inställningar kan du aktivera den nya funktionen för hot identifiering och konfigurera e-postmeddelanden för att få säkerhets aviseringar. När du använder hot identifiering får du proaktiva aviseringar om avvikande databas aktiviteter som kan innebära potentiella säkerhetshot. Mer information finns i [komma igång med hot identifiering](sql-database-threat-detection-get-started.md).
 

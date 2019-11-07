@@ -2,29 +2,41 @@
 title: Översikt över Azure Portal | Microsoft Docs
 description: Lär dig hur du navigerar i Azure Portal och använder den för att hantera tjänster
 services: azure-portal
-keywords: ''
+keywords: portal
 author: kfollis
 ms.author: kfollis
-ms.date: 05/24/2019
+ms.date: 11/01/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 6e176a8b16129cd35fc011e14fcb36038f7c0144
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 90bbea1068bb237501daf5e0dfac865ca6b9a12a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000345"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579483"
 ---
 # <a name="azure-portal-overview"></a>Översikt över Azure Portal
 
 Den här artikeln beskriver Azure Portal, identifierar portalens sid element och hjälper dig att bekanta dig med Azure Portal hanterings upplevelsen.
 
-## <a name="what-is-the-azure-portal"></a>Vad är Azure Portal?
+## <a name="what-is-the-azure-portal"></a>Vad är Azure-portalen?
 
-Azure Portal är en webbaserad, enhetlig konsol som ger ett alternativ till kommando rads verktyg. Med Azure Portal kan du hantera Azure-prenumerationen med hjälp av ett grafiskt användar gränssnitt. Du kan skapa, hantera och övervaka allt från enkla webbappar till komplexa moln distributioner, skapa anpassade instrument paneler för en strukturerad vy över resurser och konfigurera hjälpmedels alternativ för bästa möjliga upplevelse.
+Azure-portalen är en webbaserad, enhetlig konsol som ger ett alternativ till kommandoradsverktyg. Med Azure Portal kan du hantera Azure-prenumerationen med hjälp av ett grafiskt användar gränssnitt. Du kan bygga, hantera och övervaka allt från enkla webbappar till komplexa moln distributioner. Skapa anpassade instrument paneler för en ordnad vy av resurser. Konfigurera hjälpmedels alternativ för optimal upplevelse.
 
-Azure Portal är utformad för återhämtning och kontinuerlig tillgänglighet. Den har en förekomst i varje Azure-datacenter och gör det flexibelt för enskilda Data Center-haverier och förhindrar även nätverks långsam genom att ligga nära användare. Azure Portal uppdateras kontinuerligt och kräver ingen stillestånds tid för underhålls aktiviteter.
+Azure Portal är utformad för återhämtning och kontinuerlig tillgänglighet. Den har en förekomst i varje Azure-datacenter. Den här konfigurationen gör det Azure Portal flexibelt för enskilda Data Center haverier och undviker att nätverket blir långsamt genom att de är nära användare. Azure Portal uppdateras kontinuerligt och kräver ingen stillestånds tid för underhålls aktiviteter.
+
+## <a name="azure-portal-menu"></a>Azure Portal-menyn
+
+Du kan välja standard läget för Portal-menyn. Den kan dockas eller fungera som en utfällbar panel.
+
+När Portal menyn är i utfällt läge är den dold tills du behöver den. Välj Meny ikonen för att öppna eller stänga menyn.
+
+![Azure Portal-menyn i utfällt läge](./media/azure-portal-overview/azure-portal-overview-portal-menu-flyout.png)
+
+Om du väljer dockat läge för Portal-menyn visas det alltid. Du kan komprimera menyn för att få mer arbets yta.
+
+![Azure Portal-menyn i dockat läge](./media/azure-portal-overview/azure-portal-overview-portal-menu-expandcollapse.png)
 
 ## <a name="azure-home"></a>Azure Home
 
@@ -32,19 +44,25 @@ Som en ny prenumerant på Azure-tjänster är det första du ser när du har [lo
 
 ![Skärm bild som visar standard visnings väljaren](./media/azure-portal-overview/azure-portal-default-view.png)
 
+Både Azure Portal-menyn och vyn Azure-standardvy kan ändras i **Portal inställningar**. Om du ändrar ditt val tillämpas ändringen omedelbart.
+
+![Skärm bild som visar standard visnings väljaren](./media/azure-portal-overview/azure-portal-overview-portal-settings-menu-home.png)
+
 ## <a name="azure-dashboard"></a>Azure-instrumentpanel
 
-Instrument paneler ger en fokuserad vy över de resurser i din prenumeration som är viktigast för dig. Vi har fått en standard instrument panel som hjälper dig att komma igång. Du kan anpassa den här instrument panelen för att ta de resurser som du använder mest i en enda vy. Alla ändringar du gör i standardvyn påverkar bara din upplevelse. Du kan dock skapa ytterligare instrument paneler för din egen användning eller publicera dina anpassade instrument paneler och dela dem med andra användare i din organisation. Mer information finns i [skapa och dela instrument paneler i Azure Portal](../azure-portal/azure-portal-dashboards.md).
+Instrument paneler ger en fokuserad vy över de resurser i din prenumeration som är viktigast för dig. Vi har fått en standard instrument panel som hjälper dig att komma igång. Du kan anpassa den här instrument panelen för att se till att de resurser som du använder ofta används i en enda vy. Alla ändringar du gör i standardvyn påverkar bara din upplevelse. Du kan dock skapa ytterligare instrument paneler för din egen användning eller publicera dina anpassade instrument paneler och dela dem med andra användare i din organisation. Mer information finns i [skapa och dela instrument paneler i Azure Portal](../azure-portal/azure-portal-dashboards.md).
 
 ## <a name="getting-around-the-portal"></a>Komma runt portalen
 
 Det är bra att förstå den grundläggande portalens layout och hur du interagerar med den. Här presenterar vi komponenterna i användar gränssnittet och några av terminologin som vi använder för att ge instruktioner. En mer detaljerad genom gång av portalen finns i kurs lektionen [navigera i portalen](https://docs.microsoft.com/learn/modules/tour-azure-portal/3-navigate-the-portal).
 
-Azure Portal sid panelen och sidhuvudet är globala element som alltid är tillgängliga. De här permanenta funktionerna är "Shell" för användar gränssnittet som är kopplat till varje enskild tjänst eller funktion och rubriken ger till gång till globala kontroller. Konfigurations sidan (kallas ibland "blad") för en resurs kan också ha ett vänster fönster för att hjälpa dig att flytta mellan funktioner.
+Azure Portal-menyn och sidhuvudet är globala element som alltid är tillgängliga. De här permanenta funktionerna är "Shell" för användar gränssnittet som är kopplat till varje enskild tjänst eller funktion och rubriken ger till gång till globala kontroller. Konfigurations sidan (kallas ibland "blad") för en resurs kan också ha en resurs meny som hjälper dig att flytta mellan funktioner.
 
 Figuren nedan etiketter de grundläggande elementen i Azure Portal, som beskrivs i följande tabell.
 
-![Skärm bild som visar vyn över hel skärms portalen och nyckel till GRÄNSSNITTs element](./media/azure-portal-overview/azure-portal-fullscreen-map.png)
+![Skärm bild som visar vyn över hel skärms portalen och nyckel till GRÄNSSNITTs element](./media/azure-portal-overview/azure-portal-overview-portal-callouts.png)
+
+![Skärm bild som visar den expanderade Portal menyn](./media/azure-portal-overview/azure-portal-overview-portal-menu-callouts.png)
 
 |Nyckel|Beskrivning
 |:---:|---|
@@ -52,13 +70,13 @@ Figuren nedan etiketter de grundläggande elementen i Azure Portal, som beskrivs
 |2| Global sökning. Använd Sök fältet för att snabbt hitta en speciell resurs, tjänst eller dokumentation.|
 |3|Globala kontroller. Precis som alla globala element behålls dessa funktioner i portalen och inkluderar: Cloud Shell, prenumerations filter, meddelanden, Portal inställningar, hjälp och support och skicka oss feedback.|
 |4|Ditt konto. Visa information om ditt konto, växla kataloger, logga ut eller logga in med ett annat konto.|
-|5|Marginal. Sid panelen är ett globalt element som hjälper dig att navigera mellan tjänster. Marginal listen kan minimeras för att ge mer fokus till arbets fönstret.|
-|6|Huvud kontroll för att skapa en ny resurs i den aktuella prenumerationen. Sök efter eller bläddra i Azure Marketplace efter den resurs typ som du vill skapa.|
-|7|Listan Favoriter. Lägg till eller ta bort favoriter från sidan **alla tjänster** .|
-|8|Vänstra fönstret. Många tjänster innehåller en meny till vänster-fönster som hjälper dig att hantera tjänsten.|
-|9|Kommando fält. Kontrollerna i kommando fältet är sammanhangsbaserade för ditt aktuella fokus.|
-|10|Navigering. Du kan använda länkarna för dynamiska länkar för att flytta tillbaka en nivå i ditt arbets flöde.|
-|11|Arbets fönster.  Visar information om den resurs som för närvarande är i fokus.|
+|5|Portal-menyn. Portal-menyn är ett globalt element som hjälper dig att navigera mellan tjänster. Detta kallas ibland för sid panelen, och det går att ändra portalens meny läge i **Portal inställningarna**.|
+|6|Resurs menyn. Många tjänster innehåller en resurs meny som hjälper dig att hantera tjänsten. Det kan hända att det här elementet visas som det vänstra fönstret.|
+|7|Kommando fält. Kontrollerna i kommando fältet är sammanhangsbaserade för ditt aktuella fokus.|
+|8|Arbets fönster.  Visar information om den resurs som för närvarande är i fokus.|
+|9|Navigering. Du kan använda länkarna för dynamiska länkar för att flytta tillbaka en nivå i ditt arbets flöde.|
+|10|Huvud kontroll för att skapa en ny resurs i den aktuella prenumerationen. Visa eller öppna Portal-menyn för att hitta **+ skapa en resurs**. Sök efter eller bläddra i Azure Marketplace efter den resurs typ som du vill skapa.|
+|11|Listan Favoriter. Se [Lägg till, ta bort och sortera favoriter](../azure-portal/azure-portal-add-remove-sort-favorites.md) för att lära dig hur du anpassar listan.|
 
 ## <a name="get-started-with-services"></a>Kom igång med tjänster
 
@@ -79,5 +97,5 @@ Titta på den här videon om du vill ha en demonstration om hur du använder glo
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om var du kan köra Azure Portal i [webbläsare och enheter som stöds](../azure-portal/azure-portal-supported-browsers-devices.md)
-
 * Håll dig uppdaterad när du är igång med [Azure-mobilapp](https://azure.microsoft.com/features/azure-portal/mobile-app/)
+* Publicera och konfigurera din moln miljö med [Azure snabb starts Center](../azure-portal/azure-portal-quickstart-center.md)

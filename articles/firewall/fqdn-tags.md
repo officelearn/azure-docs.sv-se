@@ -1,45 +1,45 @@
 ---
-title: FQDN taggar översikt för Azure-brandväggen
-description: Lär dig mer om FQDN-taggar i Azure-brandväggen
+title: Översikt över FQDN-taggar för Azure-brandvägg
+description: Lär dig mer om FQDN-taggarna i Azure Firewall
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
 ms.date: 4/23/2019
 ms.author: victorh
-ms.openlocfilehash: 7a412589f4e86f2a49d07f2d01ca34bf30fd528b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d78f67b96776fa3fb1d13fbf7b385e41ca3aa59a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721179"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73665547"
 ---
-# <a name="fqdn-tags-overview"></a>Översikt över FQDN-taggar
+# <a name="fqdn-tags-overview"></a>Översikt över FQDN-Taggar
 
-Ett FQDN-taggen representerar en grupp med fullständigt kvalificerade domännamn (FQDN) som är associerade med välkända Microsoft-tjänster. Du kan använda en FQDN-tagg i regler för program så att de nödvändiga utgående nätverkstrafiken via brandväggen.
+En FQDN-tagg representerar en grupp med fullständigt kvalificerade domän namn (FQDN) som är kopplade till välkända Microsoft-tjänster. Du kan använda en FQDN-tagg i program regler för att tillåta nödvändig utgående nätverks trafik genom brand väggen.
 
-Till exempel för att tillåta Windows Update-nätverkstrafik via brandväggen manuellt måste du skapa flera regler per Microsoft-dokumentationen. Med FQDN taggar kan du skapa en regel för programmet, innehåller den **Windows-uppdateringar** tagga och nu nätverkstrafik till Microsoft Windows Update-slutpunkter kan flöda via brandväggen.
+Om du till exempel vill tillåta Windows Update nätverks trafik manuellt genom brand väggen måste du skapa flera program regler per Microsoft-dokumentationen. Med hjälp av FQDN-taggar kan du skapa en program regel, inkludera taggen **Windows updates** och nu kan nätverks trafik till Microsoft Windows Update-slutpunkter flöda genom brand väggen.
 
-Du kan inte skapa dina egna FQDN-taggar och inte heller kan du ange vilka FQDN: er ingår i en tagg. Microsoft hanterar FQDN: er som omfattas av taggen FQDN tjänsttaggen och uppdaterar taggen som FQDN ändringen. 
+Du kan inte skapa egna FQDN-taggar, eller så kan du inte ange vilka FQDN: er som ingår i en tagg. Microsoft hanterar FQDN: er som omfattas av FQDN-taggen och uppdaterar taggen som FQDN-ändringar. 
 
 <!--- screenshot of application rule with a FQDN tag.-->
 
-I följande tabell visas de aktuella FQDN-taggar som du kan använda. Microsoft underhåller dessa taggar och du kan förvänta dig ytterligare taggar som ska läggas till med jämna mellanrum.
+I följande tabell visas de aktuella FQDN-taggar som du kan använda. Microsoft underhåller dessa taggar och du kan vänta på att ytterligare Taggar läggs till regelbundet.
 
-## <a name="current-fqdn-tags"></a>Aktuella FQDN-taggar
+## <a name="current-fqdn-tags"></a>Aktuella FQDN-Taggar
 
 |FQDN-tagg  |Beskrivning  |
 |---------|---------|
-|Windows Update     |Tillåter utgående åtkomst till Microsoft Update enligt beskrivningen i [hur du konfigurerar en brandvägg för programuppdateringar](https://technet.microsoft.com/library/bb693717.aspx).|
-|Windows-diagnostik|Tillåt utgående åtkomst till alla [Windows diagnostik slutpunkter](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|
-|MAPS (Microsoft Active Protection Service)|Tillåter utgående åtkomst till [MAPS](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/).|
-|App Service Environment (ASE)|Tillåter utgående åtkomst till ASE plattform-trafik. Den här taggen täcker inte kundspecifika-lagring och SQL-slutpunkter som skapats av ASE. Dessa ska aktiveras [tjänstslutpunkter](../virtual-network/tutorial-restrict-network-access-to-resources.md) eller läggs till manuellt.<br><br>Mer information om hur du integrerar Azure-brandvägg med ASE finns i [låsa en App Service Environment](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
-|Azure Backup|Tillåter utgående åtkomst till tjänsterna Azure Backup.|
-|Azure HDInsight<br>(Förhandsversion)|Tillåter utgående åtkomst för trafik för HDInsight-plattformen. Den här taggen täcker inte kundspecifika lagrings- eller SQL-trafik från HDInsight. Aktivera de här med hjälp av [tjänstslutpunkter](../virtual-network/tutorial-restrict-network-access-to-resources.md) eller lägga till dem manuellt.|
+|Windows Update     |Tillåt utgående åtkomst till Microsoft Update enligt beskrivningen i [så här konfigurerar du en brand vägg för program uppdateringar](https://technet.microsoft.com/library/bb693717.aspx).|
+|Windows-diagnostik|Tillåt utgående åtkomst till alla [slut punkter för Windows-diagnostik](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|
+|MAPS (Microsoft Active Protection Service)|Tillåt utgående åtkomst till [Maps](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/).|
+|App Service-miljön (ASE)|Tillåter utgående åtkomst till ASE-plattforms trafik. Den här taggen avser inte kundspecifik lagring och SQL-slutpunkter som skapats av ASE. De bör aktive ras via [tjänst slut punkter](../virtual-network/tutorial-restrict-network-access-to-resources.md) eller läggas till manuellt.<br><br>Mer information om hur du integrerar Azure-brandväggen med ASE finns i [låsa en app service-miljön](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
+|Azure Backup|Tillåter utgående åtkomst till Azure Backup-tjänsterna.|
+|Azure HDInsight|Tillåter utgående åtkomst för HDInsight-plattforms trafik. Den här taggen avser inte kundspecifik lagring eller SQL-trafik från HDInsight. Aktivera dessa med hjälp av [tjänst slut punkter](../virtual-network/tutorial-restrict-network-access-to-resources.md) eller Lägg till dem manuellt.|
 
 > [!NOTE]
-> När du väljer FQDN-tagg i en regel för programmet, fältet protocol: port måste anges till **https**.
+> När du väljer FQDN-tagg i en program regel måste fältet protokoll: port anges till **https**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs hur du distribuerar en Azure-brandvägg i [självstudien: Distribuera och konfigurera Azure-brandväggen med hjälp av Azure-portalen](tutorial-firewall-deploy-portal.md).
+Information om hur du distribuerar en Azure-brandvägg finns i [Självstudier: Distribuera och konfigurera Azure-brandväggen med hjälp av Azure Portal](tutorial-firewall-deploy-portal.md).

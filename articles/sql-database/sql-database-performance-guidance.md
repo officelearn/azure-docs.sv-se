@@ -1,5 +1,5 @@
 ---
-title: Vägledning för Azure SQL Database prestanda justering | Microsoft Docs
+title: Vägledning för Azure SQL Database prestanda justering
 description: Lär dig hur du använder rekommendationer för att manuellt finjustera dina Azure SQL Database frågans prestanda.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 4ea5d6c734659d36822f62237a42a8fbe332c996
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 971b35838f370f31d6e2d2da06dfdbced2fafb02
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567119"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687671"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>Justera prestanda för manuell prestanda i Azure SQL Database
 
@@ -25,7 +25,7 @@ När du har identifierat ett prestanda problem som du följer SQL Database är d
 - Finjustera ditt program och tillämpa några metod tips som kan förbättra prestandan.
 - Finjustera databasen genom att ändra index och frågor till mer effektivt arbete med data.
 
-Den här artikeln förutsätter att du redan har arbetat med rekommendationerna i Azure SQL Database [Database Advisor](sql-database-advisor.md) och de Azure SQL Database [automatiska justeringarna](sql-database-automatic-tuning.md). Det förutsätter också att du har granskat [en översikt över övervakning och justering](sql-database-monitor-tune-overview.md) och dess relaterade artiklar som rör fel sökning av prestanda problem. Den här artikeln förutsätter att du inte har några processor resurser, ett prestanda problem som kan lösas genom att öka beräknings storleken eller tjänst nivån för att ge fler resurser till din databas.
+Den här artikeln förutsätter att du redan har arbetat med [rekommendationerna i Azure SQL Database Database Advisor](sql-database-advisor.md) och de Azure SQL Database [automatiska justeringarna](sql-database-automatic-tuning.md). Det förutsätter också att du har granskat [en översikt över övervakning och justering](sql-database-monitor-tune-overview.md) och dess relaterade artiklar som rör fel sökning av prestanda problem. Den här artikeln förutsätter att du inte har några processor resurser, ett prestanda problem som kan lösas genom att öka beräknings storleken eller tjänst nivån för att ge fler resurser till din databas.
 
 ## <a name="tune-your-application"></a>Finjustera ditt program
 
@@ -206,7 +206,7 @@ Varje del av det här exemplet försöker köra en parameter INSERT-instruktion 
 
 Eftersom vi körde proceduren genom att använda värdet 1, var den resulterande planen optimal för värdet 1 men var under optimal för alla andra värden i tabellen. Resultatet är troligen inte vad du skulle vilja om du väljer att välja varje plan slumpmässigt, eftersom planen presterar långsammare och använder fler resurser.
 
-Om du kör testet med `SET STATISTICS IO` inställt på `ON`, utförs den logiska genomsökningen i det här exemplet i bakgrunden. Du kan se att det finns 1 148 läsningar som utförs av planen (vilket är ineffektivt, om det genomsnittliga fallet är att returnera bara en rad):
+Om du kör testet med `SET STATISTICS IO` inställt på `ON`, utförs den logiska sökningen i det här exemplet i bakgrunden. Du kan se att det finns 1 148 läsningar som utförs av planen (vilket är ineffektivt, om det genomsnittliga fallet är att returnera bara en rad):
 
 ![Fråga efter justering med hjälp av en logisk sökning](./media/sql-database-performance-guidance/query_tuning_2.png)
 

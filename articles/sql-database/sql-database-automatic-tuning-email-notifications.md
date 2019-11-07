@@ -1,5 +1,5 @@
 ---
-title: Automatisk justering e-postmeddelanden instruktions guide – Azure SQL Database | Microsoft Docs
+title: Automatisk justering e-postmeddelanden instruktions guide – Azure SQL Database
 description: Aktivera e-postaviseringar för Azure SQL Database automatisk fråga-justering.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: df9390c00c34fce82de8cc17efb5cc3bce2e4e3d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e1478ab6abc9705a67f2d47bc076d3c2fe54ccd4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569435"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691141"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>E-postmeddelanden för automatisk justering
 
@@ -81,7 +81,7 @@ Följ dessa steg för att läsa in ett PowerShell-skript i Runbook som skapats:
 - I fönstret "**Redigera PowerShell-Runbook**" väljer du "**RUNBOOKS**" i meny trädet och expanderar vyn tills du ser namnet på din Runbook (i det här exemplet "**AutomaticTuningEmailAutomation**"). Välj denna Runbook.
 - På den första raden i "redigera PowerShell-Runbook" (från och med siffran 1) kopierar du följande PowerShell-skript kod. Det här PowerShell-skriptet tillhandahålls för att komma igång. Ändra skriptet så att det passar dina behov.
 
-I rubriken för det angivna PowerShell-skriptet måste du ersätta `<SUBSCRIPTION_ID_WITH_DATABASES>` med ditt Azure-prenumerations-ID. Information om hur du hämtar ditt Azure-prenumerations-ID finns i [Hämta GUID för Azure](https://blogs.msdn.microsoft.com/mschray/20../../getting-your-azure-subscription-guid-new-portal/)-prenumerationen.
+I rubriken för det angivna PowerShell-skriptet måste du ersätta `<SUBSCRIPTION_ID_WITH_DATABASES>` med ditt Azure-prenumerations-ID. Information om hur du hämtar ditt Azure-prenumerations-ID finns i [Hämta GUID för Azure-prenumerationen](https://blogs.msdn.microsoft.com/mschray/20../../getting-your-azure-subscription-guid-new-portal/).
 
 Om det finns flera prenumerationer kan du lägga till dem som kommaavgränsade till egenskapen "$subscriptions" i rubriken för skriptet.
 
@@ -194,7 +194,7 @@ Förutsättningen för det här steget är att registrera dig för [Microsoft Fl
 
 - Öppna meny alternativet "**mina flöden**"
 - I mina flöden väljer du länken " **+ skapa från Tom**" längst upp på sidan
-- Klicka på länken**Sök efter hundratals kopplingar och**utlösare längst ned på sidan
+- Klicka på länken**Sök efter hundratals kopplingar och utlösare**längst ned på sidan
 - I Sök fältet typ "**upprepning**" och välj "**Schemalägg-upprepning**" från Sök resultatet för att schemalägga att e-postleveransen ska köras.
 - I rutan upprepning i fältet Frekvens väljer du schemaläggnings frekvens för det här flödet som ska köras, till exempel skicka automatiskt e-postmeddelande varje minut, timme, dag, vecka osv.
 

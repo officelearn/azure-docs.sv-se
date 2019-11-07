@@ -4,14 +4,14 @@ description: Lär dig hur du hanterar databaskonton i Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: f67487f6da5c9be028703d7890e16ffab0c858c6
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 049be390403fe984ed4f8f38a4cdc86e24060e49
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71812534"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582626"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Hantera ett Azure Cosmos-konto
 
@@ -33,17 +33,17 @@ Information om hur du [skapar ett Azure Cosmos DB konto med PowerShell](manage-w
 
 ### <a id="create-database-account-via-arm-template"></a>Azure Resource Manager mall
 
-Den här Azure Resource Manager mallen skapar ett Azure Cosmos-konto för alla API: er som stöds som stöds med två regioner och alternativ för att välja konsekvens nivå, automatisk redundans och flera huvud servrar. Om du vill distribuera den här mallen klickar du på distribuera till Azure på sidan viktigt och [skapar ett Azure Cosmos-konto](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account)
+Den här Azure Resource Manager-mallen skapar ett Azure Cosmos-konto för SQL-API som kon figurer ATS med två regioner och alternativ för att välja konsekvens nivå, automatisk redundans och flera huvud servrar. Om du vill distribuera den här mallen klickar du på distribuera till Azure på sidan viktigt och [skapar ett Azure Cosmos-konto](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql)
 
 ## <a name="addremove-regions-from-your-database-account"></a>Lägga till/ta bort regioner från ditt databaskonto
 
 ### <a id="add-remove-regions-via-portal"></a>Azure-portalen
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). 
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Gå till ditt Azure Cosmos-konto och öppna menyn **replikera data globalt** .
 
-1. Om du vill lägga till regioner väljer du sexhörningarna på kartan med **+** den etikett som motsvarar din önskade region (er). Om du vill lägga till en region väljer du alternativet **+ Lägg till region** och väljer en region i den nedrullningsbara menyn.
+1. Om du vill lägga till regioner väljer du sexhörningarna på kartan med **+** etiketten som motsvarar din önskade region (er). Om du vill lägga till en region väljer du alternativet **+ Lägg till region** och väljer en region i den nedrullningsbara menyn.
 
 1. Om du vill ta bort regioner avmarkerar du en eller flera regioner från kartan genom att välja de blå sexhörningarna med kryssmarkeringar. Eller välj ”papperskorgsikonen” (🗑) intill regionen på höger sida.
 
@@ -81,7 +81,7 @@ Se [aktivera flera-Write-regioner med PowerShell](manage-with-powershell.md#mult
 
 ### <a id="configure-multiple-write-regions-arm"></a>Resource Manager-mall
 
-Ett konto kan migreras från en huvud server till flera Masters genom att distribuera Resource Manager-mallen som används för att skapa kontot `enableMultipleWriteLocations: true`och inställningen. Följande Azure Resource Manager mall är en minimal mall som används för att distribuera ett Azure Cosmos-konto för SQL-API med två regioner och flera Skriv platser är aktiverade.
+Ett konto kan migreras från en huvud server till flera Masters genom att distribuera Resource Manager-mallen som används för att skapa kontot och ange `enableMultipleWriteLocations: true`. Följande Azure Resource Manager mall är en minimal mall som används för att distribuera ett Azure Cosmos-konto för SQL-API med två regioner och flera Skriv platser är aktiverade.
 
 ```json
 {
@@ -113,7 +113,7 @@ Ett konto kan migreras från en huvud server till flera Masters genom att distri
             "type": "Microsoft.DocumentDb/databaseAccounts",
             "kind": "GlobalDocumentDB",
             "name": "[parameters('name')]",
-            "apiVersion": "2015-04-08",
+            "apiVersion": "2019-08-01",
             "location": "[parameters('location')]",
             "tags": {},
             "properties": {
@@ -123,11 +123,13 @@ Ett konto kan migreras från en huvud server till flera Masters genom att distri
                 [
                     {
                         "locationName": "[parameters('primaryRegion')]",
-                        "failoverPriority": 0
+                        "failoverPriority": 0,
+                        "isZoneRedundant": false
                     },
                     {
                         "locationName": "[parameters('secondaryRegion')]",
-                        "failoverPriority": 1
+                        "failoverPriority": 1,
+                        "isZoneRedundant": false
                     }
                 ],
                 "enableMultipleWriteLocations": true

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 766dacb69a3f1857197684f552d05a1376e94509
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 267a63eba90c74b79078a7c04c1d2d8929cf2a44
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514859"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615779"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files skalbarhets-och prestanda mål
 
@@ -98,7 +98,7 @@ För att hjälpa dig att planera distributionen för var och en av stegen nedan 
 | Antal synkroniserade objekt| 125 000 objekt (~ 1% omsättning) |
 | Storlek på data uppsättning| 50 GiB |
 | Genomsnittlig fil storlek | ~ 500 KiB |
-| Ladda upp data flöde | 30 objekt per sekund |
+| Ladda upp data flöde | 20 objekt per sekund |
 | Fullständig hämtning av data flöde * | 60 objekt per sekund |
 
 \* Om moln nivån är aktive rad kommer du förmodligen att se bättre prestanda eftersom endast några av de fildata som hämtas hämtas. Azure File Sync hämtar endast data från cachelagrade filer när de ändras på någon av slut punkterna. För alla nivåbaserade eller nyligen skapade filer laddar inte agenten ned fildata och synkroniserar istället bara namn området till alla Server slut punkter. Agenten stöder också ofullständiga hämtningar av filer på nivå som används av användaren. 
@@ -111,7 +111,7 @@ Som en allmän guide för din distribution bör du ha några saker i åtanke:
 - Objekt data flödet ungefär skalar i proportion till antalet Sync-grupper på servern. Delning av data i flera Sync-grupper på en server ger bättre data flöde, som också begränsas av servern och nätverket.
 - Objekt data flödet är inverterat i förhållande till MiB: s per sekund-genomflöde. För mindre filer kommer du att uppleva högre data flöde vad gäller antalet bearbetade objekt per sekund, men med lägre MiB per sekund genom strömning. För större filer får du färre objekt som bearbetas per sekund, men högre MiB-data flöde per sekund. Data flödet för MiB per sekund begränsas av Azure Files skala mål.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [Planera för en Azure Files-distribution](storage-files-planning.md)
 - [Planera för distribution av Azure File Sync](storage-sync-files-planning.md)

@@ -1,5 +1,5 @@
 ---
-title: Replikering till Azure SQL Database | Microsoft Docs "
+title: Replikering till Azure SQL Database "
 description: Lär dig mer om att använda SQL Server replikering med Azure SQL Database enkla databaser och databaser i elastiska pooler
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 01/25/2019
-ms.openlocfilehash: eab8f4809742b69e92cb835801493722d28afe49
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ae564a98b77b1ac564fa9aae152b27c491187d0c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570477"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692215"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replikering till SQL Database enkla databaser och databaser i pooler
 
@@ -33,12 +33,12 @@ SQL Server replikering kan konfigureras till enstaka databaser och databaser på
 ## <a name="versions"></a>Versioner  
 
 - Utgivaren och distributören måste vara minst en av följande versioner:  
-- SQL Server 2017 (14.x)
-- SQL Server 2016 (13.x)
+- SQL Server 2017 (14 x)
+- SQL Server 2016 (13. x)
 - SQL Server 2014 (12. x) SP1 CU3
-- SQL Server 2014 (12.x) RTM CU10
+- SQL Server 2014 (12. x) RTM-CU10
 - SQL Server 2012 (11. x) SP2 CU8 eller SP3
-- Försök att konfigurera replikering med en äldre version kan resultera i fel nummer MSSQL_REPL20084 (processen kunde inte ansluta till prenumeranten.) och MSSQL_REPL40532 (det går inte att öppna \<Server namnet > begärd av inloggningen. Inloggningen misslyckades.).  
+- Försök att konfigurera replikering med en äldre version kan resultera i fel nummer MSSQL_REPL20084 (processen kunde inte ansluta till prenumeranten.) och MSSQL_REPL40532 (det går inte att öppna Server \<namn > begärd av inloggningen. Inloggningen misslyckades.).  
 - Om du vill använda alla funktioner i Azure SQL Database måste du använda de senaste versionerna av [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) och [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
   
 ## <a name="remarks"></a>Kommentarer
@@ -51,12 +51,12 @@ SQL Server replikering kan konfigureras till enstaka databaser och databaser på
 - En enda publikation på SQL Server kan stödja både Azure SQL Database och SQL Server (lokalt och SQL Server på en virtuell Azure-dator) prenumeranter.  
 - Hantering av replikering, övervakning och fel sökning måste utföras från den lokala SQL Server.  
 - Endast push-prenumerationer till Azure SQL Database stöds.  
-- Stöds `@subscriber_type = 0` endast i **sp_addsubscription** för SQL Database.  
+- Endast `@subscriber_type = 0` stöds i **sp_addsubscription** för SQL Database.  
 - Azure SQL Database stöder inte dubbelriktad, omedelbar, uppdaterbar eller peer-to-peer-replikering.
 
 ## <a name="replication-architecture"></a>Arkitektur för replikering  
 
-![replication-to-sql-database](./media/replication-to-sql-database/replication-to-sql-database.png)  
+![replikering till SQL-databas](./media/replication-to-sql-database/replication-to-sql-database.png)  
 
 ## <a name="scenarios"></a>Scenarier  
 

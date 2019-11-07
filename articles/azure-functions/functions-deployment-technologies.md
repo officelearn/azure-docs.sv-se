@@ -1,21 +1,19 @@
 ---
 title: Distributions tekniker i Azure Functions | Microsoft Docs
 description: Lär dig hur du kan distribuera kod till Azure Functions på olika sätt.
-services: functions
-documentationcenter: .net
 author: ColbyTresness
-manager: dariac
+manager: gwallace
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 4d32a652219d48a2cc101259ea6b76fbfa910821
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: ce8287626b390d6eac4a3461d928c24f515f4023
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72674954"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576131"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Distributions tekniker i Azure Functions
 
@@ -31,7 +29,7 @@ Azure Functions stöder lokal utveckling på över plattformar och är värd fö
 
 Varje plan har olika beteenden. Alla distributions tekniker är inte tillgängliga för varje smak av Azure Functions. Följande diagram visar vilka distributions tekniker som stöds för varje kombination av operativ system och värd plan:
 
-| Distributions teknik | Windows-förbrukning | Windows Premium (för hands version) | Windows-dedikerad  | Linux-förbrukning | Linux Premium (för hands version) | Linux-dedikerad |
+| Distributions teknik | Windows-förbrukning | Windows Premium | Windows-dedikerad  | Linux-förbrukning | Linux Premium | Linux-dedikerad |
 |-----------------------|:-------------------:|:-------------------------:|:------------------:|:---------------------------:|:-------------:|:---------------:|
 | URL för externt paket<sup>1</sup> |✔|✔|✔|✔|✔|✔|
 | Zip-distribution |✔|✔|✔|✔|✔|✔|
@@ -46,7 +44,7 @@ Varje plan har olika beteenden. Alla distributions tekniker är inte tillgängli
 <sup>1</sup> distributions teknik som kräver [synkronisering av manuella utlösare](#trigger-syncing).  
 <sup>2</sup> Portal redigering är bara aktive rad för http-och timer-utlösare för funktioner i Linux med hjälp av Premium och dedikerade planer
 
-## <a name="key-concepts"></a>Nyckelkoncept
+## <a name="key-concepts"></a>Viktiga begrepp
 
 Vissa viktiga begrepp är viktiga för att förstå hur distributioner fungerar i Azure Functions.
 
@@ -86,7 +84,7 @@ När appar har skapats via fjärr anslutning i Linux [körs de från distributio
 
 Linux Function-appar som körs i förbruknings planen har ingen SCM/kudu-plats, vilket begränsar distributions alternativen. Men Function-appar på Linux som körs i förbruknings planen stöder fjärran slutna versioner.
 
-##### <a name="dedicated-and-premium-preview-plans"></a>Dedikerade och Premium (för hands version)-planer
+##### <a name="dedicated-and-premium-plans"></a>Dedikerade och Premium planer
 
 Function-appar som körs på Linux i [dedikerade (App Service) plan](functions-scale.md#app-service-plan) och [Premium-planen](functions-scale.md#premium-plan) har också en begränsad SCM/kudu-plats.
 
@@ -183,13 +181,13 @@ I det portalbaserade redigerings programmet kan du redigera filerna som finns i 
 
 I följande tabell visas de operativ system och språk som stöder Portal redigering:
 
-| | Windows-förbrukning | Windows Premium (för hands version) | Windows-dedikerad | Linux-förbrukning | Linux Premium (för hands version)| Linux-dedikerad |
-|-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|:---------------:|
+| | Windows-förbrukning | Windows Premium | Windows-dedikerad | Linux-förbrukning | Linux Premium | Linux-dedikerad |
+|-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
 | C# | | | | | |
-| C#Över |✔|✔|✔| |✔<sup> \*</sup> |✔<sup> \*</sup>|
+| C#Över |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
 | F# | | | | | | |
 | Java | | | | | | |
-| JavaScript (Node.js) |✔|✔|✔| |✔<sup> \*</sup>|✔<sup> \*</sup>|
+| JavaScript (Node.js) |✔|✔|✔| |✔<sup>\*</sup>|✔<sup>\*</sup>|
 | Python (förhandsversion) | | | | | | |
 | PowerShell (för hands version) |✔|✔|✔| | | |
 | TypeScript (Node. js) | | | | | | |

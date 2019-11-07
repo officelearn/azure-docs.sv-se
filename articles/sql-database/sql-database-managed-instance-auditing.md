@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Hanterad instans granskning | Microsoft Docs
+title: Azure SQL Database Hanterad instans granskning
 description: Lär dig hur du kommer igång med Azure SQL Database Hanterad instans granskning med T-SQL
 services: sql-database
 ms.service: sql-database
@@ -13,12 +13,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 04/08/2019
-ms.openlocfilehash: 23e3a15ac26cdf0950ee31fddad2af4a3b7414c2
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 915d804cd3ae67848b4b9aa2f50fb5f1b4f1f092
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73025390"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689422"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Kom igång med Azure SQL Database Hanterad instans granskning
 
@@ -171,7 +171,7 @@ Gransknings loggar från en hanterad instans kan skickas till även hubbar eller
 
 5. Välj ett mål för gransknings händelserna – Event Hub, Azure Monitor loggar eller båda. Konfigurera för varje mål nödvändiga parametrar (t. ex. Log Analytics arbets yta).
 
-6. Klicka på **Save** (Spara).
+6. Klicka på **Spara**.
 
     ![Konfigurera diagnostikinställningar](./media/sql-managed-instance-auditing/9_mi_configure_diagnostics.png)
 

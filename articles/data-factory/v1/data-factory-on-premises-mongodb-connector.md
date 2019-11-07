@@ -1,6 +1,6 @@
 ---
-title: Flytta data från MongoDB med Data Factory | Microsoft Docs
-description: Läs mer om hur du flyttar data från MongoDB-databas med Azure Data Factory.
+title: Flytta data från MongoDB med hjälp av Data Factory
+description: Lär dig mer om hur du flyttar data från MongoDB Database med Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,108 +13,108 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e7a84d74e1bda6de8549c79dab1bec8c2515e213
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 6f982928e706b442229cc249c17c3f7aabe1f60a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839069"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666646"
 ---
-# <a name="move-data-from-mongodb-using-azure-data-factory"></a>Flytta data från MongoDB med Azure Data Factory
-> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
+# <a name="move-data-from-mongodb-using-azure-data-factory"></a>Flytta data från MongoDB med hjälp av Azure Data Factory
+> [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-on-premises-mongodb-connector.md)
 > * [Version 2 (aktuell version)](../connector-mongodb.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [MongoDB-anslutningsappen i V2](../connector-mongodb.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory, se [MongoDB Connector i v2](../connector-mongodb.md).
 
 
-Den här artikeln förklarar hur du använder Kopieringsaktivitet i Azure Data Factory för att flytta data från en lokal MongoDB-databas. Den bygger på den [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikel som anger en allmän översikt över dataförflyttning med kopieringsaktiviteten.
+Den här artikeln förklarar hur du använder kopierings aktiviteten i Azure Data Factory för att flytta data från en lokal MongoDB-databas. Det bygger på artikeln [data förflyttnings aktiviteter](data-factory-data-movement-activities.md) , som visar en översikt över data förflyttning med kopierings aktiviteten.
 
-Du kan kopiera data från ett datalager för lokal MongoDB till alla datalager för mottagare som stöds. En lista över datalager som stöds som mottagare av Kopieringsaktivitet finns i den [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. Data factory stöder för närvarande endast flyttar data från en MongoDB-datalager till datalager, men inte för att flytta data från andra datalager till en MongoDB-databasen.
+Du kan kopiera data från ett lokalt MongoDB-data lager till alla mottagar data lager som stöds. En lista över data lager som stöds som mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) . Data Factory har för närvarande endast stöd för att flytta data från ett MongoDB data lager till andra data lager, men inte för att flytta data från andra data lager till ett MongoDB-datalager.
 
-## <a name="prerequisites"></a>Förutsättningar
-För Azure Data Factory-tjänsten ska kunna ansluta till din lokala MongoDB-databas, måste du installera följande komponenter:
+## <a name="prerequisites"></a>Nödvändiga komponenter
+För att Azure Data Factorys tjänsten ska kunna ansluta till din lokala MongoDB-databas måste du installera följande komponenter:
 
-- MongoDB-versioner som stöds är: 2.4, 2.6, 3.0, 3.2, 3.4 och 3.6.
-- Data Management Gateway på samma dator som är värd för databasen eller på en separat dator att undvika konkurrerar om resurser med databasen. Data Management Gateway är en programvara som ansluter till lokala datakällor till molntjänster på ett säkert och hanterat sätt. Se [Data Management Gateway](data-factory-data-management-gateway.md) nedan för information om Data Management Gateway. Se [flytta data från lokal plats till molnet](data-factory-move-data-between-onprem-and-cloud.md) artikeln stegvisa instruktioner om hur du konfigurerar gatewayen en datapipeline att flytta data.
+- De MongoDB-versioner som stöds är: 2,4, 2,6, 3,0, 3,2, 3,4 och 3,6.
+- Data Management Gateway på samma dator som är värd för-databasen eller på en annan dator för att undvika att det går att konkurrera till resurser med databasen. Data Management Gateway är en program vara som ansluter lokala data källor till moln tjänster på ett säkert och hanterat sätt. Se [Data Management Gateway](data-factory-data-management-gateway.md) artikel för information om data Management Gateway. Se avsnittet [Flytta data från en lokal plats till molnet](data-factory-move-data-between-onprem-and-cloud.md) för stegvisa instruktioner om hur du konfigurerar gatewayen en datapipeline för att flytta data.
 
     När du installerar gatewayen installeras automatiskt en Microsoft MongoDB ODBC-drivrutin som används för att ansluta till MongoDB.
 
     > [!NOTE]
-    > Du måste använda gatewayen för att ansluta till MongoDB, även om den är värd för virtuella Azure IaaS-datorer. Om du vill ansluta till en instans av MongoDB som finns i molnet, kan du även installera gateway-instans i IaaS-VM.
+    > Du måste använda gatewayen för att ansluta till MongoDB även om den finns i virtuella Azure IaaS-datorer. Om du försöker ansluta till en instans av MongoDB som finns i molnet kan du också installera Gateway-instansen i den virtuella datorn IaaS.
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data från ett datalager för lokal MongoDB med hjälp av olika verktyg/API: er.
+Du kan skapa en pipeline med en kopierings aktivitet som flyttar data från ett lokalt MongoDB data lager med hjälp av olika verktyg/API: er.
 
-Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. Se [självstudien: Skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data.
+Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
-Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager:
+Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
-1. Skapa **länkade tjänster** länka inkommande och utgående data du lagrar till din datafabrik.
-2. Skapa **datauppsättningar** som representerar inkommande och utgående data för kopieringen.
-3. Skapa en **pipeline** med en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata.
+1. Skapa **länkade tjänster** för att länka indata och utdata från data lager till din data fabrik.
+2. Skapa data **uppsättningar** som representerar indata och utdata för kopierings åtgärden.
+3. Skapa en **pipeline** med en kopierings aktivitet som tar en data uppsättning som indata och en data uppsättning som utdata.
 
-När du använder guiden skapas JSON-definitioner för dessa Data Factory-entiteter (länkade tjänster, datauppsättningar och pipeline) automatiskt åt dig. När du använder Verktyg/API: er (med undantag för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format.  Ett exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data från ett datalager för lokal MongoDB hittar [JSON-exempel: Kopiera data från MongoDB till Azure Blob](#json-example-copy-data-from-mongodb-to-azure-blob) i den här artikeln.
+När du använder guiden skapas JSON-definitioner för dessa Data Factory entiteter (länkade tjänster, data uppsättningar och pipelinen) automatiskt åt dig. När du använder verktyg/API: er (förutom .NET API) definierar du dessa Data Factory entiteter med hjälp av JSON-formatet.  Ett exempel med JSON-definitioner för Data Factory entiteter som används för att kopiera data från ett lokalt MongoDB data lager finns i [JSON-exempel: kopiera data från MongoDB till Azure Blob](#json-example-copy-data-from-mongodb-to-azure-blob) i den här artikeln.
 
-Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory-entiteter som är specifika för MongoDB-källa:
+I följande avsnitt finns information om JSON-egenskaper som används för att definiera Data Factory entiteter som är speciella för MongoDB-källan:
 
-## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
-Följande tabell innehåller en beskrivning för JSON-element som är specifika för **OnPremisesMongoDB** länkad tjänst.
-
-| Egenskap | Beskrivning | Krävs |
-| --- | --- | --- |
-| type |Type-egenskapen måste anges till: **OnPremisesMongoDb** |Ja |
-| server |IP-adressen eller värdnamnet namnet på MongoDB-servern. |Ja |
-| port |TCP-port som MongoDB-servern använder för att lyssna efter klientanslutningar. |Valfritt, standardvärde: 27017 |
-| authenticationType |Grundläggande eller anonym. |Ja |
-| username |Användarkonto för att få åtkomst till MongoDB. |Ja (om du använder grundläggande autentisering). |
-| password |Lösenordet för användaren. |Ja (om du använder grundläggande autentisering). |
-| authSource |Namnet på MongoDB-databasen som du vill använda för att kontrollera dina autentiseringsuppgifter för autentisering. |Valfritt (om du använder grundläggande autentisering). standard: använder administratörskontot och databasen som anges med egenskapen databaseName. |
-| databaseName |Namnet på MongoDB-databasen som du vill komma åt. |Ja |
-| gatewayName |Namnet på den gateway som ansluter till datalagret. |Ja |
-| encryptedCredential |Autentiseringsuppgifter har krypterats av gateway. |Valfri |
-
-## <a name="dataset-properties"></a>Egenskaper för datamängd
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [skapar datauppsättningar](data-factory-create-datasets.md) artikeln. Avsnitt som struktur, tillgänglighet och princip av en datauppsättnings-JSON är liknande för alla datauppsättningstyper av (Azure SQL, Azure-blob, Azure-tabell osv.).
-
-Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information om platsen för data i datalagret. TypeProperties avsnittet för datauppsättningen av typen **MongoDbCollection** har följande egenskaper:
+## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
+Följande tabell innehåller en beskrivning av JSON-element som är speciella för **OnPremisesMongoDB** -länkade tjänster.
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| collectionName |Namnet på samlingen i MongoDB-databas. |Ja |
+| typ |Egenskapen Type måste anges till: **OnPremisesMongoDb** |Ja |
+| server |IP-adressen eller värd namnet för MongoDB-servern. |Ja |
+| port |TCP-port som MongoDB-servern använder för att lyssna efter klient anslutningar. |Valfritt värde: 27017 |
+| authenticationType |Basic eller Anonymous. |Ja |
+| användarnamn |Användar konto för åtkomst till MongoDB. |Ja (om grundläggande autentisering används). |
+| lösenord |Lösenordet för användaren. |Ja (om grundläggande autentisering används). |
+| authSource |Namnet på MongoDB-databasen som du vill använda för att kontrol lera autentiseringsuppgifterna för autentisering. |Valfritt (om grundläggande autentisering används). standard: använder administratörs kontot och den databas som anges med egenskapen databaseName. |
+| Databas |Namnet på MongoDB-databasen som du vill komma åt. |Ja |
+| gatewayName |Namnet på den gateway som har åtkomst till data lagret. |Ja |
+| encryptedCredential |Autentiseringsuppgifterna har krypterats av gateway. |Valfri |
+
+## <a name="dataset-properties"></a>Egenskaper för data mängd
+En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) . Avsnitt som struktur, tillgänglighet och princip för en data uppsättnings-JSON liknar alla typer av data uppsättningar (Azure SQL, Azure Blob, Azure Table osv.).
+
+Avsnittet **typeProperties** är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet typeProperties för data uppsättningen av typen **MongoDbCollection** har följande egenskaper:
+
+| Egenskap | Beskrivning | Krävs |
+| --- | --- | --- |
+| Samling |Namnet på samlingen i MongoDB-databasen. |Ja |
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [skapa Pipelines](data-factory-create-pipelines.md) artikeln. Egenskaper, till exempel namn, beskrivning, indata och utdata tabeller och principen är tillgängliga för alla typer av aktiviteter.
+En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [skapa pipeliner](data-factory-create-pipelines.md) . Egenskaper som namn, beskrivning, indata och utdata-tabeller och policy är tillgängliga för alla typer av aktiviteter.
 
-Egenskaper som är tillgängliga i den **typeProperties** avsnittet aktivitetens å andra sidan varierar med varje aktivitetstyp av. För kopieringsaktiviteten variera de beroende på vilka typer av källor och mottagare.
+Vilka egenskaper som är tillgängliga i avsnittet **typeProperties** i aktiviteten å andra sidan varierar med varje aktivitets typ. För kopierings aktivitet varierar de beroende på typerna av källor och mottagare.
 
-När källan är av typen **MongoDbSource** följande egenskaper är tillgängliga i avsnittet typeProperties:
+När källan är av typen **MongoDbSource** finns följande egenskaper i avsnittet typeProperties:
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| query |Använd anpassad fråga för att läsa data. |SQL-92 frågesträngen. Till exempel: Välj * från MyTable. |Nej (om **collectionName** av **datauppsättning** har angetts) |
+| query |Använd den anpassade frågan för att läsa data. |SQL-92-frågesträng. Exempel: Välj * från tabellen tabell. |Nej (om **samlings** - **dataset** har angetts) |
 
 
 
-## <a name="json-example-copy-data-from-mongodb-to-azure-blob"></a>JSON-exempel: Kopiera data från MongoDB till Azure Blob
-Det här exemplet innehåller exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Den visar hur du kopierar data från en lokal MongoDB till Azure Blob Storage. Dock datan kan kopieras till någon av de mottagare som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) använda Kopieringsaktivitet i Azure Data Factory.
+## <a name="json-example-copy-data-from-mongodb-to-azure-blob"></a>JSON-exempel: kopiera data från MongoDB till Azure-Blob
+Det här exemplet innehåller exempel på JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Det visar hur du kopierar data från en lokal MongoDB till en Azure-Blob Storage. Data kan dock kopieras till någon av de handfat som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med kopierings aktiviteten i Azure Data Factory.
 
-Exemplet har följande data factory-entiteter:
+Exemplet har följande data Factory-entiteter:
 
 1. En länkad tjänst av typen [OnPremisesMongoDb](#linked-service-properties).
 2. En länkad tjänst av typen [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-3. Indata [datauppsättning](data-factory-create-datasets.md) av typen [MongoDbCollection](#dataset-properties).
-4. Utdata [datauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-5. En [pipeline](data-factory-create-pipelines.md) med en Kopieringsaktivitet som använder [MongoDbSource](#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+3. En indata- [datauppsättning](data-factory-create-datasets.md) av typen [MongoDbCollection](#dataset-properties).
+4. En utdata- [datauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. En [pipeline](data-factory-create-pipelines.md) med kopierings aktivitet som använder [MongoDbSource](#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-Exemplet kopierar data från ett frågeresultat i MongoDB-databas till en blob varje timme. JSON-egenskaper som används i exemplen beskrivs i exemplen i följande avsnitt.
+Exemplet kopierar data från ett frågeresultat i MongoDB-databasen till en BLOB varje timme. De JSON-egenskaper som används i de här exemplen beskrivs i avsnitten som följer efter exemplen.
 
-Som ett första steg att konfigurera data management gateway enligt anvisningarna i den [Data Management Gateway](data-factory-data-management-gateway.md) artikeln.
+Det första steget är att konfigurera data Management Gateway enligt anvisningarna i [Data Management Gateway](data-factory-data-management-gateway.md) artikeln.
 
-**MongoDB-länkad tjänst:**
+**MongoDB länkad tjänst:**
 
 ```json
 {
@@ -137,7 +137,7 @@ Som ett första steg att konfigurera data management gateway enligt anvisningarn
 }
 ```
 
-**Länkad Azure Storage-tjänst:**
+**Azure Storage länkad tjänst:**
 
 ```json
 {
@@ -151,7 +151,7 @@ Som ett första steg att konfigurera data management gateway enligt anvisningarn
 }
 ```
 
-**MongoDB datauppsättningen för indata:** Ange ”external”: ”true” informerar Data Factory-tjänsten att tabellen är extern till datafabriken och inte kommer från en aktivitet i data factory.
+**MongoDB för data uppsättning:** Inställningen "extern": "true" informerar den Data Factory tjänsten att tabellen är extern i data fabriken och inte produceras av en aktivitet i data fabriken.
 
 ```json
 {
@@ -171,9 +171,9 @@ Som ett första steg att konfigurera data management gateway enligt anvisningarn
 }
 ```
 
-**Utdatauppsättning för Azure Blob:**
+**Data uppsättning för Azure Blob-utdata:**
 
-Data skrivs till en ny blob varje timme (frequency: timme, intervall: 1). Sökvägen till mappen för bloben utvärderas dynamiskt baserat på starttiden för den sektor som bearbetas. Sökvägen till mappen använder år, månad, dag och timmar delar av starttiden.
+Data skrivs till en ny BLOB varje timme (frekvens: timme, intervall: 1). Mappsökvägen för blobben utvärderas dynamiskt baserat på Start tiden för den sektor som bearbetas. Mappens sökväg använder år, månad, dag och timmar delar av start tiden.
 
 ```json
 {
@@ -231,9 +231,9 @@ Data skrivs till en ny blob varje timme (frequency: timme, intervall: 1). Sökv�
 }
 ```
 
-**Kopiera aktivitet i en pipeline med MongoDB käll- och Blob-mottagare:**
+**Kopiera aktivitet i en pipeline med MongoDB-källa och blob-mottagare:**
 
-Pipelinen innehåller en Kopieringsaktivitet som är konfigurerad att använda ovanstående indata och utdata datauppsättningar och är schemalagd att köras varje timme. I pipeline-JSON-definitionen i **källa** är **MongoDbSource** och **mottagare** är **BlobSink**. SQL-frågan som angetts för den **fråga** egenskapen väljer vilka data under den senaste timmen att kopiera.
+Pipelinen innehåller en kopierings aktivitet som kon figurer ATS för att använda ovanstående data uppsättningar och utdata och är schemalagda att köras varje timme. I JSON-definitionen för pipelinen är **käll** typen inställt på **MongoDbSource** och **mottagar** typ är inställd på **BlobSink**. SQL-frågan som anges för egenskapen **fråga** väljer data under den senaste timmen som ska kopieras.
 
 ```json
 {
@@ -282,75 +282,75 @@ Pipelinen innehåller en Kopieringsaktivitet som är konfigurerad att använda o
 ```
 
 
-## <a name="schema-by-data-factory"></a>Schemat av Data Factory
-Azure Data Factory-tjänsten skapar schema från en MongoDB-samling med hjälp av de senaste 100 dokumenten i samlingen. Om dokumenten 100 inte innehåller fullständig schemat, att vissa kolumner ignoreras under kopieringen.
+## <a name="schema-by-data-factory"></a>Schema efter Data Factory
+Azure Data Factory tjänst härleder schemat från en MongoDB-samling med de senaste 100 dokumenten i samlingen. Om dessa 100-dokument inte innehåller fullständigt schema kan vissa kolumner ignoreras under kopieringen.
 
-## <a name="type-mapping-for-mongodb"></a>Mappning för MongoDB
-Som vi nämnde i den [dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikeln kopieringsaktiviteten utför automatisk konverteringar från typer av datakällor till mottagare typer med följande metod i steg 2:
+## <a name="type-mapping-for-mongodb"></a>Typ mappning för MongoDB
+Som anges i artikeln [data förflyttnings aktiviteter](data-factory-data-movement-activities.md) utför kopierings aktiviteten automatiska typ konverteringar från käll typer till mottagar typer med följande 2-steg-metod:
 
-1. Konvertera från interna källtyper till .NET-typ
-2. Konvertera från .NET-typ till interna mottagare
+1. Konvertera från interna käll typer till .NET-typ
+2. Konvertera från .NET-typ till typ av intern mottagare
 
-När data flyttas till MongoDB används följande mappningar från MongoDB-typer till .NET-typer.
+När du flyttar data till MongoDB används följande mappningar från MongoDB-typer till .NET-typer.
 
-| MongoDB-typ | .NET framework-typ |
+| Typ av MongoDB | .NET Framework typ |
 | --- | --- |
-| Binary |Byte[] |
+| binär |Byte [] |
 | Boolesk |Boolesk |
 | Date |DateTime |
-| NumberDouble |Double |
+| NumberDouble |Dubbelklicka |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |Sträng |
-| String |Sträng |
-| UUID |Guid |
-| Object |Renormalized till att platta ut kolumner med ”_” som kapslade avgränsare |
+| Sträng |Sträng |
+| UUID |GUID |
+| Objekt |Förnormaliserad till att förenkla kolumner med "_" som kapslad avgränsare |
 
 > [!NOTE]
-> Mer information om stöd för matriser med virtuella tabeller, som avser [stöd för komplexa typer med hjälp av virtuella tabeller](#support-for-complex-types-using-virtual-tables) nedan.
+> Information om stöd för matriser som använder virtuella tabeller finns i avsnittet [stöd för komplexa typer med hjälp av virtuella tabeller](#support-for-complex-types-using-virtual-tables) nedan.
 
-För närvarande stöds inte följande datatyper för MongoDB: DBPointer, JavaScript, Max per minut nyckel, reguljära uttryck, symboler, tidsstämpel, Odefinierad
+För närvarande stöds inte följande MongoDB-data typer: DBPointer, Java Script, max/min-nyckel, reguljärt uttryck, symbol, tidsstämpel, odefinierad
 
 ## <a name="support-for-complex-types-using-virtual-tables"></a>Stöd för komplexa typer med hjälp av virtuella tabeller
-Azure Data Factory använder en inbyggd ODBC-drivrutin för att ansluta till och kopiera data från MongoDB-databasen. För komplexa typer, till exempel matriser eller objekt med olika typer i dokumenten normaliserar drivrutinen igen data till motsvarande virtuella tabeller. Om en tabell innehåller sådana kolumner, genererar drivrutinen mer specifikt kan följande virtuella tabeller:
+Azure Data Factory använder en inbyggd ODBC-drivrutin för att ansluta till och kopiera data från MongoDB-databasen. För komplexa typer, till exempel matriser eller objekt med olika typer i dokument, normaliserar driv rutinen data till motsvarande virtuella tabeller. Mer specifikt, om en tabell innehåller sådana kolumner, genererar driv rutinen följande virtuella tabeller:
 
-* En **bastabellen**, som innehåller samma data som den verkliga tabellen utom de komplexa typen kolumnerna. Bastabellen använder samma namn som den verkliga tabell som representerar.
-* En **virtuella tabellen** för varje kolumn för komplex typ, vilket utökar kapslade data. Virtuella tabeller namnges med namnet på tabellen verkliga, avgränsare ”_” och namnet på den matris eller ett objekt.
+* En **bas tabell**som innehåller samma data som den verkliga tabellen förutom de komplexa typ kolumnerna. Bas tabellen använder samma namn som den verkliga tabell som den representerar.
+* En **virtuell tabell** för varje komplex typ kolumn som utökar de kapslade data. De virtuella tabellerna namnges med hjälp av namnet på den verkliga tabellen, avgränsaren "_" och namnet på matrisen eller objektet.
 
-Virtuella tabellerna hänvisar till data i tabellen verkliga aktiverar drivrutinen att komma åt den Avnormaliserade data. Se avsnittet nedan. Du kan komma åt innehållet i MongoDB-matriser genom att fråga och ansluta till virtuella tabeller.
+Virtuella tabeller refererar till datan i den verkliga tabellen, vilket gör att driv rutinen kan komma åt denormaliserade data. Se exempel avsnittet nedan. Du kan komma åt innehållet i MongoDB-matriser genom att fråga och ansluta till de virtuella tabellerna.
 
-Du kan använda den [Kopieringsguiden](data-factory-data-movement-activities.md#create-a-pipeline-with-copy-activity) att visa en lista över tabeller i MongoDB-databas, inklusive virtuella tabeller intuitivt och förhandsgranska data i. Du kan också skapa en fråga i guiden Kopiera och validera om du vill se resultatet.
+Du kan använda [guiden Kopiera](data-factory-data-movement-activities.md#create-a-pipeline-with-copy-activity) för att intuitivt Visa listan över tabeller i MongoDB-databasen, inklusive de virtuella tabellerna och för hands versionen av data i. Du kan också skapa en fråga i guiden Kopiera och validera för att se resultatet.
 
 ### <a name="example"></a>Exempel
-Till exempel är ”ExampleTable” nedan en MongoDB-tabell som har en kolumn med en matris med objekt i varje cell – fakturor och en kolumn med en matris med skalära typer – betyg.
+Till exempel är "ExampleTable" nedan en MongoDB-tabell med en kolumn med en matris med objekt i varje cell – fakturor och en kolumn med en matris av skalära typer – klassificeringar.
 
-| _id | Kundens namn | Fakturor | Servicenivå | Klassificeringar |
+| _id | Kund namn | Fakturor | Servicenivå | Drivande |
 | --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id:”123”, item:”toaster”, price:”456”, discount:”0.2”}, {invoice_id:”124”, item:”oven”, price: ”1235”, discount: ”0.2”}] |Silver |[5,6] |
-| 2222 |XYZ |[{invoice_id:”135”, item:”fridge”, price: ”12543”, discount: ”0.0”}] |Guld |[1,2] |
+| 1111 |Pia |[{invoice_id: "123", item: "toaster", Price: "456", Discount: "0,2"}, {invoice_id: "124", item: "ugn", pris: "1235", rabatt: "0,2"}] |Silver |[5, 6] |
+| 2222 |XYZ |[{invoice_id: "135", item: "kyl skåp", Price: "12543", Discount: "0,0"}] |Guld |[1, 2] |
 
-Drivrutinen skulle generera flera virtuella tabeller som representerar en enda tabell. Den första virtuella tabellen är bastabellen med namnet ”ExampleTable” visas nedan. Bastabellen innehåller alla data för den ursprungliga tabellen, men data från matriser har utelämnats och utökas i virtuella tabeller.
+Driv rutinen skulle generera flera virtuella tabeller som representerar den här enskilda tabellen. Den första virtuella tabellen är bas tabellen med namnet "ExampleTable", som visas nedan. Bas tabellen innehåller alla data i den ursprungliga tabellen, men data från matriserna har utelämnats och expanderats i de virtuella tabellerna.
 
-| _id | Kundens namn | Servicenivå |
+| _id | Kund namn | Servicenivå |
 | --- | --- | --- |
-| 1111 |ABC |Silver |
+| 1111 |Pia |Silver |
 | 2222 |XYZ |Guld |
 
-Följande tabeller visar virtuella tabeller som representerar de ursprungliga matriserna i det här exemplet. Dessa tabeller innehåller följande:
+Följande tabeller visar de virtuella tabeller som representerar de ursprungliga matriserna i exemplet. Tabellerna innehåller följande:
 
-* En referens tillbaka till den ursprungliga primärnyckelkolumnen som motsvarar raden i den ursprungliga matrisen (via kolumnen _id)
-* En indikation om placeringen av data inom den ursprungliga matrisen
-* Utökade data för varje element i matrisen
+* En referens tillbaka till den ursprungliga primär nyckel kolumnen som motsvarar raden i den ursprungliga matrisen (via kolumnen _ID)
+* En indikation på positionen för data i den ursprungliga matrisen
+* De expanderade data för varje element i matrisen
 
-Tabell ”ExampleTable_Invoices”:
+Tabell "ExampleTable_Invoices":
 
-| _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | price | Rabatt |
+| _id | ExampleTable_Invoices_dim1_idx | invoice_id | konfigurationsobjektet | price | Rabatt |
 | --- | --- | --- | --- | --- | --- |
-| 1111 |0 |123 |Toaster |456 |0.2 |
-| 1111 |1 |124 |vara |1235 |0.2 |
-| 2222 |0 |135 |kylskåp |12543 |0.0 |
+| 1111 |0 |123 |toaster |456 |0,2 |
+| 1111 |1 |124 |ugnen |1235 |0,2 |
+| 2222 |0 |135 |kyl skåp |12543 |0,0 |
 
-Tabell ”ExampleTable_Ratings”:
+Tabell "ExampleTable_Ratings":
 
 | _id | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratings |
 | --- | --- | --- |
@@ -359,14 +359,14 @@ Tabell ”ExampleTable_Ratings”:
 | 2222 |0 |1 |
 | 2222 |1 |2 |
 
-## <a name="map-source-to-sink-columns"></a>Kartkälla till kolumner för mottagare
-Mer information om mappning av kolumner i datauppsättningen för källan till kolumner i datauppsättning för mottagare, se [mappning av kolumner för datauppsättningar i Azure Data Factory](data-factory-map-columns.md).
+## <a name="map-source-to-sink-columns"></a>Mappa källa till mottagar kolumner
+Information om hur du mappar kolumner i käll data uppsättningen till kolumner i data uppsättning för mottagare finns i [mappa data mängds kolumner i Azure Data Factory](data-factory-map-columns.md).
 
-## <a name="repeatable-read-from-relational-sources"></a>Upprepbar läsning från relationella källor
-Kom ihåg att undvika oväntade resultat repeterbarhet när kopiera data från relationsdata lagras. I Azure Data Factory kan du köra en sektor manuellt. Du kan också konfigurera återförsöksprincipen för en datauppsättning så att en sektor som körs när ett fel uppstår. När ett segment ska köras på nytt på något sätt, måste du se till att samma data läses oavsett hur många gånger som en sektor körs. Se [Repeatable läsa från relationella källor](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+## <a name="repeatable-read-from-relational-sources"></a>Repeterbar läsning från Relations källor
+När du kopierar data från Relations data lager bör du ha repeterbarhet i åtanke för att undvika oönskade resultat. I Azure Data Factory kan du köra om ett segment manuellt. Du kan också konfigurera principer för återförsök för en data uppsättning så att en sektor körs igen när ett fel uppstår. När en sektor körs på annat sätt måste du se till att samma data är lästa oavsett hur många gånger en sektor körs. Se [repeterbar läsning från Relations källor](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
-## <a name="performance-and-tuning"></a>Prestanda- och justering
-Se [kopiera aktivitet prestanda- och Justeringsguide](data-factory-copy-activity-performance.md) att lära dig om viktiga faktorer att påverka prestandan för dataförflyttning (Kopieringsaktiviteten) i Azure Data Factory och olika sätt att optimera den.
+## <a name="performance-and-tuning"></a>Prestanda och justering
+Se [Kopiera aktivitets prestanda & justerings guide](data-factory-copy-activity-performance.md) för att lära dig mer om viktiga faktorer som påverkar prestanda för data förflyttning (kopierings aktivitet) i Azure Data Factory och olika sätt att optimera den.
 
 ## <a name="next-steps"></a>Nästa steg
-Se [flytta data mellan lokala och molnbaserade](data-factory-move-data-between-onprem-and-cloud.md) artikel stegvisa instruktioner för att skapa en datapipeline som flyttar data från ett lokalt datalager till ett datalager med Azure.
+Se [Flytta data mellan lokala och moln](data-factory-move-data-between-onprem-and-cloud.md) artiklar för stegvisa instruktioner för att skapa en datapipeline som flyttar data från ett lokalt data lager till ett Azure-datalager.

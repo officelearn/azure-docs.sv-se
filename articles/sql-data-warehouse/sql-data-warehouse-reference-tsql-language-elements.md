@@ -1,5 +1,5 @@
 ---
-title: Språk element för T-SQL – Azure SQL Data Warehouse | Microsoft Docs
+title: Språkelement för T-SQL
 description: Länkar till dokumentationen för T-SQL-uttryck som stöds i Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: query
 ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 5d623ebbb5434338e2d7263ca63dd545230a612d
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 02f463e12547ba64a05e04988d9c192bba4f6a27
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479419"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692519"
 ---
 # <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Språk element för T-SQL som stöds i Azure SQL Data Warehouse
 Länkar till dokumentation för språk element i T-SQL som stöds i Azure SQL Data Warehouse.
@@ -33,12 +34,12 @@ Länkar till dokumentation för språk element i T-SQL som stöds i Azure SQL Da
 * [DÖDA](https://msdn.microsoft.com/library/ms173730.aspx)
 * [Lösning för identitets egenskap](https://msdn.microsoft.com/library/ms186775.aspx)
 * [UTSKRIFTSVY](https://msdn.microsoft.com/library/ms176047.aspx)
-* [ANVÄND](https://msdn.microsoft.com/library/ms188366.aspx)
+* [Använd](https://msdn.microsoft.com/library/ms188366.aspx)
 
 ## <a name="batches-control-of-flow-and-variables"></a>Batchar, kontroll av flöde och variabler
-* [STARTA... ÄNDAMÅL](https://msdn.microsoft.com/library/ms190487.aspx)
+* [Starta... ÄNDAMÅL](https://msdn.microsoft.com/library/ms190487.aspx)
 * [OPPORTUNISTISK](https://msdn.microsoft.com/library/ms181271.aspx)
-* [DEKLARERA@local_variable](https://msdn.microsoft.com/library/ms188927.aspx)
+* [DEKLARERA @local_variable](https://msdn.microsoft.com/library/ms188927.aspx)
 * [OM... TILLÄGGS](https://msdn.microsoft.com/library/ms182717.aspx)
 * [RAISERROR](https://msdn.microsoft.com/library/ms178592.aspx)
 * [SET@local_variable](https://msdn.microsoft.com/library/ms189484.aspx)
@@ -63,14 +64,14 @@ Länkar till dokumentation för språk element i T-SQL som stöds i Azure SQL Da
 * [< = (mindre än eller lika med)](https://msdn.microsoft.com/library/ms174978.aspx)
 * [< > (inte lika med)](https://msdn.microsoft.com/library/ms176020.aspx)
 * [! = (Inte lika med)](https://msdn.microsoft.com/library/ms190296.aspx)
-* [OCH](https://msdn.microsoft.com/library/ms188372.aspx)
+* [SÄRSKILT](https://msdn.microsoft.com/library/ms188372.aspx)
 * [DELAS](https://msdn.microsoft.com/library/ms187922.aspx)
 * [FINNS](https://msdn.microsoft.com/library/ms188336.aspx)
 * [FÖR](https://msdn.microsoft.com/library/ms177682.aspx)
 * [ÄR [NOT] NULL](https://msdn.microsoft.com/library/ms188795.aspx)
 * [LIKADAN](https://msdn.microsoft.com/library/ms179859.aspx)
-* [INTE](https://msdn.microsoft.com/library/ms189455.aspx)
-* [OR](https://msdn.microsoft.com/library/ms188361.aspx)
+* [Ogiltigt](https://msdn.microsoft.com/library/ms189455.aspx)
+* [ELLER](https://msdn.microsoft.com/library/ms188361.aspx)
 
 ### <a name="bitwise-operators"></a>Bitvisa operatorer
 * [& (Bitvis AND)](https://msdn.microsoft.com/library/ms174965.aspx)
@@ -81,7 +82,7 @@ Länkar till dokumentation för språk element i T-SQL som stöds i Azure SQL Da
 * [| = (Bitvis eller EQUALs)](https://msdn.microsoft.com/library/cc627409.aspx)
 * [& = (bitvis och EQUALs)](https://msdn.microsoft.com/library/cc627427.aspx)
 
-## <a name="functions"></a>Funktioner
+## <a name="functions"></a>Functions
 * [@@DATEFIRST](https://msdn.microsoft.com/library/ms187766.aspx)
 * [@@ERROR](https://msdn.microsoft.com/library/ms188790.aspx)
 * [@@LANGUAGE](https://msdn.microsoft.com/library/ms177557.aspx)
@@ -92,12 +93,12 @@ Länkar till dokumentation för språk element i T-SQL som stöds i Azure SQL Da
 * [ACOS](https://msdn.microsoft.com/library/ms178627.aspx)
 * [ASCII](https://msdn.microsoft.com/library/ms177545.aspx)
 * [ASIN](https://msdn.microsoft.com/library/ms181581.aspx)
-* [ATAN](https://msdn.microsoft.com/library/ms181746.aspx)
+* [ARCTAN](https://msdn.microsoft.com/library/ms181746.aspx)
 * [ATN2](https://msdn.microsoft.com/library/ms173854.aspx)
 * [BINARY_CHECKSUM](https://msdn.microsoft.com/library/ms173784.aspx)
 * [ENSKILT](https://msdn.microsoft.com/library/ms181765.aspx)
 * [OMVANDLA och konvertera](https://msdn.microsoft.com/library/ms187928.aspx)
-* [TAK](https://msdn.microsoft.com/library/ms189818.aspx)
+* [FASTSTÄLL](https://msdn.microsoft.com/library/ms189818.aspx)
 * [HÄNGANDE](https://msdn.microsoft.com/library/ms187323.aspx)
 * [CHARINDEX](https://msdn.microsoft.com/library/ms186323.aspx)
 * [LASTNING](https://msdn.microsoft.com/library/ms189788.aspx)
@@ -125,9 +126,9 @@ Länkar till dokumentation för språk element i T-SQL som stöds i Azure SQL Da
 * [DAGEN](https://msdn.microsoft.com/library/ms176052.aspx)
 * [DB_ID](https://msdn.microsoft.com/library/ms186274.aspx)
 * [DB_NAME](https://msdn.microsoft.com/library/ms189753.aspx)
-* [GRADER](https://msdn.microsoft.com/library/ms178566.aspx)
+* [ROTATION](https://msdn.microsoft.com/library/ms178566.aspx)
 * [DENSE_RANK](https://msdn.microsoft.com/library/ms173825.aspx)
-* [DIFFERENCE](https://msdn.microsoft.com/library/ms188753.aspx)
+* [AVVIKELSE](https://msdn.microsoft.com/library/ms188753.aspx)
 * [SLUT](https://msdn.microsoft.com/library/hh213020.aspx)
 * [ERROR_MESSAGE](https://msdn.microsoft.com/library/ms190358.aspx)
 * [ERROR_NUMBER](https://msdn.microsoft.com/library/ms175069.aspx)
@@ -136,25 +137,25 @@ Länkar till dokumentation för språk element i T-SQL som stöds i Azure SQL Da
 * [ERROR_STATE](https://msdn.microsoft.com/library/ms180031.aspx)
 * [EXP](https://msdn.microsoft.com/library/ms179857.aspx)
 * [FIRST_VALUE](https://msdn.microsoft.com/library/hh213018.aspx)
-* [VÅNING](https://msdn.microsoft.com/library/ms178531.aspx)
+* [MAXIMAL](https://msdn.microsoft.com/library/ms178531.aspx)
 * [GETDATE](https://msdn.microsoft.com/library/ms188383.aspx)
-* [GETUTCDATE](https://msdn.microsoft.com/library/ms178635.aspx)
+* [ANROPET GETUTCDATE](https://msdn.microsoft.com/library/ms178635.aspx)
 * [HAS_DBACCESS](https://msdn.microsoft.com/library/ms187718.aspx)
 * [HASHBYTES](https://msdn.microsoft.com/library/ms174415.aspx)
 * [INDEXPROPERTY](https://msdn.microsoft.com/library/ms187729.aspx)
 * [ISDATE](https://msdn.microsoft.com/library/ms187347.aspx)
 * [ISNULL](https://msdn.microsoft.com/library/ms184325.aspx)
 * [ISNUMERIC](https://msdn.microsoft.com/library/ms186272.aspx)
-* [LAG](https://msdn.microsoft.com/library/hh231256.aspx)
+* [FÖRDRÖJNING](https://msdn.microsoft.com/library/hh231256.aspx)
 * [LAST_VALUE](https://msdn.microsoft.com/library/hh231517.aspx)
 * [LETT](https://msdn.microsoft.com/library/hh213125.aspx)
-* [VÄNSTER](https://msdn.microsoft.com/library/ms177601.aspx)
+* [FRÅN](https://msdn.microsoft.com/library/ms177601.aspx)
 * [LEN](https://msdn.microsoft.com/library/ms190329.aspx)
-* [LOG](https://msdn.microsoft.com/library/ms190319.aspx)
+* [KVORUMLOGGEN](https://msdn.microsoft.com/library/ms190319.aspx)
 * [LOG10](https://msdn.microsoft.com/library/ms175121.aspx)
-* [LÄGRE](https://msdn.microsoft.com/library/ms174400.aspx)
+* [SÄMRE](https://msdn.microsoft.com/library/ms174400.aspx)
 * [LTRIM](https://msdn.microsoft.com/library/ms177827.aspx)
-* [MAX](https://msdn.microsoft.com/library/ms187751.aspx)
+* [BEKRÄFTAT](https://msdn.microsoft.com/library/ms187751.aspx)
 * [MINIMUM](https://msdn.microsoft.com/library/ms179916.aspx)
 * [MÅNADERNA](https://msdn.microsoft.com/library/ms187813.aspx)
 * [NCHAR](https://msdn.microsoft.com/library/ms182673.aspx)
@@ -172,36 +173,36 @@ Länkar till dokumentation för språk element i T-SQL som stöds i Azure SQL Da
 * [PERCENTILE_DISC](https://msdn.microsoft.com/library/hh231327.aspx)
 * [PERCENT_RANK](https://msdn.microsoft.com/library/hh213573.aspx)
 * [PI](https://msdn.microsoft.com/library/ms189512.aspx)
-* [POWER](https://msdn.microsoft.com/library/ms174276.aspx)
+* [BEFOGENHET](https://msdn.microsoft.com/library/ms174276.aspx)
 * [QUOTENAME](https://msdn.microsoft.com/library/ms176114.aspx)
 * [RADIANER](https://msdn.microsoft.com/library/ms189742.aspx)
 * [SLUMP](https://msdn.microsoft.com/library/ms177610.aspx)
 * [RANGORDNING](https://msdn.microsoft.com/library/ms176102.aspx)
-* [ERSÄTT](https://msdn.microsoft.com/library/ms186862.aspx)
+* [BYTT](https://msdn.microsoft.com/library/ms186862.aspx)
 * [Replikera](https://msdn.microsoft.com/library/ms174383.aspx)
-* [OMVÄND](https://msdn.microsoft.com/library/ms180040.aspx)
-* [HÖGER](https://msdn.microsoft.com/library/ms177532.aspx)
-* [AVRUNDA](https://msdn.microsoft.com/library/ms175003.aspx)
+* [ÅTERFÖR](https://msdn.microsoft.com/library/ms180040.aspx)
+* [RIGHT](https://msdn.microsoft.com/library/ms177532.aspx)
+* [PROVA](https://msdn.microsoft.com/library/ms175003.aspx)
 * [ROW_NUMBER](https://msdn.microsoft.com/library/ms186734.aspx)
 * [RTRIM](https://msdn.microsoft.com/library/ms178660.aspx)
 * [SCHEMA_ID](https://msdn.microsoft.com/library/ms188797.aspx)
 * [SCHEMA_NAME](https://msdn.microsoft.com/library/ms175068.aspx)
 * [SERVERPROPERTY](https://msdn.microsoft.com/library/ms174396.aspx)
 * [SESSION_USER](https://msdn.microsoft.com/library/ms177587.aspx)
-* [INLOGGNING](https://msdn.microsoft.com/library/ms188420.aspx)
-* [SIN](https://msdn.microsoft.com/library/ms188377.aspx)
+* [Logga in](https://msdn.microsoft.com/library/ms188420.aspx)
+* [SINUS](https://msdn.microsoft.com/library/ms188377.aspx)
 * [SMALLDATETIMEFROMPARTS](https://msdn.microsoft.com/library/hh213396.aspx)
 * [SOUNDEX](https://msdn.microsoft.com/library/ms187384.aspx)
-* [SPACE](https://msdn.microsoft.com/library/ms187950.aspx)
+* [FÄLT](https://msdn.microsoft.com/library/ms187950.aspx)
 * [SQL_VARIANT_PROPERTY](https://msdn.microsoft.com/library/ms178550.aspx)
 * [SQRT](https://msdn.microsoft.com/library/ms176108.aspx)
-* [RUTA](https://msdn.microsoft.com/library/ms173569.aspx)
+* [SQUARE](https://msdn.microsoft.com/library/ms173569.aspx)
 * [STATS_DATE](https://msdn.microsoft.com/library/ms190330.aspx)
 * [STDEV](https://msdn.microsoft.com/library/ms190474.aspx)
 * [STDEVP](https://msdn.microsoft.com/library/ms176080.aspx)
-* [STR](https://msdn.microsoft.com/library/ms189527.aspx)
-* [STUFF](https://msdn.microsoft.com/library/ms188043.aspx)
-* [DELSTRÄNGEN](https://msdn.microsoft.com/library/ms187748.aspx)
+* [STRÄNG](https://msdn.microsoft.com/library/ms189527.aspx)
+* [DINA](https://msdn.microsoft.com/library/ms188043.aspx)
+* [UNDER sträng](https://msdn.microsoft.com/library/ms187748.aspx)
 * [FORDRA](https://msdn.microsoft.com/library/ms187810.aspx)
 * [SUSER_SNAME](https://msdn.microsoft.com/library/ms174427.aspx)
 * [SWITCHOFFSET](https://msdn.microsoft.com/library/bb677244.aspx)
@@ -209,7 +210,7 @@ Länkar till dokumentation för språk element i T-SQL som stöds i Azure SQL Da
 * [SYSDATETIMEOFFSET](https://msdn.microsoft.com/library/bb677334.aspx)
 * [SYSTEM_USER](https://msdn.microsoft.com/library/ms179930.aspx)
 * [SYSUTCDATETIME](https://msdn.microsoft.com/library/bb630387.aspx)
-* [TAN](https://msdn.microsoft.com/library/ms190338.aspx)
+* [BRUN](https://msdn.microsoft.com/library/ms190338.aspx)
 * [TERTIARY_WEIGHTS](https://msdn.microsoft.com/library/ms186881.aspx)
 * [TIMEFROMPARTS](https://msdn.microsoft.com/library/hh213398.aspx)
 * [TODATETIMEOFFSET](https://msdn.microsoft.com/library/bb630335.aspx)
@@ -217,11 +218,11 @@ Länkar till dokumentation för språk element i T-SQL som stöds i Azure SQL Da
 * [TYPE_NAME](https://msdn.microsoft.com/library/ms189750.aspx)
 * [TYPEPROPERTY](https://msdn.microsoft.com/library/ms188419.aspx)
 * [UNICODE](https://msdn.microsoft.com/library/ms180059.aspx)
-* [ÖVRE](https://msdn.microsoft.com/library/ms180055.aspx)
+* [PRODUKTION](https://msdn.microsoft.com/library/ms180055.aspx)
 * [ANVÄNDARVÄNLIG](https://msdn.microsoft.com/library/ms186738.aspx)
 * [USER_NAME](https://msdn.microsoft.com/library/ms188014.aspx)
 * [VAR](https://msdn.microsoft.com/library/ms186290.aspx)
-* [VARP](https://msdn.microsoft.com/library/ms188735.aspx)
+* [VARIANSP](https://msdn.microsoft.com/library/ms188735.aspx)
 * [ÅR](https://msdn.microsoft.com/library/ms186313.aspx)
 * [XACT_STATE](https://msdn.microsoft.com/library/ms189797.aspx)
 
@@ -231,7 +232,7 @@ Länkar till dokumentation för språk element i T-SQL som stöds i Azure SQL Da
 ## <a name="diagnostic-sessions"></a>Diagnostiska sessioner
 * [SKAPA DIAGNOSTICS-SESSION](https://msdn.microsoft.com/library/mt204029.aspx)
 
-## <a name="procedures"></a>Procedurer
+## <a name="procedures"></a>Förfarings
 * [sp_addrolemember](https://msdn.microsoft.com/library/ms187750.aspx)
 * [sp_columns](https://msdn.microsoft.com/library/ms176077.aspx)
 * [sp_configure](https://msdn.microsoft.com/library/ms188787.aspx)
@@ -256,14 +257,14 @@ Länkar till dokumentation för språk element i T-SQL som stöds i Azure SQL Da
 
 ## <a name="set-statements"></a>SET-instruktioner
 * [ANGE ANSI_DEFAULTS](https://msdn.microsoft.com/library/ms188340.aspx)
-* [SET ANSI_NULL_DFLT_OFF](https://msdn.microsoft.com/library/ms187356.aspx)
-* [SET ANSI_NULL_DFLT_ON](https://msdn.microsoft.com/library/ms187375.aspx)
-* [SET ANSI_NULLS](https://msdn.microsoft.com/library/ms188048.aspx)
+* [ANGE ANSI_NULL_DFLT_OFF](https://msdn.microsoft.com/library/ms187356.aspx)
+* [ANGE ANSI_NULL_DFLT_ON](https://msdn.microsoft.com/library/ms187375.aspx)
+* [ANGE ANSI_NULLS](https://msdn.microsoft.com/library/ms188048.aspx)
 * [ANGE ANSI_PADDING](https://msdn.microsoft.com/library/ms187403.aspx)
 * [ANGE ANSI_WARNINGS](https://msdn.microsoft.com/library/ms190368.aspx)
 * [ANGE ARITHABORT](https://msdn.microsoft.com/library/ms190306.aspx)
 * [ANGE ARITHIGNORE](https://msdn.microsoft.com/library/ms184341.aspx)
-* [SET CONCAT_NULL_YIELDS_NULL](https://msdn.microsoft.com/library/ms176056.aspx)
+* [ANGE CONCAT_NULL_YIELDS_NULL](https://msdn.microsoft.com/library/ms176056.aspx)
 * [ANGE DATEFIRST](https://msdn.microsoft.com/library/ms181598.aspx)
 * [ANGE DATEFORMAT](https://msdn.microsoft.com/library/ms189491.aspx)
 * [ANGE FMTONLY](https://msdn.microsoft.com/library/ms173839.aspx)
@@ -277,5 +278,5 @@ Länkar till dokumentation för språk element i T-SQL som stöds i Azure SQL Da
 * [ANGE XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
 
 ## <a name="next-steps"></a>Nästa steg
-Mer referensinformation finns i [T-SQL-uttryck i Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md)och systemvyer [i Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-system-views.md).
+Mer referensinformation finns i [T-SQL-uttryck i Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md)och [systemvyer i Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-system-views.md).
 

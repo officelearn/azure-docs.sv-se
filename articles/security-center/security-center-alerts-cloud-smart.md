@@ -1,5 +1,5 @@
 ---
-title: Moln Smart aviserings korrelation i Azure Security Center (incidenter) | Microsoft Docs
+title: Azure Security Center incidenter – smarta korrelationer av aviseringar
 description: I det här avsnittet beskrivs hur Fusion använder Cloud Smart Alert-korrelation för att generera säkerhets incidenter i Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: 4c2f084fe03271b29a12aa6906f5e36612d50674
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b26f0bab073ce248ca23bb8a815fa3e293ddba51
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202702"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686487"
 ---
 # <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Moln Smart aviserings korrelation i Azure Security Center (incidenter)
 
@@ -30,7 +30,7 @@ Fusions analys är den teknik och den analytiska Server delen som ger Security C
 
 Fusions analys kombinerar säkerhets domänens kunskap med AI för att analysera aviseringar, identifiera nya angrepps mönster när de inträffar. 
 
-Security Center utnyttjar MITRE-attackens matris för att koppla aviseringar till deras uppfattade avsikt, vilket underlättar formalisera säkerhets domän kunskap. Genom att använda den information som samlats in för varje steg i en attack kan Security Center dessutom utesluta aktiviteter som verkar vara steg för en attack, men egentligen inte.  
+Security Center utnyttjar MITRE-attackens matris för att koppla aviseringar till deras uppfattade avsikt, vilket underlättar formalisera säkerhets domän kunskap. Genom att använda den information som samlats in för varje steg i en attack kan Security Center dessutom utesluta aktiviteter som verkar vara steg för en attack, men egentligen inte.
 
 Eftersom angrepp ofta sker över olika klienter kan Security Center kombinera AI-algoritmer för att analysera angrepps sekvenser som rapporteras för varje prenumeration. Den här tekniken identifierar angrepps sekvenser som vanliga aviserings mönster, i stället för att bara vara incidenter som är associerade med varandra.
 

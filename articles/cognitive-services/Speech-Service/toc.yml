@@ -65,6 +65,10 @@
               href: rest-speech-to-text.md
             - name: 'Batch-transkription (REST API:er)'
               href: batch-transcription.md
+    - name: Resurser
+      items:
+        - name: Vanliga frågor och svar om tal-till-text
+          href: faq-stt.md
 - name: Text till tal
   exanded: false
   items:
@@ -112,6 +116,10 @@
           items:
             - name: Text-till-tal (REST API)
               href: rest-text-to-speech.md
+    - name: Resurser
+      items:
+        - name: Vanliga frågor och svar om text-till-tal
+          href: faq-text-to-speech.md
 - name: Avsiktsigenkänning
   exanded: false
   items:
@@ -182,6 +190,10 @@
               href: 'https://aka.ms/csspeech/pythonref'
             - name: Viktig information
               href: releasenotes.md
+    - name: Resurser
+      items:
+        - name: Vanliga frågor och svar om talöversättning
+          href: 'https://www.microsoft.com/translator/faq.aspx'
 - name: Samtalstranskription
   expanded: false
   items:
@@ -254,7 +266,7 @@
       items:
         - name: Röstaktivera din robot med Speech SDK
           href: tutorial-voice-enable-your-bot-speech-sdk.md
-    - name: Referens
+    - name: Resurser
       items:
         - name: Vanliga frågor och svar om röstassistenter
           href: faq-voice-assistants.md
@@ -368,6 +380,8 @@
           href: scenario-availability.md
     - name: Snabbstarter
       items:
+        - name: Skapa ett projekt
+          href: quickstarts/create-project.md
         - name: 'Konfigurera Speech SDK med C#'
           href: quickstarts/setup-platform.md?pivots=programming-language-csharp
         - name: Konfigurera Speech SDK med C++

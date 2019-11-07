@@ -1,5 +1,5 @@
 ---
-title: Beräknings miljöer som stöds av Azure Data Factory | Microsoft Docs
+title: Beräknings miljöer som stöds av Azure Data Factory
 description: Lär dig mer om beräknings miljöer som du kan använda i Azure Data Factory pipelines (till exempel Azure HDInsight) för att transformera eller bearbeta data.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 12d12e96616d94360e5d193cf2b778a9ae389062
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 0cc7c3b7d8b364e0bcca671efaff2cf324695428
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140253"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73667753"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Beräknings miljöer som stöds av Azure Data Factory
 > [!NOTE]
@@ -30,7 +30,7 @@ Följande tabell innehåller en lista över beräknings miljöer som stöds av D
 | ---------------------------------------- | ---------------------------------------- |
 | [Azure HDInsight-kluster på begäran](#azure-hdinsight-on-demand-linked-service) eller [ditt eget HDInsight-kluster](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [gris](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop streaming](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning aktiviteter: Batch-körning och uppdaterings resurs](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning-aktiviteter: batchkörning och resursuppdatering](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
 | [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service) [SQL Server](#sql-server-linked-service) | [Lagrad proceduraktivitet](data-factory-stored-proc-activity.md) |
 
@@ -49,7 +49,7 @@ Microsoft uppdaterar listan över HDInsight-versioner som stöds med de senaste 
 Efter den 15 december 2017:
 
 - Du kan inte längre skapa Linux-baserade HDInsight version 3,3-kluster (eller tidigare versioner) med hjälp av en länkad HDInsight-tjänst på begäran i Data Factory version 1. 
-- Om egenskaperna [ **OsType** och **version** ](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) inte uttryckligen anges i JSON-definitionen för en befintlig data Factory version 1-länkad HDInsight-tjänst på begäran, ändras standardvärdet från **version = 3.1, osType = Windows** till **version =\<senaste HDI standard version\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning), osType = Linux**.
+- Om egenskaperna [ **OsType** och **version** ](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) inte uttryckligen anges i JSON-definitionen för en befintlig data Factory version 1-länkad HDInsight-tjänst på begäran, ändras standardvärdet från **version = 3.1, osType = Windows** till **Version =\<senaste HDI-standardversionen\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning), OsType = Linux**.
 
 Efter den 31 juli 2018:
 
@@ -118,10 +118,10 @@ Följande JSON definierar en Linux-baserad länkad HDInsight-tjänst på begära
 >
 > 
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Egenskaper
 | Egenskap                     | Beskrivning                              | Krävs |
 | ---------------------------- | ---------------------------------------- | -------- |
-| type                         | Ange egenskapen type till **HDInsightOnDemand**. | Ja      |
+| typ                         | Ange egenskapen type till **HDInsightOnDemand**. | Ja      |
 | clusterSize                  | Antalet arbets uppgifter och datanoder i klustret. HDInsight-klustret skapas med två huvudnoder, förutom antalet arbets noder som du anger för den här egenskapen. Noderna har storleken Standard_D3, som har 4 kärnor. Ett kluster med fyra arbets noder tar 24 kärnor (4\*4 = 16 kärnor för arbetsnoder, plus 2\*4 = 8 kärnor för Head-noder). Mer information om Standard_D3-nivån finns i [skapa Linux-baserade Hadoop-kluster i HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Ja      |
 | timeToLive                   | Den tillåtna inaktiva tiden för HDInsight-klustret på begäran. Anger hur länge HDInsight-klustret på begäran förblir aktivt när en aktivitets körning är färdig, om det inte finns några andra aktiva jobb i klustret.<br /><br />Om en aktivitets körning till exempel tar 6 minuter och **TimeToLive** har angetts till 5 minuter förblir klustret aktiv i 5 minuter efter 6 minuters bearbetning av aktivitets körningen. Om en annan aktivitet körs i fönstret 6 minuter bearbetas den av samma kluster.<br /><br />Att skapa ett HDInsight-kluster på begäran är en dyr åtgärd (det kan ta en stund). Använd den här inställningen vid behov för att förbättra prestandan för en data fabrik genom att återanvända ett HDInsight-kluster på begäran.<br /><br />Om du ställer in värdet för **TimeToLive** på **0**, tas klustret bort så snart aktiviteten körs klart. Men om du anger ett högt värde kan klustret vara inaktivt, vilket leder till höga kostnader. Det är viktigt att ange rätt värde utifrån dina behov.<br /><br />Om **TimeToLive** -värdet har angetts korrekt kan flera pipelines dela instansen av HDInsight-klustret på begäran. | Ja      |
 | version                      | Versionen av HDInsight-klustret. För tillåtna HDInsight-versioner, se [HDInsight-versioner som stöds](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions). Om det här värdet inte anges används den [senaste HDI standard versionen](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning) . | Nej       |
@@ -142,7 +142,7 @@ Följande JSON definierar en Linux-baserad länkad HDInsight-tjänst på begära
 ### <a name="advanced-properties"></a>Avancerade egenskaper
 För detaljerad konfiguration av HDInsight-klustret på begäran kan du ange följande egenskaper:
 
-| Egenskap               | Beskrivning                              | Obligatorisk |
+| Egenskap               | Beskrivning                              | Krävs |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | Anger kärn konfigurations parametrar (site. xml) för HDInsight-klustret som ska skapas. | Nej       |
 | hBaseConfiguration     | Anger konfigurations parametrar för HBase (HBase-site. xml) för HDInsight-klustret. | Nej       |
@@ -153,7 +153,7 @@ För detaljerad konfiguration av HDInsight-klustret på begäran kan du ange fö
 | stormConfiguration     | Anger Storm-konfigurationsparametrar (Storm-site. xml) för HDInsight-klustret. | Nej       |
 | yarnConfiguration      | Anger konfigurations parametrar för garn (yarn-site. xml) för HDInsight-klustret. | Nej       |
 
-#### <a name="example-on-demand-hdinsight-cluster-configuration-with-advanced-properties"></a>Exempel: Konfiguration av HDInsight-kluster på begäran med avancerade egenskaper
+#### <a name="example-on-demand-hdinsight-cluster-configuration-with-advanced-properties"></a>Exempel: konfiguration av HDInsight-kluster på begäran med avancerade egenskaper
 
 ```json
 {
@@ -195,7 +195,7 @@ För detaljerad konfiguration av HDInsight-klustret på begäran kan du ange fö
 ### <a name="node-sizes"></a>Node-storlekar
 Om du vill ange storleken på huvud-, data-och ZooKeeper-noderna använder du följande egenskaper: 
 
-| Egenskap          | Beskrivning                              | Obligatorisk |
+| Egenskap          | Beskrivning                              | Krävs |
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | Anger storleken på Head-noden. Standardvärdet är **Standard_D3**. Mer information finns i [Ange Node-storlekar](#specify-node-sizes). | Nej       |
 | dataNodeSize      | Anger data nodens storlek. Standardvärdet är **Standard_D3**. | Nej       |
@@ -213,7 +213,7 @@ Om du vill skapa en D4-storleks huvud-noder och arbetsnoder anger du **Standard_
 
 Om du anger ett felaktigt värde för dessa egenskaper kan följande meddelande visas:
 
-  Det gick inte att skapa klustret. Brandväggsundantaget Det gick inte att slutföra åtgärden för att skapa klustret. Operation failed with code '400'. (Åtgärden misslyckades med koden 400). Klustrets vänsterkant efter tillstånd: "Error". Meddelande: 'PreClusterCreationValidationFailure'. 
+  Det gick inte att skapa klustret. Undantag: Unable to complete the cluster create operation. (Det går inte att slutföra åtgärden att skapa ett kluster.) Operation failed with code '400'. (Åtgärden misslyckades med koden 400). Cluster left behind state: 'Error'. (Klustret efterlämnade status: Fel.) Meddelande: ' PreClusterCreationValidationFailure '. 
   
 Om det här meddelandet visas kontrollerar du att du använder cmdlet-och API-namnen från tabellen i [storlekar för virtuella datorer](../../virtual-machines/linux/sizes.md).  
 
@@ -254,13 +254,13 @@ Du kan skapa en länkad HDInsight-tjänst för att registrera ditt eget HDInsigh
 }
 ```
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Egenskaper
 | Egenskap          | Beskrivning                              | Krävs |
 | ----------------- | ---------------------------------------- | -------- |
-| type              | Ange egenskapen type till **HDInsight**. | Ja      |
+| typ              | Ange egenskapen type till **HDInsight**. | Ja      |
 | clusterUri        | URI för HDInsight-klustret.        | Ja      |
-| username          | Namnet på det användar konto som ska användas för att ansluta till ett befintligt HDInsight-kluster. | Ja      |
-| password          | Lösen ordet för användar kontot.   | Ja      |
+| användarnamn          | Namnet på det användar konto som ska användas för att ansluta till ett befintligt HDInsight-kluster. | Ja      |
+| lösenord          | Lösen ordet för användar kontot.   | Ja      |
 | linkedServiceName | Namnet på den länkade lagrings tjänsten som refererar till blob-lagringen som används av HDInsight-klustret. <p>För närvarande kan du inte ange en Data Lake Store länkad tjänst för den här egenskapen. Om HDInsight-klustret har åtkomst till Data Lake Store, kan du komma åt data i Data Lake Store från Hive-eller gris-skript. </p> | Ja      |
 
 ## <a name="azure-batch-linked-service"></a>Azure Batch länkad tjänst
@@ -289,24 +289,24 @@ Om du är nybörjare på att använda batch-tjänsten:
 }
 ```
 
-För egenskapen **accountName** lägger du till **.\< region namn\>**  till namnet på ditt batch-konto. Exempel:
+I egenskapen **accountName** lägger du till **.\<region namn\>** till namnet på ditt batch-konto. Till exempel:
 
 ```json
 "accountName": "mybatchaccount.eastus"
 ```
 
-Ett annat alternativ är att tillhandahålla **batchUri** -slutpunkten. Exempel:
+Ett annat alternativ är att tillhandahålla **batchUri** -slutpunkten. Till exempel:
 
 ```json
 "accountName": "adfteam",
 "batchUri": "https://eastus.batch.azure.com",
 ```
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Egenskaper
 | Egenskap          | Beskrivning                              | Krävs |
 | ----------------- | ---------------------------------------- | -------- |
-| type              | Ange egenskapen type till **AzureBatch**. | Ja      |
-| accountName       | Namnet på batch-kontot.         | Ja      |
+| typ              | Ange egenskapen type till **AzureBatch**. | Ja      |
+| Konto       | Namnet på batch-kontot.         | Ja      |
 | accessKey         | Åtkomst nyckeln för batch-kontot.  | Ja      |
 | poolName          | Namnet på poolen med virtuella datorer.    | Ja      |
 | linkedServiceName | Namnet på den länkade lagrings tjänst som är associerad med den här länkade batch-tjänsten. Den här länkade tjänsten används för att mellanlagra filer som krävs för att köra aktiviteten och för att lagra aktivitets körnings loggar. | Ja      |
@@ -329,10 +329,10 @@ Du kan skapa en Machine Learning länkad tjänst för att registrera en Machine 
 }
 ```
 
-### <a name="properties"></a>properties
-| Egenskap   | Beskrivning                              | Obligatorisk |
+### <a name="properties"></a>Egenskaper
+| Egenskap   | Beskrivning                              | Krävs |
 | ---------- | ---------------------------------------- | -------- |
-| type       | Ange egenskapen type till **azureml**. | Ja      |
+| Typ       | Ange egenskapen type till **azureml**. | Ja      |
 | mlEndpoint | URL för batch-poäng.                   | Ja      |
 | apiKey     | Den publicerade arbets ytans modells API.     | Ja      |
 
@@ -343,8 +343,8 @@ I följande tabell beskrivs de allmänna egenskaper som används i JSON-definiti
 
 | Egenskap                 | Beskrivning                              | Krävs                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| type                 | Ange egenskapen type till **AzureDataLakeAnalytics**. | Ja                                      |
-| accountName          | Namnet på Data Lake Analyticss kontot.  | Ja                                      |
+| typ                 | Ange egenskapen type till **AzureDataLakeAnalytics**. | Ja                                      |
+| Konto          | Namnet på Data Lake Analyticss kontot.  | Ja                                      |
 | dataLakeAnalyticsUri | Data Lake Analytics-URI.           | Nej                                       |
 | subscriptionId       | ID för Azure-prenumerationen.                    | Nej<br /><br />(Om det inte anges används Data Factory-prenumerationen.) |
 | resourceGroupName    | Namnet på Azure-resurs gruppen.                | Nej<br /><br /> (Om den inte anges används data fabriks resurs gruppen.) |
@@ -355,7 +355,7 @@ Du kan välja mellan autentisering med hjälp av ett huvud namn för tjänsten e
 #### <a name="service-principal-authentication-recommended"></a>Autentisering av tjänstens huvud namn (rekommenderas)
 Om du vill använda tjänstens huvud namns autentisering registrerar du en programentitet i Azure Active Directory (Azure AD). Ge sedan Azure AD åtkomst till Data Lake Store. Detaljerade anvisningar finns i [tjänst-till-tjänst-autentisering](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
 * Program-ID:t
-* Programnyckel 
+* Program nyckel 
 * Klient-ID:t
 
 Använd tjänstens huvud namns autentisering genom att ange följande egenskaper:
@@ -364,9 +364,9 @@ Använd tjänstens huvud namns autentisering genom att ange följande egenskaper
 | :---------------------- | :--------------------------------------- | :------- |
 | servicePrincipalId  | Programmets klient-ID.     | Ja      |
 | servicePrincipalKey | Programmets nyckel.           | Ja      |
-| tenant              | Klient information (domän namn eller klient-ID) där ditt program finns. För att få den här informationen kan du Hovra musen i det övre högra hörnet av Azure Portal. | Ja      |
+| innehav              | Klient information (domän namn eller klient-ID) där ditt program finns. För att få den här informationen kan du Hovra musen i det övre högra hörnet av Azure Portal. | Ja      |
 
-**Exempel: Autentisering av tjänstens huvud namn**
+**Exempel: autentisering av tjänstens huvud namn**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -388,12 +388,12 @@ Använd tjänstens huvud namns autentisering genom att ange följande egenskaper
 #### <a name="user-credential-authentication"></a>Autentisering av autentiseringsuppgifter för användare
 Ange följande egenskaper för autentisering av användar referenser för Data Lake Analytics:
 
-| Egenskap          | Beskrivning                              | Obligatorisk |
+| Egenskap          | Beskrivning                              | Krävs |
 | :---------------- | :--------------------------------------- | :------- |
-| authorization | I Data Factory redigeraren väljer du knappen **auktorisera** . Ange autentiseringsuppgifterna som tilldelar den automatiskt genererade auktoriserings-URL: en till den här egenskapen. | Ja      |
+| auktoriseringsregeln | I Data Factory redigeraren väljer du knappen **auktorisera** . Ange autentiseringsuppgifterna som tilldelar den automatiskt genererade auktoriserings-URL: en till den här egenskapen. | Ja      |
 | sessionId     | OAuth-sessions-ID från OAuth-auktoriseringsbegäran. Varje sessions-ID är unikt och kan bara användas en gång. Den här inställningen genereras automatiskt när du använder Data Factory redigeraren. | Ja      |
 
-**Exempel: Autentisering av autentiseringsuppgifter för användare**
+**Exempel: autentisering med användar behörighet**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -416,14 +416,14 @@ Den auktoriseringskod som du skapade genom att välja knappen **auktorisera** up
 
 Du kan se följande fel meddelande när autentiseringstoken upphör att gälla: 
 
-  Åtgärds fel för autentiseringsuppgift: invalid_grant-AADSTS70002: Fel vid verifiering av autentiseringsuppgifter. AADSTS70008: Den angivna åtkomst tilldelningen har förfallit eller återkallats. Spårnings-ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 korrelations-ID: fac30a0c-6BE6-4e02-8d69-a776d2ffefd7 tidsstämpel: 2015-12-15 21:09:31Z
+  Åtgärds fel för autentiseringsuppgift: invalid_grant-AADSTS70002: fel vid verifiering av autentiseringsuppgifter. AADSTS70008: den angivna åtkomst tilldelningen har förfallit eller återkallats. Spårnings-ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 korrelations-ID: fac30a0c-6BE6-4e02-8d69-a776d2ffefd7 tidsstämpel: 2015-12-15 21:09:31Z
 
 Följande tabell visar förfallo datum per användar konto typ: 
 
-| Användartyp                                | Upphör att gälla efter                            |
+| Användar typ                                | Upphör att gälla efter                            |
 | :--------------------------------------- | :--------------------------------------- |
 | Användar konton som *inte* hanteras av Azure AD (Hotmail, Live osv.) | 12 timmar.                                 |
-| Användar konton som hanteras av Azure AD | 14 dagar efter den sista sektor körningen. <br /><br />90 dagar, om en sektor som baseras på en OAuth-baserad länkad tjänst körs minst en gång var 14: e dag. |
+| Användar *konton som hanteras* av Azure AD | 14 dagar efter den sista sektor körningen. <br /><br />90 dagar, om en sektor som baseras på en OAuth-baserad länkad tjänst körs minst en gång var 14: e dag. |
 
 Om du vill undvika eller lösa det här felet kan du godkänna genom att välja knappen **auktorisera** när token upphör att gälla. Distribuera sedan om den länkade tjänsten. Du kan också skapa värden för **SessionID** -och **Authorization** -egenskaperna program mässigt med hjälp av följande kod:
 

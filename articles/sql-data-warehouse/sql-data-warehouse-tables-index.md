@@ -1,5 +1,5 @@
 ---
-title: Indexera tabeller i Azure SQL Data Warehouse | Microsoft Azure
+title: Indexerings tabeller
 description: Rekommendationer och exempel för indexerings tabeller i Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,13 +10,13 @@ ms.subservice: development
 ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seoapril2019
-ms.openlocfilehash: 4d51bd6906a8299a25fe50ca817b1a2b6082ab91
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 079891824bf71caf1ebfa575833de650a55ed5be
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479845"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685449"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexera tabeller i SQL Data Warehouse
 
@@ -24,7 +24,7 @@ Rekommendationer och exempel för indexerings tabeller i Azure SQL Data Warehous
 
 ## <a name="index-types"></a>Indextyper
 
-SQL Data Warehouse erbjuder flera indexerings alternativ, inklusive [grupperade columnstore-index](/sql/relational-databases/indexes/columnstore-indexes-overview), grupperade [index och](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described)icke-grupperade index och ett icke-index-alternativ som också kallas [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
+SQL Data Warehouse erbjuder flera indexerings alternativ, inklusive [grupperade columnstore-index](/sql/relational-databases/indexes/columnstore-indexes-overview), [grupperade index och icke-grupperade index](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described)och ett icke-index-alternativ som också kallas [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
 
 Information om hur du skapar en tabell med ett index finns i dokumentationen för [CREATE TABLE (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) .
 
@@ -216,7 +216,7 @@ När dina tabeller har lästs in med vissa data följer du stegen nedan för att
 
 ## <a name="rebuilding-indexes-to-improve-segment-quality"></a>Återskapa index för att förbättra segment kvaliteten
 
-### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Steg 1: Identifiera eller skapa en användare som använder rätt resurs klass
+### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Steg 1: identifiera eller skapa en användare som använder rätt resurs klass
 
 Ett snabbt sätt att snabbt förbättra segment kvaliteten är att återskapa indexet.  SQL som returnerades av vyn ovan returnerar ett instruktionen ALTER INDEX Rebuild som kan användas för att återskapa index. När du återskapar indexen bör du se till att du allokerar tillräckligt med minne till sessionen som återskapar indexet.  Det gör du genom att öka resurs klassen för en användare som har behörighet att återskapa indexet för den här tabellen till det rekommenderade minimivärdet.
 
@@ -226,7 +226,7 @@ Nedan visas ett exempel på hur du allokerar mer minne till en användare genom 
 EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ```
 
-### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Steg 2: Återskapa grupperade columnstore-index med högre resurs klass användare
+### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Steg 2: återskapa grupperade columnstore-index med högre resurs klass användare
 
 Logga in som användaren från steg 1 (t. ex. LoadUser), som nu använder en högre resurs klass och kör ALTER INDEX-instruktionerna. Se till att användaren har behörigheten Ändra för tabellerna där indexet återskapas. I de här exemplen visas hur du återskapar hela columnstore-indexet eller hur du återskapar en enda partition. I stora tabeller är det mer praktiskt att återskapa index för en enda partition i taget.
 
@@ -252,9 +252,9 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-Att återskapa ett index i SQL Data Warehouse är en offline-åtgärd.  Mer information om hur du återskapar index finns i avsnittet ALTER INDEX Rebuild i [columnstore-index](/sql/relational-databases/indexes/columnstore-indexes-defragmentation)defragmentering och [ändra index](/sql/t-sql/statements/alter-index-transact-sql).
+Att återskapa ett index i SQL Data Warehouse är en offline-åtgärd.  Mer information om hur du återskapar index finns i avsnittet ALTER INDEX Rebuild i [columnstore-index defragmentering](/sql/relational-databases/indexes/columnstore-indexes-defragmentation)och [ändra index](/sql/t-sql/statements/alter-index-transact-sql).
 
-### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Steg 3: Kontrol lera att kvaliteten för det grupperade columnstore-segmentet har förbättrats
+### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Steg 3: kontrol lera att den klustrade columnstore-segmentets kvalitet har förbättrats
 
 Kör frågan som identifierade tabellen med dålig segment kvalitet och kontrol lera att segment kvaliteten har förbättrats.  Om segment kvaliteten inte förbättrades kan det bero på att raderna i tabellen är extra breda.  Överväg att använda en högre resurs klass eller DWU när du återskapar dina index.
 

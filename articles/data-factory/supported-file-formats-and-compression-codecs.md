@@ -1,5 +1,5 @@
 ---
-title: Fil format som stöds i Azure Data Factory | Microsoft Docs
+title: Fil format som stöds i Azure Data Factory
 description: I det här avsnittet beskrivs de fil format och komprimerings koder som stöds av filbaserade kopplingar i Azure Data Factory.
 author: linda33wj
 manager: craigg
@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 00d8fb69abb6ce74a36ff017f3f356cb86114d99
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d0183e991a3cbc0481aff44b5b0f03eaa9d43103
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72930918"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683972"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Fil format och komprimerings-codecar som stöds i Azure Data Factory
 
@@ -47,9 +47,9 @@ Om du vill läsa från en textfil eller skriva till en textfil, ställer du in e
 | quoteChar |Det tecken som används för att referera till ett strängvärde. Kolumn- och radavgränsarna innanför citattecknen behandlas som en del av strängvärdet. Den här egenskapen gäller både in- och utdatauppsättningar.<br/><br/>Du kan inte ange både escapeChar och quoteChar för en tabell. |Endast ett tecken är tillåtet. Inget standardvärde. <br/><br/>Om du till exempel använder kommatecken (,) som kolumnavgränsare, men vill använda ett kommatecken i texten (till exempel <Hello, world>), kan du definiera " (dubbla citattecken) som citattecknet och använda strängen "Hello, world" i källan. |Nej |
 | nullValue |Ett eller flera tecken som används för att representera ett null-värde. |Ett eller flera tecken. **Standardvärdena** är **"\N" och "NULL"** vid läsning och **"\N"** vid skrivning. |Nej |
 | encodingName |Ange kodningsnamnet. |Ett giltigt kodningsnamn. Se [Egenskapen Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Exempel: windows-1250 or shift_jis. **Standardvärdet** är **UTF-8**. |Nej |
-| firstRowAsHeader |Anger om den första raden ska behandlas som en rubrik. För en indatauppsättning läser Data Factory den första raden som en rubrik. För en utdatauppsättning skriver Data Factory den första raden som en rubrik. <br/><br/>Exempelscenarier finns i avsnittet med [användningsscenarier för `firstRowAsHeader` och `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |Sant<br/><b>False (standard)</b> |Nej |
+| firstRowAsHeader |Anger om den första raden ska behandlas som en rubrik. För en indatauppsättning läser Data Factory den första raden som en rubrik. För en utdatauppsättning skriver Data Factory den första raden som en rubrik. <br/><br/>Exempelscenarier finns i avsnittet med [användningsscenarier för `firstRowAsHeader` och `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |True<br/><b>False (standard)</b> |Nej |
 | skipLineCount |Anger antalet **icke-tomma** rader som ska hoppas över vid läsning av data från indatafiler. Om både skipLineCount och firstRowAsHeader anges hoppas raderna över först, varefter rubrikinformationen läses från indatafilen. <br/><br/>Exempelscenarier finns i avsnittet med [användningsscenarier för `firstRowAsHeader` och `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |Integer |Nej |
-| treatEmptyAsNull |Anger om du vill hantera null-strängar eller tomma strängar som ett null-värde vid läsning av data från en indatafil. |**True (standard)**<br/>Falskt |Nej |
+| treatEmptyAsNull |Anger om du vill hantera null-strängar eller tomma strängar som ett null-värde vid läsning av data från en indatafil. |**True (standard)**<br/>False |Nej |
 
 ### <a name="textformat-example"></a>TextFormat-exempel
 
@@ -446,13 +446,13 @@ För kopiering som körs på egen värd-IR med Parquet-filserialisering/deserial
 
 ![Ange JVM heap-storlek för IR med egen värd](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 
-Exempel: ange variabel `_JAVA_OPTIONS` med värde `-Xms256m -Xmx16g`. Flaggan `Xms` anger den första poolen för minnesallokering för en Java Virtual Machine (JVM), medan `Xmx` anger den maximala poolen för minnesallokering. Det innebär att JVM kommer att startas med `Xms` minnes mängd och kommer att kunna använda maximalt `Xmx` minnes mängd. Som standard använder ADF den minsta 64 MB och Max 1G.
+Exempel: ange variabel `_JAVA_OPTIONS` med värde `-Xms256m -Xmx16g`. Flaggan `Xms` anger den första poolen för minnesallokering för en Java Virtual Machine (JVM), medan `Xmx` anger den maximala poolen för minnesallokering. Det innebär att JVM startas med `Xms` mängden minne och kommer att kunna använda maximalt `Xmx` mängd minne. Som standard använder ADF den minsta 64 MB och Max 1G.
 
 ### <a name="data-type-mapping-for-parquet-files"></a>Data typs mappning för Parquet-filer
 
 | Data fabrikens interimistiska datatyp | Parquet primitiv typ | Ursprunglig typ av Parquet (deserialisering) | Ursprunglig typ av Parquet (serialisera) |
 |:--- |:--- |:--- |:--- |
-| Boolesk | Boolesk | Gäller inte | Gäller inte |
+| Boolesk | Boolesk | Saknas | Saknas |
 | SByte | Int32 | Int8 | Int8 |
 | Stor | Int32 | UInt8 | Int16 |
 | Int16 | Int32 | Int16 | Int16 |
@@ -461,17 +461,17 @@ Exempel: ange variabel `_JAVA_OPTIONS` med värde `-Xms256m -Xmx16g`. Flaggan `X
 | UInt32 | Int64 | UInt32 | Int64 |
 | Int64 | Int64 | Int64 | Int64 |
 | UInt64 | Int64/binär | UInt64 | Decimal |
-| Enkel | Flyta | Gäller inte | Gäller inte |
-| Dubbelklicka | Dubbelklicka | Gäller inte | Gäller inte |
+| Enkel | Flyta | Saknas | Saknas |
+| Dubbelklicka | Dubbelklicka | Saknas | Saknas |
 | Decimal | binär | Decimal | Decimal |
 | Sträng | binär | utf8 | utf8 |
-| DateTime | Int96 | Gäller inte | Gäller inte |
-| Intervall | Int96 | Gäller inte | Gäller inte |
-| DateTimeOffset | Int96 | Gäller inte | Gäller inte |
-| ByteArray | binär | Gäller inte | Gäller inte |
+| DateTime | Int96 | Saknas | Saknas |
+| Intervall | Int96 | Saknas | Saknas |
+| DateTimeOffset | Int96 | Saknas | Saknas |
+| ByteArray | binär | Saknas | Saknas |
 | GUID | binär | utf8 | utf8 |
 | hängande | binär | utf8 | utf8 |
-| CharArray | Stöds inte | Gäller inte | Gäller inte |
+| CharArray | Stöds inte | Saknas | Saknas |
 
 ## <a name="orc-format"></a>ORC-format
 

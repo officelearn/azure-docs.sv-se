@@ -1,5 +1,5 @@
 ---
-title: Lösa T-SQL-skillnader – migrering Azure SQL Database | Microsoft Docs
+title: Lösa T-SQL-skillnader – migrering-Azure SQL Database
 description: Transact-SQL-uttryck som inte stöds helt i Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/03/2018
-ms.openlocfilehash: fbc4628ff3d3d7d90f7ec2c47c87f7afa3e9cd43
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: edb978e27621cbc0df66ab32ba7472629c3f8bd1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028829"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686924"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Lösa skillnader i Transact-SQL vid migrering till SQL Database
 
@@ -45,44 +45,44 @@ Huvud-DDL-uttrycket (Data Definition Language) är tillgängliga, men vissa DDL-
 Förutom Transact-SQL-uttryck som är relaterade till de funktioner som inte stöds som beskrivs i [Azure SQL Database funktions jämförelse](sql-database-features.md), stöds inte följande instruktioner och grupper av uttryck. Om din databas som ska migreras använder någon av följande funktioner kan du återställa T-SQL för att eliminera dessa funktioner och uttryck i T-SQL.
 
 - Sortering av systemobjekt
-- Anslutning relaterad: Slut punkts instruktioner. SQL Database har inte stöd för Windows-autentisering, men stöder den liknande Azure Active Directory-autentiseringen. Vissa typer av autentiseringar kräver den senaste versionen av SSMS. Du hittar mer information i [Ansluta till SQL Database eller SQL Data Warehouse med Azure Active Directory-autentisering](sql-database-aad-authentication.md).
+- Anslutning relaterad: slut punkts instruktioner. SQL Database har inte stöd för Windows-autentisering, men stöder den liknande Azure Active Directory-autentiseringen. Vissa typer av autentiseringar kräver den senaste versionen av SSMS. Du hittar mer information i [Ansluta till SQL Database eller SQL Data Warehouse med Azure Active Directory-autentisering](sql-database-aad-authentication.md).
 - Frågor mellan databaser med tre eller fyra delnamn. (Skrivskyddade frågor över flera databaser stöds med hjälp av [Elastic Database-fråga](sql-database-elastic-query-overview.md).)
 - Länkning av ägarskap mellan databaser, `TRUSTWORTHY`-inställning
 - `EXECUTE AS LOGIN` Använd EXECUTE AS USER i stället.
 - Kryptering stöds utom för Extensible Key Management
-- Händelse Händelser, händelse meddelanden, fråge meddelanden
-- Fil placering: Syntax som avser databasens filplacering, storlek och databasfiler som hanteras automatiskt av Microsoft Azure.
-- Hög tillgänglighet: Syntax som avser hög tillgänglighet, som hanteras av Microsoft Azure-kontot. Detta inkluderar syntax för säkerhetskopiering, återställa, Alltid på, databasspegling, loggöverföring återställningslägen.
-- Logg läsare: Syntax som förlitar sig på logg läsaren, som inte är tillgänglig på SQL Database: Push-replikering, registrering av ändrings data. SQL Database kan vara en prenumerant för en artikel för push-replikering.
+- Händelse: händelser, händelse aviseringar, fråge meddelanden
+- Fil placering: syntax som är relaterad till databas fil placering, storlek och databasfiler som hanteras automatiskt av Microsoft Azure.
+- Hög tillgänglighet: syntax som är relaterad till hög tillgänglighet, som hanteras via ditt Microsoft Azure-konto. Detta inkluderar syntax för säkerhetskopiering, återställa, Alltid på, databasspegling, loggöverföring återställningslägen.
+- Logg läsare: syntax som förlitar sig på logg läsaren, som inte är tillgänglig på SQL Database: push-replikering, registrering av ändrings data. SQL Database kan vara en prenumerant för en artikel för push-replikering.
 - Funktioner: `fn_get_sql`, `fn_virtualfilestats`,`fn_virtualservernodes`
-- All Syntax som rör maskinvarubaserade Server inställningar: till exempel minne, arbets trådar, processor tillhörighet, spårnings flaggor. Använd tjänst nivåer och beräknings storlekar i stället.
+- Maskin vara: syntax som är relaterad till maskinvarurelaterade Server inställningar: till exempel minne, arbets trådar, processor tillhörighet, spårnings flaggor. Använd tjänst nivåer och beräknings storlekar i stället.
 - `KILL STATS JOB`
 - `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE` och namn på fyra delar
 - .NET Framework: CLR-integrering med SQL Server
 - Semantisk sökning
-- Autentiseringsuppgifter för Server: Använd i stället [databasens begränsade autentiseringsuppgifter](https://msdn.microsoft.com/library/mt270260.aspx) .
-- Objekt på server nivå: Server roller, `sys.login_token`. `GRANT`, `REVOKE` och `DENY` av serverbehörigheter inte är tillgängliga även om vissa ersätts med databasbehörigheter. Vissa användbara DMV:er på servernivå har motsvarande DMV:er på databasnivå.
+- Autentiseringsuppgifter för Server: Använd [databasens begränsade autentiseringsuppgifter](https://msdn.microsoft.com/library/mt270260.aspx) i stället.
+- Server nivå objekt: Server roller, `sys.login_token`. `GRANT`, `REVOKE` och `DENY` av serverbehörigheter inte är tillgängliga även om vissa ersätts med databasbehörigheter. Vissa användbara DMV:er på servernivå har motsvarande DMV:er på databasnivå.
 - `SET REMOTE_PROC_TRANSACTIONS`
 - `SHUTDOWN`
 - `sp_addmessage`
 - `sp_configure`-alternativ och `RECONFIGURE`. Vissa alternativ är tillgängliga med [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx).
 - `sp_helpuser`
 - `sp_migrate_user_to_contained`
-- SQL Server Agent: Syntax som bygger på SQL Server Agent eller MSDB-databasen: aviseringar, operatörer, centrala hanteringsservrar. Använd skript, till exempel Azure PowerShell i stället.
-- SQL Server granskning: Använd granskning av SQL Database i stället.
+- SQL Server Agent: syntax som förlitar sig på SQL Server Agent eller MSDB-databasen: aviseringar, operatörer, centrala hanterings servrar. Använd skript, till exempel Azure PowerShell i stället.
+- SQL Server granskning: Använd SQL Database granskning i stället.
 - Spårning av SQL Server
-- Spårnings flaggor: Vissa spårade flaggobjekt har flyttats till kompatibilitetsläge.
+- Spårnings flaggor: vissa spårnings flagga objekt har flyttats till kompatibilitetsläge.
 - Felsökning av Transact-SQL
-- Utlösar Server – begränsade eller inloggnings utlösare
-- `USE`-uttryck: Om du vill ändra databasens kontext till en annan databas måste du skapa en ny anslutning till den nya databasen.
+- Utlösare: Serveromfattande eller inloggningsutlösare
+- `USE`-uttryck: Om du vill ändra databasens kontext till en annan databas måste du göra en ny anslutning till den nya databasen.
 
 ## <a name="full-transact-sql-reference"></a>Fullständig referens för Transact-SQL
 
-Mer information om hur du använder Transact-SQL grammatik, användning och exempel finns i [referens för Transact-SQL (databas motor)](https://msdn.microsoft.com/library/bb510741.aspx) In SQL Server Books Online.
+Mer information om hur du använder Transact-SQL grammatik, användning och exempel finns i [referens för Transact-SQL (databas motor)](https://msdn.microsoft.com/library/bb510741.aspx) i SQL Server Books Online.
 
 ### <a name="about-the-applies-to-tags"></a>Om "Gäller för"-taggar
 
-Transact-SQL-referensen innehåller artiklar relaterade till SQL Server versioner 2008 för närvarande. Under artikel rubriken finns ett ikon fält, som visar de fyra SQL Server plattformarna och som anger tillämplighet. Till exempel introducerades tillgänglighetsgrupper i SQL Server 2012.  [Skapa tillgänglighets grupp](https://msdn.microsoft.com/library/ff878399.aspx) article anger att instruktionen gäller **SQL Server (från och med 2012)** . Uttrycket gäller inte för SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse eller Parallel Data Warehouse.
+Transact-SQL-referensen innehåller artiklar relaterade till SQL Server versioner 2008 för närvarande. Under artikel rubriken finns ett ikon fält, som visar de fyra SQL Server plattformarna och som anger tillämplighet. Till exempel introducerades tillgänglighetsgrupper i SQL Server 2012. I artikeln [skapa tillgänglighets grupp](https://msdn.microsoft.com/library/ff878399.aspx) anges att instruktionen gäller **SQL Server (från och med 2012)** . Uttrycket gäller inte för SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse eller Parallel Data Warehouse.
 
 I vissa fall kan en artikels allmänna ämne användas i en produkt, men det finns mindre skillnader mellan produkterna. Skillnaderna anges på mitt punkter i artikeln efter behov. I vissa fall kan en artikels allmänna ämne användas i en produkt, men det finns mindre skillnader mellan produkterna. Skillnaderna anges på mitt punkter i artikeln efter behov. Till exempel är artikeln Skapa utlösare tillgänglig i SQL Database. Men alternativet **alla Server** för utlösare på server nivå anger att utlösare på server nivå inte kan användas i SQL Database. Använd i stället databas nivå utlösare.
 

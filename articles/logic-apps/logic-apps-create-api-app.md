@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: e5dc913d682088296f84fb6bd7595a09d9d3fe7b
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 0d73f40c77c1b73a52522eafdb3c093b691d3e14
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609864"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583462"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Skapa anpassade API: er som du kan anropa från Azure Logic Apps
 
@@ -27,21 +27,21 @@ ms.locfileid: "68609864"
 
 I princip är kopplingar webb-API: er som använder REST för anslutnings bara gränssnitt, [Swagger metadata-format](https://swagger.io/specification/) för dokumentation och JSON som sitt data utbytes format. Eftersom kopplingar är REST-API: er som kommunicerar via HTTP-slutpunkter kan du använda valfritt språk, t. ex. .NET, Java, python eller Node. js, för att skapa anslutningar. Du kan också vara värd för dina API: er på [Azure App Service](../app-service/overview.md), ett PaaS-erbjudande (Platform-as-a-Service) som tillhandahåller ett av de bästa, enklaste och mest skalbara sätten för API-värd. 
 
-För att anpassade API: er ska fungera med Logic Apps kan ditt API tillhandahålla [*åtgärder*](./logic-apps-overview.md#logic-app-concepts) som utför vissa uppgifter i Logic app-arbetsflöden. Ditt API kan också fungera som en [](./logic-apps-overview.md#logic-app-concepts) utlösare som startar ett Logic app-arbetsflöde när nya data eller en händelse uppfyller ett visst villkor. I det här avsnittet beskrivs vanliga mönster som du kan följa för att skapa åtgärder och utlösare i ditt API, baserat på vilket beteende du vill att ditt API ska tillhandahålla.
+För att anpassade API: er ska fungera med Logic Apps kan ditt API tillhandahålla [*åtgärder*](./logic-apps-overview.md#logic-app-concepts) som utför vissa uppgifter i Logic app-arbetsflöden. Ditt API kan också fungera som en [*utlösare*](./logic-apps-overview.md#logic-app-concepts) som startar ett Logic app-arbetsflöde när nya data eller en händelse uppfyller ett visst villkor. I det här avsnittet beskrivs vanliga mönster som du kan följa för att skapa åtgärder och utlösare i ditt API, baserat på vilket beteende du vill att ditt API ska tillhandahålla.
 
 Du kan vara värd för dina API: er på [Azure App Service](../app-service/overview.md), ett PaaS-erbjudande (Platform-as-a-Service) som ger mycket skalbara, enkla API-värdar.
 
 > [!TIP] 
 > Även om du kan distribuera dina API: er som webbappar, bör du överväga att distribuera dina API: er som API Apps, vilket kan göra jobbet enklare när du skapar, är värd för och använder API: er i molnet och lokalt. Du behöver inte ändra någon kod i dina API: er – distribuera bara din kod till en API-app. Lär dig till exempel hur du skapar API-appar som skapats med följande språk: 
 > 
-> * [ASP.NET](../app-service/app-service-web-get-started-dotnet.md). 
+> * [ASP.net](../app-service/app-service-web-get-started-dotnet.md). 
 > * [Java](../app-service/app-service-web-get-started-java.md)
 > * [Node.js](../app-service/app-service-web-get-started-nodejs.md)
 > * [PHP](../app-service/app-service-web-get-started-php.md)
 > * [Python](../app-service/containers/quickstart-python.md)
 > * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
-> För API-AppData som skapats för Logic Apps, besök [Azure Logic Apps GitHub](https://github.com/logicappsio) -lagringsplatsen eller [bloggen](https://aka.ms/logicappsblog).
+> För API-AppData som skapats för Logic Apps, besök [Azure Logic Apps GitHub-lagringsplatsen](https://github.com/logicappsio) eller [bloggen](https://aka.ms/logicappsblog).
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Hur skiljer sig anpassade API: er från anpassade anslutningar?
 
@@ -53,7 +53,7 @@ Med anpassade API: er kan du anropa API: er som inte är kopplingar och tillhand
 * Visas med ikoner tillsammans med Microsoft-hanterade kopplingar i Logic Apps designer.
 * Endast tillgängligt för anslutningens författare och Logic App-användare som har samma Azure Active Directory klient organisation och Azure-prenumeration i den region där Logic Apps distribueras.
 
-Du kan också utse registrerade anslutningar för Microsoft-certifiering. Den här processen verifierar att registrerade anslutningar uppfyller villkoren för offentligt bruk och gör dessa anslutningar tillgängliga för användare i Microsoft Flow och Microsoft PowerApps.
+Du kan också utse registrerade anslutningar för Microsoft-certifiering. Den här processen verifierar att registrerade anslutningar uppfyller villkoren för offentligt bruk och gör dessa anslutningar tillgängliga för användare i Energis par och Microsoft Power Apps.
 
 Mer information om anpassade anslutningar finns i 
 
@@ -76,9 +76,9 @@ För en standard åtgärd kan du skriva en HTTP-metod för begäran i ditt API o
 
 ![Standard åtgärds mönster](./media/logic-apps-create-api-app/standard-action.png)
 
-<a name="pattern-overview"></a>Om du vill göra en logisk app vänta medan ditt API Slutför längre aktiviteter som körs kan ditt API följa det [asynkrona avsöknings mönstret](#async-pattern) eller det asynkrona webhook- [mönstret](#webhook-actions) som beskrivs i det här avsnittet. För en analog som hjälper dig att visualisera dessa mönster med olika beteenden kan du föreställa dig processen för att beställa en anpassad tårta från en bageri. Avsöknings mönstret speglar beteendet där du ringer bak sidan var 20: e minut för att kontrol lera om tårtan är klar. Webhook-mönstret speglar beteendet där bagerien ber dig om ditt telefonnummer så att de kan anropa dig när tårtan är klar.
+<a name="pattern-overview"></a>Om du vill göra en logisk app vänta medan ditt API Slutför längre aktiviteter som körs kan ditt API följa det [asynkrona avsöknings mönstret](#async-pattern) eller det [asynkrona webhook-mönstret](#webhook-actions) som beskrivs i det här avsnittet. För en analog som hjälper dig att visualisera dessa mönster med olika beteenden kan du föreställa dig processen för att beställa en anpassad tårta från en bageri. Avsöknings mönstret speglar beteendet där du ringer bak sidan var 20: e minut för att kontrol lera om tårtan är klar. Webhook-mönstret speglar beteendet där bagerien ber dig om ditt telefonnummer så att de kan anropa dig när tårtan är klar.
 
-Exempel finns på [Logic Apps GitHub](https://github.com/logicappsio)-lagringsplatsen. Lär dig även mer om [användnings mätning för åtgärder](logic-apps-pricing.md).
+Exempel finns på [Logic Apps GitHub-lagringsplatsen](https://github.com/logicappsio). Lär dig även mer om [användnings mätning för åtgärder](logic-apps-pricing.md).
 
 <a name="async-pattern"></a>
 
@@ -100,23 +100,23 @@ Därför ska vi mappa detta avsöknings mönster tillbaka. Bagerien representera
 
 Här följer de olika stegen för ditt API att följa, som beskrivs i API: s perspektiv:
 
-1. När ditt API hämtar en http-begäran för att starta arbetet, returnerar omedelbart `202 ACCEPTED` ett http- `location` svar med rubriken som beskrivs senare i det här steget. Med det här svaret kan Logic Appss motorn veta att ditt API fick begäran, godkänt nytto lasten för begäran (indata) och nu bearbetas. 
+1. När ditt API hämtar en HTTP-begäran för att starta arbetet returnerar omedelbart ett HTTP-`202 ACCEPTED` svar med `location`s rubriken som beskrivs senare i det här steget. Med det här svaret kan Logic Appss motorn veta att ditt API fick begäran, godkänt nytto lasten för begäran (indata) och nu bearbetas. 
    
-   `202 ACCEPTED` Svaret måste innehålla följande rubriker:
+   Det `202 ACCEPTED` svaret måste innehålla följande rubriker:
    
-   * *Krävs*: En `location` rubrik som anger den absoluta sökvägen till en URL där Logic Appss motorn kan kontrol lera ditt API: s jobb status
+   * *Krävs*: ett `location`-huvud som anger den absoluta sökvägen till en URL där Logic Apps-motorn kan kontrol lera jobb status för ditt API
 
-   * *Valfritt*: Ett `retry-after` huvud som anger antalet sekunder som motorn ska vänta innan den `location` kontrollerar URL: en för jobb status. 
+   * *Valfritt*: ett `retry-after`-huvud som anger antalet sekunder som motorn ska vänta innan den kontrollerar `location`-URL: en för jobb status. 
 
-     Som standard kontrollerar motorn var 20: e sekund. Om du vill ange ett annat intervall inkluderar `retry-after` du rubriken och antalet sekunder tills nästa omröstning.
+     Som standard kontrollerar motorn var 20: e sekund. Om du vill ange ett annat intervall inkluderar du `retry-after`s huvudet och antalet sekunder tills nästa omröstning.
 
-2. När den angivna tiden har passerat avsöker `location` Logic Appss motorn URL: en för att kontrol lera jobb status. Ditt API bör utföra dessa kontroller och returnera dessa svar:
+2. När den angivna tiden har passerat avsöker Logic Appss motorn `location`-URL för att kontrol lera jobb status. Ditt API bör utföra dessa kontroller och returnera dessa svar:
    
-   * Om jobbet är färdigt returnerar du ett http- `200 OK` svar, tillsammans med svarets nytto Last (ininformation för nästa steg).
+   * Om jobbet är färdigt returnerar du ett HTTP-`200 OK` svar, tillsammans med svarets nytto Last (intill nästa steg).
 
-   * Om jobbet fortfarande bearbetas returnerar du ett annat `202 ACCEPTED` http-svar, men med samma rubriker som det ursprungliga svaret.
+   * Om jobbet fortfarande bearbetas returnerar du ett annat HTTP-`202 ACCEPTED` svar, men med samma rubriker som det ursprungliga svaret.
 
-När ditt API följer det här mönstret behöver du inte göra något i Logic app Workflow-definitionen för att fortsätta kontrol lera jobb status. När motorn hämtar ett http- `202 ACCEPTED` svar och en giltig `location` rubrik, respekterar motorn det `location` asynkrona mönstret och kontrollerar rubriken tills ditt API returnerar ett svar som inte är 202.
+När ditt API följer det här mönstret behöver du inte göra något i Logic app Workflow-definitionen för att fortsätta kontrol lera jobb status. När motorn hämtar ett HTTP-`202 ACCEPTED` svar och ett giltigt `location`-huvud, respekterar motorn det asynkrona mönstret och kontrollerar `location`s huvudet tills ditt API returnerar ett svar som inte är 202.
 
 > [!TIP]
 > För ett exempel på asynkront mönster, granska [svars exemplet för asynkron kontrollant i GitHub](https://github.com/logicappsio/LogicAppsAsyncResponseSample).
@@ -132,31 +132,31 @@ Alternativt kan du använda webhook-mönstret för långvariga uppgifter och asy
 När vi mappar detta webhook-mönster, representerar bagerien ditt anpassade API, medan du, tårta-kunden, representerar Logic Apps motor. Motorn anropar API: et med en begäran och innehåller en "återanrops-URL".
 När jobbet är färdigt använder ditt API URL: en för att meddela motorn och returnera data till din Logi Kap par, som sedan fortsätter arbets flödet. 
 
-För det här mönstret ställer du in två slut punkter på din styrenhet `subscribe` : och`unsubscribe`
+För det här mönstret ställer du in två slut punkter på styrenheten: `subscribe` och `unsubscribe`
 
-*  `subscribe`Endpoint När körningen når ditt API: s åtgärd i arbets flödet anropar `subscribe` Logic Appss motorn slut punkten. Det här steget gör att Logic app skapar en återanrops-URL som din API lagrar och väntar sedan på motringning från ditt API när arbetet är slutfört. Ditt API anropar sedan med ett HTTP-inlägg till URL: en och skickar tillbaka innehåll och rubriker som indata till Logic-appen.
+*  `subscribe` slut punkt: när körningen når ditt API: s åtgärd i arbets flödet anropar Logic Apps-motorn `subscribe` slut punkten. Det här steget gör att Logic app skapar en återanrops-URL som din API lagrar och väntar sedan på motringning från ditt API när arbetet är slutfört. Ditt API anropar sedan med ett HTTP-inlägg till URL: en och skickar tillbaka innehåll och rubriker som indata till Logic-appen.
 
-* `unsubscribe`Endpoint Om Logic app-körningen avbryts anropar `unsubscribe` Logic Apps-motorn slut punkten. Ditt API kan sedan avregistrera återanrops-URL: en och stoppa eventuella processer vid behov.
+* `unsubscribe` slut punkt: om Logic app-körningen avbryts anropar Logic Apps-motorn `unsubscribe` slut punkten. Ditt API kan sedan avregistrera återanrops-URL: en och stoppa eventuella processer vid behov.
 
 ![Åtgärds mönster för webhook](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
 > [!NOTE]
-> Logic App Designer stöder för närvarande inte identifiering av webhook-slutpunkter via Swagger. Så för det här mönstret måste du lägga till en [ **webhook** -åtgärd](../connectors/connectors-native-webhook.md) och ange URL, rubriker och brödtext för din begäran. Se även [arbets flödes åtgärder och](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action)utlösare. Om du vill skicka in återanrops-URL: `@listCallbackUrl()` en kan du använda arbets flödes funktionen i något av de föregående fälten om det behövs.
+> Logic App Designer stöder för närvarande inte identifiering av webhook-slutpunkter via Swagger. Så för det här mönstret måste du lägga till en [ **webhook** -åtgärd](../connectors/connectors-native-webhook.md) och ange URL, rubriker och brödtext för din begäran. Se även [arbets flödes åtgärder och utlösare](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action). Om du vill skicka in återanrops-URL: en kan du använda arbets flödes funktionen `@listCallbackUrl()` i något av de föregående fälten om det behövs.
 
 > [!TIP]
-> Om du vill se ett exempel på ett webhook-mönster kan du läsa detta [exempel på webhook](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs)-utlösare
+> Om du vill se ett exempel på ett webhook-mönster kan du läsa detta [exempel på webhook-utlösare](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs)
 
 <a name="triggers"></a>
 
 ## <a name="trigger-patterns"></a>Utlös mönster
 
-Ditt anpassade API kan fungera som en [](./logic-apps-overview.md#logic-app-concepts) utlösare som startar en Logic app när nya data eller en händelse uppfyller ett visst villkor. Den här utlösaren kan antingen kontrol lera regelbundet eller vänta och lyssna efter nya data eller händelser på tjänstens slut punkt. Om nya data eller en händelse uppfyller det angivna villkoret utlöses utlösaren och startar Logic-appen, som lyssnar på den utlösaren. För att starta Logic Apps på det här sättet kan ditt API [](#polling-triggers) följa avsöknings utlösaren eller webhook-utlösaren. [](#webhook-triggers) Dessa mönster liknar deras motsvarigheter för avsökning av [åtgärder](#async-pattern) och webhook- [åtgärder](#webhook-actions). Lär dig också mer om [användnings mätning för](logic-apps-pricing.md)utlösare.
+Ditt anpassade API kan fungera som en [*utlösare*](./logic-apps-overview.md#logic-app-concepts) som startar en Logic app när nya data eller en händelse uppfyller ett visst villkor. Den här utlösaren kan antingen kontrol lera regelbundet eller vänta och lyssna efter nya data eller händelser på tjänstens slut punkt. Om nya data eller en händelse uppfyller det angivna villkoret utlöses utlösaren och startar Logic-appen, som lyssnar på den utlösaren. För att starta Logic Apps på det här sättet kan ditt API följa [*avsöknings utlösaren*](#polling-triggers) eller [*webhook-utlösaren*](#webhook-triggers) . Dessa mönster liknar deras motsvarigheter för [avsökning av åtgärder](#async-pattern) och [webhook-åtgärder](#webhook-actions). Lär dig också mer om [användnings mätning för utlösare](logic-apps-pricing.md).
 
 <a name="polling-triggers"></a>
 
 ### <a name="check-for-new-data-or-events-regularly-with-the-polling-trigger-pattern"></a>Sök efter nya data eller händelser regelbundet med utlösare för avsöknings utlösare
 
-En avsöknings utlösare fungerar ungefär som den avsöknings [åtgärd](#async-pattern) som tidigare beskrivits i det här avsnittet. Logic Apps-motorn anropar regelbundet och kontrollerar utlösnings slut punkten för nya data eller händelser. Om motorn hittar nya data eller en händelse som uppfyller det angivna villkoret utlöses utlösaren. Sedan skapar motorn en Logic App-instans som bearbetar data som indata. 
+En *avsöknings utlösare* fungerar ungefär som den [avsöknings åtgärd](#async-pattern) som tidigare beskrivits i det här avsnittet. Logic Apps-motorn anropar regelbundet och kontrollerar utlösnings slut punkten för nya data eller händelser. Om motorn hittar nya data eller en händelse som uppfyller det angivna villkoret utlöses utlösaren. Sedan skapar motorn en Logic App-instans som bearbetar data som indata. 
 
 ![Utlösnings mönster för avsökning](./media/logic-apps-create-api-app/custom-api-polling-trigger-pattern.png)
 
@@ -167,23 +167,23 @@ Här följer några steg för en avsöknings utlösare som beskrivs i API: s per
 
 | Hittade du nya data eller händelser?  | API-svar | 
 | ------------------------- | ------------ |
-| Hittade | Returnera en http `200 OK` -status med svarets nytto Last (ininformation för nästa steg). <br/>Det här svaret skapar en Logic App-instans och startar arbets flödet. | 
-| Kunde inte hittas | Returnera en http `202 ACCEPTED` -status med `location` ett sidhuvud och `retry-after` en rubrik. <br/>För utlösare `location` bör rubriken även innehålla en `triggerState` frågeparameter, som vanligt vis är en "tidstämpel". Ditt API kan använda den här identifieraren för att spåra den senaste gången Logic-appen utlöstes. | 
+| Kon | Returnera en HTTP `200 OK`-status med svarets nytto Last (inmatat för nästa steg). <br/>Det här svaret skapar en Logic App-instans och startar arbets flödet. | 
+| Hittades inte | Returnera en HTTP `202 ACCEPTED`-status med ett `location`-huvud och en `retry-after`-rubrik. <br/>För utlösare bör `location` rubriken också innehålla en `triggerState` frågeparameter, som vanligt vis är en "tidstämpel". Ditt API kan använda den här identifieraren för att spåra den senaste gången Logic-appen utlöstes. | 
 ||| 
 
 Om du till exempel regelbundet vill kontrol lera din tjänst för nya filer kan du bygga en avsöknings utlösare som har följande beteenden:
 
-| Förfrågan ingår `triggerState`? | API-svar | 
+| Förfrågan innehåller `triggerState`? | API-svar | 
 | -------------------------------- | -------------| 
-| Nej | Returnera en http `202 ACCEPTED` -status plus `location` ett sidhuvud `triggerState` med angivet till aktuell tid och `retry-after` intervallet till 15 sekunder. | 
-| Ja | Kontrol lera om det finns filer som har `DateTime` lagts `triggerState`till efter for i-tjänsten. | 
+| Nej | Returnera en HTTP `202 ACCEPTED`-status plus ett `location`-huvud med `triggerState` inställd på den aktuella tiden och `retry-after` intervallet till 15 sekunder. | 
+| Ja | Kontrol lera om tjänsten har lagts till efter `DateTime` för `triggerState`. | 
 ||| 
 
 | Antal filer som hittades | API-svar | 
 | --------------------- | -------------| 
-| Enskild fil | Returnera en http `200 OK` -status och innehålls nytto lasten `triggerState` , uppdatera `DateTime` till för den returnerade filen och `retry-after` ange intervall till 15 sekunder. | 
-| Flera filer | Returnera en fil i taget och en http- `200 OK` status, uppdatera `triggerState`och ange `retry-after` intervallet till 0 sekunder. </br>De här stegen gör att motorn vet att fler data är tillgängliga och att motorn omedelbart ska begära data från URL: en i `location` rubriken. | 
-| Inga filer | Returnera en http `202 ACCEPTED` -status, ändra `triggerState`inte och ange `retry-after` intervallet till 15 sekunder. | 
+| Enskild fil | Returnera en HTTP `200 OK`-status och innehålls nytto lasten, uppdatera `triggerState` till `DateTime` för den returnerade filen och ange `retry-after` intervall till 15 sekunder. | 
+| Flera filer | Returnera en fil i taget och en HTTP `200 OK`-status, uppdatera `triggerState`och ange `retry-after`-intervallet till 0 sekunder. </br>De här stegen gör att motorn vet att fler data är tillgängliga och att motorn omedelbart ska begära data från URL: en i `location`s huvudet. | 
+| Inga filer | Returnera en HTTP `202 ACCEPTED`-status, ändra inte `triggerState`och ange `retry-after`s intervallet till 15 sekunder. | 
 ||| 
 
 > [!TIP]
@@ -193,17 +193,17 @@ Om du till exempel regelbundet vill kontrol lera din tjänst för nya filer kan 
 
 ### <a name="wait-and-listen-for-new-data-or-events-with-the-webhook-trigger-pattern"></a>Vänta och lyssna efter nya data eller händelser med utlösare för webhook
 
-En webhook-utlösare är en *push* -utlösare som väntar och lyssnar efter nya data eller händelser på tjänstens slut punkt. Om nya data eller en händelse uppfyller det angivna villkoret utlöses utlösaren och skapar en Logic App-instans, som sedan bearbetar data som indata.
-Webhook-utlösare fungerar ungefär som webhook- [åtgärder](#webhook-actions) som tidigare beskrivs i det här avsnittet och `subscribe` har `unsubscribe` kon figurer ATS med och slut punkter. 
+En webhook-utlösare är en *push-utlösare* som väntar och lyssnar efter nya data eller händelser på tjänstens slut punkt. Om nya data eller en händelse uppfyller det angivna villkoret utlöses utlösaren och skapar en Logic App-instans, som sedan bearbetar data som indata.
+Webhook-utlösare fungerar ungefär som [webhook-åtgärder](#webhook-actions) som tidigare beskrivs i det här avsnittet och har kon figurer ats med `subscribe`-och `unsubscribe`-slutpunkter. 
 
-* `subscribe`Endpoint När du lägger till och sparar en webhook-utlösare i din Logic app anropar `subscribe` Logic Apps-motorn slut punkten. Det här steget gör att Logic app skapar en återanrops-URL som din API lagrar. När det finns nya data eller en händelse som uppfyller det angivna villkoret, anropar API: et igen med ett HTTP-inlägg till URL: en. Innehålls nytto lasten och huvudena skickas som inmatade i Logic-appen.
+* `subscribe` slut punkt: när du lägger till och sparar en webhook-utlösare i din Logic app anropar Logic Apps-motorn `subscribe` slut punkten. Det här steget gör att Logic app skapar en återanrops-URL som din API lagrar. När det finns nya data eller en händelse som uppfyller det angivna villkoret, anropar API: et igen med ett HTTP-inlägg till URL: en. Innehålls nytto lasten och huvudena skickas som inmatade i Logic-appen.
 
-* `unsubscribe`Endpoint Om webhook-utlösaren eller hela Logic-appen tas bort anropar `unsubscribe` Logic Apps-motorn slut punkten. Ditt API kan sedan avregistrera återanrops-URL: en och stoppa eventuella processer vid behov.
+* `unsubscribe` slut punkt: om webhook-utlösaren eller hela Logic-appen tas bort anropar Logic Apps-motorn `unsubscribe` slut punkten. Ditt API kan sedan avregistrera återanrops-URL: en och stoppa eventuella processer vid behov.
 
 ![Utlösnings mönster för webhook](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 
 > [!NOTE]
-> Logic App Designer stöder för närvarande inte identifiering av webhook-slutpunkter via Swagger. Så för det här mönstret måste du lägga till en [ **webhook** ](../connectors/connectors-native-webhook.md) -utlösare och ange URL, rubriker och brödtext för din begäran. Se även [HTTPWebhook](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger)-utlösare. Om du vill skicka in återanrops-URL: `@listCallbackUrl()` en kan du använda arbets flödes funktionen i något av de föregående fälten om det behövs.
+> Logic App Designer stöder för närvarande inte identifiering av webhook-slutpunkter via Swagger. Så för det här mönstret måste du lägga till en [ **webhook** -utlösare](../connectors/connectors-native-webhook.md) och ange URL, rubriker och brödtext för din begäran. Se även [HTTPWebhook-utlösare](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger). Om du vill skicka in återanrops-URL: en kan du använda arbets flödes funktionen `@listCallbackUrl()` i något av de föregående fälten om det behövs.
 >
 > För att förhindra bearbetning av samma data flera gånger bör utlösaren rensa data som redan har lästs och skickats till Logic app.
 
@@ -222,7 +222,7 @@ När du har konfigurerat autentisering konfigurerar du distribution för dina AP
 
 Om du vill göra dina anpassade API: er tillgängliga för andra Logic Apps användare i Azure måste du lägga till säkerhet och registrera dem som Logic app-kopplingar. Mer information finns i [Översikt över anpassade anslutningsappar](../logic-apps/custom-connector-overview.md). 
 
-Om du vill göra dina anpassade API: er tillgängliga för alla användare i Logic Apps, Microsoft Flow och Microsoft PowerApps måste du lägga till säkerhet, registrera dina API: er som Logic app-kopplingar och utse dina anslutningar för [Microsoft Azure Certified-programmet](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
+Om du vill göra dina anpassade API: er tillgängliga för alla användare i Logic Apps, Power automatisering och Microsoft Power Apps, måste du lägga till säkerhet, registrera dina API: er som Logic app-kopplingar och utse dina anslutningar för det [Microsoft Azure certifierade programmet](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
 
 ## <a name="get-support"></a>Få support
 

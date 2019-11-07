@@ -1,18 +1,18 @@
 ---
 title: Diagnostisk loggning för Azure Analysis Services | Microsoft Docs
-description: Lär dig mer om hur du konfigurerar diagnostisk loggning för Azure Analysis Services.
+description: Beskriver hur du konfigurerar Azure Resource Diagnostic-loggning för att övervaka din Azure Analysis Services-server.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/31/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a9684042a76c9c906a75334c319b4ca8ee0b727b
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: b8ae2c529bebebae4ebc2d7b0b8a7e420fe9bcc7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298621"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572779"
 ---
 # <a name="setup-diagnostic-logging"></a>Konfigurera diagnostisk loggning
 
@@ -70,7 +70,7 @@ Mått kategorin loggar samma [Server mått](analysis-services-monitor.md#server-
 
 ## <a name="setup-diagnostics-logging"></a>Konfigurera diagnostikloggning
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 1. I [Azure Portal](https://portal.azure.com) > Server klickar du på **diagnostikloggar** i det vänstra navigerings fönstret och sedan på **Aktivera diagnostik**.
 
@@ -88,9 +88,9 @@ Mått kategorin loggar samma [Server mått](analysis-services-monitor.md#server-
     * **Tjänsten**. Välj det här alternativet om du vill logga händelser på service nivå. Om du arkiverar till ett lagrings konto kan du välja kvarhållningsperioden för diagnostikloggar. Loggarna tas bort när kvarhållningsperioden upphör att gälla.
     * **Mått**. Välj det här alternativet om du vill lagra utförliga data i [mått](analysis-services-monitor.md#server-metrics). Om du arkiverar till ett lagrings konto kan du välja kvarhållningsperioden för diagnostikloggar. Loggarna tas bort när kvarhållningsperioden upphör att gälla.
 
-3. Klicka på **Save** (Spara).
+3. Klicka på **Spara**.
 
-    Om du får ett fel meddelande om att det inte gick att uppdatera diagnostiken för \<workspace namn >. Prenumerationen \<subscription-ID > har inte registrerats för att använda Microsoft. Insights. " Följ anvisningarna i [fel söknings Azure-diagnostik](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) för att registrera kontot och gör sedan om proceduren.
+    Om du får ett fel meddelande om att det inte gick att uppdatera diagnostiken för \<arbets ytans namn >. Prenumerations \<prenumerations-ID > har inte registrerats för att använda Microsoft. Insights. " Följ anvisningarna i [fel söknings Azure-diagnostik](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) för att registrera kontot och gör sedan om proceduren.
 
     Om du vill ändra hur dina diagnostikloggar sparas när som helst i framtiden kan du gå tillbaka till den här sidan om du vill ändra inställningarna.
 
@@ -158,7 +158,7 @@ Om du vill visa dina diagnostikdata går du till Log Analytics arbets yta och ö
 
 ![Loggs öknings alternativ i Azure Portal](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
-I Frågeverktyget expanderar du **LogManagement** > **AzureDiagnostics**. AzureDiagnostics innehåller motor-och tjänst händelser. Lägg märke till att en fråga skapas direkt. Fältet EventClass @ no__t-0s innehåller xEvent-namn som kan vara välbekanta om du har använt xEvents för lokal loggning. Klicka på **EventClass @ no__t-1s** eller något av händelse namnen och Log Analytics arbets ytan fortsätter att konstruera en fråga. Se till att spara dina frågor för senare användning.
+I Frågeverktyget expanderar du **LogManagement** > **AzureDiagnostics**. AzureDiagnostics innehåller motor-och tjänst händelser. Lägg märke till att en fråga skapas direkt. EventClass\_s-fältet innehåller xEvent-namn, som kan se bekant ut om du har använt xEvents för lokal loggning. Klicka på **EventClass\_s** eller något av händelse namnen och Log Analytics arbets ytan fortsätter att konstruera en fråga. Se till att spara dina frågor för senare användning.
 
 ### <a name="example-queries"></a>Exempelfrågor
 
@@ -215,12 +215,12 @@ Det finns hundratals frågor som du kan använda. Mer information om frågor fin
 
 I den här snabb självstudien skapar du ett lagrings konto i samma prenumeration och resurs grupp som Analysis Services-servern. Sedan använder du Set-AzDiagnosticSetting för att aktivera diagnostikloggning och skicka utdata till det nya lagrings kontot.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Nödvändiga komponenter
 För att slutföra den här självstudien måste du ha följande resurser:
 
 * En befintlig Azure Analysis Services-server. Anvisningar om hur du skapar en server resurs finns [i skapa en server i Azure Portal](analysis-services-create-server.md)eller [skapa en Azure Analysis Services-server med hjälp av PowerShell](analysis-services-create-powershell.md).
 
-### <a name="aconnect-to-your-subscriptions"></a></a>Connect till dina prenumerationer
+### <a name="aconnect-to-your-subscriptions"></a></a>ansluta till dina prenumerationer
 
 Starta en Azure PowerShell-session och logga in på ditt Azure-konto med följande kommando:  
 
@@ -251,7 +251,7 @@ Set-AzContext -SubscriptionId <subscription ID>
 
 Du kan använda ett befintligt lagrings konto för loggarna, förutsatt att det är i samma prenumeration som servern. I den här självstudien skapar du ett nytt lagrings konto som är dedikerat för Analysis Services loggar. För att göra det enkelt lagrar du lagrings konto informationen i en variabel med namnet **sa**.
 
-Du använder också samma resurs grupp som den som innehåller din Analysis Services-server. Ersätt värden för `awsales_resgroup`, `awsaleslogs` och `West Central US` med dina egna värden:
+Du använder också samma resurs grupp som den som innehåller din Analysis Services-server. Ersätt värden för `awsales_resgroup`, `awsaleslogs`och `West Central US` med dina egna värden:
 
 ```powershell
 $sa = New-AzStorageAccount -ResourceGroupName awsales_resgroup `

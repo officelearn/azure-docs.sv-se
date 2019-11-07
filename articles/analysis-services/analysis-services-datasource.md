@@ -1,18 +1,18 @@
 ---
 title: Data källor som stöds i Azure Analysis Services | Microsoft Docs
-description: Beskriver data källor som stöds för data modeller i Azure Analysis Services.
+description: Beskriver data källor och anslutningar som stöds för tabell 1200 och högre data modeller i Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: cc47ff50aa7bb6dce58ed83f75f69fb600ad040b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5539d290ea182e24a50a103a762f011202ebf33a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146938"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572965"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Data källor som stöds i Azure Analysis Services
 
@@ -99,7 +99,7 @@ När du migrerar en lokal SQL Server Analysis Services tabell modell till Azure 
 
 1. I Visual Studio > **tabell modell utforskaren** > **data källor**, högerklickar du på en anslutning till en data källa och klickar sedan på **Redigera data källa**.
 2. I **Redigera anslutning**klickar du på **Avancerat** för att öppna fönstret avancerade egenskaper.
-3. I **Ange avancerade egenskaper** > -**providers**väljer du lämplig Provider.
+3. I **Ange avancerade egenskaper** > - **providers**väljer du lämplig Provider.
 
 ## <a name="impersonation"></a>Personifiering
 I vissa fall kan det vara nödvändigt att ange ett annat konto för personifiering. Personifierings konto kan anges i Visual Studio eller SSMS.

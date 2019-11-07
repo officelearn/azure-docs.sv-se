@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 9eba76d78c2070f03ed835cdf2bf303ed72b1f7f
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: a59e5443c80c9372f646edfdae2261157a41acc9
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72801861"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614893"
 ---
-# <a name="developers-guide-to-durable-entities-in-net-preview"></a>Guide för utvecklare till varaktiga entiteter i .NET (för hands version)
+# <a name="developers-guide-to-durable-entities-in-net"></a>Guide för utvecklare till varaktiga entiteter i .NET
 
 I den här artikeln beskrivs de tillgängliga gränssnitten för att utveckla beständiga entiteter med .NET i detalj, inklusive exempel och allmänna råd. 
 
@@ -130,7 +130,7 @@ Följande Azure http-funktion implementerar en BORTTAGNINGs åtgärd med hjälp 
 [FunctionName("DeleteCounter")]
 public static async Task<HttpResponseMessage> DeleteCounter(
     [HttpTrigger(AuthorizationLevel.Function, "delete", Route = "Counter/{entityKey}")] HttpRequestMessage req,
-    [DurableClient] IDurableClient client,
+    [DurableClient] IDurableEntityClient client,
     string entityKey)
 {
     var entityId = new EntityId("Counter", entityKey);
@@ -147,7 +147,7 @@ Följande Azure http-funktion implementerar en GET-åtgärd med hjälp av REST-k
 [FunctionName("GetCounter")]
 public static async Task<HttpResponseMessage> GetCounter(
     [HttpTrigger(AuthorizationLevel.Function, "get", Route = "Counter/{entityKey}")] HttpRequestMessage req,
-    [DurableClient] IDurableClient client,
+    [DurableClient] IDurableEntityClient client,
     string entityKey)
 {
     var entityId = new EntityId("Counter", entityKey);
@@ -194,6 +194,7 @@ public interface ICounter
     Task<int> Get();
     void Delete();
 }
+
 public class Counter : ICounter
 {
     ...
@@ -212,7 +213,7 @@ Klient koden kan använda `SignalEntityAsync<TEntityInterface>` för att skicka 
 [FunctionName("DeleteCounter")]
 public static async Task<HttpResponseMessage> DeleteCounter(
     [HttpTrigger(AuthorizationLevel.Function, "delete", Route = "Counter/{entityKey}")] HttpRequestMessage req,
-    [DurableClient] IDurableClient client,
+    [DurableClient] IDurableEntityClient client,
     string entityKey)
 {
     var entityId = new EntityId("Counter", entityKey);
@@ -451,6 +452,9 @@ public class HttpEntity
 
 > [!NOTE]
 > Undvik problem med serialisering genom att undanta fält som är avsedda att lagra inmatade värden från serialiseringen.
+
+> [!NOTE]
+> Till skillnad från när du använder konstruktorn för att använda konstruktorn i vanliga .NET-Azure Functions, *måste* funktions plats metoden för funktioner för klassbaserade entiteter deklareras `static`. Om du deklarerar en icke-statisk funktions start punkt kan det orsaka konflikter mellan den normala Azure Functions objekt initieraren och den varaktiga entitetens objekt initierare.
 
 ## <a name="function-based-syntax"></a>Function-baserad syntax
 

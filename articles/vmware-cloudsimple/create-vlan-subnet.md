@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0f8e605db3d647b5907c8c6741e4e2200bf14c4f
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 56e0f720221f8de531087e8b8d0476688feb2547
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772353"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601488"
 ---
 # <a name="create-and-manage-vlanssubnets-for-your-private-clouds"></a>Skapa och hantera VLAN/undernät för privata moln
 
@@ -34,6 +34,10 @@ ms.locfileid: "70772353"
 8. Klicka på **Skicka**.
 
     ![Skapa VLAN/undernät](media/create-new-vlan-subnet-details.png)
+
+
+> [!IMPORTANT]
+> Det finns en kvot på 30 VLAN per privat moln. Du kan öka gränserna genom att [kontakta supporten](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="use-vlan-information-to-set-up-a-distributed-port-group-in-vsphere"></a>Använd VLAN-information för att konfigurera en distribuerad port grupp i vSphere
 

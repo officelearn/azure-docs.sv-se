@@ -1,5 +1,5 @@
 ---
-title: Köra Ad hoc-rapporterings frågor över flera Azure SQL-databaser | Microsoft Docs
+title: Köra Ad hoc-rapporterings frågor över flera Azure SQL-databaser
 description: Kör ad hoc-rapporterings frågor över flera SQL-databaser i ett exempel på en app för flera klient organisationer.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: AyoOlubeko
 ms.author: craigg
 ms.reviewer: sstein
 ms.date: 10/30/2018
-ms.openlocfilehash: 0a6b45db3c8b4071b591ca2b5fc604b986598c0c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3d345e222dac98a63400dd2661ce92674f2534f6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570362"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692079"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Köra Ad hoc Analytics-frågor över flera Azure SQL-databaser
 
@@ -34,7 +34,7 @@ I den här guiden lär du dig:
 Följande krav måste uppfyllas för att kunna köra den här självstudiekursen:
 
 * Wingtip biljetter SaaS-appen för flera klient organisationer har distribuerats. Om du vill distribuera på mindre än fem minuter läser du [distribuera och utforska Wingtip-biljetterna SaaS-databas program för flera innehavare](saas-multitenantdb-get-started-deploy.md)
-* Azure PowerShell ska ha installerats. Mer information finns i [Komma igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+* Azure PowerShell ska ha installerats. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * SQL Server Management Studio (SSMS) har installerats. Information om hur du hämtar och installerar SSMS finns i [hämta SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
 
@@ -46,7 +46,7 @@ SaaS-program kan analysera den stora mängden klient data som lagras centralt i 
 
 Det är lätt att komma åt en enkel databas med flera klienter, men inte så enkelt när du har distribuerat tusentals databaser. En metod är att använda [elastisk fråga](sql-database-elastic-query-overview.md)som aktiverar frågor i en distribuerad uppsättning databaser med ett gemensamt schema. Dessa databaser kan distribueras mellan olika resurs grupper och prenumerationer. Men en gemensam inloggning måste ha åtkomst för att extrahera data från alla databaser. Elastisk fråga använder en enda *huvud* databas där externa tabeller definieras som speglar tabeller eller vyer i de distribuerade (klient) databaserna. Frågorna som skickas till huvuddatabasen kompileras för att skapa en distribuerad frågeplan, och delar av frågan skickas ned till klientdatabaserna efter behov. Elastisk fråga använder Shard-kartan i katalog databasen för att bestämma platsen för alla klient databaser. Det är enkelt att konfigurera och fråga med hjälp av standard [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference), och stöder ad hoc-frågor från verktyg som Power BI och Excel.
 
-Genom att distribuera frågor över klient databaserna ger elastiska frågor omedelbar insyn i direkt produktions data. Eftersom en elastisk fråga hämtar data från potentiellt många databaser kan fråge svars tiden ibland vara högre än för motsvarande frågor som skickas till en enda databas för flera innehavare. Se till att utforma frågor för att minimera de data som returneras. Elastiska frågor passar ofta bäst för frågor mot små mängder real tids data, i stället för att skapa ofta använda eller komplexa analys frågor eller rapporter. Om frågor inte fungerar bra tittar du på körnings [planen](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) för att se vilken del av frågan som har flyttats ned till fjärrdatabasen. Och utvärdera hur mycket data som returneras. Frågor som kräver komplex analytisk bearbetning kan hanteras bättre genom att spara de extraherade klient data i en databas som är optimerad för analys frågor. SQL Database och SQL Data Warehouse skulle kunna vara värd för Analytics-databasen.
+Genom att distribuera frågor över klient databaserna ger elastiska frågor omedelbar insyn i direkt produktions data. Eftersom en elastisk fråga hämtar data från potentiellt många databaser kan fråge svars tiden ibland vara högre än för motsvarande frågor som skickas till en enda databas för flera innehavare. Se till att utforma frågor för att minimera de data som returneras. Elastiska frågor passar ofta bäst för frågor mot små mängder real tids data, i stället för att skapa ofta använda eller komplexa analys frågor eller rapporter. Om frågor inte fungerar bra tittar du på [körnings planen](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) för att se vilken del av frågan som har flyttats ned till fjärrdatabasen. Och utvärdera hur mycket data som returneras. Frågor som kräver komplex analytisk bearbetning kan hanteras bättre genom att spara de extraherade klient data i en databas som är optimerad för analys frågor. SQL Database och SQL Data Warehouse skulle kunna vara värd för Analytics-databasen.
 
 Det här mönstret för analys beskrivs i [själv studie kursen för klient analys](saas-multitenantdb-tenant-analytics.md).
 
@@ -58,7 +58,7 @@ Wingtip-biljetterna SaaS-skript för flera klient organisationer och program kä
 
 Om du vill köra frågor mot en mer intressant data uppsättning skapar du biljett försäljnings data genom att köra biljett generatorn.
 
-1. I *POWERSHELL ISE*öppnar du... \\Learning modules\\Operational\\Analytics adhoc\\repor ting*demo-AdhocReporting. ps1* -skript och ange följande värden:
+1. I *POWERSHELL ISE*öppnar du modulen...\\inlärning\\operativa analyser\\adhoc repor ting\\*demo-AdhocReporting. ps1* -skript och anger följande värden:
    * **$DemoScenario** = 1, **Köp biljetter för händelser på alla platser**.
 2. Tryck på **F5** för att köra skriptet och generera biljett försäljning. Fortsätt med stegen i den här själv studie kursen medan skriptet körs. Biljett data frågas i avsnittet *köra Ad hoc-frågor* och väntar på att biljett generatorn ska slutföras.
 
@@ -72,7 +72,7 @@ För att uppnå det här mönstret innehåller alla klient tabeller en *VenueId*
 
 Den här övningen distribuerar *AdHocReporting* -databasen. Det här är huvud databasen som innehåller det schema som används för frågor över alla klient databaser. Databasen distribueras till den befintliga katalog servern, som är den server som används för alla hanterings relaterade databaser i exempel programmet.
 
-1. Öppna... \\\\Learning modules\\Operational Analytics adhoc repor ting*demo-AdhocReporting. ps1* i *PowerShell ISE* och ange följande värden: \\
+1. Öppna...\\Learning-moduler\\operativa analyser\\adhoc-rapportering\\*demo-AdhocReporting. ps1* i *PowerShell ISE* och ange följande värden:
    * **$DemoScenario** = 2, **distribuera ad hoc Analytics-databasen**.
 
 2. Tryck på **F5** för att köra skriptet och skapa *AdHocReporting* -databasen.
@@ -115,7 +115,7 @@ Nu när *AdHocReporting* -databasen har kon figurer ATS kan du gå vidare och k�
 
 När du inspekterar körnings planen kan du hovra över plan ikonerna för mer information. 
 
-1. Öppna i *SSMS*... \\Learning modules\\Operational\\Analytics adhoc\\repor ting*demo-AdhocReportingQueries. SQL*.
+1. I *SSMS*öppnar du...\\Learning-moduler\\operativa analyser\\adhoc repor ting\\*demo-AdhocReportingQueries. SQL*.
 2. Se till att du är ansluten till **AdHocReporting** -databasen.
 3. Välj menyn **fråga** och klicka på **Inkludera faktisk körnings plan**
 4. Markera *vilka platser som är registrerade för tillfället?* fråga och tryck på **F5**.
@@ -143,7 +143,7 @@ När du inspekterar körnings planen kan du hovra över plan ikonerna för mer i
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig att:
+I den här guiden lärde du dig hur man:
 
 > [!div class="checklist"]
 > 

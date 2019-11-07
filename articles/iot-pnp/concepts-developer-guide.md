@@ -7,12 +7,12 @@ ms.date: 07/05/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6d5247454fe65e5539a2401330192f1db9a65114
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 6d8e0e9e675b88c69b74cdad261280f5dcaf7161
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880571"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581616"
 ---
 # <a name="iot-plug-and-play-preview-modeling-developer-guide"></a>IoT Plug and Play Preview Modeling Developer Guide
 
@@ -51,7 +51,7 @@ I följande exempel visas enhets kapacitets modellen för en termostat-enhet:
 
 En kapacitets modell har vissa obligatoriska fält:
 
-- `@id`: ett unikt ID i form av ett enkelt enhetligt resurs namn.
+- `@id`: ett unikt ID i form av ett enkelt, enhetligt resurs namn.
 - `@type`: deklarerar att det här objektet är en kapacitets modell.
 - `@context`: anger den DTDL-version som används för kapacitets modellen.
 - `implements`: visar de gränssnitt som enheten implementerar.
@@ -59,7 +59,7 @@ En kapacitets modell har vissa obligatoriska fält:
 Varje post i listan över gränssnitt i avsnittet implementeringar har en:
 
 - `name`: gränssnittets programmerings namn.
-- `schema`: gränssnittets funktions modell implementeras.
+- `schema`: det gränssnitt som funktions modellen implementerar.
 
 Det finns ytterligare valfria fält som du kan använda för att lägga till mer information i kapacitets modellen, till exempel visnings namn och beskrivning. Gränssnitt som är deklarerade i en kapacitets modell kan betraktas som komponenter i enheten. För en offentlig för hands version kan gränssnitts listan bara ha en post per schema.
 
@@ -84,26 +84,26 @@ I följande exempel visas gränssnittet för en termostat-enhet:
       "schema": "double"
     }
   ],
-  "@context": "http://azureiot.com/v1/contexts/Interface.json"
+  "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
 }
 ```
 
 Ett gränssnitt har vissa obligatoriska fält:
 
-- `@id`: ett unikt ID i form av ett enkelt enhetligt resurs namn.
+- `@id`: ett unikt ID i form av ett enkelt, enhetligt resurs namn.
 - `@type`: deklarerar att objektet är ett gränssnitt.
 - `@context`: anger den DTDL-version som används för gränssnittet.
-- `contents`: visar de egenskaper, telemetri och kommandon som utgör din enhet.
+- `contents`: Visar egenskaper, telemetri och kommandon som utgör din enhet.
 
 I det här enkla exemplet finns det bara ett enda telemetri-fält. En minimal fält Beskrivning har:
 
-- `@type`: anger typen av funktion: `Telemetry`, `Property`, eller `Command`.
+- `@type`: anger typen av funktion: `Telemetry`, `Property`eller `Command`.
 - `name`: anger namnet på telemetri-värdet.
-- `schema`: anger data typen för Telemetrin. Det här värdet kan vara en primitiv typ, till exempel Double, Integer, Boolean eller String. Komplexa objekt typer, matriser och Maps stöds också.
+- `schema`: anger telemetrins datatyp. Det här värdet kan vara en primitiv typ, till exempel Double, Integer, Boolean eller String. Komplexa objekt typer, matriser och Maps stöds också.
 
 Andra valfria fält, till exempel visnings namn och beskrivning, gör att du kan lägga till mer information i gränssnittet och funktionerna.
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Egenskaper
 
 Som standard är egenskaperna skrivskyddade. Skrivskyddade egenskaper innebär att enhets rapportens egenskaps värde uppdateras till din IoT Hub. Din IoT Hub kan inte ange värdet för en skrivskyddad egenskap.
 
@@ -111,7 +111,7 @@ Du kan också markera en egenskap som skrivbar i ett gränssnitt. En enhet kan t
 
 Enheterna behöver inte vara anslutna för att ange egenskaps värden. De uppdaterade värdena överförs när enheten ansluter till hubben. Det här beteendet gäller både skrivskyddade och skrivbara egenskaper.
 
-Använd inte egenskaper för att skicka telemetri från enheten. En ReadOnly-egenskap, till `temperatureSetting=80` exempel, ska betyda att enhetens temperatur har angetts till 80 och att enheten försöker komma till eller stanna vid den här temperaturen.
+Använd inte egenskaper för att skicka telemetri från enheten. Till exempel kan en ReadOnly-egenskap, till exempel `temperatureSetting=80`, betyda att enhetens temperatur har angetts till 80 och att enheten försöker nå eller stanna vid den här temperaturen.
 
 För skrivbara egenskaper, returnerar enhets programmet en önskad status kod, version och beskrivning för att indikera om den har tagit emot och applicerat egenskap svärdet.
 
@@ -129,9 +129,9 @@ Använd asynkrona kommandon för långvariga åtgärder. Enheten skickar förlop
 
 - `iothub-command-name`: kommando namnet, till exempel `UpdateFirmware`.
 - `iothub-command-request-id`: det begär ande-ID som genereras på Server sidan och skickas till enheten i det första anropet.
-- `iothub-interface-id`:  ID: t för gränssnittet som det här kommandot definieras på, till `urn:example:AssetTracker:1`exempel.
+- `iothub-interface-id`: ID för gränssnittet som det här kommandot är definierat på, till exempel `urn:example:AssetTracker:1`.
  `iothub-interface-name`: instans namnet för det här gränssnittet, till exempel `myAssetTracker`.
-- `iothub-command-statuscode`: status koden som returnerades från enheten, till exempel `202`.
+- `iothub-command-statuscode`: den status kod som returneras från enheten, till exempel `202`.
 
 ## <a name="register-a-device"></a>Registrera en enhet
 
@@ -184,15 +184,15 @@ Med IoT-Plug and Play kan du använda enheter som har registrerat sina funktione
 
 Om du vill använda en IoT Plug and Play-enhet som är ansluten till din IoT-hubb använder du antingen IoT Hub REST API eller någon av IoT-språksdk: erna. I följande exempel används IoT Hub REST API.
 
-Om du vill hämta värdet för en enhets egenskap, till exempel versionen för`fwVersion`inbyggd program vara `DeviceInformation` () i gränssnittet i termostat, använder du de digitala dubbla REST API.
+Om du vill hämta värdet för en enhets egenskap, t. ex. den inbyggda program varan (`fwVersion`) i `DeviceInformation`-gränssnittet i termostat, använder du de digitala dubbla REST API.
 
-Om din termostat-enhet anropas `t-123`får du alla egenskaper som implementerats av enheten med ett REST API GET-anrop:
+Om din termostat-enhet kallas `t-123`får du alla egenskaper som implementeras av enheten med ett REST API GET-anrop:
 
 ```REST
 GET /digitalTwins/t-123/interfaces
 ```
 
-I allmänhet används alla egenskaper med denna REST API-mall där `{device-id}` är identifieraren för enheten:
+I allmänhet är alla egenskaper tillgängliga med den här REST API-mallen där `{device-id}` är identifieraren för enheten:
 
 ```REST
 GET /digitalTwins/{device-id}/interfaces
@@ -210,7 +210,7 @@ I allmänhet kan egenskaper för ett särskilt gränssnitt nås via den här RES
 GET /digitalTwins/{device-id}/interfaces/{interface-name}
 ```
 
-Du kan anropa kommandon för IoT Plug and Play Device direkt. Om gränssnittet i enheten har ett `restart` kommando kan du anropa det med ett REST API post-anrop: `t-123` `Thermostat`
+Du kan anropa kommandon för IoT Plug and Play Device direkt. Om `Thermostat`-gränssnittet i `t-123`s enheten har ett `restart`-kommando kan du anropa det med ett REST API POST-anrop:
 
 ```REST
 POST /digitalTwins/t-123/interfaces/thermostat/commands/restart

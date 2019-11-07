@@ -1,6 +1,6 @@
 ---
-title: Träna om och distribuera en klassisk webbtjänst
-titleSuffix: Azure Machine Learning Studio (classic)
+title: Träna en klassisk webb tjänst
+titleSuffix: ML Studio (classic) Azure
 description: Lär dig hur du omtränar en modell och uppdaterar en klassisk webb tjänst för att använda den nyligen utbildade modellen i Azure Machine Learning Studio (klassisk).
 services: machine-learning
 ms.service: machine-learning
@@ -10,18 +10,18 @@ author: peterclu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: 477e099bb759e09402a245b693d95f3b3980699e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 17d15de3df73592c3ce410535235559c8c6fb584
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480202"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73670524"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Omträna och distribuera en klassisk Studio (klassisk) webb tjänst
 
 Retraining Machine Learning-modeller är ett sätt att se till att de håller sig noggrann och utifrån de mest relevanta data som finns tillgängliga. I den här artikeln visas hur du återskapar en klassisk Studio (klassisk) webb tjänst. En guide om hur du återskapar en ny Studio-webbtjänst (klassisk) finns i [den här instruktions artikeln.](retrain-machine-learning-model.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här artikeln förutsätter att du redan har både ett omskolnings experiment och ett förutsägelse experiment. De här stegen beskrivs i [omträna och distribuera en maskin inlärnings modell.](/azure/machine-learning/studio/retrain-machine-learning-model) Men i stället för att distribuera din Machine Learning-modell som en ny webb tjänst, kommer du att distribuera ditt förutsägelse experiment som en klassisk webb tjänst.
      
@@ -131,7 +131,7 @@ Följande exempel kod visar hur du använder URL: en för *BaseLocation*, *Relat
 
 Värdet för *namn* parametern i *resurser* måste matcha resurs namnet för den sparade tränade modellen i förutsägande experimentet. Så här hämtar du resurs namnet:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Klicka på **Machine Learning**på den vänstra menyn.
 1. Under namn klickar du på din arbets yta och sedan på **webb tjänster**.
 1. Under namn klickar du på **inventerings modell [förutsägande exp.]** .

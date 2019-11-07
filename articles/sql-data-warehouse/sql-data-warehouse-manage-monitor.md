@@ -1,5 +1,5 @@
 ---
-title: 'Övervaka din arbets belastning med DMV: er | Microsoft Docs'
+title: Övervaka din arbetsbelastning med DMV:er
 description: 'Lär dig hur du övervakar din arbets belastning med DMV: er.'
 services: sql-data-warehouse
 author: ronortloff
@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 08/23/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 1d1af13eb54daf060f0172a0506370ca459f2ece
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: e1a754747ae5c0fb7c50653f4881b67a81e011ef
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018953"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73645658"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Övervaka din arbetsbelastning med DMV:er
 Den här artikeln beskriver hur du använder DMV: er (Dynamic Management views) för att övervaka din arbets belastning. Detta inkluderar undersökning av frågekörningen i Azure SQL Data Warehouse.
@@ -45,7 +45,7 @@ Alla frågor som körs på SQL Data Warehouse loggas till [sys. DM _pdw_exec_req
 
 Här följer några steg som du följer för att undersöka körnings planer och tids perioder för en viss fråga.
 
-### <a name="step-1-identify-the-query-you-wish-to-investigate"></a>STEG 1: Identifiera den fråga som du vill undersöka
+### <a name="step-1-identify-the-query-you-wish-to-investigate"></a>STEG 1: identifiera den fråga som du vill undersöka
 ```sql
 -- Monitor active queries
 SELECT * 
@@ -98,7 +98,7 @@ När en DSQL-plan tar längre tid än förväntat, kan orsaken vara en komplex p
 Om du vill undersöka ytterligare information om ett enda steg, kolumnen *operation_type* i det långvariga fråge steget och notera **steg indexet**:
 
 * Fortsätt med Steg 3a för **SQL-åtgärder**: OnOperation, RemoteOperation, ReturnOperation.
-* Fortsätt med steg 3b för **åtgärder för data förflyttning**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
+* Fortsätt med steg 3b för **data förflyttnings åtgärder**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
 ### <a name="step-3a-investigate-sql-on-the-distributed-databases"></a>Steg 3a: Undersök SQL på de distribuerade databaserna
 Använd förfrågnings-ID och steg index för att hämta information från [sys. DM _pdw_sql_requests][sys.dm_pdw_sql_requests], som innehåller körnings information för steget fråga på alla distribuerade databaser.
@@ -120,7 +120,7 @@ När steget körs kan [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] a
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 ```
 
-### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>STEG 3B: Undersök data förflyttning på de distribuerade databaserna
+### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>STEG 3B: Undersök data förflyttning på distribuerade databaser
 Använd förfrågnings-ID och steg index för att hämta information om ett steg för data förflyttning som körs på varje distribution från [sys. DM _pdw_dms_workers][sys.dm_pdw_dms_workers].
 
 ```sql

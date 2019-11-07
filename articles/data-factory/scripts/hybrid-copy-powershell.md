@@ -1,6 +1,6 @@
 ---
-title: 'PowerShell-skript: Kopiera data från en lokal plats till Azure med hjälp av Data Factory | Microsoft Docs'
-description: Den här PowerShell.skript kopierar data från en lokal SQL Server-databas till en annan Azure Blob Storage.
+title: 'PowerShell-skript: kopiera data från en lokal plats till Azure med hjälp av Data Factory '
+description: Det här PowerShell-skriptet kopierar data från en lokal SQL Server-databas till en annan Azure-Blob Storage.
 services: data-factory
 author: linda33wj
 manager: craigg
@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: jingwang
-ms.openlocfilehash: 1218408bee067d6edb274fdcbf4fae62b8245a01
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d7f8d67291c0b6b2a384331c014fdd5cd247ceae
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160673"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684342"
 ---
-# <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-on-premises-to-azure"></a>Använd PowerShell för att skapa data factory-pipeline för att kopiera data från en lokal plats till Azure
+# <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-on-premises-to-azure"></a>Använd PowerShell för att skapa en Data Factory-pipeline för att kopiera data från en lokal plats till Azure
 
-Det här Skriptexemplet för PowerShell skapar en pipeline i Azure Data Factory som kopierar data från en lokal SQL Server-databas till Azure Blob Storage.
+Det här exemplet på PowerShell-skriptet skapar en pipeline i Azure Data Factory som kopierar data från en lokal SQL Server-databas till en Azure-Blob Storage.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -28,12 +28,12 @@ Det här Skriptexemplet för PowerShell skapar en pipeline i Azure Data Factory 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- **SQL Server**. Du använder en lokal SQL Server-databas som en **källa** datalager i det här exemplet.
-- **Azure Storage-konto**. Du använder Azure blob storage som en **destination/mottagare** datalager i det här exemplet. om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md).
-- **Integration runtime med egen värd**. Ladda ned MSI-filen från den [hämtningssidan](https://www.microsoft.com/download/details.aspx?id=39717) och kör den för att installera en lokal integration runtime på din dator.  
+- **SQL Server**. Du använder en lokal SQL Server databas som **käll** data lager i det här exemplet.
+- **Azure Storage-konto**. Du använder Azure Blob Storage som data lager för **destination/mottagare** i det här exemplet. om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md).
+- **Integration runtime med egen värd**. Ladda ned MSI-filen från [Download Center](https://www.microsoft.com/download/details.aspx?id=39717) och kör den för att installera en lokal integration runtime på din dator.  
 
-### <a name="create-sample-database-in-sql-server"></a>Skapa exempeldatabasen i SQL Server
-1. I den lokala SQL Server-databas, skapar du en tabell med namnet **emp** med hjälp av följande SQL-skript: 
+### <a name="create-sample-database-in-sql-server"></a>Skapa exempel databas i SQL Server
+1. I den lokala SQL Server-databasen skapar du en tabell med namnet **EMP** med hjälp av följande SQL-skript: 
 
    ```sql   
      CREATE TABLE dbo.emp
@@ -46,7 +46,7 @@ Det här Skriptexemplet för PowerShell skapar en pipeline i Azure Data Factory 
      GO
    ```
 
-2. Infoga lite exempeldata i tabellen:
+2. Infoga exempel data i tabellen:
 
    ```sql
      INSERT INTO emp VALUES ('John', 'Doe')
@@ -56,19 +56,19 @@ Det här Skriptexemplet för PowerShell skapar en pipeline i Azure Data Factory 
 ## <a name="sample-script"></a>Exempelskript
 
 > [!IMPORTANT]
-> Det här skriptet skapar JSON-filer som definierar Data Factory-entiteter (länkade tjänsten, datauppsättningen och pipeline) på din hårddisk i mappen c:\.
+> Det här skriptet skapar JSON-filer som definierar Data Factory entiteter (länkad tjänst, data uppsättning och pipeline) på hård disken i mappen c:\ projektbevakningsmappen.
 
 [!code-powershell[main](../../../powershell_scripts/data-factory/copy-from-onprem-sql-server-to-azure-blob/copy-from-onprem-sql-server-to-azure-blob.ps1 "Copy from on-premises SQL Server -> Azure Blob Storage")]
 
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-När du kör exempelskriptet kan använda du följande kommando för att ta bort resursgruppen och alla resurser som är kopplade till den:
+När du har kört exempel skriptet kan du använda följande kommando för att ta bort resurs gruppen och alla resurser som är kopplade till den:
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 ```
-Om du vill ta bort datafabriken från resursgruppen, kör du följande kommando: 
+Om du vill ta bort data fabriken från resurs gruppen kör du följande kommando: 
 
 ```powershell
 Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
@@ -82,12 +82,12 @@ I det här skriptet används följande kommandon:
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | Skapa en datafabrik. |
-| [New-AzDataFactoryV2LinkedServiceEncryptCredential](/powershell/module/az.datafactory/new-Azdatafactoryv2linkedserviceencryptedcredential) | Krypterar autentiseringsuppgifterna i en länkad tjänst och genererar en ny länkad tjänst-definition med de krypterade autentiseringsuppgifterna. 
-| [Set-AzDataFactoryV2LinkedService](/powershell/module/az.datafactory/Set-Azdatafactoryv2linkedservice) | Skapar en länkad tjänst i datafabriken. En länkad tjänst länkar ett datalager eller beräkningar till en data factory. |
-| [Set-AzDataFactoryV2Dataset](/powershell/module/az.datafactory/Set-Azdatafactoryv2dataset) | Skapar en datauppsättning i data factory. En datauppsättning som representerar indata/utdata för en aktivitet i en pipeline. | 
-| [Set-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/Set-Azdatafactoryv2pipeline) | Skapar en pipeline i datafabriken. En pipeline som innehåller en eller flera aktiviteter som utför en viss åtgärd. I denna pipeline kopierar en Kopieringsaktivitet data från en plats till en annan plats i Azure Blob Storage. |
-| [Invoke-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/Invoke-Azdatafactoryv2pipeline) | Skapar en körning för pipelinen. Med andra ord kör pipelinen. |
-| [Get-AzDataFactoryV2ActivityRun](/powershell/module/az.datafactory/get-Azdatafactoryv2activityrun) | Hämtar information om körning av aktiviteten (aktivitetskörning) i pipelinen. 
+| [New-AzDataFactoryV2LinkedServiceEncryptCredential](/powershell/module/az.datafactory/new-Azdatafactoryv2linkedserviceencryptedcredential) | Krypterar autentiseringsuppgifter i en länkad tjänst och genererar en ny länkad tjänst definition med krypterade autentiseringsuppgifter. 
+| [Set-AzDataFactoryV2LinkedService](/powershell/module/az.datafactory/Set-Azdatafactoryv2linkedservice) | Skapar en länkad tjänst i data fabriken. En länkad tjänst länkar ett data lager eller en beräkning till en data fabrik. |
+| [Set-AzDataFactoryV2Dataset](/powershell/module/az.datafactory/Set-Azdatafactoryv2dataset) | Skapar en data uppsättning i data fabriken. En data uppsättning representerar indata/utdata för en aktivitet i en pipeline. | 
+| [Set-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/Set-Azdatafactoryv2pipeline) | Skapar en pipeline i data fabriken. En pipeline innehåller en eller flera aktiviteter som utför en viss åtgärd. I den här pipelinen kopierar en kopierings aktivitet data från en plats till en annan plats i ett Azure-Blob Storage. |
+| [Invoke-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/Invoke-Azdatafactoryv2pipeline) | Skapar en körning för pipelinen. Med andra ord körs pipelinen. |
+| [Get-AzDataFactoryV2ActivityRun](/powershell/module/az.datafactory/get-Azdatafactoryv2activityrun) | Hämtar information om körningen av aktiviteten (aktivitets körning) i pipelinen. 
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 
@@ -95,4 +95,4 @@ I det här skriptet används följande kommandon:
 
 Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/).
 
-Ytterligare Azure Data Factory PowerShell-skriptexempel finns i den [Azure Data Factory PowerShell-exempel](../samples-powershell.md).
+Ytterligare Azure Data Factory PowerShell-skript exempel finns i [Azure Data Factory PowerShell-exempel](../samples-powershell.md).

@@ -1,5 +1,5 @@
 ---
-title: Skala automatiskt Windows Virtual Desktop-sessionsbaserade värdar – Azure
+title: Dynamisk skala Windows Virtual Desktop-Session värdar – Azure
 description: Beskriver hur du konfigurerar skriptet för automatisk skalning för Windows virtuella skrivbord-värdar.
 services: virtual-desktop
 author: Heidilohr
@@ -7,20 +7,20 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 932fbe6814df8ec324dd3360bcacfcbcf1c19b62
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 744f7d5c191180757620e87d926422c9f1e0baba
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71842773"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607447"
 ---
-# <a name="scale-session-hosts-dynamically"></a>Skala session värdar dynamiskt
+# <a name="scale-session-hosts-dynamically"></a>Skala sessionsvärdar dynamiskt
 
 För många Windows-distributioner av virtuella datorer i Azure representerar kostnaderna för den virtuella datorn en betydande del av den totala distributions kostnaden för Windows Virtual Desktop. För att minska kostnaderna, är det bäst att stänga av och frigöra sessioner virtuella datorer (VM) under låg belastnings tider, och sedan starta om dem under hög användnings tid.
 
 I den här artikeln används ett enkelt skalnings skript som automatiskt skalar virtuella datorer i Windows Virtual Desktop-miljön. Mer information om hur skalnings skriptet fungerar finns i avsnittet [hur skalnings skriptet fungerar](#how-the-scaling-script-works) .
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den miljö där du kör skriptet måste ha följande saker:
 
@@ -49,7 +49,7 @@ Följande procedurer visar hur du distribuerar skalnings skriptet.
 Börja med att förbereda din miljö för skalnings skriptet:
 
 1. Logga in på den virtuella datorn (scaleor VM) som ska köra den schemalagda aktiviteten med ett domän administratörs konto.
-2. Skapa en mapp på den virtuella dator som innehåller skalnings skriptet och dess konfiguration (till exempel **C: \\scaling-HostPool1**).
+2. Skapa en mapp på den virtuella dator som innehåller skalnings skriptet och dess konfiguration (till exempel **C:\\skalning – HostPool1**).
 3. Hämta filerna **basicScale. ps1**, **config. XML**och **Functions-PSStoredCredentials. ps1** och mappen **PowershellModules** från [skalnings skriptets lagrings plats](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) och kopiera dem till den mapp som du skapade i steg 2. Det finns två huvudsakliga sätt att hämta filerna innan du kopierar dem till den virtuella datorns skalar:
     - Klona git-lagringsplatsen till den lokala datorn.
     - Visa den **råa** versionen av varje fil, kopiera och klistra in innehållet i varje fil i en text redigerare och spara sedan filerna med motsvarande fil namn och filtyp. 
@@ -72,9 +72,9 @@ Därefter måste du skapa de säkerhets lagrade autentiseringsuppgifterna:
     Set-Variable -Name KeyPath -Scope Global -Value <LocalScalingScriptFolder>
     ```
     
-    Ange till exempel **variabel namn nyckel Sök väg – omfattning globalt-värde "c: \\scaling-HostPool1"**
-5. Kör cmdleten **New-StoredCredential-path \$KeyPath** . När du uppmanas till det anger du dina autentiseringsuppgifter för ditt Windows-konto med behörigheter för att ställa frågor till fakturapoolen (värden anges i **config. XML**).
-    - Om du använder olika tjänst huvud namn eller standard konto kör du cmdleten **New-StoredCredential-path \$KeyPath** -cmdlet en gång för varje konto för att skapa lokala lagrade autentiseringsuppgifter.
+    Ange till exempel **variabel namn nyckel Sök väg – omfång globalt värde "c:\\skalning-HostPool1"**
+5. Kör cmdleten **New-StoredCredential-path \$nyckel Sök väg** . När du uppmanas till det anger du dina autentiseringsuppgifter för ditt Windows-konto med behörigheter för att ställa frågor till fakturapoolen (värden anges i **config. XML**).
+    - Om du använder olika tjänst huvud namn eller standard konto kör du cmdleten **New-StoredCredential-path \$sökväg för nyckel Sök väg** en gång för varje konto för att skapa lokala lagrade autentiseringsuppgifter.
 6. Kör **Get-StoredCredential-List** för att bekräfta att autentiseringsuppgifterna har skapats.
 
 ### <a name="configure-the-configxml-file"></a>Konfigurera filen config. XML
@@ -89,7 +89,7 @@ Ange de relevanta värdena i följande fält för att uppdatera skalnings skript
 | currentAzureSubscriptionId    | ID: t för den Azure-prenumeration där sessionens värd för virtuella datorer körs                        |
 | tenantName                    | Klient namn för Windows Virtual Desktop                                                    |
 | hostPoolName                  | Namn på Windows-adresspool för värd för virtuell dator                                                 |
-| RDBroker                      | URL till WVD-tjänsten, standard värde https: \//rdbroker. WVD. Microsoft. com             |
+| RDBroker                      | URL till WVD-tjänsten, standardvärde https:\//rdbroker.wvd.microsoft.com             |
 | Användarnamn                      | Det program-ID för tjänstens huvud namn (det är möjligt att ha samma huvud namn för tjänsten som i AADApplicationId) eller en standard användare utan Multi-Factor Authentication |
 | isServicePrincipal            | Godkända värden är **True** eller **false**. Anger om den andra uppsättningen autentiseringsuppgifter som används är ett huvud namn för tjänsten eller ett standard konto. |
 | BeginPeakTime                 | När den högsta användnings tiden börjar                                                            |
@@ -111,7 +111,7 @@ När du har konfigurerat Configuration. XML-filen måste du konfigurera Schemal�
 4. Gå till fliken **utlösare** och välj sedan **nytt...**
 5. I dialog rutan **Ny utlösare** , under **Avancerade inställningar**, markerar du **Upprepa aktivitet varje** och väljer lämplig period och varaktighet (till exempel **15 minuter** eller **oändligt**).
 6. Välj fliken **åtgärder** och **ny...**
-7. I dialog rutan **ny åtgärd** anger du **PowerShell. exe** i fältet **program/skript** och anger sedan **C: \\Scaling @ no__t-5basicScale. ps1** i fältet **Lägg till argument (valfritt)** .
+7. I dialog rutan **ny åtgärd** anger du **PowerShell. exe** i fältet **program/skript** och anger sedan **C:\\skalning\\basicScale. ps1** i fältet **Lägg till argument (valfritt)** .
 8. Gå till fliken **villkor** och **Inställningar** och välj **OK** om du vill godkänna standardinställningarna för var och en.
 9. Ange lösen ordet för det administratörs konto där du planerar att köra skalnings skriptet.
 

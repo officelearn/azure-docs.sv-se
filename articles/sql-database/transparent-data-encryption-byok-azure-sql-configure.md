@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell och CLI: Aktivera SQL-TDE – med Azure Key Vault – ta med din egen nyckel Azure SQL Database | Microsoft Docs'
+title: 'PowerShell och CLI: Aktivera SQL-TDE – med Azure Key Vault – ta med din egen nyckel Azure SQL Database '
 description: Lär dig hur du konfigurerar en Azure SQL Database och ett informations lager för att börja använda transparent datakryptering (TDE) för kryptering vid vila med hjälp av PowerShell eller CLI.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: beeb5fa4f979ac457db8a779dd8f8f2e94ef87f5
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 232f38b239090356ae3ad1a70b522188f6ab6a4f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163849"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686753"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell och CLI: Aktivera transparent datakryptering med kundhanterad nyckel från Azure Key Vault
 
@@ -175,7 +175,7 @@ Använd [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/g
    -ResourceGroupName <SQLDatabaseResourceGroupName>   
    ```
  
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Kontrol lera följande om ett problem inträffar:
 - Om nyckel valvet inte hittas kontrollerar du att du har rätt prenumeration med hjälp av cmdleten [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) .

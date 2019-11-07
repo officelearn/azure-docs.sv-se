@@ -1,5 +1,5 @@
 ---
-title: 'Informations lager enheter (DWU: er, cDWUs) i Azure Synapse Analytics (tidigare SQL DW) | Microsoft Docs'
+title: 'Informations lager enheter (DWU: er, cDWUs) i Azure Synapse Analytics (tidigare SQL DW)'
 description: 'Rekommendationer för att välja det idealiska antalet informations lager enheter (DWU: er, cDWUs) för att optimera pris och prestanda och hur du ändrar antalet enheter.'
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,13 +10,13 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-mscustom: sqlfreshmay19
-ms.openlocfilehash: 32e75b78b8a5c304fc65a9c20d16fb85b4f8307b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f3415522a6ae80723500ba2d38867322fdef0dd7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475745"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685339"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Informations lager enheter (DWU: er) och beräknings data lager enheter (cDWUs)
 
@@ -215,4 +215,4 @@ När du startar en skalnings åtgärd omsorg systemet först alla öppna session
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du hanterar prestanda finns i [resurs klasser för hantering av arbets belastning](resource-classes-for-workload-management.md) och [minnes-och samtidiga gränser](memory-and-concurrency-limits.md).
+Mer information om hur du hanterar prestanda finns i [resurs klasser för hantering av arbets belastning](resource-classes-for-workload-management.md) och [minnes-och samtidiga gränser] minnes samtidighet – Limits.MD).

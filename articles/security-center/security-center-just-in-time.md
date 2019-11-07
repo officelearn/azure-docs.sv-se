@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: a6326b2ea9b4c2247df4f93eba904b7527666131
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: fb092a3c6b473680480c3bba0ad6f437176833de
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996387"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576405"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Hantera åtkomst till virtuella datorer med just-in-Time
 
@@ -61,12 +61,12 @@ Det finns tre sätt att konfigurera en JIT-princip på en virtuell dator:
 - [Konfigurera JIT-åtkomst på ett virtuellt Azure-blad](#jit-vm)
 - [Konfigurera en JIT-princip på en virtuell dator program mässigt](#jit-program)
 
-## <a name="configure-jit-in-asc"></a>Konfigurera JIT i ASC
+## <a name="configure-jit-in-security-center"></a>Konfigurera JIT i Security Center
 
-Från ASC kan du konfigurera en JIT-princip och begära åtkomst till en virtuell dator med en JIT-princip
+Från Security Center kan du konfigurera en JIT-princip och begära åtkomst till en virtuell dator med en JIT-princip
 
 
-### Konfigurera JIT-åtkomst på en virtuell dator i ASC<a name="jit-asc"></a>
+### Konfigurera JIT-åtkomst på en virtuell dator i Security Center<a name="jit-asc"></a>
 
 1. Öppna instrumentpanelen för **Security Center**.
 
@@ -93,7 +93,7 @@ Från ASC kan du konfigurera en JIT-princip och begära åtkomst till en virtuel
 
 5. Klicka på **Aktivera JIT på virtuella datorer**.
    -. Det här bladet visar standard portarna som rekommenderas av Azure Security Center:
-      - 22 - SSH
+      - 22 – SSH
       - 3389 – RDP
       - 5985 – WinRM 
       - 5986 – WinRM
@@ -114,9 +114,9 @@ Från ASC kan du konfigurera en JIT-princip och begära åtkomst till en virtuel
 >När JIT VM-åtkomst är aktive rad för en virtuell dator skapar Azure Security Center "neka all inkommande trafik" för de valda portarna i de nätverks säkerhets grupper som är kopplade till och Azure-brandväggen med den. Om andra regler har skapats för de valda portarna, prioriteras de befintliga reglerna för den nya regeln "neka all inkommande trafik". Om det inte finns några befintliga regler på de valda portarna, har den nya regeln "neka all inkommande trafik" företräde överst i nätverks säkerhets grupperna och Azure-brandväggen.
 
 
-## <a name="request-jit-access-via-asc"></a>Begär JIT-åtkomst via ASC
+## <a name="request-jit-access-via-security-center"></a>Begär JIT-åtkomst via Security Center
 
-Så här begär du åtkomst till en virtuell dator via ASC:
+Så här begär du åtkomst till en virtuell dator via Security Center:
 
 1. Under **just-in-Time VM-åtkomst**väljer du fliken **konfigurerad** .
 
@@ -140,7 +140,7 @@ Så här begär du åtkomst till en virtuell dator via ASC:
 > [!NOTE]
 > Om en användare som begär åtkomst ligger bakom en proxyserver kanske inte alternativet **min IP** fungerar. Du kan behöva definiera det fullständiga IP-adressintervallet för organisationen.
 
-## <a name="edit-a-jit-access-policy-via-asc"></a>Redigera en JIT-fjärråtkomstprincip via ASC
+## <a name="edit-a-jit-access-policy-via-security-center"></a>Redigera en JIT-fjärråtkomstprincip via Security Center
 
 Du kan ändra en VM: s befintliga princip för just-in-Time genom att lägga till och konfigurera en ny port för att skydda den virtuella datorn, eller genom att ändra någon annan inställning som är relaterad till en redan skyddad port.
 
@@ -149,9 +149,9 @@ Så här redigerar du en befintlig just-in-Time-princip för en virtuell dator:
 
 1. Välj **Redigera**.
 1. Under **konfiguration av JIT VM-åtkomst**kan du antingen redigera befintliga inställningar för en redan skyddad port eller lägga till en ny anpassad port. 
-  @no__t 0jit VM Access @ no__t-1
+  ![åtkomst till JIT-VM](./media/security-center-just-in-time/edit-policy.png)
 
-## <a name="audit-jit-access-activity-in-asc"></a>Granska JIT Access-aktivitet i ASC
+## <a name="audit-jit-access-activity-in-security-center"></a>Granska JIT Access-aktivitet i Security Center
 
 Du kan få insikter om VM-aktiviteter med loggs ökning. Så här visar du loggar:
 
@@ -168,11 +168,11 @@ Du kan hämta logg informationen genom att välja **Klicka här för att ladda n
 
 
 
-## Konfigurera JIT-åtkomst på ett virtuellt Azure-blad<a name="jit-vm"></a>
+## Konfigurera JIT-åtkomst från en Azure VM-sida<a name="jit-vm"></a>
 
-För din bekvämlighet kan du ansluta till en virtuell dator med JIT direkt från VM-bladet i Azure.
+För din bekvämlighet kan du ansluta till en virtuell dator med JIT direkt från den virtuella datorns sida i Security Center.
 
-### <a name="configure-jit-access-on-a-vm-via-the-azure-vm-blade"></a>Konfigurera JIT-åtkomst på en virtuell dator via bladet för virtuella Azure-datorer
+### <a name="configure-jit-access-on-a-vm-via-the-azure-vm-page"></a>Konfigurera JIT-åtkomst på en virtuell dator via sidan virtuell Azure-dator
 
 För att göra det enkelt att distribuera just-in-Time-åtkomst över dina virtuella datorer kan du ställa in en virtuell dator så att endast just-in-Time-åtkomst direkt inifrån den virtuella datorn.
 
@@ -206,8 +206,8 @@ När du försöker ansluta till en virtuell dator i Azure Portal, kontrollerar A
 
   Åtkomsten begärs med följande standard parametrar:
 
-  - **käll-IP**: Valfritt (*) (kan inte ändras)
-  - **tidsintervall**: Tre timmar (kan inte ändras) <!--Isn't this set in the policy-->
+  - **käll-IP**: "any" (*) (kan inte ändras)
+  - **tidsintervall**: tre timmar (kan inte ändras) <!--Isn't this set in the policy-->
   - **port nummer** RDP-port 3389 för Windows/port 22 för Linux (kan ändras)
 
     > [!NOTE]

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 0879cb33a0796e19724bd143e57780d6ce27bfcf
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7c884d3c7102fc47f6efad86d9fe3704afd0edcf
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657881"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73591439"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Förstå omstarter av virtuella datorer – underhåll och driftavbrott
 Det finns tre scenarier som kan leda till att den virtuella datorn i Azure påverkas: oplanerat maskin varu underhåll, oväntad stillestånds tid och planerat underhåll.
@@ -39,7 +39,7 @@ För att undvika påverkan av den här typen av avbrott rekommenderar vi att du 
 
 ## <a name="use-availability-zones-to-protect-from-datacenter-level-failures"></a>Använda tillgänglighets zoner för att skydda från data center nivå problem
 
-[Tillgänglighets zoner](../articles/availability-zones/az-overview.md) utökar kontroll nivån som du måste ha för att upprätthålla tillgängligheten för program och data på dina virtuella datorer. Tillgänglighetszoner är unika, fysiska platser inom en Azure-region. Varje zon består av en eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverkstjänster. För att garantera återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Den fysiska avgränsningen av tillgänglighetszonerna inom en region skyddar program och data mot datacenterfel. Zoner – redundanta tjänster replikerar dina program och data över Tillgänglighetszoner för att skydda från enskilda platser.
+[Tillgänglighets zoner](../articles/availability-zones/az-overview.md) utökar kontroll nivån som du måste ha för att upprätthålla tillgängligheten för program och data på dina virtuella datorer. Tillgänglighetszoner är unika fysiska platser inom en Azure-region. Varje zon utgörs av ett eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverk. För att garantera återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Den fysiska avgränsningen av tillgänglighetszonerna inom en region skyddar program och data mot datacenterfel. Zoner – redundanta tjänster replikerar dina program och data över Tillgänglighetszoner för att skydda från enskilda platser.
 
 En tillgänglighets zon i en Azure-region är en kombination av en **fel domän** och en **uppdaterings domän**. Om du skapar tre eller flera virtuella datorer över tre zoner i en Azure-region distribueras i praktiken dina virtuella datorer mellan tre feldomäner och tre uppdateringsdomäner. Azure-plattformen identifierar den här distributionen mellan uppdateringsdomänerna så att inte virtuella datorer i olika zoner uppdateras på samma gång.
 
@@ -60,24 +60,31 @@ Varje virtuell dator i tillgänglighetsuppsättningen tilldelas en **uppdatering
 Feldomäner definierar den grupp av virtuella datorer som delar samma strömkälla och nätverksswitch. Som standard är de virtuella datorer som konfigureras i din tillgänglighetsuppsättning indelade i tre feldomäner för Resource Manager-distributioner (två feldomäner för klassisk distribution). Att placera de virtuella datorerna i en tillgänglighetsuppsättning skyddar inte ditt program mot operativsystemfel eller programspecifika fel, men det begränsar påverkan av potentiella fel på fysisk maskinvara, problem med nätverket och strömavbrott.
 
 <!--Image reference-->
-   ![Konceptuell ritning av uppdaterings domänen och fel domän konfigurationen](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
+   ![konceptuella ritningen av uppdaterings domänen och fel domän konfigurationen](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>Använda hanterade diskar för virtuella datorer i en tillgänglighetsuppsättning
 Om du för närvarande använder virtuella datorer med ohanterade diskar rekommenderar vi starkt att du [konverterar virtuella datorer i tillgänglighetsuppsättningar för att använda hanterade diskar](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
 
 [Hanterade diskar](../articles/virtual-machines/windows/managed-disks-overview.md) ger bättre tillförlitlighet för tillgänglighetsuppsättningar genom att säkerställa att diskarna på virtuella datorer i en tillgänglighetsuppsättning är tillräckligt isolerade från varandra för att undvika felkritiska systemdelar. Detta görs genom att automatiskt placera diskarna i olika lagrings fel domäner (lagrings kluster) och justera dem med den virtuella dator fel domänen. Om en lagrings fel domän Miss lyckas på grund av maskin-eller program varu fel, Miss lyckas bara den virtuella dator instansen med diskar på lagrings fel domänen.
-![Hanterade diskar fd](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
+![Managed disks fd](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 
 > [!IMPORTANT]
 > Antalet feldomäner för hanterade tillgänglighetsuppsättningar varierar beroende på region – antingen två eller tre per region. I följande tabell ser du antalet per region
 
 [!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
 
+> Obs! under vissa omständigheter kan det hända att två VM-delar av samma AvailabilitySet delar samma Faulydomain. Detta kan bekräftas genom att gå till AvailabilitySet och kontrol lera kolumnen "fel domän".
+> Det här beteendet kan observeras när följande sekvens uppstod när de virtuella datorerna distribuerades:
+> - Distribuera den första virtuella datorn
+> - Stoppa/frigör den första virtuella datorn
+> - Distribuera den andra virtuella datorn under dessa omständigheter kan operativ system disken för den andra virtuella datorn skapas på samma feldomän som den första virtuella datorn, så att den andra virtuella datorn även kommer att hamna på samma Faulydomain. 
+> För att undvika det här problemet rekommenderar vi att du inte stoppar/frigör den virtuella datorn mellan distributionerna.
+
 Om du planerar att använda virtuella datorer med ohanterade diskar följer du rekommendationerna nedan för lagrings konton där virtuella hård diskar (VHD) för virtuella datorer lagras som [Page blobbar](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 
 1. **Förvara alla diskar (operativsystem och data) som är associerade med en virtuell dator i samma lagringskonto**
 2. **Kontrollera [gränserna](../articles/storage/common/storage-scalability-targets.md) för antalet ohanterade diskar i ett Storage-konto** innan du lägger till fler virtuella hårddiskar till ett lagringskonto
-3. **Använd ett separat lagringskonto för varje virtuell dator i en tillgänglighetsuppsättning.** Dela inte Storage-konton med flera virtuella datorer i samma tillgänglighetsuppsättning. Det är acceptabelt för virtuella datorer över olika tillgänglighets uppsättningar för att dela lagrings konton om ![de rekommenderade säkerhets metoderna följer ohanterade diskar fd](./media/virtual-machines-common-manage-availability/umd-updated.png)
+3. **Använd ett separat lagringskonto för varje virtuell dator i en tillgänglighetsuppsättning.** Dela inte Storage-konton med flera virtuella datorer i samma tillgänglighetsuppsättning. Det är acceptabelt för virtuella datorer över olika tillgänglighets uppsättningar för att dela lagrings konton om de rekommenderade metoderna följer ![ohanterade diskar fd](./media/virtual-machines-common-manage-availability/umd-updated.png)
 
 ## <a name="use-scheduled-events-to-proactively-respond-to-vm-impacting-events"></a>Använd schemalagda händelser för att proaktivt svara på händelser som påverkar virtuella datorer
 
@@ -89,7 +96,7 @@ Om dina virtuella datorer är nästan identiska och har samma syfte för ditt pr
 Du kan till exempel lägga till alla virtuella datorer i klient delen av ditt program som kör IIS, Apache och Nginx i en enda tillgänglighets zon eller uppsättning. Se till att endast virtuella datorer i klient delen placeras i samma tillgänglighets zon eller uppsättning. På samma sätt kan du se till att endast virtuella datorer på datanivå placeras i en egen tillgänglighets zon eller ange, t. ex. dina replikerade SQL Server virtuella datorer eller dina MySQL-virtuella datorer.
 
 <!--Image reference-->
-   ![Program nivåer](./media/virtual-machines-common-manage-availability/application-tiers.png)
+   ![program nivåer](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
 ## <a name="combine-a-load-balancer-with-availability-zones-or-sets"></a>Kombinera en belastningsutjämnare med tillgänglighets zoner eller uppsättningar
 Kombinera [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) med en tillgänglighets zon eller Ställ in för att få de flesta program återhämtning. Azure Load Balancer distribuerar trafiken mellan flera virtuella datorer. Azure Load Balancer ingår i standardnivån för Virtual Machines. Azure Load Balancer ingår inte i alla nivåer för Virtual Machines. Mer information om belastningsutjämning för virtuella datorer finns i [Belastningsutjämna virtuella datorer](../articles/virtual-machines/virtual-machines-linux-load-balance.md).

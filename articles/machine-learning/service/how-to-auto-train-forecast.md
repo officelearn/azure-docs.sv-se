@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d9a879e92f78275f2366ccfc008068afbe208e5a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 276e741a9462c19a3cba9ad1f9ac44e2da7ef1d3
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497384"
+ms.locfileid: "73580710"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatisk träna en tids serie prognos modell
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -57,7 +57,7 @@ Interna Time Series-läraare tillhandahålls också som en del av automatiserad 
 
 Autoregressivt Integrated glidande medelvärde (ARIMA) är en populär statistisk metod för tids serie prognoser. Den här metoden för Prognosticering används ofta på kort sikts scenarier där data visar bevis på trender, till exempel cykler, som kan vara oförutsägbara och svåra för modeller eller prognoser. AutoARIMA omvandlar dina data till station ära data för att få konsekventa, pålitliga resultat.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure Machine Learning-arbetsyta. Information om hur du skapar arbets ytan finns i [skapa en Azure Machine Learning arbets yta](how-to-manage-workspace.md).
 * I den här artikeln förutsätter vi att du har konfigurerat ett automatiserat experiment för maskin inlärning. Följ [själv studie kursen](tutorial-auto-train-models.md) eller [anvisningar](how-to-configure-auto-train.md) för att se design mönster för det grundläggande automatiserade maskin inlärnings experimentet.
@@ -181,7 +181,7 @@ Se [antecknings boken för energi förbrukning](https://github.com/Azure/Machine
 
 För att kunna utnyttja Hyperoptimerade för prognostisering måste du ange parametern `enable_dnn` i AutoMLConfig till true. 
 
-För att kunna använda Hyperoptimerade rekommenderar vi att du använder ett AML beräknings kluster med GPU SKU: er och minst 2 noder som beräknings mål. Mer information finns i [AML Compute-dokumentationen](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute) . Se [GPU-optimerade storlekar på virtuella datorer](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-gpu) för mer information om VM-storlekar som innehåller GPU: er.
+För att kunna använda Hyperoptimerade rekommenderar vi att du använder ett AML beräknings kluster med GPU SKU: er och minst 2 noder som beräknings mål. Mer information finns i [AML Compute-dokumentationen](how-to-set-up-training-targets.md#amlcompute) . Se [GPU-optimerade storlekar på virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) för mer information om VM-storlekar som innehåller GPU: er.
 
 För att få tillräckligt med tid för att DNN-utbildningen ska slutföras rekommenderar vi att du ställer in experiment tids gränsen på minst ett par timmar.
 

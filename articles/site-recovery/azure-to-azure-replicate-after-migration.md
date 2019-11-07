@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: ff35c5e23c5d8a448d62a3eeb8d15ba8d5a531e4
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 081e1db4df0d77fa600e132a5585172d44f1196a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814535"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663034"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Konfigurera haveriberedskap för virtuella Azure-datorer efter migrering till Azure 
 
@@ -29,7 +29,7 @@ Innan du konfigurerar haveri beredskap ser du till att migreringen har slutfört
 
 [Azure VM-agenten](../virtual-machines/extensions/agent-windows.md) måste vara installerad på varje virtuell Azure-dator. Site Recovery installerar ett tillägg på agenten för att replikera virtuella Azure-datorer.
 
-- Om datorn kör version 9.7.0.0 eller senare av tjänsten Site Recovery mobilitet installeras Azure VM-agenten automatiskt av mobilitets tjänsten på virtuella Windows-datorer. I tidigare versioner av mobilitets tjänsten måste du installera agenten automatiskt.
+- Om datorn kör version 9.7.0.0 eller senare av tjänsten Site Recovery mobilitet installeras Azure VM-agenten automatiskt av mobilitets tjänsten på virtuella Windows-datorer. I tidigare versioner av mobilitets tjänsten måste du installera agenten manuellt.
 - För virtuella Linux-datorer måste du installera Azure VM-agenten manuellt. Du behöver bara installera Azure VM-agenten om mobilitets tjänsten som är installerad på den migrerade datorn är v 9.6 eller tidigare.
 
 

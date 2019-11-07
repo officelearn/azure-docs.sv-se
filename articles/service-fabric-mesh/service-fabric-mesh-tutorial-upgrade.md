@@ -1,6 +1,6 @@
 ---
 title: Självstudie – uppgradera ett Azure Service Fabric nät-program | Microsoft Docs
-description: Lär dig hur du uppgraderar ett Service Fabric program med hjälp av Visual Studio
+description: Den här självstudien är del fyra i en serie och visar hur du uppgraderar ett Azure Service Fabric-nätprogram direkt från Visual Studio.
 services: service-fabric-mesh
 documentationcenter: .net
 author: dkkapur
@@ -14,14 +14,14 @@ ms.workload: NA
 ms.date: 11/29/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 20aa65f0a8e47485e71fd03d73ff144f5290bcb7
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 81f155d5708a2fca2fc1145feb20af12d2fd151e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036077"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686194"
 ---
-# <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Självstudier: Lär dig hur du uppgraderar ett Service Fabric program med hjälp av Visual Studio
+# <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Självstudie: Lär dig hur du uppgraderar ett Service Fabric program med hjälp av Visual Studio
 
 Den här självstudien är del fyra i en serie och visar hur du uppgraderar ett Azure Service Fabric-nätprogram direkt från Visual Studio. Uppgraderingen kommer att innehålla både en kod uppdatering och en konfigurations uppdatering. Du ser att stegen för att uppgradera och publicera från Visual Studio är desamma.
 
@@ -32,7 +32,7 @@ I den här självstudiekursen får du lära du dig att:
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
 > * [Skapa en Service Fabric Mesh-app i Visual Studio](service-fabric-mesh-tutorial-create-dotnetcore.md)
-> * [Felsöka en Service Fabric Mesh-app som körs i ditt lokala utvecklingskluster](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * [Felsök en Service Fabric Mesh-app som körs i ditt lokala utvecklingskluster](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
 > * [Distribuera en Service Fabric Mesh-app](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
 > * Uppgradera en Service Fabric nätappen
 > * [Rensa Service Fabric Mesh-resurser](service-fabric-mesh-tutorial-cleanup-resources.md)
@@ -53,27 +53,27 @@ Den här artikeln visar hur du uppgraderar en mikrotjänst i ett program. I det 
 
 När du skapar en Service Fabric nätapp lägger Visual Studio till en **Parameters. yaml** -fil för varje distributions miljö (moln och lokal). I de här filerna kan du definiera parametrar och deras värden som sedan kan refereras från din nät *. yaml-filer som service. yaml eller Network. yaml.  Visual Studio innehåller några variabler åt dig, till exempel hur mycket CPU som tjänsten kan använda.
 
-Vi uppdaterar `WebFrontEnd_cpu` parametern för att uppdatera CPU-resurserna till `1.5` i förväntat att webfrontend-tjänsten kommer att användas mer kraftigt.
+Vi uppdaterar `WebFrontEnd_cpu` parametern för att uppdatera processor resurserna till `1.5` i förväntat att **webfrontend** -tjänsten kommer att användas mer kraftigt.
 
-1. I **todolistapp** -projektet, under **miljöer** > **Cloud**, öppnar du filen **Parameters. yaml** . `1.5`Ändra värdet `WebFrontEnd_cpu`, värde till. Parameter namnet föregås av tjänst namnet `WebFrontEnd_` som en bästa praxis att skilja den från parametrar med samma namn som gäller för olika tjänster.
+1. I **todolistapp** -projektet går du till **miljöer** > **Cloud**och öppnar filen **Parameters. yaml** . Ändra `WebFrontEnd_cpu`, värde till `1.5`. Parameter namnet föregås av tjänst namnet `WebFrontEnd_` som bästa praxis för att skilja den från parametrar med samma namn som gäller för olika tjänster.
 
     ```xml
     WebFrontEnd_cpu: 1.5
     ```
 
-2. Öppna filen **service. yaml** för webfrontend-projekt under **webfrontend** > **service-resurser**.
+2. Öppna filen **service. yaml** för **webfrontend** -projekt under **webfrontend** > **tjänst resurser**.
 
-    Observera att `resources:` `cpu:` avsnittet i är inställt på. `"[parameters('WebFrontEnd_cpu')]"` Om projektet `'WebFrontEnd_cpu` skapas för molnet hämtas värdet för från **miljöns** > **Cloud** > Parameters **. yaml** -fil och kommer att vara. `1.5` Om projektet skapas för att köras lokalt hämtas värdet från **miljöns** > **lokala** > **parametrar. yaml** -fil och blir "0,5".
+    Observera att `cpu:` har angetts till `"[parameters('WebFrontEnd_cpu')]"`i `resources:` avsnittet. Om projektet skapas för molnet hämtas värdet för `'WebFrontEnd_cpu` från **miljön** > **Cloud** > **Parameters. yaml** -filen och kommer att `1.5`. Om projektet skapas för att köras lokalt, hämtas värdet från **miljön** > **lokala** > **parametrar. yaml** -filen och blir "0,5".
 
 > [!Tip]
 > Som standard används parameter filen som är en peer i filen Profile. yaml för att ange värden för filen Profile. yaml.
 > Till exempel miljöer > Cloud > Parameters. yaml innehåller parameter värden för miljöer > Cloud > Profile. yaml.
 >
-> Du kan åsidosätta detta genom att lägga till följande i filen Profile. yaml:`parametersFilePath=”relative or full path to the parameters file”` Till exempel `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` eller `parametersFilePath=”..\CommonParameters.yaml”`
+> Du kan åsidosätta detta genom att lägga till följande i filen Profile. yaml:`parametersFilePath=”relative or full path to the parameters file”` till exempel `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` eller `parametersFilePath=”..\CommonParameters.yaml”`
 
 ## <a name="modify-the-model"></a>Ändra modellen
 
-Om du vill införa en kod ändring lägger `Category` du till en `ToDoItem` egenskap i- `ToDoItem.cs` klassen i filen.
+Om du vill införa en kod ändring lägger du till en `Category`-egenskap i `ToDoItem`-klassen i `ToDoItem.cs`-filen.
 
 ```csharp
 public class ToDoItem
@@ -83,7 +83,7 @@ public class ToDoItem
 }
 ```
 
-Uppdatera `Load()` sedan metoden i samma fil för att ange kategorin till en standard sträng:
+Uppdatera sedan `Load()`-metoden i samma fil för att ange kategorin till en standard sträng:
 
 ```csharp
 public static ToDoItem Load(string description, int index, bool completed)
@@ -101,7 +101,7 @@ public static ToDoItem Load(string description, int index, bool completed)
 
 ## <a name="modify-the-service"></a>Ändra tjänsten
 
-`WebFrontEnd` Projektet är ett ASP.net Core program med en webb sida som visar objekt i att göra-listan. I projektet öppnar `Index.cshtml` du och lägger till följande två rader, som anges nedan, för att Visa uppgiftens kategori: `WebFrontEnd`
+`WebFrontEnd` projektet är ett ASP.NET Core program med en webb sida som visar objekt i att göra-listan. Öppna `Index.cshtml` i `WebFrontEnd` projektet och Lägg till följande två rader, som anges nedan, för att Visa uppgiftens kategori:
 
 ```HTML
 <div>

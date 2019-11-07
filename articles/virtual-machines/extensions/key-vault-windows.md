@@ -7,12 +7,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 09/23/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 43c4b363f223c61bac3d3f7dbd272519a0cd014d
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 7c730ad3f14cc26cd1251b497ef2d146fe99e448
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899050"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73584360"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Key Vault tillägg för virtuell dator för Windows
 
@@ -28,7 +28,7 @@ Key Vault VM-tillägget stöder följande versioner av Windows:
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
-Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver inte skyddade inställningar. alla dess inställningar betraktas som offentlig information. Tillägget kräver en lista över övervakade certifikat, avsöknings frekvens och mål certifikat arkivet. Närmare bestämt:  
+Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver inte skyddade inställningar. alla dess inställningar betraktas som offentlig information. Tillägget kräver en lista över övervakade certifikat, avsöknings frekvens och mål certifikat arkivet. Mer specifikt:  
 
 ```json
     {
@@ -59,9 +59,9 @@ Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver in
 ```
 
 > [!NOTE]
-> Dina observerade certifikat webb adresser ska ha formatet `https://myVaultName.vault.azure.net/secrets/myCertName`.
+> URL: er för dina observerade certifikat bör ha formatet `https://myVaultName.vault.azure.net/secrets/myCertName`.
 > 
-> Detta beror på att sökvägen för `/secrets` returnerar det fullständiga certifikatet, inklusive den privata nyckeln, medan `/certificates`-sökvägen inte gör det. Mer information om certifikat hittar du här: [Key Vault certifikat](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> Detta beror på att `/secrets` sökvägen returnerar det fullständiga certifikatet, inklusive den privata nyckeln, medan `/certificates` Sök vägen inte gör det. Mer information om certifikat hittar du här: [Key Vault certifikat](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
 
 ### <a name="property-values"></a>Egenskaps värden
 
@@ -71,11 +71,11 @@ Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver in
 | Förläggare | Microsoft. Azure. EdP | sträng |
 | typ | KeyVaultForWindows | sträng |
 | typeHandlerVersion | 1.0 | int |
-| pollingIntervalInS | 3600 | int |
+| pollingIntervalInS | 3600 | sträng |
 | Certifikat Arkiv | MY | sträng |
 | linkOnRenewal | false | boolesk |
 | certificateStoreLocation  | LocalMachine | sträng |
-| requiredInitialSync | sant | boolesk |
+| requiredInitialSync | true | boolesk |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | sträng mat ris
 
 
@@ -191,7 +191,7 @@ Observera följande begränsningar/krav:
 
 ## <a name="troubleshoot-and-support"></a>Felsöka och support
 
-### <a name="troubleshoot"></a>Felsökning
+### <a name="troubleshoot"></a>Felsöka
 
 Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och genom att använda Azure PowerShell. Om du vill se distributions statusen för tillägg för en virtuell dator kör du följande kommando med hjälp av Azure PowerShell.
 

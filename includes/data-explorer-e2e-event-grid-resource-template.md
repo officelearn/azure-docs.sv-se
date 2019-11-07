@@ -4,16 +4,16 @@ ms.service: data-explorer
 ms.topic: include
 ms.date: 10/23/2019
 ms.author: lugoldbe
-ms.openlocfilehash: 9aca01b24bc3351460c462c08689fdaa41e3a755
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: d0cef9f8ec4d7afde4f83e4f83bccdb44d5615ca
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73057292"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581809"
 ---
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
 
-I den här artikeln används en Azure Resource Manager mall för att skapa en resurs grupp, ett lagrings konto och en behållare, en Händelsehubben och ett Azure Datautforskaren-kluster och-databas. Spara följande innehåll i en fil med namnet `template.json`som ska användas för att köra kod exemplet.
+I den här artikeln använder du en Azure Resource Manager mall för att skapa en resurs grupp, ett lagrings konto och en behållare, en händelsehubben och ett Azure Datautforskaren-kluster och-databas. Spara följande innehåll i en fil med namnet `template.json`. Du kommer att använda den här filen för att köra kod exemplet.
 
 ```json
 {

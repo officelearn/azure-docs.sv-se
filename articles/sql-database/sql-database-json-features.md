@@ -1,5 +1,5 @@
 ---
-title: Arbeta med JSON-data i Azure SQL Database | Microsoft Docs
+title: Arbeta med JSON-data i Azure SQL Database
 description: Med Azure SQL Database kan du parsa, fråga och formatera data i JavaScript Object Notation (JSON).
 services: sql-database
 ms.service: sql-database
@@ -11,19 +11,19 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 01/15/2019
-ms.openlocfilehash: 3a09fba3f01eec6c712bad67ef10b8b5c55fb33e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2fe760e3792b5540b18946fd9dbcc5d571b50ee9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567850"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689656"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Komma igång med JSON-funktioner i Azure SQL Database
 Med Azure SQL Database kan du analysera och fråga data som representeras i JavaScript Object Notation [(JSON)](https://www.json.org/) -format och exportera Relations data som JSON-text. Följande JSON-scenarier är tillgängliga i Azure SQL Database:
-- [Formatera Relations data i JSON](#formatting-relational-data-in-json-format) -format `FOR JSON` med hjälp av satsen.
+- [Formatera Relations data i JSON-format](#formatting-relational-data-in-json-format) med `FOR JSON`-sats.
 - [Arbeta med JSON-data](#working-with-json-data)
 - [Fråga JSON-data](#querying-json-data) med hjälp av JSON skalära funktioner.
-- [Transformering av JSON i tabell format](#transforming-json-into-tabular-format) med `OPENJSON` funktion.
+- [Transformering av JSON i tabell format](#transforming-json-into-tabular-format) med hjälp av funktionen `OPENJSON`.
 
 ## <a name="formatting-relational-data-in-json-format"></a>Formatera Relations data i JSON-format
 Om du har en webb tjänst som tar data från databas skiktet och tillhandahåller ett svar i JSON-format eller på klient sidans JavaScript-ramverk eller bibliotek som accepterar data som är formaterade som JSON, kan du formatera databas innehållet som JSON direkt i en SQL-fråga. Du behöver inte längre skriva program kod som formaterar resultat från Azure SQL Database som JSON, eller inkludera vissa JSON-serialiserande bibliotek för att konvertera resultat från tabell frågor och sedan serialisera objekt till JSON-format. I stället kan du använda FOR JSON-satsen för att formatera SQL-frågeresultat som JSON i Azure SQL Database och använda det direkt i ditt program.
@@ -71,7 +71,7 @@ Utdata från den här frågan ser ut så här:
 
 I det här exemplet returnerade vi ett enda JSON-objekt i stället för en matris genom att ange alternativet [WITHOUT_ARRAY_WRAPPER](https://msdn.microsoft.com/library/mt631354.aspx) . Du kan använda det här alternativet om du vet att du returnerar ett enskilt objekt som ett resultat av en fråga.
 
-Huvudvärdet för FOR JSON-satsen är att du kan returnera komplexa hierarkiska data från databasen som har formaterats som kapslade JSON-objekt eller matriser. I följande exempel visas hur du tar med rader från `Orders` tabellen som tillhör `Customer` som en kapslad matris med `Orders`:
+Huvudvärdet för FOR JSON-satsen är att du kan returnera komplexa hierarkiska data från databasen som har formaterats som kapslade JSON-objekt eller matriser. I följande exempel visas hur du tar med rader från `Orders`-tabellen som tillhör `Customer` som en kapslad matris av `Orders`:
 
 ```
 select CustomerName as Name, PhoneNumber as Phone, FaxNumber as Fax,
@@ -166,7 +166,7 @@ Openjson är en tabell värdes funktion som analyserar JSON-text, letar upp en m
 
 I exemplet ovan kan vi ange var du vill hitta den JSON-matris som ska öppnas (i $. Order Sök väg), vilka kolumner som ska returneras som resultat och var du hittar de JSON-värden som ska returneras som celler.
 
-Vi kan omvandla en JSON-matris i @orders variabeln till en rad med rader, analysera den här resultat uppsättningen eller infoga rader i en standard tabell:
+Vi kan omvandla en JSON-matris i @orders-variabeln till en uppsättning rader, analysera den här resultat uppsättningen eller infoga rader i en standard tabell:
 
 ```
 CREATE PROCEDURE InsertOrders(@orders nvarchar(max))

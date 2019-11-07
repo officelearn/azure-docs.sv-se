@@ -1,6 +1,6 @@
 ---
-title: Transformera data med Spark-aktivitet i Azure Data Factory | Microsoft Docs
-description: Lär dig hur du transformerar data genom att köra Spark program från en Azure data factory-pipeline med hjälp av Spark-aktivitet.
+title: Transformera data med Spark-aktivitet i Azure Data Factory
+description: Lär dig hur du omvandlar data genom att köra Spark-program från en Azure Data Factory-pipeline med hjälp av Spark-aktiviteten.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -11,23 +11,23 @@ ms.date: 05/31/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: c493dbc99edc794dd5a261dfc004c2c8c1cb6d52
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 5f3bb88d3a2e43abe1776a4b46e4ab35490db8ec
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312075"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683749"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformera data med Spark-aktivitet i Azure Data Factory
-> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
+> [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-spark.md)
 > * [Aktuell version](transform-data-using-spark.md)
 
-Spark-aktivitet i en Datafabrik [pipeline](concepts-pipelines-activities.md) kör ett Spark-program på [egna](compute-linked-services.md#azure-hdinsight-linked-service) eller [på begäran](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight-kluster. Den här artikeln bygger vidare på den [datatransformeringsaktiviteter](transform-data.md) artikel som anger en allmän översikt över Dataomvandling och stöds transformeringsaktiviteter. När du använder en på begäran länkad Spark-tjänst kan Data Factory skapar automatiskt ett Spark-kluster för du just-in-time att bearbeta data och tar sedan bort klustret när bearbetningen är klar. 
+Spark-aktiviteten i en Data Factory [pipeline](concepts-pipelines-activities.md) kör ett Spark-program på [ditt eget](compute-linked-services.md#azure-hdinsight-linked-service) eller [på begäran HDInsight-](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) kluster. Den här artikeln bygger på artikeln [data omvandlings aktiviteter](transform-data.md) , som visar en allmän översikt över Datatransformeringen och de omvandlings aktiviteter som stöds. När du använder en spark-länkad Spark på begäran skapar Data Factory automatiskt ett Spark-kluster för dig just-in-Time för att bearbeta data och tar sedan bort klustret när bearbetningen är klar. 
 
 
 ## <a name="spark-activity-properties"></a>Egenskaper för Spark-aktivitet
-Här är exempel JSON-definition för en Spark-aktivitet:    
+Här är exempel-JSON-definitionen för en spark-aktivitet:    
 
 ```json
 {
@@ -56,39 +56,39 @@ Här är exempel JSON-definition för en Spark-aktivitet:
 }
 ```
 
-I följande tabell beskrivs de JSON-egenskaper som används i JSON-definition:
+I följande tabell beskrivs de JSON-egenskaper som används i JSON-definitionen:
 
 | Egenskap              | Beskrivning                              | Krävs |
 | --------------------- | ---------------------------------------- | -------- |
-| name                  | Namnet på aktiviteten i pipelinen.    | Ja      |
-| description           | Text som beskriver hur aktiviteten ska hantera.  | Nej       |
-| type                  | För Spark-aktivitet är aktivitetstypen HDInsightSpark. | Ja      |
-| linkedServiceName     | Namnet på den HDInsight Spark länkade tjänst som Spark-programmet körs. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln. | Ja      |
-| SparkJobLinkedService | Azure Storage-länkade tjänst som innehåller Spark jobbfilen, beroenden och loggar.  Om du inte anger ett värde för den här egenskapen används den lagring som är associerad med HDInsight-kluster. Värdet för den här egenskapen kan bara vara en länkad Azure Storage-tjänst. | Nej       |
-| rootPath              | Azure Blob-behållaren och mappen som innehåller filen Spark. Filnamnet är skiftlägeskänsligt. Referera till mappstrukturen avsnitt (nästa avsnitt) för ytterligare information om strukturen för den här mappen. | Ja      |
-| entryFilePath         | Relativa sökvägen till rotmappen för koden/paketet Spark. Post-filen måste vara antingen en Python-fil eller en .jar-fil. | Ja      |
-| className             | Programmets Java/Spark-huvudklass      | Nej       |
-| argument             | En lista med kommandoradsargument till Spark-programmet. | Nej       |
-| proxyUser             | Användarkonto för att personifiera för att köra Spark-programmet | Nej       |
-| sparkConfig           | Ange värden för Spark-konfigurationsegenskaper som anges i avsnittet: [Spark-konfiguration – programegenskaper](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Nej       |
-| getDebugInfo          | Anger när Spark filerna kopieras till Azure storage används av HDInsight-kluster (eller) anges av sparkJobLinkedService. Tillåtna värden: Ingen alltid kan eller inte. Standardvärde: Ingen. | Nej       |
+| namn                  | Namnet på aktiviteten i pipelinen.    | Ja      |
+| description           | Text som beskriver vad aktiviteten gör.  | Nej       |
+| typ                  | För Spark-aktivitet är aktivitets typen HDInsightSpark. | Ja      |
+| linkedServiceName     | Namnet på den länkade HDInsight Spark-tjänsten som Spark-programmet körs på. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) . | Ja      |
+| sparkJobLinkedService | Den länkade tjänsten Azure Storage som innehåller Spark-jobbets fil, beroenden och loggar.  Om du inte anger något värde för den här egenskapen används det lagrings utrymme som är associerat med HDInsight-kluster. Värdet för den här egenskapen kan bara vara en Azure Storage länkad tjänst. | Nej       |
+| rootPath              | Azure Blob-behållaren och-mappen som innehåller Spark-filen. Fil namnet är Skift läges känsligt. Se avsnittet mappstruktur (nästa avsnitt) för information om den här mappens struktur. | Ja      |
+| entryFilePath         | Relativ sökväg till rotmappen för Spark-koden/-paketet. Post filen måste vara antingen en python-fil eller en. jar-fil. | Ja      |
+| className             | Programmets Java/Spark-huvud klass      | Nej       |
+| ogiltiga             | En lista med kommando rads argument för Spark-programmet. | Nej       |
+| proxyUser             | Användar kontot som ska personifieras för att köra Spark-programmet | Nej       |
+| sparkConfig           | Ange värden för konfigurations egenskaper för Spark som anges i avsnittet: [Spark-konfiguration – program egenskaper](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Nej       |
+| getDebugInfo          | Anger när Spark-loggfilerna ska kopieras till Azure-lagringen som används av HDInsight-kluster (eller) som anges av sparkJobLinkedService. Tillåtna värden: ingen, Always eller Failure. Standardvärde: ingen. | Nej       |
 
-## <a name="folder-structure"></a>mappstruktur
-Spark-jobb är mer omfattande än Pig/Hive-jobb. För Spark-jobb kan du ange flera beroenden som jar-paket (placeras i java KLASSÖKVÄGEN), python-filer (placeras på PYTHONPATH) och andra filer.
+## <a name="folder-structure"></a>Mappstruktur
+Spark-jobb är mer utöknings bara av jobben i gris/Hive. För Spark-jobb kan du tillhandahålla flera beroenden, till exempel jar-paket (placerade i Java-CLASSPATH), python-filer (placeras på PYTHONPATH) och andra filer.
 
-Skapa följande mappstrukturen i Azure Blob storage som refereras av den länkade HDInsight-tjänsten. Ladda sedan upp beroende filer till lämpliga undermappar i rotmappen som representeras av **entryFilePath**. Till exempel överföra python till undermappen pyFiles och jar-filer till undermappen JAR-filer i rotmappen. Vid körning förväntas Data Factory-tjänsten följande mappstrukturen i Azure Blob storage:     
+Skapa följande mappstruktur i Azure blob-lagringen som refereras av den länkade HDInsight-tjänsten. Ladda sedan upp beroende filer till lämpliga undermappar i rotmappen som representeras av **entryFilePath**. Du kan till exempel Ladda upp python-filer till undermappen pyFiles och jar-filer till undermappen jar v7 i rotmappen. Vid körning förväntar Data Factory tjänsten följande mappstruktur i Azure Blob Storage:     
 
-| `Path`                  | Beskrivning                              | Obligatoriskt | Type   |
+| Sökväg                  | Beskrivning                              | Krävs | Typ   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
-| `.` (rot)            | Rotsökvägen för Spark-jobb i länkade storage-tjänsten | Ja      | Mapp |
-| &lt;användardefinierad &gt; | Den sökväg som pekar startfil Spark-jobb | Ja      | Fil   |
-| . / JAR: er                | Alla filer under den här mappen överförs och placeras på java-klassökvägen i klustret | Nej       | Mapp |
-| ./pyFiles             | Alla filer under den här mappen överförs och placeras på PYTHONPATH i klustret | Nej       | Mapp |
-| . / filer               | Alla filer under den här mappen överförs och placeras på executor arbetskatalog | Nej       | Mapp |
-| . / arkiverar            | Alla filer under den här mappen är okomprimerade | Nej       | Mapp |
-| . / loggar                | Den mapp som innehåller loggar från Spark-klustret. | Nej       | Mapp |
+| `.` (rot)            | Spark-jobbets rot Sök väg i den länkade lagrings tjänsten | Ja      | Mapp |
+| &lt;användardefinierad &gt; | Sökvägen som pekar på post filen för Spark-jobbet | Ja      | Fil   |
+| ./jars                | Alla filer i den här mappen laddas upp och placeras i Java-classpath för klustret | Nej       | Mapp |
+| ./pyFiles             | Alla filer i den här mappen överförs och placeras i PYTHONPATH i klustret | Nej       | Mapp |
+| ./files               | Alla filer i den här mappen överförs och placeras i utförar arbets katalog | Nej       | Mapp |
+| ./archives            | Alla filer i den här mappen är okomprimerade | Nej       | Mapp |
+| ./logs                | Den mapp som innehåller loggar från Spark-klustret. | Nej       | Mapp |
 
-Här är ett exempel på en lagringsenhet som innehåller två Spark-jobbfiler i Azure Blob Storage som refereras av den länkade HDInsight-tjänsten.
+Här är ett exempel på ett lagrings utrymme som innehåller två Spark-jobbmallar i Azure-Blob Storage som refereras till av den länkade HDInsight-tjänsten.
 
 ```
 SparkJob1
@@ -109,14 +109,14 @@ SparkJob2
     logs
 ```
 ## <a name="next-steps"></a>Nästa steg
-Se följande artiklar som beskriver hur du omvandlar data på andra sätt: 
+Se följande artiklar som förklarar hur du omformar data på andra sätt: 
 
 * [U-SQL-aktivitet](transform-data-using-data-lake-analytics.md)
 * [Hive-aktivitet](transform-data-using-hadoop-hive.md)
-* [Piggningsåtgärd](transform-data-using-hadoop-pig.md)
+* [Aktivitet i gris](transform-data-using-hadoop-pig.md)
 * [MapReduce-aktivitet](transform-data-using-hadoop-map-reduce.md)
-* [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md)
+* [Hadoop streaming-aktivitet](transform-data-using-hadoop-streaming.md)
 * [Spark-aktivitet](transform-data-using-spark.md)
 * [.NET-anpassad aktivitet](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning-batchkörningsaktivitet](transform-data-using-machine-learning.md)
-* [Lagrad proceduraktivitet](transform-data-using-stored-procedure.md)
+* [Machine Learning batch-körning, aktivitet](transform-data-using-machine-learning.md)
+* [Lagrad procedur aktivitet](transform-data-using-stored-procedure.md)

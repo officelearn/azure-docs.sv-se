@@ -1,5 +1,5 @@
 ---
-title: Transformera data med Hive-aktivitet – Azure | Microsoft Docs
+title: Transformera data med Hive-aktivitet – Azure
 description: Lär dig hur du kan använda Hive-aktiviteten i en Azure Data Factory för att köra Hive-frågor på ett eget HDInsight-kluster på begäran.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 8a7e6748f450ae398a05097ac6b192d074f5f1f7
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f159f672c999d7877ef89cd78d23c4a608ccf1ab
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139540"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666999"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformera data med Hive-aktivitet i Azure Data Factory 
 > [!div class="op_single_selector" title1="Omvandlings aktiviteter"]
@@ -38,7 +38,7 @@ ms.locfileid: "70139540"
 HDInsight Hive-aktiviteten i en Data Factory [pipelinen](data-factory-create-pipelines.md) kör Hive-frågor på [ditt eget](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) eller Windows/Linux-baserade HDInsight-kluster [på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) . Den här artikeln bygger på artikeln [data omvandlings aktiviteter](data-factory-data-transformation-activities.md) , som visar en allmän översikt över Datatransformeringen och de omvandlings aktiviteter som stöds.
 
 > [!NOTE] 
-> Om du inte har använt Azure Data Factory läser du igenom [Introduktion till Azure Data Factory](data-factory-introduction.md) och gör självstudien: [Bygg din första data pipeline innan du](data-factory-build-your-first-pipeline.md) läser den här artikeln. 
+> Om du inte har använt Azure Data Factory läser du igenom [introduktionen till Azure Data Factory](data-factory-introduction.md) och gör självstudien: [skapa din första data pipeline innan du](data-factory-build-your-first-pipeline.md) läser den här artikeln. 
 
 ## <a name="syntax"></a>Syntax
 
@@ -72,22 +72,22 @@ HDInsight Hive-aktiviteten i en Data Factory [pipelinen](data-factory-create-pip
 }
 ```
 ## <a name="syntax-details"></a>Information om syntax
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| name |Namn på aktiviteten |Ja |
+| namn |Namn på aktiviteten |Ja |
 | description |Text som beskriver vad aktiviteten används för |Nej |
-| type |HDinsightHive |Ja |
-| inputs |Indata som används av Hive-aktiviteten |Nej |
-| outputs |Utdata som produceras av Hive-aktiviteten |Ja |
+| typ |HDinsightHive |Ja |
+| tillför |Indata som används av Hive-aktiviteten |Nej |
+| utdata |Utdata som produceras av Hive-aktiviteten |Ja |
 | linkedServiceName |Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory |Ja |
-| script |Ange Hive-skriptet infogat |Nej |
+| -skriptet |Ange Hive-skriptet infogat |Nej |
 | scriptPath |Lagra Hive-skriptet i en Azure Blob-lagring och ange sökvägen till filen. Använd script-eller scriptPath-egenskapen. Båda kan inte användas tillsammans. Fil namnet är Skift läges känsligt. |Nej |
-| defines |Ange parametrar som nyckel/värde-par för referenser i Hive-skriptet med hjälp av "hiveconf" |Nej |
+| definierar |Ange parametrar som nyckel/värde-par för referenser i Hive-skriptet med hjälp av "hiveconf" |Nej |
 
 ## <a name="example"></a>Exempel
 Nu ska vi titta på ett exempel på spel loggar för att identifiera hur lång tid det tar för användare att spela spel som lanserats av ditt företag. 
 
-Följande logg är en exempel spel logg, som är komma (`,`) separerad och innehåller följande fält – profil, SessionStart, duration, SrcIPAddress och gametype.
+Följande logg är en exempel spel logg, som är komma (`,`) separerad och innehåller följande fält – profil, SessionStart, duration, SrcIPAddress och GameType.
 
 ```
 1809,2014-05-04 12:04:25.3470000,14,221.117.223.75,CaptureFlag

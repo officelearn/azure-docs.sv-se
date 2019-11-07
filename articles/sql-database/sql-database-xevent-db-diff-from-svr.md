@@ -1,5 +1,5 @@
 ---
-title: Utökade händelser i SQL Database | Microsoft Docs
+title: Utökade händelser i SQL Database
 description: Beskriver utökade händelser (XEvents) i Azure SQL Database och hur Event-sessioner skiljer sig något från Event-sessioner i Microsoft SQL Server.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: f9af487e2eb35e7dc94e1b70945d5c03ffdde2ba
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 64cfcd9451416a6eb35301268b285bd00cf0cad4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566074"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686775"
 ---
 # <a name="extended-events-in-sql-database"></a>Utökade händelser i SQL Database
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -31,10 +31,10 @@ I det här avsnittet beskrivs hur implementeringen av utökade händelser i Azur
 
 Mer information om utökade händelser för Azure SQL Database och Microsoft SQL Server finns på:
 
-- [Snabbstart: Utökade händelser i SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
+- [Snabbstart: utökade händelser i SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
 - [Utökade händelser](https://msdn.microsoft.com/library/bb630282.aspx)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Det här avsnittet förutsätter att du redan har kunskaper om:
 
@@ -58,7 +58,7 @@ Relaterade ämnen innehåller två kod exempel:
 
 - [Ring buffertens mål kod för utökade händelser i SQL Database](sql-database-xevent-code-ring-buffer.md)
     - Kort enkelt Transact-SQL-skript.
-    - Vi betonar i avsnittet kod exempel att när du är färdig med ett ring mål bör du frigöra resurserna genom att köra en Alter-Drop `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` -instruktion. Senare kan du lägga till en annan instans av ringbufferten `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`med.
+    - Vi betonar i avsnittet kod exempel att när du är färdig med ett ring mål bör du frigöra resurserna genom att köra en Alter-Drop `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;`-instruktion. Senare kan du lägga till ytterligare en instans av ringbufferten med `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
 
 
 - [Mål kod för händelse filen för utökade händelser i SQL Database](sql-database-xevent-code-event-file.md)
@@ -83,13 +83,13 @@ Funktionen utökade händelser stöds av flera [katalogvyer](https://msdn.micros
 
 | Namn på<br/>katalogvy | Beskrivning |
 |:--- |:--- |
-| **sys.database_event_session_actions** |Returnerar en rad för varje åtgärd vid varje händelse i en användarsession. |
-| **sys.database_event_session_events** |Returnerar en rad för varje händelse i en användarsession. |
-| **sys.database_event_session_fields** |Returnerar en rad för varje anpassnings aktiv kolumn som uttryckligen angavs för händelser och mål. |
-| **sys.database_event_session_targets** |Returnerar en rad för varje händelse mål för en Event-session. |
-| **sys.database_event_sessions** |Returnerar en rad för varje händelsesessionen i SQL Database databasen. |
+| **sys. database_event_session_actions** |Returnerar en rad för varje åtgärd vid varje händelse i en användarsession. |
+| **sys. database_event_session_events** |Returnerar en rad för varje händelse i en användarsession. |
+| **sys. database_event_session_fields** |Returnerar en rad för varje anpassnings aktiv kolumn som uttryckligen angavs för händelser och mål. |
+| **sys. database_event_session_targets** |Returnerar en rad för varje händelse mål för en Event-session. |
+| **sys. database_event_sessions** |Returnerar en rad för varje händelsesessionen i SQL Database databasen. |
 
-I Microsoft SQL Server har liknande katalogvy-vyer namn som inkluderar *. Server\_*  i stället för *.\_Database*. Namn mönstret liknar **sys. server_event_%** .
+I Microsoft SQL Server har liknande katalogvy-vyer namn som inkluderar *. Server\_* i stället för *. Database-\_* . Namn mönstret liknar **sys. server_event_%** .
 
 ## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>Nya vyer för dynamisk hantering [(DMV: er)](https://msdn.microsoft.com/library/ms188754.aspx)
 
@@ -97,23 +97,23 @@ Azure SQL Database har [dynamiska Management views (DMV: er)](https://msdn.micro
 
 | Namn på DMV | Beskrivning |
 |:--- |:--- |
-| **sys.dm_xe_database_session_event_actions** |Returnerar information om Event session-åtgärder. |
-| **sys.dm_xe_database_session_events** |Returnerar information om sessions händelser. |
-| **sys.dm_xe_database_session_object_columns** |Visar konfigurations värden för objekt som är kopplade till en session. |
-| **sys.dm_xe_database_session_targets** |Returnerar information om mål för sessioner. |
-| **sys.dm_xe_database_sessions** |Returnerar en rad för varje händelsesessionen som är begränsad till den aktuella databasen. |
+| **sys. DM-_xe_database_session_event_actions** |Returnerar information om Event session-åtgärder. |
+| **sys. DM-_xe_database_session_events** |Returnerar information om sessions händelser. |
+| **sys. DM-_xe_database_session_object_columns** |Visar konfigurations värden för objekt som är kopplade till en session. |
+| **sys. DM-_xe_database_session_targets** |Returnerar information om mål för sessioner. |
+| **sys. DM-_xe_database_sessions** |Returnerar en rad för varje händelsesessionen som är begränsad till den aktuella databasen. |
 
-I Microsoft SQL Server får liknande katalogfiler namn utan  *\_databas* delen av namnet, t. ex.:
+I Microsoft SQL Server får liknande katalogfiler namn utan *\_databas* delen av namnet, t. ex.:
 
-- **sys. DM _xe_sessions**, i stället för namn<br/>**sys.dm_xe_database_sessions**.
+- **sys. DM _xe_sessions**, i stället för namn<br/>**sys. DM _xe_database_sessions**.
 
 ### <a name="dmvs-common-to-both"></a>DMV: er gemensamt för båda
 För utökade händelser finns det ytterligare DMV: er som är gemensamma för både Azure SQL Database och Microsoft SQL Server:
 
-- **sys.dm_xe_map_values**
-- **sys.dm_xe_object_columns**
-- **sys.dm_xe_objects**
-- **sys.dm_xe_packages**
+- **sys. DM-_xe_map_values**
+- **sys. DM-_xe_object_columns**
+- **sys. DM-_xe_objects**
+- **sys. DM-_xe_packages**
 
   <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
 
@@ -171,7 +171,7 @@ SAS-token som du skapar för din Azure Storage-behållare måste ange **RWL** f�
 
 - Läsa
 - Skriva
-- List
+- Visa lista
 
 ## <a name="performance-considerations"></a>Saker att tänka på gällande prestanda
 
@@ -180,7 +180,7 @@ Det finns scenarier där utökade händelser kan ackumulera mer aktivt minne än
 Om du får ett fel meddelande om att högsta mängd minne har verkställts kan du utföra några lämpliga åtgärder:
 
 - Kör färre samtidiga Event-sessioner.
-- Minska mängden minne som du anger i den **högsta\_minnes** satsen genom att **skapa** och **ändra** -instruktioner för Event-sessioner.
+- Minska mängden minne som du anger på den **högsta\_minnes** satsen genom att **skapa** och **ändra** -instruktioner för Event-sessioner.
 
 ### <a name="network-latency"></a>Svarstid för nätverk
 

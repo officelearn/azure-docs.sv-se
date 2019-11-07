@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e17a99a522c6ab960c2ccd0cc2729076c54ed07f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 8c8bfa5fc31ce8500d1ed339ba28afeed21e25a0
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73151847"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603510"
 ---
 # <a name="passwordless-authentication-options"></a>Alternativ för lösenordsskyddad autentisering
 
@@ -52,7 +52,7 @@ Den vänder sig till en stark och lösenordsskyddad autentiseringsuppgift genom 
 
 FIDO2-säkerhetsnycklar är en unphishable standard-baserad autentiseringsmetod för lösen ords skydd som kan komma i vilken form som helst. Snabb identitet Online (FIDO) är en öppen standard för lösen ords mässig autentisering. Det gör att användare och organisationer kan använda standard för att logga in på sina resurser utan användar namn eller lösen ord med hjälp av en extern säkerhets nyckel eller en plattforms nyckel som är inbyggd i en enhet.
 
-För en offentlig för hands version kan anställda använda säkerhets nycklar för att logga in på sina Azure AD-eller hybrid Azure AD-anslutna Windows 10-enheter och få enkel inloggning till sina moln resurser och lokala resurser. De kan också logga in i webbläsare som stöds.
+För en offentlig för hands version kan anställda använda säkerhets nycklar för att logga in på sina Azure AD-anslutna Windows 10-enheter och få enkel inloggning till deras moln resurser och lokala resurser. De kan också logga in i webbläsare som stöds.
 
 ![Logga in på Microsoft Edge med en säkerhets nyckel](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -73,7 +73,7 @@ Följande leverantörer ger FIDO2 säkerhets nycklar för olika form faktorer so
 | --- | --- |
 | Yubico | [https://www.yubico.com/support/contact/](https://www.yubico.com/support/contact/) |
 | Feitian | [https://www.ftsafe.com/about/Contact_Us](https://www.ftsafe.com/about/Contact_Us) |
-| Dold | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
+| HID | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
 | Ensurity | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
 | eWBM | [https://www.ewbm.com/page/sub1_5](https://www.ewbm.com/page/sub1_5) |
 | AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
@@ -81,7 +81,7 @@ Följande leverantörer ger FIDO2 säkerhets nycklar för olika form faktorer so
 > [!NOTE]
 > Om du köper och planerar att använda NFC-baserade säkerhets nycklar behöver du en NFC-läsare som stöds.
 
-Kontakta [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com)om du är en leverantör och vill hämta din enhet i listan.
+Om du är en leverantör och vill få din enhet i den här listan kontaktar du [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com).
 
 FIDO2-säkerhetsnycklar är ett bra alternativ för företag som är mycket känsliga eller har scenarier eller anställda som inte är villiga eller kan använda sin telefon som en andra faktor.
 

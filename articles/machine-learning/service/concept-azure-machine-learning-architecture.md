@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: ba6d81596cd8a690f5c17e1ca55b91c5ff27b916
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 36c496b77be5bfda83b3ed424a7fdf2b53101aa4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497520"
+ms.locfileid: "73580618"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Hur Azure Machine Learning fungerar: arkitektur och koncept
 
@@ -56,7 +56,7 @@ Använd följande verktyg för Azure Machine Learning:
 
 ## <a name="glossary"></a>Ordlista
 + <a href="#activities">Aktivitet</a>
-+ <a href="#compute-instance">Beräknings instans</a>
++ <a href="#compute-instance">Notebook VM</a>
 + <a href="#compute-targets">Compute-mål</a>
 + <a href="#datasets-and-datastores">Data uppsättningar & data lager</a>
 + <a href="#endpoints">Slut punkter</a>
@@ -84,15 +84,11 @@ En aktivitet representerar en tids krävande åtgärd. Följande åtgärder är 
 
 Aktiviteter kan ge aviseringar via SDK eller webb gränssnittet så att du enkelt kan övervaka förloppet för dessa åtgärder.
 
-### <a name="compute-instance"></a>Beräknings instans
+### <a name="compute-instance"></a>Notebook VM
 
-> [!NOTE]
-> Beräknings instanser är endast tillgängliga för arbets ytor med en region i **norra centrala USA** eller **Storbritannien, södra**.
->Om din arbets yta finns i en annan region kan du fortsätta att skapa och använda en [virtuell dator](concept-compute-instance.md#notebookvm) i stället. 
+En **Azure Machine Learning Notebook VM** är en fullständigt hanterad molnbaserad arbets station som innehåller flera verktyg och miljöer installerade för maskin inlärning. Virtuella notebook-datorer kan användas som beräknings mål för mindre utbildnings-och inferencing-jobb. För stora aktiviteter är [Azure Machine Learning beräknings kluster](how-to-set-up-training-targets.md#amlcompute) med skalnings funktioner för flera noder ett bättre beräknings måls val.
 
-En **Azure Machine Learning beräknings instans** (tidigare VM) är en fullständigt hanterad molnbaserad arbets station som innehåller flera verktyg och miljöer som är installerade för maskin inlärning. Beräknings instanser kan användas som beräknings mål för utbildnings-och inferencing-jobb. För stora aktiviteter är [Azure Machine Learning beräknings kluster](how-to-set-up-training-targets.md#amlcompute) med skalnings funktioner för flera noder ett bättre beräknings måls val.
-
-Läs mer om [beräknings instanser](concept-compute-instance.md).
+Läs mer om virtuella notebook-datorer.
 
 ### <a name="compute-targets"></a>Compute-mål
 

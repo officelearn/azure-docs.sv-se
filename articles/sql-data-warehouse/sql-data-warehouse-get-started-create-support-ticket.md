@@ -1,5 +1,5 @@
 ---
-title: Så här skapar du ett supportärende för Azure SQL Data Warehouse | Microsoft Docs
+title: Så här skapar du ett support ärende
 description: Så här skapar du ett supportärende i Azure SQL Data Warehouse
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b3ffc9794967f44708d8330d4dc5d5de11b794d6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 12a977e26f458fa8ee8a58c44985d9d1ae47d5c3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61474563"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692733"
 ---
 # <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>Så här skapar du ett supportärende för SQL Data Warehouse
 Om du har problem med din SQL Data Warehouse, skapar du ett supportärende så att våra tekniker kan hjälpa dig.
@@ -30,10 +31,10 @@ Om du har problem med din SQL Data Warehouse, skapar du ett supportärende så a
    Välj din [Azure-supportplan][Azure support plan].
    
    * Stöd för **fakturerings-, kvot- och prenumerationhantering** finns tillgängligt på alla supportnivåer.
-   * **Reparations**-support tillhandahålls via [Utvecklare][Developer], [Standard][Standard], [Professional Direct][Professional Direct] eller [Premier][Premier] support. Reparationsärenden är problem som kunder upplever när de använder Azure och där det rimligen kan antas att Microsoft orsakade problemet.
+   * **Reparations** support tillhandahålls via [utvecklare][Developer], [standard][Standard], [Professional Direct][Professional Direct]eller [Premier][Premier] support. Reparationsärenden är problem som kunder upplever när de använder Azure och där det rimligen kan antas att Microsoft orsakade problemet.
    * **Utvecklarhandledning** och **rådgivningstjänster** finns tillgängliga på supportnivåerna [Professional Direct][Professional Direct] och [Premier][Premier]. 
      
-     Om du har en Premier-supportplan, kan du även rapportera SQL Data Warehouse-relaterade problem på [Microsoft Premier-onlineportalen][Microsoft Premier online portal].  Se [Azure-supportplaner][Azure support plan] för att läsa mer om de olika supportplanerna, inklusive omfattning, svarstider, prissättning, osv.  Vanliga frågor och svar om Azure-support finns på [Vanliga frågor och svar om Azure-support][Azure support FAQs].  
+     Om du har en Premier-supportplan kan du även rapportera SQL Data Warehouse-relaterade problem via [Microsoft Premier-onlineportalen][Microsoft Premier online portal].  Se [support][Azure support plan] avtalen för Azure om du vill veta mer om olika support avtal, inklusive omfattning, svars tider, priser osv.  Vanliga frågor och svar om support för Azure finns i vanliga frågor och [svar om support för Azure][Azure support FAQs].  
         
      ![Bladet allmänt](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_1.PNG)
      ![Bladet allmänt1](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_2.PNG)
@@ -41,7 +42,7 @@ Om du har problem med din SQL Data Warehouse, skapar du ett supportärende så a
     ![Problem_blade](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_3.PNG)
    
    > [!NOTE]
-   > Varje SQL Server (t.ex. myserver.database.windows.net) har som standard en **DTU-kvot** på 45 000. Kvoten är helt enkelt en säkerhetsgräns. Du kan öka din kvot genom att skapa en supportbiljett och välja *Kvot* som typ av begäran. För att beräkna dina DTU-behov, multiplicerar du 7,5 med det totala antalet [DWU:er][DWU] du behöver. Om du till exempel skulle vilja vara värd för två DW6000 på en SQL Server, bör du begära en DTU-kvot på 90 000.  Du kan visa din aktuella DTU-förbrukning från SQL Server-bladet i portalen. Både pausade och inte pausade databaser räknas i förhållande till DTU-kvoten. 
+   > Varje SQL Server (t.ex. myserver.database.windows.net) har som standard en **DTU-kvot** på 45 000. Kvoten är helt enkelt en säkerhetsgräns. Du kan öka din kvot genom att skapa en supportbiljett och välja *Kvot* som typ av begäran. För att beräkna dina DTU-behov multiplicerar du 7,5 med den totala [DWU][DWU] som behövs. Om du till exempel skulle vilja vara värd för två DW6000 på en SQL Server, bör du begära en DTU-kvot på 90 000.  Du kan visa din aktuella DTU-förbrukning från SQL Server-bladet i portalen. Både pausade och inte pausade databaser räknas i förhållande till DTU-kvoten. 
    > 
    > 
    
@@ -57,7 +58,7 @@ När du har skickat in supportbegäran, kommer Azure-teamet att kontakta dig. Du
 ![Kontrollera status](./media/sql-data-warehouse-get-started-create-support-ticket/Monitor_ticket.PNG)
 
 ## <a name="other-resources"></a>Andra resurser
-Du kan dessutom ansluta till SQL Data Warehouse-communityn på [Stack Overflow][Stack Overflow] eller på [Azure SQL Data Warehouse MSDN-forumet][Azure SQL Data Warehouse MSDN forum].
+Dessutom kan du ansluta till SQL Data Warehouse-communityn i [Stack Overflow][Stack Overflow] eller på [Azure SQL Data Warehouse MSDN-forum][Azure SQL Data Warehouse MSDN forum].
 
 <!--Image references--> 
 

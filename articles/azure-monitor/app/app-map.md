@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 49efad50b988da263a715c1aba9d53ad4b4a7121
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 65a257cc4613fb9e4dece09a2544de2e78779ab4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678393"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73577067"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Program karta: prioritering distribuerade program
 
@@ -180,13 +180,22 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 
 ### <a name="java"></a>Java
 
+Från och med Application Insights Java SDK 2.5.0 kan du ange namnet på moln rollen genom att lägga till `<RoleName>` till `ApplicationInsights.xml`-filen, t. ex.
+
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+   <RoleName>** Your role name **</RoleName>
+   ...
+</ApplicationInsights>
+```
+
 Om du använder våren boot med Application Insights våren Boot starter, är den enda nödvändiga ändringen att ange ditt anpassade namn för programmet i filen Application. Properties.
 
 `spring.application.name=<name-of-app>`
 
 Våren Boot starter tilldelar automatiskt namnet på moln rollen till det värde som du anger för egenskapen spring.application.name.
-
-Mer information om Java-korrelation och hur du konfigurerar moln roll namn för icke-SpringBoot program checka in det här [avsnittet](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) om korrelation.
 
 ### <a name="clientbrowser-side-javascript"></a>Klient-och webb läsar skript
 
@@ -227,7 +236,7 @@ Ett scenario där du kanske vill åsidosätta värdet för moln roll instansen k
 
 Mer information om hur du åsidosätter egenskapen namn för moln roll med telemetri initierare finns i [Lägg till egenskaper: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Om du har problem med att få program kartan att fungera som förväntat kan du prova följande steg:
 

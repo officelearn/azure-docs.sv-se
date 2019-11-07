@@ -1,5 +1,5 @@
 ---
-title: Så här konfigurerar du en Azure SQL Database Hanterad instans | Microsoft Docs
+title: Så här konfigurerar du en Azure SQL Database Hanterad instans
 description: Lär dig hur du konfigurerar och hanterar Azure SQL Database Hanterad instans.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 04/16/2019
-ms.openlocfilehash: b8c05ab05630e92e64a4885d5e6cdc6f5471dff2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 22bad381a59a74237a5539cd4294a08797c017b1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568070"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689918"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Så här använder du en hanterad instans i Azure SQL Database
 
@@ -41,7 +41,7 @@ I den här artikeln kan du hitta olika guider, skript och förklaringar som kan 
 
 ## <a name="feature-configuration"></a>Funktions konfiguration
 
-- [](replication-with-sql-database-managed-instance.md) Med Transaktionsreplikering kan du replikera data mellan hanterade instanser eller från lokala SQL Server till en hanterad instans och tvärtom. Hitta mer information om hur du använder och konfigurerar transaktions replikering i den här guiden.
+- Med [Transaktionsreplikering kan du](replication-with-sql-database-managed-instance.md) replikera data mellan hanterade instanser eller från lokala SQL Server till en hanterad instans och tvärtom. Hitta mer information om hur du använder och konfigurerar transaktions replikering i den här guiden.
 - [Konfigurera hot identifiering](sql-database-managed-instance-threat-detection.md) – [hot identifiering](sql-database-threat-detection-overview.md) är en inbyggd Azure SQL Database funktion som identifierar olika potentiella attacker som SQL-inmatning eller åtkomst från misstänkta platser. I den här guiden får du lära dig hur du aktiverar och konfigurerar [hot identifiering](sql-database-threat-detection-overview.md) för en hanterad instans.
 
 ## <a name="next-steps"></a>Nästa steg

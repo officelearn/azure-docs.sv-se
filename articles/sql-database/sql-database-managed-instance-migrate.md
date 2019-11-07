@@ -1,5 +1,5 @@
 ---
-title: Migrera databasen från SQL Server instans till Azure SQL Database-hanterade instansen | Microsoft Docs
+title: Migrera databasen från SQL Server instans till Azure SQL Database-Hanterad instans
 description: Lär dig hur du migrerar en databas från SQL Server instans till Azure SQL Database-Hanterad instans.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: f877306170b45d65a52a4c76afd7f064e83f240a
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 228b22d9d283fe8c23cbf7a82036b7f3782cbf25
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937296"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688008"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server instans migrering till Azure SQL Database Hanterad instans
 
@@ -66,8 +66,8 @@ Om du behöver jämföra arbets Belastningens prestanda på en hanterad instans 
 Prestanda bas linje är en uppsättning parametrar som genomsnitt/Max CPU-användning, genomsnittlig/högsta disk-i/o-latens, data flöde, IOPS, genomsnittlig/Max sid livs längd förväntad, genomsnittlig Max storlek på tempdb. Du vill ha liknande eller till och med bättre parametrar efter migreringen, så det är viktigt att mäta och registrera bas linje värden för dessa parametrar. Förutom system parametrar måste du välja en uppsättning av de representativa frågorna eller de viktigaste frågorna i arbets belastningen och mäta min/genomsnittlig/högsta varaktighet, CPU-användning för de valda frågorna. Med dessa värden kan du jämföra prestanda för arbets belastningen som körs på en hanterad instans med de ursprungliga värdena på din käll SQL Server.
 
 Några av de parametrar som du behöver mäta i SQL Server-instansen är: 
-- [Övervaka CPU-användning på SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) -instansen och registrera den genomsnittliga och högsta CPU-användningen.
-- [Övervaka minnes användningen på SQL Server](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage) -instansen och Bestäm hur mycket minne som används av olika komponenter, t. ex. buffert, planera cache, Column-Store-pool, [minnes intern OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017)osv. Dessutom bör du hitta genomsnittliga och högsta värden för sid livs Längdens förväntad minnes prestanda räknare.
+- [Övervaka CPU-användning på SQL Server-instansen](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) och registrera den genomsnittliga och högsta CPU-användningen.
+- [Övervaka minnes användningen på SQL Server-instansen](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage) och Bestäm hur mycket minne som används av olika komponenter, t. ex. buffert, planera cache, Column-Store-pool, [minnes intern OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017)osv. Dessutom bör du hitta genomsnittliga och högsta värden för sid livs Längdens förväntad minnes prestanda räknare.
 - Övervaka disk-i/o-användning på käll SQL Servers instans med hjälp av [sys. DM _io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) View eller [prestanda räknare](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
 - Övervaka arbets belastning och fråga prestanda eller din SQL Server instans genom att undersöka vyer för dynamisk hantering eller Frågearkivet om du migrerar från SQL Server 2016 + version. Identifiera Genomsnittlig varaktighet och CPU-användning för de viktigaste frågorna i arbets belastningen för att jämföra dem med de frågor som körs på den hanterade instansen.
 
@@ -109,11 +109,11 @@ Den hanterade instansen stöder följande flyttnings alternativ för databasen (
 - Azure Database Migration Service migrering med nästan noll stillestånds tid,
 - Native `RESTORE DATABASE FROM URL` – använder interna säkerhets kopieringar från SQL Server och kräver vissa avbrott.
 
-### <a name="azure-database-migration-service"></a>Azure-databasmigreringstjänst
+### <a name="azure-database-migration-service"></a>Azure Database Migration Service
 
 [Azure Database migration service (DMS)](../dms/dms-overview.md) är en fullständigt hanterad tjänst som är utformad för att möjliggöra sömlös migrering från flera databas källor till Azure-dataplattformar med minimal stillestånds tid. Den här tjänsten effektiviserar de uppgifter som krävs för att flytta befintliga tredje parter och SQL Server databaser till Azure. Distributions alternativ i offentlig för hands version innehåller databaser i Azure SQL Database och SQL Server databaser på en virtuell Azure-dator. DMS är den rekommenderade metoden för migrering för företagets arbets belastningar.
 
-Om du använder SQL Server Integration Services (SSIS) på din SQL Server lokalt stöder inte DMS ännu migrering av SSIS-katalogen (SSISDB) som lagrar SSIS-paket, men du kan etablera Azure-SSIS Integration Runtime (IR) i Azure Data Factory (ADF) som kommer att skapa en ny SSISDB i en hanterad instans och sedan kan du distribuera paketen på nytt, se [Skapa Azure-SSIS IR i ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
+Om du använder SQL Server Integration Services (SSIS) på din SQL Server lokalt stöder inte DMS ännu migrering av SSIS-katalogen (SSISDB) som lagrar SSIS-paket, men du kan etablera Azure-SSIS Integration Runtime (IR) i Azure Data Factory (ADF) som ska skapa en ny SSISDB i en hanterad instans och sedan kan du distribuera paketen på nytt, se [skapa Azure-SSIS IR i ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
 
 Mer information om det här scenariot och konfigurations stegen för DMS finns i [migrera din lokala databas till hanterad instans med DMS](../dms/tutorial-sql-server-to-managed-instance.md).  
 
@@ -146,7 +146,7 @@ En snabb start som visar hur du återställer en databas säkerhets kopia till e
 ## <a name="monitor-applications"></a>Övervakning av program
 
 När du har slutfört migreringen till en hanterad instans bör du spåra programmets beteende och prestanda för din arbets belastning. Den här processen omfattar följande aktiviteter:
-- [Jämför prestanda för arbets belastningen som körs på den hanterade](#compare-performance-with-the-baseline) instansen med den [prestanda bas linje som du skapade på käll SQL Server](#create-performance-baseline).
+- [Jämför prestanda för arbets belastningen som körs på den hanterade instansen](#compare-performance-with-the-baseline) med den [prestanda bas linje som du skapade på käll SQL Server](#create-performance-baseline).
 - [Övervaka prestanda i arbets belastningen](#monitor-performance) kontinuerligt för att identifiera potentiella problem och förbättringar.
 
 ### <a name="compare-performance-with-the-baseline"></a>Jämför prestanda med bas linjen
@@ -181,7 +181,7 @@ Resultatet av prestanda jämförelsen kan vara:
 Hanterad instans innehåller många avancerade verktyg för övervakning och fel sökning, och du bör använda dem för att övervaka prestanda på din instans. Några av parametrarna som skulle behöva övervakas är:
 - CPU-användning på instansen för att avgöra hur många virtuella kärnor som du har allokerat är den rätta matchningen för din arbets belastning.
 - Förväntad på din hanterade instans för att fastställa [behöver du ytterligare minne](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
-- Vänta med statistik `INSTANCE_LOG_GOVERNOR` `PAGEIOLATCH` , som kan se att du har lagrings-i/o-problem, särskilt på generell användning nivå där du kan behöva förallokera filer för att få bättre IO-prestanda.
+- Vänta med statistik som `INSTANCE_LOG_GOVERNOR` eller `PAGEIOLATCH` som talar om att du har lagrings-i/o-problem, särskilt på Generell användning nivå där du kan behöva förallokera filer för att få bättre IO-prestanda.
 
 ## <a name="leverage-advanced-paas-features"></a>Utnyttja avancerade PaaS-funktioner
 

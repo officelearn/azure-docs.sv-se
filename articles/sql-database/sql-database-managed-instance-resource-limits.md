@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database resurs gränser-hanterad instans | Microsoft Docs
+title: Azure SQL Database resurs gränser-hanterad instans
 description: Den här artikeln innehåller en översikt över Azure SQL Database resurs gränser för hanterade instanser.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 10/02/2019
-ms.openlocfilehash: 17ffc07bb5632b1b56b7bff1e843e5955d396089
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 723704b6b81aacf086ff42b02c32259d0e2f1c6d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372204"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687912"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt Azure SQL Database hanterade instans resurs gränser
 
@@ -65,7 +65,7 @@ Den hanterade instansen har två tjänst nivåer: [generell användning](sql-dat
 
 | **Funktion** | **Generell användning** | **Affärskritisk** |
 | --- | --- | --- |
-| Antal virtuella kärnor @ no__t-0 | Gen4:8, 16, 24<br/>Gen5:4, 8, 16, 24, 32, 40, 64, 80 | Gen4:8, 16, 24 <br/> Gen5:4, 8, 16, 24, 32, 40, 64, 80 <br/>\*Same antal virtuella kärnor är dedikerat för skrivskyddade frågor. |
+| Antal virtuella kärnor-\* | Gen4:8, 16, 24<br/>Gen5:4, 8, 16, 24, 32, 40, 64, 80 | Gen4:8, 16, 24 <br/> Gen5:4, 8, 16, 24, 32, 40, 64, 80 <br/>\*Same antal virtuella kärnor är dedikerat för skrivskyddade frågor. |
 | Högsta mängd minne | Gen4:56 GB-168 GB (7GB/vCore)<br/>Gen5:20,4 GB-408 GB (5,1 GB/vCore)<br/>Lägg till fler virtuella kärnor för att få mer minne. | Gen4:56 GB-168 GB (7GB/vCore)<br/>Gen5:20,4 GB-408 GB (5,1 GB/vCore) för Läs-och skriv frågor<br/>+ ytterligare 20,4 GB-408 GB (5,1 GB/vCore) för skrivskyddade frågor.<br/>Lägg till fler virtuella kärnor för att få mer minne. |
 | Maximal instans lagrings storlek (reserverad) | -2 TB för 4 virtuella kärnor (endast Gen5)<br/>– 8 TB för andra storlekar | Gen4:1 TB <br/> Gen5 <br/>-1 TB för 4, 8, 16 virtuella kärnor<br/>– 2 TB för 24 virtuella kärnor<br/>– 4 TB för 32, 40, 64, 80 virtuella kärnor |
 | Maximal databasstorlek | Upp till tillgänglig instans storlek (max 2 TB-8 TB beroende på antalet virtuella kärnor). | Upp till tillgänglig instans storlek (max 1 TB – 4 TB beroende på antalet virtuella kärnor). |
@@ -137,14 +137,14 @@ Följande tabell visar de **regionala standard gränserna** för prenumerations 
 |Användningsbaserad betalning|3|320|
 |CSP |8 (15 i vissa regioner * *)|960 (1440 i vissa regioner * *)|
 |Betala per användning – utveckling/testning|3|320|
-|Enterprise – utveckling/testning|3|320|
+|Enterprise Dev/Test|3|320|
 |EA|8 (15 i vissa regioner * *)|960 (1440 i vissa regioner * *)|
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional och MSDN-plattformar|2|32|
 
 \* vid planering av distributioner bör du ta hänsyn till att Affärskritisk (BC) tjänst nivån kräver fyra (4) gånger mer vCore-kapacitet än Generell användning (GP). Exempel: 1 GP-vCore = 1 vCore-enhet och 1 BC-vCore = 4 vCore-enheter. För att förenkla förbruknings analysen mot standard gränserna ska du sammanfatta vCore-enheterna över alla undernät i den region där hanterade instanser distribueras och jämföra resultaten med instans enhets gränserna för din prenumerations typ. Gränsen **för antalet vCore-enheter** gäller för varje prenumeration i en region. Det finns ingen gräns per enskilda undernät förutom att summan av alla virtuella kärnor som distribueras över flera undernät måste vara lägre eller lika med **Max antalet vCore-enheter**.
 
-\* @ no__t-1 större undernät och vCore-gränser är tillgängliga i följande regioner: östra Australien, östra USA, östra USA 2, norra Europa, södra centrala USA, Sydostasien, Storbritannien, södra, Västeuropa, västra USA 2.
+\*\* större undernät och vCore-gränser är tillgängliga i följande regioner: östra Australien, östra USA, östra USA 2, norra Europa, södra centrala USA, Sydostasien, Storbritannien, södra, Västeuropa, västra USA 2.
 
 ## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Hämta en större kvot för SQL-hanterad instans
 
@@ -162,7 +162,7 @@ Initiera processen för att erhålla en större kvot:
 
      ![Typ kvot för utfärdande](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
 
-3. Klicka på **Next**.
+3. Klicka på **Nästa**.
 4. På **fliken problem** för den nya support förfrågan:
    - För **allvarlighets grad**väljer du problemets allvarlighets grad.
    - Om **du vill ha mer information anger**du ytterligare information om problemet, inklusive fel meddelanden.
@@ -176,7 +176,7 @@ Initiera processen för att erhålla en större kvot:
      > - Antalet virtuella kärnor per tjänst nivå som krävs i befintliga undernät efter kvot ökningen (om något av de befintliga under näten måste expanderas.
      > - Antalet nya undernät och det totala antalet virtuella kärnor per tjänst nivå inom de nya under näten (om du behöver distribuera hanterade instanser i nya undernät).
 
-5. Klicka på **Next**.
+5. Klicka på **Nästa**.
 6. På fliken kontakt information för den nya support förfrågan anger du önskad kontakt metod (e-post eller telefon) och kontakt uppgifter.
 7. Klicka på **Skapa**.
 

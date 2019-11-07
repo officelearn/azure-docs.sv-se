@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/10/2018
-ms.openlocfilehash: 04848f763fe8246f8e10f563169c04ea37b0ed37
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 3ec20f82bc12b60e5b88a02bb92a4a0ada4dcae7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677317"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73668010"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Flödes Power BI från Application Insights
 [Power BI](https://www.powerbi.com/) är en uppsättning affärs verktyg som hjälper dig att analysera data och dela insikter. Det finns omfattande instrument paneler på alla enheter. Du kan kombinera data från många källor, inklusive analys frågor från [Azure Application insikter](../../azure-monitor/app/app-insights-overview.md).
@@ -40,7 +40,7 @@ Installera [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 3. På menyn **Exportera** väljer du **Power BI (M)** . Spara text filen.
    
     ![Skärm bild av analys, med exportera-menyn markerad](./media/export-power-bi/analytics-export-power-bi.png)
-4. I Power BI Desktop väljer du **Hämta Data**  > **Tom fråga**. Sedan väljer du **avancerad redigerare**i Frågeredigeraren under **Visa**.
+4. I Power BI Desktop väljer du **Hämta Data** > **Tom fråga**. Sedan väljer du **avancerad redigerare**i Frågeredigeraren under **Visa**.
 
     Klistra in det exporterade språk skriptet för M i Avancerad redigerare.
 
@@ -65,7 +65,7 @@ Installera [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
    ![Skärm bild av knappen Power BI](./media/export-power-bi/button.png)
 
-3. I Power BI Desktop väljer du **Hämta Data**  > **Tom fråga**. Sedan väljer du **avancerad redigerare**i Frågeredigeraren under **Visa**.
+3. I Power BI Desktop väljer du **Hämta Data** > **Tom fråga**. Sedan väljer du **avancerad redigerare**i Frågeredigeraren under **Visa**.
 
    ![Skärm bild av Power BI Desktop, där knappen tom fråga är markerad](./media/export-power-bi/blankquery.png)
 
@@ -81,7 +81,7 @@ Installera [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
    ![Skärm bild av Power BI Desktop med rubrik ändring markerad](./media/export-power-bi/changetitle.png)
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Du kan stöta på fel som rör autentiseringsuppgifter eller storleken på data uppsättningen. Här är lite information om vad du kan göra om de här felen.
 
@@ -90,6 +90,8 @@ Detta kan inträffa om uppdateringstoken inte har uppdaterats. Prova de här ste
 
 1. Logga in på Azure Portal och kontrol lera att du har åtkomst till resursen.
 2. Försök att uppdatera autentiseringsuppgifterna för instrument panelen.
+3. Försök att rensa cacheminnet från PowerBI Desktop.
+
 
    Om du har åtkomst och uppdaterar autentiseringsuppgifterna inte fungerar öppnar du ett support ärende.
 
@@ -100,8 +102,8 @@ Om minska data uppsättningen som kommer från Analytics-frågan inte uppfyller 
 
 1. Skapa en [API-nyckel](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 2. Uppdatera det Power BI M-skript som du exporterade från analysen genom att ersätta Azure Resource Manager URL med Application Insights-API: et.
-   * Ersätt **https: \//Management.Azure.com/Subscriptions/...**
-   * med, **https: \//API.applicationinsights.io/beta/Apps/...**
+   * Ersätt **https:\//Management.Azure.com/Subscriptions/...**
+   * med, **https:\//API.applicationinsights.io/beta/Apps/...**
 3. Slutligen uppdaterar du autentiseringsuppgifterna till Basic och använder din API-nyckel.
 
 **Befintligt skript**
@@ -121,7 +123,7 @@ Den här metoden skapar en komplett instrument panel för telemetri åt dig. Den
 
 ### <a name="get-the-adapter"></a>Hämta kortet
 1. Logga in på [Power BI](https://app.powerbi.com/).
-2. Öppna **Hämta Data** ![Screenshot av GetData-ikonen i det nedre vänstra hörnet ](./media/export-power-bi/001.png), **tjänster**.
+2. Öppna **Hämta Data** ![skärm bild av GetData-ikonen i det nedre vänstra hörnet](./media/export-power-bi/001.png), **tjänster**.
 
     ![Skärm dum par av hämta från Application Insights data Källa](./media/export-power-bi/002.png)
 

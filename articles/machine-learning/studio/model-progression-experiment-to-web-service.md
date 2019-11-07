@@ -1,6 +1,6 @@
 ---
 title: Hur en modell blir en webb tjänst
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: En översikt över Mechanics för hur din Azure Machine Learning Studio (klassiska) modell förloppet från ett utvecklings experiment till en webb tjänst.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: c82e636b06d33140ca6dae606d39855084aac04d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 24a2c31271d123d6378732bd9f85f6341a78d65c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496838"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671234"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Hur en Machine Learning Studio (klassisk) modell går från ett experiment till en webb tjänst
 Azure Machine Learning Studio (klassisk) tillhandahåller en interaktiv arbets yta som gör att du kan utveckla, köra, testa och iterera ett ***experiment*** som representerar en förutsägelse analys modell. Det finns en mängd olika moduler som kan:
@@ -108,7 +108,7 @@ Om du vill göra ändringar i det ursprungliga förutsägande experimentet, till
 Mer information om processen för att utveckla och experimentera finns i följande artiklar:
 
 * konvertera experimentet – [förbereda din modell för distribution i Azure Machine Learning Studio (klassisk)](convert-training-experiment-to-scoring-experiment.md)
-* distribuera webb tjänsten – [distribuera en Azure Machine Learning-webbtjänst](publish-a-machine-learning-web-service.md)
+* distribuera webb tjänsten – [distribuera en Azure Machine Learning-webbtjänst](deploy-a-machine-learning-web-service.md)
 * öva på att träna modell [Machine Learning modeller program mässigt](/azure/machine-learning/studio/retrain-machine-learning-model)
 
 Exempel på hela processen finns i:

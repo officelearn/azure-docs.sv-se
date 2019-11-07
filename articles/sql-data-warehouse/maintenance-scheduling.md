@@ -1,5 +1,5 @@
 ---
-title: Azure Maintenance-scheman (för hands version) | Microsoft Docs
+title: Azure Maintenance-scheman
 description: Med underhålls planeringen kan kunderna planera kring de nödvändiga schemalagda underhålls händelser som Azure SQL Data Warehouse tjänsten använder för att distribuera nya funktioner, uppgraderingar och korrigeringar.
 services: sql-data-warehouse
 author: antvgski
@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 07/16/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0e5df583112bbb6db9651004e5deaceb6b5b9d12
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 91b202f8a5df841fa3d6aa1f0903999b395f8137
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958897"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686062"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Använd underhålls scheman för att hantera uppdateringar och underhåll av tjänster
 
@@ -83,9 +83,9 @@ Utför följande steg för att ändra underhålls schema för ditt informations 
    ![Bladet underhålls inställningar](media/sql-data-warehouse-maintenance-scheduling/maintenance-settings-page.png)
 
 5. Välj önskat primärt och sekundärt underhålls fönster med hjälp av list rutorna:
-   - **Dag**: Prioriterad dag för att utföra underhåll under den valda perioden.
-   - **Start tid**: Önskad start tid för underhålls perioden.
-   - **Tids period**: Önskad varaktighet för din tidsperiod.
+   - **Dag**: prioriterad dag för att utföra underhåll under den valda perioden.
+   - **Start tid**: önskad start tid för underhålls perioden.
+   - **Tids**period: önskad varaktighet för din tidsperiod.
 
    Platsen för **schema Sammanfattning** längst ned på bladet uppdateras baserat på de värden som du har valt. 
   

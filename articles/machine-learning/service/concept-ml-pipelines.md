@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/04/2019
-ms.openlocfilehash: 85346a2334d240eceb0daa4519ce69b4eb4906cc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: f1b061e92ce0650da4d5b95643eb6e9df917e3b8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497456"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671560"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Vad är Azure Machine Learning pipelines?
 
@@ -119,7 +119,7 @@ Utvecklare som föredrar en visuell design yta kan använda Azure Machine Learni
 
 När du visuellt utformar pipeliner visas indata och utdata för ett steg på ett synligt sätt. Du kan dra och släppa data anslutningar så att du snabbt kan förstå och ändra data flödet för din pipeline.
  
-![Exempel på Azure Machine Learning designer](./media/concept-ml-pipelines/visual-design-surface.gif)
+![Exempel på Azure Machine Learning designer](./media/concept-ml-pipelines/designer-drag-and-drop.gif)
 
 ### <a name="understanding-the-execution-graph"></a>Förstå körnings diagrammet
 
@@ -183,7 +183,7 @@ Det är enkelt att bli entusiastisk om återanvändandet av cachelagrade resulta
 
 * Använd pipeliner som enda metod för att avgränsa problem. De inbyggda funktionerna, objekten och modulerna i python är mycket bra för att undvika förvirrande programmerings tillstånd! Ett pipeline-steg är mycket dyrare än ett funktions anrop.
 
-* Tung koppling mellan mellan steg i pipeline. Om omberäkningen av ett beroende steg ofta kräver att du ändrar utdata i ett föregående steg, är det troligt att separata steg är för närvarande mer av en kostnad än en förmån. En annan uppfattning om att stegen är överkopplade är argument till ett steg som inte är data utan flaggor för att styra bearbetningen. 
+* Tung koppling mellan pipeline-steg. Om omberäkningen av ett beroende steg ofta kräver att du ändrar utdata i ett föregående steg, är det troligt att separata steg är för närvarande mer av en kostnad än en förmån. En annan uppfattning om att stegen är överkopplade är argument till ett steg som inte är data utan flaggor för att styra bearbetningen. 
 
 * Optimering av beräknings resurser för tidigt. Det finns ofta flera steg för förberedelse av data och en kan ofta se "man, här är en plats där jag kan använda en `MpiStep` för parallell programmering, men här är en plats där jag kan använda en `PythonScriptStep` med ett mindre kraftfullt beräknings mål , och så vidare. Och kanske i lång sikt skapa detaljerade steg som kan vara ett bra resultat, särskilt om det finns en möjlighet att använda cachelagrade resultat i stället för att alltid omberäkna. Men pipelines är inte avsedda att ersätta `multiprocessing`-modulen. 
 

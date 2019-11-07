@@ -7,16 +7,16 @@ ms.author: dacoulte
 ms.date: 10/09/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 4858d803b4fccdc6ae4d5a790721bad60d218313
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 44e7bbde40dbd4b79a6ce3735ab5a1ac81421d3b
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274199"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622567"
 ---
 # <a name="get-resource-changes"></a>Hämta resursändringar
 
-Resurser ändras genom daglig användning, omkonfiguration och till och med omdistribution.
+Resurser ändras när de används, omkonfigureras eller omdistribueras.
 Ändringen kan komma från en person eller en automatiserad process. De flesta ändringar är av design, men ibland är det inte. Med de senaste 14 dagarna i ändrings historiken kan du med Azure Resource Graph:
 
 - Hitta när ändringar upptäcktes i en Azure Resource Manager-egenskap
@@ -44,8 +44,8 @@ Det första steget i att se vad som har ändrats på en resurs är att hitta än
 
 **ResourceChanges** -slutpunkten accepterar följande parametrar i begär ande texten:
 
-- **resourceId** \[required @ no__t-2: Azure-resursen för att söka efter ändringar.
-- **intervall** \[required @ no__t-2: en egenskap med _Start_ - _och slutdatum för_ när en ändrings händelse ska kontrol leras med hjälp av **Zulu Time Zone (Z)** .
+- **resourceId** \[krävs\]: Azure-resursen för att leta efter ändringar på.
+- **intervall** \[krävs\]: en egenskap med _Start_ - _och slutdatum för_ när du ska söka efter en ändrings händelse med **Zulu Time Zone (Z)** .
 - **fetchPropertyChanges** (valfritt): en boolesk egenskap som anger om Response-objektet innehåller egenskaps ändringar.
 
 Exempel på begär ande text:
@@ -292,4 +292,4 @@ Jämför resultaten genom att antingen använda egenskapen **ändringar** i **re
 
 - Se språket som används i [Start frågor](../samples/starter.md).
 - Se avancerade användnings områden i [avancerade frågor](../samples/advanced.md).
-- Lär dig att [utforska resurser](../concepts/explore-resources.md).
+- Lär dig mer om hur du [utforskar resurser](../concepts/explore-resources.md).

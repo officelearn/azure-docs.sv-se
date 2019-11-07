@@ -1,6 +1,6 @@
 ---
 title: Application Lifecycle Management
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Använd metod tips för program livs cykel hantering i den klassiska versionen av Azure Machine Learning Studio
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 10/27/2016
-ms.openlocfilehash: ce1a398939a65bb47c74f00159b667c3659f5a93
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d5e2ee72c30933305356cd2a7792d1972fa938da
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466999"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684719"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio-classic"></a>Hantering av program livs cykel i Azure Machine Learning Studio (klassisk)
 Azure Machine Learning Studio (klassisk) är ett verktyg för att utveckla maskin inlärnings experiment som används i Azure Cloud Platform. Det är precis som Visual Studio IDE och skalbar moln tjänst som är kopplad till en enda plattform. Du kan införliva ALM-metoder (standard Application Lifecycle Management) från versioner av olika till gångar till automatiserad körning och distribution i den klassiska versionen av Azure Machine Learning Studio. I den här artikeln beskrivs några av alternativen och metoderna.
@@ -96,4 +96,4 @@ En viktig aspekt av ALM är att kunna automatisera programmets körnings-och dis
 ## <a name="next-steps"></a>Nästa steg
 * Hämta [PowerShell-modulen Azure Machine Learning Studio (klassisk)](https://aka.ms/amlps) och börja automatisera dina Alm-uppgifter.
 * Lär dig hur du [skapar och hanterar ett stort antal ml-modeller genom att bara använda ett enda experiment](create-models-and-endpoints-with-powershell.md) via PowerShell-och retraining-API.
-* Lär dig mer om att [distribuera Azure Machine Learning-webbtjänster](publish-a-machine-learning-web-service.md).
+* Lär dig mer om att [distribuera Azure Machine Learning-webbtjänster](deploy-a-machine-learning-web-service.md).

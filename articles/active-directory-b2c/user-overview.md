@@ -1,35 +1,38 @@
 ---
-title: Översikt över användar konton i Azure Active Directory B2C | Microsoft Docs
-description: Lär dig mer om användar konton i Azure Active Directory B2C.
+title: Översikt över användar konton i Azure Active Directory B2C
+description: Lär dig mer om vilka typer av användar konton som kan användas i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 11/05/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0ef4bca3a2b08271b3623a346df6613b5ad16995
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: a627b0eebc3aa4a19b0670f899d3032d8df58da4
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063145"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620462"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Översikt över användar konton i Azure Active Directory B2C
 
-I Azure Active Directory B2C (Azure AD B2C) kan du använda olika typer av konton. Azure Active Directory, Azure Active Directory B2B och Azure Active Directory B2C resurs i de typer av användar konton som kan användas.
+I Azure Active Directory B2C (Azure AD B2C) finns flera typer av konton som kan skapas. Azure Active Directory, Active Directory B2B och Active Directory B2C resurs i de typer av användar konton som kan användas.
 
 Följande typer av konton är tillgängliga:
 
 - **Arbets konto** – ett arbets konto kan komma åt resurser i en klient, och med en administratörs roll kan de hantera klienter.
 - **Gäst konto** – ett gäst konto kan bara vara en Microsoft-konto eller en Azure Active Directory användare som kan användas för att få åtkomst till program eller hantera klienter.
-- **Konsument konto** – ett konsument konto skapas genom att gå igenom ett registrerings användar flöde i ett Azure AD B2C program eller med hjälp av Azure AD Graph API och används av användare av de program som är registrerade med Azure AD B2C.
+- **Konsument konto** – ett konsument konto används av en användare av de program som du har registrerat med Azure AD B2C. Konsument konton kan skapas av:
+  - Användaren går igenom ett registrerings användar flöde i ett Azure AD B2C program
+  - Använda Azure AD Graph API
+  - Använda Azure Portal
 
-## <a name="work-account"></a>arbets konto
+## <a name="work-account"></a>Arbets konto
 
-Ett arbets konto skapas på samma sätt för alla klienter som baseras på Azure AD. Om du vill skapa ett arbets konto kan du använda informationen i [snabb start: Lägga till nya användare i Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md). Ett arbets konto skapas med hjälp av det **nya användar** alternativet i Azure Portal.
+Ett arbets konto skapas på samma sätt för alla klienter som baseras på Azure AD. Om du vill skapa ett arbets konto kan du använda informationen i [snabb start: Lägg till nya användare i Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md). Ett arbets konto skapas med hjälp av det **nya användar** alternativet i Azure Portal.
 
 När du lägger till ett nytt arbets konto måste du tänka på följande konfigurations inställningar:
 
@@ -63,7 +66,7 @@ Du kan använda följande information för att återställa lösen ordet för en
 - [Azure Portal](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
-## <a name="guest-user"></a>Gästanvändare
+## <a name="guest-user"></a>Gäst användare
 
 Du kan bjuda in externa användare till din klient som gäst användare. Ett typiskt scenario för att bjuda in en gäst användare till din Azure AD B2C klient organisation är att dela administrations ansvar. Ett exempel på hur du använder ett gäst konto finns i [Egenskaper för en Azure Active Directory B2B-samarbets användare](../active-directory/b2b/user-properties.md).
 
@@ -73,7 +76,7 @@ Du kan också använda [Microsoft Graph API](https://docs.microsoft.com/graph/ap
 
 ## <a name="consumer-user"></a>Konsument användare
 
-Konsument användaren kan logga in på program som skyddas av Azure AD B2C, men kan inte komma åt Azure-resurser som Azure Portal.  Konsument användaren kan använda ett lokalt konto eller federerade konton, till exempel Facebook eller Twitter. Ett konsument konto skapas med hjälp av ett [användar flöde för registrering eller inloggning](../active-directory-b2c/active-directory-b2c-reference-policies.md).
+Konsument användaren kan logga in på program som skyddas av Azure AD B2C, men kan inte komma åt Azure-resurser som Azure Portal. Konsument användaren kan använda ett lokalt konto eller federerade konton, till exempel Facebook eller Twitter. Ett konsument konto skapas med hjälp av ett [registrerings-eller inloggnings användar flöde](../active-directory-b2c/active-directory-b2c-reference-policies.md)med hjälp av Azure AD Graph API eller genom att använda Azure Portal.
 
 Du kan ange de data som samlas in när ett konsument användar konto skapas med anpassade användarattribut. Mer information finns i [definiera anpassade attribut i Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-reference-custom-attr.md).
 

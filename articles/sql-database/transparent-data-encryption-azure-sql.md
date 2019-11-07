@@ -1,5 +1,5 @@
 ---
-title: Transparent data kryptering för Azure SQL Database och informations lager | Microsoft Docs
+title: 'Transparent data kryptering för Azure SQL Database och informations lager '
 description: En översikt över transparent data kryptering för SQL Database och informations lager. Dokumentet täcker fördelarna och alternativen för konfiguration, som innehåller tjänst hanterad transparent data kryptering och Bring Your Own Key.
 services: sql-database
 ms.service: sql-database
@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-ms.date: 08/27/2019
-ms.openlocfilehash: b63a8c9defdf154f35a847f29182b49ff94ff3a6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 11/01/2019
+ms.openlocfilehash: ff712f956278a2a54584c0b0346f8f1147add189
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933197"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686799"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent data kryptering för SQL Database och informations lager
 
@@ -42,10 +42,10 @@ Microsoft flyttar också sömlöst och hanterar nycklarna efter behov för geo-r
 
 ## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>Kundhanterad transparent data kryptering – Bring Your Own Key
 
-[TDE med Kundhanterade nycklar i Azure Key Vault](transparent-data-encryption-byok-azure-sql.md) tillåta kryptering av databas krypterings nyckeln (DEK) med en kundhanterad asymmetrisk nyckel som kallas TDE-skydd.  Detta kallas även Bring Your Own Key (BYOK) stöd för transparent datakryptering. I BYOK-scenariot lagras TDE-skyddet i ett kundägda och hanterat [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), Azures molnbaserade hanterings system för extern nyckel. TDE-skydd kan [genereras av nyckel valvet eller överföras till nyckel valvet](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys) från en lokal HSM-enhet. TDE-DEK, som lagras på Start sidan i en databas, krypteras och dekrypteras av TDE-skyddskomponenten, som lagras i Azure Key Vault och aldrig lämnar nyckel valvet.  SQL Database måste beviljas behörighet till det kundägda nyckel valvet för att dekryptera och kryptera DEK. Om behörigheterna för den logiska SQL-servern till nyckel valvet har återkallats går det inte att komma åt databasen och alla data krypteras. För Azure SQL Database anges TDE-skydd på den logiska SQL Server-nivån och ärvs av alla databaser som är kopplade till den servern. För [Azure SQL-hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance) (BYOK-funktionen i för hands versionen) STÄLLs TDE-skyddet in på instans nivån och det ärvs av alla *krypterade* databaser på den instansen. Termen *Server* avser både server och instans i det här dokumentet, om inget annat anges.
+[TDE med Kundhanterade nycklar i Azure Key Vault](transparent-data-encryption-byok-azure-sql.md) tillåta kryptering av databas krypterings nyckeln (DEK) med en kundhanterad asymmetrisk nyckel som kallas TDE-skydd.  Detta kallas även Bring Your Own Key (BYOK) stöd för transparent datakryptering. I BYOK-scenariot lagras TDE-skyddet i ett kundägda och hanterat [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), Azures molnbaserade hanterings system för extern nyckel. TDE-skydd kan [genereras av nyckel valvet eller överföras till nyckel valvet](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys) från en lokal HSM-enhet. TDE-DEK, som lagras på Start sidan i en databas, krypteras och dekrypteras av TDE-skyddskomponenten, som lagras i Azure Key Vault och aldrig lämnar nyckel valvet.  SQL Database måste beviljas behörighet till det kundägda nyckel valvet för att dekryptera och kryptera DEK. Om behörigheterna för den logiska SQL-servern till nyckel valvet har återkallats går det inte att komma åt databasen och alla data krypteras. För Azure SQL Database anges TDE-skydd på den logiska SQL Server-nivån och ärvs av alla databaser som är kopplade till den servern. För [Azure SQL-hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance)anges TDE-skydd på instans nivå och den ärvs av alla *krypterade* databaser på den instansen. Termen *Server* avser både server och instans i det här dokumentet, om inget annat anges.
 
 Med TDE med Azure Key Vault-integrering kan användare styra viktiga hanterings uppgifter, till exempel nyckel rotationer, nyckel valv, nyckel säkerhets kopior och aktivera granskning/rapportering på alla TDE-skydd med hjälp av Azure Key Vault-funktioner. Key Vault tillhandahåller central nyckel hantering, använder tätt övervakade HSM: er (Hardware Security modules) och gör det möjligt att dela upp uppgifter mellan hantering av nycklar och data för att möta efterlevnaden av säkerhets principer.
-Om du vill veta mer om transparent data kryptering med Azure Key Vault integration (Bring Your Own Key support) för Azure SQL Database, SQL-hanterad instans (BYOK-funktionen i för hands version) och informations lagret, se [transparent data kryptering med Azure Key Vault integrering](transparent-data-encryption-byok-azure-sql.md).
+Om du vill veta mer om transparent data kryptering med Azure Key Vault integration (Bring Your Own Key support) för Azure SQL Database, SQL-hanterad instans och data lager, se [transparent data kryptering med Azure Key Vault integrering](transparent-data-encryption-byok-azure-sql.md).
 
 Om du vill börja använda transparent data kryptering med Azure Key Vault integration (Bring Your Own Key support) kan du läsa instruktionen för att [Aktivera transparent data kryptering med hjälp av din egen nyckel från Key Vault med hjälp av PowerShell](transparent-data-encryption-byok-azure-sql-configure.md).
 
@@ -71,7 +71,7 @@ Det enda undantaget är när du exporterar till och från en SQL-databas. Transp
 
 
 ## <a name="manage-transparent-data-encryption"></a>Hantera transparent data kryptering
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Hantera transparent data kryptering i Azure Portal.
 
 Om du vill konfigurera transparent data kryptering via Azure Portal måste du vara ansluten som Azure-ägare, deltagare eller SQL Security Manager.

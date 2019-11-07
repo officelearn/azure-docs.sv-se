@@ -1,5 +1,5 @@
 ---
-title: Granskningar av SQL Database haveri beredskap | Microsoft Docs
+title: Granskningar av SQL Database haveri beredskap
 description: Lär dig mer om vägledning och bästa praxis för att använda Azure SQL Database för att utföra haveri beredskap.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
-ms.openlocfilehash: 2923ae8b9b25932ae214cfa45780dffb8780dd39
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bf337b1312abc59048649aabe3e4f895d07a8d51
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568845"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690617"
 ---
 # <a name="performing-disaster-recovery-drill"></a>Utför katastrof återställnings granskning
 
@@ -25,7 +25,7 @@ Vi rekommenderar att validering av program beredskap för arbets flöde för åt
 Att utföra en haveri beredskaps granskning består av:
 
 * Simulera avbrott i data skiktet
-* Återställs
+* Återställa
 * Verifiera program integritet efter återställning
 
 Beroende på hur du har [utformat ditt program för affärs kontinuitet](sql-database-business-continuity.md)kan arbets flödet för att köra detalj nivån variera. I den här artikeln beskrivs de bästa metoderna för att utföra en haveri beredskaps granskning i samband med Azure SQL Database.
@@ -41,7 +41,7 @@ För att simulera avbrottet kan du byta namn på käll databasen. Den här namn 
 ### <a name="recovery"></a>Återställning
 
 * Utför geo-återställning av databasen till en annan server enligt beskrivningen [här](sql-database-disaster-recovery.md).
-* Ändra program konfigurationen för att ansluta till den återställda databasen och följ återställnings hand boken [Konfigurera en databas efter](sql-database-disaster-recovery.md) återställnings guide.
+* Ändra program konfigurationen för att ansluta till den återställda databasen och följ återställnings hand boken [Konfigurera en databas efter återställnings](sql-database-disaster-recovery.md) guide.
 
 ### <a name="validation"></a>Validering
 
@@ -59,7 +59,7 @@ För att simulera avbrottet kan du inaktivera webb programmet eller den virtuell
 
 * Kontrol lera att program konfigurationen i DR-regionen pekar på den tidigare sekundära, som blir den fullt tillgängliga nya primära servern.
 * Initiera [planerad redundansväxling](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) av gruppen för redundans från den sekundära servern.
-* Slutför återställningen genom att följa guiden [Konfigurera en databas efter](sql-database-disaster-recovery.md) återställnings guide.
+* Slutför återställningen genom att följa guiden [Konfigurera en databas efter återställnings](sql-database-disaster-recovery.md) guide.
 
 ### <a name="validation"></a>Validering
 

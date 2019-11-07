@@ -2,37 +2,37 @@
 author: larryfr
 ms.service: machine-learning
 ms.topic: include
-ms.date: 07/26/2019
+ms.date: 10/06/2019
 ms.author: larryfr
-ms.openlocfilehash: b8913836baffdad200c198afa11475d617fe5d50
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 0463dbd67f27f6664ab246ad56af9c6fb95c52ee
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68729372"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682098"
 ---
-Posterna i `deploymentconfig.json` dokument översikten till parametrarna för [AksWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). I följande tabell beskrivs mappningen mellan entiteterna i JSON-dokumentet och parametrarna för-metoden:
+Posterna i `deploymentconfig.json` dokument översikt till parametrarna för [AksWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). I följande tabell beskrivs mappningen mellan entiteterna i JSON-dokumentet och parametrarna för-metoden:
 
 | JSON-entitet | Metod parameter | Beskrivning |
 | ----- | ----- | ----- |
 | `computeType` | Ej tillämpligt | Beräkningsmålet. För AKS måste värdet vara `aks`. |
 | `autoScaler` | Ej tillämpligt | Innehåller konfigurations element för autoskalning. Se tabellen för autoskalning. |
-| &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Om autoskalning ska aktive ras för webb tjänsten. Om `numReplicas` , = i annat fall`False`. `0` `True` |
-| &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | Det minsta antal behållare som ska användas när den här webb tjänsten autoskalas. Standard, `1`. |
-| &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | Det maximala antal behållare som ska användas när den här webb tjänsten autoskalas. Standard, `10`. |
-| &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | Hur ofta den automatiska skalnings tjänsten försöker skala den här webb tjänsten. Standard, `1`. |
-| &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | Mål användningen (i procent av 100) som autoskalning ska försöka underhålla för den här webb tjänsten. Standard, `70`. |
+| &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Om autoskalning ska aktive ras för webb tjänsten. Om `numReplicas` = `0``True`; annars `False`. |
+| &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | Det minsta antal behållare som ska användas när den här webb tjänsten autoskalas. Standard `1`. |
+| &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | Det maximala antal behållare som ska användas när den här webb tjänsten autoskalas. Standard `10`. |
+| &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | Hur ofta den automatiska skalnings tjänsten försöker skala den här webb tjänsten. Standard `1`. |
+| &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | Mål användningen (i procent av 100) som autoskalning ska försöka underhålla för den här webb tjänsten. Standard `70`. |
 | `dataCollection` | Ej tillämpligt | Innehåller konfigurations element för data insamling. |
-| &emsp;&emsp;`storageEnabled` | `collect_model_data` | Huruvida modell data insamling ska aktive ras för webb tjänsten. Standard, `False`. |
-| `authEnabled` | `auth_enabled` | Huruvida nyckel autentisering ska aktive ras för webb tjänsten. Både `tokenAuthEnabled` `True`och `authEnabled` kan inte vara. Standard, `True`. |
-| `tokenAuthEnabled` | `token_auth_enabled` | Huruvida token-autentisering ska aktive ras för webb tjänsten. Både `tokenAuthEnabled` `True`och `authEnabled` kan inte vara. Standard, `False`. |
+| &emsp;&emsp;`storageEnabled` | `collect_model_data` | Huruvida modell data insamling ska aktive ras för webb tjänsten. Standard `False`. |
+| `authEnabled` | `auth_enabled` | Huruvida nyckel autentisering ska aktive ras för webb tjänsten. Både `tokenAuthEnabled` och `authEnabled` kan inte `True`s. Standard `True`. |
+| `tokenAuthEnabled` | `token_auth_enabled` | Huruvida token-autentisering ska aktive ras för webb tjänsten. Både `tokenAuthEnabled` och `authEnabled` kan inte `True`s. Standard `False`. |
 | `containerResourceRequirements` | Ej tillämpligt | Behållare för processor-och minnes enheterna. |
-| &emsp;&emsp;`cpu` | `cpu_cores` | Antalet processor kärnor som ska allokeras för den här webb tjänsten. Appar`0.1` |
-| &emsp;&emsp;`memoryInGB` | `memory_gb` | Mängden minne (i GB) som ska allokeras för den här webb tjänsten. Objekt`0.5` |
-| `appInsightsEnabled` | `enable_app_insights` | Om Application Insights loggning ska aktive ras för webb tjänsten. Standard, `False`. |
-| `scoringTimeoutMs` | `scoring_timeout_ms` | En tids gräns för att genomdriva för Poäng anrop till webb tjänsten. Standard, `60000`. |
-| `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | Maximalt antal samtidiga förfrågningar per nod för den här webb tjänsten. Standard, `1`. |
-| `maxQueueWaitMs` | `max_request_wait_time` | Den längsta tid som en begäran kommer att finnas kvar i Thee-kön (i millisekunder) innan ett 503-fel returneras. Standard, `500`. |
+| &emsp;&emsp;`cpu` | `cpu_cores` | Antalet processor kärnor som ska allokeras för den här webb tjänsten. Standardvärden `0.1` |
+| &emsp;&emsp;`memoryInGB` | `memory_gb` | Mängden minne (i GB) som ska allokeras för den här webb tjänsten. Standard `0.5` |
+| `appInsightsEnabled` | `enable_app_insights` | Om Application Insights loggning ska aktive ras för webb tjänsten. Standard `False`. |
+| `scoringTimeoutMs` | `scoring_timeout_ms` | En tids gräns för att genomdriva för Poäng anrop till webb tjänsten. Standard `60000`. |
+| `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | Maximalt antal samtidiga förfrågningar per nod för den här webb tjänsten. Standard `1`. |
+| `maxQueueWaitMs` | `max_request_wait_time` | Den längsta tid som en begäran kommer att finnas kvar i Thee-kön (i millisekunder) innan ett 503-fel returneras. Standard `500`. |
 | `numReplicas` | `num_replicas` | Antalet behållare som ska allokeras för den här webb tjänsten. Inget standardvärde. Om den här parametern inte anges är autoskalning aktive rad som standard. |
 | `keys` | Ej tillämpligt | Innehåller konfigurations element för nycklar. |
 | &emsp;&emsp;`primaryKey` | `primary_key` | En primär autentiserings nyckel som ska användas för den här webbtjänsten |

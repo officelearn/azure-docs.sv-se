@@ -1,5 +1,5 @@
 ---
-title: Använd prestanda rekommendationer – Azure SQL Database | Microsoft Docs
+title: Använd prestanda rekommendationer – Azure SQL Database
 description: Använd Azure Portal för att hitta prestanda rekommendationer som kan optimera prestanda för dina Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: b6bcb2650cd11ed97b6e81fda6aaafe7fca61202
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 24a590a80e768bba2e9b102bdf200e0cd96858f8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569598"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691284"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Hitta och Använd prestanda rekommendationer
 
@@ -29,7 +29,7 @@ Om du vill visa och tillämpa prestanda rekommendationer behöver du rätt [roll
 Använd följande steg för att hitta prestanda rekommendationer för Azure Portal:
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Gå till **alla Services** > **SQL-databaser**och välj din databas.
+2. Gå till **alla tjänster** > **SQL-databaser**och välj din databas.
 3. Gå till **prestanda rekommendation** om du vill visa tillgängliga rekommendationer för den valda databasen.
 
 Prestanda rekommendationer visas i tabellen som liknar den som visas på följande bild:
@@ -129,13 +129,13 @@ Att tillämpa en rekommendation kanske inte sker omedelbart. Portalen innehålle
 
 | Status | Beskrivning |
 |:--- |:--- |
-| Väntande |Kommandot Använd rekommendation har mottagits och är schemalagt för körning. |
-| Kör |Rekommendationen har tillämpats. |
-| Verifierar |Rekommendationen har tillämpats och tjänsten mäter fördelarna. |
-| Klart |Rekommendationen har tillämpats och fördelarna har mätts. |
-| Fel |Det uppstod ett fel i samband med tillämpandet av rekommendationen. Detta kan vara ett tillfälligt problem eller en schema ändring i tabellen och skriptet är inte längre giltigt. |
-| Återkallande |Rekommendationen har tillämpats, men har bedömts vara icke-utfört och återställs automatiskt. |
-| Återkallat |Rekommendationen har återställts. |
+| Väntande åtgärder |Kommandot Använd rekommendation har mottagits och är schemalagt för körning. |
+| Köra |Rekommendationen har tillämpats. |
+| Verifiera |Rekommendationen har tillämpats och tjänsten mäter fördelarna. |
+| Lyckades |Rekommendationen har tillämpats och fördelarna har mätts. |
+| Fel |Ett fel uppstod när rekommendationen skulle tillämpas. Detta kan vara ett tillfälligt problem eller en schema ändring i tabellen och skriptet är inte längre giltigt. |
+| Återställer |Rekommendationen har tillämpats, men har bedömts vara icke-utfört och återställs automatiskt. |
+| Återställts |Rekommendationen har återställts. |
 
 Klicka på en rekommendation i processen i listan om du vill se mer information:
 
@@ -150,7 +150,7 @@ Om du har använt prestanda rekommendationerna för att tillämpa rekommendation
 ![Rekommenderade index](./media/sql-database-advisor-portal/details.png)
 
 ## <a name="monitoring-performance-impact-of-index-recommendations"></a>Övervaka prestanda påverkan av index rekommendationer
-När rekommendationerna har implementerats (för närvarande, index åtgärder och Parameterisera fråge rekommendationer) kan du klicka på **frågor** och svar på rekommendations informations sidan för att öppna [frågor prestanda](sql-database-query-performance.md) insikter och se de vanligaste frågornas prestanda påverkan.
+När rekommendationerna har implementerats (för närvarande, index åtgärder och Parameterisera fråge rekommendationer) kan du klicka på **frågor** och svar på rekommendations informations sidan för att öppna [frågor prestanda insikter](sql-database-query-performance.md) och se de vanligaste frågornas prestanda påverkan.
 
 ![Övervaka prestanda påverkan](./media/sql-database-advisor-portal/query-insights.png)
 
@@ -162,7 +162,7 @@ Azure SQL Database ger rekommendationer för att förbättra prestanda för SQL 
 
 * Se [Automatisk justering](sql-database-automatic-tuning.md) för att lära dig mer om den automatiska justeringen i Azure SQL Database.
 * Se [prestanda rekommendationer](sql-database-advisor.md) för en översikt över Azure SQL Database prestanda rekommendationer.
-* Mer information om hur du visar prestanda påverkan för dina vanligaste frågor finns i [fråga prestanda](sql-database-query-performance.md) insikter.
+* Mer information om hur du visar prestanda påverkan för dina vanligaste frågor finns i [fråga prestanda insikter](sql-database-query-performance.md) .
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 * [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)

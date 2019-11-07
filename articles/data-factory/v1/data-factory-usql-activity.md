@@ -1,6 +1,6 @@
 ---
-title: Transformera data med hjälp av U-SQL-skript – Azure | Microsoft Docs
-description: Lär dig hur du bearbeta eller omvandla data genom att köra U-SQL-skript på Azure Data Lake Analytics-databearbetningstjänst.
+title: Transformera data med U-SQL-skript – Azure
+description: Lär dig hur du bearbetar eller transformerar data genom att köra U-SQL-skript på Azure Data Lake Analytics Compute service.
 services: data-factory
 documentationcenter: ''
 ms.assetid: e17c1255-62c2-4e2e-bb60-d25274903e80
@@ -13,62 +13,62 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 5835c37363c7e9d2dd3253c08ab97f17852725f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7608719c4e0c2b9e23f1982efda9789d25f50224
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61248155"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73665948"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformera data genom att köra U-SQL-skript på Azure Data Lake Analytics 
-> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
+> [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-usql-activity.md)
 > * [Version 2 (aktuell version)](../transform-data-using-data-lake-analytics.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [U-SQL-aktivitet i V2](../transform-data-using-data-lake-analytics.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory, se [U-SQL-aktivitet i v2](../transform-data-using-data-lake-analytics.md).
 
-En pipeline i Azure data factory bearbetar data i länkade storage-tjänster med hjälp av länkade Beräkningstjänster. Den innehåller en serie aktiviteter där varje aktivitet utför en viss bearbetning av åtgärd. Den här artikeln beskriver den **Data Lake Analytics U-SQL-aktivitet** som kör en **U-SQL** skript på en **Azure Data Lake Analytics** compute länkad tjänst. 
+En pipeline i en Azure Data Factory bearbetar data i länkade lagrings tjänster med hjälp av länkade Compute-tjänster. Den innehåller en sekvens med aktiviteter där varje aktivitet utför en speciell bearbetnings åtgärd. I den här artikeln beskrivs **data Lake Analytics u-SQL-aktivitet** som kör ett **U-SQL** -skript i en **Azure Data Lake Analytics** Compute-länkad tjänst. 
 
-Skapa ett Azure Data Lake Analytics-konto innan du skapar en pipeline med en Data Lake Analytics U-SQL-aktivitet. Läs om Azure Data Lake Analytics i [Kom igång med Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+Skapa ett Azure Data Lake Analytics konto innan du skapar en pipeline med en Data Lake Analytics U-SQL-aktivitet. Mer information om Azure Data Lake Analytics finns i [Kom igång med Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
-Granska den [skapa din första pipeline-självstudie](data-factory-build-your-first-pipeline.md) för detaljerade steg för att skapa en datafabrik, länkade tjänster, datauppsättningar och en pipeline. Använd JSON-kodfragment med Data Factory-redigeraren eller Visual Studio eller Azure PowerShell för att skapa Data Factory-entiteter.
+Gå igenom [självstudien skapa din första pipeline](data-factory-build-your-first-pipeline.md) för detaljerade steg för att skapa en data fabrik, länkade tjänster, data uppsättningar och en pipeline. Använd JSON-kodfragment med Data Factory redigerare eller Visual Studio eller Azure PowerShell för att skapa Data Factory entiteter.
 
-## <a name="supported-authentication-types"></a>Typer av autentisering stöds
-U-SQL-aktivitet stöder nedan autentiseringstyper mot Data Lake Analytics:
+## <a name="supported-authentication-types"></a>Autentiseringstyper som stöds
+U-SQL-aktiviteten stöder under autentiseringstyper med Data Lake Analytics:
 * Autentisering av tjänstens huvudnamn
-* Användarautentisering för autentiseringsuppgifter (OAuth) 
+* OAuth-autentisering (User Credential) 
 
-Vi rekommenderar att du använder autentisering av tjänstens huvudnamn, särskilt för körning av en schemalagd U-SQL. Giltighetstid för token kan inträffa med användarautentisering för autentiseringsuppgifter. Konfigurationsinformation finns i den [länkade tjänstegenskaper](#azure-data-lake-analytics-linked-service) avsnittet.
+Vi rekommenderar att du använder tjänstens huvud namns autentisering, särskilt för schemalagd U-SQL-körning. Förfallo beteende för token kan uppstå med autentisering av användarautentisering. Konfigurations information finns i avsnittet [Egenskaper för länkad tjänst](#azure-data-lake-analytics-linked-service) .
 
-## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics-länkad tjänst
-Du skapar en **Azure Data Lake Analytics** compute service till en Azure data factory-länkade tjänst som länkar ett Azure Data Lake Analytics. Data Lake Analytics U-SQL-aktivitet i pipelinen refererar till den här länkade tjänsten. 
+## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics länkad tjänst
+Du skapar en **Azure Data Lake Analytics** länkad tjänst för att länka en Azure Data Lake Analytics Compute-tjänst till en Azure Data Factory. Data Lake Analytics U-SQL-aktiviteten i pipelinen refererar till den här länkade tjänsten. 
 
-Följande tabell innehåller beskrivningar av de allmänna egenskaper som används i JSON-definitionen. Du kan ytterligare välja mellan tjänstens huvudnamn och användarautentisering för autentiseringsuppgifter.
+Följande tabell innehåller beskrivningar av de allmänna egenskaper som används i JSON-definitionen. Du kan välja mellan tjänstens huvud namn och autentisering med användar behörighet.
 
-| Egenskap | Beskrivning | Obligatoriskt |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| **type** |Type-egenskapen ska anges till: **AzureDataLakeAnalytics**. |Ja |
-| **accountName** |Azure Data Lake Analytics-kontonamn. |Ja |
+| **typ** |Egenskapen Type ska anges till: **AzureDataLakeAnalytics**. |Ja |
+| **Konto** |Azure Data Lake Analytics konto namn. |Ja |
 | **dataLakeAnalyticsUri** |Azure Data Lake Analytics-URI. |Nej |
-| **Prenumerations-ID** |Azure-prenumerations-id |Nej (om inte anges i data factory-prenumeration används). |
-| **resourceGroupName** |Azure-resursgruppsnamn |Nej (om inte anges resursgruppen för data factory används). |
+| **subscriptionId** |ID för Azure-prenumeration |Nej (om inget anges används prenumerationen på data fabriken). |
+| **resourceGroupName** |Azure-resursgruppsnamn |Nej (om inget värde anges används resurs gruppen för data fabriken). |
 
-### <a name="service-principal-authentication-recommended"></a>Autentisering av tjänstens huvudnamn (rekommenderas)
-Registrera en entitet för program i Azure Active Directory (Azure AD) för att använda autentisering av tjänstens huvudnamn, och ge det åtkomst till Data Lake Store. Detaljerade anvisningar finns i [tjänst-till-tjänst-autentisering](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
+### <a name="service-principal-authentication-recommended"></a>Autentisering av tjänstens huvud namn (rekommenderas)
+Om du vill använda tjänstens huvud namns autentisering registrerar du en program enhet i Azure Active Directory (Azure AD) och ger den åtkomst till Data Lake Store. Detaljerade anvisningar finns i [tjänst-till-tjänst-autentisering](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
 * Program-ID:t
-* Programnyckel 
+* Program nyckel 
 * Klient-ID:t
 
-Använd autentisering av tjänstens huvudnamn genom att ange följande egenskaper:
+Använd tjänstens huvud namns autentisering genom att ange följande egenskaper:
 
-| Egenskap | Beskrivning | Obligatoriskt |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | **servicePrincipalId** | Ange programmets klient-ID. | Ja |
 | **servicePrincipalKey** | Ange programmets nyckel. | Ja |
-| **klient** | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Du kan hämta den håller musen i det övre högra hörnet i Azure Portal. | Ja |
+| **innehav** | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Du kan hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Ja |
 
-**Exempel: Autentisering av tjänstens huvudnamn**
+**Exempel: autentisering av tjänstens huvud namn**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -87,15 +87,15 @@ Använd autentisering av tjänstens huvudnamn genom att ange följande egenskape
 }
 ```
 
-### <a name="user-credential-authentication"></a>Användarautentisering för autentiseringsuppgifter
-Du kan också använda användarautentisering för autentiseringsuppgifter för Data Lake Analytics genom att ange följande egenskaper:
+### <a name="user-credential-authentication"></a>Autentisering av autentiseringsuppgifter för användare
+Du kan också använda autentisering med användarens autentiseringsuppgifter för Data Lake Analytics genom att ange följande egenskaper:
 
-| Egenskap | Beskrivning | Obligatoriskt |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| **Auktorisering** | Klicka på den **auktorisera** i Data Factory-redigeraren och ange dina autentiseringsuppgifter som tilldelar automatiskt genererade auktorisering URL: en till den här egenskapen. | Ja |
-| **sessionId** | OAuth sessions-ID från OAuth-auktorisering sessionen. Varje sessions-ID är unik och kan bara användas en gång. Den här inställningen genereras automatiskt när du använder Data Factory-redigeraren. | Ja |
+| **auktoriseringsregeln** | Klicka på knappen **auktorisera** i Data Factory redigeraren och ange autentiseringsuppgifterna som tilldelar URL: en automatiskt genererad auktorisering till den här egenskapen. | Ja |
+| **sessionId** | OAuth-sessions-ID från OAuth-auktoriseringsbegäran. Varje sessions-ID är unikt och kan bara användas en gång. Den här inställningen genereras automatiskt när du använder Data Factory redigeraren. | Ja |
 
-**Exempel: Användarautentisering för autentiseringsuppgifter**
+**Exempel: autentisering med användar behörighet**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -113,15 +113,15 @@ Du kan också använda användarautentisering för autentiseringsuppgifter för 
 }
 ```
 
-#### <a name="token-expiration"></a>Giltighetstid för token
-Auktoriseringskod som du genererade med hjälp av den **auktorisera** knappen upphör att gälla efter en stund. Se tabellen nedan för förfallodatum tiderna för olika typer av användarkonton. Du kan se följande fel visas vid autentiseringen **token upphör att gälla**: Åtgärdsfel för autentiseringsuppgift: invalid_grant - AADSTS70002: Fel vid verifiering av autentiseringsuppgifter. AADSTS70008: Det tillhandahållna åtkomst beviljandet har upphört att gälla eller återkallats. Trace-ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Korrelations-ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 tidsstämpel: 2015-12-15 21:09:31Z
+#### <a name="token-expiration"></a>Förfallo datum för token
+Den auktoriseringskod som du genererade med knappen **auktorisera** upphör att gälla efter en stund. Se följande tabell för förfallo tiderna för olika typer av användar konton. Du kan se följande fel meddelande när autentiseringstoken **upphör att gälla**: autentiseringsuppgifter för autentiseringsuppgift: INVALID_GRANT-AADSTS70002: det gick inte att verifiera autentiseringsuppgifterna. AADSTS70008: den angivna åtkomst tilldelningen har förfallit eller återkallats. Spårnings-ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 korrelations-ID: fac30a0c-6BE6-4e02-8d69-a776d2ffefd7 tidsstämpel: 2015-12-15 21:09:31Z
 
-| Användartyp | Upphör att gälla efter |
+| Användar typ | Upphör att gälla efter |
 |:--- |:--- |
-| Användarkonton som inte hanteras av Azure Active Directory (@hotmail.com, @live.comosv.) |12 timmar |
-| Användarkonton som hanteras av Azure Active Directory (AAD) |Kör 14 dagar efter den sista sektorn. <br/><br/>90 dagar, om ett segment baserat på OAuth-baserad länkad tjänst körs minst en gång var fjortonde dag. |
+| Användar konton som inte hanteras av Azure Active Directory (@hotmail.com, @live.comosv.) |12 timmar |
+| Användar konton som hanteras av Azure Active Directory (AAD) |14 dagar efter den sista sektor körningen. <br/><br/>90 dagar, om en sektor som baseras på OAuth-baserad länkad tjänst körs minst en gång var 14: e dag. |
 
-Om du vill undvika/Lös det här felet, omauktorisera med hjälp av den **auktorisera** knappen när den **token upphör att gälla** och distribuera om den länkade tjänsten. Du kan också skapa värden för **sessionId** och **auktorisering** egenskaper via programmering med hjälp av kod på följande sätt:
+Du kan undvika/lösa det här felet genom att auktorisera med knappen **auktorisera** när **token upphör att gälla** och distribuera om den länkade tjänsten. Du kan också generera värden för **SessionID** och egenskaper för **auktorisering** program mässigt med hjälp av kod på följande sätt:
 
 ```csharp
 if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
@@ -148,10 +148,10 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 }
 ```
 
-Se [AzureDataLakeStoreLinkedService klass](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService klass](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), och [AuthorizationSessionGetResponse klass](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) avsnitt hittar du information Om Data Factory-klasser som används i koden. Lägg till en referens till: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll för klassen WindowsFormsWebAuthenticationDialog. 
+Mer information om de Data Factory klasser som används i koden finns i avsnittet [AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx)-klass, [AzureDataLakeAnalyticsLinkedService-klass](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx)och AuthorizationSessionGetResponse- [klass](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) . Lägg till en referens till: Microsoft. IdentityModel. clients. ActiveDirectory. WindowsForms. dll för klassen WindowsFormsWebAuthenticationDialog. 
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL-aktivitet
-Följande JSON-kodfragmentet definierar en pipeline med en Data Lake Analytics U-SQL-aktivitet. Aktivitetsdefinitionen innehåller en referens till den länkade Azure Data Lake Analytics-tjänsten som du skapade tidigare.   
+Följande JSON-kodfragment definierar en pipeline med en Data Lake Analytics U-SQL-aktivitet. Aktivitets definitionen har en referens till den Azure Data Lake Analytics länkade tjänsten som du skapade tidigare.   
 
 ```json
 {
@@ -204,26 +204,26 @@ Följande JSON-kodfragmentet definierar en pipeline med en Data Lake Analytics U
 }
 ```
 
-I följande tabell beskrivs namn och beskrivningar för egenskaper som är specifika för den här aktiviteten. 
+I följande tabell beskrivs namn och beskrivningar av egenskaper som är unika för den här aktiviteten. 
 
 | Egenskap            | Beskrivning                              | Krävs                                 |
 | :------------------ | :--------------------------------------- | :--------------------------------------- |
-| type                | Type-egenskapen måste anges till **DataLakeAnalyticsU SQL**. | Ja                                      |
-| linkedServiceName   | Referens till Azure Data Lake Analytics registrerad som en länkad tjänst i Data Factory | Ja                                      |
-| scriptPath          | Sökvägen till mappen som innehåller U-SQL-skriptet. Filens namn är skiftlägeskänsligt. | Nej (om du använder skriptet)                   |
-| scriptLinkedService | Länkade tjänst som länkar den lagring som innehåller skriptet som data factory | Nej (om du använder skriptet)                   |
-| skript              | Ange infogade skript istället för att ange scriptPath och scriptLinkedService. Till exempel: `"script": "CREATE DATABASE test"`. | Nej (om du använder scriptPath och scriptLinkedService) |
-| degreeOfParallelism | Det maximala antalet noder samtidigt används för att köra jobbet. | Nej                                       |
-| prioritet            | Anger vilka jobb av alla som är köade ska väljas att köras först. Ju lägre nummer, desto högre prioritet. | Nej                                       |
-| parameters          | Parametrar för U-SQL-skript          | Nej                                       |
-| runtimeVersion      | Runtime-versionen av U-SQL-motor som ska användas | Nej                                       |
-| compilationMode     | <p>Kompileringsläge för U-SQL. Måste vara ett av följande värden:</p> <ul><li>**Semantisk:** Bara utföra semantiska kontroller och nödvändiga hälsokontroller.</li><li>**Fullständig:** Utföra fullständig kompileringen, inklusive syntaxkontrollen, optimering, kodgenerering osv.</li><li>**SingleBox:** Utföra fullständig kompileringen med TargetType inställningen om du vill SingleBox.</li></ul><p>Om du inte anger ett värde för den här egenskapen anger servern optimala kompileringsläge. </p> | Nej                                       |
+| typ                | Egenskapen Type måste anges till **DataLakeAnalyticsU-SQL**. | Ja                                      |
+| linkedServiceName   | Referens till Azure Data Lake Analytics som registrerats som en länkad tjänst i Data Factory | Ja                                      |
+| scriptPath          | Sökväg till mapp som innehåller U-SQL-skriptet. Filens namn är Skift läges känsligt. | Nej (om du använder skript)                   |
+| scriptLinkedService | Länkad tjänst som länkar det lagrings utrymme som innehåller skriptet till data fabriken | Nej (om du använder skript)                   |
+| -skriptet              | Ange infogat skript i stället för att ange scriptPath och scriptLinkedService. Till exempel: `"script": "CREATE DATABASE test"`. | Nej (om du använder scriptPath och scriptLinkedService) |
+| degreeOfParallelism | Det maximala antalet noder som används samtidigt för att köra jobbet. | Nej                                       |
+| prioritet            | Bestämmer vilka jobb som inte är i kö som ska väljas för att köras först. Ju lägre siffra, desto högre prioritet. | Nej                                       |
+| parameters          | Parametrar för U-SQL-skriptet          | Nej                                       |
+| runtimeVersion      | Körnings version av U-SQL-motorn som ska användas | Nej                                       |
+| compilationMode     | <p>Compiler-läge för U-SQL. Måste vara något av följande värden:</p> <ul><li>**Semantisk:** Utför endast semantiska kontroller och nödvändiga Sanity-kontroller.</li><li>**Fullständig:** Genomför fullständig kompilering, inklusive syntaxkontroll, optimering, kodgenerering, osv.</li><li>**Enkel:** Utför fullständig kompilering med TargetType-inställningen till en enda.</li></ul><p>Om du inte anger något värde för den här egenskapen, fastställer servern det optimala kompilerings läget. </p> | Nej                                       |
 
-Se [SearchLogProcessing.txt skriptet Definition](#sample-u-sql-script) för skript-definition. 
+Se skript definitionen [SearchLogProcessing. txt](#sample-u-sql-script) för skript definitionen. 
 
-## <a name="sample-input-and-output-datasets"></a>Exempel på indata och utdata datauppsättningar
-### <a name="input-dataset"></a>Datauppsättningen för indata
-I det här exemplet finns indatan i en Azure Data Lake Store (SearchLog.tsv-fil i mappen datalake/input). 
+## <a name="sample-input-and-output-datasets"></a>Exempel på indata och utdata för data uppsättningar
+### <a name="input-dataset"></a>Indata-datauppsättning
+I det här exemplet finns indata i en Azure Data Lake Store (SearchLog. TSV-fil i mappen datalake/indata). 
 
 ```json
 {
@@ -248,8 +248,8 @@ I det här exemplet finns indatan i en Azure Data Lake Store (SearchLog.tsv-fil 
 }    
 ```
 
-### <a name="output-dataset"></a>Datauppsättningen för utdata
-I det här exemplet lagras de utdata som genereras av U-SQL-skriptet i en Azure Data Lake Store (datalake-/ utdata-mapp). 
+### <a name="output-dataset"></a>Data uppsättning för utdata
+I det här exemplet lagras de utdata som genereras av U-SQL-skriptet i en Azure Data Lake Store (datalake/output-mapp). 
 
 ```json
 {
@@ -268,8 +268,8 @@ I det här exemplet lagras de utdata som genereras av U-SQL-skriptet i en Azure 
 }
 ```
 
-### <a name="sample-data-lake-store-linked-service"></a>Exemplet Data Lake Store-länkade tjänst
-Här är definitionen av exemplet Azure Data Lake Store-länkade tjänst som används av datauppsättningarna som indata/utdata. 
+### <a name="sample-data-lake-store-linked-service"></a>Exempel på länkad tjänst för Data Lake Store
+Här är definitionen av det exempel Azure Data Lake Store länkade tjänsten som används av data uppsättningarna för indata/utdata. 
 
 ```json
 {
@@ -286,9 +286,9 @@ Här är definitionen av exemplet Azure Data Lake Store-länkade tjänst som anv
 }
 ```
 
-Se [flytta data till och från Azure Data Lake Store](data-factory-azure-datalake-connector.md) artikeln beskrivningar av JSON-egenskaper. 
+Se [Flytta data till och från Azure Data Lake Store](data-factory-azure-datalake-connector.md) artikel för beskrivningar av JSON-egenskaper. 
 
-## <a name="sample-u-sql-script"></a>Exempelskript för U-SQL
+## <a name="sample-u-sql-script"></a>Exempel på U-SQL-skript
 
 ```
 @searchlog =
@@ -317,12 +317,12 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-Värdena för  **\@i** och  **\@ut** parametrar i U-SQL-skriptet som skickas dynamiskt med ADF med hjälp av avsnittet ”parameters”. Se avsnittet ”parameters” i pipeline-definition.
+Värdena för **\@i** och **\@ut** -PARAMETRARNA i U-SQL-skriptet skickas dynamiskt med ADF med hjälp av avsnittet Parameters. Se avsnittet "parameters" i pipeline-definitionen.
 
-Du kan också ange andra egenskaper som degreeOfParallelism och prioritet i din pipelinedefinition för jobb som körs på Azure Data Lake Analytics-tjänsten.
+Du kan ange andra egenskaper som degreeOfParallelism och prioritet även i din pipeline-definition för de jobb som körs på Azure Data Lake Analyticss tjänsten.
 
 ## <a name="dynamic-parameters"></a>Dynamiska parametrar
-I exemplet pipeline-definition tilldelas och in parametrar med hårdkodade värden. 
+I exempel definitionen för pipeline kan in-och out-parametrarna tilldelas med hårdkodade värden. 
 
 ```json
 "parameters": {
@@ -331,7 +331,7 @@ I exemplet pipeline-definition tilldelas och in parametrar med hårdkodade värd
 }
 ```
 
-Det är möjligt att använda dynamiska parametrar i stället. Exempel: 
+Du kan använda dynamiska parametrar i stället. Till exempel: 
 
 ```json
 "parameters": {
@@ -340,6 +340,6 @@ Det är möjligt att använda dynamiska parametrar i stället. Exempel:
 }
 ```
 
-I det här fallet indatafilerna plockas fortfarande upp från mappen /datalake/input och utdatafiler som skapas i mappen /datalake/output. Filnamnen är dynamiskt baserat på starttid för sektor.  
+I det här fallet hämtas indatafilerna fortfarande från mappen/datalake/input och utdatafilerna skapas i mappen/datalake/output. Fil namnen är dynamiska utifrån sektorens start tid.  
 
 

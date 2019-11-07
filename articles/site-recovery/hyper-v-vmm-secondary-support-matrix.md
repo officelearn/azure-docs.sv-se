@@ -1,18 +1,18 @@
 ---
-title: Stöd mat ris för haveri beredskap för virtuella Hyper-V-datorer i VMM-moln till en sekundär plats med Azure Site Recovery
+title: Stöd för matris – återställning av Hyper-V till en sekundär VMM-plats med Azure Site Recovery
 description: Sammanfattar stöd för replikering av virtuella Hyper-V-datorer i VMM-moln till en sekundär plats med Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 46d6cba1d702773639420a3bc5ac74b9c16ce706
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7711ebaaddccd68d4322c1d3ebdd049a57bc709b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933819"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686164"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Stöd mat ris för haveri beredskap för virtuella Hyper-V-datorer till en sekundär plats
 
@@ -67,13 +67,13 @@ Gäst-VM – Windows/Linux-statisk IP-adress | Ja
 Gäst-VM-Multi-NIC | Ja
 
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 
 ### <a name="host-storage"></a>Värd lagring
 
 **Lagring (värd)** | **Stöds**
 --- | --- 
-NFS | Gäller inte
+NFS | Saknas
 SMB 3.0 |  Ja
 SAN (ISCSI) | Ja
 Multipath (MPIO) | Ja
@@ -82,15 +82,15 @@ Multipath (MPIO) | Ja
 
 **Konfiguration** | **Stöds**
 --- | --- | 
-VMDK |  Gäller inte
+VMDK |  Saknas
 VHD/VHDX | Ja (upp till 16 diskar)
 Generation 2 VM | Ja
 Delad kluster disk | Nej
 Krypterad disk | Nej
-UEFI| Gäller inte
+UEFI| Saknas
 NFS | Nej
 SMB 3.0 | Nej
-RDM | Gäller inte
+RDM | Saknas
 Disk > 1 TB | Ja
 Volym med Striped disk > 1 TB<br/><br/> LVM | Ja
 Lagrings utrymmen | Ja

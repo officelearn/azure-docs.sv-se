@@ -1,5 +1,5 @@
 ---
-title: Övervaka databas prestanda med Intelligent Insights-Azure SQL Database | Microsoft Docs
+title: Övervaka databas prestanda med Intelligent Insights-Azure SQL Database
 description: Azure SQL Database Intelligent Insights använder inbyggd intelligens för att kontinuerligt övervaka databas användningen via artificiell intelligens och identifiera störande händelser som orsakar dåliga prestanda.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 70498c5f4c824681ee59b7232e9409235d7f6a93
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: c073b535271ba8f9f11e17ba5203b13e257e211b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262162"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689691"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights att använda AI för att övervaka och felsöka databas prestanda
 
@@ -50,7 +50,7 @@ Identifierade SQL Database prestanda försämringar registreras i Diagnostic-log
 
 | Egenskap             | Information              |
 | :------------------- | ------------------- |
-| databas information | Metadata om en databas där insikter upptäcktes, till exempel en resurs-URI. |
+| Databas information | Metadata om en databas där insikter upptäcktes, till exempel en resurs-URI. |
 | Observerat tidsintervall | Start-och slut tid för den identifierade insikten. |
 | Påverkade mått | Mått som gjorde att en insikt genererades: <ul><li>Ökning av frågans varaktighet [sekunder].</li><li>Överdriven väntan [sekunder].</li><li>Timeout-begär Anden [procent].</li><li>Misslyckade begär Anden [procent].</li></ul>|
 | Effekt värde | Värde för uppmätt mått. |
@@ -83,7 +83,7 @@ Mer information om hur du aktiverar Intelligent Insights loggning och konfigurer
 Azure SQL-analys-lösningen tillhandahåller grafiskt användar gränssnitt, rapporterings-och aviserings funktioner för databas prestanda, tillsammans med logg data för Intelligent Insights-diagnostik.
 
 > [!TIP]
-> Snabb komma igång: Det enklaste sättet att komma igång med att använda Intelligent Insights är att använda det tillsammans med Azure SQL-analys som ger ett grafiskt användar gränssnitt till databas prestanda problem. Lägg till Azure SQL-analys lösning från Marketplace, skapa en arbets yta i den här lösningen och välj sedan för varje databas som du vill aktivera Intelligent Insights på, konfigurera strömning av "SQLInsights"-loggen på bladet diagnostikinställningar i en databas till arbets yta för Azure SQL-analys.
+> Snabb komma igång: det enklaste sättet att komma ut på marken med att använda Intelligent Insights är att använda det tillsammans med Azure SQL-analys som ger ett grafiskt användar gränssnitt till databas prestanda problem. Lägg till Azure SQL-analys lösning från Marketplace, skapa en arbets yta i den här lösningen och välj sedan för varje databas som du vill aktivera Intelligent Insights på, konfigurera strömning av "SQLInsights"-loggen på bladet diagnostikinställningar i en databas till arbets yta för Azure SQL-analys.
 >
 
 För krav är att Azure SQL-analys läggas till i Azure Portal instrument panelen från Marketplace och att skapa en arbets yta, se [konfigurera Azure SQL-analys](../azure-monitor/insights/azure-sql.md#configuration)
@@ -92,7 +92,7 @@ Om du vill använda Intelligent Insights med Azure SQL-analys konfigurerar du In
 
 I följande exempel visas en Intelligent Insights som visas via Azure SQL-analys:
 
-![Intelligent Insights-rapport](./media/sql-database-intelligent-insights/intelligent-insights-azure-sql-analytics.png)
+![Intelligent Insights rapport](./media/sql-database-intelligent-insights/intelligent-insights-azure-sql-analytics.png)
 
 ### <a name="set-up-with-event-hubs"></a>Konfigurera med Event Hubs
 
@@ -112,7 +112,7 @@ Om du vill använda Intelligent Insights med verktyg från tredje part, eller om
 
 Mått som används för identifierings modeller som genererar Intelligent Insights baseras på övervakning:
 
-- Frågevaraktighet
+- Frågans varaktighet
 - Timeout-begäranden
 - Lång vänte tid
 - Misslyckade förfrågningar
@@ -127,7 +127,7 @@ Alla mät värden beaktas tillsammans i olika relationer via en vetenskapligt h�
 - En rotor Saks analys av problemet upptäcktes.
 - Rekommendationer för hur du kan förbättra prestandan hos den övervakade SQL-databasen, där det är möjligt.
 
-## <a name="query-duration"></a>Frågevaraktighet
+## <a name="query-duration"></a>Frågans varaktighet
 
 Modellen för frågans varaktighets försämring analyserar enskilda frågor och upptäcker ökningen under den tid det tar att kompilera och köra en fråga jämfört med prestanda bas linjen.
 

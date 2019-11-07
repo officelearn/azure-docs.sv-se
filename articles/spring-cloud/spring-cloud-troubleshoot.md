@@ -1,20 +1,17 @@
 ---
 title: Fel söknings guide för Azure våren Cloud | Microsoft Docs
 description: Fel söknings guide för Azure våren Cloud
-services: spring-cloud
-author: v-vasuke
-manager: gwallace
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
-ms.date: 10/07/2019
-ms.author: v-vasuke
-ms.openlocfilehash: 546c97421fdb3a581a22e34f6110986a1a0732b6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.topic: troubleshooting
+ms.date: 11/04/2019
+ms.author: jeconnoc
+ms.openlocfilehash: 9603f4a687b55f45be2875ccaa7b801c0c5589c9
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72929152"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607616"
 ---
 # <a name="troubleshooting-guide-for-common-problems"></a>Fel söknings guide för vanliga problem
 
@@ -37,7 +34,7 @@ Tjänst bindningar kan också orsaka fel i program starten. Använd nyckelord so
 
 `java.sql.SQLException: The server time zone value 'Coordinated Universal Time' is unrecognized or represents more than one time zone.`
 
-Åtgärda felet genom att gå till `server parameters` av MySql-instansen och ändra `time_zone` från `SYSTEM` till `+0:00`.
+Åtgärda felet genom att gå till `server parameters` i MySql-instansen och ändra `time_zone` från `SYSTEM` till `+0:00`.
 
 
 ### <a name="my-application-crashes-or-throws-an-unexpected-error"></a>Mina program kraschar eller genererar ett oväntat fel
@@ -194,7 +191,7 @@ Hitta den underordnade noden som heter `systemEnvironment`.  Den här noden inne
 
 Gå till _app Management_ för att kontrol lera att programmet _körs_ och _är igång._
 
-Om du kan se mått från _JVM_ men inga mått från _Tomcat_kontrollerar du om det `spring-boot-actuator` beroendet är aktiverat i programpaketet och startas.
+Om du kan se mått från _JVM_ men inga mått från _Tomcat_kontrollerar du om det`spring-boot-actuator` beroendet är aktiverat i programpaketet och startas.
 
 ```xml
 <dependency>

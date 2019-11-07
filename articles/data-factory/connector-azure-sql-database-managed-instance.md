@@ -1,5 +1,5 @@
 ---
-title: Kopiera data till och från Azure SQL Database Hanterad instans med hjälp av Azure Data Factory | Microsoft Docs
+title: Kopiera data till och från Azure SQL Database Hanterad instans med Azure Data Factory
 description: Lär dig hur du flyttar data till och från Azure SQL Database Hanterad instans med hjälp av Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: af207c460c47c07d11a80ad64dc6c0944ebf6aa4
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 6dadb84b5323568ff736d9e39a1297515f33368c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009933"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681172"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database Hanterad instans med Azure Data Factory
 
@@ -45,7 +45,7 @@ Mer specifikt stöder den här Azure SQL Database hanterade instans Connector:
 >[!NOTE]
 >Tjänstens huvud namn och hanterade identitets autentiseringar stöds för närvarande inte av den här anslutningen. Undvik genom att välja en Azure SQL Database anslutning och ange servern manuellt för den hanterade instansen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att få åtkomst till den [offentliga slut punkten](../sql-database/sql-database-managed-instance-public-endpoint-securely.md)för Azure SQL Database Hanterad instans kan du använda en Azure Data Factory hanterad Azure integration Runtime. Se till att aktivera den offentliga slut punkten och Tillåt även offentlig slut punkts trafik på nätverks säkerhets gruppen så att Azure Data Factory kan ansluta till databasen. Mer information finns i [den här vägledningen](../sql-database/sql-database-managed-instance-public-endpoint-configure.md).
 
@@ -57,24 +57,24 @@ Om du vill komma åt den privata slut punkten för Azure SQL Database hanterade 
 
 I följande avsnitt finns information om egenskaper som används för att definiera Azure Data Factory entiteter som är speciella för den Azure SQL Database hanterade instans anslutningen.
 
-## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
+## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 
 Följande egenskaper stöds för den länkade tjänsten Azure SQL Database-hanterade instans:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Egenskapen Type måste anges till **AzureSqlMI**. | Ja |
-| connectionString |Den här egenskapen anger **ConnectionString** -informationen som behövs för att ansluta till den hanterade instansen med hjälp av SQL-autentisering. Mer information finns i följande exempel. <br/>Standardporten är 1433. Om du använder Azure SQL Database Hanterad instans med en offentlig slut punkt anger du uttryckligen port 3342.<br>Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Azure Data Factory. Du kan också ange ett lösen ord i Azure Key Vault. Om det är SQL-autentisering, hämtar `password` du konfigurationen från anslutnings strängen. Mer information finns i JSON-exemplet som följer tabellen och [lagrar autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| typ | Egenskapen Type måste anges till **AzureSqlMI**. | Ja |
+| Begär |Den här egenskapen anger **ConnectionString** -informationen som behövs för att ansluta till den hanterade instansen med hjälp av SQL-autentisering. Mer information finns i följande exempel. <br/>Standard porten är 1433. Om du använder Azure SQL Database Hanterad instans med en offentlig slut punkt anger du uttryckligen port 3342.<br>Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Azure Data Factory. Du kan också ange ett lösen ord i Azure Key Vault. Om det är SQL-autentisering, hämtar du `password`-konfigurationen från anslutnings strängen. Mer information finns i JSON-exemplet som följer tabellen och [lagrar autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | servicePrincipalId | Ange programmets klient-ID. | Ja, när du använder Azure AD-autentisering med ett huvud namn för tjänsten |
 | servicePrincipalKey | Ange programmets nyckel. Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Azure Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja, när du använder Azure AD-autentisering med ett huvud namn för tjänsten |
-| tenant | Ange klient information, t. ex. domän namnet eller klient-ID: t, som ditt program finns under. Hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Ja, när du använder Azure AD-autentisering med ett huvud namn för tjänsten |
+| innehav | Ange klient information, t. ex. domän namnet eller klient-ID: t, som ditt program finns under. Hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Ja, när du använder Azure AD-autentisering med ett huvud namn för tjänsten |
 | connectVia | [Integrerings körningen](concepts-integration-runtime.md) används för att ansluta till data lagret. Du kan använda en lokal integration runtime eller en Azure integration Runtime om din hanterade instans har en offentlig slut punkt och ger Azure Data Factory åtkomst till den. Om inget värde anges används standard Azure integration Runtime. |Ja |
 
-För olika typer av autentisering, se följande avsnitt om krav och JSON-exempel, respektive:
+För olika typer av autentiseringar, se följande avsnitt om krav respektive JSON-exempel:
 
 - [SQL-autentisering](#sql-authentication)
-- [Azure AD Application token-autentisering: Tjänstens huvud namn](#service-principal-authentication)
-- [Azure AD Application token-autentisering: Hanterade identiteter för Azure-resurser](#managed-identity)
+- [Azure AD Application token-autentisering: tjänstens huvud namn](#service-principal-authentication)
+- [Azure AD Application token-autentisering: hanterade identiteter för Azure-resurser](#managed-identity)
 
 ### <a name="sql-authentication"></a>SQL-autentisering
 
@@ -134,10 +134,10 @@ Följ dessa steg om du vill använda en tjänst objekts Azure AD-baserad autenti
 
 1. Följ stegen för att [etablera en Azure Active Directory administratör för din hanterade instans](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 
-2. [Skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) från Azure Portal. Anteckna namnet på programmet och följande värden som definierar den länkade tjänsten:
+2. [Skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) från Azure Portal. Anteckna program namnet och följande värden som definierar den länkade tjänsten:
 
     - Program-ID:t
-    - Programnyckel
+    - Program nyckel
     - Klient-ID:t
 
 3. [Skapa inloggningar](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) för den Azure Data Factory hanterade identiteten. I SQL Server Management Studio (SSMS) ansluter du till din hanterade instans med ett SQL Server konto som är en **sysadmin**. I **Master** -databasen kör du följande T-SQL:
@@ -187,7 +187,7 @@ Följ dessa steg om du vill använda en tjänst objekts Azure AD-baserad autenti
 }
 ```
 
-### <a name="managed-identity"></a> Hanterade identiteter för autentisering av Azure-resurser
+### <a name="managed-identity"></a>Hanterade identiteter för Azure-resurser-autentisering
 
 En data fabrik kan associeras med en [hanterad identitet för Azure-resurser](data-factory-service-identity.md) som representerar den aktuella data fabriken. Du kan använda den här hanterade identiteten för Azure SQL Database Hanterad instans-autentisering. Den angivna fabriken kan komma åt och kopiera data från eller till databasen med hjälp av den här identiteten.
 
@@ -236,7 +236,7 @@ Följ dessa steg om du vill använda hanterad identitets autentisering.
 }
 ```
 
-## <a name="dataset-properties"></a>Egenskaper för datamängd
+## <a name="dataset-properties"></a>Egenskaper för data mängd
 
 En fullständig lista över avsnitt och egenskaper som kan användas för att definiera data uppsättningar finns i artikeln data uppsättningar. Det här avsnittet innehåller en lista över egenskaper som stöds av den Azure SQL Database hanterade instans data uppsättningen.
 
@@ -244,10 +244,10 @@ Följande egenskaper stöds för att kopiera data till och från Azure SQL Datab
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Data uppsättningens typ-egenskap måste anges till **AzureSqlMITable**. | Ja |
-| schema | Schemats namn. |Nej för källa, Ja för mottagare  |
-| table | Namnet på tabellen/vyn. |Nej för källa, Ja för mottagare  |
-| tableName | Namnet på tabellen/vyn med schemat. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` och`table`för ny arbets belastning. | Nej för källa, Ja för mottagare |
+| typ | Data uppsättningens typ-egenskap måste anges till **AzureSqlMITable**. | Ja |
+| Schema | Schemats namn. |Nej för källa, Ja för mottagare  |
+| partitionstabell | Namnet på tabellen/vyn. |Nej för källa, Ja för mottagare  |
+| tableName | Namnet på tabellen/vyn med schemat. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` och `table` för ny arbets belastning. | Nej för källa, Ja för mottagare |
 
 **Exempel**
 
@@ -280,10 +280,10 @@ Om du vill kopiera data från Azure SQL Database Hanterad instans, stöds följa
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Typ egenskapen för kopierings aktivitets källan måste anges till **SqlMISource**. | Ja |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till **SqlMISource**. | Ja |
 | sqlReaderQuery |Den här egenskapen använder den anpassade SQL-frågan för att läsa data. Ett exempel är `select * from MyTable`. |Nej |
-| sqlReaderStoredProcedureName |Den här egenskapen är namnet på den lagrade procedur som läser data från käll tabellen. Den senaste SQL-instruktionen måste vara en SELECT-instruktion i den lagrade proceduren. |Nej |
-| storedProcedureParameters |De här parametrarna är för den lagrade proceduren.<br/>Tillåtna värden är namn eller värde-par. Namn och Skift läge för parametrarna måste matcha namn och Skift läge för parametrarna för den lagrade proceduren. |Nej |
+| sqlReaderStoredProcedureName |Den här egenskapen är namnet på den lagrade procedur som läser data från käll tabellen. Den sista SQL-instruktionen måste vara en SELECT-instruktion i den lagrade proceduren. |Nej |
+| storedProcedureParameters |De här parametrarna är för den lagrade proceduren.<br/>Tillåtna värden är namn-eller värdepar. Namn och Skift läge för parametrarna måste matcha namn och Skift läge för parametrarna för den lagrade proceduren. |Nej |
 
 **Observera följande:**
 
@@ -322,7 +322,7 @@ Om du vill kopiera data från Azure SQL Database Hanterad instans, stöds följa
 ]
 ```
 
-**Exempel: Använd en lagrad procedur**
+**Exempel: använda en lagrad procedur**
 
 ```json
 "activities":[
@@ -386,15 +386,15 @@ Om du vill kopiera data till Azure SQL Database Hanterad instans, stöds följan
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Egenskapen Type för kopierings aktivitetens Sink måste anges till **SqlMISink**. | Ja |
+| typ | Egenskapen Type för kopierings aktivitetens Sink måste anges till **SqlMISink**. | Ja |
 | writeBatchSize |Antal rader som ska infogas i SQL-tabellen *per batch*.<br/>Tillåtna värden är heltal för antalet rader. Som standard bestämmer Azure Data Factory dynamiskt rätt batchstorlek baserat på rad storleken.  |Nej |
 | writeBatchTimeout |Den här egenskapen anger vänte tiden för åtgärden Infoga som ska slutföras innan tids gränsen uppnås.<br/>Tillåtna värden är för TimeSpan. Ett exempel är "00:30:00", som är 30 minuter. |Nej |
 | preCopyScript |Den här egenskapen anger en SQL-fråga för kopierings aktiviteten som ska köras innan data skrivs till den hanterade instansen. Den anropas bara en gång per kopierings körning. Du kan använda den här egenskapen för att rensa förinstallerade data. |Nej |
-| sqlWriterStoredProcedureName | Namnet på den lagrade proceduren som definierar hur källdata ska användas i en mål tabell. <br/>Den här lagrade proceduren *anropas per batch*. För åtgärder som bara körs en gång och som inte har något att göra med källdata, till exempel ta bort eller trunkera, använder `preCopyScript` du egenskapen. | Nej |
+| sqlWriterStoredProcedureName | Namnet på den lagrade proceduren som definierar hur källdata ska användas i en mål tabell. <br/>Den här lagrade proceduren *anropas per batch*. För åtgärder som bara körs en gång och som inte har något att göra med källdata, till exempel ta bort eller trunkera, använder du egenskapen `preCopyScript`. | Nej |
 | storedProcedureTableTypeParameterName |Parameter namnet för den tabell typ som anges i den lagrade proceduren.  |Nej |
 | sqlWriterTableType |Det tabell typs namn som ska användas i den lagrade proceduren. Kopierings aktiviteten gör data som flyttas tillgängliga i en temporär tabell med den här tabell typen. Den lagrade procedur koden kan sedan sammanfoga de data som kopieras med befintliga data. |Nej |
-| storedProcedureParameters |Parametrar för den lagrade proceduren.<br/>Tillåtna värden är namn-och värdepar. Namn och versaler och gemener i parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. | Nej |
-| tableOption | Anger om mottagar tabellen ska skapas automatiskt om den inte finns, baserat på käll schemat. Det går inte att skapa en automatisk tabell när Sink anger lagrad procedur eller mellanlagrad kopia har kon figurer ATS i kopierings aktiviteten. Tillåtna värden är: `none` (standard), `autoCreate`. |Nej |
+| storedProcedureParameters |Parametrar för den lagrade proceduren.<br/>Tillåtna värden är namn-och värdepar. Namn och Skift läge för parametrar måste matcha namn och Skift läge för parametrarna för den lagrade proceduren. | Nej |
+| tableOption | Anger om mottagar tabellen ska skapas automatiskt om den inte finns, baserat på käll schemat. Det går inte att skapa en automatisk tabell när Sink anger lagrad procedur eller mellanlagrad kopia har kon figurer ATS i kopierings aktiviteten. Tillåtna värden är: `none` (standard) `autoCreate`. |Nej |
 
 **Exempel 1: Lägg till data**
 
@@ -429,7 +429,7 @@ Om du vill kopiera data till Azure SQL Database Hanterad instans, stöds följan
 ]
 ```
 
-**Exempel 2: Anropa en lagrad procedur under kopieringen**
+**Exempel 2: anropa en lagrad procedur under kopiering**
 
 Läs mer om att [anropa en lagrad procedur från en SQL mi-mottagare](#invoke-a-stored-procedure-from-a-sql-sink).
 
@@ -473,8 +473,8 @@ Läs mer om att [anropa en lagrad procedur från en SQL mi-mottagare](#invoke-a-
 
 När du kopierar data till Azure SQL Database Hanterad instans kan du behöva ett annat Skriv beteende:
 
-- [Lägg till](#append-data): Mina källdata innehåller bara nya poster.
-- [Upsert](#upsert-data): Mina källdata har både infogningar och uppdateringar.
+- [Lägg till](#append-data): mina källdata har endast nya poster.
+- [Upsert](#upsert-data): mina källdata har både infogningar och uppdateringar.
 - [Skriv över](#overwrite-the-entire-table): Jag vill läsa in hela dimensions tabellen på nytt varje tillfälle.
 - [Skriv med anpassad logik](#write-data-with-custom-logic): Jag behöver extra bearbetning före den slutliga infogningen i mål tabellen. 
 
@@ -495,7 +495,7 @@ I Azure Data Factory kan du till exempel skapa en pipeline med en **kopierings a
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
-I databasen definierar du en lagrad procedur med SAMMANSLAGNINGs logik, som i följande exempel, som pekas från föregående lagrade procedur aktivitet. Anta att målet är **marknadsförings** tabellen med tre kolumner: **Profil**, **State**och **Category**. Gör upsert baserat på kolumnen **profil** .
+I databasen definierar du en lagrad procedur med SAMMANSLAGNINGs logik, som i följande exempel, som pekas från föregående lagrade procedur aktivitet. Anta att målet är **marknadsförings** tabellen med tre kolumner: **profil**, **State**och **Category**. Gör upsert baserat på kolumnen **profil** .
 
 ```sql
 CREATE PROCEDURE [dbo].[spMergeData]
@@ -536,7 +536,7 @@ När du kopierar data till Azure SQL Database Hanterad instans kan du också kon
 
 Du kan använda en lagrad procedur när inbyggda kopierings metoder inte fungerar. Ett exempel är när du vill använda extra bearbetning före den slutliga infogningen av käll data i mål tabellen. Några extra bearbetnings exempel är när du vill slå samman kolumner, leta upp ytterligare värden och infoga data i mer än en tabell.
 
-Följande exempel visar hur du använder en lagrad procedur för att göra en upsert till en tabell i den SQL Server databasen. Anta att indata och **marknadsförings** tabellen för mottagare har tre kolumner: **Profil**, **State**och **Category**. Gör upsert baserat på kolumnen **profil** och Använd den bara för en viss kategori som kallas "ProduktA".
+Följande exempel visar hur du använder en lagrad procedur för att göra en upsert till en tabell i den SQL Server databasen. Anta att indata och **marknadsförings** tabellen för mottagare har tre kolumner: **profil**, **State**och **Category**. Gör upsert baserat på kolumnen **profil** och Använd den bara för en viss kategori som kallas "ProduktA".
 
 1. I databasen definierar du tabell typen med samma namn som **sqlWriterTableType**. Schemat för tabell typen är detsamma som det schema som returnerades av indata.
 
@@ -588,37 +588,37 @@ När data kopieras till och från Azure SQL Database Hanterad instans används f
 | Data typen Azure SQL Database Hanterad instans | Azure Data Factory data typen Interim |
 |:--- |:--- |
 | bigint |Int64 |
-| binary |Byte[] |
-| bit |Boolean |
-| char |String, Char[] |
-| date |DateTime |
-| DateTime |DateTime |
+| binär |Byte [] |
+| bitmask |Boolesk |
+| hängande |Sträng, char [] |
+| datum |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |
 | Decimal |Decimal |
-| FILESTREAM attribute (varbinary(max)) |Byte[] |
-| Float |Double |
-| image |Byte[] |
+| FILESTREAM-attribut (varbinary (max)) |Byte [] |
+| Flyta |Dubbelklicka |
+| image |Byte [] |
 | int |Int32 |
-| money |Decimal |
-| nchar |String, Char[] |
-| ntext |String, Char[] |
-| numeric |Decimal |
-| nvarchar |String, Char[] |
-| real |Single |
-| rowversion |Byte[] |
-| smalldatetime |DateTime |
+| mynt |Decimal |
+| nchar |Sträng, char [] |
+| ntext |Sträng, char [] |
+| nummer |Decimal |
+| nvarchar |Sträng, char [] |
+| verkligen |Enkel |
+| rowversion |Byte [] |
+| datatyp |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
-| sql_variant |Object |
-| text |String, Char[] |
-| time |TimeSpan |
-| timestamp |Byte[] |
+| sql_variant |Objekt |
+| text |Sträng, char [] |
+| time |Intervall |
+| tidsstämpel |Byte [] |
 | tinyint |Int16 |
-| uniqueidentifier |Guid |
-| varbinary |Byte[] |
-| varchar |String, Char[] |
-| xml |Xml |
+| uniqueidentifier |GUID |
+| varbinary |Byte [] |
+| varchar |Sträng, char [] |
+| xml |fil |
 
 >[!NOTE]
 > För data typer som mappas till en decimal-interimistisk-typ, stöds för närvarande Azure Data Factory precision upp till 28. Om du har data som kräver precision som är större än 28, bör du överväga att konvertera till en sträng i en SQL-fråga.

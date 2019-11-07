@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: 26b0f710590496875521e0dd8577a35841fbd3dd
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7c757ef8508f9364a46116e6ddf19207f23a4b6f
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657013"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583657"
 ---
 # <a name="set-or-reset-password-for-virtual-machines-in-classroom-labs-students"></a>Ange eller Återställ lösen ord för virtuella datorer i klass rum labb (studenter)
 Den här artikeln visar hur studenter kan ange/återställa lösen ord för sina virtuella datorer. 
@@ -40,4 +40,4 @@ Student kan också ange lösen ordet genom att klicka på spill-menyn (**lodrät
 
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om andra elev användnings alternativ som en labb ägare kan konfigurera finns i följande artikel: [Konfigurera elev användning](how-to-configure-student-usage.md).
+Information om andra elevers användnings alternativ som en labb ägare kan konfigurera finns i följande artikel: [Konfigurera elev användning](how-to-configure-student-usage.md).

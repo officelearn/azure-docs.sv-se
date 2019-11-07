@@ -1,5 +1,5 @@
 ---
-title: Windows-klient för virtuella skriv bord och skapa värdar för pooler – Azure
+title: Skapa värd pool för Windows Virtual Desktop-innehavare – Azure
 description: Så här felsöker och löser du problem med klient-och värd pooler under installationen av en Windows-klient för virtuella skriv bord.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: e2d2da5e2c8c0236a4f42bc69a521891616df0d4
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: b53bf80774a0715c7a02d837975284e985958635
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163300"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607439"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Skapa klient- och värdpool
 

@@ -1,5 +1,5 @@
 ---
-title: Åtgärda Shard-mappnings problem med hjälp av Recovery Manager | Microsoft Docs
+title: Använda Recovery Manager för att åtgärda problem med Shard Map
 description: Använd klassen RecoveryManager för att lösa problem med Shard Maps
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: cbc4985f032c228db7a9ddf719390bbf2d0166b9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5920f0a3f08d83b1300956ca830b3b9b827fa5e2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568696"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690482"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Korrigera shard-kartproblem med RecoveryManager-klassen
 
@@ -42,7 +42,7 @@ GSM-och LSM kan bli osynkroniserade av följande orsaker:
 
 Mer information om Azure SQL Database Elastic Database verktyg, geo-replikering och återställning finns i följande avsnitt:
 
-* [: Verksamhets kontinuitet för företag och databas haveri beredskap med SQL Database](sql-database-business-continuity.md)
+* [Översikt: affärs kontinuitet i molnet och haveri beredskap för databasen med SQL Database](sql-database-business-continuity.md)
 * [Kom igång med elastiska databas verktyg](sql-database-elastic-scale-get-started.md)  
 * [Hantering av ShardMap](sql-database-elastic-scale-shard-map-management.md)
 
@@ -100,7 +100,7 @@ Eftersom det antas att borttagningen av databasen var avsiktlig, är den slutlig
    ```
 
 * Parametern *RecoveryToken* räknar upp skillnaderna i mappningarna mellan GSM och lsm för den speciella Shard.
-* [MappingDifferenceResolution](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution) -uppräkningen används för att ange metoden för att lösa skillnaden mellan Shard-mappningarna.
+* [MappingDifferenceResolution-uppräkningen](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution) används för att ange metoden för att lösa skillnaden mellan Shard-mappningarna.
 * **MappingDifferenceResolution. KeepShardMapping** rekommenderas att när lsm innehåller korrekt mappning och därför ska mappningen i Shard användas. Detta är vanligt vis fallet om det finns en redundansväxling: Shard finns nu på en ny server. Eftersom Shard måste först tas bort från GSM (med hjälp av metoden RecoveryManager. DetachShard), finns det inte längre någon mappning i GSM. Därför måste LSM användas för att återupprätta Shard-mappningen.
 
 ## <a name="attach-a-shard-to-the-shardmap-after-a-shard-is-restored"></a>Koppla en Shard till ShardMap efter att en Shard har återställts

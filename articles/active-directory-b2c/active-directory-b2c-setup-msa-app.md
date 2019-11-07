@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 134ca92671a41eb53201101a3622215466a60c09
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: a921d6110fd0294012e2e59542ba2c82d63ffcde
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065101"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73642083"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med en Microsoft-konto med hjälp av Azure Active Directory B2C
 
 ## <a name="create-a-microsoft-account-application"></a>Skapa ett Microsoft-konto program
 
-Om du vill använda en Microsoft-konto som [identitets leverantör](active-directory-b2c-reference-oidc.md) i Azure Active Directory B2C (Azure AD B2C) måste du skapa ett program i Azure AD-klienten. Azure AD-klienten är inte samma som din Azure AD B2C klient. Om du inte redan har en Microsoft-konto kan du hämta en på [https://www.live.com/](https://www.live.com/).
+Om du vill använda en Microsoft-konto som [identitets leverantör](active-directory-b2c-reference-oidc.md) i Azure Active Directory B2C (Azure AD B2C) måste du skapa ett program i Azure AD-klienten. Azure AD-klienten är inte samma som din Azure AD B2C klient. Om du inte redan har ett Microsoft-konto kan du hämta ett på [https://www.live.com/](https://www.live.com/).
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD-klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din Azure AD-klient.
@@ -30,8 +30,8 @@ Om du vill använda en Microsoft-konto som [identitets leverantör](active-direc
 1. Ange ett **namn** för ditt program. Till exempel *MSAapp1*.
 1. Under **konto typer som stöds**väljer du **konton i valfri organisations katalog och personliga Microsoft-konton (t. ex. Skype, Xbox, Outlook.com)** . Det här alternativet riktar sig till den bredaste uppsättningen av Microsoft-identiteter.
 
-   Mer information om de olika alternativen för konto typer finns i [snabb start: Registrera ett program med Microsoft Identity Platform](../active-directory/develop/quickstart-register-app.md).
-1. Under **omdirigerings-URI (valfritt)** väljer du `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` **webb** och anger i text rutan. Ersätt `your-tenant-name` med ditt Azure AD B2C klient namn.
+   Mer information om de olika alternativen för konto typer finns i [snabb start: registrera ett program med Microsoft Identity Platform](../active-directory/develop/quickstart-register-app.md).
+1. Under **omdirigerings-URI (valfritt)** väljer du **webb** och anger `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` i text rutan. Ersätt `your-tenant-name` med ditt Azure AD B2C klient namn.
 1. Välj **register**
 1. Registrera **program-ID (klient)** som visas på sidan program översikt. Du behöver detta när du konfigurerar identitets leverantören i nästa avsnitt.
 1. Välj **certifikat & hemligheter**

@@ -1,10 +1,10 @@
 ---
 title: Förbättra säkerheten vid fjärrhantering i Azure | Microsoft Docs
-description: Den här artikeln beskriver hur du ökar säkerheten för fjärrhantering när du administrerar Microsoft Azure-miljöer, inklusive molntjänster, Virtual Machines och anpassade program.
+description: Den här artikeln beskriver steg för att förbättra säkerheten för fjärrhantering när du administrerar Microsoft Azure miljöer, inklusive moln tjänster, virtuella datorer och anpassade program.
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
+manager: rkarlin
 editor: TomSh
 ms.assetid: 2431feba-3364-4a63-8e66-858926061dd3
 ms.service: security
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 10/31/2019
 ms.author: terrylan
-ms.openlocfilehash: 5efd82a2cb0652f6dd2aab621c578ff90aca0111
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 45efaadf7d15fff290165fe831c45c0bc063db53
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927858"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643800"
 ---
 # <a name="security-management-in-azure"></a>Säkerhetshantering i Azure
 Azure-prenumeranter kan hantera sina molnmiljöer från flera enheter, inklusive hantering av arbetsstationer, utvecklardatorer och även privilegierade slutanvändarens enheter som har uppgiftsspecifika behörigheter. I vissa fall kan administrativa funktioner utförs via webbaserade konsoler som [Azure-portalen](https://azure.microsoft.com/features/azure-portal/). I andra fall kan det finnas direkta anslutningar till Azure från lokala system över virtuella privata nätverk (VPN), Terminal Services, klientprotokoll för program eller (programmässigt) Azure Service Management API (SMAPI). Dessutom kan klientslutpunkter vara antingen domänanslutna eller isolerade och ohanterade, till exempel surfplattor eller smartphones.
@@ -118,12 +118,12 @@ En  fjärrskrivbordsgateway  är en principbaserad RDP-proxytjänst som tillämp
 ## <a name="security-guidelines"></a>Riktlinjer för säkerhet
 Vanligtvis kan du se till att administratörsdatorerna är säkra att använda med molnet på ungefär samma sätt som för övriga lokala datorer. Det handlar till exempel om att minimera byggnadsbehörigheterna och de restriktiva behörigheterna. Vissa unika aspekter av molnhantering liknar mer företagshantering via fjärranslutning eller utanför IP-nätverket. Det gäller bland annat att använda och granska autentiseringsuppgifter, fjärråtkomst med ökad säkerhet och hotidentifiering och -svar.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autentisering
 Du kan använda inloggningsbegränsningar för Azure om du vill begränsa källans IP-adresser från åtkomst till administrativa verktyg och granska förfrågningar. Du kan hjälpa Azure att identifiera hanteringsklienter (datorer och/eller program) genom att konfigurera både SMAPI (via kundutvecklade verktyg som Windows PowerShell-cmdlets) och Azure Portal så att de kräver hanteringscertifikat på klientsidan, förutom SSL-certifikat, för att installeras. Vi rekommenderar också att administratörsåtkomst kräver multifaktorautentisering.
 
 Vissa program eller tjänster som du distribuerar i Azure kan ha sina egna autentiseringsmekanismer för både slutanvändare och administratörer, medan andra utnyttjar Azure AD fullt ut. Beroende på om du federerar autentiseringsuppgifter via AD FS (Active Directory Federation Services), via katalogsynkronisering eller genom underhåll av användarkonton enbart i molnet kan du med hjälp av [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (del av Azure AD Premium) hantera identitetslivscykler mellan resurserna.
 
-### <a name="connectivity"></a>Anslutningar
+### <a name="connectivity"></a>Anslutning
 Du kan säkra klientanslutningar till dina virtuella Azure-nätverk med hjälp av andra tillgängliga mekanismer. Med två av dessa mekanismer, [plats-till-plats-VPN](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S) och [punkt-till-plats-VPN](/azure/vpn-gateway/vpn-gateway-point-to-site-create) (P2S) kan du aktivera användning av branschstandarden IPsec (S2S) eller [Secure Socket Tunneling Protocol](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) (SSTP) (P2S) för kryptering och tunnlar. När Azure ansluter till offentliga Azure-tjänster för hantering, till exempel Azure Portal, kräver Azure Hypertext Transfer Protocol Secure (HTTPS).
 
 En fristående förstärkt dator som inte ansluter till Azure via en RD Gateway ska använda det SSTP-baserade punkt-till-plats-VPN-nätverket för den första anslutningen till det virtuella Azure-nätverket. Därefter ska RDP-anslutning upprättas till enskilda virtuella datorer från VPN-tunneln.
@@ -224,7 +224,6 @@ Genom att använda en härdad datorkonfiguration för administrering av dina Azu
 ## <a name="next-steps"></a>Nästa steg
 Följande resurser med allmän information om Azure och relaterade Microsoft-tjänster finns tillgängliga, utöver de specifika objekt som det hänvisas till i det här dokumentet:
 
-* [Skydda privilegierad åtkomst](https://technet.microsoft.com/library/mt631194.aspx) – Hämta teknisk information för att designa och skapa en säker administrativ dator för hantering av Azure
+* [Skydda privilegierad åtkomst](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access) – Hämta teknisk information för att designa och skapa en säker administrativ dator för hantering av Azure
 * [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/cloudservices/azure) – Lär dig mer om de funktioner i Azure-plattformen som skyddar Azure-strukturen och de arbetsbelastningar som körs på Azure
-* [Microsoft Security Response Center](https://technet.microsoft.com/security/dn440717.aspx) – här kan du rapportera säkerhetsproblem i Microsoft, inklusive problem med Azure, eller mejla till [secure@microsoft.com](mailto:secure@microsoft.com)
-* [Azure-säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/) – håll koll på det senaste inom Azure-säkerhet
+* [Microsoft Security Response Center](https://www.microsoft.com/msrc) – här kan du rapportera säkerhetsproblem i Microsoft, inklusive problem med Azure, eller mejla till [secure@microsoft.com](mailto:secure@microsoft.com)

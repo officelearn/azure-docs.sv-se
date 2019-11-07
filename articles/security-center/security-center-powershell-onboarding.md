@@ -1,5 +1,5 @@
 ---
-title: Använd PowerShell för att publicera Azure Security Center och skydda nätverket | Microsoft Docs
+title: Publicera till Azure Security Center med PowerShell
 description: Det här dokumentet vägleder dig genom processen för att registrera Azure Security Center med hjälp av PowerShell-cmdletar.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: 8e2f7b87efe89166175748cec310f24575b7f102
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b20b3c1e4216fe8065fbc8ac24c7d8097903fc5a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201218"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686364"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatisera onboarding av Azure Security Center med hjälp av PowerShell
 
@@ -31,17 +31,17 @@ Den här artikeln innehåller ett exempel på ett PowerShell-skript som kan änd
 
 I det här exemplet aktiverar vi Security Center för en prenumeration med ID: t: d07c0080-170c-4c24-861d-9c817742786c och tillämpar de rekommenderade inställningarna som ger en hög skydds nivå genom att implementera standard Security Centers nivån, som tillhandahåller avancerade hot skydd och identifierings funktioner:
 
-1. Ange [säkerhets nivån ASC](https://azure.microsoft.com/pricing/details/security-center/). 
+1. Ange [Security Center standard skydds nivå](https://azure.microsoft.com/pricing/details/security-center/). 
  
 2. Ange Log Analytics arbets ytan som Microsoft Monitoring Agent ska skicka de data som samlas in på de virtuella datorer som är associerade med prenumerationen – i det här exemplet en befintlig användardefinierad arbets yta (min arbets yta).
 
 3. Aktivera Security Centers automatiska agent etablering som [distribuerar Microsoft Monitoring Agent](security-center-enable-data-collection.md#auto-provision-mma).
 
-5. Ange organisationens [IT som säkerhets kontakt för ASC-aviseringar och viktiga händelser](security-center-provide-security-contact-details.md).
+5. Ange organisationens [IT som säkerhets kontakt för Security Center aviseringar och viktiga händelser](security-center-provide-security-contact-details.md).
 
 6. Tilldela Security Centers [Standard säkerhets principer](tutorial-security-policy.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 De här stegen bör utföras innan du kör Security Center-cmdlet: ar:
 
@@ -97,7 +97,7 @@ Du kan nu använda dessa PowerShell-cmdlets med Automation-skript för att progr
 
 
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 Mer information om hur du kan använda PowerShell för att automatisera onboarding till Security Center finns i följande artikel:
 
 * [AZ. Security](https://docs.microsoft.com/powershell/module/az.security).

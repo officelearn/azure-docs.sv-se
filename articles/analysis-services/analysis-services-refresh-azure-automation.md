@@ -1,17 +1,17 @@
 ---
 title: Uppdatera Azure Analysis Services modeller med Azure Automation | Microsoft Docs
-description: Lär dig hur du kodar modell uppdateringar med hjälp av Azure Automation.
+description: I den här artikeln beskrivs hur du kodar modell uppdateringar för Azure Analysis Services med hjälp av Azure Automation.
 author: chrislound
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 10/30/2019
 ms.author: chlound
-ms.openlocfilehash: ed1634ef1009149dc2937174b20248eab9cd335f
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: a79123d57f80474e1871ef68f9a92ea9417089ac
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294790"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572354"
 ---
 # <a name="refresh-with-azure-automation"></a>Uppdatera med Azure Automation
 
@@ -27,7 +27,7 @@ Alla anrop måste autentiseras med en giltig Azure Active Directory-token (OAuth
 
 Mer information om hur du skapar ett huvud namn för tjänsten finns i [skapa ett tjänst objekt med hjälp av Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 > [!IMPORTANT]
 > I följande exempel förutsätter vi att Azure Analysis Services brand väggen är inaktive rad. Om brand väggen är aktive rad måste den offentliga IP-adressen för den begär ande initieraren vara vit listas i brand väggen.
@@ -44,7 +44,7 @@ Mer information om hur du skapar ett huvud namn för tjänsten finns i [skapa et
  
     ![Importera modul](./media/analysis-services-refresh-azure-automation/2.png)
 
-4. Klicka på **OK**
+4. Klicka på **OK**.
  
 ### <a name="create-a-service-principal-spn"></a>Skapa ett huvud namn för tjänsten (SPN)
 
@@ -111,7 +111,7 @@ Detta kan konfigureras på följande sätt:
 
     ![Konfigurera parametrar](./media/analysis-services-refresh-azure-automation/16.png)
 
-5. Klicka på **OK**
+5. Klicka på **OK**.
 
 ## <a name="consume-with-data-factory"></a>Förbrukar med Data Factory
 
@@ -147,7 +147,7 @@ Om du vill använda runbooken genom att använda Azure Data Factory måste du f�
 |Egenskap  |Värde  |
 |---------|---------|
 |**AnalysisServicesDatabase**     |Namnet på Azure Analysis Services databasen <br/> Exempel: AdventureWorksDB         |
-|**AnalysisServicesServer**     |Namnet på Azure Analysis Services servern. <br/> Exempel: https: \//Väst., Azure. Windows. net/servers/Server/Models/AdventureWorks/         |
+|**AnalysisServicesServer**     |Namnet på Azure Analysis Services servern. <br/> Exempel: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |
 |**DatabaseRefreshType**     |Typ av uppdatering som ska utföras. <br/> Exempel: fullständig         |
 
 Exempel på JSON-brödtext:

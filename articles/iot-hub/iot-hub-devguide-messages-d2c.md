@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 5d21d3800655cc0be78a2b63d13a3616b1d0f2f8
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
-ms.translationtype: MT
+ms.openlocfilehash: e4f1797d600a226eb152a464efe4da8ddbdb6207
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372709"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606236"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Använd IoT Hub meddelanderoutning för att skicka meddelanden från enheten till molnet till olika slut punkter
 
@@ -41,15 +41,15 @@ IoT Hub stöder för närvarande följande tjänster som anpassade slut punkter:
 
 Du kan använda standard [Event Hubs integration och SDK](iot-hub-devguide-messages-read-builtin.md) : er för att ta emot meddelanden från enheten till molnet från den inbyggda slut punkten (**meddelanden/händelser**). När en väg har skapats slutar data flöda till den inbyggda slut punkten om inte en väg skapas till den slut punkten.
 
-### <a name="azure-blob-storage"></a>Azure Blob Storage
+### <a name="azure-storage"></a>Azure Storage
 
-IoT Hub stöder skrivning av data till Azure Blob Storage i [Apache Avro](https://avro.apache.org/) -format samt i JSON-format. Möjligheten att koda JSON-format är allmänt tillgänglig i alla regioner där IoT Hub är tillgängligt. Standardvärdet är AVRO. Kodnings formatet kan bara anges när Blob Storage-slutpunkten har kon figurer ATS. Det går inte att redigera formatet för en befintlig slut punkt. När du använder JSON-kodning måste du ange contentType till **Application/JSON** och ContentEncoding till **UTF-8** i meddelande [systemets egenskaper](iot-hub-devguide-routing-query-syntax.md#system-properties). Båda dessa värden är Skift läges känsliga. Om innehålls kodningen inte har angetts skrivs meddelandena i bas 64-kodat format IoT Hub. Du kan välja kodnings formatet med IoT Hub skapa eller uppdatera REST API, särskilt [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)eller [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). Följande diagram visar hur du väljer kodnings formatet i Azure Portal.
+Det finns två lagrings tjänster IoT Hub kan dirigera meddelanden till-- [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) -och [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) -konton (ADLS Gen2). Azure Data Lake Storage-konton är [hierarkiska namn rymds](../storage/blobs/data-lake-storage-namespace.md)-aktiverade lagrings konton som byggts ovanpå Blob Storage. Båda använder blobbar för lagringen.
+
+IoT Hub stöder skrivning av data till Azure Storage i [Apache Avro](https://avro.apache.org/) -format samt i JSON-format. Standardvärdet är AVRO. Kodnings formatet kan bara anges när Blob Storage-slutpunkten har kon figurer ATS. Det går inte att redigera formatet för en befintlig slut punkt. När du använder JSON-kodning måste du ange contentType till **Application/JSON** och ContentEncoding till **UTF-8** i meddelande [systemets egenskaper](iot-hub-devguide-routing-query-syntax.md#system-properties). Båda dessa värden är Skift läges känsliga. Om innehålls kodningen inte har angetts skrivs meddelandena i bas 64-kodat format IoT Hub. Du kan välja kodnings formatet med IoT Hub skapa eller uppdatera REST API, särskilt [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)eller [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). Följande diagram visar hur du väljer kodnings formatet i Azure Portal.
 
 ![Slut punkts kodning för Blob Storage](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
-IoT Hub också stöd för att dirigera meddelanden till [Azure Data Lake Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction) (ADLS) Gen2-konton, som är [hierarkiska namn rymds](../storage/blobs/data-lake-storage-namespace.md)-aktiverade lagrings konton som byggts ovanpå Blob Storage. Den här funktionen finns i en offentlig för hands version och är tillgänglig för nya ADLS Gen2 konton i USA, västra 2 och västra centrala USA. [Registrera dig](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u) för att förhandsgranska detta. Vi kommer snart att distribuera den här funktionen till alla moln regioner. 
-
-IoT Hub batchar meddelanden och skriver data till en BLOB när batchen når en viss storlek eller en viss tid har förflutit. IoT Hub standardvärdet för följande fil namns konvention: 
+IoT Hub batchar meddelanden och skriver data till lagring när batchen når en viss storlek eller en viss tid har förflutit. IoT Hub standardvärdet för följande fil namns konvention: 
 
 ```
 {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
@@ -57,23 +57,28 @@ IoT Hub batchar meddelanden och skriver data till en BLOB när batchen når en v
 
 Du kan använda valfri fil namns konvention, men du måste använda alla listade tokens. IoT Hub skrivs till en tom BLOB om det inte finns några data att skriva.
 
-Vid routning till Blob Storage rekommenderar vi att du skapar en lista över Blobbarna och sedan går över dem, för att se till att alla behållare är lästa utan att behöva göra några antaganden om partitionen. Partitions intervallet kan eventuellt ändras under en [Microsoft-initierad redundansväxling](iot-hub-ha-dr.md#microsoft-initiated-failover) eller IoT Hub [manuell redundans](iot-hub-ha-dr.md#manual-failover). Du kan använda [list-BLOB-API: et](https://docs.microsoft.com/rest/api/storageservices/list-blobs) för att räkna upp listan över blobbar. Se följande exempel som vägledning.
+Vi rekommenderar att du anger lagrings behållarna och sedan går över dem, för att se till att alla behållare är lästa utan att behöva göra några antaganden om partitionen. Partitions intervallet kan eventuellt ändras under en [Microsoft-initierad redundansväxling](iot-hub-ha-dr.md#microsoft-initiated-failover) eller IoT Hub [manuell redundans](iot-hub-ha-dr.md#manual-failover). Du kan använda [list-BLOB-API: et](https://docs.microsoft.com/rest/api/storageservices/list-blobs) för att räkna upp listan över blobbar. Se följande exempel som vägledning.
 
-   ```csharp
-        public void ListBlobsInContainer(string containerName, string iothub)
+```csharp
+public void ListBlobsInContainer(string containerName, string iothub)
+{
+    var storageAccount = CloudStorageAccount.Parse(this.blobConnectionString);
+    var cloudBlobContainer = storageAccount.CreateCloudBlobClient().GetContainerReference(containerName);
+    if (cloudBlobContainer.Exists())
+    {
+        var results = cloudBlobContainer.ListBlobs(prefix: $"{iothub}/");
+        foreach (IListBlobItem item in results)
         {
-            var storageAccount = CloudStorageAccount.Parse(this.blobConnectionString);
-            var cloudBlobContainer = storageAccount.CreateCloudBlobClient().GetContainerReference(containerName);
-            if (cloudBlobContainer.Exists())
-            {
-                var results = cloudBlobContainer.ListBlobs(prefix: $"{iothub}/");
-                foreach (IListBlobItem item in results)
-                {
-                    Console.WriteLine(item.Uri);
-                }
-            }
+            Console.WriteLine(item.Uri);
         }
-   ```
+    }
+}
+```
+
+Om du vill skapa ett Azure Data Lake Gen2 lagrings konto skapar du ett nytt v2-lagrings konto och väljer *aktiverat* i fältet *hierarkisk namnrymd* på fliken **Avancerat** , som du ser i följande bild:
+
+![Välj Azure date Lake Gen2-lagring](./media/iot-hub-devguide-messages-d2c/selectadls2storage.png)
+
 
 ### <a name="service-bus-queues-and-service-bus-topics"></a>Service Bus köer och Service Bus ämnen
 

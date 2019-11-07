@@ -1,6 +1,6 @@
 ---
-title: Skapa datapipelines med Azure Data Factory | Microsoft Docs
-description: Lär dig hur du skapar en förutsägande pipeline med hjälp av Azure Machine Learning - Batchkörningsaktivitet i Azure Data Factory.
+title: Skapa förväntande data pipelines med Azure Data Factory
+description: Lär dig hur du skapar en förutsägelse pipeline med hjälp av Azure Machine Learning körnings aktivitet för batch i Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -11,37 +11,37 @@ ms.date: 02/20/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: aaf1d72a0c9c56e7d140fb615caf014507ebf263
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24568940a0f6e550ae0fe7658b81ba1c3b3d3556
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60928090"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683777"
 ---
-# <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Skapa förutsägande pipelines med Azure Machine Learning och Azure Data Factory
-> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
+# <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Skapa förutsägande pipelines med hjälp av Azure Machine Learning och Azure Data Factory
+> [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-azure-ml-batch-execution-activity.md)
 > * [Aktuell version](transform-data-using-machine-learning.md)
 
-[Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) gör att du kan skapa, testa och distribuera lösningar för förutsägelseanalys. Från en övergripande synsätt, är det klart i tre steg:
+[Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) ger dig möjlighet att bygga, testa och distribuera lösningar för förutsägelse analys. Från en överblick på hög nivå görs det i tre steg:
 
-1. **Skapa ett träningsexperiment**. Du kan göra det här steget med hjälp av Azure Machine Learning studio. Azure Machine Learning studio är en gemensam visual utvecklingsmiljö som används för att träna och testa en modell för förutsägelseanalys med hjälp av träningsdata.
-2. **Konvertera den till ett förutsägelseexperiment**. När din modell har tränats med befintliga data och du är redo att använda den för att samla in nya data, förbereda och effektivisera experimentet för bedömning.
-3. **Distribuera den som en webbtjänst**. Du kan publicera ditt bedömnings experiment som en Azure-webbtjänst. Du kan skicka data till din modell via den här web service-slutpunkt och få resultatet förutsägelser från modellen.
+1. **Skapa ett övnings experiment**. Du utför det här steget med hjälp av Azure Machine Learning Studio. Azure Machine Learning Studio är en miljö för utveckling av visuella objekt som du använder för att träna och testa en förutsägelse analys modell med tränings data.
+2. **Konvertera det till ett förutsägelse experiment**. När din modell har tränats med befintliga data och du är redo att använda den för att skapa nya data, förbereder du och effektiviserar experimentet med poäng.
+3. **Distribuera den som en webb tjänst**. Du kan publicera bedömnings experimentet som en Azure-webbtjänst. Du kan skicka data till din modell via den här webb tjänst slut punkten och ta emot resultat förutsägelser från modellen.
 
 ### <a name="data-factory-and-machine-learning-together"></a>Data Factory och Machine Learning tillsammans
-Azure Data Factory kan du enkelt skapa pipelines som använder en publiceringswebbkod [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning) webbtjänsten för förutsägande analys. Med hjälp av den **Batchkörningsaktivitet** i en Azure Data Factory-pipeline kan du anropa en Azure Machine Learning studio-webbtjänst för att göra förutsägelser på data i batch.
+Med Azure Data Factory kan du enkelt skapa pipelines som använder en publicerad [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning) webb tjänst för förutsägelse analys. Med hjälp av **aktiviteten kör batch-körning** i en Azure Data Factory pipeline kan du anropa en Azure Machine Learning Studio-webbtjänst för att göra förutsägelser för data i batch.
 
-Framöver kommer måste förutsägande modeller i Azure Machine Learning studio bedömning experiment vara modellkomponenten med hjälp av nya indatauppsättningar. Du kan träna en modell från Data Factory-pipeline genom att göra följande:
+Med tiden måste förutsägande modeller i test experimenten med Azure Machine Learning Studio återskapas med hjälp av nya data uppsättningar för indata. Du kan omträna en modell från en Data Factory pipeline genom att utföra följande steg:
 
-1. Publicera träningsexperiment (inte förutsägelseexperiment) som en webbtjänst. Du kan göra det här steget i Azure Machine Learning studio som du gjorde för att exponera förutsägelseexperiment som en webbtjänst i scenariot ovan.
-2. Använda Azure Machine Learning studio-Batchkörningsaktivitet för att anropa webbtjänsten för träningsexperimentet. I princip kan du använda Azure Machine Learning studio-batchkörningsaktivitet för att anropa både webbtjänst för utbildning och bedömning av webbtjänsten.
+1. Publicera utbildnings experimentet (inte förutsägande experiment) som en webb tjänst. Du gör det här steget i Azure Machine Learning Studio eftersom du gjorde ett förutsägelse experiment som en webb tjänst i föregående scenario.
+2. Använd aktiviteten för batch-körning i Azure Machine Learning Studio för att anropa webb tjänsten för inlärnings experimentet. I princip kan du använda batch-körningen Azure Machine Learning Studio för att anropa webb tjänsten för webb tjänster och Poäng för utbildning.
 
-När du är klar med att träna, uppdatera bedömning av webbtjänsten (förutsägelseexperiment visas som en webbtjänst) med den nyligen tränade modellen med hjälp av den **Azure Machine Learning studio aktivitet uppdatera resurs**. Se [uppdaterar modeller med Uppdateringsresursaktivitet](update-machine-learning-models.md) nedan för information.
+När du är färdig med omträningen uppdaterar du bedömnings webb tjänsten (förutsägelse experiment som exponeras som en webb tjänst) med den nya modellen genom att använda **Azure Machine Learning Studio-uppdateringen av resurs aktiviteten**. Mer information finns i uppdatera [modeller med hjälp av artikeln Uppdatera resurs aktivitet](update-machine-learning-models.md) .
 
 ## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning länkad tjänst
 
-Du skapar en **Azure Machine Learning** länkade tjänst som länkar en Azure Machine Learning-webbtjänst till en Azure-datafabrik. Den länkade tjänsten används av Azure Machine Learning-Batchkörningsaktivitet och [Uppdateringsresursaktivitet](update-machine-learning-models.md).
+Du skapar en **Azure Machine Learning** länkad tjänst för att länka en Azure Machine Learning webb tjänst till en Azure Data Factory. Den länkade tjänsten används av Azure Machine Learning aktivitet för batch-körning och [uppdatering av resurs aktivitet](update-machine-learning-models.md).
 
 ```JSON
 {
@@ -64,15 +64,15 @@ Du skapar en **Azure Machine Learning** länkade tjänst som länkar en Azure Ma
 }
 ```
 
-Se [länkade tjänster för Compute](compute-linked-services.md) artikeln beskrivningar om egenskaper i JSON-definitionen.
+Se artikeln om att [Beräkna länkade tjänster](compute-linked-services.md) för beskrivningar av egenskaper i JSON-definitionen.
 
-Azure Machine Learning har stöd för både klassiska webbtjänsterna och nya Web Services för din förutsägbart experiment. Du kan välja rätt som ska användas från Data Factory. För att få den information som krävs för att skapa den länkade tjänsten för Azure Machine Learning kan du gå till https://services.azureml.net, där alla webbtjänster (nytt) och klassiska webbtjänster visas. Klicka på den webbtjänst som du vill och klicka på **förbruka** sidan. Kopiera **primärnyckel** för **apiKey** egenskapen och **gruppbegäranden** för **mlEndpoint** egenskapen.
+Azure Machine Learning stödja både klassiska webb tjänster och nya webb tjänster för ditt förutsägelse experiment. Du kan välja den rätt som du vill använda från Data Factory. För att hämta den information som krävs för att skapa den länkade tjänsten Azure Machine Learning går du till https://services.azureml.netdär alla dina (nya) webb tjänster och klassiska webb tjänster visas. Klicka på den webb tjänst som du vill få åtkomst till och klicka på **Använd sida.** Kopiera **primär nyckel** för egenskapen **apiKey** och **batch-begäranden** för egenskapen **mlEndpoint** .
 
-![Azure Machine Learning Web Services](./media/transform-data-using-machine-learning/web-services.png)
+![Azure Machine Learning webb tjänster](./media/transform-data-using-machine-learning/web-services.png)
 
-## <a name="azure-machine-learning-batch-execution-activity"></a>Azure Machine Learning-batchkörningsaktivitet
+## <a name="azure-machine-learning-batch-execution-activity"></a>Azure Machine Learning batch-körning, aktivitet
 
-Följande JSON-kodfragmentet definierar en Azure Machine Learning Batch Execution-aktivitet. Aktivitetsdefinitionen innehåller en referens till tjänsten Azure Machine Learning länkad som du skapade tidigare.
+Följande JSON-kodfragment definierar en Azure Machine Learning batch execution-aktivitet. Aktivitets definitionen har en referens till den Azure Machine Learning länkade tjänsten som du skapade tidigare.
 
 ```JSON
 {
@@ -126,20 +126,20 @@ Följande JSON-kodfragmentet definierar en Azure Machine Learning Batch Executio
 
 | Egenskap          | Beskrivning                              | Krävs |
 | :---------------- | :--------------------------------------- | :------- |
-| name              | Namnet på aktiviteten i pipelinen     | Ja      |
-| description       | Text som beskriver hur aktiviteten ska hantera.  | Nej       |
-| type              | För Data Lake Analytics U-SQL-aktivitet, är aktivitetstypen **AzureMLBatchExecution**. | Ja      |
-| linkedServiceName | Länkade tjänster till Azure Machine Learning länkad tjänst. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln. | Ja      |
-| webServiceInputs  | Nyckel, värde-par, mappa namnen på Azure Machine Learning Web Service indata. Nyckeln måste matcha de indataparametrar som definierats i publicerade Azure Machine Learning-webbtjänsten. Värdet är ett Azure Storage-länkade tjänster nyckelpar och en FilePath egenskaper anger de inkommande Blob-platserna. | Nej       |
-| webServiceOutputs | Nyckel, värde-par, mappa namnen på Azure Machine Learning Web Service utdata. Nyckeln måste matcha utdataparametrar som definierats i publicerade Azure Machine Learning-webbtjänsten. Värdet är ett Azure Storage-länkade tjänster och FilePath egenskaper-par anger utdata Blob-platser. | Nej       |
-| globalParameters  | Nyckel, värde-par som ska skickas till Azure Machine Learning studio Batch Execution Service-slutpunkt. Nycklar måste matcha namnen på webbtjänstparametrar som definierats i den publicerade Azure Machine Learning studio-webbtjänsten. Värden angavs i egenskapen GlobalParameters i Azure Machine Learning studio batchbegäran körning | Nej       |
+| namn              | Namn på aktiviteten i pipelinen     | Ja      |
+| description       | Text som beskriver vad aktiviteten gör.  | Nej       |
+| typ              | För Data Lake Analytics U-SQL-aktivitet är aktivitets typen **AzureMLBatchExecution**. | Ja      |
+| linkedServiceName | Länkade tjänster till den länkade tjänsten Azure Machine Learning. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) . | Ja      |
+| webServiceInputs  | Nyckel, värdepar, mappar namnen på Azure Machine Learning webb tjänst indata. Nyckeln måste matcha de indataparametrar som definierats i webb tjänsten för publicerade Azure Machine Learning. Värdet är ett Azure Storage länkade tjänster och egenskaper för fil Sök väg som anger indata-BLOB-platser. | Nej       |
+| webServiceOutputs | Nyckel, värdepar, mappar namnen på Azure Machine Learning webb tjänstens utdata. Nyckeln måste matcha de utdataparametrar som definierats i den publicerade Azure Machine Learning-webbtjänsten. Värdet är ett Azure Storage länkade tjänster och egenskaper för fil Sök väg som anger utgående BLOB-platser. | Nej       |
+| Dublettparameternamnet  | Nyckel, värde-par som ska skickas till den Azure Machine Learning Studio batch execution service-slutpunkten. Nycklar måste matcha namnen på de webb tjänst parametrar som definierats i den publicerade Azure Machine Learning Studio-webbtjänsten. Värden skickas i egenskapen Dublettparameternamnet för batch-körningen Azure Machine Learning Studio batch | Nej       |
 
-### <a name="scenario-1-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>Scenario 1: Experiment med hjälp av Web service indata/utdata som refererar till data i Azure Blob Storage
+### <a name="scenario-1-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>Scenario 1: experiment som använder webb tjänst indata/utdata som refererar till data i Azure Blob Storage
 
-I det här scenariot, Azure Machine Learning-webbtjänsten gör förutsägelser med data från en fil i Azure blob storage och lagrar de förutsagda resultaten i blob storage. Följande JSON definierar en Data Factory-pipeline med en AzureMLBatchExecution aktivitet. Inkommande och utgående data i Azure BLOB-lagring refererar till med hjälp av ett LinkedName och FilePath par. I exemplet länkade tjänsten av indata och utdata är olika, du kan använda olika länkade tjänster för var och en av dina indata/utdata för Data Factory för att kunna hämta filerna som är rätt och skicka till Azure Machine Learning studio-webbtjänst.
+I det här scenariot gör Azure Machine Learning-webbtjänsten förutsägelser med hjälp av data från en fil i Azure Blob Storage och lagrar förutsägelse resultatet i blob-lagringen. Följande JSON definierar en Data Factory pipeline med en AzureMLBatchExecution-aktivitet. Indata och utdata i Azure blogg lagring refereras till med hjälp av ett LinkedName och ett fil Sök väg par. I det exempel länkade tjänsten för indata och utdata är olika kan du använda olika länkade tjänster för var och en av dina indata/utdata för Data Factory för att kunna hämta rätt filer och skicka till Azure Machine Learning Studio-webbtjänst.
 
 > [!IMPORTANT]
-> I Azure Machine Learning studio-experiment, web service indata och utdata har portar och globala parametrar du standardnamnen (”indata1”, ”indata2”) som du kan anpassa. De namn som du använder för webServiceInputs, webServiceOutputs och globalParameters inställningar måste exakt matcha namnen i experiment. Du kan visa nyttolasten i begäran av exemplet på hjälpsidan för batchkörning för din Azure Machine Learning studio-slutpunkt att verifiera förväntade mappningen.
+> I ditt Azure Machine Learning Studio experiment, webb tjänstens indata-och utgående portar och globala parametrar har standard namn ("INPUT1", "INPUT2") som du kan anpassa. De namn du använder för inställningarna webServiceInputs, webServiceOutputs och Dublettparameternamnet måste exakt matcha namnen i experimenten. Du kan visa nytto lasten för exempel förfrågan på hjälp sidan för batch-körning för din Azure Machine Learning Studio-slutpunkt för att verifiera den förväntade mappningen.
 >
 >
 
@@ -188,17 +188,17 @@ I det här scenariot, Azure Machine Learning-webbtjänsten gör förutsägelser 
     }
 }
 ```
-### <a name="scenario-2-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Scenario 2: Experiment som använder Reader/Writer moduler för att referera till data i olika lagringsutrymmen
-Ett annat vanligt scenario när du skapar Azure Machine Learning studio-experiment är att använda modulerna importera Data och utdata. Modulen importera Data som används för att läsa in data i ett experiment och utdata-modulen är att spara data från dina experiment. Mer information om importera Data och utdata finns i [importdata](https://msdn.microsoft.com/library/azure/dn905997.aspx) och [utdata](https://msdn.microsoft.com/library/azure/dn905984.aspx) ämnen i MSDN Library.
+### <a name="scenario-2-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Scenario 2: experiment med Reader/Writer-moduler för att referera till data i olika lagrings utrymmen
+Ett annat vanligt scenario när du skapar Azure Machine Learning Studio-experiment är att använda moduler för att importera data och utdata. Modulen importera data används för att läsa in data i ett experiment och modulen utdata är att spara data från experimenten. Mer information om hur du importerar data och utdata-moduler finns i avsnittet [Importera data](https://msdn.microsoft.com/library/azure/dn905997.aspx) och [utdata](https://msdn.microsoft.com/library/azure/dn905984.aspx) i MSDN Library.
 
-När du använder Import och utdata-moduler, är det bra att använda en Web service-parameter för varje egenskap i dessa moduler. Dessa webb-parametrar kan du konfigurera värden under körning. Du kan till exempel skapa ett experiment med en importera Data-modul som använder en Azure SQL Database: XXX.database.windows.net. När webbtjänsten har distribuerats kan du vill aktivera konsumenter av webbtjänsten att ange en annan Azure SQL-servern med namnet `YYY.database.windows.net`. Du kan använda en Web service-parameter så att det här värdet som ska konfigureras.
+När du använder modulerna importera data och utdata, är det bra att använda en webb tjänst parameter för varje egenskap i dessa moduler. Med de här webb parametrarna kan du konfigurera värdena under körning. Du kan till exempel skapa ett experiment med en modul för att importera data som använder en Azure SQL Database: XXX.database.windows.net. När webb tjänsten har distribuerats vill du göra det möjligt för användare av webb tjänsten att ange en annan Azure-SQL Server som kallas `YYY.database.windows.net`. Du kan använda en webb tjänst parameter för att tillåta att det här värdet konfigureras.
 
 > [!NOTE]
-> Skiljer sig från webbtjänstparametrar Web service indata och utdata. I det första scenariot har du sett hur indata och utdata kan anges för en Azure Machine Learning studio-webbtjänst. I det här scenariot kan skicka du parametrar för en webbtjänst som motsvarar till egenskaperna för Import Data-och utdata-moduler.
+> Webb tjänstens indata och utdata skiljer sig från webb tjänst parametrarna. I det första scenariot har du sett hur indata och utdata kan anges för en Azure Machine Learning Studio-webbtjänst. I det här scenariot skickar du parametrar för en webb tjänst som motsvarar egenskaper för modulerna importera data/utdata.
 >
 >
 
-Låt oss titta på ett scenario för att använda webbtjänstparametrar. Du har en distribuerad Azure Machine Learning-webbtjänst som använder en modul för dataläsare för att läsa data från en av de datakällor som stöds av Azure Machine Learning (till exempel: Azure SQL Database). När batchkörningen utförs, skrivs resultaten med hjälp av en skrivarmodul (Azure SQL Database).  Inga web service indata och utdata har definierats i experiment. I det här fallet rekommenderar vi att du konfigurerar relevanta webbtjänstparametrar för läsare och skrivare moduler. Den här konfigurationen gör att läsaren/skrivaren moduler konfigureras när du använder aktiviteten AzureMLBatchExecution. Du anger webbtjänstparametrar i den **globalParameters** avsnittet i JSON-aktiviteten på följande sätt.
+Nu ska vi titta på ett scenario för att använda webb tjänst parametrar. Du har en distribuerad Azure Machine Learning-webbtjänst som använder en läsar modul för att läsa data från en av de data källor som stöds av Azure Machine Learning (till exempel: Azure SQL Database). När batch-körningen har utförts skrivs resultatet med en Writer-modul (Azure SQL Database).  Inga indata och utdata för webb tjänsten definieras i experimenten. I det här fallet rekommenderar vi att du konfigurerar relevanta webb tjänst parametrar för modulerna läsare och skrivare. Med den här konfigurationen kan läsaren/skrivar-modulerna konfigureras när du använder AzureMLBatchExecution-aktiviteten. Du anger webb tjänst parametrar i **Dublettparameternamnet** -avsnittet i AKTIVITETS-JSON på följande sätt.
 
 ```JSON
 "typeProperties": {
@@ -212,19 +212,19 @@ Låt oss titta på ett scenario för att använda webbtjänstparametrar. Du har 
 ```
 
 > [!NOTE]
-> Web service-parametrar är skiftlägeskänsliga, så se till att de namn som du anger i aktiviteten JSON matchar de som visas av webbtjänsten.
+> Webb tjänst parametrarna är Skift läges känsliga, så se till att namnen som du anger i aktivitets-JSON matchar de som exponeras av webb tjänsten.
 >
 
-När du är klar med att träna, uppdatera bedömning av webbtjänsten (förutsägelseexperiment visas som en webbtjänst) med den nyligen tränade modellen med hjälp av den **Azure Machine Learning studio aktivitet uppdatera resurs**. Se [uppdaterar modeller med Uppdateringsresursaktivitet](update-machine-learning-models.md) nedan för information.
+När du är färdig med omträningen uppdaterar du bedömnings webb tjänsten (förutsägelse experiment som exponeras som en webb tjänst) med den nya modellen genom att använda **Azure Machine Learning Studio-uppdateringen av resurs aktiviteten**. Mer information finns i uppdatera [modeller med hjälp av artikeln Uppdatera resurs aktivitet](update-machine-learning-models.md) .
 
 ## <a name="next-steps"></a>Nästa steg
-Se följande artiklar som beskriver hur du omvandlar data på andra sätt:
+Se följande artiklar som förklarar hur du omformar data på andra sätt:
 
 * [U-SQL-aktivitet](transform-data-using-data-lake-analytics.md)
 * [Hive-aktivitet](transform-data-using-hadoop-hive.md)
-* [Piggningsåtgärd](transform-data-using-hadoop-pig.md)
+* [Aktivitet i gris](transform-data-using-hadoop-pig.md)
 * [MapReduce-aktivitet](transform-data-using-hadoop-map-reduce.md)
-* [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md)
+* [Hadoop streaming-aktivitet](transform-data-using-hadoop-streaming.md)
 * [Spark-aktivitet](transform-data-using-spark.md)
 * [.NET-anpassad aktivitet](transform-data-using-dotnet-custom-activity.md)
-* [Lagrad proceduraktivitet](transform-data-using-stored-procedure.md)
+* [Lagrad procedur aktivitet](transform-data-using-stored-procedure.md)

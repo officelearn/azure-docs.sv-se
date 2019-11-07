@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74033200bc365caf13035284108f2cf05eee7bbe
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e7eb3dbe3ce82b794a5ed530107781b634ceb32f
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180756"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573845"
 ---
 # <a name="access-and-start-apps-from-the-my-apps-preview-portal"></a>Komma åt och starta appar från portalen Mina appar (för hands version)
 
@@ -53,7 +53,7 @@ Om du har åtkomst behörighet till och använder din organisations molnbaserade
 
 1. Logga in på ditt arbets-eller skol konto på din dator.
 
-2. Öppna en webbläsare som stöds och gå till https://myapps.microsoft.com eller Använd länken som tillhandahålls av din organisation. Du kan till exempel dirigeras om du vill använda en anpassad sida för din organisation, till exempel `https://myapps.microsoft.com/contoso.com`.
+2. Öppna en webbläsare som stöds och gå till https://myapps.microsoft.comeller Använd länken som tillhandahålls av din organisation. Du kan till exempel dirigeras om du vill använda en anpassad sida för din organisation, till exempel `https://myapps.microsoft.com/contoso.com`.
 
     Sidan **appar** visas och visar alla molnbaserade appar som ägs av din organisation och som du kan använda.
 
@@ -63,7 +63,7 @@ Visa och Använd din organisations appar från Intune Managed Browser-appen på 
 
 1. Hämta och installera Intune Managed Browser-appen från [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) eller [Google Play Butik](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser)på den mobila enheten.
 
-2. Öppna appen Intune Managed Browser, gå till https://myapps.microsoft.com eller Använd länken som tillhandahålls av din organisation. Du kan till exempel dirigeras till en anpassad sida för din organisation, till exempel https://myapps.microsoft.com/contoso.com.
+2. Öppna appen Intune Managed Browser, gå till https://myapps.microsoft.comeller Använd länken som tillhandahålls av din organisation. Du kan till exempel dirigeras till en anpassad sida för din organisation, till exempel https://myapps.microsoft.com/contoso.com.
 
     Sidan **appar** visas och visar alla molnbaserade appar som ägs av din organisation och som du kan använda.
 
@@ -73,7 +73,7 @@ Visa och använda **Mina Apps** -portalen från en iPhone-eller iPad-enhet, som 
 
 1. Starta en webbapp på din mobila enhet, till exempel Safari.
 
-2. Gå till https://myapps.microsoft.com eller Använd länken som tillhandahålls av din organisation. Du kan till exempel dirigeras till en anpassad sida för din organisation, till exempel https://myapps.microsoft.com/contoso.com.
+2. Gå till https://myapps.microsoft.comeller Använd länken som tillhandahålls av din organisation. Du kan till exempel dirigeras till en anpassad sida för din organisation, till exempel https://myapps.microsoft.com/contoso.com.
 
     Sidan **appar** visas och visar alla molnbaserade appar som ägs av din organisation och som du kan använda.
 
@@ -83,7 +83,7 @@ Visa och använda **Mina Apps** -portalen på en Android-enhet.
 
 1. Starta en webbapp på din mobila enhet, till exempel Google Chrome.
 
-2. Gå till https://myapps.microsoft.com eller Använd länken som tillhandahålls av din organisation. Du kan till exempel dirigeras till en anpassad sida för din organisation, till exempel https://myapps.microsoft.com/contoso.com.
+2. Gå till https://myapps.microsoft.comeller Använd länken som tillhandahålls av din organisation. Du kan till exempel dirigeras till en anpassad sida för din organisation, till exempel https://myapps.microsoft.com/contoso.com.
 
     Sidan **appar** visas och visar alla molnbaserade appar som ägs av din organisation och som du kan använda.
 
@@ -108,8 +108,8 @@ När du har gå till **Mina Apps** -portalen kan du:
 
 ## <a name="related-articles"></a>Relaterade artiklar
 
-- [Uppdatera din profil och konto information](myprofile-portal-overview.md). Anvisningar om hur du uppdaterar din personliga information som visas på portalen **min profil** (för hands version).
+- [Uppdatera din profil och konto information](my-account-portal-overview.md). Anvisningar om hur du uppdaterar din personliga information som visas på portalen **min profil** (för hands version).
 
-- [Hantera dina organisationer](myprofile-portal-organizations-page.md). Anvisningar om hur du visar och hanterar din organisations information på sidan **organisationer** i **min profil** Portal.
+- [Hantera dina organisationer](my-account-portal-organizations-page.md). Anvisningar om hur du visar och hanterar din organisations information på sidan **organisationer** i **min profil** Portal.
 
-- [Hantera dina anslutna enheter](myprofile-portal-devices-page.md). Anvisningar om hur du hanterar enheter som du är ansluten till med ditt arbets-eller skol konto finns på sidan **enheter** i **min profil** Portal.
+- [Hantera dina anslutna enheter](my-account-portal-devices-page.md). Anvisningar om hur du hanterar enheter som du är ansluten till med ditt arbets-eller skol konto finns på sidan **enheter** i **min profil** Portal.

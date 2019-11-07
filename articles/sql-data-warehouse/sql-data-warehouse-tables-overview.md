@@ -1,5 +1,5 @@
 ---
-title: Design tabeller – Azure SQL Data Warehouse | Microsoft Docs
+title: Designa tabeller
 description: Introduktion till att designa tabeller i Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 55da4e3dc9c7f1c1f86a649a654ce41ef59ad839
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 9220d3adb31005551b6358034207f1071065b1a7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310106"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692395"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Designa tabeller i Azure SQL Data Warehouse
 
@@ -42,8 +43,8 @@ Om du vill visa organisationens tabell i SQL Data Warehouse kan du använda fakt
 
 | Informations lagret wideworldimportersdw-tabell  | Tabell typ | SQL Data Warehouse |
 |:-----|:-----|:------|:-----|
-| City | Dimension | wwi.DimCity |
-| Beställa | Fakta för | wwi.FactOrder |
+| Ort | Dimension | WWI. DimCity |
+| Beställa | Fakta | WWI. FactOrder |
 
 
 ## <a name="table-persistence"></a>Tabell persistence 
@@ -90,7 +91,7 @@ Tabell kategorin bestämmer ofta vilka alternativ som ska väljas för att distr
 
 | Tabell kategori | Rekommenderat distributions alternativ |
 |:---------------|:--------------------|
-| Fakta för           | Använd hash-distribution med grupperat columnstore-index. Prestanda förbättras när två hash-tabeller kopplas till samma distributions kolumn. |
+| Fakta           | Använd hash-distribution med grupperat columnstore-index. Prestanda förbättras när två hash-tabeller kopplas till samma distributions kolumn. |
 | Dimension      | Använd replikerad för mindre tabeller. Om tabellerna är för stora för att lagras på varje Compute-nod använder du hash-distribuerad. |
 | Mellanlagring        | Använd Round Robin för mellanlagrings tabellen. Belastningen med CTAS är snabbt. När data finns i mellanlagringsdatabasen använder du infoga... Välj om du vill flytta data till produktions tabeller. |
 

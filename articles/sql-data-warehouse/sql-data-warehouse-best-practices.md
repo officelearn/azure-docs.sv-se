@@ -1,5 +1,5 @@
 ---
-title: Metod tips för SQL Analytics i Azure Synapse Analytics (tidigare SQL DW) | Microsoft Docs
+title: Metod tips för SQL Analytics i Azure Synapse Analytics (tidigare SQL DW)
 description: Rekommendationer och metod tips för att utveckla lösningar för SQL Analytics i Azure Synapse Analytics (tidigare SQL DW).
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: bafa4088ee413e28ec6adee3df20f253aeebb861
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6a9d7c4ed020f447e9512c7bc2edd0caecf3400d
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499843"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73646176"
 ---
 # <a name="best-practices-for-sql-analytics-in-azure-synapse-analytics-formerly-sql-dw"></a>Metod tips för SQL Analytics i Azure Synapse Analytics (tidigare SQL DW)
 
@@ -137,7 +137,7 @@ Om du märker att användar frågor verkar ha lång fördröjning kan det vara s
 
 Se även [resurs klasser för hantering av arbets belastning](resource-classes-for-workload-management.md), [sys. DM _pdw_waits][sys.dm_pdw_waits]
 
-## <a name="other-resources"></a>Övriga resurser
+## <a name="other-resources"></a>Andra resurser
 Information om vanliga problem och lösningar finns i vår [felsökningsartikel][Troubleshooting].
 
 Om du inte hittar det du letar efter i den här artikeln kan du prova att använda "Sök efter dokument" på vänster sida av den här sidan för att söka i alla Azure Synapse-dokument.  [Azure Synapse-forumet][Azure SQL Data Warehouse MSDN Forum] är en plats där du kan ställa frågor till andra användare och till produkt gruppen för Azure Synapse. 

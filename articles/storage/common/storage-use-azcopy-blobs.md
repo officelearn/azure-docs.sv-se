@@ -8,18 +8,18 @@ ms.date: 10/22/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 6680efb89eddcfb1c4fa931993956ef83369b292
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 78e3f1d4f457e041d386ac7754d089b8b3635b08
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817040"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686647"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Överföra data med AzCopy och Blob Storage
 
 AzCopy är ett kommando rads verktyg som du kan använda för att kopiera data till, från eller mellan lagrings konton. Den här artikeln innehåller exempel kommandon som fungerar med Blob Storage.
 
-## <a name="get-started"></a>Kom i gång
+## <a name="get-started"></a>Kom igång
 
 Se artikeln [Kom igång med AZCopy](storage-use-azcopy-v10.md) för att ladda ned AzCopy och Läs om hur du kan ange autentiseringsuppgifter för lagrings tjänsten.
 
@@ -45,7 +45,7 @@ Du kan använda kommandot [AzCopy make](storage-ref-azcopy-make.md) för att ska
 
 För detaljerade referens dokument, se [AzCopy-fabrikat](storage-ref-azcopy-make.md).
 
-## <a name="upload-files"></a>Ladda upp filer
+## <a name="upload-files"></a>Överföra filer
 
 Du kan använda kommandot [AzCopy Copy](storage-ref-azcopy-copy.md) för att ladda upp filer och kataloger från den lokala datorn.
 
@@ -70,7 +70,7 @@ Detaljerade referens dokument finns i [AzCopy Copy](storage-ref-azcopy-copy.md).
 | **Exempel** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'` |
 | **Exempel** (hierarkiskt namn område) | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt'` |
 
-Du kan också ladda upp en fil med en jokertecken (*) var som helst i fil Sök vägen eller fil namnet. Exempel: `'C:\myDirectory\*.txt'` eller `C:\my*\*.txt`.
+Du kan också ladda upp en fil med en jokertecken (*) var som helst i fil Sök vägen eller fil namnet. Till exempel: `'C:\myDirectory\*.txt'`eller `C:\my*\*.txt`.
 
 > [!NOTE]
 > AzCopy som standard överför data till block-blobar. Om du vill ladda upp filer som bifogade blobbar, eller Page blobbar använder du flaggan `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
@@ -121,9 +121,9 @@ Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med alternativet `-
 | **Exempel** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-path 'photos;documents\myFile.txt' --recursive` |
 | **Exempel** (hierarkiskt namn område) | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --include-path 'photos;documents\myFile.txt' --recursive` |
 
-I det här exemplet överför AzCopy katalogen `C:\myDirectory\photos` och filen `C:\myDirectory\documents\myFile.txt`. Du måste inkludera alternativet `--recursive` för att överföra alla filer i katalogen `C:\myDirectory\photos`.
+I det här exemplet överför AzCopy katalogen `C:\myDirectory\photos` och `C:\myDirectory\documents\myFile.txt`s filen. Du måste inkludera alternativet `--recursive` för att överföra alla filer i katalogen `C:\myDirectory\photos`.
 
-Du kan också utesluta filer med alternativet `--exclude-path`. Mer information finns i referens dokument för [AzCopy Copy](storage-ref-azcopy-copy.md) .
+Du kan också utesluta filer med hjälp av alternativet `--exclude-path`. Mer information finns i referens dokument för [AzCopy Copy](storage-ref-azcopy-copy.md) .
 
 #### <a name="use-wildcard-characters"></a>Använd jokertecken
 
@@ -135,7 +135,7 @@ Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med alternativet `-
 | **Exempel** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-pattern 'myFile*.txt;*.pdf*'` |
 | **Exempel** (hierarkiskt namn område) | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --include-pattern 'myFile*.txt;*.pdf*'` |
 
-Du kan också utesluta filer med alternativet `--exclude-pattern`. Mer information finns i referens dokument för [AzCopy Copy](storage-ref-azcopy-copy.md) .
+Du kan också utesluta filer med hjälp av alternativet `--exclude-pattern`. Mer information finns i referens dokument för [AzCopy Copy](storage-ref-azcopy-copy.md) .
 
 Alternativen `--include-pattern` och `--exclude-pattern` gäller endast för fil namn och inte till sökvägen.  Om du vill kopiera alla textfiler som finns i ett katalog träd, använder du alternativet `–recursive` för att hämta hela katalog trädet och använder sedan `–include-pattern` och anger `*.txt` för att hämta alla textfiler.
 
@@ -152,7 +152,7 @@ Det här avsnittet innehåller följande exempel:
 > * Hämta vissa filer
 
 > [!NOTE]
-> Om värdet för egenskapen `Content-md5` för en BLOB innehåller en hash beräknar AzCopy en MD5-hash för hämtade data och kontrollerar att MD5-hashen som lagras i blobens `Content-md5`-egenskap matchar den beräknade hashen. Om dessa värden inte matchar, Miss lyckas nedladdningen om du inte åsidosätter det här beteendet genom att lägga till `--check-md5=NoCheck` eller `--check-md5=LogOnly` till kommandot Copy.
+> Om `Content-md5` egenskap svärdet för en BLOB innehåller en hash, beräknar AzCopy en MD5-hash för hämtade data och verifierar att MD5-hashen som lagras i blobens `Content-md5`-egenskap matchar den beräknade hashen. Om dessa värden inte matchar, Miss lyckas nedladdningen om du inte åsidosätter det här beteendet genom att lägga till `--check-md5=NoCheck` eller `--check-md5=LogOnly` till kommandot Copy.
 
 Detaljerade referens dokument finns i [AzCopy Copy](storage-ref-azcopy-copy.md).
 
@@ -198,7 +198,7 @@ Du kan ange fullständiga fil namn eller använda partiella namn med jokertecken
 
 #### <a name="specify-multiple-complete-file-names"></a>Ange flera fullständiga fil namn
 
-Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med alternativet `--include-path`. Separera enskilda fil namn genom att använda en semicolin (`;`).
+Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med alternativet `--include-path`. Separera enskilda fil namn med hjälp av en semicolin (`;`).
 
 |    |     |
 |--------|-----------|
@@ -206,9 +206,9 @@ Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med alternativet `-
 | **Exempel** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt' --recursive` |
 | **Exempel** (hierarkiskt namn område) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt'--recursive` |
 
-I det här exemplet överför AzCopy katalogen `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/photos` och filen `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/documents/myFile.txt`. Du måste inkludera alternativet `--recursive` för att överföra alla filer i katalogen `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/photos`.
+I det här exemplet överför AzCopy katalogen `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/photos` och `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/documents/myFile.txt`s filen. Du måste inkludera alternativet `--recursive` för att överföra alla filer i katalogen `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/photos`.
 
-Du kan också utesluta filer med alternativet `--exclude-path`. Mer information finns i referens dokument för [AzCopy Copy](storage-ref-azcopy-copy.md) .
+Du kan också utesluta filer med hjälp av alternativet `--exclude-path`. Mer information finns i referens dokument för [AzCopy Copy](storage-ref-azcopy-copy.md) .
 
 #### <a name="use-wildcard-characters"></a>Använd jokertecken
 
@@ -220,7 +220,7 @@ Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med alternativet `-
 | **Exempel** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-pattern 'myFile*.txt;*.pdf*'` |
 | **Exempel** (hierarkiskt namn område) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-pattern 'myFile*.txt;*.pdf*'` |
 
-Du kan också utesluta filer med alternativet `--exclude-pattern`. Mer information finns i referens dokument för [AzCopy Copy](storage-ref-azcopy-copy.md) .
+Du kan också utesluta filer med hjälp av alternativet `--exclude-pattern`. Mer information finns i referens dokument för [AzCopy Copy](storage-ref-azcopy-copy.md) .
 
 Alternativen `--include-pattern` och `--exclude-pattern` gäller endast för fil namn och inte till sökvägen.  Om du vill kopiera alla textfiler som finns i ett katalog träd, använder du alternativet `–recursive` för att hämta hela katalog trädet och använder sedan `–include-pattern` och anger `*.txt` för att hämta alla textfiler.
 
@@ -285,9 +285,9 @@ Du kan synkronisera innehållet i ett lokalt fil system med en BLOB-behållare. 
 > [!NOTE]
 > För närvarande stöds det här scenariot endast för konton som inte har ett hierarkiskt namn område. Den aktuella versionen av AzCopy synkroniseras inte mellan andra källor och destinationer (till exempel: File Storage eller Amazon Web Services (AWS) S3-buckets).
 
-Kommandot [Sync](storage-ref-azcopy-sync.md) jämför fil namn och senaste ändrade tidsstämplar. Ange värdet `true` för den valfria flaggan `--delete-destination` eller `prompt` för att ta bort filer i mål katalogen om filerna inte längre finns i käll katalogen.
+Kommandot [Sync](storage-ref-azcopy-sync.md) jämför fil namn och senaste ändrade tidsstämplar. Ange `--delete-destination` valfri flagga till värdet `true` eller `prompt` för att ta bort filer i mål katalogen om filerna inte längre finns i käll katalogen.
 
-Om du ställer in flaggan `--delete-destination` till `true` AzCopy ta bort filer utan att ange någon prompt. Om du vill att en prompt ska visas innan AzCopy tar bort en fil ställer du in flaggan `--delete-destination` på `prompt`.
+Om du ställer in `--delete-destination`-flaggan på `true` AzCopy tar bort filer utan att ange någon prompt. Om du vill att en prompt ska visas innan AzCopy tar bort en fil ställer du in flaggan `--delete-destination` `prompt`.
 
 > [!NOTE]
 > För att förhindra oavsiktliga borttagningar, se till att aktivera funktionen för [mjuk borttagning](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) innan du använder flaggan `--delete-destination=prompt|true`.
@@ -332,7 +332,7 @@ Den första katalogen som visas i det här kommandot är källan. Den andra är 
 |    |     |
 |--------|-----------|
 | **Uttryck** | `azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive` |
-| **Exempel** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/<container-name>/myDirectory' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myDirectory' --recursive` |
+| **Exempel** | `azcopy sync 'https://mysourceaccount.blob.core.windows.net/<container-name>/myDirectory' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myDirectory' --recursive` |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,12 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 10/11/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 9da057683f3da41f077b309db79271a10738b59d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: c02c502dc2ab85a6ae1c602c53723e9b5a758250
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490011"
+ms.locfileid: "73576741"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Övervaka och samla in data från ML webb tjänst slut punkter
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ I den här artikeln får du lära dig hur du samlar in data från och övervakar
 [Läs mer om Azure Application insikter](../../azure-monitor/app/app-insights-overview.md). 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
@@ -112,39 +112,6 @@ Om du vill inaktivera Azure Application insikter använder du följande kod:
 ## replace <service_name> with the name of the web service
 <service_name>.update(enable_app_insights=False)
 ```
-    
-## <a name="use-studio-to-configure"></a>Använd Studio för att konfigurera
-
-Du kan aktivera och inaktivera Application Insights i Azure Machine Learning Studio.
-
-1. Öppna arbets ytan i [Azure Machine Learning Studio](https://ml.azure.com).
-
-1. På fliken **distributioner** väljer du den tjänst där du vill aktivera Application Insights.
-
-   [![lista över tjänster på fliken distributioner](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
-
-3. Välj **Redigera**.
-
-   [![knappen Redigera](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
-
-4. I **Avancerade inställningar**markerar du kryss rutan **Aktivera AppInsights-diagnostik** .
-
-   [![markerad kryss ruta för att aktivera diagnostik](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
-
-1. Klicka på **Uppdatera** längst ned på skärmen för att tillämpa ändringarna. 
-
-### <a name="disable"></a>Inaktivera
-1. Öppna arbets ytan i [Azure Machine Learning Studio](https://ml.azure.com).
-1. Välj **distributioner**, Välj tjänsten och sedan **Redigera**.
-
-   [![Använd knappen Redigera](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
-
-1. I **Avancerade inställningar**avmarkerar du kryss rutan **Aktivera AppInsights-diagnostik** . 
-
-   [![avmarkerad kryss ruta för aktivering av diagnostik](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
-
-1. Klicka på **Uppdatera** längst ned på skärmen för att tillämpa ändringarna. 
- 
 
 ## <a name="evaluate-data"></a>Utvärdera data
 Din tjänsts data lagras i ditt Azure Application Insights-konto inom samma resurs grupp som Azure Machine Learning.

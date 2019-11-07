@@ -1,5 +1,5 @@
 ---
-title: Skapa en Windows-pool för virtuella skriv bord med en Azure Resource Manager-mall – Azure
+title: Windows-pool för virtuella skriv bord Azure Resource Manager – Azure
 description: Så här skapar du en adresspool i det virtuella Windows-skrivbordet med en Azure Resource Manager-mall.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: b96ecad93c481a762b81a7888940850ed3a73e5f
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 23d032a2496e975c7e6ceafb61691c2cb1216218
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679618"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605750"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Skapa en värdpool med en Azure Resource Manager-mall
 
@@ -42,7 +42,7 @@ Om du distribuerar i en prenumeration på Cloud Solution Provider följer du de 
 
 1. Rulla nedåt och högerklicka på **distribuera till Azure**och välj sedan **Kopiera länk plats**.
 2. Öppna en text redigerare som anteckningar och klistra in länken där.
-3. Höger efter "https://portal.azure.com/" och innan hashtagg (#) anger ett @-tecken följt av innehavarens domän namn. Här är ett exempel på det format som du bör använda: https://portal.azure.com/@Contoso.onmicrosoft.com#create/.
+3. Direkt efter "https://portal.azure.com/" och innan hashtagg (#) anger ett @-tecken följt av innehavarens domän namn. Här är ett exempel på det format som du bör använda: https://portal.azure.com/@Contoso.onmicrosoft.com#create/.
 4. Logga in på Azure Portal som en användare med administratörs-/deltagar behörighet för Cloud Solution Provider-prenumerationen.
 5. Klistra in länken som du kopierade till text redigeraren i adress fältet.
 

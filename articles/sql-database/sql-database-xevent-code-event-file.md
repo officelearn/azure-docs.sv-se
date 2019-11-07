@@ -1,5 +1,5 @@
 ---
-title: XEvent-händelseloggen för SQL Database | Microsoft Docs
+title: XEvent-händelseloggen för SQL Database
 description: Tillhandahåller PowerShell och Transact-SQL för kod exempel i två faser som visar händelse fil målet i en utökad händelse på Azure SQL Database. Azure Storage är en obligatorisk del av det här scenariot.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 03/12/2019
-ms.openlocfilehash: f0994f92444da338b18447eb1b248c74df9aa2d2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ea5c90433a4d2928e5fb88df149631c80df9dacf
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566115"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686830"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Mål kod för händelse filen för utökade händelser i SQL Database
 
@@ -34,7 +34,7 @@ I det här avsnittet presenteras ett kod exempel med två faser:
   * För att tilldela Azure Storage container till ett händelse fil mål.
   * För att skapa och starta händelsesessionen och så vidare.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -49,7 +49,7 @@ I det här avsnittet presenteras ett kod exempel med två faser:
   
   * Avsnitt med rubriken [hämta SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
   * [En direkt länk till nedladdningen.](https://go.microsoft.com/fwlink/?linkid=616025)
-* Du måste ha installerat [Azure PowerShell](https://go.microsoft.com/?linkid=9811175) -modulerna.
+* Du måste ha installerat [Azure PowerShell-modulerna](https://go.microsoft.com/?linkid=9811175) .
   
   * Modulerna innehåller kommandon som- **New-AzStorageAccount**.
 
@@ -240,7 +240,7 @@ Anteckna de få namngivna värden som PowerShell-skriptet skriver ut när det av
 
 Skriptet börjar med kommandon för att rensa efter en eventuell tidigare körning och är rerunnable.
 
-PowerShell-skriptet skrev ut några namngivna värden när det avslutades. Du måste redigera Transact-SQL-skriptet för att använda dessa värden. Se **hur** du kan göra det i Transact-SQL-skriptet för att hitta redigerings punkterna.
+PowerShell-skriptet skrev ut några namngivna värden när det avslutades. Du måste redigera Transact-SQL-skriptet för att använda dessa värden. Se hur du kan göra det i Transact-SQL-skriptet för **att hitta redigerings** punkterna.
 
 1. Öppna SQL Server Management Studio (SSMS. exe).
 2. Anslut till Azure SQL Database databasen.
@@ -461,11 +461,11 @@ GO
 ```
 
 
-## <a name="output"></a>Output
+## <a name="output"></a>Resultat
 
-När Transact-SQL-skriptet är klart klickar du på en cell under kolumn rubriken **event_data_XML** . **Ett\<händelse >s** element visas som visar en Update-instruktion.
+När Transact-SQL-skriptet är klart klickar du på en cell under kolumn rubriken **event_data_XML** . Ett **\<event >** -element visas som visar en Update-instruktion.
 
-Här är ett  **\<händelse >s** element som genererades under testning:
+Här är ett **\<event >** -element som genererades under testning:
 
 
 ```xml
@@ -510,7 +510,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 Föregående Transact-SQL-skript använde följande systemfunktion för att läsa event_file:
 
-* [sys.fn_xe_file_target_read_file (Transact-SQL)](https://msdn.microsoft.com/library/cc280743.aspx)
+* [sys. fn_xe_file_target_read_file (Transact-SQL)](https://msdn.microsoft.com/library/cc280743.aspx)
 
 En förklaring av avancerade alternativ för visning av data från utökade händelser finns på:
 
@@ -534,8 +534,8 @@ Mer information om konton och behållare i Azure Storage-tjänsten finns i:
 * [Använda Blob Storage från .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 * [Namnge och referera till containrar, blobar och metadata](https://msdn.microsoft.com/library/azure/dd135715.aspx)
 * [Arbeta med rot behållaren](https://msdn.microsoft.com/library/azure/ee395424.aspx)
-* [Lektion 1: Skapa en lagrad åtkomst princip och en signatur för delad åtkomst på en Azure-behållare](https://msdn.microsoft.com/library/dn466430.aspx)
-  * [Lektion 2: Skapa en SQL Server autentiseringsuppgift med hjälp av signaturen för delad åtkomst](https://msdn.microsoft.com/library/dn466435.aspx)
+* [Lektion 1: skapa en lagrad åtkomst princip och en signatur för delad åtkomst på en Azure-behållare](https://msdn.microsoft.com/library/dn466430.aspx)
+  * [Lektion 2: skapa en SQL Server autentiseringsuppgift med hjälp av signaturen för delad åtkomst](https://msdn.microsoft.com/library/dn466435.aspx)
 * [Utökade händelser för Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
 
 <!--

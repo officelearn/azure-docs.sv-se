@@ -1,5 +1,5 @@
 ---
-title: Använd SSL-certifikat i program kod – Azure App Service | Microsoft Docs
+title: Använd SSL-certifikat i kod-Azure App Service | Microsoft Docs
 description: Lär dig hur du använder klient certifikat för att ansluta till fjär resurser som kräver dem.
 services: app-service
 documentationcenter: ''
@@ -10,26 +10,26 @@ ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/16/2019
+ms.date: 11/04/2019
 ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 1f042f72f82d2198472fe81670c697c0c4b28321
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 93dfe784d45cd9cd93d22c5e8c3275c563f7f88b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513697"
+ms.locfileid: "73572083"
 ---
-# <a name="use-an-ssl-certificate-in-your-application-code-in-azure-app-service"></a>Använd ett SSL-certifikat i program koden i Azure App Service
+# <a name="use-an-ssl-certificate-in-your-code-in-azure-app-service"></a>Använd ett SSL-certifikat i koden i Azure App Service
 
-Din App Service app-kod kan fungera som en klient och åtkomst till en extern tjänst som kräver certifikatautentisering. Den här instruktions guiden visar hur du använder offentliga eller privata certifikat i program koden.
+I program koden kan du komma åt [offentliga eller privata certifikat som du lägger till i App Service](configure-ssl-certificate.md). Din app-kod kan fungera som en klient och komma åt en extern tjänst som kräver certifikatautentisering, eller så kan den behöva utföra kryptografiska uppgifter. Den här instruktions guiden visar hur du använder offentliga eller privata certifikat i program koden.
 
-Den här metoden för att använda certifikat i din kod använder SSL-funktioner i App Service, vilket kräver att din app är på **Basic** -nivå eller högre. Du kan också [inkludera certifikat filen i din app-lagringsplats](#load-certificate-from-file), men det är inte en rekommenderad metod för privata certifikat.
+Den här metoden för att använda certifikat i din kod använder SSL-funktioner i App Service, vilket kräver att din app är på **Basic** -nivå eller högre. Om din app finns på **kostnads fri** eller **delad** nivå kan du [inkludera certifikat filen i din app-lagringsplats](#load-certificate-from-file).
 
 När du låter App Service hantera dina SSL-certifikat kan du underhålla certifikaten och program koden separat och skydda känsliga data.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att följa den här instruktions guiden:
 
@@ -46,9 +46,9 @@ Hitta det certifikat som du vill använda och kopiera tumavtrycket.
 
 ![Kopiera certifikatets tumavtryck](./media/configure-ssl-certificate/create-free-cert-finished.png)
 
-## <a name="load-the-certificate"></a>Läs in certifikatet
+## <a name="make-the-certificate-accessible"></a>Gör certifikatet tillgängligt
 
-Om du vill använda ett certifikat i din app-kod lägger du till dess tumavtryck i `WEBSITE_LOAD_CERTIFICATES` app-inställningen genom att köra följande kommando i <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>:
+Om du vill komma åt ett certifikat i din app-kod lägger du till dess tumavtryck i `WEBSITE_LOAD_CERTIFICATES` app-inställningen genom att köra följande kommando i <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_CERTIFICATES=<comma-separated-certificate-thumbprints>
@@ -56,15 +56,14 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 Om du vill göra alla dina certifikat tillgängliga, ställer du in värdet på `*`.
 
-> [!NOTE]
-> Den här inställningen placerar de angivna certifikaten i den [aktuella User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) -butiken för de flesta pris nivåer, men i den **isolerade** nivån (d.v.s. appen körs i en [App Service-miljön](environment/intro.md)) placeras certifikaten i den [lokala Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) auktoriseringsarkiv.
->
+## <a name="load-certificate-in-windows-apps"></a>Läs in certifikat i Windows-appar
 
-De konfigurerade certifikaten är nu redo att användas av din kod.
+Inställningen `WEBSITE_LOAD_CERTIFICATES` app gör de angivna certifikaten tillgängliga för din Windows-värdbaserade app i Windows certifikat Arkiv och platsen är beroende av [pris nivån](overview-hosting-plans.md):
 
-## <a name="load-the-certificate-in-code"></a>Läs in certifikatet i kod
+- **Isolerad** nivå – i [lokalt Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores). 
+- Alla andra nivåer – i [aktuell User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
 
-När ditt certifikat är tillgängligt kan du komma åt det C# i kod av certifikatets tumavtryck. Följande kod läser in ett certifikat med tumavtrycket `E661583E8FABEF4C0BEF694CBC41C28FB81CD870`.
+I C# kod får du åtkomst till certifikatet med tumavtrycket för certifikatet. Följande kod läser in ett certifikat med tumavtrycket `E661583E8FABEF4C0BEF694CBC41C28FB81CD870`.
 
 ```csharp
 using System;
@@ -89,30 +88,74 @@ certStore.Close();
 ...
 ```
 
-<a name="file"></a>
-## <a name="load-certificate-from-file"></a>Läs in certifikat från fil
+I Java-kod får du åtkomst till certifikatet från "Windows-MY"-butiken med hjälp av fältet eget namn på certifikat mottagare (se [certifikat för offentlig nyckel](https://en.wikipedia.org/wiki/Public_key_certificate)). Följande kod visar hur du läser in ett privat nyckel certifikat:
 
-Om du behöver läsa in en certifikat fil från program katalogen är det bättre att ladda upp den med [FTPS](deploy-ftp.md) i stället för [git](deploy-local-git.md), till exempel. Du bör behålla känsliga data som ett privat certifikat från käll kontroll.
+```java
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+import java.security.KeyStore;
+import java.security.cert.Certificate;
+import java.security.PrivateKey;
 
-Även om du läser in filen direkt i din .NET-kod, verifierar biblioteket fortfarande om den aktuella användar profilen har lästs in. Om du vill läsa in den aktuella användar profilen anger du inställningen `WEBSITE_LOAD_USER_PROFILE` app med följande kommando i <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+...
+KeyStore ks = KeyStore.getInstance("Windows-MY");
+ks.load(null, null); 
+Certificate cert = ks.getCertificate("<subject-cn>");
+PrivateKey privKey = (PrivateKey) ks.getKey("<subject-cn>", ("<password>").toCharArray());
 
-```azurecli-interactive
-az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
+// Use the certificate and key
+...
 ```
 
-När den här inställningen har angetts läser följande C# exempel in ett certifikat med namnet `mycert.pfx` från katalogen `certs` i appens lagrings plats.
+För språk som inte stöder eller som inte erbjuder stöd för Windows certifikat Arkiv, se [Läs in certifikat från fil](#load-certificate-from-file).
+
+## <a name="load-certificate-in-linux-apps"></a>Läs in certifikat i Linux-appar
+
+Inställningarna för `WEBSITE_LOAD_CERTIFICATES` app gör de angivna certifikaten tillgängliga för dina Linux-värdbaserade appar (inklusive anpassade behållar appar) som filer. Filerna finns under följande kataloger:
+
+- Privata certifikat – `/var/ssl/private` (`.p12` filer)
+- Offentliga certifikat – `/var/ssl/certs` (`.der` filer)
+
+Certifikat fil namnen är tumavtrycken. Följande C# kod visar hur du läser in ett offentligt certifikat i en Linux-app.
 
 ```csharp
 using System;
 using System.Security.Cryptography.X509Certificates;
 
 ...
-// Replace the parameter with "~/<relative-path-to-cert-file>".
-string certPath = Server.MapPath("~/certs/mycert.pfx");
+var bytes = System.IO.File.ReadAllBytes("/var/ssl/certs/<thumbprint>.der");
+var cert = new X509Certificate2(bytes);
 
-X509Certificate2 cert = GetCertificate(certPath, signatureBlob.Thumbprint);
-...
+// Use the loaded certificate
 ```
+
+Information om hur du läser in ett SSL-certifikat från en fil i Node. js, PHP, python, Java eller ruby finns i dokumentationen för respektive språk eller webb plattform.
+
+## <a name="load-certificate-from-file"></a>Läs in certifikat från fil
+
+Om du behöver läsa in en certifikat fil som du överför manuellt är det bättre att ladda upp certifikatet med [FTPS](deploy-ftp.md) i stället för [git](deploy-local-git.md), till exempel. Du bör behålla känsliga data som ett privat certifikat från käll kontroll.
+
+> [!NOTE]
+> ASP.NET och ASP.NET Core i Windows måste komma åt certifikat arkivet även om du läser in ett certifikat från en fil. Om du vill läsa in en certifikat fil i en Windows .NET-app läser du in den aktuella användar profilen med följande kommando i <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>:
+>
+> ```azurecli-interactive
+> az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
+> ```
+
+I följande C# exempel läses ett offentligt certifikat från en relativ sökväg i appen:
+
+```csharp
+using System;
+using System.Security.Cryptography.X509Certificates;
+
+...
+var bytes = System.IO.File.ReadAllBytes("~/<relative-path-to-cert-file>");
+var cert = new X509Certificate2(bytes);
+
+// Use the loaded certificate
+```
+
+Information om hur du läser in ett SSL-certifikat från en fil i Node. js, PHP, python, Java eller ruby finns i dokumentationen för respektive språk eller webb plattform.
 
 ## <a name="more-resources"></a>Fler resurser
 

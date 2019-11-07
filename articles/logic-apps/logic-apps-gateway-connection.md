@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/18/2019
-ms.openlocfilehash: 6a01999eff6accf1b8d7f56729d9dce77fbedb0a
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 49ed6eedf55a8a3c0faa2fa1ff60b9894af78285
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72988720"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580861"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Ansluta till lokala data källor från Azure Logic Apps
 
@@ -28,8 +28,8 @@ Den här artikeln visar hur du skapar en Azure gateway-resurs för en tidigare [
 Information om hur du använder gatewayen med andra tjänster finns i följande artiklar:
 
 * [Microsoft Power BI lokal datagateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [Microsoft Flow lokal datagateway](https://flow.microsoft.com/documentation/gateway-manage/)
-* [Microsoft PowerApps lokal datagateway](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [Automatisera automatisk lokal datagateway](https://flow.microsoft.com/documentation/gateway-manage/)
+* [Microsoft Power Apps lokal datagateway](https://powerapps.microsoft.com/tutorials/gateway-management/)
 * [Azure Analysis Services lokal datagateway](../analysis-services/analysis-services-gateway.md)
 
 <a name="supported-connections"></a>
@@ -53,7 +53,7 @@ I Azure Logic Apps stöder den lokala datagatewayen de [lokala](../connectors/ap
 
 Azure Logic Apps stöder Läs-och skriv åtgärder via datagatewayen. Dessa åtgärder har dock [gränser för deras nytto Last storlek](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations). Även om själva gatewayen inte ådrar sig ytterligare kostnader, gäller [Logic Apps prissättnings modell](../logic-apps/logic-apps-pricing.md) för dessa anslutningar och andra åtgärder i Azure Logic Apps.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Du har redan [installerat den lokala datagatewayen på en lokal dator](../logic-apps/logic-apps-gateway-install.md).
 
@@ -96,7 +96,7 @@ När du har installerat gatewayen på en lokal dator skapar du Azure-resursen f�
 
 <a name="connect-logic-app-gateway"></a>
 
-## <a name="connect-to-on-premises-data"></a>Anslut till lokala data
+## <a name="connect-to-on-premises-data"></a>Ansluta till lokala data
 
 När du har skapat din gateway-resurs och associerat din Azure-prenumeration med den här resursen kan du nu skapa en anslutning mellan din Logic app och din lokala data källa med hjälp av gatewayen.
 
@@ -140,7 +140,7 @@ Om du vill uppdatera inställningarna för en gateway-anslutning kan du redigera
 
 Så här hittar du alla API-anslutningar som är associerade med din Azure-prenumeration:
 
-* Från huvud menyn i Azure går du till **alla tjänster**  > **Web**  > **API-anslutningar**.
+* Från huvud menyn i Azure går du till **alla tjänster** > **Web** > **API-anslutningar**.
 * Du kan också gå till **alla resurser**från huvud menyn i Azure. Ange **typ** filter till **API-anslutning**.
 
 <a name="change-delete-gateway-resource"></a>
@@ -153,13 +153,13 @@ Om du vill skapa en annan gateway-resurs länkar du Gateway-installationen till 
 
 1. Om du inte redan har valt väljer du **lokal datagateway**på menyn gateway-resurs. I verktygsfältet gateway-resurs väljer du **ta bort**.
 
-   Exempel:
+   Till exempel:
 
    ![Ta bort gateway-resurs i Azure](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway-resource.png)
 
 <a name="faq"></a>
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 **F**: Varför visas inte min Gateway-installation när jag skapar min gateway-resurs i Azure? <br/>
 **A**: det här problemet kan inträffa av följande orsaker:

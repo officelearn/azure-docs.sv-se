@@ -1,5 +1,5 @@
 ---
-title: Anpassa SQL information Protection-principen i Azure Security Center | Microsoft Docs
+title: Anpassa SQL information Protection – Azure Security Center
 description: Lär dig hur du anpassar information Protection-principer i Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -13,29 +13,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
 ms.author: memildin
-ms.openlocfilehash: f9b161bbb692c1336083640250b93f9d87f1e0d9
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
-ms.translationtype: HT
+ms.openlocfilehash: d37333c0ca3f8acab7a35c23bbab67beef056b72
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520808"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664394"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Anpassa SQL information Protection-principen i Azure Security Center (för hands version)
  
-En princip för SQL information Protection kan definieras och anpassas för hela Azure-klienten i Azure Security Center.
+Du kan definiera och anpassa en princip för SQL information Protection för hela Azure-klienten i Azure Security Center.
 
 Information Protection är en avancerad säkerhets funktion för att upptäcka, klassificera, märka och skydda känsliga data i dina Azure-dataresurser. Att upptäcka och klassificera dina mest känsliga data (affärs-, finans-, sjukvårds-och person uppgifter osv.) kan spela en pivot-roll i din organisations informations skydds datasekretesstandarder. Den kan fungera som infrastruktur för:
 - Hjälpa till att uppfylla data integritets standarder och krav för regelefterlevnad
-- Olika säkerhets scenarier, till exempel övervakning (granskning) och aviseringar om avvikande åtkomst till känsliga data
+- Säkerhets scenarier som övervakning (granskning) och aviseringar vid avvikande åtkomst till känsliga data
 - Kontrol lera åtkomst till och härdning av säkerheten för data lager som innehåller mycket känsliga data
  
-[Sql information Protection](../sql-database/sql-database-data-discovery-and-classification.md) implementerar den här paradigmen för dina SQL-datalager, som för närvarande stöds för Azure SQL Database. SQL Information Protection identifierar och klassificerar automatiskt potentiellt känsliga data, innehåller en etikett för att permanent tagga känsliga data med klassificerings attribut, och innehåller en detaljerad instrument panel som visar databasens klassificerings tillstånd. Dessutom beräknar den resultat uppsättnings känslighet för SQL-frågor, så att frågor som extraherar känsliga data kan granskas explicit och att data kan skyddas. Mer information om SQL Information Protection finns i [Azure SQL Database identifiering och klassificering av data](../sql-database/sql-database-data-discovery-and-classification.md).
+[Sql information Protection](../sql-database/sql-database-data-discovery-and-classification.md) implementerar den här paradigmen för dina SQL-datalager, som för närvarande stöds för Azure SQL Database. SQL Information Protection identifierar och klassificerar automatiskt potentiellt känsliga data, innehåller en etikett för att permanent tagga känsliga data med klassificerings attribut, och innehåller en detaljerad instrument panel som visar databasens klassificerings tillstånd. Dessutom beräknar den resultat uppsättnings känslighet för SQL-frågor, så att frågor som extraherar känsliga data kan granskas explicit och att data kan skyddas. Mer information om SQL-Information Protection finns i [Azure SQL Database identifiering och klassificering av data](../sql-database/sql-database-data-discovery-and-classification.md).
  
 Klassificerings mekanismen baseras på två primära konstruktioner som utgör klassificeringens taxonomier, **Etiketter** och **informations typer**.
 - **Etiketter** – huvudattributen för klassificering som används för att definiera känslighets nivån för de data som lagras i kolumnen. 
 - **Informations typer** – ger ytterligare detaljerad information om vilken typ av data som lagras i kolumnen.
  
-Information Protection levereras med en inbyggd uppsättning etiketter och informations typer som används som standard. Om du vill anpassa dessa kan du anpassa information Protection-principen i Azure Security Center.
+Information Protection levereras med en inbyggd uppsättning etiketter och informations typer som används som standard. Om du vill anpassa dessa etiketter och typer kan du anpassa information Protection-principen i Security Center.
  
 ## <a name="customize-the-information-protection-policy"></a>Anpassa informationsskyddsprincipen
 Om du vill anpassa information Protection-principen för din Azure-klient måste du ha [administratörs behörighet för klient organisationens rot hanterings grupp](security-center-management-groups.md). 

@@ -6,32 +6,32 @@ keywords: ''
 author: PatAltimore
 ms.author: patricka
 ms.date: 05/02/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
-ms.openlocfilehash: 00d4911c0f2541ea5c64eccca3ab1b1505e06390
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 63e61844ddb5bd0f0ed52b67e26ea5bf1857fd2b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608539"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579927"
 ---
 # <a name="azure-blockchain-service-security"></a>Säkerhet för Azure blockchain service
 
-Azure blockchain service använder flera Azure-funktioner för att hålla dina data säkra och tillgängliga. Data skyddas med hjälp av isolering, kryptering och autentisering.
+Azure Blockchain Service använder flera Azure-funktioner för att se till att dina data är säkra och tillgängliga. Data skyddas med hjälp av isolering, kryptering och autentisering.
 
 ## <a name="isolation"></a>Isolering
 
-Azure blockchain service-resurser är isolerade i ett privat virtuellt nätverk. Varje transaktion och validerings nod är en virtuell dator (VM). Virtuella datorer i ett virtuellt nätverk kan inte kommunicera direkt med virtuella datorer i ett annat virtuellt nätverk. Isolering garanterar att kommunikationen förblir privat i det virtuella nätverket. Mer information om hur du isolerar virtuella Azure-nätverk finns [i isolera i det offentliga Azure](../../security/fundamentals/isolation-choices.md#networking-isolation)-molnet.
+Azure blockchain service-resurser är isolerade i ett privat virtuellt nätverk. Varje transaktion och validerings nod är en virtuell dator (VM). Virtuella datorer i ett virtuellt nätverk kan inte kommunicera direkt med virtuella datorer i ett annat virtuellt nätverk. Isolering garanterar att kommunikationen förblir privat i det virtuella nätverket. Mer information om hur du isolerar virtuella Azure-nätverk finns [i isolera i det offentliga Azure-molnet](../../security/fundamentals/isolation-choices.md#networking-isolation).
 
 ![VNET-diagram](./media/data-security/vnet.png)
 
 ## <a name="encryption"></a>Kryptering
 
-Användar data lagras i Azure Storage. Användar data krypteras i rörelse och i vila för säkerhet och konfidentialitet. Mer information finns i: [Guide till Azure Storage-säkerhet](../../storage/common/storage-security-guide.md).
+Användar data lagras i Azure Storage. Användar data krypteras i rörelse och i vila för säkerhet och konfidentialitet. Mer information finns i: [Azure Storage säkerhets guide](../../storage/common/storage-security-guide.md).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autentisering
 
 Transaktioner kan skickas till blockchain-noder via en RPC-slutpunkt. Klienterna kommunicerar med en Transaction-nod med en omvänd proxyserver som hanterar användarautentisering och krypterar data via SSL.
 

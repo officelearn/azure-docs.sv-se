@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: glenga
-ms.openlocfilehash: 89709edf085e1c424156fb68bd86fbc66b6ae8a7
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 614e02e4ba2599154cd3308d6a4fe222b6f63d3d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934324"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576166"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Host. JSON-referens för Azure Functions 1. x
 
@@ -20,7 +20,7 @@ ms.locfileid: "72934324"
 > * [Version 1](functions-host-json-v1.md)
 > * [Version 2](functions-host-json.md)
 
-*Host. JSON* -metadatafilen innehåller globala konfigurations alternativ som påverkar alla funktioner för en Function-app. I den här artikeln visas de inställningar som är tillgängliga för v1-körningen. JSON-schemat är på http://json.schemastore.org/host.
+*Host. JSON* -metadatafilen innehåller globala konfigurations alternativ som påverkar alla funktioner för en Function-app. I den här artikeln visas de inställningar som är tillgängliga för v1-körningen. JSON-schemat finns på http://json.schemastore.org/host.
 
 > [!NOTE]
 > Den här artikeln är för Azure Functions 1. x.  En referens för Host. json i functions 2. x finns i [Host. JSON-referensen för Azure Functions 2. x](functions-host-json.md).
@@ -144,7 +144,7 @@ Konfigurations inställningar för [Azure Cosmos DB utlösare och bindningar](fu
 |---------|---------|---------|
 |GatewayMode|Gateway|Anslutnings läget som används av funktionen vid anslutning till Azure Cosmos DBs tjänsten. Alternativen är `Direct` och `Gateway`|
 |Protokoll|https|Anslutnings protokollet som används av funktionen vid anslutning till Azure Cosmos DBs tjänsten.  Läs [här om du vill ha en förklaring av båda lägena](../cosmos-db/performance-tips.md#networking)|
-|leasePrefix|Ej tillämpligt|Lease-prefix som ska användas för alla funktioner i en app.|
+|leasePrefix|Saknas|Lease-prefix som ska användas för alla funktioner i en app.|
 
 ## <a name="durabletask"></a>durableTask
 
@@ -194,9 +194,9 @@ Konfigurations inställningar för [övervakaren av värd hälsa](https://github
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
-|aktiva|sant|Anger om funktionen är aktive rad. | 
+|aktiva|true|Anger om funktionen är aktive rad. | 
 |healthCheckInterval|10 sekunder|Tidsintervallet mellan de regelbundna hälso kontrollerna i bakgrunden. | 
-|healthCheckWindow|2 minuter|Ett glidande tids fönster som används tillsammans med inställningen `healthCheckThreshold`.| 
+|healthCheckWindow|2 minuter|Ett glidande tids fönster som används tillsammans med `healthCheckThreshold`-inställningen.| 
 |healthCheckThreshold|6|Maximalt antal gånger som hälso kontrollen kan återställas innan en återkallning av en värd initieras.| 
 |counterThreshold|0,80|Tröskelvärdet som en prestanda räknare kommer att anses vara ohälsosam.| 
 
@@ -215,15 +215,18 @@ Konfigurations inställningar för [http-utlösare och bindningar](functions-bin
 }
 ```
 
-[!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
+|Egenskap  |Standard | Beskrivning |
+|---------|---------|---------| 
+|dynamicThrottlesEnabled|false|När den här inställningen är aktive rad kommer pipeline för bearbetning av begär Anden att regelbundet kontrol lera system prestanda räknare som anslutningar/trådar/processer/minne/processor/osv. om någon av dessa räknare är över en inbyggd hög tröskel (80%), kommer begäran att avvisades med ett svar på 429 "upptagen" tills räknarna (erna) återgår till normala nivåer.|
+|maxConcurrentRequests|obegränsad (`-1`)|Maximalt antal http-funktioner som ska köras parallellt. På så sätt kan du kontrol lera samtidighet, vilket kan hjälpa dig att hantera resursutnyttjande. Du kan till exempel ha en http-funktion som använder många system resurser (minne/processor/Sockets) så att den orsakar problem när samtidigheten är för hög. Eller så kanske du har en funktion som gör utgående begär anden till en tjänst från tredje part, och dessa anrop måste vara begränsade. I dessa fall kan det hjälpa att tillämpa en begränsning.|
+|maxOutstandingRequests|obegränsad (`-1`)|Det maximala antalet väntande begär Anden som innehas vid en specifik tidpunkt. Den här gränsen omfattar begär Anden som har placerats i kö, men som inte har börjat köras, samt alla pågående körningar. Inkommande begär anden över den här gränsen avvisas med ett svar på 429 "för upptagen". Det gör det möjligt för anropare att använda tidsbaserade återförsöks strategier och hjälper dig också att kontrol lera maximal fördröjning för begäran. Detta styr endast köer som inträffar inom skript värdens körnings Sök väg. Andra köer, t. ex. ASP.NET, kommer fortfarande att gälla och påverkas inte av den här inställningen.|
+|routePrefix|api|Det väg-prefix som gäller för alla vägar. Använd en tom sträng för att ta bort standardprefixet. |
 
 ## <a name="id"></a>id
 
-*Endast version 1. x.*
-
 Unikt ID för en jobb värd. Kan vara ett GUID för gemener/versaler med streck borttagna. Krävs när du kör lokalt. När du kör i Azure rekommenderar vi att du inte anger något ID-värde. Ett ID genereras automatiskt i Azure när `id` utelämnas. 
 
-Om du delar ett lagrings konto över flera Function-appar, se till att varje Function-app har en annan `id`. Du kan utelämna egenskapen `id` eller manuellt ange varje funktions programs `id` till ett annat värde. Timer-utlösaren använder ett lagrings lås för att säkerställa att det bara kommer att finnas en timer-instans när en Function-app skalar ut till flera instanser. Om två Function-appar delar samma `id` och varje använder en timer-utlösare, körs bara en timer.
+Om du delar ett lagrings konto över flera Function-appar, se till att varje Function-app har en annan `id`. Du kan utelämna egenskapen `id` eller manuellt ange varje funktions programs `id` till ett annat värde. Timer-utlösaren använder ett lagrings lås för att säkerställa att det bara kommer att finnas en timer-instans när en Function-app skalar ut till flera instanser. Om två Function-appar delar samma `id` och använder en timer-utlösare, körs bara en timer.
 
 ```json
 {
@@ -252,9 +255,9 @@ Styr filtrering av loggar som skrivits av ett [ILogger-objekt](functions-monitor
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
-|categoryFilter|Ej tillämpligt|Anger filtrering efter kategori| 
-|defaultLevel|Information|För alla kategorier som inte anges i matrisen `categoryLevels`, skicka loggar på den här nivån och ovan för att Application Insights.| 
-|categoryLevels|Ej tillämpligt|En matris med kategorier som anger den minsta logg nivå som ska skickas till Application Insights för varje kategori. Den kategori som anges här styr alla kategorier som börjar med samma värde och värden som är längre prioriterade. I föregående exempel *Host. JSON* -fil är alla kategorier som börjar med "Host. aggregator"-logg på `Information`-nivå. Alla andra kategorier som börjar med "värd", till exempel "Host. utförar", log på `Error`-nivå.| 
+|categoryFilter|Saknas|Anger filtrering efter kategori| 
+|defaultLevel|Information|För alla kategorier som inte anges i `categoryLevels` matrisen skickar du loggar på denna nivå och ovanför för att Application Insights.| 
+|categoryLevels|Saknas|En matris med kategorier som anger den minsta logg nivå som ska skickas till Application Insights för varje kategori. Den kategori som anges här styr alla kategorier som börjar med samma värde och värden som är längre prioriterade. I föregående exempel *Host. JSON* -fil är alla kategorier som börjar med "Host. aggregator"-logg på `Information` nivå. Alla andra kategorier som börjar med "värd", till exempel "Host. utförar", loggar på `Error` nivå.| 
 
 ## <a name="queues"></a>kön
 
@@ -276,7 +279,7 @@ Konfigurations inställningar för [utlösare och bindningar i lagrings kön](fu
 |---------|---------|---------| 
 |maxPollingInterval|60000|Det maximala intervallet i millisekunder mellan Queue-avsökningar.| 
 |visibilityTimeout|0|Tidsintervall mellan återförsök vid bearbetning av ett meddelande Miss lyckas.| 
-|batchSize|16|Antalet köa meddelanden som funktions körningen hämtar samtidigt och processer parallellt. När antalet som bearbetas går ned till `newBatchThreshold`, får körningen en annan batch och börjar bearbeta dessa meddelanden. Det maximala antalet samtidiga meddelanden som bearbetas per funktion är `batchSize` plus `newBatchThreshold`. Den här gränsen gäller separat för varje funktion som utlöses av kön. <br><br>Om du vill undvika parallell körning av meddelanden som tas emot i en kö kan du ange `batchSize` till 1. Den här inställningen eliminerar dock ingen samtidighet så länge som din funktions App körs på en enda virtuell dator (VM). Om Function-appen skalar ut till flera virtuella datorer kan varje virtuell dator köra en instans av varje funktion som utlöses av kön.<br><br>Högsta `batchSize` är 32. | 
+|batchSize|16|Antalet köa meddelanden som funktions körningen hämtar samtidigt och processer parallellt. När antalet som bearbetas går ned till `newBatchThreshold`, hämtar kör tiden en annan batch och börjar bearbeta dessa meddelanden. Det maximala antalet samtidiga meddelanden som bearbetas per funktion är `batchSize` plus `newBatchThreshold`. Den här gränsen gäller separat för varje funktion som utlöses av kön. <br><br>Om du vill undvika parallell körning av meddelanden som tas emot i en kö kan du ange `batchSize` till 1. Den här inställningen eliminerar dock ingen samtidighet så länge som din funktions App körs på en enda virtuell dator (VM). Om Function-appen skalar ut till flera virtuella datorer kan varje virtuell dator köra en instans av varje funktion som utlöses av kön.<br><br>Högsta `batchSize` är 32. | 
 |maxDequeueCount|5|Antal försök att bearbeta ett meddelande innan det flyttas till en Poison-kö.| 
 |newBatchThreshold|batchSize/2|När antalet meddelanden som bearbetas samtidigt går till det här talet, hämtar körningen en annan batch.| 
 
@@ -293,7 +296,7 @@ Konfigurations inställning för [SendGrind utgående bindning](functions-bindin
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
-|som|Ej tillämpligt|Avsändarens e-postadress för alla funktioner.| 
+|som|Saknas|Avsändarens e-postadress för alla funktioner.| 
 
 ## <a name="servicebus"></a>Service Bus
 
@@ -311,8 +314,8 @@ Konfigurations inställning för [Service Bus utlösare och bindningar](function
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
-|maxConcurrentCalls|16|Det maximala antalet samtidiga anrop till motringning som meddelande pumpen ska initiera. Som standard bearbetar Functions-körningen flera meddelanden samtidigt. Ange `maxConcurrentCalls` till 1 för att dirigera körningen för att endast bearbeta en enskild kö eller ett ämne i taget. | 
-|prefetchCount|Ej tillämpligt|Standard-PrefetchCount som ska användas av den underliggande MessageReceiver.| 
+|maxConcurrentCalls|16|Det maximala antalet samtidiga anrop till motringning som meddelande pumpen ska initiera. Som standard bearbetar Functions-körningen flera meddelanden samtidigt. Ange `maxConcurrentCalls` till 1 om du vill att körningen bara ska bearbeta en enskild kö eller ett ämne i taget. | 
+|prefetchCount|Saknas|Standard-PrefetchCount som ska användas av den underliggande MessageReceiver.| 
 |autoRenewTimeout|00:05:00|Den längsta tid som meddelande låset ska förnyas automatiskt.| 
 
 ## <a name="singleton"></a>Singleton
@@ -337,7 +340,7 @@ Konfigurations inställningar för beteendet singleton lock. Mer information fin
 |listenerLockPeriod|00:01:00|Den period som lyssnarens lås tas för.| 
 |listenerLockRecoveryPollingInterval|00:01:00|Det tidsintervall som används för återställning av lyssnar lås om det inte gick att hämta ett lyssnar lås vid start.| 
 |lockAcquisitionTimeout|00:01:00|Den maximala tid som körningen kommer att försöka hämta ett lås.| 
-|lockAcquisitionPollingInterval|Ej tillämpligt|Intervallet mellan lås försök.| 
+|lockAcquisitionPollingInterval|Saknas|Intervallet mellan lås försök.| 
 
 ## <a name="tracing"></a>spårning
 
@@ -356,8 +359,8 @@ Konfigurations inställningar för loggar som du skapar med hjälp av ett `Trace
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
-|consoleLevel|statusinformation|Spårnings nivån för konsol loggning. Alternativen är: `off`, `error`, `warning`, `info` och `verbose`.|
-|fileLoggingMode|debugOnly|Spårnings nivån för fil loggning. Alternativen är `never`, `always`, `debugOnly`.| 
+|consoleLevel|statusinformation|Spårnings nivån för konsol loggning. Alternativen är: `off`, `error`, `warning`, `info`och `verbose`.|
+|fileLoggingMode|debugOnly|Spårnings nivån för fil loggning. Alternativen är `never`, `always``debugOnly`.| 
 
 ## <a name="watchdirectories"></a>watchDirectories
 

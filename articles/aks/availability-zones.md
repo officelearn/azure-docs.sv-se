@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: mlearned
-ms.openlocfilehash: eb48afb15e1314dcf670ba04afd9609876dc9539
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 3790511bf3f71cdeb01853e4051a013719502d9f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472820"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605092"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Skapa ett Azure Kubernetes service-kluster (AKS) som använder Tillgänglighetszoner
 
@@ -32,9 +32,9 @@ AKS-kluster kan för närvarande skapas med tillgänglighets zoner i följande r
 
 * Centrala USA
 * USA, östra 2
-* USA, östra
+* Östra USA
 * Frankrike, centrala
-* Japan, östra
+* Östra Japan
 * Norra Europa
 * Sydostasien
 * Storbritannien, södra
@@ -72,9 +72,9 @@ I ett zon avbrott kan noderna ombalanseras manuellt eller med hjälp av klustret
 
 ## <a name="create-an-aks-cluster-across-availability-zones"></a>Skapa ett AKS-kluster mellan tillgänglighets zoner
 
-När du skapar ett kluster med kommandot [AZ AKS Create][az-aks-create] definierar parametern `--zones` parametern vilka zoner som agent-noder distribueras till. AKS Control plan-komponenter för klustret sprids också över zoner i den högsta tillgängliga konfigurationen när du skapar ett kluster som anger parametern `--zones`.
+När du skapar ett kluster med kommandot [AZ AKS Create][az-aks-create] definierar parametern `--zones` parametern vilka zoner som agent-noder distribueras till. AKS Control plan-komponenter för klustret sprids också över zoner i den högsta tillgängliga konfigurationen när du definierar `--zones`-parametern vid skapande av klustrets tid.
 
-Om du inte definierar några zoner för standard agenten när du skapar ett AKS-kluster, kommer AKSs kontroll Plans komponenter för klustret inte använda tillgänglighets zoner. Du kan lägga till fler resurspooler med kommandot [AZ AKS nodepool Add][az-aks-nodepool-add] och ange `--zones` för de nya agent-noderna, men kontroll Plans komponenterna är fortfarande utan tillgänglighets zonens medvetenhet. Du kan inte ändra zon medvetenheten för en Node-pool eller AKS Control plan-komponenterna när de har distribuerats.
+Om du inte definierar några zoner för standard agenten när du skapar ett AKS-kluster, kommer AKSs kontroll Plans komponenter för klustret inte använda tillgänglighets zoner. Du kan lägga till ytterligare resurspooler med kommandot [AZ AKS nodepool Add][az-aks-nodepool-add] och ange `--zones` för de nya noderna, men kontroll Plans komponenterna är fortfarande inte medvetna om tillgänglighets zonen. Du kan inte ändra zon medvetenheten för en Node-pool eller AKS Control plan-komponenterna när de har distribuerats.
 
 I följande exempel skapas ett AKS-kluster med namnet *myAKSCluster* i resurs gruppen med namnet *myResourceGroup*. Totalt *3* noder skapas – en agent i zon *1*, en i *2*, och sedan en i *3*. AKS Control plan-komponenterna distribueras också mellan zoner i den högsta tillgängliga konfigurationen eftersom de har definierats som en del av klustrets Create-process.
 

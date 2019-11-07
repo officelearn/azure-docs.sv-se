@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1985c596b9f4b9b78b0055bfe1eab9888c30e201
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9e3915a2f55680fc2e24ac63d5e7170ada026c2e
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489740"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615195"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Skapa och hantera Azure Machine Learning arbets ytor i Azure Portal
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -30,13 +30,13 @@ Du behöver en Azure-prenumeration för att skapa en arbets yta. Om du inte har 
 
 1. I det övre vänstra hörnet av Azure Portal väljer du **+ skapa en resurs**.
 
-      ![Skapa en ny resurs](../../../includes/media/aml-create-in-portal/portal-create-resource.png)
+      ![Skapa en ny resurs](../../../includes/media/aml-create-in-portal/create-workspace.gif)
 
-1. Använd Sök fältet för att hitta **Machine Learning service-arbetsyta**.
+1. Använd Sök fältet för att hitta **Machine Learning**.
 
-1. Välj **Machine Learning tjänst arbets yta**.
+1. Välj **Machine Learning**.
 
-1. I fönstret **Machine Learning service-arbetsyta** väljer du **skapa** för att börja.
+1. I fönstret **Machine Learning** väljer du **skapa** för att börja.
 
 1. Ange följande information för att konfigurera din nya arbets yta:
 
@@ -89,18 +89,15 @@ Du kan uppgradera din arbets yta från Basic Edition till Enterprise Edition fö
 
 ## <a name="view"></a>Hitta en arbets yta
 
-1. I det övre vänstra hörnet av portalen väljer du **alla tjänster**.
+1. I det övre Sök fältet skriver du **Machine Learning**.  
 
-1. I fältet **alla tjänster** filter skriver du **Machine Learning**.  
+1. Välj **Machine Learning**.
 
-1. Välj **Azure Machine Learning**.
-
-   ![Sök efter Azure Machine Learning arbets yta](media/how-to-manage-workspace/all-services.png)
+   ![Sök efter Azure Machine Learning arbets yta](media/how-to-manage-workspace/find-workspaces.png)
 
 1. Titta igenom listan med arbets ytor som har hittats. Du kan filtrera baserat på prenumeration, resurs grupper och platser.  
 
 1. Välj en arbets yta för att visa dess egenskaper.
-   ![arbets ytans egenskaper](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
 
 ## <a name="delete-a-workspace"></a>Ta bort en arbetsyta
 

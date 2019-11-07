@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 05bae18d35eafc47eddc7c1450eb06af5bbe5562
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: e1bb84c142fb24086cf6c11a7b1070bdd29ae3f2
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497225"
+ms.locfileid: "73581295"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Skapa, utforska och distribuera automatiserade maskin inlärnings experiment med Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "73497225"
 
  Om du föredrar en mer kod baserad upplevelse kan du också [Konfigurera dina automatiserade maskin inlärnings experiment i python](how-to-configure-auto-train.md) med [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
@@ -68,7 +68,7 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
         ----|----
         Fil format| Definierar layout och typ av data som lagras i en fil.
         Avgränsare| Ett eller flera tecken för att ange avgränsningen mellan separata, oberoende regioner i oformaterad text eller andra data strömmar.
-        Encoding| Identifierar vilken bit till Character-schema tabell som ska användas för att läsa din data uppsättning.
+        Kodning| Identifierar vilken bit till Character-schema tabell som ska användas för att läsa din data uppsättning.
         Kolumn rubriker| Anger hur data uppsättningens huvuden, om det finns, kommer att behandlas.
         Hoppa över rader | Anger hur många rader som ska hoppas över i data uppsättningen.
     
@@ -104,7 +104,7 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 
     Välj **Nästa**.
 
-1. I formuläret **uppgifts typ och inställningar** väljer du uppgifts typ: klassificering, regression eller Prognosticering. 
+1. I formuläret **uppgifts typ och inställningar** väljer du uppgifts typ: klassificering, regression eller Prognosticering. Se [definiera aktivitets typer](how-to-define-task-type.md) för mer information.
 
     1. För klassificering kan du också aktivera djup inlärning som används för text featurizations.
 
@@ -205,12 +205,17 @@ Med automatisk ML får du hjälp med att distribuera modellen utan att skriva ko
 
     Fält| Värde
     ----|----
-    Distributions namn| Ange ett unikt namn för din distribution.
-    Distributions Beskrivning| Ange en beskrivning för att bättre identifiera vad den här distributionen är för.
-    Bedömnings skript| Skapa eller ladda upp din egen bedömnings fil automatiskt. [Läs mer om bedömnings skript](how-to-deploy-and-where.md#script).
-    Miljö skript| Skapa eller ladda upp din egen miljö fil automatiskt.
+    Namn| Ange ett unikt namn för din distribution.
+    Beskrivning| Ange en beskrivning för att bättre identifiera vad den här distributionen är för.
+    Compute-typ| Välj den typ av slut punkt som du vill distribuera: *Azure Kubernetes service (AKS)* eller *Azure Container Instance (ACI)* .
+    Namn| *Gäller endast för AKS:* Välj namnet på det AKS-kluster som du vill distribuera till.
+    Aktivera autentisering | Välj för att tillåta tokenbaserad eller nyckelbaserad autentisering.
+    Använda anpassade distributions till gångar| Aktivera den här funktionen om du vill överföra ditt eget bedömnings skript och miljö fil. [Lär dig mer om bedömnings skript](how-to-deploy-and-where.md#script).
+
     >[!Important]
     > Fil namn måste vara under 32 tecken och måste börja och sluta med alfanumeriska tecken. Får innehålla bindestreck, under streck, punkter och alfanumeriska tecken mellan. Blank steg är inte tillåtna.
+
+    På *Avancerat* -menyn finns funktioner för standard distribution, t. ex. inställningar för data insamling och resursutnyttjande. Om du vill åsidosätta dessa standardinställningar gör du det på den här menyn.
 
 1. Välj **Distribuera**. Distributionen kan ta ungefär 20 minuter att slutföra.
 

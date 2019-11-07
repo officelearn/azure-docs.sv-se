@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8a2752302e5f6c3428139a0faa30ce347fc21f2
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 71aa999809ba3d3e32d38162dfaba869d9716031
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174921"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73602708"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Skapa ett nytt Access-paket i hantering av Azure AD-berättigande
 
@@ -57,14 +57,14 @@ Här följer de övergripande stegen för att skapa ett nytt Access-paket.
 
 **Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Klicka på **Azure Active Directory** och klicka sedan på **identitets styrning**.
 
 1. Klicka på **åtkomst paket**på den vänstra menyn.
 
 1. Klicka på **nytt Access-paket**.
-
+   
     ![Hantering av rättigheter i Azure Portal](./media/entitlement-management-shared/access-packages-list.png)
 
 ## <a name="basics"></a>Grundläggande inställningar
@@ -83,7 +83,7 @@ På fliken **grundläggande** ger du åtkomst paketet ett namn och anger vilken 
 
     Det åtkomst paket som du skapar och alla resurser som ingår i det kommer att läggas till i den nya katalogen. Du kan också lägga till ytterligare katalog ägare senare.
 
-1. Klicka på **Next**.
+1. Klicka på **Nästa**.
 
 ## <a name="resource-roles"></a>Resursroller
 
@@ -105,7 +105,7 @@ På fliken **resurs roller** väljer du de resurser som du vill ta med i åtkoms
 
     ![Åtkomst paket – resurs roll val](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
-1. Klicka på **Next**.
+1. Klicka på **Nästa**.
 
 ## <a name="requests"></a>Begäranden
 

@@ -1,5 +1,5 @@
 ---
-title: Hantera Azure SQL Database schema i en app med en enda klient | Microsoft Docs
+title: Hantera Azure SQL Database schema i en app med en enda klient
 description: Hantera schema för flera klienter i en app med en enda klient som använder Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/19/2018
-ms.openlocfilehash: 95d13c997d3871815ebd541e5985eb9fef726a76
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 32460feebeb55b2639a237db32dbc3923ba27171
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029754"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691837"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Hantera schemat i ett SaaS-program med hjälp av mönstret för databas per klient med Azure SQL Database
  
@@ -37,7 +37,7 @@ I den här självstudiekursen får du lära du dig att:
 Se till att följande förhandskrav är slutförda för att kunna slutföra den här guiden:
 
 * Wingtip biljetter SaaS-databasen per klient-app distribueras. Om du vill distribuera på mindre än fem minuter, se [distribuera och utforska Wingtip-biljetter SaaS-databas per klient program](saas-dbpertenant-get-started-deploy.md)
-* Azure PowerShell ska ha installerats. Mer information finns i [Komma igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+* Azure PowerShell ska ha installerats. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * Den senaste versionen av SQL Server Management Studio (SSMS) ska vara installerad. [Ladda ned och installera SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
 > [!NOTE]
@@ -65,37 +65,37 @@ Programmets käll kod och hanterings skript är tillgängliga i [WingtipTicketsS
 
 I den här självstudien krävs att du använder PowerShell för att skapa en jobb agent och dess agent databas för återställning av jobb. Jobb Agent databasen innehåller jobb definitioner, jobb status och historik. När jobb agenten och databasen har skapats kan du skapa och övervaka jobb direkt.
 
-1. **I POWERSHELL ISE**öppnar du... \\Learning-moduler @ No__t-2Schema Management @ no__t-3*schemamanagement. ps1*.
+1. **I POWERSHELL ISE**öppnar du...\\Learning-moduler\\Schema hantering\\*schemamanagement. ps1*.
 1. Tryck **F5** för att köra skriptet.
 
 Skriptet *schemamanagement. ps1* anropar skriptet *Deploy-SchemaManagement. ps1* för att skapa en SQL-databas med namnet *osagent* på katalog servern. Sedan skapas jobb agenten med hjälp av-databasen som en parameter.
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Skapa ett jobb för att distribuera nya referensdata till alla klienter
 
-I Wingtip biljetter-appen innehåller varje klient databas en uppsättning plats typer som stöds. Varje plats är av en viss platstyp, som definierar vilken typ av händelser som kan hanteras och anger bakgrunds bilden som används i appen. För att programmet ska stödja nya typer av händelser måste dessa referens data uppdateras och nya plats typer läggs till.  I den här övningen distribuerar du en uppdatering till alla klient databaser för att lägga till två ytterligare plats typer: *Motorcykel tävling* och *SIM-klubb*.
+I Wingtip biljetter-appen innehåller varje klient databas en uppsättning plats typer som stöds. Varje plats är av en viss platstyp, som definierar vilken typ av händelser som kan hanteras och anger bakgrunds bilden som används i appen. För att programmet ska stödja nya typer av händelser måste dessa referens data uppdateras och nya plats typer läggs till.  I den här övningen, distribuerar du en uppdatering till alla klientdatabaser för att lägga till två ytterligare platstyper: *Motorcycle Racing* och *Swimming Club*.
 
 Börja med att granska de plats typer som ingår i varje klient databas. Anslut till en av klient databaserna i SQL Server Management Studio (SSMS) och granska VenueTypes-tabellen.  Du kan också fråga den här tabellen i Frågeredigeraren i Azure Portal, som öppnas från databas sidan. 
 
-1. Öppna SSMS och Anslut till klient servern: *tenants1-DPT-@no__t -1user&gt;.database.windows.net*
-1. För att bekräfta att *motorcykelns racing* -och *SIM-klubb* **inte** ingår, bläddrar du till _contosoconcerthall_ -databasen på *tenants1-DPT-&lt;User @ no__t-6-* servern och frågar *VenueTypes* partitionstabell.
+1. Öppna SSMS och Anslut till klient servern: *tenants1-DPT-&lt;user&gt;. Database.Windows.net*
+1. För att bekräfta att *motorcykelns racing* -och *SIM-klubb* **inte** ingår, kan du bläddra till _contosoconcerthall_ -databasen på *tenants1-DPT-&lt;User&gt;* Server och fråga *VenueTypes* tabell.
 
 Nu ska vi skapa ett jobb för att uppdatera *VenueTypes* -tabellen i alla klient databaser för att lägga till nya typer av platser.
 
 Om du vill skapa ett nytt jobb använder du en uppsättning jobb system lagrade procedurer som skapats i _JobAgent_ -databasen när jobb agenten skapades.
 
-1. I SSMS ansluter du till katalog servern: *Catalog-DPT-@no__t -1user&gt;.database.windows.net* -Server 
-1. I SSMS öppnar du filen... \\Learning modules @ no__t-1Schema Management\\DeployReferenceData.sql
-1. Ändra instruktionen: Ange @wtpUser = &lt;user @ no__t-2 och Ersätt det användar värde som används när du har distribuerat Wingtip Ticket SaaS Database per klient program
+1. I SSMS ansluter du till katalog servern: *Catalog-DPT-&lt;user&gt;. Database.Windows.net* -Server 
+1. I SSMS öppnar du filen...\\Learning-moduler\\schema hantering\\DeployReferenceData. SQL
+1. Ändra instruktionen: SET @wtpUser = &lt;User&gt; och ersätt User-värdet som används när du distribuerade Wingtip-biljetter SaaS-databasen per klient program
 1. Se till att du är ansluten till _JobAgent_ -databasen och tryck **F5** för att köra skriptet
 
 Observera följande element i *DeployReferenceData. SQL* -skriptet:
-* **SP @ no__t-1add @ no__t-2target @ no__t-3group** skapar mål grupp namnet DemoServerGroup.
-* **SP @ no__t-1add @ no__t-2target @ no__t-3group @ no__t-4member** används för att definiera uppsättningen av mål databaser.  Först _tenants1-DPT-&lt;user @ no__t-2-_ servern läggs till.  Om du lägger till servern som ett mål kommer databaserna på den servern när jobb körningen ska inkluderas i jobbet. Sedan läggs _basetenantdb_ -databasen och *AdHocReporting* -databasen (används i en senare självstudie) som mål.
-* **SP @ no__t-1add @ no__t-2job** skapar ett jobb med namnet _referens data distribution_.
-* **SP @ no__t-1add @ no__t-2jobstep** skapar det jobb steg som innehåller kommando texten t-SQL för att uppdatera referens tabellen, VenueTypes.
+* **sp\_Lägg till\_mål\_grupp** skapar mål grupp namnet DemoServerGroup.
+* **sp\_lägga till\_mål\_grupp\_medlem** används för att definiera uppsättningen mål databaser.  Först _tenants1-DPT-&lt;user&gt;_ -servern läggs till.  Om du lägger till servern som ett mål kommer databaserna på den servern när jobb körningen ska inkluderas i jobbet. Sedan läggs _basetenantdb_ -databasen och *AdHocReporting* -databasen (används i en senare självstudie) som mål.
+* **sp\_Lägg till\_jobb** skapar ett jobb med namnet _referens data distribution_.
+* **sp\_Lägg till\_Jobstep** skapar jobb steget som innehåller t-SQL-kommando texten för att uppdatera referens tabellen, VenueTypes.
 * De återstående vyerna i skriptet visar att jobbet finns och övervakar jobbkörningen. Använd de här frågorna för att granska status värdet i kolumnen **livs cykel** för att fastställa när jobbet har avslut ATS på alla mål databaser.
 
-När skriptet har slutförts kan du kontrol lera att referens data har uppdaterats.  I SSMS bläddrar du till *contosoconcerthall* -databasen på *tenants1-DPT-&lt;user @ no__t-3-* servern och frågar *VenueTypes* -tabellen.  Kontrol lera att *motorcykelns racing* -och *SIM-klubb* **nu finns** .
+När skriptet har slutförts kan du kontrol lera att referens data har uppdaterats.  I SSMS, bläddrar du till *contosoconcerthall* -databasen på *användar&gt;s servern tenants1-DPT-&lt;* och frågar *VenueTypes* -tabellen.  Kontrol lera att *motorcykelns racing* -och *SIM-klubb* **nu finns** .
 
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Skapa ett jobb för att hantera referenstabellindexet
@@ -104,21 +104,21 @@ I den här övningen används ett jobb för att återskapa indexet för primär 
 
 Skapa ett jobb med samma jobbs systemlagrade procedurer.
 
-1. Öppna SSMS och Anslut till _katalogen – DPT-@no__t -1user&gt;.database.windows.net-_ servern
-1. Öppna filen _... \\Learning-moduler @ no__t-2Schema Management\\OnlineReindex.sql_
-1. Högerklicka, Välj anslutning och Anslut till _katalogen – DPT-@no__t -1user&gt;.database.windows.net-_ servern, om den inte redan är ansluten
+1. Öppna SSMS och Anslut till tjänsten _katalog-DPT-&lt;användare&gt;. Database.Windows.net-_ Server
+1. Öppna filen _...\\Learning-moduler\\schema hantering\\OnlineReindex. SQL_
+1. Högerklicka, Välj anslutning och Anslut till _katalogen-DPT-&lt;användar&gt;. Database.Windows.net-_ Server, om den inte redan är ansluten
 1. Se till att du är ansluten till _JobAgent_ -databasen och tryck **F5** för att köra skriptet
 
 Observera följande element i _OnlineReindex. SQL_ -skriptet:
-* **SP @ no__t-1add @ no__t-2job** skapar ett nytt jobb med namnet "online Reindex PK @ no__t-3 @ No__t-4VenueTyp @ no__t-5 @ NO__T-6265E44FD7FD4C885"
-* **SP @ no__t-1add @ no__t-2jobstep** skapar det jobb steg som innehåller kommando texten t-SQL för att uppdatera indexet
+* **sp\_Lägg till\_jobb** skapar ett nytt jobb med namnet "online Omindexera PK\_\_VenueTyp\_\_265E44FD7FD4C885"
+* **sp\_Lägg till\_Jobstep** skapar jobb steget som innehåller t-SQL-kommando texten för att uppdatera indexet
 * Återstående vyer i skript övervaknings jobb körningen. Använd de här frågorna för att granska status värdet i kolumnen **livs cykel** för att fastställa när jobbet har slutförts på alla mål grupps medlemmar.
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig att:
+I den här guiden lärde du dig hur man:
 
 > [!div class="checklist"]
 > 

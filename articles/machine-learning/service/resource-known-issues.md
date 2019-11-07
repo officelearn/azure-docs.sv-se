@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7c52adfb919586fc590ef60215592a5b5c1c1cb3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 3fd97e33c88e7767e1d9b230792aea675a744f27
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476125"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619773"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Kända problem och fel söknings Azure Machine Learning
 
@@ -88,9 +88,19 @@ Binära klassificerings diagram (precisions återkallning, ROC, kurva osv.) som 
 
 ## <a name="datasets-and-data-preparation"></a>Data uppsättningar och förberedelse av data
 
+Detta är kända problem för Azure Machine Learning data uppsättningar.
+
 ### <a name="fail-to-read-parquet-file-from-http-or-adls-gen-2"></a>Det gick inte att läsa Parquet-filen från HTTP eller ADLS gen 2
 
-Det finns ett känt problem i AzureML nu SDK version 1.1.25 som orsakar ett fel när du skapar en data uppsättning genom att läsa Parquet-filer från HTTP eller ADLS gen 2. Åtgärda problemet genom att uppgradera till en högre version än 1.1.26 eller nedgradera till en lägre version än 1.1.24.
+Det finns ett känt problem i AzureML nu SDK version 1.1.25 som orsakar ett fel när du skapar en data uppsättning genom att läsa Parquet-filer från HTTP eller ADLS gen 2. Det går inte att `Cannot seek once reading started.`. Åtgärda problemet genom att uppgradera `azureml-dataprep` till en högre version än 1.1.26 eller nedgradera till en lägre version än 1.1.24.
+
+```python
+pip install --upgrade azureml-dataprep
+```
+
+### <a name="typeerror-mount-got-an-unexpected-keyword-argument-invocation_id"></a>TypeError: Mount () fick ett oväntat nyckelords argument ' invocation_id '
+
+Det här felet uppstår om du har en inkompatibel version mellan `azureml-core` och `azureml-dataprep`. Om det här felet visas uppgraderar du `azureml-dataprep`-paketet till en nyare version (större än eller lika med 1.1.29).
 
 ```python
 pip install --upgrade azureml-dataprep
@@ -146,15 +156,8 @@ Om de här stegen inte löser problemet kan du försöka med att starta om klust
 Om du ser ett `FailToSendFeather` fel när du läser data på Azure Databricks kluster kan du läsa följande lösningar:
 
 * Uppgradera `azureml-sdk[automl]`-paketet till den senaste versionen.
-* Lägg till `azure-dataprep` version 1.1.8 eller senare.
+* Lägg till `azureml-dataprep` version 1.1.8 eller senare.
 * Lägg till `pyarrow` version 0,11 eller senare.
-
-
-## <a name="datasets"></a>Datauppsättningar
-
-Detta är kända problem för Azure Machine Learning data uppsättningar.
-
-+ **Det gick inte att läsa Parquet-filer på Azure Data Lake Storage Gen2** Läsning av Parquet-filer från Azure Data Lake Storage Gen2-datalager fungerar inte om du har `azureml-dataprep==1.1.25` installerat. Det går inte att `Cannot seek once reading started.`. Om du ser det här felet kan du antingen installera `azureml-dataprep<=1.1.24` eller installera `azureml-dataprep>=1.1.26`.
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -175,7 +178,7 @@ Några av de här åtgärderna visas i området __aktiviteter__ i din arbets yta
 
 ## <a name="resource-quotas"></a>Resurskvoter
 
-Lär dig mer om [resurs kvoter](how-to-manage-quotas.md) som du kan stöta på när du arbetar med Azure Machine Learning.
+Lär dig mer om den [resurskvoter](how-to-manage-quotas.md) som kan uppstå när du arbetar med Azure Machine Learning.
 
 ## <a name="authentication-errors"></a>Autentiseringsfel
 
@@ -262,3 +265,23 @@ Detta undantag bör komma från dina utbildnings skript. Du kan titta på loggfi
 
 ### <a name="horovod-is-shutdown"></a>Horovod är avstängd
 I de flesta fall innebär detta undantag att det uppstod ett underliggande undantag i en av de processer som orsakade att horovod stängdes av. Varje rang i MPI-jobbet hämtar den egna dedikerade logg filen i Azure ML. De här loggarna heter `70_driver_logs`. I händelse av distribuerad utbildning suffixs logg namnen med `_rank` för att göra det enkelt att skilja loggarna åt. Om du vill hitta det exakta fel som orsakade horovod avstängning går du igenom alla loggfiler och letar efter `Traceback` i slutet av driver_log-filerna. Med en av de här filerna får du det faktiska underliggande undantaget. 
+
+## <a name="labeling-projects-issues"></a>Problem med att märka projekt
+
+Kända problem med att märka projekt.
+
+### <a name="only-datasets-created-on-blob-datastores-can-be-used"></a>Det går bara att använda data uppsättningar som skapats på BLOB-datalager
+
+Detta är en känd begränsning i den aktuella versionen. 
+
+### <a name="after-creation-the-project-shows-initializing-for-a-long-time"></a>När projektet har skapats visar projektet "initiera" under en längre tid
+
+Uppdatera sidan manuellt. Initieringen bör fortsätta ungefär 20 Datapoints per sekund. Bristen på Autouppdatering är ett känt problem. 
+
+### <a name="bounding-box-cannot-be-drawn-all-the-way-to-right-edge-of-image"></a>Det går inte att rita en markerings ruta på samma sätt som bildens högra kant 
+
+Försök att ändra storlek på webbläsarfönstret. Vi undersöker för att ta reda på orsaken till det här problemet. 
+
+### <a name="when-reviewing-images-newly-labeled-images-are-not-shown"></a>När du visar bilder visas nyligen märkta bilder inte
+
+Om du vill läsa in alla märkta bilder väljer du den **första** knappen. Den **första** knappen tar dig tillbaka till början av listan, men läser in alla etiketterade data.

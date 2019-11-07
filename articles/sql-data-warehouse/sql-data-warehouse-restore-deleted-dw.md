@@ -1,5 +1,5 @@
 ---
-title: Återställa en borttagen Azure SQL Data Warehouse | Microsoft Docs
+title: Återställa ett borttaget informationslager
 description: Guide för att återställa en borttagen Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: anumjs
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 376a50a79858aee34aa71d172ca5836646a6651d
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.custom: seo-lt-2019
+ms.openlocfilehash: cb09b4808bd6d59d2f70e85d204ab8451d501cee
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68426634"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692607"
 ---
 # <a name="restore-a-deleted-azure-sql-data-warehouse"></a>Återställa en borttagen Azure SQL Data Warehouse
 
@@ -29,7 +30,7 @@ I den här artikeln får du lära dig att återställa en borttagen SQL Data War
 
 ## <a name="restore-a-deleted-data-warehouse-through-powershell"></a>Återställa ett borttaget informations lager via PowerShell
 
-Om du vill återställa en borttagen SQL Data Warehouse använder du cmdleten Restore [-AzSqlDatabase][Restore-AzSqlDatabase] . Om motsvarande logiska server också har tagits bort kan du inte återställa det data lagret.
+Om du vill återställa en borttagen SQL Data Warehouse använder du cmdleten [restore-AzSqlDatabase][Restore-AzSqlDatabase] . Om motsvarande logiska server också har tagits bort kan du inte återställa det data lagret.
 
 1. Innan du börjar ska du se till att [installera Azure PowerShell][Install Azure PowerShell].
 2. Öppna PowerShell.
@@ -40,7 +41,7 @@ Om du vill återställa en borttagen SQL Data Warehouse använder du cmdleten Re
     1. Om du vill återställa den borttagna SQL Data Warehouse till en annan logisk server, måste du ange namnet på den andra logiska servern.  Den här logiska servern kan också finnas i en annan resurs grupp och region.
     1. Om du vill återställa till en annan prenumeration använder du knappen [Flytta][Move] för att flytta den logiska servern till en annan prenumeration.
 1. Kontrol lera att det återställda informations lagret är online.
-1. När återställningen har slutförts kan du konfigurera det återställda data lagret genom att följa [konfiguration av databasen efter][Configure your database after recovery]återställningen.
+1. När återställningen har slutförts kan du konfigurera det återställda data lagret genom att följa [konfiguration av databasen efter återställningen][Configure your database after recovery].
 
 ```Powershell
 $SubscriptionName="<YourSubscriptionName>"

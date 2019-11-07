@@ -1,5 +1,5 @@
 ---
-title: Kopiera data från Office 365 med Azure Data Factory | Microsoft Docs
+title: Kopiera data från Office 365 med Azure Data Factory
 description: Lär dig hur du kopierar data från Office 365 till mottagar data lager med stöd för kopierings aktivitet i en Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 7290a7a2f0bf6e12234ff3c09f5c5211dcaeba2d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9bd059d42686a37701af0d42f54335b83c06b752
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931051"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680577"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Kopiera data från Office 365 till Azure med Azure Data Factory
 
@@ -35,7 +35,7 @@ För närvarande kan du bara **Kopiera data från Office 365 till [Azure Blob St
 >- Se till att den Azure Integration Runtime region som används för kopierings aktiviteten och målet finns i samma region där Office 365-klientens användares post låda finns. Mer information finns [här](concepts-integration-runtime.md#integration-runtime-location) för att förstå hur Azure IRS platsen bestäms. Se [tabellen här](https://docs.microsoft.com/graph/data-connect-datasets#regions) för en lista över de Office-regioner som stöds och motsvarande Azure-regioner.
 >- Autentisering av tjänstens huvud namn är den enda autentiseringsmekanismen som stöds för Azure Blob Storage, Azure Data Lake Storage Gen1 och Azure Data Lake Storage Gen2 som mål arkiv.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill kopiera data från Office 365 till Azure måste du utföra följande nödvändiga steg:
 
@@ -64,7 +64,7 @@ Om ADF skapas som en del av en hanterad app och tilldelningar av Azure-principer
 
 Du kan skapa en pipeline med kopierings aktiviteten genom att använda något av följande verktyg eller SDK: er. Välj en länk för att gå till en själv studie kurs med stegvisa instruktioner för att skapa en pipeline med en kopierings aktivitet. 
 
-- [Azure-portalen](quickstart-create-data-factory-portal.md)
+- [Azure Portal](quickstart-create-data-factory-portal.md)
 - [.NET SDK](quickstart-create-data-factory-dot-net.md)
 - [Python SDK](quickstart-create-data-factory-python.md)
 - [Azure PowerShell](quickstart-create-data-factory-powershell.md)

@@ -1,5 +1,5 @@
 ---
-title: Kopiera nya och ändrade filer stegvis baserat på LastModifiedDate med hjälp av Kopiera data-verktyget | Microsoft Docs
+title: Kopiera nya och ändrade filer stegvis baserat på LastModifiedDate med hjälp av verktyget Kopiera data
 description: Skapa en Azure-datafabrik och Använd sedan Kopiera data-verktyget för att stegvis läsa in nya filer baserat på LastModifiedDate.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: 9f6fd57586603d0d987faa674d40a7e4678530a1
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 09a9fa4515913470c86bbafe293add007a3117ea
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933838"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683457"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Kopiera nya och ändrade filer stegvis baserat på LastModifiedDate med hjälp av verktyget Kopiera data
 
@@ -36,10 +36,10 @@ I den här självstudien ska du utföra följande uppgifter:
 > * Använd verktyget Kopiera data för att skapa en pipeline.
 > * Övervaka pipelinen och aktivitetskörningarna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* **Azure-prenumeration**: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-* **Azure-lagringskonto**: Använd Blob Storage som data lager för _källa_ och _mottagare_ . Om du inte har något Azure-lagringskonto finns det anvisningar i [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md).
+* **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+* **Azure Storage-konto**: Använd Blob Storage som data lager för _källa_ och _mottagare_ . Om du inte har något Azure-lagringskonto finns det anvisningar i [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md).
 
 ### <a name="create-two-containers-in-blob-storage"></a>Skapa två behållare i Blob Storage
 
@@ -55,7 +55,7 @@ Förbered blob-lagringen för självstudien genom att utföra dessa steg.
    
    ![Valet Data Factory i fönstret Nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
 
-2. I fönstret **Ny datafabrik**, under **Namn** anger du **ADFTutorialDataFactory**. 
+2. I fönstret **Ny datafabrik**, under **Namn**, anger du **ADFTutorialDataFactory**. 
  
    Namnet på datafabriken måste vara _globalt unikt_. Du kan få följande felmeddelande:
    
@@ -69,7 +69,7 @@ Förbered blob-lagringen för självstudien genom att utföra dessa steg.
 
     * Välj **Skapa ny** och ange namnet på en resursgrupp. 
          
-    Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).
+    Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).
 
 5. Under **version**väljer du **v2**.
 6. Under **plats** väljer du en plats för datafabriken. Endast platser som stöds visas i listrutan. Data lag ren (till exempel Azure Storage och SQL Database) och beräkningarna (till exempel Azure HDInsight) som din Data Factory använder kan finnas på andra platser och regioner.
@@ -129,7 +129,7 @@ Förbered blob-lagringen för självstudien genom att utföra dessa steg.
     
     ![Välj indatafil eller mapp](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-input-file-folder.png)
     
-    b. Under **fil**inläsnings beteende **väljer du stegvis belastning: LastModifiedDate**.
+    b. Under **fil inläsnings beteende**väljer du **stegvis belastning: LastModifiedDate**.
     
     ![Välj indatafil eller mapp](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-loading-behavior.png)
     
@@ -179,7 +179,7 @@ Förbered blob-lagringen för självstudien genom att utföra dessa steg.
 
     ![Skapa fil1. txt och ladda upp till käll behållare](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
     
-13. Gå tillbaka till vyn **pipeline** -körningar genom att välja **alla pipelines**-körningar och vänta tills samma pipeline utlöses igen automatiskt.  
+13. Gå tillbaka till vyn **pipeline-körningar** genom att välja **alla pipelines-körningar**och vänta tills samma pipeline utlöses igen automatiskt.  
 
     ![Välj alla pipeline-körningar](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs4.png)
 

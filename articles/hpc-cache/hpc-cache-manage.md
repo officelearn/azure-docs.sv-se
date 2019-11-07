@@ -1,17 +1,17 @@
 ---
-title: Hantera och uppdatera Azure HPC cache (för hands version)
+title: Hantera och uppdatera Azure HPC-cache
 description: Hantera och uppdatera Azure HPC-cache med hjälp av Azure Portal
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: b5607f1d97e4e240a86ba8e7800af7cb21083217
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 62b54bfe120acdde1fd22c4a0d04165ea7243b50
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952022"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582202"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Hantera din cache från Azure Portal
 

@@ -1,5 +1,5 @@
 ---
-title: Hög tillgänglighet – Azure SQL Database-tjänst | Microsoft Docs
+title: Hög tillgänglighet – Azure SQL Database-tjänst
 description: Lär dig mer om funktioner och funktioner för hög tillgänglighet i Azure SQL Database tjänsten
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 10/14/2019
-ms.openlocfilehash: ab3971b4fb6065701d693debf55242be7b15295e
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: b34590ca275b6e7254af7820fdc1a03655351cea
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965964"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689954"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hög tillgänglighet och Azure SQL Database
 
@@ -39,7 +39,7 @@ Dessa tjänst nivåer utnyttjar standard arkitekturen för tillgänglighet. Föl
 
 Standard tillgänglighets modellen innehåller två lager:
 
-- Ett tillstånds löst beräknings lager som kör `sqlservr.exe`-processen och bara innehåller temporära och cachelagrade data, till exempel TempDB, modell databaser på anslutna SSD och planera cache, buffer och columnstore-pool i minnet. Den här tillstånds lösa noden drivs av Azure-Service Fabric som initierar `sqlservr.exe`, styr hälsan för noden och utför redundans till en annan nod vid behov.
+- Ett tillstånds löst beräknings lager som kör `sqlservr.exe`s processen och bara innehåller temporära och cachelagrade data, till exempel TempDB, modell databaser på anslutna SSD och planera cache, resurspool och columnstore-pool i minnet. Den här tillstånds lösa noden drivs av Azure-Service Fabric som initierar `sqlservr.exe`, kontrollerar nodens hälsa och utför redundans till en annan nod vid behov.
 - Ett tillstånds känsligt data lager med databasfiler (. MDF/. ldf) som lagras i Azure Blob Storage. Azure Blob Storage har inbyggd data tillgänglighet och en redundans funktion. Det garanterar att alla poster i logg filen eller sidan i data filen kommer att bevaras även om SQL Server process kraschar.
 
 När databas motorn eller operativ systemet uppgraderas, eller om ett problem upptäcks, kommer Azure Service Fabric flytta processen utan tillstånd SQL Server till en annan tillstånds lös Compute-nod med tillräckligt med ledigt utrymme. Data i Azure Blob Storage påverkas inte av flyttningen och data-/loggfilerna bifogas till den nyligen initierade SQL Server processen. Den här processen garanterar 99,99% tillgänglighet, men en kraftig arbets belastning kan uppleva viss prestanda försämring under över gången sedan den nya SQL Server-instansen börjar med kall cache.
@@ -62,8 +62,8 @@ Den storskaliga Service Tier-arkitekturen beskrivs i [arkitekturen distribuerade
 
 Tillgänglighets modellen i storskalig innehåller fyra lager:
 
-- Ett tillstånds löst beräknings lager som kör `sqlservr.exe`-processer och bara innehåller tillfälliga och cachelagrade data, till exempel icke-omfattande RBPEX cache, TempDB, modell databas osv. på anslutna SSD och planera cache, resurspool och columnstore-pool i minnet. Detta tillstånds lösa lager inkluderar den primära beräknings repliken och eventuellt ett antal sekundära beräknings repliker som kan fungera som redundans.
-- Ett tillstånds löst lagrings lager som bildas av sid servrar. Det här lagret är den distribuerade lagrings motorn för de `sqlservr.exe`-processer som körs på beräknings replikerna. Varje Page Server innehåller bara tillfälliga och cachelagrade data, till exempel för att täcka RBPEX-cache på anslutna SSD och data sidor som cachelagras i minnet. Varje sid Server har en länkad sid server i en aktiv-aktiv konfiguration för att tillhandahålla belastnings utjämning, redundans och hög tillgänglighet.
+- Ett tillstånds löst beräknings lager som kör `sqlservr.exe`s processer och bara innehåller temporära och cachelagrade data, till exempel icke-omfattande RBPEX cache, TempDB, modell databas osv. på anslutna SSD och planera cache, resurspool och columnstore-pool i minnet. Detta tillstånds lösa lager inkluderar den primära beräknings repliken och eventuellt ett antal sekundära beräknings repliker som kan fungera som redundans.
+- Ett tillstånds löst lagrings lager som bildas av sid servrar. Det här lagret är den distribuerade lagrings motorn för de `sqlservr.exe` processer som körs på beräknings replikerna. Varje Page Server innehåller bara tillfälliga och cachelagrade data, till exempel för att täcka RBPEX-cache på anslutna SSD och data sidor som cachelagras i minnet. Varje sid Server har en länkad sid server i en aktiv-aktiv konfiguration för att tillhandahålla belastnings utjämning, redundans och hög tillgänglighet.
 - Ett tillstånds känsligt lagrings lager för transaktions logg som bildas av Compute-noden som kör logg tjänst processen, landnings zonen för transaktions loggen och transaktions loggen långsiktig lagring. Landnings zon och långsiktig lagring använder Azure Storage, vilket ger tillgänglighet och [redundans](https://docs.microsoft.com/azure/storage/common/storage-redundancy) för transaktions loggen, vilket garanterar data hållbarhet för genomförda transaktioner.
 - Ett tillstånds känsligt data lagrings lager med databasfilerna (MDF/. NDF) som lagras i Azure Storage och som uppdateras av sid servrar. Det här lagret använder data tillgänglighet och [redundanta](https://docs.microsoft.com/azure/storage/common/storage-redundancy) funktioner i Azure Storage. Det garanterar att varje sida i en datafil kommer att bevaras även om processer i andra lager av arkitektur krascher i stor skala, eller om det inte går att beräkna noder.
 
@@ -98,7 +98,7 @@ En redundansväxling kan initieras med hjälp av REST API eller PowerShell. För
 > [!IMPORTANT]
 > Redundans kommandot är för närvarande inte tillgängligt i den storskaliga tjänst nivån och för en hanterad instans.
 
-## <a name="conclusion"></a>Sammanfattning
+## <a name="conclusion"></a>Slutsats
 
 Azure SQL Database har en inbyggd lösning för hög tillgänglighet som är djupt integrerad med Azure-plattformen. Det beror på Service Fabric för identifiering och återställning av fel i Azure Blob Storage för data skydd och på Tillgänglighetszoner för högre fel tolerans. Dessutom utnyttjar Azure SQL Database alltid tillgänglighets grupp teknik från SQL Server för replikering och redundans. Kombinationen av dessa tekniker gör det möjligt för program att helt kunna utnyttja fördelarna med en blandad lagrings modell och stödja de mest krävande service avtal.
 

@@ -1,5 +1,5 @@
 ---
-title: Data uppsättningar i Azure Data Factory | Microsoft Docs
+title: Data uppsättningar i Azure Data Factory
 description: Lär dig mer om data uppsättningar i Data Factory. Data uppsättningar representerar indata/utdata.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: c4daa5989013ba8d5c5a7136fe0878fae64f0357
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 74c35d5de74fbf8ecc04cfec336bfeb4a8e669fd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030572"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681518"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Data uppsättningar i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -68,10 +68,10 @@ I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
 Egenskap | Beskrivning | Krävs |
 -------- | ----------- | -------- |
-name | Data uppsättningens namn. Se [Azure Data Factory namngivnings regler](naming-rules.md). |  Ja |
-type | Typ av data uppsättning. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [data uppsättnings typer](#dataset-type). | Ja |
-structure | Schema för data uppsättningen. Mer information finns i [data uppsättnings schema](#dataset-structure-or-schema). | Nej |
-typeProperties | Typ egenskaperna är olika för varje typ (till exempel: Azure-Blob, Azure SQL-tabell). Mer information om de typer som stöds och deras egenskaper finns i [data uppsättnings typ](#dataset-type). | Ja |
+namn | Data uppsättningens namn. Se [Azure Data Factory namngivnings regler](naming-rules.md). |  Ja |
+typ | Typ av data uppsättning. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [data uppsättnings typer](#dataset-type). | Ja |
+hierarkistruktur | Schema för data uppsättningen. Mer information finns i [data uppsättnings schema](#dataset-structure-or-schema). | Nej |
+typeProperties | Typ egenskaperna är olika för varje typ (till exempel: Azure Blob, Azure SQL-tabell). Mer information om de typer som stöds och deras egenskaper finns i [data uppsättnings typ](#dataset-type). | Ja |
 
 ### <a name="data-flow-compatible-dataset"></a>Data flöde-kompatibel data mängd
 
@@ -113,10 +113,10 @@ I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
 Egenskap | Beskrivning | Krävs |
 -------- | ----------- | -------- |
-name | Data uppsättningens namn. Se [Azure Data Factory namngivnings regler](naming-rules.md). |  Ja |
-type | Typ av data uppsättning. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [data uppsättnings typer](#dataset-type). | Ja |
-schema | Schema för data uppsättningen. Mer information finns i [Data Flow-kompatibla data uppsättningar](#dataset-type). | Nej |
-typeProperties | Typ egenskaperna är olika för varje typ (till exempel: Azure-Blob, Azure SQL-tabell). Mer information om de typer som stöds och deras egenskaper finns i [data uppsättnings typ](#dataset-type). | Ja |
+namn | Data uppsättningens namn. Se [Azure Data Factory namngivnings regler](naming-rules.md). |  Ja |
+typ | Typ av data uppsättning. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [data uppsättnings typer](#dataset-type). | Ja |
+Schema | Schema för data uppsättningen. Mer information finns i [Data Flow-kompatibla data uppsättningar](#dataset-type). | Nej |
+typeProperties | Typ egenskaperna är olika för varje typ (till exempel: Azure Blob, Azure SQL-tabell). Mer information om de typer som stöds och deras egenskaper finns i [data uppsättnings typ](#dataset-type). | Ja |
 
 
 ## <a name="dataset-example"></a>Exempel på data uppsättning
@@ -179,10 +179,10 @@ Varje kolumn i strukturen innehåller följande egenskaper:
 
 Egenskap | Beskrivning | Krävs
 -------- | ----------- | --------
-name | Kolumnens namn. | Ja
-type | Kolumnens datatyp. Data Factory stöder följande Interimistiska data typer som tillåtna värden: **Int16, Int32, Int64, enkel, dubbel, decimal, byte [], Boolean, sträng, GUID, DateTime, DateTimeOffset och TimeSpan** | Nej
-culture | . Den NET-baserade kulturen som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. | Nej
-format | Format sträng som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Referera till [anpassade datum-och tids format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) för hur du formaterar DateTime. | Nej
+namn | Kolumnens namn. | Ja
+typ | Kolumnens datatyp. Data Factory stöder följande Interimistiska data typer som tillåtna värden: **Int16, Int32, Int64, Single, Double, decimal, byte [], Boolean, String, GUID, DateTime, DateTimeOffset och TimeSpan** | Nej
+substrat | . Den NET-baserade kulturen som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. | Nej
+formatering | Format sträng som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Referera till [anpassade datum-och tids format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) för hur du formaterar DateTime. | Nej
 
 ### <a name="example"></a>Exempel
 I följande exempel antar vi att käll-BLOB-data är i CSV-format och innehåller tre kolumner: UserID, Name och lastlogindate. De är av typen Int64, String och datetime med ett anpassat datetime-format med förkortade franska namn för veckodag.

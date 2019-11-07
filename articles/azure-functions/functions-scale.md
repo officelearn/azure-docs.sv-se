@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce91d53bec3c74a8a55d46fd53bc3cf0ccd7e28a
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: bf713029f26ac7ec0b6c043fb887fa5190083888
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550638"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576063"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skala och vara värd
 
@@ -45,10 +45,10 @@ Funktions stödet ingår i följande två kategorier:
 
 Följande tabell visar den aktuella support nivån för de tre värd planerna, när de körs på antingen Windows eller Linux:
 
-| | Förbrukningsplan | Premium-plan | Dedikerad plan |
+| | Förbrukningsplan | Premiumplan | Dedikerad plan |
 |-|:----------------:|:------------:|:----------------:|
-| Windows | Allmänt tillgänglig | förhandsversion | Allmänt tillgänglig |
-| Linux | Allmänt tillgänglig | förhandsversion | Allmänt tillgänglig |
+| Windows | Allmän tillgänglighet (GA) | Allmän tillgänglighet (GA) | Allmän tillgänglighet (GA) |
+| Linux | Allmän tillgänglighet (GA) | Allmän tillgänglighet (GA) | Allmän tillgänglighet (GA) |
 
 ## <a name="consumption-plan"></a>Förbrukningsplan
 
@@ -65,7 +65,7 @@ Function-appar i samma region kan tilldelas samma förbruknings plan. Det finns 
 
 Mer information om hur du beräknar kostnader när du kör i en förbruknings plan finns i [förstå förbruknings plan kostnader](functions-consumption-costs.md).
 
-## <a name="premium-plan"></a>Premium-plan (för hands version)
+## <a name="premium-plan"></a>Premium-plan
 
 När du använder Premium-planen läggs instanser av Azure Functions-värden till och tas bort baserat på antalet inkommande händelser precis som förbruknings planen.  Premium-planen stöder följande funktioner:
 
@@ -128,7 +128,7 @@ appServicePlanId=$(az functionapp show --name <my_function_app_name> --resource-
 az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output tsv
 ```  
 
-När utdata från det här kommandot är `dynamic` är din Function-app i förbruknings planen. När utdata från det här kommandot är `ElasticPremium`, är din Function-app i Premium-planen. Alla andra värden indikerar olika nivåer för en App Service plan.
+När utdata från det här kommandot är `dynamic`är din Function-app i förbruknings planen. När utdata från det här kommandot är `ElasticPremium`, är din Function-app i Premium-planen. Alla andra värden indikerar olika nivåer för en App Service plan.
 
 ## <a name="storage-account-requirements"></a>Krav för lagringskonto
 

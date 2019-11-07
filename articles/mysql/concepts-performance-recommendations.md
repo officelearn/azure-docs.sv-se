@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/27/2019
-ms.openlocfilehash: 87942ae8132c89c502bd6e0f4c8d5b5c81a0a14c
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.date: 11/04/2019
+ms.openlocfilehash: 1371b286f5e9bd82345e17c11e910c68fac9fed2
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950369"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603153"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>Prestanda rekommendationer i Azure Database for MySQL
 
 **Gäller för:** Azure Database for MySQL 5,7
-
-> [!IMPORTANT]
-> Prestanda rekommendationerna är i för hands version.
 
 Funktionen prestanda rekommendationer analyserar dina databaser för att skapa anpassade förslag för bättre prestanda. För att skapa rekommendationerna tittar analysen på olika databas egenskaper, inklusive schema. Aktivera [frågearkivet](concepts-query-store.md) på servern för att utnyttja funktionen prestanda rekommendationer fullt ut. Om prestanda schema är inaktiverat aktiverar Query Store performance_schema och en delmängd av de prestanda schema instrument som krävs för funktionen. När du har implementerat en prestanda rekommendation bör du testa prestanda för att utvärdera effekterna av ändringarna.
 

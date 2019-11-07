@@ -1,5 +1,5 @@
 ---
-title: Skydda dina datorer och program i Azure Security Center | Microsoft Docs
+title: Skydda dina datorer och program i Azure Security Center
 description: Det här dokumentet beskriver rekommendationer i Security Center som hjälper dig att skydda dina virtuella datorer och datorer och dina webbappar och App Service miljöer.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 2317d0206e3fc4a342606d17c172ac42cbe82870
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 803e64c9df1b52a33a1b50714f77b005032bf200
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520677"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686351"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Skydda dina datorer och program i Azure Security Center
 Azure Security Center analyserar säkerhets status för dina Azure-resurser, icke-Azure-servrar och virtuella datorer. När Security Center identifierar potentiella säkerhets problem skapas rekommendationer som vägleder dig genom processen att konfigurera de nödvändiga kontrollerna. Rekommendationer gäller för Azure-resurs typer: virtuella datorer (VM) och datorer, program, nätverk, SQL och identitet och åtkomst.
@@ -153,7 +153,7 @@ Det finns tre typer av ikoner som visas i den här listan:
 
 2. Välj en rekommendation om du vill se en beskrivning av rekommendationen och en lista över felaktiga resurser, felfria resurser och ej genomsökta resurser.
 
-   - I kolumnen **skickade utvärderingar** finns en lista över godkända utvärderingar.  Allvarlighets graden för de här utvärderingarna är alltid grön.
+   - I kolumnen **skickade utvärderingar** finns en lista över godkända utvärderingar. Allvarlighets graden för de här utvärderingarna är alltid grön.
 
    - Välj en slutförd utvärdering i listan för en beskrivning av utvärderingen, en lista över felaktiga och felfria resurser samt en lista över ej inskannade resurser. Det finns en flik för resurser som inte är felfria, men listan är alltid tom sedan utvärderingen skickades.
 
@@ -198,7 +198,7 @@ Om du vill ange alla befintliga skalnings uppsättningar för att installera Mic
 |Beräknings resurser (batch)|5|Aktivera diagnostikloggar i batch-konton|Aktivera loggar och behåll dem på ett år. På så sätt kan du återskapa aktivitets spårningar i utrednings syfte när en säkerhets incident inträffar eller nätverket komprometteras. |
 |Beräknings resurser (Event Hub)|5|Diagnostikloggar i Händelsehubben måste vara aktive rad|Aktivera loggar och behåll dem på ett år. På så sätt kan du återskapa aktivitets spårningar i utrednings syfte när en säkerhets incident inträffar eller nätverket komprometteras. |
 |Beräknings resurser (Logic Apps)|5|Aktivera diagnostikloggar i Logic Apps|Aktivera loggar och behåll dem på ett år. På så sätt kan du återskapa aktivitets spårningar i utrednings syfte när en säkerhets incident inträffar eller nätverket komprometteras. |
-|Beräknings resurser (Service Fabric)|15|Ange egenskapen ClusterProtectionLevel till EncryptAndSign i Service Fabric|Service Fabric tillhandahåller tre skydds nivåer (ingen, sign och EncryptAndSign) för nod-till-nod-kommunikation med ett primärt kluster certifikat.  Ange skydds nivå för att säkerställa att alla nod-till-nod-meddelanden är krypterade och digitalt signerade. |
+|Beräknings resurser (Service Fabric)|15|Ange egenskapen ClusterProtectionLevel till EncryptAndSign i Service Fabric|Service Fabric tillhandahåller tre skydds nivåer (ingen, sign och EncryptAndSign) för nod-till-nod-kommunikation med ett primärt kluster certifikat. Ange skydds nivå för att säkerställa att alla nod-till-nod-meddelanden är krypterade och digitalt signerade. |
 |Beräknings resurser (Service Bus)|1|Ta bort alla auktoriseringsregler utom RootManageSharedAccessKey från Service Bus namnrymd |Service Bus-klienter bör inte använda en åtkomst princip för namn områdes nivå som ger åtkomst till alla köer och ämnen i ett namn område. Om du vill justera med minsta behörighets säkerhets modell bör du skapa åtkomst principer på enhets nivå för köer och ämnen för att ge åtkomst till endast den specifika entiteten.|
 |Beräknings resurser (Event Hub)|1|Alla auktoriseringsregler utom RootManageSharedAccessKey ska tas bort från Event Hub-namnområdet|Event Hub-klienter bör inte använda en åtkomst princip för namn områdes nivå som ger åtkomst till alla köer och ämnen i ett namn område. Om du vill justera med minsta behörighets säkerhets modell bör du skapa åtkomst principer på enhets nivå för köer och ämnen för att ge åtkomst till endast den specifika entiteten.|
 |Beräknings resurser (Event Hub)|5|Auktoriseringsregler i Event Hub-entiteten måste definieras|Granska auktoriseringsregler i entiteten Event Hub för att bevilja åtkomst med lägsta privilegier.|

@@ -1,207 +1,219 @@
 ---
-title: Aktivera säkerhetsgranskningar för Azure AD Domain Services | Microsoft Docs
-description: Aktivera säkerhetsgranskningar för Azure AD Domain Services
+title: Aktivera säkerhets granskningar för Azure AD Domain Services | Microsoft Docs
+description: Lär dig hur du aktiverar säkerhets granskningar för att centralisera loggning av händelser för analys och aviseringar i Azure AD Domain Services
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: 662362c3-1a5e-4e94-ae09-8e4254443697
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 3105296b3c670d3d44789c93878fa1fc6076973b
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 6ff996129cc140c9154edb8fb60840cd48017a5e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566500"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73569825"
 ---
-# <a name="enable-security-audits-for-azure-ad-domain-services-preview"></a>Aktivera säkerhetsgranskningar för Azure AD Domain Services (förhandsversion)
-Azure AD Domain Service säkerhetsgranskningar gör att kunderna kan använda portalen för Azure AD Domain-tjänsten att stream säkerhetsgranskningshändelser till målresurser. Resurser som kan ta emot de här händelserna inkluderar Azure Storage, Azure Log Analytics-arbetsytor och Azure Event Hub. Strax efter att aktivera säkerhetsgranskningshändelser, skickar Azure AD Domain-tjänsten de granskade händelserna för den valda kategorin till resurs. Säkerhets-granskningshändelser kan kunder Arkiv granskade händelser till Azure storage. Kunder kan dessutom strömma händelser till säkerhet information och händelsen hanteringsprogramvara (SIEM) (eller motsvarande) med event hubs eller gör egna analyser och insikter med hjälp av Azure Log Analytics från Azure-portalen. 
+# <a name="enable-security-audits-for-azure-active-directory-domain-services-preview"></a>Aktivera säkerhets granskningar för Azure Active Directory Domain Services (för hands version)
+
+Azure Active Directory Domain Services (Azure AD DS) säkerhets granskningar låter Azure Stream-säkerhetshändelser till riktade resurser. Dessa resurser omfattar Azure Storage, Azure Log Analytics-arbetsytor eller Azure Event Hub. När du har aktiverat säkerhets gransknings händelser skickar Azure AD DS alla granskade händelser för den valda kategorin till mål resursen. Du kan arkivera händelser i Azure Storage och strömma händelser till SIEM-program (Security information and Event Management) (eller motsvarande) med hjälp av Azure Event Hubs eller utföra din egen analys och använda Azure Log Analytics-arbetsytor från Azure Portal.
 
 > [!IMPORTANT]
-> Azure AD Domain Services-säkerhet och granskning finns endast på Azure Resource Manager-baserade instanser för Azure AD Domain Services.
->
->
+> Azure AD DS-säkerhetsgranskningar är endast tillgängliga för Azure Resource Manager-baserade instanser. Information om hur du migrerar finns i [migrera Azure AD DS från den klassiska virtuella nätverks modellen till Resource Manager][migrate-azure-adds].
 
-## <a name="auditing-event-categories"></a>Händelsekategorier
-Azure AD Domain Services-säkerhet och granskning överensstämmer med traditionella granskning för Active Directory DS-domänkontrollanter. Återanvända befintliga audit mönster garanterar samma logik som kan användas när du analyserar händelserna. Azure AD Domain Services-säkerhet och granskning innehåller följande händelsekategorier.
+## <a name="audit-event-categories"></a>Granska händelse kategorier
 
-| Granska kategorinamn | Beskrivning |
+Azure AD DS-säkerhetsgranskningar överensstämmer med traditionell granskning för traditionella AD DS-domänkontrollanter. I hybrid miljöer kan du återanvända befintliga gransknings mönster så att samma logik kan användas när händelserna analyseras. Beroende på vilket scenario du behöver för att felsöka eller analysera måste de olika gransknings händelse kategorierna vara riktade.
+
+Följande kategorier av gransknings händelser är tillgängliga:
+
+| Namn på gransknings kategori | Beskrivning |
 |:---|:---|
-| Kontoinloggning|Granskar försök att autentisera kontodata på en domänkontrollant eller på en lokala konton Manager (SAM).</p>Inloggning och utloggning principinställningar och händelser spåra försöker komma åt en viss dator. Inställningar och händelser i den här kategorin kan du fokusera på den databasen som används. Den här kategorin omfattar följande underkategorier:<ul><li>[Granska verifiering av autentiseringsuppgifter](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-credential-validation)</li><li>[Granska Kerberos-autentiseringstjänst](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-kerberos-authentication-service)</li><li>[Granska Kerberos-Tjänstbiljettåtgärder](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-kerberos-service-ticket-operations)</li><li>[Granska andra händelser för inloggning](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-logonlogoff-events)</li></ul>|
-| Kontohantering|Granskar förändringar av användar- och datorkonton och grupper. Den här kategorin omfattar följande underkategorier:<ul><li>[Hantering av granskning programgrupp](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-application-group-management)</li><li>[Granska hantering av datorkonto](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-computer-account-management)</li><li>[Hantering av granskning distributionsgrupp](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-distribution-group-management)</li><li>[Granska andra kontohantering](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-account-management-events)</li><li>[Hantering av säkerhetsgrupper för granskning](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-security-group-management)</li><li>[Granska hantering av användarkonto](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-user-account-management)</li></ul>|
-| Detaljerad spårning|Granskningar aktiviteter för enskilda program och användare på datorn och att förstå hur en dator används. Den här kategorin omfattar följande underkategorier:<ul><li>[Granska DPAPI-aktivitet](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-dpapi-activity)</li><li>[PNP aktivitetsrapporter](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-pnp-activity)</li><li>[Granska Processgenerering](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-process-creation)</li><li>[Granska processavslut](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-process-termination)</li><li>[Granska RPC-händelser](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-rpc-events)</li></ul>|
-| Directory Services Access|Granskningar försöker komma åt och ändra objekt i Active Directory Domain Services (AD DS). Dessa granska händelser som loggas endast på domänkontrollanter. Den här kategorin omfattar följande underkategorier:<ul><li>[Granska detaljerad replikering av katalogtjänst](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-detailed-directory-service-replication)</li><li>[Granska katalogtjänståtkomst](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-directory-service-access)</li><li>[Granska ändringar av katalogtjänst](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-directory-service-changes)</li><li>[Granska replikering av katalogtjänst](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-directory-service-replication)</li></ul>|
-| Logon-Logoff|Granskar försöker logga in på en dator interaktivt eller över ett nätverk. Dessa händelser är användbara för att spåra användaraktivitet och identifiera potentiella attacker på nätverksresurser. Den här kategorin omfattar följande underkategorier:<ul><li>[Granska kontoutelåsning](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-account-lockout)</li><li>[Granska anspråk för användare/enhet](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-user-device-claims)</li><li>[Granska utökat IPsec-läge](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-ipsec-extended-mode)</li><li>[Granska gruppmedlemskap](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-group-membership)</li><li>[Granska IPsec-huvudläge](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-ipsec-main-mode)</li><li>[Granska IPsec-snabbläge](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-ipsec-quick-mode)</li><li>[Granska utloggning](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-logoff)</li><li>[Granska inloggning](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-logon)</li><li>[Granska Nätverksprincipserver](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-network-policy-server)</li><li>[Granska andra händelser för inloggning](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-logonlogoff-events)</li><li>[Granska Specialinloggning](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-special-logon)</li></ul>|
-|Åtkomst till objekt| Granskar försöker få åtkomst till specifika objekt eller typer av objekt på ett nätverk eller dator. Den här kategorin omfattar följande underkategorier:<ul><li>[Granska genererat program](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-application-generated)</li><li>[Granska Certifikattjänster](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-certification-services)</li><li>[Granska detaljerad filresurs](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-detailed-file-share)</li><li>[Granska filresurs](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-file-share)</li><li>[Granska filsystem](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-file-system)</li><li>[Granska anslutning för filterplattform](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-filtering-platform-connection)</li><li>[Granska filtrering paket för filterplattform](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-filtering-platform-packet-drop)</li><li>[Granska hantering av manipulering](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-handle-manipulation)</li><li>[Granska Kernel-objekt](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-kernel-object)</li><li>[Granska andra objektåtkomsthändelser](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-object-access-events)</li><li>[Granska register](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-registry)</li><li>[Granska flyttbara lagringsmedia](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-removable-storage)</li><li>[Granska SAM](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-sam)</li><li>[Granska mellanlagring för princip för Central åtkomst](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-central-access-policy-staging)</li></ul>|
-|Ändring av|Granskar förändringar av viktiga säkerhetsprinciper i ett lokalt system eller nätverk. Principer som vanligtvis upprättas av administratörer för att säkra nätverksresurser. Övervaka ändringar eller försök att ändra de här principerna kan vara en viktig aspekt av säkerhetshantering för ett nätverk. Den här kategorin omfattar följande underkategorier:<ul><li>[Granska ändring av granskningsprincip](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-audit-policy-change)</li><li>[Granska ändring av autentiseringsprincip](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-authentication-policy-change)</li><li>[Granska ändring av auktoriseringsprincip](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-authorization-policy-change)</li><li>[Granska ändring av Filtreringsplattformsprincip](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-filtering-platform-policy-change)</li><li>[Granska ändring av MPSSVC regel på databasnivå princip](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-mpssvc-rule-level-policy-change)</li><li>[Granska ändring av andra](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-policy-change-events)</li></ul>|
-|Privilegierad användning| Granskar användning av vissa behörigheter för ett eller flera system. Den här kategorin omfattar följande underkategorier:<ul><li>[Granska användning av icke-känsliga privilegier](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-non-sensitive-privilege-use)</li><li>[Granska användning av känsliga privilegier](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-sensitive-privilege-use)</li><li>[Granska andra privilegierad användning](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-privilege-use-events)</li></ul>|
-|System| Granskningar på systemnivå ändringar till en dator som inte ingår i kategorier och som påverkar potentiella säkerheten. Den här kategorin omfattar följande underkategorier:<ul><li>[Granska IPsec-drivrutin](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-ipsec-driver)</li><li>[Granska andra systemhändelser](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-system-events)</li><li>[Ändring av säkerhetsstatus för granskning](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-security-state-change)</li><li>[Granska säkerhetssystem](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-security-system-extension)</li><li>[Granska Systemintegritet](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-system-integrity)</li></ul>|
+| Konto inloggning|Granskningar försöker autentisera konto data på en domänkontrollant eller en lokal hanterare för konto säkerhet (SAM).</p>Princip inställningar för inloggning och utloggning och händelser spårar försök att komma åt en viss dator. Inställningar och händelser i den här kategorin fokuserar på den konto databas som används. Den här kategorin omfattar följande under Kategorier:<ul><li>[Granska verifiering av autentiseringsuppgifter](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-credential-validation)</li><li>[Granska Kerberos-autentiseringstjänst](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-kerberos-authentication-service)</li><li>[Granska åtgärder för Kerberos-tjänstebiljett](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-kerberos-service-ticket-operations)</li><li>[Granska andra inloggnings-och utloggnings händelser](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-logonlogoff-events)</li></ul>|
+| Kontohantering|Granskar ändringar av användar-och dator konton och grupper. Den här kategorin omfattar följande under Kategorier:<ul><li>[Granska hantering av program grupper](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-application-group-management)</li><li>[Granska dator konto hantering](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-computer-account-management)</li><li>[Granska hantering av distributions grupper](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-distribution-group-management)</li><li>[Granska annan konto hantering](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-account-management-events)</li><li>[Granska hantering av säkerhets grupper](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-security-group-management)</li><li>[Granska hantering av användar konto](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-user-account-management)</li></ul>|
+| Informations spårning|Granskar aktiviteter för enskilda program och användare på den datorn och för att förstå hur en dator används. Den här kategorin omfattar följande under Kategorier:<ul><li>[Granska DPAPI-aktivitet](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-dpapi-activity)</li><li>[Granska PNP-aktivitet](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-pnp-activity)</li><li>[Skapa gransknings process](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-process-creation)</li><li>[Gransknings process avslutning](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-process-termination)</li><li>[Granska RPC-händelser](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-rpc-events)</li></ul>|
+| Åtkomst till katalog tjänster|Granskningar försöker komma åt och ändra objekt i Active Directory Domain Services (AD DS). Dessa gransknings händelser loggas bara på domänkontrollanter. Den här kategorin omfattar följande under Kategorier:<ul><li>[Granska detaljerad replikering av katalog tjänst](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-detailed-directory-service-replication)</li><li>[Granska katalog tjänst åtkomst](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-directory-service-access)</li><li>[Granska ändringar i katalog tjänsten](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-directory-service-changes)</li><li>[Granska replikering av katalog tjänst](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-directory-service-replication)</li></ul>|
+| Logga in-/utloggning|Granskningar försöker logga in på en dator interaktivt eller över ett nätverk. Dessa händelser är användbara för att spåra användar aktivitet och identifiera eventuella attacker på nätverks resurser. Den här kategorin omfattar följande under Kategorier:<ul><li>[Granska konto utelåsning](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-account-lockout)</li><li>[Granska användar-/enhets anspråk](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-user-device-claims)</li><li>[Granska utökat IPsec-läge](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-ipsec-extended-mode)</li><li>[Medlemskap i gransknings grupp](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-group-membership)</li><li>[Granska IPsecs huvud läge](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-ipsec-main-mode)</li><li>[Granska IPsec snabb läge](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-ipsec-quick-mode)</li><li>[Granska utloggning](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-logoff)</li><li>[Granska inloggning](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-logon)</li><li>[Granska nätverks princip Server](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-network-policy-server)</li><li>[Granska andra inloggnings-och utloggnings händelser](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-logonlogoff-events)</li><li>[Granska särskild inloggning](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-special-logon)</li></ul>|
+|Objekt åtkomst| Granskningar försöker komma åt vissa objekt eller typer av objekt i ett nätverk eller en dator. Den här kategorin omfattar följande under Kategorier:<ul><li>[Granskat program som skapats](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-application-generated)</li><li>[Granska certifierings tjänster](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-certification-services)</li><li>[Granska detaljerad fil resurs](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-detailed-file-share)</li><li>[Granska fil resurs](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-file-share)</li><li>[Granska fil system](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-file-system)</li><li>[Granska anslutning för filter plattform](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-filtering-platform-connection)</li><li>[Granska filter plattforms paket släpp](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-filtering-platform-packet-drop)</li><li>[Gransknings hanterings manipulering](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-handle-manipulation)</li><li>[Granska kernel-objekt](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-kernel-object)</li><li>[Granska andra objekt åtkomst händelser](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-object-access-events)</li><li>[Granska registret](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-registry)</li><li>[Granska flyttbara lagrings enheter](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-removable-storage)</li><li>[Granska SAM](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-sam)</li><li>[Granska mellanlagring av princip för central åtkomst](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-central-access-policy-staging)</li></ul>|
+|Princip ändring|Granskar ändringar av viktiga säkerhets principer på ett lokalt system eller nätverk. Principer upprättas vanligt vis av administratörer för att skydda nätverks resurser. Övervakning av ändringar eller försök att ändra dessa principer kan vara en viktig aspekt av säkerhets hanteringen för ett nätverk. Den här kategorin omfattar följande under Kategorier:<ul><li>[Granska ändring av gransknings princip](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-audit-policy-change)</li><li>[Granska ändring av autentiseringsprincip](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-authentication-policy-change)</li><li>[Granska ändring av auktoriseringsprincip](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-authorization-policy-change)</li><li>[Granska ändring av filtrerings plattforms princip](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-filtering-platform-policy-change)</li><li>[Granska princip ändring för MPSSVC-regel på nivå](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-mpssvc-rule-level-policy-change)</li><li>[Granska annan princip ändring](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-policy-change-events)</li></ul>|
+|Privilegie rad användning| Granskar användningen av vissa behörigheter på ett eller flera system. Den här kategorin omfattar följande under Kategorier:<ul><li>[Granska användning av icke-känsliga privilegier](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-non-sensitive-privilege-use)</li><li>[Granska känslig privilegie användning](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-sensitive-privilege-use)</li><li>[Granska andra privilegier att använda händelser](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-privilege-use-events)</li></ul>|
+|System| Granskar ändringar på system nivå för en dator som inte ingår i andra kategorier och som har potentiella säkerhets risker. Den här kategorin omfattar följande under Kategorier:<ul><li>[Granska IPsec-drivrutin](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-ipsec-driver)</li><li>[Granska andra system händelser](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-system-events)</li><li>[Granska ändring av säkerhets tillstånd](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-security-state-change)</li><li>[Granska säkerhets system tillägg](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-security-system-extension)</li><li>[Granska system integritet](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-system-integrity)</li></ul>|
 
 ## <a name="event-ids-per-category"></a>Händelse-ID per kategori
- Azure AD Domain Services-säkerhet och granskning registrerar följande händelse-ID när åtgärden utlöser en granskningsbar händelse.
 
-| Händelsen kategorinamn | Händelse-ID |
+ Säkerhets granskningar i Azure AD DS registrerar följande händelse-ID: n när den särskilda åtgärden utlöser en gransknings bar händelse:
+
+| Händelse kategori namn | Händelse-ID |
 |:---|:---|
-|Konto inloggningssäkerhet|4767, 4774, 4775, 4776, 4777|
-|Hantering av kontosäkerhet|4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729, 4730, 4731, 4732, 4733, 4734, 4735, 4737, 4738, 4740, 4741, 4742, 4743, 4754, 4755, 4756, 4757, 4758, 4764, 4765, 4766, 4780, 4781, 4782, 4793, 4798, 4799, 5376, 5377|
-|Detaljerad spårning säkerhet|Ingen|
-|DS åtkomstsäkerhet|5136, 5137, 5138, 5139, 5141|
-|In-utloggning säkerhet|4624, 4625, 4634, 4647, 4648, 4672, 4675, 4964|
-|Objektsäkerhet för åtkomst|Ingen|
-|Säkerhet för ändring av princip|4670, 4703, 4704, 4705, 4706, 4707, 4713, 4715, 4716, 4717, 4718, 4719, 4739, 4864, 4865, 4866, 4867, 4904, 4906, 4911, 4912|
-|Säkerhet för användning av privilegier|4985|
+|Konto inloggnings säkerhet|4767, 4774, 4775, 4776, 4777|
+|Konto hanterings säkerhet|4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729, 4730, 4731, 4732, 4733, 4734, 4735, 4737, 4738, 4740, 4741, 4742, 4743, 4754, 4755, 4756, 4757, 4758, 4764, 4765, 4766, 4780, 4781, 4782, 4793, 4798, 4799, 5376, 5377|
+|Informations spårnings säkerhet|Ingen|
+|Åtkomst säkerhet för DS|5136, 5137, 5138, 5139, 5141|
+|Inloggnings utloggnings säkerhet|4624, 4625, 4634, 4647, 4648, 4672, 4675, 4964|
+|Objekt åtkomst säkerhet|Ingen|
+|Princip ändrings säkerhet|4670, 4703, 4704, 4705, 4706, 4707, 4713, 4715, 4716, 4717, 4718, 4719, 4739, 4864, 4865, 4866, 4867, 4904, 4906, 4911, 4912|
+|Privilegiet Använd säkerhet|4985|
 |Systemsäkerhet|4612, 4621|
 
-## <a name="enable-security-audit-events"></a>Aktivera säkerhets-granskningshändelser
-Följande riktlinjer hjälper dig att har prenumerera på Azure AD Domain Services säkerhetsgranskningshändelser.
+## <a name="security-audit-destinations"></a>Säkerhets gransknings mål
+
+Du kan använda valfri kombination av Azure Storage, Azure Event Hubs eller Azure-Log Analytics arbets ytor som mål resurs för Azure AD DS-säkerhetsgranskningar. Du kan använda Azure Storage för att arkivera säkerhets gransknings händelser, men en Azure Log Analytics-arbetsyta för att analysera och rapportera informationen på kort sikt.
+
+I följande tabell beskrivs scenarier för varje mål resurs typ.
 
 > [!IMPORTANT]
-> Azure AD Domain Services-säkerhetsgranskningar är inte retroaktivt. Det går inte att hämta händelser från tidigare eller att spela upp händelser från tidigare. Tjänsten kan bara skicka händelser som inträffar när den är aktiverad.
->
+> Du måste skapa mål resursen innan du aktiverar Azure AD Domain Services säkerhets granskningar. Du kan skapa dessa resurser med hjälp av Azure Portal, Azure PowerShell eller Azure CLI.
 
-### <a name="choose-the-target-resource"></a>Välj målresurs
-Du kan använda valfri kombination av Azure Storage, Azure Event Hubs eller Azure Log Analytics-arbetsytor som en målresurs för din säkerhetsgranskningar. Titta på följande tabell för den bästa resursen för ditt användningsområde.
-
-> [!IMPORTANT]
-> Du behöver skapa målresursen innan du aktiverar Azure AD Domain Services säkerhetsgranskningar.
->
-
-| Målresurs | Scenario |
+| Mål resurs | Scenario |
 |:---|:---|
-|Azure Storage|Överväg att använda det här målet när din primära behovet att lagra säkerhetsgranskningshändelser för arkivering. Andra mål kan användas för arkivering; dessa mål ger dock möjligheter utöver primära behöver för att arkivera. Så här skapar du ett Azure Storage-konto [skapa ett lagringskonto.](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal#create-a-storage-account-1)|
-|Azure Event Hubs|Överväg att använda det här målet när din primära behovet att dela säkerhetsgranskningshändelser med ytterligare programvara, till exempel data programvara eller information & event management (SIEM) säkerhetsprogram. Så här skapar du en event hub [Snabbstart: Skapa en event hub med Azure-portalen.](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)|
-|Azure Log Analytics Workspace|Överväg att använda det här målet när din primära behovet att analysera och granska säker granskningar från Azure portal direkt.  Så här skapar du en Log Analytics-arbetsyta [skapa en Log Analytics-arbetsyta i Azure-portalen.](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)|
+|Azure Storage| Det här målet ska användas när det primära behovet är att lagra säkerhets gransknings händelser för arkivering. Andra mål kan användas i arkiverings syfte, men dessa mål tillhandahåller funktioner utöver det primära behovet av arkivering. Innan du aktiverar Azure AD DS säkerhets gransknings händelser [skapar du ett Azure Storage-konto](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal#create-a-storage-account-1).|
+|Azure Event Hubs| Det här målet ska användas när det primära behovet är att dela säkerhets gransknings händelser med ytterligare program vara, till exempel data analys program eller SIEM-programvara (Security information & Event Management). Innan du aktiverar säkerhets gransknings händelser i Azure AD DS [skapar du en Event Hub med hjälp av Azure Portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)|
+|Azure Log Analytics-arbetsyta| Det här målet ska användas när det primära behovet är att analysera och granska säkra granskningar från Azure Portal direkt. Innan du aktiverar säkerhets gransknings händelser i Azure AD DS [skapar du en Log Analytics arbets yta i Azure Portal.](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)|
 
-## <a name="using-the-azure-portal-to-enable-security-audit-events"></a>Använda Azure-portalen för att aktivera säkerhets-granskningshändelser 
-1. Logga in på Azure Portal på https://portal.azure.com.  Klicka på alla tjänster i Azure-portalen. I listan över resurser skriver **domän**. När du börjar skriva filtreras listan baserat på det du skriver. Klicka på **Azure AD Domain Services**.
-2. Klicka på den Azure AD Domain Services-instansen i listan.
-3. Klicka på **diagnostikinställningar (förhandsversion)** från listan över åtgärder till vänster.</p>
-![åtgärd för diagnostikinställning](./media/security-audit-events/diagnostic-settings-action.png)
-4. Skriv namnet på diagnostikkonfiguration (**aadds granskning** som exempel).</p>
-![diagnostikinställningar för sidan](./media/security-audit-events/diagnostic-settings-page.png)
-5. Markerar du motsvarande kryssruta bredvid målresurser som du ska använda med säkerhetsgranskningshändelser.
-    > [!NOTE]
-    > Du kan inte skapa målresurser från den här sidan.
-    >
-    
-    **Azure storage:**</p>
-    Välj **arkivet till ett lagringskonto**. Klicka på **Konfigurera**. Välj den **prenumeration** och **lagringskonto** du vill använda för att arkivera händelser för säkerhetsgranskning. Klicka på **OK**.</p>
-    
-    ![inställningarna för diagnostik](./media/security-audit-events/diag-settings-storage.png)
-    
-    **Azure event hubs:**</p>
-    Välj **Stream till en händelsehubb**. Klicka på **Konfigurera**. I den **sidan Välj händelsehubb**väljer den **prenumeration** används för att skapa händelsehubben. Välj sedan den **händelsehubbnamnområde**, **händelsehubbnamn**, och **Principnamn för event hub**. Klicka på **OK**.</p>
-    ![diagnostiska event hub-inställningar](./media/security-audit-events/diag-settings-eventhub.png)
-    
-    **Azure Log Analytics-arbetsytor:**</p>
-    Välj **skicka till Log Analytics**. Välj den **prenumeration** och **Log Analytics-arbetsytan** används för att lagra säkerhetsgranskningshändelser.</p>
-    ![inställningar för diagnostik arbetsyta](./media/security-audit-events/diag-settings-log-analytics.png)
+## <a name="enable-security-audit-events-using-the-azure-portal"></a>Aktivera säkerhets gransknings händelser med hjälp av Azure Portal
 
-6. Välj loggkategorier som du vill inkludera för viss målresursen. Om du använder storage-konton, kan du konfigurera principer för kvarhållning.
+Slutför följande steg för att aktivera Azure AD DS-säkerhetsgransknings händelser med hjälp av Azure Portal.
 
-    > [!NOTE]
-    > Du kan välja olika loggkategorier för varje resurs inom en enda konfiguration. På så sätt kan du välja vilket loggar kategorier som du vill behålla för Log Analytics och som loggar kategorier du vill arkivera.
-    >
+> [!IMPORTANT]
+> Granskningar av Azure AD DS-säkerhet är inte retroaktivt. Det går inte att hämta händelser från föregående eller spela upp händelser tidigare. Azure AD DS kan bara skicka händelser som inträffar när den har Aktiver ATS.
 
-7. Klicka på **spara** att genomföra ändringarna. Resurser för target får Azure AD Domain Services säkerhetsgranskningshändelser strax efter att du sparar din konfiguration.
+1. Logga in på Azure Portal på https://portal.azure.com.
+1. Sök efter och välj **Azure AD Domain Services**överst i Azure Portal. Välj din hanterade domän, till exempel *contoso.com*.
+1. I Azure AD DS-fönstret väljer du **diagnostikinställningar (för hands version)** på den vänstra sidan.
+1. Ingen diagnostik konfigureras som standard. Kom igång genom att välja **Lägg till diagnostisk inställning**.
 
-## <a name="using-azure-powershell-to-enable-security-audit-events"></a>Använda Azure PowerShell för att aktivera säkerhets-granskningshändelser
- 
-### <a name="prerequisites"></a>Förutsättningar
+    ![Lägg till en diagnostisk inställning för Azure AD Domain Services](./media/security-audit-events/add-diagnostic-settings.png)
 
-Följ instruktionerna i artikeln om du vill [installera Azure PowerShell-modulen och ansluta till din Azure-prenumeration](https://docs.microsoft.com/powershell/azure/install-az-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+1. Ange ett namn för diagnos konfigurationen, till exempel *aadds-Auditing*.
 
-### <a name="enable-security-audits"></a>Aktivera säkerhetsgranskningar
+    Markera kryss rutan för det mål för säkerhets granskning som du vill använda. Du kan välja från ett Azure Storage konto, en Azure-händelsehubben eller en Log Analytics arbets yta. Dessa mål resurser måste redan finnas i din Azure-prenumeration. Du kan inte skapa mål resurserna i den här guiden.
 
-1. Autentisera till Azure Resource Manager för rätt klient- och prenumeration med hjälp av den **Connect AzAccount** Azure PowerShell-cmdleten.
-2. Skapa målresursen för att skydda granskningshändelser.</p>
-    **Azure storage:**</p>
-    Följ [skapa ett lagringskonto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-powershell) att skapa ditt lagringskonto.</p>
-    **Azure event hubs:**</p>
-    Följ [Snabbstart: Skapa en händelsehubb med hjälp av Azure PowerShell](https://docs.microsoft.com/azure/event-hubs/event-hubs-quickstart-powershell) att skapa din event hub. Du kan också behöva använda den [New-AzEventHubAuthorizationRule](https://docs.microsoft.com/powershell/module/az.eventhub/new-azeventhubauthorizationrule?view=azps-2.3.2) Azure PowerShell-cmdlet för att skapa en auktoriseringsregel för att tillåta Active Directory AD Domain Services-behörigheter till event hub **namnområde**. Auktoriseringsregeln måste innehålla den **hantera**, **lyssna**, och **skicka** rättigheter.
-    > [!IMPORTANT]
-    > Se till att du anger auktoriseringsregeln för händelsehubbens namnområde och inte event hub.
-       
-    </p>
-    
-    **Azure Log Analytics-arbetsytor:**</p>
-    Följ [skapar en Log Analytics-arbetsyta med Azure PowerShell](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace-posh) att skapa din arbetsyta.
-3. Hämta resurs-ID för din Azure AD Domain Services-instans. Skriv följande kommando i en öppen, autentiserad Windows PowerShell-konsolen. Använd den **$aadds. ResourceId** variabeln som en parameter för Azure AD Domain Services-resurs-ID för framtida cmdletar.
-    ```powershell
+    ![Aktivera det obligatoriska målet och typen av gransknings händelser som ska samlas in](./media/security-audit-events/diagnostic-settings-page.png)
+
+    * **Azure Storage**
+        * Välj **Arkiv till ett lagrings konto**och välj sedan **Konfigurera**.
+        * Välj den **prenumeration** och det **lagrings konto** som du vill använda för att arkivera säkerhets gransknings händelser.
+        * När du är klar väljer du **OK**.
+    * **Azure Event Hub**
+        * Välj **Stream till en Event Hub**och välj sedan **Konfigurera**.
+        * Välj **prenumerationen** och **Event Hub-namnområdet**. Om det behövs kan du även välja ett **namn på händelsehubben** och sedan **Event Hub-Principens namn**.
+        * När du är klar väljer du **OK**.
+    * **Azure logg analys arbets ytor**
+        * Välj **Skicka till Log Analytics**och välj sedan den **prenumeration** och **Log Analytics arbets yta** som du vill använda för att lagra säkerhets gransknings händelser.
+
+1. Välj de logg kategorier som du vill inkludera för den specifika mål resursen. Om du skickar gransknings händelser till ett Azure Storage konto kan du också konfigurera en bevarande princip som definierar antalet dagar som data ska bevaras. Standardvärdet *0* behåller alla data och roterar inte händelser efter en viss tids period.
+
+    Du kan välja olika logg kategorier för varje mål resurs inom en enskild konfiguration. Med den här möjligheten kan du välja vilka loggar kategorier du vill behålla för Log Analytics och vilka loggar kategorier som du vill arkivera, till exempel.
+
+1. När du är färdig väljer du **Spara** för att genomföra ändringarna. Mål resurserna börjar ta emot Azure AD DS säkerhets gransknings händelser strax efter att konfigurationen har sparats.
+
+## <a name="enable-security-audit-events-using-azure-powershell"></a>Aktivera säkerhets gransknings händelser med Azure PowerShell
+
+Slutför följande steg för att aktivera Azure AD DS-säkerhetsgransknings händelser med Azure PowerShell. Om [det behövs installerar du först Azure PowerShell-modulen och ansluter till din Azure-prenumeration](/powershell/azure/install-az-ps).
+
+> [!IMPORTANT]
+> Granskningar av Azure AD DS-säkerhet är inte retroaktivt. Det går inte att hämta händelser från föregående eller spela upp händelser tidigare. Azure AD DS kan bara skicka händelser som inträffar när den har Aktiver ATS.
+
+1. Autentisera till din Azure-prenumeration med hjälp av cmdleten [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) . När du uppmanas till det anger du dina autentiseringsuppgifter för kontot.
+
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+1. Skapa mål resursen för säkerhets gransknings händelser.
+
+    * **Azure storage** - [skapa ett lagrings konto med Azure PowerShell](../storage/common/storage-quickstart-create-account.md?tabs=azure-powershell)
+    * **Azure Event hub** - [skapa en händelsehubben med Azure PowerShell](../event-hubs/event-hubs-quickstart-powershell.md). Du kan också behöva använda cmdleten [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) för att skapa en auktoriseringsregel som ger Azure AD DS-behörigheter till *namn området*för Event Hub. Auktoriseringsregeln måste innehålla rättigheterna **Hantera**, **Lyssna**och **Skicka** .
+
+        > [!IMPORTANT]
+        > Se till att du anger auktoriseringsregeln för Event Hub-namnområdet och inte själva händelsehubben.
+
+    * **Azure logg analys arbets ytor** - [skapa en Log Analytics arbets yta med Azure PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+
+1. Hämta resurs-ID för din Azure AD DS-hanterade domän med hjälp av cmdleten [Get-AzResource](/powershell/module/Az.Resources/Get-AzResource) . Skapa en variabel med namnet *$aadds. ResourceId* för att lagra värdet:
+
+    ```azurepowershell
     $aadds = Get-AzResource -name aaddsDomainName
-    ``` 
-4. Använd den **Set-AzDiagnosticSetting** cmdlet för att konfigurera Azure Diagnostics-inställningar för att använda målresursen för Azure AD Domain Services säkerhetsgranskningshändelser. I exemplen nedan, variabeln $aadds. Resurs-ID representerar resurs-ID för din Azure AD Domain Services-instans (se steg3).</p>
-    **Azure storage:**
-    ```powershell
-    Set-AzDiagnosticSetting `
-    -ResourceId $aadds.ResourceId` 
-    -StorageAccountId storageAccountId `
-    -Enabled $true
     ```
-    Ersätt *storageAccountId* med ditt storage-konto-ID.</p>
-    
-    **Azure event hubs:**
-    ```powershell
-    Set-AzDiagnosticSetting -ResourceId $aadds.ResourceId ` 
-    -EventHubName eventHubName `
-    -EventHubAuthorizationRuleId eventHubRuleId `
-    -Enabled $true
-    ```
-    Ersätt *eventHubName* med namnet på din event hub. Ersätt *eventHubRuleId* med din auktorisering regel-ID som du skapade tidigare.</p>
-    
-    **Azure Log Analytics-arbetsytor:**
-    ```powershell
-    Set-AzureRmDiagnosticSetting -ResourceId $aadds.ResourceId ` 
-    -WorkspaceID workspaceId `
-    -Enabled $true
-    ```
-    Ersätt *workspaceId* med ID för Log Analytics-arbetsytan som du skapade tidigare. 
 
-## <a name="view-security-audit-events-using-azure-monitor"></a>Visa säkerhetsgranskningshändelser med Azure Monitor
-Log Analytics-arbetsytor kan du visa och analysera säkerhetsgranskningshändelser med hjälp av Azure Monitor och Kusto-frågespråket. Frågespråket är avsedd för skrivskyddade som har power analysfunktioner med ett enkelt att läsa-syntax.
-Här är några resurser som hjälper dig att komma igång med Kusto-frågespråk.
+1. Konfigurera Azure Diagnostic-inställningarna med cmdleten [set-AzDiagnosticSetting](/powershell/module/Az.Monitor/Set-AzDiagnosticSetting) för att använda mål resursen för Azure AD Domain Services säkerhets gransknings händelser. Variabeln $aadds i följande exempel *. ResourceId* används i föregående steg.
+
+    * **Azure Storage** – Ersätt *storageAccountId* med ditt lagrings konto namn:
+
+        ```powershell
+        Set-AzDiagnosticSetting `
+            -ResourceId $aadds.ResourceId `
+            -StorageAccountId storageAccountId `
+            -Enabled $true
+        ```
+
+    * **Azure Event Hub** – Ersätt *eventHubName* med namnet på händelsehubben och *eventHubRuleId* med ID: t för auktoriseringsregeln:
+
+        ```powershell
+        Set-AzDiagnosticSetting -ResourceId $aadds.ResourceId `
+            -EventHubName eventHubName `
+            -EventHubAuthorizationRuleId eventHubRuleId `
+            -Enabled $true
+        ```
+
+    * **Azure logg analys arbets ytor** – Ersätt *workspaceId* med ID: t för arbets ytan Log Analytics:
+
+        ```powershell
+        Set-AzureRmDiagnosticSetting -ResourceId $aadds.ResourceId `
+            -WorkspaceID workspaceId `
+            -Enabled $true
+        ```
+
+## <a name="query-and-view-security-audit-events-using-azure-monitor"></a>Fråga och Visa säkerhets gransknings händelser med Azure Monitor
+
+Med logg analys arbets ytor kan du Visa och analysera säkerhets gransknings händelser med hjälp av Azure Monitor och Kusto-frågespråket. Det här frågespråket är utformat för skrivskyddad användning som har funktioner för Power-analys med en lättläst syntax. Mer information om hur du kommer igång med Kusto finns i följande artiklar:
+
 * [Dokumentation om Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)
-* [Kom igång med Log Analytics i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
-* [Kom igång med loggfrågor i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
-* [Skapa och dela instrumentpaneler för Log Analytics-data](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards)
+* [Kom igång med Log Analytics i Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
+* [Kom igång med logg frågor i Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [Skapa och dela instrument paneler för Log Analytics data](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
-## <a name="sample-queries"></a>Exempelfrågor
+Följande exempel frågor kan användas för att börja analysera säkerhets gransknings händelser från Azure AD DS.
 
-### <a name="sample-query-1"></a>Exempelfråga 1
-Alla konto kontoutelåsning händelser under de senaste sju dagarna.
+### <a name="sample-query-1"></a>Exempel fråga 1
+
+Visa alla konto utelåsnings händelser under de senaste sju dagarna:
+
 ```Kusto
 AADDomainServicesAccountManagement
 | where TimeGenerated >= ago(7d)
 | where OperationName has "4740"
 ```
 
-### <a name="sample-query-2"></a>Exempelfråga 2
-Alla konto kontoutelåsning händelser (4740) mellan den 26 juni 2019 kl 9. och den 1 juli 2019 midnatt sorterade stigande efter datum och tid.
+### <a name="sample-query-2"></a>Exempel fråga 2
+
+Visa alla konto utelåsnings händelser (*4740*) mellan den 26 juni 2019 kl. 09:00 den 1 juli 2019 midnatt, sorteras stigande efter datum och tid:
+
 ```Kusto
 AADDomainServicesAccountManagement
-| where TimeGenerated >= datetime(2019-06-26 09:00) and TimeGenerated <= datetime(2019-07-01) 
+| where TimeGenerated >= datetime(2019-06-26 09:00) and TimeGenerated <= datetime(2019-07-01)
 | where OperationName has "4740"
 | sort by TimeGenerated asc
 ```
 
-### <a name="sample-query-3"></a>Exempelfråga 3
-Kontot log på händelser sju dagar sedan (från och med nu) för kontot med namnet användare.
+### <a name="sample-query-3"></a>Exempel fråga 3
+
+Visa konto inloggnings händelser sju dagar sedan (från nu) för kontot med namnet användare:
+
 ```Kusto
 AADDomainServicesAccountLogon
 | where TimeGenerated >= ago(7d)
 | where "user" == tolower(extract("Logon Account:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
 ```
 
-### <a name="sample-query-4"></a>Exempelfråga 4
-Kontoinloggningar sju dagar sedan från nu för kontot med namnet användaren försökte logga in med ett felaktigt lösenord (0xC0000006a).
+### <a name="sample-query-4"></a>Exempel fråga 4
+
+Visa konto inloggnings händelser sju dagar sedan från nu för kontot med namnet användare som försökte logga in med ett felaktigt lösen ord (*0xC0000006a*):
+
 ```Kusto
 AADDomainServicesAccountLogon
 | where TimeGenerated >= ago(7d)
@@ -209,8 +221,10 @@ AADDomainServicesAccountLogon
 | where "0xc000006a" == tolower(extract("Error Code:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
 ```
 
-### <a name="sample-query-5"></a>Exempelfråga 5
-Kontoinloggningar sju dagar sedan från nu för kontot med namnet användare som försökte logga in när kontot har låsts ute (0xC0000234).
+### <a name="sample-query-5"></a>Exempel fråga 5
+
+Visa konto inloggnings händelser sju dagar sedan från nu för kontot med namnet användare som försökte logga in när kontot var utelåst (*0xC0000234*):
+
 ```Kusto
 AADDomainServicesAccountLogon
 | where TimeGenerated >= ago(7d)
@@ -218,8 +232,10 @@ AADDomainServicesAccountLogon
 | where "0xc0000234" == tolower(extract("Error Code:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
 ```
 
-### <a name="sample-query-6"></a>Exempelfråga 6
-Antalet kontoinloggningar sju dagar sedan från nu för alla loggar du in försök som uppstod för alla låsts ute användare.
+### <a name="sample-query-6"></a>Exempel fråga 6
+
+Visa antalet konto inloggnings händelser sju dagar sedan från nu för alla inloggnings försök som inträffat för alla utelåsta användare:
+
 ```Kusto
 AADDomainServicesAccountLogon
 | where TimeGenerated >= ago(7d)
@@ -227,23 +243,14 @@ AADDomainServicesAccountLogon
 | summarize count()
 ```
 
-## <a name="related-content"></a>Relaterat innehåll
-* [Översikt över](https://docs.microsoft.com/azure/kusto/query/) av Kusto-frågespråket.
-* [Kusto-självstudier](https://docs.microsoft.com/azure/kusto/query/tutorial) du bekantar dig med grunderna för frågan.
-* [Exempel på frågor](https://docs.microsoft.com/azure/kusto/query/samples) som hjälper dig att du lära dig nya sätt att visa dina data.
-* Kusto [bästa praxis](https://docs.microsoft.com/azure/kusto/query/best-practices) – optimera frågor för att lyckas.
+## <a name="next-steps"></a>Nästa steg
 
+Detaljerad information om Kusto finns i följande artiklar:
 
+* [Översikt](/azure/kusto/query/) över Kusto-frågespråket.
+* [Kusto själv studie kurs](/azure/kusto/query/tutorial) som hjälper dig att bekanta dig med frågor.
+* [Exempel frågor](/azure/kusto/query/samples) som hjälper dig att lära dig nya sätt att se dina data.
+* Kusto [metod tips](/azure/kusto/query/best-practices) för att optimera dina frågor för framgång.
 
-
-
-
-
-
-
-
-
-
-
-
- 
+<!-- LINKS - Internal -->
+[migrate-azure-adds]: migrate-from-classic-vnet.md

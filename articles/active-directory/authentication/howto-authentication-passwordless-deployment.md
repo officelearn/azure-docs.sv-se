@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5aab9d8c2b7993598c602ae6b730baff06d807e1
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 9b6f07e1dd8e9252d2b6e00b85a47ba2e19f8bd8
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73151630"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603461"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>Slutför en distribution av lösenordsskyddad autentisering
 
@@ -67,7 +67,7 @@ Microsofts autentiseringsmetoder för lösen ords kryptering möjliggör olika s
 
 **Enhets registrering** – om du vill använda Authenticator-appen för lösen ords lös autentisering måste enheten vara registrerad i Azure AD-klienten och kan inte vara en delad enhet. En enhet kan bara registreras i en enda klient. Den här gränsen innebär att endast ett arbets-eller skol konto stöds för telefon inloggning med hjälp av Authenticator-appen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Organisationer måste uppfylla följande krav innan en lösenordsskyddad distribution påbörjas.
 
@@ -110,15 +110,6 @@ Aktivering av Windows 10-inloggning med FIDO2-säkerhetsnycklar kräver aktiveri
    - Om Intune-distributionen inte är möjlig måste administratörerna distribuera ett paket på varje dator för att aktivera funktionen för Credential-Provider. Paket installationen kan utföras med ett av följande alternativ:
       - Grupprincip eller System Center Configuration Manager (SCCM)
       - Lokal installation på en Windows 10-dator
-- [Aktivera autentiseringsprovider för autentiseringsuppgifter med grupprincip](howto-authentication-passwordless-security-key-windows.md#enable-with-group-policy)
-   - Stöds endast för Hybrid Azure AD-anslutna enheter.
-
-#### <a name="enable-on-premises-integration"></a>Aktivera lokal integrering
-
-Följ stegen i artikeln [Aktivera lösen ords lös säkerhets nyckel logga in till lokala resurser (för hands version)](howto-authentication-passwordless-security-key-on-premises.md) för att ge åtkomst till lokala resurser.
-
-> [!IMPORTANT]
-> De här stegen måste också utföras för alla hybrid Azure AD-anslutna enheter för att använda FIDO2-säkerhetsnycklar för Windows 10-inloggning.
 
 ### <a name="register-security-keys"></a>Registrera säkerhets nycklar
 
@@ -163,7 +154,7 @@ Din kommunikation för slutanvändarna måste inkludera:
 - [Registrera i Microsoft Authenticator-appen](howto-authentication-passwordless-phone.md)
 - [Logga in med din telefon](../user-help/user-help-auth-app-sign-in.md)
 
-Microsoft tillhandahåller MFA- [certifikatmallar](https://aka.ms/mfatemplates), SSPR (Self-Service Password reservering [) och](https://www.microsoft.com/download/details.aspx?id=56768) [dokumentation för slutanvändare](../user-help/security-info-setup-signin.md) för att hjälpa till att formulera kommunikationen. Du kan skicka användare till [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) och registrera dem direkt genom att välja länkarna för säkerhets information på sidan.
+Microsoft tillhandahåller MFA- [certifikatmallar](https://aka.ms/mfatemplates), SSPR (Self-Service Password reservering [) och](https://www.microsoft.com/download/details.aspx?id=56768) [dokumentation för slutanvändare](../user-help/security-info-setup-signin.md) för att hjälpa till att formulera kommunikationen. Du kan skicka användare till [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) för att registrera dem direkt genom att välja länkarna för säkerhets information på sidan.
 
 ### <a name="testing-passwordless"></a>Testa lösen ord
 
@@ -226,7 +217,7 @@ Tabellen nedan innehåller några exempel på typiska rapporterings scenarier.
 
 **Azure AD behåller de flesta gransknings data i 30 dagar** och gör data tillgängliga via Azure Admin Portal eller API som du kan ladda ned till dina analys system. Om din organisation kräver längre kvarhållning måste loggarna exporteras och förbrukas i ett SIEM-verktyg, till exempel [Azure Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk eller Sumo Logic. [Lär dig mer om att visa åtkomst-och användnings rapporter](../reports-monitoring/overview-reports.md).
 
-Användare kan registrera och hantera sina autentiseringsuppgifter genom att gå till [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). Den här länken dirigerar användarna till den hantering av autentiseringsuppgifter för slutanvändare som har Aktiver ATS via den kombinerade SSPR/MFA-registrerings upplevelsen. All registrering av FIDO2-säkerhetsenheter eller ändringar av autentiseringsmetoder av en användare loggas i Azure Active Directory gransknings loggar.
+Användare kan registrera och hantera sina autentiseringsuppgifter genom att navigera till [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). Den här länken dirigerar användarna till den hantering av autentiseringsuppgifter för slutanvändare som har Aktiver ATS via den kombinerade SSPR/MFA-registrerings upplevelsen. All registrering av FIDO2-säkerhetsenheter eller ändringar av autentiseringsmetoder av en användare loggas i Azure Active Directory gransknings loggar.
 
 När användarna aktiverar eller inaktiverar kontot för en säkerhets nyckel eller återställer den andra faktorn för säkerhets nyckeln på sina Windows 10-datorer, läggs en post till i säkerhets loggen och anges under följande händelse-ID: 4670 5382.
 
@@ -285,7 +276,7 @@ Följ anvisningarna i artikeln [Aktivera lösen ords lös säkerhets nyckel logg
 | **Fel meddelande**: vi har upptäckt att den här webbläsaren eller operativ systemet inte stöder FIDO2 säkerhets nycklar. | FIDO2-säkerhetsenheter kan bara registreras i webbläsare som stöds (Microsoft Edge, Firefox version 67) på Windows 10 version 1809 eller senare. |
 | **Fel meddelande**: företags principen kräver att du använder en annan metod för att logga in. | Se till att säkerhets nycklar är aktiverade i klient organisationen. |
 | Användaren kan inte hantera min säkerhets nyckel i Windows 10 version 1809 | Version 1809 kräver att du använder program varan för hantering av säkerhets nycklar som tillhandahålls av FIDO2 Key-leverantören. Kontakta leverantören för support. |
-| Jag tror att min FIDO2-säkerhetsnyckel kan vara defekt, hur kan jag testa den | Navigera till [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/), ange autentiseringsuppgifter för ett test konto, Anslut den misstänkta säkerhets nyckeln, klicka på knappen "+" längst upp till höger på skärmen, klicka på Skapa och gå igenom skapande processen. Om det här scenariot Miss lyckas kan det bero på att enheten är skadad. |
+| Jag tror att min FIDO2-säkerhetsnyckel kan vara defekt, hur kan jag testa den | Navigera till [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/), ange autentiseringsuppgifter för ett test konto, Anslut den misstänkta säkerhets nyckeln, klicka på knappen "+" längst upp till höger på skärmen, klicka på Skapa och gå igenom processen. Om det här scenariot Miss lyckas kan det bero på att enheten är skadad. |
 
 ## <a name="next-steps"></a>Nästa steg
 

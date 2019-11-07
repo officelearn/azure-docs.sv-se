@@ -1,23 +1,23 @@
 ---
 title: Hantera Azure Analysis Services | Microsoft Docs
-description: Lär dig hur du hanterar en Analysis Services-server i Azure.
+description: I den här artikeln beskrivs de verktyg som används för att hantera administrations-och hanterings uppgifter för en Azure Analysis Services-server.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6846eaedc7f20f5a7597ee889193e977e86a5ed6
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 28d7b2955c84833841760e441cd2919181e22bc7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146840"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572802"
 ---
 # <a name="manage-analysis-services"></a>Manage Analysis Services
 När du har skapat en Analysis Services-server i Azure kan det finnas några administrations-och hanterings uppgifter som du behöver utföra direkt eller vid en stund. Du kan till exempel köra bearbetning av uppdatera data, kontrol lera vem som har åtkomst till modellerna på servern eller övervaka serverns hälsa. Vissa hanterings uppgifter kan endast utföras i Azure Portal, andra i SQL Server Management Studio (SSMS) och vissa uppgifter kan göras i båda.
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure Portal
 [Azure Portal](https://portal.azure.com/) är där du kan skapa och ta bort servrar, övervaka server resurser, ändra storlek och hantera vem som har åtkomst till dina servrar.  Om du har problem kan du också skicka in en support förfrågan.
 
 ![Hämta servernamnet i Azure](./media/analysis-services-manage/aas-manage-portal.png)

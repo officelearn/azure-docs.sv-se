@@ -3,20 +3,20 @@ title: Välj en disktyp för virtuella Azure IaaS Linux-hanterade diskar
 description: Lär dig mer om tillgängliga Azure-diskenheter för virtuella Linux-datorer, inklusive Ultra disks, Premium SSD, standard SSD och standard hård diskar.
 author: roygara
 ms.author: rogarana
-ms.date: 08/15/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 39231e364ab6be9ecf7ad032684dd9e217dbe088
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 1e0fb1ccc54ecd32d4184fdafb2f0604ccdfd189
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516029"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601401"
 ---
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-overview.md)]
 
-Om du vill börja använda Ultra disks läser du vår artikel om ämnet: [Använda Azure Ultra disks](disks-enable-ultra-ssd.md).
+Om du vill börja använda Ultra disks, se vår artikel på ämnet: [använda Azure Ultra disks](disks-enable-ultra-ssd.md).
 
 [!INCLUDE [virtual-machines-managed-disks-types-ga](../../../includes/virtual-machines-managed-disks-types-ga.md)]
 

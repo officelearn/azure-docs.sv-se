@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: cfa8efe0b73811474b1e50a7d2fb1e9abe9045c6
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 88c4b2065576bd5bdcb29a266bd564c60b0e537c
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286506"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622696"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Vanliga frågor och svar om Azure Container Registry
 
@@ -127,7 +127,7 @@ För PowerShell:
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
 ```
 
-Obs: du kan lägga till `-y` i kommandot DELETE för att hoppa över bekräftelsen.
+Obs: du kan lägga till `-y` i kommandot Ta bort för att hoppa över bekräftelsen.
 
 Mer information finns i [ta bort behållar avbildningar i Azure Container Registry](container-registry-delete.md).
 
@@ -188,7 +188,7 @@ az acr login -n MyRegistry
 
 Ja. Aktivera TLS med hjälp av alla senaste docker-klienter (version 18.03.0 och senare). 
 
-### <a name="does-azure-container-registry-support-content-trust"></a>Har Azure Container Registry stöd för innehålls förtroende?
+### <a name="does-azure-container-registry-support-content-trust"></a>Stödjer Azure Container Registry innehållsförtroende?
 
 Ja, du kan använda betrodda avbildningar i Azure Container Registry, eftersom [Docker-Notary](https://docs.docker.com/notary/getting_started/) har integrerats och kan aktive ras. Mer information finns [i innehålls förtroende i Azure Container Registry](container-registry-content-trust.md).
 
@@ -198,13 +198,13 @@ Ja, du kan använda betrodda avbildningar i Azure Container Registry, eftersom [
 Under `~/.docker/trust/tuf/myregistry.azurecr.io/myrepository/metadata`:
 
 * Offentliga nycklar och certifikat för alla roller (förutom Delegerings roller) lagras i `root.json`.
-* Offentliga nycklar och certifikat för Delegerings rollen lagras i JSON-filen för den överordnade rollen (till exempel `targets.json` för rollen `targets/releases`).
+* Offentliga nycklar och certifikat för Delegerings rollen lagras i JSON-filen för den överordnade rollen (till exempel `targets.json` för `targets/releases`-rollen).
 
 Vi rekommenderar att du verifierar dessa offentliga nycklar och certifikat efter den övergripande TUF-verifieringen som gjorts av Docker-och Notary-klienten.
 
 ### <a name="how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource"></a>Hur gör jag för att bevilja du åtkomst till pull-eller push-avbildningar utan behörighet att hantera register resursen?
 
-ACR stöder [anpassade roller](container-registry-roles.md) som ger olika behörighets nivåer. Mer specifikt kan `AcrPull`-och `AcrPush`-roller tillåta att användare hämtar och/eller push-avbildningar utan behörighet att hantera register resursen i Azure.
+ACR stöder [anpassade roller](container-registry-roles.md) som ger olika behörighets nivåer. Mer specifikt `AcrPull` och `AcrPush` roller låter användare ta emot och/eller push-avbildningar utan behörighet att hantera register resursen i Azure.
 
 * Azure Portal: ditt register-> Access Control (IAM)-> Lägg till (Välj `AcrPull` eller `AcrPush` för rollen).
 * Azure CLI: hitta resurs-ID för registret genom att köra följande kommando:
@@ -213,7 +213,7 @@ ACR stöder [anpassade roller](container-registry-roles.md) som ger olika behör
   az acr show -n myRegistry
   ```
   
-  Sedan kan du tilldela rollen `AcrPull` eller `AcrPush` till en användare (följande exempel använder `AcrPull`):
+  Sedan kan du tilldela `AcrPull`-eller `AcrPush` rollen till en användare (följande exempel använder `AcrPull`):
 
   ```azurecli
     az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
@@ -245,7 +245,7 @@ Den tilldelas sedan kan autentisera och komma åt avbildningar i registret.
   docker pull myregistry.azurecr.io/hello-world
   ```
 
-Om du bara använder rollen `AcrPull` eller `AcrPush` har den tilldelade tilldelas inte behörighet att hantera register resursen i Azure. Till exempel kan `az acr list` eller `az acr show -n myRegistry` inte visa registret.
+Om du bara använder `AcrPull`-eller `AcrPush`-rollen har den tilldelade tilldelas inte behörighet att hantera register resursen i Azure. Till exempel kan `az acr list` eller `az acr show -n myRegistry` inte visa registret.
 
 ### <a name="how-do-i-enable-automatic-image-quarantine-for-a-registry"></a>Hur gör jag för att aktivera automatisk avbildnings karantän för ett register?
 
@@ -271,7 +271,7 @@ Information om fel sökning av vanliga problem med miljö och register finns i [
 
  - Om det här felet är ett tillfälligt problem lyckas försök igen.
  - Om `docker pull` Miss lyckas kontinuerligt kan det uppstå problem med Docker-daemonen. Problemet kan vanligt vis minimeras genom att du startar om Docker daemon. 
- - Om du fortsätter att se det här problemet efter att du har startat om Docker daemon, kan problemet vara problem med nätverks anslutningen på datorn. Kontrol lera om det allmänna nätverket på datorn är felfritt genom att köra följande kommando för att testa slut punkts anslutningen. Den lägsta `az acr`-version som innehåller den här anslutnings kontroll kommandot är 2.2.9. Uppgradera Azure CLI om du använder en äldre version.
+ - Om du fortsätter att se det här problemet efter att du har startat om Docker daemon, kan problemet vara problem med nätverks anslutningen på datorn. Kontrol lera om det allmänna nätverket på datorn är felfritt genom att köra följande kommando för att testa slut punkts anslutningen. Den lägsta `az acr` versionen som innehåller den här anslutnings kontroll kommandot är 2.2.9. Uppgradera Azure CLI om du använder en äldre version.
  
    ```azurecli
     az acr check-health -n myRegistry
@@ -306,7 +306,7 @@ unauthorized: authentication required
 ```
 
 Så här löser du felet:
-1. Lägg till alternativet `--signature-verification=false` i konfigurations filen för Docker daemon `/etc/sysconfig/docker`. Exempel:
+1. Lägg till alternativet `--signature-verification=false` i konfigurations filen för Docker daemon `/etc/sysconfig/docker`. Till exempel:
 
   ```
   OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
@@ -350,21 +350,21 @@ Mer information finns i [Docker-dokumentationen](https://docs.docker.com/engine/
     docker run --net=host --ipc=host --uts=host --pid=host -it --security-opt=seccomp=unconfined --privileged --rm -v /:/host alpine /bin/sh
     chroot /host
     ```
-    Nu har du åtkomst till alla filer på den virtuella datorn som kör `dockerd`. Loggen är på `/var/log/docker.log`.
+    Nu har du åtkomst till alla filer på den virtuella datorn som kör `dockerd`. Loggen finns på `/var/log/docker.log`.
 
 ### <a name="new-user-permissions-may-not-be-effective-immediately-after-updating"></a>Nya användar behörigheter kanske inte träder i kraft omedelbart efter uppdateringen
 
 När du tilldelar nya behörigheter (nya roller) till ett huvud namn för tjänsten kanske ändringen inte träder i kraft omedelbart. Det finns två möjliga orsaker:
 
 * Azure Active Directory roll tilldelnings fördröjning. Normalt är det snabbt, men det kan ta minuter på grund av spridnings fördröjning.
-* Behörighets fördröjning på ACR-token-Server. Detta kan ta upp till 10 minuter. Du kan undvika detta genom att `docker logout` och sedan autentisera igen med samma användare efter 1 minut:
+* Behörighets fördröjning på ACR-token-Server. Detta kan ta upp till 10 minuter. För att minska kan du `docker logout` och sedan autentisera igen med samma användare efter 1 minut:
 
   ```bash
   docker logout myregistry.azurecr.io
   docker login myregistry.azurecr.io
   ```
 
-ACR har inte stöd för att ta bort hemreplikering av användarna. Lösningen är att ta med hemreplikeringen skapa i mallen men hoppa över den genom att lägga till `"condition": false` som visas nedan:
+ACR har inte stöd för att ta bort hemreplikering av användarna. Lösningen är att ta med hemreplikeringen skapa i mallen men hoppa över den genom att lägga till `"condition": false` enligt nedan:
 
 ```json
 {
@@ -382,8 +382,8 @@ ACR har inte stöd för att ta bort hemreplikering av användarna. Lösningen ä
 
 ### <a name="authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls"></a>Autentiseringsinformation anges inte i rätt format för direkta REST API-anrop
 
-Du kan stöta på ett `InvalidAuthenticationInfo`-fel, särskilt med `curl`-verktyget med alternativet `-L`, `--location` (för att följa omdirigeringar).
-Till exempel hämtar bloben med hjälp av `curl` med alternativet `-L` och grundläggande autentisering:
+Du kan stöta på ett `InvalidAuthenticationInfo` fel, särskilt med hjälp av `curl`-verktyget med alternativet `-L``--location` (för att följa omdirigeringar).
+Till exempel hämtar bloben med `curl` med `-L` alternativ och grundläggande autentisering:
 
 ```bash
 curl -L -H "Authorization: basic $credential" https://$registry.azurecr.io/v2/$repository/blobs/$digest
@@ -398,9 +398,9 @@ RequestId:00000000-0000-0000-0000-000000000000
 Time:2019-01-01T00:00:00.0000000Z</Message></Error>
 ```
 
-Rotor saken är att vissa `curl`-implementeringar följer omdirigeringar med huvuden från den ursprungliga begäran.
+Rotor saken är att vissa `curl` implementeringar följer omdirigeringar med huvuden från den ursprungliga begäran.
 
-För att lösa problemet måste du följa omdirigeringar manuellt utan sidhuvuden. Skriv ut svarshuvuden med alternativet `-D -` för `curl` och extrahera sedan: `Location`-huvudet:
+För att lösa problemet måste du följa omdirigeringar manuellt utan sidhuvuden. Skriv ut svarshuvuden med alternativet `-D -` för `curl` och extrahera sedan: `Location`s huvud:
 
 ```bash
 redirect_url=$(curl -s -D - -H "Authorization: basic $credential" https://$registry.azurecr.io/v2/$repository/blobs/$digest | grep "^Location: " | cut -d " " -f2 | tr -d '\r')
@@ -420,14 +420,14 @@ Webbläsaren kanske inte kan skicka begäran om att hämta databaser eller tagga
 * Ad-blockerare
 * DNS-fel
 
-Kontakta nätverks administratören eller kontrol lera nätverks konfigurationen och din anslutning. Prova att köra `az acr check-health -n yourRegistry` med hjälp av Azure CLI för att kontrol lera om din miljö kan ansluta till Container Registry. Dessutom kan du också försöka med en Incognito eller privat session i webbläsaren för att undvika inaktuella webbläsares cacheminnen eller cookies.
+Kontakta nätverks administratören eller kontrol lera nätverks konfigurationen och din anslutning. Försök köra `az acr check-health -n yourRegistry` att använda Azure CLI för att kontrol lera om din miljö kan ansluta till Container Registry. Dessutom kan du också försöka med en Incognito eller privat session i webbläsaren för att undvika inaktuella webbläsares cacheminnen eller cookies.
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Hur gör jag för att samla in http-spårningar i Windows?
 
-#### <a name="prerequisites"></a>Krav
+#### <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Aktivera dekryptering av https i Fiddler: <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
-- Aktivera Docker för att använda en proxy via Docker-gränssnittet: <https://docs.docker.com/docker-for-windows/#proxies>
+- Aktivera Docker för att använda en proxy via Docker UI: <https://docs.docker.com/docker-for-windows/#proxies>
 - Var noga med att återställa när du är klar.  Docker fungerar inte med den här funktionen och Fiddler körs inte.
 
 #### <a name="windows-containers"></a>Windows-containrar
@@ -448,6 +448,8 @@ Konfigurera Docker-proxyn till utdata från föregående kommando och port 8888 
 
 - [Vill du avbryta körningen av batch Hur gör jag för att batch?](#how-do-i-batch-cancel-runs)
 - [Hur gör jag för att inkludera mappen. git i AZ ACR build-kommandot?](#how-do-i-include-the-git-folder-in-az-acr-build-command)
+- [Stöder aktiviteter GitLab för käll utlösare?](#does-tasks-support-gitlab-for-source-triggers)
+- [Vilken hanterings tjänst för git-lagringsplats stöder aktiviteter?](#what-git-repository-management-service-does-tasks-support)
 
 ### <a name="how-do-i-batch-cancel-runs"></a>Vill du avbryta körningen av batch Hur gör jag för att batch?
 
@@ -460,13 +462,32 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 ### <a name="how-do-i-include-the-git-folder-in-az-acr-build-command"></a>Hur gör jag för att inkludera mappen. git i AZ ACR build-kommandot?
 
-Om du skickar en lokal källmapp till kommandot `az acr build`, undantas mappen `.git` från det överförda paketet som standard. Du kan skapa en `.dockerignore`-fil med följande inställning. Den meddelar kommandot att återställa alla filer under `.git` i det överförda paketet. 
+Om du skickar en lokal källmapp till kommandot `az acr build` undantas mappen `.git` från det överförda paketet som standard. Du kan skapa en `.dockerignore`-fil med följande inställning. Den meddelar kommandot att återställa alla filer under `.git` i det överförda paketet. 
 
-```
+```sh
 !.git/**
 ```
 
 Den här inställningen gäller även för kommandot `az acr run`.
+
+### <a name="does-tasks-support-gitlab-for-source-triggers"></a>Stöder aktiviteter GitLab för käll utlösare?
+
+Vi stöder för närvarande inte GitLab för käll utlösare.
+
+### <a name="what-git-repository-management-service-does-tasks-support"></a>Vilken hanterings tjänst för git-lagringsplats stöder aktiviteter?
+
+| Git-tjänst | Käll kontext | Manuell version | Automatisk generering via commit trigger |
+|---|---|---|---|
+| GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | Ja | Ja |
+| Azure Repos | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | Ja | Ja |
+| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | Ja | Nej |
+| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | Ja | Nej |
+
+## <a name="run-error-message-troubleshooting"></a>Köra fel meddelande fel sökning
+
+| Felmeddelande | Felsökningsguide |
+|---|---|
+|Ingen åtkomst har kon figurer ATS för den virtuella datorn, därför hittades inga prenumerationer|Detta kan inträffa om du använder `az login --identity` i din ACR-uppgift. Detta är ett tillfälligt fel och inträffar när roll tilldelningen för din hanterade identitet inte har spridits. Vänta några sekunder innan du försöker igen.|
 
 ## <a name="cicd-integration"></a>CI/CD-integrering
 

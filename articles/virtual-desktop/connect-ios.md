@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: helohr
-ms.openlocfilehash: 764ed4fefd1a3aba1f0b7812fa2965505aa34161
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: bfc7efa6e8ead3b53704e3c9bd189b18cb787618
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338694"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605841"
 ---
 # <a name="connect-with-the-ios-client"></a>Ansluta med iOS-klienten
 
@@ -28,7 +28,7 @@ Installera iOS beta-klienten:
 
 1. Installera [Apple TestFlight](https://apps.apple.com/us/app/testflight/id899247664) -appen på din iOS-enhet.
 2. Öppna en webbläsare på din iOS-enhet och gå till [aka.MS/rdiosbeta](https://aka.ms/rdiosbeta).
-3. Under etiketten **steg 2: Delta i beta**versionen och välj **Starta testning**.
+3. Under etiketten **steg 2: delta i Beta versionen**väljer du **Starta testning**.
 4. När du omdirigeras till TestFlight-appen väljer du **acceptera**och väljer sedan **Installera**.
 
 ## <a name="subscribe-to-a-feed"></a>Prenumerera på en feed
@@ -39,7 +39,7 @@ Så här prenumererar du på en feed:
 
 1. I anslutnings Center trycker du på **+** och sedan på **Lägg till arbets yta**.
 2. Ange feed-URL: en i fältet **feed URL** . Feed-URL: en kan vara antingen en URL eller en e-postadress.
-   - Om du använder en URL kan du använda den som din administratör fick. Normalt är <https://rdweb.wvd.microsoft.com>URL: en.
+   - Om du använder en URL kan du använda den som din administratör fick. Normalt är URL: en <https://rdweb.wvd.microsoft.com>.
    - Ange din e-postadress om du vill använda e-post. Detta instruerar klienten att söka efter en URL som är kopplad till din e-postadress om administratören har konfigurerat servern på det sättet.
 3. Tryck på **Nästa**.
 4. Ange dina autentiseringsuppgifter när du uppmanas till det.

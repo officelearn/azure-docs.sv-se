@@ -1,19 +1,19 @@
 ---
-title: För hands version av Azure HPC cache – manuell kopiering
+title: Data inmatning för Azure HPC-cache – manuell kopiering
 description: Använda CP-kommandon för att flytta data till ett Blob Storage-mål i Azure HPC-cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 7e29cbd202b32897026bed074743de543d3fd587
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: b2514eaaf70d13d3be63963f24ea7be99c4fbcce
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254463"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582289"
 ---
-# <a name="azure-hpc-cache-preview-data-ingest---manual-copy-method"></a>Data inmatning för Azure HPC cache (för hands version) – manuell kopierings metod
+# <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Data inmatning för Azure HPC-cache – manuell kopierings metod
 
 Den här artikeln innehåller detaljerade anvisningar för att manuellt kopiera data till en Blob Storage-behållare för användning med Azure HPC-cache. Den använder flera trådar parallella åtgärder för att optimera kopierings hastigheten.
 
@@ -23,7 +23,7 @@ Läs mer om hur du flyttar data till Blob Storage för Azure HPC cache genom att
 
 Du kan manuellt skapa en flertrådad kopia på en klient genom att köra fler än ett kopierings kommando på en gång i bakgrunden mot fördefinierade uppsättningar av filer eller sökvägar.
 
-Kommandot Linux/UNIX ``cp`` inkluderar argumentet ``-p`` för att bevara ägarskap och mtime metadata. Att lägga till det här argumentet i kommandona nedan är valfritt. (Om du lägger till argumentet ökar antalet fil system anrop som skickas från klienten till mål fil systemet för ändring av metadata.)
+Kommandot Linux/UNIX ``cp`` innehåller argumentet ``-p`` för att bevara ägarskap och mtime metadata. Att lägga till det här argumentet i kommandona nedan är valfritt. (Om du lägger till argumentet ökar antalet fil system anrop som skickas från klienten till mål fil systemet för ändring av metadata.)
 
 I det här enkla exemplet kopieras två filer parallellt:
 
@@ -56,7 +56,7 @@ cp /mnt/source/file9* /mnt/destination1/
 
 Om fil namns strukturen inte är förutsägbar, kan du gruppera filer efter katalog namn. 
 
-Det här exemplet samlar in hela kataloger som ska skickas till ``cp``-kommandon som körs som bakgrunds aktiviteter:
+Det här exemplet samlar in hela kataloger som ska skickas till ``cp`` kommandon körs som bakgrunds aktiviteter:
 
 ```bash
 /root
@@ -92,7 +92,7 @@ När detta inträffar kan du lägga till monterings punkter på klient sidan til
 10.1.1.103:/nfs on /mnt/destination3type nfs (rw,vers=3,proto=tcp,addr=10.1.1.103)
 ```
 
-Genom att lägga till monterings punkter på klient sidan kan du förgreningar av ytterligare kopierings kommandon till ytterligare `/mnt/destination[1-3]` monterings punkter, vilket ger ytterligare parallellitet.  
+Genom att lägga till monterings punkter på klient sidan kan du förgrena ut ytterligare kopierings kommandon till ytterligare `/mnt/destination[1-3]` monterings punkter, vilket ger ytterligare parallellitet.  
 
 Om filerna t. ex. är mycket stora kan du definiera kopierings kommandona för att använda olika mål Sök vägar, vilket skickar ut fler kommandon parallellt från den klient som utför kopian.
 
@@ -138,7 +138,7 @@ Client4: cp -R /mnt/source/dir3/dir3d /mnt/destination/dir3/ &
 
 När du har lärt dig mer om metoderna ovan (flera Copy-threads per mål, flera mål per klient, flera klienter per nätverks åtkomligt käll fil system), bör du tänka på följande rekommendation: Bygg fil manifest och Använd dem sedan med kopiera kommandon över flera klienter.
 
-I det här scenariot används UNIX-``find``-kommandot för att skapa manifest med filer eller kataloger:
+I det här scenariot används UNIX ``find``-kommandot för att skapa manifest med filer eller kataloger:
 
 ```bash
 user@build:/mnt/source > find . -mindepth 4 -maxdepth 4 -type d
@@ -214,7 +214,7 @@ Och för sex.... Extrapolera vid behov.
 for i in 1 2 3 4 5 6; do sed -n ${i}~6p /tmp/foo > /tmp/client${i}; done
 ```
 
-Du får *N* resulterande filer, en för var och en av dina *N* -klienter med Sök vägs namnen på nivå fyra kataloger som erhålls som en del av utdata från kommandot `find`. 
+Du får *N* resulterande filer, en för var och en av dina *N* -klienter som har Sök vägs namnen på nivå fyra kataloger som erhålls som en del av utdata från kommandot `find`. 
 
 Använd varje fil för att bygga kopierings kommandot:
 

@@ -1,5 +1,5 @@
 ---
-title: Uppgradera till den senaste generationen Azure SQL Data Warehouse | Microsoft Docs
+title: Uppgradera till den senaste generationen
 description: Uppgradera Azure SQL Data Warehouse till den senaste generationen av Azures maskinvaru-och lagrings arkitektur.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2864e3d29a0beccd2ef52732a85ea1495e1efab8
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 02c426cd921f4af19f3b8c271e4b1c08eae2c3c2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575297"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692448"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Optimera prestanda genom att uppgradera SQL Data Warehouse
 
@@ -27,21 +28,21 @@ Nu kan du sömlöst uppgradera till den SQL Data Warehouse Compute-optimerade Ge
 
 > [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
-## <a name="applies-to"></a>Gäller
+## <a name="applies-to"></a>Gäller för
 
 Den här uppgraderingen gäller för data lager som är optimerade på gen1 nivå i [regioner som stöds](gen2-migration-schedule.md#automated-schedule-and-region-availability-table).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 1. Kontrol lera om din [region](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) stöds för GEN1 till Gen2-migrering. Anteckna datum för automatisk migrering. För att undvika konflikter med den automatiserade processen bör du planera din manuella migrering innan start datumet för automatisk process.
-2. Om du befinner dig i en region som ännu inte stöds fortsätter du att söka efter din region som ska läggas till eller [uppgraderas med hjälp av](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal) Restore till en region som stöds.
+2. Om du befinner dig i en region som ännu inte stöds fortsätter du att söka efter din region som ska läggas till eller [uppgraderas med hjälp av Restore](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal) till en region som stöds.
 3. Om din region stöds [uppgraderar du genom Azure Portal](#upgrade-in-a-supported-region-using-the-azure-portal)
 4. **Välj den föreslagna prestanda nivån** för informations lagret baserat på din aktuella prestanda nivå på Compute-optimerade gen1-nivåer med hjälp av mappningen nedan:
 
    | Compute-optimerad gen1-nivå | Compute-optimerad Gen2-nivå |
    | :-------------------------: | :-------------------------: |
    |            DW100            |           DW100c            |
-   |            DW200            |           DW200c            |
+   |            DW200 kl            |           DW200c            |
    |            DW300            |           DW300c            |
    |            DW400            |           DW400c            |
    |            DW500            |           DW500c            |
@@ -111,7 +112,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 ## <a name="start-the-upgrade"></a>Starta uppgraderingen
 
 1. Gå till ditt Compute-optimerade gen1 nivå informations lager i Azure Portal. Om det data lager som ska uppgraderas har pausats på det beräknade gen1, [återupptar du data lagret](pause-and-resume-compute-portal.md). 
-2. Välj **Uppgradera till Gen2** -kortet under fliken aktiviteter:  ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+2. Välj **Uppgradera till Gen2** -kortet under fliken aktiviteter: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
     
     > [!NOTE]
     > Om du inte ser kortet **Uppgradera till Gen2** på fliken aktiviteter är prenumerations typen begränsad i den aktuella regionen.
@@ -129,7 +130,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
    Det andra steget i uppgraderings processen är datamigrering ("uppgradering – online"). Datamigrering är en bakgrunds process online trickle. Den här processen flyttar långsamt kolumn data från den gamla lagrings arkitekturen till den nya lagrings arkitekturen med hjälp av en lokal SSD-cache. Under den här tiden är ditt informations lager online för frågor och inläsning. Dina data är tillgängliga för frågor oavsett om de har migrerats eller inte. Datamigreringen sker i olika hastigheter beroende på din data storlek, prestanda nivå och antalet dina columnstore-segment. 
 
-5. **Valfri rekommendation:** När skalnings åtgärden är klar kan du påskynda bakgrunds processen för datamigrering. Du kan tvinga data förflyttning genom att köra [Alter index Rebuild](sql-data-warehouse-tables-index.md) på alla primära columnstore-tabeller som du frågar efter en större service nivå mål och resurs klass. Den här åtgärden är frånkopplad till bakgrunds processen trickle, vilket kan ta timmar att slutföra beroende på antalet och storleken på dina tabeller. Men när det är klart kommer migreringen att bli mycket snabbare på grund av den nya förbättrad lagrings arkitekturen med högkvalitativa av hög kvalitet.
+5. **Valfri rekommendation:** När skalnings åtgärden är klar kan du påskynda bakgrunds processen för datamigrering. Du kan tvinga data förflyttning genom att köra [Alter index Rebuild](sql-data-warehouse-tables-index.md) på alla primära columnstore-tabeller som du frågar efter en större service nivå mål och resurs klass. Den här åtgärden är **frånkopplad** till bakgrunds processen trickle, vilket kan ta timmar att slutföra beroende på antalet och storleken på dina tabeller. Men när det är klart kommer migreringen att bli mycket snabbare på grund av den nya förbättrad lagrings arkitekturen med högkvalitativa av hög kvalitet.
  
 > [!NOTE]
 > Alter index Rebuild är en offline-åtgärd och tabellerna kommer inte att vara tillgängliga förrän återställningen har slutförts.
@@ -189,7 +190,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 3. Överst i översikts avsnittet väljer du **+ ny återställnings punkt**.
 
-    ![Ny återställningspunkt](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_0.png)
+    ![Ny återställnings punkt](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_0.png)
 
 4. Ange ett namn för återställnings punkten.
 
@@ -205,7 +206,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 4. Välj antingen **automatiska återställnings punkter** eller **användardefinierade återställnings punkter**.
 
-    ![Automatiska återställningspunkter](./media/sql-data-warehouse-restore-database-portal/restoring_1.png)
+    ![Automatiska återställnings punkter](./media/sql-data-warehouse-restore-database-portal/restoring_1.png)
 
 5. För användardefinierade återställnings punkter **väljer du en återställnings punkt** eller **skapar en ny användardefinierad återställnings punkt**. Välj en server i en geografisk region som stöds av Gen2. 
 
@@ -215,7 +216,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Om du vill återställa en databas använder du cmdleten Restore [-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) .
+Om du vill återställa en databas använder du cmdleten [restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) .
 
 > [!NOTE]
 > Du kan utföra en geo-återställning till Gen2! Det gör du genom att ange en Gen2-ServiceObjectiveName (t. ex. DW1000**c**) som en valfri parameter.
@@ -243,7 +244,7 @@ $GeoRestoredDatabase.status
 ```
 
 > [!NOTE]
-> Information om hur du konfigurerar databasen när återställningen har slutförts finns i [Konfigurera databasen efter](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery)återställningen.
+> Information om hur du konfigurerar databasen när återställningen har slutförts finns i [Konfigurera databasen efter återställningen](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
 
 Den återställda databasen kommer att TDEs om käll databasen är TDE-aktive rad.
 

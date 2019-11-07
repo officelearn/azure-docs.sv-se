@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: helohr
-ms.openlocfilehash: c19aa6e0acc936c5b03afdab99ce0b9230838ce2
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 41b0c1ced9e66bd58d73683865b2c40afc16c5d3
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71339015"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605854"
 ---
-# <a name="connect-with-the-android-client"></a>Ansluta till Android-klienten
+# <a name="connect-with-the-android-client"></a>Ansluta med Android-klienten
 
 > Gäller för: Android 4,1 och senare, Chromebooks med Chrome 53 och senare.
 
@@ -33,9 +33,9 @@ Prenumerera på den feed som administratören har fått för att hämta listan �
 
 Så här prenumererar du på en feed:
 
-1. Tryck på **+** i anslutnings Center och tryck sedan på **fjär resurs matning**.
+1. I anslutnings Center trycker du på **+** och trycker sedan på **fjär resurs matning**.
 2. Ange feed-URL: en i fältet **feed URL** . Feed-URL: en kan vara antingen en URL eller en e-postadress.
-   - Om du använder en URL kan du använda den som administratören fick, vanligt vis <https://rdweb.wvd.microsoft.com>.
+   - Om du använder en URL kan du använda den som din administratör har gett dig, vanligt vis <https://rdweb.wvd.microsoft.com>.
    - Ange din e-postadress om du vill använda e-post. Klienten söker efter en URL som är kopplad till din e-postadress om din administratör har konfigurerat servern på det sättet.
 3. Tryck på **Nästa**.
 4. Ange dina autentiseringsuppgifter när du uppmanas till det.

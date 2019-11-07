@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database utan Server | Microsoft Docs
+title: Azure SQL Database Serverless
 description: Den här artikeln beskriver den nya server lös beräknings nivån och jämför den med den befintliga allokerade beräknings nivån
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 11/04/2019
-ms.openlocfilehash: e8629baa3487795349844229b26d80321c1316ee
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fcd79182e046d94f9e67acecebd5cf6a45f2706f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496258"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687397"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database Serverless
 
@@ -141,7 +141,7 @@ Autoåterupptagande utlöses om något av följande villkor är uppfyllt när so
 
 Funktionen för att återuppta automatiskt utlöses även under distributionen av vissa tjänste uppdateringar som kräver att databasen är online.
 
-### <a name="connectivity"></a>Anslutningsmöjlighet
+### <a name="connectivity"></a>Anslutning
 
 Om en server lös databas har pausats kommer den första inloggningen att återuppta databasen och returnera ett fel som anger att databasen inte är tillgänglig med felkoden 40613. När databasen har återupptagits måste inloggningen göras om för att upprätta anslutningen. Databas klienter med logik för anslutnings försök ska inte behöva ändras.
 
@@ -174,8 +174,6 @@ Att skapa en ny databas eller flytta en befintlig databas till en server lös be
    |Minsta virtuella kärnor|Är beroende av Max virtuella kärnor konfigurerade – se [resurs gränser](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).|0,5 virtuella kärnor|
    |Pausa fördröjning|Minst: 60 minuter (1 timme)<br>Max: 10080 minuter (7 dagar)<br>Steg: 60 minuter<br>Inaktivera autopausen:-1|60 minuter|
 
-> [!NOTE]
-> Att använda T-SQL för att flytta en befintlig databas till Server lös eller ändra dess beräknings storlek stöds inte för närvarande, men kan göras via Azure Portal eller PowerShell.
 
 ### <a name="create-new-database-in-serverless-compute-tier"></a>Skapa ny databas i Server lös beräknings nivå 
 
@@ -200,6 +198,17 @@ New-AzSqlDatabase `
   -AutoPauseDelayInMinutes 720
 ```
 
+#### <a name="use-transact-sql-t-sql"></a>Använd Transact-SQL (T-SQL)
+
+I följande exempel skapas en ny databas i Server lös beräknings nivån.
+
+```sql
+CREATE DATABASE testdb
+( EDITION = 'GeneralPurpose', SERVICE_OBJECTIVE = 'GP_S_Gen5_1' ) ;
+```
+
+Mer information finns i [skapa databas](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).  
+
 ### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>Flytta databasen från etablerade beräknings nivåer till Server lös beräknings nivå
 
 #### <a name="use-powershell"></a>Använd PowerShell
@@ -218,6 +227,17 @@ Set-AzSqlDatabase `
   -MaxVcore 4 `
   -AutoPauseDelayInMinutes 1440
 ```
+
+#### <a name="use-transact-sql-t-sql"></a>Använd Transact-SQL (T-SQL)
+
+I följande exempel flyttas en databas från den allokerade beräknings nivån till Server lös beräknings nivån. 
+
+```sql
+ALTER DATABASE testdb 
+MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
+```
+
+Mer information finns i [Alter Database](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current).
 
 ### <a name="move-database-from-serverless-compute-tier-into-provisioned-compute-tier"></a>Flytta databasen från Server lös beräknings nivån till en allokerad beräknings nivå
 
@@ -323,6 +343,10 @@ Mer exakt, beräknings fakturan i det här exemplet beräknas enligt följande:
 |Totalt antal vCore sekunder debiteras över 24 timmar||||50400 vCore sekunder|
 
 Anta att priset för beräknings enheten är $0.000073/vCore/Second.  Sedan debiteras beräkningen för den här 24-timmarsperiod produkten av priset för beräknings enheten och vCore sekunder fakturerat: $0.000073/vCore/Second * 50400 vCore sekunder = $3,68
+
+### <a name="azure-hybrid-benefit-and-reserved-capacity"></a>Azure Hybrid-förmån och reserverad kapacitet
+
+Azure Hybrid-förmån (AHB) och reserverade kapacitets rabatter gäller inte för Server lös beräknings nivån.
 
 ## <a name="available-regions"></a>Tillgängliga regioner
 

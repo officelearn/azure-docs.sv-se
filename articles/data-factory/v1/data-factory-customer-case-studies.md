@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory-kund fallstudier | Microsoft Docs
+title: Azure Data Factory-kund fallstudier
 description: Läs om hur några av våra kunder har använt Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 4944a870d27fd9ca0b64234b303906739bdc0d04
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 9b0318cf293428f0d2ce125b190b0b8625c9df97
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139951"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682676"
 ---
 # <a name="azure-data-factory---customer-case-studies"></a>Azure Data Factory-kund fallstudier
 Data Factory är en molnbaserad tjänst för informations hantering som automatiserar flytt och transformering av data. Kunder i flera branscher använder Data Factory och andra Azure-tjänster för att bygga upp sina analys pipeliner och lösa sina affärs problem.  Lär dig direkt från våra kunder hur och varför de använder Data Factory.

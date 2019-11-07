@@ -8,12 +8,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 4f1b8b116cf2a8411a90946dd5801dd1e541323c
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: bcdc6633980ec3684217c8c19b4799befe2af3a3
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063957"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576861"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetri korrelation i Application Insights
 
@@ -90,8 +90,8 @@ Om du kör en äldre version av SDK rekommenderar vi att du uppdaterar den eller
 Den här funktionen är tillgänglig i `Microsoft.ApplicationInsights.Web` och `Microsoft.ApplicationInsights.DependencyCollector` paket som börjar med version 2.8.0-beta1.
 Den är inaktive rad som standard. Om du vill aktivera den ändrar du `ApplicationInsights.config`:
 
-- Under `RequestTrackingTelemetryModule` lägger du till `EnableW3CHeadersExtraction`-elementet med värdet inställt på `true`.
-- Under `DependencyTrackingTelemetryModule` lägger du till `EnableW3CHeadersInjection`-elementet med värdet inställt på `true`.
+- Under `RequestTrackingTelemetryModule`lägger du till `EnableW3CHeadersExtraction`-elementet med värdet inställt på `true`.
+- Under `DependencyTrackingTelemetryModule`lägger du till `EnableW3CHeadersInjection`-elementet med värdet inställt på `true`.
 - Lägg till `W3COperationCorrelationTelemetryInitializer` under `TelemetryInitializers` som liknar 
 
 ```xml
@@ -248,10 +248,10 @@ Detta kör ett exempel `flask` program på din lokala dator och lyssnar på port
 ```
 curl --header "traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01" localhost:8080
 ```
-När du tittar på [huvud formatet för spårnings kontexten](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format)härleds följande information: `version`: `00` 
- `trace-id`: `4bf92f3577b34da6a3ce929d0e0e4736` 
- `parent-id/span-id`: `00f067aa0ba902b7` 
- 0: 1
+När du tittar på [huvud formatet för spårnings kontexten](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format)härleds följande information: `version`: `00`
+`trace-id`: `4bf92f3577b34da6a3ce929d0e0e4736`
+`parent-id/span-id`: `00f067aa0ba902b7`
+`trace-flags`: `01`
 
 Om vi tar en titt på posten för begäran som skickades till Azure Monitor kan vi se fält som är ifyllda med spårnings huvud informationen. Du kan hitta dessa data under loggar (analys) i Azure Monitor Application Insights resurs.
 
@@ -263,7 +263,7 @@ Om vi tar en titt på posten för begäran som skickades till Azure Monitor kan 
 
 ### <a name="logs-correlation"></a>Loggar korrelation
 
-Openräkning python tillåter korrelation av loggar genom att utförliga logg poster med spårnings-ID, span-ID och samplings flagga. Detta görs genom att du installerar [loggnings integrationen](https://pypi.org/project/opencensus-ext-logging/)för openräkning. Följande attribut kommer att läggas till i python-`LogRecord`s: `traceId` `spanId` och `traceSampled`. Observera att detta endast gäller för loggar som skapats efter integrationen.
+Openräkning python tillåter korrelation av loggar genom att utförliga logg poster med spårnings-ID, span-ID och samplings flagga. Detta görs genom att du installerar [loggnings integrationen](https://pypi.org/project/opencensus-ext-logging/)för openräkning. Följande attribut kommer att läggas till i python `LogRecord`s: `traceId``spanId` och `traceSampled`. Observera att detta endast gäller för loggar som skapats efter integrationen.
 Nedan visas ett exempel program som demonstrerar detta.
 
 ```python
@@ -334,25 +334,22 @@ Om du vill korrelera telemetri i ett asynkront våren Boot-program följer du [d
 
 Ibland kanske du vill anpassa hur komponent namn visas i [program kartan](../../azure-monitor/app/app-map.md). Om du vill göra det kan du ange `cloud_RoleName` manuellt genom att göra något av följande:
 
+- Från och med Application Insights Java SDK 2.5.0 kan du ange namnet på moln rollen genom att lägga till `<RoleName>` till `ApplicationInsights.xml`-filen, t. ex.
+
+  ```XML
+  <?xml version="1.0" encoding="utf-8"?>
+  <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+     <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+     <RoleName>** Your role name **</RoleName>
+     ...
+  </ApplicationInsights>
+  ```
+
 - Om du använder våren boot med Application Insights våren Boot starter, är den enda nödvändiga ändringen att ange ditt anpassade namn för programmet i filen Application. Properties.
 
   `spring.application.name=<name-of-app>`
 
   Start programmet för fjäder start tilldelar automatiskt `cloudRoleName` till det värde som du anger för egenskapen `spring.application.name`.
-
-- Om du använder `WebRequestTrackingFilter` anger `WebAppNameContextInitializer` program namnet automatiskt. Lägg till följande i konfigurations filen (ApplicationInsights. xml):
-
-  ```XML
-  <ContextInitializers>
-    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebAppNameContextInitializer" />
-  </ContextInitializers>
-  ```
-
-- Om du använder moln kontext klassen:
-
-  ```Java
-  telemetryClient.getContext().getCloud().setRole("My Component Name");
-  ```
 
 ## <a name="next-steps"></a>Nästa steg
 

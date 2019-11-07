@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 3f619caf7e2713e1c9251550b06c8bdefba5936f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 1854599956755716955a6e691c3266ac54ddafd9
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493384"
+ms.locfileid: "73581558"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Självstudie: träna och distribuera en modell från CLI
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ Läs hur du vidtar följande åtgärder:
 > * Distribuera modellen som en webb tjänst
 > * Poäng data med hjälp av webb tjänsten
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
@@ -183,7 +183,7 @@ Det här kommandot skapar en `.azureml/config.json`-fil som innehåller informat
 
 ## <a name="create-the-compute-target-for-training"></a>Skapa Compute-målet för utbildning
 
-I det här exemplet används ett Azure Machine Learning beräknings kluster för att träna modellen. Använd följande kommando för att skapa ett nytt beräknings kluster:
+I det här exemplet används en Azure Machine Learning Notebook VM för att träna modellen. Använd följande kommando för att skapa en ny virtuell dator i Notebook:
 
 ```azurecli-interactive
 az ml computetarget create amlcompute -n cpu --max-nodes 4 --vm-size Standard_D2_V2
@@ -239,7 +239,7 @@ Den här texten loggas från utbildnings skriptet (`train-sklearn.py`) och visar
 
 Om du inspekterar `train-sklearn.py`ser du att den också använder alfa värdet när du lagrar den utbildade modellen (erna) i filen. I det här fallet tränar den flera modeller. Den som har högst alfa bör vara det bästa alternativet. Titta på utdata ovan, och koden, modellen med en alfa på 0,95 sparades som `./outputs/ridge_0.95.pkl`
 
-Modellen sparades i `./outputs`-katalogen på beräknings målet där den tränades. I det här fallet är Azure Machine Learning beräknings instansen i Azure-molnet. Inlärnings processen överför automatiskt innehållet i `./outputs`-katalogen från beräknings målet där inlärningen sker till Azure Machine Learning-arbetsytan. Den lagras som en del av experimentet (`myexperiment` i det här exemplet).
+Modellen sparades i `./outputs`-katalogen på beräknings målet där den tränades. I det här fallet Azure Machine Learning VM Notebook i Azure-molnet. Inlärnings processen överför automatiskt innehållet i `./outputs`-katalogen från beräknings målet där inlärningen sker till Azure Machine Learning-arbetsytan. Den lagras som en del av experimentet (`myexperiment` i det här exemplet).
 
 ## <a name="register-the-model"></a>Registrera modellen
 

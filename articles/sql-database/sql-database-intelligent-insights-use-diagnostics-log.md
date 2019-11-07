@@ -1,5 +1,5 @@
 ---
-title: Logga in Intelligent Insights prestanda-diagnostik-Azure SQL Database | Microsoft Docs
+title: Intelligent Insights prestanda-diagnostik-logg Azure SQL Database
 description: Intelligent Insights innehåller en diagnostisk logg med Azure SQL Database prestanda problem
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: c25d37a4d1695ab94cc0667a13e36e4da640e12a
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 86381f5670f09b5e6a215793dc1ea4eab7ecbb8e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262137"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689694"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Använd loggen Intelligent Insights Azure SQL Database prestanda diagnostik
 
@@ -80,7 +80,7 @@ Beroende på det identifierade prestanda problemet skiljer sig detaljerna i den 
 | Når resurs gränser | <li>Resurser som påverkas</li><li>Fråga hashar</li><li>Resurs förbrukning i procent</li> |
 | Ökad arbets belastning | <li>Antal frågor vars körning har ökat</li><li>Fråga hashar av frågor med störst bidrag till arbets belastnings ökningen</li> |
 | Minnes belastning | <li>Minnes ansvarig</li> |
-| Låsning | <li>Frågans hashar som påverkas</li><li>Blockerar frågans hash-värden</li> |
+| Spärr | <li>Frågans hashar som påverkas</li><li>Blockerar frågans hash-värden</li> |
 | Ökad MAXDOP | <li>Fråga hashar</li><li>CXP vänte tider</li><li>Vänte tider</li> |
 | PAGELATCH-konkurrens | <li>Fråga hashar för frågor som orsakar konkurrens</li> |
 | Index saknas | <li>Fråga hashar</li> |
@@ -97,11 +97,11 @@ Beroende på det identifierade prestanda problemet skiljer sig detaljerna i den 
 
 Egenskapen effekt (effekt) beskriver hur mycket ett identifierat beteende som bidragit till problemet som en databas har. Påverkar intervallet från 1 till 3, med 3 som högsta bidrag, 2 som måttlig och 1 som det lägsta bidraget. Värdet för påverkan kan användas som indatamängd för anpassad aviserings automatisering, beroende på dina behov. Egenskaps frågorna som påverkas (QueryHashes) innehåller en lista över de fråga-hashar som påverkades av en viss identifiering.
 
-### <a name="impacted-queries"></a>Frågor som påverkas
+### <a name="impacted-queries"></a>Påverkade frågor
 
-Nästa avsnitt av Intelligent Insights loggen innehåller information om specifika frågor som påverkades av de prestanda problem som upptäckts. Den här informationen visas som en matris med objekt som är inbäddade i egenskapen impact_s. Egenskapen påverkan består av entiteter och mått. Entiteter refererar till en viss fråga (typ: Fråga). Den unika frågans hash-värde visas under egenskapen Value (värde). Dessutom följs alla frågor som har lämnats av ett mått och ett värde som indikerar ett identifierat prestanda problem.
+Nästa avsnitt av Intelligent Insights loggen innehåller information om specifika frågor som påverkades av de prestanda problem som upptäckts. Den här informationen visas som en matris med objekt som är inbäddade i egenskapen impact_s. Egenskapen påverkan består av entiteter och mått. Entiteter refererar till en viss fråga (typ: fråga). Den unika frågans hash-värde visas under egenskapen Value (värde). Dessutom följs alla frågor som har lämnats av ett mått och ett värde som indikerar ett identifierat prestanda problem.
 
-I följande logg exempel upptäcktes frågan med hash-0x9102EXZ4 för att få en ökad varaktighet för körning (mått: DurationIncreaseSeconds). Värdet på 110 sekunder anger att den här specifika frågan tog 110 sekunder längre att köras. Eftersom flera frågor kan identifieras kan detta specifika logg avsnitt innehålla flera poster i frågan.
+I följande logg exempel upptäcktes frågan med hash-0x9102EXZ4 för att få en ökad varaktighet för körningen (Metric: DurationIncreaseSeconds). Värdet på 110 sekunder anger att den här specifika frågan tog 110 sekunder längre att köras. Eftersom flera frågor kan identifieras kan detta specifika logg avsnitt innehålla flera poster i frågan.
 
 ```json
 "impact" : [{

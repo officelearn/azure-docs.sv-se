@@ -1,5 +1,5 @@
 ---
-title: Transformera data med Hadoop streaming-aktivitet – Azure | Microsoft Docs
+title: Transformera data med Hadoop streaming-aktivitet – Azure
 description: Lär dig hur du kan använda Hadoop streaming-aktiviteten i en Azure Data Factory för att transformera data genom att köra Hadoop-strömmande program på begäran/ditt eget HDInsight-kluster.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: fd9512f4ede8d9b8b1a8fd69b7120303fe6a0ad5
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: c56961b28750f3ba6450c26c897c1ef6c54b3ed8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139548"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73667506"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformera data med hjälp av Hadoop streaming-aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Omvandlings aktiviteter"]
@@ -41,7 +41,7 @@ Du kan använda HDInsightStreamingActivity-aktiviteten för att anropa ett Hadoo
 HDInsight streaming-aktiviteten i en Data Factory [pipeline](data-factory-create-pipelines.md) kör Hadoop streaming-program på [ditt eget](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) eller Windows/Linux-baserade HDInsight-kluster [på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) . Den här artikeln bygger på artikeln [data omvandlings aktiviteter](data-factory-data-transformation-activities.md) , som visar en allmän översikt över Datatransformeringen och de omvandlings aktiviteter som stöds.
 
 > [!NOTE] 
-> Om du inte har använt Azure Data Factory läser du igenom [Introduktion till Azure Data Factory](data-factory-introduction.md) och gör självstudien: [Bygg din första data pipeline innan du](data-factory-build-your-first-pipeline.md) läser den här artikeln. 
+> Om du inte har använt Azure Data Factory läser du igenom [introduktionen till Azure Data Factory](data-factory-introduction.md) och gör självstudien: [skapa din första data pipeline innan du](data-factory-build-your-first-pipeline.md) läser den här artikeln. 
 
 ## <a name="json-sample"></a>JSON-exempel
 HDInsight-klustret fylls i automatiskt med exempel program (WC. exe och Cat. exe) och data (DaVinci. txt). Som standard är namnet på den behållare som används av HDInsight-klustret namnet på själva klustret. Om ditt kluster namn till exempel är myhdicluster, är namnet på BLOB-behållaren som är kopplad till myhdicluster. 
@@ -99,7 +99,7 @@ Observera följande punkter:
 3. För egenskapen **Mapper** anger du namnet på den körbara filen för mappning. I exemplet är Cat. exe den körbara filen för mappning.
 4. Ange namnet på den Defiler som ska minskas för egenskapen **reduce** . I exemplet är WC. exe den körbara filen för minskning av program varan.
 5. För egenskapen **Indatatyp** anger du indatafilen (inklusive platsen) för mapper. I exemplet: `wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt`: adfsample är BLOB-behållaren, exempel/data/Gutenberg är mappen och DaVinci. txt är bloben.
-6. För egenskapen Utdatatyp anger du utdatafilen (inklusive platsen) för minskningen. Utdata från Hadoop streaming-jobbet skrivs till den plats som angetts för den här egenskapen.
+6. För egenskapen **Utdatatyp anger** du utdatafilen (inklusive platsen) för minskningen. Utdata från Hadoop streaming-jobbet skrivs till den plats som angetts för den här egenskapen.
 7. I avsnittet **fil Sök** vägar anger du Sök vägarna för mapparna mapper och reducere. I exemplet: "adfsample/example/Apps/WC. exe", adfsample är BLOB-behållaren, exempel/Apps är mappen och WC. exe är den körbara filen.
 8. För egenskapen **fileLinkedService** anger du Azure Storage länkade tjänsten som representerar Azure Storage som innehåller filerna som anges i avsnittet fil Sök vägar.
 9. Ange argumenten för direkt uppspelnings jobbet för egenskapen **arguments** .

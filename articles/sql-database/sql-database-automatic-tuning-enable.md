@@ -1,5 +1,5 @@
 ---
-title: Aktivera automatisk justering för Azure SQL Database | Microsoft Docs
+title: Aktivera automatisk justering för Azure SQL Database
 description: Du kan aktivera automatisk justering på Azure SQL Database enkelt.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: c9339b5c7c35378fb85daeae19a6daa01d54f350
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 52e3dd01446a6292c3404f14bd8ebfb32aa00dd6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809642"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691128"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Aktivera automatisk justering för att övervaka frågor och förbättra arbets Belastningens prestanda
 
@@ -34,7 +34,7 @@ Automatisk justering kan aktive ras på servern eller databas nivån via [Azure 
 
 På server nivå kan du välja att ärva konfigurationen för automatisk justering från "Azure-standardvärden" eller att inte ärva konfigurationen. Azure-standardvärden är FORCE_LAST_GOOD_PLAN, CREATE_INDEX är aktiverat och DROP_INDEX är inaktive rad.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 Om du vill aktivera automatisk justering på Azure SQL Database logisk **Server**navigerar du till servern i Azure Portal och väljer sedan **Automatisk justering** i menyn.
 
@@ -60,7 +60,7 @@ Med Azure SQL Database kan du individuellt ange konfigurationen för automatisk 
 > Den allmänna rekommendationen är att hantera konfigurationen för automatisk justering på **Server nivå** så att samma konfigurations inställningar kan tillämpas automatiskt på alla databaser. Konfigurera automatisk justering endast på en enskild databas om du behöver att databasen har andra inställningar än andra som ärver inställningar från samma server.
 >
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 Om du vill aktivera automatisk justering på en **enskild databas**går du till databasen i Azure Portal och väljer **Automatisk justering**.
 

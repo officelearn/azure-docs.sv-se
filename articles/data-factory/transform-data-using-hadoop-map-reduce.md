@@ -1,6 +1,6 @@
 ---
-title: Transformera data med Hadoop-MapReduce-aktivitet i Azure Data Factory | Microsoft Docs
-description: Lär dig hur du bearbetar data genom att köra Hadoop MapReduce program på ett Azure HDInsight-kluster från en Azure-datafabrik.
+title: Transformera data med Hadoop MapReduce-aktivitet i Azure Data Factory
+description: Lär dig hur du bearbetar data genom att köra Hadoop MapReduce-program i ett Azure HDInsight-kluster från en Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -11,23 +11,23 @@ ms.date: 01/16/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: ccc194dd4120762a30da3ad28cdabed6faf53ba2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 49e00d9a47f92fb30a29e7051cba35f54bde3700
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60611507"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683863"
 ---
-# <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Transformera data med Hadoop-MapReduce-aktivitet i Azure Data Factory
-> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
+# <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Transformera data med Hadoop MapReduce-aktivitet i Azure Data Factory
+> [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-map-reduce.md)
 > * [Aktuell version](transform-data-using-hadoop-map-reduce.md)
 
-HDInsight MapReduce-aktivitet i en Datafabrik [pipeline](concepts-pipelines-activities.md) anropar MapReduce-program på [egna](compute-linked-services.md#azure-hdinsight-linked-service) eller [på begäran](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight-kluster. Den här artikeln bygger vidare på den [datatransformeringsaktiviteter](transform-data.md) artikel som anger en allmän översikt över Dataomvandling och stöds transformeringsaktiviteter.
+HDInsight MapReduce-aktiviteten i en Data Factory [pipeline](concepts-pipelines-activities.md) anropar MapReduce-program på [ditt eget](compute-linked-services.md#azure-hdinsight-linked-service) eller [på begäran HDInsight-](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) kluster. Den här artikeln bygger på artikeln [data omvandlings aktiviteter](transform-data.md) , som visar en allmän översikt över Datatransformeringen och de omvandlings aktiviteter som stöds.
 
-Om du är nybörjare på Azure Data Factory, Läs igenom [introduktion till Azure Data Factory](introduction.md) och igenom självstudien: [Självstudie: Transformera data](tutorial-transform-data-spark-powershell.md) innan du läser den här artikeln.
+Om du är nybörjare på Azure Data Factory läser du [introduktionen till Azure Data Factory](introduction.md) och gör självstudien: [Självstudier: transformera data](tutorial-transform-data-spark-powershell.md) innan du läser den här artikeln.
 
-Se [Pig](transform-data-using-hadoop-pig.md) och [Hive](transform-data-using-hadoop-hive.md) för information om hur du använder Pig/Hive skript på ett HDInsight-kluster från en pipeline med hjälp av HDInsight Pig och Hive-aktiviteter.
+Se [gris](transform-data-using-hadoop-pig.md) och [Hive](transform-data-using-hadoop-hive.md) för mer information om att köra gris/Hive-skript på ett HDInsight-kluster från en pipeline med hjälp av HDInsight-aktiviteter av gris och Hive.
 
 ## <a name="syntax"></a>Syntax
 
@@ -62,22 +62,22 @@ Se [Pig](transform-data-using-hadoop-pig.md) och [Hive](transform-data-using-had
 
 | Egenskap          | Beskrivning                              | Krävs |
 | ----------------- | ---------------------------------------- | -------- |
-| name              | Namn på aktiviteten                     | Ja      |
-| description       | Text som beskriver vad aktiviteten används till | Nej       |
-| type              | Aktivitetstypen är HDinsightMapReduce för MapReduce-aktivitet | Ja      |
-| linkedServiceName | Referens till HDInsight-kluster som är registrerad som en länkad tjänst i Datafabriken. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln. | Ja      |
+| namn              | Namn på aktiviteten                     | Ja      |
+| description       | Text som beskriver vad aktiviteten används för | Nej       |
+| typ              | Aktivitets typen är HDinsightMapReduce för MapReduce-aktivitet | Ja      |
+| linkedServiceName | Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) . | Ja      |
 | className         | Namnet på klassen som ska köras         | Ja      |
-| jarLinkedService  | Referens till en Azure Storage-länkade tjänst som används för att lagra Jar-filerna. Om du inte anger den här länkade tjänsten, används den Azure Storage länkade tjänsten definieras i den länkade tjänsten HDInsight. | Nej       |
-| jarFilePath       | Ange sökvägen till Jar-filerna som lagras i Azure Storage som refereras till av jarLinkedService. Filnamnet är skiftlägeskänsligt. | Ja      |
-| jarlibs           | Sträng matris med sökvägen till Jar-DLL-fil som refereras av jobbet som lagras i Azure Storage som definierats i jarLinkedService. Filnamnet är skiftlägeskänsligt. | Nej       |
-| getDebugInfo      | Anger om filerna kopieras till Azure Storage används av HDInsight-kluster (eller) anges av jarLinkedService. Tillåtna värden: Ingen alltid kan eller inte. Standardvärde: Ingen. | Nej       |
-| argument         | Anger en matris med argumenten för ett Hadoop-jobb. Argumenten skickas till varje aktivitet som kommandoradsargument. | Nej       |
-| defines           | Ange parametrar som nyckel/värde-par för refererar till Hive-skript. | Nej       |
+| jarLinkedService  | Referens till en Azure Storage länkad tjänst som används för att lagra jar-filerna. Om du inte anger den här länkade tjänsten används den Azure Storage länkade tjänsten som definierats i den länkade HDInsight-tjänsten. | Nej       |
+| jarFilePath       | Ange sökvägen till jar-filerna som lagras i Azure Storage som refereras av jarLinkedService. Fil namnet är Skift läges känsligt. | Ja      |
+| jarlibs           | Sträng mat ris för sökvägen till jar-biblioteksfilerna som refereras av jobbet som lagras i Azure Storage som definierats i jarLinkedService. Fil namnet är Skift läges känsligt. | Nej       |
+| getDebugInfo      | Anger när loggfilerna kopieras till Azure Storage som används av HDInsight-kluster (eller) som anges av jarLinkedService. Tillåtna värden: ingen, Always eller Failure. Standardvärde: ingen. | Nej       |
+| ogiltiga         | Anger en matris med argument för ett Hadoop-jobb. Argumenten skickas som kommando rads argument till varje aktivitet. | Nej       |
+| definierar           | Ange parametrar som nyckel/värde-par för referenser i Hive-skriptet. | Nej       |
 
 
 
 ## <a name="example"></a>Exempel
-Du kan använda HDInsight MapReduce-aktivitet för att köra alla MapReduce jar-filen på ett HDInsight-kluster. I följande exempel JSON-definition av en pipeline, har aktivitet för HDInsight konfigurerats för att köra en Mahout JAR-fil.
+Du kan använda HDInsight-MapReduce-aktiviteten för att köra en MapReduce jar-fil på ett HDInsight-kluster. I följande exempel på JSON-definition för en pipeline är HDInsight-aktiviteten konfigurerad att köra en Mahout JAR-fil.
 
 ```json
 {
@@ -110,16 +110,16 @@ Du kan använda HDInsight MapReduce-aktivitet för att köra alla MapReduce jar-
     }
 }
 ```
-Du kan ange några argument för MapReduce-program i den **argument** avsnittet. Vid körning, som du ser några extra argument (till exempel: mapreduce.job.tags) från MapReduce-ramverket. Överväg att använda både alternativet och värdet som argument som visas i följande exempel för att skilja dina argument med MapReduce-argument (- s – indata,--utdata osv., är alternativen följt av deras värden).
+Du kan ange argument för MapReduce-programmet i avsnittet **argument** . Vid körning ser du några extra argument (till exempel: MapReduce. job. Tags) från MapReduce-ramverket. Om du vill särskilja argumenten med MapReduce-argumenten kan du använda båda alternativen och värdet som argument, som du ser i följande exempel (-s,--output,--output osv., är alternativ omedelbart följt av deras värden).
 
 ## <a name="next-steps"></a>Nästa steg
-Se följande artiklar som beskriver hur du omvandlar data på andra sätt:
+Se följande artiklar som förklarar hur du omformar data på andra sätt:
 
 * [U-SQL-aktivitet](transform-data-using-data-lake-analytics.md)
 * [Hive-aktivitet](transform-data-using-hadoop-hive.md)
-* [Piggningsåtgärd](transform-data-using-hadoop-pig.md)
-* [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md)
+* [Aktivitet i gris](transform-data-using-hadoop-pig.md)
+* [Hadoop streaming-aktivitet](transform-data-using-hadoop-streaming.md)
 * [Spark-aktivitet](transform-data-using-spark.md)
 * [.NET-anpassad aktivitet](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning-batchkörningsaktivitet](transform-data-using-machine-learning.md)
-* [Lagrad proceduraktivitet](transform-data-using-stored-procedure.md)
+* [Machine Learning batch-körning, aktivitet](transform-data-using-machine-learning.md)
+* [Lagrad procedur aktivitet](transform-data-using-stored-procedure.md)

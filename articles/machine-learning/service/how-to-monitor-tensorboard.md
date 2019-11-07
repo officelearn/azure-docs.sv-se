@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
 ms.date: 06/28/2019
-ms.openlocfilehash: a45548d3698d28a0189be4f46c26e418da8c91ef
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 272dbbbc335574456feebfb85e4c5eafd544f8d6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489633"
+ms.locfileid: "73574298"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualisera experiment körningar och mät värden med TensorBoard och Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,13 +28,16 @@ Hur du startar TensorBoard med Azure Machine Learning experiment beror på typen
 
 + För experiment som inte har TensorBoardt utdata, t. ex. Scikit – lär eller Azure Machine Learning experiment, använder [du `export_to_tensorboard()`-metoden](#export) för att exportera körnings historiken som TensorBoard loggar och starta TensorBoard därifrån. 
 
-## <a name="prerequisites"></a>Förutsättningar
+> [!TIP]
+> Informationen i det här dokumentet är främst avsedd för data experter och utvecklare som vill övervaka processen för modell inlärning. Om du är administratör som är intresse rad av övervakning av resursanvändningen och händelser från Azure Machine Learning, till exempel kvoter, slutförda inlärnings körningar eller slutförd modell distribution, se [övervaknings Azure Machine Learning](monitor-azure-machine-learning.md).
+
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * För att starta TensorBoard och Visa dina experiment körnings historik måste experimenten tidigare ha aktiverat loggning för att spåra dess mått och prestanda.  
 
-* Koden i den här instruktionen kan köras i någon av följande miljöer: 
+* Koden i det här dokumentet kan köras i någon av följande miljöer: 
 
-    * Azure Machine Learning beräknings instans – inga hämtningar eller installationer behövs
+    * Azure Machine Learning Notebook VM – inga hämtningar eller installationer behövs
 
         * Slutför [självstudien: installations miljö och arbets yta](tutorial-1st-experiment-sdk-setup.md) för att skapa en dedikerad Notebook-server som är förinstallerad med SDK och exempel lagrings plats.
 
@@ -50,7 +53,7 @@ Hur du startar TensorBoard med Azure Machine Learning experiment beror på typen
 <a name="direct"></a>
 ## <a name="option-1-directly-view-run-history-in-tensorboard"></a>Alternativ 1: Visa körnings historik direkt i TensorBoard
 
-Det här alternativet används för experiment som skriver utdata i loggfiler som kan användas av TensorBoard, till exempel PyTorch, Kedjorer och TensorFlow experiment. Om detta inte är fallet kan du använda [metoden `export_to_tensorboard()`](#export) i stället.
+Det här alternativet används för experiment som skriver utdata i loggfiler som kan användas av TensorBoard, till exempel PyTorch, kedjor och TensorFlow experiment. Om detta inte är fallet kan du använda [metoden `export_to_tensorboard()`](#export) i stället.
 
 I följande exempel kod används [MNIST demo experiment](https://raw.githubusercontent.com/tensorflow/tensorflow/r1.8/tensorflow/examples/tutorials/mnist/mnist_with_summaries.py) från TensorFlow-lagringsplatsen i ett fjärrberäknings mål, Azure Machine Learning beräkning. Därefter tränar vi vår modell med SDK: s anpassade [TensorFlow-uppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)och startar sedan TensorBoard mot det här TensorFlow-experimentet, det vill säga ett experiment som skriver ut TensorBoard-händelseobjektet internt.
 
@@ -216,7 +219,7 @@ data = {
 
 ### <a name="run-experiment-and-log-metrics"></a>Köra experiment-och logg mått
 
-För den här koden tränar vi en linjär Regressions modell och logg nyckel mått, alpha-koefficienten, `alpha` och medels kapade fel `mse`, i körnings historiken.
+I den här koden tränar vi en linjär Regressions modell och logg nyckel mått, alpha-koefficienten, `alpha`och medels kapade fel `mse`, i körnings historiken.
 
 ```Python
 from tqdm import tqdm

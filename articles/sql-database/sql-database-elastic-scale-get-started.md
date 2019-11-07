@@ -1,5 +1,5 @@
 ---
-title: Kom igång med Elastic Database-verktyg – Azure | Microsoft Docs
+title: Kom igång med Elastic Database verktyg – Azure
 description: Grundläggande förklaring av Elastic Database tools-funktionen i Azure SQL Database, inklusive en exempel-app som är lätt att köra.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: aa0827bdf6deb388123ed701013ee95f5493eee3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8f5d5bbf6509dd908f94f1500e585913cbb34e41
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568478"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690222"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Kom igång med Elastic Database verktyg
 
@@ -24,7 +24,7 @@ I det här dokumentet får du en introduktion till utvecklaren för [klient bibl
 
 ## <a name="elastic-database-tools-for-java"></a>Elastic Database verktyg för Java
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Java Developer Kit (JDK), version 1,8 eller senare
 * [Maven 3.](https://maven.apache.org/download.cgi)
@@ -33,7 +33,7 @@ I det här dokumentet får du en introduktion till utvecklaren för [klient bibl
 ### <a name="download-and-run-the-sample-app"></a>Hämta och kör exempel appen
 
 Gör följande för att skapa JAR-filerna och komma igång med exempelprojektet: 
-1. Klona [GitHub](https://github.com/Microsoft/elastic-db-tools-for-java) -lagringsplatsen som innehåller klient biblioteket, tillsammans med exempel appen. 
+1. Klona [GitHub-lagringsplatsen](https://github.com/Microsoft/elastic-db-tools-for-java) som innehåller klient biblioteket, tillsammans med exempel appen. 
 
 2. Redigera _./Sample/src/main/Resources/Resource.Properties_ -filen för att ange följande:
     * TEST_CONN_USER
@@ -54,7 +54,7 @@ Gör följande för att skapa JAR-filerna och komma igång med exempelprojektet:
     
 5. Om du vill veta mer om klient biblioteks funktionerna kan du experimentera med de olika alternativen. Titta gärna på koden för att lära dig mer om exempel på implementering av appen.
 
-    ![Progress-java][5]
+    ![Förlopp – Java][5]
     
 Grattis! Du har skapat och kört ditt första shardade-program genom att använda Elastic Database verktyg på Azure SQL Database. Använd Visual Studio eller SQL Server Management Studio för att ansluta till din SQL-databas och ta en titt på Shards som exemplet skapade. Du kommer att märka nya exempel på Shard-databaser och en Shard Map Manager-databas som exemplet har skapat. 
 
@@ -70,7 +70,7 @@ Om du vill lägga till klient biblioteket i ditt eget Maven-projekt lägger du t
 
 ## <a name="elastic-database-tools-for-net"></a>Elastic Database verktyg för .NET
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Visual Studio 2012 eller senare med C#. Ladda ned en kostnads fri version vid [hämtning av Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2,7 eller senare. För att hämta den senaste versionen, se [Installera NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
@@ -91,7 +91,7 @@ Följ dessa steg om du vill hämta och köra exemplet:
 
 5. Om du vill veta mer om klient biblioteks funktionerna kan du experimentera med de olika alternativen. Observera de steg som programmet tar i konsolens utdata och Känn dig kostnads fritt för att utforska koden bakom kulisserna.
    
-    ![Pågår][4]
+    ![pågår][4]
 
 Grattis! Du har skapat och kört ditt första shardade-program genom att använda Elastic Database verktyg på SQL Database. Använd Visual Studio eller SQL Server Management Studio för att ansluta till din SQL-databas och ta en titt på Shards som exemplet skapade. Du kommer att märka nya exempel på Shard-databaser och en Shard Map Manager-databas som exemplet har skapat.
 
@@ -100,19 +100,19 @@ Grattis! Du har skapat och kört ditt första shardade-program genom att använd
 
 ## <a name="key-pieces-of-the-code-sample"></a>Huvud delar av kod exemplet
 
-* **Hantera Shards-och Shard-kartor**: Koden illustrerar hur du arbetar med Shards, intervall och mappningar i *ShardManagementUtils.cs* -filen. Mer information finns i [skala ut databaser med Shard Map Manager](https://go.microsoft.com/?linkid=9862595).  
+* **Hantera Shards-och Shard Maps**: koden visar hur du arbetar med Shards, intervall och mappningar i *ShardManagementUtils.cs* -filen. Mer information finns i [skala ut databaser med Shard Map Manager](https://go.microsoft.com/?linkid=9862595).  
 
-* **Data beroende routning**: Routning av transaktioner till rätt Shard visas i *DataDependentRoutingSample.cs* -filen. Mer information finns i [data beroende routning](https://go.microsoft.com/?linkid=9862596). 
+* **Data beroende routning**: routning av transaktioner till rätt Shard visas i *DataDependentRoutingSample.cs* -filen. Mer information finns i [data beroende routning](https://go.microsoft.com/?linkid=9862596). 
 
-* **Fråga över flera Shards**: Frågor över Shards illustreras i *MultiShardQuerySample.cs* -filen. Mer information finns i [multi-Shard-frågor](https://go.microsoft.com/?linkid=9862597).
+* **Fråga över flera Shards**: frågor över Shards illustreras i *MultiShardQuerySample.cs* -filen. Mer information finns i [multi-Shard-frågor](https://go.microsoft.com/?linkid=9862597).
 
-* **Lägger till Tom Shards**: Upprepnings tillägg av ny tom Shards utförs av koden i *CreateShardSample.cs* -filen. Mer information finns i [skala ut databaser med Shard Map Manager](https://go.microsoft.com/?linkid=9862595).
+* **Lägger till Tom Shards**: upprepnings tillägg av ny tom Shards utförs av koden i *CreateShardSample.cs* -filen. Mer information finns i [skala ut databaser med Shard Map Manager](https://go.microsoft.com/?linkid=9862595).
 
 ## <a name="other-elastic-scale-operations"></a>Andra elastiska skalnings åtgärder
 
-* **Dela en befintlig Shard**: Funktionen för att dela Shards tillhandahålls av verktyget Dela-merge. Mer information finns i [Flytta data mellan utskalade moln databaser](sql-database-elastic-scale-overview-split-and-merge.md).
+* Dela **en befintlig Shard**: funktionen för att dela Shards tillhandahålls av verktyget Dela och slå samman. Mer information finns i [Flytta data mellan utskalade moln databaser](sql-database-elastic-scale-overview-split-and-merge.md).
 
-* **Sammanfogar befintliga Shards**: Shard-sammanslagningar utförs också med hjälp av verktyget Dela och slå samman. Mer information finns i [Flytta data mellan utskalade moln databaser](sql-database-elastic-scale-overview-split-and-merge.md).   
+* **Sammanfogar befintliga Shards**: Shard-sammanslagningar utförs också med hjälp av verktyget för att dela och slå samman. Mer information finns i [Flytta data mellan utskalade moln databaser](sql-database-elastic-scale-overview-split-and-merge.md).   
 
 ## <a name="cost"></a>Kostnad
 
@@ -130,10 +130,10 @@ Mer information om Elastic Database-verktyg finns i följande artiklar:
   * Elastic Database verktyg ([.net](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
   * [Elastic Database verktyg för Azure SQL-Entity Framework-integrering](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
   * [Shard Elastiskhet i Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
-* Blogg: [Meddelande om elastisk skalning](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)
-* Kanal 9: [Översikts video om elastisk skala](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
+* Blogg: [meddelande om elastisk skalning](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)
+* Kanal 9: [Översikt över elastisk skalning](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 * Diskussions forum: [Azure SQL Database forum](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
-* För att mäta prestanda: [Prestandaräknare för karthanteraren för shard](sql-database-elastic-database-client-library.md)
+* För att mäta prestanda: [prestanda räknare för Shard Map Manager](sql-database-elastic-database-client-library.md)
 
 <!--Anchors-->
 [The Elastic Scale Sample Application]: #The-Elastic-Scale-Sample-Application

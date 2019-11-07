@@ -1,5 +1,5 @@
 ---
-title: Vad är API för visuellt innehåll? - Visuellt innehåll
+title: Vad är visuellt innehåll? - Visuellt innehåll
 titleSuffix: Azure Cognitive Services
 description: Via tjänsten Visuellt innehåll har utvecklare tillgång till avancerade algoritmer för bearbetning av bilder och returnering av information.
 services: cognitive-services
@@ -8,27 +8,31 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 10/01/2019
+ms.date: 11/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: db62f003f7eb8dd272305b86712cf1d721797114
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: a34fdb24573df3287b72991454963c67e9689b9f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719547"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604546"
 ---
 # <a name="what-is-computer-vision"></a>Vad är visuellt innehåll?
 
-Azure-tjänsten Visuellt innehåll ger utvecklare tillgång till avancerade algoritmer som bearbetar bilder och returnerar information. Om du vill analysera en bild kan du antingen ladda upp den eller ange en bild-URL. Algoritmerna för bildbearbetning kan analysera innehållet på olika sätt beroende på de visuella egenskaper som du är intresserad av. Visuellt innehåll kan till exempel avgöra om en bild innehåller innehåll som är olämpligt för barn eller om den kan hitta alla mänskliga ansikten i en bild.
+Azures Visuellt innehåll tjänst ger utvecklare till gång till avancerade algoritmer som bearbetar bilder och retur information, beroende på vilka visuella funktioner du är intresse rad av. Visuellt innehåll kan till exempel avgöra om en bild innehåller innehåll som är olämpligt för barn eller om den kan hitta alla mänskliga ansikten i en bild.
 
-Du kan använda Visuellt innehåll i ditt program antingen med hjälp av en intern SDK eller genom att anropa REST API direkt. Den här sidan beskriver allmänt vad du kan göra med Visuellt innehåll.
+Du kan använda Visuellt innehåll i ditt program via ett inbyggt SDK eller genom att anropa REST API direkt. Den här sidan beskriver allmänt vad du kan göra med Visuellt innehåll.
+
+## <a name="computer-vision-for-digital-asset-management"></a>Visuellt innehåll för digital till gångs hantering
+
+Visuellt innehåll kan sätta många moder scenarier för Digital Asset Management (damm). DAMM är affärs processen att organisera, lagra och hämta omfattande medie till gångar och hantera digitala rättigheter och behörigheter. Ett företag kan till exempel vilja gruppera och identifiera bilder baserat på synliga logo typer, ansikten, objekt, färger och så vidare. Eller så kanske du vill [Generera bild texter automatiskt för bilder](./Tutorials/storage-lab-tutorial.md) och bifoga nyckelord så att de är sökbara. För en allt-i-ett-damm-lösning med Cognitive Services, Azure Search och intelligent rapportering, se [vägledningen för kunskaps utvinnings Accelerator](https://github.com/Azure-Samples/azure-search-knowledge-mining) på GitHub. Andra moder exempel finns i lagrings platsen för [visuellt innehåll Solution templates](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates) .
 
 ## <a name="analyze-images-for-insight"></a>Analysera bilder för att få insikter
 
 Du kan analysera bilder för att identifiera och få insikter om bildernas visuella egenskaper och kännetecken. Alla funktioner i tabellen nedan tillhandahålls av [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)-API:et.
 
-| Action | Beskrivning |
+| Åtgärd | Beskrivning |
 | ------ | ----------- |
 |**[Tagga visuella egenskaper](concept-tagging-images.md)**|Identifiera och tagga visuella egenskaper i en bild, från tusentals identifierbara objekt, levande varelser, landskap och åtgärder. När taggarna är tvetydiga eller inte vanliga kunskaper innehåller API-svaret tips för att klargöra taggens kontext. Taggar är inte begränsade till huvudföremålet på bilden, som till exempel en person i förgrunden, utan finns även för saker som bakgrund (inomhus eller utomhus), möbler, verktyg, växter, djur, accessoarer, saker och så vidare.|
 |**[Upptäcka objekt](concept-object-detection.md)**| Objektidentifiering liknar taggar, men API:n returnerar avgränsningsfältets koordinater för varje tagg som tillämpas. Om en bild exempelvis innehåller en hund, en katt och en person, kommer identifieringsåtgärden visa en lista över dessa objekt tillsammans med deras koordinater i bilden. Du kan använda den här funktionen till att bearbeta ytterligare relationer mellan objekt i en bild. Du får även veta när det finns flera instanser av samma tagg i en bild.|
@@ -47,8 +51,6 @@ Du kan analysera bilder för att identifiera och få insikter om bildernas visue
 Du kan använda Visuellt innehåll [Read API](concept-recognizing-text.md#read-api) för att extrahera tryckt och handskriven text från bilder till en maskin läsnings bar tecken ström. Read API använder våra senaste modeller och arbetar med text på en rad olika ytor och bakgrunder, till exempel kvitton, affischer, visitkort, brev och whiteboardtavlor. För närvarande är engelska det enda språk som stöds.
 
 Du kan också använda [OCR-API (optisk tecken läsning)](concept-recognizing-text.md#ocr-optical-character-recognition-api) för att extrahera utskriven text på flera språk. Om det behövs korrigerar OCR rotationen av den tolkade texten och anger ramkoordinater för varje ord. OCR har stöd för 25 olika språk och identifierar automatiskt språket för den tolkade texten.
-
-
 
 ## <a name="moderate-content-in-images"></a>Moderera innehåll i bilder
 
@@ -75,6 +77,6 @@ Som med alla Cognitive Services bör utvecklare som använder tjänsten Visuellt
 
 Kom igång med Visuellt innehåll genom att följa en snabbstartsguide:
 
-- [Snabbstart: Visuellt innehåll .NET SDK](quickstarts-sdk/csharp-sdk.md)
-- [Snabbstart: Visuellt innehåll python SDK](quickstarts-sdk/python-sdk.md)
-- [Snabbstart: Visuellt innehåll Java SDK](quickstarts-sdk/java-sdk.md)
+- [Snabb start: Visuellt innehåll .NET SDK](quickstarts-sdk/csharp-sdk.md)
+- [Snabb start: Visuellt innehåll python SDK](quickstarts-sdk/python-sdk.md)
+- [Snabb start: Visuellt innehåll Java SDK](quickstarts-sdk/java-sdk.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Data Warehouse arbetsbelastning vikten | Microsoft Docs
-description: Riktlinjer för att ställa in vikten för frågor i Azure SQL Data Warehouse.
+title: Arbetsbelastningsprioritet
+description: Vägledning för att ställa in prioritet för frågor i Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
@@ -10,59 +10,60 @@ ms.subservice: workload-management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2a78f342d7e4b14700224bb63598f41ca95322a5
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.custom: seo-lt-2019
+ms.openlocfilehash: fea35325f11878373db8dd52b9b2bf08a25b81d1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595416"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692363"
 ---
-# <a name="azure-sql-data-warehouse-workload-importance"></a>Azure SQL Data Warehouse arbetsbelastning prioritet
+# <a name="azure-sql-data-warehouse-workload-importance"></a>Azure SQL Data Warehouse arbets belastnings prioritet
 
-Den här artikeln förklarar hur arbetsbelastning prioritet kan påverka ordningen för körningen för SQL Data Warehouse-begäranden.
+Den här artikeln förklarar hur arbets belastnings prioriteten kan påverka körnings ordningen för SQL Data Warehouse begär Anden.
 
-## <a name="importance"></a>Prioritet
+## <a name="importance"></a>Omfattning
 
 > [!Video https://www.youtube.com/embed/_2rLMljOjw8]
 
-Affärsbehov kan kräva informationslager arbetsbelastningar för att vara viktigare än andra.  Tänk dig ett scenario där uppdragskritiska försäljning data har lästs in innan räkenskapsåret stänger tidsperiod.  Data har lästs in för andra källor som weather-data inte har strikta serviceavtal.   Konfigurera hög prioritet för en begäran att läsa in försäljningsdata och låg prioritet på en begäran samtidigt, oavsett om data säkerställer försäljningsdata belastningen hämtar första åtkomst till resurser och slutför snabbare.
+Affärs behov kan kräva att data lager arbets belastningar är viktigare än andra.  Överväg ett scenario där verksamhets kritiska försäljnings data läses in innan räkenskaps perioden stängs.  Data inläsningar för andra källor, t. ex. väder data, har ingen strikt service avtal.   Ange hög prioritet för en begäran om att läsa in försäljnings data och låg prioritet till en begäran om att läsa in information om att data inläsningen för försäljning först får till gång till resurser och slutför snabbare.
 
-## <a name="importance-levels"></a>Prioritetsnivåer
+## <a name="importance-levels"></a>Prioritets nivåer
 
-Det finns fem nivåer: låg, under normal, normal, över Normal och hög.  Begäranden som inte anger prioritet tilldelas standardnivån för normal.  Begäranden som har samma prioritetsnivå har samma schemaläggning funktioner som finns i dag.
+Det finns fem viktiga nivåer: låg, below_normal, normal, above_normal och hög.  Begär Anden som inte anger prioritet tilldelas standard nivån normal.  Förfrågningar som har samma prioritets nivå har samma schemaläggnings beteende som finns idag.
 
-## <a name="importance-scenarios"></a>Vikten scenarier
+## <a name="importance-scenarios"></a>Viktiga scenarier
 
-Bortom det grundläggande vikt scenario som beskrivs ovan med försäljning och weather-data, finns det andra scenarier där arbetsbelastning vikten hjälper dem att uppfylla bearbetning och fråga efter behov.
+Utöver det grundläggande prioritets scenario som beskrivs ovan med försäljnings-och väder data finns det andra scenarier där arbets belastnings prioriteten hjälper till att möta data bearbetning och frågor om behov.
 
-### <a name="locking"></a>Låsning
+### <a name="locking"></a>Spärr
 
-Åtkomst till lås för Läs och Skriv aktivitet är en del av naturliga konkurrens.  Aktiviteter som [partition växla](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) eller [Byt namn på OBJEKTET](/sql/t-sql/statements/rename-transact-sql) kräver förhöjd Lås.  Utan arbetsbelastning viktiga optimerar SQL Data Warehouse för dataflöde.  Optimera för dataflöde innebär att när du kör och begäranden i kö har samma låsning behov och resurser är tillgängliga kringgå i begäranden i kö förfrågningar med högre låsning behov som anlänt i kön tidigare.  När arbetsbelastningen vikten har använts på begäranden med högre låsning måste. Begäran med högre prioritet ska köras innan begäran med lägre prioritet.
+Åtkomst till Lås för läsnings-och skriv aktivitet är ett av naturliga konkurrens områden.  Aktiviteter som [partitions växling](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) eller [namnbytes objekt](/sql/t-sql/statements/rename-transact-sql) kräver utökade lås.  SQL Data Warehouse optimeras för data flöde utan arbets belastnings prioritet.  Optimering för data flöde innebär att när du kör och köade begär Anden har samma lås behov och resurser är tillgängliga, kan köade begär Anden kringgå begär Anden med högre låsnings behov som anlänt i kön för begär Anden tidigare.  När arbets belastnings prioriteten tillämpas på begär Anden med högre låsnings behov. Begäran med högre prioritet kommer att köras före begäran med lägre prioritet.
 
 Ta följande som exempel:
 
-Q1 körs aktivt och att välja data från salesfact (säljfakta).
-Q2 är i kö väntar på att Q1 att slutföra.  Det skickades kl. 9 och försöker att partitionera växel nya data i salesfact (säljfakta).
-Q3 skickas kl. 9:01 och vill välja data från salesfact (säljfakta).
+Q1 körs aktivt och väljer data från SalesFact.
+K2 i kö väntar på att Q1 ska slutföras.  Den skickades vid 9 och försöker att byta ny data till SalesFact.
+Q3 skickas kl. 9:01am och vill välja data från SalesFact.
 
-Om k2 och K3 ha samma prioritet och Q1 fortfarande körs, börjar Q3 köras. Q2 fortsätter att vänta tills ett exklusivt lås på salesfact (säljfakta).  Om Q2 har högre prioritet än Q3, väntar Q3 tills Q2 är klar innan den kan börja körning.
+Om Q2 och Q3 har samma betydelse och Q1 fortfarande körs, börjar Q3 att köras. Q2 fortsätter att vänta på ett exklusivt lås på SalesFact.  Om Q2 har högre prioritet än Q3, kommer Q3 att vänta tills K2 är klart innan den kan börja köras.
 
-### <a name="non-uniform-requests"></a>Icke-enhetlig begäranden
+### <a name="non-uniform-requests"></a>Icke-enhetliga begär Anden
 
-Ett annat scenario där prioritet kan hjälpa dig att uppfylla krav på frågor är när begäranden med olika resursklasser skickas.  Som tidigare har nämns, i lika viktiga, optimerar SQL Data Warehouse för dataflöde.  När blandat storlek (till exempel smallrc eller mediumrc) begärandena räknas, väljer SQL Data Warehouse den tidigaste inkommande begäran som passar i de tillgängliga resurserna.  Om arbetsbelastningen prioritet används, kommer bredvid högsta prioritet begäran.
+Ett annat scenario där prioriteten kan hjälpa till att möta frågor om krav är när förfrågningar med olika resurs klasser skickas.  Som tidigare nämnts har SQL Data Warehouse optimerats för data flöde under samma prioritet.  När blandade storleks begär Anden (till exempel smallrc eller mediumrc) placeras i kö, kommer SQL Data Warehouse att välja den tidigaste inkommande begäran som passar i de tillgängliga resurserna.  Om prioriteten för arbets belastningen används schemaläggs den högsta prioriteten nästa gång.
   
-Överväg följande exempel på DW500c:
+Tänk på följande exempel på DW500c:
 
-F1, F2, Q3 och kvartal 4 körs smallrc frågor.
-F5 har skickats med resursklass mediumrc kl. 9.
-Q6 skickas med smallrc resursklass kl. 9:01.
+Q1, Q2, Q3 och Q4 kör smallrc-frågor.
+Q5 skickas med resurs klassen mediumrc vid 9.
+Q6 skickas med smallrc resurs klass vid 9:01am.
 
-Eftersom F5 är mediumrc, kräver två samtidighetsfack.  F5 måste vänta för två av frågorna som körs för att slutföra.  Men när en av frågorna som körs (Q1 F4) har slutförts schemaläggs Q6 omedelbart eftersom resurserna som finns för att köra frågan.  Om F5 har högre prioritet än Q6, väntar Q6 tills F5 körs innan den kan börja köra.
+Eftersom Q5 är mediumrc krävs två samtidiga platser.  Q5 måste vänta på att två av de körnings bara frågorna ska slutföras.  Men när en av frågorna som körs (Q1-Q4) är klar, schemaläggs Q6 omedelbart, eftersom det finns resurser för att köra frågan.  Om Q5 har högre prioritet än Q6, väntar Q6 tills Q5 körs innan den kan börja köra.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om hur du skapar en klassificerare finns i den [skapa ARBETSBELASTNING KLASSIFICERARE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
-- Läs mer om SQL Data Warehouse arbetsbelastning klassificering, [arbetsbelastning klassificering](sql-data-warehouse-workload-classification.md).  
-- Se snabbstarten [skapa arbetsbelastning klassificerare](quickstart-create-a-workload-classifier-tsql.md) för hur du skapar en arbetsbelastning klassificerare.
-- Se anvisningar för att [konfigurera arbetsbelastning vikten](sql-data-warehouse-how-to-configure-workload-importance.md) och hur du [hantera och övervaka Arbetsbelastningshantering](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
-- Se [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) visa frågor och den prioritet som tilldelas.
+- Mer information om hur du skapar en klassificerare finns i [create klassificerare för arbets belastning (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
+- Mer information om SQL Data Warehouse arbets belastnings klassificering finns i avsnittet om [arbets belastnings klassificering](sql-data-warehouse-workload-classification.md).  
+- Se hur du skapar en arbets belastnings klassificering genom att [skapa](quickstart-create-a-workload-classifier-tsql.md) en arbets belastnings klassificerare för snabb start.
+- Se instruktions artiklar för att [Konfigurera arbets belastnings prioritet](sql-data-warehouse-how-to-configure-workload-importance.md) och hur du [hanterar och övervakar arbets belastnings hantering](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+- Se [sys. DM _pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) för att visa frågor och prioriteten som tilldelats.

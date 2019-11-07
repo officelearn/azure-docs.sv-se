@@ -1,5 +1,5 @@
 ---
-title: SQL Server migrering av databasen till en databas i samma databas i Azure SQL Database | Microsoft Docs
+title: SQL Server migrering av databasen till en databas i samma databas i Azure SQL Database
 description: Lär dig mer om migrering av SQL Server Database till en enskild databas eller en elastisk pool i Azure SQL Database.
 keywords: databasmigrering, sql server-databasmigrering, databasmigreringsverktyg, migrera databas, migrera sql-databas
 services: sql-database
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: a156d73c7eedcbdf7c703b946a26d46ca9129632
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 67030d14670ccc51c89a04863f8b39ab6a9bb183
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566597"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687184"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>SQL Server migrering av databasen till Azure SQL Database
 
@@ -32,7 +32,7 @@ I båda fallen måste du se till att käll databasen är kompatibel med Azure SQ
 > [!NOTE]
 > För att migrera en icke-SQL Server-databas, inklusive Microsoft Access, Sybase, MySQL Oracle och DB2 till Azure SQL Database, se [SQL Server-migreringsassistent](https://blogs.msdn.microsoft.com/datamigration/2017/09/29/release-sql-server-migration-assistant-ssma-v7-6/).
 
-## <a name="method-1-migration-with-downtime-during-the-migration"></a>Metod 1: Migrering med nedtid under migreringen
+## <a name="method-1-migration-with-downtime-during-the-migration"></a>Metod 1: Migrering med stilleståndstid under migreringen
 
  Använd den här metoden om du vill migrera till en enskild databas eller en databas i poolen om du kan ge en viss nedtid eller om du utför en testmigrering av en produktions databas för senare migrering. En själv studie kurs finns i [Migrera en SQL Server databas](../dms/tutorial-sql-server-to-azure-sql.md).
 
@@ -64,7 +64,7 @@ Följande lista innehåller rekommendationer för bästa prestanda under importe
 
 [Uppdatera statistik](https://msdn.microsoft.com/library/ms187348.aspx) med fullständig sökning när migreringen har slutförts.
 
-## <a name="method-2-use-transactional-replication"></a>Metod 2: Använd transaktionell replikering
+## <a name="method-2-use-transactional-replication"></a>Metod 2: Använd transaktionsreplikering
 
 Om du inte har råd att ta bort SQL Server-databasen från produktionen medan migreringen genomförs kan du använda transaktionsreplikering i SQL Server som migreringslösning. För att kunna använda den här metoden måste källdatabasen uppfylla [kraven för transaktionsreplikering](https://msdn.microsoft.com/library/mt589530.aspx) och vara kompatibel med Azure SQL Database. Information om SQL-replikering med Always on finns i [Konfigurera replikering för Always on Availability groups (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
 

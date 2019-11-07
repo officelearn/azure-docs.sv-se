@@ -1,7 +1,7 @@
 ---
 title: Ladda upp ett dokument – anpassad översättare
 titleSuffix: Azure Cognitive Services
-description: Med hjälp av funktionen för dokument uppladdning kan du överföra parallell dokument för dina utbildningar. Parallella dokument är par med dokument där det ena är översättningen av det andra. Ett dokument i paret innehåller meningar i käll språket och det andra dokumentet innehåller de meningarna översatta till mål språket.
+description: Funktionen för att överföra dokument överför parallella dokument (två dokument där det är ursprunget och det andra är översättningen) till tjänsten.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: f2bd6103c27d455265ee967554fb27513f78a472
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b2a249a40d8c782d54a12df43d33655f3409753c
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595641"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647390"
 ---
 # <a name="upload-a-document"></a>Ladda upp ett dokument
 
@@ -37,27 +37,27 @@ Från den [anpassade översättnings](https://portal.customtranslator.azure.ai) 
 
     a.  Dokument typ:
 
-    -  Träning: Dessa dokument kommer att användas för inlärnings uppsättningen.
-    -  Anpassa De här dokumenten kommer att användas för justerings uppsättningen.
-    -  Prestandatester De här dokumenten kommer att användas för testnings uppsättningen.
-    -  Fras ord lista: De här dokumenten kommer att användas för fras ord lista.
-    -  Menings ord lista: De här dokumenten kommer att användas för menings ord lista
+    -  Utbildning: de här dokumenten kommer att användas för inlärnings uppsättningen.
+    -  Justering: de här dokumenten kommer att användas för justerings uppsättningen.
+    -  Testning: de här dokumenten kommer att användas för testnings uppsättningen.
+    -  Fras ord lista: de här dokumenten kommer att användas för fras ord lista.
+    -  Ord lista: de här dokumenten kommer att användas för ord lista för mening
 
     b.  Språk par
 
-    c.  Åsidosätt dokument om det finns: Markera den här kryss rutan om du vill skriva över befintliga dokument med samma namn.
+    c.  Åsidosätt dokumentet om det finns: Markera den här kryss rutan om du vill skriva över befintliga dokument med samma namn.
 
     d.  Fyll i det relevanta avsnittet för antingen parallell data eller kombinations data.
 
     -  Parallella data:
-        -  Källfil: Välj käll språk fil från den lokala datorn.
+        -  Käll fil: Välj käll språk filen från den lokala datorn.
         -  Målfil: Välj mål språk fil från den lokala datorn.
-        -  Dokument namn: Används endast om du överför parallella filer.
+        -  Dokument namn: används endast om du överför parallella filer.
 
     - Kombinations data:
         -  Kombinations fil: Välj kombinations filen från den lokala datorn. Din kombinations fil har båda meningarna käll-och mål språk. [Namngivnings konvention](document-formats-naming-convention.md) är viktigt för kombinations filer.
 
-    e.  Klicka på ladda upp
+    e.  Klicka på överför
 
     ![Dialog rutan Ladda upp dokument](media/how-to/how-to-upload-dialog.png)
 

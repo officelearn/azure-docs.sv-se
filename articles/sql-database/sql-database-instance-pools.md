@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database instanser (förhands granskning) | Microsoft Docs
+title: Azure SQL Database instans-pooler (för hands version)
 description: Den här artikeln beskriver Azure SQL Database instans-pooler (för hands version).
 services: sql-database
 ms.service: sql-database
@@ -11,18 +11,18 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 34e779f04f59b23733c6fbfa3450931fccb442b1
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 7d8c316d5c78cfe09bcf134b5a5c513e1c007d74
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70294261"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689768"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>Vad är SQL Database instance Pools (för hands version)?
 
 Instans pooler är en ny resurs i Azure SQL Database som ger ett bekvämt och kostnads effektivt sätt att migrera mindre SQL-instanser till molnet i stor skala.
 
-Med instans pooler kan du Företablera beräknings resurser enligt dina totala krav för migrering. Du kan sedan distribuera flera enskilda hanterade instanser upp till din företablerade beräknings nivå. Om du till exempel företablerar 8-virtuella kärnor kan du distribuera två 2 vCore och en 4 vCore-instans och sedan migrera databaserna till dessa instanser. Innan instans pooler var tillgängliga måste mindre och mindre beräknings intensiva arbets belastningar ofta samlas in i en större hanterad instans vid migrering till molnet. Behovet av att migrera grupper av databaser till en stor instans kräver normalt noggrann kapacitets planering och resurs styrning, ytterligare säkerhets överväganden och viss extra data konsoliderings åtgärd på instans nivå.
+Med instanspooler kan du företablera beräkningsresurser enligt dina totala migreringskrav. Du kan sedan distribuera flera enskilda hanterade instanser upp till din företablerade beräkningsnivå. Om du till exempel företablerar 8-virtuella kärnor kan du distribuera två 2 vCore och en 4 vCore-instans och sedan migrera databaserna till dessa instanser. Innan instans pooler var tillgängliga måste mindre och mindre beräknings intensiva arbets belastningar ofta samlas in i en större hanterad instans vid migrering till molnet. Behovet av att migrera grupper av databaser till en stor instans kräver normalt noggrann kapacitets planering och resurs styrning, ytterligare säkerhets överväganden och viss extra data konsoliderings åtgärd på instans nivå.
 
 Dessutom stöder instans-pooler inbyggd VNet-integrering så att du kan distribuera flera instanser av pooler och flera instanser i samma undernät.
 
@@ -31,7 +31,7 @@ Dessutom stöder instans-pooler inbyggd VNet-integrering så att du kan distribu
 
 Instans pooler ger följande fördelar:
 
-1. Möjlighet att vara värd för 2 vCore-instanser. *Endast för instanser i instans grupper. \**
+1. Möjlighet att vara värd för 2 vCore-instanser. *\*endast för instanser i instans-pooler*.
 2. Tid för förutsägbar och snabb instans distribution (upp till 5 minuter).
 3. Minimal allokering av IP-adress.
 
@@ -59,7 +59,7 @@ I följande lista visas de viktigaste användnings fallen där instanser av inst
 
 ## <a name="architecture-of-instance-pools"></a>Arkitektur för instans-pooler
 
-Instans pooler har liknande arkitektur för vanliga hanterade instanser (*enskilda instanser*). För att stödja [distributioner inom Azure Virtual Networks (virtuella nätverk)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) och för att tillhandahålla isolering och säkerhet för kunder, förlitar sig instansen på [virtuella kluster](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). Virtuella kluster representerar en dedikerad uppsättning isolerade virtuella datorer som distribueras i kundens virtuella nätverks undernät.
+Instans pooler har liknande arkitektur för vanliga hanterade instanser (*enskilda instanser*). För att stödja [distributioner inom Azure Virtual Networks (virtuella nätverk)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) och för att tillhandahålla isolering och säkerhet för kunder, förlitar sig instans pooler på [virtuella kluster](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). Virtuella kluster representerar en dedikerad uppsättning isolerade virtuella datorer som distribueras i kundens virtuella nätverks undernät.
 
 Den största skillnaden mellan de två distributions modellerna är att instans pooler tillåter flera SQL Server process distributioner på samma nod för virtuella datorer, som är en resurs som styrs med hjälp av [Windows-jobb objekt](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), medan enskilda instanser alltid är ensamma en nod för virtuella datorer.
 
@@ -71,7 +71,7 @@ Varje instans skapar ett separat virtuellt kluster under. Instanser i en pool oc
 
 ## <a name="instance-pools-resource-limitations"></a>Resurs begränsningar för instans pooler
 
-Det finns flera resurs begränsningar för instans-pooler och instanser i pooler:
+Det finns flera resursbegränsningar för instanspooler och instanser inuti pooler:
 
 - Instans pooler är bara tillgängliga på Gen5-maskinvara.
 - Instanser i en pool har dedikerad processor och RAM-minne, så det sammanställda antalet virtuella kärnor över alla instanser måste vara mindre än eller lika med antalet virtuella kärnor som allokerats till poolen.
@@ -136,8 +136,8 @@ vCore-priset för en pool debiteras oavsett hur många instanser som distribuera
 
 För beräknings priset (mätt i virtuella kärnor) är två pris alternativ tillgängliga:
 
-  1. *Licens som ingår*: Använd befintliga SQL Server licenser med Software Assurance.
-  2. *Azure Hybrid Benefit*: Ett reducerat pris som innehåller Azure Hybrid-förmån för SQL Server. Kunder kan välja det här priset genom att använda sina befintliga SQL Server licenser med Software Assurance. Information om berättigande och annan information finns [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/).
+  1. *Licens ingår*: använd befintliga SQL Server licenser med Software Assurance.
+  2. *Azure Hybrid-förmån*: ett reducerat pris som inkluderar Azure Hybrid-förmån för SQL Server. Kunder kan välja det här priset genom att använda sina befintliga SQL Server licenser med Software Assurance. Information om berättigande och annan information finns [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Det går inte att ange olika pris alternativ för enskilda instanser i en pool. Alla instanser i den överordnade poolen måste vara antingen på licens priset eller Azure Hybrid-förmån priset. Licens modellen för poolen kan ändras efter att poolen har skapats.
 

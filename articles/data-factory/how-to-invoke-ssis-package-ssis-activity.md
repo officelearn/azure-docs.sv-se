@@ -1,5 +1,5 @@
 ---
-title: Köra ett SSIS-paket med aktiviteten kör SSIS-paket – Azure | Microsoft Docs
+title: Köra ett SSIS-paket med aktiviteten kör SSIS-paket – Azure
 description: Den här artikeln beskriver hur du kör ett SQL Server Integration Services-paket (SSIS) i en Azure Data Factory-pipeline med hjälp av aktiviteten kör SSIS-paket.
 services: data-factory
 documentationcenter: ''
@@ -13,17 +13,17 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 965bb0641aac3224ac98820006f308e6b5fb0f71
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: b8ed0a04d2d13556f38873ef5f346d49ba4d1845
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255638"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73673733"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Kör ett SSIS-paket med aktiviteten kör SSIS-paket i Azure Data Factory
 Den här artikeln beskriver hur du kör ett SQL Server Integration Services-paket (SSIS) i en Azure Data Factory-pipeline med hjälp av aktiviteten kör SSIS-paket. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -69,7 +69,7 @@ I det här steget använder du Data Factory gränssnittet eller appen för att s
 
    ![Ange egenskaper på fliken Inställningar – manuell](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
-   Om du väljer **fil system (paket)** som paket plats, som väljs automatiskt om din Azure-SSIS IR etablerades utan SSISDB, anger du att paketet ska köras genom att ange en Universal Naming Convention UNC-sökväg till paket filen (@no __t-1) i rutan **paket Sök väg** . Om du t. ex. lagrar paketet i Azure Files, är paket Sök vägen `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`. 
+   Om du väljer **fil system (paket)** som paket plats, som väljs automatiskt om din Azure-SSIS IR etablerades utan SSISDB, anger du att paketet ska köras genom att ange en Universal Naming Convention UNC-sökväg till paket filen (@no __t_1_) i rutan **paket Sök väg** .`.dtsx` Om du till exempel lagrar ditt paket i Azure Files `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`den paket Sök vägen. 
    
    Om du konfigurerar ditt paket i en separat fil måste du också ange en UNC-sökväg till konfigurations filen (`.dtsConfig`) i rutan **konfigurations Sök väg** . Om du till exempel lagrar konfigurationen i Azure Files, är dess konfigurations Sök väg `\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`.
 
@@ -79,7 +79,7 @@ I det här steget använder du Data Factory gränssnittet eller appen för att s
 
    ![Ange egenskaper på fliken Inställningar – manuell](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
 
-   Ange sedan autentiseringsuppgifterna för att komma åt ditt projekt, paket eller konfigurationsfiler. Om du tidigare har angett värdena för paketets körnings uppgifter (se föregående) kan du återanvända dem genom att markera kryss rutan **samma som för paket körnings uppgifter** . Annars anger du värdena för dina paket åtkomst uppgifter i rutorna **domän**, **användar namn**och **lösen ord** . Om du till exempel lagrar ditt projekt, paket eller konfiguration i Azure Files, är domänen `Azure`, användar namnet är `<storage account name>` och lösen ordet är `<storage account key>`. 
+   Ange sedan autentiseringsuppgifterna för att komma åt ditt projekt, paket eller konfigurationsfiler. Om du tidigare har angett värdena för paketets körnings uppgifter (se föregående) kan du återanvända dem genom att markera kryss rutan **samma som för paket körnings uppgifter** . Annars anger du värdena för dina paket åtkomst uppgifter i rutorna **domän**, **användar namn**och **lösen ord** . Om du till exempel lagrar projektet, paketet eller konfigurationen i Azure Files, är domänen `Azure`, användar namnet är `<storage account name>`och lösen ordet är `<storage account key>`. 
 
    Du kan också använda hemligheter som lagras i nyckel valvet som värden (se föregående). Dessa autentiseringsuppgifter används för att komma åt ditt paket och underordnade paket i åtgärden kör paket, allt från sin egen sökväg eller samma projekt, samt konfigurationer som innehåller de som anges i dina paket. 
    
@@ -87,9 +87,9 @@ I det här steget använder du Data Factory gränssnittet eller appen för att s
 
    Om du har använt skydds nivån **EncryptAllWithUserKey** stöds den inte. Du måste konfigurera om ditt paket så att det använder en annan skydds nivå via SQL Server Data Tools eller kommando rads verktyget `dtutil`. 
    
-   För **loggnings nivå**väljer du ett fördefinierat loggnings område för paket körningen. Markera kryss rutan **anpassad** om du vill ange ett anpassat loggnings namn i stället. Om du vill logga dina paket körningar utöver att använda de standard logg leverantörer som kan anges i ditt paket, anger du loggmappen genom att ange dess UNC-sökväg i rutan **loggnings Sök väg** . Om du till exempel lagrar loggarna i Azure Files `\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>`. En undermapp skapas i den här sökvägen för varje enskilt paket som har körts och som har namngetts efter körnings-ID: t för aktiviteten kör SSIS-paket, där loggfilerna genereras var femte minut. 
+   För **loggnings nivå**väljer du ett fördefinierat loggnings område för paket körningen. Markera kryss rutan **anpassad** om du vill ange ett anpassat loggnings namn i stället. Om du vill logga dina paket körningar utöver att använda de standard logg leverantörer som kan anges i ditt paket, anger du loggmappen genom att ange dess UNC-sökväg i rutan **loggnings Sök väg** . Om du till exempel lagrar loggarna i Azure Files `\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>`s loggnings Sök vägen. En undermapp skapas i den här sökvägen för varje enskilt paket som har körts och som har namngetts efter körnings-ID: t för aktiviteten kör SSIS-paket, där loggfilerna genereras var femte minut. 
    
-   Slutligen anger du de autentiseringsuppgifter som ska användas för att komma åt loggmappen. Om du tidigare har angett värdena för dina paket åtkomst uppgifter (se föregående) kan du återanvända dem genom att markera kryss rutan **samma som paket åtkomst autentiseringsuppgifter** . Annars anger du värdena för inloggnings uppgifterna för inloggning i rutorna **domän**, **användar namn**och **lösen ord** . Om du till exempel lagrar loggarna i Azure Files är domänen `Azure`, användar namnet är `<storage account name>` och lösen ordet är `<storage account key>`. 
+   Slutligen anger du de autentiseringsuppgifter som ska användas för att komma åt loggmappen. Om du tidigare har angett värdena för dina paket åtkomst uppgifter (se föregående) kan du återanvända dem genom att markera kryss rutan **samma som paket åtkomst autentiseringsuppgifter** . Annars anger du värdena för inloggnings uppgifterna för inloggning i rutorna **domän**, **användar namn**och **lösen ord** . Om du till exempel lagrar loggarna i Azure Files `Azure`domänen, användar namnet är `<storage account name>`och lösen ordet är `<storage account key>`. 
 
     Du kan också använda hemligheter som lagras i nyckel valvet som värden (se föregående). Dessa autentiseringsuppgifter används för att lagra loggarna. 
    

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: f22d8c57b0127e646321a20587d0cd89f5c9ea45
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: b9e471928940094b29bdffeb73ea42fe852492cb
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72325412"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73665579"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid säkerhet och autentisering 
 
@@ -39,7 +39,7 @@ Om du använder någon annan typ av slut punkt, till exempel en HTTP-utlösare b
 
 2. **ValidationURL hand skakning (manuellt)** : i vissa fall går det inte att komma åt käll koden för slut punkten för att implementera ValidationCode-handskakningen. Om du till exempel använder en tjänst från tredje part (t. ex. [Zapier](https://zapier.com) eller [ifttt](https://ifttt.com/)) kan du inte program mässigt svara med validerings koden.
 
-   Från och med version 2018-05-01 – för hands version har Event Grid stöd för en manuell validerings hand skakning. Om du skapar en händelse prenumeration med ett SDK eller ett verktyg som använder API-versionen 2018-05-01-Preview eller senare, skickar Event Grid en `validationUrl`-egenskap i data delen av prenumerations verifierings händelsen. Om du vill slutföra hand skakningen letar du reda på URL: en i händelse data och skickar manuellt en GET-begäran till den. Du kan antingen använda en REST-klient eller din webbläsare.
+   Från och med version 2018-05-01 – för hands version har Event Grid stöd för en manuell validerings hand skakning. Om du skapar en händelse prenumeration med ett SDK eller verktyg som använder API-version 2018-05-01-Preview eller senare, skickar Event Grid en `validationUrl`-egenskap i data delen av prenumerations verifierings händelsen. Om du vill slutföra hand skakningen letar du reda på URL: en i händelse data och skickar manuellt en GET-begäran till den. Du kan antingen använda en REST-klient eller din webbläsare.
 
    Den angivna webb adressen är giltig i 5 minuter. Under denna tid är etablerings statusen för händelse prenumerationen `AwaitingManualAction`. Om du inte slutför den manuella verifieringen inom 5 minuter anges etablerings statusen till `Failed`. Du måste skapa händelse prenumerationen igen innan du startar den manuella verifieringen.
 
@@ -54,8 +54,8 @@ Om du använder någon annan typ av slut punkt, till exempel en HTTP-utlösare b
 * Händelsen innehåller ett huvud värde "AEG-Event-Type: SubscriptionValidation".
 * Händelse texten har samma schema som andra Event Grid händelser.
 * Händelsens eventType-egenskap är `Microsoft.EventGrid.SubscriptionValidationEvent`.
-* Egenskapen data för händelsen innehåller en `validationCode`-egenskap med en slumpmässigt genererad sträng. Till exempel "validationCode: acb13...".
-* Händelse data innehåller också en `validationUrl`-egenskap med en URL för att verifiera prenumerationen manuellt.
+* Egenskapen data i händelsen innehåller en `validationCode`-egenskap med en slumpvis genererad sträng. Till exempel "validationCode: acb13...".
+* Händelse data innehåller också en `validationUrl`-egenskap med en URL för att manuellt verifiera prenumerationen.
 * Matrisen innehåller bara verifierings händelsen. Andra händelser skickas i en separat begäran när du har tillbaka verifierings koden.
 * EventGrid dataplanen SDK: er har klasser som motsvarar händelse data för prenumerations verifiering och prenumerations verifierings svar.
 
@@ -85,20 +85,20 @@ För att bevisa slut punktens ägarskap kan du gå tillbaka till verifierings ko
 }
 ```
 
-Du måste returnera en HTTP 200 OK svars status kod. HTTP 202 accepterades inte som ett giltigt verifierings svar för Event Grid prenumeration.
+Du måste returnera en HTTP 200 OK svars status kod. HTTP 202 accepterades inte som ett giltigt verifierings svar för Event Grid prenumeration. Http-begäran måste slutföras inom 30 sekunder. Om åtgärden inte slutförs inom 30 sekunder avbryts åtgärden och du kan försöka igen efter 5 sekunder. Om alla försöken Miss lyckas behandlas det som ett fel i validerings hand skakningen.
 
-Du kan också validera prenumerationen manuellt genom att skicka en GET-begäran till verifierings-URL: en. Händelse prenumerationen är i ett väntande tillstånd tills den har verifierats.
+Du kan också validera prenumerationen manuellt genom att skicka en GET-begäran till verifierings-URL: en. Händelse prenumerationen är i ett väntande tillstånd tills den har verifierats. Verifierings-URL: en använder port 553. Om brand Väggs reglerna blockerar port 553 kan regler behöva uppdateras för lyckad hand skakning.
 
 Ett exempel på hantering av hand skakningen för prenumerations validering finns i ett [ C# exempel](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
 ### <a name="checklist"></a>Checklista
 
-Om du ser ett fel meddelande, till exempel "försöket att verifiera den angivna slut punktens https: \//din-slut punkt, när händelse prenumerationen skapas, så misslyckades. Mer information finns på https: \//aka. MS/esvalidation ", det betyder att det är ett haveri i validerings hand skakningen. Kontrol lera följande aspekter för att lösa det här felet:
+Om du ser ett fel meddelande under skapandet av händelse prenumerationen, till exempel "försöket att validera den angivna slut punkten https:\//Your-Endpoint-here misslyckades. Mer information finns på https:\//aka.ms/esvalidation ", det betyder att det är ett haveri i validerings hand skakningen. Kontrol lera följande aspekter för att lösa det här felet:
 
 * Har du kontroll över program koden i mål slut punkten? Om du till exempel skriver en HTTP-utlösare baserad Azure Function har du åtkomst till program koden för att göra ändringar i den?
 * Om du har åtkomst till program koden implementerar du mekanismen för ValidationCode-baserad hand skakning som visas i exemplet ovan.
 
-* Om du inte har åtkomst till program koden (till exempel om du använder en tjänst från tredje part som stöder webhookar) kan du använda den manuella mekanismen för hand skakning. Kontrol lera att du använder 2018-05-01-Preview API-versionen eller senare (installera Event Grid Azure CLI-tillägget) för att ta emot validationUrl i verifierings händelsen. För att slutföra den manuella validerings hand skakningen hämtar du värdet för egenskapen `validationUrl` och besöker webb adressen i webbläsaren. Om verifieringen lyckas bör du se ett meddelande i din webbläsare om att verifieringen lyckas. Du ser att händelse prenumerationens provisioningState är "lyckades". 
+* Om du inte har åtkomst till program koden (till exempel om du använder en tjänst från tredje part som stöder webhookar) kan du använda den manuella mekanismen för hand skakning. Kontrol lera att du använder 2018-05-01-Preview API-versionen eller senare (installera Event Grid Azure CLI-tillägget) för att ta emot validationUrl i verifierings händelsen. Om du vill slutföra den manuella validerings hand skakningen hämtar du värdet för egenskapen `validationUrl` och besöker webb adressen i webbläsaren. Om verifieringen lyckas bör du se ett meddelande i din webbläsare om att verifieringen lyckas. Du ser att händelse prenumerationens provisioningState är "lyckades". 
 
 ### <a name="event-delivery-security"></a>Säkerhet för händelse leverans
 

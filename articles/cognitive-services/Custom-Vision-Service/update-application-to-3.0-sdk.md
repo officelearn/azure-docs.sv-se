@@ -1,7 +1,7 @@
 ---
-title: 'Så här migrerar du ditt projekt till 3,0-API: et'
+title: 'Så här uppdaterar du ditt projekt till 3,0-API: et'
 titleSuffix: Azure Cognitive Services
-description: 'Lär dig hur du migrerar Custom Vision-projekt från den tidigare versionen av API till 3,0-API: et.'
+description: 'Lär dig hur du uppdaterar Custom Vision-projekt från den tidigare versionen av API: et till 3,0-API: et.'
 services: cognitive-services
 author: areddish
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: areddish
-ms.openlocfilehash: 353fc0a2d8396def17b8e23d9a1c685c755349c5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c134f30b124113a23df0e73cd1bbc8209e335183
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560888"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647507"
 ---
-# <a name="migrate-to-the-30-api"></a>Migrera till 3,0-API: et
+# <a name="update-to-the-30-api"></a>Uppdatera till 3,0-API: et
 
 Custom Vision har nu nått allmän tillgänglighet och har genomgått en API-uppdatering.
 Den här uppdateringen innehåller några nya funktioner och några viktiga ändringar:
@@ -52,13 +52,6 @@ När en iteration har tränats kan du göra den tillgänglig för förutsägelse
 > Du kan också hämta den här informationen från [Azure Portal](https://portal.azure.com) genom att gå till Custom vision förutsägelse resurs och välja **Egenskaper**.
 
 När iterationen har publicerats kan appar använda den för förutsägelse genom att ange namnet i API-anropet för förutsägelse. Om du vill göra en iteration otillgänglig för förutsägelse samtal använder du **[UnpublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b81a)** -API: et.
-
-## <a name="additional-export-options"></a>Ytterligare export alternativ
-
-Med 3,0-API: erna exponeras två ytterligare export mål: ARM-arkitektur och vision AI Developer Kit.
-
-* Om du vill använda ARM behöver du bara välja en komprimerad domän och sedan välja DockerFile och sedan ARM som export alternativ.
-* För vision AI dev kit måste projektet skapas med den __allmänna (kompakta)__ domänen och ange VAIDK i argumentet mål export plattformar.
 
 ## <a name="next-steps"></a>Nästa steg
 

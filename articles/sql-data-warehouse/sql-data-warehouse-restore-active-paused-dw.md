@@ -1,5 +1,5 @@
 ---
-title: Återställa en befintlig Azure SQL Data Warehouse | Microsoft Docs
+title: Återställa ett befintligt informationslager
 description: Instruktions guide för att återställa en befintlig Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: anumjs
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 7470dd96109823057a174d2ecf097583dcb51898
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: a73658510111df44c522d88ed5eceb7dcfa80d0d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575283"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685544"
 ---
 # <a name="restore-an-existing-azure-sql-data-warehouse"></a>Återställa en befintlig Azure SQL Data Warehouse
 
@@ -32,7 +33,7 @@ I den här artikeln får du lära dig att återställa en befintlig SQL Data War
 
 ## <a name="restore-an-existing-data-warehouse-through-powershell"></a>Återställa ett befintligt informations lager via PowerShell
 
-Om du vill återställa ett befintligt informations lager från en återställnings punkt använder du PowerShell-cmdleten Restore [-AzSqlDatabase][Restore-AzSqlDatabase] .
+Om du vill återställa ett befintligt informations lager från en återställnings punkt använder du PowerShell-cmdleten [restore-AzSqlDatabase][Restore-AzSqlDatabase] .
 
 1. Öppna PowerShell.
 
@@ -44,13 +45,13 @@ Om du vill återställa ett befintligt informations lager från en återställni
 
 5. Välj önskad återställnings punkt med hjälp av RestorePointCreationDate.
 
-6. Återställ data lagret till önskad återställnings punkt med hjälp av Restore [-AzSqlDatabase][Restore-AzSqlDatabase] PowerShell-cmdlet.
+6. Återställ data lagret till önskad återställnings punkt med hjälp av [restore-AzSqlDatabase][Restore-AzSqlDatabase] PowerShell-cmdlet.
         1. Om du vill återställa SQL Data Warehouse till en annan logisk server, måste du ange namnet på den andra logiska servern.  Den här logiska servern kan också finnas i en annan resurs grupp och region.
         2. Om du vill återställa till en annan prenumeration använder du knappen flytta för att flytta den logiska servern till en annan prenumeration.
 
 7. Kontrol lera att det återställda informations lagret är online.
 
-8. När återställningen har slutförts kan du konfigurera det återställda data lagret genom att följa [konfiguration av databasen efter][Configure your database after recovery]återställningen.
+8. När återställningen har slutförts kan du konfigurera det återställda data lagret genom att följa [konfiguration av databasen efter återställningen][Configure your database after recovery].
 
 ```Powershell
 
@@ -96,7 +97,7 @@ $RestoredDatabase.status
 
 4. Välj antingen **automatiska återställnings punkter** eller **användardefinierade återställnings punkter**. Om data lagret inte har några automatiska återställnings punkter väntar du några timmar eller skapar en användardefinierad återställnings punkt innan du återställer. För användardefinierade återställnings punkter väljer du en befintlig eller skapar en ny. För **Server**kan du välja en logisk server i en annan resurs grupp och region eller skapa en ny. När du har angett alla parametrar klickar du på **Granska + Återställ**.
 
-    ![Automatiska återställningspunkter](./media/sql-data-warehouse-restore-active-paused-dw/restoring-11.png)
+    ![Automatiska återställnings punkter](./media/sql-data-warehouse-restore-active-paused-dw/restoring-11.png)
 
 ## <a name="next-steps"></a>Nästa steg
 - [Återställa ett borttaget informations lager][Restore a deleted data warehouse]

@@ -1,5 +1,5 @@
 ---
-title: Använd Azure Data Factory för att migrera data från en lokal Netezza-server till Azure | Microsoft Docs
+title: Använd Azure Data Factory för att migrera data från en lokal Netezza-server till Azure
 description: Använd Azure Data Factory för att migrera data från en lokal Netezza-server till Azure.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/03/2019
-ms.openlocfilehash: 9ea8326b10536cb91b9dc67f637664f0fc055e74
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: c5b36a04501b417af4e4527968a082da8a061804
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122838"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675807"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Använd Azure Data Factory för att migrera data från en lokal Netezza-server till Azure 
 
@@ -120,7 +120,7 @@ Föregående diagram kan tolkas på följande sätt:
 
 För små tabeller (det vill säga tabeller med en volym på mindre än 100 GB eller som kan migreras till Azure inom två timmar) kan du göra varje belastnings data för kopierings jobb per tabell. För större data flöde kan du köra flera Azure Data Factory kopierings jobb för att läsa in separata tabeller samtidigt. 
 
-I varje kopierings jobb, för att köra parallella frågor och kopiera data efter partitioner, kan du också komma åt en nivå av parallellitet genom att använda [ `parallelCopies` egenskaps inställningen](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#parallel-copy) med något av följande alternativ för datapartition:
+I varje kopierings jobb, för att köra parallella frågor och kopiera data efter partitioner, kan du också komma åt en viss nivå av parallellitet genom att använda [inställningen`parallelCopies` egenskap](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#parallel-copy) med något av följande alternativ för datapartition:
 
 - För att få bättre effektivitet rekommenderar vi att du börjar med en data sektor.  Kontrol lera att värdet i `parallelCopies` inställningen är mindre än det totala antalet data segment partitioner i tabellen på Netezza-servern.  
 
@@ -150,13 +150,13 @@ Om du migrerar data från Netezza-servern till Azure, oavsett om servern är lok
 
 Bästa praxis är att utföra ett POC-värde (proof of Concept) med en representativ exempel data uppsättning, så att du kan fastställa lämplig partitionsstorlek för varje kopierings aktivitet. Vi rekommenderar att du läser in varje partition till Azure inom två timmar.  
 
-Om du vill kopiera en tabell börjar du med en enda kopierings aktivitet med en enda IR-dator med egen värd. Öka `parallelCopies` inställningen gradvis baserat på antalet data segment partitioner i tabellen. Se om hela tabellen kan läsas in i Azure inom två timmar, enligt det data flöde som är resultatet från kopierings jobbet. 
+Om du vill kopiera en tabell börjar du med en enda kopierings aktivitet med en enda IR-dator med egen värd. Öka inställningen för `parallelCopies` gradvis baserat på antalet data segment partitioner i tabellen. Se om hela tabellen kan läsas in i Azure inom två timmar, enligt det data flöde som är resultatet från kopierings jobbet. 
 
 Om det inte går att läsa in till Azure inom två timmar och kapaciteten för IR-noden med egen värd och data lagret inte används fullt ut, ökar du gradvis antalet samtidiga kopierings aktiviteter tills du når gränsen för ditt nätverk eller data lagrets bandbredds gräns na. 
 
 Fortsätt att övervaka processor-och minnes användningen på den lokala IR-datorn och var redo att skala upp datorn eller skala ut till flera datorer när du ser att CPU och minne används fullt ut. 
 
-Om du stöter på fel, som rapporteras av Azure Data Factory kopierings aktivitet, minskar du samtidigheten eller `parallelCopies` inställningen i Azure Data Factory, eller så kan du överväga att öka bandbredden eller i/O-åtgärder per sekund (IOPS) i nätverket och data lager. 
+Om du stöter på fel som rapporteras av Azure Data Factory kopierings aktivitet kan du antingen minska samtidigheten eller `parallelCopies` inställningen i Azure Data Factory eller överväga att öka bandbredden eller I/O-åtgärder per sekund (IOPS) för nätverket och data Auktoriseringshanteraren. 
 
 
 ### <a name="estimate-your-pricing"></a>Beräkna din prissättning 
@@ -173,7 +173,7 @@ Vi antar att följande påståenden är sanna:
 
 - Volymen på 50 TB är uppdelad i 500 partitioner och varje kopierings aktivitet flyttar en partition.
 
-- Varje kopierings aktivitet konfigureras med en lokal IR-överföring mot fyra datorer och ger ett data flöde med 20 megabyte per sekund (Mbit/s). (Inom kopierings aktiviteten `parallelCopies` är inställt på 4 och varje tråd för att läsa in data från tabellen uppnår ett data flöde på 5 Mbit/s.)
+- Varje kopierings aktivitet konfigureras med en lokal IR-överföring mot fyra datorer och ger ett data flöde med 20 megabyte per sekund (Mbit/s). (Inom kopierings aktiviteten har `parallelCopies` angetts till 4, och varje tråd för att läsa in data från tabellen uppnår ett data flöde på 5 Mbit/s.)
 
 - Förväntad concurrency är inställd på 3 och det sammanlagda data flödet är 60 Mbit/s.
 

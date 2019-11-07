@@ -1,5 +1,5 @@
 ---
-title: Data Management Gateway för Data Factory | Microsoft Docs
+title: Data Management Gateway för Data Factory
 description: Konfigurera en datagateway för att flytta data mellan lokala platser och molnet. Använd Data Management Gateway i Azure Data Factory för att flytta dina data.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0e4cf8802f9f12774f03199b76b58cb494f1c439
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 41d8a5d3569d0b38ff569f9ccfa28a4b2af1d959
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162725"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682718"
 ---
 # <a name="data-management-gateway"></a>Gateway för datahantering
 > [!NOTE]
@@ -72,7 +72,7 @@ Här är data flödet på hög nivå för och en sammanfattning av stegen för a
 * Du måste **använda gatewayen** även om data lagret finns i molnet på en **virtuell Azure IaaS-dator**.
 
 ## <a name="installation"></a>Installation
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Nödvändiga komponenter
 * De **operativ system** versioner som stöds är Windows 7, Windows 8/8.1, Windows 10, windows Server 2008 R2, windows Server 2012, windows Server 2012 R2. Det finns för närvarande inte stöd för installation av data Management Gateway på en domänkontrollant.
 * .NET Framework 4.5.1 eller senare krävs. Om du installerar Gateway på en dator med Windows 7 installerar du .NET Framework 4,5 eller senare. Mer information finns i [.NET Framework system krav](https://msdn.microsoft.com/library/8z6watww.aspx) .
 * Den rekommenderade **konfigurationen** för gateway-datorn är minst 2 GHz, 4 kärnor, 8 GB RAM och 80 GB disk.
@@ -252,7 +252,7 @@ Om du använder en brand vägg från en tredje part kan du öppna port 8050 manu
 
 Om du väljer att inte öppna port 8050 på gateway-datorn använder du andra metoder än att använda programmet för **inställning av autentiseringsuppgifter** för att konfigurera autentiseringsuppgifter för data arkivet. Du kan till exempel använda PowerShell [-cmdleten New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) . Se Ange autentiseringsuppgifter och säkerhets avsnittet om hur data lagrings uppgifter kan anges.
 
-## <a name="update"></a>Uppdatera
+## <a name="update"></a>Uppdatering
 Som standard uppdateras data Management Gateway automatiskt när en nyare version av gatewayen är tillgänglig. Gatewayen uppdateras inte förrän alla schemalagda aktiviteter är klara. Inga ytterligare uppgifter bearbetas av gatewayen förrän uppdaterings åtgärden har slutförts. Om uppdateringen Miss lyckas återställs gatewayen till den tidigare versionen.
 
 Du ser tiden för schemalagd uppdatering på följande platser:
@@ -479,7 +479,7 @@ Om du letar efter en API-baserad metod för kryptering av autentiseringsuppgifte
 
 Det finns en metod för att ställa in autentiseringsuppgifter med hjälp av Data Factory Editor. Om du skapar en SQL Server länkad tjänst med hjälp av redigeraren och anger autentiseringsuppgifter i klartext, krypteras autentiseringsuppgifterna med ett certifikat som Data Factorys tjänsten äger. Det använder inte det certifikat som gatewayen har kon figurer ATS för att använda. Även om den här metoden kan vara lite snabbare i vissa fall är den mindre säker. Därför rekommenderar vi att du följer den här metoden endast för utvecklings-och testnings ändamål.
 
-## <a name="powershell-cmdlets"></a>PowerShell-cmdlet:ar
+## <a name="powershell-cmdlets"></a>PowerShell-cmdletar
 I det här avsnittet beskrivs hur du skapar och registrerar en gateway med hjälp av Azure PowerShell-cmdletar.
 
 1. Starta **Azure PowerShell** i administratörs läge.

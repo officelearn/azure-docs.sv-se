@@ -1,5 +1,5 @@
 ---
-title: Konfigurera Azure SQL Data Sync | Microsoft Docs
+title: Konfigurera Azure SQL Data Sync
 description: Den här självstudien visar hur du konfigurerar Azure-SQL Data Sync
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 37b8f64360e871236be7a8623460bbe75bd1d8b5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 082721ef1436d0b6668016aca29870016038af86
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568158"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689990"
 ---
-# <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Självstudier: Konfigurera SQL Data Sync mellan Azure SQL Database och SQL Server lokalt
+# <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Självstudie: Konfigurera SQL Data Sync mellan Azure SQL Database och SQL Server lokalt
 
 I den här självstudien får du lära dig hur du konfigurerar Azure SQL Data Sync genom att skapa en synkroniseringsresurs som innehåller både Azure SQL Database-och SQL Server instanser. Sync-gruppen är anpassad konfigurerad och synkroniseras enligt det schema du anger.
 
@@ -31,7 +31,7 @@ PowerShell-exempel på hur du konfigurerar SQL Data Sync finns i [så här synkr
 > [!IMPORTANT]
 > Azure SQL Data Sync har **inte** stöd för Azure SQL Database Managed Instance just nu.
 
-## <a name="create-sync-group"></a>Skapa synkroniseringsgrupp
+## <a name="create-sync-group"></a>Skapa sync-grupp
 
 1. Navigera till Azure Portal i webbläsaren. Leta reda på din SQL-databas på instrument panelen eller Välj **SQL-databaser** -ikonen i verktygsfältet och på sidan SQL- **databaser** väljer du den databas som du vill använda som hubb databas för datasynkronisering.
 
@@ -60,7 +60,7 @@ PowerShell-exempel på hur du konfigurerar SQL Data Sync finns i [så här synkr
 
    Välj **OK** och vänta tills Sync-gruppen har skapats och distribuerats.
 
-## <a name="add-sync-members"></a>Lägg till synkroniseringsmedlemmar
+## <a name="add-sync-members"></a>Lägg till medlemmar i synkronisering
 
 När den nya synkroniseringsresursen har skapats och distribuerats lägger du **till Sync-medlemmar (steg 2)** på sidan **ny Sync** -grupp.
 
@@ -80,7 +80,7 @@ I avsnittet **medlems databas** lägger du till en Azure SQL Database till Sync-
   | ----------------------------- | ------------------------------------------------- |
   | **Synkronisera medlems namn** | Ange ett namn för den nya synkroniserings medlemmen. Namnet skiljer sig från själva databas namnet. |
   | **Prenumeration** | Välj den associerade Azure-prenumerationen för fakturerings syfte. |
-  | **Azure SQL Server** | Välj den befintliga SQL Database-servern. |
+  | **Azure-SQL Server** | Välj den befintliga SQL Database-servern. |
   | **Azure SQL Database** | Välj den befintliga SQL-databasen. |
   | **Anvisningar för synkronisering** | Välj **dubbelriktad synkronisering**, **till hubben**eller **från hubben**. |
   | **Användar namn** och **lösen ord** | Ange de befintliga autentiseringsuppgifterna för den SQL Database Server där medlems databasen finns. Ange inte *nya* autentiseringsuppgifter i det här avsnittet. |
@@ -102,7 +102,7 @@ I avsnittet **medlems databas** lägger du till en lokal SQL Server till Sync-gr
 
    Om du väljer **skapa en ny agent**gör du följande:
 
-   1. Ladda ned agenten för data synkronisering från den angivna länken och installera den på den dator där SQL Server finns. Du kan också hämta agenten direkt från [SQL Azure Data Sync](https://www.microsoft.com/download/details.aspx?id=27693)-agenten.
+   1. Ladda ned agenten för data synkronisering från den angivna länken och installera den på den dator där SQL Server finns. Du kan också hämta agenten direkt från [SQL Azure Data Sync-agenten](https://www.microsoft.com/download/details.aspx?id=27693).
 
       > [!IMPORTANT]
       > Du måste öppna utgående TCP-port 1433 i brand väggen så att klient agenten kan kommunicera med servern.
@@ -147,7 +147,7 @@ I avsnittet **medlems databas** lägger du till en lokal SQL Server till Sync-gr
 > [!NOTE]
 > Om du vill ansluta till SQL Data Sync och den lokala agenten lägger du till ditt användar namn i rollen *DataSync_Executor*. DataSync skapar den här rollen på SQL Server-instansen.
 
-## <a name="configure-sync-group"></a>Konfigurera synkroniseringsgrupp
+## <a name="configure-sync-group"></a>Konfigurera Sync-grupp
 
 När de nya medlemmarna i Sync-gruppen har skapats och distribuerats, är **Konfigurera Sync-grupp (steg 3)** markerat på sidan **ny Sync** -grupp.
 

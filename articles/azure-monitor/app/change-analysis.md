@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/07/2019
-ms.openlocfilehash: 3805d7b39c25bcb213a1d4f110161dcd00eb3630
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: dc572d29b4e6d95525959becad0ed8069735e33c
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678259"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606008"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Använda program ändrings analys (för hands version) i Azure Monitor
 
@@ -37,7 +37,7 @@ För närvarande är ändrings analys integrerad i lösningen för att **diagnos
 
 Med hjälp av [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview)får du en historisk förteckning över hur Azure-resurser som är värdar för ditt program har ändrats över tid. Ändrings analys kan identifiera exempelvis ändringar i IP-konfigurationsinställningar, hanterade identiteter och SSL-inställningar. Så om en tagg läggs till i en webbapp, visar ändrings analysen ändringen. Den här informationen är tillgänglig så länge `Microsoft.ChangeAnalysis` Resource Provider är aktive rad i Azure-prenumerationen.
 
-### <a name="changes-in-web-app-deployment-and-configuration"></a>Ändringar i distribution och konfiguration av webbapp
+### <a name="changes-in-web-app-deployment-and-configuration-in-guest-changes"></a>Ändringar i distribution och konfiguration av webbappar (ändringar i gästen)
 
 Med ändrings analys samlas distributions-och konfigurations status för ett program var fjärde timme. Den kan till exempel identifiera ändringar i program miljöns variabler. Verktyget beräknar skillnaderna och visar vad som har ändrats. Till skillnad från i Resource Manager-ändringar kanske kod distributionens ändrings information inte är tillgänglig direkt i verktyget. Om du vill visa de senaste ändringarna i ändrings analysen väljer du **Genomsök ändringar nu**.
 
@@ -51,10 +51,32 @@ För närvarande stöds följande beroenden:
 - Azure Storage
 - Azure SQL
 
+## <a name="viewing-changes-for-all-resources-in-azure"></a>Visa ändringar för alla resurser i Azure
+I Azure Monitor finns det ett fristående blad för ändrings analys för att visa alla ändringar med insikter och resurser för program beroenden.
+
+Sök efter ändrings analys i Sök fältet på Azure Portal för att starta bladet.
+
+![Skärm bild av sökning av ändrings analys i Azure Portal](./media/change-analysis/search-change-analysis.png)
+
+Välj resurs grupp och resurser för att starta visning av ändringar.
+
+![Skärm bild av bladet för ändrings analys i Azure Portal](./media/change-analysis/change-analysis-standalone-blade.png)
+
+Du kan se insikter och relaterade beroende resurser som är värdar för ditt program. Den här vyn är utformad för att vara programinriktad för utvecklare för att felsöka problem.
+
+Resurser som stöds för närvarande är:
+- Virtuella datorer
+- Skalnings uppsättning för virtuell dator
+- Nätverks resurser för Azure
+- Webbapp med ändringar i gäst fil spårning och miljövariabler
+
+Använd knappen Skicka feedback i bladet eller e-postchangeanalysisteam@microsoft.comför all feedback. 
+
+![Skärm bild av knappen feedback i bladet ändra analys](./media/change-analysis/change-analysis-feedback.png)
 
 ## <a name="change-analysis-for-the-web-apps-feature"></a>Ändrings analys för funktionen Web Apps
 
-I Azure Monitor är ändrings analys för närvarande inbyggd i självbetjänings **diagnos och lösa problem** . Få åtkomst till den här upplevelsen från sidan **Översikt** i ditt App Service-program.
+I Azure Monitor är även ändrings analys inbyggd i självbetjänings **diagnos och lösa problem** . Få åtkomst till den här upplevelsen från sidan **Översikt** i ditt App Service-program.
 
 ![Skärm bild av knappen "Översikt" och "diagnosticera och lösa problem"](./media/change-analysis/change-analysis.png)
 
@@ -77,7 +99,7 @@ I Azure Monitor är ändrings analys för närvarande inbyggd i självbetjäning
     ![Skärm bild av användar gränssnittet "Aktivera ändrings analys"](./media/change-analysis/change-analysis-on.png)
 
 
-1. Om du vill komma åt ändrings analyser väljer du **diagnostisera och löser problem**  > **tillgänglighet och prestanda**  > **program krascher**. Du ser en graf som sammanfattar typen av ändringar över tid tillsammans med information om ändringarna:
+1. Om du vill komma åt ändrings analyser väljer du **diagnostisera och löser problem** > **tillgänglighet och prestanda** > **program krascher**. Du ser en graf som sammanfattar typen av ändringar över tid tillsammans med information om ändringarna:
 
      ![Skärm bild av vyn ändra diff](./media/change-analysis/change-view.png)
 

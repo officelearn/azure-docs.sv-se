@@ -1,5 +1,5 @@
 ---
-title: Transformera data med hjälp av gris-aktivitet i Azure Data Factory | Microsoft Docs
+title: Transformera data med hjälp av gris-aktivitet i Azure Data Factory
 description: Lär dig hur du kan använda gris-aktiviteten i en Azure Data Factory för att köra gris-skript på ett eget HDInsight-kluster på begäran.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 72f532c277096a20387ab1b4922def2cd35a9afb
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: a6861a22f853bb0b48eb7c9832adb251bc3467ca
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139131"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682399"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformera data med hjälp av gris-aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Omvandlings aktiviteter"]
@@ -39,7 +39,7 @@ ms.locfileid: "70139131"
 HDInsight gris-aktiviteten i en Data Factory [pipeline](data-factory-create-pipelines.md) kör gris-frågor på [ditt eget](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) eller Windows/Linux-baserade HDInsight-kluster [på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) . Den här artikeln bygger på artikeln [data omvandlings aktiviteter](data-factory-data-transformation-activities.md) , som visar en allmän översikt över Datatransformeringen och de omvandlings aktiviteter som stöds.
 
 > [!NOTE] 
-> Om du inte har använt Azure Data Factory läser du igenom [Introduktion till Azure Data Factory](data-factory-introduction.md) och gör självstudien: [Bygg din första data pipeline innan du](data-factory-build-your-first-pipeline.md) läser den här artikeln. 
+> Om du inte har använt Azure Data Factory läser du igenom [introduktionen till Azure Data Factory](data-factory-introduction.md) och gör självstudien: [skapa din första data pipeline innan du](data-factory-build-your-first-pipeline.md) läser den här artikeln. 
 
 ## <a name="syntax"></a>Syntax
 
@@ -82,17 +82,17 @@ HDInsight gris-aktiviteten i en Data Factory [pipeline](data-factory-create-pipe
 
 ## <a name="syntax-details"></a>Information om syntax
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| name |Namn på aktiviteten |Ja |
+| namn |Namn på aktiviteten |Ja |
 | description |Text som beskriver vad aktiviteten används för |Nej |
-| type |HDinsightPig |Ja |
-| inputs |En eller flera indata som används av aktiviteten gris |Nej |
-| outputs |En eller flera utdata som produceras av gris-aktiviteten |Ja |
+| typ |HDinsightPig |Ja |
+| tillför |En eller flera indata som används av aktiviteten gris |Nej |
+| utdata |En eller flera utdata som produceras av gris-aktiviteten |Ja |
 | linkedServiceName |Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory |Ja |
-| script |Ange det infogade gris-skriptet |Nej |
+| -skriptet |Ange det infogade gris-skriptet |Nej |
 | scriptPath |Lagra ditt gris-skript i en Azure Blob-lagring och ange sökvägen till filen. Använd script-eller scriptPath-egenskapen. Båda kan inte användas tillsammans. Fil namnet är Skift läges känsligt. |Nej |
-| defines |Ange parametrar som nyckel/värde-par för referenser i gris-skriptet |Nej |
+| definierar |Ange parametrar som nyckel/värde-par för referenser i gris-skriptet |Nej |
 
 ## <a name="example"></a>Exempel
 Nu ska vi titta på ett exempel på Game logs Analytics där du vill identifiera den tid som spelare kan spela för spel som lanseras av ditt företag.

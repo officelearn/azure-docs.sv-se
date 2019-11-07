@@ -1,5 +1,5 @@
 ---
-title: Fråga shardade Azure SQL-databaser | Microsoft Docs
+title: Fråga shardade Azure SQL-databaser
 description: Kör frågor över Shards med klient biblioteket för Elastic Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 471af9e1bc699ccaa8bc930ab930d6d40bbdc984
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 108da61323f61b009fbfdedac4cd345c6b87a7be
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568373"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690176"
 ---
 # <a name="multi-shard-querying-using-elastic-database-tools"></a>Shard frågor med Elastic Database-verktyg
 

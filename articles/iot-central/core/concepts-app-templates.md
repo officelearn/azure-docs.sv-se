@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: ee1168c32cf4d8797b3957340e0acee5605ccc0f
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: eb7319d665f228c552423a60a3b1529dc9b1143f
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951892"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583214"
 ---
 # <a name="what-are-application-templates"></a>Vad är programmallar?
 
@@ -32,20 +32,19 @@ Azure IoT Central är en plattform för oberoende-program. Programmallar är bra
 
 - [HAL](../retail/overview-iot-central-retail-pnp.md)
   - Ansluten logistik
-  - Digital distributions Center
+  - Digitalt distributionscenter
   - In-Store Analytics – villkors övervakning
   - In-Store-analys-utcheckning
   - Hantering av smarta lager
 - [Energi](../energy/overview-iot-central-energy.md)
-  - Ansluten logistik
   - Övervakning av smart mätare
   - Övervakning på Sol panelen
 - [Stat](../government/overview-iot-central-government.md)
-  - Ansluten avfalls hantering
-  - Övervakning av vatten förbrukning
-  - Övervakning av vatten kvalitet
+  - Ansluten avfallshantering
+  - Övervakning av vattenförbrukning
+  - Övervakning av vattenkvalitet
 - [Hälso vård](../healthcare/overview-iot-central-healthcare.md).
-  - Kontinuerlig övervakning av patienter
+  - Kontinuerlig patientövervakning
 
 ## <a name="next-steps"></a>Nästa steg
 

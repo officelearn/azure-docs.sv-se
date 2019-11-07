@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ee1d282506b537ed29592ca9008c88a53220d7d
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 8a2d22c4a7a8b95f5a200518a3c46fc33f55c66a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554830"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73569850"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Så här kräver du tvåstegsverifiering för en användare
 
@@ -56,20 +56,20 @@ Alla användare börjar vara *inaktiverade*. När du registrerar användare i Az
 Använd följande steg för att komma åt sidan där du kan visa och hantera användar tillstånd:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
-2. Gå till **Azure Active Directory**  > **användare och grupper**  > **alla användare**.
+2. Gå till **Azure Active Directory** > **användare och grupper** > **alla användare**.
 3. Välj **Multi-Factor Authentication**.
-   ![Select Multi-Factor Authentication ](./media/howto-mfa-userstates/selectmfa.png)
+   ![Välj Multi-Factor Authentication](./media/howto-mfa-userstates/selectmfa.png)
 4. En ny sida som visar användar tillstånden öppnas.
-   användar status för ![multi Factor Authentication-skärm bild ](./media/howto-mfa-userstates/userstate1.png)
+   ![användar status för Multi-Factor Authentication-skärm bild](./media/howto-mfa-userstates/userstate1.png)
 
 ### <a name="change-the-status-for-a-user"></a>Ändra status för en användare
 
 1. Använd föregående steg för att komma till sidan Azure Multi-Factor Authentication- **användare** .
 2. Hitta den användare som du vill aktivera för Azure MFA. Du kan behöva ändra vyn längst upp.
-   ![Select användaren att ändra status för från fliken användare ](./media/howto-mfa-userstates/enable1.png)
+   ![Välj användaren att ändra status för från fliken användare](./media/howto-mfa-userstates/enable1.png)
 3. Markera kryss rutan bredvid namnet.
 4. Välj **Aktivera** eller **inaktivera**under **snabb steg**till höger.
-   ![Enable valda användaren genom att klicka på Aktivera på snabb menyn ](./media/howto-mfa-userstates/user1.png)
+   ![aktivera markerad användare genom att klicka på Aktivera på snabb menyn](./media/howto-mfa-userstates/user1.png)
 
    > [!TIP]
    > *Aktiverade* användare växlas automatiskt till att *tillämpas* när de registrerar sig för Azure MFA. Ändra inte användar tillstånd manuellt till *tvingande*.
@@ -80,7 +80,7 @@ När du har aktiverat användarna ska du meddela dem via e-post. Berätta att de
 
 ### <a name="use-powershell"></a>Använd PowerShell
 
-Ändra `$st.State` om du vill ändra användar tillstånd med hjälp av [Azure AD PowerShell](/powershell/azure/overview). Det finns tre möjliga tillstånd:
+Ändra `$st.State`om du vill ändra användar tillstånd med hjälp av [Azure AD PowerShell](/powershell/azure/overview). Det finns tre möjliga tillstånd:
 
 * Enabled
 * Enforced
@@ -173,6 +173,9 @@ function Set-MfaState {
 # Disable MFA for all users
 Get-MsolUser -All | Set-MfaState -State Disabled
 ```
+
+> [!NOTE]
+> Vi ändrade nyligen beteendet och PowerShell-skriptet ovan enligt detta. Tidigare har skriptet sparat av MFA-metoderna, inaktiverat MFA och återställt metoderna. Detta behövs inte längre nu när standard beteendet för inaktivera inte tar bort metoderna.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,62 +1,62 @@
 ---
-title: Övervakning i Azure-databas för MariaDB
-description: Den här artikeln beskriver mått för övervakning och avisering för Azure Database for MariaDB, inklusive statistik för CPU-, lagrings- och anslutning.
+title: Övervakning i Azure Database for MariaDB
+description: Den här artikeln beskriver måtten för övervakning och aviseringar för Azure Database for MariaDB, inklusive CPU, lagring och anslutnings statistik.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/12/2019
-ms.openlocfilehash: fb998edffed290bb7bc59945163f0fd48c55cbf5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.date: 11/04/2019
+ms.openlocfilehash: 2f4346dfdb095e849adc65baf0fd31d25d03c4a7
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612534"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604068"
 ---
-# <a name="monitoring-in-azure-database-for-mariadb"></a>Övervakning i Azure-databas för MariaDB
-Övervakning av data om dina servrar kan du felsöka och optimera din arbetsbelastning. Azure Database for MariaDB tillhandahåller olika mått som ger inblick i beteendet för din server.
+# <a name="monitoring-in-azure-database-for-mariadb"></a>Övervakning i Azure Database for MariaDB
+Genom att övervaka data om dina servrar kan du felsöka och optimera för din arbets belastning. Azure Database for MariaDB tillhandahåller olika mått som ger inblick i serverns beteende.
 
 ## <a name="metrics"></a>Mått
-Alla Azure-mått har en frekvens på en minut. varje mått ger 30 dagars historik. Du kan konfigurera aviseringar om måtten. Andra uppgifter är att skapa automatiska åtgärder, utföra avancerade analyser och arkivering historik. Mer information finns i den [översikt över Azure-mått](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Alla Azure-mått har en frekvens på en minut och varje mått ger 30 dagars historik. Du kan konfigurera aviseringar för måtten. Andra uppgifter är att ställa in automatiserade åtgärder, utföra avancerad analys och lagrings historik. Mer information finns i [Översikt över Azure Metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-Stegvisa anvisningar finns i [hur du konfigurerar aviseringar](howto-alert-metric.md).
+Steg för steg-anvisningar finns i [så här konfigurerar du aviseringar](howto-alert-metric.md).
 
 ### <a name="list-of-metrics"></a>Lista över mått
 De här måtten är tillgängliga för Azure Database for MariaDB:
 
-|Mått|Metrisk visningsnamn|Enhet|Beskrivning|
+|Mått|Mått visnings namn|Enhet|Beskrivning|
 |---|---|---|---|
-|cpu_percent|CPU-procent|Percent|Procentandelen av Processorn som används.|
-|memory_percent|Minne|Percent|Procentandelen minne som används.|
-|io_consumption_percent|IO-procent|Percent|Procentandelen av i/o som används.|
-|storage_percent|Lagringsprocent|Percent|Procentandelen av lagring som används av servern är maximalt.|
-|storage_used|Använt lagringsutrymme|Byte|Mängden lagringsutrymme som används. Lagring som används av tjänsten kan omfatta databasfiler och transaktionsloggar serverloggarna.|
-|serverlog_storage_percent|Procent för lagring av Server-loggen|Percent|Procentandelen av server logglagring som används av serverns maximala server log lagring.|
-|serverlog_storage_usage|Server logglagring som används|Byte|Mängden log-serverlagring används.|
-|serverlog_storage_limit|Log storage gränsen|Byte|Det maximala server log lagringsutrymmet för den här servern.|
-|storage_limit|Gränsen för lagring|Byte|Det maximala lagringsutrymmet för den här servern.|
-|active_connections|Aktiva anslutningar|Count|Antal aktiva anslutningar till servern.|
-|connections_failed|Misslyckade anslutningar|Count|Antal misslyckade anslutningar till servern.|
-|network_bytes_egress|Nätverk – utgående|Byte|Nätverk ut över aktiva anslutningar.|
-|network_bytes_ingress|Nätverk – inkommande|Byte|Nätverk i över aktiva anslutningar.|
+|cpu_percent|CPU-procent|Procent|Procent andelen CPU som används.|
+|memory_percent|Minnes procent|Procent|Procent andelen minne som används.|
+|io_consumption_percent|I/o procent|Procent|Procent andelen av IO som används.|
+|storage_percent|Lagrings procent|Procent|Procent andelen lagring som används av serverns högsta värde.|
+|storage_used|Använt lagringsutrymme|Skickade|Mängden lagring som används. Lagrings utrymmet som används av tjänsten kan omfatta databasfilerna, transaktions loggarna och Server loggarna.|
+|serverlog_storage_percent|Server logg lagrings procent|Procent|Procent andelen Server logg lagring som används av serverns maximala Server logg lagring.|
+|serverlog_storage_usage|Server logg lagring används|Skickade|Mängden Server logg lagring som används.|
+|serverlog_storage_limit|Server logg lagrings gräns|Skickade|Den maximala Server logg lagringen för den här servern.|
+|storage_limit|Lagrings gräns|Skickade|Det maximala lagrings utrymmet för den här servern.|
+|active_connections|Aktiva anslutningar|Antal|Antalet aktiva anslutningar till servern.|
+|connections_failed|Misslyckade anslutningar|Antal|Antalet misslyckade anslutningar till servern.|
+|network_bytes_egress|Nätverk – utgående|Skickade|Nätverk ut över aktiva anslutningar.|
+|network_bytes_ingress|Nätverk – inkommande|Skickade|Nätverk i över aktiva anslutningar.|
 
 ## <a name="server-logs"></a>Serverloggar
 
-Du kan aktivera långsamma fråga loggning på servern. Dessa loggar är också tillgängliga via Azure-diagnostikloggar i Azure Monitor-loggar, Händelsehubbar och Storage-konto. Mer information om loggning finns i [serverloggar](concepts-server-logs.md) sidan.
+Du kan aktivera långsam loggning av frågor på servern. Dessa loggar är också tillgängliga via Azure-diagnostikloggar i Azure Monitor loggar, Event Hubs och lagrings konto. Läs mer om loggning på sidan [Server loggar](concepts-server-logs.md) .
 
 ## <a name="query-store"></a>Query Store
 
-[Query Store](concepts-query-store.md) är en funktion i offentlig förhandsversion som håller reda på frågan prestanda över tid, inklusive fråga efter körningsstatistik och vänta händelser. Funktionen kvarstår fråga information om körningsprestanda i den **mysql** schema. Du kan styra insamling och lagring av data via olika configuration rattar.
+[Query Store](concepts-query-store.md) håller reda på frågornas prestanda över tid, inklusive körnings statistik för frågor och vänta-händelser. Funktionen fortsätter att köra prestanda information om körningen i **MySQL** -schemat. Du kan styra insamling och lagring av data via olika konfigurations rattar.
 
 ## <a name="query-performance-insight"></a>Query Performance Insight
 
-[Query Performance Insight](concepts-query-performance-insight.md) fungerar tillsammans med Query Store att tillhandahålla visualiseringar som är tillgängliga från Azure-portalen. Dessa diagram kan du identifiera viktiga frågor som påverkas prestanda. Query Performance Insight är allmänt tillgänglig förhandsversion och är tillgänglig i den **Intelligent prestanda** delen av din Azure Database for MariaDB server portalsidan.
+[Query Performance Insight](concepts-query-performance-insight.md) arbetar tillsammans med Query Store för att tillhandahålla visualiseringar som är tillgängliga från Azure Portal. Med de här diagrammen kan du identifiera viktiga frågor som påverkar prestanda. Query Performance Insight är tillgängligt i avsnittet **intelligent prestanda** på Azure Database for MariaDB servers Portal sida.
 
 ## <a name="performance-recommendations"></a>Prestandarekommendationer
 
-Den [Prestandarekommendationer](concepts-performance-recommendations.md) funktionen identifierar möjligheter att förbättra prestanda för arbetsbelastningen. Den offentliga förhandsversionen av Prestandarekommendationer ger dig rekommendationer för att skapa nya index som kan förbättra prestandan för dina arbetsbelastningar. För att skapa indexrekommendationer beaktar funktionen olika egenskaper i databasen, inklusive dess schema och arbetsbelastningen som rapporterats av Query Store. När du implementerar en rekommendation för prestanda, bör kunderna testa prestanda för att utvärdera effekten av ändringarna.
+Funktionen [prestanda rekommendationer](concepts-performance-recommendations.md) identifierar möjligheter att förbättra arbets Belastningens prestanda. Prestanda rekommendationer ger dig rekommendationer för att skapa nya index som kan förbättra prestandan för dina arbets belastningar. För att skapa index rekommendationer tar funktionen hänsyn till olika databas egenskaper, inklusive schema och arbets belastningen som rapporteras av Frågearkivet. När du har implementerat en prestanda rekommendation bör kunderna testa prestanda för att utvärdera effekten av dessa ändringar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om hur du komma åt och exportera mått med hjälp av Azure portal, REST API eller CLI finns i den [översikt över Azure-mått](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
-  - Se [hur du konfigurerar aviseringar](howto-alert-metric.md) anvisningar om hur du skapar en avisering på ett mått.
+- Mer information om hur du får åtkomst till och exporterar mått med hjälp av Azure Portal, REST API eller CLI finns i [Översikt över Azure Metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+  - Se [hur du ställer in aviseringar](howto-alert-metric.md) för vägledning om hur du skapar en avisering på ett mått.

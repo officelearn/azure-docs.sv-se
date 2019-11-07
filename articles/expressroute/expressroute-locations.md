@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 10/30/2019
+ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: b91309d070aee1497bdc30656459dbe775b41f4e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 851fbf52571b12b60345a78af3e26a875919fb14
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73154618"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585229"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -52,7 +52,7 @@ Följande tabell innehåller en karta över Azures regioner till ExpressRoute-pl
 | **Sydkorea** | Sydkorea, centrala; Sydkorea, södra |Busan, Söul|
 | **Förenade Arabemiraten** | Förenade Arabemiraten Central, Förenade Arabemiraten Nord | Dubai, Dubai2 |
 | **Sydafrika** | Sydöstra Sydafrika, norra Sydafrika |Kapstaden, Johannesburg |
-| **Sydamerika** | Brasilien, södra |Sao Paulo |
+| **Sydamerika** | Södra Brasilien |Sao Paulo |
 
 
 ## <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regioner och geopolitiska gränser för nationella moln
@@ -72,7 +72,7 @@ Anslutningen mellan geopolitiska regioner stöds inte för standard-SKU:er i Exp
 I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillgängliga leverantörer efter plats går du till [Tjänsteleverantörer efter plats](expressroute-locations-providers.md).
 
 
-### <a name="production-azure"></a>Produktions-Azure
+### <a name="global-commercial-azure"></a>Global kommersiell Azure
 
 | **Tjänstleverantör** | **Microsoft Azure** | **Office 365**  | **Platser** |
 | --- | --- | --- | --- |
@@ -103,7 +103,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **FarEasTone** |Stöds |Stöds |Taipei|
 | **GÉANT** |Stöds |Stöds |Amsterdam |
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Stöds| Stöds | Chennai, Mumbai |
-| **[InterCloud](https://www.intercloud.com/)** |Stöds |Stöds |Amsterdam, Chicago, London, New York, Paris, Silicon dal, Singapore, Washington DC, Zürich |
+| **[InterCloud](https://www.intercloud.com/)** |Stöds |Stöds |Amsterdam, Chicago, London, New York, Paris, Silicon Valley, Singapore, Washington DC, Zurich |
 | **[Internet2](https://www.internet2.edu/products-services/cloud-services-applications/microsoft-azure/#service-cloud-connect)** |Stöds |Stöds |Chicago, Borås, Silicon dal, Washington DC |
 | **[Internet Initiative Japan Inc. - IIJ](https://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Stöds |Stöds |Osaka, Tokyo |
 | **[Internet Solutions – Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |Stöds |Stöds |Kapstaden, Johannesburg, London |
@@ -160,6 +160,8 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
  **+** kommer snart
 
 ### <a name="national-cloud-environment"></a>Nationell molnmiljö
+
+Azure National-moln är isolerade från varandra och från globala Commerical Azure. ExpressRoute för ett Azure-moln kan inte ansluta till Azure-regionerna i de andra. 
 
 ### <a name="us-government-cloud"></a>U.S. Government-moln
 

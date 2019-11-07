@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 10/04/2019
 ms.author: victorh
-ms.openlocfilehash: 844e24466e9a9b46be3212690767a408e75f234d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 0ac37378797c59d79af5d026200b68154836c5ac
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516622"
+ms.locfileid: "73585398"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Anpassade regler för WebApplication-brandväggen v2 på Azure Application Gateway
 
@@ -162,6 +162,11 @@ Lista med värden som ska matchas mot, som kan betraktas som *eller*' ed '. Det 
 - Log – tillåter att regeln skriver till loggen, men låter resten av reglerna köras för utvärdering. Efterföljande anpassade regler utvärderas i prioritetsordning, följt av de hanterade reglerna.
 
 ## <a name="geomatch-custom-rules-preview"></a>Ommatchnings anpassade regler (förhands granskning)
+
+Anpassade regler gör det möjligt att skapa skräddarsydda regler som passar de exakta behoven för dina program och dina säkerhets principer. Nu kan du begränsa åtkomsten till dina webb program efter land/region, som finns tillgänglig i offentlig för hands version. Precis som med alla anpassade regler kan den här logiken sammanställas med andra regler som passar ditt programs behov. 
+
+   > [!NOTE]
+   > Ommatchnings anpassade regler är tillgängliga i södra centrala USA och Europa, norra. Om du vill komma åt dem i portalen använder du [den här länken](https://aka.ms/AppGWWAFGeoMatch) tills den går live för alla. 
 
 Om du använder en kors matchnings operator kan väljare vara någon av följande tvåsiffriga lands koder. 
 

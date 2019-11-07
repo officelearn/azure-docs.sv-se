@@ -7,27 +7,17 @@ ms.author: jzim
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: 8f7349310f72c8cccc7b1906239ece3038dd7861
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.date: 11/04/2019
+ms.openlocfilehash: d8707e2edccf144cbe58a530bcfe2c176e656915
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249220"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582404"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Vanliga frågor och svar om Azure Red Hat
 
 Den här artikeln behandlar vanliga frågor och svar om Microsoft Azure Red Hat OpenShift.
-
-## <a name="how-do-i-get-started"></a>Hur kommer jag igång?
-
-Innan du kan använda en Red Hat OpenShift-växel i Azure måste du köpa minst 4 Azure Red Hat OpenShift-reserverade programnoder.
-
-Om du är en Azure-kund[köper du de reserverade instanserna i Azure Red Hat OpenShift](https://aka.ms/openshift/buy) via Azure Portal. Efter köpet aktive ras din prenumeration inom 24 timmar, efter vilken du kan etablera kluster.
-
-Om du inte är en Azure-kund kan du [Kontakta sales](https://aka.ms/openshift/contact-sales) och fylla i formuläret försäljning längst ned på sidan för att starta processen.
-
-Mer information hittar du på [prissättnings sidan för Azure Red Hat OpenShift](https://aka.ms/openshift/pricing) .
 
 ## <a name="which-azure-regions-are-supported"></a>Vilka Azure-regioner stöds?
 
@@ -39,7 +29,7 @@ Nej. Men du kan ansluta ett Azure Red Hat OpenShift-kluster till ett befintligt 
 
 ## <a name="what-cluster-operations-are-available"></a>Vilka kluster åtgärder är tillgängliga?
 
-Du kan bara skala upp eller ned antalet datornoder. Inga andra ändringar tillåts för resursen `Microsoft.ContainerService/openShiftManagedClusters` när den har skapats. Det maximala antalet datornoder är begränsat till 20.
+Du kan bara skala upp eller ned antalet datornoder. Inga andra ändringar tillåts för den `Microsoft.ContainerService/openShiftManagedClusters` resursen när den har skapats. Det maximala antalet datornoder är begränsat till 20.
 
 ## <a name="what-virtual-machine-sizes-can-i-use"></a>Vilka storlekar för virtuella datorer kan jag använda?
 
@@ -85,15 +75,15 @@ Nej. Alla resurser, inklusive kluster huvud, körs i din kund prenumeration. De 
 
 Ja. Du kan använda OSBA med Azure Red Hat OpenShift. Mer information finns i [öppna Service Broker för Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) .
 
-## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Jag försöker använda peer-datorer i ett virtuellt nätverk i en annan prenumeration men får `Failed to get vnet CIDR`-fel.
+## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Jag försöker peer-koppla till ett virtuellt nätverk i en annan prenumeration men får `Failed to get vnet CIDR` fel.
 
-I prenumerationen som har det virtuella nätverket, se till att registrera `Microsoft.ContainerService`-Provider med `az provider register -n Microsoft.ContainerService --wait` 
+I prenumerationen som har det virtuella nätverket måste du registrera `Microsoft.ContainerService`-providern med `az provider register -n Microsoft.ContainerService --wait` 
 
 ## <a name="what-is-the-azure-red-hat-openshift-aro-maintenance-process"></a>Vad är underhålls processen för Azure Red Hat OpenShift (ARO)?
 
 Det finns tre typer av underhåll för ARO: uppgraderingar, säkerhets kopiering och återställning av etcd-data och underhåll av moln leverantörer.
 
-+ Uppgraderingar är bland annat program varu uppgraderingar och CVEs. CVE-reparation sker vid start genom att köra `yum update` och ger omedelbar minskning.  Parallellt skapas en ny avbildning som skapas för framtida kluster.
++ Uppgraderingar är bland annat program varu uppgraderingar och CVEs. CVE reparation sker vid start genom att köra `yum update` och ger omedelbar minskning.  Parallellt skapas en ny avbildning som skapas för framtida kluster.
 
 + Säkerhets kopiering och hantering av etcd-data är en automatiserad process som kan kräva kluster avbrott beroende på åtgärd. Om etcd-databasen återställs från en säkerhets kopia kommer det att vara stillestånds tid. Vi säkerhetskopierar etcd varje timme och behåller de senaste 6 timmarna med säkerhets kopior.
 

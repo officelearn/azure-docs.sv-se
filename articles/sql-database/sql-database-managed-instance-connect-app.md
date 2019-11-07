@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Hanterad instans Connect-program | Microsoft Docs
+title: Azure SQL Database Hanterad instans Connect-program
 description: Den här artikeln beskriver hur du ansluter ditt program till Azure SQL Database Hanterad instans.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: 133110d015ac7a26f18f14f6ff957729a4f079b5
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 5dc287ab58636b4921c14ae71f9a62ab36d9c596
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70060651"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688238"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Anslut ditt program till Azure SQL Database Hanterad instans
 
@@ -44,7 +44,7 @@ Det finns två alternativ för att ansluta virtuella nätverk:
 Peering-alternativet är det som föredras eftersom peering använder Microsofts stamnät nätverk, så att det inte finns någon märkbar skillnad i svars tiden mellan virtuella datorer i peer-kopplat VNet och i samma VNet. VNet-peering är begränsad till nätverken i samma region.  
 
 > [!IMPORTANT]
-> VNet-peering-scenariot för hanterade instanser är begränsat till nätverken i samma region på grund av [begränsningar i den globala Virtual Network](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)-peeringen. Se även det relevanta avsnittet i artikeln [vanliga frågor och svar om Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) för mer information. 
+> VNet-peering-scenariot för hanterade instanser är begränsat till nätverken i samma region på grund av [begränsningar i den globala Virtual Network-peeringen](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Se även det relevanta avsnittet i artikeln [vanliga frågor och svar om Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) för mer information. 
 
 ## <a name="connect-an-on-premises-application"></a>Ansluta ett lokalt program
 
@@ -67,10 +67,10 @@ Ett annat scenario som implementeras av kunder är var VPN-gatewayen är install
 
 ![VNET-peering](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
 
-När du har konfigurerat den grundläggande infrastrukturen måste du ändra vissa inställningar så att VPN Gateway kan se IP-adresserna i det virtuella nätverket som är värd för den hanterade instansen. Det gör du genom att göra följande mycket speciella ändringar under peering- **inställningarna**.
+När du har konfigurerat den grundläggande infrastrukturen måste du ändra vissa inställningar så att VPN Gateway kan se IP-adresserna i det virtuella nätverket som är värd för den hanterade instansen. Det gör du genom att göra följande mycket speciella ändringar under **peering-inställningarna**.
 
-1. I det VNet som är värd för VPN-gatewayengår du till peering, sedan till den hanterade instansen med peer-anslutning och klickar sedan på **Tillåt Gateway-överföring**.
-2. I det virtuella nätverket som är värd för den hanteradeinstansen går du till peering, sedan till VPN gateway peer-ansluten VNET-anslutning och klickar sedan på **Använd**fjärrgatewayer.
+1. I det VNet som är värd för VPN-gatewayen går du till **peering**, sedan till den hanterade instansen med peer-anslutning och klickar sedan på **Tillåt Gateway-överföring**.
+2. I det virtuella nätverket som är värd för den hanterade instansen går du till **peering**, sedan till VPN gateway peer-ansluten VNET-anslutning och klickar sedan på **Använd fjärrgatewayer**.
 
 ## <a name="connect-an-azure-app-service-hosted-application"></a>Ansluta ett Azure App Service värdbaserade program
 
@@ -131,7 +131,7 @@ För fel sökning av anslutnings problem, se följande:
    None
    ```
 
-- Om du använder VNet-peering måste du kontrol lera att du har följt anvisningarna för att ställa in [Tillåt Gateway-överföring och använda](#connect-from-on-premises-with-vnet-peering)fjärrgatewayer.
+- Om du använder VNet-peering måste du kontrol lera att du har följt anvisningarna för att ställa in [Tillåt Gateway-överföring och använda Fjärrgatewayer](#connect-from-on-premises-with-vnet-peering).
 
 ## <a name="required-versions-of-drivers-and-tools"></a>Nödvändiga versioner av driv rutiner och verktyg
 

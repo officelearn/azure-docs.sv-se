@@ -1,5 +1,5 @@
 ---
-title: 'Design exempel #3: klassificering för förutsägelse av kredit risk'
+title: 'Designer: klassificera, förutse inkomst'
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du skapar en dator inlärnings klassificerare utan att skriva en enda rad kod med hjälp av designern (för hands version).
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 2709c2e0da154a8530175144070ad560c8921b85
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 383cbc11955598505730a4613c50536afac75f95
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515543"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647968"
 ---
 # <a name="sample-3---classification-with-feature-selection-income-prediction"></a>Exempel 3 – klassificering med funktions val: inkomst förutsägelse
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -28,7 +28,7 @@ Här är den slutliga pipeline-grafen för det här exemplet:
 
 ![Diagram över pipelinen](media/how-to-ui-sample-classification-predict-income/overall-graph.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 

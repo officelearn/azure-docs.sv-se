@@ -1,5 +1,5 @@
 ---
-title: Återställa en Azure SQL-databas i en SaaS-app med flera innehavare | Microsoft Docs
+title: Återställa en Azure SQL-databas i en SaaS-app med flera innehavare
 description: Lär dig hur du återställer en enskild klients SQL Database efter att ha tagit bort data av misstag
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 12/04/2018
-ms.openlocfilehash: 0776935215b608211ad4f6cd66112fb92e33a34b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0719fc5482e583218d42e808a4d94045a497f33c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570392"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692100"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Återställa en enskild klient med ett SaaS-program för databas per klient
 
@@ -43,9 +43,9 @@ Följande krav måste uppfyllas för att kunna köra den här självstudiekursen
 
 Det finns två enkla mönster för att återställa en enskild klients data. Eftersom klient databaserna är isolerade från varandra, har återställningen av en klient ingen inverkan på någon annan klients data. Funktionen Azure SQL Database PITR (Point-in-Time-Restore) används i båda mönstren. PITR skapar alltid en ny databas.
 
-* **Återställ parallellt**: I det första mönstret skapas en ny parallell databas tillsammans med klientens aktuella databas. Klienten får sedan skrivskyddad åtkomst till den återställda databasen. Återställda data kan granskas och eventuellt användas för att skriva över aktuella data värden. Det är upp till app designer som avgör hur klienten får åtkomst till den återställda databasen och vilka alternativ som finns för återställning. Att bara tillåta klienten att granska sina data vid en tidigare tidpunkt kan vara allt som krävs i vissa scenarier.
+* **Återställ parallellt**: i det första mönstret skapas en ny parallell databas tillsammans med klientens aktuella databas. Klienten får sedan skrivskyddad åtkomst till den återställda databasen. Återställda data kan granskas och eventuellt användas för att skriva över aktuella data värden. Det är upp till app designer som avgör hur klienten får åtkomst till den återställda databasen och vilka alternativ som finns för återställning. Att bara tillåta klienten att granska sina data vid en tidigare tidpunkt kan vara allt som krävs i vissa scenarier.
 
-* **Återställning på plats**: Det andra mönstret är användbart om data har förlorats eller skadats och klienten vill återställa till en tidigare tidpunkt. Klienten tas bort från linjen medan databasen återställs. Den ursprungliga databasen tas bort och den återställda databasen får ett nytt namn. Säkerhets kopierings kedjan för den ursprungliga databasen är fortfarande tillgänglig efter borttagningen, så du kan återställa databasen till en tidigare tidpunkt, om det behövs.
+* **Återställ på plats**: det andra mönstret är användbart om data har förlorats eller skadats och klienten vill återställa till en tidigare tidpunkt. Klienten tas bort från linjen medan databasen återställs. Den ursprungliga databasen tas bort och den återställda databasen får ett nytt namn. Säkerhets kopierings kedjan för den ursprungliga databasen är fortfarande tillgänglig efter borttagningen, så du kan återställa databasen till en tidigare tidpunkt, om det behövs.
 
 Om databasen använder [aktiv geo-replikering](sql-database-active-geo-replication.md) och återställning parallellt, rekommenderar vi att du kopierar alla nödvändiga data från den återställda kopian till den ursprungliga databasen. Om du ersätter den ursprungliga databasen med den återställda databasen måste du konfigurera om och synkronisera om geo-replikeringen.
 
@@ -73,9 +73,9 @@ För att demonstrera dessa återställnings scenarier måste du först ta bort e
 
 ### <a name="accidentally-delete-the-last-event"></a>"Ta bort den senaste händelsen" av misstag
 
-1. I PowerShell ISE öppnar du... \\\\Inlärningsmoduler\\affärs kontinuitet och haveri beredskap RestoreTenant*demo-RestoreTenant. ps1*och ange följande värde: \\
+1. I PowerShell ISE öppnar du\\Learning-moduler\\verksamhets kontinuitet och haveri beredskap\\RestoreTenant\\*demo-RestoreTenant. ps1*och anger följande värde:
 
-   * $DemoScenario = **1**, *ta bort sista händelsen (utan biljett försäljning)* .
+   * **$DemoScenario** = **1**, *ta bort sista händelsen (utan biljett försäljning)* .
 2. Tryck på F5 för att köra skriptet och ta bort den sista händelsen. Följande bekräftelse meddelande visas:
 
    ```Console
@@ -84,7 +84,7 @@ För att demonstrera dessa återställnings scenarier måste du först ta bort e
    ```
 
 3. Sidan contoso-händelser öppnas. Rulla nedåt och kontrol lera att händelsen är borta. Om händelsen fortfarande finns i listan väljer du **Uppdatera** och kontrollerar att den är borta.
-   ![Senaste händelse borttagen](media/saas-dbpertenant-restore-single-tenant/last-event-deleted.png)
+   ![sista händelsen togs bort](media/saas-dbpertenant-restore-single-tenant/last-event-deleted.png)
 
 ## <a name="restore-a-tenant-database-in-parallel-with-the-production-database"></a>Återställa en klient databas parallellt med produktions databasen
 
@@ -93,25 +93,25 @@ I den här övningen återställs contoso konsert Hall-databasen till en tidpunk
  Skriptet *restore-TenantInParallel. ps1* skapar en parallell klient databas med namnet *ContosoConcertHall\_Old*, med en parallell katalog post. Det här återställnings mönstret passar bäst för att återställa från en mindre data förlust. Du kan också använda det här mönstret om du behöver granska data för efterlevnad eller gransknings syfte. Det är den rekommenderade metoden när du använder [aktiv geo-replikering](sql-database-active-geo-replication.md).
 
 1. Slutför avsnittet [simulera en klient som tar bort data av misstag](#simulate-a-tenant-accidentally-deleting-data) .
-2. I PowerShell ISE öppnar du... \\\\Inlärningsmoduler\\affärs kontinuitet och haveri beredskap RestoreTenant_demo-RestoreTenant. ps1._ \\
+2. I PowerShell ISE öppnar du\\Learning-moduler\\verksamhets kontinuitet och haveri beredskap\\RestoreTenant\\_demo-RestoreTenant. ps1_.
 3. Ange **$DemoScenario** = **2**, *återställa klient organisationen parallellt*.
 4. Tryck på F5 för att köra skriptet.
 
-Skriptet återställer klient databasen till en tidpunkt innan du tog bort händelsen. Databasen återställs till en ny databas med namnet _ContosoConcertHall\_Old_. Katalogens metadata som finns i den här återställda databasen tas bort och databasen läggs sedan till i katalogen med hjälp av en nyckel som skapats från *det\_ContosoConcertHall gamla* namnet.
+Skriptet återställer klient databasen till en tidpunkt innan du tog bort händelsen. Databasen återställs till en ny databas med namnet _ContosoConcertHall\_Old_. Katalogens metadata som finns i den här återställda databasen tas bort och databasen läggs sedan till i katalogen med hjälp av en nyckel som skapats från *ContosoConcertHall\_gamla* namn.
 
-Demo skriptet öppnar sidan händelser för den här nya klient databasen i webbläsaren. Observera från URL: ```http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall_old``` en som den här sidan visar data från den återställda databasen där *_old* läggs till i namnet.
+Demo skriptet öppnar sidan händelser för den här nya klient databasen i webbläsaren. Observera från URL-adressen ```http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall_old``` att den här sidan visar data från den återställda databasen där *_old* läggs till i namnet.
 
 Bläddra igenom händelserna som visas i webbläsaren för att bekräfta att händelsen som togs bort i föregående avsnitt har återställts.
 
 Att exponera den återställda innehavaren som en ytterligare klient, med en egen Events-app, är sannolikt inte att vara hur du ger klient åtkomst till återställda data. Den används för att illustrera återställnings mönstret. Normalt ger du skrivskyddad åtkomst till gamla data och behåller den återställda databasen under en definierad period. I exemplet kan du ta bort den återställda klient posten när du är klar genom att köra scenariot _ta bort återställd klient_ .
 
-1. Ange **$DemoScenario** = **4**, *ta bort återställd klient*.
+1. Ange **$DemoScenario** = **4**, *ta bort den återställda klient organisationen*.
 2. Tryck på F5 för att köra skriptet.
-3. Den *gamla\_ContosoConcertHall* -posten tas nu bort från katalogen. Stäng sidan händelser för den här klienten i webbläsaren.
+3. *ContosoConcertHall-\_gamla* post tas nu bort från katalogen. Stäng sidan händelser för den här klienten i webbläsaren.
 
 ## <a name="restore-a-tenant-in-place-replacing-the-existing-tenant-database"></a>Återställ en klient på plats och ersätt den befintliga klient databasen
 
-I den här övningen återställs contoso konsert Hall-klienten till en punkt innan händelsen togs bort. Restore *-TenantInPlace-* skriptet återställer en klient databas till en ny databas och tar bort originalet. Detta återställnings mönster lämpar sig bäst för att återställa från allvarliga skadade data och klienten kan behöva hantera betydande data förlust.
+I den här övningen återställs contoso konsert Hall-klienten till en punkt innan händelsen togs bort. *Restore-TenantInPlace-* skriptet återställer en klient databas till en ny databas och tar bort originalet. Detta återställnings mönster lämpar sig bäst för att återställa från allvarliga skadade data och klienten kan behöva hantera betydande data förlust.
 
 1. Öppna filen **demo-RestoreTenant. ps1** i PowerShell ISE.
 2. Ange **$DemoScenario** = **5**, *Återställ klient organisation på plats*.

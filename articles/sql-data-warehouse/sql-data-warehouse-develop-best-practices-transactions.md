@@ -1,5 +1,5 @@
 ---
-title: Optimera transaktioner för Azure SQL Data Warehouse | Microsoft Docs
+title: Optimera transaktioner
 description: Lär dig hur du optimerar prestandan för transaktions koden i Azure SQL Data Warehouse samtidigt som du minimerar risken för långa återställningar.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2299c526dd63eb8e8772661ee8fae66153fc36c3
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: b8b8be9467ade870e57355be91b0de329b0f6217
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479682"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692856"
 ---
 # <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Optimera transaktioner i Azure SQL Data Warehouse
 Lär dig hur du optimerar prestandan för transaktions koden i Azure SQL Data Warehouse samtidigt som du minimerar risken för långa återställningar.
@@ -42,8 +43,8 @@ Transaktionernas säkerhets gränser gäller endast fullständigt loggade åtgä
 ## <a name="minimally-logged-operations"></a>Minimalt loggade åtgärder
 Följande åtgärder kan vara minimalt loggade:
 
-* CREATE TABLE SOM SELECT ([CTAS](sql-data-warehouse-develop-ctas.md))
-* INFOGA.. SELECT
+* CREATE TABLE som SELECT ([CTAs](sql-data-warehouse-develop-ctas.md))
+* Infoga.. SELECT
 * CREATE INDEX
 * ÄNDRA INDEX ÅTERSKAPA
 * DROP INDEX
@@ -67,11 +68,11 @@ CTAS och infoga... SELECT är både Mass inläsnings åtgärder. Båda påverkas
 
 | Primärt index | Läs in scenario | Loggnings läge |
 | --- | --- | --- |
-| Heap |Any |**Minimal** |
-| Grupperat index |Tom mål tabell |**Minimal** |
-| Grupperat index |Inlästa rader överlappar inte befintliga sidor i mål |**Minimal** |
+| Heap |Alla |**Små** |
+| Grupperat index |Tom mål tabell |**Små** |
+| Grupperat index |Inlästa rader överlappar inte befintliga sidor i mål |**Små** |
 | Grupperat index |Inlästa rader överlappar befintliga sidor i målet |Fullständig |
-| Grupperat columnstore-index |Batchstorlek > = 102 400 per partition-justerad distribution |**Minimal** |
+| Grupperat columnstore-index |Batchstorlek > = 102 400 per partition-justerad distribution |**Små** |
 | Grupperat columnstore-index |Batchstorlek < 102 400 per partition anpassad distribution |Fullständig |
 
 Det är värt att notera att alla skrivningar för att uppdatera sekundära eller icke-grupperade index alltid är fullständigt loggade.
@@ -84,7 +85,7 @@ Det är värt att notera att alla skrivningar för att uppdatera sekundära elle
 Inläsning av data i en icke-tom tabell med ett grupperat index kan ofta innehålla en blandning av fullständigt loggade och minimalt loggade rader. Ett grupperat index är ett balanserat träd (b-Tree) av sidor. Om sidan som skrivs till redan innehåller rader från en annan transaktion, kommer dessa skrivningar att loggas fullständigt. Men om sidan är tom loggas skrivningen till sidan av minimalt.
 
 ## <a name="optimizing-deletes"></a>Optimerar borttagningar
-TA bort är en fullständigt loggad åtgärd.  Om du behöver ta bort en stor mängd data i en tabell eller partition är det ofta mer meningsfullt för `SELECT` de data som du vill behålla, vilket kan köras som en minimalt loggad åtgärd.  Om du vill välja data skapar du en ny tabell med [CTAs](sql-data-warehouse-develop-ctas.md).  När du har skapat använder du [rename](/sql/t-sql/statements/rename-transact-sql) för att byta ut den gamla tabellen med den tabell som skapats nyligen.
+TA bort är en fullständigt loggad åtgärd.  Om du behöver ta bort en stor mängd data i en tabell eller partition är det ofta mer meningsfullt att `SELECT` de data som du vill behålla, vilket kan köras som en minimalt loggad åtgärd.  Om du vill välja data skapar du en ny tabell med [CTAs](sql-data-warehouse-develop-ctas.md).  När du har skapat använder du [rename](/sql/t-sql/statements/rename-transact-sql) för att byta ut den gamla tabellen med den tabell som skapats nyligen.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -407,7 +408,7 @@ END
 Med Azure SQL Data Warehouse kan du [pausa, återuppta och skala](sql-data-warehouse-manage-compute-overview.md) ditt informations lager på begäran. När du pausar eller skalar dina SQL Data Warehouse är det viktigt att förstå att alla pågående transaktioner avbryts omedelbart. orsaka att eventuella öppna transaktioner återställs. Om din arbets belastning har utfärdat en tids krävande och ofullständig data ändring innan paus-eller skalnings åtgärden, måste det här arbetet utföras. Detta kan påverka tiden det tar att pausa eller skala Azure SQL Data Warehouse databasen. 
 
 > [!IMPORTANT]
-> Både `UPDATE` och`DELETE` är fullständigt loggade och därmed kan dessa åtgärder för att ångra/upprepa ta betydligt längre tid än motsvarande minimalt loggade åtgärder. 
+> Både `UPDATE` och `DELETE` är fullständigt inloggade och därför kan dessa åtgärder för att ångra och upprepa ta betydligt längre tid än motsvarande minimalt loggade åtgärder. 
 > 
 > 
 

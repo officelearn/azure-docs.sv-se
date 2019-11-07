@@ -1,5 +1,5 @@
 ---
-title: Aktiv geo-replikering – Azure SQL Database | Microsoft Docs
+title: Aktiv geo-replikering – Azure SQL Database
 description: Använd aktiv geo-replikering för att skapa läsbara sekundära databaser för enskilda databaser i samma eller olika data Center (region).
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2019
-ms.openlocfilehash: c1f50dfb499c220a4e13f043438798c556319ddf
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 74cbb9fa5a00b287746afd92fe74f50bfa19110b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092814"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691316"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Skapa och använda aktiv geo-replikering
 
@@ -37,10 +37,10 @@ Om den primära databasen Miss lyckas eller om du behöver bli offline kan du in
 Du kan hantera replikering och redundans för en enskild databas eller en uppsättning databaser på en server eller i en elastisk pool med hjälp av aktiv geo-replikering. Du kan göra det med:
 
 - [Azure Portal](sql-database-geo-replication-portal.md)
-- [PowerShell Enkel databas](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-- [PowerShell Elastisk pool](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
-- [Transact-SQL: Enkel databas eller elastisk pool](/sql/t-sql/statements/alter-database-azure-sql-database)
-- [REST API: Enkel databas](https://docs.microsoft.com/rest/api/sql/replicationlinks)
+- [PowerShell: enkel databas](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+- [PowerShell: elastisk pool](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+- [Transact-SQL: enkel databas eller elastisk pool](/sql/t-sql/statements/alter-database-azure-sql-database)
+- [REST API: enkel databas](https://docs.microsoft.com/rest/api/sql/replicationlinks)
 
 
 Aktiv geo-replikering utnyttjar [alltid](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) teknikerna i SQL Server att asynkront replikera genomförda transaktioner i den primära databasen till en sekundär databas med ögonblicks bild isolering. Grupper för automatisk redundans ger gruppsemantiken ovanpå aktiv geo-replikering men samma mekanism för asynkron replikering används. När som helst kan den sekundära databasen vara något bakom den primära databasen, men sekundära data är garanterat att aldrig ha partiella transaktioner. Redundans i flera regioner gör det möjligt för program att snabbt återställa från en permanent förlust av ett helt data Center eller delar av ett Data Center som orsakas av natur katastrofer, katastrof fel eller skadliga åtgärder. Specifika återställnings data finns i [Översikt över affärs kontinuitet](sql-database-business-continuity.md).
@@ -58,8 +58,8 @@ Eftersom de sekundära databaserna är läsbara kan de användas för att avlast
 
 Förutom haveri beredskap aktiv geo-replikering kan användas i följande scenarier:
 
-- **Databas migrering**: Du kan använda aktiv geo-replikering för att migrera en databas från en server till en annan online med minsta stillestånds tid.
-- **Program uppgraderingar**: Du kan skapa en extra sekundär kopia som en kopia av återställning vid program uppgraderingar.
+- **Databas migrering**: du kan använda aktiv geo-replikering för att migrera en databas från en server till en annan online med minsta stillestånds tid.
+- **Program uppgraderingar**: du kan skapa en extra sekundär kopia som en återställning efter en återställning under program uppgraderingar.
 
 För att uppnå verklig affärs kontinuitet är det bara en del av lösningen att lägga till databas redundans mellan data Center. Att återställa ett program (tjänst) från slut punkt till slut punkt efter ett oåterkalleligt haveri kräver återställning av alla komponenter som utgör tjänsten och eventuella beroende tjänster. Exempel på dessa komponenter är klient program varan (till exempel en webbläsare med ett anpassat java script), webb server delar, lagring och DNS. Det är viktigt att alla komponenter är elastiska för samma problem och blir tillgängliga inom RTO (Recovery Time mål) för ditt program. Därför måste du identifiera alla beroende tjänster och förstå de garantier och funktioner som de tillhandahåller. Sedan måste du vidta lämpliga åtgärder för att säkerställa att tjänsten fungerar under redundansväxlingen av de tjänster som den är beroende av. Mer information om hur du skapar lösningar för haveri beredskap finns i [utforma moln lösningar för haveri beredskap med hjälp av aktiv geo-replikering](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
@@ -160,9 +160,9 @@ För att mäta en fördröjning med avseende på ändringar i den primära datab
 
 ## <a name="programmatically-managing-active-geo-replication"></a>Hantera aktiv geo-replikering program mässigt
 
-Som tidigare nämnts kan aktiv geo-replikering även hanteras via programmering med hjälp av Azure PowerShell och REST API. I följande tabeller beskrivs en uppsättning kommandon som är tillgängliga. Aktiv geo-replikering innehåller en uppsättning Azure Resource Manager-API: er för hantering, inklusive [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) och [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)-cmdletar. Dessa API: er kräver användning av resurs grupper och stöd för rollbaserad säkerhet (RBAC). Mer information om hur du implementerar åtkomst roller finns i [Azure Role-Based Access Control](../role-based-access-control/overview.md).
+Som tidigare nämnts kan aktiv geo-replikering även hanteras via programmering med hjälp av Azure PowerShell och REST API. I följande tabeller beskrivs en uppsättning kommandon som är tillgängliga. Aktiv geo-replikering innehåller en uppsättning Azure Resource Manager-API: er för hantering, inklusive [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) och [Azure PowerShell-cmdletar](https://docs.microsoft.com/powershell/azure/overview). Dessa API: er kräver användning av resurs grupper och stöd för rollbaserad säkerhet (RBAC). Mer information om hur du implementerar åtkomst roller finns i [Azure Role-Based Access Control](../role-based-access-control/overview.md).
 
-### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL: Hantera redundans för enkla databaser och databaser i pooler
+### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL: hantera redundans för enkla databaser och databaser i pooler
 
 > [!IMPORTANT]
 > De här Transact-SQL-kommandona gäller endast för aktiv geo-replikering och gäller inte för failover-grupper. De gäller inte heller för hanterade instanser, eftersom de bara har stöd för failover-grupper.
@@ -173,18 +173,18 @@ Som tidigare nämnts kan aktiv geo-replikering även hanteras via programmering 
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Använd REDUNDANS eller FORCE_FAILOVER_ALLOW_DATA_LOSS för att växla en sekundär databas till att vara primär för att initiera redundans |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Använd ta bort sekundär på servern om du vill avsluta en datareplikering mellan en SQL Database och den angivna sekundära databasen. |
 | [sys. geo-_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Returnerar information om alla befintliga replikeringsinställningar för varje databas på Azure SQL Database-servern. |
-| [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Hämtar den senaste replikerings tiden, den senaste replikeringsfördröjning och annan information om replikeringslänken för en specifik SQL-databas. |
-| [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Visar status för alla databas åtgärder inklusive status för replikeringslänken. |
+| [sys. DM-_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Hämtar den senaste replikerings tiden, den senaste replikeringsfördröjning och annan information om replikeringslänken för en specifik SQL-databas. |
+| [sys. DM-_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Visar status för alla databas åtgärder inklusive status för replikeringslänken. |
 | [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |gör att programmet väntar tills alla genomförda transaktioner replikeras och bekräftas av den aktiva sekundära databasen. |
 |  | |
 
-### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell: Hantera redundans för enkla databaser och databaser i pooler
+### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell: hantera redundans för enkla databaser och databaser i pooler
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
 
-| Cmdlet: | Beskrivning |
+| Cmdlet | Beskrivning |
 | --- | --- |
 | [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase) |Hämtar en eller flera databaser. |
 | [New-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasesecondary) |Skapar en sekundär databas för en befintlig databas och startar datareplikeringen. |
@@ -196,7 +196,7 @@ Som tidigare nämnts kan aktiv geo-replikering även hanteras via programmering 
 > [!IMPORTANT]
 > Exempel skript finns i [Konfigurera och redundansväxla en enskild databas med aktiv geo-replikering](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) och [Konfigurera och redundansväxla en poolad databas med aktiv geo-replikering](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md).
 
-### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>REST API: Hantera redundans för enkla databaser och databaser i pooler
+### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>REST API: hantera redundans för enkla databaser och databaser i pooler
 
 | API | Beskrivning |
 | --- | --- |

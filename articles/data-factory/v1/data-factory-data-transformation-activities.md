@@ -1,5 +1,5 @@
 ---
-title: 'Data omvandling: Bearbeta & transformera data | Microsoft Docs'
+title: 'Data omvandling: bearbeta & transformera data '
 description: Lär dig hur du omformar data eller bearbetar data i Azure Data Factory att använda Hadoop, Machine Learning eller Azure Data Lake Analytics.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 9e70877a51c23be2d626492f84a69ae49fb27fac
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 3af01ef76421e95f74a65fe597cafff5fa9ef39e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139777"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682612"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformera data i Azure Data Factory
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Den här artikeln beskriver datatransformerings aktiviteter i Azure Data Factory
 Data Factory stöder följande data omvandlings aktiviteter som kan läggas till i [pipelines](data-factory-create-pipelines.md) som är individuellt eller länkade till en annan aktivitet.
 
 > [!NOTE]
-> En genom gång med stegvisa instruktioner finns i [skapa en pipeline med Hive](data-factory-build-your-first-pipeline.md) -omvandlings artikel.  
+> En genom gång med stegvisa instruktioner finns i [skapa en pipeline med Hive-omvandlings](data-factory-build-your-first-pipeline.md) artikel.  
 > 
 > 
 
@@ -64,8 +64,8 @@ Med tiden måste förutsägande modeller i de Machine Learning bedömnings exper
 
 Se [använda Machine Learning aktiviteter](data-factory-azure-ml-batch-execution-activity.md) för mer information om dessa Machine Learning-aktiviteter. 
 
-## <a name="stored-procedure-activity"></a>Lagrad proceduraktivitet
-Du kan använda aktiviteten SQL Server lagrad procedur i en Data Factory pipeline för att anropa en lagrad procedur i något av följande data lager: Azure SQL Database, Azure SQL Data Warehouse, SQL Server databas i företaget eller en virtuell Azure-dator. Mer information finns i artikeln om [lagrade procedur aktiviteter](data-factory-stored-proc-activity.md) .  
+## <a name="stored-procedure-activity"></a>Lagrad procedur aktivitet
+Du kan använda aktiviteten SQL Server lagrad procedur i en Data Factory pipeline för att anropa en lagrad procedur i något av följande data lager: Azure SQL Database, Azure SQL Data Warehouse, SQL Server databas i företaget eller i en virtuell Azure-dator. Mer information finns i artikeln om [lagrade procedur aktiviteter](data-factory-stored-proc-activity.md) .  
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL-aktivitet
 Data Lake Analytics U-SQL-aktivitet kör ett U-SQL-skript i ett Azure Data Lake Analytics-kluster. Mer information finns i artikeln [data analys U-SQL-aktivitet](data-factory-usql-activity.md) . 
@@ -78,8 +78,8 @@ Du kan skapa en anpassad aktivitet som kör R-skript i ditt HDInsight-kluster me
 ## <a name="compute-environments"></a>Beräknings miljöer
 Du skapar en länkad tjänst för beräknings miljön och använder sedan den länkade tjänsten när du definierar en Transformations aktivitet. Det finns två typer av beräknings miljöer som stöds av Data Factory. 
 
-1. **On-Demand**:  I det här fallet hanteras dator miljön fullständigt av Data Factory. Den skapas automatiskt av Data Factory tjänsten innan ett jobb skickas för att bearbeta data och tas bort när jobbet har slutförts. Du kan konfigurera och kontrol lera detaljerade inställningar för beräknings miljön på begäran för jobb körning, kluster hantering och start åtgärder. 
-2. **Ta med din egen**: I det här fallet kan du registrera din egen dator miljö (till exempel HDInsight-kluster) som en länkad tjänst i Data Factory. Dator miljön hanteras av dig och den Data Factory tjänsten använder den för att köra aktiviteterna. 
+1. **På begäran**: i det här fallet hanteras dator miljön fullständigt av Data Factory. Den skapas automatiskt av Data Factory tjänsten innan ett jobb skickas för att bearbeta data och tas bort när jobbet har slutförts. Du kan konfigurera och kontrol lera detaljerade inställningar för beräknings miljön på begäran för jobb körning, kluster hantering och start åtgärder. 
+2. **Ta**med dig: i det här fallet kan du registrera din egen dator miljö (till exempel HDInsight-kluster) som en länkad tjänst i Data Factory. Dator miljön hanteras av dig och den Data Factory tjänsten använder den för att köra aktiviteterna. 
 
 Se artikeln om att beräkna [länkade tjänster](data-factory-compute-linked-services.md) för att lära dig mer om beräknings tjänster som stöds av Data Factory. 
 
@@ -92,7 +92,7 @@ Azure Data Factory stöder följande data omvandlings aktiviteter och beräkning
 | [Pig](data-factory-pig-activity.md) |HDInsight [Hadoop] |
 | [MapReduce](data-factory-map-reduce.md) |HDInsight [Hadoop] |
 | [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
-| [Machine Learning aktiviteter: Batch-körning och uppdaterings resurs](data-factory-azure-ml-batch-execution-activity.md) |Azure VM |
+| [Machine Learning-aktiviteter: batchkörning och resursuppdatering](data-factory-azure-ml-batch-execution-activity.md) |Azure VM |
 | [Lagrad procedur](data-factory-stored-proc-activity.md) |Azure SQL, Azure SQL Data Warehouse eller SQL Server |
 | [Data Lake Analytics U-SQL](data-factory-usql-activity.md) |Azure Data Lake Analytics |
 | [DotNet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] eller Azure Batch |

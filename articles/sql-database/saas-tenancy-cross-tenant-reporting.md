@@ -1,5 +1,5 @@
 ---
-title: Köra rapporterings frågor över flera Azure SQL-databaser | Microsoft Docs
+title: Köra rapporterings frågor över flera Azure SQL-databaser
 description: Rapportering mellan klienter med hjälp av distribuerade frågor.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewers: billgib,ayolubek
 ms.date: 01/25/2019
-ms.openlocfilehash: fa8dbbbb09fbdc14049e168afe6eb4810ccc8254
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f9af2af7893bd908988ee45476ce14a56f9768a9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570247"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691902"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Rapportering mellan klienter med hjälp av distribuerade frågor
 
@@ -36,7 +36,7 @@ Följande krav måste uppfyllas för att kunna köra den här självstudiekursen
 
 
 * Wingtip biljetter SaaS-databasen per klient-app distribueras. Om du vill distribuera på mindre än fem minuter, se [distribuera och utforska Wingtip-biljetter SaaS-databas per klient program](saas-dbpertenant-get-started-deploy.md)
-* Azure PowerShell ska ha installerats. Mer information finns i [Komma igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+* Azure PowerShell ska ha installerats. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * SQL Server Management Studio (SSMS) har installerats. Information om hur du hämtar och installerar SSMS finns i [hämta SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
 
@@ -58,7 +58,7 @@ Wingtip-biljetterna SaaS-skript för flera klient organisationer och program kä
 
 Om du vill köra frågor mot en mer intressant data uppsättning skapar du biljett försäljnings data genom att köra biljett generatorn.
 
-1. I *POWERSHELL ISE*öppnar du... \\Learning modules\\Operational\\Analytics adhoc\\repor ting*demo-AdhocReporting. ps1* -skript och ange följande värde:
+1. I *POWERSHELL ISE*öppnar du modulen...\\inlärning\\operativa analyser\\adhoc repor ting\\*demo-AdhocReporting. ps1* -skript och ange följande värde:
    * **$DemoScenario** = 1, **Köp biljetter för händelser på alla platser**.
 2. Tryck på **F5** för att köra skriptet och generera biljett försäljning. Fortsätt med stegen i den här själv studie kursen medan skriptet körs. Biljett data frågas i avsnittet *köra Ad hoc-frågor* och väntar på att biljett generatorn ska slutföras.
 
@@ -68,7 +68,7 @@ I Wingtip-biljetterna SaaS-databasen per klient program tilldelas varje klient o
 
 För att simulera det här mönstret läggs en uppsättning "globala" vyer till i klient databasen som projicerar ett klient-ID i varje tabell som frågas globalt. Vyn *VenueEvents* lägger till exempel till en beräknad *VenueId* till de kolumner som projiceras från tabellen *händelser* . På samma sätt lägger vyerna *VenueTicketPurchases* och *VenueTickets* till en beräknad *VenueId* -kolumn som projiceras från deras respektive tabeller. Dessa vyer används av elastisk fråga för att parallellisera frågor och push-överföra dem till lämplig fjärran sluten klient databas när en *VenueId* -kolumn finns. Detta minskar dramatiskt mängden data som returneras och resulterar i en avsevärd ökning av prestanda för många frågor. Dessa globala vyer har skapats i förväg i alla klient databaser.
 
-1. Öppna SSMS och [Anslut till tenants1-User&lt;&gt; -servern](saas-tenancy-wingtip-app-guidance-tips.md#explore-database-schema-and-execute-sql-queries-using-ssms).
+1. Öppna SSMS och [Anslut till tenants1-&lt;användar&gt;-servern](saas-tenancy-wingtip-app-guidance-tips.md#explore-database-schema-and-execute-sql-queries-using-ssms).
 1. Expandera **databaser**, högerklicka på _Contosoconcerthall_och välj **ny fråga**.
 1. Kör följande frågor för att utforska skillnaden mellan tabellerna med enskild klient och globala vyer:
 
@@ -90,20 +90,20 @@ I dessa vyer beräknas *VenueId* som en hash av plats namnet, men alla metoder k
 
 Så här granskar du definitionen av vyn *platser* :
 
-1. Expandera **contosoconcerthall** > -**vyer**i Object Explorer:
+1. Expandera **contosoconcerthall** > **vyer**i **Object Explorer**:
 
-   ![visningar](media/saas-tenancy-cross-tenant-reporting/views.png)
+   ![Vyer](media/saas-tenancy-cross-tenant-reporting/views.png)
 
 2. Högerklicka på **dbo. Platser**.
-3. Välj **skript visning som** > **skapa till** > **nytt Frågeredigeraren**
+3. Välj **skriptbaserad vy som** > **skapa för att** > **fönstret nytt Frågeredigeraren**
 
-Skripta någon av de andra platsernas vyer för att se hur de lägger till *VenueId*.
+Skripta någon av de andra *platsernas* vyer för att se hur de lägger till *VenueId*.
 
 ## <a name="deploy-the-database-used-for-distributed-queries"></a>Distribuera databasen som används för distribuerade frågor
 
 Den här övningen distribuerar _AdHocReporting_ -databasen. Det här är huvud databasen som innehåller det schema som används för frågor över alla klient databaser. Databasen distribueras till den befintliga katalog servern, som är den server som används för alla hanterings relaterade databaser i exempel programmet.
 
-1. i *POWERSHELL ISE*öppnar du... \\Learning modules\\Operational\\Analytics adhoc\\repor ting*demo-AdhocReporting. ps1*. 
+1. i *POWERSHELL ISE*öppnar du...\\inlärnings moduler\\operativa analyser\\adhoc-rapportering\\*demo-AdhocReporting. ps1*. 
 
 1. Ange **$DemoScenario = 2**, _distribuera ad hoc-rapporterings databas_.
 
@@ -149,7 +149,7 @@ När du inspekterar körnings planen kan du hovra över plan ikonerna för mer i
 
 Viktigt att observera, är att inställnings **fördelning = shardade (VenueId)** när den externa data källan har definierats förbättrar prestanda för många scenarier. När varje *VenueId* mappas till en enskild databas, kan filtreringen enkelt utföras på distans, och bara returnera de data som behövs.
 
-1. Öppna... \\Learning modules\\Operational\\Analytics adhoc\\repor ting*demo-AdhocReportingQueries. SQL* i SSMS.
+1. Öppna...\\inlärnings moduler\\operativa analyser\\adhoc-rapportering\\*demo-AdhocReportingQueries. SQL* i SSMS.
 2. Se till att du är ansluten till **AdHocReporting** -databasen.
 3. Välj menyn **fråga** och klicka på **Inkludera faktisk körnings plan**
 4. Markera *vilka platser som är registrerade för tillfället?* fråga och tryck på **F5**.
@@ -177,7 +177,7 @@ Viktigt att observera, är att inställnings **fördelning = shardade (VenueId)*
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig att:
+I den här guiden lärde du dig hur man:
 
 > [!div class="checklist"]
 > 

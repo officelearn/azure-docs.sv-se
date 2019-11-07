@@ -1,5 +1,5 @@
 ---
-title: Kod för XEvent-ringbufferten för SQL Database | Microsoft Docs
+title: Kod för XEvent-ringbufferten för SQL Database
 description: Innehåller ett kod exempel för Transact-SQL som är enkelt och snabbt med hjälp av målet för ringbufferten, i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: f1ec9cd3a4256597ade409fb3e04d44171277554
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8fd04cac394f05a9db18e84117a8647c1a17ba30
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566157"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686810"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Ring buffertens mål kod för utökade händelser i SQL Database
 
@@ -40,7 +40,7 @@ I det här avsnittet presenteras ett Transact-SQL-kod exempel som:
 7. Släpper målet för ringbufferten för att frigöra resurser.
 8. Släpper händelsesessionen och demonstrations tabellen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Ett Azure-konto och prenumeration. Registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
 * Alla databaser du kan skapa en tabell i.
@@ -54,10 +54,10 @@ I det här avsnittet presenteras ett Transact-SQL-kod exempel som:
 
 ## <a name="code-sample"></a>Kodexempel
 
-Med mycket mindre modifiering kan följande kod exempel för ringbufferten köras på antingen Azure SQL Database eller Microsoft SQL Server. Skillnaden är förekomsten av noden "_database" i namnet på vissa vyer för dynamisk hantering (DMV: er), som används i from-satsen i steg 5. Exempel:
+Med mycket mindre modifiering kan följande kod exempel för ringbufferten köras på antingen Azure SQL Database eller Microsoft SQL Server. Skillnaden är förekomsten av noden "_database" i namnet på vissa vyer för dynamisk hantering (DMV: er), som används i from-satsen i steg 5. Till exempel:
 
-* sys.dm_xe<strong>_database</strong>_session_targets
-* sys.dm_xe_session_targets
+* sys. DM _xe<strong>_database</strong>_session_targets
+* sys. DM-_xe_session_targets
 
 &nbsp;
 
@@ -222,7 +222,7 @@ För att visa resultaten klickade vi på cellen under kolumn rubriken **target_d
 
 Sedan klickade du på cellen under kolumn rubriken **target_data_XML**i resultat fönstret. Då klickar du på fliken skapad en annan fil i SSMS. exe där innehållet i resultat cellen visades, som XML.
 
-Utdata visas i följande block. Det ser långt ut, men det är bara två  **\<händelse >** element.
+Utdata visas i följande block. Det ser långt ut, men det är bara två **\<händelse >** element.
 
 &nbsp;
 
@@ -347,7 +347,7 @@ Det primära avsnittet för utökade händelser på Azure SQL Database är:
 
 Andra kod exempel ämnen för utökade händelser finns i följande länkar. Du måste dock regelbundet kontrol lera ett exempel för att se om exempel målen Microsoft SQL Server respektive Azure SQL Database. Sedan kan du bestämma om mindre ändringar krävs för att köra exemplet.
 
-* Kod exempel för Azure SQL Database: [Mål kod för händelse filen för utökade händelser i SQL Database](sql-database-xevent-code-event-file.md)
+* Kod exempel för Azure SQL Database: [händelse filens mål kod för utökade händelser i SQL Database](sql-database-xevent-code-event-file.md)
 
 <!--
 ('lock_acquired' event.)

@@ -1,5 +1,5 @@
 ---
-title: Översikt över mallar för Azure Data Factory | Microsoft Docs
+title: Översikt över mallar för Azure Data Factory
 description: Lär dig hur du använder en fördefinierad mall för att komma igång snabbt med Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 01/04/2019
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: eb7a7eb8e1bdacae4b74e3a0019a376c440fe4d5
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 7895fedd0f68ae1c8ea4808c54a18a4e73b57b2c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091967"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684057"
 ---
 # <a name="templates"></a>Mallar
 
@@ -30,11 +30,11 @@ Du kan komma igång med att skapa en Data Factory pipeline från en mall på fö
 
     ![Öppna mallgalleriet från översikts Sidan](media/solution-templates-introduction/templates-intro-image1.png)
 
-1.  På fliken författare i Resursläsaren väljer **+** du och sedan **pipeline från mallen** för att öppna mallgalleriet.
+1.  På fliken författare i Resursläsaren väljer du **+** och sedan **pipeline från mallen** för att öppna mallgalleriet.
 
     ![Öppna mallgalleriet från fliken författare](media/solution-templates-introduction/templates-intro-image2.png)
 
-## <a name="template-gallery"></a>Galleri över mallar
+## <a name="template-gallery"></a>Mallgalleriet
 
 ![Mallgalleriet](media/solution-templates-introduction/templates-intro-image3.png)
 
@@ -54,7 +54,7 @@ Data Factory använder Azure Resource Manager mallar för att spara mallar för 
 
     -   [Delta kopia från databas](solution-template-delta-copy-with-control-table.md)
 
-    -   Kopiera från \<källa\> till \<mål\>
+    -   Kopiera från \<käll\> till \<destination\>
 
         -   [Från Amazon S3 till Azure Data Lake Store gen 2](solution-template-migration-s3-azure.md)
 

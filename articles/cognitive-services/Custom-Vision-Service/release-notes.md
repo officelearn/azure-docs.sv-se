@@ -1,6 +1,7 @@
 ---
 title: Viktig information – Custom Vision Service
 titleSuffix: Azure Cognitive Services
+description: Få den senaste informationen om nya versioner från Custom Visions teamet.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -9,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: 79f3f2a5545b8cdcee86e52f35bd22a31e93d387
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b9606c63ec7b53fb0b69918c21bdd9206f34c555
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564088"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647561"
 ---
 # <a name="custom-vision-service-release-notes"></a>Viktig information om Custom Vision Service
 
@@ -53,7 +54,7 @@ ms.locfileid: "68564088"
 
 ## <a name="january-22-2019"></a>Den 22 januari 2019
 
-- Stöd har lagts till för nya Azure-regioner: Västra USA 2, östra USA, östra USA 2, Västeuropa, norra Europa, Sydostasien, östra Australien, centrala Indien, Storbritannien, södra, Japan, östra och norra centrala USA. Support fortsätter för södra centrala USA.
+- Support har lagts till för nya Azure-regioner: västra USA 2, östra USA, östra USA 2, Västeuropa, norra Europa, Sydostasien, östra Australien, centrala Indien, Storbritannien, södra, Japan, östra och norra centrala USA. Support fortsätter för södra centrala USA.
 
 ## <a name="december-12-2018"></a>12 december 2018
 
@@ -107,7 +108,7 @@ Fel korrigeringar, inklusive för ONNX-export med specialtecken.
 
 ## <a name="december-19-2017"></a>19 december 2017
 
-- Export till Android (TensorFlow) har lagts till, utöver tidigare export till iOS (CoreML.) På så sätt kan export av en tränad kompakt modell köras offline i ett program.
+- Export till Android (TensorFlow) har lagts till, förutom tidigare utgivna export till iOS (CoreML.) På så sätt kan du exportera en utbildad kompakt modell så att den körs offline i ett program.
 - Lade till kompakta Retail- och Landmark-domäner för att möjliggöra modellexport för dessa domäner.
 - Släppte version [1.2 av Training-API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/f2d62aa3b93843d79e948fe87fa89554/operations/5a3044ee08fa5e06b890f11f) och [1.1 av Prediction-API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/57982f59b5964e36841e22dfbfe78fc1/operations/5a3044f608fa5e06b890f164). Uppdaterade API:ernas stöd för modellexport, ny förutsägelseåtgärd som inte sparar bilder i Förutsägelser och introducerade batchåtgärder för Training-API:et.
 - Justeringar av användargränssnittet, bland annat möjligheten att se vilken domän som har använts för att träna en iteration.

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8da27773cc74324c1dde5a95de1abef3256c1f1c
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 06de71776cdf503ff0df9fbf3b28cf9e01a12e01
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71811683"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73575273"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Etablera dataflöde i en Azure Cosmos-container
 
@@ -25,7 +25,7 @@ Den här artikeln beskriver hur du etablerar data flöde i en behållare (samlin
 
 1. Öppna fönsterrutan **Data Explorer** och välj **Ny samling**. Ange därefter följande information:
 
-   * Ange huruvida du skapar en ny databas eller använder en befintlig.
+   * Ange om du skapar en ny databas eller använder en befintlig.
    * Ange ett ID för behållare (eller tabell eller graf).
    * Ange ett partitionsnyckelvärde (till exempel `/userid`).
    * Ange ett data flöde som du vill etablera (till exempel 1000 ru: er).
@@ -67,14 +67,23 @@ await client.CreateDocumentCollectionAsync(
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/ContainerDocsSampleCode.cs?name=ContainerCreateWithThroughput)]
 
 ### <a id="dotnet-cassandra"></a>API för Cassandra
+Liknande kommandon kan utfärdas via alla CQL-kompatibla driv rutiner.
 
 ```csharp
 // Create a Cassandra table with a partition (primary) key and provision throughput of 400 RU/s
-session.Execute(CREATE TABLE myKeySpace.myTable(
+session.Execute("CREATE TABLE myKeySpace.myTable(
     user_id int PRIMARY KEY,
     firstName text,
-    lastName text) WITH cosmosdb_provisioned_throughput=400);
+    lastName text) WITH cosmosdb_provisioned_throughput=400");
+
 ```
+### <a name="alter-or-change-throughput-for-cassandra-table"></a>Ändra eller ändra data flöde för Cassandra-tabellen
+
+```csharp
+// Altering the throughput too can be done through code by issuing following command
+session.Execute("ALTER TABLE myKeySpace.myTable WITH cosmosdb_provisioned_throughput=5000");
+```
+
 
 ## <a name="next-steps"></a>Nästa steg
 

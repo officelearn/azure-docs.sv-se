@@ -9,16 +9,18 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 992e3f7aa53fdd006d29c06113cd30b07a406f3b
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 5cb4602ac0431e09208953122f13b30124ab77f5
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734340"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614758"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Övervaka scenario i Durable Functions – väder vakts exempel
 
 Övervaknings mönstret avser en flexibel *återkommande* process i ett arbets flöde – till exempel avsökningen tills vissa villkor är uppfyllda. I den här artikeln beskrivs ett exempel som använder [Durable Functions](durable-functions-overview.md) för att implementera övervakning.
+
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -41,7 +43,7 @@ Det här exemplet övervakar en platss aktuella väder förhållanden och varnar
 
 Det här exemplet förutsätter att du använder väder-API: et för att kontrol lera aktuella väder förhållanden för en plats.
 
-Det första du behöver är ett väderlek underjords konto. Du kan skapa ett kostnads fritt på [https://www.wunderground.com/signup](https://www.wunderground.com/signup). När du har ett konto måste du skaffa en API-nyckel. Du kan göra det genom att [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1)besöka och sedan välja nyckel inställningar. Stratus Developer plan är gratis och tillräckligt för att köra det här exemplet.
+Det första du behöver är ett väderlek underjords konto. Du kan skapa ett kostnads fritt på [https://www.wunderground.com/signup](https://www.wunderground.com/signup). När du har ett konto måste du skaffa en API-nyckel. Du kan göra det genom att besöka [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1)och sedan välja nyckel inställningar. Stratus Developer plan är gratis och tillräckligt för att köra det här exemplet.
 
 När du har en API-nyckel lägger du till följande **app-inställning** i din Function-app.
 
@@ -53,9 +55,9 @@ När du har en API-nyckel lägger du till följande **app-inställning** i din F
 
 I den här artikeln beskrivs följande funktioner i exempel appen:
 
-* `E3_Monitor`: En Orchestrator-funktion som `E3_GetIsClear` anropar regelbundet. Den `E3_SendGoodWeatherAlert` anropas `E3_GetIsClear` om returnerar true.
-* `E3_GetIsClear`: En aktivitets funktion som kontrollerar aktuella väder förhållanden för en plats.
-* `E3_SendGoodWeatherAlert`: En aktivitets funktion som skickar ett SMS-meddelande via Twilio.
+* `E3_Monitor`: en Orchestrator-funktion som anropar `E3_GetIsClear` regelbundet. Den anropar `E3_SendGoodWeatherAlert` om `E3_GetIsClear` returnerar true.
+* `E3_GetIsClear`: en aktivitets funktion som kontrollerar aktuella väder förhållanden för en plats.
+* `E3_SendGoodWeatherAlert`: en aktivitets funktion som skickar ett SMS-meddelande via Twilio.
 
 I följande avsnitt beskrivs den konfiguration och kod som används för C# skript och Java Script. Koden för Visual Studio-utveckling visas i slutet av artikeln.
 
@@ -71,7 +73,7 @@ Här är den kod som implementerar funktionen:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
 
-### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
+### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
@@ -82,7 +84,7 @@ Den här Orchestrator-funktionen utför följande åtgärder:
 3. Anropar **E3_GetIsClear** för att avgöra om det finns en rensning av Skies på den begärda platsen.
 4. Om väderet är klart anropar **E3_SendGoodWeatherAlert** för att skicka ett SMS-meddelande till det begärda telefonnumret.
 5. Skapar en varaktig timer för att återuppta dirigeringen vid nästa avsöknings intervall. Exemplet använder ett hårdkodat värde för det kortfattat.
-6. Fortsätter att köras tills [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) (C#) eller `currentUtcDateTime` (Java Script) kan passera förfallo tiden för övervakaren eller också skickas en SMS-avisering.
+6. Fortsätter att köras tills `CurrentUtcDateTime` (.NET) eller `currentUtcDateTime` (Java Script) kan passera förfallo tiden för övervakaren eller också skickas en SMS-avisering.
 
 Flera Orchestrator-instanser kan köras samtidigt genom att skicka flera **MonitorRequests**. Den plats som ska övervakas och telefonnumret som en SMS-avisering ska skickas till kan anges.
 
@@ -97,7 +99,7 @@ JavaScript-exemplet använder vanliga JSON-objekt som parametrar.
 
 ## <a name="helper-activity-functions"></a>Hjälp aktivitetens funktioner
 
-Som med andra exempel är hjälp aktivitetens funktioner vanliga funktioner som använder sig av `activityTrigger` trigger-bindningen. Funktionen **E3_GetIsClear** hämtar aktuella väder förhållanden med hjälp av väder-API: et och avgör om himmelen är klar. *Funktionen. JSON* definieras enligt följande:
+Som med andra exempel är hjälp aktivitetens funktioner vanliga funktioner som använder bindningen `activityTrigger` trigger. Funktionen **E3_GetIsClear** hämtar aktuella väder förhållanden med hjälp av väder-API: et och avgör om himmelen är klar. *Funktionen. JSON* definieras enligt följande:
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/function.json)]
 
@@ -107,7 +109,7 @@ Här är implementeringen. Precis som den POCOs som används för data överför
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
 
-### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
+### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
@@ -121,7 +123,7 @@ Här är koden som skickar SMS-meddelandet:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
 
-### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
+### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
 
@@ -140,10 +142,10 @@ Content-Type: application/json
 ```
 HTTP/1.1 202 Accepted
 Content-Type: application/json; charset=utf-8
-Location: https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={SystemKey}
+Location: https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={SystemKey}
 RetryAfter: 10
 
-{"id": "f6893f25acf64df2ab53a35c09d52635", "statusQueryGetUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "sendEventPostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/raiseEvent/{eventName}?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "terminatePostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason={text}&taskHub=SampleHubVS&connection=Storage&code={systemKey}"}
+{"id": "f6893f25acf64df2ab53a35c09d52635", "statusQueryGetUri": "https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "sendEventPostUri": "https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/raiseEvent/{eventName}?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "terminatePostUri": "https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason={text}&taskHub=SampleHubVS&connection=Storage&code={systemKey}"}
 ```
 
 **E3_Monitor** -instansen startar och frågar efter aktuella väder förhållanden för den begärda platsen. Om väderet är klart anropas en aktivitets funktion för att skicka en avisering. annars anges en timer. När timern upphör att gälla återupptas dirigeringen.
@@ -166,10 +168,10 @@ Du kan se dirigeringens aktivitet genom att titta på funktions loggarna i Azure
 2018-03-01T01:14:54.030 Function completed (Success, Id=561d0c78-ee6e-46cb-b6db-39ef639c9a2c, Duration=62ms)
 ```
 
-Dirigeringen [avslutas](durable-functions-instance-management.md) när tids gränsen nås eller Clear-Skies har identifierats. Du kan också använda `TerminateAsync` (.net) eller `terminate` (Java Script) i en annan funktion eller anropa **terminatePostUri** http post webhook som refereras i 202-svaret ovan `{text}` , vilket ersätter med orsaken till uppsägningen:
+Dirigeringen [avslutas](durable-functions-instance-management.md) när tids gränsen nås eller Clear-Skies har identifierats. Du kan också använda `TerminateAsync` (.NET) eller `terminate` (Java Script) i en annan funktion eller anropa **terminatePostUri** http post webhook som refereras i 202-svaret ovan, vilket ersätter `{text}` med orsaken till uppsägningen:
 
 ```
-POST https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}
+POST https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}
 ```
 
 ## <a name="visual-studio-sample-code"></a>Visual Studio-exempel kod
@@ -177,7 +179,7 @@ POST https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf6
 Här är dirigeringen som en enskild C# fil i ett Visual Studio-projekt:
 
 > [!NOTE]
-> Du måste installera `Microsoft.Azure.WebJobs.Extensions.Twilio` NuGet-paketet så att du kan köra exempel koden nedan.
+> Du måste installera `Microsoft.Azure.WebJobs.Extensions.Twilio` NuGet-paketet för att köra exempel koden nedan.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs)]
 

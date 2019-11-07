@@ -1,5 +1,5 @@
 ---
-title: Regler för Azure SQL Database och Azure SQL Data Warehouse IP-brandvägg | Microsoft Docs
+title: Regler för Azure SQL Database och Azure SQL Data Warehouse IP-brandvägg
 description: Konfigurera IP-brandväggs regler på server nivå för en SQL-databas eller SQL Data Warehouse-brandvägg. Hantera åtkomst och konfigurera regler för IP-brandvägg på databas nivå för en databas med en eller flera databaser.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: e3e65a6deadfbcad563a6b64c0a9f48182cdd571
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 52566dbc60c3c2fd532891ab4f7d3461f9d77557
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71686474"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690045"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Regler för Azure SQL Database och Azure SQL Data Warehouse IP-brandvägg
 
@@ -178,7 +178,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all utveckling är nu för AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-och AzureRm-modulerna är i stort sett identiska.
 
-| Cmdlet: | Nivå | Beskrivning |
+| Cmdlet | Nivå | Beskrivning |
 | --- | --- | --- |
 | [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |Server |Returnerar de aktuella brandväggsreglerna på servernivå |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |Server |Skapar en ny brandväggsregel på servernivå |
@@ -198,7 +198,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 ### <a name="use-cli-to-manage-server-level-ip-firewall-rules"></a>Använd CLI för att hantera IP-brandväggs regler på server nivå
 
-| Cmdlet: | Nivå | Beskrivning |
+| Cmdlet | Nivå | Beskrivning |
 | --- | --- | --- |
 |[AZ SQL Server-brandvägg-regel skapa](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Server|Skapar en server-IP-brandväggsregel|
 |[AZ SQL Server Firewall-Rule List](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Server|Visar en lista över IP-brandväggens regler på en server|
@@ -231,7 +231,7 @@ Tänk på följande när åtkomsten till SQL Database tjänsten inte fungerar so
 
 - **Lokal brand Väggs konfiguration:**
 
-  Innan datorn kan komma åt SQL Database kan du behöva skapa ett brand Väggs undantag på datorn för TCP-port 1433. Du kan behöva öppna ytterligare portar för att kunna göra anslutningar inom molnets gränser i Azure. Mer information finns i avsnittet "SQL Database: Utanför vs inuti avsnittet av [portar utöver 1433 för ADO.NET 4,5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
+  Innan datorn kan komma åt SQL Database kan du behöva skapa ett brand Väggs undantag på datorn för TCP-port 1433. Du kan behöva öppna ytterligare portar för att kunna göra anslutningar inom molnets gränser i Azure. Mer information finns i avsnittet "SQL Database: utanför vs-inifrån" i [portar utöver 1433 för ADO.NET 4,5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 - **Översättning av nätverks adresser:**
 
@@ -260,7 +260,7 @@ Tänk på följande när åtkomsten till SQL Database tjänsten inte fungerar so
 - Bekräfta att din företags nätverks miljö tillåter inkommande kommunikation från beräknings-IP-adressintervall (inklusive SQL-intervall) som används av Azure-datacentren. Du kanske måste lägga till dessa IP-adresser i listan över tillåtna. Se [Microsoft Azure Data Center IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653).  
 - En snabb start om hur du skapar en regel för IP-brandvägg på server nivå finns i [skapa en Azure SQL-databas](sql-database-single-database-get-started.md).
 - För hjälp med att ansluta till en Azure SQL-databas från program med öppen källkod eller från tredje part, se [kod exempel för klient snabb start för att SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
-- Information om ytterligare portar som du kan behöva öppna finns i avsnittet "SQL Database: Utanför vs inuti avsnittet av [portar utöver 1433 för ADO.NET 4,5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
+- Information om ytterligare portar som du kan behöva öppna finns i avsnittet "SQL Database: utanför vs-inifrån" i [portar utöver 1433 för ADO.NET 4,5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
 - En översikt över Azure SQL Database säkerhet finns i [skydda databasen](sql-database-security-overview.md).
 
 <!--Image references-->

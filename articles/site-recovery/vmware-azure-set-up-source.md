@@ -1,5 +1,5 @@
 ---
-title: Konfigurera käll miljön för VMware till Azure-replikering med Azure Site Recovery | Microsoft Docs
+title: Konfigurera käll inställningar för VMware haveri beredskap till Azure med Azure Site Recovery
 description: Den här artikeln beskriver hur du konfigurerar den lokala miljön för att replikera virtuella VMware-datorer till Azure med Azure Site Recovery.
 services: site-recovery
 author: Rajeswari-Mamilla
@@ -8,18 +8,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
-ms.openlocfilehash: bf1ff4dfba105b6c90ab949217453e1db82d109d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ff01aed92669acb193ff149ea9298550134f42a3
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791778"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622215"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Konfigurera käll miljön för VMware till Azure-replikering
 
 Den här artikeln beskriver hur du konfigurerar din lokala lokala miljö för att replikera virtuella VMware-datorer till Azure. Artikeln innehåller steg för att välja ett scenario för replikering, konfigurera en lokal dator som Site Recovery konfigurations Server och identifiera lokala virtuella datorer automatiskt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Artikeln förutsätter att du redan har:
 

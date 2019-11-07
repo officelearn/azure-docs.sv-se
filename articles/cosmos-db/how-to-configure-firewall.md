@@ -4,14 +4,14 @@ description: Lär dig hur du konfigurerar principer för IP-åtkomstkontroll fö
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: d4fab572f31d3187135ea3ac406431ced98828b1
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 8522a537301c1d35da2a2eb46b4374fa4daf6a27
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815934"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580685"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Konfigurera IP-brandvägg i Azure Cosmos DB
 
@@ -40,7 +40,7 @@ När du aktiverar en princip för IP-åtkomstkontroll program mässigt måste du
 |------|----------|
 |Tyskland|51.4.229.218|
 |Kina|139.217.8.252|
-|US Gov|52.244.48.71|
+|USA-förvaltad region|52.244.48.71|
 |Alla andra regioner|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
 
 Du kan aktivera åtkomst till Azure Portal genom att välja alternativet **Tillåt åtkomst från Azure Portal** , som du ser i följande skärm bild:
@@ -94,13 +94,13 @@ När du ansluter till ditt Azure Cosmos DB-konto från en dator på Internet må
 
 ## <a id="configure-ip-firewall-arm"></a>Konfigurera en IP-brandvägg med en Resource Manager-mall
 
-Om du vill konfigurera åtkomst kontroll till ditt Azure Cosmos DB konto kontrollerar du att Resource Manager-mallen anger attributet **ipRangeFilter** med en lista över tillåtna IP-intervall. Om du konfigurerar IP-brandvägg till ett redan distribuerat Cosmos-konto ser du till att `locations`-matrisen matchar vad som för närvarande har distribuerats. Du kan inte ändra `locations`-matrisen och andra egenskaper samtidigt. Mer information och exempel på Azure Resource Manager mallar för Azure Cosmos DB finns i [Azure Resource Manager mallar för Azure Cosmos DB](resource-manager-samples.md)
+Om du vill konfigurera åtkomst kontroll till ditt Azure Cosmos DB konto kontrollerar du att Resource Manager-mallen anger attributet **ipRangeFilter** med en lista över tillåtna IP-intervall. Om du konfigurerar IP-brandvägg till ett redan distribuerat Cosmos-konto ser du till att `locations` mat ris matchar vad som för närvarande har distribuerats. Du kan inte ändra `locations` matrisen och andra egenskaper samtidigt. Mer information och exempel på Azure Resource Manager mallar för Azure Cosmos DB finns i [Azure Resource Manager mallar för Azure Cosmos DB](resource-manager-samples.md)
 
 ```json
 {
   "type": "Microsoft.DocumentDB/databaseAccounts",
   "name": "[variables('accountName')]",
-  "apiVersion": "2016-03-31",
+  "apiVersion": "2019-08-01",
   "location": "[parameters('location')]",
   "kind": "GlobalDocumentDB",
   "properties": {
@@ -108,8 +108,7 @@ Om du vill konfigurera åtkomst kontroll till ditt Azure Cosmos DB konto kontrol
     "locations": "[variables('locations')]",
     "databaseAccountOfferType": "Standard",
     "enableAutomaticFailover": "[parameters('automaticFailover')]",
-    "enableMultipleWriteLocations": "[parameters('multipleWriteLocations')]",
-    "ipRangeFilter":"183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
+    "ipRangeFilter":"40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
   }
 }
 ```

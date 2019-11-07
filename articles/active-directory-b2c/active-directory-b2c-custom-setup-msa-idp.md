@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c04f578e73b81000fa605283a4afa4103655bcf4
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 1f068b624b5a8f580f61e9eb2ed0d197f05aa1b0
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71826986"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643663"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med en Microsoft-konto att använda anpassade principer i Azure Active Directory B2C
 
@@ -23,12 +23,12 @@ ms.locfileid: "71826986"
 
 Den här artikeln visar hur du aktiverar inloggning för användare från en Microsoft-konto med hjälp av [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 - Om du inte redan har en Microsoft-konto skapar du en på [https://www.live.com/](https://www.live.com/).
 
-## <a name="add-an-application"></a>Lägg till ett program
+## <a name="add-an-application"></a>Lägga till ett program
 
 Om du vill aktivera inloggning för användare med en Microsoft-konto måste du registrera ett program i Azure AD-klienten. Azure AD-klienten är inte samma som din Azure AD B2C klient.
 
@@ -38,7 +38,7 @@ Om du vill aktivera inloggning för användare med en Microsoft-konto måste du 
 1. Välj **ny registrering**.
 1. Ange ett **namn** för ditt program. Till exempel *MSAapp1*.
 1. Under **konto typer som stöds**väljer du **konton i valfri organisations katalog och personliga Microsoft-konton (t. ex. Skype, Xbox, Outlook.com)** .
-1. Under **omdirigerings-URI (valfritt)** väljer du `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` **webb** och anger i text rutan. Ersätt `your-tenant-name` med ditt Azure AD B2C klient namn.
+1. Under **omdirigerings-URI (valfritt)** väljer du **webb** och anger `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` i text rutan. Ersätt `your-tenant-name` med ditt Azure AD B2C klient namn.
 1. Välj **register**
 1. Registrera **program-ID (klient)** som visas på sidan program översikt. Du behöver detta när du konfigurerar anspråks leverantören i ett senare avsnitt.
 1. Välj **certifikat & hemligheter**
@@ -55,10 +55,10 @@ Nu när du har skapat programmet i din Azure AD-klient måste du lagra programme
 1. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 1. På sidan Översikt väljer du **ID för identitets miljö**.
 1. Välj **princip nycklar** och välj sedan **Lägg till**.
-1. För **alternativ**väljer `Manual`du.
-1. Ange ett **namn** för princip nyckeln. Till exempel `MSASecret`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
+1. För **alternativ**väljer du `Manual`.
+1. Ange ett **namn** för princip nyckeln. Till exempel `MSASecret`. Prefixet `B2C_1A_` läggs automatiskt till namnet på din nyckel.
 1. I **hemlighet**anger du den klient hemlighet som du registrerade i föregående avsnitt.
-1. För **nyckel användning**väljer `Signature`du.
+1. För **nyckel användning**väljer du `Signature`.
 1. Klicka på **Skapa**.
 
 ## <a name="add-a-claims-provider"></a>Lägg till en anspråks leverantör
@@ -141,7 +141,7 @@ Nu har du konfigurerat identitets leverantören, men den är inte tillgänglig �
 
 **ClaimsProviderSelection** -elementet är detsamma som en identitetsprovider på en registrerings-eller inloggnings skärm. Om du lägger till ett **ClaimsProviderSelection** -element för en Microsoft-konto visas en ny-knapp när en användare hamnar på sidan.
 
-1. I filen *TrustFrameworkExtensions. XML* letar du reda på **OrchestrationStep** -elementet som `Order="1"` innehåller i användar resan som du skapade.
+1. I filen *TrustFrameworkExtensions. XML* letar du upp **OrchestrationStep** -elementet som innehåller `Order="1"` i användar resan som du skapade.
 1. Lägg till följande-element under **ClaimsProviderSelects**. Ange värdet för **TargetClaimsExchangeId** till ett lämpligt värde, till exempel `MicrosoftAccountExchange`:
 
     ```XML
@@ -152,14 +152,14 @@ Nu har du konfigurerat identitets leverantören, men den är inte tillgänglig �
 
 Nu när du har en knapp på plats måste du länka den till en åtgärd. Åtgärden, i det här fallet, är att Azure AD B2C kommunicera med en Microsoft-konto för att ta emot en token.
 
-1. Hitta **OrchestrationStep** som ingår `Order="2"` i användar resan.
+1. Hitta **OrchestrationStep** som innehåller `Order="2"` i användar resan.
 1. Lägg till följande **ClaimsExchange** -element och kontrol lera att du använder samma värde för det ID som du använde för **TargetClaimsExchangeId**:
 
     ```xml
     <ClaimsExchange Id="MicrosoftAccountExchange" TechnicalProfileReferenceId="MSA-OIDC" />
     ```
 
-    Uppdatera värdet för **TechnicalProfileReferenceId** så att det matchar `Id` värdet i värdet i **TechnicalProfile** -elementet för anspråksprovidern som du lade till tidigare. Till exempel `MSA-OIDC`.
+    Uppdatera värdet för **TechnicalProfileReferenceId** så att det matchar värdet för `Id`-värdet i **TechnicalProfile** -elementet i anspråks leverantören som du lade till tidigare. Till exempel `MSA-OIDC`.
 
 1. Spara filen *TrustFrameworkExtensions. XML* och ladda upp den igen för verifiering.
 

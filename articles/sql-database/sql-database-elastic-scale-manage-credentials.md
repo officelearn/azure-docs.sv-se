@@ -1,5 +1,5 @@
 ---
-title: Hantera autentiseringsuppgifter i klient biblioteket för Elastic Database | Microsoft Docs
+title: Hantera autentiseringsuppgifter i klient biblioteket för Elastic Database
 description: Ange rätt nivå för autentiseringsuppgifter, admin till skrivskyddad, för Elastic Database-appar
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: d89e83092775828016c2c47a96164319f5474c1e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8856b827ad2c6719cdc6e8c387be1b63b3f44b22
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568427"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690204"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Autentiseringsuppgifter som används för att komma åt Elastic Database klient biblioteket
 
@@ -43,7 +43,7 @@ Variabeln **smmAdminConnectionString** är en anslutnings sträng som innehålle
 "Server=<yourserver>.database.windows.net;Database=<yourdatabase>;User ID=<yourmgmtusername>;Password=<yourmgmtpassword>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;”
 ```
 
-Använd inte värden i formatet "username@server", istället för att använda värdet "username".  Detta beror på att autentiseringsuppgifterna måste fungera mot både Shard Map Manager-databasen och enskilda Shards, vilket kan finnas på olika servrar.
+Använd inte värden i formatet "username@server" – Använd istället värdet "username".  Detta beror på att autentiseringsuppgifterna måste fungera mot både Shard Map Manager-databasen och enskilda Shards, vilket kan finnas på olika servrar.
 
 ## <a name="access-credentials"></a>Autentiseringsuppgifter för åtkomst
 
@@ -70,9 +70,9 @@ I det här exemplet innehåller **smmUserConnectionString** anslutnings stränge
 "User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;”  
 ```
 
-Använd inte värden i formatet "username@server" som med administratörs behörighet. Använd istället "username".  Observera också att anslutnings strängen inte innehåller ett server namn och ett databas namn. Det beror på att **OpenConnectionForKey** -anropet automatiskt dirigerar anslutningen till rätt Shard baserat på nyckeln. Därför anges inte databas namnet och Server namnet.
+Använd inte värden i formatet "username@server" som administratörs behörighet. Använd istället "username".  Observera också att anslutnings strängen inte innehåller ett server namn och ett databas namn. Det beror på att **OpenConnectionForKey** -anropet automatiskt dirigerar anslutningen till rätt Shard baserat på nyckeln. Därför anges inte databas namnet och Server namnet.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 [Hantera databaser och inloggningar i Azure SQL Database](sql-database-manage-logins.md)
 

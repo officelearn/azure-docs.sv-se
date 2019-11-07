@@ -1,20 +1,17 @@
 ---
 title: Använda beständig lagring i Azure våren Cloud | Microsoft Docs
 description: Använda beständig lagring i Azure våren Cloud
-services: spring-cloud
-author: v-vasuke
-manager: gwallace
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: jeconnoc
-ms.openlocfilehash: f14da7d8e64c58a54a9da4d851ac22fd710ea8ca
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d70e7ff747b80b661e848f1c208f0d1c2c928248
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163714"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607775"
 ---
 # <a name="how-to-use-persistent-storage-in-azure-spring-cloud"></a>Använda beständig lagring i Azure våren Cloud
 
@@ -23,7 +20,7 @@ Azure våren Cloud tillhandahåller två typer av lagring för ditt program: bes
 > [!WARNING]
 > Om du startar om en program instans raderas den tillhör ande tillfälliga lagringen permanent.
 
-Beständig lagring är en fil resurs behållare som hanteras av Azure som tilldelas per program. Data som lagras i beständig lagring delas i alla instanser av programmet. En Azure våren moln tjänst instans kan ha högst 10 program med beständig disk aktive rad. Varje program får 50 GB beständig lagring. Standard monterings Sök vägen för beständigt lagring är `/persistent`.
+Beständig lagring är en fil resurs behållare som hanteras av Azure som tilldelas per program. Data som lagras i beständig lagring delas i alla instanser av programmet. En Azure våren moln tjänst instans kan ha högst 10 program med beständig disk aktive rad. Varje program får 50 GB beständig lagring. Standard monterings vägen för beständigt lagrings utrymme är `/persistent`.
 
 > [!WARNING]
 > Om du *inaktiverar* beständig lagring frigörs lagringen för programmet.  Alla data i det lagrings kontot kommer att gå förlorade. 
@@ -53,6 +50,12 @@ Beständig lagring är en fil resurs behållare som hanteras av Azure som tillde
 När beständig lagring har Aktiver ATS visas dess storlek och sökväg både på den här sidan.
 
 ## <a name="use-the-azure-cli-to-modify-persistent-storage"></a>Använd Azure CLI för att ändra beständig lagring
+
+Om det behövs installerar du våren Cloud-tillägget för Azure CLI:
+
+```azurecli
+az extension add --name spring-cloud
+```
 
 Skapa en app med beständig disk aktive rad:
  

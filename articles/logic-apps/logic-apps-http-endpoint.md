@@ -6,208 +6,248 @@ ms.service: logic-apps
 ms.workload: integration
 author: ecfan
 ms.author: klam
-ms.reviewer: jehollan, klam, LADocs
-manager: carmonm
-ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
+ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
-ms.custom: H1Hack27Feb2017
-ms.date: 03/31/2017
-ms.openlocfilehash: 4fc20c4b1314d953ea979192c81b2c264292d3af
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.date: 11/04/2019
+ms.openlocfilehash: 41173e088b000530030b24400640f8003f330db6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73041959"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581109"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Anropa, utlösa eller kapsla Logi Kap par genom att använda HTTP-slutpunkter i Azure Logic Apps
 
-Du kan på ett enhetligt sätt exponera synkrona HTTP-slutpunkter som utlösare i Logi Kap par så att du kan utlösa eller anropa dina Logi Kap par via en URL. Du kan också kapsla arbets flöden i dina Logi Kap par genom att använda ett mönster av anrops bara slut punkter.
+För att din Logi Kap par ska kunna anropas via en URL så att din Logi Kap par kan ta emot inkommande begär Anden från andra tjänster, kan du på ett enhetligt sätt exponera en synkron HTTP-slutpunkt som en utlösare för den logiska appen. När du ställer in den här funktionen kan du också kapsla din Logi Kap par i andra Logic Apps, vilket gör att du kan skapa ett mönster för slut punkter som kan anropas.
 
-För att skapa HTTP-slutpunkter kan du lägga till dessa utlösare så att dina Logi Kap par kan ta emot inkommande begär Anden:
+Om du vill konfigurera en HTTP-slutpunkt kan du använda vilken typ av utlösare som helst som gör det möjligt för logi Kap par att ta emot inkommande begär Anden:
 
 * [Förfrågan](../connectors/connectors-native-reqres.md)
-
-* [API-anslutning-webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnection-trigger)
-
 * [HTTP-webhook](../connectors/connectors-native-webhook.md)
+* Hanterade anslutnings utlösare som har [typen ApiConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) och kan ta emot inkommande HTTP-begäranden
 
-   > [!NOTE]
-   > Även om dessa exempel använder **begär** ande utlösare kan du använda någon av de listade begär ande utlösarna och alla principer som identiskt gäller för de andra utlösarna.
+> [!NOTE]
+> I de här exemplen används begär ande utlösare, men du kan använda alla HTTP-begäranden som är baserade på föregående lista. Alla principer som identiskt gäller för dessa typer av utlösare.
 
-## <a name="set-up-an-http-endpoint-for-your-logic-app"></a>Konfigurera en HTTP-slutpunkt för din Logic app
+Om du inte har använt Logic Apps, se [Vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabb start: skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-Om du vill skapa en HTTP-slutpunkt lägger du till en utlösare som kan ta emot inkommande begär Anden.
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-1. Logga in på [Azure-portalen](https://portal.azure.com "Azure portal"). Gå till din Logic app och öppna Logic App Designer.
+* En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-1. Lägg till en utlösare som tillåter att din Logic app tar emot inkommande begär Anden. Lägg till exempel till utlösaren för **begäran** till din Logic app.
+* Den Logic-app där du vill konfigurera HTTP-slutpunkten som utlösaren. Du kan börja med antingen en tom Logic-app eller en befintlig Logic-app där du vill ersätta den aktuella utlösaren. Det här exemplet börjar med en tom Logic-app.
 
-1. Under **JSON-schemat för begär ande text**kan du ange ett JSON-schema för nytto lasten (data) som du förväntar sig att utlösaren ska ta emot.
+## <a name="create-a-callable-endpoint"></a>Skapa en slut punkt som går att anropa
 
-   Designern använder det här schemat för att skapa token som din Logic app kan använda för att använda, parsa och skicka data från utlösaren via ditt arbets flöde. Läs mer om [tokens som genereras från JSON-scheman](#generated-tokens).
+1. Logga in på [Azure Portal](https://portal.azure.com). Skapa och öppna en tom Logic-app i Logic App Designer.
 
-   I det här exemplet anger du det här schemat som det visas i designern:
+   I det här exemplet används en begär ande utlösare, men du kan använda en utlösare som kan ta emot inkommande HTTP-begäranden. Alla principer gäller identiskt för dessa utlösare. Mer information om begär ande utlösare finns i [ta emot och svara på inkommande https-anrop med hjälp av Azure Logic Apps](../connectors/connectors-native-reqres.md).
+
+1. Välj **inbyggd i**rutan Sök. I rutan Sök anger du `request` som filter. Välj **när en HTTP-begäran tas emot**från listan utlösare.
+
+   ![Sök efter och välj begär ande utlösare](./media/logic-apps-http-endpoint/find-and-select-request-trigger.png)
+
+1. Du kan också ange ett JSON-schema som beskriver den nytto last eller de data som du förväntar dig att utlösaren ska ta emot i rutan **JSON-schema för begär ande text** .
+
+   Designern använder det här schemat för att skapa tokens som representerar utlösare. Du kan sedan enkelt referera till dessa utdata i din Logic app-arbetsflöde. Läs mer om [tokens som genereras från JSON-scheman](#generated-tokens).
+
+   I det här exemplet anger du följande schema:
 
    ```json
-   {
+      {
       "type": "object",
       "properties": {
          "address": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+               "streetNumber": {
+                  "type": "string"
+               },
+               "streetName": {
+                  "type": "string"
+               },
+               "town": {
+                  "type": "string"
+               },
+               "postalCode": {
+                  "type": "string"
+               }
+            }
          }
-      },
-      "required": [
-        "address"
-      ]
-    }
+      }
+   }
     ```
 
    ![Ange JSON-schema för begär ande åtgärden](./media/logic-apps-http-endpoint/manual-request-trigger-schema.png)
 
-   > [!TIP]
-   >
-   > Du kan skapa ett schema för ett exempel på en JSON-nyttolast från ett verktyg som [jsonschema.net](https://jsonschema.net/) eller i utlösaren för **begäran** genom att välja **Använd exempel nytto last för att skapa schemat**. Ange provets nytto last och välj sedan **slutfört**.
+   Du kan också skapa ett JSON-schema genom att ange en exempel nytto last:
 
-   Exempel:
+   1. I utlösaren för **begäran** väljer **du Använd exempel nytto last för att generera schemat**.
 
-   ```json
-   {
-      "address": "21 2nd Street, New York, New York"
-   }
-   ```
+   1. I rutan **Ange eller klistra in ett exempel-JSON-nyttolast** , anger du exempelets nytto Last, till exempel:
 
-   genererar det här schemat:
-
-   ```json
-   {
-      "type": "object",
-      "properties": {
+      ```json
+      {
          "address": {
-            "type": "string"
-         }
+            "streetNumber": "00000",
+            "streetName": "AnyStreet",
+            "town": "AnyTown",
+            "postalCode": "11111-1111"
+        }
       }
-   }
-   ```
+      ```
 
-1. Spara din logikapp. Under **http post till denna URL**bör du nu hitta en genererad återanrops-URL, t. ex. det här exemplet:
+   1. När du är klar väljer du **klar**.
+
+      I rutan **begär text-JSON-schema** visas nu det genererade schemat.
+
+1. Spara din logikapp.
+
+   I rutan **http post till denna URL** visas nu den genererade återanrops-URL som andra tjänster kan använda för att anropa och utlösa din Logic app. Denna URL innehåller en nyckel för signatur för delad åtkomst (SAS) som används för autentisering, i frågeparametrar, till exempel:
 
    ![URL för återanrop har genererats för slut punkt](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
 
-   Denna URL innehåller en nyckel för signatur för delad åtkomst (SAS) i de frågeparametrar som används för autentisering. Du kan också hämta HTTP-slutpunktens URL från din Logic app-översikt i Azure Portal. Under **utlösnings historik**väljer du din utlösare:
+   Du kan också hämta HTTP-slutpunktens URL från din Logic appss **översikts** fönster.
 
-   ![Hämta URL för HTTP-slutpunkt från Azure Portal](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
+   1. På din Logic Apps-meny väljer du **Översikt**.
 
-   Eller så kan du hämta webb adressen genom att göra det här anropet:
+   1. I avsnittet **Sammanfattning** väljer du **Se utlösarens historik**.
 
-    ```http
-    POST https://management.azure.com/{logic-app-resource-ID}/triggers/{myendpointtrigger}/listCallbackURL?api-version=2016-06-01
-    ```
+      ![Hämta URL för HTTP-slutpunkt från Azure Portal](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
 
-## <a name="change-the-http-method-for-your-trigger"></a>Ändra HTTP-metoden för utlösaren
+   1. Under **återanrops-URL [post]** , kopierar du URL: en:
 
-Som standard förväntas utlösaren av **begäran** en http post-begäran, men du kan använda en annan http-metod.
+      ![Kopiera URL för HTTP-slutpunkt från Azure Portal](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url.png)
 
-> [!NOTE]
-> Du kan bara ange en metod typ.
+      Eller så kan du hämta webb adressen genom att göra det här anropet:
 
-1. Välj **Visa avancerade alternativ**på din **begär** ande utlösare.
+      ```http
+      POST https://management.azure.com/{logic-app-resource-ID}/triggers/{endpoint-trigger-name}/listCallbackURL?api-version=2016-06-01
+      ```
 
-2. Öppna **metod** listan. I det här exemplet väljer du **Hämta** så att du kan testa URL: en för http-slutpunkten senare.
+<a name="set-method"></a>
 
-   > [!NOTE]
-   > Du kan välja någon annan HTTP-metod eller ange en anpassad metod för din egen Logic-app.
+## <a name="set-expected-http-method"></a>Ange förväntad HTTP-metod
 
-   ![Välj HTTP-metod som ska användas för begäran](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
+Som standard förväntas utlösaren av begäran en HTTP POST-begäran. Du kan dock ange en annan metod för att förvänta, men endast en metod.
 
-## <a name="accept-parameters-through-your-http-endpoint-url"></a>Acceptera parametrar via URL: en för HTTP-slutpunkt
+1. Öppna listan **Lägg till ny parameter** i begär ande utlösare och välj **metod**, som lägger till den här egenskapen i utlösaren.
 
-När du vill att URL: en för HTTP-slutpunkten ska acceptera parametrar, anpassa utlösarens relativa sökväg.
+   ![Lägg till egenskapen "metod" i utlösare](./media/logic-apps-http-endpoint/select-add-new-parameter-for-method.png)
 
-1. Välj **Visa avancerade alternativ**på din **begär** ande utlösare. 
+1. I listan **metod** väljer du en annan metod som utlösaren förväntar sig i stället. Du kan också ange en anpassad metod.
 
-2. Under **metod**anger du den http-metod som du vill att din begäran ska använda. I det här exemplet väljer du metoden **Get** , om du inte redan har gjort det, så att du kan testa URL: en för http-slutpunkten.
+   Välj till exempel metoden **Get** så att du kan testa URL: en för http-slutpunkten senare.
 
-   > [!NOTE]
-   > När du anger en relativ sökväg för utlösaren måste du även uttryckligen ange en HTTP-metod för utlösaren.
+   ![Välj HTTP-metod som ska användas för utlösare](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
 
-3. Under **relativ sökväg**anger du den relativa sökvägen till den parameter som din URL ska acceptera, till exempel `customers/{customerID}`.
+## <a name="accept-parameters-in-endpoint-url"></a>Acceptera parametrar i slut punkts-URL
 
-   ![Ange HTTP-metod och relativ sökväg för parametern](./media/logic-apps-http-endpoint/relative-path-url-value.png)
+När du vill att URL-adressen för slut punkten ska acceptera parametrar, anger du den relativa sökvägen i utlösaren. Du måste också uttryckligen [Ange metoden](#set-method) som din http-begäran förväntar sig.
 
-4. Om du vill använda parametern lägger du till en **svars** åtgärd i din Logic app. (Under utlösaren väljer du **nytt steg**  > **lägger till en åtgärd**  > **svar**) 
+1. Öppna listan **Lägg till ny parameter** i begär ande utlösare och välj **relativ sökväg**, som lägger till den här egenskapen i utlösaren.
 
-5. I ditt svars **brödtext**inkluderar du token för den parameter som du angav i utlösarens relativa sökväg.
+   ![Lägg till egenskapen "relativ sökväg" i utlösaren](./media/logic-apps-http-endpoint/select-add-new-parameter-for-relative-path.png)
 
-   Om du till exempel vill returnera `Hello {customerID}` uppdaterar du svarets **brödtext** med `Hello {customerID token}`. Listan med dynamiskt innehåll ska visas och Visa `customerID`-token som du kan välja.
+1. I egenskapen **relativ sökväg** anger du den relativa sökvägen för parametern i JSON-schemat som du vill att din URL ska acceptera, till exempel `address/{postalCode}`.
 
-   ![Lägg till parameter i svars texten](./media/logic-apps-http-endpoint/relative-url-with-parameter-token.png)
+   ![Ange den relativa sökvägen för parametern](./media/logic-apps-http-endpoint/relative-path-url-value.png)
 
-   **Bröd texten** bör se ut som i det här exemplet:
+1. Om du vill använda parametern kan du söka efter och lägga till en **svars** åtgärd i din Logic app.
+
+   1. Under utlösaren för begäran väljer du **nytt steg** > **lägger till en åtgärd**.
+
+   1. Under **Välj en åtgärd**går du till rutan Sök och anger `response` som ditt filter.
+
+   1. I listan åtgärder väljer du åtgärden **svar** .
+
+1. I svars åtgärdens egenskap **Body** inkluderar du den token som representerar den parameter som du angav i utlösarens relativa sökväg.
+
+   Anta till exempel att du vill att svars åtgärden ska returnera `Postal Code: {postalCode}`.
+
+   I egenskapen **Body** anger `Postal Code: ` med ett avslutande blank steg. Välj token **Postnr** i listan med dynamiskt innehåll som visas.
+
+   ![Lägg till den angivna parametern i svars texten](./media/logic-apps-http-endpoint/relative-url-with-parameter-token.png)
+
+   Egenskapen **Body** innehåller nu den valda parametern:
 
    ![Exempel på svars text med parameter](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
 
-6. Spara din logikapp. 
+1. Spara din logikapp.
 
-    URL-adressen till HTTP-slutpunkten innehåller nu den relativa sökvägen, till exempel: 
+    URL-adressen till HTTP-slutpunkten innehåller nu den relativa sökvägen, till exempel:
 
     ```http
-    https://prod-00.southcentralus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/customers/{customerID}...
+    https://prod-25.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/postalCode?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}
     ```
 
-7. Om du vill testa HTTP-slutpunkten kopierar du och klistrar in den uppdaterade URL: en i ett annat webbläsarfönster, men ersätter `{customerID}` med `123456` och trycker på RETUR.
+1. Om du vill testa HTTP-slutpunkten kopierar du och klistrar in den uppdaterade URL: en i ett annat webbläsarfönster, men ersätter `{postalCode}` med `123456`och trycker på RETUR.
 
-   Webbläsaren ska visa den här texten: `Hello 123456`
+   Webbläsaren visar den här texten: `Postal Code: 123456`
+
+## <a name="call-logic-app-through-http-endpoint"></a>Anropa Logic app via HTTP-slutpunkt
+
+När du har skapat HTTP-slutpunkten kan du utlösa Logic-appen genom att skicka en HTTP `POST`-begäran till slut punktens fullständiga URL. Logic Apps har inbyggt stöd för slut punkter för direkt åtkomst.
 
 <a name="generated-tokens"></a>
 
-### <a name="tokens-generated-from-json-schemas-for-your-logic-app"></a>Tokens som genererats från JSON-scheman för din Logic app
+## <a name="tokens-generated-from-schema"></a>Tokens som genererats från schema
 
-När du anger ett JSON-schema i din **begär** ande utlösare genererar Logic App Designer tokens för egenskaper i schemat. Du kan sedan använda dessa token för att skicka data via ditt Logic app-arbetsflöde.
+När du anger ett JSON-schema i begär ande utlösaren genererar Logic App Designer tokens för egenskaperna i schemat. Du kan sedan använda dessa token för att skicka data via ditt Logic app-arbetsflöde.
 
-Om du i det här exemplet lägger till `title` och `name` egenskaper till ditt JSON-schema, är deras tokens nu tillgängliga för användning i senare arbets flödes steg. 
-
-Här är det fullständiga JSON-schemat:
+Om du till exempel lägger till fler egenskaper, till exempel `"suite"`, i JSON-schemat, är tokens för dessa egenskaper tillgängliga för dig i senare steg för din Logic app. Här är det fullständiga JSON-schemat:
 
 ```json
-{
+   {
    "type": "object",
    "properties": {
       "address": {
-         "type": "string"
-      },
-      "title": {
-         "type": "string"
-      },
-      "name": {
-         "type": "string"
+         "type": "object",
+         "properties": {
+            "streetNumber": {
+               "type": "string"
+            },
+            "streetName": {
+               "type": "string"
+            },
+            "suite": {
+               "type": "string"
+            },
+            "town": {
+               "type": "string"
+            },
+            "postalCode": {
+               "type": "string"
+            }
+         }
       }
-   },
-   "required": [
-      "address",
-      "title",
-      "name"
-   ]
+   }
 }
 ```
 
-## <a name="create-nested-workflows-for-logic-apps"></a>Skapa kapslade arbets flöden för Logic Apps
+## <a name="create-nested-logic-apps"></a>Skapa kapslade Logic Apps
 
-Du kan kapsla arbets flöden i din Logic app genom att lägga till andra Logic Apps som kan ta emot begär Anden. Om du vill ta med dessa Logi Kap par lägger du till åtgärden **Azure Logic Apps – Välj en Logic Apps arbets flödes** åtgärd i utlösaren. Du kan sedan välja från berättigade Logic Apps.
+Du kan kapsla arbets flöden i din Logic app genom att lägga till andra Logic Apps som kan ta emot begär Anden. Följ dessa steg om du vill ta med dessa Logic Apps:
 
-![Kapsla Logic app i aktuell Logic app](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
+1. Under steget där du vill anropa en annan Logic app väljer du **nytt steg** > **lägger till en åtgärd**.
 
-## <a name="call-or-trigger-logic-apps-through-http-endpoints"></a>Anropa eller utlös Logi Kap par via HTTP-slutpunkter
+1. Under **Välj en åtgärd**väljer du **inbyggt**. I rutan Sök anger du `logic apps` som filter. I listan åtgärder väljer du **Välj ett Logic Apps arbets flöde**.
 
-När du har skapat din HTTP-slutpunkt kan du utlösa din Logic app via en `POST`-metod till den fullständiga URL: en. Logic Apps har inbyggt stöd för slut punkter för direkt åtkomst.
+   ![Kapsla Logic app i aktuell Logic app](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
 
-> [!NOTE] 
-> Om du vill köra en Logi Kap par manuellt klickar du på **Kör**i vyn Logic App Designer eller Logic app kodvyn.
+   Designern visar de berättigade Logic Apps som du kan välja.
+
+1. Välj den Logic-app som ska anropas från din aktuella Logic-app.
+
+   ![Välj Logic app som ska anropas från den aktuella Logic-appen](./media/logic-apps-http-endpoint/select-logic-app-to-nest.png)
 
 ## <a name="reference-content-from-an-incoming-request"></a>Referens innehåll från en inkommande begäran
 
-Om innehålls typen är `application/json` kan du referera till egenskaper från den inkommande begäran. Annars behandlas innehåll som en enda binär enhet som du kan skicka till andra API: er. Om du vill referera till det här innehållet i arbets flödet måste du konvertera det innehållet. Om du till exempel skickar `application/xml` innehåll kan du använda `@xpath()` för en XPath-extrahering eller för att `@json()` konvertera XML till JSON. Lär dig mer om att [arbeta med innehålls typer](../logic-apps/logic-apps-content-type.md).
+Om den inkommande begärans innehålls typ är `application/json`kan du referera till egenskaperna i den inkommande begäran. Annars behandlas det här innehållet som en enda binär enhet som du kan skicka till andra API: er. Om du vill referera till det här innehållet i din Logic app-arbetsflöde måste du först konvertera det innehållet.
 
-Du kan använda funktionen `@triggerOutputs()` för att hämta utdata från en inkommande begäran. Utdata kan se ut som i det här exemplet:
+Om du till exempel skickar innehåll som har `application/xml` typ kan du använda [uttrycket`@xpath()`](../logic-apps/workflow-definition-language-functions-reference.md#xpath) för att utföra en XPath-extrahering eller använda [`@json()`-uttrycket](../logic-apps/workflow-definition-language-functions-reference.md#json) för att konvertera XML till JSON. Lär dig mer om att arbeta med [innehålls typer](../logic-apps/logic-apps-content-type.md)som stöds.
+
+Om du vill hämta utdata från en inkommande begäran kan du använda [uttrycket`@triggerOutputs`](../logic-apps/workflow-definition-language-functions-reference.md#triggerOutputs). Anta till exempel att du har utdata som ser ut som i det här exemplet:
 
 ```json
 {
@@ -220,38 +260,41 @@ Du kan använda funktionen `@triggerOutputs()` för att hämta utdata från en i
 }
 ```
 
-Om du vill komma åt egenskapen `body` specifikt kan du använda kortkommandot `@triggerBody()`.
+För att få åtkomst till specifikt `body`-egenskapen kan du använda [uttrycket`@triggerBody()`](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) som en genväg.
 
 ## <a name="respond-to-requests"></a>Svara på begär Anden
 
-Du kanske vill svara på vissa begär Anden som startar en Logic-app genom att returnera innehåll till anroparen. Om du vill skapa status kod, sidhuvud och brödtext för ditt svar kan du använda **svars** åtgärden. Den här åtgärden kan visas var som helst i din Logic app, inte bara i slutet av arbets flödet.
+Ibland vill du svara på vissa förfrågningar som utlöser din Logic app genom att returnera innehåll till anroparen. Använd svars åtgärden för att skapa status kod, sidhuvud och brödtext för ditt svar. Den här åtgärden kan visas var som helst i din Logic app, inte bara i slutet av arbets flödet. Om din Logic app inte innehåller någon svars åtgärd, svarar HTTP-slutpunkten *omedelbart* med status **202 accepterad** .
 
-> [!NOTE] 
-> Om din Logic app inte innehåller något **svar**, svarar http-slutpunkten *omedelbart* med en **202-godkänd** status. För att den ursprungliga begäran ska få svaret måste alla steg som krävs för svaret slutföras inom tids gränsen för [begäran](./logic-apps-limits-and-config.md) , om du inte anropar arbets flödet som en kapslad Logic-app. Om inget svar inträffar inom den här gränsen, tids gränsen för inkommande begäran och tar emot HTTP-svar **408-klientens tids gräns**. För kapslade Logic Apps fortsätter appen för överordnad logik att vänta på ett svar tills den har slutförts, oavsett hur lång tid som krävs.
+För att den ursprungliga anroparen ska kunna hämta svaret måste alla nödvändiga steg för svaret slutföras inom [tids gränsen för begäran](./logic-apps-limits-and-config.md) , om inte den Utlös ande Logic-appen anropas som en kapslad Logic-app. Om inget svar returneras inom den här gränsen, tids gränsen överskrids den inkommande begäran och tar emot **408-klientens timeout** -svar.
+
+För kapslade Logic Apps fortsätter appen för överordnad logik att vänta på ett svar tills alla steg har slutförts, oavsett hur lång tid det tar.
 
 ### <a name="construct-the-response"></a>Skapa svaret
 
-Du kan inkludera fler än en rubrik och vilken typ av innehåll som helst i svars texten. I exempel svaret anger sidhuvudet att svaret har innehålls typen `application/json`. och texten innehåller `title` och `name`, baserat på det JSON-schema som uppdaterades tidigare för **begäran** -utlösaren.
+I svars texten kan du inkludera flera huvuden och vilken typ av innehåll som helst. Det här svarets rubrik anger till exempel att svarets innehålls typ är `application/json` och att texten innehåller värden för `town` och `postalCode` egenskaper, baserat på JSON-schemat som beskrivs tidigare i det här avsnittet för utlösaren för begäran.
 
 ![Tillhandahåll svars innehåll för HTTP-svars åtgärd](./media/logic-apps-http-endpoint/content-for-response-action.png)
 
 Svaren har följande egenskaper:
 
-| Egenskap | Beskrivning |
-| --- | --- |
-| statusCode |Anger HTTP-statuskod för att svara på inkommande begäran. Den här koden kan vara vilken giltig status kod som helst som börjar med 2xx, 4xx eller 5xx. 3xx status koder är dock inte tillåtna. |
-| sidhuvud |Definierar valfritt antal huvuden som ska inkluderas i svaret. |
-| brödtext |Anger ett Body-objekt som kan vara en sträng, ett JSON-objekt eller till och med ett binärt innehåll som refereras från ett föregående steg. |
+| Egenskap (Visa) | Egenskap (JSON) | Beskrivning |
+|--------------------|-----------------|-------------|
+| **Statuskod** | `statusCode` | HTTP-statuskod som ska användas i svaret på inkommande begäran. Den här koden kan vara vilken giltig status kod som helst som börjar med 2xx, 4xx eller 5xx. 3xx status koder är dock inte tillåtna. |
+| **Headers** | `headers` | En eller flera huvuden som ska inkluderas i svaret |
+| **Brödtext** | `body` | Ett Body-objekt som kan vara en sträng, ett JSON-objekt eller till och med ett binärt innehåll som refereras från ett föregående steg |
+||||
 
-Så här ser JSON-schemat ut som nu för **svars** åtgärden:
+Om du vill visa JSON-definitionen för svars åtgärden och din Logic Apps fullständiga JSON-definition går du till verktygsfältet Logic App Designer och väljer **kodvyn**.
 
 ``` json
 "Response": {
    "type": "Response",
+   "kind": "http",
    "inputs": {
       "body": {
-         "title": "@{triggerBody()?['title']}",
-         "name": "@{triggerBody()?['name']}"
+         "postalCode": "@triggerBody()?['address']?['postalCode']",
+         "town": "@triggerBody()?['address']?['town']"
       },
       "headers": {
          "content-type": "application/json"
@@ -262,45 +305,27 @@ Så här ser JSON-schemat ut som nu för **svars** åtgärden:
 }
 ```
 
-> [!TIP]
-> Om du vill visa hela JSON-definitionen för din Logic app väljer du **kodvyn**i Logic App Designer.
-
 ## <a name="q--a"></a>Frågor och svar
 
 #### <a name="q-what-about-url-security"></a>F: vad gäller URL-säkerhet?
 
-A: Azure på ett säkert sätt skapar callback-URL: er för Logic app med hjälp av en signatur för delad åtkomst (SAS). Den här signaturen passerar som en frågeparameter och måste verifieras innan din Logi Kap par kan aktive ras. Azure genererar signaturen med en unik kombination av en hemlig nyckel per Logic app, Utlösarens namn och åtgärden som utförs. Så om någon har åtkomst till den hemliga Logic app-nyckeln kan de inte generera en giltig signatur.
+**A**: Azure på ett säkert sätt skapar callback-URL: er för Logic app med hjälp av [signaturen för delad åtkomst (SAS)](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature). Den här signaturen passerar som en frågeparameter och måste verifieras innan din Logi Kap par kan köras. Azure genererar signaturen med en unik kombination av en hemlig nyckel per Logic app, Utlösarens namn och åtgärden som utförs. Så om någon har åtkomst till den hemliga Logic app-nyckeln kan de inte generera en giltig signatur.
 
-   > [!IMPORTANT]
-   > För produktion och säkra system rekommenderar vi starkt att du anropar din Logic-app direkt från webbläsaren eftersom:
-   > 
-   > * Den delade åtkomst nyckeln visas i URL: en.
-   > * Du kan inte hantera säkra innehålls principer på grund av delade domäner i Logic app-kunder.
+> [!IMPORTANT]
+> För produktion och säkra system rekommenderar vi starkt att du anropar din Logic-app direkt från webbläsaren av följande anledningar:
+>
+> * Den delade åtkomst nyckeln visas i URL: en.
+> * Du kan inte hantera säkra innehålls principer på grund av delade domäner i Azure Logic Apps kunder.
 
 #### <a name="q-can-i-configure-http-endpoints-further"></a>F: kan jag konfigurera HTTP-slutpunkter ytterligare?
 
-A: Ja, HTTP-slutpunkter har stöd för mer avancerad konfiguration via [Azure API Management](../api-management/api-management-key-concepts.md). Den här tjänsten ger också möjlighet att hantera alla dina API: er på ett konsekvent sätt, inklusive Logic Apps, konfigurera anpassade domän namn, använda fler autentiseringsmetoder med mera, till exempel:
+**A**: Ja, http-slutpunkter har stöd för mer avancerad konfiguration via [Azure API Management](../api-management/api-management-key-concepts.md). Den här tjänsten ger också möjlighet att hantera alla dina API: er på ett konsekvent sätt, inklusive Logic Apps, konfigurera anpassade domän namn, använda fler autentiseringsmetoder med mera, till exempel:
 
 * [Ändra metoden för begäran](../api-management/api-management-advanced-policies.md#SetRequestMethod)
 * [Ändra URL-segmenten för begäran](../api-management/api-management-transformation-policies.md#RewriteURL)
 * Konfigurera API Management domäner i [Azure Portal](https://portal.azure.com/)
 * Konfigurera en princip för att kontrol lera grundläggande autentisering
 
-#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>F: vad ändrades när schemat migrerades från den 1 december 2014 Preview?
-
-S: här är en sammanfattning av dessa ändringar:
-
-| 1 december 2014 för hands version | Den 1 juni 2016 |
-| --- | --- |
-| Klicka på **http Listener API-** appen |Klicka på **manuell utlösare** (ingen API-app krävs) |
-| HTTP Listener Setting "*skickar svar automatiskt*" |Inkludera antingen en **svars** åtgärd eller inte i arbets flödes definitionen |
-| Konfigurera Basic-eller OAuth-autentisering |via API Management |
-| Konfigurera HTTP-metod |Under **Visa avancerade alternativ**väljer du en http-metod |
-| Konfigurera relativ sökväg |Lägg till en relativ sökväg under **Visa avancerade alternativ** |
-| Referera till det inkommande avsnittet via `@triggerOutputs().body.Content` |Referens genom `@triggerOutputs().body` |
-| **Skicka HTTP-svar-** åtgärd på http-lyssnaren |Klicka på **svara på http-begäran** (ingen API-app krävs) |
-
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa Logic App-definitioner](logic-apps-author-definitions.md)
-* [Hantera fel och undantag](logic-apps-exception-handling.md)
+* [Ta emot och svara på inkommande HTTPS-anrop genom att använda Azure Logic Apps](../connectors/connectors-native-reqres.md)

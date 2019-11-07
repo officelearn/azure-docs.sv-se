@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Konfigurera arbets ytan efter Facebook för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudie: Konfigurera arbets ytan efter Facebook för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Workplace by Facebook.
 services: active-directory
 documentationCenter: na
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f040ff4c8e59f764676aa6fdd9460ec94641684a
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 7ee091d1c8f0f477354f6bb422d041278ec5668e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881792"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73574254"
 ---
-# <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Självstudier: Konfigurera arbets ytan efter Facebook för automatisk användar etablering
+# <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Självstudie: Konfigurera arbets ytan efter Facebook för automatisk användar etablering
 
 Syftet med den här självstudien är att visa de steg som du behöver utföra på arbets ytan av Facebook och Azure AD för att automatiskt etablera och avetablera användar konton från Azure AD till arbets platsen av Facebook.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver följande saker för att konfigurera Azure AD-integrering med Workplace by Facebook:
 
@@ -34,9 +34,9 @@ Du behöver följande saker för att konfigurera Azure AD-integrering med Workpl
 - En arbets plats per Facebook-aktiverad prenumeration med enkel inloggning
 
 > [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
+> Vi rekommenderar att du inte använder en produktionsmiljö för att testa stegen i den här självstudien.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
 - Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
@@ -68,7 +68,7 @@ Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar 
 
 Azure AD har stöd för att automatiskt synkronisera konto information för tilldelade användare till arbets platsen av Facebook. Med den här automatiska synkroniseringen kan arbets ytan efter Facebook hämta de data som krävs för att auktorisera användare för åtkomst innan de försöker logga in för första gången. De avetablerar även användare från arbets ytan på Facebook när åtkomst har återkallats i Azure AD.
 
-1. I [Azure Portal](https://portal.azure.com)bläddrar du till avsnittet **Azure Active Directory** > **Enterprise Apps** > **alla program** .
+1. I [Azure Portal](https://portal.azure.com)bläddrar du till avsnittet **Azure Active Directory** > **Enterprise-appar** > **alla program** .
 
 2. Om du redan har konfigurerat arbets ytan efter Facebook för enkel inloggning söker du efter din arbets plats efter Facebook med Sök fältet. Annars väljer du **Lägg till** och Sök efter **arbets plats efter Facebook** i program galleriet. Välj arbets plats efter Facebook från Sök resultaten och Lägg till den i listan över program.
 
@@ -76,9 +76,9 @@ Azure AD har stöd för att automatiskt synkronisera konto information för till
 
 4. Ställ in **etablerings läget** på **automatiskt**. 
 
-    ![etablering](./media/workplacebyfacebook-provisioning-tutorial/provisioning.png)
+    ![etablerings](./media/workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. Under avsnittet **admin credentials** anger du åtkomsttoken från din arbets plats av Facebook-administratören och anger KLIENTens URL-värde `https://www.facebook.com/scim/v1/` till. Se de här [anvisningarna](https://developers.facebook.com/docs/workplace/integrations/custom-integrations/apps) för att skapa en åtkomsttoken för arbets platsen. 
+5. Under avsnittet **admin credentials** anger du åtkomsttoken från din arbets plats av Facebook-administratören och anger KLIENTens URL-värde till `https://www.facebook.com/scim/v1/`. Se de här [anvisningarna](https://developers.facebook.com/docs/workplace/integrations/custom-integrations/apps) för att skapa en åtkomsttoken för arbets platsen. 
 
 6. I Azure Portal klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till din arbets plats via Facebook-appen. Om anslutningen Miss lyckas ser du till att din arbets plats av Facebook-kontot har team administratörs behörighet.
 
@@ -88,18 +88,18 @@ Azure AD har stöd för att automatiskt synkronisera konto information för till
 
 9. Under avsnittet mappningar väljer du **synkronisera Azure Active Directory användare till arbets ytan efter Facebook.**
 
-10. I avsnittet **mappningar för attribut** granskar du de användarattribut som synkroniseras från Azure AD till arbets ytan av Facebook. De attribut som väljs som **matchande** egenskaper används för att matcha användar kontona på arbets platsen av Facebook för uppdaterings åtgärder. Välj knappen Spara för att genomföra ändringarna.
+10. I avsnittet **mappningar för attribut** granskar du de användarattribut som synkroniseras från Azure AD till arbets ytan av Facebook. De attribut som väljs som **matchande** egenskaper används för att matcha användar kontona på arbets platsen av Facebook för uppdaterings åtgärder. Välj knappen Spara för att spara ändringarna.
 
 11. Om du vill aktivera Azure AD Provisioning-tjänsten för arbets ytan av Facebook ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar**
 
 12. Klicka på **Spara.**
 
-Mer information om hur du konfigurerar automatisk etablering finns i[https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers)
+Mer information om hur du konfigurerar automatisk etablering finns i [https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers)
 
 Nu kan du skapa ett test konto. Vänta i upp till 20 minuter för att kontrol lera att kontot har synkroniserats till arbets platsen av Facebook.
 
 > [!NOTE]
-> Vi arbetar tätt med arbets ytan av Facebook-teamet för att se till att Azure AD-programmet är godkänt och uppfyller de nya rikt linjerna.   
+> Vi arbetar tätt med arbets ytan av Facebook-teamet för att se till att Azure AD-programmet är godkänt och uppfyller de nya rikt linjerna. Arbets ytan efter Facebook-deadlines är 16 december och vi förväntar oss att möta detta. Inga arbeten förväntas för kunderna vid denna tidpunkt. Från 28 – februari – 2020 måste kunderna övergå till den nya integrationen. Vi kommer att publicera hit så snart migrerings Sök vägen är tillgänglig.    
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

@@ -1,5 +1,5 @@
 ---
-title: Anslut till Azure SQL Data Warehouse | Microsoft Docs
+title: Anslut till Azure SQL Data Warehouse
 description: Anslut till Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 71f5c8ca56bc188c0664604a78c38a05be3c3b01
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 5a14b99753c9f06f2e0cf32dd8b5c7776cfdad89
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68479735"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685871"
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Anslut till Azure SQL Data Warehouse
 Anslut till Azure SQL Data Warehouse.
@@ -61,10 +62,10 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 ## <a name="connection-settings"></a>Inställningar för anslutning
 SQL Data Warehouse standardiserar några inställningar under anslutning och objektskapande. Dessa inställningar kan inte åsidosättas. Det gäller exempelvis:
 
-| Databasinställning | Value |
+| Databasinställning | Värde |
 |:--- |:--- |
-| [ANSI_NULLS][ANSI_NULLS] |PÅ |
-| [QUOTED_IDENTIFIERS][QUOTED_IDENTIFIERS] |PÅ |
+| [ANSI_NULLS][ANSI_NULLS] |ON |
+| [QUOTED_IDENTIFIERS][QUOTED_IDENTIFIERS] |ON |
 | [DATEFORMAT][DATEFORMAT] |mdy |
 | [DATEFIRST][DATEFIRST] |7 |
 

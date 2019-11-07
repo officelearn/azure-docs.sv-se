@@ -1,6 +1,6 @@
 ---
 title: Hantera experimentupprepningar
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Hantera experiment upprepningar i Azure Machine Learning Studio (klassisk). Du kan granska tidigare körningar av dina experiment när som helst för att kunna anropa, gå tillbaka, och i slut ändan antingen bekräfta eller förfina tidigare antaganden.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: d2c1f31db93d2caecc5576de18eb15e01cc94461
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3fedd613d2a9de90f5ee04ca4266d06c6ed725a4
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492849"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621604"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio-classic"></a>Hantera experiment upprepningar i Azure Machine Learning Studio (klassisk)
 Att utveckla en förutsägelse analys modell är en iterativ process – när du ändrar de olika funktionerna och parametrarna i experimentet konvergerar resultatet tills du är nöjd med att du har en tränad, effektiv modell. Nyckeln till den här processen spårar olika iterationer av dina experiment parametrar och konfigurationer.

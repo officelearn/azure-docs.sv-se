@@ -1,5 +1,5 @@
 ---
-title: 'Övervaka prestanda Azure SQL Database med DMV: er | Microsoft Docs'
+title: 'Övervaka prestanda Azure SQL Database med DMV: er'
 description: Lär dig hur du identifierar och diagnostiserar vanliga prestanda problem med hjälp av dynamiska hanterings vyer för att övervaka Microsoft Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: a630ceb1748f38dc169a4ebabcbb4e021de4273c
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: c7eed3fc8e9d0328a3e793e1ff4b3652ab86e2bc
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881566"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687749"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Övervaka prestanda Azure SQL Database med hjälp av vyer för dynamisk hantering
 
@@ -79,7 +79,7 @@ GO
 
 ### <a name="the-cpu-issue-occurred-in-the-past"></a>PROCESSOR problemet inträffade tidigare
 
-Om problemet inträffade tidigare och du vill utföra rotor Saks analys, använder du [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Användare med databas åtkomst kan använda T-SQL för att fråga efter Query Store-data.  Standardkonfigurationer för Query Store använder en kornig het på 1 timme.  Använd följande fråga för att titta på aktivitet för frågor med hög CPU-användning. Den här frågan returnerar de högsta 15 processor krävande frågorna.  Kom ihåg att `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()`ändra:
+Om problemet inträffade tidigare och du vill utföra rotor Saks analys, använder du [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Användare med databas åtkomst kan använda T-SQL för att fråga efter Query Store-data.  Standardkonfigurationer för Query Store använder en kornig het på 1 timme.  Använd följande fråga för att titta på aktivitet för frågor med hög CPU-användning. Den här frågan returnerar de högsta 15 processor krävande frågorna.  Kom ihåg att ändra `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()`:
 
 ```sql
 -- Top 15 CPU consuming queries by query hash
@@ -108,7 +108,7 @@ När du identifierar i/o-prestanda problem är de viktigaste vänte typerna som 
 
 - `PAGEIOLATCH_*`
 
-  För data filens IO-problem `PAGEIOLATCH_SH`( `PAGEIOLATCH_EX`inklusive `PAGEIOLATCH_UP`,,).  Om vänte typens namn har **IO** i det, pekar den på ett i/o-problem. Om det inte finns någon **IO** i väntan på sid låsning, pekar den på en annan typ av problem (till exempel tempdb-konkurrens).
+  För data filens IO-problem (inklusive `PAGEIOLATCH_SH``PAGEIOLATCH_EX``PAGEIOLATCH_UP`).  Om vänte typens namn har **IO** i det, pekar den på ett i/o-problem. Om det inte finns någon **IO** i väntan på sid låsning, pekar den på en annan typ av problem (till exempel tempdb-konkurrens).
 
 - `WRITE_LOG`
 
@@ -116,7 +116,7 @@ När du identifierar i/o-prestanda problem är de viktigaste vänte typerna som 
 
 ### <a name="if-the-io-issue-is-occurring-right-now"></a>Om IO-problemet inträffar just nu
 
-Använd [sys. DM _exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) eller [sys. DM _os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) `wait_type` för att se och `wait_time`.
+Använd [sys. DM _exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) eller [sys. DM _os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) för att se `wait_type` och `wait_time`.
 
 #### <a name="identify-data-and-log-io-usage"></a>Identifiera data-och logg-i/o-användning
 
@@ -130,8 +130,8 @@ ORDER BY end_time DESC;
 
 Om du har nått IO-gränsen har du två alternativ:
 
-- Alternativ 1: Uppgradera beräknings storlek eller tjänst nivå
-- Alternativ 2: Identifiera och finjustera de frågor som förbrukar flest i/o.
+- Alternativ 1: uppgradera beräknings storlek eller tjänst nivå
+- Alternativ 2: identifiera och finjustera de frågor som förbrukar de flesta i/o.
 
 #### <a name="view-buffer-related-io-using-the-query-store"></a>Visa buffert-relaterad IO med Query Store
 
@@ -235,15 +235,15 @@ ORDER BY total_log_bytes_used DESC;
 GO
 ```
 
-## <a name="identify-tempdb-performance-issues"></a>Identifiera `tempdb` prestanda problem
+## <a name="identify-tempdb-performance-issues"></a>Identifiera problem med `tempdb` prestanda
 
-När du identifierar i/o-prestanda problem är `tempdb` `PAGELATCH_*` de vanligaste vänte typerna som `PAGEIOLATCH_*`är associerade med problem (inte). Vänta dock inte alltid att du har `tempdb` konkurrens. `PAGELATCH_*`  Detta kan betyda att du har innehålls sidan för användar objekts data på grund av samtidiga begär Anden som riktar sig mot samma data sida. Om du vill `tempdb` bekräfta konkurrens ytterligare använder du [sys. DM _exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) för att bekräfta att wait_resource-värdet `2:x:y` börjar `tempdb` med där `x` 2 är databas-ID: t, är fil- `y` ID och är sid-ID.  
+När du identifierar i/o-prestanda problem är de vanligaste vänte typerna som är kopplade till `tempdb` problem `PAGELATCH_*` (inte `PAGEIOLATCH_*`). `PAGELATCH_*` väntar dock inte alltid att du har `tempdb` konkurrens.  Detta kan betyda att du har innehålls sidan för användar objekts data på grund av samtidiga begär Anden som riktar sig mot samma data sida. Om du vill bekräfta `tempdb`-konkurrens ytterligare använder du [sys. DM _exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) för att bekräfta att wait_resource-värdet börjar med `2:x:y` där 2 är `tempdb` är databas-id, `x` är fil-id och `y` är sid-ID.  
 
 För tempdb-konkurrens är en vanlig metod att minska eller omskriva program kod som förlitar sig på `tempdb`.  Vanliga `tempdb` användnings områden är:
 
 - Temporära tabeller
 - Table-variabler
-- Tabell värdes parametrar
+- tabell värdes parametrar
 - Användning av versions lager (specifikt kopplat till tids krävande transaktioner)
 - Frågor med fråge planer som använder sortering, hash-kopplingar och buffertar
 
@@ -332,11 +332,11 @@ ORDER BY start_time ASC;
 
 ## <a name="identify-memory-grant-wait-performance-issues"></a>Identifiera problem med väntande minnes tilldelnings prestanda
 
-Om den övre vänte typen `RESOURCE_SEMAHPORE` är och du inte har ett problem med hög CPU-användning kan det uppstå ett väntande minnes tilldelnings problem.
+Om den övre vänte typen är `RESOURCE_SEMAHPORE` och du inte har ett problem med hög CPU-användning kan det uppstå ett väntande minnes tilldelnings problem.
 
-### <a name="determine-if-a-resource_semahpore-wait-is-a-top-wait"></a>Ta reda på `RESOURCE_SEMAHPORE` om ett väntetillstånd väntar
+### <a name="determine-if-a-resource_semahpore-wait-is-a-top-wait"></a>Avgöra om en `RESOURCE_SEMAHPORE` väntar är en väntande vänta
 
-Använd följande fråga för att avgöra om ett `RESOURCE_SEMAHPORE` väntetillstånd väntar
+Använd följande fråga för att avgöra om en `RESOURCE_SEMAHPORE` väntar är en väntande vänta
 
 ```sql
 SELECT wait_type,
@@ -509,10 +509,10 @@ Du kan övervaka resursanvändningen med hjälp av [SQL Database Query Performan
 
 Du kan också övervaka användningen med följande två vyer:
 
-- [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
-- [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
+- [sys. DM-_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
+- [sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
-### <a name="sysdm_db_resource_stats"></a>sys.dm_db_resource_stats
+### <a name="sysdm_db_resource_stats"></a>sys. DM-_db_resource_stats
 
 Du kan använda [sys. DM _db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) -vyn i varje SQL-databas. I vyn **sys. DM _db_resource_stats** visas senaste resurs användnings data i förhållande till tjänst nivån. Genomsnitts procent andelen för CPU, data-IO, logg skrivningar och minne registreras var 15: e sekund och bevaras i 1 timme.
 
@@ -573,7 +573,7 @@ I nästa exempel visas olika sätt som du kan använda i vyn **sys. resource_sta
     ORDER BY start_time DESC;
     ```
 
-2. Om du vill utvärdera hur bra din arbets belastning passar beräknings storleken måste du öka detalj nivån i varje aspekt av resurs måtten: CPU, läsningar, skrivningar, antal arbetare och antalet sessioner. Här är en uppdaterad fråga med hjälp av **sys. resource_stats** för att rapportera genomsnitts-och max värden för dessa resurs mått:
+2. Om du vill utvärdera hur bra arbets belastningen passar för beräknings storleken måste du öka detalj nivån för varje aspekt av resurs måtten: CPU, läsningar, skrivningar, antal arbetare och antal sessioner. Här är en uppdaterad fråga med hjälp av **sys. resource_stats** för att rapportera genomsnitts-och max värden för dessa resurs mått:
 
     ```sql
     SELECT
@@ -612,7 +612,7 @@ I nästa exempel visas olika sätt som du kan använda i vyn **sys. resource_sta
 
    | Genomsnittlig CPU-procent | Högsta processor procent |
    | --- | --- |
-   | 24.5 |100.00 |
+   | 24,5 |100,00 |
 
     Den genomsnittliga CPU: n är ungefär ett kvartal av gränsen för beräknings storlek, vilket skulle passa in i databasens beräknings storlek. Men det maximala värdet visar att databasen når gränsen för beräknings storleken. Behöver du flytta till nästa högre beräknings storlek? Titta på hur många gånger din arbets belastning når 100 procent och jämför den sedan med databasens arbets belastnings mål.
 
@@ -732,6 +732,6 @@ En ineffektiv frågeplan kan också öka CPU-förbrukningen. I följande exempel
     ORDER BY highest_cpu_queries.total_worker_time DESC;
     ```
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 [Introduktion till SQL Database](sql-database-technical-overview.md)

@@ -8,27 +8,25 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0d848027d6c754df371b4d87cf01c5b2fdbc8c02
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 7fb436ef8d915898bc8f36dd10766e71f63e4a59
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820732"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73575574"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Konfigurera Azure Monitor för din python-app (för hands version)
 
 Azure Monitor stöder distribuerad spårning, Metric-insamling och loggning av python-program via integrering med [openräkning](https://opencensus.io). Den här artikeln vägleder dig genom processen med att konfigurera openräkning för python och skicka övervaknings data till Azure Monitor.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 - Python-installation. Den här artikeln använder [python 3.7.0](https://www.python.org/downloads/), men tidigare versioner kommer förmodligen att fungera med mindre ändringar.
 
-
-
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-application-insights-resource-in-azure-monitor"></a>Skapa en Application Insights resurs i Azure Monitor
 
@@ -44,7 +42,7 @@ Först måste du skapa en Application Insights resurs i Azure Monitor, vilket ge
    | ------------- |:-------------|:-----|
    | **Namn**      | Globalt unikt värde | Namn som identifierar den app som du övervakar |
    | **Resursgrupp**     | myResourceGroup      | Namn för den nya resurs gruppen som ska vara värd för Application Insights data |
-   | **Plats** | USA, östra | En plats nära dig, eller nära var din app finns |
+   | **Plats** | Östra USA | En plats nära dig, eller nära var din app finns |
 
 1. Välj **Skapa**.
 
@@ -55,6 +53,8 @@ Installera Azure Monitor-exportörer för Open-räkning:
 ```console
 python -m pip install opencensus-ext-azure
 ```
+
+En fullständig lista över paket och integreringar finns i [openräkning-paket](https://docs.microsoft.com/azure/azure-monitor/app/nuget#common-packages-for-python-using-opencensus).
 
 > [!NOTE]
 > Kommandot `python -m pip install opencensus-ext-azure` förutsätter att du har en variabel för `PATH`-miljövariabeln som har angetts för din python-installation. Om du inte har konfigurerat den här variabeln måste du ge fullständig katalog Sök väg till den plats där din python-körbara fil finns. Resultatet är ett kommando som detta: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.
@@ -126,7 +126,11 @@ SDK använder tre Azure Monitor exportörer för att skicka olika typer av telem
         main()
     ```
 
-4. Nu när du kör python-skriptet bör du fortfarande uppmanas att ange värden, men bara värdet skrivs ut i gränssnittet. Den skapade `SpanData` skickas till Azure Monitor. Du kan hitta de data som genereras för varje period under `dependencies`.
+4. Nu när du kör python-skriptet bör du fortfarande uppmanas att ange värden, men bara värdet skrivs ut i gränssnittet. Den skapade `SpanData` skickas till Azure Monitor. Du hittar de utgivna span-data under `dependencies`.
+
+5. Om du vill ha mer information om sampling i openinventering kan du titta på [sampling i openräkning](https://docs.microsoft.com/azure/azure-monitor/app/sampling#configuring-fixed-rate-sampling-in-opencensus-python).
+
+6. Om du vill ha mer information om telemetri-korrelation i dina spårnings data kan du ta en titt på [telemetri](https://docs.microsoft.com/azure/azure-monitor/app/correlation#telemetry-correlation-in-opencensus-python)för openräkning.
 
 ### <a name="metrics"></a>Mått
 
@@ -291,6 +295,8 @@ SDK använder tre Azure Monitor exportörer för att skicka olika typer av telem
     ```
 
 4. Export verktyget kommer att skicka loggdata till Azure Monitor. Du kan hitta data under `traces`.
+
+5. Mer information om hur du kan utöka dina loggar med spårnings kontext data finns i openräkningar python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation).
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Börja övervaka i Azure-portalen
 

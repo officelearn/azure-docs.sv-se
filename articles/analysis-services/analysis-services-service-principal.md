@@ -1,18 +1,18 @@
 ---
 title: Automatisera Azure Analysis Services uppgifter med tjänstens huvud namn | Microsoft Docs
-description: Lär dig hur du skapar tjänstens huvud namn för att automatisera Azure Analysis Services uppgifter.
+description: Lär dig hur du skapar ett huvud namn för tjänsten för att automatisera Azure Analysis Services administrativa uppgifter.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a590590faa422d47306e697a7c90bb635ea8c6e9
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5078fcc1ba5c581aca475025b286d0319d6024a6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146358"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572608"
 ---
 # <a name="automation-with-service-principals"></a>Automatisering med tjänstens huvudnamn
 
@@ -48,9 +48,9 @@ SPN-namn och lösen ord eller certifikat för tjänstens huvud namn kan använda
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />Using AZ. AnalysisServices-modul
+#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />att använda modulen AZ. AnalysisServices
 
-Använd `Connect-AzAccount`-cmdlet när du använder ett huvud namn för tjänsten för resurs hanterings åtgärder med modulen [AZ. AnalysisServices](/powershell/module/az.analysisservices) . 
+Använd `Connect-AzAccount` cmdlet när du använder ett huvud namn för tjänsten för resurs hanterings åtgärder med modulen [AZ. AnalysisServices](/powershell/module/az.analysisservices) . 
 
 I följande exempel används appID och ett lösen ord för att utföra kontroll Plans åtgärder för synkronisering till skrivskyddade repliker och skala upp/ut:
 
@@ -92,7 +92,7 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO och ADOMD 
 
-När du ansluter med klient program och webbappar kan du använda [AMO-och ADOMD-klient bibliotek](analysis-services-data-providers.md) , versions hanterings paket och högre Installerbara paket från NuGet-tjänstens huvud namn i anslutnings strängar med följande syntax: `app:AppID` och lösen ord eller @no__ t-2. 
+När du ansluter med klient program och webbappar kan du använda [AMO-och ADOMD-klient bibliotek](analysis-services-data-providers.md) , versions hanterings paket och högre Installerbara paket från NuGet-tjänstens huvud namn i anslutnings strängar med följande syntax: `app:AppID` och lösen ord eller @no_ _t_2_ .`cert:thumbprint` 
 
 I följande exempel används `appID` och en `password` för att utföra en uppdaterings åtgärd för modell databasen:
 

@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor och svar om elastiska Azure SQL | Microsoft Docs
+title: Vanliga frågor och svar om elastisk Azure SQL-skalning
 description: Vanliga frågor om Azure SQL Database elastisk skalning.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 2b101aebd048b94ac95e1dba0f6504446d6d6803
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8ef99d6d752f1e9474fccea6c00b51b61ae1304b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568433"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690257"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Elastic Database-verktyg
 
@@ -34,7 +34,7 @@ Det kostar inget att använda klient biblioteket för Elastic Database. Kostnade
 
 ## <a name="why-are-my-credentials-not-working-when-i-add-a-shard-from-a-different-server"></a>Varför fungerar inte mina autentiseringsuppgifter när jag lägger till en Shard från en annan server
 
-Använd inte autentiseringsuppgifter i formatet "User ID =username@servername", och Använd i stället bara "User ID = username".  Se också till att "username"-inloggningen har behörighet för Shard.
+Använd inte autentiseringsuppgifter i formatet "User ID =username@servername". Använd i stället bara användar-ID = username.  Se också till att "username"-inloggningen har behörighet för Shard.
 
 ## <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>Måste jag skapa en Shard Map Manager och fylla i Shards varje gång jag startar mina program
 

@@ -1,5 +1,5 @@
 ---
-title: Kopiera data från Impala med Azure Data Factory | Microsoft Docs
+title: Kopiera data från Impala med hjälp av Azure Data Factory
 description: Lär dig hur du kopierar data från Impala till mottagar data lager som stöds med hjälp av en kopierings aktivitet i en Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 54f46c09cfab64d53e8f5f503ca46004289f18c2
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 4fa43246278c33755f6a8a5b62f914689e6e9b40
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935574"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680788"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory"></a>Kopiera data från Impala med hjälp av Azure Data Factory
 
@@ -34,11 +34,11 @@ Du kan kopiera data från Impala till alla mottagar data lager som stöds. En li
 
 Data Factory innehåller en inbyggd driv rutin som möjliggör anslutning. Därför behöver du inte installera en driv rutin manuellt för att använda den här anslutningen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Kom i gång
+## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -98,7 +98,7 @@ Om du vill kopiera data från Impala anger du egenskapen type för data uppsätt
 |:--- |:--- |:--- |
 | typ | Data uppsättningens typ-egenskap måste anges till: **ImpalaObject** | Ja |
 | Schema | Schemats namn. |Nej (om "fråga" i aktivitets källan har angetts)  |
-| Partitionstabell | Tabellens namn. |Nej (om "fråga" i aktivitets källan har angetts)  |
+| partitionstabell | Tabellens namn. |Nej (om "fråga" i aktivitets källan har angetts)  |
 | tableName | Namnet på tabellen med schemat. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` och `table` för nya arbets belastningar. | Nej (om "fråga" i aktivitets källan har angetts) |
 
 **Exempel**
@@ -129,7 +129,7 @@ Om du vill kopiera data från Impala anger du käll typen i kopierings aktivitet
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till **ImpalaSource**. | Ja |
-| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
+| query | Använd den anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**
 

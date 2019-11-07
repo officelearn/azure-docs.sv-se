@@ -1,21 +1,21 @@
 ---
-title: Skapa en Azure HPC-cache (för hands version)
+title: Skapa en Azure HPC-cache
 description: Så här skapar du en Azure HPC cache-instans
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: fa6408d33504c6ac73eacec079e9c08acd4cece2
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: aaa939051a1aeafdb0650119772fc7214506aa8d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255263"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582182"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Planera det aggregerade namnområdet
 
-Azure HPC cache (för hands version) gör att klienter får åtkomst till en mängd olika lagrings system via en virtuell namnrymd som döljer information om Server dels lagrings systemet.
+Med Azure HPC cache får klienterna åtkomst till en mängd olika lagrings system via ett virtuellt namn område som döljer information om Server dels lagrings systemet.
 
 När du lägger till ett lagrings mål anger du sökvägen till klientens fil Sök väg. Klient datorer monterar den här fil Sök vägen och kan göra fil läsnings begär anden till cacheminnet i stället för att montera lagrings systemet direkt.
 
@@ -57,7 +57,7 @@ Eftersom NFS-källans sökvägar är under kataloger för samma export, måste d
 | *IP-adress eller värdnamn* | /goldline/templates  | acme2017/sku798   | /templates/sku798 |
 | *IP-adress eller värdnamn* | /goldline/templates  | acme2017/sku980   | /templates/sku980 |
 
-Ett klient program kan montera cachen och enkelt komma åt de aggregerade Sök vägarna för namn områden ``/source``, ``/templates/sku798`` och ``/templates/sku980``.
+Ett klient program kan montera cachen och enkelt komma åt de sammansatta Sök vägarna för namn områden ``/source``, ``/templates/sku798``och ``/templates/sku980``.
 
 ## <a name="next-steps"></a>Nästa steg
 

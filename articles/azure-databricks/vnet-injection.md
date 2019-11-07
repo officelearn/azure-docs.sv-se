@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: 0bb3221c201e6dd4dd17cca8ef7e3ed3331de228
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 5eded3217e96ccc45951acae004d1424e16cb098
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72432658"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605673"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network"></a>Distribuera Azure Databricks i ditt virtuella nätverk
 
@@ -61,7 +61,7 @@ All utgående och inkommande trafik mellan undernät och Azure Databricks kontro
 
 I det här avsnittet beskrivs hur du skapar en Azure Databricks arbets yta i Azure Portal och distribuerar den i ditt eget befintliga virtuella nätverk. Azure Databricks uppdaterar det virtuella nätverket med två nya undernät och nätverks säkerhets grupper med CIDR-intervall som tillhandahålls av dig, whitelists inkommande och utgående under nät trafik och distribuerar arbets ytan till det uppdaterade virtuella nätverket.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du måste ha ett virtuellt nätverk som du ska Distribuera Azure Databricks arbets ytan till. Du kan använda ett befintligt virtuellt nätverk eller skapa ett nytt, men det virtuella nätverket måste finnas i samma region som Azure Databricks arbets ytan som du planerar att skapa. Ett CIDR-intervall mellan/16-/24 krävs för det virtuella nätverket.
 
@@ -119,7 +119,7 @@ Om du använder den här mallen utan att använda mallen nätverks säkerhets gr
 
 ## <a name="whitelisting-subnet-traffic"></a>Vit listning under nät trafik
 
-Om du inte använder [Azure Portal](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) -eller [Azure Resource Manager mallar](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) för att skapa nätverks säkerhets grupper, måste du manuellt vitlista följande trafik i dina undernät.
+Om du inte använder [Azure Portal](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject#vnet-inject-portal) -eller [Azure Resource Manager mallar](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) för att skapa nätverks säkerhets grupper, måste du manuellt vitlista följande trafik i dina undernät.
 
 |Riktning|Protokoll|Källa|Källport|Mål|Målport|
 |---------|--------|------|-----------|-----------|----------------|
@@ -135,32 +135,32 @@ Vitlista under nät trafik med följande IP-adresser. För SQL (metaarkiv) och l
 
 |Azure Databricks region|Tjänst|Offentlig IP-adress|
 |-----------------------|-------|---------|
-|USA, östra|NAT för kontroll plan </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
+|Östra USA|NAT för kontroll plan </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |USA, östra 2|NAT för kontroll plan </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
-|USA, norra centrala|NAT för kontroll plan </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
-|USA, centrala|NAT för kontroll plan </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
-|USA, södra centrala|NAT för kontroll plan </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
-|USA, västra|NAT för kontroll plan </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
-|USA, västra 2|NAT för kontroll plan </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
-|Kanada, centrala|NAT för kontroll plan </br></br>Webapp|40.85.223.25/32 </br></br>13.71.184.74/32|
-|Kanada, östra|NAT för kontroll plan </br></br>Webapp|40.85.223.25/32 </br></br>13.71.184.74/32|
+|Norra centrala USA|NAT för kontroll plan </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
+|Centrala USA|NAT för kontroll plan </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
+|Södra centrala USA|NAT för kontroll plan </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
+|Västra USA|NAT för kontroll plan </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
+|Västra USA 2|NAT för kontroll plan </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
+|Centrala Kanada|NAT för kontroll plan </br></br>Webapp|40.85.223.25/32 </br></br>13.71.184.74/32|
+|Östra Kanada|NAT för kontroll plan </br></br>Webapp|40.85.223.25/32 </br></br>13.71.184.74/32|
 |Storbritannien, västra|NAT för kontroll plan </br></br>Webapp|51.140.203.27/32 </br></br>51.140.204.4/32|
 |Storbritannien, södra|NAT för kontroll plan </br></br>Webapp|51.140.203.27/32 </br></br>51.140.204.4/32|
-|Europa, västra|NAT för kontroll plan </br></br>Webapp|23.100.0.135/32 </br></br>52.232.19.246/32|
-|Europa, norra|NAT för kontroll plan </br></br>Webapp|23.100.0.135/32 </br></br>52.232.19.246/32|
+|Västra Europa|NAT för kontroll plan </br></br>Webapp|23.100.0.135/32 </br></br>52.232.19.246/32|
+|Norra Europa|NAT för kontroll plan </br></br>Webapp|23.100.0.135/32 </br></br>52.232.19.246/32|
 |Indien, centrala|NAT för kontroll plan </br></br>Webapp|104.211.89.81/32 </br></br>104.211.101.14/32|
-|Indien, södra|NAT för kontroll plan </br></br>Webapp|104.211.89.81/32 </br></br>104.211.101.14/32|
+|Södra Indien|NAT för kontroll plan </br></br>Webapp|104.211.89.81/32 </br></br>104.211.101.14/32|
 |Indien, västra|NAT för kontroll plan </br></br>Webapp|104.211.89.81/32 </br></br>104.211.101.14/32|
 |Sydostasien|NAT för kontroll plan </br></br>Webapp|52.187.0.85/32 </br></br>52.187.145.107/32|
-|Asien, östra|NAT för kontroll plan </br></br>Webapp|52.187.0.85/32 </br></br>52.187.145.107/32|
-|Australien, östra|NAT för kontroll plan </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
-|Australien, sydöstra|NAT för kontroll plan </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
+|Östasien|NAT för kontroll plan </br></br>Webapp|52.187.0.85/32 </br></br>52.187.145.107/32|
+|Östra Australien|NAT för kontroll plan </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
+|Sydöstra Australien|NAT för kontroll plan </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
 |Australien, centrala|NAT för kontroll plan </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
 |Australien, centrala 2|NAT för kontroll plan </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
-|Japan, östra|NAT för kontroll plan </br></br>Webapp|13.78.19.235/32 </br></br>52.246.160.72/32|
-|Japan, västra|NAT för kontroll plan </br></br>Webapp|13.78.19.235/32 </br></br>52.246.160.72/32|
+|Östra Japan|NAT för kontroll plan </br></br>Webapp|13.78.19.235/32 </br></br>52.246.160.72/32|
+|Västra Japan|NAT för kontroll plan </br></br>Webapp|13.78.19.235/32 </br></br>52.246.160.72/32|
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 ### <a name="workspace-launch-errors"></a>Fel vid start av arbets yta
 

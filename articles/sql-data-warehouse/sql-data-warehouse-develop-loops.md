@@ -1,5 +1,5 @@
 ---
-title: Använda T-SQL-slingor i Azure SQL Data Warehouse | Microsoft Docs
+title: Använda T-SQL-slingor
 description: Tips för att använda T-SQL-slingor och ersätta markörer i Azure SQL Data Warehouse för att utveckla lösningar.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: e27edcc1383a235fbdb9513066e69e2f680ea2f9
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: b57358e32bda83ef51fe67aa1057411d51773fa6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479626"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685821"
 ---
 # <a name="using-t-sql-loops-in-sql-data-warehouse"></a>Använda T-SQL-slingor i SQL Data Warehouse
 Tips för att använda T-SQL-slingor och ersätta markörer i Azure SQL Data Warehouse för att utveckla lösningar.
@@ -25,7 +26,7 @@ Tips för att använda T-SQL-slingor och ersätta markörer i Azure SQL Data War
 SQL Data Warehouse stöder [while](/sql/t-sql/language-elements/while-transact-sql) -slingan för att köra instruktions block upprepade gånger. Den här WHILe-slingan fortsätter så länge som de angivna villkoren är sanna eller tills koden specifikt avslutar loopen med hjälp av nyckelordet BREAK. Slingor är användbara för att ersätta markörer som definierats i SQL-kod. Lyckligt vis är nästan alla markörer som skrivs i SQL-kod av den snabba, skrivskyddade sorten. Därför är det ett bra alternativ att ersätta markörer med [WHILe]-slingor.
 
 ## <a name="replacing-cursors-in-sql-data-warehouse"></a>Ersätta markörer i SQL Data Warehouse
-Innan du börjar med simhopp i head bör du dock fråga dig själv följande fråga: "Kan den här markören skrivas om för att använda set-based Operations?." I många fall är svaret ja och är ofta den bästa metoden. En Set-baserad åtgärd utför ofta snabbare än en upprepad rad med rad metod.
+Men innan du simhopp i head borde du först fråga dig själv om följande fråga: "kan den här markören skrivas om för att använda de set-baserade åtgärderna?". " I många fall är svaret ja och är ofta den bästa metoden. En Set-baserad åtgärd utför ofta snabbare än en upprepad rad med rad metod.
 
 Snabba framåtriktade skrivskyddade markörer kan enkelt ersättas med en loop-konstruktion. Följande är ett enkelt exempel. I den här kod exemplet uppdateras statistiken för alla tabeller i databasen. Genom att iterera över tabellerna i slingan körs varje kommando i följd.
 

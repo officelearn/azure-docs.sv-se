@@ -1,20 +1,17 @@
 ---
 title: Vanliga frågor och svar om Azure våren Cloud | Microsoft Docs
 description: Läs vanliga frågor och svar om Azure våren Cloud
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 10/07/2019
-ms.author: v-vasuke
-ms.openlocfilehash: 12ef5586ac1e7ecf27824f95add3355451cf555a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.author: jeconnoc
+ms.openlocfilehash: 1fb241ab1335e6b9c9be55acbbe2e21378831b69
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163768"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607229"
 ---
 # <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -32,7 +29,7 @@ Azure våren Cloud förbättrar programdiagnostikens upplevelse för utvecklare 
 
 Azure våren Cloud erbjuder en service plan under för hands perioden.  En våren Cloud-distribution innehåller 16 vCPU kärnor och 32 GB minne.  Den övre kanten för varje mikrotjänst instans i en distribution är 4 vCPU kärnor med 8 GB minne.
 
-Resurs | Mängd
+Resurs | Belopp
 ------- | -------
 App-instanser per fjäder program | 20
 Totalt antal App-instanser per Azure våren Cloud Service-instans | 50 *

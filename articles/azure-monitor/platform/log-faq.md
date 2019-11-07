@@ -1,24 +1,24 @@
 ---
 title: Log Analytics vanliga frågor och svar | Microsoft Docs
-description: Svar på vanliga frågor om Azure Log Analytics-tjänsten.
+description: Svar på vanliga frågor om tjänsten Azure Monitor logs Analytics.
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
-ms.date: 11/13/2018
-ms.openlocfilehash: e3ebb87a7a5f6200d860c1c79591719c32313e11
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 11/01/2019
+ms.openlocfilehash: 9eb921fc8ea19486db0fc3311764931f09e11464
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932217"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579313"
 ---
 # <a name="log-analytics-faq"></a>Vanliga frågor och svar om Log Analytics
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Microsoft FAQ (vanliga frågor och svar) är en lista över vanliga frågor om Log Analytics i Microsoft Azure. Om du har ytterligare frågor om Log Analytics går du till [diskussions forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) och publicerar dina frågor. När en fråga ofta är tillfrågad, lägger vi till den i den här artikeln så att den snabbt och enkelt kan hittas.
+Microsoft FAQ (vanliga frågor och svar) är en lista över vanliga frågor om Azure Monitor Log Analytics-arbetsytan. Om du har ytterligare frågor om Log Analytics går du till [diskussions forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) och publicerar dina frågor. När en fråga ofta är tillfrågad, lägger vi till den i den här artikeln så att den snabbt och enkelt kan hittas.
 
 
 ## <a name="new-logs-experience"></a>Nya loggar upplevelse
@@ -62,10 +62,12 @@ A: om du vill visa VM-loggar måste du beviljas med Läs behörighet till de arb
 
 A: för att få åtkomst till en arbets yta i Azure måste du ha tilldelats Azure-behörighet. Det finns vissa fall där du kanske inte har rätt åtkomst behörighet. I dessa fall måste administratören bevilja dig behörigheter i Azure. mer information finns i [OMS-portalen flytta till Azure](oms-portal-transition.md) .
 
-### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>F. Varför kan jag inte se posten View Designer i loggar? 
+### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>F. Varför kan jag inte se posten View Designer i loggar?
+
 A: View Designer är bara tillgänglig i loggar för användare som har tilldelats deltagar behörigheter eller högre.
 
 ### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>F. Kan jag fortfarande använda Analytics Portal utanför Azure?
+
 A. Ja, sidan loggar i Azure och Advanced Analytics-portalen baseras på samma kod. Log Analytics integreras som en funktion i Azure Monitor för att ge en mer enhetlig övervaknings upplevelse. Du kan fortfarande komma åt Analytics Portal med URL: en: https:\/\/Portal. loganalytics. io/Subscriptions/{subscriptionId}/ResourceGroups/{resourceGroupName}/arbets ytor/{workspaceName}.
 
 
@@ -105,29 +107,6 @@ Text sträng uppdateringen till *OMS* ingår i ett hanterings paket som måste i
 
 A: Nej. Log Analytics är en skalbar moln tjänst som bearbetar och lagrar stora mängder data. 
 
-### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>F. Hur gör jag för att fel sökning om Log Analytics inte längre samlar in data?
-
-A: för en prenumeration och arbets yta som skapats före den 2 april 2018 som finns på den *kostnads fria* pris nivån, om mer än 500 MB data skickas under en dag stoppas data insamlingen under resten av dagen. Att nå den dagliga gränsen är en vanlig orsak till att Log Analytics slutar att samla in data eller att data verkar saknas.  
-
-Log Analytics skapar en händelse av typen *pulsslag* och kan användas för att avgöra om data insamlingen stoppas. 
-
-Kör följande fråga i sökningen för att kontrol lera om du når den dagliga gränsen och saknade data: `Heartbeat | summarize max(TimeGenerated)`
-
-Kör följande fråga för att kontrol lera en speciell dator: `Heartbeat | where Computer=="contosovm" | summarize max(TimeGenerated)`
-
-När data insamlingen stannar, beroende på tidsintervallet som valts, visas inga poster som returneras.   
-
-I följande tabell beskrivs varför data insamling stoppas och en föreslagen åtgärd för att återuppta data insamling:
-
-| Data insamling för orsak stoppas                       | Återuppta data insamling |
-| -------------------------------------------------- | ----------------  |
-| Gränsen för lediga data har nåtts<sup>1</sup>       | Vänta till följande månad för insamling av automatisk omstart, eller<br> Ändra till en betald pris nivå |
-| Azure-prenumerationen är i ett inaktiverat tillstånd på grund av: <br> Den kostnads fria utvärderingen avslutades <br> Azure-pass har gått ut <br> Månads utgifts gräns har nåtts (till exempel för en MSDN-eller Visual Studio-prenumeration)                          | Konvertera till en betald prenumeration <br> Konvertera till en betald prenumeration <br> Ta bort gräns eller vänta tills begränsningen återställs |
-
-<sup>1</sup> om din arbets yta är på den *kostnads fria* pris nivån är du begränsad till att skicka 500 MB data per dag till tjänsten. När du når den dagliga gränsen stannar data insamlingen fram till nästa dag. Data som skickas när data insamlingen stoppas är inte indexerad och är inte tillgänglig för sökning. När data insamlingen återupptas sker bearbetningen endast för nya data som skickas. 
-
-Log Analytics använder UTC-tid och varje dag börjar vid midnatt UTC. Om arbets ytan når den dagliga gränsen fortsätter bearbetningen under den första timmen nästa UTC-dag.
-
 ### <a name="q-how-can-i-be-notified-when-data-collection-stops"></a>F. Hur kan jag få ett meddelande när data insamlingen stoppas?
 
 A: Använd stegen som beskrivs i [skapa en ny logg avisering](../../azure-monitor/platform/alerts-metric.md) som ska meddelas när data insamlingen stoppas.
@@ -147,6 +126,7 @@ När du skapar en avisering för när data insamlingen stoppas anger du:
 Ange en befintlig eller skapa en ny [Åtgärds grupp](../../azure-monitor/platform/action-groups.md) så att du får ett meddelande om att ett pulsslag saknas i mer än 15 minuter när logg aviseringen matchar kriterierna.
 
 ## <a name="configuration"></a>Konfiguration
+
 ### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>F. Kan jag ändra namnet på den Table/BLOB-behållare som används för att läsa från Azure-diagnostik (WAD)?
 
 A. Nej, det är för närvarande inte möjligt att läsa från godtyckliga tabeller eller behållare i Azure Storage.
@@ -180,7 +160,7 @@ A: om du uppdaterar till den senaste samlade uppdateringen och importerar hanter
 
 ### <a name="q-how-can-i-confirm-that-an-agent-is-able-to-communicate-with-log-analytics"></a>F: Hur kan jag bekräfta att en agent kan kommunicera med Log Analytics?
 
-A: för att säkerställa att agenten kan kommunicera med OMS går du till: kontroll panelen, säkerhets & inställningar, **Microsoft Monitoring Agent**.
+A: om du vill säkerställa att agenten kan kommunicera med Log Analytics arbets ytan går du till: kontroll panelen, säkerhets & inställningar, **Microsoft Monitoring Agent**.
 
 Under fliken **Azure Log Analytics (OMS)** letar du efter en grön bock markering. En grön kryss markerings ikon bekräftar att agenten kan kommunicera med Azure-tjänsten.
 
@@ -188,7 +168,7 @@ En gul varnings ikon innebär att agenten har problem med att kommunicera med Lo
 
 ### <a name="q-how-do-i-stop-an-agent-from-communicating-with-log-analytics"></a>F: Hur gör jag för att stoppa en agent från att kommunicera med Log Analytics?
 
-A: ta bort datorn från listan OMS-hanterade datorer i System Center Operations Manager. Operations Manager uppdaterar agentens konfiguration så att den inte längre rapporterar till Log Analytics. För agenter som är anslutna till Log Analytics direkt kan du hindra dem från att kommunicera via: kontroll panelen, säkerhets & inställningar, **Microsoft Monitoring Agent**.
+A: ta bort datorn från listan Log Analytics hanterade datorer i System Center Operations Manager. Operations Manager uppdaterar agentens konfiguration så att den inte längre rapporterar till Log Analytics. För agenter som är anslutna till Log Analytics direkt kan du hindra dem från att kommunicera via: kontroll panelen, säkerhets & inställningar, **Microsoft Monitoring Agent**.
 Ta bort alla arbets ytor som visas under **Azure Log Analytics (OMS)** .
 
 ### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>F: Varför får jag ett fel när jag försöker flytta min arbets yta från en Azure-prenumeration till en annan?
@@ -212,11 +192,11 @@ S: du måste lägga till ' etag ' i bröd texten i API: et eller Azure Resource 
 
 ## <a name="agent-data"></a>Agent data
 ### <a name="q-how-much-data-can-i-send-through-the-agent-to-log-analytics-is-there-a-maximum-amount-of-data-per-customer"></a>F. Hur mycket data kan jag skicka genom agenten för att Log Analytics? Finns det en maximal mängd data per kund?
-A. Den kostnads fria planen anger en daglig begränsning på 500 MB per arbets yta. Standard-och Premium-prenumerationerna har ingen gräns för mängden data som överförs. Som en moln tjänst är Log Analytics utformad för att automatiskt skala upp för att hantera volymen som kommer från en kund, även om den är terabyte per dag.
+A. Det finns ingen gräns för mängden data som överförs, baserat på det prissättnings alternativ du väljer – kapacitets reservation eller betala per användning. En Log Analytics arbets yta är utformad för att automatiskt skala upp för att hantera volymen som kommer från en kund, även om den är terabyte per dag. Mer information finns i [pris information](https://azure.microsoft.com/pricing/details/monitor/).
 
 Log Analytics agenten har utformats för att säkerställa att den har ett litet utrymme. Data volymen varierar beroende på vilka lösningar du aktiverar. Du kan hitta detaljerad information om data volymen och se fördelningen efter lösning på sidan [användning](../../azure-monitor/platform/data-usage.md) .
 
-För mer information kan du läsa en [kund blogg](https://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) som visar resultatet när du har utvärderat resursutnyttjande (avtryck) för OMS-agenten.
+För mer information kan du läsa en [kund blogg](https://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) som visar resultatet när du har utvärderat resursutnyttjande (avtryck) för Log Analytics agenten.
 
 ### <a name="q-how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-log-analytics"></a>F. Hur mycket nätverks bandbredd används av Microsofts hanterings agent (MMA) när du skickar data till Log Analytics?
 
@@ -230,7 +210,7 @@ A. Mängden data som skickas per agent beror på:
 * Antalet loggar och prestanda räknare som samlas in
 * Data mängden i loggarna
 
-Den kostnads fria pris nivån är ett bra sätt att publicera flera servrar och mäta den typiska data volymen. Den övergripande användningen visas på sidan [användning](../../azure-monitor/platform/data-usage.md) .
+Den övergripande användningen visas på sidan [användning](../../azure-monitor/platform/data-usage.md) .
 
 För datorer som kan köra WireData-agenten använder du följande fråga för att se hur mycket data som skickas:
 
@@ -239,4 +219,5 @@ Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* [Kom igång med Log Analytics](../../azure-monitor/overview.md) och lär dig mer om Log Analytics och kom igång på bara några minuter.
+
+[Kom igång med Azure Monitor](../../azure-monitor/overview.md) och lär dig mer om Log Analytics och kom igång på bara några minuter.

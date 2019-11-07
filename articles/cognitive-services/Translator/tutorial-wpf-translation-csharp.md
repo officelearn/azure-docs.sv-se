@@ -1,7 +1,7 @@
 ---
-title: 'Självstudier: Skapa en översättningsapp med WPF, C# – Translator Text-API'
+title: 'Självstudie: skapa en översättnings app med WPF C# ,-Translator text API'
 titleSuffix: Azure Cognitive Services
-description: I den här självstudien skapar du en WPF-app (Windows Presentation Foundation) som använder Cognitive Service-API:er för textöversättning, språkidentifiering och stavningskontroll med en enda prenumerationsnyckel. Den här övningen visar hur du använder funktioner från Translator Text-API:et och API:et för stavningskontroll i Bing.
+description: I den här självstudien skapar du en WPF-app för att utföra text översättning, språk identifiering och stavnings kontroll med en enda prenumerations nyckel.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 286b75166e6216513afc46e5779b8a2f969aeaf6
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 6f8196c276b4f8ef5c8a49f6f83f59f9f505a6be
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858905"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647708"
 ---
-# <a name="tutorial-create-a-translation-app-with-wpf"></a>Självstudier: Skapa en översättningsapp med WPF
+# <a name="tutorial-create-a-translation-app-with-wpf"></a>Självstudie: skapa en översättnings app med WPF
 
 I den här självstudien skapar du en [WPF-app (Windows Presentation Foundation)](https://docs.microsoft.com/visualstudio/designers/getting-started-with-wpf?view=vs-2019) som använder Azure Cognitive Service för textöversättning, språkidentifiering och stavningskontroll med en enda prenumerationsnyckel. Specifikt kommer appen att anropa API:er från Translator Text och [Stavningskontroll i Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 
-Vad är WPF? Det är ett användargränssnittsramverk som skapar appar för skrivbordsklient. WPF-utvecklingsplattformen har stöd för många olika funktioner för apputveckling, däribland en appmodell, resurser, kontroller, grafik, layout, databindning, dokument och säkerhet. Det är en delmängd av .NET Framework, så om du tidigare har skapat appar med .NET Framework med hjälp av ASP.NET eller Windows Forms bör programmeringen kännas bekant. WPF använder XAML (Extensible Application Markup Language) för att tillhandahålla en deklarativ modell för programmering av appar, vilket vi går igenom i kommande avsnitt.
+Vad är WPF? Det är ett användargränssnittsramverk som skapar appar för skrivbordsklienter. WPF-utvecklingsplattformen har stöd för många olika funktioner för apputveckling, däribland en appmodell, resurser, kontroller, grafik, layout, databindning, dokument och säkerhet. Det är en delmängd av .NET Framework, så om du tidigare har skapat appar med .NET Framework med hjälp av ASP.NET eller Windows Forms bör programmeringen kännas bekant. WPF använder XAML (Extensible Application Markup Language) för att tillhandahålla en deklarativ modell för programmering av appar, vilket vi går igenom i kommande avsnitt.
 
 I den här kursen får du lära du dig att:
 
@@ -30,21 +30,21 @@ I den här kursen får du lära du dig att:
 > * Lägga till sammansättningar och NuGet-paket i projektet
 > * Skapa appens användargränssnitt med XAML
 > * Använda Translator Text-API:et för att hämta språk, översätta text och identifiera källspråket
-> * Använda API:et för stavningskontroll i Bing för att verifiera dina indata och öka noggrannheten för översättning
+> * använda API:et för stavningskontroll i Bing för att verifiera dina indata och öka noggrannheten för översättning
 > * Köra WPF-appen
 
 ### <a name="cognitive-services-used-in-this-tutorial"></a>Cognitive Services som används i den här självstudien
 
 Den här listan innehåller de Cognitive Services som används i den här självstudien. Följ länken för att bläddra i API-referensen för varje funktion.
 
-| Tjänsten | Funktion | Beskrivning |
+| Tjänst | Funktion | Beskrivning |
 |---------|---------|-------------|
-| Textöversättning | [Hämta språk](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | Hämta en fullständig lista över språk som stöds för textöversättning. |
-| Textöversättning | [Översätta](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Översätt text till fler än 60 språk. |
-| Textöversättning | [Identifiera](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Identifiera språket i indatatexten. Innehåller förtroendepoäng för identifiering. |
+| Translator Text | [Hämta språk](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | Hämta en fullständig lista över språk som stöds för textöversättning. |
+| Translator Text | [Översätta](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Översätt text till fler än 60 språk. |
+| Translator Text | [Identifiera](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Identifiera språket i indatatexten. Innehåller förtroendepoäng för identifiering. |
 | Stavningskontroll i Bing | [Stavningskontroll](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Förbättra översättningens noggrannhet genom att rätta stavfel. |
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan vi fortsätter behöver du följande:
 
@@ -61,11 +61,11 @@ Det första vi behöver göra är att konfigurera projektet i Visual Studio.
 
 1. Öppna Visual Studio. Välj **skapa ett nytt projekt**.
 1. I **skapa ett nytt projekt**letar du reda på och väljer **WPF-appen (.NET Framework)** . Du kan välja C# mellan **språk** för att begränsa alternativen.
-1. Välj **Nästa**och namnge ditt projekt `MSTranslatorTextDemo`.
+1. Välj **Nästa**och namnge sedan projektet `MSTranslatorTextDemo`.
 1. Ange Ramverks versionen till **.NET Framework 4.7.2** eller senare och välj **skapa**.
-   ![Ange namn och Ramverks version i Visual Studio](media/name-wpf-project-visual-studio.png)
+   ![ange namn och Framework-version i Visual Studio](media/name-wpf-project-visual-studio.png)
 
-Projektet har skapats. Lägg märke till att det finns två flikar öppna: `MainWindow.xaml` och `MainWindow.xaml.cs`. I den här självstudien lägger vi till kod i de här två filerna. Vi kommer att `MainWindow.xaml` ändra för appens användar gränssnitt. Vi kommer att `MainWindow.xaml.cs` ändra för våra samtal till Translator text och stavningskontroll i Bing.
+Projektet har skapats. Lägg märke till att det finns två flikar öppna: `MainWindow.xaml` och `MainWindow.xaml.cs`. I den här självstudien lägger vi till kod i de här två filerna. Vi ändrar `MainWindow.xaml` för appens användar gränssnitt. Vi ändrar `MainWindow.xaml.cs` för våra samtal till Translator Text och Stavningskontroll i Bing.
    ![Granska din miljö](media/blank-wpf-project.png)
 
 I nästa avsnitt ska vi lägga till sammansättningar och ett NuGet-paket till vårt projekt för ytterligare funktioner, som JSON-parsning.
@@ -85,11 +85,11 @@ Vi lägger till sammansättningar i projektet för att serialisera och deseriali
    * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
    * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
    * System.Web.Extensions
-   * [System.Windows](https://docs.microsoft.com/dotnet/api/system.windows)
+   * [System. Windows](https://docs.microsoft.com/dotnet/api/system.windows)
 1. När du har lagt till dessa referenser i projektet kan du klicka på **OK** för att stänga **Reference Manager**.
 
 > [!NOTE]
-> Mer information om sammansättningsreferenser finns i [How to: Add or remove reference using the Reference Manager](https://docs.microsoft.com/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2019) (Anvisningar: Lägga till eller ta bort referens med hjälp av Reference Manager).
+> Om du vill lära dig mer om sammansättnings referenser, se [så här gör du: Lägg till eller ta bort referens med referens hanteraren](https://docs.microsoft.com/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2019).
 
 ### <a name="install-newtonsoftjson"></a>Installera NewtonSoft.Json
 
@@ -114,7 +114,7 @@ Vi tar en titt på vad vi skapar.
 
 Användar gränssnittet innehåller följande komponenter:
 
-| Name | Typ | Beskrivning |
+| Namn | Typ | Beskrivning |
 |------|------|-------------|
 | `FromLanguageComboBox` | ComboBox (Kombinationsruta) | Visar en lista över de språk som stöds av Microsoft Translator för textöversättning. Användaren väljer det språk som översättningen görs från. |
 | `ToLanguageComboBox` | ComboBox (Kombinationsruta) | Visar samma lista över språk som `FromComboBox` men används för att välja det språk som användaren översätter till. |
@@ -250,9 +250,9 @@ Hela projektet är inkapslat i klassen `MainWindow : Window`. Vi börjar med att
 
 I det här kodblocket har vi deklarerat två medlemsvariabler som innehåller information om tillgängliga språk för översättning:
 
-| Variabel | type | Beskrivning |
+| Variabel | Typ | Beskrivning |
 |----------|------|-------------|
-|`languageCodes` | matris med strängar |Cachelagrar språkkoderna. Translator-tjänsten använder korta koder som `en` för engelska, för att identifiera språk. |
+|`languageCodes` | Matris med strängar |Cachelagrar språkkoderna. Translator-tjänsten använder korta koder som `en` för engelska, för att identifiera språk. |
 |`languageCodesAndTitles` | Sorterad ordlista | Mappar ”egna” namn i användargränssnittet tillbaka till de korta koderna som används i API:et. Sorteras alfabetiskt utan hänsyn till skiftläge. |
 
 I `MainWindow`-konstruktorn har vi sedan lagt till felhantering med `HandleExceptions`. Den här fel hanteringen säkerställer att en avisering anges om ett undantag inte hanteras. Sedan körs en kontroll för att bekräfta att den prenumerationsnyckel som har angetts har en längt på 32 tecken. Ett fel utlöses om nyckeln är mindre/större än 32 tecken.
@@ -328,7 +328,7 @@ JSON-svaret parsas och konverteras till en ordlista. Sedan läggs språkkoderna 
 
 ## <a name="populate-language-drop-down-menus"></a>Fylla i de nedrullningsbara menyerna med språk
 
-Användargränssnittet definieras med hjälp av XAML, så du behöver inte göra mycket för att konfigurera det utöver att anropa `InitializeComponent()`. Det enda du behöver göra är att lägga till de egna språk namnen på de nedrullningsbara menyerna **Översätt från** och **Översätt till** . `PopulateLanguageMenus()` Metoden lägger till namnen.
+Användargränssnittet definieras med hjälp av XAML, så du behöver inte göra mycket för att konfigurera det utöver att anropa `InitializeComponent()`. Det enda du behöver göra är att lägga till de egna språk namnen på de nedrullningsbara menyerna **Översätt från** och **Översätt till** . Metoden `PopulateLanguageMenus()` lägger till namnen.
 
 1. I Visual Studio öppnar du fliken för `MainWindow.xaml.cs`.
 2. Lägg till den här koden i projektet nedanför metoden `GetLanguagesForTranslate()`:

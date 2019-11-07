@@ -1,5 +1,5 @@
 ---
-title: Konfigurera katastrof återställning för ett SharePoint-program med flera nivåer med hjälp av Azure Site Recovery | Microsoft Docs
+title: Haveri beredskap för en SharePoint-app med flera nivåer med hjälp av Azure Site Recovery
 description: Den här artikeln beskriver hur du konfigurerar haveri beredskap för ett SharePoint-program med flera nivåer med hjälp av Azure Site Recovery-funktioner.
 author: sujayt
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: e9b688d54049c21da3276a20e27dcc9ad3d4ceca
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: cc72cb4134e6492478805421e448df26a8dc4554
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231484"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622417"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Konfigurera katastrof återställning för ett SharePoint-program med flera nivåer för haveri beredskap med hjälp av Azure Site Recovery
 
@@ -34,7 +34,7 @@ Du kan titta på videon nedan om hur du återställer ett program på flera niv�
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar ska du kontrol lera att du förstår följande:
 
@@ -86,7 +86,7 @@ Följ [den här vägledningen](site-recovery-vmware-to-azure.md) för att påbö
 
 ## <a name="networking-configuration"></a>Nätverks konfiguration
 
-### <a name="network-properties"></a>Nätverksegenskaper
+### <a name="network-properties"></a>Nätverks egenskaper
 
 * Konfigurera nätverks inställningar i Azure Portal så att de virtuella datorerna blir anslutna till rätt DR-nätverk efter redundansväxlingen.
 
@@ -140,9 +140,9 @@ Du kan distribuera de vanligaste Azure Site Recovery-skripten till ditt Automati
 
 1. Lägg till ett skript för för åtgärd i gruppen 1 i SQL-tillgänglighetsgruppen för redundans. Använd skriptet "ASR-SQL-FailoverAG" publicerat i exempel skripten. Se till att du följer anvisningarna i skriptet och gör de nödvändiga ändringarna i skriptet på lämpligt sätt.
 
-    ![Add-AG-Script-Step-1](./media/site-recovery-sharepoint/add-ag-script-step1.png)
+    ![Lägg till-AG-skript-steg-1](./media/site-recovery-sharepoint/add-ag-script-step1.png)
 
-    ![Add-AG-Script-Step-2](./media/site-recovery-sharepoint/add-ag-script-step2.png)
+    ![Lägg till-AG-skript-steg-2](./media/site-recovery-sharepoint/add-ag-script-step2.png)
 
 2. Lägg till ett inläggs åtgärds skript för att koppla en belastningsutjämnare på den misslyckade över virtuella datorerna på webb nivån (grupp 2). Använd skriptet "ASR-AddSingleLoadBalancer" publicerat i exempel skripten. Se till att du följer anvisningarna i skriptet och gör de nödvändiga ändringarna i skriptet på lämpligt sätt.
 

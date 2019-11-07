@@ -1,18 +1,18 @@
 ---
-title: Stöd mat ris för haveri beredskap för lokala virtuella Hyper-V-datorer till Azure
+title: Stöd för haveri beredskap för virtuella Hyper-V-datorer till Azure med Azure Site Recovery
 description: Sammanfattar de komponenter och krav som stöds för haveri beredskap för virtuella Hyper-V-datorer till Azure med Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 11/05/2019
 ms.author: raynew
-ms.openlocfilehash: e34140f9e014cfd41b0c14e980ca74e4d07d0c85
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9af85d8d9b181d619d8895542f142708626649d1
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933850"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620837"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Stöd mat ris för haveri beredskap för lokala virtuella Hyper-V-datorer till Azure
 
@@ -126,13 +126,13 @@ Multipath (MPIO) | Ja | Ja
 **Komponent** | **Hyper-V med Virtual Machine Manager** | **Hyper-V utan Virtual Machine Manager**
 --- | --- | ---
 Lokalt redundant lagring | Ja | Ja
-Geografiskt redundant lagring. | Ja | Ja
+Geografiskt redundant lagring | Ja | Ja
 Geo-redundant lagring med Läs behörighet | Ja | Ja
 Cool Storage | Nej | Nej
 Frekvent lagring| Nej | Nej
-Blockblob-objekt | Nej | Nej
+Blockblobar | Nej | Nej
 Kryptering i rest (SSE)| Ja | Ja
-Premium-lagring | Ja | Ja
+Premium Storage | Ja | Ja
 Import/export-tjänst | Nej | Nej
 Azure Storage-konton med aktive rad brand vägg | Ja. För mål lagring och cache. | Ja. För mål lagring och cache.
 Ändra lagrings konto | Nej. Det går inte att ändra målets Azure Storage-konto när replikeringen har Aktiver ATS. Om du vill ändra inaktiverar du och aktiverar sedan haveri beredskap igen. | Nej
@@ -144,7 +144,7 @@ Azure Storage-konton med aktive rad brand vägg | Ja. För mål lagring och cach
 --- | --- | ---
 Tillgänglighetsuppsättningar | Ja | Ja
 ) | Ja | Ja  
-Managed Disks | Ja, för redundans.<br/><br/> Det finns inte stöd för återställning efter fel för hanterade diskar. | Ja, för redundans.<br/><br/> Det finns inte stöd för återställning efter fel för hanterade diskar.
+Hanterade diskar | Ja, för redundans.<br/><br/> Det finns inte stöd för återställning efter fel för hanterade diskar. | Ja, för redundans.<br/><br/> Det finns inte stöd för återställning efter fel för hanterade diskar.
 
 ## <a name="azure-vm-requirements"></a>Krav för virtuell Azure-dator
 

@@ -1,5 +1,5 @@
 ---
-title: Säkerhets aspekter i Azure Data Factory | Microsoft Docs
+title: Säkerhets aspekter i Azure Data Factory
 description: Beskriver grundläggande säkerhets infrastruktur som tjänster för data flyttning i Azure Data Factory använder för att skydda dina data.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: ca5a98fb4fd0fd07cd0e2557840a2e0aed6901e5
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 15178fd0b5253b34f21030665a5835646c13b75d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285600"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675851"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Säkerhets överväganden för data förflyttning i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -85,7 +85,7 @@ Transparent datakryptering (TDE) i Azure SQL Data Warehouse skyddar mot hot mot 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 Azure SQL Database stöder även transparent data kryptering (TDE), som hjälper till att skydda mot hot från skadlig aktivitet genom att utföra kryptering och dekryptering i real tid av data, utan att kräva ändringar i programmet. Det här beteendet är transparent för klienten. Mer information finns i [transparent data kryptering för SQL Database och informations lager](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
-#### <a name="azure-data-lake-store"></a>Azure-datasjölagring
+#### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 Azure Data Lake Store innehåller även kryptering för data som lagras i kontot. När den är aktive rad krypteras Data Lake Store automatiskt data innan de behålls och dekrypteras innan de kan hämtas, vilket gör det transparent för klienten som har åtkomst till data. Mer information finns [i säkerhet i Azure Data Lake Store](../data-lake-store/data-lake-store-security-overview.md). 
 
 #### <a name="azure-blob-storage-and-azure-table-storage"></a>Azure Blob Storage och Azure Table Storage
@@ -138,9 +138,9 @@ I följande tabell sammanfattas konfigurations rekommendationerna för nätverk 
 
 | Källa      | Mål                              | Nätverkskonfiguration                    | Installation av Integration Runtime                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Lokalt | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | IPSec VPN (punkt-till-plats eller plats-till-plats) | Integration runtime med egen värd bör installeras på en virtuell Azure-dator i det virtuella nätverket.  |
-| Lokalt | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | ExpressRoute (privat peering)           | Integration runtime med egen värd bör installeras på en virtuell Azure-dator i det virtuella nätverket.  |
-| Lokalt | Azure-baserade tjänster som har en offentlig slut punkt | ExpressRoute (Microsoft-peering)            | Integration runtime med egen värd kan installeras lokalt eller på en virtuell Azure-dator. |
+| Lokal | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | IPSec VPN (punkt-till-plats eller plats-till-plats) | Integration runtime med egen värd bör installeras på en virtuell Azure-dator i det virtuella nätverket.  |
+| Lokal | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | ExpressRoute (privat peering)           | Integration runtime med egen värd bör installeras på en virtuell Azure-dator i det virtuella nätverket.  |
+| Lokal | Azure-baserade tjänster som har en offentlig slut punkt | ExpressRoute (Microsoft-peering)            | Integration runtime med egen värd kan installeras lokalt eller på en virtuell Azure-dator. |
 
 I följande avbildningar visas användningen av integration runtime med egen värd för att flytta data mellan en lokal databas och Azure-tjänster med hjälp av ExpressRoute och IPSec VPN (med Azure Virtual Network):
 
@@ -183,7 +183,7 @@ Följande moln data lager kräver att du tillåter IP-adressen för den egen vä
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 **Kan den egen värdbaserade integrerings körningen delas mellan olika data fabriker?**
 

@@ -1,5 +1,5 @@
 ---
-title: Design katastrof återställnings lösningar – Azure SQL Database | Microsoft Docs
+title: Design katastrof återställnings lösningar – Azure SQL Database
 description: Lär dig hur du utformar din moln lösning för haveri beredskap genom att välja rätt växlings mönster.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: ccdd2443254da065a15911f567577672492ddb4f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 535397dcf32a617038ab4bef4ec7aa227f4563b1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568874"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690649"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Strategier för haveri beredskap för program som använder SQL Database elastiska pooler
 
@@ -105,7 +105,7 @@ När den primära regionen återställs av Azure *efter* att du har återställt
 > [!NOTE]
 > Redundansåtgärden är asynkron. För att minimera återställnings tiden är det viktigt att du kör kommandot klient databasers redundans i batchar av minst 20 databaser.
 
-De främsta **fördelarna** med den här strategin är att den ger det högsta service avtalet för de betalande kunderna. Det garanterar också att de nya utvärderingarna avblockeras så snart som en utvärderings version av en utvärderings version skapas. Den här inställningen ökar den totala kostnaden för klient databaserna med kostnaden för den sekundära Dr-poolen för betalda kunder. Dessutom, om den sekundära poolen har en annan storlek, kan de betalande kunderna uppleva lägre prestanda efter redundansväxlingen tills pool uppgraderingen i DR-regionen har slutförts.
+De främsta **fördelarna** med den här strategin är att den ger det högsta service avtalet för de betalande kunderna. Det garanterar också att de nya utvärderingarna avblockeras så snart som en utvärderings version av en utvärderings version skapas. Den **här** inställningen ökar den totala kostnaden för klient databaserna med kostnaden för den sekundära Dr-poolen för betalda kunder. Dessutom, om den sekundära poolen har en annan storlek, kan de betalande kunderna uppleva lägre prestanda efter redundansväxlingen tills pool uppgraderingen i DR-regionen har slutförts.
 
 ## <a name="scenario-3-geographically-distributed-application-with-tiered-service"></a>Scenario 3. Geografiskt distribuerat program med skiktad tjänst
 

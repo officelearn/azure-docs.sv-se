@@ -52,6 +52,8 @@
       items:
         - name: Skapa och hantera klassrumslabb
           href: how-to-manage-classroom-labs.md
+        - name: Använda instrumentpanel
+          href: use-dashboard.md
         - name: 'Konfigurera, anpassa och publicera mallar'
           href: how-to-create-manage-template.md
         - name: Konfigurera och hantera en pool för virtuella datorer
@@ -80,6 +82,8 @@
   items:
     - name: REST-API
       href: 'https://docs.microsoft.com/rest/api/labservices/'
+    - name: PowerShell-modulen Az.LabServices (förhandsversion)
+      href: reference-powershell-module.md
 - name: Resurser
   items:
     - name: Azure-uppdateringar

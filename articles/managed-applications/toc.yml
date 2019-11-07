@@ -31,6 +31,8 @@
       href: publish-marketplace-app.md
     - name: Skapa hanterat program med anpassad provider
       href: tutorial-create-managed-app-with-custom-provider.md
+    - name: Registrering av resurser med anpassade providrar
+      href: tutorial-custom-providers-resource-onboarding.md
 - name: Exempel
   items:
     - name: Azure CLI
@@ -45,6 +47,10 @@
       href: custom-providers-overview.md
     - name: Visa definitionsartefakt
       href: concepts-view-definition.md
+    - name: Rolldefinitionsartefakt
+      href: concepts-custom-role-definition.md
+    - name: Registrering av resurser
+      href: concepts-custom-providers-resourceonboarding.md
 - name: Instruktionsguider
   items:
     - name: Anpassade providrar

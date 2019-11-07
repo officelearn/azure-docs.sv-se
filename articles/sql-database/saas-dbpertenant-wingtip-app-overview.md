@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database multiapps-exempel – Wingtip SaaS | Microsoft Docs
+title: Azure SQL Database multiapps-exempel – Wingtip SaaS
 description: Lär dig genom att använda ett exempel program för flera innehavare som använder Azure SQL Database, Wingtip SaaS-exemplet
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 16f4bb946af4720a327a8755c6bf9187f3b71ba6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1a4931a24802290e0e7e207f32528a1192fd880f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570345"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692061"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Introduktion till en SaaS-app med flera innehavare som använder mönstret för databas per klient organisation med SQL Database
 
@@ -39,7 +39,7 @@ När du går igenom självstudierna och arbetar med appen kan du fokusera på Sa
 När du har distribuerat appen kan du utforska följande självstudier som bygger på den första distributionen. De här självstudierna visar vanliga SaaS-mönster som utnyttjar inbyggda funktioner i SQL Database, Azure SQL Data Warehouse och andra Azure-tjänster. Självstudier innehåller PowerShell-skript med detaljerade förklaringar. Förklaringarna fören klar förståelse och implementering av samma SaaS hanterings mönster i dina program.
 
 
-| Självstudie | Beskrivning |
+| Självstudier | Beskrivning |
 |:--|:--|
 | [Vägledning och tips för SQL Database SaaS-exempel för flera klient organisationer](saas-tenancy-wingtip-app-guidance-tips.md) | Hämta och kör PowerShell-skript för att förbereda delar av programmet. |
 |[Distribuera och utforska Wingtip SaaS-programmet](saas-dbpertenant-get-started-deploy.md)|  Distribuera och utforska Wingtip SaaS-programmet med din Azure-prenumeration. |

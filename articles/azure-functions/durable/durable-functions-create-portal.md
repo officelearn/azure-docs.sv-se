@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: glenga
 ms.reviewer: azfuncdf
-ms.openlocfilehash: b765e7a03f84211d4a86c4242e9484b3517c95f9
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 238969b320608c08491c3d3e85870d57f41c1589
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933564"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614968"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Skapa Durable Functions med hjälp av Azure Portal
 
@@ -36,7 +36,7 @@ Som standard använder Function-appen version 2. x av Azure Functions Runtime. D
 
 ## <a name="install-the-durable-functions-npm-package-javascript-only"></a>Installera NPM-paketet bestående av funktioner (endast java script)
 
-Om du skapar ett [ `durable-functions` ](https://www.npmjs.com/package/durable-functions)JavaScript-Durable Functions måste du installera NPM-paketet.
+Om du skapar ett JavaScript-Durable Functions måste du installera [`durable-functions` NPM-paketet](https://www.npmjs.com/package/durable-functions).
 
 1. Välj appens funktions namn, följt av **plattforms funktioner**, och sedan **Avancerade verktyg (kudu)** .
 
@@ -46,19 +46,19 @@ Om du skapar ett [ `durable-functions` ](https://www.npmjs.com/package/durable-f
 
    ![Kudu fel söknings konsol](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
 
-3. Din funktions programmets fil katalog struktur bör visas. Gå till mappen `site/wwwroot`. Därifrån kan du ladda upp en `package.json` fil genom att dra och släppa den i fönstret fil katalog. Ett exempel `package.json` är nedan:
+3. Din funktions programmets fil katalog struktur bör visas. Gå till mappen `site/wwwroot`. Därifrån kan du ladda upp en `package.json`-fil genom att dra och släppa den i fönstret fil katalog. Ett exempel `package.json` är nedan:
 
     ```json
     {
       "dependencies": {
-        "durable-functions": "^1.1.2"
+        "durable-functions": "^1.3.1"
       }
     }
     ```
 
    ![Kudu upload Package. JSON](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
 
-4. När din `package.json` har överförts `npm install` kör du kommandot från kudu-konsolen för fjärrkörning.
+4. När `package.json` har överförts kör du kommandot `npm install` från konsolen för fjärrkörning av kudu.
 
    ![Kudu kör NPM-installation](./media/durable-functions-create-portal/kudu-npm-install.png)
 
@@ -72,7 +72,7 @@ Om du skapar ett [ `durable-functions` ](https://www.npmjs.com/package/durable-f
 
     ![Functions-snabbstart, välj fler mallar](./media/durable-functions-create-portal/add-first-function.png)
 
-1. I Sök fältet skriver `durable` du och väljer sedan **Durable Functions http** startmall.
+1. Skriv `durable` i Sök fältet och välj sedan **Durable Functions http** startmall.
 
 1. När du uppmanas väljer du **Installera** för att installera Azure DurableTask-tillägget alla beroenden i Function-appen. Du behöver bara installera tillägget en gång för en app för att ge en funktion. När installationen är klar väljer du **Fortsätt**.
 
@@ -80,9 +80,9 @@ Om du skapar ett [ `durable-functions` ](https://www.npmjs.com/package/durable-f
 
 1. När installationen är klar namnger du den nya funktionen `HttpStart` och väljer **skapa**. Funktionen som skapas används för att starta dirigeringen.
 
-1. Skapa en annan funktion i Function-appen, den här gången med hjälp av **Durable Functions Orchestrator** -mallen. Ge din nya Orchestration-funktion `HelloSequence`ett namn.
+1. Skapa en annan funktion i Function-appen, den här gången med hjälp av **Durable Functions Orchestrator** -mallen. Ge den nya Orchestration-funktionen `HelloSequence`.
 
-1. Skapa en tredje funktion med `Hello` namnet med hjälp av mallen för **Durable Functionss aktivitet** .
+1. Skapa en tredje funktion med namnet `Hello` med hjälp av mallen **Durable Functions aktivitet** .
 
 ## <a name="test-the-durable-function-orchestration"></a>Testa den varaktiga funktions dirigeringen
 
@@ -94,7 +94,7 @@ Om du skapar ett [ `durable-functions` ](https://www.npmjs.com/package/durable-f
     curl -X POST https://{your-function-app-name}.azurewebsites.net/api/orchestrators/HelloSequence
     ```
 
-    I det här exemplet `{your-function-app-name}` är den domän som är namnet på din Function-app. Svarsmeddelandet innehåller en uppsättning URI-slutpunkter som du kan använda för att övervaka och hantera körningen, vilket ser ut som i följande exempel:
+    I det här exemplet är `{your-function-app-name}` den domän som är namnet på din Function-app. Svarsmeddelandet innehåller en uppsättning URI-slutpunkter som du kan använda för att övervaka och hantera körningen, vilket ser ut som i följande exempel:
 
     ```json
     {  
@@ -106,7 +106,7 @@ Om du skapar ett [ `durable-functions` ](https://www.npmjs.com/package/durable-f
     }
     ```
 
-1. `statusQueryGetUri` Anropa slut punkts-URI: n och se aktuell status för den varaktiga funktionen, som kan se ut som i det här exemplet:
+1. Anropa `statusQueryGetUri` slut punkts-URI: n och se aktuell status för den varaktiga funktionen, som kan se ut så här:
 
     ```json
         {
@@ -118,7 +118,7 @@ Om du skapar ett [ `durable-functions` ](https://www.npmjs.com/package/durable-f
         }
     ```
 
-1. Fortsätt att anropa `statusQueryGetUri` slut punkten tills statusen ändras till **slutförd**och du ser ett svar som följande exempel:
+1. Fortsätt att anropa `statusQueryGetUri` slut punkten tills statusen ändras till **slutförd**, så ser du ett svar som i följande exempel:
 
     ```json
     {

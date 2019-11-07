@@ -11,12 +11,12 @@ metadata:
   ms.author: zarhoads
   manager: gwallace
   ms.date: 09/30/2019
-  ms.openlocfilehash: b7ec7aaeab69cfe3a0508a3146558c71b2d616c1
-  ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+  ms.openlocfilehash: 64d2d2e16c7a975584723af3326b52784fe6bd9e
+  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/30/2019
-  ms.locfileid: "73163504"
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73582735"
 landingContent:
 - title: Om Azure Dev Spaces
   linkLists:
@@ -62,5 +62,5 @@ landingContent:
     links:
     - text: Använda GitHub-åtgärder med Azure Dev Spaces
       url: how-to/github-actions.md
-    - text: Använda Azure Dev Spaces Connect
+    - text: Ansluta din utvecklingsdator till ett AKS-kluster
       url: how-to/connect.md

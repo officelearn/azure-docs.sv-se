@@ -11,14 +11,38 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: brianem
 ms.custom: seodec18
-ms.openlocfilehash: 353e0478172ed03cde848d8c5127d2ee41724963
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b40df5878d08b222d145531bfdad1e30b2fe989d
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73481239"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647403"
 ---
 # <a name="release-notes"></a>Viktig information
+
+## <a name="speech-sdk-180-2019-november-release"></a>Speech SDK-1.8.0:2019 – november release
+
+**Nya funktioner**
+*   Ett FromHost ()-API har lagts till för att under lätta användningen med lokal behållare och suveräna moln.
+*   Automatisk käll Språkidentifiering har lagts till för tal igenkänning (i C++Java och)
+*   Tillagt SourceLanguageConfig-objekt för tal igenkänning, används för att ange förväntade käll språk (i C++Java och)
+*   Stöd för KeywordRecognizer i Windows (UWP), Android och iOS via NuGet och Unity-paket
+*   Java API för fjärrkonversation har lagts till för att göra konversations avskrifter i asynkrona batchar.
+
+**Bryta ändringar**
+*   Konversations-och inskrifts funktioner flyttas under namn området Microsoft. CognitiveServices. tal. avskrift.
+*   En del av metoderna för konversations beskrivare flyttas till en ny konversations klass.
+*   Släppt stöd för 32-bitars (ARMv7 och x86) iOS 
+
+**Fel korrigeringar**
+*   Korrigering för krasch om lokal KeywordRecognizer används utan en giltig prenumerations nyckel för röst tjänst
+
+**Exempel**
+*   Xamarin-exempel för KeywordRecognizer
+*   Unity-exempel för KeywordRecognizer
+*   C++och Java-exempel för automatisk käll Språkidentifiering.
+
+
 ## <a name="speech-sdk-170-2019-september-release"></a>1\.7.0 för tal-SDK: 2019 – september version
 
 **Nya funktioner**
@@ -37,7 +61,6 @@ ms.locfileid: "73481239"
 *   Ett fast problem med UUID-nummer är inte unikt i vissa anslutnings egenskaper
 *   Åtgärdade några varningar om specificerare för null-värden i Swift-bindningar (kan kräva små kod ändringar)
 *   En bugg har åtgärd ATS som gjorde att WebSocket-anslutningar stängdes på ett smidigt sätt under nätverks belastning
-*   iOS: stöd har släppts för arm7s-arkitekturen
 *   Ett problem har åtgärd ATS på Android som ibland resulterar i dubbla exponerings-ID: n som används av DialogServiceConnector
 *   Förbättringar av anslutningarnas stabilitet i flera olika interaktioner och rapportering av fel (via avbrutna händelser) när de inträffar med DialogServiceConnector
 *   DialogServiceConnector-sessionen börjar nu att tillhandahålla händelser, inklusive när ListenOnceAsync anropas () under en aktiv StartKeywordRecognitionAsync ()

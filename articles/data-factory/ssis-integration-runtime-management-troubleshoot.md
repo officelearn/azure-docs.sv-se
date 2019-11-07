@@ -1,5 +1,5 @@
 ---
-title: Felsöka SSIS Integration Runtime Management i Azure Data Factory | Microsoft Docs
+title: 'Felsöka SSIS Integration Runtime Management i Azure Data Factory '
 description: Den här artikeln innehåller fel söknings vägledning för hanterings problem med SSIS Integration Runtime (SSIS IR)
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: chinadragon0515
 ms.author: dashe
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: d16267e104d753770dc40ce99b0f56e5c749b2d0
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 3452fc2274eb646acb19c0e6a203ebadcb81cad5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72752158"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684024"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Felsöka SSIS Integration Runtime Management i Azure Data Factory
 
@@ -105,7 +105,7 @@ Detta fel innebär att körningen av skriptet för anpassad inställningar (main
 
 ### <a name="customsetupscripttimeout"></a>CustomSetupScriptTimeout
 
-Det här felet anger en överskriden tidsgräns för körningen av skriptet för anpassad installation. Kontrol lera att skriptet kan köras tyst och att det inte behövs några interaktiva indatatyper, och se till att BLOB-behållaren bara innehåller nödvändiga anpassade installationsfiler. Vi rekommenderar att du först testar skriptet på den lokala datorn. Du bör även kontrollera körningsloggarna för anpassad installation i blobcontainern. Den maximala tidsperioden för anpassad installation är 45 minuter innan tidsgränsen uppnås, och i den maximala perioden ingår tiden för att ladda ned alla filer från din container och installera dem på SSIS IR. Om du behöver en längre period kan du skapa en supportbegäran.
+Det här felet anger en överskriden tidsgräns för körningen av skriptet för anpassad installation. Kontrollera att skriptet kan köras i tysthet och att det inte behövs några interaktiva indata, och se till att blobcontainern bara innehåller nödvändiga anpassade installationsfiler. Vi rekommenderar att du först testar skriptet på den lokala datorn. Du bör även kontrollera körningsloggarna för anpassad installation i blobcontainern. Den maximala tidsperioden för anpassad installation är 45 minuter innan tidsgränsen uppnås, och i den maximala perioden ingår tiden för att ladda ned alla filer från din container och installera dem på SSIS IR. Om du behöver en längre period kan du skapa en supportbegäran.
 
 ### <a name="customsetupscriptloguploadfailure"></a>CustomSetupScriptLogUploadFailure
 

@@ -1,5 +1,5 @@
 ---
-title: Striims Snabbstart med Azure SQL Data Warehouse | Microsoft Docs
+title: Snabb start för striims
 description: Kom igång snabbt med Striims och Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,58 +10,59 @@ ms.subservice: integration
 ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 8ed9936884a648d736942caecade2ac3c2980e67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 65dc0b8fcece4364f3828fee09221612b999df4e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873397"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685343"
 ---
-# <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Striims Azure SQL DW Marketplace erbjuder Installation Guide
+# <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Installations guide för striims Azure SQL DW Marketplace
 
-Den här snabbstarten förutsätter att du redan har en befintlig instans av SQL Data Warehouse.
+Den här snabb starten förutsätter att du redan har en befintlig instans av SQL Data Warehouse.
 
-Sök efter Striims på Azure Marketplace och välj Striims för dataintegrering till SQL Data Warehouse (mellanlagra) alternativ 
+Sök efter Striims på Azure Marketplace och välj alternativet Striims for data integration to SQL Data Warehouse (mellanlagrad) 
 
 ![Installera Striims][install]
 
-Konfigurera Striims VM med angivna egenskaper, noterar Striims klusternamnet, lösenord och administratörslösenord
+Konfigurera den virtuella datorn Striims med angivna egenskaper, med Striims kluster namn, lösen ord och administratörs lösen ord
 
 ![Konfigurera Striims][configure]
 
-När distribueras, klickar du på \<namn på virtuell dator >-masternode i Azure-portalen, klicka på Anslut och kopiera inloggningen med lokalt konto för virtuell dator 
+När du har distribuerat klickar du på \<namn på virtuell dator >-masternode i Azure Portal, klickar på Anslut och kopierar inloggningen med det lokala kontot för virtuell dator 
 
 ![Anslut Striims till SQL Data Warehouse][connect]
 
-Hämta sqljdbc42.jar från <https://www.microsoft.com/en-us/download/details.aspx?id=54671> till den lokala datorn. 
+Hämta sqljdbc42. jar från <https://www.microsoft.com/en-us/download/details.aspx?id=54671> till din lokala dator. 
 
-Öppna ett kommandoradsfönster och ändra sökvägen till där du laddade ned JDBC JAR-filen. SCP jar-filen till din Striims VM, komma-adress och lösenord från Azure portal
+Öppna ett kommando rads fönster och ändra de kataloger dit du laddade ned JDBC-jar-filen. SCP-filen till din virtuella Striims-dator, hämtar adressen och lösen ordet från Azure Portal
 
-![Kopiera jar-filen till den virtuella datorn][copy-jar]
+![Kopiera jar-fil till den virtuella datorn][copy-jar]
 
-Öppna en annan kommandoradsfönstret eller Använd en ssh-verktyg till att ssh till Striims kluster
+Öppna ett annat kommando rads fönster eller Använd ett SSH-verktyg för ssh i Striims-klustret
 
 ![SSH till klustret][ssh]
 
-Kör följande kommandon för att flytta JDBC jar-filen till Striims lib directory, och starta och stoppa servern.
+Kör följande kommandon för att flytta JDBC jar-filen till Striims-lib-katalogen och starta och stoppa servern.
 
    1. sudo su
-   2. cd /tmp
-   3. MV sqljdbc42.jar /opt/striim/lib
-   4. systemctl stoppa striims-nod
-   5. systemctl stoppa striims-dbms
-   6. systemctl start striims-dbms
-   7. systemctl striims-startnoden
+   2. CD-katalogen/tmp
+   3. MV sqljdbc42. jar/opt/Striim/lib
+   4. systemctl stoppa striims-Node
+   5. systemctl Stop striims-DBMS
+   6. systemctl starta striims-DBMS
+   7. systemctl starta striims-Node
 
-![Starta Striims-kluster][start-striim]
+![Starta Striims-klustret][start-striim]
 
-Nu kan öppna webbläsaren och navigera till \<DNS-namn >: 9080
+Öppna din favorit webbläsare och gå till \<DNS-namn >: 9080
 
-![Gå till inloggningssidan][navigate]
+![Gå till inloggnings skärmen][navigate]
 
-Logga in med användarnamnet och lösenordet du ställer in i Azure-portalen och välj din önskade guiden komma igång eller gå till sidan appar att börja att dra och släpp-gränssnitt
+Logga in med det användar namn och lösen ord som du angav i Azure Portal och välj önskad guide för att komma igång, eller gå till sidan appar för att börja använda gränssnittet dra och släpp
 
-![Logga in med autentiseringsuppgifterna för servern][login]
+![Logga in med autentiseringsuppgifter för servern][login]
 
 
 

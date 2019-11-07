@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: 40718cdb12cbc46bf0587dfdc657ee06c090061b
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.date: 11/04/2019
+ms.openlocfilehash: c8891fc96e3e511e4127b4e114a45b5a865cf8eb
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598248"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603031"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Övervaka Azure Database for MySQL prestanda med Query Store
 
 **Gäller för:** Azure Database for MySQL 5,7
-
-> [!IMPORTANT]
-> Query Store är i för hands version.
 
 Funktionen Query Store i Azure Database for MySQL ger dig ett sätt att spåra frågeresultaten över tid. Query Store fören klar prestanda fel sökningen genom att hjälpa dig att snabbt hitta de allra som körs och de flesta resurs intensiva frågor. Query Store samlar automatiskt in en historik över frågor och körnings statistik och behåller dem för din granskning. Den separerar data efter tids period, så att du kan se databas användnings mönster. Data för alla användare, databaser och frågor lagras i databasen **MySQL** schema i Azure Database for MySQL-instansen.
 
@@ -107,7 +104,7 @@ Följande alternativ gäller specifikt för väntande statistik.
 > [!NOTE]
 > För närvarande ersätter den här konfigurationen **query_store_capture_mode** , vilket innebär att både **query_store_capture_mode** och **query_store_wait_sampling_capture_mode** måste vara aktiverade för att väntande statistik ska fungera. Om **query_store_capture_mode** är inaktive rad inaktive ras väntande statistik, eftersom väntande statistik använder performance_schema aktive rad och query_text som fångats av frågearkivet.
 
-Använd [Azure Portal](howto-server-parameters.md)  or [Azure CLI](howto-configure-server-parameters-using-cli.md) för  to hämta eller ange ett annat värde för en parameter.
+Använd [Azure Portal](howto-server-parameters.md) eller [Azure CLI](howto-configure-server-parameters-using-cli.md) - för att hämta eller ange ett annat värde för en parameter.
 
 ## <a name="views-and-functions"></a>Vyer och funktioner
 
@@ -174,10 +171,10 @@ Den här vyn returnerar information om väntande händelser i Frågearkivet. Det
 
 ## <a name="limitations-and-known-issues"></a>Begränsningar och kända problem
 
-- Om en MySQL-server har parametern `default_transaction_read_only` på, kan Query Store inte samla in data.
+- Om en MySQL-server har parametern `default_transaction_read_only` på kan Frågearkivet inte samla in data.
 - Query Store-funktionen kan avbrytas om den påträffar långa Unicode-frågor (\> = 6000 byte).
 - Kvarhållningsperioden för väntande statistik är 24 timmar.
-- Väntande statistik använder exempel för att avbilda en del av händelser. Frekvensen kan ändras med hjälp av parametern `query_store_wait_sampling_frequency`.
+- Väntande statistik använder exempel för att avbilda en del av händelser. Frekvensen kan ändras med parametern `query_store_wait_sampling_frequency`.
 
 ## <a name="next-steps"></a>Nästa steg
 

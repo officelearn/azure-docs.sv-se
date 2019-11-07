@@ -1,5 +1,5 @@
 ---
-title: Säkerhets konfiguration för delad sammanslagning | Microsoft Docs
+title: Säkerhets konfiguration för delad sammanslagning
 description: Konfigurera x409-certifikat för kryptering med delnings-/sammanslagnings tjänsten för elastisk skalning.
 services: sql-database
 ms.service: sql-database
@@ -11,16 +11,16 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: ada794807f980854c203b56874e452713ecef6ea
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 98d645fc76010d96bc016a63b4882979f3489698
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568349"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690139"
 ---
 # <a name="split-merge-security-configuration"></a>Säkerhets konfiguration för delad sammanslagning
 
-Om du vill använda delnings-/sammanslagnings tjänsten måste du konfigurera säkerheten korrekt. Tjänsten är en del av den elastiska skalnings funktionen i Microsoft Azure SQL Database. Mer information finns i självstudierna [dela och sammanfoga tjänst i elastisk skala](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
+Om du vill använda delnings-/sammanslagnings tjänsten måste du konfigurera säkerheten korrekt. Tjänsten är en del av den elastiska skalnings funktionen i Microsoft Azure SQL Database. Mer information finns i [självstudierna dela och sammanfoga tjänst i elastisk skala](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 
 ## <a name="configuring-certificates"></a>Konfigurera certifikat
 
@@ -33,12 +33,12 @@ Certifikat konfigureras på två sätt.
 
 Certifikat kan hämtas från offentliga certifikat utfärdare (ca: er) eller från [Windows Certificate service](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). Det här är de bästa metoderna för att hämta certifikat.
 
-Om dessa alternativ inte är tillgängliga kan du generera självsignerade **certifikat**.
+Om dessa alternativ inte är tillgängliga kan du generera **självsignerade certifikat**.
 
 ## <a name="tools-to-generate-certificates"></a>Verktyg för att skapa certifikat
 
-* [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
-* [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
+* [Makecert. exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
+* [pvk2pfx. exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
 ### <a name="to-run-the-tools"></a>Köra verktygen
 
@@ -120,7 +120,7 @@ Standard konfigurationen nekar all åtkomst till HTTP-slutpunkten. Detta är den
 Standard konfigurationen ger all åtkomst till HTTPS-slutpunkten. Den här inställningen kan begränsas ytterligare.
 
 ### <a name="changing-the-configuration"></a>Ändra konfigurationen
-Gruppen med åtkomst kontroll regler som gäller för och slut punkten konfigureras i  **\<avsnittet EndpointAcls >** i **tjänst konfigurations filen**.
+Gruppen med åtkomst kontroll regler som gäller för och slut punkten konfigureras i avsnittet **\<EndpointAcls >** i **tjänst konfigurations filen**.
 
 ```xml
 <EndpointAcls>
@@ -129,7 +129,7 @@ Gruppen med åtkomst kontroll regler som gäller för och slut punkten konfigure
 </EndpointAcls>
 ```
 
-Reglerna i en åtkomst kontroll grupp konfigureras i \<avsnittet AccessControl Name = "" > i tjänst konfigurations filen. 
+Reglerna i en åtkomst kontroll grupp konfigureras i ett \<AccessControl Name = "" > avsnittet i tjänst konfigurations filen. 
 
 Formatet förklaras i dokumentationen för nätverks Access Control listor.
 Om du till exempel vill tillåta att endast IP-adresser i intervallet 100.100.0.0 till 100.100.255.255 får åtkomst till HTTPS-slutpunkten skulle reglerna se ut så här:
@@ -445,7 +445,7 @@ I **guiden Exportera certifikat**:
 11. Klicka på **Slutför**.
 12. Klicka på **OK**.
 
-## <a name="import-certificate"></a>Importera certifikatet
+## <a name="import-certificate"></a>Importera certifikat
 I guiden Importera certifikat:
 
 1. Välj lagrings plats.

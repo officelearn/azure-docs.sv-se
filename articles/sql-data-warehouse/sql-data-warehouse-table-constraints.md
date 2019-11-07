@@ -1,5 +1,5 @@
 ---
-title: Primär nyckel, sekundär nyckel och unik nyckel i Azure SQL Data Warehouse | Microsoft Docs
+title: Primära, externa och unika nycklar
 description: Tabell begränsningar stöder i Azure SQL Data Warehouse
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,18 +10,19 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: b02f219e549f2206f71c08c9d465b2bc05a6d526
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 8f3102425c6f984df0f50bc05eeb6f9a5e66d3dd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310300"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685486"
 ---
 # <a name="primary-key-foreign-key-and-unique-key-in-azure-sql-data-warehouse"></a>Primär nyckel, sekundär nyckel och unik nyckel i Azure SQL Data Warehouse
 
 Lär dig mer om tabell begränsningar i Azure SQL Data Warehouse, inklusive primär nyckel, sekundär nyckel och unik nyckel.
 
-## <a name="table-constraints"></a>Tabell begränsningar 
+## <a name="table-constraints"></a>Tabellbegränsningar 
 Azure SQL Data Warehouse stöder följande tabell begränsningar: 
 - PRIMÄR nyckel stöds bara om både icke-KLUSTRad och inte framtvingad används.    
 - En unik begränsning stöds endast med inte TVINGAd användning.   

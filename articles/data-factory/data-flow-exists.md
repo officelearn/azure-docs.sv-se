@@ -1,5 +1,5 @@
 ---
-title: Exists-transformering i Azure Data Factory mappnings data flöde | Microsoft Docs
+title: Exists-transformering i Azure Data Factory mappnings data flöde
 description: Sök efter befintliga rader med hjälp av exists-omvandlingen i Azure Data Factory mappa data flöde
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 79bdfc84310686b2648e12d73d783de049e9d2fa
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: a477eba246c4ebcfbd32e92f1fd30c301ea1cc5b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596501"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73676738"
 ---
 # <a name="exists-transformation-in-mapping-data-flow"></a>Exists-transformering i mappnings data flödet
 

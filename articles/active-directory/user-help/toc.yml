@@ -54,18 +54,22 @@
       href: user-help-auth-app-backup-recovery.md
     - name: VANLIGA FRÅGOR OCH SVAR
       href: user-help-auth-app-faq.md
-- name: Hjälp för Min profil (förhandsversion) på portalen
+- name: Hjälp om portalen Mitt konto
   items:
     - name: Översikt
-      href: myprofile-portal-overview.md
+      href: my-account-portal-overview.md
     - name: Hantera säkerhetsinformation
       href: user-help-security-info-overview.md
-    - name: Hantera dina organisationer
-      href: myprofile-portal-organizations-page.md
     - name: Hantera dina anslutna enheter
-      href: myprofile-portal-devices-page.md
+      href: my-account-portal-devices-page.md
+    - name: Ändra ditt lösenord
+      href: my-account-change-password-page.md
+    - name: Hantera dina organisationer
+      href: my-account-portal-organizations-page.md
     - name: Visa din sekretessrelaterade information
-      href: myprofile-portal-privacy-page.md
+      href: my-account-portal-privacy-page.md
+    - name: Visa din senaste inloggningsaktivitet
+      href: my-account-portal-sign-ins-page.md
 - name: Hjälp om säkerhetsinformation (förhandsversion)
   items:
     - name: Översikt

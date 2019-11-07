@@ -1,5 +1,5 @@
 ---
-title: 'Azure Backup: Skapa säkerhets kopierings principer med REST API'
+title: 'Azure Backup: skapa säkerhets kopierings principer med REST API'
 description: Hantera säkerhets kopierings principer (schema och kvarhållning) med REST API
 ms.reviewer: pullabhk
 author: dcurwin
@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: dacurwin
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 8b812ea053cb8e9da7cd3ef021ab6b74196d36ca
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
-ms.translationtype: MT
+ms.openlocfilehash: 50cc327c69529e420837571fdd60c1b2a1364b10
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954972"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73670143"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Skapa principer för Azure Recovery Services säkerhets kopiering med REST API
 
-Stegen för att skapa en säkerhets kopierings princip för ett Azure Recovery Services-valv beskrivs i [princip REST API dokumentet](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate). Låt oss använda det här dokumentet som en referens för att skapa en princip för säkerhets kopiering av virtuella Azure-datorer.
+Stegen för att skapa en säkerhets kopierings princip för ett Azure Recovery Services-valv beskrivs i [princip REST API dokumentet](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate). Låt oss använda det här dokumentet som en referens för att skapa en princip för säkerhets kopiering av virtuella Azure-datorer.
 
 ## <a name="backup-policy-essentials"></a>Säkerhets kopierings princip Essentials
 
@@ -30,32 +30,32 @@ Stegen för att skapa en säkerhets kopierings princip för ett Azure Recovery S
   - Azure-filresurs
 - En princip kan tilldelas till många resurser. En princip för säkerhets kopiering av virtuella Azure-datorer kan användas för att skydda många virtuella Azure-datorer.
 - En princip består av två komponenter
-  - Ange När du ska göra säkerhets kopian
-  - Kvarhållning För hur länge varje säkerhets kopia ska behållas.
+  - Schema: när säkerhets kopieringen ska utföras
+  - Kvarhållning: för hur länge varje säkerhets kopia ska behållas.
 - Schemat kan definieras som "dagligen" eller "veckovis" med en viss tidpunkt.
 - Kvarhållning kan definieras för "dagliga", "veckovis", "årliga" säkerhets kopierings punkter.
 - "veckovis" syftar på en säkerhets kopia på en viss dag i veckan, "månad" innebär en säkerhets kopiering på en viss dag i månaden och "årlig" avser en säkerhets kopia på en viss dag på året.
 - Kvarhållning för "månads", "årliga" säkerhets kopierings punkter kallas "LongTermRetention".
 - När ett valv skapas, skapas även en princip för säkerhets kopiering av virtuella Azure-datorer med namnet "DefaultPolicy" och kan användas för att säkerhetskopiera virtuella Azure-datorer.
 
-Om du vill skapa eller uppdatera en Azure Backup-princip använder du följande åtgärd
+Om du vill skapa eller uppdatera en Azure Backup-princip använder *du följande åtgärd*
 
 ```http
-PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName}?api-version=2016-12-01
+PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName}?api-version=2019-05-13
 ```
 
-`{policyName}` Och`{vaultName}` anges i URI: n. Ytterligare information finns i begär ande texten.
+`{policyName}` och `{vaultName}` anges i URI: n. Ytterligare information finns i begär ande texten.
 
 ## <a name="create-the-request-body"></a>Skapa begär ande texten
 
 Om du till exempel vill skapa en princip för säkerhets kopiering av virtuella Azure-datorer, följer du komponenterna i begär ande texten.
 
-|Namn  |Obligatorisk  |Typ  |Beskrivning  |
+|Namn  |Krävs  |Typ  |Beskrivning  |
 |---------|---------|---------|---------|
-|properties     |   Sant      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Egenskaper för ProtectionPolicyResource        |
-|taggar     |         | Object        |  Resurstaggar       |
+|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#azureiaasvmprotectionpolicy)      | Egenskaper för ProtectionPolicyResource        |
+|tagg     |         | Objekt        |  Resurstaggar       |
 
-En fullständig lista över definitioner i begär ande texten finns i [säkerhets kopierings policyn REST API-dokument](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate).
+En fullständig lista över definitioner i begär ande texten finns i [säkerhets kopierings policyn REST API-dokument](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate).
 
 ### <a name="example-request-body"></a>Exempel på begär ande text
 
@@ -152,7 +152,7 @@ Principen säger:
 > [!IMPORTANT]
 > Tids formaten för schema och kvarhållning stöder endast DateTime. De har inte stöd för själva tids formatet.
 
-## <a name="responses"></a>Responses
+## <a name="responses"></a>Svar
 
 Skapande/uppdatering av säkerhets kopierings policy är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
 
@@ -160,12 +160,12 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
-|200 OK     |    [Skydd PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  Ok       |
-|202 accepterad     |         |     Accepterad    |
+|200 OK     |    [Skydd PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#protectionpolicyresource)     |  OK       |
+|202 accepterad     |         |     Accept    |
 
 ### <a name="example-responses"></a>Exempel svar
 
-När du skickar in begäran om att skapa eller uppdatera en princip är det första svaret 202 (accepteras) med ett plats huvud eller Azure-async-header.
+När du skickar in *begäran om att skapa* eller uppdatera en princip är det första svaret 202 (accepteras) med ett plats huvud eller Azure-async-header.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -181,14 +181,14 @@ x-ms-correlation-request-id: db785be0-bb20-4598-bc9f-70c9428b170b
 x-ms-routing-request-id: SOUTHINDIA:20180521T073907Z:db785be0-bb20-4598-bc9f-70c9428b170b
 Cache-Control: no-cache
 Date: Mon, 21 May 2018 07:39:06 GMT
-Location: https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2016-06-01
+Location: https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2019-05-13
 X-Powered-By: ASP.NET
 ```
 
 Spåra sedan den resulterande åtgärden med hjälp av plats rubriken eller Azure-AsyncOperation-huvudet med ett enkelt *Get* -kommando.
 
 ```http
-GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2016-06-01
+GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2019-05-13
 ```
 
 När åtgärden har slutförts returneras 200 (OK) med princip innehållet i svars texten.
@@ -285,7 +285,7 @@ Om en princip redan används för att skydda ett objekt leder alla uppdateringar
 
 [Aktivera skydd för en oskyddad virtuell Azure-dator](backup-azure-arm-userestapi-backupazurevms.md).
 
-Mer information om Azure Backup REST API: er finns i följande dokument:
+Mer information om Azure Backup REST-API: er finns i följande dokument:
 
 - [Azure Recovery Services-Provider REST API](/rest/api/recoveryservices/)
-- [Kom igång med Azure REST API](/rest/api/azure/)
+- [Komma igång med Azure REST API](/rest/api/azure/)

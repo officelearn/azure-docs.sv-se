@@ -1,10 +1,10 @@
 ---
-title: Startfel i virtuella Azure-datorer
+title: Virtuella Linux-datorer startar till grub räddning
 description: Det gick inte att starta den virtuella datorn eftersom den virtuella datorn angav en räddnings konsol
 services: virtual-machines-windows
 documentationcenter: ''
 author: v-miegge
-manager: ''
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2019
 ms.author: tiag
-ms.openlocfilehash: 9995b9049378a0ab4f3450ec577d034598d171e9
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 29242b802dbbff4218506422293082a495c4d21e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984827"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685126"
 ---
-# <a name="vm-boot-error"></a>Fel vid start av virtuell dator
+# <a name="linux-vm-boots-to-grub-rescue"></a>Virtuella Linux-datorer startar till grub räddning
 
 Vi har identifierat att din virtuella dator (VM) angav en räddnings konsol. Problemet uppstår när din virtuella Linux-dator hade kernel-ändringar som nyligen lagts till som en kernel-uppgradering och inte längre startar på rätt sätt på grund av kernel-fel under start processen. När Start inläsaren försöker hitta Linux-kärnan under start processen och den lämnar start kontrollen till den, kommer den virtuella datorn att gå in i en räddnings konsol när leveransen Miss lyckas.
 
@@ -35,20 +35,20 @@ Följ stegen nedan beroende på vilket fel du får:
 
 * Om du får felet **Okänt fil**system kan det här felet bero på ett skadat fil system på startpartitionen eller en felaktig kernel-konfiguration.
 
-   * För fil Systems problem följer du stegen i artikeln [Linux-återställning: Det går inte att använda SSH till virtuella Linux-datorer på grund av fel](https://blogs.msdn.microsoft.com/linuxonazure/2016/09/13/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes/)i fil systemet (fsck, noder i procent).
-   * För kernel-problem följer du stegen i artikeln [Linux-återställning: Åtgärda problem som inte kan startas manuellt och som rör](https://blogs.msdn.microsoft.com/linuxonazure/2016/10/09/linux-recovery-manually-fixing-non-boot-issues-related-to-kernel-problems/)kernel- [problem eller Linux-återställning: Åtgärda icke-startproblem som rör kernel-problem med](https://blogs.msdn.microsoft.com/linuxonazure/2016/10/09/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/)chroot.
+   * För fil Systems problem följer du stegen i artikeln Linux- [återställning: det går inte att använda SSH till Linux-VM på grund av fil system fel (fsck, noder i procent)](https://blogs.msdn.microsoft.com/linuxonazure/2016/09/13/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes/).
+   * För kernel-problem följer du stegen i artikeln [Linux-återställning: korrigera icke-startproblem som rör kernel-problem](https://blogs.msdn.microsoft.com/linuxonazure/2016/10/09/linux-recovery-manually-fixing-non-boot-issues-related-to-kernel-problems/)eller Linux- [återställning: åtgärda icke-startproblem som rör kernel-problem med chroot](https://blogs.msdn.microsoft.com/linuxonazure/2016/10/09/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/).
    
 ### <a name="error---file-not-found"></a>Fel-filen hittades inte
 
-* Om du får fel **meddelandet 15: Filen hittades inte eller så gick det** inte att hitta den första RAM-disken eller så går det **inte att hitta initrd/initramfs-filen**.
+* Om du får fel **meddelandet 15: filen hittades inte eller** så går det inte att hitta den första RAM-disken eller så går det **inte att hitta initrd/initramfs-filen**.
 
-    * För den saknade filen `/boot/grub2/grub.cfg` eller `initrd/initramfs` Fortsätt med följande process:
+    * För den saknade filen `/boot/grub2/grub.cfg` eller `initrd/initramfs` fortsätter med följande process:
 
-    1. Se `/etc/default/grub` till att de finns och har rätt/önskade inställningar. Om du inte vet vilka inställningar som är standardinställningar kan du kontrol lera med en fungerande virtuell dator.
+    1. Se till att `/etc/default/grub` finns och har rätt/önskade inställningar. Om du inte vet vilka inställningar som är standardinställningar kan du kontrol lera med en fungerande virtuell dator.
 
-    2. Kör sedan följande kommando för att återskapa konfigurationen:`grub2-mkconfig -o /boot/grub2/grub.cfg`
+    2. Kör sedan följande kommando för att återskapa konfigurationen: `grub2-mkconfig -o /boot/grub2/grub.cfg`
 
-   * `/boot/grub/menu.lst`Om filen saknas är det här felet för äldre OS-versioner (**RHEL 6. x**, **CentOS 6. x** och **Ubuntu 14,04**) så att kommandona kan skilja sig. Du måste sätta igång en gammal Server och testa för att se till att rätt kommandon tillhandahålls.
+   * Om den saknade filen är `/boot/grub/menu.lst`, är det här felet för äldre OS-versioner (**RHEL 6. x**, **CentOS 6. x** och **Ubuntu 14,04**) så att kommandona kan skilja sig. Du måste sätta igång en gammal Server och testa för att se till att rätt kommandon tillhandahålls.
 
 ### <a name="error---no-such-partition"></a>Fel-ingen sådan partition
 
@@ -58,13 +58,13 @@ Följ stegen nedan beroende på vilket fel du får:
 
 * Om du får fel meddelandet Det gick **inte att hitta/Boot/grub2/grub.cfg**följer du stegen nedan.
 
-    * För den saknade filen `/boot/grub2/grub.cfg` eller `initrd/initramfs` Fortsätt med följande process:
+    * För den saknade filen `/boot/grub2/grub.cfg` eller `initrd/initramfs` fortsätter med följande process:
 
-    1. Se `/etc/default/grub` till att de finns och har rätt/önskade inställningar. Om du inte vet vilka inställningar som är standardinställningar kan du kontrol lera med en fungerande virtuell dator.
+    1. Se till att `/etc/default/grub` finns och har rätt/önskade inställningar. Om du inte vet vilka inställningar som är standardinställningar kan du kontrol lera med en fungerande virtuell dator.
 
     2. Kör sedan följande kommando för att återskapa konfigurationen: `grub2-mkconfig -o /boot/grub2/grub.cfg`.
 
-   * `/boot/grub/menu.lst`Om den saknade filen är är det här felet för äldre OS-versioner (**RHEL 6. x**, **CentOS 6. x** och **Ubuntu 14,04**) så att kommandona kan skjuta upp. Skapa en gammal Server och testa den för att se till att rätt kommandon tillhandahålls.
+   * Om den saknade filen är `/boot/grub/menu.lst`är det här felet för äldre OS-versioner (**RHEL 6. x**, **CentOS 6. x** och **Ubuntu 14,04**) så att kommandona kan skjuta upp. Skapa en gammal Server och testa den för att se till att rätt kommandon tillhandahålls.
 
 ## <a name="next-steps"></a>Nästa steg
 

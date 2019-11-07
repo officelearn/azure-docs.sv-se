@@ -1,5 +1,5 @@
 ---
-title: Kopiera data till och från Oracle med Azure Data Factory | Microsoft Docs
+title: Kopiera data till och från Oracle med hjälp av Azure Data Factory
 description: Lär dig hur du kopierar data från käll arkiv som stöds till en Oracle-databas, eller från Oracle till Sink-lager som stöds, genom att använda Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 24ff711fcd27d59c555a53a910065e19f7298131
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d8cbc7410f2b2bd525148cee9dc5b8ddbb756dff
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931065"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680509"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Kopiera data från och till Oracle med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -51,13 +51,13 @@ Mer specifikt stöder den här Oracle-anslutningen:
 > [!Note]
 > Oracle-proxyservern stöds inte.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)] 
 
 Integrerings körningen innehåller en inbyggd Oracle-drivrutin. Därför behöver du inte installera en driv rutin manuellt när du kopierar data från och till Oracle.
 
-## <a name="get-started"></a>Kom i gång
+## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -182,7 +182,7 @@ Om du vill kopiera data från och till Oracle anger du egenskapen type för data
 |:--- |:--- |:--- |
 | typ | Data uppsättningens typ-egenskap måste anges till `OracleTable`. | Ja |
 | Schema | Schemats namn. |Nej för källa, Ja för mottagare  |
-| Partitionstabell | Namnet på tabellen/vyn. |Nej för källa, Ja för mottagare  |
+| partitionstabell | Namnet på tabellen/vyn. |Nej för källa, Ja för mottagare  |
 | tableName | Namnet på tabellen/vyn med schemat. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` och `table` för ny arbets belastning. | Nej för källa, Ja för mottagare |
 
 **Exempel:**

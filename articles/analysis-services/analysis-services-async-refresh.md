@@ -1,18 +1,18 @@
 ---
 title: Asynkron uppdatering av Azure Analysis Servicess modeller | Microsoft Docs
-description: Lär dig hur du kodar asynkron uppdatering med hjälp av REST API.
+description: Beskriver hur du använder Azure Analysis Services REST API för att koda asynkron uppdatering av modell data.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5fbb3f2cbc0e53ab1bc04d57b583802e26b92a60
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7c6fba10264939335cdef26f288973f8217f340b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73147361"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573398"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynkron uppdatering med REST API
 
@@ -61,7 +61,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 Alla anrop måste autentiseras med en giltig Azure Active Directory-token (OAuth 2) i Authorization-huvudet och måste uppfylla följande krav:
 
 - Token måste antingen vara en användartoken eller ett huvud namn för program tjänsten.
-- Token måste ha rätt mål grupp inställd på `https://*.asazure.windows.net`.
+- Token måste ha rätt mål grupp inställd för att `https://*.asazure.windows.net`.
 - Användaren eller programmet måste ha tillräcklig behörighet på servern eller modellen för att kunna göra det begärda anropet. Behörighets nivån bestäms av roller i modellen eller administratörs gruppen på servern.
 
     > [!IMPORTANT]
@@ -207,11 +207,11 @@ Kod exemplet använder autentisering av [tjänstens huvud namn](#service-princip
 Se [skapa tjänstens huvud namn – Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md) och [lägga till ett huvud namn för tjänsten i rollen Server administratör](analysis-services-addservprinc-admins.md) för mer information om hur du konfigurerar ett huvud namn för tjänsten och tilldelar de nödvändiga behörigheterna i Azure som. När du har slutfört stegen utför du följande steg:
 
 1.  I kod exemplet letar du reda på **sträng auktoritet =...** , ersätter **common** med organisationens klient-ID.
-2.  Kommentera/ta bort kommentaren så att ClientCredential-klassen används för att instansiera objektet cred. Se till att \<App-ID >-och \<App-nyckel > värden kan nås på ett säkert sätt eller använda certifikatbaserad autentisering för tjänstens huvud namn.
+2.  Kommentera/ta bort kommentaren så att ClientCredential-klassen används för att instansiera objektet cred. Se till att \<app-ID > och \<app Key-> kan nås på ett säkert sätt eller använda certifikatbaserad autentisering för tjänstens huvud namn.
 3.  Kör exemplet.
 
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 [Exempel](analysis-services-samples.md)   
 [REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   

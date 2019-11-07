@@ -12,12 +12,12 @@ metadata:
   author: memildin
   ms.author: memildin
   ms.date: 11/04/2019
-  ms.openlocfilehash: 48140c014492383fd4c714669b070df1fa6214e6
-  ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+  ms.openlocfilehash: 8174498a5cc94eca0883102c95b543630cd37fdf
+  ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73521160"
+  ms.lasthandoff: 11/05/2019
+  ms.locfileid: "73607509"
 landingContent:
 - title: Om Security Center
   linkLists:
@@ -27,6 +27,22 @@ landingContent:
       url: security-center-intro.md
     - text: Vilka versioner av Windows Server och Linux stöds?
       url: security-center-os-coverage.md
+- title: Håll dig uppdaterad
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Skydda dina containrar
+      url: container-security.md
+    - text: Lägga till dynamiska efterlevnadspaket
+      url: update-regulatory-compliance-packages.md
+    - text: Integrera med Windows Admin Center
+      url: windows-admin-center-integration.md
+    - text: Automatisera svar på aviseringar och rekommendationer
+      url: workflow-automation.md
+    - text: Exportera säkerhetsaviseringar och rekommendationer
+      url: continuous-export.md
+    - text: Konfigurera Advanced Threat Protection för Azure Key Vault
+      url: advanced-threat-protection-key-vault.md
 - title: Komma igång
   linkLists:
   - linkListType: get-started

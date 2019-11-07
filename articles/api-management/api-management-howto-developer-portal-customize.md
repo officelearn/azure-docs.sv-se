@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 62fb5552d86a802c3ba0213d99be2f91f21025e2
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7547db502056304307094541dcfd2474eda999d8
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472128"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620424"
 ---
 # <a name="access-and-customize-developer-portal"></a>Komma åt och anpassa Developer-portalen
 
@@ -40,7 +40,7 @@ Du hittar mer information om Developer-portalen i [Översikt över Azure API Man
 > Developer-portalen är för närvarande distribuerad till API Management tjänster.
 > Om din tjänst har skapats nyligen eller är en tjänst för utvecklare, bör du redan ha den senaste versionen. Annars kan det uppstå problem (till exempel med publicerings funktionen). Funktions distributionen kommer att slutföras den 11 november 2019. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 - Importera och publicera en Azure API Management-instans. Mer information finns i [Importera och publicera](import-and-publish.md)
@@ -125,7 +125,7 @@ Om du vill göra din portal och dess senaste ändringar tillgängliga för besö
 
 ## <a name="visit-the-published-portal"></a>Besök den publicerade portalen
 
-När du har publicerat portalen kan du komma åt den på samma URL som administrations panelen, till exempel `https://contoso-api.portal.azure-api.net`. Öppna den på en ny flik i webbläsaren om du vill visa den som en extern besökare.
+När du har publicerat portalen kan du komma åt den på samma URL som administrations panelen, till exempel `https://contoso-api.developer.azure-api.net`. Visa den i en separat webbläsarsession (Incognito/Private bläddringsläge) som extern besökare.
 
 ## <a name="next-steps"></a>Nästa steg
 

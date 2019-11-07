@@ -1,6 +1,6 @@
 ---
 title: Distribution och användning
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Du kan använda Azure Machine Learning Studio (klassisk) för att distribuera Machine Learning-arbetsflöden och-modeller som webb tjänster. Dessa webb tjänster kan sedan användas för att anropa maskin inlärnings modeller från program via Internet för att göra förutsägelser i real tid eller i batchläge.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: bf169a9b7064bd83caf0c9f8ec6dd6dd55894d67
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 47cd04615919fcc9db757ed4b9e8fd06eb297592
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493011"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684817"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio (klassiska) webb tjänster: distribution och användning
 
@@ -31,8 +31,8 @@ Studio-portalen (klassisk) och Microsoft Azure Machine Learning Web Services-por
 
 Följande länkar ger allmän information om hur du distribuerar en ny webb tjänst:
 
-* En översikt över hur du distribuerar en ny webb tjänst som är baserad på Azure Resource Manager finns i [distribuera en ny webb tjänst](publish-a-machine-learning-web-service.md).
-* En genom gång av hur du distribuerar en webb tjänst finns i [distribuera en Azure Machine Learning-webbtjänst](publish-a-machine-learning-web-service.md).
+* En översikt över hur du distribuerar en ny webb tjänst som är baserad på Azure Resource Manager finns i [distribuera en ny webb tjänst](deploy-a-machine-learning-web-service.md).
+* En genom gång av hur du distribuerar en webb tjänst finns i [distribuera en Azure Machine Learning-webbtjänst](deploy-a-machine-learning-web-service.md).
 * För en fullständig genom gång av hur du skapar och distribuerar en webb tjänst börjar du med [självstudie 1: Förutsäg kredit risk](tutorial-part1-credit-risk.md).
 * För vissa exempel som distribuerar en webb tjänst, se:
 
@@ -87,13 +87,13 @@ Mer information finns i följande artiklar och exempel kod:
 
 Du kan testa webb tjänsten från Azure Machine Learning Web Services-portalen. Detta omfattar att testa BES-gränssnitten (Request-Response service) och batch execution service ().
 
-* [Distribuera en ny webbtjänst](publish-a-machine-learning-web-service.md)
-* [Distribuera en Azure Machine Learning-webbtjänst](publish-a-machine-learning-web-service.md)
+* [Distribuera en ny webbtjänst](deploy-a-machine-learning-web-service.md)
+* [Distribuera en Azure Machine Learning-webbtjänst](deploy-a-machine-learning-web-service.md)
 * [Självstudie 3: Distribuera kredit risk modell](tutorial-part3-credit-risk-deploy.md)
 
 ### <a name="from-excel"></a>Från Excel
 
-Du kan ladda ned en Excel-mall som använder webb tjänsten:
+Du kan hämta en Excel-mall som förbrukar webbtjänsten:
 
 * [Använda en Azure Machine Learning webb tjänst från Excel](consuming-from-excel.md)
 * [Excel-tillägg för Azure Machine Learning webb tjänster](excel-add-in-for-web-services.md)

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 10/22/2019
+ms.date: 11/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: dcbe535bb92f7755980929956093b0f0121ef41b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 20ff7d2cb6c185f574494871a986e1bce63536ba
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476449"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619959"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning"></a>Använd CLI-tillägget för Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ Azure Machine Learning CLI är ett tillägg till [Azure CLI](https://docs.micros
 
 CLI är inte en ersättning för Azure Machine Learning SDK. Det är ett komplett verktyg som är optimerat för att hantera mycket parameterstyrda uppgifter som passar bra för automatisering.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Du måste ha en Azure-prenumeration för att kunna använda CLI. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
@@ -92,6 +92,9 @@ Följande kommandon visar hur du använder CLI för att hantera resurser som anv
     ```azurecli-interactive
     az ml workspace create -w myworkspace -g myresourcegroup
     ```
+
+    > [!TIP]
+    > Det här kommandot skapar en Basic Edition-arbetsyta. Om du vill skapa en företags arbets yta använder du växeln `--sku enterprise` med kommandot `az ml workspace create`. Mer information om Azure Machine Learning-versioner finns i [Azure Machine Learning](overview-what-is-azure-ml.md#sku).
 
     Mer information finns i [skapa en AZ ml-arbetsyta](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-create).
 

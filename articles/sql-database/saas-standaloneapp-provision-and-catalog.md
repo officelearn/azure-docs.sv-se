@@ -1,5 +1,5 @@
 ---
-title: Självstudie för SaaS för flera innehavare – Azure SQL Database | Microsoft Docs
+title: Självstudie för SaaS för flera innehavare – Azure SQL Database
 description: Etablera och katalogisera nya klienter med det fristående program mönstret
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/24/2018
-ms.openlocfilehash: f9087ff33bccb54497ec8d781a47469553683d65
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: de1007aac3988f2ea78b9d1b7b1de19b862f196a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570266"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691946"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Etablera och katalogisera nya klienter med hjälp av mönstret program per klient SaaS
 
@@ -55,7 +55,7 @@ EDCL-funktioner kan anropas från program eller PowerShell-skript för att skapa
 
 Varje klient kräver en ny Azure-resurs grupp som måste skapas innan resurser kan tillhandahållas i den. När resurs gruppen finns kan du använda en Azure Resource Management-mall för att distribuera program komponenterna och-databasen och sedan konfigurera databas anslutningen. För att initiera databasschemat kan mallen importera en BACPAC-fil.  Du kan också skapa databasen som en kopia av en mall-databas.  Databasen uppdateras sedan ytterligare med inledande plats data och registreras i katalogen.
 
-## <a name="tutorial"></a>Självstudie
+## <a name="tutorial"></a>Självstudier
 
 I den här självstudiekursen får du lära du dig att:
 
@@ -67,11 +67,11 @@ En Azure Resource Manager mall används för att distribuera och konfigurera pro
 
 I slutet av den här självstudien har du en uppsättning fristående klient program, där varje databas är registrerad i katalogen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande krav måste uppfyllas för att kunna köra den här självstudiekursen: 
 
-* Azure PowerShell ska ha installerats. Mer information finns i [Komma igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+* Azure PowerShell ska ha installerats. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * De tre exempel klient programmen distribueras. Om du vill distribuera dessa appar på mindre än fem minuter kan du läsa [distribuera och utforska Wingtip Ticket SaaS fristående program mönster](saas-standaloneapp-get-started-deploy.md).
 
 ## <a name="provision-the-catalog"></a>Etablera katalogen
@@ -81,10 +81,10 @@ I den här uppgiften får du lära dig hur du etablerar katalogen som används f
 * **Etablera katalog databasen** med en Azure-resurs hanterings mall. Databasen initieras genom att importera en BACPAC-fil.  
 * **Registrera de exempel på klient program** som du distribuerade tidigare.  Varje klient har registrerats med hjälp av en nyckel som skapats från en hash av klientens namn.  Klient namnet lagras också i en tilläggs tabell i katalogen.
 
-1. I PowerShell ISE öppnar du *. ..\Learning Modules\UserConfig.PSM* och uppdaterar **\<User\>** -värdet till det värde som du använde när du distribuerade de tre exempel programmen.  **Spara filen**.  
+1. Öppna *. ..\Learning Modules\UserConfig.PSM* i PowerShell ISE och uppdatera **\<User\>** -värdet till det värde som du använde när du distribuerade de tre exempel programmen.  **Spara filen**.  
 1. I PowerShell ISE öppnar du *. ..\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* och anger **$Scenario = 1**. Distribuera klient katalogen och registrera de fördefinierade klient organisationerna.
 
-1. Lägg till en Bryt punkt genom att placera markören var som helst på den `& $PSScriptRoot\New-Catalog.ps1`rad som står, och tryck sedan på **F9**.
+1. Lägg till en Bryt punkt genom att placera markören var som helst på den rad som står `& $PSScriptRoot\New-Catalog.ps1`och tryck sedan på **F9**.
 
     ![Ange en Bryt punkt för spårning](media/saas-standaloneapp-provision-and-catalog/breakpoint.png)
 
@@ -97,14 +97,14 @@ När skriptet har slutförts kommer katalogen att finnas och alla exempel klient
 
 Titta nu på de resurser som du har skapat.
 
-1. Öppna [Azure Portal](https://portal.azure.com/) och bläddra bland resurs grupperna.  Öppna resurs gruppen **Wingtip-sa-catalog\<-\> User** och anteckna katalog servern och databasen.
-1. Öppna databasen i portalen och välj *Data Explorer* på menyn till vänster.  Klicka på inloggnings kommandot och ange sedan lösen ordet **=\@P ssword1**.
+1. Öppna [Azure Portal](https://portal.azure.com/) och bläddra bland resurs grupperna.  Öppna resurs gruppen **Wingtip-sa-Catalog-\<user\>** och anteckna katalog servern och databasen.
+1. Öppna databasen i portalen och välj *Data Explorer* på menyn till vänster.  Klicka på inloggnings kommandot och ange sedan lösen ordet = **P\@ssword1**.
 
 
 1. Utforska schemat för *tenantcatalog* -databasen.  
-   * Alla objekt i `__ShardManagement` schemat tillhandahålls av Elastic Database klient biblioteket.
-   * `Tenants` Tabellen och`TenantsExtended` vyn är tillägg som läggs till i exemplet som visar hur du kan utöka katalogen för att ge ytterligare värde.
-1. Kör frågan, `SELECT * FROM dbo.TenantsExtended`.          
+   * De objekt som finns i `__ShardManagement`-schemat anges i Elastic Database klient biblioteket.
+   * `Tenants` tabellen och `TenantsExtended` vyn är tillägg som läggs till i exemplet som visar hur du kan utöka katalogen för att ge ytterligare värde.
+1. Kör frågan `SELECT * FROM dbo.TenantsExtended`.          
 
    ![data Utforskaren](media/saas-standaloneapp-provision-and-catalog/data-explorer-tenantsextended.png)
 
@@ -124,7 +124,7 @@ I den här uppgiften får du lära dig hur du etablerar ett enda klient program.
 
 1. I PowerShell ISE öppnar du *. ..\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* och anger **$Scenario = 2**. Distribuera klient katalogen och registrera de fördefinierade klient organisationerna
 
-1. Lägg till en Bryt punkt i skriptet genom att placera markören var som helst på rad 49 `& $PSScriptRoot\New-TenantApp.ps1`som står, och tryck sedan på **F9**.
+1. Lägg till en Bryt punkt i skriptet genom att placera markören var som helst på rad 49 som står `& $PSScriptRoot\New-TenantApp.ps1`och tryck sedan på **F9**.
 1. Kör skriptet genom att trycka på **F5**. 
 1.  När skript körningen stoppas vid Bryt punkten trycker du på **F11** för att stega in i skriptet New-Catalog. ps1.
 1.  Spåra skript körningen med hjälp av meny alternativen för fel sökning, F10 och F11, för att gå över eller till anropade funktioner.

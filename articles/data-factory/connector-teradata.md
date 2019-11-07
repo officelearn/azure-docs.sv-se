@@ -1,5 +1,5 @@
 ---
-title: Kopiera data från Teradata-Vantage med hjälp av Azure Data Factory | Microsoft Docs
+title: Kopiera data från Teradata-Vantage med hjälp av Azure Data Factory
 description: Med Teradata-anslutaren i Data Factory-tjänsten kan du kopiera data från en Teradata-Vantage till data lager som stöds av Data Factory som mottagare.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 923e248ff7b793d5187faeabdbf073ca90d9efc2
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 4074c50aa17bf804696060134e37055a18bd0137
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72930971"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680095"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Kopiera data från Teradata-Vantage med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -46,7 +46,7 @@ Mer specifikt stöder den här Teradata-anslutaren:
 >
 > Azure Data Factory uppgraderat Teradata-anslutaren efter lanseringen av integrering runtime v-3.18 med egen värd. Alla befintliga arbets belastningar som använder den tidigare Teradata-anslutningen stöds fortfarande. För nya arbets belastningar är det dock en bra idé att använda den nya. Observera att den nya sökvägen kräver en annan uppsättning länkad tjänst, data uppsättning och kopierings källa. Konfigurations information finns i respektive avsnitt som följer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -155,7 +155,7 @@ Följande egenskaper stöds för att kopiera data från Teradata:
 |:--- |:--- |:--- |
 | typ | Data uppsättningens typ-egenskap måste anges till `TeradataTable`. | Ja |
 | databas | Namnet på Teradata-instansen. | Nej (om "fråga" i aktivitets källan har angetts) |
-| Partitionstabell | Namnet på tabellen i Teradata-instansen. | Nej (om "fråga" i aktivitets källan har angetts) |
+| partitionstabell | Namnet på tabellen i Teradata-instansen. | Nej (om "fråga" i aktivitets källan har angetts) |
 
 **Exempel:**
 
@@ -208,7 +208,7 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** för att k
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till `TeradataSource`. | Ja |
-| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`.<br>När du aktiverar partitionerad belastning måste du koppla alla motsvarande inbyggda partitionsalternativ i frågan. Exempel finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) . | Nej (om tabellen i data uppsättningen har angetts) |
+| query | Använd den anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`.<br>När du aktiverar partitionerad belastning måste du koppla alla motsvarande inbyggda partitionsalternativ i frågan. Exempel finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) . | Nej (om tabellen i data uppsättningen har angetts) |
 | partitionOptions | Anger de data partitionerings alternativ som används för att läsa in data från Teradata. <br>Tillåt värden är: **ingen** (standard), **hash** -och **DynamicRange**.<br>När ett partitions alternativ är aktiverat (det vill säga inte `None`), kontrol leras graden av parallellitet för att data ska läsas in från Teradata av [`parallelCopies`](copy-activity-performance.md#parallel-copy) inställningen på kopierings aktiviteten. | Nej |
 | partitionSettings | Ange gruppen med inställningar för data partitionering. <br>Använd när alternativet partition inte `None`. | Nej |
 | partitionColumnName | Ange namnet på den käll kolumn som ska användas av intervall partition eller hash-partition för parallell kopiering. Om inget anges identifieras primärt index för tabellen automatiskt och används som partition-kolumn. <br>Använd när alternativet partition är `Hash` eller `DynamicRange`. Om du använder en fråga för att hämta källdata, Hook-`?AdfHashPartitionCondition` eller `?AdfRangePartitionColumnName` i WHERE-satsen. Se exempel i [Parallel Copy från Teradata](#parallel-copy-from-teradata) -avsnittet. | Nej |
@@ -307,7 +307,7 @@ När du kopierar data från Teradata gäller följande mappningar. Information o
 | ByteInt |Int16 |
 | hängande |Sträng |
 | CLOB |Sträng |
-| Datum |DateTime |
+| Date |DateTime |
 | Decimal |Decimal |
 | Dubbelklicka |Dubbelklicka |
 | Infoga |Stöds ej. Använd explicit Cast i käll frågan. |

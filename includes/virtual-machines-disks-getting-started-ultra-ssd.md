@@ -5,44 +5,27 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/15/2019
+ms.date: 11/04/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3f910a3d0466153bd60fe23ef2f9f656cac292ee
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 838037804baad9105b4636934de957c2e5f3e810
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70919749"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73612180"
 ---
 # <a name="using-azure-ultra-disks"></a>Använda Azure Ultra disks
 
 Azure Ultra disks erbjuder högt data flöde, hög IOPS och konsekvent låg latens disk lagring för virtuella Azure IaaS-datorer (VM). Det nya erbjudandet ger överst i linje prestanda på samma tillgänglighets nivå som våra befintliga diskar. En stor fördel med Ultra disks är möjligheten att dynamiskt ändra prestanda för SSD tillsammans med dina arbets belastningar utan att behöva starta om dina virtuella datorer. Ultra disks lämpar sig för data intensiva arbets belastningar som SAP HANA, toppnivå databaser och transaktions krävande arbets belastningar.
 
-## <a name="check-if-your-subscription-has-access"></a>Kontrol lera om din prenumeration har åtkomst
+## <a name="ga-scope-and-limitations"></a>Allmän omfattning och begränsningar
 
-Om du redan har registrerat dig för Ultra disks och du vill kontrol lera om din prenumeration är aktive rad för Ultra disks, använder du något av följande kommandon: 
+[!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](managed-disks-ultra-disks-GA-scope-and-limitations.md)]
 
-CLI`az feature show --namespace Microsoft.Compute --name UltraSSD`
+## <a name="determine-vm-size-and-region-availability"></a>Bestämma VM-storlek och region tillgänglighet
 
-PowerShell: `Get-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName UltraSSD`
-
-Om din prenumeration är aktive rad bör utdata se ut ungefär så här:
-
-```bash
-{
-  "id": "/subscriptions/<yoursubID>/providers/Microsoft.Features/providers/Microsoft.Compute/features/UltraSSD",
-  "name": "Microsoft.Compute/UltraSSD",
-  "properties": {
-    "state": "Registered"
-  },
-  "type": "Microsoft.Features/providers/features"
-}
-```
-
-## <a name="determine-your-availability-zone"></a>Fastställ din tillgänglighets zon
-
-När du har godkänt måste du bestämma vilken tillgänglighets zon du befinner dig i, för att kunna använda Ultra disks. Kör något av följande kommandon för att avgöra vilken zon som ska användas för att distribuera Ultra disk till, se till att ersätta **regions**-, **vmSize**-och **prenumerations** värden först:
+Om du vill använda Ultra disks måste du bestämma vilken tillgänglighets zon du befinner dig i. Alla regioner stöder inte varje VM-storlek med Ultra disks. Du kan kontrol lera om din region, zon och VM-storlek stöder Ultra disks genom att köra något av följande kommandon, se till att ersätta **regions**-, **vmSize**-och **prenumerations** värden först:
 
 CLI
 
@@ -62,26 +45,26 @@ $vmSize = "Standard_E64s_v3"
 (Get-AzComputeResourceSku | where {$_.Locations.Contains($region) -and ($_.Name -eq $vmSize) -and $_.LocationInfo[0].ZoneDetails.Count -gt 0})[0].LocationInfo[0].ZoneDetails
 ```
 
-Svaret liknar det formulär som visas nedan, där X är den zon som ska användas för att distribuera i den valda regionen. X kan vara antingen 1, 2 eller 3. För närvarande stöder endast tre regioner Ultra disks: USA, östra 2, Sydostasien och Europa, norra.
+Svaret liknar det formulär som visas nedan, där X är den zon som ska användas för att distribuera i den valda regionen. X kan vara antingen 1, 2 eller 3.
 
 Behåll **zonens värde,** det motsvarar din tillgänglighets zon och du behöver den för att kunna distribuera en Ultra-disk.
 
-|Resurstyp  |Name  |Location  |Zoner  |Begränsning  |Funktion  |Value  |
+|ResourceType  |Namn  |Plats  |Zoner  |Begränsning  |Funktion  |Värde  |
 |---------|---------|---------|---------|---------|---------|---------|
-|Diskar     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
+|disk     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
 > [!NOTE]
-> Om det inte fanns något svar från kommandot är registreringen till funktionen fortfarande väntande, eller så använder du en äldre version av CLI eller PowerShell.
+> Om det inte fanns något svar från kommandot, stöds inte den valda virtuella dator storleken med Ultra disks i den valda regionen.
 
 Nu när du vet vilken zon du ska distribuera till, följer du distributions stegen i den här artikeln för att antingen distribuera en virtuell dator med en mycket disk ansluten eller ansluta en Ultra disk till en befintlig virtuell dator.
 
 ## <a name="deploy-an-ultra-disk-using-azure-resource-manager"></a>Distribuera en Ultra disk med Azure Resource Manager
 
-Ta först reda på vilken VM-storlek som ska distribueras. För närvarande stöder endast DsV3 och EsV3 VM-familjer Ultra disks. Se den andra tabellen i den här [bloggen](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) om du vill ha mer information om de här VM-storlekarna.
+Ta först reda på vilken VM-storlek som ska distribueras. En lista över VM-storlekar som stöds finns i avsnittet om [omfång och begränsningar](#ga-scope-and-limitations) .
 
 Om du vill skapa en virtuell dator med flera Ultra disks, se exemplet [skapa en virtuell dator med flera Ultra-diskar](https://aka.ms/ultradiskArmTemplate).
 
-Om du avser att använda din egen mall kontrollerar du att **API version** `Microsoft.Compute/virtualMachines` för och `Microsoft.Compute/Disks` har angetts som `2018-06-01` (eller senare).
+Om du tänker använda din egen mall kontrollerar du att **API version** för `Microsoft.Compute/virtualMachines` och `Microsoft.Compute/Disks` har angetts som `2018-06-01` (eller senare).
 
 Ange disk-SKU: n till **UltraSSD_LRS**, ange disk kapacitet, IOPS, tillgänglighets zon och data flöde i Mbit/s för att skapa en Ultra-disk.
 
@@ -89,11 +72,11 @@ När den virtuella datorn har allokerats kan du partitionera och formatera data 
 
 ## <a name="deploy-an-ultra-disk-using-cli"></a>Distribuera en Ultra disk med CLI
 
-Ta först reda på vilken VM-storlek som ska distribueras. För närvarande stöder endast DsV3 och EsV3 VM-familjer Ultra disks. Se den andra tabellen i den här [bloggen](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) om du vill ha mer information om de här VM-storlekarna.
+Ta först reda på vilken VM-storlek som ska distribueras. I avsnittet allmän [omfattning och begränsningar](#ga-scope-and-limitations) finns en lista över VM-storlekar som stöds.
 
 Du måste skapa en virtuell dator som kan använda Ultra disks för att ansluta en Ultra disk.
 
-Ersätt eller ange **$VMName**, **$rgname**, **$diskname**, **$location**, **$Password**, **$User** variabler med dina egna värden. Ange **$Zone** till värdet för din tillgänglighets zon som du fick från [början av den här artikeln](#determine-your-availability-zone). Kör sedan följande CLI-kommando för att skapa en ultra-aktiverad virtuell dator:
+Ersätt eller ange **$VMName**, **$rgname**, **$diskname**, **$location**, **$Password**, **$User** variabler med dina egna värden. Ange **$Zone** till värdet för din tillgänglighets zon som du fick från [början av den här artikeln](#determine-vm-size-and-region-availability). Kör sedan följande CLI-kommando för att skapa en ultra-aktiverad virtuell dator:
 
 ```azurecli-interactive
 az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --size Standard_D4s_v3 --location $location
@@ -152,9 +135,9 @@ az disk update `
 
 ## <a name="deploy-an-ultra-disk-using-powershell"></a>Distribuera en Ultra disk med PowerShell
 
-Ta först reda på vilken VM-storlek som ska distribueras. För närvarande stöder endast DsV3 och EsV3 VM-familjer Ultra disks. Se den andra tabellen i den här [bloggen](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) om du vill ha mer information om de här VM-storlekarna.
+Ta först reda på vilken VM-storlek som ska distribueras. I avsnittet allmän [omfattning och begränsningar](#ga-scope-and-limitations) finns en lista över VM-storlekar som stöds. för ytterligare information om de här VM-storlekarna.
 
-Om du vill använda Ultra disks måste du skapa en virtuell dator som kan använda Ultra disks. Ersätt eller ange **$resourcegroup** och **$vmName** variabler med dina egna värden. Ange **$Zone** till värdet för din tillgänglighets zon som du fick från [början av den här artikeln](#determine-your-availability-zone). Kör sedan följande [New-AzVm-](/powershell/module/az.compute/new-azvm) kommando för att skapa en ultra-aktiverad virtuell dator:
+Om du vill använda Ultra disks måste du skapa en virtuell dator som kan använda Ultra disks. Ersätt eller ange **$resourcegroup** och **$vmName** variabler med dina egna värden. Ange **$Zone** till värdet för din tillgänglighets zon som du fick från [början av den här artikeln](#determine-vm-size-and-region-availability). Kör sedan följande [New-AzVm-](/powershell/module/az.compute/new-azvm) kommando för att skapa en ultra-aktiverad virtuell dator:
 
 ```powershell
 New-AzVm `

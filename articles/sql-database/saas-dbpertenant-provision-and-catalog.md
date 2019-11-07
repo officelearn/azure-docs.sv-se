@@ -1,5 +1,5 @@
 ---
-title: Etablera nya klienter i en app för flera klient organisationer som använder Azure SQL Database | Microsoft Docs
+title: Etablera nya klienter i en app för flera klient organisationer som använder Azure SQL Database
 description: Lär dig att etablera och katalogisera nya klienter i en Azure SQL Database SaaS-app med flera innehavare
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: b5a996fe6be5aa839b78b6693accac9b1000cef8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f0f1ebd8b2ef719a9556b6b20f6685d1da493263
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570430"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692108"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Lär dig hur du etablerar nya klienter och registrerar dem i katalogen
 
@@ -45,7 +45,7 @@ Katalogen gör det möjligt att ändra namnet eller platsen för databasen med m
 
 Katalogen kan också lagra ytterligare klient-eller databas-metadata, till exempel schema version, service plan eller service avtal som erbjuds till klienter. Katalogen kan lagra annan information som möjliggör program hantering, kund support eller DevOps. 
 
-Katalogen kan aktivera databas verktyg utanför SaaS-programmet. I Wingtip Ticket SaaS-databas per klient exempel används katalogen för att aktivera frågor över flera klienter, som visas i självstudien om [ad hoc-rapportering](saas-tenancy-cross-tenant-reporting.md). Jobb hantering i flera databaser utforskas i självstudierna [schema hantering](saas-tenancy-schema-management.md) och [klient analys](saas-tenancy-tenant-analytics.md) . 
+Katalogen kan aktivera databas verktyg utanför SaaS-programmet. I Wingtip Ticket SaaS-databas per klient exempel används katalogen för att aktivera frågor över flera klienter, som visas i [självstudien om ad hoc-rapportering](saas-tenancy-cross-tenant-reporting.md). Jobb hantering i flera databaser utforskas i självstudierna [schema hantering](saas-tenancy-schema-management.md) och [klient analys](saas-tenancy-tenant-analytics.md) . 
 
 I Wingtip Ticket SaaS-exempel implementeras katalogen med hjälp av Shard hanterings funktioner i [Elastic Database klient bibliotek (EDCL)](sql-database-elastic-database-client-library.md). EDCL är tillgänglig i Java och .NET Framework. EDCL gör det möjligt för ett program att skapa, hantera och använda en Shard-karta för databas. 
 
@@ -61,7 +61,7 @@ När du lägger till en ny klient i ett SaaS-program som använder en databas mo
 
 Olika metoder för databas etablering kan användas. Du kan köra SQL-skript, distribuera en BACPAC eller kopiera en mall-databas. 
 
-Databas etableringen måste ingå i din strategi för schema hantering. Du måste se till att nya databaser är etablerade med det senaste schemat. Det här kravet har upptäckts i självstudien om [schema hantering](saas-tenancy-schema-management.md). 
+Databas etableringen måste ingå i din strategi för schema hantering. Du måste se till att nya databaser är etablerade med det senaste schemat. Det här kravet har upptäckts i [självstudien om schema hantering](saas-tenancy-schema-management.md). 
 
 Programmet Wingtip ticks databas-per-klient etablerar nya klienter genom att kopiera en mall-databas med namnet _basetenantdb_, som distribueras på katalog servern. Etableringen kan integreras i programmet som en del av registrerings upplevelsen. Det kan också stödjas offline med hjälp av skript. I den här självstudien utforskas etablering med hjälp av PowerShell. 
 
@@ -77,11 +77,11 @@ Wingtip Ticket SaaS-skript och program käll kod är tillgängliga i [WingtipTic
 
 Om du vill förstå hur Wingtip biljetter-programmet implementerar ny klient etablering, lägger du till en Bryt punkt och följer arbets flödet medan du etablerar en klient.
 
-1. I PowerShell ISE öppnar du... \\Learning modules\\ProvisionAndCatalogprovisionandcatalog\\ _. ps1_ och ange följande parametrar:
+1. I PowerShell ISE öppnar du...\\Learning-moduler\\ProvisionAndCatalog\\_provisionandcatalog. ps1_ och anger följande parametrar:
 
    * **$TenantName** = namnet på den nya platsen (till exempel *Bushwillow Blues*).
    * **$VenueType** = en av de fördefinierade plats typerna: _blått, ClassicalMusic, kontrollen åt, jazz, Judo, bil racing, Multipurpose, Opera, rockmusic, fotboll_.
-   * $DemoScenario = **1**, *etablera en enda klient*.
+   * **$DemoScenario** = **1**, *etablera en enda klient*.
 
 2. Om du vill lägga till en Bryt punkt placerar du markören var som helst på den rad som står för *ny klient*. Tryck sedan på F9.
 
@@ -100,12 +100,12 @@ Spåra skript körningen med hjälp av meny alternativen för **fel sökning** .
 
 Du behöver inte uttryckligen följa det här arbets flödet. Den förklarar hur du felsöker skriptet.
 
-* **Importera modulen CatalogAndDatabaseManagement. psm1.** Det ger en abstraktion av katalogen och klient nivån över hanterings funktionerna för [Shard](sql-database-elastic-scale-shard-map-management.md) . Den här modulen kapslar in mycket av katalog mönstret och är värt att utforska.
+* **Importera modulen CatalogAndDatabaseManagement. psm1.** Det ger en abstraktion av katalogen och klient nivån över [hanterings](sql-database-elastic-scale-shard-map-management.md) funktionerna för Shard. Den här modulen kapslar in mycket av katalog mönstret och är värt att utforska.
 * **Importera modulen SubscriptionManagement. psm1.** Den innehåller funktioner för att logga in på Azure och välja den Azure-prenumeration som du vill arbeta med.
 * **Hämta konfigurations information.** Gå till Hämta-konfiguration med hjälp av F11 och se hur appens konfiguration anges. Resurs namn och andra AppData-värden definieras här. Ändra inte värdena förrän du är van vid skripten.
 * **Hämta katalogobjektet.** Stega in i get-Catalog, som skapar och returnerar ett katalog objekt som används i skriptet på högre nivå. Den här funktionen använder Shard hanterings funktioner som importeras från **AzureShardManagement. psm1**. Katalogobjektet består av följande element:
 
-   * $catalogServerFullyQualifiedName konstrueras med hjälp av standard skaftet plus ditt användar namn: _katalog\<-\>User. Database. Windows .net_.
+   * $catalogServerFullyQualifiedName konstrueras med hjälp av standard skaftet plus ditt användar namn: _katalog-\<användare\>. Database. Windows .net_.
    * $catalogDatabaseName hämtas från konfigurationen: *tenantcatalog*.
    * $shardMapManager-objektet initieras från katalogdatabasen.
    * $shardMap-objektet initieras från fragmentkartan _tenantcatalog_ i katalogdatabasen. Ett katalog objekt består och returneras. Den används i skriptet på högre nivå.
@@ -135,9 +135,9 @@ När etableringen har slutförts återgår körningen till det ursprungliga *dem
 
 Den här övningen etablerar en batch med 17 klienter. Vi rekommenderar att du etablerar den här batchen av klienter innan du påbörjar andra Wingtip-biljetter SaaS-självstudier för databas per klient. Det finns mer än bara några få databaser att arbeta med.
 
-1. I PowerShell ISE öppnar du... Learning-\\modulerProvisionAndCatalog\\*provisionandcatalog. ps1.* \\ Ändra parametern *$DemoScenario* till 3:
+1. I PowerShell ISE öppnar du...\\Learning-moduler\\ProvisionAndCatalog\\*provisionandcatalog. ps1*. Ändra parametern *$DemoScenario* till 3:
 
-   * $DemoScenario = **3**, *etablera en batch med klienter*.
+   * **$DemoScenario** = **3**, *etablera en batch med klienter*.
 2. Tryck på F5 för att köra skriptet.
 
 Skriptet etablerar en batch med ytterligare klienter. Den använder en [Azure Resource Manager-mall](../azure-resource-manager/resource-manager-template-walkthrough.md) som styr batchen och delegerar etablering av varje databas till en länkad mall. Om du använder mallar på det här sättet, kan Azure Resource Manager mäkla etableringsprocessen för ditt skript. Mallarna etablerar databaser parallellt och hanterar nya försök, om det behövs. Skriptet är idempotenta, så om det Miss lyckas eller stoppas av någon anledning kan du köra det igen.
@@ -154,16 +154,16 @@ Skriptet etablerar en batch med ytterligare klienter. Den använder en [Azure Re
 
 Andra etablerings mönster som inte ingår i den här självstudien:
 
-**För etablering av databaser**: För etablerings mönstret utnyttjar faktum att databaser i en elastisk pool inte lägger till extra kostnad. Faktureringen är för den elastiska poolen, inte databaserna. Inaktiva databaser förbrukar inga resurser. Genom att förkonfigurera databaser i en pool och tilldela dem vid behov kan du minska tiden för att lägga till klienter. Antalet företablerade databaser kan justeras efter behov för att behålla en buffert som är lämplig för den förväntade etablerings hastigheten.
+**För etablering av databaser**: för för etablerings mönster utnyttjar faktum att databaser i en elastisk pool inte lägger till extra kostnad. Faktureringen är för den elastiska poolen, inte databaserna. Inaktiva databaser förbrukar inga resurser. Genom att förkonfigurera databaser i en pool och tilldela dem vid behov kan du minska tiden för att lägga till klienter. Antalet företablerade databaser kan justeras efter behov för att behålla en buffert som är lämplig för den förväntade etablerings hastigheten.
 
-**Automatisk etablering**: I det automatiska etablerings mönstret etablerar en etablerings tjänst servrar, pooler och databaser automatiskt efter behov. Om du vill kan du inkludera för etablering av databaser i elastiska pooler. Om databaserna tas ur bruk och tas bort kan luckor i elastiska pooler fyllas av etablerings tjänsten. En sådan tjänst kan vara enkel eller komplex, till exempel hanterings etablering över flera geografiska områden och konfigurera geo-replikering för haveri beredskap. 
+**Automatisk etablering**: i det automatiska etablerings mönstret etablerar en etablerings tjänst servrar, pooler och databaser automatiskt efter behov. Om du vill kan du inkludera för etablering av databaser i elastiska pooler. Om databaserna tas ur bruk och tas bort kan luckor i elastiska pooler fyllas av etablerings tjänsten. En sådan tjänst kan vara enkel eller komplex, till exempel hanterings etablering över flera geografiska områden och konfigurera geo-replikering för haveri beredskap. 
 
 Med det automatiska etablerings mönstret skickar ett klient program eller-skript en etablerings förfrågan till en kö som ska bearbetas av etablerings tjänsten. Tjänsten avsöker sedan tjänsten för att fastställa slut för ande. Om för etablering används, hanteras förfrågningar snabbt. Tjänsten etablerar en ersättnings databas i bakgrunden.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig att:
+I den här guiden lärde du dig hur man:
 
 > [!div class="checklist"]
 > 

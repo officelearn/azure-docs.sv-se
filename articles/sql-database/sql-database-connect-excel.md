@@ -1,5 +1,5 @@
 ---
-title: Ansluta Excel till en enda databas i Azure SQL Database | Microsoft Docs
+title: Anslut Excel till en enda databas i Azure SQL Database
 description: Lär dig hur du ansluter Microsoft Excel till en enda databas i Azure SQL Database. Importera data till Excel för rapportering och dataundersökning.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: joseidz
 ms.author: craigg
 ms.reviewer: ''
 ms.date: 02/12/2019
-ms.openlocfilehash: 8711d8f7ebc00b2d0fa51ff9f420293e96766d1c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 603aa52aefc4c4d1200d433f7f73f6070849c8f7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569348"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691032"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Anslut Excel till en enda databas i Azure SQL Database och skapa en rapport
 
@@ -33,7 +33,7 @@ Du kommer också behöva en kopia av Excel. Den här artikeln använder [Microso
 1. För att ansluta Excel till SQL-databasen, öppnar du Excel och skapar en ny arbetsbok, eller öppnar en befintlig Excel-arbetsbok.
 2. Välj fliken **data** på Meny raden överst på sidan, Välj **Hämta data**, Välj från Azure och välj sedan **från Azure SQL Database**. 
 
-   ![Välj data Källa: Anslut Excel till SQL Database.](./media/sql-database-connect-excel/excel_data_source.png)
+   ![Välj datakälla: Anslut Excel till SQL-databas.](./media/sql-database-connect-excel/excel_data_source.png)
 
    Dataanslutningsguiden öppnas.
 3. I dialogrutan **Anslut till databasserver**, skriver du **Servernamnet** för den SQL Database du vill ansluta till i formatet <*servernamn*> **. database.windows.net**. Till exempel **msftestserver.Database.Windows.net**. Du kan också ange namnet på din databas. Välj **OK** för att öppna fönstret autentiseringsuppgifter. 
@@ -55,7 +55,7 @@ Du kommer också behöva en kopia av Excel. Den här artikeln använder [Microso
 
 Nu när du har upprättat anslutningen har du flera olika alternativ för hur du läser in data. Följande steg skapar till exempel ett pivot-diagram baserat på de data som finns i SQL Database. 
 
-1. Följ stegen i föregående avsnitt, men i stället för att välja **Läs**in väljer **du Läs in till** **från List rutan** för inläsning.
+1. Följ stegen i föregående avsnitt, men i stället för att välja **Läs**in väljer **du Läs in till** **från List rutan för inläsning.**
 2. Välj sedan hur du vill visa data i din arbets bok. Vi valde **PivotChart**. Du kan också välja att skapa ett **Nytt kalkylblad** eller **Lägg till den här datan i en Datamodell**. Mer information om datamodeller finns i [Skapa en datamodell i Excel](https://support.office.com/article/Create-a-Data-Model-in-Excel-87E7A54C-87DC-488E-9410-5C75DBCB0F7B). 
 
     ![Välja dataformat i Excel](./media/sql-database-connect-excel/import-data.png)
@@ -67,7 +67,7 @@ Nu när du har upprättat anslutningen har du flera olika alternativ för hur du
 
 > [!TIP]
 > Om du vill ansluta andra Excel-arbetsböcker och kalkyl blad till databasen väljer du fliken **data** och väljer sedan **senaste källor** för att starta dialog rutan **senaste källor** . Därifrån väljer du den anslutning som du skapade i listan och klickar sedan på **Öppna**.
-> ![Dialog rutan senaste källor](media/sql-database-connect-excel/recent-connections.png)
+> ![dialog rutan senaste källor](media/sql-database-connect-excel/recent-connections.png)
 
 ## <a name="create-a-permanent-connection-using-odc-file"></a>Skapa en permanent anslutning med hjälp av. ODC-fil
 

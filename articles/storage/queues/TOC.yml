@@ -204,22 +204,20 @@
       href: /cli/azure/storage
     - name: .NET
       items:
-        - name: 'Blobar, köer och filer'
-          href: /dotnet/api/overview/azure/storage/client
+        - name: Köer (version 11.x)
+          href: /dotnet/api/microsoft.azure.storage.queue
         - name: Lagringsresursprovider
           href: /dotnet/api/overview/azure/storage/management
     - name: Java
       items:
-        - name: 'Blobbar, köer och filer (version 12.x – förhandsversion)'
-          href: 'https://azure.github.io/azure-sdk-for-java/track2reports/index.html'
-        - name: 'Blobbar, köer och filer (version 8)'
-          href: 'https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy'
+        - name: Köer (version 8.x)
+          href: /java/api/com.microsoft.azure.storage.queue
         - name: Lagringsresursprovider
           href: /java/api/overview/azure/storage/management
-    - name: Node.js
-      href: /javascript/api/overview/azure/storage
-    - name: Python
-      href: /python/api/overview/azure/storage
+    - name: Javascript (version 10.x)
+      href: /javascript/api/@azure/storage-queue
+    - name: Python (version 2.x)
+      href: /python/api/azure-storage-queue/?view=azure-python
     - name: REST
       items:
         - name: 'Blobar, köer, tabeller och filer'

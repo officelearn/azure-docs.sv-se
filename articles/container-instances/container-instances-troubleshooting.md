@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 28a391fded422b00508e006bfd613d6c98d82f17
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 1fda05ffcac8952ee5a12c23383aad1a04d36b97
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166459"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601322"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Felsök vanliga problem i Azure Container Instances
 
@@ -37,7 +37,7 @@ När du definierar din behållar specifikation kräver vissa parametrar att namn
 
 ## <a name="os-version-of-image-not-supported"></a>OS-versionen av avbildningen stöds inte
 
-Om du anger en bild som Azure Container Instances inte stöder returneras ett `OsVersionNotSupported`-fel. Felet liknar följande, där `{0}` är namnet på den avbildning som du försökte distribuera:
+Om du anger en bild som Azure Container Instances inte stöder returneras ett `OsVersionNotSupported` fel. Felet liknar följande, där `{0}` är namnet på den avbildning som du försökte distribuera:
 
 ```json
 {
@@ -52,7 +52,7 @@ Det här felet uppstår oftast när du distribuerar Windows-avbildningar som bas
 
 ## <a name="unable-to-pull-image"></a>Det gick inte att hämta bilden
 
-Om Azure Container Instances inlednings vis inte kan hämta din avbildning försöker den igen under en viss tids period. Om image-pull-åtgärden fortsätter att Miss lyckas kan ACI slutligen Miss lyckas med distributionen och du kan se ett `Failed to pull image`-fel.
+Om Azure Container Instances inlednings vis inte kan hämta din avbildning försöker den igen under en viss tids period. Om avbildningens pull-åtgärd fortsätter att Miss lyckas kan ACI slutligen inte utföra distributionen, och du kan se ett `Failed to pull image` fel.
 
 Lös problemet genom att ta bort behållar instansen och försök att distribuera igen. Se till att avbildningen finns i registret och att du har angett avbildnings namnet korrekt.
 
@@ -104,7 +104,7 @@ az container create -g myResourceGroup --name mywindowsapp --os-type Windows --i
  --command-line "ping -t localhost"
 ```
 
-Container Instances-API och Azure Portal innehåller egenskapen `restartCount`. Om du vill kontrol lera antalet omstarter för en behållare kan du använda kommandot [AZ container show][az-container-show] i Azure CLI. I följande exempel på utdata (som har trunkerats för det kortfattat) kan du se egenskapen `restartCount` i slutet av utdata.
+Container Instances-API och Azure Portal innehåller en `restartCount`-egenskap. Om du vill kontrol lera antalet omstarter för en behållare kan du använda kommandot [AZ container show][az-container-show] i Azure CLI. I följande exempel på utdata (som har trunkerats för det kortfattat) kan du se egenskapen `restartCount` i slutet av utdata.
 
 ```json
 ...
@@ -160,7 +160,7 @@ Windows-avbildningar har [ytterligare överväganden](#cached-images).
 
 Om din behållare tar lång tid att starta, men kommer att lyckas, börjar du med att titta på storleken på behållar avbildningen. Eftersom Azure Container Instances hämtar behållar avbildningen på begäran är start tiden som visas direkt relaterad till dess storlek.
 
-Du kan visa storleken på behållar avbildningen med kommandot `docker images` i Docker CLI:
+Du kan visa storleken på behållar avbildningen med hjälp av kommandot `docker images` i Docker CLI:
 
 ```console
 $ docker images
@@ -176,7 +176,7 @@ Ett annat sätt att minska effekten av image-hämtningen på din behållares sta
 
 ### <a name="cached-images"></a>Cachelagrade avbildningar
 
-Azure Container Instances använder en mekanism för cachelagring som hjälper till att påskynda behållarens start tid för avbildningar som bygger på vanliga [Windows Base-avbildningar](container-instances-faq.md#what-windows-base-os-images-are-supported), inklusive `nanoserver:1809`, `servercore:ltsc2019` och `servercore:1809`. Vanliga Linux-avbildningar som `ubuntu:1604` och `alpine:3.6` cachelagras också. Om du vill ha en uppdaterad lista över cachelagrade avbildningar och taggar kan du använda API: n [lista med cachelagrade avbildningar][list-cached-images] .
+Azure Container Instances använder en mekanism för cachelagring som hjälper till att påskynda behållarens start tid för avbildningar som bygger på vanliga [Windows Base-avbildningar](container-instances-faq.md#what-windows-base-os-images-are-supported), inklusive `nanoserver:1809`, `servercore:ltsc2019`och `servercore:1809`. Vanliga Linux-avbildningar som `ubuntu:1604` och `alpine:3.6` cachelagras också. Om du vill ha en uppdaterad lista över cachelagrade avbildningar och taggar kan du använda API: n [lista med cachelagrade avbildningar][list-cached-images] .
 
 > [!NOTE]
 > Användning av Windows Server 2019-baserade avbildningar i Azure Container Instances är en för hands version.
@@ -204,11 +204,11 @@ Azure Container Instances visar inte direkt åtkomst till den underliggande infr
 
 ## <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>Det går inte att komma åt behållar gruppens IP-adress på grund av felmatchade portar
 
-Azure Container Instances har ännu inte stöd för port mappning som med vanlig Docker-konfiguration. Om du hittar en behållar grupps IP-adress inte är tillgänglig när du tror att den bör vara, se till att du har konfigurerat behållar avbildningen så att den lyssnar på samma portar som du exponerar i behållar gruppen med egenskapen `ports`.
+Azure Container Instances har ännu inte stöd för port mappning som med vanlig Docker-konfiguration. Om du hittar en behållar grupps IP-adress är inte tillgänglig när du tror att den bör vara, se till att du har konfigurerat behållar avbildningen så att den lyssnar på samma portar som du exponerar i behållar gruppen med egenskapen `ports`.
 
-Om du vill bekräfta att Azure Container Instances kan lyssna på den port som du konfigurerade i behållar avbildningen testar du en distribution av `aci-helloworld`-avbildningen som exponerar porten. Kör också appen `aci-helloworld` så att den lyssnar på porten. `aci-helloworld` accepterar en valfri miljö variabel `PORT` för att åsidosätta standard porten 80 den lyssnar på. Om du till exempel vill testa port 9000:
+Om du vill bekräfta att Azure Container Instances kan lyssna på den port som du konfigurerade i behållar avbildningen testar du en distribution av `aci-helloworld` avbildningen som exponerar porten. Kör även `aci-helloworld`-appen så att den lyssnar på porten. `aci-helloworld` accepterar en valfri miljö variabel `PORT` för att åsidosätta standard porten 80 den lyssnar på. Om du till exempel vill testa port 9000 ställer du in [miljövariabeln](container-instances-environment-variables.md) när du skapar behållar gruppen:
 
-1. Konfigurera behållar gruppen för att exponera port 9000 och skicka port numret som värde för miljövariabeln:
+1. Konfigurera behållar gruppen för att exponera port 9000 och skicka port numret som värde för miljövariabeln. Exemplet är formaterat för bash-gränssnittet. Om du föredrar ett annat gränssnitt, till exempel PowerShell eller kommando tolken, måste du justera variabel tilldelningen enligt detta.
     ```azurecli
     az container create --resource-group myResourceGroup \
     --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld \
@@ -219,7 +219,7 @@ Om du vill bekräfta att Azure Container Instances kan lyssna på den port som d
 1. När behållaren har skapats kan du bläddra till IP-adressen och porten för behållar appen i webbläsaren, till exempel: `192.0.2.0:9000`. 
 
     Du bör se "Välkommen till Azure Container Instances!" meddelande som visas av webbappen.
-1. När du är klar med behållaren tar du bort den med kommandot `az container delete`:
+1. När du är klar med behållaren tar du bort den med hjälp av kommandot `az container delete`:
 
     ```azurecli
     az container delete --resource-group myResourceGroup --name mycontainer

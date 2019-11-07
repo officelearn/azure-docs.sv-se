@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2019
 ms.author: atsenthi
-ms.openlocfilehash: d0d87b42232a19d6bcd3c225fb4a4f8f8b459350
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: cf070e91d6f15e80f51242722a59918d1bc70696
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177791"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615558"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa Service Fabric kluster inställningar
 I den här artikeln beskrivs de olika infrastruktur inställningarna för ditt Service Fabric-kluster som du kan anpassa. För kluster som finns i Azure kan du anpassa inställningarna via [Azure Portal](https://portal.azure.com) eller genom att använda en Azure Resource Manager mall. Mer information finns i [Uppgradera konfigurationen av ett Azure-kluster](service-fabric-cluster-config-upgrade-azure.md). För fristående kluster anpassar du inställningarna genom att uppdatera filen *ClusterConfig. JSON* och utföra en konfigurations uppgradering i klustret. Mer information finns i [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -234,13 +234,12 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |QuorumLossWaitDuration |Tid i sekunder, standard är MaxValue |Dynamisk|Ange TimeSpan i sekunder. Detta är den längsta tid som vi tillåter att en partition bevaras i status för kvorum. Om partitionen fortfarande förlorar kvorum efter denna varaktighet, partitionen återställs från kvorum genom att ta hänsyn till ned-replikerna som förlorade. Observera att detta kan innebära data förlust. |
 |ReconfigurationTimeLimit|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (300)|Dynamisk|Ange TimeSpan i sekunder. Tids gränsen för omkonfiguration; efter vilken en varnings hälso rapport ska initieras |
 |ReplicaRestartWaitDuration|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (60,0 \* 30)|Tillåts inte|Ange TimeSpan i sekunder. Detta är ReplicaRestartWaitDuration för FMService |
+| SeedNodeQuorumAdditionalBufferNodes | int, standardvärdet är 0 | Dynamisk | Bufferten för de startnoder som behövs för att vara igång (tillsammans med kvorum för startnoder) FM bör tillåta att startnoder för totalNumSeedNodes (seedNodeQuorum + SeedNodeQuorumAdditionalBufferNodes) kan gå nedåt. |
 |StandByReplicaKeepDuration|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (3600.0 \* 24 \* 7)|Tillåts inte|Ange TimeSpan i sekunder. Detta är StandByReplicaKeepDuration för FMService |
 |TargetReplicaSetSize|Int, standard är 7|Tillåts inte|Detta är det mål antal RM-replikeringar som Windows Fabric att underhålla. En högre siffra ger högre tillförlitlighet för FM-data. med mindre prestanda kompromisser. |
 |UserMaxStandByReplicaCount |int, standard är 1 |Dynamisk|Det maximala antalet vänte läges repliker som systemet behåller för användar tjänster. |
 |UserReplicaRestartWaitDuration |Tid i sekunder, standard är 60,0 \* 30 |Dynamisk|Ange TimeSpan i sekunder. När en bestående replik slutar fungera. Windows Fabric väntar tills den här varaktigheten för repliken kommer att säkerhets kopie ras innan nya ersättnings repliker (som kräver en kopia av status) skapas. |
 |UserStandByReplicaKeepDuration |Tid i sekunder, standard är 3600,0 \* 24 \* 7 |Dynamisk|Ange TimeSpan i sekunder. När en beständiga replik kommer tillbaka från ett tillstånd. den kanske redan har ersatts. Den här timern avgör hur länge FM-replikeringen ska behålla standby-repliken innan den tas bort. |
-|WaitForInBuildReplicaSafetyCheckTimeout|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (60 * 10)|Dynamisk|Ange TimeSpan i sekunder. Konfigurations post för den valfria tids gränsen för WaitForInBuildReplica säkerhets kontroll. Den här konfigurationen definierar tids gränsen för WaitForInBuildReplica säkerhets kontroll för Node-inaktive ring och uppgraderingar. Den här säkerhets kontrollen Miss lyckas om något av följande stämmer:-en primär skapas och storleken på repliken för FT-målet > 1 – om den aktuella repliken är i bygge och bevaras – om detta är den aktuella primära och en ny replik skapas, kommer säkerhets kontrollen att hoppas över inmatningsenhet om tids gränsen går ut även om ett av de tidigare villkoren fortfarande är sant. |
-|WaitForReconfigurationSafetyCheckTimeout|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (60,0 * 10)|Dynamisk|Ange TimeSpan i sekunder. Konfigurations post för den valfria tids gränsen för WaitForReconfiguration säkerhets kontroll. Den här konfigurationen definierar tids gränsen för WaitForReconfiguration säkerhets kontroll för Node-inaktive ring och uppgraderingar. Den här säkerhets kontrollen Miss lyckas om repliken som är markerad är en del av en partition som är under omkonfiguration. Säkerhets kontrollen kommer att hoppas över när tids gränsen har gått ut även om partitionen fortfarande är under omkonfiguration.|
 
 ## <a name="faultanalysisservice"></a>FaultAnalysisService
 
@@ -340,6 +339,8 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |ActivationRetryBackoffInterval |Tid i sekunder, standard är 5 |Dynamisk|Backoff intervall vid varje aktiverings haveri; Vid varje kontinuerlig aktivering, försöker systemet att aktivera igen med MaxActivationFailureCount. Återförsöksintervall för varje försök är en produkt med kontinuerlig aktiverings fel och aktiverings intervall. |
 |ActivationTimeout| TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (180)|Dynamisk| Ange TimeSpan i sekunder. Tids gränsen för program aktivering. inaktive ring och uppgradering. |
 |ApplicationHostCloseTimeout| TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (120)|Dynamisk| Ange TimeSpan i sekunder. När infrastruktur stängningen identifieras i självaktiverade processer. FabricRuntime stänger alla replikerna i användarens värd process (ApplicationHost). Detta är tids gränsen för stängnings åtgärden. |
+| CnsNetworkPluginCnmUrlPort | wstring, standard är L "48080" | Statisk | URL-port för Azure CNM API |
+| CnsNetworkPluginCnsUrlPort | wstring, standard är L "10090" | Statisk | URL-port för Azure CNS |
 |Container Service arguments|sträng, standard är "-H localhost: 2375-H npipe://"|Statisk|Service Fabric (SF) hanterar Docker daemon (förutom på Windows-klientdatorer som Win10). Med den här konfigurationen kan användaren ange anpassade argument som ska skickas till Docker daemon när den startas. När anpassade argument anges skickar Service Fabric inte några andra argument till Docker-motorn förutom argumentet--pidfile. Användarna bör därför inte ange argumentet--pidfile som en del av deras kund argument. Dessutom bör de anpassade argumenten se till att Docker daemon lyssnar på standard namns pipe i Windows (eller UNIX-domänsuffix på Linux) för att Service Fabric kunna kommunicera med det.|
 |ContainerServiceLogFileMaxSizeInKb|int, standard är 32768|Statisk|Maximal fil storlek för logg filen som genererades av Docker-behållare.  Endast Windows.|
 |ContainerImageDownloadTimeout|int, antal sekunder, standard är 1200 (20 minuter)|Dynamisk|Antal sekunder innan tids gränsen för avbildningen laddas ned.|
@@ -357,6 +358,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |DisableContainers|bool, standard är falskt|Statisk|Konfiguration för att inaktivera behållare – används i stället för DisableContainerServiceStartOnContainerActivatorOpen som är föråldrad config |
 |DisableDockerRequestRetry|bool, standard är falskt |Dynamisk| Som standard kommunicerar sa med DD (Docker dameon) med en tids gräns på "DockerRequestTimeout" för varje http-begäran som skickas till den. Om DD inte svarar inom den här tids perioden; SF skickar begäran på nytt om den översta nivån fortfarande har kvar tiden.  Med HyperV-behållare; DD ibland tar det mycket mer tid att ta upp behållaren eller inaktivera den. I sådana fall är det en begäran från sa-perspektivet och SF-försöket. Ibland verkar detta vara att lägga till mer belastning på DD. Med den här konfigurationen kan du inaktivera det här försöket och vänta tills DD har svarat. |
 |DnsServerListTwoIps | bool, standard är falskt | Statisk | Med den här flaggan lägger du till den lokala DNS-servern två gånger för att hjälpa till att lösa tillfälliga problem. |
+| DoNotInjectLocalDnsServer | bool, standard är falskt | Statisk | Hindrar körningen från att mata in den lokala IP-adressen som DNS-server för behållare. |
 |EnableActivateNoWindow| bool, standard är falskt|Dynamisk| Den aktiverade processen skapas i bakgrunden utan någon konsol. |
 |EnableContainerServiceDebugMode|bool, standard är sant|Statisk|Aktivera/inaktivera loggning för Docker-behållare.  Endast Windows.|
 |EnableDockerHealthCheckIntegration|bool, standard är sant|Statisk|Aktiverar integrering av Docker HEALTHCHECK-händelser med Service Fabric system hälso rapport |
@@ -423,7 +425,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 | --- | --- | --- | --- |
 |IsEnabled|bool, standard är falskt|Statisk|Flagga som styr närvaro och status för den hanterade identitetsprovider i klustret. Detta är ett krav för att använda funktionen för hanterade identiteter i Service Fabric program.|
 
-## <a name="management"></a>Förvaltning
+## <a name="management"></a>Hantering
 
 | **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
@@ -649,14 +651,14 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 ## <a name="security"></a>Säkerhet
 | **ProfileServiceApplicationProxy** | **Tillåtna värden** |**Uppgradera princip**| **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
-|AADCertEndpointFormat|sträng, standard är ""|Statisk|Slut punkts format för AAD-certifikat, standard Azure-kommersiell, anges för miljö som inte är standard, till exempel Azure Government https: \//login. microsoftonline. us/{0}/federationmetadata/2007-06/federationmetadata. xml " |
+|AADCertEndpointFormat|sträng, standard är ""|Statisk|Slut punkts format för AAD-certifikat, standard för Azure-kommersiell, anges för miljö som inte är standard, till exempel Azure Government https:\//login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml " |
 |AADClientApplication|sträng, standard är ""|Statisk|Ursprungligt klient program namn eller ID som representerar Fabric-klienter |
 |AADClusterApplication|sträng, standard är ""|Statisk|Webb-API-programnamn eller ID som representerar klustret |
-|AADLoginEndpoint|sträng, standard är ""|Statisk|Inloggnings slut punkt för AAD, standard Azure-kommersiell, anges för miljö som inte är standard, till exempel Azure Government https: \//login. microsoftonline. us " |
+|AADLoginEndpoint|sträng, standard är ""|Statisk|Inloggnings slut punkt för AAD, standard Azure-kommersiell, anges för miljö som inte är standard, till exempel Azure Government https:\//login.microsoftonline.us " |
 |AADTenantId|sträng, standard är ""|Statisk|Klient-ID (GUID) |
 |AcceptExpiredPinnedClusterCertificate|bool, standard är falskt|Dynamisk|Flagga som anger om utgångna kluster certifikat som deklarerats av tumavtryck endast ska accepteras för kluster certifikat; för att hålla klustret Alive. |
 |AdminClientCertThumbprints|sträng, standard är ""|Dynamisk|Tumavtrycken av certifikat som används av klienter i administratörs rollen. Det är en kommaavgränsad lista med namn. |
-|AADTokenEndpointFormat|sträng, standard är ""|Statisk|AAD-token-slutpunkt, standard Azure-kommersiell, anges för miljö som inte är standard, till exempel Azure Government https: \//login. microsoftonline. us/{0} " |
+|AADTokenEndpointFormat|sträng, standard är ""|Statisk|AAD-token-slutpunkt, standard Azure-kommersiell, anges för miljö som inte är standard, till exempel Azure Government https:\//login.microsoftonline.us/{0}" |
 |AdminClientClaims|sträng, standard är ""|Dynamisk|Alla möjliga anspråk som förväntas från administratörs klienter; samma format som ClientClaims; den här listan läggs internt till i ClientClaims. du behöver inte heller lägga till samma poster i ClientClaims. |
 |AdminClientIdentities|sträng, standard är ""|Dynamisk|Windows-identiteter för Fabric-klienter i administratörs rollen; används för att auktorisera privilegierade infrastruktur åtgärder. Det är en kommaavgränsad lista. varje post är ett domän konto namn eller grupp namn. För enkelhetens skull. kontot som kör Fabric. exe tilldelas automatiskt administratörs rollen. så är grupp ServiceFabricAdministrators. |
 |AppRunAsAccountGroupX509Folder|sträng, standard är/Home/sfuser/sfusercerts |Statisk|Mapp där AppRunAsAccountGroup X509-certifikat och privata nycklar finns |
@@ -677,6 +679,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |DisableFirewallRuleForDomainProfile| bool, standard är sant |Statisk| Anger om brand Väggs regel inte ska aktive ras för domän profil |
 |DisableFirewallRuleForPrivateProfile| bool, standard är sant |Statisk| Anger om brand Väggs regeln inte ska aktive ras för privat profil | 
 |DisableFirewallRuleForPublicProfile| bool, standard är sant | Statisk|Anger om brand Väggs regeln inte ska aktive ras för offentlig profil |
+| EnforceLinuxMinTlsVersion | bool, standard är falskt | Dynamisk | Om värdet är sant; endast TLS version 1.2 + stöds.  Om falskt; stöd för tidigare TLS-versioner. Gäller endast för Linux |
 |FabricHostSpn| sträng, standard är "" |Statisk| Tjänstens huvud namn för Fabrichost returnerar; När infrastrukturen körs som en enskild domän användare (gMSA/domän användar konto) och Fabrichost returnerar körs under dator konto. Det är SPN för IPC-lyssnare för Fabrichost returnerar; som standard ska lämnas tomt eftersom Fabrichost returnerar körs under dator konto |
 |IgnoreCrlOfflineError|bool, standard är falskt|Dynamisk|Huruvida CRL offline-fel ska ignoreras när Server sidan verifierar inkommande klient certifikat |
 |IgnoreSvrCrlOfflineError|bool, standard är sant|Dynamisk|Huruvida CRL offline-fel ska ignoreras när klient sidan verifierar inkommande server certifikat; Standardvärdet är true. Attacker med återkallade Server certifikat kräver kompromissa med DNS; svårare än med återkallade klient certifikat. |
@@ -743,7 +746,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |InvokeContainerApi|sträng, standardvärdet är "admin"|Dynamisk|Anropa container-API |
 |InvokeInfrastructureCommand |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för kommandon för hantering av infrastruktur uppgifter. |
 |InvokeInfrastructureQuery |sträng, standard är "admin\|\|User" | Dynamisk|Säkerhets konfiguration för frågor om infrastruktur uppgifter. |
-|Lista |sträng, standard är "admin\|\|User" | Dynamisk|Säkerhets konfiguration för klient fil List åtgärd i avbildnings lager. |
+|Visa lista |sträng, standard är "admin\|\|User" | Dynamisk|Säkerhets konfiguration för klient fil List åtgärd i avbildnings lager. |
 |MoveNextFabricUpgradeDomain |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för att återuppta kluster uppgraderingar med en explicit uppgraderings domän. |
 |MoveNextUpgradeDomain |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för att återuppta program uppgraderingar med en explicit uppgraderings domän. |
 |MoveReplicaControl |sträng, standardvärdet är "admin" | Dynamisk|Flytta repliken. |
@@ -757,7 +760,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |PropertyWriteBatch |sträng, standardvärdet är "admin" |Dynamisk|Säkerhetskonfigurationer för namngivning av egenskaps Skriv åtgärder. |
 |ProvisionApplicationType |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för etablering av program typ. |
 |ProvisionFabric |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för MSI och/eller kluster manifest etablering. |
-|Söka i data |sträng, standard är "admin\|\|User" |Dynamisk| Säkerhets konfiguration för frågor. |
+|Fråga |sträng, standard är "admin\|\|User" |Dynamisk| Säkerhets konfiguration för frågor. |
 |RecoverPartition |sträng, standardvärdet är "admin" | Dynamisk|Säkerhets konfiguration för återställning av en partition. |
 |RecoverPartitions |sträng, standardvärdet är "admin" | Dynamisk|Säkerhets konfiguration för återställning av partitioner. |
 |RecoverServicePartitions |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för återställning av tjänst partitioner. |

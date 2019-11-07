@@ -1,5 +1,5 @@
 ---
-title: Pipeline-körning och utlösare i Azure Data Factory | Microsoft Docs
+title: Pipeline-körning och utlösare i Azure Data Factory
 description: Den här artikeln innehåller information om hur du kör en pipeline i Azure Data Factory på begäran eller genom att skapa en utlösare.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: adc7b65b4e079c55b9400b06603625971efc3ea3
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 20a5a9c5513c165cd5add2e97f019a741dfd0b03
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177670"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681478"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Pipeline-körning och utlösare i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av tjänsten Data Factory som du använder:"]
@@ -278,11 +278,11 @@ I följande tabell ges en översikt över de viktigaste schemaelementen relatera
 
 | JSON-egenskap | Typ | Krävs | Standardvärde | Giltiga värden | Exempel |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | sträng | Ja | Inget | ISO 8601 datum/tid | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | objekt | Ja | Inget | Ett upprepningsobjekt | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | sträng | Ja | Ingen | ISO 8601 datum/tid | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | objekt | Ja | Ingen | Ett upprepningsobjekt | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | nummer | Nej | 1 | 1 till 1000 | `"interval":10` |
-| **endTime** | sträng | Ja | Inget | Ett datum/tid-värde som representerar en tidpunkt i framtiden | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | objekt | Nej | Inget | Ett schemaobjekt | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **endTime** | sträng | Ja | Ingen | Ett datum/tid-värde som representerar en tidpunkt i framtiden | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **schedule** | objekt | Nej | Ingen | Ett schemaobjekt | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Egenskapen startTime
 I följande tabell visas hur egenskapen **startTime** styr körningen av en utlösare:

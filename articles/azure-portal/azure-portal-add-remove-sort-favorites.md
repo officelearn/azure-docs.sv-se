@@ -1,59 +1,69 @@
 ---
-title: Lägga till, ta bort och sortera Favoriter i Azure-portalen | Microsoft Docs
-description: Lär dig att lägga till eller ta bort objekt från favoritlistan över och sortera ordningen på objekten
+title: Lägg till, ta bort och sortera favoriter i Azure Portal | Microsoft Docs
+description: Lär dig hur du lägger till eller tar bort objekt från listan Favoriter och sorterar objekt ordningen
 services: azure-portal
-keywords: Favoriter
+keywords: favorit
 author: kfollis
 ms.author: kfollis
-ms.date: 04/03/2019
+ms.date: 11/01/2019
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
-ms.openlocfilehash: ff3549ce77a2b691dcaaa94b6a59e9c011ff6e21
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 51228f4a28b5c6e19bf341b5576540d36bcaae64
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60690722"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579576"
 ---
 # <a name="add-remove-and-sort-favorites"></a>Lägga till, ta bort och sortera favoriter
 
-Lägg till eller ta bort objekt från din **Favoriter** listan så att du snabbt kan gå till de tjänster som du använder oftast. Vi redan lagt till vissa vanliga tjänster till din **Favoriter** lista, men du troligen vill anpassa den. Du är den enda som ser de ändringar du gör att **Favoriter**.
+Lägg till eller ta bort objekt från listan **Favoriter** så att du snabbt kan gå till de tjänster som du använder oftast. Vi har redan lagt till några vanliga tjänster i **favorit** listan, men du vill förmodligen anpassa den. Du är bara en som ser de ändringar du gör i **Favoriter**.
 
-## <a name="add-or-remove-a-favorite"></a>Lägg till eller ta bort favorit
+## <a name="add-a-favorite"></a>Lägg till en favorit
 
-Objekt som visas under **Favoriter** väljs från **alla tjänster**. En stjärnikonen ![gul stjärna](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-star.png) bredvid varje tjänst anger om objektet visas i listan. Välj stjärnikonen för att lägga till eller ta bort en tjänst från den **Favoriter** lista.
+Objekt som listas under **Favoriter** väljs från **alla tjänster**. Hovra över ett tjänst namn för att visa information och resurser som är relaterade till tjänsten. En fylld stjärn ikon ![fylld stjärn ikon](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-graystar.png) bredvid tjänst namnet anger att objektet visas i listan **Favoriter** . Välj stjärn ikonen för att lägga till en tjänst i listan **Favoriter** .
 
-### <a name="add-cost-management--billing-to-favorites"></a>Lägg till kostnadshantering + fakturering i Favoriter
+### <a name="add-cost-management--billing-to-favorites"></a>Lägg till Cost Management + fakturering till favoriter
 
-1. Välj **alla tjänster** från den övre delen av sidopanelen.
+1. Välj **alla tjänster** på Azure Portal-menyn.
 
-    ![Skärmbild som visar alla tjänster som har valts](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-all-services.png)
+    ![Skärm bild som visar alla valda tjänster](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-new-all-services.png)
 
-1. Ange ordet ”cost” i sökfältet. Endast tjänster som har ”cost” i rubriken eller som har ”cost” som ett nyckelord visas.
+1. Skriv ordet "kostnad" i Sök fältet. Tjänster som har "kostnad" i rubriken eller som har "kostnad" som ett nyckelord visas.
 
-   ![Skärmbild som visar Sök i alla tjänster](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-search.png)
+   ![Skärm bild som visar sökning i alla tjänster](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-find-service.png)
 
-1. Välj stjärnikonen.
+1. Hovra över tjänst namnet för att visa **Cost Management + fakturerings** informations kortet. Välj stjärn ikonen.
 
-   ![Skärmbild som visar star bredvid kostnadshantering + fakturering valt](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-add.png)
+   ![Skärm bild som visar stjärna bredvid kostnads hantering + fakturering valt](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-add.png)
 
-1. **Cost Management + fakturering** har nu lagts till som det sista objektet i din **Favoriter** lista.
+1. **Cost Management + fakturering** läggs nu till som det sista objektet i listan **Favoriter** .
 
-## <a name="sort-favorites"></a>Sortera Favoriter
+## <a name="remove-an-item-from-favorites"></a>Ta bort ett objekt från favoriter
 
-Du kan ändra ordning av dina favorittjänster. Dra och släppa menyalternativet till en annan plats under **Favoriter**.
+Nu kan du ta bort ett objekt direkt från listan **Favoriter** .
 
-### <a name="move-cost-management--billing-to-the-top-of-favorites"></a>Flytta kostnadshantering + fakturering längst upp i Favoriter
+1. I avsnittet **Favoriter** på Portal-menyn, hovrar du över namnet på den tjänst som du vill ta bort.
 
-1. Markera och håll den **kostnadshantering + fakturering** posten på den **Favoriter** lista.
+   ![Skärm bild som visar hov rings beteende i favoriter](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-remove.png)
 
-   ![Skärmbild som visar kostnadshantering + fakturering som valts](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-sort.png)
+2. På informations kortet väljer du stjärnan så att den ändras från fylld till ofylld. Tjänsten tas bort från listan **Favoriter** .
 
-1. Medan du håller ned dra objektet längst upp i **Favoriter** och släpp.
+## <a name="sort-favorites"></a>Sortera favoriter
+
+Du kan ändra i vilken ordning dina favorit tjänster visas. Du behöver bara dra och släppa meny alternativet till en annan plats under **Favoriter**.
+
+### <a name="move-cost-management--billing-to-the-top-of-favorites"></a>Flytta Cost Management + fakturering överst i favoriter
+
+1. Välj och håll **Cost Management + fakturerings** post i listan **Favoriter** .
+
+   ![Skärm bild som visar kostnads hantering + fakturering valt](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-sort.png)
+
+1. Medan du fortsätter att hålla kvar drar du objektet högst upp i **Favoriter** och släpper sedan.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om du vill skapa en arbetsyta för projektfokuserade [skapa och dela instrumentpaneler i Azure portal](../azure-portal/azure-portal-dashboards.md)
-* Upptäck mer hur-att användarens den [Azure portal-videoserie](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR)
+* Information om hur du skapar en projekt fokuserad arbets yta finns [i skapa och dela instrument paneler i Azure Portal](../azure-portal/azure-portal-dashboards.md)
+* Lär dig mer om hur du kan använda [video serien i Azure Portal instruktion](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR)

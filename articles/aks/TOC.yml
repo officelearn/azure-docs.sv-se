@@ -345,6 +345,8 @@
           maintainContext: true
         - name: Startprogram för Distributionscenter
           href: deployment-center-launcher.md
+        - name: GitHub-åtgärder för Kubernetes
+          href: ../aks/kubernetes-action.md
     - name: Felsöka
       items:
         - name: Vanliga problem

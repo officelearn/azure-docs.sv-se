@@ -1,5 +1,5 @@
 ---
-title: 'Design exempel #3: regression till pris och jämför algoritmer'
+title: 'Designer: förutsäga bil priser (regression)'
 titleSuffix: Azure Machine Learning
 description: Den här artikeln visar hur du skapar en komplex pipeline för maskin inlärning utan att skriva en enda rad kod med hjälp av designern (för hands version). Lär dig att träna och jämföra flera Regressions modeller för att förutsäga bilars priser baserat på tekniska funktioner
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 4fb2e4c5c96c0c4c1b4d8ef14de65e470d545638
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d73f6d67afff13696de78d026ff65228fd68fb28
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515439"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647957"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Exempel 2 – regression: förutsäga priser och jämför algoritmer
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -28,7 +28,7 @@ Här är det färdiga diagrammet för den här pipelinen:
 
 [![diagram över pipelinen](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 

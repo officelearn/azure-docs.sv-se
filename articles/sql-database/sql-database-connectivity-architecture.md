@@ -1,5 +1,5 @@
 ---
-title: Arkitektur för Azure SQL Database och SQL Data Warehouse anslutning | Microsoft Docs
+title: Arkitektur för Azure SQL Database och SQL Data Warehouse anslutning
 description: I det här dokumentet förklaras Azure SQL Connectivity-arkitekturen för databas anslutningar från Azure eller utanför Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: f26eb44dd407e379d0bf3291eb890d2e451c919e
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: d414276e081407af8ea21ebcbd96909d34455a22
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72807927"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690862"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arkitektur för Azure SQL-anslutning
 

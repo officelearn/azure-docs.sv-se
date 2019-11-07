@@ -1,6 +1,6 @@
 ---
 title: Använda webb tjänst
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: När en Machine Learning-tjänst har distribuerats från Azure Machine Learning Studio (klassisk) kan RESTFul-webbtjänsten konsumeras antingen som real tids tjänst för begäran-svar eller som en batch-körnings tjänst.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: a5f73e9814adeb44c2838a1fd3bd9c9fd34d4de5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b955b274f3e96eab7e6075b0e966117c2871bbf8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493297"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671420"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Använda en Azure Machine Learning Studio (klassisk)-webb tjänst
 
@@ -24,7 +24,7 @@ När du har distribuerat en Azure Machine Learning Studio (klassisk) förutsäge
 Du hittar mer information om hur du skapar och distribuerar en Machine Learning-webbtjänst med Machine Learning Studio (klassisk) här:
 
 * En själv studie kurs om hur du skapar ett experiment i Machine Learning Studio (klassisk) finns i [skapa ditt första experiment](create-experiment.md).
-* Mer information om hur du distribuerar en webb tjänst finns i [distribuera en Machine Learning-webbtjänst](publish-a-machine-learning-web-service.md).
+* Mer information om hur du distribuerar en webb tjänst finns i [distribuera en Machine Learning-webbtjänst](deploy-a-machine-learning-web-service.md).
 * Mer information om Machine Learning i allmänhet finns i [Machine Learning dokumentations centret](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 
@@ -32,12 +32,12 @@ Du hittar mer information om hur du skapar och distribuerar en Machine Learning-
 ## <a name="overview"></a>Översikt
 Med Azure Machine Learning-webbtjänsten kommunicerar ett externt program med en beräknings modell för en Machine Learning arbets flöde i real tid. Ett Machine Learning webb tjänst anrop returnerar förutsägelse resultat till ett externt program. Om du vill göra ett Machine Learning webb tjänst anrop skickar du en API-nyckel som skapas när du distribuerar en förutsägelse. Machine Learning-webbtjänsten baseras på REST, ett populärt arkitektur val för webb program projekt.
 
-Den klassiska tdet-versionen av Azure Machine Learning Studio har två typer av tjänster:
+Den klassiska versionen av Azure Machine Learning Studio har två typer av tjänster:
 
 * Request-Response service (resurs poster) – en låg fördröjning, hög skalbar tjänst som tillhandahåller ett gränssnitt för de tillstånds lösa modeller som skapas och distribueras från Machine Learning Studio (klassisk).
 * BES (batch execution service) – en asynkron tjänst som poängs ätter en batch för data poster.
 
-Mer information om Machine Learning webb tjänster finns i [distribuera en Machine Learning-webbtjänst](publish-a-machine-learning-web-service.md).
+Mer information om Machine Learning webb tjänster finns i [distribuera en Machine Learning-webbtjänst](deploy-a-machine-learning-web-service.md).
 
 ## <a name="get-an-authorization-key"></a>Hämta en nyckel för auktorisering
 När du distribuerar experimentet genereras API-nycklar för webb tjänsten. Du kan hämta nycklarna från flera platser.

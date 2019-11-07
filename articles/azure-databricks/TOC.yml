@@ -260,7 +260,7 @@
             - name: Cosmos DB
               href: /azure/databricks/data/data-sources/azure/cosmosdb-connector
               maintainContext: true
-            - name: SQL Data Warehouse
+            - name: Azure SQL Data Warehouse
               href: /azure/databricks/data/data-sources/azure/sql-data-warehouse
               maintainContext: true
             - name: Binära filer
@@ -272,7 +272,7 @@
             - name: Couchbase
               href: /azure/databricks/data/data-sources/couchbase
               maintainContext: true
-            - name: Elastisk sökning
+            - name: ElasticSearch
               href: /azure/databricks/data/data-sources/elasticsearch
               maintainContext: true
             - name: Avbildningar
@@ -708,14 +708,17 @@
             - name: Exempel på beslutsträd
               href: /azure/databricks/applications/machine-learning/mllib/decision-trees
               maintainContext: true
-            - name: MLib-pipelines och strukturerad direktuppspelning
+            - name: MLlib-pipelines och strukturerad direktuppspelning
               href: /azure/databricks/applications/machine-learning/mllib/mllib-pipelines-and-stuctured-streaming
               maintainContext: true
-            - name: Avancerat MLib-exempel
+            - name: Avancerat MLlib-exempel
               href: /azure/databricks/applications/machine-learning/mllib/advanced-mllib
               maintainContext: true
         - name: Automatisk ML
           items:
+            - name: Översikt över automatiserad ML
+              href: /azure/databricks/applications/machine-learning/automl/index
+              maintainContext: true
             - name: Hyperopt
               items:
                 - name: Översikt över Hyperopt
@@ -730,8 +733,16 @@
                 - name: Modellsökning med distribuerad Hyperopt
                   href: /azure/databricks/applications/machine-learning/automl/hyperopt/hyperopt-model-selection
                   maintainContext: true
-            - name: MLib och automatiserad MLflow-spårning
+            - name: MLlib och automatiserad MLflow-spårning
               href: /azure/databricks/applications/machine-learning/automl/mllib-mlflow-integration
+              maintainContext: true
+        - name: Exportera och importera ML-modeller
+          items:
+            - name: Översikt över export och import
+              href: /azure/databricks/applications/machine-learning/model-export-import/index
+              maintainContext: true
+            - name: Modellexport för MLeap ML
+              href: /azure/databricks/applications/machine-learning/model-export-import/mleap-model-export
               maintainContext: true
         - name: Integrering av maskininlärning från tredje part
           href: /azure/databricks/applications/machine-learning/third-party/index
@@ -826,33 +837,39 @@
         - name: Översikt över MLflow
           href: /azure/databricks/applications/mlflow/index
           maintainContext: true
-        - name: Komma igång med MLflow
-          href: /azure/databricks/applications/mlflow/quick-start
-          maintainContext: true
-        - name: Komma igång med MLflow Java och Scala
-          href: /azure/databricks/applications/mlflow/quick-start-java-scala
-          maintainContext: true
-        - name: Komma igång med MLflow Python
-          href: /azure/databricks/applications/mlflow/quick-start-python
-          maintainContext: true
-        - name: Komma igång med MLflow R
-          href: /azure/databricks/applications/mlflow/quick-start-r
-          maintainContext: true
+        - name: Komma igång
+          items:
+            - name: Komma igång med MLflow
+              href: /azure/databricks/applications/mlflow/quick-start
+              maintainContext: true
+            - name: Komma igång med MLflow Java och Scala
+              href: /azure/databricks/applications/mlflow/  quick-start-java-scala
+              maintainContext: true
+            - name: Komma igång med MLflow Python
+              href: /azure/databricks/applications/mlflow/  quick-start-python
+              maintainContext: true
+            - name: Komma igång med MLflow R
+              href: /azure/databricks/applications/mlflow/quick-start-r
+              maintainContext: true
         - name: Spåra träningskörningar för maskininlärning
-          href: /azure/databricks/applications/mlflow/tracking
-          maintainContext: true
-        - name: Exempel på MLflow-spårning
-          href: /azure/databricks/applications/mlflow/tracking-examples
-          maintainContext: true
-        - name: Få tillgång till spårning externt
-          href: /azure/databricks/applications/mlflow/access-hosted-tracking-server
-          maintainContext: true
+          items:
+            - name: Spårningsöversikt
+              href: /azure/databricks/applications/mlflow/tracking
+              maintainContext: true
+            - name: Exempel på MLflow-spårning
+              href: /azure/databricks/applications/mlflow/  tracking-examples
+              maintainContext: true
+            - name: Få tillgång till spårning externt
+              href: /azure/databricks/applications/mlflow/  access-hosted-tracking-server
+              maintainContext: true
         - name: 'Spara, läsa in och distribuera modeller'
-          href: /azure/databricks/applications/mlflow/models
-          maintainContext: true
-        - name: MLflow-modellexempel
-          href: /azure/databricks/applications/mlflow/model-examples
-          maintainContext: true
+          items:
+            - name: 'Översikt över spara, läsa in och distribuera'
+              href: /azure/databricks/applications/mlflow/models
+              maintainContext: true
+            - name: MLflow-modellexempel
+              href: /azure/databricks/applications/mlflow/  model-examples
+              maintainContext: true
         - name: Reproducera körningar med MLflow-projekt
           href: /azure/databricks/applications/mlflow/projects
           maintainContext: true
@@ -880,9 +897,6 @@
         - name: Översikt över Genomics
           href: /azure/databricks/applications/genomics/index
           maintainContext: true
-        - name: Översikt över Genomics ETL
-          href: /azure/databricks/applications/genomics/etl/index
-          maintainContext: true
         - name: Sekundär analys
           items:
             - name: Översikt över sekundär analys
@@ -908,6 +922,9 @@
               maintainContext: true
         - name: ETL
           items:
+            - name: Översikt över Genomics ETL
+              href: /azure/databricks/applications/genomics/etl/index
+              maintainContext: true
             - name: Variant-IO med Apache Spark SQL
               href: /azure/databricks/applications/genomics/etl/variant-data
               maintainContext: true
@@ -1211,10 +1228,7 @@
               maintainContext: true
             - name: Det gick inte att identifiera kodning i JSON
               href: /azure/databricks/kb/data-sources/json-unicode
-              maintainContext: true
-            - name: Frågealternativet JDBC fungerar inte för Oracle Database
-              href: /azure/databricks/kb/data-sources/query-option-not-work-oracle
-              maintainContext: true
+              maintainContext: true j
         - name: DBFS
           items:
             - name: Det går inte att läsa objekt som lagras i DBFS-roten
@@ -1293,6 +1307,9 @@
               maintainContext: true
             - name: Jobbet kan inte utföra maxresultsize
               href: /azure/databricks/kb/jobs/job-fails-maxresultsize-exception
+              maintainContext: true
+            - name: Garantera idempotens
+              href: /azure/databricks/kb/jobs/jobs-idempotency
               maintainContext: true
         - name: Bibliotek
           items:

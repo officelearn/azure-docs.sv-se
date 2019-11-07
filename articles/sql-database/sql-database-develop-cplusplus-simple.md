@@ -1,5 +1,5 @@
 ---
-title: Anslut till SQL Database med C och C++ | Microsoft Docs
+title: Anslut till SQL Database med C ochC++
 description: Använd exempel koden i den här snabb starten för att skapa ett modernt program C++ med och som backas upp av en kraftfull Relations databas i molnet med Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
-ms.openlocfilehash: c06a16071b1e22e7aa788ff5f15ce8afbf17da04
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fb6094ec418d2b212759bddd2c4d49c7e6193849
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568925"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690696"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Anslut till SQL Database med C ochC++
 
@@ -38,10 +38,10 @@ Azure har för närvarande två alternativ för att vara värd för SQL Server-a
 ## <a id="ODBC"></a>Data åtkomst tekniker: ODBC och OLE DB
 Anslutning till Azure SQL DB är inte detsamma och det finns för närvarande två sätt att ansluta till databaser: ODBC (Open Database Connectivity) och OLE DB (objekt länkning och inbäddning av databas). Under de senaste åren har Microsoft justerats med [ODBC för intern Relations data åtkomst](https://blogs.msdn.microsoft.com/sqlnativeclient/20../../microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC är relativt enkelt och också mycket snabbare än OLE DB. Den enda villkoret här är att ODBC använder ett gammalt C-format-API.
 
-## <a id="Create"></a>Steg 1:  Skapa din Azure SQL Database
+## <a id="Create"></a>Steg 1: skapa din Azure SQL Database
 Se [sidan komma igång](sql-database-single-database-get-started.md) för att lära dig hur du skapar en exempel databas.  Alternativt kan du följa den här [korta två minuter långa videon](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) för att skapa en Azure SQL-databas med hjälp av Azure Portal.
 
-## <a id="ConnectionString"></a>Steg 2:  Hämta anslutningssträng
+## <a id="ConnectionString"></a>Steg 2: hämta anslutnings sträng
 När din Azure SQL-databas har etablerats måste du utföra följande steg för att fastställa anslutnings information och lägga till klientens IP-adress för brand Väggs åtkomst.
 
 I [Azure Portal](https://portal.azure.com/)går du till din Azure SQL Database ODBC-anslutningssträng genom att använda **databas anslutnings** strängarna som visas som en del av översikts avsnittet för databasen:
@@ -52,14 +52,14 @@ I [Azure Portal](https://portal.azure.com/)går du till din Azure SQL Database O
 
 Kopiera innehållet i **ODBC (inkluderar Node. js) [SQL Authentication]** -sträng. Vi använder den här strängen senare för att ansluta C++ från vår ODBC kommando tolk. Den här strängen innehåller information som driv rutin, server och andra databas anslutnings parametrar.
 
-## <a id="Firewall"></a>Steg 3:  Lägg till din IP-adress i brand väggen
+## <a id="Firewall"></a>Steg 3: Lägg till din IP-adress i brand väggen
 Gå till avsnittet brand vägg för din databas server och Lägg till [klientens IP-adress i brand väggen med hjälp av de här stegen](sql-database-configure-firewall-settings.md) för att se till att vi kan upprätta en lyckad anslutning:
 
 ![AddyourIPWindow](./media/sql-database-develop-cplusplus-simple/ip.png)
 
 Nu har du konfigurerat Azure SQL DB och är redo att ansluta från din C++ kod.
 
-## <a id="Windows"></a>Steg 4: Ansluta från ett Windows C/C++ -program
+## <a id="Windows"></a>Steg 4: ansluta från ett Windows C/C++ -program
 Du kan enkelt ansluta till din [Azure SQL-databas med hjälp av ODBC i Windows med hjälp av det här exemplet](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample%20%28windows%29) som bygger med Visual Studio. Exemplet implementerar en ODBC kommando rads tolk som kan användas för att ansluta till vår Azure SQL-databas. Det här exemplet tar antingen en DSN-fil (Database Source Name File) som ett kommando rads argument eller den utförlig anslutnings sträng som vi kopierade tidigare från Azure Portal. Öppna egenskaps sidan för det här projektet och klistra in anslutnings strängen som ett kommando argument som visas här:
 
 ![DSN-Propsfile](./media/sql-database-develop-cplusplus-simple/props.png)
@@ -76,7 +76,7 @@ Du kan också skapa en DSN-fil med hjälp av guiden som startas när inga komman
 
 Grattis! Nu har du anslutit till Azure SQL med C++ och ODBC i Windows. Du kan fortsätta att läsa för att göra samma för Linux-plattformen också.
 
-## <a id="Linux"></a>Steg 5: Ansluta från ett Linux C/C++ Application
+## <a id="Linux"></a>Steg 5: ansluta från ett Linux C/C++ Application
 Om du inte har hört med nyheterna än kan du nu utveckla C++ Linux-program med Visual Studio. Du kan läsa om det här nya scenariot i bloggen [för utveckling av C++ visuella objekt för Linux](https://blogs.msdn.microsoft.com/vcblog/20../../visual-c-for-linux-development/) . För att bygga för Linux behöver du en fjärrdator där Linux-distribution körs. Om du inte har någon tillgänglig kan du snabbt ställa in ett snabbt med [virtuella Linux Azure-datorer](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 I den här självstudien antar vi att du har konfigurerat en Ubuntu 16,04 Linux-distribution. Stegen här gäller även för Ubuntu 15,10, Red Hat 6 och Red Hat 7.

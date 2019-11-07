@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database resurs gränser för vCore-enkel databas | Microsoft Docs
+title: Azure SQL Database resurs gränser för vCore – enkel databas
 description: På den här sidan beskrivs några vanliga vCore resurs gränser för en enskild databas i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/04/2019
-ms.openlocfilehash: 55b0b28f3081cfe643645683a9773b4c97b9caef
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b3b55b3542eb0dd8c3c61d7a82c8ce2e9d271113
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495936"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686861"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Resurs gränser för enskilda databaser med vCore inköps modell
 
@@ -44,7 +44,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Min-max minne (GB)|2.02-3|2.05-6|2.10-12|2.25-18|3.00 – 24|
 |Minsta fördröjning för automatisk paus (minuter)|60|60|60|60|60|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Minnes intern OLTP-lagring (GB)|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Maximal data storlek (GB)|512|1024|1024|1024|1536|
 |Största logg storlek (GB)|154|307|307|307|461|
 |Maximal data storlek för TempDB (GB)|32|64|128|192|256|
@@ -55,8 +55,8 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Maximalt antal samtidiga arbetare (begär Anden)|75|150|300|450|600|
 |Maximalt antal samtidiga sessioner|30000|30000|30000|30000|30000|
 |Antal repliker|1|1|1|1|1|
-|Multi-AZ|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
-|Läs skalbarhet|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Multi-AZ|Saknas|Saknas|Saknas|Saknas|Saknas|
+|Läs skalbarhet|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
 ### <a name="gen5-compute-generation-part-2"></a>Gen5 beräknings generation (del 2)
@@ -68,7 +68,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Min-max minne (GB)|3,75 – 30|4.50-36|5,25-42|6.00-48|
 |Minsta fördröjning för automatisk paus (minuter)|60|60|60|60|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Minnes intern OLTP-lagring (GB)|Saknas|Saknas|Saknas|Saknas|
 |Maximal data storlek (GB)|1536|1536|1536|3072|
 |Största logg storlek (GB)|461|461|461|922|
 |Maximal data storlek för TempDB (GB)|320|384|448|512|
@@ -79,8 +79,8 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Maximalt antal samtidiga arbetare (begär Anden)|750|900|1050|1200|
 |Maximalt antal samtidiga sessioner|30000|30000|30000|30000|
 |Antal repliker|1|1|1|1|
-|Multi-AZ|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
-|Läs skalbarhet|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Multi-AZ|Saknas|Saknas|Saknas|Saknas|
+|Läs skalbarhet|Saknas|Saknas|Saknas|Saknas|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
 
@@ -95,7 +95,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Minne (GB)|10.2|20,4|40,8|81,6|122,4|163,2|204|408|
 |[RBPEX](sql-database-service-tier-hyperscale.md#compute) Ändra|3X-minne|3X-minne|3X-minne|3X-minne|3X-minne|3X-minne|3X-minne|3X-minne|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Minnes intern OLTP-lagring (GB)|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Maximal data storlek (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
 |Största logg storlek (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
 |Maximal data storlek för TempDB (GB)|64|128|256|384|384|384|384|384|
@@ -105,7 +105,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Maximalt antal samtidiga arbetare (begär Anden)|200|400|800|1600|2400|3200|4000|8000|
 |Maximalt antal samtidiga sessioner|30000|30000|30000|30000|30000|30000|30000|30000|
 |Sekundära repliker|0-4|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
-|Multi-AZ|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Multi-AZ|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Läs skalbarhet|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Kvarhållning av lagrings utrymme för säkerhets kopior|7 dagar|7 dagar|7 dagar|7 dagar|7 dagar|7 dagar|7 dagar|7 dagar|
 |||
@@ -131,7 +131,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Virtuella kärnor|1|2|3|4|5|6|
 |Minne (GB)|7|14|21|28|35|42|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Minnes intern OLTP-lagring (GB)|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Maximal data storlek (GB)|1024|1024|1536|1536|1536|3072|
 |Största logg storlek (GB)|307|307|461|461|461|922|
 |Maximal data storlek för TempDB (GB)|32|64|96|128|160|192|
@@ -142,8 +142,8 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Maximalt antal samtidiga arbetare (begär Anden)|200|400|600|800|1000|1200|
 |Maximalt antal samtidiga sessioner|30000|30000|30000|30000|30000|30000|
 |Antal repliker|1|1|1|1|1|1|
-|Multi-AZ|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
-|Läs skalbarhet|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Multi-AZ|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
+|Läs skalbarhet|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
 ### <a name="gen4-compute-generation-part-2"></a>Gen4 beräknings generation (del 2)
@@ -154,7 +154,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Virtuella kärnor|7|8|9|10|16|24|
 |Minne (GB)|49|56|63|70|112|168|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Minnes intern OLTP-lagring (GB)|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Maximal data storlek (GB)|3072|3072|3072|3072|4096|4096|
 |Största logg storlek (GB)|922|922|922|922|1229|1229|
 |Maximal data storlek för TempDB (GB)|224|256|288|320|384|384|
@@ -165,8 +165,8 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Maximalt antal samtidiga arbetare (begär Anden)|1400|1600|1800|2000|3200|4800|
 |Maximalt antal samtidiga sessioner|30000|30000|30000|30000|30000|30000|
 |Antal repliker|1|1|1|1|1|1|
-|Multi-AZ|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
-|Läs skalbarhet|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Multi-AZ|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
+|Läs skalbarhet|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
 ## <a name="general-purpose---provisioned-compute---gen5"></a>Generell användning-allokerad beräkning – Gen5
@@ -179,7 +179,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Virtuella kärnor|2|4|6|8|10|12|14|
 |Minne (GB)|10.2|20,4|30,6|40,8|51|61,2|71,4|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Minnes intern OLTP-lagring (GB)|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Maximal data storlek (GB)|1024|1024|1536|1536|1536|3072|3072|
 |Största logg storlek (GB)|307|307|461|461|461|922|922|
 |Maximal data storlek för TempDB (GB)|64|128|192|256|320|384|384|
@@ -190,8 +190,8 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Maximalt antal samtidiga arbetare (begär Anden)|200|400|600|800|1000|1200|1400|
 |Maximalt antal samtidiga sessioner|30000|30000|30000|30000|30000|30000|30000|
 |Antal repliker|1|1|1|1|1|1|1|
-|Multi-AZ|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
-|Läs skalbarhet|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Multi-AZ|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
+|Läs skalbarhet|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
 ### <a name="gen5-compute-generation-part-2"></a>Gen5 beräknings generation (del 2)
@@ -202,7 +202,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Virtuella kärnor|16|18|20|24|32|40|80|
 |Minne (GB)|81,6|91,8|102|122,4|163,2|204|408|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Minnes intern OLTP-lagring (GB)|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Maximal data storlek (GB)|3072|3072|3072|4096|4096|4096|4096|
 |Största logg storlek (GB)|922|922|922|1229|1229|1229|1229|
 |Maximal data storlek för TempDB (GB)|384|384|384|384|384|384|384|
@@ -213,8 +213,8 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Maximalt antal samtidiga arbetare (begär Anden)|1600|1800|2000|2400|3200|4000|8000|
 |Maximalt antal samtidiga sessioner|30000|30000|30000|30000|30000|30000|30000|
 |Antal repliker|1|1|1|1|1|1|1|
-|Multi-AZ|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
-|Läs skalbarhet|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Multi-AZ|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
+|Läs skalbarhet|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
 ## <a name="general-purpose---provisioned-compute---fsv2-series"></a>Allmänt syfte – etablerad beräkning – Fsv2-serien
@@ -227,7 +227,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Virtuella kärnor|72|
 |Minne (GB)|136|
 |Columnstore-stöd|Ja|
-|Minnes intern OLTP-lagring (GB)|Gäller inte|
+|Minnes intern OLTP-lagring (GB)|Saknas|
 |Maximal data storlek (GB)|4096|
 |Största logg storlek (GB)|1024|
 |Maximal data storlek för TempDB (GB)|333|
@@ -238,8 +238,8 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Maximalt antal samtidiga arbetare (fråge tagarna)|3600|
 |Maximalt antal samtidiga sessioner|30000|
 |Antal repliker|1|
-|Multi-AZ|Gäller inte|
-|Läs skalbarhet|Gäller inte|
+|Multi-AZ|Saknas|
+|Läs skalbarhet|Saknas|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|
 
 
@@ -281,7 +281,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Virtuella kärnor|7|8|9|10|16|24|
 |Minne (GB)|49|56|63|70|112|168|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|7|8|9,5|11|20|36|
+|Minnes intern OLTP-lagring (GB)|7|8|9.5|11|20|36|
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
 |Maximal data storlek (GB)|1024|1024|1024|1024|1024|1024|
 |Största logg storlek (GB)|307|307|307|307|307|307|

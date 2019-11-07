@@ -12,12 +12,12 @@ metadata:
   title: Dokumentation om Personanpassning
   titleSuffix: Azure Cognitive Services
   description: Personanpassning i Azure är en molnbaserad API-tjänst som gör det möjligt att välja det bästa alternativet att visa användarna och drar lärdom av beteende i realtid.
-  ms.openlocfilehash: f3ba5f5eef7885896d774fd8aab35784cfb6465e
-  ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+  ms.openlocfilehash: 19736d881400a311964920f5669a0e9423891f9e
+  ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/04/2019
-  ms.locfileid: "71950043"
+  ms.lasthandoff: 11/05/2019
+  ms.locfileid: "73604206"
 landingContent:
 - title: Om Personanpassning
   linkLists:
@@ -97,7 +97,7 @@ landingContent:
       url: concepts-exploration.md
     - text: Funktioner, åtgärd och sammanhang
       url: concepts-features.md
-    - text: Aktiv inlärning
+    - text: Aktiva och inaktiva händelser
       url: concept-active-learning.md
     - text: Fördelar
       url: concept-rewards.md
@@ -107,7 +107,7 @@ landingContent:
     links:
     - text: Förbättra loopen med offlineutvärderingar
       url: concepts-offline-evaluation.md
-    - text: Aktiv inlärning
+    - text: Aktiva och inaktiva händelser
       url: concept-active-learning.md
     - text: Skalbarhet och prestanda
       url: concepts-scalability-performance.md

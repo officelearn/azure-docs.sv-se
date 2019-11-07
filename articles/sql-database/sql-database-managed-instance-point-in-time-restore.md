@@ -1,5 +1,5 @@
 ---
-title: SQL Database Hanterad instans-återställning av tidpunkt | Microsoft Docs
+title: SQL Database Hanterad instans-tidpunkts återställning
 description: Återställa en SQL-databas i en hanterad instans till en tidigare tidpunkt.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 61249d8ac21c3bb698deb92e5f46a8998205ced9
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 44f99b6a5201e91e37ace0f5aa4c5c2eb8e3b1db
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529674"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687980"
 ---
 # <a name="restore-a-sql-database-in-a-managed-instance-to-a-previous-point-in-time"></a>Återställa en SQL-databas i en hanterad instans till en tidigare tidpunkt
 
@@ -48,7 +48,7 @@ I följande tabell visas scenarier för återställning av tidpunkter för hante
 
 |           |Återställ en befintlig databas till samma hanterade instans| Återställ befintlig databas till en annan hanterad instans|Återställ utelämnad databas till samma hanterade instans|Återställ släppt databas till en annan hanterad instans|
 |:----------|:----------|:----------|:----------|:----------|
-|**Azure-portalen**| Ja|Nej |Nej|Nej|
+|**Azure Portal**| Ja|Nej |Nej|Nej|
 |**Azure CLI**|Ja |Ja |Nej|Nej|
 |**PowerShell**| Ja|Ja |Ja|Ja|
 
@@ -56,9 +56,9 @@ I följande tabell visas scenarier för återställning av tidpunkter för hante
 
 Återställ en befintlig databas till samma instans med hjälp av Azure Portal, PowerShell eller Azure CLI. Om du vill återställa en databas till en annan instans använder du PowerShell eller Azure CLI så att du kan ange egenskaperna för den hanterade mål instansen och resurs gruppen. Om du inte anger dessa parametrar kommer databasen att återställas till den befintliga instansen som standard. Azure Portal har för närvarande inte stöd för återställning till en annan instans.
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). 
+1. Logga in på [Azure Portal](https://portal.azure.com). 
 2. Gå till din hanterade instans och välj den databas som du vill återställa.
 3. Välj **Återställ** på databas sidan:
 
@@ -197,7 +197,7 @@ Använd någon av följande metoder för att ansluta till databasen i den hanter
 - [Punkt-till-plats](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
 - [Offentlig slut punkt](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 I Azure Portal väljer du databasen från den hanterade instansen och väljer sedan **ta bort**.
 

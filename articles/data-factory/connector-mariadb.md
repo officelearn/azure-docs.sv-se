@@ -1,6 +1,6 @@
 ---
-title: Kopiera data från MariaDB med Azure Data Factory | Microsoft Docs
-description: Lär dig hur du kopierar data från MariaDB till mottagarens datalager genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
+title: Kopiera data från MariaDB med hjälp av Azure Data Factory
+description: Lär dig hur du kopierar data från MariaDB till mottagar data lager som stöds med hjälp av en kopierings aktivitet i en Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: b58617281094973e2705c34fdd4e4f6ccb2e8d8c
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 853d39545d099f43cd5769eadae974e20c977e53
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090141"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680730"
 ---
-# <a name="copy-data-from-mariadb-using-azure-data-factory"></a>Kopiera data från MariaDB med Azure Data Factory
+# <a name="copy-data-from-mariadb-using-azure-data-factory"></a>Kopiera data från MariaDB med hjälp av Azure Data Factory
 
-Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från MariaDB. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
+Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från MariaDB. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -30,13 +30,13 @@ Den här MariaDB-anslutningen stöds för följande aktiviteter:
 - [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
 - [Sökningsaktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från MariaDB till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från MariaDB till alla mottagar data lager som stöds. En lista över data lager som stöds som källor/mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, måste du därför inte att manuellt installera en drivrutin som använder den här anslutningen.
+Azure Data Factory innehåller en inbyggd driv rutin som möjliggör anslutning, och du behöver därför inte installera någon driv rutin manuellt med hjälp av den här anslutningen.
 
-Den här anslutningsappen stöder för närvarande MariaDB version 10.0 att 10.2.
+Den här anslutningen stöder för närvarande MariaDB av version 10,0 till 10,2.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -44,17 +44,17 @@ Den här anslutningsappen stöder för närvarande MariaDB version 10.0 att 10.2
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för MariaDB-anslutningen.
+I följande avsnitt finns information om egenskaper som används för att definiera Data Factory entiteter som är speciella för MariaDB-anslutaren.
 
-## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
+## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 
-Följande egenskaper har stöd för MariaDB länkade tjänsten:
+Följande egenskaper stöds för den länkade tjänsten MariaDB:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Egenskapen Type måste anges till: **MariaDB** | Ja |
-| connectionString | En ODBC-anslutningssträng att ansluta till MariaDB. <br/>Markera det här fältet som en SecureString för att lagra det på ett säkert sätt i Data Factory. Du kan också ställa in lösen ord i Azure Key Vault och `pwd` Hämta konfigurationen från anslutnings strängen. Se följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
-| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Nej |
+| typ | Egenskapen Type måste anges till: **MariaDB** | Ja |
+| Begär | En ODBC-anslutningssträng för att ansluta till MariaDB. <br/>Markera det här fältet som en SecureString för att lagra det på ett säkert sätt i Data Factory. Du kan också ange lösen ord i Azure Key Vault och hämta `pwd`-konfigurationen från anslutnings strängen. Se följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
+| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om inget värde anges används standard Azure Integration Runtime. |Nej |
 
 **Exempel:**
 
@@ -106,11 +106,11 @@ Följande egenskaper har stöd för MariaDB länkade tjänsten:
 }
 ```
 
-## <a name="dataset-properties"></a>Egenskaper för datamängd
+## <a name="dataset-properties"></a>Egenskaper för data mängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av MariaDB-datauppsättningen.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av MariaDB DataSet.
 
-Om du vill kopiera data från MariaDB, ange typegenskapen på datauppsättningen till **MariaDBTable**. Det finns ingen ytterligare typspecifika-egenskap i den här typen av datauppsättning.
+Om du vill kopiera data från MariaDB anger du egenskapen type för data uppsättningen till **MariaDBTable**. Det finns ingen ytterligare typ bestämd egenskap i den här typen av data uppsättning.
 
 **Exempel**
 
@@ -131,16 +131,16 @@ Om du vill kopiera data från MariaDB, ange typegenskapen på datauppsättningen
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av MariaDB källa.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av MariaDB-källan.
 
 ### <a name="mariadb-as-source"></a>MariaDB som källa
 
-Om du vill kopiera data från MariaDB, ange typ av datakälla i kopieringsaktiviteten till **MariaDBSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
+Om du vill kopiera data från MariaDB anger du käll typen i kopierings aktiviteten till **MariaDBSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **MariaDBSource** | Ja |
-| query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **MariaDBSource** | Ja |
+| query | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**
 
@@ -180,4 +180,4 @@ Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](cont
 
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Azure Data Factory finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,5 +1,5 @@
 ---
-title: Instruktions guide för Azure SQL Database-instanser (för hands version) | Microsoft Docs
+title: Instruktions guide för Azure SQL Database-instanser (för hands version)
 description: Den här artikeln beskriver hur du skapar och hanterar Azure SQL Database instanser (för hands version).
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 5862a54c92de7395ce42865ae32d453e926048d8
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 461de4da35905ed860fb2ed9d2c655b55b777683
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70294274"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689728"
 ---
 # <a name="azure-sql-database-instance-pools-preview-how-to-guide"></a>Instruktions guide för Azure SQL Database instanser (förhands granskning)
 
@@ -28,7 +28,7 @@ I följande tabell visas tillgängliga åtgärder relaterade till instans-pooler
 
 |Kommando|Azure Portal|PowerShell|
 |:---|:---|:---|
-|Skapa instans-pool|Nej|Ja|
+|Skapa instanspool|Nej|Ja|
 |Uppdatera instans-pool (begränsat antal egenskaper)|Nej |Ja |
 |Kontrol lera användning och egenskaper för entitetsinstansen|Nej|Ja |
 |Ta bort instans-pool|Nej|Ja|
@@ -41,7 +41,7 @@ I följande tabell visas tillgängliga åtgärder relaterade till instans-pooler
 
 Tillgängliga [PowerShell-kommandon](https://docs.microsoft.com/powershell/module/az.sql/)
 
-|Cmdlet: |Beskrivning |
+|Cmdlet |Beskrivning |
 |:---|:---|
 |[New-AzSqlInstancePool](/powershell/module/az.sql/new-azsqlinstancepool/) | Skapar en Azure SQL Database instans-pool. |
 |[Get-AzSqlInstancePool](/powershell/module/az.sql/get-azsqlinstancepool/) | Returnerar information om Azure SQL instance-poolen. |

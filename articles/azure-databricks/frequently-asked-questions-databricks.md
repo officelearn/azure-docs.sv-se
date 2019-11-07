@@ -9,23 +9,23 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: 8707aa55c1126af6a7fb2812d4c7314f031209d0
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 0436a0898f27d3059069ce2df1fdfb143a98f325
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597483"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601808"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Vanliga frågor om Azure Databricks
 
 Den här artikeln innehåller de vanligaste frågorna som du kanske har relaterat till Azure Databricks. Här visas också några vanliga problem som du kan ha när du använder Databricks. Mer information finns i [Vad är Azure Databricks](what-is-azure-databricks.md). 
 
 ## <a name="can-i-use-azure-key-vault-to-store-keyssecrets-to-be-used-in-azure-databricks"></a>Kan jag använda Azure Key Vault för att lagra nycklar/hemligheter som ska användas i Azure Databricks?
-Ja. Du kan använda Azure Key Vault för att lagra nycklar/hemligheter som ska användas med Azure Databricks. Mer information finns i [Azure Key Vault-omfångs omfattningar](https://docs.azuredatabricks.net/user-guide/secrets/secret-scopes.html#akv-ss).
+Ja. Du kan använda Azure Key Vault för att lagra nycklar/hemligheter som ska användas med Azure Databricks. Mer information finns i [Azure Key Vault-omfångs omfattningar](/azure/databricks/security/secrets/secret-scopes).
 
 
 ## <a name="can-i-use-azure-virtual-networks-with-databricks"></a>Kan jag använda virtuella Azure-nätverk med Databricks?
-Ja. Du kan använda ett Azure-Virtual Network (VNET) med Azure Databricks. Mer information finns i [distribuera Azure Databricks i Azure Virtual Network](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html).
+Ja. Du kan använda ett Azure-Virtual Network (VNET) med Azure Databricks. Mer information finns i [distribuera Azure Databricks i Azure Virtual Network](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
 
 ## <a name="how-do-i-access-azure-data-lake-storage-from-a-notebook"></a>Hur gör jag för att åtkomst Azure Data Lake Storage från en bärbar dator? 
 
@@ -34,7 +34,7 @@ Följ de här stegen:
 1. Tilldela de nödvändiga behörigheterna till tjänstens huvud namn i Data Lake Storage.
 1. Om du vill komma åt en fil i Data Lake Storage använder du autentiseringsuppgifterna för tjänstens huvud namn i antecknings boken.
 
-Mer information finns i [använda Azure Data Lake Storage med Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html).
+Mer information finns i [använda Azure Data Lake Storage med Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake.html).
 
 ## <a name="fix-common-problems"></a>Åtgärda vanliga problem
 
@@ -67,7 +67,7 @@ Följande är några lösningar på problemet:
 
 * Det här felet kan också inträffa om ditt e-postdomännamn tilldelas till flera kataloger i Azure AD. Undvik det här problemet genom att skapa en ny användare i katalogen som innehåller prenumerationen med din Databricks-arbetsyta.
 
-    a. I Azure Portal går du till Azure AD. Välj **användare och grupper**  > **Lägg till en användare**.
+    a. I Azure Portal går du till Azure AD. Välj **användare och grupper** > **Lägg till en användare**.
 
     b. Lägg till en användare med ett `@<tenant_name>.onmicrosoft.com` e-postmeddelande i stället för `@<your_domain>` e-post. Du kan hitta det här alternativet i **anpassade domäner**under Azure AD i Azure Portal.
     
@@ -82,7 +82,7 @@ Följande är några lösningar på problemet:
 
 #### <a name="solution"></a>Lösning
 
-Om du inte skapade arbets ytan och du har lagts till som en användare, kontaktar du personen som skapade arbets ytan. Be personen att lägga till dig med hjälp av Azure Databricks administratörs konsolen. Instruktioner finns i [lägga till och hantera användare](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html). Om du har skapat arbets ytan och fortfarande får det här felet kan du prova att välja **initiera arbets yta** igen från Azure Portal.
+Om du inte skapade arbets ytan och du har lagts till som en användare, kontaktar du personen som skapade arbets ytan. Be personen att lägga till dig med hjälp av Azure Databricks administratörs konsolen. Instruktioner finns i [lägga till och hantera användare](/azure/databricks/administration-guide/users-groups/users). Om du har skapat arbets ytan och fortfarande får det här felet kan du prova att välja **initiera arbets yta** igen från Azure Portal.
 
 ### <a name="issue-cloud-provider-launch-failure-while-setting-up-the-cluster-publicipcountlimitreached"></a>Problem: det gick inte att starta Cloud Provider när klustret konfigurerades (PublicIPCountLimitReached)
 

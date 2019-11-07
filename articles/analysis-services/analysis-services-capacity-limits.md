@@ -1,18 +1,18 @@
 ---
 title: Azure Analysis Services resurs-och objekt gränser | Microsoft Docs
-description: Beskriver Azure Analysis Services resurs-och objekt begränsningar.
+description: I den här artikeln beskrivs resurs-och objekt begränsningar för en Azure Analysis Services-server.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9fe43602c66af72357e16822ee9d4b5a741d3f86
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f309c9863eb2f3065251537380a2977839f990d8
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298697"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573198"
 ---
 # <a name="analysis-services-resource-and-object-limits"></a>Analysis Services resurs-och objekt gränser
 

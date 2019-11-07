@@ -1,5 +1,5 @@
 ---
-title: Kopiera data till Sök index med hjälp av Azure Data Factory | Microsoft Docs
+title: Kopiera data till Sök index med hjälp av Azure Data Factory
 description: Lär dig mer om att skicka eller kopiera data till ett Azure Search-index med hjälp av kopierings aktiviteten i en Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 703dcb5fee0c31328eee91c9673e62653d7aa698
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: f4e9e9f66d9bf1fecd4565d5eb469703e7a83d0d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286339"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681187"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Kopiera data till ett Azure Search-index med Azure Data Factory
 

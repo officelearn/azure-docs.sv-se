@@ -1,5 +1,5 @@
 ---
-title: Kopiera data från SAP ECC med Azure Data Factory | Microsoft Docs
+title: Kopiera data från SAP ECC med hjälp av Azure Data Factory
 description: Lär dig hur du kopierar data från SAP ECC till mottagar data lager som stöds med hjälp av en kopierings aktivitet i en Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: c2b9fcc3f75b8f310532978061c887776f007ff0
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 526f85ca4b8854a36232c75a55847a73a8d372cc
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089535"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680299"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Kopiera data från SAP ECC med hjälp av Azure Data Factory
 
@@ -33,7 +33,7 @@ Denna SAP ECC-anslutning stöds för följande aktiviteter:
 - [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
 - [Sökningsaktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från SAP ECC till alla mottagar data lager som stöds. En lista över datalager som stöds som källor och mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från SAP ECC till alla mottagar data lager som stöds. En lista över data lager som stöds som källor eller mottagare av kopierings aktiviteten finns i tabellen med [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
 
 Mer specifikt stöder denna SAP ECC-anslutning:
 
@@ -50,7 +50,7 @@ Mer specifikt stöder denna SAP ECC-anslutning:
 >[!TIP]
 >Om du vill kopiera data från SAP ECC via en SAP-tabell eller-vy använder du [SAP Table](connector-sap-table.md) Connector som är snabbare och mer skalbar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 I allmänhet exponerar SAP ECC entiteter via OData-tjänster via SAP Gateway. Om du vill använda denna SAP ECC-anslutning måste du:
 
@@ -58,7 +58,7 @@ I allmänhet exponerar SAP ECC entiteter via OData-tjänster via SAP Gateway. Om
 
 - **Aktivera och konfigurera SAP OData-tjänsten**. Du kan aktivera OData-tjänsten via TCODE SICF på några sekunder. Du kan också konfigurera vilka objekt som ska visas. Mer information finns i [steg-för-steg-anvisningar](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -68,17 +68,17 @@ I allmänhet exponerar SAP ECC entiteter via OData-tjänster via SAP Gateway. Om
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter som är speciella för SAP ECC-anslutaren.
 
-## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
+## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 
 Följande egenskaper stöds för den länkade SAP ECC-tjänsten:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| `type` | Egenskapen måste anges till `SapEcc`. `type` | Ja |
+| `type` | Egenskapen `type` måste anges till `SapEcc`. | Ja |
 | `url` | URL: en för SAP ECC OData-tjänsten. | Ja |
 | `username` | Det användar namn som används för att ansluta till SAP ECC. | Nej |
 | `password` | Lösen ordet för klartext används för att ansluta till SAP ECC. | Nej |
-| `connectVia` | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om du inte anger någon körnings miljö används standard körningen av Azure integration. | Nej |
+| `connectVia` | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om du inte anger någon körnings miljö används standard körningen av Azure integration. | Nej |
 
 ### <a name="example"></a>Exempel
 
@@ -103,15 +103,15 @@ Följande egenskaper stöds för den länkade SAP ECC-tjänsten:
 }
 ```
 
-## <a name="dataset-properties"></a>Egenskaper för datamängd
+## <a name="dataset-properties"></a>Egenskaper för data mängd
 
 En fullständig lista över de avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i [data uppsättningar](concepts-datasets-linked-services.md). Följande avsnitt innehåller en lista över de egenskaper som stöds av SAP ECC-datauppsättningen.
 
-Om du vill kopiera data från SAP ECC anger `type` du egenskapen för data uppsättningen `SapEccResource`till.
+Om du vill kopiera data från SAP ECC anger du `type`-egenskapen för data uppsättningen till `SapEccResource`.
 
 Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | `path` | Sökväg till SAP ECC OData-entiteten. | Ja |
 
@@ -140,14 +140,14 @@ En fullständig lista över de avsnitt och egenskaper som är tillgängliga för
 
 ### <a name="sap-ecc-as-a-source"></a>SAP ECC som källa
 
-Om du vill kopiera data från SAP ECC ställer `type` du in egenskapen `source` i avsnittet i kopierings aktiviteten `SapEccSource`till.
+Om du vill kopiera data från SAP ECC ställer du in egenskapen `type` i avsnittet `source` i kopierings aktiviteten till `SapEccSource`.
 
-Följande egenskaper stöds i `source` avsnittet kopierings aktivitet:
+Följande egenskaper stöds i avsnittet kopierings aktivitetens `source`:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| `type` | Egenskapen för kopierings `source` aktivitetens avsnitt måste anges till `SapEccSource`. `type` | Ja |
-| `query` | OData-frågealternativen för att filtrera data. Exempel:<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>SAP ECC-anslutaren kopierar data från den kombinerade URL: en:<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>Mer information finns i [OData URL-komponenter](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nej |
+| `type` | Egenskapen `type` för `source` avsnittet kopierings aktivitet måste anges till `SapEccSource`. | Ja |
+| `query` | OData-frågealternativen för att filtrera data. Till exempel:<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>SAP ECC-anslutaren kopierar data från den kombinerade URL: en:<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>Mer information finns i [OData URL-komponenter](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nej |
 
 ### <a name="example"></a>Exempel
 
@@ -185,7 +185,7 @@ Följande egenskaper stöds i `source` avsnittet kopierings aktivitet:
 
 När du kopierar data från SAP ECC används följande mappningar från OData-datatyper för SAP ECC-data för att Azure Data Factory interimistiska data typer. Information om hur kopierings aktiviteten mappar käll schema och data typ till mottagaren finns i schema- [och data typs mappningar](copy-activity-schema-and-type-mapping.md).
 
-| OData-datatyp | Data Factory tillfälliga datatyp |
+| OData-datatyp | Data Factory data typen Interim |
 |:--- |:--- |
 | `Edm.Binary` | `String` |
 | `Edm.Boolean` | `Bool` |

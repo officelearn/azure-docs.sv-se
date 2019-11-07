@@ -1,5 +1,5 @@
 ---
-title: Kontroll av nätverks åtkomst för Azure SQL Database och informations lager | Microsoft Docs
+title: Kontroll av nätverks åtkomst för Azure SQL Database och informations lager
 description: Översikt över nätverks åtkomst kontroller för Azure SQL Database och informations lager för att hantera åtkomst och konfigurera en databas med en eller flera databaser.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: b2c1f01e53cfe41b72e3e079059c66e4e2409012
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: deee668c3597047a5d5f0fd153626916c3fd8517
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703277"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687715"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Kontroll av nätverks åtkomst för Azure SQL Database och informations lager
 
@@ -81,7 +81,7 @@ Observera följande villkor för Azure-nätverk när du utforskar Virtual Networ
 
 **Virtuellt nätverk:** Du kan ha virtuella nätverk kopplade till din Azure-prenumeration 
 
-**Delnät** Ett virtuellt nätverk innehåller **undernät**. Alla virtuella datorer i Azure (VM) som du har tilldelats till undernät. Ett undernät kan innehålla flera virtuella datorer eller andra Compute-noder. Compute-noder utanför det virtuella nätverket kan inte komma åt ditt virtuella nätverk om du inte konfigurerar din säkerhet att tillåta åtkomst.
+**Undernät:** Ett virtuellt nätverk innehåller **undernät**. Alla virtuella datorer i Azure (VM) som du har tilldelats till undernät. Ett undernät kan innehålla flera virtuella datorer eller andra Compute-noder. Compute-noder utanför det virtuella nätverket kan inte komma åt ditt virtuella nätverk om du inte konfigurerar din säkerhet att tillåta åtkomst.
 
 **Virtual Network tjänst slut punkt:** En [Virtual Network tjänst slut punkt] [VM-Virtual-Network-Service-endpoints – Overview-649d] är ett undernät vars egenskaps värden innehåller ett eller flera formella namn för Azure-tjänst typen. I den här artikeln är vi intresserade av typ namnet **Microsoft. SQL**, som refererar till Azure-tjänsten med namnet SQL Database.
 
@@ -107,7 +107,7 @@ Regler för virtuella nätverk är enklare att upprätta och hantera åtkomst fr
 
 - För hjälp med att ansluta till en Azure SQL-databas från öppna käll-eller tredjepartsprogram, se [kod exempel för klient snabb start för att SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 
-- Information om ytterligare portar som du kan behöva öppna finns i **SQL-databasen: Utanför vs inuti @ no__t-0-avsnittet av [portar utöver 1433 för ADO.NET 4,5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
+- Mer information om ytterligare portar som du kan behöva öppna finns i avsnittet **SQL Database: utanför vs i** [portar utöver 1433 för ADO.NET 4,5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 - En översikt över Azure SQL Database-anslutningar finns i [arkitektur för Azure SQL-anslutning](sql-database-connectivity-architecture.md)
 

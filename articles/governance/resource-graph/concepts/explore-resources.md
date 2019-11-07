@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: b92975e3fe73fb1c882bdfc4338fd8e169728e8b
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 58eb5abc9a8857b81ada65c96eb7deaaa5cc5aeb
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387637"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622672"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Utforska dina Azure-resurser med resursgrafer
 
@@ -40,7 +40,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 ```
 
 > [!NOTE]
-> Cmdleten Azure PowerShell `Search-AzGraph` returnerar en **PSCustomObject** som standard. Om du vill att utdata ska se ut på samma sätt som det som returneras av Azure CLI, används `ConvertTo-Json`-cmdleten. Standardvärdet för **djup** är _2_. Om du ställer in det på _100_ ska alla returnerade nivåer konverteras.
+> Cmdleten Azure PowerShell `Search-AzGraph` returnerar en **PSCustomObject** som standard. Om du vill att utdata ska se ut på samma sätt som det som returneras av Azure CLI används `ConvertTo-Json`-cmdleten. Standardvärdet för **djup** är _2_. Om du ställer in det på _100_ ska alla returnerade nivåer konverteras.
 
 JSON-resultatet är strukturerat på samma sätt som i följande exempel:
 
@@ -308,10 +308,10 @@ az graph query -q="Resources | where type =~ 'Microsoft.Network/publicIPAddresse
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$($ips.publicIp -join "','")') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip"
 ```
 
-Information om hur du utför de här stegen i en enskild fråga med operatorn `join` finns i [listan över virtuella datorer med deras nätverks gränssnitt och offentliga IP-](../samples/advanced.md#join-vmpip) exempel.
+Information om hur du utför dessa steg i en enda fråga med `join`-operatören finns i [lista över virtuella datorer med deras nätverks gränssnitt och offentliga IP-](../samples/advanced.md#join-vmpip) exempel.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [frågespråket](query-language.md)
-- Se språket som används i [Start frågor](../samples/starter.md)
-- Se avancerade användnings områden i [avancerade frågor](../samples/advanced.md)
+- Läs mer om [frågespråket](query-language.md).
+- Se språket som används i [Start frågor](../samples/starter.md).
+- Se avancerade användnings områden i [avancerade frågor](../samples/advanced.md).

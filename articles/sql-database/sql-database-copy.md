@@ -1,5 +1,5 @@
 ---
-title: Kopiera en Azure SQL-databas | Microsoft Docs
+title: Kopiera en Azure SQL-databas
 description: Skapa en transaktions konsekvent kopia av en befintlig Azure SQL-databas på antingen samma server eller en annan server.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 09/04/2019
-ms.openlocfilehash: de56e66046bb61ac31c1842ae6ce7a9c6720760d
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d49896d8088ae1352cb2785d061cde6c8647cb89
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934207"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690801"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Kopiera en transaktions konsekvent kopia av en Azure SQL-databas
 
@@ -72,8 +72,8 @@ Om du vill skapa en databas kopia måste du ha följande roller
 - SQL Server deltagar roll eller
 - Anpassad roll för käll-och mål databaserna med följande behörighet:
 
-   Microsoft.Sql/servers/databases/read   
-   Microsoft.Sql/servers/databases/write   
+   Microsoft. SQL/Servers/databaser/läsa   
+   Microsoft. SQL/Servers/databaser/skriva   
 
 Om du vill avbryta en databas kopia måste du ha följande roller
 
@@ -81,21 +81,21 @@ Om du vill avbryta en databas kopia måste du ha följande roller
 - SQL Server deltagar roll eller
 - Anpassad roll för käll-och mål databaserna med följande behörighet:
 
-   Microsoft.Sql/servers/databases/read   
-   Microsoft.Sql/servers/databases/write   
+   Microsoft. SQL/Servers/databaser/läsa   
+   Microsoft. SQL/Servers/databaser/skriva   
    
 Om du vill hantera databas kopiering med Azure Portal måste du också ha följande behörigheter:
 
-&nbsp;&nbsp; Microsoft.Resources/Subscriptions&nbsp; /resurser/Read   
-&nbsp;&nbsp; Microsoft.Resources/Subscriptions/&nbsp; Resources/Write   
-&nbsp;&nbsp; Microsoft.Resources&nbsp; /Deployments/Read   
-&nbsp;&nbsp; Microsoft.Resources&nbsp; /Deployments/Write   
-&nbsp;&nbsp; Microsoft.Resources/Deployments&nbsp; /operationstatuses/Read    
+&nbsp; &nbsp; &nbsp; Microsoft. Resources/Subscriptions/Resources/Read   
+&nbsp; &nbsp; &nbsp; Microsoft. Resources/Subscriptions/Resources/Write   
+&nbsp; &nbsp; &nbsp; Microsoft. Resources/Deployments/Read   
+&nbsp; &nbsp; &nbsp; Microsoft. Resources/Deployments/Write   
+&nbsp; &nbsp; &nbsp; Microsoft. Resources/Deployments/operationstatuses/Read    
 
 Om du vill se åtgärder under distributioner i resurs gruppen på portalen, så behöver du flera olika resurs leverantörer, inklusive SQL-åtgärder, du behöver dessa ytterligare RBAC-roller: 
 
-&nbsp;&nbsp; Microsoft.Resources/Subscriptions/ResourceGroups/Deployments&nbsp; /Operations/Read   
-&nbsp;&nbsp; Microsoft.Resources/Subscriptions/ResourceGroups/distributioner&nbsp; /operationstatuses/Read
+&nbsp; &nbsp; &nbsp; Microsoft. Resources/Subscriptions/ResourceGroups/distributions/Operations/Read   
+&nbsp; &nbsp; &nbsp; Microsoft. Resources/Subscriptions/ResourceGroups/distributions/operationstatuses/Read
 
 
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 0262be687b74ec1b97cb508f6da1b95cd5d7a533
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 639a3f89e470a832279add8d2ed7cf49441611f4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596919"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571787"
 ---
 # <a name="azure-security-center-for-iot-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Security Center för IoT  
 
@@ -66,11 +66,11 @@ Azure Security Center för IoT-agenten ger hot täckning på enhets nivå för e
 
 ## <a name="where-can-i-get-the-azure-security-center-for-iot-security-agent"></a>Var kan jag hämta Azure Security Center för IoT Security Agent?
 
-Azure Security Center för IoT Security Agent är öppen källkod och tillgänglig på GitHub i 32-bitars och 64-bitars Windows-och Linux- https://github.com/Azure/Azure-Security-IoT versioner:.
+Azure Security Center för IoT Security Agent är öppen källkod och tillgänglig på GitHub i 32-bitars och 64-bitars Windows-och Linux-versioner: https://github.com/Azure/Azure-Security-IoT.
 
 ## <a name="where-does-the-azure-security-center-for-iot-agent-get-installed"></a>Var installeras Azure Security Center för IoT-agenten? 
 
-Detaljerad information om installation och agent distribution finns i GitHub: https://github.com/Azure/Azure-Security-IoT.
+Detaljerad information om installation och agent distribution finns i GitHub: https://github.com/Azure/Azure-IoT-Security.
 
 ## <a name="what-are-the-dependencies-and-prerequisites-of-the-agent"></a>Vilka är beroendena och kraven för agenten?
 
@@ -147,5 +147,5 @@ Mer information om hur du kommer igång med Azure Security Center för IoT finns
 - Läs [översikten över](overview.md) Azure Security Center för IoT
 - Verifiera [tjänst kraven](service-prerequisites.md)
 - Lär dig mer om hur du [kommer igång](getting-started.md)
-- Förstå [Azure Security Center för IoT](concept-security-alerts.md) -säkerhetsaviseringar
+- Förstå [Azure Security Center för IoT-säkerhetsaviseringar](concept-security-alerts.md)
 

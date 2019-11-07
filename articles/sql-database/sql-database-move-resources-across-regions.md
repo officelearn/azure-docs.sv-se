@@ -1,5 +1,5 @@
 ---
-title: Så här flyttar du Azure SQL Database resurser till en annan region | Microsoft Docs
+title: Flytta Azure SQL Database resurser till en annan region
 description: Lär dig hur du flyttar Azure SQL Database, Azure SQL elastisk pool eller Azure SQL-hanterad instans till en annan region.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 2158d4120445de4c62461fb89555a1b73bc1e2b4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9e7cd6cb338de1d029d38ef08693a7b52f7cf15c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567156"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687777"
 ---
 # <a name="how-to-move-azure-sql-resources-to-another-region"></a>Flytta Azure SQL-resurser till en annan region
 
@@ -67,19 +67,19 @@ Den här artikeln innehåller ett allmänt arbets flöde för att flytta resurse
  
 ### <a name="monitor-the-preparation-process"></a>Övervaka förberedelse processen
 
-Du kan regelbundet anropa [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) för att övervaka replikeringen av dina databaser från källan till målet. Objektet utdata i `Get-AzSqlDatabaseFailoverGroup` innehåller en egenskap för **ReplicationState**: 
-   - **ReplicationState = 2** (CATCH_UP) anger att databasen är synkroniserad och kan växlas på ett säkert sätt. 
-   - **ReplicationState = 0** (SEEDing) visar att databasen inte har dirigerats än och att ett försök att redundansväxla Miss lyckas. 
+Du kan regelbundet anropa [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) för att övervaka replikeringen av dina databaser från källan till målet. Utmatnings objekt för `Get-AzSqlDatabaseFailoverGroup` innehåller en egenskap för **ReplicationState**: 
+   - **ReplicationState = 2** (CATCH_UP) anger att databasen är synkroniserad och kan växlas över på ett säkert sätt. 
+   - **ReplicationState = 0** (seeding) visar att databasen inte har dirigerats än och att ett försök att redundansväxla Miss lyckas. 
 
 ### <a name="test-synchronization"></a>Testa synkronisering
 
-När **ReplicationState** är `2`det ansluter du till varje databas eller en delmängd av databaser med hjälp `<fog-name>.secondary.database.windows.net` av den sekundära slut punkten och utför en fråga mot databaserna för att säkerställa anslutning, lämplig säkerhets konfiguration och data replikering. 
+När **ReplicationState** är `2`ansluter du till varje databas eller en delmängd av databaser med hjälp av den sekundära slut punkten `<fog-name>.secondary.database.windows.net` och utför en fråga mot databaserna för att säkerställa anslutning, lämplig säkerhets konfiguration och datareplikering. 
 
 ### <a name="initiate-the-move"></a>Påbörja flytten
 
-1. Anslut till mål servern med hjälp av den sekundära `<fog-name>.secondary.database.windows.net`slut punkten.
+1. Anslut till mål servern med hjälp av den sekundära slut punkten `<fog-name>.secondary.database.windows.net`.
 1. Använd [switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup) för att växla den sekundära hanterade instansen som primär med fullständig synkronisering. Den här åtgärden kommer att lyckas eller återställas. 
-1. Kontrol lera att kommandot har slutförts genom att `nslook up <fog-name>.secondary.database.windows.net` använda för att kontrol lera att DNS CNAME-posten pekar på mål regionens IP-adress. Om switch-kommandot Miss lyckas kommer CNAME inte att uppdateras. 
+1. Kontrol lera att kommandot har slutförts genom att använda `nslook up <fog-name>.secondary.database.windows.net` för att kontrol lera att DNS CNAME-posten pekar på mål regionens IP-adress. Om switch-kommandot Miss lyckas kommer CNAME inte att uppdateras. 
 
 ### <a name="remove-the-source-databases"></a>Ta bort käll databaserna
 
@@ -119,19 +119,19 @@ När flyttningen är klar tar du bort resurserna i käll regionen för att undvi
 
 ### <a name="monitor-the-preparation-process"></a>Övervaka förberedelse processen
 
-Du kan regelbundet anropa [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) för att övervaka replikeringen av dina databaser från källan till målet. Objektet utdata i `Get-AzSqlDatabaseFailoverGroup` innehåller en egenskap för **ReplicationState**: 
-   - **ReplicationState = 2** (CATCH_UP) anger att databasen är synkroniserad och kan växlas på ett säkert sätt. 
-   - **ReplicationState = 0** (SEEDing) visar att databasen inte har dirigerats än och att ett försök att redundansväxla Miss lyckas. 
+Du kan regelbundet anropa [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) för att övervaka replikeringen av dina databaser från källan till målet. Utmatnings objekt för `Get-AzSqlDatabaseFailoverGroup` innehåller en egenskap för **ReplicationState**: 
+   - **ReplicationState = 2** (CATCH_UP) anger att databasen är synkroniserad och kan växlas över på ett säkert sätt. 
+   - **ReplicationState = 0** (seeding) visar att databasen inte har dirigerats än och att ett försök att redundansväxla Miss lyckas. 
 
 ### <a name="test-synchronization"></a>Testa synkronisering
  
-När **ReplicationState** är `2`det ansluter du till varje databas eller en delmängd av databaser med hjälp `<fog-name>.secondary.database.windows.net` av den sekundära slut punkten och utför en fråga mot databaserna för att säkerställa anslutning, lämplig säkerhets konfiguration och data replikering. 
+När **ReplicationState** är `2`ansluter du till varje databas eller en delmängd av databaser med hjälp av den sekundära slut punkten `<fog-name>.secondary.database.windows.net` och utför en fråga mot databaserna för att säkerställa anslutning, lämplig säkerhets konfiguration och datareplikering. 
 
 ### <a name="initiate-the-move"></a>Påbörja flytten
  
-1. Anslut till mål servern med hjälp av den sekundära `<fog-name>.secondary.database.windows.net`slut punkten.
+1. Anslut till mål servern med hjälp av den sekundära slut punkten `<fog-name>.secondary.database.windows.net`.
 1. Använd [switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup) för att växla den sekundära hanterade instansen som primär med fullständig synkronisering. Den här åtgärden kommer att lyckas eller återställas. 
-1. Kontrol lera att kommandot har slutförts genom att `nslook up <fog-name>.secondary.database.windows.net` använda för att kontrol lera att DNS CNAME-posten pekar på mål regionens IP-adress. Om switch-kommandot Miss lyckas kommer CNAME inte att uppdateras. 
+1. Kontrol lera att kommandot har slutförts genom att använda `nslook up <fog-name>.secondary.database.windows.net` för att kontrol lera att DNS CNAME-posten pekar på mål regionens IP-adress. Om switch-kommandot Miss lyckas kommer CNAME inte att uppdateras. 
 
 ### <a name="remove-the-source-elastic-pools"></a>Ta bort de elastiska källorna
  
@@ -166,19 +166,19 @@ Skapa en redundans grupp mellan varje käll instans och motsvarande mål instans
  
 ### <a name="monitor-the-preparation-process"></a>Övervaka förberedelse processen
 
-Du kan regelbundet anropa [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup?view=azps-2.3.2) för att övervaka replikeringen av dina databaser från källan till målet. Objektet utdata i `Get-AzSqlDatabaseFailoverGroup` innehåller en egenskap för **ReplicationState**: 
-   - **ReplicationState = 2** (CATCH_UP) anger att databasen är synkroniserad och kan växlas på ett säkert sätt. 
-   - **ReplicationState = 0** (SEEDing) visar att databasen inte har dirigerats än och att ett försök att redundansväxla Miss lyckas. 
+Du kan regelbundet anropa [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup?view=azps-2.3.2) för att övervaka replikeringen av dina databaser från källan till målet. Utmatnings objekt för `Get-AzSqlDatabaseFailoverGroup` innehåller en egenskap för **ReplicationState**: 
+   - **ReplicationState = 2** (CATCH_UP) anger att databasen är synkroniserad och kan växlas över på ett säkert sätt. 
+   - **ReplicationState = 0** (seeding) visar att databasen inte har dirigerats än och att ett försök att redundansväxla Miss lyckas. 
 
 ### <a name="test-synchronization"></a>Testa synkronisering
 
-När **ReplicationState** är `2`det ansluter du till varje databas eller en delmängd av databaser med hjälp `<fog-name>.secondary.database.windows.net` av den sekundära slut punkten och utför en fråga mot databaserna för att säkerställa anslutning, lämplig säkerhets konfiguration och data replikering. 
+När **ReplicationState** är `2`ansluter du till varje databas eller en delmängd av databaser med hjälp av den sekundära slut punkten `<fog-name>.secondary.database.windows.net` och utför en fråga mot databaserna för att säkerställa anslutning, lämplig säkerhets konfiguration och datareplikering. 
 
 ### <a name="initiate-the-move"></a>Påbörja flytten 
 
-1. Anslut till mål servern med hjälp av den sekundära `<fog-name>.secondary.database.windows.net`slut punkten.
+1. Anslut till mål servern med hjälp av den sekundära slut punkten `<fog-name>.secondary.database.windows.net`.
 1. Använd [switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup?view=azps-2.3.2) för att växla den sekundära hanterade instansen som primär med fullständig synkronisering. Den här åtgärden kommer att lyckas eller återställas. 
-1. Kontrol lera att kommandot har slutförts genom att `nslook up <fog-name>.secondary.database.windows.net` använda för att kontrol lera att DNS CNAME-posten pekar på mål regionens IP-adress. Om switch-kommandot Miss lyckas kommer CNAME inte att uppdateras. 
+1. Kontrol lera att kommandot har slutförts genom att använda `nslook up <fog-name>.secondary.database.windows.net` för att kontrol lera att DNS CNAME-posten pekar på mål regionens IP-adress. Om switch-kommandot Miss lyckas kommer CNAME inte att uppdateras. 
 
 ### <a name="remove-the-source-managed-instances"></a>Ta bort de hanterade käll instanserna
 När flyttningen är klar tar du bort resurserna i käll regionen för att undvika onödiga kostnader. 

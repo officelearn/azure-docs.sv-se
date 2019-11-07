@@ -1,19 +1,19 @@
 ---
-title: Konfigurera katastrof återställning av virtuella VMware-datorer eller fysiska servrar till en sekundär plats med Azure Site Recovery | Microsoft Docs
+title: Haveri beredskap för virtuella VMware-datorer/fysiska servrar till en sekundär plats med Azure Site Recovery
 description: Lär dig hur du konfigurerar haveri beredskap för virtuella VMware-datorer eller fysiska Windows-och Linux-servrar till en sekundär plats med Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 11/05/2019
 ms.author: raynew
-ms.openlocfilehash: a87abfdd70db07e4310dc6a39a280e12f664d03b
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 71d230c9fea25edfbf0ca4ea40f15b69779ad060
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972098"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620520"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Konfigurera haveri beredskap för lokala virtuella VMware-datorer eller fysiska servrar till en sekundär plats
 
@@ -29,8 +29,8 @@ Azure Site Recovery scenariot för replikering mellan lokala VMware-eller fysisk
 
 Under 2018 och 2019 publiceras två uppdateringar: 
 
--   Uppdatering 7: Åtgärdar nätverks konfiguration och kompatibilitetsproblem och ger stöd för TLS 1,2.
--   Uppdatering 8: Lägger till stöd för Linux-operativsystem RHEL/CentOS 7.3/7.4/7.5 och för SUSE 12
+-   Uppdatering 7: åtgärdar problem med nätverks konfiguration och efterlevnad och ger stöd för TLS 1,2.
+-   Uppdatering 8: lägger till stöd för Linux-operativsystem RHEL/CentOS 7.3/7.4/7.5 och för SUSE 12
 
 Efter uppdatering 8 kommer inga ytterligare uppdateringar att släppas. Det finns ett begränsat stöd för snabb korrigeringar för de operativ system som har lagts till i uppdatering 8 och fel korrigeringar baserade på bästa möjliga ansträngning.
 
@@ -41,7 +41,7 @@ Alternativt rekommenderar vi att du konfigurerar haveri beredskap för lokala vi
 
 1.  Granska snabb jämförelsen nedan. Innan du kan replikera lokala datorer måste du kontrol lera att de uppfyller [kraven](./vmware-physical-azure-support-matrix.md#replicated-machines) för replikering till Azure. Om du replikerar virtuella VMware-datorer, rekommenderar vi att du går igenom [rikt linjerna för kapacitets planering](./site-recovery-plan-capacity-vmware.md)och kör [distributions planerings verktyget](./site-recovery-deployment-planner.md) till identitets kapacitets krav och kontrollerar efterlevnad.
 2.  När du har kört distributions planeraren kan du konfigurera replikering: o för virtuella VMware-datorer, följa de här självstudierna för att [förbereda Azure](./tutorial-prepare-azure.md), [förbereda din lokala VMware-miljö](./vmware-azure-tutorial-prepare-on-premises.md)och [Konfigurera haveri beredskap](./vmware-azure-tutorial-prepare-on-premises.md).
-o för fysiska datorer följer du den [](./physical-azure-disaster-recovery.md)här självstudien.
+o för fysiska datorer följer du den här [självstudien](./physical-azure-disaster-recovery.md).
 3.  När datorerna har repliker ATS till Azure kan du köra en [haveri beredskap](./site-recovery-test-failover-to-azure.md) för att kontrol lera att allt fungerar som förväntat.
 
 ### <a name="quick-comparison"></a>Snabb jämförelse
@@ -50,18 +50,18 @@ o för fysiska datorer följer du den [](./physical-azure-disaster-recovery.md)h
 --|--|--
 **Nödvändiga komponenter** |Mobilitets tjänsten på replikerade datorer. Lokal konfigurations Server, processerver, huvud mål server. Tillfällig processerver i Azure för återställning efter fel.|Mobilitets tjänst, Processerver, konfigurations Server och huvud mål
 **Konfiguration och dirigering** |Recovery Services valv i Azure Portal | Använda vContinuum 
-**Replikeras** |Disk (Windows och Linux) |Volym – Windows<br> Disk-Linux
+**Replikeras** |Disk (Windows och Linux) |Volym – Windows<br> Disk – Linux
 **Delat disk kluster** |Stöds inte|Stöds
-**Data omsättnings gränser (genomsnitt)** |10 MB/s data per disk<br> 25MB/s-data per virtuell dator<br> [Läs mer](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | > 10 MB/s data per disk  <br> > 25 MB/s data per VM
+**Data omsättnings gränser (genomsnitt)** |10 MB/s data per disk<br> 25MB/s-data per virtuell dator<br> [Läs mer](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | > 10 MB/s data per disk  <br> > 25 MB/s-data per virtuell dator
 **Övervakning** |Från Azure Portal|Från CX (konfigurations Server)
 **Support mat ris** | [Klicka här om du vill ha mer information](./vmware-physical-azure-support-matrix.md)|[Ladda ned ASR Scout-kompatibel matris](https://aka.ms/asr-scout-cm)
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 För att slutföra den här självstudien behöver du:
 
 - [Granska](vmware-physical-secondary-support-matrix.md) support kraven för alla komponenter.
-- Se till att de datorer som du vill replikera följer den replikerade [datorns support](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
+- Se till att de datorer som du vill replikera följer den [replikerade datorns support](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 
 
 ## <a name="download-and-install-component-updates"></a>Hämta och installera komponent uppdateringar
@@ -81,51 +81,51 @@ Installera uppdateringarna på följande sätt:
 >Alla Scout-komponenters fil uppdaterings version får inte vara samma i Update. zip-filen. Den äldre versionen indikerar att det inte finns någon ändring i komponenten sedan tidigare uppdatering av den här uppdateringen.
 
 Hämta [Update](https://aka.ms/asr-scout-update7) . zip-filen och konfigurationsfiler för [MySQL och php-uppgraderingen](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade) . Filen Update. zip innehåller alla de grundläggande binärfilerna och de ackumulerade uppgraderings binärfilerna för följande komponenter: 
-- InMage_ScoutCloud_RX_8.0.1.0_RHEL6-64_GA_02Mar2015.tar.gz
-- RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz
-- InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe
-- InMage_CX_TP_8.0.1.0_Windows_GA_26Feb2015_release.exe
-- CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe
-- InMage_PI_8.0.1.0_Windows_GA_26Feb2015_release.exe
-- InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe
-- InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe
-- InMage_UA_8.0.7.0_OL5-32_GA_03Dec2018_release.tar.gz
-- InMage_UA_8.0.7.0_OL5-64_GA_03Dec2018_release.tar.gz
-- InMage_UA_8.0.7.0_OL6-32_GA_03Dec2018_release.tar.gz
-- InMage_UA_8.0.7.0_OL6-64_GA_03Dec2018_release.tar.gz
-- InMage_UA_8.0.7.0_RHEL5-32_GA_03Dec2018_release.tar.gz
-- InMage_UA_8.0.7.0_RHEL5-64_GA_03Dec2018_release.tar.gz
-- InMage_UA_8.0.7.0_RHEL6-32_GA_03Dec2018_release.tar.gz
-- InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz
-- InMage_UA_8.0.7.0_RHEL7-64_GA_03Dec2018_release.tar.gz
-- InMage_UA_8.0.7.0_SLES10-32_GA_03Dec2018_release.tar.gz
-- InMage_UA_8.0.7.0_SLES10-64_GA_03Dec2018_release.tar.gz
-- InMage_UA_8.0.7.0_SLES10-SP1-32_GA_03Dec2018_release.tar.gz
-- InMage_UA_8.0.7.0_SLES10-SP1-64_GA_03Dec2018_release.tar.gz
-- InMage_UA_8.0.7.0_SLES10-SP2-32_GA_03Dec2018_release.tar.gz
-- InMage_UA_8.0.7.0_SLES10-SP2-64_GA_03Dec2018_release.tar.gz
-- InMage_UA_8.0.7.0_SLES10-SP3-32_GA_03Dec2018_release.tar.gz
-- InMage_UA_8.0.7.0_SLES10-SP3-64_GA_03Dec2018_release.tar.gz
-- InMage_UA_8.0.7.0_SLES10-SP4-32_GA_03Dec2018_release.tar.gz
-- InMage_UA_8.0.7.0_SLES10-SP4-64_GA_03Dec2018_release.tar.gz
-- InMage_UA_8.0.7.0_SLES11-32_GA_03Dec2018_release.tar.gz
-- InMage_UA_8.0.7.0_SLES11-64_GA_04Dec2018_release.tar.gz
-- InMage_UA_8.0.7.0_SLES11-SP1-32_GA_03Dec2018_release.tar.gz
-- InMage_UA_8.0.7.0_SLES11-SP1-64_GA_04Dec2018_release.tar.gz
-- InMage_UA_8.0.7.0_SLES11-SP2-32_GA_03Dec2018_release.tar.gz
-- InMage_UA_8.0.7.0_SLES11-SP2-64_GA_03Dec2018_release.tar.gz
-- InMage_UA_8.0.7.0_SLES11-SP3-32_GA_03Dec2018_release.tar.gz
-- InMage_UA_8.0.7.0_SLES11-SP3-64_GA_03Dec2018_release.tar.gz
-- InMage_UA_8.0.7.0_SLES11-SP4-64_GA_03Dec2018_release.tar.gz
+- InMage_ScoutCloud_RX_ 8.0.1.0 _RHEL6-64_GA_02Mar2015. tar. gz
+- RX_ 8.0.7.0 _GA_Update_7_2965621_28Dec18. tar. gz
+- InMage_CX_ 8.0.1.0 _Windows_GA_26Feb2015_release. exe
+- InMage_CX_TP_ 8.0.1.0 _Windows_GA_26Feb2015_release. exe
+- CX_Windows_ 8.0.7.0 _GA_Update_7_2965621_28Dec18. exe
+- InMage_PI_ 8.0.1.0 _Windows_GA_26Feb2015_release. exe
+- InMage_Scout_vContinuum_MT_ 8.0.7.0 _Windows_GA_27Dec2018_release. exe
+- InMage_UA_ 8.0.7.0 _Windows_GA_27Dec2018_release. exe
+- InMage_UA_ 8.0.7.0 _OL5-32_GA_03Dec2018_release. tar. gz
+- InMage_UA_ 8.0.7.0 _OL5-64_GA_03Dec2018_release. tar. gz
+- InMage_UA_ 8.0.7.0 _OL6-32_GA_03Dec2018_release. tar. gz
+- InMage_UA_ 8.0.7.0 _OL6-64_GA_03Dec2018_release. tar. gz
+- InMage_UA_ 8.0.7.0 _RHEL5-32_GA_03Dec2018_release. tar. gz
+- InMage_UA_ 8.0.7.0 _RHEL5-64_GA_03Dec2018_release. tar. gz
+- InMage_UA_ 8.0.7.0 _RHEL6-32_GA_03Dec2018_release. tar. gz
+- InMage_UA_ 8.0.7.0 _RHEL6-64_GA_03Dec2018_release. tar. gz
+- InMage_UA_ 8.0.7.0 _RHEL7-64_GA_03Dec2018_release. tar. gz
+- InMage_UA_ 8.0.7.0 _SLES10-32_GA_03Dec2018_release. tar. gz
+- InMage_UA_ 8.0.7.0 _SLES10-64_GA_03Dec2018_release. tar. gz
+- InMage_UA_ 8.0.7.0 _SLES10-SP1-32_GA_03Dec2018_release. tar. gz
+- InMage_UA_ 8.0.7.0 _SLES10-SP1-64_GA_03Dec2018_release. tar. gz
+- InMage_UA_ 8.0.7.0 _SLES10-SP2-32_GA_03Dec2018_release. tar. gz
+- InMage_UA_ 8.0.7.0 _SLES10-SP2-64_GA_03Dec2018_release. tar. gz
+- InMage_UA_ 8.0.7.0 _SLES10-SP3-32_GA_03Dec2018_release. tar. gz
+- InMage_UA_ 8.0.7.0 _SLES10-SP3-64_GA_03Dec2018_release. tar. gz
+- InMage_UA_ 8.0.7.0 _SLES10-SP4-32_GA_03Dec2018_release. tar. gz
+- InMage_UA_ 8.0.7.0 _SLES10-SP4-64_GA_03Dec2018_release. tar. gz
+- InMage_UA_ 8.0.7.0 _SLES11-32_GA_03Dec2018_release. tar. gz
+- InMage_UA_ 8.0.7.0 _SLES11-64_GA_04Dec2018_release. tar. gz
+- InMage_UA_ 8.0.7.0 _SLES11-SP1-32_GA_03Dec2018_release. tar. gz
+- InMage_UA_ 8.0.7.0 _SLES11-SP1-64_GA_04Dec2018_release. tar. gz
+- InMage_UA_ 8.0.7.0 _SLES11-SP2-32_GA_03Dec2018_release. tar. gz
+- InMage_UA_ 8.0.7.0 _SLES11-SP2-64_GA_03Dec2018_release. tar. gz
+- InMage_UA_ 8.0.7.0 _SLES11-SP3-32_GA_03Dec2018_release. tar. gz
+- InMage_UA_ 8.0.7.0 _SLES11-SP3-64_GA_03Dec2018_release. tar. gz
+- InMage_UA_ 8.0.7.0 _SLES11-SP4-64_GA_03Dec2018_release. tar. gz
   1. Extrahera zip-filerna.
-  2. **RX-Server**: Kopiera **rx_ 8.0.7.0 _ga_update_7_2965621_28dec18. tar. gz** till RX-servern och extrahera den. Kör **/install**i den extraherade mappen.
-  3. **Konfigurations Server och processerver**: Kopiera **cx_windows_ 8.0.7.0 _ga_update_7_2965621_28dec18. exe** till konfigurations servern och processervern. Dubbelklicka för att köra den.<br>
-  4. **Windows huvud mål server**: Om du vill uppdatera Unified agent kopierar du **inmage_ua_ 8.0.7.0 _windows_ga_27dec2018_release. exe** till-servern. Dubbelklicka på den för att köra den. Samma fil kan också användas för en ny installation. Samma enhetliga agent uppdatering gäller även för käll servern.
+  2. **RX-Server**: kopiera **rx_ 8.0.7.0 _ga_update_7_2965621_28dec18. tar. gz** till RX-servern och extrahera den. Kör **/install**i den extraherade mappen.
+  3. **Konfigurations Server och processerver**: kopiera **cx_windows_ 8.0.7.0 _ga_update_7_2965621_28dec18. exe** till konfigurations servern och processervern. Dubbelklicka för att köra den.<br>
+  4. **Windows huvud mål server**: om du vill uppdatera Unified agent kopierar du **inmage_ua_ 8.0.7.0 _windows_ga_27dec2018_release. exe** till servern. Dubbelklicka på den för att köra den. Samma fil kan också användas för en ny installation. Samma enhetliga agent uppdatering gäller även för käll servern.
   Uppdateringen behöver inte tillämpas på huvud målet för beredd med **inmage_scout_vcontinuum_mt_ 8.0.7.0 _windows_ga_27dec2018_release. exe** eftersom det här är ett nytt ga-installationsprogram med alla de senaste ändringarna.
-  5. **vContinuum-Server**:  Kopiera **inmage_scout_vcontinuum_mt_ 8.0.7.0 _windows_ga_27dec2018_release. exe** till servern.  Kontrol lera att du har stängt guiden vContinuum. Dubbelklicka på filen för att köra den.
-  6. **Linux-huvud mål server**: Om du vill uppdatera Unified agent kopierar du **inmage_ua_ 8.0.7.0 _rhel6-64_ga_03dec2018_release. tar. gz** till Linux-huvud mål servern och extraherar den. Kör **/install**i den extraherade mappen.
-  7. **Windows-käll Server**: Om du vill uppdatera Unified agent kopierar du **inmage_ua_ 8.0.7.0 _windows_ga_27dec2018_release. exe** till käll servern. Dubbelklicka på filen för att köra den. 
-  8. **Linux-käll Server**: Om du vill uppdatera Unified agent kopierar du motsvarande version av den enhetliga agent filen till Linux-servern och extraherar den. Kör **/install**i den extraherade mappen.  Exempel: För RHEL 6,7 64-bitars server kopierar du **inmage_ua_ 8.0.7.0 _rhel6-64_ga_03dec2018_release. tar. gz** till servern och extraherar den. Kör **/install**i den extraherade mappen.
+  5. **vContinuum-Server**: kopiera **inmage_scout_vcontinuum_mt_ 8.0.7.0 _windows_ga_27dec2018_release. exe** till servern.  Kontrol lera att du har stängt guiden vContinuum. Dubbelklicka på filen för att köra den.
+  6. **Linux-huvud mål server**: om du vill uppdatera Unified agent kopierar du **inmage_ua_ 8.0.7.0 _rhel6-64_ga_03dec2018_release. tar. gz** till Linux-huvud mål servern och extraherar den. Kör **/install**i den extraherade mappen.
+  7. **Windows-käll Server**: om du vill uppdatera Unified agent kopierar du **inmage_ua_ 8.0.7.0 _windows_ga_27dec2018_release. exe** till käll servern. Dubbelklicka på filen för att köra den. 
+  8. **Linux-käll Server**: om du vill uppdatera Unified agent kopierar du motsvarande version av Unified agent-filen till Linux-servern och extraherar den. Kör **/install**i den extraherade mappen.  Exempel: för RHEL 6,7 64-bitars server kopierar du **inmage_ua_ 8.0.7.0 _rhel6-64_ga_03dec2018_release. tar. gz** till servern och extraherar den. Kör **/install**i den extraherade mappen.
   9. När du har uppgraderat konfigurations servern, processervern och RX-servern med ovanstående installations program måste PHP-och MySQL-biblioteken uppgraderas manuellt med de steg som beskrivs i avsnitt 7,4 i [snabb installations guiden](https://aka.ms/asr-scout-quick-install-guide).
 
 ## <a name="enable-replication"></a>Aktivera replikering
@@ -143,7 +143,7 @@ Hämta [Update](https://aka.ms/asr-scout-update7) . zip-filen och konfigurations
 ## <a name="updates"></a>Uppdateringar
 
 ### <a name="site-recovery-scout-801-update-7"></a>Site Recovery Scout 8.0.1 Update 7 
-Uppdaterad: 31 december 2018 Hämta [Scout Update 7](https://aka.ms/asr-scout-update7).
+Uppdaterad: 31 december 2018 Hämta [Scout uppdatering 7](https://aka.ms/asr-scout-update7).
 Scout Update 7 är ett fullständigt installations program som kan användas för en ny installation samt för att uppgradera befintliga agenter/MT som finns på tidigare uppdateringar (från uppdatering 1 till uppdatering 6). Den innehåller alla korrigeringar från uppdatering 1 för uppdatering 6 plus de nya korrigeringarna och förbättringarna som beskrivs nedan.
  
 #### <a name="new-features"></a>Nya funktioner
@@ -151,10 +151,10 @@ Scout Update 7 är ett fullständigt installations program som kan användas fö
 * Stöd för TLS v 1.2
 
 #### <a name="bug-and-security-fixes"></a>Fel-och säkerhets korrigeringar
-* Fastsatt Windows-kluster/fristående datorer har felaktig IP-konfiguration vid återställning/DR-Test.
-* Fastsatt Ibland går det inte att lägga till disk åtgärder för V2V-kluster.
+* Fast: Windows-kluster/fristående datorer har felaktig IP-konfiguration vid återställning/DR-Test.
+* Åtgärdat: det går inte att lägga till disk åtgärd för V2V-kluster.
 * Åtgärdat: vContinuum-guiden har fastnat under återställnings fasen om huvud målet är Windows Server 2016
-* Fastsatt Säkerhets problem i MySQL begränsas genom uppgradering av MySQL till version 5.7.23
+* Åtgärdat: säkerhets problem i MySQL begränsas genom uppgradering av MySQL till version 5.7.23
 
 #### <a name="manual-upgrade-for-php-and-mysql-on-csps-and-rx"></a>Manuell uppgradering för PHP och MySQL på CS, PS och RX
 PHP skript plattform bör uppgraderas till version 7.2.10 på konfigurations servern, processervern och RX-servern.
@@ -162,7 +162,7 @@ Databas hanterings systemet MySQL bör uppgraderas till version 5.7.23 på konfi
 Följ de manuella stegen i [snabb installations guiden](https://aka.ms/asr-scout-quick-install-guide) för att uppgradera php-och MySQL-versioner.
 
 ### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 Update 6 
-Uppdaterad: 12 oktober 2017
+Uppdaterat: 12 oktober 2017
 
 Hämta [Scout uppdatering 6](https://aka.ms/asr-scout-update6).
 
@@ -183,23 +183,23 @@ Installera uppdateringarna på följande sätt:
 >Alla Scout-komponenters fil uppdaterings version får inte vara samma i Update. zip-filen. Den äldre versionen indikerar att det inte finns någon ändring i komponenten sedan tidigare uppdatering av den här uppdateringen.
 
 Hämta filen [Update](https://aka.ms/asr-scout-update6) . zip. Filen innehåller följande komponenter: 
-- RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
-- CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
-- UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
-- UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-- vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
-- UA Update4 bitar för RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_\<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+- RX_ 8.0.4.0 _GA_Update_4_8725872_16Sep16. tar. gz
+- CX_Windows_ 8.0.6.0 _GA_Update_6_13746667_18Sep17. exe
+- UA_Windows_ 8.0.5.0 _GA_Update_5_11525802_20Apr17. exe
+- UA_RHEL6-64_ 8.0.4.0 _GA_Update_4_9035261_26Sep16. tar. gz
+- vCon_Windows_ 8.0.6.0 _GA_Update_6_11525767_21Sep17. exe
+- UA Update4 bitar för RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_\<Linux OS > _ 8.0.4.0 _GA_Update_4_9035261_26Sep16. tar. gz
   1. Extrahera zip-filerna.
-  2. **RX-Server**: Kopiera **rx_ 8.0.4.0 _ga_update_4_8725872_16sep16. tar. gz** till RX-servern och extrahera den. Kör **/install**i den extraherade mappen.
-  3. **Konfigurations Server och processerver**: Kopiera **cx_windows_ 8.0.6.0 _ga_update_6_13746667_18sep17. exe** till konfigurations servern och processervern. Dubbelklicka för att köra den.<br>
-  4. **Windows huvud mål server**: Om du vill uppdatera Unified agent kopierar du **ua_windows_ 8.0.5.0 _ga_update_5_11525802_20apr17. exe** till-servern. Dubbelklicka på den för att köra den. Samma enhetliga agent uppdatering gäller även för käll servern. Om källan inte har uppdaterats till uppdatering 4, bör du uppdatera den enhetliga agenten.
+  2. **RX-Server**: kopiera **rx_ 8.0.4.0 _ga_update_4_8725872_16sep16. tar. gz** till RX-servern och extrahera den. Kör **/install**i den extraherade mappen.
+  3. **Konfigurations Server och processerver**: kopiera **cx_windows_ 8.0.6.0 _ga_update_6_13746667_18sep17. exe** till konfigurations servern och processervern. Dubbelklicka för att köra den.<br>
+  4. **Windows huvud mål server**: om du vill uppdatera Unified agent kopierar du **ua_windows_ 8.0.5.0 _ga_update_5_11525802_20apr17. exe** till servern. Dubbelklicka på den för att köra den. Samma enhetliga agent uppdatering gäller även för käll servern. Om källan inte har uppdaterats till uppdatering 4, bör du uppdatera den enhetliga agenten.
   Uppdateringen behöver inte tillämpas på huvud målet för beredd med **inmage_scout_vcontinuum_mt_ 8.0.1.0 _windows_ga_10oct2017_release. exe** eftersom det här är ett nytt ga-installationsprogram med alla de senaste ändringarna.
-  5. **vContinuum-Server**:  Kopiera **vcon_windows_ 8.0.6.0 _ga_update_6_11525767_21sep17. exe** till servern.  Kontrol lera att du har stängt guiden vContinuum. Dubbelklicka på filen för att köra den.
+  5. **vContinuum-Server**: kopiera **vcon_windows_ 8.0.6.0 _ga_update_6_11525767_21sep17. exe** till servern.  Kontrol lera att du har stängt guiden vContinuum. Dubbelklicka på filen för att köra den.
   Uppdateringen behöver inte tillämpas på huvud målet för beredd med **inmage_scout_vcontinuum_mt_ 8.0.1.0 _windows_ga_10oct2017_release. exe** eftersom det här är ett nytt ga-installationsprogram med alla de senaste ändringarna.
-  6. **Linux-huvud mål server**: Om du vill uppdatera Unified agent kopierar du **ua_rhel6-64_ 8.0.4.0 _ga_update_4_9035261_26sep16. tar. gz** till huvud mål servern och extraherar den. Kör **/install**i den extraherade mappen.
-  7. **Windows-käll Server**: Om du vill uppdatera Unified agent kopierar du **ua_windows_ 8.0.5.0 _ga_update_5_11525802_20apr17. exe** till käll servern. Dubbelklicka på filen för att köra den. 
+  6. **Linux-huvud mål server**: om du vill uppdatera Unified agent kopierar du **ua_rhel6-64_ 8.0.4.0 _ga_update_4_9035261_26sep16. tar. gz** till huvud mål servern och extraherar den. Kör **/install**i den extraherade mappen.
+  7. **Windows-käll Server**: om du vill uppdatera Unified agent kopierar du **ua_windows_ 8.0.5.0 _ga_update_5_11525802_20apr17. exe** till käll servern. Dubbelklicka på filen för att köra den. 
   Du behöver inte installera uppdatering 5-agenten på käll servern om den redan har uppdaterats till uppdatering 4 eller käll agenten har installerats med den senaste bas installations **inmage_ua_ 8.0.1.0 _windows_ga_28sep2017_release. exe**.
-  8. **Linux-käll Server**: Om du vill uppdatera Unified agent kopierar du motsvarande version av den enhetliga agent filen till Linux-servern och extraherar den. Kör **/install**i den extraherade mappen.  Exempel: För RHEL 6,7 64-bitars server kopierar du **ua_rhel6-64_ 8.0.4.0 _ga_update_4_9035261_26sep16. tar. gz** till servern och extraherar den. Kör **/install**i den extraherade mappen.
+  8. **Linux-käll Server**: om du vill uppdatera Unified agent kopierar du motsvarande version av Unified agent-filen till Linux-servern och extraherar den. Kör **/install**i den extraherade mappen.  Exempel: för RHEL 6,7 64-bitars server kopierar du **ua_rhel6-64_ 8.0.4.0 _ga_update_4_9035261_26sep16. tar. gz** till servern och extraherar den. Kör **/install**i den extraherade mappen.
 
 
 > [!NOTE]
@@ -231,7 +231,7 @@ Scout uppdatering 5 är en kumulativ uppdatering. Den innehåller alla korrigeri
     * Kluster skydd med en enskild nod Miss lyckas på grund av ett problem med SCSI-matchning. 
     * Fast skydd av P2V-Windows-klusterresursen Miss lyckas om det finns mål kluster diskar. 
     
-* Fastsatt Om den valda huvud mål servern inte finns på samma ESXi-server som den skyddade käll datorn (vid Forward-skydd) i återställnings skydd för återställning efter fel, hämtar vContinuum fel huvud mål servern under återställning efter fel och återställningen åtgärden kunde inte utföras.
+* Åtgärdat: vid återställning efter fel, om den valda huvud mål servern inte finns på samma ESXi-server som den skyddade käll datorn (under Forward Protection), hämtar vContinuum fel huvud mål servern under återställning efter fel och återställning åtgärden kunde inte utföras.
 
 > [!NOTE]
 > * De här korrigeringarna för P2V-kluster gäller endast för fysiska MSCS-kluster som nyligen skyddas med Site Recovery Scout uppdatering 5. Om du vill installera kluster korrigeringarna på skyddade P2V MSCS-kluster med äldre uppdateringar följer du de uppgraderings steg som anges i avsnitt 12 i [versions kommentarerna för Site Recovery Scout](https://aka.ms/asr-scout-release-notes).
@@ -309,17 +309,17 @@ Uppdatering 3 åtgärdar följande problem:
   * CentOS 6 uppdatering 7
 * Konfigurations servern och RX-konsolerna visar nu meddelanden för paret, som går in i bitmappsläge.
 * Följande säkerhets korrigeringar har lagts till i RX:
-    * Kringgå auktorisering via parameter manipulation: Begränsad åtkomst till icke-tillämpliga användare.
-    * Förfalskning av begäran mellan webbplatser: Page-token-konceptet implementerades och genereras slumpmässigt för varje sida. Det innebär att det bara finns en enda inloggnings instans för samma användare och att sid uppdateringen inte fungerar. I stället omdirigeras den till instrument panelen.
-    * Överföring av skadlig fil: Filerna är begränsade till vissa tillägg: z, AIFF, ASF, AVI, BMP, CSV, doc, docx, FLA, FLV, GIF, GZ, gzip, JPEG, jpg, log, Mid, MOV, MP3, MP4, MPC, MPEG, MPG, ODS, ODT, PDF, PNG, ppt, pptx, PXD, QT, ram, rar, RM, RMI, RMVB, RTF, SDC, SITD, SWF , SXC, SXW, tar, TGZ, TIF, TIFF, txt, VSD, WAV, WMA, WMV, xls, xlsx, XML och zip.
-    * Beständiga skript för Cross-Site: Ogiltiga indatatyper har lagts till.
+    * Auktorisering kringgås via parameter manipulation: begränsad åtkomst till icke-tillämpliga användare.
+    * Förfalskning av begäran mellan webbplatser: Page-token-konceptet implementerades och genererar slumpvis för varje sida. Det innebär att det bara finns en enda inloggnings instans för samma användare och att sid uppdateringen inte fungerar. I stället omdirigeras den till instrument panelen.
+    * Skadlig fil uppladdning: filerna är begränsade till vissa tillägg: z, AIFF, ASF, AVI, BMP, CSV, doc, docx, FLA, FLV, GIF, GZ, gzip, JPEG, jpg, log, Mid, MOV, MP3, MP4, MPC, MPEG, MPG, ODS, ODT, PDF, PNG, ppt, pptx, PXD, QT, ram, rar, RM, RMI, RMVB, RTF , SDC, SITD, SWF, SXC, SXW, tar, TGZ, TIF, TIFF, txt, VSD, WAV, WMA, WMV, xls, xlsx, XML och zip.
+    * Beständiga skript för Cross-Site: angivna verifieringar har lagts till.
 
-### <a name="azure-site-recovery-scout-801-update-2-update-03dec15"></a>Azure Site Recovery Scout 8.0.1 Update 2 (Update 03Dec15)
+### <a name="azure-site-recovery-scout-801-update-2-update-03dec15"></a>Azure Site Recovery Scout 8.0.1 uppdatering 2 (uppdatering 03Dec15)
 
 Korrigeringar i uppdatering 2 inkluderar:
 
-* **Konfigurations Server**: Problem som förhindrade den 30 dagars kostnads fria mätnings funktionen fungerar som förväntat, när konfigurations servern registrerades till Azure Site Recovery valv.
-* **Enhetlig agent**: Korrigera ett problem i uppdatering 1 som ledde till att uppdateringen inte installeras på huvud mål servern, under uppgradering från version 8,0 till 8.0.1.
+* **Konfigurations Server**: problem som förhindrade den 30 dagars kostnads fria mätnings funktionen från att fungera som förväntat, när konfigurations servern registrerades till Azure Site Recovery valv.
+* **Enhetlig agent**: korrigera ett problem i uppdatering 1 som ledde till att uppdateringen inte installeras på huvud mål servern, under uppgradering från version 8,0 till 8.0.1.
 
 ### <a name="azure-site-recovery-scout-801-update-1"></a>Azure Site Recovery Scout 8.0.1 uppdatering 1
 Uppdatering 1 innehåller följande fel korrigeringar och nya funktioner:

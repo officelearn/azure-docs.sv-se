@@ -1,5 +1,5 @@
 ---
-title: Prestanda rekommendationer – Azure SQL Database | Microsoft Docs
+title: Prestanda rekommendationer – Azure SQL Database
 description: Azure SQL Database ger rekommendationer för dina SQL-databaser som kan förbättra den aktuella frågans prestanda.
 services: sql-database
 ms.service: sql-database
@@ -11,19 +11,19 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: 08def3ac2fd94f01586bc690d867c04758b8856b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: de6ddd8886f8cadafa57724a5d5e33a3ba4e3c74
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569520"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691246"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Prestanda rekommendationer för SQL Database
 
 Azure SQL Database lär sig och anpassar sig till ditt program. Den innehåller anpassade rekommendationer som hjälper dig att maximera prestandan hos dina SQL-databaser. SQL Database kontinuerligt utvärdera och analysera användnings historiken för dina SQL-databaser. Rekommendationerna som anges baseras på databasens unika arbets belastnings mönster och hjälper till att förbättra prestandan.
 
 > [!TIP]
-> [Automatisk justering](sql-database-automatic-tuning.md) är den rekommenderade metoden för att automatiskt justera några av de vanligaste problemen med databas prestanda. [Fråga prestanda](sql-database-query-performance.md) insikter är den rekommenderade metoden för grundläggande Azure SQL Database behov av prestanda övervakning. [Azure SQL-analys](../azure-monitor/insights/azure-sql.md) är den rekommenderade metoden för avancerad övervakning av databas prestanda i stor skala, med inbyggd intelligens för automatisk prestanda fel sökning.
+> [Automatisk justering](sql-database-automatic-tuning.md) är den rekommenderade metoden för att automatiskt justera några av de vanligaste problemen med databas prestanda. [Fråga prestanda insikter](sql-database-query-performance.md) är den rekommenderade metoden för grundläggande Azure SQL Database behov av prestanda övervakning. [Azure SQL-analys](../azure-monitor/insights/azure-sql.md) är den rekommenderade metoden för avancerad övervakning av databas prestanda i stor skala, med inbyggd intelligens för automatisk prestanda fel sökning.
 >
 
 ## <a name="create-index-recommendations"></a>Skapa index rekommendationer
@@ -76,9 +76,9 @@ När du har tillämpat den här rekommendationen aktiverar den Tvingad Parameter
 
 Rekommendationen "åtgärda schema problem" visas när Azure SQL Database tjänsten meddelar en avvikelse i antalet schemabaserade SQL-fel som inträffar i SQL-databasen. I följande tabell visas de fel som rör schema problem:
 
-| SQL-felkod | Message |
+| SQL-felkod | Meddelande |
 | --- | --- |
-| 201 |Proceduren eller funktionen förväntar*sig parametern*, som inte tillhandahölls. |
+| 201 |Proceduren eller funktionen*förväntar sig parametern*, som inte tillhandahölls. |
 | 207 |Ogiltigt kolumn namn ' * '. |
 | 208 |Ogiltigt objekt namn ' * '. |
 | 213 |Kolumn namnet eller antalet angivna värden stämmer inte överens med tabell definitionen. |

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: helohr
-ms.openlocfilehash: fa61d69ae7aa650b6011696fd45d05ba20d2ac8b
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: dc980d60c1db684a47c38b3b8efceb08dd618838
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338709"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605807"
 ---
 # <a name="connect-with-the-macos-client"></a>Ansluta med macOS-klienten
 
@@ -25,7 +25,7 @@ Du kan komma åt Windows virtuella Skriv bords resurser från dina macOS-enheter
 
 ## <a name="install-the-client"></a>Installera-klienten
 
-Kom igång genom att [Ladda ned](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) och installera-klienten på din MacOS-enhet.
+Kom igång genom att [Ladda ned](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) och installera klienten på din MacOS-enhet.
 
 ## <a name="subscribe-to-a-feed"></a>Prenumerera på en feed
 
@@ -35,7 +35,7 @@ Så här prenumererar du på en feed:
 
 1. Välj **Lägg till feed** på huvud sidan för att ansluta till tjänsten och hämta dina resurser.
 2. Ange feed-URL: en. Detta kan vara en URL eller en e-post adress:
-   - Om du använder en URL kan du använda den som din administratör fick. Normalt är <https://rdweb.wvd.microsoft.com>URL: en.
+   - Om du använder en URL kan du använda den som din administratör fick. Normalt är URL: en <https://rdweb.wvd.microsoft.com>.
    - Ange din e-postadress om du vill använda e-post. Detta instruerar klienten att söka efter en URL som är kopplad till din e-postadress om administratören har konfigurerat servern på det sättet.
 3. Välj **Prenumerera**.
 4. Logga in med ditt användar konto när du uppmanas till det.

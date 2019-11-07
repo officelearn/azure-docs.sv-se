@@ -518,6 +518,8 @@
           href: data-movement-security-considerations.md
         - name: Spara autentiseringsuppgifter i Azure Key Vault
           href: store-credentials-in-key-vault.md
+        - name: Använda Azure Key Vault-hemligheter i pipeline-aktiviteter
+          href: how-to-use-azure-key-vault-secrets-pipeline-activities.md
         - name: Kryptera autentiseringsuppgifter för lokal Integration Runtime
           href: encrypt-credentials-self-hosted-integration-runtime.md
         - name: Hanterad identitet för Data Factory

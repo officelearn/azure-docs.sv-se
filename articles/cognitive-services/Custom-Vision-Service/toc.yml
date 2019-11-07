@@ -56,7 +56,7 @@
       href: getting-started-improving-your-classifier.md
     - name: 'Använd förutsägelse-API:t'
       href: use-prediction-api.md
-    - name: Använda föreslagna taggar
+    - name: Använda Smart Labeler
       href: suggested-tags.md
     - name: Exportera modeller
       items:

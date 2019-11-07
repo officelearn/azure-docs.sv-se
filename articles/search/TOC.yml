@@ -195,6 +195,8 @@
           href: search-blob-storage-integration.md
         - name: Konfigurera en blobindexerare
           href: search-howto-indexing-azure-blob-storage.md
+        - name: Konfigurera en indexerare för Azure Data Lake Storage Gen2
+          href: search-howto-index-azure-data-lake-storage.md
         - name: Indexera en-till-många blobar
           href: search-howto-index-one-to-many-blobs.md
         - name: Indexera CSV-blobar

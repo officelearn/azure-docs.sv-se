@@ -1,5 +1,5 @@
 ---
-title: Felsök Azure SQL Database prestanda problem med Intelligent Insights | Microsoft Docs
+title: Felsök Azure SQL Database prestanda problem med Intelligent Insights
 description: Intelligent Insights hjälper dig att felsöka Azure SQL Database prestanda problem.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: f884b39db92f44f7cff938e0ac4b9c2e22dc36cb
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: fef1ed386dbf3acccc09b9bba743b6b33492da0e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262197"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689715"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Felsök Azure SQL Database prestanda problem med Intelligent Insights
 
@@ -108,9 +108,9 @@ Du kan optimera eller ta bort frågor som är relaterade till clerkerna med hög
 
 Du kan också minska arbets belastningen genom att optimera eller distribuera den över flera databaser. Du kan också distribuera arbets belastningen mellan flera databaser. Om dessa lösningar inte är möjliga bör du överväga att öka pris nivån för SQL Database-prenumerationen för att öka mängden minnes resurser som är tillgängliga för databasen.
 
-Ytterligare fel söknings förslag finns [i minnes beviljande meditation: Mystiska SQL Server minnes konsumenten med många namn](https://blogs.msdn.microsoft.com/sqlmeditation/20../../memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
+Ytterligare fel söknings förslag finns i [minnes beviljande meditation: mystiska SQL Server minnes konsument med många namn](https://blogs.msdn.microsoft.com/sqlmeditation/20../../memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
 
-## <a name="locking"></a>Låsning
+## <a name="locking"></a>Spärr
 
 ### <a name="what-is-happening"></a>Vad händer
 
@@ -226,7 +226,7 @@ Det här identifierade prestanda mönstret indikerar ett databas prestanda tills
 
 ### <a name="troubleshooting"></a>Felsökning
 
-I diagnostik-loggen visas information om tempDB-konkurrens. Du kan använda informationen som utgångs punkt för fel sökning. Det finns två saker som du kan vidta för att minska den här typen av konkurrens och öka data flödet för den övergripande arbets belastningen: Du kan sluta använda de temporära tabellerna. Du kan också använda minnesoptimerade tabeller. 
+I diagnostik-loggen visas information om tempDB-konkurrens. Du kan använda informationen som utgångs punkt för fel sökning. Det finns två saker du kan göra för att minska den här typen av konkurrens och öka data flödet för den övergripande arbets belastningen: du kan sluta använda de tillfälliga tabellerna. Du kan också använda minnesoptimerade tabeller. 
 
 Mer information finns i [Introduktion till minnesoptimerade tabeller](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
 
@@ -320,7 +320,7 @@ Om du har minskat pris nivån och därför DTU: er är tillgänglig för SQL Dat
 
 Kom åt Intelligent Insights via Azure Portal genom att gå till Azure SQL-analys. Försök att hitta den inkommande prestanda aviseringen och välj den. Identifiera vad som händer på sidan identifieringar. Observera den tillhandahållna rotor Saks analysen av problemet, frågetext, fråge tids trender och incident utveckling. Försök att lösa problemet med hjälp av Intelligent Insights rekommendation för att minimera prestanda problemet. 
 
-[![Fel sökning av flödes diagram](./media/sql-database-intelligent-insights/intelligent-insights-troubleshooting-flowchart.png)](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/intelligent-insight/Troubleshoot%20Azure%20SQL%20Database%20performance%20issues%20using%20Intelligent%20Insight.pdf)
+[![fel söknings flödes diagram](./media/sql-database-intelligent-insights/intelligent-insights-troubleshooting-flowchart.png)](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/intelligent-insight/Troubleshoot%20Azure%20SQL%20Database%20performance%20issues%20using%20Intelligent%20Insight.pdf)
 
 > [!TIP]
 > Välj flödesschemat för att ladda ned en PDF-version.

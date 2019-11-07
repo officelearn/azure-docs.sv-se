@@ -1,5 +1,5 @@
 ---
-title: Kopiera data från Amazon Marketplace-webbtjänsten med Azure Data Factory | Microsoft Docs
+title: Kopiera data från Amazon Marketplace-webbtjänsten med Azure Data Factory
 description: Lär dig hur du kopierar data från Amazon Marketplace-webbtjänst till mottagar data lager med stöd för en kopierings aktivitet i en Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: jingwang
-ms.openlocfilehash: cddb8eaf546760ad9d983c429424144ff131de11
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 8613b52ff8d04b578342a34fe24d6e9e12a8a98c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931204"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681401"
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory"></a>Kopiera data från Amazon Marketplace-webbtjänsten med Azure Data Factory
 
@@ -122,7 +122,7 @@ Om du vill kopiera data från Amazon Marketplace-webbtjänsten anger du käll ty
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **AmazonMWSSource** | Ja |
-| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | Nej (om "tableName" i data uppsättningen har angetts) |
+| query | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**
 

@@ -1,5 +1,5 @@
 ---
-title: Query Performance Insight för Azure SQL Database | Microsoft Docs
+title: Query Performance Insight för Azure SQL Database
 description: Fråga prestanda övervakning identifierar de mest processor krävande frågorna för en Azure SQL-databas.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/03/2019
-ms.openlocfilehash: 659022f625604fe31c2ce47978d1132b20b7ffc8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: eb6827669829dc7aeeb6758a07218a29955b3682
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567020"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687592"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Query Performance Insight för Azure SQL Database
 
@@ -32,7 +32,7 @@ Att hantera och justera prestanda för Relations databaser har expertis och tid.
 > [!TIP]
 > För grundläggande prestanda övervakning med Azure SQL Database rekommenderar vi Query Performance Insight. Observera produkt begränsningarna som publicerats i den här artikeln. För avancerad övervakning av databas prestanda i hög skala rekommenderar vi [Azure SQL-analys](../azure-monitor/insights/azure-sql.md). Den har inbyggd intelligens för automatisk prestanda fel sökning. För att automatiskt justera några av de vanligaste prestanda problemen i databasen rekommenderar vi [Automatisk justering](sql-database-automatic-tuning.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För Query Performance Insight krävs att [frågearkivet](https://msdn.microsoft.com/library/dn817826.aspx) är aktivt på databasen. Den aktive ras automatiskt för alla Azure SQL-databaser som standard. Om Frågearkivet inte körs uppmanas du i Azure Portal att aktivera det.
 
@@ -52,13 +52,13 @@ Du behöver följande [rollbaserade åtkomst kontroll](../role-based-access-cont
 Query Performance Insight är enkelt att använda:
 
 1. Öppna [Azure Portal](https://portal.azure.com/) och leta upp en databas som du vill undersöka.
-2. Öppna **intelligenta prestanda** > **query Performance Insight**på menyn på den vänstra sidan.
+2. Öppna **intelligent Performance** > **query Performance Insight**på menyn på den vänstra sidan.
   
    ![Query Performance Insight på menyn](./media/sql-database-query-performance/tile.png)
 
 3. På den första fliken granskar du listan över de främsta resurs krävande frågorna.
 4. Välj en enskild fråga om du vill visa information om den.
-5. Öppna prestanda**rekommendationer** för **intelligent prestanda** > och kontrol lera om det finns några prestanda rekommendationer. Mer information om inbyggda prestanda rekommendationer finns [SQL Database Advisor](sql-database-advisor.md).
+5. Öppna **prestanda rekommendationer** för **intelligent prestanda** > och kontrol lera om det finns några prestanda rekommendationer. Mer information om inbyggda prestanda rekommendationer finns [SQL Database Advisor](sql-database-advisor.md).
 6. Använd skjutreglage eller zooma ikoner för att ändra det observerade intervallet.
 
    ![Instrument panel för prestanda](./media/sql-database-query-performance/performance.png)
@@ -166,7 +166,7 @@ Så här identifierar du tids krävande frågor:
    * **Max** söker efter frågor där körnings tiden är max för hela observations intervallet.
    * **AVG** hittar den genomsnittliga körnings tiden för alla fråge körningar och visar de översta för dessa genomsnitt.
 
-   ![Frågevaraktighet](./media/sql-database-query-performance/top-duration.png)
+   ![Frågans varaktighet](./media/sql-database-query-performance/top-duration.png)
 
 5. Välj knappen **gå >** för att se den anpassade vyn.
 
@@ -236,16 +236,16 @@ Det andra fallet inträffar när Frågearkivet inte är aktiverat, eller om para
 
 Det finns två typer av bevarande principer:
 
-* **Storlek baserat**: Om den här principen är inställd på **Auto**rensas data automatiskt när den maximala storleken nås.
-* **Tid baserat**: Som standard är den här principen inställt på 30 dagar. Om Query Store tar slut på utrymme, tar den bort information som är äldre än 30 dagar.
+* **Storlek baserad**: om den här principen är inställd på **Auto**rensas data automatiskt när den maximala storleken uppnås i närheten.
+* **Tidsbaserad**: som standard är den här principen inställt på 30 dagar. Om Query Store tar slut på utrymme, tar den bort information som är äldre än 30 dagar.
 
 Du kan ställa in avbildnings principen på:
 
 * **Alla**: Query Store fångar alla frågor.
-* **Automatisk**: Query Store ignorerar ovanliga frågor och frågor med obetydlig kompilering och körnings tid. Tröskelvärden för antal körningar, kompileringstid och varaktighet för körning fastställs internt. Detta är standard alternativet.
-* **Ingen**: Query Store slutar samla in nya frågor, men körnings statistik för redan infångade frågor samlas fortfarande in.
+* **Auto**: Query Store ignorerar ovanliga frågor och frågor med obetydlig kompilering och körnings tid. Tröskelvärden för antal körningar, kompileringstid och varaktighet för körning fastställs internt. Detta är standard alternativet.
+* **Ingen**: Query Store slutar att samla in nya frågor, men körnings statistik för redan infångade frågor samlas fortfarande in.
 
-Vi rekommenderar att du ställer in alla principer för att **automatiskt** och rensa principen till 30 dagar genom att köra följande kommandon från [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) eller Azure Portal. (Ersätt `YourDB` med databasens namn.)
+Vi rekommenderar att du ställer in alla principer för att **automatiskt** och rensa principen till 30 dagar genom att köra följande kommandon från [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) eller Azure Portal. (Ersätt `YourDB` med databas namnet.)
 
 ```sql
     ALTER DATABASE [YourDB]
@@ -258,14 +258,14 @@ Vi rekommenderar att du ställer in alla principer för att **automatiskt** och 
     SET QUERY_STORE (QUERY_CAPTURE_MODE = AUTO);
 ```
 
-Öka storleken på Frågearkivet genom att ansluta till en databas via [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) eller Azure Portal och köra följande fråga. (Ersätt `YourDB` med databasens namn.)
+Öka storleken på Frågearkivet genom att ansluta till en databas via [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) eller Azure Portal och köra följande fråga. (Ersätt `YourDB` med databas namnet.)
 
 ```T-SQL
     ALTER DATABASE [YourDB]
     SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
 ```
 
-När du använder de här inställningarna kommer du slutligen att göra Frågearkivet samla in telemetri för nya frågor. Om du vill att Query Store ska fungera direkt kan du välja att rensa Frågearkivet genom att köra följande fråga via SSMS eller Azure Portal. (Ersätt `YourDB` med databasens namn.)
+När du använder de här inställningarna kommer du slutligen att göra Frågearkivet samla in telemetri för nya frågor. Om du vill att Query Store ska fungera direkt kan du välja att rensa Frågearkivet genom att köra följande fråga via SSMS eller Azure Portal. (Ersätt `YourDB` med databas namnet.)
 
 > [!NOTE]
 > Om du kör följande fråga raderas alla tidigare insamlade telemetri i Frågearkivet.

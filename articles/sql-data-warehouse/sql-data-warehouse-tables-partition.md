@@ -1,5 +1,5 @@
 ---
-title: Partitionerar tabeller i Azure SQL Data Warehouse | Microsoft Docs
+title: Partitionerings tabeller
 description: Rekommendationer och exempel för att använda Table-partitioner i Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 6791ff2f2a9719a19d2c9abc4ff480435de7bb00
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 7ec313094a9ebc05f966e0c49f44284909ca778f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477095"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685415"
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>Partitionera tabeller i SQL Data Warehouse
 Rekommendationer och exempel för att använda Table-partitioner i Azure SQL Data Warehouse.
@@ -36,7 +37,7 @@ Partitionering kan också användas för att förbättra prestanda för frågor.
 ## <a name="sizing-partitions"></a>Storleksändra partitioner
 Medan partitionering kan användas för att förbättra prestanda för vissa scenarier, kan en tabell med **för många** partitioner försämra prestanda under vissa omständigheter.  Dessa problem gäller särskilt för grupperade columnstore-tabeller. För att partitionering ska vara till hjälp är det viktigt att förstå när du ska använda partitionering och antalet partitioner som ska skapas. Det finns ingen fast snabb regel för hur många partitioner som är för många, beroende på dina data och hur många partitioner som du läser in samtidigt. Ett lyckat partitionerings schema har vanligt vis till hundratals partitioner, inte tusentals.
 
-När du skapar partitioner i **grupperade columnstore** -tabeller är det viktigt att fundera över hur många rader som tillhör varje partition. För optimal komprimering och prestanda för grupperade columnstore-tabeller behövs minst 1 000 000 rader per distribution och partition. Innan partitionerna skapas delar SQL Data Warehouse redan varje tabell i 60-distribuerade databaser. Alla partitioner som läggs till i en tabell är utöver de distributioner som skapats i bakgrunden. I det här exemplet, om försäljnings fakta tabellen innehöll 36 månads partitioner och om SQL Data Warehouse har 60-distributioner, ska försäljnings fakta tabellen innehålla 60 000 000 rader per månad eller 2 100 000 000 rader när alla månader fylls. Om en tabell innehåller färre än det rekommenderade lägsta antalet rader per partition bör du överväga att använda färre partitioner för att öka antalet rader per partition. Mer information finns i indexerings [](sql-data-warehouse-tables-index.md) artikeln, som innehåller frågor som kan bedöma kvaliteten på kluster columnstore-index.
+När du skapar partitioner i **grupperade columnstore** -tabeller är det viktigt att fundera över hur många rader som tillhör varje partition. För optimal komprimering och prestanda för grupperade columnstore-tabeller behövs minst 1 000 000 rader per distribution och partition. Innan partitionerna skapas delar SQL Data Warehouse redan varje tabell i 60-distribuerade databaser. Alla partitioner som läggs till i en tabell är utöver de distributioner som skapats i bakgrunden. I det här exemplet, om försäljnings fakta tabellen innehöll 36 månads partitioner och om SQL Data Warehouse har 60-distributioner, ska försäljnings fakta tabellen innehålla 60 000 000 rader per månad eller 2 100 000 000 rader när alla månader fylls. Om en tabell innehåller färre än det rekommenderade lägsta antalet rader per partition bör du överväga att använda färre partitioner för att öka antalet rader per partition. Mer information finns i [indexerings](sql-data-warehouse-tables-index.md) artikeln, som innehåller frågor som kan bedöma kvaliteten på kluster columnstore-index.
 
 ## <a name="syntax-differences-from-sql-server"></a>Skillnader i syntaxen från SQL Server
 SQL Data Warehouse introducerar ett sätt att definiera partitioner som är enklare än SQL Server. Partitionerings funktioner och scheman används inte i SQL Data Warehouse som de är i SQL Server. I stället behöver du bara identifiera partitionerade kolumner och gränserna. Även om syntaxen för partitionering kan skilja sig något från SQL Server, är de grundläggande begreppen desamma. SQL Server och SQL Data Warehouse stöd för en partition kolumn per tabell, vilket kan ha en intervall partition. Mer information om partitionering finns i [partitionerade tabeller och index](/sql/relational-databases/partitions/partitioned-tables-and-indexes).
@@ -115,7 +116,7 @@ SQL Data Warehouse stöder delning av partitioner, sammanslagning och växling. 
 Om du vill byta partitioner mellan två tabeller måste du se till att partitionerna överensstämmer med deras respektive gränser och att tabell definitionerna matchar. Eftersom kontroll begränsningar inte är tillgängliga för att genomdriva värde intervallet i en tabell måste käll tabellen innehålla samma partition gränser som mål tabellen. Om partitionernas gränser inte är samma, kommer partitionsuppsättningen att Miss Miss sen eftersom metadata för partitionen inte kommer att synkroniseras.
 
 ### <a name="how-to-split-a-partition-that-contains-data"></a>Dela en partition som innehåller data
-Den mest effektiva metoden att dela en partition som redan innehåller data är att använda en `CTAS` instruktion. Om den partitionerade tabellen är ett grupperat columnstore-kluster måste Table-partitionen vara tom innan den kan delas.
+Den mest effektiva metoden för att dela en partition som redan innehåller data är att använda en `CTAS`-instruktion. Om den partitionerade tabellen är ett grupperat columnstore-kluster måste Table-partitionen vara tom innan den kan delas.
 
 I följande exempel skapas en partitionerad columnstore-tabell. Den infogar en rad i varje partition:
 
@@ -147,7 +148,7 @@ INSERT INTO dbo.FactInternetSales
 VALUES (1,20000101,1,1,1,1,1,1);
 ```
 
-Följande fråga hittar antalet rader genom att `sys.partitions` använda vyn katalog:
+Följande fråga hittar antalet rader med hjälp av vyn `sys.partitions` katalog:
 
 ```sql
 SELECT  QUOTENAME(s.[name])+'.'+QUOTENAME(t.[name]) as Table_name
@@ -198,7 +199,7 @@ ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
-Allt som återstår är att justera data till de nya gränserna med `CTAS`och sedan växla tillbaka data till huvud tabellen.
+Allt som återstår är att justera data till de nya gränserna med hjälp av `CTAS`och sedan ändra tillbaka data till huvud tabellen.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
@@ -226,7 +227,7 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
 ### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>Läs in nya data i partitioner som innehåller data i ett steg
-Att läsa in data i partitioner med partitionering är ett praktiskt sätt att mellanlagra nya data i en tabell som inte är synliga för användarens växel i nya data.  Det kan vara svårt att utnyttja upptagna system för att hantera den låsning som är kopplad till partition växling.  Om du vill ta bort befintliga data i en partition `ALTER TABLE` måste du använda dem för att växla ut data.  En annan `ALTER TABLE` krävdes för att växla till nya data.  I SQL Data Warehouse `TRUNCATE_TARGET` stöds alternativet `ALTER TABLE` i kommandot.  Med `TRUNCATE_TARGET`kommandotskriveröver befintligadataipartitionenmednyadata.`ALTER TABLE`  Nedan visas ett exempel som använder `CTAS` för att skapa en ny tabell med befintliga data, infogar nya data och sedan växlar alla data tillbaka till mål tabellen och skriver över befintliga data.
+Att läsa in data i partitioner med partitionering är ett praktiskt sätt att mellanlagra nya data i en tabell som inte är synliga för användarens växel i nya data.  Det kan vara svårt att utnyttja upptagna system för att hantera den låsning som är kopplad till partition växling.  För att rensa befintliga data i en partition, är det `ALTER TABLE` som krävs för att kunna växla ut data.  En annan `ALTER TABLE` krävdes för att växla till nya data.  I SQL Data Warehouse stöds alternativet `TRUNCATE_TARGET` i `ALTER TABLE` kommandot.  Med `TRUNCATE_TARGET` kommandot `ALTER TABLE` skriva över befintliga data i partitionen med nya data.  Nedan visas ett exempel som använder `CTAS` för att skapa en ny tabell med befintliga data, infogar nya data och sedan växlar alla data tillbaka till mål tabellen och skriver över befintliga data.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]
@@ -275,7 +276,7 @@ Om du vill undvika din tabell definition från **rusting** i ditt käll kontroll
     ;
     ```
 
-1. `SPLIT`tabellen som en del av distributions processen:
+1. `SPLIT` tabellen som en del av distributions processen:
 
     ```sql
      -- Create a table containing the partition boundaries

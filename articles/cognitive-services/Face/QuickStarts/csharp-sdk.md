@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 4f06e423c6dcc561ef8e51c33f24cd9f88a681b5
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 1848f7230ed189f139a223020f08db150295132d
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935895"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647486"
 ---
 # <a name="quickstart-face-client-library-for-net"></a>Snabb start: ansikts klient bibliotek för .NET
 
@@ -29,9 +29,9 @@ Använd ansikts klient biblioteket för .NET för att:
 * [Identifiera ett ansikte](#identify-a-face)
 * [Ta en ögonblicks bild för datamigrering](#take-a-snapshot-for-data-migration)
 
-[Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)  | [Library Source Code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face)  | [Package (NuGet)  | -](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.5.0-preview.1) [exempel](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
+[Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet) | [Library Source Code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Package (NuGet) | -](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.5.0-preview.1) [exempel](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
@@ -144,9 +144,17 @@ Den sista identifiera-åtgärden tar ett [FaceClient](https://docs.microsoft.com
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect_call)]
 
-I det här fallet identifierar `DetectFaceExtract`-metoden ansikten i tre av bilderna på den angivna URL: en och skapar en lista över [DetectedFace](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet) -objekt i program minnet. Listan med [FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet) -värden anger vilka funktioner som ska extraheras. Se exempel koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/Face/Program.cs) för hjälp kod som kan skriva ut dessa data på ett intuitivt sätt.
+### <a name="get-detected-face-objects"></a>Hämta identifierade ansikts objekt
+
+I nästa kodblock identifierar `DetectFaceExtract`-metoden ansikten i tre av bilderna på den angivna URL: en och skapar en lista över [DetectedFace](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet) -objekt i program minnet. Listan med [FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet) -värden anger vilka funktioner som ska extraheras. 
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect)]
+
+### <a name="display-detected-face-data"></a>Visa identifierade ansikts data
+
+Resten av metoden `DetectFaceExtract` tolkar och skriver ut attributets data för varje identifierad ansikts. Varje attribut måste anges separat i det ursprungliga API-anropet för ansikts igenkänning (i [FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet) -listan). Följande kod bearbetar alla attribut, men du behöver troligen bara använda ett eller några få.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect_parse)]
 
 ## <a name="find-similar-faces"></a>Hitta liknande ansikten
 
@@ -287,7 +295,7 @@ dotnet run
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portalen](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 Om du har skapat en **PersonGroup** i den här snabb starten och du vill ta bort den kör du följande kod i programmet:

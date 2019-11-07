@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Language Understanding (LUIS) redigerings klient bibliotek för python'
+title: 'Snabb start: Language Understanding (LUIS) redigering av klient bibliotek för python'
 titleSuffix: Azure Cognitive Services
-description: Kom igång med klient biblioteket Language Understanding (LUIS) för python. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter.  Med Language Understanding (LUIS) kan du använda anpassad maskin inlärnings information till en användares svars-och naturligt språk text för att förutsäga den övergripande innebörden och hämta relevant, detaljerad information.
+description: Kom igång med LUIS-klient biblioteket för python. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 08/07/2019
 ms.author: diberry
-ms.openlocfilehash: f8149372e0a96cda81ef38558ee0bcf87eb53bb3
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 1b586af569a9406d7fe9fa3d05c198f62f32744f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258767"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672010"
 ---
-# <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>Snabbstart: Language Understanding (LUIS) redigerings klient bibliotek för python
+# <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>Snabb start: Language Understanding (LUIS) redigering av klient bibliotek för python
 
 Kom igång med klient biblioteket Language Understanding (LUIS) Authoring för python. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter.  Med Language Understanding (LUIS) kan du använda anpassad maskin inlärnings information till en användares svars-och naturligt språk text för att förutsäga den övergripande innebörden och hämta relevant, detaljerad information. 
 
@@ -28,18 +28,18 @@ Använd det Language Understanding (LUIS) redigerings klient biblioteket för py
 * Lägg till funktioner, till exempel en fras lista.
 * Träna och publicera en app.
 
-[Referens dokumentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [redigerings paket (pypi)](https://pypi.org/project/azure-cognitiveservices-language-luis/) | [exempel](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)
+[Referens dokumentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [redigerings paket (pypi)](https://pypi.org/project/azure-cognitiveservices-language-luis/) | [exempel](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Language Understanding (LUIS) Portal konto: [Skapa ett kostnads fritt](https://www.luis.ai).
+* Language Understanding (LUIS) Portal konto: [skapa ett kostnads fritt](https://www.luis.ai).
 * [Python 3.x](https://www.python.org/)
 
 ## <a name="setting-up"></a>Konfigurera
 
 ### <a name="get-your-language-understanding-luis-starter-key"></a>Hämta din Language Understandings start nyckel (LUIS)
 
-Hämta din [Start nyckel](luis-how-to-azure-subscription.md#starter-key)och [skapa en miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln, med namnet `LUIS_AUTHORING_KEY` och en miljö variabel för nyckelns `LUIS_REGION`region.
+Hämta din [Start nyckel](luis-how-to-azure-subscription.md#starter-key)och [skapa en miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln, med namnet `LUIS_AUTHORING_KEY` och en miljö variabel för nyckelns region `LUIS_REGION`.
 
 ### <a name="install-the-python-library-for-luis"></a>Installera python-biblioteket för LUIS
 
@@ -111,7 +111,7 @@ Använd metoden [Model. Add _intent](https://docs.microsoft.com/python/api/azure
 
 Även om entiteter inte krävs finns de i de flesta appar. Entiteten extraherar information från användar uttryck, som krävs för att fullfil användarens avsikt. Det finns flera typer av [färdiga](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.modeloperations?view=azure-python#add-prebuilt-app-id--version-id--prebuilt-extractor-names--custom-headers-none--raw-false----operation-config-) och anpassade entiteter, var och en med sina egna DTO-modeller (data Transformation Object).  Vanliga fördefinierade entiteter som ska läggas till i din app är [Number](luis-reference-prebuilt-number.md), [datetimeV2](luis-reference-prebuilt-datetimev2.md), [geographyV2](luis-reference-prebuilt-geographyv2.md), [ordinal](luis-reference-prebuilt-ordinal.md). 
 
-Den här **add_entities** -metoden `Location` skapade en enkel entitet med två roller `Class` , en enkel entitet `Flight` , en sammansatt entitet och lägger till flera fördefinierade entiteter.
+Den här **add_entities** -metoden skapade en `Location` enkel entitet med två roller, en `Class` enkel entitet, en `Flight` sammansatt entitet och lägger till flera fördefinierade entiteter.
 
 Det är viktigt att veta att entiteter inte har marker ATS med ett avsikts syfte. De kan och används vanligt vis för många syften. Endast yttranden är markerade för ett visst, enskilt syfte.
 
@@ -147,7 +147,7 @@ Publicera LUIS-appen med metoden [app. Publish](https://docs.microsoft.com/pytho
 
 ## <a name="run-the-application"></a>Köra programmet
 
-Kör programmet med `python` kommandot på snabb starts filen.
+Kör programmet med kommandot `python` på snabb starts filen.
 
 ```console
 python quickstart-file.py

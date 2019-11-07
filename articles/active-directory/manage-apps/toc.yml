@@ -5,7 +5,7 @@
   items:
     - name: Vad är molnprogramhantering och enkel inloggning?
       href: what-is-application-management.md
-    - name: Vad är automatisk användaretablering?
+    - name: Vad är programetablering?
       href: user-provisioning.md
     - name: Vad är programproxy för lokala appar?
       href: what-is-application-proxy.md
@@ -17,7 +17,7 @@
       href: view-applications-portal.md
 - name: Självstudier
   items:
-    - name: Självstudier för SaaS-appar
+    - name: 'Integrerade galleriappar (t.ex. ServiceNow, Salesforce, Dropbox)'
       href: /azure/active-directory/saas-apps/
     - name: Lägga till en lokal app med programproxy
       href: application-proxy-add-on-premises-application.md
@@ -66,12 +66,12 @@
               href: howto-saml-token-encryption.md
             - name: Slutanvändarportaler
               href: end-user-experiences.md
-    - name: Automatisk användarförsörjning
+    - name: Programetablering (SCIM)
       items:
-        - name: Planera en distribution med automatisk användaretablering
-          href: plan-auto-user-provisioning.md
         - name: Automatisk etablering för SCIM-aktiverade appar
           href: use-scim-to-provision-users-and-groups.md
+        - name: Planera en distribution med automatisk användaretablering
+          href: plan-auto-user-provisioning.md
     - name: Programproxy för lokala appar
       items:
         - name: Programproxy
@@ -223,23 +223,21 @@
                   href: access-panel-extension-problem-installing.md
                 - name: Fel vid användning av appåtkomst via självbetjäning
                   href: access-panel-troubleshoot-self-service-access.md
-    - name: Automatisk användarförsörjning
+    - name: Programetablering (SCIM)
       items:
         - name: Konfigurera användarförsörjning
           items:
-            - name: Användaretablering för galleriappar
+            - name: Manuell jämfört med automatisk etablering
               href: application-provisioning-config-how-to.md
-            - name: Aktivera automatisk användaretablering för appar för flera innehavare
-              href: isv-automatic-provisioning-multi-tenant-apps.md
             - name: Konfigurera automatisk användaretablering
               href: configure-automatic-user-provisioning-portal.md
-            - name: Anpassa programattribut
+            - name: Anpassa attributmappningar
               href: Customize-application-attributes.md
-            - name: Omfångsfilter
+            - name: Hitta användare och grupper som ska etableras
               href: define-conditional-rules-for-provisioning-user-accounts.md
             - name: Hoppa över borttagning av användare utanför omfattningen
               href: skip-out-of-scope-deletions.md
-            - name: Kontrollera etableringsstatus
+            - name: Övervaka etableringsstatus och prestanda
               href: application-provisioning-when-will-provisioning-finish-specific-user.md
             - name: Rapportera om automatisk användaretablering
               href: check-status-user-account-provisioning.md
@@ -249,20 +247,20 @@
           items:
             - name: Felsöka användaretablering
               href: application-provisioning-config-problem.md
-            - name: Karantänstatus
+            - name: Auktoriseringsproblem (kunde inte spara autentiseringsuppgifter för administratör)
+              href: application-provisioning-config-problem-storage-limit.md
+            - name: Användare har inte etablerats
+              href: application-provisioning-config-problem-no-users-provisioned.md
+            - name: Fel användare har etablerats
+              href: application-provisioning-config-problem-wrong-users-provisioned.md
+            - name: Etableringsjobb i karantän
               href: application-provisioning-quarantine-status.md
+            - name: Källattribut saknas
+              href: user-provisioning-sync-attributes-for-mapping.md
+            - name: Etableringsjobbet är långsamt
+              href: application-provisioning-when-will-provisioning-finish.md
             - name: Etableringsloggar
               href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
-            - name: Synkronisera ett attribut för mappning – galleriappen
-              href: user-provisioning-sync-attributes-for-mapping.md
-            - name: Tar flera timmar – galleriapp
-              href: application-provisioning-when-will-provisioning-finish.md
-            - name: Problem med att spara autentiseringsuppgifterna för administratören när användaretablering konfigureras – galleriapp
-              href: application-provisioning-config-problem-storage-limit.md
-            - name: Användare har inte etablerats – galleriapp
-              href: application-provisioning-config-problem-no-users-provisioned.md
-            - name: Fel användare har etablerats – galleriapp
-              href: application-provisioning-config-problem-wrong-users-provisioned.md
     - name: Programproxy för lokala appar
       items:
         - name: Konfigurera anslutningsappar
@@ -357,10 +355,12 @@
               href: application-proxy-understand-cors-issues.md
 - name: Referens
   items:
-    - name: Automatisk användarförsörjning
+    - name: Programetablering (SCIM)
       items:
         - name: Skriva uttryck för attributmappningar
           href: functions-for-customizing-application-data.md
+        - name: Välja en etableringsmetod
+          href: isv-automatic-provisioning-multi-tenant-apps.md
     - name: Azure AD Connect-etableringsagent
       items:
         - name: Versionshistorik för etableringsagent

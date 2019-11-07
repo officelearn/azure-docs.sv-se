@@ -1,5 +1,5 @@
 ---
-title: Guiden Kopiera aktivitets prestanda och skalbarhet i Azure Data Factory | Microsoft Docs
+title: Guiden Kopiera aktivitets prestanda och skalbarhet i Azure Data Factory
 description: Lär dig mer om viktiga faktorer som påverkar prestanda för data förflyttning i Azure Data Factory när du använder kopierings aktiviteten.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: ba08bbdca059b3e14281a3c26827d07f7b196d1c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 701eaad8d36b352e946ae8d74204876b41ecb53d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72930949"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73678268"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guiden Kopiera aktivitets prestanda och skalbarhet
 > [!div class="op_single_selector" title1="Välj den version av Azure Data Factory som du använder:"]
@@ -223,7 +223,7 @@ Om du vill styra belastningen på datorer som är värdar för dina data lager, 
 
 När du kopierar data från ett käll data lager till ett data lager för mottagare kan du välja att använda Blob Storage som ett interimistiskt mellanlagrings lager. Mellanlagring är särskilt användbart i följande fall:
 
-- **Du vill mata in data från olika data lager i SQL Data Warehouse via PolyBase.** SQL Data Warehouse använder PolyBase som en mekanism för hög genom strömning för att läsa in stora mängder data i SQL Data Warehouse. Källdata måste finnas i Blob Storage eller Azure Data Lake Store, och det måste uppfylla ytterligare kriterier. När du läser in data från ett annat data lager än Blob Storage eller Azure Data Lake Store, kan du aktivera data kopiering via tillfällig mellanlagring av blob-lagring. I så fall utför Azure Data Factory nödvändiga data transformationer för att säkerställa att de uppfyller kraven för PolyBase. Sedan använder den PolyBase för att läsa in data i SQL Data Warehouse effektivt. Mer information finns i [använda PolyBase för att läsa in data i Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
+- **Du vill mata in data från olika data lager i SQL Data Warehouse via PolyBase.** SQL Data Warehouse använder PolyBase som en mekanism för hög genom strömning för att läsa in stora mängder data i SQL Data Warehouse. Källdata måste finnas i Blob Storage eller Azure Data Lake Store, och det måste uppfylla ytterligare kriterier. När du läser in data från ett annat data lager än Blob Storage eller Azure Data Lake Store, kan du aktivera data kopiering via tillfällig mellanlagring av blob-lagring. I så fall utför Azure Data Factory nödvändiga data transformationer för att säkerställa att de uppfyller kraven för PolyBase. Sedan använder den PolyBase för att läsa in data i SQL Data Warehouse effektivt. Mer information finns i [Använda PolyBase för att läsa in data till Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
 - **Ibland tar det en stund att utföra en hybrid data förflyttning (det vill säga kopiera från ett lokalt data lager till ett moln data lager) över en långsam nätverks anslutning.** Du kan förbättra prestanda genom att använda mellanlagrad kopia för att komprimera data lokalt så att det tar mindre tid att flytta data till lagrings data lagret i molnet. Sedan kan du expandera data i mellanlagrings platsen innan du läser in i mål data lagret.
 - **Du vill inte öppna andra portar än port 80 och port 443 i brand väggen på grund av företagets IT-principer.** När du till exempel kopierar data från ett lokalt data lager till en Azure SQL Database mottagare eller en Azure SQL Data Warehouse mottagare måste du aktivera utgående TCP-kommunikation på port 1433 för både Windows-brandväggen och företags brand väggen. I det här scenariot kan mellanlagrad kopiering dra nytta av den lokala integrerings körningen för att först kopiera data till en mellanlagringsplats för Blob Storage via HTTP eller HTTPS på port 443. Sedan kan den läsa in data i SQL Database eller SQL Data Warehouse från mellanlagring av blob-lagring. I det här flödet behöver du inte aktivera port 1433.
 
@@ -243,10 +243,10 @@ Konfigurera inställningen **enableStaging** i kopierings aktiviteten och ange o
 
 | Egenskap | Beskrivning | Standardvärde | Krävs |
 | --- | --- | --- | --- |
-| enableStaging |Ange om du vill kopiera data via ett interimistiskt lagrings lager. |Falskt |Nej |
-| linkedServiceName |Ange namnet på en länkad [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) -tjänst som refererar till den lagrings instans som du använder som ett interimistiskt mellanlagrings lager. <br/><br/> Du kan inte använda Storage med en signatur för delad åtkomst för att läsa in data i SQL Data Warehouse via PolyBase. Du kan använda den i alla andra scenarier. |Gäller inte |Ja, när **enableStaging** är inställt på True |
-| sökväg |Ange den Blob Storage-sökväg som du vill ska innehålla de mellanlagrade data. Om du inte anger en sökväg skapar tjänsten en behållare för att lagra temporära data. <br/><br/> Ange endast en sökväg om du använder lagring med en signatur för delad åtkomst, eller om du vill att tillfälliga data ska finnas på en bestämd plats. |Gäller inte |Nej |
-| enableCompression |Anger om data ska komprimeras innan de kopieras till målet. Den här inställningen minskar mängden data som överförs. |Falskt |Nej |
+| enableStaging |Ange om du vill kopiera data via ett interimistiskt lagrings lager. |False |Nej |
+| linkedServiceName |Ange namnet på en länkad [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) -tjänst som refererar till den lagrings instans som du använder som ett interimistiskt mellanlagrings lager. <br/><br/> Du kan inte använda Storage med en signatur för delad åtkomst för att läsa in data i SQL Data Warehouse via PolyBase. Du kan använda den i alla andra scenarier. |Saknas |Ja, när **enableStaging** är inställt på True |
+| sökväg |Ange den Blob Storage-sökväg som du vill ska innehålla de mellanlagrade data. Om du inte anger en sökväg skapar tjänsten en behållare för att lagra temporära data. <br/><br/> Ange endast en sökväg om du använder lagring med en signatur för delad åtkomst, eller om du vill att tillfälliga data ska finnas på en bestämd plats. |Saknas |Nej |
+| enableCompression |Anger om data ska komprimeras innan de kopieras till målet. Den här inställningen minskar mängden data som överförs. |False |Nej |
 
 >[!NOTE]
 > Om du använder mellanlagrad kopiering med komprimering aktive rad stöds inte tjänstens huvud namn eller MSI-autentisering för den länkade Blob-tjänsten.

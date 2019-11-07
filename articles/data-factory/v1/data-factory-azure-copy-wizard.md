@@ -1,6 +1,6 @@
 ---
-title: Data Factory Azure Kopieringsguiden | Microsoft Docs
-description: Läs mer om hur du använder guiden Kopiera Azure för Data Factory för att kopiera data från datakällor som stöds till mottagare.
+title: Data Factory Azure Copy-guiden
+description: Lär dig mer om hur du använder Data Factory Azure Copy-guiden för att kopiera data från data källor som stöds till mottagare.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -14,81 +14,81 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d13e304b0d10e8bd34d306426f1f9164bcc6be94
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b2ec8e2cc09b6deb236bd83cb5cca99fead97279
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60567681"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683220"
 ---
-# <a name="azure-data-factory-copy-wizard"></a>Azure Data Factory-Kopieringsguide
+# <a name="azure-data-factory-copy-wizard"></a>Guiden Azure Data Factory kopiering
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Data Factory. 
 
-Azure Data Factory-Kopieringsguiden förenklar processen att mata in data, vilket vanligtvis är ett första steg i ett scenario för integrering från slutpunkt till slutpunkt. När du använder Azure Data Factory-Kopieringsguiden, behöver du inte förstår alla JSON-definitioner för länkade tjänster, datauppsättningar och pipeliner. Guiden skapar automatiskt en pipeline för att kopiera data från den valda datakällan till den angivna platsen. Dessutom kan hjälper guiden Kopiera dig att validera data som matas in vid tidpunkten för redigering. Detta sparar tid, särskilt när du mata in data för första gången från datakällan. Starta guiden Kopiera, klicka på den **kopiera data** panelen på startsidan på din datafabrik.
+Guiden Azure Data Factory kopiering fören klar processen med att mata in data, vilket vanligt vis är ett första steg i ett slut punkt till slut punkts scenario för data integrering. När du går igenom Azure Data Factory kopierings guiden behöver du inte förstå några JSON-definitioner för länkade tjänster, data uppsättningar och pipeliner. Guiden skapar automatiskt en pipeline för att kopiera data från den valda data källan till det valda målet. Dessutom hjälper kopierings guiden dig att verifiera att data matas in vid tidpunkten för redigeringen. Detta sparar tid, särskilt när du matar in data för första gången från data källan. Starta guiden Kopiera genom att klicka på panelen **Kopiera data** på Start sidan för din data fabrik.
 
 ![Guiden Kopiera](./media/data-factory-copy-wizard/copy-data-wizard.png)
 
-## <a name="designed-for-big-data"></a>Utformad för stordata
-Den här guiden kan du enkelt flytta data från en mängd olika källor till mål i minuter. När du går igenom guiden skapas en pipeline med en Kopieringsaktivitet automatiskt åt dig, tillsammans med beroende Data Factory-entiteter (länkade tjänster och datauppsättningar). Inga ytterligare åtgärder krävs för att skapa pipelinen.   
+## <a name="designed-for-big-data"></a>Utformad för Big data
+Med den här guiden kan du enkelt flytta data från en mängd olika källor till destinationer på några minuter. När du har gått igenom guiden skapas en pipeline med en kopierings aktivitet automatiskt åt dig, tillsammans med beroende Data Factory entiteter (länkade tjänster och data uppsättningar). Inga ytterligare steg krävs för att skapa pipelinen.   
 
 ![Välja datakälla](./media/data-factory-copy-wizard/select-data-source-page.png)
 
 > [!NOTE]
-> Stegvisa anvisningar om hur du skapar en exempel-pipeline för att kopiera data från en Azure-blobb till en Azure SQL Database-tabell kan du läsa den [Kopieringsguiden självstudien](data-factory-copy-data-wizard-tutorial.md).
+> Stegvisa instruktioner för att skapa en exempel-pipeline för att kopiera data från en Azure-blob till en Azure SQL Database tabell finns i [själv studie kursen om guiden Kopiera](data-factory-copy-data-wizard-tutorial.md).
 >
 >
 
-Guiden har utformats med stordata i åtanke från starten med stöd för olika data och objekt av typen. Du kan skapa en Data Factory-pipeline som flyttar hundratals mappar, filer eller tabeller. Guiden stöder automatisk förhandsgranskning, schemat avbildning och mappning och filtrering av data.
+Guiden är utformad med Big data i åtanke från Start, med stöd för olika data-och objekt typer. Du kan redigera Data Factory pipelines som flyttar hundratals mappar, filer eller tabeller. Guiden stöder automatisk data förhands granskning, schema insamling och mappning och data filtrering.
 
-## <a name="automatic-data-preview"></a>Automatisk förhandsgranskning
-Du kan förhandsgranska en del av data från den valda datakällan för att verifiera om data är vad du vill kopiera. Dessutom tolkar källdata finns i en textfil, guiden Kopiera textfilen Läs rad- och Radavgränsare och schemat automatiskt.
+## <a name="automatic-data-preview"></a>Automatisk data förhands granskning
+Du kan förhandsgranska en del av data från den valda data källan för att kontrol lera om data är det du vill kopiera. Om käll informationen finns i en textfil, kan du dessutom parsa text filen för att lära sig rad-och kolumn avgränsare och schema automatiskt i kopierings guiden.
 
 ![Filformatinställningar](./media/data-factory-copy-wizard/file-format-settings.png)
 
-## <a name="schema-capture-and-mapping"></a>Schema-avbildning och mappning
-Schemat för indata kanske inte matchar schemat för utdata i vissa fall. Du behöver mappa kolumner från datakällans schema till kolumner från målschema i det här scenariot.
+## <a name="schema-capture-and-mapping"></a>Insamling och mappning av schema
+Schemat för indata kan inte matcha schemat för utdata i vissa fall. I det här scenariot måste du mappa kolumner från käll schemat till kolumner från mål schemat.
 
 > [!TIP]
-> När du kopierar data från SQL Server eller Azure SQL Database till Azure SQL Data Warehouse, om tabellen inte finns i målarkivet för, stöder Data Factory automatiskt när tabellen skulle skapas med datakällans schema. Läs mer i [flytta data till och från Azure SQL Data Warehouse med Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
+> När du kopierar data från SQL Server eller Azure SQL Database till Azure SQL Data Warehouse, om tabellen inte finns i mål lagret, Data Factory stödja automatisk tabell skapande med käll schema. Lär dig mer från [att flytta data till och från Azure SQL Data Warehouse med Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
 >
 
-Använd en nedrullningsbar listruta för att markera en kolumn från käll-schema ska mappas till en kolumn i målschema. Guiden Kopiera försöker förstå mönstret för kolumnmappning. Det gäller samma mönster för resten av kolumn, så att du inte behöver välja varje kolumn individuellt för att slutföra schemat mappningen. Om du vill kan åsidosätta du dessa mappningar genom att använda de nedrullningsbara listorna för att mappa kolumner i taget. Mönstret blir mer exakta du mappa flera kolumner. Kopieringsguiden uppdaterar ständigt mönstret och slutligen når rätt mönstret för kolumnmappningen som du vill uppnå.     
+Använd en nedrullningsbar listruta för att välja en kolumn från det käll schema som ska mappas till en kolumn i mål schemat. Kopierings guiden försöker förstå ditt mönster för kolumn mappning. Den använder samma mönster för resten av kolumnerna, så att du inte behöver markera varje kolumn separat för att slutföra schema mappningen. Om du vill kan du åsidosätta dessa mappningar genom att använda List rutorna för att mappa kolumnerna en i taget. Mönstret blir mer korrekt när du mappar fler kolumner. Kopierings guiden uppdaterar kontinuerligt mönstret och når i slut änden det högra mönstret för den kolumn mappning som du vill uppnå.     
 
-![Schemamappning](./media/data-factory-copy-wizard/schema-mapping.png)
+![Schema mappning](./media/data-factory-copy-wizard/schema-mapping.png)
 
 ## <a name="filtering-data"></a>Filtrera data
-Du kan filtrera källdata för att välja endast de data som ska kopieras till de mottagande datalagren. Filtrering minskar mängden data som ska kopieras till de mottagande datalagren och därmed förbättrar dataflödet för kopieringen. Den ger ett flexibelt sätt att filtrera data i en relationsdatabas genom att använda SQL-frågespråket eller filer i en Azure blobbmapp med hjälp av [Data Factory-funktioner och variabler](data-factory-functions-variables.md).   
+Du kan filtrera källdata om du bara vill välja de data som behöver kopieras till mottagar data lagret. Filtrering minskar mängden data som ska kopieras till Sink-datalagret och ökar därför data flödet för kopierings åtgärden. Det är ett flexibelt sätt att filtrera data i en Relations databas med hjälp av SQL-frågespråket eller filer i en Azure Blob-mapp med hjälp av [Data Factory Functions och variabler](data-factory-functions-variables.md).   
 
 ### <a name="filtering-of-data-in-a-database"></a>Filtrering av data i en databas
-Följande skärmbild visar ett SQL-fråga med den `Text.Format` funktion och `WindowStart` variabeln.
+Följande skärm bild visar en SQL-fråga med hjälp av funktionen `Text.Format` och `WindowStart` variabel.
 
-![Verifiera uttryck](./media/data-factory-copy-wizard/validate-expressions.png)
+![Validera uttryck](./media/data-factory-copy-wizard/validate-expressions.png)
 
-### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Filtrering av data i en Azure blobbmapp
-Du kan använda variabler i sökvägen till mappen för att kopiera data från en mapp som ska fastställas vid körning baserat på [systemvariabler](data-factory-functions-variables.md#data-factory-system-variables). Variablerna som stöds är: **{year}** , **{month}** , **{day}** , **{hour}** , **{minute}** , och **{anpassade}** . Till exempel: inputfolder / {year} / {month} / {day}.
+### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Filtrering av data i en Azure Blob-mapp
+Du kan använda variabler i mappsökvägen för att kopiera data från en mapp som fastställs vid körning baserat på [Systemvariabler](data-factory-functions-variables.md#data-factory-system-variables). Variabler som stöds är: **{Year**}, **{Month}** , **{Day}** , **{Hour}** , **{Minute}** och **{Custom}** . Exempel: inputfolder/{year}/{month}/{Day}.
 
-Anta att du har anger mappar i följande format:
+Anta att du har inmatade mappar i följande format:
 
     2016/03/01/01
     2016/03/01/02
     2016/03/01/03
     ...
 
-Klicka på den **Bläddra** för **fil eller mapp**, bläddra till någon av dessa mappar (exempel: 2016 -> 03 -> 02-01 >), och klicka på **Välj**. Du bör se `2016/03/01/02` i textrutan. Nu kan ersätta **2016** med **{year}** , **03** med **{month}** , **01** med **{day}** , och **02** med **{hour}** , och tryck på den **fliken** nyckel. Du bör se listrutorna för att välja formatet för dessa fyra variabler:
+Klicka på knappen **Bläddra** för **filen eller mappen**, bläddra till någon av dessa mappar (till exempel 2016-> 03-> 01-> 02) och klicka på **Välj**. Du bör se `2016/03/01/02` i text rutan. Ersätt nu **2016** med **{Year}** , **03** med **{Month}** , **01** med **{Day}** och **02** med **{Hour}** och tryck på **TABB** -tangenten. Du bör se List rutor för att välja formatet för dessa fyra variabler:
 
 ![Använda systemvariabler](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-I följande skärmbild visas kan du också använda en **anpassade** variabeln och eventuella [stöds formatsträngar](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Välj en mapp med denna struktur genom att använda den **Bläddra** knappen först. Ersätt ett värde med **{anpassade}** , och tryck på den **fliken** nyckel till textruta där du kan skriva Formatsträngen som visas.     
+Som du ser i följande skärm bild kan du också använda en **anpassad** variabel och alla [format strängar som stöds](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Använd **bläddringsknappen** först om du vill välja en mapp med den strukturen. Ersätt sedan ett värde med **{Custom}** och tryck på **TABB** -tangenten för att se text rutan där du kan skriva format strängen.     
 
-![Med hjälp av anpassad variabel](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
+![Använda anpassad variabel](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 
-## <a name="scheduling-options"></a>Alternativ för schemaläggning
-Du kan köra kopieringen en gång eller enligt ett schema (varje timme, varje dag, och så vidare). Båda dessa alternativ kan användas för anslutningarna mellan miljöer, inklusive lokala, moln och lokala skrivbord kopian bredd.
+## <a name="scheduling-options"></a>Schemaläggnings alternativ
+Du kan köra kopierings åtgärden en gång eller enligt ett schema (varje timme, varje dag och så vidare). Båda dessa alternativ kan användas för anslutningens bredd i olika miljöer, inklusive lokalt, moln och lokal Skriv bords kopia.
 
-Flyttning av data från en källa till ett mål kan bara en gång i en enstaka kopieringsåtgärd. Det gäller för data av valfri storlek och ett format som stöds. Schemalagd kopiering låter dig kopiera data på en föreskrivna upprepning. Du kan använda omfattande inställningar (t.ex. Försök igen, tidsgräns och aviseringar) för att konfigurera schemalagda kopia.
+En enstaka kopierings åtgärd gör det möjligt att flytta data från en källa till ett mål bara en gång. Den gäller för data av valfri storlek och alla format som stöds. Med den schemalagda kopian kan du kopiera data på en bestämd upprepning. Du kan använda avancerade inställningar (t. ex. återförsök, tids gräns och aviseringar) för att konfigurera den schemalagda kopian.
 
-![Schemaläggning av egenskaper](./media/data-factory-copy-wizard/scheduling-properties.png)
+![Schemaläggnings egenskaper](./media/data-factory-copy-wizard/scheduling-properties.png)
 
 ## <a name="next-steps"></a>Nästa steg
-En snabb genomgång på hur du använder Data Factory-Kopieringsguiden för att skapa en pipeline med en Kopieringsaktivitet finns i [självstudien: Skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
+En snabb genom gång av hur du använder Data Factory kopierings guiden för att skapa en pipeline med kopierings aktivitet finns i [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md).

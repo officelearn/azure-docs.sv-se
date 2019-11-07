@@ -1,5 +1,5 @@
 ---
-title: Bevilja åtkomst till Azure SQL Database och SQL Data Warehouse | Microsoft Docs
+title: Bevilja åtkomst till Azure SQL Database och SQL Data Warehouse
 description: Läs om hur du beviljar åtkomst till Microsoft Azure SQL Database och SQL Data Warehouse.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 05/08/2019
-ms.openlocfilehash: 1292dbf43b5246fe3da95ead4d5d9113b4bc84f9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c115cd7e4d531bfdc7ddbacd4f6eff2a892ea3c3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569041"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690749"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Azure SQL Database och SQL Data Warehouse åtkomst kontroll
 
@@ -33,7 +33,7 @@ Azure SQL Database-tjänsten är endast tillgänglig via TCP-port 1433. Se till 
 
 Som en del av anslutningen omdirigeras anslutningar från virtuella Azure-datorer till en annan IP-adress och port, som är unik för varje arbetsroll. Portnumret är i intervallet 11000 till 11999. Mer information om TCP-portar finns i [portar utöver 1433 för ADO.NET 4,5 och SQL Databas2](sql-database-develop-direct-route-ports-adonet-v12.md).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autentisering
 
 SQL Database stöder två typer av autentisering:
 
@@ -50,7 +50,7 @@ Användarkonton kan skapas i huvuddatabasen och kan tilldelas behörigheter i al
 
 Ett bra tips är att ditt program bör använda ett särskilt konto för autentisering – på det här sättet kan du begränsa behörigheterna för programmet och minska riskerna för skadlig programvara om din programkod är sårbar för ett SQL-angrepp. Den rekommenderade metoden är att skapa en [innesluten databasanvändare](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable), vilket gör att din app kan autentisera direkt till databasen. 
 
-## <a name="authorization"></a>Authorization
+## <a name="authorization"></a>Auktorisering
 
 Auktorisering hänvisar till vad en användare kan göra inom en Azure SQL-databas och det styrs av ditt användarkontos databas [rollmedlemskap](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles) och [behörigheter på objektnivå](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine). Ett bra tips är att du ska ge användare så få behörigheter som möjligt. Serveradministratörskontot som du ansluter med är medlem i db_owner som har behörighet att göra vad som helst i databasen. Spara det här kontot för att distribuera schemauppgraderingar och andra hanteringsåtgärder. Använd kontot "ApplicationUser" med mer begränsade behörigheter för att ansluta från ditt program till databasen med den minsta behörigheten som krävs av programmet. Mer information finns i [Hantera inloggningar](sql-database-manage-logins.md).
 

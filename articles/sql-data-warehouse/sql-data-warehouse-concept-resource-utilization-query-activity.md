@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse hanterbarhet och övervakning – fråga aktivitet, resursutnyttjande | Microsoft Docs
+title: Hantering och övervakning – fråga aktivitet, resursutnyttjande
 description: 'Lär dig vilka funktioner som är tillgängliga för att hantera och övervaka Azure SQL Data Warehouse. Använd Azure Portal-och DMV: er (Dynamic Management views) för att förstå frågans aktivitet och resursutnyttjande för ditt informations lager.'
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 08/09/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 786ae1f18d52c6763b60f5019ecfe365f1cd540a
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 1a210e2622212ed59dfa12f9f9a108c6ffe08714
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71334105"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692891"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Övervaka resursutnyttjande och fråga aktivitet i Azure SQL Data Warehouse
 Azure SQL Data Warehouse ger en omfattande övervaknings upplevelse inom Azure Portal till Surface Insights för arbets belastningen för informations lagret. Azure Portal är det rekommenderade verktyget när du övervakar ditt informations lager eftersom det tillhandahåller konfigurerbara kvarhållningsperiod, varningar, rekommendationer och anpassningsbara diagram och instrument paneler för mått och loggar. Portalen gör det också möjligt att integrera med andra Azure Monitoring-tjänster som Operations Management Suite (OMS) och Azure Monitor (loggar) för att ge en helhets övervakning av inte bara ditt informations lager, utan även hela Azure Analytics plattform för en integrerad övervaknings upplevelse. Den här dokumentationen beskriver vilka övervaknings funktioner som är tillgängliga för att optimera och hantera din analys plattform med SQL Data Warehouse. 
@@ -24,11 +25,11 @@ Azure SQL Data Warehouse ger en omfattande övervaknings upplevelse inom Azure P
 Följande mått är tillgängliga i Azure Portal för SQL Data Warehouse. Dessa mått är uppdelade via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
 
 
-| Måttnamn             | Beskrivning                                                  | Sammansättningstyp: |
+| Mått namn             | Beskrivning                                                  | Sammansättnings typ |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
-| Processorprocent          | CPU-användning över alla noder för data lagret      | Maximal          |
-| IO-procent för data      | I/o-användning över alla noder för data lagret       | Maximal          |
-| Minnesprocent       | Minnes användning (SQL Server) över alla noder för data lagret | Maximal          |
+| CPU-procent          | CPU-användning över alla noder för data lagret      | Maximal          |
+| Data IO-procent      | I/o-användning över alla noder för data lagret       | Maximal          |
+| Minnes procent       | Minnes användning (SQL Server) över alla noder för data lagret | Maximal          |
 | Lyckade anslutningar  | Antal lyckade anslutningar till data                 | Totalt            |
 | Misslyckade anslutningar      | Antal misslyckade anslutningar till data lagret           | Totalt            |
 | Blockerad av brand väggen     | Antal inloggningar till data lagret som blockerades     | Totalt            |
@@ -45,7 +46,7 @@ Följande mått är tillgängliga i Azure Portal för SQL Data Warehouse. Dessa 
 > - Minnes procent visar användningen även om informations lagret är i inaktivt läge – det visar inte den aktiva minnes användningen för arbets belastningen. Använd och spåra det här måttet tillsammans med andra (tempdb, Gen2 cache) för att fatta ett holistiskt beslut om skalning för ytterligare cache-kapacitet ökar arbets belastnings prestandan för att uppfylla dina krav.
 
 
-## <a name="query-activity"></a>Frågeaktivitet
+## <a name="query-activity"></a>Fråga aktivitet
 För en programmerings upplevelse när du övervakar SQL Data Warehouse via T-SQL tillhandahåller tjänsten en uppsättning vyer för dynamisk hantering (DMV: er). Dessa vyer är användbara när du aktivt ska felsöka och identifiera Flask halsar i prestanda med din arbets belastning.
 
 Om du vill visa en lista över DMV: er som SQL Data Warehouse tillhandahåller kan du läsa den här [dokumentationen](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs). 

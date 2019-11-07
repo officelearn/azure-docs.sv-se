@@ -1,6 +1,6 @@
 ---
 title: Djup inlärning eller Machine Learning
-titleSuffix: Azure Machine Learning
+titleSuffix: Azure
 description: Lär dig hur djup inlärningen rör maskin inlärning och artificiell intelligens. Djup inlärning används i scenarier som bedrägeri identifiering, röst & ansikts igenkänning, sentiment analys och tids serie prognoser.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 11/04/2019
-ms.openlocfilehash: cc98e620194c5bf67d2efa12d61af44d5527bafc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2ed9f933e790aa70b257e27fa2bbbc04f6a2e077
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497498"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648000"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Djup inlärning eller Machine Learning
 

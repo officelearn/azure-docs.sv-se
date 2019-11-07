@@ -2,20 +2,20 @@
 title: Azure blockchain service-versioner, uppdatering och uppgradering
 description: Översikt över de redovisnings versioner som stöds i Azure blockchain-tjänsten, inklusive principer för system korrigeringar och systemhanterade uppgraderingar och användar hanterade uppgraderingar.
 services: azure-blockchain
-keywords: Blockchain
+keywords: ''
 author: PatAltimore
 ms.author: patricka
 ms.date: 10/14/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 40719f1c353b8961e14815cb61e7a862b47fc6f5
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 16d0f0876e7d75dfd0266468ddc3005b86fc632f
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329122"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579805"
 ---
 # <a name="supported-azure-blockchain-service-ledger-versions"></a>Versioner som stöds av Azure blockchain service-redovisning
 

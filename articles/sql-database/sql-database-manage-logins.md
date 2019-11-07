@@ -1,5 +1,5 @@
 ---
-title: 'Azure SQL: inloggningar och användare | Microsoft Docs'
+title: Azure SQL-inloggningar och användare
 description: Lär dig mer om SQL Database och SQL Data Warehouse säkerhets hantering, särskilt hur du hanterar databas åtkomst och inloggnings säkerhet via huvud kontot på server nivå.
 keywords: sql database-säkerhet, hantering av databassäkerhet, inloggningssäkerhet, databassäkerhet, databasåtkomst
 services: sql-database
@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/26/2019
-ms.openlocfilehash: 9dae1e3864f5f1cf745bfe9b0872f15f61471a1c
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 501df95b80bd651020fa044970f6bc701959a6a5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014492"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689472"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Styra och bevilja databas åtkomst till SQL Database och SQL Data Warehouse
 
@@ -49,11 +49,11 @@ Administratörs kontona för **Server administratören** och **Azure AD** har f�
 
 - Är de enda konton som kan ansluta automatiskt till alla SQL Database på servern. (För att kunna ansluta till en användardatabas måste andra konton antingen vara ägare till databasen eller ha ett användarkonto i databasen.)
 - Dessa konton går in i användardatabaser som användaren `dbo` och de har alla behörigheter i användardatabaserna. (Ägaren till en användardatabas går också in i databasen som användaren `dbo`.) 
-- Ange `master` inte databasen `dbo` som användare och har begränsad behörighet i Master. 
-- Är **inte** medlemmar i den fasta Server `sysadmin` rollen standard SQL Server, vilket inte är tillgängligt i SQL Database.  
+- Ange inte `master` databasen som `dbo` användare och har begränsad behörighet i Master. 
+- Är **inte** medlemmar i standard SQL Server `sysadmin` fasta Server rollen, som inte är tillgänglig i SQL Database.  
 - Kan skapa, ändra och släppa databaser, inloggningar, användare i huvud servrar och IP-brandvägg på server nivå.
-- Kan lägga till och ta bort medlemmar `dbmanager` i `loginmanager` rollerna och.
-- Kan visa `sys.sql_logins` system tabellen.
+- Kan lägga till och ta bort medlemmar i `dbmanager` och `loginmanager` roller.
+- Kan visa `sys.sql_logins` system tabell.
 
 ### <a name="configuring-the-firewall"></a>Konfigurering av brandväggen
 
@@ -77,15 +77,15 @@ En genom gång av hur du skapar en server, en databas, en IP-brandvägg på serv
 ## <a name="additional-server-level-administrative-roles"></a>Ytterligare administrativa roller på servernivå
 
 >[!IMPORTANT]
->Det här avsnittet gäller inte för **Azure SQL Database hanterade** instansen eftersom rollerna är speciella för **Azure SQL Database**.
+>Det här avsnittet gäller inte för **Azure SQL Database hanterade instansen** eftersom rollerna är speciella för **Azure SQL Database**.
 
 Förutom de administrativa roller på servernivå som diskuterats, erbjuder SQL Database två begränsade administrativa roller i huvuddatabasen där användarkonton kan läggas till som beviljar behörigheter att antingen skapa databaser eller hantera inloggningar.
 
 ### <a name="database-creators"></a>Databasskapare
 
-En av dessa administrativa roller är **dbmanager**-rollen. Medlemmar i den här rollen kan skapa nya databaser. För att använda den här rollen skapar du en användare i `master`-databasen och lägger sedan till användaren i **dbmanager**-databasrollen. Om du vill skapa en databas måste användaren vara en användare baserad på en SQL Server inloggning i `master` databasen eller innesluten databas användare baserat på en Azure Active Directory användare.
+En av dessa administrativa roller är **dbmanager**-rollen. Medlemmar i den här rollen kan skapa nya databaser. För att använda den här rollen skapar du en användare i `master`-databasen och lägger sedan till användaren i **dbmanager**-databasrollen. Om du vill skapa en databas måste användaren vara en användare baserad på en SQL Server inloggning i `master` databasen eller en databas användare som är baserad på en Azure Active Directory användare.
 
-1. Anslut till `master` databasen med ett administratörs konto.
+1. Anslut till `master`-databasen med ett administratörs konto.
 2. Skapa en inloggning för SQL Server autentisering med hjälp av instruktionen [create login](https://msdn.microsoft.com/library/ms189751.aspx) . Exempel på instruktion:
 
    ```sql
@@ -97,7 +97,7 @@ En av dessa administrativa roller är **dbmanager**-rollen. Medlemmar i den här
 
    För att förbättra prestandan cachelagras inloggningar (huvudnamn på servernivå) tillfälligt på databasnivån. Information om hur du uppdaterar autentiseringscache finns i [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
 
-3. Skapa en användare i- [](https://msdn.microsoft.com/library/ms173463.aspx) databasenmedhjälpavinstruktionenCreate`master` User. Användaren kan vara en Azure Active Directory-autentiserad oberoende databasanvändare (om du har konfigurerat din miljö för Azure AD-autentisering), eller en SQL Server-autentiserad oberoende databasanvändare, eller en SQL Server-autentiserad användare baserad på en SQL Server-autentiserad inloggning (skapad i föregående steg.) Exempel på instruktioner:
+3. Skapa en användare i `master`-databasen med hjälp av instruktionen [create User](https://msdn.microsoft.com/library/ms173463.aspx) . Användaren kan vara en Azure Active Directory autentisering som innehåller databas användare (om du har konfigurerat din miljö för Azure AD-autentisering) eller en SQL Server autentisering som innehåller en databas användare eller en SQL Server autentisering som är baserad på en SQL Server inloggning för autentisering (skapades i föregående steg.) Exempel på uttryck:
 
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
@@ -105,7 +105,7 @@ En av dessa administrativa roller är **dbmanager**-rollen. Medlemmar i den här
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. Lägg till den nya användaren i databas rollen **DBManager** i `master` med hjälp av [Alter Role](https://msdn.microsoft.com/library/ms189775.aspx) -instruktionen. Exempel på instruktioner:
+4. Lägg till den nya användaren i **DBManager** -databas rollen i `master` med hjälp av [Alter Role](https://msdn.microsoft.com/library/ms189775.aspx) -instruktionen. Exempel på instruktioner:
 
    ```sql
    ALTER ROLE dbmanager ADD MEMBER Mary; 
@@ -117,7 +117,7 @@ En av dessa administrativa roller är **dbmanager**-rollen. Medlemmar i den här
 
 5. Vid behov konfigurerar du en brandväggsregel så att den nya användaren kan ansluta. (Den nya användaren kan omfattas av en befintlig brandväggsregel.)
 
-Användaren kan nu ansluta till `master` databasen och kan skapa nya databaser. Det konto som skapar databasen blir ägare till databasen.
+Användaren kan nu ansluta till den `master` databasen och kan skapa nya databaser. Det konto som skapar databasen blir ägare till databasen.
 
 ### <a name="login-managers"></a>Inloggningshanterare
 
@@ -125,7 +125,7 @@ Den andra administrativa rollen är inloggningshanterare-rollen. Medlemmar i den
 
 ## <a name="non-administrator-users"></a>Användare som är icke-administratörer
 
-Icke-administratörskonton behöver i allmänhet inte åtkomst till huvuddatabasen. Skapa oberoende databasanvändare på databasnivå med hjälp av instruktionen [SKAPA ANVÄNDARE (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx). Användaren kan vara en Azure Active Directory-autentiserad oberoende databasanvändare (om du har konfigurerat din miljö för Azure AD-autentisering), eller en SQL Server-autentiserad oberoende databasanvändare, eller en SQL Server-autentiserad användare baserad på en SQL Server-autentiserad inloggning (skapad i föregående steg.) Mer information finns i [Oberoende databasanvändare – göra databasen portabel](https://msdn.microsoft.com/library/ff929188.aspx). 
+Icke-administratörskonton behöver i allmänhet inte åtkomst till huvuddatabasen. Skapa oberoende databasanvändare på databasnivå med hjälp av instruktionen [SKAPA ANVÄNDARE (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx). Användaren kan vara en Azure Active Directory autentisering som innehåller databas användare (om du har konfigurerat din miljö för Azure AD-autentisering) eller en SQL Server autentisering som innehåller en databas användare eller en SQL Server autentisering som är baserad på en SQL Server inloggning för autentisering (skapades i föregående steg.) Mer information finns i [inneslutna databas användare – göra databasen portabel](https://msdn.microsoft.com/library/ff929188.aspx). 
 
 För att skapa användare, anslut till databasen och köra instruktioner som liknar följande exempel:
 
@@ -142,7 +142,7 @@ GRANT ALTER ANY USER TO Mary;
 
 Om du vill ge fler användare fullständig kontroll över databasen gör du dem till medlem i den fasta databas rollen **db_owner** .
 
-I Azure SQL Database använder du `ALTER ROLE` instruktionen.
+I Azure SQL Database använder du `ALTER ROLE`-instruktionen.
 
 ```sql
 ALTER ROLE db_owner ADD MEMBER Mary;
@@ -213,7 +213,7 @@ När du hanterar inloggningar och användare i SQL Database, bör du överväga 
 - När du kör uttryck `CREATE USER` med alternativ `FOR/FROM LOGIN`, måste det vara det enda uttrycket i en Transact-SQL-batch.
 - När du kör uttryck `ALTER USER` med alternativ `WITH LOGIN`, måste det vara det enda uttrycket i en Transact-SQL-batch.
 - För `CREATE/ALTER/DROP` behöver en användare behörighet `ALTER ANY USER` på databasen.
-- När ägaren av en databas roll försöker lägga till eller ta bort en annan databas användare till eller från den databas rollen kan följande fel uppstå: **Användaren eller rollen "name" finns inte i den här databasen.** Det här felet beror på att användaren inte är synlig för ägaren. Ge rollägare behörighet `VIEW DEFINITION` på användaren för att lösa problemet. 
+- När ägaren av en databasroll försöker lägga till eller ta bort en annan databasanvändare till eller från databasrollen uppstår följande fel: **Användarens eller rollens ”Namn” finns inte i den här databasen.** Det här felet beror på att användaren inte är synlig för ägaren. Ge rollägare behörighet `VIEW DEFINITION` på användaren för att lösa problemet. 
 
 
 ## <a name="next-steps"></a>Nästa steg

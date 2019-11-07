@@ -1,5 +1,5 @@
 ---
-title: Utforma globalt tillgängliga tjänster med Azure SQL Database | Microsoft Docs
+title: Utforma globalt tillgängliga tjänster med hjälp av Azure SQL Database
 description: Lär dig mer om program design för tjänster med hög tillgänglighet med hjälp av Azure SQL Database.
 keywords: moln haveri beredskap, katastrof återställnings lösningar, säkerhets kopiering av AppData, geo-replikering, planering av affärs kontinuitet
 services: sql-database
@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 12/04/2018
-ms.openlocfilehash: a79fa40568502a73194e467de2227d54931d0100
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 034d696fd8c9aae826d0bbc7e4d028cefad09840
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568953"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690715"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Designa globalt tillgängliga tjänster med hjälp av Azure SQL Database
 
@@ -26,7 +26,7 @@ När du skapar och distribuerar moln tjänster med Azure SQL Database använder 
 > [!NOTE]
 > Om du använder Premium-eller Affärskritisk databaser och elastiska pooler kan du göra dem flexibla till regionala drifts störningar genom att konvertera dem till zonens redundant distributions konfiguration. Se [zoner-redundanta databaser](sql-database-high-availability.md).  
 
-## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Scenario 1: Använda två Azure-regioner för affärs kontinuitet med minimal stillestånds tid
+## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Scenario 1: använda två Azure-regioner för affärs kontinuitet med minimal stillestånds tid
 
 I det här scenariot har programmen följande egenskaper:
 
@@ -35,7 +35,7 @@ I det här scenariot har programmen följande egenskaper:
 * Webb nivån och data nivån måste vara samordnad för att minska svars tid och trafik kostnader
 * I grunden är nedtid en högre affärs risk för dessa program än data förlust
 
-I det här fallet är program distributionens topologi optimerad för hantering av regionala katastrofer när alla program komponenter behöver redundansväxla. Diagrammet nedan visar topologin. För geografisk redundans distribueras programmets resurser till region A och B. Men resurserna i region B används inte förrän regionen A Miss lyckas. En failover-grupp konfigureras mellan de två regionerna för att hantera databas anslutning, replikering och redundans. Webb tjänsten i båda regionerna har kon figurer ATS för åtkomst till databasen via Read-Write Listener  **&lt;redundans-Group&gt;-Name. Database.Windows.net** (1). Traffic Manager har kon figurer ATS för användning av [prioritets dirigering](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
+I det här fallet är program distributionens topologi optimerad för hantering av regionala katastrofer när alla program komponenter behöver redundansväxla. Diagrammet nedan visar topologin. För geografisk redundans distribueras programmets resurser till region A och B. Men resurserna i region B används inte förrän regionen A Miss lyckas. En failover-grupp konfigureras mellan de två regionerna för att hantera databas anslutning, replikering och redundans. Webb tjänsten i båda regionerna har kon figurer ATS för åtkomst till databasen via Läs-och skriv lyssnare **&lt;redundans-grupp-namn&gt;. Database.Windows.net** (1). Traffic Manager har kon figurer ATS för användning av [prioritets dirigering](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
 
 > [!NOTE]
 > [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) används endast i den här artikeln i illustrations syfte. Du kan använda valfri belastnings Utjämnings lösning som stöder metoden prioriterad routning.
@@ -101,7 +101,7 @@ Det här design mönstret har flera **fördelar**:
 
 **Kompromissen** är att programmet måste kunna köras i skrivskyddat läge.
 
-## <a name="scenario-3-application-relocation-to-a-different-geography-without-data-loss-and-near-zero-downtime"></a>Scenario 3: Program flyttning till en annan geografi utan data förlust och nästan noll stillestånd
+## <a name="scenario-3-application-relocation-to-a-different-geography-without-data-loss-and-near-zero-downtime"></a>Scenario 3: program flyttning till en annan geografi utan data förlust och nästan noll stillestånds tid
 
 I det här scenariot har programmet följande egenskaper:
 
@@ -112,7 +112,7 @@ I det här scenariot har programmet följande egenskaper:
 
 För att uppfylla dessa krav måste du garantera att användar enheten **alltid** ansluter till programmet som distribueras i samma geografi för de skrivskyddade åtgärderna, till exempel att bläddra bland data, analyser osv. OLTP-åtgärderna bearbetas i samma geografi som det **mesta av tiden**. Till exempel under dagen då OLTP-åtgärder bearbetas i samma geografi, men under de tids perioder som de kunde bearbetas i en annan geografi. Om aktiviteten för slutanvändare huvudsakligen sker under arbets tiden kan du garantera optimala prestanda för de flesta av användarna. Följande diagram visar den här topologin.
 
-Programmets resurser bör distribueras i varje geografiskt område där du har avsevärd användning efter frågan. Om ditt program till exempel används aktivt i USA, måste Europeiska unionen och Asien, sydöstra programmet distribueras till alla dessa geografiska områden. Den primära databasen ska växlas dynamiskt från en geografi till nästa i slutet av arbets tiden. Den här metoden kallas "Följ solen". OLTP-arbetsbelastningen ansluter alltid till databasen via Read-Write Listener  **&lt;redundans-Group&gt;-Name. Database.Windows.net** (1). Den skrivskyddade arbets belastningen ansluter till den lokala databasen direkt med databaserna Server slut punkts  **&lt;Server-Name&gt;. Database.Windows.net** (2). Traffic Manager konfigureras med [routningsmetod för prestanda](../traffic-manager/traffic-manager-configure-performance-routing-method.md). Det säkerställer att slutanvändarens enhet är ansluten till webb tjänsten i den närmaste regionen. Traffic Manager måste konfigureras med slut punkts övervakning aktiverat för varje webb tjänst slut punkt (3).
+Programmets resurser bör distribueras i varje geografiskt område där du har avsevärd användning efter frågan. Om ditt program till exempel används aktivt i USA, måste Europeiska unionen och Asien, sydöstra programmet distribueras till alla dessa geografiska områden. Den primära databasen ska växlas dynamiskt från en geografi till nästa i slutet av arbets tiden. Den här metoden kallas "Följ solen". OLTP-arbetsbelastningen ansluter alltid till databasen via Läs-och skriv lyssnare **&lt;redundans-grupp-namn&gt;. Database.Windows.net** (1). Den skrivskyddade arbets belastningen ansluter till den lokala databasen direkt med databas serverns slut punkt **&lt;Server namn&gt;. Database.Windows.net** (2). Traffic Manager konfigureras med [routningsmetod för prestanda](../traffic-manager/traffic-manager-configure-performance-routing-method.md). Det säkerställer att slutanvändarens enhet är ansluten till webb tjänsten i den närmaste regionen. Traffic Manager måste konfigureras med slut punkts övervakning aktiverat för varje webb tjänst slut punkt (3).
 
 > [!NOTE]
 > Konfigurationen av redundanskonfiguration definierar vilken region som används för redundans. Eftersom den nya primären finns i en annan geografi, resulterar redundansväxlingen i längre latens för både OLTP-och skrivskyddade arbets belastningar tills den berörda regionen är online igen.
@@ -152,7 +152,7 @@ Men det finns vissa **kompromisser**:
 
 Din specifika strategi för haveri beredskap för molnet kan kombinera eller utöka de här design mönstren så att de passar bäst för ditt program.  Som tidigare nämnts är den strategi du väljer baserad på det service avtal som du vill erbjuda dina kunder och topologin för program distribution. I följande tabell jämförs de val som baseras på återställnings punkt mål (återställnings punkt mål) och beräknad återställnings tid (ERT) för att hjälpa ditt beslut.
 
-| Mönster | Mål för återställningspunkt | ERT |
+| Mönster | BEGÄRT | ERT |
 |:--- |:--- |:--- |
 | Aktiv-passiv distribution för haveri beredskap med samplacerad databas åtkomst |Läs-och skriv åtkomst < 5 SEK |Tid för identifiering av identifiering + DNS TTL |
 | Aktiv-aktiv distribution för belastnings utjämning för program |Läs-och skriv åtkomst < 5 SEK |Tid för identifiering av identifiering + DNS TTL |

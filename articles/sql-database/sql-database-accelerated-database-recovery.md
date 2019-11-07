@@ -1,5 +1,5 @@
 ---
-title: Accelererad databas återställning – Azure SQL Database | Microsoft Docs
+title: Accelererad databas återställning – Azure SQL Database
 description: Azure SQL Database har en ny funktion som ger snabb och konsekvent databas återställning, återgång av momentan transaktion och aggressiv logg trunkering för enskilda databaser och databaser i pooler i Azure SQL Database och databaser i Azure SQL data Lagerinleveransen.
 ms.service: sql-database
 ms.subservice: high-availability
@@ -10,12 +10,12 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: d516dc51a25cbef92ff9fa22012773507b528a99
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e66b3e6563d796cc7b59e82233bd1b22bc906c6e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569627"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691350"
 ---
 # <a name="accelerated-database-recovery"></a>Accelererad databas återställning
 
@@ -95,7 +95,7 @@ De fyra viktiga komponenterna i ADR är:
 
 - **Beständiga versions lager (PVS)**
 
-  Det sparade versions lagret är en ny mekanism för SQL Database Engine för att bevara de rad versioner som genererats i själva databasen i stället `tempdb` för i det traditionella versions lagret. PVS möjliggör resurs isolering samt bättre tillgänglighet för läsbara sekundär servrar.
+  Det beständiga versions arkivet är en ny mekanism för SQL Database-motor för att bevara de rad versioner som genereras i själva databasen i stället för den traditionella `tempdb` versions lagringen. PVS möjliggör resurs isolering samt bättre tillgänglighet för läsbara sekundär servrar.
 
 - **Logisk återställning**
 

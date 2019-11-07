@@ -8,27 +8,32 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5e6e51d2a058f89a04a81800b81f3c316be4eab7
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: b47604f2c8703ba587e98d68dc30552e5944f562
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301495"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614490"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Noll drift stopp distribution för Durable Functions
+
 Den [tillförlitliga körnings modellen](durable-functions-checkpointing-and-replay.md) för Durable Functions kräver att dirigeringar är deterministiska, vilket skapar en ytterligare utmaning att överväga när du distribuerar uppdateringar. När en distribution innehåller ändringar i aktivitets funktionens signaturer eller Orchestrator-logik, går det inte att utföra Dirigerings instanser i flygning. Den här situationen är särskilt ett problem för instanser av långvariga dirigeringar som kan representera timmar eller arbets dagar.
 
 För att förhindra att dessa problem uppstår måste du antingen skjuta upp distributionen tills alla pågående Dirigerings instanser har slutförts, eller se till att alla pågående Orchestration-instanser använder befintliga versioner av dina funktioner. Mer information om versions hantering finns [i versions hantering i Durable Functions](durable-functions-versioning.md).
 
+> [!NOTE]
+> Den här artikeln innehåller rikt linjer för functions-appar som riktar sig Durable Functions 1. x. Den har ännu inte uppdaterats till ändringar som gjorts i Durable Functions 2. x. Mer information om skillnaderna mellan tilläggs versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
+
 Följande diagram jämför de tre huvud strategierna för att uppnå en distribution utan drift stopp för Durable Functions: 
 
-| Strategi |  Används till att | Proffs | Nackdelar |
+| Strategi |  När du ska använda detta | Proffs | Nackdelar |
 | -------- | ------------ | ---- | ---- |
 | **[Versions hantering](#versioning)** |  Program som inte upplever frekventa [ändringar.](durable-functions-versioning.md) | Enkelt att implementera. |  Ökad funktions program storlek i minnet och antalet funktioner.<br/>Kod duplicering. |
 | **[Status kontroll med plats](#status-check-with-slot)** | Ett system som inte har långvariga dirigeringar som varar mer än 24 timmar eller ofta överlappande dirigeringar. | Enkel kodbas.<br/>Kräver inte ytterligare hantering av funktions program. | Kräver ytterligare lagrings konto eller aktivitets NAVs hantering.<br/>Kräver tids perioder då inga dirigeringar körs. |
 | **[Program dirigering](#application-routing)** | Ett system som inte har några tids perioder när Orchestration inte körs, t. ex. de som har ett Orchestration som varar mer än 24 timmar eller med ofta överlappande dirigeringar. | Hanterar nya versioner av system med kontinuerlig körning av dirigeringar som har avbrutit ändringar. | Kräver en intelligent programrouter.<br/>Det gick inte att max gränsen för antalet funktions program som tillåts av din prenumeration (standard 100). |
 
 ## <a name="versioning"></a>Versionshantering
+
 Definiera nya versioner av funktionerna och lämna de gamla versionerna i din Function-app. Som du kan se i diagrammet blir en funktions version en del av dess namn. Eftersom tidigare versioner av Functions bevaras, kan Dirigerings instanser i flyg plan fortsätta att referera till dem. Efter frågas begär Anden om nya Orchestration-instanser att anropa den senaste versionen, vilken Orchestration-klienten kan referera till från en app-inställning.
 
 ![Strategi för versions hantering](media/durable-functions-zero-downtime-deployment/versioning-strategy.png)
@@ -62,7 +67,7 @@ Diagrammet nedan visar visar den beskrivna konfigurationen av distributions plat
 
 Följande JSON-fragment är exempel på inställningen för anslutnings strängen i Host. JSON-filen.
 
-#### <a name="functions-2x"></a>Functions 2.x
+#### <a name="functions-20"></a>Functions 2,0
 
 ```json
 {
@@ -146,7 +151,7 @@ Routern hanterar det tillstånd för vilken version av appens kod distribueras t
 
 ![Programroutning (första gången)](media/durable-functions-zero-downtime-deployment/application-routing.png)
 
-Routern dirigerar distributions-och Dirigerings förfrågningar till lämplig Function-app baserat på `version` som skickats med begäran och ignorerar korrigerings versionen.
+Routern dirigerar distributions-och Dirigerings begär anden till lämplig Function-app baserat på `version` som skickas med begäran och ignorerar korrigerings versionen.
 
 När du distribuerar en ny version av din app *utan* en avbrytande ändring kan du öka korrigerings versionen. Routern distribuerar till din befintliga Function-app och skickar begär Anden för gamla och nya versioner av koden dirigeras till samma Function-app.
 

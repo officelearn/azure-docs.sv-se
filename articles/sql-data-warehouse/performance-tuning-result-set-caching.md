@@ -1,6 +1,6 @@
 ---
-title: Prestanda justering med cachelagring av resultat uppsättningar | Microsoft Docs
-description: Översikt över funktioner
+title: Prestanda justering med cachelagring av resultat uppsättningar
+description: Översikt över cachelagring av resultat uppsättningar för Azure SQL Data Warehouse
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
-ms.openlocfilehash: 6dd3172dd9098db0cb7ec09e812eec65f717340a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 461320b9c3ed48176fb60fe695704c582edcd552
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163192"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692948"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Prestanda justering med cachelagring av resultat uppsättningar  
 När cachelagring av resultat uppsättningar är aktiverat cachelagrar Azure SQL Data Warehouse automatiskt frågeresultat i användar databasen för upprepad användning.  Detta gör att efterföljande fråge körningar kan hämta resultat direkt från det sparade cacheminnet så att omberäkning inte behövs.   Cachelagring av resultat uppsättningar förbättrar prestanda för frågor och minskar användningen av beräknings resurser.  Dessutom använder frågor som använder cachelagrade resultat uppsättningar inte några samtidiga platser och räknas därför inte över mot befintliga samtidighets gränser. Användare kan bara komma åt de cachelagrade resultaten om de har samma data åtkomst behörigheter som de användare som skapar de cachelagrade resultaten.  

@@ -88,10 +88,6 @@
           href: ingest-data-logstash.md
         - name: Kopiera data med Azure Data Factory
           href: data-factory-load-data.md
-    - name: Distribuera
-      items:
-        - name: DevOps-uppgift
-          href: devops.md
     - name: Söka i data
       items:
         - name: Skriva frågor
@@ -136,6 +132,8 @@
           href: tableau.md
         - name: Sisense
           href: sisense.md
+        - name: Redash
+          href: redash.md
     - name: Hantera
       items:
         - name: Kluster
@@ -166,6 +164,10 @@
               href: delete-data.md
             - name: Hantera duplicerade data
               href: dealing-with-duplicates.md
+    - name: Distribuera
+      items:
+        - name: Distribuera klustret till ditt virtuella nätverk
+          href: vnet-deployment.md
     - name: Övervaka
       items:
         - name: Använda diagnostikloggar för att övervaka datainmatning
@@ -186,6 +188,8 @@
           href: connect-from-databricks.md
         - name: Analysera data i Jupyter Notebooks och Kqlmagic
           href: kqlmagic.md
+        - name: Azure Pipelines
+          href: devops.md
     - name: Felsöka
       items:
         - name: Skapa ett kluster
@@ -220,9 +224,13 @@
           href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto'
     - name: Produktfeedback
       href: 'https://aka.ms/adefeedback'
-    - name: Prissättning
-      href: 'https://azure.microsoft.com/pricing/details/data-explorer/'
-    - name: Kostnadsuppskattning
-      href: 'https://aka.ms/adecostestimator'
+    - name: Priser och fakturering
+      items:
+        - name: Prissättningssidan
+          href: 'https://azure.microsoft.com/pricing/details/data-explorer/'
+        - name: Kostnadsuppskattning
+          href: 'https://aka.ms/adecostestimator'
+        - name: Reserverad kapacitet
+          href: pricing-reserved-capacity.md
     - name: Tjänstuppdateringar
       href: 'https://azure.microsoft.com/updates/?product=data-explorer'

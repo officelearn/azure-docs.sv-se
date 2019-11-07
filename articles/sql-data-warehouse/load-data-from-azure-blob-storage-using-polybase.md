@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: läsa in New York Taxidata-data till Azure SQL Data Warehouse | Microsoft Docs'
+title: 'Självstudie: läsa in New York Taxidata-data'
 description: Självstudier använder Azure Portal och SQL Server Management Studio för att läsa in New York Taxidata-data från en global Azure-blob till Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,13 @@ ms.subservice: load-data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 2e799d84aee9ba4d3bfb00ddfad358c9b90c3d59
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 5bf1a600bf57ecb598aac485e11f3618dda7244e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482396"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686089"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Självstudie: läsa in New York Taxidata-data till Azure SQL Data Warehouse
 
@@ -44,7 +45,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Skapa en tom SQL Data Warehouse
 
-En Azure SQL Data Warehouse skapas med en definierad uppsättning [beräknings resurser](memory-and-concurrency-limits.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-features.md). 
+En Azure SQL Data Warehouse skapas med en definierad uppsättning [beräknings resurser] minnes-samtidighets-limits.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-features.md). 
 
 Följ de här stegen för att skapa en tom SQL Data Warehouse. 
 
@@ -564,7 +565,7 @@ Skriptet använder T-SQL-instruktionen [CREATE TABLE AS SELECT (CTAS)](/sql/t-sq
 ## <a name="authenticate-using-managed-identities-to-load-optional"></a>Autentisera med hanterade identiteter att läsa in (valfritt)
 Att läsa in med PolyBase och autentisering via hanterade identiteter är den säkraste mekanismen och gör att du kan utnyttja slut punkter för VNet-tjänster med Azure Storage. 
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 1.  Installera Azure PowerShell med hjälp av den här [guiden](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Om du har ett allmänt v1-eller Blob Storage-konto måste du först uppgradera till General-Purpose v2 med hjälp av den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  Du måste ha **Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot** under Azure Storage konto **brand väggar och inställningar för virtuella nätverk** . Mer information hittar du i den här [hand boken](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) .

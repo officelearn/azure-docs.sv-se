@@ -502,6 +502,8 @@
           href: sql-database-elastic-pool-failover-group-tutorial.md
         - name: Konfigurera säkerhet
           href: sql-database-security-tutorial.md
+        - name: Stream-data med Stream Analytics
+          href: sql-database-stream-analytics.md
     - name: Begrepp
       items:
         - name: Resurser för enkla databaser

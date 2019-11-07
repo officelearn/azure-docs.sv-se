@@ -1,5 +1,5 @@
 ---
-title: Datatransformering för data flödes omvandling i Azure Data Factory | Microsoft Docs
+title: Datatransformering för data flöde i Azure Data Factory
 description: En översikt över tillgängliga datatransformering data flödes funktioner i Azure Data Factory
 author: djpmsft
 ms.author: daperlov
@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 73ad0b39e119a9ef33fa1fa595ddcc47f61ae163
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3274641f7b118e13b3ed727f609ce7471fd66b54
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518559"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682291"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Omvandlings funktioner i datatransformering Data Flow
 

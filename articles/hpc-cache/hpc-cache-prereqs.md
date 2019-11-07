@@ -1,19 +1,19 @@
 ---
-title: Förutsättningar för Azure HPC-cache (för hands version)
+title: Krav för Azure HPC-cache
 description: Krav för att använda Azure HPC cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: cfaa8f94dbb836a61b7f024c9426625d874dc524
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: ca7a12f45f8d907ee65df85e349883e4c14af47a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709962"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582156"
 ---
-# <a name="prerequisites-for-azure-hpc-cache-preview"></a>Krav för Azure HPC cache (för hands version)
+# <a name="prerequisites-for-azure-hpc-cache"></a>Krav för Azure HPC-cache
 
 Innan du använder Azure Portal för att skapa en ny Azure HPC-cache kontrollerar du att din miljö uppfyller dessa krav.
 
@@ -22,7 +22,7 @@ Innan du använder Azure Portal för att skapa en ny Azure HPC-cache kontrollera
 En betald prenumeration rekommenderas.
 
 > [!NOTE]
-> I för hands versionen måste Azure HPC-teamet lägga till din prenumeration i åtkomst listan innan den kan användas för att skapa en cache-instans. Med den här proceduren ser du till att varje kund får svars tider med hög kvalitet från testcacheminnen. Fyll i [det här formuläret](https://aka.ms/onboard-hpc-cache) om du vill begära åtkomst.
+> Under de första flera månaderna av GA-versionen måste Azure HPC-teamet lägga till din prenumeration i åtkomst listan innan den kan användas för att skapa en cache-instans. Med den här proceduren ser du till att varje kund får svars tider med hög kvalitet från cacheminnet. Fyll i [det här formuläret](https://aka.ms/onboard-hpc-cache) om du vill begära åtkomst.
 
 ## <a name="network-infrastructure"></a>Nätverks infrastruktur
 
@@ -58,7 +58,7 @@ Kontrol lera de här behörighets kraven innan du börjar skapa din cache.
 
 * Cache-instansen måste kunna skapa virtuella nätverks gränssnitt (NIC). Den användare som skapar cachen måste ha tillräcklig behörighet i prenumerationen för att skapa nätverkskort.
 
-* Om du använder Blob Storage behöver Azure HPC cache auktorisering för att komma åt ditt lagrings konto. Du kan använda rollbaserad åtkomst kontroll (RBAC) för att ge cache åtkomst till Blob Storage. Två roller krävs: Lagrings konto deltagare och data deltagare i Storage blob. Följ instruktionerna i [Lägg till lagrings mål](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) för att lägga till rollerna.
+* Om du använder Blob Storage behöver Azure HPC cache auktorisering för att komma åt ditt lagrings konto. Du kan använda rollbaserad åtkomst kontroll (RBAC) för att ge cache åtkomst till Blob Storage. Två roller krävs: lagrings konto deltagare och data deltagare i Storage blob. Följ instruktionerna i [Lägg till lagrings mål](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) för att lägga till rollerna.
 
 ## <a name="storage-infrastructure"></a>Lagrings infrastruktur
 
@@ -80,13 +80,13 @@ Skapa kontot och behållaren innan du försöker lägga till det som ett lagring
 
 Använd följande inställningar om du vill skapa ett kompatibelt lagrings konto:
 
-* Historik **Standard**
+* Prestanda: **standard**
 * Konto typ: **StorageV2 (generell användning v2)**
-* Replikering **Lokalt redundant lagring (LRS)**
-* Åtkomst nivå (standard): **hot**
+* Replikering: **Lokalt Redundant lagring (LRS)**
+* Åtkomst nivå (standard): **snabb**
 
 Det är en bra idé att använda ett lagrings konto på samma plats som din cache.
-<!-- need to clarify location - same region or same resource group or same virtual network? -->
+<!-- clarify location - same region or same resource group or same virtual network? -->
 
 Du måste också ge cache-programmet åtkomst till ditt Azure Storage-konto. Följ beskrivningen i [Lägg till lagrings mål](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) för att ge cachen åtkomst roller till lagrings konto deltagare och lagrings-BLOB-datadeltagare. Om du inte är lagrings kontots ägare kan du låta ägaren göra detta steg.
 

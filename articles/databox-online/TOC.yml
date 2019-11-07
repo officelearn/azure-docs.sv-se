@@ -1,4 +1,4 @@
-- name: Azure Data Box-dokumentation – överföring online
+- name: Dokumentation om Azure Stack Edge och Data Box Gateway
   href: /azure/databox-online/
   expanded: true
 - name: Data Box Gateway
@@ -57,11 +57,11 @@
           href: data-box-gateway-1905-release-notes.md
         - name: Allmän tillgänglighet (GA)
           href: data-box-gateway-release-notes.md
-- name: Data Box Edge
+- name: Azure Stack Edge
   items:
     - name: Översikt
       items:
-        - name: Vad är Azure Data Box Edge?
+        - name: Vad är Azure Stack Edge?
           href: data-box-edge-overview.md
     - name: Självstudier
       items:
@@ -125,9 +125,9 @@
           href: data-box-gateway-release-notes.md
 - name: Resurser
   items:
-    - name: 'Exempel på Data Box Edge C#-moduler (.NET)'
+    - name: 'Exempel på Azure Stack Edge C#-moduler (.NET)'
       href: 'https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/'
-    - name: Data Box Edge/Gateway-produkt
+    - name: Azure Stack Edge/Data Box Gateway-produkt
       href: 'https://azure.microsoft.com/services/storage/databox/edge/'
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/storage/databox/edge/'

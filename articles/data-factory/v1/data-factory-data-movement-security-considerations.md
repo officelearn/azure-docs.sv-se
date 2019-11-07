@@ -1,5 +1,5 @@
 ---
-title: Säkerhets överväganden för data förflyttning i Azure Data Factory | Microsoft Docs
+title: Säkerhets överväganden för data förflyttning i Azure Data Factory
 description: Lär dig mer om att skydda data flyttning i Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b425db761375c705d3c810002234a937bac46d78
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 7f18505e02c5d65d21e93759eb5da480c20e2eb3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610164"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682624"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory-säkerhets överväganden för data förflyttning
 
@@ -37,7 +37,7 @@ Data förflyttning med Azure Data Factory har **certifierats** för:
 -   [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA)  
 -   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
--   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
+-   [CSA-STJÄRNA](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
      
 Om du är intresse rad av Azure-kompatibilitet och hur Azure skyddar sin egen infrastruktur kan du gå till [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx). 
 
@@ -77,7 +77,7 @@ Azure Blob Storage och Azure Table Storage stöder Kryptering för lagringstjän
 Amazon S3 stöder både klient-och server kryptering av data i vila. Mer information finns i [skydda data med hjälp av kryptering](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html). För närvarande stöder Data Factory inte Amazon S3 i ett virtuellt privat moln (VPC).
 
 #### <a name="amazon-redshift"></a>Amazon Redshift
-Amazon RedShift har stöd för kluster kryptering för vilande data. Mer information finns i [Amazon RedShift Database](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html)Encryption. För närvarande stöder Data Factory inte Amazon-RedShift i en VPC. 
+Amazon RedShift har stöd för kluster kryptering för vilande data. Mer information finns i [Amazon RedShift Database Encryption](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). För närvarande stöder Data Factory inte Amazon-RedShift i en VPC. 
 
 #### <a name="salesforce"></a>Salesforce
 Salesforce stöder Avskärmnings plattforms kryptering som tillåter kryptering av alla filer, bilagor, anpassade fält. Mer information finns i [Förstå Web Server OAuth authentication Flow](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
@@ -127,11 +127,11 @@ Virtual Network är en logisk representation av ditt nätverk i molnet. Du kan a
 
 I följande tabell sammanfattas rekommendationerna för nätverks-och gateway-konfiguration baserat på olika kombinationer av käll-och mål platser för Hybrid data förflyttning.
 
-| Source | Mål | Nätverkskonfiguration | Gateway-konfiguration |
+| Källa | Mål | Nätverkskonfiguration | Gateway-konfiguration |
 | ------ | ----------- | --------------------- | ------------- | 
-| Lokalt | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | IPSec VPN (punkt-till-plats eller plats-till-plats) | Gateway kan installeras antingen lokalt eller på en virtuell Azure-dator (VM) i VNet | 
-| Lokalt | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | ExpressRoute (privat peering) | Gateway kan installeras antingen lokalt eller på en virtuell Azure-dator i VNet | 
-| Lokalt | Azure-baserade tjänster som har en offentlig slut punkt | ExpressRoute (offentlig peering) | Gatewayen måste installeras lokalt | 
+| Lokal | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | IPSec VPN (punkt-till-plats eller plats-till-plats) | Gateway kan installeras antingen lokalt eller på en virtuell Azure-dator (VM) i VNet | 
+| Lokal | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | ExpressRoute (privat peering) | Gateway kan installeras antingen lokalt eller på en virtuell Azure-dator i VNet | 
+| Lokal | Azure-baserade tjänster som har en offentlig slut punkt | ExpressRoute (offentlig peering) | Gatewayen måste installeras lokalt | 
 
 I följande bilder visas användningen av Data Management Gateway för att flytta data mellan en lokal databas och Azure-tjänster med hjälp av Express Route och IPSec VPN (med Virtual Network):
 
@@ -150,10 +150,10 @@ I ett företag körs en **företags brand vägg** på den centrala routern i org
 
 Följande tabell innehåller **utgående port** -och domän krav för **företags brand väggen**.
 
-| Domännamn | Utgående portar | Beskrivning |
+| Domän namn | Utgående portar | Beskrivning |
 | ------------ | -------------- | ----------- | 
 | `*.servicebus.windows.net` | 443, 80 | Krävs av gatewayen för att ansluta till data flytt tjänster i Data Factory |
-| `*.core.windows.net` | 443 | Används av gatewayen för att ansluta till Azure Storage-kontot när du använder funktionen för mellanlagrad [kopiering](data-factory-copy-activity-performance.md#staged-copy) . | 
+| `*.core.windows.net` | 443 | Används av gatewayen för att ansluta till Azure Storage-kontot när du använder funktionen för [mellanlagrad kopiering](data-factory-copy-activity-performance.md#staged-copy) . | 
 | `*.frontend.clouddatahub.net` | 443 | Krävs av gatewayen för att ansluta till Azure Data Factorys tjänsten. | 
 | `*.database.windows.net` | 1433   | (Valfritt) krävs när målet är Azure SQL Database/Azure SQL Data Warehouse. Använd funktionen för mellanlagrad kopiering för att kopiera data till Azure SQL Database/Azure SQL Data Warehouse utan att öppna port 1433. | 
 | `*.azuredatalakestore.net` | 443 | (Valfritt) krävs när målet är Azure Data Lake Store | 
@@ -182,14 +182,14 @@ Följande moln data lager kräver vit listning av IP-adressen för gateway-dator
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-**Ifrågasätta** Kan gatewayen delas mellan olika data fabriker?
-**Svarsfilen** Vi har inte stöd för den här funktionen ännu. Vi jobbar på det.
+**Fråga:** Kan gatewayen delas mellan olika data fabriker?
+**Svar:** Vi har inte stöd för den här funktionen ännu. Vi jobbar på det.
 
-**Ifrågasätta** Vilka är port kraven för gatewayen att fungera?
-**Svarsfilen** Gatewayen gör HTTP-baserade anslutningar till öppna Internet. De **utgående portarna 443 och 80** måste vara öppna för att gatewayen ska kunna ansluta. Öppna endast **inkommande Port 8050** på dator nivå (inte på företags brand Väggs nivå) för Autentiseringshanteraren-program. Om Azure SQL Database eller Azure SQL Data Warehouse används som källa/mål, måste du även öppna **1433** -porten. Mer information finns i avsnittet om [brand Väggs konfiguration och vit listning IP-adresser](#firewall-configurations-and-whitelisting-ip-address-of gateway) . 
+**Fråga:** Vilka är port kraven för gatewayen att fungera?
+**Svar:** Gatewayen gör HTTP-baserade anslutningar till öppna Internet. De **utgående portarna 443 och 80** måste vara öppna för att gatewayen ska kunna ansluta. Öppna endast **inkommande Port 8050** på dator nivå (inte på företags brand Väggs nivå) för Autentiseringshanteraren-program. Om Azure SQL Database eller Azure SQL Data Warehouse används som källa/mål, måste du även öppna **1433** -porten. Mer information finns i avsnittet om [brand Väggs konfiguration och vit listning IP-adresser](#firewall-configurations-and-whitelisting-ip-address-of gateway) . 
 
-**Ifrågasätta** Vad är certifikat krav för gateway?
-**Svarsfilen** Den aktuella gatewayen kräver ett certifikat som används av Autentiseringshanteraren för att på ett säkert sätt ange autentiseringsuppgifter för data lagret. Det här certifikatet är ett självsignerat certifikat som skapas och konfigureras av Gateway-installationen. Du kan använda ditt eget TLS/SSL-certifikat i stället. Mer information finns i avsnittet om att [Klicka-en gång till en program referens hanterare](#click-once-credentials-manager-app) . 
+**Fråga:** Vad är certifikat krav för gateway?
+**Svar:** Den aktuella gatewayen kräver ett certifikat som används av Autentiseringshanteraren för att på ett säkert sätt ange autentiseringsuppgifter för data lagret. Det här certifikatet är ett självsignerat certifikat som skapas och konfigureras av Gateway-installationen. Du kan använda ditt eget TLS/SSL-certifikat i stället. Mer information finns i avsnittet om att [Klicka-en gång till en program referens hanterare](#click-once-credentials-manager-app) . 
 
 ## <a name="next-steps"></a>Nästa steg
 Information om prestanda för kopierings aktivitet finns i [guiden Kopiera aktivitets prestanda och justering](data-factory-copy-activity-performance.md).

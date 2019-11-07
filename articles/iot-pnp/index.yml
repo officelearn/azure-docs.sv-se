@@ -1,39 +1,74 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om IoT Plug and Play-förhandsversion
+summary: Med IoT Plug and Play-förhandsversionen kan du definiera en enhetsmodell som gör att molnlösningar automatiskt kan förstå din enhet så att du kan börja interagera med den – du behöver inte skriva någon enhetskod.
 metadata:
-  title: Dokumentation om IoT Plug and Play-förhandsversion – självstudier och API-referens | Microsoft Docs
-  description: 'Lär dig hur du använder IoT Plug and Play med hjälp av självstudier, API-referenser, videor och annan dokumentation.'
-  author: dominicbetts
-  manager: philmea
-  ms.service: iot-pnp
+  title: Dokumentation om IoT Plug and Play-förhandsversion
+  description: Med IoT Plug and Play-förhandsversionen kan du definiera en enhetsmodell som gör att molnlösningar automatiskt kan förstå din enhet så att du kan börja interagera med den – du behöver inte skriva någon enhetskod.
   services: iot-pnp
+  ms.service: iot-pnp
   ms.topic: landing-page
-  ms.date: 07/23/2019
+  author: dominicbetts
   ms.author: dobett
-abstract:
-  description: 'Lär dig hur du använder IoT Plug and Play-förhandsversionen för att definiera en enhetsmodell som gör att molnlösningar automatiskt kan förstå din enhet och börja interagera med den – du behöver inte skriva någon enhetskod. Självstudier, API-referenser, videor och annan dokumentation hjälper dig att ansluta enheter till molnlösningar såsom Azure IoT Central eller partnerprogram.'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: media/index/video-thumb-pnp-introduction.png
-      width: 250
-    title: 'Introduktion till IoT Plug and Play. (11:54)'
-    href: 'https://channel9.msdn.com/Shows/Internet-of-Things-Show/Introduction-to-IoT-Plug-and-Play/player'
-    width: 250
-sections:
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: Lär dig hur du <a href="quickstart-create-pnp-device">använder en enhetskapacitetsmodell för att skapa en enhet</a>.
-      - type: paragraph
-        text: Lär dig hur du <a href="quickstart-connect-pnp-device-solution">ansluter en enhet till din lösning</a>.
-  - title: Steg för steg-självstudier
-    items:
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-pnp-visual-studio-code">Skapa en enhet med hjälp av Visual Studio Code</a>
-          - html: <a href="tutorial-build-device-certification">Bygga en enhet som är redo för certifiering</a>
-          - html: <a href="tutorial-certification-test">Certifiera enheten</a>
+  manager: philmea
+  ms.date: 10/31/2019
+  ms.openlocfilehash: 442b9c5028ef899329912fa9d21ce780437d7970
+  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73570181"
+landingContent:
+- title: Om IoT Plug and Play
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är IoT Plug and Play?
+      url: overview-iot-plug-and-play.md
+  - linkListType: video
+    links:
+    - text: Introduktion till IoT Plug and Play
+      url: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Introduction-to-IoT-Plug-and-Play/player
+- title: Utveckla enheter
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Ansluta en exempelenhet till IoT Hub
+      url: quickstart-connect-pnp-device.md
+    - text: Ansluta en exempelenhet till IoT Central
+      url: ../iot-central/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Använda en enhetskapacitetsmodell för att skapa en enhet
+      url: quickstart-create-pnp-device.md
+  - linkListType: tutorial
+    links:
+    - text: Skapa och testa en enhetskapacitetsmodell med Visual Studio Code
+      url: tutorial-pnp-visual-studio-code.md
+    - text: Skapa en enhet som är redo för certifiering
+      url: tutorial-build-device-certification.md
+    - text: Certifiera enheten
+      url: tutorial-certification-test.md
+  - linkListType: how-to-guide
+    links:
+    - text: Använda Azure IoT-verktyg för Visual Studio Code
+      url: howto-develop-with-vs-vscode.md
+    - text: Registrera i Azure Certified för IoT-portalen
+      url: howto-onboard-portal.md
+  - linkListType: concept
+    links:
+    - text: Vanliga gränssnitt
+      url: concepts-common-interfaces.md
+- title: Skapa lösningar
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Interagera med en enhet som är ansluten till din lösning
+      url: quickstart-connect-pnp-device-solution.md
+  - linkListType: concept
+    links:
+    - text: Modellidentifiering
+      url: concepts-model-discovery.md
+    - text: Vanliga gränssnitt
+      url: concepts-common-interfaces.md
+  - linkListType: how-to-guide
+    links:
+    - text: Ansluta till enheter från din lösning
+      url: howto-develop-solution.md

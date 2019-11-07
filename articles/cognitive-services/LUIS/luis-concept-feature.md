@@ -11,18 +11,20 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: diberry
-ms.openlocfilehash: 08f78e4945b612a92d372c832490c380d3749811
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0cab6eb38459a632f1e7bd1a21e6a7251d33f683
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487514"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647422"
 ---
 # <a name="machine-learned-features"></a>Funktioner som har lästs av datorn 
 
 I Machine Learning är en *funktion* en särskiljande egenskaps-eller dataattribut som systemet iakttar & lär sig igenom. I Language Understanding (LUIS) beskriver en funktion och förklarar vad som är viktigt om dina avsikter och entiteter.
 
-## <a name="features-in-language-understanding"></a>Funktioner i Language Understanding
+I [Luis-portalen för förhands granskning](https://preview.luis.ai)är funktioner _Descriptor_ eftersom de används för att _beskriva_ avsikten eller entiteten.  
+
+## <a name="features-_descriptors_-in-language-understanding"></a>Funktioner (_beskrivningar_) i language Understanding
 
 Funktioner, även kallade beskrivningar, beskriver LED trådar för att hjälpa Language Understanding att identifiera exemplet yttranden. Funktionerna omfattar: 
 

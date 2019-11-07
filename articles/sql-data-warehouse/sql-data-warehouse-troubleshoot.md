@@ -1,5 +1,5 @@
 ---
-title: Felsöka Azure SQL Data Warehouse | Microsoft Docs
+title: Felsökning
 description: Felsöka Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,21 +10,22 @@ ms.subservice: manage
 ms.date: 7/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a6a6fdf6e63bf8c063f8dd6f23ae380e9ce7b98d
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 2aa7926286be277c7ad0aa7054b4bd6fceb8229f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575507"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685395"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Felsöka Azure SQL Data Warehouse
 Den här artikeln innehåller vanliga fel söknings frågor.
 
-## <a name="connecting"></a>Ansluter
+## <a name="connecting"></a>Sker
 | Problem                                                        | Lösning                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| Inloggningen misslyckades för användaren NT AUTHORITY\ANONYMOUS-inloggning. (Microsoft SQL Server, Fel: 18456) | Felet uppstår när en AAD-användare försöker ansluta till huvud databasen, men inte har en användare i huvud gruppen.  Du kan åtgärda det här problemet genom att antingen ange SQL Data Warehouse som du vill ansluta till vid anslutningen eller lägga till användaren i huvud databasen.  Mer information finns i [säkerhets översikts][Security overview] artikeln. |
-| Serverns huvud namn kan inte komma åt databasen "Master" i det aktuella säkerhets sammanhanget. Det går inte att öppna användarens standard databas. Inloggningen misslyckades. Inloggningen misslyckades för användaren ' användar namn '. (Microsoft SQL Server, Fel: 916) | Felet uppstår när en AAD-användare försöker ansluta till huvud databasen, men inte har en användare i huvud gruppen.  Du kan åtgärda det här problemet genom att antingen ange SQL Data Warehouse som du vill ansluta till vid anslutningen eller lägga till användaren i huvud databasen.  Mer information finns i [säkerhets översikts][Security overview] artikeln. |
+| Inloggningen misslyckades för användaren NT AUTHORITY\ANONYMOUS LOGON. (Microsoft SQL Server, fel: 18456) | Det här felet inträffar när en AAD-användare försöker ansluta till huvuddatabasen men inte har någon användare där.  Du kan åtgärda problemet genom att antingen ange den SQL Data Warehouse-instans du vill ansluta till när anslutningen görs eller lägga till användaren i huvuddatabasen.  Mer information finns i [säkerhets översikts][Security overview] artikeln. |
+| Serverns huvudnamn MyUserName kan inte komma åt huvuddatabasen i den aktuella säkerhetskontexten. Det går inte att öppna användarens standarddatabas. Det gick inte att logga in. Inloggningen misslyckades för användaren MyUserName. (Microsoft SQL Server, fel: 916) | Det här felet inträffar när en AAD-användare försöker ansluta till huvuddatabasen men inte har någon användare där.  Du kan åtgärda problemet genom att antingen ange den SQL Data Warehouse-instans du vill ansluta till när anslutningen görs eller lägga till användaren i huvuddatabasen.  Mer information finns i [säkerhets översikts][Security overview] artikeln. |
 | CTAIP-fel                                                  | Det här felet kan inträffa när en inloggning har skapats på SQL Server-huvuddatabasen, men inte i SQL Data Warehouse databasen.  Om du stöter på det här felet kan du ta en titt på artikeln [säkerhets översikt][Security overview] .  Den här artikeln förklarar hur du skapar en inloggning och användare på huvud servern och hur du skapar en användare i SQL Data Warehouse databasen. |
 | Blockerad av brand väggen                                          | Azure SQL-databaser skyddas av brand väggar på Server-och databas nivå så att endast kända IP-adresser har åtkomst till en databas. Brand väggarna är säkra som standard, vilket innebär att du måste uttryckligen aktivera och IP-adresser eller adress intervall innan du kan ansluta.  Konfigurera brand väggen för åtkomst genom att följa stegen i [Konfigurera serverns brand Väggs åtkomst för klientens IP-adress][Configure server firewall access for your client IP] i [etablerings anvisningarna][Provisioning instructions]. |
 | Det går inte att ansluta med verktyget eller driv rutinen                           | SQL Data Warehouse rekommenderar att du använder [SSMS][SSMS], [SSDT för Visual Studio][SSDT for Visual Studio]eller [SQLCMD][sqlcmd] för att fråga dina data. Mer information om driv rutiner och hur du ansluter till SQL Data Warehouse finns i [driv rutiner för Azure SQL Data Warehouse][Drivers for Azure SQL Data Warehouse] och [ansluta till Azure SQL Data Warehouse][Connect to Azure SQL Data Warehouse] artiklar. |
@@ -49,7 +50,7 @@ Den här artikeln innehåller vanliga fel söknings frågor.
 ## <a name="system-management"></a>System hantering
 | Problem                                                        | Lösning                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| MSG 40847: Det gick inte att utföra åtgärden eftersom servern skulle överskrida den tillåtna kvoten för databas transaktions enheten på 45000. | Du kan antingen minska [DWU][DWU] för den databas som du försöker skapa eller [begära en kvot ökning][request a quota increase]. |
+| MSG 40847: det gick inte att utföra åtgärden eftersom servern skulle överskrida den tillåtna kvoten för databas transaktions enheten på 45000. | Du kan antingen minska [DWU][DWU] för den databas som du försöker skapa eller [begära en kvot ökning][request a quota increase]. |
 | Undersöka utrymmes användningen                              | Se [tabell storlekar][Table sizes] för att förstå systemets utrymmes användning. |
 | Hjälp med att hantera tabeller                                    | Mer information om hur du hanterar tabeller finns i artikeln [Översikt över][Overview] tabeller.  Den här artikeln innehåller också länkar till mer detaljerade ämnen som [tabell data typer][Data types], [distribuera en tabell][Distribute], [indexera en tabell][Index], [partitionera en tabell][Partition], [underhålla tabell statistik][Statistics] och [temporära tabeller][Temporary]. |
 | Förlopps indikatorn för transparent data kryptering (TDE) uppdateras inte i Azure Portal | Du kan visa statusen för TDE via [PowerShell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption). |

@@ -1,22 +1,22 @@
 ---
-title: Använd lokal datagateway för Azure Virtual Network data källor | Microsoft Docs
-description: Lär dig hur du konfigurerar en server att använda en gateway för data källor i VNet.
+title: Konfigurera Azure Analysis Services för VNet data källor | Microsoft Docs
+description: Lär dig hur du konfigurerar en Azure Analysis Services-server för att använda en gateway för data källor på Azure Virtual Network (VNet).
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d1993996c0f982624d6976b50871fa8c4592e2f6
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 384f4c2ee3021678c530aa5c98eaf4dbfd661e95
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301212"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572264"
 ---
 # <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Använda Gateway för data källor på en Azure-Virtual Network (VNet)
 
-Den här artikeln beskriver **AlwaysUseGateway** -Server-egenskapen som används när data källor finns på ett [Azure-Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md).
+I den här artikeln beskrivs egenskapen Azure Analysis Services **AlwaysUseGateway** -server som används när data källor finns på ett [Azure-Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md).
 
 ## <a name="server-access-to-vnet-data-sources"></a>Server åtkomst till VNet-datakällor
 
@@ -29,13 +29,13 @@ Azure SQL Database hanterade instans data källor körs i Azure VNet med en priv
 
 ## <a name="configure-alwaysusegateway-property"></a>Konfigurera egenskapen AlwaysUseGateway
 
-1. I SSMS > Server > **egenskaper** > **Allmänt**väljer du **Visa avancerade (alla) egenskaper**.
+1. I SSMS > Server > **egenskaper** > **Allmänt**, väljer du **Visa avancerade egenskaper (alla)** .
 2. I **ASPaaS\AlwaysUseGateway**väljer du **Sant**.
 
     ![Använd alltid Gateway-egenskap](media/analysis-services-vnet-gateway/aas-ssms-always-property.png)
 
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 [Ansluta till lokala data källor](analysis-services-gateway.md)   
 [Installera och konfigurera en lokal datagateway](analysis-services-gateway-install.md)   
 [Azure-Virtual Network (VNET)](../virtual-network/virtual-networks-overview.md)   

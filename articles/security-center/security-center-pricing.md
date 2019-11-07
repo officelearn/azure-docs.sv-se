@@ -1,5 +1,5 @@
 ---
-title: Uppgradera till Security Center standard nivå för förbättrad säkerhet | Microsoft Docs
+title: Priser för Azure Security Center-nivåer
 description: Den här artikeln innehåller information om priser för Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 43ae34b946fada4d27c6843dbb8c3f9511aefd81
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 0c3fdc48d9b3bc77b629d4d6f1da081d70658c88
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520783"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664247"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Uppgradera till Security Center standard nivå för ökad säkerhet
 Azure Security Center har en enhetlig säkerhetshantering och avancerat skydd mot hot för arbetsbelastningar som körs i Azure, lokalt och i andra moln. Den ger insyn och kontroll över hybrid moln arbets belastningar, aktiva försvar som minskar exponeringen för hot och intelligent identifiering som hjälper dig att hålla jämna steg med snabbt växande cyberhot-attacker.
@@ -54,7 +54,7 @@ Så här hämtar du standard nivån:
 Security Center erbjuder förbättrat skydd mot säkerhet och hot för dina hybrid moln arbets belastningar, inklusive:
 
 - **Hybrid säkerhet** – få en enhetlig vy över säkerheten i alla dina lokala och molnbaserade arbets belastningar. Tillämpa säkerhets principer och utvärdera kontinuerligt säkerheten för dina hybrid moln arbets belastningar för att säkerställa efterlevnaden av säkerhets standarder. Samla in, Sök och analysera säkerhets data från flera källor, inklusive brand väggar och andra partner lösningar.
-- **Avancerad hot identifiering** – Använd avancerad analys och Microsoft Intelligent Security Graph för att få en gräns för de växande cyberhot-angrepp.  Utnyttja inbyggda beteendeanalyser och maskinlärning för att identifiera attacker och nolldagarshot. Övervaka nätverk, datorer och molntjänster för att se inkommande attacker och aktiviteter efter intrång. Effektiviseras undersökningen med interaktiva verktyg och kontextbaserad hotinformation.
+- **Avancerad hot identifiering** – Använd avancerad analys och Microsoft Intelligent Security Graph för att få en gräns för de växande cyberhot-angrepp. Utnyttja inbyggda beteendeanalyser och maskinlärning för att identifiera attacker och nolldagarshot. Övervaka nätverk, datorer och molntjänster för att se inkommande attacker och aktiviteter efter intrång. Effektiviseras undersökningen med interaktiva verktyg och kontextbaserad hotinformation.
 - **Åtkomst-och program kontroller** – blockera skadlig kod och andra oönskade program genom att använda Machine Learning-vit listning rekommendationer som är anpassade till dina specifika arbets belastningar. Minska nätverks attack ytan med just-in-Time-kontrollerad åtkomst till hanterings portar på virtuella Azure-datorer. Detta minskar drastiskt exponeringen för brute force och andra nätverks attacker.
 - **Säkerhets funktioner för behållare** – dra nytta av sårbarhets hantering och hot identifiering i real tid i dina behållares miljöer. När du aktiverar resursen behållar register kan det ta upp till 12hrs tills alla funktioner har Aktiver ATS.
 

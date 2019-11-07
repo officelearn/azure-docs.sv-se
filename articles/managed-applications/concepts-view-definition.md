@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
-ms.openlocfilehash: f51dbce3c251f4e89483d925ac657aac7eb928d8
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: b23e844cb550a98328951bc6efae3c5039ff73bf
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804128"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607541"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Visa definitions artefakt i Azure Managed Applications
 
@@ -26,7 +26,7 @@ Artefakten för visnings definitionen måste ha namnet **viewDefinition. JSON** 
 
 ## <a name="view-definition-schema"></a>Visa definitions schema
 
-**ViewDefinition. JSON** -filen har bara en egenskap på översta nivån `views`, som är en matris med vyer. Varje vy visas i användar gränssnittet för hanterade program som ett separat meny alternativ i innehålls förteckningen. Varje vy har en `kind` egenskap som anger typen av vy. Det måste anges till något av följande värden: [Översikt](#overview), [mått](#metrics), [CustomResources](#custom-resources). Mer information finns i aktuellt [JSON-schema för viewDefinition. JSON](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).
+**ViewDefinition. JSON** -filen har bara en egenskap på översta nivån `views`, som är en matris med vyer. Varje vy visas i användar gränssnittet för hanterade program som ett separat meny alternativ i innehålls förteckningen. Varje vy har en `kind` egenskap som anger typen av vy. Det måste anges till något av följande värden: [Översikt](#overview), [mått](#metrics), [CustomResources](#custom-resources), [associationer](#associations). Mer information finns i aktuellt [JSON-schema för viewDefinition. JSON](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).
 
 Exempel-JSON för View definition:
 
@@ -91,10 +91,18 @@ Exempel-JSON för View definition:
                     {"key": "properties.myProperty2", "displayName": "Property 2", "optional": true}
                 ]
             }
+        },
+        {
+            "kind": "Associations",
+            "properties": {
+                "displayName": "Test association resource type",
+                "version": "1.0.0",
+                "targetResourceType": "Microsoft.Compute/virtualMachines",
+                "createUIDefinition": { }
+            }
         }
     ]
 }
-
 ```
 
 ## <a name="overview"></a>Översikt
@@ -122,7 +130,7 @@ När du anger den här vyn i **viewDefinition. JSON**, åsidosätter den standar
 |Egenskap|Krävs|Beskrivning|
 |---------|---------|---------|
 |sidhuvud|Nej|Översikts sidans sidhuvud.|
-|beskrivning|Nej|Beskrivningen av ditt hanterade program.|
+|description|Nej|Beskrivningen av ditt hanterade program.|
 |kommandon|Nej|Matrisen med ytterligare verktygsfälts knappar på översikts sidan finns i [kommandon](#commands).|
 
 ![Översikt](./media/view-definition/overview.png)
@@ -253,6 +261,33 @@ Kommandon är en matris med ytterligare verktygsfälts knappar som visas på sid
 |sökväg|Ja|Åtgärds namnet för den anpassade providern. Åtgärden måste definieras i **mainTemplate. JSON**.|
 |Icon|Nej|Kommando knappens ikon. En lista med exempel ikoner definieras i [JSON-schemat](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
 |createUIDefinition|Nej|Skapa GRÄNSSNITTs definitions schema för kommando. En introduktion till att skapa GRÄNSSNITTs definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).|
+
+## <a name="associations"></a>typer
+
+`"kind": "Associations"`
+
+Du kan definiera flera vyer av den här typen. Med den här vyn kan du länka befintliga resurser till det hanterade programmet via den anpassade providern som du definierade i **mainTemplate. JSON**. En introduktion till anpassade providers finns i [Översikt över Azure Custom providers Preview](custom-providers-overview.md).
+
+I den här vyn kan du utöka befintliga Azure-resurser baserat på `targetResourceType`. När en resurs väljs kommer den att skapa en onboarding-begäran till den **offentliga** anpassade providern som kan tillämpa en sido effekt på resursen. 
+
+```json
+{
+    "kind": "Associations",
+    "properties": {
+        "displayName": "Test association resource type",
+        "version": "1.0.0",
+        "targetResourceType": "Microsoft.Compute/virtualMachines",
+        "createUIDefinition": { }
+    }
+}
+```
+
+|Egenskap|Krävs|Beskrivning|
+|---------|---------|---------|
+|displayName|Ja|Den visade rubriken för vyn. Rubriken måste vara **unik** för varje Association-vy i **viewDefinition. JSON**.|
+|version|Nej|Versionen av plattformen som används för att rendera vyn.|
+|targetResourceType|Ja|Mål resurs typen. Detta är den resurs typ som ska visas för resurs onboarding.|
+|createUIDefinition|Nej|Skapa ett GRÄNSSNITTs definitions schema för kommandot Skapa Associations resurs. En introduktion till att skapa GRÄNSSNITTs definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md)|
 
 ## <a name="looking-for-help"></a>Söker efter hjälp
 

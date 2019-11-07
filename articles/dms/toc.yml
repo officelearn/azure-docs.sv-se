@@ -8,6 +8,8 @@
   items:
     - name: Skapa en tjänst – portalen
       href: quickstart-create-data-migration-service-portal.md
+    - name: Skapa tjänst i hybridläge – portalen
+      href: quickstart-create-data-migration-service-hybrid-portal.md
 - name: Självstudier
   items:
     - name: Migrera SQL Server till en enskild Azure SQL DB-databas offline

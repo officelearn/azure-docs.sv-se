@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/08/2019
 ms.author: anzaman
-ms.openlocfilehash: cb5969ccb4ee9780b597326a3811395c3b7d9971
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: ced1bc647f93beec73b8101a952944f31e497658
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168468"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693228"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Om VPN-routning från punkt till plats
 
@@ -32,7 +32,7 @@ Det finns ett antal olika diagram i den här artikeln. I varje avsnitt visas en 
 
 Punkt-till-plats-VPN gateway-anslutningen i det här exemplet är för ett VNet som inte är anslutet eller peer-kopplas till något annat virtuellt nätverk (VNet1). I det här exemplet kan klienterna komma åt VNet1.
 
-![isolerad VNet]-routning för(./media/vpn-gateway-about-point-to-site-routing/1.jpg "isolerade") VNet-routning
+![isolerad VNet-routning](./media/vpn-gateway-about-point-to-site-routing/1.jpg "isolerad VNet-routning")
 
 ### <a name="address-space"></a>Adressutrymme
 
@@ -142,7 +142,7 @@ I det här exemplet är punkt-till-plats-VPN gateway-anslutningen för VNet1. VN
 
 Windows-och icke-Windows-klienter kan bara komma åt VNet1.
 
-![routning med ett VNet och en lokal kontor]-(./media/vpn-gateway-about-point-to-site-routing/5.jpg "routning med ett VNet och ett avdelnings kontor")
+![routning med ett VNet och ett avdelnings kontor](./media/vpn-gateway-about-point-to-site-routing/5.jpg "routning med ett VNet och ett avdelnings kontor")
 
 ### <a name="address-space"></a>Adressutrymme
 
@@ -195,7 +195,7 @@ I det här exemplet är punkt-till-plats-VPN gateway-anslutningen för VNet1. VN
 
 Alla klienter har endast åtkomst till VNet1.
 
-S2S och avdelnings(./media/vpn-gateway-about-point-to-site-routing/7.jpg "kontor med") flera VNet-S2S ![och avdelnings]kontor
+![S2S för flera VNet och avdelnings kontor](./media/vpn-gateway-about-point-to-site-routing/7.jpg "S2S för flera VNet och avdelnings kontor")
 
 ### <a name="address-space"></a>Adressutrymme
 
@@ -209,7 +209,7 @@ S2S och avdelnings(./media/vpn-gateway-about-point-to-site-routing/7.jpg "kontor
 
 ### <a name="routes-added"></a>Tillagda vägar
 
-* Vägar tillagda klienter: 10.1.0.0/16, 192.168.0.0/24
+* Vägar som lagts till i Windows-klienter: 10.1.0.0/16, 192.168.0.0/24
 
 * Vägar som har lagts till i icke-Windows-klienter: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
@@ -225,7 +225,7 @@ I det här exemplet är punkt-till-plats-VPN gateway-anslutningen för VNet1. VN
 
 Klienter som använder Windows kan komma åt virtuella nätverk och platser som är anslutna via en plats-till-plats-VPN-anslutning, men vägarna till VNet2, VNet3 och Site1 måste läggas till manuellt i klienten. Icke-Windows-klienter kan komma åt virtuella nätverk och platser som är anslutna via en plats-till-plats-VPN-anslutning utan någon manuell åtgärd. Åtkomsten är transitiv och klienter kan komma åt resurser i alla anslutna virtuella nätverk och platser (lokalt).
 
-S2S och avdelnings(./media/vpn-gateway-about-point-to-site-routing/8.jpg "kontor med") flera VNet-S2S ![och avdelnings]kontor
+![S2S för flera VNet och avdelnings kontor](./media/vpn-gateway-about-point-to-site-routing/8.jpg "S2S för flera VNet och avdelnings kontor")
 
 ### <a name="address-space"></a>Adressutrymme
 
@@ -239,7 +239,7 @@ S2S och avdelnings(./media/vpn-gateway-about-point-to-site-routing/8.jpg "kontor
 
 ### <a name="routes-added"></a>Tillagda vägar
 
-* Vägar tillagda klienter: 10.1.0.0/16, 192.168.0.0/24
+* Vägar som lagts till i Windows-klienter: 10.1.0.0/16, 192.168.0.0/24
 
 * Vägar som har lagts till i icke-Windows-klienter: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 

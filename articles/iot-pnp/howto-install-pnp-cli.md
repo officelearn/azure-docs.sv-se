@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 41a626ba602ad33f22c3ea4acc39dd4f3438cbd0
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: eb4f607672c39d45b7791ccaeeb6f7cff9393cb9
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935695"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571005"
 ---
 # <a name="install-and-use-the-azure-iot-extension-for-the-azure-cli"></a>Installera och använda Azure IoT-tillägget för Azure CLI
 
@@ -44,7 +44,7 @@ I [IoT-tilläggets Viktigt-fil](https://github.com/Azure/azure-iot-cli-extension
 
 ## <a name="use-azure-iot-extension-for-the-azure-cli"></a>Använda Azure IoT-tillägget för Azure CLI
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 Logga in på din Azure-prenumeration genom att köra följande kommando:
 
@@ -62,7 +62,7 @@ Om du vill använda Azure IoT-tillägget för Azure CLI behöver du:
     > [!NOTE]
     > Under den offentliga för hands versionen är IoT Plug and Play-funktioner bara tillgängliga på IoT-hubbar som skapats i regionerna **Central USA**, **Nord Europa**och **Östra Japan** .
 
-- En enhet som är registrerad i IoT Hub. Du kan använda följande Azure CLI-kommando för att registrera en enhet, se till att ersätta `{YourIoTHubName}` plats `{YourDeviceID}` hållarna och med dina värden:
+- En enhet som är registrerad i IoT Hub. Du kan använda följande Azure CLI-kommando för att registrera en enhet, se till att ersätta `{YourIoTHubName}` och `{YourDeviceID}` plats hållarna med dina värden:
 
     ```cmd/sh
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
@@ -88,7 +88,7 @@ Lista alla gränssnitt som registrerats av en IoT Plug and Play-enhet:
 az iot dt list-interfaces --hub-name {YourIoTHubName} --device-id {YourDeviceID}
 ```
 
-#### <a name="properties"></a>properties
+#### <a name="properties"></a>Egenskaper
 
 Lista alla egenskaper och egenskaps värden för ett gränssnitt på en enhet:
 
@@ -126,31 +126,31 @@ Visa en lista med alla kommandon för ett gränssnitt på en enhet:
 az iot dt list-commands --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --source private --repo-login {YourCompanyModelRepoConnectionString}
 ```
 
-`--repo-login` Utan parametern använder det här kommandot den offentliga modellens lagrings plats.
+Utan parametern `--repo-login` använder det här kommandot den offentliga modellens lagrings plats.
 
 Anropa ett kommando:
 
 ```cmd/sh
-az iot dt invoke-command --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --command-name {CommandName} --command-payload {CommandPayload or FilePath}
+az iot dt invoke-command --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --cn {CommandName} --command-payload {CommandPayload or FilePath}
 ```
 
-#### <a name="telemetry"></a>Telemetri
+#### <a name="digital-twin-events"></a>Digitala dubbla händelser
 
-Övervaka alla IoT Plug and Play telemetri från en speciell enhet och gränssnitt som ska gå till **$default** Event Hub-slutpunkten:
+Övervaka alla IoT Plug and Play digitala dubbla händelser från en speciell enhet och gränssnitt till **$default** Event Hub-konsument gruppen:
 
 ```cmd/sh
-az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --source private --repo-login {YourCompanyModelRepoConnectionString}
+az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID}
 ```
 
-Övervaka alla IoT Plug and Play telemetri från en speciell enhet och gränssnitt som går till en speciell konsument grupp:
+Övervaka alla IoT Plug and Play digitala dubbla händelser från en speciell enhet och gränssnitt som går till en speciell konsument grupp:
 
 ```cmd/sh
-az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --source private --repo-login {YourCompanyModelRepoConnectionString} --consumer-group {YourConsumerGroup}
+az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --consumer-group {YourConsumerGroup}
 ```
 
 ### <a name="manage-interfaces-in-a-model-repository"></a>Hantera gränssnitt i en modell databas
 
-Följande kommandon använder den offentliga IoT Plug and Play Model-lagringsplatsen. Om du vill använda en företags modell databas lägger `--login` du till argumentet med anslutnings strängen för modell databasen.
+Följande kommandon använder den offentliga IoT Plug and Play Model-lagringsplatsen. Om du vill använda en företags modell databas lägger du till argumentet `--login` med anslutnings strängen för modell databasen.
 
 Visa en lista över gränssnitt i den offentliga IoT-Plug and Play modell databasen:
 
@@ -190,7 +190,7 @@ Endast Microsoft-partner kan publicera gränssnitt till den offentliga modellens
 
 ### <a name="manage-device-capability-models-in-a-model-repository"></a>Hantera enhets kapacitets modeller i en modell databas
 
-Följande kommandon använder den offentliga IoT Plug and Play Model-lagringsplatsen. Om du vill använda en företags modell databas lägger `--login` du till argumentet med anslutnings strängen för modell databasen.
+Följande kommandon använder den offentliga IoT Plug and Play Model-lagringsplatsen. Om du vill använda en företags modell databas lägger du till argumentet `--login` med anslutnings strängen för modell databasen.
 
 Visa lista över enhets kapacitets modeller i IoT Plug and Play offentliga modell databasen:
 

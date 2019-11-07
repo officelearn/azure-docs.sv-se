@@ -1,19 +1,19 @@
 ---
-title: Om migrering av lokala datorer och virtuella Azure-datorer Azure Site Recovery
-description: Den här artikeln beskriver hur du migrerar lokala och virtuella Azure IaaS-datorer till Azure med hjälp av tjänsten Azure Site Recovery.
+title: Migrera servrar och virtuella datorer till Azure med Azure Site Recovery
+description: Beskriver hur du migrerar lokala och virtuella Azure IaaS-datorer till Azure med hjälp av tjänsten Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/05/2019
 ms.author: raynew
-ms.openlocfilehash: c043950de9565f96d52c848f96efac80385f2321
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 8e256aac16bb8c2d2f1eca494981458f71cc2e4d
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814483"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620606"
 ---
 # <a name="about-migration"></a>Om migrering
 
@@ -21,9 +21,9 @@ I den här artikeln finns en snabb översikt över hur tjänsten [Azure Site Rec
 
 Det här kan du migrera med Site Recovery:
 
-- **Migrera från lokal plats till Azure**: Migrera lokala virtuella Hyper-V-datorer, virtuella VMware-datorer och fysiska servrar till Azure. Efter migreringen körs arbetsbelastningar som körs på lokala datorer på virtuella Azure-datorer. 
-- **Migrera i Azure**: Migrera virtuella Azure-datorer mellan Azure-regioner. 
-- **MIGRERA AWS**: Migrera AWS Windows-instanser till virtuella Azure IaaS-datorer. 
+- **Migrera från lokalt till Azure**: migrera lokala virtuella Hyper-V-datorer, virtuella VMware-datorer och fysiska servrar till Azure. Efter migreringen körs arbetsbelastningar som körs på lokala datorer på virtuella Azure-datorer. 
+- **Migrate within Azure** (Migrera inom Azure): Migrera virtuella Azure-datorer mellan Azure-regioner. 
+- **Migrate AWS** (Migrera AWS): Migrera AWS Windows-instanser till virtuella Azure IaaS-datorer. 
 
 > [!NOTE]
 > Du kan nu migrera från en lokal plats till Azure med hjälp av tjänsten Azure Migrate. [Läs mer](../migrate/migrate-overview.md).

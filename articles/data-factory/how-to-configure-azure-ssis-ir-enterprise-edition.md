@@ -1,6 +1,6 @@
 ---
-title: Etablera Enterprise Edition för Azure-SSIS Integration Runtime | Microsoft Docs
-description: Den här artikeln beskriver funktionerna i Enterprise Edition för Azure-SSIS Integration Runtime och hur du etablerar den
+title: 'Etablera Enterprise Edition för Azure-SSIS Integration Runtime '
+description: I den här artikeln beskrivs funktionerna i Enterprise Edition för Azure-SSIS Integration Runtime och hur det kan etableras
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -12,43 +12,43 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d2b06d044f68972ef72dd9b53401980e84ef779f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c9db18d416d508dd5a98cbacc14b7db6c075a55
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66152430"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73673960"
 ---
 # <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>Etablera Enterprise Edition för Azure-SSIS Integration Runtime
 
-Enterprise-utgåvan av Azure-SSIS Integration Runtime kan du använda följande avancerade och premium-funktioner:
--   Ändra Data Capture (CDC)-komponenter
--   Oracle och Teradata SAP BW-kopplingar
--   SQL Server Analysis Services (SSAS) och Azure Analysis Services (AAS)-anslutningar och transformeringar
--   Fuzzy gruppering och Fuzzy Lookup omvandlingar
--   Termen extrahering och termen Lookup omvandlingar
+Med Enterprise-utgåvan av Azure-SSIS Integration Runtime kan du använda följande avancerade och Premium funktioner:
+-   Komponenter för registrering av ändrings data (CDC)
+-   Oracle-, Teradata-och SAP BW-anslutningar
+-   SQL Server Analysis Services (SSAS) och Azure Analysis Services (AAS) och transformeringar
+-   Nedtransformeringar av fuzzy-gruppering och fuzzy-uppslag
+-   Transformeringar av villkors extrahering och terms ökning
 
-Vissa av dessa funktioner måste du installera ytterligare komponenter om du vill anpassa Azure-SSIS IR. Mer information om hur du installerar ytterligare komponenter finns i [anpassad konfiguration för Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md).
+Vissa av dessa funktioner kräver att du installerar ytterligare komponenter för att anpassa Azure-SSIS IR. Mer information om hur du installerar ytterligare komponenter finns i [anpassad installation för Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md).
 
 ## <a name="enterprise-features"></a>Enterprise-funktioner
 
-| **Enterprise-funktioner** | **Beskrivningar** |
+| **Enterprise-funktioner** | **Förklaringar** |
 |---|---|
-| CDC-komponenter | CDC källan, kontroll uppgiften och delare omvandlingen är förinstallerade på Azure-SSIS IR Enterprise Edition. Om du vill ansluta till Oracle, måste du också installera CDC Designer och tjänsten på en annan dator. |
-| Oracle-kopplingar | Oracle Anslutningshanteraren, källa och mål är förinstallerade på Azure-SSIS IR Enterprise Edition. Du måste också installera drivrutinen anropa gränssnittet OCI (Oracle) och om det behövs konfigurerar du Oracle Transport nätverk underlag (TNS) på Azure-SSIS IR. Mer information finns i [Anpassad konfiguration för Azure-SSIS integreringskörning](how-to-configure-azure-ssis-ir-custom-setup.md). |
-| Teradata-kopplingar | Du måste installera Anslutningshanteraren Teradata, källa och mål samt av Teradata parallella transportören (TPT) API- och Teradata ODBC-drivrutinen på Azure-SSIS IR Enterprise Edition. Mer information finns i [Anpassad konfiguration för Azure-SSIS integreringskörning](how-to-configure-azure-ssis-ir-custom-setup.md). |
-| SAP BW-anslutningsapparna | Anslutningshanteraren för SAP BW, källa och mål är förinstallerade på Azure-SSIS IR Enterprise Edition. Du måste också installera SAP BW-drivrutinen på Azure-SSIS IR. Dessa anslutningar stöd för SAP BW 7.0 eller tidigare versioner. Om du vill ansluta till senare versioner av SAP BW eller andra SAP-produkter, köpa och installera SAP-anslutningsappar från tredje parts ISV: er i Azure-SSIS IR. Mer information om hur du installerar ytterligare komponenter finns i [anpassad konfiguration för Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md). |
-| Analysis Services-komponenter               | Data Mining Model utbildning mål, målet bearbetning av dimensionen och målet bearbetning av partitionen samt Data Mining fråga transformering har förinstallerats på Azure-SSIS IR Enterprise Edition. Alla dessa komponenter stöder SQL Server Analysis Services (SSAS), men endast Partition bearbetning av målet har stöd för Azure Analysis Services (AAS). Om du vill ansluta till SSAS måste du också behöva [konfigurera Windows-autentiseringsuppgifter i SSISDB](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth). Förutom de här komponenterna förinstallerats Analysis Services köra DDL uppgiften, Analysis Services bearbetar uppgiften och åtgärden Data Mining fråga även på Azure-SSIS IR Standard/Enterprise Edition. |
-| Fuzzy gruppering och Fuzzy Lookup omvandlingar  | Omvandlingarna Fuzzy gruppering och Fuzzy Lookup är förinstallerade på Azure-SSIS IR Enterprise Edition. De här komponenterna har stöd för både SQL Server och Azure SQL Database för att lagra referensdata. |
-| Termen extrahering och termen Lookup omvandlingar | Termen extrahering och termen Lookup omvandlingarna är förinstallerade på Azure-SSIS IR Enterprise Edition. De här komponenterna har stöd för både SQL Server och Azure SQL Database för att lagra referensdata. |
+| CDC-komponenter | Omvandlingen av CDC-källa, kontroll aktivitet och delar av delar förinstalleras på Azure-SSIS IR Enterprise Edition. Om du vill ansluta till Oracle måste du också installera CDC-designer och-tjänsten på en annan dator. |
+| Oracle-kopplingar | Anslutnings hanteraren, källan och målet i Oracle förinstalleras på Azure-SSIS IR Enterprise Edition. Du måste också installera OCI-drivrutinen (Oracle Call Interface). om det behövs konfigurerar du TNS (Oracle Transport Network substrat) på Azure-SSIS IR. Mer information finns i [Anpassad konfiguration för Azure-SSIS integreringskörning](how-to-configure-azure-ssis-ir-custom-setup.md). |
+| Teradata-kopplingar | Du måste installera Teradata-anslutnings hanteraren,-källan och-målet, samt TPT-API: et (Teradata Parallel deporter) och Teradata ODBC-drivrutinen, på Azure-SSIS IR Enterprise Edition. Mer information finns i [Anpassad konfiguration för Azure-SSIS integreringskörning](how-to-configure-azure-ssis-ir-custom-setup.md). |
+| SAP BW anslutningar | SAP BW anslutnings hanteraren, källa och mål har förinstallerats på Azure-SSIS IR Enterprise Edition. Du måste också installera SAP BW driv rutinen på Azure-SSIS IR. Dessa anslutningar stöder SAP BW 7,0 eller tidigare versioner. Om du vill ansluta till senare versioner av SAP BW eller andra SAP-produkter kan du köpa och installera SAP-anslutningar från tredjeparts-ISV: er på Azure-SSIS IR. Mer information om hur du installerar ytterligare komponenter finns i [anpassad installation för Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md). |
+| Analysis Services-komponenter               | Målet för data utvinnings modellens utbildnings mål, dimensions bearbetnings målet och partitionens bearbetnings mål, samt transformeringen för data utvinnings frågor, förinstalleras på Azure-SSIS IR Enterprise Edition. Alla dessa komponenter stöder SQL Server Analysis Services (SSAS), men det är bara partitionen som bearbetar målet som stöder Azure Analysis Services (AAS). För att ansluta till SSAS måste du också [Konfigurera autentiseringsuppgifter för Windows-autentisering i SSISDB](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth). Förutom dessa komponenter är Analysis Services köra DDL-aktivitet, Analysis Services bearbetnings aktiviteten och uppgiften data utvinnings fråga också förinstallerad på Azure-SSIS IR standard/Enterprise Edition. |
+| Nedtransformeringar av fuzzy-gruppering och fuzzy-uppslag  | Transformeringarna för fuzzy-gruppering och fuzzy-uppslag förinstalleras på Azure-SSIS IR Enterprise Edition. Dessa komponenter stöder både SQL Server och Azure SQL Database för lagring av referens data. |
+| Transformeringar av villkors extrahering och terms ökning | Transformeringarna av termen extrahering och terms ökning är förinstallerade på Azure-SSIS IR Enterprise Edition. Dessa komponenter stöder både SQL Server och Azure SQL Database för lagring av referens data. |
 
 ## <a name="instructions"></a>Instruktioner
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1.  Ladda ned och installera [Azure PowerShell](/powershell/azure/install-az-ps).
+1.  Hämta och installera [Azure PowerShell](/powershell/azure/install-az-ps).
 
-2.  När du etablerar eller konfigurera om Azure-SSIS IR med PowerShell, kör `Set-AzDataFactoryV2IntegrationRuntime` med **Enterprise** som värde för den **Edition** parametern innan du startar Azure-SSIS IR. Här är ett exempelskript:
+2.  När du etablerar eller omkonfigurerar Azure-SSIS IR med PowerShell kör du `Set-AzDataFactoryV2IntegrationRuntime` med **Enterprise** som värdet för parametern för **versionen** innan du startar Azure-SSIS IR. Här är ett exempel skript:
 
     ```powershell
     $MyAzureSsisIrEdition = "Enterprise"
@@ -65,6 +65,6 @@ Vissa av dessa funktioner måste du installera ytterligare komponenter om du vil
 
 ## <a name="next-steps"></a>Nästa steg
 
--   [Anpassad installation för den Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md)
+-   [Anpassad installation för Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md)
 
--   [Hur du utvecklar betald eller licensierad anpassade komponenter för Azure-SSIS integration runtime](how-to-develop-azure-ssis-ir-licensed-components.md)
+-   [Utveckla betalda eller licensierade anpassade komponenter för integrerings körningen av Azure-SSIS](how-to-develop-azure-ssis-ir-licensed-components.md)

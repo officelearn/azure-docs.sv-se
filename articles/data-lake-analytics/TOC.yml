@@ -121,11 +121,17 @@
     - name: Förstå Apache Spark för U-SQL-utvecklare
       items:
         - name: Förstå Apache Spark för U-SQL-utvecklare
-          href: data-lake-analytics-understand-spark-for-usql-developers.md
+          href: understand-spark-for-usql-developers.md
         - name: Förstå Apache Spark dataformat
-          href: data-lake-analytics-understand-spark-data-formats.md
+          href: understand-spark-data-formats.md
         - name: Förstå Apache Spark kodkoncept
-          href: data-lake-analytics-understand-spark-code-concepts.md
+          href: understand-spark-code-concepts.md
+    - name: Felsöka U-SQL-jobb
+      items:
+        - name: Felsöka körningsfel i U-SQL
+          href: runtime-troubleshoot.md
+        - name: Felsöka en .NET-uppgradering
+          href: dotnet-upgrade-troubleshoot.md
 - name: Referens
   items:
     - name: Azure PowerShell

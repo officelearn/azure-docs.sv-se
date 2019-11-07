@@ -84,9 +84,6 @@
     - name: Automatiserad maskininlärning
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
-    - name: Beräkninsinstans
-      displayName: 'resource, dsvm, Data Science Virtual Machine'
-      href: concept-compute-instance.md
     - name: Beräkningsmål
       displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
       href: concept-compute-target.md
@@ -115,6 +112,8 @@
     - name: Deep learning
       displayName: 'deep learning vs machine learning, deep learning, vs, versus'
       href: concept-deep-learning-vs-machine-learning.md
+    - name: Event Grid-integrering
+      href: concept-event-grid-integration.md
     - name: Git-integrering
       displayName: git github gitlab
       href: concept-train-model-git-integration.md
@@ -163,6 +162,12 @@
         - name: Versionera och spåra datamängder
           displayName: 'data, data set'
           href: how-to-version-track-datasets.md
+        - name: Hämta märkta data
+          displayName: 'data, dataset, labeling'
+          href: how-to-create-labeling-projects.md
+        - name: Etikettavbildningar
+          displayName: 'data, dataset, labeling'
+          href: how-to-label-images.md
     - name: Inlärningsmodeller
       items:
         - name: Använda designern
@@ -227,11 +232,14 @@
         - name: Använda automatiserad maskininlärning (Python)
           displayName: SDK automl
           href: how-to-configure-auto-train.md
-        - name: Använda automatisk ML (landningssida för arbetsyta)
+        - name: Använd automatiserad ML (gränssnitt)
           href: how-to-create-portal-experiments.md
         - name: Använd fjärrberäkningsmål
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
+        - name: Definiera ML-aktiviteter
+          displayName: 'machine learning, task type'
+          href: how-to-define-task-type.md
         - name: Träna prognosmodeller automatiskt
           displayName: time series
           href: how-to-auto-train-forecast.md
@@ -270,7 +278,7 @@
         - name: Azure App Service
           displayName: web app
           href: how-to-deploy-app-service.md
-        - name: Beräkningsinstanser
+        - name: Bärbara virtuella datorer
           href: how-to-deploy-local-container-notebook-vm.md
         - name: Använda anpassad Docker-avbildning
           href: how-to-deploy-custom-docker-image.md
@@ -317,6 +325,9 @@
     - name: Exportera och ta bort data
       displayName: GDPR
       href: how-to-export-delete-data.md
+    - name: Skapa händelsedrivna arbetsflöden
+      displayName: event grid
+      href: how-to-use-event-grid.md
 - name: Referens
   items:
     - name: ML SDK (Python)
@@ -328,6 +339,8 @@
     - name: Maskininlärning CLI
       displayName: 'extension, command line, command-line, az, ci/cd, automate, automated'
       href: reference-azure-machine-learning-cli.md
+    - name: REST-API
+      href: 'https://docs.microsoft.com/rest/api/azureml/'
     - name: Övervaka datareferens
       href: monitor-resource-reference.md
     - name: YAML-referens för maskininlärningspipeline

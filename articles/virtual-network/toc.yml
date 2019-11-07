@@ -39,6 +39,8 @@
       href: security-overview.md
     - name: Routning
       href: virtual-networks-udr-overview.md
+    - name: Tjänsttaggar
+      href: service-tags-overview.md
     - name: Tjänstslutpunkter
       href: virtual-network-service-endpoints-overview.md
     - name: Principer för tjänstslutpunkter
@@ -65,6 +67,8 @@
       href: ipv6-public-ip-address-prefix.md
     - name: DDoS-skydd
       href: ddos-protection-overview.md
+    - name: Undernätstillägg
+      href: subnet-extension.md
     - name: Interoperabilitet för serverdelsanslutning
       items:
         - name: Prefix och testinstallation
@@ -297,6 +301,8 @@
           href: diagnose-network-routing-problem.md
         - name: Testning av dataflöde
           href: virtual-network-bandwidth-testing.md
+        - name: Testa svarstid för VM-nätverk
+          href: virtual-network-test-latency.md
         - name: Det går inte att ta bort virtuella nätverk
           href: virtual-network-troubleshoot-cannot-delete-vnet.md
         - name: Problem med anslutning mellan virtuella datorer

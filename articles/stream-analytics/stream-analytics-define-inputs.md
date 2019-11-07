@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 8f64b3381f22c31b58604477260b5dae4b84d19a
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: df111d605b7c05bcb934771b6063f2be04770ea9
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72988273"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606469"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Strömma data som indata till Stream Analytics
 
@@ -129,7 +129,13 @@ För scenarier med stora mängder ostrukturerade data som ska lagras i molnet er
 
 Logg bearbetning är ett scenario som ofta används för att använda Blob Storage-indata med Stream Analytics. I det här scenariot har telemetri-datafiler fångats från ett system och måste parsas och bearbetas för att extrahera meningsfulla data.
 
-Standard tids stämplingen för Blob Storage-händelser i Stream Analytics är tidsstämpeln som blobben senast ändrades, vilket är `BlobLastModifiedUtcTime`. Om du vill bearbeta data som en data ström med en tidstämpel i händelse nytto lasten måste du använda [tids stämplingen med](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) nyckelord. Ett Stream Analytics jobb hämtar data från Azure Blob Storage-indata varje sekund om BLOB-filen är tillgänglig. Om BLOB-filen inte är tillgänglig finns det en exponentiell backoff med en maximal tids fördröjning på 90 sekunder.
+Standard tids stämplingen för Blob Storage-händelser i Stream Analytics är tidsstämpeln som blobben senast ändrades, vilket är `BlobLastModifiedUtcTime`. Om en BLOB laddas upp till ett lagrings konto på 13:00 och Azure Stream Analytics jobbet startas med alternativet *nu* vid 13:01, hämtas inte blobben eftersom dess ändrade tid ligger utanför jobb körnings perioden.
+
+Om en BLOB laddas upp till en lagrings konto behållare på 13:00 och Azure Stream Analytics jobbet startas med en *anpassad tid* på 13:00 eller tidigare, hämtas blobben när den ändrade tiden infaller inom jobb körnings perioden.
+
+Om ett Azure Stream Analytics jobb har startats med *nu* vid 13:00 och en BLOB överförs till lagrings konto behållaren vid 13:01, kommer Azure Stream Analytics att hämta bloben.
+
+Om du vill bearbeta data som en data ström med en tidstämpel i händelse nytto lasten måste du använda [tids stämplingen med](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) nyckelord. Ett Stream Analytics jobb hämtar data från Azure Blob Storage-indata varje sekund om BLOB-filen är tillgänglig. Om BLOB-filen inte är tillgänglig finns det en exponentiell backoff med en maximal tids fördröjning på 90 sekunder.
 
 CSV-formaterade indata kräver en rubrik rad för att definiera fält för data uppsättningen och alla rubrik rads fält måste vara unika.
 
@@ -149,7 +155,7 @@ I följande tabell beskrivs varje egenskap på den **nya indata** -sidan i Azure
 | **Lagringskonto** | Namnet på det lagrings konto där BLOB-filerna finns. |
 | **Lagrings konto nyckel** | Den hemliga nyckeln som är kopplad till lagrings kontot. Det här alternativet fylls i automatiskt om du inte väljer alternativet för att tillhandahålla Blob Storage-inställningar manuellt. |
 | **Fönster** | Container för BLOB-inflödet. Behållare tillhandahåller en logisk gruppering för blobbar som lagras i Microsoft Azure Blob Service. När du laddar upp en blob till Azure Blob Storage-tjänsten måste du ange en behållare för denna blob. Du kan välja antingen **Använd befintlig** behållare eller **Skapa ny** för att skapa en ny behållare.|
-| **Sök vägs mönster** (valfritt) | Den fil Sök väg som används för att hitta Blobbarna i den angivna behållaren. I sökvägen kan du ange en eller flera instanser av följande tre variabler: `{date}`, `{time}`eller `{partition}`<br/><br/>Exempel 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exempel 2: `cluster1/logs/{date}`<br/><br/>`*`-tecknen är inte ett tillåtet värde för Path-prefixet. Endast giltiga <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure Blob-tecken</a> tillåts. Lägg inte till behållar namn eller fil namn. |
+| **Sök vägs mönster** (valfritt) | Den fil Sök väg som används för att hitta Blobbarna i den angivna behållaren. Om du vill läsa blobbar från behållarens rot ska du inte ange ett Sök vägs mönster. I sökvägen kan du ange en eller flera instanser av följande tre variabler: `{date}`, `{time}`eller `{partition}`<br/><br/>Exempel 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exempel 2: `cluster1/logs/{date}`<br/><br/>`*`-tecknen är inte ett tillåtet värde för Path-prefixet. Endast giltiga <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure Blob-tecken</a> tillåts. Lägg inte till behållar namn eller fil namn. |
 | **Datum format** (valfritt) | Om du använder date-variabeln i sökvägen är datum formatet där filerna är ordnade. Exempel: `YYYY/MM/DD` |
 | **Tids format** (valfritt) |  Om du använder tids variabeln i sökvägen är det tids formatet som filerna är ordnade i. För närvarande är det enda värde som stöds `HH` för timmar. |
 | **Händelseserialiseringsformat** | Serialization-formatet (JSON, CSV, Avro eller [Other (protobuf, XML, tillverkarspecifika...)](custom-deserializer.md)) för den inkommande data strömmen.  Se till att JSON-formatet överensstämmer med specifikationen och inte innehåller inledande 0 för decimal tal. |

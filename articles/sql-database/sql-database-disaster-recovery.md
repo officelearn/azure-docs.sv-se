@@ -1,5 +1,5 @@
 ---
-title: SQL Database haveri beredskap | Microsoft Docs
+title: SQL Database haveri beredskap
 description: Lär dig hur du återställer en databas från ett regionalt Data Center avbrott eller haveri med Azure SQL Database aktiv geo-replikering och geo-återställnings funktioner.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/21/2019
-ms.openlocfilehash: 95814805d0bcb2532c09f4f68c6b8d97c3b8c6a5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bc4968541c29e3bf18eb4caca2abe648d17342a4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568833"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690597"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Återställa en Azure SQL Database eller redundans till en sekundär
 
@@ -89,7 +89,7 @@ Om programmets nedtid inte leder till företags ansvar kan du använda [geo-åte
 
 Om du använder geo-återställning för att återställa från ett avbrott måste du kontrol lera att anslutningarna till de nya databaserna är korrekt konfigurerade så att den normala program funktionen kan återupptas. Det här är en check lista med uppgifter för att få din återställda databas produktion klar.
 
-### <a name="update-connection-strings"></a>Uppdatera anslutningssträngar
+### <a name="update-connection-strings"></a>Uppdatera anslutnings strängar
 
 Eftersom den återställda databasen finns på en annan server måste du uppdatera programmets anslutnings sträng så att den pekar på den servern.
 
@@ -97,7 +97,7 @@ Mer information om hur du ändrar anslutnings strängar finns i lämpligt utveck
 
 ### <a name="configure-firewall-rules"></a>Konfigurera brand Väggs regler
 
-Du måste kontrol lera att brand Väggs reglerna som kon figurer ATS på servern och databasen matchar de som har kon figurer ATS på den primära servern och den primära databasen. Mer information finns i [så här: Konfigurera brand Väggs inställningar (](sql-database-configure-firewall-settings.md)Azure SQL Database).
+Du måste kontrol lera att brand Väggs reglerna som kon figurer ATS på servern och databasen matchar de som har kon figurer ATS på den primära servern och den primära databasen. Mer information finns i [så här gör du för att: Konfigurera brand Väggs inställningar (Azure SQL Database)](sql-database-configure-firewall-settings.md).
 
 ### <a name="configure-logins-and-database-users"></a>Konfigurera inloggningar och databas användare
 

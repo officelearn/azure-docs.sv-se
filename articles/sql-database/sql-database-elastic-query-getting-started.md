@@ -1,5 +1,5 @@
 ---
-title: Rapport över utskalade moln databaser (vågrät partitionering) | Microsoft Docs
+title: Rapport över utskalade moln databaser (vågrät partitionering)
 description: Använd databas frågor mellan databaser för att rapportera över flera databaser.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
-ms.openlocfilehash: 4e896fae0d8459629c58dfd0bbdfbb32b90b1cac
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 1adc7757edc6d5abc50ed31ea2227711db60fcfe
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264229"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690407"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Rapport över utskalade moln databaser (förhands granskning)
 
@@ -26,7 +26,7 @@ Om du har en befintlig databas, se [migrera befintliga databaser för att skala 
 
 Information om vilka SQL-objekt som krävs för att fråga finns i [fråga över vågrätt partitionerade databaser](sql-database-elastic-query-horizontal-partitioning.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Hämta och kör [exemplet komma igång med Elastic Database verktyg](sql-database-elastic-scale-get-started.md).
 
@@ -134,7 +134,7 @@ Pris information finns [SQL Database pris information](https://azure.microsoft.c
 * En lodrät partitionerings guide finns i [komma igång med kors databas fråga (lodrät partitionering)](sql-database-elastic-query-getting-started-vertical.md).
 * För syntax och exempel frågor för lodrätt partitionerade data, se [fråga lodrätt partitionerade data)](sql-database-elastic-query-vertical-partitioning.md)
 * För syntax och exempel frågor för vågrätt partitionerade data, se [fråga efter vågrätt partitionerade data)](sql-database-elastic-query-horizontal-partitioning.md)
-* Se [SP @ no__t-1execute \_remote](https://msdn.microsoft.com/library/mt703714) för en lagrad procedur som kör ett Transact-SQL-uttryck på en enskild fjärr Azure SQL Database eller uppsättning databaser som fungerar som Shards i ett schema för vågrät partitionering.
+* Se [sp\_köra \_-fjärråtkomst](https://msdn.microsoft.com/library/mt703714) för en lagrad procedur som kör ett Transact-SQL-uttryck på en enskild fjärr-Azure SQL Database eller uppsättning databaser som är som Shards i ett schema med vågrät partitionering.
 
 
 <!--Image references-->

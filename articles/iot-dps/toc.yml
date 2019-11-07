@@ -141,6 +141,8 @@
       href: how-to-legacy-device-symm-key.md
     - name: Använda SDK-verktyg för utveckling
       href: how-to-use-sdk-tools.md
+    - name: Så här skickar du ytterligare data från enheter
+      href: how-to-send-additional-data.md
     - name: Felsökning
       href: how-to-troubleshoot-dps.md
 - name: Referens

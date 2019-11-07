@@ -1,5 +1,5 @@
 ---
-title: Failover-grupper – Azure SQL Database | Microsoft Docs
+title: Failover-grupper – Azure SQL Database
 description: Grupper med automatisk redundans är en SQL Database funktion som gör att du kan hantera replikering och automatisk/samordnad redundansväxling av en grupp databaser på en SQL Database-Server eller alla databaser i en hanterad instans.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 10/23/2019
-ms.openlocfilehash: bb47f0d2e02ce5cd055ebaae2e2a2f33ce77cd43
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 70c8bb618cd25c21d6cc59dde305fff113ffe22f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901408"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691158"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 
@@ -46,7 +46,7 @@ För att uppnå verklig affärs kontinuitet är det bara en del av lösningen at
   En grupp för växling vid fel är en namngiven grupp databaser som hanteras av en enda SQL Database Server eller inom en enda hanterad instans som kan redundansväxla som en enhet till en annan region, om alla eller vissa primära databaser blir otillgängliga på grund av ett avbrott i den primära regionen. När det skapas för hanterade instanser innehåller en redundans grupp alla användar databaser i instansen och därför kan bara en failover-grupp konfigureras på en instans.
   
   > [!IMPORTANT]
-  > Namnet på gruppen för redundans måste vara globalt unikt inom `.database.windows.net`-domänen.
+  > Namnet på gruppen för redundans måste vara globalt unikt inom `.database.windows.net`s domänen.
 
 - **SQL Database servrar**
 
@@ -115,7 +115,7 @@ För att uppnå verklig affärs kontinuitet är det bara en del av lösningen at
 
 - **Respitperiod med data förlust**
 
-  Eftersom de primära och sekundära databaserna synkroniseras med hjälp av asynkron replikering kan redundansväxlingen leda till data förlust. Du kan anpassa principen för automatisk redundans så att den återspeglar programmets tolerans för data förlust. Genom att konfigurera `GracePeriodWithDataLossHours` kan du styra hur lång tid systemet väntar innan redundansväxlingen initieras, vilket kan leda till data förlust.
+  Eftersom de primära och sekundära databaserna synkroniseras med hjälp av asynkron replikering kan redundansväxlingen leda till data förlust. Du kan anpassa principen för automatisk redundans så att den återspeglar programmets tolerans för data förlust. Genom att konfigurera `GracePeriodWithDataLossHours`kan du styra hur lång tid systemet väntar innan redundansväxlingen initieras, vilket kan leda till data förlust.
 
 - **Flera failover-grupper**
 
@@ -161,7 +161,7 @@ När du utformar en tjänst med affärs kontinuitet i åtanke följer du dessa a
 
 - **Använd skrivskyddad lyssnare för skrivskyddad arbets belastning**
 
-  Om du har en logiskt isolerad skrivskyddad arbets belastning som är tolerant till viss föråldrade data kan du använda den sekundära databasen i programmet. För skrivskyddade sessioner använder du `<fog-name>.secondary.database.windows.net` som server-URL och anslutningen dirigeras automatiskt till den sekundära. Vi rekommenderar också att du anger i anslutnings strängens läsnings avsikt genom att använda `ApplicationIntent=ReadOnly`. Om du vill kontrol lera att den skrivskyddade arbets belastningen kan återansluta efter en redundansväxling eller om den sekundära servern kopplas från, måste du konfigurera egenskapen `AllowReadOnlyFailoverToPrimary` för redundansväxlingen. 
+  Om du har en logiskt isolerad skrivskyddad arbets belastning som är tolerant till viss föråldrade data kan du använda den sekundära databasen i programmet. För skrivskyddade sessioner använder du `<fog-name>.secondary.database.windows.net` som server-URL och anslutningen dirigeras automatiskt till den sekundära. Vi rekommenderar också att du anger i anslutnings strängens läsnings avsikt med `ApplicationIntent=ReadOnly`. Om du vill kontrol lera att den skrivskyddade arbets belastningen kan återansluta efter en redundansväxling eller om den sekundära servern kopplas från, måste du konfigurera egenskapen `AllowReadOnlyFailoverToPrimary` för redundansväxlingen. 
 
 - **Förbered dig för prestanda försämring**
 
@@ -205,7 +205,7 @@ Om programmet använder hanterad instans som datanivå, följer du dessa allmän
 
 - **Skapa en failover-grupp mellan hanterade instanser i olika prenumerationer**
 
-  Du kan skapa en failover-grupp mellan hanterade instanser i två olika prenumerationer. När du använder PowerShell API kan du göra det genom att ange parametern `PartnerSubscriptionId` för den sekundära instansen. När du använder REST API kan varje instans-ID som ingår i parametern `properties.managedInstancePairs` ha sitt eget subscriptionID. 
+  Du kan skapa en failover-grupp mellan hanterade instanser i två olika prenumerationer. När du använder PowerShell API kan du göra det genom att ange parametern `PartnerSubscriptionId` för den sekundära instansen. När du använder REST API kan varje instans-ID som ingår i `properties.managedInstancePairs`-parametern ha sitt eget subscriptionID. 
   
   > [!IMPORTANT]
   > Azure Portal har inte stöd för redundansväxla grupper över olika prenumerationer.
@@ -237,7 +237,7 @@ Om programmet använder hanterad instans som datanivå, följer du dessa allmän
 
 - **Förbered för data förlust**
 
-  Om ett avbrott upptäcks utlöser SQL automatiskt Read-Write-redundans om det inte finns någon data förlust till det bästa av vår kunskap. Annars väntar den för den period som du angav i `GracePeriodWithDataLossHours`. Om du har angett `GracePeriodWithDataLossHours` ska du förbereda för data förlust. I allmänhet prioriterar Azure tillgänglighet under drifts störningar. Om du inte kan erbjuda data förlust, se till att ange GracePeriodWithDataLossHours till ett tillräckligt stort antal, till exempel 24 timmar.
+  Om ett avbrott upptäcks utlöser SQL automatiskt Read-Write-redundans om det inte finns någon data förlust till det bästa av vår kunskap. Annars väntar den för den period som du angav i `GracePeriodWithDataLossHours`. Om du har angett `GracePeriodWithDataLossHours`bör du förbereda för data förlust. I allmänhet prioriterar Azure tillgänglighet under drifts störningar. Om du inte kan erbjuda data förlust, se till att ange GracePeriodWithDataLossHours till ett tillräckligt stort antal, till exempel 24 timmar.
 
   DNS-uppdateringen av Läs-och skriv lyssnaren sker omedelbart efter det att redundansväxlingen initierats. Den här åtgärden kommer inte att resultera i data förlust. Processen med att växla databas roller kan dock ta upp till 5 minuter under normala förhållanden. När den är klar är vissa databaser i den nya primära instansen fortfarande skrivskyddade. Om redundansväxlingen initieras med hjälp av PowerShell, är hela åtgärden synkron. Om den initieras med hjälp av Azure Portal, visar användar gränssnittet slut för ande status. Om den är initierad med REST API använder du standard Azure Resource Managers avsöknings funktion för att övervaka slut för ande.
 

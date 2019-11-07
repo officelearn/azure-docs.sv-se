@@ -1,19 +1,19 @@
 ---
-title: Azure till Azure-replikerings arkitektur i Azure Site Recovery | Microsoft Docs
-description: Den här artikeln innehåller en översikt över komponenter och arkitektur som används när du konfigurerar haveri beredskap mellan Azure-regioner för virtuella Azure-datorer med hjälp av tjänsten Azure Site Recovery.
+title: Katastrof återställnings arkitektur för Azure till Azure i Azure Site Recovery
+description: Översikt över arkitekturen som används när du konfigurerar haveri beredskap mellan Azure-regioner för virtuella Azure-datorer med hjälp av tjänsten Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 11/05/2019
 ms.author: raynew
-ms.openlocfilehash: d415f303976ae454cb99f07e8d6e15e338e24d7d
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: e83c14e5ce337e8a3c4c119acc2397b98afd5b56
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231464"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621112"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Haveriberedskapsarkitektur för Azure till Azure
 
@@ -97,13 +97,13 @@ I följande tabell beskrivs olika typer av konsekvens.
 
 ### <a name="crash-consistent"></a>Krasch-konsekvent
 
-**Beskrivning** | **Detaljer** | **Rekommendationen**
+**Beskrivning** | **Detaljer** | **Rekommenderade**
 --- | --- | ---
 En krasch-konsekvent ögonblicks bild fångar upp data som fanns på disken när ögonblicks bilden togs. Det innehåller inte något i minnet.<br/><br/> Den innehåller motsvarigheten till data på disken som kan finnas om den virtuella datorn kraschade eller om ström sladden hämtades från servern vid det ögonblick då ögonblicks bilden togs.<br/><br/> En krasch konsekvens garanterar inte data konsekvens för operativ systemet eller för appar på den virtuella datorn. | Site Recovery skapar kraschbaserade återställnings punkter var femte minut som standard. Den här inställningen kan inte ändras.<br/><br/>  | Idag kan de flesta appar återställa sig väl från kraschbaserade punkter.<br/><br/> Kraschbaserade återställnings punkter är vanligt vis tillräckligt för replikering av operativ system och appar som DHCP-servrar och utskrifts servrar.
 
 ### <a name="app-consistent"></a>Program – konsekvent
 
-**Beskrivning** | **Detaljer** | **Rekommendationen**
+**Beskrivning** | **Detaljer** | **Rekommenderade**
 --- | --- | ---
 Programkonsekventa återställnings punkter skapas från programkonsekventa ögonblicks bilder.<br/><br/> En programkonsekvent ögonblicks bild innehåller all information i en krasch-konsekvent ögonblicks bild, plus alla data i minnet och transaktioner som pågår. | Programkonsekventa ögonblicks bilder använder tjänsten Volume Shadow Copy (VSS):<br/><br/>   1) när en ögonblicks bild initieras utför VSS en ko-åtgärd (kopiering vid skrivning) på volymen.<br/><br/>   2) innan den utför Ko informerar VSS varje app på datorn att den behöver tömma sina minnesresidenta data till disk.<br/><br/>   3) VSS tillåter sedan säkerhets kopierings-/katastrof återställnings appen (i det här fallet Site Recovery) att läsa ögonblicks bild data och fortsätta. | Programkonsekventa ögonblicks bilder tas i enlighet med den frekvens som du anger. Den här frekvensen bör alltid vara mindre än du anger för att behålla återställnings punkter. Om du till exempel behåller återställnings punkter med standardinställningen 24 timmar bör du ange frekvensen till mindre än 24 timmar.<br/><br/>De är mer komplexa och tar längre tid än krasch-konsekventa ögonblicks bilder.<br/><br/> De påverkar prestanda för appar som körs på en virtuell dator som är aktive rad för replikering. 
 
@@ -145,7 +145,7 @@ Observera att information om nätverks anslutningens krav finns i [nätverks Whi
 
 **Allmänhet** |  **Detaljer** | **Tjänsttagg**
 --- | --- | --- 
-Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar lagrings konton i käll regionen | Lagrings. \<region namn >.
+Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar lagrings konton i käll regionen | Lagrings.\<region namn >.
 Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Azure Active Directory (Azure AD).<br/><br/> Om Azure AD-adresser läggs till i framtiden måste du skapa nya regler för nätverks säkerhets grupper (NSG).  | AzureActiveDirectory
 Tillåt HTTPS utgående: port 443 | Tillåt åtkomst till [Site Recovery slut punkter](https://aka.ms/site-recovery-public-ips) som motsvarar mål platsen. 
 
@@ -153,7 +153,7 @@ Tillåt HTTPS utgående: port 443 | Tillåt åtkomst till [Site Recovery slut pu
 
 **Allmänhet** |  **Detaljer** | **Tjänsttagg**
 --- | --- | --- 
-Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar lagrings konton i mål regionen. | Lagrings. \<region namn >.
+Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar lagrings konton i mål regionen. | Lagrings.\<region namn >.
 Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Azure AD.<br/><br/> Om Azure AD-adresser läggs till i framtiden måste du skapa nya NSG-regler.  | AzureActiveDirectory
 Tillåt HTTPS utgående: port 443 | Tillåt åtkomst till [Site Recovery slut punkter](https://aka.ms/site-recovery-public-ips) som motsvarar käll platsen. 
 

@@ -1,5 +1,5 @@
 ---
-title: Kontinuerlig integrering och leverans i Azure Data Factory | Microsoft Docs
+title: Kontinuerlig integrering och leverans i Azure Data Factory
 description: Lär dig hur du använder kontinuerlig integrering och leverans för att flytta Data Factory pipelines från en miljö (utveckling, testning, produktion) till en annan.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: ff1d34852890a8d5005153ebdfa2fa0f9749d129
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 7c5c1e91e97087bf28b03629659e5194f67c22b3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030614"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680033"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Kontinuerlig integrering och leverans (CI/CD) i Azure Data Factory
 
@@ -122,7 +122,7 @@ Nedan finns en guide för att konfigurera en Azure pipelines-lansering som autom
 
     f.  Välj **...** i **fältet mallparametrar.** för att välja parameter filen. Välj rätt fil beroende på om du har skapat en kopia eller om du använder standard filen *ARMTemplateParametersForFactory. JSON*.
 
-    g.  Välj **...** bredvid fältet **Åsidosätt mallparametrar** och fyll i informationen för mål Data Factory. För autentiseringsuppgifter som kommer från Key Vault anger du det hemliga namnet mellan dubbla citat tecken. Om hemlighetens namn exempelvis är `cred1`, anger du `"$(cred1)"`for värde.
+    g.  Välj **...** bredvid fältet **Åsidosätt mallparametrar** och fyll i informationen för mål Data Factory. För autentiseringsuppgifter som kommer från Key Vault anger du det hemliga namnet mellan dubbla citat tecken. Om hemlighetens namn till exempel är `cred1`anger du `"$(cred1)"`för värdet.
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
@@ -335,14 +335,14 @@ Om du under dessa omständigheter vill åsidosätta standard mal len Parameteris
 
 Här följer några rikt linjer som du kan använda när du skapar filen med anpassade parametrar. Filen består av ett avsnitt för varje entitetstyp: utlösare, pipeline, länkad tjänst, data uppsättning, integration Runtime och så vidare.
 * Ange sökvägen till egenskapen under den relevanta entitetstypen.
-* När du anger ett egenskaps namn till "\*", anger du att du vill Parameterisera alla egenskaper under det (endast på den första nivån, inte rekursivt). Du kan också ange undantag för detta.
-* När du anger värdet för en egenskap som en sträng anger du att du vill Parameterisera egenskapen. Använd formatet @ no__t-0.
-   *  `<action>` @ no__t-1can är något av följande tecken:
-      * `=` @ no__t-1means behåller det aktuella värdet som standardvärdet för parametern.
-      * `-` @ no__t-1means behåller inte standardvärdet för parametern.
-      * `|` @ no__t – 1is ett specialfall för hemligheter från Azure Key Vault för anslutnings strängar eller nycklar.
-   * `<name>` @ no__t-1is namnet på parametern. Om det är tomt tar det med namnet på egenskapen. Om värdet börjar med ett `-`-värde är namnet förkortat. @No__t-0 skulle till exempel kortas till `AzureStorage1_connectionString`.
-   * `<stype>` @ no__t-1is typ av parameter. Om @ no__t-0 @ no__t-1is är tomt är standard typen `string`. Värden som stöds: `string`, `bool`, `number`, `object` och `securestring`.
+* När du anger ett egenskaps namn till\*, anger du att du vill Parameterisera alla egenskaper under den (endast till den första nivån, inte rekursivt). Du kan också ange undantag för detta.
+* När du anger värdet för en egenskap som en sträng anger du att du vill Parameterisera egenskapen. Använd formatet `<action>:<name>:<stype>`.
+   *  `<action>` kan vara något av följande tecken:
+      * `=` innebär att det aktuella värdet är standardvärdet för parametern.
+      * `-` innebär att inte behålla standardvärdet för parametern.
+      * `|` är ett specialfall för hemligheter från Azure Key Vault för anslutnings strängar eller nycklar.
+   * `<name>` är namnet på parametern. Om det är tomt tar det med namnet på egenskapen. Om värdet börjar med ett `-`-värde är namnet förkortat. `AzureStorage1_properties_typeProperties_connectionString` skulle till exempel kortas till `AzureStorage1_connectionString`.
+   * `<stype>` är typ av parameter. Om `<stype>` är tomt är standard typen `string`. Värden som stöds: `string`, `bool`, `number`, `object` och `securestring`.
 * När du anger en matris i definitions filen anger du att den matchande egenskapen i mallen är en matris. Data Factory itererar igenom alla objekt i matrisen med hjälp av definitionen som anges i matrisens Integration Runtime-objekt. Det andra objektet, en sträng, blir namnet på egenskapen, som används som namn för parametern för varje iteration.
 * Det går inte att ha en definition som är unik för en resurs instans. Alla definitioner gäller för alla resurser av den typen.
 * Som standard är alla säkra strängar, till exempel Key Vault hemligheter och säkra strängar, till exempel anslutnings strängar, nycklar och tokens, parameterstyrda.
@@ -423,18 +423,18 @@ Nedan visas en förklaring av hur ovanstående mall är konstruerad, uppdelad ef
 
 #### <a name="triggers"></a>Utlösare
 
-* Under `typeProperties` är två egenskaper parameterstyrda. Den första är `maxConcurrency`, som har angetts ha ett standardvärde och är av typen @ no__t-1. Den har standard parameter namnet `<entityName>_properties_typeProperties_maxConcurrency`.
+* Under `typeProperties` är två egenskaper parameterstyrda. Den första är `maxConcurrency`, som har angetts som standardvärde och är av typen`string`. Den har standard parameter namnet `<entityName>_properties_typeProperties_maxConcurrency`.
 * Egenskapen `recurrence` är också parametriserad. Under den här nivån anges alla egenskaper på den nivån som parameterstyrda som strängar, med standardvärden och parameter namn. Ett undantag är egenskapen `interval`, som är parameterstyrda som en siffer typ och med parameter namnet suffixet med `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. På samma sätt är egenskapen `freq` en sträng och är parameterstyrda som en sträng. Men egenskapen `freq` är parameterstyrda utan ett standardvärde. Namnet är kortare och suffixet. Till exempel `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 
 * Länkade tjänster är unika. Eftersom länkade tjänster och data uppsättningar har en mängd olika typer, kan du ange en typ bestämd anpassning. I det här exemplet tillämpas alla länkade tjänster av typen `AzureDataLakeStore`, en särskild mall, och för alla andra (via \*) används en annan mall.
 * Egenskapen `connectionString` är parameterstyrda som ett `securestring`-värde, det har inget standardvärde och det har ett förkortat parameter namn som har suffix `connectionString`.
-* Egenskapen `secretAccessKey` kan vara en `AzureKeyVaultSecret` (till exempel i en länkad @no__t 2). Den är automatiskt parameterstyrda som en Azure Key Vault hemlighet och hämtas från det konfigurerade nyckel valvet. Du kan också Parameterisera själva nyckel valvet.
+* Egenskapen `secretAccessKey` sker som ett `AzureKeyVaultSecret` (till exempel i en `AmazonS3` länkad tjänst). Den är automatiskt parameterstyrda som en Azure Key Vault hemlighet och hämtas från det konfigurerade nyckel valvet. Du kan också Parameterisera själva nyckel valvet.
 
 #### <a name="datasets"></a>Datauppsättningar
 
-* Även om typ specifik anpassning är tillgänglig för data uppsättningar kan du ange konfiguration utan att uttryckligen ha en @no__t -0-konfiguration. I exemplet ovan är alla data uppsättnings egenskaper under `typeProperties` parameterstyrda.
+* Även om typ specifik anpassning är tillgänglig för data uppsättningar kan du ange konfiguration utan att uttryckligen ha en konfiguration på \*nivå. I exemplet ovan är alla data uppsättnings egenskaper under `typeProperties` parameterstyrda.
 
 ### <a name="default-parameterization-template"></a>Standard Parameterisering-mall
 

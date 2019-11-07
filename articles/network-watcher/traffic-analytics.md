@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: kumud
 ms.reviewer: vinigam
-ms.openlocfilehash: ce59b46667f9139157a751d7d7b0205504d71ab0
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 831e75ba2d3f6af62496d437da3d1413dc612594
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695657"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686550"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -45,15 +45,15 @@ Virtuella Azure-nätverk har NSG flödes loggar, som ger dig information om inko
 
 ## <a name="key-components"></a>Nyckelkomponenter
 
-- **Nätverks säkerhets grupp (NSG)** : Innehåller en lista över säkerhets regler som tillåter eller nekar nätverks trafik till resurser som är anslutna till en Azure-Virtual Network. Nätverkssäkerhetsgrupper kan kopplas till undernät, enskilda virtuella datorer (klassisk) eller enskilda nätverkskort (NIC) som är anslutna till virtuella datorer (Resource Manager). Mer information finns i [Översikt över nätverks säkerhets grupper](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Flödes loggar för nätverks säkerhets gruppen (NSG)** : Gör att du kan visa information om inkommande och utgående IP-trafik via en nätverks säkerhets grupp. NSG flödes loggar skrivs i JSON-format och visar utgående och inkommande flöden per regel, vilket nätverkskort flödet gäller för, fem tuple-information om flödet (käll-och mål-IP-adress, käll-och mål Port och protokoll) och om trafiken tillåts eller nekas. Mer information om NSG Flow-loggar finns i [NSG Flow-loggar](network-watcher-nsg-flow-logging-overview.md).
-- **Log Analytics**: En Azure-tjänst som samlar in övervaknings data och lagrar data i en central lagrings plats. Dessa data kan omfatta händelser, prestanda data eller anpassade data som tillhandahålls via Azure-API: et. När data har samlats in är de tillgängliga för avisering, analys och export. Övervakning av program, till exempel övervakaren för nätverks prestanda och trafik analys skapas med Azure Monitor loggar som grund. Mer information finns i [Azure Monitor loggar](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Log Analytics arbets yta**: En instans av Azure Monitor loggar där data som hör till ett Azure-konto lagras. Mer information om Log Analytics-arbetsytor finns i [skapa en Log Analytics arbets yta](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Network Watcher**: En regional tjänst som gör att du kan övervaka och diagnostisera villkor på en nätverks scenario nivå i Azure. Du kan aktivera och inaktivera NSG flödes loggar med Network Watcher. Mer information finns i [Network Watcher](network-watcher-monitoring-overview.md).
+- **Nätverks säkerhets grupp (NSG)** : innehåller en lista över säkerhets regler som tillåter eller nekar nätverks trafik till resurser som är anslutna till en Azure-Virtual Network. Nätverkssäkerhetsgrupper kan kopplas till undernät, enskilda virtuella datorer (klassisk) eller enskilda nätverkskort (NIC) som är anslutna till virtuella datorer (Resource Manager). Mer information finns i [Översikt över nätverks säkerhets grupper](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Flödes loggar för nätverks säkerhets grupper (NSG)** : gör att du kan visa information om inkommande och utgående IP-trafik via en nätverks säkerhets grupp. NSG flödes loggar skrivs i JSON-format och visar utgående och inkommande flöden per regel, vilket nätverkskort flödet gäller för, fem tuple-information om flödet (käll-och mål-IP-adress, käll-och mål Port och protokoll) och om trafiken tillåts eller nekas. Mer information om NSG Flow-loggar finns i [NSG Flow-loggar](network-watcher-nsg-flow-logging-overview.md).
+- **Log Analytics**: en Azure-tjänst som samlar in övervaknings data och lagrar data i en central lagrings plats. Dessa data kan omfatta händelser, prestanda data eller anpassade data som tillhandahålls via Azure-API: et. När data har samlats in är de tillgängliga för avisering, analys och export. Övervakning av program, till exempel övervakaren för nätverks prestanda och trafik analys skapas med Azure Monitor loggar som grund. Mer information finns i [Azure Monitor loggar](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Log Analytics arbets yta**: en instans av Azure Monitor loggar där data som hör till ett Azure-konto lagras. Mer information om Log Analytics-arbetsytor finns i [skapa en Log Analytics arbets yta](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Network Watcher**: en regional tjänst som gör att du kan övervaka och diagnostisera villkor på en nätverks scenario nivå i Azure. Du kan aktivera och inaktivera NSG flödes loggar med Network Watcher. Mer information finns i [Network Watcher](network-watcher-monitoring-overview.md).
 
 ## <a name="how-traffic-analytics-works"></a>Så här fungerar trafik analys
 
-Trafik analys undersöker rå NSG flödes loggar och avbildar färre loggar genom att aggregera vanliga flöden mellan samma käll-IP-adress, mål-IP-adress, målport och protokoll. Till exempel värddator 1 (IP-adress: 10.10.10.10) som kommunicerar med värd 2 (IP-adress: 10.10.20.10), 100 gånger under en period på 1 timme med port (t. ex. 80) och protokoll (till exempel http). Den reducerade loggen har en post, som är värddator 1 & värd 2, med 100 gånger under en period på 1 timme med port *80* och protokoll http, i stället för att ha 100 *-* poster. Lägre loggar har förbättrats med information om geografi, säkerhet och topologi och lagras sedan i en Log Analytics-arbetsyta. Följande bild visar data flödet:
+Trafik analys undersöker rå NSG flödes loggar och avbildar färre loggar genom att aggregera vanliga flöden mellan samma käll-IP-adress, mål-IP-adress, målport och protokoll. Till exempel, värd 1 (IP-adress: 10.10.10.10) som kommunicerar med värd 2 (IP-adress: 10.10.20.10), 100 gånger under en period på 1 timme med port (t. ex. 80) och protokoll (till exempel http). Den reducerade loggen har en post, som är värddator 1 & värd 2, med 100 gånger under en period på 1 timme med port *80* och protokoll http, i stället för att ha 100 *-* poster. Lägre loggar har förbättrats med information om geografi, säkerhet och topologi och lagras sedan i en Log Analytics-arbetsyta. Följande bild visar data flödet:
 
 ![Data flöde för bearbetning av NSG flödes loggar](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
@@ -63,7 +63,7 @@ Du kan använda Traffic Analytics för NSG: er i någon av följande regioner:
 
 * Centrala Kanada
 * Västra centrala USA
-* East US
+* Östra USA
 * USA, östra 2
 * Norra centrala USA
 * Södra centrala USA
@@ -82,17 +82,18 @@ Du kan använda Traffic Analytics för NSG: er i någon av följande regioner:
 * Sydostasien
 * Sydkorea, centrala
 * Indien, centrala
-* Indien, södra
+* Södra Indien
 * Östra Japan 
 * Västra Japan
 * Virginia (USA-förvaltad region)
+* Kina, östra 2
 
-## <a name="supported-regions-log-analytics-workspaces"></a>Regioner som stöds: Log Analytics-arbetsytor
+## <a name="supported-regions-log-analytics-workspaces"></a>Regioner som stöds: Log Analytics arbets ytor
 
 Arbets ytan Log Analytics måste finnas i följande regioner:
 * Centrala Kanada
 * Västra centrala USA
-* East US
+* Östra USA
 * USA, östra 2
 * Södra centrala USA
 * Västra USA
@@ -110,31 +111,32 @@ Arbets ytan Log Analytics måste finnas i följande regioner:
 * Indien, centrala
 * Östra Japan
 * Virginia (USA-förvaltad region)
+* Kina, östra 2
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ### <a name="user-access-requirements"></a>Krav för användar åtkomst
 
 Ditt konto måste vara medlem i någon av följande [inbyggda Azure-roller](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json):
 
-|Distributionsmodell   | Role                   |
+|Distributionsmodell   | Roll                   |
 |---------          |---------               |
 |Resource Manager   | Ägare                  |
 |                   | Deltagare            |
 |                   | Läsare                 |
-|                   | Nätverksdeltagare    |
+|                   | Nätverks deltagare    |
 
 Om ditt konto inte har tilldelats någon av de inbyggda rollerna måste det tilldelas en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) som har tilldelats följande åtgärder på prenumerations nivå:
 
-- "Microsoft.Network/applicationGateways/read"
+- "Microsoft. Network/applicationGateways/Read"
 - "Microsoft. Network/Connections/Read"
 - "Microsoft. Network/belastningsutjämnare/Read"
 - "Microsoft. Network/localNetworkGateways/Read"
-- "Microsoft.Network/networkInterfaces/read"
+- "Microsoft. Network/networkInterfaces/Read"
 - "Microsoft. Network/networkSecurityGroups/Read"
 - "Microsoft. Network/publicIPAddresses/Read"
 - "Microsoft. Network/routeTables/Read"
-- "Microsoft.Network/virtualNetworkGateways/read"
+- "Microsoft. Network/virtualNetworkGateways/Read"
 - "Microsoft. Network/virtualNetworks/Read"
 
 Information om hur du kontrollerar användar behörighet finns i [vanliga frågor och svar om trafik analys](traffic-analytics-faq.md).
@@ -163,7 +165,7 @@ Registrera Azure Insights-providern om den inte redan har registrerats för din 
 Register-AzResourceProvider -ProviderNamespace Microsoft.Insights
 ```
 
-Om du inte redan har ett Azure Storage konto för att lagra NSG Flow-loggar i måste du skapa ett lagrings konto. Du kan skapa ett lagrings konto med kommandot som följer. Innan du kör kommandot ersätter `<replace-with-your-unique-storage-account-name>` du med ett namn som är unikt för alla Azure-platser, mellan 3-24 tecken, med enbart siffror och gemener. Du kan också ändra resurs gruppens namn, om det behövs.
+Om du inte redan har ett Azure Storage konto för att lagra NSG Flow-loggar i måste du skapa ett lagrings konto. Du kan skapa ett lagrings konto med kommandot som följer. Innan du kör kommandot ersätter du `<replace-with-your-unique-storage-account-name>` med ett namn som är unikt för alla Azure-platser, mellan 3-24 tecken långt, med enbart siffror och gemener. Du kan också ändra resurs gruppens namn, om det behövs.
 
 ```azurepowershell-interactive
 New-AzStorageAccount `
@@ -194,7 +196,7 @@ Välj följande alternativ, som du ser på bilden:
 
     ![Val av lagrings konto, Log Analytics arbets yta och Trafikanalys aktivering](./media/traffic-analytics/ta-customprocessinginterval.png)
 
-Upprepa föregående steg för alla andra NSG: er som du vill aktivera trafik analys för. Data från flödes loggar skickas till arbets ytan, så se till att lokala lagar och föreskrifter i ditt land tillåter data lagring i den region där arbets ytan finns. Om du har angett olika bearbetnings intervall för olika NSG: er kommer data att samlas in i olika intervall. Exempel: Du kan välja att aktivera bearbetnings intervallet på 10 minuter för kritiska virtuella nätverk och 1 timme för icke-kritiska virtuella nätverk.
+Upprepa föregående steg för alla andra NSG: er som du vill aktivera trafik analys för. Data från flödes loggar skickas till arbets ytan, så se till att lokala lagar och föreskrifter i ditt land tillåter data lagring i den region där arbets ytan finns. Om du har angett olika bearbetnings intervall för olika NSG: er kommer data att samlas in i olika intervall. Exempel: du kan välja att aktivera bearbetnings intervallet på 10 minuter för kritiska virtuella nätverk och 1 timme för icke-kritiska virtuella nätverk.
 
 Du kan också konfigurera trafik analys med hjälp av [set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) PowerShell-cmdleten i Azure PowerShell. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul).
 
@@ -311,7 +313,7 @@ Några av de insikter du kanske vill få när Trafikanalys har kon figurer ATS f
     ![Instrument panel som demonstrerar distribution av virtuella nätverk](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - Virtual Network sto pol Ogin visar det övre menyfliksområdet för val av parametrar som ett virtuellt nätverk (mellan virtuella nätverks anslutningar/aktiva/inaktiva), externa anslutningar, aktiva flöden och skadliga flöden i det virtuella nätverket.
-- Du kan filtrera Virtual Network sto pol Ogin utifrån prenumerationer, arbets ytor, resurs grupper och tidsintervall. Ytterligare filter som hjälper dig att förstå flödet är: Flödes typ (anslutningar, IntraVNET och så vidare), flödes riktning (inkommande, utgående), flödes status (tillåts, blockerad), virtuella nätverk (riktad och ansluten), Anslutnings typ (peering eller gateway-P2S och S2S) och NSG. Använd dessa filter för att fokusera på virtuella nätverk som du vill undersöka i detalj.
+- Du kan filtrera Virtual Network sto pol Ogin utifrån prenumerationer, arbets ytor, resurs grupper och tidsintervall. Ytterligare filter som hjälper dig att förstå flödet är: flödes typ (anslutningar, IntraVNET och så vidare), flödes riktning (inkommande, utgående), flödes status (tillåts, blockerad), virtuella nätverk (riktad och ansluten), Anslutnings typ (peering eller gateway-P2S och S2S) och NSG. Använd dessa filter för att fokusera på virtuella nätverk som du vill undersöka i detalj.
 - Virtual Network sto pol Ogin visar trafik distributionen till ett virtuellt nätverk med avseende på flöden (tillåtna/blockerade/inkommande/utgående/ofarlig/skadlig/skadlig), program protokoll och nätverks säkerhets grupper, till exempel:
 
     ![Topologi för virtuella nätverk som demonstrerar trafik distribution och flödes information](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
@@ -337,7 +339,7 @@ Trafik distribution per Programgateway & Load Balancer, topologi, topp källor f
  - Veta vilket undernät som är konversation till vilken Application Gateway eller Load Balancer. Om du upptäcker oväntade konversationer kan du korrigera konfigurationen.
  - Om falska nätverk är konversation med en Programgateway eller Load Balancer kan du korrigera det genom att konfigurera NSG-regler för att blockera de falska nätverken. 
 
-    ![subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
+    ![undernät – topologi-demonstration – trafik-distribution-till-a-Application-Gateway-undernät-med-avser](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
 
 ### <a name="view-ports-and-virtual-machines-receiving-traffic-from-the-internet"></a>Visa portar och virtuella datorer som tar emot trafik från Internet
 

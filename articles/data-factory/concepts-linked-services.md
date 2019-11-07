@@ -1,5 +1,5 @@
 ---
-title: Länkade tjänster i Azure Data Factory | Microsoft Docs
+title: Länkade tjänster i Azure Data Factory
 description: Lär dig mer om länkade tjänster i Data Factory. Länkade tjänster länkar beräknings-/data lager till Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 80e9cee0d973dc8575e9645c537b6b69fbeef700
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 9dd81484d8afab66fcb76f8fccdea348ef6a34c4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70137120"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681492"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Länkade tjänster i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -61,12 +61,12 @@ En länkad tjänst i Data Factory definieras i JSON-format enligt följande:
 
 I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
-Egenskap | Beskrivning | Obligatorisk |
+Egenskap | Beskrivning | Krävs |
 -------- | ----------- | -------- |
-name | Namnet på den länkade tjänsten. Se [Azure Data Factory namngivnings regler](naming-rules.md). |  Ja |
-type | Typ av länkad tjänst. Exempel: AzureStorage (data lager) eller AzureBatch (Compute). Se beskrivningen av typeProperties. | Ja |
+namn | Namnet på den länkade tjänsten. Se [Azure Data Factory namngivnings regler](naming-rules.md). |  Ja |
+typ | Typ av länkad tjänst. Till exempel: AzureStorage (data Store) eller AzureBatch (Compute). Se beskrivningen av typeProperties. | Ja |
 typeProperties | Typ egenskaperna är olika för varje data lager eller beräkning. <br/><br/> För de data lager typer som stöds och deras typ egenskaper, se tabellen [data uppsättnings typ](concepts-datasets-linked-services.md#dataset-type) i den här artikeln. Gå till artikeln data Store Connector om du vill veta mer om typ egenskaper som är speciella för ett data lager. <br/><br/> För beräknings typer som stöds och deras typ egenskaper, se [Compute-länkade tjänster](compute-linked-services.md). | Ja |
-connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller egen värd Integration Runtime (om ditt data lager finns i ett privat nätverk). Om den inte anges används standard Azure Integration Runtime. | Nej
+connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Du kan använda Azure Integration Runtime eller egen värd Integration Runtime (om ditt data lager finns i ett privat nätverk). Om inget värde anges används standard Azure Integration Runtime. | Nej
 
 ## <a name="linked-service-example"></a>Exempel på länkad tjänst
 Följande länkade tjänst är en Azure Storage länkad tjänst. Observera att typen har angetts till AzureStorage. Typ egenskaperna för den Azure Storage länkade tjänsten innehåller en anslutnings sträng. Den Data Factory tjänsten använder den här anslutnings strängen för att ansluta till data lagret vid körning.
@@ -95,7 +95,7 @@ Följande länkade tjänst är en Azure Storage länkad tjänst. Observera att t
 Du kan skapa länkade tjänster med något av dessa verktyg eller SDK: [er: .NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager mall och Azure Portal
 
 ## <a name="data-store-linked-services"></a>Länkade tjänster för data lager
-Du hittar en lista över data som lagras som stöds av Data Factory [](copy-activity-overview.md#supported-data-stores-and-formats) från översikts artikeln. Klicka på ett data lager om du vill veta vilka anslutnings egenskaper som stöds.
+Du hittar en lista över data som lagras som stöds av Data Factory från [översikts](copy-activity-overview.md#supported-data-stores-and-formats) artikeln. Klicka på ett data lager om du vill veta vilka anslutnings egenskaper som stöds.
 
 ## <a name="compute-linked-services"></a>Länkade tjänster för Compute
 Referens [beräknings miljöer som stöds](compute-linked-services.md) för information om olika beräknings miljöer som du kan ansluta till från din data fabrik samt de olika konfigurationerna.

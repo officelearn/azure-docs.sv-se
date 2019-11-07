@@ -174,7 +174,7 @@
 - name: Startfel
   href: boot-error-troubleshoot.md
   items:
-    - name: Startfel i virtuella Azure-datorer
+    - name: Grub Rescue
       href: troubleshoot-vm-boot-error.md
     - name: Startdiagnostik
       href: boot-diagnostics.md

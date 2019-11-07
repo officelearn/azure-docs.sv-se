@@ -84,6 +84,14 @@
               href: entitlement-management-request-access.md
     - name: Åtkomstgranskningar
       items:
+        - name: Åtkomstpaket
+          items:
+            - name: Skapa en åtkomstgranskning
+              href: entitlement-management-access-reviews-create.md
+            - name: Granska åtkomst
+              href: entitlement-management-access-reviews-review-access.md
+            - name: Granska åtkomst för dig själv
+              href: entitlement-management-access-reviews-self-review.md
         - name: Grupper och appar
           items:
             - name: Skapa en åtkomstgranskning

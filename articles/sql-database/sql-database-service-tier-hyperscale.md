@@ -1,5 +1,5 @@
 ---
-title: Översikt över Azure SQL Database storskalig | Microsoft Docs
+title: Översikt över Azure SQL Database storskalig
 description: Den här artikeln beskriver den storskaliga tjänst nivån i den vCore-baserade inköps modellen i Azure SQL Database och förklarar hur den skiljer sig från Generell användning-och Affärskritisk tjänst nivåerna.
 services: sql-database
 ms.service: sql-database
@@ -7,16 +7,16 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: dimitri-furman
+ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: db6e47b39b7ebe35a6c0fef42af53f91e96c363f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 38402d6ccf5c5582fff878ad60bf1c9fd4a07118
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496197"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687319"
 ---
 # <a name="hyperscale-service-tier"></a>Hyperskalatjänstnivå
 
@@ -82,7 +82,7 @@ Till skillnad från traditionella databas motorer som har centraliserat alla dat
 
 Följande diagram illustrerar de olika typerna av noder i en storskalig databas:
 
-![Arkitektur](./media/sql-database-hyperscale/hyperscale-architecture.png)
+![Arkitektur](./media/sql-database-hyperscale/hyperscale-architecture2.png)
 
 En storskalig databas innehåller följande typer av komponenter:
 
@@ -104,7 +104,7 @@ Azure Storage innehåller alla datafiler i en databas. Sid servrar behåller dat
 
 ## <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
 
-Säkerhets kopiorna är fil-och ögonblicks bilder, och därför är de nästan momentant. Med lagrings-och beräknings separering kan du sänka säkerhets kopieringen/återställningen till lagrings lagret för att minska bearbetnings belastningen på den primära beräknings repliken. Det innebär att säkerhets kopieringen av databasen inte påverkar prestandan för den primära Compute-noden. återställningar görs på samma sätt genom att återställa till fil ögonblicks bilder och eftersom det inte är en storlek på data åtgärd. Restore är en konstant åtgärd och även om flera terabyte-databaser kan återställas på några minuter i stället för timmar eller dagar. Att skapa nya databaser genom att återställa en befintlig säkerhets kopia drar också nytta av den här funktionen: att skapa databas kopior för utvecklings-eller testnings ändamål, även i terabyte-databaser, är doable på några minuter.
+Säkerhets kopiorna är fil-och ögonblicks bilder, och därför är de nästan momentant. Med lagrings-och beräknings separering kan du sänka säkerhets kopieringen/återställningen till lagrings lagret för att minska bearbetnings belastningen på den primära beräknings repliken. Det innebär att säkerhets kopieringen av databasen inte påverkar prestandan för den primära Compute-noden. återställningar görs på samma sätt genom att återställa till fil ögonblicks bilder och eftersom det inte är en storlek på data åtgärd. Restore är en konstant åtgärd och även om flera terabyte-databaser kan återställas på några minuter i stället för timmar eller dagar. Att skapa nya databaser genom att återställa en befintlig säkerhets kopia drar också nytta av den här funktionen: att skapa databas kopior inom samma logiska Server för utvecklings-eller testnings ändamål, till och med terabyte storleks databaser, är doable på några minuter.
 
 ## <a name="scale-and-performance-advantages"></a>Skalbarhet och prestanda för delar
 
@@ -167,21 +167,21 @@ Om du behöver återställa en Azure SQL Database storskalig databas till en ann
 Den Azure SQL Database nivån på den storskaliga nivån är för närvarande tillgänglig i följande regioner:
 
 - Östra Australien
-- Australien, sydöstra
+- Sydöstra Australien
 - Södra Brasilien
-- Kanada, centrala
+- Centrala Kanada
 - Centrala USA
 - Kina, östra 2
 - Kina, norra 2
 - Östasien
-- USA, östra
+- Östra USA
 - USA, östra 2
 - Frankrike, centrala
-- Japan, östra
+- Östra Japan
 - Västra Japan
 - Sydkorea, centrala
 - Sydkorea, södra
-- USA, norra centrala
+- Norra centrala USA
 - Norra Europa
 - Sydafrika, norra
 - Södra centrala USA
@@ -189,7 +189,7 @@ Den Azure SQL Database nivån på den storskaliga nivån är för närvarande ti
 - Storbritannien, södra
 - Storbritannien, västra
 - Västra Europa
-- USA, västra
+- Västra USA
 - Västra USA 2
 
 Om du vill skapa en storskalig databas i en region som inte är listad som stöds kan du skicka en onboarding-begäran via Azure Portal. Vi arbetar för att expandera listan över regioner som stöds, så kontrol lera att listan över de senaste regionerna är tillbaka.

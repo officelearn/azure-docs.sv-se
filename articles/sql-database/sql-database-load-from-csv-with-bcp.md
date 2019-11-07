@@ -1,5 +1,5 @@
 ---
-title: Läs in data från CSV-filen i Azure SQL Database (BCP) | Microsoft Docs
+title: Läs in data från CSV-filen i Azure SQL Database (BCP)
 description: För mindre datastorlekar används bcp för att importera data till Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: b3dff4e100d3859978667ad0df7d895a24ca8a8d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d9c4a6293fe2c52870e61488713455ac6c2ed4a1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567828"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689561"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Läsa in data från CSV till Azure SQL Database (flat-filer)
 
@@ -24,7 +24,7 @@ Du kan använda kommandoradsverktyget bcp för att importera data från en CSV-f
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra stegen i den här artikeln behöver du:
 
@@ -38,7 +38,7 @@ Du kan hämta verktygen bcp och sqlcmd från [Microsoft Download Center][Microso
 
 Om du använder egna data i självstudierna, måste de använda sig av ASCII- eller UTF-16-kodning eftersom bcp inte stöder UTF-8. 
 
-## <a name="1-create-a-destination-table"></a>1. Skapa en måltabell
+## <a name="1-create-a-destination-table"></a>1. skapa en mål tabell
 
 Definiera en tabell i SQL Database som måltabellen. Kolumnerna i tabellen måste motsvara data i varje rad i din datafil.
 
@@ -57,7 +57,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 
-## <a name="2-create-a-source-data-file"></a>2. Skapa en källdatafil
+## <a name="2-create-a-source-data-file"></a>2. skapa en käll data fil
 
 Öppna Anteckningar och kopiera följande datarader till en ny textfil. Spara sedan filen till din lokala temp-katalog, C:\Temp\DimDate2.txt. Den här datan är i ASCII-format.
 

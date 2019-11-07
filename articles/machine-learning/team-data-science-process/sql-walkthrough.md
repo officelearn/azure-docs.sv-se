@@ -1,6 +1,6 @@
 ---
-title: Skapa och distribuera en modell i en SQL Server VM - Team Data Science Process
-description: Skapa och distribuera en machine learning-modell som använder SQL Server på en virtuell Azure-dator med en datauppsättning som är allmänt tillgängliga.
+title: Utveckla och distribuera en modell i en SQL Server VM-team data vetenskaps process
+description: Bygg och distribuera en maskin inlärnings modell med SQL Server på en virtuell Azure-dator med en offentligt tillgänglig data uppsättning.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -11,20 +11,20 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 578f7a01c22bd5aafd4e4ac08c9f5ab78e340a34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 148d0c203248e4dcde5baaadc596d56e8b8ea17a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606528"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669383"
 ---
-# <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team Data Science Process i praktiken: med SQL Server
-I den här självstudien får du går igenom processen för att skapa och distribuera en maskininlärningsmodell med SQL Server och en datauppsättning som är allmänt tillgängliga – [NYC Taxi kommunikation](https://www.andresmh.com/nyctaxitrips/) datauppsättning. Proceduren följer en standard arbetsflöde för datavetenskap: mata in och utforska data, bygg funktioner för att förenkla inlärningen, och sedan skapa och distribuera en modell.
+# <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team data vetenskaps processen i praktiken: använda SQL Server
+I den här självstudien går vi igenom processen för att skapa och distribuera en maskin inlärnings modell med SQL Server och en offentligt tillgänglig data uppsättning – [NYC taxi TRIPs](https://www.andresmh.com/nyctaxitrips/) -datauppsättningen. I proceduren följer ett standard arbets flöde för data vetenskap: mata in och utforska data, ingenjörs funktioner för att under lätta inlärningen och sedan bygga och distribuera en modell.
 
-## <a name="dataset"></a>NYC Taxi sätts datauppsättning beskrivning
-NYC Taxi resedata är cirka 20GB komprimerat CSV-filer (~ 48GB okomprimerad), som består av mer än 173 miljoner enskilda kommunikation och priser betalda för varje resa. Hämtning och dropoff plats och tid, avidentifierade hack (drivrutin) licensnummer och medallion (taxi's unikt id) antalet innehåller varje resa-post. Informationen som täcker alla kommunikation i år 2013 och anges i följande två datauppsättningar för varje månad:
+## <a name="dataset"></a>Beskrivning av NYC taxi TRIPs-datauppsättning
+NYC taxi-resan är cirka 20 av de komprimerade CSV-filerna (~ 48GB okomprimerat), som omfattar över 173 000 000 enskilda resor och de priser som betalas för varje resa. Varje rese post omfattar hämtnings-och DropOff plats och tid, anonymiserats Hack (driv Rutinens) licens nummer och Medallion (Taxins unika ID). Data omfattar alla resor under året 2013 och tillhandahålls i följande två data uppsättningar för varje månad:
 
-1. Trip_data CSV innehåller resans information, till exempel antalet passagerare, hämtning och dropoff punkter, resans varaktighet och resans längd. Här följer några Exempelposter:
+1. CSV-trip_data innehåller information om resan, till exempel antal passagerare, upphämtnings-och dropoffs punkter, varaktighet för resan och rese längd. Här följer några exempel poster:
    
         medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
@@ -32,7 +32,7 @@ NYC Taxi resedata är cirka 20GB komprimerat CSV-filer (~ 48GB okomprimerad), so
         0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
-2. Trip_fare CSV innehåller information om avgiften betalat för varje förflyttning, till exempel betalningstypen, avgiften belopp, tillägg och skatter, tips och vägtullar, och det totala beloppet som betalas. Här följer några Exempelposter:
+2. CSV-filen "trip_fare" innehåller information om den avgift som betalas för varje resa, till exempel betalnings typ, avgifts belopp, tillägg och skatter, tips och avgifter och totalt betalat belopp. Här följer några exempel poster:
    
         medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
@@ -41,121 +41,121 @@ NYC Taxi resedata är cirka 20GB komprimerat CSV-filer (~ 48GB okomprimerad), so
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-Den unika nyckeln för att ansluta till resans\_data och resans\_avgiften består av fälten: medallion, hacka\_licens och upphämtning\_datetime.
+Den unika nyckeln för att ansluta till resan\_data och resan\_avgiften består av fälten: Medallion, hacka\_licens och hämtning\_DateTime.
 
-## <a name="mltasks"></a>Exempel på uppgifter för förutsägelse
-Vi kommer att formulera tre förutsägelse problem baserat på den *tips\_belopp*, nämligen:
+## <a name="mltasks"></a>Exempel på förutsägelse aktiviteter
+Vi kommer att formulera tre förutsägelse problem baserat på *tips\_belopp*, nämligen:
 
-1. Binär klassificering: Förutsäga huruvida ett tips har betalat för en resa, dvs. en *tips\_belopp* som är större än $0 är ett positivt exempel, medan en *tips\_belopp* $0 är ett exempel på negativt.
-2. Multiklass-baserad klassificering: Att förutsäga vilka tips som har betalat för resan. Vi dela upp den *tips\_belopp* i fem lagerplatser eller klasser:
+1. Binära klassificering: förutsäga om ett tips har betalats för en resa, d.v.s. ett *tips\_belopp* som är större än $0 är ett positivt exempel, medan ett *tips\_mängden* $0 är ett negativt exempel.
+2. Klassificering av flera klasser: för att förutsäga det tips som du betalar för resan. Vi delar *tipset\_belopp* i fem lager platser eller klasser:
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
         Class 2 : tip_amount > $5 and tip_amount <= $10
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
-3. Regression uppgift: Att förutsäga mängden tips som har betalat för en resa.  
+3. Regressions uppgift: för att förutsäga hur mycket tips du betalar för en resa.  
 
-## <a name="setup"></a>In the Azure datavetenskapsmiljö för avancerad analys
-Som du kan se den [Plan Your Environment](plan-your-environment.md) guide, det finns flera alternativ för att arbeta med NYC Taxi och RETUR-datauppsättningen i Azure:
+## <a name="setup"></a>Konfigurera Azure Data Science-miljön för avancerad analys
+Som du kan se i guiden [Planera din miljö](plan-your-environment.md) finns det flera alternativ för att arbeta med NYC taxi TRIPs-datauppsättningen i Azure:
 
-* Arbeta med data i Azure-blobar i Azure Machine Learning-modell
-* Läsa in data i en SQL Server-databas och en modell i Azure Machine Learning
+* Arbeta med data i Azure-blobbar sedan modell i Azure Machine Learning
+* Läs in data i en SQL Server Database och sedan modell i Azure Machine Learning
 
-I den här självstudien visar vi parallell massimport av data till en SQL Server, datagranskning, funktion tekniska och ned sampling med SQL Server Management Studio samt med hjälp av IPython Notebook. [Exempel på skript](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) och [IPython-anteckningsböcker](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) delas i GitHub. Det finns också en exemplet IPython notebook att arbeta med data i Azure-blobar på samma plats.
+I den här självstudien demonstrerar vi parallell Mass import av data till en SQL Server, data utforskning, funktions teknik och insamlings sampling med SQL Server Management Studio samt användning av IPython Notebook. [Exempel skript](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) och [ipython-anteckningsböcker](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) delas i GitHub. Ett exempel på en IPython Notebook som fungerar med data i Azure-blobbar finns också på samma plats.
 
-Du ställer in din Azure Data Science-miljö:
+Så här konfigurerar du din Azure Data Science-miljö:
 
 1. [Skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md)
 2. [Skapa en Azure Machine Learning-arbetsyta](../studio/create-workspace.md)
-3. [Etablera en virtuell dator för datavetenskap](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), vilket ger en SQL Server och en IPython Notebook-server.
+3. [Etablera en data science Virtual Machine](../data-science-virtual-machine/setup-sql-server-virtual-machine.md)som tillhandahåller en SQL Server och en IPython Notebook-Server.
    
    > [!NOTE]
-   > Exempel på skript och IPython-anteckningsböcker laddas ned till den virtuella datorn för datavetenskap under installationen. När det virtuella datorn skriptet är klar blir exemplen i den Virtuella datorns dokumentbibliotek:  
+   > Exempel skripten och IPython antecknings böcker laddas ned till den virtuella datorn för data vetenskap under installationen. När skriptet för VM-installationen har slutförts kommer exemplen att finnas i den virtuella datorns dokument bibliotek:  
    > 
-   > * Exemplet skript: `C:\Users\<user_name>\Documents\Data Science Scripts`  
-   > * IPython Exempelanteckningsböcker: `C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
-   >   där `<user_name>` är den Virtuella datorns Windows-inloggningsnamn. Vi kommer att referera till exempel mappar som **exempelskript** och **IPython Exempelanteckningsböcker**.
+   > * Exempel skript: `C:\Users\<user_name>\Documents\Data Science Scripts`  
+   > * Exempel på IPython Notebooks: `C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
+   >   där `<user_name>` är namnet på den virtuella datorns Windows-inloggning. Vi kommer att referera till exempel-mapparna som **exempel skript** och **IPython Notebook-exempel**.
    > 
    > 
 
-Baserat på storleken på datauppsättningen och datakällplats valda Azure målmiljön kan det här scenariot är liknar [scenariot \#5: Stor datauppsättning i lokala filer, rikta SQL Server i Azure VM](plan-sample-scenarios.md#largelocaltodb).
+Beroende på data uppsättningens storlek, data källans plats och den valda Azure mål miljön liknar scenariot [\#5: stor data uppsättning i lokala filer, mål SQL Server i Azure VM](plan-sample-scenarios.md#largelocaltodb).
 
-## <a name="getdata"></a>Hämta Data från offentliga källa
-Att hämta den [NYC Taxi kommunikation](https://www.andresmh.com/nyctaxitrips/) datauppsättning från dess offentlig plats, kan du använda någon av metoderna som beskrivs i [flytta Data till och från Azure Blob Storage](move-azure-blob.md) att kopiera data till din nya virtuella dator.
+## <a name="getdata"></a>Hämta data från offentlig källa
+För att hämta data uppsättningen [NYC taxi TRIPs](https://www.andresmh.com/nyctaxitrips/) från dess offentliga plats kan du använda någon av de metoder som beskrivs i [Flytta data till och från Azure Blob Storage](move-azure-blob.md) för att kopiera data till den nya virtuella datorn.
 
-Kopiera data med AzCopy:
+Så här kopierar du data med AzCopy:
 
 1. Logga in på den virtuella datorn (VM)
-2. Skapa en ny katalog i den Virtuella datorns datadisk (Obs: Använd inte den temporära disken som medföljer den virtuella datorn som en datadisk).
-3. Kör följande Azcopy kommandorad, ersätta < path_to_data_folder > med dina datamapp som skapades i (2) i ett kommandotolksfönster:
+2. Skapa en ny katalog i den virtuella datorns data disk (Obs: Använd inte den tillfälliga disken som medföljer den virtuella datorn som en data disk).
+3. I ett kommando tolks fönster kör du följande AzCopy-kommando rad och ersätter < path_to_data_folder > med din datamapp skapad i (2):
    
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
    
-    När AzCopy är klar totalt av 24 zippade CSV-filer (12 för resans\_data och 12 för resans\_avgiften) ska vara i datamappen.
-4. Packa upp de hämtade filerna. Kom ihåg vilken mapp där de okomprimerade filerna finns. Den här mappen kommer kallas den < sökväg\_till\_data\_filer\>.
+    När AzCopy har slutförts ska totalt 24 zippade CSV-filer (12 för rese\_data och 12 för rese\_biljett) finnas i mappen data.
+4. Zippa upp de hämtade filerna. Observera mappen där de okomprimerade filerna finns. Den här mappen kallas < sökväg\_för att\_data\_filer\>.
 
-## <a name="dbload"></a>Massinläsning importera Data till SQL Server-databas
-Prestanda för inläsning av/överföring av stora mängder data till en SQL-databas och efterföljande frågor kan förbättras genom att använda *partitionerade tabeller och vyer*. I det här avsnittet kommer vi följa instruktionerna i [parallella Bulk Data Import med hjälp av SQL-partitionstabeller](parallel-load-sql-partitioned-tables.md) att skapa en ny databas och läsa in data i partitionerade tabeller parallellt.
+## <a name="dbload"></a>Mass import av data till SQL Server databas
+Prestanda vid inläsning/överföring av stora mängder data till en SQL-databas och efterföljande frågor kan förbättras med hjälp av *partitionerade tabeller och vyer*. I det här avsnittet följer vi instruktionerna som beskrivs i [parallell Mass data import med hjälp av SQL partition tables](parallel-load-sql-partitioned-tables.md) för att skapa en ny databas och läsa in data i partitionerade tabeller parallellt.
 
-1. Logga in den virtuella datorn, starta **SQL Server Management Studio**.
+1. Starta **SQL Server Management Studio**när du är inloggad på den virtuella datorn.
 2. Anslut med Windows-autentisering.
    
-    ![SSMS Anslut][12]
-3. Om du har ännu inte har ändrat SQL Server-autentiseringsläget och skapas en ny användare för SQL-inloggning, öppna skriptfilen med namnet **ändra\_auth.sql** i den **exempelskript** mapp. Ändra standard-användarnamn och lösenord. Klicka på **! Köra** i verktygsfältet för att köra skriptet.
+    ![SSMS ansluta][12]
+3. Om du ännu inte har ändrat SQL Server autentiseringsläget och skapat en ny SQL-inloggning öppnar du skript filen med namnet **change\_auth. SQL** i mappen **exempel skript** . Ändra standard användar namn och lösen ord. Klicka på **! Kör i verktygsfältet** för att köra skriptet.
    
-    ![Kör skriptet][13]
-4. Verifiera och/eller ändra SQL Server standard databasen och loggfiler mapparna så som nyligen skapade databaser kommer att lagras i en datadisk. SQL Server-VM-avbildning som är optimerad för datawarehousing belastning är förkonfigurerad med data och loggfiler diskar. Om din virtuella dator inkluderade inte en datadisk och du har lagt till nya virtuella hårddiskar under installationsprocessen VM, ändra standardmappar enligt följande:
+    ![Kör skript][13]
+4. Verifiera och/eller ändra SQL Server standard databas och loggfiler för att säkerställa att nyligen skapade databaser lagras på en datadisk. SQL Server VM-avbildningen som är optimerad för datawarehousing-inläsningar är förkonfigurerad med data-och logg diskar. Om den virtuella datorn inte innehåller någon datadisk och du har lagt till nya virtuella hård diskar under installationen av den virtuella datorn, ändrar du standardmapparna enligt följande:
    
-   * Högerklicka på namnet på SQL Server på den vänstra panelen och klicka på **egenskaper**.
+   * Högerklicka på SQL Server namnet i den vänstra panelen och klicka på **Egenskaper**.
      
-       ![Egenskaper för SQL Server][14]
-   * Välj **databasinställningar** från den **Välj en sida** listan till vänster.
-   * Verifiera och/eller ändra den **databasen standardplatserna** till den **datadisk** platserna för ditt val. Det här är där nya databaser finns om skapats med standardinställningarna för platsen.
+       ![SQL Server egenskaper][14]
+   * Välj **databas inställningar** från listan **Välj en sida** till vänster.
+   * Verifiera och/eller ändra **databasens standard platser** till de **data disk** platser som du väljer. Det är här som nya databaser finns om de skapas med standard plats inställningarna.
      
-       ![Standardvärdet för SQL-databasen][15]  
-5. Om du vill skapa en ny databas och en uppsättning filgrupper för partitionerade tabeller, öppna exempelskriptet **skapa\_db\_default.sql**. Skriptet skapar en ny databas med namnet **TaxiNYC** och 12 filgrupper på standardplatsen för data. Varje filgrupp ska innehålla en månad resans\_data och resans\_färdavgiften data. Ändra namnet på databasen, om så önskas. Klicka på **! Köra** att köra skriptet.
-6. Skapa sedan två partitionstabeller, en för resan\_data och en annan för resan\_avgiften. Öppna exempelskriptet **skapa\_partitionerade\_table.sql**, kan:
+       ![SQL Database standardvärden][15]  
+5. Om du vill skapa en ny databas och en uppsättning fil grupper som ska innehålla de partitionerade tabellerna öppnar du exempel skriptet **create\_db\_default. SQL**. Skriptet skapar en ny databas med namnet **TaxiNYC** och 12 fil grupper på standard data platsen. Varje fil grupp innehåller en månads resa\_data och resa\_pris uppgifter. Ändra databas namnet om du vill. Klicka på **! Kör för att köra** skriptet.
+6. Skapa sedan två partitionstabell, en för resan\_data och en annan för resan\_pris. Öppna exempel skriptet **create\_partitionerad\_Table. SQL**, som kommer att:
    
-   * Skapa en partitionsfunktion om du vill dela upp informationen per månad.
-   * Skapa ett partitionsschema att mappa varje månad data till en annan filgrupp.
-   * Skapa två partitionerade tabeller som mappats till partitionsschemat: **nyctaxi\_resans** ska innehålla resan\_data och **nyctaxi\_avgiften** ska innehålla resans\_färdavgiften data.
+   * Skapa en partitions funktion för att dela data efter månad.
+   * Skapa ett partition schema för att mappa varje månads data till en annan filgrupp.
+   * Skapa två partitionerade tabeller som är mappade till partitionsfunktionen: **nyctaxi\_resan** håller resan\_data och **nyctaxi\_priset** kommer att hålla resan\_pris uppgifter.
      
-     Klicka på **! Köra** att köra skriptet och skapa partitionerade tabeller.
-7. I den **exempelskript** mapp, det finns två PowerShell-exempelskript som demonstrerar parallella bulk import av data till SQL Server-tabeller.
+     Klicka på **! Kör för att** köra skriptet och skapa partitionerade tabeller.
+7. I mappen **exempel skript** finns det två exempel på PowerShell-skript som visar parallell Mass import av data till SQL Server tabeller.
    
-   * **BCP\_parallella\_generic.ps1** är ett Allmänt skript till parallella bulk importera data till en tabell. Ändra det här skriptet för att ställa in indata och target-variabler som anges i kommentar raderna i skriptet.
-   * **BCP\_parallella\_nyctaxi.ps1** är en förkonfigurerad version av det allmänna skriptet och kan användas för att läsa in båda tabellerna för NYC Taxi och RETUR-data.  
-8. Högerklicka på den **bcp\_parallella\_nyctaxi.ps1** skriptets namn och klicka på **redigera** att öppna den i PowerShell. Granska de förinställda variablerna och ändra baserat på din valda databasens namn, indata-mappen, log målmappen och sökvägar till formatet exempelfilerna **nyctaxi_trip.xml** och **nyctaxi\_fare.xml** (i den **exempelskript** mapp).
+   * **bcp\_parallel\_Generic. ps1** är ett allmänt skript för att importera data till parallell bulk till en tabell. Ändra det här skriptet för att ange in-och mål-variabler som anges i kommentar raderna i skriptet.
+   * **bcp\_parallel\_nyctaxi. ps1** är en förkonfigurerad version av det generiska skriptet och kan användas för att läsa in båda tabellerna för NYC taxin-data.  
+8. Högerklicka på skript namnet **bcp\_parallel\_nyctaxi. ps1** och klicka på **Redigera** för att öppna det i PowerShell. Granska de förinställda variablerna och ändra enligt det valda databas namnet, i mappen indata, i målmappen och sökvägar till exempel formatet filer **nyctaxi_trip. XML** och **nyctaxi\_pris. XML** (anges i **exempel skripten** mapp).
    
-    ![Importera bulkdata][16]
+    ![Mass import av data][16]
    
-    Du kan också välja autentiseringsläge, standard är Windows-autentisering. Klicka på den gröna pilen i verktygsfältet för att köra. Skriptet startar 24 import massåtgärder i parallella, 12 för varje tabell som är partitionerad. Du kan övervaka förloppet för data import genom att öppna SQL Server-standardmappen för data som angetts ovan.
-9. PowerShell-skriptet rapporterar start- och sluttider. När alla bulk import slutförd rapporteras sluttiden. Kontrollera loggen målmappen för att kontrollera att stora importerar har installerats, dvs, inga fel rapporteras i loggen målmappen.
-10. Din databas är nu redo för utforskning, funktionsframställning och andra åtgärder som du vill. Eftersom tabellerna partitioneras enligt den **upphämtning\_datetime** fältet frågor som omfattar **upphämtning\_datetime** villkor i den **där** satsen drar nytta av partitionsschemat.
-11. I **SQL Server Management Studio**, utforska exempelskript som angivna **exempel\_queries.sql**. Om du vill köra någon av exempelfrågor Markera frågerader och klicka på **! Köra** i verktygsfältet.
-12. NYC Taxi och RETUR-data har lästs in i två olika tabeller. För att förbättra kopplingsåtgärder, rekommenderar vi starkt att indexera tabellerna. Exempelskriptet **skapa\_partitionerade\_index.sql** skapar partitionerade index i sammansatta join-nyckeln **medallion, hacka\_licens och upphämtning\_ datetime**.
+    Du kan också välja autentiseringsläget, standardvärdet är Windows-autentisering. Klicka på den gröna pilen i verktygsfältet för att köra. Skriptet startar 24 Mass import åtgärder parallellt, 12 för varje partitionerad tabell. Du kan övervaka statusen för data import genom att öppna SQL Server standardmappen för data som anges ovan.
+9. PowerShell-skriptet rapporterar start-och slut tider. När alla Mass importer har slutförts rapporteras slut tiden. Kontrol lera mappen i mål loggen för att kontrol lera att Mass importen lyckades, dvs. inga fel rapporteras i målmappen.
+10. Din databas är nu klar för utforskning, funktions teknik och andra åtgärder som önskas. Eftersom tabellerna är partitionerade enligt **datum/tid för upphämtning\_** , kommer frågor som omfattar **datum upphämtning\_datetime** i **WHERE** -satsen att dra nytta av partitionsfunktionen.
+11. I **SQL Server Management Studio**kan du utforska exempel skriptet som visas **\_frågor. SQL**. Om du vill köra någon av exempel frågorna markerar du raderna och klickar sedan på **! Kör** i verktygsfältet.
+12. NYC taxi-TRIPs-data läses in i två separata tabeller. För att förbättra kopplings åtgärderna rekommenderas det starkt att indexera tabellerna. Exempel skriptet **skapar\_partitionerat\_index. SQL** skapar partitionerade index för den sammansatta kopplings nyckeln **medallion, hacka\_licens och pickup\_datetime**.
 
-## <a name="dbexplore"></a>Datagranskning och de funktioner i SQLServer
-I det här avsnittet ska vi köra genereringen av data utforskning och funktionen genom att köra SQL-frågor direkt i den **SQL Server Management Studio** med hjälp av SQL Server-databasen skapades tidigare. Ett exempelskript som heter **exempel\_queries.sql** har angetts i den **exempelskript** mapp. Ändra skriptet om du vill ändra namnet på databasen, om det skiljer sig från standard: **TaxiNYC**.
+## <a name="dbexplore"></a>Data utforskning och funktions teknik i SQL Server
+I det här avsnittet utför vi data utforsknings-och funktions skapande genom att köra SQL-frågor direkt i **SQL Server Management Studio** med hjälp av SQL Server-databasen som skapades tidigare. Ett exempel skript som heter **sample\_frågor. SQL** finns i mappen **exempel skript** . Ändra skriptet för att ändra databas namnet, om det skiljer sig från standardvärdet: **TaxiNYC**.
 
-I den här övningen ska du:
+I den här övningen kommer vi att:
 
-* Ansluta till **SQL Server Management Studio** med hjälp av antingen Windows-autentisering eller SQL-autentisering och SQL-inloggningsnamn och lösenord.
-* Utforska data distributioner av ett fåtal fält i olika tidsfönster.
-* Undersök datakvaliteten fält för longitud och latitud.
-* Generera binära och inom klassificeringsetiketter baserat på den **tips\_belopp**.
-* Skapa funktioner och beräkning/jämför resans avstånd.
-* Koppla två tabeller och extrahera ett slumpmässigt urval som ska användas för att skapa modeller.
+* Anslut till **SQL Server Management Studio** med hjälp av Windows-autentisering eller med SQL-autentisering och SQL-inloggningsnamn och lösen ord.
+* Utforska data distributioner av några fält i varierande tidsfönster.
+* Undersök data kvaliteten på fälten longitud och Latitude.
+* Generera binära och multiklass-klassificerings etiketter baserat på **tips\_mängden**.
+* Generera funktioner och beräkna/jämför rese avstånd.
+* Gå med i de två tabellerna och extrahera ett slumpmässigt exempel som ska användas för att bygga modeller.
 
-När du är redo att gå vidare till Azure Machine Learning kan du antingen:  
+När du är redo att fortsätta till Azure Machine Learning kan du antingen:  
 
-1. Spara den slutliga SQL-frågan för att extrahera och hämtar exempel från data och kopiera och klistra in frågan direkt i en [importdata] [ import-data] modul i Azure Machine Learning, eller
-2. Spara den provade och bakåtkompilerade data som du planerar att använda för att skapa i en ny databas-modellen tabellen och använder den nya tabellen i den [importdata] [ import-data] modul i Azure Machine Learning.
+1. Spara den sista SQL-frågan för att extrahera och sampla data och kopiera – klistra in frågan direkt i en modul för att [Importera data][import-data] i Azure Machine Learning, eller
+2. Behåll de insamlade och tillverkade data som du planerar att använda för modell utveckling i en ny databas tabell och Använd den nya tabellen i modulen [Importera data][import-data] i Azure Machine Learning.
 
-I det här avsnittet kommer vi att spara den sista frågan för att extrahera och hämtar exempel från data. Den andra metoden som visas i den [Datagranskning och funktionen Engineering i IPython Notebook](#ipnb) avsnittet.
+I det här avsnittet ska vi spara den slutgiltiga frågan för att extrahera och sampla data. Den andra metoden visas i avsnittet [data utforskning och funktions teknik i IPython Notebook](#ipnb) .
 
-En snabb kontroll av antalet rader och kolumner i tabellerna fylls i tidigare med parallell massimport
+En snabb kontroll av antalet rader och kolumner i tabellerna som är ifyllda tidigare med hjälp av parallell Mass import,
 
     -- Report number of rows in table nyctaxi_trip without table scan
     SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('nyctaxi_trip')
@@ -163,8 +163,8 @@ En snabb kontroll av antalet rader och kolumner i tabellerna fylls i tidigare me
     -- Report number of columns in table nyctaxi_trip
     SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'
 
-#### <a name="exploration-trip-distribution-by-medallion"></a>Utforskning: Resans distribution enligt medallion
-Det här exemplet identifierar medallion (taxi-nummer) med fler än 100 kommunikation inom en viss tidsperiod. Frågan skulle ha nytta av partitionerade tabellåtkomst eftersom det villkor som partitionsschemat för **upphämtning\_datetime**. Fråga hela datauppsättningen innebär även att använda partitionerade tabellen och/eller index-genomsökning.
+#### <a name="exploration-trip-distribution-by-medallion"></a>Undersökning: rese distribution per Medallion
+I det här exemplet identifieras Medallion (taxi-nummer) med mer än 100 resor inom en viss tids period. Frågan skulle dra nytta av den partitionerade tabell åtkomsten eftersom den har ett villkor för det partition schema som inhämtas **\_datetime**. Vid frågor till den fullständiga data uppsättningen används även den partitionerade tabellen och/eller index genomsökningen.
 
     SELECT medallion, COUNT(*)
     FROM nyctaxi_fare
@@ -172,15 +172,15 @@ Det här exemplet identifierar medallion (taxi-nummer) med fler än 100 kommunik
     GROUP BY medallion
     HAVING COUNT(*) > 100
 
-#### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Utforskning: Resans distribution enligt medallion och hack_license
+#### <a name="exploration-trip-distribution-by-medallion-and-hack_license"></a>Undersökning: rese distribution av Medallion och hack_license
     SELECT medallion, hack_license, COUNT(*)
     FROM nyctaxi_fare
     WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
     GROUP BY medallion, hack_license
     HAVING COUNT(*) > 100
 
-#### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Data utvärdering: Kontrollera poster med felaktig longitud och/eller latitud
-Det här exemplet undersöker om något av fälten för longitud och/eller latitud antingen innehåller ett ogiltigt värde (radian grader bör vara mellan-90 och 90), eller så har (0, 0) koordinater.
+#### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Utvärdering av data kvalitet: verifiera poster med felaktig longitud och/eller latitud
+Det här exemplet undersöker om något av fälten longitud och/eller latitud innehåller ett ogiltigt värde (radian grader måste vara mellan-90 och 90), eller ha koordinaterna (0, 0).
 
     SELECT COUNT(*) FROM nyctaxi_trip
     WHERE pickup_datetime BETWEEN '20130101' AND '20130331'
@@ -191,8 +191,8 @@ Det här exemplet undersöker om något av fälten för longitud och/eller latit
     OR    (pickup_longitude = '0' AND pickup_latitude = '0')
     OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
-#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Utforskning: Lutad vs. Inte lutad och RETUR-distribution
-Det här exemplet hittar antalet turer som har lutad jämfört med lutad inte i en given tidpunkt tidsperiod (eller i hela datauppsättningen om som täcker hela året). Den här distributionen återspeglar distribution av binära etiketter ska användas senare för binär klassificering modellering.
+#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Undersökning: lutad eller överlutad TRIPs-distribution
+I det här exemplet hittar du antalet resor som har lutats jämfört med en viss tids period (eller i den fullständiga data uppsättningen om det omfattar hela året). Den här distributionen visar den binära etikett fördelningen som ska användas senare för binära klassificerings modellering.
 
     SELECT tipped, COUNT(*) AS tip_freq FROM (
       SELECT CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped, tip_amount
@@ -200,8 +200,8 @@ Det här exemplet hittar antalet turer som har lutad jämfört med lutad inte i 
       WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tipped
 
-#### <a name="exploration-tip-classrange-distribution"></a>Utforskning: Tips klass/intervall Distribution
-Det här exemplet beräknar fördelningen av tip-intervall i en viss tidsperiod (eller i hela datauppsättningen om som täcker hela året). Det här är distributionen av klasserna etiketten som ska användas senare för multiklass-baserad klassificering modellering.
+#### <a name="exploration-tip-classrange-distribution"></a>Undersökning: Tip-klass/intervall-distribution
+Det här exemplet beräknar fördelningen av Tip-intervall under en viss tids period (eller i den fullständiga data uppsättningen om den täcker hela året). Detta är fördelningen av etikett klasser som ska användas senare för klassificerings modellering av multiklasser.
 
     SELECT tip_class, COUNT(*) AS tip_freq FROM (
         SELECT CASE
@@ -215,8 +215,8 @@ Det här exemplet beräknar fördelningen av tip-intervall i en viss tidsperiod 
     WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tip_class
 
-#### <a name="exploration-compute-and-compare-trip-distance"></a>Utforskning: Beräkna och jämföra resans avstånd
-Det här exemplet konverterar hämtning och dropoff longitud och latitud till SQL geografiskt område återställningspunkter, beräknar avståndet resa med hjälp av SQL geografi punkter skillnaden och returnerar ett slumpmässigt urval av resultaten för jämförelse. I exempel begränsar resultaten till giltiga koordinater bara med data quality utvärdering fråga beskrivs tidigare.
+#### <a name="exploration-compute-and-compare-trip-distance"></a>Undersökning: beräkna och jämför rese avstånd
+I det här exemplet konverteras upphämtnings-och DropOff longitud och latitud till SQL-geografiska punkter, vilket beräknar rese avståndet med hjälp av SQL geografi-punkter skillnad och returnerar ett slumpmässigt exempel av resultaten för jämförelse. Exemplet begränsar resultatet till giltiga koordinater endast med frågan om utvärdering av data som tidigare beskrivits.
 
     SELECT
     pickup_location=geography::STPointFromText('POINT(' + pickup_longitude + ' ' + pickup_latitude + ')', 4326)
@@ -229,11 +229,11 @@ Det här exemplet konverterar hämtning och dropoff longitud och latitud till SQ
     AND   CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
     AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 
-#### <a name="feature-engineering-in-sql-queries"></a>Funktionsframställning i SQL-frågor
-Etikett generation och geografi konvertering utforskning frågorna kan också användas för att generera etiketter/funktioner genom att ta bort fler är på gång. Extrafunktioner engineering SQL-exempel finns i den [Datagranskning och funktionen Engineering i IPython Notebook](#ipnb) avsnittet. Det är mer effektivt att köra funktionen generation frågor i hela datauppsättningen eller en stor del av den med hjälp av SQL-frågor som körs direkt på SQL Server-databasinstans. Frågorna som kan köras i **SQL Server Management Studio**, IPython Notebook eller alla verktyg/utvecklingsmiljöer som har åtkomst till databasen, lokalt eller fjärranslutet.
+#### <a name="feature-engineering-in-sql-queries"></a>Funktions teknik i SQL-frågor
+Utforsknings frågor för etikett generering och geografi konvertering kan också användas för att generera etiketter/funktioner genom att ta bort inventerings delen. Ytterligare funktioner i SQL-exempel finns i avsnittet [data utforskning och funktions teknik i IPython Notebook](#ipnb) . Det är mer effektivt att köra frågor som genereras av funktionen på den fullständiga data uppsättningen eller en stor del av den med hjälp av SQL-frågor som körs direkt på SQL Server databas instansen. Frågorna kan utföras i **SQL Server Management Studio**, IPython Notebook eller något utvecklingsverktyg/miljö som kan komma åt databasen lokalt eller via fjärr anslutning.
 
-#### <a name="preparing-data-for-model-building"></a>Förbereda Data för att skapa modellen
-Följande fråga kopplingar i **nyctaxi\_resans** och **nyctaxi\_avgiften** tabeller, genererar en binär klassificeringsetikett **lutad**, ett flera Klassificeringsetiketten **tips\_klass**, och extraherar ett slumpmässigt urval 1% från fullständig domänansluten datauppsättningen. Den här frågan kan kopieras och klistras in direkt i den [Azure Machine Learning Studio](https://studio.azureml.net) [importdata] [ import-data] -modulen för direkta datainmatning från SQL Server-databasen instans i Azure. Frågan utesluter poster med fel (0, 0) koordinater.
+#### <a name="preparing-data-for-model-building"></a>Förbereda data för modell skapande
+Följande fråga kopplar ihop tabellerna **nyctaxi\_rese** -och **nyctaxi\_pris** , genererar en binära klassificerings **etikett, ett**tips för klassificerings etiketter i flera klasser **\_klass**och extraherar 1% slumpmässig exempel från den fullständiga sammanfogade data uppsättningen. Den här frågan kan kopieras och klistras in direkt i modulen [Azure Machine Learning Studio](https://studio.azureml.net) [Importera data][import-data] för direkt data inmatning från SQL Server databas instansen i Azure. Frågan utesluter poster med felaktiga koordinater (0, 0).
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -251,26 +251,26 @@ Följande fråga kopplingar i **nyctaxi\_resans** och **nyctaxi\_avgiften** tabe
     AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 
 
-## <a name="ipnb"></a>Datagranskning och de funktioner i IPython Notebook
-I det här avsnittet ska vi köra datagranskning och funktionen generation med hjälp av både Python och SQL-frågor mot SQL Server-databasen som skapades tidigare. Ett exempel IPython notebook med namnet **machine-Learning-data-science-process-sql-story.ipynb** har angetts i den **IPython Exempelanteckningsböcker** mapp. Den här anteckningsboken är även tillgängligt i [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks).
+## <a name="ipnb"></a>Data utforskning och funktions teknik i IPython Notebook
+I det här avsnittet ska vi utföra data utforskning och skapa funktioner med hjälp av både python-och SQL-frågor mot SQL Server databas som skapades tidigare. Ett exempel på en IPython Notebook med namnet **Machine-Learning-data-science-process-SQL-berättelse. ipynb** finns i mappen **Sample ipython Notebooks** . Den här antecknings boken finns också på [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks).
 
-Rekommenderade sekvensen när du arbetar med stordata är följande:
+Den rekommenderade sekvensen när du arbetar med Big data är följande:
 
-* Läs i ett litet antal data till en ram för data i minnet.
-* Utför vissa visualiseringar och explorations med exempeldata.
-* Experimentera med funktionsframställning med exempeldata.
-* För större datagranskning, datamanipulering av och funktioner du Använd Python för att skicka SQL-frågor direkt mot SQL Server-databas i Azure-VM.
-* Bestäm urvalsstorlek ska användas för att skapa Azure Machine Learning-modell.
+* Läs i ett litet exempel på data till en minnes intern data ram.
+* Utför vissa visualiseringar och utforskningar med hjälp av exempel data.
+* Experimentera med funktions teknik med hjälp av exempel data.
+* För större data granskning, data manipulation och funktions teknik använder du python för att utfärda SQL-frågor direkt mot SQL Server-databasen i den virtuella Azure-datorn.
+* Bestäm vilken exempel storlek som ska användas för Azure Machine Learning modell skapande.
 
-När du är klar för att gå vidare till Azure Machine Learning kan du antingen:  
+När du är redo att fortsätta till Azure Machine Learning kan du antingen:  
 
-1. Spara den slutliga SQL-frågan för att extrahera och hämtar exempel från data och kopiera och klistra in frågan direkt i en [importdata] [ import-data] modul i Azure Machine Learning. Den här metoden visas i den [bygga modeller i Azure Machine Learning](#mlmodel) avsnittet.    
-2. Spara provade och bakåtkompilerade data som du planerar att använda för att skapa med en ny databastabell-modellen och sedan använda den nya tabellen i den [importdata] [ import-data] modulen.
+1. Spara den sista SQL-frågan för att extrahera och sampla data och kopiera – klistra in frågan direkt i en modul för att [Importera data][import-data] i Azure Machine Learning. Den här metoden visas i avsnittet [skapa modeller i Azure Machine Learning](#mlmodel) .    
+2. Behåll de insamlade data som du planerar att använda för modell utveckling i en ny databas tabell och Använd sedan den nya tabellen i modulen [Importera data][import-data] .
 
-Här följer några datagranskning, visualisering av data och funktionen tekniska exempel. Fler exempel finns i exemplet SQL IPython notebook i den **IPython Exempelanteckningsböcker** mapp.
+Här följer några exempel på data visualisering, data visualisering och funktions teknik. Fler exempel finns i exempel på SQL-IPython Notebook i mappen **exempel ipython Notebooks** .
 
-#### <a name="initialize-database-credentials"></a>Initiera Databasautentiseringsuppgifter
-Initiera dina anslutningsinställningar i följande variabler:
+#### <a name="initialize-database-credentials"></a>Initiera autentiseringsuppgifter för databas
+Initiera inställningarna för databas anslutningen i följande variabler:
 
     SERVER_NAME=<server name>
     DATABASE_NAME=<database name>
@@ -278,11 +278,11 @@ Initiera dina anslutningsinställningar i följande variabler:
     PASSWORD=<password>
     DB_DRIVER = <database server>
 
-#### <a name="create-database-connection"></a>Skapa databasanslutning
+#### <a name="create-database-connection"></a>Skapa databas anslutning
     CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
     conn = pyodbc.connect(CONNECTION_STRING)
 
-#### <a name="report-number-of-rows-and-columns-in-table-nyctaxitrip"></a>Rapporten antalet rader och kolumner i tabellen nyctaxi_trip
+#### <a name="report-number-of-rows-and-columns-in-table-nyctaxi_trip"></a>Rapport antal rader och kolumner i tabellen nyctaxi_trip
     nrows = pd.read_sql('''
         SELECT SUM(rows) FROM sys.partitions
         WHERE object_id = OBJECT_ID('nyctaxi_trip')
@@ -300,7 +300,7 @@ Initiera dina anslutningsinställningar i följande variabler:
 * Totalt antal rader = 173179759  
 * Totalt antal kolumner = 14
 
-#### <a name="read-in-a-small-data-sample-from-the-sql-server-database"></a>Läs i ett litet datasampel från SQL Server-databas
+#### <a name="read-in-a-small-data-sample-from-the-sql-server-database"></a>Läs ett litet data exempel från SQL Server-databasen
     t0 = time.time()
 
     query = '''
@@ -320,22 +320,22 @@ Initiera dina anslutningsinställningar i följande variabler:
 
     print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 
-Tid för att läsa exempeltabell är 6.492000 sekunder  
-Antal rader och kolumner hämtas = (84952, 21)
+Tiden för att läsa exempel tabellen är 6,492000 sekunder  
+Antal rader och kolumner som hämtats = (84952, 21)
 
 #### <a name="descriptive-statistics"></a>Beskrivande statistik
-Är nu redo att utforska exempeldata. Vi börjar med att titta på beskrivande statistik för den **resans\_avståndet** (eller någon annan) nyckelfälten:
+Nu är du redo att utforska exempel data. Vi börjar med att titta på beskrivande statistik för **resan\_avstånd** (eller något annat) fält:
 
     df1['trip_distance'].describe()
 
-#### <a name="visualization-box-plot-example"></a>Visualisering: Exempel på diagram
-Därefter tittar vi på Låddiagram för resans avståndet till visualisera quantiles
+#### <a name="visualization-box-plot-example"></a>Visualisering: låddiagram: exempel
+Härnäst ska vi titta på rutan för resan för att visualisera quantiles
 
     df1.boxplot(column='trip_distance',return_type='dict')
 
 ![Rita #1][1]
 
-#### <a name="visualization-distribution-plot-example"></a>Visualisering: Exempel för distribution-diagram
+#### <a name="visualization-distribution-plot-example"></a>Visualisering: exempel på distributions ritning
     fig = plt.figure()
     ax1 = fig.add_subplot(1,2,1)
     ax2 = fig.add_subplot(1,2,2)
@@ -344,15 +344,15 @@ Därefter tittar vi på Låddiagram för resans avståndet till visualisera quan
 
 ![Rita #2][2]
 
-#### <a name="visualization-bar-and-line-plots"></a>Visualisering: -Fältet och rad områden
-I det här exemplet vi bin resans avståndet till fem lagerplatser och visualisera datagrupperingen resultat.
+#### <a name="visualization-bar-and-line-plots"></a>Visualisering: stapel-och linje diagram
+I det här exemplet Binar vi rese avståndet till fem lager platser och visualiserar diskretisering-resultaten.
 
     trip_dist_bins = [0, 1, 2, 4, 10, 1000]
     df1['trip_distance']
     trip_dist_bin_id = pd.cut(df1['trip_distance'], trip_dist_bins)
     trip_dist_bin_id
 
-Vi kan rita ovan bin-distribution i ett fält eller rad diagram enligt nedan
+Vi kan rita över lager plats fördelningen ovan i ett stapel-eller linje diagram enligt nedan
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='bar')
 
@@ -362,26 +362,26 @@ Vi kan rita ovan bin-distribution i ett fält eller rad diagram enligt nedan
 
 ![Rita #4][4]
 
-#### <a name="visualization-scatterplot-example"></a>Visualisering: Spridningsdiagrammet exempel
-Vi visar spridningsdiagrammet mellan **resans\_tid\_i\_sekunder** och **resans\_avståndet** att se om det finns några korrelation
+#### <a name="visualization-scatterplot-example"></a>Visualisering: scatterplot-exempel
+Vi visar punkt diagram mellan **resa\_tid\_i\_sekunder** och **resa\_avstånd** för att se om det finns någon korrelation
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
 ![Rita #6][6]
 
-På samma sätt kan vi Kontrollera relationen mellan **rate\_kod** och **resans\_avståndet**.
+På samma sätt kan vi kontrol lera förhållandet mellan **pris\_s kod** och **resa\_avstånd**.
 
     plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
 ![Rita #8][8]
 
-### <a name="sub-sampling-the-data-in-sql"></a>Icke samlar Data i SQL
-När du förbereder data för att skapa med modellen [Azure Machine Learning Studio](https://studio.azureml.net), kan du antingen välja på den **SQL-fråga som ska användas direkt i modulen importera Data** eller spara bakåtkompilerade och samplade data i en ny tabellen, vilket du kan använda i den [importera Data] [ import-data] modulen med en enkel **Välj * från < din\_nya\_tabell\_namn >** .
+### <a name="sub-sampling-the-data-in-sql"></a>Under sampling av data i SQL
+När du förbereder data för modell utveckling i [Azure Machine Learning Studio](https://studio.azureml.net)kan du antingen bestämma om **SQL-frågan ska användas direkt i modulen importera data** eller spara de utformade och samplade data i en ny tabell, som du kan använda i [importen Datamodulen][import-data] med ett enkelt **Select * från <\_nya\_s tabellen\_namn >** .
 
-I det här avsnittet ska vi skapa en ny tabell för att lagra data provade och bakåtkompilerade. Ett exempel på en direkt SQL-fråga för att bygga modellen finns i den [Datagranskning och funktionen Engineering i SQL Server](#dbexplore) avsnittet.
+I det här avsnittet ska vi skapa en ny tabell för att lagra de insamlade och tillverkade data. Ett exempel på en direkt SQL-fråga för modell utveckling finns i avsnittet [data utforskning och funktions teknik i SQL Server](#dbexplore) avsnittet.
 
-#### <a name="create-a-sample-table-and-populate-with-1-of-the-joined-tables-drop-table-first-if-it-exists"></a>Skapa ett exempel på tabellen och fylla i med 1% av de kopplade tabellerna. Ta bort den första tabellen om den finns.
-I det här avsnittet ska vi ansluta tabellerna **nyctaxi\_resans** och **nyctaxi\_avgiften**, extrahera ett slumpmässigt urval 1% och bevara exempeldata i en ny tabellnamn  **nyctaxi\_en\_procent**:
+#### <a name="create-a-sample-table-and-populate-with-1-of-the-joined-tables-drop-table-first-if-it-exists"></a>Skapa en exempel tabell och fyll i med 1% av de kopplade tabellerna. Ta bort tabellen först om den finns.
+I det här avsnittet ska vi gå med i tabellerna **nyctaxi\_rese** -och **nyctaxi\_** , extrahera ett slumpmässigt exempel för 1% och bevara exempel data i ett nytt tabell namn **nyctaxi\_en\_procent**:
 
     cursor = conn.cursor()
 
@@ -404,10 +404,10 @@ I det här avsnittet ska vi ansluta tabellerna **nyctaxi\_resans** och **nyctaxi
     cursor.execute(nyctaxi_one_percent_insert)
     cursor.commit()
 
-### <a name="data-exploration-using-sql-queries-in-ipython-notebook"></a>Datagranskning med SQL-frågor i IPython Notebook
-I det här avsnittet ska utforska vi data distributioner med hjälp av 1% samplas data som sparas i den nya tabellen som vi skapade ovan. Observera att liknande explorations kan utföras med hjälp av de ursprungliga tabellerna, vid behov kan **TABLESAMPLE** att begränsa att utforska exemplet eller genom att begränsa resultaten till en given tidpunkt period med den **upphämtning\_datetime** partitionerar, enligt beskrivningen i den [Datagranskning och funktionen Engineering i SQL Server](#dbexplore) avsnittet.
+### <a name="data-exploration-using-sql-queries-in-ipython-notebook"></a>Data utforskning med SQL-frågor i IPython Notebook
+I det här avsnittet ska vi utforska data distributioner med hjälp av 1% exempel data som finns kvar i den nya tabellen som vi skapade ovan. Observera att liknande utforskningar kan utföras med hjälp av de ursprungliga tabellerna, om du använder **TABLESAMPLE** för att begränsa utforsknings exemplet eller genom att begränsa resultaten till en viss tids period med hjälp av **upphämtningen\_datetime** -partitioner som illustreras i avsnittet [data utforskning och funktions teknik i SQL Server](#dbexplore) .
 
-#### <a name="exploration-daily-distribution-of-trips"></a>Utforskning: Dagliga distribution av kommunikation
+#### <a name="exploration-daily-distribution-of-trips"></a>Undersökning: daglig distribution av resor
     query = '''
         SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c
         FROM nyctaxi_one_percent
@@ -416,7 +416,7 @@ I det här avsnittet ska utforska vi data distributioner med hjälp av 1% sampla
 
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distribution-per-medallion"></a>Utforskning: Resans distribution per medallion
+#### <a name="exploration-trip-distribution-per-medallion"></a>Undersökning: rese distribution per Medallion
     query = '''
         SELECT medallion,count(*) AS c
         FROM nyctaxi_one_percent
@@ -425,14 +425,14 @@ I det här avsnittet ska utforska vi data distributioner med hjälp av 1% sampla
 
     pd.read_sql(query,conn)
 
-### <a name="feature-generation-using-sql-queries-in-ipython-notebook"></a>Funktionen Generation med SQL-frågor i IPython Notebook
-I det här avsnittet vi kommer att generera nya etiketter och funktioner direkt med hjälp av SQL-frågor, körs på 1% exempeltabell vi skapade i föregående avsnitt.
+### <a name="feature-generation-using-sql-queries-in-ipython-notebook"></a>Skapa funktioner med hjälp av SQL-frågor i IPython Notebook
+I det här avsnittet kommer vi att generera nya etiketter och funktioner direkt med hjälp av SQL-frågor, som körs på tabellen 1%-exempel som vi skapade i föregående avsnitt.
 
-#### <a name="label-generation-generate-class-labels"></a>Etikettgenerering: Generera klassen etiketter
-I följande exempel skapar vi två uppsättningar med etiketter ska användas för modellering:
+#### <a name="label-generation-generate-class-labels"></a>Generering av etiketter: generera klass etiketter
+I följande exempel genererar vi två uppsättningar etiketter som ska användas för modellering:
 
-1. Binär klass etiketter **lutad** (att förutsäga om ett tips ges)
-2. Inom etiketter **tips\_klass** (förutsäga tips bin eller intervall)
+1. Binära klass etiketter **lutade** (förutsäger om ett tips visas)
+2. Tips om multiklass-etiketter **\_klass** (som förutsäger tipset för tipset eller intervallet)
    
         nyctaxi_one_percent_add_col = '''
             ALTER TABLE nyctaxi_one_percent ADD tipped bit, tip_class int
@@ -456,8 +456,8 @@ I följande exempel skapar vi två uppsättningar med etiketter ska användas f�
         cursor.execute(nyctaxi_one_percent_update_col)
         cursor.commit()
 
-#### <a name="feature-engineering-count-features-for-categorical-columns"></a>Funktionsframställning: Antal funktioner för Kategoriska kolumner
-Det här exemplet omvandlar ett kategoriskt fält till ett numeriskt fält genom att ersätta varje kategori med alla dess förekomster i data.
+#### <a name="feature-engineering-count-features-for-categorical-columns"></a>Funktions teknik: antal funktioner för kategoriska-kolumner
+I det här exemplet omvandlas ett kategoriska-fält till ett numeriskt fält genom att varje kategori ersätts med antalet förekomster i data.
 
     nyctaxi_one_percent_insert_col = '''
         ALTER TABLE nyctaxi_one_percent ADD cmt_count int, vts_count int
@@ -486,8 +486,8 @@ Det här exemplet omvandlar ett kategoriskt fält till ett numeriskt fält genom
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>Funktionsframställning: Bin-funktioner för numeriska kolumner
-Det här exemplet omvandlar en kontinuerlig numeriskt fält till förinställda kategori intervall, d.v.s. transformeringen numeriskt fält i ett kategoriska fält.
+#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>Funktions teknik: lager plats funktioner för numeriska kolumner
+I det här exemplet omvandlas ett kontinuerligt numeriskt fält till förinställda kategori intervall, det vill säga ett numeriskt fält i ett kategoriska-fält.
 
     nyctaxi_one_percent_insert_col = '''
         ALTER TABLE nyctaxi_one_percent ADD trip_time_bin int
@@ -514,8 +514,8 @@ Det här exemplet omvandlar en kontinuerlig numeriskt fält till förinställda 
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Funktionsframställning: Extrahera plats funktioner från Decimal latitud/longitud
-Det här exemplet eliminerar formatet för ett latitud/longitud eller fält i flera regioner fält av olika kornighet som, land/region, stad, stad, blockera, osv. Observera att de nya geo-fält inte är mappade till faktiska platser. Information om mappning geocode platser finns i [Bing Maps REST-tjänster](https://msdn.microsoft.com/library/ff701710.aspx).
+#### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Funktions teknik: extrahera plats funktioner från decimal latitud/longitud
+I det här exemplet bryts decimal representationen av ett latitud-och/eller longitud-fält i flera region fält med olika granularitet, till exempel land/region, stad, stad, block osv. Observera att de nya geo-fälten inte mappas till faktiska platser. Information om att mappa koder för olika platser finns i [Bing Maps rest Services](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
         ALTER TABLE nyctaxi_one_percent
@@ -540,91 +540,91 @@ Det här exemplet eliminerar formatet för ett latitud/longitud eller fält i fl
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="verify-the-final-form-of-the-featurized-table"></a>Kontrollera den slutliga utformning av tabellen trädmodell
+#### <a name="verify-the-final-form-of-the-featurized-table"></a>Verifiera den slutliga formen för bearbetas-tabellen
     query = '''SELECT TOP 100 * FROM nyctaxi_one_percent'''
     pd.read_sql(query,conn)
 
-Vi är nu redo att gå vidare till modellskapandet och distribution av modeller i [Azure Machine Learning](https://studio.azureml.net). Data är redo för någon av de förutsägelse problem som konstaterats tidigare, nämligen:
+Vi är nu redo att gå vidare till modell utveckling och modell distribution i [Azure Machine Learning](https://studio.azureml.net). Data är klara för något av de förutsägelse problem som identifierats tidigare, nämligen:
 
-1. Binär klassificering: För att förutsäga om ett tips har betalat för en resa.
-2. Multiklass-baserad klassificering: Att förutsäga vilka tips betalt enligt de tidigare definierade klasserna.
-3. Regression uppgift: Att förutsäga mängden tips som har betalat för en resa.  
+1. Binära klassificering: för att förutsäga om ett tips har betalats för en resa.
+2. Klassificering av flera klasser: för att förutsäga det tips som betalas, enligt de tidigare definierade klasserna.
+3. Regressions uppgift: för att förutsäga hur mycket tips du betalar för en resa.  
 
 ## <a name="mlmodel"></a>Skapa modeller i Azure Machine Learning
-Logga in på din Azure Machine Learning-arbetsyta om du vill börja modellering. Om du inte har skapat en machine learning-arbetsytan finns i [skapar en Azure Machine Learning-arbetsyta](../studio/create-workspace.md).
+Börja modelleringen genom att logga in på din Azure Machine Learning-arbetsyta. Om du ännu inte har skapat en Machine Learning-arbetsyta, se [skapa en Azure Machine Learning arbets yta](../studio/create-workspace.md).
 
-1. Kom igång med Azure Machine Learning, se [vad är Azure Machine Learning Studio?](../studio/what-is-ml-studio.md)
+1. För att komma igång med Azure Machine Learning, se [Vad är Azure Machine Learning Studio?](../studio/what-is-ml-studio.md)
 2. Logga in på [Azure Machine Learning Studio](https://studio.azureml.net).
-3. Sidan Studio tillhandahåller en mängd information, videor, självstudier, länkar till moduler-referenser och andra resurser. Mer information om Azure Machine Learning finns det [Azure Machine Learning Documentation Center](https://azure.microsoft.com/documentation/services/machine-learning/).
+3. På Start sidan för Studio får du en mängd information, videor, självstudier, länkar till modulerna referens och andra resurser. Mer information om Azure Machine Learning finns i [Azure Machine Learning dokumentations Center](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-En typisk träningsexperiment består av följande:
+Ett typiskt utbildnings experiment består av följande:
 
-1. Skapa en **+ ny** experimentera.
+1. Skapa ett **+ nytt** experiment.
 2. Hämta data till Azure Machine Learning.
-3. Förbearbeta, transformera och manipulera data efter behov.
+3. För att bearbeta, transformera och manipulera data efter behov.
 4. Generera funktioner efter behov.
-5. Dela upp data i utbildning / / valideringstestning datauppsättningar (eller har separata datauppsättningar för var och en).
-6. Välj en eller flera maskininlärningsalgoritmer beroende på träningsproblemet att lösa. T.ex. binär klassificering, multiklass-baserad klassificering, regression.
-7. Skapa en eller flera modeller med hjälp av datauppsättning för träning.
-8. Bedöma verifiering datauppsättningen med hjälp av den tränade modeller.
-9. Utvärdera modeller för att beräkna relevanta mått för träningsproblemet.
-10. Bra finjustera modell(er) och välja modellen med bäst att distribuera.
+5. Dela data i utbildning/validering/testning av data uppsättningar (eller ha separata data uppsättningar för var och en).
+6. Välj en eller flera Machine Learning-algoritmer beroende på inlärnings problemet för att lösa problemet. T. ex. binära klassificering, klassificering av multiklass, regression.
+7. Träna en eller flera modeller med hjälp av inlärnings data uppsättningen.
+8. Räkna in verifierings data uppsättningen med hjälp av de utbildade modellerna.
+9. Utvärdera modell (er) för att beräkna relevanta mått för inlärnings problemet.
+10. Finjustera modell (er) och välj den bästa modellen som du vill distribuera.
 
-I den här övningen har vi redan utforskas och utformat data i SQL Server och valt urvalsstorlek att mata in i Azure Machine Learning. Skapa en eller flera av förutsägelsemodeller som vi har valt:
+I den här övningen har vi redan utforskat och bearbetat data i SQL Server, och beslut om urvals storlek att mata in i Azure Machine Learning. För att bygga en eller flera av de förutsägelse modeller som vi beslutade:
 
-1. Hämta data till Azure Machine Learning med hjälp av den [importdata] [ import-data] modulen, som är tillgängliga i den **Data indata och utdata** avsnittet. Mer information finns i den [importdata] [ import-data] referenssida för modulen.
+1. Hämta data till Azure Machine Learning med modulen [Importera data][import-data] som finns i avsnittet **data indata och utdata** . Mer information finns på referens sidan [Importera data][import-data] modul.
    
-    ![Azure Machine Learning importera Data][17]
-2. Välj **Azure SQL Database** som den **datakälla** i den **egenskaper** panelen.
-3. Ange namnet på databasen DNS i den **Databasservernamnet** fält. Format: `tcp:<your_virtual_machine_DNS_name>,1433`
-4. Ange den **databasnamn** i motsvarande fält.
-5. Ange den **SQL-användarnamnet** i den **Server användarkontonamn**, och **lösenord** i den **Server lösenord**.
-7. I den **databasfråga** redigera textområde, klistrar in frågan som extraherar de nödvändiga databasfält (inklusive eventuella beräknade fält, till exempel etiketter) och ned samplar data till önskad urvalsstorlek.
+    ![Azure Machine Learning importera data][17]
+2. Välj **Azure SQL Database** som **data källa** i panelen **Egenskaper** .
+3. Ange databasens DNS-namn i fältet **databas server namn** . Format: `tcp:<your_virtual_machine_DNS_name>,1433`
+4. Ange **databas namnet** i motsvarande fält.
+5. Ange **SQL-användarnamnet** i **serverns användar konto namn**och **lösen** ordet i **serverns användar konto lösen ord**.
+7. I redigerings text områden för **databas fråga** klistrar du in frågan som extraherar de nödvändiga databas fälten (inklusive alla beräknade fält som etiketterna) och nedåt exempel data till önskad exempel storlek.
 
-Ett exempel på en binär klassificering experiment som läser data direkt från SQL Server-databasen är i bilden nedan. Liknande experiment kan konstrueras för multiklass-baserad klassificering och regressionsproblem.
+Ett exempel på ett binära klassificerings experiment som läser data direkt från SQL Server-databasen visas i bilden nedan. Liknande experiment kan konstrueras för klassificerings-och Regressions problem med multiklasser.
 
-![Azure Machine Learning Train][10]
+![Azure Machine Learning träna][10]
 
 > [!IMPORTANT]
-> För modellering av finansdata extrahering och samlar fråga exempel som i föregående avsnitt **alla etiketter för tre modellering övningar som ingår i frågan**. Ett viktigt steg i var och en av modellering övningarna för (obligatoriskt) är att **undanta** onödiga etiketter för de andra två problemen och andra **rikta läckage av**. För t.ex. när du använder binär klassificering, använda etiketten **lutad** och utelämna fälten **tips\_klass**, **tips\_belopp**, och **totala\_belopp**. Dessa är målet läckage eftersom de innebär tipset betald.
+> I exemplen för att extrahera data och samplings frågor i föregående avsnitt, **ingår alla etiketter för de tre modell övningarna i frågan**. Ett viktigt (obligatoriskt) steg i varje modell övning är att **utesluta** onödiga etiketter för de andra två problemen och andra **mål läckor**. Om du t. ex. använder binära klassificering använder du etiketten **lutad** och utelämnar fält **tips\_klass**, **tips\_belopp**och **Total\_belopp**. De sistnämnda är mål läckor eftersom de innebär att tipset betalas.
 > 
-> Om du vill exkludera onödiga kolumner och/eller rikta läckage av, kan du använda den [Välj kolumner i datauppsättning] [ select-columns] modul eller [redigera Metadata][edit-metadata]. Mer information finns i [Välj kolumner i datauppsättning] [ select-columns] och [redigera Metadata] [ edit-metadata] referera till sidorna.
+> Om du vill utesluta onödiga kolumner och/eller mål läckor kan du använda modulen [Välj kolumner i data uppsättning][select-columns] eller [Redigera metadata][edit-metadata]. Mer information finns i avsnittet [Välj kolumner i data uppsättning][select-columns] och [Redigera metadata][edit-metadata] referens sidor.
 > 
 > 
 
 ## <a name="mldeploy"></a>Distribuera modeller i Azure Machine Learning
-När din modell är klar kan distribuera du enkelt den som en webbtjänst direkt från experimentet. Mer information om hur du distribuerar Azure Machine Learning-webbtjänster finns i [distribuera en Azure Machine Learning-webbtjänst](../studio/publish-a-machine-learning-web-service.md).
+När modellen är klar kan du enkelt distribuera den som en webb tjänst direkt från experimentet. Mer information om hur du distribuerar Azure Machine Learning-webbtjänster finns i [distribuera en Azure Machine Learning-webbtjänst](../studio/deploy-a-machine-learning-web-service.md).
 
-Om du vill distribuera en ny webbtjänst, måste du:
+Om du vill distribuera en ny webb tjänst måste du:
 
-1. Skapa en arbetsflödesbaserad experiment.
-2. Distribuera webbtjänsten.
+1. Skapa ett poängsättnings experiment.
+2. Distribuera webb tjänsten.
 
-Skapa en arbetsflödesbaserad experiment från en **slutfört** utbildning experiment, klickar du på **skapa bedömning EXPERIMENTERA** i lägre Åtgärdsfältet.
+Om du vill skapa ett Poäng experiment från ett **färdigt** utbildnings experiment klickar du på **skapa Poäng experiment** i det nedre åtgärds fältet.
 
-![Azure-bedömning][18]
+![Azure-Poäng][18]
 
-Azure Machine Learning försöker skapa en arbetsflödesbaserad experiment som bygger på komponenterna för träningsexperimentet. I synnerhet att:
+Azure Machine Learning försöker skapa ett bedömnings experiment baserat på komponenterna i utbildnings experimentet. I synnerhet kommer det att:
 
-1. Spara den tränade modellen och ta bort modellen utbildningsmoduler.
-2. Identifiera en logisk **indataporten** som motsvarar det förväntade indataschema.
-3. Identifiera en logisk **utgående port** som motsvarar det förväntade web service utdata-schemat.
+1. Spara den tränade modellen och ta bort modulen modell utbildning.
+2. Identifiera en logisk **indataport** som representerar det förväntade schemat för indata.
+3. Identifiera en logisk **utdataport** som representerar det förväntade datautdata-schemat för webb tjänsten.
 
-När bedömnings experimentet har skapats kan du granska den och justera efter behov. En typisk justering är att ersätta datauppsättningen för indata och/eller fråga med en vilket utesluter Etikettfälten som dessa inte är tillgänglig när tjänsten anropas. Det är också en bra idé att minska storleken på datauppsättningen för indata och/eller fråga till några poster, bara tillräckligt för att indikera inmatningsschemat. För den utgående porten, är det vanligt att exkludera alla inmatningsfält och bara innehålla den **poängsatta etiketter** och **poängsätts sannolikhet** i utdata med den [Välj kolumner i datauppsättning] [ select-columns] modulen.
+När Poäng experimentet har skapats granskar du det och justerar efter behov. En typisk justering är att ersätta indata-datauppsättningen och/eller frågan med en som utesluter etikett fält eftersom de inte kommer att vara tillgängliga när tjänsten anropas. Det är också en bra idé att minska storleken på data uppsättningen och/eller frågan till några få poster, bara för att ange schemat för indata. För utdataporten är det vanligt att undanta alla indatafält och bara ta med de **resultat etiketter** och **resultat** som visas i resultatet med hjälp av modulen [Välj kolumner i data uppsättning][select-columns] .
 
-Ett sampel bedömning experimentet är i bilden nedan. När du är klar att distribuera klickar du på den **publicera WEBBTJÄNSTEN** knappen i lägre Åtgärdsfältet.
+Ett exempel på bedömnings experiment visas i bilden nedan. När du är redo att distribuera klickar du på knappen **publicera webb tjänst** i det nedre åtgärds fältet.
 
-![Publicera Azure Machine Learning][11]
+![Azure Machine Learning publicera][11]
 
-Om du vill tar och sammanfattar, i den här genomgången i självstudien har du skapat en Azure data science-miljö har samarbetat med en stor offentlig datauppsättning hela vägen från datainsamling modellera träning och distributionen av en Azure Machine Learning-webbtjänst.
+I den här själv studie kursen har du skapat en Azure Data Science-miljö som arbetar med en stor offentlig data uppsättning från data förvärv till modell utbildning och distribution av en Azure Machine Learning-webbtjänst.
 
-### <a name="license-information"></a>Licensinformation
-Det här exemplet genomgång och dess tillhörande skript och IPython notebook(s) som delas av Microsoft under MIT-licensen. Kontrollera filen LICENSE.txt i katalogen på exempelkoden på GitHub för mer information.
+### <a name="license-information"></a>Licens information
+Den här exempel genom gången och dess tillhör ande skript och IPython-anteckningsböcker delas av Microsoft under MIT-licensen. Se filen LICENSe. txt i katalogen i exempel koden på GitHub för mer information.
 
 ### <a name="references"></a>Referenser
-• [Andrés Monroy NYC Taxi kommunikation hämtningssidan](https://www.andresmh.com/nyctaxitrips/)  
-• [FOILing NYC Taxitransport Resedata av Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
-• [NYC Taxi och Limousine kommissionen forskning och statistik](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+• [Andrés MONROY NYC taxi TRIPs Download Page](https://www.andresmh.com/nyctaxitrips/)  
+• [Folier av NYC taxi data från Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
+• [NYC taxi och limousine kommissionens forskning och statistik](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sql-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sql-walkthrough/sql-walkthrough_28_1.png

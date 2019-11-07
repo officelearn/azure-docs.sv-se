@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: glenga
-ms.openlocfilehash: f3fd59c0d17bd9094f6887aa5ec088f9fdcdd979
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 4e1a714a6d46a9422fb298749cfe30ac70ffc8c3
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734442"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614911"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Durable Functions publicering till Azure Event Grid (förhands granskning)
 
@@ -22,28 +22,30 @@ Den här artikeln visar hur du konfigurerar Durable Functions att publicera livs
 
 Här följer några scenarier där den här funktionen är användbar:
 
-* **DevOps-scenarier som blå/gröna distributioner**: Du kanske vill veta om några aktiviteter körs innan du implementerar [distributions strategin sida vid sida](durable-functions-versioning.md#side-by-side-deployments).
+* **DevOps-scenarier som blå/gröna distributioner**: du kanske vill veta om några aktiviteter körs innan du implementerar [distributions strategin sida vid sida](durable-functions-versioning.md#side-by-side-deployments).
 
-* **Avancerad övervakning och diagnostisk support**: Du kan hålla koll på dirigerings status information i ett externt arkiv som är optimerat för frågor, till exempel SQL Database eller CosmosDB.
+* **Stöd för avancerad övervakning och diagnostik**: du kan hålla koll på dirigerings status information i ett externt arkiv som är optimerat för frågor, till exempel SQL Database eller CosmosDB.
 
-* **Tids krävande bakgrunds aktivitet**: Om du använder Durable Functions för en tids krävande bakgrunds aktivitet hjälper den här funktionen dig att känna till aktuell status.
+* **Tids krävande bakgrunds aktivitet**: om du använder Durable Functions för en tids krävande bakgrunds aktivitet hjälper den här funktionen dig att känna till aktuell status.
 
-## <a name="prerequisites"></a>Förutsättningar
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
-* Installera [Microsoft. Azure. WebJobs. Extensions. DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) 1.3.0-RC eller senare i Durable Functions-projektet.
-* Installera [Azure Storage emulator](https://docs.microsoft.com/azure/storage/common/storage-use-emulator).
-* Installera [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) eller Använd [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
+## <a name="prerequisites"></a>Nödvändiga komponenter
+
+* Installera [Microsoft. Azure. WebJobs. Extensions. DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) i ditt Durable Functions-projekt.
+* Installera [Azure Storage emulator](../../storage/common/storage-use-emulator.md).
+* Installera [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) eller Använd [Azure Cloud Shell](../../cloud-shell/overview.md)
 
 ## <a name="create-a-custom-event-grid-topic"></a>Skapa ett anpassat Event Grid-ämne
 
 Skapa ett event Grid-ämne för att skicka händelser från Durable Functions. Följande instruktioner visar hur du skapar ett ämne med hjälp av Azure CLI. Information om hur du gör det med hjälp av PowerShell eller Azure Portal finns i följande artiklar:
 
-* [EventGrid snabb starter: Skapa anpassad händelse – PowerShell](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-powershell)
-* [EventGrid snabb starter: Skapa anpassad händelse – Azure Portal](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-portal)
+* [EventGrid snabb starter: skapa anpassad händelse – PowerShell](../../event-grid/custom-event-quickstart-powershell.md)
+* [EventGrid snabb starter: skapa anpassad händelse – Azure Portal](../../event-grid/custom-event-quickstart-portal.md)
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med kommandot `az group create`. Azure Event Grid stöder för närvarande inte alla regioner. Information om vilka regioner som stöds finns i [Översikt över Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
+Skapa en resursgrupp med kommandot `az group create`. Azure Event Grid stöder för närvarande inte alla regioner. Information om vilka regioner som stöds finns i [Översikt över Azure Event Grid](../../event-grid/overview.md).
 
 ```bash
 az group create --name eventResourceGroup --location westus2
@@ -75,9 +77,9 @@ Nu kan du skicka händelser till ämnet.
 
 ## <a name="configure-azure-event-grid-publishing"></a>Konfigurera Azure Event Grid publicering
 
-Leta upp `host.json` filen i Durable Functions-projektet.
+Leta upp `host.json`-filen i Durable Functions-projektet.
 
-Lägg `eventGridTopicEndpoint` till `eventGridKeySettingName` och i `durableTask` en egenskap.
+Lägg till `eventGridTopicEndpoint` och `eventGridKeySettingName` i en `durableTask`-egenskap.
 
 ```json
 {
@@ -88,7 +90,7 @@ Lägg `eventGridTopicEndpoint` till `eventGridKeySettingName` och i `durableTask
 }
 ```
 
-De möjliga Azure Event Grid konfigurations egenskaperna finns i [Host. JSON-dokumentationen](../functions-host-json.md#durabletask). När du har konfigurerat `host.json` filen skickar din Function-app livs cykel händelser till avsnittet Event Grid. Detta fungerar när du kör din funktions app både lokalt och i Azure.
+De möjliga Azure Event Grid konfigurations egenskaperna finns i [Host. JSON-dokumentationen](../functions-host-json.md#durabletask). När du har konfigurerat `host.json`-filen skickar din Function-app livs cykel händelser till avsnittet Event Grid. Detta fungerar när du kör din funktions app både lokalt och i Azure.
 
 Ange appens inställning för ämnes nyckeln i Funktionsapp och `local.setting.json`. Följande JSON är ett exempel på `local.settings.json` för lokal fel sökning. Ersätt `<topic_key>` med ämnes nyckeln.  
 
@@ -103,7 +105,7 @@ Ange appens inställning för ämnes nyckeln i Funktionsapp och `local.setting.j
 }
 ```
 
-Kontrol lera att [Storage-emulatorn](https://docs.microsoft.com/azure/storage/common/storage-use-emulator) fungerar. Det är en bra idé att köra kommandot `AzureStorageEmulator.exe clear all` innan du kör.
+Kontrol lera att [Storage-emulatorn](../../storage/common/storage-use-emulator.md) fungerar. Det är en bra idé att köra kommandot `AzureStorageEmulator.exe clear all` innan du kör.
 
 ## <a name="create-functions-that-listen-for-events"></a>Skapa funktioner som lyssnar efter händelser
 
@@ -115,11 +117,11 @@ Skapa en funktion för att ta emot livs cykel händelser. Välj **anpassad funkt
 
 ![Välj Skapa en anpassad funktion.](./media/durable-functions-event-publishing/functions-portal.png)
 
-Välj Event Grid utlösare och `C#`Välj.
+Välj Event Grid utlösare och välj `C#`.
 
 ![Välj den Event Grid utlösaren.](./media/durable-functions-event-publishing/eventgrid-trigger.png)
 
-Ange namnet på funktionen och välj `Create`sedan.
+Ange namnet på funktionen och välj sedan `Create`.
 
 ![Skapa Event Grid-utlösaren.](./media/durable-functions-event-publishing/eventgrid-trigger-creation.png)
 
@@ -151,7 +153,7 @@ Välj `Add Event Grid Subscription`. Den här åtgärden lägger till en Event G
 
 ![Välj länken Event Grid utlösare.](./media/durable-functions-event-publishing/eventgrid-trigger-link.png)
 
-Välj `Event Grid Topics` för **ämnes typ**. Välj den resurs grupp som du skapade för Event Grid-ämnet. Välj sedan instansen för Event Grid-ämnet. Tryck `Create`på.
+Välj `Event Grid Topics` för **ämnes typ**. Välj den resurs grupp som du skapade för Event Grid-ämnet. Välj sedan instansen för Event Grid-ämnet. Tryck på `Create`.
 
 ![Skapa en Event Grid-prenumeration.](./media/durable-functions-event-publishing/eventsubscription.png)
 
@@ -159,7 +161,7 @@ Nu är du redo att ta emot livs cykel händelser.
 
 ## <a name="create-durable-functions-to-send-the-events"></a>Skapa Durable Functions för att skicka händelser
 
-Starta fel sökning på den lokala datorn i Durable Functions-projektet.  Följande kod är samma som mall koden för Durable Functions. Du har redan `host.json` konfigurerat `local.settings.json` och på den lokala datorn.
+Starta fel sökning på den lokala datorn i Durable Functions-projektet.  Följande kod är samma som mall koden för Durable Functions. Du har redan konfigurerat `host.json` och `local.settings.json` på den lokala datorn.
 
 ### <a name="precompiled-c"></a>FörkompileradeC#
 
@@ -168,6 +170,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.DurableTask;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
@@ -178,7 +181,7 @@ namespace LifeCycleEventSpike
     {
         [FunctionName("Sample")]
         public static async Task<List<string>> RunOrchestrator(
-            [OrchestrationTrigger] DurableOrchestrationContext context)
+            [OrchestrationTrigger] IDurableOrchestrationContext context)
         {
             var outputs = new List<string>();
 
@@ -201,7 +204,7 @@ namespace LifeCycleEventSpike
         [FunctionName("Sample_HttpStart")]
         public static async Task<HttpResponseMessage> HttpStart(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestMessage req,
-            [OrchestrationClient] DurableOrchestrationClient starter,
+            [DurableClient] IDurableOrchestrationClient starter,
             ILogger log)
         {
             // Function input comes from the request content.
@@ -213,13 +216,16 @@ namespace LifeCycleEventSpike
 }
 ```
 
-Om du anropar `Sample_HttpStart` med Postman eller din webbläsare börjar den varaktiga funktionen Skicka livs cykel händelser. Slut punkten är vanligt `http://localhost:7071/api/Sample_HttpStart` vis för lokal fel sökning.
+> [!NOTE]
+> Föregående kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext``OrchestrationClient` attribut i stället för `DurableClient`-attributet och du måste använda `DurableOrchestrationClient` parameter typ i stället för `IDurableOrchestrationClient`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
+
+Om du anropar `Sample_HttpStart` med Postman eller webbläsaren, börjar en varaktig funktion skicka livs cykel händelser. Slut punkten `http://localhost:7071/api/Sample_HttpStart` vanligt vis för lokal fel sökning.
 
 Se loggarna från funktionen som du skapade i Azure Portal.
 
 ```
-2018-04-20T09:28:21.041 [Info] Function started (Id=3301c3ef-625f-40ce-ad4c-9ba2916b162d)
-2018-04-20T09:28:21.104 [Info] {
+2019-04-20T09:28:21.041 [Info] Function started (Id=3301c3ef-625f-40ce-ad4c-9ba2916b162d)
+2019-04-20T09:28:21.104 [Info] {
     "id": "054fe385-c017-4ce3-b38a-052ac970c39d",
     "subject": "durable/orchestrator/Running",
     "data": {
@@ -230,15 +236,15 @@ Se loggarna från funktionen som du skapade i Azure Portal.
         "runtimeStatus": "Running"
     },
     "eventType": "orchestratorEvent",
-    "eventTime": "2018-04-20T09:28:19.6492068Z",
+    "eventTime": "2019-04-20T09:28:19.6492068Z",
     "dataVersion": "1.0",
     "metadataVersion": "1",
     "topic": "/subscriptions/<your_subscription_id>/resourceGroups/eventResourceGroup/providers/Microsoft.EventGrid/topics/durableTopic"
 }
 
-2018-04-20T09:28:21.104 [Info] Function completed (Success, Id=3301c3ef-625f-40ce-ad4c-9ba2916b162d, Duration=65ms)
-2018-04-20T09:28:37.098 [Info] Function started (Id=36fadea5-198b-4345-bb8e-2837febb89a2)
-2018-04-20T09:28:37.098 [Info] {
+2019-04-20T09:28:21.104 [Info] Function completed (Success, Id=3301c3ef-625f-40ce-ad4c-9ba2916b162d, Duration=65ms)
+2019-04-20T09:28:37.098 [Info] Function started (Id=36fadea5-198b-4345-bb8e-2837febb89a2)
+2019-04-20T09:28:37.098 [Info] {
     "id": "8cf17246-fa9c-4dad-b32a-5a868104f17b",
     "subject": "durable/orchestrator/Completed",
     "data": {
@@ -249,31 +255,31 @@ Se loggarna från funktionen som du skapade i Azure Portal.
         "runtimeStatus": "Completed"
     },
     "eventType": "orchestratorEvent",
-    "eventTime": "2018-04-20T09:28:36.5061317Z",
+    "eventTime": "2019-04-20T09:28:36.5061317Z",
     "dataVersion": "1.0",
     "metadataVersion": "1",
     "topic": "/subscriptions/<your_subscription_id>/resourceGroups/eventResourceGroup/providers/Microsoft.EventGrid/topics/durableTopic"
 }
-2018-04-20T09:28:37.098 [Info] Function completed (Success, Id=36fadea5-198b-4345-bb8e-2837febb89a2, Duration=0ms)
+2019-04-20T09:28:37.098 [Info] Function completed (Success, Id=36fadea5-198b-4345-bb8e-2837febb89a2, Duration=0ms)
 ```
 
 ## <a name="event-schema"></a>Händelseschema
 
 I följande lista beskrivs schemat för livs cykel händelser:
 
-* **`id`** : Unik identifierare för Event Grid-händelsen.
-* **`subject`** : Sökväg till händelsens ämne. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}``Running`är ,`Completed`, och`Terminated`. `Failed`  
+* **`id`** : unik identifierare för Event Grid-händelsen.
+* **`subject`** : sökvägen till händelsens ämne. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` är `Running`, `Completed`, `Failed`och `Terminated`.  
 * **`data`** : Durable Functions vissa parametrar.
   * **`hubName`** : [TaskHub](durable-functions-task-hubs.md) namn.
   * **`functionName`** : Orchestrator-funktions namn.
-  * **`instanceId`** : Durable Functions instanceId.
-  * **`reason`** : Ytterligare data som är associerade med spårnings händelsen. Mer information finns i [diagnostik i Durable functions (Azure Functions)](durable-functions-diagnostics.md)
-  * **`runtimeStatus`** : Dirigerings körnings status. Körs, slutförd, misslyckades, avbröts.
+  * **`instanceId`** : Durable Functions InstanceID.
+  * **`reason`** : ytterligare data som är associerade med spårnings händelsen. Mer information finns i [diagnostik i Durable functions (Azure Functions)](durable-functions-diagnostics.md)
+  * **`runtimeStatus`** : status för Orchestration-körning. Körs, slutförd, misslyckades, avbröts.
 * **`eventType`** : "orchestratorEvent"
-* **`eventTime`** : Tid för händelsen (UTC).
-* **`dataVersion`** : Version av livs cykelns händelse schema.
-* **`metadataVersion`** :  Version av metadata.
-* **`topic`** : Ämnes resurs för Event Grid.
+* **`eventTime`** : tidpunkt (UTC).
+* **`dataVersion`** : version av schema för livs cykel händelser.
+* **`metadataVersion`** : version av metadata.
+* **`topic`** : ämnes resurs för händelse rutnät.
 
 ## <a name="how-to-test-locally"></a>Testa lokalt
 

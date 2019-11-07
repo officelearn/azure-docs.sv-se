@@ -7,10 +7,14 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Använda en enhetskapacitetsmodell för att skapa en enhet
+    - name: Skapa en enhet – Windows
       href: quickstart-create-pnp-device.md
-    - name: Ansluta en enhet till IoT Hub
+    - name: Skapa en enhet – Linux
+      href: quickstart-create-pnp-device-linux.md
+    - name: Ansluta en enhet till IoT Hub – Windows
       href: quickstart-connect-pnp-device.md
+    - name: Ansluta en enhet till IoT Hub – Linux
+      href: quickstart-connect-pnp-device-linux.md
     - name: Ansluta en enhet till IoT Central
       href: ../iot-central/core/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - name: Ansluta till en enhet i din lösning

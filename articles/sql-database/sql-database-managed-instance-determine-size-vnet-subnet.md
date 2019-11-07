@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Hanterad instans Bestäm VNet/Subnet-storlek | Microsoft Docs
+title: Azure SQL Database Hanterad instans Bestäm VNet/undernät-storlek
 description: I det här avsnittet beskrivs hur du beräknar storleken på under nätet där Azure SQL Database hanterade instanserna ska distribueras.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 02/22/2019
-ms.openlocfilehash: 167e243b1fe4ea5ba9403ac3ca1fcea42f02f59a
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: fb0d79a82553349d5dad547a2d78a460301cbd6d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273562"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688114"
 ---
 # <a name="determine-vnet-subnet-size-for-azure-sql-database-managed-instance"></a>Bestäm storleken på VNet-undernät för Azure SQL Database Hanterad instans
 
@@ -39,7 +39,7 @@ Om du planerar att distribuera flera hanterade instanser i under nätet och beh�
 - Varje Generell användning instans behöver två adresser
 - Varje Affärskritisk instans behöver fyra adresser
 
-**Exempel**: Du planerar att ha tre Generell användning och två Affärskritisk hanterade instanser. Det innebär att du behöver 5 + 3 * 2 + 2 * 4 = 19 IP-adresser. Eftersom IP-intervall definieras med 2 måste du ha IP-adresser för IP-intervallet 32 (2 ^ 5). Därför måste du reservera under nätet med nät masken/27.
+**Exempel**: du planerar att ha tre generell användning och två affärskritisk hanterade instanser. Det innebär att du behöver 5 + 3 * 2 + 2 * 4 = 19 IP-adresser. Eftersom IP-intervall definieras med 2 måste du ha IP-adresser för IP-intervallet 32 (2 ^ 5). Därför måste du reservera under nätet med nät masken/27.
 
 > [!IMPORTANT]
 > Den beräkning som visas ovan kommer att bli föråldrad med ytterligare förbättringar.

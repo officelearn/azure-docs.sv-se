@@ -295,7 +295,7 @@
                 - name: Undantag
                   href: app/asp-net-exceptions.md
                 - name: Loggspårningar
-                  href: app/java-trace-logs.md
+                  href: app/asp-net-trace-logs.md
                 - name: Unix-mått
                   href: app/java-collectd.md
                 - name: Beroenden
@@ -318,6 +318,8 @@
                   href: app/opencensus-python.md
                 - name: Beroenden
                   href: app/opencensus-python-dependency.md
+                - name: Begäranden
+                  href: app/opencensus-python-request.md
             - name: Webbsidor
               items:
                 - name: JavaScript för klientsidan
@@ -593,26 +595,39 @@
         - name: Resursloggar
           items:
             - name: Översikt
+              displayname: Resource logs
               href: platform/resource-logs-overview.md
             - name: Samla in i Azure Monitor-loggar
+              displayname: Resource logs
               href: platform/resource-logs-collect-workspace.md
             - name: Arkivera till lagring
+              displayname: Resource logs
               href: platform/resource-logs-collect-storage.md
             - name: Strömma till Event Hubs
+              displayname: Resource logs
               href: platform/resource-logs-stream-event-hubs.md
         - name: Aktivitetslogg
           items:
             - name: Översikt
+              displayname: Activity log
               href: platform/activity-logs-overview.md
+            - name: Samla in med diagnostisk inställning
+              displayname: Activity log
+              href: platform/diagnostic-settings-subscription.md
             - name: Visa och hämta
+              displayname: Activity log
               href: platform/activity-log-view.md
             - name: Samla in och analysera
+              displayname: Activity log
               href: platform/activity-log-collect.md
             - name: Samla in mellan klienter
+              displayname: Activity log
               href: platform/activity-log-collect-tenants.md
             - name: Exportera
+              displayname: Activity log
               href: platform/activity-log-export.md
             - name: Schema
+              displayname: Activity log
               href: platform/activity-log-schema.md
         - name: Diagnostikinställningar
           items:
@@ -621,6 +636,7 @@
             - name: Skapa diagnostiskinställning med Resource Manager
               href: platform/diagnostic-settings-template.md
             - name: Ändra till bloblagringsformat
+              displayname: Diagnostic settings
               href: platform/resource-logs-blob-format.md
         - name: Strömma data till Event Hubs
           href: platform/stream-monitoring-data-event-hubs.md

@@ -26,6 +26,8 @@
       href: cdn-custom-ssl.md
     - name: Konfigurera cachelagringsregler
       href: cdn-caching-rules-tutorial.md
+    - name: Använda HTTPS med standardregelmotor
+      href: cdn-standard-rules-engine.md
 - name: Exempel
   items:
     - name: Kodexempel
@@ -134,6 +136,13 @@
           href: cdn-troubleshoot-allowed-ca.md
 - name: Referens
   items:
+    - name: Referens för Microsofts standardregelmotor
+      href: cdn-standard-rules-engine-reference.md
+      items:
+        - name: Matchningsvillkor för standardregelmotor
+          href: cdn-standard-rules-engine-match-conditions.md
+        - name: Åtgärder för standardregelmotor
+          href: cdn-standard-rules-engine-actions.md
     - name: Referens för Verizon Premium-regelmotor
       href: cdn-verizon-premium-rules-engine-reference.md
       items:

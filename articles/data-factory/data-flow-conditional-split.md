@@ -1,5 +1,5 @@
 ---
-title: Villkorlig delnings omvandling i Azure Data Factory mappa data flöde | Microsoft Docs
+title: Villkorlig delnings omvandling i Azure Data Factory mappa data flöde
 description: Dela data i olika strömmar med den villkorliga delnings omvandlingen i Azure Data Factory mappa data flöde
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 2d794714f27340e8886843988b6c075dd8d3366e
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 9ace415aa725a82d8feda5702d25d7e5ff9875d9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72527405"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73676818"
 ---
 # <a name="conditional-split-transformation-in-mapping-data-flow"></a>Villkorlig delnings omvandling i data flöde för mappning
 

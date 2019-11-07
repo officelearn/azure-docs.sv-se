@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/27/2019
-ms.openlocfilehash: 515d1da5333bb29237baa4bd941275f32ba754d3
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 8bb144c78c5346f3351a6ada779a808410dbb30d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161573"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73667988"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights-API för anpassade händelser och mått
 
@@ -20,7 +20,7 @@ Infoga några rader kod i ditt program för att ta reda på vad användarna gör
 
 ## <a name="api-summary"></a>API-sammanfattning
 
-Huvud-API: t är enhetligt för alla plattformar, förutom några varianter som `GetMetric` (endast .NET).
+Huvud-API: t är enhetligt för alla plattformar, förutom några varianter som `GetMetric`(endast .NET).
 
 | Metod | Används för |
 | --- | --- |
@@ -337,7 +337,7 @@ Som standard mäts de tider som rapporteras som **sid inläsnings tid** när web
 I stället kan du antingen:
 
 * Ange en explicit varaktighet i [trackPageView](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/API.md#trackpageview) -anropet: `appInsights.trackPageView("tab1", null, null, null, durationInMilliseconds);`.
-* Använd `startTrackPage` och `stopTrackPage` för sid visnings tids anrop.
+* Använd `startTrackPage` och `stopTrackPage`för sid visnings tids anrop.
 
 *JavaScript*
 
@@ -522,7 +522,7 @@ exceptions
 | summarize sum(itemCount) by type
 ```
 
-De flesta viktiga stack-uppgifter har redan extraherats i separata variabler, men du kan dra isär `details`s strukturen för att få mer information. Eftersom den här strukturen är dynamisk bör du omvandla resultatet till den typ som du förväntar dig. Exempel:
+De flesta viktiga stack-uppgifter har redan extraherats i separata variabler, men du kan dra isär `details`s strukturen för att få mer information. Eftersom den här strukturen är dynamisk bör du omvandla resultatet till den typ som du förväntar dig. Till exempel:
 
 ```kusto
 exceptions
@@ -569,7 +569,7 @@ telemetry.trackTrace({
 *Klient-och webb läsar skript*
 
 ```javascript
-trackTrace(message: string, properties?: {[string]:string}, severityLevel?: AI.SeverityLevel)
+trackTrace(message: string, properties?: {[string]:string}, severityLevel?: SeverityLevel)
 ```
 
 Logga en diagnostisk händelse som att ange eller lämna en metod.
@@ -585,7 +585,7 @@ Du kan söka efter meddelande innehåll, men (till skillnad från egenskaps vär
 Storleks gränsen på `message` är mycket högre än gränsen för egenskaper.
 En fördel med TrackTrace är att du kan ställa in relativt långa data i meddelandet. Du kan till exempel koda POST-data där.  
 
-Dessutom kan du lägga till en allvarlighets grad i meddelandet. Liksom andra telemetri kan du lägga till egenskaps värden som hjälper dig att filtrera eller söka efter olika uppsättningar med spår. Exempel:
+Dessutom kan du lägga till en allvarlighets grad i meddelandet. Liksom andra telemetri kan du lägga till egenskaps värden som hjälper dig att filtrera eller söka efter olika uppsättningar med spår. Till exempel:
 
 *C#*
 
@@ -610,7 +610,7 @@ I [sökningen](../../azure-monitor/app/diagnostic-search.md)kan du sedan enkelt 
 
 I [Application Insights Analytics](analytics.md)visas anrop till TrackTrace i tabellen `traces`.
 
-Om [sampling](../../azure-monitor/app/sampling.md) är i drift, Visar egenskapen itemCount ett värde som är större än 1. Till exempel itemCount = = 10 innebär att 10 anrop till `trackTrace()` överför processen endast en av dem. Om du vill få ett korrekt antal spårnings anrop bör du använda kod som `traces | summarize sum(itemCount)`.
+Om [sampling](../../azure-monitor/app/sampling.md) är i drift, Visar egenskapen itemCount ett värde som är större än 1. Till exempel itemCount = = 10 innebär att 10 anrop till `trackTrace()`överför processen endast en av dem. Om du vill få ett korrekt antal spårnings anrop bör du använda kod som `traces | summarize sum(itemCount)`.
 
 ## <a name="trackdependency"></a>TrackDependency
 
@@ -1148,7 +1148,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="telemetrycontext"></a>TelemetryContext
 
-TelemetryClient har en kontext egenskap som innehåller värden som skickas tillsammans med alla telemetridata. De anges normalt av standardmodulerna för telemetri, men du kan också ställa in dem själv. Exempel:
+TelemetryClient har en kontext egenskap som innehåller värden som skickas tillsammans med alla telemetridata. De anges normalt av standardmodulerna för telemetri, men du kan också ställa in dem själv. Till exempel:
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";
@@ -1197,7 +1197,7 @@ Se [data kvarhållning och sekretess](../../azure-monitor/app/data-retention-pri
 
 * *Vilka undantag kan Track_ ()-anropen resultera i?*
 
-    Inget. Du behöver inte figursätta dem i try-catch-satser. Om SDK stöter på problem kommer den att logga meddelanden i fel söknings konsolens utdata och--om meddelandena går igenom i diagnostisk sökning.
+    Ingen. Du behöver inte figursätta dem i try-catch-satser. Om SDK stöter på problem kommer den att logga meddelanden i fel söknings konsolens utdata och--om meddelandena går igenom i diagnostisk sökning.
 * *Finns det ett REST API för att hämta data från portalen?*
 
     Ja, [API för data åtkomst](https://dev.applicationinsights.io/). Andra sätt att extrahera data är [att exportera från Analytics till Power BI](../../azure-monitor/app/export-power-bi.md ) och [löpande export](../../azure-monitor/app/export-telemetry.md).
@@ -1205,4 +1205,4 @@ Se [data kvarhållning och sekretess](../../azure-monitor/app/data-retention-pri
 ## <a name="next"></a>Nästa steg
 
 * [Sök efter händelser och loggar](../../azure-monitor/app/diagnostic-search.md)
-* [Troubleshooting](../../azure-monitor/app/troubleshoot-faq.md) (Felsökning)
+* [Felsökning](../../azure-monitor/app/troubleshoot-faq.md)

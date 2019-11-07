@@ -8,8 +8,8 @@
       href: durable-functions-overview.md
     - name: Jämförelse utan server
       href: ../functions-compare-logic-apps-ms-flow-webjobs.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
-    - name: Förhandsversionsfunktioner
-      href: durable-functions-preview.md
+    - name: Durable Functions-versioner
+      href: durable-functions-versions.md
 - name: Snabbstarter
   expanded: true
   items:

@@ -1,5 +1,5 @@
 ---
-title: 'Design exempel #6: klassificering för att förutsäga flyg fördröjningar'
+title: 'Designer: klassificera, förutse flyg fördröjningar'
 titleSuffix: Azure Machine Learning
 description: Den här artikeln visar hur du skapar en maskin inlärnings modell för att förutsäga fördröjningar med hjälp av dra-och-släpp-designer och anpassad R-kod.
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 4b21ebffe8959809acc71fc09aff7e58873e10b8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 10b3b78b4878eeddf2f786fda90ab9709e4bd2b4
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515530"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647202"
 ---
 # <a name="sample-6---classification-predict-flight-delays-using-r"></a>Exempel 6 – klassificering: förutsäga flyg fördröjningar med R
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -26,7 +26,7 @@ Här är den slutliga pipeline-grafen för det här exemplet:
 
 [![diagram över pipelinen](media/how-to-ui-sample-classification-predict-flight-delay/pipeline-graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
@@ -52,13 +52,13 @@ För att komplettera flyg data används **väder data uppsättningen** . Väder 
 
 En data uppsättning kräver vanligt vis lite för bearbetning innan den kan analyseras.
 
-![data process](media/how-to-ui-sample-classification-predict-flight-delay/data-process.png)
+![data-process](media/how-to-ui-sample-classification-predict-flight-delay/data-process.png)
 
 ### <a name="flight-data"></a>Flyg data
 
 Kolumnerna **Carrier**, **OriginAirportID**och **DestAirportID** sparas som heltal. De är dock kategoriska attribut, Använd modulen **Redigera metadata** för att konvertera dem till kategoriska.
 
-![Redigera-metadata](media/how-to-ui-sample-classification-predict-flight-delay/edit-metadata.png)
+![edit-metadata](media/how-to-ui-sample-classification-predict-flight-delay/edit-metadata.png)
 
 Använd sedan modulen **Välj kolumner** i data uppsättning för att utesluta från data mängds kolumnerna som är möjliga mål läckor: **DepDelay**, **DepDel15**, **ArrDelay**, **canceled**, **Year**. 
 

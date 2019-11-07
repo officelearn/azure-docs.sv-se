@@ -1,5 +1,5 @@
 ---
-title: Design vägledning för replikerade tabeller – Azure SQL Data Warehouse | Microsoft Docs
+title: Design vägledning för replikerade tabeller
 description: Rekommendationer för att utforma replikerade tabeller i Azure SQL Data Warehouse schemat. 
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,19 +10,20 @@ ms.subservice: development
 ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: c622edc6c3a37b2bc71323cf0e2c155f7aec6e33
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 18577cb729c9f17a112979cd1ebb763af38b9ca2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479318"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693056"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Design Guide för att använda replikerade tabeller i Azure SQL Data Warehouse
 Den här artikeln innehåller rekommendationer för att utforma replikerade tabeller i SQL Data Warehouse schemat. Använd dessa rekommendationer för att förbättra prestandan för frågor genom att minska data flytt och fråga efter komplexitet.
 
 > [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Den här artikeln förutsätter att du är bekant med koncepten för data distribution och data förflyttning i SQL Data Warehouse.  Mer information finns i [arkitektur](massively-parallel-processing-mpp-architecture.md) artikeln. 
 
 Som en del av tabell designen förstår du så mycket som möjligt av dina data och hur data efter frågas.  Överväg till exempel följande frågor:
@@ -95,7 +96,7 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 
 En replikerad tabell kräver ingen data förflyttning för kopplingar eftersom hela tabellen redan finns på varje Compute-nod. Om dimensions tabellerna har distribuerats med resursallokering, kopierar en koppling dimensions tabellen i fullständig till varje Compute-nod. För att flytta data innehåller frågeuttrycket en åtgärd som kallas BroadcastMoveOperation. Den här typen av data förflyttnings åtgärd saktar ned frågans prestanda och elimineras genom att använda replikerade tabeller. Om du vill visa plan stegen för planen använder du system katalog visningen [sys. DM _pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) . 
 
-I följande fråga mot AdventureWorks-schemat `FactInternetSales` är tabellen till exempel hash-distribuerad. Tabellerna `DimDate` och`DimSalesTerritory` är mindre dimensions tabeller. Den här frågan returnerar den totala försäljningen i Nordamerika för räkenskapsår 2004:
+I följande fråga mot AdventureWorks-schemat är `FactInternetSales` tabellen hash-distribuerad. Tabellerna `DimDate` och `DimSalesTerritory` är mindre dimensions tabeller. Den här frågan returnerar den totala försäljningen i Nordamerika för räkenskapsår 2004:
 
 ```sql
 SELECT [TotalSalesAmount] = SUM(SalesAmount)
@@ -107,11 +108,11 @@ INNER JOIN dbo.DimSalesTerritory t
 WHERE d.FiscalYear = 2004
   AND t.SalesTerritoryGroup = 'North America'
 ```
-Vi återskapar `DimDate` och `DimSalesTerritory` som Round-Robin-tabeller. Därför visade frågan följande frågeplan, som har flera sändnings flyttnings åtgärder: 
+Vi återskapade `DimDate` och `DimSalesTerritory` som Round-Robin-tabeller. Därför visade frågan följande frågeplan, som har flera sändnings flyttnings åtgärder: 
  
 ![Frågeplan med resursallokering](media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg) 
 
-Vi återskapar `DimDate` och `DimSalesTerritory` replikerade tabeller och körde frågan igen. Den resulterande frågeplan är mycket kortare och har inga sändnings flyttningar.
+Vi återskapade `DimDate` och `DimSalesTerritory` som replikerade tabeller och körde frågan igen. Den resulterande frågeplan är mycket kortare och har inga sändnings flyttningar.
 
 ![Replikerad frågeplan](media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg) 
 

@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Dokumentation om Azure Data Box – Onlineöverföring
-summary: Använd Azure Data Box Gateway- och Azure Data Box Edge-enheter för överföring av data med höga prestanda via nätverket. Välj Data Box Gateway för att skicka data för molnarkivering eller haveriberedskap, eller för att bearbeta data i molnskala. Använd Data Box Edge för att filtrera, analysera och transformera data innan de flyttas till Azure.
+title: Dokumentation om Azure Stack Edge och Azure Data Box Gateway – Onlineöverföring
+summary: Använd Azure Data Box Gateway- och Azure Stack Edge-enheter för överföring av data med höga prestanda via nätverket. Välj Data Box Gateway för att skicka data för molnarkivering eller haveriberedskap, eller för att bearbeta data i molnskala. Använd Azure Stack Edge för att filtrera, analysera och transformera data innan de flyttas till Azure. Azure Data Box Edge har nyligen bytt namn till Azure Stack Edge.
 metadata:
-  title: Dokumentation om Azure Data Box – Onlineöverföring
-  description: Data Box Gateway, Data Box Edge-dokumentation för dataöverföring med höga prestanda till Azure via nätverk.
+  title: Dokumentation om Azure Stack Edge och Azure Data Box Gateway – Onlineöverföring
+  description: Data Box Gateway, Azure Stack Edge (tidigare Data Box Edge)-dokumentation för dataöverföring med höga prestanda till Azure via nätverk.
   services: databox
   ms.service: databox
   ms.subservice: edge
@@ -11,21 +11,21 @@ metadata:
   ms.collection: collection
   author: alkohli
   ms.author: alkohli
-  ms.date: 08/15/2019
-  ms.openlocfilehash: f1b3c4f8473807b7bbffa2b40f1d3a89b6acff5a
-  ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+  ms.date: 11/04/2019
+  ms.openlocfilehash: 61cda4ccab69396c13581598f399104b0a4fb181
+  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/23/2019
-  ms.locfileid: "70012870"
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73570104"
 landingContent:
-- title: Om Data Box-serien
+- title: Om Azure Stack Edge och Data Box Gateway
   linkLists:
   - linkListType: overview
     links:
     - text: Vad är Data Box Gateway?
       url: data-box-gateway-overview.md
-    - text: Vad är Data Box Edge?
+    - text: Vad är Azure Stack Edge?
       url: data-box-edge-overview.md
   - linkListType: architecture
     links:
@@ -43,11 +43,11 @@ landingContent:
     links:
     - text: Data Box Gateway – krav
       url: data-box-gateway-system-requirements.md
-    - text: Data Box Edge – krav
+    - text: Krav för Azure Stack Edge
       url: data-box-edge-system-requirements.md
     - text: Data Box Gateway – begränsningar
       url: data-box-gateway-limits.md
-    - text: Data Box Edge – begränsningar
+    - text: Gränser för Azure Stack Edge
       url: data-box-edge-limits.md
 - title: Distribuera
   linkLists:
@@ -55,7 +55,7 @@ landingContent:
     links:
     - text: Data Box Gateway
       url: data-box-gateway-deploy-prep.md
-    - text: Data Box Edge
+    - text: Azure Stack Edge
       url: data-box-edge-deploy-prep.md
 - title: Utveckla
   linkLists:
@@ -65,7 +65,7 @@ landingContent:
       url: data-box-edge-create-iot-edge-module.md
   - linkListType: download
     links:
-    - text: Exempel – C# för Data Box Edge
+    - text: Exempel – C# för Azure Stack Edge
       url: https://docs.microsoft.com/samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules/
 - title: Hantera
   linkLists:
@@ -73,7 +73,7 @@ landingContent:
     links:
     - text: Data Box Gateway-filresurser
       url: data-box-gateway-manage-shares.md
-    - text: Data Box Edge-filresurser
+    - text: Filresurser för Azure Stack Edge
       url: data-box-edge-manage-shares.md
     - text: Edge-beräkning
       url: data-box-edge-manage-compute.md
@@ -85,11 +85,11 @@ landingContent:
     links:
     - text: Data Box Gateway
       url: data-box-gateway-troubleshoot.md
-    - text: Data Box Edge
+    - text: Azure Stack Edge
       url: data-box-edge-troubleshoot.md
     - text: Moduler för databehandling i Edge
       url: data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules
-    - text: Returnera eller ersätta Data Box Edge
+    - text: Returnera eller ersätta Azure Stack Edge
       url: data-box-edge-return-device.md
     - text: Öppna supportbegäran
       url: data-box-edge-contact-microsoft-support.md

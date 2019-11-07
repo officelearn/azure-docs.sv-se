@@ -1,6 +1,6 @@
 ---
-title: 'PowerShell-skript: Läs in data stegvis med Azure Data Factory | Microsoft Docs'
-description: Det här PowerShell-skriptet visar hur du använder Azure Data Factory för att kopiera data stegvis från en Azure SQL Database till Azure Blob Storage...
+title: 'PowerShell-skript: Läs in data stegvis med hjälp av Azure Data Factory '
+description: Det här PowerShell-skriptet visar hur du använder Azure Data Factory för att kopiera data stegvis från en Azure SQL Database till en Azure-Blob Storage..
 services: data-factory
 author: linda33wj
 manager: craigg
@@ -11,37 +11,37 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: jingwang
-ms.openlocfilehash: 5ae6d6ed06aa5734dc601e6e72ba55ec8ddf7bcf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ef7b00172f0371e09d6462ed357744166b5fb08a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160629"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684327"
 ---
-# <a name="powershell-script---incrementally-load-data-by-using-azure-data-factory"></a>PowerShell-skript – stegvis läsa in data med hjälp av Azure Data Factory
-Det här Skriptexemplet för PowerShell läser bara nya eller uppdaterade posterna från källans datalager till mottagarens datalager efter den inledande fullständig kopian av data från källan till mottagaren.  
+# <a name="powershell-script---incrementally-load-data-by-using-azure-data-factory"></a>PowerShell-skript – Läs in data stegvis med hjälp av Azure Data Factory
+Det här exemplet på PowerShell-skriptet läser bara in nya eller uppdaterade poster från ett käll data lager till ett data lager för mottagare efter den första fullständiga kopian av data från källan till mottagaren.  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
-Se [självstudie: inkrementell kopia](../tutorial-incremental-copy-powershell.md#prerequisites) för förutsättningar för att köra det här exemplet. 
+Se [självstudie: stegvis kopiering](../tutorial-incremental-copy-powershell.md#prerequisites) för förutsättningarna för att köra det här exemplet. 
 
 ## <a name="sample-script"></a>Exempelskript
 
 > [!IMPORTANT]
-> Det här skriptet skapar JSON-filer som definierar Data Factory-entiteter (länkade tjänsten, datauppsättningen och pipeline) på din hårddisk i mappen c:\.
+> Det här skriptet skapar JSON-filer som definierar Data Factory entiteter (länkad tjänst, data uppsättning och pipeline) på hård disken i mappen c:\ projektbevakningsmappen.
 
 [!code-powershell[main](../../../powershell_scripts/data-factory/incremental-copy-from-azure-sql-to-blob/incremental-copy-from-azure-sql-to-blob.ps1 "Incremental copy from Azure SQL Database to Azure Blob Storage")]
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-När du kör exempelskriptet kan använda du följande kommando för att ta bort resursgruppen och alla resurser som är kopplade till den:
+När du har kört exempel skriptet kan du använda följande kommando för att ta bort resurs gruppen och alla resurser som är kopplade till den:
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 ```
-Om du vill ta bort datafabriken från resursgruppen, kör du följande kommando: 
+Om du vill ta bort data fabriken från resurs gruppen kör du följande kommando: 
 
 ```powershell
 Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
@@ -55,11 +55,11 @@ I det här skriptet används följande kommandon:
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | Skapa en datafabrik. |
-| [Set-AzDataFactoryV2LinkedService](/powershell/module/az.datafactory/Set-Azdatafactoryv2linkedservice) | Skapar en länkad tjänst i datafabriken. En länkad tjänst länkar ett datalager eller beräkningar till en data factory. |
-| [Set-AzDataFactoryV2Dataset](/powershell/module/az.datafactory/Set-Azdatafactoryv2dataset) | Skapar en datauppsättning i data factory. En datauppsättning som representerar indata/utdata för en aktivitet i en pipeline. | 
-| [Set-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/Set-Azdatafactoryv2pipeline) | Skapar en pipeline i datafabriken. En pipeline som innehåller en eller flera aktiviteter som utför en viss åtgärd. I denna pipeline kopierar en Kopieringsaktivitet data från en plats till en annan plats i Azure Blob Storage. |
-| [Invoke-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/Invoke-Azdatafactoryv2pipeline) | Skapar en körning för pipelinen. Med andra ord kör pipelinen. |
-| [Get-AzDataFactoryV2ActivityRun](/powershell/module/az.datafactory/get-Azdatafactoryv2activityrun) | Hämtar information om körning av aktiviteten (aktivitetskörning) i pipelinen. 
+| [Set-AzDataFactoryV2LinkedService](/powershell/module/az.datafactory/Set-Azdatafactoryv2linkedservice) | Skapar en länkad tjänst i data fabriken. En länkad tjänst länkar ett data lager eller en beräkning till en data fabrik. |
+| [Set-AzDataFactoryV2Dataset](/powershell/module/az.datafactory/Set-Azdatafactoryv2dataset) | Skapar en data uppsättning i data fabriken. En data uppsättning representerar indata/utdata för en aktivitet i en pipeline. | 
+| [Set-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/Set-Azdatafactoryv2pipeline) | Skapar en pipeline i data fabriken. En pipeline innehåller en eller flera aktiviteter som utför en viss åtgärd. I den här pipelinen kopierar en kopierings aktivitet data från en plats till en annan plats i ett Azure-Blob Storage. |
+| [Invoke-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/Invoke-Azdatafactoryv2pipeline) | Skapar en körning för pipelinen. Med andra ord körs pipelinen. |
+| [Get-AzDataFactoryV2ActivityRun](/powershell/module/az.datafactory/get-Azdatafactoryv2activityrun) | Hämtar information om körningen av aktiviteten (aktivitets körning) i pipelinen. 
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 
@@ -67,4 +67,4 @@ I det här skriptet används följande kommandon:
 
 Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/).
 
-Ytterligare Azure Data Factory PowerShell-skriptexempel finns i den [Azure Data Factory PowerShell-skript](../samples-powershell.md).
+Ytterligare Azure Data Factory PowerShell-skript exempel finns i [Azure Data Factory PowerShell-skript](../samples-powershell.md).

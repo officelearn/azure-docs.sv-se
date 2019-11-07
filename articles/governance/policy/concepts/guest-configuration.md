@@ -3,15 +3,15 @@ title: Lär dig att granska innehållet i virtuella datorer
 description: Lär dig hur Azure Policy använder gäst konfiguration för att granska inställningar i en Azure-dator.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/20/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: efe929a6ea38a8df7ad9fe37a92c181e3d409b25
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 0e5592f629646db3132ffd65fd56b1a0d5d5be39
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464073"
+ms.locfileid: "73581434"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure Policys gäst konfiguration
 
@@ -121,30 +121,27 @@ Azure Policy använder **complianceStatus** -egenskapen för gäst konfiguration
 > [!NOTE]
 > **DeployIfNotExists** -principen krävs för att **AuditIfNotExists** -principen ska returnera resultat. Utan **DeployIfNotExists**visar **AuditIfNotExists** -principen "0 av 0" resurser som status.
 
-Alla inbyggda principer för gäst konfiguration ingår i ett initiativ för att gruppera definitionerna för användning i tilldelningar. Det inbyggda initiativet med namnet *[för hands version]: granska säkerhets inställningar för lösen ord på Linux-och Windows-datorer* innehåller 18 principer. Det finns sex **DeployIfNotExists** -och **AuditIfNotExists** -par för Windows och tre par för Linux. [Princip definitions](definition-structure.md#policy-rule) logiken verifierar att endast mål operativ systemet utvärderas.
+Alla inbyggda principer för gäst konfiguration ingår i ett initiativ för att gruppera definitionerna för användning i tilldelningar. Det inbyggda initiativet med namnet _\[för hands version\]: granska säkerhets inställningar för lösen ord i Linux-och Windows-datorer_ innehåller 18 principer. Det finns sex **DeployIfNotExists** -och **AuditIfNotExists** -par för Windows och tre par för Linux. [Princip definitions](definition-structure.md#policy-rule) logiken verifierar att endast mål operativ systemet utvärderas.
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Granska operativ system inställningar efter bransch bas linjer
 
-Ett av de initiativ som är tillgängliga i Azure Policy ger möjlighet att granska operativ systemets inställningar i virtuella datorer efter "bas linje" från Microsoft.  Definitionen *[Preview]: granska virtuella Windows-datorer som inte matchar inställningarna för Azures säkerhets bas linje* innehåller en fullständig uppsättning gransknings regler som baseras på inställningarna från Active Directory Grupprincip.
+Ett av de initiativ som är tillgängliga i Azure Policy ger möjlighet att granska operativ systemets inställningar i virtuella datorer efter "bas linje" från Microsoft. Definitionen\[för _hands version\]: granska virtuella Windows-datorer som inte matchar inställningarna för Azures säkerhets bas linje_ innehåller en fullständig uppsättning gransknings regler baserade på inställningarna från Active Directory Grupprincip.
 
-De flesta av inställningarna är tillgängliga som parametrar.  Med den här funktionen kan du anpassa vad som ska granskas för att justera principen med organisationens krav, eller för att mappa principen till tredje parts information, till exempel bransch regelverks standarder.
+De flesta av inställningarna är tillgängliga som parametrar. Med den här funktionen kan du anpassa vad som granskas för att justera principen med organisationens krav eller mappa principen till information från tredje part, till exempel bransch regelverks standarder.
 
-Vissa parametrar har stöd för ett heltals värde intervall.  Till exempel kan den högsta ålders parametern för lösen ord anges med en intervall operator för att ge flexibilitet till dator ägare.  Du kan granska att den effektiva grupprincips inställningen som kräver att användaren ändrar sina lösen ord inte ska vara mer än 70 dagar, men bör inte vara mindre än 1 dag.  Som det beskrivs i info-bubblan för parametern, för att göra detta till det effektiva granskning svärdet, ställer du in värdet på "1, 70".
+Vissa parametrar har stöd för ett heltals värde intervall. Till exempel kan den högsta ålders parametern för lösen ord anges med en intervall operator för att ge flexibilitet till dator ägare. Du kan granska att den effektiva grupprincips inställningen som kräver att användarna ändrar sina lösen ord inte ska vara mer än 70 dagar, men inte vara mindre än en dag. Som det beskrivs i info-bubblan för parametern, för att göra den här affärs principen till ett effektivt gransknings värde, ställer du in värdet på "1, 70".
 
-Om du tilldelar principen med hjälp av en mall för Azure Resource Manager dployment kan du använda en parameter fil för att hantera inställningarna från käll kontroll.
-Genom att använda ett verktyg som Git för att hantera ändringar i gransknings principer med kommentarer vid varje incheckning, dokumenteras bevis för varför en tilldelning ska vara i undantag till det förväntade värdet.
+Om du tilldelar principen med hjälp av en mall för Azure Resource Manager distribution kan du använda en parameter fil för att hantera inställningarna från käll kontroll. Genom att använda ett verktyg som Git för att hantera ändringar i gransknings principer med kommentarer i varje inchecknings dokument, bevis för varför en tilldelning ska vara ett undantag till det förväntade värdet.
 
 #### <a name="applying-configurations-using-guest-configuration"></a>Använda konfigurationer med gäst konfiguration
 
-Den senaste funktionen i Azure Policy konfigurerar inställningar i datorer.
-Definitionen *Konfigurera tids zonen på Windows-datorer* kommer att göra ändringar på datorn genom att konfigurera tids zonen.
+Den senaste funktionen i Azure Policy konfigurerar inställningar i datorer. Definitionen _Konfigurera tids zonen på Windows-datorer_ gör ändringar i datorn genom att konfigurera tids zonen.
 
-När du tilldelar definitioner som börjar med *Konfigurera*måste du också tilldela *krav för definitions distribution för att aktivera principen för gäst konfiguration på virtuella Windows-datorer.*
-Du kan kombinera dessa definitioner i ett initiativ om du väljer.
+När du tilldelar definitioner som börjar med _Konfigurera_måste du också tilldela _krav för definitions distribution för att aktivera principen för gäst konfiguration på virtuella Windows-datorer_. Du kan kombinera dessa definitioner i ett initiativ om du väljer.
 
 #### <a name="assigning-policies-to-machines-outside-of-azure"></a>Tilldela principer till datorer utanför Azure
 
-De gransknings principer som är tillgängliga för gäst konfiguration är resurs typen **Microsoft. HybridCompute/Machines** .  Alla datorer som har publicerats till Azure-bågen som ingår i tilldelnings omfånget tas automatiskt med.
+De gransknings principer som är tillgängliga för gäst konfiguration är resurs typen **Microsoft. HybridCompute/Machines** . Alla datorer som har publicerats till [Azure-bågen för servrar](../../../azure-arc/servers/overview.md) som omfattas av princip tilldelningen ingår automatiskt.
 
 ### <a name="multiple-assignments"></a>Flera tilldelningar
 
@@ -152,8 +149,7 @@ Principer för gäst konfiguration stöder för närvarande bara tilldelning av 
 
 ## <a name="built-in-resource-modules"></a>Inbyggda resurs moduler
 
-När du installerar gäst konfigurations tillägget ingår PowerShell-modulen "GuestConfiguration" i den senaste versionen av DSC-resurs-moduler. Den här modulen kan laddas ned från PowerShell-galleriet med hjälp av länken "manuell hämtning" från sidan för modulen [GuestConfiguration](https://www.powershellgallery.com/packages/GuestConfiguration/).
-Fil formatet '. nupkg ' kan byta namn till '. zip ' för att expandera och granska.
+När du installerar gäst konfigurations tillägget ingår PowerShell-modulen "GuestConfiguration" i den senaste versionen av DSC-resurs-moduler. Den här modulen kan laddas ned från PowerShell-galleriet med hjälp av länken "manuell hämtning" från sidan för modulen [GuestConfiguration](https://www.powershellgallery.com/packages/GuestConfiguration/). Fil formatet '. nupkg ' kan byta namn till '. zip ' för att expandera och granska.
 
 ## <a name="client-log-files"></a>Loggfiler för klienter
 

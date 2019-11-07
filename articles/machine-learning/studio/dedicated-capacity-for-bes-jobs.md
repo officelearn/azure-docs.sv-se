@@ -1,6 +1,6 @@
 ---
 title: Azure Batch tjänst jobb
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Översikt över Azure Batch-tjänster för Machine Learning Studio (klassiska) jobb. Med batchbearbetning kan du skapa pooler där du kan skicka batch-jobb.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio (classic) | Microsoft Docs'
 ms.date: 04/19/2017
-ms.openlocfilehash: 1de7ad10a54c34595f69a543843097cee1377067
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a0e829f61117df25f8643301a0acdadeafd7c267
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493042"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684808"
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-classic-jobs"></a>Azure Batch tjänst för Azure Machine Learning Studio (klassiska) jobb
 
@@ -43,7 +43,7 @@ Du skapar pooler genom att anropa åtgärden för att skapa pooler på den URL f
 
 Du kan använda alla nya Resource Manager-baserade webb tjänster, men tänk på att faktureringen för jobben debiteras mot den fakturerings plan som är associerad med tjänsten. Du kanske vill skapa en webb tjänst och en ny fakturerings plan som är specifik för att köra batch-poolens jobb.
 
-Mer information om hur du skapar webb tjänster finns i [distribuera en Azure Machine Learning-webbtjänst](publish-a-machine-learning-web-service.md).
+Mer information om hur du skapar webb tjänster finns i [distribuera en Azure Machine Learning-webbtjänst](deploy-a-machine-learning-web-service.md).
 
 När du har skapat en pool skickar du BES-jobbet med batch-begärandena URL: en för webb tjänsten. Du kan välja att skicka den till en pool eller till klassisk batchbearbetning. Om du vill skicka ett jobb till batchbearbetningen lägger du till följande parameter i begäran om jobb sändning:
 

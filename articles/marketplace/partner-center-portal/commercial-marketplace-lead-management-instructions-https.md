@@ -4,19 +4,20 @@ description: Konfigurera ledar hantering för en HTTPS-slutpunkt.
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: evansma
-ms.openlocfilehash: 6a34bdcab5a13af682515bbae96e9a1800ccc37f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 83efb9cfd1ee7464a334ebc4064dbfaa20ab30de
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69902200"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812293"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Konfigurera hantering av leads med en HTTPS-slutpunkt
 
-Om ditt CRM-system (Customer Relations hip Management) inte uttryckligen stöds i Partner Center för att ta emot Azure Marketplace-och AppSource-leads, kan du använda en HTTPS-slutpunkt i MS Flow för att hantera dessa leads. Med en HTTPS-slutpunkt kan dessa leads skickas som ett e-postmeddelande eller skrivas till ett CRM-system (Customer Relations hip Management) som stöds av MS Flow. Anvisningarna i den här artikeln vägleder dig genom Basic-processen för att skapa ett nytt flöde med hjälp av Microsoft Flow, vilket genererar HTTP POST-URL: en som du kommer att ange i publicerings portalen för **URL: en för URL: en** för den inledande hanterings > https. Dessutom finns anvisningar om hur du kan testa flödet med hjälp av ett verktyg som kallas Postman som [](https://www.getpostman.com/downloads/) kan hittas online.
+Om ditt CRM-system (Customer Relations hip Management) inte uttryckligen stöds i Partner Center för att ta emot Azure Marketplace-och AppSource-leads, kan du använda en HTTPS-slutpunkt i MS Flow för att hantera dessa leads. Med en HTTPS-slutpunkt kan dessa leads skickas som ett e-postmeddelande eller skrivas till ett CRM-system (Customer Relations hip Management) som stöds av MS Flow. Anvisningarna i den här artikeln vägleder dig genom Basic-processen för att skapa ett nytt flöde med hjälp av Microsoft Flow, vilket genererar HTTP POST-URL: en som du kommer att ange i publicerings portalen för **URL: en för URL: en** för den inledande hanterings > https. Dessutom finns anvisningar om hur du kan testa flödet med hjälp av ett verktyg som kallas [Postman](https://www.getpostman.com/downloads/) som kan hittas online.
 
 ## <a name="create-a-flow-using-microsoft-flow"></a>Skapa ett flöde med hjälp av Microsoft Flow
 
@@ -32,8 +33,8 @@ Om ditt CRM-system (Customer Relations hip Management) inte uttryckligen stöds 
 
     ![Bygg automatiskt flöde – hoppa över](./media/commercial-marketplace-lead-management-instructions-https/build-automated-flow.png)
 
-5. I fältet **Sök anslutningar och** utlösare skriver du "Request" för att hitta begär ande anslutningen.
-6. Underutlösare väljer du **när en http-begäran tas emot**. 
+5. I fältet **Sök anslutningar och utlösare** skriver du "Request" för att hitta begär ande anslutningen.
+6. Under *utlösare*väljer du **när en http-begäran tas emot**. 
 
     ![Request Connector – utlösare](./media/commercial-marketplace-lead-management-instructions-https/request-connector.png)
 
@@ -118,7 +119,7 @@ Om ditt CRM-system (Customer Relations hip Management) inte uttryckligen stöds 
 
     ![Lägg till dynamiskt innehåll](./media/commercial-marketplace-lead-management-instructions-https/add-dynamic-content.png)
 
-5. Mappa de fält som du vill använda och välj sedan **Spara** för att spara ditt flöde. En HTTP POST-URL skapas och är tillgänglig i fönstret *när en HTTP-förfrågan tas emot* . Kopiera den här URL: en med hjälp av kopierings kontrollen som finns till höger om HTTP POST-URL – det här är viktigt så att du inte av misstag saknar någon del av hela URL: en. Spara den här URL: en eftersom du kommer att behöva den när du konfigurerar hantering av lead i publicerings portalen.
+5. Mappa de fält som du vill använda och välj sedan **Spara** för att spara ditt flöde. En HTTP POST-URL skapas och är tillgänglig i fönstret *när en HTTP-förfrågan tas emot* . Kopiera den här URL: en med hjälp av kopierings kontrollen som finns till höger om HTTP POST-URL: en är viktig så att du inte av misstag saknar någon del av hela URL: en. Spara den här URL: en eftersom du kommer att behöva den när du konfigurerar hantering av lead i publicerings portalen.
 
     ![När en HTTP-begäran tas emot.](./media/commercial-marketplace-lead-management-instructions-https/when-http-request-received.png)
 
@@ -135,7 +136,7 @@ Om ditt CRM-system (Customer Relations hip Management) inte uttryckligen stöds 
 
 4. Konfigurera följande obligatoriska fält i fönstret **Skicka ett e-postmeddelande** :
 
-   - Ange minst en giltig e-postadress, där leads ska skickas.
+   - Ange minst en giltig e-postadress, där leads **ska skickas** .
    - **Subject** -Flow ger dig möjlighet att lägga till dynamiskt innehåll, som **LeadSource** i följande skärm bild. Börja med att skriva in ett fält namn följt av genom att klicka på listan med dynamiskt innehåll i fönstret för att välja dynamiskt innehåll. 
 
         >[!Note] 
@@ -148,15 +149,15 @@ Om ditt CRM-system (Customer Relations hip Management) inte uttryckligen stöds 
 
        ![Lägg till en e-poståtgärd](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)
 
-5. Välj **Spara** för att slutföra ditt flöde. En HTTP POST-URL skapas och är tillgänglig i fönstret *när en HTTP-förfrågan tas emot* . Kopiera den här URL: en med hjälp av kopierings kontrollen som finns till höger om HTTP POST-URL – det här är viktigt så att du inte av misstag saknar någon del av hela URL: en. Spara den här URL: en eftersom du kommer att behöva den när du konfigurerar hantering av lead i publicerings portalen.
+5. Välj **Spara** för att slutföra ditt flöde. En HTTP POST-URL skapas och är tillgänglig i fönstret *när en HTTP-förfrågan tas emot* . Kopiera den här URL: en med hjälp av kopierings kontrollen som finns till höger om HTTP POST-URL: en är viktig så att du inte av misstag saknar någon del av hela URL: en. Spara den här URL: en eftersom du kommer att behöva den när du konfigurerar hantering av lead i publicerings portalen.
 
    ![HTTP POST-URL ](./media/commercial-marketplace-lead-management-instructions-https/http-post-url.png)
 
 ### <a name="testing"></a>Testning
 
-Du kan testa att allt fungerar som förväntat med hjälp av ett verktyg som [](https://app.getpostman.com/app/download/win64)kallas Postman, som kan hämtas online. Detta är tillgängligt för Windows. 
+Du kan testa att allt fungerar som förväntat med hjälp av ett verktyg som kallas [Postman](https://app.getpostman.com/app/download/win64), som kan hämtas online. Detta är tillgängligt för Windows. 
 
-1. Starta Postman och välj **ny** > **begäran** för att ställa in ditt test verktyg. 
+1. Starta Postman och välj **ny** > **begäran** om du vill ställa in ditt test verktyg. 
 
    ![Begäran om att konfigurera ditt test verktyg](./media/commercial-marketplace-lead-management-instructions-https/postman-request.png)
 

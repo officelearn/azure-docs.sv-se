@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 35e6c61a8e8537035d70323c85dfc7a76f87cbcd
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 36ca95191e0e6422bd93360b98243393acad8147
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869565"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825481"
 ---
 # <a name="marketplace-metering-service-apis"></a>API:er för Marketplace Metering Service
 
@@ -20,7 +21,7 @@ Med API: et för användnings händelser kan du generera användnings händelser
 
 ## <a name="usage-event"></a>Användnings händelse
 
-**PUBLICERA**:`https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
+**Publicera**: `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
@@ -30,11 +31,11 @@ Med API: et för användnings händelser kan du generera användnings händelser
 
 *Begärandehuvuden:*
 
-| Innehålls typ       | `application/json`    |
+| innehålls typ       | `application/json`    |
 | ------------------ | ---------------------------- |
 | `x-ms-requestid`     | Unikt sträng värde för spårning av begäran från klienten, helst en GUID. Om det här värdet inte anges genereras och anges ett i svarshuvuden. |
 | `x-ms-correlationid` | Unikt sträng värde för åtgärden på klienten. Den här parametern korrelerar alla händelser från klient åtgärden med händelser på Server sidan. Om det här värdet inte anges genereras och anges ett i svarshuvuden. |
-| `authorization`   | [Hämta JSON Web token (JWT) Bearer-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Obs! När du gör http-begäran, `Bearer` ska du använda prefixet för den token som hämtades från den refererade länken. |
+| `authorization`   | [Hämta JSON Web token (JWT) Bearer-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Obs! när du gör en HTTP-begäran kommer prefixet `Bearer` till den token som erhölls från den refererade länken. |
 
 *Anmoda*
 
@@ -48,10 +49,10 @@ Med API: et för användnings händelser kan du generera användnings händelser
 }
 ```
 
-### <a name="responses"></a>Responses
+### <a name="responses"></a>Svar
 
-Rikt 200<br>
-Ok 
+Kod: 200<br>
+OK 
 
 ```json
 {
@@ -66,7 +67,7 @@ Ok
 }
 ```
 
-Rikt 400 <br>
+Kod: 400 <br>
 Felaktig begäran, data som saknas eller är ogiltiga eller har upphört att gälla
 
 ```json
@@ -84,7 +85,7 @@ Felaktig begäran, data som saknas eller är ogiltiga eller har upphört att gä
 }
 ```
 
-Rikt 403<br>
+Kod: 403<br>
 Felaktig begäran, data som saknas eller är ogiltiga eller har upphört att gälla
 
 ```json
@@ -94,8 +95,8 @@ Felaktig begäran, data som saknas eller är ogiltiga eller har upphört att gä
 }
 ```
 
-Rikt 409<br>
-När vi tar emot användnings anropet för användnings resurs-ID: t och den effektiva användningen som redan finns. Svaret innehåller `additionalInfo` fält som innehåller information om det accepterade meddelandet.
+Kod: 409<br>
+När vi tar emot användnings anropet för användnings resurs-ID: t och den effektiva användningen som redan finns. Svaret kommer att innehålla `additionalInfo` fält som innehåller information om det accepterade meddelandet.
 
 ```json
 {
@@ -120,7 +121,7 @@ Med event API för batch-användning kan du generera användnings händelser fö
 >[!Note]
 >Du kan registrera flera SaaS-erbjudanden på Microsofts kommersiella marknads plats. Varje registrerat SaaS-erbjudande har ett unikt Azure AD-program som har registrerats för autentiserings-och behörighets syfte. De händelser som genereras i batch ska tillhöra erbjudanden med samma Azure AD-program vid tidpunkten för registreringen av erbjudandet.
 
-**PUBLICERA:** `https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
+**Publicera:** `https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
@@ -130,11 +131,11 @@ Med event API för batch-användning kan du generera användnings händelser fö
 
 *Begärandehuvuden:*
 
-| Innehålls typ       | `application/json`       |
+| innehålls typ       | `application/json`       |
 | ------------------ | ------ |
 | `x-ms-requestid`     | Unikt sträng värde för spårning av begäran från klienten, helst en GUID. Om det här värdet inte anges genereras ett och anges i svarshuvuden. |
 | `x-ms-correlationid` | Unikt sträng värde för åtgärden på klienten. Den här parametern korrelerar alla händelser från klient åtgärden med händelser på Server sidan. Om det här värdet inte anges genereras ett och anges i svarshuvuden. |
-| `authorization`      | [Hämta JSON Web token (JWT) Bearer-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Obs! När du gör http-begäran, `Bearer` ska du använda prefixet för den token som hämtades från den refererade länken.  |
+| `authorization`      | [Hämta JSON Web token (JWT) Bearer-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Obs! när du gör en HTTP-begäran kommer prefixet `Bearer` till den token som erhölls från den refererade länken.  |
 
 *Anmoda*
 ```json
@@ -157,10 +158,10 @@ Med event API för batch-användning kan du generera användnings händelser fö
   ]
 }
 ```
-### <a name="responses"></a>Responses
+### <a name="responses"></a>Svar
 
-Rikt 200<br>
-Ok
+Kod: 200<br>
+OK
 
 ```json
 {
@@ -192,7 +193,7 @@ Ok
 }
 ```
 
-Beskrivning av status kod som refereras `BatchUsageEvent` i API-svar:
+Beskrivning av status kod som refereras i `BatchUsageEvent` API-svar:
 
 | Statuskod  | Beskrivning |
 | ---------- | -------------------- |
@@ -206,7 +207,7 @@ Beskrivning av status kod som refereras `BatchUsageEvent` i API-svar:
 | `InvalidQuantity` | Den överförda kvantiteten är < 0. |
 | `BadArgument` | Inmatad information saknas eller är felaktig. |
 
-Rikt 400<br>
+Kod: 400<br>
 Felaktig begäran, data som saknas eller är ogiltiga eller har upphört att gälla
 
 ```json
@@ -223,7 +224,7 @@ Felaktig begäran, data som saknas eller är ogiltiga eller har upphört att gä
   "code": "BadArgument"
 }
 ```
-Rikt 403<br>
+Kod: 403<br>
 Användaren har inte behörighet att göra detta samtal
 
 ```json

@@ -1,5 +1,5 @@
 ---
-title: Använd Java för att fråga en Azure SQL Database
+title: Använd Java för att fråga
 description: Visar hur du använder Java för att skapa ett program som ansluter till en Azure SQL-databas och köra frågor mot den med hjälp av SQL-instruktioner.
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ ms.author: andrela
 ms.reviewer: v-masebo
 ms.date: 03/25/2019
 ms.custom: seo-java-july2019. seo-java-august2019
-ms.openlocfilehash: 8940e13dcc6d6287984ba1cc7c7510768b4e232f
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 6d4d9353e29a29b0cd6db7575e49a00a213355d3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624086"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827049"
 ---
-# <a name="quickstart-use-java-to-connect-to-and-query-an-azure-sql-database"></a>Snabbstart: Använd Java för att ansluta till och fråga en Azure SQL-databas
+# <a name="quickstart-use-java-to-connect-to-and-query-an-azure-sql-database"></a>Snabb start: Använd Java för att ansluta till och fråga en Azure SQL-databas
 
 Den här artikeln visar hur du använder [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) för att ansluta till en Azure SQL-databas. Du kan sedan använda T-SQL-instruktioner för att köra frågor mot data.
 
@@ -43,11 +43,11 @@ För att kunna slutföra det här exemplet behöver du följande:
 
 - Java-relaterad programvara installerad för ditt operativsystem:
 
-  - **MacOS**, installera Homebrew och Java och sedan Maven. Se [steg 1.2 och 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
+  - **MacOS**, installera Homebrew och Java och sedan Maven. Se [Steg 1.2 och 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
 
   - **Ubuntu**, installera Java Development Kit och sedan Maven. Se [Steg 1.2, 1.3 och 1.4](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
 
-  - **Windows**, installera Java och sedan Maven. Se [steg 1.2 och 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).
+  - **Windows**, installera Java och sedan Maven. Se [Steg 1.2 och 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).
 
 ## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
 

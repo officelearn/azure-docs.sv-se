@@ -4,15 +4,16 @@ description: Konfigurera ledar hantering för Azure-Blob
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 7/30/2019
 ms.author: evansma
-ms.openlocfilehash: c67855422808f5ec4c81242edcece4e447f2f44f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 5da4e0ab315b3f66a477b816f6fc5d27de7aa339
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69902369"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812374"
 ---
 # <a name="lead-management-instructions-for-azure-blob"></a>Instruktioner för ledar hantering för Azure-Blob
 
@@ -57,7 +58,7 @@ Om ditt CRM-system (Customer Relations hip Management) inte uttryckligen stöds 
 
 8. Ange ett **namn** för den nya behållaren. Containernamnet får bara innehålla gemener, måste börja med en bokstav eller siffra och får bara innehålla bokstäver, siffror och bindestreck (-). Mer information om containrar och blobnamn finns i [Namngivning och referens av containrar, blobar och metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-    Spara det här värdet eftersom det är det behållar namns värde som du måste ange i publicerings portalen för att ta emot leads för ditt Marketplace-erbjudande.
+    Spara det här värdet eftersom det är det *behållar namns* värde som du måste ange i publicerings portalen för att ta emot leads för ditt Marketplace-erbjudande.
 
 9. Ange nivån för offentlig åtkomst till behållaren som **privat (ingen anonym åtkomst)** .
 
@@ -78,10 +79,10 @@ När du är redo att konfigurera ledar hanterings informationen för ditt erbjud
 
     ![Anslutnings information](./media/commercial-marketplace-lead-management-instructions-azure-blob/connect-details.png) 
 
-4. Ange behållar **namnet** och **lagrings kontots anslutnings sträng** som du fick från att följa dessa anvisningar.
+4. Ange **behållar namnet** och **lagrings kontots anslutnings sträng** som du fick från att följa dessa anvisningar.
 
-    * Exempel på container namn:`marketplaceleadcontainer`
-    * Exempel på anslutnings sträng för lagrings konto: `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net`![Anslutnings information](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
+    * Exempel på Container: `marketplaceleadcontainer`
+    * Exempel på anslutnings sträng för lagrings konto: `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net` ![anslutnings information](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
 
 5. Välj **Spara**.
 

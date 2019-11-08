@@ -1,47 +1,48 @@
 ---
-title: Erbjudande för virtuell dator på Azure Marketplace
-description: Översikt över processen för att publicera ett erbjudande för virtuell dator på Azure Marketplace.
+title: Erbjudande för virtuella datorer på Azure Marketplace
+description: Översikt över processen för att publicera ett virtuellt dator erbjudande på Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: pabutler
-ms.openlocfilehash: fed0f47c963edf40883c432f5476bd7fe5720abb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0313c4f2581615e1d1a3a57fc191db7d7cc6e825
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938047"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73808563"
 ---
 # <a name="virtual-machine-offer"></a>Erbjudande på virtuella datorer
 
 |    |    |
 |-----------------------------------------------------------------|------------------------------------------|
-| Det här avsnittet beskrivs hur du publicerar ett nytt erbjudande för virtuell dator till den [Azure Marketplace](https://azuremarketplace.microsoft.com). Det finns stöd för både Windows- och Linux-baserade virtuella datorer, som innehåller ett operativsystem virtuell hårddisk (VHD) och noll eller flera data virtuella hårddiskar. | ![ikon för virtuell dator](./media/virtual-machine-icon.png)  |
+| Det här avsnittet beskriver hur du publicerar ett nytt erbjudande för virtuella datorer på [Azure Marketplace](https://azuremarketplace.microsoft.com). Support tillhandahålls för både Windows-och Linux-baserade virtuella datorer, som innehåller en virtuell hård disk för operativ system (VHD) och noll eller flera data-VHD: er. | ![ikon för virtuell dator](./media/virtual-machine-icon.png)  |
 
 
-## <a name="publishing-overview"></a>Översikt över publicering
+## <a name="publishing-overview"></a>Publicerings översikt
 
-På nedanstående video, [optimera dina Azure Marketplace-erbjudande](https://channel9.msdn.com/Events/Build/2017/P4026?ocid=player), visas en översikt av Azure Marketplace, inklusive hur du publicerar på den här marketplace (med en lösning för virtuell dator), hur du optimerar användarupplevelsen med din produktsidan och valfritt Test Drive-upplevelsen, hur användaren leder genereras och hur du kan använda dem och optimera Kundengagemang.
+Följande video, [optimera ditt Azure Marketplace-erbjudande](https://channel9.msdn.com/Events/Build/2017/P4026?ocid=player), presenterar en översikt över Azure Marketplace, inklusive hur du publicerar på den här Marketplace (med en virtuell dator lösning), hur du optimerar användar upplevelsen med din produkt sida och valfri test enhets upplevelse, hur användar leads skapas och hur du kan använda dem och optimera kund engagemang.
 
 > [!VIDEO https://channel9.msdn.com/Events/Build/2017/P4026/player]
 
 
-## <a name="vm-publishing-process-flow"></a>Processflöde för VM-publicering
+## <a name="vm-publishing-process-flow"></a>Process flöde för VM-publicering
 
-Följande diagram illustrerar de övergripande stegen vid publicering av ett erbjudande för virtuell dator. 
+Följande diagram illustrerar de övergripande stegen för att publicera ett erbjudande för virtuella datorer. 
 
-![Publiceringsprocessen för virtuell dator](./media/publishvm_001.png)
+![Process för VM-publicering](./media/publishvm_001.png)
 
-1. Skapa erbjudande - All information och information om erbjudandet har konfigurerats, inklusive erbjudande-beskrivning, marknadsföring material, juridisk information, stöd för information och tillgången specifikationer.
+1. Skapa erbjudandet – all information och information om erbjudandet konfigureras, inklusive erbjudande beskrivning, marknadsförings material, juridik, supportinformation och till gångs uppgifter.
 
-2. Skapa affärs- och tekniska resurser – skapa företagstillgångar (juridiska dokument och marknadsföringsmaterial) och tekniska resurser för den associerade lösningen (här, virtuella datorer och anslutna diskar). 
+2. Skapa företags-och teknik till gångar – skapa företags till gångar (juridiska dokument och marknadsförings material) och tekniska till gångar för den associerade lösningen (här, de virtuella datorerna och anslutna diskar). 
 
-3. Skapa SKU: N – skapa den associerade SKU: er som är associerade med erbjudandet och skicka dem.  En unik SKU måste anges för varje bild som du planerar att publicera. 
+3. Skapa SKU – skapa tillhör ande SKU: er som är associerade med erbjudandet och skicka dem.  En unik SKU krävs för varje avbildning som du planerar att publicera. 
  
-4. Certifiera och publicera erbjudande - när erbjudandet och tekniska resurser har slutförts, kan du skicka erbjudandet. Den här överföringen startar publiceringsprocessen där lösningen testas verifierats, certifierade, sedan ”lanseras” på marketplace.  
+4. Certifiera och publicera erbjudandet – när erbjudandet och de tekniska till gångarna har slutförts kan du skicka in erbjudandet. Den här sändningen påbörjar publicerings processen där lösningen testas, verifieras, certifieras och sedan blir Live på Marketplace.  
 
 ## <a name="next-steps"></a>Nästa steg
 
-Innan du betraktar dessa steg måste du uppfylla de [tekniska krav och affärskrav](./cpp-prerequisites.md) för att publicera en virtuell dator till Microsoft Azure Marketplace. 
+Innan du tar hänsyn till de här stegen måste du uppfylla de [tekniska och affärsmässiga kraven](./cpp-prerequisites.md) för att publicera en virtuell dator till Microsoft Azure Marketplace. 

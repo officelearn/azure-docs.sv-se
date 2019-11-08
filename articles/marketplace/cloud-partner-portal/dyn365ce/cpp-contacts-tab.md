@@ -4,15 +4,16 @@ description: Den här CPP-artikeln är kopplad till PC-artikeln. Var "Konfigurer
 services: Dynamics 365 for Customer Engagement, Azure, AppSource, Marketplace, Cloud Partner Portal,
 author: ChJenk
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: v-chjen
-ms.openlocfilehash: 8a04d7d6f5913a100ab6c4187a42a4d6c470cbda
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: a7f52979678713f73f08ea36f626b7889d1cd88a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72033899"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818740"
 ---
 # <a name="azure-application-contacts-tab"></a>Fliken Azure Application Contacts
 

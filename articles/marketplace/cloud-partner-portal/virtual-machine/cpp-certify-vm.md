@@ -1,78 +1,79 @@
 ---
-title: Certifiera din avbildning för Azure Marketplace
-description: Beskriver hur du testar och skicka en VM-avbildning för certifiering för Azure Marketplace.
+title: Certifiera din VM-avbildning för Azure Marketplace
+description: Förklarar hur du testar och skickar en VM-avbildning för Azure Marketplace-certifiering.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: pabutler
-ms.openlocfilehash: 0dbf1abbb91f9e5c3bd2d042c57f87591d52c9cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4088864db4bf861d07821f5a0287336d8431f889
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938504"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826513"
 ---
 # <a name="certify-your-vm-image"></a>Certifiera din VM-avbildning
 
-När du skapar och distribuerar den virtuella datorn (VM), måste du testa och skicka VM-avbildning för certifiering för Azure Marketplace. Den här artikeln förklarar var du kan hämta den *Test Certification Tool för Azure Certified*, hur du använder det här verktyget för att certifiera din avbildning och ladda upp verifikationsresultaten till Azure-behållaren där de virtuella hårddiskarna lagras. 
+När du har skapat och distribuerat den virtuella datorn (VM) måste du testa och skicka VM-avbildningen för Azure Marketplace-certifiering. I den här artikeln beskrivs var du kan hämta *certifierings test verktyget för Azure Certified*, hur du använder det här verktyget för att certifiera din VM-avbildning och hur du överför verifierings resultatet till Azure-behållaren där dina virtuella hård diskar finns. 
 
 
-## <a name="download-and-run-the-certification-test-tool"></a>Ladda ned och kör verktyget certifiering test
+## <a name="download-and-run-the-certification-test-tool"></a>Hämta och kör verktyget för certifierings test
 
-Testa Certification Tool för Azure Certified körs på en lokal Windows-dator, men testar en Azure-baserade Windows eller Linux VM.  Verifierar att dina användaravbildningen är kompatibel med Microsoft Azure – att vägledningen och kraven för runt förbereder dina VHD: N har uppfyllts. Utdata från verktyget är en Kompatibilitetsrapport som du överför till den [Cloud Partner Portal](https://cloudpartner.azure.com) att begära VM-certifiering.
+Certifierings test verktyget för Azure Certified körs på en lokal Windows-dator, men testar en Azure-baserad virtuell Windows-eller Linux-dator.  Den verifierar att den virtuella användar avbildningen är kompatibel med Microsoft Azure – att rikt linjerna och kraven kring att förbereda din virtuella hård disk har uppfyllts. Utdata från verktyget är en kompatibilitetsrapport, som du kommer att överföra till [Cloud Partner Portal](https://cloudpartner.azure.com) för att begära VM-certifiering.
 
-1. Ladda ned och installera den senaste [Test Certification Tool för Azure Certified](https://www.microsoft.com/download/details.aspx?id=44299). 
-2. Öppna certification tool och klicka sedan på **Start New Test**.
-3. Från den **Test Information** anger en **testa namnet** för testkörningen.
-4. Välj den **plattform** för den virtuella datorn antingen `Windows Server` eller `Linux`. Din plattform som används påverkar de återstående alternativen.
-5. Om den virtuella datorn använder den här databastjänsten, Välj den **Test för Azure SQL Database** kryssrutan.
+1. Hämta och installera det senaste [certifierings test verktyget för Azure Certified](https://www.microsoft.com/download/details.aspx?id=44299). 
+2. Öppna certifierings verktyget och klicka sedan på **Starta nytt test**.
+3. På skärmen **testa information** anger du ett **testnamn** för test körningen.
+4. Välj **plattform** för den virtuella datorn, antingen `Windows Server` eller `Linux`. Valet av plattform påverkar de återstående alternativen.
+5. Om den virtuella datorn använder den här databas tjänsten markerar du kryss rutan **test för Azure SQL Database** .
 
-   ![CERT test verktyget första sidan](./media/publishvm_025.png)
-
-
-## <a name="connect-the-certification-tool-to-a-vm-image"></a>Ansluta certification tool till en VM-avbildning
-
-  Verktyget ansluter till Windows-baserade virtuella datorer med [PowerShell](https://docs.microsoft.com/powershell/) och ansluter till virtuella Linux-datorer via [SSH.Net](https://www.ssh.com/ssh/protocol/).
-
-### <a name="connect-the-certification-tool-to-a-linux-vm-image"></a>Ansluta certification tool till en Linux VM-avbildning
-
-1. Välj den **SSH-autentisering** läge: `Password Authentication` eller `key File Authentication`.
-2. Om du använder lösenordsbaserad autentisering anger du värden för den **VM DNS-namnet**, **användarnamn**, och **lösenord**.  Du kan också du kan ändra standardinställningen **SSH-porten** tal.
-
-     ![För lösenordsautentisering av Linux VM-avbildning](./media/publishvm_026.png)
-
-3. Om du använder key filbaserad autentisering anger du värden för den **VM DNS-namnet**, **användarnamn**, och **privata nyckeln** plats.  Du kan också ange en **lösenfras** eller ändra standarden **SSH-porten** tal.
-
-     ![Autentisering av Linux VM-avbildning](./media/publishvm_027.png)
-
-### <a name="connect-the-certification-tool-to-a-windows-based-vm-image"></a>**Ansluta certification tool till en Windows-baserad VM-avbildning**
-1. Ange det fullständiga **VM DNS-namnet** (till exempel `MyVMName.Cloudapp.net`).
-2. Ange värden för den **användarnamn** och **lösenord**.
-
-   ![För lösenordsautentisering av Windows VM-avbildning](./media/publishvm_028.png)
+   ![Start sida för cert test verktyg](./media/publishvm_025.png)
 
 
-## <a name="run-a-certification-test"></a>Köra ett test för certifiering
+## <a name="connect-the-certification-tool-to-a-vm-image"></a>Ansluta certifierings verktyget till en VM-avbildning
 
-När du har angett parametervärdena för din avbildning i certification tool, väljer **Testanslutningen** att se till att en giltig anslutning till den virtuella datorn. När en anslutning har verifierats, Välj **nästa** att starta testet.  När testet är klart visas en tabell med resultaten (Pass/Fail/Warning).  I följande exempel visar resultatet av en Linux VM-test. 
+  Verktyget ansluter till Windows-baserade virtuella datorer med [PowerShell](https://docs.microsoft.com/powershell/) och ansluter till virtuella Linux-datorer via [SSH.net](https://www.ssh.com/ssh/protocol/).
 
-![Testresultat för certifiering för Linux VM-avbildning](./media/publishvm_029.png)
+### <a name="connect-the-certification-tool-to-a-linux-vm-image"></a>Ansluta certifierings verktyget till en virtuell Linux-avbildning
 
-Om något av testerna misslyckas, avbildningen är *inte* certifierade. Granska kraven och felmeddelanden i det här fallet, utföra de markerade ändringarna och köra testet. 
+1. Välj **SSH-autentiseringsläge** : `Password Authentication` eller `key File Authentication`.
+2. Om du använder lösenordsbaserad autentisering anger du värden för den **virtuella datorns DNS-namn**, **användar namn**och **lösen ord**.  Alternativt kan du ändra standard-SSH- **portnumret** .
 
-Efter automatiserad testning, du måste ange ytterligare information om VM-avbildning på den **enkät** skärmen.  Den innehåller två flikar som du måste slutföra.  Den **allmän bedömning** fliken innehåller **SANT/FALSKT** frågor, medan den **Kernel anpassning** innehåller flera val och Friform frågor.  Slutföra frågor på båda flikarna och välj sedan **nästa**.
+     ![Lösenordsautentisering för virtuell Linux-avbildning](./media/publishvm_026.png)
 
-![Certification Tool enkäten](./media/publishvm_030.png)
+3. Om du använder nyckelbaserad autentisering anger du värden för den **virtuella datorns DNS-namn**, **användar namn**och plats för den **privata nyckeln** .  Alternativt kan du ange en **lösen fras** eller ändra standardvärdet för **SSH-porten** .
 
-Den sista skärmen kan du ange ytterligare information, till exempel SSH åtkomstinformation för en Linux VM-avbildning och en förklaring till misslyckade bedömningar om du söker undantag. 
+     ![Filautentisering av virtuell Linux-avbildning](./media/publishvm_027.png)
 
-Klicka slutligen på **generera rapporten** hämta testresultat och loggfiler för utförda testfall dessutom att svaren på enkäten. Spara resultaten i samma behållare som för dina virtuella hårddiskar.
+### <a name="connect-the-certification-tool-to-a-windows-based-vm-image"></a>**Ansluta certifierings verktyget till en Windows-baserad VM-avbildning**
+1. Ange det fullständigt kvalificerade **DNS-namnet för virtuell dator** (till exempel `MyVMName.Cloudapp.net`).
+2. Ange värden för **användar namn** och **lösen ord**.
 
-![Spara certifiering testresultat](./media/publishvm_031.png)
+   ![Lösenordsautentisering för Windows VM-avbildning](./media/publishvm_028.png)
+
+
+## <a name="run-a-certification-test"></a>Kör ett certifierings test
+
+När du har angett parameter värden för din VM-avbildning i certifierings verktyget väljer du **Testa anslutning** för att säkerställa en giltig anslutning till den virtuella datorn. När en anslutning har verifierats väljer du **Nästa** för att starta testet.  När testet är klart visas en tabell med test resultaten (pass/misslyckande/varning).  I följande exempel visas test resultatet för ett test av en virtuell Linux-dator. 
+
+![Certifierings test resultat för den virtuella Linux-avbildningen](./media/publishvm_029.png)
+
+Om något av testerna inte fungerar är din avbildning *inte* godkänd. I det här fallet kan du granska kraven och felen, göra de angivna ändringarna och köra testet igen. 
+
+Efter det automatiserade testet måste du ange ytterligare information om den virtuella dator avbildningen på **enkät** skärmen.  Den innehåller två flikar som du måste slutföra.  Fliken **allmän bedömning** innehåller **True/false** -frågor, medan **kernel-anpassningen** innehåller flera urvals-och fri hands frågor.  Slutför frågorna på båda flikarna och välj sedan **Nästa**.
+
+![Certificate Tool-enkät](./media/publishvm_030.png)
+
+På den sista skärmen kan du ange ytterligare information, till exempel SSH Access-information för en virtuell Linux-avbildning och en förklaring för eventuella misslyckade utvärderingar om du söker efter undantag. 
+
+Klicka slutligen på **Generera rapport** för att ladda ned test resultaten och loggfilerna för de test ärenden som körts, förutom dina svar till enkäten. Spara resultatet i samma behållare som dina VHD: er.
+
+![Spara certifierings test resultat](./media/publishvm_031.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Därefter [Generera en uniform resource Identifier (URI) för varje VHD](./cpp-get-sas-uri.md) som du skickar till marketplace. 
+Sedan kommer du att [Generera en URI (Uniform Resource Identifier) för varje virtuell hård disk](./cpp-get-sas-uri.md) som du skickar till Marketplace. 

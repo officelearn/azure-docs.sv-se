@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database hanterade instans tids zoner "
+title: Tids zoner för hanterade instanser
 description: Läs mer om tids zons information för Azure SQL Database Hanterad instans
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 09/03/2019
-ms.openlocfilehash: a578c626cd1edd4a3f7474e59c2e795be2e3c121
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0dbed3db8e106b9bfe1b48ff2b9bc52840fc4c3a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687847"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818871"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Tids zoner i Azure SQL Database Hanterad instans
 
@@ -33,7 +33,7 @@ En uppsättning tids zoner som stöds ärvs från det underliggande operativ sys
 
 [Princip för sommar tid/tids zons ändringar](https://aka.ms/time) garanterar historisk noggrannhet från 2010 forward.
 
-En lista med namn på de tids zoner som stöds exponeras i system visningen [sys. time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) .
+En lista med namnen på de tids zoner som stöds visas i vyn [sys. time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) system.
 
 ## <a name="set-a-time-zone"></a>Ange en tidszon
 
@@ -73,7 +73,7 @@ Om detta inte anges anges tids zonen till UTC.
 
 ## <a name="check-the-time-zone-of-an-instance"></a>Kontrol lera tids zonen för en instans
 
-Funktionen [CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) returnerar ett visnings namn för instansens tidszon.
+Funktionen [CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) returnerar visnings namnet för instansens tidszon.
 
 ## <a name="cross-feature-considerations"></a>Överväganden för olika funktioner
 

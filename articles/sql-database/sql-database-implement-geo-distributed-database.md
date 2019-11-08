@@ -1,5 +1,5 @@
 ---
-title: Implementera en geo-distribuerad Azure SQL Database-lösning | Microsoft Docs
+title: Implementera en geo-distribuerad lösning
 description: Lär dig att konfigurera din Azure SQL-databas och ett program för redundansväxling till en replikerad databas och testa redundans.
 services: sql-database
 ms.service: sql-database
@@ -11,25 +11,25 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 4a21fe3ed15d1dc2550f6863611b27d2b36c5c51
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 51380d312c778380602c64cac766b050511cf994
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568105"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810924"
 ---
-# <a name="tutorial-implement-a-geo-distributed-database"></a>Självstudier: Implementera en geo-distribuerad databas
+# <a name="tutorial-implement-a-geo-distributed-database"></a>Självstudie: implementera en geo-distribuerad databas
 
 Konfigurera en Azure SQL-databas och ett program för redundansväxling till en fjärrregion och testa ett redundanskluster. Lär dig att:
 
 > [!div class="checklist"]
 > - Skapa en [grupp för redundans](sql-database-auto-failover-group.md)
 > - Köra ett Java-program för att fråga en Azure SQL-databas
-> - Testa redundans
+> - Redundanstest
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -101,7 +101,7 @@ Om du vill skapa en grupp för växling vid fel kör du följande skript:
        -FailoverGroupName $myfailovergroupname
    ```
 
-Inställningar för geo-replikering kan också ändras i Azure Portal, genom att välja din databas och **Inställningar** > **geo-replikering**.
+Inställningar för geo-replikering kan också ändras i Azure Portal, genom att välja databasen och sedan **inställningar** > **geo-replikering**.
 
 ![Inställningar för geo-replikering](./media/sql-database-implement-geo-distributed-database/geo-replication.png)
 
@@ -123,7 +123,7 @@ Inställningar för geo-replikering kan också ändras i Azure Portal, genom att
 
 1. Använd din favorit redigerare och öppna filen *Pom. XML* i projektmappen.
 
-1. Lägg till Microsoft JDBC-drivrutinen för SQL Server beroende genom att lägga till `dependency` följande avsnitt. Beroendet måste klistras in i det större `dependencies` avsnittet.
+1. Lägg till Microsoft JDBC-drivrutinen för SQL Server beroende genom att lägga till följande `dependency`-avsnitt. Beroendet måste klistras in i det större `dependencies` avsnittet.
 
    ```xml
    <dependency>
@@ -133,7 +133,7 @@ Inställningar för geo-replikering kan också ändras i Azure Portal, genom att
    </dependency>
    ```
 
-1. Ange Java-versionen genom att lägga `properties` till avsnittet `dependencies` efter avsnittet:
+1. Ange Java-versionen genom att lägga till avsnittet `properties` efter avsnittet `dependencies`:
 
    ```xml
    <properties>
@@ -142,7 +142,7 @@ Inställningar för geo-replikering kan också ändras i Azure Portal, genom att
    </properties>
    ```
 
-1. Stöd MANIFEST filer genom att lägga `build` till avsnittet `properties` efter avsnittet:
+1. Stöd MANIFEST filer genom att lägga till avsnittet `build` efter avsnittet `properties`:
 
    ```xml
    <build>
@@ -296,7 +296,7 @@ Inställningar för geo-replikering kan också ändras i Azure Portal, genom att
    ...
    ```
 
-## <a name="test-failover"></a>Testa redundans
+## <a name="test-failover"></a>Redundanstest
 
 Kör följande skript för att simulera en redundansväxling och observera program resultatet. Observera att det inte går att utföra vissa infogningar och val under migreringen av databasen.
 
@@ -336,7 +336,7 @@ I den här självstudien konfigurerade du en Azure SQL-databas och ett program f
 > [!div class="checklist"]
 > - Skapa en redundansgrupp för geo-replikering
 > - Köra ett Java-program för att fråga en Azure SQL-databas
-> - Testa redundans
+> - Redundanstest
 
 Gå vidare till nästa självstudie om hur du migrerar med DMS.
 

@@ -1,5 +1,5 @@
 ---
-title: Översikt över Azure SQL Database elastisk fråga
+title: Översikt över elastisk fråga
 description: Elastisk fråga gör det möjligt att köra en Transact-SQL-fråga som sträcker sig över flera databaser.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 07/01/2019
-ms.openlocfilehash: 08c191742425c448618db255491c709130df33a1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9566ac7169144d984f9200734c99eb10368b3142
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690359"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823744"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Översikt över Azure SQL Database elastisk fråga (för hands version)
 
@@ -138,7 +138,7 @@ Elastisk fråga ingår i kostnaden för Azure SQL Database databaser. Observera 
 * Det kan ta upp till några minuter att köra din första elastiska fråga på standard tjänst nivån. Den här tiden är nödvändig för att läsa in funktioner för elastiska frågor. inläsning av prestanda förbättras med högre tjänst nivåer och beräknings storlekar.
 * Det finns ännu inte stöd för skript för externa data källor eller externa tabeller från SSMS eller SSDT.
 * Import/export för SQL DB stöder ännu inte externa data källor och externa tabeller. Om du behöver använda import/export ska du ta bort dessa objekt innan du exporterar och sedan återskapa dem efter att du har importerat.
-* Elastisk fråga stöder för närvarande endast skrivskyddad åtkomst till externa tabeller. Du kan dock använda fullständiga T-SQL-funktioner i databasen där den externa tabellen definieras. Detta kan vara användbart för, t. ex. Spara temporära resultat med, till exempel välja < column_list > till < local_table >, eller för att definiera lagrade procedurer på den Elastic Query-databasen som refererar till externa tabeller.
+* Elastisk fråga stöder för närvarande endast skrivskyddad åtkomst till externa tabeller. Du kan dock använda fullständiga T-SQL-funktioner i databasen där den externa tabellen definieras. Detta kan vara användbart för, t. ex. Spara temporära resultat med, till exempel välja < column_list > i < local_table > eller definiera lagrade procedurer på den elastiska Frågeparametern som refererar till externa tabeller.
 * Med undantag för nvarchar (max) stöds inte LOB-typer (inklusive spatiala typer) i externa tabell definitioner. Som en lösning kan du skapa en vy på den fjärranslutna databasen som överför LOB-typen till nvarchar (max), definiera den externa tabellen över vyn i stället för bas tabellen och sedan omvandla den till den ursprungliga LOB-typen i dina frågor.
 * Kolumner av typen nvarchar (max) i resultat uppsättning inaktivera avancerad batching-Technics som används i elastiska fråge implementeringar och kan påverka prestanda för frågor i en storleksordning, eller till och med två storleksordningar i icke-kanoniska användnings fall där stor del av icke-aggregerade data överförs till följd av fråga.
 * Kolumn statistik över externa tabeller stöds inte för närvarande. Tabell statistik stöds, men du måste skapa den manuellt.

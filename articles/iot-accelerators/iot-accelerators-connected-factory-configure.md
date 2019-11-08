@@ -1,6 +1,6 @@
 ---
-title: Konfigurera topologi för ansluten fabrik – Azure | Microsoft Docs
-description: Så här konfigurerar du topologin för en ansluten fabrik-lösningsaccelerator.
+title: Konfigurera den anslutna fabriks miljön – Azure | Microsoft Docs
+description: Den här artikeln beskriver hur du konfigurerar den anslutna fabriks lösnings acceleratorn inklusive dess topologi.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,64 +8,64 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 3ddbf5832424cdafad2c29254f51754203c7f079
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5fa3d4d4fdfa0dd81cd8ab8772ffb3903dda289f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428321"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820117"
 ---
-# <a name="configure-the-connected-factory-solution-accelerator"></a>Konfigurera ansluten fabrik lösningsaccelerator
+# <a name="configure-the-connected-factory-solution-accelerator"></a>Konfigurera den anslutna fabriks lösnings acceleratorn
 
-Ansluten fabrik lösningsaccelerator visar en simulerad instrumentpanel för det fiktiva företaget Contoso. Det här företaget har fabriker globalt i ett flertal globala platser.
+Den anslutna fabriks lösnings acceleratorn visar en simulerad instrument panel för ett fiktivt företag contoso. Det här företaget har fabriker på flera globala platser globalt.
 
-Den här artikeln använder Contoso som ett exempel som beskriver hur du konfigurerar topologin för en ansluten fabrik-lösning.
+I den här artikeln används Contoso som exempel för att beskriva hur du konfigurerar topologin för en ansluten fabriks lösning.
 
-## <a name="simulated-factories-configuration"></a>Simulerade fabriker konfiguration
+## <a name="simulated-factories-configuration"></a>Konfiguration av simulerade fabriker
 
-Varje Contoso factory har produktionsrader som består av tre stationer. Varje station är en verklig OPC UA-server med en viss roll:
+Varje contoso-fabrik har produktions linjer som består av tre stationer. Varje station är en riktig OPC UA-server med en speciell roll:
 
-* Monteringsstation
-* Testa station
-* Förpackningsstation
+* Sammansättnings Station
+* Test Station
+* Förpacknings Station
 
-Dessa OPC UA-servrar har OPC UA-noder och [OPC Publisher](overview-opc-publisher.md) skickar värdena för dessa noder till ansluten fabrik. Det här omfattar:
+Dessa OPC UA-servrar har OPC UA-noder och [OPC Publisher](overview-opc-publisher.md) skickar värdena för de här noderna till den anslutna fabriken. Det här omfattar:
 
-* Aktuella driftstatus, till exempel aktuell energiförbrukning.
-* Produktionsinformation, till exempel hur många produkter gav.
+* Aktuell drift status, till exempel aktuell energi förbrukning.
+* Produktions information, till exempel antalet producerade produkter.
 
-Du kan använda instrumentpanelen för att öka detaljnivån i Contoso factory topologin från en global vy nedåt en nivå stationsvyn. Instrumentpanel för ansluten fabrik kan:
+Du kan använda instrument panelen för att öka detalj nivån för Contoso Factory-topologin från en global vy ned till en stationnivå-vy. På den anslutna fabriks instrument panelen kan du:
 
-* Visualisering av OEE och KPI-värden för varje lager i topologin.
-* Visualisering av aktuella värden för OPC UA-noder i stationer.
-* Sammanställning av de OEE och KPI figurerna från station nivå till global nivå.
-* Visualisering av aviseringar och åtgärder som ska utföras om värden når specifika tröskelvärden.
+* Visualiseringen av OEE-och KPI-siffror för varje skikt i topologin.
+* Visualiseringen av aktuella värden för OPC UA-noder på stationerna.
+* Agg regeringen av OEE-och KPI-beloppen från Stations nivån till global nivå.
+* Visualiseringen av aviseringar och åtgärder att utföra om värden når vissa tröskelvärden.
 
-## <a name="connected-factory-topology"></a>Ansluten fabrik-topologi
+## <a name="connected-factory-topology"></a>Topologi för ansluten fabrik
 
-Topologin för fabriker och produktionsrader stationer är hierarkiska:
+Topologi för fabriker, produktions linjer och stationer är hierarkiskt:
 
-* Global nivå har factory noder som underordnade.
-* Fabriker har produktionslinje noder som underordnade.
-* Produktionslinjerna ha station noder som underordnade.
-* Stationer (OPC UA-servrar) ha OPC UA-noder som underordnade.
+* Den globala nivån har fabriks noder som underordnade.
+* Fabrikerna har produktions linje noder som underordnade.
+* Produktions raderna har Station-noder som underordnade.
+* Stationerna (OPC UA-servrar) har OPC UA-noder som underordnade.
 
 Varje nod i topologin har en gemensam uppsättning egenskaper som definierar:
 
-* En unik identifierare för noden topologi.
+* En unik identifierare för Topology-noden.
 * Ett namn.
 * En beskrivning.
 * En bild.
-* De underordnade objekten för noden topologi.
-* Minimum, mål och högsta värden för OEE och KPI-bilder och aviseringsåtgärder att köra.
+* Underordnade till topologi-noden.
+* Minimi-, mål-och max värden för OEE-och KPI-siffror och aviserings åtgärder att köra.
 
-## <a name="topology-configuration-file"></a>Konfigurationsfilen för topologi
+## <a name="topology-configuration-file"></a>Konfigurations fil för topologi
 
-Om du vill konfigurera de egenskaper som anges i föregående avsnitt, ansluten fabrik-lösningen använder en konfigurationsfil med namnet [ContosoTopologyDescription.json](https://github.com/Azure/azure-iot-connected-factory/blob/master/WebApp/Contoso/Topology/ContosoTopologyDescription.json).
+För att konfigurera egenskaperna som anges i föregående avsnitt, använder den anslutna fabriks lösningen en konfigurations fil med namnet [ContosoTopologyDescription. JSON](https://github.com/Azure/azure-iot-connected-factory/blob/master/WebApp/Contoso/Topology/ContosoTopologyDescription.json).
 
-Du hittar den här filen i källkoden för lösningen i den `WebApp/Contoso/Topology` mapp.
+Du hittar den här filen i lösningens käll kod i mappen `WebApp/Contoso/Topology`.
 
-Följande kodavsnitt visar en översikt över den `ContosoTopologyDescription.json` konfigurationsfil:
+Följande fragment visar en översikt över `ContosoTopologyDescription.json` konfigurations filen:
 
 ```json
 {
@@ -85,29 +85,29 @@ Följande kodavsnitt visar en översikt över den `ContosoTopologyDescription.js
 }
 ```
 
-Gemensamma egenskaper för `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>`, och `<station_configuration>` är:
+De gemensamma egenskaperna för `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>`och `<station_configuration>` är:
 
-* **Namn på** (typen sträng)
+* **Namn** (typ sträng)
 
-  Definierar ett beskrivande namn, vilket ska vara bara ett ord som noden topologi ska visas i instrumentpanelen.
+  Definierar ett beskrivande namn som bara ska vara ett ord för topologi-noden som ska visas i instrument panelen.
 
-* **Beskrivning av** (typen sträng)
+* **Beskrivning** (typ sträng)
 
-  Beskriver noden topologi i detalj.
+  Beskriver noden topologi i mer detalj.
 
-* **Bild** (typen sträng)
+* **Bild** (typ sträng)
 
-  Sökvägen till en bild i WebApp-lösningen för att visa när information om noden topologin visas i instrumentpanelen.
+  Sökvägen till en bild i WebApp-lösningen för att visa när information om noden topologi visas i instrument panelen.
 
 * **OeeOverall**, **OeePerformance**, **OeeAvailability**, **OeeQuality**, **Kpi1**, **Kpi2** (typ `<performance_definition>`)
 
-  De här egenskaperna definiera minimal, mål och maximal värdena för den operativa bild används för att generera aviseringar. De här egenskaperna kan också definiera åtgärderna som ska köra om en avisering har identifierats.
+  De här egenskaperna definierar minimalt värde, mål och maximala värden för den operativa figuren som används för att generera aviseringar. De här egenskaperna definierar också vilka åtgärder som ska utföras om en avisering identifieras.
 
-Den `<factory_configuration>` och `<production_line_configuration>` objekt har en egenskap:
+`<factory_configuration>`-och `<production_line_configuration>`-objekten har en egenskap:
 
-* **GUID** (typen sträng)
+* **GUID** (typ sträng)
 
-  Identifierar noden topologi.
+  Identifierar noden topologi unikt.
 
 `<factory_configuration>` har en egenskap:
 
@@ -117,205 +117,205 @@ Den `<factory_configuration>` och `<production_line_configuration>` objekt har e
 
 `<station_configuration>` har egenskaper:
 
-* **OpcUri** (typen sträng)
+* **OpcUri** (typ sträng)
 
-  Den här egenskapen måste anges till URI: N för OPC UA-program för OPC UA-servern.
-  Eftersom det måste vara globalt unikt OPC UA-specifikationen, används den här egenskapen för att identifiera station topologi nod.
+  Den här egenskapen måste anges till OPC UA Application URI för OPC UA-servern.
+  Eftersom det måste vara globalt unikt av OPC UA-specifikationen används den här egenskapen för att identifiera noden för stationens topologi.
 
 * **OpcNodes**, som är en matris med OPC UA-noder (typ `<opc_node_description>`)
 
 `<location_definition>` har egenskaper:
 
-* **Stad** (typen sträng)
+* **Ort** (typ sträng)
 
-  Namn på ort som är närmast platsen
+  Namnet på staden närmast platsen
 
-* **Land** (typen sträng)
+* **Land** (typ sträng)
 
-  Platsens land
+  Land på platsen
 
-* **Latitud** (typen double)
+* **Latitude** (typ dubbel)
 
-  Latitud för platsen
+  Platsens latitud
 
-* **Longitud** (typen double)
+* **Longitud** (typ Double)
 
   Longitud för platsen
 
 `<performance_definition>` har egenskaper:
 
-* **Minsta** (typen double)
+* **Minimum** (typ Double)
 
-  Lägre tröskelvärde värdet kan nå. Om det aktuella värdet är lägre än det här tröskelvärdet, genereras en avisering.
+  Lägre tröskel som värdet kan uppnå. Om det aktuella värdet är under det här tröskelvärdet genereras en avisering.
 
-* **Target** (typen double)
+* **Mål** (typ Double)
 
-  Perfekt målvärdet.
+  Idealiskt mål värde.
 
-* **Maximal** (typen double)
+* **Maximalt** (typ Double)
 
-  Övre tröskelvärde värdet kan nå. Om det aktuella värdet är över tröskeln, genereras en avisering.
+  Övre tröskelvärde som värdet kan uppnå. Om det aktuella värdet är över det här tröskelvärdet genereras en avisering.
 
 * **MinimumAlertActions** (typ `<alert_action>`)
 
-  Definierar de åtgärder som kan vidtas som svar på en avisering om minsta.
+  Definierar en uppsättning åtgärder som kan vidtas som svar på en minimal avisering.
 
 * **MaximumAlertActions** (typ `<alert_action>`)
 
-  Definierar de åtgärder som kan vidtas som svar på en maximal avisering.
+  Definierar en uppsättning åtgärder som kan vidtas som svar på en maximal avisering.
 
 `<alert_action`> har egenskaper:
 
-* **Typ** (typen sträng)
+* **Typ** (typ sträng)
 
-  Typ av aviseringsåtgärden. Följande typer är kända:
+  Typ av aviserings åtgärd. Följande typer är kända:
 
-  * **AcknowledgeAlert**: status för aviseringen bör ändras till godkända.
-  * **CloseAlert**: alla äldre aviseringar av samma typ bör inte längre visas i instrumentpanelen.
-  * **CallOpcMethod**: en OPC UA-metod som ska anropas.
-  * **OpenWebPage**: ska öppnas ett webbläsarfönster som visar ytterligare sammanhangsinformation.
+  * **AcknowledgeAlert**: status för aviseringen ska ändras till bekräftad.
+  * **CloseAlert**: Alla äldre aviseringar av samma typ bör inte längre visas i instrument panelen.
+  * **CallOpcMethod**: en OPC UA-metod ska anropas.
+  * **Openwebb sida**: ett webbläsarfönster öppnas med ytterligare sammanhangsbaserad information.
 
-* **Beskrivning av** (typen sträng)
+* **Beskrivning** (typ sträng)
 
-  Beskrivning av åtgärden visas i instrumentpanelen.
+  Beskrivning av åtgärden som visas på instrument panelen.
 
-* **Parametern** (typen sträng)
+* **Parameter** (typ sträng)
 
-  Parametrar som krävs för att utföra åtgärden. Värdet beror på typen av.
+  Parametrar som krävs för att utföra åtgärden. Värdet beror på åtgärds typen.
 
-  * **AcknowledgeAlert**: ingen parameter som krävs.
-  * **CloseAlert**: ingen parameter som krävs.
-  * **CallOpcMethod**: nodinformation och parametrar av OPC UA-metod för att anropa i formatet ”NodeId av överordnad nod NodeId för metoden ska anropas, URI: N för OPC UA-servern”.
-  * **OpenWebPage**: URL: en ska visas i webbläsarfönstret.
+  * **AcknowledgeAlert**: ingen parameter krävs.
+  * **CloseAlert**: ingen parameter krävs.
+  * **CallOpcMethod**: Node-informationen och PARAMETRARNA för OPC UA-metoden som anropar formatet "nodeId of Parent Node, nodeId of metoden to Call, URI: n för OPC UA-Server."
+  * **Openwebb sida**: URL: en som ska visas i webbläsarfönstret.
 
-`<opc_node_description>` innehåller information om OPC UA-noder i en station (OPC UA-servern). Noder som motsvarar ingen befintlig OPC UA-noder, men används som lagring i beräkningen logiken för ansluten fabrik kan användas. Den har följande egenskaper:
+`<opc_node_description>` innehåller information om OPC UA-noder i en station (OPC UA-Server). Noder som inte representerar några befintliga OPC UA-noder, men som används som lagring i beräknings logiken för den anslutna fabriken är också giltiga. Den har följande egenskaper:
 
-* **NodeId** (typen sträng)
+* **NodeID** (typ sträng)
 
-  Adressen till OPC UA nod i stationens (OPC UA serverns)-adressutrymme. Syntax måste vara som angetts i OPC UA-specifikationen för en NodeId.
+  Adressen för OPC UA-noden i stationens (OPC UA Server) adress utrymme. Syntaxen måste anges i OPC UA-specifikationen för en NodeId.
 
-* **SymbolicName** (typen sträng)
+* **SymbolicName** (typ sträng)
 
-  Namnet som ska visas i instrumentpanelen när värdet för den här OPC UA-noden visas.
+  Namn som ska visas i instrument panelen när värdet för den här OPC UA-noden visas.
 
-* **Relevans** (matris av typen sträng)
+* **Relevans** (matris av typ sträng)
 
-  Anger beräkning av OEE- eller KPI-värde för OPC UA-noden är relevanta. Varje matriselement kan vara något av följande värden:
+  Anger för vilken beräkning av OEE eller KPI som värdet för OPC UA-noden är relevant. Varje mat ris element kan vara något av följande värden:
 
   * **OeeAvailability_Running**: värdet är relevant för beräkning av OEE-tillgänglighet.
   * **OeeAvailability_Fault**: värdet är relevant för beräkning av OEE-tillgänglighet.
-  * **OeePerformance_Ideal**: värdet är relevant för beräkning av OEE-prestanda och är vanligtvis ett konstant värde.
+  * **OeePerformance_Ideal**: värdet är relevant för beräkning av OEE-prestanda och är vanligt vis ett konstant värde.
   * **OeePerformance_Actual**: värdet är relevant för beräkning av OEE-prestanda.
   * **OeeQuality_Good**: värdet är relevant för beräkning av OEE-kvalitet.
   * **OeeQuality_Bad**: värdet är relevant för beräkning av OEE-kvalitet.
-  * **Kpi1**: värdet är relevant för beräkning av KPI1.
-  * **Kpi2**: värdet är relevant för beräkning av KPI2.
+  * **Kpi1**: värdet är relevant för beräkning av Kpi1.
+  * **Kpi2**: värdet är relevant för beräkning av Kpi2.
 
-* **OpCode** (typen sträng)
+* **Opcode** (typ sträng)
 
-  Anger hur värdet för OPC UA-noden hanteras i Time Series Insight frågor och OEE/KPI-beräkningar. Varje Time Series Insight-fråga riktar sig mot en specifik timespan, vilket är en parameter av frågan och ger ett resultat. OpCode styr hur resultatet är beräknad och kan vara något av följande värden:
+  Anger hur värdet för OPC UA-noden hanteras i Time Series Insight-frågor och OEE/KPI-beräkningar. Varje insikts fråga för Time Series riktar sig till ett särskilt tidsintervall, som är en parameter till frågan och ger ett resultat. OpCode styr hur resultatet beräknas och kan vara något av följande värden:
 
-  * **Diff**: skillnaden mellan sist och det första värdet i timespan.
-  * **Genomsnittlig**: medelvärdet av alla värden i timespan.
-  * **Summa**: summan av alla värden i timespan.
+  * **Diff**: skillnaden mellan det sista och det första värdet i TimeSpan.
+  * **Gmsn**: medelvärdet av alla värden i TimeSpan.
+  * **Sum**: summan av alla värden i TimeSpan.
   * **Senaste**: används inte för närvarande.
-  * **Antal**: antalet värden i timespan.
-  * **Max**: maximal värdet i timespan.
-  * **Min**: det minimala värdet i timespan.
-  * **Konst**: resultatet är värdet som anges av egenskapen ConstValue.
+  * **Count**: antalet värden i TimeSpan.
+  * **Max**: det maximala värdet i TimeSpan.
+  * **Min**: det minimala värdet i TimeSpan.
+  * **Const**: resultatet är det värde som anges av Property ConstValue.
   * **SubMaxMin**: skillnaden mellan maximalt och minimalt värde.
-  * **TimeSpan**: hur lång.
+  * **TimeSpan**: TimeSpan.
 
-* **Enheter** (typen sträng)
+* **Enheter** (typ sträng)
 
-  Definierar en värdet för visning i instrumentpanelen.
+  Definierar en enhet för värdet som visas i instrument panelen.
 
-* **Synliga** (typen boolean)
+* **Synlig** (typ boolesk)
 
-  Kontrollerar om värdet ska visas i instrumentpanelen.
+  Anger om värdet ska visas i instrument panelen.
 
-* **ConstValue** (typen double)
+* **ConstValue** (typ Double)
 
-  Om den **OpCode** är **konst**, och sedan på den här egenskapen är värdet för noden.
+  Om **opcode** är **Const**är den här egenskapen värdet för noden.
 
-* **Minsta** (typen double)
+* **Minimum** (typ Double)
 
-  Om det aktuella värdet hamnar under detta värde, skapas en avisering om minsta.
+  Om det aktuella värdet sjunker under det här värdet genereras en minimal avisering.
 
-* **Maximal** (typen double)
+* **Maximalt** (typ Double)
 
-  Om det aktuella värdet genererar ovanför det här värdet, avisering en maximal.
+  Om det aktuella värdet aktive ras ovanför det här värdet genereras en maximal avisering.
 
 * **MinimumAlertActions** (typ `<alert_action>`)
 
-  Definierar de åtgärder som kan vidtas som svar på en avisering om minsta.
+  Definierar en uppsättning åtgärder som kan vidtas som svar på en minimal avisering.
 
 * **MaximumAlertActions** (typ `<alert_action>`)
 
-  Definierar de åtgärder som kan vidtas som svar på en maximal avisering.
+  Definierar en uppsättning åtgärder som kan vidtas som svar på en maximal avisering.
 
-På nivån station du också se **simulering** objekt. De här objekten används endast för att konfigurera ansluten fabrik simuleringen och ska inte användas för att konfigurera en verklig topologi.
+På Stations nivå visas även **simulerings** objekt. De här objekten används bara för att konfigurera den anslutna fabriks simuleringen och ska inte användas för att konfigurera en verklig topologi.
 
-## <a name="how-the-configuration-data-is-used-at-runtime"></a>Hur konfigurationsdata används vid körning
+## <a name="how-the-configuration-data-is-used-at-runtime"></a>Hur konfigurations data används vid körning
 
-Alla egenskaper som används i konfigurationsfilen kan grupperas i olika kategorier beroende på hur de används. Dessa typer är:
+Alla egenskaper som används i konfigurations filen kan grupperas i olika kategorier beroende på hur de används. Dessa kategorier är:
 
-### <a name="visual-appearance"></a>Utseende
+### <a name="visual-appearance"></a>Visuellt utseende
 
-I den här kategorin definierar det visuella utseendet på instrumentpanelen för ansluten fabrik. Exempel:
+Egenskaperna i den här kategorin definierar det visuella utseendet på den anslutna fabriks instrument panelen. Exempel:
 
 * Namn
 * Beskrivning
-* Image
-* Location
+* Bild
+* Plats
 * Enheter
-* Synlig
+* Tydligt
 
-### <a name="internal-topology-tree-addressing"></a>Intern topologi trädet-adressering
+### <a name="internal-topology-tree-addressing"></a>Invändigt träd i topologi
 
-Webbappen har en intern Dataordlista som innehåller information för alla noder i topologin. Egenskaperna **Guid** och **OpcUri** används som nycklar för att komma åt den här ordlistan och måste vara unikt.
+WebApp hanterar en intern data ord lista som innehåller information om alla topologier för topologier. Egenskaperna **GUID** och **OpcUri** används som nycklar för att komma åt den här ord listan och måste vara unik.
 
 ### <a name="oeekpi-computation"></a>OEE/KPI-beräkning
 
-OEE/KPI-siffror för ansluten fabrik simuleringen parametriseras genom att:
+OEE/KPI-siffrorna för den anslutna fabriks simuleringen är parameterstyrda av:
 
-* OPC UA-nodvärden ska tas med i beräkningen.
-* Hur bilden beräknas från telemetrivärden.
+* OPC UA Node-värden som ska ingå i beräkningen.
+* Hur talet beräknas från telemetri värden.
 
-Ansluten fabrik använder OEE-formler som publicerats av den [ http://www.oeefoundation.org ](http://www.oeefoundation.org).
+Ansluten fabrik använder OEE-formlerna som publiceras av [http://www.oeefoundation.org](http://www.oeefoundation.org).
 
-Objekt för OPC UA-noden i stationer aktivera tagga för användning i OEE/KPI-beräkning. Den **relevans** egenskapen anger för vilken OEE/KPI-bild OPC UA-noden värdet ska användas. Den **OpCode** egenskapen definierar hur värdet är med i beräkningen.
+OPC UA Node-objekt i stationer möjliggör taggning för användning i OEE/KPI-beräkning. Egenskapen **relevans** anger för vilken OEE/KPI-bild som OPC UA-Node-värdet ska användas. Egenskapen **opcode** definierar hur värdet ingår i beräkningen.
 
-### <a name="alert-handling"></a>Avisera hantering
+### <a name="alert-handling"></a>Aviserings hantering
 
-Ansluten fabrik stöder en mekanism för enkel gränsvärden tröskelbaserade genereringen. Det finns ett antal fördefinierade åtgärder som du kan konfigurera som svar på dessa aviseringar. Följande egenskaper styr den här mekanismen:
+Ansluten fabrik har stöd för en enkel minsta/högsta tröskelbaserade mekanism för generering av aviseringar. Det finns ett antal fördefinierade åtgärder som du kan konfigurera som svar på dessa aviseringar. Följande egenskaper styr den här mekanismen:
 
 * Maximal
 * Minimum
 * MaximumAlertActions
 * MinimumAlertActions
 
-## <a name="correlating-to-telemetry-data"></a>Korrelera för telemetridata
+## <a name="correlating-to-telemetry-data"></a>Korrelera med telemetridata
 
-För vissa åtgärder, till exempel visualisera det sista värdet eller skapa Time Series Insight frågor Webbappen behöver en adresseringsschema för insamlade telemetridata. Telemetri som skickas till ansluten fabrik måste också lagras i interna datastrukturer. De två egenskaperna som aktiverar de här åtgärderna är på station (OPC UA-server) och OPC UA-noden nivå:
+För vissa åtgärder, t. ex. visualisering av det sista värdet eller skapandet av Time Series Insight-frågor, behöver WebApp ett adresserings schema för inmatade telemetridata. Telemetrin som skickas till ansluten fabrik måste också lagras i interna data strukturer. De två egenskaperna som aktiverar dessa åtgärder är at-Station (OPC UA-Server) och OPC UA Node-nivå:
 
 * **OpcUri**
 
-  Identifierar (globalt unikt) OPC UA-servern telemetri som kommer från. I de inmatade meddelandena skickas den här egenskapen som **ApplicationUri**.
+  Identifierar (globalt unikt) den OPC UA-server som Telemetrin kommer från. I de inmatade meddelandena skickas den här egenskapen som **ApplicationUri**.
 
 * **NodeId**
 
-  Identifierar Nodvärdet i OPC UA-servern. Formatet på egenskapen måste vara som angetts i OPC UA-specifikationen. I de inmatade meddelandena skickas den här egenskapen som **NodeId**.
+  Identifierar Node-värdet i OPC UA-servern. Formatet på egenskapen måste vara angivet i OPC UA-specifikationen. I de inmatade meddelandena skickas den här egenskapen som **nodeID**.
 
-Se [vad är OPC Publisher](overview-opc-publisher.md) för mer information om hur dessa data matas in ansluten fabrik.
+Se [Vad är OPC Publisher](overview-opc-publisher.md) för mer information om hur telemetri-data matas in i den anslutna fabriken.
 
-## <a name="example-how-kpi1-is-calculated"></a>Exempel: Hur KPI1 beräknas
+## <a name="example-how-kpi1-is-calculated"></a>Exempel: hur KPI1 beräknas
 
-Konfigurationen i den `ContosoTopologyDescription.json` filen styr hur OEE/KPI-bilder beräknas. I följande exempel visas hur egenskaper i den här filen styra beräkning av KPI1.
+Konfigurationen i `ContosoTopologyDescription.json`-filen styr hur OEE/KPI-siffror beräknas. I följande exempel visas hur egenskaper i den här filen styr beräkningen av KPI1.
 
-I ansluten fabrik KPI1 används för att mäta antalet har tillverkad produkter under den senaste timmen. Varje station (OPC UA-server) i simuleringen ansluten fabrik innehåller en OPC UA-noden (`NodeId: "ns=2;i=385"`), som tillhandahåller telemetri att beräkna denna KPI.
+I anslutna fabriks KPI1 används för att mäta antalet tillverkade produkter under den senaste timmen. Varje station (OPC UA-Server) i den anslutna fabriks simuleringen tillhandahåller en OPC UA-nod (`NodeId: "ns=2;i=385"`), som ger telemetri för att beräkna denna KPI.
 
-Konfigurationen för den här OPC UA-noden som ser ut som följande kodavsnitt:
+Konfigurationen för den här OPC UA-noden ser ut som i följande kodfragment:
 
 ```json
 {
@@ -326,18 +326,18 @@ Konfigurationen för den här OPC UA-noden som ser ut som följande kodavsnitt:
 },
 ```
 
-Den här konfigurationen möjliggör frågekörning för telemetrivärden i den här noden med Time Series Insights. Time Series Insights-fråga hämtar:
+Den här konfigurationen aktiverar frågor mot telemetri-värden för den här noden med Time Series Insights. Den Time Series Insights frågan hämtar:
 
 * Antalet värden.
 * Det minimala värdet.
-* Maximal värde.
+* Det maximala värdet.
 * Medelvärdet av alla värden.
-* Summan av alla värden för alla unika **OpcUri** (**ApplicationUri**), **NodeId** par i ett visst tidsintervall.
+* Summan av alla värden för alla unika **OpcUri** (**ApplicationUri**), **nodeId** -par under ett angivet tidsintervall.
 
-En egenskap för den **NumberOfManufactureredProducts** nodvärde är att den endast ökar. För att beräkna antalet produkter som tillverkas på timespan, ansluten fabrik använder den **OpCode** **SubMaxMin**. Beräkningen hämtar det minsta värdet i början av tidsintervallet och det högsta värdet i slutet av tidsintervallet.
+En egenskap för värdet för **NumberOfManufactureredProducts** -noden är att det bara ökar. Om du vill beräkna antalet produkter som tillverkas i TimeSpan använder Connected Factory **opcode** **SubMaxMin**. Beräkningen hämtar det lägsta värdet i början av TimeSpan och det maximala värdet i slutet av TimeSpan.
 
-Den **OpCode** konfigurerar beräkning logik för att beräkna resultatet av skillnaden mellan de högsta och lägsta värde i konfigurationen. Dessa resultat är sedan ackumuleras längst ned till rotnivå (global) och visas i instrumentpanelen.
+**Opcode** i konfigurationen konfigurerar beräknings logiken för att beräkna resultatet av skillnaden mellan högsta och lägsta värde. Dessa resultat ackumuleras sedan längst ned till rot nivån (global) och visas i instrument panelen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ett förslag på nästa steg är att lära dig hur du [anpassa lösningen för ansluten fabrik](iot-accelerators-connected-factory-customize.md).
+Ett förslag till nästa steg är att lära dig hur du [anpassar den anslutna fabriks lösningen](iot-accelerators-connected-factory-customize.md).

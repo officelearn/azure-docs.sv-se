@@ -1,35 +1,36 @@
 ---
-title: Alla utgivare sidan för Azure Marketplace
+title: Sidan alla utgivare för Azure Marketplace
 description: Översikt över alla utgivare i Cloud Partner Portal för Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pabutler
-ms.openlocfilehash: ab42757d91244c0661a6acd02e4e5ebe891929a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c713beaafb47b2e6481ef9358b206dbc2b2e2cf1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942006"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821563"
 ---
 # <a name="all-publishers-page"></a>Sidan med alla utgivare
 
-Den [ **alla utgivare** ](https://cloudpartner.azure.com/#publishers) sidan visar en lista över alla registrerade Microsoft cloud utgivare, inklusive utgivare unikt namn och visningsnamn. Du kan sortera efter kolumn eller ange en sträng för att filtrera resultaten.  Den här sidan visar även en **lägga till utgivaren** knappen, men den här knappen är endast aktiverad för administratörer av användarportalen.  När du väljer en utgivare i listan visas profilen för utgivaren.  Mer information finns i [hantera Utgivarprofil](./../../cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md).
+Sidan [**alla utgivare**](https://cloudpartner.azure.com/#publishers) visar en lista över alla registrerade Microsoft Cloud Publisher, inklusive deras unika namn och visnings namn. Du kan sortera resultaten efter kolumn eller ange en sträng för att filtrera resultaten.  På den här sidan visas också knappen **Lägg till Publisher** , men den här knappen är bara aktive rad för Portal administratörer.  Om du väljer en utgivare i den här listan visas profilen för utgivaren.  Mer information finns i [Hantera utgivar profiler](./../../cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md).
 
 
-## <a name="example-page"></a>Exempelsida för
+## <a name="example-page"></a>Exempel sida
 
-Följande bild visar utgivaren lista filtrerad efter strängen contoso ”.  
+Följande bild visar listan över utgivare som filtrerats på strängen contoso.  
 
 ![Sidan med alla utgivare](./media/all-publishers-page1.png)
 
-När du klickar på den första posten visas profilsidan för Contoso.  Du kan bara redigera dina egna utgivarprofil.
+Om du klickar på den första posten visas profil sidan för contoso.  Du kan bara redigera din egen utgivar profil.
 
-![Contoso publisher profilsida](./media/all-publishers-page2.png)
+![Profil sidan för Contoso Publisher](./media/all-publishers-page2.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nästa navigering menyraden objekt visar ett [sidan användare](./cpp-users-page.md), som visar en lista över alla registrerade användare. 
+I nästa meny för navigerings meny raden visas [sidan användare](./cpp-users-page.md), som visar alla registrerade användare. 

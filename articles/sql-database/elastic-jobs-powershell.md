@@ -1,22 +1,22 @@
 ---
-title: 'Skapa en Azure SQL Database elastisk jobb agent med hjälp av PowerShell '
+title: Skapa en elastisk jobbagent med PowerShell
 description: Lär dig hur du skapar en elastisk jobbagent med PowerShell.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: tutorial
 author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: 80f9db2d11c875d9be9bef225c04e3e90f3d0ff8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9724e54b03e5de065b8b39cb57c6a9880cf37cc6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692243"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827195"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Skapa en elastisk jobbagent med PowerShell
 
@@ -72,7 +72,7 @@ För att skapa elastiska jobbagenter krävs en databas (S0 eller högre) som kan
 
 *Skriptet nedan skapar en ny resurs grupp, server och databas som ska användas som jobb databas. Skriptet nedan skapar också en andra server med två tomma databaser för att köra jobb mot.*
 
-Elastiska jobb har inga särskilda krav för namngivningskonventioner, så du kan använda vilken namnkonvention du vill, förutsatt att de uppfyller något av [kraven för Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
+Elastiska jobb har inga särskilda krav för namngivningskonventioner, så du kan använda vilken namnkonvention du vill, förutsatt att de uppfyller något av [kraven för Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
 ```powershell
 # Sign in to your Azure account

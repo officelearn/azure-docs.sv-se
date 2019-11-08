@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: syntetisera tal-tal-tjänst'
+title: 'Snabb start: syntetisera tal till en talare-tal tjänst'
 titleSuffix: Azure Cognitive Services
-description: 'I den här snabb starten ska du använda tal-SDK: n för att konvertera text till syntetiskt tal.'
+description: 'I den här snabb starten ska du använda tal-SDK: n för att konvertera text till syntetiskt tal och spela upp utdata på en talare.'
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: c080723c30b05e0fe8f3818b684fd47131223601
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 960e87860f004d8f9f2002b8125ecf26ee55237d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681976"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826863"
 ---
-# <a name="quickstart-synthesize-speech-by-using-the-speech-sdk"></a>Snabb start: syntetisera tal med hjälp av tal-SDK
+# <a name="quickstart-synthesize-speech-to-a-speaker"></a>Snabb start: syntetisera tal till en talare
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/tts/header.md)]

@@ -1,5 +1,5 @@
 ---
-title: Vägledning för Azure SQL Database prestanda justering
+title: Vägledning för prestandajustering
 description: Lär dig hur du använder rekommendationer för att manuellt finjustera dina Azure SQL Database frågans prestanda.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 971b35838f370f31d6e2d2da06dfdbced2fafb02
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 6e42911d05f387ea47b56b913e9a1868100c1b3c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687671"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821365"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>Justera prestanda för manuell prestanda i Azure SQL Database
 
@@ -120,7 +120,7 @@ När den har skapats väljer samma SELECT-instruktion en annan plan, som använd
 
 ![En frågeplan med korrigerade index](./media/sql-database-performance-guidance/query_plan_corrected_indexes.png)
 
-Den viktigaste insikten är att IO-kapaciteten för ett delat, råvaru system är mer begränsad än för en dedikerad server maskin. Det finns ett bidrag för att minimera onödig i/o för att dra nytta av systemet i DTU för varje beräknings storlek för Azure SQL Database tjänst nivåerna. Lämpliga alternativ för fysisk databas design kan avsevärt förbättra svars tiden för enskilda frågor, förbättra data flödet för samtidiga förfrågningar som hanteras per skalnings enhet och minimera de kostnader som krävs för att uppfylla frågan. Mer information om det saknade indexet DMV: er finns i [sys. DM _db_missing_index_details](https://msdn.microsoft.com/library/ms345434.aspx).
+Den viktigaste insikten är att IO-kapaciteten för ett delat, råvaru system är mer begränsad än för en dedikerad server maskin. Det finns ett bidrag för att minimera onödig i/o för att dra nytta av systemet i DTU för varje beräknings storlek för Azure SQL Database tjänst nivåerna. Lämpliga alternativ för fysisk databas design kan avsevärt förbättra svars tiden för enskilda frågor, förbättra data flödet för samtidiga förfrågningar som hanteras per skalnings enhet och minimera de kostnader som krävs för att uppfylla frågan. Mer information om det saknade indexet DMV: er finns i [sys. dm_db_missing_index_details](https://msdn.microsoft.com/library/ms345434.aspx).
 
 ### <a name="query-tuning-and-hinting"></a>Fråga om justering och tips
 
@@ -214,7 +214,7 @@ I den andra delen av exemplet används ett frågetipset för att se till att opt
 
 ![Fråga efter justering med ett frågeuttryck](./media/sql-database-performance-guidance/query_tuning_3.png)
 
-Du kan se effekterna i **sys. resource_stats** -tabellen (det uppstår en fördröjning från den tid som du utför testet och när data fyller tabellen). I det här exemplet körs del 1 under perioden 22:25:00 och del 2 körs vid 22:35:00. I det tidigare tidsfönstret användes fler resurser i den tids perioden än det senare (på grund av plan effektivitets förbättringar).
+Du kan se resultatet i tabellen **sys. resource_stats** (det uppstår en fördröjning från den tid som du utför testet och när data fyller tabellen). I det här exemplet körs del 1 under perioden 22:25:00 och del 2 körs vid 22:35:00. I det tidigare tidsfönstret användes fler resurser i den tids perioden än det senare (på grund av plan effektivitets förbättringar).
 
 ```sql
 SELECT TOP 1000 *
@@ -228,7 +228,7 @@ ORDER BY start_time DESC
 > [!NOTE]
 > Även om volymen i det här exemplet är avsiktligt liten, kan effekterna av under-optimala parametrar vara betydande, särskilt i större databaser. Skillnaden i extrema fall kan vara mellan några sekunder för snabba fall och timmar för långsamma fall.
 
-Du kan undersöka **sys. resource_stats** för att avgöra om resursen för ett test använder mer eller färre resurser än ett annat test. När du jämför data, separerar du test tiden så att de inte är i samma 5-minuters fönster i vyn **sys. resource_stats** . Syftet med övningen är att minimera den totala mängden resurser som används och inte minimera de högsta resurserna. Att optimera en del av koden för svars tiden minskar vanligt vis resurs förbrukningen. Kontrol lera att de ändringar du gör i ett program är nödvändiga och att ändringarna inte negativt påverkar kund upplevelsen för någon som kanske använder frågetipset i programmet.
+Du kan granska **sys. resource_stats** för att avgöra om resursen för ett test använder mer eller färre resurser än ett annat test. När du jämför data, separerar du test tiden så att de inte är i samma 5-minuters fönster i vyn **sys. resource_stats** . Syftet med övningen är att minimera den totala mängden resurser som används och inte minimera de högsta resurserna. Att optimera en del av koden för svars tiden minskar vanligt vis resurs förbrukningen. Kontrol lera att de ändringar du gör i ett program är nödvändiga och att ändringarna inte negativt påverkar kund upplevelsen för någon som kanske använder frågetipset i programmet.
 
 Om en arbets belastning har en uppsättning upprepade frågor, är det ofta klokt att samla in och validera den optimala planen för dina prenumerations val eftersom den innehåller den minsta resurs storleks enhet som krävs för att vara värd för databasen. När du har verifierat det kan du ibland undersöka planerna för att hjälpa dig att se till att de inte försämras. Du kan lära dig mer om [frågetipset (Transact-SQL)](https://msdn.microsoft.com/library/ms181714.aspx).
 

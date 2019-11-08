@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: e7516fffb4aa8806062655e39c591e4691e779b1
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 9a5e060d6248d3144720930fe960e0a371a73d6e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959118"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822259"
 ---
 # <a name="egress-and-endpoints"></a>Utgående och slut punkter
 
@@ -23,7 +23,7 @@ Händelser dirigeras till slut punkter enligt fördefinierade inställningar fö
 
 Mer information om händelser, Routning och händelse typer finns [i routning av händelser och meddelanden i Azure Digitals](./concepts-events-routing.md).
 
-## <a name="events"></a>Events
+## <a name="events"></a>Händelser
 
 Händelser skickas av IoT-objekt (till exempel enheter och sensorer) för bearbetning av Azure-meddelanden och händelse hanterare. Händelser definieras av följande [Azure Event Grid händelse schema referens](../event-grid/event-schema.md).
 
@@ -47,23 +47,23 @@ Händelser skickas av IoT-objekt (till exempel enheter och sensorer) för bearbe
 }
 ```
 
-| Attribut | type | Beskrivning |
+| Attribut | Typ | Beskrivning |
 | --- | --- | --- |
-| id | string | Unikt ID för händelsen. |
-| subject | string | Publisher-definierad sökväg till händelsens ämne. |
-| data | object | Händelse data som är speciella för resurs leverantören. |
-| eventType | string | En av de registrerade händelse typerna för den här händelse källan. |
-| eventTime | string | Tiden då händelsen genereras baserat på providerns UTC-tid. |
-| dataVersion | string | Data objektets schema version. Utgivaren definierar schema versionen. |
-| metadataVersion | string | Schema versionen för händelsens metadata. Event Grid definierar schemat för de högsta nivå egenskaperna. Event Grid ger det här värdet. |
-| subject | string | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
+| id | sträng | Unikt ID för händelsen. |
+| motiv | sträng | Publisher-definierad sökväg till händelsens ämne. |
+| data | objekt | Händelse data som är speciella för resurs leverantören. |
+| Typ | sträng | En av de registrerade händelse typerna för den här händelse källan. |
+| eventTime | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
+| dataVersion | sträng | Data objektets schema version. Utgivaren definierar schema versionen. |
+| metadataVersion | sträng | Schema versionen för händelsens metadata. Event Grid definierar schemat för de högsta nivå egenskaperna. Event Grid ger det här värdet. |
+| ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
 
 Mer information om händelse schema för Event Grid:
 
 - Granska [Azure Event Grid händelse schema referens](../event-grid/event-schema.md).
-- Läs [EventGridEvent-referens för Azure EventGrid Node. js SDK](https://docs.microsoft.com/javascript/api/azure-eventgrid/eventgridevent?view=azure-node-latest).
+- Läs [EventGridEvent-referens för Azure EventGrid Node. js SDK](https://docs.microsoft.com/javascript/api/@azure/eventgrid/eventgridevent?view=azure-node-latest).
 
-## <a name="event-types"></a>Händelsetyper
+## <a name="event-types"></a>Händelse typer
 
 Händelse typer klassificerar händelsens karaktär och anges i fältet **eventType** . Tillgängliga händelse typer anges i följande lista:
 
@@ -87,10 +87,10 @@ Händelse formaten för varje händelse typ beskrivs närmare i följande undera
 - KeyStore
 - Rapport
 - Roll definitions
-- Sensor
+- Mäta
 - SensorBlobMetadata
 - SensorExtendedProperty
-- Blanksteg
+- Rymd
 - SpaceBlobMetadata
 - SpaceExtendedProperty
 - SpaceResource
@@ -122,7 +122,7 @@ Händelse formaten för varje händelse typ beskrivs närmare i följande undera
 }
 ```
 
-| Value | Ersätt med |
+| Värde | Ersätt med |
 | --- | --- |
 | YOUR_TOPIC_NAME | Namnet på ditt anpassade ämne |
 
@@ -153,7 +153,7 @@ Händelse formaten för varje händelse typ beskrivs närmare i följande undera
 }
 ```
 
-| Value | Ersätt med |
+| Värde | Ersätt med |
 | --- | --- |
 | YOUR_TOPIC_NAME | Namnet på ditt anpassade ämne |
 
@@ -188,7 +188,7 @@ Händelse formaten för varje händelse typ beskrivs närmare i följande undera
 }
 ```
 
-| Value | Ersätt med |
+| Värde | Ersätt med |
 | --- | --- |
 | YOUR_TOPIC_NAME | Namnet på ditt anpassade ämne |
 
@@ -223,7 +223,7 @@ Händelse formaten för varje händelse typ beskrivs närmare i följande undera
 }
 ```
 
-| Value | Ersätt med |
+| Värde | Ersätt med |
 | --- | --- |
 | YOUR_TOPIC_NAME | Namnet på ditt anpassade ämne |
 
@@ -268,7 +268,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Value | Ersätt med |
+    | Värde | Ersätt med |
     | --- | --- |
     | YOUR_NAMESPACE | Namn området för din slut punkt |
     | YOUR_PRIMARY_KEY | Den primära anslutnings sträng som används för att autentisera |
@@ -291,7 +291,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Value | Ersätt med |
+    | Värde | Ersätt med |
     | --- | --- |
     | YOUR_PRIMARY_KEY | Den primära anslutnings sträng som används för att autentisera|
     | YOUR_SECONDARY_KEY | Sekundär anslutnings sträng som används för att autentisera |
@@ -313,7 +313,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Value | Ersätt med |
+    | Värde | Ersätt med |
     | --- | --- |
     | YOUR_NAMESPACE | Namn området för din slut punkt |
     | YOUR_PRIMARY_KEY | Den primära anslutnings sträng som används för att autentisera |
@@ -334,7 +334,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Value | Ersätt med |
+    | Värde | Ersätt med |
     | --- | --- |
     | YOUR_NAMESPACE | Namn området för din slut punkt |
     | YOUR_PRIMARY_KEY | Den primära anslutnings sträng som används för att autentisera |

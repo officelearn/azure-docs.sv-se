@@ -6,18 +6,18 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/11/2019
+ms.date: 10/02/2019
 ms.author: robinsh
-ms.openlocfilehash: 32c7a2a79c8d6a35008255b3c117f20d04ad7749
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3b498911999e224003710eced8e0c34989672800
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72927408"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73809185"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importera och exportera IoT Hub enhets identiteter i bulk
 
-Varje IoT-hubb har ett identitets register som du kan använda för att skapa resurser per enhet i tjänsten. I identitets registret kan du också kontrol lera åtkomsten till de enhets riktade slut punkterna. I den här artikeln beskrivs hur du importerar och exporterar enhets identiteter i bulk till och från ett identitets register.
+Varje IoT-hubb har ett identitets register som du kan använda för att skapa resurser per enhet i tjänsten. I identitets registret kan du också kontrol lera åtkomsten till de enhets riktade slut punkterna. I den här artikeln beskrivs hur du importerar och exporterar enhets identiteter i bulk till och från ett identitets register. Om du vill se ett fungerande C# exempel i och lära dig hur du kan använda den här funktionen när du klonar en hubb till en annan region, se [hur du klonar en IoT Hub](iot-hub-how-to-clone.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -421,7 +421,11 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du utför Mass åtgärder mot identitets registret i en IoT-hubb. Följ dessa länkar om du vill veta mer om hur du hanterar Azure-IoT Hub:
+I den här artikeln har du lärt dig hur du utför Mass åtgärder mot identitets registret i en IoT-hubb. Många av de här åtgärderna, inklusive hur du flyttar enheter från en hubb till en annan, används i [avsnittet hantera enheter som är registrerade i IoT Hub för att klona en IoT Hub](iot-hub-how-to-clone.md#managing-the-devices-registered-to-the-iot-hub). 
+
+Klonings artikeln har ett fungerande exempel som är associerat med det, som finns i IoT C# -exemplen på den här sidan: [Azure IoT C#-exempel för ](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/), med projektet som ImportExportDevicesSample. Du kan hämta exemplet och testa det. Det finns anvisningar i [hur du klonar en IoT Hub](iot-hub-how-to-clone.md) artikel.
+
+Om du vill veta mer om hur du hanterar Azure IoT Hub kan du läsa följande artiklar:
 
 * [IoT Hub mått](iot-hub-metrics.md)
 * [IoT Hub loggar](iot-hub-monitor-resource-health.md)

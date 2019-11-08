@@ -1,74 +1,75 @@
 ---
-title: Azure Application erbjudandet provkörning | Azure Marketplace
-description: Så här konfigurerar du provkörning för erbjudande för Azure-program på Azure Marketplace.
+title: Test enhet för Azure Applications erbjudande | Azure Marketplace
+description: Så här konfigurerar du Test Drive för Azure Application erbjudande på Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 42e533cdcedfb47a46934f77714d61a640a8d7d1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3855c600fe35c37ac15783995551a769e00532be
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942871"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826126"
 ---
-# <a name="azure-applications-test-drive-tab"></a>Azure-program Test Drive-fliken
+# <a name="azure-applications-test-drive-tab"></a>Fliken test enhet i Azure-program
 
-Använd fliken Test Drive för att tillhandahålla en utvärderingsmiljö för dina kunder.
+Använd fliken testenhet för att få en utvärderings upplevelse för dina kunder.
 
-## <a name="test-drive-benefits"></a>Test Drive-förmåner
+## <a name="test-drive-benefits"></a>Testa enhets förmåner
 
-Det är en bra idé att kontrollera att de kan köpa tryggt för att skapa en utvärderingsmiljö för dina kunder. För utvärderingsversionsalternativ som är tillgängliga är Test Drive de mest effektiva på att skapa högkvalitativa leads och ökad konvertering av dessa leads.
+Att skapa en utvärderings upplevelse för dina kunder är en bra idé att se till att de kan handla tryggare. Test enheten är mest effektiv vid generering av högkvalitativa leads och ökad konvertering av dessa leads.
 
-Tjänsten ger kunderna med en praktisk Migreringsprocess provversion av din produkt viktiga funktioner och fördelar, visas i ett scenario med verkliga implementering.
+Det ger kunder en praktisk utvärderings version av produktens viktiga funktioner och fördelar, som demonstreras i ett verkligt implementerings scenario.
 
-## <a name="how-a-test-drive-works"></a>Så här fungerar en provkörning
+## <a name="how-a-test-drive-works"></a>Hur en testen het fungerar
 
-En potentiell kund söker och identifierar ditt program på Marketplace. Kunden loggar in och samtycker till att användningsvillkoren. Kunden får då din miljö som är förkonfigurerade för att prova i ett fast antal timmar, medan du får ett högt kvalificerade lead att följa upp med. Mer information finns i [vad är en provkörning?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
+En potentiell kund söker efter och identifierar ditt program på Marketplace. Kunden loggar in och godkänner användnings villkoren. I det här läget får kunden en förkonfigurerad miljö för att försöka ett fast antal timmar, medan du får ett mycket kvalificerat lead att följa upp med. Mer information finns i [Vad är Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
-## <a name="setting-up-a-test-drive"></a>Hur du konfigurerar en provkörning
+## <a name="setting-up-a-test-drive"></a>Konfigurera en testen het
 
-Använd följande steg för att aktivera och konfigurera en testenhet.
+Använd följande steg för att aktivera och konfigurera en testen het.
 
-### <a name="to-enable-a-test-drive"></a>För att aktivera en provkörning:
+### <a name="to-enable-a-test-drive"></a>Så här aktiverar du en testen het:
 
-1. Under **nytt erbjudande**väljer den **Test Drive** fliken.
-2. Under **Test Drive**väljer **Ja** för **aktivera en Test Drive**.
+1. Under **nytt erbjudande**väljer du fliken **test enhet** .
+2. Under **Test Drive**väljer du **Ja** för **att aktivera en testenhet**.
 
-   ![Aktivera en provkörning](./media/managed-app-enable-testdrive.png)
+   ![Aktivera en testen het](./media/managed-app-enable-testdrive.png)
 
-### <a name="to-configure-a-test-drive"></a>Konfigurera en provkörning:
+### <a name="to-configure-a-test-drive"></a>Så här konfigurerar du en testen het:
 
-När du har aktiverat en testenhet ska du fylla i följande formulär du ställer in test drive:
+När du har aktiverat en testenhet fyller du i följande formulär för att ställa in test enheten:
   
  - Information
  - Teknisk konfiguration
- - Prenumerationsinformation för Test Drive-distribution
+ - Information om distributions prenumeration för test enhet
 
-Nästa skärmdump visar alla Test Drive-formulär. En asterisk (*) läggs till fältnamnet anger att det krävs. 
+I nästa skärm bild visas alla test enhets formulär. En asterisk (*) som läggs till i fält namnet visar att det är obligatoriskt. 
 
-![Konfigurera en provkörning](./media/managed-app-configure-testdrive.png)
+![Konfigurera en testen het](./media/managed-app-configure-testdrive.png)
 
-I följande tabell beskrivs de fält som krävs för att ställa in provkörning för det hanterade programmet.  Fält läggas till med en asterisk är obligatoriska.
+I följande tabell beskrivs de fält som krävs för att ställa in test enheten för det hanterade programmet.  Fälten som läggs till med en asterisk måste anges.
 
 |      Fält         |  Beskrivning      |
 |  ---------------   |  ---------------  |
-| **Beskrivning\***  |  Beskriv vad du kan göra på din provkörning. Du kan använda grundläggande HTML-taggar för att formatera den här beskrivningen. Till exempel &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt;, och rubriker.                |
-| **Användarhandbok\***  |  Ladda upp en användarhandbok som dina kunder kan använda för att gå igenom Test Drive-upplevelse. Det här dokumentet måste vara en PDF-fil.    |
-| **Test Drive demonstrationsvideon** |  Ett valfritt videogenomgång av din provkörning. En kund kan den här videon innan de Provkör. Ange en URL till videoklippet på YouTube eller Vimeo. Om du väljer **+ Lägg till Video**, uppmanas du att ange följande information:<ul><li>Namn</li><li>URL</li><li>Miniatyr (i PNG-format, 533 x 324 bildpunkter)</li></ul>  |
-| **instanser\***      | Konfigurera hur många instanser som du vill, i vilken region, och hur snabbt dina kunder kan få Test Drive. Mer information finns i [hur du publicerar en Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive#how-to-publish-a-test-drive).           |
-| **Driv varaktighet (timmar)\*** | Ange ett heltal för antalet timmar. Det tillåtna intervallet är från 1 till 999. |
-| **Test Drive ARM-mall\***     | Ladda upp en komprimerad fil (ZIP) med Azure Resource Manager-mallar för din app. Mer information finns i [Azure Resource Manager Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive). |
-| **Åtkomstinformation\***          | Ange åtkomstinformation när kunden får Test Drive. Till exempel en URL till åtkomst till test drive och logga information. . Du kan använda grundläggande HTML-taggar för att formatera den här beskrivningen. Till exempel &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt;, och rubriker. |
-| **Azure-prenumerations-Id\***       | Detta ger åtkomst till Azure-tjänster och Azure-portalen. Prenumerationen är där Resursanvändning rapporteras och tjänster faktureras. Om du inte redan har en separat Azure-prenumeration för Test Drives endast, skapa en prenumeration.  |
-| **Azure AD-klient-Id\***          | Ange en befintlig klient i Azure Active Directory eller skapa en klient för den här testkörningen.  |
-| **Azure AD App Id\***             | Skapa och registrera ett nytt program. Microsoft använder det här programmet för att utföra åtgärder på din Test Drive-instans.  |
-| **Azure AD App-nyckel\***            | Skapa en autentiseringsnyckel för appen och klistra in den i det här fältet.   |
+| **Beskrivning\***  |  Beskriv vad som kan göras på test enheten. Du kan använda grundläggande HTML-taggar för att formatera beskrivningen. Till exempel &lt;p&gt;&lt;EM&gt;, &lt;UL&gt;, &lt;Li&gt;, &lt;OL&gt;och rubrikerna.                |
+| **Användar handbok\***  |  Ladda upp en Användar handbok som dina kunder kan använda för att gå igenom test enhets upplevelsen. Det här dokumentet måste vara en. pdf-fil.    |
+| **Video om prov Drive demo** |  En valfri video genom gång av test enheten. En kund kan titta på den här videon innan de tar en test enhet. Ange en URL till videon på YouTube eller Vimeo. Om du väljer **+ Lägg till video**uppmanas du att ange följande information:<ul><li>Namn</li><li>URL</li><li>Miniatyr bild (i PNG-format, 533 x 324 bild punkter)</li></ul>  |
+| **Instanser\***      | Konfigurera hur många instanser du vill, i vilken region (n) och hur snabbt dina kunder kan få test enheten. Mer information finns i [publicera en testen het](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive#how-to-publish-a-test-drive).           |
+| **Test enhetens varaktighet (timmar)\*** | Ange ett heltal för antalet timmar. Det tillåtna intervallet är från 1 till 999. |
+| **Testa ARM-mall\***     | Ladda upp en komprimerad fil (zip) som innehåller dina Azure Resource Manager mallar för din app. Mer information finns i [Azure Resource Manager Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive). |
+| **Åtkomst information\***          | Ge åtkomst information när din kund får test enheten. Till exempel en URL för att komma åt test enheten och signera information. . Du kan använda grundläggande HTML-taggar för att formatera beskrivningen. Till exempel &lt;p&gt;&lt;EM&gt;, &lt;UL&gt;, &lt;Li&gt;, &lt;OL&gt;och rubrikerna. |
+| **Azure-prenumerations-ID\***       | Detta ger åtkomst till Azure-tjänster och Azure Portal. Prenumerationen är den plats där resursanvändningen rapporteras och tjänsterna faktureras. Om du inte redan har en separat Azure-prenumeration för test enheter skapar du en prenumeration.  |
+| **Azure AD-klient-ID\***          | Ange en befintlig klient i Azure Active Directory eller skapa en klient för den här test enheten.  |
+| **Azure AD App-ID\***             | Skapa och registrera ett nytt program. Microsoft använder det här programmet för att utföra åtgärder på din test enhets instans.  |
+| **Azure AD App nyckel\***            | Skapa en autentiseringsnyckel för appen och klistra in den i det här fältet.   |
 |  |  |
 
-När du har angett all nödvändig information, Välj **spara** att slutföra konfigurationen av test drive.
+När du har angett all information som krävs väljer du **Spara** för att slutföra konfigurationen av test enheten.
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,5 +1,5 @@
 ---
-title: Felsök Azure SQL Database prestanda problem med Intelligent Insights
+title: Felsök prestanda problem med Intelligent Insights
 description: Intelligent Insights hjälper dig att felsöka Azure SQL Database prestanda problem.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: fef1ed386dbf3acccc09b9bba743b6b33492da0e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b6ec1952d730b6515032572def65806a1ccbc0b2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689715"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810370"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Felsök Azure SQL Database prestanda problem med Intelligent Insights
 
@@ -280,7 +280,7 @@ Mer information finns i [Lär dig hur SQL Server förhindrar plan regressioner](
 
 Det här identifierade prestanda mönstret indikerar ett villkor där en ändring i den databasbaserade konfigurationen orsakar prestanda regression som identifieras jämfört med den senaste sju dagars databasens arbets belastnings beteende. Det här mönstret anger att en nyligen utförd ändring i den databasbaserade konfigurationen inte verkar vara fördelaktig i databasens prestanda.
 
-Konfigurations ändringar i databasen kan ställas in för varje enskild databas. Den här konfigurationen används i fall-för-fall-basis för att optimera den enskilda databasens prestanda. Följande alternativ kan konfigureras för varje enskild databas: MAXDOP, LEGACY_CARDINALITY_ESTIMATION, PARAMETER_SNIFFING, QUERY_OPTIMIZER_HOTFIXES och CLEAR PROCEDURE_CACHE.
+Konfigurations ändringar i databasen kan ställas in för varje enskild databas. Den här konfigurationen används i fall-för-fall-basis för att optimera den enskilda databasens prestanda. Följande alternativ kan konfigureras för varje enskild databas: MAXDOP, LEGACY_CARDINALITY_ESTIMATION, PARAMETER_SNIFFING, QUERY_OPTIMIZER_HOTFIXES och rensa PROCEDURE_CACHE.
 
 ### <a name="troubleshooting"></a>Felsökning
 

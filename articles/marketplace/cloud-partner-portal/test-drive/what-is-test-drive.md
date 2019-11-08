@@ -1,70 +1,71 @@
 ---
 title: Vad är Test Drive? | Azure Marketplace
-description: Förklaring av Marketplace Test Drive-funktionen
+description: Förklaring av funktionen för Marketplace-testenhet
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Ricardo.Villalobos
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 5b23a5e93dcbb9c13243240bda760a16d108d731
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a6826657a4af74276e363acd585e80d101cc1459
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938465"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73828146"
 ---
 <a name="what-is-test-drive"></a>Vad är Test Drive?
 ===================
 
-Test Drive är ett bra sätt att visa upp ditt erbjudande till potentiella kunder genom att ge dem kan \'testa innan du köper\', vilket resulterar i ökad konvertering och högt kvalificerade leads generation.
+Test Drive är ett bra sätt att presentera ditt erbjudande för potentiella kunder genom att ge dem möjlighet att \'prova innan du köper\', vilket resulterar i ökad konvertering och skapandet av mycket kvalificerade leads.
 
-När du har angett kontaktinformationen kunder kan komma åt din färdiga Test Drive-upplevelse: en praktisk på egen hand utvärderingsversion av din produkt\'s viktiga funktioner och fördelar som visas i ett verkligt scenario för implementering.
+När du har angett sin kontakt information kan kunderna komma åt din förbyggda test enhets upplevelse: en praktisk utvärderings version av din produkt\'s viktiga funktioner och fördelar som demonstreras i ett verkligt världs implementerings scenario.
 
-Test Drive kan du placera produkten liv och generera högt kvalificerade leads i processen.
+Med test enheten kan du ta din produkt i livet och generera mycket kvalificerade leads i processen.
 
-<a name="how-does-a-test-drive-work"></a>Hur fungerar en provkörning?
+<a name="how-does-a-test-drive-work"></a>Hur fungerar en testen het?
 ---------------------------
 
-En potentiell kund identifierar ditt program på Marketplace, loggar in och samtycker till att användningsvillkoren. Kunden får då din miljö som är förkonfigurerade för att prova i ett fast antal timmar, medan du får ett högt kvalificerade lead att följa upp med.
+En potentiell kund identifierar ditt program på Marketplace, loggar in och godkänner användnings villkoren. I det här läget får kunden en förkonfigurerad miljö för att försöka ett fast antal timmar, medan du får ett mycket kvalificerat lead att följa upp med.
 
-![Steg ett. Marketplace-erbjudande som visas](./media/what-is-test-drive/step1.png)
+![Steg ett. Marketplace-erbjudande visas](./media/what-is-test-drive/step1.png)
 
-![Steg två. Marketplace-erbjudande-inloggningsskärmen](./media/what-is-test-drive/step1andahalf.png)
+![Steg två. Inloggnings skärmen för Marketplace-erbjudandet](./media/what-is-test-drive/step1andahalf.png)
 
-![Steg tre. Marketplace-erbjudande publisher avtal skärmen](./media/what-is-test-drive/step2.png)
+![Steg tre. Sidan Marketplace-avtal för Marketplace](./media/what-is-test-drive/step2.png)
 
-![Steg fyra. Test Drive konfiguration av företagsåtkomst](./media/what-is-test-drive/step3.png)
+![Steg fyra. Installations skärm för testdisk](./media/what-is-test-drive/step3.png)
 
-Och här är ett exempel på hur ett erbjudande ser ut när den behöver tid för att distribuera nedan:
+Nedan visas ett exempel på hur ett erbjudande ser ut när det behövs tid för att distribuera:
 
-![Marketplace-erbjudande som ska distribueras](./media/what-is-test-drive/step4.png)
+![Marketplace-erbjudande som distribueras](./media/what-is-test-drive/step4.png)
 
-![Marketplace Test Drive redo skärmen](./media/what-is-test-drive/step5.png)
+![Marketplace Test Drive, klar skärm](./media/what-is-test-drive/step5.png)
 
-![Skärmen för Marketplace provkörningen slutförd](./media/what-is-test-drive/step6.png)
+![Skärmen test enhet för Marketplace slutförd](./media/what-is-test-drive/step6.png)
 
-Oavsett hur även komplexa ditt program, Microsoft Test Drive hjälper dig att förverkliga din produkt för kunden. Idag erbjuder vi tre olika typer av Test Drives baserat på vilken typ av produkt, scenario och du är på marketplace.
+Oavsett hur komplex ditt program är kan din Microsoft-testenhet hjälpa dig att ta din produkt i livet för kunden. Idag erbjuder vi tre olika typer av test enheter baserat på typen av produkt, scenario och Marketplace som du är igång med.
 
-- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)** : Testköra en Azure Resource Manager är en Distributionsmall som innehåller alla Azure-resurser som utgör en lösning som skapas av utgivaren. Produkter som passar det här scenariot är sådana som använder endast Azure-resurser.
-- **[Logikapp](./logic-app-test-drive.md)** : En Logic App Test Drive är en Distributionsmall som är avsedd att omfatta alla komplexa lösningsarkitekturer. Alla Dynamics-program eller anpassade produkter bör använda den här typen av Test Drive.
-- **Power BI**: Testa Power BI är en inbäddad länk till en egna anpassade instrumentpanel. En produkt som vill bara visa ett interaktiva Power BI-objekt bör använda den här typen av Test Drive.
+- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)** : en Azure Resource Manager-testenhet är en distributionsmall som innehåller alla Azure-resurser som utgör en lösning som skapats av utgivaren. Produkter som uppfyller det här scenariot är de som bara använder Azure-resurser.
+- **[Logic app](./logic-app-test-drive.md)** : en Logic app-testenhet är en distributions mall som är avsedd att omfatta alla komplexa lösnings arkitekturer. Alla Dynamics-program eller anpassade produkter bör använda den här typen av test enhet.
+- **Power BI**: en Power BI-testenhet är helt enkelt en inbäddad länk till en anpassad inbyggd instrument panel. En produkt som vill bara visa ett interaktivt Power BI visuellt objekt bör använda den här typen av test enhet.
     Allt du behöver ladda upp här är din inbäddade Power BI-URL.
 
-<a name="what-goes-on-in-the-background"></a>Det här händer i bakgrunden?
+<a name="what-goes-on-in-the-background"></a>Vad händer i bakgrunden?
 -------------------------------
 
-Test Drive-tjänsten är utformad för att kontinuerligt stöd för och hantera dina kunder utan att det krävs några manuella arbete från dig. Din uppgift är att hantera och konfigurera de Test Drive-inställningarna från theCloud partnerportalen som utgivare, och sedan den här inställningen blir direkt tillgänglig för dina kunder.
+Tjänsten Test Drive är byggd för att kontinuerligt stödja och betjäna dina kunder utan att behöva göra någon manuell ansträngning från dig. Som utgivare är ditt jobb att hantera och konfigurera inställningarna för testenhet från theCloud Partner Portal och sedan blir den inställningen direkt tillgänglig för dina kunder.
 
-Det beror på att när du har angett dina konfigurationer för din provkörning varje Test Drive blir en hanterad instans som ska distribueras på begäran för kunden begär den. När en Test Drive-instans är tilldelad Test Drive kan användas för angiven tid och sedan tas den bort för att skapa utrymme för en annan kund.
+Det beror på att när du har angett dina konfigurationer för test enheten blir varje test enhet en hanterad instans som kommer att distribueras på begäran för kunden som begär det. När en test enhets instans har tilldelats är test enheten tillgänglig för användning under den angivna tiden och tas sedan bort för att skapa rum för en annan kund.
 
 <a name="next-steps"></a>Nästa steg
 ----------
 
-Nu när du vet vilka en Test Drive handlar om, gå besök som behövs för den specifika Test Drive-typ som du vill gå publicera för att lära dig allt om de obligatoriska fälten.
+Nu när du vet vad en test-enhet är, går du till den typ av test enhet som du vill publicera för att lära dig allt om de obligatoriska fälten som behövs.
 
-- **[Azure Resource   Manager](./azure-resource-manager-test-drive.md)**
-- **[Logikapp](./logic-app-test-drive.md)**
+- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)**
+- **[Logic app](./logic-app-test-drive.md)**
 
-Om du har fler frågor, söker felsökningstips eller vill göra din provkörning lyckas, går du till [vanliga frågor och svar, felsökning och bästa praxis](./marketing-and-best-practices.md).
+Om du har fler frågor, letar efter fel söknings råd eller vill göra en test enhet mer framgångs rik kan du gå till [vanliga frågor och svar, felsöka & bästa praxis](./marketing-and-best-practices.md).

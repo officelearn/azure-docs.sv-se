@@ -1,5 +1,5 @@
 ---
-title: Data beroende routning med Azure SQL Database
+title: Data beroende routning
 description: Använda klassen ShardMapManager i .NET-appar för data beroende routning, en funktion i shardade-databaser i Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 319f2744cd437aea51a05592cd7a26f8b58fe761
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e5212ba7ed349f3596047fc0c027829b8667ddc5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690286"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823672"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>Använd data beroende routning för att dirigera en fråga till lämplig databas
 

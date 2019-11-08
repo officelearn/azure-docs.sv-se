@@ -6,60 +6,61 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 11/06/2019
 ms.author: hrasheed
-ms.openlocfilehash: 222b91b2efefa81186d32fee7229aa0cc4f13a63
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: b8baf8ee11d34756e55f3a78fd5916e042785587
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044596"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821638"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Använd C# användardefinierade funktioner med Apache Hive och Apache gris på Apache Hadoop i HDInsight
 
-Lär dig hur du C# använder användardefinierade funktioner (UDF) med Apache Hive och Apache gris på HDInsight.
+Lär dig hur du C# använder användardefinierade funktioner (UDF) med [Apache Hive](https://hive.apache.org) och [Apache gris](https://pig.apache.org) på HDInsight.
 
 > [!IMPORTANT]
-> Stegen i det här dokumentet fungerar med både Linux-baserade och Windows-baserade HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [versions hantering av HDInsight-komponenter](../hdinsight-component-versioning.md).
+> Stegen i det här dokumentet fungerar med Linux-baserade HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [versions hantering av HDInsight-komponenter](../hdinsight-component-versioning.md).
 
 Både Hive och gris kan skicka data till externa program för bearbetning. Den här processen kallas för _strömning_. När du använder ett .NET-program skickas data till programmet på STDIN och programmet returnerar resultatet i STDOUT. Om du vill läsa och skriva från STDIN och STDOUT kan du använda `Console.ReadLine()` och `Console.WriteLine()` från ett konsol program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En välbekanthet med att skriva C# och skapa kod som är riktad mot .NET Framework 4,5.
 
-    * Använd vilken IDE du vill. Vi rekommenderar [Visual studio](https://www.visualstudio.com/vs) 2015, 2017 eller [Visual Studio Code](https://code.visualstudio.com/). Stegen i det här dokumentet använder Visual Studio 2017.
+    Använd vilken IDE du vill. Vi rekommenderar [Visual Studio](https://www.visualstudio.com/vs) eller [Visual Studio Code](https://code.visualstudio.com/). Stegen i det här dokumentet använder Visual Studio 2019.
 
-* Ett sätt att ladda upp exe-filer till klustret och köra gris-och Hive-jobb. Vi rekommenderar Data Lake verktyg för Visual Studio, Azure PowerShell och klassisk Azure-CLI. Stegen i det här dokumentet använder Data Lake verktyg för Visual Studio för att ladda upp filerna och köra exempel filen Hive-fråga.
+* Ett sätt att ladda upp exe-filer till klustret och köra gris-och Hive-jobb. Vi rekommenderar [data Lake verktyg för Visual Studio](../../data-lake-analytics/data-lake-analytics-data-lake-tools-install.md), [Azure POWERSHELL](/powershell/azure)och [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Stegen i det här dokumentet använder Data Lake verktyg för Visual Studio för att ladda upp filerna och köra exempel filen Hive-fråga.
 
-    Information om andra sätt att köra Hive-frågor och gris-jobb finns i följande dokument:
+    Information om andra sätt att köra Hive-frågor finns i [Vad är Apache Hive och HiveQL på Azure HDInsight?](hdinsight-use-hive.md).
 
-    * [Använda Apache Hive med HDInsight](hdinsight-use-hive.md)
-
-    * [Använda Apache gris med HDInsight](hdinsight-use-pig.md)
-
-* Ett Hadoop på HDInsight-kluster. Mer information om hur du skapar ett kluster finns i [skapa ett HDInsight-kluster](../hdinsight-hadoop-provision-linux-clusters.md).
+* Ett Hadoop på HDInsight-kluster. Mer information om hur du skapar ett kluster finns i [skapa HDInsight-kluster](../hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="net-on-hdinsight"></a>.NET på HDInsight
 
-* __Linux-baserade HDInsight-__ kluster med [mono (https://mono-project.com)](https://mono-project.com) att köra .NET-program. Mono version 4.2.1 ingår i HDInsight version 3,6.
+*Linux-baserade HDInsight-* kluster använder [mono (https://mono-project.com)](https://mono-project.com) för att köra .NET-program. Mono version 4.2.1 ingår i HDInsight version 3,6.
 
-    Mer information om mono-kompatibilitet med .NET Framework-versioner finns i [mono-kompatibilitet](https://www.mono-project.com/docs/about-mono/compatibility/).
-
-* __Windows-baserade HDInsight-__ kluster använder Microsoft .NET CLR för att köra .NET-program.
+Mer information om mono-kompatibilitet med .NET Framework-versioner finns i [mono-kompatibilitet](https://www.mono-project.com/docs/about-mono/compatibility/).
 
 Mer information om den version av .NET Framework och mono som ingår i HDInsight-versioner finns i versions [versioner för HDInsight](../hdinsight-component-versioning.md).
 
 ## <a name="create-the-c-projects"></a>Skapa C\#-projekt
 
+I följande avsnitt beskrivs hur du skapar ett C# projekt i Visual Studio för en Apache Hive UDF och en Apache-gris UDF.
+
 ### <a name="apache-hive-udf"></a>Apache Hive UDF
 
-1. Öppna Visual Studio och skapa en lösning. För projekt typen väljer du **konsol program (.NET Framework)** och namnger den nya Project- **HiveCSharp**.
+Skapa ett C# projekt för en Apache Hive UDF:
 
-    > [!IMPORTANT]
-    > Välj __.NET Framework 4,5__ om du använder ett Linux-baserat HDInsight-kluster. Mer information om mono-kompatibilitet med .NET Framework-versioner finns i [mono-kompatibilitet](https://www.mono-project.com/docs/about-mono/compatibility/).
+1. Öppna Visual Studio.
 
-2. Ersätt innehållet i **program.cs** med följande kod:
+2. I fönstret **Starta** väljer du **skapa ett nytt projekt**.
+
+3. I fönstret **skapa ett nytt projekt** rullar du till och väljer mallen **konsol program (.NET Framework)** ( C# versionen). Välj sedan **Nästa**.
+
+4. I fönstret **Konfigurera ditt nya projekt** anger du ett **projekt namn** för *HiveCSharp*och navigerar till eller skapar en **plats där** du vill spara det nya projektet i. Välj sedan **Skapa**.
+
+5. I Visual Studio IDE ersätter du innehållet i *program.cs* med följande kod:
 
     ```csharp
     using System;
@@ -110,13 +111,21 @@ Mer information om den version av .NET Framework och mono som ingår i HDInsight
     }
     ```
 
-3. Bygga projektet.
+6. Välj **bygge** > **build-lösning** i meny raden för att bygga projektet.
 
 ### <a name="apache-pig-udf"></a>Apache gris UDF
 
-1. Öppna Visual Studio och skapa en lösning. För projekt typen väljer du **konsol program**och namnger den nya Project- **PigUDF**.
+Skapa ett C# projekt för en Apache Hive UDF:
 
-2. Ersätt innehållet i **program.cs** -filen med följande kod:
+1. Öppna Visual Studio.
+
+2. I fönstret **Starta** väljer du **skapa ett nytt projekt**.
+
+3. I fönstret **skapa ett nytt projekt** rullar du till och väljer mallen **konsol program (.NET Framework)** ( C# versionen). Välj sedan **Nästa**.
+
+4. I fönstret **Konfigurera ditt nya projekt** anger du ett **projekt namn** för *PigUDF*och går till eller skapar en **plats där** du sparar det nya projektet i. Välj sedan **Skapa**.
+
+5. I Visual Studio IDE ersätter du innehållet i *program.cs* med följande kod:
 
     ```csharp
     using System;
@@ -149,41 +158,47 @@ Mer information om den version av .NET Framework och mono som ingår i HDInsight
 
     Den här koden analyserar de rader som skickas från gris och formaterar om rader som börjar med `java.lang.Exception`.
 
-3. Spara **program.cs**och bygg sedan projektet.
+6. Välj **bygge** > **build-lösning** i meny raden för att bygga projektet.
 
 ## <a name="upload-to-storage"></a>Ladda upp till lagring
 
-1. Öppna **Server Explorer**i Visual Studio.
+Sedan laddar du upp Hive-och gris-UDF-programmen till lagringen i ett HDInsight-kluster.
+
+1. I Visual Studio väljer du **visa** > **Server Explorer**.
 
 2. Expandera **Azure** och expandera därefter **HDInsight**.
 
-3. Om du uppmanas till det anger du dina autentiseringsuppgifter för Azure-prenumerationen och klickar sedan på **Logga**in.
+3. Om du uppmanas till det anger du dina autentiseringsuppgifter för Azure-prenumerationen och väljer sedan **Logga**in.
 
-4. Expandera det HDInsight-kluster som du vill distribuera programmet till. En post med texten __(standard lagrings kontot)__ visas.
+4. Expandera det HDInsight-kluster som du vill distribuera programmet till. En post med texten **(standard lagrings kontot)** visas.
 
-    ![Server Explorer som visar lagrings kontot för klustret](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-storage-account.png)
+    ![Standard lagrings konto, HDInsight-kluster, Server Explorer](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-storage-account.png)
 
-    * Om du kan expandera den här posten använder du ett __Azure Storage konto__ som standard lagring för klustret. Om du vill visa filerna på standard lagrings utrymmet för klustret expanderar du posten och dubbelklickar sedan på __(standard container)__ .
+    * Om du kan expandera den här posten använder du ett **Azure Storage konto** som standard lagring för klustret. Om du vill visa filerna på standard lagrings utrymmet för klustret expanderar du posten och dubbelklickar sedan på **(standard container)** .
 
-    * Om den här posten inte kan utökas använder du __Azure Data Lake Storage__ som standard lagring för klustret. Om du vill visa filerna på standard lagrings utrymmet för klustret dubbelklickar du på posten __(standard lagrings konto)__ .
+    * Om den här posten inte kan utökas använder du **Azure Data Lake Storage** som standard lagring för klustret. Om du vill visa filerna på standard lagrings utrymmet för klustret dubbelklickar du på posten **(standard lagrings konto)** .
 
-6. Använd någon av följande metoder för att ladda upp exe-filerna:
+5. Använd någon av följande metoder för att ladda upp exe-filerna:
 
-   * Om du använder ett __Azure Storage konto__klickar du på ikonen Ladda upp och bläddrar sedan till mappen **bin\debug** för **HiveCSharp** -projektet. Välj slutligen filen **HiveCSharp. exe** och klicka på **OK**.
+    * Om du använder ett **Azure Storage konto**väljer du ikonen **Ladda upp BLOB** .
 
-       ![HDInsight upload-ikon för nytt projekt](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
+        ![HDInsight upload-ikon för nytt projekt](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
+
+        Välj **Bläddra**under **fil namn**i dialog rutan **Ladda upp ny fil** . I dialog rutan **Ladda upp BLOB** går du till mappen *bin\debug* för *HiveCSharp* -projektet och väljer sedan filen *HiveCSharp. exe* . Klicka slutligen på **Öppna** och sedan på **OK** för att slutföra överföringen.
     
-   * Om du använder __Azure Data Lake Storage__högerklickar du på ett tomt utrymme i fil listan och väljer sedan __Ladda upp__. Välj slutligen filen **HiveCSharp. exe** och klicka på **Öppna**.
+    * Om du använder **Azure Data Lake Storage**högerklickar du på ett tomt utrymme i fil listan och väljer sedan **Ladda upp**. Välj slutligen filen *HiveCSharp. exe* och välj **Öppna**.
 
-     När __HiveCSharp. exe__ -överföringen är färdig upprepar du överförings processen för filen __PigUDF. exe__ .
+    När *HiveCSharp. exe* -överföringen är färdig upprepar du överförings processen för filen *PigUDF. exe* .
 
 ## <a name="run-an-apache-hive-query"></a>Köra en Apache Hive fråga
 
-1. Öppna **Server Explorer**i Visual Studio.
+Nu kan du köra en Hive-fråga som använder ditt Hive UDF-program.
+
+1. I Visual Studio väljer du **visa** > **Server Explorer**.
 
 2. Expandera **Azure** och expandera därefter **HDInsight**.
 
-3. Högerklicka på det kluster som du har distribuerat **HiveCSharp** -programmet till och välj sedan **Skriv en Hive-fråga**.
+3. Högerklicka på det kluster som du har distribuerat *HiveCSharp* -programmet till och välj sedan **Skriv en Hive-fråga**.
 
 4. Använd följande text för Hive-frågan:
 
@@ -205,56 +220,56 @@ Mer information om den version av .NET Framework och mono som ingår i HDInsight
     > [!IMPORTANT]
     > Ta bort kommentaren `add file`-instruktionen som matchar den typ av standard lagring som används för klustret.
 
-    Den här frågan väljer fälten `clientid`, `devicemake`och `devicemodel` från `hivesampletable`och skickar fälten till programmet HiveCSharp. exe. Frågan förväntar sig att programmet ska returnera tre fält, som lagras som `clientid`, `phoneLabel`och `phoneHash`. Frågan förväntar sig också att hitta HiveCSharp. exe i roten för standard lagrings behållaren.
+    Den här frågan markerar fälten `clientid`, `devicemake`och `devicemodel` från `hivesampletable`och skickar sedan fälten till programmet *HiveCSharp. exe* . Frågan förväntar sig att programmet ska returnera tre fält, som lagras som `clientid`, `phoneLabel`och `phoneHash`. Frågan förväntar sig också att hitta *HiveCSharp. exe* i roten för standard lagrings behållaren.
 
-5. Klicka på **Skicka** för att skicka jobbet till HDInsight-klustret. Fönstret **Sammanfattning av Hive-jobb** öppnas.
+5. Välj **Skicka** för att skicka jobbet till HDInsight-klustret. Fönstret **Sammanfattning av Hive-jobb** öppnas.
 
-6. Klicka på **Uppdatera** för att uppdatera sammanfattningen tills **jobbets status** ändras till **slutförd**. Klicka på **jobbets utdata**om du vill visa jobbets utdata.
+6. Välj **Uppdatera** för att uppdatera sammanfattningen tills **jobbets status** ändras till **slutförd**. Om du vill visa jobbets utdata väljer du **jobbets utdata**.
 
 ## <a name="run-an-apache-pig-job"></a>Köra ett Apache gris-jobb
 
-1. Använd SSH för att ansluta till ditt HDInsight-kluster. Till exempel `ssh sshuser@mycluster-ssh.azurehdinsight.net`. Mer information finns i [använda SSH-withHDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)
+Du kan också köra ett jobb i gris som använder ditt UDF-program för svinhållning.
 
-2. Använd något av följande kommando för att starta kommando raden för gris:
+1. Använd SSH för att ansluta till ditt HDInsight-kluster. (Du kan till exempel köra kommandot `ssh sshuser@<clustername>-ssh.azurehdinsight.net`.) Mer information finns i [använda SSH-withHDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-        pig
+2. Använd följande kommando för att starta kommando raden för gris:
 
-    > [!IMPORTANT]
-    > Om du använder ett Windows-baserat kluster använder du följande kommandon i stället:
-    > ```
-    > cd %PIG_HOME%
-    > bin\pig
-    > ```
+    ```shell
+    pig
+    ```
 
     En `grunt>`-prompt visas.
 
 3. Ange följande för att köra ett gris-jobb som använder .NET Framework-programmet:
 
-        DEFINE streamer `PigUDF.exe` CACHE('/PigUDF.exe');
-        LOGS = LOAD '/example/data/sample.log' as (LINE:chararray);
-        LOG = FILTER LOGS by LINE is not null;
-        DETAILS = STREAM LOG through streamer as (col1, col2, col3, col4, col5);
-        DUMP DETAILS;
+    ```pig
+    DEFINE streamer `PigUDF.exe` CACHE('/PigUDF.exe');
+    LOGS = LOAD '/example/data/sample.log' as (LINE:chararray);
+    LOG = FILTER LOGS by LINE is not null;
+    DETAILS = STREAM LOG through streamer as (col1, col2, col3, col4, col5);
+    DUMP DETAILS;
+    ```
 
-    `DEFINE`-instruktionen skapar ett alias för `streamer` för pigudf. exe-program och `CACHE` läser in det från standard lagrings utrymmet för klustret. Senare används `streamer` med operatorn `STREAM` för att bearbeta de enskilda raderna i LOGGen och returnera data som en serie kolumner.
+    `DEFINE`-instruktionen skapar ett alias för `streamer` för programmet *PigUDF. exe* och `CACHE` läser in det från standard lagrings utrymmet för klustret. Senare används `streamer` med operatorn `STREAM` för att bearbeta de enskilda raderna i `LOG` och returnera data som en serie med kolumner.
 
     > [!NOTE]
-    > Det program namn som används för strömning måste omges av \` (baktick)-tecknet vid alias och "(enkelt citat tecken) när det används med `SHIP`.
+    > Program namnet som används för strömning måste omges av \` (baktick)-tecknet vid alias och med tecknet "(enkelt citat tecken) när det används med `SHIP`.
 
 4. När du har angett den sista raden ska jobbet starta. Den returnerar utdata som liknar följande text:
 
-        (2012-02-03 20:11:56 SampleClass5 [WARN] problem finding id 1358451042 - java.lang.Exception)
-        (2012-02-03 20:11:56 SampleClass5 [DEBUG] detail for id 1976092771)
-        (2012-02-03 20:11:56 SampleClass5 [TRACE] verbose detail for id 1317358561)
-        (2012-02-03 20:11:56 SampleClass5 [TRACE] verbose detail for id 1737534798)
-        (2012-02-03 20:11:56 SampleClass7 [DEBUG] detail for id 1475865947)
+    ```output
+    (2019-07-15 16:43:25 SampleClass5 [WARN] problem finding id 1358451042 - java.lang.Exception)
+    (2019-07-15 16:43:25 SampleClass5 [DEBUG] detail for id 1976092771)
+    (2019-07-15 16:43:25 SampleClass5 [TRACE] verbose detail for id 1317358561)
+    (2019-07-15 16:43:25 SampleClass5 [TRACE] verbose detail for id 1737534798)
+    (2019-07-15 16:43:25 SampleClass7 [DEBUG] detail for id 1475865947)
+    ```
 
 ## <a name="next-steps"></a>Nästa steg
 
 I det här dokumentet har du lärt dig hur du använder ett .NET Framework program från Hive och gris i HDInsight. Om du vill lära dig hur du använder python med Hive och gris, se [Använd python med Apache Hive och Apache gris i HDInsight](python-udf-hdinsight.md).
 
-Andra sätt att använda gris och Hive, och lär dig mer om hur du använder MapReduce finns i följande dokument:
+Om du vill lära dig mer om hur du använder Hive och lär dig mer om hur du använder MapReduce kan du läsa följande artiklar:
 
 * [Använda Apache Hive med HDInsight](hdinsight-use-hive.md)
-* [Använda Apache gris med HDInsight](hdinsight-use-pig.md)
 * [Använda MapReduce med HDInsight](hdinsight-use-mapreduce.md)

@@ -1,6 +1,6 @@
 ---
-title: OPC-Twin-arkitektur – Azure | Microsoft Docs
-description: OPC-Twin-arkitektur
+title: OPC, dubbel arkitektur – Azure | Microsoft Docs
+description: Den här artikeln innehåller en översikt över OPCs dubbla arkitektur. Det beskriver om identifiering, aktivering, bläddring och övervakning av servern.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,33 +8,33 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 6ce9394f3d454bda5ead51f2c77a47db137a5136
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b8d4424c92ff24c36650e34a5d050bdc5f0f9091
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606182"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819856"
 ---
-# <a name="opc-twin-architecture"></a>OPC-Twin-arkitektur
+# <a name="opc-twin-architecture"></a>OPC, dubbel arkitektur
 
-Följande diagram visar OPC-Twin-arkitekturen.
+Följande diagram illustrerar OPCs dubbla arkitektur.
 
 ## <a name="discover-and-activate"></a>Identifiera och aktivera
 
-1. Operatorn aktiverar nätverk i modulen eller gör en gång identifiering med hjälp av en identifierings-URL. Identifierade slutpunkter och programinformation skickas via telemetri till onboarding-agenten för bearbetning.  OPC UA device onboarding agenten bearbetar OPC UA-servern identifiering händelser skickas från OPC Twin IoT Edge-modul i identifiering eller skanning läge. Identifiering av händelser resultatet i appregistrering och uppdateringar i enhetsregistret OPC UA.
+1. Operatorn aktiverar nätverks genomsökning i modulen eller utför en engångs identifiering med en identifierings-URL. Identifierade slut punkter och programinformation skickas via telemetri till onboarding-agenten för bearbetning.  Onboarding-agenten för OPC UA Device bearbetar OPC UA Server Discovery-händelser som skickas av den dubbla IoT Edge-modulen i identifierings-eller genomsöknings läge. Identifierings händelser resulterar i program registrering och uppdateringar i OPC UA Device-registret.
 
-   ![Så här fungerar OPC-Twin](media/overview-opc-twin-architecture/opc-twin1.png)
+   ![Hur OPCs dubbla fungerar](media/overview-opc-twin-architecture/opc-twin1.png)
 
-1. Operatorn inspekterar certifikatet för den identifierade slutpunkten och aktiverar den registrerade endpoint läsningen för åtkomst. 
+1. Operatorn kontrollerar certifikatet för den identifierade slut punkten och aktiverar den registrerade slut punkten för åtkomst. 
 
-   ![Så här fungerar OPC-Twin](media/overview-opc-twin-architecture/opc-twin2.png)
+   ![Hur OPCs dubbla fungerar](media/overview-opc-twin-architecture/opc-twin2.png)
 
 ## <a name="browse-and-monitor"></a>Bläddra och övervaka
 
-1. När aktiverat kan använda operatorn Twin service REST API Bläddra eller granska information servermodellen, Läs/Skriv objektvariabler och anropa metoder.  Användaren använder ett förenklat OPC UA API fullständigt uttrycks i HTTP och JSON.
+1. När den är aktive rad kan operatören använda den dubbla tjänst REST API för att bläddra i eller granska Server informations modellen, läsa/skriva-objektvariabler och anropa metoder.  Användaren använder ett förenklat OPC UA API som uttrycks fullständigt i HTTP och JSON.
 
-   ![Så här fungerar OPC-Twin](media/overview-opc-twin-architecture/opc-twin3.png)
+   ![Hur OPCs dubbla fungerar](media/overview-opc-twin-architecture/opc-twin3.png)
 
-1. Twin service REST-gränssnittet kan också användas för att skapa övervakade objekt och prenumerationer i OPC-utgivaren. OPC Publisher kan telemetri skickas från OPC UA-serversystem till IoT Hub. Mer information om OPC Publisher finns i [vad är OPC Publisher](overview-opc-publisher.md).
+1. Det dubbla tjänst REST-gränssnittet kan också användas för att skapa övervakade objekt och prenumerationer i OPC-utgivaren. OPC-utgivaren tillåter att telemetri skickas från OPC UA server-system till IoT Hub. Mer information om OPC-utgivare finns i [Vad är OPC Publisher](overview-opc-publisher.md).
 
-   ![Så här fungerar OPC-Twin](media/overview-opc-twin-architecture/opc-twin4.png)
+   ![Hur OPCs dubbla fungerar](media/overview-opc-twin-architecture/opc-twin4.png)

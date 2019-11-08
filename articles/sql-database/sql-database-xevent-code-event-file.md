@@ -1,5 +1,5 @@
 ---
-title: XEvent-händelseloggen för SQL Database
+title: Fil kod för XEvent-händelse
 description: Tillhandahåller PowerShell och Transact-SQL för kod exempel i två faser som visar händelse fil målet i en utökad händelse på Azure SQL Database. Azure Storage är en obligatorisk del av det här scenariot.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 03/12/2019
-ms.openlocfilehash: ea5c90433a4d2928e5fb88df149631c80df9dacf
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3b1e8881b2e2004a94064e472690ee40414ea02d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686830"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822385"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Mål kod för händelse filen för utökade händelser i SQL Database
 
@@ -463,7 +463,7 @@ GO
 
 ## <a name="output"></a>Resultat
 
-När Transact-SQL-skriptet är klart klickar du på en cell under kolumn rubriken **event_data_XML** . Ett **\<event >** -element visas som visar en Update-instruktion.
+När Transact-SQL-skriptet är klart klickar du på en cell under **event_data_XML** kolumn rubriken. Ett **\<event >** -element visas som visar en Update-instruktion.
 
 Här är ett **\<event >** -element som genererades under testning:
 

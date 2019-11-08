@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: mlearned
-ms.openlocfilehash: 558c04be77f911f40be9e8880950d1670a3c169e
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
-ms.translationtype: HT
+ms.openlocfilehash: aa0cf1ef3f758d7aba4639d779bde90249d039cb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747744"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815675"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Säker åtkomst till API-servern med behöriga IP-adressintervall i Azure Kubernetes service (AKS)
 
@@ -25,17 +25,9 @@ Den här artikeln visar hur du använder tillåtna IP-adressintervall för API-S
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln förutsätter att du arbetar med kluster som använder [Kubernetes][kubenet].  Med [Azure Container Networking Interface (cni)][cni-networking] -baserade kluster, kommer du inte att ha den nödvändiga routningstabellen som krävs för att skydda åtkomsten.  Du måste skapa routningstabellen manuellt.  Mer information om hur du hanterar routningstabeller finns i [skapa, ändra eller ta bort en][route-tables]routningstabell.
-
 API-serverns auktoriserade IP-intervall fungerar bara för nya AKS-kluster som du skapar. Den här artikeln visar hur du skapar ett AKS-kluster med hjälp av Azure CLI.
 
 Du behöver Azure CLI-versionen 2.0.76 eller senare installerad och konfigurerad. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
-
-## <a name="limitations"></a>Begränsningar
-
-Följande begränsningar gäller när du konfigurerar tillåtna IP-intervall för API-servern:
-
-* Du kan för närvarande inte använda Azure dev Spaces eftersom kommunikationen med API-servern också är blockerad.
 
 ## <a name="overview-of-api-server-authorized-ip-ranges"></a>Översikt över tillåtna IP-intervall för API-Server
 
@@ -69,6 +61,7 @@ az aks create \
 > Du bör lägga till dessa intervall i en lista över tillåtna:
 > - Brand väggens offentliga IP-adress
 > - Alla intervall som representerar nätverk som du ska administrera klustret från
+> - Om du använder Azure dev Spaces i ditt AKS-kluster måste du tillåta [ytterligare intervall baserat på din region][dev-spaces-ranges].
 
 ### <a name="specify-the-outbound-ips-for-the-standard-sku-load-balancer"></a>Ange utgående IP-adresser för belastningsutjämnaren för standard-SKU
 
@@ -141,6 +134,7 @@ Mer information finns i [säkerhets begrepp för program och kluster i AKS][conc
 
 <!-- LINKS - external -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
+[dev-spaces-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
 [kubenet]: https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
 
 <!-- LINKS - internal -->

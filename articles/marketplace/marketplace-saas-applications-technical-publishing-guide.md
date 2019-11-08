@@ -4,19 +4,20 @@ description: Steg-för-steg-guide och publicera check listor för publicering av
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
 author: keithcharlie
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: kevidal
-ms.openlocfilehash: f9ff6e19a0f0091cb5b831279eee90727bbb89fd
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: c213bbcb3c7859aa4718916aafab970b3ffd4613
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742262"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813033"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Publicerings guide för SaaS-program
 
-SaaS-program kan publiceras på Marketplace med tre olika anrop till åtgärden: "Kontakta mig", prova nu, "och" Hämta det nu. " Den här guiden förklarar dessa tre alternativ, inklusive krav för var och en. 
+SaaS-program kan publiceras på Marketplace med tre olika anrop till åtgärd: "kontakta mig", prova nu, "och" Hämta det nu. " Den här guiden förklarar dessa tre alternativ, inklusive krav för var och en. 
 
 ## <a name="offer-overview"></a>Erbjudande översikt  
 
@@ -27,7 +28,7 @@ SaaS-program finns i både Azure butiker i följande tabell beskrivs aktuella ti
 | AppSource | Ja (kontakta mig) | Ja (PowerBI/Dynamics) |
 | Azure Marketplace | Nej | Ja (SaaS-appar) |   
 
-**Lista**  Publicerings alternativet för listan består av en kontakt mig erbjudande typ och används när det inte är möjligt att delta i en utvärderings-eller transaktions nivå. Fördelen med den här metoden är att den gör det möjligt för utgivare med en lösning på marknaden att omedelbart börja ta emot leads som kan inaktive ras i avtal för att öka din verksamhet.  
+**Lista:**  Publicerings alternativet för listan består av en kontakt mig erbjudande typ och används när det inte är möjligt att delta i en utvärderings-eller transaktions nivå. Fördelen med den här metoden är att den gör det möjligt för utgivare med en lösning på marknaden att omedelbart börja ta emot leads som kan inaktive ras i avtal för att öka din verksamhet.  
 **Utvärderings version/transaktion:**  Kunden har möjlighet att köpa eller begära en utvärdering av din lösning direkt. Att tillhandahålla en utvärderings version ökar den engagemang nivån som kunderna erbjuder och gör det möjligt för kunderna att utforska din lösning innan de köper. Med en utvärderings version får du bättre möjligheter till befordran i butiker, och du bör förvänta dig mer och rikare leads från kund engagemang. Test versioner måste innehålla kostnads fri support under minst under utvärderings periodens varaktighet.  
 
 | Erbjudande för SaaS-appar | Affärskrav | Tekniska krav |  
@@ -94,7 +95,7 @@ Dessutom tillhandahåller Azure Active Directory en plats för att söka efter t
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Aktivera försök med hjälp av Azure Active Directory  
 
-Microsoft autentiserar alla Marketplace-användare med Azure AD, så när en autentiserad användare klickar på din utvärderings lista på Marketplace och omdirigeras till din utvärderings miljö kan du etablera användaren direkt i en utvärderings version utan att behöva ytterligare inloggnings steg. Den token som din app tar emot från Azure AD under autentiseringen innehåller värdefull användar information som du kan använda för att skapa ett användar konto i din app, så att du kan automatisera etablerings upplevelsen och öka sannolikheten för konvertering. Mer information om token finns i [exempel](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) -token.
+Microsoft autentiserar alla Marketplace-användare med Azure AD, så när en autentiserad användare klickar på din utvärderings lista på Marketplace och omdirigeras till din utvärderings miljö kan du etablera användaren direkt i en utvärderings version utan att behöva ytterligare inloggnings steg. Den token som din app tar emot från Azure AD under autentiseringen innehåller värdefull användar information som du kan använda för att skapa ett användar konto i din app, så att du kan automatisera etablerings upplevelsen och öka sannolikheten för konvertering. Mer information om token finns i [exempel-token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
 
 Använd Azure AD för att aktivera 1-Klicka på autentisering till din app eller utvärdering gör följande:  
 * Effektiviserar kund upplevelsen från Marketplace till utvärderings version.  

@@ -4,15 +4,16 @@ description: En översikt över olika avsnitt om publicering av erbjudanden och 
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: pabutler
-ms.openlocfilehash: a89921d4b5ec25bc0c924646d3bd41aecf3e8d9c
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 047ffd983cecd9f9bd971ee3f97e15734d14ce66
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67870928"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813280"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Lead-hantering för Cloud Marketplace
 
@@ -32,15 +33,15 @@ För att komma igång med leads, är lead management Connector på Cloud Partner
 
 Här följer stegvisa instruktioner om hur du ansluter vart och ett av de möjliga mål målen:
 
-**Dynamics CRM Online** - [Klicka här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) för att få anvisningar om hur du konfigurerar Dynamics CRM Online för att få leads.
+**Dynamics CRM online** - [Klicka här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) för att få anvisningar om hur du konfigurerar Dynamics CRM Online för att få leads.
 
-**Marketo**Klicka här för att få anvisningar om hur du konfigurerar Marketo-ledar konfiguration för att hämta leads.[](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo)  - 
+**Marketo** - [Klicka här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) för att få anvisningar om hur du konfigurerar Marketo-ledar konfiguration för att hämta leads.
 
-Salesforce - [Klicka här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) för att få anvisningar om hur du konfigurerar din Salesforce-instans för att hämta leads.
+**Salesforce** - [Klicka här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) för att få anvisningar om hur du konfigurerar din Salesforce-instans för att hämta leads.
 
-**Azure-tabell** – [Klicka här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) för att få anvisningar om hur du konfigurerar ditt Azure Storage-konto för att hämta leads i en Azure-tabell.
+**Azure tabell** - [Klicka här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) för att få instruktioner om hur du konfigurerar ditt Azure Storage-konto för att hämta leads i en Azure-tabell.
 
-**Https-slutpunkt** – [Klicka här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) för att få anvisningar om hur du konfigurerar din HTTPS-slutpunkt för att hämta leads.
+**Https-slutpunkt** - [Klicka här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) för att få anvisningar om hur du konfigurerar din HTTPS-slutpunkt för att hämta leads.
 
 När du har konfigurerat ditt lead-mål och har publicerat publicera på ditt erbjudande, kommer vi att validera anslutningen och skicka ett test lead. När du visar erbjudandet innan du går live kan du också testa din lead-anslutning genom att försöka skaffa erbjudandet själv i för hands versionen. Det är viktigt att se till att dina lead-inställningar hålls uppdaterade så att du inte förlorar några leads, så se till att du uppdaterar anslutningarna när något har ändrats i slutet.
 
@@ -53,7 +54,7 @@ När den tekniska inställningen är på plats bör du inkludera dessa leads i d
 
 ## <a name="common-lead-configuration-errors-during-publishing-on-cloud-partner-portal"></a>Vanliga fel vid lead-konfiguration under publicering på Cloud Partner Portal 
 
-**Det gick inte att spara leadet i Dynamics CRM. Kontrol lera konto inställningarna för Dynamics CRM. LastCRMError: Det går inte att logga in på Dynamics CRM, LastCRMException:** 
+**Det gick inte att spara leadet i Dynamics CRM. Kontrol lera konto inställningarna för Dynamics CRM. LastCRMError: det går inte att logga in på Dynamics CRM, LastCRMException:** 
 
 > Om du valde O365-autentisering kontrollerar du om användar kontot och lösen ordet är giltigt. Om AAD valdes kontrollerar du om klient-ID, program-ID och program hemlig nyckel matchar vad som har kon figurer ATS i AAD. Följ instruktionerna [här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics). Om kontots användar namn/lösen ord är giltigt kontrollerar du att det har åtkomst till Dynamics 365 och har en tilldelad licens (steg 11-15 om du använder Azure Active Directory eller säkerhets inställningar om du använder en Office-användare). 
 
@@ -62,27 +63,27 @@ När den tekniska inställningen är på plats bör du inkludera dessa leads i d
 
 > Programmet/användaren saknar säkerhets roll (er) för att Microsoft Marketplace ledar skrivare. Följ steg 11-15 om du använder Azure Active Directory eller säkerhets inställningar om du använder en Office-användare [här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics).
 
-**Det gick inte att spara leadet i Dynamics CRM med AAD. Undantag:: Klienten kunde inte hittas. Den här instansen kan inträffa om det inte finns några aktiva prenumerationer för klienten.**  
+**Det gick inte att spara leadet i Dynamics CRM med AAD. Undantag:: klienten hittades inte. Den här instansen kan inträffa om det inte finns några aktiva prenumerationer för klienten.**  
 
 > Katalog-ID: t i avsnittet om lead management är inte en giltig katalog. Hämta katalog-ID: t baserat på anvisningarna i steg 2 (under Azure Active Directory [, härifrån](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) 
 
 **Det gick inte att spara leadet i Dynamics CRM. LastCRMError: SecLib:: RetrievePrivilegeForUser misslyckades-inga roller har tilldelats till användaren.**  
 
-> Lösning: Tilldela en säkerhets roll till Microsoft Marketplace ledar skrivare. Följ anvisningarna [här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) under säkerhets inställningar 
+> Lösning: tilldela en säkerhets roll till Microsoft Marketplace ledar skrivare. Följ anvisningarna [här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) under säkerhets inställningar 
 
-**Det gick inte att spara leadet i Dynamics CRM med AAD. Undantag:: Det gick inte att hitta programmet med identifieraren i katalogen** 
+**Det gick inte att spara leadet i Dynamics CRM med AAD. Undantag:: det gick inte att hitta programmet med identifieraren i katalogen** 
 
 > Det program-ID som angavs i lead management-avsnittet är inte en giltig katalog. Hämta katalog-ID: t baserat på anvisningarna i steg 8 (under Azure Active Directory [härifrån](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
-**Det gick inte att spara leadet i Dynamics CRM med AAD. Undantag:: Den begärda klient identifieraren är inte giltig och ogiltigt format för extern domän** 
+**Det gick inte att spara leadet i Dynamics CRM med AAD. Undantag:: begärd klient-ID är inte giltigt och ogiltigt format för extern domän** 
 
 > Katalog-ID: t i avsnittet om lead management är inte en giltig katalog. Hämta katalog-ID: t baserat på instruktionerna i steg 2 (under Azure Active Directory, härifrån [).](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) 
 
-**Det gick inte att spara leadet i Dynamics CRM med AAD. Undantag:: Fel vid verifiering av autentiseringsuppgifter.: Ogiltig klient hemlighet har angetts.** 
+**Det gick inte att spara leadet i Dynamics CRM med AAD. Undantag:: fel vid verifiering av autentiseringsuppgifter.: ogiltig klient hemlighet har angetts.** 
 
-> Lösning: Logga in på Azure Portal och kontrol lera att program nyckeln matchar det som finns i Cloud Partner Portal. Skapa lösen ord baserat på instruktionen i steg 10 (under Azure Active Directory) [, härifrån.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) 
+> Lösning: Logga in på Azure-portalen och kontrol lera att program nyckeln matchar det som finns i Cloud Partner Portal. Skapa lösen ord baserat på instruktionen i steg 10 (under [Azure Active Directory), härifrån.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) 
 
-**Det gick inte att spara leadet i Dynamics CRM. LastCRMError: Tids gränsen nåddes för begär ande kanalen i väntan på ett svar efter 00:02:00. Öka timeout-värdet som skickas till anropet till begäran eller öka SendTimeout-värdet för bindningen. Den tid som tilldelats den här åtgärden kan ha varit en del av en längre tids gräns.**  
+**Det gick inte att spara leadet i Dynamics CRM. LastCRMError: begär ande kanalen nådde tids gränsen i väntan på ett svar efter 00:02:00. Öka timeout-värdet som skickas till anropet till begäran eller öka SendTimeout-värdet för bindningen. Den tid som tilldelats den här åtgärden kan ha varit en del av en längre tids gräns.**  
 
 > Lösning: Logga in på Cloud Partner Portal, kontrol lera butik information > > lead destination > > URL, kontrol lera om det är en giltig dynamisk CRM-instans
 
@@ -95,7 +96,7 @@ Leads är kunder som distribuerar dina produkter från Marketplace. Oavsett om p
 
 **Var kan jag få hjälp med att ställa in mitt lead-mål?** 
 
-Här kan du hitta dokumentation: [Hämta kund leads](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) eller skicka in ett support ärende via aka.MS/marketplacepublishersupport Välj erbjudande typ och ledar hantering. 
+Du hittar dokumentation här: [Hämta kund leads](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) eller skicka in ett support ärende via aka.MS/marketplacepublishersupport Välj erbjudande typ och ledar hantering. 
 
 
 
@@ -115,13 +116,13 @@ Publicera ditt erbjudande när du har konfigurerat ditt erbjudande och lead-mål
 
 Sök efter "MSFT_TEST" i ditt lead-mål, här är ett exempel på lead-test data: 
 
-company = MSFT_TEST_636573304831318844 
+företag = MSFT_TEST_636573304831318844 
 
 land = US 
 
-description = MSFT_TEST_636573304831318844 
+Beskrivning = MSFT_TEST_636573304831318844 
 
-e-post =MSFT_TEST_636573304831318844@test.com
+e-post = MSFT_TEST_636573304831318844@test.com
 
 Encoding = UTF-8 
 
@@ -129,9 +130,9 @@ Encoding = UTF-8
 
 first_name = MSFT_TEST_636573304831318844 
 
-Last_Name = MSFT_TEST_636573304831318844 
+last_name = MSFT_TEST_636573304831318844 
 
-lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844 | \<Namn på erbjudande > 
+lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844 | Namn på\<erbjudande > 
 
 OID = 00Do0000000ZHog 
 
@@ -143,32 +144,32 @@ title = MSFT_TEST_636573304831318844
 
 **Jag har ett Live-erbjudande, men jag ser inte några leads?**
 
-Varje lead har data som skickas i fält i ditt valda mål för lead, leads visas i följande format: **Källa-åtgärd | Styrelse** 
+Varje lead har data som skickas i fält i ditt valda mål för lead, leads visas i följande format: **käll åtgärd | Erbjudande** 
 
   *Ursprung*
 
-    “AzureMarketplace”, 
-    “AzurePortal”, 
-    “TestDrive”,  
-    “SPZA” (acronym for AppSource) 
+    "AzureMarketplace", 
+    "AzurePortal", 
+    "TestDrive",  
+    "SPZA" (acronym for AppSource) 
 
   *Action*
 
-    “INS” – Stands for Installation. This is on Azure Marketplace or AppSource whenever a customer hits the button to acquire your product. 
-    “PLT” – Stands for Partner Led Trial. This is on AppSource whenever a customer hits the Contact me button. 
+    "INS" - Stands for Installation. This is on Azure Marketplace or AppSource whenever a customer hits the button to acquire your product. 
+    "PLT" - Stands for Partner Led Trial. This is on AppSource whenever a customer hits the Contact me button. 
 
-    “DNC” – Stands for Do Not Contact. This is on AppSource whenever a Partner who was cross listed on your app page gets requested to be contacted. We are sharing the heads up that this customer was cross listed on your app, but they do not need to be contacted. 
+    "DNC" - Stands for Do Not Contact. This is on AppSource whenever a Partner who was cross listed on your app page gets requested to be contacted. We are sharing the heads up that this customer was cross listed on your app, but they do not need to be contacted. 
 
-    “Create” – This is inside Azure Portal only and is whenever a customer purchases your offer to their account. 
+    "Create" - This is inside Azure Portal only and is whenever a customer purchases your offer to their account. 
 
-    “StartTestDrive” – This is for Test Drives only and is whenever a customer starts their test drive. 
+    "StartTestDrive" - This is for Test Drives only and is whenever a customer starts their test drive. 
 
 
   *Budgivning*
 
-    “checkpoint.check-point-r77-10sg-byol”, 
-    “bitnami.openedxcypress”, 
-    “docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a” 
+    "checkpoint.check-point-r77-10sg-byol", 
+    "bitnami.openedxcypress", 
+    "docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a" 
 
  
 

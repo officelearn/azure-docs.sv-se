@@ -1,5 +1,5 @@
 ---
-title: Automatisering av Azure SQL-jobb
+title: Jobbautomation
 description: Använda jobbautomatisering för att köra Transact-SQL-skript (T-SQL) över en uppsättning med en eller flera Azure SQL-databaser
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 01/25/2019
-ms.openlocfilehash: bbef299271618dc672daea17249f29866e75c430
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c2548bb4537d17a3dab94d5476c743e2a70faad0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689668"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810097"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatisera hanteringsuppgifter med hjälp av databasjobb
 

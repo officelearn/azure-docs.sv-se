@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: 6887430cad06ad33434f0f01e741979014b4558b
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: f8644a2aa989b7013cbbd64e8a8194bc08f40251
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219566"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813106"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Konto migrering från Cloud Partner Portal till Partner Center
 
@@ -35,9 +36,9 @@ Klicka på banderollen för att starta processen för migrering av konto. Du fö
 
 1. E-postadress till arbetet: <br> <br> I de flesta fall loggar du in med den e-postadress som du använder för att logga in på CPP. I vissa fall måste en annan e-postadress användas:
 
-    * Microsoft-konto: Om kontot CPP är ett Microsoft-konto anger du ett giltigt arbets-e-postmeddelande som är associerat med den klient som Microsoft Partner Network (MPN) ID är registrerat för. Mer information finns i [Registrera dig för Microsoft Partner Network-programmet](#sign-up-for-microsoft-partner-network-program).
+    * Microsoft-konto: om kontot CPP är ett Microsoft-konto anger du ett giltigt arbets-e-postmeddelande som är associerat med den klient som Microsoft Partner Network (MPN) ID är registrerat för. Mer information finns i [Registrera dig för Microsoft Partner Network-programmet](#sign-up-for-microsoft-partner-network-program).
 
-    * Klient matchnings fel: Om din e-postadress för arbetet inte tillhör den klient som är associerad med det Microsoft Partner Network-ID som finns på ditt CPP-konto visas ett fel meddelande. Om du vill flytta förbi det här felet anger du en e-postadress som är kopplad till klienten. Ett fel meddelande anger namnet på klienten.
+    * Klient matchnings fel: om din e-postadress inte tillhör den klient som är associerad med Microsoft Partner Network-ID som finns på ditt CPP-konto visas ett fel meddelande. Om du vill flytta förbi det här felet anger du en e-postadress som är kopplad till klienten. Ett fel meddelande anger namnet på klienten.
 
 2. Registrera dig för Microsoft Partner Network program
 

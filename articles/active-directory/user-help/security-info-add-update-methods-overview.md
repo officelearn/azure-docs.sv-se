@@ -1,6 +1,6 @@
 ---
-title: Översikt över hur du ändrar säkerhets information (för hands version) metoder och information – Azure Active Directory | Microsoft Docs
-description: Översikt över hur du lägger till, uppdaterar och tar bort dina säkerhets metoder för tvåstegsverifiering och lösen ords återställning via självbetjäning.
+title: Översikt över att ändra din säkerhets information (för hands version) – Azure AD
+description: Länkar till artiklar om hur du lägger till, uppdaterar och tar bort säkerhets informations metoder för tvåstegsverifiering och lösen ords återställning via självbetjäning.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bcef64c8bf8c2b52e5cc5d954de933d830ba4c1
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 3b781cd30bc5f63199ef9bff45670fa618e2ca17
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382885"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803829"
 ---
 # <a name="overview-about-changing-your-security-info-preview-methods-and-information"></a>Översikt över hur du ändrar metoder och information för din säkerhetsinformation (förhandsversion)
 

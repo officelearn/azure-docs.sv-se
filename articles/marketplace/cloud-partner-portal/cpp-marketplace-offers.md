@@ -4,15 +4,16 @@ description: Skapa och hantera erbjudanden för Azure-och AppSource-marknadsplat
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: pabutler
-ms.openlocfilehash: 746b1b51d593b21bdf85bca4eeb75c135196093a
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: f1e561e84daed6c24ca0d9b7832af3d975082e25
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962858"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818765"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Azure-och AppSource Marketplace-erbjudanden
 
@@ -32,9 +33,9 @@ Mer information om dessa marknads platser finns i [publicerings guiden för Azur
 Processen för att skapa ett nytt erbjudande varierar kraftigt mellan erbjudande typer, till exempel mellan ett [erbjudande för Azure-program](./azure-applications/cpp-azure-app-offer.md) och ett [konsult tjänst erbjudande](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md).  Dessutom är många av de andra åtgärderna som du utför i ett erbjudande i [Cloud Partner Portal](https://cloudpartner.azure.com) ganska standardiserade över erbjudande typer.  Dessa vanliga åtgärder – till exempel publicera, Visa status, uppdatera och ta bort – beskrivs i avsnittet [Hantera erbjudanden](./manage-offers/cpp-manage-offers.md)
 
 
-## <a name="test-drive"></a>Provkörning
+## <a name="test-drive"></a>Test Drive
 
-*Test Drive* är en Marketplace-funktion som ger kunderna "prova innan du köper" demonstrations alternativ för varje erbjudande som är aktiverat.  Test enhets kapaciteten är begränsad till följande delmängd av erbjudande typerna: [Azure-program](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 för kund engagemang](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 för ekonomi och drift](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [SaaS-program](./saas-app/cpp-saas-offer.md)och [virtuella datorer](./virtual-machine/cpp-virtual-machine-offer.md).  Den här funktionen kräver att utgivaren skapar en mall för en testenhet som är anpassad för erbjudandet.  Mer information finns i avsnittet [Test Drive](./test-drive/what-is-test-drive.md).
+*Test Drive* är en Marketplace-funktion som ger kunderna "prova innan du köper" demonstrations alternativ för varje erbjudande som är aktiverat.  Test enhets kapaciteten är begränsad till följande delmängd av erbjudande typer: [Azure-program](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 för kund engagemang](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 för finanser och drift](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [SaaS program](./saas-app/cpp-saas-offer.md)och [virtuella datorer](./virtual-machine/cpp-virtual-machine-offer.md).  Den här funktionen kräver att utgivaren skapar en mall för en testenhet som är anpassad för erbjudandet.  Mer information finns i avsnittet [Test Drive](./test-drive/what-is-test-drive.md).
 
 Du kan söka i befintliga Marketplace-erbjudanden som har test enhets demonstrationer genom att använda [filtret test enhet](https://azuremarketplace.microsoft.com/marketplace/apps?filters=test-drive). 
 
@@ -47,7 +48,7 @@ I följande tabell visas de aktuella erbjudande typerna som stöds av [Cloud Par
 |                ----------                |  -----------  |   -----------                                                           |
 | [Azure-program](./azure-applications/cpp-azure-app-offer.md) | Azure | Lösningen består av en eller flera virtuella datorer (VM), valfri anpassad Azure-kod som distribueras via en Azure Resource Manager-mall.  Distributionen kan antingen vara kunden via en lösnings mall eller hanteras av utgivaren. Den här typen används för att ge mer flexibilitet än den angivna typen av erbjudande för virtuella datorer.  |
 | [Konsult tjänst](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md) | dubbelrikta | Microsoft-kvalificerade konsulter kan lista sina företagsspecifika tjänster på antingen Azure Marketplace eller AppSource.  Deras expertis hjälper kunder att bedöma sina problem och skapa och distribuera rätt lösningar för att uppfylla sina affärs mål.  |
-| [Behållare](./containers/cpp-containers-offer.md)  | Azure | Lösningen är en Docker-behållar avbildning etablerad som antingen en Kubernetes tjänst eller Azure Container instances. |
+| [Fönster](./containers/cpp-containers-offer.md)  | Azure | Lösningen är en Docker-behållar avbildning etablerad som antingen en Kubernetes tjänst eller Azure Container instances. |
 | [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md) | AppSource | Ett paket som utökar den här företags resurs planeringen (ERP) och företags hanterings systemet. |
 | [Dynamics 365 för kund engagemang](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Ett paket som utökar detta CRM-system (Customer Resource Management) med hjälp av modulerna Sales, service, Project service och Field service  |
 | [Dynamics 365 för finanser och åtgärder](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Ett paket som utökar den här ERP-tjänsten (Enterprise Resource Planning) som har stöd för avancerad finans-, drift-, tillverknings-och leverans kedjas hantering |

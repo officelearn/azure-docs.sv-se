@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 437d1e13bfb0831bb3ece26f761cef4f5e2e0c6f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d8f65bef669e21af96ffe86319602ca5d1eea2c1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73676993"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822721"
 ---
 # <a name="managed-identity-for-data-factory"></a>Hanterad identitet för Data Factory
 
@@ -26,7 +26,7 @@ Den här artikeln hjälper dig att förstå vad som är hanterad identitet för 
 
 ## <a name="overview"></a>Översikt
 
-När du skapar en data fabrik kan du skapa en hanterad identitet tillsammans med fabriks skapande. Den hanterade identiteten är ett hanterat program som är registrerat i Azure Activity Directory och representerar den specifika data fabriken.
+När du skapar en data fabrik kan du skapa en hanterad identitet tillsammans med fabriks skapande. Den hanterade identiteten är ett hanterat program som är registrerat för Azure Active Directory och representerar den specifika data fabriken.
 
 Hanterad identitet för Data Factory fördelar följande funktioner:
 
@@ -136,7 +136,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 
 ### <a name="generate-managed-identity-using-sdk"></a>Generera hanterad identitet med hjälp av SDK
 
-Anropa Data Factory create_or_update-funktionen med Identity = New FactoryIdentity (). Exempel kod med .NET:
+Anropa Data Factory-create_or_update funktionen med identitet = New FactoryIdentity (). Exempel kod med .NET:
 
 ```csharp
 Factory dataFactory = new Factory

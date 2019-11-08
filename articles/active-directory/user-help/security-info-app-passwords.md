@@ -1,5 +1,5 @@
 ---
-title: Konfigurera applösenord från sidan säkerhets information (för hands version) – Azure Active Directory | Microsoft Docs
+title: Skapa applösenord i säkerhets information (för hands version) – Azure AD
 description: Konfigurera automatiskt genererade lösen ord (applösenord) som ska användas med appar som inte är webbläsarbaserade eller appar som inte stöder tvåstegsverifiering, i din organisation. Det här applösenord är skilt från ett vanligt lösen ord och kan konfigureras från sidan säkerhets information.
 services: active-directory
 author: eross-msft
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9638893c707757cb520acdf18e8e89a6cdf13f08
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: eb26d90772fc9e3e3e506946363c76cf02e6b2ef
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915979"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820328"
 ---
-# <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Hantera applösenord från sidan säkerhets information (förhands granskning)
+# <a name="create-app-passwords-from-your-security-info-preview-page"></a>Skapa applösenord från sidan säkerhets information (förhands granskning)
 
 Vissa appar, till exempel Outlook 2010, stöder inte tvåstegsverifiering. Detta saknar stöd innebär att om du använder tvåstegsverifiering i din organisation fungerar inte appen. För att komma runt det här problemet kan du skapa ett automatiskt genererat lösen ord som ska användas med varje annan app än en webbläsare, separat från ditt normala lösen ord.
 
@@ -46,7 +46,7 @@ Om du använder tvåstegsverifiering med ditt arbets-eller skol konto och din ad
 
 ### <a name="to-create-a-new-app-password"></a>Skapa ett nytt applösenord
 
-1. Logga in på ditt arbets-eller skol konto och gå sedan till https://myprofile.microsoft.com/ din sida.
+1. Logga in på ditt arbets-eller skol konto och gå sedan till din https://myprofile.microsoft.com/ sida.
 
     ![Sidan min profil, som visar markerade länkar för säkerhets information](media/security-info/securityinfo-myprofile-page.png)
 

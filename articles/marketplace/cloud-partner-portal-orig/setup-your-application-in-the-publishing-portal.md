@@ -1,190 +1,191 @@
 ---
-title: Konfigurera programmet i Publiceringsportalen
-description: Anvisningarna i hur du ställer in ditt program i molnet Publiceringsportalen.
+title: Konfigurera ditt program i publicerings portalen
+description: Instruktioner i så här konfigurerar du ditt program i moln publicerings portalen.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Ricardo.Villalobos
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 6da80bd3b5fe487a44400f4f3c21e8fa49da75d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1bf89f94d91e0d809428cf8098db0fb37afdb47a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943569"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73814684"
 ---
-# <a name="setup-your-application-in-the-publishing-portal"></a>Konfigurera programmet i Publiceringsportalen
+# <a name="setup-your-application-in-the-publishing-portal"></a>Konfigurera ditt program i publicerings portalen
 
-Du är nu redo att konfigurera ditt program i publiceringsportalen.
+Du är nu redo att konfigurera ditt program i publicerings portalen.
 
 ## <a name="login-and-create-a-new-offer"></a>Logga in och skapa ett nytt erbjudande
 
-1. Logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com/).
-2. I det vänstra navigeringsfältet, klicka på ”+ New erbjuder” och Välj ”Dynamics 365 för kundengagemang”.
+1. Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/).
+2. Klicka på "+ nytt erbjudande" i det vänstra navigerings fältet och välj "Dynamics 365 för kund engagemang".
 
-![Att välja ett nytt erbjudande](./media/CRMScreenShot14.png)
+![Välja ett nytt erbjudande](./media/CRMScreenShot14.png)
 
-1. Ett nytt erbjudande ”Editor” Visa nu öppnas för dig och vi är redo att börja redigera.
+1. Nu öppnas en ny "redaktör"-vy för dig och vi är redo att börja redigera.
 
-![Ny erbjudandet skärm](./media/CRMScreenShot15.png)
+![Fönstret ny erbjudande](./media/CRMScreenShot15.png)
 
-1. ”Formulären” som måste fyllas i visas till vänster i vyn ”Editor”. Varje ”form” består av en uppsättning fält som ska fyllas i. Obligatoriskt fält är markerade med en röd asterisk (\*).
+1. De "Forms" som måste fyllas i visas till vänster i vyn "redaktör". Varje "form" består av en uppsättning fält som ska fyllas i. Obligatoriska fält markeras med en röd asterisk (\*).
 
-Det finns fyra huvudsakliga formulär för att skapa en Dynamics 365 för kundengagemang erbjudande
+Det finns fyra huvud formulär för att redigera ett Dynamics 365 för kund engagemang-erbjudande
 
-* Erbjudandeinställningar
+* Erbjudande inställningar
 * Teknisk information
-* Storefront information
+* Butik-information
 * Contacts
 
-## <a name="fill-out-the-offer-settings-form"></a>Fyll i formuläret erbjuder inställningar
+## <a name="fill-out-the-offer-settings-form"></a>Fyll i formuläret för erbjudande inställningar
 
-Erbjudandet inställningar formuläret är en grundläggande och ange inställningar för erbjudandet. Olika fält beskrivs nedan.
+Formuläret erbjudande inställningar är ett grundläggande formulär där du kan ange erbjudande inställningarna. De olika fälten beskrivs nedan.
 
 ### <a name="offer-id"></a>Erbjudande-ID
 
-Det här är en unik identifierare för erbjudandet i en utgivarprofil för. Detta ID syns i URL: er i produkten. Det får bara innehålla gemena alfanumeriska tecken och bindestreck (-). ID: T får inte sluta med ett bindestreck och kan ha högst 50 tecken. Det här fältet är låst när ett erbjudande lanseras.
+Detta är en unik identifierare för erbjudandet i en utgivar profil. Detta ID visas i produkt-URL: er. Det får bara innehålla gemena alfanumeriska tecken och bindestreck (-). ID: t får inte sluta med ett bindestreck och får innehålla högst 50 tecken. Det här fältet är låst när ett erbjudande går live.
 
-Exempel: om en utgivare **”contoso”** utgivare skapar ett erbjudande med erbjudande-ID **”exempel WebApp”** , den visas i AppSource som ”https:\//appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview”
+till exempel, om en utgivares **"contoso"** -utgivare skapar ett erbjudande med erbjudande-ID **"Sample-webapp"** , visas det i AppSource som "https:\//appsource.Microsoft.com/Marketplace/Apps/contoso.Sample-webapp?Tab=Overview"
 
 ### <a name="publisher-id"></a>Utgivar-ID
 
-Den här listrutan kan du välja publisher-profil som du vill publicera det här erbjudandet under. Det här fältet är låst när ett erbjudande lanseras.
+I den här List rutan kan du välja den utgivar profil som du vill publicera det här erbjudandet under. Det här fältet är låst när ett erbjudande går live.
 
 ### <a name="name"></a>Namn
 
-Det här är visningsnamnet för ditt erbjudande. Detta är det namn som visas i [AppSource](https://appsource.microsoft.com/). Det får innehålla högst 50 tecken.
+Detta är visnings namnet för ditt erbjudande. Detta är det namn som visas i [AppSource](https://appsource.microsoft.com/). Det får innehålla högst 50 tecken.
 
-Klicka på ”Spara” för att spara ditt arbete. Nästa steg är att lägga till teknisk information för ditt erbjudande.
+Klicka på Spara för att spara förloppet. Nästa steg är att lägga till teknisk information för ditt erbjudande.
 
 ## <a name="fill-out-the-technical-info-form"></a>Fyll i formuläret teknisk information
 
 
-Teknisk information om formuläret är där du ska fylla i information som är specifik för din Dynamics 365 för kundengagemang lösning. Hovra över som det innehåller mer information. Se exemplet nedan.
+I formuläret teknisk information kan du fylla i information som är specifik för din Dynamics 365 för kund engagemang-lösning. Om du hovrar över visas mer information. Se exemplet nedan.
 
-![Teknisk information-skärmen](./media/CRMScreenShot16.png)
+![Teknisk informations skärm](./media/CRMScreenShot16.png)
 
-### <a name="application-info"></a>Programinformation
+### <a name="application-info"></a>Programinfo
 
-De flesta utgivare lämnar dessa fält med standardvärden, användare, Nej, Nej, och en tom programmets konfiguration URL enligt skärmbilden ovan.
+De flesta utgivare lämnar dessa fält med standardvärdena, användare, nej, nej och en tom program konfigurations webb adress enligt skärm bilden ovan.
 
-### <a name="crm-package"></a>CRM-paketet
+### <a name="crm-package"></a>CRM-paket
 
-![Information om CRM](./media/CRMScreenShot17.png)
+![Information om CRM-paket](./media/CRMScreenShot17.png)
 
 Här är en förklaring till dessa fält:
 
-* Filnamn för ditt paket: Namnet på filen du skapade i steget ovan när du skapar zip-filen som är ditt CRM AppSource-paket. I exemplet ovan är det ”Microsoft\_SamplePackage.zip”.
-* URL: en för din plats för paket: Det här är URL: en till Azure Storage-kontot som innehåller namnet på paketet som anges ovan. Det är den URL som skapades i steg 9 av avsnittet ovan.
-* Finns det mer än en crm-paketet i din paketfil: Välj Ja **endast** om du stöder flera versioner av crm med olika paket. Det här är ”No” för de flesta partner. Om du väljer Ja måste du skapa AppSource-paket för varje version av din lösning. _Obs! Det inte handlar om du har flera **zip** filer. Om du har flera solution.zip filer men endast en version kan väljer du fortfarande ”Nej” Verktyget paketering ska du använda dessa automatiskt._
+* Paketets fil namn: det fil namn som du skapade i ovanstående steg när du skapar zip-filen som är ditt CRM AppSource-paket. I exemplet ovan är det "Microsoft\_SamplePackage. zip".
+* URL till din paket plats: det här är URL: en till det Azure Storage konto som innehåller det paket fil namn som anges ovan. Det är den URL som skapades i steg 9 i avsnittet ovan.
+* Finns det fler än ett CRM-paket i paket filen: Välj Ja **endast** om du har stöd för flera versioner av CRM med olika paket. För de flesta partner är detta "nej". Om du väljer Ja måste du skapa AppSource-paket för varje version av din lösning. _OBS! detta frågar inte om du har flera **zip** -filer. Om du har flera lösning. zip-filer men bara en version bör du fortfarande välja "nej". Med paketerings verktyget samlas dessa automatiskt in i automatiskt._
 
 ### <a name="crm-package-availability"></a>Tillgänglighet för CRM-paket
 
-Välj vilka regioner av CRM ditt paket kommer att göras tillgänglig för det här avsnittet. Information på vilka CRM-regioner som fungerar som länder/regioner finns i länken: [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
+I det här avsnittet väljer du vilka regioner i CRM som paketet ska göras tillgängligt för. Information om vilka CRM-regioner som tjänar vilka länder/regioner finns i länken: [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
 
-Obs! Distribuera till Tyskland ”suveräna och molnet för amerikanska myndigheter” suveräna kräver särskild behörighet och verifiering under CERTIFIKATUTFÄRDARE
+Obs! distribution till Tyskland "suverän och US Gov Cloud" suverän kräver särskild behörighet och verifiering under CERTIFIERINGen
 
-## <a name="storefront-details"></a>Storefront information
+## <a name="storefront-details"></a>Butik-information
 
-### <a name="offer-summary"></a>Sammanfattning av erbjudandet
+### <a name="offer-summary"></a>Erbjudande Sammanfattning
 
-Det här är en sammanfattning av ditt erbjudande förslagsvärde. Den visas på söksidan för ditt erbjudande. Det bör vara högst 100 tecken.
+Detta är en sammanfattning av ditt erbjudandes värde förslag. Den kommer att visas på Sök sidan för ditt erbjudande. Det får innehålla högst 100 tecken.
 
 ### <a name="offer-description"></a>Beskrivning av erbjudande
 
-Det här är den beskrivning som visas på sidan med information om appen. Högsta tillåtna antalet är 1300 tecken
+Detta är den beskrivning som visas på din app-informations sida. Maximalt antal tillåtna är 1300 tecken
 
 ### <a name="industries"></a>Branscher
 
-Välj bransch som din app är bäst anpassad efter. Om din app har kopplat till flera branscher, du kan lämna det tomt.
+Välj den bransch som appen är bäst justerad till. Om din app har en relation till flera branscher kan du lämna detta tomt.
 
-### <a name="categories"></a>Categories
+### <a name="categories"></a>Kategorier
 
-Välj kategorier som är relevanta för din app. Välj högst 3.
+Välj de kategorier som är relevanta för din app. Välj högst 3.
 
-### <a name="app-type"></a>Typ av App
+### <a name="app-type"></a>Typ av app
 
-Välj typ av utvärderingsversion som gör att din app på AppSource. ”Fria” innebär att din app är kostnadsfria. ”Utvärderingsversion” innebär att kunder kan testa din app under en kort period på AppSource. ”Begär för utvärderingsversion' stöds inte för Dynamics 365 för kundengagemang appar. Välj inte det här alternativet.
+Välj den typ av utvärdering som din app ska aktivera på AppSource. Free innebär att din app är kostnads fri. "Utvärdering" innebär att kunder kan testa din app under en kort period på AppSource. "Begäran om utvärderings version stöds inte för Dynamics 365 för Customer Engagement-appar. Välj inte det här alternativet.
 
-### <a name="help-link-for-your-app"></a>Hjälplänk för din app
+### <a name="help-link-for-your-app"></a>Hjälp länk för din app
 
-Ange en Webbadress till en sida som har relaterade information för din app.
+Ange URL till en sida som har hjälp relaterad information för din app.
 
-### <a name="supported-countriesregions"></a>Länder/regioner
+### <a name="supported-countriesregions"></a>Länder/regioner som stöds
 
-Det här fältet anger de länder/regioner där ditt erbjudande blir tillgänglig för utvärdering.
+Det här fältet avgör de länder/regioner där ditt erbjudande ska vara tillgängligt för utvärderings versionen.
 
 ### <a name="supported-languages"></a>Språk som stöds
 
-Välj de språk som har stöd för din app. Om din app har stöd för fler språk som inte finns på den här listan, fortsätter att publicera ditt erbjudande och mejla oss på: [ appsource@microsoft.com ](mailto:appsource@microsoft.com) att berätta för oss.
+Välj de språk som appen stöder. Om din app har stöd för ytterligare språk som inte finns med i listan fortsätter du att publicera ditt erbjudande och skicka e-post till oss på: [appsource@microsoft.com](mailto:appsource@microsoft.com) för att berätta för oss.
 
 ### <a name="app-version"></a>Appversion
 
-Ange versionsnumret för din app
+Ange versions numret för din app
 
-### <a name="app-release-date"></a>App lanseringsdatum
+### <a name="app-release-date"></a>Lanserings datum för app
 
-Ange datumet för din app
+Ange lanserings datum för din app
 
-### <a name="products-your-app-works-with-max-3"></a>Produkter som din app fungerar med (Max 3)
+### <a name="products-your-app-works-with-max-3"></a>Produkter som din app fungerar med (max 3)
 
-Listspecifika produkter som din app fungerar med. Du kan visa högst tre produkter. Om du vill visa en produkt, klicka på plustecknet (bredvid nytt) och ett nytt öppna textfält kommer att skapas för dig att ange namnet på en produkt som din app fungerar med.
+Visa en lista med de produkter som appen fungerar med. Du kan visa högst tre produkter. Om du vill visa en produkt klickar du på plus tecknet (bredvid nytt) så skapas ett nytt fält med öppen text där du kan ange namnet på en produkt som din app arbetar med.
 
-### <a name="search-keywords-max-3"></a>Sökord (Max 3)
+### <a name="search-keywords-max-3"></a>Sök Nyckelord (max 3)
 
-AppSource kan kunden söker efter nyckelord. Du kan ange uppsättningen nyckelord som programmet kommer att visas för kunderna.
+AppSource gör det möjligt för kunden att söka baserat på nyckelord. Du kan ange den uppsättning nyckelord som programmet ska visas för kunderna.
 
-Till exempel om programmet är ”min e-posta tjänst” e-postmeddelanden, skicka, e-posttjänst kanske vissa nyckelord. Välj typ av ord som användare använder sannolikt att söka för din app i rutan Sök AppSource.
+Om programmet till exempel är "min e-posttjänst" e-post, mailing, e-posttjänsten kan vara vissa nyckelord. Välj ord som användarna troligt vis kommer att använda för att söka efter din app i sökrutan AppSource.
 
 ### <a name="hide-key"></a>Dölj nyckel
 
-Det här är en nyckel som kommer att kombineras med förhandsgransknings-URL för erbjudandet att dölja den från den gemensamma vyn. Det är inte ett lösenord. Du kan ange valfri sträng här.
+Det här är en nyckel som kombineras med URL: en för för hands versionen för att dölja den från den offentliga vyn. Det är inte ett lösen ord. Du kan ange valfri sträng här.
 
-### <a name="offer-logo-png-format-48x48"></a>Erbjudandet logotyp (png-format, 48 x 48)
+### <a name="offer-logo-png-format-48x48"></a>Erbjudande logo typ (PNG-format, 48x48)
 
-Detta visas på söksidan för din app. **Png-format är tillåtet.** Ladda upp en png-bild med upplösning på 48PX\*48PX
+Detta visas på appens Sök sida. **Endast png-format är tillåtet.** Ladda upp en PNG-bild med upplösningen 48PX\*48PX
 
-### <a name="offer-logo-png-format-216x216"></a>Erbjudandet logotyp (png-format, 216 x 216)
+### <a name="offer-logo-png-format-216x216"></a>Erbjudande logo typ (PNG-format, 216x216)
 
-Detta visas på detaljsidan för din app. **Png-format är tillåtet.** Ladda upp en png-bild med upplösning på 216PX\*216PX
+Detta visas på appens informations sida. **Endast png-format är tillåtet.** Ladda upp en PNG-bild med upplösningen 216PX\*216PX
 
 ### <a name="videos"></a>Videoklipp
 
-Du kan överföra upp till fyra videor. För varje video som du vill ladda upp, måste du fylla i video namn, URL (YouTube eller Vimeo endast) och miniatyrbilden för att associera med en video. Miniatyr måste vara i png-format och måste vara 1280PX\*720PX. Klicka på plustecknet för att lägga till nya video(s). Videor thumbnail(s) ska visas på detaljsidan för din app.
+Du kan ladda upp högst fyra videor. För varje video som du vill ladda upp måste du fylla i videons namn, URL (YouTube eller Vimeo) och miniatyren för att koppla till videon. Miniatyren måste vara i PNG-format och måste vara 1280PX\*720PX. Klicka på plus tecknet för att lägga till nya videor. Video miniatyrer visas på appens informations sida.
 
 ### <a name="documents"></a>Dokument
 
-Du kan överföra upp till tre dokument i PDF-format. För varje dokument som du vill ladda upp, måste du fylla i dokumentnamn på och överför dokumentet. Dokumentet måste finnas i pdf-format.
+Du kan ladda upp högst tre dokument i PDF-format. För varje dokument som du vill ladda upp måste du fylla i dokument namnet och överföra dokumentet. Dokumentet måste vara i PDF-format.
 
-Klicka på plustecknet för att lägga till nya dokument
+Klicka på plus tecknet för att lägga till nya dokument (n)
 
 ### <a name="screenshots"></a>Skärmbilder
 
-Det här är skärmbilder som visas på sidan med AppSource för din app.
+Detta är skärm bilder som visas på AppSource detalj sida för din app.
 
 ### <a name="privacy-policy"></a>Sekretesspolicy
 
-Ange Webbadressen till din Apps sekretesspolicy
+Ange URL: en till appens sekretess policy
 
 ### <a name="terms-of-use"></a>Användningsvillkor
 
-Ange villkor för användning av din app. AppSource-kunder som krävs för att acceptera villkoren innan de kan testa din app
+Ange användnings villkoren för din app. AppSource-kunder måste acceptera dessa villkor innan de kan testa din app
 
 ### <a name="support-url"></a>Support-URL
 
-Ange Webbadressen till support för din app.
+Ange Support-URL: en för din app.
 
-### <a name="lead-destination"></a>Leda mål
+### <a name="lead-destination"></a>Lead-mål
 
-Välj ett CRM-system där du leda kommer att lagras. Välj ”Azure Table” om du har någon av följande CRM-system: Salesforce, Marketo, Microsoft Dynamics CRM. CRM-system som du väljer här är där skriver du information för slutanvändare som provar din app på AppSource (leads). Beroende på i CRM-systemet som du väljer, klickar du på motsvarande URL nedan för information om hur du slutför nästa uppsättning fält
+Välj ett CRM-system där du kommer att lagra lead. Välj "Azure Table" här om du har något av följande CRM-system: Salesforce, Marketo, Microsoft Dynamics CRM. Det CRM-system du väljer här är där vi skriver information om slutanvändare som testar din app på AppSource (leads). Beroende på vilket CRM-system du väljer klickar du på motsvarande URL nedan för information om hur du slutför nästa uppsättning fält
 
-* [Azure Table](./cloud-partner-portal-lead-management-instructions-azure-table.md)
+* [Azure-tabell](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 * [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md)
 * [Microsoft Dynamics CRM](./cloud-partner-portal-lead-management-instructions-dynamics.md)
 * [Salesforce](./cloud-partner-portal-lead-management-instructions-salesforce.md)
 
-## <a name="storefront-details"></a>Storefront information
+## <a name="storefront-details"></a>Butik-information
 
-Kontaktinformation som används för intern kommunikation mellan partner och Microsoft endast. Obs! Det är viktigt att du använder en e-postadress som övervakas i de här fälten. Vi använder den här e-post för att kommunicera med dig på förloppet på Publicera till AppSource. Endast stöd för URL: en ska vara synliga för kunderna.
+Kontakt uppgifterna används för intern kommunikation mellan partnern och Microsoft. Obs! det är viktigt att använda en e-postadress som övervakas i dessa fält. Vi kommer att använda det här e-postmeddelandet för att kommunicera med dig när du arbetar med publicering till AppSource. Endast Support-URL: en är synlig för kunderna.

@@ -4,15 +4,16 @@ description: Integrerade lösningar i Azure Marketplace och Microsoft AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/15/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 8bffb2c71f5e07499338ea32e0c064392af81684
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: eaba5612221e712ad5b14f10876e083729970fde
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71706315"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818565"
 ---
 # <a name="publish-an-integrated-solution"></a>Publicera en integrerad lösning
 
@@ -64,8 +65,8 @@ När din utnämning har godkänts använder du de länkade program resurserna f�
     * Omfång
     * Rikta kunder
     * Förslagsvärde
-    * Prissättning
-    * Licenser
+    * Priser
+    * Licensiering
     * Allmänna villkor
     * Support metod
     * Marknadsförings aktiviteter
@@ -75,7 +76,7 @@ När din utnämning har godkänts använder du de länkade program resurserna f�
     Din diskussion om integrerings metoden bör omfatta följande punkter: 
     * Integrations platser
     * Lösningsarkitektur
-    * Authentication
+    * Autentisering
     * Användargränssnitt
     * Övervakning
     * Distributions mekanism
@@ -86,7 +87,7 @@ När din utnämning har godkänts använder du de länkade program resurserna f�
 
     * [Diskussions guide för Business besluts workshop](https://aka.ms/AA5qicx)
     * [Diskussions guide för teknisk besluts workshop](https://aka.ms/AA5qid1)
-    * [Quickstart-video: Affärs-och tekniska workshops @ no__t-0
+    * [Snabb starts video: affärs-och teknik workshops](https://aka.ms/AA5qos9)
 
 1. Identifiera en plattforms oberoende projekt hanterare för att driva projektplanen och tids linjen som du utvecklade i affärs-och teknik workshops.
 

@@ -5,26 +5,27 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0dd53689f7528e73845ab47a9791f062e0f2cb0c
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: a7abb73f229c444f88626ef03c90f62e138023c6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962787"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825915"
 ---
 # <a name="register-in-dev-center"></a>Registrera i Dev Center  
 Du kan kontrol lera att du inte är inloggad på ett personligt webb läsar konto genom att öppna en ny Internet Explorer InPrivate-eller Chrome Incognito-webbläsarsession.  
 1.  Registrera dig som säljare i dev Center.  
     *   Om du vill logga in och registrera dig som säljare går du till sidan Azure dev Center som finns på [dev.Windows.com/registration?accountprogram=Azure](https://dev.windows.com/registration?accountprogram=azure).  
-2.  `Help us protect your account` Slutför guiden som verifierar din identitet med hjälp av ditt telefonnummer eller din e-postadress.  
+2.  Slutför guiden `Help us protect your account` som verifierar din identitet med hjälp av ditt telefonnummer eller din e-postadress.  
 
 <!--
     ![Boxes for phone info in the Help us protect your account wizard](./media/marketplace-publishers-guide/registerdevcenteremail.png)  
 -->
-3.  I avsnittet väljer du ditt konto land eller din region i den nedrullningsbara menyn *konto land/region.* `Registration - Account Info`  
+3.  I avsnittet `Registration - Account Info` väljer du ditt konto land eller din region i den nedrullningsbara menyn *konto land/region* .  
 <!--
     ![Account info with box for country/region](./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png)  
 -->
@@ -32,7 +33,7 @@ Du kan kontrol lera att du inte är inloggad på ett personligt webb läsar kont
     >To sell your services in Azure Marketplace, verify that your registered entity is from one of the approved *sell-from* countries/regions. The location restriction is required for payout and taxation reasons. 
     >*   For more information, visit the Azure Marketplace Participation Policies page located at [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).  
 
-4.  För *Kontotyp*väljer du `Company` alternativ knappen.  
+4.  För *Kontotyp*väljer du alternativ knappen `Company`.  
     *   Mer information om konto typer och hjälper till att fastställa vilket som passar dig bäst finns på konto typerna, platserna och avgifts sidan på [docs.Microsoft.com/Windows/UWP/Publish/Account-types-Locations-and-Fees](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).  
 
     Klicka på knappen Nästa.  
@@ -53,7 +54,7 @@ Du kan kontrol lera att du inte är inloggad på ett personligt webb läsar kont
 <!--
     !["Account info" page with sections highlighted](./media/marketplace-publishers-guide/devcenterregistrationpayment.png)  
 -->
-8.  `Registration - Payment` I avsnittet måste du ange din betalnings information för att betala för ditt dev Center-konto.  
+8.  I avsnittet `Registration - Payment` måste du ange din betalnings information för att betala för ditt dev Center-konto.  
     *   För *kampanj kod*anger du en kampanj kod som täcker kostnaden för registrering.  
     *   För *fakturering*anger du kreditkorts information. PayPal-information kan användas i stället för ett kredit kort på marknader som stöds.  
 
@@ -61,7 +62,7 @@ Du kan kontrol lera att du inte är inloggad på ett personligt webb läsar kont
 <!--
     ![Dev Center payment information](./media/marketplace-publishers-guide/devcenterregistrationpayment2.png)  
 -->
-9.  `Registration - Review` I avsnittet granskar du konto informationen och kontrollerar att allt är korrekt.  
+9.  I avsnittet `Registration - Review` granskar du konto informationen och kontrollerar att allt är korrekt.  
 
     Läs villkoren i Microsoft Azure Marketplace [utgivar avtalet](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf).  
 
@@ -72,7 +73,7 @@ Du kan kontrol lera att du inte är inloggad på ett personligt webb läsar kont
 
     | Faktureringsmodell | Nästa steg |  
     |:--- |:--- |  
-    | Lediga | Gå till Cloud Partner Portal.<ul> <li>Om du vill publicera på Azure Marketplace går du till Cloud Partner Portal sidan som finns på [cloudpartner.Azure.com](https://cloudpartner.azure.com).</li> </ul> |  
+    | Kostnadsfri | Gå till Cloud Partner Portal.<ul> <li>Om du vill publicera på Azure Marketplace går du till Cloud Partner Portal sidan som finns på [cloudpartner.Azure.com](https://cloudpartner.azure.com).</li> </ul> |  
     | Kommersiell (Transact) | Uppdatera din konto information.<ul> <li>Mer information om hur du lägger till konto information finns i avsnittet [så här lägger du till bank-och skatte information](#add-bank-information) .</li> </ul> |  
 
     *   Ett exempel på ett kommersiellt erbjudande är ett virtuellt dator erbjudande med en fakturerings modell per timme.  
@@ -98,7 +99,7 @@ Om du har problem med dev Center-registreringen följer du de här stegen för a
 3.  Klicka på knappen Skicka för att skicka in biljetten. 
 
 
-## <a name="issue-add-bank-and-tax-information-for-publisher-payouts"></a>Ärende: Lägg till bank-och skatte information för utgivar utbetalningar  
+## <a name="issue-add-bank-and-tax-information-for-publisher-payouts"></a>Problem: Lägg till bank-och skatte information för utgivar utbetalningar  
 Bank-och skatte information krävs för alla kommersiella erbjudanden med typen av Transact-listor.  
 *   Om du publicerar kommersiella erbjudanden för köp måste du lägga till utbetalnings-och skatte information och begära verifiering i dev Center.  
     >[!IMPORTANT]
@@ -110,7 +111,7 @@ Bank-och skatte information krävs för alla kommersiella erbjudanden med typen 
 1.  Logga in på dev Center med ditt Microsoft-ID.  
     *   Om du vill logga in på dev Center går du till Windows Dev Center-sidan som finns på [dev.Windows.com](https://dev.windows.com).  
 2.  Välj utbetalnings konto på den vänstra menyn.
-3.  `Choose payment method` Välj `Bank account` eller påsidan.`PayPal`  
+3.  Välj `Bank account` eller `PayPal`på sidan `Choose payment method`.  
     >[!IMPORTANT]
     >Om du har kommersiella erbjudanden som kunderna köper på Marketplace, är ditt utbetalnings konto där du får en utbetalning för inköpen.  
 
@@ -126,7 +127,7 @@ Bank-och skatte information krävs för alla kommersiella erbjudanden med typen 
 1.  Logga in på dev Center med ditt Microsoft-ID.  
     *   Om du vill logga in på dev Center går du till Windows Dev Center-sidan som finns på [dev.Windows.com](https://dev.windows.com).  
 2.  Välj skatte profil på den vänstra menyn. 
-3.  `Set up your tax form` På sidan väljer du det land eller den region där du har permanent placering.  
+3.  På sidan `Set up your tax form` väljer du det land eller den region där du har permanent placering.  
     
     Välj land eller region där du innehar ett primärt medborgarskap.  
     
@@ -144,7 +145,7 @@ Bank-och skatte information krävs för alla kommersiella erbjudanden med typen 
   > Dev Center-kontot krävs för att Microsoft ska kunna fakturera kunden för utgivarens räkning för typen av Transact-listor. Med konto registreringen i dev Center kan Microsoft verifiera juridisk information, skatte-och bank information för ditt företag. Mer information får du genom att klicka [här.](https://docs.microsoft.com/azure/marketplace/become-publisher)
 
 * **Hur gör jag för att kom igång med dev Center-registrering?**
-  > För att förhindra duplicering kontrollerar du att ditt företag inte redan har ett konto för dev Center registrerat. Du måste vara inloggad med Microsoft-konto som du vill koppla till ditt Developer-konto. Om du inte redan har en Microsoft-konto kan du skapa ett nytt konto [här.](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (exempel: contoso_marketplace@live.com) om du vill logga in och registrera dig går du till https://dev.windows.com/registration?accountProgram=Azure
+  > För att förhindra duplicering kontrollerar du att ditt företag inte redan har ett konto för dev Center registrerat. Du måste vara inloggad med Microsoft-konto som du vill koppla till ditt Developer-konto. Om du inte redan har en Microsoft-konto kan du skapa ett nytt konto [här.](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (exempel: contoso_marketplace@live.com) Om du vill logga in och registrera dig går du till https://dev.windows.com/registration?accountProgram=Azure
   > <br>Klicka här om du vill veta mer om registrerings processen [.](https://docs.microsoft.com/azure/marketplace/register-dev-center)</br>
 
 * **Ska jag välja "individ" eller "företags konto typ"?**
@@ -160,7 +161,7 @@ Bank-och skatte information krävs för alla kommersiella erbjudanden med typen 
   > Slutför registrerings formuläret för [Marketplace](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) för att ta emot en kampanj kod för dev Center. Mer information finns i så här [skapar du ett partner Center-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) .
  
 * **Vad ska jag förvänta mig när jag har slutfört registreringen?**
-  > Sök efter ett e- verify@microsoft.com postmeddelande från med ämnes raden "åtgärd krävs: Verifiera ditt e-postkonto med Microsoft ". Klicka på länken tids känslig verifiering för att slutföra registreringen. *Om du inte har fått ett e-postmeddelande i dygnet kontrollerar du mappen spam.*
+  > Sök efter ett e-postmeddelande från verify@microsoft.com med ämnes raden "åtgärd krävs: verifiera ditt e-postkonto med Microsoft". Klicka på länken tids känslig verifiering för att slutföra registreringen. *Om du inte har fått ett e-postmeddelande i dygnet kontrollerar du mappen spam.*
 
 * **Vad är nästa steg efter verifieringen av dev Center?**
   > Gå till "dina program" (https://developer.microsoft.com/dashboard/Account/Programs) och logga in på dev Center-kontot. Om du inte ser Azure som ett registrerat program, tittar du under "rekommenderade program åt dig" och letar efter Azure för att välja "kom igång".

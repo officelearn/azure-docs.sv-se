@@ -1,5 +1,5 @@
 ---
-title: Använd prestanda rekommendationer – Azure SQL Database
+title: Tillämpa prestandarekommendationer
 description: Använd Azure Portal för att hitta prestanda rekommendationer som kan optimera prestanda för dina Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 24a590a80e768bba2e9b102bdf200e0cd96858f8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5462a03accb3420b3f0fcec4624734c8f6d68859
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691284"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811583"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Hitta och Använd prestanda rekommendationer
 
@@ -105,7 +105,7 @@ Du kan ställa in Azure SQL Database att implementera rekommendationer automatis
     ![Rekommenderade index](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Observera att alternativet **DROP_INDEX** inte är kompatibelt med program som använder partitions växlings-och index tips. 
+> Observera att **DROP_INDEX** alternativet inte är kompatibelt med program som använder partition växlings-och index tips. 
 >
 
 När du har valt önskad konfiguration klickar du på Använd.

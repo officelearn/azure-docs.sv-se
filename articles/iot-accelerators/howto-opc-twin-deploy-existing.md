@@ -1,6 +1,6 @@
 ---
 title: Så här distribuerar du en OPC-delad modul till ett befintligt Azure-projekt | Microsoft Docs
-description: Hur du distribuerar OPC till ett befintligt projekt.
+description: I den här artikeln beskrivs hur du distribuerar OPC till ett befintligt projekt. Du kan också lära dig hur du felsöker distributions fel.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 74b502a37081c729c5e33a0db7dc7f26cb44774b
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: b971ec13c71ccfd7d28ae6987593d09201b9b764
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972288"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824124"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Distribuera OPC-dubbla till ett befintligt projekt
 
@@ -28,7 +28,7 @@ Kärnan i modulen är den överordnade identiteten. Administratören hanterar sl
 > [!NOTE]
 > Mer information om distributions information och instruktioner finns i GitHub- [lagringsplatsen](https://github.com/Azure/azure-iiot-opc-twin-module).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Kontrol lera att PowerShell-och [AzureRM PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) -tillägg är installerade. Klona den här GitHub-lagringsplatsen om du inte redan har gjort det. Kör följande kommandon i PowerShell:
 
@@ -52,11 +52,11 @@ cd azure-iiot-components
 
    Utdata inkluderar URL: en för den offentliga slut punkten. 
 
-3. När skriptet har slutförts väljer du om du vill spara `.env` filen.  Du behöver `.env` miljö filen om du vill ansluta till moln slut punkten med verktyg som konsolen eller distribuera moduler för utveckling och fel sökning.
+3. När skriptet har slutförts väljer du om du vill spara `.env`s filen.  Du behöver `.env` miljö filen om du vill ansluta till moln slut punkten med hjälp av verktyg som konsolen eller distribuera moduler för utveckling och fel sökning.
 
 ## <a name="troubleshooting-deployment-failures"></a>Felsöka distributions fel
 
-### <a name="resource-group-name"></a>Resursgruppsnamn
+### <a name="resource-group-name"></a>Namn på resursgrupp
 
 Se till att du använder ett kort och enkelt resurs grupp namn.  Namnet används också för att ge resurser samma namn som de måste uppfylla kraven på resurs namn.  
 

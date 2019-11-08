@@ -4,15 +4,16 @@ description: Förklarar hur du ändrar storlek, uppdaterar och generaliserar en 
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: 1270dff0bcb8de117247a454ab9c144250cfb17c
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: ce7fe49b07dc250a9f56ff73229e347b997f0cc0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880348"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824497"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Konfigurera den virtuella Azure-värdbaserade datorn
 
@@ -43,7 +44,7 @@ För Linux-distributioner hämtas och installeras uppdateringar ofta med hjälp 
 
 ## <a name="perform-additional-security-checks"></a>Utför ytterligare säkerhets kontroller
 
-Du bör ha en hög säkerhets nivå för dina lösnings avbildningar på Azure Marketplace.  Följande artikel innehåller en check lista över säkerhetskonfigurationer och procedurer som hjälper dig i detta mål: [Säkerhets rekommendationer för Azure Marketplace](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images)-avbildningar.  Några av de här rekommendationerna är speciella för Linux-baserade avbildningar, men de flesta gäller för alla VM-avbildningar. 
+Du bör ha en hög säkerhets nivå för dina lösnings avbildningar på Azure Marketplace.  Följande artikel innehåller en check lista över säkerhetskonfigurationer och procedurer som hjälper dig i det här målet: [säkerhets rekommendationer för Azure Marketplace-avbildningar](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images).  Några av de här rekommendationerna är speciella för Linux-baserade avbildningar, men de flesta gäller för alla VM-avbildningar. 
 
 
 ## <a name="perform-custom-configuration-and-scheduled-tasks"></a>Utför anpassad konfiguration och schemalagda aktiviteter
@@ -57,7 +58,7 @@ Mer information om Linux-anpassningar finns i [tillägg och funktioner för virt
 
 ## <a name="generalize-the-image"></a>Generalisera avbildningen
 
-Alla avbildningar på Azure Marketplace måste kunna återanvändas på ett generiskt sätt. För att uppnå den här omanvändbarheten måste det virtuella operativsystemet vara generaliserat, en åtgärd som tar bort alla instans identifierare och program driv rutiner från en virtuell dator.
+Alla avbildningar på Azure Marketplace måste kunna återanvändas på ett generiskt sätt. För att uppnå den här omanvändbarheten måste det virtuella operativ systemet vara *generaliserat*, en åtgärd som tar bort alla instans identifierare och program driv rutiner från en virtuell dator.
 
 ### <a name="windows"></a>Windows
 
@@ -76,8 +77,8 @@ I följande två stegs process generaliserar en virtuell Linux-dator och distrib
 1.  Anslut till din virtuella Linux-dator med hjälp av en SSH-klient.
 2.  I SSH-fönstret skriver du följande kommando: <br/>
     `sudo waagent -deprovision+user`
-3.  Skriv `y` för att fortsätta. (Du kan lägga till `-force` parametern i föregående kommando för att undvika det här bekräftelse steget.)
-4.  När kommandot har slutförts skriver `exit` du för att stänga SSH-klienten.
+3.  Skriv `y` för att fortsätta. (Du kan lägga till parametern `-force` i föregående kommando, Undvik det här bekräftelse steget.)
+4.  När kommandot har slutförts skriver du `exit` för att stänga SSH-klienten.
 
 <!-- TD: I need to add meat and/or references to the following steps -->
 #### <a name="capture-the-image"></a>Avbilda avbildningen

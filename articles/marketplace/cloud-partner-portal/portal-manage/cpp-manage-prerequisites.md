@@ -4,15 +4,16 @@ description: Krav för att hantera Azure Marketplace-konton på Cloud Partner Po
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: 09bf8479921c9bd55b98e835a19ea995fa37e20b
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: b0a9f312ba78e148a573064b81ff1f52fbd85c03
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720070"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826673"
 ---
 # <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>Krav för att hantera konton på Cloud Partner Portal 
 
@@ -33,14 +34,14 @@ I följande tabell visas de steg som krävs för att helt registrera dig som en 
 
 |                   Steg                   |  Resulterande registrering eller resurs                     |
 |                  ------                  |  -----------------------------------                    |
-| 1. Registrera dig i Microsoft Partner Network |  Ett Microsoft Partner Network-ID för din organisation |
-| 2. Skapa en Microsoft-konto *           |  Ett verifierat Microsoft-konto, som @outlook.comslutar @live.compå, osv. |
-| 3. Skicka in registrerings formuläret för Marketplace | Ett utgivar konto på Cloud Partner Portal      |
+| 1. registrera i Microsoft Partner Network |  Ett Microsoft Partner Network-ID för din organisation |
+| 2. skapa en Microsoft-konto *           |  En verifierad Microsoft-konto, som slutar på @outlook.com, @live.comosv. |
+| 3. skicka registrerings formuläret för Marketplace | Ett utgivar konto på Cloud Partner Portal      |
 | 4. Logga in på Cloud Partner Portal        | Utfärdare för att skapa och publicera erbjudanden, hantera användare, samla in marknads mått osv. |
-| 5. Registrera dig i Microsoft Developer Center * | Ett verifierat dev Center-konto; utfärdare för att genomföra Marketplace-transaktioner  |
+| 5. registrera dig i Microsoft Developer Center * | Ett verifierat dev Center-konto; utfärdare för att genomföra Marketplace-transaktioner  |
 |   |   |
 
-\*De här stegen krävs för Azure Marketplace Transact-erbjudanden, men rekommenderas för alla erbjudanden.  När du har upprättat en Microsoft-konto och registrerat dig som Microsoft-utvecklare, kan du komma åt ytterligare resurser för Microsoft-kunder och-utvecklare samt valfria partner erbjudanden.  
+\* de här stegen krävs för Azure Marketplace Transact-erbjudanden, men rekommenderas för alla erbjudanden.  När du har upprättat en Microsoft-konto och registrerat dig som Microsoft-utvecklare, kan du komma åt ytterligare resurser för Microsoft-kunder och-utvecklare samt valfria partner erbjudanden.  
 
 
 ## <a name="next-steps"></a>Nästa steg

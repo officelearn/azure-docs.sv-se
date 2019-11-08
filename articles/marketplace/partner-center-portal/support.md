@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: jamwall
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/17/2019
-ms.openlocfilehash: c0f3fba389f9cb6f55ac5bf7bb81475fa8244cbf
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 53d6b5b43a028d552c95c58aebf7268353621759
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195242"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827893"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Stöd för programmet för kommersiella marknads platser i Partner Center
 
@@ -44,7 +45,7 @@ Microsoft tillhandahåller stöd för en mängd olika produkter och tjänster. A
 
 Om du väljer **ytterligare hjälp** från den kommersiella Marketplace-supporten i Partner Center dirigeras du till sidan Microsoft Support för företag. Flera List menyer visas. De första menyerna fylls i automatiskt. För Marketplace-support identifierar du produkt familjen som **moln-och online tjänster**, produkten som **Marketplace-utgivare**och produkt versionen som **Marketplace-publicering**. Ändra inte de här fördefinierade meny alternativen i listan. 
 
-- **Välj en kategori som bäst beskriver problemet**: Välj den kategori som bäst passar din fråga eller ditt problem. Om du väljer en kategori visas ytterligare en List Rute meny där du uppmanas att välja det problem som bäst beskriver problemet.
+- **Välj en kategori som bäst beskriver problemet**: Välj den kategori som passar bäst för din fråga eller ditt problem. Om du väljer en kategori visas ytterligare en List Rute meny där du uppmanas att välja det problem som bäst beskriver problemet.
 
 - **Välj ett problem som bäst beskriver problemet**: Välj problemet från de listade alternativ som bäst passar ditt problem. Beroende på ditt problem kan ett nytt avsnitt visas som säger "här är lite information som kan hjälpa" med länkar som är relevanta för ditt problem. Granska dessa länkar innan du väljer **Nästa** -knappen för att se om din fråga eller ditt problem åtgärdas.
 

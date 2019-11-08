@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
-ms.openlocfilehash: 37b19cd86cd13dd2bdc8b3a38abf61898b81d01b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 79abaade22fc107fa4c848607ff48232eeeb58ad
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690379"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823768"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Rapportering i utskalade moln databaser (för hands version)
 
@@ -142,7 +142,7 @@ SCHEMAT\_namn och objekt\_namn satser mappar den externa tabell definitionen til
 
 DISTRIBUTIONs satsen anger den data distribution som används för den här tabellen. Frågan processor använder den information som anges i DISTRIBUTIONs satsen för att bygga de mest effektiva fråge planerna.
 
-1. **Shardade** innebär att data är vågrätt partitionerade i databaserna. Partitionerings nyckeln för data distributionen är **< sharding_column_name >** parameter.
+1. **Shardade** innebär att data är vågrätt partitionerade i databaserna. Partitionerings nyckeln för data distributionen är **< sharding_column_name >** -parameter.
 2. **Replikerad** innebär att identiska kopior av tabellen finns på varje databas. Det är ditt ansvar att se till att replikerna är identiska i databaserna.
 3. **Round\_Robin** innebär att tabellen är vågrätt partitionerad med en program beroende distributions metod.
 
@@ -181,8 +181,8 @@ Elastiska frågor introducerar också en lagrad procedur som ger direkt åtkomst
 
 * Data källans namn (nvarchar): namnet på den externa data källan av typen RDBMS.
 * Fråga (nvarchar): T-SQL-frågan som ska köras på varje Shard.
-* Parameter deklaration (nvarchar) – valfritt: sträng med data typs definitioner för de parametrar som används i Frågeparametern (t. ex. sp_executesql).
-* Parameter värde List – valfritt: kommaavgränsad lista över parameter värden (t. ex. sp_executesql).
+* Parameter deklaration (nvarchar) – valfritt: sträng med data typs definitioner för de parametrar som används i Frågeparametern (till exempel sp_executesql).
+* Parameter värde List – valfritt: kommaavgränsad lista över parameter värden (till exempel sp_executesql).
 
 Tjänsten SP\_köra\_använder den externa data källan som tillhandahölls i anrops parametrarna för att köra angivet T-SQL-uttryck på fjärrdatabaserna. Den externa data källans autentiseringsuppgifter används för att ansluta till shardmap Manager-databasen och fjärrdatabaserna.  
 

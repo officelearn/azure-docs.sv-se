@@ -1,5 +1,5 @@
 ---
-title: Lägg till ett R-paket i Azure SQL Database Machine Learning Services (förhands granskning)
+title: Lägg till ett R-paket i Machine Learning Services (för hands version)
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
 description: Den här artikeln beskriver hur du installerar ett R-paket som inte redan är installerat i Azure SQL Database Machine Learning Services (för hands version).
 services: sql-database
@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/29/2019
-ms.openlocfilehash: f82408a6aaa7cf3a492f3036a6db5d8666b6f160
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: ce85f45d823df42e70af53824e175968439621d3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598052"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819868"
 ---
 # <a name="add-an-r-package-to-azure-sql-database-machine-learning-services-preview"></a>Lägg till ett R-paket i Azure SQL Database Machine Learning Services (förhands granskning)
 
@@ -26,14 +26,14 @@ I den här artikeln beskrivs hur du lägger till ett R-paket i Azure SQL Databas
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Installera [R](https://www.r-project.org) -och [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) på den lokala datorn. R är tillgängligt för Windows, macOS och Linux. I den här artikeln förutsätter vi att du använder Windows.
 
 - Den här artikeln innehåller ett exempel på hur du använder [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) eller [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) för att köra ett R-skript i Azure SQL Database. Du kan köra R-skript med hjälp av andra databas hanterings-eller specialverktyg, men det här exemplet förutsätter Azure Data Studio eller SSMS.
    
 > [!NOTE]
-> Du kan inte installera ett paket genom att köra ett R-skript med **sp_execute_external_script** i Azure Data Studio eller SSMS. Du kan bara installera och ta bort paket med kommando raden R och RStudio enligt beskrivningen i den här artikeln. När paketet har installerats kan du komma åt paket funktionerna i ett R-skript med **sp_execute_external_script**.
+> Du kan inte installera ett paket genom att köra ett R-skript med **sp_execute_external_script** i Azure Data Studio eller SSMS. Du kan bara installera och ta bort paket med kommando raden R och RStudio enligt beskrivningen i den här artikeln. När paketet har installerats kan du komma åt paket funktionerna i ett R-skript med hjälp av **sp_execute_external_script**.
 
 ## <a name="list-r-packages"></a>Lista R-paket
 
@@ -70,7 +70,7 @@ I följande exempel ska du installera det **[lim](https://cran.r-project.org/web
 
 ### <a name="install-sqlmlutils"></a>Installera **sqlmlutils**
 
-1. Ladda ned den senaste **sqlmlutils** zip- https://github.com/Microsoft/sqlmlutils/tree/master/R/dist filen från till den lokala datorn. Du behöver inte packa upp filen.
+1. Ladda ned den senaste **sqlmlutils** zip-filen från https://github.com/Microsoft/sqlmlutils/tree/master/R/dist till din lokala dator. Du behöver inte packa upp filen.
 
 1. Öppna en **kommando tolk** och kör följande kommandon för att installera **RODBCext** och **sqlmlutils** på den lokala datorn. Ersätt den fullständiga sökvägen till den **sqlmlutils** zip-fil som du laddade ned (exemplet förutsätter att filen finns i mappen dokument).
     
@@ -164,7 +164,7 @@ sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLI
 ```
 
 > [!TIP]
-> Ett annat sätt att installera ett R-paket i Azure SQL Database är att ladda upp R-paketet från en byte-dataström med hjälp av instruktionen **Skapa externt bibliotek** T-SQL. Mer information finns i [skapa ett bibliotek från en byte](/sql/t-sql/statements/create-external-library-transact-sql#create-a-library-from-a-byte-stream) -dataström i referens dokumentationen för att [skapa externa bibliotek](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql) .
+> Ett annat sätt att installera ett R-paket i Azure SQL Database är att ladda upp R-paketet från en byte-dataström med hjälp av instruktionen **Skapa externt bibliotek** T-SQL. Mer information finns i [skapa ett bibliotek från en byte-dataström](/sql/t-sql/statements/create-external-library-transact-sql#create-a-library-from-a-byte-stream) i referens dokumentationen för att [skapa externa bibliotek](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql) .
 
 ## <a name="next-steps"></a>Nästa steg
 

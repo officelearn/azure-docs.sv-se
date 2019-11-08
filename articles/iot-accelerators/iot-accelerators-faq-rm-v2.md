@@ -1,6 +1,6 @@
 ---
-title: Fjärråtkomst övervakning lösningsaccelerator vanliga frågor och svar – Azure | Microsoft Docs
-description: Vanliga frågor om lösningsacceleratorn för fjärrövervakning
+title: Vanliga frågor och svar om Remote Monitoring Solution-Azure | Microsoft Docs
+description: I den här artikeln besvaras vanliga frågor och svar om lösningar för fjärr styrnings lösningar.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,45 +8,45 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 746d21c7ff4d5b939eea7690193ac07425b4001c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c410ac7f41adb623a7198320a1edced097778569
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447921"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826240"
 ---
-# <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Vanliga frågor om lösningsacceleratorn för fjärrövervakning
+# <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Vanliga frågor och svar om lösningar för fjärr styrnings lösningar
 
-Se även allmänna [vanliga frågor och svar](iot-accelerators-faq.md).
+Se även [vanliga frågor och svar](iot-accelerators-faq.md).
 
-### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>Hur mycket kostar det för att etablera den nya lösningen för fjärrövervakning?
+### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>Hur mycket kostar det att etablera den nya lösningen för fjärrövervakning?
 
-Ny solution accelerator erbjuder två distributionsalternativ:
+Den nya Solution Accelerator erbjuder två distributions alternativ:
 
-* En *grundläggande* alternativ för utvecklare som söker efter lägre kostnader för utveckling eller kunder som vill skapa en demonstration eller konceptbevis.
-* En *standard* alternativet utformat för företag som vill distribuera ett produktionsklart-infrastruktur.
+* Ett *grundläggande* alternativ som är avsett för utvecklare som vill ha lägre utvecklings kostnader eller kunder som vill bygga en demonstration eller ett koncept bevis.
+* Ett *standard* alternativ som är avsett för företag som vill distribuera en produktions färdig infrastruktur.
 
-### <a name="how-can-i-ensure-i-keep-my-costs-down-while-i-develop-my-solution"></a>Hur kan jag att jag hålla kostnaderna nere när jag utvecklar min lösning?
+### <a name="how-can-i-ensure-i-keep-my-costs-down-while-i-develop-my-solution"></a>Hur kan jag se till att mina kostnader hålls nere medan jag utvecklar lösningen?
 
-Förutom att tillhandahålla två differentierad distributioner, har den nya lösningen för fjärrövervakning en inställning för att aktivera eller inaktivera de simulerade enheterna på begäran. Inaktivera simuleringen minskar mängden data som matas in i lösningen och därmed den totala kostnaden.
+Förutom att tillhandahålla två differentierade distributioner, har den nya fjärr styrnings lösningen en inställning för att aktivera eller inaktivera alla simulerade enheter på begäran. Genom att inaktivera simuleringen minskar du de data som matas in i lösningen och därmed den totala kostnaden.
 
-### <a name="what-is-the-difference-between-the-basic-and-standard-deployment-options-how-do-i-decide-between-the-two-deployment-options"></a>Vad är skillnaden mellan basic och standard distributionsalternativen? Hur avgör jag mellan två distributionsalternativ?
+### <a name="what-is-the-difference-between-the-basic-and-standard-deployment-options-how-do-i-decide-between-the-two-deployment-options"></a>Vad är skillnaden mellan alternativen för Basic-och standard-distribution? Hur gör jag för att välja mellan de två distributions alternativen?
 
-Varje distributionsalternativ svarar på olika behov. Den grundläggande distributionen har utformats för att komma igång och utveckla PoC och små piloter. Det ger en effektiv arkitektur minsta nödvändiga resurser och en lägre kostnad. Standarddistributionen har utformats för att skapa och anpassa en produktionsklar lösning och ger en distribution med nödvändigt för att upptäcka som. För tillförlitlighet och skala program mikrotjänster skapas med Docker-behållare och distribueras via en initierare (Kubernetes som standard). Initieraren ansvarar för distribution, skalning och hantering av appen. Du bör välja ett alternativ baserat på dina befintliga behov. Du kan använda en, den andra eller en kombination av båda beroende på din projektfasen.
+Varje distributions alternativ svarar på olika behov. Den grundläggande distributionen är utformad för att komma igång och utveckla PoC och små pilot. Det ger en strömlinjeformad arkitektur med de lägsta resurser som krävs och en lägre kostnad. Standard distributionen är utformad för att bygga och anpassa en produktions klar lösning och ger en distribution med de nödvändiga elementen för att kunna använda det. För tillförlitlighet och skalning skapas Application-mikrotjänster som Docker-behållare och distribueras med en Orchestrator (Kubernetes som standard). Initieraren ansvarar för distribution, skalning och hantering av appen. Du bör välja ett alternativ baserat på dina aktuella behov. Du kan använda en, samma eller en kombination av båda beroende på ditt projekt steg.
 
-### <a name="how-do-i-configure-a-dynamic-map-on-the-dashboard"></a>Hur konfigurerar jag en dynamisk karta på instrumentpanelen?
+### <a name="how-do-i-configure-a-dynamic-map-on-the-dashboard"></a>Hur gör jag för att konfigurerar du en dynamisk karta på instrument panelen?
 
-Mer information finns i [uppgradera kartan för att se enheter på en dynamisk karta](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map).
+Mer information finns i [Uppgradera Map-nyckel för att se enheter på en dynamisk karta](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map).
 
-### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>Var hittar jag information om den tidigare versionen av lösningen för fjärrövervakning
+### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>Var kan jag hitta information om den tidigare versionen av lösningen för fjärrövervakning?
 
-Den tidigare versionen av lösningsacceleratorn för fjärrövervakning kallades IoT Suite av den förkonfigurerade lösningen för fjärrövervakning. Du kan hitta arkiverad dokumentation på [ https://docs.microsoft.com/previous-versions/azure/iot-suite/ ](https://docs.microsoft.com/previous-versions/azure/iot-suite/).
+Den tidigare versionen av lösnings acceleratorn för fjärrövervakning kallades IoT Suite den förkonfigurerade lösningen för fjärrövervakning. Du kan hitta den arkiverade dokumentationen på [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/).
 
 ### <a name="next-steps"></a>Nästa steg
 
 Du kan även utforska andra funktioner och möjligheter i IoT-lösningsacceleratorerna:
 
-* [Utforska funktionerna i lösningsacceleratorn för fjärrövervakning](quickstart-remote-monitoring-deploy.md)
+* [Utforska funktionerna i lösnings acceleratorn för fjärr styrning](quickstart-remote-monitoring-deploy.md)
 * [Översikt över lösningsaccelerator för förutsägande underhåll](iot-accelerators-predictive-overview.md)
-* [Distribuera lösningsaccelerator för ansluten fabrik](quickstart-connected-factory-deploy.md)
+* [Distribuera lösnings Accelerator för ansluten fabrik](quickstart-connected-factory-deploy.md)
 * [IoT-säkerhet från grunden](/azure/iot-fundamentals/iot-security-ground-up)

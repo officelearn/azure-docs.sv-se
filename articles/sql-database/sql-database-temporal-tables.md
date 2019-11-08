@@ -1,5 +1,5 @@
 ---
-title: Komma igång med temporala tabeller i Azure SQL Database
+title: Komma igång med temporala tabeller
 description: Lär dig hur du kommer igång med att använda temporala tabeller i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 06/26/2019
-ms.openlocfilehash: 44a5589357301f979bb094579626e1c02e582846
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 98fd2658f3fbcb0e7e29114d29f8dc6ed39eedf2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686980"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820713"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Komma igång med temporala tabeller i Azure SQL Database
 
@@ -49,7 +49,7 @@ I SSDT väljer du mallen "temporal tabell (system versioned)" när du lägger ti
 
 ![SSDTNewTable](./media/sql-database-temporal-tables/AzureTemporal3.png)
 
-Du kan också skapa en temporal tabell genom att ange Transact-SQL-uttryck direkt, som du ser i exemplet nedan. Observera att de obligatoriska elementen för varje temporal tabell är PERIOD definitionen och SYSTEM_VERSIONING-satsen med en referens till en annan användar tabell som kommer att lagra historiska rad versioner:
+Du kan också skapa en temporal tabell genom att ange Transact-SQL-uttryck direkt, som du ser i exemplet nedan. Observera att de obligatoriska elementen för varje temporal tabell är PERIOD definitionen och SYSTEM_VERSIONING-satsen med en referens till en annan användar tabell som ska lagra historiska rad versioner:
 
 ```
 CREATE TABLE WebsiteUserInfo 
@@ -120,7 +120,7 @@ Det är viktigt att Observera att uppdaterings frågan inte behöver känna till
 ![TemporalArchitecture](./media/sql-database-temporal-tables/AzureTemporal5.png)
 
 ## <a name="step-3-perform-historical-data-analysis"></a>Steg 3: utför historisk data analys
-Nu när temporal system versions hantering är aktive rad är historisk data analys bara en fråga från dig. I den här artikeln innehåller vi några exempel på hur du kan åtgärda vanliga analys scenarier – om du vill lära dig all information kan du utforska olika alternativ som introduceras med [for SYSTEM_TIME](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_3) -satsen.
+Nu när temporal system versions hantering är aktive rad är historisk data analys bara en fråga från dig. I den här artikeln innehåller vi några exempel på hur du kan åtgärda vanliga analys scenarier – om du vill lära dig mer om den här artikeln kan du utforska olika alternativ som introduceras med [FOR SYSTEM_TIME](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_3) -satsen.
 
 Kör den här frågan för att se de 10 främsta användare som beställts av antalet besökta webb sidor per timme sedan:
 

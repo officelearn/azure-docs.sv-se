@@ -1,5 +1,5 @@
 ---
-title: Visa sekretess-relaterad information från portalen mitt konto – Azure Active Directory | Microsoft Docs
+title: Visa sekretess-relaterad information på mitt konto Portal – Azure AD
 description: Så här visar du sekretess informationen på sidan sekretess i mitt konto-portalen.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a112050b374aad6f38d64a588af8e8d4604fb61
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: dfb05bdb3aa2cf89328051b196475338eb5a3b3b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73587698"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820356"
 ---
 # <a name="view-your-privacy-related-info-from-the-my-account-portal"></a>Visa din sekretess information från portalen mitt konto
 

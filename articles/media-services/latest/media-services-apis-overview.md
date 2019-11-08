@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 574b1591669cc32ce30677cad5158e13b944486f
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 0c263e1353a07ca388ea9a7fb48ebcf99be07fc1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750209"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820638"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Utveckla med Media Services v3-API: er
 
@@ -75,7 +75,7 @@ Azure Media Services v3-resursnamn (till exempel tillgångar, jobb, transformeri
 
 Media Services resursnamn får inte innehålla: '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', apostrof eller några andra kontrolltecken. Alla andra tecken tillåts. Maxlängden för ett resursnamn är 260 tecken. 
 
-Mer information om namngivning av Azure Resource Manager finns i: [Namngivningskrav](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) och [Namngivningskonventioner](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
+Mer information om namngivning av Azure Resource Manager finns i: [Namngivningskrav](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) och [Namngivningskonventioner](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
 ### <a name="names-of-filesblobs-within-an-asset"></a>Namn på filer/blobbar i en till gång
 
@@ -95,7 +95,7 @@ Media Services har följande tids krävande åtgärder:
 * [Starta Live-händelse](https://docs.microsoft.com/rest/api/media/liveevents/start)
 * [Stoppa LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/stop)
 
-  Använd `removeOutputsOnStop`-parametern för att ta bort alla associerade Live-utdata när händelsen stoppas.  
+  Använd parametern `removeOutputsOnStop` för att ta bort alla associerade Live-utdata när händelsen stoppas.  
 * [Återställ LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/reset)
 * [Skapa LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/create)
 * [Ta bort LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/delete)
@@ -126,7 +126,7 @@ Endast en långvarig åtgärd stöds för en specifik Live-händelse eller någo
 |[Go SDK](https://aka.ms/ams-v3-go-sdk) |[Go-referens](https://aka.ms/ams-v3-go-ref)|
 |[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
 
-### <a name="see-also"></a>Se också
+### <a name="see-also"></a>Se även
 
 - [EventGrid .NET SDK som innehåller media service-händelser](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definitioner av Media Services händelser](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
@@ -145,7 +145,7 @@ Se [filtrering, sortering, sid indelning för Azure Media Services entiteter](en
 
 Kolla in [Azure Media Services community](media-services-community.md) -artikeln för att se olika sätt att ställa frågor, lämna feedback och få uppdateringar om Media Services.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 

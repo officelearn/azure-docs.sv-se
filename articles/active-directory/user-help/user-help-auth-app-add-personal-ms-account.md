@@ -1,5 +1,5 @@
 ---
-title: Lägg till dina personliga Microsoft-konton i Microsoft Authenticator app-Azure Active Directory | Microsoft Docs
+title: Lägga till en personlig Microsoft-konto i en Authenticator-app – Azure AD
 description: Hur du lägger till dina personliga Microsoft-konton, till exempel för Outlook.com eller Xbox LIVE till Microsoft Authenticator-appen för tvåstegsverifiering.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cf4629ca97abc5d4ce508f7078f4691467ba249
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 9ca01aad76bfbeba0cf56be8ee74287a79f6346e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616087"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820244"
 ---
 # <a name="add-your-personal-microsoft-accounts"></a>Lägg till dina personliga Microsoft-konton
 
@@ -45,7 +45,7 @@ Du kan lägga till din personliga Microsoft-konto genom att först aktivera två
 
     ![Sidan grundläggande säkerhet med länken "fler säkerhets alternativ" markerad](./media/user-help-auth-app-add-personal-ms-account/more-security-options-link.png)
 
-3. Gå till avsnittet **tvåstegsverifiering** och välj att aktivera funktionen. Du kan också inaktivera det här om du inte längre vill använda det med ditt personliga konto.
+3. Gå till avsnittet **tvåstegsverifiering** och välj att **aktivera funktionen.** Du kan också inaktivera det här om du inte längre vill använda det med ditt personliga konto.
 
 ### <a name="add-your-microsoft-account-to-the-app"></a>Lägg till din Microsoft-konto i appen
 

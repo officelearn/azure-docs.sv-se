@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/30/2019
+ms.date: 11/07/2019
 ms.author: sedusch
-ms.openlocfilehash: 95cf66b8960b03c8bc055443945d5569450855a2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 13f751b472b3443ba50be5d54ab08e015d1a8f5a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101067"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824877"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Azure Virtual Machines hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux
 
@@ -84,12 +84,12 @@ SAP NetWeaver kräver delad lagring för att uppnå hög tillgänglighet. Gluste
 
 ![Översikt över SAP NetWeaver-hög tillgänglighet](./media/high-availability-guide-rhel/ha-rhel.png)
 
-SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS och SAP HANA Database använder virtuella värdnamn och virtuella IP-adresser. I Azure krävs en belastningsutjämnare för att använda en virtuell IP-adress. I följande lista visas konfigurationen av (A) SCS-och ERS-belastningsutjämnaren.
+SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS och SAP HANA Database använder virtuella värdnamn och virtuella IP-adresser. I Azure krävs en belastningsutjämnare för att använda en virtuell IP-adress. Vi rekommenderar att du använder [standard belastnings utjämning](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). I följande lista visas konfigurationen av (A) SCS-och ERS-belastningsutjämnaren.
 
 > [!IMPORTANT]
 > Multi-SID-klustring av SAP ASCS/ERS med Red Hat Linux som gäst operativ system i virtuella Azure-datorer **stöds inte**. Multi-SID-klustring beskriver installationen av flera SAP ASCS/ERS-instanser med olika sid i ett pacemaker-kluster.
 
-### <a name="ascs"></a>(A)SCS
+### <a name="ascs"></a>En SCS
 
 * Konfiguration av klient del
   * IP-10.0.0.7
@@ -98,13 +98,15 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS och SAP HANA Database a
 * Avsöknings port
   * Port 620<strong>&lt;nr&gt;</strong>
 * Belastnings Utjämnings regler
-  * 32<strong>&lt;nr&gt;</strong> TCP
-  * <strong>36&lt;nr&gt;</strong>  TCP
-  * 39<strong>&lt;nr&gt;</strong> TCP
-  * 81<strong>&lt;nr&gt;</strong> TCP
-  * <strong>5&lt;nr&gt;</strong>13 TCP
-  * <strong>5&lt;nr&gt;</strong>14 TCP
-  * <strong>5&lt;nr&gt;</strong>16 TCP
+  * Om du använder Standard Load Balancer väljer du **ha-portar**
+  * Om du använder grundläggande Load Balancer skapa belastnings Utjämnings regler för följande portar
+    * 32<strong>&lt;nr&gt;</strong> TCP
+    * 36<strong>&lt;nr&gt;</strong> TCP
+    * 39<strong>&lt;nr&gt;</strong> TCP
+    * 81<strong>&lt;nr&gt;</strong> TCP
+    * 5<strong>&lt;nr&gt;</strong>13 TCP
+    * 5<strong>&lt;nr&gt;</strong>14 TCP
+    * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ### <a name="ers"></a>ERS
 
@@ -115,11 +117,13 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS och SAP HANA Database a
 * Avsöknings port
   * Port 621<strong>&lt;nr&gt;</strong>
 * Belastnings Utjämnings regler
-  * 32<strong>&lt;nr&gt;</strong> TCP
-  * 33<strong>&lt;nr&gt;</strong> TCP
-  * <strong>5&lt;nr&gt;</strong>13 TCP
-  * <strong>5&lt;nr&gt;</strong>14 TCP
-  * <strong>5&lt;nr&gt;</strong>16 TCP
+  * Om du använder Standard Load Balancer väljer du * * HA portar * *
+  * Om du använder grundläggande Load Balancer skapa belastnings Utjämnings regler för följande portar
+    * 32<strong>&lt;nr&gt;</strong> TCP
+    * 33<strong>&lt;nr&gt;</strong> TCP
+    * 5<strong>&lt;nr&gt;</strong>13 TCP
+    * 5<strong>&lt;nr&gt;</strong>14 TCP
+    * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ## <a name="setting-up-glusterfs"></a>Konfigurera GlusterFS
 
@@ -150,7 +154,7 @@ Azure Marketplace innehåller en avbildning för Red Hat Enterprise Linux som du
    1. Administratörens användar namn, administratörs lösen ord eller SSH-nyckel  
       En ny användare skapas som kan användas för att logga in på datorn.
    1. Undernät-ID  
-   Om du vill distribuera den virtuella datorn till ett befintligt VNet där du har angett ett undernät som har definierats för den virtuella datorn ska du namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som/Subscriptions/ **&lt;prenumerations-ID&gt;** /resourceGroups/ **&lt;resurs grupp namn&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt; virtuellt nätverks namn&gt;** /subnets/ **&lt;under nät&gt; namn**
+   Om du vill distribuera den virtuella datorn till ett befintligt VNet där du har angett ett undernät som har definierats för den virtuella datorn ska du namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som/Subscriptions/ **&lt;prenumerations-id&gt;** /resourceGroups/ **&lt;resurs grupp namn&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;virtuella nätverks namn&gt;** /subnets/ **&lt;under näts namn&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Distribuera Linux manuellt via Azure Portal
 
@@ -161,14 +165,51 @@ Du måste först skapa de virtuella datorerna för det här klustret. Därefter 
 1. Skapa en tillgänglighets uppsättning  
    Ange Max uppdaterings domän
 1. Skapa virtuell dator 1  
-   Använd minst RHEL 7, i det här exemplet Red Hat Enterprise Linux 7,4-avbildningen<https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Använd minst RHEL 7, i det här exemplet Red Hat Enterprise Linux 7,4-avbildningen <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Välj den tillgänglighets uppsättning som skapades tidigare  
 1. Skapa virtuell dator 2  
-   Använd minst RHEL 7, i det här exemplet Red Hat Enterprise Linux 7,4-avbildningen<https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Använd minst RHEL 7, i det här exemplet Red Hat Enterprise Linux 7,4-avbildningen <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Välj den tillgänglighets uppsättning som skapades tidigare  
 1. Lägg till minst en datadisk till båda virtuella datorerna  
-   Data diskarna används för/usr/SAP/`<SAPSID`>-katalogen
-1. Skapa en Load Balancer (intern)  
+   Data diskarna används för/usr/SAP/-`<SAPSID`> Directory
+1. Skapa belastningsutjämnare (intern, standard):  
+   1. Skapa IP-adresser för klient delen
+      1. IP-10.0.0.7 för ASCS
+         1. Öppna belastningsutjämnaren, Välj klient delens IP-pool och klicka på Lägg till
+         1. Ange namnet på den nya IP-poolen för klient delen (till exempel **NW1-ASCs-frontend**)
+         1. Ange tilldelningen till statisk och ange IP-adressen (till exempel **10.0.0.7**)
+         1. Klicka på OK
+      1. IP-10.0.0.8 för ASCS-ERS
+         * Upprepa stegen ovan för att skapa en IP-adress för ERS (till exempel **10.0.0.8** och **NW1-AERS-backend**)
+   1. Skapa backend-pooler
+      1. Skapa en backend-pool för ASCS
+         1. Öppna belastningsutjämnaren, Välj backend-pooler och klicka på Lägg till
+         1. Ange namnet på den nya backend-poolen (till exempel **NW1-ASCs-backend**)
+         1. Klicka på Lägg till en virtuell dator.
+         1. Välj virtuell dator.
+         1. Välj de virtuella datorerna i (A) SCS-klustret och deras IP-adresser.
+         1. Klicka på Lägg till
+      1. Skapa en backend-pool för ASCS-ERS
+         * Upprepa stegen ovan för att skapa en backend-pool för ERS (till exempel **NW1-AERS-backend**)
+   1. Skapa hälso avsökningar
+      1. Port 620**00** för ASCS
+         1. Öppna belastningsutjämnaren, Välj hälso avsökningar och klicka på Lägg till
+         1. Ange namnet på den nya hälso avsökningen (till exempel **NW1-ASCs-HP**)
+         1. Välj TCP som protokoll, Port 620**00**, Behåll intervallet 5 och tröskelvärde 2
+         1. Klicka på OK
+      1. Port 621**02** för ASCS ers
+         * Upprepa stegen ovan för att skapa en hälso avsökning för ERS (till exempel 621**02** och **NW1-AERS-HP**)
+   1. Belastnings Utjämnings regler
+      1. Regler för belastnings utjämning för ASCS
+         1. Öppna belastningsutjämnaren, Välj belastnings Utjämnings regler och klicka på Lägg till
+         1. Ange namnet på den nya belastnings Utjämnings regeln (till exempel **NW1 – lb-ASCs**)
+         1. Välj IP-adressen för klient delen, backend-poolen och hälso avsökningen som du skapade tidigare (till exempel **NW1-ASCs-frontend**, **NW1-ASCs-backend** och **NW1-ASCs-HP**)
+         1. Välj **ha-portar**
+         1. Öka tids gränsen för inaktivitet till 30 minuter
+         1. **Se till att aktivera flytande IP**
+         1. Klicka på OK
+         * Upprepa stegen ovan för att skapa belastnings Utjämnings regler för ERS (till exempel **NW1-lb-ers**)
+1. Om scenariot kräver grundläggande belastningsutjämnare (internt) följer du dessa steg:  
    1. Skapa IP-adresser för klient delen
       1. IP-10.0.0.7 för ASCS
          1. Öppna belastningsutjämnaren, Välj klient delens IP-pool och klicka på Lägg till
@@ -205,12 +246,16 @@ Du måste först skapa de virtuella datorerna för det här klustret. Därefter 
          1. **Se till att aktivera flytande IP**
          1. Klicka på OK
       1. Ytterligare portar för ASCS
-         * Upprepa stegen ovan för portarna 36**00**, 39**00**, 81**00**, 5**00**13, 500 14, 5**00**16 och TCP för ASCS
+         * Upprepa stegen ovan för portarna 36**00**, 39**00**, 81**00**, 5**00**13, 5**00 14,** 5**00**16 och TCP för ASCS
       1. Ytterligare portar för ASCS-ERS
          * Upprepa stegen ovan för portarna 33**02**, 5**02**13, 5**02**14, 5**02**16 och TCP för ASCS-ers
 
+> [!TIP]
+> När virtuella datorer utan offentliga IP-adresser placeras i backend-poolen för intern standard belastningsutjämnare, kommer de virtuella datorerna inte att ha utgående Internet anslutning, om inte ytterligare konfiguration utförs.  
+> Om ditt scenario kräver utgående anslutningar till offentliga slut punkter kan du läsa mer i Översikt över [offentliga slut punkter för Virtual Machines att använda Azure standard Load Balancer i SAP-scenarier med hög tillgänglighet](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)för tips och överväganden om hur du uppnår utgående anslutning till offentliga slut punkter.
+
 > [!IMPORTANT]
-> Aktivera inte TCP-tidsstämplar på virtuella Azure-datorer som placerats bakom Azure Load Balancer. Om du aktiverar TCP-tidsstämplar kommer hälso avsökningarna att Miss skadas. Ange parametern **net. IPv4. TCP _timestamps** till **0**. Mer information finns i [Load Balancer hälso](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)avsökningar.
+> Aktivera inte TCP-tidsstämplar på virtuella Azure-datorer som placerats bakom Azure Load Balancer. Om du aktiverar TCP-tidsstämplar kommer hälso avsökningarna att Miss skadas. Ange parametern **net. IPv4. tcp_timestamps** till **0**. Mer information finns i [Load Balancer hälso avsökningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### <a name="create-pacemaker-cluster"></a>Skapa pacemaker-kluster
 
@@ -218,17 +263,17 @@ Följ stegen i [Konfigurera pacemaker på Red Hat Enterprise Linux i Azure](high
 
 ### <a name="prepare-for-sap-netweaver-installation"></a>Förbered för SAP NetWeaver-installation
 
-Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1]** – gäller endast för nod 1 eller **[2]** – gäller endast för nod 2.
+Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , som endast gäller nod 1 eller **[2]** -gäller endast nod 2.
 
-1. **[A]**  Konfigurera matcha värdnamn
+1. **[A]** namn matchning för värdnamn
 
-   Du kan använda en DNS-server, eller så kan du ändra i/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
+   Du kan antingen använda en DNS-server eller ändra/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
    Ersätt IP-adress och värdnamn i följande kommandon
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
 
-   Infoga följande rader till/etc/hosts. Ändra IP-adressen och värdnamnet till matchar din miljö
+   Infoga följande rader i/etc/hosts. Ändra IP-adress och värdnamn för att matcha din miljö
 
    <pre><code># IP addresses of the GlusterFS nodes
    <b>10.0.0.40 glust-0</b>
@@ -361,7 +406,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
 
    Installera SAP NetWeaver ASCS som rot på den första noden med ett virtuellt värdnamn som mappar till IP-adressen för belastningsutjämnarens frontend-konfiguration för ASCS, till exempel <b>NW1-ASCS</b>, <b>10.0.0.7</b> och det instans nummer som du använde för avsökningen av belastningsutjämnaren, till exempel <b>00</b>.
 
-   Du kan använda sapinst-parametern SAPINST_REMOTE_ACCESS_USER för att tillåta att en icke-root-användare ansluter till sapinst.
+   Du kan använda parametern sapinst SAPINST_REMOTE_ACCESS_USER för att tillåta att en användare som inte är rot användare ansluter till sapinst.
 
    <pre><code># Allow access to SWPM. This rule is not permanent. If you reboot the machine, you have to run the command again.
    sudo firewall-cmd --zone=public  --add-port=4237/tcp
@@ -417,7 +462,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
 
    Installera SAP NetWeaver ERS som rot på den andra noden med ett virtuellt värdnamn som mappar till IP-adressen för belastningsutjämnarens frontend-konfiguration för ERS, till exempel <b>NW1-AERS</b>, <b>10.0.0.8</b> och det instans nummer som du använde för avsökningen av belastningsutjämnaren, till exempel <b>02</b>.
 
-   Du kan använda sapinst-parametern SAPINST_REMOTE_ACCESS_USER för att tillåta att en icke-root-användare ansluter till sapinst.
+   Du kan använda parametern sapinst SAPINST_REMOTE_ACCESS_USER för att tillåta att en användare som inte är rot användare ansluter till sapinst.
 
    <pre><code># Allow access to SWPM. This rule is not permanent. If you reboot the machine, you have to run the command again.
    sudo firewall-cmd --zone=public  --add-port=4237/tcp
@@ -593,13 +638,13 @@ Stegen nedan förutsätter att du installerar program servern på en annan serve
 
 1. Konfigurera värd namns matchning
 
-   Du kan använda en DNS-server, eller så kan du ändra i/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
+   Du kan antingen använda en DNS-server eller ändra/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
    Ersätt IP-adress och värdnamn i följande kommandon
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
 
-   Infoga följande rader till/etc/hosts. Ändra IP-adressen och värdnamnet till matchar din miljö
+   Infoga följande rader i/etc/hosts. Ändra IP-adress och värdnamn för att matcha din miljö
 
    <pre><code># IP addresses of the GlusterFS nodes
    <b>10.0.0.40 glust-0</b>
@@ -670,7 +715,7 @@ I det här exemplet installeras SAP NetWeaver på SAP HANA. Du kan använda alla
 
    Installera SAP NetWeaver Database-instansen som rot med ett virtuellt värdnamn som mappar till IP-adressen för belastningsutjämnarens frontend-konfiguration för-databasen till exempel <b>NW1-DB</b> och <b>10.0.0.13</b>.
 
-   Du kan använda sapinst-parametern SAPINST_REMOTE_ACCESS_USER för att tillåta att en icke-root-användare ansluter till sapinst.
+   Du kan använda parametern sapinst SAPINST_REMOTE_ACCESS_USER för att tillåta att en användare som inte är rot användare ansluter till sapinst.
 
    <pre><code>
    sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
@@ -682,13 +727,13 @@ Följ dessa steg om du vill installera en SAP-Programserver.
 
 1. Förbered program Server
 
-   Följ stegen i kapitel [SAP NetWeaver Application Server](high-availability-guide-rhel.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) -förberedelsen ovan för att förbereda program servern.
+   Följ stegen i kapitel [SAP NetWeaver Application Server-förberedelsen](high-availability-guide-rhel.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) ovan för att förbereda program servern.
 
 1. Installera SAP NetWeaver program Server
 
    Installera en primär eller ytterligare SAP NetWeaver program Server.
 
-   Du kan använda sapinst-parametern SAPINST_REMOTE_ACCESS_USER för att tillåta att en icke-root-användare ansluter till sapinst.
+   Du kan använda parametern sapinst SAPINST_REMOTE_ACCESS_USER för att tillåta att en användare som inte är rot användare ansluter till sapinst.
 
    <pre><code>
    sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>

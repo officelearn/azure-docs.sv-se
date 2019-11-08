@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: atsenthi
-ms.openlocfilehash: 6ee7c71a66488e9636752676d68a79fdfaf855cb
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cf808bef75a73cef6e8c17045506f29fabf3b52e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599825"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819451"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric kluster säkerhets scenarier
-Ett Azure Service Fabric-kluster är en resurs som du äger. Det är ditt ansvar att skydda dina kluster så att obehöriga användare kan ansluta till dem. Ett säkert kluster är särskilt viktigt när du kör produktions arbets belastningar i klustret. Även om det är möjligt att skapa ett oskyddat kluster, kan anonyma användare ansluta till det om klustret exponerar hanterings slut punkter för det offentliga Internet. Oskyddade kluster stöds inte för produktions arbets belastningar. 
+Ett Azure Service Fabric-kluster är en resurs som du äger. Det är ditt ansvar att skydda dina kluster så att obehöriga användare kan ansluta till dem. Ett säkert kluster är särskilt viktigt när du kör produktions arbets belastningar i klustret. Det är möjligt att skapa ett oskyddat kluster, men om klustret exponerar hanterings slut punkter för det offentliga Internet kan anonyma användare ansluta till den. Oskyddade kluster stöds inte för produktions arbets belastningar. 
 
 Den här artikeln är en översikt över säkerhets scenarier för Azure-kluster och fristående kluster och de olika tekniker som du kan använda för att implementera dem:
 
@@ -57,7 +57,7 @@ Säkerhet mellan klienter autentiserar klienter och skyddar kommunikationen mell
 Kluster som körs på Azure och fristående kluster som körs på Windows kan båda använda antingen [certifikat säkerhet](https://msdn.microsoft.com/library/ff649801.aspx) eller [Windows-säkerhet](https://msdn.microsoft.com/library/ff649396.aspx).
 
 ### <a name="client-to-node-certificate-security"></a>Säkerhet för klient-till-nod-certifikat
-Konfigurera säkerhet för klient-till-nod-certifikat när du skapar klustret, antingen i Azure Portal, med hjälp av en Resource Manager-mall eller med en fristående JSON-mall. Om du vill skapa certifikatet anger du ett administratörs klient certifikat eller ett användar klient certifikat. Som bästa praxis bör administratörs klienten och användar klient certifikaten som du anger skilja sig från de primära och sekundära certifikat som du anger för [nod-till-nod-säkerhet](#node-to-node-security). Som standard läggs kluster certifikaten för nod-till-nod-säkerhet till i listan över tillåtna klient administratörs certifikat.
+Konfigurera säkerhet för klient-till-nod-certifikat när du skapar klustret, antingen i Azure Portal, med hjälp av en Resource Manager-mall eller med en fristående JSON-mall. Om du vill skapa certifikatet anger du ett administratörs klient certifikat eller ett användar klient certifikat. Som bästa praxis bör administratörs klienten och användar klient certifikaten som du anger skilja sig från de primära och sekundära certifikat som du anger för [nod-till-nod-säkerhet](#node-to-node-security). Kluster certifikat har samma rättigheter som klient administratörs certifikat. De bör dock endast användas av kluster och inte av administrativa användare av säkerhets skäl.
 
 Klienter som ansluter till klustret med hjälp av administratörs certifikatet har fullständig åtkomst till hanterings funktionerna. Klienter som ansluter till klustret med hjälp av det skrivskyddade användar klient certifikatet har bara Läs behörighet till hanterings funktionerna. Dessa certifikat används för RBAC som beskrivs längre fram i den här artikeln.
 
@@ -83,7 +83,7 @@ För Service Fabric kluster som distribueras i ett offentligt nätverk som finns
 Om du har Windows Server 2012 R2 och Windows Active Directory, rekommenderar vi att du använder Windows-säkerhet med grupphanterade tjänst konton för fristående Windows Server-kluster. Annars använder du Windows-säkerhet med Windows-konton.
 
 ## <a name="role-based-access-control-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
-Du kan använda åtkomst kontroll för att begränsa åtkomsten till vissa kluster åtgärder för olika användar grupper. Detta gör klustret säkrare. Två åtkomst kontroll typer stöds för klienter som ansluter till ett kluster: Administratörs roll och användar roll.
+Du kan använda åtkomst kontroll för att begränsa åtkomsten till vissa kluster åtgärder för olika användar grupper. Detta gör klustret säkrare. Två åtkomst kontroll typer stöds för klienter som ansluter till ett kluster: administratörs roll och användar roll.
 
 Användare som har tilldelats rollen administratör har fullständig åtkomst till hanterings funktioner, inklusive Läs-och skriv funktioner. Användare som har tilldelats användar rollen har som standard endast Läs behörighet till hanterings funktioner (till exempel fråge funktioner). De kan också lösa program och tjänster.
 
@@ -112,7 +112,7 @@ Certifikatet måste uppfylla följande krav:
 
 Några andra saker att tänka på:
 
-* **Ämnes** fältet kan ha flera värden. Varje värde föregås av en initiering som anger värde typen. Normalt är initieringen **CN** (för *eget namn*). till exempel **CN = www\.contoso.com**. 
+* **Ämnes** fältet kan ha flera värden. Varje värde föregås av en initiering som anger värde typen. Normalt är initieringen **CN** (för *eget namn*). exempel: **CN = www\.contoso.com**. 
 * **Ämnes** fältet kan vara tomt. 
 * Om fältet **Alternativt namn på certifikat mottagare** är ifyllt, måste det ha både det egna namnet på certifikatet och en post per San. Dessa anges som **DNS-namn** värden. Information om hur du skapar certifikat som har San finns i [så här lägger du till ett alternativt namn för certifikat mottagare i ett säkert LDAP-certifikat](https://support.microsoft.com/kb/931351).
 * Värdet för fältet **avsett syfte** för certifikatet bör innehålla ett lämpligt värde, till exempel **serverautentisering** eller **klientautentisering**.

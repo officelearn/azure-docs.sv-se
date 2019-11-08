@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: f6bee53268ea99e99d79e218eaf7a5ae9fcb1d05
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: d8e23188aa07b1b271c3adc7c5550b18c0c60977
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104470"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827691"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster
 
@@ -57,13 +57,13 @@ Skapa ett Azure Data Lake Storage Gen2-lagringskonto.
 1. Klicka på **Skapa**.
 1. På skärmen **skapa lagrings konto** :
     1. Välj rätt prenumeration och resurs grupp.
-    1. Ange ett namn för ditt Data Lake Storage Gen2-konto. Mer information om namngivnings konventioner för lagrings konto finns i [namngivnings konventioner för Azure-resurser](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#storage).
+    1. Ange ett namn för ditt Data Lake Storage Gen2-konto. Mer information om namngivnings konventioner för lagrings konto finns i [namngivnings konventioner för Azure-resurser](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#storage).
     1. Klicka på fliken **Avancerat** .
     1. Klicka på **aktive rad** bredvid **hierarkiskt namn område** under **data Lake Storage Gen2**.
     1. Klicka på **Granska + skapa**.
     1. Klicka på **Skapa**
 
-Mer information om andra alternativ när du skapar lagrings konton finns [i snabb start: Skapa ett Azure Data Lake Storage Gen2 lagrings](../storage/blobs/data-lake-storage-quickstart-create-account.md)konto.
+Mer information om andra alternativ när du skapar lagrings konton finns i [snabb start: skapa ett Azure Data Lake Storage Gen2 lagrings konto](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
 ![Skärm bild som visar hur du skapar lagrings konton i Azure Portal](./media/hdinsight-hadoop-use-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
 
@@ -116,7 +116,7 @@ Kodfragmentet nedan visar följande inledande steg:
 1. Skapar en ny resurs grupp för de nya distributions aktiviteterna. 
 1. Skapar en användardefinierad hanterad identitet.
 1. Lägger till ett tillägg i Azure CLI för att använda funktioner för Data Lake Storage Gen2.
-1. Skapar ett nytt data Lake Storage Gen2-konto med hjälp `--hierarchical-namespace true` av flaggan. 
+1. Skapar ett nytt Data Lake Storage Gen2-konto med hjälp av `--hierarchical-namespace true`-flaggan. 
 
 ```azurecli
 az login

@@ -12,44 +12,44 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: jingwang
-ms.openlocfilehash: f4e9e9f66d9bf1fecd4565d5eb469703e7a83d0d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ffdde571bbd2ae967003c520b09349ea9dcff414
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681187"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73806074"
 ---
-# <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Kopiera data till ett Azure Search-index med Azure Data Factory
+# <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory"></a>Kopiera data till ett Azure Kognitiv sökning-index med Azure Data Factory
 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-azure-search-connector.md)
 > * [Aktuell version](connector-azure-search.md)
 
-Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data till Azure Search index. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
+Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data till Azure Kognitiv sökning index. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från alla käll data lager som stöds till Azure Search index. En lista över data lager som stöds som källor/mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
+Du kan kopiera data från alla käll data lager som stöds till Sök index. En lista över data lager som stöds som källor/mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-I följande avsnitt finns information om egenskaper som används för att definiera Data Factory entiteter som är speciella för Azure Search koppling.
+Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter som är speciella för Azure Kognitiv sökning Connector.
 
 ## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 
-Följande egenskaper stöds för Azure Search länkade tjänsten:
+Följande egenskaper stöds för den länkade tjänsten Azure Kognitiv sökning:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till: **AzureSearch** | Ja |
-| url | URL för Azure Searchs tjänsten. | Ja |
-| key | Administratörs nyckel för Azure Searchs tjänsten. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| url | URL för Sök tjänsten. | Ja |
+| key | Administratörs nyckel för Sök tjänsten. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Du kan använda Azure Integration Runtime eller egen värd Integration Runtime (om ditt data lager finns i privat nätverk). Om inget värde anges används standard Azure Integration Runtime. |Nej |
 
 > [!IMPORTANT]
-> När du kopierar data från ett moln data lager till Azure Search index, i Azure Search länkade tjänster, måste du referera till en Azure Integration Runtime med en explicit region i connactVia. Ange regionen som en Azure Search finns. Läs mer från [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime).
+> När du kopierar data från ett moln data lager till sökindexet i Azure Kognitiv sökning länkade tjänsten måste du referera till en Azure Integration Runtime med en explicit region i connactVia. Ange regionen som den plats där Sök tjänsten finns. Läs mer från [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime).
 
 **Exempel:**
 
@@ -75,14 +75,14 @@ Följande egenskaper stöds för Azure Search länkade tjänsten:
 
 ## <a name="dataset-properties"></a>Egenskaper för data mängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Azure Search Data uppsättning.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Azure Kognitiv sökning DataSet.
 
-Följande egenskaper stöds för att kopiera data till Azure Search:
+Följande egenskaper stöds för att kopiera data till Azure Kognitiv sökning:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens typ-egenskap måste anges till: **AzureSearchIndex** | Ja |
-| indexName | Namnet på Azure Search indexet. Data Factory skapar inte indexet. Indexet måste finnas i Azure Search. | Ja |
+| indexName | Sök Indexets namn. Data Factory skapar inte indexet. Indexet måste finnas i Azure Kognitiv sökning. | Ja |
 
 **Exempel:**
 
@@ -96,7 +96,7 @@ Följande egenskaper stöds för att kopiera data till Azure Search:
         },
         "schema": [],
         "linkedServiceName": {
-            "referenceName": "<Azure Search linked service name>",
+            "referenceName": "<Azure Cognitive Search linked service name>",
             "type": "LinkedServiceReference"
         }
    }
@@ -105,21 +105,21 @@ Följande egenskaper stöds för att kopiera data till Azure Search:
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Azure Search källa.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Azure Kognitiv sökning Source.
 
-### <a name="azure-search-as-sink"></a>Azure Search som mottagare
+### <a name="azure-cognitive-search-as-sink"></a>Azure Kognitiv sökning som mottagare
 
-Om du vill kopiera data till Azure Search anger du käll typen i kopierings aktiviteten till **AzureSearchIndexSink**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **mottagare** :
+Om du vill kopiera data till Azure Kognitiv sökning anger du käll typen i kopierings aktiviteten till **AzureSearchIndexSink**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **mottagare** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **AzureSearchIndexSink** | Ja |
-| WriteBehavior | Anger om du vill sammanfoga eller ersätta när ett dokument redan finns i indexet. Se [egenskapen WriteBehavior](#writebehavior-property).<br/><br/>Tillåtna värden är: **sammanfoga** (standard) och **Ladda upp**. | Nej |
-| writeBatchSize | Överför data till Azure Search index när buffertstorleken når writeBatchSize. Mer information finns i [WriteBatchSize-egenskapen](#writebatchsize-property) .<br/><br/>Tillåtna värden är: heltal 1 till 1 000; Standardvärdet är 1000. | Nej |
+| writeBehavior | Anger om du vill sammanfoga eller ersätta när ett dokument redan finns i indexet. Se [egenskapen WriteBehavior](#writebehavior-property).<br/><br/>Tillåtna värden är: **sammanfoga** (standard) och **Ladda upp**. | Nej |
+| WriteBatchSize | Överför data till Sök indexet när buffertstorleken når writeBatchSize. Mer information finns i [WriteBatchSize-egenskapen](#writebatchsize-property) .<br/><br/>Tillåtna värden är: heltal 1 till 1 000; Standardvärdet är 1000. | Nej |
 
 ### <a name="writebehavior-property"></a>WriteBehavior-egenskap
 
-AzureSearchSink upsertar när data skrivs. Med andra ord, om dokument nyckeln redan finns i Azure Search-index, Azure Search uppdaterar det befintliga dokumentet i stället för att ett konflikt undantag utlöses.
+AzureSearchSink upsertar när data skrivs. När du skriver ett dokument, och om dokument nyckeln redan finns i Sök indexet, kommer Azure Kognitiv sökning att uppdatera det befintliga dokumentet i stället för att ett konflikt undantag utlöses.
 
 AzureSearchSink innehåller följande två upsert-beteenden (med hjälp av AzureSearch SDK):
 
@@ -130,7 +130,7 @@ Standard beteendet **slås samman**.
 
 ### <a name="writebatchsize-property"></a>WriteBatchSize-egenskap
 
-Azure Search-tjänsten stöder skrivning av dokument som en batch. En batch kan innehålla 1 till 1 000-åtgärder. En åtgärd hanterar ett dokument för att utföra uppladdnings-/sammanslagnings åtgärden.
+Azure Kognitiv sökning-tjänsten har stöd för skrivning av dokument som en batch. En batch kan innehålla 1 till 1 000-åtgärder. En åtgärd hanterar ett dokument för att utföra uppladdnings-/sammanslagnings åtgärden.
 
 **Exempel:**
 
@@ -147,7 +147,7 @@ Azure Search-tjänsten stöder skrivning av dokument som en batch. En batch kan 
         ],
         "outputs": [
             {
-                "referenceName": "<Azure Search output dataset name>",
+                "referenceName": "<Azure Cognitive Search output dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -166,9 +166,9 @@ Azure Search-tjänsten stöder skrivning av dokument som en batch. En batch kan 
 
 ## <a name="data-type-support"></a>Data typs stöd
 
-I följande tabell anges om en Azure Search data typ stöds eller inte.
+I följande tabell anges om data typen Azure Kognitiv sökning stöds eller inte.
 
-| Azure Search data typ | Stöds i Azure Search-mottagare |
+| Data typen Azure Kognitiv sökning | Stöds i Azure Kognitiv sökning-mottagare |
 | ---------------------- | ------------------------------ |
 | Sträng | Y |
 | Int32 | Y |
@@ -179,7 +179,7 @@ I följande tabell anges om en Azure Search data typ stöds eller inte.
 | Sträng mat ris | N |
 | GeographyPoint | N |
 
-För närvarande stöds inte andra data typer, t. ex. ComplexType. En fullständig lista över Azure Search data typ som stöds finns i [data typer som stöds (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types).
+För närvarande stöds inte andra data typer, t. ex. ComplexType. En fullständig lista över data typer som stöds av Azure Kognitiv sökning finns i [data typer som stöds (Azure kognitiv sökning)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types).
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Azure Data Factory finns i [data lager som stöds](copy-activity-overview.md##supported-data-stores-and-formats).

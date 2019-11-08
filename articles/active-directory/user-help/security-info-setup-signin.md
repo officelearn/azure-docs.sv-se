@@ -1,5 +1,5 @@
 ---
-title: Konfigurera säkerhetsinformation (förhandsversion) från inloggningsuppmaningen – Azure Active Directory | Microsoft Docs
+title: Konfigurera säkerhets information (för hands version) från en inloggnings tolk – Azure AD
 description: Hur du konfigurerar säkerhetsinformationen för ditt arbets- eller skolkonto om du uppmanas av organisationens inloggningssida.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 08/05/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e05515c2fd118c21f891be86fae6423affab0324
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 3ae1856c7934c658bd244445306b4bb78c666e38
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160903"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820287"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Konfigurera din säkerhetsinformation (förhandsversion) från uppmaningen på inloggningssidan
 

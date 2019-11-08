@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: v-chjen
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 ms.date: 09/26/2019
-ms.openlocfilehash: beaca02807f3ee33022854f17150d8eeff1568ac
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 072fafac7294757afb26511af569ea75ace0d20a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695599"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811924"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Skapa ett kommersiellt marknads plats konto i Partner Center
 
@@ -73,7 +74,7 @@ När du har bekräftat din utgivar profil information godkänner du villkoren oc
 >[!IMPORTANT]
 >*Du måste ha behörighet att agera på företagets vägnar för att kunna godkänna dessa villkor.*
 
-När du har registrerat dig kommer du till översikts sidan för den kommersiella Marketplace. Den **kommersiella marknads platsen** visas i det vänstra navigerings fältet. Om du väljer **Inställningar** > **partner inställningar** > **program**, ser du att den kommersiella Marketplace är listad som registrerad.
+När du har registrerat dig kommer du till översikts sidan för den kommersiella Marketplace. Den **kommersiella marknads platsen** visas i det vänstra navigerings fältet. Om du väljer **inställningar** > **partner inställningar** > **program**ser du att den kommersiella Marketplace visas som registrerad.
 
 Tack för att du skapar ett kommersiellt marknads plats konto på Partner Center! Mer hjälp finns i [Översikt över kommersiella marknads platser](./commercial-marketplace-overview.md). Information om hur du lägger till utgivare finns i [lägga till nya utgivare i programmet för kommersiella marknads platser](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -110,14 +111,14 @@ När du har loggat in använder du följande steg för att slutföra konfigurati
 >[!NOTE]
 > Du måste ha en **konto administratör** eller en **Global administratörs** roll för att kunna logga in på Microsoft Partner Network.
 
-1. Från [partner Center](https://partner.microsoft.com/)väljer du **Inställningar** > **partner inställningar** > **program**@no__t – 6**Kom igång**.
+1. Från [partner Center](https://partner.microsoft.com/)väljer du **Inställningar** > **partner inställningar** > **program** > **Kom igång**.
 2. Microsoft Partner Network identifierar din prenumeration och visar sidan Publisher-profil där du kan ange företagets namn och MPN-ID.
 3. Läs villkoren i [Microsoft Marketplace utgivar avtalet](https://go.microsoft.com/fwlink/?LinkID=699560)och välj sedan **Godkänn och fortsätt** för att slutföra registreringen.
 
     >[!IMPORTANT]
     >*Du måste ha behörighet att agera på företagets vägnar för att kunna godkänna dessa villkor.*
 
-När du har registrerat dig kommer du till översikts sidan för den kommersiella Marketplace. Den **kommersiella marknads platsen** visas i det vänstra navigerings fältet. Om du väljer **Inställningar** > **partner inställningar** > **program**, ser du att den kommersiella Marketplace är listad som registrerad.
+När du har registrerat dig kommer du till översikts sidan för den kommersiella Marketplace. Den **kommersiella marknads platsen** visas i det vänstra navigerings fältet. Om du väljer **inställningar** > **partner inställningar** > **program**ser du att den kommersiella Marketplace visas som registrerad.
 
 Tack för att du skapar ett konto på Partner Center! Mer hjälp finns i [Översikt över kommersiella marknads platser](./commercial-marketplace-overview.md). Information om hur du lägger till utgivare finns i [lägga till nya utgivare i programmet för kommersiella marknads platser](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -134,14 +135,14 @@ Logga in på [partner Center](https://partner.microsoft.com/) med ditt Microsoft
 
 När du har loggat in använder du följande steg för att slutföra konfigurationen av ditt konto:
 
-1. Från Partner Center väljer du **inställningar** >  inställningar för**utvecklare** > **program** > **Kom igång**och anger din e-postadress till arbetet.
+1. Från Partner Center väljer du **inställningar** > inställningar för **utvecklare** > **program** > **Kom igång**och anger din e-postadress till arbetet.
 2. Slutför informationen på utgivarens profil sida.
 3. Läs villkoren i [Microsoft Marketplace utgivar avtalet](http://go.microsoft.com/fwlink/?LinkID=699560)och välj sedan **Godkänn och fortsätt** för att slutföra registreringen.
 
     >[!Important]
     >*Du måste ha behörighet att agera på företagets vägnar för att kunna godkänna dessa villkor.*
 
-När du har registrerat dig kommer du till översikts sidan för den kommersiella Marketplace. Den **kommersiella marknads platsen** visas i det vänstra navigerings fältet. Om du väljer **inställningar** >  inställningar för**utvecklare** > **program**, ser du att den kommersiella Marketplace visas som registrerad.
+När du har registrerat dig kommer du till översikts sidan för den kommersiella Marketplace. Den **kommersiella marknads platsen** visas i det vänstra navigerings fältet. Om du väljer **inställningar** > inställningar för **utvecklare** > **program**, ser du att den kommersiella Marketplace visas som registrerad.
 
 Tack för att du skapar ett konto på Partner Center! Mer hjälp finns i [Översikt över kommersiella marknads platser](./commercial-marketplace-overview.md). Information om hur du lägger till utgivare finns i [lägga till nya utgivare i programmet för kommersiella marknads platser](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -160,7 +161,7 @@ När din konto information har flyttats från CPP till Partner Center använder 
 En organisation kan ha flera utgivare som är kopplade till ett kommersiellt marknads plats konto. En befintlig användare kan lägga till fler utgivare efter att ha loggat in på Partner Center genom att välja **konto inställningar** > **utgivare** > **Lägg till utgivare**.
 
 >[!NOTE]
->Innan du lägger till en ny utgivare granskar du dina befintliga utgivare genom att logga in på Partner Center och välja **konto inställnings** > **utgivare** för att se en lista över befintliga utgivare.
+>Innan du lägger till en ny utgivare granskar du dina befintliga utgivare genom att logga in på Partner Center och välja **konto inställningar** > **utgivare** för att se en lista över befintliga utgivare.
 
 En annan användare från samma Azure Active Directory klient organisation kan lägga till en ny utgivare genom att följa stegen nedan:
 
@@ -170,9 +171,9 @@ En annan användare från samma Azure Active Directory klient organisation kan l
 4. Välj det MPN-ID som du vill koppla till utgivaren.
 5. Uppdatera **utgivar informationen** i formuläret.
 
-   1. **Utgivar namn**: Det namn som ska visas i Azure Marketplace eller AppSource med erbjudandet.
-   1. **PublisherID**: En identifierare som används av Partner Center för att identifiera utgivaren unikt. Standardvärdet för det här fältet mappar till ett befintligt `PublisherID` och unikt i systemet, som inte kan återanvändas, och därför måste det här fältet uppdateras.
-   1. **Kontakt information**: Uppdatera kontakt informationen när det behövs.
+   1. **Utgivar namn**: det namn som visas i Azure Marketplace eller AppSource med erbjudandet.
+   1. **PublisherID**: en identifierare som används av Partner Center för att identifiera utgivaren unikt. Standardvärdet för det här fältet mappar till en befintlig och unik `PublisherID` i systemet, som inte kan återanvändas och därför måste det här fältet uppdateras.
+   1. **Kontakt information**: uppdatera kontakt uppgifterna när det behövs.
 
 När du har slutfört processen kan du hantera din nyligen skapade utgivare genom att gå till det **kommersiella Marketplace** -programmet som visas i den vänstra navigerings menyn. Om du inte ser det **kommersiella Marketplace** -programmet uppdaterar du sidan. Den nya utgivaren kommer att visas i listan **utgivare** .
 

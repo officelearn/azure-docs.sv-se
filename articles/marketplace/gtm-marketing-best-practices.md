@@ -1,27 +1,28 @@
 ---
-title: Go-To-Market Services – marknadsföring Metodtips | Azure
-description: Go-To-Market Services – det här avsnittet beskrivs marknadsföring Metodtips för Azure Marketplace-utgivare
+title: Go-to-Marketing-tjänster – bästa praxis för marknadsföring | Azure
+description: Go-to-Marketing-tjänster – det här avsnittet beskriver metod tips för marknadsföring för utgivare av Azure Marketplace
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 6/24/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4df5a94aebd91fc6941acbec149a5fde98d7f760
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5d2c6ce8682e24d981457ea8fc804ff04e226750
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441727"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823957"
 ---
 # <a name="marketing-best-practices"></a>Metodtips för marknadsföring
 
-En optimerad marketplace-lista och go-to-market kampanjer kan hjälpa dig att påskynda kundtillväxten för anskaffning och därför kan spela upp en viktig roll i din strategi för moln- och motoruppdateringar. Gör dig redo att lista erbjudanden, tillhandahåller kunden utvärderingsversioner och ansluter till Microsoft-kunder och partner-communityn. Ladda ned den [AppSource & Azure Marketplace marknadsföring bästa praxis](https://aka.ms/marketplacebestpractices) och lär dig att få ut det mesta av marknadsföringen online.
+En optimerad Marketplace-lista och go-to-Marketing-kampanjer kan hjälpa dig att påskynda din kund förvärvs tillväxt och kan därför spela en betydande roll i din strategi och motor för molnet. Gör dig redo att lista erbjudanden, tillhandahålla kund prövningar och Anslut till Microsofts kunder och partner samhället. Hämta [AppSource & Azure Marketplace Marketing Best Practice guide](https://aka.ms/marketplacebestpractices) och lär dig hur du får ut mesta möjliga av dina marknadsförings aktiviteter online.
 
 **Nästa steg**
 
-Om du vill veta mer om marketplace GTM services kan du gå till [Go-to-market services](https://partner.microsoft.com/reach-customers/gtm).
+Om du vill veta mer om Marketplace GTM-tjänster går du till [Go-to-Marketing-tjänster](https://partner.microsoft.com/reach-customers/gtm).
 
-Logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com) du skapar och konfigurerar ditt erbjudande.
+Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com) för att skapa och konfigurera ditt erbjudande.
 
 ---

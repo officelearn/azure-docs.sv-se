@@ -1,5 +1,5 @@
 ---
-title: Övervakning och prestanda justering – Azure SQL Database
+title: Övervakning och prestandajustering
 description: Tips för prestanda justering i Azure SQL Database genom utvärdering och förbättringar.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: c11112963ec82a0e53df156048495e7b5141bcb7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e77af00dc3352af3265da90685e58b34c96bee81
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687764"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825150"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Övervakning och prestandajustering
 
@@ -34,7 +34,7 @@ För att säkerställa att en databas körs utan problem bör du:
 
 Om du vill övervaka prestanda för en SQL-databas i Azure börjar du med att övervaka de resurser som används i förhållande till den nivå av databas prestanda som du har valt. Övervaka följande resurser:
  - **CPU-användning**: kontrol lera om databasen når 100 procent av CPU-användningen under en längre tids period. Hög CPU-användning kan tyda på att du behöver identifiera och finjustera frågor som använder mest beräknings kraft. Hög CPU-användning kan även indikera att databasen eller instansen ska uppgraderas till en högre tjänst nivå. 
- - **Vänta med statistik**: Använd [sys. DM _os_wait_stats (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) för att avgöra hur lång tid frågorna väntar. Frågor kan vänta på resurser, kön väntar eller externa vänte tid. 
+ - **Vänta med statistik**: Använd [sys. dm_os_wait_stats (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) för att fastställa hur lång tid frågorna väntar. Frågor kan vänta på resurser, kön väntar eller externa vänte tid. 
  - I **/o-användning**: kontrol lera om databasen når IO-gränserna för det underliggande lagrings utrymmet.
  - **Minnes användning**: mängden tillgängligt minne för databasen eller instansen är proportionell till antalet virtuella kärnor. Kontrol lera att minnet räcker för arbets belastningen. Sidans livs längd förväntad är en av de parametrar som kan indikera hur snabbt sidorna tas bort från minnet.
 
@@ -91,11 +91,11 @@ Om du hittar ett pågående prestanda problem är målet att identifiera det exa
 - Använd [Azure Portal](sql-database-manage-after-migration.md#monitor-databases-using-the-azure-portal) för att övervaka användningen av CPU-procent.
 - Använd följande [DMV: er](sql-database-monitoring-with-dmvs.md):
 
-  - [Sys. DM _db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) DMV returnerar CPU, I/O och minnes användning för en SQL-databas. Det finns en rad för varje 15-sekunders intervall, även om det inte finns någon aktivitet i databasen. Historiska data bevaras i en timme.
+  - [Sys. dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) DMV returnerar CPU, I/O och minnes användning för en SQL-databas. Det finns en rad för varje 15-sekunders intervall, även om det inte finns någon aktivitet i databasen. Historiska data bevaras i en timme.
   - [Sys. resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) DMV returnerar CPU-användning och lagrings data för Azure SQL Database. Data samlas in och sammanställs i fem minuters intervall.
 
 > [!IMPORTANT]
-> Information om hur du felsöker CPU-problem för T-SQL-frågor som använder sys. DM _db_resource_stats och sys. resource_stats DMV: er finns i [identifiera problem med processor prestanda](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues).
+> Om du vill felsöka processor användnings problem för T-SQL-frågor som använder sys. dm_db_resource_stats och sys. resource_stats DMV: er, se [identifiera problem med processor prestanda](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues).
 
 ### <a name="ParamSniffing"></a>Frågor som har PSP-problem
 
@@ -181,7 +181,7 @@ En RECOMPILE (eller ny kompilering efter cache-avtagningen) kan fortfarande resu
 
 - **Annan statistik**: statistiken som är kopplad till de refererade objekten kan ha ändrats eller vara väsentlig annorlunda än det ursprungliga systemets statistik.  Om statistiken ändras och en omkompilering sker, använder Query Optimering statistiken som börjar från när de ändrades. Den reviderade statistikens data distributioner och frekvenser kan skilja sig från de ursprungliga kompileringarna.  Dessa ändringar används för att skapa beräkningar av kardinalitet. (*Beräkning av kardinalitet* är antalet rader som förväntas flöda genom det logiska frågeuttrycket.) Ändringar av beräkningar av kardinalitet kan leda till att du väljer olika fysiska operatörer och tillhör ande åtgärder.  Även smärre ändringar i statistiken kan resultera i en ändrad frågeplan för frågekörningen.
 
-- **Ändrade kompatibilitetsnivån för databas eller kardinalitet**: ändringar av databasens kompatibilitetsnivå kan möjliggöra nya strategier och funktioner som kan resultera i en annan frågeplan för körning.  Utöver kompatibilitetsnivån för databas kan en inaktive rad eller aktive rad spårnings flagga 4199 eller ett ändrat tillstånd för QUERY_OPTIMIZER_HOTFIXES konfiguration av databasen även påverka val av frågeplan vid kompilering.  Spårnings flaggorna 9481 (framtvinga äldre CE) och 2312 (tvinga standard CE) påverkar också planen. 
+- **Ändrade kompatibilitetsnivån för databas eller kardinalitet**: ändringar av databasens kompatibilitetsnivå kan möjliggöra nya strategier och funktioner som kan resultera i en annan frågeplan för körning.  Utöver kompatibilitetsnivån för databas kan en inaktive rad eller aktive rad spårnings flagga 4199 eller ett ändrat tillstånd för den databasbaserade konfigurationen QUERY_OPTIMIZER_HOTFIXES också påverka val av frågekörning vid kompilering.  Spårnings flaggorna 9481 (framtvinga äldre CE) och 2312 (tvinga standard CE) påverkar också planen. 
 
 ### <a name="resolve-problem-queries-or-provide-more-resources"></a>Lös problem frågor eller ange fler resurser
 
@@ -216,15 +216,15 @@ Om du är säker på att prestanda problemet inte är relaterat till hög CPU-an
 Dessa metoder används ofta för att visa de översta kategorierna av vänte typer:
 
 - Använd [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) för att hitta väntande statistik för varje fråga över tid. I Query Store kombineras vänte typer i väntande kategorier. Du kan hitta mappningen av vänte kategorier till wait types i [sys. query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
-- Använd [sys. DM _db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) för att returnera information om alla väntande processer som körs under åtgärden. Du kan använda den här aggregerade vyn för att diagnostisera prestanda problem med Azure SQL Database och även med vissa frågor och batchar.
-- Använd [sys. DM _os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) för att returnera information om den kö med aktiviteter som väntar på en resurs.
+- Använd [sys. dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) för att returnera information om alla väntande trådar som körs under åtgärden. Du kan använda den här aggregerade vyn för att diagnostisera prestanda problem med Azure SQL Database och även med vissa frågor och batchar.
+- Använd [sys. dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) för att returnera information om den kö med aktiviteter som väntar på en resurs.
 
 I scenarier med hög processor kan Query Store och väntande statistik avspegla CPU-användning om:
 
 - Frågor med hög processor användning körs fortfarande.
 - Frågor med hög CPU-användning kördes när redundansväxlingen skedde.
 
-DMV: er som spårar Frågearkivet och väntande statistik visar resultat för endast slutförda och uppnådde tids gräns frågor. De visar inga data för körnings instruktioner förrän instruktionerna är slutförda. Använd vyn för dynamisk hantering [sys. DM _exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) för att spåra aktuella körningar av frågor och tillhör ande arbets tid.
+DMV: er som spårar Frågearkivet och väntande statistik visar resultat för endast slutförda och uppnådde tids gräns frågor. De visar inga data för körnings instruktioner förrän instruktionerna är slutförda. Använd vyn dynamisk hantering [sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) om du vill spåra frågor som körs och den associerade arbets tiden.
 
 Diagrammet i början av den här artikeln visar att de vanligaste väntanarna är:
 

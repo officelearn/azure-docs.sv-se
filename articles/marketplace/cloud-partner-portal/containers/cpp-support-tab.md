@@ -1,48 +1,49 @@
 ---
-title: Stöd för inställningar för en avbildning i Azure-behållare | Azure Marketplace
-description: Konfigurera inställningar för stöd för en Azure-behållare.
+title: Support inställningar för en Azure containers-avbildning | Azure Marketplace
+description: Konfigurera support inställningar för en Azure-behållare.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
-ms.openlocfilehash: 71436d7ee82d9e5162780719d9a7a063fa903c6e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 144512683e6afa643639ba12b071e2a3ed7e01bd
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942584"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823093"
 ---
-# <a name="container-support-tab"></a>Fliken stöd för behållare
+# <a name="container-support-tab"></a>Fliken container support
 
-Använd den **stöder** fliken den **nytt erbjudande** sidan för att ge teknisk hjälp och användaren Supportresurser för ditt erbjudande.  Följande indata områden tillhandahålls i formuläret Support: **Tekniska kontakt**, **kundsupport**, och **stöd för URL: er**. En asterisk (*) läggs till fältnamnet anger att det krävs.
-
-
-## <a name="support-form-fields"></a>Stöd för formulärfält
-
-Ange nödvändig information för fälten Engineering Contact och kundsupport.
+Använd fliken **support** på sidan **ny erbjudande** för att tillhandahålla teknisk support och support resurser för ditt erbjudande.  Följande indata finns i support formuläret: **tekniker kontakt**, **kund support**och support-URL: **er**. En asterisk (*) som läggs till i fält namnet visar att det är obligatoriskt.
 
 
-### <a name="engineering-contact"></a>Engineering Contact
+## <a name="support-form-fields"></a>Formulär fält för support
 
-Kontakten tekniker är teknisk kontakt mellan din organisation och Microsoft. Required fields are indicted by an asterisk (*).
+Ange den information som krävs för fälten teknisk kontakt och kund support.
 
-- **Namnet\***  -namnet på den person eller grupp som fungerar som technical/tekniksupport.
-- **E-post\***  -e-postadress för den här tekniska kontakt.
-- **Phone\***  -telefonnummer för teknisk support.
+
+### <a name="engineering-contact"></a>Teknisk kontakt
+
+Teknisk kontakt är den tekniska kontakten mellan din organisation och Microsoft. Obligatoriska fält förutsägs av en asterisk (*).
+
+- **Namn\*** – namnet på den person eller grupp som fungerar som teknisk/teknisk support.
+- **E** -postadress\*– e-postadress till den här tekniska kontakten.
+- **Telefonnummer\*** – telefonnummer för teknisk support.
 
 
 ### <a name="customer-support"></a>Kundsupport
 
-Kontakta kundsupporten tar emot supportärenden som öppnas av kunder i Azure.  Required fields are indicted by an asterisk (*).
+Kund support kontakten får support biljetter som kunder i Azure har öppnat.  Obligatoriska fält förutsägs av en asterisk (*).
 
-- **Namnet\***  -namnet på den person eller grupp som fungerar som kundsupport.
-- **E-post\***  -e-postadress för den här supportkontakten.
-- **Phone\***  -telefonnummer för kundsupport.
+- **Namn\*** – namnet på den person eller grupp som fungerar som kund support.
+- **E** -postadress\*– e-postadress till den här support kontakten.
+- **Telefonnummer\*** -telefonnumret för kund support.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du är klar med att tillhandahålla supportinformation är du redo att [publicera ditt erbjudande](./cpp-publish-offer.md). 
+När du har slutfört support informationen är du redo att [publicera ditt erbjudande](./cpp-publish-offer.md). 
 

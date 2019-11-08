@@ -1,22 +1,22 @@
 ---
-title: Azure SQL Database DTU-resurs begränsar enskilda databaser | Microsoft Docs
+title: DTU-resurs begränsar enskilda databaser
 description: På den här sidan beskrivs några vanliga värden för DTU-resurser för enskilda databaser i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: 37cda6dec3f98a195e704808244656f3182b4c2a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3fb021c06369d1f37dad83b3f9b27e039ddf8b5e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520994"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811292"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model"></a>Resurs gränser för enskilda databaser med inköps modellen DTU
 
@@ -38,19 +38,19 @@ Följande tabeller visar de resurser som är tillgängliga för en enskild datab
 | Maximala DTU:er | 5 |
 | Inkluderat lagrings utrymme (GB) | 2 |
 | Maximalt lagrings alternativ (GB) | 2 |
-| Maximal InMemory-OLTP-lagring (GB) |Gäller inte |
+| Maximal InMemory-OLTP-lagring (GB) |Saknas |
 | Maximalt antal samtidiga arbetare (begär Anden) | 30 |
 | Maximalt antal samtidiga sessioner | 300 |
 |||
 
-### <a name="standard-service-tier"></a>Tjänstnivån Standard
+### <a name="standard-service-tier"></a>Standardtjänstnivå
 
 | **Beräknings storlek** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|
 | Maximala DTU:er | 10 | 20 | 50 | 100 |
 | Inkluderat lagrings utrymme (GB) | 250 | 250 | 250 | 250 |
 | Maximalt lagrings alternativ (GB) | 250 | 250 | 250 | 250, 500, 750, 1024 |
-| Maximal InMemory-OLTP-lagring (GB) | Gäller inte | Gäller inte | Gäller inte | Gäller inte |
+| Maximal InMemory-OLTP-lagring (GB) | Saknas | Saknas | Saknas | Saknas |
 | Maximalt antal samtidiga arbetare (begär Anden)| 60 | 90 | 120 | 200 |
 | Maximalt antal samtidiga sessioner |600 | 900 | 1200 | 2400 |
 ||||||
@@ -62,7 +62,7 @@ Följande tabeller visar de resurser som är tillgängliga för en enskild datab
 | Maximala DTU:er | 200 | 400 | 800 | 1600 | 3000 |
 | Inkluderat lagrings utrymme (GB) | 250 | 250 | 250 | 250 | 250 |
 | Maximalt lagrings alternativ (GB) | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
-| Maximal InMemory-OLTP-lagring (GB) | Gäller inte | Gäller inte | Gäller inte | Gäller inte |Gäller inte |
+| Maximal InMemory-OLTP-lagring (GB) | Saknas | Saknas | Saknas | Saknas |Saknas |
 | Maximalt antal samtidiga arbetare (begär Anden)| 400 | 800 | 1600 | 3200 |6000 |
 | Maximalt antal samtidiga sessioner |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||

@@ -4,15 +4,16 @@ description: Konfigurera kund leads på kommersiella marknads platser.
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: evansma
-ms.openlocfilehash: 31dcc8c1e35b627b231dbe2a62998c8514d05a20
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 7ead8dee12d4376e6e1058b84a25b91c021a937c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69902655"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812659"
 ---
 # <a name="customer-leads-from-your-marketplace-offer"></a>Kund leads från Marketplace-erbjudandet
 
@@ -48,13 +49,13 @@ Här är platser där ett lead genereras:
 
 ## <a name="understand-lead-data"></a>Förstå lead-data
 
-Varje lead som du får under kund förvärvs processen har data i specifika fält. Det första fältet som ska inblickas för `LeadSource` är fältet, som följer det här formatet: **Käll åtgärds** | **erbjudande**.
+Varje lead som du får under kund förvärvs processen har data i specifika fält. Det första fältet som ska inblickas för är `LeadSource` fältet, som följer det här formatet: **käll åtgärds** | **erbjudande**.
 
-**Källor**: Värdet för det här fältet fylls i baserat på marknads platsen som skapade leadet. Möjliga värden är `"AzureMarketplace"`, `"AzurePortal"`och `"AppSource (SPZA)"`.
+**Källor**: värdet för det här fältet fylls i baserat på marknads platsen som skapade leadet. Möjliga värden är `"AzureMarketplace"`, `"AzurePortal"`och `"AppSource (SPZA)"`.
 
-**Åtgärder**: Värdet för det här fältet fylls i baserat på den åtgärd som kunden vidtog i Marketplace, vilket genererade ett lead. 
+**Åtgärder**: värdet för det här fältet fylls i baserat på den åtgärd som kunden vidtog i Marketplace, vilket genererade ett lead. 
 
-Möjliga värden är:
+Möjliga värden:
 
 - "INS"--installation. Den här åtgärden finns på Azure Marketplace eller AppSource när en kund köper din produkt.
 - "PLT"--står för partner LED-utvärdering. Den här åtgärden är på AppSource när en kund använder alternativet kontakta mig.
@@ -62,9 +63,9 @@ Möjliga värden är:
 - "Skapa" – den här åtgärden finns bara i Azure Portal och genereras när en kund köper ditt erbjudande till sitt konto.
 - "StartTestDrive" – den här åtgärden gäller endast för test enheter och genereras när en kund startar sin test-enhet.
 
-**Erbjudanden**: Du kan ha flera erbjudanden i Marketplace. Värdet för det här fältet fylls i baserat på det erbjudande som genererade leadet. Utgivar-ID och erbjudande-ID skickas både i det här fältet och är värden som du angav när du publicerade erbjudandet till Marketplace.
+**Erbjudanden**: du kan ha flera erbjudanden i Marketplace. Värdet för det här fältet fylls i baserat på det erbjudande som genererade leadet. Utgivar-ID och erbjudande-ID skickas både i det här fältet och är värden som du angav när du publicerade erbjudandet till Marketplace.
 
-I följande exempel visas exempel värden i förväntat `publisherid.offerid`format: 
+I följande exempel visas exempel värden i förväntat format `publisherid.offerid`: 
 
 1. `checkpoint.check-point-r77-10sg-byol`
 1. `bitnami.openedxcypress`
@@ -74,13 +75,13 @@ I följande exempel visas exempel värden i förväntat `publisherid.offerid`for
 
 Kundens information skickas via flera fält. I följande exempel visas kund information som finns i ett lead.
 
-- FirstName Anders
-- LastName Smith
-- E-post\@: jsmith Microsoft.com
-- Nummer 1234567890
-- Land/region: USA
-- Firm Microsoft
-- Avdelning CTO
+- FirstName: John
+- LastName: Smith
+- E-post: jsmith\@microsoft.com
+- Telefon: 1234567890
+- Land: US
+- Företag: Microsoft
+- Rubrik: CTO
 
 >[!Note]
 >Alla data i föregående exempel är alltid tillgängliga för varje lead. Eftersom du får leads från flera steg som nämns i avsnittet kund uppgifter, är det bästa sättet att hantera leads att ta bort posterna och anpassa uppföljningen. På så sätt får varje kund ett lämpligt meddelande och du skapar en unik relation.
@@ -104,7 +105,7 @@ Svaret beror på vilken typ av erbjudande du publicerar. SaaS och Dynamics 365 f
 
 ### <a name="how-can-i-find-the-test-lead"></a>Hur kan jag hitta testets lead?
 
-Sök efter `“MSFT_TEST”` i ditt lead-mål, här är ett exempel på ett test från Microsoft:
+Sök efter `"MSFT_TEST"` i ditt lead-mål, här är ett exempel på ett test från Microsoft:
 
 ```
 company = MSFT_TEST_636573304831318844

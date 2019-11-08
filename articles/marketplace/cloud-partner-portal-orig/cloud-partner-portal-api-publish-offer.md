@@ -4,20 +4,21 @@ description: API för att publicera det angivna erbjudandet.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 117a4e5e238e754524ff813ce25ebc1105e2153c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b7ad8086c417cf1f14d9116fa4abcb0a88030922
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64934982"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819640"
 ---
 <a name="publish-an-offer"></a>Publicera ett erbjudande
 ================
 
-Startar publiceringsprocessen för det angivna erbjudanden. Det här anropet är en tidskrävande åtgärd.
+Startar publicerings processen för det angivna erbjudandet. Det här anropet är en tids krävande åtgärd.
 
   `POST  https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/publish?api-version=2017-10-31`
 
@@ -26,9 +27,9 @@ Startar publiceringsprocessen för det angivna erbjudanden. Det här anropet är
 
 |  **Namn**      |    **Beskrivning**                               |  **Datatyp** |
 |  ------------- |  ------------------------------------            |   -----------  |
-|  publisherId   | Identifierare för utgivare, till exempel `contoso`      |   String       |
-|  offerId       | Erbjudande-ID                                 |   String       |
-|  API-versionen   | Senaste versionen av API: et                        |   Date         |
+|  publisherId   | Utgivar-ID, till exempel `contoso`      |   Sträng       |
+|  OfferId       | Erbjudande-ID                                 |   Sträng       |
+|  API-version   | Senaste versionen av API: et                        |   Date         |
 |  |  |
 
 
@@ -42,7 +43,7 @@ Startar publiceringsprocessen för det angivna erbjudanden. Det här anropet är
 |  |  |
 
 
-<a name="body-example"></a>Brödtext exempel
+<a name="body-example"></a>Body-exempel
 ------------
 
 ### <a name="request"></a>Förfrågan
@@ -56,11 +57,11 @@ Startar publiceringsprocessen för det angivna erbjudanden. Det här anropet är
   }
 ```
 
-### <a name="request-body-properties"></a>Begära egenskaper för rapportinnehåll
+### <a name="request-body-properties"></a>Egenskaper för begär ande brödtext
 
 |  **Namn**               |   **Beskrivning**                                                                                 |
 |  ---------------------  | ------------------------------------------------------------------------------------------------- |
-|  e-postaviseringar    | Kommaavgränsad lista över e-postadresser för att aviseras om förloppet för publiceringsåtgärden. |
+|  meddelande – e-post    | Kommaavgränsad lista med e-postadresser som ska meddelas om förloppet för publicerings åtgärden. |
 |  |  |
 
 
@@ -73,16 +74,16 @@ Startar publiceringsprocessen för det angivna erbjudanden. Det här anropet är
 
 |  **Namn**             |    **Värde**                                                                 |
 |  -------------------- | ---------------------------------------------------------------------------- |
-| Operation-Location    | URL som kan efterfrågas för att fastställa den aktuella statusen för åtgärden.    |
+| Åtgärds plats    | URL som kan användas för att avgöra åtgärdens aktuella status.    |
 |  |  |
 
 
-### <a name="response-status-codes"></a>Svarsstatuskoder
+### <a name="response-status-codes"></a>Svars status koder
 
-| **Kod** |  **Beskrivning**                                                                                                                           |
+| **Rikt** |  **Beskrivning**                                                                                                                           |
 | ------   |  ----------------------------------------------------------------------------------------------------------------------------------------- |
-| 202   | `Accepted` -Begäran har accepterats. Svaret innehåller en plats som kan användas för att spåra den åtgärd som har startats. |
-| 400   | `Bad/Malformed request` -Fel svarstexten kan ge mer information.                                                               |
-| 422   | `Un-processable entity` -Anger att entitet som ska publiceras misslyckades verifieringen.                                                        |
-| 404   | `Not found` -Enheten som anges av klienten finns inte.                                                                              |
+| 202   | `Accepted`-begäran har godkänts. Svaret innehåller en plats som kan användas för att spåra den åtgärd som startas. |
+| 400   | `Bad/Malformed request` – fel svars texten kan innehålla mer information.                                                               |
+| 422   | `Un-processable entity`-anger att entiteten som ska publiceras inte kunde verifieras.                                                        |
+| 404   | `Not found`-enheten som anges av klienten finns inte.                                                                              |
 |  |  |

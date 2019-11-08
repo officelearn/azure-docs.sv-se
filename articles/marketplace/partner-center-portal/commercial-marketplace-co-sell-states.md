@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: f0fa86cc3de9f8c183d7b7a24fb03d02204adc17
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 38dcfe04473e8d2fbd81614908adef9636c44b19
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70076152"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812861"
 ---
 # <a name="co-sell-state-codes"></a>Status koder för samförsäljning
 
@@ -31,7 +32,7 @@ Om det är tillämpligt använder du dessa koder för att ange information om de
 | Connecticut                         | US-CT     |
 | Delaware                            | USA-DE     |
 | Florida                             | USA – FL     |
-| Georgia                             | USA – GA     |
+| Georgien                             | USA – GA     |
 | Hawaii                              | USA – HÖG     |
 | Idaho                               | US-ID     |
 | Illinois                            | USA – IL     |
@@ -50,26 +51,26 @@ Om det är tillämpligt använder du dessa koder för att ange information om de
 | Montana                             | US-MT     |
 | Nebraska                            | US-NE     |
 | Nevada                              | US-NV     |
-| New Hampshire                       | US-NH     |
-| New Jersey                          | US-NJ     |
-| New Mexico                          | USA – NM     |
+| Ny Hampshire                       | US-NH     |
+| Ny Jersey                          | US-NJ     |
+| Ny Mexiko                          | USA – NM     |
 | New York                            | USA – NY     |
 | North Carolina                      | USA – NC     |
-| North Dakota                        | US-ND     |
+| Norra Dakota                        | US-ND     |
 | Ohio                                | OSS-OH     |
 | Oklahoma                            | US – OK     |
 | Oregon                              | USA ELLER     |
 | Pennsylvania                        | USA – PA     |
-| Rhode Island                        | USA – RI     |
-| South Carolina                      | US-SC     |
-| South Dakota                        | USA – SD     |
+| Rhode, Julön                        | USA – RI     |
+| Södra Carolina                      | US-SC     |
+| Södra Dakota                        | USA – SD     |
 | Tennessee                           | USA – TN     |
 | Texas                               | US-TX     |
 | Utah                                | US-UT     |
 | Vermont                             | US – VT     |
 | Virginia                            | USA-VA     |
 | Washington                          | USA – WA     |
-| West Virginia                       | US-WV     |
+| Västra Virginia                       | US-WV     |
 | Wisconsin                           | USA – WI     |
 | Wyoming                             | US-WY     |
 | District of Columbia                | USA – DC     |
@@ -77,7 +78,7 @@ Om det är tillämpligt använder du dessa koder för att ange information om de
 | Guam                                | US-GU     |
 | Nordmarianerna            | USA – MP     |
 | Puerto Rico                         | US-PR     |
-| USA:s yttre öar | USA – UM    |
+| Förenta staternas mindre öar | USA – UM    |
 |Jungfruöarna, USA                 | USA – VI     |
 
 ## <a name="next-steps"></a>Nästa steg

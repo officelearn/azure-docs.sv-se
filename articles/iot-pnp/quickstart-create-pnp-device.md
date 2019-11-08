@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 654ebc6f40e6c365e9abf406ff19cd7269539dd8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 019dbe8b977932c6a806f7efca8c0724597718d8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682226"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818043"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-windows"></a>Snabb start: Använd en enhets kapacitets modell för att skapa en IoT Plug and Play förhands gransknings enhet (Windows)
 
@@ -38,7 +38,7 @@ Använd följande steg för att installera [Azure IoT-verktyg för vs Code](http
 
 ### <a name="install-the-azure-iot-explorer"></a>Installera Azure IoT Explorer
 
-Hämta och installera verktyget Azure IoT Explorer från den [senaste versions](https://github.com/Azure/azure-iot-explorer/releases) sidan.
+Hämta och installera den senaste versionen av **Azure IoT Explorer** från verktygets [databas](https://github.com/Azure/azure-iot-explorer/releases) sida genom att välja. msi-filen under "till gångar" för den senaste uppdateringen.
 
 ### <a name="get-the-connection-string-for-your-company-model-repository"></a>Hämta anslutnings strängen för din företags modell databas
 
@@ -100,7 +100,7 @@ I den här snabb starten förbereder du en utvecklings miljö genom att installe
     .\bootstrap-vcpkg.bat
     ```
 
-    Om du sedan vill koppla samman användarens [integrering](https://github.com/microsoft/vcpkg/blob/master/docs/users/integration.md), kör (Obs! kräver administratör vid första användningen):
+    Om du vill koppla samman den globala [integrationen](https://github.com/microsoft/vcpkg/blob/master/docs/users/integration.md)kör du följande (Obs! kräver administratör vid första användningen):
 
     ```cmd/sh
     .\vcpkg.exe integrate install
@@ -131,7 +131,7 @@ I den här snabb starten använder du en befintlig funktions modell för exempel
 
 ## <a name="generate-the-c-code-stub"></a>Generera C-koden stub
 
-Nu har du ett DCM och tillhör ande gränssnitt, du kan generera enhets koden som implementerar modellen. Så här genererar du C-koden stub i VS Code:
+Nu när du har ett DCM och tillhör ande gränssnitt kan du generera den enhets kod som implementerar modellen. Så här genererar du C-koden stub i VS Code:
 
 1. När mappen med DCM-filer är öppen använder du **Ctrl + Shift + P** för att öppna paletten kommando, ange **IoT plug and Play**och väljer **generera enhets kod stub**.
 
@@ -150,7 +150,7 @@ Nu har du ett DCM och tillhör ande gränssnitt, du kan generera enhets koden so
 
 1. Välj **via Vcpkg** som ett sätt att inkludera enhets-SDK: n.
 
-1. VS Code öppnar ett nytt fönster med genererad enhets kod stub-filer.
+1. En ny mapp med namnet **sample_device** skapas på samma plats som DCM-filen och i den genereras stub-filer för enhets koder. VS Code öppnar ett nytt fönster för att visa dessa.
     ![enhets kod](media/quickstart-create-pnp-device/device-code.png)
 
 ## <a name="build-the-code"></a>Skapa koden
@@ -164,7 +164,7 @@ Du skapar den genererade enhets koden stub tillsammans med enhets-SDK: n. Det pr
     cd cmake
     ```
 
-1. Kör följande kommandon för att skapa genererad kod-stub:
+1. Kör följande kommandon för att skapa den genererade koden stub (Ersätt plats hållaren med katalogen för din Vcpkg-lagrings platsen):
 
     ```cmd\sh
     cmake .. -G "Visual Studio 16 2019" -A Win32 -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
@@ -184,7 +184,7 @@ Du skapar den genererade enhets koden stub tillsammans med enhets-SDK: n. Det pr
     > [!NOTE]
     > Om cmake inte kan hitta C++ din kompilator får du build-fel när du kör föregående kommando. Om det händer kan du prova att köra det här kommandot i [Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)-Kommandotolken.
 
-1. När skapandet har slutförts kör du ditt program och skickar IoT Hub-enhetens anslutnings sträng som parameter.
+1. När skapandet har slutförts kör du programmet och skickar IoT Hub-enhetens anslutnings sträng som en parameter.
 
     ```cmd\sh
     .\Debug\sample_device.exe "[IoT Hub device connection string]"
@@ -200,7 +200,7 @@ Du skapar den genererade enhets koden stub tillsammans med enhets-SDK: n. Det pr
 
 Om du vill validera enhets koden med **Azure IoT Explorer**måste du publicera filerna på modell lagrings platsen.
 
-1. När mappen med DCM-filer är öppen använder du **Ctrl + Shift + P** för att öppna kommando-paletten, skriver och väljer **IoT plug-& Play: skicka filer till modell databasen**.
+1. Med mappen med DCM-filer öppna i VS Code, använder du **Ctrl + Shift + P** för att öppna kommando-paletten, skriver och väljer **IoT plug-& Play: skicka filer till modell databasen**.
 
 1. Välj `SampleDevice.capabilitymodel.json` och `EnvironmentalSensor.interface.json` filer.
 
@@ -222,15 +222,13 @@ Om du vill validera enhets koden med **Azure IoT Explorer**måste du publicera f
 
 1. När du har anslutit visas sidan enhets översikt.
 
-1. Om du vill lägga till företags databasen väljer du **Inställningar**, sedan **+ ny**och sedan **företagets lagrings plats**.
-
-1. Lägg till din anslutnings sträng för företagets modell databas. Välj **Anslut**.
+1. Om du vill lägga till företags databasen väljer du **Inställningar**och sedan **+ Lägg till modulens definitions källa**, sedan **företags databasen**. Lägg till din anslutnings sträng för företags modell databas och välj **Spara och Anslut**.
 
 1. På sidan enhets översikt letar du reda på enhets identiteten som du skapade tidigare och väljer den för att visa mer information.
 
-1. Expandera gränssnittet med ID **urn: azureiot: EnvironmentalSensor: 1** om du vill se IoT plug and Play primitiver – egenskaper, kommandon och telemetri.
+1. Expandera gränssnittet med ID **urn: < YOUR_INTERFACE_NAME >: EnvironmentalSensor: 1** om du vill se IoT plug and Play primitiver – egenskaper, kommandon och telemetri. Gränssnitts namnet som visas är det namn som du anger i när du skapade din modell.
 
-1. Välj sidan **telemetri** för att visa de telemetridata som enheten skickar.
+1. Välj sidan **telemetri** och tryck på _börja_ för att visa de telemetridata som enheten skickar.
 
 1. Välj sidan **egenskaper (inte skrivbar)** om du vill visa de icke skrivbara egenskaper som rapporteras av enheten.
 

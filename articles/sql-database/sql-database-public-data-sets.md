@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
-ms.openlocfilehash: dc8b2a00882abc2e88b357d5778eaf96ec71b1bd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 763a45446771f7b13178e22b0f7a35bd68bfc8bd
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687584"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821284"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Offentliga data uppsättningar för testning och prototypering
 
@@ -42,7 +42,7 @@ Bläddra i listan över offentliga data uppsättningar för data som du kan anv�
 | [New York, stad, taxi data](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | "Taxi resor innehåller fält som fångar in hämtnings-och DropOff-datum/-tider, hämtnings-och DropOff-platser, rese sträckor, avgiftsbelagda priser, pris typer, betalnings typer och driv rutins rapporterad person antal." | Data uppsättningar är i CSV-filer per månad. |
 | [Microsoft Research data uppsättningar – "data vetenskap för forskning"](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Flera data uppsättningar som täcker interaktion med mänsklig dator, ljud/video, Data utvinning/informations hämtning, geospatialt/plats, naturlig språk bearbetning och Robotics/dator vision. | Data uppsättningar är i olika format, zippade för hämtning. |
 | [Offentliga data](https://www.completegenomics.com/public-data/) | "En stor mängd data uppsättningar som används av hela människa är kostnads fritt tillgängliga för offentlig användning för att förbättra all genomiks undersökning..." Leverantören, fullständig genomik, är ett privat för vinst bolag. | Data uppsättningar, efter extrahering, är i UNIX-format. Analys verktyg är också tillgängliga. |
-| [Öppna data moln data i vetenskap](https://www.opensciencedatacloud.org/) | "Det öppna vetenskaps informations molnet ger den vetenskapliga gruppen resurser för att lagra, dela och analysera terabyte och petabytea vetenskapliga data uppsättningar."| Data uppsättningar är i olika format. |
+| [Öppna data moln data i vetenskap](https://www.opensciencedatacloud.org/projects/) | "Det öppna vetenskaps informations molnet ger den vetenskapliga gruppen resurser för att lagra, dela och analysera terabyte och petabytea vetenskapliga data uppsättningar."| Data uppsättningar är i olika format. |
 | [Global klimat information – WorldClim](https://worldclim.org/) | "WorldClim är en uppsättning globala klimat lager (Gridded klimat data) med en avstånds upplösning på ca 1 km2. Dessa data kan användas för mappning och spatial modellering. " | De här filerna innehåller geospatiala data. Mer information finns i [data format](https://worldclim.org/formats1). |
 | [Data om Human samhälle – GDELT-projektet](https://www.gdeltproject.org/data.html) | "GDELT-projektet är den största, mest omfattande och mest upplösningen öppen databas för mänskligt samhälle som någonsin skapats." | RAW-datafilerna är i CSV-format. |
 | [Annonsering Klicka på förutsägelse data för Machine Learning från Criteo](https://labs.criteo.com/2013/12/download-terabyte-click-logs/) | "Den största allt offentligt utgivna ML-datauppsättningen." Mer information finns i [Criteo 1 TB Klicka på förutsägelse data uppsättning](https://blogs.technet.microsoft.com/machinelearning/20../../now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/). | |

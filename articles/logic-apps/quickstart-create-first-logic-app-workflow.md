@@ -1,6 +1,6 @@
 ---
 title: Skapa ditt första automatiserade arbets flöde – Azure Logic Apps
-description: Snabb start – Bygg din första automatiserade aktivitet genom att använda Azure Logic Apps för system integrering och EAI-lösningar (Enterprise Application Integration)
+description: Snabb start – Bygg ditt första automatiserade arbets flöde med hjälp av Azure Logic Apps för system integrering och EAI-lösningar (Enterprise Application Integration)
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,20 +11,20 @@ ms.reviewer: klam, LADocs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: d5ac23da7b4460211100f1140c24f6ed28ab3e39
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: b6222747e352f446dab33314729f7f697e328909
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584349"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824907"
 ---
-# <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Snabbstart: Skapa ditt första automatiserade arbetsflöde med Azure Logic Apps – Azure Portal
+# <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Snabb start: skapa ditt första arbets flöde med hjälp av Azure Logic Apps-Azure Portal
 
-I den här snabbstarten beskrivs hur du bygger ditt första automatiserade arbetsflöde med [Azure Logic Apps](../logic-apps/logic-apps-overview.md). I den här artikeln skapar du en logikapp som regelbundet kontrollerar om det finns nya objekt via en webbplats RRS-feed. Om det finns ett nytt objekt skickar logikappen ett e-postmeddelande för vart och ett. När du är klar ser logikappen ut som det här arbetsflödet på en hög nivå:
+I den här snabb starten beskrivs de grundläggande allmänna koncepten bakom hur du skapar ditt första arbets flöde med hjälp av [Azure Logic Apps](../logic-apps/logic-apps-overview.md), till exempel skapa en tom Logic-app, lägga till en utlösare och en åtgärd och sedan testa din Logic app. I den här snabb starten skapar du en Logic-app som regelbundet kontrollerar en webbplats RSS-flöde för nya objekt. Om det finns ett nytt objekt skickar logikappen ett e-postmeddelande för vart och ett. När du är klar ser logikappen ut som det här arbetsflödet på en hög nivå:
 
 ![Exempel på högnivås exempel på Logic app-arbetsflöde](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
-Om du vill följa den här snabb starten behöver du ett e-postkonto från en provider som stöds av Azure Logic Apps, till exempel Office 365 Outlook, Outlook.com eller Gmail. För andra providrar [läser du listan med anslutningsappar här](https://docs.microsoft.com/connectors/). För den här logikappen används ett Office 365 Outlook-konto. Om du använder ett annat e-postkonto är de övergripande stegen desamma, men användar gränssnittet kan skilja sig något.
+I det här scenariot behöver du ett e-postkonto från en tjänst som stöds av Azure Logic Apps, till exempel Office 365 Outlook, Outlook.com eller Gmail. För andra e-posttjänster som stöds [granskar du kopplings listan här](https://docs.microsoft.com/connectors/). I det här exemplet använder Logic-appen Office 365 Outlook. Om du använder en annan e-posttjänst är de övergripande allmänna stegen desamma, men användar gränssnittet kan skilja sig något.
 
 Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -42,7 +42,7 @@ Logga in på [Azure Portal](https://portal.azure.com) med dina Azure-kontoautent
 
    ![Lägg till ny Logic-app](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
-1. I fönstret Logic app anger du information om din Logi Kap par som visas nedan. När du är klar väljer du **skapa**.
+1. I fönstret **Logic app** anger du information om din Logi Kap par som visas nedan. När du är klar väljer du **skapa**.
 
    ![Ange information om den nya Logic-appen](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
@@ -69,11 +69,11 @@ Lägg därefter till en [utlösare](../logic-apps/logic-apps-overview.md#logic-a
 
 <a name="add-rss-trigger"></a>
 
-## <a name="check-rss-feed-with-a-trigger"></a>Kontrollera RSS-feed med en utlösare
+## <a name="add-the-rss-trigger"></a>Lägg till RSS-utlösaren
 
 1. I **Logic App Designer**väljer du **alla**under sökrutan.
 
-1. Skriv `rss` i sökrutan. Välj den här utlösaren i listan utlösare: **när ett feed-objekt publiceras**.
+1. I sökrutan anger du `rss` för att hitta RSS-anslutningen. I listan utlösare väljer du alternativet **när ett feed-objekt publiceras som** utlösare.
 
    ![Välj "när ett feed-objekt publiceras" utlösare](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
@@ -90,7 +90,7 @@ Lägg därefter till en [utlösare](../logic-apps/logic-apps-overview.md#logic-a
 
    Tillsammans definierar intervall och frekvens schemat för logikappens utlösare. Logikappen kontrollerar feeden varje minut.
 
-1. Om du vill dölja utlösarinformationen för tillfället klickar du in utlösarens rubriklist.
+1. Om du vill komprimera utlösnings informationen för tillfället klickar du i Utlösarens namn List.
 
    ![Dölj Logic app-form för att dölja information](./media/quickstart-create-first-logic-app-workflow/collapse-trigger-shape.png)
 
@@ -98,7 +98,7 @@ Lägg därefter till en [utlösare](../logic-apps/logic-apps-overview.md#logic-a
 
 Logikappen har nu lanserats men gör inget annat än att kontrollera RSS-flödet. Därför ska vi lägga till en åtgärd som svarar när utlösaren utlöses.
 
-## <a name="send-email-with-an-action"></a>Skicka e-post med en åtgärd
+## <a name="add-the-send-email-action"></a>Lägg till åtgärden "skicka e-post"
 
 Lägg nu till en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) som skickar ett e-postmeddelande när ett nytt objekt visas i RSS-flödet.
 
@@ -108,7 +108,7 @@ Lägg nu till en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-conce
 
 1. Under **Välj en åtgärd** och sökrutan väljer du **alla**.
 
-1. Skriv `send an email` i sökrutan. Välj åtgärden skicka ett e-postmeddelande för den önskade e-postleverantören.
+1. I sökrutan anger du `send an email` för att hitta anslutningar som erbjuder den här åtgärden. I listan åtgärder väljer du åtgärden "Skicka ett e-postmeddelande" för den e-posttjänst som du vill använda. I det här exemplet används Office 365 Outlook Connector som har åtgärden **skicka e-post** .
 
    ![Välj åtgärden "Skicka ett e-postmeddelande" för Office 365 Outlook](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
 
@@ -117,7 +117,15 @@ Lägg nu till en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-conce
    * För Azure arbets- eller skolkonto väljer du Office 365 Outlook.
    * För personliga Microsoft-konton väljer du Outlook.com.
 
-1. Om du blir tillfrågad om autentiseringsuppgifter loggar du in på e-postkontot så Logic Apps skapar en anslutning till ditt e-postkonto.
+1. Om din valda e-postanslutning kräver att du autentiserar din identitet, slutför du det steget nu för att skapa en anslutning mellan din Logic app och e-posttjänsten.
+
+   > [!NOTE]
+   > I det här exemplet kan du autentisera din identitet manuellt. Men kopplingar som kräver autentisering skiljer sig åt i de autentiseringstyper som de stöder. Du har också alternativ för att ställa in hur du vill hantera autentisering. Om du till exempel använder Azure Resource Manager mallar för distribution kan du Parameterisera och säkra indata som du vill ändra ofta eller enkelt, till exempel anslutnings information. Mer information finns i följande avsnitt:
+   >
+   > * [Mallparametrar för distribution](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)
+   > * [Auktorisera OAuth-anslutningar](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections)
+   > * [Autentisera åtkomst med hanterade identiteter](../logic-apps/create-managed-service-identity.md)
+   > * [Autentisera anslutningar för Logic app-distribution](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections)
 
 1. I åtgärden **Skicka ett e-postmeddelande** anger du de data som du vill att e-postmeddelandet ska innehålla.
 

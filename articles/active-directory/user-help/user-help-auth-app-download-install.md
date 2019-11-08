@@ -1,5 +1,5 @@
 ---
-title: Hämta och installera Microsoft Authenticator app-Azure Active Directory | Microsoft Docs
+title: Hämta och installera Microsoft Authenticator app – Azure AD
 description: Hämta, installera och använda Microsoft Authenticator-appen för tvåstegsverifiering.
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15ecdf0feb0d8e5307eac9916748e0bacdf51620
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: ebe80d44d52ffa348413e51cd5e82e8468537479
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616053"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820230"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Ladda ned och installera appen Microsoft Authenticator
 
@@ -52,7 +52,7 @@ Installera den senaste versionen av Microsoft Authenticator-appen, baserat på o
 - **Apple iOS.** På din Apple iOS-enhet går du till App Store för att [Ladda ned och installera Microsoft Authenticator-appen](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
 >[!Important]
->Om du inte redan har en mobil enhet kan du fortfarande få Microsoft Authenticator-appen genom att skicka en nedladdnings länk från [Microsoft Authenticator sidan](https://www.microsoft.com/account/authenticator).
+>Om du inte redan har en mobil enhet kan du fortfarande få Microsoft Authenticator-appen genom att skicka en nedladdnings länk från [Microsoft Authenticator sidan](https://www.microsoft.com/en-us/account/authenticator).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 08094469da87a6aae31acac599f8422487c10d28
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2b76d8f25cfb8bd1dfda43c8383a538f8cf9769b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580738"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818459"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Få åtkomst till data i Azure Storage-tjänster
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -183,7 +183,7 @@ Parametern `target_path` är platsen för den lokala katalog där data ska hämt
 ## <a name="access-your-data-during-training"></a>Få åtkomst till dina data under utbildningen
 
 > [!IMPORTANT]
-> Att använda [Azure Machine Learning data uppsättningar (för hands version)](how-to-create-register-datasets.md) är det nya rekommenderade sättet att komma åt dina data i utbildningen. Data uppsättningar tillhandahåller funktioner som läser in tabell data i Pandas eller Spark DataFrame, och möjligheten att ladda ned eller montera filer i alla format från Azure Blob, Azure File, Azure Data Lake gen 1, Azure Data Lake gen 2, Azure SQL, Azure PostgreSQL. Lär dig mer om [hur du tränar med data uppsättningar](how-to-train-with-datasets.md).
+> Att använda [Azure Machine Learning data uppsättningar](how-to-create-register-datasets.md) är det nya rekommenderade sättet att komma åt dina data i utbildningen. Data uppsättningar tillhandahåller funktioner som läser in tabell data i Pandas eller Spark DataFrame, och möjligheten att ladda ned eller montera filer i alla format från Azure Blob, Azure File, Azure Data Lake gen 1, Azure Data Lake gen 2, Azure SQL, Azure PostgreSQL. Lär dig mer om [hur du tränar med data uppsättningar](how-to-train-with-datasets.md).
 
 I följande tabell visas de metoder som talar om för beräknings målet hur data lagringen ska användas vid körningar. 
 
@@ -209,7 +209,7 @@ datastore.path('./bar').as_download()
 
 Följande kod exempel är speciella för [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klassen för åtkomst till data under träning. 
 
-`script_params` är en ord lista som innehåller parametrar för entry_script. Använd den för att skicka in ett data lager och beskriva hur data görs tillgängliga på beräknings målet. Läs mer i vår [självstudier](tutorial-train-models-with-aml.md)från slut punkt till slut punkt.
+`script_params` är en ord lista som innehåller parametrar till entry_script. Använd den för att skicka in ett data lager och beskriva hur data görs tillgängliga på beräknings målet. Läs mer i vår [självstudier](tutorial-train-models-with-aml.md)från slut punkt till slut punkt.
 
 ```Python
 from azureml.train.estimator import Estimator

@@ -1,6 +1,6 @@
 ---
 title: Tilldela eller ta bort licenser – Azure Active Directory | Microsoft Docs
-description: Anvisningar om hur du tilldelar eller ta bort Azure Active Directory-licenser från användare eller grupper.
+description: Anvisningar om hur du tilldelar eller tar bort Azure Active Directory licenser från dina användare eller grupper.
 services: active-directory
 author: msaburnley
 manager: daveba
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/06/2018
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 869713967a6a89611ab2ea9ca7b7516f090a5f92
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 9f690d23ac4d8c452d731c2f6fd4ae67dc281639
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034257"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805529"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Tilldela eller ta bort licenser i Azure Active Directorys portalen
 
@@ -37,7 +37,7 @@ Det finns flera tillgängliga licens planer för Azure AD-tjänsten, inklusive:
 
 För detaljerad information om varje licens plan och tillhör ande licens information, se [vilken licens du behöver?](https://azure.microsoft.com/pricing/details/active-directory/).
 
-Inte alla Microsoft-tjänster är tillgängliga på alla platser. Innan en licens kan tilldelas till en grupp, måste du ange den **användningsplats** för alla medlemmar. Du kan ange ett värde den **Azure Active Directory &gt; användare &gt; profil &gt; inställningar** område i Azure AD. Alla användare vars användnings plats inte har angetts ärver platsen för Azure AD-organisationen.
+Alla Microsoft-tjänster är inte tillgängliga på alla platser. Innan du kan tilldela en licens till en grupp måste du ange **användnings platsen** för alla medlemmar. Du kan ange det här värdet i **Azure Active Directory &gt; användare &gt; profil &gt; inställnings** områden i Azure AD. Alla användare vars användnings plats inte har angetts ärver platsen för Azure AD-organisationen.
 
 ## <a name="view-license-plans-and-plan-details"></a>Visa licens planer och information om plan
 
@@ -47,7 +47,7 @@ Du kan visa dina tillgängliga Service planer, inklusive de enskilda licenserna,
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) med ett licens administratörs konto i din Azure AD-organisation.
 
-1. Välj **Azure Active Directory**, och välj sedan **licenser**.
+1. Välj **Azure Active Directory**och välj sedan **licenser**.
 
     ![Sidan licenser, med antal köpta tjänster och tilldelade licenser](media/license-users-groups/license-details-blade.png)
 
@@ -59,7 +59,7 @@ Du kan visa dina tillgängliga Service planer, inklusive de enskilda licenserna,
 
 ## <a name="assign-licenses-to-users-or-groups"></a>Tilldela licenser till användare eller grupper
 
-Se till att vem som helst att behöva använda en licensierad Azure AD-tjänsten har rätt licens. Du kan lägga till licens rättigheterna till användare eller till en hel grupp.
+Se till att alla som behöver använda en licensierad Azure AD-tjänst har rätt licens. Du kan lägga till licens rättigheterna till användare eller till en hel grupp.
 
 ### <a name="to-assign-a-license-to-a-user"></a>Tilldela en licens till en användare
 
@@ -71,22 +71,24 @@ Se till att vem som helst att behöva använda en licensierad Azure AD-tjänsten
 
     ![Sidan tjänster med markerat alternativet tilldela](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
 
-1. På den **tilldela** väljer **användare och grupper**, och sök sedan efter och välj den användare som du tilldelar licensen.
+1. På sidan **tilldela** väljer du **användare och grupper**och sedan söker du efter och väljer den användare som du tilldelar licensen.
 
-    ![Tilldela licens sidan med markerade Sök och välj alternativ](media/license-users-groups/assign-license-blade-with-highlight.png)
+    ![Sidan Tilldela licens, med markerad sökning och välj alternativ](media/license-users-groups/assign-license-blade-with-highlight.png)
 
-1. Välj **tilldelningsalternativ**, kontrollera att du har rätt licens alternativen har aktiverats och välj sedan **OK**.
+1. Välj **tilldelnings alternativ**, se till att du har rätt licens alternativ aktiverat och välj sedan **OK**.
 
     ![Licens alternativ sidan med alla alternativ som är tillgängliga i licens planen](media/license-users-groups/license-option-blade-assignments.png)
 
-    Den **tilldela licens** sidan uppdateringar att visa att en användare har valts och att tilldelningarna har konfigurerats.
+    Sidan **tilldela licens** uppdateringar som visar att en användare har marker ATS och att tilldelningarna har kon figurer ATS.
 
     > [!NOTE]
-    > Inte alla Microsoft-tjänster är tillgängliga på alla platser. Innan en användare kan tilldelas en licens, måste du ange den **användningsplats**. Du kan ange ett värde den **Azure Active Directory &gt; användare &gt; profil &gt; inställningar** område i Azure AD. Alla användare vars användnings plats inte har angetts ärver platsen för Azure AD-organisationen.
+    > Alla Microsoft-tjänster är inte tillgängliga på alla platser. Innan du kan tilldela en licens till en användare måste du ange **användnings platsen**. Du kan ange det här värdet i **Azure Active Directory &gt; användare &gt; profil &gt; inställnings** områden i Azure AD. Alla användare vars användnings plats inte har angetts ärver platsen för Azure AD-organisationen.
 
 1. Välj **Tilldela**.
 
-    Användaren har lagts till i listan över licensierade användare och har åtkomst till den medföljande Azure AD-tjänster.
+    Användaren läggs till i listan över licensierade användare och har till gång till de Azure AD-tjänster som ingår.
+    > [!NOTE]
+    > Licenser kan också tilldelas direkt till en användare från användarens **licens** sida. Om en användare har en licens tilldelad via ett grupp medlemskap och du vill tilldela samma licens till användaren direkt, kan du bara göra det från sidan **produkter** som nämns i steg 1.
 
 ### <a name="to-assign-a-license-to-a-group"></a>Tilldela en licens till en grupp
 
@@ -94,23 +96,23 @@ Se till att vem som helst att behöva använda en licensierad Azure AD-tjänsten
 
     ![Bladet produkter med en markerad produkt licens plan](media/license-users-groups/license-products-blade-with-product-highlight.png)
 
-1. På den **Azure Active Directory Premium Plan 2** väljer **tilldela**.
+1. På sidan **Azure Active Directory Premium plan 2** väljer du **tilldela**.
 
-    ![Sidan produkter med markerade alternativet för att tilldela](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
+    ![Sidan produkter med markerat alternativet tilldela](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
 
-1. På den **tilldela** väljer **användare och grupper**, och sök sedan efter och välj den grupp som du tilldelar licensen.
+1. På sidan **tilldela** väljer du **användare och grupper**och sedan söker du efter och väljer den grupp som du vill tilldela licensen.
 
-    ![Tilldela licens sidan med markerade Sök och välj alternativ](media/license-users-groups/assign-group-license-blade-with-highlight.png)
+    ![Sidan Tilldela licens, med markerad sökning och välj alternativ](media/license-users-groups/assign-group-license-blade-with-highlight.png)
 
-1. Välj **tilldelningsalternativ**, kontrollera att du har rätt licens alternativen har aktiverats och välj sedan **OK**.
+1. Välj **tilldelnings alternativ**, se till att du har rätt licens alternativ aktiverat och välj sedan **OK**.
 
     ![Licens alternativ sidan med alla alternativ som är tillgängliga i licens planen](media/license-users-groups/license-option-blade-group-assignments.png)
 
-    Den **tilldela licens** sidan uppdateringar att visa att en användare har valts och att tilldelningarna har konfigurerats.
+    Sidan **tilldela licens** uppdateringar som visar att en användare har marker ATS och att tilldelningarna har kon figurer ATS.
 
 1. Välj **Tilldela**.
 
-    Gruppen har lagts till i listan över licensierade grupper och alla medlemmar har åtkomst till den medföljande Azure AD-tjänster.
+    Gruppen läggs till i listan över licensierade grupper och alla medlemmar har åtkomst till de Azure AD-tjänster som ingår.
 
 ## <a name="remove-a-license"></a>Ta bort en licens
 
@@ -122,10 +124,10 @@ Du kan ta bort en licens från en användares Azure AD-användare på sidan grup
 
 1. Välj **ta bort licens**.
 
-    ![Licensierade användare sida med ta bort licens alternativet är markerat](media/license-users-groups/license-products-user-blade-with-remove-option-highlight.png)
+    ![Sidan licensierade användare med alternativet ta bort licens markerad](media/license-users-groups/license-products-user-blade-with-remove-option-highlight.png)
 
 > [!IMPORTANT]
-> Det går inte att ta bort licenser som en användare ärver från en grupp direkt. Du behöver ta bort användaren från gruppen som de ärver licensen.
+> Det går inte att ta bort licenser som en användare ärver från en grupp direkt. I stället måste du ta bort användaren från gruppen som de ärver licensen från.
 
 ### <a name="to-remove-a-license-from-a-group"></a>Ta bort en licens från en grupp
 
@@ -133,16 +135,16 @@ Du kan ta bort en licens från en användares Azure AD-användare på sidan grup
 
 1. Välj **ta bort licens**.
 
-    ![Licensierade grupper sida med ta bort licens alternativet är markerat](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
+    ![Sidan licensierade grupper med alternativet ta bort licens markerat](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har tilldelat dina licenser, kan du utföra följande processer:
+När du har tilldelat dina licenser kan du utföra följande processer:
 
-- [Identifiera och lösa licensproblem för tilldelning](../users-groups-roles/licensing-groups-resolve-problems.md)
+- [Identifiera och lösa problem med licens tilldelning](../users-groups-roles/licensing-groups-resolve-problems.md)
 
-- [Lägg till licensierade användare till en grupp för licensiering](../users-groups-roles/licensing-groups-migrate-users.md)
+- [Lägga till licensierade användare i en grupp för licensiering](../users-groups-roles/licensing-groups-migrate-users.md)
 
-- [Scenarier, begränsningar och kända problem med hjälp av grupper för att hantera licensiering i Azure Active Directory](../users-groups-roles/licensing-group-advanced.md)
+- [Scenarier, begränsningar och kända problem med grupper för att hantera licensiering i Azure Active Directory](../users-groups-roles/licensing-group-advanced.md)
 
-- [Lägga till eller ändra profilinformation](active-directory-users-profile-azure-portal.md)
+- [Lägga till eller ändra profil information](active-directory-users-profile-azure-portal.md)

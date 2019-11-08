@@ -4,15 +4,16 @@ description: Förklarar hur du registrerar en virtuell dator från en Azure-dist
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: evansma
-ms.openlocfilehash: 1aa946c813de41423d4fb2ba5b3aa5274db90f39
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 797c258c963d0daec32a8f9ac7c4e0665dc465d3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934970"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813402"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Distribuera en virtuell dator från dina virtuella hård diskar
 
@@ -46,7 +47,7 @@ Du kommer att använda följande steg för att skapa och distribuera en använda
 När den virtuella datorn har distribuerats är du redo att [certifiera din VM-avbildning](./cpp-certify-vm.md).
 
 1. Klicka på **ny** och Sök efter **mall distribution**och välj sedan **Bygg en egen mall i redigerings programmet**.  <br/>
-   ![Skapar distributions mal len för virtuella hård diskar i Azure Portal](./media/publishvm_021.png)
+   ![skapar du distributions mal len för virtuella hård diskar i Azure Portal](./media/publishvm_021.png)
 
 1. Kopiera och klistra in denna [JSON-mall](./cpp-deploy-json-template.md) i redigeraren och klicka på **Spara**. <br/>
    ![Spara distributions mal len för virtuella hård diskar i Azure Portal](./media/publishvm_022.png)
@@ -55,27 +56,27 @@ När den virtuella datorn har distribuerats är du redo att [certifiera din VM-a
 
    <table> <tr> <td valign="top"> <img src="./media/publishvm_023.png" alt="Custom deployment property page 1"> </td> <td valign="top"> <img src="./media/publishvm_024.png" alt="Custom deployment property page 2"> </td> </tr> </table> <br/> 
 
-   |  **Parametern**              |   **Beskrivning**                                                            |
+   |  **ProfileServiceApplicationProxy**              |   **Beskrivning**                                                            |
    |  -------------              |   ---------------                                                            |
    | Konto namn för användar lagring   | Lagrings konto namn där den generaliserade virtuella hård disken finns                    |
    | Namn på användar lagrings behållare | Container namn där den generaliserade virtuella hård disken finns                          |
    | DNS-namn för offentlig IP      | DNS-namn för offentlig IP. DNS-namnet är för den virtuella datorn. du definierar detta i Azure Portal när erbjudandet har distribuerats.  |
-   | Systemadministratörsanvändarens namn             | Administratörs kontots användar namn för ny virtuell dator                                  |
-   | Adminlösenord              | Administratörs kontots lösen ord för ny virtuell dator                                  |
-   | OS-typ                     | Operativ system för virtuell `Windows` dator: \|`Linux`                                    |
+   | Administratörens användar namn             | Administratörs kontots användar namn för ny virtuell dator                                  |
+   | Administratörs lösen ord              | Administratörs kontots lösen ord för ny virtuell dator                                  |
+   | OS-typ                     | Operativ system för virtuell dator: `Windows` \| `Linux`                                    |
    | Prenumerations-ID:t             | Identifierare för den valda prenumerationen                                      |
-   | Location                    | Distributionens geografiska plats                                        |
-   | Storlek på virtuell dator                     | [Storlek på virtuell Azure-dator](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), till exempel`Standard_A2` |
+   | Plats                    | Distributionens geografiska plats                                        |
+   | Storlek på virtuell dator                     | [Storlek på virtuell Azure-dator](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), till exempel `Standard_A2` |
    | Namn på offentlig IP-adress      | Namn på din offentliga IP-adress                                               |
    | Namn på virtuell dator                     | Namn på den nya virtuella datorn                                                           |
-   | Namn på virtuellt nätverk        | Namnet på det virtuella nätverk som används av den virtuella datorn                                   |
+   | Virtual Network namn        | Namnet på det virtuella nätverk som används av den virtuella datorn                                   |
    | NIC-namn                    | Namnet på det nätverks gränssnitts kort som kör det virtuella nätverket               |
    | VHD-URL                     | Fullständigt VHD-URL för OS-disk                                                     |
    |  |  |
             
 1. När du har angett dessa värden klickar du på **köp**. 
 
-Azure påbörjar distributionen: den skapar en ny virtuell dator med den angivna ohanterade virtuella hård disken, i den angivna sökvägen för lagrings kontot.  Du kan följa förloppet i Azure Portal genom att klicka på **Virtual Machines** till vänster i portalen.  När den virtuella datorn har skapats ändras statusen från `Starting` till. `Running` 
+Azure påbörjar distributionen: den skapar en ny virtuell dator med den angivna ohanterade virtuella hård disken, i den angivna sökvägen för lagrings kontot.  Du kan följa förloppet i Azure Portal genom att klicka på **Virtual Machines** till vänster i portalen.  När den virtuella datorn har skapats ändras statusen från `Starting` till `Running`. 
 
 
 ### <a name="deploy-a-vm-from-powershell"></a>Distribuera en virtuell dator från PowerShell

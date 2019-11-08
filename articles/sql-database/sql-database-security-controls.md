@@ -1,5 +1,5 @@
 ---
-title: Säkerhets kontroller för Azure SQL Database
+title: Säkerhetskontroller
 description: En check lista över säkerhets kontroller för utvärdering av Azure SQL Database
 services: sql-database
 author: msmbaldwin
@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 77ff55389bac53d8719d86b4ac77f281415af49f
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 58070cab1221b9d9585784d82cf1a48afcedb8af
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886691"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802828"
 ---
 # <a name="security-controls-for-azure-sql-database"></a>Säkerhets kontroller för Azure SQL Database
 
@@ -44,14 +44,14 @@ SQL Database innehåller både [en enkel databas och en](sql-database-single-ind
 
 | Säkerhets kontroll | Ja/nej | Anteckningar|
 |---|---|--|
-| Authentication| Ja | Azure Active Directory (Azure AD) |
-| Authorization| Ja | Inga |
+| Autentisering| Ja | Azure Active Directory (Azure AD) |
+| Auktorisering| Ja | Ingen |
 
 ## <a name="data-protection"></a>Dataskydd
 
 | Säkerhets kontroll | Ja/nej | Anteckningar |
 |---|---|--|
-| Kryptering på Server sidan på rest: Microsoft-hanterade nycklar | Ja | Kallas "kryptering i användning", enligt beskrivningen i artikeln [Always Encrypted](sql-database-always-encrypted.md). Kryptering på Server sidan använder [transparent data kryptering](transparent-data-encryption-azure-sql.md).|
+| Kryptering på Server sidan i vila: Microsoft-hanterade nycklar | Ja | Kallas "kryptering i användning", enligt beskrivningen i artikeln [Always Encrypted](sql-database-always-encrypted.md). Kryptering på Server sidan använder [transparent data kryptering](transparent-data-encryption-azure-sql.md).|
 | Kryptering under överföring:<ul><li>Azure ExpressRoute-kryptering</li><li>Kryptering i ett virtuellt nätverk</li><li>Kryptering mellan virtuella nätverk</ul>| Ja | Använda HTTPS. |
 | Kryptering – nyckel hantering, till exempel CMK eller BYOK| Ja | Både hanterad och kundhanterad nyckel hantering erbjuds. Den senare erbjuds via [Azure Key Vault](../key-vault/index.yml). |
 | Kryptering på kolumn nivå som tillhandahålls av Azure Data Services| Ja | Via [Always Encrypted](sql-database-always-encrypted.md). |
@@ -61,7 +61,7 @@ SQL Database innehåller både [en enkel databas och en](sql-database-single-ind
 
 | Säkerhets kontroll | Ja/nej | Anteckningar|
 |---|---|--|
-| Konfiguration – hanterings stöd, till exempel konfiguration av versioner| Nej  | Inga |
+| Konfiguration – hanterings stöd, till exempel konfiguration av versioner| Nej  | Ingen |
 
 ## <a name="additional-security-controls-for-sql-database"></a>Ytterligare säkerhets kontroller för SQL Database
 

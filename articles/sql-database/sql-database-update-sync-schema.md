@@ -1,5 +1,5 @@
 ---
-title: Automatisera replikeringen av schema ändringar i Azure SQL Data Sync
+title: Automatisera replikeringen av schema ändringar i SQL Data Sync
 description: Lär dig hur du automatiserar replikeringen av schema ändringar i Azure SQL Data Sync.
 services: sql-database
 ms.service: sql-database
@@ -7,16 +7,16 @@ ms.subservice: data-movement
 ms.custom: data sync
 ms.devlang: ''
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/14/2018
-ms.openlocfilehash: 01cc82a2ada1f4ac8f26b223b7168b2cca157793
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 639901975bbb66b9f410bea297d9e48cd96d6d1b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686878"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822436"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatisera replikeringen av schema ändringar i Azure SQL Data Sync
 
@@ -84,7 +84,7 @@ INSERT INTO SchemaChanges (SqlStmt, Description)
 
 Utlösaren infogar en post i tabellen schema ändrings spårning för varje ALTER TABLE-kommando. I det här exemplet läggs ett filter till för att undvika att replikera schema ändringar som görs under schema **DataSync**, eftersom de är mest sannolika av tjänsten Data Sync. Lägg till fler filter om du bara vill replikera vissa typer av schema ändringar.
 
-Du kan också lägga till fler utlösare för att replikera andra typer av schema ändringar. Du kan till exempel skapa CREATE_PROCEDURE-, ALTER_PROCEDURE-och DROP_PROCEDURE-utlösare för att replikera ändringar till lagrade procedurer.
+Du kan också lägga till fler utlösare för att replikera andra typer av schema ändringar. Skapa till exempel CREATE_PROCEDURE, ALTER_PROCEDURE och DROP_PROCEDURE utlösare för att replikera ändringar till lagrade procedurer.
 
 ### <a name="create-a-trigger-on-other-endpoints-to-apply-schema-changes-during-insertion"></a>Skapa en utlösare på andra slut punkter för att tillämpa schema ändringar under infogning
 

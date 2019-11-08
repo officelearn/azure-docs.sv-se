@@ -1,5 +1,5 @@
 ---
-title: Kod för XEvent-ringbufferten för SQL Database
+title: Buffert kod för XEvent-ring
 description: Innehåller ett kod exempel för Transact-SQL som är enkelt och snabbt med hjälp av målet för ringbufferten, i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: 8fd04cac394f05a9db18e84117a8647c1a17ba30
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7adffac045ddb2ba369993b1b805e3ce2304fb38
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686810"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822321"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Ring buffertens mål kod för utökade händelser i SQL Database
 
@@ -27,7 +27,7 @@ Du vill ha ett fullständigt kod exempel för det enklaste sättet att samla in 
 I det här avsnittet presenteras ett Transact-SQL-kod exempel som:
 
 1. Skapar en tabell med data att demonstrera med.
-2. Skapar en session för en befintlig utökad händelse, nämligen **SQLServer. SQL-_statement_starting**.
+2. Skapar en session för en befintlig utökad händelse, nämligen **SQLServer. sql_statement_starting**.
    
    * Händelsen är begränsad till SQL-uttryck som innehåller en viss uppdaterings sträng: **instruktion som% Update tabEmployee%** .
    * Väljer att skicka utdata för händelsen till ett mål av typen ring-buffert, nämligen **package0. ring_buffer**.
@@ -35,7 +35,7 @@ I det här avsnittet presenteras ett Transact-SQL-kod exempel som:
 4. Utfärdar ett par enkla SQL UPDATE-instruktioner.
 5. Utfärdar ett SQL SELECT-uttryck för att hämta händelse utdata från ringbufferten.
    
-   * **sys. DM _xe_database_session_targets** och andra vyer för dynamisk hantering (DMV: er) är anslutna.
+   * **sys. dm_xe_database_session_targets** och andra vyer för dynamisk hantering (DMV: er) är anslutna.
 6. Stoppar händelsesessionen.
 7. Släpper målet för ringbufferten för att frigöra resurser.
 8. Släpper händelsesessionen och demonstrations tabellen.
@@ -54,10 +54,10 @@ I det här avsnittet presenteras ett Transact-SQL-kod exempel som:
 
 ## <a name="code-sample"></a>Kodexempel
 
-Med mycket mindre modifiering kan följande kod exempel för ringbufferten köras på antingen Azure SQL Database eller Microsoft SQL Server. Skillnaden är förekomsten av noden "_database" i namnet på vissa vyer för dynamisk hantering (DMV: er), som används i from-satsen i steg 5. Till exempel:
+Med mycket mindre modifiering kan följande kod exempel för ringbufferten köras på antingen Azure SQL Database eller Microsoft SQL Server. Skillnaden är förekomsten av noden _database i namnet på vissa vyer för dynamisk hantering (DMV: er), som används i from-satsen i steg 5. Till exempel:
 
-* sys. DM _xe<strong>_database</strong>_session_targets
-* sys. DM-_xe_session_targets
+* sys. dm_xe<strong>_database</strong>_session_targets
+* sys. dm_xe_session_targets
 
 &nbsp;
 

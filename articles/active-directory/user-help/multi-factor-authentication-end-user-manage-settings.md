@@ -1,5 +1,5 @@
 ---
-title: Hantera inställningar för tvåstegsverifiering – Azure Active Directory | Microsoft Docs
+title: Hantera dina inställningar för tvåstegsverifiering – Azure AD
 description: Lär dig hur du ändrar information om säkerhets verifierings metoden i relation till tvåstegsverifiering.
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ed7d812a9c1cba356277a4454234531ce8d41ef
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4c402e0992a3a04d674477bc9dd19e0181fd6775
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616151"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805268"
 ---
 # <a name="manage-your-two-factor-verification-method-settings"></a>Hantera dina inställningar för verifierings metoden med två faktorer
 
@@ -54,7 +54,7 @@ Om din organisation tillhandahöll ett särskilt steg om hur du aktiverar och ha
         ![Länken Mina appar till sidan ytterligare säkerhets verifiering](./media/multi-factor-authentication-end-user-manage-settings/mfa-myapps-link.png)
 
 >[!Note]
->Information om hur du använder **app** -lösenords-avsnittet på sidan **ytterligare säkerhets verifiering** finns i [Hantera applösenord för tvåstegsverifiering](multi-factor-authentication-end-user-app-passwords.md). Applösenord bör endast användas för appar som ännu inte har stöd för tvåstegsverifiering.
+>Information om hur du använder **app-lösenords** -avsnittet på sidan **ytterligare säkerhets verifiering** finns i [Hantera applösenord för tvåstegsverifiering](multi-factor-authentication-end-user-app-passwords.md). Applösenord bör endast användas för appar som ännu inte har stöd för tvåstegsverifiering.
 
 ## <a name="change-your-default-security-verification-method"></a>Ändra din standard metod för säkerhets verifiering
 
@@ -99,7 +99,7 @@ Du kan ställa in ditt arbets-eller skol konto på Microsoft Authenticator-appen
 
 Om du tidigare har konfigurerat ditt arbets-eller skol konto i Microsoft Authenticator-appen behöver du inte göra det igen.
 
-1. I avsnittet **Hur vill du svara?** på sidan **ytterligare säkerhets verifiering** väljer du knappen Konfigurera autentiserare- **appen** .
+1. I avsnittet **Hur vill du svara?** på sidan **ytterligare säkerhets verifiering** väljer du knappen **Konfigurera autentiserare-appen** .
 
     ![Konfigurera ditt arbets-eller skol konto i Microsoft Authenticator-appen](./media/multi-factor-authentication-end-user-manage-settings/mfa-security-verification-page-auth-app.png)
 
@@ -115,7 +115,7 @@ Du kan ta bort ditt konto från Microsoft Authenticator-appen, och du kan ta bor
 
 ### <a name="to-delete-your-device-from-your-work-or-school-account"></a>Ta bort din enhet från ditt arbets-eller skol konto
 
-1. I avsnittet **Hur vill du svara?** på sidan **ytterligare säkerhets verifiering** väljer du knappen Konfigurera autentiserare- **appen** .
+1. I avsnittet **Hur vill du svara?** på sidan **ytterligare säkerhets verifiering** väljer du knappen **Konfigurera autentiserare-appen** .
 
 2. Välj **Spara**.
 

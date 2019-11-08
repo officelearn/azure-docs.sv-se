@@ -1,5 +1,5 @@
 ---
-title: Anslut Excel till en enda databas i Azure SQL Database
+title: Ansluta Excel till en enskild databas
 description: Lär dig hur du ansluter Microsoft Excel till en enda databas i Azure SQL Database. Importera data till Excel för rapportering och dataundersökning.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: joseidz
 ms.author: craigg
 ms.reviewer: ''
 ms.date: 02/12/2019
-ms.openlocfilehash: 603aa52aefc4c4d1200d433f7f73f6070849c8f7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: de5f23bf1e8acd8a5fcd0cf8e1526f88667800c1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691032"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827120"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Anslut Excel till en enda databas i Azure SQL Database och skapa en rapport
 

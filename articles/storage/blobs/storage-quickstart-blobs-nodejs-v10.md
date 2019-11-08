@@ -1,24 +1,24 @@
 ---
-title: Ladda upp, hämta, lista och ta bort blobar med Azure Storage v10 SDK för JavaScript
-description: Skapa, ladda upp och ta bort blobar och containrar i Node.js med Azure Storage
+title: 'Snabb start: klient biblioteket för Azure Blob Storage-v10 för Java Script'
+description: Skapa, ladda upp och ta bort blobbar och behållare i Node. js med Azure Storage klient bibliotek v10 för Java Script
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 09/24/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: f8c7de63f2bd4b7329e8ae6a53123c9c1ea035af
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: b909da5da0d7352d4086222fe0411ac37668bd92
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240430"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825323"
 ---
-# <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript"></a>Snabbstart: Ladda upp, hämta, lista och ta bort blobar med Azure Storage v10 SDK för JavaScript
+# <a name="quickstart-azure-blob-storage-client-library-v10-for-javascript"></a>Snabb start: klient biblioteket för Azure Blob Storage-v10 för Java Script
 
 I den här snabbstarten får du lära dig att använda [Azure Storage v10 SDK för JavaScript](https://github.com/Azure/azure-sdk-for-js) i Node.js för att ladda upp, hämta, lista, och ta bort blobar och hantera containrar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -203,7 +203,7 @@ Precis som med containern finns inte blockbloben än. *blockBlobURL*-variabeln a
 
 ### <a name="using-the-aborter-class"></a>Använda klassen Aborter
 
-Begäranden som görs av API:et kan konfigureras med tidsgränser efter ett visst intervall. Klassen *Aborter* ansvarar för att hantera hur tidsgränser för begäranden tillämpas. Följande kod skapar en kontext där en uppsättning begäranden får 30 minuter att köra.
+Begäranden som görs av API:et kan konfigureras med tidsgränser efter ett visst intervall. *Avbrotts* klassen ansvarar för att hantera hur tids gränsen för tids gränsen uppnåddes. Följande kod skapar en kontext där en uppsättning begär Anden får 30 minuter att köra.
 
 ```javascript
 const aborter = Aborter.timeout(30 * ONE_MINUTE);

@@ -1,68 +1,69 @@
 ---
-title: Hantera användare på partnerportalen i molnet | Azure Marketplace
-description: Hantera användare på partnerportalen i molnet
+title: Hantera användare på Cloud Partner Portal | Azure Marketplace
+description: Hantera användare på Cloud Partner Portal
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 manager: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: 21c49ad0d73721dd204a7a3899d11cf10d43521b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4dc9fdf94ba6311f1b59c61ec686628a728e2510
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942087"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826640"
 ---
-# <a name="managing-users-on-the-cloud-partner-portal"></a>Hantera användare på partnerportalen i molnet
+# <a name="managing-users-on-the-cloud-partner-portal"></a>Hantera användare på Cloud Partner Portal
 
-Den [Cloud Partner Portal](https://cloudpartner.azure.com) kan du lägga till användare med rollbaserad åtkomst till virtuell dator-erbjudanden. Det hjälper dig för att hantera åtkomst och behörighet när flera personer arbetar med erbjudanden.
+Med [Cloud Partner Portal](https://cloudpartner.azure.com) kan du lägga till användare med rollbaserad åtkomst till erbjudanden för virtuella datorer. Det hjälper dig att hantera åtkomst och behörigheter samtidigt som flera personer arbetar med erbjudanden.
 
-## <a name="add-users-and-assign-roles"></a>Lägga till användare och tilldela roller 
+## <a name="add-users-and-assign-roles"></a>Lägg till användare och tilldela roller 
 
-Använd följande steg för att lägga till användare och tilldela roller för publicering av erbjudandet.
+Använd följande steg för att lägga till användare och tilldela roller för erbjudande publicering.
 
-1. Klicka på den **användare** fliken i navigeringsfönstret till vänster.
+1. Klicka på fliken **användare** i navigerings fönstret till vänster.
 
     ![Fliken användare](./media/userstab.png)
 
 
-2. Klicka på **lägga till användare**.
+2. Klicka på **Lägg till användare**.
 
     ![Välj Lägg till användare](./media/adduser.png)
 
 
-3. Ange användarens e-postadress och välj en rolltilldelning.  Du kan lägga till den nya användaren som ”ägare” eller ”bidragsgivare”.
+3. Skriv användarens e-postadress och välj en roll tilldelning.  Du kan lägga till den nya användaren som "ägare" eller "deltagare".
 
-    **e-post**: Lägg till e-postadresserna för gruppmedlemmar som kommer att arbeta med publicera erbjudandet. Microsoft-konton (Outlook, Hotmail och Live) och organisation-ID: N stöds.
+    **E-post**: Lägg till e-postadresserna till de grupp medlemmar som ska arbeta med publiceringen av erbjudandet. Microsoft-konton (Outlook, Hotmail och Live) och organisations-ID: n stöds.
 
-    - Lägg till en ”team/grupp e-alias/säkerhetsgrupp” som skydd mot den person som lämnar organisationen.
-    - Se till att e-ID: N i Cloud Partner Portal övervakas för all kommunikation från Microsoft.
+    - Lägg till ett "grupp/grupp-e-postalias/säkerhets grupp" för att skydda mot den person som lämnar organisationen.
+    - Se till att e-post-ID: n som anges på Cloud Partner Portal övervakas för kommunikation från Microsoft.
     
     ![Tilldela roll](./media/assignrole.png)
 
-    **Roll**: Se tabellen nedan för att identifiera rolltypen lämpliga användare.
+    **Roll**: referera till tabellen nedan för att identifiera rätt typ av användar roll.
 
-    ![Roller nivå](./media/roleaccesslevel.png)
+    ![Roll nivå](./media/roleaccesslevel.png)
 
-    Endast ägare kan komma åt Azure Payouts och Azure-kund flikarna i [försäljning Insights](../../cloud-partner-portal-orig/si-getting-started.md).
+    Endast ägare har åtkomst till Azure-utbetalningar och Azure-kundflikar i [säljare insikter](../../cloud-partner-portal-orig/si-getting-started.md).
 
 
-4. Utgivarens namn som du vill lägga till den nya användaren och sedan klicka på Lägg till för att slutföra användaren tillägg.
+4. Välj det utgivar namn som du vill lägga till den nya användaren och klicka sedan på Lägg till för att slutföra användar tillägget.
 
     > [!NOTE]
-    > ”Utgivarnamnen” som din e-post har lagts till som ägare eller deltagare visas i listrutan för **Publisher** väljas.
+    > "Utgivar namn" som din e-post läggs till som ägare eller deltagare visas i list rutan **för att välja** .
 
 
-    ![Tilldela roll - väljer utgivare](./media/assignselectpublisher.png)
+    ![Tilldela roll-Välj Utgivare](./media/assignselectpublisher.png)
 
 
 ## <a name="delete-an-existing-user"></a>Ta bort en befintlig användare
 
-Ta bort en befintlig användare genom att söka efter sin e-post i den **användare** fliken och tryck sedan på den **ta bort** knappen på höger sida.
+Om du vill ta bort en befintlig användare söker du efter e-postmeddelandet på fliken **användare** och trycker sedan på knappen **ta bort** på den högra sidan.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan också använda portalen för att [hantera publisher profiler](./cpp-manage-publisher-profile.md).
+Du kan också använda portalen för att [Hantera utgivar profiler](./cpp-manage-publisher-profile.md).

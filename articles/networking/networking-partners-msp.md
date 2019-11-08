@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: sukishen
-ms.openlocfilehash: 089d54a2aae288511a283dfb28b03efa34c33b53
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 83c3c72ad189720b8f0aa554b7804b55f3488b83
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715437"
+ms.locfileid: "73747945"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Om Azure Network MSP-partner
 
@@ -28,7 +28,7 @@ Kunder kan köpa MSP-hanterade tjänster i Azure Marketplace eller direkt från 
 
 Använd länkarna i det här avsnittet för mer information om hanterade moln nätverks tjänster som erbjuds av Azure Network MSP-partner. Om din moln nätverks tjänst partner inte visas i avsnittet nedan, ber du leverantören att kontakta oss. De kan kontakta oss genom att skicka ett e-postmeddelande till ManagedVirtualWAN@microsoft.com. 
 
-| **MSP** | **Cloud Network Transformation Services** | **Hanterade ExpressRoute** | **Hanterat virtuellt WAN** | **Hanterad brand vägg** |**Beräkning av hanterade nätverks Edge** |
+| **MSP** | **Cloud Network Transformation Services** | **Hanterade ExpressRoute** | **Hanterat virtuellt WAN** | **Hanterade nätverks säkerhets tjänster** |**Beräkning av hanterade nätverks Edge** |
 | ---| ---| ---| ---| ---| ---|
 |[Amdocs](https://www.amdocs.com/)|||||Ja|
 |[ANS-grupp Storbritannien](https://www.ans.co.uk/)|Ja|Ja||||

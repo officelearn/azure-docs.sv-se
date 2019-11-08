@@ -1,7 +1,7 @@
 ---
 title: Granskningar, arbets flöden och jobb koncept – Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Lär dig mer om granskningar, arbets flöden och jobb
+description: I den här artikeln får du lära dig mer om huvud begreppen i gransknings verktyget. recensioner, arbets flöden och jobb.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 917636c8ae339e06321c169979611f74276ca523
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 1aba86efb9ea76fbf060e80b47f9f2f6cdf8ee71
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044009"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744421"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Granskningar av innehålls moderatorer, arbets flöden och jobb
 
@@ -35,7 +35,7 @@ Ett arbets flöde är ett molnbaserad anpassat filter för innehåll. Arbets fl�
 
 ### <a name="view-workflows"></a>Visa arbets flöden
 
-Om du vill visa dina befintliga arbets flöden går du till [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/) och väljer **Inställningar**  > **arbets flöden**.
+Om du vill visa dina befintliga arbets flöden går du till [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/) och väljer **Inställningar** > **arbets flöden**.
 
 ![Standard arbets flöde](images/default-workflow-listed.PNG)
 

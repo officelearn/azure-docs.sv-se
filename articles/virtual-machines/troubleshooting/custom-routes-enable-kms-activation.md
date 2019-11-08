@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
-ms.openlocfilehash: d554629c4a03b81ee3c04d27f6365c1a8734c952
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 47ff8870df7c89ee2ab3e48e064e31aa581f65f0
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058184"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748628"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>Det går inte att aktivera Windows i ett scenario med Tvingad tunnel trafik
 
 Den här artikeln beskriver hur du löser problemet med KMS-aktivering som du kan uppleva när du aktiverar Tvingad tunnel trafik i plats-till-plats-VPN-anslutning eller ExpressRoute-scenarier.
 
-## <a name="symptom"></a>Symtom
+## <a name="symptom"></a>Symptom
 
 Du aktiverar [Tvingad tunnel](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) trafik i Azure Virtual Network-undernät för att dirigera all Internet-baserad trafik tillbaka till ditt lokala nätverk. I det här scenariot går det inte att aktivera Windows med Azure Virtual Machines (virtuella datorer) som kör Windows.
 
@@ -50,7 +50,7 @@ Följ dessa steg om du vill lägga till en anpassad väg:
 
 ### <a name="for-resource-manager-vms"></a>För virtuella Resource Manager-datorer
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 > [!NOTE] 
 > Aktivering använder offentliga IP-adresser och kommer att påverkas av en standard-SKU Load Balancer-konfiguration. Läs noggrant igenom [utgående anslutningar i Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) för att lära dig mer om kraven.

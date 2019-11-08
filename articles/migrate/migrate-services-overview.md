@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: eadfc4e302f4445e8e0d5105aeac4361328cb259
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 8b1e716e482c49ceba0c600aaba30fe276bdb74d
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715453"
+ms.locfileid: "73747999"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -44,20 +44,20 @@ Förutom interna Azure-verktyg kan Azure Migrate integreras med ett antal ISV-er
 
 **ISV** | **Funktion**
 --- | ---
-[Carbonite](https://www.carbonite.com/globalassets/files/datasheets/carb-migrate4azure-microsoft-ds.pdf) | Migrera
-[Cloudamize](https://www.cloudamize.com/platform) | Utvärdera 
-[Samhyres teknik](https://www.corenttech.com/AzureMigrate/) | Utvärdera och migrera
-[Enhet 42](https://docs.device42.com/) | Utvärdera
-[Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Utvärdera
-[Rack](https://go.microsoft.com/fwlink/?linkid=2102735) | Migrera
-[Turbonomic](https://learn.turbonomic.com/azure-migrate-portal-free-trial) | Utvärdera
-[UnifyCloud](https://www.cloudatlasinc.com/cloudrecon/) | Utvärdera
+[Carbonite](https://www.carbonite.com/globalassets/files/datasheets/carb-migrate4azure-microsoft-ds.pdf) | Migrera servrar
+[Cloudamize](https://www.cloudamize.com/platform) | Utvärdera servrar
+[Samhyres teknik](https://www.corenttech.com/AzureMigrate/) | Utvärdera och migrera servrar
+[Enhet 42](https://docs.device42.com/) | Utvärdera servrar
+[Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Utvärdera VDI
+[Rack](https://go.microsoft.com/fwlink/?linkid=2102735) | Migrera servrar
+[Turbonomic](https://learn.turbonomic.com/azure-migrate-portal-free-trial) | Utvärdera servrar
+[UnifyCloud](https://www.cloudatlasinc.com/cloudrecon/) | Utvärdera servrar och databaser
 
-## <a name="tool-integration"></a>Verktygs integrering
+## <a name="azure-tool-integration"></a>Integrering av Azure-verktyg
 
 Tabellen sammanfattar andra verktyg som är integrerade i Azure Migrate.
 
-**Verktyg** | **Information**
+**Verktyg** | **Detaljer**
 --- | ---
 Azure Migrate: Server utvärdering | Utvärdera servrar
 Azure Migrate: Server-migrering | Migrera servrar
@@ -112,7 +112,7 @@ Azure Migrate integreras med Azure Database Migration Service (DMS) för att mig
 ## <a name="movere"></a>Movere
 
  
-Superkraft är en SaaS-plattform som ökar Business Intelligence genom att noggrant presentera hela IT-miljöer inom en enda dag. När organisationer växer, förändras och digitalt optimeras, ger lösningen företag den säkerhet de behöver för att få insyn och kontroll över sina miljöer oavsett plattform, program eller geografi. Den här förflyttningen [förvärvades](https:/azure.microsoft.com/blog/microsoft-acquires-movere-to-help-customers-unlock-cloud-innovation-with-seamless-migration-tools) av Microsoft och säljs inte längre som ett fristående erbjudande.  Kraftning är tillgängligt via Microsofts program för lösnings bedömning och molnet. [Läs mer](https://www.movere.io) om superkraft. Om du har frågor kan du skicka dem till: movereq@microsoft.com eller kontakta din Microsoft-representant.
+Superkraft är en SaaS-plattform som ökar Business Intelligence genom att noggrant presentera hela IT-miljöer inom en enda dag. När organisationer växer, förändras och digitalt optimeras, ger lösningen företag den säkerhet de behöver för att få insyn och kontroll över sina miljöer oavsett plattform, program eller geografi. Den här förflyttningen [förvärvades](https://azure.microsoft.com/blog/microsoft-acquires-movere-to-help-customers-unlock-cloud-innovation-with-seamless-migration-tools/) av Microsoft och säljs inte längre som ett fristående erbjudande.  Kraftning är tillgängligt via Microsofts program för lösnings bedömning och molnet. [Läs mer](https://www.movere.io) om superkraft. Om du har frågor kan du skicka dem till: movereq@microsoft.com eller kontakta din Microsoft-representant.
 
 Vi rekommenderar att du även tittar på Azure Migrate, vår inbyggda migration service. Azure Migrate tillhandahåller en central hubb för att förenkla migreringen till molnet. Hubben innehåller omfattande stöd för olika arbets belastningar, inklusive fysiska och virtuella servrar, databaser och program. Med en synlighet från slut punkt till slut punkt blir det enkelt att spåra framsteg i hela identifiering, utvärdering och migrering. Med både Azure-och partners inbyggda ISV-verktyg har Azure Migrate också en mängd olika funktioner, inklusive virtuell och fysisk server identifiering, prestanda-baserad höger storlek, kostnads planering, import-baserade utvärderingar och program utan agent beroende analys. Om du vill ha expert hjälp för att komma igång har Microsoft kvalificerad [Azure expert Managed Service Provider](https://azure.microsoft.com/partners) som vägleder dig längs resan. Kolla in [Azure Migrate webbplats](https://azure.microsoft.com/services/azure-migrate/). 
  

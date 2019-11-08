@@ -1,30 +1,30 @@
 ---
-title: Visa ett kunskaps lager med Storage Explorer
+title: Visa ett kunskaps lager (för hands version) med Storage Explorer
 titleSuffix: Azure Cognitive Search
-description: Visa och analysera Azure Kognitiv sökning kunskaps lager med Azure Portals Storage Explorer.
+description: Visa och analysera Azure Kognitiv sökning kunskaps lager med Azure Portals Storage Explorer. Kunskaps lagret är för närvarande en offentlig för hands version.
 manager: nitinme
 author: lisaleib
 ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9ba11b69a51a5bc563764a7e75189bed67cb2ac6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: e3ea879a419aa14d3a6693e23f4f120aca8d9d51
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485000"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720062"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Visa ett kunskaps lager med Storage Explorer
 
-> [!Note]
-> Kunskaps lagret är i för hands version och bör inte användas i produktionen. Portalen och [sök REST API version 2019-05-06 – för hands version](search-api-preview.md) innehåller den här funktionen. Det finns för närvarande inget stöd för .NET SDK.
->
+> [!IMPORTANT] 
+> Kunskaps lagret är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [REST API version 2019-05-06-Preview](search-api-preview.md) innehåller för hands versions funktioner. Det finns för närvarande begränsad Portal support och inget stöd för .NET SDK.
+
 I den här artikeln lär du dig hur du kan ansluta till och utforska ett kunskaps lager med hjälp av Storage Explorer i Azure Portal.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-+ Följ stegen i [skapa ett kunskaps lager i Azure Portal](knowledge-store-create-portal.md) för att skapa ett exempel på kunskaps lager som används i den här genom gången.
++ Följ stegen i [skapa ett kunskaps lager i Azure Portal](knowledge-store-create-portal.md) eller [skapa ett Azure kognitiv sökning kunskaps lager genom att använda rest](knowledge-store-create-rest.md) för att skapa det exempel kunskaps arkiv som användes i den här genom gången.
 
 + Du kommer också att behöva namnet på det Azure Storage-konto som du använde för att skapa kunskaps lagret, tillsammans med dess åtkomst nyckel från Azure Portal.
 

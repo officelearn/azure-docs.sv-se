@@ -1,22 +1,20 @@
 ---
-title: Azure Functions Premium-plan (för hands version) | Microsoft Docs
+title: Azure Functions Premium-prenumerationsavtal
 description: Information och konfigurations alternativ (VNet, ingen kall start, obegränsad körnings tid) för Azure Functions Premium-planen.
-services: functions
 author: jeffhollan
-manager: jeconnoc
-ms.assetid: ''
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 4/11/2019
+ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: ce83d521d5bc986be7bb24ef874f1f0e1051e3ae
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 8cda3ce85e6e7e9d5d7787406eb3b9785c1f7724
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755402"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719029"
 ---
-# <a name="azure-functions-premium-plan-preview"></a>Azure Functions Premium-plan (för hands version)
+# <a name="azure-functions-premium-plan"></a>Azure Functions Premium-prenumerationsavtal
 
 Azure Functions Premium-planen är ett värd alternativ för Function-appar. Premium-prenumerationen innehåller funktioner som VNet-anslutning, ingen kall start och förstklassig maskin vara.  Flera Function-appar kan distribueras till samma Premium plan och med planen kan du konfigurera storlek på beräknings instanser, bas Plans storlek och maximal schema storlek.  En jämförelse av Premium-planen och andra plan-och värd typer finns i [funktions skala och värd alternativ](functions-scale.md).
 
@@ -31,7 +29,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 --location <REGION> --sku EP1
 ```
 
-I det här exemplet ersätter du `<RESOURCE_GROUP>` med din resurs grupp och `<PLAN_NAME>` med ett namn för din plan som är unik i resurs gruppen. Ange ett [`<REGION>` som stöds](#regions). Om du vill skapa en Premium-plan som stöder Linux inkluderar du alternativet `--is-linux`.
+I det här exemplet ersätter du `<RESOURCE_GROUP>` med din resurs grupp och `<PLAN_NAME>` med ett namn för din plan som är unik i resurs gruppen. Ange ett [`<REGION>`som stöds ](#regions). Om du vill skapa en Premium-plan som stöder Linux inkluderar du alternativet `--is-linux`.
 
 När planen har skapats kan du använda [AZ functionapp Create](/cli/azure/functionapp#az-functionapp-create) för att skapa din Function-app. I portalen skapas både planen och appen på samma tidpunkt. 
 
@@ -59,7 +57,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 Azure Functions som distribueras till en Premium-plan drar nytta av [ny VNet-integrering för webbappar](../app-service/web-sites-integrate-with-vnet.md).  När appen har kon figurer ATS kan den kommunicera med resurser i ditt VNet eller skyddas via tjänst slut punkter.  IP-begränsningar är också tillgängliga i appen för att begränsa inkommande trafik.
 
-När du tilldelar ett undernät till din Function-app i en Premium-plan behöver du ett undernät med tillräckligt med IP-adresser för varje möjlig instans. Även om det maximala antalet instanser kan variera under för hands versionen, kräver vi ett IP-block med minst 100 tillgängliga adresser.
+När du tilldelar ett undernät till din Function-app i en Premium-plan behöver du ett undernät med tillräckligt med IP-adresser för varje möjlig instans. Vi kräver ett IP-block med minst 100 tillgängliga adresser.
 
 Mer information finns i [integrera din Function-app med ett VNet](functions-create-vnet.md).
 
@@ -71,11 +69,9 @@ Ytterligare beräknings instanser läggs automatiskt till för din app med samma
 
 Azure Functions i en förbruknings plan är begränsad till 10 minuter för en enda körning.  I Premium-planen är varaktigheten för körningen standardvärdet 30 minuter för att förhindra överkörningar. Du kan dock [ändra Host. JSON-konfigurationen](./functions-host-json.md#functiontimeout) för att göra detta obegränsat för appar för Premium-plan.
 
-I för hands versionen garanteras din varaktighet inte de senaste 12 minuterna och har den bästa risken att gå att köra mer än 30 minuter om din app inte har skalats förbi det lägsta antalet anställda.
-
 ## <a name="plan-and-sku-settings"></a>Planera och SKU-inställningar
 
-När du skapar planen konfigurerar du två inställningar: det minsta antalet instanser (eller plan storlek) och den maximala burst-gränsen.  De minsta instanserna för en Premium-plan är 1 och den maximala burst-nivån under för hands versionen är 20.  Minimi instanserna är reserverade och körs alltid.
+När du skapar planen konfigurerar du två inställningar: det minsta antalet instanser (eller plan storlek) och den maximala burst-gränsen.  Minimi instanserna är reserverade och körs alltid.
 
 > [!IMPORTANT]
 > Du debiteras för varje instans som allokeras i minsta instans antal oavsett om funktionerna körs eller inte.
@@ -94,7 +90,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 När du skapar eller skalar planen kan du välja mellan tre instans storlekar.  Du debiteras för det totala antalet kärnor och använt minne per sekund.  Din app kan automatiskt skala ut till flera instanser efter behov.  
 
-|SKU|Kärnor|Minne|Lagring|
+|SKU|Kärnor|Minne|Storage|
 |--|--|--|--|
 |EP1|1|3,5 GB|250 GB|
 |EP2|2|7GB|250 GB|
@@ -102,42 +98,39 @@ När du skapar eller skalar planen kan du välja mellan tre instans storlekar.  
 
 ## <a name="regions"></a>Regioner
 
-Nedan finns de regioner som stöds för den allmänt tillgängliga för hands versionen för varje operativ system.
+Nedan finns de regioner som stöds för varje operativ system.
 
 |Region| Windows | Linux |
 |--| -- | -- |
-|Australien, centrala| ✔ * | |
-|Australien, centrala 2| ✔ * | |
-|Australien, östra| ✔ | |
-|Australien, sydöstra | ✔ | ✔ |
-|Brasilien, södra| ✔ * * |  |
-|Kanada, centrala| ✔ |  |
-|USA, centrala| ✔ |  |
-|Asien, östra| ✔ |  |
+|Australien, centrala| ✔<sup>1</sup> | |
+|Australien, centrala 2| ✔<sup>1</sup> | |
+|Östra Australien| ✔ | |
+|Sydöstra Australien | ✔ | ✔ |
+|Södra Brasilien| ✔<sup>2</sup> |  |
+|Centrala Kanada| ✔ |  |
+|Centrala USA| ✔ |  |
+|Östasien| ✔ |  |
 |USA, östra | ✔ | ✔ |
 |USA, östra 2| ✔ |  |
 |Frankrike, centrala| ✔ |  |
-|Japan, östra| ✔ | ✔ |
-|Japan, västra| ✔ | |
+|Östra Japan| ✔ | ✔ |
+|Västra Japan| ✔ | |
 |Sydkorea, centrala| ✔ |  |
-|USA, norra centrala| ✔ |  |
-|Europa, norra| ✔ | ✔ |
-|USA, södra centrala| ✔ |  |
-|Indien, södra | ✔ | |
-|Asien, sydöstra| ✔ | ✔ |
+|Norra centrala USA| ✔ |  |
+|Norra Europa| ✔ | ✔ |
+|Södra centrala USA| ✔ |  |
+|Södra Indien | ✔ | |
+|Sydostasien| ✔ | ✔ |
 |Storbritannien, södra| ✔ | |
 |Storbritannien, västra| ✔ |  |
-|Europa, västra| ✔ | ✔ |
+|Västra Europa| ✔ | ✔ |
 |Indien, västra| ✔ |  |
-|USA, västra| ✔ | ✔ |
+|Västra USA| ✔ | ✔ |
+|Västra USA 2| ✔ |  |
 
-\* maximal skala ut begränsat till 20 instanser
+<sup>1</sup> Högsta skala begränsad till 20 instanser.  
+<sup>2</sup> Högsta skala begränsad till 60 instanser.
 
-\* * högsta skala begränsad till 60 instanser
-
-## <a name="known-issues"></a>Kända problem
-
-Du kan spåra statusen för kända problem i den [offentliga för hands versionen på GitHub](https://github.com/Azure/Azure-Functions/wiki/Premium-plan-known-issues).
 
 ## <a name="next-steps"></a>Nästa steg
 

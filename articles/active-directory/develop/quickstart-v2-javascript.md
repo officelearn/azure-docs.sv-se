@@ -17,18 +17,18 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad79ee0fd1d421c7e869424ccb8daa595e51a970
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5ca9a8b87713508a581a833f60fbe863fd93919a
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73149409"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795616"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Snabb start: Logga in användare och hämta en åtkomsttoken i ett Java Script SPA
 
 I den här snabb starten använder du ett kod exempel för att lära dig hur ett Java Script-program (Single-Side Application) kan logga in användare av personliga konton, arbets konton och skol konton. En JavaScript-SPA kan också hämta en åtkomsttoken för att anropa Microsoft Graph-API: et eller något webb-API. (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Node.js](https://nodejs.org/en/download/).
@@ -48,7 +48,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 >
 > ### <a name="option-2-manual-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2 (manuell): registrera och konfigurera ditt program och kod exempel manuellt
 >
-> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera din app
+> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
 >
 > 1. Logga in på [Azure Portal](https://portal.azure.com) med ett arbets-eller skol konto eller en personlig Microsoft-konto.
 >
@@ -70,7 +70,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 > > [Gör ändringarna åt mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerad](media/quickstart-v2-javascript/green-check.png) Appen konfigureras med de här attributen.
+> > ![Redan konfigurerad](media/quickstart-v2-javascript/green-check.png) Programmet konfigureras med de här attributen.
 
 #### <a name="step-2-download-the-project"></a>Steg 2: Ladda ned projektet
 
@@ -80,12 +80,11 @@ Välj det alternativ som passar din utvecklings miljö:
 
 * Valfritt Om du vill köra projektet med IIS-servern [laddar du ned Visual Studio-projektet](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip). Extrahera zip-filen till en lokal mapp (till exempel *C:\Azure-samples*).
 
-#### <a name="step-3-configure-your-javascript-app"></a>Steg 3: Konfigurera din JavaScript-app
-
 > [!div renderon="docs"]
+> #### <a name="step-3-configure-your-javascript-app"></a>Steg 3: Konfigurera din JavaScript-app
 > I mappen *JavaScriptSPA* redigerar du *index. html*och anger `clientID` och `authority` värden under `msalConfig`.
 
-> [!div class="sxs-lookup" renderon="portal"]
+> [!div renderon="docs"]
 > I mappen *JavaScriptSPA* redigerar du *index. html*och ersätter `msalConfig` med följande kod:
 
 ```javascript
@@ -102,14 +101,10 @@ var msalConfig = {
 };
 
 ```
-> [!div renderon="portal"]
-> > [!NOTE]
-> > Den här snabb starten stöder Enter_the_Supported_Account_Info_Here.
-
 
 > [!div renderon="docs"]
 >
-> Var:
+> Där:
 > - *\<Enter_the_Application_Id_here >* är **program-ID: t (Client)** för det program som du har registrerat.
 > - *\<Enter_the_Tenant_info_here >* har angetts till något av följande alternativ:
 >    - Om ditt program har stöd *för konton i den här organisations katalogen*ersätter du värdet med **klient-ID** eller **klient namn** (till exempel *contoso.Microsoft.com*).
@@ -120,7 +115,12 @@ var msalConfig = {
 > > För att hitta värdena för **program-ID (klient)** , **katalog-ID (klient)** och **Kontotyper som stöds** går du till appens **översiktssida** i Azure-portalen.
 >
 
-#### <a name="step-4-run-the-project"></a>Steg 4: kör projektet
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Steg 3: appen har kon figurer ATS och är redo att köras
+> Vi har konfigurerat ditt projekt med värdena för appens egenskaper. 
+
+> [!div renderon="docs"]
+> #### <a name="step-4-run-the-project"></a>Steg 4: kör projektet
 
 * Om du använder [Node. js](https://nodejs.org/en/download/):
 
@@ -242,7 +242,7 @@ myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
 
 #### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
-Det finns situationer där du måste tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Exempel:
+Det finns situationer där du måste tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Till exempel:
 * Användare kan behöva ange sina autentiseringsuppgifter på grund av att deras lösen ord har upphört att gälla.
 * Ditt program begär åtkomst till ytterligare resurs omfattningar som användaren behöver godkänna.
 * Tvåfaktorautentisering krävs.

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/22/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 6d59964013a2631430ecd7e46d1ce0f6be60a05f
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 611b3e608d9b0de9423c861ec70e9fc2e7ad67d5
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802039"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720748"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Kom igång med Azure Cost Management för partner
 
@@ -37,7 +37,7 @@ Här är ett exempel som visar kostnader för en enskild kund.
 
 Alla funktioner som är tillgängliga i Azure Cost Management finns också i REST-API: er. Använd API: erna för att automatisera kostnads hanterings uppgifter.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Azure Cost Management kräver Läs behörighet till ditt fakturerings konto eller prenumeration. Åtkomst kan beviljas på vilken nivå som helst ovanför dina resurser, från fakturerings kontot eller en hanterings grupp till enskilda resurs grupper där du hanterar dina appar. Mer information om hur du aktiverar och tilldelar åtkomst till Azure Cost Management för ett fakturerings konto finns i [Tilldela användar roller och behörigheter](/partner-center/permissions-overview). Rollen **Global administratör** och **admin-agenten** kan hantera kostnader för ett fakturerings konto.
 
@@ -88,7 +88,7 @@ Partner kan använda omfånget för att stämma av fakturor. Och använder de om
 - Resursgrupp
 - Resurs
 - Azure-tjänst
-- Meter
+- Mätare
 - ResellerMPNID
 
 ### <a name="customer-scope"></a>Kund omfång
@@ -139,7 +139,7 @@ Klicka på **Azure-prenumerationer**under **fakturering**och klicka sedan på en
 ![Välj en Azure-prenumerations kund](./media/get-started-partners/subscriptions-select-customer.png)
 
 Klicka på **kostnads analys** och påbörja granskning av kostnader.
-Kostnads analys, budgetar och aviseringar är nu tillgängliga för en prenumeration och en resurs grupp för RBAC-baserade kostnader enligt principen betala per användning.
+Kostnads analys, budgetar och aviseringar är tillgängliga för en prenumeration och resurs grupp för RBAC-omkostnader enligt principen betala per användning.
 
 ![Visa kostnads analys som en kund ](./media/get-started-partners/customer-tenant-view-cost-analysis.png)
 
@@ -147,22 +147,23 @@ Amortera vyer och faktiska kostnader för reserverade instanser i RBAC-omfången
 
 ## <a name="analyze-costs-in-cost-analysis"></a>Analysera kostnader i kostnads analys
 
-Partner kan utforska och analysera kostnader i kostnads analys över kunder för en specifik kund eller för en faktura. Med funktionerna filtrera och gruppera efter kan du analysera kostnader med flera fält, inklusive:
+Partner kan utforska och analysera kostnader i kostnads analys över kunder för en specifik kund eller för en faktura.
 
-| **Fält** | **Beskrivning** |
+Följande fält finns i användnings detalj filen och Cost Management API: er. Du kan använda filtrera och gruppera efter funktioner i kostnads analys för att analysera kostnader med flera fält. Om du vill visa en fullständig lista över fält, se [Cost Management data fält](understand-cost-mgt-data.md#cost-management-data-fields).
+
+| Fältnamn | Beskrivning |
 | --- | --- |
-| PartnerTenantID | Identifierare för partnerns Azure Active Directory klient |
-| PartnerName | Namnet på partner Azure Active Directory klient organisation |
-| CustomerTenantID | Identifierare för den Azure Active Directory klienten för kundens prenumeration |
-| CustomerName | Namnet på den Azure Active Directory klienten som innehåller kundens prenumeration |
-| ResellerMPNID | MPNID för den åter försäljare som är associerad med prenumerationen |
-| subscription ID | Unik identifierare som skapats av Microsoft för Azure-prenumerationen |
-| subscriptionName | Namnet på Azure-prenumerationen |
-| billingProfileID | Identifierare för fakturerings profilen. Den grupperar kostnader mellan fakturor i en enda fakturerings valuta för kunderna.
-| invoiceID | Faktura-ID på fakturan där den angivna transaktionen visas |
-| resourceGroup | Namnet på Azure-resurs gruppen. Används för resurs livs cykel hantering. |
-| partnerEarnedCreditRate | Diskonterings ränta som används om det finns en partner som har tilldelats partner administratörs åtkomst. |
-| partnerEarnedCreditApplied | Visar om den intjänade partner krediten har tillämpats. |
+| CustomerTenantID | Identifierare för den Azure Active Directory klienten för kunden&#39;s prenumeration. |
+| CustomerName | Namnet på Azure Active Directory klient organisation för kund&#39;s-prenumerationen. |
+| CustomerTenantDomainName | Domän namn för Azure Active Directory klient organisation för kund&#39;s-prenumerationen. |
+| PartnerTenantID | Identifierare för partner&#39;s Azure Active Directory klient. |
+| PartnerName | Namnet på partner Azure Active Directory klient organisationen. |
+| ResellerMPNID | MPNID för den åter försäljare som är associerad med prenumerationen. |
+| costinUSD | Beräknad ExtendedCost eller blandade kostnader före skatt i USD. |
+| paygCostInBillingCurrency | Visar kostnader om priserna är i detaljhandelspriser. Visar priser enligt principen betala per användning i fakturerings valutan. Endast tillgängligt i RBAC-scope. |
+| paygCostInUSD | Visar kostnader om priserna är i detaljhandelspriser. Visar priserna för betala per användning i USD. Endast tillgängligt i RBAC-scope. |
+| partnerEarnedCreditRate | Rabatt som används om det finns en partner som har fått partner administratörs åtkomst. |
+| partnerEarnedCreditApplied | Anger om den partner som har intjänad kredit har tillämpats. |
 
 I vyn [kostnads analys](quick-acm-cost-analysis.md) kan du också [Spara vyer](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) och exportera data till CSV- [och PNG-filer](quick-acm-cost-analysis.md#automation-and-offline-analysis).
 
@@ -203,36 +204,67 @@ API: er i prenumerations omfånget kan anropas av en partner oavsett kostnads pr
 #### <a name="to-get-a-list-of-billing-accounts"></a>Så här hämtar du en lista över fakturerings konton
 
 ```
-armclient get "providers/Microsoft.billing/billingAccounts?api-version=2019-10-01-preview"
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts?api-version=2019-10-01-preview
 ```
 
 #### <a name="to-get-a-list-of-customers"></a>Så här hämtar du en lista över kunder
 
 ```
-armclient get "providers/Microsoft.billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/customers?api-version=2019-10-01-preview"
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers?api-version=2019-10-01-preview
 ```
+
 #### <a name="to-get-a-list-of-subscriptions"></a>Hämta en lista över prenumerationer
 
 ```
-armclient get "/providers/Microsoft.Billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/customers/YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYYY/billingSubscriptions?api-version=2019-10-01-preview"
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingSubscriptions?api-version=2019-10-01-preview
 ```
+
+#### <a name="to-get-a-list-of-invoices-for-a-period-of-time"></a>Hämta en lista över fakturor under en tids period
+
+```
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/invoices?api-version=2019-10-01-preview&periodStartDate={periodStartDate}&periodEndDate={periodEndDate}
+```
+
+API-anropet returnerar en matris med fakturor som innehåller element som liknar följande JSON-kod.
+
+```
+    {
+      "id": "/providers/Microsoft.Billing/billingAccounts/{billingAccountID}/billingProfiles/{BillingProfileID}/invoices/{InvoiceID}",
+      "name": "{InvoiceID}",
+      "properties": {
+        "amountDue": {
+          "currency": "USD",
+          "value": x.xx
+        },
+        ...
+    }
+```
+
+Använd föregående returnerade ID-fält-värde och Ersätt det i följande exempel som omfattning för att fråga efter användnings information.
+
+```
+GET https://management.azure.com/{id}/providers/Microsoft.Consumption/UsageDetails?api-version=2019-10-01
+```
+
+Exemplet returnerar de användnings poster som är associerade med den aktuella fakturan.
+
 
 #### <a name="to-get-the-policy-for-customers-to-view-costs"></a>Så här hämtar du principen för kunder att Visa kostnader
 
 ```
-armclient get "providers/Microsoft.Billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/customers/YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYYY/policies/default?api-version=2019-10-01-preview"
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerID}/policies/default?api-version=2019-10-01-preview
 ```
 
 #### <a name="to-set-the-policy-for-customers-to-view-costs"></a>Så här ställer du in principen för kunder för att Visa kostnader
 
 ```
-armclient put "providers/Microsoft.Billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/customers/YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYYY/policies/default?api-version=2019-10-01-preview" @policy.json
+PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerID}/policies/default?api-version=2019-10-01-preview
 ```
 
 #### <a name="to-get-azure-service-usage-for-a-billing-account"></a>Så här hämtar du Azure Service-användning för ett fakturerings konto
 
 ```
-armclient GET /providers/Microsoft.Billing/BillingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/providers/Microsoft.Consumption/usageDetails?api-version=2019-10-01
+GET https://management.azure.com/providers/Microsoft.Billing/BillingAccounts/{billingAccountName}/providers/Microsoft.Consumption/usageDetails?api-version=2019-10-01
 ```
 
 #### <a name="to-download-a-customers-azure-service-usage"></a>Så här hämtar du en kunds Azure-tjänst användning
@@ -240,7 +272,7 @@ armclient GET /providers/Microsoft.Billing/BillingAccounts/XXXXXXXX-XXXX-XXXX-XX
 Följande GET-anrop är en asynkron åtgärd.
 
 ```
-armclient get providers/Microsoft.Billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/customers/YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYYY/providers/Microsoft.Consumption/usageDetails/download?api-version=2019-10-01 -verbose
+GET https://management.azure.com/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerID}/providers/Microsoft.Consumption/usageDetails/download?api-version=2019-10-01 -verbose
 ```
 
 Anropa den `Location` URI som returnerades i svaret för att kontrol lera åtgärdens status. När statusen har *slutförts*innehåller egenskapen `downloadUrl` en länk som du kan använda för att hämta den genererade rapporten.
@@ -251,50 +283,40 @@ Anropa den `Location` URI som returnerades i svaret för att kontrol lera åtgä
 Använd först följande post.
 
 ```
-armclient post "/providers/Microsoft.Billing/BillingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/billingProfiles/YYYY-YYYY-YYY-YYYY-YYY/pricesheet/default/download?api-version=2019-10-01-preview&format=csv" -verbose
+POST https://management.azure.com/providers/Microsoft.Billing/BillingAccounts/{billingAccountName}/billingProfiles/{billingProfileID}/pricesheet/default/download?api-version=2019-10-01-preview&format=csv" -verbose
 ```
 
-Anropa sedan egenskap svärdet för den asynkrona åtgärden. Exempel:
+Anropa sedan egenskap svärdet för den asynkrona åtgärden. Till exempel:
 
 ```
-armclient get "providers/Microsoft.Billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/billingProfiles/YYYY-YYYY-YYY-YYYY-YYY/pricesheetDownloadOperations/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX?sessiontoken=0:11186&api-version=2019-10-01-preview"
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileID}/pricesheetDownloadOperations/{operation}?sessiontoken=0:11186&api-version=2019-10-01-preview
 ```
 Föregående GET-anrop returnerar nedladdnings länken som innehåller pris dokumentet.
 
-#### <a name="to-get-customer-costs-for-the-last-two-months-sorted-by-month"></a>För att få kund kostnader under de senaste två månaderna, sorterade efter månad
+
+#### <a name="to-get-aggregated-costs"></a>För att få aggregerade kostnader
 
 ```
-armclient post providers/microsoft.billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31//providers/microsoft.costmanagement/query?api-version=2019-10-01 @CCMQueryCustomer.json
-```
-
-#### <a name="to-get-azure-subscription-costs-for-the-last-two-months-sorted-by-month"></a>För att få prenumerations kostnader för Azure under de senaste två månaderna, sorterade efter månad
-
-```
-armclient post providers/microsoft.billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31//providers/microsoft.costmanagement/query?api-version=2019-10-01 @CCMQuerySubscription.json
-```
-
-#### <a name="to-get-daily-costs-for-the-current-month"></a>Så här hämtar du dagliga kostnader för den aktuella månaden
-
-```
-armclient post providers/microsoft.billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31//providers/microsoft.costmanagement/query?api-version=2019-10-01 @CCMQueryDaily.json
+POST https://management.azure.com/providers/microsoft.billing/billingAccounts/{billingAccountName}/providers/microsoft.costmanagement/query?api-version=2019-10-01
 ```
 
 #### <a name="create-a-budget-for-a-partner"></a>Skapa en budget för en partner
 
 ```
-armclient put providers/Microsoft.Billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/providers/Microsoft.CostManagement/budgets/partnerworkshopbudget?api-version=2019-10-01 @budgetCreate.json
+PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/providers/Microsoft.CostManagement/budgets/partnerworkshopbudget?api-version=2019-10-01
 ```
-
 
 #### <a name="create-a-budget-for-a-customer"></a>Skapa en budget för en kund
 
 ```
-armclient put providers/Microsoft.Billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/customers/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/providers/Microsoft.Consumption/budgets/test-partner-demo?api-version=2019-10-01 @budgetCreate.json
+PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerID}/providers/Microsoft.Consumption/budgets/{budgetName}?api-version=2019-10-01
 ```
+
 #### <a name="delete-a-budget"></a>Ta bort en budget
 
 ```
-armclient delete providers/Microsoft.Billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/providers/Microsoft.CostManagement/budgets/partnerworkshopbudget?api-version=2019-10-01
+PUT
+https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.CostManagement/budgets/{budgetName}?api-version=2019-10-01
 ```
 
 

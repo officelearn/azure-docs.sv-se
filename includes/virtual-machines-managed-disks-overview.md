@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/06/2019
+ms.date: 11/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f041381534dfe59036ce1b9d91792f9e78d0dace
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7ceff623c6559ef5e929d6d5bff9e07cca9039d2
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73523908"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796297"
 ---
 ## <a name="benefits-of-managed-disks"></a>Fördelar med hanterade diskar
 
@@ -33,7 +33,7 @@ Hanterade diskar är integrerade med tillgänglighets uppsättningar för att s�
 
 ### <a name="integration-with-availability-zones"></a>Integrering med Tillgänglighetszoner
 
-Hanterade diskar har stöd för [Tillgänglighetszoner](../articles/availability-zones/az-overview.md), vilket är ett erbjudande med hög tillgänglighet som skyddar dina program från data Center problem. Tillgänglighetszoner är unika fysiska platser inom en Azure-region. Varje zon utgörs av ett eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverk. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Med tillgänglighetszonerna kan Azure erbjuda branschens bästa serviceavtal med en drifttid på 99,99 % för virtuella datorer.
+Hanterade diskar har stöd för [Tillgänglighetszoner](../articles/availability-zones/az-overview.md), vilket är ett erbjudande med hög tillgänglighet som skyddar dina program från data centers problem. Tillgänglighetszoner är unika fysiska platser inom en Azure-region. Varje zon utgörs av ett eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverk. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Med tillgänglighetszonerna kan Azure erbjuda branschens bästa serviceavtal med en drifttid på 99,99 % för virtuella datorer.
 
 ### <a name="azure-backup-support"></a>Azure Backup support
 
@@ -55,7 +55,7 @@ Hanterade diskar erbjuder två olika typer av kryptering. Det första är Server
 
 ### <a name="server-side-encryption"></a>Kryptering på serversidan
 
-[Kryptering på Server sidan](../articles/storage/common/storage-service-encryption.md) ger kryptering vid vila och skyddar dina data så att de uppfyller organisationens säkerhets-och efterlevnads åtaganden. Kryptering på Server sidan är aktiverat som standard för alla hanterade diskar, ögonblicks bilder och avbildningar i alla regioner där Managed disks finns tillgängliga. Mer information finns på [sidan med vanliga frågor och svar om Managed disks](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) .
+[Kryptering på Server sidan](../articles/virtual-machines/windows/disk-encryption.md) ger kryptering vid vila och skyddar dina data så att de uppfyller organisationens säkerhets-och efterlevnads åtaganden. Kryptering på Server sidan är aktiverat som standard för alla hanterade diskar, ögonblicks bilder och avbildningar i alla regioner där Managed disks finns tillgängliga. Du kan antingen tillåta Azure att hantera dina nycklar åt dig, dessa är plattforms hanterade nycklar, eller så kan du hantera nycklarna själv, som är Kundhanterade nycklar (för hands version). Mer information finns på [sidan med vanliga frågor och svar om Managed disks](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) .
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
@@ -85,7 +85,7 @@ Varje virtuell dator innehåller en temporär disk, som inte är en hanterad dis
 
 En ögonblicks bild av en hanterad disk är en skrivskyddad, enhetlig, fullständig kopia av en hanterad disk som är lagrad som en standard-hanterad disk som standard. Med ögonblicks bilder kan du säkerhetskopiera de hanterade diskarna vid alla tidpunkter. Dessa ögonblicks bilder finns oberoende av käll disken och kan användas för att skapa nya hanterade diskar. 
 
-Ögonblicks bilder faktureras baserat på den använda storleken. Om du till exempel skapar en ögonblicks bild av en hanterad disk med en etablerad kapacitet på 64 GiB och den faktiska använda data storleken på 10 GiB, faktureras ögonblicks bilden endast för den använda data storleken på 10 GiB. Du kan se den använda storleken på dina ögonblicks bilder genom att titta på [Azures användnings rapport](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-bill). Om den använda data storleken för en ögonblicks bild till exempel är 10 GiB, visar rapporten **daglig** användning 10 GIB/(31 dagar) = 0,3226 som förbrukad kvantitet.
+Ögonblicks bilder faktureras baserat på den använda storleken. Om du till exempel skapar en ögonblicks bild av en hanterad disk med en etablerad kapacitet på 64 GiB och den faktiska använda data storleken på 10 GiB, faktureras ögonblicks bilden endast för den använda data storleken på 10 GiB. Du kan se den använda storleken på dina ögonblicks bilder genom att titta på [Azures användnings rapport](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). Om den använda data storleken för en ögonblicks bild till exempel är 10 GiB, visar rapporten **daglig** användning 10 GIB/(31 dagar) = 0,3226 som förbrukad kvantitet.
 
 Mer information om hur du skapar ögonblicks bilder för Managed disks finns i följande resurser:
 

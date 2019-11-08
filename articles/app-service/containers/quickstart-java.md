@@ -16,14 +16,14 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 2d486a5e181e9131ef7a1e91f52018fb2be82dc1
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 3b011d3d7dc881d44fdcafb29efacf9548866d7a
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105252"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747731"
 ---
-# <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Snabbstart: Skapa en Java-app på Azure App Service på Linux
+# <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Snabb start: skapa en Java-app på Azure App Service på Linux
 
 Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här snabb starten visar hur du använder [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) med [maven-plugin-programmet för Azure App Service](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) för att distribuera en War-fil (Java Web Archive) på Linux-operativsystemet.
 
@@ -47,44 +47,23 @@ mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -Darchetyp
 
 ## <a name="configure-the-maven-plugin"></a>Konfigurera Maven-plugin-programmet
 
-Distribuera från Maven genom att använda kodredigeraren i Cloud Shell för att öppna projektets `pom.xml`-fil i katalogen `helloworld`. 
-
-```bash
-code pom.xml
-```
-
-Lägg sedan till följande plugin-definition i `<build>`-elementet i filen `pom.xml`.
-
-```xml
-<plugins>
-    <!--*************************************************-->
-    <!-- Deploy to Tomcat in App Service Linux           -->
-    <!--*************************************************-->
-    <plugin>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.7.0</version>       
-    </plugin>
-</plugins>
-```
-
 Distributions processen för Azure App Service använder konto uppgifter från Azure CLI. [Logga in med Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) innan du fortsätter.
 
 ```azurecli
 az login
 ```
 
-Sedan kan du konfigurera distributionen `mvn azure-webapp:config` , köra kommandot maven i kommando tolken och använda standardkonfigurationerna genom att trycka på **RETUR** tills du får frågan **Bekräfta (j/N)** , sedan trycker du på **"y"** och konfigurationen görs .
+Sedan kan du konfigurera distributionen, köra maven-kommandot `mvn com.microsoft.azure:azure-webapp-maven-plugin:1.8.0:config` i kommando tolken och använda standardkonfigurationerna genom att trycka på **RETUR** tills du får frågan **Bekräfta (j/N)** och sedan trycker du på **"Y"** och konfigurationen är färdig.
 
 ```cmd
-~@Azure:~/helloworld$ mvn azure-webapp:config
+~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.8.0:config
 [INFO] Scanning for projects...
 [INFO]
 [INFO] ----------------------< example.demo:helloworld >-----------------------
 [INFO] Building helloworld Maven Webapp 1.0-SNAPSHOT
 [INFO] --------------------------------[ war ]---------------------------------
 [INFO]
-[INFO] --- azure-webapp-maven-plugin:1.7.0:config (default-cli) @ helloworld ---
+[INFO] --- azure-webapp-maven-plugin:1.8.0:config (default-cli) @ helloworld ---
 [WARNING] The plugin may not work if you change the os of an existing webapp.
 Define value for OS(Default: Linux):
 1. linux [*]
@@ -92,14 +71,13 @@ Define value for OS(Default: Linux):
 3. docker
 Enter index to use:
 Define value for javaVersion(Default: jre8):
-1. jre8 [*]
-2. java11
+1. Java 11
+2. Java 8 [*]
 Enter index to use:
 Define value for runtimeStack(Default: TOMCAT 8.5):
 1. TOMCAT 9.0
-2. jre8
-3. TOMCAT 8.5 [*]
-4. WILDFLY 14
+2. TOMCAT 8.5 [*]
+3. WILDFLY 14
 Enter index to use:
 Please confirm webapp properties
 AppName : helloworld-1558400876966
@@ -115,14 +93,14 @@ Confirm (Y/N)? : Y
 > [!NOTE]
 > I den här artikeln arbetar vi endast med Java-appar som paketerats i WAR-filer. Plugin-programmet stöder också JAR-webbprogram. Läs informationen om att [distribuera en Java SE JAR-fil till App Service på Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) om du vill testa det.
 
-Navigera till `pom.xml` igen om du vill se plugin-konfigurationen har uppdaterats kan du ändra andra konfigurationer för App Service direkt i Pom-filen, om det behövs, är några vanliga i listan nedan:
+Navigera till `pom.xml` igen om du vill se att plugin-konfigurationen har uppdaterats, kan du ändra andra konfigurationer för App Service direkt i Pom-filen om det behövs, några vanliga i listan nedan:
 
- Egenskap | Obligatorisk | Beskrivning | Version
+ Egenskap | Krävs | Beskrivning | Version
 ---|---|---|---
-`<schemaVersion>` | false | Ange konfigurations schemats version. De värden som stöds `v1`är `v2`:,. | 1.5.2
+`<schemaVersion>` | false | Ange konfigurations schemats version. Värden som stöds är: `v1``v2`. | 1.5.2
 `<resourceGroup>` | true | Azure-resurs grupp för din webbapp. | 0.1.0 +
 `<appName>` | true | Namnet på din webbapp. | 0.1.0 +
-[`<region>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#region) | true | Anger den region där din webbapp ska vara värd. Standardvärdet är **väst**. Avsnittet alla giltiga regioner i [regioner som stöds](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#region) . | 0.1.0 +
+[`<region>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#region) | true | Anger den region där din webbapp ska vara värd. Standardvärdet är **westeurope**. Avsnittet alla giltiga regioner i [regioner som stöds](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#region) . | 0.1.0 +
 [`<pricingTier>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme##pricingtier) | false | Pris nivån för din webbapp. Standardvärdet är **P1V2**.| 0.1.0 +
 [`<runtime>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#runtimesetting) | true | Konfiguration av körnings miljön kan du se informationen [här](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#runtimesetting). | 0.1.0 +
 [`<deployment>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#deploymentsetting) | true | Distributions konfigurationen kan du se informationen [här](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#deploymentsetting). | 0.1.0 +
@@ -154,7 +132,7 @@ Det kan några minuter att köra kommandot.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudier: Java Enterprise-app med PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
+> [Självstudie: Java Enterprise-app med PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
 
 > [!div class="nextstepaction"]
 > [Konfigurera java-app](configure-custom-container.md)

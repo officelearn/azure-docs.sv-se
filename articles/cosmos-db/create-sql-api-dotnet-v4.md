@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: c927ef071dec6e87e82a9634ccfc7097f2f187e6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 362662cb6ac9b0535a0e762e5c484b31dcc009a6
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502067"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796101"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-to-manage-azure-cosmos-db-sql-api-account-resources"></a>Snabb start: Bygg en konsol app med hjälp av .net v4 SDK för att hantera Azure Cosmos DB SQL API-konto resurser.
 
@@ -34,7 +34,9 @@ Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera d
 * Fråga efter data 
 * Ta bort databasen
 
-## <a name="prerequisites"></a>Förutsättningar
+[Biblioteks käll kod](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/v4) | [-paket (NuGet)](https://www.nuget.org/packages/Azure.Cosmos)
+
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Azure-prenumeration – [skapa en kostnads fri](https://azure.microsoft.com/free/) eller [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden. 
 * [Net Core 3 SDK](https://dotnet.microsoft.com/download/dotnet-core). Du kan kontrol lera vilken version som är tillgänglig i din miljö genom att köra `dotnet --version`.
@@ -120,7 +122,7 @@ När du fortfarande är i program katalogen installerar du Azure Cosmos DB klien
 
 Exempel programmet måste autentisera till ditt Azure Cosmos-konto. För att autentisera bör du skicka autentiseringsuppgifter för Azure Cosmos-kontot till programmet. Hämta dina autentiseringsuppgifter för Azure Cosmos-kontot genom att följa dessa steg:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Navigera till ditt Azure Cosmos-konto.
 

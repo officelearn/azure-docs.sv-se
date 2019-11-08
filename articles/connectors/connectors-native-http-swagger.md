@@ -8,24 +8,24 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: 663ef16511269dd61a6567d6570f3445b7da6447
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 030401623a61e7fcff40187f522309255482647f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804241"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824820"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Anropa REST-slutpunkter genom att använda Azure Logic Apps
 
 Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda http + Swagger-anslutningen kan du automatisera arbets flöden som regelbundet anropar en REST-slutpunkt via en [Swagger-fil](https://swagger.io) genom att skapa Logi Kap par. HTTP + Swagger-utlösare och åtgärder fungerar på samma sätt som [http-utlösaren och åtgärden,](connectors-native-http.md) men ger en bättre upplevelse i Logic App Designer genom att exponera API-strukturen och utdata som beskrivs av Swagger-filen. Om du vill implementera en avsöknings utlösare följer du det avsöknings mönster som beskrivs i [skapa anpassade API: er som anropar andra API: er, tjänster och system från Logic Apps](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-* URL: en för den Swagger-fil som beskriver mål REST-slutpunkten
+* URL: en för Swagger-filen (inte OpenAPI) som beskriver mål REST-slutpunkten
 
   Normalt måste REST-slutpunkten uppfylla det här villkoret för att kopplingen ska fungera:
 
@@ -45,7 +45,7 @@ Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda ht
 
 Den här inbyggda utlösaren skickar en HTTP-begäran till en URL för en Swagger-fil som beskriver en REST API och returnerar ett svar som innehåller filens innehåll.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Öppna din tomma Logic-app i Logic App Designer.
+1. Logga in på [Azure Portal](https://portal.azure.com). Öppna din tomma Logic-app i Logic App Designer.
 
 1. Skriv "Swagger" som filter i rutan Sök i designern. Välj **http + Swagger-** utlösare i listan **utlösare** .
 
@@ -81,7 +81,7 @@ Den här inbyggda utlösaren skickar en HTTP-begäran till en URL för en Swagge
 
 Den här inbyggda åtgärden gör en HTTP-begäran till URL: en för Swagger-filen som beskriver en REST API och returnerar ett svar som innehåller filens innehåll.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Öppna din Logic app i Logic App Designer.
+1. Logga in på [Azure Portal](https://portal.azure.com). Öppna din Logic app i Logic App Designer.
 
 1. Under steget där du vill lägga till åtgärden HTTP + Swagger väljer du **nytt steg**.
 

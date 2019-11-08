@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database mått och diagnostikloggning
+title: Mått och diagnostikloggning
 description: Lär dig hur du aktiverar diagnostik i Azure SQL Database för att lagra information om resursutnyttjande och statistik för körning av frågor.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/21/2019
-ms.openlocfilehash: 6c2040a223b7ec33b05ee3c8b3c65bad031aa3c2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d51acaff89c2a8589b6b524c112c11f9c4f18220
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687790"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821778"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database mått och diagnostikloggning
 
@@ -261,7 +261,7 @@ Ange arbets ytans resurs-ID \<$WSID\> som en parameter när du kör skriptet `En
     PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
     ```
 
-   Ersätt \<subID\> med prenumerations-ID: t \<RG_NAME\> med namnet på resurs gruppen och \<WS_NAME\> med arbets ytans namn.
+   Ersätt \<subID\> med prenumerations-ID: t \<RG_NAME\> med namnet på resurs gruppen och \<WS_NAME\> med namnet på arbets ytan.
 
 ### <a name="azure-cli"></a>Azure CLI
 

@@ -12,12 +12,12 @@ ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
-ms.openlocfilehash: 92175e3b9776f90bd50e356a700b2a2d475c8a85
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 82426c0093550864b421d7acc35780c4173895a8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73602448"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824739"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Snabb start: bygga ett python-program med ett Azure Cosmos DB SQL API-konto
 
@@ -39,7 +39,7 @@ I den här snabb starten används version 4 av [python SDK](https://pypi.org/pro
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* [Python 3,6](https://www.python.org/downloads/), med `python` körbar fil tillgänglig i `PATH`.
+* [Python 3.6 +](https://www.python.org/downloads/), med `python` körbar fil tillgänglig i `PATH`.
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Python-tillägg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
 
@@ -154,7 +154,7 @@ Följande kodavsnitt är alla hämtade från filen `cosmos_get_started.py`.
 5. Kör följande kommando för att installera paketet azure-cosmos. 
 
     ```python
-    pip3 install azure-cosmos==4.0.0b5
+    pip install --pre azure-cosmos
     ```
 
     Om du får ett felmeddelande om nekad åtkomst när du försöker installera azure-cosmos måste du [köra VS Code som administratör](https://stackoverflow.com/questions/37700536/visual-studio-code-terminal-how-to-run-a-command-with-administrator-rights).

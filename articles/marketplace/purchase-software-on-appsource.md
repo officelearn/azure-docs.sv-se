@@ -1,73 +1,74 @@
 ---
-title: Så här köper du programvara på AppSource | Azure Marketplace
-description: Steg att köpa programvara på AppSource | Azure Marketplace.
+title: Så här köper du program vara på AppSource | Azure Marketplace
+description: Steg för en att köpa program vara på AppSource | Azure Marketplace.
 author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/05/2019
-ms.openlocfilehash: dd68ac502a92b044e958969cc6a2863b5d197416
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 3ca07f060aebcea82895f0463cac693c66f0c629
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621668"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827740"
 ---
-# <a name="how-to-purchase-software-on-microsoft-appsource"></a>Så här köper du programvara på Microsoft AppSource
+# <a name="how-to-purchase-software-on-microsoft-appsource"></a>Så här köper du program vara på Microsoft AppSource
 
-Microsoft [AppSource](https://appsource.microsoft.com/) nu ger kunder möjlighet att prenumerera på SaaS-program som erbjuds av Microsoft-partner. Kunder kan hitta certifierade webbprogram i butiken och kan hantera kostnader, uppgraderingar, nedgradera och avbokningar i en enda plats med hjälp av Microsofts Admin Center. Den här artikeln beskrivs hur du kan köpa en app från butiken.
+Med Microsoft [AppSource](https://appsource.microsoft.com/) kan kunder prenumerera på SaaS-program som erbjuds av Microsoft-partner. Kunder kan hitta certifierade webb program i butiken och kan hantera avgifter, uppgraderingar, degradering och uppsägningar på en enda plats med hjälp av Microsofts administrations Center. I den här artikeln beskrivs hur du kan köpa en app från Store.
 
 ## <a name="requirements"></a>Krav
 
-Om du vill köpa SaaS-erbjudanden, behöver du:
+För att köpa SaaS-erbjudanden behöver du:
 
-- Ett arbets- eller skolkonto konto.
-
-    > [!Note]
-    > Om du inte har ett arbets- eller skolkonto konto kan behöva du skapa en Azure Active Directory-klient som ett arbets- eller skolkonto konto kan läggas till. Mer information finns i [Snabbstart: Skapa en ny klient i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
-
-- Ett giltigt kreditkort.
+- Ett arbets-eller skol konto.
 
     > [!Note]
-    > Kreditkortet måste tillhöra landet/regionen där kunden köper erbjudanden. Välj ”Ändra faktureringsland /-region” längst ned på sidan för att välja ett annat land.
+    > Om du inte har något arbets-eller skol konto måste du skapa en Azure Active Directory-klient som ett arbets-eller skol konto kan läggas till i. Mer information finns i [snabb start: skapa en ny klient i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
 
-## <a name="steps-for-making-purchases-on-appsource"></a>Steg för att utföra inköp på AppSource
-
-1. Välj ditt faktureringsland /-region på [AppSource](https://appsource.microsoft.com/).
-1. Hitta de program som du vill köpa.
+- Ett giltigt kredit kort.
 
     > [!Note]
-    > AppSource ger dig ett urval av appar för att välja bland, kostnad, inklusive utvärderingsversioner och betalda prenumerationer. Den här artikeln beskrivs hur betalda prenumerationer kan köpas via AppSource.
+    > Kredit kortet måste tillhöra det land/region där kunden köper erbjudandet. Välj "ändra fakturerings land/-region" längst ned på sidan om du vill välja ett annat land.
+
+## <a name="steps-for-making-purchases-on-appsource"></a>Steg för att göra inköp på AppSource
+
+1. Välj din fakturerings-/land region på [AppSource](https://appsource.microsoft.com/).
+1. Hitta det program som du vill köpa.
+
+    > [!Note]
+    > AppSource tillhandahåller ett urval av appar som du kan välja bland, inklusive kostnads fria, utvärderings versioner och betalda prenumerationer. Den här artikeln beskriver hur betalda prenumerationer kan köpas via AppSource.
 
 1. Välj **Hämta nu**.
-1. Välj avtal:
+1. Välj planen:
 
     1. Ange antalet platser
-    1. Ställ in fakturering termen.
+    1. Ange fakturerings perioden.
     
-1. Ange din faktureringsadress.
-1. Ange din betalningsmetod:
-    * Kreditkort som stöds: Visa Master Card, American Express, Upptäck.
+1. Ange din fakturerings adress.
+1. Ange din betalnings metod:
+    * Kredit kort som stöds: Visa, huvud kort, American Express, Discover.
     
-1. Välj **Beställ**.
+1. Välj **Placera ordning**.
 
-## <a name="how-to-configure-software-post-purchase"></a>Så här konfigurerar du programvara efter köpet
+## <a name="how-to-configure-software-post-purchase"></a>Så här konfigurerar du program varu inköp
 
-När beställningen har tagits emot, kan det ta flera sekunder att hämta bekräftats. Du får en länk för att konfigurera din SaaS-prenumeration på sidan, samt ett e-postmeddelande som bekräftar att köpet och länk för att slutföra konfigurationen.
+När din beställning har tagits emot kan det ta flera sekunder innan den bekräftas. Du kommer att få en länk för att konfigurera din SaaS-prenumeration på sidan, samt ett e-postmeddelande som bekräftar köpet och länken för att slutföra konfigurationen.
 
-1. På den **orderbekräftelse** väljer **konfigurera**. Du kan också använda konfigurationslänken skickas till dig via e-postbekräftelsen.
-1. Slutför etableringen och ställa in på programvara leverantörens webbplats.
+1. På sidan **order bekräftelse** väljer du **Konfigurera**. Du kan också använda konfigurations länken som skickas till dig i bekräftelse meddelandet.
+1. Slutför etableringen och Ställ in på program varu leverantörens webbplats.
 
     > [!Note]
-    > Det här steget är obligatoriskt och kan utföras när som helst.
+    > Det här steget är obligatoriskt och kan slutföras när som helst.
 
 ## <a name="contact-support"></a>Kontakta supporten
 
-En kan [skicka in ett supportärende](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/homepage) via Administrationscenter för Microsoft 365.
+En kan [Skicka ett support ärende](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/homepage) via Microsoft 365 administrations centret.
 
-För företagsprodukter, [kontakta hjälp här](https://docs.microsoft.com/office365/admin/contact-support-for-business-products?view=o365-worldwide&tabs=phone).
+För företags produkter [kontaktar du hjälp här](https://docs.microsoft.com/office365/admin/contact-support-for-business-products?view=o365-worldwide&tabs=phone).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se den [kommersiella Marketplace-dokumentation](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) för mer information.
+- Mer information finns i den [kommersiella Marketplace-dokumentationen](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) .

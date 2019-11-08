@@ -1,5 +1,5 @@
 ---
-title: Begränsningar för Azure SQL Database Server resurser
+title: Server resurs gränser
 description: Den här artikeln innehåller en översikt över gränsen för Azure SQL Database Server resurser för enskilda databaser och elastiska pooler. Den innehåller också information om vad som händer när dessa resurs gränser nåtts eller överskrids.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 04/18/2019
-ms.openlocfilehash: b358e69df1df579e91a9098c120c7e6b4e3f2ead
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 907fc89c0d9af01865037f650c407edd97e96645
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687498"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821143"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>SQL Database resurs gränser för Azure SQL Database Server
 
@@ -88,7 +88,7 @@ När logg poster skapas utvärderas och utvärderas varje åtgärd för om den s
 
 De faktiska taxan för logg skapande som påförs vid körning kan också påverkas av feedback-mekanismer, vilket tillfälligt minskar de tillåtna logg priserna så att systemet kan stabiliseras. Hantering av logg fil utrymme, Undvik att köra i slut på logg utrymmes villkor och replikering av tillgänglighets grupper kan tillfälligt minska de totala system gränserna. 
 
-Trafikstyrningen för logg hastighets styrning sker via följande vänte typer (visas i [sys. DM _db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV):
+Trafikstyrningen för logg hastighets styrning sker via följande vänte typer (visas i [sys. dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV):
 
 | Wait-typ | Anteckningar |
 | :--- | :--- |

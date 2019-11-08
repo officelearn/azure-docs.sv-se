@@ -9,56 +9,52 @@ ms.topic: conceptual
 author: ronychatterjee
 ms.author: achatter
 ms.reviewer: davidph
-ms.date: 11/04/2019
-ms.openlocfilehash: 4771db21a0ea5e841dbe12c8ce915b3833a8a30d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.date: 11/07/2019
+ms.openlocfilehash: 976c849f9cb48e1c197f70d10e911216a6a7425c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692320"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822838"
 ---
 # <a name="machine-learning-and-ai-with-onnx-in-sql-database-edge-preview"></a>Machine Learning och AI med ONNX i SQL Database Edge Preview
 
 Machine Learning i Azure SQL Database Edge-förhandsgranskning stöder modeller i formatet [Open neurala Network Exchange (ONNX)](https://onnx.ai/) . ONNX är ett öppet format som du kan använda för att Interchange modeller mellan olika [ramverk och verktyg för maskin inlärning](https://onnx.ai/supported-tools).
 
-## <a name="supported-tool-kits"></a>Paket som stöds
+## <a name="overview"></a>Översikt
 
-Med ONNXMLTools kan du konvertera modeller från olika Machine Learning Tool-paket till en ONNX-modell. För närvarande stöds följande verktyg för numeriska data typer och indata från en kolumn:
-
-* [scikit-learn](https://github.com/onnx/sklearn-onnx)
-* [Tensorflow](https://github.com/onnx/tensorflow-onnx)
-* [Keras](https://github.com/onnx/keras-onnx)
-* [CoreML](https://github.com/onnx/onnxmltools)
-* [Spark ML (experimentell)](https://github.com/onnx/onnxmltools/tree/master/onnxmltools/convert/sparkml)
-* [LightGBM](https://github.com/onnx/onnxmltools)
-* [libsvm](https://github.com/onnx/onnxmltools)
-* [XGBoost](https://github.com/onnx/onnxmltools)
+För att kunna härleda maskin inlärnings modeller i Azure SQL Database Edge måste du först skaffa en modell. Detta kan vara en förtränad modell eller en anpassad modell som är utbildad med ditt ramverk av val. Azure SQL Database Edge stöder ONNX-formatet och du måste konvertera modellen till det här formatet. Det bör inte uppstå någon påverkan på modell precisionen och när du har ONNX-modellen kan du distribuera modellen i Azure SQL Database Edge och använda [en intern bedömning med predict T-SQL-funktionen](/sql/advanced-analytics/sql-native-scoring/).
 
 ## <a name="get-onnx-models"></a>Hämta ONNX-modeller
 
 Du kan hämta en modell i ONNX-format på flera sätt:
 
-- [ONNX-modell Zoo](https://github.com/onnx/models): innehåller flera förtränade ONNX-modeller för olika typer av aktiviteter. Du kan hämta och använda versioner som stöds av Windows Machine Learning.
+- [ONNX-modell Zoo](https://github.com/onnx/models): innehåller många förtränade ONNX-modeller för olika typer av uppgifter som kan hämtas och är redo att användas.
 
-- [Intern export från ramverk för Machine Learning-utbildning](https://onnx.ai/supported-tools): flera utbildnings ramverk har stöd för interna export funktioner till ONNX, vilket gör att du kan spara din utbildade modell till en specifik version av ONNX-formatet. Till exempel kedjer, Caffee2 och PyTorch. Dessutom tillhandahåller tjänster som [Azure Machine Learning service](https://azure.microsoft.com/services/machine-learning-service/) och [Azure Custom vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) även intern ONNX-export.
+- [Intern export från ml utbildnings ramverk](https://onnx.ai/supported-tools): flera utbildnings ramverk har stöd för interna export funktioner till ONNX, vilket gör att du kan spara din utbildade modell till en specifik version av ONNX-formatet, inklusive [PyTorch](https://pytorch.org/docs/stable/onnx.html), kedjor och Caffe2. Dessutom tillhandahåller modell byggnads tjänster, till exempel [funktionen automatiserad Machine Learning i Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) och [Azure Custom vision service](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) ONNX export.
 
-  - Information om hur du tränar och exporterar en ONNX-modell i molnet med hjälp av Custom Vision finns i [Självstudier: använda en ONNX-modell från Custom vision med Windows ml (för hands version)](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/custom-vision-onnx-windows-ml).
+- [Konvertera befintliga modeller](https://github.com/onnx/tutorials#converting-to-onnx-format): för ramverk som inte stöder intern export finns det fristående paket för konvertering av modeller till ONNX-format. Exempel och självstudier finns i [konvertera till ONNX-format](https://github.com/onnx/tutorials#converting-to-onnx-format). 
 
-- [Konvertera befintliga modeller med WinMLTools: med](https://docs.microsoft.com/windows/ai/windows-ml/convert-model-winmltools)det här python-paketet kan modeller konverteras från flera utbildnings Ramverks format till ONNX. Du kan ange vilken version av ONNX du vill konvertera din modell till, beroende på vilka versioner av Windows som dina program är mål för. Om du inte är bekant med python kan du konvertera dina modeller med hjälp av [Windows Machine Learning UI-baserade instrument panelen](https://github.com/Microsoft/Windows-Machine-Learning/tree/master/Tools/WinMLDashboard) .
+### <a name="supported-frameworks"></a>Ramverk som stöds
 
-> [!IMPORTANT]
-> Det är inte alla ONNX-versioner som stöds av Azure SQL Database Edge. Det finns för närvarande stöd för att förutsäga numeriska data typer genom ONNX-modellen.
+Med ONNX-konverterare kan du konvertera modeller som har tränats från olika ramverk för maskin inlärning till ONNX-formatet. Populära konverterare är: 
 
-När du har en ONNX-modell kan du distribuera modellen i Azure SQL Database Edge. Du kan sedan använda [en intern poängsättning med predict T-SQL-funktionen](/sql/advanced-analytics/sql-native-scoring/).
+* [PyTorch](http://pytorch.org/docs/master/onnx.html)
+* [Tensorflow](https://github.com/onnx/tensorflow-onnx)
+* [Keras](https://github.com/onnx/keras-onnx)
+* [Scikit-learn](https://github.com/onnx/sklearn-onnx)
+* [CoreML](https://github.com/onnx/onnxmltools)
+
+En fullständig lista över ramverk som stöds finns i [konvertera till ONNX-format](https://github.com/onnx/tutorials#converting-to-onnx-format).
 
 ## <a name="limitations"></a>Begränsningar
 
-För närvarande är stödet begränsat till modeller med **numeriska data typer**:
+För närvarande stöds inte alla ONNX-modeller av Azure SQL Database Edge. Stödet är begränsat till modeller med **numeriska data typer**:
 
 - [int och bigint](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql5)
 - [verkligt och flyttal](https://docs.microsoft.com/sql/t-sql/data-types/float-and-real-transact-sql).
   
-Andra numeriska typer kan konverteras till typer som stöds med CAST and CONVERT [Cast and Convert](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql).
+Andra numeriska typer kan konverteras till typer som stöds med [Cast och Convert](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql).
 
 Modellens indata ska vara strukturerade så att varje indata till modellen motsvarar en enskild kolumn i en tabell. Om du till exempel använder en Pandas-dataframe för att träna en modell ska varje Indatatyp vara en separat kolumn till modellen.
 

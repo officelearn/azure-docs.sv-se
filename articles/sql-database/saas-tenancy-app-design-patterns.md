@@ -1,5 +1,5 @@
 ---
-title: 'SaaS mönster för flera innehavare – Azure SQL Database '
+title: SaaS mönster för flera innehavare
 description: Lär dig mer om kraven och vanliga data arkitektur mönster i SaaS-databaser (program vara som en tjänst) för flera innehavare som körs i moln miljön i Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: ecbcf2cdfea2714e46d0c9cff4066befabddeeb8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ad7bd660ee685b490fb79c7e63fd3c5fce557977
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691923"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822060"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>SaaS-databas för flera klient organisationer
 
@@ -135,7 +135,7 @@ I allmänhet har flera klient databaser lägsta kostnad per klient.  Resurs kost
 
 Två varianter av en databas modell med flera klienter beskrivs i vad som följer, med shardade-modellen för flera klienter som är mest flexibel och skalbar.
 
-## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>b. App för flera klienter med en enda databas för flera innehavare
+## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>B. App för flera klienter med en enda databas för flera innehavare
 
 Det enklaste databas mönstret för flera klient organisationer använder en enda databas som värd för data för alla klienter.  När fler klienter läggs till, skalas databasen upp med mer lagrings-och beräknings resurser.  Den här skalan kan vara allt som behövs, även om det alltid finns en ultimat skalnings gräns.  Men långt innan gränsen nås blir databasen svårhanterligt för hantering.
 

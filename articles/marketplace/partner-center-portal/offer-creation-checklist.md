@@ -5,16 +5,17 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 66c28039f9126ed9e3f56c3ac15b1b3d82279b64
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 1643a1e309ecc2bcfc440e3553fcffef54cfb038
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036378"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824631"
 ---
-# <a name="saas-offer-creation-checklist"></a>Check lista för skapande av SaaS-erbjudande
+# <a name="saas-offer-creation-checklist"></a>Checklista för skapande av SaaS-erbjudande
 
 Processen för att skapa SaaS tar dig igenom flera sidor. Här är den information som du kan tillhandahålla på varje sida, med länkar till mer information om varje objekt.
 
@@ -42,8 +43,8 @@ De första uppgifterna du kommer att uppmanas att ange är ett ID och alias för
 
 | **Fält namn**    | **Anteckningar**   |  
 | :---------------- | :-----------| 
-| ID för erbjudande  | Krävs, kan inte ändras efter att det har skapats. Högst 50 tecken och får bara bestå av gemener, alfanumeriska tecken, bindestreck eller under streck. |
-| Erbjud alias  | Obligatoriskt. |
+| Erbjudande-ID  | Krävs, kan inte ändras efter att det har skapats. Högst 50 tecken och får bara bestå av gemener, alfanumeriska tecken, bindestreck eller under streck. |
+| Erbjud alias  | Krävs. |
 
 ## <a name="offer-setup-page"></a>Installations sida för erbjudande
 
@@ -51,14 +52,14 @@ På sidan erbjudande konfiguration kan du välja olika kanaler och sälja rörel
 
 | **Fält namn**    | **Anteckningar**   | 
 | :---------------- | :-----------|  
-| Vill du sälja via Microsoft?  | Obligatoriskt. Standard: Ja |
-| Hur vill du att potentiella kunder ska kunna interagera med erbjudande listan? (Anrop till åtgärd)  | Krävs om de inte säljs via Microsoft. Standard: Kostnads fri utvärderings version, alternativ: "Hämta nu", "kostnads fri utvärdering", "kontakta mig". |
+| Vill du sälja via Microsoft?  | Krävs. Standard: Ja |
+| Hur vill du att potentiella kunder ska kunna interagera med erbjudande listan? (Anrop till åtgärd)  | Krävs om de inte säljs via Microsoft. Standard: kostnads fri utvärderings version, alternativ: "Hämta nu", "kostnads fri utvärdering", "kontakta mig". |
 | Utvärderings-URL  | Krävs om "kostnads fri utvärdering" är valt, på det sätt som kunderna ska interagera med erbjudande listan. |
 | Erbjudande-URL  | Krävs om "Hämta nu" är valt, på det sätt som kunderna ska interagera med erbjudande listan |
-| Kanaler  | Valfritt. Standard: Du har inte valt den här kanalen för CSP (åter försäljare).  |
-| Provkörning | Valfritt. Standard: Ingen testen het har Aktiver ATS.  |
-| Typ av test enhet | Krävs om den är aktive rad en testen het. Standard: Inget har valts. Sätt Azure Resource Manager Dynamics 365 for Business Central, Dynamics 365 för kund engagemang, Dynamics 365 for Operations, Logic app, Power BI.  |
-| Lead-hantering – Anslut till ett CRM-system | Krävs om du säljer via Microsoft eller om du har en lista över erbjudanden som "kontakta mig". Standard: inget CRM-system är anslutet. CRM-alternativ: Azure-tabell, Azure-Blob, Dynamics CRM Online, HTTPs-slutpunkt, Marketo, Salesforce  |
+| Kanaler  | Valfri. Standard: inte att du valde CSP (åter försäljare)-kanalen.  |
+| Test Drive | Valfri. Standard: ingen testen het har Aktiver ATS.  |
+| Typ av test enhet | Krävs om den är aktive rad en testen het. Standard: inget har valts. Alternativ: Azure Resource Manager, Dynamics 365 for Business Central, Dynamics 365 för kund engagemang, Dynamics 365 for Operations, Logic app, Power BI.  |
+| Lead-hantering – Anslut till ett CRM-system | Krävs om du säljer via Microsoft eller om du har en lista över erbjudanden som "kontakta mig". Standard: inget CRM-system är anslutet. CRM-alternativ: Azure Table, Azure-Blob, Dynamics CRM Online, HTTPs-slutpunkt, Marketo, Salesforce  |
 
 ## <a name="properties-page"></a>Sidan Egenskaper
 
@@ -66,10 +67,10 @@ På sidan egenskaper definierar du de kategorier och branscher som används för
 
 | **Fält namn**    | **Anteckningar**   | 
 | :---------------- | :-----------|  
-| Kategori och under kategori | Krävs 1 och max 3. Standard: Inget har valts. |
-| Branscher och under branscher | Valfritt. högst 2 L1-branscher och högst 2 under branscher inom varje L1-bransch, standard: Ingen har valts |
-| Appversion  | Valfritt. Standard: Ingen. |
-| Använd standard kontrakt  | Valfritt. Standard: inte valt.  | |
+| Kategori och under kategori | Krävs 1 och max 3. Standard: inget har valts. |
+| Branscher och under branscher | Valfri. högst 2 L1-branscher och högst 2 under branscher inom varje L1-bransch, standard: ingen vald |
+| Appversion  | Valfri. Standard: ingen. |
+| Använd standard kontrakt  | Valfri. Standard: inte valt.  | |
 | Användningsvillkor  | Krävs om standard kontrakt inte har valts.  |
 
 ## <a name="offer-listing-page"></a>Sida för erbjudande lista
@@ -78,21 +79,21 @@ På registrerings sidan är det där du anger den text och de bilder som kundern
 
 | **Fält namn**    | **Anteckningar**   |
 | :---------------- | :-----------| 
-| Name  | Obligatoriskt, max 50 tecken. |
+| Namn  | Obligatoriskt, max 50 tecken. |
 | Sammanfattning  | Obligatoriskt, max 100 tecken. | 
 | Beskrivning  | Obligatoriskt, max 3000 tecken. |
 | Komma igång-instruktioner  | Obligatoriskt, max 3000 tecken. |
 | Komma igång-instruktioner  | Obligatoriskt, max 3000 tecken. |
 | Sök efter nyckelord  | Valfria, rekommenderade, max 3 nyckelord. |
-| URL för sekretess policy  | Obligatoriskt. |
-| URL för marknadsförings material för CSP-program  | Valfritt. |
-| Rubrik för användbara länkar + URL  | Valfritt. |
+| URL för sekretess policy  | Krävs. |
+| URL för marknadsförings material för CSP-program  | Valfri. |
+| Rubrik för användbara länkar + URL  | Valfri. |
 | Rubrik för stöd dokument + fil  | Krävs, min 1 och max 3. Måste vara PDF-filformat. |
 | Skärmbilder  | Obligatorisk, minimal 1 skärm bild och max 5; fyra eller fler rekommenderas. Måste vara 1280 X 720 i PNG-format. |
-| Butiks logo typer (liten, medel, stor, widescreen, hjälte)  | Liten (48 X 48) och stor (216 X 216) krävs. andra storlekar valfria men rekommenderas: Medel (90 x 90), bred (255 x 115), hjälte (815 x 290). Måste vara i PNG-format. |
+| Butiks logo typer (liten, medel, stor, widescreen, hjälte)  | Liten (48 X 48) och stor (216 X 216) krävs. andra storlekar valfria men rekommenderas: medium (90 x 90), bred (255 x 115), hjälte (815 x 290). Måste vara i PNG-format. |
 | Video namn + URL + miniatyr  | Valfria, rekommenderade, max 4 videor. Miniatyren måste vara 1280 x 720 i PNG-format. Video måste ligga i YouTube eller Vimeo. |
 | Kontakter (CSP-program, teknik, support)  | Teknisk kontakt krävs (namn, e-postadress och telefonnummer). CSP-programmet kontaktar valfritt men rekommenderas. |
-| Support-URL  | Obligatoriskt. |
+| Support-URL  | Krävs. |
 
 ## <a name="preview-page"></a>Sidan förhandsgranska
 
@@ -137,11 +138,11 @@ På sidan planera priser och tillgänglighet kan du definiera affärs egenskaper
 | **Fält namn**    | **Anteckningar**   | 
 | :---------------- | :-----------| 
 | Marknads tillgänglighet  | Krävs, min 1 och Max 141. |
-| Prissättningsmodell  | Obligatoriskt. Standard: Fast pris. Sätt Fast pris, per användare. |
+| Prismodell  | Krävs. Standard: fast pris. Alternativ: fast pris, per användare. |
 | Lägsta och högsta antal platser  | Valfritt, endast tillgängligt om den platsbaserade pris modellen har valts. |
-| Fakturerings period  | Obligatoriskt. Standard: Hyres. Sätt Varje månad, per år. |
+| Fakturerings period  | Krävs. Standard: varje månad. Alternativ: månatlig, årlig. |
 | Pris  | Krävs USD per månad om fakturerings perioden per månad har valts. eller USD per år om årlig fakturerings period har valts. |
-| Planera mål grupp  | Valfritt. Standard: Offentligt abonnemang. Sätt Offentligt, privat efter klient-ID |
+| Planera mål grupp  | Valfri. Standard: offentlig plan. Alternativ: offentligt, privat efter klient-ID |
 | Begränsad Plans mål grupp (klient-ID + beskrivning)  | Krävs om privat plan har valts. Minst 1 och max 10 klient-ID: n om de anges manuellt. Max 20000 om import av CSV-fil. |
 
 ## <a name="test-drive-listing-page"></a>Sidan Testkör enhets listan
@@ -150,15 +151,15 @@ Endast tillgängligt om du väljer att erbjuda en testen het för ditt erbjudand
 
 | **Fält namn**    | **Anteckningar**   | 
 | :---------------- | :-----------| 
-| Beskrivning  | Obligatoriskt. |
-| Användarens manuella namn + fil  | Obligatorisk, max 1 doc. Måste vara PDF-format. |
+| Beskrivning  | Krävs. |
+| Användarens manuella namn + fil  | Obligatoriskt, max 1 dokument måste vara PDF-format. |
 | Video namn, URL + miniatyr  | Valfritt, rekommenderas. Miniatyr bilden måste vara 533 x 324 i JPGP-eller PNG-format. Video måste ligga i YouTube eller Vimeo. |
 
 ## <a name="review-and-publish-page"></a>Sidan granska och publicera
 
 | **Fält namn**    | **Anteckningar**   | 
 | :---------------- | :-----------| 
-| Kommentarer för certifiering  | Valfritt. |
+| Kommentarer för certifiering  | Valfri. |
 
 ## <a name="next-steps"></a>Nästa steg
 

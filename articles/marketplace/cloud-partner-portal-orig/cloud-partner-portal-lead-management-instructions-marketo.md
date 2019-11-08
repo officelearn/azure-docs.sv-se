@@ -1,52 +1,53 @@
 ---
-title: Konfigurera lead-hantering i Marketo | Azure Marketplace
-description: Konfigurera lead-hantering för Marketo för Azure marketplace för kunder.
+title: Konfigurera ledar hantering i Marketo | Azure Marketplace
+description: Konfigurera ledar hantering för Marketo för Azure Marketplace-kunder.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
-ms.openlocfilehash: d749a92a1837bad053dc586477bfc27fc65299fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7949507c8c7ef57cded25cde8579c1945aa93a81
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935220"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825202"
 ---
-# <a name="configure-lead-management-in-marketo"></a>Konfigurera lead-hantering i Marketo
+# <a name="configure-lead-management-in-marketo"></a>Konfigurera ledar hantering i Marketo
 
-Den här artikeln beskriver hur du ställer in Marketo för att hantera Microsoft säljleads.
+Den här artikeln beskriver hur du konfigurerar Marketo för att hantera Microsoft Sales-leads.
 
-1. Logga in till Marketo.
-2. Välj **utforma Studio**.
+1. Logga in på Marketo.
+2. Välj **Design Studio**.
     ![Marketo Design Studio](./media/cloud-partner-portal-lead-management-instructions-marketo/marketo1.png)
 
 3.  Välj **nytt formulär**.
-    ![Marketo nytt formulär](./media/cloud-partner-portal-lead-management-instructions-marketo/marketo2.png)
+    ![Marketo New form](./media/cloud-partner-portal-lead-management-instructions-marketo/marketo2.png)
 
-4.  Fyll i de obligatoriska fälten i formuläret för nytt och välj sedan **skapa**.
-    ![Marketo Skapa nytt formulär](./media/cloud-partner-portal-lead-management-instructions-marketo/marketo3.png)
+4.  Fyll i de obligatoriska fälten i det nya formuläret och välj sedan **skapa**.
+    ![Marketo skapa nytt formulär](./media/cloud-partner-portal-lead-management-instructions-marketo/marketo3.png)
 
-4.  Mer information hur du fältet, Välj **Slutför**.
-    ![Marketo Slutför formuläret](./media/cloud-partner-portal-lead-management-instructions-marketo/marketo4.png)
+4.  På fält information väljer du **Slutför**.
+    ![Marketo-slutförd form](./media/cloud-partner-portal-lead-management-instructions-marketo/marketo4.png)
 
-5.  Godkänna och Stäng.
+5.  Godkänn och Stäng.
 
-6.  På fliken MarketplaceLeadBacked väljer **inbäddningskoder**.
-    ![Marketo bädda in kod alternativet](./media/cloud-partner-portal-lead-management-instructions-marketo/marketo5.png)
+6.  På fliken MarketplaceLeadBacked väljer du **bädda in kod**.
+    ![Marketo embed-kod alternativ](./media/cloud-partner-portal-lead-management-instructions-marketo/marketo5.png)
 
-7.  Bädda in kod i Marketo visar koden som liknar följande exempel.
+7.  Marketo Inbäddnings kod visar kod som liknar följande exempel.
 
 `<script src="//app-ys12.marketo.com/js/forms2/js/forms2.min.js"></script>`
 
     <form id="mktoForm_1179"></form>
     <script>MktoForms2.loadForm("("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
 
-1. Kopiera värdena som visas i bädda in kod så att du kan konfigurera den **Server-Id**, **Munchkin Id**, och **formulär-Id** i Marketo-fälten på partnerportalen i molnet.
+1. Kopiera värdena som visas i Inbäddnings kod så att du kan konfigurera **Server-ID**, **Munchkin-ID**och **formulär-ID** i Marketo-fälten på Cloud Partner Portal.
 
-Använd nästa exempel som en vägledning för att hämta ID: N som du behöver från kodexemplet för att bädda in Marketo.
+Använd nästa exempel som en guide för att hämta de ID: n du behöver från Marketo embed-kod exemplet.
 
-- Server Id = **ys12**
-- Munchkin Id = **123-PQR-789**
-- Formuläret Id = **1179**\
+- Server-ID = **ys12**
+- Munchkin-ID = **123-PQR-789**
+- Formulär-ID = **1179**\

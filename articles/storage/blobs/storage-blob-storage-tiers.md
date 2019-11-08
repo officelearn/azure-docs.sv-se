@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 5ba2255cfe0d5c4220ec2215ac837649af1ba896
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4593ee875f98e2c9f2f9406f8b9d4146e06a573d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521181"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825453"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv lag rings nivåer
 
@@ -59,7 +59,7 @@ Låg frekvent åtkomst nivå har lägre kostnader för lagring och högre åtkom
 
 ## <a name="archive-access-tier"></a>Arkivåtkomstnivå
 
-Arkiv åtkomst nivån har lägst lagrings kostnad. Men den har högre kostnader för data hämtning jämfört med frekventa och låg frekventa nivåer. Det kan ta flera timmar att hämta data på Arkiv nivån. Data måste finnas på Arkiv nivån i minst 180 dagar eller omfattas av en avgift för tidig borttagning.
+Arkiv åtkomst nivån har lägst lagrings kostnad. Men den har högre kostnader för data hämtning jämfört med frekventa och låg frekventa nivåer. Det kan ta flera timmar att hämta data på Arkiv nivån. Data måste finnas kvar på Arkiv nivå i minst 180 dagar eller omfattas av en avgift för tidig borttagning.
 
 När en BLOB finns i Arkiv lag ring är BLOB-data offline och kan inte läsas, kopieras, skrivas över eller ändras. Du kan inte ta ögonblicks bilder av en BLOB i Arkiv lag ring. BLOB-metadata är dock online och tillgängliga, så att du kan lista bloben och dess egenskaper. För blobbar i arkivet är de enda giltiga åtgärderna GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier och DeleteBlob.
 
@@ -105,7 +105,7 @@ När en BLOB flyttas till en varm nivå (Arkiv-> låg frekvent, Arkiv-> frekvent
 
 ### <a name="cool-and-archive-early-deletion"></a>Tidig borttagning i lågfrekvent lagring och i arkivlagring
 
-Alla blobar som flyttas till den låg frekventa nivån (endast GPv2-konton) omfattas av en låg tidig borttagnings period på 30 dagar. En blob som flyttas till Arkiv nivån omfattas av en tidig borttagnings period på 180 dagar. Den här avgiften tas ut i förväg. Om en blob till exempel flyttas till arkivet och sedan tas bort eller flyttas till den frekventa nivån efter 45 dagar, kommer du att debiteras en avgift för tidig borttagning som motsvarar 135 (180 minus 45) dagar för att lagra bloben i arkivet.
+Alla blobar som flyttas till den låg frekventa nivån (endast GPv2-konton) omfattas av en låg tidig borttagnings period på 30 dagar. En blob som flyttas till Arkiv nivån omfattas av en tidig borttagnings period på 180 dagar. Den här kostnaden beräknas proportionellt. Om en blob till exempel flyttas till arkivet och sedan tas bort eller flyttas till den frekventa nivån efter 45 dagar, kommer du att debiteras en avgift för tidig borttagning som motsvarar 135 (180 minus 45) dagar för att lagra bloben i arkivet.
 
 Du kan beräkna tidig borttagningen med hjälp av BLOB-egenskapen, **senast ändrad**, om det inte har gjorts några ändringar i åtkomst nivån. Annars kan du använda när åtkomst nivån senast ändrades till låg frekvent eller arkivera genom att visa egenskapen BLOB: **Access-Tier-Change-Time**. Mer information om BLOB-egenskaper finns i [Hämta BLOB-egenskaper](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties).
 
@@ -116,10 +116,10 @@ I följande tabell visas en jämförelse av Premium Performance Block Blob Stora
 |                                           | **Förstklassig prestanda**   | **Frekvent nivå** | **Låg frekvent nivå**       | **Arkiv lag ring**  |
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
 | **Tillgänglighet**                          | 99,9 %                     | 99,9 %        | 99 %                 | Anslutningen           |
-| **Tillgänglighet** <br> **(RA-GRS-läsningar)**  | Gäller inte                       | 99,99 %       | 99,9 %               | Anslutningen           |
+| **Tillgänglighet** <br> **(RA-GRS-läsningar)**  | Saknas                       | 99,99 %       | 99,9 %               | Anslutningen           |
 | **Avgifter för användning**                         | Högre kostnader för lagring, lägre åtkomst och kostnad för transaktioner | Högre kostnader för lagring, lägre åtkomst och transaktionskostnader | Lägre kostnader för lagring, högre åtkomst och transaktionskostnader | Lägsta kostnader för lagring, högsta åtkomst och transaktionskostnader |
-| **Minsta objektstorlek**                   | Gäller inte                       | Gäller inte          | Gäller inte                 | Gäller inte               |
-| **Minsta lagringstid**              | Gäller inte                       | Gäller inte          | 30 dagar<sup>1</sup> | 180 dagar
+| **Minsta objektstorlek**                   | Saknas                       | Saknas          | Saknas                 | Saknas               |
+| **Minsta lagringstid**              | Saknas                       | Saknas          | 30 dagar<sup>1</sup> | 180 dagar
 | **Svarstid** <br> **(Tid till första byte)** | Ensiffriga millisekunder | millisekunder | millisekunder        | timmar<sup>2</sup> |
 
 <sup>1</sup> objekt på den lägsta nivån i GPv2-konton har en minsta Retentions tid på 30 dagar. Blob Storage-konton har inte minsta Retentions tid för den låg frekventa nivån.
@@ -138,7 +138,7 @@ I det här avsnittet visas följande scenarier på Azure Portal:
 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>Ändra standardåtkomstnivå för ett GPv2- eller Blob Storage-konto
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Gå till ditt lagringskonto genom att välja Alla resurser och välj sedan ditt lagringskonto.
 
@@ -150,7 +150,7 @@ I det här avsnittet visas följande scenarier på Azure Portal:
 
 ### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Ändra nivån för en BLOB i ett GPv2-eller Blob Storage-konto
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Gå till din blob i lagringskontot genom att välja Alla resurser, ditt lagringskonto, din container och sedan välja din blob.
 

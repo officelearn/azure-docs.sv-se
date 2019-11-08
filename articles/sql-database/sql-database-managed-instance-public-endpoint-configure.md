@@ -1,5 +1,5 @@
 ---
-title: Konfigurera offentlig slut punkt – Azure SQL Database Hanterad instans
+title: Konfigurera offentlig slut punkt – hanterad instans
 description: Lär dig hur du konfigurerar en offentlig slut punkt för en hanterad instans
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/07/2019
-ms.openlocfilehash: 6f953e4c549619a30564bdb061e98761474174c3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a35176770a3100a288ad3da52cd89870e0110f63
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687963"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73828036"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Konfigurera en offentlig slut punkt i Azure SQL Database Hanterad instans
 
@@ -90,7 +90,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 1. Gå tillbaka till din resurs grupp som innehåller din hanterade instans. Du bör se namnet på den **nätverks säkerhets grupp** som anges ovan. Välj namnet för att gå till konfigurations sidan för nätverks säkerhets gruppen.
 
-1. Välj fliken **inkommande säkerhets regler** och **Lägg till** en regel som har högre prioritet än **deny_all_inbound** -regeln med följande inställningar: </br> </br>
+1. Välj fliken **inkommande säkerhets regler** och **Lägg till** en regel som har högre prioritet än **deny_all_inbound** regeln med följande inställningar: </br> </br>
 
     |Inställning  |Föreslaget värde  |Beskrivning  |
     |---------|---------|---------|
@@ -100,7 +100,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |**Mål ports intervall**     |3342         |Scope-målport till 3342, som är den offentliga TDS-slutpunkten för hanterad instans |
     |**Protokoll**     |TCP         |Den hanterade instansen använder TCP-protokollet för TDS |
     |**Åtgärd**     |Tillåt         |Tillåt inkommande trafik till hanterad instans via den offentliga slut punkten |
-    |**Prioritet**     |1300         |Kontrol lera att den här regeln är högre prioritet än **deny_all_inbound** -regeln |
+    |**Prioritet**     |1300         |Kontrol lera att den här regeln är högre prioritet än **deny_all_inbounds** regeln |
 
     ![mi-NSG-rules. png](media/sql-database-managed-instance-public-endpoint-configure/mi-nsg-rules.png)
 

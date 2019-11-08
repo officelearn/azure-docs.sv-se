@@ -1,38 +1,39 @@
 ---
-title: Erbjudandeinställningar till en Power BI-appen | Azure Marketplace
-description: Konfigurera inställningar för erbjudande till en Power BI-appen för Microsoft AppSource-marknadsplatsen.
+title: Erbjudande inställningar för ett erbjudande för Power BI app | Azure Marketplace
+description: Konfigurera erbjudande inställningar för ett Power BI app-erbjudande för Microsoft AppSource Marketplace.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
-ms.openlocfilehash: be2c2b4f5d9461aa0fdc6dde89931ed4b6418ced
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca326b10a0707d5e4b1a5f05dccc303c9ec28269
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943468"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822667"
 ---
-# <a name="power-bi-apps-offer-settings-tab"></a>Power BI-appar erbjuder inställningsflik
+# <a name="power-bi-apps-offer-settings-tab"></a>Fliken Inställningar för att erbjuda Power BI appar
 
-När du öppnar den **nytt erbjudande** sidan för service-appar du först se den **erbjuder inställningar** fliken. Du kan ange de primära identifierarna och namn för ditt erbjudande för på den här fliken. En asterisk (*) anger ett obligatoriskt fält.
+När du öppnar den **nya erbjudande** sidan för tjänst program ser du först fliken **erbjudande inställningar** . Du anger de primära identifierarna och namnet på ditt erbjudande på den här fliken. En asterisk (*) anger ett obligatoriskt fält.
 
 ![Fliken Erbjudandeinställningar](./media/offer-settings-tab.png)
 
 
-## <a name="offer-settings-fields"></a>Erbjudandet inställningar fält 
+## <a name="offer-settings-fields"></a>Fält för erbjudande inställningar 
 
-På den **erbjuder inställningar** fliken måste du ange information i följande obligatoriska fält. Required fields are indicted by an asterisk (*).
+På fliken **erbjudande inställningar** måste du ange information i följande obligatoriska fält. Obligatoriska fält förutsägs av en asterisk (*).
 
 |  Fält        |  Beskrivning                                                               |
 |---------------|----------------------------------------------------------------------------|
-| **Erbjudande-ID\***  | En unik identifierare (inom en utgivarprofil för) för erbjudandet. Den här identifieraren kommer att synas på produkten URL: er, Azure Resource Manager-mallar och fakturering rapporter. Den maximala längden är 50 tecken. Det får bara innehålla gemena alfanumeriska tecken och bindestreck (-). Det får inte avslutas med ett bindestreck. Den här identifieraren kan inte ändras när ett erbjudande lanseras. ID för erbjudande om Contoso publicerar ett erbjudande med `sample-SvcApp`, erbjudandet som är tilldelad AppSource-URL: en `https://appsource.microsoft.com/marketplace/apps/contoso.sample-SvcApp`.      |
-| **Publisher\*** | Unik identifierare för din organisation i [AppSource](https://appsource.microsoft.com). Alla dina erbjudanden som ska associeras med ditt publisher-ID. Det här värdet kan inte ändras när erbjudandet har sparats.                         |
-| **Namn\***      | Ett visningsnamn för ditt erbjudande. Det här namnet visas på AppSource och på partnerportalen i molnet. Den maximala längden är 50 tecken. Använd ett varumärke som känns igen för din produkt. Omfattar inte organisationens namn här om inte appen släpps med det namnet. Om det här erbjudandet ger på andra webbplatser och publiceringar, ska du använda samma namn i alla publikationer.    <br/>Om du publicerar ett erbjudande för förhandsversionen för Power BI-appar lägger du till strängen `(Preview)` i slutet av programmets namn, så här: `Sample Scv App (Preview)`. |
+| **Erbjudande-ID\***  | En unik identifierare (inom en utgivar profil) för erbjudandet. Den här identifieraren visas i produkt-URL: er, Azure Resource Manager mallar och fakturerings rapporter. Den maximala längden är 50 tecken. Det får bara innehålla gemena alfanumeriska tecken och bindestreck (-). Det får inte sluta med ett bindestreck. Den här identifieraren kan inte ändras när ett erbjudande går live. Om contoso publicerar ett erbjudande med erbjudande-ID `sample-SvcApp`, tilldelas erbjudandet AppSource-URL `https://appsource.microsoft.com/marketplace/apps/contoso.sample-SvcApp`.      |
+| **Utgivare\*** | Organisationens unika identifierare i [AppSource](https://appsource.microsoft.com). Alla dina erbjudanden bör associeras med ditt utgivar-ID. Det här värdet kan inte ändras när erbjudandet har sparats.                         |
+| **Namn\***      | Ett visnings namn för ditt erbjudande. Det här namnet kommer att visas på AppSource och på Cloud Partner Portal. Den maximala längden är 50 tecken. Använd ett varumärkes namn som är igenkännligt för din produkt. Ta inte med din organisations namn här om inte appen marknadsförs med det namnet. Om du ger det här erbjudandet på andra webbplatser och publikationer, använder du samma namn i alla publikationer.    <br/>Om du släpper ett erbjudande under för hands versions perioden för Power BI appar lägger du till strängen `(Preview)` i slutet av programmets namn, så här: `Sample Scv App (Preview)`. |
 |     |     |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-På nästa flik, ska du ange [teknisk information](./cpp-technical-info-tab.md) för ditt erbjudande.
+På nästa flik anger du [teknisk information](./cpp-technical-info-tab.md) för ditt erbjudande.

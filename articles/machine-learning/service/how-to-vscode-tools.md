@@ -1,5 +1,5 @@
 ---
-title: Använda Visual Studio Code för Machine Learning
+title: Azure Machine Learning i Visual Studio Code
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du installerar Azure Machine Learning för Visual Studio Code och hur du skapar ett experiment i Azure Machine Learning.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: jimgries
 author: greazer
 ms.date: 09/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: df23c41629dfe86058f0f2fb6602e85fd5a6d494
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dd85f3a495b90b3a1dc9d3f021d3600496792759
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489294"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824356"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Kom igång med Azure Machine Learning för Visual Studio Code
 
@@ -25,7 +25,7 @@ I den här artikeln får du lära dig hur du använder **Azure Machine Learning 
 + För utbildning har den stöd för att köra experiment lokalt eller via fjärr anslutning. För varje experiment kan du logga anpassade mått för flera körningar för att finjustera disponeringsparametrarna
 + Du kan också använda Azure Machine Learning för att enkelt distribuera maskin inlärnings modeller för testnings-och produktions behoven.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 + Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 

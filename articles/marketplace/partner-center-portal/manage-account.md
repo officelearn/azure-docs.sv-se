@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: c28469e15841e2675c20868b74cf044159c4e9ca
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 2962f6c5032ba317f9eb8f10c2abddb566aad904
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259179"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825509"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Hantera ditt kommersiella marknads plats konto i Partner Center 
 
@@ -48,14 +49,14 @@ Konto inställningarna finns i det övre högra hörnet på [instrument panelen 
 ![Menyn konto inställningar i Partner Center](./media/dashboard-developer-settings.png)
 
 I **konto inställningarna**kommer du att kunna visa dina:
-- **Konto information**: Konto typ och konto status
-- **Utgivar-ID**: Säljar-ID, användar-ID, utgivar-ID, Azure AD-klienter osv.
-- **Kontakt information**: Utgivarens visnings namn, säljar kontakt namn, e-post, telefon och adress
-- **Finansiell information**: Konto utbetalning, skatte profil och utbetalnings plats status
-- **Enheter**: Alla test enheter som är kopplade till ditt konto
-- **Spårnings-GUID**: Alla spårnings-GUID som associeras med ditt konto
+- **Konto information**: konto typ och konto status
+- **Utgivar**-ID: säljar-ID, användar-ID, utgivarens ID, Azure AD-klienter osv.
+- **Kontakt information**: utgivarens visnings namn, säljarens kontakt namn, e-post, telefon och adress
+- **Finansiell information**: utbetalnings konto, skatte profil och status för utbetalning
+- **Enheter**: alla test enheter som är kopplade till ditt konto
+- **Spåra GUID**: alla spårnings-GUID som är kopplade till ditt konto
 
-### <a name="account-details"></a>Kontoinformation
+### <a name="account-details"></a>Konto information
 
 I avsnittet konto information kan du se grundläggande information, t. ex. **konto typen** (företag eller person) och kontots **verifierings status** . Under ditt konto verifierings process visar de här inställningarna varje steg som krävs, inklusive e-postverifiering, personal verifiering och verksamhets verifiering. Du kan också uppdatera e-postmeddelandet här och skicka om verifieringen om det behövs. 
 
@@ -63,7 +64,7 @@ I avsnittet konto information kan du se grundläggande information, t. ex. **kon
 
 I avsnittet Publisher-ID kan du se ditt **säljar-ID**, **MPN-ID**och **utgivar-ID**. Dessa värden tilldelas av Microsoft för att unikt identifiera ditt Developer-konto och kan inte redige ras.
 
-### <a name="contact-info"></a>Kontaktinformation
+### <a name="contact-info"></a>Kontaktuppgifter
 
 I avsnittet kontakt information ser du **visnings namnet för utgivaren**, **säljarens kontakt uppgifter** (kontakt namn, e-post, telefonnummer och adress för företags säljaren) och **företagets god kännare** (namn, e-postadress och telefonnummer till person som har behörighet att godkänna beslut för företaget). 
 
@@ -83,8 +84,8 @@ Om du vill konfigurera ditt utbetalnings konto måste du **associera ditt Micros
 3. Om du vill slutföra installationen av ditt konto för utbetalning loggar du ut helt från Partner Center och loggar sedan in igen med ditt Microsoft-konto (i stället för ditt arbets konto). 
 
 Nu när ditt Microsoft-konto är associerat, för att lägga till ett utbetalnings konto, måste du:
-- **Välj en betalnings metod**: Bank konto eller PayPal
-- **Lägg till betalnings information**: Detta kan inkludera att välja en kontotyp (kontroll eller besparingar), ange konto innehavarens namn, konto nummer och routing number, fakturerings adress, telefonnummer eller PayPal-e-postadress. \* Mer information om hur du använder PayPal som din konto Betalnings Metod och hur du tar reda på om den stöds i din marknads region finns i [PayPal-information](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
+- **Välj en betalnings metod**: bank konto eller PayPal
+- **Lägg till betalnings information**: Detta kan vara att välja en kontotyp (kontroll eller besparingar), ange konto innehavarens namn, konto nummer och routing number, fakturerings adress, telefonnummer eller PayPal-e-postadress. \* Mer information om hur du använder PayPal som din konto Betalnings Metod och hur du tar reda på om den stöds i din marknads region finns i [PayPal-information](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
 
 > [!IMPORTANT]
 > Att ändra ditt utbetalnings konto kan försena dina betalningar med upp till en betalnings cykel. Den här fördröjningen inträffar eftersom vi behöver verifiera konto ändringen, precis som vi gör när du först konfigurerar kontot för utbetalning. Du betalar fortfarande för hela beloppet när ditt konto har verifierats. alla betalningar som förfaller för den aktuella betalnings cykeln läggs till nästa.  
@@ -339,9 +340,9 @@ För att skapa en helt ny Azure AD-klient med ditt partner Center-konto:
 
 1.  Från sidan **innehavare** (under **konto inställningar**) väljer du **skapa en ny Azure AD-klient**.
 2. Ange katalog informationen för din nya Azure AD:
-    - **Domän namn**: Det unika namn som vi ska använda för din Azure AD-domän, tillsammans med ". onmicrosoft.com". Om du till exempel har angett "example" är din Azure AD-domän "example.onmicrosoft.com".
-    - **Kontakta e-post**: En e-postadress där vi kan kontakta dig om ditt konto om det behövs.
-    - **Användar konto information för global administratör**: Förnamn, efter namn, användar namn och lösen ord som du vill använda för det nya globala administratörs kontot.
+    - **Domän namn**: det unika namn som vi använder för din Azure AD-domän, tillsammans med ". onmicrosoft.com". Om du till exempel har angett "example" är din Azure AD-domän "example.onmicrosoft.com".
+    - **Kontakta e-** postadressen: en e-postadress där vi kan kontakta dig om ditt konto om det behövs.
+    - **Användar konto information för global administratör**: förnamn, efter namn, användar namn och lösen ord som du vill använda för det nya globala administratörs kontot.
 3. Välj **skapa** för att bekräfta den nya domänen och konto informationen.
 4. Logga in med ditt nya Azure AD global-administratörs användar namn och lösen ord för att börja [lägga till och hantera användare](#manage-users).
 

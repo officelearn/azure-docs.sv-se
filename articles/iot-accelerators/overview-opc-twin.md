@@ -1,6 +1,6 @@
 ---
 title: Vad är OPC med dubbla – Azure | Microsoft Docs
-description: Översikt över OPC-dubbla
+description: 'Den här artikeln innehåller en översikt över OPC, dubbla. OPC dubbla ger identifiering, registrering och fjärrkontroll av industriella enheter via REST-API: er.'
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: c0d824e23a98aa14081fbd21bd6a9fbec5d583e0
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 91448f55f0ebb88ba6c685b960ece9d91cb98e25
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815951"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826231"
 ---
 # <a name="what-is-opc-twin"></a>Vad är OPC?
 
@@ -28,7 +28,7 @@ OPC med dubbla ger fabriks operatörer möjlighet att söka igenom fabriks nätv
 ### <a name="simple-control"></a>Enkel kontroll
 OPC med dubbla ger fabriks operatörerna möjlighet att reagera på händelser och omkonfigurera sina fabriks maskiner från molnet antingen automatiskt eller manuellt i farten. OPC dubbla tillhandahåller REST-API: er för att anropa tjänster på OPC UA-servern, bläddra i adress utrymmet och läsa/skriva variabler och köra metoder. En panna använder till exempel temperatur-KPI för att kontrol lera produktions linjen. Temperatur sensorn publicerar ändringen i data med hjälp av OPC Publisher. Fabriks operatören tar emot en avisering om att temperaturen har nått tröskelvärdet. Produktions linjen svalnar automatiskt genom OPC. Fabriks operatören meddelas om den nedkylningen.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autentisering
 Du kan använda OPC-dubbla för enkel autentisering och för en enkel utvecklare.
 
 ### <a name="simple-authentication"></a>Enkel autentisering 

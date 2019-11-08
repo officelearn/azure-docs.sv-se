@@ -1,60 +1,61 @@
 ---
-title: Stöd för partnerportalen i molnet | Azure Marketplace
-description: Få support i partnerportalen i molnet.
+title: Stöd för Cloud Partner Portal | Azure Marketplace
+description: Få support i Cloud Partner Portal.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pabutler
-ms.openlocfilehash: 35a5a4c4cfdbfa26ea00f0f4d76f91f9f76a1ca5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 30fc0ea4a8baba4f0677c9cceb12a7887d205f21
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935363"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827678"
 ---
-# <a name="get-support-for-cloud-partner-portal"></a>Få Support för partnerportalen i molnet
+# <a name="get-support-for-cloud-partner-portal"></a>Få stöd för Cloud Partner Portal
 
-Microsoft ger stöd för en mängd olika produkter och tjänster.
-Se till att din fråga hittar rätt supportteamet är viktigt att säkerställa ett lämpligt och snabbt svar. Tänk på följande scenarier som hjälper dig att dirigera din fråga till rätt team:
+Microsoft tillhandahåller stöd för en mängd olika produkter och tjänster.
+Att se till att din fråga hittar rätt support team är viktigt för att säkerställa en lämplig och korrekt svars tid. Överväg följande scenarier, som kan hjälpa dig att dirigera din fråga till lämpligt team:
 
--   Om du är en utgivare och har en fråga från en kund, be dina kunder för att begära support via supporten länkarna i [Azure Portal](https://portal.azure.com/)
+-   Om du är utgivare och har en fråga från en kund ber du kunden att be om support med hjälp av support länkarna på [Azure Portal](https://portal.azure.com/)
 
--   Om du är en utgivare och har en fråga som rör din app eller tjänst, granskar du följande steg för att öppna ett supportärende.
+-   Om du är utgivare och har en fråga som rör din app eller tjänst kan du läsa följande steg för att öppna ett support ärende.
 
-## <a name="to-open-a-support-ticket"></a>Öppna ett supportärende
+## <a name="to-open-a-support-ticket"></a>Öppna ett support ärende
 
-1. Gå till [Cloud Partner Portal](https://cloudpartner.azure.com/) och logga in med ditt arbets- eller skolkonto.
+1. Gå till [Cloud Partner Portal](https://cloudpartner.azure.com/) och logga in med ditt arbets-eller skol konto.
 
-2. På menyn längst upp till höger på sidan Välj **hjälpa** ikonen och välj sedan **Support**.
+2. Välj **Hjälp** ikonen i den övre menyn till höger på sidan och välj sedan **stöd**.
 
 ![support1](./media/cloud-partner-portal-support-for-cloud-partner-portal/support1.png)
 
 
-1. På **skapar en incident**, identifiera den **problemtyp** och **kategori**.
+1. Identifiera **problem typ** och **kategori**på **skapa en incident**.
 
 
 ![support2](./media/cloud-partner-portal-support-for-cloud-partner-portal/support2.png)
 
 
-1. Välj **förfrågan om att starta**.
+1. Välj **Start förfrågan**.
 
-1. Ange kontaktinformation och Beskriv problemet. Beskriv problemet som fullständigt som du kan. Ange alla filer (till exempel skärmdumpar, felbeskrivningar eller nätverksspår) som kan vara användbar för att lösa problemet.
+1. Ange kontakt information och Beskriv problemet. Beskriv problemet så snart du kan. Ange filer (till exempel skärm dum par, fel beskrivningar eller nätverks spår) som kan vara till hjälp när du ska lösa problemet.
 
 ![support3](./media/cloud-partner-portal-support-for-cloud-partner-portal/support3.png)
 
-1. Välj **skicka** skapa biljetten.
+1. Välj **Skicka** för att skapa biljetten.
 
 ### <a name="support-followup"></a>Stöd för uppföljning
 
-Vi bekräfta mottagandet av din biljett inom 24 timmar och tilldela problemet en prioritet och allvarlighetsgrad. Vårt dedikerade team med supporttekniker hjälper med upplösningen enligt våra serviceavtal för svarstider. 
+Vi bekräftar mottagandet av din biljett inom 24 timmar och tilldelar ditt ärende en prioritet och allvarlighets grad. Vårt dedikerade support tekniker hjälper till med sin lösning enligt våra Serviceavtal svars tider. 
 
-Nästa skärmdump visar att du får som bekräftelse från Microsoft support incidentinformation.
+I nästa skärm bild visas den incident information som du får som bekräftelse från Microsoft support.
 
 ![support4](./media/cloud-partner-portal-support-for-cloud-partner-portal/support4.png)
 
 
--   Om du vill tala med oss om problemet kan svara på e-postmeddelandet du fick för supporttid och vi kan schemalägga tid att prata med dig.
+-   Om du behöver prata med oss om ditt problem kan du svara på det e-postmeddelande som du fick för support tiden och vi kan schemalägga tid för att prata med dig.
 
--   Du kan visa förloppet på din fråga på någon av valda tid den **visa ärende online** länken som visas i föregående skärmbild.
+-   Du kan när som helst se förloppet på ditt problem genom att välja länken **Visa incident online** som visas i föregående skärm bild.

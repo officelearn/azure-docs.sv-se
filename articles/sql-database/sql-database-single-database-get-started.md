@@ -1,5 +1,5 @@
 ---
-title: 'Skapa en enda databas – Azure SQL Database '
+title: Skapa en enkel databas
 description: Skapa och fråga en enskild databas i Azure SQL Database med hjälp av Azure Portal, PowerShell och Azure CLI.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
 ms.date: 09/09/2019
-ms.openlocfilehash: bf5a39fe133dc1adb46d4968ab7aa13187576f33
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 482fc3f08fb986908efcab83a82338ced36ee689
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687211"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821014"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Snabb start: skapa en enda databas i Azure SQL Database med hjälp av Azure Portal, PowerShell och Azure CLI
 

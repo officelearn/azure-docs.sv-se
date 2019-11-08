@@ -1,9 +1,10 @@
 ---
-title: Dynamisk data maskning för Azure SQL Database och informations lager
+title: Dynamisk datamaskning
 description: Dynamisk data maskning begränsar känslig data exponering genom att maskera den till icke-privilegierade användare för SQL Database och informations lagret
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
+titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +12,12 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 ms.date: 03/04/2019
-ms.openlocfilehash: dc0eab6aa45a943841d19a3aec2eddf4ab22d75d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 2ff2dfe6384acc8a56558e6e7ba0fc5cc05f7783
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690555"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819976"
 ---
 # <a name="dynamic-data-masking-for-azure-sql-database-and-data-warehouse"></a>Dynamisk data maskning för Azure SQL Database och informations lager
 

@@ -1,6 +1,6 @@
 ---
 title: Lägga till en riktig enhet till ett Azure IoT Central-program | Microsoft Docs
-description: Lägg till en riktig enhet till Azure IoT Central-programmet i egenskap av operatör.
+description: Lär dig hur du lägger till och konfigurerar en riktig enhet i ditt Azure IoT Central-program. Du kan också lära dig om koden i din riktiga enhet.
 author: sandeeppujar
 ms.author: sandeepu
 ms.date: 08/23/2019
@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 1f7afde7a5c4f3553cde40e4b179d056b8caee9b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: fce5be4d059d7b3698f1e76a4ec6ff46c4ce3c0b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72956210"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824612"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Självstudie: Lägga till en riktig enhet till Azure IoT Central-programmet
 
@@ -36,7 +36,7 @@ I den här guiden får du lära dig att:
 > * Förstå hur klientkod mappas till programmet
 > * Konfigurera klientkod för den riktiga enheten
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar bör du köra verktyget minst den första Builder-självstudien för att skapa ett Azure IoT Central-program: [definiera en ny enhets typ](tutorial-define-device-type.md) (krävs)
 

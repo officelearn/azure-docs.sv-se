@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: ccab7e59eaa925df4ba46447cef458111dc7e60a
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: c4f51adbcaa5e5b750169f53a1333544365fd4f3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869578"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825500"
 ---
 # <a name="marketplace-metering-service-apis---faq"></a>API:er för Marketplace Metering Service – vanliga frågor och svar
 
@@ -47,7 +48,7 @@ All användnings händelse som släpps till Marketplace-plattform godkänns inte
 
 ### <a name="can-you-get-a-list-of-all-saas-subscriptions-including-active-and-unsubscribed-subscriptions"></a>Kan du hämta en lista över alla SaaS-prenumerationer, inklusive aktiva och avbrutna prenumerationer?
 
-Ja, när du anropar `GET /saas/subscriptions` API: et innehåller en lista över alla SaaS-prenumerationer. Fältet Status i svaret för varje SaaS-prenumeration fångar om prenumerationen är aktiv eller inte prenumererad. Anropet till List-prenumerationer returnerar högst 100 prenumerationer för tillfället.
+Ja, när du anropar `GET /saas/subscriptions` API innehåller en lista över alla SaaS-prenumerationer. Fältet Status i svaret för varje SaaS-prenumeration fångar om prenumerationen är aktiv eller inte prenumererad. Anropet till List-prenumerationer returnerar högst 100 prenumerationer för tillfället.
 
 ## <a name="next-steps"></a>Nästa steg
 

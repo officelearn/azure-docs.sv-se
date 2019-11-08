@@ -1,5 +1,5 @@
 ---
-title: Hämta värden för app-autentisering – Azure SQL Database
+title: Hämta värden för app-autentisering
 description: Skapa ett huvud namn för tjänsten för att komma åt SQL Database från kod.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 6a8f5263e2f79f130814aa520712f679430440fd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1c2f45aeeaadbbaedc839dd0e2c10804d720a6cd
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691009"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827184"
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Hämta de värden som krävs för att autentisera ett program för att få åtkomst till SQL Database från kod
 

@@ -1,5 +1,5 @@
 ---
-title: 'Anslut virtuell klient dator – Azure SQL Database Hanterad instans '
+title: Anslut klientens VM-hanterade instans
 description: Anslut till en Azure SQL Database Hanterad instans med SQL Server Management Studio från en virtuell Azure-dator.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: fb45df869bc9ecbe6584837894844c29bafa6223
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a455607b1459ebc9e37b1df70b454feea76d1f2f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689387"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822782"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Snabb start: Konfigurera virtuell Azure-dator för att ansluta till en Azure SQL Database Hanterad instans
 
@@ -46,7 +46,7 @@ Följande steg skapar ett nytt undernät i den hanterade instansens VNet så att
 
    | Inställning| Föreslaget värde | Beskrivning |
    | ---------------- | ----------------- | ----------- |
-   | **Namn** | Valfritt giltigt namn|Giltiga namn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   | **Namn** | Valfritt giltigt namn|Giltiga namn finns i [Namngivningsregler och begränsningar](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).|
    | **Adressintervall (CIDR-block)** | Ett giltigt intervall | Standardvärdet är användbart för den här snabb starten.|
    | **Nätverkssäkerhetsgrupp** | Ingen | Standardvärdet är användbart för den här snabb starten.|
    | **Routningstabell** | Ingen | Standardvärdet är användbart för den här snabb starten.|
@@ -78,8 +78,8 @@ Det enklaste sättet att skapa en virtuell klient dator med alla nödvändiga ve
    | **Prenumeration** | En giltig prenumeration | Måste vara en prenumeration där du har behörighet att skapa nya resurser. |
    | **Resursgrupp** |Den resurs grupp som du angav i snabb starten för att [skapa hanterade instanser](sql-database-managed-instance-get-started.md) .|Den här resurs gruppen måste vara den som VNet finns i.|
    | **Plats** | Platsen för resurs gruppen | Det här värdet fylls i baserat på den valda resurs gruppen. |
-   | **Namn på virtuell dator**  | Valfritt giltigt namn | Giltiga namn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Administratörens användar namn**|Alla giltiga användar namn|Giltiga namn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Använd inte ”serveradmin” eftersom det är en reserverad servernivåroll.<br>Du använder det här användar namnet varje gången du [ansluter till den virtuella datorn](#connect-to-virtual-machine).|
+   | **Namn på virtuell dator**  | Valfritt giltigt namn | Giltiga namn finns i [Namngivningsregler och begränsningar](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).|
+   |**Administratörens användar namn**|Alla giltiga användar namn|Giltiga namn finns i [Namngivningsregler och begränsningar](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). Använd inte ”serveradmin” eftersom det är en reserverad servernivåroll.<br>Du använder det här användar namnet varje gången du [ansluter till den virtuella datorn](#connect-to-virtual-machine).|
    |**Lösenord**|Valfritt giltigt lösenord|Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Du använder det här lösen ordet när som helst när du [ansluter till den virtuella datorn](#connect-to-virtual-machine).|
    | **Storlek på virtuell dator** | Vilken giltig storlek som helst | Standardvärdet i den här mallen för **Standard_B2s** räcker för den här snabb starten. |
    | **Plats**|[resourceGroup (). location].| Ändra inte det här värdet. |

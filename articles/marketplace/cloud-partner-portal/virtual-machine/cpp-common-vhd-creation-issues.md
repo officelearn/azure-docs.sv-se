@@ -4,16 +4,17 @@ description: Vanliga frågor och svar om att skapa virtuella hård diskar och re
 services: Azure Marketplace
 author: HannibalSII
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/02/2018
 ms.author: hascipio
 ms.reviewer: v-divte; v-miclar
-ms.openlocfilehash: bb7e62138dbefdd8ff4933ef10602986a5da2bf6
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 1d4224d8f1f735ecef3d4551e3032b916e81dc3c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875004"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826621"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Vanliga problem vid skapande av virtuell hård disk (FAQ)
 
@@ -67,12 +68,12 @@ Ja, om det finns på Azure.  Azure tilldelar en unik identifierare med namnet un
 
 ## <a name="in-a-vm-how-do-you-manage-the-custom-script-extension-in-the-startup-task"></a>Hur hanterar du tillägget för anpassat skript i Start aktiviteten i en virtuell dator?
 
-Följande artikel beskriver hur du använder tillägget för anpassat skript med hjälp av Azure PowerShell-modulen, Azure Resource Manager mallar och information om fel söknings steg i Windows-system: [Anpassat skript tillägg för Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
+Följande artikel beskriver hur du använder tillägget för anpassat skript med hjälp av Azure PowerShell-modulen, Azure Resource Manager mallar och information om fel söknings steg i Windows-system: [anpassat skript tillägg för Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
 
 
 ## <a name="are-32-bit-applications-or-services-supported-in-the-azure-marketplace"></a>Är 32-bitars program eller tjänster som stöds på Azure Marketplace?
 
-I allmänhet är nej.  De operativ system och standard tjänster som stöds för virtuella Azure-datorer är alla 64-bitars.  Men från en teknisk synpunkt har de flesta 64-bitars operativ system stöd för att köra 32-bitars versioner av program för bakåtkompatibilitet.  Användning av 32-bitars program som en del av din VM-lösning stöds dock inte och rekommenderas därför *inte.*  Kompilera i stället ditt program som ett 64-bitars projekt.
+I allmänhet är nej.  De operativ system och standard tjänster som stöds för virtuella Azure-datorer är alla 64-bitars.  Men från en teknisk synpunkt har de flesta 64-bitars operativ system stöd för att köra 32-bitars versioner av program för bakåtkompatibilitet.  Användning av 32-bitars program som en del av din VM-lösning stöds dock inte *och rekommenderas därför inte.*  Kompilera i stället ditt program som ett 64-bitars projekt.
 
 Mer information finns i följande artiklar:
 - [Köra 32-bitars program](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications)
@@ -80,7 +81,7 @@ Mer information finns i följande artiklar:
 - [Microsofts serverprogramsupport för Microsoft Azure Virtual Machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
 
 
-## <a name="every-time-i-try-to-create-an-image-from-my-vhds-i-get-the-error-vhd-is-already-registered-with-image-repository-as-the-resource-in-powershell-i-did-not-create-any-image-before-nor-did-i-find-any-image-with-this-name-in-azure-how-do-i-resolve-this-issue"></a>Varje gång jag försöker skapa en avbildning från mina virtuella hård diskar får jag ett fel `.VHD is already registered with image repository as the resource` meddelande i PowerShell. Jag har inte skapat någon avbildning tidigare eller kunde inte hitta någon bild med det här namnet i Azure. Hur gör jag för att du lösa det här problemet?
+## <a name="every-time-i-try-to-create-an-image-from-my-vhds-i-get-the-error-vhd-is-already-registered-with-image-repository-as-the-resource-in-powershell-i-did-not-create-any-image-before-nor-did-i-find-any-image-with-this-name-in-azure-how-do-i-resolve-this-issue"></a>Varje gång jag försöker skapa en avbildning från mina virtuella hård diskar får jag ett fel `.VHD is already registered with image repository as the resource` i PowerShell. Jag har inte skapat någon avbildning tidigare eller kunde inte hitta någon bild med det här namnet i Azure. Hur gör jag för att du lösa det här problemet?
 
 Det här problemet uppstår vanligt vis om användaren har etablerad en virtuell dator från en virtuell hård disk som har låst den.  Kontrol lera att det inte finns någon virtuell dator som har allokerats från denna virtuella hård disk och försök sedan igen.  Om problemet kvarstår öppnar du ett support ärende enligt beskrivningen i [stöd för Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal). 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Återställa en säkerhets kopia till Azure SQL Database Hanterad instans '
+title: Återställa en säkerhets kopia till en hanterad instans
 description: Återställa en databassäkerhetskopia till en hanterad Azure SQL Database-instans med SSMS.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: ce112628c94c235b028331db5c37ba2b56458044
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 37f7366d6622356017e458fb8f893b0be0851335
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73688058"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825695"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Snabb start: återställa en databas till en hanterad instans
 
@@ -86,10 +86,10 @@ Den här snabbstarten:
    WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
-7. När återställningen är klar kan du Visa databasen i Object Explorer. Du kan kontrol lera att databas återställningen har slutförts med hjälp av [sys. DM _operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) -vyn.
+7. När återställningen är klar kan du Visa databasen i Object Explorer. Du kan kontrol lera att databas återställningen har slutförts med hjälp av [sys. dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) vyn.
 
 > [!NOTE]
-> Databas återställnings åtgärden är asynkron och återförsöksbar. Du kan få ett fel SQL Server Management Studio om anslutningen bryts eller om tids gränsen upphör att gälla. Azure SQL Database fortsätter att försöka återställa databasen i bakgrunden och du kan följa förloppet för återställningen med hjälp av [sys. DM _exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) och [sys. DM _operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) views.
+> Databas återställnings åtgärden är asynkron och återförsöksbar. Du kan få ett fel SQL Server Management Studio om anslutningen bryts eller om tids gränsen upphör att gälla. Azure SQL Database fortsätter att försöka återställa databasen i bakgrunden och du kan följa förloppet för återställningen med hjälp av vyerna [sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) och [sys. dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) .
 > I vissa faser av återställnings processen kommer du att se unik identifierare i stället för det faktiska databas namnet i systemvyerna. Lär dig mer om skillnader i `RESTORE`s satsen [här](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#restore-statement).
 
 ## <a name="next-steps"></a>Nästa steg

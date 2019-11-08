@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: skapa en BLOB i Azure Blob Storage med python'
-description: I den här snabbstarten skapar du ett lagringskonto och en container i objektlagring (Blob). Sedan använder du lagringsklientbiblioteket för Python och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en container.
+title: 'Snabb start: Azure Blob Storage klient bibliotek v 2.1 för python'
+description: I den här snabbstarten skapar du ett lagringskonto och en container i objektlagring (Blob). Sedan använder du lagrings klient bibliotek v 2.1 för python och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en behållare.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 09/11/2019
@@ -8,14 +8,14 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 8a3f8b5f8944552c92ac5a1c1d5fb2eabffad2c9
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 606c7d1fd012052a22afeef906bbe9df4c63a76b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608745"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825287"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-in-azure-blob-storage-with-python"></a>Snabb start: Ladda upp, ladda ned och lista blobar i Azure Blob Storage med python
+# <a name="quickstart-azure-blob-storage-client-library-v21-for-python"></a>Snabb start: Azure Blob Storage klient bibliotek v 2.1 för python
 
 I den här artikeln använder du python för att ladda upp, ladda ned och lista block-blobar i en behållare i Azure Blob Storage. Blobbar är bara objekt som kan innehålla stora mängder text eller binära data, inklusive bilder, dokument, strömmande media och Arkiv data. Blobbar i Azure Storage skiljer sig från fil resurser, schema lösa tabeller och meddelande köer.  Mer information finns i [Introduktion till Azure Storage](/azure/storage/common/storage-introduction).
 

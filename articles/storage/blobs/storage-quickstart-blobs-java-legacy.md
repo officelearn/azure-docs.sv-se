@@ -1,22 +1,22 @@
 ---
-title: 'Snabb start: klient bibliotek för Azure Blob Storage för Java SDK V8'
-description: Skapa ett lagringskonto och en container i objektlagring (Blob). Använd sedan Azure Storage klient bibliotek för Java SDK-V8 för att ladda upp en blob till Azure Storage, hämta en blob och lista blobarna i en behållare.
+title: 'Snabb start: klient biblioteket för Azure Blob Storage-V8 för Java'
+description: Skapa ett lagringskonto och en container i objektlagring (Blob). Använd sedan Azure Storage klient bibliotek V8 för Java för att ladda upp en blob till Azure Storage, hämta en blob och lista blobarna i en behållare.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 10/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 404599ade960d43ef2cb86777fb41701ce96e11b
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: a6c4380e44d705e551bc96746a809c57aa02ac5b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73609130"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825378"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-for-java-sdk-v8"></a>Snabb start: klient bibliotek för Azure Blob Storage för Java SDK V8
+# <a name="quickstart-azure-blob-storage-client-library-v8-for-java"></a>Snabb start: klient biblioteket för Azure Blob Storage-V8 för Java
 
-Kom igång med Azures Blob Storage klient bibliotek för Java. Azure Blob Storage är Microsofts objekt lagrings lösning för molnet. Följ stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Blobblagring är optimerat för att lagra stora mängder ostrukturerade data.
+Kom igång med Azure-Blob Storage klient bibliotek V8 för Java. Azure Blob Storage är Microsofts objekt lagrings lösning för molnet. Följ stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Blobblagring är optimerat för att lagra stora mängder ostrukturerade data.
 
 Använd Azures Blob Storage klient bibliotek för Java för att:
 

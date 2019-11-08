@@ -1,5 +1,5 @@
 ---
-title: Azure SQL-inloggningar och användare
+title: Inloggningar och användare
 description: Lär dig mer om SQL Database och SQL Data Warehouse säkerhets hantering, särskilt hur du hanterar databas åtkomst och inloggnings säkerhet via huvud kontot på server nivå.
 keywords: sql database-säkerhet, hantering av databassäkerhet, inloggningssäkerhet, databassäkerhet, databasåtkomst
 services: sql-database
@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/26/2019
-ms.openlocfilehash: 501df95b80bd651020fa044970f6bc701959a6a5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a33c653199ae21b551acadfb4503eae029ddc5e4
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689472"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822833"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Styra och bevilja databas åtkomst till SQL Database och SQL Data Warehouse
 
@@ -140,7 +140,7 @@ Initialt kan endast en av administratörerna eller ägaren av databasen skapa an
 GRANT ALTER ANY USER TO Mary;
 ```
 
-Om du vill ge fler användare fullständig kontroll över databasen gör du dem till medlem i den fasta databas rollen **db_owner** .
+Om du vill ge fler användare fullständig kontroll över databasen gör du dem till medlem i den **db_owner** fasta databas rollen.
 
 I Azure SQL Database använder du `ALTER ROLE`-instruktionen.
 
@@ -148,7 +148,7 @@ I Azure SQL Database använder du `ALTER ROLE`-instruktionen.
 ALTER ROLE db_owner ADD MEMBER Mary;
 ```
 
-I Azure SQL Data Warehouse använder du [exec sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+I Azure SQL Data Warehouse använder du [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
 ```sql
 EXEC sp_addrolemember 'db_owner', 'Mary';
 ```

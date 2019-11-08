@@ -1,40 +1,41 @@
 ---
-title: Inställningar för virtuella datorer ger flik i Cloud Partner Portal för Azure Marketplace
-description: Beskriver fliken erbjuder inställningar som används för att skapa ett erbjudande för Azure Marketplace-datorn.
+title: Fliken Inställningar för erbjud virtuell dator i Cloud Partner Portal för Azure Marketplace
+description: Beskriver fliken erbjudande inställningar som används för att skapa ett erbjudande för virtuella Azure Marketplace-datorer.
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
-ms.openlocfilehash: d361b6b8b08f9556cd57215ebdf82c1bf69d372d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f7b90f6b02999869026db24836091233692143c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938158"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824446"
 ---
-# <a name="virtual-machine-offer-settings-tab"></a>Virtuell dator erbjuder inställningsflik
+# <a name="virtual-machine-offer-settings-tab"></a>Fliken Inställningar för erbjud virtuell dator
 
-Den **nytt erbjudande** för virtuella datorer öppnas i den första fliken med namnet **erbjuder inställningar**.  
+Sidan **ny erbjudande** för virtuella datorer öppnas på den första fliken med namnet **erbjudande inställningar**.  
 
-![Ny sida för erbjudande för virtuella datorer](./media/publishvm_004.png)
+![Ny erbjudande sida för virtuella datorer](./media/publishvm_004.png)
 
 
-## <a name="offer-settings-fields"></a>Erbjudandet inställningar fält
+## <a name="offer-settings-fields"></a>Fält för erbjudande inställningar
 
-I den **erbjuder inställningar** fliken måste du ange följande fält.  En tillagda asterisk (*) på fältnamnet indikerar att det krävs. 
+På fliken **erbjudande inställningar** måste du ange följande fält.  En asterisk (*) som lagts till i fält namnet anger att det är obligatoriskt. 
 
 |  **Fält**       |     **Beskrivning**                                                          |
 |  ---------       |     ---------------                                                          |
-| **Erbjudande-ID\***   | En unik identifierare (inom en utgivarprofil för) för erbjudandet. Den här identifieraren kommer att synas på produkten URL: er, Azure Resource Manager-mallar och fakturering rapporter. Det har högst 50 tecken, endast bestå av alfanumeriska gemener och bindestreck (-), men får inte sluta med ett bindestreck. Det här fältet kan inte ändras när ett erbjudande lanseras. <br> Till exempel om Contoso publicerar ett erbjudande med ID för erbjudande **exempel vm**, den är tilldelad URL: en för Azure Marketplace `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sample-vm?tab=Overview` . |
-| **Publisher\***  | Din organisations unika identifieraren i Azure Marketplace. Alla dina erbjudanden som ska associeras med ditt publisher-ID. Det här värdet kan inte ändras när erbjudandet har sparats. |
-| **Namn\***       | Visningsnamn för ditt erbjudande. Det här namnet visas i Azure Marketplace och partnerportalen i molnet. Det får innehålla högst 50 tecken. Här vägledningen är att inkludera ett beskrivande namn för varumärke för din produkt. Omfattar inte organisationens namn här om det inte är hur den släpps. Om du marknadsföring det här erbjudandet i andra webbplatser och publiceringar, se till att namnet exakt samma i alla publikationer. |
+| **Erbjudande-ID\***   | En unik identifierare (inom en utgivar profil) för erbjudandet. Den här identifieraren visas i produkt-URL: er, Azure Resource Manager mallar och fakturerings rapporter. Det får innehålla högst 50 tecken, och får bara bestå av gemena alfanumeriska tecken och bindestreck (-), men får inte sluta med ett bindestreck. Det här fältet kan inte ändras när ett erbjudande går live. <br> Om contoso till exempel publicerar ett erbjudande med ett erbjudande-ID **-exempel – VM**, tilldelas URL: en för Azure Marketplace `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sample-vm?tab=Overview`. |
+| **Utgivare\***  | Organisationens unika identifierare på Azure Marketplace. Alla dina erbjudanden bör associeras med ditt utgivar-ID. Det här värdet kan inte ändras när erbjudandet har sparats. |
+| **Namn\***       | Visnings namn för ditt erbjudande. Det här namnet visas i Azure Marketplace och i Cloud Partner Portal. Det får innehålla högst 50 tecken. Vägledning här är att inkludera ett identifierat varumärke för din produkt. Ta inte med din organisations namn här om det inte är så att det marknadsförs. Om du saluför det här erbjudandet i andra webbplatser och publikationer, se till att namnet är exakt detsamma i alla publikationer. |
 |   |   |
  
-Klicka på **spara** när du har angett alla fält. 
+Klicka på **Spara** när du har angett alla fält. 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I nästa flik du till [SKU: er](./cpp-skus-tab.md) på ditt erbjudande.
+På nästa flik kommer du att lägga till [SKU: er](./cpp-skus-tab.md) i erbjudandet.

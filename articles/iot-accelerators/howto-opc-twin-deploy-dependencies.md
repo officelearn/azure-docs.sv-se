@@ -1,6 +1,6 @@
 ---
 title: Så här distribuerar du OPCs dubbla moln beroenden i Azure | Microsoft Docs
-description: Så här distribuerar du OPC-dubbla Azure-beroenden.
+description: Den här artikeln beskriver hur du distribuerar OPC-dubbla Azure-beroenden som krävs för att utföra lokal utveckling och fel sökning.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: cb07899b51280cff8613d637640c0da23debbc8e
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 231d1efa02ec80e8ad56a8895d4262d774480111
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016521"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824106"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>Distribuera beroenden för lokal utveckling
 
@@ -38,7 +38,7 @@ Den här artikeln beskriver hur du endast distribuerar de Azure Platform-tjänst
 
 ## <a name="troubleshooting-deployment-failures"></a>Felsöka distributions fel
 
-### <a name="resource-group-name"></a>Resursgruppsnamn
+### <a name="resource-group-name"></a>Namn på resursgrupp
 
 Se till att du använder ett kort och enkelt resurs grupp namn.  Namnet används också för att ge resurser samma namn som de måste uppfylla kraven på resurs namn.  
 

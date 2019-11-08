@@ -1,5 +1,5 @@
 ---
-title: 'Azure SQL Database generell användning och affärs kritisk '
+title: Ggeneral syfte och affärs kritiska
 description: I artikeln beskrivs allmänna affärs kritiska tjänst nivåer i den vCore-baserade inköps modellen.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 10/01/2019
-ms.openlocfilehash: c6af083c4b3d16fa695da0ccc968c90b5480b6c4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 85b610969f9e5e85d014f89b90cfd862731aaf0c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687268"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821081"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database tjänst nivåer
 
@@ -78,7 +78,7 @@ Följande faktorer påverkar mängden lagrings utrymme som används för data-oc
 > [!IMPORTANT]
 > Du debiteras för den totala lagring som allokerats för MDF-och LDF-filer.
 
-Använd [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql)om du vill övervaka den aktuella totala storleken på dina MDF-och LDF-filer. Om du vill övervaka den aktuella storleken på de enskilda MDF-och LDF-filerna använder du [sys. database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
+Använd [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql)för att övervaka den aktuella totala storleken på dina MDF-och LDF-filer. Om du vill övervaka den aktuella storleken på de enskilda MDF-och LDF-filerna använder du [sys. database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
 
 > [!IMPORTANT]
 > Under vissa omständigheter kan du behöva krympa en databas för att frigöra utrymme som inte används. Mer information finns i [Hantera fil utrymme i Azure SQL Database](sql-database-file-space-management.md).

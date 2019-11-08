@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database-automatisk justering
+title: Översikt över automatisk justering
 description: Azure SQL Database analyserar SQL-fråga och anpassar automatiskt efter användarens arbets belastning.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/06/2019
-ms.openlocfilehash: bfac5a0eba68469d912efd02699624e1335e40e5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 179bb5c9d718a556b829af8f860cb284597835aa
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691104"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821897"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Automatisk justering i Azure SQL Database
 
@@ -77,7 +77,7 @@ Du kan antingen manuellt tillämpa justerings rekommendationer med hjälp av por
 
 Om du använder justerings rekommendationer via T-SQL, är den automatiska prestanda valideringen och återförings metoderna inte tillgängliga. Rekommendationer som tillämpas på detta sätt förblir aktiva och visas i listan över justerings rekommendationer för 24-48 timmar. innan systemet återkallar dem automatiskt. Om du vill ta bort en rekommendation tidigare kan du ta bort den från Azure Portal.
 
-Automatiska justerings alternativ kan aktive ras oberoende eller inaktive ras per databas, eller så kan de konfigureras på SQL Database servrar och tillämpas på alla databaser som ärver inställningar från servern. SQL Database servrar kan ärva Azure-standardvärden för automatiska justerings inställningar. Azure-standardvärden för tillfället är inställt på FORCE_LAST_GOOD_PLAN är aktiverat, CREATE_INDEX är aktiverat och DROP_INDEX är inaktive rad.
+Automatiska justerings alternativ kan aktive ras oberoende eller inaktive ras per databas, eller så kan de konfigureras på SQL Database servrar och tillämpas på alla databaser som ärver inställningar från servern. SQL Database servrar kan ärva Azure-standardvärden för automatiska justerings inställningar. Azure-standardvärden för tillfället är inställt på FORCE_LAST_GOOD_PLAN är aktiverat, CREATE_INDEX är aktiverat och DROP_INDEX har inaktiverats.
 
 Att konfigurera alternativ för automatisk justering på en server och ärva inställningar för databaser som tillhör den överordnade servern är en rekommenderad metod för att konfigurera automatisk justering eftersom det fören klar hanteringen av automatiska justerings alternativ för ett stort antal databaser.
 

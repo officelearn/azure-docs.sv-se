@@ -10,13 +10,13 @@ ms.reviewer: klam; LADocs
 manager: carmonm
 ms.topic: conceptual
 tags: connectors
-ms.date: 11/06/2019
-ms.openlocfilehash: ed30ba305ec990256625052cb92f1b7524c826e2
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 11/08/2019
+ms.openlocfilehash: a6367e5897e9bd548550b099c0bd2e6186845d6d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720950"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826307"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>Automatisera arbets flöden för SQL Server eller Azure SQL Database med Azure Logic Apps
 
@@ -44,10 +44,11 @@ Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps](../lo
 
     `Server=tcp:{your-server-name}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
 
-* Innan du kan ansluta Logi Kap par till lokala system som SQL Server måste du [Konfigurera en lokal datagateway](../logic-apps/logic-apps-gateway-install.md). På så sätt kan du välja gatewayen när du skapar SQL-anslutningen för din Logic app.
+* Den lokala [datagatewayen](../logic-apps/logic-apps-gateway-install.md) som är installerad på en lokal dator och en [Azure Data gateway-resurs som skapats i Azure Portal](../logic-apps/logic-apps-gateway-connection.md) för följande scenarier:
 
-  > [!IMPORTANT]
-  > Om du vill använda Windows-autentisering med den här anslutningen måste du använda den lokala datagatewayen. Den här anslutningen har inte stöd för Windows-autentisering för en Logic app i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+  * Dina Logic Apps körs inte i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+
+  * Dina Logi Kap *par körs i* en integrerings tjänst miljö, men du måste använda Windows-autentisering för SQL Server anslutningen. I det här scenariot använder du SQL Server anslutningens icke-ISE-version tillsammans med datagatewayen eftersom ISE-versionen inte stöder Windows-autentisering.
 
 * Den Logic-app där du behöver åtkomst till din SQL-databas. Om du vill starta din Logic-app med en SQL-utlösare behöver du en [Tom Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 

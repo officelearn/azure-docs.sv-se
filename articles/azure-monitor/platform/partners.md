@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: d4a16fc3d4c29b1e270fa088af75d287a81180c0
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 04dcdbe6854a386f7edaa04aa9c2912789122a31
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552060"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827445"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor partner integreringar
 
@@ -69,7 +69,7 @@ Circonus är en plattform för övervakning och analys av mikrotjänster som byg
 
 Enhets-och automatiserat molnet med en plattform byggd för att spara tid och pengar. CloudHealth ger insyn, intuitiv optimering och stabil styrnings praxis för moln hantering. CloudHealth-plattformen gör det möjligt för företag och MSP att maximera avkastningen på moln investeringar. Fatta säkra beslut kring kostnader, användning, prestanda och säkerhet.
 
-[Lära sig mer.][cloudhealth-doc]
+[Läs mer.][cloudhealth-doc]
 
 ## <a name="cloudmonix"></a>CloudMonix
 
@@ -267,5 +267,5 @@ Turbonomic levererar arbetsbelastningsautomatisering för hybridmoln genom att s
 [solarwinds-doc]: https://www.solarwinds.com/topics/azure-monitoring "SolarWinds-dokumentation."
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Splunk-dokumentation."
 [sumologic-doc]: https://www.sumologic.com/azure "SumoLogic-dokumentation."
-[turbonomic-doc]: https://turbonomic.com/solutions/technologies/azure-cloud/ "Introduktion till Turbonomic."
+[turbonomic-doc]: https://turbonomic.com/ "Introduktion till Turbonomic."
 

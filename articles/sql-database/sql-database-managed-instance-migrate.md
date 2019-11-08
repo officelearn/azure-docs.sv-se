@@ -1,22 +1,22 @@
 ---
-title: Migrera databasen från SQL Server instans till Azure SQL Database-Hanterad instans
+title: Migrera från SQL Server till hanterad instans
 description: Lär dig hur du migrerar en databas från SQL Server instans till Azure SQL Database-Hanterad instans.
 services: sql-database
 ms.service: sql-database
 ms.subservice: migration
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 228b22d9d283fe8c23cbf7a82036b7f3782cbf25
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 802dfa7e3b2d0b9deac957662ac1e7604d085fd9
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73688008"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73828081"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server instans migrering till Azure SQL Database Hanterad instans
 
@@ -68,7 +68,7 @@ Prestanda bas linje är en uppsättning parametrar som genomsnitt/Max CPU-använ
 Några av de parametrar som du behöver mäta i SQL Server-instansen är: 
 - [Övervaka CPU-användning på SQL Server-instansen](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) och registrera den genomsnittliga och högsta CPU-användningen.
 - [Övervaka minnes användningen på SQL Server-instansen](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage) och Bestäm hur mycket minne som används av olika komponenter, t. ex. buffert, planera cache, Column-Store-pool, [minnes intern OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017)osv. Dessutom bör du hitta genomsnittliga och högsta värden för sid livs Längdens förväntad minnes prestanda räknare.
-- Övervaka disk-i/o-användning på käll SQL Servers instans med hjälp av [sys. DM _io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) View eller [prestanda räknare](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
+- Övervaka disk-i/o-användning på käll SQL Servers instansen med hjälp av [sys. dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) Visa eller [prestanda räknare](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
 - Övervaka arbets belastning och fråga prestanda eller din SQL Server instans genom att undersöka vyer för dynamisk hantering eller Frågearkivet om du migrerar från SQL Server 2016 + version. Identifiera Genomsnittlig varaktighet och CPU-användning för de viktigaste frågorna i arbets belastningen för att jämföra dem med de frågor som körs på den hanterade instansen.
 
 > [!Note]

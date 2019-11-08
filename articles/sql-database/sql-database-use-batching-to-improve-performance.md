@@ -1,5 +1,5 @@
 ---
-title: Använda batching för att förbättra Azure SQL Database programmets prestanda
+title: Så här använder du batching för att förbättra programmets prestanda
 description: Avsnittet innehåller bevis på att batchering av databas åtgärder avsevärt förbättrar hastigheten och skalbarheten för dina Azure SQL Database-program. Även om dessa batch-tekniker fungerar för alla SQL Server-databaser, är fokus för artikeln på Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 3d18f5b77d08a55bd06656a72cbc02c040b6f127
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 175ba6b4e65b4a6e276dbfb586e210027a6cd9b3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566239"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822425"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Använda batching för att förbättra SQL Database programmets prestanda
 
@@ -91,7 +91,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Transaktioner används faktiskt i båda dessa exempel. I det första exemplet är varje enskilt anrop en implicit transaktion. I det andra exemplet radbryts alla anrop i en explicit transaktion. I dokumentationen för transaktions [loggen för Skriv](https://msdn.microsoft.com/library/ms186259.aspx)åtgärder rensas logg posterna till disken när transaktionen genomförs. Så genom att inkludera fler anrop i en transaktion kan Skriv till transaktions loggen skjuta tills transaktionen är genomförd. I praktiken aktiverar du batching för skrivningar till serverns transaktions logg.
+Transaktioner används faktiskt i båda dessa exempel. I det första exemplet är varje enskilt anrop en implicit transaktion. I det andra exemplet radbryts alla anrop i en explicit transaktion. I dokumentationen för [transaktions loggen för Skriv](https://msdn.microsoft.com/library/ms186259.aspx)åtgärder rensas logg posterna till disken när transaktionen genomförs. Så genom att inkludera fler anrop i en transaktion kan Skriv till transaktions loggen skjuta tills transaktionen är genomförd. I praktiken aktiverar du batching för skrivningar till serverns transaktions logg.
 
 I följande tabell visas några ad hoc-testnings resultat. Testerna utförde samma sekventiella infogningar med och utan transaktioner. För mer perspektiv kördes den första uppsättningen tester från en bärbar dator till databasen i Microsoft Azure. Den andra uppsättningen tester kördes från en moln tjänst och databas som båda finns i samma Microsoft Azure Data Center (västra USA). I följande tabell visas varaktigheten i millisekunder av sekventiella infogningar med och utan transaktioner.
 
@@ -124,7 +124,7 @@ Föregående exempel visar att du kan lägga till en lokal transaktion till valf
 
 Mer information om transaktioner i ADO.NET finns i [lokala transaktioner i ADO.net](https://docs.microsoft.com/dotnet/framework/data/adonet/local-transactions).
 
-### <a name="table-valued-parameters"></a>Tabell värdes parametrar
+### <a name="table-valued-parameters"></a>tabell värdes parametrar
 
 Tabell värdes parametrar stöder användardefinierade tabell typer som parametrar i Transact-SQL-uttryck, lagrade procedurer och funktioner. Med den här batching-tekniken på klient sidan kan du skicka flera rader med data i tabell värdes parametern. Om du vill använda tabell värdes parametrar definierar du först en tabell typ. Följande Transact-SQL-instruktion skapar en tabell typ med namnet **MyTableType**.
 
@@ -167,7 +167,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-I föregående exempel infogar objektet **SqlCommand** rader från en tabell värdes parameter,  **\@TestTvp**. Det tidigare skapade **DataTable** -objektet har tilldelats till den här parametern med metoden **SqlCommand. Parameters. Add** . Batching av infogningar i ett anrop ökar markant prestanda över sekventiella infogningar.
+I föregående exempel infogar objektet **SqlCommand** rader från en tabell värdes parameter **\@TestTvp**. Det tidigare skapade **DataTable** -objektet har tilldelats till den här parametern med metoden **SqlCommand. Parameters. Add** . Batching av infogningar i ett anrop ökar markant prestanda över sekventiella infogningar.
 
 Om du vill förbättra det tidigare exemplet ytterligare använder du en lagrad procedur i stället för ett textbaserat kommando. Följande Transact-SQL-kommando skapar en lagrad procedur som tar **SimpleTestTableType** tabell värdes parameter.
 
@@ -212,7 +212,7 @@ Mer information om tabell värdes parametrar finns i [tabell värdes parametrar]
 
 ### <a name="sql-bulk-copy"></a>SQL Mass kopiering
 
-SQL Mass kopiering är ett annat sätt att infoga stora mängder data i en mål databas. .NET-program kan använda **SqlBulkCopy** -klassen för att utföra Mass infognings åtgärder. **SqlBulkCopy** liknar kommando rads verktyget, **BCP. exe**eller Transact-SQL-instruktionen **bulk INSERT**. I följande kod exempel visas hur du kopierar raderna i käll-DataTable-tabellen till mål tabellen i SQL Server Table.
+SQL Mass kopiering är ett annat sätt att infoga stora mängder data i en mål databas. .NET-program kan använda **SqlBulkCopy** -klassen för att utföra Mass infognings åtgärder. **SqlBulkCopy** liknar kommando rads verktyget, **BCP. exe**eller Transact-SQL-instruktionen **bulk INSERT**. I följande kod exempel visas hur du kopierar raderna i käll- **DataTable**-tabellen till mål tabellen i SQL Server Table.
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -293,13 +293,13 @@ Den här metoden kan vara något snabbare för batchar som är mindre än 100 ra
 
 ### <a name="dataadapter"></a>DataAdapter
 
-Med klassen DataAdapter kan du ändra ett **data mängds** objekt och sedan skicka ändringarna som INSERT-, Update-och Delete-åtgärder. Om du använder dataadaptern på det här sättet är det viktigt att notera att separata anrop görs för varje distinkt åtgärd. Förbättra prestanda genom att använda egenskapen **UpdateBatchSize** till antalet åtgärder som ska grupperas i taget. Mer information finns i [utföra batch-åtgärder med DataAdapters](https://msdn.microsoft.com/library/aadf8fk2.aspx).
+Med klassen **DataAdapter** kan du ändra ett **data mängds** objekt och sedan skicka ändringarna som INSERT-, Update-och Delete-åtgärder. Om du använder **dataadaptern** på det här sättet är det viktigt att notera att separata anrop görs för varje distinkt åtgärd. Förbättra prestanda genom att använda egenskapen **UpdateBatchSize** till antalet åtgärder som ska grupperas i taget. Mer information finns i [utföra batch-åtgärder med DataAdapters](https://msdn.microsoft.com/library/aadf8fk2.aspx).
 
 ### <a name="entity-framework"></a>Entity Framework
 
 Entity Framework stöder för närvarande inte batchbearbetning. Olika utvecklare i communityn har försökt att demonstrera lösningar, till exempel att åsidosätta metoden **saveChanges** . Men lösningarna är vanligt vis komplexa och anpassade till program-och data modellen. Det Entity Framework CodePlex-projektet har en diskussions sida för den här funktions förfrågan. Om du vill visa den här diskussionen, se [design Mötes anteckningar – 2 augusti 2012](https://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
 
-### <a name="xml"></a>XML
+### <a name="xml"></a>FIL
 
 För klar Ande är det viktigt att prata om XML som en batch-strategi. Användningen av XML har dock inga fördelar jämfört med andra metoder och flera nack delar. Metoden liknar tabell värdes parametrar, men en XML-fil eller sträng skickas till en lagrad procedur i stället för en användardefinierad tabell. Den lagrade proceduren tolkar kommandona i den lagrade proceduren.
 
@@ -484,7 +484,7 @@ Om du vill använda den här bufferten skapar programmet ett statiskt NavHistory
 
 ### <a name="master-detail"></a>Huvud information
 
-Tabell värdes parametrar är användbara för enkla INFOGNINGs scenarier. Det kan dock vara mer utmanande att gruppera infogningar som omfattar mer än en tabell. Scenariot "Master/Detail" är ett användbart exempel. Huvud tabellen identifierar den primära entiteten. En eller flera detalj tabeller lagrar mer data om entiteten. I det här scenariot tvingar sekundär nyckel relationer relationen mellan information till en unik huvud organisation. Överväg en förenklad version av en PurchaseOrder-tabell och dess tillhör ande OrderDetail-tabell. I följande Transact-SQL skapas tabellen PurchaseOrder med fyra kolumner: Ordernr, order datum, Kundnr och status.
+Tabell värdes parametrar är användbara för enkla INFOGNINGs scenarier. Det kan dock vara mer utmanande att gruppera infogningar som omfattar mer än en tabell. Scenariot "Master/Detail" är ett användbart exempel. Huvud tabellen identifierar den primära entiteten. En eller flera detalj tabeller lagrar mer data om entiteten. I det här scenariot tvingar sekundär nyckel relationer relationen mellan information till en unik huvud organisation. Överväg en förenklad version av en PurchaseOrder-tabell och dess tillhör ande OrderDetail-tabell. Följande Transact-SQL skapar tabellen PurchaseOrder med fyra kolumner: Ordernr, order datum, Kundnr och status.
 
 ```sql
 CREATE TABLE [dbo].[PurchaseOrder](
@@ -496,7 +496,7 @@ CONSTRAINT [PrimaryKey_PurchaseOrder]
 PRIMARY KEY CLUSTERED ( [OrderID] ASC ))
 ```
 
-Varje order innehåller ett eller flera produkt inköp. Den här informationen samlas in i tabellen PurchaseOrderDetail. I följande Transact-SQL skapas tabellen PurchaseOrderDetail med fem kolumner: Ordernr, OrderDetailID, ProductID, enhets pris och OrderQty.
+Varje order innehåller ett eller flera produkt inköp. Den här informationen samlas in i tabellen PurchaseOrderDetail. Följande Transact-SQL skapar tabellen PurchaseOrderDetail med fem kolumner: Ordernr, OrderDetailID, ProductID, enhets pris och OrderQty.
 
 ```sql
 CREATE TABLE [dbo].[PurchaseOrderDetail](
@@ -580,7 +580,7 @@ JOIN @IdentityLink L ON L.SubmittedKey = D.OrderID;
 GO
 ```
 
-I det här exemplet lagrar den lokalt @IdentityLink definierade tabellen faktiska Ordernr-värden från de nyligen infogade raderna. Dessa order identifierare skiljer sig från de tillfälliga Ordernr-värdena i @orders parametrarna och @details tabell värden. Därför ansluter @IdentityLink tabellen värdet för Ordernr @orders från parametern till de faktiska Ordernr-värdena för de nya raderna i tabellen PurchaseOrder. Efter det här steget @IdentityLink kan tabellen under lätta infogningen av beställnings informationen med det faktiska Ordernr som uppfyller sekundär nyckel begränsningen.
+I det här exemplet lagrar det lokalt definierade @IdentityLinks tabellen faktiska Ordernr-värden från de nyligen infogade raderna. Dessa order identifierare skiljer sig från de tillfälliga Ordernr-värdena i @orders och @details tabell värdes parametrar. Därför ansluter @IdentityLink-tabellen värdet för Ordernr från parametern @orders till de verkliga Ordernr-värdena för de nya raderna i tabellen PurchaseOrder. Efter det här steget kan @IdentityLinks tabellen under lätta infogningen av beställnings informationen med det faktiska Ordernr som uppfyller sekundär nyckel begränsningen.
 
 Den här lagrade proceduren kan användas från kod eller från andra Transact-SQL-anrop. I avsnittet tabell värdes parametrar i det här dokumentet finns ett kod exempel. Följande Transact-SQL visar hur du anropar sp_InsertOrdersBatch.
 
@@ -635,7 +635,7 @@ CREATE TYPE EmployeeTableType AS TABLE
 GO
 ```
 
-Skapa sedan en lagrad procedur eller Skriv kod som använder MERGE-instruktionen för att utföra uppdateringen och infoga. I följande exempel används merge-instruktionen på en tabell värdes parameter @employees, av typen EmployeeTableType. Innehållet i @employees tabellen visas inte här.
+Skapa sedan en lagrad procedur eller Skriv kod som använder MERGE-instruktionen för att utföra uppdateringen och infoga. I följande exempel används MERGE-instruktionen på en tabell värdes parameter, @employees, av typen EmployeeTableType. Innehållet i @employeess tabellen visas inte här.
 
 ```sql
 MERGE Employee AS target

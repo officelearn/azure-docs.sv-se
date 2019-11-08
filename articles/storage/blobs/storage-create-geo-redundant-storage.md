@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Skapa ett program med hög tillgänglighet med Blob-lagring – Azure Storage'
+title: 'Självstudie: Bygg ett program med hög tillgänglighet med Blob Storage – Azure Storage'
 description: Använd RA-GRS för att ge programdata hög tillgänglighet
 services: storage
 author: tamram
@@ -10,14 +10,14 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 3302402ae791ac17b8ac09ab91b061a558eb7c75
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: c010b1acbf1b8f0a05ffda05bddfd8a9145dee8d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390362"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825431"
 ---
-# <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Självstudier: Skapa ett program med hög tillgänglighet med Blob-lagring
+# <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Självstudie: Bygg ett program med hög tillgänglighet med Blob Storage
 
 Den här självstudien ingår i en serie. I den lär du dig att ge programdata hög tillgänglighet i Azure.
 
@@ -27,14 +27,14 @@ Med RA-GRS replikeras transaktioner från en primär region till en sekundär re
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-I del ett i den här serien lärde du dig att:
+I en del av serien får du lära dig hur du:
 
 > [!div class="checklist"]
 > * skapar ett lagringskonto
 > * Ange anslutningssträngen
 > * Kör konsolprogrammet
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här självstudien behöver du:
 
@@ -79,8 +79,8 @@ Följ dessa steg om du vill skapa ett RA-GRS-lagringskonto:
    | **Prestanda** | Standard | Standard är tillräckligt för exempelscenariot. |
    | **Replikering**| Geo-redundant lagring med läsbehörighet (RA-GRS) | Detta krävs för att exemplet ska fungera. |
    |**Prenumeration** | din prenumeration |Mer information om dina prenumerationer finns i [Prenumerationer](https://account.azure.com/Subscriptions). |
-   |**ResourceGroup** | myResourceGroup |Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-   |**Location** | East US | Välj en plats. |
+   |**ResourceGroup** | myResourceGroup |Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). |
+   |**Plats** | Östra USA | Välj en plats. |
 
 ![skapa lagringskonto](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
@@ -118,7 +118,7 @@ git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
 
 Du måste ange anslutningssträngen för ditt lagringskonto i programmet. Du kan lagra den här anslutningssträngen inom en miljövariabel på den lokala dator där programmet körs. Följ något av exemplen nedan beroende på operativsystemet för att skapa miljövariabeln.
 
-Navigera till ditt lagringskonto i Azure Portal. Välj **Åtkomstnycklar** under **Inställningar** i ditt lagringskonto. Kopiera **anslutningssträngen** från den primära eller sekundära nyckeln. Kör något av följande kommandon baserade på operativ systemet och Ersätt \<yourconnectionstring\> med den faktiska anslutnings strängen. Kommandot sparar en miljövariabel till den lokala datorn. I Windows är miljövariabeln inte tillgänglig förrän du har läst in **kommandotolken** eller gränssnittet på nytt.
+Navigera till ditt lagringskonto i Azure Portal. Välj **Åtkomstnycklar** under **Inställningar** i ditt lagringskonto. Kopiera **anslutningssträngen** från den primära eller sekundära nyckeln. Kör något av följande kommandon baserade på operativ systemet, och ersätt \<yourconnectionstring\> med den faktiska anslutnings strängen. Kommandot sparar en miljövariabel till den lokala datorn. I Windows är miljövariabeln inte tillgänglig förrän du har läst in **kommandotolken** eller gränssnittet på nytt.
 
 ### <a name="linux"></a>Linux
 
@@ -136,7 +136,7 @@ setx storageconnectionstring "<yourconnectionstring>"
 
 I programmet måste du ange autentiseringsuppgifterna för ditt lagrings konto. Du kan lagra informationen i miljövariabler på den lokala datorn som kör programmet. Följ något av exemplen nedan, beroende på vilket operativ system som används för att skapa miljövariablerna.
 
-Navigera till ditt lagringskonto i Azure Portal. Välj **Åtkomstnycklar** under **Inställningar** i ditt lagringskonto. Klistra in **lagrings kontots namn** och **nyckel** värden i följande \<kommandon och ersätt plats hållarna\> youraccountname\> och \<youraccountkey. Det här kommandot sparar miljövariablerna på den lokala datorn. I Windows är miljövariabeln inte tillgänglig förrän du har läst in **kommandotolken** eller gränssnittet på nytt.
+Navigera till ditt lagringskonto i Azure Portal. Välj **Åtkomstnycklar** under **Inställningar** i ditt lagringskonto. Klistra in **lagrings kontots namn** och **nyckel** värden i följande kommandon och ersätt \<youraccountname\> och \<youraccountkey\> plats hållare. Det här kommandot sparar miljövariablerna på den lokala datorn. I Windows är miljövariabeln inte tillgänglig förrän du har läst in **kommandotolken** eller gränssnittet på nytt.
 
 ### <a name="linux"></a>Linux
 
@@ -154,7 +154,7 @@ setx accountkey "<youraccountkey>"
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
-Om du vill köra det här exemplet måste du lägga till dina autentiseringsuppgifter för `.env.example` ditt lagrings konto i filen `.env`och sedan byta namn på den till.
+Om du vill köra det här exemplet måste du lägga till dina autentiseringsuppgifter för lagrings kontot i `.env.example`-filen och sedan byta namn på den till `.env`.
 
 ```
 AZURE_STORAGE_ACCOUNT_NAME=<replace with your storage account name>
@@ -173,7 +173,7 @@ Installera de nödvändiga beroendena. Det gör du genom att öppna en kommando 
 
 I Visual Studio trycker du på **F5** eller väljer **Start** för att starta felsökning av programmet. Visual Studio återställer automatiskt NuGet-paket som saknas (om konfigurerat). Gå till avsnittet om hur du [installerar och ominstallerar paket med paketåterställning](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) om du vill veta mer.
 
-Ett konsolfönster öppnas och programmet körs. Programmet överför bilden **HelloWorld.png** från lösningen till lagringskontot. Programmet kontrollerar att bilden har replikerats till den sekundära RA-GRS-slutpunkten. Sedan börjar programmet ladda ned bilden upp till 999 gånger. Varje läsning representeras av ett **P** eller ett **S**. **P** representerar den primära slutpunkten och **S** representerar den sekundära slutpunkten.
+Ett konsolfönster öppnas och programmet körs. Programmet överför bilden **HelloWorld.png** från lösningen till lagringskontot. Programmet kontrollerar att bilden har replikerats till den sekundära RA-GRS-slutpunkten. Sedan börjar programmet ladda ned bilden upp till 999 gånger. Varje läsning representeras av en **P** eller en **s**. Där **P** representerar den primära slut punkten och **S** representerar den sekundära slut punkten.
 
 ![Konsolprogrammet körs](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -181,7 +181,7 @@ I exempelkoden används aktiviteten `RunCircuitBreakerAsync` i filen `Program.cs
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Om du vill köra programmet i en terminal eller kommandotolk går du till katalogen **circuitbreaker.py** och skriver `python circuitbreaker.py`. Programmet överför bilden **HelloWorld.png** från lösningen till lagringskontot. Programmet kontrollerar att bilden har replikerats till den sekundära RA-GRS-slutpunkten. Sedan börjar programmet ladda ned bilden upp till 999 gånger. Varje läsning representeras av ett **P** eller ett **S**. **P** representerar den primära slutpunkten och **S** representerar den sekundära slutpunkten.
+Om du vill köra programmet i en terminal eller kommandotolk går du till katalogen **circuitbreaker.py** och skriver `python circuitbreaker.py`. Programmet överför bilden **HelloWorld.png** från lösningen till lagringskontot. Programmet kontrollerar att bilden har replikerats till den sekundära RA-GRS-slutpunkten. Sedan börjar programmet ladda ned bilden upp till 999 gånger. Varje läsning representeras av en **P** eller en **s**. Där **P** representerar den primära slut punkten och **S** representerar den sekundära slut punkten.
 
 ![Konsolprogrammet körs](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -189,7 +189,7 @@ I exempelkoden används metoden `run_circuit_breaker` i filen `circuitbreaker.py
 
 Återförsöksfunktionen för lagringsobjektet har angetts till en linjär återförsöksprincip. Återförsöksfunktionen bestämmer om det ska göras ett nytt försök med begäran och anger antalet sekunder som ska förflyta innan det görs ett nytt försök. Ange true för värdet **retry\_to\_secondary** om det ska göras ett nytt försök till den sekundära slutpunkten om den första begäran till den primära slutpunkten misslyckas. I exempelprogrammet definieras en anpassad återförsöksprincip i funktionen `retry_callback` för lagringsobjektet.
 
-Innan nedladdningen definieras funktionen [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) och [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) för tjänst objekt. Funktionerna definierar de händelsehanterare som utlöses när en nedladdning slutförs eller om en nedladdning misslyckas och ett nytt försök görs.
+Innan nedladdningen definieras tjänst objekt [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) och [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) -funktionen. Funktionerna definierar de händelsehanterare som utlöses när en nedladdning slutförs eller om en nedladdning misslyckas och ett nytt försök görs.
 
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)

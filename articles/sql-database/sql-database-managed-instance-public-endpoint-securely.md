@@ -1,5 +1,5 @@
 ---
-title: Offentliga slut punkter för säker hanterad instans – Azure SQL Database Hanterad instans
+title: Säkra offentliga slut punkter för hanterade instanser
 description: Använd offentliga slut punkter på ett säkert sätt i Azure med en hanterad instans
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/08/2019
-ms.openlocfilehash: 3d97eb16ee2a8b3203b187dca7b2a17974473098
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 6dfeab3530445f8f9a102f47039d15b04fdf134a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687943"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821742"
 ---
 # <a name="use-an-azure-sql-database-managed-instance-securely-with-public-endpoints"></a>Använd en Azure SQL Database Hanterad instans på ett säkert sätt med offentliga slut punkter
 

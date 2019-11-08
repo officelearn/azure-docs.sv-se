@@ -4,15 +4,16 @@ description: Förklarar de tre metoderna för att ange prissättningen för erbj
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: e398b43e679fb6420c2256e77d34359ae537ac1c
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: c7ea5afeb46c30837c2ae53e871bb64f5d8cf292
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868747"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827326"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>Prissättning för erbjudanden på virtuella datorer
 ==================================
@@ -23,7 +24,7 @@ Det finns tre sätt att ange prissättning för virtuella datorer: anpassade gru
 <a name="customized-core-pricing"></a>Anpassat kärn pris
 -----------------------
 
-Priset är särskilt för varje region och kärn kombination. Varje region i försäljnings listan måste anges i **virtualMachinePricing**/**regionPrices** -avsnittet i definitionen.  Använd rätt valuta koder för varje [region](#regions) i din begäran.  Följande exempel visar dessa krav:
+Priset är särskilt för varje region och kärn kombination. Varje region i Sälj listan måste anges i avsnittet **virtualMachinePricing**/**regionPrices** i definitionen.  Använd rätt valuta koder för varje [region](#regions) i din begäran.  Följande exempel visar dessa krav:
 
 ``` json
     "virtualMachinePricing": 
@@ -106,7 +107,7 @@ Utgivaren kan också ladda upp pris kalkyl bladet till en tillfällig lagrings p
 VM-utgivaren meddelades den 2 juli 2019 om tillägg av nya priser för nya storlekar för virtuella Azure-datorer (baserat på antalet kärnor).  De nya priserna är för kärn storlekarna 10, 44, 48, 60, 120, 208 och 416.  För befintliga virtuella datorer har nya priser för dessa kärnor automatiskt beräknats baserat på aktuella priser.  Utgivare har fram till den 1 augusti 2019 att granska ytterligare priser och göra önskade ändringar.  Efter det här datumet börjar de automatiskt beräknade priserna för de nya kärn storlekarna att gälla, om de inte redan publiceras om av utgivaren.
 
 
-<a name="regions"></a>Regions
+<a name="regions"></a>Regioner
 -------
 
 I följande tabell visas olika regioner som du kan ange för anpassade kärn priser och deras motsvarande valuta koder.
@@ -124,7 +125,7 @@ I följande tabell visas olika regioner som du kan ange för anpassade kärn pri
 | BG         | Bulgarien             | BGN               |
 | CA         | Kanada               | CAD               |
 | CL         | Chile                | CLP               |
-| CO         | Colombia             | COP               |
+| CO         | Colombia             | KOPIOR               |
 | CR         | Costa Rica           | CRC               |
 | HR         | Kroatien              | HRK               |
 | CY         | Cypern               | EUR               |
@@ -140,11 +141,11 @@ I följande tabell visas olika regioner som du kan ange för anpassade kärn pri
 | DE         | Tyskland              | EUR               |
 | GR         | Grekland               | EUR               |
 | GT         | Guatemala            | GTQ               |
-| HK         | Hongkong SAR        | HKD               |
+| HK         | Hong Kong SAR        | HKD               |
 | HU         | Ungern              | HUF               |
 | IS         | Island              | ISKALLOKERING               |
 | IN         | Indien                | INR               |
-| id         | Indonesien            | IDR               |
+| ID         | Indonesien            | IDR               |
 | IE         | Irland              | EUR               |
 | IL         | Israel               | ILS               |
 | IT         | Italien                | EUR               |
@@ -162,7 +163,7 @@ I följande tabell visas olika regioner som du kan ange för anpassade kärn pri
 | MY         | Malaysia             | MYR               |
 | MT         | Malta                | EUR               |
 | MX         | Mexiko               | MXN               |
-| ME         | Montenegro           | EUR               |
+| SÄGER         | Montenegro           | EUR               |
 | MA         | Marocko              | MAD               |
 | NL         | Nederländerna          | EUR               |
 | NZ         | Nya Zeeland          | NZD               |
@@ -182,7 +183,7 @@ I följande tabell visas olika regioner som du kan ange för anpassade kärn pri
 | RU         | Ryssland               | RUB               |
 | SA         | Saudiarabien         | SAR               |
 | RS         | Serbien               | RSD               |
-| SG         | Singapore            | DESCENT               |
+| SG         | Singapore            | SGD               |
 | SK         | Slovakien             | EUR               |
 | SI         | Slovenien             | EUR               |
 | ZA         | Sydafrika         | ZAR               |

@@ -1,5 +1,5 @@
 ---
-title: Fråga Azure SQL Database med PHP
+title: Använd PHP för att fråga
 description: Så använder du PHP för att skapa ett program som ansluter till en Azure SQL-databas och köra frågor mot den med hjälp av SQL-instruktioner.
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 02/12/2019
-ms.openlocfilehash: c1c576becc0390a2cb0dfb083755be4e7c772c59
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ae119dd23da670f16c0239b14119519c431e6326
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690934"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827001"
 ---
 # <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Snabbstart: Använda PHP för att köra frågor mot en Azure SQL-databas
 

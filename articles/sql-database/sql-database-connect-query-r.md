@@ -1,5 +1,5 @@
 ---
-title: Använd R med Machine Learning Services för att fråga Azure SQL Database
+title: Använd R med Machine Learning Services för att fråga
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
 description: Den här artikeln visar hur du använder ett R-skript med Azure SQL Database Machine Learning Services för att ansluta till en Azure SQL-databas och fråga den med hjälp av Transact-SQL-uttryck.
 services: sql-database
@@ -13,20 +13,20 @@ ms.author: garye
 ms.reviewer: davidph, carlrab
 manager: cgronlun
 ms.date: 05/29/2019
-ms.openlocfilehash: ff38346a9b3bd14db51383c116240b030d3ee42a
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: a54b538247f81ea3bb0ea70a2af374158bd9e2ff
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514863"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826977"
 ---
-# <a name="quickstart-use-r-with-machine-learning-services-to-query-an-azure-sql-database-preview"></a>Snabbstart: Använda R med Machine Learning Services för att fråga en Azure SQL-databas (för hands version)
+# <a name="quickstart-use-r-with-machine-learning-services-to-query-an-azure-sql-database-preview"></a>Snabb start: Använd R med Machine Learning Services för att fråga en Azure SQL-databas (för hands version)
 
 Den här snabb starten visar hur du använder [R](https://www.r-project.org/) med Machine Learning Services för att ansluta till en Azure SQL-databas och använda Transact-SQL-uttryck för att fråga data. Machine Learning Services är en funktion i Azure SQL Database som används för att köra in-Database R-skript. Mer information finns i [Azure SQL Database Machine Learning Services med R (för hands version)](sql-database-machine-learning-services-overview.md).
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Kontrollera att du har följande så att du kan genomföra den här snabbstarten:
 
@@ -74,17 +74,17 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-da
 
 2. Navigera till sidan **SQL-databaser** eller **SQL-hanterade instanser**.
 
-3. På **översiktssidan** granskar du det fullständigt kvalificerade servernamnet bredvid **Servernamn** för en enkel databas eller det fullständigt kvalificerade servernamnet bredvid **Värd** för en hanterad instans. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och väljer ikonen **Kopiera**.
+3. På **översiktssidan** granskar du det fullständigt kvalificerade servernamnet bredvid **Servernamn** för en enkel databas eller det fullständigt kvalificerade servernamnet bredvid **Värd** för en hanterad instans. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och markerar ikonen **Kopiera**.
 
 ## <a name="create-code-to-query-your-sql-database"></a>Skapa kod för att fråga din SQL-databas
 
 1. Öppna **SQL Server Management Studio** och anslut till din SQL-databas.
 
-   Om du behöver hjälp med att ansluta [, se snabb start: Använda SQL Server Management Studio för att ansluta till och köra frågor mot en Azure SQL-databas](sql-database-connect-query-ssms.md).
+   Om du behöver hjälp med att ansluta, se [snabb start: använda SQL Server Management Studio för att ansluta och skicka frågor till en Azure SQL-databas](sql-database-connect-query-ssms.md).
 
-1. Skicka det fullständiga R-skriptet till den lagrade proceduren [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) .
+1. Skicka det fullständiga R-skriptet till den [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) lagrade proceduren.
 
-   Skriptet skickas genom `@script` argumentet. Allting i `@script` argumentet måste vara en giltig R-kod.
+   Skriptet skickas genom argumentet `@script`. Allt i argumentet `@script` måste vara en giltig R-kod.
    
    >[!IMPORTANT]
    >Koden i det här exemplet använder AdventureWorksLT-exempeldata, som du kan välja som källa när du skapar din databas. Om din databas har andra data använder du tabeller från din egen databas i SELECT-frågan. 

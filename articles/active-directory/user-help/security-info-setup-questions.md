@@ -1,5 +1,5 @@
 ---
-title: Konfigurera säkerhets information (för hands version) för att använda dina säkerhets frågor – Azure Active Directory | Microsoft Docs
+title: Konfigurera säkerhets information (för hands version) för säkerhets frågor – Azure AD
 description: Konfigurera din säkerhets information för att verifiera din identitet med hjälp av fördefinierade säkerhets frågor.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74ca733c02fe4bbabce410824151fedbf8d2e71e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: c2513b52c347db428b5ac0236a2561e5d4f1cdd2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160984"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820313"
 ---
 # <a name="set-up-security-info-preview-to-use-security-questions"></a>Konfigurera säkerhets information (för hands version) för att använda säkerhets frågor
 

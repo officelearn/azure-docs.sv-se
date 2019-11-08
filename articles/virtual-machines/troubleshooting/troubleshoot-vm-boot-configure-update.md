@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: 4263afe33caa4d6471848c8e7dbf9bc1eeec4bee
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: da45e24898bc3b5aead250077af69a61bdb33bab
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332543"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749635"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>Starten av den virtuella datorn har fastnat i "komma igång med Windows. Stäng inte av datorn i Azure
 
 Den här artikeln beskriver skärmarna "komma igång" och "komma igång med Windows" som du kan stöta på när du startar en virtuell Windows-dator (VM) i Microsoft Azure. Den innehåller steg som hjälper dig att samla in data för ett support ärende.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="symptoms"></a>Symtom
 
@@ -100,7 +100,7 @@ Kör följande skript för att aktivera dumpa logg och seriell konsol.
 3. [Koppla från OS-disken och återanslut sedan OS-disken till den berörda virtuella datorn](../windows/troubleshoot-recovery-disks-portal.md).
 4. Starta den virtuella datorn och få åtkomst till serie konsolen.
 5. Välj **skicka icke-Maskbart avbrott (NMI)** för att utlösa minnesdumpen.
-    ![the-avbildning om vart du ska skicka icke-Maskbart avbrott @ no__t-1
+    ![bilden om var du vill skicka ett icke-Maskbart avbrott](./media/troubleshoot-vm-configure-update-boot/run-nmi.png)
 6. Koppla OS-disken till en återställnings-VM igen och samla in dump-filen.
 
 ## <a name="contact-microsoft-support"></a>Kontakta Microsoft-supporten

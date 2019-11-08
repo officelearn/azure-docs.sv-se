@@ -11,16 +11,16 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 10/02/2019
 ms.author: diberry
-ms.openlocfilehash: 224afcc4a6301b74ad54064df4b65b7cf447c6c6
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 569846755ea363cd3816a22469cd7f05d8c42f4c
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721129"
+ms.locfileid: "73794084"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-java"></a>Snabbstart: Publicera en kunskapsbas i QnA Maker med hjälp av Java
 
-Den här REST-baserade snabbstarten går igenom hur du programmatiskt publicerar din kunskapsbas (KB). Publicering skickar den senaste versionen av kunskapsbasen till ett dedikerat Azure Search-index och skapar en slutpunkt som kan anropas i ditt program eller en chattrobot.
+Den här REST-baserade snabbstarten går igenom hur du programmatiskt publicerar din kunskapsbas (KB). Publiceringen skickar push-överför den senaste versionen av kunskaps basen till ett dedikerat Azure Kognitiv sökning-index och skapar en slut punkt som kan anropas i ditt program eller chatt-robot.
 
 Den här snabbstarten anropar API:er för QnA Maker:
 * [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) (Publicera) – detta API kräver inte någon information i brödtexten för begäran.

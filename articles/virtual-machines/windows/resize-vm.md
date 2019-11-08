@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 9537744787df7fc6c470bc1ee6862ad3f2991ae9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1f5f8f3a315b894ab8bc972d36008b5bce85d8e7
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088731"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749239"
 ---
 # <a name="resize-a-windows-vm"></a>Ändra storlek på en virtuell Windows-dator
 
@@ -29,7 +29,7 @@ När du har skapat en virtuell dator (VM) kan du skala upp eller ned den virtuel
 
 Om din virtuella dator använder Premium Storage, se till att du väljer en **s** -version av storleken för att få Premium Storage support. Välj till exempel Standard_E4**s**_v3 i stället för Standard_E4_v3.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="resize-a-windows-vm-not-in-an-availability-set"></a>Ändra storlek på en virtuell Windows-dator som inte finns i en tillgänglighets uppsättning
 
@@ -54,7 +54,7 @@ $vm.HardwareProfile.VmSize = "<newVMsize>"
 Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 ```
 
-Om den storlek som du vill ha inte visas i listan kör du följande kommandon för att frigöra den virtuella datorn, ändra storlek på den och starta om den virtuella datorn. **Ersätt\<newVMsize >** med den storlek som du vill ha.
+Om den storlek som du vill ha inte visas i listan kör du följande kommandon för att frigöra den virtuella datorn, ändra storlek på den och starta om den virtuella datorn. Ersätt **\<newVMsize >** med den storlek du önskar.
    
 ```powershell
 Stop-AzVM -ResourceGroupName $resourceGroup -Name $vmName -Force

@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 3f2c768fe7998cc166e3102619e7183c96d1ccbb
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 813263442bc82254d0cb5ea9e9f7e8a265de5b4a
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965353"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748216"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Skapa och ändra peering för en ExpressRoute-krets med PowerShell
 
 Den här artikeln hjälper dig att skapa och hantera konfiguration av routning för en ExpressRoute-krets i distributions modellen för Resource Manager med hjälp av PowerShell. Du kan också kontrol lera status, uppdatera eller ta bort och avetablera peer-kopplingar för en ExpressRoute-krets. Om du vill använda en annan metod för att arbeta med din krets väljer du en artikel i följande lista:
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](expressroute-howto-routing-portal-resource-manager.md)
+> * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
 > * [Video-privat peering](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
@@ -37,7 +37,7 @@ Dessa anvisningar gäller endast för kretsar som skapats med tjänstleverantör
 > 
 > 
 
-Du kan konfigurera en, två eller alla tre peerings (Azure privat, Azure offentlig och Microsoft) för en ExpressRoute-krets. Du kan konfigurera peerings i valfri ordning. Dock måste du se till att du slutför konfigurationen av en peering i taget. Mer information om routningsdomäner och peering-domäner finns i [ExpressRoute](expressroute-circuit-peerings.md).
+Du kan konfigurera en, två eller alla tre peerings (Azure privat, Azure offentlig och Microsoft) för en ExpressRoute-krets. Du kan konfigurera peerings i valfri ordning. Dock måste du se till att du slutför konfigurationen av en peering i taget. Läs mer om routning domäner och peerings [ExpressRoute-routningsdomäner](expressroute-circuit-peerings.md).
 
 ## <a name="configuration-prerequisites"></a>Förutsättningar för konfiguration
 
@@ -46,7 +46,7 @@ Du kan konfigurera en, två eller alla tre peerings (Azure privat, Azure offentl
 
 ### <a name="working-with-azure-powershell"></a>Arbeta med Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 

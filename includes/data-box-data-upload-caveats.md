@@ -3,20 +3,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: include
-ms.date: 05/21/2019
+ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: b159ec8620fa8c93e4917f73be9b9898e1b4fbcc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16647b6a13e64073ab570d36a8a380d0e36bd855
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244612"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73800141"
 ---
-- Inte kopiera filerna direkt till någon av de införande resurserna. Du måste skapa en mapp under resursen och kopierar sedan filerna till mappen.
-- En mapp under den *StorageAccount_BlockBlob* och *StorageAccount_PageBlob* är en behållare. Exempelvis behållare skapas som *StorageAccount_BlockBlob/behållare* och *StorageAccount_PageBlob/behållare*.
+- Kopiera inte filer direkt till någon av de förskapade resurserna. Du måste skapa en mapp under resursen och sedan kopiera filer till den mappen.
+- En mapp under *StorageAccount_BlockBlob* och *StorageAccount_PageBlob* är en behållare. Till exempel skapas behållare som *StorageAccount_BlockBlob/container* och *StorageAccount_PageBlob/container*.
 - Varje mapp som skapas direkt under *StorageAccount_AzureFiles* översätts till en Azure-filresurs.
-- Om du har ett befintligt Azure objekt (till exempel en blob eller en fil) i molnet med samma namn som det objekt som ska kopieras skrivs Data Box till filen i molnet.
-- Alla filer som skrivits till *StorageAccount_BlockBlob* och *StorageAccount_PageBlob* resurser överförs som en blockblob och sidblob respektive.
-- Azure blob storage stöder inte kataloger. Om du skapar en mapp under den *StorageAccount_BlockBlob* mapp, skapas virtuella mappar i blobnamnet. För Azure Files bevaras faktiska katalogstruktur.
-- Eventuella tomma Kataloghierarki (utan några filer) som skapats under *StorageAccount_BlockBlob* och *StorageAccount_PageBlob* mappar inte överförts.
-- Om det finns några fel när du överför data till Azure, skapas en fellogg i mållagringskontot. Sökvägen till den här loggen är tillgänglig när överföringen är klar och du kan granska loggen för att vidta åtgärder. Ta inte bort data från källan utan att verifiera överförda data.
+- Om du har ett befintligt Azure-objekt (till exempel en BLOB eller en fil) i molnet med samma namn som det objekt som ska kopieras skrivs filen i molnet om Data Box-enhet.
+- Varje fil som skrivs till *StorageAccount_BlockBlob* -och *StorageAccount_PageBlob* -resurser laddas upp som en Block-Blob och Page blob.
+- Azure Blob Storage stöder inte kataloger. Om du skapar en mapp under mappen *StorageAccount_BlockBlob* skapas virtuella mappar i BLOB-namnet. För Azure Files underhålls den faktiska katalog strukturen.
+- En tom katalogpartition (utan några filer) som skapats under *StorageAccount_BlockBlob* och *StorageAccount_PageBlob* mappar laddas inte upp.
+- Om det uppstår några fel när data överförs till Azure skapas en fellogg på mål lagrings kontot. Sökvägen till den här fel loggen är tillgänglig när överföringen är klar och du kan granska loggen för att vidta lämpliga åtgärder. Ta inte bort data från källan utan att verifiera överförda data.
+- Fil-metadata och NTFS-behörigheter bevaras inte när data överförs till Azure Files. Till exempel kommer det *senast ändrade attributet* för filerna inte att sparas när data kopieras.

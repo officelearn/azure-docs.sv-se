@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 76110fa04441540875e65c8bc056fc21555c5db6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 74ef55fe9a0a6603bd43d68b6b8557dce1bca921
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102287"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749139"
 ---
 # <a name="create-a-snapshot"></a>Skapa en ögonblicksbild
 
@@ -30,7 +30,7 @@ Om du vill använda ögonblicks bilden för att skapa en ny virtuell dator, reko
 ## <a name="use-the-azure-portal"></a>Använda Azure-portalen 
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj **skapa en resurs**i den vänstra menyn och Sök sedan efter och välj ögonblicks **bild**.
+2. Välj **skapa en resurs**i den vänstra menyn och Sök sedan efter och välj **ögonblicks bild**.
 3. I fönstret **ögonblicks bild** väljer du **skapa**. Fönstret **skapa ögonblicks bild** visas.
 4. Ange ett **namn** för ögonblicks bilden.
 5. Välj en befintlig [resurs grupp](../../azure-resource-manager/resource-group-overview.md#resource-groups) eller ange namnet på en ny resurs grupp. 
@@ -43,7 +43,7 @@ Om du vill använda ögonblicks bilden för att skapa en ny virtuell dator, reko
 
 Följande steg visar hur du kopierar VHD-disken, skapar ögonblicks bilds konfigurationen och tar en ögonblicks bild av disken med hjälp av cmdleten [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) . 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 1. Ange några parametrar: 
 
@@ -72,7 +72,7 @@ Följande steg visar hur du kopierar VHD-disken, skapar ögonblicks bilds konfig
    ```
    
    > [!NOTE]
-   > Om du vill lagra din ögonblicks bild i en zon fri lagring skapar du den i en region som stöder [tillgänglighets zoner](../../availability-zones/az-overview.md) och inkluderar `-SkuName Standard_ZRS` parametern.   
+   > Om du vill lagra din ögonblicks bild i en zon fri lagring skapar du den i en region som stöder [tillgänglighets zoner](../../availability-zones/az-overview.md) och inkluderar parametern `-SkuName Standard_ZRS`.   
    
 4. Ta ögonblicks bilden:
 

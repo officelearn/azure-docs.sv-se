@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0a1515144f340938cddfd5ca9f2ac4803bcb3f77
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 2e7646d2f84696d0b04183d8d06b96405909de87
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174722"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750037"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Azure Disk Encryption scenarier på virtuella Linux-datorer
 
@@ -42,7 +42,7 @@ Azure Disk Encryption kan aktive ras och hanteras via [Azure CLI](/cli/azure) oc
 
 [Azure CLI 2,0](/cli/azure) är ett kommando rads verktyg för att hantera Azure-resurser. CLI är utformat för flexibel frågedata, stöder långvariga åtgärder som icke-blockerande processer och gör skript enkla. Du kan installera det lokalt genom att följa stegen i [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 Om du vill [Logga in på ditt Azure-konto med Azure CLI](/cli/azure/authenticate-azure-cli)använder du kommandot [AZ login](/cli/azure/reference-index?view=azure-cli-latest#az-login) .
 
@@ -403,5 +403,5 @@ Azure Disk Encryption fungerar inte för följande scenarier, funktioner och tek
 ## <a name="next-steps"></a>Nästa steg
 
 - [Översikt över Azure Disk Encryption](disk-encryption-overview.md)
-- [Azure Disk Encryption exempel skript](disk-encryption-sample-scripts.md)
-- [Azure Disk Encryption fel sökning](disk-encryption-troubleshooting.md)
+- [Exempelskript för Azure Disk Encryption](disk-encryption-sample-scripts.md)
+- [Felsökning för Azure Disk Encryption](disk-encryption-troubleshooting.md)

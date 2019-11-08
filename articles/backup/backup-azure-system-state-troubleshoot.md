@@ -1,6 +1,6 @@
 ---
 title: Felsöka säkerhets kopiering av system tillstånd med Azure Backup
-description: Felsök problem med säkerhets kopiering av system tillstånd.
+description: I den här artikeln får du lära dig hur du felsöker problem med säkerhets kopiering av system tillstånd för lokala Windows-servrar.
 ms.reviewer: srinathv
 author: dcurwin
 manager: carmonm
@@ -9,18 +9,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: dacurwin
-ms.openlocfilehash: 26ba811eba1a25dacddd04814f8e0d2805360920
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 71a2b73ab3570539a566f708ea8b1a41963d4e81
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018786"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747300"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Felsöka säkerhets kopiering av system tillstånd
 
 I den här artikeln beskrivs lösningar för problem som kan uppstå när du använder säkerhets kopiering av system tillstånd.
 
 ## <a name="basic-troubleshooting"></a>Grundläggande felsökning
+
 Vi rekommenderar att du utför nedanstående verifiering innan du börjar felsöka säkerhets kopiering av system tillstånd:
 
 - [Se till att Microsoft Azure Recovery Services (MARS) Agent är uppdaterad](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
@@ -40,6 +41,7 @@ Vi rekommenderar att du utför nedanstående verifiering innan du börjar felsö
 - [Att tänka på när säkerhets kopierings agenten körs på en virtuell Azure-dator](https://aka.ms/AB-AA4dwtr)
 
 ### <a name="limitation"></a>Begränsning
+
 - Återställning till annan maskinvara genom återställning av systemtillståndet rekommenderas inte av Microsoft
 - Säkerhets kopiering av system tillstånd stöder för närvarande lokala Windows-servrar, men den här funktionen är inte tillgänglig för virtuella Azure-datorer.
 
@@ -54,9 +56,10 @@ Se till att Windows Server Backup är installerat och aktiverat på servern. Om 
  ```powershell
 Get-WindowsFeature Windows-Server-Backup
  ```
+
 Om utdata visar **installations status** som **tillgänglig**innebär det att Windows Server Backup-funktionen är tillgänglig för installationen men inte är installerad på servern. Men om Windows Server Backup inte är installerat kan du använda någon av metoderna nedan för att installera den.
 
-**Metod 1: Installera Windows Server Backup med PowerShell**
+#### <a name="method-1-install-windows-server-backup-using-powershell"></a>Metod 1: installera Windows Server Backup med PowerShell
 
 Kör följande kommando för att installera Windows Server Backup med PowerShell:
 
@@ -64,7 +67,7 @@ Kör följande kommando för att installera Windows Server Backup med PowerShell
   Install-WindowsFeature -Name Windows-Server-Backup
   ```
 
-**Metod 2: Installera Windows Server Backup med Serverhanteraren**
+#### <a name="method-2-install-windows-server-backup-using-server-manager"></a>Metod 2: installera Windows Server Backup med Serverhanteraren
 
 Följ stegen nedan om du vill installera Windows Server Backup med hjälp av Serverhanteraren:
 
@@ -84,8 +87,7 @@ Följ stegen nedan om du vill installera Windows Server Backup med hjälp av Ser
 5. På fliken **bekräftelse** klickar du på **Installera** för att starta installations processen.
 6. På fliken **resultat** visas Windows Server Backup funktionen har installerats på Windows-servern.
 
-    ![Resultatet](./media/backup-azure-system-state-troubleshoot/results.jpg)
-
+    ![medför](./media/backup-azure-system-state-troubleshoot/results.jpg)
 
 ### <a name="system-volume-information-permission"></a>Behörighet för system volym information
 
@@ -97,34 +99,34 @@ Se till att nedanstående tjänster är i körnings tillstånd:
 
 **Tjänst namn** | **Starttyp**
 --- | ---
-RPC (Remote Procedure Call) | Automatiskt
-COM+-händelse system (EventSystem) | Automatiskt
-SENS (system Event Notification Service) | Automatiskt
+RPC (Remote Procedure Call) | Automatisk
+COM+-händelse system (EventSystem) | Automatisk
+SENS (system Event Notification Service) | Automatisk
 Volume Shadow Copy (VSS) | Manuell
 Microsoft Software Shadow Copy-Provider (SWPRV) | Manuell
 
 ### <a name="validate-windows-server-backup-status"></a>Verifiera Windows Server Backup status
 
-Gör så här för att verifiera Windows Server Backup status:
+Utför stegen nedan för att verifiera Windows Server Backup status:
 
-  * Se till att WSB PowerShell körs
+- Se till att WSB PowerShell körs
 
-    -   Kör `Get-WBJob` från en upphöjd PowerShell och se till att den inte returnerar följande fel:
+  - Kör `Get-WBJob` från en upphöjd PowerShell och se till att det inte returnerar följande fel:
 
     > [!WARNING]
-    > Get-WBJob: Termen "Get-WBJob" känns inte igen som namnet på en cmdlet, Function, skript fil eller fungerande program. Kontrol lera stavningen av namnet eller om en sökväg har inkluderats, kontrol lera att sökvägen är korrekt och försök igen.
+    > Get-WBJob: termen "Get-WBJob" känns inte igen som namnet på en cmdlet, Function, skript fil eller fungerande program. Kontrol lera stavningen av namnet eller om en sökväg har inkluderats, kontrol lera att sökvägen är korrekt och försök igen.
 
-    -   Om det Miss lyckas med det här felet kan du installera om Windows Server Backup-funktionen på serverdatorn enligt anvisningarna i steg 1.
+    - Om det Miss lyckas med det här felet kan du installera om Windows Server Backup-funktionen på serverdatorn enligt anvisningarna i steg 1.
 
-  * Se till att säkerhets kopieringen WSB fungerar korrekt genom att köra kommandot nedan från upphöjd kommando tolk:
+  - Se till att säkerhets kopieringen WSB fungerar korrekt genom att köra kommandot nedan från upphöjd kommando tolk:
 
       `wbadmin start systemstatebackup -backuptarget:X: -quiet`
 
       > [!NOTE]
       >Ersätt X med enhets bokstaven för den volym där du vill lagra säkerhets kopian av system tillstånd.
 
-    - Kontrol lera regelbundet status för jobbet genom att köra `Get-WBJob` kommandot från upphöjt PowerShell        
-    - När säkerhets kopierings jobbet har slutförts kontrollerar du jobbets slutliga status `Get-WBJob -Previous 1` genom att köra kommandot
+    - Kontrol lera regelbundet status för jobbet genom att köra `Get-WBJob` kommando från utökad PowerShell
+    - När säkerhets kopierings jobbet har slutförts kontrollerar du jobbets slut status genom att köra `Get-WBJob -Previous 1` kommandot
 
 Om jobbet Miss lyckas indikerar det ett WSB-problem som skulle resultera i att säkerhets kopieringen av MARS-agenten Miss lyckas.
 
@@ -132,24 +134,21 @@ Om jobbet Miss lyckas indikerar det ett WSB-problem som skulle resultera i att s
 
 ### <a name="vss-writer-timeout-error"></a>Tids gräns fel för VSS-skrivare
 
-| Symtom | Orsak | Lösning
+| Symptom | Orsak | Lösning
 | -- | -- | --
-| -MARS-agenten Miss lyckas med fel meddelandet: "WSB-jobbet misslyckades med VSS-fel. Kontrol lera händelse loggarna för VSS för att lösa problemet "<br/><br/> – Följande fel logg finns i händelse loggar för VSS-program: "En VSS-skrivare har avvisat en händelse med fel 0x800423f2, skrivarens tids gräns överskreds mellan Freeze-och Tina-händelserna."| VSS Writer kan inte slutföras i tid på grund av brist på processor-och minnes resurser på datorn <br/><br/> En annan säkerhets kopierings program vara använder redan VSS-skrivaren eftersom det inte gick att slutföra ögonblicks bilds åtgärden för den här säkerhets kopian | Vänta tills CPU/minne har frigjorts på systemet eller Avbryt processer som tar för mycket minne/CPU och försök sedan igen <br/><br/>  Vänta tills den pågående säkerhets kopieringen har slutförts och försök sedan igen vid ett senare tillfälle när inga säkerhets kopior körs på datorn
-
+| -MARS-agenten Miss lyckas med fel meddelandet "WSB-jobbet misslyckades med VSS-fel. Kontrol lera händelse loggarna för VSS för att lösa problemet "<br/><br/> – Följande fel logg finns i händelse loggar för VSS-program: "en VSS-skrivare har avvisat en händelse med fel 0x800423f2, skrivarens tids gräns överskreds mellan låsnings-och Tina-händelserna."| VSS Writer kan inte slutföras i tid på grund av brist på processor-och minnes resurser på datorn <br/><br/> En annan säkerhets kopierings program vara använder redan VSS-skrivaren eftersom det inte gick att slutföra ögonblicks bilds åtgärden för den här säkerhets kopian | Vänta tills CPU/minne har frigjorts på systemet eller Avbryt processer som tar för mycket minne/CPU och försök sedan igen <br/><br/>  Vänta tills den pågående säkerhets kopieringen har slutförts och försök sedan igen vid ett senare tillfälle när inga säkerhets kopior körs på datorn
 
 ### <a name="insufficient-disk-space-to-grow-shadow-copies"></a>Det finns inte tillräckligt med disk utrymme för att öka skugg kopior
 
-| Symtom | Lösning
+| Symptom | Lösning
 | -- | --
-| -MARS-agenten Miss lyckas med fel meddelandet: Det gick inte att säkerhetskopiera eftersom skugg kopie volymen inte kunde växa på grund av otillräckligt disk utrymme på volymer som innehåller systemfiler <br/><br/> -Följande fel/varnings logg finns i volsnap-systemets händelse loggar: "Det fanns inte tillräckligt med disk utrymme på volym C: för att öka lagrings utrymmet för skugg kopior av C: på grund av detta problem alla skugg kopior av volym C: riskerar att tas bort" | – Frigör utrymme på den markerade volymen i händelse loggen så att det finns tillräckligt med utrymme för skugg kopior som ska växa medan säkerhets kopiering pågår <br/><br/> – När du konfigurerar skugg kopierings utrymme kan vi begränsa mängden utrymme som används för skugg kopior. Mer information finns i den här [artikeln](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax)
-
+| -MARS-agenten Miss lyckas med fel meddelandet: det gick inte att säkerhetskopiera eftersom skugg kopie volymen inte kunde växa på grund av otillräckligt disk utrymme på volymer som innehåller systemfiler <br/><br/> -Följande fel/varnings logg finns i volsnap-systemets händelse loggar: "det fanns inte tillräckligt med disk utrymme på volym C: för att öka skugg kopians lagrings utrymme för skugg kopior av C: på grund av detta fel alla skugg kopior av volym C: riskerar att tas bort" | – Frigör utrymme på den markerade volymen i händelse loggen så att det finns tillräckligt med utrymme för skugg kopior som ska växa medan säkerhets kopiering pågår <br/><br/> – När du konfigurerar skugg kopierings utrymme kan vi begränsa mängden utrymme som används för skugg kopior. Mer information finns i den här [artikeln](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax)
 
 ### <a name="efi-partition-locked"></a>EFI-partitionen är låst
 
-| Symtom | Lösning
+| Symptom | Lösning
 | -- | --
 | MARS-agenten Miss lyckas med fel meddelandet: "Det gick inte att säkerhetskopiera system tillstånd eftersom EFI-systempartitionen är låst. Detta kan bero på systempartitions åtkomst av säkerhets-eller säkerhets kopierings program från tredje part | – Om problemet beror på en säkerhets program vara från tredje part måste du kontakta leverantören av antivirus programmet så att de kan tillåta MARS-agenten <br/><br/> – Om en program vara från tredje part körs, väntar du tills den är klar och försöker sedan säkerhetskopiera igen
-
 
 ## <a name="next-steps"></a>Nästa steg
 

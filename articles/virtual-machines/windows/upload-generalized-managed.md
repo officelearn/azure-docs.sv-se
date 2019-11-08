@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 6382a39e67805eb9bddb356a7b76205a82f3f7c2
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: ead44c321ffb7afb69295d1bf8c0e1acd26cb9ce
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553462"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749069"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Överför en generaliserad virtuell hård disk och Använd den för att skapa nya virtuella datorer i Azure
 
@@ -32,7 +32,7 @@ Ett exempel skript finns i [exempel skript för att ladda upp en virtuell hård 
 - Innan du laddar upp en virtuell hård disk till Azure bör du följa [förbereda en virtuell Windows-VHD eller VHDX för uppladdning till Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - Granska [planen för migreringen till Managed disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) innan du påbörjar migreringen till [Managed disks](managed-disks-overview.md).
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 
 ## <a name="generalize-the-source-vm-by-using-sysprep"></a>Generalisera den virtuella käll datorn med hjälp av Sysprep

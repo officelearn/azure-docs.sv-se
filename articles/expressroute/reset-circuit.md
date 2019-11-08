@@ -1,5 +1,5 @@
 ---
-title: 'Återställa en misslyckad krets - ExpressRoute: PowerShell: Azure | Microsoft Docs'
+title: 'Återställa en misslyckad krets-ExpressRoute: PowerShell: Azure | Microsoft Docs'
 description: Den här artikeln hjälper dig att återställa en ExpressRoute-krets som är i ett felaktigt tillstånd.
 services: expressroute
 author: anzaman
@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: anzaman
 ms.custom: seodec18
-ms.openlocfilehash: f6fd8e5f0e5730e55fa5bbe13f74be796dd6a4cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: deeb1c65cae7e3a5b42230dbda1ad8efa717ba0b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66115843"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748101"
 ---
 # <a name="reset-a-failed-expressroute-circuit"></a>Återställa en misslyckad ExpressRoute-krets
 
-När en åtgärd på en ExpressRoute-krets inte slutförs korrekt kan kretsen gå in i tillståndet ”misslyckades”. Den här artikeln hjälper dig att återställa en misslyckad Azure ExpressRoute-krets.
+När en åtgärd på en ExpressRoute-krets inte slutförs kan kretsen hamna i ett misslyckat tillstånd. Den här artikeln hjälper dig att återställa en misslyckad Azure ExpressRoute-krets.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 ## <a name="reset-a-circuit"></a>Återställa en krets
 
@@ -48,8 +48,8 @@ När en åtgärd på en ExpressRoute-krets inte slutförs korrekt kan kretsen g�
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    ```
 
-Nu bör kretsen felfritt. Öppna ett supportärende med [Microsoft-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om kretsen är fortfarande i ett felaktigt tillstånd.
+Kretsen bör nu vara felfri. Öppna ett support ärende med [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om kretsen fortfarande är i ett felaktigt tillstånd.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Öppna ett supportärende med [Microsoft-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om du fortfarande har problem.
+Öppna ett support ärende med [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om det fortfarande uppstår problem.

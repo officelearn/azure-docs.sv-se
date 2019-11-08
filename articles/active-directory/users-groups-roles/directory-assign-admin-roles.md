@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 10/28/2019
+ms.date: 11/06/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea38317868d183bd02958398b51ef906eb78e799
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e1e4fe4c06833302ac3ef9794981ee4a47fa454b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177024"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747767"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administratörs roll behörigheter i Azure Active Directory
 
@@ -74,13 +74,13 @@ Användare med den här rollen kan ange eller återställa autentiseringsuppgift
 * Rapport läsare
 
 > [!IMPORTANT]
-> Användare med den här rollen kan ändra autentiseringsuppgifter för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra autentiseringsuppgifterna för en användare kan innebära att du förutsätter att användarens identitet och behörigheter. Exempel:
-
-* Program registrering och företags program ägare, som kan hantera autentiseringsuppgifter för appar som de äger. De här apparna kan ha privilegierade behörigheter i Azure AD och inte beviljas till autentiserings administratörer. Genom den här sökvägen kan en administratörs administratör kunna ta hänsyn till identiteten för en program ägare och sedan ytterligare anta identiteten för ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
-* Azure-Prenumerationens ägare, som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i Azure.
-* Säkerhets grupp och Office 365-grupp ägare, som kan hantera grupp medlemskap. Dessa grupper kan ge åtkomst till känslig eller privat information eller kritisk konfiguration i Azure AD och någon annan stans.
-* Administratörer i andra tjänster utanför Azure AD, till exempel Exchange Online, Office Security och Compliance Center och personal system.
-* Icke-administratörer som chefer, juridiska konsulter och personal anställda som kan ha till gång till känslig eller privat information.
+> Användare med den här rollen kan ändra autentiseringsuppgifter för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra autentiseringsuppgifterna för en användare kan innebära att du förutsätter att användarens identitet och behörigheter. Till exempel:
+>
+>- Program registrering och företags program ägare, som kan hantera autentiseringsuppgifter för appar som de äger. De här apparna kan ha privilegierade behörigheter i Azure AD och inte beviljas till autentiserings administratörer. Genom den här sökvägen kan en administratörs administratör kunna ta hänsyn till identiteten för en program ägare och sedan ytterligare anta identiteten för ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
+>- Azure-Prenumerationens ägare, som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i Azure.
+>- Säkerhets grupp och Office 365-grupp ägare, som kan hantera grupp medlemskap. Dessa grupper kan ge åtkomst till känslig eller privat information eller kritisk konfiguration i Azure AD och någon annan stans.
+>- Administratörer i andra tjänster utanför Azure AD, till exempel Exchange Online, Office Security och Compliance Center och personal system.
+>- Icke-administratörer som chefer, juridiska konsulter och personal anställda som kan ha till gång till känslig eller privat information.
 
 ### <a name="azure-devops-administratorazure-devops-administrator-permissions"></a>[Azure DevOps-administratör](#azure-devops-administrator-permissions)
 
@@ -139,7 +139,7 @@ För | Kan göra
 [Compliance Manager](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Spåra, tilldela och verifiera organisationens uppgifter för regelefterlevnad
 [Office 365 Säkerhets-och efterlevnadscenter](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Hantera data styrning<br>Utföra juridisk information och data undersökning<br>Hantera begäran om data subjekt<br><br>Den här rollen har samma behörigheter som [mängdsredigeraren för regelefterlevnad](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center) i Office 365 säkerhets-och Efterlevnadscenter rollbaserad åtkomst kontroll.
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Visa alla gransknings data i Intune
-[Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Har Läs behörighet och kan hantera aviseringar<br>Kan skapa och ändra fil principer och tillåta fil styrnings åtgärder<br> Kan visa alla inbyggda rapporter under Datahantering
+[Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Har Läs behörighet och kan hantera aviseringar<br>Kan skapa och ändra fil principer och tillåta fil styrnings åtgärder<br>Kan visa alla inbyggda rapporter under Datahantering
 
 ### <a name="compliance-data-administratorcompliance-data-administrator-permissions"></a>[Data administratör för efterlevnad](#compliance-data-administrator-permissions)
 
@@ -151,7 +151,7 @@ För | Kan göra
 [Compliance Manager](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Spåra, tilldela och verifiera organisationens uppgifter för regelefterlevnad
 [Office 365 Säkerhets-och efterlevnadscenter](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Hantera data styrning<br>Utföra juridisk information och data undersökning<br>Hantera begäran om data subjekt<br><br>Den här rollen har samma behörigheter som [Administratörs mängdsredigeraren för](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center) i Office 365 säkerhets-och Efterlevnadscenter rollbaserad åtkomst kontroll.
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Visa alla gransknings data i Intune
-[Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Har Läs behörighet och kan hantera aviseringar<br>Kan skapa och ändra fil principer och tillåta fil styrnings åtgärder<br> Kan visa alla inbyggda rapporter under Datahantering
+[Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Har Läs behörighet och kan hantera aviseringar<br>Kan skapa och ändra fil principer och tillåta fil styrnings åtgärder<br>Kan visa alla inbyggda rapporter under Datahantering
 
 ### <a name="conditional-access-administratorconditional-access-administrator-permissions"></a>[Administratör för villkorlig åtkomst](#conditional-access-administrator-permissions)
 
@@ -224,14 +224,14 @@ Användare med den här rollen kan läsa inställningar och administrativ inform
 > [!NOTE]
 > Global läsar roll har några begränsningar just nu –
 >
->* Administrations Center för SharePoint – administrations Center för SharePoint har inte stöd för rollen global läsare. Du ser inte SharePoint i det vänstra fönstret under administrations Center i [Microsoft 365 administrations Center](https://admin.microsoft.com/Adminportal/Home#/homepage).
->* [Administrations Center för OneDrive](https://admin.onedrive.com/) – administrations Center för OneDrive stöder inte rollen global läsare.
->* [Azure AD-portalen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) – den globala läsaren kan inte läsa etablerings läget för en företags app.
->* [M365 administrations Center](https://admin.microsoft.com/Adminportal/Home#/homepage) – den globala läsaren kan inte läsa förfrågningar om kundsäkerhet. Du hittar inte fliken **Customer Locked-begäranden** under **stöd** i den vänstra rutan i M365 administrations Center.
->* [M365 Security Center](https://security.microsoft.com/homepage) – den globala läsaren kan inte läsa känslighets-och lagrings etiketter. Du hittar inte **känslighets etiketter**, **lagrings etiketter**och **etikett Analytics** -flikar i den vänstra rutan i M365 Security Center.
->* [Team administrations Center](https://admin.teams.microsoft.com) – den globala läsaren kan inte läsa **team livs cykeln**, analysera **& rapporter**, **hantering av IP-telefon enheter** och **program katalog**.
->* [Privileged Access Management (PAM)](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) stöder inte rollen global läsare.
->* [Azure information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) – global läsare stöds endast för [Central rapportering](https://docs.microsoft.com/azure/information-protection/reports-aip) och när din klient inte finns på den [enhetliga etiketterande plattformen](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
+>- Administrations Center för SharePoint – administrations Center för SharePoint har inte stöd för rollen global läsare. Du ser inte SharePoint i det vänstra fönstret under administrations Center i [Microsoft 365 administrations Center](https://admin.microsoft.com/Adminportal/Home#/homepage).
+>- [Administrations Center för OneDrive](https://admin.onedrive.com/) – administrations Center för OneDrive stöder inte rollen global läsare.
+>- [Azure AD-portalen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) – den globala läsaren kan inte läsa etablerings läget för en företags app.
+>- [M365 administrations Center](https://admin.microsoft.com/Adminportal/Home#/homepage) – den globala läsaren kan inte läsa förfrågningar om kundsäkerhet. Du hittar inte fliken **Customer Locked-begäranden** under **stöd** i den vänstra rutan i M365 administrations Center.
+>- [M365 Security Center](https://security.microsoft.com/homepage) – den globala läsaren kan inte läsa känslighets-och lagrings etiketter. Du hittar inte **känslighets etiketter**, **lagrings etiketter**och **etikett Analytics** -flikar i den vänstra rutan i M365 Security Center.
+>- [Team administrations Center](https://admin.teams.microsoft.com) – den globala läsaren kan inte läsa **team livs cykeln**, analysera **& rapporter**, **hantering av IP-telefon enheter** och **program katalog**.
+>- [Privileged Access Management (PAM)](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) stöder inte rollen global läsare.
+>- [Azure information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) – global läsare stöds endast [för central rapportering](https://docs.microsoft.com/azure/information-protection/reports-aip) , och när din Azure AD-organisation inte finns på den [enhetliga etiketterande plattformen](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
 >
 > Dessa funktioner håller på att utvecklas.
 >
@@ -255,18 +255,17 @@ Användare med den här rollen kan ändra lösen ord, ogiltig uppdatera tokens, 
 * Rapport läsare
 
 > [!IMPORTANT]
-> Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Exempel:
-
-* Program registrering och företags program ägare, som kan hantera autentiseringsuppgifter för appar som de äger. De här apparna kan ha privilegierade behörigheter i Azure AD och beviljas ingen annan support administratör. Med hjälp av den här sökvägen kan IT-administratören kunna ta hänsyn till identiteten för en program ägare och sedan ytterligare utgå från identiteten för ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
-* Azure-Prenumerationens ägare, som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i Azure.
-* Säkerhets grupp och Office 365-grupp ägare, som kan hantera grupp medlemskap. Dessa grupper kan ge åtkomst till känslig eller privat information eller kritisk konfiguration i Azure AD och någon annan stans.
-* Administratörer i andra tjänster utanför Azure AD, till exempel Exchange Online, Office Security och Compliance Center och personal system.
-* Icke-administratörer som chefer, juridiska konsulter och personal anställda som kan ha till gång till känslig eller privat information.
-
-> [!NOTE]
-> Det kan vara möjligt att delegera administrativa behörigheter över del mängder av användare och tillämpa principer på en delmängd användare med [administrativa enheter (förhands granskning)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units).
+> Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Till exempel:
 >
-> Den här rollen kallades tidigare för "lösen ords administratör" i [Azure Portal](https://portal.azure.com/). Vi har ändrat namnet till "supportavdelningens administratör" för att matcha namnet i Azure AD PowerShell, Azure AD Graph API och Microsoft Graph API.
+>- Program registrering och företags program ägare, som kan hantera autentiseringsuppgifter för appar som de äger. De här apparna kan ha privilegierade behörigheter i Azure AD och beviljas ingen annan support administratör. Med hjälp av den här sökvägen kan IT-administratören kunna ta hänsyn till identiteten för en program ägare och sedan ytterligare utgå från identiteten för ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
+>- Azure-Prenumerationens ägare, som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i Azure.
+>- Säkerhets grupp och Office 365-grupp ägare, som kan hantera grupp medlemskap. Dessa grupper kan ge åtkomst till känslig eller privat information eller kritisk konfiguration i Azure AD och någon annan stans.
+>- Administratörer i andra tjänster utanför Azure AD, till exempel Exchange Online, Office Security och Compliance Center och personal system.
+>- Icke-administratörer som chefer, juridiska konsulter och personal anställda som kan ha till gång till känslig eller privat information.
+
+Att delegera administrativa behörigheter över del mängder av användare och tillämpa principer på en delmängd av användare är möjligt med [administrativa enheter (nu i offentlig för hands version)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units).
+
+Den här rollen kallades tidigare för "lösen ords administratör" i [Azure Portal](https://portal.azure.com/). Namnet "supportavdelningen administratör" i Azure AD matchar nu namnet i Azure AD PowerShell, Azure AD Graph API och Microsoft Graph API.
 
 ### <a name="intune-administratorintune-service-administrator-permissions"></a>[Intune-administratör](#intune-service-administrator-permissions)
 
@@ -351,7 +350,7 @@ För | Kan göra
 Identitets skydds Center | Alla behörigheter för säkerhets läsar rollen<br>Dessutom kan du utföra alla åtgärder för identitets skydds Center förutom att återställa lösen ord
 [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Alla behörigheter för säkerhets läsar rollen<br>**Det går inte att** hantera roll tilldelningar eller inställningar för Azure AD
 [Office 365 Säkerhets-och efterlevnadscenter](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Hantera säkerhets principer<br>Visa, undersöka och reagera på säkerhetshot<br>Visa rapporter
-Azure Avancerat skydd | Övervaka och svara på misstänkt säkerhets aktivitet
+Azure Advanced Threat Protection | Övervaka och svara på misstänkt säkerhets aktivitet
 Windows Defender ATP och EDR | Tilldela roller<br>Hantera dator grupper<br>Konfigurera identifiering av slut punkts hot och automatiserad reparation<br>Visa, undersöka och svara på aviseringar
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Visar information om användare, enhet, registrering, konfiguration och program<br>Det går inte att göra ändringar i Intune
 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Lägg till administratörer, lägga till principer och inställningar, ladda upp loggar och utföra styrnings åtgärder
@@ -360,7 +359,7 @@ Windows Defender ATP och EDR | Tilldela roller<br>Hantera dator grupper<br>Konfi
 
 ### <a name="security-operatorsecurity-operator-permissions"></a>[Säkerhets operatör](#security-operator-permissions)
 
-Användare med den här rollen kan hantera aviseringar och ha global Läs behörighet för säkerhetsrelaterade funktioner, inklusive all information i Microsoft 365 Security Center, Azure Active Directory, identitets skydd, Privileged Identity Management och Office 365 Säkerhets-och efterlevnadscenter. Mer information om Office 365-behörigheter finns i [behörigheter i Office 365-säkerhets-och Efterlevnadscenter](https://docs.microsoft.com/office365/securitycompliance/permissions-in-the-security-and-compliance-center).
+Användare med den här rollen kan hantera aviseringar och ha global Läs behörighet för säkerhetsrelaterade funktioner, inklusive all information i Microsoft 365 Security Center, Azure Active Directory, identitets skydd, Privileged Identity Management och Office 365 Säkerhets- och efterlevnadscenter. Mer information om Office 365-behörigheter finns i [behörigheter i Office 365-säkerhets-och Efterlevnadscenter](https://docs.microsoft.com/office365/securitycompliance/permissions-in-the-security-and-compliance-center).
 
 För | Kan göra
 --- | ---
@@ -439,13 +438,13 @@ Användare med den här rollen kan skapa användare och hantera alla aspekter av
 |Endast på användare som inte är administratörer eller någon av följande begränsade administratörs roller:<ul><li>Katalog läsare<li>Gäst deltagare<li>Support administratör<li>Meddelande Center läsare<li>Rapport läsare<li>Användar administratör|<p>Ta bort och Återställ</p><p>Inaktivera och aktivera</p><p>Invalidera uppdateringstoken</p><p>Hantera alla användar egenskaper inklusive användarens huvud namn</p><p>Återställa lösenord</p><p>Uppdatera (FIDO) enhets nycklar</p>|
 
 > [!IMPORTANT]
-> Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Exempel:
-
-* Program registrering och företags program ägare, som kan hantera autentiseringsuppgifter för appar som de äger. Dessa appar kan ha privilegierade behörigheter i Azure AD och inte beviljas till användar administratörer. Genom den här sökvägen kan en användar administratör kunna ta hänsyn till identiteten för en program ägare och sedan ytterligare anta identiteten för ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
-* Azure-Prenumerationens ägare, som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i Azure.
-* Säkerhets grupp och Office 365-grupp ägare, som kan hantera grupp medlemskap. Dessa grupper kan ge åtkomst till känslig eller privat information eller kritisk konfiguration i Azure AD och någon annan stans.
-* Administratörer i andra tjänster utanför Azure AD, till exempel Exchange Online, Office Security och Compliance Center och personal system.
-* Icke-administratörer som chefer, juridiska konsulter och personal anställda som kan ha till gång till känslig eller privat information.
+> Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Till exempel:
+>
+>- Program registrering och företags program ägare, som kan hantera autentiseringsuppgifter för appar som de äger. Dessa appar kan ha privilegierade behörigheter i Azure AD och inte beviljas till användar administratörer. Genom den här sökvägen kan en användar administratör kunna ta hänsyn till identiteten för en program ägare och sedan ytterligare anta identiteten för ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
+>- Azure-Prenumerationens ägare, som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i Azure.
+>- Säkerhets grupp och Office 365-grupp ägare, som kan hantera grupp medlemskap. Dessa grupper kan ge åtkomst till känslig eller privat information eller kritisk konfiguration i Azure AD och någon annan stans.
+>- Administratörer i andra tjänster utanför Azure AD, till exempel Exchange Online, Office Security och Compliance Center och personal system.
+>- Icke-administratörer som chefer, juridiska konsulter och personal anställda som kan ha till gång till känslig eller privat information.
 
 ## <a name="role-permissions"></a>Roll behörigheter
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: apimpm
-ms.openlocfilehash: bfb012116f74e451f9479c8c65057e5c8405bbb4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fc7e0f7e4e0e80a030a437bc4f0f13360595f32e
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513788"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747703"
 ---
 # <a name="deploy-an-azure-api-management-self-hosted-gateway-to-docker"></a>Distribuera en Azure API Management egen värd-Gateway till Docker
 
@@ -26,11 +26,14 @@ Den här artikeln innehåller anvisningar för att distribuera Azure API Managem
 > [!NOTE]
 > Funktionen för lokal gateway är i för hands version. Under för hands versionen är den egna värdbaserade gatewayen bara tillgänglig på utvecklings-och Premium-nivåerna utan extra kostnad. Developer-nivån är begränsad till en enda lokal gateway-distribution.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 - Skapa en Docker-miljö. [Docker för skriv bord](https://www.docker.com/products/docker-desktop) är ett utmärkt alternativ för utveckling och utvärdering. Se [Docker-dokumentationen](https://docs.docker.com) för information om alla Docker-versioner, deras funktioner och omfattande dokumentation på Docker.
 - [Etablera en gateway-resurs i API Management-instansen](api-management-howto-provision-self-hosted-gateway.md)
+
+> [!NOTE]
+> Egen värd-Gateway är paketerad som en Linux-baserad Docker-behållare.
 
 ## <a name="deploy-the-self-hosted-gateway-to-docker"></a>Distribuera den egna värdbaserade gatewayen till Docker
 
@@ -63,4 +66,5 @@ CONTAINER ID        IMAGE                                                 COMMAN
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om den egen värdbaserade gatewayen finns i [Översikt över Azure API Management egen Gateway](self-hosted-gateway-overview.md)
+* Mer information om den egen värdbaserade gatewayen finns i [Översikt över Azure API Management egen Gateway](self-hosted-gateway-overview.md).
+* [Konfigurera eget domän namn för den egna värdbaserade gatewayen](api-management-howto-configure-custom-domain-gateway.md).

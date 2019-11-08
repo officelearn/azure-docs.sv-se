@@ -1,96 +1,96 @@
 ---
-title: Planera kapacitet och skalning för VMware-haveriberedskap till Azure med hjälp av Azure Site Recovery | Microsoft Docs
-description: Den här artikeln kan hjälpa dig att planera kapacitet och skalning när du konfigurerar haveriberedskap för virtuella VMware-datorer till Azure med hjälp av Azure Site Recovery.
+title: Planera kapacitet och skalning för VMware haveri beredskap till Azure med hjälp av Azure Site Recovery | Microsoft Docs
+description: Den här artikeln hjälper dig att planera kapacitet och skalning när du konfigurerar haveri beredskap för virtuella VMware-datorer till Azure med hjälp av Azure Site Recovery.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 9a77b3982d8aed6ae694c32baecd7ae194c51724
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bf1b34295d827124198206e743bc21d5f7eb904
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924833"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747900"
 ---
-# <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planera kapacitet och skalning för VMware-haveriberedskap till Azure
+# <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planera kapacitet och skalning för VMware haveri beredskap till Azure
 
 Använd den här artikeln för att planera för kapacitet och skalning när du replikerar lokala virtuella VMware-datorer och fysiska servrar till Azure med hjälp av [Azure Site Recovery](site-recovery-overview.md).
 
-## <a name="how-do-i-start-capacity-planning"></a>Hur börjar jag planera för kapaciteten?
+## <a name="how-do-i-start-capacity-planning"></a>Vill du Hur gör jag för att starta kapacitets planering?
 
-Mer information om kraven för Azure Site Recovery-infrastruktur, samla in information om replikeringsmiljön genom att köra [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc) för VMware-replikering. Mer information finns i [om Site Recovery Deployment Planner för VMware till Azure](site-recovery-deployment-planner.md). 
+Om du vill veta mer om Azure Site Recovery infrastruktur krav kan du samla in information om din replikeringspartner genom att köra [Distributionshanteraren för Azure Site Recovery](https://aka.ms/asr-deployment-planner-doc) för VMware-replikering. Mer information finns i [About Site Recovery Deployment Planner för VMware till Azure](site-recovery-deployment-planner.md). 
 
-Distributionshanteraren för site Recovery tillhandahåller en rapport som har fullständig information om kompatibla och inkompatibla virtuella datorer, diskar per virtuell dator, och dataomsättning per disk. Verktyget sammanfattas också kraven på nätverksbandbredd att uppfylla RPO-mål och Azure-infrastrukturen som krävs för lyckad replikering och testning av redundans.
+Site Recovery Deployment Planner innehåller en rapport med fullständig information om kompatibla och inkompatibla virtuella datorer, diskar per virtuell dator och data omsättning per disk. Verktyget sammanfattar också kraven på nätverks bandbredd för att uppfylla mål återställnings miljön och den Azure-infrastruktur som krävs för lyckad replikering och redundanstest.
 
-## <a name="capacity-considerations"></a>Överväganden för kapacitet
+## <a name="capacity-considerations"></a>Kapacitets överväganden
 
 Komponent | Information
 --- | ---
-**Replikering** | **Maximal dagliga förändringstakten**: En skyddad dator kan använda endast en processerver. En enda processerver kan hantera en daglig ändringen Betygsätt upp till 2 TB. 2 TB är därför de maximala daglig dataändringshastighet som stöds för en skyddad dator.<br /><br /> **Maximalt dataflöde**: En replikerad dator kan höra till ett lagringskonto i Azure. Ett Azure Storage-konto av standardtyp kan hantera upp till 20 000 begäranden per sekund. Vi rekommenderar att du begränsar antalet indata/utdataåtgärder per sekund (IOPS) över en källdator till 20 000. Om du har en källdator som har fem diskar och varje disk genererar 120 IOPS (8 kB) på källdatorn, exempelvis ligger källdatorn inom Azure per disk-IOPS-gränsen på 500. (Antal lagringskonton som krävs är lika med den totala källdatorn dividerat med 20 000 IOPS.)
-**Konfigurationsserver** | Configuration server måste kunna hantera dagliga ändra frekvensen kapaciteten i alla arbetsbelastningar som körs på skyddade datorer. Konfiguration av datorn måste ha tillräckligt mycket bandbredd för att kontinuerligt replikera data till Azure Storage.<br /><br /> Ett bra tips är att placera konfigurationsservern på samma nätverk och LAN-segment som de datorer som du vill skydda. Du kan placera konfigurationsservern på ett annat nätverk, men datorer som du vill skydda måste ha 3 nätverk skiktsynlighet.<br /><br /> Storleksrekommendationer för konfigurationsservern sammanfattas i tabellen i avsnittet nedan.
-**Processervern** | Den första processervern installeras som standard på konfigurationsservern. Du kan distribuera ytterligare processervrar för att skala din miljö. <br /><br /> Processervern tar emot replikeringsdata från skyddade datorer. Processervern optimerar data med hjälp av cachelagring, komprimering och kryptering. Processervern skickar sedan data till Azure. Den process server-datorn måste ha tillräckligt med resurser för att utföra dessa uppgifter.<br /><br /> Processervern använder ett diskbaserad cacheminne. Använd en separat cachedisk 600 GB eller mer för att hantera dataförändringar av som lagras om ett flaskhalsar i nätverket eller avbrott inträffar.
+**Replikering** | **Högsta dagliga ändrings frekvens**: en skyddad dator kan bara använda en processerver. En enda processerver kan hantera en daglig ändrings hastighet på upp till 2 TB. 2 TB är alltså den maximala dagliga data ändrings hastigheten som stöds för en skyddad dator.<br /><br /> **Maximalt data flöde**: en replikerad dator kan tillhöra ett lagrings konto i Azure. Ett standard Azure Storage konto kan hantera högst 20 000 förfrågningar per sekund. Vi rekommenderar att du begränsar antalet in-/utdata-åtgärder per sekund (IOPS) över en käll dator till 20 000. Om du till exempel har en käll dator som har fem diskar och varje disk genererar 120 IOPS (8 K i storlek) på käll datorn, är käll datorn i Azure per disk IOPS-gräns på 500. (Antalet lagrings konton som krävs motsvarar den totala käll datorns IOPS dividerat med 20 000.)
+**Konfigurationsserver** | Konfigurations servern måste kunna hantera den dagliga ändrings takten för alla arbets belastningar som körs på skyddade datorer. Konfigurations datorn måste ha tillräcklig bandbredd för att kontinuerligt replikera data till Azure Storage.<br /><br /> Ett bra tips är att placera konfigurations servern på samma nätverks-och LAN-segment som de datorer som du vill skydda. Du kan placera konfigurations servern i ett annat nätverk, men datorer som du vill skydda bör ha nivå 3-nätverks synlighet.<br /><br /> Storleks rekommendationer för konfigurations servern sammanfattas i tabellen i följande avsnitt.
+**Processervern** | Den första processervern installeras som standard på konfigurations servern. Du kan distribuera ytterligare process servrar för att skala din miljö. <br /><br /> Processervern tar emot replikeringsdata från skyddade datorer. Processervern optimerar data med hjälp av cachelagring, komprimering och kryptering. Sedan skickar processervern data till Azure. Processervern måste ha tillräckligt med resurser för att utföra dessa uppgifter.<br /><br /> Processervern använder en diskbaserad cache. Använd en separat cache-disk på 600 GB eller mer för att hantera data ändringar som lagras om en nätverks Flask hals eller ett avbrott inträffar.
 
-## <a name="size-recommendations-for-the-configuration-server-and-inbuilt-process-server"></a>Storleksrekommendationer för konfigurationsservern och inbyggda processervern
+## <a name="size-recommendations-for-the-configuration-server-and-inbuilt-process-server"></a>Storleks rekommendationer för konfigurations servern och den inbyggde processervern
 
-En konfigurationsserver som använder en inbyggd processerver för att skydda arbetsbelastningen kan hantera upp till 200 virtuella datorer baserat på följande konfigurationer:
+En konfigurations server som använder en inbyggd processerver för att skydda arbets belastningen kan hantera upp till 200 virtuella datorer baserat på följande konfigurationer:
 
-Processor | Minne | Cachestorleken för disk | Dataändringshastigheten | Skyddade datorer
+Processor | Minne | Cachestorlek för cache | Data ändrings takt | Skyddade datorer
 --- | --- | --- | --- | ---
-8 virtuella processorer (2 platser * 4 kärnor \@ 2,5 GHz) | 16 GB | 300 GB | 500 GB eller mindre | Använd för att replikera färre än 100 virtuella datorer.
-12 virtuella processorer (2 platser * 6 kärnor \@ 2,5 GHz) | 18 GB | 600 GB | 501 GB till 1 TB | Använd för att replikera 100-150 datorer.
-16 virtuella processorer (2 platser * 8 kärnor \@ 2,5 GHz) | 32 GB | 1 TB | > 1 TB till 2 TB | Använd för att replikera 151 till 200 virtuella datorer.
-Distribuera en annan konfigurationsserver med hjälp av en [OVF-mall](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template). | | | | Distribuera en ny configuration server om du replikerar mer än 200 datorer.
-Distribuera en annan [processervern](vmware-azure-set-up-process-server-scale.md#download-installation-file). | | | >2 TB| Distribuera en ny skalbar processerver om den totala dagliga förändringstakten för data är större än 2 TB.
+8 virtuella processorer (2 Sockets * 4 kärnor \@ 2,5 GHz) | 16 GB | 300 GB | 500 GB eller mindre | Används för att replikera färre än 100 datorer.
+12 virtuella processorer (2 Sockets * 6 kärnor \@ 2,5 GHz) | 18 GB | 600 GB | 501 GB till 1 TB | Använd för att replikera 100 till 150-datorer.
+16 virtuella processorer (2 Sockets * 8 kärnor \@ 2,5 GHz) | 32 GB | 1 TB | > 1 TB till 2 TB | Använd för att replikera 151 till 200-datorer.
+Distribuera en annan konfigurations server med hjälp av en [OVF-mall](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template). | | | | Distribuera en ny konfigurations server om du vill replikera fler än 200 datorer.
+Distribuera en annan [processerver](vmware-azure-set-up-process-server-scale.md#download-installation-file). | | | > 2 TB| Distribuera en ny Scale-Out-processerver om den totala data ändrings takten för daglig data är större än 2 TB.
 
-I de här konfigurationerna:
+I följande konfigurationer:
 
-* Varje källdatorn har tre diskar på 100 GB vardera.
-* Vi använde benchmarking lagring av åtta signatur för delad åtkomst-enheter på 10 K RPM med RAID 10 för mätningar av cache-disk.
+* Varje käll dator har tre diskar på 100 GB vardera.
+* Vi använde benchmarking-lagring av åtta signaturer för delad åtkomst på 10 K RPM med RAID 10 för att cachelagra disk mått.
 
-## <a name="size-recommendations-for-the-process-server"></a>Storleksrekommendationer för processervern
+## <a name="size-recommendations-for-the-process-server"></a>Storleks rekommendationer för processervern
 
-Processervern är den komponent som hanterar replikering av data i Azure Site Recovery. Om den dagliga förändringstakten är större än 2 TB, måste du lägga till skala ut processervrar för att hantera belastningen för replikering. Om du vill skala ut kan du:
+Processervern är den komponent som hanterar datareplikering i Azure Site Recovery. Om den dagliga ändrings hastigheten är större än 2 TB måste du lägga till skalbara process servrar för att hantera belastningen på replikeringen. För att skala ut kan du:
 
-* Öka antalet konfigurationsservrar genom att distribuera med hjälp av en [OVF-mall](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template). Du kan till exempel skydda upp till 400 datorer med hjälp av två konfigurationsservrar.
-* Lägg till [skala ut processervrar](vmware-azure-set-up-process-server-scale.md#download-installation-file). Använd skala ut processervrar för att hantera replikeringstrafik i stället för (eller förutom) konfigurationsservern.
+* Öka antalet konfigurations servrar genom att distribuera med hjälp av en [OVF-mall](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template). Du kan till exempel skydda upp till 400 datorer genom att använda två konfigurations servrar.
+* Lägg till [skalbara process servrar](vmware-azure-set-up-process-server-scale.md#download-installation-file). Använd de skalbara process servrarna för att hantera replikeringstrafik i stället för (eller utöver) konfigurations servern.
 
-I följande tabell beskrivs i det här scenariot:
+Det här scenariot beskrivs i följande tabell:
 
-* Du kan konfigurera en skalbar processerver.
-* Du har konfigurerat den skyddade virtuella datorer för att använda skalbara processerver.
-* Varje skyddad källdatorn har tre diskar på 100 GB vardera.
+* Du konfigurerar en skalbar processerver.
+* Du konfigurerade skyddade virtuella datorer för att använda den skalbara processervern.
+* Varje skyddad käll dator har tre diskar på 100 GB vardera.
 
-Kompletterande processervern | Cachestorleken för disk | Dataändringshastigheten | Skyddade datorer
+Ytterligare processerver | Cachestorlek för cache | Data ändrings takt | Skyddade datorer
 --- | --- | --- | ---
-4 virtuella processorer (2 platser * 2 kärnor \@ 2,5 GHz), 8 GB minne | 300 GB | 250 GB eller mindre | Använd för att replikera 85 eller färre virtuella datorer.
-8 virtuella processorer (2 platser * 4 kärnor \@ 2,5 GHz), 12 GB minne | 600 GB | 251 GB till 1 TB | Använd för att replikera 86 150 datorer.
-12 virtuella processorer (2 platser * 6 kärnor \@ 2,5 GHz) 24 GB minne | 1 TB | > 1 TB till 2 TB | Använd för att replikera 151 225 datorer.
+4 virtuella processorer (2 Sockets * 2 kärnor \@ 2,5 GHz), 8 GB minne | 300 GB | 250 GB eller mindre | Används för att replikera 85 eller färre datorer.
+8 virtuella processorer (2 Sockets * 4 kärnor \@ 2,5 GHz), 12 GB minne | 600 GB | 251 GB till 1 TB | Använd för att replikera 86 till 150-datorer.
+12 virtuella processorer (2 Sockets * 6 kärnor \@ 2,5 GHz) 24 GB minne | 1 TB | > 1 TB till 2 TB | Använd för att replikera 151 till 225-datorer.
 
-Hur du skalar dina servrar beror på dina inställningar för en modell med skala upp eller skala ut. Att skala upp, distribuera några avancerade konfigurationsservrar och bearbeta servrar. Distribuera fler servrar som har färre resurser för att skala ut. Om du vill skydda 200 datorer med en övergripande daglig dataändringshastighet på 1,5 TB, kan du göra något av följande åtgärder:
+Hur du skalar dina servrar beror på din preferens för en skala upp-eller skala ut-modell. Om du vill skala upp distribuerar du några avancerade konfigurations servrar och process servrar. Distribuera fler servrar som har färre resurser för att skala ut. Om du till exempel vill skydda 200-datorer med en total daglig data ändrings hastighet på 1,5 TB kan du vidta någon av följande åtgärder:
 
-* Konfigurera en enda processerver (16 vCPU, 24 GB RAM-minne).
-* Ställa in två processervrar (2 x 8 vCPU, 2 * 12 GB RAM-minne).
+* Konfigurera en enda processerver (16 vCPU, 24 GB RAM).
+* Konfigurera två process servrar (2 x 8 vCPU, 2 * 12 GB RAM).
 
-## <a name="control-network-bandwidth"></a>Kontrollera nätverksbandbredd
+## <a name="control-network-bandwidth"></a>Kontrol lera nätverkets bandbredd
 
-När du använder [Site Recovery Deployment Planner](site-recovery-deployment-planner.md) för att beräkna den bandbredd som du behöver för replikering (inledande replikering och sedan delta), du har ett par alternativ för att styra mängden bandbredd som används för replikering:
+När du använder [Site Recovery distributions planeraren](site-recovery-deployment-planner.md) för att beräkna den bandbredd du behöver för replikering (inledande replikering och sedan delta) har du ett par alternativ för att kontrol lera mängden bandbredd som används för replikering:
 
-* **Begränsa bandbredden**: VMware-trafik som replikeras till Azure går igenom en särskild processerver. Du kan begränsa bandbredden på de datorer som körs som processervrar.
-* **Påverka bandbredd**: Du kan påverka den bandbredd som används för replikering med hjälp av några registernycklar:
-  * Den **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM** registervärdet anger antalet trådar som används för att överföra data (inledande replikering eller delta) för en disk. Ett högre värde ökar nätverksbandbredden som används för replikering.
-  * Den **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\DownloadThreadsPerVM** registervärdet anger antalet trådar som används för att överföra data under återställning efter fel.
+* **Begränsa bandbredd**: VMware-trafik som replikeras till Azure går genom en speciell processerver. Du kan begränsa bandbredden på de datorer som kör som process servrar.
+* **Påverka bandbredd**: du kan påverka bandbredden som används för replikering med hjälp av ett par register nycklar:
+  * Registervärdet **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure-Backup\Replication\UploadThreadsPerVM** anger antalet trådar som används för data överföring (inledande eller delta-replikering) på en disk. Ett högre värde ökar nätverks bandbredden som används för replikering.
+  * Registervärdet **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure-Backup\Replication\DownloadThreadsPerVM** anger antalet trådar som används för data överföring under återställning efter fel.
 
 ### <a name="throttle-bandwidth"></a>Begränsa bandbredden
 
-1. Öppna snapin-modulen för Azure Backup MMC på den dator som du använder som processervern. Som standard är en genväg till Backup på skrivbordet eller i följande mapp: C:\Program Files\Microsoft Azure Recovery Services Agent\bin.
-2. I snapin-modulen, väljer **ändra egenskaper för**.
+1. Öppna snapin-modulen Azure Backup MMC på den dator som du använder som processerver. Som standard är en genväg till backup tillgänglig på Skriv bordet eller i följande mapp: C:\Program Files\Microsoft Azure Recovery Services Agent\bin.
+2. Välj **ändra egenskaper**i snapin-modulen.
 
-    ![Skärmbild av Azure Backup MMC snapin-modulen möjlighet att ändra egenskaper](./media/site-recovery-vmware-to-azure/throttle1.png)
-3. På den **begränsning** fliken **aktivera Användningsbegränsning för internetbandbredd för säkerhetskopieringsåtgärder**. Ange begränsningarna för arbetstid och icke-tid. Giltiga intervall är från 512 kbit/s till 1,023 Mbit/s.
+    ![Skärm bild av alternativet Azure Backup MMC-snapin-modulen för att ändra egenskaper](./media/site-recovery-vmware-to-azure/throttle1.png)
+3. På fliken **begränsning** väljer du **Aktivera användnings begränsning för Internet bandbredd för säkerhets kopierings åtgärder**. Ange gränserna för arbets tid och ledig tid. Giltiga intervall är mellan 512 och 1 023 Mbit/s.
 
-    ![Skärmbild av dialogrutan Egenskaper för Azure-säkerhetskopiering](./media/site-recovery-vmware-to-azure/throttle2.png)
+    ![Skärm bild av dialog rutan Azure Backup egenskaper](./media/site-recovery-vmware-to-azure/throttle2.png)
 
 Du kan också ange begränsningar med hjälp av cmdleten [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx). Här är ett exempel:
 
@@ -100,73 +100,73 @@ Du kan också ange begränsningar med hjälp av cmdleten [Set-OBMachineSetting](
 
 **Set-OBMachineSetting -NoThrottle** anger att ingen begränsning krävs.
 
-### <a name="alter-the-network-bandwidth-for-a-vm"></a>Ändra nätverkets bandbredd för en virtuell dator
+### <a name="alter-the-network-bandwidth-for-a-vm"></a>Ändra nätverks bandbredden för en virtuell dator
 
-1. I den Virtuella datorns register, går du till **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication**.
-   * Om du vill ändra bandbreddstrafiken på en replikeringsdisk, ändrar du värdet för **UploadThreadsPerVM**. Skapa nyckeln om det inte finns.
-   * Om du vill ändra bandbredd för redundanstrafik från Azure, ändrar du värdet för **DownloadThreadsPerVM**.
-2. Standardvärdet för varje nyckel är **4**. I ett ”överetablerat” nätverk bör du ändra registernycklarnas standardvärden. Det maximala värdet som du kan använda **32**. Övervaka trafiken för att optimera värdet.
+1. I VM-registret går du till **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure-Backup\Replication**.
+   * Ändra värdet för **UploadThreadsPerVM**för att ändra bandbredds trafik på en replikerande disk. Skapa nyckeln om den inte finns.
+   * Ändra värdet för **DownloadThreadsPerVM**för att ändra bandbredden för återställning av återställnings trafik från Azure.
+2. Standardvärdet för varje nyckel är **4**. I ett ”överetablerat” nätverk bör du ändra registernycklarnas standardvärden. Det maximala värdet som du kan använda är **32**. Övervaka trafiken för att optimera värdet.
 
-## <a name="set-up-the-site-recovery-infrastructure-to-protect-more-than-500-vms"></a>Ställa in Site Recovery-infrastruktur för att skydda fler än 500 virtuella datorer
+## <a name="set-up-the-site-recovery-infrastructure-to-protect-more-than-500-vms"></a>Konfigurera Site Recovery-infrastrukturen för att skydda över 500 virtuella datorer
 
-Innan du konfigurerar Site Recovery-infrastruktur kan du komma åt miljön för att mäta följande faktorer: kompatibla virtuella datorer i daglig dataändringshastighet, nödvändig nätverksbandbredd för rpo-mål som du vill uppnå, hur många Site Recovery komponenter som krävs och den tid det tar för att slutföra den inledande replikeringen. Utför följande steg för att samla in informationen som krävs:
+Innan du konfigurerar Site Recovery-infrastrukturen får du åtkomst till miljön för att mäta följande faktorer: kompatibla virtuella datorer, den dagliga data ändrings takten, den nödvändiga nätverks bandbredden för den återställnings punkt som du vill uppnå, antalet Site Recovery komponenter som krävs och den tid det tar att slutföra den inledande replikeringen. Utför följande steg för att samla in nödvändig information:
 
-1. Kör Distributionshanteraren för Site Recovery på din miljö för att mäta dessa parametrar. Användbara riktlinjer finns i [om Site Recovery Deployment Planner för VMware till Azure](site-recovery-deployment-planner.md).
-2. Distribuera en konfigurationsserver som uppfyller den [storleksrekommendationer för konfigurationsservern](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-and-inbuilt-process-server). Om din produktionsarbetsbelastning överskrider 650 virtuella datorer kan du distribuera en annan konfigurationsserver.
-3. Baserat på de uppmätta dagliga dataändringshastigheten, distribuera [skala ut processervrar](vmware-azure-set-up-process-server-scale.md#download-installation-file) med hjälp av [storlek riktlinjer](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-process-server).
-4. Om du tror dataändringshastighet för en virtuell dator för disken överskrider 2 Mbit/s kan du kontrollera att du använder premium-hanterade diskar. Site Recovery Deployment Planner körs för en viss tidsperiod. Toppar i förändringstakten för data vid andra tillfällen kan inte finnas i rapporten.
-5. [Ange nätverksbandbredden](site-recovery-plan-capacity-vmware.md#control-network-bandwidth) baserat på det RPO som du vill uppnå.
-6. När infrastrukturen har ställts in, aktivera haveriberedskap för din arbetsbelastning. Läs hur genom att läsa [konfigurera källmiljön för VMware till Azure-replikering](vmware-azure-set-up-source.md).
+1. Om du vill mäta dessa parametrar kör Site Recovery Deployment Planner i din miljö. Användbara rikt linjer finns i [About Site Recovery Deployment Planner för VMware till Azure](site-recovery-deployment-planner.md).
+2. Distribuera en konfigurations server som uppfyller [storleks rekommendationerna för konfigurations servern](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-and-inbuilt-process-server). Om produktions arbets belastningen överskrider 650 virtuella datorer kan du distribuera en annan konfigurations Server.
+3. Utifrån den uppmätta dagliga data ändrings takten distribuerar du [skalbara process servrar](vmware-azure-set-up-process-server-scale.md#download-installation-file) med hjälp av [rikt linjer för storlek](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-process-server).
+4. Om du förväntar dig att data ändrings takten för en virtuell disk dator ska överskrida 2 Mbit/s måste du använda Premium Managed disks. Site Recovery Deployment Planner körs under en viss tids period. Hög belastning i data ändrings takten kanske inte registreras i rapporten.
+5. [Ange nätverks bandbredden](site-recovery-plan-capacity-vmware.md#control-network-bandwidth) baserat på den återställnings punkt du vill uppnå.
+6. När infrastrukturen har kon figurer ATS aktiverar du haveri beredskap för din arbets belastning. Mer information finns i [Konfigurera käll miljön för VMware till Azure-replikering](vmware-azure-set-up-source.md).
 
-## <a name="deploy-additional-process-servers"></a>Distribuera ytterligare processervrar
+## <a name="deploy-additional-process-servers"></a>Distribuera ytterligare process servrar
 
-Om du skala upp distributionen utöver 200 källdatorer, eller om du har en total daglig dataomsättningsfrekvensen på mer än 2 TB, måste du lägga till processervrar för att hantera trafik. Vi har utökat produkten i 9.24 versionen för att tillhandahålla [bearbeta serveraviseringar](vmware-physical-azure-monitor-process-server.md#process-server-alerts) på när du skapar en skalbar processerver. [Konfigurera processervern](vmware-azure-set-up-process-server-scale.md) att skydda nya källdatorer eller [utjämna belastningen](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load).
+Om du skalar ut distributionen utöver 200-käll datorer, eller om du har en total daglig omsättning på mer än 2 TB, måste du lägga till process servrar för att hantera trafik volymen. Vi har förbättrat produkten i 9,24-versionen för att tillhandahålla [process Server aviseringar](vmware-physical-azure-monitor-process-server.md#process-server-alerts) när du ska konfigurera en skalbar processerver. [Konfigurera processervern](vmware-azure-set-up-process-server-scale.md) för att skydda nya käll datorer eller [utjämna belastningen](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load).
 
-### <a name="migrate-machines-to-use-the-new-process-server"></a>Migrera datorer om du vill använda den nya processervern
+### <a name="migrate-machines-to-use-the-new-process-server"></a>Migrera datorer till att använda den nya processervern
 
-1. Välj **inställningar** > **Site Recovery-servrar**. Välj configuration server och expandera sedan **bearbeta servrar**.
+1. Välj **inställningar** > **Site Recovery servrar**. Välj konfigurations servern och expandera sedan **process servrar**.
 
-    ![Skärmbild av dialogrutan Process Server](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
-2. Högerklicka på processervern som används och välj sedan **växel**.
+    ![Skärm bild av dialog rutan Processerver](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
+2. Högerklicka på den processerver som för närvarande används och välj sedan **switch**.
 
-    ![Skärmbild av dialogrutan Configuration server](./media/site-recovery-vmware-to-azure/migrate-ps3.png)
-3. I **Välj målprocesserver**, Välj den nya för processervern som du vill använda. Välj de virtuella datorerna som servern ska hantera. Välj information för att få information om servern. Som hjälper dig att läsa in beslut, visas det genomsnittliga utrymmet som krävs för att replikera alla valda virtuella datorn till den nya processervern. Välj bockmarkeringen för att börja replikera till den nya processervern.
+    ![Skärm bild av dialog rutan konfigurations Server](./media/site-recovery-vmware-to-azure/migrate-ps3.png)
+3. I **Välj mål process Server**väljer du den nya processervern som du vill använda. Välj sedan de virtuella datorer som servern ska hantera. Om du vill hämta information om servern väljer du informations ikonen. För att hjälpa dig att fatta inläsnings beslut visas det genomsnittliga utrymmet som krävs för att replikera varje vald virtuell dator till den nya processervern. Markera kryss rutan för att börja replikera till den nya processervern.
 
-## <a name="deploy-additional-master-target-servers"></a>Distribuera ytterligare huvudmålservrar
+## <a name="deploy-additional-master-target-servers"></a>Distribuera ytterligare huvud mål servrar
 
-I följande scenarier krävs mer än en huvudmålserver:
+I följande scenarier krävs mer än en huvud mål server:
 
 *   Du vill skydda en Linux-baserad virtuell dator.
-*   Huvudmålservern på konfigurationsservern har inte åtkomst till databasen för den virtuella datorn.
-*   Det totala antalet diskar på huvudmålservern (antal lokala diskar på servern) plus antalet diskar som ska skyddas är större än 60 diskar.
+*   Huvud mål servern som är tillgänglig på konfigurations servern har inte åtkomst till den virtuella datorns data lager.
+*   Det totala antalet diskar på huvud mål servern (antalet lokala diskar på servern plus antalet diskar som ska skyddas) är större än 60 diskar.
 
-Läs hur du lägger till en huvudmålserver för en Linux-baserad virtuell dator i [installera en Linux-huvudmålserver för återställning efter fel](vmware-azure-install-linux-master-target.md).
+Information om hur du lägger till en huvud mål server för en Linux-baserad virtuell dator finns i [installera en Linux-huvud mål server för återställning efter fel](vmware-azure-install-linux-master-target.md).
 
-Lägga till en huvudmålserver för en Windows-baserad virtuell dator:
+Så här lägger du till en huvud mål server för en Windows-baserad virtuell dator:
 
-1. Gå till **Recovery Services-valv** > **Site Recovery-infrastruktur** > **konfigurationsservrar**.
-2. Välj obligatoriska konfigurationsservern och välj sedan **Huvudmålservern**.
+1. Gå till **Recovery Services valv** > **Site Recovery infrastruktur** > **konfigurations servrar**.
+2. Välj den konfigurations server som krävs och välj sedan **huvud mål server**.
 
-    ![Skärmbild som visar knappen Lägg till Huvudmålservern](media/site-recovery-plan-capacity-vmware/add-master-target-server.png)
-3. Ladda ned enhetlig installationsfilen och kör sedan filen på den virtuella datorn för att konfigurera huvudmålservern.
-4. Välj **installera huvudmålservern** > **nästa**.
+    ![Skärm bild som visar knappen Lägg till huvud mål Server](media/site-recovery-plan-capacity-vmware/add-master-target-server.png)
+3. Hämta den enhetliga installations filen och kör sedan filen på den virtuella datorn för att konfigurera huvud mål servern.
+4. Välj **Installera huvud mål** > **Nästa**.
 
-    ![Skärmbild som visar att välja alternativet Installera huvudmålservern](media/site-recovery-plan-capacity-vmware/choose-MT.PNG)
-5. Välj standardplatsen för installation och välj sedan **installera**.
+    ![Skärm bild som visar val av alternativet för att installera huvud mål](media/site-recovery-plan-capacity-vmware/choose-MT.PNG)
+5. Välj standard installations plats och välj sedan **Installera**.
 
-     ![Skärmbild som visar standardplatsen för installation](media/site-recovery-plan-capacity-vmware/MT-installation.PNG)
-6. Om du vill registrera Huvudmålet med konfigurationsservern, Välj **gå vidare till konfiguration**.
+     ![Skärm bild som visar standard installations platsen](media/site-recovery-plan-capacity-vmware/MT-installation.PNG)
+6. Om du vill registrera huvud målet med konfigurations servern väljer **du Fortsätt till konfiguration**.
 
-    ![Skärmbild som visar Fortsätt till konfiguration](media/site-recovery-plan-capacity-vmware/MT-proceed-configuration.PNG)
-7. Ange IP-adressen för konfigurationsservern och sedan ange lösenfrasen. Läs hur du skapar en lösenfras i [generera ett lösenord för konfigurationsservern](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase). 
+    ![Skärm bild som visar knappen gå till konfiguration](media/site-recovery-plan-capacity-vmware/MT-proceed-configuration.PNG)
+7. Ange konfigurations serverns IP-adress och ange lösen frasen. Information om hur du skapar en lösen fras finns i [skapa en lösen fras för konfigurations servern](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase). 
 
-    ![Skärmbild som visar var du anger IP-adressen och lösenfras för konfigurationsservern](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
-8. Välj **Registrera**. När registreringen är klar, Välj **Slutför**.
+    ![Skärm bild som visar var du anger IP-adressen och lösen frasen för konfigurations servern](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
+8. Välj **Registrera**. När registreringen är klar väljer du **Slutför**.
 
-När registreringen har slutförts visas servern i Azure-portalen på **Recovery Services-valv** > **Site Recovery-infrastruktur**  >   **Konfigurationsservrar**, i huvudmålservrarna för konfigurationsservern.
+När registreringen har slutförts visas servern i Azure Portal på **Recovery Services valv** > **Site Recovery infrastruktur** > **konfigurations servrar**, på huvud mål servrarna i konfigurations Server.
 
  > [!NOTE]
- > Ladda ned den senaste versionen av den [huvudmålservern server enhetlig installationsfilen för Windows](https://aka.ms/latestmobsvc).
+ > Ladda ned den senaste versionen av den [enhetliga installations filen för huvud mål servern för Windows](https://aka.ms/latestmobsvc).
 
 ## <a name="next-steps"></a>Nästa steg
 

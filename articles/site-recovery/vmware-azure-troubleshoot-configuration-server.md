@@ -1,94 +1,94 @@
 ---
-title: Felsöka problem med konfigurationsservern under haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure med hjälp av Azure Site Recovery | Microsoft Docs
-description: Den här artikeln innehåller felsökningsinformation för att distribuera konfigurationsservern för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure med hjälp av Azure Site Recovery.
+title: Felsök problem med konfigurations servern vid haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure med hjälp av Azure Site Recovery | Microsoft Docs
+description: Den här artikeln innehåller felsöknings information för att distribuera konfigurations servern för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure med hjälp av Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: f08d7bb2087ef4f30b325b3796a13e387ccdea22
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 25e2b488d3b6e7e5cabd1a71d1489efaf01231b3
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60725575"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748545"
 ---
-# <a name="troubleshoot-configuration-server-issues"></a>Felsöka problem med konfigurationen av servern
+# <a name="troubleshoot-configuration-server-issues"></a>Felsök problem med konfigurations servern
 
-Den här artikeln hjälper dig att felsöka problem när du distribuerar och hanterar den [Azure Site Recovery](site-recovery-overview.md) konfigurationsservern. Configuration server fungerar som en hanteringsserver. Använda configuration server för att konfigurera haveriberedskap för lokala virtuella VMware-datorer och fysiska servrar till Azure med Site Recovery. I följande avsnitt beskrivs de vanligaste felen som kan uppstå när du lägger till en ny konfigurationsserver och när du hanterar en konfigurationsserver.
+Den här artikeln hjälper dig att felsöka problem när du distribuerar och hanterar [Azure Site Recovery](site-recovery-overview.md) konfigurations servern. Konfigurations servern fungerar som en hanterings Server. Använd konfigurations servern för att konfigurera haveri beredskap för lokala virtuella VMware-datorer och fysiska servrar till Azure med hjälp av Site Recovery. I följande avsnitt beskrivs de vanligaste felen som kan uppstå när du lägger till en ny konfigurations Server och när du hanterar en konfigurations Server.
 
 ## <a name="registration-failures"></a>Registreringsfel
 
-Källdatorn registreras med konfigurationsservern när du installerar mobilitetsagenten. Du kan felsöka eventuella fel under det här steget genom att följa dessa riktlinjer:
+Käll datorn registreras med konfigurations servern när du installerar mobilitets agenten. Du kan felsöka eventuella fel under det här steget genom att följa dessa rikt linjer:
 
-1. Öppna filen C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log. (Mappen ProgramData kan vara en dold mapp. Om du inte ser mappen ProgramData i Utforskaren på den **visa** fliken den **Visa/dölj** väljer den **dolda objekt** markerar du kryssrutan.) Fel kan orsakas av flera problem.
+1. Öppna filen C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log. (Mappen program data kan vara en dold mapp. Om du inte ser mappen program data går du till fliken **Visa** i avsnittet **Visa/Dölj** och markerar kryss rutan **dolda objekt** i Utforskaren.) Fel kan bero på flera problem.
 
 2. Sök efter strängen **ingen giltig IP-adress hittades**. Om strängen hittas:
-   1. Kontrollera att den begärda värd-ID är samma som värd-ID för källdatorn.
-   2. Kontrollera att källdatorn har minst en IP-adress som tilldelats det fysiska nätverkskortet. För registreringen med konfigurationsservern ska lyckas, måste källdatorn ha minst en giltig IP v4-adress tilldelad till det fysiska nätverkskortet.
-   3. Kör något av följande kommandon på källdatorn för att hämta alla IP-adresser på källdatorn:
+   1. Kontrol lera att det begärda värd-ID: t är detsamma som käll datorns värd-ID.
+   2. Kontrol lera att käll datorn har minst en IP-adress tilldelad till det fysiska NÄTVERKSKORTet. För att agent registreringen med konfigurations servern ska lyckas måste käll datorn ha minst en giltig IP v4-adress tilldelad till det fysiska NÄTVERKSKORTet.
+   3. Kör något av följande kommandon på käll datorn för att hämta alla IP-adresser för käll datorn:
       - För Windows: `> ipconfig /all`
       - För Linux: `# ifconfig -a`
 
-3. Om strängen **ingen giltig IP-adress hittades** inte hittas, Sök efter strängen **orsak = > NULL**. Det här felet uppstår om källdatorn använder en tom värd för att registrera med konfigurationsservern. Om strängen hittas:
-    - När du har löst problemen, följer du riktlinjerna i [registrera källdatorn med konfigurationsservern](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server) att göra registreringen manuellt.
+3. Om strängen **ingen giltig IP-adress** hittades söker du efter sträng **orsaken = > null**. Det här felet uppstår om käll datorn använder en tom värd för att registrera med konfigurations servern. Om strängen hittas:
+    - När du har löst problemen följer du rikt linjerna i [Registrera käll datorn med konfigurations servern](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server) för att försöka registrera manuellt.
 
-4. Om strängen **orsak = > NULL** hittas på källdatorn, öppna filen C:\ProgramData\ASRSetupLogs\UploadedLogs\ASRUnifiedAgentInstaller.log. (Mappen ProgramData kan vara en dold mapp. Om du inte ser mappen ProgramData i Utforskaren på den **visa** fliken den **Visa/dölj** väljer den **dolda objekt** markerar du kryssrutan.) Fel kan orsakas av flera problem. 
+4. Om sträng **orsaken = > null** inte hittas går du till käll datorn och öppnar C:\ProgramData\ASRSetupLogs\UploadedLogs\ASRUnifiedAgentInstaller.log-filen. (Mappen program data kan vara en dold mapp. Om du inte ser mappen program data går du till fliken **Visa** i avsnittet **Visa/Dölj** och markerar kryss rutan **dolda objekt** i Utforskaren.) Fel kan bero på flera problem. 
 
-5. Sök efter strängen **publicera begäran: (7) - Det gick inte att ansluta till servern**. Om strängen hittas:
-    1. Lös nätverksproblem mellan källdatorn och konfigurationsservern. Kontrollera att konfigurationsservern kan nås från källdatorn med hjälp av verktyg för nätverk som ping, traceroute eller en webbläsare. Se till att källdatorn kan nå konfigurationsservern via port 443.
-    2. Kontrollera om alla brandväggsregler på källan datorn blockera anslutningen mellan källdatorn och konfigurationsservern. Arbeta med dina nätverk-administratörer att avblockera alla problem med anslutningen.
-    3. Kontrollera att mapparna i [Site Recovery mappar som ska undantas från antivirusprogram](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) undantas från antivirusprogrammet.
-    4. När nätverksproblem har åtgärdats, gör om registreringen genom att följa riktlinjerna i [registrera källdatorn med konfigurationsservern](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
+5. Sök efter strängen **post-begäran: (7) – Det gick inte att ansluta till servern**. Om strängen hittas:
+    1. Lös nätverks problemen mellan käll datorn och konfigurations servern. Kontrol lera att konfigurations servern kan anslutas från käll datorn med hjälp av nätverks verktyg som ping, traceroute eller en webbläsare. Se till att käll datorn kan komma åt konfigurations servern via port 443.
+    2. Kontrol lera om brand Väggs reglerna på käll datorn blockerar anslutningen mellan käll datorn och konfigurations servern. Arbeta med nätverks administratörerna för att avblockera eventuella anslutnings problem.
+    3. Se till att de mappar som anges i [Site Recovery mapp undantag från antivirus program](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) undantas från antivirus program varan.
+    4. När nätverks problem är lösta gör du ett nytt försök med registreringen genom att följa rikt linjerna i [Registrera käll datorn med konfigurations servern](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-6. Om strängen **publicera begäran: (7) - Det gick inte att ansluta till servern** inte hittas i samma loggfil, titta efter strängen **begäran: (60) - peer-certifikat som inte kan autentiseras med angivna CA-certifikat**. Det här felet kan uppstå configuration-servercertifikatet har upphört att gälla eller källdatorn inte stöd för TLS 1.0 eller senare SSL-protokoll. Det kan också inträffa om en brandvägg blockerar SSL-kommunikation mellan källdatorn och konfigurationsservern. Om strängen hittas: 
-    1. Om du vill lösa kan ansluta till konfigurationsservern IP-adress med hjälp av en webbläsare på källdatorn. Använda https för URI:\/\/< IP-adress för configuration server\>: 443 /. Se till att källdatorn kan nå konfigurationsservern via port 443.
-    2. Kontrollera om brandväggsregler på källdatorn måste läggas till eller tas bort för källdatorn för att kommunicera med konfigurationsservern. Vi kan inte visa alla nödvändiga brandväggskonfigurationer på grund av variation av brandväggsprogram som kanske används. Arbeta med dina nätverk-administratörer att avblockera alla problem med anslutningen.
-    3. Kontrollera att mapparna i [Site Recovery mappar som ska undantas från antivirusprogram](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) undantas från antivirusprogrammet.  
-    4. När du har löst problemen och försök registreringen följande riktlinjer i [registrera källdatorn med konfigurationsservern](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
+6. Om strängen **post-begäran: (7) – det inte går att ansluta till servern** går du till den i samma loggfil **: (60) – peer-certifikatet kan inte autentiseras med de certifikat som utfärdas**. Det här felet kan inträffa eftersom konfigurations serverns certifikat har upphört att gälla eller om käll datorn inte har stöd för TLS 1,0 eller senare SSL-protokoll. Det kan också inträffa om en brand vägg blockerar SSL-kommunikation mellan käll datorn och konfigurations servern. Om strängen hittas: 
+    1. Lös problemet genom att ansluta till konfigurations serverns IP-adress med hjälp av en webbläsare på käll datorn. Använd URI https:\/\/< konfigurations serverns IP-adress\>: 443/. Se till att käll datorn kan komma åt konfigurations servern via port 443.
+    2. Kontrol lera om brand Väggs regler på käll datorn måste läggas till eller tas bort för att käll datorn ska kunna kommunicera med konfigurations servern. På grund av de olika brand Väggs program som kanske används kan vi inte lista alla nödvändiga brand Väggs konfigurationer. Arbeta med nätverks administratörerna för att avblockera eventuella anslutnings problem.
+    3. Se till att de mappar som anges i [Site Recovery mapp undantag från antivirus program](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) undantas från antivirus program varan.  
+    4. När du har löst problemen, gör om registreringen genom att följa rikt linjerna i [Registrera käll datorn med konfigurations servern](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-7. På Linux, om värdet för plattformen i < INSTALLATION_DIR\>/etc/drscout.conf är skadad, misslyckas registreringen. Öppna filen /var/log/ua_install.log för att identifiera problemet. Sök efter strängen **avbryts konfiguration eftersom VM_PLATFORM värde är null eller så är inte VmWare/Azure**. Plattformen ska vara inställd på antingen **VmWare** eller **Azure**. Om filen drscout.conf är skadad, rekommenderar vi att du [avinstallera mobilitetsagenten](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) och sedan installera om mobilitetsagenten. Om avinstallationen misslyckas gör du följande: en. Öppna filen Installation_Directory/uninstall.sh och kommentera ut anropet till den **StopServices** funktion.
-    b. Öppna filen Installation_Directory/Vx/bin/uninstall.sh och kommentera ut anropet till den **stop_services** funktion.
-    c. Öppna Installation_Directory/Fx/uninstall.sh filen och kommentera ut hela avsnittet som försöker att stoppa tjänsten Fx.
-    d. [Avinstallera](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) mobilitetsagenten. Starta om systemet efter lyckad avinstallation och försök sedan installera om mobilitetsagenten.
+7. Om värdet för plattformen i < INSTALLATION_DIR\>/etc/drscout.conf är skadat på Linux, så Miss lyckas registreringen. Du kan identifiera det här problemet genom att öppna filen/var/log/ua_install.log. Sök efter strängen **som avbryter konfigurationen eftersom VM_PLATFORM-värdet är antingen null eller inte VMware/Azure**. Plattformen ska vara inställd på antingen **VMware** eller **Azure**. Om filen drscout. conf är skadad, rekommenderar vi att du [avinstallerar mobilitets agenten](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) och sedan installerar om mobilitets agenten. Om avinstallationen Miss lyckas utför du följande steg: a. Öppna filen Installation_Directory/Uninstall. sh och kommentera ut anropet till funktionen **StopServices** .
+    b. Öppna filen Installation_Directory/VX/bin/Uninstall. sh och kommentera ut anropet till funktionen **stop_services** .
+    c. Öppna filen Installation_Directory/FX/Uninstall. sh och kommentera ut hela avsnittet som försöker stoppa FX-tjänsten.
+    d. [Avinstallera](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) mobilitets agenten. Efter en lyckad avinstallation startar du om systemet och försöker sedan installera om mobilitets agenten.
 
-## <a name="installation-failure-failed-to-load-accounts"></a>Installationsfel: Det gick inte att läsa in konton
+## <a name="installation-failure-failed-to-load-accounts"></a>Installations fel: det gick inte att läsa in konton
 
-Det här felet uppstår när tjänsten inte kan läsa data från transportanslutningen när det installera mobilitetsagenten och registrera med konfigurationsservern. Lös problemet genom att se till att TLS 1.0 är aktiverad på källdatorn.
+Felet uppstår när tjänsten inte kan läsa data från transport anslutningen när den installerar mobilitets agenten och registrerar med konfigurations servern. Lös problemet genom att se till att TLS 1,0 är aktiverat på käll datorn.
 
-## <a name="vcenter-discovery-failures"></a>vCenter-identifiering av fel
+## <a name="vcenter-discovery-failures"></a>problem med vCenter-identifiering
 
-Lös vCenter Identifieringsfel genom att lägga till vCenter-servern att kringgå listan proxy-inställningar. 
+Om du vill lösa vCenter-identifierings felen lägger du till vCenter-servern i listan över proxyinställningar. 
 
-- Ladda ned PsExec-verktyg från [här](https://aka.ms/PsExec) åtkomst till innehåll för användare av systemet.
-- Öppna Internet Explorer i systemet användarinnehåll genom att köra följande kommandorad psexec -s -i ”%programfiles%\Internet Explorer\iexplore.exe”
-- Lägg till proxyinställningarna i Internet Explorer och starta om tmanssvc-tjänsten.
-- Om du vill konfigurera proxyinställningar för DRA kör cd C:\Program Files\Microsoft Azure Site Recovery-providern
-- Kör därefter DRCONFIGURATOR. EXE / konfigurera /AddBypassUrls [Lägg till IP-adressen/FQDN av vCenter Server som angavs under **konfigurera vCenter Server/vSphere ESXi-server** steg i [konfigurationsservern distribution](vmware-azure-deploy-configuration-server.md#configure-settings)]
+- Hämta PsExec-verktyget [härifrån för att få åtkomst till innehåll](https://aka.ms/PsExec) i systemet.
+- Öppna Internet Explorer i system användar innehåll genom att köra följande kommando rad PsExec-s-i "%programfiles%\Internet Explorer\iexplore.exe"
+- Lägg till proxyinställningar i IE och starta om tmanssvc-tjänsten.
+- Om du vill konfigurera inställningar för proxyserver kör du CD C:\Program\Microsoft Azure Site Recovery Provider
+- Kör sedan DRCONFIGURATOR. EXE/Configure/AddBypassUrls [Lägg till IP-adress/FQDN för vCenter Server som angavs under **konfigurera vCenter Server/vSphere ESXi Server-** steget i [konfigurations serverns distribution](vmware-azure-deploy-configuration-server.md#configure-settings)]
 
-## <a name="change-the-ip-address-of-the-configuration-server"></a>Ändra IP-adressen för konfigurationsservern
+## <a name="change-the-ip-address-of-the-configuration-server"></a>Ändra konfigurations serverns IP-adress
 
-Vi rekommenderar starkt att du inte ändrar IP-adressen för en konfigurationsserver. Kontrollera att alla IP-adresser som är kopplade till konfigurationsservern är statiska IP-adresser. Använd inte DHCP IP-adresser.
+Vi rekommenderar starkt att du inte ändrar IP-adressen för en konfigurations Server. Se till att alla IP-adresser som är tilldelade till konfigurations servern är statiska IP-adresser. Använd inte DHCP IP-adresser.
 
 ## <a name="acs50008-saml-token-is-invalid"></a>ACS50008: SAML-token är ogiltig
 
-Om du vill undvika det här felet, se till att det tiden på systemklockan inte är detsamma som den lokala tiden med mer än 15 minuter. Kör installationsprogrammet igen för att slutföra registreringen.
+Undvik det här felet genom att se till att tiden på system klockan inte skiljer sig från den lokala tiden med mer än 15 minuter. Kör installationsprogrammet igen för att slutföra registreringen.
 
 ## <a name="failed-to-create-a-certificate"></a>Det gick inte att skapa ett certifikat
 
-Det går inte att skapa ett certifikat som krävs för att autentisera Site Recovery. Kör installationsprogrammet igen när du har kontrollerat att du kör installationen som lokal administratör.
+Det går inte att skapa ett certifikat som krävs för att autentisera Site Recovery. Kör installations programmet igen när du har säkerställt att du kör installations programmet som lokal administratör.
 
-## <a name="failure-to-activate-windows-license-from-server-standard-evaluation-to-server-standard"></a>Det gick inte att aktivera Windows-licens från utvärdering av Standard-Server till Server Standard
+## <a name="failure-to-activate-windows-license-from-server-standard-evaluation-to-server-standard"></a>Det gick inte att aktivera Windows-licens från Server standard utvärdering till Server standard
 
-1. Som en del av distribution av konfigurationsserver via OVF används en utvärderingslicens, vilket är giltig i 180 dagar. Du måste aktivera den här licensen innan det upphör. Annars kan detta leda till frekventa avstängning av konfigurationsservern och därmed orsaka hinder för replikering.
-2. Om det inte går att aktivera Windows-licens kan nå ut till [Windows supportteam](https://aka.ms/Windows_Support) att lösa problemet.
+1. Som en del av konfigurations serverns distribution via OVF används en utvärderings licens som är giltig i 180 dagar. Du måste aktivera den här licensen innan detta upphör att gälla. Annars kan detta leda till att konfigurations servern ofta stängs av och därför kan det orsaka hinder för replikering av aktiviteter.
+2. Om du inte kan aktivera Windows-licens kan du kontakta [support teamet för Windows](https://aka.ms/Windows_Support) för att lösa problemet.
 
-## <a name="register-source-machine-with-configuration-server"></a>Registrera källdatorn med konfigurationsservern
+## <a name="register-source-machine-with-configuration-server"></a>Registrera käll dator med konfigurations Server
 
-### <a name="if-the-source-machine-runs-windows"></a>Om källdatorn kör Windows
+### <a name="if-the-source-machine-runs-windows"></a>Om käll datorn kör Windows
 
-Kör följande kommando på källdatorn:
+Kör följande kommando på käll datorn:
 
 ```
   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
@@ -97,14 +97,14 @@ Kör följande kommando på källdatorn:
 
 Inställning | Information
 --- | ---
-Användning | UnifiedAgentConfigurator.exe /CSEndPoint < IP-adress för configuration server\> /PassphraseFilePath < filsökväg för lösenfras\>
-Agenten konfigurationsloggar | Finns under % ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
-/CSEndPoint | Obligatorisk parameter. Anger IP-adressen för konfigurationsservern. Använd en giltig IP-adress.
-/PassphraseFilePath |  Obligatorisk. Platsen för lösenfrasen. Använd valfritt giltigt UNC eller lokal filsökväg.
+Användning | UnifiedAgentConfigurator. exe/CSEndPoint < konfigurations serverns IP-adress\>/PassphraseFilePath < lösen ords fil Sök väg\>
+Agent konfigurations loggar | Finns under%ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
+/CSEndPoint | Obligatorisk parameter. Anger konfigurations serverns IP-adress. Använd en giltig IP-adress.
+/PassphraseFilePath |  Obligatorisk. Platsen för lösen frasen. Använd en giltig UNC-eller lokal fil Sök väg.
 
-### <a name="if-the-source-machine-runs-linux"></a>Om källdatorn kör Linux
+### <a name="if-the-source-machine-runs-linux"></a>Om käll datorn kör Linux
 
-Kör följande kommando på källdatorn:
+Kör följande kommando på käll datorn:
 
 ```
   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <configuration server IP address> -P /var/passphrase.txt
@@ -112,25 +112,25 @@ Kör följande kommando på källdatorn:
 
 Inställning | Information
 --- | ---
-Användning | CD /usr/local/ASR/Vx/bin<br /><br /> UnifiedAgentConfigurator.sh -i < IP-adress för configuration server\> - P < filsökväg för lösenfras\>
--i | Obligatorisk parameter. Anger IP-adressen för konfigurationsservern. Använd en giltig IP-adress.
--P |  Obligatorisk. Den fullständiga sökvägen för filen där lösenfrasen har sparats. Använd en befintlig mapp.
+Användning | cd-/usr/local/ASR/Vx/bin<br /><br /> UnifiedAgentConfigurator.sh-i < konfigurations serverns IP-adress\>-P < sökväg för lösen ords fil\>
+-i | Obligatorisk parameter. Anger konfigurations serverns IP-adress. Använd en giltig IP-adress.
+-P |  Obligatorisk. Den fullständiga sökvägen till filen där lösen frasen sparas. Använd en giltig mapp.
 
-## <a name="unable-to-configure-the-configuration-server"></a>Det går inte att konfigurera konfigurationsservern
+## <a name="unable-to-configure-the-configuration-server"></a>Det gick inte att konfigurera konfigurations servern
 
-Om du installerar andra program än konfigurationsservern på den virtuella datorn måste kanske du inte att konfigurera Huvudmålet. 
+Om du installerar andra program än konfigurations servern på den virtuella datorn kan du kanske inte konfigurera huvud målet. 
 
-Konfigurationsservern måste vara ingen enskild server och använder den som en delad server inte stöds. 
+Konfigurations servern måste vara en enda syftes Server och använda den som en delad server stöds inte. 
 
-Mer information finns i konfigurationen vanliga frågor och svar i [distribuera en konfigurationsserver](vmware-azure-deploy-configuration-server.md#faq). 
+Mer information finns i vanliga frågor och svar om konfiguration i [distribuera en konfigurations Server](vmware-azure-deploy-configuration-server.md#faqs). 
 
-## <a name="remove-the-stale-entries-for-protected-items-from-the-configuration-server-database"></a>Ta bort inaktuella poster för skyddade objekt från configuration server-databas 
+## <a name="remove-the-stale-entries-for-protected-items-from-the-configuration-server-database"></a>Ta bort inaktuella poster för skyddade objekt från konfigurations Server databasen 
 
-Använd följande steg för att ta bort inaktuella skyddad dator på konfigurationsservern. 
+Använd följande steg för att ta bort föråldrad skyddad dator på konfigurations servern. 
  
-1. Att fastställa källdatorn och IP-adressen för inaktuell post: 
+1. Så här fastställer du käll datorn och IP-adressen för den inaktuella posten: 
 
-    1. Öppna MYSQL-kommandorad i administratörsläge. 
+    1. Öppna MYSQL cmdline i administratörs läge. 
     2. Kör följande kommandon. 
    
         ```
@@ -138,27 +138,27 @@ Använd följande steg för att ta bort inaktuella skyddad dator på konfigurati
         mysql> select id as hostid, name, ipaddress, ostype as operatingsystem, from_unixtime(lasthostupdatetime) as heartbeat from hosts where name!='InMageProfiler'\G;
         ```
 
-        Det här returnerar listan över registrerade datorer och deras IP-adresser och senaste pulsslag. Hitta den värd som har inaktuella replikering par.
+        Detta returnerar listan över registrerade datorer tillsammans med deras IP-adresser och den senaste pulsslags takten. Hitta värden som har inaktuella replikeringsinställningar.
 
-2. Öppna en upphöjd kommandotolk och navigera till C:\ProgramData\ASR\home\svsystems\bin. 
-4. Ta bort registrerade värdar information och inaktuella informationen från konfigurationsservern genom att köra följande kommando med hjälp av källdatorn och IP-adressen för inaktuell post. 
+2. Öppna en kommando tolk med förhöjd behörighet och navigera till C:\ProgramData\ASR\home\svsystems\bin. 
+4. Om du vill ta bort informationen om registrerade värdar och inaktuell information från konfigurations servern kör du följande kommando med käll datorn och IP-adressen för den inaktuella posten. 
    
     `Syntax: Unregister-ASRComponent.pl -IPAddress <IP_ADDRESS_OF_MACHINE_TO_UNREGISTER> -Component <Source/ PS / MT>`
  
-    Om du har en källa server inmatning av ”OnPrem-VM01” med ip-adressen 10.0.0.4 sedan använda följande kommando i stället.
+    Om du har en käll Server post av "OnPrem-VM01" med IP-adressen 10.0.0.4 använder du följande kommando i stället.
  
     `perl Unregister-ASRComponent.pl -IPAddress 10.0.0.4 -Component Source`
  
-5. Starta om följande tjänster på källdatorn för att registrera om med konfigurationsservern. 
+5. Starta om följande tjänster på käll datorn för att omregistrera med konfigurations servern. 
  
     - InMage Scout Application Service
-    - InMage Scout VX Agent - Sentinel/Outpost
+    - InMage Scout VX agent-Sentinel/utpost
 
-## <a name="upgrade-fails-when-the-services-fail-to-stop"></a>Uppgraderingen misslyckas när tjänsterna inte att stoppa
+## <a name="upgrade-fails-when-the-services-fail-to-stop"></a>Uppgraderingen Miss lyckas när tjänsterna inte kan stoppas
 
-Det går inte att uppgraderingen av configuration server vid vissa tjänster inte stoppar. 
+Uppgraderingen av konfigurations servern Miss lyckas när vissa tjänster inte stoppas. 
 
-Du kan identifiera problemet genom att gå till C:\ProgramData\ASRSetupLogs\CX_TP_InstallLogFile på konfigurationsservern. Om du hittar följande fel kan du använda stegen nedan för att lösa problemet: 
+Identifiera problemet genom att navigera till C:\ProgramData\ASRSetupLogs\CX_TP_InstallLogFile på konfigurations servern. Om du hittar följande fel kan du använda stegen nedan för att lösa problemet: 
 
     2018-06-28 14:28:12.943   Successfully copied php.ini to C:\Temp from C:\thirdparty\php5nts
     2018-06-28 14:28:12.943   svagents service status - SERVICE_RUNNING
@@ -171,85 +171,85 @@ Du kan identifiera problemet genom att gå till C:\ProgramData\ASRSetupLogs\CX_T
     2018-06-28 14:38:12.971   Rolling back the install changes.
     2018-06-28 14:38:12.971   Upgrade has failed.
 
-Att lösa problemet:
+Så här löser du problemet:
 
-Stoppa följande tjänster:
+Stoppa följande tjänster manuellt:
 
 - cxprocessserver
-- InMage Scout VX Agent – Sentinel/Outpost, 
-- Microsoft Azure Recovery Services Agent, 
-- Microsoft Azure Site Recovery Service, 
+- InMage Scout VX agent – Sentinel/utpost, 
+- Microsoft Azure Recovery Services agent, 
+- Microsoft Azure Site Recovery-tjänsten, 
 - tmansvc
   
-Om du vill uppdatera configuration server kör den [enhetligt installationsprogram](service-updates-how-to.md#links-to-currently-supported-update-rollups) igen.
+Om du vill uppdatera konfigurations servern kör du den [enhetliga installationen](service-updates-how-to.md#links-to-currently-supported-update-rollups) igen.
 
-## <a name="azure-active-directory-application-creation-failure"></a>Azure Active Directory application fel vid skapande
+## <a name="azure-active-directory-application-creation-failure"></a>Det gick inte att skapa Azure Active Directory program
 
-Du har inte behörighet att skapa ett program i Azure Active Directory (AAD) med hjälp av den [Open Virtualization program (OVA)](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template
-) mall.
+Du har inte behörighet att skapa ett program i Azure Active Directory (AAD) med hjälp av mallen för att [Öppna virtualiseringsvärdservrar (ägg)](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template
+) .
 
-Lös problemet genom att logga in till Azure-portalen och gör något av följande:
+Lös problemet genom att logga in på Azure Portal och gör något av följande:
 
-- Begära rollen programutvecklare i AAD. Läs mer på rollen programutvecklare [behörigheter för administratör i Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
-- Kontrollera att den **användare kan skapa program** flagga har angetts till *SANT* i AAD. Mer information finns i [Gör så här: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Be rollen program utvecklare i AAD. Mer information om rollen programutvecklare finns [i administratörs roll behörigheter i Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+- Kontrol lera att flaggan **användare kan skapa program** har angetts till *True* i AAD. Mer information finns i [så här gör du: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som har åtkomst till resurser](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
-## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>Process server/Master Target kan inte kommunicera med konfigurationsservern 
+## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>Processervern/huvud mål servern kan inte kommunicera med konfigurations servern 
 
-Processervern (PS) och huvudmål (MT) moduler kan inte kommunicera med konfigurationsservern (CS) och deras status visas som inte är ansluten på Azure-portalen.
+Modulerna processervern (PS) och Master Target (MT) kan inte kommunicera med konfigurations servern (CS) och deras status visas som ej ansluten på Azure Portal.
 
-Detta är vanligtvis på grund av ett fel med port 443. Använd följande steg för att avblockera porten och aktivera kommunikation med Konfigurationsservern igen.
+Detta beror vanligt vis på ett fel med port 443. Använd följande steg för att avblockera porten och återaktivera kommunikation med CS.
 
-**Kontrollera att MARS-agenten som anropas av Master Target-agent**
+**Verifiera att MARS-agenten anropas av huvud mål agenten**
 
-Kontrollera att Master Target-agenten kan skapa en TCP-session för Konfigurationsserverns IP-adress, leta efter en spårning som liknar följande i Master Target-agentloggar:
+Kontrol lera att huvud mål agenten kan skapa en TCP-session för konfigurations serverns IP-adress genom att leta efter en spårning som liknar följande i huvud mål agentens loggar:
 
-TCP \<ersätter IP-Adressen med CS IP-adress här >: 52739 \<ersätter IP-Adressen med CS IP-adress här >: 443 SYN_SENT 
+TCP \<Ersätt IP med CS-IP här >: 52739 \<Ersätt IP med CS-IP här >: 443 SYN_SENT 
 
-TCP 192.168.1.40:52739 192.168.1.40:443 SYN_SENT / / Ersätt IP-Adressen med CS IP-adress här
+TCP-192.168.1.40:52739 192.168.1.40:443 SYN_SENT//replace IP med CS-IP här
 
-Om du hittar spårningar liknar följande i MT-agentloggarna, rapporterar MT-agenten fel på port 443:
+Om du hittar spår som liknar följande i MT-agentens loggar, rapporterar MT-agenten fel på port 443:
 
     #~> (11-20-2018 20:31:51):   ERROR  2508 8408 313 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
     #~> (11-20-2018 20:31:54):   ERROR  2508 8408 314 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
  
-Det här felet kan uppstå när andra program också använder port 443 eller på grund av en brandväggsinställning som blockerar porten.
+Det här felet kan uppstå när andra program också använder port 443 eller på grund av en brand Väggs inställning som blockerar porten.
 
-Att lösa problemet:
+Så här löser du problemet:
 
-- Kontrollera att port 443 inte blockeras av brandväggen.
-- Om porten inte kan nås på grund av ett annat program via den porten, stoppa och avinstallera appen.
-  - Konfigurera en ny ren CS om stoppar appen inte är möjligt.
-- Starta om konfigurationsservern.
+- Kontrol lera att port 443 inte blockeras av brand väggen.
+- Om porten inte kan anslutas på grund av ett annat program som använder den porten, stoppar och avinstallerar du appen.
+  - Om det inte är möjligt att stoppa appen måste du konfigurera en ny ren CS.
+- Starta om konfigurations servern.
 - Starta om IIS-tjänsten.
 
-### <a name="configuration-server-is-not-connected-due-to-incorrect-uuid-entries"></a>Konfigurationsservern är inte ansluten på grund av felaktigt UUID-poster
+### <a name="configuration-server-is-not-connected-due-to-incorrect-uuid-entries"></a>Konfigurations servern är inte ansluten på grund av felaktiga UUID-poster
 
-Det här felet kan inträffa när det finns flera server (CS) instans UUID konfigurationsposter i databasen. Problemet uppstår ofta när du klonar konfigurationsservern VM.
+Det här felet kan inträffa när det finns flera instanser av konfigurations serverns UUID (CS) i databasen. Problemet uppstår ofta när du klonar konfigurations serverns virtuella dator.
 
-Att lösa problemet:
+Så här löser du problemet:
 
-1. Ta bort föråldrade/gamla CS VM från vCenter. Mer information finns i [ta bort servrar och inaktivera skydd](site-recovery-manage-registration-and-protection.md).
-2. Logga in på konfigurationsservern VM och ansluta till MySQL svsdb1-databasen. 
+1. Ta bort föråldrad/gammal virtuell dator från vCenter. Mer information finns i [ta bort servrar och inaktivera skydd](site-recovery-manage-registration-and-protection.md).
+2. Logga in på den virtuella datorns konfigurations Server och Anslut till MySQL svsdb1-databasen. 
 3. Kör följande fråga:
 
     > [!IMPORTANT]
     >
-    > Kontrollera att du anger vilka UUID klonade konfigurationsservern eller inaktuell post för konfigurationsservern som inte längre används för att skydda virtuella datorer. Ange ett felaktigt UUID resulterar i att förlora informationen för alla befintliga skyddade objekt.
+    > Kontrol lera att du anger UUID-information för den klonade konfigurations servern eller den inaktuella posten för konfigurations servern som inte längre används för att skydda virtuella datorer. Om du anger ett felaktigt UUID kommer informationen för alla befintliga skyddade objekt att förloras.
    
     ```
         MySQL> use svsdb1;
         MySQL> delete from infrastructurevms where infrastructurevmid='<Stale CS VM UUID>';
         MySQL> commit; 
     ```
-4. Uppdatera portalsidan.
+4. Uppdatera portal sidan.
 
-## <a name="an-infinite-sign-in-loop-occurs-when-entering-your-credentials"></a>En oändlig inloggning loop inträffar när du anger dina inloggningsuppgifter
+## <a name="an-infinite-sign-in-loop-occurs-when-entering-your-credentials"></a>En oändlig inloggnings slinga inträffar när du anger dina autentiseringsuppgifter
 
-När du har angett rätt användarnamn och lösenord på konfigurationsservern OVF, Azure inloggning fortsätter att fråga efter rätt autentiseringsuppgifter.
+När du har angett rätt användar namn och lösen ord på konfigurations servern OVF, fortsätter Azure logga in för att uppmana dig att ange rätt autentiseringsuppgifter.
 
-Det här problemet kan inträffa när systemklockan är felaktig.
+Det här problemet kan inträffa när system tiden är felaktig.
 
-Att lösa problemet:
+Så här löser du problemet:
 
-Ange rätt tid på datorn och försök logga in. 
+Ange rätt tid på datorn och försök sedan logga in igen. 
  

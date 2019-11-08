@@ -1,33 +1,31 @@
 ---
 title: Självstudie – säkerhetskopiera SQL Server-databaser till Azure
-description: I den här självstudien beskrivs hur du säkerhetskopierar SQL Server till Azure.
+description: I den här självstudien lär du dig hur du säkerhetskopierar en SQL Server databas som körs på en virtuell Azure-dator till ett Azure Backup Recovery Services-valv.
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 729eb0d77cee85356e359dc475f4e439b8236ebb
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 28a804a57a4113b22efd5274ad00b3a216b700aa
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736556"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747041"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Säkerhetskopiera en SQL Server-databas på en virtuell Azure-dator
-
-
 
 Den här självstudien visar hur du säkerhetskopierar en SQL Server databas som körs på en virtuell Azure-dator till ett Azure Backup Recovery Services-valv. I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
+>
 > * Skapa och konfigurera ett valv.
 > * Identifiera databaser och konfigurera säkerhetskopieringar.
 > * Konfigurera automatiskt skydd för databaser.
 > * Kör en ad hoc-säkerhetskopiering.
 
-
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Kontrollera följande villkor innan du säkerhetskopierar SQL Server-databasen:
 
@@ -37,13 +35,12 @@ Kontrollera följande villkor innan du säkerhetskopierar SQL Server-databasen:
 4. Kontrollera att SQL Server-databaserna namnges enligt [riktlinjerna för namngivning](#verify-database-naming-guidelines-for-azure-backup) för Azure Backup.
 5. Kontrollera att du inte har några andra lösningar för säkerhetskopiering aktiverade för databasen. Inaktivera alla andra SQL Server-säkerhetskopieringar innan du installerar det här scenariot. Du kan aktivera Azure Backup för en virtuell Azure-dator tillsammans med Azure Backup för en SQL Server-databas som körs på den virtuella datorn utan konflikter.
 
-
 ### <a name="establish-network-connectivity"></a>Etablera nätverksanslutning
 
 Den virtuella SQL Server-datorn behöver ha anslutning till offentliga Azure-IP-adresser för alla åtgärder. VM-åtgärder (databas identifiering, konfigurera säkerhets kopiering, schemalägga säkerhets kopiering, återställning av återställnings punkter osv.) fungerar inte utan anslutning till offentliga IP-adresser. Upprätta en anslutning med något av följande alternativ:
 
-- **Tillåt IP-intervallen för Azure-datacenter**: Tillåt [IP-intervallen](https://www.microsoft.com/download/details.aspx?id=41653) i nedladdningen. Använd cmdleten **set-AzureNetworkSecurityRule** för att komma åt nätverks säkerhets gruppen (NSG).
-- **Distribuera en HTTP-proxyserver för att dirigera trafik**: När du säkerhetskopierar en SQL Server-databas på en virtuell Azure-dator använder säkerhetskopieringstillägget på den virtuella datorn HTTPS-API:er för att skicka hanteringskommandon till Azure Backup och data till Azure Storage. Säkerhetskopieringstillägget använder också Azure Active Directory (Azure AD) för autentisering. Dirigera trafiken för säkerhetskopieringstillägget för dessa tre tjänster via HTTP-proxyn. Tilläggen är den enda komponenten som är konfigurerad för åtkomst till det offentliga Internet.
+* **Tillåt IP-intervall för Azure-datacenter**: Tillåt [IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653) i nedladdningen. Använd cmdleten **set-AzureNetworkSecurityRule** för att komma åt nätverks säkerhets gruppen (NSG).
+* **Distribuera en HTTP-proxyserver för att dirigera trafik**: när du säkerhetskopierar en SQL Server-databas på en virtuell Azure-dator använder säkerhets kopierings tillägget på den virtuella datorn https-API: er för att skicka hanterings kommandon till Azure Backup och data till Azure Storage. Säkerhetskopieringstillägget använder också Azure Active Directory (Azure AD) för autentisering. Dirigera trafiken för säkerhetskopieringstillägget för dessa tre tjänster via HTTP-proxyn. Tilläggen är den enda komponenten som är konfigurerad för åtkomst till det offentliga Internet.
 
 Varje alternativ har fördelar och nack delar
 
@@ -56,23 +53,22 @@ Använda en HTTP-proxy   | Detaljerad kontroll i proxyn över lagrings-URL:er ti
 
 Azure Backup gör ett antal saker när du konfigurerar säkerhetskopiering för en SQL Server-databas:
 
-- Lägger till tillägget **AzureBackupWindowsWorkload**.
-- För att identifiera databaser på den virtuella datorn skapar Azure Backup kontot **NT SERVICE\AzureWLBackupPluginSvc**. Det här kontot används för säkerhetskopiering och återställning och kräver SQL-sysadmin-behörighet.
-- Azure Backup utnyttjar kontot **NT AUTHORITY\SYSTEM** för databasidentifiering/-förfrågan. Därför behöver det här kontot vara en offentlig inloggning på SQL.
+* Lägger till tillägget **AzureBackupWindowsWorkload**.
+* För att identifiera databaser på den virtuella datorn skapar Azure Backup kontot **NT SERVICE\AzureWLBackupPluginSvc**. Det här kontot används för säkerhetskopiering och återställning och kräver SQL-sysadmin-behörighet.
+* Azure Backup utnyttjar kontot **NT AUTHORITY\SYSTEM** för databasidentifiering/-förfrågan. Därför behöver det här kontot vara en offentlig inloggning på SQL.
 
 Om du inte skapade SQL Server-datorn från Azure Marketplace kan det hända att du får felet **UserErrorSQLNoSysadminMembership**. Om det inträffar [följer du de här instruktionerna](backup-azure-sql-database.md#set-vm-permissions).
 
 ### <a name="verify-database-naming-guidelines-for-azure-backup"></a>Kontrollera riktlinjerna för namngivning av databaser för Azure Backup
 
-Undvik följande för databas namn:
+Undvik följande för databasnamn:
 
-  * Avslutande/inledande blanksteg
-  * Avslutande ”!”
-  * Avslutande hakparentes ”]”
-  * Databas namn som börjar med "F:\"
+* Avslutande/inledande blanksteg
+* Avslutande ”!”
+* Avslutande hakparentes ”]”
+* Databas namn som börjar med "F:\"
 
 Vi har alias för tecken som inte stöds i Azure-tabellen, men vi rekommenderar att du undviker dem. [Läs mer](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
-
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -94,9 +90,9 @@ Identifiera databaser som körs på den virtuella datorn.
 
 5. Under **Säkerhetskopieringsmål** > **Identifiera databaser på virtuella datorer** väljer du **Start Discovery** (Starta identifiering) för att söka efter oskyddade virtuella datorer i prenumerationen. Det kan ta ett tag beroende på antalet oskyddade virtuella datorer i prenumerationen.
 
-   - Oskyddade virtuella datorer bör visas i listan efter identifiering, sorterade efter namn och resursgrupp.
-   - Om en virtuell dator inte visas som förväntat kontrollerar du om den redan har säkerhetskopierats i ett valv.
-   - Flera virtuella datorer kan ha samma namn, men de tillhör olika resursgrupper.
+   * Oskyddade virtuella datorer bör visas i listan efter identifiering, sorterade efter namn och resursgrupp.
+   * Om en virtuell dator inte visas som förväntat kontrollerar du om den redan har säkerhetskopierats i ett valv.
+   * Flera virtuella datorer kan ha samma namn, men de tillhör olika resursgrupper.
 
      ![Säkerhetskopieringen väntar under sökningen efter databaser på virtuella datorer](./media/backup-azure-sql-database/discovering-sql-databases.png)
 
@@ -108,12 +104,12 @@ Identifiera databaser som körs på den virtuella datorn.
 
 8. Azure Backup identifierar alla SQL Server-databaser på den virtuella datorn. Under identifieringen inträffar nedan i bakgrunden:
 
-    - Azure Backup registrerar den virtuella datorn med valvet för säkerhetskopiering av arbetsbelastning. Alla databaser på den registrerade virtuella datorn kan endast säkerhetskopieras till det här valvet.
-    - Azure Backup installerar tillägget **AzureBackupWindowsWorkload** på den virtuella datorn. Det installeras inte någon agent på SQL-databasen.
-    - Azure Backup skapar tjänstkontot **NT Service\AzureWLBackupPluginSvc** på den virtuella datorn.
-      - Alla åtgärder för säkerhetskopiering och återställning använder tjänstkontot.
-      - **NT Service\AzureWLBackupPluginSvc** behöver SQL-sysadmin-behörigheter. Alla virtuella SQL Server-datorer som skapas i Azure Marketplace har **SqlIaaSExtension** installerat. Tillägget **AzureBackupWindowsWorkload** använder **SQLIaaSExtension** för att automatiskt hämta de behörigheter som krävs.
-    - Om du inte skapade den virtuella datorn från Marketplace har den inte **SqlIaaSExtension** installerat, och identifieringsåtgärden misslyckas med felmeddelandet **UserErrorSQLNoSysAdminMembership**. Följ [anvisningarna](backup-azure-sql-database.md#set-vm-permissions) för att åtgärda problemet.
+    * Azure Backup registrerar den virtuella datorn med valvet för säkerhetskopiering av arbetsbelastning. Alla databaser på den registrerade virtuella datorn kan endast säkerhetskopieras till det här valvet.
+    * Azure Backup installerar tillägget **AzureBackupWindowsWorkload** på den virtuella datorn. Det installeras inte någon agent på SQL-databasen.
+    * Azure Backup skapar tjänstkontot **NT Service\AzureWLBackupPluginSvc** på den virtuella datorn.
+      * Alla åtgärder för säkerhetskopiering och återställning använder tjänstkontot.
+      * **NT Service\AzureWLBackupPluginSvc** behöver SQL-sysadmin-behörigheter. Alla virtuella SQL Server-datorer som skapas i Azure Marketplace har **SqlIaaSExtension** installerat. Tillägget **AzureBackupWindowsWorkload** använder **SQLIaaSExtension** för att automatiskt hämta de behörigheter som krävs.
+    * Om du inte skapade den virtuella datorn från Marketplace har den inte **SqlIaaSExtension** installerat, och identifieringsåtgärden misslyckas med felmeddelandet **UserErrorSQLNoSysAdminMembership**. Följ [anvisningarna](backup-azure-sql-database.md#set-vm-permissions) för att åtgärda problemet.
 
         ![Välj den virtuella datorn och databasen](./media/backup-azure-sql-database/registration-errors.png)
 
@@ -121,7 +117,7 @@ Identifiera databaser som körs på den virtuella datorn.
 
 Konfigurera säkerhetskopiering på följande sätt:
 
-1. I **Säkerhetskopieringsmål** väljer du **Konfigurera säkerhetskopiering**.
+1. I **säkerhets kopierings mål**väljer du **Konfigurera säkerhets kopiering**.
 
    ![Välj Konfigurera säkerhetskopiering](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
@@ -135,8 +131,7 @@ Konfigurera säkerhetskopiering på följande sätt:
 
    För att optimera säkerhetskopieringsbelastningar anger Azure Backup ett maximalt antal databaser i ett säkerhetskopieringsjobb till 50.
 
-    
-     * Alternativt kan du aktivera automatiskt skydd på hela instansen eller Always on-tillgänglighetsgrupper genom att välja alternativet **på** i motsvarande listruta i kolumnen autoskydd. Funktionen för automatiskt skydd aktiverar inte bara skydd på alla befintliga databaser i taget, men skyddar också automatiskt nya databaser som kommer att läggas till i den instansen eller tillgänglighets gruppen i framtiden.  
+     * Alternativt kan du aktivera automatiskt skydd på hela instansen eller Always on-tillgänglighetsgrupper genom att välja alternativet **på** i motsvarande listruta i kolumnen **autoskydd** . Funktionen för automatiskt skydd aktiverar inte bara skydd på alla befintliga databaser i taget, men skyddar också automatiskt nya databaser som kommer att läggas till i den instansen eller tillgänglighets gruppen i framtiden.  
 
 4. Klicka på **OK** för att öppna bladet **säkerhets kopierings princip** .
 
@@ -144,9 +139,9 @@ Konfigurera säkerhetskopiering på följande sätt:
 
 5. I **Välj säkerhetskopieringspolicy** väljer du en policy och klickar på **OK**.
 
-   - Välja standardpolicy: HourlyLogBackup.
-   - Välj en befintlig säkerhetskopieringspolicy som har skapats för SQL.
-   - Definiera en ny princip baserat på ditt återställnings intervall och kvarhållningsintervall.
+   * Välj standard principen: HourlyLogBackup.
+   * Välj en befintlig säkerhetskopieringspolicy som har skapats för SQL.
+   * Definiera en ny princip baserat på ditt återställnings intervall och kvarhållningsintervall.
 
      ![Välja säkerhetskopieringspolicy](./media/backup-azure-sql-database/select-backup-policy.png)
 
@@ -162,36 +157,36 @@ Konfigurera säkerhetskopiering på följande sätt:
 
 En säkerhetskopieringspolicy definierar när säkerhetskopior skapas och hur länge de behålls.
 
-- En policy skapas på valvnivå.
-- Flera valv kan använda samma säkerhetskopieringspolicy, men du måste tillämpa säkerhetskopieringspolicyn på varje valv.
-- När du skapar en säkerhetskopieringspolicy används en daglig fullständig säkerhetskopia som standard.
-- Du kan lägga till en differentiell säkerhetskopia, men endast om du konfigurerar så att fullständiga säkerhetskopior utförs varje vecka.
-- [Lär dig mer om](backup-architecture.md#sql-server-backup-types) olika typer av säkerhetskopieringspolicyer.
+* En policy skapas på valvnivå.
+* Flera valv kan använda samma säkerhetskopieringspolicy, men du måste tillämpa säkerhetskopieringspolicyn på varje valv.
+* När du skapar en säkerhetskopieringspolicy används en daglig fullständig säkerhetskopia som standard.
+* Du kan lägga till en differentiell säkerhetskopia, men endast om du konfigurerar så att fullständiga säkerhetskopior utförs varje vecka.
+* [Lär dig mer om](backup-architecture.md#sql-server-backup-types) olika typer av säkerhetskopieringspolicyer.
 
 Så här skapar du en säkerhetskopieringspolicy:
 
 1. I valvet klickar du på **Säkerhetskopieringspolicyer** > **Lägg till**.
-2. På menyn **Lägg till** klickar du på **SQL Server på Azure VM**. För att definiera princip typen.
+2. I menyn **Lägg till** klickar du på **SQL Server i Azure VM** för att definiera princip typen.
 
    ![Välj en policytyp för den nya säkerhetskopieringspolicyn](./media/backup-azure-sql-database/policy-type-details.png)
 
 3. I **Policynamn** anger du ett namn för den nya policyn.
 4. I **Policy för fullständig säkerhetskopia** väljer du en **Säkerhetskopieringsfrekvens** och väljer **Dagligen** eller **Varje vecka**.
 
-   - För **Dagligen** väljer du den timme och den tidszon då säkerhetskopieringsjobbet börjar.
-   - Du måste köra en fullständig säkerhets kopiering eftersom du inte kan stänga av alternativet för **fullständig säkerhets kopiering** .
-   - Klicka på **Fullständig säkerhetskopia** för att visa policyn.
-   - Du kan inte skapa differentiella säkerhetskopior för dagliga fullständiga säkerhetskopior.
-   - För **Varje vecka** väljer du den veckodag, timme och tidszon då säkerhetskopieringsjobbet börjar.
+   * För **Dagligen** väljer du den timme och den tidszon då säkerhetskopieringsjobbet börjar.
+   * Du måste köra en fullständig säkerhets kopiering eftersom du inte kan stänga av alternativet för **fullständig säkerhets kopiering** .
+   * Klicka på **Fullständig säkerhetskopia** för att visa policyn.
+   * Du kan inte skapa differentiella säkerhetskopior för dagliga fullständiga säkerhetskopior.
+   * För **Varje vecka** väljer du den veckodag, timme och tidszon då säkerhetskopieringsjobbet börjar.
 
      ![Nya fält för säkerhetskopieringspolicy](./media/backup-azure-sql-database/full-backup-policy.png)  
 
 5. För **Kvarhållningsintervall** är alla alternativ markerade som standard. Avmarkera eventuella gränser för kvarhållningsintervall som du inte vill använda, och ange intervall som ska användas.
 
-    - Minsta kvarhållningsperiod för alla typer av säkerhets kopiering (fullständig/differentiell/log) är 7 dagar.
-    - Återställningspunkter taggas för kvarhållning baserat på deras kvarhållningsintervall. Om du till exempel väljer en daglig fullständig säkerhetskopia utlöses endast en fullständig säkerhetskopia varje dag.
-    - Säkerhetskopieringen för en viss dag taggas och behålls baserat på det veckovisa kvarhållningsintervallet och inställningen för veckovis kvarhållning.
-    - De månatliga och årliga kvarhållningsintervallen fungerar på liknande sätt.
+    * Minsta kvarhållningsperiod för alla typer av säkerhets kopiering (fullständig/differentiell/log) är sju dagar.
+    * Återställningspunkter taggas för kvarhållning baserat på deras kvarhållningsintervall. Om du till exempel väljer en daglig fullständig säkerhetskopia utlöses endast en fullständig säkerhetskopia varje dag.
+    * Säkerhetskopieringen för en viss dag taggas och behålls baserat på det veckovisa kvarhållningsintervallet och inställningen för veckovis kvarhållning.
+    * De månatliga och årliga kvarhållningsintervallen fungerar på liknande sätt.
 
    ![Inställningar för kvarhållningsintervall](./media/backup-azure-sql-database/retention-range-interval.png)
 
@@ -203,8 +198,8 @@ Så här skapar du en säkerhetskopieringspolicy:
 
 8. I **Policy för differentiell säkerhetskopia** väljer du **Aktivera** för att öppna kontrollerna för frekvens och kvarhållning.
 
-    - Du kan endast utlösa en differentiell säkerhetskopia per dag.
-    - Differentiella säkerhetskopior kan behållas i upp till 180 dagar. Om du behöver längre kvarhållning måste du använda fullständiga säkerhetskopior.
+    * Du kan endast utlösa en differentiell säkerhetskopia per dag.
+    * Differentiella säkerhetskopior kan behållas i upp till 180 dagar. Om du behöver längre kvarhållning måste du använda fullständiga säkerhetskopior.
 
 9. Välj **OK** för att spara policyn och återgå till huvudmenyn **Säkerhetskopieringspolicy**.
 
@@ -215,8 +210,8 @@ Så här skapar du en säkerhetskopieringspolicy:
     ![Redigera policyn för loggsäkerhetskopia](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
 13. På menyn **Säkerhetskopieringspolicy** väljer du om du vill aktivera **komprimering av SQL-säkerhetskopiering**.
-    - Komprimering är inaktiverat som standard.
-    - På serverdelen använder Azure Backup SQL-specifik säkerhetskopieringskomprimering.
+    * Komprimering är inaktiverat som standard.
+    * På serverdelen använder Azure Backup SQL-specifik säkerhetskopieringskomprimering.
 
 14. När du har slutfört redigeringarna i säkerhetskopieringspolicyn väljer du **OK**.
 
@@ -229,12 +224,12 @@ Så här skapar du en säkerhetskopieringspolicy:
 5. Välj OK för att påbörja säkerhets kopieringen.
 6. Övervaka säkerhets kopierings jobbet genom att gå till Recovery Services valvet och välja "säkerhets kopierings jobb".
 
-
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien använder du Azure-portalen till att:
+I den här självstudien använde du Azure Portal för att:
 
 > [!div class="checklist"]
+>
 > * Skapa och konfigurera ett valv.
 > * Identifiera databaser och konfigurera säkerhetskopieringar.
 > * Konfigurera automatiskt skydd för databaser.
@@ -244,5 +239,3 @@ Fortsätta till nästa kurs för att återställa en virtuell Azure-dator från 
 
 > [!div class="nextstepaction"]
 > [Återställa SQL Server databaser på virtuella Azure-datorer](./restore-sql-database-azure-vm.md)
- 
-

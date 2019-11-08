@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: f411771fbf39a99642506253fc025d6b29840423
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7d5a232d92c37a94ff427a3bf203f6f20764060e
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648644"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748576"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagera på IoT Hub händelser genom att använda Event Grid för att utlösa åtgärder
 
@@ -31,19 +31,19 @@ Event Grid-integrering är tillgänglig för IoT-hubbar som finns i regionerna d
 
 IoT Hub publicerar följande händelse typer:
 
-| eventType | Beskrivning |
+| Händelse typ | Beskrivning |
 | ---------- | ----------- |
-| Microsoft.Devices.DeviceCreated | Publicerad när en enhet registreras i en IoT-hubb. |
-| Microsoft.Devices.DeviceDeleted | Publicerad när en enhet tas bort från en IoT-hubb. |
-| Microsoft.Devices.DeviceConnected | Publicerad när en enhet är ansluten till en IoT-hubb. |
+| Microsoft. devices. DeviceCreated | Publicerad när en enhet registreras i en IoT-hubb. |
+| Microsoft. devices. DeviceDeleted | Publicerad när en enhet tas bort från en IoT-hubb. |
+| Microsoft. devices. DeviceConnected | Publicerad när en enhet är ansluten till en IoT-hubb. |
 | Microsoft. devices. DeviceDisconnected | Publicerad när en enhet kopplas från en IoT-hubb. |
-| Microsoft.Devices.DeviceTelemetry | Publicerad när ett meddelande om telemetri skickas till en IoT-hubb |
+| Microsoft. devices. DeviceTelemetry | Publicerad när ett meddelande om telemetri skickas till en IoT-hubb |
 
 Använd antingen Azure Portal eller Azure CLI för att konfigurera vilka händelser som ska publiceras från varje IoT-hubb. För ett exempel kan du prova självstudien [skicka e-postaviseringar om Azure IoT Hub händelser med Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md).
 
 ## <a name="event-schema"></a>Händelseschema
 
-IoT Hub händelser innehåller all information som du behöver för att svara på ändringar i enhetens livs cykel. Du kan identifiera en IoT Hub händelse genom att kontrol lera att egenskapen eventType börjar med **Microsoft.** Devices. Mer information om hur du använder Event Grid händelse egenskaper finns i [Event Grid händelse schema](../event-grid/event-schema.md).
+IoT Hub händelser innehåller all information som du behöver för att svara på ändringar i enhetens livs cykel. Du kan identifiera en IoT Hub händelse genom att kontrol lera att egenskapen eventType börjar med **Microsoft. Devices**. Mer information om hur du använder Event Grid händelse egenskaper finns i [Event Grid händelse schema](../event-grid/event-schema.md).
 
 ### <a name="device-connected-schema"></a>Enhetens anslutna schema
 
@@ -176,7 +176,7 @@ devices/{deviceId}
 
 Event Grid kan också filtrera efter attribut för varje händelse, inklusive data innehållet. På så sätt kan du välja vilka händelser som levereras baserat innehåll i telemetri-meddelandet. Se [avancerad filtrering](../event-grid/event-filtering.md#advanced-filtering) för att visa exempel. För filtrering i meddelande texten för telemetri måste du ange contentType till **Application/JSON** och ContentEncoding till **UTF-8** i meddelande [systemets egenskaper](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties). Båda dessa egenskaper är Skift läges känsliga.
 
-För icke-telemetri-händelser som DeviceConnected, DeviceDisconnected, DeviceCreated och DeviceDeleted, kan Event Grid filtrering användas när du skapar prenumerationen. För telemetri-händelser kan användare förutom filtreringen i Event Grid även filtrera på enhets-och meddelande egenskaper och brödtext via meddelande cirkulations frågan. Vi skapar en standard [väg](iot-hub-devguide-messages-d2c.md) i IoT Hub baserat på din event Grid-prenumeration på telemetri för enheter. Den här enskilda vägen kan hantera alla Event Grid prenumerationer. Om du vill filtrera meddelanden innan telemetridata skickas kan du uppdatera din [cirkulations fråga](iot-hub-devguide-routing-query-syntax.md). Observera att cirkulations frågan bara kan användas i meddelande texten om texten är JSON. Du måste också ange contentType till **Application/JSON** och ContentEncoding till **UTF-8** i meddelande systemets [Egenskaper](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties).
+För icke-telemetri-händelser som DeviceConnected, DeviceDisconnected, DeviceCreated och DeviceDeleted, kan Event Grid filtrering användas när du skapar prenumerationen. För telemetri-händelser kan användare förutom filtreringen i Event Grid även filtrera på enhets-och meddelande egenskaper och brödtext via meddelande cirkulations frågan. Vi skapar en standard [väg](iot-hub-devguide-messages-d2c.md) i IoT Hub baserat på din event Grid-prenumeration på telemetri för enheter. Den här enskilda vägen kan hantera alla Event Grid prenumerationer. Om du vill filtrera meddelanden innan telemetridata skickas kan du uppdatera din [cirkulations fråga](iot-hub-devguide-routing-query-syntax.md). Observera att cirkulations frågan bara kan användas i meddelande texten om texten är JSON. Du måste också ange contentType till **Application/JSON** och ContentEncoding till **UTF-8** i meddelande [systemets egenskaper](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties).
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Begränsningar för enhet ansluten och avkopplade enhets händelser
 
@@ -204,4 +204,4 @@ Program som hanterar IoT Hub händelser bör följa de här rekommendationerna:
 
 * [Jämför skillnaderna mellan routning IoT Hub händelser och meddelanden](iot-hub-event-grid-routing-comparison.md)
 
-* [Lär dig hur du använder IoT-telemetri för att implementera IoT spatial Analytics med hjälp av Azure Maps (och IoT Hub meddelanderoutning)](../azure-maps/tutorial-iot-hub-maps.md#filter-events-using-iot-hub-message-routing)
+* [Lär dig hur du använder IoT-telemetri för att implementera IoT spatial Analytics med hjälp av Azure Maps](../azure-maps/tutorial-iot-hub-maps.md#create-an-azure-function-and-add-an-event-grid-subscription)

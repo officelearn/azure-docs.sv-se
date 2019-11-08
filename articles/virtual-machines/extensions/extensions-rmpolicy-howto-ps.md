@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: e096982c7bbf4f06b96ef4e3918ca1caa9d481a0
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 599417131f228c95168641c54ffbb947e3682f7b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169081"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750004"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Använd Azure Policy för att begränsa installationen av tillägg på virtuella Windows-datorer
 
@@ -26,7 +26,7 @@ Om du vill förhindra användning eller installation av vissa tillägg på dina 
 
 I den här självstudien används Azure PowerShell inom Cloud Shell, som uppdateras kontinuerligt till den senaste versionen. 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="create-a-rules-file"></a>Skapa en regel fil
 
@@ -141,7 +141,7 @@ $assignment
 
 ## <a name="test-the-policy"></a>Testa principen
 
-Testa principen genom att försöka använda tillägget för VM-åtkomst. Följande bör inte utföras med meddelandet "Set-AzVMAccessExtension: Resursen ' myVMAccess ' tilläts inte av principen. "
+Testa principen genom att försöka använda tillägget för VM-åtkomst. Följande bör inte utföras med meddelandet "Set-AzVMAccessExtension: Resource" myVMAccess "tilläts av principen".
 
 ```azurepowershell-interactive
 Set-AzVMAccessExtension `
@@ -151,7 +151,7 @@ Set-AzVMAccessExtension `
    -Location EastUS 
 ```
 
-I portalen bör ändringen av lösen ordet Miss lyckas med "distribution av mallen misslyckades på grund av princip överträdelse." meddelande.
+I portalen bör ändringen av lösen ordet Miss lyckas med "distribution av mallen misslyckades på grund av princip överträdelse." Meddelande.
 
 ## <a name="remove-the-assignment"></a>Ta bort tilldelningen
 

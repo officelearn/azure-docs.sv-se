@@ -1,6 +1,6 @@
 ---
-title: 'Azure Backup: Skapa Recovery Services-valv med REST API'
-description: hantera säkerhets kopierings-och återställnings åtgärder för Azure VM backup med REST API
+title: 'Azure Backup: skapa Recovery Services-valv med REST API'
+description: I den här artikeln lär du dig att hantera säkerhets kopierings-och återställnings åtgärder för Azure VM backup med REST API.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: dacurwin
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: f60a675b87d989f12ac3e6181f580b8acffa640b
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 7c9d165f623367d1c888b90f76e96ce8fa2e8f89
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688701"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747561"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Skapa Azure Recovery Services Vault med REST API
 
@@ -27,16 +27,16 @@ Använd *följande åtgärd* för att skapa eller uppdatera ett Azure Recovery S
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}?api-version=2016-06-01
 ```
 
-## <a name="create-a-request"></a>Skapa en förfrågan
+## <a name="create-a-request"></a>Skapa en begäran
 
-`{subscription-id}` Parametern krävs för att du ska kunna skapa en *begäran* . Om du har flera prenumerationer kan du läsa mer i [arbeta med flera prenumerationer](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). Du definierar en `{resourceGroupName}` och `{vaultName}` för dina `api-version` resurser, tillsammans med parametern. I den här `api-version=2016-06-01`artikeln används.
+Parametern `{subscription-id}` måste anges *om du vill skapa en begäran* . Om du har flera prenumerationer kan du läsa mer i [arbeta med flera prenumerationer](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). Du definierar en `{resourceGroupName}` och `{vaultName}` för dina resurser, tillsammans med `api-version`-parametern. Den här artikeln använder `api-version=2016-06-01`.
 
-Följande rubriker krävs:
+Följande huvuden krävs:
 
-| Begär ande huvud   | Beskrivning |
+| Begärandehuvud   | Beskrivning |
 |------------------|-----------------|
-| *Innehålls typ:*  | Obligatoriskt. Ange till `application/json`. |
-| *Authorization:* | Obligatoriskt. Ange en giltig `Bearer` [åtkomsttoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+| *Content-Type:*  | Krävs. Ange till `application/json`. |
+| *Auktorisering:* | Krävs. Ange till en giltig `Bearer`-[åtkomsttoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
 Mer information om hur du skapar begäran finns i [komponenter i en REST API begäran/svar](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -44,13 +44,13 @@ Mer information om hur du skapar begäran finns i [komponenter i en REST API beg
 
 Följande vanliga definitioner används för att bygga en begär ande text:
 
-|Namn  |Obligatorisk  |Typ  |Beskrivning  |
+|Namn  |Krävs  |Typ  |Beskrivning  |
 |---------|---------|---------|---------|
 |eTag     |         |   Sträng      |  Valfri eTag       |
-|location     |  true       |Sträng         |   Resursplats      |
+|location     |  true       |Sträng         |   Resurs plats      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Egenskaper för valvet       |
 |sku     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identifierar det unika system-ID: t för varje Azure-resurs     |
-|taggar     |         | Object        |     Resurstaggar    |
+|tagg     |         | Objekt        |     Resurstaggar    |
 
 Observera att valv namnet och resurs gruppens namn anges i PLACERINGs-URI: n. I begär ande texten definieras platsen.
 
@@ -68,13 +68,13 @@ Följande exempel text används för att skapa ett valv i "västra USA". Ange pl
 }
 ```
 
-## <a name="responses"></a>Responses
+## <a name="responses"></a>Svar
 
 Det finns två lyckade svar för åtgärden att skapa eller uppdatera ett Recovery Services-valv:
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
-|200 OK     |   [Valv](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | Ok        |
+|200 OK     |   [Valv](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
 |201 har skapats     | [Valv](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Skapad      |
 
 Mer information om REST API svar finns i [bearbeta svars meddelandet](/rest/api/azure/#process-the-response-message).
@@ -105,4 +105,4 @@ Ett komprimerat *201* -svar från föregående exempel begär ande brödtext vis
 Mer information om Azure REST-API: er finns i följande dokument:
 
 - [Azure Recovery Services-Provider REST API](/rest/api/recoveryservices/)
-- [Kom igång med Azure REST API](/rest/api/azure/)
+- [Komma igång med Azure REST API](/rest/api/azure/)

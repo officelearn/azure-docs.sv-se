@@ -1,6 +1,6 @@
 ---
-title: 'Länka ett virtuellt nätverk till en ExpressRoute-krets: PowerShell: klassiska: Azure | Microsoft Docs'
-description: Det här dokumentet innehåller en översikt över hur du länka virtuella nätverk (Vnet) till ExpressRoute-kretsar med hjälp av den klassiska distributionsmodellen och PowerShell.
+title: 'Länka ett virtuellt nätverk till en ExpressRoute-krets: PowerShell: klassisk: Azure | Microsoft Docs'
+description: Det här dokumentet ger en översikt över hur du länkar virtuella nätverk (virtuella nätverk) till ExpressRoute-kretsar med hjälp av den klassiska distributions modellen och PowerShell.
 services: expressroute
 documentationcenter: na
 author: cherylmc
@@ -8,25 +8,25 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: cherylmc
-ms.openlocfilehash: 21676ff329613f792d6570713f044bb7440e58d4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9365e36cb2beff21e795adecaef5fa41e0d7583c
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370636"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748267"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Ansluta ett virtuellt nätverk till en ExpressRoute-krets med PowerShell (klassisk)
 > [!div class="op_single_selector"]
 > * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
-> * [Video - Azure-portalen](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [Video – Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (klassisk)](expressroute-howto-linkvnet-classic.md)
 >
 
-Den här artikeln beskriver hur du länka virtuella nätverk (Vnet) till Azure ExpressRoute-kretsar med hjälp av PowerShell. Ett enskilt virtuellt nätverk kan länkas till upp till fyra ExpressRoute-kretsar. Använd stegen i den här artikeln för att skapa en ny länk till varje ExpressRoute-krets som du ansluter till. ExpressRoute-kretsar kan finnas i samma prenumeration, olika prenumerationer eller en blandning av båda. Den här artikeln gäller för virtuella nätverk som skapats med den klassiska distributionsmodellen.
+I den här artikeln får du hjälp med att länka virtuella nätverk (virtuella nätverk) till Azure ExpressRoute-kretsar med PowerShell. Ett enda VNet kan länkas till upp till fyra ExpressRoute-kretsar. Följ stegen i den här artikeln för att skapa en ny länk till varje ExpressRoute-krets som du ansluter till. ExpressRoute-kretsarna kan vara i samma prenumeration, olika prenumerationer eller en blandning av båda. Den här artikeln gäller virtuella nätverk som skapats med den klassiska distributions modellen.
 
-Du kan länka upp till 10 virtuella nätverk till en ExpressRoute-krets. Alla virtuella nätverken måste finnas i samma geopolitiska region. Du kan länka ett större antal virtuella nätverk till ExpressRoute-krets eller länka virtuella nätverk som är i andra geopolitiska regioner om du aktiverar Expressroutes premiumtillägg. Kontrollera den [vanliga frågor och svar](expressroute-faqs.md) för mer information om premium-tillägget.
+Du kan länka upp till 10 virtuella nätverk till en ExpressRoute-krets. Alla virtuella nätverk måste finnas i samma naturpolitisk region. Du kan länka ett större antal virtuella nätverk till din ExpressRoute-krets eller länka virtuella nätverk som finns i andra politiska regioner om du aktiverar ExpressRoute Premium-tillägget. Läs [vanliga frågor och svar](expressroute-faqs.md) om du vill ha mer information om Premium-tillägget.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -35,31 +35,29 @@ Du kan länka upp till 10 virtuella nätverk till en ExpressRoute-krets. Alla vi
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## <a name="configuration-prerequisites"></a>Förutsättningar för konfiguration
 
-* Granska den [krav](expressroute-prerequisites.md), [routningskrav](expressroute-routing.md), och [arbetsflöden](expressroute-workflows.md) innan du påbörjar konfigurationen.
+* Granska kraven [](expressroute-prerequisites.md), kraven för [routning](expressroute-routing.md)och [arbets flöden](expressroute-workflows.md) innan du påbörjar konfigurationen.
 * Du måste ha en aktiv ExpressRoute-krets.
-   * Följ anvisningarna för att [skapa en ExpressRoute-krets](expressroute-howto-circuit-classic.md) och låt anslutningsleverantören aktivera kretsen.
-   * Kontrollera att du har Azure privat peering har konfigurerats för din krets. Se den [konfigurera routning](expressroute-howto-routing-classic.md) artikeln routning anvisningar.
-   * Se till att Azures privata peering har konfigurerats och BGP-peering mellan ditt nätverk och Microsoft är igång så att du kan aktivera anslutning för slutpunkt till slutpunkt.
-   * Du måste ha ett virtuellt nätverk och en virtuell nätverksgateway skapas och helt etablerad. Följ anvisningarna för att [konfigurera ett virtuellt nätverk för ExpressRoute](expressroute-howto-vnet-portal-classic.md).
+   * Följ anvisningarna för att [skapa en ExpressRoute-krets](expressroute-howto-circuit-classic.md) och be anslutnings leverantören aktivera kretsen.
+   * Se till att du har konfigurerat Azures privata peering för din krets. Mer information finns i artikeln [om konfigurering av routning](expressroute-howto-routing-classic.md) .
+   * Se till att Azures privata peering har kon figurer ATS och BGP-peering mellan ditt nätverk och Microsoft är igång så att du kan aktivera slut punkt till slut punkt.
+   * Du måste ha ett virtuellt nätverk och en virtuell nätverksgateway skapad och helt etablerad. Följ anvisningarna för att [Konfigurera ett virtuellt nätverk för ExpressRoute](expressroute-howto-vnet-portal-classic.md).
 
-### <a name="download-the-latest-powershell-cmdlets"></a>Ladda ned det senaste PowerShell-cmdlet
+### <a name="download-the-latest-powershell-cmdlets"></a>Hämta de senaste PowerShell-cmdletarna
 
-Installera de senaste versionerna av Azure Service Management (SM) PowerShell-moduler och ExpressRoute-modulen. När du använder i följande exempel, Observera att versionsnumret (i det här exemplet 5.1.1) kommer att ändras när nyare versioner av cmdletarna är tillgängliga.
+Installera de senaste versionerna av Azure Service Management (SM) PowerShell-modulerna och ExpressRoute-modulen. När du använder följande exempel måste du tänka på att versions numret (i det här exemplet 5.1.1) kommer att ändras när nya versioner av cmdletarna släpps.
 
 ```powershell
 Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
 Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 ```
 
-Om du behöver mer information om Azure PowerShell, se [komma igång med Azure PowerShell-cmdlets](/powershell/azure/overview) stegvisa instruktioner om hur du konfigurerar din dator om du vill använda Azure PowerShell-moduler.
+Om du behöver mer information om Azure PowerShell, se [komma igång med Azure PowerShell-cmdletar](/powershell/azure/overview) för stegvisa anvisningar om hur du konfigurerar datorn att använda Azure PowerShell-moduler.
 
 ### <a name="sign-in"></a>Logga in
 
-Använd följande exempel för att logga in på Azure-kontot:
+Använd följande exempel för att logga in på ditt Azure-konto:
 
 1. Öppna PowerShell-konsolen med utökade rättigheter och anslut till ditt konto.
 
@@ -77,22 +75,22 @@ Använd följande exempel för att logga in på Azure-kontot:
    Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
 
-4. Använd sedan följande cmdlet för att lägga till din Azure-prenumeration i PowerShell för den klassiska distributionsmodellen.
+4. Använd sedan följande cmdlet för att lägga till din Azure-prenumeration till PowerShell för den klassiska distributions modellen.
 
    ```powershell
    Add-AzureAccount
    ```
 
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Anslut ett virtuellt nätverk i samma prenumeration till en krets
-Du kan länka ett virtuellt nätverk till en ExpressRoute-krets med hjälp av följande cmdlet. Se till att den virtuella nätverksgatewayen har skapats och är redo för att länka innan du kör cmdlet: en.
+Du kan länka ett virtuellt nätverk till en ExpressRoute-krets med hjälp av följande cmdlet. Kontrol lera att den virtuella Nätverksgatewayen har skapats och är redo för länkning innan du kör cmdleten.
 
 ```powershell
 New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
 Provisioned
 ```
     
-## <a name="remove-a-virtual-network-link-to-a-circuit"></a>Ta bort en länk för virtuellt nätverk till en krets
-Du kan ta bort en länk för virtuellt nätverk till en ExpressRoute-krets med hjälp av följande cmdlet. Kontrollera att den aktuella prenumerationen har valts för det angivna virtuella nätverket. 
+## <a name="remove-a-virtual-network-link-to-a-circuit"></a>Ta bort ett virtuellt nätverks länk till en krets
+Du kan ta bort en virtuell nätverks länk till en ExpressRoute-krets med hjälp av följande cmdlet. Kontrol lera att den aktuella prenumerationen har valts för det angivna virtuella nätverket. 
 
 ```powershell
 Remove-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
@@ -100,33 +98,33 @@ Remove-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VN
  
 
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Anslut ett virtuellt nätverk i en annan prenumeration till en krets
-Du kan dela en ExpressRoute-krets över flera prenumerationer. Följande bild visar ett enkelt schema i så här fungerar för ExpressRoute-kretsar över flera prenumerationer.
+Du kan dela en ExpressRoute-krets över flera prenumerationer. Följande bild visar en enkel Schematisk över hur delning fungerar för ExpressRoute-kretsar över flera prenumerationer.
 
-Var och en av de mindre moln inom det stora molnet används för att representera prenumerationer som hör till olika avdelningar inom en organisation. Var och en av avdelningarna i organisationen kan använda sin egen prenumeration för att distribuera sina tjänster, men avdelningarna kan dela en enda ExpressRoute-krets för att ansluta till ditt lokala nätverk. En avdelning (i det här exemplet: IT) kan äga ExpressRoute-kretsen. Andra prenumerationer i organisationen kan använda ExpressRoute-kretsen.
+Vart och ett av de mindre molnen i det stora molnet används för att representera prenumerationer som tillhör olika avdelningar i en organisation. Var och en av avdelningarna i organisationen kan använda sin egen prenumeration för att distribuera tjänsterna – men avdelningarna kan dela en enda ExpressRoute-krets för att ansluta till ditt lokala nätverk. En enda avdelning (i det här exemplet: IT) kan äga ExpressRoute-kretsen. Andra prenumerationer inom organisationen kan använda ExpressRoute-kretsen.
 
 > [!NOTE]
-> Avgifter för anslutning och bandbredd för dedikerade kretsen tillämpas till ExpressRoute-krets ägare. Alla virtuella nätverk delar samma bandbredden.
+> Anslutnings-och bandbredds avgifter för den dedikerade kretsen kommer att användas för ExpressRoute-kretsens ägare. Alla virtuella nätverk delar samma bandbredd.
 > 
 > 
 
-![Anslutningen mellan prenumerationer](./media/expressroute-howto-linkvnet-classic/cross-subscription.png)
+![Anslutning mellan prenumerationer](./media/expressroute-howto-linkvnet-classic/cross-subscription.png)
 
 ### <a name="administration"></a>Administration
-Den *kretsägaren* är administratör/medadministratör för prenumerationen som ExpressRoute-kretsen har skapats. Kretsägaren kan auktorisera administratörer/medadministratörer för andra prenumerationer, kallas *krets användare*ska gå att använda dedikerade kretsen som de äger. Kretsanvändare som har behörighet att använda organisationens ExpressRoute-krets kan koppla det virtuella nätverket i sin prenumeration till ExpressRoute-krets när de har behörighet.
+*Krets ägaren* är administratör/medadministratör för den prenumeration som ExpressRoute-kretsen skapas i. Krets ägaren kan auktorisera administratörer/medadministratörer för andra prenumerationer, vilket kallas *krets användare*, för att använda den dedikerade kretsen som de äger. Krets användare som har behörighet att använda organisationens ExpressRoute-krets kan länka det virtuella nätverket i sin prenumeration till ExpressRoute-kretsen när de har behörighet.
 
-Kretsägaren har rätt att ändra och återkalla auktoriseringar när som helst. Om du återkallar en auktorisering resulterar i alla länkar som tas bort från prenumerationen vars åtkomst har återkallats.
+Krets ägaren har möjlighet att ändra och återkalla auktorisering när som helst. Om du återkallar en auktorisering tas alla länkar bort från prenumerationen vars åtkomst har återkallats.
 
-### <a name="circuit-owner-operations"></a>Kretsen ägare åtgärder
+### <a name="circuit-owner-operations"></a>Krets ägare åtgärder
 
 **Skapa en auktorisering**
 
-Kretsägaren auktoriserar administratörerna av andra prenumerationer att använda den angivna kretsen. I följande exempel kan administratören för kretsen (Contoso IT) administratör för en annan prenumeration (utveckling och testning) länka upp till två virtuella nätverk till kretsen. Contoso IT-administratören gör detta genom att ange utvecklings-och Microsoft-ID. Cmdlet: en Skicka inte e-postmeddelande till den angivna Microsoft-ID. Kretsägaren måste uttryckligen meddela andra prenumerationsägaren att auktoriseringen har slutförts.
+Krets ägaren godkänner administratörer för andra prenumerationer att använda den angivna kretsen. I följande exempel gör kretsen administratör (contoso IT) administratören för en annan prenumeration (dev-test) för att länka upp till två virtuella nätverk till kretsen. Contoso IT-administratören möjliggör detta genom att ange Microsoft-ID: t för dev-test. Cmdleten skickar inte e-post till det angivna Microsoft-ID: t. Krets ägaren måste uttryckligen meddela den andra prenumerations ägaren att auktoriseringen är slutförd.
 
 ```powershell
 New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'
 ```
 
-  Returnera:
+  Returrelaterade
 
   ```powershell
   Description         : Dev-Test Links
@@ -138,12 +136,12 @@ New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "************************
 
 **Granska auktoriseringar**
 
-Kretsägaren kan granska alla auktoriseringar som utfärdas på en viss krets genom att köra följande cmdlet:
+Krets ägaren kan granska alla auktoriseringar som utfärdats på en viss krets genom att köra följande cmdlet:
 
 ```powershell
 Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: "**************************"
 ```
-  Returnera:
+  Returrelaterade
 
   ```powershell
   Description         : EngineeringTeam
@@ -167,13 +165,13 @@ Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: "***********************
 
 **Uppdaterar auktoriseringar**
 
-Kretsägaren kan ändra tillstånd med hjälp av följande cmdlet:
+Krets ägaren kan ändra auktoriseringar med hjälp av följande cmdlet:
 
 ```powershell
 Set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -AuthorizationId "&&&&&&&&&&&&&&&&&&&&&&&&&&&&"-Limit 5
 ```
 
-  Returnera:
+  Returrelaterade
 
   ```powershell
   Description         : Dev-Test Links
@@ -183,25 +181,25 @@ Set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "************************
   Used                : 0
   ```
 
-**Tar bort auktoriseringar**
+**Ta bort auktoriseringar**
 
-Kretsägaren kan återkalla/ta bort auktoriseringar för användaren genom att köra följande cmdlet:
+Krets ägaren kan återkalla/ta bort auktoriseringarna till användaren genom att köra följande cmdlet:
 
 ```powershell
 Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey "*****************************" -AuthorizationId "###############################"
 ```
 
-### <a name="circuit-user-operations"></a>Kretsen användaråtgärder
+### <a name="circuit-user-operations"></a>Krets användar åtgärder
 
 **Granska auktoriseringar**
 
-Kretsanvändare kan granska tillstånd med hjälp av följande cmdlet:
+Krets användaren kan granska auktoriseringar med hjälp av följande cmdlet:
 
 ```powershell
 Get-AzureAuthorizedDedicatedCircuit
 ```
 
-  Returnera:
+  Returrelaterade
 
   ```powershell
   Bandwidth                        : 200
@@ -215,15 +213,15 @@ Get-AzureAuthorizedDedicatedCircuit
   UsedLinks                        : 0
   ```
 
-**Löser in auktoriseringar**
+**Lösa in länk auktoriseringar**
 
-Kretsanvändare kan köra följande cmdlet för att lösa in en länk-auktorisering:
+Krets användaren kan köra följande cmdlet för att lösa in en länk auktorisering:
 
 ```powershell
 New-AzureDedicatedCircuitLink –servicekey "&&&&&&&&&&&&&&&&&&&&&&&&&&" –VnetName 'SalesVNET1'
 ```
 
-  Returnera:
+  Returrelaterade
 
   ```powershell
   State VnetName
@@ -231,7 +229,7 @@ New-AzureDedicatedCircuitLink –servicekey "&&&&&&&&&&&&&&&&&&&&&&&&&&" –Vnet
   Provisioned SalesVNET1
   ```
 
-Kör följande kommando i den nya länkade prenumerationen för det virtuella nätverket:
+Kör det här kommandot i den nyligen länkade prenumerationen för det virtuella nätverket:
 
 ```powershell
 New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"

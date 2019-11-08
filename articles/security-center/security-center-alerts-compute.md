@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/05/2019
 ms.author: memildin
-ms.openlocfilehash: d705174f46ba38f37ae8cce9839c2d1f63ab6bf8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
-ms.translationtype: HT
+ms.openlocfilehash: 6b6acb0ae1452795fe02906779b920e4b41f9a55
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73664278"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748390"
 ---
 # <a name="threat-detection-for-cloud-native-computing-in-azure-security-center"></a>Hot identifiering för inbyggd molnbaserad data behandling i Azure Security Center
 
@@ -66,7 +66,7 @@ Vi identifierar hot på olika nivåer:
     >[!NOTE]
     > Om du väljer att inte installera agenterna på dina värdar får du bara en delmängd av hot identifierings fördelarna och-aviseringarna. Du får fortfarande aviseringar om nätverks analyser och kommunikation med skadliga servrar.
 
-* För **AKS kluster nivå**finns det en övervakning av hot identifiering som baseras på Kubernetes gransknings loggar analys. Om du vill aktivera övervakning utan **agent** lägger du till alternativet Kubernetes i din prenumeration på sidan **pris & inställningar** (se [prissättning](security-center-pricing.md)). Om du vill generera aviseringar på den här nivån övervakar Security Center dina AKS-hanterade tjänster med hjälp av de loggar som hämtats av AKS. Exempel på händelser på den här nivån är exponerade Kubernetes-instrumentpaneler, skapande av hög privilegierade roller och skapande av känsliga monteringar. 
+* För **AKS kluster nivå**finns det en övervakning av hot identifiering som baseras på Kubernetes gransknings loggar analys. Om du vill aktivera övervakning utan **agent** lägger du till alternativet Kubernetes i din prenumeration på sidan **pris & inställningar** (se [prissättning](security-center-pricing.md)). Om du vill generera aviseringar på den här nivån övervakar Security Center dina AKS-hanterade tjänster med hjälp av de loggar som hämtats av AKS. Exempel på händelser på den här nivån är exponerade Kubernetes-instrumentpaneler, skapande av hög privilegierade roller och skapande av känsliga monteringar.
 
     >[!NOTE]
     > Security Center genererar identifierings aviseringar för Azure Kubernetes service-åtgärder och distributioner som inträffar när alternativet Kubernetes har Aktiver ATS i prenumerations inställningarna. 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: efbb6ccef9096ed89f6ccd16f8d3b37c9a97b278
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: de33ed80055c26870a29b4c4393a9072ec8dda5e
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103219"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749484"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Så här kopplar du från en datadisk från en virtuell Windows-dator
 
@@ -31,11 +31,11 @@ När du inte längre behöver en datadisk som är ansluten till en virtuell dato
 
 Om du vill använda befintliga data på disken igen kan du ansluta den igen till samma virtuella dator, eller till en annan.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="detach-a-data-disk-using-powershell"></a>Koppla från en datadisk med PowerShell
 
-Du kan ta bort en datadisk med PowerShell, men se till att inget aktivt använder disken innan du kopplar bort den från den virtuella datorn.
+Du kan *ta* bort en datadisk med PowerShell, men se till att inget aktivt använder disken innan du kopplar bort den från den virtuella datorn.
 
 I det här exemplet tar vi bort disken med namnet min **disk** från VM- **myVM** i resurs gruppen **myResourceGroup** . Först tar du bort disken med cmdleten [Remove-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmdatadisk) . Sedan uppdaterar du statusen för den virtuella datorn med hjälp av cmdleten [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) för att slutföra processen att ta bort data disken.
 
@@ -53,7 +53,7 @@ Disken finns kvar i lagrings utrymmet men är inte längre kopplad till en virtu
 2. Välj den virtuella dator som innehåller den datadisk som du vill koppla från och klicka på **stoppa** för att ta bort den virtuella datorn.
 3. I fönstret virtuell dator väljer du **diskar**.
 4. Överst i fönstret **diskar** väljer du **Redigera**.
-5. I rutan **diskar** längst till höger på den datadisk som du vill koppla från, klickar du på ![knappen Koppla bort bild](./media/detach-disk/detach.png) från.
+5. I rutan **diskar** längst till höger på den datadisk som du vill koppla från, klickar du på knappen ![koppla bort knapp bild](./media/detach-disk/detach.png) koppla från.
 5. När disken har tagits bort klickar du på **Spara** längst upp i fönstret.
 6. I fönstret virtuell dator klickar du på **Översikt** och sedan på **Start** -knappen längst upp i fönstret för att starta om den virtuella datorn.
 

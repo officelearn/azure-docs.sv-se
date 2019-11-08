@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: bf964f23b6c38444fb15b61161cb7ed5a2b15e00
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 01d5670add82291cb91264ab41fcd312a338840c
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102661"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749338"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Migrera IaaS-resurser från klassisk till Azure Resource Manager med Azure PowerShell
 De här stegen visar hur du använder Azure PowerShell-kommandon för att migrera infrastruktur som en tjänst (IaaS) resurser från den klassiska distributions modellen till Azure Resource Manager distributions modell.
@@ -35,9 +35,9 @@ Här är ett flödes schema för att identifiera i vilken ordning stegen måste 
 
 ![Skärmbild som visar migreringsstegen](media/migration-classic-resource-manager/migration-flow.png)
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
-## <a name="step-1-plan-for-migration"></a>Steg 1: Planera för migrering
+## <a name="step-1-plan-for-migration"></a>Steg 1: planera för migrering
 Här följer några tips som vi rekommenderar när du utvärderar migrering av IaaS-resurser från klassisk till Resource Manager:
 
 * Läs igenom de [funktioner och konfigurationer som stöds och inte](migration-classic-resource-manager-overview.md)stöds. Om du har virtuella datorer som använder konfigurationer eller funktioner som inte stöds, rekommenderar vi att du väntar på att konfigurations-och funktions stödet ska tillkännages. Om den passar dina behov kan du ta bort den funktionen eller flytta ut från den konfigurationen för att aktivera migrering.
@@ -48,17 +48,17 @@ Här följer några tips som vi rekommenderar när du utvärderar migrering av I
 >
 >ExpressRoute-gatewayer som ansluter till ExpressRoute-kretsar i en annan prenumeration kan inte migreras automatiskt. I sådana fall tar du bort ExpressRoute-gatewayen, migrerar det virtuella nätverket och återskapar gatewayen. Mer information finns i [migrera ExpressRoute-kretsar och associerade virtuella nätverk från den klassiska distributions modellen till Resource Manager](../../expressroute/expressroute-migration-classic-resource-manager.md) .
 
-## <a name="step-2-install-the-latest-version-of-azure-powershell"></a>Steg 2: Installera den senaste versionen av Azure PowerShell
-Det finns två huvudsakliga alternativ för att installera Azure PowerShell: [PowerShell-galleriet](https://www.powershellgallery.com/profiles/azure-sdk/) eller [WebPI (web platform Installer)](https://aka.ms/webpi-azps). WebPI tar emot månatliga uppdateringar. PowerShell-galleriet tar emot uppdateringar regelbundet. Den här artikeln baseras på Azure PowerShell version 2.1.0.
+## <a name="step-2-install-the-latest-version-of-azure-powershell"></a>Steg 2: installera den senaste versionen av Azure PowerShell
+Det finns två huvudsakliga alternativ för att installera Azure PowerShell: [PowerShell-galleriet](https://www.powershellgallery.com/profiles/azure-sdk/) eller [Web Platform Installer (WebPI)](https://aka.ms/webpi-azps). WebPI tar emot månatliga uppdateringar. PowerShell-galleriet tar emot uppdateringar regelbundet. Den här artikeln baseras på Azure PowerShell version 2.1.0.
 
 Installations anvisningar finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
 <br>
 
-## <a name="step-3-ensure-that-you-are-an-administrator-for-the-subscription-in-azure-portal"></a>Steg 3: Se till att du är administratör för prenumerationen i Azure Portal
+## <a name="step-3-ensure-that-you-are-an-administrator-for-the-subscription-in-azure-portal"></a>Steg 3: kontrol lera att du är administratör för prenumerationen i Azure Portal
 För att utföra den här migreringen måste du läggas till som en medadministratör för prenumerationen i [Azure Portal](https://portal.azure.com).
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. På menyn hubb väljer du **prenumeration**. Om du inte ser det väljer du **alla tjänster**.
 3. Hitta rätt prenumerations post och titta sedan i fältet **min roll** . För en gemensam administratör ska värdet vara _konto administratör_.
 
@@ -88,7 +88,7 @@ Ange din Azure-prenumeration för den aktuella sessionen. I det här exemplet an
 > [!NOTE]
 > Registreringen är en engångs åtgärd, men du måste göra det en gång innan du försöker migrera. Utan registrering visas följande fel meddelande:
 >
-> *BadRequest Prenumerationen har inte registrerats för migrering.*
+> *BadRequest: prenumerationen har inte registrerats för migrering.*
 
 Registrera hos resurs leverantören för migrering med hjälp av följande kommando:
 
@@ -124,7 +124,7 @@ Ange din Azure-prenumeration för den aktuella sessionen. I det här exemplet an
 
 <br>
 
-## <a name="step-5-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Steg 5: Kontrol lera att du har tillräckligt med Azure Resource Manager virtuell dator virtuella processorer i Azure-regionen för din aktuella distribution eller VNET
+## <a name="step-5-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Steg 5: kontrol lera att du har tillräckligt med Azure Resource Manager virtuell dator virtuella processorer i Azure-regionen för din aktuella distribution eller VNET
 Du kan använda följande PowerShell-kommando för att kontrol lera det aktuella antalet virtuella processorer som du har i Azure Resource Manager. Mer information om vCPU kvoter finns i [gränser och Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-azure-resource-manager).
 
 I det här exemplet kontrol leras tillgängligheten i regionen **USA, västra** . Ersätt exempel områdets namn med ditt eget.
@@ -133,7 +133,7 @@ I det här exemplet kontrol leras tillgängligheten i regionen **USA, västra** 
 Get-AzVMUsage -Location "West US"
 ```
 
-## <a name="step-6-run-commands-to-migrate-your-iaas-resources"></a>Steg 6: Kör kommandon för att migrera dina IaaS-resurser
+## <a name="step-6-run-commands-to-migrate-your-iaas-resources"></a>Steg 6: kör kommandon för att migrera dina IaaS-resurser
 * [Migrera virtuella datorer i en moln tjänst (inte i det virtuella nätverket)](#step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network)
 * [Migrera virtuella datorer i ett virtuellt nätverk](#step-61-option-2---migrate-virtual-machines-in-a-virtual-network)
 * [Migrera lagrings konto](#step-62-migrate-a-storage-account)
@@ -142,7 +142,7 @@ Get-AzVMUsage -Location "West US"
 > Alla åtgärder som beskrivs här är idempotenta. Om du har problem med en funktion som inte stöds eller ett konfigurations fel rekommenderar vi att du gör om åtgärden för att förbereda, avbryta eller bekräfta. Plattformen försöker sedan utföra åtgärden igen.
 
 
-### <a name="step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>Steg 6,1: Alternativ 1 – migrera virtuella datorer i en moln tjänst (inte i ett virtuellt nätverk)
+### <a name="step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>Steg 6,1: alternativ 1 – migrera virtuella datorer i en moln tjänst (inte i ett virtuellt nätverk)
 Hämta listan över moln tjänster med hjälp av följande kommando och välj sedan den moln tjänst som du vill migrera. Om de virtuella datorerna i moln tjänsten finns i ett virtuellt nätverk eller om de har webb-eller arbets roller, returnerar kommandot ett fel meddelande.
 
 ```powershell
@@ -201,7 +201,7 @@ Förbered de virtuella datorerna i moln tjänsten för migrering. Du kan välja 
         -VirtualNetworkName $vnetName -SubnetName $subnetName
     ```
 
-När förberedelse åtgärden har slutförts med något av föregående alternativ kan du fråga efter migreringen för de virtuella datorerna. Se till att de är i `Prepared` samma tillstånd.
+När förberedelse åtgärden har slutförts med något av föregående alternativ kan du fråga efter migreringen för de virtuella datorerna. Se till att de är i `Prepared`s tillstånd.
 
 I det här exemplet anges namnet på den virtuella datorn till **myVM**. Ersätt exempel namnet med ditt eget VM-namn.
 
@@ -223,7 +223,7 @@ Om den för beredda konfigurationen ser bra ut kan du flytta framåt och bekräf
     Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName
 ```
 
-### <a name="step-61-option-2---migrate-virtual-machines-in-a-virtual-network"></a>Steg 6,1: Alternativ 2 – migrera virtuella datorer i ett virtuellt nätverk
+### <a name="step-61-option-2---migrate-virtual-machines-in-a-virtual-network"></a>Steg 6,1: alternativ 2 – migrera virtuella datorer i ett virtuellt nätverk
 
 Om du vill migrera virtuella datorer i ett virtuellt nätverk migrerar du det virtuella nätverket. De virtuella datorerna migreras automatiskt till det virtuella nätverket. Välj det virtuella nätverk som du vill migrera.
 > [!NOTE]
@@ -231,7 +231,7 @@ Om du vill migrera virtuella datorer i ett virtuellt nätverk migrerar du det vi
 <br>
 
 > [!NOTE]
-> Det virtuella nätverks namnet kan skilja sig från vad som visas i den nya portalen. Den nya Azure-portalen visar namnet, `[vnet-name]` men det faktiska virtuella nätverks namnet är av typen `Group [resource-group-name] [vnet-name]`. Innan du migrerar kan du söka efter det faktiska namnet på `Get-AzureVnetSite | Select -Property Name` det virtuella nätverket med hjälp av kommandot eller Visa det på den gamla Azure-portalen. 
+> Det virtuella nätverks namnet kan skilja sig från vad som visas i den nya portalen. Den nya Azure-portalen visar namnet som `[vnet-name]` men det faktiska virtuella nätverks namnet är av typen `Group [resource-group-name] [vnet-name]`. Innan du migrerar kan du söka efter det faktiska namnet på det virtuella nätverket med hjälp av kommandot `Get-AzureVnetSite | Select -Property Name` eller Visa det på den gamla Azure-portalen. 
 
 I det här exemplet anges det virtuella nätverks namnet till **myVnet**. Ersätt namnet på det virtuella nätverket i exemplet med ditt eget.
 

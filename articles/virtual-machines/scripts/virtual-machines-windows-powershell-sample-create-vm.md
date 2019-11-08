@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/02/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3ec9431fc9aac1678d143f0378bc14e9c134beb3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 945e793225ca63ce5f39d195255c55514acf4c9f
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080742"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749735"
 ---
 # <a name="create-a-fully-configured-virtual-machine-with-powershell"></a>Skapa en fullständigt konfigurerad virtuell dator med PowerShell
 
@@ -30,7 +30,7 @@ Det här skriptet skapar en virtuell Azure-dator som kör Windows Server 2016. N
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="sample-script"></a>Exempelskript
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 9c7bc316900c9e1422289c76b2c3d05924130312
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
-ms.translationtype: HT
+ms.openlocfilehash: 00f6e763006cbb8e5a2724536664291e0381e42f
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73602504"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749650"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Felsöka en virtuell Windows-dator genom att koppla OS-disken till en virtuell återställnings dator med hjälp av Azure PowerShell
 Om din virtuella Windows-dator (VM) i Azure påträffar ett start-eller disk fel kan du behöva utföra fel söknings stegen på själva disken. Ett vanligt exempel är en misslyckad program uppdatering som förhindrar att den virtuella datorn kan starta. Den här artikeln beskriver hur du använder Azure PowerShell för att ansluta disken till en annan virtuell Windows-dator för att åtgärda eventuella fel och sedan reparera den ursprungliga virtuella datorn. 
@@ -25,7 +25,7 @@ Om din virtuella Windows-dator (VM) i Azure påträffar ett start-eller disk fel
 > [!Important]
 > Skripten i den här artikeln gäller bara för de virtuella datorer som använder [hanterad disk](../windows/managed-disks-overview.md). 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="recovery-process-overview"></a>Översikt över återställningsprocessen
 Vi kan nu använda Azure PowerShell för att ändra OS-disk för en virtuell dator. Vi behöver inte längre ta bort och återskapa den virtuella datorn.

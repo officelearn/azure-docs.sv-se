@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: jeffya
-ms.openlocfilehash: b7d2e1b08653cb8023ef6a5190ab53ecc3d568a6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: de394a98f78b0bdb7cdf090de5c052cc761aa92d
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951515"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748621"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Ansluta en MXChip IoT DevKit-enhet till ditt Azure IoT Central-program
 
@@ -25,16 +25,16 @@ I den här instruktions artikeln kan du:
 - Förbered enheten och Anslut den till ditt IoT Central-program.
 - Visa telemetri och egenskaper från enheten i IoT Central.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra stegen i den här artikeln behöver du följande resurser:
 
-1. En [DevKit-enhet](https://aka.ms/iot-devkit-purchase).
-1. Ett IoT Central-program som skapats från program mal len för för **hands versionen** . Du kan följa stegen i [skapa ett IoT plug and Play-program](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+- En [DevKit-enhet](https://aka.ms/iot-devkit-purchase).
+- Ett IoT Central-program som skapats från program mal len för för **hands versionen** . Du kan följa stegen i [skapa ett IoT plug and Play-program](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 ## <a name="get-device-connection-details"></a>Hämta information om enhets anslutning
 
-I ditt Azure IoT Central-program väljer du fliken **Administration** och sedan **enhets anslutning**. Anteckna **ID-omfånget** och **primär nyckeln**.
+I ditt Azure IoT Central-program väljer du fliken **Administration** och sedan **enhets anslutning**. Anteckna **omfattnings-ID** och **primär nyckel** (i länken **Visa nycklar** ). Och kontrol lera att **automatiskt godkännande** har Aktiver ATS.
 
 ![Anslutnings information för enhets grupp](media/howto-connect-devkit-pnp/device-group-connection-details.png)
 
@@ -61,7 +61,7 @@ I ditt Azure IoT Central-program väljer du fliken **Administration** och sedan 
 
     - Namnet på ditt WiFi-nätverk (SSID).
     - Ditt WiFi-nätverks lösen ord.
-    - Anslutnings information: det **enhets-ID** som du kan välja själv och **ID-omfånget** och **primär grupp SAS-nyckeln** som du antecknade tidigare.
+    - Anslutnings information: det **enhets-ID** som du kan välja själv och det **omfångs-ID** och den **primära SAS-nyckeln för gruppen** som du antecknade tidigare.
 
     > [!NOTE]
     > IoT-DevKit kan för närvarande bara ansluta till 2,4 GHz Wi-Fi, 5 GHz stöds inte på grund av maskin varu begränsningar.
@@ -82,11 +82,11 @@ I det här steget visar du Telemetrin i ditt Azure IoT Central-program.
 
 Välj fliken **enheter** i ditt IoT Central program och välj den enhet som du har lagt till. På fliken **Översikt** kan du se Telemetrin från DevKit-enheten:
 
-   ![Översikt över IoT Central enhet](media/howto-connect-devkit-pnp/mxchip-overview-page.png)
+![Översikt över IoT Central enhet](media/howto-connect-devkit-pnp/mxchip-overview-page.png)
 
 ## <a name="review-the-code"></a>Granska koden
 
-Om du vill granska koden eller ändra och kompilera den går du till [kod exemplen](https://docs.microsoft.com/samples/azure-samples/mxchip-iot-devkit-pnp/sample/).
+Om du vill granska koden eller ändra och kompilera den går du till [MXChip IoT DevKit exempel Code GitHub-lagringsplatsen](https://github.com/MXCHIP/IoTDevKit/tree/master/pnp).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,6 +1,6 @@
 ---
-title: 'Azure Backup: Återställa virtuella Azure-datorer med REST API'
-description: hantera återställnings åtgärder för säkerhets kopiering av virtuella Azure-datorer med REST API
+title: 'Azure Backup: återställa virtuella Azure-datorer med REST API'
+description: I den här artikeln lär du dig att hantera återställnings åtgärder för säkerhets kopiering av virtuella Azure-datorer med hjälp av REST API.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: dacurwin
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: bdbceec2f1d0a900ffdb392d8a0505ce11419036
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 364b6ab589cc0fa50953a71d55adeccc79462eed
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954891"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747528"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Återställa virtuella Azure-datorer med hjälp av REST API
 
@@ -31,15 +31,15 @@ Tillgängliga återställnings punkter för ett säkerhets kopierings objekt kan
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2016-12-01
 ```
 
-Och är som konstruerade [här.](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1) `{containerName}` `{protectedItemName}` `{fabricName}`är "Azure".
+`{containerName}` och `{protectedItemName}` skapas [här](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}` är "Azure".
 
 *Hämta* URI har alla nödvändiga parametrar. Det behövs ingen ytterligare brödtext för begäran
 
-### <a name="responses"></a>Responses
+### <a name="responses"></a>Svar
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
-|200 OK     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       Ok  |
+|200 OK     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       OK  |
 
 #### <a name="example-response"></a>Exempelsvar
 
@@ -131,7 +131,7 @@ Aktivering av återställnings diskar är en *post* -begäran. Om du vill veta m
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2016-12-01
 ```
 
-Och är som konstruerade [här.](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1) `{containerName}` `{protectedItemName}` `{fabricName}`är "Azure" och `{recoveryPointId}` `{name}` är fältet för den återställnings punkt som anges [ovan](#example-response).
+`{containerName}` och `{protectedItemName}` skapas [här](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}` är "Azure" och `{recoveryPointId}` är fältet `{name}` för den återställnings punkt som anges [ovan](#example-response).
 
 ### <a name="create-request-body"></a>Skapa brödtext för begäran
 
@@ -173,7 +173,7 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
-|202 accepterad     |         |     Accepterad    |
+|202 accepterad     |         |     Accept    |
 
 #### <a name="example-responses"></a>Exempel svar
 
@@ -277,11 +277,11 @@ Följande begär ande text definierar egenskaper som krävs för att utlösa en 
 }
 ```
 
-Svaret ska hanteras på samma sätt som förklaras [ovan för att återställa diskar](#response).
+Svaret ska hanteras på samma sätt som [förklaras ovan för att återställa diskar](#response).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Azure Backup REST-API: er finns i följande dokument:
 
 - [Azure Recovery Services-Provider REST API](/rest/api/recoveryservices/)
-- [Kom igång med Azure REST API](/rest/api/azure/)
+- [Komma igång med Azure REST API](/rest/api/azure/)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: fa6b005be91f47f5976dace7fd1e76f6ea7e0b29
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 274697d555974f286c2c71f26280640077c11f81
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698849"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749545"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Uppdatera lagrings typen för en hanterad disk
 
@@ -20,9 +20,9 @@ Det finns fyra disk typer av Azure Managed disks: Azure Ultra SSD (för hands ve
 
 Den här funktionen stöds inte för ohanterade diskar. Men du kan enkelt [konvertera en ohanterad disk till en hanterad disk](convert-unmanaged-to-managed-disks.md) för att kunna växla mellan disk typer.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Eftersom konverteringen kräver en omstart av den virtuella datorn (VM) bör du schemalägga migreringen av disk lagringen under ett redan befintligt underhålls fönster.
 * Om disken är ohanterad måste du först [konvertera den till en hanterad disk](convert-unmanaged-to-managed-disks.md) så att du kan växla mellan lagrings alternativen.

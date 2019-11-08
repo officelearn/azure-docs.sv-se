@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a34fdb24573df3287b72991454963c67e9689b9f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 703e750c0d2515484cd9f1d2cb046096dfd1800d
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604546"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794964"
 ---
 # <a name="what-is-computer-vision"></a>Vad är visuellt innehåll?
 
@@ -26,7 +26,7 @@ Du kan använda Visuellt innehåll i ditt program via ett inbyggt SDK eller geno
 
 ## <a name="computer-vision-for-digital-asset-management"></a>Visuellt innehåll för digital till gångs hantering
 
-Visuellt innehåll kan sätta många moder scenarier för Digital Asset Management (damm). DAMM är affärs processen att organisera, lagra och hämta omfattande medie till gångar och hantera digitala rättigheter och behörigheter. Ett företag kan till exempel vilja gruppera och identifiera bilder baserat på synliga logo typer, ansikten, objekt, färger och så vidare. Eller så kanske du vill [Generera bild texter automatiskt för bilder](./Tutorials/storage-lab-tutorial.md) och bifoga nyckelord så att de är sökbara. För en allt-i-ett-damm-lösning med Cognitive Services, Azure Search och intelligent rapportering, se [vägledningen för kunskaps utvinnings Accelerator](https://github.com/Azure-Samples/azure-search-knowledge-mining) på GitHub. Andra moder exempel finns i lagrings platsen för [visuellt innehåll Solution templates](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates) .
+Visuellt innehåll kan sätta många moder scenarier för Digital Asset Management (damm). DAMM är affärs processen att organisera, lagra och hämta omfattande medie till gångar och hantera digitala rättigheter och behörigheter. Ett företag kan till exempel vilja gruppera och identifiera bilder baserat på synliga logo typer, ansikten, objekt, färger och så vidare. Eller så kanske du vill [Generera bild texter automatiskt för bilder](./Tutorials/storage-lab-tutorial.md) och bifoga nyckelord så att de är sökbara. För en allt-i-ett-damm-lösning med hjälp av Cognitive Services, Azure Kognitiv sökning och intelligent rapportering, se [vägledningen för Knowledge utvinnings Accelerator](https://github.com/Azure-Samples/azure-search-knowledge-mining) på GitHub. Andra moder exempel finns i lagrings platsen för [visuellt innehåll Solution templates](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates) .
 
 ## <a name="analyze-images-for-insight"></a>Analysera bilder för att få insikter
 

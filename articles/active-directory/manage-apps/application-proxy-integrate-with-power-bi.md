@@ -16,18 +16,18 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2148d6ea869a87571008c1f84c5b1000d4030bbb
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 845ffda22cae9464870786cc5997b9f5521c03e1
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175944"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795632"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Få fjärråtkomst till Power BI Mobile med Azure AD-programproxy
 
 Den här artikeln beskriver hur du använder Azure AD-programproxy för att aktivera Power BI mobilappen för att ansluta till Power BI-rapportserver (PBIRS) och SQL Server Reporting Services (SSRS) 2016 och senare. Med den här integrationen kan användare som är borta från företags nätverket komma åt sina Power BI rapporter från Power BI mobilapp och skyddas av Azure AD-autentisering. Det här skyddet omfattar [säkerhets förmåner](application-proxy-security.md#security-benefits) som villkorlig åtkomst och Multi-Factor Authentication.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här artikeln förutsätter att du redan har distribuerat rapport tjänster och [aktiverat Application Proxy](application-proxy-add-on-premises-application.md).
 
@@ -73,7 +73,7 @@ Om du vill konfigurera KCD upprepar du följande steg för varje kopplings dator
 4. Ställ in Delegerings inställningarna på **den här datorn som betrodd för delegering till de angivna tjänsterna**. Välj sedan **Använd valfritt autentiseringsprotokoll**.
 5. Välj **Lägg till**och välj sedan **användare eller datorer**.
 6. Ange det tjänst konto som du använder för repor ting Services. Detta är det konto som du har lagt till SPN-namnet i repor ting Services-konfigurationen.
-7. Klicka på **OK** Klicka på **OK** igen för att spara ändringarna.
+7. Klicka på **OK**. Klicka på **OK** igen för att spara ändringarna.
 
 Mer information finns i [Kerberos-begränsad delegering för enkel inloggning till dina appar med Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md).
 
@@ -82,7 +82,7 @@ Mer information finns i [Kerberos-begränsad delegering för enkel inloggning ti
 Nu är du redo att konfigurera Azure AD-programproxy.
 
 1. Publicera rapport tjänster via Application Proxy med följande inställningar. Stegvisa instruktioner om hur du publicerar ett program via programproxy finns i [Publicera program med hjälp av Azure AD-programproxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
-   - **Intern URL**: Ange URL: en till den rapport server som anslutningen kan uppnå i företags nätverket. Kontrol lera att den här URL: en kan kontaktas från den server som anslutningen är installerad på. Ett bra tips är att använda en toppnivå domän som `https://servername/` för att undvika problem med under Sök vägar (till exempel `https://servername/reports/` och `https://servername/reportserver/`) som inte har publicerats via programproxyn.
+   - **Intern URL**: Ange URL: en till den rapport server som anslutningen kan uppnå i företags nätverket. Kontrol lera att den här URL: en kan kontaktas från den server som anslutningen är installerad på. Ett bra tips är att använda en toppnivå domän som `https://servername/` för att undvika problem med under Sök vägar som publicerats via programproxy. Använd till exempel `https://servername/` och inte `https://servername/reports/` eller `https://servername/reportserver/`.
      > [!NOTE]
      > Vi rekommenderar att du använder en säker HTTPS-anslutning till rapport servern. Mer information finns i [Konfigurera SSL-anslutningar på en rapport server i enhetligt läge](https://docs.microsoft.com/sql/reporting-services/security/configure-ssl-connections-on-a-native-mode-report-server?view=sql-server-2017) .
    - **Extern URL**: Ange den offentliga url som Power BI mobilappen ska ansluta till. Det kan till exempel se ut som `https://reports.contoso.com` om en anpassad domän används. Om du vill använda en anpassad domän, laddar du upp ett certifikat för domänen och pekar en DNS-post till standard domänen msappproxy.net för ditt program. Detaljerade anvisningar finns [i arbeta med anpassade domäner i Azure AD-programproxy](application-proxy-configure-custom-domain.md).
@@ -153,7 +153,7 @@ Du kan använda Microsoft Intune för att hantera de klient program som företag
 7. Klicka på **bevilja administrativt medgivande** för att ge behörighet till programmet.
 8. Konfigurera den Intune-princip som du vill ha genom att referera till [hur du skapar och tilldelar skydds principer för appar](https://docs.microsoft.com/intune/app-protection-policies).
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Om programmet returnerar en felsida när du försöker läsa in en rapport i mer än några minuter kan du behöva ändra inställningen för timeout. Som standard stöder Application Proxy program som tar upp till 85 sekunder att svara på en begäran. Om du vill förlänga den här inställningen till 180 sekunder väljer du timeout för Server delen till **lång** på sidan App proxy-inställningar för programmet. Tips om hur du skapar snabba och tillförlitliga rapporter finns i [metod tips för Power BI-rapporter](https://docs.microsoft.com/power-bi/power-bi-reports-performance).
 

@@ -6,7 +6,7 @@ documentationcenter: ''
 author: v-miegge
 manager: dcscontentpm
 editor: ''
-tags: ''
+tags: virtual-machines
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 56e420f9641638bfa79ff077be73132b00b934ab
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 49fdfde402938ce8d0ee1b141a47e68c99c502e7
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "71132096"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796203"
 ---
 # <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparera en virtuell Linux-dator med hjälp av reparationskommandon för virtuella Azure-datorer
 
@@ -54,13 +54,13 @@ Mer dokumentation och instruktioner finns i [AZ VM Repair](https://docs.microsof
 
    Om du föredrar att installera och använda detta CLI lokalt måste du köra Azure CLI version 2.0.30 eller senare. Kör ``az --version`` för att hitta versionen. Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-2. Om det här är första gången du har använt kommandot `az vm repair` lägger du till CLI-tillägget VM-Repair.
+2. Om detta är första gången du har använt `az vm repair`-kommandon, lägger du till tillägget VM-Repair CLI.
 
    ```azurecli-interactive
    az extension add -n vm-repair
    ```
 
-   Om du tidigare har använt kommandot `az vm repair`, använder du alla uppdateringar i tillägget VM-Repair.
+   Om du tidigare har använt de `az vm repair`-kommandona, installerar du eventuella uppdateringar i tillägget VM-Repair.
 
    ```azurecli-interactive
    az extension update -n vm-repair

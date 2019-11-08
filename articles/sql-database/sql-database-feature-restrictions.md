@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database funktions begränsningar
+title: Funktionsbegränsningar
 description: Azure SQL Database funktions begränsningar förbättrar databas säkerheten genom att begränsa funktionerna i databasen som kan vara av angripare för att få till gång till information i dem.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 03/22/2019
-ms.openlocfilehash: e9518065b2240d72698ed75f2fa8a7aed343b7bf
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ce10daca23299f838e4086426fa89d9cade314ea
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690057"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823434"
 ---
 # <a name="azure-sql-database-feature-restrictions"></a>Azure SQL Database funktions begränsningar
 
@@ -67,7 +67,7 @@ I vyn `sys.sql_feature_restrictions` visas alla nyligen definierade funktions be
 |-------------|-----------|-------------|
 | Lektion       | nvarchar (128) | Objekt klass som begränsningen gäller |
 | objekt      | nvarchar (256) | Namn på objektet som begränsningen gäller |
-| Zoomfunktionen     | nvarchar (128) | Funktion som är begränsad |
+| zoomfunktionen     | nvarchar (128) | Funktion som är begränsad |
 
 ## <a name="feature-restrictions"></a>Funktions begränsningar
 

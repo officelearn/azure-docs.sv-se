@@ -1,34 +1,35 @@
 ---
-title: Konfigurera lead-hantering för Salesforce | Azure Marketplace
-description: Konfigurera hantering av lead i Salesforce för Azure Marketplace för kunder.
+title: Konfigurera ledar hantering för Salesforce | Azure Marketplace
+description: Konfigurera ledar hantering på Salesforce för Azure Marketplace-kunder.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
-ms.openlocfilehash: 0be5cd84e9ed8314584b5cea064b5c0241db1ab5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fa1bfdcd172b17f88f6acf14a9d9b80e13767da8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935101"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827711"
 ---
-# <a name="configure-lead-management-for-salesforce"></a>Konfigurera lead-hantering för Salesforce
+# <a name="configure-lead-management-for-salesforce"></a>Konfigurera ledar hantering för Salesforce
 
-Den här artikeln beskriver hur du ställer in ditt Salesforce-system för att hantera säljleads.
+Den här artikeln beskriver hur du konfigurerar ditt Salesforce-system för att hantera försäljnings leads.
 
-1. Logga in till Salesforce.
-2. Välj **installationsprogrammet**.
-    ![Salesforce-installation](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce1.png)
+1. Logga in på Salesforce.
+2. Välj **installation**.
+    installations](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce1.png) för ![Salesforce
 
-3. Expandera den **skapa** menyn för att **anpassa/Leads/Web-till-Lead**.
-    ![Salesforce Web till Lead](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce2.png)
+3. Expandera menyn design **om du vill** **anpassa/utveckla leads/webb-till-lead**.
+    ![Salesforce webb-till-lead](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce2.png)
 
-4. På **Web-Lead-installationsprogrammet**väljer **skapa webb-Lead-formuläret**.
-    ![Salesforce skapa formulär](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce3.png)
+4. Välj **skapa webb-till-lead-formulär**på **webb-till-plats-konfiguration**.
+    ![Salesforce-formulär för att skapa Salesforce](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce3.png)
 
-5. På **skapa ett webb-Lead-formulär**väljer **generera** ![Salesforce Generera](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce4.png)
+5. I **skapa ett webb-till-lead-formulär**väljer du **generera** ![Salesforce-generera](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce4.png)
 
-6. Kopiera OID i exemplet och spara den. Du ska klistra in OID: N i den **objektidentifierare** på partnerportalen i molnet.
-![Salesforce-get OID](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)
+6. Kopiera OID i exemplet och spara det. Du kommer att klistra in OID i fältet **objekt identifierare** på Cloud Partner Portal.
+![Salesforce get OID](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)

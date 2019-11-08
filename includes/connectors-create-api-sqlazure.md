@@ -7,13 +7,13 @@ ms.service: logic-apps
 ms.topic: include
 ms.author: estfan
 ms.custom: include file
-ms.date: 05/15/2018
-ms.openlocfilehash: d60d7727e0674298fa6da7e7330221318da23efd
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.date: 11/08/2019
+ms.openlocfilehash: 0be29f6f541aa58e57eb665ebaf29e35f42865e4
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161667"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826324"
 ---
 * Om du använder Azure SQL Database följer du stegen under [Anslut till Azure SQL Database](#connect-azure-sql-db).
 
@@ -44,7 +44,9 @@ När SQL-utlösaren eller åtgärden efterfrågar anslutnings information följe
 
 ### <a name="connect-to-sql-server"></a>Ansluta till SQL Server
 
-När SQL-utlösaren eller åtgärden efterfrågar anslutnings information följer du dessa steg, som fungerar för både utlösare och åtgärder. Innan du börjar måste du dock se till att du redan har [konfigurerat din lokala datagateway](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). Annars visas inte gatewayen i listan med gatewayer när du skapar anslutningen.
+När SQL-utlösaren eller åtgärden efterfrågar anslutnings information följer du dessa steg, som fungerar för både utlösare och åtgärder. För scenarier som kräver att du installerar den lokala [datagatewayen](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-install) på en lokal dator och [skapar Azure data Gateway-resursen](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection), måste du först kontrol lera att du har slutfört dessa krav. Annars visas inte din gateway-resurs i listan med gatewayer när du skapar anslutningen.
+
+Om du vill använda Windows-autentisering med SQL Server-anslutaren i en [integrerings tjänst miljö (ISE)](https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview)använder du även anslutningens icke-ISE-version och den lokala datagatewayen. ISE-märkta versioner stöder inte Windows-autentisering.
 
 1. För **anslutnings namn**skapar du ett namn för anslutningen.
 

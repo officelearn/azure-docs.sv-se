@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: diberry
-ms.openlocfilehash: 0241af88d30d47233d972bcb3e7c58ef8de12d6e
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 1e39126324de486d118f808b37672c9fd08af711
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73648253"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822767"
 ---
 # <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Självstudie: Bygg LUIS-app för att fastställa användar avsikter
 
@@ -205,4 +205,4 @@ När LUIS returnerar JSON-svaret är LUIS färdig med förfrågningen. LUIS svar
 I den här självstudien har du skapat en LUIS-app, skapat avsikter, lagt till exempel yttranden för varje avsikt, lagt till exempel yttranden i ingen avsikt, utbildad, publicerad och testad vid slut punkten. Det här är de grundläggande stegen i att skapa en LUIS-modell. 
 
 > [!div class="nextstepaction"]
-> [Lägga till fördefinierade avsikter och entiteter i appen](luis-tutorial-prebuilt-intents-entities.md)
+> [Lägga till fördefinierade avsikter och entiteter i appen](tutorial-machine-learned-entity.md)

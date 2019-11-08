@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2019
 ms.author: yegu
-ms.openlocfilehash: d6bf0f788f7c71a55a4c3667023d8b1d9f571baf
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 4f577e6497e853d9b75f81b5da4f7121064a9d07
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820975"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826338"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Felsöka Azure cache för Redis-timeout
 
@@ -34,7 +34,7 @@ I det här avsnittet beskrivs fel sökning av tids gräns problem som uppstår v
 
 ## <a name="redis-server-patching"></a>Redis Server-uppdatering
 
-Azure cache för Redis uppdaterar regelbundet sin server program vara som en del av den hanterade tjänst funktionen som den tillhandahåller. Den här [uppdaterings](cache-failover.md) aktiviteten sker i stort sett bakom scenen. Under redundansväxlingen när Redis korrigeras kan Redis-klienter som är anslutna till dessa noder uppleva tillfälliga tids gränser när anslutningar växlas mellan dessa noder. Se [Hur kan en redundansväxling påverka klient programmet](cache-failover.md#how-does-a-failover-impact-my-client-application) för mer information om vilka uppdaterings funktioner på sidan som kan ha på ditt program och hur du kan förbättra hanteringen av uppdaterings händelser.
+Azure cache för Redis uppdaterar regelbundet sin server program vara som en del av den hanterade tjänst funktionen som den tillhandahåller. Den här [uppdaterings](cache-failover.md) aktiviteten sker i stort sett bakom scenen. Under redundansväxlingen när Redis korrigeras kan Redis-klienter som är anslutna till dessa noder uppleva tillfälliga tids gränser när anslutningar växlas mellan dessa noder. Se [Hur kan en redundansväxling påverka klient programmet](cache-failover.md#how-does-a-failover-affect-my-client-application) för mer information om vilka uppdaterings funktioner på sidan som kan ha på ditt program och hur du kan förbättra hanteringen av uppdaterings händelser.
 
 ## <a name="stackexchangeredis-timeout-exceptions"></a>Timeout-undantag för StackExchange. Redis
 
@@ -94,7 +94,7 @@ Du kan använda följande steg för att undersöka möjliga rotor orsaker.
 1. Hög redis server belastning kan orsaka timeout. Du kan övervaka Server belastningen genom att övervaka [prestanda mått](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)för `Redis Server Load` cache. En server belastning på 100 (maximalt värde) betyder att Redis-servern har varit upptagen, utan att det tar tid att bearbeta begär Anden. Om du vill se om vissa begär Anden tar upp all Server kapacitet kör du kommandot SlowLog enligt beskrivningen i föregående stycke. Mer information finns i hög CPU-användning/server belastning.
 1. Fanns det någon annan händelse på klient sidan som kunde ha orsakat ett nätverks-blip? Vanliga händelser är: skala upp eller ned antalet klient instanser, distribuera en ny version av klienten eller autoskalning aktive rad. I vår testning har vi upptäckt att automatisk skalning eller skalning upp/ned kan orsaka att utgående nätverks anslutning går förlorad i flera sekunder. StackExchange. Redis-koden är elastisk för sådana händelser och återansluter. Vid åter anslutning kan eventuella begär anden i kön vara timeout.
 1. Fanns det en stor begäran innan flera små begär anden till cachen som nådde tids gränsen? Parametern `qs` i fel meddelandet anger hur många begär Anden som skickats från klienten till servern, men inte bearbetat något svar. Det här värdet kan fortsätta att växa eftersom StackExchange. Redis använder en enda TCP-anslutning och bara kan läsa ett svar åt gången. Även om den första åtgärden uppnåddes, stoppas inte data från att skickas till eller från servern. Andra förfrågningar kommer att blockeras tills den stora begäran har avslut ATS och kan orsaka timeout. En lösning är att minimera risken för timeout genom att se till att cachen är tillräckligt stor för arbets belastningen och dela upp stora värden i mindre segment. En annan möjlig lösning är att använda en pool med `ConnectionMultiplexer` objekt i klienten och välja den minst inlästa `ConnectionMultiplexer` när du skickar en ny begäran. Om du läser in över flera anslutnings objekt bör du förhindra att en tids gräns går ut för andra begär Anden.
-1. Om du använder `RedisSessionStateProvider` kontrollerar du att du har angett timeout-värdet för återförsök. `retryTimeoutInMilliseconds` bör vara högre än `operationTimeoutInMilliseconds`, annars sker inga återförsök. I följande exempel `retryTimeoutInMilliseconds` har värdet 3000. Mer information finns i [ASP.net för session State för Azure cache för Redis](cache-aspnet-session-state-provider.md) och [hur du använder konfigurations parametrar för providern för sessionstillstånd och providern för utdatacache](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
+1. Om du använder `RedisSessionStateProvider`kontrollerar du att du har angett timeout-värdet för återförsök. `retryTimeoutInMilliseconds` bör vara högre än `operationTimeoutInMilliseconds`, annars sker inga återförsök. I följande exempel `retryTimeoutInMilliseconds` har värdet 3000. Mer information finns i [ASP.net för session State för Azure cache för Redis](cache-aspnet-session-state-provider.md) och [hur du använder konfigurations parametrar för providern för sessionstillstånd och providern för utdatacache](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
 
     ```xml
     <add

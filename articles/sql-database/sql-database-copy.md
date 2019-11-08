@@ -1,5 +1,5 @@
 ---
-title: Kopiera en Azure SQL-databas
+title: Kopiera en databas
 description: Skapa en transaktions konsekvent kopia av en befintlig Azure SQL-databas på antingen samma server eller en annan server.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 09/04/2019
-ms.openlocfilehash: d49896d8088ae1352cb2785d061cde6c8647cb89
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ebf63d14a8fb883158d1ac3e0a8f3d6658920aa7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690801"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826646"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Kopiera en transaktions konsekvent kopia av en Azure SQL-databas
 
@@ -137,10 +137,10 @@ Du kan använda stegen som beskrivs i föregående avsnitt för att kopiera data
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>Övervaka förloppet för kopierings åtgärden
 
-Övervaka kopierings processen genom att skicka frågor till vyerna sys. Databass och sys. DM _database_copies. När kopiering pågår är kolumnen **state_desc** i vyn sys. Databass för den nya databasen inställd på **Kopiera**.
+Övervaka kopierings processen genom att skicka frågor till vyerna sys. databases och sys. dm_database_copies. När kopieringen pågår är kolumnen **state_desc** i vyn sys. Databass för den nya databasen som **kopia.**
 
-* Om kopieringen Miss lyckas anges kolumnen **state_desc** i vyn sys. databases för den nya databasen som **misstänkt**. Kör DROP-instruktionen på den nya databasen och försök igen senare.
-* Om kopieringen lyckas är kolumnen **state_desc** i vyn sys. Databass inställd på **online**. Kopieringen är klar och den nya databasen är en vanlig databas som kan ändras oberoende av käll databasen.
+* Om kopieringen Miss lyckas är kolumnen **state_desc** i vyn sys. Databass för den nya databasen **misstänkt**. Kör DROP-instruktionen på den nya databasen och försök igen senare.
+* Om kopieringen lyckas anges kolumnen **state_desc** i vyn sys. Databass för den nya databasen som **online**. Kopieringen är klar och den nya databasen är en vanlig databas som kan ändras oberoende av käll databasen.
 
 > [!NOTE]
 > Om du väljer att avbryta kopieringen medan den pågår kör du [Drop Database](https://msdn.microsoft.com/library/ms178613.aspx) -instruktionen på den nya databasen. Om du kör DROP DATABASE-instruktionen på käll databasen avbryts även kopierings processen.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 771a20ccf1c34958308d58dafb6fb01e36bb408a
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
-ms.translationtype: HT
+ms.openlocfilehash: c20fc2142718d3cc49d4b80c6a5e22e26a350335
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749019"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824867"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server
 
@@ -94,7 +94,7 @@ NFS-servern använder ett dedikerat virtuellt värdnamn och virtuella IP-adresse
 * Avsöknings port
   * Port 61000 för NW1
   * Port 61001 för NW2
-* LoadBalancing-regler (om du använder Basic Load Balancer)
+* Belastnings Utjämnings regler (om du använder Basic Load Balancer)
   * 2049 TCP för NW1
   * 2049 UDP för NW1
   * 2049 TCP för NW2
@@ -114,7 +114,7 @@ Du kan använda en av snabb starts mallarna på GitHub för att distribuera alla
    1. Resource prefix  
       Ange prefixet som du vill använda. Värdet används som prefix för de resurser som distribueras.
    2. Antal SAP-system  
-      Ange det antal SAP-system som ska använda den här fil servern. Detta distribuerar den nödvändiga mängden klient konfiguration, belastnings Utjämnings regler, avsöknings portar, diskar osv.
+      Ange det antal SAP-system som ska använda den här fil servern. Detta distribuerar den nödvändiga mängden klient konfigurations inställningar, belastnings Utjämnings regler, avsöknings portar, diskar osv.
    3. OS-typ  
       Välj en av Linux-distributionerna. I det här exemplet väljer du SLES 12
    4. Administratörens användar namn och administratörs lösen ord  
@@ -164,7 +164,7 @@ Du måste först skapa de virtuella datorerna för det här NFS-klustret. Däref
             1. Klicka på OK
          1. Port 61001 för NW2
             * Upprepa stegen ovan för att skapa en hälso avsökning för NW2
-      1. LoadBalancing-regler
+      1. Belastnings Utjämnings regler
          1. Öppna belastningsutjämnaren, Välj belastnings Utjämnings regler och klicka på Lägg till
          1. Ange namnet på den nya belastnings Utjämnings regeln (till exempel **NW1 – lb**)
          1. Välj IP-adressen för klient delen, backend-poolen och hälso avsökningen som du skapade tidigare (till exempel **NW1-frontend**. **NW1-backend** och **NW1 – HP**)
@@ -200,7 +200,7 @@ Du måste först skapa de virtuella datorerna för det här NFS-klustret. Däref
             1. Klicka på OK
          1. Port 61001 för NW2
             * Upprepa stegen ovan för att skapa en hälso avsökning för NW2
-      1. LoadBalancing-regler
+      1. Belastnings Utjämnings regler
          1. 2049 TCP för NW1
             1. Öppna belastningsutjämnaren, Välj belastnings Utjämnings regler och klicka på Lägg till
             1. Ange namnet på den nya belastnings Utjämnings regeln (till exempel **NW1 – lb-2049**)
@@ -216,8 +216,11 @@ Du måste först skapa de virtuella datorerna för det här NFS-klustret. Däref
          1. 2049 UDP för NW2
             * Upprepa stegen ovan för port 2049 och UDP för NW2
 
+> [!Note]
+> När virtuella datorer utan offentliga IP-adresser placeras i backend-poolen för intern (ingen offentlig IP-adress) standard Azure-belastningsutjämnare, kommer det inte att finnas någon utgående Internet anslutning, om inte ytterligare konfiguration utförs för att tillåta routning till offentliga slut punkter. Mer information om hur du uppnår utgående anslutningar finns i Översikt över [offentliga slut punkter för Virtual Machines med Azure standard Load Balancer i SAP-scenarier med hög tillgänglighet](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+
 > [!IMPORTANT]
-> Aktivera inte TCP-tidsstämplar på virtuella Azure-datorer som placerats bakom Azure Load Balancer. Om du aktiverar TCP-tidsstämplar kommer hälso avsökningarna att Miss skadas. Ange parametern **net. IPv4. TCP _timestamps** till **0**. Mer information finns i [Load Balancer hälso avsökningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Aktivera inte TCP-tidsstämplar på virtuella Azure-datorer som placerats bakom Azure Load Balancer. Om du aktiverar TCP-tidsstämplar kommer hälso avsökningarna att Miss skadas. Ange parametern **net. IPv4. tcp_timestamps** till **0**. Mer information finns i [Load Balancer hälso avsökningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### <a name="create-pacemaker-cluster"></a>Skapa pacemaker-kluster
 

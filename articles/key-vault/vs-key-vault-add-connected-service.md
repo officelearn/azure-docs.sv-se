@@ -9,12 +9,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: 27c21171c2a53cb739215dcae070b94c8610a490
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 9331f13bd85d9df0d47f8fa9d0964974764691f7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880928"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815101"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Lägg till Key Vault i ditt webb program med hjälp av Visual Studio Connected Services
 
@@ -22,9 +22,9 @@ I den här självstudien får du lära dig hur du enkelt kan lägga till allt du
 
 Mer information om de ändringar som anslutna tjänster gör i projektet för att aktivera Key Vault finns i [Key Vault Connected service – vad hände med mitt ASP.NET 4.7.1-projekt](#how-your-aspnet-framework-project-is-modified) eller [Key Vault Connected service – vad hände med mitt ASP.net Core-projekt](#how-your-aspnet-core-project-is-modified).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- **En Azure-prenumeration**. Om du inte har någon prenumeration kan du registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/).
+- **en Azure-prenumeration**. Om du inte har någon prenumeration kan du registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/).
 - **Visual studio 2019 version 16,3 Preview 1** eller senare, eller **Visual Studio 2017 version 15,7** med arbets belastningen **webb utveckling** installerad. [Ladda ned det nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 - För ASP.NET (inte kärnan) med Visual Studio 2017 behöver du .NET Framework 4.7.1 eller senare utvecklingsverktyg, som inte installeras som standard. Installera dem genom att starta Visual Studio Installer, välja **ändra**och sedan välja **enskilda komponenter**, sedan expandera **ASP.net och webb utveckling**på den högra sidan och välja **.NET Framework 4.7.1 utvecklingsverktyg** .
 - En ASP.NET 4.7.1 eller senare, eller ASP.NET Core 2,0-webbprojektet öppnas.
@@ -33,7 +33,7 @@ Mer information om de ändringar som anslutna tjänster gör i projektet för at
 
 Innan du börjar ska du kontrol lera att du är inloggad i Visual Studio. Logga in med samma konto som du använder för din Azure-prenumeration. Öppna sedan en ASP.NET 4.7.1 eller senare eller ASP.NET Core 2,0-webbprojektet och utför följande steg:
 
-1. I **Solution Explorer** väljer du **Lägg till** > **Ansluten tjänst**.
+1. I **Solution Explorer**högerklickar du på det projekt som du vill lägga till nyckel valvs stödet till och väljer **Lägg till** > **ansluten tjänst**.
    Sidan Ansluten tjänst visas med tjänster som du kan lägga till i projektet.
 1. På menyn med tillgängliga tjänster väljer du **skydda hemligheter med Azure Key Vault**.
 
@@ -67,7 +67,7 @@ Nu kan du komma åt dina hemligheter i kod. Nästa steg varierar beroende på om
 
 1. I Solution Explorer högerklickar du på projektet och väljer **Hantera NuGet-paket**. På fliken **Bläddra** letar du reda på och installerar dessa två NuGet-paket: [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) och [Microsoft. Azure. nyckel valv](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
-1. `Program.cs` Välj fliken och ersätt program klassen med följande kod:
+1. Välj fliken `Program.cs` och ersätt program klassen med följande kod:
 
    ```csharp
     public class Program
@@ -99,8 +99,8 @@ Nu kan du komma åt dina hemligheter i kod. Nästa steg varierar beroende på om
     }
    ```
 
-1. Nästa öppna `About.cshtml.cs` fil och skriv följande kod:
-   1. Inkludera en referens till `Microsoft.Extensions.Configuration` med instruktionen:
+1. Öppna `About.cshtml.cs`-filen och skriv följande kod:
+   1. Inkludera en referens till `Microsoft.Extensions.Configuration` med hjälp av instruktionen:
 
        ```csharp
        using Microsoft.Extensions.Configuration
@@ -115,7 +115,7 @@ Nu kan du komma åt dina hemligheter i kod. Nästa steg varierar beroende på om
        }
        ```
 
-   1. `OnGet` Uppdatera metoden. Uppdatera plats hållarens värde som visas här med det hemliga namn som du skapade i kommandona ovan.
+   1. Uppdatera `OnGet`-metoden. Uppdatera plats hållarens värde som visas här med det hemliga namn som du skapade i kommandona ovan.
 
        ```csharp
        public void OnGet()
@@ -143,17 +143,17 @@ Det här avsnittet identifierar de exakta ändringar som gjorts i ett ASP.NET-pr
 
 Påverkar projekt filens .NET-referenser och NuGet-paket referenser.
 
-| type | Referens |
+| Typ | Referens |
 | --- | --- |
-| NuGet | Microsoft.AspNetCore.AzureKeyVault.HostingStartup |
+| NuGet | Microsoft. AspNetCore. AzureKeyVault. HostingStartup |
 
 ### <a name="added-files-for-aspnet-core"></a>Filer har lagts till för ASP.NET Core
 
-- `ConnectedService.json`tillagt, som innehåller information om den anslutna tjänst leverantören, versionen och en länk till dokumentationen.
+- `ConnectedService.json` lagts till, som innehåller information om den anslutna tjänst leverantören, versionen och en länk till dokumentationen.
 
 ### <a name="project-file-changes-for-aspnet-core"></a>Projekt fil ändringar för ASP.NET Core
 
-- De anslutna tjänsterna ItemGroup och `ConnectedServices.json` File har lagts till.
+- De anslutna tjänsterna ItemGroup och `ConnectedServices.json`-filen har lagts till.
 
 ### <a name="launchsettingsjson-changes-for-aspnet-core"></a>launchsettings. JSON-ändringar för ASP.NET Core
 
@@ -177,18 +177,18 @@ Det här avsnittet identifierar de exakta ändringar som gjorts i ett ASP.NET-pr
 
 ### <a name="added-references-for-aspnet-framework"></a>Tillagda referenser för ASP.NET Framework
 
-Påverkar projekt filens .net-referenser `packages.config` och (NuGet-referenser).
+Påverkar projekt filens .NET-referenser och `packages.config` (NuGet-referenser).
 
-| type | Referens |
+| Typ | Referens |
 | --- | --- |
-| Nettotid NuGet | Microsoft.Azure.KeyVault |
-| Nettotid NuGet | Microsoft.Azure.KeyVault.WebKey |
+| Nettotid NuGet | Microsoft. Azure. nyckel valv |
+| Nettotid NuGet | Microsoft. Azure. WebKey |
 | Nettotid NuGet | Microsoft.Rest.ClientRuntime |
 | Nettotid NuGet | Microsoft.Rest.ClientRuntime.Azure |
 
 ### <a name="added-files-for-aspnet-framework"></a>Filer har lagts till för ASP.NET Framework
 
-- `ConnectedService.json`tillagt, som registrerar viss information om den anslutna tjänst leverantören, versionen och en länk till dokumentationen.
+- `ConnectedService.json` lades till, som registrerar viss information om den anslutna tjänst leverantören, versionen och en länk till dokumentationen.
 
 ### <a name="project-file-changes-for-aspnet-framework"></a>Projekt fil ändringar för ASP.NET Framework
 

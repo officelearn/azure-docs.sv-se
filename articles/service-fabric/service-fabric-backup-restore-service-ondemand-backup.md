@@ -1,6 +1,6 @@
 ---
-title: Säkerhetskopiering på begäran i Azure Service Fabric | Microsoft Docs
-description: Säkerhetskopiera och återställa funktionen i Service Fabric för att säkerhetskopiera dina programdata på basis av behov.
+title: Säkerhets kopiering på begäran i Azure Service Fabric | Microsoft Docs
+description: Använd säkerhets kopierings-och återställnings funktionen i Service Fabric för att säkerhetskopiera dina program data efter behov.
 services: service-fabric
 documentationcenter: .net
 author: aagup
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: bed3402de83984cae9134fe44058980ec18861b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88698a7a0f78987dc96bf7f39831ec1a7560a359
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65413945"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815871"
 ---
-# <a name="on-demand-backup-in-azure-service-fabric"></a>Säkerhetskopiering på begäran i Azure Service Fabric
+# <a name="on-demand-backup-in-azure-service-fabric"></a>Säkerhets kopiering på begäran i Azure Service Fabric
 
-Du kan säkerhetskopiera data för tillståndskänsliga Reliable services och Reliable Actors till adress katastrof eller data går förlorade.
+Du kan säkerhetskopiera data för pålitliga tillstånds känsliga tjänster och Reliable Actors för att lösa haveri-eller data förlust scenarier.
 
-Azure Service Fabric har funktioner för den [regelbunden säkerhetskopiering av data](service-fabric-backuprestoreservice-quickstart-azurecluster.md) och säkerhetskopiering av data på basis av behov. Säkerhetskopiering på begäran är användbart eftersom det skyddar mot _dataförlust_/_skadade data_ på grund av planerade ändringar i den underliggande tjänsten eller dess miljö.
+Azure Service Fabric har funktioner för [regelbunden säkerhets kopiering av data](service-fabric-backuprestoreservice-quickstart-azurecluster.md) och säkerhets kopiering av data baserat på behov. Säkerhets kopiering på begäran är användbart eftersom det skyddar mot _data förlust_/_data skada_ på grund av planerade ändringar i den underliggande tjänsten eller dess miljö.
 
-Säkerhetskopiering på begäran-funktionerna är användbara för att samla in tillståndet för tjänsterna innan du utlöser manuellt en tjänst eller en tjänståtgärd för miljön. Exempel: Om du gör en ändring i binärfilerna för när du uppgraderar eller nedgraderar tjänsten. I detta fall är kan säkerhetskopiering på begäran skydda data mot korruption av programmet kod buggar.
+Funktionerna för säkerhets kopiering på begäran är användbara för att fånga tjänsternas status innan du aktiverar en tjänst-eller service miljö-åtgärd manuellt. Om du till exempel gör en ändring i binärfilerna för tjänsten när du uppgraderar eller nedgraderar tjänsten. I sådana fall kan säkerhets kopiering på begäran hjälpa till att skydda data mot skador genom program kod fel.
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- Installera Microsoft.ServiceFabric.Powershell.Http modulen [förhandsgranskning] för configuration anrop.
+- Installera Microsoft. ServiceFabric. PowerShell. http-modulen [i för hands versionen] för att göra konfigurations anrop.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-- Se till att klustret är anslutna med hjälp av den `Connect-SFCluster` kommandot innan du gör några konfigurationsbegäran med Microsoft.ServiceFabric.Powershell.Http-modulen.
+- Kontrol lera att klustret är anslutet med `Connect-SFCluster`-kommandot innan du gör någon konfigurations förfrågan med hjälp av Microsoft. ServiceFabric. PowerShell. http-modulen.
 
 ```powershell
 
@@ -45,17 +45,17 @@ Säkerhetskopiering på begäran-funktionerna är användbara för att samla in 
 ```
 
 
-## <a name="triggering-on-demand-backup"></a>Aktiverar säkerhetskopiering på begäran
+## <a name="triggering-on-demand-backup"></a>Utlösa säkerhets kopiering på begäran
 
-Säkerhetskopiering på begäran kräver lagringsinformation för att ladda upp säkerhetskopior. Du anger på begäran till säkerhetskopieringsplatsen i principen för regelbunden säkerhetskopiering eller i en begäran om säkerhetskopiering på begäran.
+Säkerhets kopiering på begäran kräver lagrings information för att ladda upp säkerhetskopierade filer. Du anger platsen för säkerhets kopiering på begäran, antingen i den periodiska säkerhets kopierings principen eller i en begäran om säkerhets kopiering på begäran.
 
-### <a name="on-demand-backup-to-storage-specified-by-a-periodic-backup-policy"></a>Säkerhetskopiering på begäran till lagring som anges av en princip för regelbunden säkerhetskopiering
+### <a name="on-demand-backup-to-storage-specified-by-a-periodic-backup-policy"></a>Säkerhets kopiering på begäran till lagring som anges av en princip för periodisk säkerhets kopiering
 
-Du kan konfigurera principen för regelbunden säkerhetskopiering för att använda en partition av en tillförlitlig tillståndskänslig tjänst eller tillförlitliga aktörer för extra säkerhetskopiering på begäran till lagring.
+Du kan konfigurera den periodiska säkerhets kopierings policyn så att den använder en partition av en tillförlitlig tillstånds känslig tjänst eller tillförlitlig aktör för ytterligare säkerhets kopiering på begäran till lagringen.
 
-Nedan visas några exempel är fortsättningen på scenariot i [aktiverar regelbunden säkerhetskopiering för tillförlitlig tillståndskänslig tjänst och Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). I detta fall använder du aktiverar en princip för säkerhetskopiering att använda en partition och en säkerhetskopia som uppstår på en set-frekvens i Azure Storage.
+I följande fall är det en fortsättning av scenariot för att [Aktivera regelbunden säkerhets kopiering för tillförlitliga tillstånds känsliga tjänster och Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). I det här fallet aktiverar du en säkerhets kopierings princip för att använda en partition och en säkerhets kopiering sker med en angiven frekvens i Azure Storage.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell med Microsoft.ServiceFabric.Powershell.Http-modulen
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell med hjälp av modulen Microsoft. ServiceFabric. PowerShell. http
 
 ```powershell
 
@@ -63,9 +63,9 @@ Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>REST-anrop med hjälp av Powershell
+#### <a name="rest-call-using-powershell"></a>Rest-anrop med PowerShell
 
-Använd den [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API för att ställa in utlösa för säkerhetskopiering på begäran för partitions-ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22`.
+Använd [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) -API: et för att konfigurera utlösare för säkerhets kopiering på begäran för PARTITIONS-ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22`.
 
 ```powershell
 $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/Backup?api-version=6.4"
@@ -73,14 +73,14 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/9
 Invoke-WebRequest -Uri $url -Method Post -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-Använd den [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) API för att aktivera spårning för den [på begäran-säkerhetskopiering](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress).
+Använd [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) -API: et för att aktivera spårning för [säkerhets kopiering på begäran](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress).
 
-### <a name="on-demand-backup-to-specified-storage"></a>Säkerhetskopiering på begäran till angiven storage
+### <a name="on-demand-backup-to-specified-storage"></a>Säkerhets kopiering på begäran till den angivna lagrings platsen
 
-Du kan begära säkerhetskopiering på begäran för en partition av en tillförlitlig tillståndskänslig tjänst eller tillförlitliga aktörer. Ange information för lagring som en del av begäran om säkerhetskopiering på begäran.
+Du kan begära säkerhets kopiering på begäran för en partition av en tillförlitlig tillstånds känslig tjänst eller tillförlitlig aktör. Ange lagrings informationen som en del av begäran om säkerhets kopiering på begäran.
 
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell med Microsoft.ServiceFabric.Powershell.Http-modulen
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell med hjälp av modulen Microsoft. ServiceFabric. PowerShell. http
 
 ```powershell
 
@@ -88,9 +88,9 @@ Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -AzureBlo
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>REST-anrop med hjälp av Powershell
+#### <a name="rest-call-using-powershell"></a>Rest-anrop med PowerShell
 
-Använd den [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API för att ställa in utlösa för säkerhetskopiering på begäran för partitions-ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22`. Inkludera följande information i Azure Storage:
+Använd [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) -API: et för att konfigurera utlösare för säkerhets kopiering på begäran för PARTITIONS-ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22`. Ta med följande Azure Storage information:
 
 ```powershell
 $StorageInfo = @{
@@ -109,23 +109,34 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/9
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-Du kan använda den [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) API för att konfigurera spårning för den [på begäran-säkerhetskopiering](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress).
+Du kan använda [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) -API: et för att ställa in spårning för [säkerhets kopiering på begäran](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress).
 
-## <a name="tracking-on-demand-backup-progress"></a>Spårning på begäran-säkerhetskopiering
+### <a name="using-service-fabric-explorer"></a>Använda Service Fabric Explorer
+Kontrol lera att Avancerat läge har Aktiver ATS i Service Fabric Explorer inställningar.
+1. Välj önskade partitioner och klicka på åtgärder. 
+2. Välj Utlös säkerhets kopiering av partition och fyll i information för Azure:
 
-En partition av en tillförlitlig tillståndskänslig tjänst eller en Reliable Actor accepterar endast en säkerhetskopiering på begäran-begäran i taget. En annan begäran kan accepteras endast efter den aktuella säkerhetskopiering på begäran-begäran har slutförts.
+    ![Utlös säkerhets kopiering av partition][0]
 
-Olika partitioner kan utlösa en säkerhetskopiering på begäran-begäranden på samma gång.
+    eller FileShare:
+
+    ![Utlös partition för säkerhets kopiering av partition][1]
+
+## <a name="tracking-on-demand-backup-progress"></a>Spåra säkerhets kopierings förlopp på begäran
+
+En partition av en tillförlitlig tillstånds känslig tjänst eller tillförlitlig aktör accepterar bara en begäran om säkerhets kopiering på begäran i taget. En annan begäran kan bara godkännas när den aktuella begäran om säkerhets kopiering på begäran har slutförts.
+
+Olika partitioner kan utlösa begär Anden om säkerhets kopiering på begäran på samma tidpunkt.
 
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell med Microsoft.ServiceFabric.Powershell.Http-modulen
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell med hjälp av modulen Microsoft. ServiceFabric. PowerShell. http
 
 ```powershell
 
 Get-SFPartitionBackupProgress -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
 
 ```
-#### <a name="rest-call-using-powershell"></a>REST-anrop med hjälp av Powershell
+#### <a name="rest-call-using-powershell"></a>Rest-anrop med PowerShell
 
 ```powershell
 $url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetBackupProgress?api-version=6.4"
@@ -135,9 +146,9 @@ $backupResponse = (ConvertFrom-Json $response.Content)
 $backupResponse
 ```
 
-Säkerhetskopiering på begäran-begäranden kan ha följande tillstånd:
+Säkerhets kopierings begär Anden på begäran kan ha följande tillstånd:
 
-- **Godkänt**: Säkerhetskopieringen har startats på partitionen och håller på att skapas.
+- **Accepterad**: säkerhets kopieringen har startats på partitionen och pågår.
   ```
   BackupState             : Accepted
   TimeStampUtc            : 0001-01-01T00:00:00Z
@@ -147,8 +158,8 @@ Säkerhetskopiering på begäran-begäranden kan ha följande tillstånd:
   LsnOfLastBackupRecord   : 0
   FailureError            :
   ```
-- **Lyckade**, **fel**, eller **Timeout**: En begärda säkerhetskopiering på begäran kan utföras på något av följande tillstånd:
-  - **Lyckade**: En _lyckades_ säkerhetskopiering tillstånd anger att partition tillståndet har säkerhetskopierats. Svaret innehåller _BackupEpoch_ och _BackupLSN_ för partitionen tillsammans med tiden i UTC.
+- **Lyckad**, **misslyckad**eller **tids gräns**: en begärd säkerhets kopiering på begäran kan utföras i något av följande tillstånd:
+  - **Lyckades**: ett _lyckat_ säkerhets kopierings tillstånd indikerar att partitionens tillstånd har säkerhetskopierats. Svaret innehåller _BackupEpoch_ och _BackupLSN_ för partitionen tillsammans med tiden i UTC.
     ```
     BackupState             : Success
     TimeStampUtc            : 2018-11-21T20:00:01Z
@@ -158,7 +169,7 @@ Säkerhetskopiering på begäran-begäranden kan ha följande tillstånd:
     LsnOfLastBackupRecord   : 36
     FailureError            :
     ```
-  - **Fel**: En _fel_ säkerhetskopiering tillstånd anger att ett fel uppstod vid säkerhetskopiering av partitionens tillstånd. Orsaken till felet anges i svaret.
+  - **Fel**: ett tillstånd för _fel_ säkerhets kopiering indikerar att ett fel uppstod under säkerhets kopieringen av partitionens tillstånd. Orsaken till felet anges i svar.
     ```
     BackupState             : Failure
     TimeStampUtc            : 0001-01-01T00:00:00Z
@@ -168,7 +179,7 @@ Säkerhetskopiering på begäran-begäranden kan ha följande tillstånd:
     LsnOfLastBackupRecord   : 0
     FailureError            : @{Code=FABRIC_E_BACKUPCOPIER_UNEXPECTED_ERROR; Message=An error occurred during this operation.  Please check the trace logs for more details.}
     ```
-  - **Timeout**: En _Timeout_ säkerhetskopiering tillstånd anger att det inte gick att skapa systemtillståndet partition inom en viss tid. Standardvärdet för timeout är 10 minuter. Starta en ny säkerhetskopiering begäran med på begäran med större [BackupTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) i det här scenariot.
+  - **Timeout**: en _timeout_ för säkerhets kopiering indikerar att det inte gick att skapa en säkerhets kopia av partitionens tillstånd inom en specifik tids period. Standardvärdet för timeout är 10 minuter. Initiera en ny begäran om säkerhets kopiering på begäran med större [BackupTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) i det här scenariot.
     ```
     BackupState             : Timeout
     TimeStampUtc            : 0001-01-01T00:00:00Z
@@ -181,5 +192,8 @@ Säkerhetskopiering på begäran-begäranden kan ha följande tillstånd:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Förstå periodiska säkerhetskopieringskonfiguration](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
-- [BackupRestore REST API-referens](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+- [Förstå regelbunden konfiguration av säkerhets kopiering](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
+- [BackupRestore REST API referens](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+
+[0]: ./media/service-fabric-backuprestoreservice/trigger-partition-backup.png
+[1]: ./media/service-fabric-backuprestoreservice/trigger-backup-fileshare.png

@@ -1,5 +1,5 @@
 ---
-title: Använd gå till fråga Azure SQL Database
+title: Använd gå till fråga
 description: Använd Go för att skapa ett program som ansluter till en Azure SQL-databas, och använd Transact-SQL-uttryck för att köra frågor mot och ändra data.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: David-Engel
 ms.author: craigg
 ms.reviewer: MightyPen
 ms.date: 02/12/2019
-ms.openlocfilehash: 510f5e0fe62043d592306d2d689174c0d87e129d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9b85b1bfb8935b5e311bb7d9503c17261a210127
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690953"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827081"
 ---
 # <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Snabb start: använda Golang för att fråga en Azure SQL-databas
 

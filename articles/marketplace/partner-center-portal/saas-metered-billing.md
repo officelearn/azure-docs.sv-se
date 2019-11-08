@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: a244e4f7ac406fecd4c053b39a5e9a9cb6ecab2c
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 54b59cfecbbba6b71cf301aa4872892825d4b675
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105500"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827934"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Avgiftsbelagd fakturering med Marketplace-avläsning
 
@@ -72,8 +73,8 @@ Fakturerings dimensioner delas i alla planer för ett erbjudande.  Vissa attribu
 
 De attribut som definierar själva dimensionen delas i alla planer för ett erbjudande.  Innan du publicerar erbjudandet påverkar en ändring av dessa attribut från kontexten för varje plan dimensions definitionen för alla planer.  När du har publicerat erbjudandet kan dessa attribut inte längre redige ras.  Dessa attribut är:
 
-* identifierare
-* Name
+* Beteckning
+* Namn
 * Måttenhet
 
 De andra attributen för en dimension är speciella för varje plan och kan ha olika värden för att planera.  Innan du publicerar planen kan du redigera dessa värden och endast den här planen kommer att påverkas.  När du publicerar planen går dessa attribut inte längre att redige ras.  Dessa attribut är:
@@ -90,7 +91,7 @@ Dimensioner har också två särskilda begrepp, "aktiverade" och "oändliga":
 >[!Note] 
 >Följande scenarier stöds uttryckligen: <br> – Du kan lägga till en ny dimension till en ny plan.  Den nya dimensionen kommer inte att aktive ras för redan publicerade planer. <br> – Du kan publicera en plan för **fast pris** utan några dimensioner och sedan lägga till en ny plan och konfigurera en ny dimension för planen. Den nya dimensionen kommer inte att aktive ras för redan publicerade planer.
 
-## <a name="constraints"></a>Begränsningar
+## <a name="constraints"></a>Villkor
 
 ### <a name="trial-behavior"></a>Utvärderings beteende
 
@@ -102,8 +103,8 @@ Eftersom en dimension som används med Marketplace-mätnings tjänsten represent
   
 När ett erbjudande publiceras med en dimension kan informationen om erbjudande nivå för den dimensionen inte längre ändras:
 
-* identifierare
-* Name
+* Beteckning
+* Namn
 * Måttenhet
 
 När en plan har publicerats kan informationen på Plans nivå inte längre ändras:

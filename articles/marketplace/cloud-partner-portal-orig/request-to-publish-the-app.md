@@ -1,30 +1,31 @@
 ---
-title: Förfrågan om att publicera programmet
+title: Begäran om att publicera programmet
 description: .
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Ricardo.Villalobos
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: e272d051af6070007bcebc0f697d2854cd721497
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9558e7684fa8ab742319890940800da85daa1706
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943586"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73814759"
 ---
-# <a name="request-to-publish-the-app"></a>Förfrågan om att publicera appen
+# <a name="request-to-publish-the-app"></a>Begäran om att publicera appen
 
-![Klicka om du vill publicera](./media/CRMScreenShot18.png)
+![Klicka för att publicera](./media/CRMScreenShot18.png)
 
-1. Klicka på Publicera för att skicka in ditt erbjudande till vårt certifieringsteam för. Du kommer att kunna visa status för ditt erbjudande under fliken Status.
+1. Klicka på knappen Publicera för att skicka in ditt erbjudande till vårt certifierings team. Du kan visa statusen för ditt erbjudande på fliken status.
 
-![Granska publikationen Status](./media/CRMScreenShot19.png)
+![Granska publikationens status](./media/CRMScreenShot19.png)
 
-## <a name="republish-the-app"></a>Publicera appen
+## <a name="republish-the-app"></a>Publicera om appen
 
- Om du behöver göra en begäran om att publicera en app, klicka på Avbryt publicering under fliken Status (om begäran är inte längre aktiv kan du hoppa över det här steget). Gör dina ändringar till appen, uppdateras erbjudandet och sedan klicka på knappen Publicera för att skicka in igen. # Tänka på för Microsoft Dynamics 365 Business Edition Observera att lösningar som byggts för Microsoft Dynamics 365 Business-versionerna genomgå ytterligare kontroller under certifikat för att se till att Business Edition-gränser följs. Business Edition-gränser dokumenteras här. # Få hjälp. Om du stöter på problem, kan du logga ett supportärende genom att klicka på den i övre högra hörnet och gå till.
+ Om du behöver göra en begäran om att publicera en app igen klickar du först på knappen Avbryt publicering under fliken status (om begäran inte längre är aktiv, hoppar du över det här steget). Gör dina ändringar i appen, uppdatera erbjudandet därefter och klicka sedan på knappen Publicera för att skicka igen. # Särskilda överväganden för Microsoft Dynamics 365 Business Edition Observera att lösningar som skapats för Microsoft Dynamics 365 Business-versioner kommer att genomgå ytterligare kontroller under certifieringen för att säkerställa att Business Edition-gränserna följs. Business Edition-gränserna dokumenteras här. # Få hjälp. Om du stöter på problem kan du logga ett support ärende genom att klicka på i det övre högra hörnet och gå till.
 
-![Publicera programmet igen](./media/CRMScreenShot20.png)
+![Publicera programmet på nytt](./media/CRMScreenShot20.png)

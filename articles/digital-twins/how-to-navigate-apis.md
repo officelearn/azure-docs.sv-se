@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/27/2019
-ms.openlocfilehash: 5df8bb0ba0323692bddf94ae2888e8fcf1ad24a9
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: b0c3d72085e008524811f479ccbdeec013e26c4c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063275"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822247"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Använda Azure Digitals hanterings-API: er
 
@@ -116,4 +116,4 @@ Om du vill veta några vanliga API-frågeuttryck läser [du så här frågar du 
 
 Om du vill veta mer om dina API-slutpunkter läser [du så här använder du digitala dubbla Swagger](./how-to-use-swagger.md).
 
-Om du vill granska OData-syntaxen och tillgängliga jämförelse operatorer läser du [OData-jämförelse operatörer i Azure Search](../search/search-query-odata-comparison-operators.md).
+Om du vill granska OData-syntaxen och tillgängliga jämförelse operatorer läser du [OData-jämförelse operatörer i Azure kognitiv sökning](../search/search-query-odata-comparison-operators.md).

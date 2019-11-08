@@ -7,12 +7,12 @@ ms.date: 07/30/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 6fecd143055da2829ac49cee4f50d448a37a6e1b
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 6526f27177b5fb8640deb5302d8cb3aa4acf1a97
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514880"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824279"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor och svar om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via [SMB-protokollet (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)som är bransch standard. Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära var data används.
@@ -98,7 +98,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 * <a id="afs-conflict-resolution"></a>**Vad händer om samma fil ändras på två servrar på ungefär samma tid?**  
     Azure File Sync använder en enkel lösning för konflikt lösning: vi behåller båda ändringarna i filer som ändras på två servrar på samma gång. Den senast skrivna ändringen behåller det ursprungliga fil namnet. Den äldre filen har "källa"-datorn och konflikt numret som lagts till i namnet. Den följer denna taxonomi: 
    
-    \<FileNameWithoutExtension \> - \<MachineName \> \[ -# \]. \<ext \>  
+    \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\<ext\>  
 
     Den första konflikten i CompanyReport. docx skulle till exempel bli CompanyReport-CentralServer. docx om CentralServer är där den äldre skrivningen ägde rum. Den andra konflikten skulle ha namnet CompanyReport-CentralServer-1. docx. Azure File Sync stöder 100-konfliktskapande filer per fil. När det maximala antalet konfliktskapande filer har nåtts kommer filen inte att synkroniseras förrän antalet konfliktskapande filer är mindre än 100.
 
@@ -118,7 +118,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
   Se [förstå moln nivåer](storage-sync-cloud-tiering.md#afs-recall-file).
 
 * <a id="afs-force-tiering"></a>**vill du 
-   hur gör jag för att tvinga en fil eller katalog att vara i nivå av?**  
+  hur gör jag för att tvinga en fil eller katalog att vara i nivå av?**  
   Se [förstå moln nivåer](storage-sync-cloud-tiering.md#afs-force-tiering).
 
 * <a id="afs-effective-vfs"></a>
@@ -131,15 +131,15 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
   * Desktop. ini
   * tummes. db
   * ehthumbs. db
-  * ~$ \*. \*
+  * ~$\*.\*
   * \*. LACCDB
   * \*. tmp
-  * 635D02A9D91C401B97884B82B3BCDAEA. \*
+  * 635D02A9D91C401B97884B82B3BCDAEA.\*
 
     Följande mappar exkluderas också som standard:
 
   * \System Volume information
-  * \$RECYCLE. PLATS
+  * \$återvinning. PLATS
   * \SyncShareState
 
 * <a id="afs-os-support"></a>
@@ -162,7 +162,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
     > Azure File Sync har inte stöd för att flytta prenumerationen till en annan Azure AD-klient.
     
 * <a id="afs-ntfs-acls"></a>
-   kan**Azure File Sync bevara NTFS-ACL: er för katalog-/fil nivå tillsammans med data som lagras i Azure Files?**
+  kan **Azure File Sync bevara NTFS-ACL: er för katalog-/fil nivå tillsammans med data som lagras i Azure Files?**
 
     NTFS-ACL: er som överförs från lokala fil servrar behålls genom Azure File Sync som metadata. Azure Files stöder inte autentisering med Azure AD-autentiseringsuppgifter för åtkomst till fil resurser som hanteras av tjänsten Azure File Sync.
     
@@ -174,14 +174,14 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 
     Azure Files erbjuder ytterligare två sätt att hantera åtkomst kontroll:
 
-    - Du kan använda signaturer för delad åtkomst (SAS) för att skapa token som har specifika behörigheter och som är giltiga för ett visst tidsintervall. Du kan till exempel generera en token med skrivskyddad åtkomst till en bestämd fil som har en giltighet på 10 minuter. Alla som har token när token är giltiga har skrivskyddad åtkomst till filen under 10 minuter. Signatur nycklar för delad åtkomst stöds för närvarande endast via REST API eller i klient bibliotek. Du måste montera Azure-filresursen över SMB genom att använda lagrings konto nycklarna.
+    - Du kan använda signaturer för delad åtkomst (SAS) för att skapa token som har specifika behörigheter och som är giltiga för ett visst tidsintervall. Du kan till exempel generera en token med skrivskyddad åtkomst till en bestämd fil som har en giltighet på 10 minuter. Alla som har token när token är giltiga har skrivskyddad åtkomst till filen under 10 minuter. Signaturer för delad åtkomst stöds endast via REST API eller i klient bibliotek. Du måste montera Azure-filresursen över SMB genom att använda lagrings konto nycklarna.
 
     - Azure File Sync bevarar och replikerar alla godtyckliga ACL: er, eller DACL: er (oavsett om de är Active Directory-baserade eller lokala) till alla Server slut punkter som den synkroniserar till. Eftersom Windows Server redan kan autentiseras med Active Directory, är Azure File Sync ett effektivt Stop-intervall-alternativ tills fullt stöd för Active Directory-baserad autentisering och ACL-stöd tas emot.
     
     Du kan referera till att [auktorisera åtkomst till Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för en omfattande åter givning av alla protokoll som stöds på Azure Storage Services. 
 
 * <a id="ad-support-devices"></a>
- stöder**Azure Files Azure AD DS-autentisering SMB-åtkomst med Azure AD-autentiseringsuppgifter från enheter som är anslutna till eller registrerade med Azure AD?**
+stöder **Azure Files Azure AD DS-autentisering SMB-åtkomst med Azure AD-autentiseringsuppgifter från enheter som är anslutna till eller registrerade med Azure AD?**
 
     Nej, det här scenariot stöds inte.
 
@@ -273,7 +273,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
     Nej, resurs ögonblicks bilder är inte programkonsekventa. Användaren måste tömma Skriv åtgärder från programmet till resursen innan du tar bort ögonblicks bilden.
 
 * <a id="snapshot-limits"></a>
- finns**det några begränsningar för hur många resurs-ögonblicksbilder jag kan använda?**  
+finns **det några begränsningar för hur många resurs-ögonblicksbilder jag kan använda?**  
     Ja. Azure Files kan behålla maximalt 200 resurs ögonblicks bilder. Resurs ögonblicks bilder räknas inte mot resurs kvoten, så det finns ingen gräns per resurs för det totala utrymmet som används av alla resurs ögonblicks bilder. Lagrings konto gränser gäller fortfarande. Efter 200 resurs ögonblicks bilder måste du ta bort äldre ögonblicks bilder för att skapa nya ögonblicks bilder av resursen.
 
 * <a id="snapshot-cost"></a>
@@ -328,7 +328,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 
 ## <a name="billing-and-pricing"></a>Fakturering och priser
 * <a id="vm-file-share-network-traffic"></a>
- är**nätverks trafiken mellan en virtuell Azure-dator och en Azure-filresurs räknas som extern bandbredd som debiteras för prenumerationen?**  
+är **nätverks trafiken mellan en virtuell Azure-dator och en Azure-filresurs räknas som extern bandbredd som debiteras för prenumerationen?**  
     Om fil resursen och den virtuella datorn finns i samma Azure-region finns det ingen extra kostnad för trafiken mellan fil resursen och den virtuella datorn. Om fil resursen och den virtuella datorn finns i olika regioner debiteras trafiken mellan dem som extern bandbredd.
 
 * <a id="share-snapshot-price"></a>
@@ -373,8 +373,8 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
     Ja, Azure-filresurser är ett bra alternativ när du vill spara information utanför livs längden för en behållar instans. Mer information finns i [montera en Azure-filresurs med Azure Container instances](../../container-instances/container-instances-mounting-azure-files-volume.md).
 
 * <a id="rest-rename"></a>
- finns**det en namnbytes åtgärd i REST API?**  
-    Nej, inte just nu.
+finns **det en namnbytes åtgärd i REST API?**  
+    Inte just nu.
 
 * <a id="nested-shares"></a>
 **kan jag konfigurera kapslade resurser? Med andra ord, en resurs under en resurs?**  
@@ -384,7 +384,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 **Hur gör jag för att använda Azure Files med IBM MQ?**  
     IBM har publicerat ett dokument som hjälper IBM MQ-kunder att konfigurera Azure Files med IBM-tjänsten. Mer information finns i [så här konfigurerar du en IBM MQ multi-instance Queue Manager med Microsoft Azure Files service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 * [Felsöka Azure Files i Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Felsöka Azure Files i Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Felsöka Azure File Sync](storage-sync-files-troubleshoot.md)

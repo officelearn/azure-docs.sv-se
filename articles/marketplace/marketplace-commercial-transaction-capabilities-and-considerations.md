@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Transact Offer Type
 author: yijenj
 manager: nuno costa
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: f6f409c42c7ffa5639315e71ff565f9c672e227c
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 9aa41e63c275737874d57ba016e297a64f3eb124
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279745"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823009"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Funktioner och överväganden för kommersiella Marketplace-transaktioner
 
@@ -59,15 +60,15 @@ För SaaS-appar måste utgivaren beakta Azures användnings avgifter för Azure 
 
 Beroende på vilket transaktions alternativ som används kan utgivarens licens avgifter visas på följande sätt:  
 
-* Kostnadsfritt: Ingen avgift för program varu licenser. 
+* Kostnads fri: ingen avgift för program varu licenser. 
 
-* Bring your own license (BYOL): Alla tillämpliga avgifter för program varu licenser hanteras direkt mellan utgivaren och kunden. Microsoft passerar bara genom användnings avgifter för Azure-infrastruktur. (Endast Virtual Machines och Azure-program.)
+* Bring your own license (BYOL): alla tillämpliga avgifter för program varu licenser hanteras direkt mellan utgivaren och kunden. Microsoft passerar bara genom användnings avgifter för Azure-infrastruktur. (Endast Virtual Machines och Azure-program.)
 
-* Betala per användning: Licens avgifter för program vara presenteras som en pris taxa per timme, per kärna (vCPU) baserat på den Azure-infrastruktur som används. Detta gäller endast för Virtual Machines och Azure-program.
+* Betala per användning: licens avgifter för program vara presenteras som en pris taxa per timme, per kärna (vCPU) baserat på den Azure-infrastruktur som används. Detta gäller endast för Virtual Machines och Azure-program.
 
-* • Prenumerations prissättning: Licens avgifter för program vara presenteras som en månatlig eller årlig, återkommande avgift som faktureras som en fast taxa eller per plats. Detta gäller endast för SaaS-appar och Azure-program – hanterade appar.
+* • Prenumerations prissättning: licens avgifter för program vara presenteras som en månatlig eller årlig, återkommande avgift debiteras som en fast taxa eller per plats. Detta gäller endast för SaaS-appar och appar som hanteras av Azure program.
 
-* Kostnads fri utvärdering av program vara: Ingen avgift för program varu licenser i 30 dagar eller 90 dagar.
+* Kostnads fri utvärderings version av program vara: ingen avgift för program varu licenser i 30 dagar eller 90 dagar.
 
 ### <a name="free-and-bring-your-own-license-byol-pricing"></a>Priser för kostnads fri och BYOL-licens (kostnads fritt)
 
@@ -141,8 +142,8 @@ Det här alternativet måste konfigureras att sälja via Microsoft och kan prisa
 
 |Microsoft-räkningar  | $100,00 per månad  |
 |---------|---------|
-|Microsoft betalar 80% av din licens kostnad <br> \*Microsoft betalar 90% av din licens kostnad för kvalificerade SaaS-appar   |   $80,00 per månad <br> \*$90,00 per månad    |
-|Microsoft behåller 20% av din licens kostnad <br> \*Microsoft behåller 10% av din licens kostnad för alla kvalificerade SaaS-appar.  |  $20,00 per månad <br> \*$10,00     |
+|Microsoft betalar 80% av din licens kostnad <br> \* Microsoft betalar 90% av din licens kostnad för kvalificerade SaaS-appar   |   $80,00 per månad <br> \* $90,00 per månad    |
+|Microsoft behåller 20% av din licens kostnad <br> \* Microsoft behåller 10% av din licens kostnad för kvalificerade SaaS-appar.  |  $20,00 per månad <br> \* $10,00     |
 
 * **Minskad service avgift för Marketplace:** För vissa SaaS-produkter som du publicerar på vår kommersiella marknads plats kommer Microsoft att minska sin service avgift för Marketplace från 20% (enligt beskrivningen i Microsoft Publisher Agreement) till 10%.  För att produkten ska kunna kvalificeras måste minst en av dina produkter utformas av Microsoft som antingen IP-samförsäljnings färdiga eller IP-samsäljen prioriteras. För att få den här minskade service avgiften för Marketplace för den månaden måste berättigande vara minst fem (5) arbets dagar före slutet av föregående kalender månad. Minskad service avgift för Marketplace gäller inte för virtuella datorer, hanterade appar eller andra produkter som görs tillgängliga via vår kommersiella marknads plats.  Den här minskade service avgiften för Marketplace kommer att vara tillgänglig för kvalificerade erbjudanden, med licens avgifter som samlas in av Microsoft mellan den 1 maj 2019 och 30 juni 2020.  Efter den tiden kommer Marketplace-tjänstens avgift att återgå till sin normala mängd.
 
@@ -168,7 +169,7 @@ Exempel: om kunden köper med ett kredit kort:
 |Slut period (månad)   | 30 aug 2018 |
 |Fakturerings datum | 1 september 2018 |
 |Kund betalnings datum | 1 september 2018 |
-|Depositions period (endast kredit kort, 30 dagar) | September 1, 2018 – 30 september 2018 |
+|Depositions period (endast kredit kort, 30 dagar) | 1 september 2018 – – 30 september 2018 |
 |Start för samlings period | 1 september 2018 |
 |Samlings period slut (maximalt 30 dagar) | 30 september 2018 |
 |Beräknings datum för utbetalning (månatlig på 15) | 1 oktober 2018 |
@@ -233,11 +234,11 @@ Alternativet för att använda Transact-publicering är bara tillgängligt för 
 
 Välj från kostnads fri, egen licens, eller betala per användning – pris modeller och presentera som SKU: er definierade på erbjudande nivån. På kundens Azure-faktura presenterar Microsoft utgivarens licens avgifter separat från de underliggande avgifterna för Azure-infrastrukturen. Avgifterna för Azure-infrastrukturen styrs av användningen av utgivarens program vara.
 
-**Azure-program: Lösnings mall eller hanterad app** 
+**Azure-program: lösnings mal len eller hanterad app** 
 
 Måste etablera en eller flera virtuella datorer och hämta genom summan av priserna för den virtuella datorn. För hanterade appar i en enda plan kan en månatlig månatlig prenumeration väljas som pris modell i stället för prissättningen för den virtuella datorn. I vissa fall skickas Azure Infrastructure användnings avgifter till kunden separat från licens avgifter för program vara, men på samma fakturerings instruktion. Men om du konfigurerar ett hanterat program erbjudande för ISV-infrastruktur debiteras Azure-resurserna för utgivaren och kunden får en fast avgift som omfattar kostnaden för infrastruktur, program varu licenser och hanterings tjänster.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Granska krav för berättigande i publiceringsalternativ erbjudandet typ avsnittet för att slutföra valet av och konfigurationen av ditt erbjudande.
-* Granska publicering mönster genom butik för exempel på hur din lösning mappar till en typ av erbjudande och konfiguration.
+* Granska behörighets kraven i avsnittet publicerings alternativ per erbjudande typ för att slutföra valet och konfigurationen av ditt erbjudande.
+* Granska publicerings mönstren efter butik för exempel på hur din lösning mappar till en erbjudande typ och konfiguration.

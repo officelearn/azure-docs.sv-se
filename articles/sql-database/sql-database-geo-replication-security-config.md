@@ -1,5 +1,5 @@
 ---
-title: Konfigurera Azure SQL Database säkerhet för haveri beredskap
+title: Konfigurera säkerhet för haveri beredskap
 description: Lär dig mer om säkerhets överväganden för att konfigurera och hantera säkerhet efter en databas återställning eller redundansväxling till en sekundär server.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
-ms.openlocfilehash: 3c08ba1a37d7b0d16042d6496c27e0de8d070b75
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9d628583168883276e67d9e2f2fcafdce292769e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689966"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807486"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Konfigurera och hantera Azure SQL Database säkerhet för geo-återställning eller redundans
 
@@ -58,7 +58,7 @@ Endast Server administratören eller en medlem i **LoginManager** -serverrollen 
     FROM [sys].[sql_logins]
     WHERE [type_desc] = 'SQL_Login'
 
-Endast en medlem i databas rollen db_owner, dbo-användaren eller Server administratören kan bestämma alla huvud konton för databas användare i den primära databasen.
+Endast en medlem i db_owner databas rollen, dbo-användaren eller Server administratören kan bestämma alla huvud konton för databas användare i den primära databasen.
 
     SELECT [name], [sid]
     FROM [sys].[database_principals]
@@ -68,14 +68,14 @@ Endast en medlem i databas rollen db_owner, dbo-användaren eller Server adminis
 
 Genom att jämföra utdata från frågorna från föregående avsnitt och matcha sid, kan du mappa Server inloggningen till databas användare. Inloggningar som har en databas användare med ett matchande SID har användar åtkomst till databasen som databasens huvud konto.
 
-Följande fråga kan användas för att se alla användares huvud namn och deras sid i en databas. Endast en medlem i databas rollen db_owner eller Server administratör kan köra den här frågan.
+Följande fråga kan användas för att se alla användares huvud namn och deras sid i en databas. Endast en medlem i db_owner databas rollen eller Server administratören kan köra den här frågan.
 
     SELECT [name], [sid]
     FROM [sys].[database_principals]
     WHERE [type_desc] = 'SQL_USER'
 
 > [!NOTE]
-> **INFORMATION_SCHEMA** -och **sys** -användarna har *Null* -sid och **gäst** -sid är **0x00**. **Dbo** -sid kan starta med *0x01060000000001648000000000048454*, om databasens skapare var Server administratören i stället för en medlem i **DBManager**.
+> **INFORMATION_SCHEMA** -och **sys** -användare har *Null* -sid och **gäst** -sid är **0x00**. **Dbo** -sid kan starta med *0x01060000000001648000000000048454*, om databasens skapare var Server administratören i stället för en medlem i **DBManager**.
 
 #### <a name="3-create-the-logins-on-the-target-server"></a>3. skapa inloggningar på mål servern
 

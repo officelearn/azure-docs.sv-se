@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: da6fee7158344d331c6c2a68f0fab1b13cc3a291
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9eb283f538759f9591add4b04462de151f2cb014
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934104"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825562"
 ---
 # <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
@@ -57,10 +58,10 @@ Sidan **erbjudande översikt** innehåller:
 - **Publicerings status** visar en visuell representation av de steg som krävs för att publicera det här erbjudandet och hur lång tid varje steg tar att slutföra. Ofullständiga publicerings stegs ikoner blir grå. 
 
 - Menyn **erbjudande översikt** innehåller en lista med länkar för att utföra åtgärder på det här erbjudandet. Den här listan över åtgärder ändras baserat på det val du gör för ditt erbjudande.  
-    - Om erbjudandet är ett utkast – ta bort utkast 
-    - Om erbjudandet är Live – stoppa Sälj erbjudandet 
-    - Om erbjudandet är i för hands version – Go-Live 
-    - Om du inte har slutfört utgivar utloggning – Avbryt publicering
+    - Om erbjudandet är ett utkast till att ta bort utkast 
+    - Om erbjudandet är Live-Stop Sälj erbjudande 
+    - Om erbjudandet är i för hands version-Go-Live 
+    - Om du inte har slutfört Publisher-utloggning-Avbryt publicering
 
 ## <a name="offer-setup"></a>Erbjudande konfiguration
 
@@ -241,15 +242,15 @@ Om du vill göra din erbjudande Beskrivning mer engagerande kan du använda HTML
 
     **Exempel**: 
 
-    `<p>` Detta är mitt första stycke. `</p>` <br>
-    `<p>` Detta är mitt andra stycke. `</p>` <br>
+    `<p>` det här är mitt första stycke. `</p>` <br>
+    `<p>` det här är mitt andra stycke. `</p>` <br>
 
     Ovanstående skulle se ut så här:
 
     <p> Detta är mitt första stycke. </p>
     <p> Det här är mitt andra stycke. </p>
 
-1. Om du vill lägga till en **punkt lista med objekt**placerar du texten i `<li>`-taggarna nedan. Du kan kopiera och klistra in fler punkt objekt (objekt mellan taggarna `<li>` och `</li>`) i `<ul>`-och `</ul>`-taggar. Se till att du lägger till `<ul></ul>`. 
+1. Om du vill lägga till en **punkt lista med objekt**placerar du texten i `<li>` taggarna nedan. Du kan kopiera och klistra in fler punkt objekt (objekt mellan `<li>` och `</li>` taggar) i `<ul>` och `</ul>` taggar. Se till att du lägger till `<ul></ul>`. 
 
     **Exempel**:
 
@@ -276,11 +277,11 @@ Om du vill göra din erbjudande Beskrivning mer engagerande kan du använda HTML
 
     **KOSTNADS FRI UTVÄRDERING**
 
-1. Lägg till **rad brytningar** mellan innehållet genom att lägga till `<br>` före det innehåll som du vill starta på en ny rad. Om du vill lämna ett blank steg och se till att innehållet börjar på en ny rad lägger du till `<br><br>` före innehållet. 
+1. Om du vill lägga till **rad brytningar** mellan innehållet lägger du till `<br>` före det innehåll som du vill starta på en ny rad. Om du vill lämna ett blank steg och se till att innehållet startar på en ny rad lägger du till `<br><br>` före innehållet. 
 
     **Exempel**:
 
-    Detta är en textrad. `<br>` Detta är en text rad som börjar på en ny rad. `<br><br>` det här är en rad som startar två rader nedan. 
+    Detta är en textrad. `<br>` det här är en text rad som börjar på en ny rad. `<br><br>` det här är en rad som kommer att starta två rader nedan. 
 
     Ovanstående skulle se ut så här:
 
@@ -351,7 +352,7 @@ På fliken **teknisk konfiguration** definieras den tekniska informationen (URL-
 
 - **Landnings sidans URL** (krävs): definiera den plats-URL som kunderna ska landa efter när ditt erbjudande har hämtats från Marketplace. Den här URL: en är slut punkten som tar emot en token när en kund dirigeras till sidan. Denna token kan bytas ut mot etablerings information med hjälp av lösa i API: er som uppfyller kraven. Informationen och andra som du samlar in kan användas som en del av en kundinteraktiv webb sida som skapats i din upplevelse för att slutföra registreringen och aktivera köpet.
 
-- **Anslutning-webhook** (krävs): för alla asynkrona händelser som Microsoft behöver skicka till dig för kunden (exempel: SaaS-prenumerationen är ogiltig), så kräver vi att du anger en anslutning-webhook. Om du inte redan har ett webhook-system på plats är den enklaste konfigurationen att ha en HTTP-slutpunkt som lyssnar efter händelser som skickas till den och sedan hantera dem på rätt sätt (t. ex. https: \//Prod-1westus. Logic. Azure. com: 443/arbete ). Mer information finns i [anropa, utlösa eller kapsla arbets flöden med HTTP-slutpunkter i Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+- **Anslutning-webhook** (krävs): för alla asynkrona händelser som Microsoft behöver skicka till dig för kunden (exempel: SaaS-prenumerationen är ogiltig), så kräver vi att du anger en anslutning-webhook. Om du inte redan har ett webhook-system på plats är den enklaste konfigurationen att ha en HTTP-slutpunkt som lyssnar efter händelser som skickas till den och sedan hantera dem på rätt sätt (t. ex. https:\//prod-1westus.logic.azure.com:443/work). Mer information finns i [anropa, utlösa eller kapsla arbets flöden med HTTP-slutpunkter i Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
 - **Azure AD-klient-ID** (krävs): inuti Azure Portal måste du [skapa en Azure Active Directory (AD)-app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) så att vi kan verifiera anslutningen mellan våra två tjänster bakom en autentiserad kommunikation. Du hittar [klient-ID: t](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)genom att gå till din Azure Active Directory och välja **Egenskaper**och leta efter **katalog-ID** -numret i listan (t. ex. 50c464d3-4930-494c-963c-1e951d15360e).
 
@@ -367,8 +368,8 @@ När du har skapat dina prenumerations namn, ID: n, pris modeller, tillgängligh
 
 Vilka **åtgärder** som är tillgängliga i **plan översikten** varierar beroende på planens aktuella status och kan vara:
 
-- Om plan status är **Draft** – ta bort utkast
-- Om plan status är **Live** – stoppa Sälj plan eller synkronisera privat publik
+- Om plan status är **Draft** -ta bort utkast
+- Om plan status är **Live** -Stop Sälj plan eller synkronisera privat publik
 
 **Skapa en ny plan** (minst en plan för de som väljer att sälja via Microsoft)
 
@@ -406,7 +407,7 @@ Möjligheten att konfigurera en kostnads fri utvärderings version är tillgäng
 >[!Note]
 >När ditt transactable-erbjudande har publicerats med en kostnads fri utvärderings version kan det inte inaktive ras för den planen. Kontrol lera att den här inställningen är korrekt för den första publiceringen för att undvika att behöva återskapa planen.
 
-För att få information om kund prenumerationer som för närvarande ingår i en kostnads fri utvärderings version använder du den nya API-egenskapen `isFreeTrial`, som kommer att markeras som sant eller falskt. Mer information finns i [SaaS Hämta prenumerations-API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) .
+Om du vill få information om kund prenumerationer som för närvarande ingår i en kostnads fri utvärderings version använder du den nya API-egenskapen `isFreeTrial`, som kommer att markeras som sant eller falskt. Mer information finns i [SaaS Hämta prenumerations-API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) .
 
 >[!Note]
 >Kostnads fria utvärderings versioner stöds inte för planer som utnyttjar Marketplace-avläsning.
@@ -420,7 +421,7 @@ Varje plan måste vara tillgänglig på minst en marknad. Markera kryss rutan f�
 
 Om du redan har angett priser för din plan i USA dollar (USD) och lagt till en annan marknads plats kommer priset för den nya marknaden att beräknas enligt de aktuella växelkurserna. Du bör alltid granska priset för varje marknad innan du publicerar. Priserna kan granskas med hjälp av länken "export priser (xlsx)" när du har sparat ändringarna.
 
-#### <a name="pricing"></a>Prissättning
+#### <a name="pricing"></a>Priser
 
 - **Pris modell**: fast pris eller plats baserad
 
@@ -437,7 +438,7 @@ Välj den frekvens som kunderna måste betala i det angivna priset. Minst ett m�
 - **Pris**: USD per månad eller USD per år
 
 Priser som anges i lokal valuta (USD = USA dollar) konverteras till den lokala valutan för alla valda marknader med de aktuella växelkurserna som är tillgängliga under installationen. Validera dessa priser innan du publicerar genom att exportera pris kalkyl bladet och granska priset på varje marknad. Om du vill ange anpassade priser på en enskild marknad ändrar du och importerar pris kalkyl bladet. Du ansvarar för att verifiera priset och äga dessa inställningar.
-*\*You måste först spara dina pris ändringar för att möjliggöra export av pris data.*
+*\*Du måste först spara dina pris ändringar för att möjliggöra export av pris information.*
 
 Granska dina priser noggrant innan du publicerar, eftersom det finns vissa begränsningar för vad som kan ändras när en plan publiceras:
 
@@ -459,7 +460,7 @@ Markera den här kryss rutan om du vill att planen ska vara privat och endast sy
 
 Tilldela den mål grupp som ska ha åtkomst till den här privata planen. Åtkomst tilldelas med klient-ID: n med alternativet att inkludera en beskrivning av varje tilldelad klient-ID. Högst 10 klient-ID: n kan läggas till, eller 20 000 kunders klient-ID om du importerar en. csv-kalkylbladsfilen.
 
-En klient organisation är en representation av en organisation med ett ID som representeras som GUID (globalt unik identifierare, ett 128-bitars heltal som används för att identifiera resurser). Det är en dedikerad instans av Azure AD som en organisation eller apputvecklare får när organisationen eller apputvecklaren skapar en relation med Microsoft – som att registrera sig för Azure, Microsoft Intune eller Microsoft 365. Varje Azure AD-klient är separat och åtskild från andra Azure AD-klienter. Om du vill kontrol lera klient organisationen loggar du in på Azure Portal med det konto som du vill använda för att hantera ditt program. Om du har en klient kommer du automatiskt att loggas in och kan se klientorganisationens namn direkt under namnet på ditt konto. Hovra över ditt kontonamn längst upp till höger i Azure-portalen så visas namn, e-post, katalog/klient-ID (ett GUID) och domän. Om ditt konto är kopplat till flera klienter måste du välja namnet på ditt konto för att öppna en meny där du kan växla mellan klienter. Varje klient har sitt eget klient-ID. Du kan också leta upp organisationens klient-ID med en domän namns-URL på: [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
+En klient organisation är en representation av en organisation med ett ID som representeras som GUID (globalt unik identifierare, ett 128-bitars heltal som används för att identifiera resurser). Det är en dedikerad instans av Azure AD som en organisation eller apputvecklare får när organisationen eller apputvecklaren skapar en relation med Microsoft – som att registrera sig för Azure, Microsoft Intune eller Microsoft 365. Varje Azure AD-klient är separat och åtskild från andra Azure AD-klienter. Om du vill kontrol lera klient organisationen loggar du in på Azure Portal med det konto som du vill använda för att hantera ditt program. Om du har en klient kommer du automatiskt att loggas in och kan se klientorganisationens namn direkt under namnet på ditt konto. Hovra över ditt kontonamn längst upp till höger i Azure-portalen så visas namn, e-post, katalog/klient-ID (ett GUID) och domän. Om ditt konto är kopplat till flera klienter måste du välja namnet på ditt konto för att öppna en meny där du kan växla mellan klienter. Varje klient har sitt eget klient-ID. Du kan också leta upp organisationens klient-ID med hjälp av en domän namn-URL på: [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 
 Även om SaaS-erbjudanden använder klient-ID: n för att definiera en privat mål grupp kan andra erbjudande typer använda Azures prenumerations-ID (som också visas som GUID).
 
@@ -484,7 +485,7 @@ Om det här är första gången du publicerar det här erbjudandet kan du:
 
 - Se slut för ande status för varje avsnitt i erbjudandet.
     - *Inte startad* – innebär att avsnittet inte har vidrör ATS och måste slutföras.
-    - *Ofullständig* – innebär att avsnittet innehåller fel som behöver åtgärdas eller som kräver mer information. Gå tillbaka till avsnitten och uppdatera det.
+    - *Uncompleted* – innebär att avsnittet innehåller fel som behöver åtgärdas eller som kräver mer information. Gå tillbaka till avsnitten och uppdatera det.
     - *Complete* – innebär att avsnittet har slutförts, att alla nödvändiga data har angetts och att det inte finns några fel. Alla avsnitt i erbjudandet måste vara i ett komplett tillstånd innan du kan skicka in erbjudandet.
 - Tillhandahåll test instruktioner till certifierings teamet för att se till att appen testas korrekt, förutom eventuella kompletterande anteckningar som hjälper dig att förstå din app.
 - Skicka in erbjudandet om publicering genom att välja **Skicka**. Vi skickar dig ett e-postmeddelande för att meddela dig när en för hands version av erbjudandet kan granskas och godkännas. Du måste gå tillbaka till Partner Center och välja **Go-Live** för erbjudandet att publicera ditt erbjudande till allmänheten (eller om ett privat erbjudande till den privata mål gruppen).

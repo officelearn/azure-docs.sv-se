@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database resurs gränser för vCore-elastiska pooler | Microsoft Docs
+title: vCore resurs gränser – elastiska pooler
 description: På den här sidan beskrivs några vanliga vCore resurs gränser för elastiska pooler i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab, sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 65c2bfe4d79f5b7d468999143524b96b60f0efaf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f356b9d248ac9c5f0bcfaaeeb37b43d958eaa528
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495990"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822362"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Resurs begränsningar för elastiska pooler med vCore inköps modell
 
@@ -47,7 +47,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Minne (GB)|7|14|21|28|35|42|
 |Maximalt antal databaser per pool|100|200|500|500|500|500|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Minnes intern OLTP-lagring (GB)|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Maximal data storlek (GB)|512|756|756|1536|1536|1536|
 |Maximal logg storlek|154|227|227|461|461|461|
 |TempDB-storlek (GB)|32|64|96|128|160|192|
@@ -60,8 +60,8 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
 |Minsta/högsta antal vCore alternativ för elastisk pool per databas|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1... 3|0, 0,25, 0,5, 1... 4|0, 0,25, 0,5, 1... 5|0, 0,25, 0,5, 1... 6|
 |Antal repliker|1|1|1|1|1|1|
-|Multi-AZ|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
-|Läs skalbarhet|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Multi-AZ|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
+|Läs skalbarhet|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
 \* för maximalt antal samtidiga arbetare (begär Anden) för enskilda databaser, se [gränser för enskilda databas resurser](sql-database-vcore-resource-limits-single-databases.md). Om den elastiska poolen exempelvis använder Gen5 och dess maximala vCore per databas är 2, är det högsta antalet samtidiga arbetare 200.  Om max vCore per databas är 0,5, är Max samtidiga arbetare 50 sedan på Gen5. det finns högst 100 samtidiga arbetare per vcore.  För andra Max vCore-inställningar per databas som är mindre än 1 vCore eller mindre, skalas antalet samtidiga arbets tagare på samma sätt.
@@ -76,7 +76,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Minne (GB)|49|56|63|70|112|168|
 |Maximalt antal databaser per pool|500|500|500|500|500|500|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Minnes intern OLTP-lagring (GB)|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Maximal data storlek (GB)|1536|2048|2048|2048|3584|4096|
 |Största logg storlek (GB)|461|614|614|614|1075|1229|
 |TempDB-storlek (GB)|224|256|288|320|384|384|
@@ -89,8 +89,8 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
 |Minsta/högsta antal vCore alternativ för elastisk pool per databas|0, 0,25, 0,5, 1... 7|0, 0,25, 0,5, 1... 8|0, 0,25, 0,5, 1... 9|0, 0,25, 0,5, 1... 10|0, 0,25, 0,5, 1... 10, 16|0, 0,25, 0,5, 1... 10, 16, 24|
 |Antal repliker|1|1|1|1|1|1|
-|Multi-AZ|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
-|Läs skalbarhet|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Multi-AZ|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
+|Läs skalbarhet|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
 \* för maximalt antal samtidiga arbetare (begär Anden) för enskilda databaser, se [gränser för enskilda databas resurser](sql-database-vcore-resource-limits-single-databases.md). Om den elastiska poolen exempelvis använder Gen5 och dess maximala vCore per databas är 2, är det högsta antalet samtidiga arbetare 200.  Om max vCore per databas är 0,5, är Max samtidiga arbetare 50 sedan på Gen5. det finns högst 100 samtidiga arbetare per vcore.  För andra Max vCore-inställningar per databas som är mindre än 1 vCore eller mindre, skalas antalet samtidiga arbets tagare på samma sätt.
@@ -107,7 +107,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Minne (GB)|10.2|20,4|30,6|40,8|51|61,2|71,4|
 |Maximalt antal databaser per pool|100|200|500|500|500|500|500|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Minnes intern OLTP-lagring (GB)|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Maximal data storlek (GB)|512|756|756|1536|1536|1536|
 |Största logg storlek (GB)|154|227|227|461|461|461|461|
 |TempDB-storlek (GB)|64|128|192|256|320|384|384|
@@ -120,8 +120,8 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|
 |Minsta/högsta antal vCore alternativ för elastisk pool per databas|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1... 4|0, 0,25, 0,5, 1... 6|0, 0,25, 0,5, 1... 8|0, 0,25, 0,5, 1... 10|0, 0,25, 0,5, 1... 12|0, 0,25, 0,5, 1... 14|
 |Antal repliker|1|1|1|1|1|1|1|
-|Multi-AZ|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
-|Läs skalbarhet|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Multi-AZ|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
+|Läs skalbarhet|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
 \* för maximalt antal samtidiga arbetare (begär Anden) för enskilda databaser, se [gränser för enskilda databas resurser](sql-database-vcore-resource-limits-single-databases.md). Om den elastiska poolen exempelvis använder Gen5 och dess maximala vCore per databas är 2, är det högsta antalet samtidiga arbetare 200.  Om max vCore per databas är 0,5, är Max samtidiga arbetare 50 sedan på Gen5. det finns högst 100 samtidiga arbetare per vcore.  För andra Max vCore-inställningar per databas som är mindre än 1 vCore eller mindre, skalas antalet samtidiga arbets tagare på samma sätt.
@@ -135,7 +135,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Minne (GB)|81,6|91,8|102|122,4|163,2|204|408|
 |Maximalt antal databaser per pool|500|500|500|500|500|500|500|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Minnes intern OLTP-lagring (GB)|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Maximal data storlek (GB)|2048|2048|3072|3072|4096|4096|4096|
 |Största logg storlek (GB)|614|614|922|922|1229|1229|1229|
 |TempDB-storlek (GB)|384|384|384|384|384|384|384|
@@ -147,8 +147,8 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Maximalt antal samtidiga inloggningar per pool (begär Anden) *|1680|1890|2 100|2520|3360|4200|8400|
 |Minsta/högsta antal vCore alternativ för elastisk pool per databas|0, 0,25, 0,5, 1... 16|0, 0,25, 0,5, 1... 18|0, 0,25, 0,5, 1... 20|0, 0,25, 0,5, 1... 20, 24|0, 0,25, 0,5, 1... 20, 24, 32|0, 0,25, 0,5, 1... 16, 24, 32, 40|0, 0,25, 0,5, 1... 16, 24, 32, 40, 80|
 |Antal repliker|1|1|1|1|1|1|1|
-|Multi-AZ|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
-|Läs skalbarhet|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Multi-AZ|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
+|Läs skalbarhet|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
 ## <a name="general-purpose---provisioned-compute---fsv2-series"></a>Allmänt syfte – etablerad beräkning – Fsv2-serien
@@ -162,7 +162,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Minne (GB)|136|
 |Maximalt antal databaser per pool|500|
 |Columnstore-stöd|Ja|
-|Minnes intern OLTP-lagring (GB)|Gäller inte|
+|Minnes intern OLTP-lagring (GB)|Saknas|
 |Maximal data storlek (GB)|4096|
 |Största logg storlek (GB)|1024|
 |Maximal data storlek för TempDB (GB)|333|
@@ -174,8 +174,8 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Maximalt antal samtidiga inloggningar per pool (begär Anden) *|1680|
 |Minsta/högsta antal vCore alternativ för elastisk pool per databas|0-72|
 |Antal repliker|1|
-|Multi-AZ|Gäller inte|
-|Läs skalbarhet|Gäller inte|
+|Multi-AZ|Saknas|
+|Läs skalbarhet|Saknas|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|
 
 
@@ -209,7 +209,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Maximalt antal samtidiga arbetare per pool (begär Anden) *|210|420|630|840|1050|1260|
 |Maximalt antal samtidiga inloggningar per pool (begär Anden) *|210|420|630|840|1050|1260|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
-|Minsta/högsta antal vCore alternativ för elastisk pool per databas|Gäller inte|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1... 3|0, 0,25, 0,5, 1... 4|0, 0,25, 0,5, 1... 5|0, 0,25, 0,5, 1... 6|
+|Minsta/högsta antal vCore alternativ för elastisk pool per databas|Saknas|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1... 3|0, 0,25, 0,5, 1... 4|0, 0,25, 0,5, 1... 5|0, 0,25, 0,5, 1... 6|
 |Antal repliker|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
 |Läs skalbarhet|Ja|Ja|Ja|Ja|Ja|Ja|
@@ -225,8 +225,8 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Virtuella kärnor|7|8|9|10|16|24|
 |Minne (GB)|81,6|91,8|102|122,4|163,2|204|
 |Maximalt antal databaser per pool|100|100|100|100|100|100|
-|Columnstore-stöd|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
-|Minnes intern OLTP-lagring (GB)|7|8|9,5|11|20|36|
+|Columnstore-stöd|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|
+|Minnes intern OLTP-lagring (GB)|7|8|9.5|11|20|36|
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
 |Maximal data storlek (GB)|650|650|650|650|1024|1024|
 |Största logg storlek (GB)|195|195|195|195|307|307|
@@ -267,7 +267,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |Maximalt antal samtidiga arbetare per pool (begär Anden) *|210|420|630|840|1050|1260|1470|
 |Maximalt antal samtidiga inloggningar per pool (begär Anden) *|210|420|630|840|1050|1260|1470|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|
-|Minsta/högsta antal vCore alternativ för elastisk pool per databas|Gäller inte|0, 0,25, 0,5, 1... 4|0, 0,25, 0,5, 1... 6|0, 0,25, 0,5, 1... 8|0, 0,25, 0,5, 1... 10|0, 0,25, 0,5, 1... 12|0, 0,25, 0,5, 1... 14|
+|Minsta/högsta antal vCore alternativ för elastisk pool per databas|Saknas|0, 0,25, 0,5, 1... 4|0, 0,25, 0,5, 1... 6|0, 0,25, 0,5, 1... 8|0, 0,25, 0,5, 1... 10|0, 0,25, 0,5, 1... 12|0, 0,25, 0,5, 1... 14|
 |Antal repliker|4|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
 |Läs skalbarhet|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
@@ -340,7 +340,7 @@ Om alla virtuella kärnor av en elastisk pool är upptagna får varje databas i 
 I följande tabell beskrivs egenskaperna för databaser i pooler.
 
 > [!NOTE]
-> Resurs gränserna för enskilda databaser i elastiska pooler är vanligt vis samma som för enskilda databaser utanför pooler som har samma beräknings storlek. Till exempel är det högsta antalet samtidiga arbetare för en GP_Gen4_1-databas 200 arbetare. Därför är det högsta antalet samtidiga arbetare för en databas i en GP_Gen4_1-pool också 200 arbetare. Observera att det totala antalet samtidiga arbetare i GP_Gen4_1-poolen är 210.
+> Resurs gränserna för enskilda databaser i elastiska pooler är vanligt vis samma som för enskilda databaser utanför pooler som har samma beräknings storlek. Till exempel är maximalt antal samtidiga arbetare för en GP_Gen4_1-databas 200 arbetare. Det innebär att maximalt antal samtidiga arbetare för en databas i en GP_Gen4_1 pool också är 200 arbetare. Observera att det totala antalet samtidiga arbetare i GP_Gen4_1 pool är 210.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |

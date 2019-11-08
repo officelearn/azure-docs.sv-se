@@ -1,6 +1,6 @@
 ---
-title: Konfigurera OPC Publisher - Azure | Microsoft Docs
-description: Så här konfigurerar du OPC Publisher
+title: Konfigurera OPC Publisher – Azure | Microsoft Docs
+description: I den här artikeln beskrivs hur du konfigurerar OPC-utgivare för att ange OPC data ändringar för UA-noder, OPC UA-händelser som ska publiceras och även telemetri-formatet.
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/10/2019
@@ -8,34 +8,34 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: bccab4dde5e17ec30a0b8c5e36dd78bdd1bdff93
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 0db00f670dfcc526d3fc34d41ce731df4c6573ec
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605725"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824153"
 ---
 # <a name="configure-opc-publisher"></a>Konfigurera OPC Publisher
 
-Du kan konfigurera OPC Publisher att ange:
+Du kan konfigurera OPC-utgivare för att ange:
 
-- OPC UA-noden dataändringarna att publicera.
-- OPC UA-händelser och publicera.
-- Telemetri-format.
+- OPC UA-Node-data ändras för publicering.
+- OPC UA-händelser att publicera.
+- Telemetri-formatet.
 
-Du kan konfigurera OPC Publisher med hjälp av konfigurationsfiler eller metodanrop.
+Du kan konfigurera OPC-utgivare med konfigurationsfiler eller med hjälp av metod anrop.
 
 ## <a name="use-configuration-files"></a>Använda konfigurationsfiler
 
-Det här avsnittet beskrivs alternativ för att konfigurera publicering för OPC UA-noden med konfigurationsfiler.
+I det här avsnittet beskrivs alternativ för att konfigurera OPC UA Node Publishing with konfigurationsfilerna.
 
-### <a name="use-a-configuration-file-to-configure-publishing-data-changes"></a>Använda en konfigurationsfil för att konfigurera publicering dataändringar
+### <a name="use-a-configuration-file-to-configure-publishing-data-changes"></a>Använd en konfigurations fil för att konfigurera publicerings data ändringar
 
-Det är det enklaste sättet att konfigurera OPC UA-noderna som publiceras med en konfigurationsfil. Formatet på konfigurationsfilen dokumenteras i [publishednodes.json](https://github.com/Azure/iot-edge-opc-publisher/blob/master/opcpublisher/publishednodes.json) i databasen.
+Det enklaste sättet att konfigurera OPC UA-noder att publicera är med en konfigurations fil. Konfigurations fil formatet är dokumenterat i [publishednodes. JSON](https://github.com/Azure/iot-edge-opc-publisher/blob/master/opcpublisher/publishednodes.json) i lagrings platsen.
 
-Configuration file-syntax har ändrats över tid. OPC Publisher kan du fortfarande läser gamla format, men konverterar dem till det senaste formatet när den finns kvar konfigurationen.
+Syntaxen för konfigurations filen har ändrats med tiden. OPC Publisher läser fortfarande gamla format, men konverterar dem till det senaste formatet När konfigurationen är kvar.
 
-I följande exempel visas formatet på konfigurationsfilen:
+I följande exempel visas formatet för konfigurations filen:
 
 ```json
 [
@@ -54,11 +54,11 @@ I följande exempel visas formatet på konfigurationsfilen:
 ]
 ```
 
-### <a name="use-a-configuration-file-to-configure-publishing-events"></a>Använda en konfigurationsfil för att konfigurera publicering händelser
+### <a name="use-a-configuration-file-to-configure-publishing-events"></a>Använd en konfigurations fil för att konfigurera publicerings händelser
 
-Om du vill publicera OPC UA-händelser, kan du använda samma konfigurationsfil för data ändras.
+Om du vill publicera OPC UA-händelser använder du samma konfigurations fil som för data ändringar.
 
-I följande exempel visas hur du konfigurerar publicering för händelser som genererats av den [SimpleEvents server](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/SimpleEvents/Server). SimpleEvents-server finns i den [OPC Foundation-databasen](https://github.com/OPCFoundation/UA-.NETStandard) är:
+I följande exempel visas hur du konfigurerar publicering av händelser som genereras av [SimpleEvents-servern](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/SimpleEvents/Server). Du hittar SimpleEvents-servern i [OPC Foundation-lagringsplatsen](https://github.com/OPCFoundation/UA-.NETStandard) :
 
 ```json
 [
@@ -110,24 +110,24 @@ I följande exempel visas hur du konfigurerar publicering för händelser som ge
 ]
 ```
 
-## <a name="use-method-calls"></a>Använda metodanrop
+## <a name="use-method-calls"></a>Använd metod anrop
 
-Det här avsnittet beskrivs metodanrop som du kan använda för att konfigurera OPC Publisher.
+I det här avsnittet beskrivs de metod anrop som du kan använda för att konfigurera OPC-utgivare.
 
-### <a name="configure-using-opc-ua-method-calls"></a>Konfigurera med hjälp av OPC UA-metodanrop
+### <a name="configure-using-opc-ua-method-calls"></a>Konfigurera med OPC UA-metod anrop
 
-OPC Publisher innehåller en OPC UA-Server som kan nås på port 62222. Om värdnamnet är **publisher**, och sedan slutpunkten URI: N är: `opc.tcp://publisher:62222/UA/Publisher`.
+OPC Publisher innehåller en OPC UA-server som kan nås på port 62222. Om värd namnet är **utgivare**är slut punktens URI: `opc.tcp://publisher:62222/UA/Publisher`.
 
-Den här slutpunkten innehåller följande fyra metoder:
+Den här slut punkten visar följande fyra metoder:
 
 - PublishNode
 - UnpublishNode
 - GetPublishedNodes
-- IoT HubDirectMethod
+- IoT-HubDirectMethod
 
-### <a name="configure-using-iot-hub-direct-method-calls"></a>Konfigurera med hjälp av IoT Hub direkt metodanrop
+### <a name="configure-using-iot-hub-direct-method-calls"></a>Konfigurera med hjälp av anrop till IoT Hub Direct-metoden
 
-OPC Publisher implementerar följande anrop för IoT Hub-direkt metod:
+OPC Publisher implementerar följande IoT Hub direkta metod anrop:
 
 - PublishNodes
 - UnpublishNodes
@@ -140,13 +140,13 @@ OPC Publisher implementerar följande anrop för IoT Hub-direkt metod:
 - ExitApplication
 - GetInfo
 
-Formatet för JSON-nyttolasten för metodbegäran och svar har definierats i [opcpublisher/HubMethodModel.cs](https://github.com/Azure/iot-edge-opc-publisher/blob/master/opcpublisher/HubMethodModel.cs).
+Formatet på JSON-nyttolasten för metod begär Anden och svar definieras i [opcpublisher/HubMethodModel. cs](https://github.com/Azure/iot-edge-opc-publisher/blob/master/opcpublisher/HubMethodModel.cs).
 
-Om du anropar en okänd metod i modulen, svarar den med en sträng som säger att metoden inte implementerat. Du kan anropa en okänd metod som ett sätt att pinga modulen.
+Om du anropar en okänd metod i modulen svarar den med en sträng som säger att metoden inte har implementerats. Du kan anropa en okänd metod som ett sätt att pinga modulen.
 
-### <a name="configure-username-and-password-for-authentication"></a>Konfigurera användarnamn och lösenord för autentisering
+### <a name="configure-username-and-password-for-authentication"></a>Konfigurera användar namn och lösen ord för autentisering
 
-Autentiseringsläget kan ställas in via en IoT-hubb dirigera metodanrop. Nyttolasten måste innehålla egenskapen **OpcAuthenticationMode** och användarnamn och lösenord:
+Autentiseringsläget kan ställas in via ett IoT Hub Direct-metod anrop. Nytto lasten måste innehålla egenskapen **OpcAuthenticationMode** och användar namn och lösen ord:
 
 ```csharp
 {
@@ -158,7 +158,7 @@ Autentiseringsläget kan ställas in via en IoT-hubb dirigera metodanrop. Nyttol
 }
 ```
 
-Lösenordet krypteras av IoT Hub arbetsbelastning klienten och sparas i utgivarens konfiguration. Du kan ändra autentisering som anonym med metoden med nyttolasten följande:
+Lösen ordet krypteras av IoT Hub arbets belastnings klient och lagras i utgivarens konfiguration. Om du vill ändra tillbaka autentiseringen till anonym använder du metoden med följande nytto last:
 
 ```csharp
 {
@@ -168,25 +168,25 @@ Lösenordet krypteras av IoT Hub arbetsbelastning klienten och sparas i utgivare
 }
 ```
 
-Om den **OpcAuthenticationMode** egenskapen har inte angetts i nyttolasten, autentiseringsinställningarna förblir oförändrade i konfigurationen.
+Om egenskapen **OpcAuthenticationMode** inte har angetts i nytto lasten förblir autentiseringsinställningarna oförändrade i konfigurationen.
 
-## <a name="configure-telemetry-publishing"></a>Konfigurera telemetri publicering
+## <a name="configure-telemetry-publishing"></a>Konfigurera telemetri-publicering
 
-När OPC Publisher tar emot en avisering om ett ändrat värde i en publicerad nod, genererar en JSON-formaterade meddelandet som skickas till IoT Hub.
+När OPC Publisher får ett meddelande om en värde ändring i en publicerad nod, genererar den ett JSON-formaterat meddelande som skickas till IoT Hub.
 
-Du kan konfigurera innehållet i den här formaterad JSON-meddelande med en konfigurationsfil. Om ingen konfigurationsfil anges med den `--tc` alternativet, en standardkonfiguration används som är kompatibel med den [ansluten fabrik lösningsaccelerator](https://github.com/Azure/azure-iot-connected-factory).
+Du kan konfigurera innehållet i det här JSON-formaterade meddelandet med hjälp av en konfigurations fil. Om ingen konfigurations fil har angetts med alternativet `--tc` används en standard konfiguration som är kompatibel med den [anslutna fabriks lösnings acceleratorn](https://github.com/Azure/azure-iot-connected-factory).
 
-Om OPC Publisher är konfigurerad på batchbearbetning av meddelanden, är de skickas som en giltig JSON-matris.
+Om OPC Publisher har kon figurer ATS för batch-meddelanden skickas de som en giltig JSON-matris.
 
-Telemetri som härleds från följande källor:
+Telemetrin härleds från följande källor:
 
-- OPC Publisher-nodkonfiguration för nod
-- Den **MonitoredItem** objekt av OPC UA-stacken som OPC Publisher fick ett meddelande.
-- Argumentet som skickades till det här meddelandet som innehåller information om data ändras.
+- OPC för nodens publicerings nod
+- **MonitoredItem** -objektet för OPC UA-stacken som OPC-utgivaren fick ett meddelande till.
+- Argumentet som skickades till det här meddelandet, som innehåller information om data värdes ändringen.
 
-Telemetri som du placerar i det JSON-formaterade meddelandet är ett urval av viktiga egenskaper för dessa objekt. Om du behöver fler egenskaper kan behöva du ändra OPC Publisher kodbas.
+Telemetrin som placeras i JSON-formaterat meddelande är ett urval av viktiga egenskaper för dessa objekt. Om du behöver fler egenskaper måste du ändra OPC utgivarens kodbas.
 
-Syntaxen för konfigurationsfilen är följande:
+Konfigurations filens syntax är följande:
 
 ```json
 // The configuration settings file consists of two objects:
@@ -380,4 +380,4 @@ Syntaxen för konfigurationsfilen är följande:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu du har lärt dig hur du konfigurerar OPC Publisher, föreslagna nästa steg är att lära dig hur du [kör OPC Publisher](howto-opc-publisher-run.md).
+Nu när du har lärt dig hur du konfigurerar OPC Publisher är det föreslagna nästa steg att lära dig hur du [Kör OPC Publisher](howto-opc-publisher-run.md).

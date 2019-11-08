@@ -1,5 +1,5 @@
 ---
-title: 'Azure Portal: SQL Database dynamisk data maskning '
+title: 'Azure Portal: dynamisk data maskning'
 description: Så här kommer du igång med SQL Database dynamisk data maskning i Azure Portal
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 ms.date: 03/04/2018
-ms.openlocfilehash: d92f77c56221d7c79ed30a6ca67d31d1b3f7f703
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0053958c0681e98ee225232249b050583d4e13b2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690578"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826572"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Kom igång med SQL Database dynamisk data maskning med Azure Portal
 

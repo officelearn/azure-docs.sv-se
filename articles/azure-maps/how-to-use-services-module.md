@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 77659fdf93947cfbaa0daa322dccf4e9cb1a41fa
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 3911d4e780e993fdd1c2945b34cd683d47fb884a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844710"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827281"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Använd modulen Azure Maps tjänster
 
@@ -23,7 +23,7 @@ Azure Maps Web SDK tillhandahåller en *Services-modul*. Den här modulen är et
 
 1. Skapa en ny HTML-fil.
 1. Läs in Azure Maps Services-modulen. Du kan läsa in den på ett av två sätt:
-    - Använd den globalt värdbaserade Azure Content Delivery Network-versionen av modulen Azure Maps tjänster. Lägg till en skript referens till `<head>` filens element:
+    - Använd den globalt värdbaserade Azure Content Delivery Network-versionen av modulen Azure Maps tjänster. Lägg till en skript referens till filens `<head>` element:
 
         ```html
         <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
@@ -33,7 +33,7 @@ Azure Maps Web SDK tillhandahåller en *Services-modul*. Den här modulen är et
     
         > **NPM installera Azure-Maps-rest**
     
-        Lägg sedan till en skript referens till `<head>` filens element:
+        Lägg sedan till en skript referens till filens `<head>` element:
 
          ```html
         <script src="node_modules/azure-maps-rest/dist/js/atlas-service.min.js"></script>
@@ -124,7 +124,7 @@ Azure Maps Web SDK tillhandahåller en *Services-modul*. Den här modulen är et
 
     Mer information finns i [autentisering med Azure Maps](azure-maps-authentication.md).
 
-1. I följande kod används den nyligen skapade Azure Search tjänst-URL-klienten för att koda en adress: "1 Microsoft Way, Redmond, WA". I koden används `searchAddress` funktionen och resultatet visas som en tabell i bröd texten på sidan.
+1. I följande kod används den nya URL-klienten för Azure Maps Search-tjänsten för att koda en adress: "1 Microsoft Way, Redmond, WA". I koden används funktionen `searchAddress` och resultatet visas som en tabell i bröd texten på sidan.
 
     ```javascript
     // Search for "1 microsoft way, redmond, wa".
@@ -160,7 +160,7 @@ Azure Maps Web SDK tillhandahåller en *Services-modul*. Den här modulen är et
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Använda modulen tjänster" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se pennan <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>med hjälp av modulen tjänster</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) i <a href='https://codepen.io'>CodePen</a>.
+Se pennan <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>med hjälp av modulen tjänster genom att</a> Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Nästa steg

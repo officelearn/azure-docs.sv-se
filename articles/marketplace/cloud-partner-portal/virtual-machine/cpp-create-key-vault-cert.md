@@ -4,15 +4,16 @@ description: Förklarar hur du registrerar en virtuell dator från en Azure-dist
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pabutler
-ms.openlocfilehash: c27605d2f9b87a9d4ba3d2326c0ce7ad437d3441
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 4adc6f716050e2d792e0a5c022972e4340d2846a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240986"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823117"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>Skapa certifikat för Azure Key Vault
 
@@ -32,7 +33,7 @@ Du kan använda antingen en ny eller en befintlig Azure-resurs grupp för detta 
 
 Redigera och kör följande Azure PowerShell-skript för att skapa certifikat filen (. pfx) i en lokal mapp.  Du måste ersätta värdena för följande parametrar:
 
-|  **Parametern**        |   **Beskrivning**                                                               |
+|  **ProfileServiceApplicationProxy**        |   **Beskrivning**                                                               |
 |  -------------        |   ---------------                                                               |
 | `$certroopath` | Lokal mapp för att spara. pfx-filen till  |
 | `$location`    | En av de geografiska standard platserna för Azure  |
@@ -76,9 +77,9 @@ Redigera och kör följande Azure PowerShell-skript för att skapa certifikat fi
 
 ## <a name="create-the-key-vault"></a>Skapa nyckel valvet
 
-Kopiera innehållet i [distributions mal len Key Vault](./cpp-key-vault-deploy-template.md) till en fil på den lokala datorn. (i exempel skriptet nedan är `C:\certLocation\keyvault.json`den här resursen.)  Redigera och kör följande Azure PowerShell-skript för att skapa en Azure Key Vault-instans och den tillhör ande resurs gruppen.  Du måste ersätta värdena för följande parametrar:
+Kopiera innehållet i [distributions mal len Key Vault](./cpp-key-vault-deploy-template.md) till en fil på den lokala datorn. (i exempel skriptet nedan är den här resursen `C:\certLocation\keyvault.json`.)  Redigera och kör följande Azure PowerShell-skript för att skapa en Azure Key Vault-instans och den tillhör ande resurs gruppen.  Du måste ersätta värdena för följande parametrar:
 
-|  **Parametern**        |   **Beskrivning**                                                               |
+|  **ProfileServiceApplicationProxy**        |   **Beskrivning**                                                               |
 |  -------------        |   ---------------                                                               |
 | `$postfix`            | Godtycklig numerisk sträng som läggs till i distributions identifierare                     |
 | `$rgName`             | Namn på Azure Resource Group (RG) som ska skapas                                        |
@@ -205,7 +206,7 @@ Nu kan du lagra certifikaten, som finns i. pfx-filen, i det nya nyckel valvet ge
             echo $certpassword
             $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
             $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
-            $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText –Force
+            $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
             $objAzureKeyVaultSecret=Set-AzureKeyVaultSecret -VaultName $kvname -Name "ISVSecret$postfix" -SecretValue $secret
             echo $objAzureKeyVaultSecret.Id 
     

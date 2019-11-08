@@ -1,70 +1,71 @@
 ---
-title: Ansluta till din Microsoft Azure-baserad virtuell dator | Azure Marketplace
-description: Beskriver hur du ansluter till den nya virtuella datorn skapas på Azure.
+title: Ansluta till din Microsoft Azure-baserade virtuella datorn | Azure Marketplace
+description: Förklarar hur du ansluter till den nya virtuella datorn som skapats på Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: ca002a77fd7252466f604b995af949b54694bc8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 256952d06e8b417be9ab2bc3c6c8c6857d50e2ea
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938579"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73817374"
 ---
-# <a name="connect-to-your-azure-based-virtual-machine"></a>Ansluta till din Azure-baserad virtuell dator
+# <a name="connect-to-your-azure-based-virtual-machine"></a>Anslut till en Azure-baserad virtuell dator
 
-Den här artikeln förklarar hur du ansluter till och logga in på de virtuella datorerna (VM) som du skapade i Azure.  När du har anslutit kan du arbeta med den virtuella datorn som om du loggade in lokalt på värdservern. 
+Den här artikeln förklarar hur du ansluter till och loggar in på de virtuella datorer som du skapade i Azure.  När du har anslutit kan du arbeta med den virtuella datorn som om du var inloggad lokalt på värd servern. 
 
 ## <a name="connect-to-a-windows-based-vm"></a>Ansluta till en Windows-baserad virtuell dator
 
-Du använder fjärrskrivbordsklienten för att ansluta till den Windows-baserade virtuella datorn finns i Azure.  De flesta versioner av Windows innehåller inbyggt stöd för remote desktop protocol (RDP).  För andra datorer kan du hitta mer information om klienter i [fjärrskrivbordsklienter](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).  
+Du kommer att använda fjärr skrivbords klienten för att ansluta till den Windows-baserade virtuella datorn som finns på Azure.  De flesta versioner av Windows innehåller inbyggt stöd för Remote Desktop Protocol (RDP).  För andra datorer kan du hitta mer information om klienter i [fjärr skrivbords klienter](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).  
 
-I följande artikel beskriver hur du använder det inbyggda stödet för Windows RDP för att ansluta till den virtuella datorn: [Hur du ansluter och logga in på Azure-datorer som kör Windows](../../../virtual-machines/windows/connect-logon.md).  
+Följande artikel beskriver hur du använder det inbyggda Windows RDP-stödet för att ansluta till din virtuella dator: [hur du ansluter och loggar in på en virtuell Azure-dator som kör Windows](../../../virtual-machines/windows/connect-logon.md).  
 
 >[!TIP]
-> Du kan få säkerhetsvarningar under processen, till exempel att RDP-filen är från en okänd utgivare eller att det inte går att verifiera dina autentiseringsuppgifter.  Det är säkert att ignorera dessa varningar.
+> Du kan få säkerhets varningar under processen, till exempel att. RDP-filen kommer från en okänd utgivare eller att dina användarautentiseringsuppgifter inte kan verifieras.  Det är säkert att ignorera dessa varningar.
 
 
 ## <a name="connect-to-a-linux-based-vm"></a>Ansluta till en Linux-baserad virtuell dator
 
-För att kunna ansluta den virtuella Linux-baserade datorn, behöver du en secure shell protocol (SSH)-klient.  Den här diskussionen ska använda den kostnadsfria [PuTTY](https://www.ssh.com/ssh/putty/) SHH-terminal.
+För att kunna ansluta den Linux-baserade virtuella datorn behöver du en SSH-klient (Secure Shell Protocol).  I den här diskussionen används den kostnads fria SHH-terminalen för [SparaTillFil](https://www.ssh.com/ssh/putty/) .
 
-1. I den **virtuella datorer** bladet för den [Azure-portalen](https://ms.portal.azure.com), Välj den virtuella datorn som du vill ansluta till.  
+1. På bladet **virtuella datorer** i [Azure Portal](https://ms.portal.azure.com)väljer du den virtuella dator som du vill ansluta till.  
 2. **Starta** den virtuella datorn om den inte redan körs.
-3. Klicka på namnet på den virtuella datorn för att öppna dess **översikt** sidan.
-4. Observera den offentliga IP-adress och DNS-namnet på den virtuella datorn.  (Om dessa värden inte har angetts så måste du [skapa ett nätverksgränssnitt](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#create-a-network-interface)
+3. Klicka på namnet på den virtuella datorn för att öppna dess **översikts** sida.
+4. Anteckna den offentliga IP-adressen och DNS-namnet på den virtuella datorn.  (Om dessa värden inte har angetts måste du [skapa ett nätverks gränssnitt](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#create-a-network-interface)
 
-   ![Översikt över VM-inställningar](./media/publishvm_019.png)
+   ![Inställningar för VM-översikt](./media/publishvm_019.png)
  
-5. Öppna programmet PuTTY.  
-6. I dialogrutan PuTTY-konfiguration anger du IP-adressen eller DNS-namnet på den virtuella datorn. 
+5. Öppna programmet SparaTillFil.  
+6. Ange IP-adressen eller DNS-namnet på den virtuella datorn i dialog rutan SparaTillFil-konfiguration. 
 
-   ![PuTTY-inställningar för terminal](./media/publishvm_020.png)
+   ![Inställningar för SparaTillFil-Terminal](./media/publishvm_020.png)
  
-7. Klicka på **öppna** att öppna en terminal för PuTTY.  
-8. När du uppmanas, ange kontonamnet och lösenordet för ditt Linux VM-konto. 
+7. Klicka på **Öppna** för att öppna en SparaTillFil-Terminal.  
+8. När du uppmanas till det anger du konto namnet och lösen ordet för ditt Linux VM-konto. 
 
-   Om du har anslutningsproblem finns i dokumentationen för SSH-klienten, till exempel [kapitel 10: Vanliga felmeddelanden](https://www.ssh.com/ssh/putty/putty-manuals/0.68/Chapter10.html#errors).
+   Om du har anslutnings problem kan du läsa dokumentationen för SSH-klienten, till exempel [kapitel 10: vanliga fel meddelanden](https://www.ssh.com/ssh/putty/putty-manuals/0.68/Chapter10.html#errors).
 
-Mer information, inklusive hur du lägger till en stationär dator till en etablerad Linux-VM finns i [installera och konfigurera Fjärrskrivbord för att ansluta till en Linux-VM i Azure](../../../virtual-machines/linux/use-remote-desktop.md).
+Mer information, inklusive hur du lägger till ett skriv bord till en etablerad virtuell Linux-dator finns i [Installera och konfigurera fjärr skrivbord för att ansluta till en virtuell Linux-dator i Azure](../../../virtual-machines/linux/use-remote-desktop.md).
 
 
 ## <a name="stop-unused-vms"></a>Stoppa oanvända virtuella datorer
-Azure-fakturor för virtuell dator som är värd för när en virtuell dator körs *eller inaktiva*.  Därför är det bäst att stoppa virtuella datorer som för närvarande inte används.  Till exempel testa säkerhetskopiering, eller dras tillbaka virtuella datorer är lämpliga kandidater för avstängning. Utför följande steg för att stänga av en virtuell dator:
+Azure-räkningar för VM-värd när en virtuell dator körs *eller är inaktiv*.  Därför är det bästa praxis att stoppa virtuella datorer som inte används för närvarande.  Till exempel test, säkerhets kopiering eller tillbakadragna virtuella datorer är kandidater för avstängning. Gör så här om du vill stänga av en virtuell dator:
 
-1. På den **virtuella datorer** bladet Välj den virtuella datorn som du vill stoppa. 
-2. I verktygsfältet längst upp på sidan, klickar du på den **stoppa** knappen.
+1. På bladet **virtuella datorer** väljer du den virtuella dator som du vill stoppa. 
+2. Klicka på **stopp** -knappen i verktygsfältet längst upp på sidan.
 
    ![Stoppa en virtuell dator](./media/publishvm_018.png)
 
-Azure snabbt stoppar den virtuella datorn i en process som kallas *frigörs*, som inte bara stänger av operativsystemet på den virtuella datorn, men behöver maskinvaru- och nätverksresurser som har etablerats efter den.
+Azure stoppar snabbt den virtuella datorn i en process som kallas *frigörning*, vilket inte bara stänger av operativ systemet på den virtuella datorn, utan även frigör de maskin-och nätverks resurser som tidigare har allokerats för den.
 
-Om du vill återaktivera en stoppad virtuell dator senare markerar du det och klickar på den **starta** knappen.
+Om du senare vill återaktivera en stoppad virtuell dator markerar du den och klickar på knappen **Starta** .
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du är ansluten via en fjärranslutning, är det dags att [konfigurera din virtuella dator](./cpp-configure-vm.md).
+När du har anslutit via fjärr anslutning är du redo att [Konfigurera den virtuella datorn](./cpp-configure-vm.md).

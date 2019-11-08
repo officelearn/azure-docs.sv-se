@@ -4,19 +4,20 @@ description: Använd fliken Marketplace för att identifiera marknadsförings ti
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: b5d54e4c6744675da0dea5b095590b71df6d2641
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 967b66a67d51b3a79bcf930ce977af48acc3dd63
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962866"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827569"
 ---
 # <a name="azure-application-marketplace-tab"></a>Fliken Azure Application Marketplace
 
-Använd fliken Marketplace för att beskriva ditt Azure-program och tillhandahålla marknadsförings till gångar. Den här fliken innehåller följande formulär: Översikt, marknadsförings artefakter, ledar hantering och juridisk information.
+Använd fliken Marketplace för att beskriva ditt Azure-program och tillhandahålla marknadsförings till gångar. Den här fliken innehåller följande formulär: översikt, marknadsförings artefakter, lead management och juridiskt.
 
 ## <a name="overview-form"></a>Översikts formulär
 
@@ -28,11 +29,11 @@ I följande tabell beskrivs de inställningar som används för att skapa en but
 
 |      Fält         |    Beskrivning    |
 |  ---------------   |  ---------------  |
-| **Avdelning\***        | Rubriken på erbjudandet. Den visas på ett framträdande sätt i Marketplace. Den maximala längden är 50 tecken. |
-| **Drag\***      | Kort sammanfattning av erbjudandet. Den maximala längden är 100 tecken.           |
+| **Rubrik\***        | Rubriken på erbjudandet. Den visas på ett framträdande sätt i Marketplace. Den maximala längden är 50 tecken. |
+| **Sammanfattning\***      | Kort sammanfattning av erbjudandet. Den maximala längden är 100 tecken.           |
 | **Lång Sammanfattning\*** | Längre sammanfattning av erbjudandet (även om det kan vara samma som i sammanfattningen). Den maximala längden är 256 tecken.           |
-| **Beteckning\***  | Beskrivning av erbjudandet. Den maximala längden är 3000 tecken. Enkel HTML-formatering tillåts, inklusive &lt;p&gt;- &lt;,&gt;EM &lt;-&gt;, &lt;UL&gt;-,&gt; Li-, OL- &lt;och Head-taggar.  |
-| **Marknadsförings-ID\*** | En unik URL som associeras med det här erbjudandet, och innehåller vanligt vis organisations-och lösnings namn, högst 50 tecken. Välj ett kort, eget marknadsförings-ID för din tjänst. Detta kommer att användas i Marketplace-URL: er för det här erbjudandet. Om ditt utgivar-ID t. ex. är "contoso" och marknadsförings identifieraren är "fråga" kommer URL: en för ditt erbjudande i Azure Marketplace att vara https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp  
+| **Beskrivning\***  | Beskrivning av erbjudandet. Den maximala längden är 3000 tecken. Enkel HTML-formatering tillåts, inklusive &lt;p&gt;, &lt;EM&gt;, &lt;UL&gt;, &lt;Li&gt;, &lt;OL&gt; och rubrik etiketter.  |
+| **Marknadsförings-ID\*** | En unik URL som associeras med det här erbjudandet, och innehåller vanligt vis organisations-och lösnings namn, högst 50 tecken. Välj ett kort, eget marknadsförings-ID för din tjänst. Detta kommer att användas i Marketplace-URL: er för det här erbjudandet. Om ditt utgivar-ID t. ex. är "contoso" och marknadsförings identifieraren är "fråga", kommer URL: en för ditt erbjudande i Azure Marketplace att https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp  
 | **Förhandsgranska prenumerations-ID: n\*** | Lägg till från en till 100 prenumerations-ID för för hands visare. De här vita prenumerationerna kommer att ha åtkomst till ditt erbjudande när det är tillgängligt i för hands versionen när det har publicerats, innan det går live.          |
 | **Användbara länkar**    | Du kan också ange länkar till olika resurser för användare av ditt erbjudande, till exempel support, dokumentation, forum osv.  Vi rekommenderar att du lägger till minst en länk till din dokumentation.            |
 | **Föreslagna kategorier (max 5)\*** | Välj en till fem kategorier. De valda kategorierna används för att mappa ditt erbjudande till produkt kategorierna som är tillgängliga i Azure Marketplace och Azure Portal. De visas på sidan Sök efter sidor och på produkt informations sidan. |
@@ -49,13 +50,13 @@ I följande tabell beskrivs marknadsförings artefakterna.
 
 |      Fält         |    Beskrivning    |
 |  ---------------   |  ---------------  |
-| **Små\***        | Liten logo typ: 40x40 bild punkter i PNG-format     |
-| **Säker\***       | Medelhög logo typ: 90x90 bild punkter i PNG-format    |
-| **Förstoring\***        | Stor logo typ: 115x115 bild punkter i PNG-format   |
-| **Täcka\***         | Bred logo typ: 255x115 bild punkter i PNG-format    |
+| **Liten\***        | Liten logo typ: 40x40 bild punkter i PNG-format     |
+| **Medel\***       | Medelhög logo typ: 90x90 bild punkter i PNG-format    |
+| **Stor\***        | Stor logo typ: 115x115 bild punkter i PNG-format   |
+| **Bred\***         | Bred logo typ: 255x115 bild punkter i PNG-format    |
 | **Hjälte**           | Valfri hjälte logo typ: 815x290 bild punkter i PNG-format. **Obs:** Det går inte att ta bort hjälte ikonen när den har laddats upp. |
 | **Skärm bilder (max 5)** |        Skärm dum par visas på produkt informations sidan. De är ett bra sätt att visuellt förmedla vad din app gör och hur det fungerar. Du kan till exempel Visa arkitektur diagram eller användnings Falls bilder. Skärm dum par är valfria och du kan begränsa till 5 per SKU. Så här lägger du till en skärm bild:<ul><li>Välj **+ Lägg till skärm bild** för att öppna skärm bilds fönstret</li><li>**Namn** – ange ett namn/en rubrik (högst 100 tecken.)</li><li>**Ladda upp** – Ladda upp avbildningen. Det måste vara i PNG-format och storleken är 533 x 324 bild punkter.</li></ul>           |
-| **Lägg till video**      | Som tillval visas videor på din produkt informations sida. De är ett bra sätt att visuellt förmedla vad ditt program gör och hur det fungerar. Så här lägger du till en video: <ul><li>Öppna video fönstret genom att välja **+ Lägg till video**</li><li>**Namn** – ange ett namn/en rubrik (högst 100 tecken.)</li><li>**Länk** – ange URL: en för den webbplats som är värd för videon (YouTube eller Vimeo)</li><li>**Miniatyr** – Ladda upp en miniatyr bild. Det måste vara i PNG-format och storleken är 533 x 324 bild punkter.</li></ul>          |
+| **Lägg till video**      | Som tillval visas videor på din produkt informations sida. De är ett bra sätt att visuellt förmedla vad ditt program gör och hur det fungerar. Så här lägger du till en video: <ul><li>Öppna video fönstret genom att välja **+ Lägg till video**</li><li>**Namn** – ange ett namn/en rubrik (högst 100 tecken.)</li><li>**Länk** – ange URL: en för den webbplats som är värd för videon (YouTube eller Vimeo)</li><li>**Miniatyr bild** – Ladda upp en miniatyr bild. Det måste vara i PNG-format och storleken är 533 x 324 bild punkter.</li></ul>          |
 |  |  |
 
 
@@ -114,7 +115,7 @@ Formuläret lead management har ett valfritt fält för att konfigurera hanterin
 ![Välj mål för lead-hantering](./media/azureapp-marketplace-leadmgmt.png)
 
 >[!TIP]
->Välj informations ikonen för att se det här meddelandet: "Välj det system där dina leads ska lagras. Lär dig hur du ansluter till ditt CRM-system [här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) . "
+>Välj informations ikonen för att se meddelandet: "Välj det system där dina leads ska lagras. Lär dig hur du ansluter till ditt CRM-system [här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) . "
 
 Mer information finns i [Konfigurera kund leads](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads).
 
@@ -125,8 +126,8 @@ Använd juridisk form för att tillhandahålla juridisk dokumentation som krävs
 
 Ange följande information:
 
-- **URL\* för sekretess policy** – ange en länk till appens sekretess policy.
-- **Användningsvillkor\***  – ange användnings villkoren för din app. Kunder måste acceptera dessa villkor innan de kan testa din app.
+- **URL för sekretess policy\*** – ange en länk till appens sekretess policy.
+- **Användningsvillkor\*** – ange användnings villkoren för din app. Kunder måste acceptera dessa villkor innan de kan testa din app.
 
 ![Juridisk form](./media/azureapp-marketplace-legal.png)
 

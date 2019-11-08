@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database minnes intern exempel
+title: InMemory-exempel
 description: Prova Azure SQL Database minnes intern teknik med OLTP-och columnstore-exempel.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 8526236afdb0a312879cb3c1635a7fd85985278f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e7e7fc44d5f8b46a66c698d3a33ceeab5b8625c4
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689817"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810333"
 ---
 # <a name="in-memory-sample"></a>InMemory-exempel
 
@@ -100,7 +100,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
 ```
 
 
-**Internt kompilerad lagrad procedur**: du kan granska SalesLT. USP _insertsalesorder_inmem via en katalog visnings fråga:
+**Internt kompilerad lagrad procedur**: du kan granska SalesLT. usp_InsertSalesOrder_inmem via en katalogs visnings fråga:
 
 
 ```sql
@@ -168,7 +168,7 @@ end
 ```
 
 
-För att göra *_ondisk* -versionen av föregående t-SQL-skript för ostress. exe, ersätter du båda förekomsterna av *_inmem* -understrängen med *_ondisk*. Dessa ersättningar påverkar namnen på tabeller och lagrade procedurer.
+Om du vill göra *_ondisk* versionen av föregående T-SQL-skript för ostress. exe, ersätter du båda förekomsterna av *_inmem* -understrängen med *_ondisk*. Dessa ersättningar påverkar namnen på tabeller och lagrade procedurer.
 
 
 ### <a name="install-rml-utilities-and-ostress"></a>Installera RML-verktyg och `ostress`
@@ -236,10 +236,10 @@ När `ostress.exe` har slutförts, skrivs körnings tiden som den sista raden i 
 `11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`
 
 
-#### <a name="reset-edit-for-_ondisk-then-rerun"></a>Återställ, redigera för *_ondisk*och kör sedan om
+#### <a name="reset-edit-for-_ondisk-then-rerun"></a>Återställ, redigera för *_ondisk*och kör sedan
 
 
-När du har utfört resultatet från *_inmem* kör du följande steg för *_ondisk* -körningen:
+När du har fått resultatet från *_inmem* kör utför du följande steg för *_ondisk* kör:
 
 
 1. Återställ databasen genom att köra följande kommando i SSMS för att ta bort alla data som infogades av föregående körning:

@@ -4,15 +4,16 @@ description: En översikt över Azure Marketplace och Microsoft AppSource för a
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: ellacroi
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: cd6b09a1130e50fae7bd83579a0f176af0b5b9cd
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: fba9c481ad9b3da1eb0dd5d8a4ff2499240a8cfa
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962610"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826486"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Publicerings guide för Azure Marketplace och AppSource
 
@@ -30,7 +31,7 @@ Den här guiden omfattar följande ämnen:
 
 Den här guiden innehåller både teknisk och affärs information om de steg som du måste vidta innan du kan lista dina program och tjänster. Använd innehålls förteckningen för att gå till olika avsnitt i guiden och gå direkt till viktiga ämnen.
 
-Om du har frågor om Azure Marketplace och AppSource kan du skicka oss ett meddelande under**Marketplace**-insändning av **problem typ** > .  Vårt onboarding-team för Marketplace kommer att vara glad att hjälpa dig! 
+Om du har frågor om Azure Marketplace och AppSource kan du skicka oss ett meddelande under **problem typ** > **Marketplace-onboarding**.  Vårt onboarding-team för Marketplace kommer att vara glad att hjälpa dig! 
 
 ## <a name="benefits-of-participating-in-the-marketplace"></a>Förmåner för deltagande i Marketplace 
 
@@ -56,11 +57,11 @@ Få insikter om prestandan hos dina listor genom insikter och analyser som är t
 
 Nya listor på Marketplace är berättigade till en mängd kostnads fria fördelar för att hjälpa partners att utöka sin verksamhet på Marketplace. Dessa förmåner ingår i följande kategorier: 
 
-*   Produkt Allt du behöver för att förbereda programmet för start. Från teknisk support, program design och arkitektur design till Azure-krediter för utveckling och testning. 
+*   Teknisk: allt du behöver för att förbereda programmet för start. Från teknisk support, program design och arkitektur design till Azure-krediter för utveckling och testning. 
 
-*   Sammarknadsföring: Allt du behöver för att starta erbjudandet. Få till gång till kostnads fria Microsoft go-to-Marketing-starter, grundläggande information som hjälper dig att lansera och marknadsföra din lösning. Du kan också vara berättigad till ytterligare Microsoft marknadsförings kampanj erbjudanden och möjligheter att bli tillgängliga på Marketplace.
+*   Sammarknadsföring: allt du behöver för att starta erbjudandet. Få till gång till kostnads fria Microsoft go-to-Marketing-starter, grundläggande information som hjälper dig att lansera och marknadsföra din lösning. Du kan också vara berättigad till ytterligare Microsoft marknadsförings kampanj erbjudanden och möjligheter att bli tillgängliga på Marketplace.
 
-*   Samförsäljning: Påbörja eller påskynda resan att sälja med Microsoft via Marketplace. Få åtkomst till program och support för att driva gemensam försäljning med Microsoft Teams.
+*   Co-säljning: påbörja eller påskynda resan att sälja med Microsoft via Marketplace. Få åtkomst till program och support för att driva gemensam försäljning med Microsoft Teams.
 
 När du har [skickat din lösning](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) till Marketplace kontaktar vårt onboarding-team dig för att stödja publicerings upplevelsen.  Mer information finns i [så här skapar du ett partner Center-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) .
 

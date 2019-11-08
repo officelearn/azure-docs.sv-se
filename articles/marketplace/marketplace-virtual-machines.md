@@ -1,41 +1,42 @@
 ---
-title: Erbjudande för virtuell dator publicerar Guide för Azure Marketplace
-description: Den här artikeln beskrivs kraven för att publicera en virtuell dator och en kostnadsfri utvärdering av programvara som ska distribueras från Marketplace.
+title: Publicerings guide för virtuella datorer tillhandahåller publicerings guide för Azure Marketplace
+description: I den här artikeln beskrivs kraven för att publicera en virtuell dator och en kostnads fri utvärderings version av program vara som ska distribueras från Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: ellacroi
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: ccb6fc9c522e8d05d0184fc5e248d070efb9921d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f2047501b6c57b2bb98ff7e3c56498417644324
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937726"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818979"
 ---
-# <a name="virtual-machine-offer-publishing-guide"></a>Erbjudande för virtuell dator publicerar Guide
+# <a name="virtual-machine-offer-publishing-guide"></a>Publicerings guide för virtuell dator erbjudande
 
-Avbildningar av virtuella datorer är en av huvudmetoderna för att publicera en lösning på Azure Marketplace. Använd den här guiden för att förstå kraven för det här erbjudandet. 
+Avbildningar av virtuella datorer är ett av de största sätten att publicera en lösning på Azure Marketplace. Använd den här guiden för att förstå kraven för det här erbjudandet. 
 
-Det här är transaktionen erbjudanden som distribueras och faktureras via Marketplace. Anropet till åtgärden som en användare ser är ”Hämta nu”.
+Detta är transaktions erbjudanden som distribueras och faktureras via Marketplace. Anropet till åtgärden som en användare ser är "Hämta nu".
 
 ## <a name="free-trial"></a>Kostnadsfri utvärderingsversion 
 
-Du kan ordna för användare att testa ditt erbjudande genom att öppna programvarulicenser för begränsad tid när du använder faktureringsmodellen Bring Your Own License (BYOL). Nedan visas kraven för att distribuera det här erbjudandet. 
+Du kan arrangera för användare att testa ditt erbjudande genom att få åtkomst till begränsad term licens för program vara när du använder BYOL-fakturerings modell. Nedan visas kraven för att distribuera det här erbjudandet. 
 
 |Krav  |Information  |
 |---------|---------|
-|Kostnadsfria utvärderingsperioden och utvärderingsmiljö     |   Dina kunder kan testa din app kostnadsfritt under en begränsad tid. Dina kunder är Obs krävs för att betala alla avgifter licens eller prenumeration för ditt erbjudande. Dina kunder behöver inte betala för de underliggande Microsoft från första part produkt eller tjänst. Alla utvärderingsversionsalternativ som distribueras till din Azure-prenumeration. Du har ensam kontroll över kostnadsoptimeringar och hantering. Du kan välja en kostnadsfri utvärderingsversion eller en interaktiv demonstration. Oavsett vad du väljer, ger din kostnadsfria utvärderingsversion kunder en förinställda lång tid att testa ditt erbjudande utan extra kostnad.|
-|Enkelt att konfigurera och färdiga att använda lösning    |  Din app måste vara enkelt och snabbt att göra inställningar.       |
-|Tillgänglighet / drifttid    |    Din SaaS-app eller en plattform måste ha en drifttid på minst 99,9%.     |
-|Azure Active Directory     |    Erbjudandet måste tillåta Azure Active Directory (Azure AD) federerad enkel inloggning (SSO) (Azure AD-federerad enkel inloggning) med medgivande aktiverat.     |
+|Kostnads fri utvärderings period och utvärderings version     |   Dina kunder kan testa din app kostnads fritt under en begränsad tid. Kunderna måste vara medveten om att betala licens-eller prenumerations avgifter för erbjudandet. Dina kunder behöver inte betala för den underliggande Microsoft-produkten eller tjänsten från första part. Alla utvärderings alternativ distribueras till din Azure-prenumeration. Du har ensam kontroll över kostnads optimering och hantering. Du kan välja en kostnads fri utvärderings version eller en interaktiv demonstration. Oavsett vad du väljer, måste din kostnads fria utvärderings period ge kunderna en förinställd tid för att testa erbjudandet utan extra kostnad.|
+|Enkel konfigurerings bar lösning som är redo att använda    |  Din app måste vara enkel och snabb att konfigurera och konfigurera.       |
+|Tillgänglighet/drift tid    |    Din SaaS-app eller-plattform måste ha en drift tid på minst 99,9%.     |
+|Azure Active Directory     |    Ditt erbjudande måste tillåta Azure Active Directory (Azure AD) federerad enkel inloggning (SSO) (Azure AD federerad SSO) med medgivande aktiverat.     |
 
 ## <a name="test-drive"></a>Test Drive
 
-Du distribuerar en eller flera virtuella datorer via infrastructure-as-a-service (IaaS) eller software-as-a-service (SaaS)-appar. En fördel med test drive publiceringsalternativ är automatiserad etablering av en virtuell dator eller hela lösningen som leds av en värdpartner guidad visning. Testa ger en utvärdering utan extra kostnad till kunden. Kunden behöver inte vara en befintlig Azure-kund för att öka interaktionen med utvärderingen. 
+Du distribuerar en eller flera virtuella datorer via IaaS (Infrastructure-as-a-Service) eller SaaS-appar (program vara som en tjänst). En fördel med publicerings alternativet test enhet är den automatiserade etableringen av en virtuell dator eller en hel lösning som leds av en guidad guidad rundtur i en partner. En testen het ger en utvärdering utan extra kostnad för kunden. Kunden behöver inte vara en befintlig Azure-kund för att kunna kommunicera med utvärderings versionen. 
 
-Kontakta oss på [amp testdrive](mailto:amp-testdrive@microsoft.com) att komma igång. 
+Kontakta oss på [amp-testdrive](mailto:amp-testdrive@microsoft.com) för att komma igång. 
 
 |Krav  |Information |
 |---------|---------|
@@ -43,34 +44,34 @@ Kontakta oss på [amp testdrive](mailto:amp-testdrive@microsoft.com) att komma i
 
 ## <a name="interactive-demo"></a>Interactive Demo
 
-Du kan ange en guidad upplevelse av din lösning till dina kunder med hjälp av en interaktiv demonstration. Fördelen med Interaktiv demo publicera alternativet är att du anger en utvärderingsmiljö utan komplicerad etablering av din komplexa lösning. 
+Du får en guidad upplevelse av din lösning för dina kunder med hjälp av en interaktiv demonstration. Fördelen med interaktiv demo publicering är att du anger en utvärderings version utan en komplicerad etablering av din komplexa lösning. 
 
 ## <a name="virtual-machine-offer"></a>Erbjudande för virtuell dator
 
-Använd typ av erbjudande för virtuell dator när du distribuerar en virtuell installation till den prenumeration som är associerad med kunden. Virtuella datorer är helt aktiverat med betalning per användning eller bring-your-own-license (BYOL) licensieringsmodellerna handel. Microsoft är värd för handel transaktionen och fakturerar kunden å dina vägnar. Du får fördelen med att använda önskade betalning relationen mellan kunden och Microsoft, inklusive några Enterprise-avtal.
+Använd den virtuella datorns erbjudande typ när du distribuerar en virtuell installation till prenumerationen som är kopplad till din kund. Virtuella datorer är fullständigt aktiverade med hjälp av BYOL-licensierings modeller enligt principen betala per användning eller hämta licens. Microsoft är värd för handels transaktionen och fakturerar kunden för din räkning. Du får fördelen med att använda den prioriterade betalnings relationen mellan kunden och Microsoft, inklusive eventuella företags avtal.
 
 > [!NOTE]
-> För tillfället kan monetära åtaganden som är associerade med ett Enterprise-avtal användas mot Azure-användning för den virtuella datorn, men inte mot din avgifter för programvarulicenser.  
+> Vid detta tillfälle kan de monetära åtaganden som är kopplade till en Enterprise-avtal användas mot Azures användning av din virtuella dator, men inte mot licens avgifterna för program varan.  
 > 
 > [!NOTE]
-> Du kan begränsa identifiering och distribution av den virtuella datorn till en specifik uppsättning kunder genom att publicera avbildningen och priser som ett privat erbjudande. Privata erbjudanden utnyttja möjligheten att skapa exklusiva erbjudanden för kunderna närmaste och erbjuda anpassade programvara och villkor. Anpassade villkor kan du markera en mängd olika scenarier, inklusive ledda av fältet behandlar specialiserade prissättning och villkor samt snabb åtkomst till begränsad version programvara. Privata erbjudanden aktivera att ge specifika pris eller produkter som ska ett begränsat antal kunder genom att skapa en ny SKU med detaljer.  
-> *   Mer information om privata erbjudanden finns privata erbjudanden på Azure Marketplace-sidan finns på [azure.microsoft.com/blog/private-offers-on-azure-marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).  
+> Du kan begränsa identifieringen och distributionen av den virtuella datorn till en speciell uppsättning kunder genom att publicera avbildningen och prissättningen som ett privat erbjudande. Privata erbjudanden gör att du kan skapa exklusiva erbjudanden för dina närmaste kunder och erbjuda anpassade program och villkor. Med de anpassade villkoren kan du markera olika scenarier, inklusive fält LED ande avtal med särskilda priser och villkor samt tidig åtkomst till begränsad version av program vara. Med privata erbjudanden kan du ge särskilda priser eller produkter till en begränsad uppsättning kunder genom att skapa en ny SKU med dessa uppgifter.  
+> *   Mer information om privata erbjudanden finns på sidan med privata erbjudanden på Azure Marketplace-sidan på [Azure.Microsoft.com/blog/Private-offers-on-Azure-Marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).  
 
 | Krav | Information |  
 |:--- |:--- | 
-| Fakturering och mätning | Den virtuella datorn måste ha stöd för BYOL eller användningsbaserad fakturering. |  
-| Azure-kompatibel virtuell hårddisk (VHD) | Virtuella datorer måste vara baserade på Windows eller Linux. <ul> <li>Mer information om hur du skapar en Linux-VHD finns [Linux-distributioner på Azure-godkända](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Läs mer om hur du skapar en virtuell Windows-Hårddisk [skapa en Azure-kompatibel VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |  
+| Fakturering och mätning | Din virtuella dator måste ha stöd för antingen BYOL eller betala per användning. |  
+| Azure-kompatibel virtuell hård disk (VHD) | Virtuella datorer måste byggas på Windows eller Linux. <ul> <li>Mer information om hur du skapar en Linux-VHD finns i [Linux-distributioner](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)som har godkänts på Azure.</li> <li>Mer information om hur du skapar en virtuell Windows-hårddisk finns i [skapa en Azure-kompatibel virtuell hård disk](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |  
 
 >[!Note]
->Cloud Solution Providers (CSP) partner channel anmälan är nu tillgänglig.  Se [Cloud Solution Providers](./cloud-solution-providers.md) mer information om marknadsföring av ditt erbjudande via Microsoft CSP partner kanaler.
+>Partner kanal för Cloud solution providers (CSP) är nu tillgängligt.  Se [leverantörer av moln lösningar](./cloud-solution-providers.md) för mer information om marknadsföring av ditt erbjudande via Microsoft CSP partner-kanaler.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte redan gjort det, 
+Om du inte redan har gjort det, 
 
-- [Registrera](https://azuremarketplace.microsoft.com/sell) i marketplace.
+- [Registrera dig](https://azuremarketplace.microsoft.com/sell) på Marketplace.
 
-Om du är registrerad och skapar ett nytt erbjudande eller arbetar på en befintlig
+Om du har registrerat och skapar ett nytt erbjudande eller arbetar på ett befintligt,
 
-- [Logga in på partnerportalen i molnet](https://cloudpartner.azure.com) att skapa eller slutföra ditt erbjudande.
-- Se [erbjudande för virtuell dator](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer) för mer information.
+- [Logga in på Cloud Partner Portal](https://cloudpartner.azure.com) för att skapa eller slutföra ditt erbjudande.
+- Mer information finns i [Virtual Machine-erbjudandet](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer) .

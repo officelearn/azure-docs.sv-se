@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: v-chjen
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: b0900dbfee81952ed014d976cc8d7136ea65f8fc
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: f6ba5c240a9ad74d9a2fab41496ce519f25fc4dc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191716"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812065"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Översikt över den kommersiella Marketplace-portalen i Partner Center
 
@@ -52,7 +53,7 @@ Partner Center Analytics ger en översikt över prestanda för dina erbjudanden 
 
 ## <a name="view-the-roadmap-and-join-the-conversation"></a>Visa översikten och delta i konversationen
 
-Lär dig mer om de senaste och framtida versionerna genom att gå till [Marketplace](https://aka.ms/publicmarketplaceroadmap)-översikten eller delta i konversationen i [Microsoft partner community](https://www.microsoftpartnercommunity.com/). 
+Lär dig mer om de senaste och framtida versionerna genom att gå till [Marketplace-översikten](https://aka.ms/publicmarketplaceroadmap)eller delta i konversationen i [Microsoft partner community](https://www.microsoftpartnercommunity.com/). 
 
 ## <a name="next-steps"></a>Nästa steg
 

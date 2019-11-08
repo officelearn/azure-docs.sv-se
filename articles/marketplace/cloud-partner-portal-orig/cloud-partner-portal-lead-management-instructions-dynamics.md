@@ -1,145 +1,146 @@
 ---
 title: Dynamics CRM | Azure Marketplace
-description: Konfigurera lead-hantering för Dynamics CRM.
+description: Konfigurera ledar hantering för Dynamics CRM.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
-ms.openlocfilehash: 6fdab26bb5a4da5402a3a0a895a7c8835ef22c2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4ccc8b85e72a4da3b0e640abcc70d24b7cdc54af
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935788"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825265"
 ---
-# <a name="configure-lead-management-for-dynamics-crm-online"></a>Konfigurera lead-hantering för Dynamics CRM online
+# <a name="configure-lead-management-for-dynamics-crm-online"></a>Konfigurera ledar hantering för Dynamics CRM Online
 
-Den här artikeln beskriver hur du ställer in Dynamics CRM Online för att bearbeta säljleads.
+Den här artikeln beskriver hur du konfigurerar Dynamics CRM Online för att bearbeta försäljnings leads.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Följande användarbehörigheter är behöver för att slutföra stegen i den här artikeln:
-- Du måste vara administratör för din Dynamics CRM Online-instans att installera en lösning.
-- Du måste vara Innehavaradministratör för att skapa ett nytt tjänstkonto för lead-tjänsten.
+Följande användar behörigheter behövs för att slutföra stegen i den här artikeln:
+- Du måste vara administratör för Dynamics CRM Online-instansen för att installera en lösning.
+- Du måste vara klient administratör för att skapa ett nytt tjänst konto för lead service.
 
 <a name="install-the-solution"></a>Installera lösningen
 --------------------
 
-1.  Ladda ned den [lösning för Microsoft Marketplace leda Writer](https://mpsapiprodwus.blob.core.windows.net/documentation/MicrosoftMarketplacesLeadIntegrationSolution_1_0_0_0_target_CRM_6.1_managed.zip) och spara den lokalt.
+1.  Ladda ned [lösningen för Microsoft Marketplace lead Writer](https://mpsapiprodwus.blob.core.windows.net/documentation/MicrosoftMarketplacesLeadIntegrationSolution_1_0_0_0_target_CRM_6.1_managed.zip) och spara den lokalt.
 
 2.  Öppna Dynamics CRM Online och gå till inställningar.
     >[!NOTE]
-    >Om du inte ser alternativen i nästa skärmdumpen kan har du inte de behörigheter som du behöver.
+    >Om du inte ser alternativen i nästa skärm bild, har du inte de behörigheter som du behöver.
  
-       ![Konfigurationsvy för Dynamics](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline1.png)
+       ![Dynamics setup-vy](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline1.png)
 
-3.  Välj **Import**, och välj sedan den lösning som du hämtade i steg 1.
+3.  Välj **Importera**och välj sedan den lösning som du laddade ned i steg 1.
  
-    ![Dynamics importalternativ](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline2.png)
+    ![Dynamics import alternativ](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline2.png)
 
-4.  Installationen av lösningen.
+4.  Slutför installationen av lösningen.
 
-## <a name="configure-user-permissions"></a>Konfigurera användarbehörigheter
+## <a name="configure-user-permissions"></a>Konfigurera användar behörigheter
 
-Att skriva leads till Dynamics CRM-instansen du behöva dela ett tjänstkonto med oss och konfigurera behörigheter för kontot.
+Om du vill skriva leads i Dynamics CRM-instansen måste du dela ett tjänst konto med oss och konfigurera behörigheter för kontot.
 
-Använd följande steg för att skapa kontot och tilldela behörigheter. Du kan använda **Azure Active Directory** eller **Office 365**.
+Använd följande steg för att skapa tjänst kontot och tilldela behörigheter. Du kan använda **Azure Active Directory** eller **Office 365**.
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Vi rekommenderar det här alternativet eftersom du får den ytterligare fördelen med aldrig behöver uppdatera ditt användarnamn/lösenord för att kunna fortsätta för att få leads. Om du vill använda Azure Active Directory-alternativet Ange du den App-Id och Programnyckel katalog-Id från Active Directory-program.
+Vi rekommenderar det här alternativet eftersom du får den extra fördelen att du aldrig behöver uppdatera ditt användar namn/lösen ord för att kunna fortsätta få leads. Om du vill använda alternativet Azure Active Directory anger du app-ID, program nyckel och katalog-ID från ditt Active Directory-program.
 
 Använd följande steg för att konfigurera Azure Active Directory för Dynamics CRM.
 
-1.  Logga in på [Azure-portalen](https://portal.azure.com/) och välj sedan Azure Active Directory-tjänsten.
+1.  Logga in på [Azure Portal](https://portal.azure.com/) och välj sedan tjänsten Azure Active Directory.
 
-2.  Välj **egenskaper** och kopierar sedan de **katalog-Id**. Det här är din klient-ID: t som du behöver använda i partnerportalen i molnet.
+2.  Välj **Egenskaper** och kopiera sedan **katalog-ID: t**. Detta är ditt klient kontos ID som du behöver använda i Cloud Partner Portal.
 
     ![Hämta katalog-ID](./media/cloud-partner-portal-lead-management-instructions-dynamics/directoryid.png)
 
-3.  Välj **appregistreringar**, och välj sedan **ny programregistrering**.
-4.  Ange namnet på programmet.
-5.  Typ, Välj **webbapp / API**.
-6.  Ange en URL. Det här fältet behövs inte för leads, men krävs för att skapa ett program.
+3.  Välj **Appregistreringar**och välj sedan **ny program registrering**.
+4.  Ange program namnet.
+5.  För typ väljer du **webbapp/API**.
+6.  Ange en URL. Det här fältet behövs inte för leads, men det krävs för att skapa ett program.
 7. Välj **Skapa**.
-8.  Nu när ditt program har registrerats, Välj **egenskaper** och välj sedan **kopiera program-Id**. Du använder den här anslutningsinformationen i partnerportalen i molnet.
-9.  I egenskaperna för att ange programmet som med flera innehavare och välj sedan **spara**.
+8.  Nu när ditt program är registrerat väljer du **Egenskaper** och sedan **Kopiera program-ID**. Du kommer att använda den här anslutnings informationen i Cloud Partner Portal.
+9.  I egenskaper anger du programmet som flera innehavare och väljer sedan **Spara**.
 
-10. Välj **nycklar** och skapa en ny nyckel med varaktigheten inställd *upphör aldrig att gälla*. Välj **spara** att skapa nyckeln. 
-11. Välj på menyn nycklar **kopiera nyckelvärdet.** Spara en kopia av det här värdet eftersom du behöver för partnerportalen i molnet.
+10. Välj **nycklar** och skapa en ny nyckel med varaktigheten inställd på *upphör aldrig att gälla*. Klicka på **Spara** för att skapa nyckeln. 
+11. På menyn nycklar väljer **du kopiera värdet nyckel.** Spara en kopia av det här värdet eftersom du behöver det för Cloud Partner Portal.
     
-    ![Dynamics hämta registrerade nyckel](./media/cloud-partner-portal-lead-management-instructions-dynamics/registerkeys.png)
+    ![Dynamics get-registrerad nyckel](./media/cloud-partner-portal-lead-management-instructions-dynamics/registerkeys.png)
     
 12. Välj **nödvändiga behörigheter** och välj sedan **Lägg till**. 
-13. Välj **Dynamics CRM Online** som den nya API: et och kontrollera behörigheten för *åtkomst CRM Online som organisationsanvändare*.
+13. Välj **Dynamics CRM Online** som det nya API: et och kontrol lera behörigheten för *åtkomst till CRM Online som organisations användare*.
 
-14. Gå till användare på Dynamics CRM och Välj ”användare”-listrutan för att växla till **programanvändare**.
+14. I Dynamics CRM går du till användare och väljer List rutan "aktiverade användare" för att växla över till **program användare**.
     
-    ![Programanvändare](./media/cloud-partner-portal-lead-management-instructions-dynamics/applicationuserfirst.PNG)
+    ![Program användare](./media/cloud-partner-portal-lead-management-instructions-dynamics/applicationuserfirst.PNG)
 
-15. Välj **New** att skapa en ny användare. Välj den **användaren: PROGRAMANVÄNDARE** listrutan.
+15. Välj **ny** för att skapa en ny användare. Välj List rutan **användare: program användare** .
     
-    ![Lägg till ny användare för programmet](./media/cloud-partner-portal-lead-management-instructions-dynamics/applicationuser.PNG)
+    ![Lägg till ny program användare](./media/cloud-partner-portal-lead-management-instructions-dynamics/applicationuser.PNG)
 
-16. I **ny användare**, ange namnet och e-post som du vill använda med den här anslutningen. Klistra in den **program-Id** för appen som du skapat i Azure-portalen.
+16. I **ny användare**anger du det namn och den e-postadress som du vill använda med den här anslutningen. Klistra in **program-ID** för den app som du skapade i Azure Portal.
 
      ![Konfigurera ny användare](./media/cloud-partner-portal-lead-management-instructions-dynamics/leadgencreateuser.PNG)
 
-17. Gå till ”-säkerhetsinställningar” i den här artikeln för att slutföra konfigurationen av anslutningen för den här användaren.
+17. Gå till "säkerhets inställningar" i den här artikeln om du vill slutföra konfigurationen av anslutningen för den här användaren.
 
 ### <a name="office-365"></a>Office 365
 
-Om du inte vill använda Azure Active Directory, kan du registrera en ny användare på den *Microsoft 365 Administrationscenter*. Du kommer att behöva uppdatera ditt användarnamn/lösenord var 90: e dag för att fortsätta få leads.
+Om du inte vill använda Azure Active Directory kan du registrera en ny användare på *Microsoft 365 administrations Center*. Du måste uppdatera ditt användar namn/lösen ord var 90 dag om du vill fortsätta få leads.
 
 Använd följande steg för att konfigurera Office 365 för Dynamics CRM.
 
-1. Logga in på den [Microsoft 365 Administrationscenter](https://admin.microsoft.com).
+1. Logga in på [Microsoft 365 administrations Center](https://admin.microsoft.com).
 
-2. Välj den **Admin** panelen.
+2. Välj **Administratörs** panelen.
 
-    ![Office Online Admin](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline3.png)
+    ![Office Online-administratör](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline3.png)
 
-3. Välj **lägga till en användare**.
+3. Välj **Lägg till en användare**.
 
     ![Lägga till en användare](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline4.png)
 
-4. Skapa en ny användare för lead-skrivartjänsten. Konfigurera följande inställningar:
+4. Skapa en ny användare för tjänsten för lead Writer. Konfigurera följande inställningar:
 
-    -   Ange ett lösenord och avmarkera alternativet ”gör den här användaren ändra sina lösenord när de loggar in första gången”.
-    -   Välj ”användare (ingen administratörsåtkomst)” som rollen för användaren.
-    -   Välj den produktlicens som visas i nästa skärmdump. Du debiteras för den licens som du väljer. Lösningen fungerar även med Dynamics CRM Online Basic-licens.
+    -   Ange ett lösen ord och avmarkera alternativet "Låt användaren ändra sitt lösen ord när de loggar in första gången".
+    -   Välj "användare (ingen administratörs åtkomst)" som roll för användaren.
+    -   Välj den produkt licens som visas i nästa skärmdump. Du debiteras för den licens du väljer. Lösningen kommer också att fungera med Dynamics CRM Online Basic-licensen.
     
-    ![Konfigurera användarbehörigheter och licens](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline5.png)
+    ![Konfigurera användar behörigheter och licens](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline5.png)
 
-## <a name="security-settings"></a>Säkerhetsinställningar
+## <a name="security-settings"></a>Säkerhets inställningar
 
-Det sista steget är att aktivera användaren du skapade för att skriva de potentiella kunderna.
+Det sista steget är att aktivera den användare som du skapade för att skriva leads.
 
-1.  Logga in på Dynamics CRM online.
-2.  På **inställningar**väljer **Security**.
+1.  Logga in på Dynamics CRM Online.
+2.  I **Inställningar**väljer du **säkerhet**.
     
-    ![Säkerhetsinställningar](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline6.png)
+    ![Säkerhets inställningar](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline6.png)
 
-3.  Välj den användare som du skapade i **användarbehörigheter**, och välj sedan **Hantera användarroller**. Kontrollera **Microsoft Marketplace leda Writer** du tilldela rollen.
+3.  Välj den användare som du skapade i **användar behörigheter**och välj sedan **hantera användar roller**. Markera **Microsoft Marketplace ledar skrivare** för att tilldela rollen.
 
-    ![Tilldela rollen](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline7.png)\
+    ![Tilldela användar roll](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline7.png)\
 
     >[!NOTE]
-    >Den här rollen har skapats av lösningen att du importerat och endast har behörighet att skriva de potentiella kunderna och spåra lösningsversion för att säkerställa kompatibilitet.
+    >Den här rollen skapas av den lösning som du har importerat och har bara behörighet att skriva leads och spåra lösnings versionen för att säkerställa kompatibiliteten.
 
-4.  Security, Välj **säkerhetsroller** och hitta rollen för Microsoft Marketplace leda Writer.
+4.  I säkerhet, väljer du **säkerhets roller** och letar upp rollen för Microsoft Marketplace-ledar skrivare.
     
-    ![Konfigurera säkerhet lead-skrivaren](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline10.jpg)\
+    ![Konfigurera säkerhet för lead-skrivare](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline10.jpg)\
 
-5. Välj den **Kärnposter** fliken. Aktivera skapa/läsa/skriva för användarentiteten Användargränssnittet.
+5. Välj fliken **kärn poster** . Aktivera skapa/Läs/skriv för användar enhetens användar gränssnitt.
 
-    ![Aktivera skapa/läsa/skriva för användare](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline11.jpg)\
+    ![Aktivera skapande/läsning/skrivning för användare](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline11.jpg)\
 
-## <a name="wrap-up"></a>Avsluta
+## <a name="wrap-up"></a>Bryt upp
 
-Slutföra konfigurationen av Dynamics CRM för lead-hantering genom att lägga till informationen om genererade partnerportalen i molnet. Exempel:
+Slutför konfigurationen av Dynamics CRM för ledar hantering genom att lägga till den genererade konto informationen i Cloud Partner Portal. Till exempel:
 
--   **Azure Active Directory** - **program-Id** (exempel: *23456052-AAAA-bbbb-8662-1234df56788f*), **katalog-Id** (exempel: *12345678-8af1-4asf-1234-12234d01db47*), och **Programnyckel** (exempel: *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=* ).
--   **Office 365** - **Url** (exempel: *https://contoso.crm4.dynamics.com* ), **användarnamn** (exempel: *contoso\@ Contoso.onmicrosoft.com*), och **lösenord** (exempel: *P\@ ssw0rd*).
+-   **Azure Active Directory** - **program-ID** (exempel *: 23456052-AAAA-bbbb-8662-1234Df56788f*), **katalog-ID** (exempel: *12345678-8Af1-4asf-1234-12234d01db47*) och **program nyckel** ( exempel: *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc =* ).
+-   **Office 365** - **URL** (exempel: *https://contoso.crm4.dynamics.com* ), **användar namn** (exempel: *contoso\@contoso.onmicrosoft.com*) och **lösen ord** (exempel: *P\@Ssw0Rd*).

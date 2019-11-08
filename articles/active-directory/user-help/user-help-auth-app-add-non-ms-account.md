@@ -1,5 +1,5 @@
 ---
-title: Lägg till konton som inte kommer från Microsoft i Microsoft Authenticator app-Azure Active Directory | Microsoft Docs
+title: Lägga till en icke-Microsoft-konto till en Authenticator-app – Azure AD
 description: Hur du lägger till konton som inte kommer från Microsoft, till exempel för Google, Facebook eller GitHub till Microsoft Authenticator-appen för tvåstegsverifiering.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1521d2b3d47667466636a1ac15f107826e40942
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 62d866e9bf543577887ee99173a52202fcfec632
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68942931"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803669"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>Lägg till konton som inte kommer från Microsoft
 
@@ -45,7 +45,7 @@ Lägg till ditt Google-konto genom att aktivera tvåstegsverifiering och sedan l
 
 ### <a name="turn-on-two-factor-verification"></a>Aktivera tvåstegsverifiering
 
-1. Gå till https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome på datorn, Välj **Kom igång**och kontrol lera din identitet.
+1. Gå till https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcomepå din dator, Välj **Kom igång**och verifiera din identitet.
 
 2. Följ stegen på sidan för att aktivera tvåstegsverifiering för ditt personliga Google-konto.
 
@@ -81,7 +81,7 @@ Lägg till ditt Facebook-konto genom att aktivera tvåstegsverifiering och sedan
 
 ### <a name="turn-on-two-factor-verification"></a>Aktivera tvåstegsverifiering
 
-1. Öppna Facebook på din dator, Välj den nedrullningsbara menyn i det övre högra hörnet och gå sedan till **Inställningar** > **säkerhet och inloggning**.
+1. På datorn öppnar du Facebook, väljer den nedrullningsbara menyn i det övre högra hörnet och går sedan till **inställningar** > **säkerhet och inloggning**.
 
     Sidan **säkerhet och inloggning** visas.
 
@@ -93,7 +93,7 @@ Lägg till ditt Facebook-konto genom att aktivera tvåstegsverifiering och sedan
 
 ### <a name="add-your-facebook-account-to-the-app"></a>Lägg till ditt Facebook-konto i appen
 
-1. På Facebook-sidan på din dator går du till avsnittet **Lägg till en säkerhets kopia** och väljer sedan **installation** från området för autentiserings- **app** .
+1. På Facebook-sidan på din dator går du till avsnittet **Lägg till en säkerhets kopia** och väljer sedan **installation** från området för **autentiserings-app** .
 
     Du får en QR-kod som du kan använda för att automatiskt associera ditt konto med Microsoft Authenticator-appen. Stäng inte det här fönstret.
 
@@ -187,7 +187,7 @@ Lägg till ditt Amazon-konto genom att aktivera tvåstegsverifiering och sedan l
 
 10. På sidan **Lägg till en verifierings metod för säkerhets kopiering** på datorn anger du den sexsiffriga verifierings koden som du fick från verifierings metoden för ditt Amazon-konto och väljer sedan **verifiera kod och fortsätt**.
 
-11. På sidan **nästan klar** bestämmer du om du vill göra datorn till en betrodd enhet och välj **sedan skaffa den. Aktivera tvåstegsverifiering**.
+11. På sidan **nästan klar** bestämmer du om du vill göra datorn till en betrodd enhet och välj sedan **Skaffa den. Aktivera tvåstegsverifiering**.
 
     Sidan **avancerade säkerhets inställningar** visas och visar din uppdaterade information om tvåstegsverifiering.
 

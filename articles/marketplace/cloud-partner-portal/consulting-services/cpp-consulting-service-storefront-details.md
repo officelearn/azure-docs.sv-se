@@ -1,110 +1,111 @@
 ---
-title: Ange storefront information om consulting erbjudande | Azure Marketplace
-description: Definiera storefront information i en Azure- eller Dynamics 365-konsult tjänsteerbjudanden i partnerportalen i molnet.
+title: Ange butik information för konsult erbjudandet | Azure Marketplace
+description: Definiera butik information i ett Azure-eller Dynamics 365 konsult tjänst erbjudande i Cloud Partner Portal.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 1b028fe016d6ae3df8c1dfce548fc0c11479d5a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d741361cdeb25d6fc063f95da7bc301178f31fc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942715"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818088"
 ---
 # <a name="storefront-details-tab"></a>Fliken Butiksinformation
 
-Den här artikeln beskriver hur du kan ange information för din butik. Den **Storefront information** fliken består av följande avsnitt:
+Den här artikeln förklarar hur du anger information för din butik. Fliken **butik information** består av följande avsnitt:
 
--   **Information om erbjudandet**
--   **Utgivarinformation**
--   **Lista information**
--   **Marknadsföring artefakter**
+-   **Information om erbjudande**
+-   **Utgivar information**
+-   **List information**
+-   **Marknadsförings artefakter**
 
-![Skapa en ny konsult tjänsterbjudande - fliken Storefront information](media/consultingoffer-storefront-details.png)
+![Skapa en ny konsult tjänst erbjudande – butik information-fliken](media/consultingoffer-storefront-details.png)
 
 
-## <a name="offer-details"></a>Information om erbjudandet
+## <a name="offer-details"></a>Information om erbjudande
 
-Den **Erbjudandeinformationen** avsnittet innehåller följande rutor:
+Avsnittet **erbjudande information** innehåller följande rutor:
 
--   **Sammanfattning av erbjudandet\***
+-   **Erbjudande Sammanfattning\***
 -   **Beskrivning av erbjudande\***
 
 
-### <a name="offer-summary"></a>Sammanfattning av erbjudandet\*
+### <a name="offer-summary"></a>Erbjudande Sammanfattning\*
 
-Sammanfattning av erbjudandet är en kort beskrivning av ditt erbjudande som visas under erbjudandenamn. Använd oformaterad text för att ange sammanfattningen av erbjudandet, utan några radbrytningar. I följande exempel är bra erbjudandet sammanfattningar tillsammans med motsvarande erbjudandet namn.
+Erbjudande sammanfattningen är en kort beskrivning av ditt erbjudande som visas strax under namnet på erbjudandet. Använd oformaterad text för att ange erbjudande sammanfattningen utan rad brytningar. Följande exempel är en sammanfattning av ett erbjudande med motsvarande erbjudande namn.
 
 *Exempel 1*
 
--   **Namn på erbjudande**: Cloud Analytics: 3 dagars Workshop
--   **Erbjuder sammanfattning**: Översikt över Microsoft Azure och Power BI, bedömning av aktuella miljön och mini POC.
+-   **Erbjudandets namn**: Cloud Analytics: 3 dagars workshop
+-   **Erbjudande Sammanfattning**: översikt över Microsoft Azure och Power BI, utvärdering av aktuell miljö och mini POC.
 
 *Exempel 2*
 
--   **Namn på erbjudande**: Industrial Azure IoT: 30-dagars konceptbevis
--   **Erbjuder sammanfattning**: Skapa en industri-anslutna produkten pilotprojekt för att på ett säkert sätt ansluta utrustning i fältet till en Azure IoT Hub-lösning med instrumentpaneler, rapporter och meddelanden.
+-   **Erbjudandets namn**: industriella Azure IoT: 30 dagars koncept bevis
+-   **Erbjudande Sammanfattning**: skapa en industri ansluten produkt pilot för att på ett säkert sätt ansluta utrustning i fältet till en Azure IoT Hub-lösning med instrument paneler, rapporter och aviseringar.
 
 *Exempel 3*
 
--   **Namn på erbjudande**: Professionella tjänster: Genomgång för 1 tim
--   **Erbjuder sammanfattning**: Översikt och demonstration av förkonfigurerade, utökad Dynamics 365 för Operations-lösning som ger förbättrad hantering av projekt, fakturering och resurser för professionella tjänster.
+-   **Erbjudandets namn**: professionella tjänster: 1 – HR-kort
+-   **Erbjudande Sammanfattning**: översikt och demonstration av förkonfigurerade, utökade Dynamics 365 för drift lösningar som ger förbättrad hantering av projekt, fakturering och resurser för professionella tjänster.
 
 *Exempel 4*
 
--   **Namn på erbjudande**: Powerbi i din värld: 4 tim Workshop
--   **Erbjuder sammanfattning**: Kom igång med din första instrumentpanel och Läs om bästa praxis. För upp till 12 studenter som genomförs på plats.
+-   **Namn på erbjudande**: Power BI i din värld: 4 – h workshop
+-   **Erbjudande Sammanfattning**: kom igång med din första instrument panel och lär dig metod tips. För upp till 12 studenter, utfört på plats.
 
 *Exempel 5*
 
--   **Namn på erbjudande**: Dynamics och projekt: 3-dagars utvärdering
--   **Erbjuder sammanfattning**: Samla in kraven och utvärdering för en ERP-lösning som utformats för professionella tjänster företag och projekt-drivna företag.
+-   **Namn på erbjudande**: Dynamics och projekt: 3 dagars utvärdering
+-   **Erbjudande Sammanfattning**: krav på insamling och utvärdering av en ERP-lösning som är utformad för professionella tjänste företag och projekt drivna företag.
 
 
 ### <a name="offer-description"></a>Beskrivning av erbjudande\*
 
-Ange beskrivningen av konsult tjänsteerbjudanden i den **erbjuder beskrivning** box. En bra erbjudandet beskrivning innehåller mer information om hur samarbetet ser ut och slutet leverans till kunden. Det tydligt hjälper kunden förstå vad de får. Inkludera hur ditt erbjudande relaterar till Microsoft-produkt som du erbjuder konsulttjänster.
+Ange beskrivningen av konsult tjänst erbjudandet i rutan **erbjudande Beskrivning** . En beskrivning av en bra Erbjudandet täcker exakta uppgifter om vad som händer och slut produkten till kunden. Det bör tydligt hjälpa kunden förstå vad de får. Inkludera hur ditt erbjudande relaterar till den Microsoft-produkt som du erbjuder konsult tjänster för.
 
-Inkludera inte numret till din e-postadress eller telefonnummer i beskrivning av ditt erbjudande. En **kontakta mig** knappen som ingår i erbjudandet att ladda upp leads till målet för lead-hantering som du identifierar för ditt erbjudande.
+Ta inte med din e-postadress eller ditt telefonnummer i din erbjudande beskrivning. Knappen **kontakta mig** ingår i ditt erbjudande för att ladda upp leads till det mål för hantering av lead som du identifierar för ditt erbjudande.
 
-Ange beskrivning av erbjudande i Markdown-format. Om du inte är bekant med Markdown eller formatering för HTML [Använd Markdown för att skriva docs](https://docs.microsoft.com/contribute/how-to-write-use-markdown).
+Ange en beskrivning av erbjudandet i markdown-format. Om du inte är bekant med markdown eller formatering för HTML, se [Använd markdown för att skriva dokument](https://docs.microsoft.com/contribute/how-to-write-use-markdown).
 
-Använd dessa format för att se till att ditt erbjudande är lättare för kunderna att läsa.
+Använd de här formaten för att se till att ditt erbjudande är enkelt för dina kunder att läsa.
 
-Håll det kort beskrivning av ditt erbjudande och följa teckengränsen eftersom användarna inte gillar att läsa lång text. Du kan också överföra marknadsföring broschyrer, informationsbladet och andra dokument som beskriver ditt erbjudande i mer detalj.
+Se till att din erbjudande beskrivning är kortfattad och följer tecken gränsen eftersom användarna inte vill läsa lång text. Du kan också överföra marknadsförings broschyrer, fakta blad och andra dokument som beskriver ditt erbjudande i djupare detalj.
 
-I följande exempel visas en beskrivning av väl består erbjudande och dess relaterade namn och en sammanfattning:
+Följande exempel visar en väldefinierad erbjudande beskrivning och dess relaterade namn och Sammanfattning:
 
-**Namn på erbjudande**: Cloud Analytics: 3 dagars Workshop
+**Erbjudandets namn**: Cloud Analytics: 3 dagars workshop
 
-**Erbjuder sammanfattning**: Översikt över Microsoft Azure och Power BI, bedömning av aktuella miljön och mini POC.
+**Erbjudande Sammanfattning**: översikt över Microsoft Azure och Power BI, utvärdering av aktuell miljö och mini POC.
 
-**Erbjuder beskrivning**: Den här 3-dagars workshop är för tekniska och affärsmässiga ledare och lagras på plats hos klientens anläggning.
+**Erbjudande Beskrivning**: den här tre dagars workshopen är för teknik-och affärs ledare och hålls på plats på klientens anläggning.
 
 Agenda
 
 Dag 1
 
--   Fokuserar på hur du skyddar, skala och organisera data i Microsoft-molnet med hjälp av Azure Data Lake, Azure HDInsight eller Azure SQL Data Warehouse.
+-   Fokuserar på hur du skyddar, skalar och ordnar data i Microsoft-molnet med hjälp av Azure Data Lake, Azure HDInsight eller Azure SQL Data Warehouse.
 
 Dag 2
 
--   Beskriver hur du konfigurerar och distribuerar lösningar för avancerade analyser med Microsoft R- och Azure Machine Learning.
+-   Beskriver hur du konfigurerar och distribuerar avancerade analys lösningar med Microsoft R och Azure Machine Learning.
 
 Dag 3
 
--   Beskriver hur du rita användbara insikter och operationalisera analytics med Power BI och innehåller en gemensam session att cobuild Power BI-instrumentpanel.
+-   Här får du information om hur du ritar åtgärds bara insikter och operationalisera-analys med Power BI och innehåller en samarbets session för att skapa en Power BI-instrumentpanel.
 
-Slutprodukter
+Leverabler
 
-I slutet av workshopen kan klienten definiera en övergripande plan och en implementering översikt över data och Analyslösningar i Microsoft-molnet.
+I slutet av workshopen kan klienten definiera en plan på hög nivå och en implementerings översikt för data-och analys lösningar i Microsoft-molnet.
 
-Följande exempel Markdown-filen är för det tidigare erbjudandet:
+Följande exempel på MARKDOWN-fil är för föregående erbjudande:
 
-    This 3-day workshop is for technical and business leaders and is held on-site at the client’s facility.
+    This 3-day workshop is for technical and business leaders and is held on-site at the client's facility.
 
       ### Agenda
 
@@ -129,83 +130,83 @@ Följande exempel Markdown-filen är för det tidigare erbjudandet:
 
 **MPN-ID**
 
-Ange ditt nio siffror Microsoft Partner Network (MPN)-ID. Om du inte har en MPN-ID, får du en i Microsoft Partner Center.
+Ange ditt MPN-ID (9-siffrigt Microsoft Partner Network). Om du inte har något MPN-ID kan du skaffa ett på Microsoft Partner Center.
 
-**Partnercenter-ID**
+**ID för partner Center**
 
-Ange ditt nya Partner Center-ID, om du har en.
+Ange ditt nya ID för partner Center, om du har ett.
 
 **MPN-ID**
 
-Ange en hemlig nyckel om du vill förhandsgranska erbjudandet på AppSource innan det lanseras.
-Den här identifieraren är inte ett lösenord.
+Ange en hemlig nyckel för att förhandsgranska ditt erbjudande på AppSource innan det går live.
+Den här identifieraren är inte ett lösen ord.
 
 
-## <a name="listing-details"></a>Lista information
+## <a name="listing-details"></a>List information
 
-**Consulting tjänsttyp**
+**Konsult tjänst typ**
 
-Microsoft fokuserar enbart på fast omfattning, fast varaktighet, beräknad eller fast pris (eller kostnadsfri) och främst före försäljning inriktad consulting Tjänsterbjudanden för en enda kund. Typer av tjänster är utvärdering, genomgång, implementering, bevis på koncept och workshop erbjudanden från på plats eller virtuellt. AppSource konsult services marketplace har inte stöd för hanterade eller prenumerationstjänster.
+Microsoft fokuserar enbart på fast omfattning, fast varaktighet, uppskattat eller fast pris (eller kostnads fritt) och i huvudsak konsult tjänst erbjudanden för en enskild kund. Typer av tjänster är bedömning, kortning, implementering, bevis på koncept och workshop-erbjudanden som antingen finns på plats eller i stort sett. AppSource Consulting Services-marknadsplatsen har inte stöd för listor för hanterade eller prenumerations tjänster.
 
 >[!Note]
->AppSource-konsulttjänster är inte lämplig marketplace för prenumeration eller kurser på begäran.
+>AppSource Consulting Services är inte lämplig marknads plats för prenumerationer eller utbildning på begäran.
 
-För följande typer av erbjudanden ingår:
+Följande fem typer av erbjudanden ingår:
 
--   **Utvärdering av**: En utvärdering av en kunds miljö för att fastställa tillämpligheten hos en lösning och ange en uppskattning av kostnaden och val av tidpunkt.
--   **Information till**: En introduktion till en lösning eller en tjänst som konsult för att rita kundernas intresse med hjälp av ramverk, demonstrationer och Kundexempel. Implikationer måste utföras på plats.
--   **Implementering**: En fullständig installation som resulterar i en fullt fungerande lösning. Microsoft rekommenderar att begränsa till lösningar som kan vara implementerade i en vecka eller mindre för detta pilotprogram.
--   **Konceptbevis**: Implementering av begränsad omfattning att avgöra om en lösning uppfyller kraven för en kund.
--   **Workshop**: En interaktiv engagement utförs i en kunds lokala som kan inkludera utbildningssessioner, implikationer, utvärderingar och demonstrationer som bygger på kundens data eller miljö.
+-   **Utvärdering**: en utvärdering av en kunds miljö för att fastställa tillämpligheten för en lösning och ge en uppskattning av kostnader och tids inställningar.
+-   **Kort**: en introduktion till en lösning eller en konsult tjänst för att dra nytta av kundernas intresse genom att använda ramverk, demonstrationer och kund exempel. Kort måste utföras på plats.
+-   **Implementering**: en fullständig installation som resulterar i en helt fungerande lösning. För den här piloten rekommenderar Microsoft att du begränsar lösningar som kan implementeras i en vecka eller mindre.
+-   **Koncept bevis**: en begränsad omfattning för att avgöra om en lösning uppfyller kundens krav.
+-   **Workshop**: ett interaktivt engagemang på en kunds anläggning som kan omfatta utbildning, utvärderingar, utvärderingar eller demonstrationer som bygger på kundens data eller miljö.
 
 **Tillgänglighet för land/region**
 
-Välj land och region där den här konsult tjänsterbjudande är tillgänglig. Ett erbjudande kan inte publiceras i flera länder eller regioner. Ett nytt erbjudande måste skapas för varje land eller region.
+Välj land och region där det här konsult tjänst erbjudandet är tillgängligt. Ett enda erbjudande kan inte publiceras i flera länder eller regioner. Ett nytt erbjudande måste skapas för varje land eller region.
 
 >[!Note]
->AppSource-konsulttjänster är för närvarande live i USA, USA och Kanada. Kan du skicka in ett erbjudande för land/region som inte ännu är live och den granskas och förberedd för livesändning. Ett minsta antal erbjudanden som är redo att behövs för att öppna ett nytt land/region, så att erbjudanden för länder/regioner som inte är live uppmuntras.
+>AppSource Consulting Services är för närvarande Live i USA, Storbritannien och Kanada. Du kan skicka ett erbjudande för ett land/en region som ännu inte är Live, och det kommer att granskas och förberedas för Live. Ett minsta antal erbjudanden som är klara att användas i real tid krävs för att öppna ett nytt land/region, så erbjudanden för länder/regioner som inte är Live uppmuntras.
 
 **Branscher**
 
-Välj branscher som konsult tjänsten erbjuder mest gäller för.
+Välj de branscher som ditt konsult tjänst erbjudande är mest tillämpligt för.
 
-**Varaktighet**
+**Giltighet**
 
-Välj ett tal (till exempel 3 eller 4) under **varaktighet**, och välj sedan **timme**, **dag**, eller **vecka**.
+Välj ett tal (till exempel 3 eller 4) under **varaktighet**och välj sedan **timme**, **dag**eller **vecka**.
 
-**Primär produkter**
+**Primära produkter**
 
-Om du vill publicera på Azure Marketplace, Välj **Azure** som huvudprodukten. Välj sedan den relevanta **Lösningsområden**.
+Om du vill publicera på Azure Marketplace väljer du **Azure** som primär produkt. Välj sedan de relevanta **lösnings områdena**.
 
-Om du vill publicera till AppSource, Välj **Dynamics 365**, **Power BI**, eller **PowerApps** som din primära produkt. Du kan också välja andra relevanta **tillämpliga produkter**. Sedan visar dina konsult tjänsteerbjudanden i listor som är kopplade till var och en av dessa produkter på AppSource.
+Om du vill publicera till AppSource väljer du **Dynamics 365**, **Power BI**eller **PowerApps** som primär produkt. Du kan också välja andra relevanta **tillämpliga produkter**. Sedan visar ditt konsult tjänst erbjudande i listor som är associerade med var och en av dessa produkter på AppSource.
 
 **Relevanta kompetenser**
 
-Välj kompetenser relevanta för det här erbjudandet att de visas tillsammans med informationen i erbjudandet.
+Välj kompetenser som är relevanta för det här erbjudandet om du vill att de ska visas tillsammans med erbjudande informationen.
 
-## <a name="marketing-artifacts"></a>Marknadsföring artefakter
+## <a name="marketing-artifacts"></a>Marknadsförings artefakter
 
-**Företagets logotyp (PNG-format, 48 x 48 bildpunkter)**
+**Företags logo typ (. png-format, 48 x 48 bild punkter)**
 
-Ladda upp en bild som visas på panelen för ditt erbjudande i visningssida för erbjudande-galleriet. Bilden måste vara en .png-avbildning med en upplösning på 48 x 48 bildpunkter.
+Ladda upp en bild som visas på panelen för ditt erbjudande på sidan för att visa ett erbjudande Galleri. Bilden måste vara en. png-bild med en upplösning på 48 x 48 bild punkter.
 
-**Företagets logotyp (PNG-format, 216 x 216 bildpunkter)**
+**Företags logo typ (. png-format, 216 x 216 bild punkter)**
 
-Ladda upp en bild som visas på sidan för ditt erbjudande. Bilden måste vara en .png-avbildning med en upplösning på 216 x 216 bildpunkter.
+Ladda upp en bild som visas på sidan information i ditt erbjudande. Bilden måste vara en. png-bild med en upplösning på 216 x 216 bild punkter.
 
 **Videor (begränsat till fyra)**
 
-Ladda upp upp till fyra kunden Fallstudie videor eller kund referens videor. Om du inte har någon kan du ladda upp en video som förklarar ditt företags expertis relaterade till erbjudandet. Ladda upp videon showcase här om du har en Power BI eller PowerApps solution showcase. Videolänkar måste vara för YouTube eller Vimeo.
+Överför upp till fyra kund fallstudier eller kund referens videoklipp. Om du inte har någon kan du ladda upp en video som förklarar ditt företags expertis som rör erbjudandet. Om du har en demonstration av Power BI eller PowerApps-lösning kan du ladda upp demonstrations videon här. Video länkar måste vara för YouTube eller Vimeo.
 
 **Dokument (begränsat till tre)**
 
-Ladda upp marknadsföring publikationer beskriver dina konsult tjänsteerbjudanden i detalj. Du kan också överföra en företags-översikt, informationsbladet eller fallstudier. Se till att dina dokument använder du aktuella namnen på produkter och inte funktionen Microsoft konkurrerande produkter.
+Överför marknadsförings broschyren som beskriver ditt konsult tjänst erbjudande i detalj. Du kan också överföra en företags översikt, fakta blad eller fallstudier. Se till att dokumenten använder de aktuella produkternas aktuella namn och att de inte har Microsofts konkurrerande produkter.
 
-**Skärmbilder (begränsat till fem)**
+**Skärm bilder (begränsat till fem)**
 
-Överföra upp till fem avbildningar som innehåller mer information om ditt erbjudande, dess slutprodukter eller ditt företag. Kodfragmentet för broschyrens marknadsföring, en relevanta bild från en presentation eller en bild som visar företagets intresset eller expertis följer några exempel.
+Ladda upp upp till fem avbildningar som innehåller mer information om ditt erbjudande, dess slut produkter eller ditt företag. En del av din marknadsförings broschyr, en relevant bild från en presentation, eller en bild som visar företagets form eller expertis är några exempel.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu är du redo att [publicera din konsulttjänster](./cpp-consulting-service-publish-offer.md) erbjuder.
+Nu är du redo att [publicera erbjudandet om konsult tjänster](./cpp-consulting-service-publish-offer.md) .

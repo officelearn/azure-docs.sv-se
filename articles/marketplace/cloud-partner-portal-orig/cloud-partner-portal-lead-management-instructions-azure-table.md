@@ -4,15 +4,16 @@ description: Konfigurera hantering av lead i Azure Table Storage.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: pabutler
-ms.openlocfilehash: a53ed93813215655c4a165faa0bce36d9249e8e6
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 21105d72ccd288faf0fed58019e67afe2e1c9d01
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227892"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825277"
 ---
 # <a name="lead-management-instructions-for-table-storage"></a>Lead – hanterings anvisningar för Table Storage
 
@@ -31,7 +32,7 @@ Den här artikeln beskriver hur du konfigurerar Azure Table Storage för att han
 
     Mer information om lagrings konton finns i [snabb starts guider](https://docs.microsoft.com/azure/storage/). Pris information finns i [priser för Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
-1. Vänta tills ditt lagrings konto har tillhandahållits, vilket vanligt vis tar några minuter. Öppna sedan kontot från start sidan för Azure Portal: Välj **Visa alla resurser** eller **alla resurser** i navigerings fönstret.
+1. Vänta tills ditt lagrings konto har tillhandahållits, vilket vanligt vis tar några minuter. Öppna sedan kontot från start sidan för Azure Portal: Välj **Se alla resurser** eller **alla resurser** i navigerings fönstret.
 
     ![Åtkomst till ditt Azure Storage-konto](./media/cloud-partner-portal-lead-management-instructions-azure-table/azure-storage-access.png)
 
@@ -63,8 +64,8 @@ Det här exemplet visar hur du skapar ett grundläggande flöde. Flödet skickar
 
    ![Skapa ett nytt flöde från tomt](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-create-from-blank.png)
 
-1. På Sök sidan anslutningar och utlösare väljer du utlösare.
-1. Under utlösare väljer du **upprepning**.
+1. På Sök sidan anslutningar och utlösare väljer du **utlösare**.
+1. Under **utlösare**väljer du **upprepning**.
 1. Behåll standardinställningen **1** för **intervall**i **upprepnings** fönstret. I list rutan **frekvens** väljer du **timme**.
 
    >[!NOTE] 
@@ -77,9 +78,9 @@ Det här exemplet visar hur du skapar ett grundläggande flöde. Flödet skickar
 
     ![Sök efter och Välj åtgärden "Hämta tidigare tid"](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-search-getpasttime.png)
 
-1. I fönstret **Hämta tidigare tid** anger du **intervallet** till **1**.  I list  rutan tidsenhet väljer du **timme**.
+1. I fönstret **Hämta tidigare tid** anger du **intervallet** till **1**.  I list rutan **tidsenhet** väljer du **timme**.
     >[!IMPORTANT] 
-    >Kontrol lera att **intervallet** och tidsenheten stämmer överens med det intervall och den frekvens som du konfigurerade för upprepning (steg 8).
+    >Kontrol lera att **intervallet** och **tidsenheten** stämmer överens med det intervall och den frekvens som du konfigurerade för upprepning (steg 8).
 
     ![Ange tidigare tidsintervall för hämtning](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getpast-time.png)
 
@@ -96,7 +97,7 @@ I nästa uppsättning steg ansluter du till lagrings tabellen och konfigurerar b
 
      ![Välj ett anpassat värde för Azure-tabellens namn](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
 
-   - **Filter fråga**: När du väljer det här fältet visas ikonen **Hämta tidigare tid** i ett popup-fönster. Välj **tidigare tid** för att använda det här värdet som en tidsstämpel för att filtrera frågan. Eller så kan du klistra in följande funktion i fältet:
+   - **Filter fråga**: när du väljer det här fältet visas ikonen **Hämta tidigare tid** i ett popup-fönster. Välj **tidigare tid** för att använda det här värdet som en tidsstämpel för att filtrera frågan. Eller så kan du klistra in följande funktion i fältet:
    
       `CreatedTime Timestamp gt datetime'@{body('Get_past_time')}'` 
 
@@ -111,7 +112,7 @@ I nästa uppsättning steg ansluter du till lagrings tabellen och konfigurerar b
      ![Lägg till en villkors kontroll](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-action-condition-control.png)
 
 1. I fönstret **villkor** väljer du **Välj ett värde**och väljer sedan **uttryck** i popup-fönstret.
-1. Klistra `length(body('Get_entities')?['value'])` in i fältet ***FX*** . Välj **OK** för att lägga till den här funktionen. 
+1. Klistra in `length(body('Get_entities')?['value'])` i fältet ***FX*** . Välj **OK** för att lägga till den här funktionen. 
 
 
 
@@ -132,7 +133,7 @@ I nästa uppsättning steg ansluter du till lagrings tabellen och konfigurerar b
    1. Ange information i följande fält i fönstret **Skicka ett e-postmeddelande** :
 
       - **Till**: en e-postadress för alla som får meddelandet.
-      - **Subject**: ett ämne för e-postmeddelandet. Exempel: *Nya leads!*
+      - **Subject**: ett ämne för e-postmeddelandet. Till exempel: *nya leads!*
       - **Brödtext**: den text som du vill inkludera i varje e-postmeddelande (valfritt). Klistra också in `body('Get_entities')?['value']` som en funktion för att infoga lead-information.
 
         >[!NOTE] 
@@ -144,7 +145,7 @@ I nästa uppsättning steg ansluter du till lagrings tabellen och konfigurerar b
 
     Följande bild visar ett exempel på hur det slutliga flödet ska se ut.
 
-    [![Sluten flödes sekvens](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end-thmb.png)](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end.png)
+    [![avslutande flödes ordning](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end-thmb.png)](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end.png)
 
     (*Markera bilden för att förstora den.* )
 

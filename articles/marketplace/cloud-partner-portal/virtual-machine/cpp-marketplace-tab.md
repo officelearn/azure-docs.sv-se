@@ -1,68 +1,69 @@
 ---
-title: Virtual machine Marketplace-fliken i Cloud Partner Portal för Azure Marketplace
-description: Beskriver fliken Marketplace som används för att skapa ett erbjudande för Azure Marketplace-datorn.
+title: Fliken Marketplace för virtuell dator i Cloud Partner Portal för Azure Marketplace
+description: Beskriver fliken Marketplace som används för att skapa ett erbjudande för virtuella Azure Marketplace-datorer.
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
-ms.openlocfilehash: d9b259ba93be369658638d034f109a3a6ba4c4a4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9bc3c375c5111c144b6b137ca547875225aba58f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938191"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824451"
 ---
-# <a name="virtual-machine-marketplace-tab"></a>Virtual machine Marketplace-fliken
+# <a name="virtual-machine-marketplace-tab"></a>Fliken Marketplace för virtuell dator
 
-Den **Marketplace** fliken den **nytt erbjudande** sidan kan du ge din potentiella kunder marknadsföring, försäljning och juridisk information och avtal och hantera leads som genereras från den Marketplace. Den här diktering är uppdelad i fyra delar: **Översikt över**, **marknadsföring artefakter**, **leda Management**, och **juridiska**.
+På fliken **Marketplace** på sidan **ny erbjudande** kan du ge dina potentiella kunder information om marknadsföring, försäljning och juridisk information och avtal och hantera leads som genereras från Marketplace. Det här långa formuläret är uppdelat i fyra avsnitt: **Översikt**, **marknadsförings artefakter**, **lead-hantering**och **juridiskt**.
 
 
-## <a name="overview-section"></a>Översiktsavsnittet
-I det här avsnittet ska ange du allmän information om dina Azure Marketplace erbjuder.  En tillagda asterisk (*) på fältnamnet indikerar att det krävs.
+## <a name="overview-section"></a>Avsnittet Översikt
+I det här avsnittet anger du allmän information om erbjudandet för Azure Marketplace.  En asterisk (*) som lagts till i fält namnet anger att det är obligatoriskt.
 
-![Översiktsavsnittet för fliken Marketplace för virtuella datorer](./media/publishvm_008.png)
+![Översikts avsnittet på fliken Marketplace för virtuella datorer](./media/publishvm_008.png)
 
-I följande tabell beskrivs syftet med och innehållet i de här fälten. Required fields are indicted by an asterisk (*).
+I följande tabell beskrivs syftet med och innehållet i dessa fält. Obligatoriska fält förutsägs av en asterisk (*).
 
 |  **Fält**                |     **Beskrivning**                                                          |
 |  ---------                |     ---------------                                                          |
-| **Rubrik\***                 | Rubrik för erbjudandet, ofta lång, formella namn. Den här rubriken visas på en framträdande plats i marketplace.  Högst 50 tecken. |
-| **Sammanfattning\***               | Kort syfte eller funktion på lösning.  Högst 100 tecken. |
-| **Lång sammanfattning\***          | Syfte eller funktion i lösningen.  Högst 256 tecken. |
-| **Beskrivning\***           | Beskrivning av lösning.  Maximal längd på 3000 tecken har stöd för enkel HTML-formatering. |
-| **Microsoft CSP-återförsäljare kanal\*** | Cloud Solution Providers (CSP) partner channel anmälan är nu tillgänglig.  Se [Cloud Solution Providers](../../cloud-solution-providers.md) mer information om marknadsföring av ditt erbjudande via Microsoft CSP partner kanaler. |
-| **Identifierare för marknadsföring\***  | En unik URL att koppla till det här erbjudandet innehåller normalt sett din organisation och lösningsnamn, maximal längd 50 tecken.  Exempel: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
-| **Förhandsversion av prenumerations-ID: N\*** | Lägg till en till 100 prenumeration identifierare av förhandsgranskningar. Dessa white visas prenumerationer har åtkomst till erbjudandet när den publiceras innan det lanseras. |
-| **Användbara länkar**          | Lägga till URL: er till dokumentation, viktig information, vanliga frågor och svar och så vidare. |
-| **Föreslås kategorier (Max 5)\*** | Flera val för verksamheten och teknisk kategorier som erbjuder kan kopplas bäst.  Maximalt fem tillåts.  |
+| **Rubrik\***                 | Rubriken på erbjudandet, ofta det långa, formella namnet. Den här rubriken visas på ett framträdande sätt i Marketplace.  Maximal längd på 50 tecken. |
+| **Sammanfattning\***               | Kort syfte eller funktion i lösningen.  Maximal längd på 100 tecken. |
+| **Lång Sammanfattning\***          | Syfte eller funktion i lösningen.  Maximal längd på 256 tecken. |
+| **Beskrivning\***           | Beskrivning av lösning.  Den maximala längden på 3000 tecken, stöder enkel HTML-formatering. |
+| **Microsoft CSP-återförsäljarens kanal\*** | Partner kanal för Cloud solution providers (CSP) är nu tillgängligt.  Se [leverantörer av moln lösningar](../../cloud-solution-providers.md) för mer information om marknadsföring av ditt erbjudande via Microsoft CSP partner-kanaler. |
+| **Marknadsförings-ID\***  | En unik URL som associeras med det här erbjudandet, och innehåller vanligt vis organisations-och lösnings namn, högst 50 tecken.  Till exempel: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
+| **Förhandsgranska prenumerations-ID: n\*** | Lägg till en till 100 prenumerations-ID för för hands visare. Dessa vita prenumerationer kommer att ha åtkomst till erbjudandet när det har publicerats, innan det går live. |
+| **Användbara länkar**          | Lägg till URL: er till dokument, viktig information, vanliga frågor och svar. |
+| **Föreslagna kategorier (max 5)\*** | Flera val av affärs-och teknik kategorier som erbjuder passar bäst för.  Maximalt fem tillåtna.  |
 |  |  |
 
 
-## <a name="marketing-artifacts-section"></a>Marknadsföring artefakter avsnittet
+## <a name="marketing-artifacts-section"></a>Avsnittet marknadsförings artefakter
 
-Den här andra delen är uppdelad i tre underavsnitt: **Logotyper**, **skärmbild**, och **videor**. Logotyper är den enda krävs marknadsföring artefakter, men alla rekommenderas för bästa kund ändring. 
+Det här andra avsnittet är uppdelat i tre underavsnitt: **logo typer**, **skärm**bilder och **videor**. Logo typer är de enda marknadsförings artefakter som krävs, men alla är starkt rekommenderade för bästa möjliga kund överklaga. 
 
-![Marknadsföring artefakter avsnittet Marketplace-fliken i formuläret nytt erbjudande för virtuella datorer](./media/publishvm_009.png)
+![Avsnittet marknadsförings artefakter på fliken Marketplace i formuläret ny erbjudande för virtuella datorer](./media/publishvm_009.png)
 
-I följande tabell beskrivs syftet med och innehållet i de här fälten. Required fields are indicted by an asterisk (*).
+I följande tabell beskrivs syftet med och innehållet i dessa fält. Obligatoriska fält förutsägs av en asterisk (*).
 
 |  **Fält**                |     **Beskrivning**                                                          |
 |  ---------                |     ---------------                                                          |
-| *Logotyper*  |  |
-| **Liten\***                 | 40 x 40 pixel .ico bitmapp                                                      |
-| **Medel\***                | 90 x 90 pixel .ico bitmapp                                                      |
-| **Stora\***                 | 115 x 115 pixel .ico bitmapp                                                   |
-| **Wide\***                  | 255 x 115 pixel .ico bitmapp                                                    |
-| **Hero**                  | 815 x 290 bitmapp.  Valfritt, men en gång överförda ikonen hero-komponenten inte kan tas bort. |
-| *Skärmbilder*  | Valfritt, men högst fem skärmbilder per SKU. |
+| *Typerna*  |  |
+| **Liten\***                 | 40x40 pixel. ico-bitmapp                                                      |
+| **Medel\***                | 90x90 pixel. ico-bitmapp                                                      |
+| **Stor\***                 | 115x115 pixel. ico-bitmapp                                                   |
+| **Bred\***                  | 255x115 pixel. ico-bitmapp                                                    |
+| **Hjälte**                  | 815x290-bitmapp.  Valfritt, men när du har laddat upp hjälte ikonen kan du inte ta bort den. |
+| *Par*  | Valfritt, men högst fem skärm bilder per SKU. |
 | **Namn**                  | Namn eller rubrik <!-- TODO - max char length? none specified in UI -->                               |
-| **Avbildning**                 | Skärmen infångningsavbildning, 533 x 324 pixel                                         |
+| **Avbildning**                 | Skärmdump, 533x324-bild punkt                                         |
 | *Videoklipp*  |  |
 | **Namn**                  | Namn eller rubrik  <!-- TODO - max char length? -->                              |
-| **Länk**                  | Video-URL, finns på YouTube eller Vimeo                                        |
-| **Miniatyr**             | 533 x 324 bitmapp                                                               |
+| **Länk**                  | Video-URL, som finns på YouTube eller Vimeo                                        |
+| **Miniatyr**             | 533x324-bitmapp                                                               |
 |   |   |
 
 ### <a name="logo-guidelines"></a>Riktlinjer för logotyp
@@ -70,62 +71,62 @@ I följande tabell beskrivs syftet med och innehållet i de här fälten. Requir
 <!-- TD: It seems like this section could be better located in some common area, maybe an AMP Marketing/Design section 
 +1 this should all be in a common area and referenced from here to that location.-->
 
-Alla logotyper som överförts till Cloud Partner Portal bör följa riktlinjerna:
+Alla logo typer som laddats upp till Cloud Partner Portal bör följa rikt linjerna:
 
-*  Azure-designen har en enkel färgpalett. Håll nere antalet primära och sekundära färger på din logotyp.
-*  Temafärger i Azure Portal är vit och svart. Undvik därför att använda dessa färger som bakgrundsfärgen för din logotyper. Använd en färg som gör din logotyper framstående i Azure-portalen. Vi rekommenderar enkla primärfärger. Om du använder genomskinlig bakgrund, se till att logotyper/text inte är vit eller svart eller blå.
-*  Använd inte en toning bakgrund på din logotyp.
-*  Undvika att placera text – till och med ditt företag eller varumärke – på logotypen. Utseendet och känslan av din logotyp måste vara ”fast” och Undvik toningar.
-*  Stretch inte logotypen.
+*  Azure-designen har en enkel färgpalett. Behåll antalet primära och sekundära färger på din logo typ låg.
+*  Tema färgerna för Azure Portal är vita och svarta. Undvik därför att använda dessa färger som bakgrunds färg för dina logo typer. Använd en färg som gör logo typerna framträdande i Azure Portal. Vi rekommenderar enkla primärfärger. Om du använder genomskinlig bakgrund ser du till att logo typerna/texten inte är vita eller svarta eller blå.
+*  Använd inte en tonings bakgrund på din logo typ.
+*  Undvik att placera text – även ditt företags-eller märkes namn – på logo typen. Utseendet på logo typen bör vara "flat" och undvika toningar.
+*  Sträck inte ut logo typen.
 
 #### <a name="hero-logo"></a>Hero-logotyp
 
-Hero-logotypen är valfritt. men när du har överfört ikonen hero-komponenten inte kan tas bort.  Ikonen Hero-logotypen bör följa riktlinjerna:
+Hjältens logo typ är frivillig. När du har laddat upp kan du dock inte ta bort hjälte ikonen.  Ikonen för hjälte-logotypen bör följa rikt linjerna:
 
-*  Svart, vit och transparent bakgrunder tillåts inte för hero-ikoner.
-*  Undvik att använda alla ljusare som bakgrund till hero-ikonen.  Visningsnamn för utgivaren, plan rubrik och erbjudandet lång sammanfattning visas i vit teckenfärg och måste står ut mot bakgrunden.
-*  Undvik att använda de flesta text när du utformar hero-logotypen.  Utgivarens namn, plan rubrik, lång sammanfattning av erbjudandet och en knappen Skapa bäddas programmässigt inuti hero-ikon när erbjudandet visas. 
-* Inkludera en oanvända rektangel på höger sida av din hero-ikonen för storlek 415 × 100 bildpunkter och förskjutning 370 px från vänster.  
+*  Svarta, vita och genomskinliga bakgrunder är inte tillåtna för hjälteiska ikoner.
+*  Undvik att använda en ljus färg som bakgrund i hjälte ikonen.  Visnings namnet för utgivaren, plan rubriken och den långa sammanfattningen av erbjudandet visas i vit tecken färg och måste synas mot bakgrunden.
+*  Undvik att använda den mesta texten när du utformar hjältens logo typ.  Utgivar namnet, plan rubriken, den långa sammanfattningen för erbjudandet och en skapa-knapp bäddas in program mässigt inuti hjälte ikonen när erbjudande listorna visas. 
+* Ta med en oanvänd rektangel på den högra sidan av din hjälte ikon, med storlek 415x100 pixel och förskjutning 370 BPT från vänster.  
 
-Till exempel är följande hero-ikon för Azure Container Service.  <!-- TD: It would be nice to have the raw bitmap, e.g.before and after embedding. -->
+Som exempel är följande hjälte ikon för Azure Container Service.  <!-- TD: It would be nice to have the raw bitmap, e.g.before and after embedding. -->
 
-![Exempel hero-ikonen för Azure Container Service](./media/publishvm_010.png)
-
-
-### <a name="marketing-information-example"></a>Exempel på marknadsföring 
-
-Följande bild visar hur marknadsföring information visas på den huvudsakliga produktsidan för Microsoft Windows Server.
-
-![Exempel produktsida för Microsoft Windows Server](./media/publishvm_011.png)
+![Exempel på hjälte ikon för Azure Container Service](./media/publishvm_010.png)
 
 
-## <a name="lead-management-section"></a>Leda hanteringsavsnittet
+### <a name="marketing-information-example"></a>Exempel på marknadsförings information 
 
-Det tredje avsnittet kan du samla in kunder leads som genereras från Azure Marketplace-erbjudanden. Den erbjuder följande lagringsalternativ (från en listruta) för den här lead-information.
+Följande bild visar hur marknadsförings information visas på sidan huvud produkt för Microsoft Windows Server.
 
-* **Ingen** -standard, lead-information inte samlas in.
-* Azure Table - skrivs till tabellen Azure som anges av en anslutningssträng.
-* Dynamics CRM Online - skrivs till den [Microsoft Dynamics 365 Online](https://dynamics.microsoft.com/) instans som anges av en URL och autentisering autentiseringsuppgifter.
-* HTTPS-slutpunkt - skrivs till den angivna HTTPS-slutpunkten som en JSON-nyttolast.
-* Marketo - skrivs till den angivna [Marketo](https://www.marketo.com/) instans som anges av server-ID, munchkin-ID och formulär-ID.
-* Salesforce - skrivs till en [Salesforce](https://www.salesforce.com/) databas som anges av ett objekt-ID: T.
+![Exempel på produkt sida för Microsoft Windows Server](./media/publishvm_011.png)
 
-När du har publicerat ditt erbjudande, lead-anslutningen har verifierats och ett test-lead skickas automatiskt till det konfigurera målet. Lead-information ska hanteras kontinuerligt och dessa inställningar ska utan dröjsmål uppdateras när ändringar görs i din arkitektur för hantering av kunden.
+
+## <a name="lead-management-section"></a>Avsnittet ledar hantering
+
+I det tredje avsnittet kan du samla in kunders leads som genereras från dina Azure Marketplace-erbjudanden. Den erbjuder följande lagrings alternativ (från en listruta) för den här lead-informationen.
+
+* **Ingen** -standardvärdet för lead-information samlas inte in.
+* Azure Table-skriven till Azure-tabellen som anges av en anslutnings sträng.
+* Dynamics CRM Online – skrivet till [Microsoft Dynamics 365 online](https://dynamics.microsoft.com/) -instansen som anges av en URL och autentiseringsuppgifter för autentisering.
+* HTTPS-slutpunkt – skrivs till den angivna HTTPS-slutpunkten som en JSON-nyttolast.
+* Marketo-skriven på den angivna [Marketo](https://www.marketo.com/) -instansen, anges av Server-ID, Munchkin-ID och formulär-ID.
+* Salesforce-skriven till en [Salesforce](https://www.salesforce.com/) -databas som anges av en objekt identifierare.
+
+När du har publicerat erbjudandet verifieras ledar anslutningen och ett test-lead skickas automatiskt till den konfigurerade destinationen. Lead-information ska hanteras kontinuerligt och de här inställningarna bör uppdateras när ändringar görs i din kund hanterings arkitektur.
 
 <!-- TD: For more info, see [Need a topic on lead information and processing that mimics the Appendix of the VM Pub Guide]. -->
 
-## <a name="legal-section"></a>Juridiska avsnittet
+## <a name="legal-section"></a>Juridisk sektion
 
-Det här sista avsnittet kan du ange de nödvändiga juridiska dokument som krävs för varje erbjudande.  
+I det sista avsnittet kan du ange de juridiska dokument som krävs för varje erbjudande.  
 
 |  **Fält**                    |     **Beskrivning**                                        |
 |  ---------                    |     ---------------                                        |
-| **Sekretesswebbadress för principen\***      | URL: en till din bokförda sekretesspolicy                          |
-| **Använda standardavtal?\***  |   |
-| **Användningsvillkor\***            | princip för som oformaterad text eller enkel HTML-kod.                       |
+| **URL för sekretess policy\***      | URL till din publicerade sekretess policy                          |
+| **Använd standard kontrakt?\***  |   |
+| **Användningsvillkor\***            | princip som oformaterad text eller enkel HTML.                       |
 |  |  |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I nästa [stöder](./cpp-support-tab.md) fliken du tillhandahåller teknisk hjälp och användaren Supportresurser för ditt erbjudande.
+På nästa [support](./cpp-support-tab.md) -flik får du teknisk support och support resurser för ditt erbjudande.

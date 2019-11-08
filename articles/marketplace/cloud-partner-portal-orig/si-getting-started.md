@@ -1,63 +1,64 @@
 ---
-title: Komma igång med försäljning Insights
-description: Introduktion till funktionen försäljning insikter i partnerportalen i molnet.
+title: Komma igång med säljare insikter
+description: Introduktion till säljar insikter-funktionen i Cloud Partner Portal.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
-ms.openlocfilehash: 6c903c87bc153864381a3f1763afaeeb7796090a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d335525a23ca2e1442ae009dcfbc062bff8cc77d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943046"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824766"
 ---
-<a name="getting-started-with-seller-insights"></a>Komma igång med försäljning Insights
+<a name="getting-started-with-seller-insights"></a>Komma igång med säljare insikter
 ====================================
 
-Den här artikeln beskriver funktionen försäljning insikter tillgängliga inom den [Cloud Partner Portal](https://cloudpartner.azure.com/#insights).
+Den här artikeln beskriver den säljare insikter-funktion som är tillgänglig i [Cloud Partner Portal](https://cloudpartner.azure.com/#insights).
 
 
-<a name="insights-tour"></a>Insikter rundtur
+<a name="insights-tour"></a>Guidad visning av insikter
 -------------
 
-Partnerportalen i molnet erbjuder insikter relaterade till din Azure- och VS Marketplace-kunder och användning. Här är en snabb överblick över de olika data och att du kommer troligen att interagera med de insikter.
+Cloud Partner Portal ger dig insikter relaterade till dina Azure-och VS Marketplace-kunder och-användning. Här är en snabb översikt över de olika data och insikter som du troligen kommer att interagera med mest.
 
-<a name="top-navigation-bar"></a>Översta navigeringsfältet
+<a name="top-navigation-bar"></a>Övre navigerings fält
 ------------------
 
-När du har valt **Insights** från den vänstra menyraden, visas ett navigeringsfält längs överkanten som anger vilka moduler för insikter som du har åtkomst till.
+När du har valt **insikter** från den vänstra meny raden visas ett navigerings fält överst som visar vilka insikter-moduler som du har åtkomst till.
 
-1.  **Sammanfattning** – den här fliken visar diagram, trender och värdena för data som är mest sökta efter utgivare.
+1.  **Sammanfattning** – den här fliken visar diagram, trender och värden för de data som du har sökt efter av utgivare.
 
-2.  **Payout** -den här fliken visas information om payouts och relaterade transaktioner i diagram och nedladdningsbara format.
+2.  **Utbetalning** – den här fliken visar information om utbetalningar och relaterade transaktioner i diagram och nedladdnings bara format.
 
-3.  **Order & användning** – den här fliken visas beställningar och information om användningen i diagram och nedladdningsbara format.
+3.  **Beställningar & användning** – den här fliken visar beställningar och användnings information i diagram och nedladdnings bara format.
 
-4.  **Kunden** – den här fliken visas information om dina kunder och deras inköp.
+4.  **Kund** – den här fliken visar information om dina kunder och deras inköp.
 
-5.  **Distribution** – den här fliken visar distributionsinformation för lyckade och misslyckade i både diagram och nivån händelseformatet.
+5.  **Distribution** – den här fliken visar information om lyckade och misslyckade distributioner i både grafer och händelse nivå format.
 
-6.  **Hämtar** -hämtar stora datauppsättningar är enklare och mindre störande med en ny hämtningar.
+6.  **Hämtningar** – hämtning av stora data uppsättningar är enklare och mindre störande med en ny nedladdnings upplevelse.
 
-Du kanske att du bara kan se en begränsad uppsättning moduler som anges ovan.
-Endast användare med *ägare* behörigheter kan se den **Payout** och **kunden** moduler på grund av känslig information för kunder och företag. Arbeta med en ägarrollen inom din organisation att ändra dina behörigheter om du behöver åtkomst till dessa moduler.
+Du kan se att du bara kan se en begränsad uppsättning av de moduler som anges ovan.
+Endast användare med *ägar* behörighet kan se **utbetalnings** -och kundmodulerna på grund av känslig kund **-och företags** information. Arbeta med en ägar roll i din organisation för att ändra dina behörigheter om du behöver åtkomst till dessa moduler.
 
 
-<a name="tips"></a>Tips:
+<a name="tips"></a>Tips
 -----
 
--   Glöm inte att justera datum att visa den information som du är mest intresserad av.
--   Hämta data för transaktionen på för att utföra ytterligare analys på den information som tillhandahålls av försäljning insikter.
--   Om du letar efter betalnings eller kund information, kontrollera att du är inloggad som en ägarrollen och inte deltagarrollen. Läs mer om användarbehörigheter i [hantera användare](./cloud-partner-portal-manage-users.md).
+-   Se till att justera datumen för att visa den information som du är mest intresse rad av.
+-   Hämta transaktions nivå data för att utföra ytterligare analys av den information som tillhandahålls av säljar insikter.
+-   Om du letar efter utbetalnings-eller kund information kontrollerar du att du är inloggad som en ägar roll och inte en deltagar roll. Mer information om användar behörigheter finns i [Hantera användare](./cloud-partner-portal-manage-users.md).
 
 
 <a name="finding-more-help"></a>Hitta mer hjälp
 -----------------
 
-- [Definitioner av försäljning Insights](./si-insights-definitions-v4.md) -hitta definitioner för mått och data
+- [Säljar insikter-definitioner](./si-insights-definitions-v4.md) – hitta definitioner för mått och data
 
-- [Komma igång med försäljning Insights](./si-getting-started.md) – introduktion till funktionen försäljning insikter.
+- [Kom igång med säljare insikter](./si-getting-started.md) – introduktion till säljar insikter-funktionen.
 

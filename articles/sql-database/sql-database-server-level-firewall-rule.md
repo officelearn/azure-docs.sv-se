@@ -1,5 +1,5 @@
 ---
-title: Skapa en brandväggsregel på servernivå – Azure SQL Database| Microsoft Docs
+title: Skapa en brandväggsregel på servernivå
 description: Skapa en brandväggsregel på SQL Database-servernivå för enkla databaser eller pooldatabaser
 services: sql-database
 ms.service: sql-database
@@ -11,18 +11,18 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: 27b554159fca2043fbd0c853e260a66294c10387
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: ff2508952b75bad88ff8ff92388c20ba52f50f42
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162298"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818260"
 ---
-# <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Snabbstart: Skapa en brandväggsregel på servernivå för enkla databaser eller pooldatabaser med hjälp av Azure-portalen
+# <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Snabb start: skapa en brand Väggs regel på server nivå för enskilda databaser och pooler med hjälp av Azure Portal
 
 Den här snabbstarten visar hur du skapar en [brandväggsregel på servernivå](sql-database-firewall-configure.md) för enkla databaser eller pooldatabaser i Azure SQL Database med hjälp av Azure-portalen, så att du kan ansluta till databasservrar, enkla databaser, samt elastiska pooler och deras databaser. Du måste ha en brandväggsregel för att kunna ansluta från andra Azure-resurser och lokala resurser.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 I den här snabbstarten används de resurser som skapades i avsnittet [Skapa en enskild databas med Azure-portalen](sql-database-single-database-get-started.md) som startpunkt.
 
@@ -73,7 +73,7 @@ Spara de här resurserna om du vill gå till [nästa steg](#next-steps) och lär
 ## <a name="next-steps"></a>Nästa steg
 
 - Nu när du har en databas kan du [ansluta och köra frågor](sql-database-connect-query.md) med de verktyg och språk du föredrar, till exempel
-  - [Ansluta och köra frågor med SQL Server Management Studio](sql-database-connect-query-ssms.md)
+  - [Ansluta och köra frågor med hjälp av SQL Server Management Studio](sql-database-connect-query-ssms.md)
   - [Ansluta och köra frågor med Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - I följande självstudier lär du dig hur du utformar din första databas, skapar tabeller och infogar data:
   - [Skapa din första enkla databas i Azure SQL Database med hjälp av SSMS](sql-database-design-first-database.md)

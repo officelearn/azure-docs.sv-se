@@ -1,5 +1,5 @@
 ---
-title: Konfigurera en failover-grupp för Azure SQL Database
+title: Konfigurera en failover-grupp
 description: Lär dig hur du konfigurerar en grupp för automatisk redundans för en Azure SQL Database enskild databas, elastisk pool och hanterad instans med hjälp av Azure Portal, AZ CLI och PowerShell.
 services: sql-database
 ms.service: sql-database
@@ -11,21 +11,21 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: 626677ef9444e0ad99fd3678e23bdeec62fd920c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: fb9ee2378679c420a7675856ec95e60f6ae1d14f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933398"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827138"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Konfigurera en failover-grupp för Azure SQL Database
 
 I det här avsnittet lär du dig hur du konfigurerar en [grupp för automatisk redundans](sql-database-auto-failover-group.md) för en Azure SQL Database enskild databas, elastisk pool och hanterad instans med hjälp av Azure Portal eller PowerShell. 
 
-## <a name="single-database"></a>Enkel databas
+## <a name="single-database"></a>Enskild databas
 Skapa gruppen redundans och Lägg till en enda databas i den med hjälp av Azure Portal eller PowerShell.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 Överväg följande krav:
 
@@ -33,7 +33,7 @@ Skapa gruppen redundans och Lägg till en enda databas i den med hjälp av Azure
 
 ### <a name="create-failover-group"></a>Skapa redundans grupp
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Skapa din grupp för redundans och Lägg till din enda databas i den med hjälp av Azure Portal.
 
 1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
@@ -106,7 +106,7 @@ Skapa din grupp för redundans och Lägg till din databas i den med hjälp av Po
 
 Testa redundans för din failover-grupp med hjälp av Azure Portal eller PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Testa redundans för din failover-grupp med hjälp av Azure Portal. 
 
@@ -186,7 +186,7 @@ Redundansväxla till den sekundära servern:
 ## <a name="elastic-pool"></a>Elastisk pool
 Skapa gruppen redundans och Lägg till en elastisk pool i den med hjälp av Azure Portal eller PowerShell.  
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 Överväg följande krav:
 
@@ -196,7 +196,7 @@ Skapa gruppen redundans och Lägg till en elastisk pool i den med hjälp av Azur
 
 Skapa gruppen redundans för den elastiska poolen med hjälp av Azure Portal eller PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Skapa din failover-grupp och Lägg till den elastiska poolen i den med hjälp av Azure Portal.
 
 1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
@@ -267,7 +267,7 @@ Skapa din failover-grupp och Lägg till den elastiska poolen i den med hjälp av
 
 Testa redundansväxlingen av den elastiska poolen med hjälp av Azure Portal eller PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Redundansväxla din redundansväxling till den sekundära servern och växla sedan tillbaka med Azure Portal. 
 
@@ -334,7 +334,7 @@ Skapa en failover-grupp mellan två hanterade instanser med hjälp av Azure Port
 
 Du måste skapa en gateway för det virtuella nätverket för varje hanterad instans, ansluta de två gatewayerna och sedan skapa gruppen redundans.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Nödvändiga komponenter
 Överväg följande krav:
 
 - Den sekundära hanterade instansen måste vara tom.
@@ -346,7 +346,7 @@ Du måste skapa en gateway för det virtuella nätverket för varje hanterad ins
 
 Skapa den primära virtuella Nätverksgatewayen med Azure Portal eller PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Skapa den primära virtuella Nätverksgatewayen med hjälp av Azure Portal. 
 
@@ -419,7 +419,7 @@ Skapa den primära virtuella Nätverksgatewayen med PowerShell.
 
 Skapa den sekundära virtuella Nätverksgatewayen med hjälp av Azure Portal eller PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Upprepa stegen i föregående avsnitt för att skapa det virtuella nätverkets undernät och gateway för den sekundära hanterade instansen. Fyll i de obligatoriska fälten om du vill konfigurera gatewayen för din sekundära hanterade instans. 
 
    I följande tabell visas de värden som krävs för gatewayen för den sekundära hanterade instansen:
@@ -481,7 +481,7 @@ Två anslutningar måste skapas – anslutningen från den primära gatewayen ti
 
 Den delade nyckel som används för båda anslutningarna ska vara densamma för varje anslutning. 
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Skapa anslutningar mellan de två gatewayerna med hjälp av Azure Portal. 
 
 1. Välj **skapa en resurs** från [Azure Portal](https://portal.azure.com).
@@ -539,7 +539,7 @@ Skapa anslutningar mellan de två gatewayerna med PowerShell.
 ### <a name="create-the-failover-group"></a>Skapa gruppen redundans 
 Skapa gruppen redundans för dina hanterade instanser med hjälp av Azure Portal eller PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Skapa gruppen redundans för dina hanterade instanser med hjälp av Azure Portal. 
 
@@ -581,7 +581,7 @@ Skapa gruppen redundans för dina hanterade instanser med PowerShell.
 
 Testa redundans för din failover-grupp med hjälp av Azure Portal eller PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Testa redundans för din failover-grupp med hjälp av Azure Portal. 
 

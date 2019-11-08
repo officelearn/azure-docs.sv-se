@@ -1,5 +1,5 @@
 ---
-title: 'SSMS: ansluta och fråga efter data i en Azure SQL-databas '
+title: 'SSMS: Anslut och fråga efter data'
 description: Lär dig hur du ansluter till SQL Database på Azure med hjälp av SQL Server Management Studio (SSMS). Kör sedan Transact-SQL-uttryck (T-SQL) för att skicka frågor mot och redigera data.
 keywords: anslut till sql database, sql server management studio
 services: sql-database
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 0744b8bc8e3582a23802d87424bba9f92bf43073
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 69a6939cdbcc9b2c4e496c8d47aa20c9f6e85d57
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690897"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826944"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Snabb start: använda SQL Server Management Studio för att ansluta och skicka frågor till en Azure SQL-databas
 

@@ -1,7 +1,7 @@
 ---
-title: Identifiera data avvikelse (för hands version) på AKS-distributioner
+title: Identifiera data drift på AKS-distributioner
 titleSuffix: Azure Machine Learning
-description: Identifiera data drift på Azure Kubernetes-tjänst distribuerade modeller i Azure Machine Learning.
+description: Identifiera data drift (för hands version) i Azure Kubernetes-tjänst distribuerade modeller i Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: 24b1c22d9badc58360b0355bb4ef89017db27f06
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
-ms.translationtype: HT
+ms.openlocfilehash: 9ac1c5cb25d6b2ad396c2caed74942988a723a0e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796725"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824258"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Identifiera data drift (för hands version) i modeller som distribuerats till Azure Kubernetes service (AKS)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -152,7 +152,7 @@ drift_figures = datadrift.show(with_details=True)
 
 ## <a name="schedule-data-drift-scans"></a>Schemalägga data avvikelser 
 
-När du aktiverar data identifieringen körs en DataDriftDetector med den angivna schemalagda frekvensen. Om datadrift_coefficient når den angivna `drift_threshold`skickas ett e-postmeddelande med varje schemalagd körning. 
+När du aktiverar data identifieringen körs en DataDriftDetector med den angivna schemalagda frekvensen. Om datadrift_coefficient når det angivna `drift_threshold`skickas ett e-postmeddelande med varje schemalagd körning. 
 
 ```python
 datadrift.enable_schedule()

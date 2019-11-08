@@ -7,6 +7,7 @@ author: qianw211
 manager: evansma
 editor: ''
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
@@ -14,12 +15,12 @@ ms.workload: identity
 ms.date: 09/20/2019
 ms.author: v-qiwe
 ms.custom: include file
-ms.openlocfilehash: 87fb0535bb4597ff1f0fd2bf73783b661ae9a23d
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 144540b3d50c217f74608cedb546b80ab7ba222b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72816961"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825573"
 ---
 Du kan också välja upp till två branscher och två lodräta under varje bransch. Dessa kategorier används för att visa ditt erbjudande, när branscher och lodräta används i Sök filter och tillämpas i butik.  Om ditt erbjudande riktar sig till en viss bransch och/eller lodrätt, se till att du beskriver hur ditt erbjudande stöder de valda branscher eller lodräta i beskrivningen av erbjudandet.  Om ditt erbjudande inte är branschspecifika, gör du inget val och lämnar det här avsnittet tomt.
 
@@ -33,7 +34,7 @@ Du kan också välja upp till två branscher och två lodräta under varje brans
 | Distribution    | \* Grossist <br> \* Leverans paket & paket |
 | Utbildning     | \* Högre utbildning <br> \* Primär & sekundär utbildning/K-12 <br> \* Bibliotek & Museums |
 | Ekonomiska tjänster     | \* Bank & kapital marknader <br> \* Försäkring |
-| Myndigheter    | \* Försvar & Intelligence (används för att kallas för nationell och offentlig säkerhet) <br> \* Allmän säkerhets & rättvisa <br> \* Civila myndigheter |
+| Government    | \* Försvar & Intelligence (används för att kallas för nationell och offentlig säkerhet) <br> \* Allmän säkerhets & rättvisa <br> \* Civila myndigheter |
 | Sjukvård (används för att kallas hälsa)   | \* Hälso betalare <br> \* Hälso leverantör <br> \* Farmaceutiska |
 | & Resurser för produktion (används för att kallas produktion)   | \* Kemisk & Agrochemical <br> \* Diskret tillverkning <br> \* Energi |
 | Butiks & konsument varor (som används för att kallas detalj handel)  | \* Konsument varor <br> \* Åter försäljare |

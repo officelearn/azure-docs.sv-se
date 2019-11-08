@@ -1,5 +1,5 @@
 ---
-title: Arbeta med JSON-data i Azure SQL Database
+title: Arbeta med JSON-data
 description: Med Azure SQL Database kan du parsa, fråga och formatera data i JavaScript Object Notation (JSON).
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 01/15/2019
-ms.openlocfilehash: 2fe760e3792b5540b18946fd9dbcc5d571b50ee9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 958d937ad85fd62249c7ce3f0e0ab2f8cc1d1b80
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689656"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819929"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Komma igång med JSON-funktioner i Azure SQL Database
 Med Azure SQL Database kan du analysera och fråga data som representeras i JavaScript Object Notation [(JSON)](https://www.json.org/) -format och exportera Relations data som JSON-text. Följande JSON-scenarier är tillgängliga i Azure SQL Database:
@@ -145,7 +145,7 @@ Funktionen JSON_VALUE extraherar ett värde från JSON-text som lagras i data ko
 
 Funktionen JSON_QUERY liknar JSON_VALUE. Till skillnad från JSON_VALUE extraherar den här funktionen komplexa under objekt, till exempel matriser eller objekt som placeras i JSON-text.
 
-Med funktionen JSON_MODIFY kan du ange sökvägen till värdet i JSON-texten som ska uppdateras, samt ett nytt värde som skriver över det gamla. På så sätt kan du enkelt uppdatera JSON-text utan att parsa om hela strukturen.
+Med funktionen JSON_MODIFY kan du ange sökvägen till värdet i JSON-texten som ska uppdateras, samt ett nytt värde som kommer att skriva över det gamla. På så sätt kan du enkelt uppdatera JSON-text utan att parsa om hela strukturen.
 
 Eftersom JSON lagras i en vanlig text, finns det inga garantier för att värdena som lagras i text kolumner är korrekt formaterade. Du kan kontrol lera att texten som lagras i JSON-kolumnen är korrekt formaterad genom att använda standard Azure SQL Database kontroll begränsningar och funktionen ISJSON:
 

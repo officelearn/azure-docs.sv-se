@@ -1,50 +1,51 @@
 ---
-title: Hantera utgivarprofil för Azure Marketplace och AppSource
-description: Hantera utgivarprofil för Azure Marketplace och AppSource
+title: Hantera Azure Marketplace-och AppSource Publisher-profil
+description: Hantera Azure Marketplace och AppSource Publisher-profil
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 manager: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: pabutler
-ms.openlocfilehash: a72259e1deb97ca0256de5bfd3b2f6c78d92e3c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c9e8e73d18ec0c2a7334fbb5521e89ead4334cc7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935353"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826357"
 ---
-# <a name="manage-azure-marketplace-and-appsource-publisher-profile"></a>Hantera utgivarprofil ”Azure Marketplace” och ”AppSource”
+# <a name="manage-azure-marketplace-and-appsource-publisher-profile"></a>Hantera Publisher-profilen "Azure Marketplace" och "AppSource"
 
-Det här dokumentet är en genomgång för att visa och hantera användare i din registrerade publisher-profil.
+Det här dokumentet är en genom gång om hur du visar och hanterar användare till din registrerade utgivar profil.
 
-Du har slutfört stegen för att bli en Azure Marketplace och AppSource utgivare vid den tidpunkten. Publisher-profil är registrerat på den **[Cloud Partner Portal](https://cloudpartner.azure.com/)** efter godkännande av ditt partner-begäran. Din utgivarprofil gäller för alla erbjudanden och SKU: er som publiceras från det konto som används under registreringen av partner.
+Nu har du slutfört stegen för att bli en Azure Marketplace-och AppSource-utgivare. Utgivar profilen registreras på **[Cloud Partner Portal](https://cloudpartner.azure.com/)** följande godkännande av din partner förfrågan. Din utgivar profil gäller för alla erbjudanden och SKU: er som publicerats från kontot som används vid partner registreringen.
 
-Om du inte har registrerat ditt företag som en molnpartner, se [Kom igång med partnerportalen i molnet](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal).
+Om du inte har registrerat ditt företag som en moln partner, se [Kom igång med Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal).
 
-**Utgivarprofil**: Din utgivarprofil särskiljer ditt företag på Azure Marketplace och AppSource. Den består av Publicerings-ID, namn och ägare email(s). En väl hanterad profilen kommer öka översyn och hjälper användarna att marketplace lätt kan identifiera och välja en lämplig erbjudandet.
+**Utgivar profil**: din utgivar profil särskiljer ditt företag på Azure Marketplace och AppSource. Det består av ditt utgivar-ID, visnings namn och ägarens e-post (er). En väl hanterad profil ökar synligheten och hjälper Marketplace-användare att enkelt identifiera och välja ett lämpligt erbjudande.
 
 > [!NOTE]
-> Publisher ID och registrerad ägare för din e-post är inte redigerbara när du publicerar ditt första erbjudande. Men du kan visa din profil och redigera publisher visningsnamn från partnerportalen i molnet.
+> Ditt utgivar-ID och din registrerade ägares e-postadress går inte att redigera när du publicerar ditt första erbjudande. Du kan dock visa din profil och redigera utgivarens visnings namn från Cloud Partner Portal.
 
 <!-- Dummy comment added to suppress MD linter warning -->
 
 > [!NOTE]
-> Lägg till användare (deltagare och ägare) till din publiceringsprofil från avsnittet för användare i det vänstra navigeringsfönstret från avsnittet för användare av partnerportalen i molnet.
+> Lägg till användare (deltagare och ägare) till din publicerings profil från avsnittet användare i det vänstra navigerings fönstret från avsnittet användare i Cloud Partner Portal
 
-**Visa och hantera dina utgivarprofil**, verktygsfältet längst upp till höger och klicka på den **Publisher profil fliken**.
+**Visa och hantera din utgivar profil**genom att klicka på **fliken utgivare profil**i den övre högra meny raden.
 
-![Utgivarprofil profil fliken - utgivare](./media/cloud-partner-portal-how-to-manage-publisher-profile/publisherprofilenew.png)
+![Fliken utgivarens profil – utgivar profil](./media/cloud-partner-portal-how-to-manage-publisher-profile/publisherprofilenew.png)
 
-![Profilinformation Publisher - profilinformation för utgivare](./media/cloud-partner-portal-how-to-manage-publisher-profile/publisherprofiledetails.png)
+![Profil information för utgivare – profil information för utgivare](./media/cloud-partner-portal-how-to-manage-publisher-profile/publisherprofiledetails.png)
 
-**Länka ditt Dev Center-konto**: Du kan också länka ditt befintliga Dev Center-konto med din utgivarprofil på partnerportalen i molnet.
-Först logga in på portalen med samma e-postadressen används för att registrera ditt Dev Center-konto. Din profilsida för utgivaren visar sedan ditt Dev Center kontostatus, e-postadress för ägare för Dev Center-konto och Dev Center-kontonamn.
+**Länka ditt dev Center-konto**: du kan också länka ditt befintliga dev Center-konto till din utgivar profil på Cloud Partner Portal.
+Logga först in på portalen med samma e-postadress som används för att registrera ditt dev Center-konto. Sedan visar sidan Publisher-profil din status för ditt dev Center-konto, ditt konto för dev Center-ägare och ett dev Center-konto.
 
 >[!NOTE]
->Dev Center Kontoregistrering är obligatoriskt för publicering betald marknadsplatsen SKU: er.
+>Konto registrering för dev Center är obligatoriskt för publicering av betalda marknads plats-SKU: er.
 
-Om du inte har en [Developer Center-konto](./cloud-partner-portal-dev-center-accounts-registration.md), du kan skapa ett konto. Lägg sedan till den registrerade e-postadressen som ägare på partnerportalen i molnet för ditt erbjudande. Ägare kan bara lägga till den registrerade e-postadressen till din publiceringsprofil från den **användaren** avsnittet. Sedan logga in på portalen med samma e-postadress och länka ditt Dev Center-konto.
+Om du inte har ett [konto för utvecklar Center](./cloud-partner-portal-dev-center-accounts-registration.md)kan du skapa ett konto. Lägg sedan till den registrerade e-postadressen som en ägare på Cloud Partner Portal för ditt erbjudande. En ägare kan bara lägga till den registrerade e-postadressen i din publicerings profil från avsnittet **användare** . Logga sedan in på portalen med samma e-postadress och länka ditt dev Center-konto.
 
-![Profilinformation Publisher - utgivare Profilbeskrivning](./media/cloud-partner-portal-how-to-manage-publisher-profile/publisherprofiledescription.png)
+![Utgivar profil information – Beskrivning av utgivar profil](./media/cloud-partner-portal-how-to-manage-publisher-profile/publisherprofiledescription.png)

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 08/26/2019
+ms.date: 11/07/2019
 ms.author: aahi
-ms.openlocfilehash: 3b616ac76d2b7fca0d83db2b17b0978bbb249e45
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
-ms.translationtype: HT
+ms.openlocfilehash: 0f16c687f9816e99e05c2495a05596bd988ca9d2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73742718"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827309"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Vad är API för textanalys?
 
@@ -110,7 +110,7 @@ API för textanalys använder Unicode-kodning för textrepresentation och beräk
 
 + [Skapa en Azure-resurs](../cognitive-services-apis-create-account.md) för textanalys för att få en nyckel och slut punkt för dina program.
 
-+ [Snabbstart](quickstarts/text-analytics-sdk.md) är en genomgång av REST API-anropen skrivna i C#. Lär dig hur du skickar text, väljer en analys och visar resultat med minimal kod. Om du vill kan du starta med python- [snabb](quickstarts/python.md) starten i stället.
++ Använd [snabb](quickstarts/text-analytics-sdk.md) start för att börja skicka API-anrop. Lär dig hur du skickar text, väljer en analys och visar resultat med minimal kod.
 
 + Se [vad som är nytt i API för textanalys](whats-new.md) för information om nya versioner och funktioner.
 

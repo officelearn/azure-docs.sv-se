@@ -1,5 +1,5 @@
 ---
-title: SQL Database Gransknings logg format
+title: Granska loggformat
 description: Förstå hur SQL Database gransknings loggar struktureras.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 01/03/2019
-ms.openlocfilehash: 5befd15beba6a5c8071a6f5a01e34dc109fd118a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 389404f59b5a0cba1acd7aa097ddd3dd929d8082
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691213"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821998"
 ---
 # <a name="sql-database-audit-log-format"></a>SQL Database Gransknings logg format
 
@@ -86,7 +86,7 @@ Gransknings händelser skrivs till Log Analytics arbets yta som definierats unde
 | target_server_principal_sid | target_server_principal_sid_s | SID för mål inloggning. NULL om ej tillämpligt | varbinary | sträng |
 | transaction_id | transaction_id_d | Endast SQL Server (från och med 2016) – 0 för Azure SQL DB | bigint | int |
 | user_defined_event_id | user_defined_event_id_d | Ett användardefinierat händelse-ID skickades som ett argument till sp_audit_write. NULL för system händelser (standard) och icke-noll för användardefinierad händelse. Mer information finns i [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | smallint | int |
-| user_defined_information | user_defined_information_s | Användardefinierad information skickades som ett argument till sp_audit_write. NULL för system händelser (standard) och icke-noll för användardefinierad händelse. Mer information finns i [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar (4000) | sträng |
+| user_defined_information | user_defined_information_s | Användardefinierad information som skickas som ett argument till sp_audit_write. NULL för system händelser (standard) och icke-noll för användardefinierad händelse. Mer information finns i [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar (4000) | sträng |
 
 ## <a name="next-steps"></a>Nästa steg
 

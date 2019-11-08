@@ -1,6 +1,6 @@
 ---
-title: Vad är OPC Publisher - Azure | Microsoft Docs
-description: Översikt över OPC Publisher
+title: Vad är OPC Publisher – Azure | Microsoft Docs
+description: Den här artikeln innehåller en översikt över funktionerna i OPC Publisher. Det gör att du kan publicera kodade JSON-telemetridata med en JSON-nyttolast till Azure IoT Hub.
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/10/2019
@@ -8,39 +8,39 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: c738e927a352373d7f5a4aeb5697e07134a98cba
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 2310a81d3cfaeff203134af9968bc2d5caea3e9c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603669"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824784"
 ---
 # <a name="what-is-opc-publisher"></a>Vad är OPC Publisher?
 
-OPC Publisher är en referensimplementering som visar hur du:
+OPC Publisher är en referens implementering som visar hur du:
 
 - Anslut till befintliga OPC UA-servrar.
-- Publicera JSON-kodad telemetridata från OPC UA-servrar i OPC UA Pub/Sub-format, med hjälp av en JSON-nyttolast till Azure IoT Hub.
+- Publicera JSON-kodade telemetridata från OPC UA-servrar i OPC UA pub/sub-format med en JSON-nyttolast till Azure IoT Hub.
 
-Du kan använda någon av de transportprotokoll som stöds av Azure IoT Hub-klient-SDK: HTTPS, AMQP och MQTT.
+Du kan använda något av de transport protokoll som Azure IoT Hub-klientens SDK stöder: HTTPS, AMQP och MQTT.
 
-Referensimplementeringen innehåller:
+Referens implementeringen innehåller:
 
-- En OPC UA *klienten* för att ansluta till befintliga OPC UA-servrar som du har i nätverket.
-- En OPC UA *server* på port 62222 som du kan använda för att hantera vad publiceras och erbjuder IoT Hub direkta metoder för att göra detsamma.
+- En OPC UA- *klient* för att ansluta till befintliga OPC UA-servrar som du har i nätverket.
+- En OPC UA- *Server* på port 62222 som du kan använda för att hantera vad som publiceras och erbjuder IoT Hub direkta metoder för att göra samma sak.
 
-Du kan ladda ned den [referensimplementering för OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) från GitHub.
+Du kan ladda ned [referens implementeringen OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) från GitHub.
 
-Programmet har implementerats med hjälp av .NET Core-teknik och kan köras på alla plattformar som stöds av .NET Core.
+Programmet implementeras med hjälp av .NET Core Technology och kan köras på alla plattformar som stöds av .NET Core.
 
-OPC Publisher implementerar logik för omprövning och kan upprätta anslutningar till slutpunkter som inte svarar på ett visst antal keep alive-begäranden. Om exempelvis en OPC UA-servern inte svarar på grund av ett strömavbrott.
+OPC Publisher implementerar omprövnings logik för att upprätta anslutningar till slut punkter som inte svarar på ett visst antal Keep Alive-begäranden. Om en OPC UA-server till exempel slutar svara på grund av strömavbrott.
 
-Programmet skapar en separat prenumeration som alla noder med den här Publiceringsintervall uppdateras för varje distinkt Publiceringsintervall till en OPC UA-server.
+För varje distinkt publicerings intervall till en OPC UA-Server skapar programmet en separat prenumeration där alla noder med publicerings intervallet uppdateras.
 
-OPC Publisher har stöd för batchbearbetning av data som skickas till IoT Hub till att minska nätverksbelastningen. Den här batchbearbetning skickar ett paket till IoT Hub endast om den konfigurera paketstorleken har nåtts.
+OPC Publisher stöder batchbearbetning av data som skickas till IoT Hub för att minska belastningen på nätverket. Den här batchen skickar ett paket till IoT Hub endast om den konfigurerade paket storleken har nåtts.
 
-Det här programmet använder referens OPC Foundation OPC UA-stacken som NuGet-paket. Se [ https://opcfoundation.org/license/redistributables/1.3/ ](https://opcfoundation.org/license/redistributables/1.3/) för licensvillkoren.
+I det här programmet används OPC Foundation OPC UA-referens stack som NuGet-paket. Se [https://opcfoundation.org/license/redistributables/1.3/](https://opcfoundation.org/license/redistributables/1.3/) för licens villkoren.
 
 ### <a name="next-steps"></a>Nästa steg
 
-Nu har du lärt dig OPC Publisher nyheter, föreslagna nästa steg är att lära dig hur du [konfigurera OPC Publisher](howto-opc-publisher-configure.md).
+Nu har du lärt dig vad OPC Publisher är, det föreslagna nästa steg är att lära dig hur du [konfigurerar OPC Publisher](howto-opc-publisher-configure.md).

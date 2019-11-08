@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 11/04/2019
-ms.openlocfilehash: d5a8ada7be99cfbd541b9ac58db2eba094536fc0
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ccd29952693ecbc1db5927d5deabae874b6e9933
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580521"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796701"
 ---
 # <a name="build--use-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Bygg & Använd en Azure Machine Learning pipeline för batch-Poäng
 
@@ -480,7 +480,7 @@ Om du vill köra pipelinen från REST-slutpunkten behöver du ett OAuth2 Bearer-
 
 Autentisering av tjänstens huvud konto innebär att skapa en *app-registrering* i *Azure Active Directory*. Först genererar du en klient hemlighet och sedan beviljar du *rollen* som tjänst huvud namn till din Machine Learning-arbetsyta. Använd [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) -klassen för att hantera ditt autentiseringspaket. 
 
-Både `InteractiveLoginAuthentication` och `ServicePrincipalAuthentication` ärver från `AbstractAuthentication`. I båda fallen använder du funktionen `get_authentication_header()` på samma sätt för att hämta rubriken:
+Både [`InteractiveLoginAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?view=azure-ml-py) och `ServicePrincipalAuthentication` ärver från `AbstractAuthentication`. I båda fallen använder du funktionen [`get_authentication_header()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.abstractauthentication?view=azure-ml-py#get-authentication-header--) på samma sätt för att hämta rubriken:
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication

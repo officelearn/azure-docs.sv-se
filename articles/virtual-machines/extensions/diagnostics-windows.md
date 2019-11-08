@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: 771064774371e71c0664918790b296c156ed1c1f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 547de4862081b56bf627c3a00564ce6564f2ad09
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084778"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750101"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Använd PowerShell för att aktivera Azure Diagnostics i en virtuell dator som kör Windows
 
 Azure-diagnostik är funktionen i Azure som möjliggör insamling av diagnostikdata i ett distribuerat program. Du kan använda tillägget för diagnostik för att samla in diagnostikdata som program loggar eller prestanda räknare från en virtuell Azure-dator (VM) som kör Windows. 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-resource-manager-deployment-model"></a>Aktivera diagnostik-tillägget om du använder distributions modellen för Resource Manager
 Du kan aktivera tillägget diagnostik när du skapar en virtuell Windows-dator genom Azure Resource Manager distributions modell genom att lägga till tilläggs konfigurationen i Resource Manager-mallen. Se [skapa en virtuell Windows-dator med övervakning och diagnostik med hjälp av Azure Resource Manager-mallen](diagnostics-template.md).

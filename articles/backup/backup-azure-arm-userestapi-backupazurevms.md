@@ -1,6 +1,6 @@
 ---
 title: 'Azure Backup: säkerhetskopiera virtuella Azure-datorer med REST API'
-description: Hantera säkerhets kopierings åtgärder för säkerhets kopiering av virtuella Azure-datorer med REST API
+description: I den här artikeln får du lära dig hur du konfigurerar, initierar och hanterar säkerhets kopierings åtgärder för virtuella Azure-datorer med hjälp av REST API.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 837401256aa264a527e2323b055713f4bd8e8d1c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
-ms.translationtype: HT
+ms.openlocfilehash: 901ae66281e1d68474304a4f5456a0163fcb6f2a
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73671690"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747610"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Säkerhetskopiera en virtuell Azure-dator med hjälp av Azure Backup via REST API
 
@@ -108,13 +108,13 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 *Hämta* URI har alla nödvändiga parametrar. Ingen ytterligare begär ande text krävs.
 
-##### <a name="responses-1"></a>Registrera
+#### <a name="responses-1"></a>Registrera
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |200 OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
-##### <a name="example-responses-1"></a>Exempel svar
+#### <a name="example-responses-1"></a>Exempel svar
 
 När *Get* -begäran har skickats returneras ett 200-svar (OK).
 
@@ -329,7 +329,7 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 |---------|---------|---------|
 |202 accepterad     |         |     Accept    |
 
-##### <a name="example-responses-3"></a>Exempel svar
+#### <a name="example-responses-3"></a>Exempel svar
 
 När du har skickat in *post* -begäran för en säkerhets kopiering på begäran är det första svaret 202 (accepteras) med ett plats huvud eller Azure-async-header.
 
@@ -454,7 +454,7 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 
 [Återställa data från en säkerhets kopia av en virtuell Azure-dator](backup-azure-arm-userestapi-restoreazurevms.md).
 
-Mer information om Azure Backup REST API: er finns i följande dokument:
+Mer information om Azure Backup REST-API: er finns i följande dokument:
 
 - [Azure Recovery Services-Provider REST API](/rest/api/recoveryservices/)
 - [Komma igång med Azure REST API](/rest/api/azure/)

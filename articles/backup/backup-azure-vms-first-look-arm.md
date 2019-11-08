@@ -1,18 +1,18 @@
 ---
 title: Säkerhetskopiera en virtuell Azure-dator från VM-inställningarna med Azure Backup
-description: Lär dig hur du säkerhetskopierar en virtuell Azure-dator med tjänsten Azure Backup
+description: I den här artikeln lär du dig hur du säkerhetskopierar en valfri virtuell Azure-dator eller flera virtuella Azure-datorer med tjänsten Azure Backup.
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: cfbec94a2922995eed546d526c1f469e2ea54118
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 232c027ef60a031df53f2439586a0ae459ab67d5
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969054"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747231"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Säkerhetskopiera en virtuell Azure-dator från VM-inställningarna
 
@@ -35,7 +35,7 @@ För att kunna säkerhetskopiera virtuella Azure-datorer installerar Azure Backu
 
 ## <a name="back-up-from-azure-vm-settings"></a>Säkerhetskopiera från inställningar för virtuella Azure-datorer
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Klicka på **alla tjänster** och skriv **virtuella datorer**i filtret och klicka sedan på **virtuella datorer**.
 3. I listan över virtuella datorer väljer du den virtuella dator som du vill säkerhetskopiera.
 4. På menyn VM klickar du på **säkerhets kopiering**.

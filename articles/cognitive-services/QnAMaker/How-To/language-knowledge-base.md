@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: 849c919950c57a1df3b0fb76021de6e10254c7b4
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: a818d84bf3df712190ccc6c1721c26933a9fbcdb
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286415"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73793928"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>Språk stöd för kunskaps bas innehåll för QnA Maker
 
@@ -38,9 +38,9 @@ Val av språk är en del av stegen för att skapa den första kunskaps basen i e
 ![QnA Maker Portal skärm bild av val av språk för den första kunskaps basen](../media/language-support/select-language-when-creating-knowledge-base.png)
 
 ## <a name="query-matching-and-relevance"></a>Fråga matchning och relevans
-QnA Maker är beroende av [Azure Search språk analys](https://docs.microsoft.com/rest/api/searchservice/language-support) verktyg för att ge resultat. 
+QnA Maker är beroende av [Azure kognitiv sökning språk analys](https://docs.microsoft.com/rest/api/searchservice/language-support) verktyg för att ge resultat. 
 
-Även om Azure Search funktionerna är på parivärde för språk som stöds, har QnA Maker en ytterligare rang som finns ovanför Azure Search-resultaten. I den här ranknings modellen använder vi vissa särskilda semantiska och Word-baserade funktioner på följande språk. 
+Även om Azure Kognitiv sökning-funktionerna är på parivärde för språk som stöds, har QnA Maker ytterligare rangordning som ligger ovanför Azure Search-resultaten. I den här ranknings modellen använder vi vissa särskilda semantiska och Word-baserade funktioner på följande språk. 
 
 |Språk med ytterligare rangordning|
 |--|

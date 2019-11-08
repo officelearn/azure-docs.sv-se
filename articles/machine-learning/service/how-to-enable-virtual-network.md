@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/25/2019
-ms.openlocfilehash: 2559a3cbd786c737b316a860e9c75434c6c719a4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: e5dee838df2a60bf2038f2c7d2b1cc5958354d29
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73576575"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796772"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Skydda Azure ML-experimentering och härlednings jobb i en Azure-Virtual Network
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -63,7 +63,7 @@ Om du vill använda ett Azure Storage-konto för arbets ytan i ett virtuellt nä
     - Under __virtuella nätverk__väljer du länken __Lägg till befintligt virtuellt nätverk__ . Den här åtgärden lägger till det virtuella nätverk där din beräkning finns (se steg 1).
 
         > [!IMPORTANT]
-        > Lagrings kontot måste finnas i samma virtuella nätverk som de virtuella datorerna för den bärbara datorn eller de kluster som används för utbildning eller härledning.
+        > Lagrings kontot måste finnas i samma virtuella nätverk som de kluster som används för utbildning eller härledning.
 
     - Markera kryss rutan __Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot__ .
 
@@ -108,7 +108,7 @@ Om du vill använda Azure Machine Learning experiment funktioner med Azure Key V
 
 ## <a name="use-a-machine-learning-compute"></a>Använd en Machine Learning-beräkning
 
-Om du vill använda en virtuell dator med Azure Machine Learning Notebook eller beräknings kluster i ett virtuellt nätverk måste följande nätverks krav uppfyllas:
+Om du vill använda ett Azure Machine Learning beräknings kluster i ett virtuellt nätverk måste följande nätverks krav uppfyllas:
 
 > [!div class="checklist"]
 > * Det virtuella nätverket måste finnas i samma prenumeration och region som Azure Machine Learning-arbetsytan.
@@ -246,27 +246,6 @@ När du har skapat processen tränar du din modell genom att använda klustret i
 
 <a id="vmorhdi"></a>
 
-### <a name="create-a-compute-instance-in-a-virtual-network"></a>Skapa en beräknings instans i ett virtuellt nätverk
-
-Skapa en Azure Machine Learning beräknings instans i ett virtuellt nätverk. Gör så här för att skapa en beräknings instans:
-
-1. I arbets ytan Studio väljer du **beräkning** i vänster fönster.
-
-1. På fliken beräknings instanser väljer du **nytt** för att börja skapa en ny beräknings instans.
-
-1. Ange fälten beräknings namn och storlek på virtuell dator och aktivera/inaktivera SSH-åtkomst.
-
-1. Gör så här för att konfigurera beräknings instansen för att använda ett virtuellt nätverk:
-
-    a. Välj **Avancerade inställningar**.
-
-    b. I list rutan **resurs grupp** väljer du den resurs grupp som innehåller det virtuella nätverket.
-
-    c. I list rutan **virtuellt nätverk** väljer du det virtuella nätverk som innehåller under nätet.
-
-    d. I list rutan **undernät** väljer du det undernät som ska användas.
-
-1. Välj **skapa** för att etablera en beräknings instans i ett virtuellt nätverk.
 
 ## <a name="use-a-virtual-machine-or-hdinsight-cluster"></a>Använda en virtuell dator eller HDInsight-kluster
 

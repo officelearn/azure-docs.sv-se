@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: f7f57a43697a9376062bdd3baa2d5f7333bf4a7f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 25091e8e58fbdba908fb00ece3cd2d3d296c5ab1
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100163"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749065"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Konfigurera WinRM-åtkomst för Virtual Machines i Azure Resource Manager
 
@@ -31,16 +31,16 @@ Här är de steg du måste vidta för att konfigurera en virtuell dator med WinR
 4. Hämta URL: en för ditt självsignerade certifikat i Key Vault
 5. Referera till din självsignerade certifikat-URL när du skapar en virtuell dator
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
-## <a name="step-1-create-a-key-vault"></a>Steg 1: Skapa en Key Vault-lösning
+## <a name="step-1-create-a-key-vault"></a>Steg 1: skapa en Key Vault
 Du kan använda kommandot nedan för att skapa Key Vault
 
 ```
 New-AzKeyVault -VaultName "<vault-name>" -ResourceGroupName "<rg-name>" -Location "<vault-location>" -EnabledForDeployment -EnabledForTemplateDeployment
 ```
 
-## <a name="step-2-create-a-self-signed-certificate"></a>Steg 2: Skapa ett självsignerat certifikat
+## <a name="step-2-create-a-self-signed-certificate"></a>Steg 2: skapa ett självsignerat certifikat
 Du kan skapa ett självsignerat certifikat med hjälp av det här PowerShell-skriptet
 
 ```
@@ -82,7 +82,7 @@ Set-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValu
 Providern Microsoft. Compute Resource måste ha en URL till hemligheten i Key Vault när den virtuella datorn har skapats. Detta gör att Microsoft. Compute Resource-providern kan hämta hemligheten och skapa motsvarande certifikat på den virtuella datorn.
 
 > [!NOTE]
-> URL: en för hemligheten måste även innehålla-versionen. En exempel-URL ser ut som under\/https:/contosovault.Vault.Azure.net:443/Secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
+> URL: en för hemligheten måste även innehålla-versionen. En exempel-URL ser ut som under https:\//contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
 
 #### <a name="templates"></a>Mallar
 Du kan hämta länken till URL: en i mallen med hjälp av koden nedan
@@ -94,7 +94,7 @@ Du kan hämta den här URL: en med hjälp av PowerShell-kommandot nedan
 
     $secretURL = (Get-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
 
-## <a name="step-5-reference-your-self-signed-certificates-url-while-creating-a-vm"></a>Steg 5: Referera till din självsignerade certifikat-URL när du skapar en virtuell dator
+## <a name="step-5-reference-your-self-signed-certificates-url-while-creating-a-vm"></a>Steg 5: referera till din självsignerade certifikat-URL när du skapar en virtuell dator
 #### <a name="azure-resource-manager-templates"></a>Azure Resource Manager mallar
 När du skapar en virtuell dator med hjälp av mallar, hämtas certifikatet i avsnittet hemligheter och winRM enligt nedan:
 
@@ -143,13 +143,13 @@ Du hittar käll koden för den här mallen på [GitHub](https://github.com/Azure
     $CertificateStore = "My"
     $vm = Add-AzVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore $CertificateStore -CertificateUrl $secretURL
 
-## <a name="step-6-connecting-to-the-vm"></a>Steg 6: Ansluter till den virtuella datorn
+## <a name="step-6-connecting-to-the-vm"></a>Steg 6: ansluta till den virtuella datorn
 Innan du kan ansluta till den virtuella datorn måste du kontrol lera att datorn har kon figurer ATS för WinRM-fjärrhantering. Starta PowerShell som administratör och kör kommandot nedan för att kontrol lera att du har konfigurerat.
 
     Enable-PSRemoting -Force
 
 > [!NOTE]
-> Du kan behöva kontrol lera att WinRM-tjänsten körs om ovanstående inte fungerar. Du kan göra det med hjälp av`Get-Service WinRM`
+> Du kan behöva kontrol lera att WinRM-tjänsten körs om ovanstående inte fungerar. Du kan göra det med hjälp av `Get-Service WinRM`
 > 
 > 
 

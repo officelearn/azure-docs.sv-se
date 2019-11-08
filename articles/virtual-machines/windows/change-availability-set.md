@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 0a91a80c18b04e257daa9a42fd7933351fe3a35c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5390643723f2907301554e69a1142cef181deb13
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080136"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749609"
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>Ändra tillgänglighets uppsättning för en virtuell Windows-dator
 Följande steg beskriver hur du ändrar tillgänglighets uppsättningen för en virtuell dator med hjälp av Azure PowerShell. En virtuell dator kan bara läggas till i en tillgänglighets uppsättning när den skapas. Om du vill ändra tillgänglighets uppsättningen måste du ta bort och sedan återskapa den virtuella datorn. 
 
-Den här artikeln testades senast 2/12/2019 med hjälp av [Azure Cloud Shell](https://shell.azure.com/powershell) och [AZ PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) -modulens version 1.2.0.
+Den här artikeln testades senast 2/12/2019 med hjälp av [Azure Cloud Shell](https://shell.azure.com/powershell) och [AZ PowerShell-modulens](https://docs.microsoft.com/powershell/azure/install-az-ps) version 1.2.0.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="change-the-availability-set"></a>Ändra tillgänglighets uppsättning 
 
@@ -110,5 +110,5 @@ Följande skript innehåller ett exempel på hur du samlar in nödvändig inform
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lägg till ytterligare lagrings utrymme i den virtuella datorn [](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)genom att lägga till ytterligare en datadisk.
+Lägg till ytterligare lagrings utrymme i den virtuella datorn genom att lägga till ytterligare en [datadisk](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

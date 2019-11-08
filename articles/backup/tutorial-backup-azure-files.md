@@ -1,44 +1,49 @@
 ---
 title: Säkerhetskopiera Azure Files fil resurser med tjänsten Azure Backup
-description: I den här självstudien beskrivs hur du säkerhetskopierar Azure-filresurser.
+description: I den här självstudien får du lära dig hur du använder Azure Portal för att konfigurera ett Recovery Services-valv och säkerhetskopiera Azure-filresurser.
 author: dcurwin
 ms.author: dacurwin
 ms.date: 06/10/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: e63ad75effb03cf9dd5eb5c66b142cce629ea290
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: a8b08f87441f9b4c67f718dfe9f0c894d0730a5f
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736241"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747047"
 ---
-# <a name="back-up-azure-file-shares-in-the-azure-portal"></a>Säkerhetskopiera Azure-filresurser i Azure-portalen
-I den här självstudien beskrivs hur du använder Azure Portal för att säkerhetskopiera [Azure](../storage/files/storage-files-introduction.md)-filresurser.
+# <a name="back-up-azure-file-shares-in-the-azure-portal"></a>Säkerhetskopiera Azure-filresurser i Azure Portal
+
+I den här självstudien beskrivs hur du använder Azure Portal för att säkerhetskopiera [Azure-filresurser](../storage/files/storage-files-introduction.md).
 
 I den här guiden får du lära du dig att:
 > [!div class="checklist"]
+>
 > * Konfigurera ett Recovery Services-valv till att säkerhetskopiera Azure Files
 > * Köra en säkerhetskopiering på begäran för att skapa en återställningspunkt
 
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
 Innan du kan säkerhetskopiera en Azure-filresurs bör du kontrollera att den finns i någon av de [lagringskontotyper som stöds](tutorial-backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview). När du har kontrollerat detta kan du skydda din filresurser.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Begränsningar för säkerhets kopiering av Azure-filresurs under för hands versionen
+
 Säkerhetskopiering för Azure-filresurser finns i förhandsversion. Azure-filresurser i både general-purpose v1- och general-purpose v2-lagringskonton stöds. Följande säkerhetskopieringsscenarier stöds inte för Azure-filresurser:
-- Du kan inte skydda av Azure-filresurser i lagringskonton som har virtuella nätverk eller brandvägg aktiverade.
-- Det finns ingen tillgänglig CLI som skyddar Azure Files med hjälp av Azure Backup.
-- Det maximala antalet schemalagda säkerhetskopieringar per dag är en.
-- Det maximala antalet säkerhetskopieringar på begäran per dag är fyra.
-- Förhindra att säkerhetskopior i Recovery Services-valvet oavsiktligt tas bort genom att använda [resurslås](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) på lagringskontot.
-- Ta inte bort ögonblicksbilder som skapats av Azure Backup. Om du tar bort ögonblicksbilder kan du förlora återställningspunkter och/eller drabbas av återställningsfel.
-- Ta inte bort filresurser som skyddas av Azure Backup. Den aktuella lösningen tar bort alla ögonblicksbilder som har tagits av Azure Backup när filresursen har tagits bort och förlorar därför alla återställningspunkter
+
+* Du kan inte skydda av Azure-filresurser i lagringskonton som har virtuella nätverk eller brandvägg aktiverade.
+* Det finns ingen tillgänglig CLI som skyddar Azure Files med hjälp av Azure Backup.
+* Det maximala antalet schemalagda säkerhetskopieringar per dag är en.
+* Det maximala antalet säkerhetskopieringar på begäran per dag är fyra.
+* Förhindra att säkerhetskopior i Recovery Services-valvet oavsiktligt tas bort genom att använda [resurslås](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) på lagringskontot.
+* Ta inte bort ögonblicksbilder som skapats av Azure Backup. Om du tar bort ögonblicksbilder kan du förlora återställningspunkter och/eller drabbas av återställningsfel.
+* Ta inte bort filresurser som skyddas av Azure Backup. Den aktuella lösningen tar bort alla ögonblicksbilder som har tagits av Azure Backup när filresursen har tagits bort och förlorar därför alla återställningspunkter
 
 Säkerhetskopiera för Azure-filresurser i lagrings konton med ZRS-replikering ( [Zone redundant Storage](../storage/common/storage-redundancy-zrs.md) ) är för närvarande endast tillgängligt i centrala USA (CUS), östra USA (EUs), östra USA 2 (EUS2), Nord Europa (NE), Sydostasien (USA), Västeuropa (USA) och västra USA 2 (WUS2).
 
 ## <a name="configuring-backup-for-an-azure-file-share"></a>Konfigurera säkerhetskopiering för en Azure-filresurs
+
 Den här självstudien förutsätter att du redan har skapat en filresurs i Azure. Säkerhetskopiera Azure-filresurser:
 
 1. Skapa ett Recovery Services-valv i samma region som din filresurs. Om du redan har ett valv öppnar du valvets översiktssida och klickar på **Backup**.
@@ -70,8 +75,8 @@ Den här självstudien förutsätter att du redan har skapat en filresurs i Azur
     När du har etablerat en säkerhetskopieringspolicy tas en ögonblicksbild av filresurserna vid den schemalagda tiden och en återställningspunkt sparas för den valda perioden.
 
 ## <a name="create-an-on-demand-backup"></a>Skapa en säkerhetskopiering på begäran
-När du har konfigurerat säkerhets kopierings policyn vill du skapa en säkerhets kopia på begäran för att säkerställa att dina data skyddas tills nästa schemalagda säkerhets kopiering.
 
+När du har konfigurerat säkerhets kopierings policyn vill du skapa en säkerhets kopia på begäran för att säkerställa att dina data skyddas tills nästa schemalagda säkerhets kopiering.
 
 ### <a name="to-create-an-on-demand-backup"></a>Skapa en säkerhetskopiering på begäran
 
@@ -91,12 +96,12 @@ När du har konfigurerat säkerhets kopierings policyn vill du skapa en säkerhe
 
    ![Välj datum för kvarhållning av återställnings punkt](./media/backup-file-shares/backup-now-menu.png)
 
-
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudien använde du Azure Portal för att:
 
 > [!div class="checklist"]
+>
 > * Konfigurera ett Recovery Services-valv till att säkerhetskopiera Azure Files
 > * Köra en säkerhetskopiering på begäran för att skapa en återställningspunkt
 
@@ -104,4 +109,3 @@ Fortsätt till nästa artikel för att återställa från en säkerhets kopia av
 
 > [!div class="nextstepaction"]
 > [Återställa från en säkerhets kopia av Azure-filresurser](./backup-azure-files.md#restore-from-backup-of-azure-file-share)
- 

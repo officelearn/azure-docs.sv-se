@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: 71e4b62ddcb3f144b49b99e6ba95a47971d3f4bb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: MT
+ms.openlocfilehash: 12e9367ca9e330806af4c7cc5db626edddff5c25
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476921"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795276"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 Det här dokumentet innehåller några av de vanligaste Microsoft Azures gränserna, som ibland kallas kvoter. Det här dokumentet avser för närvarande inte alla Azure-tjänster. Med tiden kommer listan att expanderas och uppdateras för att avse fler tjänster.
@@ -48,6 +48,7 @@ I följande lista över gränser visar en ny tabell eventuella skillnader i grä
 * [Automation](#automation-limits)
 * [Azure Cache for Redis](#azure-cache-for-redis-limits)
 * [Azure Cloud Services](#azure-cloud-services-limits)
+* [Azure-Kognitiv sökning](#azure-cognitive-search-limits)
 * [Azure Cognitive Services](#azure-cognitive-services-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Azure Database for MySQL](#azure-database-for-mysql)
@@ -60,7 +61,6 @@ I följande lista över gränser visar en ny tabell eventuella skillnader i grä
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#azure-monitor-limits)
 * [Azure Policy](#azure-policy-limits)
-* [Azure Search](#azure-search-limits)
 * [Azure SignalR-tjänsten](#azure-signalr-service-limits)
 * [Säkerhetskopiering](#backup-limits)
 * [Batch](#batch-limits)
@@ -264,13 +264,13 @@ I följande tabell visas gränserna för Azure BizTalk Services.
 ### <a name="azure-cosmos-db-limits"></a>Azure Cosmos DB gränser
 För Azure Cosmos DB gränser, se [gränser i Azure Cosmos DB](cosmos-db/concepts-limits.md).
 
-### <a name="azure-database-for-mysql"></a>Azure-databas för MySQL
+### <a name="azure-database-for-mysql"></a>Azure Database for MySQL
 För Azure Database for MySQL gränser, se [begränsningar i Azure Database for MySQL](mysql/concepts-limits.md).
 
 ### <a name="azure-database-for-postgresql"></a>Azure Database for PostgreSQL
 För Azure Database for PostgreSQL gränser, se [begränsningar i Azure Database for PostgreSQL](postgresql/concepts-limits.md).
 
-### <a name="azure-search-limits"></a>Azure Search gränser
+### <a name="azure-cognitive-search-limits"></a>Azure Kognitiv sökning-gränser
 Pris nivåer avgör din Sök tjänsts kapacitet och begränsningar. Nivåerna är:
 
 * En **kostnads fri** tjänst för flera innehavare, som delas med andra Azure-prenumeranter, är avsedd för utvärdering och små utvecklings projekt.
@@ -285,7 +285,7 @@ Pris nivåer avgör din Sök tjänsts kapacitet och begränsningar. Nivåerna ä
 
 [!INCLUDE [azure-search-limits-per-service](../includes/azure-search-limits-per-service.md)]
 
-Om du vill veta mer om begränsningar på en mer detaljerad nivå, till exempel dokument storlek, frågor per sekund, nycklar, förfrågningar och svar, se [tjänst begränsningar i Azure Search](search/search-limits-quotas-capacity.md).
+Om du vill veta mer om begränsningar på en mer detaljerad nivå, till exempel dokument storlek, frågor per sekund, nycklar, förfrågningar och svar, se [tjänst begränsningar i Azure kognitiv sökning](search/search-limits-quotas-capacity.md).
 
 ### <a name="media-services-limits"></a>Media Services gränser
 [!INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]

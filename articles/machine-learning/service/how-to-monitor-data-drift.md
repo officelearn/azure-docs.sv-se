@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: eddfddc994482bcb6e60604703e7f306fee9c32b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
-ms.translationtype: MT
+ms.openlocfilehash: 24b1c22d9badc58360b0355bb4ef89017db27f06
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574335"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796725"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Identifiera data drift (för hands version) i modeller som distribuerats till Azure Kubernetes service (AKS)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -189,6 +189,8 @@ När data påverkar negativ påverkan på den distribuerade modellens prestanda 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Ett komplett exempel på hur du använder data drift finns i den [bärbara datorn för Azure ml data drivgarn](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/azure-ml-datadrift.ipynb). Den här Jupyter Notebook visar hur du använder en [Azure Open-datauppsättning](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) för att träna en modell för att förutsäga väder, distribuera den till AKS och övervaka data driften. 
+* Ett komplett exempel på hur du använder data drift finns i den [bärbara datorn för Azure ml data drivgarn](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/drift-on-aks.ipynb). Den här Jupyter Notebook visar hur du använder en [Azure Open-datauppsättning](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) för att träna en modell för att förutsäga väder, distribuera den till AKS och övervaka data driften. 
+
+* Identifiera data drivgarn med [data uppsättnings övervakare](how-to-monitor-datasets.md).
 
 * Vi skulle kraftigt uppskatta dina frågor, kommentarer eller förslag när data driften flyttas mot allmän tillgänglighet. Använd knappen produkt feedback nedan! 

@@ -1,7 +1,7 @@
 ---
 title: Konfigurera behållare – ansikts-API
 titleSuffix: Azure Cognitive Services
-description: Konfigurationsinställningar för behållare.
+description: Runtime-miljön för ansikts behållare konfigureras med hjälp av kommando argumenten `docker run`. Det finns både obligatoriska och valfria inställningar.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -9,100 +9,100 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: a07f088f7f5699a2698c0ea8fb0e853b3d287572
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 78fd2aa977062d2f0d6b981140f3db5b263e4651
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101959"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795038"
 ---
 # <a name="configure-face-docker-containers"></a>Konfigurera ansikts Docker-behållare
 
-Runtime-miljön för **ansikts** behållare konfigureras med `docker run` hjälp av kommando argumenten. Den här behållaren har flera inställningar som krävs, tillsammans med några valfria inställningar. Flera [exempel](#example-docker-run-commands) kommandots är tillgängliga. De behållar-/regionsspecifika inställningarna är fakturerings inställningarna. 
+Runtime-miljön för **ansikts** behållare konfigureras med hjälp av kommando argumenten `docker run`. Den här behållaren har flera inställningar som krävs, tillsammans med några valfria inställningar. Det finns flera [exempel](#example-docker-run-commands) på kommandot. De behållar-/regionsspecifika inställningarna är fakturerings inställningarna. 
 
 ## <a name="configuration-settings"></a>Konfigurationsinställningar
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> Den [ `ApiKey` ](#apikey-configuration-setting), [ `Billing` ](#billing-configuration-setting), och [ `Eula` ](#eula-setting) inställningar används tillsammans, och du måste ange giltiga värden för alla tre av dem, annars din behållare startar inte. Läs mer om att använda dessa konfigurationsinställningar för att skapa en instans av en behållare, [fakturering](face-how-to-install-containers.md#billing).
+> Inställningarna [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting)och [`Eula`](#eula-setting) används tillsammans och du måste ange giltiga värden för alla tre. annars startar inte behållaren. Mer information om hur du använder dessa konfigurations inställningar för att instansiera en behållare finns i [fakturering](face-how-to-install-containers.md#billing).
 
-## <a name="apikey-configuration-setting"></a>ApiKey konfigurationsinställning
+## <a name="apikey-configuration-setting"></a>Konfigurations inställning för ApiKey
 
-Den `ApiKey` inställningen anger du Azure-resurs-nyckeln som används för att spåra faktureringsinformation för behållaren. Du måste ange ett värde för ApiKey och värdet måste vara en giltig nyckel för den _Cognitive Services_ resurs som angetts för [`Billing`](#billing-configuration-setting) konfigurations inställningen.
+Inställningen `ApiKey` anger den Azure-resurs nyckel som används för att spåra fakturerings information för behållaren. Du måste ange ett värde för ApiKey och värdet måste vara en giltig nyckel för den _Cognitive Services_ resurs som angetts för inställningen [`Billing`](#billing-configuration-setting) konfiguration.
 
 Du hittar den här inställningen på följande plats:
 
-* Azure-portalen: **Cognitive Services** Resurs hantering, under **nycklar**
+* Azure Portal: **Cognitive Services** resurs hantering under **nycklar**
 
-## <a name="applicationinsights-setting"></a>Inställningen för ApplicationInsights
+## <a name="applicationinsights-setting"></a>ApplicationInsights-inställning
 
 [!INCLUDE [Container shared configuration ApplicationInsights settings](../../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
 
-## <a name="billing-configuration-setting"></a>Fakturering konfigurationsinställning
+## <a name="billing-configuration-setting"></a>Konfigurations inställning för fakturering
 
-Inställningen anger slut punkts-URI för den Cognitive Services resursen på Azure som används för att mäta fakturerings information för behållaren. `Billing` Du måste ange ett värde för den här konfigurations inställningen och värdet måste vara en giltig slut punkts-URI för en _Cognitive Services_ -resurs på Azure. Behållar rapporteringen visar var 10 till 15: e minut.
+Inställningen `Billing` anger slut punkts-URI för den _Cognitive Services_ resursen på Azure som används för att mäta fakturerings information för behållaren. Du måste ange ett värde för den här konfigurations inställningen och värdet måste vara en giltig slut punkts-URI för en _Cognitive Services_ -resurs på Azure. Behållar rapporteringen visar var 10 till 15: e minut.
 
 Du hittar den här inställningen på följande plats:
 
-* Azure-portalen: **Cognitive Services** Översikt, märkt`Endpoint`
+* Azure Portal: **Cognitive Services** översikt, med etiketter `Endpoint`
 
 Kom ihåg att lägga till _ansikts_ dirigering till slut punkts-URI: n som visas i exemplet. 
 
-|Obligatorisk| Namn | Datatyp | Beskrivning |
+|Krävs| Namn | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
-|Ja| `Billing` | Sträng | Fakturering endpoint URI<br><br>Exempel:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
+|Ja| `Billing` | Sträng | URI för fakturerings slut punkt. Mer information om hur du skaffar fakturerings-URI: n finns i [samla in obligatoriska parametrar](face-how-to-install-containers.md#gathering-required-parameters). Mer information och en fullständig lista över regionala slut punkter finns i [anpassade under domän namn för Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
 <!-- specific to face only -->
 
-## <a name="cloudai-configuration-settings"></a>CloudAI konfigurationsinställningar
+## <a name="cloudai-configuration-settings"></a>Konfigurations inställningar för CloudAI
 
-Konfigurationsinställningarna i den `CloudAI` avsnittet Ange container-specifika alternativ som är unik för din behållare. Följande inställningar och objekt stöds för Ansikts-behållaren i den `CloudAI` avsnittet
+Konfigurations inställningarna i `CloudAI` avsnittet innehåller enhetsspecifika alternativ som är unika för din behållare. Följande inställningar och objekt stöds för behållaren FACET i avsnittet `CloudAI`
 
 | Namn | Datatyp | Beskrivning |
 |------|-----------|-------------|
-| `Storage` | Objekt | Lagringsscenariot som används av Ansikts-behållaren. Mer information om storage-scenarier och tillhörande inställningarna för den `Storage` objekt, se [lagringsinställningar för scenario](#storage-scenario-settings) |
+| `Storage` | Objekt | Det lagrings scenario som används av ansikts behållaren. Mer information om lagrings scenarier och tillhör ande inställningar för `Storage`-objektet finns i [Inställningar för lagrings scenario](#storage-scenario-settings) |
 
-### <a name="storage-scenario-settings"></a>Inställningarna för scenario
+### <a name="storage-scenario-settings"></a>Inställningar för lagrings scenario
 
-Ansikts-behållaren lagrar blob, cache, metadata och data i kön, beroende på vad som lagras. Exempelvis lagras utbildning index och resultat för en stor persongrupp som blob-data. Ansikts-behållaren innehåller två olika lagringsscenarier när du interagerar med och lagra dessa typer av data:
+Behållaren ansikte lagrar BLOB-, cache-, metadata-och Queue-data, beroende på vad som lagras. Till exempel lagras utbildnings index och resultat för en stor person grupp som BLOB-data. Ansikts behållaren innehåller två olika lagrings scenarier när du interagerar med och lagrar dessa typer av data:
 
 * Minne  
-  Alla fyra typer av data lagras i minnet. De inte har distribuerats, och inte heller de beständiga. Om Ansikts-behållaren stoppas eller tas bort, förstörs alla data i lagring för den behållaren.  
-  Detta är standard storage scenariot för Ansikts-behållaren.
+  Alla fyra typer av data lagras i minnet. De är inte distribuerade eller är inte permanenta. Om ansikts behållaren har stoppats eller tagits bort, förstörs alla data i lagrings utrymmet för den behållaren.  
+  Det här är standard lagrings scenariot för behållaren FACET.
 * Azure  
-  Ansikts-behållare använder Azure Storage och Azure Cosmos DB för att distribuera dessa fyra typer av data till beständig lagring. BLOB-och kön hanteras av Azure Storage. Metadata och cachelagrade data hanteras av Azure Cosmos DB. Om Ansikts-behållaren stoppas eller tas bort, förblir alla data i lagring för den behållaren lagras i Azure Storage och Azure Cosmos DB.  
-  De resurser som används av Azure storage-scenariot har följande ytterligare krav
-  * Azure Storage-resursen måste använda StorageV2-kontotyp
+  Behållaren ansikts använder Azure Storage och Azure Cosmos DB för att distribuera dessa fyra typer av data över beständig lagring. Blob-och Queue-data hanteras av Azure Storage. Metadata och cachelagrade data hanteras av Azure Cosmos DB. Om ansikts behållaren har stoppats eller tagits bort, förblir alla data i lagringen för den behållaren lagrade i Azure Storage och Azure Cosmos DB.  
+  De resurser som används av Azure Storage-scenariot har följande ytterligare krav
+  * Den Azure Storage resursen måste använda StorageV2-kontots typ
   * Den Azure Cosmos DB resursen måste använda Azure Cosmos DBs API för MongoDB
 
-Storage-scenarier och tillhörande konfigurationsinställningar som hanteras av den `Storage` objekt under den `CloudAI` konfigurationsavsnittet. Följande inställningar är tillgängliga i den `Storage` objekt:
+Lagrings scenarierna och de associerade konfigurations inställningarna hanteras av `Storage`-objektet under avsnittet `CloudAI` konfiguration. Följande konfigurations inställningar är tillgängliga i `Storage`-objektet:
 
 | Namn | Datatyp | Beskrivning |
 |------|-----------|-------------|
-| `StorageScenario` | Sträng | Storage-scenario som stöds av behållaren. Följande värden är tillgängliga<br/>`Memory` -Standardvärde. Behållaren använder icke-beständiga, icke-distribuerade och InMemory-lagring för en nod, tillfälligt användning. Om behållaren stoppas eller tas bort, förstörs lagring för den behållaren.<br/>`Azure` -Behållare använder Azure-resurser för lagring. Om behållaren stoppas eller tas bort, beständig lagring för den behållaren.|
-| `ConnectionStringOfAzureStorage` | Sträng | Anslutningssträngen för Azure Storage-resurs som används av behållaren.<br/>Den här inställningen gäller endast om `Azure` har angetts för den `StorageScenario` konfigurationsinställning. |
-| `ConnectionStringOfCosmosMongo` | Sträng | MongoDB-anslutningssträng för Azure Cosmos DB-resurs som används av behållaren.<br/>Den här inställningen gäller endast om `Azure` har angetts för den `StorageScenario` konfigurationsinställning. |
+| `StorageScenario` | Sträng | Det lagrings scenario som stöds av behållaren. Följande värden är tillgängliga<br/>`Memory`-standardvärde. Container använder icke-beständig, icke-distribuerad lagring och minnes intern lagring för en nod temporär användning. Om behållaren har stoppats eller tagits bort förstörs lagringen för den behållaren.<br/>`Azure`-container använder Azure-resurser för lagring. Om behållaren har stoppats eller tagits bort sparas lagringen för den behållaren.|
+| `ConnectionStringOfAzureStorage` | Sträng | Anslutnings strängen för den Azure Storage resurs som används av behållaren.<br/>Den här inställningen gäller endast om `Azure` anges för inställningen `StorageScenario` konfiguration. |
+| `ConnectionStringOfCosmosMongo` | Sträng | MongoDB anslutnings sträng för den Azure Cosmos DB resurs som används av behållaren.<br/>Den här inställningen gäller endast om `Azure` anges för inställningen `StorageScenario` konfiguration. |
 
-Till exempel följande kommando anger Azure storage-scenariot och ger exempel anslutningssträngar för Azure Storage och Cosmos DB-resurser som används för att lagra data för Ansikts-behållaren.
+Följande kommando anger till exempel scenariot för Azure Storage och ger exempel på anslutnings strängar för Azure Storage och Cosmos DB resurser som används för att lagra data för ansikts behållaren.
 
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789 CloudAI:Storage:StorageScenario=Azure CloudAI:Storage:ConnectionStringOfCosmosMongo="mongodb://samplecosmosdb:0123456789@samplecosmosdb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb" CloudAI:Storage:ConnectionStringOfAzureStorage="DefaultEndpointsProtocol=https;AccountName=sampleazurestorage;AccountKey=0123456789;EndpointSuffix=core.windows.net"
   ```
 
-Storage-scenariot hanteras separat från indata monterar och utdata monterar. Du kan ange en kombination av dessa funktioner för en enskild behållare. Till exempel följande kommando definierar en Docker-bindning montera den `D:\Output` mapp på värddatorn som utdata mount, sedan instantierar en behållare från Ansikts-behållaravbildningen, och spara loggfiler i JSON-format till utdata mount. Kommandot också anger du det Azure storage-scenariot och ger exempel anslutningssträngar för Azure Storage och Cosmos DB-resurser som används för att lagra data för Ansikts-behållaren.
+Lagrings scenariot hanteras separat från indata monteringar och utgående monteringar. Du kan ange en kombination av dessa funktioner för en enda behållare. Följande kommando definierar t. ex. en Docker-bindning montera till `D:\Output`-mappen på värddatorn som utmatnings monteringen och instansierar sedan en behållare från ansikts behållar avbildningen och sparar loggfilerna i JSON-format till utmatnings monteringen. Kommandot anger även scenariot för Azure Storage och ger exempel på anslutnings strängar för Azure Storage och Cosmos DB resurser som används för att lagra data för ansikts behållaren.
 
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789 Logging:Disk:Format=json CloudAI:Storage:StorageScenario=Azure CloudAI:Storage:ConnectionStringOfCosmosMongo="mongodb://samplecosmosdb:0123456789@samplecosmosdb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb" CloudAI:Storage:ConnectionStringOfAzureStorage="DefaultEndpointsProtocol=https;AccountName=sampleazurestorage;AccountKey=0123456789;EndpointSuffix=core.windows.net"
   ```
 
-## <a name="eula-setting"></a>Licensvillkor för inställningen
+## <a name="eula-setting"></a>Licens avtals inställning
 
 [!INCLUDE [Container shared configuration eula settings](../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
 
-## <a name="fluentd-settings"></a>Fluentd-inställningar
+## <a name="fluentd-settings"></a>Fluent-inställningar
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
@@ -110,48 +110,48 @@ Storage-scenariot hanteras separat från indata monterar och utdata monterar. Du
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
-## <a name="logging-settings"></a>Loggningsinställningar
+## <a name="logging-settings"></a>Loggnings inställningar
  
 [!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
-## <a name="mount-settings"></a>Monteringsinställningar
+## <a name="mount-settings"></a>Monterings inställningar
 
-Använd bindning monterar för att läsa och skriva data till och från behållaren. Du kan ange en monteringspunkt som indata eller utdata mount genom att ange den `--mount` alternativet i den [docker kör](https://docs.docker.com/engine/reference/commandline/run/) kommando.
+Använd bind-monteringar för att läsa och skriva data till och från behållaren. Du kan ange en inmatnings montering eller utmatnings montering genom att ange alternativet `--mount` i kommandot [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) .
 
 Ansikts behållare använder inte indata eller utdata monteras för att lagra utbildning eller tjänst data. 
 
-Den exakta syntaxen hos montera värdplats varierar beroende på värdens operativsystem. Dessutom kanske [värd datorns](face-how-to-install-containers.md#the-host-computer)monterings plats inte är tillgänglig på grund av en konflikt mellan behörigheter som används av Docker-tjänstkontot och värd monterings platsens behörigheter. 
+Den exakta syntaxen för värd monterings platsen varierar beroende på värd operativ systemet. Dessutom kanske [värd datorns](face-how-to-install-containers.md#the-host-computer)monterings plats inte är tillgänglig på grund av en konflikt mellan behörigheter som används av Docker-tjänstkontot och värd monterings platsens behörigheter. 
 
-|Valfritt| Name | Datatyp | Beskrivning |
+|Valfri| Namn | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
-|Inte tillåtet| `Input` | Sträng | Ansikts behållare använder inte detta.|
-|Valfritt| `Output` | Sträng | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Tillåts inte| `Input` | Sträng | Ansikts behållare använder inte detta.|
+|Valfri| `Output` | Sträng | Målet för utmatnings monteringen. Standardvärdet är `/output`. Detta är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## <a name="example-docker-run-commands"></a>Exempel docker-kommandon 
+## <a name="example-docker-run-commands"></a>Exempel på Docker-körnings kommandon 
 
-I följande exempel används konfigurationsinställningarna som illustrerar hur du skriver och använda `docker run` kommandon.  När du kör, behållaren fortsätter att köras tills du [stoppa](face-how-to-install-containers.md#stop-the-container) den.
+I följande exempel används konfigurations inställningarna för att illustrera hur du skriver och använder `docker run`-kommandon.  När den körs fortsätter behållaren att köras tills du [stoppar](face-how-to-install-containers.md#stop-the-container) den.
 
-* **Rad fortsättnings avstånd**: Docker- `\`kommandona i följande avsnitt använder omvänt snedstreck, som ett fortsättnings streck. Ersätta eller ta bort detta baserat på din värdoperativsystemet. 
+* **Rad fortsättnings bokstav**: Docker-kommandona i följande avsnitt använder omvänt snedstreck `\`, som ett fortsättnings streck. Ersätt eller ta bort detta baserat på värd operativ systemets krav. 
 * **Argument ordning**: Ändra inte ordningen på argumenten om du inte är bekant med Docker-behållare.
 
 Ersätt {_argument_name_} med dina egna värden:
 
 | Platshållare | Värde | Format eller exempel |
 |-------------|-------|---|
-| **{API_KEY}** | `Face` Resursens slut punkts nyckel på sidan med `Face` Azure-nycklar. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
-| **{ENDPOINT_URI}** | Värdet för fakturerings slut punkten är tillgängligt på sidan `Face` Azure-översikt.| Se [samla in obligatoriska parametrar](face-how-to-install-containers.md#gathering-required-parameters) för explicita exempel. |
+| **{API_KEY}** | Slut punkts nyckeln för `Face` resursen på sidan för Azure `Face`-nycklar. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | Värdet för fakturerings slut punkten är tillgängligt på översikts sidan för Azure-`Face`.| Se [samla in obligatoriska parametrar](face-how-to-install-containers.md#gathering-required-parameters) för explicita exempel. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
-> Den `Eula`, `Billing`, och `ApiKey` alternativ måste anges för att köra behållaren, i annat fall startar inte behållaren.  Mer information finns i [fakturering](face-how-to-install-containers.md#billing).
-> ApiKey-värdet är **nyckeln** på sidan med Azures `Cognitive Services` resurs nycklar. 
+> Alternativen `Eula`, `Billing`och `ApiKey` måste anges för att köra behållaren. annars startar inte behållaren.  Mer information finns i [fakturering](face-how-to-install-containers.md#billing).
+> ApiKey-värdet är **nyckeln** på sidan med resurs nycklar för Azure `Cognitive Services`. 
 
 ## <a name="face-container-docker-examples"></a>Docker-exempel för ansikts behållare
 
 Följande Docker-exempel är för ansikts behållaren. 
 
-### <a name="basic-example"></a>Grundläggande exempel 
+### <a name="basic-example"></a>Basic-exempel 
 
   ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \

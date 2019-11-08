@@ -8,33 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/21/2019
 ms.author: aahi
-ms.openlocfilehash: 6e46d58b3f1ef33902ab44043e954d9718d865af
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3aa4da9a9cf3d1d4b664e81f1fd18f2b225d731d
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73508049"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73800166"
 ---
 ## <a name="personal-information-entity-types"></a>Enhets typer för personlig information:
-
-### <a name="person"></a>Person
-Identifierade namn och andra personer i text.
-Språk:
-* Offentlig för hands version: `English`
-
-| Under typs namn | Beskrivning             |
-|--------------|-------------------------|
-| Gäller inte          | Identifierade namn, till exempel `Bill Gates`, `Marie Curie` |
-
-### <a name="organization"></a>Organisation  
-
-Erkända organisationer, organisationer, organ och andra grupper av personer. Exempel: företag, politiska grupper, musik band, sport klubbar, myndighets organ och offentliga organisationer. Nationella objekt och religions ingår inte i den här entitetstypen. Språk: 
-
-* Offentlig för hands version: `English`
-
-| Under typs namn | Beskrivning                                                                                      |
-|--------------|--------------------------------------------------------------------------------------------------|
-| Gäller inte          | organisationer, till exempel `Microsoft`, `NASA` `National Oceanic and Atmospheric Administration` |
 
 ### <a name="phone-number"></a>Telefonnummer
 
@@ -46,7 +27,7 @@ Språk:
 
 | Under typs namn           | Beskrivning                                           |
 |------------------------|-------------------------------------------------------|
-| Gäller inte                    | Telefonnummer, till exempel `+1 123-123-123`.          |
+| Saknas                    | Telefonnummer, till exempel `+1 123-123-123`.          |
 | EU-telefonnummer        | Telefonnummer som är speciellt för Europeiska unionen.         |
 | Mobiltelefon nummer för EU | Mobiltelefon nummer som är speciella för Europeiska unionen. |
 
@@ -60,7 +41,7 @@ Språk:
 
 | Under typs namn | Beskrivning                               |
 |--------------|-------------------------------------------|
-| Gäller inte          | GPS-koordinater inom Europeiska unionen |
+| Saknas          | GPS-koordinater inom Europeiska unionen |
 
 ### <a name="azure-information"></a>Azure-information
 

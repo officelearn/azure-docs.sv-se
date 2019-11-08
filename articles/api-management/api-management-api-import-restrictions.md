@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 11/06/2019
 ms.author: apimpm
-ms.openlocfilehash: 0bf52b45bc315874c58be50bccbffa49090d554d
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 88ef235d47a548ce426eaa2e8a8a56fb9dcb01d2
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294342"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796041"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API import-begränsningar och kända problem
 
@@ -33,13 +33,15 @@ Om du får fel när du importerar OpenAPI-dokumentet ser du till att du har vali
 ### <a name="open-api-general"> </a>Allmän
 
 -   Obligatoriska parametrar i både sökväg och fråga måste ha unika namn. (I OpenAPI måste parameter namnet bara vara unikt inom en plats, till exempel sökväg, fråga, rubrik. Men i API Management tillåter vi att åtgärder diskrimineras av både sökväg och frågeparametrar (som OpenAPI inte stöder). Därför kräver vi att parameter namn är unika inom hela URL-mallen.)
--   **\$ref** pekare kan inte referera till externa filer.
+-   **\$referens** punkter kan inte referera till externa filer.
 -   **x-MS – sökvägar** och **x-servrar** är de enda tillägg som stöds.
 -   Anpassade tillägg ignoreras vid import och sparas eller bevaras inte för export.
 -   **Rekursion** – API Management stöder inte definitioner som definierats rekursivt (till exempel scheman som refererar till sig själva).
 -   Käll filens URL (om tillgänglig) används för relativa server-URL: er.
 -   Säkerhets definitioner ignoreras.
 -   Infogade schema definitioner för API-åtgärder stöds inte. Schema definitioner definieras i API-omfånget och kan refereras till i API-åtgärder för begäran eller svars omfattningar.
+-   En definierad URL-parameter måste vara en del av URL-mallen.
+-   **Skapar** ett nyckelord, som beskriver MIME-typer som returneras av ett API, stöds inte. 
 
 ### <a name="open-api-v2"> </a>Openapi version 2
 

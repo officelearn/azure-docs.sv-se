@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: a15d450d033c04c59f6981a887689f1fc08919f1
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 42c674e236d769d48f6f17fc43494ac006219a8a
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958861"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795699"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Azure Storage kryptering för vilande data
 
@@ -26,7 +26,7 @@ Lagrings konton är krypterade oavsett prestanda nivå (standard eller Premium) 
 
 Kryptering påverkar inte Azure Storage prestanda. Det kostar inget extra att Azure Storage kryptering.
 
-Mer information om de kryptografiska modulerna underliggande Azure Storage kryptering finns i [Cryptography API: Nästa generation @ no__t-0.
+Mer information om de kryptografiska modulerna underliggande Azure Storage kryptering finns i [Cryptography-API: nästa generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
 
 ## <a name="about-encryption-key-management"></a>Om hantering av krypterings nyckel
 
@@ -42,8 +42,8 @@ I följande tabell jämförs nyckel hanterings alternativ för Azure Storage kry
 |    Kryptering/dekryptering    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
 |    Azure Storage tjänster som stöds    |    Alla                                                |    Blob Storage, Azure Files                                                                                                               |    Blob Storage                                                                  |
 |    Nyckel lagring                         |    Microsoft nyckel lager    |    Azure Key Vault                                                                                                                              |    Azure Key Vault eller något annat nyckel Arkiv                                                                 |
-|    Största ansvar för nyckel rotation         |    Microsoft                                          |    Kunden                                                                                                                                     |    Kunden                                                                      |
-|    Nyckelanvändning                           |    Microsoft                                          |    Azure Portal, Provider för lagrings resurs REST API, Azure Storage hanterings bibliotek, PowerShell, CLI        |    Azure Storage REST API (Blob Storage), Azure Storage klient bibliotek    |
+|    Största ansvar för nyckel rotation         |    Microsoft                                          |    Kund                                                                                                                                     |    Kund                                                                      |
+|    Nyckel användning                           |    Microsoft                                          |    Azure Portal, Provider för lagrings resurs REST API, Azure Storage hanterings bibliotek, PowerShell, CLI        |    Azure Storage REST API (Blob Storage), Azure Storage klient bibliotek    |
 |    Nyckel åtkomst                          |    Endast Microsoft                                     |    Microsoft, kund                                                                                                                    |    Endast kund                                                                 |
 
 I följande avsnitt beskrivs de olika alternativen för nyckel hantering i större detalj.
@@ -74,7 +74,7 @@ I följande lista beskrivs de numrerade stegen i diagrammet:
 
 Information om hur du återkallar åtkomst till Kundhanterade nycklar på lagrings kontot finns i [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) och [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Att återkalla åtkomsten på ett effektivt sätt blockerar åtkomsten till alla data i lagrings kontot, eftersom krypterings nyckeln inte är tillgänglig via Azure Storage.
 
-Kundhanterade nycklar stöds inte för [Azure Managed disks](../../virtual-machines/windows/managed-disks-overview.md).
+Kundhanterade nycklar är också tillgängliga för Azure Managed disks som en offentlig för hands version. Kundhanterade nycklar fungerar lite annorlunda för hanterade diskar än resten av lagringen. Mer information finns i vår [artikel om ämnet](../../virtual-machines/linux/disk-encryption.md#customer-managed-keys-public-preview).
 
 Information om hur du använder Kundhanterade nycklar med Azure Storage finns i någon av följande artiklar:
 
@@ -144,7 +144,7 @@ Om du vill rotera en krypterings nyckel som skickats på begäran laddar du ned 
 
 I följande exempel skapas en kundspecifik nyckel som använder den nyckeln för att ladda upp en blob. Koden laddar upp ett block och genomför sedan blockeringslistan för att skriva blobben till Azure Storage. Nyckeln finns på [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) -objektet genom att ange egenskapen [CustomerProvidedKey](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.customerprovidedkey) .
 
-Nyckeln skapas med klassen [AesCryptoServiceProvider](/dotnet/api/system.security.cryptography.aescryptoserviceprovider) . Om du vill skapa en instans av den här klassen i koden lägger du till en `using`-instruktion som refererar till namn området `System.Security.Cryptography`:
+Nyckeln skapas med klassen [AesCryptoServiceProvider](/dotnet/api/system.security.cryptography.aescryptoserviceprovider) . Om du vill skapa en instans av den här klassen i koden lägger du till en `using`-instruktion som refererar till `System.Security.Cryptography` namn området:
 
 ```csharp
 public static void UploadBlobWithClientKey(CloudBlobContainer container)

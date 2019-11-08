@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2019
 ms.author: barclayn
-ms.openlocfilehash: 0fddabc7973fbea147de9f3b6e6da5556407030c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fc3c7ea2f0060fc6ab20fa821c9e45d6e5173d4f
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498454"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795791"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure Data Encryption – i vila
 
@@ -262,11 +262,11 @@ Kryptering på klient sidan av Azure SQL Database data stöds via funktionen [Al
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **Server sidan med tjänst hanterad nyckel**     | **Server sidan med kundhanterad nyckel**             | **Klient sidan med hjälp av klient hanterad nyckel**      |
 | **AI och Machine Learning**      |                    |                    |                    |
-| Azure Search                     | Ja                | Förhandsversion            | -                  |
+| Kognitiv sökning i Azure                     | Ja                | Förhandsversion            | -                  |
 | Azure Machine Learning   | Ja                | -                  | -                  |
 | Azure Machine Learning Studio    | Ja                | För hands version, RSA 2048-bitars | -               |
 | Power BI                         | Ja                | För hands version, RSA 2048-bitars | -                  |
-| **Analyser**                    |                    |                    |                    |
+| **Analys**                    |                    |                    |                    |
 | Azure Stream Analytics           | Ja                | -                  | -                  |
 | Händelsehubbar                       | Ja                | För hands version, alla RSA-längder. | -                  |
 | Azure Analysis Services          | Ja                | -                  | -                  |

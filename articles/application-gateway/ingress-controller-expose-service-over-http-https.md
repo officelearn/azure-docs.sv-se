@@ -5,20 +5,20 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/22/2019
+ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: b04c381cbe5ad9199f182f39e7311ae01fe2b8ba
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c664141a8c89ccbdf37bd3f9a19cfa659982a47d
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513619"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795575"
 ---
 # <a name="expose-an-aks-service-over-http-or-https-using-application-gateway"></a>Exponera en AKS-tjänst via HTTP eller HTTPS med hjälp av Application Gateway 
 
 De här självstudierna illustrerar användningen av [Kubernetes ingress-resurser](https://kubernetes.io/docs/concepts/services-networking/ingress/) för att exponera en exempel Kubernetes-tjänst via [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) över http eller https.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Installerat `ingress-azure` Helm-diagram.
   - [**Bygg-distribution**](ingress-controller-install-new.md): om du börjar från grunden läser du de här installations anvisningarna, som beskriver steg för att distribuera ett AKS-kluster med Application Gateway och installerar Application Gateway-ingångs styrenheten på AKS-klustret.

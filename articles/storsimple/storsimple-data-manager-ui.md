@@ -1,6 +1,6 @@
 ---
-title: Användargränssnittet för Microsoft Azure StorSimple Data Manager | Microsoft Docs
-description: Beskriver hur du använder StorSimple Data Manager-tjänstens användargränssnitt
+title: Microsoft Azure StorSimple Data Manager användar gränssnitt | Microsoft Docs
+description: Beskriver hur du använder StorSimple Data Manager tjänstens användar gränssnitt
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,152 +14,152 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: fa897b4b77f7f5869eab2ba2e7db9afbd84febfa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3a87b4c07d2e961d9876fb44c6584f37ad9246df
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60631504"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796650"
 ---
-# <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Hantera StorSimple Data Manager-tjänsten i Azure-portalen
+# <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Hantera tjänsten StorSimple Data Manager i Azure Portal
 
-Den här artikeln förklarar hur du kan använda StorSimple Data Manager-UI för att omvandla lagrade data på enheter för StorSimple 8000-serien. Transformerade data kan sedan användas av andra Azure-tjänster som Azure Media Services, Azure HDInsight, Azure Machine Learning och Azure Search.
+Den här artikeln förklarar hur du kan använda StorSimple Data Manager användar gränssnittet för att transformera data som finns på StorSimple 8000-seriens enheter. Transformerade data kan sedan användas av andra Azure-tjänster som Azure Media Services, Azure HDInsight, Azure Machine Learning och Azure-Kognitiv sökning.
 
 
-## <a name="use-storsimple-data-transformation"></a>Använda StorSimple Dataomvandling
+## <a name="use-storsimple-data-transformation"></a>Använd StorSimple data Transformation
 
-StorSimple Data Manager är resursen i vilken data transformation instantieras. Tjänsten transformering av Data kan du omvandla data från StorSimple-format till ursprungligt format i blobbar eller Azure Files. För att omvandla data för StorSimple-ursprungligt format, måste du ange information om din enhet i StorSimple 8000-serien och data av intresse som du vill omvandla.
+StorSimple Data Manager är den resurs som data omvandlingen instansieras inom. Med data Transformation service kan du omvandla data från StorSimple-formatet till inbyggt format i blobbar eller Azure Files. Om du vill omvandla StorSimple ursprungliga format data måste du ange information om din StorSimple 8000-serie enhet och de data som du vill transformera.
 
 ### <a name="create-a-storsimple-data-manager-service"></a>Skapa en StorSimple Data Manager-tjänst
 
-Utför följande steg för att skapa en StorSimple Data Manager-tjänsten.
+Utför följande steg för att skapa en StorSimple Data Manager-tjänst.
 
 1. Använd dina Microsoft-kontouppgifter för att logga in på [Azure Portal](https://portal.azure.com/).
 
-2. Klicka på **+ skapa en resurs** och sökning för StorSimple Data Manager.
+2. Klicka på **+ skapa en resurs** och sök efter StorSimple Data Manager.
 
-    ![Skapa en StorSimple Data Manager-tjänst 1](./media/storsimple-data-manager-ui/create-service-1.png)
+    ![Skapa en StorSimple Data Manager tjänst 1](./media/storsimple-data-manager-ui/create-service-1.png)
 
 3. Klicka på StorSimple Data Manager och klicka sedan på **skapa**.
     
-    ![Skapa en StorSimple Data Manager-tjänsten 2](./media/storsimple-data-manager-ui/create-service-3.png)
+    ![Skapa en StorSimple Data Manager tjänst 2](./media/storsimple-data-manager-ui/create-service-3.png)
 
 3. För den nya tjänsten anger du följande:
 
-   1. Ange ett unikt **tjänstnamn** för din StorSimple Data Manager. Det är ett eget namn som kan användas för att identifiera tjänsten. Namnet kan innehålla mellan 3 och 24 tecken som kan vara bokstäver, siffror och bindestreck. Namnet måste börja och sluta med en bokstav eller en siffra.
+   1. Ange ett unikt **tjänst namn** för din StorSimple Data Manager. Det är ett eget namn som kan användas för att identifiera tjänsten. Namnet kan innehålla mellan 3 och 24 tecken som kan vara bokstäver, siffror och bindestreck. Namnet måste börja och sluta med en bokstav eller en siffra.
 
-   2. Välj en **prenumeration** från den nedrullningsbara listan. Prenumerationen är kopplad till ditt faktureringskonto. Det här fältet är automatiskt ifylld (och inte valbar) om du bara har en prenumeration.
+   2. Välj en **prenumeration** i list rutan. Prenumerationen är kopplad till ditt faktureringskonto. Det här fältet fylls i automatiskt (och går inte att markera) om du bara har en prenumeration.
 
-   3. Välj en befintlig resursgrupp eller skapa en ny grupp. Mer information finns i avsnittet om [Azure-resursgrupper](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
+   3. Välj en befintlig resurs grupp eller skapa en ny grupp. Mer information finns i avsnittet om [Azure-resursgrupper](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
 
-   4. Ange den **plats** för din tjänst som lagrar dina lagringskonton och StorSimple Data Manager-tjänsten. StorSimple Device Manager-tjänsten, Data Manager-tjänsten och det associerade lagringskontot ska i regionerna som stöds.
+   4. Ange **platsen** för din tjänst som hus dina lagrings konton och din StorSimple Data Manager-tjänst. Din StorSimple-Enhetshanteraren tjänst, Data Manager tjänst och det associerade lagrings kontot bör vara i de regioner som stöds.
     
-   5. Välj för att få en länk till den här tjänsten på instrumentpanelen, **fäst på instrumentpanelen**.
+   5. Om du vill hämta en länk till den här tjänsten på instrument panelen väljer du **Fäst på instrument panelen**.
     
    6. Klicka på **Skapa**.
 
-      ![Skapa en StorSimple Data Manager-tjänst 3](./media/storsimple-data-manager-ui/create-service-4.png)
+      ![Skapa en StorSimple Data Manager tjänst 3](./media/storsimple-data-manager-ui/create-service-4.png)
 
 Det tar några minuter att skapa tjänsten. Du ser ett meddelande när tjänsten har skapats och den nya tjänsten visas.
 
-### <a name="create-a-data-transformation-job-definition"></a>Skapa en jobbdefinition för omvandling av data
+### <a name="create-a-data-transformation-job-definition"></a>Skapa en data omvandlings jobb definition
 
-I en StorSimple Data Manager-tjänsten måste du skapa en jobbdefinition för omvandling av data. En jobbdefinition anger information om StorSimple-data som du är intresserad av att flytta till ett lagringskonto i ursprungligt format. När du skapar en jobbdefinition, kan du köra det här jobbet igen med olika körningsinställningar.
+I en StorSimple Data Manager tjänst måste du skapa en data omvandlings jobb definition. En jobb definition anger information om de StorSimple-data som du är intresse rad av att flytta till ett lagrings konto i det interna formatet. När du har skapat en jobb definition kan du köra det här jobbet igen med olika körnings inställningar.
 
-Utför följande steg för att skapa en jobbdefinition.
+Utför följande steg för att skapa en jobb definition.
 
-1. Navigera till den tjänst som du skapade. Gå till **Management > jobbdefinition**.
+1. Navigera till den tjänst som du har skapat. Gå till **hanterings > jobb definitioner**.
 
 2. Klicka på **+ jobb definition**.
 
-    ![Klicka på + jobbdefinition](./media/storsimple-data-manager-ui/create-job-definition-1.png)
+    ![Klicka på + jobb definition](./media/storsimple-data-manager-ui/create-job-definition-1.png)
 
-3. Ange ett namn på din jobbdefinition. Namnet kan vara mellan 3 och 63 tecken. Namnet får innehålla versaler och gemener, siffror och bindestreck.
+3. Ange ett namn för jobb definitionen. Namnet kan innehålla mellan 3 och 63 tecken. Namnet får innehålla versaler, gemener, siffror och bindestreck.
 
-4. Ange en plats där jobbet körs. Den här platsen kan skilja sig från den plats där tjänsten distribueras.
+4. Ange en plats där jobbet körs. Den här platsen kan vara en annan än den plats där tjänsten distribueras.
 
-5. Klicka på **källa** att ange datalager för källa.
+5. Klicka på **källa** för att ange käll data lagrings platsen.
 
-    ![Konfigurera källa data lagringsplats](./media/storsimple-data-manager-ui/create-job-definition-2.png)
+    ![Konfigurera käll data lagrings platsen](./media/storsimple-data-manager-ui/create-job-definition-2.png)
 
-6. Eftersom detta är en ny Data Manager-tjänst konfigureras inga datalager. I **konfigurera datakällan**, ange information om din enhet i StorSimple 8000-serien och data av intresse.
+6. Eftersom det här är en ny Data Manager tjänst konfigureras inga data lager. I **Konfigurera data källa**anger du information om din enhet med StorSimple 8000-serien och data som är av intresse.
 
-   Lägg till din StorSimple Device Manager som ett datalager, klicka på **Lägg till ny** i listrutan för data-databasen och klicka sedan på **Lägg till databas**.
+   Om du vill lägga till StorSimple Enhetshanteraren som data lager klickar du på **Lägg till nytt** i list rutan data lager och klickar sedan på **Lägg till data lager**.
 
-    ![Lägg till ny data-lagringsplats](./media/storsimple-data-manager-ui/create-job-definition-3.png)
+    ![Lägg till ny data lagrings platsen](./media/storsimple-data-manager-ui/create-job-definition-3.png)
   
-   1. Välj **StorSimple 8000-serien Manager** som lagringsplats för datatyp.
+   1. Välj **StorSimple 8000 Series Manager** som typ av data lager.
     
-   2. Ange ett eget namn för centrallagret data.
+   2. Ange ett eget namn på käll data lagrings platsen.
     
-   3. I listrutan väljer du en prenumeration som är associerade med din StorSimple Device Manager-tjänsten.
+   3. I list rutan väljer du en prenumeration som är kopplad till din StorSimple Enhetshanteraren-tjänst.
     
-   4. Ange namnet på StorSimple Device Manager för den **Resource**.
+   4. Ange namnet på StorSimple Enhetshanteraren för **resursen**.
 
-   5. Ange den **Service datakryptering** nyckel för StorSimple Device Manager-tjänsten. 
+   5. Ange **krypterings nyckeln för tjänst data** för StorSimple Enhetshanteraren-tjänsten. 
 
-      ![Konfigurera källa data lagringsplatsen 1](./media/storsimple-data-manager-ui/create-job-definition-4.png)
+      ![Konfigurera käll data lagrings platsen 1](./media/storsimple-data-manager-ui/create-job-definition-4.png)
 
-      Klicka på **OK** när du är klar. Detta sparar ditt datalager. Återanvända StorSimple Device Manager i andra jobbdefinitioner utan att ange dessa parametrar igen. Det tar några sekunder när du klickar på **OK** för nyligen skapade källdatabasen data visas i listrutan.
+      Klicka på **OK** när du är färdig. Detta sparar data lagrings platsen. Återanvänd den här StorSimple-Enhetshanteraren i andra jobb definitioner utan att ange parametrarna igen. Det tar några sekunder efter att du har klickat på **OK** för att den nyligen skapade käll data lagrings platsen ska visas i list rutan.
 
-7. I listrutan för **datalager**, Välj den databas du skapade. 
+7. I list rutan för **data lager**väljer du den data lagrings plats som du skapade. 
 
-   1. Ange namnet på den enhet i StorSimple 8000-serien som innehåller data av intresse.
+   1. Ange namnet på den StorSimple 8000-serie enhet som innehåller data som är av intresse.
 
-   2. Ange namnet på den volym som finns på StorSimple-enheten där dina data av intresse.
+   2. Ange namnet på den volym som finns på den StorSimple-enhet som har dina data av intresse.
 
-   3. I den **Filter** underavsnitt, ange rotkatalogen som innehåller dina data av intresse i _\MyRootDirectory\Data_ format. Enhetsbeteckningar, till exempel _\C:\Data_ stöds inte. Du kan också lägga till alla filfilter.
+   3. I underavsnittet **filter** anger du rot katalogen som innehåller dina data av intresse i _\MyRootDirectory\Data_ -format. Enhets bokstäver som t. ex. _\Data_ stöds inte. Du kan också lägga till eventuella fil filter här.
 
-   4. Omvandling datatjänst fungerar på de data som skickas till Azure via ögonblicksbilder. När du kör det här jobbet kan du göra en säkerhetskopia varje gång det här jobbet körs (för att fungera på senaste data) eller Använd den senaste säkerhetskopian i molnet (om du arbetar med vissa arkiverade data).
+   4. Data Transformations tjänsten arbetar med de data som skickas upp till Azure via ögonblicks bilder. När du kör det här jobbet kan du välja att göra en säkerhets kopia varje gång jobbet körs (för att arbeta med senaste data) eller använda den sista befintliga säkerhets kopian i molnet (om du arbetar med vissa arkiverade data).
 
    5. Klicka på **OK**.
 
-      ![Konfigurera källa data lager 2](./media/storsimple-data-manager-ui/create-job-definition-8.png)
+      ![Konfigurera käll data lagrings platsen 2](./media/storsimple-data-manager-ui/create-job-definition-8.png)
 
-8. Därefter måste data måldatabasen konfigureras. Välj lagringskonton för att placera filer i BLOB-objekt i det kontot. Välj i listrutan **Lägg till ny** och sedan **konfigurera inställningar för**.
+8. Sedan måste mål data centralen konfigureras. Välj lagrings konton för att lagra filer i blobbar i det kontot. I list rutan väljer du **Lägg till ny** och **konfigurerar sedan inställningar**.
 
-9. Välj typ av mållagringsplatsen som du vill lägga till och andra parametrar som är associerade med databasen.
+9. Välj den typ av mål databas som du vill lägga till och de andra parametrarna som är kopplade till lagrings platsen.
 
-    Om du väljer ett mål för Storage-konto typ måste du ange ett eget namn, prenumeration (Välj samma som för tjänsten eller andra), och ett lagringskonto.
-        ![Konfigurera mållagringsplatsen data 1](./media/storsimple-data-manager-ui/create-job-definition-10.png)
+    Om du väljer ett mål för lagrings konto typ kan du ange ett eget namn, en prenumeration (Välj samma som för tjänsten eller annan) och ett lagrings konto.
+        ![konfigurera mål data lagrings platsen 1](./media/storsimple-data-manager-ui/create-job-definition-10.png)
 
-    En storage-kö skapas när jobbet körs. Den här kön fylls med meddelanden om transformerade blobbar i takt med att de är klara. Namnet på den här kön är detsamma som namnet på jobbdefinitionen.
+    En lagrings kö skapas när jobbet körs. Den här kön fylls med meddelanden om transformerade blobbar i takt med att de är klara. Namnet på den här kön är detsamma som namnet på jobbdefinitionen.
     
-10. När du lägger till databasen du vänta ett par minuter.
+10. När du har lagt till data lagrings platsen väntar du några minuter.
     
-    1. Välj den databas som du skapade som mål i listrutan i det **målkontonamnet**.
+    1. Välj den lagrings plats som du skapade som mål i list rutan i **mål kontots namn**.
 
-    2. Välj typ som blobar eller filer. Ange namnet på behållaren där omvandlade data finns. Klicka på **OK**.
+    2. Välj lagrings typ som blobbar eller filer. Ange namnet på lagrings behållaren där transformerade data finns. Klicka på **OK**.
 
-        ![Konfigurera mållagringskontot data-lagringsplats](./media/storsimple-data-manager-ui/create-job-definition-16.png)
+        ![Konfigurera mål data lagrings platsen lagrings konto](./media/storsimple-data-manager-ui/create-job-definition-16.png)
 
-11. Du kan också kontrollera att alternativet för att presentera en uppskattning av jobbet varaktighet innan du kör jobbet. Klicka på **OK** skapa jobbdefinitionen. Din jobbdefinition är slutförd. Du kan använda den här jobbdefinitionen flera gånger via Gränssnittet med olika körningsinställningar.
+11. Du kan också markera alternativet om du vill visa en uppskattning av jobb varaktigheten innan du kör jobbet. Skapa jobb definitionen genom att klicka på **OK** . Din jobb definition är nu slutförd. Du kan använda den här jobb definitionen flera gånger via användar gränssnittet med olika körnings inställningar.
 
-    ![Fullständig jobbdefinition](./media/storsimple-data-manager-ui/create-job-definition-13.png)
+    ![Slutför jobb definition](./media/storsimple-data-manager-ui/create-job-definition-13.png)
 
-    Nyligen skapade jobbdefinitionen läggs till i listan över definitioner av jobb för den här tjänsten.
+    Den nyligen skapade jobb definitionen läggs till i listan över jobb definitioner för den här tjänsten.
 
-### <a name="run-the-job-definition"></a>Kör jobbdefinitionen
+### <a name="run-the-job-definition"></a>Kör jobb definitionen
 
-När du behöver flytta data från StorSimple till det lagringskonto som du har angett i jobbdefinitionen kan behöva du köra den. Vid körning, kan vissa parametrar anges på olika sätt. Stegen är följande:
+När du behöver flytta data från StorSimple till det lagrings konto som du har angett i jobb definitionen måste du köra det. Vid körning kan vissa parametrar anges på olika sätt. Stegen är följande:
 
-1. Välj StorSimple Data Manager-tjänsten och gå till **Management > jobbdefinition**. Välj och klicka på jobbdefinitionen som du vill köra.
+1. Välj din StorSimple Data Manager-tjänst och gå till **hanterings > jobb definitioner**. Markera och klicka på den jobb definition som du vill köra.
      
-     ![Starta ett jobb har körts 1](./media/storsimple-data-manager-ui/start-job-run1.png)
+     ![Starta jobb körning 1](./media/storsimple-data-manager-ui/start-job-run1.png)
 
-2. Klicka på **kör nu**.
+2. Klicka på **Kör nu**.
      
-     ![Starta ett jobb har körts 2](./media/storsimple-data-manager-ui/start-job-run2.png)
+     ![Starta jobb körning 2](./media/storsimple-data-manager-ui/start-job-run2.png)
 
-3. Klicka på **körningsinställningar** att ändra alla inställningar som du kanske vill ändra för det här jobbet körs. Klicka på **OK** och klicka sedan på **kör** att starta jobbet.
+3. Klicka på **Kör inställningar** om du vill ändra de inställningar som du kanske vill ändra för jobb körningen. Klicka på **OK** och sedan på **Kör** för att starta jobbet.
 
-    ![Starta ett jobb har körts 3](./media/storsimple-data-manager-ui/start-job-run3.png)
+    ![Starta jobb körning 3](./media/storsimple-data-manager-ui/start-job-run3.png)
 
-4. Om du vill övervaka det här jobbet går du till **jobb** i StorSimple Data Manager. Förutom övervakning i den **jobb** bladet, du kan även lyssna på lagringskön där ett meddelande läggs varje gång en fil har flyttats från StorSimple till lagringskontot.
+4. Om du vill övervaka jobbet går du till **jobb** i din StorSimple Data Manager. Förutom övervakning i bladet **jobb** kan du också lyssna på lagrings kön där ett meddelande läggs till varje gång en fil flyttas från StorSimple till lagrings kontot.
 
-    ![Starta ett jobb har körts 4](./media/storsimple-data-manager-ui/start-job-run4.png)
+    ![Starta jobb körning 4](./media/storsimple-data-manager-ui/start-job-run4.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Använda .NET SDK för att starta StorSimple Data Manager-jobb](storsimple-data-manager-dotnet-jobs.md).
+[Använd .NET SDK för att starta StorSimple Data Manager-jobb](storsimple-data-manager-dotnet-jobs.md).

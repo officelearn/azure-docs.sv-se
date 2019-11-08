@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 0e4daaa3417ce349111fbc811be36a4615058c76
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
-ms.translationtype: MT
+ms.openlocfilehash: 771a20ccf1c34958308d58dafb6fb01e36bb408a
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791727"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749019"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server
 
@@ -94,7 +94,7 @@ NFS-servern använder ett dedikerat virtuellt värdnamn och virtuella IP-adresse
 * Avsöknings port
   * Port 61000 för NW1
   * Port 61001 för NW2
-* LoadBalancing-regler
+* LoadBalancing-regler (om du använder Basic Load Balancer)
   * 2049 TCP för NW1
   * 2049 UDP för NW1
   * 2049 TCP för NW2
@@ -136,48 +136,85 @@ Du måste först skapa de virtuella datorerna för det här NFS-klustret. Däref
    SLES för SAP-program 12 SP3 (BYOS) används  
    Välj den tillgänglighets uppsättning som skapades tidigare  
 1. Lägg till en datadisk för varje SAP-system till båda virtuella datorerna.
-1. Skapa en Load Balancer (intern)  
-   1. Skapa IP-adresser för klient delen
-      1. IP-10.0.0.4 för NW1
-         1. Öppna belastningsutjämnaren, Välj klient delens IP-pool och klicka på Lägg till
-         1. Ange namnet på den nya IP-poolen för klient delen (till exempel **NW1-frontend**)
-         1. Ange tilldelningen till statisk och ange IP-adressen (till exempel **10.0.0.4**)
-         1. Klicka på OK
-      1. IP-10.0.0.5 för NW2
-         * Upprepa stegen ovan för NW2
-   1. Skapa backend-pooler
-      1. Anslutna till primära nätverks gränssnitt för alla virtuella datorer som ska ingå i NFS-klustret för NW1
-         1. Öppna belastningsutjämnaren, Välj backend-pooler och klicka på Lägg till
-         1. Ange namnet på den nya backend-poolen (till exempel **NW1-backend**)
-         1. Klicka på Lägg till en virtuell dator
-         1. Välj den tillgänglighets uppsättning som du skapade tidigare
-         1. Välj virtuella datorer för NFS-klustret
-         1. Klicka på OK
-      1. Anslutna till primära nätverks gränssnitt för alla virtuella datorer som ska ingå i NFS-klustret för NW2
-         * Upprepa stegen ovan för att skapa en backend-pool för NW2
-   1. Skapa hälso avsökningar
-      1. Port 61000 för NW1
-         1. Öppna belastningsutjämnaren, Välj hälso avsökningar och klicka på Lägg till
-         1. Ange namnet på den nya hälso avsökningen (till exempel **NW1 – HP**)
-         1. Välj TCP som protokoll, Port 610**00**, Behåll intervallet 5 och tröskelvärde 2
-         1. Klicka på OK
-      1. Port 61001 för NW2
-         * Upprepa stegen ovan för att skapa en hälso avsökning för NW2
-   1. LoadBalancing-regler
-      1. 2049 TCP för NW1
+1. Skapa en Load Balancer (intern). Vi rekommenderar [standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
+   1. Följ de här anvisningarna för att skapa en standard Load Balancer:
+      1. Skapa IP-adresser för klient delen
+         1. IP-10.0.0.4 för NW1
+            1. Öppna belastningsutjämnaren, Välj klient delens IP-pool och klicka på Lägg till
+            1. Ange namnet på den nya IP-poolen för klient delen (till exempel **NW1-frontend**)
+            1. Ange tilldelningen till statisk och ange IP-adressen (till exempel **10.0.0.4**)
+            1. Klicka på OK
+         1. IP-10.0.0.5 för NW2
+            * Upprepa stegen ovan för NW2
+      1. Skapa backend-pooler
+         1. Anslutna till primära nätverks gränssnitt för alla virtuella datorer som ska ingå i NFS-klustret för NW1
+            1. Öppna belastningsutjämnaren, Välj backend-pooler och klicka på Lägg till
+            1. Ange namnet på den nya backend-poolen (till exempel **NW1-backend**)
+            1. Välj Virtual Network
+            1. Klicka på Lägg till en virtuell dator
+            1. Välj de virtuella datorerna i NFS-klustret och deras IP-adresser.
+            1. Klicka på Add (Lägg till).
+         1. Anslutna till primära nätverks gränssnitt för alla virtuella datorer som ska ingå i NFS-klustret för NW2
+            * Upprepa stegen ovan för att skapa en backend-pool för NW2
+      1. Skapa hälso avsökningar
+         1. Port 61000 för NW1
+            1. Öppna belastningsutjämnaren, Välj hälso avsökningar och klicka på Lägg till
+            1. Ange namnet på den nya hälso avsökningen (till exempel **NW1 – HP**)
+            1. Välj TCP som protokoll, Port 610**00**, Behåll intervallet 5 och tröskelvärde 2
+            1. Klicka på OK
+         1. Port 61001 för NW2
+            * Upprepa stegen ovan för att skapa en hälso avsökning för NW2
+      1. LoadBalancing-regler
          1. Öppna belastningsutjämnaren, Välj belastnings Utjämnings regler och klicka på Lägg till
-         1. Ange namnet på den nya belastnings Utjämnings regeln (till exempel **NW1 – lb-2049**)
-         1. Välj IP-adressen för klient delen, backend-poolen och hälso avsökningen som du skapade tidigare (till exempel **NW1-frontend**)
-         1. Behåll protokollets **TCP**, ange port **2049**
+         1. Ange namnet på den nya belastnings Utjämnings regeln (till exempel **NW1 – lb**)
+         1. Välj IP-adressen för klient delen, backend-poolen och hälso avsökningen som du skapade tidigare (till exempel **NW1-frontend**. **NW1-backend** och **NW1 – HP**)
+         1. Välj **ha-portar**.
          1. Öka tids gränsen för inaktivitet till 30 minuter
          1. **Se till att aktivera flytande IP**
          1. Klicka på OK
-      1. 2049 UDP för NW1
-         * Upprepa stegen ovan för port 2049 och UDP för NW1
-      1. 2049 TCP för NW2
-         * Upprepa stegen ovan för port 2049 och TCP för NW2
-      1. 2049 UDP för NW2
-         * Upprepa stegen ovan för port 2049 och UDP för NW2
+         * Upprepa stegen ovan för att skapa belastnings Utjämnings regeln för NW2
+   1. Om scenariot kräver en grundläggande belastningsutjämnare följer du dessa anvisningar:
+      1. Skapa IP-adresser för klient delen
+         1. IP-10.0.0.4 för NW1
+            1. Öppna belastningsutjämnaren, Välj klient delens IP-pool och klicka på Lägg till
+            1. Ange namnet på den nya IP-poolen för klient delen (till exempel **NW1-frontend**)
+            1. Ange tilldelningen till statisk och ange IP-adressen (till exempel **10.0.0.4**)
+            1. Klicka på OK
+         1. IP-10.0.0.5 för NW2
+            * Upprepa stegen ovan för NW2
+      1. Skapa backend-pooler
+         1. Anslutna till primära nätverks gränssnitt för alla virtuella datorer som ska ingå i NFS-klustret för NW1
+            1. Öppna belastningsutjämnaren, Välj backend-pooler och klicka på Lägg till
+            1. Ange namnet på den nya backend-poolen (till exempel **NW1-backend**)
+            1. Klicka på Lägg till en virtuell dator
+            1. Välj den tillgänglighets uppsättning som du skapade tidigare
+            1. Välj virtuella datorer för NFS-klustret
+            1. Klicka på OK
+         1. Anslutna till primära nätverks gränssnitt för alla virtuella datorer som ska ingå i NFS-klustret för NW2
+            * Upprepa stegen ovan för att skapa en backend-pool för NW2
+      1. Skapa hälso avsökningar
+         1. Port 61000 för NW1
+            1. Öppna belastningsutjämnaren, Välj hälso avsökningar och klicka på Lägg till
+            1. Ange namnet på den nya hälso avsökningen (till exempel **NW1 – HP**)
+            1. Välj TCP som protokoll, Port 610**00**, Behåll intervallet 5 och tröskelvärde 2
+            1. Klicka på OK
+         1. Port 61001 för NW2
+            * Upprepa stegen ovan för att skapa en hälso avsökning för NW2
+      1. LoadBalancing-regler
+         1. 2049 TCP för NW1
+            1. Öppna belastningsutjämnaren, Välj belastnings Utjämnings regler och klicka på Lägg till
+            1. Ange namnet på den nya belastnings Utjämnings regeln (till exempel **NW1 – lb-2049**)
+            1. Välj IP-adressen för klient delen, backend-poolen och hälso avsökningen som du skapade tidigare (till exempel **NW1-frontend**)
+            1. Behåll protokollets **TCP**, ange port **2049**
+            1. Öka tids gränsen för inaktivitet till 30 minuter
+            1. **Se till att aktivera flytande IP**
+            1. Klicka på OK
+         1. 2049 UDP för NW1
+            * Upprepa stegen ovan för port 2049 och UDP för NW1
+         1. 2049 TCP för NW2
+            * Upprepa stegen ovan för port 2049 och TCP för NW2
+         1. 2049 UDP för NW2
+            * Upprepa stegen ovan för port 2049 och UDP för NW2
 
 > [!IMPORTANT]
 > Aktivera inte TCP-tidsstämplar på virtuella Azure-datorer som placerats bakom Azure Load Balancer. Om du aktiverar TCP-tidsstämplar kommer hälso avsökningarna att Miss skadas. Ange parametern **net. IPv4. TCP _timestamps** till **0**. Mer information finns i [Load Balancer hälso avsökningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).

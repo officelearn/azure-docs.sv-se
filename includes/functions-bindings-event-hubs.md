@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: ef3dc13bd7d36e11f3109ef96a6f453b59afe145
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 0f94c89a52de138b261796cbef25c0acb57622c4
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809339"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73800142"
 ---
 ## <a name="trigger"></a>Utlösare
 
@@ -385,13 +385,13 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 |function. JSON-egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Ej tillämpligt | Måste anges till `eventHubTrigger`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
-|**riktning** | Ej tillämpligt | Måste vara inställd på `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
-|**Namn** | Ej tillämpligt | Namnet på variabeln som representerar händelse posten i funktions koden. |
+|**typ** | Saknas | Måste anges till `eventHubTrigger`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
+|**riktning** | Saknas | Måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
+|**Namn** | Saknas | Namnet på variabeln som representerar händelse posten i funktions koden. |
 |**path** |**EventHubName** | Functions 1. x. Namnet på händelsehubben. När namnet på händelsehubben också finns i anslutnings strängen, åsidosätter det värdet den här egenskapen vid körning. |
 |**eventHubName** |**EventHubName** | Functions 2. x. Namnet på händelsehubben. När namnet på händelsehubben också finns i anslutnings strängen, åsidosätter det värdet den här egenskapen vid körning. |
 |**consumerGroup** |**ConsumerGroup** | En valfri egenskap som anger den [konsument grupp](../articles/event-hubs/event-hubs-features.md#event-consumers) som används för att prenumerera på händelser i hubben. Om detta utelämnas används den `$Default` konsument gruppen. |
-|**kardinalitet** | Ej tillämpligt | För Java Script. Ange till `many` för att aktivera batchbearbetning.  Om det utelämnas eller anges till `one`, skickas ett enskilt meddelande till funktionen. |
+|**kardinalitet** | Saknas | För Java Script. Ange till `many` för att aktivera batchbearbetning.  Om det utelämnas eller anges till `one`, skickas ett enskilt meddelande till funktionen. |
 |**anslutningen** |**Anslutning** | Namnet på en app-inställning som innehåller anslutnings strängen till Event Hub-namnområdet. Kopiera den här anslutnings strängen genom att klicka på knappen **anslutnings information** för [namn området](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), inte själva händelsehubben. Den här anslutnings strängen måste ha minst Läs behörighet för att aktivera utlösaren.|
 |**path**|**EventHubName**|Namnet på händelsehubben. Kan refereras via App Settings `%eventHubName%`|
 
@@ -643,7 +643,7 @@ def main(timer: func.TimerRequest) -> str:
 I följande exempel visas en Java-funktion som skriver ett meddelande contianing aktuella tiden till en Event Hub.
 
 ```java
-@}FunctionName("sendTime")
+@FunctionName("sendTime")
 @EventHubOutput(name = "event", eventHubName = "samples-workitems", connection = "AzureEventHubConnection")
 public String sendTime(
    @TimerTrigger(name = "sendTimeTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo)  {
@@ -676,9 +676,9 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 |function. JSON-egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Ej tillämpligt | Måste vara inställd på eventHub. |
-|**riktning** | Ej tillämpligt | Måste anges till "out". Den här parametern anges automatiskt när du skapar bindningen i Azure Portal. |
-|**Namn** | Ej tillämpligt | Variabel namnet som används i funktions koden som representerar händelsen. |
+|**typ** | Saknas | Måste vara inställd på eventHub. |
+|**riktning** | Saknas | Måste anges till "out". Den här parametern anges automatiskt när du skapar bindningen i Azure Portal. |
+|**Namn** | Saknas | Variabel namnet som används i funktions koden som representerar händelsen. |
 |**path** |**EventHubName** | Functions 1. x. Namnet på händelsehubben. När namnet på händelsehubben också finns i anslutnings strängen, åsidosätter det värdet den här egenskapen vid körning. |
 |**eventHubName** |**EventHubName** | Functions 2. x. Namnet på händelsehubben. När namnet på händelsehubben också finns i anslutnings strängen, åsidosätter det värdet den här egenskapen vid körning. |
 |**anslutningen** |**Anslutning** | Namnet på en app-inställning som innehåller anslutnings strängen till Event Hub-namnområdet. Kopiera den här anslutnings strängen genom att klicka på knappen **anslutnings information** för *namn området*, inte själva händelsehubben. Den här anslutnings strängen måste ha Send-behörighet för att kunna skicka meddelandet till händelse strömmen.|
@@ -687,7 +687,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 ## <a name="output---usage"></a>Utmatnings användning
 
-I C# och C# skript skickar du meddelanden med hjälp av en metod parameter som`out string paramName`. I C# skript är `paramName` det värde som anges i egenskapen `name` för *Function. JSON*. Om du vill skriva flera meddelanden kan du använda `ICollector<string>` eller `IAsyncCollector<string>` i stället för `out string`.
+I C# och C# skript skickar du meddelanden med hjälp av en metod parameter som `out string paramName`. I C# skript är `paramName` det värde som anges i egenskapen `name` för *Function. JSON*. Om du vill skriva flera meddelanden kan du använda `ICollector<string>` eller `IAsyncCollector<string>` i stället för `out string`.
 
 I Java Script får du åtkomst till utdata-händelsen med hjälp av `context.bindings.<name>`. `<name>` är värdet som anges i egenskapen `name` för *Function. JSON*.
 
@@ -695,7 +695,7 @@ I Java Script får du åtkomst till utdata-händelsen med hjälp av `context.bin
 
 | Enheten | Referens |
 |---|---|
-| Event Hub | [Drift guide](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) |
+| Händelsehubb | [Drift guide](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) |
 
 <a name="host-json"></a>  
 
@@ -724,5 +724,5 @@ I det här avsnittet beskrivs globala konfigurations inställningar som är till
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------|
 |maxBatchSize|64|Maximalt antal händelser som tas emot per Receive-slinga.|
-|prefetchCount|Ej tillämpligt|Standard-PrefetchCount som ska användas av den underliggande EventProcessorHost.|
+|prefetchCount|Saknas|Standard-PrefetchCount som ska användas av den underliggande EventProcessorHost.|
 |batchCheckpointFrequency|1|Antalet händelse grupper som ska bearbetas innan en kontroll punkt för EventHub-markören skapas.|

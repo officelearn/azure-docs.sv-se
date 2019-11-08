@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: d835eda044c2a6d1e0e7c678073711e45fde7395
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: a70400a1d0c710b939b4dd6d157cb06e729f53cb
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972151"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747819"
 ---
 # <a name="about-site-recovery-components-configuration-process-master-target"></a>Om Site Recovery-komponenter (konfiguration, process, huvud mål)
 
@@ -27,7 +27,7 @@ För haveri beredskap för lokala virtuella VMware-datorer och fysiska servrar b
 **Delarna**  | Configuration Server-datorn kör alla lokala Site Recovery-komponenter, som innehåller konfigurations servern, processervern och huvud mål servern.<br/><br/> När du konfigurerar konfigurations servern installeras alla komponenter automatiskt. | [Läs](vmware-azure-common-questions.md#configuration-server) vanliga frågor och svar om konfigurations servern.
 **Roll** | Konfigurationsservern samordnar kommunikationen mellan den lokala miljön och Azure och hanterar datareplikering. | Lär dig mer om arkitekturen för haveri beredskap för [VMware](vmware-azure-architecture.md) och [fysisk server](physical-azure-architecture.md) till Azure.
 **Krav för VMware** | För haveri beredskap för lokala virtuella VMware-datorer måste du installera och köra konfigurations servern som en lokal, virtuell VMware-dator med hög tillgänglighet. | [Läs mer om](vmware-azure-deploy-configuration-server.md#prerequisites) kraven.
-**VMware-distribution** | Vi rekommenderar att du distribuerar konfigurations servern med hjälp av en Hämtad mall för ägg. Den här metoden ger dig ett enkelt sätt att konfigurera en konfigurations server som uppfyller alla krav och förutsättningar.<br/><br/> Om du av någon anledning inte kan distribuera en virtuell VMware-dator med en ägg-mall kan du konfigurera konfigurations serverns datorer manuellt, enligt beskrivningen nedan för haveri beredskap för fysiska datorer. | [Distribuera](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template) med en ägg mall.
+**VMware-distribution** | Vi rekommenderar att du distribuerar konfigurations servern med hjälp av en Hämtad mall för ägg. Den här metoden ger dig ett enkelt sätt att konfigurera en konfigurations server som uppfyller alla krav och förutsättningar.<br/><br/> Om du av någon anledning inte kan distribuera en virtuell VMware-dator med en ägg-mall kan du konfigurera konfigurations serverns datorer manuellt, enligt beskrivningen nedan för haveri beredskap för fysiska datorer. | [Distribuera](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template) med en ägg mall.
 **Krav för fysisk server** | Vid haveri beredskap på lokala fysiska servrar distribuerar du konfigurations servern manuellt. | [Läs mer om](physical-azure-set-up-source.md#prerequisites) kraven.
 **Distribution av fysisk server** | Om den inte kan installeras som en virtuell VMware-dator kan du installera den på en fysisk server. | [Distribuera](physical-azure-set-up-source.md#set-up-the-source-environment) konfigurations servern manuellt.
 

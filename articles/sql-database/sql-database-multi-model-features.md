@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: 7156b9923c9cb98ae3dde143c98eb32a6eb11a9c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
-ms.translationtype: MT
+ms.openlocfilehash: 0d59db65e940cab12dccaeeacc9083eb7fbba20e
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687723"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795771"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Funktioner i flera modeller i Azure SQL Database
 
@@ -29,7 +29,7 @@ Du bör överväga att använda flera modell funktioner i Azure SQL Database i f
 - Du har en del information eller strukturer som passar bättre för NoSQL-modeller och du inte vill använda separata NoSQL-databaser.
 - En majoritet av dina data lämpar sig för Relations modeller och du behöver modellera vissa delar av dina data i NoSQL-format.
 - Du vill använda Rich-SQL-språk för att fråga och analysera både Relations-och NoSQL data och integrera den med en rad olika verktyg och program som kan använda SQL-språket.
-- Du vill använda databas funktioner som [minnes intern teknik](sql-database-in-memory.md) för att förbättra prestanda för din analys eller bearbetning av NoSQL data Strucutres [, använda Transaktionsreplikering](sql-database-managed-instance-transactional-replication.md) eller [läsbara repliker](sql-database-read-scale-out.md) för att skapa en kopia av dina data på den andra platsen och avlasta vissa analytiska arbets belastningar från den primära databasen.
+- Du vill använda databas funktioner som [minnes intern teknik](sql-database-in-memory.md) för att förbättra prestanda för analys eller bearbetning av dina NoSQL data strukturer [, använda Transaktionsreplikering](sql-database-managed-instance-transactional-replication.md) eller [läsbara repliker](sql-database-read-scale-out.md) för att skapa en kopia av dina data på den andra platsen och avlasta vissa analytiska arbets belastningar från den primära databasen.
 
 ## <a name="overview"></a>Översikt
 
@@ -38,7 +38,7 @@ Azure SQL innehåller följande funktioner för flera modeller:
 - Med [JSON-funktioner](#json-features) kan du använda JSON-dokument i tabeller, transformera Relations data till JSON-dokument och vice versa. Du kan använda standard språket för Transact-SQL med JSON-funktioner för att parsa dokument och använda icke-grupperade index, columnstore-index eller minnesoptimerade tabeller för att optimera dina frågor.
 - Med [spatiala funktioner](#spatial-features) kan du lagra geografiska och geometriska data, indexera dem med hjälp av rums index och hämta data med hjälp av spatiala frågor.
 - Med [XML-funktioner](#xml-features) kan du lagra och indexera XML-data i databasen och använda inbyggda XQuery/XPath-åtgärder för att arbeta med XML-data. Azure SQL Database har specialiserat inbyggd XML-frågemotor som bearbetar XML-data.
-- [Nyckel/värde-par](#key-value-pairs) stöds inte uttryckligen som särskilda funktioner, eftersom nyckel värde Paris kan modelleras internt som två kolumn tabeller.
+- [Nyckel/värde-par](#key-value-pairs) stöds inte uttryckligen som särskilda funktioner eftersom nyckel/värde-par kan modelleras internt som två kolumn tabeller.
 
   > [!Note]
   > Du kan använda JSON Path-uttryck, XQuery/XPath-uttryck, spatiala funktioner och Graph-frågeuttryck i samma Transact-SQL-fråga för att få åtkomst till alla data som du har lagrat i databasen. Dessutom kan alla verktyg eller programmeringsspråk som kan köra Transact-SQL-frågor även använda det Query-gränssnittet för att få åtkomst till data i flera modeller. Detta är den viktigaste skillnaden jämfört med databaser med flera modeller, till exempel [Azure Cosmos DB](/azure/cosmos-db/) som tillhandahåller specialiserat API för olika data modeller.
@@ -68,7 +68,7 @@ Det finns ingen graf-databas som kan uppnås med hjälp av en Relations databas.
 
 Med Azure SQL Database kan du analysera och fråga data som representeras i JavaScript Object Notation [(JSON)](https://www.json.org/) -format och exportera Relations data som JSON-text.
 
-JSON är ett populärt data format som används för att utbyta data i moderna webb-och mobil program. JSON används också för att lagra halv strukturerade data i loggfiler eller i NoSQL-databaser som [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Många REST-webb tjänster returnerar resultat formaterade som JSON-text eller accepterar data som formaterats som JSON. De flesta Azure-tjänster som [Azure Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/)och [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) har rest-slutpunkter som returnerar eller använder JSON.
+JSON är ett populärt data format som används för att utbyta data i moderna webb-och mobil program. JSON används också för att lagra halv strukturerade data i loggfiler eller i NoSQL-databaser som [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Många REST-webb tjänster returnerar resultat formaterade som JSON-text eller accepterar data som formaterats som JSON. De flesta Azure-tjänster som [azure kognitiv sökning](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/)och [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) har rest-slutpunkter som returnerar eller använder JSON.
 
 Med Azure SQL Database kan du enkelt arbeta med JSON-data och integrera databasen med moderna tjänster. Azure SQL Database innehåller följande funktioner för att arbeta med JSON-data:
 

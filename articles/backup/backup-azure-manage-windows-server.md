@@ -1,29 +1,28 @@
 ---
 title: Hantera Azure Recovery Services-valv och-servrar
-description: Hantera jobb och aviseringar i ett Azure Recovery Services-valv.
+description: I den här artikeln lär du dig hur du använder översikts instrument panelen för Recovery Services valv för att övervaka och hantera Recovery Services-valv.
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7e7312f942103125217c1f61ae8fe8007a49529b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: a86af57f49b91615cc453946b0b5d51d22f2d163
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954763"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747439"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Övervaka och hantera Recovery Services-valv
 
-I den här artikeln förklaras hur du använder översikts instrument panelen för Recovery Services valv för att övervaka och hantera dina Recovery Services-valv. När du öppnar ett Recovery Services valv i listan öppnas översikts instrument panelen för det valda valvet. Instrument panelen innehåller olika detaljer om valvet. Det finns *paneler* som visar: status för kritiska varningar och varnings aviseringar, pågående och misslyckade säkerhets kopierings jobb samt mängden lokalt redundant lagring (LRS) och Geo-redundant lagring (GRS) som används. Om du säkerhetskopierar virtuella Azure-datorer till valvet [visas kritiska eller varnings objekt i status panelen för **säkerhets kopiering** ](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/). Följande bild är översikts instrument panelen för **contoso-valvet**. På panelen **säkerhets kopierings objekt** visas nio objekt som registrerats för valvet.
+I den här artikeln förklaras hur du använder **översikts** instrument panelen för Recovery Services valv för att övervaka och hantera dina Recovery Services-valv. När du öppnar ett Recovery Services valv i listan öppnas **översikts** instrument panelen för det valda valvet. Instrument panelen innehåller olika detaljer om valvet. Det finns *paneler* som visar: status för kritiska varningar och varnings aviseringar, pågående och misslyckade säkerhets kopierings jobb samt mängden lokalt redundant lagring (LRS) och Geo-redundant lagring (GRS) som används. Om du säkerhetskopierar virtuella Azure-datorer till valvet [visas kritiska eller varnings objekt i status panelen för **säkerhets kopiering** ](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/). Följande bild är **översikts** instrument panelen för **contoso-valvet**. På panelen **säkerhets kopierings objekt** visas nio objekt som registrerats för valvet.
 
 ![instrument panel för Recovery Services-valv](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
 Kraven för den här artikeln är: en Azure-prenumeration, ett Recovery Services-valv och att minst ett säkerhets kopierings objekt har kon figurer ATS för valvet.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
-
 
 ## <a name="open-a-recovery-services-vault"></a>Öppna ett Recovery Services-valv
 
@@ -47,7 +46,7 @@ Kraven för den här artikeln är: en Azure-prenumeration, ett Recovery Services
 
 ## <a name="monitor-backup-jobs-and-alerts"></a>Övervaka säkerhets kopierings jobb och aviseringar
 
-Översikts instrument panelen för Recovery Services Vault innehåller paneler för övervakning och användnings information. Panelerna i övervaknings avsnittet visar kritiska varningar och varnings aviseringar, samt pågående och misslyckade jobb. Klicka på en viss avisering eller jobb för att öppna menyn säkerhets kopierings varningar eller säkerhets kopierings jobb, filtrerat för det jobbet eller aviseringen.
+**Översikts** instrument panelen för Recovery Services Vault innehåller paneler för övervakning och användnings information. Panelerna i övervaknings avsnittet visar kritiska varningar och varnings aviseringar, samt pågående och misslyckade jobb. Klicka på en viss avisering eller jobb för att öppna menyn säkerhets kopierings varningar eller säkerhets kopierings jobb, filtrerat för det jobbet eller aviseringen.
 
 ![Säkerhetskopiera instrument panels aktiviteter](./media/backup-azure-manage-windows-server/monitor-dashboard-tiles-warning.png)
 
@@ -66,7 +65,7 @@ Klicka på panelerna (förutom lagring av säkerhets kopior) för att öppna den
 
 ![Menyn säkerhetskopiera aviseringar filtrerade för kritiska varningar](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
 
-Menyn för säkerhets kopierings aviseringar i bilden ovan filtreras efter: Status är aktiv, allvarlighets graden är kritisk och tiden är de föregående 24 timmarna.
+Menyn för säkerhets kopierings aviseringar i bilden ovan filtreras efter: status är aktiv, allvarlighets grad är kritisk och tiden är de föregående 24 timmarna.
 
 ## <a name="manage-backup-alerts"></a>Hantera säkerhets kopierings aviseringar
 
@@ -84,8 +83,8 @@ Listan med aviseringar om säkerhets kopiering visar den valda informationen fö
 
 | Aviserings nivå | Händelser som genererar aviseringar |
 | ----------- | ----------- |
-| Kritiskt | Du får viktiga aviseringar när: Säkerhets kopierings jobben fungerar inte, återställnings jobben fungerar inte och när du slutar skydda en server, men behåller data.|
-| Varning | Du får varnings aviseringar när: Säkerhets kopierings jobb slutförs med varningar, till exempel om färre än 100 filer inte säkerhets kopie ras på grund av problem med skada, eller om fler än 1 000 000 filer har säkerhetskopierats). |
+| Kritisk | Du får viktiga aviseringar när: säkerhets kopierings jobben inte fungerar, om återställnings jobben inte fungerar och när du slutar skydda en server, men behåller data.|
+| Varning | Du får varnings aviseringar när: säkerhets kopierings jobben har slutförts med varningar, till exempel om färre än 100 filer inte säkerhets kopie ras på grund av problem med skada, eller när fler än 1 000 000 filer har säkerhetskopierats). |
 | Information | för närvarande används inga informations aviseringar. |
 
 ### <a name="viewing-alert-details"></a>Visa aviserings information
@@ -99,9 +98,9 @@ Som standard visas all information, förutom den **senaste förekomst tiden**, i
 * Varning
 * Säkerhets kopierings objekt
 * Skyddad Server
-* severity
-* Duration
-* Skapandetid
+* Severity
+* Varaktighet
+* Skapande tid
 * Status
 * Senaste förekomst tid
 
@@ -177,7 +176,7 @@ På panelen **säkerhets kopierings jobb** på instrument panelen för valv visa
 
 ![Säkerhetskopiera objekt från inställningar](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
 
-Om du vill se mer information om jobben klickar du på pågår eller så **gick det inte** att öppna menyn säkerhets kopierings jobb filtrerat för detta tillstånd.
+Om du vill se mer information om jobben klickar du på **pågår** eller så **gick det inte** att öppna menyn säkerhets kopierings jobb filtrerat för detta tillstånd.
 
 ### <a name="backup-jobs-menu"></a>Menyn säkerhetskopiera jobb
 
@@ -205,7 +204,7 @@ Menyn säkerhets kopierings jobb visar status för alla åtgärder, på alla sä
 
 2. Välj filter inställningarna och klicka på **Slutför**. Den filtrerade listan uppdateras utifrån de nya inställningarna.
 
-#### <a name="item-type"></a>Objekttyp
+#### <a name="item-type"></a>Objekt typ
 
 Objekt typen är typen av säkerhets kopierings hantering för den skyddade instansen. Det finns fyra typer. Se följande lista. Du kan visa alla objekt typer eller en objekt typ. Det går inte att markera två eller tre objekt typer. De tillgängliga objekt typerna är:
 
@@ -222,7 +221,7 @@ Du kan visa en åtgärd eller alla åtgärder. Det går inte att välja två ell
 * Alla åtgärder
 * Registrera dig
 * Konfigurera säkerhetskopiering
-* Säkerhetskopiera
+* Backup
 * Återställ
 * Inaktivera säkerhets kopiering
 * Ta bort säkerhetskopieringsdata
@@ -259,22 +258,22 @@ Panelen lagring av säkerhets kopior på instrument panelen visar förbrukad lag
 * Moln LRS lagrings användning som är associerad med valvet
 * Moln GRS lagrings användning som är associerad med valvet
 
-
 ## <a name="troubleshooting-monitoring-issues"></a>Felsöka övervaknings problem
 
 **Problem:** Jobb och/eller varningar från Azure Backup-agenten visas inte i portalen.
 
-**Fel söknings steg:** Processen ```OBRecoveryServicesManagementAgent```skickar jobbet och aviserings data till Azure Backup tjänsten. Ibland kan den här processen bli fastnad eller stängas av.
+**Fel söknings steg:** Processen ```OBRecoveryServicesManagementAgent```skickar jobbet och aviserings data till Azure Backups tjänsten. Ibland kan den här processen bli fastnad eller stängas av.
 
-1. Kontrol lera att processen inte körs genom att öppna **aktivitets hanteraren**och köra ```OBRecoveryServicesManagementAgent``` kontrollen.
+1. Kontrol lera att processen inte körs genom att öppna **aktivitets hanteraren**och kontrol lera ```OBRecoveryServicesManagementAgent``` körs.
 
 2. Om processen inte körs öppnar du **kontroll panelen**och bläddrar i listan över tjänster. Starta eller starta om **Microsoft Azure Recovery Services hanterings agenten**.
 
     Om du vill ha mer information bläddrar du till loggarna på:<br/>
-   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*`Exempel:<br/>
+   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*` till exempel:<br/>
    `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
 ## <a name="next-steps"></a>Nästa steg
+
 * [Återställa Windows Server eller Windows-klient från Azure](backup-azure-restore-windows-server.md)
 * Mer information om Azure Backup finns i [Azure Backup översikt](backup-introduction-to-azure-backup.md)
 * Besök [Azure Backup-forumet](https://go.microsoft.com/fwlink/p/?LinkId=290933)

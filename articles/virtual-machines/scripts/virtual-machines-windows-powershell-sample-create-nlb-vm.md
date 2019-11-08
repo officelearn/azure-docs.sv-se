@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2238f223f22ee43e7afd8b5162fb16cb16a2adf4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 92f437a175228ab75287bdbcf6da31b2786bcbd4
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70090758"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748724"
 ---
 # <a name="load-balance-traffic-between-highly-available-virtual-machines"></a>Belastningsutjämna trafiken mellan virtuella datorer med hög tillgänglighet
 
@@ -30,7 +30,7 @@ Det här skriptexemplet skapar allt som behövs för att köra flera virtuella W
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -68,7 +68,7 @@ Det här skriptet använder följande kommandon för att skapa distributionen. V
 | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Skapa en virtuell dator. |
 |[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp och alla resurser som ingår i gruppen. |
 
-Du kan också skapa de virtuella datorerna med din egen anpassade hanterade avbildning. I VM `Set-AzVMSourceImage` -konfigurationen kan du `-Id` använda parametrarna och `-VM` i stället för `-PublisherName`, `-Offer`, `-Skus`, och `-Version`.
+Du kan också skapa de virtuella datorerna med din egen anpassade hanterade avbildning. I VM-konfigurationen för `Set-AzVMSourceImage` använda parametrarna `-Id` och `-VM` i stället för `-PublisherName`, `-Offer`, `-Skus`och `-Version`.
 
 Att till exempel skapa den virtuella dator konfigurationen skulle vara:
 

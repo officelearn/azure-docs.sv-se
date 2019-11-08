@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: philmea
-ms.openlocfilehash: 533a199f75baa5a27ed06698f22d4d046be45507
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
-ms.translationtype: HT
+ms.openlocfilehash: 173be8207df2f0128dfc9ae3c36aa3c3dc392bee
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607876"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748566"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub hög tillgänglighet och haveri beredskap
 
@@ -62,7 +62,7 @@ När redundansväxlingen för IoT Hub har slutförts förväntas alla åtgärder
 > [!CAUTION]
 > - Det Event Hub-kompatibla namnet och slut punkten för den IoT Hub inbyggda händelse slut punkten ändras efter redundansväxlingen. När du tar emot telemetri-meddelanden från den inbyggda slut punkten med hjälp av Event Hub-klienten eller händelse processor värden bör du [använda IoT Hub-anslutningssträngen](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) för att upprätta anslutningen. Detta säkerställer att dina backend-program fortsätter att fungera utan att behöva utföra manuella åtgärder efter redundansväxlingen. Om du använder det Event Hub-kompatibla namnet och slut punkten i ditt backend-program direkt måste du konfigurera om programmet genom [att hämta det nya Event Hub-kompatibla namnet och slut punkten](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) efter redundansväxlingen för att fortsätta.
 >
-> - Vid routning till lagring rekommenderar vi att du skapar en lista över lagrings behållaren och sedan går över dem, för att se till att alla behållare är lästa utan att behöva göra några antaganden om partitionen. Partitions intervallet kan eventuellt ändras under en Microsoft-initierad redundans eller manuell redundans. Information om hur du räknar upp listan över blobbar finns i [routning till Azure Storage](iot-hub-devguide-messages-d2c.md#azure-storage).
+> - Vid routning till lagring rekommenderar vi att du listar blobbar eller filer och sedan går över dem, så att alla blobbar eller filer läses utan att du behöver göra några antaganden om partitionen. Partitions intervallet kan eventuellt ändras under en Microsoft-initierad redundans eller manuell redundans. Du kan använda [list-BLOB-API: et](https://docs.microsoft.com/rest/api/storageservices/list-blobs) för att räkna upp listan över blobbar eller [lista ADLS Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) för listan med filer. 
 
 ## <a name="microsoft-initiated-failover"></a>Microsoft-initierad redundans
 

@@ -1,7 +1,7 @@
 ---
 title: Konfigurera en QnA Maker tjänst – QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Innan du kan skapa alla QnA Maker kunskapsbaser, måste du först ställa in QnA Maker-tjänsten i Azure. Alla som har behörighet att skapa nya resurser i en prenumeration kan ställa in QnA Maker-tjänsten.
+description: Innan du kan skapa en QnA Maker kunskaps banker måste du först konfigurera en QnA Maker tjänst i Azure. Alla som har behörighet att skapa nya resurser i en prenumeration kan konfigurera en QnA Maker-tjänst.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: a2b467eed010edbb842d536bd8f6e3f4107fcea8
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 6d52062561e3f08a214f3e191706583edc844786
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984368"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794216"
 ---
 # <a name="manage-qna-maker-resources"></a>Hantera QnA Maker resurser
 
-Innan du kan skapa alla QnA Maker kunskapsbaser, måste du först ställa in QnA Maker-tjänsten i Azure. Alla som har behörighet att skapa nya resurser i en prenumeration kan ställa in QnA Maker-tjänsten.
+Innan du kan skapa en QnA Maker kunskaps banker måste du först konfigurera en QnA Maker tjänst i Azure. Alla som har behörighet att skapa nya resurser i en prenumeration kan konfigurera en QnA Maker-tjänst.
 
 ## <a name="types-of-keys-in-qna-maker"></a>Typer av nycklar i QnA Maker
 
@@ -28,10 +28,10 @@ Din QnA Maker-tjänst hanterar två typer av nycklar: **prenumerations nycklar**
 
 ![Nyckelhantering](../media/qnamaker-how-to-key-management/key-management.png)
 
-|Name|Location|Syfte|
+|Namn|Plats|Syfte|
 |--|--|--|
 |Prenumerationsnyckel|[Azure Portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|Dessa nycklar används för att få åtkomst till [API: erna för QNA Maker Management-tjänsten](https://go.microsoft.com/fwlink/?linkid=2092179). Med dessa API: er kan du redigera frågorna och svaren i din kunskaps bas och publicera din kunskaps bas. Nycklarna skapas när du skapar en ny QnA Maker-tjänst.<br><br>Sök efter dessa nycklar på **Cognitive Services** resurs på sidan **nycklar** .|
-|Slutpunktsnyckel|[QnA Maker Portal](http://www.qnamaker.ai)|Dessa nycklar används för att få åtkomst till den publicerade kunskaps bas slut punkten för att få svar på en användar fråga. Du använder vanligt vis den här slut punkten i din Chat-robot eller i klient program koden som ansluter till QnA Maker-tjänsten. De här nycklarna skapas när du publicerar din QnA Maker-kunskaps bas.<br><br>Sök efter dessa nycklar på sidan **tjänst inställningar** . Hitta den här sidan från användarens meny längst upp till höger på sidan på den nedrullningsbara menyn.|
+|Slut punkts nyckel|[QnA Maker Portal](http://www.qnamaker.ai)|Dessa nycklar används för att få åtkomst till den publicerade kunskaps bas slut punkten för att få svar på en användar fråga. Du använder vanligt vis den här slut punkten i din Chat-robot eller i klient program koden som ansluter till QnA Maker-tjänsten. De här nycklarna skapas när du publicerar din QnA Maker-kunskaps bas.<br><br>Sök efter dessa nycklar på sidan **tjänst inställningar** . Hitta den här sidan från användarens meny längst upp till höger på sidan på den nedrullningsbara menyn.|
 
 ## <a name="create-a-new-qna-maker-service"></a>Skapa en ny QnA Maker-tjänst
 
@@ -45,23 +45,23 @@ Den här proceduren skapar de Azure-resurser som krävs för att hantera innehå
 
 1. I **QNA Maker**väljer du lämpliga nivåer och regioner:
 
-    ![Skapa en ny tjänst för QnA Maker - prisnivå och regioner](../media/qnamaker-how-to-setup-service/enter-qnamaker-info.png)
+    ![Skapa en ny QnA Maker tjänst – pris nivå och regioner](../media/qnamaker-how-to-setup-service/enter-qnamaker-info.png)
 
     * I fältet **namn** anger du ett unikt namn som identifierar den här QNA Makers tjänsten. Namnet identifierar också QnA Maker slut punkten som dina kunskaps baser kommer att associeras med.
     * Välj den **prenumeration** som QNA Maker resursen ska distribueras under.
     * Välj **pris nivå** för QNA Maker hanterings tjänster (portal-och hanterings-API: er). Se [Mer information om SKU-prissättning](https://aka.ms/qnamaker-pricing).
     * Skapa en ny **resurs grupp** (rekommenderas) eller Använd en befintlig som distribuerar den här QNA Maker resursen. QnA Maker skapar flera Azure-resurser. När du skapar en resurs grupp som innehåller dessa resurser kan du enkelt hitta, hantera och ta bort dessa resurser med resurs gruppens namn.
     * Välj en **resurs grupps plats**.
-    * Välj den **Search prisnivån** för Azure Search-tjänsten. Om alternativet för den kostnads fria nivån inte är tillgängligt (visas nedtonat) innebär det att du redan har en kostnads fri Azure Search-nivå som distribueras via din prenumeration. I så fall måste du börja med Basic Azure Search-nivån. Se [Azure Search pris information](https://azure.microsoft.com/pricing/details/search/).
-    * Välj den **Sök plats** där du vill att Azure Search data ska distribueras. Begränsningar för var kund information måste lagras hjälper till att avgöra vilken plats du väljer för Azure Search.
+    * Välj **pris nivå för sökning** i Azure kognitiv sökning-tjänsten. Om alternativet för den kostnads fria nivån inte är tillgängligt (visas nedtonat) innebär det att du redan har en kostnads fri tjänst som distribuerats via din prenumeration. I så fall måste du börja med Basic-nivån. Se [pris information för Azure kognitiv sökning](https://azure.microsoft.com/pricing/details/search/).
+    * Välj den **Sök plats** där du vill att Azure kognitiv sökning-index ska distribueras. Begränsningar för var kund information måste lagras hjälper dig att avgöra vilken plats du väljer för Azure Kognitiv sökning.
     * Ange ett namn på Azure App Service-instansen i fältet **namn på App** .
-    * Standardvärdet är App Service standard nivån (S1). Du kan ändra planen efter har skapats. Läs mer om [App Service prissättning](https://azure.microsoft.com/pricing/details/app-service/).
+    * Standardvärdet är App Service standard nivån (S1). Du kan ändra planen när du har skapat den. Läs mer om [App Service prissättning](https://azure.microsoft.com/pricing/details/app-service/).
     * Välj **plats för webbplatsen** där App Service ska distribueras.
 
         > [!NOTE]
         > **Sök platsen** kan skilja sig från **webbplatsens plats**.
 
-    * Välj om du vill aktivera **Application Insights**. Om **Application Insights** är aktiverad, QnA Maker samlar in telemetri på trafik, chattloggarna och fel.
+    * Välj om du vill aktivera **Application Insights**. Om **Application Insights** är aktive rad samlar QNA Maker in telemetri om trafik, chat-loggar och fel.
     * Välj **platsen för App Insights** där Application Insightss resursen ska distribueras.
     * För kostnads besparingar kan du [dela](#share-existing-services-with-qna-maker) några men inte alla Azure-resurser som skapats för QNA Maker. 
 
@@ -69,7 +69,7 @@ Den här proceduren skapar de Azure-resurser som krävs för att hantera innehå
 
 1. När distributionen har slutförts visas följande resurser som skapats i din prenumeration:
 
-   ![Skapa en ny QnA Maker-tjänsten för resursen](../media/qnamaker-how-to-setup-service/resources-created.png)
+   ![Resurs skapade en ny QnA Maker tjänst](../media/qnamaker-how-to-setup-service/resources-created.png)
 
     Resursen med _Cognitive Services_ typen har dina _prenumerations_ nycklar.
 
@@ -79,7 +79,7 @@ Du kan visa och återställa dina prenumerations nycklar från Azure Portal, dä
 
 1. Gå till QnA Maker resursen i Azure Portal och välj den resurs som har _Cognitive Servicess_ typ:
 
-    ![QnA Maker resurslistan](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
+    ![QnA Maker resurs lista](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
 
 2. Gå till **nycklar**:
 
@@ -89,11 +89,11 @@ Du kan visa och återställa dina prenumerations nycklar från Azure Portal, dä
 
 Slut punkten finns i samma region som resursen eftersom slut punkts nycklarna används för att anropa kunskaps basen.
 
-Slutpunkt-nycklar kan hanteras från den [QnA Maker portal](https://qnamaker.ai).
+Slut punkts nycklar kan hanteras från [QNA Maker-portalen](https://qnamaker.ai).
 
 1. Logga in på [QNA Maker Portal](https://qnamaker.ai), gå till din profil och välj sedan **tjänst inställningar**:
 
-    ![Slutpunktsnyckel](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
+    ![Slut punkts nyckel](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
 
 2. Visa eller Återställ dina nycklar:
 
@@ -106,13 +106,13 @@ Slutpunkt-nycklar kan hanteras från den [QnA Maker portal](https://qnamaker.ai)
 
 QnA Maker skapar flera Azure-resurser. Använd följande tabell för att ta reda på vad du kan och inte kan dela för att minska hanteringen och dra nytta av kostnads delning:
 
-|Tjänsten|Dela|Reason|
+|Tjänst|Dela|Orsak|
 |--|--|--|
 |Cognitive Services|X|Inte möjlig enligt design|
 |App Service-plan|✔|Fast disk utrymme som allokerats för en App Service plan. Om andra appar som delar samma App Service plan använder betydande disk utrymme, kommer QnAMaker App Service-instansen att drabbas av problem.|
 |App Service|X|Inte möjlig enligt design|
 |Application Insights|✔|Kan delas|
-|Söktjänst|✔|1. `testkb` är ett reserverat namn för QnAMaker-tjänsten. det kan inte användas av andra.<br>2. Synonym mappning med namnet `synonym-map` är reserverat för QnAMaker-tjänsten.<br>3. Antalet publicerade kunskaps baser begränsas av Sök tjänst nivån. Om det finns lediga index är andra tjänster som kan använda dem.|
+|Söktjänst|✔|1. `testkb` är ett reserverat namn för QnAMaker-tjänsten. den kan inte användas av andra.<br>2. synonym mappningen med namnet `synonym-map` är reserverad för QnAMaker-tjänsten.<br>3. antalet publicerade kunskaps baser är begränsat av Sök tjänst nivån. Om det finns lediga index är andra tjänster som kan använda dem.|
 
 Läs mer om [App Service](../../../app-service/index.yml) och [search service](../../../search/index.yml).
 
@@ -124,11 +124,11 @@ Om du skapar en QnA-tjänst via Azure Resource Manager mallar kan du skapa alla 
 
 ## <a name="upgrade-qna-maker"></a>Uppgradera QnA Maker
 
-|Uppgradera|Reason|
+|Uppgradera|Orsak|
 |--|--|
 |[Uppgradera](#upgrade-qna-maker-sku) SKU för QnA Maker hantering|Du vill ha fler frågor och svar i din kunskaps bas.|
 |[Uppgradera](#upgrade-app-service) App Service SKU|Kunskaps basen behöver för att betjäna fler förfrågningar från din klient app, till exempel en chatt-robot.|
-|[Uppgradera](#upgrade-the-azure-search-service) Azure Search tjänst|Du planerar att ha många kunskaps baser.|
+|[Uppgradera](#upgrade-the-azure-cognitive-search-service) Azure Kognitiv sökning-tjänst|Du planerar att ha många kunskaps baser.|
 
 
 ### <a name="upgrade-qna-maker-sku"></a>Uppgradera QnA Maker SKU
@@ -155,9 +155,9 @@ Gå till App Service resursen i Azure Portal och välj alternativet **skala upp*
 
 ![QnA Maker App Service skala](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
 
-### <a name="upgrade-the-azure-search-service"></a>Uppgradera Azure Search tjänsten
+### <a name="upgrade-the-azure-cognitive-search-service"></a>Uppgradera Azure Kognitiv sökning-tjänsten
 
-Om du planerar att ha många kunskaps baser uppgraderar du Azure Search-tjänstens pris nivå.
+Om du planerar att ha många kunskaps baser uppgraderar du pris nivån för Azure Kognitiv sökning-tjänsten.
 
 För närvarande kan du inte utföra en uppgradering på plats av Azure Search-SKU: n. Du kan dock skapa en ny Azure Search-resurs med önskad SKU, återställa data till den nya resursen och sedan länka den till QnA Maker stacken. Det gör du genom att följa dessa steg:
 
@@ -185,13 +185,13 @@ För närvarande kan du inte utföra en uppgradering på plats av Azure Search-S
 
 ## <a name="get-the-latest-runtime-updates"></a>Hämta de senaste körnings uppdateringarna
 
-QnAMaker runtime är en del av Azure App Service-instansen som distribueras när du [skapar en QnAMaker-tjänst](./set-up-qnamaker-service-azure.md) i Azure Portal. Uppdateringarna görs regelbundet för körningen. QnA Maker App Service-instansen är i läget för automatisk uppdatering efter 2019-versionen av webbplats tillägget (version 5 +). Den här uppdateringen är utformad för att ta hand om noll stillestånds tid under uppgraderingar.
+QnAMaker runtime är en del av Azure App Service-instansen som distribueras när du [skapar en QnAMaker-tjänst](./set-up-qnamaker-service-azure.md) i Azure Portal. Uppdateringar görs regelbundet till körnings miljön. QnA Maker App Service-instansen är i läget för automatisk uppdatering efter 2019-versionen av webbplats tillägget (version 5 +). Den här uppdateringen är utformad för att ta hand om noll stillestånds tid under uppgraderingar.
 
-Du kan kontrol lera din aktuella version https://www.qnamaker.ai/UserSettings på. Om din version är äldre än version 5. x måste du starta om App Service för att tillämpa de senaste uppdateringarna:
+Du kan kontrol lera din aktuella version på https://www.qnamaker.ai/UserSettings. Om din version är äldre än version 5. x måste du starta om App Service för att tillämpa de senaste uppdateringarna:
 
 1. Gå till din QnAMaker-tjänst (resurs grupp) i [Azure Portal](https://portal.azure.com).
 
-    ![QnAMaker Azure-resursgrupp](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
+    ![QnAMaker Azure-resurs grupp](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
 
 1. Välj App Service instansen och öppna avsnittet **Översikt** .
 
@@ -210,4 +210,4 @@ Hanterings tjänsten för QnA Maker används endast för QnA Maker-portalen och 
 Läs mer om [App Service](../../../app-service/index.yml) och [search service](../../../search/index.yml).
 
 > [!div class="nextstepaction"]
-> [Skapa och publicera en kunskapsbas](../Quickstarts/create-publish-knowledge-base.md)
+> [Skapa och publicera en kunskaps bas](../Quickstarts/create-publish-knowledge-base.md)

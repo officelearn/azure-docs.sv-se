@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 1980ee0bdea1316f6117d9deb7d2adb9df941768
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 6566ce4b9cec9ff09666e734625f15033c85127b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162619"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749568"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Ansluta och logga in på en virtuell Azure-dator som kör Windows
 Du använder knappen **Anslut** på Azure Portal för att starta en fjärrskrivbordssession (RDP) från ett Windows-skrivbord. Först ansluter du till den virtuella datorn och sedan loggar du in.
@@ -33,16 +33,16 @@ Om du vill ansluta till en virtuell Windows-dator från en Mac måste du install
 4. Välj **Anslut**längst upp på sidan för den virtuella datorn.
 2. På sidan **Anslut till virtuell dator** väljer du lämplig IP-adress och port. I de flesta fall ska standard-IP-adressen och porten användas. Välj **Ladda ned RDP-fil**. Om den virtuella datorn har en princip uppsättning för just-in-Time måste du först välja knappen **begär åtkomst** för att begära åtkomst innan du kan ladda ned RDP-filen. Mer information om just-in-time-principen finns i [Hantera åtkomst till virtuella datorer med just-in-time-principen](../../security-center/security-center-just-in-time.md).
 2. Öppna den nedladdade RDP-filen och välj **Anslut** när du tillfrågas. 
-2. Du får en varning om att `.rdp` filen kommer från en okänd utgivare. Detta är normalt. I fönstret **anslutning till fjärrskrivbord** väljer du **Anslut** för att fortsätta.
+2. Du får en varning om att `.rdp`-filen kommer från en okänd utgivare. Detta är normalt. I fönstret **anslutning till fjärrskrivbord** väljer du **Anslut** för att fortsätta.
    
     ![Skärmbild med ett varning som meddelar att utgivaren är okänd.](./media/connect-logon/rdp-warn.png)
 3. I fönstret **Windows-säkerhet** väljer du **fler alternativ** och sedan **använd ett annat konto**. Ange autentiseringsuppgifterna för ett konto på den virtuella datorn och välj sedan **OK**.
    
-     **Lokalt konto**: Detta är vanligt vis det lokala kontots användar namn och lösen ord som du angav när du skapade den virtuella datorn. I det här fallet är domänen namnet på den virtuella datorn och är registrerad som *vmnamn*&#92;*användarnamn*.  
+     **Lokalt konto**: det här är vanligt vis det lokala kontots användar namn och lösen ord som du angav när du skapade den virtuella datorn. I det här fallet är domänen namnet på den virtuella datorn och är registrerad som *vmnamn*&#92;*användarnamn*.  
    
-    Domänansluten **virtuell dator**: Om den virtuella datorn tillhör en domän anger du användar namnet i formatet *domän*&#92;*användar namn*. Kontot måste också antingen vara i gruppen administratörer eller ha beviljats behörighet för fjärråtkomst för den virtuella datorn.
+    Domänansluten **virtuell dator**: om den virtuella datorn tillhör en domän anger du användar namnet i formatet *domän*&#92;*användar namn*. Kontot måste också antingen vara i gruppen administratörer eller ha beviljats behörighet för fjärråtkomst för den virtuella datorn.
    
-    **Domänkontrollant:** Om den virtuella datorn är en domänkontrollant anger du användar namnet och lösen ordet för ett domän administratörs konto för domänen.
+    **Domänkontrollant: om**den virtuella datorn är en domänkontrollant anger du användar namn och lösen ord för ett domän administratörs konto för domänen.
 4. Välj **Ja** för att verifiera identiteten för den virtuella datorn och slutför inloggningen.
    
    ![Skärmbild som visar ett meddelande om verifieringen av den virtuella datorns identitet.](./media/connect-logon/cert-warning.png)
@@ -55,9 +55,9 @@ Om du vill ansluta till en virtuell Windows-dator från en Mac måste du install
 
 ## <a name="connect-to-the-virtual-machine-using-powershell"></a>Ansluta till den virtuella datorn med PowerShell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
-Om du använder PowerShell och har installerat Azure PowerShell-modulen kan du också ansluta med hjälp av `Get-AzRemoteDesktopFile` cmdleten, som du ser nedan.
+Om du använder PowerShell och har installerat Azure PowerShell-modulen kan du också ansluta med hjälp av `Get-AzRemoteDesktopFile`-cmdleten, som visas nedan.
 
 I det här exemplet startas RDP-anslutningen direkt, med hjälp av liknande prompter som ovan.
 

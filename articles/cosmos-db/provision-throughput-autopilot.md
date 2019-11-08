@@ -6,19 +6,19 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3e2d9b892ad42563b481a0b1fe6a468daefad672
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
-ms.translationtype: HT
+ms.openlocfilehash: e0c3c88119c3d064326442881854920b411f5ed4
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606437"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748382"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Skapa Azure Cosmos-behållare och databaser i autopilot-läge (för hands version)
 
 Med Azure Cosmos DB kan du etablera data flöde på dina behållare i antingen manuellt eller autopilot-läge. I den här artikeln beskrivs fördelarna och användnings fallen i autopilot-läge.
 
 > [!NOTE]
-> Autopilot-läget är för närvarande tillgängligt i en offentlig för hands version.
+> Autopilot-läget är för närvarande tillgängligt i en offentlig för hands version. Information om hur du aktiverar autopilot-funktionen för ditt Azure Cosmos-konto finns i avsnittet [Aktivera autopilot](#enable-autopilot) i den här artikeln. Du kan aktivera autopilot för nya databaser och behållare, men det är inte tillgängligt för befintliga behållare och databaser.
 
 Förutom manuell etablering av data flöde kan du nu konfigurera Azure Cosmos-behållare i autopilot-läge. Azure Cosmos-behållare och databaser som kon figurer ATS i autopilot-läge kommer **automatiskt att skala det etablerade data flödet baserat på dina program behov utan att kompromissa med service avtal.**
 
@@ -68,7 +68,7 @@ Lösningar på tidigare problem kräver inte bara en enorma del av tiden i imple
 | **Prissättning** | Manuellt etablerade RU/s per timme. | För enstaka Skriv regions konton betalar du för det data flöde som används per timme med hjälp av den autopiloten RU/s per tim pris. <br/><br/>För konton med flera Skriv regioner finns det ingen extra kostnad för autopilot. Du betalar för det data flöde som används per timme med samma taxa för flera huvud-RU/s per timme. |
 | **Passar bäst för arbets belastnings typer** |  Förutsägbara och stabila arbets belastningar|   Oförutsedda och varierande arbets belastningar  |
 
-## <a name="enable-autopilot-from-azure-portal"></a>Aktivera autopilot från Azure Portal
+## <a name="a-idenable-autopilot-enable-autopilot-from-azure-portal"></a><a id="enable-autopilot"> aktivera autopilot från Azure Portal
 
 Du kan prova autopiloten i dina Azure Cosmos-konton genom att aktivera i från Azure Portal. Använd följande steg för att aktivera alternativet autopilot:
 

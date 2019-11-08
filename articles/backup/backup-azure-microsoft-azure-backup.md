@@ -1,6 +1,6 @@
 ---
 title: Använda Azure Backup Server för att säkerhetskopiera arbets belastningar till Azure
-description: Använd Azure Backup Server för att skydda eller säkerhetskopiera arbets belastningar till Azure Portal.
+description: I den här artikeln lär du dig hur du förbereder din miljö för att skydda och säkerhetskopiera arbets belastningar med hjälp av Microsoft Azure Backup Server (MABS).
 ms.reviewer: kasinh
 author: dcurwin
 manager: carmonm
@@ -8,16 +8,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 7a0f1f7dd79be250370fa97096a0cbf6dfc7f637
-ms.sourcegitcommit: 387da88b8262368c1b67fffea58fe881308db1c2
+ms.openlocfilehash: 789cc1d835024babb2482b2601503dbaf7247fc2
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71982859"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747420"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 
 > [!div class="op_single_selector"]
+>
 > * [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
 >
@@ -47,7 +48,7 @@ Det första steget för att få Azure Backup Server igång är att konfigurera e
 
 ### <a name="using-a-server-in-azure"></a>Använda en server i Azure
 
-När du väljer en server för att köra Azure Backup Server rekommenderar vi att du börjar med en galleri bild av Windows Server 2016 Data Center eller Windows Server 2019 Data Center. Artikeln [skapar din första virtuella Windows-dator i Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)och innehåller en självstudie för att komma igång med den rekommenderade virtuella datorn i Azure, även om du aldrig har använt Azure tidigare. De rekommenderade minimi kraven för virtuell Server-dator (VM) bör vara: Standard_A4_v2 med fyra kärnor och 8 GB RAM-minne.
+När du väljer en server för att köra Azure Backup Server rekommenderar vi att du börjar med en galleri bild av Windows Server 2016 Data Center eller Windows Server 2019 Data Center. Artikeln [skapar din första virtuella Windows-dator i Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)och innehåller en självstudie för att komma igång med den rekommenderade virtuella datorn i Azure, även om du aldrig har använt Azure tidigare. De rekommenderade minimi kraven för virtuell Server-dator (VM) ska vara: Standard_A4_v2 med fyra kärnor och 8 GB RAM.
 
 Att skydda arbets belastningar med Azure Backup Server har många olika delarna. Artikeln [Installera DPM som en virtuell Azure-dator, vilket](https://technet.microsoft.com/library/jj852163.aspx)hjälper dig att förklara dessa olika delarna. Innan du distribuerar datorn kan du läsa den här artikeln helt och hållet.
 
@@ -60,16 +61,16 @@ Om du inte vill köra bas servern i Azure kan du köra servern på en virtuell H
 | Windows Server 2019 |64-bitars |Standard, Datacenter, Essentials |
 | Windows Server 2016 och senaste SPs |64-bitars |Standard, Datacenter, Essentials  |
 
-
 Du kan deduplicera DPM-lagringen med Windows Server-deduplicering. Lär dig mer om hur [DPM och deduplicering](https://technet.microsoft.com/library/dn891438.aspx) fungerar tillsammans när de distribueras i virtuella Hyper-V-datorer.
 
 > [!NOTE]
 > Azure Backup Server är utformad för att köras på en dedikerad server med ett enda syfte. Du kan inte installera Azure Backup Server på:
-> - En dator som körs som en domänkontrollant
-> - En dator där programserverrollen är installerad
-> - En dator som är en System Center Operations Manager-hanteringsserver
-> - En dator som kör Exchange Server
-> - En dator som är en nod i ett kluster
+>
+> * En dator som körs som en domänkontrollant
+> * En dator där programserverrollen är installerad
+> * En dator som är en System Center Operations Manager-hanteringsserver
+> * En dator som kör Exchange Server
+> * En dator som är en nod i ett kluster
 
 Anslut alltid Azure Backup Server till en domän. Om du planerar att flytta servern till en annan domän installerar du Azure Backup Server först och ansluter sedan servern till den nya domänen. Det finns *inte stöd*för att flytta en befintlig Azure Backup Server-dator till en ny domän efter distribution.
 
@@ -182,11 +183,11 @@ När extraherings processen har slutförts markerar du kryss rutan för att star
 
     När du använder din egen instans av SQL 2017 måste du konfigurera SSRS manuellt. Efter SSRS-konfigurationen kontrollerar du att egenskapen *IsInitialized* för SSRS har angetts till *True*. Om detta är inställt på Sant förutsätter MABS att SSRS redan har kon figurer ATS och kommer att hoppa över SSRS-konfigurationen.
 
-    Använd följande värden för SSRS-konfiguration: 
-    - Tjänst konto: Använd det inbyggda kontot måste vara nätverks tjänst
-    - Webb tjänst-URL: ' Virtuell katalog ' ska vara ReportServer_ @ no__t-0
-    - Databas DatabaseName måste vara ReportServer $ <SQLInstanceName>
-    - Webb portal-URL: ' Virtuell katalog ' ska vara Reports_ @ no__t-0
+    Använd följande värden för SSRS-konfiguration:
+    * Tjänst konto: Använd det inbyggda kontot ska vara nätverks tjänst
+    * Webb tjänstens URL: virtuell katalog ska vara ReportServer_<SQLInstanceName>
+    * Databas: DatabaseName ska vara ReportServer $<SQLInstanceName>
+    * Webb portalens URL: ' virtuell katalog ' ska vara Reports_<SQLInstanceName>
 
     [Läs mer](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) om SSRS-konfiguration.
 
@@ -257,10 +258,10 @@ I följande avsnitt beskrivs hur du uppdaterar skydds agenter för klient datore
 
 Här följer några steg om du behöver flytta MABS till en ny server, samtidigt som lagringen behålls. Detta kan bara göras om alla data finns på Modern Backup Storage.
 
-
   > [!IMPORTANT]
-  > - Det nya Server namnet måste ha samma namn som den ursprungliga Azure Backup Server-instansen. Du kan inte ändra namnet på den nya Azure Backup Server-instansen om du vill använda den tidigare lagringspoolen och MABS-databasen (DPMDB) för att behålla återställnings punkter.
-  > - Du måste ha en säkerhets kopia av MABS-databasen (DPMDB). Du måste återställa databasen.
+  >
+  > * Det nya Server namnet måste ha samma namn som den ursprungliga Azure Backup Server-instansen. Du kan inte ändra namnet på den nya Azure Backup Server-instansen om du vill använda den tidigare lagringspoolen och MABS-databasen (DPMDB) för att behålla återställnings punkter.
+  > * Du måste ha en säkerhets kopia av MABS-databasen (DPMDB). Du måste återställa databasen.
 
 1. I visningsfönstret väljer du de klient datorer som du vill uppdatera skydds agenten för.
 2. Stäng av den ursprungliga Azure Backup-servern eller ta bort den från kabeln.
@@ -273,7 +274,7 @@ Här följer några steg om du behöver flytta MABS till en ny server, samtidigt
 9. Från SQL återställa DPMDB
 10. Från administratörs kommando rad på ny Server-CD till Microsoft Azure Backup installera plats och bin-mapp
 
-    Exempel på sökväg: C:\Windows\System32 > CD "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin @ no__t-0
+    Sökväg exempel: C:\Windows\System32 > CD "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"
 
 11. Till Azure Backup kör du DPMSYNC-SYNC
 
@@ -281,7 +282,7 @@ Här följer några steg om du behöver flytta MABS till en ny server, samtidigt
 
 ## <a name="network-connectivity"></a>Nätverks anslutning
 
-Azure Backup Server kräver anslutning till Azure Backups tjänsten för att produkten ska fungera korrekt. Använd cmdleten ```Get-DPMCloudConnection``` i Azure Backup Server PowerShell-konsolen för att kontrol lera om datorn har anslutningen till Azure. Om utdata från cmdleten är TRUE finns det en anslutning, annars finns det ingen anslutning.
+Azure Backup Server kräver anslutning till Azure Backups tjänsten för att produkten ska fungera korrekt. Du kan kontrol lera om datorn har anslutningen till Azure genom att använda cmdleten ```Get-DPMCloudConnection``` i Azure Backup Server PowerShell-konsolen. Om utdata från cmdleten är TRUE finns det en anslutning, annars finns det ingen anslutning.
 
 På samma gången måste Azure-prenumerationen vara i felfritt tillstånd. Logga in på [prenumerations portalen](https://account.windowsazure.com/Subscriptions)för att ta reda på status för din prenumeration och hantera den.
 
@@ -289,11 +290,11 @@ När du känner till statusen för Azure-anslutningen och Azure-prenumerationen 
 
 | Anslutnings tillstånd | Azure-prenumeration | Säkerhetskopiera till Azure | Säkerhetskopiera till disk | Återställa från Azure | Återställa från disk |
 | --- | --- | --- | --- | --- | --- |
-| Ansluten |Aktiv |Behörig |Behörig |Behörig |Behörig |
-| Ansluten |Har upphört att gälla |Stoppad |Stoppad |Behörig |Behörig |
+| Ansluten |Active |Gett |Gett |Gett |Gett |
+| Ansluten |Upphörd |Stoppad |Stoppad |Gett |Gett |
 | Ansluten |Avetableras |Stoppad |Stoppad |Stoppade och Azure-återställnings punkter har tagits bort |Stoppad |
-| Förlorad anslutning > 15 dagar |Aktiv |Stoppad |Stoppad |Behörig |Behörig |
-| Förlorad anslutning > 15 dagar |Har upphört att gälla |Stoppad |Stoppad |Behörig |Behörig |
+| Förlorad anslutning > 15 dagar |Active |Stoppad |Stoppad |Gett |Gett |
+| Förlorad anslutning > 15 dagar |Upphörd |Stoppad |Stoppad |Gett |Gett |
 | Förlorad anslutning > 15 dagar |Avetableras |Stoppad |Stoppad |Stoppade och Azure-återställnings punkter har tagits bort |Stoppad |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Återställning från förlust av anslutning

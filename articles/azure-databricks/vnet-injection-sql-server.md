@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
-ms.date: 04/02/2019
-ms.openlocfilehash: 773ffe264446e6a4d9ef2e88634e4f2c9b8aeb45
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.date: 11/07/2019
+ms.openlocfilehash: 460079248e6cbd939c36b84f94cac41dce4dda2b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72273976"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747659"
 ---
 # <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>Självstudie: fråga en SQL Server Linux Docker-behållare i ett virtuellt nätverk från en Azure Databricks Notebook
 
@@ -28,7 +28,7 @@ I den här guiden får du lära dig att:
 > * Installera Microsoft SQL Server på Linux Docker-behållaren
 > * Fråga SQL Server med JDBC från en Databricks-anteckningsbok
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Skapa en [Databricks-arbetsyta i ett virtuellt nätverk](quickstart-create-databricks-workspace-vnet-injection.md).
 
@@ -42,7 +42,7 @@ I den här guiden får du lära dig att:
 
     ![Lägg till ny virtuell Azure-dator](./media/vnet-injection-sql-server/add-virtual-machine.png)
 
-2. På fliken **grundläggande** väljer du Ubuntu Server 16,04 LTS. Ändra storleken på den virtuella datorn till B1ms, som har ett virtuella processorer och 2 GB RAM-minne. Minimi kravet för en Linux SQL Server Docker-behållare är 2 GB. Välj ett administratörs användar namn och lösen ord.
+2. På fliken **grundläggande** väljer du Ubuntu Server 18,04 LTS och ändrar storleken på den virtuella datorn till B2S. Välj ett administratörs användar namn och lösen ord.
 
     ![Fliken grunder i den nya konfigurationen för virtuell dator](./media/vnet-injection-sql-server/create-virtual-machine-basics.png)
 
@@ -65,10 +65,10 @@ I den här guiden får du lära dig att:
     |Inställning|Föreslaget värde|Beskrivning|
     |-------|---------------|-----------|
     |Källa|IP-adresser|IP-adresser anger att inkommande trafik från en specifik käll-IP-adress ska tillåtas eller nekas av den här regeln.|
-    |Käll-IP-adresser|< din offentliga IP @ no__t-0|Ange din offentliga IP-adress. Du kan hitta din offentliga IP-adress genom att besöka [Bing.com](https://www.bing.com/) och söka efter **"min IP"** .|
+    |Käll-IP-adresser|< din offentliga IP-adress\>|Ange din offentliga IP-adress. Du kan hitta din offentliga IP-adress genom att besöka [Bing.com](https://www.bing.com/) och söka efter **"min IP"** .|
     |Källportintervall|*|Tillåt trafik från vilken port som helst.|
     |Mål|IP-adresser|IP-adresser anger att utgående trafik för en speciell käll-IP-adress ska tillåtas eller nekas av den här regeln.|
-    |Mål-IP-adresser|< din offentliga IP-adress för VM @ no__t-0|Ange den virtuella datorns offentliga IP-adress. Du hittar detta på sidan **Översikt** på den virtuella datorn.|
+    |Mål-IP-adresser|< din offentliga IP-adress för virtuell dator\>|Ange den virtuella datorns offentliga IP-adress. Du hittar detta på sidan **Översikt** på den virtuella datorn.|
     |Målportintervall|22|Öppna port 22 för SSH.|
     |Prioritet|290|Ge regeln en prioritet.|
     |Namn|SSH-databricks – självstudie – VM|Ge regeln ett namn.|
@@ -80,11 +80,10 @@ I den här guiden får du lära dig att:
 
     |Inställning|Föreslaget värde|Beskrivning|
     |-------|---------------|-----------|
-    |Källa|IP-adresser|IP-adresser anger att inkommande trafik från en specifik käll-IP-adress ska tillåtas eller nekas av den här regeln.|
-    |Käll-IP-adresser|10.179.0.0/16|Ange adress intervallet för det virtuella nätverket.|
+    |Källa|Alla|Källa anger att inkommande trafik från en specifik käll-IP-adress ska tillåtas eller nekas av den här regeln.|
     |Källportintervall|*|Tillåt trafik från vilken port som helst.|
     |Mål|IP-adresser|IP-adresser anger att utgående trafik för en speciell käll-IP-adress ska tillåtas eller nekas av den här regeln.|
-    |Mål-IP-adresser|< din offentliga IP-adress för VM @ no__t-0|Ange den virtuella datorns offentliga IP-adress. Du hittar detta på sidan **Översikt** på den virtuella datorn.|
+    |Mål-IP-adresser|< din offentliga IP-adress för virtuell dator\>|Ange den virtuella datorns offentliga IP-adress. Du hittar detta på sidan **Översikt** på den virtuella datorn.|
     |Målportintervall|1433|Öppna port 22 för SQL Server.|
     |Prioritet|300|Ge regeln en prioritet.|
     |Namn|SQL-databricks – självstudie – VM|Ge regeln ett namn.|

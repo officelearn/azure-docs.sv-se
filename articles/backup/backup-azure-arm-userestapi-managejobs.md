@@ -1,6 +1,6 @@
 ---
-title: 'Azure Backup: Hantera säkerhets kopierings jobb med REST API'
-description: hantera säkerhets kopierings-och återställnings jobb för Azure Backup med REST API
+title: 'Azure Backup: hantera säkerhets kopierings jobb med REST API'
+description: I den här artikeln lär du dig att spåra och hantera säkerhets kopierings-och återställnings jobb för Azure Backup med hjälp av REST API.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: dacurwin
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: b10283c2946d01101b941d53b6bf03be3a12e99e
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: c0ce79c68b9d9cf11ea20c2d6469f4240fb38a95
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954914"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747539"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Spåra säkerhets kopierings-och återställnings jobb med REST API
 
@@ -23,7 +23,7 @@ Azure Backup tjänst utlöser jobb som körs i bakgrunden i olika scenarier, til
 
 ## <a name="fetch-job-information-from-operations"></a>Hämta jobb information från åtgärder
 
-En åtgärd som utlöser säkerhets kopiering returnerar alltid en jobID. Exempel: Det slutliga svaret från en [Utlös ande säkerhets kopiering REST API åtgärd](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) är följande:
+En åtgärd som utlöser säkerhets kopiering returnerar alltid en jobID. Exempel: det slutliga svaret från en [Utlös ande säkerhets kopiering REST API åtgärd](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) är följande:
 
 ```http
 {
@@ -47,13 +47,13 @@ Jobbet för säkerhets kopiering av virtuella Azure-datorer identifieras av "job
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2017-07-01
 ```
 
-`{jobName}` Är "jobId" som nämnts ovan. Svaret är alltid 200 OK med fältet status och indikerar jobbets aktuella status. När det är "slutfört" eller "CompletedWithWarnings" visar avsnittet "extendedInfo" Mer information om jobbet.
+`{jobName}` är "jobId" som nämnts ovan. Svaret är alltid 200 OK med fältet status och indikerar jobbets aktuella status. När det är "slutfört" eller "CompletedWithWarnings" visar avsnittet "extendedInfo" Mer information om jobbet.
 
 ### <a name="response"></a>Svar
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
-|200 OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | Ok        |
+|200 OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
 
 #### <a name="example-response"></a>Exempelsvar
 

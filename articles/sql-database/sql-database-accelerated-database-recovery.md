@@ -10,12 +10,12 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: e66b3e6563d796cc7b59e82233bd1b22bc906c6e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
-ms.translationtype: MT
+ms.openlocfilehash: cff481c7c2e09da1dc8c8e2f971d9adb164d54da
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691350"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796126"
 ---
 # <a name="accelerated-database-recovery"></a>Accelererad databas återställning
 
@@ -99,11 +99,11 @@ De fyra viktiga komponenterna i ADR är:
 
 - **Logisk återställning**
 
-  Logisk återställning är den asynkrona process som ansvarar för att utföra versions hantering på radnivå som ger omedelbar transaktions återställning och ångra för alla versions åtgärder.
+  Logisk återställning är den asynkrona process som ansvarar för att utföra versions hantering på radnivå som ger omedelbar transaktions återställning och ångra för alla versions åtgärder. Logisk återställning utförs av:
 
-  - Håller reda på alla avbrutna transaktioner
-  - Utför återställning med PVS för alla användar transaktioner
-  - Frigör alla Lås omedelbart efter att transaktionen har avbrutits
+  - Hålla reda på alla avbrutna transaktioner och markera dem som osynliga för andra transaktioner. 
+  - Utföra återställningar med hjälp av PVS för alla användar transaktioner, i stället för att fysiskt genomsöka transaktions loggen och ångra ändringar en i taget.
+  - Frigör alla Lås omedelbart efter att transaktionen har avbrutits. Eftersom avbrott innebär att du bara markerar ändringar i minnet är processen mycket effektiv och därför behöver inte låsen hållas under en längre tid.
 
 - **sLog**
 

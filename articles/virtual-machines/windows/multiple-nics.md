@@ -13,21 +13,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: d10844a52505331418e3bc4e9b36d00a5a7e7b6f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f7f4e65253e0fc160da4d343115e9115abfab808
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102615"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749308"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Skapa och hantera en virtuell Windows-dator som har flera nätverkskort
 Virtuella datorer i Azure kan ha flera virtuella nätverkskort (NIC) anslutna till dem. Ett vanligt scenario är att ha olika undernät för klient dels-och backend-anslutningar. Du kan associera flera nätverkskort på en virtuell dator till flera undernät, men dessa undernät måste finnas i samma virtuella nätverk (vNet). Den här artikeln beskriver hur du skapar en virtuell dator som har flera nätverkskort kopplade till sig. Du lär dig också hur du lägger till eller tar bort nätverkskort från en befintlig virtuell dator. Olika [VM-storlekar](sizes.md) har stöd för olika antal nätverkskort, så storleken på den virtuella datorn.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Ersätt exempel parameter namn med dina egna värden i följande exempel. Exempel på parameter namn är *myResourceGroup*, *myVnet*och *myVM*.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="create-a-vm-with-multiple-nics"></a>Skapa en virtuell dator med flera nätverkskort
 Skapa först en resurs grupp. I följande exempel skapas en resurs grupp med namnet *myResourceGroup* på platsen för *öster* :
@@ -81,7 +81,7 @@ Vanligt vis skapar du också en [nätverks säkerhets grupp](../../virtual-netwo
 ### <a name="create-the-virtual-machine"></a>Skapa den virtuella datorn
 Börja nu med att skapa din VM-konfiguration. Varje VM-storlek har en gräns för det totala antalet nätverkskort som du kan lägga till i en virtuell dator. Mer information finns i [storlekar för virtuella Windows-datorer](sizes.md).
 
-1. Ange dina autentiseringsuppgifter för virtuella datorer `$cred` till variabeln på följande sätt:
+1. Ställ in dina autentiseringsuppgifter för virtuella datorer på `$cred` variabel enligt följande:
 
     ```powershell
     $cred = Get-Credential
@@ -158,7 +158,7 @@ Om du vill lägga till ett virtuellt nätverkskort till en befintlig virtuell da
     ```
 
     ### <a name="primary-virtual-nics"></a>Primära virtuella nätverkskort
-    Ett av nätverkskorten på en virtuell dator med flera nätverkskort måste vara primärt. Om något av de befintliga virtuella nätverkskorten på den virtuella datorn redan har angetts som primär kan du hoppa över det här steget. I följande exempel förutsätts att två virtuella nätverkskort nu finns på en virtuell dator och du vill lägga till det första nätverkskortet (`[0]`) som primärt:
+    Ett av nätverkskorten på en virtuell dator med flera nätverkskort måste vara primärt. Om något av de befintliga virtuella nätverkskorten på den virtuella datorn redan har angetts som primär kan du hoppa över det här steget. I följande exempel förutsätts att två virtuella nätverkskort nu finns på en virtuell dator och du vill lägga till det första NÄTVERKSKORTet (`[0]`) som primär:
         
     ```powershell
     # List existing NICs on the VM and find which one is primary
@@ -204,7 +204,7 @@ Om du vill ta bort ett virtuellt nätverkskort från en befintlig virtuell dator
     $nicId = (Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" -Name "myNic3").Id   
     ```
 
-4. Ta bort NÄTVERKSKORTet med [Remove-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmnetworkinterface) och uppdatera den virtuella datorn med [Update-AzVm](https://docs.microsoft.com/powershell/module/az.compute/update-azvm). `$nicId` I följande exempel tar vi bort *myNic3* som hämtades i föregående steg:
+4. Ta bort NÄTVERKSKORTet med [Remove-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmnetworkinterface) och uppdatera den virtuella datorn med [Update-AzVm](https://docs.microsoft.com/powershell/module/az.compute/update-azvm). I följande exempel tas *myNic3* bort som hämtas av `$nicId` i föregående steg:
 
     ```powershell
     Remove-AzVMNetworkInterface -VM $vm -NetworkInterfaceIDs $nicId | `
@@ -243,7 +243,7 @@ Lägg till vägar för sekundära nätverkskort till operativ systemet genom att
 
 Azure tilldelar en standard-gateway till det första nätverks gränssnittet som är kopplat till den virtuella datorn. Azure tilldelar inte en standardgateway till ytterligare (sekundära) nätverksgränssnitt som är kopplade till en virtuell dator. Du kan därför som standard inte kommunicera med resurser utanför det undernät som är ett sekundärt nätverksgränssnitt befinner sig i. Sekundära nätverks gränssnitt kan dock kommunicera med resurser utanför deras undernät, även om stegen för att aktivera kommunikation är olika för olika operativ system.
 
-1. Från en kommando tolk i Windows kör du `route print` kommandot som returnerar utdata som liknar följande utdata för en virtuell dator med två anslutna nätverks gränssnitt:
+1. Kör kommandot `route print` från en kommando tolk i Windows, som returnerar utdata som liknar följande utdata för en virtuell dator med två anslutna nätverks gränssnitt:
 
     ```
     ===========================================================================
@@ -255,7 +255,7 @@ Azure tilldelar en standard-gateway till det första nätverks gränssnittet som
  
     I det här exemplet är **Microsoft Hyper-V nätverkskort #4** (gränssnitt 7) det sekundära nätverks gränssnittet som inte har någon standard-gateway tilldelad.
 
-2. Kör `ipconfig` kommandot i en kommando tolk för att se vilken IP-adress som är tilldelad det sekundära nätverks gränssnittet. I det här exemplet tilldelas 192.168.2.4 till gränssnitt 7. Ingen standardgateway-adress returneras för det sekundära nätverks gränssnittet.
+2. Kör kommandot `ipconfig` från en kommando tolk för att se vilken IP-adress som är tilldelad det sekundära nätverks gränssnittet. I det här exemplet tilldelas 192.168.2.4 till gränssnitt 7. Ingen standardgateway-adress returneras för det sekundära nätverks gränssnittet.
 
 3. Kör följande kommando för att dirigera all trafik som är avsedd för adresser utanför under nätet för det sekundära nätverks gränssnittet till gatewayen för under nätet:
 
@@ -281,7 +281,7 @@ Azure tilldelar en standard-gateway till det första nätverks gränssnittet som
       netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
       ```
   
-5. För att bekräfta att den tillagda vägen är i routningstabellen, anger `route print` du kommandot, som returnerar utdata som liknar följande text:
+5. För att bekräfta att den tillagda vägen är i routningstabellen, anger du kommandot `route print`, som returnerar utdata som liknar följande text:
 
     ```
     ===========================================================================

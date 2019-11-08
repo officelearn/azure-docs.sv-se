@@ -1,7 +1,7 @@
 ---
-title: Livscykeln för kunskapsbas - QnA Maker
+title: Livs cykel för kunskaps bas – QnA Maker
 titleSuffix: Azure Cognitive Services
-description: QnA Maker lär sig bäst i en iterativ livscykel datamodellen ändras, uttryck exempel, publicering och samla in data från slutpunkt-frågor.
+description: QnA Maker lär sig bäst i en iterativ cykel med modell ändringar, uttryck exempel, publicering och insamling av data från slut punkts frågor.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,31 +11,31 @@ ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 52d4efaba25dcede3322586d05fceb4d166f51e3
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 1cb5af13bdd309c762337e64ecde8538afc756b0
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973807"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794845"
 ---
-# <a name="knowledge-base-lifecycle-in-qna-maker"></a>Kunskapsbas livscykel i QnA Maker
-QnA Maker lär sig bäst i en iterativ livscykel datamodellen ändras, uttryck exempel, publicering och samla in data från slutpunkt-frågor. 
+# <a name="knowledge-base-lifecycle-in-qna-maker"></a>Kunskaps bas livs cykel i QnA Maker
+QnA Maker lär sig bäst i en iterativ cykel med modell ändringar, uttryck exempel, publicering och insamling av data från slut punkts frågor. 
 
 ![Redigeringscykel](../media/qnamaker-concepts-lifecycle/kb-lifecycle.png)
 
-## <a name="creating-a-qna-maker-knowledge-base"></a>Skapa en kunskapsbas med QnA Maker
-Slutpunkt för QnA Maker knowledge base (KB) innehåller en bästa matchning svaret på en användarfråga baserat på innehållet i KB. Det är en engångsåtgärd för att skapa en innehållsdatabasen frågor, svar och associerade metadata för att skapa en kunskapsbas. En kunskapsbas kan skapas med vår högkvalitativa befintliga innehåll som sidor med vanliga frågor och svar, produkthandböcker eller strukturerade Q-A-par. Lär dig hur du [skapa en kunskapsbas](../quickstarts/create-publish-knowledge-base.md).
+## <a name="creating-a-qna-maker-knowledge-base"></a>Skapa en QnA Maker kunskaps bas
+QnA Maker Knowledge Base-slutpunkt (KB) tillhandahåller ett svar till en användar fråga baserat på innehållet i KB. Att skapa en kunskaps bas är en engångs åtgärd för att skapa en innehålls databas med frågor, svar och associerade metadata. Du kan skapa en kunskaps bas genom att crawla befintligt innehåll, till exempel sidor med vanliga frågor, produkt handböcker eller strukturerat Q – A par. Lär dig hur du [skapar en kunskaps bas](../quickstarts/create-publish-knowledge-base.md).
 
-## <a name="testing-and-updating-the-knowledge-base"></a>Testa och uppdatera kunskapsbasen
+## <a name="testing-and-updating-the-knowledge-base"></a>Testa och uppdatera kunskaps basen
 
-Kunskapsbasen är klart för testning när det fylls i med innehåll, redigeringsmässigt eller via automatisk extrahering. Du kan göra interaktiva tester i QnA Maker-portalen via **test** panelen genom att ange vanliga användar frågor och kontrol lera att svaren som returneras med rätt svar och tillräckligt förtroende poäng. 
+Kunskaps basen är redo för testning när den har fyllts med innehåll, antingen i redaktionellt syfte eller genom automatisk extrahering. Du kan göra interaktiva tester i QnA Maker-portalen via **test** panelen genom att ange vanliga användar frågor och kontrol lera att svaren som returneras med rätt svar och tillräckligt förtroende poäng. 
 
 * **Så här åtgärdar du låga förtroende poäng**: Lägg till alternativa frågor. 
 * **När en fråga felaktigt returnerar [standardsvaret](confidence-score.md#change-default-answer)** : Lägg till nya svar på rätt fråga. 
 
-Den här tät loop av test-uppdatering fortsätter tills du är nöjd med resultaten. Lär dig hur du [testa kunskapsbasen](../How-To/test-knowledge-base.md).
+Den här tätt slingan av test-Update fortsätter tills du är nöjd med resultatet. Lär dig hur du [testar din kunskaps bas](../How-To/test-knowledge-base.md).
 
-För stora KB använder du automatiserad testning med [generateAnswer-API: et](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) och egenskapen `isTest` som skickar frågor till `test`-kunskaps basen i stället för den publicerade kunskaps basen. 
+För stora KB använder du automatiserad testning med [generateAnswer-API: et](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) och egenskapen `isTest` Body som skickar frågor till `test` kunskaps basen i stället för den publicerade kunskaps basen. 
 
 ```json
 {
@@ -47,20 +47,20 @@ För stora KB använder du automatiserad testning med [generateAnswer-API: et](.
 ```
 
 ## <a name="publish-the-knowledge-base"></a>Publicera kunskapsbasen
-När du är klar testar kunskapsbasen kan du publicera den. Publicera push-meddelanden den senaste versionen av testade kunskapsbasen till en dedikerad Azure Search index som representerar den **publicerade** knowledge base. Den skapar även en slutpunkt som kan anropas i ditt program eller en chattrobot.
+När du är färdig med att testa kunskaps basen kan du publicera den. Publicera push-överför den senaste versionen av den testade kunskaps basen till ett dedikerat Azure Kognitiv sökning-index som representerar den **publicerade** kunskaps basen. Den skapar även en slutpunkt som kan anropas i ditt program eller en chattrobot.
 
-På så sätt kan alla ändringar som görs till testversion av kunskapsbasen påverkar inte den publicerade versionen som kanske bor i ett produktionsprogram.
+På så sätt påverkar alla ändringar som görs i test versionen av kunskaps basen inte den publicerade versionen som kan vara aktiv i ett produktions program.
 
-Var och en av dessa kunskapsbaser kan vara mål för att testa separat. Med hjälp av API: erna kan du rikta test versionen av kunskaps basen med `isTest`-egenskapen Body i generateAnswer-anropet.
+Var och en av dessa kunskaps banker kan vara inriktade på att testa separat. Med hjälp av API: erna kan du rikta test versionen av kunskaps basen med `isTest` Body-egenskapen i generateAnswer-anropet.
 
-Lär dig hur du [publicera din kunskapsbas](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
+Lär dig hur du [publicerar din kunskaps bas](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 
 ## <a name="monitor-usage"></a>Övervaka användning
-Om du vill kunna logga chattloggarna av din tjänst skulle du behöva aktivera Application Insights när du [skapa QnA Maker-tjänsten](../How-To/set-up-qnamaker-service-azure.md).
+Om du vill kunna logga chattarna för tjänsten måste du aktivera Application Insights när du [skapar din QNA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md).
 
-Du kan få olika analys av din tjänstanvändning. Läs mer om hur du använder application insights för att hämta [analys för QnA Maker-tjänsten](../How-To/get-analytics-knowledge-base.md).
+Du kan få olika analyser av din tjänst användning. Lär dig mer om hur du använder Application Insights för att få [analyser för din QNA Maker-tjänst](../How-To/get-analytics-knowledge-base.md).
 
-Baserat på vad du lär dig av dina analyser, gör rätt [uppdateringar till din kunskapsbas](../How-To/edit-knowledge-base.md).
+Med hjälp av vad du får från din analys kan du göra lämpliga [uppdateringar i kunskaps basen](../How-To/edit-knowledge-base.md).
 
 ## <a name="version-control-of-a-knowledge-base"></a>Versions kontroll för en kunskaps bas
 
@@ -73,4 +73,4 @@ När du behöver gå tillbaka till en speciell version måste du importera filen
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Förtroendepoäng](./confidence-score.md)
+> [Förtroende Poäng](./confidence-score.md)

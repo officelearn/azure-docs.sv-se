@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: b0345773956a0adc5c7f403195c496a3ea5e6fd6
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 48bac68b518706cf3a23d2283da7cda49846e0a7
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982331"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795834"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services och Machine Learning
 
@@ -25,8 +25,8 @@ Cognitive Services tillhandahåller funktioner för maskin inlärning för att l
 |Tjänste kategori|Syfte|
 |--|--|
 |[Avgörande](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|Skapa appar som ger rekommendationer för välinformerade och effektiva beslut.|
-|[Språk](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Tillåt att dina appar kan bearbeta naturligt språk med färdiga skript, utvärdera sentiment och lär dig hur du känner igen vad användarna vill ha.|
-|[Sök](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Lägg till API:er för Bing-sökresultat i dina appar och utnyttja möjligheten att kamma miljarder webb sidor, bilder, videor och nyheter med ett enda API-anrop.|
+|[Språk](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Tillåt att dina appar behandlar naturligt språk med fördefinierade skript, utvärderar känslor och lär sig att känna igen vad användare vill.|
+|[Sök](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Lägg till API:er för Bing-sökning i dina appar och utnyttja möjligheten att söka i miljontals webbsidor, bilder, videor och nyheter med ett enda API-anrop.|
 |[Tal](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Konvertera tal till text och text till tal som låter naturligt. Översätt från ett språk till ett annat och aktivera talarverifiering och -igenkänning.|
 |[Vision](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Avkänning, identifiering, textning, indexering och moderering för bilder, videor och innehåll med digitala pennanteckningar.|
 ||||
@@ -92,16 +92,16 @@ Följande data kategoriserar varje tjänst enligt vilken typ av data den tillåt
 |Kognitiv tjänst|Inga tränings data krävs|Du anger några eller alla tränings data|Data insamling i real tid eller nästan i real tid|
 |--|--|--|--|
 |[Avvikelse detektor](./Anomaly-Detector/overview.md)|x|x|x|
-|Bing-sökmotor |x|||
+|Bing Search |x|||
 |[Visuellt innehåll](./Computer-vision/Home.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
 |[Custom Vision](./Custom-Vision-Service/home.md)||x||
-|[Ansikte](./Face/Overview.md)|x|x||
+|[Vändning](./Face/Overview.md)|x|x||
 |[Formulär igenkänning](./form-recognizer/overview.md)||x||
 |[Avancerad läsare](./immersive-reader/overview.md)|x|||
 |[Hand SKRIFTS tolk](./Ink-recognizer/overview.md)|x|x||
 |[Språkförståelse (LUIS)](./LUIS/what-is-luis.md)||x||
-|[Personanpassare](./personalizer/what-is-personalizer.md)|x*|x*|x|
+|[Personanpassare](./personalizer/what-is-personalizer.md)|röntgen|röntgen|x|
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
 |[Högtalar tolk](./speaker-recognition/home.md)||x||
 |[Tal text till tal (TTS)](speech-service/text-to-speech.md)|x|x||
@@ -117,9 +117,9 @@ Följande data kategoriserar varje tjänst enligt vilken typ av data den tillåt
  
 Tjänsterna används i alla program som kan göra REST API-eller SDK-anrop. Exempel på program är Web Sites, robotar, Virtual eller Mixed Reality, Desktop-och Mobile-program. 
 
-## <a name="how-is-cognitive-search-related-to-cognitive-services"></a>Hur är kognitiv sökning relaterad till Cognitive Services?
+## <a name="how-is-azure-cognitive-search-related-to-cognitive-services"></a>Hur är Azure Kognitiv sökning relaterat till Cognitive Services?
 
-[Azure Search](../search/search-what-is-azure-search.md) använder Cognitive Services för att tillhandahålla den här funktionen. Cognitive Services exponeras i Azure Search via [inbyggda kunskaper](../search/cognitive-search-predefined-skills.md) som omsluter enskilda API: er. Du kan använda en kostnads fri resurs för genom gångar, men planera att skapa och koppla en [fakturerbar resurs](../search/cognitive-search-attach-cognitive-services.md) för större volymer.
+[Azure kognitiv sökning](../search/search-what-is-azure-search.md) är en separat moln Sök tjänst som används för att använda Cognitive Services för att lägga till avbildning och naturlig språk bearbetning för att indexera arbets belastningar. Cognitive Services visas i Azure Kognitiv sökning via [inbyggda kunskaper](../search/cognitive-search-predefined-skills.md) som omsluter enskilda API: er. Du kan använda en kostnads fri resurs för genom gångar, men planera att skapa och koppla en [fakturerbar resurs](../search/cognitive-search-attach-cognitive-services.md) för större volymer.
 
 ## <a name="how-can-you-use-cognitive-services"></a>Hur kan du använda Cognitive Services?
 
@@ -131,7 +131,7 @@ Cognitive Services som innehåller exporterade modeller för andra Machine Learn
 |--|--|
 |[Custom Vision](./custom-vision-service/home.md)|[Exportera](./Custom-Vision-Service/export-model-python.md) för Tensorflow för Android, CoreML för IOS11, ONNX för Windows ml|
 
-## <a name="learn-more"></a>Lär dig mer
+## <a name="learn-more"></a>Läs mer
 
 * [Arkitektur guide – vilka är Machine Learning-produkter på Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
 * [Maskin inlärning – introduktion till djup inlärning jämfört med Machine Learning](../machine-learning/service/concept-deep-learning-vs-machine-learning.md)
@@ -139,7 +139,7 @@ Cognitive Services som innehåller exporterade modeller för andra Machine Learn
 ## <a name="next-steps"></a>Nästa steg
 
 * Skapa ett kognitivt tjänst konto i [Azure Portal](cognitive-services-apis-create-account.md) eller med [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli).
-* Lär dig hur [](authentication.md) du autentiserar till en kognitiv tjänst.
+* Lär dig hur du [autentiserar](authentication.md) till en kognitiv tjänst.
 * Använd [diagnostisk loggning](diagnostic-logging.md) för problem identifiering och fel sökning. 
 * Distribuera en kognitiv tjänst i en Docker- [behållare](cognitive-services-container-support.md).
 * Håll dig uppdaterad med [tjänst uppdateringar](https://azure.microsoft.com/updates/?product=cognitive-services).

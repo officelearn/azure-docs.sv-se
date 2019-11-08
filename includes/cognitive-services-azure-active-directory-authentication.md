@@ -4,17 +4,18 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/23/2019
-ms.openlocfilehash: 3a6807cc204a5f8a6957bb03cf4dcbaf3611c17c
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: b9f84385e49fcf5f101b7ce642b0a82e3a4b9388
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71148502"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73800168"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Autentisera med hjälp av Azure Active Directory
 
 > [!IMPORTANT]
-> För närvarande stöder **endast** API för visuellt innehåll, Ansikts-API, API för textanalys och avancerad läsare autentisering med hjälp av Azure Active Directory (AAD).
+> 1. För närvarande är det **bara** API för visuellt innehåll, Ansikts-API, API för textanalys, fördjupad läsare, formulär igenkänning, avvikelse detektor och alla Bing-tjänster utom anpassad sökning i Bing stöd för autentisering med Azure Active Directory (AAD).
+> 2. AAD-autentisering måste alltid användas tillsammans med det anpassade under domän namnet för din Azure-resurs. [Regionala slut punkter](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-custom-subdomains#is-there-a-list-of-regional-endpoints) stöder inte AAD-autentisering.
 
 I föregående avsnitt visade vi dig hur du autentiserar mot Azure Cognitive Services med en prenumerations nyckel för en enda tjänst eller flera tjänster. Även om dessa nycklar ger en snabb och enkel väg för att börja utveckla, är de korta i mer komplexa scenarier som kräver rollbaserade åtkomst kontroller. Låt oss ta en titt på vad som krävs för att autentisera med hjälp av Azure Active Directory (AAD).
 
@@ -22,7 +23,7 @@ I följande avsnitt använder du antingen Azure Cloud Shells miljön eller Azure
 
 ### <a name="create-a-resource-with-a-custom-subdomain"></a>Skapa en resurs med en anpassad under domän
 
-Det första steget är att skapa en anpassad under domän.
+Det första steget är att skapa en anpassad under domän. Om du vill använda en befintlig Cognitive Services-resurs som inte har något anpassat under domän namn följer du anvisningarna i [Cognitive Services anpassade under domäner](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains#how-does-this-impact-existing-resources) för att aktivera anpassad under domän för resursen.
 
 1. Börja med att öppna Azure Cloud Shell. [Välj en prenumeration](https://docs.microsoft.com/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0#description):
 
@@ -74,7 +75,7 @@ Nu när du har en anpassad under domän som är kopplad till din resurs, kommer 
    New-AzRoleAssignment -ObjectId <SERVICE_PRINCIPAL_OBJECTID> -Scope <ACCOUNT_ID> -RoleDefinitionName "Cognitive Services User"
    ```
 
-### <a name="sample-request"></a>Exempelbegäran
+### <a name="sample-request"></a>Exempel förfrågan
 
 I det här exemplet används ett lösen ord för att autentisera tjänstens huvud namn. Den angivna token används sedan för att anropa API för visuellt innehåll.
 

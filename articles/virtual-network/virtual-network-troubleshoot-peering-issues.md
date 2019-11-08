@@ -6,6 +6,7 @@ documentationcenter: na
 author: v-miegge
 manager: dcscontentpm
 editor: ''
+tags: virtual-network
 ms.assetid: 1a3d1e84-f793-41b4-aa04-774a7e8f7719
 ms.service: virtual-network
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 0898a65323957cbab4c2ab5278e9970cf0c16a90
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 1fddbe908ccebc1384dcccde0810366f1a6d5da7
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219234"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796239"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Felsöka problem med peering i virtuella nätverk
 
@@ -66,11 +67,11 @@ Om du vill konfigurera virtuell nätverks-peering för virtuella nätverk i olik
 
 ### <a name="for-a-site-to-site-connection-or-an-expressroute-connection"></a>För en plats-till-plats-anslutning eller en ExpressRoute-anslutning
 
-Följ stegen i: [Konfigurera överföring av VPN-gateway för peering av virtuella nätverk](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json).
+Följ stegen i: [Konfigurera VPN gateway-överföring för virtuell nätverks-peering](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json).
 
 ### <a name="for-point-to-site-connections"></a>För punkt-till-plats-anslutningar
 
-1. Följ stegen i: [Konfigurera överföring av VPN-gateway för peering av virtuella nätverk](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json).
+1. Följ stegen i: [Konfigurera VPN gateway-överföring för virtuell nätverks-peering](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json).
 2. När peering av virtuella nätverk har upprättats eller ändrats, laddar du ned och installerar om punkt-till-plats-paketet så att punkt-till-plats-klienterna hämtar de uppdaterade vägarna till det virtuella nätverket eker.
 
 ## <a name="configure-virtual-network-peering-with-hub-spoke-topology-virtual-network"></a>Konfigurera peering för virtuellt nätverk med nav-eker-topologi för virtuella nätverk
@@ -126,7 +127,7 @@ Så här felsöker du problemet:
    1. Starta en nätverks spårning på den virtuella mål datorn. För Windows kan du använda **netsh**. För Linux använder du **TCPDump**.
    2. Kör **TcpPing** eller **PsPing** från källan till målets IP-adress.
 
-      Detta är ett exempel på ett **TcpPing** -kommando:`tcping64.exe -t <destination VM address> 3389`
+      Detta är ett exempel på ett **TcpPing** -kommando: `tcping64.exe -t <destination VM address> 3389`
 
    3. Stoppa nätverks spårningen på målet när **TcpPing** är klar.
    4. Om paketen kommer från källan finns det inga nätverks problem. Undersök både VM-brandväggen och programmet som lyssnar på den porten för att hitta konfigurations problemet.
@@ -222,7 +223,7 @@ Mer information finns i följande artiklar:
 
 ## <a name="troubleshoot-a-virtual-network-peering-configuration-error-message"></a>Felsöka ett fel meddelande om konfiguration av virtuellt nätverk peering 
 
-### <a name="current-tenant-tenant-id-isnt-authorized-to-access-linked-subscription"></a>Den aktuella `<TENANT ID>` klienten har inte åtkomst behörighet till den länkade prenumerationen
+### <a name="current-tenant-tenant-id-isnt-authorized-to-access-linked-subscription"></a>Aktuell klient `<TENANT ID>` har inte åtkomst behörighet till den länkade prenumerationen
 
 Lös problemet genom att se [skapa peering – Azure CLI](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli).
 

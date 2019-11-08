@@ -1,6 +1,6 @@
 ---
 title: Återställa filer från Azure till Windows Server
-description: I den här självstudien beskrivs hur du återställer objekt från Azure till Windows Server.
+description: I den här självstudien får du lära dig hur du använder MARS-agenten (Microsoft Azure Recovery Services agent) för att återställa objekt från Azure till en Windows-Server.
 author: dcurwin
 manager: carmonm
 ms.service: backup
@@ -8,27 +8,28 @@ ms.topic: tutorial
 ms.date: 02/14/2018
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: e03c085a9671ba84d3af63da658f749f09ebcdef
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: a0945c70b271d5213e8eb5b6adbd768ec390f40b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210081"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73746928"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Återställa filer från Azure till Windows Server
 
 Med Azure Backup kan du återställa enskilda objekt från säkerhetskopior av Windows Server. Det är praktiskt att återställa enskilda filer om du snabbt måste återställa filer som du har råkat ta bort av misstag. I den här självstudien beskrivs hur du kan använda MARS-agenten (Microsoft Azure Recovery Services Agent) för att återställa objekt från säkerhetskopior som du redan har skapat i Azure. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Initiera återställning av enskilda objekt 
-> * Välja en återställningspunkt 
+>
+> * Initiera återställning av enskilda objekt
+> * Välja en återställningspunkt
 > * Återställa objekt från en återställningspunkt
 
 Den här kursen förutsätter att du redan har utfört stegen för att [Säkerhetskopiera Windows Server till Azure](backup-configure-vault.md) och att du har minst en säkerhetskopia av dina Windows Server-filer i Azure.
 
 ## <a name="initiate-recovery-of-individual-items"></a>Initiera återställning av enskilda objekt
 
-En praktisk användargränssnittsguide som heter Microsoft Azure Backup är installerad med MARS-agenten (Microsoft Azure Recovery Services). Microsoft Azure Backup-guiden fungerar tillsammans med MARS-agenten (Microsoft Azure Recovery Services) för att hämta säkerhetskopierade data från återställningspunkter som lagras i Azure. Använd Microsoft Azure Backup-guiden för att identifiera de filer eller mappar du vill återställa till Windows Server. 
+En praktisk användargränssnittsguide som heter Microsoft Azure Backup är installerad med MARS-agenten (Microsoft Azure Recovery Services). Microsoft Azure Backup-guiden fungerar tillsammans med MARS-agenten (Microsoft Azure Recovery Services) för att hämta säkerhetskopierade data från återställningspunkter som lagras i Azure. Använd Microsoft Azure Backup-guiden för att identifiera de filer eller mappar du vill återställa till Windows Server.
 
 1. Öppna snapin-modulen **Microsoft Azure Backup**. Du hittar den genom att söka efter **Microsoft Azure Backup** på datorn.
 
@@ -41,16 +42,16 @@ En praktisk användargränssnittsguide som heter Microsoft Azure Backup är inst
 3. På sidan **Komma igång** väljer du **Den här servern (servernamn)** och klickar på **Nästa**.
 
 4. På sidan **Välj återställningsläge** väljer du **Enskilda filer och mappar** och klickar sedan på **Nästa** för att påbörja urvalet av återställningspunkt.
- 
+
 5. På sidan **Välj volym och datum** väljer du volymen som innehåller filerna eller mapparna du vill återställa och klickar på **Montera**. Välj ett datum och en tid på den nedrullningsbara menyn som motsvarar en återställningspunkt. Datum i **fetstil** anger tillgängligheten för minst en återställningspunkt för den dagen.
 
     ![Säkerhetskopiering väntar](./media/tutorial-backup-restore-files-windows-server/mars-select-date.png)
- 
+
     När du klickar på **Montera** gör Azure Backup återställningspunkten tillgänglig som en disk. Bläddra till och återställ filer från disken.
 
 ## <a name="restore-items-from-a-recovery-point"></a>Återställa objekt från en återställningspunkt
 
-1. När återställningsvolymen är monterad klickar du på **Bläddra** för att öppna Utforskaren i Windows och söker rätt på filerna och mapparna du vill återställa. 
+1. När återställningsvolymen är monterad klickar du på **Bläddra** för att öppna Utforskaren i Windows och söker rätt på filerna och mapparna du vill återställa.
 
     ![Säkerhetskopiering väntar](./media/tutorial-backup-restore-files-windows-server/mars-browse-recover.png)
 
@@ -60,11 +61,11 @@ En praktisk användargränssnittsguide som heter Microsoft Azure Backup är inst
 
     ![Säkerhetskopiering väntar](./media/tutorial-backup-restore-files-windows-server/mars-final.png)
 
-3. När du har återställt filerna och/eller mapparna går du till sidan för att **söka efter och återställa filer** i guiden **Återställ data** och klickar på **Demontera**. 
+3. När du har återställt filerna och/eller mapparna går du till sidan för att **söka efter och återställa filer** i guiden **Återställ data** och klickar på **Demontera**.
 
     ![Säkerhetskopiering väntar](./media/tutorial-backup-restore-files-windows-server/unmount-and-confirm.png)
 
-4.  Klicka på **Ja** för att bekräfta att du vill demontera volymen.
+4. Klicka på **Ja** för att bekräfta att du vill demontera volymen.
 
     När ögonblicksbilden är demonterad visas **Jobbet har slutförts** i rutan **Jobb** i agentkonsolen.
 

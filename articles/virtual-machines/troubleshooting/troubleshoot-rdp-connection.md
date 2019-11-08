@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: akjosh
-ms.openlocfilehash: 0a88c1e4d357f2919635e36a223e79b0407c0b8b
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: d3ad0e6d88ed849074989dc36698c01209921449
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168744"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749693"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Felsök fjärr skrivbords anslutningar till en virtuell Azure-dator
 Det kan finnas flera orsaker till att det uppstår problem med RDP-anslutningen till den Windows-baserade virtuella Azure-datorn så att du inte kan komma åt den virtuella datorn. Problemet kan röra fjärrskrivbordstjänsten på den virtuella datorn, nätverksanslutningen eller fjärrskrivbordsklienten på din värddator. Den här artikeln vägleder dig igenom några av de vanligaste metoderna för att lösa problem med RDP-anslutningen. 
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**.
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Du kan också skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 <a id="quickfixrdp"></a>
 
@@ -106,16 +106,16 @@ Om du fortfarande stöter på RDP-problem kan du [öppna en supportbegäran](htt
 ## <a name="troubleshoot-using-azure-powershell"></a>Felsöka med hjälp av Azure PowerShell
 Om du inte redan har gjort det kan du [Installera och konfigurera de senaste Azure PowerShell](/powershell/azure/overview).
 
-I följande exempel används variabler som `myResourceGroup`, `myVM`, och `myVMAccessExtension`. Ersätt dessa variabel namn och platser med dina egna värden.
+I följande exempel används variabler som `myResourceGroup`, `myVM`och `myVMAccessExtension`. Ersätt dessa variabel namn och platser med dina egna värden.
 
 > [!NOTE]
-> Du återställer användarautentiseringsuppgifter och RDP-konfiguration med hjälp av cmdleten [set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) PowerShell. I följande exempel `myVMAccessExtension` är ett namn som du anger som en del av processen. Om du tidigare har arbetat med VMAccessAgent kan du hämta namnet på det befintliga tillägget genom att använda `Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"` för att kontrol lera egenskaperna för den virtuella datorn. Om du vill visa namnet tittar du under avsnittet tillägg i utdata.
+> Du återställer användarautentiseringsuppgifter och RDP-konfiguration med hjälp av cmdleten [set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) PowerShell. I följande exempel är `myVMAccessExtension` ett namn som du anger som en del av processen. Om du tidigare har arbetat med VMAccessAgent kan du hämta namnet på det befintliga tillägget genom att använda `Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"` för att kontrol lera egenskaperna för den virtuella datorn. Om du vill visa namnet tittar du under avsnittet tillägg i utdata.
 
 Efter varje fel söknings steg försöker du ansluta till den virtuella datorn igen. Om du fortfarande inte kan ansluta kan du prova nästa steg.
 
 1. **Återställ RDP-anslutningen**. I det här fel söknings steget återställs RDP-konfigurationen när fjärr anslutningar är inaktiverade eller regler för Windows-brandväggen blockerar RDP, till exempel.
    
-    I följande exempel återställs RDP-anslutningen på en virtuell dator `myVM` med namnet `WestUS` på platsen och i resurs gruppen med `myResourceGroup`namnet:
+    I följande exempel återställs RDP-anslutningen på en virtuell dator med namnet `myVM` på `WestUS` plats och i resurs gruppen med namnet `myResourceGroup`:
    
     ```powershell
     Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" `
@@ -123,7 +123,7 @@ Efter varje fel söknings steg försöker du ansluta till den virtuella datorn i
     ```
 2. **Kontrol lera regler för nätverks säkerhets grupper**. Det här fel söknings steget verifierar att du har en regel i nätverks säkerhets gruppen för att tillåta RDP-trafik. Standard porten för RDP är TCP-port 3389. En regel för att tillåta RDP-trafik kan inte skapas automatiskt när du skapar den virtuella datorn.
    
-    Först tilldelar du alla konfigurations data för din nätverks säkerhets grupp till `$rules` variabeln. I följande exempel hämtas information om nätverks säkerhets gruppen som heter `myNetworkSecurityGroup` i resurs gruppen med namnet: `myResourceGroup`
+    Först tilldelar du alla konfigurations data för din nätverks säkerhets grupp till variabeln `$rules`. I följande exempel hämtas information om nätverks säkerhets gruppen med namnet `myNetworkSecurityGroup` i resurs gruppen med namnet `myResourceGroup`:
    
     ```powershell
     $rules = Get-AzNetworkSecurityGroup -ResourceGroupName "myResourceGroup" `
@@ -136,7 +136,7 @@ Efter varje fel söknings steg försöker du ansluta till den virtuella datorn i
     $rules.SecurityRules
     ```
    
-    I följande exempel visas en giltig säkerhets regel som tillåter RDP-trafik. Du kan se `Protocol`, `DestinationPortRange`, `Access`, och `Direction` konfigureras på rätt sätt:
+    I följande exempel visas en giltig säkerhets regel som tillåter RDP-trafik. Du kan se `Protocol`, `DestinationPortRange`, `Access`och `Direction` har kon figurer ATS korrekt:
    
     ```powershell
     Name                     : default-allow-rdp
@@ -157,13 +157,13 @@ Efter varje fel söknings steg försöker du ansluta till den virtuella datorn i
     Om du inte har en regel som tillåter RDP-trafik [skapar du en regel för nätverks säkerhets grupper](../windows/nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Tillåt TCP-port 3389.
 3. **Återställ användarautentiseringsuppgifter**. I det här fel söknings steget återställs lösen ordet på det lokala administratörs kontot som du anger när du är osäker på, eller har glömt, autentiseringsuppgifterna.
    
-    Börja med att ange användar namnet och ett nytt lösen ord genom att tilldela `$cred` autentiseringsuppgifter till variabeln på följande sätt:
+    Börja med att ange användar namnet och ett nytt lösen ord genom att tilldela autentiseringsuppgifter till `$cred` variabeln enligt följande:
    
     ```powershell
     $cred=Get-Credential
     ```
    
-    Uppdatera nu autentiseringsuppgifterna på den virtuella datorn. I följande exempel uppdateras autentiseringsuppgifterna på en virtuell dator med `myVM` namnet `WestUS` på platsen och i resurs gruppen med namnet `myResourceGroup`:
+    Uppdatera nu autentiseringsuppgifterna på den virtuella datorn. I följande exempel uppdateras autentiseringsuppgifterna på en virtuell dator med namnet `myVM` på `WestUS` plats och i resurs gruppen med namnet `myResourceGroup`:
    
     ```powershell
     Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" `
@@ -173,14 +173,14 @@ Efter varje fel söknings steg försöker du ansluta till den virtuella datorn i
     ```
 4. **Starta om den virtuella**datorn. Det här fel söknings steget kan åtgärda eventuella underliggande problem som den virtuella datorn har.
    
-    I följande exempel startas den virtuella datorn om med `myVM` namnet i resurs gruppen med `myResourceGroup`namnet:
+    I följande exempel startas den virtuella datorn med namnet `myVM` i resurs gruppen med namnet `myResourceGroup`:
    
     ```powershell
     Restart-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
     ```
 5. **Distribuera om den virtuella**datorn. Det här fel söknings steget distribuerar om den virtuella datorn till en annan värd i Azure för att åtgärda eventuella underliggande plattforms-eller nätverks problem.
    
-    I följande exempel omdistribueras den virtuella datorn `myVM` med namnet `WestUS` på platsen och i resurs gruppen med `myResourceGroup`namnet:
+    I följande exempel distribueras den virtuella datorn med namnet `myVM` på `WestUS` plats och i resurs gruppen med namnet `myResourceGroup`:
    
     ```powershell
     Set-AzVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
@@ -237,8 +237,8 @@ Du kan stöta på ett fel meddelande när du försöker ansluta till den virtuel
 
 * [Fjärrsessionen kopplades från eftersom det inte finns några fjärr skrivbords licens servrar tillgängliga för att tillhandahålla en licens](troubleshoot-specific-rdp-errors.md#rdplicense).
 * [Fjärr skrivbord kan inte hitta datorn "name"](troubleshoot-specific-rdp-errors.md#rdpname).
-* [Ett autentiseringsfel har inträffat. Det går inte att kontakta](troubleshoot-specific-rdp-errors.md#rdpauth)den lokala säkerhets kontrollen.
-* [Windows-säkerhets fel: Autentiseringsuppgifterna fungerade inte](troubleshoot-specific-rdp-errors.md#wincred).
+* [Ett autentiseringsfel har inträffat. Det går inte att kontakta den lokala säkerhets kontrollen](troubleshoot-specific-rdp-errors.md#rdpauth).
+* [Windows-säkerhets fel: autentiseringsuppgifterna fungerade inte](troubleshoot-specific-rdp-errors.md#wincred).
 * [Datorn kan inte ansluta till fjärrdatorn](troubleshoot-specific-rdp-errors.md#rdpconnect).
 
 ## <a name="additional-resources"></a>Ytterligare resurser

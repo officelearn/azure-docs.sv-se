@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 45c59ccdd45a0c00635c3e0a3919248f33e2919a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b0277e07f67b3f9124dc0e27b20e3d49e0d2f6e9
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102453"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749213"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Så här skapar du en ohanterad virtuell dator avbildning från en virtuell Azure-dator
 
@@ -28,7 +28,7 @@ Den här artikeln beskriver hur du använder lagrings konton. Vi rekommenderar a
 
 Den här artikeln visar hur du använder Azure PowerShell för att skapa en avbildning av en generaliserad virtuell Azure-dator med ett lagrings konto. Du kan sedan använda avbildningen för att skapa en annan virtuell dator. Avbildningen inkluderar OS-disken och de data diskar som är anslutna till den virtuella datorn. Avbildningen omfattar inte de virtuella nätverks resurserna, så du måste konfigurera dessa resurser när du skapar den nya virtuella datorn. 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="generalize-the-vm"></a>Generalisera den virtuella datorn 
 Det här avsnittet visar hur du generaliserar din virtuella Windows-dator för användning som en avbildning. Generalisera en virtuell dator tar bort all personlig konto information, bland annat, och förbereder datorn som ska användas som en avbildning. Mer information om Sysprep finns i [How to Use Sysprep: An Introduction](https://technet.microsoft.com/library/bb457073.aspx) (Använda Sysprep: En introduktion).
@@ -40,7 +40,7 @@ Kontrol lera att de Server roller som körs på datorn stöds av Sysprep. Mer in
 > 
 > 
 
-Du kan också generalisera en virtuell Linux-dator `sudo waagent -deprovision+user` med hjälp av och sedan använda PowerShell för att avbilda den virtuella datorn. Information om hur du använder CLI för att avbilda en virtuell dator finns i [generalisera och avbilda en virtuell Linux-dator med hjälp av Azure CLI](../linux/capture-image.md).
+Du kan också generalisera en virtuell Linux-dator med `sudo waagent -deprovision+user` och sedan använda PowerShell för att avbilda den virtuella datorn. Information om hur du använder CLI för att avbilda en virtuell dator finns i [generalisera och avbilda en virtuell Linux-dator med hjälp av Azure CLI](../linux/capture-image.md).
 
 
 1. Logga in på den virtuella Windows-datorn.
@@ -103,7 +103,7 @@ Du kan också generalisera en virtuell Linux-dator `sudo waagent -deprovision+us
 
 ## <a name="create-the-image"></a>Skapa avbildningen
 
-Skapa en ohanterad avbildning av virtuella datorer i mål lagrings behållaren med det här kommandot. Avbildningen skapas i samma lagrings konto som den ursprungliga virtuella datorn. `-Path` Parametern sparar en kopia av JSON-mallen för den virtuella käll datorn på den lokala datorn. `-DestinationContainerName` Parametern är namnet på den behållare som du vill lagra dina bilder i. Om behållaren inte finns skapas den åt dig.
+Skapa en ohanterad avbildning av virtuella datorer i mål lagrings behållaren med det här kommandot. Avbildningen skapas i samma lagrings konto som den ursprungliga virtuella datorn. Parametern `-Path` sparar en kopia av JSON-mallen för den virtuella käll datorn på den lokala datorn. Parametern `-DestinationContainerName` är namnet på den behållare som du vill lagra bilderna i. Om behållaren inte finns skapas den åt dig.
    
 ```powershell
 Save-AzVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
@@ -111,7 +111,7 @@ Save-AzVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
     -Path <C:\local\Filepath\Filename.json>
 ```
    
-Du kan hämta URL: en för din avbildning från JSON-filmallen. Gå till avsnittet > Resources**storageProfile** > **osDisk** > imageURI > för den fullständiga sökvägen till din avbildning. URL: en för bilden ser ut så `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`här:.
+Du kan hämta URL: en för din avbildning från JSON-filmallen. Gå till avsnittet **resurser** > **storageProfile** > **osDisk** > **avbildning** > **URI** för den fullständiga sökvägen till din avbildning. URL: en för bilden ser ut så här: `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
    
 Du kan också kontrol lera URI: n i portalen. Avbildningen kopieras till en behållare med namnet **system** i ditt lagrings konto. 
 
@@ -121,7 +121,7 @@ Nu kan du skapa en eller flera virtuella datorer från den ohanterade avbildning
 
 ### <a name="set-the-uri-of-the-vhd"></a>Ange URI för den virtuella hård disken
 
-URI: n för den virtuella hård disken som ska användas är i formatet: https:///**mystorageaccount**. blob.Core.Windows.NET/finns**MyVhdName**. VHD. I det här exemplet finns den virtuella hård disken med namnet **myVHD** i lagrings kontot **mystorageaccount** i behållarens behållare.
+URI: n för den virtuella hård disken som ska användas är i formatet: https://**mystorageaccount** **. blob.Core.Windows.net/** /**MyVhdName**. VHD. I det här exemplet finns den virtuella hård disken med namnet **myVHD** i lagrings kontot **mystorageaccount** i behållarens **behållare.**
 
 ```powershell
 $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vhd"
@@ -249,7 +249,7 @@ Följande PowerShell Slutför konfigurationerna för den virtuella datorn och an
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>Verifiera att den virtuella datorn har skapats
-När du är klar bör du se den nyligen skapade virtuella datorn i [Azure Portal](https://portal.azure.com) under **Bläddra** > i**virtuella datorer**, eller genom att använda följande PowerShell-kommandon:
+När du är klar bör du se den nyligen skapade virtuella datorn i [Azure Portal](https://portal.azure.com) under **Bläddra** > **virtuella datorer**, eller genom att använda följande PowerShell-kommandon:
 
 ```powershell
     $vmList = Get-AzVM -ResourceGroupName $rgName

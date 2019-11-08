@@ -1,6 +1,6 @@
 ---
 title: Säkerhetskopiera och återställa Azure Files med Azure Backup och PowerShell
-description: Säkerhetskopiera och återställa Azure Files med Azure Backup och PowerShell.
+description: I den här artikeln får du lära dig hur du säkerhetskopierar och återställer Azure Files med hjälp av Azure Backup-tjänsten och PowerShell.
 author: dcurwin
 manager: carmonm
 ms.service: backup
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: dacurwin
 ms.reviewer: pullabhk
-ms.openlocfilehash: bfaecc5fe9fbbd68ba0f138b7b40b2507d729635
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 491e27f85d00ce512995a63e43b9e248798e5d0f
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968640"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747623"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Säkerhetskopiera och återställa Azure Files med PowerShell
 
@@ -22,6 +22,7 @@ Den här artikeln beskriver hur du använder Azure PowerShell för att säkerhet
 I den här självstudien beskrivs hur du:
 
 > [!div class="checklist"]
+>
 > * Konfigurera PowerShell och registrera Azure Recovery Services-providern.
 > * Skapa ett Recovery Services-valv.
 > * Konfigurera säkerhets kopiering för en Azure-filresurs.
@@ -87,7 +88,7 @@ Konfigurera PowerShell på följande sätt:
 
 9. I kommandot utdata kontrollerar du att **RegistrationState** ändras till **registrerad**. Om den inte gör det kör du cmdleten **register-AzResourceProvider** igen.
 
-## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
+## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
 
 Recovery Services valvet är en Resource Manager-resurs, så du måste placera den i en resurs grupp. Du kan använda en befintlig resurs grupp, eller så kan du skapa en resurs grupp med cmdleten **New-AzResourceGroup** . När du skapar en resurs grupp anger du namn och plats för resurs gruppen.
 

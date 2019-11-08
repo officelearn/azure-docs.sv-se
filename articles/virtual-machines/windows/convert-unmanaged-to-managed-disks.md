@@ -6,18 +6,18 @@ ms.service: virtual-machines-windows
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: d43ad941fe68707bca873fa969fbc27806ba96a5
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 64ff47f1dc4b06d1407497adf41981c670ea9064
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698814"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749531"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Konvertera en virtuell Windows-dator från ohanterade diskar till Managed disks
 
 Om du har befintliga virtuella Windows-datorer som använder ohanterade diskar kan du konvertera de virtuella datorerna så att de använder hanterade diskar via [Azure Managed disks](managed-disks-overview.md) -tjänsten. Den här processen konverterar både OS-disken och anslutna data diskar.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -34,7 +34,7 @@ Om du har befintliga virtuella Windows-datorer som använder ohanterade diskar k
 ## <a name="convert-single-instance-vms"></a>Konvertera virtuella datorer med en instans
 Det här avsnittet beskriver hur du konverterar virtuella Azure-datorer med en instans från ohanterade diskar till hanterade diskar. (Om dina virtuella datorer finns i en tillgänglighets uppsättning, se nästa avsnitt.) 
 
-1. Frigör den virtuella datorn med hjälp av cmdleten [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) . I följande exempel avallokeras den virtuella datorn `myVM` som heter i resurs gruppen `myResourceGroup`med namnet: 
+1. Frigör den virtuella datorn med hjälp av cmdleten [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) . I följande exempel avallokeras den virtuella datorn med namnet `myVM` i resurs gruppen med namnet `myResourceGroup`: 
 
    ```azurepowershell-interactive
    $rgName = "myResourceGroup"
@@ -54,7 +54,7 @@ Det här avsnittet beskriver hur du konverterar virtuella Azure-datorer med en i
 
 Om de virtuella datorerna som du vill konvertera till hanterade diskar finns i en tillgänglighets uppsättning måste du först konvertera tillgänglighets uppsättningen till en hanterad tillgänglighets uppsättning.
 
-1. Konvertera tillgänglighets uppsättningen med hjälp av cmdleten [Update-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/update-azavailabilityset) . I följande exempel uppdateras tillgänglighets uppsättningen som `myAvailabilitySet` heter i resurs gruppen med `myResourceGroup`namnet:
+1. Konvertera tillgänglighets uppsättningen med hjälp av cmdleten [Update-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/update-azavailabilityset) . I följande exempel uppdateras tillgänglighets uppsättningen med namnet `myAvailabilitySet` i resurs gruppen med namnet `myResourceGroup`:
 
    ```azurepowershell-interactive
    $rgName = 'myResourceGroup'
@@ -64,7 +64,7 @@ Om de virtuella datorerna som du vill konvertera till hanterade diskar finns i e
    Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned 
    ```
 
-   Om den region där din tillgänglighets uppsättning finns bara har två hanterade fel domäner men antalet ohanterade fel domäner är 3, visar det här kommandot ett fel som liknar "det angivna antalet fel domäner 3 måste ligga inom intervallet 1 till 2." Lös felet genom att uppdatera fel domänen till 2 och uppdatera `Sku` till `Aligned` enligt följande:
+   Om den region där din tillgänglighets uppsättning finns bara har två hanterade fel domäner men antalet ohanterade fel domäner är 3, visar det här kommandot ett fel som liknar "det angivna antalet fel domäner 3 måste ligga inom intervallet 1 till 2." Lös problemet genom att uppdatera fel domänen till 2 och uppdatera `Sku` till `Aligned` enligt följande:
 
    ```azurepowershell-interactive
    $avSet.PlatformFaultDomainCount = 2
@@ -87,7 +87,7 @@ Om de virtuella datorerna som du vill konvertera till hanterade diskar finns i e
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Om det uppstår ett fel under konverteringen, eller om en virtuell dator är i ett felaktigt tillstånd på grund av problem i en tidigare konvertering `ConvertTo-AzVMManagedDisk` , kör du cmdleten igen. Ett enkelt återförsök blockerar ofta situationen.
+Om det uppstår ett fel under konverteringen, eller om en virtuell dator är i ett felaktigt tillstånd på grund av problem i en tidigare konvertering, kör du `ConvertTo-AzVMManagedDisk` cmdleten igen. Ett enkelt återförsök blockerar ofta situationen.
 Innan du konverterar kontrollerar du att alla VM-tillägg är i läget etablering lyckades eller att konverteringen Miss lyckas med felkoden 409.
 
 ## <a name="convert-using-the-azure-portal"></a>Konvertera med Azure Portal

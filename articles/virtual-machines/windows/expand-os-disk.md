@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: 692046070ffc04942a5d8a73825f6cb59e462f8b
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 12fa8cb09a9864b49c9368462ae3d5ca1d88f2c9
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147214"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749407"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Expandera OS-enheten för en virtuell dator
 
@@ -37,7 +37,7 @@ När du skapar en ny virtuell dator i en resurs grupp genom att distribuera en a
 > 
 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 
 ## <a name="resize-a-managed-disk"></a>Ändra storlek på en hanterad disk
@@ -207,11 +207,11 @@ När du har expanderat disken för den virtuella datorn måste du gå till opera
 
 2.  Öppna en kommando tolk och skriv **DiskPart**.
 
-2.  Skriv`list volume`i **DiskPart** -prompten. Anteckna den volym som du vill utöka.
+2.  Skriv `list volume`i **DiskPart** -prompten. Anteckna den volym som du vill utöka.
 
-3.  Skriv`select volume <volumenumber>`i **DiskPart** -prompten. Detta väljer den volym *volumenumber* som du vill utöka till ett sammanhängande, tomt utrymme på samma disk.
+3.  Skriv `select volume <volumenumber>`i **DiskPart** -prompten. Detta väljer den volym *volumenumber* som du vill utöka till ett sammanhängande, tomt utrymme på samma disk.
 
-4.  Skriv`extend [size=<size>]`i **DiskPart** -prompten. Detta utökar den valda volymen efter *storlek* i megabyte (MB).
+4.  Skriv `extend [size=<size>]`i **DiskPart** -prompten. Detta utökar den valda volymen efter *storlek* i megabyte (MB).
 
 
 ## <a name="next-steps"></a>Nästa steg

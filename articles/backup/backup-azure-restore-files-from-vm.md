@@ -1,6 +1,6 @@
 ---
 title: 'Azure Backup: återställa filer och mappar från virtuell Azure-säkerhetskopiering'
-description: Återställa filer från en återställnings punkt för en virtuell Azure-dator
+description: I den här artikeln lär du dig hur du återställer filer och mappar från en återställnings punkt för en virtuell Azure-dator.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: df8e309ecb2a81205684c60076015f79ac8c4c8f
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: c6b49e794011d915f8cd7b29e6317e80391f2675
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968492"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747382"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhets kopiering av virtuella Azure-datorer
 
@@ -222,7 +222,7 @@ Skriptet kräver också python-och bash-komponenter för att kunna köra och ans
 
 I det här avsnittet beskrivs hur du utför fil återställning från säkerhets kopior av virtuella Azure-datorer vars antal diskar är > 16 och varje disk storlek är > 4 TB.
 
-Eftersom fil återställnings processen kopplar alla diskar från säkerhets kopian, om ett stort antal diskar (> 16) eller stora diskar (> 4 TB var och en), rekommenderas följande åtgärds punkter.
+Eftersom fil återställnings processen kopplar alla diskar från säkerhets kopian, när ett stort antal diskar (> 16) eller stora diskar (> 4 TB varje) används, rekommenderas följande åtgärds punkter:
 
 - Behåll en separat Restore Server (virtuella Azure VM D2v3-datorer) för fil återställning. Du kan använda det bara fil återställningen och sedan stänga av vid behov. Det rekommenderas inte att återställas på den ursprungliga datorn eftersom den har betydande påverkan på den virtuella datorn.
 - Kör skriptet en gång för att kontrol lera om fil återställningen lyckas.
@@ -244,10 +244,10 @@ Eftersom fil återställnings processen kopplar alla diskar från säkerhets kop
   - Ändra inställningen från i filen/etc/iSCSI/iscsid.conf
     - Node. ansluts [0]. Time-to-noop_out_timeout = 5 till Node. ansluts [0]. Time. noop_out_timeout = 30
 - När du har utfört följande kör du skriptet igen. Med de här ändringarna är det mycket troligt att fil återställningen lyckas.
-- Varje gång användaren laddar ned ett skript initierar Azure Backup processen för att förbereda återställnings punkten för hämtning. I händelse av stora diskar tar detta längre tid. Om det finns successiva burst-anrop, kommer mål förberedelsen att ingå i en nedladdnings spiral. Därför rekommenderar vi att du hämtar ett skript från portalen/PowerShell/CLI, väntar på 20-30 minuter (en heuristisk) och kör det. Vid den här tidpunkten förväntas målet vara klart för anslutning från skript.
+- Varje gång användaren laddar ned ett skript initierar Azure Backup processen för att förbereda återställnings punkten för hämtning. Det tar lång tid att använda stora diskar. Om det finns successiva burst-anrop, kommer mål förberedelsen att ingå i en nedladdnings spiral. Därför rekommenderar vi att du hämtar ett skript från portalen/PowerShell/CLI, väntar på 20-30 minuter (en heuristisk) och kör det. Vid den här tidpunkten förväntas målet vara klart för anslutning från skript.
 - Efter fil återställning kontrollerar du att du går tillbaka till portalen och klickar på "demontera diskar" för återställnings punkter där du inte kunde montera volymerna. I stort sett rensar det här steget eventuella befintliga processer/sessioner och ökar chansen att återställa.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Om du har problem när du återställer filer från de virtuella datorerna kan du läsa följande tabell för ytterligare information.
 

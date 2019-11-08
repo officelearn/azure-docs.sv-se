@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: fd5014de622c37950c15006c2cc4dcbbb27ef8e1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2ae9a1419232cca051f7cab4e9bd8c70f885df73
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101131"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749042"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS på virtuella Azure-datorer på Red Hat Enterprise Linux för SAP NetWeaver
 
@@ -98,21 +98,21 @@ Du kan använda en av snabb starts mallarna på GitHub för att distribuera alla
    4. Administratörens användar namn, administratörs lösen ord eller SSH-nyckel  
       En ny användare skapas som kan användas för att logga in på datorn.
    5. Undernät-ID  
-      Om du vill distribuera den virtuella datorn till ett befintligt VNet där du har angett ett undernät som har definierats för den virtuella datorn ska du namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som/Subscriptions/ **&lt;prenumerations-ID&gt;** /resourceGroups/ **&lt;resurs grupp namn&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt; virtuellt nätverks namn&gt;** /subnets/ **&lt;under nät&gt; namn**
+      Om du vill distribuera den virtuella datorn till ett befintligt VNet där du har angett ett undernät som har definierats för den virtuella datorn ska du namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som/Subscriptions/ **&lt;prenumerations-id&gt;** /resourceGroups/ **&lt;resurs grupp namn&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;virtuella nätverks namn&gt;** /subnets/ **&lt;under näts namn&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Distribuera Linux manuellt via Azure Portal
 
-Du måste först skapa de virtuella datorerna för det här klustret. Därefter skapar du en belastningsutjämnare och använder de virtuella datorerna i backend-poolerna.
+Du måste först skapa de virtuella datorerna för det här klustret. Därefter skapar du en belastningsutjämnare och använder de virtuella datorerna i backend-poolerna. Vi rekommenderar [standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
 
 1. Skapa en resursgrupp
 1. Skapa en Virtual Network
 1. Skapa en tillgänglighets uppsättning  
    Ange Max uppdaterings domän
 1. Skapa virtuell dator 1  
-   Använd minst RHEL 7, i det här exemplet Red Hat Enterprise Linux 7,4-avbildningen<https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Använd minst RHEL 7, i det här exemplet Red Hat Enterprise Linux 7,4-avbildningen <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Välj den tillgänglighets uppsättning som skapades tidigare  
 1. Skapa virtuell dator 2  
-   Använd minst RHEL 7, i det här exemplet Red Hat Enterprise Linux 7,4-avbildningen<https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Använd minst RHEL 7, i det här exemplet Red Hat Enterprise Linux 7,4-avbildningen <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Välj den tillgänglighets uppsättning som skapades tidigare  
 1. Lägg till en datadisk för varje SAP-system till båda virtuella datorerna.
 
@@ -120,15 +120,15 @@ Du måste först skapa de virtuella datorerna för det här klustret. Därefter 
 
 Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , som endast gäller nod 1, **[2]** – endast tillämpligt på nod 2, **[3]** – gäller endast nod 3.
 
-1. **[A]**  Konfigurera matcha värdnamn
+1. **[A]** namn matchning för värdnamn
 
-   Du kan använda en DNS-server, eller så kan du ändra i/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
+   Du kan antingen använda en DNS-server eller ändra/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
    Ersätt IP-adress och värdnamn i följande kommandon
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
 
-   Infoga följande rader till/etc/hosts. Ändra IP-adressen och värdnamnet till matchar din miljö
+   Infoga följande rader i/etc/hosts. Ändra IP-adress och värdnamn för att matcha din miljö
 
    <pre><code># IP addresses of the Gluster nodes
    <b>10.0.0.40 glust-0</b>

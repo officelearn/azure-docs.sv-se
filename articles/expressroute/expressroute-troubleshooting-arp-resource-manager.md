@@ -1,6 +1,6 @@
 ---
-title: 'Hämta ARP-tabeller - felsökning – ExpressRoute: Azure| Microsoft Docs'
-description: Den här sidan innehåller anvisningar om att hämta ARP-tabeller för en ExpressRoute-krets
+title: 'Hämta ARP-tabeller – fel sökning – ExpressRoute: Azure | Microsoft Docs'
+description: Den här sidan innehåller instruktioner för hur du hämtar ARP-tabeller för en ExpressRoute-krets
 services: expressroute
 author: ganesr
 ms.service: expressroute
@@ -8,41 +8,41 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 76e242adb07f4e6176bbdc6c03c75950e3732c2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e35020923405ec072ac9c42093752ec5a9290824
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66151587"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748156"
 ---
-# <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Hämta ARP-tabeller i distributionsmodellen för Resource Manager
+# <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Hämta ARP-tabeller i distributions modellen för Resource Manager
 > [!div class="op_single_selector"]
 > * [PowerShell – Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
 > * [PowerShell – Klassisk](expressroute-troubleshooting-arp-classic.md)
 > 
 > 
 
-Den här artikeln vägleder dig igenom stegen för att lära dig ARP-tabeller för ExpressRoute-kretsen.
+Den här artikeln vägleder dig igenom stegen för att lära dig ARP-tabeller för din ExpressRoute-krets.
 
 > [!IMPORTANT]
-> Det här dokumentet är avsedd att hjälpa dig att diagnostisera och åtgärda enkel problem. Det är inte avsedd att ersätta för Microsoft-supporten. Du måste öppna ett supportärende med [Microsoft-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om det inte går att lösa problemet genom att följa vägledningen beskrivs nedan.
+> Det här dokumentet är avsett för att hjälpa dig att diagnostisera och åtgärda enkla problem. Den är inte avsedd att ersätta Microsoft-supporten. Du måste öppna ett support ärende med [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om du inte kan lösa problemet genom att följa anvisningarna nedan.
 > 
 > 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
-## <a name="address-resolution-protocol-arp-and-arp-tables"></a>Åtgärda Resolution Protocol (ARP) och ARP-tabeller
-Protokollet ARP (Address Resolution) är en layer 2-protokollet som definieras i [RFC 826](https://tools.ietf.org/html/rfc826). ARP används för att mappa Ethernet-adress (MAC-adress) med en ip-adress.
+## <a name="address-resolution-protocol-arp-and-arp-tables"></a>ARP-protokoll (Address Resolution Protocol) och ARP-tabeller
+ARP (Address Resolution Protocol) är ett Layer 2-protokoll som definieras i [RFC 826](https://tools.ietf.org/html/rfc826). ARP används för att mappa Ethernet-adressen (MAC-adress) med en IP-adress.
 
-ARP-tabell innehåller en mappning av ipv4-adress och MAC-adress för en viss peering. ARP-tabell för en ExpressRoute-krets peering innehåller följande information för varje gränssnitt (primär eller sekundär)
+ARP-tabellen innehåller en mappning av IPv4-adressen och MAC-adressen för en viss peering. ARP-tabellen för en ExpressRoute-krets-peering innehåller följande information för varje gränssnitt (primär och sekundär)
 
-1. Mappning av den lokala routern gränssnittets ip-adress till MAC-adress
-2. Mappning av ExpressRoute-router gränssnittets ip-adress till MAC-adress
-3. Ålder på mappningen
+1. Mappning av IP-adress för lokalt routergränssnitt till MAC-adressen
+2. Mappning av IP-adressen för ExpressRoute router Interface till MAC-adressen
+3. Mappningens ålder
 
-ARP-tabeller kan hjälpa att validera konfigurationen av nivå 2 och felsöka grundläggande layer 2 anslutningsproblem. 
+ARP-tabeller kan hjälpa dig att validera Layer 2-konfiguration och fel sökning av problem med Layer 2-anslutningar. 
 
-Exempel ARP-tabell: 
+Exempel på ARP-tabell: 
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
@@ -50,26 +50,26 @@ Exempel ARP-tabell:
           0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
 
 
-Följande avsnitt innehåller information om hur du kan visa ARP-tabeller som setts av ExpressRoute edge-routrar. 
+I följande avsnitt finns information om hur du kan visa ARP-tabeller som visas av ExpressRoute Edge-routrar. 
 
-## <a name="prerequisites-for-learning-arp-tables"></a>Krav för learning ARP-tabeller
-Kontrollera att du har följande innan du fortsätter ytterligare
+## <a name="prerequisites-for-learning-arp-tables"></a>Krav för Learning ARP-tabeller
+Se till att du har följande innan du fortsätter
 
-* En giltig ExpressRoute-krets som har konfigurerats med minst en peering. Kretsen måste vara konfigurerade av anslutningsprovidern. Du (eller din anslutningsleverantör) måste ha konfigurerat minst en av peerings (Azure privat, Azure offentlig och Microsoft) på den här kretsen.
-* IP-adressintervall som används för att konfigurera peerings (Azure privat, Azure offentlig och Microsoft). Granska ip-adress tilldelning av exemplen i den [ExpressRoute routning kravsidan](expressroute-routing.md) att få en förståelse för hur ip-adresser mappas till gränssnitt på din sida och på ExpressRoute-sida. Du kan få information om peering-konfigurationen genom att granska den [konfigurationssidan i ExpressRoute-peering](expressroute-howto-routing-arm.md).
-* Information från ditt nätverksteam / anslutningsleverantör på MAC-adresserna för gränssnitt som används med dessa IP-adresser.
+* En giltig ExpressRoute-krets som kon figurer ATS med minst en peering. Kretsen måste konfigureras fullständigt av anslutnings leverantören. Du (eller din anslutnings leverantör) måste ha konfigurerat minst en av peering (Azure Private, Azure Public och Microsoft) på den här kretsen.
+* IP-adressintervall som används för att konfigurera peering (Azure Private, Azure Public och Microsoft). Granska exemplen för IP-adresstilldelning på [sidan ExpressRoute-krav för routning](expressroute-routing.md) för att få en förståelse för hur IP-adresser mappas till gränssnitt på din sida och på ExpressRoute-sidan. Du kan få information om peering-konfigurationen genom att granska [konfigurations sidan för ExpressRoute-peering](expressroute-howto-routing-arm.md).
+* Information från din nätverks team/anslutnings leverantör på MAC-adresserna för gränssnitt som används med dessa IP-adresser.
 * Du måste ha den senaste PowerShell-modulen för Azure (version 1,50 eller senare).
 
 > [!NOTE]
-> Om nivå 3 tillhandahålls av leverantören och ARP-tabeller är tom i portal/utdata nedan, uppdaterar du konfigurationen krets med hjälp av uppdateringsknappen på portalen. Den här åtgärden gäller rätt routningskonfiguration på din krets. 
+> Om Layer 3 tillhandahålls av tjänst leverantören och ARP-tabellerna är tomma i portalen/utdata nedan, uppdaterar du krets konfigurationen med hjälp av uppdatera-knappen på portalen. Den här åtgärden kommer att tillämpa konfigurationen för rätt routning på din krets. 
 >
 >
 
-## <a name="getting-the-arp-tables-for-your-expressroute-circuit"></a>Hämta ARP-tabeller för ExpressRoute-krets
-Det här avsnittet innehåller anvisningar om hur du kan visa ARP-tabeller per peering med hjälp av PowerShell. Du eller din anslutningsleverantör måste ha konfigurerat peer-kopplingen innan du går vidare. Varje krets har två sökvägar (primär eller sekundär). Du kan kontrollera ARP-tabell för varje sökväg oberoende av varandra.
+## <a name="getting-the-arp-tables-for-your-expressroute-circuit"></a>Hämta ARP-tabeller för din ExpressRoute-krets
+Det här avsnittet innehåller anvisningar om hur du kan visa ARP-tabeller per peering med hjälp av PowerShell. Du eller anslutnings leverantören måste ha konfigurerat peering innan du fortsätter. Varje krets har två sökvägar (primär och sekundär). Du kan kontrol lera ARP-tabellen för varje sökväg oberoende av varandra.
 
-### <a name="arp-tables-for-azure-private-peering"></a>ARP-tabeller för Azures privata peering
-Följande cmdlet ger ARP tabeller för Azures privata peering
+### <a name="arp-tables-for-azure-private-peering"></a>ARP-tabeller för privat Azure-peering
+Följande cmdlet tillhandahåller ARP-tabellerna för Azures privata peering
 
         # Required Variables
         $RG = "<Your Resource Group Name Here>"
@@ -81,7 +81,7 @@ Följande cmdlet ger ARP tabeller för Azures privata peering
         # ARP table for Azure private peering - Secondary path
         Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Secondary 
 
-Exempel på utdata visas nedan för en av sökvägarna
+Exempel på utdata visas nedan för en av Sök vägarna
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
@@ -89,8 +89,8 @@ Exempel på utdata visas nedan för en av sökvägarna
           0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
 
 
-### <a name="arp-tables-for-azure-public-peering"></a>ARP-tabeller för Azures offentliga peering
-Följande cmdlet ger ARP tabeller för Azures offentliga peering
+### <a name="arp-tables-for-azure-public-peering"></a>ARP-tabeller för offentlig Azure-peering
+Följande cmdlet tillhandahåller ARP-tabellerna för Azures offentliga peering
 
         # Required Variables
         $RG = "<Your Resource Group Name Here>"
@@ -103,7 +103,7 @@ Följande cmdlet ger ARP tabeller för Azures offentliga peering
         Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Secondary 
 
 
-Exempel på utdata visas nedan för en av sökvägarna
+Exempel på utdata visas nedan för en av Sök vägarna
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
@@ -112,7 +112,7 @@ Exempel på utdata visas nedan för en av sökvägarna
 
 
 ### <a name="arp-tables-for-microsoft-peering"></a>ARP-tabeller för Microsoft-peering
-Följande cmdlet ger ARP tabeller för Microsoft-peering
+Följande cmdlet tillhandahåller ARP-tabeller för Microsoft-peering
 
         # Required Variables
         $RG = "<Your Resource Group Name Here>"
@@ -125,7 +125,7 @@ Följande cmdlet ger ARP tabeller för Microsoft-peering
         Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Secondary 
 
 
-Exempel på utdata visas nedan för en av sökvägarna
+Exempel på utdata visas nedan för en av Sök vägarna
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
@@ -133,22 +133,22 @@ Exempel på utdata visas nedan för en av sökvägarna
           0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
 
-## <a name="how-to-use-this-information"></a>Hur du använder den här informationen
-ARP-tabell med en peer-koppling kan användas för att fastställa verifiera layer 2-konfiguration och anslutning. Det här avsnittet innehåller en översikt över hur ARP-tabeller ser ut under olika scenarier.
+## <a name="how-to-use-this-information"></a>Så här använder du den här informationen
+ARP-tabellen för en peering kan användas för att fastställa validering av Layer 2-konfiguration och-anslutning. Det här avsnittet innehåller en översikt över hur ARP-tabeller kommer att se ut under olika scenarier.
 
-### <a name="arp-table-when-a-circuit-is-in-operational-state-expected-state"></a>ARP-tabell när en krets är drifttillstånd (förväntade tillståndet)
-* ARP-tabell har en post för den lokala sidan med en giltig IP-adress och MAC-adress och liknande information för Microsoft-sida. 
-* Den sista oktetten för den lokala ip-adressen kommer alltid att ett udda tal.
-* Den sista oktetten ställdes in av Microsoft ip-adressen ska alltid vara ett jämnt tal.
-* Samma MAC-adress visas på Microsoft-sida för alla 3 peerings (primär / sekundär). 
+### <a name="arp-table-when-a-circuit-is-in-operational-state-expected-state"></a>ARP-tabell när en krets är i drifts tillstånd (förväntat tillstånd)
+* ARP-tabellen kommer att ha en post för den lokala sidan med en giltig IP-adress och MAC-adress och en liknande post för Microsoft-sidan. 
+* Den sista oktetten i den lokala IP-adressen är alltid ett udda nummer.
+* Den sista oktetten i Microsofts IP-adress är alltid ett jämnt tal.
+* Samma MAC-adress kommer att visas på Microsoft-sidan för alla tre peer-datorer (primär/sekundär). 
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
          10 On-Prem           65.0.0.1   ffff.eeee.dddd
           0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
-### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>ARP-tabell när den lokala / anslutning providern sida har problem
-Om det finns problem med lokalt eller connectivity-leverantör som du kan se att antingen bara en post visas i ARP-tabell eller på MAC-adressen för plats visas ofullständig. Det här alternativet visas mappningen mellan MAC-adress och IP-adress som används i Microsoft-sida. 
+### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>ARP-tabell när den lokala/anslutna leverantörs sidan har problem
+Om det finns problem med den lokala providern eller anslutnings leverantören kan du se att endast en post visas i ARP-tabellen eller på den lokala MAC-adressen är ofullständig. Då visas mappningen mellan den MAC-adress och den IP-adress som används på Microsoft-sidan. 
   
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------    
@@ -163,20 +163,20 @@ eller
 
 
 > [!NOTE]
-> Öppna en supportbegäran om din anslutningsleverantör för att felsöka sådana problem. Granska följande information om ARP-tabell inte har IP-adresserna för de gränssnitt som mappats till MAC-adresser:
+> Öppna en supportbegäran med din anslutnings leverantör för att felsöka problemen. Om ARP-tabellen inte har IP-adresser till gränssnitten som är mappade till MAC-adresser, granskar du följande information:
 > 
-> 1. Om den första IP-adressen för/30 undernät som har tilldelats för länken mellan msee: N-PR och msee: N används på gränssnittet pullförfrågan msee: N. Azure använder alltid den andra IP-adressen för msee.
-> 2. Kontrollera om kunden (C-tagg) och VLAN tjänsttaggar (S-tagg) matchar både på nyckelpar msee: N-PR och msee: N.
+> 1. Om den första IP-adressen för det/30-undernät som har tilldelats länken mellan MSEE: N-PR och MSEE: N används i gränssnittet för MSEE: N-PR. Azure använder alltid den andra IP-adressen för msee.
+> 2. Kontrol lera att VLAN-taggar för Customer (C-tag) och service (S-tag) matchar både på MSEE: N-PR-och MSEE: N-par.
 > 
 
-### <a name="arp-table-when-microsoft-side-has-problems"></a>ARP-tabell när Microsoft sida har problem
-* En ARP-tabell som visas för en peer-koppling om det finns problem på Microsoft-sida visas inte. 
-* Öppna ett supportärende med [Microsoft-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Ange att du har ett problem med layer 2-anslutning. 
+### <a name="arp-table-when-microsoft-side-has-problems"></a>ARP-tabell när problem med Microsoft har problem
+* Du ser ingen ARP-tabell för en peering om det finns problem på Microsoft-sidan. 
+* Öppna ett support ärende med [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Ange att du har problem med Layer 2-anslutning. 
 
 ## <a name="next-steps"></a>Nästa steg
-* Kontrollera Layer 3-konfigurationer för ExpressRoute-krets
-  * Hämta vägen sammanfattning om du vill bestämma tillståndet för BGP-sessioner 
-  * Hämta routningstabellen för att avgöra vilka prefix som annonseras över ExpressRoute
-* Verifiera dataöverföring genom att granska byte in / ut
-* Öppna ett supportärende med [Microsoft-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om du fortfarande har problem.
+* Validera Layer 3-konfigurationer för din ExpressRoute-krets
+  * Hämta väg Sammanfattning för att fastställa tillstånd för BGP-sessioner 
+  * Hämta routningstabellen för att avgöra vilka prefix som annonseras via ExpressRoute
+* Verifiera data överföring genom att granska byte in/ut
+* Öppna ett support ärende med [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om det fortfarande uppstår problem.
 

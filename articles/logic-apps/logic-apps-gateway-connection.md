@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 10/18/2019
-ms.openlocfilehash: 49ed6eedf55a8a3c0faa2fa1ff60b9894af78285
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 11/06/2019
+ms.openlocfilehash: e0354f96036cce968e6b6909a18f97ff48347eda
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580861"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796257"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Ansluta till lokala data källor från Azure Logic Apps
 
@@ -57,7 +57,7 @@ Azure Logic Apps stöder Läs-och skriv åtgärder via datagatewayen. Dessa åtg
 
 * Du har redan [installerat den lokala datagatewayen på en lokal dator](../logic-apps/logic-apps-gateway-install.md).
 
-* Du har [samma Azure-konto och prenumeration](../logic-apps/logic-apps-gateway-install.md#requirements) som användes när du installerade data gatewayen.
+* Du använder [samma Azure-konto och prenumeration](../logic-apps/logic-apps-gateway-install.md#requirements) som användes när du installerade data gatewayen. Det här Azure-kontot måste tillhöra en enda [Azure Active Directory (Azure AD)-klient eller-katalog](../active-directory/fundamentals/active-directory-whatis.md#terminology).
 
 * Gateway-installationen har inte redan registrerats och begärts av en annan Azure gateway-resurs.
 
@@ -87,7 +87,7 @@ När du har installerat gatewayen på en lokal dator skapar du Azure-resursen f�
    | **Prenumeration** | Välj Azure-prenumerationen för det Azure-konto som användes för gateway-installationen. Standard prenumerationen baseras på det Azure-konto som du använde för att logga in. |
    | **Resursgrupp** | Den [Azure-resurs grupp](../azure-resource-manager/resource-group-overview.md) som du vill använda |
    | **Plats** | Samma region eller plats som valdes för gateway-moln tjänsten under [Gateway-installationen](../logic-apps/logic-apps-gateway-install.md). Annars visas inte Gateway-installationen i listan **installations namn** . Din Logic app-plats kan skilja sig från din plats för gateway-resursen. |
-   | **Installations namn** | Välj en gateway-installation som bara visas i listan när följande villkor uppfylls: <p><p>– Finns i samma region som den gateway-resurs som du vill skapa <br>-Olänkad till en annan Azure gateway-resurs <br>– Länkat till samma Azure-konto som du använder för att skapa Gateway-resursen <p><p>Mer information finns i avsnittet [vanliga frågor och svar](#faq) . |
+   | **Installations namn** | Välj en gateway-installation som bara visas i listan när följande villkor uppfylls: <p><p>– Gateway-installationen använder samma region som den gateway-resurs som du vill skapa. <br>-Gateway-installationen är inte länkad till en annan Azure gateway-resurs. <br>– Gateway-installationen är länkad till samma Azure-konto som du använder för att skapa Gateway-resursen. <br>– Ditt Azure-konto tillhör en enda [Azure Active Directory (Azure AD)-klient eller-katalog](../active-directory/fundamentals/active-directory-whatis.md#terminology) och är samma konto som användes för gateway-installationen. <p><p>Mer information finns i avsnittet [vanliga frågor och svar](#faq) . |
    |||
 
    Här är ett exempel som visar en gateway-installation som är i samma region som din gateway-resurs och som är länkad till samma Azure-konto:
@@ -96,7 +96,7 @@ När du har installerat gatewayen på en lokal dator skapar du Azure-resursen f�
 
 <a name="connect-logic-app-gateway"></a>
 
-## <a name="connect-to-on-premises-data"></a>Ansluta till lokala data
+## <a name="connect-to-on-premises-data"></a>Anslut till lokala data
 
 När du har skapat din gateway-resurs och associerat din Azure-prenumeration med den här resursen kan du nu skapa en anslutning mellan din Logic app och din lokala data källa med hjälp av gatewayen.
 
@@ -164,7 +164,7 @@ Om du vill skapa en annan gateway-resurs länkar du Gateway-installationen till 
 **F**: Varför visas inte min Gateway-installation när jag skapar min gateway-resurs i Azure? <br/>
 **A**: det här problemet kan inträffa av följande orsaker:
 
-* Ditt Azure-konto måste vara samma konto som är länkat till gateway-installationen på den lokala datorn. Kontrol lera att du är inloggad på Azure Portal med samma identitet som är länkad till gateway-installationen.
+* Ditt Azure-konto måste vara samma konto som är länkat till gateway-installationen på den lokala datorn. Kontrol lera att du är inloggad på Azure Portal med samma identitet som är länkad till gateway-installationen. Kontrol lera också att ditt Azure-konto tillhör en enda [Azure AD-klient eller-katalog](../active-directory/fundamentals/active-directory-whatis.md#terminology) och har angetts till samma Azure AD-klient eller katalog som användes vid installationen av gatewayen.
 
 * Gateway-resursen och gateway-installationen måste använda samma region. Din Logic app-plats kan dock skilja sig från din plats för gateway-resursen.
 

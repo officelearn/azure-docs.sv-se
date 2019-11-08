@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/22/2019
-ms.openlocfilehash: 3abf3d562b9ca4d6fc9907c065dbaf9a52d58c5f
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 81d82ce79130513a2827090a98bfef192c9d7829
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555338"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795706"
 ---
 # <a name="overview-of-insights-in-azure-monitor"></a>Översikt över insikter i Azure Monitor
 Insikter ger en anpassad övervaknings miljö för specifika program och tjänster. De lagrar data i [Azure Monitor data plattform](../platform/data-platform.md) och använder andra Azure Monitor funktioner för analys och avisering, men kan samla in ytterligare data och ge en unik användar upplevelse i Azure Portal. Få till gång till insikter från avsnittet om **insikter** på Azure Monitor-menyn i Azure Portal.
@@ -26,12 +26,12 @@ Se [Vad är Application Insights?](../app/app-insights-overview.md).
 
 ![Application Insights](media/insights-overview/app-insights.png)
 
-## <a name="azure-monitor-for-containers"></a>Azure Monitor för behållare
+## <a name="azure-monitor-for-containers"></a>Azure Monitor för containrar
 Azure Monitor för behållare övervakar prestanda för behållar arbets belastningar som distribueras till antingen Azure Container Instances eller hanterade Kubernetes-kluster som finns i Azure Kubernetes service (AKS). Övervakning av behållare är avgörande, särskilt när du kör ett produktions kluster, i skala med flera program.
 
 Se [Översikt över Azure Monitor för behållare](../insights/container-insights-overview.md).
 
-![Azure Monitor för behållare](media/insights-overview/container-insights.png)
+![Azure Monitor för containrar](media/insights-overview/container-insights.png)
 
 ## <a name="azure-monitor-for-resource-groups-preview"></a>Azure Monitor för resurs grupper (förhands granskning)
 Azure Monitor för resurs grupper hjälper till att prioritering och diagnostisera eventuella problem som kan uppstå för enskilda resurser, samtidigt som den erbjuder kontexten och prestandan för resurs gruppen som helhet.
@@ -46,6 +46,11 @@ Azure Monitor for VMs övervakar dina virtuella Azure-datorer (VM) och skalnings
 Se [Vad är Azure Monitor for VMS?](vminsights-overview.md)
 
 ![Azure Monitor för virtuella datorer](media/insights-overview/vm-insights.png)
+
+## <a name="azure-monitor-for-network-preview"></a>Azure Monitor för nätverk (för hands version)
+Azure Monitor för nätverk ger en omfattande vy över hälsa och mått för alla nätverks resurser. Med den avancerade Sök funktionen kan du identifiera resurs beroenden, aktivera scenarier som att identifiera resurser som är värdar för din webbplats genom att helt enkelt söka efter namnet på din webbplats.
+
+![Azure Monitor för nätverk](media/insights-overview/network-insights.png)
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om den [Azure Monitor data plattform](../platform/data-platform.md) som utnyttjas av insikter.

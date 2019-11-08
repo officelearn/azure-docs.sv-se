@@ -4,20 +4,23 @@ description: Lösningar på vanliga problem med Azure Active Directory B2B-samar
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/25/2017
+tags: active-directory
 ms.author: mimart
 author: v-miegge
-manager: celestedg
+manager: dcscontentpm
 ms.reviewer: mal
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom:
+- it-pro
+- seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f91ddee8668316df69c98ed14fbcabcb06b6da82
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 6449644f98280d75363f737be11f8e8b824cab36
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983402"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795185"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Felsöka Azure Active Directory B2B-samarbete
 
@@ -57,9 +60,9 @@ Om du använder Federations autentisering och användaren inte redan finns i Azu
 
 För att lösa det här problemet måste den externa användarens administratör synkronisera användarens konto för att Azure Active Directory.
 
-## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>Hur fungerar\#, vilket inte normalt är ett giltigt Character, synkronisera med Azure AD?
+## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>Hur är\#, som vanligt vis inte är ett giltigt specialtecken, synkronisera med Azure AD?
 
-"\#" är ett reserverat Character i UPN för Azure AD B2B-samarbete eller externa användare eftersom det user@contoso.com inbjudna kontot blir user_contoso. com #@fabrikam.onmicrosoft.comext #. Därför går det inte att logga in på Azure Portal iUPN:ersomkommerfrånlokalaplatser.\# 
+"\#" är ett reserverat Character i UPN för Azure AD B2B-samarbete eller externa användare eftersom det inbjudna kontot user@contoso.com blir user_contoso. com # EXT #@fabrikam.onmicrosoft.com. Det innebär att \# i UPN som kommer från lokala platser inte får logga in på Azure Portal. 
 
 ## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>Jag får ett fel meddelande när jag lägger till externa användare i en synkroniserad grupp
 
@@ -67,7 +70,7 @@ Externa användare kan bara läggas till i "tilldelade" eller "säkerhets" grupp
 
 ## <a name="my-external-user-did-not-receive-an-email-to-redeem"></a>Min externa användare fick inget e-postmeddelande för att lösa in
 
-Inbjudan bör kontrol lera med Internet leverantören eller skräp post filtret för att säkerställa att följande adress tillåts:Invites@microsoft.com
+Inbjudan bör kontrol lera med Internet leverantören eller skräp post filtret för att säkerställa att följande adress tillåts: Invites@microsoft.com
 
 ## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>Jag märker att det anpassade meddelandet inte inkluderas med Inbjudnings meddelanden vid tillfällen
 

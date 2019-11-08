@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: e3928d865178d0afc3d814ae0d7794f981f49d47
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1c16ebe1f0b07e5ee5ef73dc3dd4781161f934b6
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079421"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749380"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid-förmånen för Windows Server
 För kunder med Software Assurance kan Azure Hybrid-förmån för Windows Server använda dina lokala Windows Server-licenser och köra virtuella Windows-datorer i Azure till en lägre kostnad. Du kan använda Azure Hybrid-förmån för Windows Server för att distribuera nya virtuella datorer med Windows OS. Den här artikeln går igenom stegen för att distribuera nya virtuella datorer med Azure Hybrid-förmån för Windows Server och hur du kan uppdatera befintliga virtuella datorer som körs. Mer information om Azure Hybrid-förmån för Windows Server-licensiering och kostnads besparingar finns på [sidan för Azure Hybrid-förmån för Windows Server-licensiering](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -35,7 +35,7 @@ För kunder med Software Assurance kan Azure Hybrid-förmån för Windows Server
 > För klassiska virtuella datorer stöds endast distribution av nya virtuella datorer från lokala anpassade avbildningar. Om du vill dra nytta av de funktioner som stöds i den här artikeln måste du först migrera klassiska virtuella datorer till Resource Manager-modellen.
 >
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>Sätt att använda Azure Hybrid-förmån för Windows Server
 Det finns några sätt att använda virtuella Windows-datorer med Azure Hybrid-förmån:
@@ -74,7 +74,7 @@ az vm create \
 ```
 
 ### <a name="template"></a>Mall
-I dina Resource Manager-mallar måste du ange `licenseType` ytterligare en parameter. Du kan läsa mer om hur du [redigerar Azure Resource Manager mallar](../../resource-group-authoring-templates.md)
+I dina Resource Manager-mallar måste ytterligare en parameter `licenseType` anges. Du kan läsa mer om hur du [redigerar Azure Resource Manager mallar](../../resource-group-authoring-templates.md)
 ```json
 "properties": {
     "licenseType": "Windows_Server",
@@ -170,7 +170,7 @@ az vm list --query "[?licenseType=='Windows_Server']" -o table
 ```
 
 ## <a name="deploy-a-virtual-machine-scale-set-with-azure-hybrid-benefit-for-windows-server"></a>Distribuera en skalnings uppsättning för virtuella datorer med Azure Hybrid-förmån för Windows Server
-I dina Resource Manager-mallar för skalnings uppsättningar för virtuella datorer `licenseType` måste du ange en ytterligare parameter i VirtualMachineProfile-egenskapen. Du kan göra detta under skapa eller uppdatera för din skalnings uppsättning med ARM-mall, PowerShell, Azure CLI eller REST.
+I dina Resource Manager-mallar för skalnings uppsättningen för virtuella datorer måste ytterligare en parameter `licenseType` anges i egenskapen VirtualMachineProfile. Du kan göra detta under skapa eller uppdatera för din skalnings uppsättning med ARM-mall, PowerShell, Azure CLI eller REST.
 
 I följande exempel används ARM-mallen med en Windows Server 2016 Data Center-avbildning:
 ```json

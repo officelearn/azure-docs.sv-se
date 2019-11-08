@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 80809afc9f2a8e8da2f6adecfe916141c4cd3e45
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 8a2a704f39aa678be819a7297b30f8926e414e56
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278343"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748445"
 ---
 # <a name="service-bus-faq"></a>Vanliga frågor och svar om Service Bus
 
@@ -51,7 +51,7 @@ Du kan använda följande protokoll med Azure Service Bus för att skicka och ta
 
 Se följande tabell för utgående portar som du måste öppna för att kunna använda dessa protokoll för att kommunicera med Azure Event Hubs. 
 
-| Protocol | Portar | Information | 
+| Protokoll | Portar | Information | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 och 5672 | Se [AMQP-protokoll guide](service-bus-amqp-protocol-guide.md) | 
 | SBMP | 9350 till 9354 | Se [anslutnings läge](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
@@ -65,7 +65,7 @@ Följ dessa steg om du vill hitta rätt IP-adresser till den vita listan för di
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Anteckna IP-adressen som returnerades `Non-authoritative answer`i. Den här IP-adressen är statisk. Den enda tidpunkt då den skulle ändras är om du återställer namn området på ett annat kluster.
+2. Anteckna IP-adressen som returnerades i `Non-authoritative answer`. Den här IP-adressen är statisk. Den enda tidpunkt då den skulle ändras är om du återställer namn området på ett annat kluster.
 
 Om du använder zon redundans för ditt namn område måste du utföra några ytterligare steg: 
 
@@ -96,7 +96,7 @@ Följande egenskaper för en kö och ämnen kan inte ändras. Ta hänsyn till de
 * Dubblettidentifiering
 * Express entitet
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 I det här avsnittet besvaras några vanliga frågor om Service Bus prissättnings struktur.
 
 I artikeln [Service Bus priser och fakturering](https://azure.microsoft.com/pricing/details/service-bus/) förklaras fakturerings mätare i Service Bus. Mer information om Service Bus pris alternativ finns i [Service Bus pris information](https://azure.microsoft.com/pricing/details/service-bus/).
@@ -111,6 +111,13 @@ All data överföring inom en angiven Azure-region tillhandahålls utan kostnad,
 
 ### <a name="does-service-bus-charge-for-storage"></a>Debiteras Service Bus för lagring?
 Nej, Service Bus debiteras inte för lagring. Det finns dock en kvot som begränsar den maximala mängden data som kan kvarhållas per kö/ämne. Se nästa vanliga frågor och svar.
+
+### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>Jag har ett Service Bus standard namn område. Varför visas avgifter under resurs gruppen "$system"?
+Azure Service Bus nyligen uppgraderade fakturerings komponenterna. På grund av detta, om du har ett Service Bus standard namn område, kan du se rad objekt för resursen "/Subscriptions/< azure_subscription_id >/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system" under resurs gruppen $ system.
+
+Dessa avgifter representerar bas avgiften per Azure-prenumeration som har etablerad en Service Bus standard-namnrymd. 
+
+Det är viktigt att Observera att dessa inte är nya avgifter, d.v.s. de fanns i den tidigare fakturerings modellen. Den enda ändringen är att de nu visas under $system. Detta görs på grund av förändringar i det nya fakturerings systemet som grupperar prenumerations kostnader, som inte är knutna till en speciell resurs, under "$system" resurs-ID.
 
 ## <a name="quotas"></a>Kvoter
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: d3ea0adb4adf88e557ca360799836555cb90078e
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 709ac3a9f5e7cf0bd13a6e387f0b80caf2608fe0
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520930"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748460"
 ---
 # <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Aviserings verifiering (EICAR Test fil) i Azure Security Center
 I det här dokumentet får du hjälp med att verifiera systemet är rätt konfigurerat för aviseringar från Azure Security Center.
@@ -33,7 +33,7 @@ Mer information finns i [säkerhets aviseringar i Security Center](security-cent
 * [Linux](#validate-linux)
 * [Kubernetes](#validate-kubernetes)
 
-## Verifiera aviseringar på virtuell Windows-dator<a name="validate-windows"></a>
+## Verifiera aviseringar på virtuella Windows-datorer<a name="validate-windows"></a>
 
 När Security Center agent har installerats på datorn följer du de här stegen från den dator där du vill bli den angripna resursen för aviseringen:
 

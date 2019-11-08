@@ -1,6 +1,6 @@
 ---
 title: Hantera Logic Apps med hjälp av Visual Studio – Azure Logic Apps
-description: Hantera Logic Apps och andra Azure-tillgångar med Visual Studio Cloud Explorer
+description: Hantera Logic Apps och andra Azure-resurser med hjälp av Visual Studio med Cloud Explorer
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
-ms.date: 05/07/2019
-ms.openlocfilehash: db4143b3bf75d1745245d5baae267a55ce71e95f
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.date: 10/29/2019
+ms.openlocfilehash: e10683bcd5612db788d6dd5675425fec4130ffeb
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212592"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796588"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Hantera Logic Apps med Visual Studio
 
@@ -26,7 +26,7 @@ ms.locfileid: "71212592"
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -44,7 +44,7 @@ ms.locfileid: "71212592"
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
-  * Azure Logic Apps verktyg för Visual Studio-versionen som du vill använda:
+  * De senaste Azure Logic Apps verktygen för Visual Studio-tillägget för den version du vill använda:
 
     * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
 
@@ -66,15 +66,15 @@ I Visual Studio kan du hitta alla Logic Apps som är associerade med din Azure-p
 
 1. Öppna Visual Studio. I menyn **Visa** väljer du **Cloud Explorer**.
 
-1. Välj **konto hantering**i Cloud Explorer. Välj den Azure-prenumeration som är associerad med dina Logi Kap par och välj sedan **Använd**. Exempel:
+1. Välj **konto hantering**i Cloud Explorer. Välj den Azure-prenumeration som är associerad med dina Logi Kap par och välj sedan **Använd**. Till exempel:
 
    ![Välj "konto hantering"](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
 1. Följ dessa steg baserat på om du söker efter **resurs grupper** eller **resurs typer**:
 
-   * **Resurs grupper**: I Azure-prenumerationen visar Cloud Explorer alla resurs grupper som är associerade med den prenumerationen. Expandera resurs gruppen som innehåller din Logic app och välj sedan din Logic app.
+   * **Resurs grupper**: i Azure-prenumerationen visar Cloud Explorer alla resurs grupper som är associerade med den prenumerationen. Expandera resurs gruppen som innehåller din Logic app och välj sedan din Logic app.
 
-   * **Resurs typer**: Expandera **Logic Apps**under din Azure-prenumeration. När Cloud Explorer visar alla distribuerade Logic-appar som är associerade med din prenumeration väljer du din Logic app.
+   * **Resurs typer**: i din Azure-prenumeration expanderar du **Logic Apps**. När Cloud Explorer visar alla distribuerade Logic-appar som är associerade med din prenumeration väljer du din Logic app.
 
 <a name="open-designer"></a>
 
@@ -112,11 +112,11 @@ Du kan ladda ned Logic Apps från [Azure Portal](https://portal.azure.com) och s
 
 1. I verktygsfältet designer väljer du **Hämta**.
 
-   ![Välj "Ladda ned"](./media/manage-logic-apps-with-visual-studio/download-logic-app.png)
+   ![Ladda ned Logic app från Azure Portal](./media/manage-logic-apps-with-visual-studio/download-logic-app-from-portal.png)
 
 1. När du uppmanas att ange en plats kan du bläddra till den platsen och spara Resource Manager-mallen för Logic app-definitionen i JSON-filformat (. JSON).
 
-   Din Logic app-definition visas i `resources` underavsnittet i Resource Manager-mallen. Nu kan du redigera Logic app-definitionen och Resource Manager-mallen med Visual Studio. Du kan också lägga till mallen som ett [Azure Resource Group-projekt](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) i en Visual Studio-lösning. Lär dig mer om [Azure Resource Group-projekt för Logic Apps i Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+   Din Logic app-definition visas i avsnittet `resources` i Resource Manager-mallen. Nu kan du redigera Logic app-definitionen och Resource Manager-mallen med Visual Studio. Du kan också lägga till mallen som ett [Azure Resource Group-projekt](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) i en Visual Studio-lösning. Lär dig mer om [Azure Resource Group-projekt för Logic Apps i Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 <a name="link-integration-account"></a>
 
@@ -126,24 +126,74 @@ För att skapa Logi Kap par för företag-till-företag (B2B) företags integrat
 
 1. Öppna Azure Resource Group-projektet som innehåller din Logic app i Visual Studio.
 
-1. I Solution Explorer öppnar du snabb menyn **< Logic-app-name >. JSON** -filen och väljer **Öppna med Logic App Designer**. PS/2-tangentbordet CTRL + L)
+1. I Solution Explorer öppnar du snabb menyn **< Logic-app-name >. JSON** -filen och väljer **Öppna med Logic App Designer**. (Tangent bord: Ctrl + L)
 
    ![Öppna Logic Apps. JSON-fil med Logic App Designer](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
    > [!TIP]
-   > Om du inte har det här kommandot i Visual Studio 2019 kontrollerar du att du har de senaste uppdateringarna för Visual Studio.
+   > Om du inte har det här kommandot i Visual Studio 2019 kontrollerar du att du har de senaste uppdateringarna för Visual Studio och tillägget Azure Logic Apps tools.
 
-1. För att se till att Logic App Designer har fokus väljer du designerns flik eller yta så att fönstret Egenskaper visar **integrations konto** egenskapen för din Logic app.
+1. Kontrol lera att Logic App Designer har fokus genom att välja designerns flik eller yta så att Fönstret Egenskaper visar **integrations konto** egenskapen för din Logic app.
 
-   ![Egenskaps fönstret visar egenskapen "integrations konto"](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties.png)
+   ![Fönstret Egenskaper-egenskapen för integrations kontot](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-integration-account.png)
 
-1. Öppna listan **integrations konto** och välj det integrations konto som du vill länka till din Logic app, till exempel:
+   > [!TIP]
+   > Om Fönstret Egenskaper inte redan är öppen går du till menyn **Visa** och väljer **Egenskaper-fönstret**. (Tangent bord: Tryck F4)
+
+1. Öppna egenskaps listan **integrations konto** och välj det integrations konto som du vill länka till din Logic app, till exempel:
 
    ![Öppna egenskaps listan för integrations kontot](./media/manage-logic-apps-with-visual-studio/select-integration-account.png)
 
 1. Kom ihåg att spara din Visual Studio-lösning när du är klar.
 
-När du ställer in **integrations konto** egenskapen i Visual Studio och sparar din Logic app som en Azure Resource Manager mall, innehåller mallen även en parameter deklaration för det valda integrations kontot. Mer information om mallparametrar och Logic Apps finns i [översikt: Automatisera Logic app-](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)distribution.
+När du ställer in **integrations konto** egenskapen i Visual Studio och sparar din Logic app som en Azure Resource Manager mall, innehåller mallen även en parameter deklaration för det valda integrations kontot. Mer information om mallparametrar och Logic Apps finns i [Översikt: automatisera Logic app-distribution](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters).
+
+<a name="change-location"></a>
+
+## <a name="change-deployment-location"></a>Ändra distributions plats
+
+I Visual Studio, om din Logic app finns som en JSON-fil (. JSON) i ett [Azure-resurs grupp projekt](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) som du använder för att automatisera distributionen, är den logiska appen inställd på en plats typ och en speciell plats. Den här platsen är antingen en Azure-region eller en befintlig [integrerings tjänst miljö (ISE)](connect-virtual-network-vnet-isolated-environment.md).
+
+Om du vill ändra din Logi Kap par plats typ eller plats måste du öppna din Logic Apps-fil med arbets flödes definition (. JSON) från Solution Explorer med hjälp av Logic Apps designer. Du kan inte ändra dessa egenskaper med hjälp av Cloud Explorer.
+
+> [!IMPORTANT]
+> Att ändra plats typen från **region** till [**integration service Environment**](connect-virtual-network-vnet-isolated-environment-overview.md) påverkar din Logic Apps [pris modell](logic-apps-pricing.md#fixed-pricing) som används för fakturering, [gränser](logic-apps-limits-and-config.md#integration-account-limits), [integrations konto support](connect-virtual-network-vnet-isolated-environment-overview.md#ise-skus)och så vidare. Innan du väljer en annan typ av plats, se till att du förstår den resulterande påverkan i din Logic app.
+
+1. Öppna Azure Resource Group-projektet som innehåller din Logic app i Visual Studio.
+
+1. Öppna snabb menyn i Solution Explorer `<logic-app-name>.json` filen och välj **Öppna med Logic App Designer**. (Tangent bord: Ctrl + L)
+
+   ![Öppna Logic Apps. JSON-fil med Logic App Designer](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
+
+   > [!TIP]
+   > Om du inte har det här kommandot i Visual Studio 2019 kontrollerar du att du har de senaste uppdateringarna för Visual Studio och tillägget Azure Logic Apps tools.
+
+1. Kontrol lera att Logic App Designer har fokus genom att välja designerns flik eller yta så att Fönstret Egenskaper visar egenskaperna **Välj plats typ** och **plats** för din Logic app. Projektets plats typ har angetts till antingen **region** eller **integration service Environment**.
+
+   ![Fönstret Egenskaper-egenskaper för "Välj plats typ" & "plats"](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-location.png)
+
+   > [!TIP]
+   > Om Fönstret Egenskaper inte redan är öppen går du till menyn **Visa** och väljer **Egenskaper-fönstret**. (Tangent bord: Tryck F4)
+
+1. Om du vill ändra plats typen öppnar du egenskaps listan **Välj platstyp** och väljer den typ av plats som du vill använda.
+
+   Om plats typen till exempel är **integration service Environment**, kan du välja **region**.
+
+   !["Välj typ av plats"-egenskap-ändra platstyp](./media/manage-logic-apps-with-visual-studio/change-location-type.png)
+
+1. Om du vill ändra den angivna platsen öppnar du egenskaps listan **plats** . Välj den plats som du vill använda baserat på typ av plats, till exempel:
+
+   * Välj en annan Azure-region:
+
+     ![Öppna egenskaps listan "plats", Välj en annan Azure-region](./media/manage-logic-apps-with-visual-studio/change-azure-resource-group-region.png)
+
+   * Välj en annan ISE:
+
+     ![Öppna egenskaps listan "plats", Välj en annan ISE](./media/manage-logic-apps-with-visual-studio/change-integration-service-environment.png)
+
+1. Kom ihåg att spara din Visual Studio-lösning när du är klar.
+
+När du ändrar plats typen eller platsen i Visual Studio och sparar din Logic app som en Azure Resource Manager mall, innehåller mallen även parameter deklarationer för den plats typen och platsen. Mer information om mallparametrar och Logic Apps finns i [Översikt: automatisera Logic app-distribution](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters).
 
 <a name="refresh"></a>
 
@@ -157,19 +207,19 @@ Om du redigerar din Logi Kap par i Azure Portal och vill behålla ändringarna, 
 
 * Öppna din Logic Apps snabb meny i Visual Studio Cloud Explorer och välj **Uppdatera**.
 
-![Uppdatera Logic app med uppdateringar](./media/manage-logic-apps-with-visual-studio/refresh-logic-app.png)
+![Uppdatera Logic app med uppdateringar](./media/manage-logic-apps-with-visual-studio/refresh-logic-app-with-updates-from-portal.png)
 
 ## <a name="publish-logic-app-updates"></a>Publicera Logic app-uppdateringar
 
 När du är redo att distribuera dina Logic app-uppdateringar från Visual Studio till Azure väljer du **publicera**i Logic App Designer-verktygsfältet.
 
-![Publicera uppdaterad Logic-app](./media/manage-logic-apps-with-visual-studio/publish-logic-app.png)
+![Publicera uppdaterad Logic app till Azure Portal](./media/manage-logic-apps-with-visual-studio/publish-logic-app-to-azure-portal.png)
 
 ## <a name="manually-run-your-logic-app"></a>Kör din Logic app manuellt
 
 Du kan utlösa en logisk app som distribuerats i Azure från Visual Studio manuellt. I verktygsfältet Logic App Designer väljer du **Kör utlösare**.
 
-![Kör Logic app manuellt](./media/manage-logic-apps-with-visual-studio/manually-run-logic-app.png)
+![Kör utlösaren manuellt för din Logic app](./media/manage-logic-apps-with-visual-studio/manually-run-logic-app.png)
 
 ## <a name="review-run-history"></a>Granska körningshistorik
 
@@ -177,37 +227,37 @@ Om du vill kontrol lera statusen och diagnostisera problem med att Logic App kö
 
 1. Öppna din Logic Apps snabb meny i Cloud Explorer och välj **Öppna körnings historik**.
 
-   ![Öppna körnings historik](./media/manage-logic-apps-with-visual-studio/view-run-history.png)
+   ![Öppna körnings historiken för din Logic app](./media/manage-logic-apps-with-visual-studio/open-run-history-for-logic-app.png)
 
-1. Om du vill visa information om en speciell körning dubbelklickar du på en körning. Exempel:
+1. Om du vill visa information om en speciell körning dubbelklickar du på en körning. Till exempel:
 
-   ![Detaljerad körnings historik](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
+   ![Visa information om en speciell körning](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   
    > [!TIP]
    > Om du vill sortera tabellen efter egenskap väljer du kolumn rubriken för den egenskapen.
 
 1. Expandera stegen vars indata och utdata du vill granska, till exempel:
 
-   ![Visa indata och utdata för varje steg](./media/manage-logic-apps-with-visual-studio/run-inputs-outputs.png)
+   ![Visa indata och utdata för varje steg](./media/manage-logic-apps-with-visual-studio/view-run-history-inputs-outputs.png)
 
 ## <a name="disable-or-enable-logic-app"></a>Inaktivera eller aktivera Logic app
 
 Utan att ta bort din Logic app kan du stoppa utlösaren från att starta vid nästa tillfälle när utlösarens villkor är uppfyllt. Om du inaktiverar din Logic app förhindrar Logic Appss motorn att skapa och köra framtida arbets flödes instanser för din Logic app. Öppna din Logic Apps snabb meny i Cloud Explorer och välj **inaktivera**.
 
-![Inaktivera din Logic app](./media/manage-logic-apps-with-visual-studio/disable-logic-app.png)
+![Inaktivera din Logic app i Cloud Explorer](./media/manage-logic-apps-with-visual-studio/disable-logic-app-cloud-explorer.png)
 
 > [!NOTE]
 > När du inaktiverar en Logic app instansieras inga nya körningar. Alla pågående och väntande körningar fortsätter tills de har slutförts, vilket kan ta lång tid att slutföra.
 
 Om du vill återaktivera din Logic App öppnar du din Logic Apps snabb meny i Cloud Explorer och väljer **Aktivera**.
 
-![Aktivera din Logic app](./media/manage-logic-apps-with-visual-studio/enable-logic-app.png)
+![Aktivera Logic app i Cloud Explorer](./media/manage-logic-apps-with-visual-studio/enable-logic-app-cloud-explorer.png)
 
 ## <a name="delete-your-logic-app"></a>Ta bort din logikapp
 
 För att ta bort din Logic app från Azure Portal, i Cloud Explorer, öppnar du din Logic Apps snabb meny och väljer **ta bort**.
 
-![Ta bort din logikapp](./media/manage-logic-apps-with-visual-studio/delete-logic-app.png)
+![Ta bort din Logic app från Azure Portal](./media/manage-logic-apps-with-visual-studio/delete-logic-app-from-azure-portal.png)
 
 > [!NOTE]
 > När du tar bort en logikapp instantieras inga nya körningar. Alla pågående och väntande körningar avbryts. Om du har flera tusen körningar kan det ta relativt lång tid att avbryta dem. 

@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 10/18/2019
-ms.openlocfilehash: d515982dc2937b660de75ee723cebe39b33bec7d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 11/06/2019
+ms.openlocfilehash: a8deb7933bb19745bbe4c3b3a209c19c9cc712bd
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580882"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796313"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installera lokal datagateway för Azure Logic Apps
 
@@ -33,9 +33,9 @@ Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala 
 
 * Ett Azure-konto och prenumeration. Om du inte har ett Azure-konto med en prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
-  * Du måste använda samma Azure-konto för att installera och administrera gatewayen på den lokala datorn.
+  * Ditt Azure-konto måste tillhöra en enda [Azure Active Directory (Azure AD)-klient eller-katalog](../active-directory/fundamentals/active-directory-whatis.md#terminology). Du måste använda samma Azure-konto för att installera och administrera gatewayen på den lokala datorn.
 
-    Under Gateway-installationen loggar du in med ditt Azure-konto, som länkar din gateway-installation till ditt Azure-konto och bara det kontot. Senare i Azure Portal måste du använda samma Azure-konto för att skapa en Azure gateway-resurs som registrerar och anlitar din gateway-installation. I Azure Logic Apps använder lokala utlösare och åtgärder sedan Gateway-resursen för att ansluta till lokala data källor.
+  * Under Gateway-installationen loggar du in med ditt Azure-konto, som länkar din gateway-installation till ditt Azure-konto och bara det kontot. Senare i Azure Portal måste du använda samma Azure-konto och Azure AD-klient när du skapar en Azure gateway-resurs som registrerar och anlitar din gateway-installation. I Azure Logic Apps använder lokala utlösare och åtgärder sedan Gateway-resursen för att ansluta till lokala data källor.
 
     > [!NOTE]
     > Du kan bara länka en gateway-installation och en Azure gateway-resurs till varandra. Du kan inte länka samma Gateway-installation till flera Azure-konton eller Azure gateway-resurser. Ett Azure-konto kan dock länka till flera gateway-installationer och Azure gateway-resurser. I en lokal utlösare eller åtgärd kan du välja bland dina olika Azure-prenumerationer och sedan välja en associerad gateway-resurs.

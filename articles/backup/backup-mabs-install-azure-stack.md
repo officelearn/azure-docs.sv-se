@@ -1,6 +1,6 @@
 ---
 title: Installera Azure Backup Server på Azure Stack | Microsoft Docs
-description: Använd Azure Backup Server för att skydda eller säkerhetskopiera arbets belastningar i Azure Stack.
+description: I den här artikeln lär du dig hur du använder Azure Backup Server för att skydda eller säkerhetskopiera arbets belastningar i Azure Stack.
 author: dcurwin
 manager: carmonm
 ms.service: backup
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: dacurwin
-ms.openlocfilehash: da941d0234fe78791f9a1c2f2a7d01122247534c
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: bdcd7cbd24ca7023070585df46aa8cea7bdc70eb
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639855"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747289"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installera Azure Backup Server på Azure Stack
 
@@ -25,6 +25,7 @@ Den här artikeln förklarar hur du installerar Azure Backup Server på Azure St
 >
 
 ## <a name="azure-backup-server-protection-matrix"></a>Skyddsöversikt för Azure Backup Server
+
 Azure Backup Server skyddar följande Azure Stack arbets belastningar för virtuella datorer.
 
 | Skyddad data Källa | Skydd och återställning |
@@ -46,20 +47,26 @@ Azure Backup Server skyddar följande Azure Stack arbets belastningar för virtu
 Överväg rekommendationerna i det här avsnittet när du installerar Azure Backup Server i din Azure Stack-miljö. Installations programmet för Azure Backup Server kontrollerar att din miljö uppfyller de nödvändiga förutsättningarna, men du sparar tid genom att förbereda innan du installerar.
 
 ### <a name="determining-size-of-virtual-machine"></a>Bestämmer storleken på den virtuella datorn
+
 Om du vill köra Azure Backup Server på en Azure Stack virtuell dator använder du storlek a2 eller större. Om du vill ha hjälp med att välja storlek för virtuell dator kan du ladda ned [kalkylatorn Azure Stack VM-storlek](https://www.microsoft.com/download/details.aspx?id=56832).
 
 ### <a name="virtual-networks-on-azure-stack-virtual-machines"></a>Virtuella nätverk på Azure Stack virtuella datorer
+
 Alla virtuella datorer som används i en Azure Stack arbets belastning måste tillhöra samma virtuella Azure-nätverk och Azure-prenumeration.
 
 ### <a name="azure-backup-server-vm-performance"></a>Azure Backup Server VM-prestanda
+
 Om den delas med andra virtuella datorer påverkar lagrings kontots storlek och IOPS Azure Backup Server VM-prestanda. Därför bör du använda ett separat lagrings konto för den Azure Backup Server virtuella datorn. Azure Backup-agenten som körs på Azure Backup Server behöver tillfällig lagring för:
+
 - eget bruk (en plats för cachelagring),
 - data som återställs från molnet (lokalt mellanlagringsområde)
 
 ### <a name="configuring-azure-backup-temporary-disk-storage"></a>Konfigurera Azure Backup temporär disk lagring
-Varje Azure Stack virtuell dator levereras med temporär disk lagring, som är tillgänglig för användaren som volym `D:\`. Det lokala mellanlagringsområdet som krävs av Azure Backup kan konfigureras för att finnas i `D:\`och cache-platsen kan placeras på. `C:\` På så sätt måste ingen lagring vara hämtas bort från data diskarna som är anslutna till den virtuella datorn Azure Backup Server.
+
+Varje Azure Stack virtuell dator levereras med temporär disk lagring, som är tillgänglig för användaren som volym `D:\`. Det lokala mellanlagringsområdet som krävs av Azure Backup kan konfigureras för att finnas i `D:\`och platsen för cachen kan placeras på `C:\`. På så sätt måste ingen lagring vara hämtas bort från data diskarna som är anslutna till den virtuella datorn Azure Backup Server.
 
 ### <a name="storing-backup-data-on-local-disk-and-in-azure"></a>Lagra säkerhets kopierings data på lokal disk och i Azure
+
 Azure Backup Server lagrar säkerhets kopierings data på Azure-diskar som är anslutna till den virtuella datorn för drift återställning. När diskarna och lagrings utrymmet är kopplade till den virtuella datorn kan Azure Backup Server Hantera lagring åt dig. Mängden säkerhets kopierings data lagring beror på antalet och storleken på diskar som är anslutna till varje [Azure Stack virtuell dator](/azure-stack/user/azure-stack-storage-overview). Varje storlek Azure Stack virtuell dator har ett maximalt antal diskar som kan kopplas till den virtuella datorn. Till exempel är a2 fyra diskar. A3 är åtta diskar. A4 är 16 diskar. På nytt bestämmer storlek och antal diskar den totala lagringspoolen för säkerhets kopiering.
 
 > [!IMPORTANT]
@@ -68,13 +75,15 @@ Azure Backup Server lagrar säkerhets kopierings data på Azure-diskar som är a
 
 Lagring av säkerhetskopierade data i Azure minskar säkerhets kopierings infrastrukturen på Azure Stack. Om data är fler än fem dagar gamla bör de lagras i Azure.
 
-Skapa eller Använd ett Recovery Services valv för att lagra säkerhetskopierade data i Azure. När du förbereder att säkerhetskopiera Azure Backup Server arbets belastningen [konfigurerar du Recovery Services](backup-azure-microsoft-azure-backup.md#create-a-recovery-services-vault)-valvet. När ett säkerhets kopierings jobb har kon figurer ATS skapas en återställnings punkt i valvet. Varje Recovery Services valv innehåller upp till 9999 återställnings punkter. Beroende på hur många återställnings punkter som har skapats och hur länge de behålls, kan du behålla säkerhetskopierade data i många år. Du kan till exempel skapa månads Visa återställnings punkter och spara dem i fem år.
- 
+Skapa eller Använd ett Recovery Services valv för att lagra säkerhetskopierade data i Azure. När du förbereder att säkerhetskopiera Azure Backup Server arbets belastningen [konfigurerar du Recovery Services-valvet](backup-azure-microsoft-azure-backup.md#create-a-recovery-services-vault). När ett säkerhets kopierings jobb har kon figurer ATS skapas en återställnings punkt i valvet. Varje Recovery Services valv innehåller upp till 9999 återställnings punkter. Beroende på hur många återställnings punkter som har skapats och hur länge de behålls, kan du behålla säkerhetskopierade data i många år. Du kan till exempel skapa månads Visa återställnings punkter och spara dem i fem år.
+
 ### <a name="scaling-deployment"></a>Skala distribution
+
 Om du vill skala distributionen har du följande alternativ:
-  - Skala upp – öka storleken på den Azure Backup Server virtuella datorn från en serie till D-serien och öka den lokala lagringen [enligt anvisningarna för den virtuella Azure Stack datorn](/azure-stack/user/azure-stack-manage-vm-disks).
-  - Avlasta data – skicka äldre data till Azure och Behåll bara de senaste data på lagrings platsen som är kopplad till Azure Backup Server.
-  - Skala ut – Lägg till fler Azure Backup-servrar för att skydda arbets belastningarna.
+
+- Skala upp – öka storleken på den Azure Backup Server virtuella datorn från en serie till D-serien och öka den lokala lagringen [enligt anvisningarna för den virtuella Azure Stack datorn](/azure-stack/user/azure-stack-manage-vm-disks).
+- Avlasta data – skicka äldre data till Azure och Behåll bara de senaste data på lagrings platsen som är kopplad till Azure Backup Server.
+- Skala ut – Lägg till fler Azure Backup-servrar för att skydda arbets belastningarna.
 
 ### <a name="net-framework"></a>.NET Framework
 
@@ -86,12 +95,13 @@ Den Azure Backup Server virtuella datorn måste vara ansluten till en domän. En
 
 ## <a name="using-an-iaas-vm-in-azure-stack"></a>Använda en virtuell IaaS-dator i Azure Stack
 
-När du väljer en server för Azure Backup Server börjar du med en Windows Server 2012 R2 Data Center-eller Windows Server 2016 Data Center Gallery-avbildning. Artikeln [skapar din första virtuella Windows-dator i Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)och innehåller en själv studie kurs för att komma igång med den rekommenderade virtuella datorn. De rekommenderade minimi kraven för virtuell Server-dator (VM) bör vara: A2 standard med två kärnor och 3,5 GB RAM-minne.
+När du väljer en server för Azure Backup Server börjar du med en Windows Server 2012 R2 Data Center-eller Windows Server 2016 Data Center Gallery-avbildning. Artikeln [skapar din första virtuella Windows-dator i Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)och innehåller en själv studie kurs för att komma igång med den rekommenderade virtuella datorn. De rekommenderade minimi kraven för virtuell Server-dator (VM) ska vara: a2 standard med två kärnor och 3,5 GB RAM.
 
 Att skydda arbets belastningar med Azure Backup Server har många olika delarna. Artikeln [Installera DPM som en virtuell Azure-dator, vilket](https://technet.microsoft.com/library/jj852163.aspx)hjälper dig att förklara dessa olika delarna. Innan du distribuerar datorn kan du läsa den här artikeln helt och hållet.
 
 > [!NOTE]
 > Azure Backup Server är utformad för att köras på en dedikerad virtuell dator med ett enda syfte. Du kan inte installera Azure Backup Server på:
+>
 > - En dator som körs som en domänkontrollant
 > - En dator där programserverrollen är installerad
 > - En dator som kör Exchange Server
@@ -108,7 +118,7 @@ Med alternativet Recovery Services valv lagrings replikering kan du välja mella
 Så här redigerar du inställningen för lagringsreplikering:
 
 1. Välj ditt valv för att öppna instrument panelen för valv och menyn Inställningar. Om menyn **Inställningar** inte öppnas, klickar du på **alla inställningar** på instrument panelen för valvet.
-2. På menyn **Inställningar** klickar du på **säkerhets** > kopierings infrastruktur**säkerhets kopierings konfiguration** för att öppna menyn **säkerhetskopiera konfiguration** . På menyn för **säkerhets kopierings konfiguration** väljer du alternativet Storage Replication för ditt valv.
+2. På menyn **Inställningar** klickar du på **säkerhets kopierings infrastruktur** > **säkerhets kopierings konfiguration** för att öppna menyn för **säkerhets kopierings konfiguration** . På menyn för **säkerhets kopierings konfiguration** väljer du alternativet Storage Replication för ditt valv.
 
     ![Lista över säkerhetskopieringsvalv](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -205,7 +215,7 @@ Azure Backup Server delar kod med Data Protection Manager. Referenser till Data 
 
    ![Microsoft Azure Backup installations guiden](./media/backup-mabs-install-azure-stack/mabs-install-wizard-local-5b.png)
 
-2. På Välkomst skärmen klickar du på **Nästa**.
+2. På **välkomst** skärmen klickar du på **Nästa**.
 
     ![Azure Backup Server-Välkommen och krav kontroll](./media/backup-mabs-install-azure-stack/mabs-install-wizard-setup-6.png)
 
@@ -314,7 +324,7 @@ Den första säkerhets kopian sparas på lagrings platsen som är ansluten till 
 
 ## <a name="network-connectivity"></a>Nätverks anslutning
 
-Azure Backup Server kräver anslutning till Azure Backups tjänsten för att produkten ska fungera korrekt. Du kan kontrol lera om datorn har anslutningen till Azure genom att använda ```Get-DPMCloudConnection``` cmdleten i Azure Backup Server PowerShell-konsolen. Om utdata från cmdleten är TRUE finns det en anslutning, annars finns det ingen anslutning.
+Azure Backup Server kräver anslutning till Azure Backups tjänsten för att produkten ska fungera korrekt. Du kan kontrol lera om datorn har anslutningen till Azure genom att använda cmdleten ```Get-DPMCloudConnection``` i Azure Backup Server PowerShell-konsolen. Om utdata från cmdleten är TRUE finns det en anslutning, annars finns det ingen anslutning.
 
 På samma gången måste Azure-prenumerationen vara i felfritt tillstånd. Logga in på [prenumerations portalen](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)för att ta reda på status för din prenumeration och hantera den.
 
@@ -322,16 +332,16 @@ När du känner till statusen för Azure-anslutningen och Azure-prenumerationen 
 
 | Anslutnings tillstånd | Azure-prenumeration | Säkerhetskopiera till Azure | Säkerhetskopiera till disk | Återställa från Azure | Återställa från disk |
 | --- | --- | --- | --- | --- | --- |
-| Ansluten |Aktiv |Behörig |Behörig |Behörig |Behörig |
-| Ansluten |Har upphört att gälla |Stoppad |Stoppad |Behörig |Behörig |
+| Ansluten |Active |Gett |Gett |Gett |Gett |
+| Ansluten |Upphörd |Stoppad |Stoppad |Gett |Gett |
 | Ansluten |Avetableras |Stoppad |Stoppad |Stoppade och Azure-återställnings punkter har tagits bort |Stoppad |
-| Förlorad anslutning > 15 dagar |Aktiv |Stoppad |Stoppad |Behörig |Behörig |
-| Förlorad anslutning > 15 dagar |Har upphört att gälla |Stoppad |Stoppad |Behörig |Behörig |
+| Förlorad anslutning > 15 dagar |Active |Stoppad |Stoppad |Gett |Gett |
+| Förlorad anslutning > 15 dagar |Upphörd |Stoppad |Stoppad |Gett |Gett |
 | Förlorad anslutning > 15 dagar |Avetableras |Stoppad |Stoppad |Stoppade och Azure-återställnings punkter har tagits bort |Stoppad |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Återställning från förlust av anslutning
 
-Om en brandvägg eller en proxy förhindrar åtkomst till Azure, så placera följande domänadresser i brandväggens/proxyns profil i listan över tillåtna:
+Om en brand vägg eller en proxy förhindrar åtkomst till Azure lägger du till följande domän adresser i listan över tillåtna brand väggar/proxy-profiler:
 
 - `http://www.msftncsi.com/ncsi.txt`
 - \*.Microsoft.com
@@ -343,9 +353,9 @@ När anslutningen till Azure har återställts till Azure Backup Server, bestäm
 
 ### <a name="handling-subscription-states"></a>Hantera prenumerations tillstånd
 
-Det går att ändra en Azure-prenumeration från förfallet eller avetablerat tillstånd till *aktivt* tillstånd. Även om prenumerations statusen inte är *aktiv*:
+Det går att ändra en Azure-prenumeration från *förfallet* eller *avetablerat* tillstånd till *aktivt* tillstånd. Även om prenumerations statusen inte är *aktiv*:
 
-- När en prenumeration haravetablerats förlorar den funktioner. Återställer prenumerationen till *aktiv*, revives säkerhets kopiering/återställning. Om säkerhets kopierings data på den lokala disken har behållits med en tillräckligt stor kvarhållningsperiod kan du Hämta säkerhetskopierade data. Säkerhets kopierings data i Azure är dock irretrievably förlorade när prenumerationen går in i avetablerat tillstånd.
+- När en prenumeration har *avetablerats*förlorar den funktioner. Återställer prenumerationen till *aktiv*, revives säkerhets kopiering/återställning. Om säkerhets kopierings data på den lokala disken har behållits med en tillräckligt stor kvarhållningsperiod kan du Hämta säkerhetskopierade data. Säkerhets kopierings data i Azure är dock irretrievably förlorade när prenumerationen går in i *avetablerat* tillstånd.
 - När en prenumeration har *upphört att gälla*förlorar den funktioner. Schemalagda säkerhets kopieringar körs inte när en prenumeration har *upphört att gälla*.
 
 ## <a name="troubleshooting"></a>Felsökning

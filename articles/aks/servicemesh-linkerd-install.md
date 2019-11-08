@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: ec8250f6cdb44af3c99c1d34d1f14fbd2209aac0
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: f70052a62152a20f808c1e491a663d1406fbd407
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530100"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747723"
 ---
 # <a name="install-linkerd-in-azure-kubernetes-service-aks"></a>Installera Linkerd i Azure Kubernetes service (AKS)
 
@@ -248,7 +248,7 @@ Opening Linkerd dashboard in the default browser
 > [!WARNING]
 > Om du tar bort Linkerd från ett system som körs kan det leda till trafik problem mellan dina tjänster. Se till att du har gjort att systemet fortfarande fungerar korrekt utan Linkerd innan du fortsätter.
 
-Först måste du ta bort dataplans-proxyn. Ta bort eventuella [anteckningar][linkerd-automatic-proxy-injection] från arbets belastnings namn rymder och rulla dina arbets belastnings distributioner. Dina arbets belastningar bör inte längre ha några associerade data Plans komponenter.
+Först måste du ta bort dataplans-proxyn. Ta bort eventuella [anteckningar][linkerd-automatic-proxy-injection] från arbets belastnings namn rymder och distribuera dina arbets belastnings distributioner. Dina arbets belastningar bör inte längre ha några associerade data Plans komponenter.
 
 Ta slutligen bort kontroll planet enligt följande:
 

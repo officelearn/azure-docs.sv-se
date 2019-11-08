@@ -12,26 +12,26 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
-ms.openlocfilehash: b0b8528a8eaf5cab22bb2482bd60e760d8bf5e3d
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 80fd91106530c0150a85d508b24041b2263da925
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058113"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749662"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>BitLocker-startfel på en virtuell Azure-dator
 
  I den här artikeln beskrivs BitLocker-fel som kan uppstå när du startar en virtuell Windows-dator (VM) i Microsoft Azure.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
-## <a name="symptom"></a>Symtom
+## <a name="symptom"></a>Symptom
 
  En virtuell Windows-dator startar inte. När du kontrollerar skärm bilderna i fönstret [Boot Diagnostics](../windows/boot-diagnostics.md) visas något av följande fel meddelanden:
 
 - Anslut USB-drivrutinen som har BitLocker-nyckeln
 
-- Du är låst! Ange återställnings nyckeln för att komma igång igen (tangentbordslayout: US) fel inloggnings information har angetts för många gånger, så datorn var låst för att skydda din integritet. Hämta återställnings nyckeln genom att gå https://windows.microsoft.com/recoverykeyfaq till från en annan dator eller mobil enhet. Om du behöver det är nyckel-ID: t XXXXXXX. Du kan också återställa datorn.
+- Du är låst! Ange återställnings nyckeln för att komma igång igen (tangentbordslayout: US) fel inloggnings information har angetts för många gånger, så att datorn var låst för att skydda din integritet. Om du vill hämta återställnings nyckeln går du till https://windows.microsoft.com/recoverykeyfaq från en annan dator eller mobil enhet. Om du behöver det är nyckel-ID: t XXXXXXX. Du kan också återställa datorn.
 
 - Ange lösen ordet för att låsa upp enheten [] Tryck på INSERT-tangenten för att se lösen ordet när du skriver.
 - Ange återställnings nyckeln Läs in din återställnings nyckel från en USB-enhet.
@@ -46,8 +46,8 @@ Lös problemet genom att stoppa och frigöra den virtuella datorn och sedan star
 
 Om den här metoden inte löser problemet följer du dessa steg för att återställa BEK-filen manuellt:
 
-1. Ta en ögonblicks bild av system disken för den berörda virtuella datorn som en säkerhets kopia. Mer information finns i [ögonblicksbild av en disk](../windows/snapshot-copy-managed-disk.md).
-2. [Koppla systemdisken till virtuell återställningsdator](troubleshoot-recovery-disks-portal-windows.md). Om du vill köra kommandot [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) i steg 7 måste **BitLocker-diskkryptering** funktionen vara aktive rad i den virtuella återställnings datorn.
+1. Ta en ögonblicks bild av system disken för den berörda virtuella datorn som en säkerhets kopia. Mer information finns i [ögonblicks bilder av en disk](../windows/snapshot-copy-managed-disk.md).
+2. [Anslut system disken till en virtuell återställnings dator](troubleshoot-recovery-disks-portal-windows.md). Om du vill köra kommandot [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) i steg 7 måste **BitLocker-diskkryptering** funktionen vara aktive rad i den virtuella återställnings datorn.
 
     När du ansluter en hanterad disk kan du få ett fel meddelande om att "innehåller krypterings inställningar och inte kan användas som en data disk". I den här situationen kör du följande skript för att försöka ansluta disken:
 
@@ -271,19 +271,19 @@ Följ dessa steg för ett scenario med nyckel krypterings nyckel:
                     manage-bde -off F:
 ## <a name="script-troubleshooting"></a>Skript fel sökning
 
-**Fel: Det gick inte att läsa in filen eller sammansättningen**
+**Fel: det gick inte att läsa in filen eller sammansättningen**
 
 Felet beror på att Sök vägarna för ADAL-sammansättningarna är felaktiga. Om AZ-modulen bara är installerad för den aktuella användaren, finns ADAL-sammansättningarna i `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>`.
 
-Du kan också söka efter `Az.Accounts` en mapp för att hitta rätt sökväg.
+Du kan också söka efter `Az.Accounts` mapp för att hitta rätt sökväg.
 
-**Fel: Get-AzKeyVaultSecret eller get-AzKeyVaultSecret känns inte igen som namnet på en cmdlet**
+**Fel: get-AzKeyVaultSecret eller get-AzKeyVaultSecret känns inte igen som namnet på en cmdlet**
 
 Om du använder den gamla AZ PowerShell-modulen måste du ändra de två kommandona till `Get-AzureKeyVaultSecret` och `Get-AzureKeyVaultSecret`.
 
 **Parameter exempel**
 
-| Parametrar  | Värde exempel  |Kommentar   |
+| Parametrar  | Värde exempel  |Kommentarer   |
 |---|---|---|
 |  $keyVaultName | myKeyVault2112852926  | Namnet på nyckel valvet som lagrar nyckeln |
 |$kekName   |mykey   | Namnet på den nyckel som används för att kryptera den virtuella datorn|

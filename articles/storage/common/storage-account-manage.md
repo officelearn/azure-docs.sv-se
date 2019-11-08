@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 11/06/2019
 ms.author: tamram
-ms.openlocfilehash: 60104496006e790887dd9c4b3e4c3196e0ef6444
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 3c01cc870b20c8256b215eb700548e6cd69ad0d5
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671358"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749015"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Hantera inställningar för lagrings kontot i Azure Portal
 
@@ -24,7 +24,7 @@ Azure Storage stöder auktorisering med Azure Active Directory för Blob Storage
 
 Inställningarna för **åtkomst kontroll** i Azure Portal ger ett enkelt sätt att tilldela RBAC-roller till användare, grupper, tjänstens huvud namn och hanterade identiteter. Mer information om hur du tilldelar RBAC-roller finns i [Hantera åtkomst rättigheter till blob-och Queue-data med RBAC](storage-auth-aad-rbac.md).
 
-## <a name="tags"></a>Tags
+## <a name="tags"></a>Taggar
 
 Azure Storage stöder Azure Resource Manager taggar för att organisera dina Azure-resurser med en anpassad taxonomi. Du kan använda taggar för dina lagrings konton så att du kan gruppera dem i prenumerationen på ett logiskt sätt.
 
@@ -58,7 +58,7 @@ Följ den här processen för att rotera dina lagrings konto nycklar:
 3. Uppdatera anslutningssträngarna i koden så att de refererar till den nya primärnyckeln.
 4. Återskapa den sekundära åtkomstnyckeln på samma sätt.
 
-## <a name="account-configuration"></a>Kontokonfiguration
+## <a name="account-configuration"></a>Konto konfiguration
 
 När du har skapat ett lagrings konto kan du ändra dess konfiguration. Du kan till exempel ändra hur dina data replikeras eller ändra kontots åtkomst nivå från frekvent till låg frekvent. I [Azure Portal](https://portal.azure.com)navigerar du till ditt lagrings konto och letar upp och klickar på **konfiguration** under **Inställningar** för att visa och/eller ändra konto konfigurationen.
 

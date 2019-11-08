@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2019
 ms.author: memildin
-ms.openlocfilehash: dad8c6173495d11abd6c9f5babb4ef8bc789e4ce
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
-ms.translationtype: HT
+ms.openlocfilehash: 140361b7ba3a6a618d4c416447525f8a73690b81
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686415"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748423"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Endpoint Protection-utvärdering och rekommendationer i Azure Security Center
 
@@ -84,7 +84,7 @@ Azure Security Center tillhandahåller hälso utvärdering av versioner av Endpo
 * Security Center rekommenderar att du **installerar Endpoint Protection-lösningar på den virtuella datorn** när någon av följande kontroller inte är uppfyllda:
     * **HKLM: \ SOFTWARE\TrendMicro\Deep säkerhets agent** finns
     * **HKLM: \ SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** finns
-    * Filen **dsq_query. cmd** finns i installationsmappen
+    * Filen **dsa_query. cmd** finns i installationsmappen
     * Kör **dsa_query. cmd** -resultat med **komponent. am. mode: analys av Micro-djup säkerhets agent har identifierats**
 
 ## <a name="symantec-endpoint-protection"></a>Symantec Endpoint Protection

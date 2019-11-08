@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/18/2019
 ms.author: aahi
-ms.openlocfilehash: e81a1de02c112abd5c52f0f83404a615d738e01c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 693a81cfb15407541311d7ab053bb2ab6a267b29
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73508071"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73800167"
 ---
 ## <a name="general-entity-types"></a>Allmänna enhets typer:
 
@@ -24,7 +24,7 @@ Språk:
 
 | Under typs namn | Beskrivning             |
 |--------------|-------------------------|
-| Gäller inte          | Identifierade namn, till exempel `Bill Gates`, `Marie Curie` |
+| Saknas          | Identifierade namn, till exempel `Bill Gates`, `Marie Curie` |
 
 ### <a name="location"></a>Plats
 
@@ -37,7 +37,7 @@ Språk:
 
 | Under typs namn | Beskrivning                                                                                      |
 |--------------|--------------------------------------------------------------------------------------------------|
-| Gäller inte          | platser, till exempel `Atlantic Ocean`, `library`, `Eiffel Tower`, `Statue of Liberty` |
+| Saknas          | platser, till exempel `Atlantic Ocean`, `library`, `Eiffel Tower`, `Statue of Liberty` |
 
 ### <a name="organization"></a>Organisation  
 
@@ -47,7 +47,7 @@ Erkända organisationer, organisationer, organ och andra grupper av personer. Ex
 
 | Under typs namn | Beskrivning                                                                                      |
 |--------------|--------------------------------------------------------------------------------------------------|
-| Gäller inte          | organisationer, till exempel `Microsoft`, `NASA` `National Oceanic and Atmospheric Administration` |
+| Saknas          | organisationer, till exempel `Microsoft`, `NASA` `National Oceanic and Atmospheric Administration` |
 
 ### <a name="phone-number"></a>Telefonnummer
 
@@ -60,7 +60,20 @@ Språk:
 
 | Under typs namn | Beskrivning                                  |
 |----------|----------------------------------------------|
-| Gäller inte         | Telefonnummer, till exempel `+1 123-123-123`. |
+| Saknas         | Telefonnummer, till exempel `+1 123-123-123`. |
+
+### <a name="email"></a>E-post
+
+E-postadress. 
+
+Språk:
+
+
+* Offentlig för hands version: `English`
+
+| Under typs namn | Beskrivning                                  |
+|----------|----------------------------------------------|
+| Saknas         | E-postadress, till exempel `support@contoso.com` |
 
 ### <a name="url"></a>URL
 
@@ -73,7 +86,7 @@ Språk:
 
 | Under typs namn | Beskrivning                                           |
 |----------|-------------------------------------------------------|
-| Gäller inte         | URL: er till webbplatser, till exempel `https://www.bing.com`. |
+| Saknas         | URL: er till webbplatser, till exempel `https://www.bing.com`. |
 
 ###  <a name="number"></a>Tal
 
@@ -86,7 +99,7 @@ Språk:
 
 | Under typs namn    | Exempel                     |
 |-------------|------------------------------|
-| Gäller inte         | `6`, `six`                   |
+| Saknas         | `6`, `six`                   |
 | Procent  | `50%`, `fifty percent`       |
 | Ordningstal     | `2nd`, `second`              |
 | Valuta    | `$10.99`, `€30.00`           |

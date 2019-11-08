@@ -4,14 +4,14 @@ description: Visar en lista över de Azure-resurs typer som kan ha fler än 800 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 11/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0f9db618b69ff692350f333b8a4a4354f4980169
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: c08b80a841199ed2737f6fe8d7f2b76943c5b269
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249121"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795661"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Resurser som inte är begränsade till 800 instanser per resurs grupp
 
@@ -74,8 +74,18 @@ För vissa resurs typer måste du kontakta supporten om du vill ta bort instans 
 
 * services
 
+## <a name="microsofteventhub"></a>Microsoft. EventHub
+
+* kluster
+* namn områden
+
+## <a name="microsoftexperimentation"></a>Microsoft. experimentering
+
+* experimentWorkspaces
+
 ## <a name="microsoftguestconfiguration"></a>Microsoft. GuestConfiguration
 
+* configurationProfileAssignments
 * guestConfigurationAssignments
 * IntelliPoint
 * softwareUpdateProfile
@@ -141,9 +151,17 @@ För vissa resurs typer måste du kontakta supporten om du vill ta bort instans 
 
 * workspaceCollections – som standard är begränsad till 800 instanser. Du kan öka gränsen genom att kontakta supporten.
 
+## <a name="microsoftrelay"></a>Microsoft. Relay
+
+* namn områden
+
 ## <a name="microsoftscheduler"></a>Microsoft. Scheduler
 
 * förfrågningsåtgärder
+
+## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
+
+* namn områden
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft. ServiceFabricMesh
 
@@ -151,7 +169,7 @@ För vissa resurs typer måste du kontakta supporten om du vill ta bort instans 
 * containerGroups
 * gatewayer
 * nätet
-* hemligheter
+* secrets
 * volumes
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage

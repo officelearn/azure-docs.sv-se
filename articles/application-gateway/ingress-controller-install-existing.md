@@ -5,14 +5,14 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/22/2019
+ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 045fb54956e78e826b06dc1c56c29e1c7bd430bd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dec43a4d7eb5a9546fcd77cce972b93542ea3b10
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513424"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795945"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>Installera en Application Gateway ingress-styrenhet (AGIC) med hjälp av en befintlig Application Gateway
 
@@ -27,7 +27,7 @@ AGIC övervakar Kubernetes [ingress](https://kubernetes.io/docs/concepts/service
 - [Installera ingress-styrenheten med Helm](#install-ingress-controller-as-a-helm-chart)
 - [Flera kluster/delade Application Gateway](#multi-cluster--shared-application-gateway): installera AGIC i en miljö där Application Gateway delas mellan ett eller flera AKS-kluster och/eller andra Azure-komponenter.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Det här dokumentet förutsätter att du redan har följande verktyg och infrastruktur installerade:
 - [AKS](https://azure.microsoft.com/services/kubernetes-service/) med [avancerade nätverksfunktioner](https://docs.microsoft.com/azure/aks/configure-azure-cni) aktiverade
 - [Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/create-zone-redundant) i samma virtuella nätverk som AKS
@@ -91,7 +91,7 @@ Använd [Cloud Shell](https://shell.azure.com/) för att köra alla följande ko
     az identity show -g <resourcegroup> -n <identity-name>
     ```
 
-1. Ge identiteten `Contributor` åtkomst till dig Application Gateway. För detta behöver du ID: t för Application Gateway, som ser ut ungefär så här: `/subscriptions/A/resourceGroups/B/providers/Microsoft.Network/applicationGateways/C`
+1. Ge identitets `Contributor` åtkomst till din Application Gateway. För detta behöver du ID: t för Application Gateway, som ser ut ungefär så här: `/subscriptions/A/resourceGroups/B/providers/Microsoft.Network/applicationGateways/C`
 
     Hämta listan med Application Gateway-ID: n i din prenumeration med: `az network application-gateway list --query '[].id'`
 
@@ -128,7 +128,7 @@ armAuth:
 ```
 
 ## <a name="install-ingress-controller-as-a-helm-chart"></a>Installera ingress-kontrollant som ett Helm-diagram
-I de första stegen installerar du Helm till ditt Kubernetes-kluster. Använd [Cloud Shell](https://shell.azure.com/) för att installera AGIC Helm-paketet:
+I de första stegen installerar vi Helm till ditt Kubernetes-kluster. Använd [Cloud Shell](https://shell.azure.com/) för att installera AGIC Helm-paketet:
 
 1. Lägg till `application-gateway-kubernetes-ingress` Helm lagrings platsen och utför en Helm-uppdatering
 
@@ -244,9 +244,9 @@ __Säkerhetskopiera din Application gateways konfiguration__ innan du aktiverar 
 Zip-filen som du laddade ned kommer att ha JSON-mallar, bash-och PowerShell-skript som du kan använda för att återställa Application Gateway
 
 ### <a name="example-scenario"></a>Exempel på ett scenario
-Nu ska vi titta på en tänkt Application Gateway som hanterar trafik för 2 webbplatser:
+Nu ska vi titta på en tänkt Application Gateway som hanterar trafik för två webbplatser:
   - `dev.contoso.com` som finns på en ny AKS, med Application Gateway och AGIC
-  - `prod.contoso.com` som finns på en [dators skalnings uppsättning i Azure virtuellt](https://azure.microsoft.com/services/virtual-machine-scale-sets/)
+  - `prod.contoso.com` som finns på en [skalnings uppsättning för virtuella Azure-datorer](https://azure.microsoft.com/services/virtual-machine-scale-sets/)
 
 Med standardinställningarna antar AGIC 100% ägande av den Application Gateway den pekar på. AGIC skriver över alla app Gateway-konfigurationer. Om vi skulle skapa en lyssnare för `prod.contoso.com` (på Application Gateway) manuellt, utan att definiera den i Kubernetes ingress, kommer AGIC att ta bort `prod.contoso.com` config på några sekunder.
 
@@ -323,7 +323,7 @@ Bredda AGIC-behörigheter med:
     ```
 
 ### <a name="enable-for-an-existing-agic-installation"></a>Aktivera för en befintlig AGIC-installation
-Vi antar att vi redan har en fungerande AKS, Application Gateway och konfigurerat AGIC i vårt kluster. Vi har ett ingångs rikt för `prod.contosor.com` och betjänar trafik för den från AKS. Vi vill lägga till `staging.contoso.com` till vår befintliga Application Gateway, men du måste vara värd för den på en [virtuell dator](https://azure.microsoft.com/services/virtual-machines/). Vi kommer att använda den befintliga Application Gateway och manuellt konfigurera en lyssnare och backend-pooler för `staging.contoso.com`. Men att anpassa Application Gateway config manuellt (via [Portal](https://portal.azure.com), [arm-API: er](https://docs.microsoft.com/rest/api/resources/) eller [terraform](https://www.terraform.io/)) hamnar i konflikt med AGICs antaganden om full ägande. Strax efter att vi tillämpar ändringar skriver AGIC över eller tar bort dem.
+Vi antar att vi redan har en fungerande AKS, Application Gateway och konfigurerat AGIC i vårt kluster. Vi har ett ingångs rikt för `prod.contosor.com` och betjänar trafik för den från AKS. Vi vill lägga till `staging.contoso.com` till vår befintliga Application Gateway, men du måste vara värd för den på en [virtuell dator](https://azure.microsoft.com/services/virtual-machines/). Vi kommer att återanvända den befintliga Application Gateway och manuellt konfigurera en lyssnare och backend-pooler för `staging.contoso.com`. Men att anpassa Application Gateway config manuellt (via [Portal](https://portal.azure.com), [arm-API: er](https://docs.microsoft.com/rest/api/resources/) eller [terraform](https://www.terraform.io/)) hamnar i konflikt med AGICs antaganden om full ägande. Strax efter att vi tillämpar ändringar skriver AGIC över eller tar bort dem.
 
 Vi kan förhindra AGIC från att göra ändringar i en delmängd av konfigurationen.
 

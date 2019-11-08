@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: ac1572a75a3310afb9d0e0a34c6751ed12d839f9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 24ed7b75dfa8cb09c530a3f4a896aa9ff9aa92b5
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102426"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749177"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Överför en generaliserad virtuell hård disk till Azure för att skapa en ny virtuell dator
 
@@ -30,7 +30,7 @@ Om du vill skapa en virtuell dator från en specialiserad virtuell hård disk i 
 
 Det här avsnittet beskriver hur du använder lagrings konton, men vi rekommenderar att kunderna flyttar till att använda Managed Disks i stället. En fullständig genom gång av hur du förbereder, laddar upp och skapar en ny virtuell dator med hjälp av Managed disks finns i [skapa en ny virtuell dator från en generaliserad virtuell hård disk som överförs till Azure med hjälp av Managed disks](upload-generalized-managed.md).
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="prepare-the-vm"></a>Förbereda den virtuella datorn
 
@@ -121,7 +121,7 @@ Följ dessa steg om du behöver skapa ett lagrings konto:
  
 ### <a name="start-the-upload"></a>Starta överföringen 
 
-Använd cmdleten [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) för att ladda upp avbildningen till en behållare i ditt lagrings konto. I det här exemplet överförs filen **myVHD. VHD** från `"C:\Users\Public\Documents\Virtual hard disks\"` till ett lagrings konto med namnet **mystorageaccount** i resurs gruppen **myResourceGroup** . Filen kommer att placeras i behållaren som heter behållaren och det nya fil namnet kommer att vara **myUploadedVHD. VHD**.
+Använd cmdleten [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) för att ladda upp avbildningen till en behållare i ditt lagrings konto. I det här exemplet överförs filen **myVHD. VHD** från `"C:\Users\Public\Documents\Virtual hard disks\"` till ett lagrings konto med namnet **mystorageaccount** i resurs gruppen **myResourceGroup** . Filen kommer att placeras i behållaren **som heter** behållaren och det nya fil namnet kommer att vara **myUploadedVHD. VHD**.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -154,7 +154,7 @@ Du kan nu använda den överförda virtuella hård disken för att skapa en ny v
 
 ### <a name="set-the-uri-of-the-vhd"></a>Ange URI för den virtuella hård disken
 
-URI: n för den virtuella hård disken som ska användas är i formatet: https:///**mystorageaccount**. blob.Core.Windows.NET/finns**MyVhdName**. VHD. I det här exemplet finns den virtuella hård disken med namnet **myVHD** i lagrings kontot **mystorageaccount** i behållarens behållare.
+URI: n för den virtuella hård disken som ska användas är i formatet: https://**mystorageaccount** **. blob.Core.Windows.net/** /**MyVhdName**. VHD. I det här exemplet finns den virtuella hård disken med namnet **myVHD** i lagrings kontot **mystorageaccount** i behållarens **behållare.**
 
 ```powershell
 $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vhd"
@@ -282,7 +282,7 @@ Följande PowerShell-skript visar hur du konfigurerar konfigurationen för virtu
 ```
 
 ## <a name="verify-that-the-vm-was-created"></a>Verifiera att den virtuella datorn har skapats
-När du är klar bör du se den nyligen skapade virtuella datorn i [Azure Portal](https://portal.azure.com) under **Bläddra** > i**virtuella datorer**, eller genom att använda följande PowerShell-kommandon:
+När du är klar bör du se den nyligen skapade virtuella datorn i [Azure Portal](https://portal.azure.com) under **Bläddra** > **virtuella datorer**, eller genom att använda följande PowerShell-kommandon:
 
 ```powershell
     $vmList = Get-AzVM -ResourceGroupName $rgName

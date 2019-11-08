@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e8543f1f6ef2cdf1695340b07dcbc51365a01a5
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 8d73a2dcd0aab3b972a3e0a9237e53d05d4a9a53
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72438133"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750031"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Tillägg och funktioner för virtuella datorer för Windows
 
@@ -28,7 +28,7 @@ Tillägg för virtuella Azure-datorer (VM) är små program som ger konfiguratio
 
 Den här artikeln innehåller en översikt över VM-tillägg, krav för att använda Azure VM-tillägg och rikt linjer för hur du identifierar, hanterar och tar bort VM-tillägg. Den här artikeln innehåller generaliserad information eftersom många VM-tillägg är tillgängliga, var och en med en potentiellt unik konfiguration. Tilläggs information finns i varje dokument som är specifikt för det enskilda tillägget.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="use-cases-and-samples"></a>Användnings fall och exempel
 
@@ -42,7 +42,7 @@ Flera olika Azure VM-tillägg är tillgängliga, var och en med ett särskilt an
 
 Förutom process-/regionsspecifika tillägg är ett anpassat skript tillägg tillgängligt för virtuella Windows-och Linux-datorer. Med tillägget för anpassat skript för Windows kan du köra alla PowerShell-skript på en virtuell dator. Anpassade skript är användbara för att utforma Azure-distributioner som kräver konfiguration utöver vad interna Azure-verktyg kan tillhandahålla. Mer information finns i [anpassat skript tillägg för Windows VM](custom-script-windows.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill hantera tillägget på den virtuella datorn behöver du Azure Windows-agenten installerad. Vissa enskilda tillägg har krav, till exempel åtkomst till resurser eller beroenden.
 
@@ -137,10 +137,10 @@ Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Nam
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-Kommandot `Set-AzVMExtension` kan användas för att starta alla VM-tillägg. Mer information finns i [set-AzVMExtension-referensen](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
+`Set-AzVMExtension`-kommandot kan användas för att starta alla VM-tillägg. Mer information finns i [set-AzVMExtension-referensen](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
 
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 VM-tillägg kan tillämpas på en befintlig virtuell dator via Azure Portal. Välj den virtuella datorn i portalen, Välj **tillägg**och välj sedan **Lägg till**. Välj det tillägg du vill använda i listan över tillgängliga tillägg och följ anvisningarna i guiden.
 
@@ -262,7 +262,7 @@ När det finns en tillgänglig uppdatering installeras den bara på den virtuell
 - Tillägg
 - Behållare för startdiagnostik
 - Gäst operativ system hemligheter
-- VM-storlek
+- Storlek på virtuell dator
 - Nätverks profil
 
 Utgivare gör uppdateringar tillgängliga för regioner vid olika tidpunkter, så det är möjligt att du kan ha virtuella datorer i olika regioner i olika versioner.
@@ -351,7 +351,7 @@ Följande fel söknings steg gäller för alla VM-tillägg.
 
 1. Om du vill kontrol lera loggen för Windows gäst agent tittar du på aktiviteten när ditt tillägg har allokerats i *C:\WindowsAzure\Logs\WaAppAgent.txt*
 
-2. Se de faktiska tilläggs loggarna för mer information i *C:\WindowsAzure\Logs\Plugins @ no__t-1extensionName >*
+2. Se de faktiska tilläggs loggarna för mer information i *C:\WindowsAzure\Logs\Plugins\<tillägg >*
 
 3. Sök efter felkoder, kända problem och fel söknings avsnitt för specifika dokumentation
 

@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 5d807f185a8cdb181093d37dac35ee2e467fdba9
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 8ce35156cd772487c4787f2f5fb99feb1225826f
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72328098"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794192"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Snabb start: skapa, träna och publicera QnA Maker kunskaps bas
 
@@ -67,11 +67,11 @@ Ta med en användare av en CHI2TEST för att göra din kunskap mer engagerande m
 
 1. Lägg till svaret som formaterats med _markdown_:
 
-    ` * Azure QnA Maker service\n* Azure Search\n* Azure web app\n* Azure app plan`
+    ` * Azure QnA Maker service\n* Azure Cognitive Search\n* Azure web app\n* Azure app plan`
 
     ![ Lägg till frågan som text och svaret formaterat med markdown.](../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png)
 
-    Markdown-symbolen `*` används för punkter. @No__t-0 används för en ny rad.  
+    Markdown-symbolen `*`används för punkter. `\n` används för en ny rad.  
 
     På sidan **Redigera** visas markdown. När du använder **test** panelen senare ser du att markdown visas som den ska. 
 
@@ -94,7 +94,7 @@ Välj **Spara och öva** i det övre högra hörnet för att spara dina ändring
 
 ## <a name="publish-the-knowledge-base"></a>Publicera kunskapsbasen
 
-När du publicerar en kunskaps bas flyttas innehållet i kunskaps basen från `test`-indexet till ett `prod`-index i Azure Search.
+När du publicerar en kunskaps bas flyttas innehållet i din kunskaps bas från `test`-indexet till ett `prod`-index i Azure Search.
 
 ![Skärm bild av hur du flyttar innehållet i kunskaps basen](../media/qnamaker-how-to-publish-kb/publish-prod-test.png)
 

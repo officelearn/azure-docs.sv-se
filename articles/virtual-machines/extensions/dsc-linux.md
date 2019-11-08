@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: e2faf444aa411f0e60f1b5c7b1f811abc2f6b63a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 1825f9f0f5d525c0129341d800ca5949136ae633
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176676"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750086"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>DSC-tillägg för Linux (Microsoft. OSTCExtensions. DSCForLinux)
 
@@ -35,9 +35,9 @@ DSCForLinux-tillägget har publicerats och stöds av Microsoft. Tillägget insta
 - Installera anpassade DSC-moduler på den virtuella Linux-datorn (installera ExtensionAction)
 - Ta bort anpassade DSC-moduler till den virtuella Linux-datorn (ta bort ExtensionAction)
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -58,10 +58,10 @@ DSCForLinux-tillägget kräver att den virtuella mål datorn är ansluten till I
 
 Här följer alla offentliga konfigurations parametrar som stöds:
 
-* `FileUri`: (valfri, sträng) URI för MOF-filen/meta MOF-filen/den anpassade resursens ZIP-fil.
+* `FileUri`: (valfritt, sträng) URI för MOF-filen/meta MOF-filen/den anpassade resursens ZIP-fil.
 * `ResourceName`: (valfritt, sträng) namnet på den anpassade modulen
 * `ExtensionAction`: (valfritt, sträng) anger vad ett tillägg gör. giltiga värden: registrera, skicka, Hämta, installera, ta bort. Om inget värde anges anses det som push-åtgärd som standard.
-* `NodeConfigurationName`: (valfritt, sträng) namnet på den nod som ska tillämpas.
+* `NodeConfigurationName`: (valfritt, sträng) namnet på den nods konfiguration som ska användas.
 * `RefreshFrequencyMins`: (valfritt, int) anger hur ofta (i minuter) DSC försöker hämta konfigurationen från hämtnings servern. 
        Om konfigurationen på hämtnings servern skiljer sig från den nuvarande på målnoden kopieras den till den väntande lagringen och tillämpas.
 * `ConfigurationMode`: (valfritt, sträng) anger hur DSC ska tillämpa konfigurationen. Giltiga värden är: ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect.
@@ -286,7 +286,7 @@ Mer information om Azure Resource Manager mall finns i [redigera Azure Resource 
 ## <a name="azure-cli-deployment"></a>Azure CLI-distribution
 
 ### <a name="21-using-azure-cliazure-cli"></a>2,1. Använda [**Azure CLI**] [Azure-CLI]
-Innan du distribuerar DSCForLinux-tillägget bör du konfigurera din `public.json` och `protected.json`, enligt de olika scenarierna i avsnitt 3.
+Innan du distribuerar DSCForLinux-tillägget bör du konfigurera `public.json` och `protected.json`, enligt de olika scenarierna i avsnitt 3.
 
 #### <a name="211-classic"></a>punkt. Klassisk
 Klassiskt läge kallas även för Azure Service Management-läge. Du kan växla till den genom att köra:
@@ -305,7 +305,7 @@ För att lära dig den senaste tilläggs versionen som är tillgänglig, kör:
 $ azure vm extension list
 ```
 
-#### <a name="212-resource-manager"></a>punkt. Resurshanterare
+#### <a name="212-resource-manager"></a>punkt. Resource Manager
 Du kan växla till Azure Resource Manager läge genom att köra:
 ```
 $ azure config mode arm
@@ -406,7 +406,7 @@ Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location
 
 ## <a name="troubleshoot-and-support"></a>Felsöka och support
 
-### <a name="troubleshoot"></a>Felsökning
+### <a name="troubleshoot"></a>Felsöka
 
 Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och med hjälp av Azure CLI. Om du vill se distributions statusen för tillägg för en virtuell dator kör du följande kommando med hjälp av Azure CLI.
 

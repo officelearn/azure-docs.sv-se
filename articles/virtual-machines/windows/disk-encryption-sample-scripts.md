@@ -7,18 +7,18 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6874372d64fdbb667a23f2ded37a68cd68e32993
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 50addbec1717c7bb76a248053dd889b09441f6f6
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72245089"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749465"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Azure Disk Encryption exempel skript 
 
 Den här artikeln innehåller exempel skript för att förbereda förkrypterade virtuella hård diskar och andra uppgifter.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="list-vms-and-secrets"></a>Visa lista över virtuella datorer och hemligheter
 
@@ -68,7 +68,7 @@ I följande tabell visas vilka parametrar som kan användas i PowerShell-skripte
 Avsnitten som följer är nödvändiga för att förbereda en förkrypterad Windows-VHD för distribution som en krypterad virtuell hård disk i Azure IaaS. Använd informationen för att förbereda och starta en ny virtuell Windows-dator (VHD) på Azure Site Recovery eller Azure. Mer information om hur du förbereder och laddar upp en virtuell hård disk finns i [överföra en generaliserad virtuell hård disk och använda den för att skapa nya virtuella datorer i Azure](upload-generalized-managed.md).
 
 ### <a name="update-group-policy-to-allow-non-tpm-for-os-protection"></a>Uppdatera grup princip för att tillåta icke-TPM för OS-skydd
-Konfigurera BitLocker-grupprincip inställningen **BitLocker-diskkryptering**, som du hittar under **princip för lokal dator** > **dator konfiguration** > **administrativa mallar** > **Windows Komponenter**. Ändra den här inställningen till **operativ system enheter** > **kräver ytterligare autentisering vid start** > **Tillåt BitLocker utan en kompatibel TPM**, som visas i följande bild:
+Konfigurera BitLocker-grupprincip inställningen **BitLocker-diskkryptering**, som du hittar under **princip för lokal dator** > **dator konfiguration** > **administrativa mallar** > **Windows Komponenter**. Om du ändrar den här inställningen till **operativ system enheter** > **kräva ytterligare autentisering vid start** > **tillåta BitLocker utan en kompatibel TPM**, som visas i följande figur:
 
 ![Microsoft Antimalware i Azure](../media/disk-encryption/disk-encryption-fig8.png)
 
@@ -87,7 +87,7 @@ Om du vill komprimera OS-partitionen och förbereda datorn för BitLocker kör d
     bdehdcfg -target c: shrink -quiet 
 
 ### <a name="protect-the-os-volume-by-using-bitlocker"></a>Skydda operativ system volymen med hjälp av BitLocker
-Använd kommandot [`manage-bde`](https://technet.microsoft.com/library/ff829849.aspx) för att aktivera kryptering på Start volymen med hjälp av ett externt nyckel skydd. Placera även den externa nyckeln (. Bek-filen) på den externa enheten eller volymen. Kryptering är aktiverat på system-/start volymen efter nästa omstart.
+Använd [`manage-bde`](https://technet.microsoft.com/library/ff829849.aspx) -kommandot för att aktivera kryptering på Start volymen med hjälp av ett externt nyckel skydd. Placera även den externa nyckeln (. Bek-filen) på den externa enheten eller volymen. Kryptering är aktiverat på system-/start volymen efter nästa omstart.
 
     manage-bde -on %systemdrive% -sk [ExternalDriveOrVolume]
     reboot
@@ -141,7 +141,7 @@ Använd [set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecr
 Använd `$secretUrl` i nästa steg för att [koppla OS-disken utan att använda KEK](#without-using-a-kek).
 
 ### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>Disk krypterings hemlighet krypterad med en KEK
-Innan du överför hemligheten till nyckel valvet kan du också kryptera den med hjälp av en nyckel krypterings nyckel. Använd wrap- [API: et](https://msdn.microsoft.com/library/azure/dn878066.aspx) för att först kryptera hemligheten med nyckel krypterings nyckeln. Utdata från den här figur sättningen är en Base64-kodad sträng, som du sedan kan ladda upp som en hemlighet med hjälp av [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
+Innan du överför hemligheten till nyckel valvet kan du också kryptera den med hjälp av en nyckel krypterings nyckel. Använd wrap- [API: et](https://msdn.microsoft.com/library/azure/dn878066.aspx) för att först kryptera hemligheten med nyckel krypterings nyckeln. Utdata från den här figur sättningen är en Base64-kodad sträng, som du sedan kan ladda upp som en hemlighet med hjälp av [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) -cmdleten.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation
@@ -249,7 +249,7 @@ När du ansluter OS-disken måste du skicka `$secretUrl`. URL: en skapades i avs
             -DiskEncryptionKeyUrl $SecretUrl
 ```
 ### <a name="using-a-kek"></a>Använda en KEK
-När du ansluter OS-disken, pass `$KeyEncryptionKey` och `$secretUrl`. URL: en skapades i avsnittet "disk krypterings hemlighet krypterad med ett KEK".
+När du ansluter OS-disken skickar du `$KeyEncryptionKey` och `$secretUrl`. URL: en skapades i avsnittet "disk krypterings hemlighet krypterad med ett KEK".
 ```powershell
     Set-AzVMOSDisk `
             -VM $VirtualMachine `

@@ -5,18 +5,18 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 11/06/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 57e8905fd9722d5b8a8b0ab76dbcea5b91c6d30a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6fa1912e80a98c98f058931708e191d0fff5bc66
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495855"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73800155"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>Stöds anpassade IPsec/IKE-principer på alla Azure VPN Gateway-SKU: er?
-Anpassad IPsec/IKE-princip stöds på **alla Azure SKU: er förutom Basic SKU**.
+Anpassade IPsec/IKE-principer stöds på Azure **VpnGw1, VpnGw2, VpnGw3, Standard** och **HighPerformance** VPN-gatewayer. **Basic** SKU stöds **inte**.
 
 ### <a name="how-many-policies-can-i-specify-on-a-connection"></a>Hur många principer kan jag ställa in för en anslutning?
 Du kan bara ange ***en*** principkombination för en viss anslutning.
@@ -27,22 +27,22 @@ Nej, du måste ange alla algoritmer och parametrar för både IKE (huvudläge) o
 ### <a name="what-are-the-algorithms-and-key-strengths-supported-in-the-custom-policy"></a>Vilka är de algoritmer och viktiga fördelar som stöds i den anpassade principen?
 Tabellen nedan innehåller de krypteringsalgoritmer och nyckellängder som stöds och som kan konfigureras av kunden. Du måste välja ett alternativ för varje fält.
 
-| **IPsec/IKEv2**  | **Alternativ**                                                                   |
-| ---              | ---                                                                           |
-| IKEv2-kryptering | AES256, AES192, AES128, DES3, DES                                             |
-| IKEv2 Integrity  | SHA384, SHA256, SHA1, MD5                                                     |
-| DH-grupp         | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, None |
-| IPsec-kryptering | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None      |
-| IPsec Integrity  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
-| PFS-grupp        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, None                              |
-| QM SA-livstid   | Sekunder (heltal. **min. 300**/standard 27 000 sekunder)<br>Kilobyte (heltal. **min. 1024**/standard 102400000 kilobyte)           |
-| Trafikväljare | UsePolicyBasedTrafficSelectors ($True/$False; default $False)                 |
-|                  |                                                                               |
+| **IPsec/IKEv1, IKEv2**  | **Alternativ**                                                                   |
+| ---                     | ---                                                                           |
+| IKEv1, IKEv2-kryptering | AES256, AES192, AES128, DES3, DES                                             |
+| IKEv1, IKEv2-integritet  | SHA384, SHA256, SHA1, MD5                                                     |
+| DH-grupp                | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, None  |
+| IPsec-kryptering        | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None      |
+| IPsec Integrity         | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
+| PFS-grupp               | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, None                              |
+| QM SA-livstid          | Sekunder (heltal. **min. 300**/standard 27 000 sekunder)<br>Kilobyte (heltal. **min. 1024**/standard 102400000 kilobyte) |
+| Trafikväljare        | UsePolicyBasedTrafficSelectors ($True/$False; default $False)                 |
+|                         |                                                                               |
 
 > [!IMPORTANT]
 > 1. DHGroup2048 och PFS2048 är samma som Diffie-Hellman-grupp **14** i IKE och IPsec PFS. De fullständiga mappningarna finns i avsnittet om [Diffie-Hellman-grupper](#DH).
 > 2. För GCMAES-algoritmer måste du ange samma GCMAES-algoritm och nyckellängd för både IPsec-kryptering och -integritet.
-> 3. IKEv2 Main Mode SA har en livslängd på högst 28 800 sekunder på Azure VPN-gatewayer
+> 3. Livs längden för IKEv1 och IKEv2 i huvud läge för IKEv2 är fast i 28 800 sekunder på Azure VPN-gatewayer.
 > 4. QM SA-livslängder är valfria parametrar. Om inget har angetts används standardvärdena på 27 000 sekunder (7,5 timmar) och 102 400 000 kB (102 GB).
 > 5. UsePolicyBasedTrafficSelector är en valfri parameter för anslutningen. Läs nästa fråga från vanliga frågor och svar för ”UsePolicyBasedTrafficSelectors”
 
@@ -102,6 +102,18 @@ Ja. En VNet-till-VNet-tunnel består av två anslutningsresurser i Azure, en fö
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>Fungerar en anpassad IPsec/IKE-princip på ExpressRoute-anslutningen?
 Nej. IPSec-/ princip fungerar bara på S2S VPN- och VNet-till-VNet-anslutningar via Azure VPN-gatewayer.
+
+### <a name="how-do-i-create-connections-with-ikev1-or-ikev2-protocol-type"></a>Hur gör jag för att skapa anslutningar med IKEv1-eller IKEv2-protokoll typ?
+IKEv1-anslutningar kan skapas på alla Routningsbaserad VPN-typer SKU: er, förutom den grundläggande SKU: n. Du kan ange en typ av anslutnings protokoll för IKEv1 eller IKEv2 när du skapar anslutningar. Om du inte anger någon typ av anslutnings protokoll används IKEv2 som standard alternativ i förekommande fall. Mer information finns i PowerShell- [cmdlet](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?) -dokumentationen. För SKU-typer och IKEv1/IKEv2-stöd, se [ansluta gatewayar till principbaserade VPN-enheter](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
+
+### <a name="is-transit-between-between-ikev1-and-ikev2-connections-allowed"></a>Tillåts överföring mellan IKEv1-och IKEv2-anslutningar?
+Ja. Överföring mellan IKEv1-och IKEv2-anslutningar stöds.
+
+### <a name="can-i-have-ikev1-site-to-site-connections-on-basic-skus-of-routebased-vpn-type"></a>Kan jag använda IKEv1 plats-till-plats-anslutningar på Basic SKU: er av Routningsbaserad VPN-typ?
+Nej. Alla Routningsbaserad VPN SKU: er förutom grundläggande SKU: er för routing-baserad VPN-typ stöder IKEv1-anslutningar för plats-till-plats.
+
+### <a name="can-i-change-the-connection-protocol-type-after-the-connection-is-created-ikev1-to-ikev2-and-vice-versa"></a>Kan jag ändra typ av anslutnings protokoll när anslutningen har skapats (IKEv1 till IKEv2 och vice versa)?
+Nej. När anslutningen har skapats går det inte att ändra IKEv1/IKEv2-protokoll. Du måste ta bort och återskapa en ny anslutning med önskad protokoll typ.
 
 ### <a name="where-can-i-find-more-configuration-information-for-ipsec"></a>Var kan jag hitta mer konfigurations information för IPsec?
 Se [Konfigurera IPSec/IKE-princip för S2S-eller VNet-till-VNet-anslutningar](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md)

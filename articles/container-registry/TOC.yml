@@ -39,7 +39,7 @@
           href: container-registry-tutorial-deploy-update.md
 - name: Begrepp
   items:
-    - name: 'SKU:er för Container Registry'
+    - name: 'SKU:er och gränser för Container Registry'
       href: container-registry-skus.md
     - name: 'Register, lagringsplatser och avbildningar'
       href: container-registry-concepts.md
@@ -75,8 +75,6 @@
               href: container-registry-retention-policy.md
             - name: Rensa automatiskt taggar och manifest (förhandsversion)
               href: container-registry-auto-purge.md
-        - name: Uppgradera ett klassiskt register
-          href: container-registry-upgrade.md
         - name: Använda ACR-webhooks
           href: container-registry-webhook.md
         - name: Lagringsplatser för Helm-diagram (förhandsversion)

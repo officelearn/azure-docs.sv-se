@@ -247,6 +247,8 @@
                   href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Händelsehantering
           href: storage-blob-event-overview.md
+        - name: Ändringsfeed
+          href: storage-blob-change-feed.md
         - name: Funktioner för sidblob
           href: storage-blob-pageblob-overview.md
         - name: Statiska webbplatser
@@ -374,6 +376,8 @@
           href: storage-custom-domain-name.md
         - name: Dirigera händelser till en anpassad slutpunkt
           href: storage-blob-event-quickstart.md
+        - name: Bearbeta ändringsflödesloggar
+          href: storage-blob-change-feed-how-to.md
         - name: Söka i Blob Storage med Azure Search
           href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Överföra data
@@ -432,24 +436,24 @@
           href: /cli/azure/storage
         - name: .NET
           items:
-            - name: 'Blobar, köer och filer'
-              href: /dotnet/api/overview/azure/storage/client
+            - name: Blobar (version 12.x)
+              href: /dotnet/api/azure.storage.blobs
             - name: Dataflytt
               href: /dotnet/api/microsoft.azure.storage.datamovement
             - name: Lagringsresursprovider
               href: /dotnet/api/overview/azure/storage/management
         - name: Java
           items:
-            - name: 'Blobbar, köer och filer (version 12.x – förhandsversion)'
-              href: 'https://azure.github.io/azure-sdk-for-java/track2reports/index.html'
-            - name: 'Blobbar, köer och filer (version 8)'
-              href: 'https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy'
+            - name: Blobar (version 12.x)
+              href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html'
+            - name: Blobar (version 8.x)
+              href: /java/api/com.microsoft.azure.storage.blob
             - name: Lagringsresursprovider
               href: /java/api/overview/azure/storage/management
-        - name: Node.js
-          href: /javascript/api/overview/azure/storage
-        - name: Python
-          href: /python/api/overview/azure/storage
+        - name: JavaScript (version 12.x)
+          href: /javascript/api/@azure/storage-blob/?view=azure-node-preview
+        - name: Python (version 12.x)
+          href: /python/api/azure-storage-blob/
         - name: REST
           items:
             - name: 'Blobar, köer, tabeller och filer'
@@ -737,20 +741,24 @@
           href: /cli/azure/storage
         - name: .NET
           items:
-            - name: 'Blobar, köer, tabeller och filer'
-              href: /dotnet/api/overview/azure/storage/client
-            - name: Dataförflyttning
+            - name: Blobar (version 12.x)
+              href: /dotnet/api/azure.storage.blobs
+            - name: Dataflytt
               href: /dotnet/api/microsoft.azure.storage.datamovement
-            - name: Resource Manager
+            - name: Lagringsresursprovider
               href: /dotnet/api/overview/azure/storage/management
         - name: Java
           items:
-            - name: 'Blobbar, köer och filer (version 12.x – förhandsversion)'
-              href: 'https://azure.github.io/azure-sdk-for-java/track2reports/index.html'
-            - name: 'Blobbar, köer och filer (version 8)'
-              href: 'https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy'
+            - name: Blobar (version 12.x)
+              href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html'
+            - name: Blobar (version 8.x)
+              href: /java/api/com.microsoft.azure.storage.blob
             - name: Lagringsresursprovider
               href: /java/api/overview/azure/storage/management
+        - name: JavaScript (version 12.x)
+          href: /javascript/api/@azure/storage-blob/?view=azure-node-preview
+        - name: Python (version 12.x)
+          href: /python/api/azure-storage-blob/
         - name: REST
           items:
             - name: 'Blobar, köer, tabeller och filer'

@@ -107,6 +107,8 @@
           href: sql-reference-data.md
         - name: Autentisera med hanterad identitet– blobutdata
           href: blob-output-managed-identity.md
+        - name: Autentisera med hanterad identitet – Power BI
+          href: powerbi-output-managed-identity.md
     - name: Skapa lösningar
       items:
         - name: Twitter-attitydanalys

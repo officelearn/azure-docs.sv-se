@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6360c7ea5bfdfb2d348cc843288655ed904e6c74
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ca9b0289fbc8dd01427de38e0e7b30eec266bb12
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580795"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818597"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Åtgärder för Azure Resource Manager Resource Provider
 
@@ -4778,8 +4778,8 @@ Resurs leverantörs åtgärderna utvecklas alltid. Använd [Get-AzProviderOperat
 > | Åtgärd | Microsoft. search/searchServices/Delete | Tar bort Sök tjänsten. |
 > | Åtgärd | Microsoft. search/searchServices/deleteQueryKey/Delete | Tar bort frågans nyckel. |
 > | Åtgärd | Microsoft. search/searchServices/listAdminKeys/Action | Läser administrations nycklarna. |
-> | Åtgärd | Microsoft. search/searchServices/listQueryKeys/Action | Returnerar listan över frågans API-nycklar för den aktuella Azure Search tjänsten. |
-> | Åtgärd | Microsoft. search/searchServices/listQueryKeys/Read | Returnerar listan över frågans API-nycklar för den aktuella Azure Search tjänsten. |
+> | Åtgärd | Microsoft. search/searchServices/listQueryKeys/Action | Returnerar listan över frågans API-nycklar för den aktuella Azure Kognitiv sökning-tjänsten. |
+> | Åtgärd | Microsoft. search/searchServices/listQueryKeys/Read | Returnerar listan över frågans API-nycklar för den aktuella Azure Kognitiv sökning-tjänsten. |
 > | Åtgärd | Microsoft. search/searchServices/Read | Läser Sök tjänsten. |
 > | Åtgärd | Microsoft. search/searchServices/regenerateAdminKey/Action | Återskapar administratörs nyckeln. |
 > | Åtgärd | Microsoft. search/searchServices/start/Action | Startar Sök tjänsten. |

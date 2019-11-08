@@ -1,19 +1,20 @@
 ---
-title: Felsöka anslutnings problem med Microsoft Azure SQL Database | Microsoft Docs
+title: Felsök anslutnings problem
 description: Beskriver hur du felsöker anslutnings problem i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.topic: troubleshooting
+ms.custom: seo-lt-2019
 author: v-miegge
 ms.author: ramakoni
 ms.reviewer: ''
 ms.date: 09/27/2019
-ms.openlocfilehash: 9de6d85e1fc54d60f999cfa18665067b3998a432
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 20988296b5eac7152c53abd6d238043288feacc8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390669"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807275"
 ---
 # <a name="troubleshooting-connectivity-issues-with-microsoft-azure-sql-database"></a>Felsöka anslutnings problem med Microsoft Azure SQL Database
 
@@ -28,9 +29,9 @@ Du får felmeddelanden när anslutningen till Azure SQL Database misslyckas. Des
 Gör så här för att lösa problemet:
 
 1. Kontrol lera [instrument panelen för Microsoft Azures tjänsten](https://status.azure.com/status) för eventuella kända avbrott. 
-2. Om det inte finns några kända avbrott går du till [webbplatsen för Microsoft Azure support](http://azure.microsoft.com/support/options) för att öppna ett support ärende.
+2. Om det inte finns några kända avbrott går du till [webbplatsen för Microsoft Azure support](https://azure.microsoft.com/support/options) för att öppna ett support ärende.
 
-Mer information finns i [Felsöka fel meddelandet "databasen på servern är inte tillgänglig för tillfället"](https://docs.microsoft.com/azure/sql-database/sql-database-troubleshoot-common-connection-issues#troubleshoot-transient-errors).
+Mer information finns i [Felsöka fel meddelandet "databasen på servern är inte tillgänglig för tillfället"](sql-database-troubleshoot-common-connection-issues.md#troubleshoot-transient-errors).
 
 ## <a name="a-network-related-or-instance-specific-error-occurred-while-establishing-a-connection-to-sql-server"></a>Ett nätverksrelaterade eller instans fel inträffade när en anslutning upprättades till SQL Server
 
@@ -188,7 +189,7 @@ Undvik det här problemet genom att prova någon av följande metoder:
   > [!NOTE]
   > Det här är en minimalist metod som kanske inte löser problemet.
 
-  1. Kör följande SQL-fråga för att kontrol lera vyn [sys. DM _exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) för att se eventuella spärrnings begär Anden:
+  1. Kör följande SQL-fråga för att kontrol lera vyn [sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) för att se eventuella spärrnings begär Anden:
 
              ```
              SELECT * FROM dm_exec_requests
@@ -197,7 +198,7 @@ Undvik det här problemet genom att prova någon av följande metoder:
   2. Ta reda på **indatabufferten** för huvud blocket.
   3. Finjustera frågan om huvud Blocker.
 
-    En djupgående fel söknings procedur finns i finns [min fråga som körs i molnet?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+    En djupgående fel söknings procedur finns i finns [min fråga som körs i molnet?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
 
 * Om databasen ständigt når gränsen trots att blockera och långvariga frågor, bör du överväga att uppgradera till en av de nya för hands versionerna (till exempel [standard-eller Premium versionen](https://azure.microsoft.com/pricing/details/sql-database/)).
 
@@ -265,7 +266,7 @@ Följande steg kan antingen hjälpa dig att komma runt problemet eller ge dig yt
 
 Om du upprepade gånger stöter på det här felet kan du försöka lösa problemet genom att följa dessa steg: 
 
-1. Kontrol lera vyn sys. DM _exec_requests för att se alla öppna sessioner som har ett högt värde för kolumnen total_elapsed_time. Utför den här kontrollen genom att köra följande SQL-skript:
+1. Kontrol lera vyn sys. dm_exec_requests för att se alla öppna sessioner som har ett högt värde för kolumnen total_elapsed_time. Utför den här kontrollen genom att köra följande SQL-skript:
 
    ```
    SELECT * FROM dm_exec_requests
@@ -275,7 +276,7 @@ Om du upprepade gånger stöter på det här felet kan du försöka lösa proble
 
 Överväg också att gruppera dina frågor. Information om batching finns i [så här använder du batching för att förbättra SQL Database program prestanda](https://docs.microsoft.com/azure/sql-database/sql-database-use-batching-to-improve-performance).
 
-En djupgående fel söknings procedur finns i finns [min fråga som körs i molnet?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+En djupgående fel söknings procedur finns i finns [min fråga som körs i molnet?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
 
 ### <a name="error-40551-the-session-has-been-terminated-because-of-excessive-tempdb-usage"></a>Fel 40551: sessionen har avslut ATS på grund av överdriven TEMPDB-användning
 
@@ -311,7 +312,7 @@ Prova att lösa problemet med hjälp av följande metoder:
 
 Undvik det här problemet genom att försöka optimera frågan.
 
-En djupgående fel söknings procedur finns i finns [min fråga som körs i molnet?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+En djupgående fel söknings procedur finns i finns [min fråga som körs i molnet?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
 
 
 ### <a name="cannot-open-database-master-requested-by-the-login-the-login-failed"></a>Det går inte att öppna databasen "Master" som begärdes av inloggningen. Inloggningen misslyckades.
@@ -336,7 +337,7 @@ System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
 ClientConnectionId:<Client connection ID>
 ```
 
-När undantaget utlöses av frågor om frågor kommer du att märka en anrops stack som liknar följande (Observera referensen till klassen **SqlCommand** ). I den här situationen kan [du finjustera dina frågor](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+När undantaget utlöses av frågor om frågor kommer du att märka en anrops stack som liknar följande (Observera referensen till klassen **SqlCommand** ). I den här situationen kan [du finjustera dina frågor](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
 
 ```
   at System.Data.SqlClient.SqlCommand.ExecuteReader()
@@ -364,7 +365,7 @@ Se [Hämta information om SQL Server-anslutning](https://docs.microsoft.com/azur
 
 5. Vi rekommenderar att du kontrollerar att logiken för omprövning är på plats. Mer information om logik för omprövning finns i [Felsöka tillfälliga fel och anslutnings fel till SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-issues).
 
-Om de här stegen inte löser problemet kan du försöka samla in mer data och sedan kontakta supporten. Aktivera loggning om ditt program är en moln tjänst. Det här steget returnerar en tidsstämpel för UTC-tid för felet. Dessutom returnerar SQL Azure spårnings-ID. [Microsofts kund support tjänster](http://azure.microsoft.com/support/options/) kan använda den här informationen. 
+Om de här stegen inte löser problemet kan du försöka samla in mer data och sedan kontakta supporten. Aktivera loggning om ditt program är en moln tjänst. Det här steget returnerar en tidsstämpel för UTC-tid för felet. Dessutom returnerar SQL Azure spårnings-ID. [Microsofts kund support tjänster](https://azure.microsoft.com/support/options/) kan använda den här informationen. 
 
 Mer information om hur du aktiverar loggning finns i [Aktivera diagnostikloggning för appar i Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/).
 

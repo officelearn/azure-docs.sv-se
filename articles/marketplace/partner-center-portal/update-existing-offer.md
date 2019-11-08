@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: v-chjen
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 9cefdc9354560ac5b7f3789cde2408a4c255c186
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: f2cb1907557c2440a5a94c0f4799eac95a8cf507
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191774"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827862"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Uppdatera ett befintligt erbjudande i den kommersiella Marketplace
 
@@ -20,7 +21,7 @@ Du kan visa dina befintliga erbjudanden på fliken **Översikt** i den [kommersi
 
 Uppdatera ett befintligt erbjudande som för närvarande är aktivt på Marketplace: 
 
-1. Välj namnet på erbjudandet som du vill uppdatera. Status för erbjudandet kan visas som aktiv, **publicering**pågår, **utkast**, **åtgärd krävs**eller **inte säljs på Marketplace** (om du tidigare har valt att sluta sälja erbjudandet). När du har valt så öppnas sidan **erbjudande översikt** för det erbjudandet.
+1. Välj namnet på erbjudandet som du vill uppdatera. Status för erbjudandet kan visas som **aktiv,** **publicering**pågår, **utkast**, **åtgärd krävs**eller **inte säljs på Marketplace** (om du tidigare har valt att sluta sälja erbjudandet). När du har valt så öppnas sidan **erbjudande översikt** för det erbjudandet.
 2. Välj **Uppdatera** från översikts kortet eller meny alternativet från det vänstra navigerings fältet för det fält som du vill uppdatera. Du kanske vill uppdatera **erbjudande konfiguration**, **Egenskaper**, **erbjudande lista**, för **hands version**, **teknisk konfiguration**, **planerings översikt**eller **test enhet**. 
 3. Gör ändringarna och välj sedan **Spara**. Upprepa processen tills alla ändringar har slutförts.
 
@@ -30,12 +31,12 @@ När du är redo att publicera ditt uppdaterade erbjudande väljer du **publicer
 
 
 - Se slut för ande status för avsnitten i erbjudandet som du uppdaterade: 
-    - **Opublicerade ändringar**: Avsnittet har uppdaterats och är klart. Alla begärda data har angetts och inga fel infördes i uppdateringarna.
-    - **Ofullständig**: Uppdateringar som görs i avsnittet introducerade fel som måste åtgärdas eller som kräver mer information.
+    - **Opublicerade ändringar**: avsnittet har uppdaterats och är klart. Alla begärda data har angetts och inga fel infördes i uppdateringarna.
+    - **Ofullständig**: uppdateringar som görs i avsnittet introducerade fel som måste åtgärdas eller som kräver mer information.
 - Ge ytterligare information till certifierings test teamet för att säkerställa att testningen går smidigt.
 - Skicka det uppdaterade erbjudandet om publicering genom att välja **Skicka**.  Vi skickar e-post när en för hands version av det uppdaterade erbjudandet är tillgänglig för granskning och utloggning.
 
-**VIKTIGT!** Du måste granska din för hands version av erbjudandet, när den är tillgänglig och välja **Go-Live** för att publicera ditt uppdaterade erbjudande till din avsedda mål grupp (offentlig eller privat).
+**Viktigt**: du måste granska din för hands version av erbjudandet, när den är tillgänglig och välja **Go-Live** för att publicera ditt uppdaterade erbjudande till din avsedda mål grupp (offentlig eller privat).
 
 ## <a name="update-a-plan-within-an-existing-offer"></a>Uppdatera en plan i ett befintligt erbjudande
 

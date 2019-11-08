@@ -1,6 +1,6 @@
 ---
 title: Skicka data till Sök index med hjälp av Data Factory
-description: Lär dig mer om att skicka data till Azure Search index med Azure Data Factory.
+description: Lär dig mer om att skicka data till Azure Kognitiv sökning index med Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,22 +13,22 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 09b891ba753291511bb1f203b7ac4437e6b2c542
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: da867ae62ce4480c5d5854ae3f28ad258421905d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683114"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73809178"
 ---
-# <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Skicka data till ett Azure Search-index med Azure Data Factory
+# <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Skicka data till ett Azure Kognitiv sökning-index med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-azure-search-connector.md)
 > * [Version 2 (aktuell version)](../connector-azure-search.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory, se [Azure Search Connector i v2](../connector-azure-search.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory kan du läsa mer i [Azure kognitiv sökning Connector i v2](../connector-azure-search.md).
 
-Den här artikeln beskriver hur du använder kopierings aktiviteten för att skicka data från ett käll data lager som stöds till Azure Search index. Käll data lager som stöds visas i kolumnen källa i tabellen med [källor som stöds och tabellen Sinks](data-factory-data-movement-activities.md#supported-data-stores-and-formats) . Den här artikeln bygger på artikeln [data förflyttnings aktiviteter](data-factory-data-movement-activities.md) , som innehåller en allmän översikt över data förflyttning med kombinationer kopiera aktivitet och stöd för data lager.
+Den här artikeln beskriver hur du använder kopierings aktiviteten för att skicka data från ett käll data lager som stöds till ett Azure Kognitiv sökning-index. Käll data lager som stöds visas i kolumnen källa i tabellen med [källor som stöds och tabellen Sinks](data-factory-data-movement-activities.md#supported-data-stores-and-formats) . Den här artikeln bygger på artikeln [data förflyttnings aktiviteter](data-factory-data-movement-activities.md) , som innehåller en allmän översikt över data förflyttning med kombinationer kopiera aktivitet och stöd för data lager.
 
 ## <a name="enabling-connectivity"></a>Aktivera anslutning
 Om du vill tillåta Data Factory tjänst att ansluta till ett lokalt data lager, installerar du Data Management Gateway i din lokala miljö. Du kan installera gateway på samma dator som är värd för käll data lagret eller på en annan dator för att undvika att resurser i data lagret undviks.
@@ -36,7 +36,7 @@ Om du vill tillåta Data Factory tjänst att ansluta till ett lokalt data lager,
 Data Management Gateway ansluter lokala data källor till moln tjänster på ett säkert och hanterat sätt. Mer information om Data Management Gateway finns i artikeln [Flytta data mellan lokalt och i molnet](data-factory-move-data-between-onprem-and-cloud.md) .
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med en kopierings aktivitet som skickar data från ett käll data lager till Azure Search index med hjälp av olika verktyg/API: er.
+Du kan skapa en pipeline med en kopierings aktivitet som skickar data från ett käll data lager till ett Sök index med hjälp av olika verktyg/API: er.
 
 Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
@@ -48,19 +48,19 @@ Oavsett om du använder verktygen eller API: erna utför du följande steg för 
 2. Skapa data **uppsättningar** som representerar indata och utdata för kopierings åtgärden.
 3. Skapa en **pipeline** med en kopierings aktivitet som tar en data uppsättning som indata och en data uppsättning som utdata.
 
-När du använder guiden skapas JSON-definitioner för dessa Data Factory entiteter (länkade tjänster, data uppsättningar och pipelinen) automatiskt åt dig. När du använder verktyg/API: er (förutom .NET API) definierar du dessa Data Factory entiteter med hjälp av JSON-formatet.  Ett exempel med JSON-definitioner för Data Factory entiteter som används för att kopiera data till Azure Search index finns i [JSON-exempel: kopiera data från lokala SQL Server till Azure Search index](#json-example-copy-data-from-on-premises-sql-server-to-azure-search-index) i den här artikeln.
+När du använder guiden skapas JSON-definitioner för dessa Data Factory entiteter (länkade tjänster, data uppsättningar och pipelinen) automatiskt åt dig. När du använder verktyg/API: er (förutom .NET API) definierar du dessa Data Factory entiteter med hjälp av JSON-formatet.  Ett exempel med JSON-definitioner för Data Factory entiteter som används för att kopiera data till Sök index finns i [JSON-exempel: kopiera data från lokala SQL Server till ett Azure kognitiv sökning-index](#json-example-copy-data-from-on-premises-sql-server-to-azure-cognitive-search-index) i den här artikeln.
 
-Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory entiteter som är speciella för Azure Search index:
+I följande avsnitt finns information om JSON-egenskaper som används för att definiera Data Factory entiteter som är relaterade till ett sökindex:
 
 ## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 
-Följande tabell innehåller beskrivningar av JSON-element som är speciella för den länkade tjänsten Azure Search.
+Följande tabell innehåller beskrivningar av JSON-element som är speciella för den länkade Azure Kognitiv sökning-tjänsten.
 
 | Egenskap | Beskrivning | Krävs |
 | -------- | ----------- | -------- |
 | typ | Egenskapen Type måste anges till: **AzureSearch**. | Ja |
-| url | URL för Azure Searchs tjänsten. | Ja |
-| key | Administratörs nyckel för Azure Searchs tjänsten. | Ja |
+| url | URL för Sök tjänsten. | Ja |
+| key | Administratörs nyckel för Sök tjänsten. | Ja |
 
 ## <a name="dataset-properties"></a>Egenskaper för data mängd
 
@@ -69,7 +69,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 | Egenskap | Beskrivning | Krävs |
 | -------- | ----------- | -------- |
 | typ | Egenskapen Type måste anges till **AzureSearchIndex**.| Ja |
-| indexName | Namnet på Azure Search indexet. Data Factory skapar inte indexet. Indexet måste finnas i Azure Search. | Ja |
+| indexName | Sök Indexets namn. Data Factory skapar inte indexet. Indexet måste finnas i Azure Kognitiv sökning. | Ja |
 
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
@@ -79,11 +79,11 @@ För kopierings aktivitet är följande egenskaper tillgängliga i avsnittet typ
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | Anger om du vill sammanfoga eller ersätta när ett dokument redan finns i indexet. Se [egenskapen WriteBehavior](#writebehavior-property).| Sammanfoga (standard)<br/>Ladda upp| Nej |
-| writeBatchSize | Överför data till Azure Search index när buffertstorleken når writeBatchSize. Mer information finns i [WriteBatchSize-egenskapen](#writebatchsize-property) . | 1 till 1 000. Standardvärdet är 1000. | Nej |
+| writeBehavior | Anger om du vill sammanfoga eller ersätta när ett dokument redan finns i indexet. Se [egenskapen WriteBehavior](#writebehavior-property).| Sammanfoga (standard)<br/>Ladda upp| Nej |
+| WriteBatchSize | Överför data till Sök indexet när buffertstorleken når writeBatchSize. Mer information finns i [WriteBatchSize-egenskapen](#writebatchsize-property) . | 1 till 1 000. Standardvärdet är 1000. | Nej |
 
 ### <a name="writebehavior-property"></a>WriteBehavior-egenskap
-AzureSearchSink upsertar när data skrivs. Med andra ord, om dokument nyckeln redan finns i Azure Search-index, Azure Search uppdaterar det befintliga dokumentet i stället för att ett konflikt undantag utlöses.
+AzureSearchSink upsertar när data skrivs. När du skriver ett dokument, och om dokument nyckeln redan finns i Sök indexet, kommer Azure Kognitiv sökning att uppdatera det befintliga dokumentet i stället för att ett konflikt undantag utlöses.
 
 AzureSearchSink innehåller följande två upsert-beteenden (med hjälp av AzureSearch SDK):
 
@@ -93,12 +93,12 @@ AzureSearchSink innehåller följande två upsert-beteenden (med hjälp av Azure
 Standard beteendet **slås samman**.
 
 ### <a name="writebatchsize-property"></a>WriteBatchSize-egenskap
-Azure Search-tjänsten stöder skrivning av dokument som en batch. En batch kan innehålla 1 till 1 000-åtgärder. En åtgärd hanterar ett dokument för att utföra uppladdnings-/sammanslagnings åtgärden.
+Azure Kognitiv sökning-tjänsten har stöd för skrivning av dokument som en batch. En batch kan innehålla 1 till 1 000-åtgärder. En åtgärd hanterar ett dokument för att utföra uppladdnings-/sammanslagnings åtgärden.
 
 ### <a name="data-type-support"></a>Data typs stöd
-I följande tabell anges om en Azure Search data typ stöds eller inte.
+I följande tabell anges om data typen Azure Kognitiv sökning stöds eller inte.
 
-| Azure Search data typ | Stöds i Azure Search-mottagare |
+| Data typen Azure Kognitiv sökning | Stöds i Azure Kognitiv sökning-mottagare |
 | ---------------------- | ------------------------------ |
 | Sträng | Y |
 | Int32 | Y |
@@ -109,7 +109,7 @@ I följande tabell anges om en Azure Search data typ stöds eller inte.
 | Sträng mat ris | N |
 | GeographyPoint | N |
 
-## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-search-index"></a>JSON-exempel: kopiera data från lokala SQL Server till Azure Search index
+## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-cognitive-search-index"></a>JSON-exempel: kopiera data från lokala SQL Server till Azure Kognitiv sökning index
 
 Följande exempel visar:
 
@@ -119,11 +119,11 @@ Följande exempel visar:
 4. En utdata- [datauppsättning](data-factory-create-datasets.md) av typen [AzureSearchIndex](#dataset-properties).
 4. En [pipeline](data-factory-create-pipelines.md) med en kopierings aktivitet som använder [SqlSource](data-factory-sqlserver-connector.md#copy-activity-properties) och [AzureSearchIndexSink](#copy-activity-properties).
 
-Exemplet kopierar Time Series-data från en lokal SQL Server-databas till ett Azure Search-index varje timme. De JSON-egenskaper som används i det här exemplet beskrivs i avsnitten som följer efter exemplen.
+Exemplet kopierar Time Series-data från en lokal SQL Server databas till Sök index varje timme. De JSON-egenskaper som används i det här exemplet beskrivs i avsnitten som följer efter exemplen.
 
 Det första steget är att konfigurera data Management Gateway på den lokala datorn. Anvisningarna finns i [Flytta data mellan lokala platser och moln](data-factory-move-data-between-onprem-and-cloud.md) artiklar.
 
-**Azure Search länkad tjänst:**
+**Länkad Azure Kognitiv sökning-tjänst:**
 
 ```JSON
 {
@@ -184,9 +184,9 @@ Inställningen "External": "true" informerar Data Factory tjänsten om att data 
 }
 ```
 
-**Azure Search Data uppsättning för utdata:**
+**Data uppsättning för Azure Kognitiv sökning-utdata:**
 
-Exemplet kopierar data till ett Azure Search index med namnet **Products**. Data Factory skapar inte indexet. Om du vill testa exemplet skapar du ett index med det här namnet. Skapa Azure Search indexet med samma antal kolumner som i data uppsättningen för indata. Nya poster läggs till i Azure Search-indexet varje timme.
+Exemplet kopierar data till ett Azure Kognitiv sökning-index med namnet **produkter**. Data Factory skapar inte indexet. Om du vill testa exemplet skapar du ett index med det här namnet. Skapa Sök indexet med samma antal kolumner som i data uppsättningen för indata. Nya poster läggs till i Sök indexet varje timme.
 
 ```JSON
 {
@@ -205,7 +205,7 @@ Exemplet kopierar data till ett Azure Search index med namnet **Products**. Data
 }
 ```
 
-**Kopiera aktivitet i en pipeline med SQL-källa och Azure Search index mottagare:**
+**Kopiera aktivitet i en pipeline med SQL-källa och Azure Kognitiv sökning index-Sink:**
 
 Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att använda data uppsättningar för indata och utdata och är schemalagda att köras varje timme. I JSON-definitionen för pipelinen är **käll** typen inställt på **SqlSource** och **mottagar** typ är inställd på **AzureSearchIndexSink**. SQL-frågan som angetts för egenskapen **SqlReaderQuery** väljer data under den senaste timmen som ska kopieras.
 
@@ -256,7 +256,7 @@ Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att a
 }
 ```
 
-Om du kopierar data från ett moln data lager till Azure Search, krävs `executionLocation` egenskap. Följande JSON-kodfragment visar den ändring som krävs under kopierings aktivitet `typeProperties` som ett exempel. Markera avsnittet [Kopiera data mellan moln data lager](data-factory-data-movement-activities.md#global) om du vill ha stöd för värden som stöds och mer information.
+Om du kopierar data från ett moln data lager till Azure Kognitiv sökning krävs `executionLocation` egenskap. Följande JSON-kodfragment visar den ändring som krävs under kopierings aktivitet `typeProperties` som ett exempel. Markera avsnittet [Kopiera data mellan moln data lager](data-factory-data-movement-activities.md#global) om du vill ha stöd för värden som stöds och mer information.
 
 ```JSON
 "typeProperties": {
@@ -272,7 +272,7 @@ Om du kopierar data från ett moln data lager till Azure Search, krävs `executi
 
 
 ## <a name="copy-from-a-cloud-source"></a>Kopiera från en moln källa
-Om du kopierar data från ett moln data lager till Azure Search, krävs `executionLocation` egenskap. Följande JSON-kodfragment visar den ändring som krävs under kopierings aktivitet `typeProperties` som ett exempel. Markera avsnittet [Kopiera data mellan moln data lager](data-factory-data-movement-activities.md#global) om du vill ha stöd för värden som stöds och mer information.
+Om du kopierar data från ett moln data lager till Azure Kognitiv sökning krävs `executionLocation` egenskap. Följande JSON-kodfragment visar den ändring som krävs under kopierings aktivitet `typeProperties` som ett exempel. Markera avsnittet [Kopiera data mellan moln data lager](data-factory-data-movement-activities.md#global) om du vill ha stöd för värden som stöds och mer information.
 
 ```JSON
 "typeProperties": {

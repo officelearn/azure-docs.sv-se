@@ -4,15 +4,16 @@ description: Så här skapar du en självtest-klient för för validering av en 
 services: Azure, Marketplace, Cloud Partner Portal, Virtual Machine
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pabutler
-ms.openlocfilehash: 46923ecd33a054a36aa6900a415d0b563e5afff0
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: fc62875873f38630e592c79aebd6a138665ed6e4
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163253"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73809211"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Skapa en självtest-klient för att förverifiera en avbildning av en virtuell Azure-dator
 
@@ -64,11 +65,11 @@ I följande tabell beskrivs API-fälten.
 
 |      Fält         |    Beskrivning    |
 |  ---------------   |  ---------------  |
-|  Autentisering     |  Strängen "Bearer xxxx-xxxx-xxxx-xxxxx" innehåller den Azure Active Directory (AD)-klient-token som kan skapas med hjälp av PowerShell.          |
+|  Auktorisering     |  Strängen "Bearer xxxx-xxxx-xxxx-xxxxx" innehåller den Azure Active Directory (AD)-klient-token som kan skapas med hjälp av PowerShell.          |
 |  DNSName           |  DNS-namnet på den virtuella dator som ska testas    |
 |  Användare              |  Användar namn för att logga in på den virtuella datorn         |
 |  Lösenord          |  Lösen ord för att logga in på den virtuella datorn          |
-|  OS                |  Den virtuella datorns operativ system: antingen `Linux` eller `Windows`          |
+|  Operativsystem                |  Den virtuella datorns operativ system: antingen `Linux` eller `Windows`          |
 |  PortNo            |  Öppna port nummer för att ansluta till den virtuella datorn. Port numret är vanligt vis `22` för Linux och `5986` för Windows.          |
 |  |  |
 
@@ -99,7 +100,7 @@ $Body = @{
     "CompanyName" = "ABCD"
 
 } | ConvertTo-Json
-$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" –Headers $headers;
+$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" -Headers $headers;
 $Content = $res | ConvertFrom-Json
 ```
 Följande skärm bild visar ett exempel på hur du anropar API: et i PowerShell.
@@ -109,7 +110,7 @@ Följande skärm bild visar ett exempel på hur du anropar API: et i PowerShell.
 I föregående exempel kan du hämta JSON och parsa den för att få följande information:
 
 ```powershell
-$testresult = ConvertFrom-Json –InputObject (ConvertFrom-Json –InputObject $res)
+$testresult = ConvertFrom-Json -InputObject (ConvertFrom-Json -InputObject $res)
 
   Write-Host "OSName: $($testresult.OSName)"
   Write-Host "OSVersion: $($testresult.OSVersion)"
@@ -144,7 +145,7 @@ Följ dessa steg om du vill anropa API: t i PowerShell:
 I följande kod exempel visas ett PowerShell-anrop till API: et.
 
 ```powershell
-$accesstoken = “Get token for your Client AAD App”
+$accesstoken = "Get token for your Client AAD App"
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Authorization", "Bearer $accesstoken")
 $Body = @{
@@ -156,7 +157,7 @@ $Body = @{
     "CompanyName" = "ABCD"
 
 } | ConvertTo-Json
-$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" –Headers $headers;
+$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" -Headers $headers;
 $Content = $res | ConvertFrom-Json
 ```
 
@@ -167,7 +168,7 @@ Följande skärm bild visar ett exempel på hur du anropar API: et i PowerShell.
 I föregående exempel kan du hämta JSON och parsa den för att få följande information:
 
 ```powershell
-$testresult = ConvertFrom-Json –InputObject (ConvertFrom-Json –InputObject $res)
+$testresult = ConvertFrom-Json -InputObject (ConvertFrom-Json -InputObject $res)
 
   Write-Host "OSName: $($testresult.OSName)"
   Write-Host "OSVersion: $($testresult.OSVersion)"
@@ -219,7 +220,7 @@ Följande skärm bild visar JSON-resultatet från ett spiral samtal.
 
 Använd följande steg för att välja den Azure AD-klient där du vill skapa ditt program.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. På den översta meny raden väljer du ditt konto och under listan katalog väljer du den Active Directory klient organisation där du vill registrera programmet. Alternativt kan du välja ikonen **katalog + prenumeration** för att se det globala prenumerations filtret. Följande skärm bild visar ett exempel på det här filtret.
 
    ![Välj prenumerations filtret](./media/stclient-subscription-filter.png)
@@ -247,7 +248,7 @@ Använd följande steg för att registrera klient programmet.
 
    - **Namn** – ange ett eget namn för appen. Till exempel "SelfTestClient".
    - **Program typ** – Välj **webbapp/API**
-   - **Inloggnings-URL** – Skriv "https:\//isvapp.azurewebsites.net/SelfTest-VM"
+   - **Inloggnings-URL** – typ "https:\//isvapp.azurewebsites.net/SelfTest-VM"
 
 4. Välj **Skapa**.
 5. Kopiera **program-ID: t**under **Appregistreringar** eller **registrerad app**.
@@ -377,7 +378,7 @@ Om du vill ställa en Auth0 för token för alla auktoriserade program utför du
 
 ```powershell
 $clientId = "Application Id of AD Client APP";
-$clientSecret = "Secret Key of AD Client APP “
+$clientSecret = "Secret Key of AD Client APP "
 $audience = "https://management.core.windows.net";
 $authority = "https://login.microsoftonline.com/common/oauth2/token"
 $grantType = "client_credentials";
@@ -397,8 +398,8 @@ $token.AccessToken
 Skicka token till test-API: et med följande kod i Authorization-huvudet:
 
 ```powershell
-$redirectUri = ‘https://isvapp.azurewebsites.net/selftest-vm’
-$accesstoken = ‘place your token here’
+$redirectUri = 'https://isvapp.azurewebsites.net/selftest-vm'
+$accesstoken = 'place your token here'
 
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Authorization", "Bearer $accesstoken")

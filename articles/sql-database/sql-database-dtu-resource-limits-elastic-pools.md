@@ -1,22 +1,22 @@
 ---
-title: Azure SQL Database DTU-resurs begränsar elastiska pooler | Microsoft Docs
+title: DTU-resurs begränsar elastiska pooler
 description: På den här sidan beskrivs några vanliga värden för DTU-resurser för elastiska pooler i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 03/14/2019
-ms.openlocfilehash: 08e6c27b359e8fcf48caed6faf21c0aed8fad224
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8b5d87d62f1db5e7d472af4cc2153d8841be6241
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521027"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826543"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Resurs begränsningar för elastiska pooler med inköps modellen DTU
 
@@ -39,7 +39,7 @@ För SQL Database elastiska pooler visar följande tabeller de resurser som är 
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
 | Inkluderat lagrings utrymme per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Max lagrings alternativ per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Högsta minnes intern OLTP-lagring per pool (GB) | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte |
+| Högsta minnes intern OLTP-lagring per pool (GB) | Saknas | Saknas | Saknas | Saknas | Saknas | Saknas | Saknas | Saknas |
 | Maximalt antal databaser per pool | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Maximalt antal samtidiga arbetare (begäranden) per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Maximalt antal samtidiga sessioner per pool | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
@@ -54,7 +54,7 @@ För SQL Database elastiska pooler visar följande tabeller de resurser som är 
 |:---|---:|---:|---:| ---: | ---: | ---: |
 | Inkluderat lagrings utrymme per pool (GB) | 50 | 100 | 200 | 300 | 400 | 800 |
 | Max lagrings alternativ per pool (GB) | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1024 | 300, 500, 750, 1024, 1280 | 400, 500, 750, 1024, 1280, 1536 | 800, 1024, 1280, 1536, 1792, 2048 |
-| Högsta minnes intern OLTP-lagring per pool (GB) | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte |
+| Högsta minnes intern OLTP-lagring per pool (GB) | Saknas | Saknas | Saknas | Saknas | Saknas | Saknas |
 | Maximalt antal databaser per pool | 100 | 200 | 500 | 500 | 500 | 500 |
 | Maximalt antal samtidiga arbetare (begäranden) per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Maximalt antal samtidiga sessioner per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
@@ -69,7 +69,7 @@ För SQL Database elastiska pooler visar följande tabeller de resurser som är 
 |:---|---:|---:|---:| ---: | ---: |
 | Inkluderat lagrings utrymme per pool (GB) | 1200 | 1600 | 2000 | 2500 | 3000 |
 | Max lagrings alternativ per pool (GB) | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
-| Högsta minnes intern OLTP-lagring per pool (GB) | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte |
+| Högsta minnes intern OLTP-lagring per pool (GB) | Saknas | Saknas | Saknas | Saknas | Saknas |
 | Maximalt antal databaser per pool | 500 | 500 | 500 | 500 | 500 |
 | Maximalt antal samtidiga arbetare (begäranden) per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
 | Maximalt antal samtidiga sessioner per pool | 30000 | 30000 | 30000 | 30000 | 30000 |

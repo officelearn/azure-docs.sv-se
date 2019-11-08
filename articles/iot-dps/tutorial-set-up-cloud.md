@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 8f06d3f033a2bf5907dc2ee324359bef0eb247d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 41689b7596c9da350a9e0fec619e49d332a36d5b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60953538"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826198"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Konfigurera molnresurser för enhetsetablering med IoT Hub Device Provisioning-tjänst
 
@@ -48,7 +48,7 @@ Följ de här stegen för att skapa en ny Device Provisioning-tjänstinstans.
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Namn** | Ett unikt namn | -- | 
    | **Prenumeration** | Din prenumeration  | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
-   | **Resursgrupp** | myResourceGroup | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   | **Resursgrupp** | myResourceGroup | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). |
    | **Plats** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |   
 
    ![Ange grundläggande information om enhetsetableringstjänsten på portalen](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
@@ -81,23 +81,23 @@ Nästa steg är att länka Device Provisioning-tjänsten och IoT Hub så att IoT
 
 4. På sidan **Lägg till länk i IoT Hub** anger du följande information och klickar på **Spara**:
 
-    * **Prenumeration:** Kontrollera att den prenumeration som innehåller IoT-hubben är markerad. Du kan länka till en IoT-hubb som finns i en annan prenumeration.
+    * **Prenumeration:** Se till att den prenumeration som innehåller IoT-hubben är markerad. Du kan länka till en IoT-hubb som finns i en annan prenumeration.
 
-    * **IoT-hubb:** Välj namnet på IoT-hubben som du vill länka med den här instansen för Device Provisioning-tjänsten.
+    * **IoT-hubb:** Välj namnet på den IoT-hubb som du vill länka med den här instansen för enhetsetableringstjänsten.
 
-    * **Åtkomstprincip:** Välj **iothubowner** som autentiseringsuppgifterna som används för att upprätta en länk till IoT hub.
+    * **Åtkomstprincip:** Välj **iothubowner** som autentiseringsuppgifter som ska användas för etablering av länken till IoT-hubben.
 
    ![Länka hubbnamnet för att länka till enhetsetableringstjänsten på portalen](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
 ## <a name="set-the-allocation-policy-on-the-device-provisioning-service"></a>Ange allokeringsprincip för enhetsetableringstjänsten
 
-Allokeringsprincipen är en IoT Hub Device Provisioning Service-inställning som avgör hur enheter tilldelas till en IoT-hubb. Det finns tre allokeringsprinciper som stöds: 
+Allokeringsregeln är en IoT Hub Device Provisioning Service inställning som avgör hur enheter tilldelas till en IoT-hubb. Det finns tre allokeringsprinciper som stöds: 
 
 1. **Kortast svarstid**: Enheter etableras till en IoT-hubb baserat på hubben med kortast svarstid till enheten.
 
-2. **Jämnt viktad distribution** (standard): Länkade IoT-hubbar är lika sannolikt att enheter etablerade till sig. Den här inställningen är standardinställningen. Om du endast etablerar enheter till en IoT-hubb kan du behålla den här inställningen. 
+2. **Jämnt viktad distribution** (standard): Det är lika sannolikt att länkade IoT-hubbar får enheter etablerade till sig. Den här inställningen är standardinställningen. Om du endast etablerar enheter till en IoT-hubb kan du behålla den här inställningen. 
 
-3. **Statisk konfiguration via registreringslistan**: Specifikation av önskad IoT-hubben på registreringslistan har prioritet framför allokeringsprincip Device Provisioning-tjänstnivå.
+3. **Statisk konfiguration via registreringslistan**: Specificering av den önskade IoT-hubben på registreringslistan har högre prioritet än allokeringsprincipen på Device Provisioning-tjänstnivå.
 
 Om du vill ställa in allokeringsprincipen går du till Device Provisioning-tjänstsidan och klickar på **Hantera allokeringsprincip**. Kontrollera att allokeringsprincipen är inställd på **Jämnt viktad distribution** (standardinställningen). Om du gör några ändringar ska du klicka på **Spara** när du är klar.
 

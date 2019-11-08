@@ -1,6 +1,6 @@
 ---
 title: Använd NLP-Cognitive Services för att utöka konversationer
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Cognitive Services tillhandahåller två bearbetnings tjänster för naturligt språk, Language Understanding och QnA Maker, var och en med olika ändamål. Förstå när du ska använda varje tjänst och hur de ska komplettera varandra.
 author: diberry
 ms.author: diberry
@@ -8,12 +8,12 @@ manager: nitinme
 ms.topic: conceptual
 ms.service: cognitive-services
 ms.date: 08/01/2019
-ms.openlocfilehash: f293f57f4a98e822aa1c3950614ba5a186f9751d
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 32159b37d3d1a8609181d81dc1a73f27177adb85
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816929"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818204"
 ---
 # <a name="use-cognitive-services-with-natural-language-processing-nlp-to-enrich-bot-conversations"></a>Använd Cognitive Services med naturlig språk bearbetning (NLP) för att utöka bot-konversationer
 
@@ -31,17 +31,17 @@ Language Understanding (LUIS) och QnA Maker lösa olika problem. LUIS bestämmer
 
 För att kunna välja rätt tjänst måste du förstå användar texten som kommer från klient programmet och vilken information som klient programmet behöver för att hämta från kognitiva tjänster.
 
-Om din Chat-robot tar emot `How do I get to the Human Resources building on the Seattle North campus?`texten använder du diagrammet nedan för att förstå hur varje tjänst fungerar med texten.
+Om din Chat-robot tar emot texten `How do I get to the Human Resources building on the Seattle North campus?`använder du diagrammet nedan för att förstå hur varje tjänst fungerar med texten.
 
-|Tjänsten|Klient programmet fastställer|
+|Tjänst|Klient programmet fastställer|
 |--|--|
 |LUIS|**Bestämmer användarens avsikt** för text – tjänsten returnerar inte svaret på frågan. Den här texten klassificeras exempelvis som matchning av `FindLocation` avsikten.<br>|
-|QnA Maker|**Returnerar svaret till frågan** från en anpassad kunskaps bas. Till exempel bestäms den här texten som en fråga med det statiska textsvaret `Get on the #9 bus and get off at Franklin street`.|
+|QnA Maker|**Returnerar svaret till frågan** från en anpassad kunskaps bas. Den här texten definieras till exempel som en fråga med det statiska textsvaret `Get on the #9 bus and get off at Franklin street`.|
 |||
 
 ## <a name="when-do-you-use-luis"></a>När använder du LUIS? 
 
-Använd LUIS när du behöver känna till avsikten med uttryck som en del av en process i chatt-roboten. Om du fortsätter med exempel texten `How do I get to the Human Resources building on the Seattle North campus?`, och du vet att användarens avsikt är att hitta en plats, kan du skicka information om uttryck (som dras ut med entiteter) till en annan tjänst, till exempel en transport server, för att få svaret. 
+Använd LUIS när du behöver känna till avsikten med uttryck som en del av en process i chatt-roboten. Om du fortsätter med exempel texten `How do I get to the Human Resources building on the Seattle North campus?`, när du vet att användarens avsikt är att hitta en plats, kan du skicka information om uttryck (som dras ut med entiteter) till en annan tjänst, till exempel en transport server, för att få svaret. 
 
 Du behöver inte kombinera LUIS och QnA Maker för att avgöra avsikten. 
 
@@ -51,7 +51,7 @@ Du kan kombinera de två tjänsterna för den här uttryck, om Chat-roboten mås
 
 Använd QnA Maker när du har en statisk kunskaps bas med svar. Den här kunskaps basen är anpassad efter dina behov, som du har skapat med dokument som PDF-filer och URL: er. 
 
-Fortsätt med exemplet uttryck, `How do I get to the Human Resources building on the Seattle North campus?`skicka texten som en fråga till din publicerade QNA Maker-tjänst och få det bästa svaret. 
+Fortsätt med exemplet uttryck, `How do I get to the Human Resources building on the Seattle North campus?`, skicka texten som en fråga till den publicerade QnA Maker-tjänsten och få det bästa svaret. 
 
 Du behöver inte kombinera LUIS och QnA Maker för att fastställa svaret på frågan.
 
@@ -63,7 +63,7 @@ Om du skapar din QnA Maker kunskaps bas men vet att ämnes domänen ändras (til
 
 Ditt klient program måste övervaka både LUIS och QnA Maker svar för Scores. Om poängen från QnA Maker under vissa valfria gränser, använder du informationen om avsikten och entiteten som returnerades från LUIS för att skicka informationen till en tredjepartstjänst.
 
-Om du fortsätter med exempel texten `How do I get to the Human Resources building on the Seattle North campus?`, antar vi att QNA Maker returnerar en poäng med låg exakthet. Använd den avsikt som returnerades från Luis `FindLocation` och eventuella extraherade entiteter, `Human Resources building` till `Seattle North campus`exempel och, för att skicka den här informationen till en mappnings-eller Sök tjänst för ett annat svar. 
+Om du fortsätter med exempel texten `How do I get to the Human Resources building on the Seattle North campus?`antar vi att QnA Maker returnerar en låg exakthet. Använd den avsikt som returnerades från LUIS, `FindLocation` och eventuella extraherade entiteter, till exempel `Human Resources building` och `Seattle North campus`, för att skicka den här informationen till en mappnings-eller Sök tjänst för ett annat svar. 
 
 Du kan presentera detta svar från tredje part för användaren för verifiering. När du har en användares godkännande kan du gå tillbaka till QnA Maker för att lägga till informationen för att utveckla din kunskap. 
 
@@ -82,7 +82,7 @@ Implementera bästa praxis för varje tjänst:
 * Metod tips för [Luis](luis-concept-best-practices.md)
 * Metod tips för [QNA Maker](../qnamaker/concepts/best-practices.md)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [Språkförståelse (LUIS)](what-is-luis.md)
 * [QnA Maker](../qnamaker/overview/overview.md)

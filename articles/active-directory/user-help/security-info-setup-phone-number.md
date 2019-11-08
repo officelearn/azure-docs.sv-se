@@ -1,5 +1,5 @@
 ---
-title: Konfigurera säkerhets information (för hands version) för att använda telefonsamtal – Azure Active Directory | Microsoft Docs
+title: Konfigurera säkerhets information (för hands version) för telefonsamtal – Azure AD
 description: Hur du konfigurerar din säkerhets information för att verifiera din identitet med hjälp av telefonsamtal.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b28330f8e81efbb496fb30a14e8ae10415ded27f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: a5dc5ec06e60112e69a31d1ce4c69e698576609f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160742"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803802"
 ---
 # <a name="set-up-security-info-preview-to-use-phone-calls"></a>Konfigurera säkerhets information (för hands version) för att använda telefonsamtal
 
@@ -94,7 +94,7 @@ Om du vill att telefonsamtal ska vara standard metoden som används när du logg
 
     ![Välj metod för standard inloggning](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
 
-    Standard metoden som används för inloggnings ändringar till **telefon-anrop ( *_your_phone_number_* )** .
+    Standard metoden som används för inloggnings ändringar till **telefonsamtal ( *_your_phone_number_* )** .
 
 ## <a name="additional-security-info-methods"></a>Ytterligare metoder för säkerhets information
 

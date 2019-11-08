@@ -1,37 +1,38 @@
 ---
-title: 'SaaS Techtrends API: er | Azure Marketplace'
-description: 'Introducerar versionerna av uppfyllandet API: er som gör det möjligt att integrera din SaaS och erbjuder med Azure Marketplace.'
+title: 'API: er för SaaS-utförande | Azure Marketplace'
+description: 'Introducerar de versioner av API: erna för utförande som gör att du kan integrera dina SaaS-erbjudanden med Azure Marketplace.'
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: 7896ed77d9dbb3358ddb1c809ca342828280f66a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ebfc278d09c244970df5807df1505295fe7016c4
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258931"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819123"
 ---
 # <a name="saas-fulfillment-apis"></a>API:er för uppfyllnad av SaaS
 
-API: er för SaaS betjäna kan oberoende programvaruleverantörer (ISV) för att integrera sina SaaS-program med Azure Marketplace. Dessa API: er kan ISV-program att delta i alla commerce aktiverat kanaler: direct partnerledd (återförsäljare) ledde till fältet.  De är ett krav för att lista transactable SaaS-erbjudanden på Azure Marketplace.
+API: erna för SaaS-utförande gör det möjligt för oberoende program varu leverantörer (ISV) att integrera sina SaaS-program med Azure Marketplace. Dessa API: er gör det möjligt för ISV-program att delta i alla Commerce-aktiverade kanaler: direkt, partner lampa (åter försäljare) och fält-ledde.  De är ett krav för att kunna registrera transactable SaaS-erbjudanden på Azure Marketplace.
 
 > [!WARNING]
-> Den aktuella versionen av detta API är version 2, som ska användas för alla nya SaaS-erbjudanden.  Version 1 av API: et är inaktuellt och underhålls för att stödja befintliga erbjudanden.
+> Den aktuella versionen av detta API är version 2, som ska användas för alla nya SaaS-erbjudanden.  Version 1 av API: et är inaktuell och underhålls för att stödja befintliga erbjudanden.
 
 
-## <a name="business-model-support"></a>Företagssupport för modellen
+## <a name="business-model-support"></a>Stöd för affärs modell
 
-Detta API stöder följande företag modellen funktioner; Du kan:
+Detta API stöder följande funktioner för affärs modell. Du kan:
 
-* Ange flera planer för ett erbjudande. De här planerna har olika funktioner och kan skilja sig på olika sätt.
-* Ge ett erbjudande om en per webbplats eller en per användare fakturering modellen basis.
-* Ange månatliga och årliga (betalas förskott) faktureringsalternativ.
-* Ange privat priser till en kund som baseras på en förhandlade företagsavtal.
+* Ange flera planer för ett erbjudande. Dessa planer har olika funktioner och kan prisas annorlunda.
+* Tillhandahålla ett erbjudande på en per plats eller per användares fakturerings modell.
+* Ange fakturerings alternativ per månad och år (betald uppstart).
+* Tillhandahålla privat prissättning till en kund baserat på ett förhandlat affärs avtal.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte redan har gjort det, registrera ditt SaaS-program i den [Azure-portalen](https://ms.portal.azure.com) som beskrivs i [registrera ett Azure AD-program](./pc-saas-registration.md).  Därefter Använd den senaste versionen av det här gränssnittet för utveckling: [SaaS betjäna API-Version 2](./pc-saas-fulfillment-api-v2.md).
+Om du inte redan har gjort det, registrera ditt SaaS-program i [Azure Portal](https://ms.portal.azure.com) enligt beskrivningen i [Registrera ett Azure AD-program](./pc-saas-registration.md).  Sedan använder du den mest aktuella versionen av det här gränssnittet för utveckling: [SaaS uppfyllelse API version 2](./pc-saas-fulfillment-api-v2.md).

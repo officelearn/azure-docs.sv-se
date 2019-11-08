@@ -1,5 +1,5 @@
 ---
-title: Arbeta med tillfälliga fel – Azure SQL Database
+title: Arbeta med tillfälliga fel
 description: Lär dig hur du felsöker, diagnostiserar och förhindrar ett fel i SQL-anslutning eller tillfälligt fel i Azure SQL Database.
 keywords: SQL-anslutning, anslutnings sträng, anslutnings problem, tillfälligt fel, anslutnings fel
 services: sql-database
@@ -13,12 +13,12 @@ manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 06/14/2019
-ms.openlocfilehash: 0191506cab9a54ad3978bfa7387c9ba1112ae815
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a943ade4bfc46083fe84274640d979928357a492
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690818"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826797"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Arbeta med SQL Database anslutnings problem och tillfälliga fel
 
@@ -116,9 +116,9 @@ Som en del av det första försöket med nya försök kan programmet korrigera f
 För att göra det här testet användbart identifierar programmet en körnings parameter som gör att programmet:
 
 - Lägg tillfälligt till 18456 i listan över fel som ska beaktas som tillfälligt.
-- Lägg syfte till "WRONG_" i användar namnet.
+- Lägg till WRONG_ till användar namnet i syfte.
 - Ta bort 18456 från listan när felet har påträffats.
-- Ta bort "WRONG_" från användar namnet.
+- Ta bort WRONG_ från användar namnet.
 - Försök igen för att ansluta, förväntat resultat.
 
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
@@ -277,7 +277,7 @@ Här följer några Transact-SQL SELECT-uttryck som frågar efter fel loggar och
 
 | Fråga efter logg | Beskrivning |
 |:--- |:--- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |I [sys. event_log](https://msdn.microsoft.com/library/dn270018.aspx) -vyn finns information om enskilda händelser som innehåller vissa som kan orsaka tillfälliga fel eller anslutnings fel.<br/><br/>Vi rekommenderar att du korrelerar **start_time** -eller **end_time** -värdena med information om när ditt klient program fick problem.<br/><br/>Du måste ansluta till *huvud* databasen för att köra den här frågan. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |[Sys. event_log](https://msdn.microsoft.com/library/dn270018.aspx) -vyn innehåller information om enskilda händelser som innehåller vissa som kan orsaka tillfälliga fel eller anslutnings fel.<br/><br/>Vi rekommenderar att du korrelerar **start_time** -eller **end_times** värden med information om när ditt klient program fick problem.<br/><br/>Du måste ansluta till *huvud* databasen för att köra den här frågan. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |I [sys. database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) -vyn finns det sammanställda antalet händelse typer för ytterligare diagnostik.<br/><br/>Du måste ansluta till *huvud* databasen för att köra den här frågan. |
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>

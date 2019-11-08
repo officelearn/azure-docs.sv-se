@@ -4,15 +4,16 @@ description: Go-to-Marketing-tjänster – i det här avsnittet beskrivs de bäs
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: 9f55abf85803adf0f52bbfa445b9f3e489c9448b
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 439617c07b8059860c6d412cc60d56d4ac8c36a5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821068"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818670"
 ---
 # <a name="offer-listing-best-practices"></a>Metodtips för erbjudandelistor
 
@@ -45,7 +46,7 @@ Du kan välja upp till två kategorier och två under Kategorier för ett erbjud
 | Distribution    | \* Grossist <br> \* Leverans paket & paket |
 | Utbildning     | \* Högre utbildning <br> \* Primär & sekundär utbildning/K-12 <br> \* Bibliotek & Museums |
 | Ekonomiska tjänster     | \* Bank & kapital marknader <br> \* Försäkring |
-| Myndigheter    | \* Försvar & Intelligence (används för att kallas för nationell och offentlig säkerhet) <br> \* Allmän säkerhets & rättvisa <br> \* Civila myndigheter |
+| Government    | \* Försvar & Intelligence (används för att kallas för nationell och offentlig säkerhet) <br> \* Allmän säkerhets & rättvisa <br> \* Civila myndigheter |
 | Sjukvård (används för att kallas hälsa)   | \* Hälso betalare <br> \* Hälso leverantör <br> \* Farmaceutiska |
 | & Resurser för produktion (används för att kallas produktion)   | \* Kemisk & Agrochemical <br> \* Diskret tillverkning <br> \* Energi |
 | Butiks & konsument varor (som används för att kallas detalj handel)  | \* Konsument varor <br> \* Åter försäljare |

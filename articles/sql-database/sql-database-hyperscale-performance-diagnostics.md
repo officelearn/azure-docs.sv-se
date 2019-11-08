@@ -1,20 +1,21 @@
 ---
-title: Azure SQL Database-prestandadiagnostik i den storskaliga tjänst nivån
+title: Prestanda diagnostik i storskalig
 description: I den här artikeln beskrivs hur du felsöker storskaliga prestanda problem i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
+ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: b8acdbc63098ae99355e8874f7c1585759e5fb7f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a7c64284c958fa8b3ec89c2b27515fe167a04011
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689862"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811152"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>SQL-storskalig prestanda vid fel sökning av diagnostik
 
@@ -27,7 +28,7 @@ För att felsöka prestanda problem i en storskalig databas, är [allmänna pres
 
 Varje Azure SQL Database Service nivå har gränser för logg skapande hastighet som tillämpas via [styrning av logg hastighet](sql-database-resource-limits-database-server.md#transaction-log-rate-governance). I hög skala är gränsen för logg skapande inställd på 100 MB/SEK, oavsett tjänst nivå. Det finns dock tillfällen då logg skapande frekvensen för den primära beräknings repliken måste begränsas för att upprätthålla återställnings service avtal. Den här begränsningen inträffar när en [sid Server eller en annan beräknings replik](sql-database-service-tier-hyperscale.md#distributed-functions-architecture) är betydligt bakom att använda nya logg poster från logg tjänsten.
 
-Följande vänte typer (i [sys. DM-_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/)) beskriver orsakerna till varför logg frekvensen kan begränsas på den primära beräknings repliken:
+Följande vänte typer (i [sys. dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/)) beskriver orsakerna till varför logg frekvensen kan begränsas på den primära beräknings repliken:
 
 |Wait-typ    |Beskrivning                         |
 |-------------          |------------------------------------|
@@ -46,10 +47,10 @@ När en läsning utfärdas för en beräknings replik, och om data inte finns i 
 Flera DMV: er och utökade händelser har kolumner och fält som anger antalet fjärrläsningar från en sid server som kan jämföras med det totala antalet läsningar. 
 
 - Kolumner för att rapportera sid Server läsningar är tillgängliga i DMV: er för körning, till exempel:
-    - [sys. DM-_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql/)
-    - [sys. DM-_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql/)
-    - [sys. DM-_exec_procedure_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-procedure-stats-transact-sql/)
-    - [sys. DM-_exec_trigger_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-trigger-stats-transact-sql/)
+    - [sys. dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql/)
+    - [sys. dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql/)
+    - [sys. dm_exec_procedure_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-procedure-stats-transact-sql/)
+    - [sys. dm_exec_trigger_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-trigger-stats-transact-sql/)
 - Sid Server läsningar läggs till i följande utökade händelser:
     - sql_statement_completed
     - sp_statement_completed
@@ -68,12 +69,12 @@ Flera DMV: er och utökade händelser har kolumner och fält som anger antalet f
 
 ## <a name="virtual-file-stats-and-io-accounting"></a>Virtuell fil statistik och IO-redovisning
 
-I Azure SQL Database är [sys. DM _io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF det främsta sättet att övervaka SQL Server i/o. I/o-egenskaperna på storskaligheten är olika på grund av dess [distribuerade arkitektur](sql-database-service-tier-hyperscale.md#distributed-functions-architecture). I det här avsnittet fokuserar vi på IO (läsningar och skrivningar) till datafiler som visas i den här DMF-filen. I stor skala motsvarar varje datafil som visas i den här DMF en fjärrwebbserver. RBPEX-cachen som nämns här är en lokal SSD-baserad cache som inte omfattar cache på beräknings repliken.
+I Azure SQL Database är [sys. dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF det främsta sättet att övervaka SQL Server IO. I/o-egenskaperna på storskaligheten är olika på grund av dess [distribuerade arkitektur](sql-database-service-tier-hyperscale.md#distributed-functions-architecture). I det här avsnittet fokuserar vi på IO (läsningar och skrivningar) till datafiler som visas i den här DMF-filen. I stor skala motsvarar varje datafil som visas i den här DMF en fjärrwebbserver. RBPEX-cachen som nämns här är en lokal SSD-baserad cache som inte omfattar cache på beräknings repliken.
 
 
 ### <a name="local-rbpex-cache-usage"></a>Lokal RBPEX-cache-användning
 
-Den lokala RBPEX-cachen finns på Compute-noden på den lokala SSD-lagringen. Därför är IO på denna RBPEX-cache snabbare än i/o på fjärrservrar. För närvarande har [sys. DM _io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) i en storskalig databas en särskild rad som rapporterar IO-inläsningen för den lokala RBPEX-cachen på beräknings repliken. Den här raden har värdet 0 för både `database_id` och `file_id` kolumner. Frågan nedan returnerar t. ex. RBPEX användnings statistik sedan databasen startades.
+Den lokala RBPEX-cachen finns på Compute-noden på den lokala SSD-lagringen. Därför är IO på denna RBPEX-cache snabbare än i/o på fjärrservrar. För närvarande har [sys. dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) i en storskalig databas en särskild rad som rapporterar IO-inläsningen på den lokala RBPEX-cachen på beräknings repliken. Den här raden har värdet 0 för både `database_id` och `file_id` kolumner. Frågan nedan returnerar t. ex. RBPEX användnings statistik sedan databasen startades.
 
 `select * from sys.dm_io_virtual_file_stats(0,NULL);`
 
@@ -83,8 +84,8 @@ Förhållandet mellan läsningar som gjorts på RBPEX till sammanställda läsni
 ### <a name="data-reads"></a>Data läsningar
 
 - När läsningar utfärdas av SQL Server-motorn på en beräknings replik, kan de hanteras antingen av den lokala RBPEX-cachen eller av fjärrservrar, eller genom en kombination av de två om du läser flera sidor.
-- När beräknings repliken läser vissa sidor från en viss fil, till exempel file_id 1, om dessa data bara finns i den lokala RBPEX cache, är all i/o för denna läsning konto mot file_id 0 (RBPEX). Om en del av dessa data finns i den lokala RBPEX-cachen och en del finns på en fjärrserver, kommer i/o att redovisas mot file_id 0 för den del som hanteras från RBPEX, och den del som hanteras från fjärrservern redovisas mot file_id 1. 
-- Om en beräknings replik begär en sida vid en viss [LSN](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide/) från en sida Server, och om sidan Server inte har fångats upp till den begärda LSN, väntar läsningen på beräknings repliken tills sidan servern har hämtats innan sidan returneras till beräknings repliken. För all läsning från en sid server på beräknings repliken visas PAGEIOLATCH_ * wait-typ om den väntar på detta i/o. Den här vänte tiden inkluderar både tiden det tar att fånga upp den begärda sidan på sidan till den LSN som krävs, och hur lång tid det tar att överföra sidan från sidan server till beräknings repliken.
+- När beräknings repliken läser vissa sidor från en viss fil, till exempel file_id 1, om dessa data bara finns i den lokala RBPEX-cachen, är all i/o för detta Läs konto mot file_id 0 (RBPEX). Om en del av dessa data finns i den lokala RBPEX-cachen och en del finns på en fjärrserver, redovisas i/o till file_id 0 för den del som hanteras från RBPEX och den del som hanteras från fjärrservern redovisas mot file_id 1. 
+- Om en beräknings replik begär en sida vid en viss [LSN](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide/) från en sida Server, och om sidan Server inte har fångats upp till den begärda LSN, väntar läsningen på beräknings repliken tills sidan servern har hämtats innan sidan returneras till beräknings repliken. För all läsning från en sid server på Compute-repliken visas PAGEIOLATCH_ * wait-typ om den väntar på detta i/o. Den här vänte tiden inkluderar både tiden det tar att fånga upp den begärda sidan på sidan till den LSN som krävs, och hur lång tid det tar att överföra sidan från sidan server till beräknings repliken.
 - Stora läsningar som till exempel Read-Ahead görs ofta med ["punkt-samla in" läsningar](/sql/relational-databases/reading-pages/). Detta tillåter läsning av upp till 4 MB sidor i taget, och betraktas som en enda läsning i SQL Server motor. Men när data läses i RBPEX redovisas dessa läsningar som flera enskilda 8 KB-läsningar eftersom buffert-och RBPEX alltid använder 8 KB-sidor. Resultatet är att antalet Läs-IOs som ses mot RBPEX kan vara större än det faktiska antalet IOs som utförs av motorn.
 
 
@@ -96,7 +97,7 @@ Förhållandet mellan läsningar som gjorts på RBPEX till sammanställda läsni
 
 ### <a name="log-writes"></a>Logg skrivningar
 
-- Vid den primära beräkningen redovisas en logg skrivning för i file_id 2 av sys. DM _io_virtual_file_stats. En logg skrivning vid primär beräkning är en skrivning till loggens landnings zon.
+- Vid den primära beräkningen redovisas logg skrivningen för i file_id 2 av sys. dm_io_virtual_file_stats. En logg skrivning vid primär beräkning är en skrivning till loggens landnings zon.
 - Logg poster skärps inte på den sekundära repliken vid genomförande. I stor skala används loggen av xlog-tjänsten till fjärrreplikeringarna. Eftersom logg skrivningar inte inträffar på sekundära repliker, sker ingen redovisning av loggs-i/o på de sekundära replikerna i spårnings syfte.
 
 ## <a name="additional-resources"></a>Ytterligare resurser

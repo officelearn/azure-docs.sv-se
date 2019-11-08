@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 7364bc41a67d8651c91745a8763fff62fee722fe
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 027a35db9fcb6c0e95be5da276f673b9295ad436
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784821"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812707"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Alternativet samförsäljning i Partner Center
 
@@ -33,7 +34,7 @@ Välj din erbjudande typ:
 | **Erbjudande typ**    | **Beskrivning**  |
 | :------------------- | :-------------------|
 | Enhet | Ett erbjudande som inbegriper att skapa eller sälja maskin vara från en enhets tillverkare. |
-| IP | Appar eller annat upphovsrättsskyddat material som är licensierat för kundens användning. Till exempel: ett CRM-program som kan licensieras och installeras lokalt. |
+| IP-adress | Appar eller annat upphovsrättsskyddat material som är licensierat för kundens användning. Till exempel: ett CRM-program som kan licensieras och installeras lokalt. |
 | Tjänst | Praktiska expert kunskaper för ett särskilt projekt med en gång, som ofta levereras via konsulter. Exempel: Konfigurera en kund databas för en klient (med klienten som förutsätter ansvar för att hantera databasen efter leverans). |
 | Hanterad tjänst | Praktiska expert kunskaper om ett molnbaserad projekt, vanligt vis kontinuerligt. Exempel: tillhandahålla en plattform och verktyg för att köra en online-databas, med kontinuerlig hantering från den hanterade tjänst leverantören. |
 

@@ -4,15 +4,16 @@ description: 'Så här använder du privata SKU: er för att hantera Erbjudandet
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: pabutler
-ms.openlocfilehash: 940b50cf4a04abacd4d7be2104dd97fb8b3db736
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: eb6eac5eafaeea239bfaf9cf2aface3db659dd57
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883112"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818838"
 ---
 <a name="private-skus-and-plans"></a>Privata SKU: er och planer
 ============
@@ -44,7 +45,7 @@ Om SKU: n har marker ATS som privat och erbjudandet har andra SKU: er med återa
 >[!NOTE]
 >När den har publicerats kan en offentlig SKU inte göras privat.
 
-<a name="select-an-image"></a>Välj en avbildning
+<a name="select-an-image"></a>Välj en bild
 ------------------
 
 Du kan tillhandahålla nya diskar för den privata SKU: n eller återanvända samma diskar som redan finns i en annan SKU, bara ändra prissättningen eller beskrivningen. Om du vill återanvända diskarna väljer du **Ja** som svar på den här SKU: en åter användnings bild från en offentlig SKU-prompt.
@@ -53,7 +54,7 @@ Du kan tillhandahålla nya diskar för den privata SKU: n eller återanvända sa
 
 När du har bekräftat att SKU: er återanvänder avbildningar väljer du källan eller *bas* -SKU: n för avbildningarna:
 
-![Välj en avbildning](./media/cloud-partner-portal-publish-virtual-machine/selectimage2.png)
+![Välj en bild](./media/cloud-partner-portal-publish-virtual-machine/selectimage2.png)
 
 När du publicerar erbjudandet görs avbildningarna från den valda SKU: n tillgängliga under det privata SKU-ID: t med anpassade priser/villkor. Det privata SKU: n skulle bara vara synligt för mål gruppen.
 
@@ -98,7 +99,7 @@ Om du använder API: et och inte vill underhålla en CSV-fil kan du hantera mål
 
 ###  <a name="managing-subscriptions-with-the-api"></a>Hantera prenumerationer med API: et
 
-Du kan använda API: t för att ladda upp en CSV-fil eller hantera din mål grupp direkt (utan att använda en CSV-fil). I allmänhet behöver du bara hämta ditt erbjudande, uppdatera `restrictedAudience` objektet och sedan skicka tillbaka ändringarna till ditt erbjudande för att lägga till eller ta bort mål grupps medlemmar.
+Du kan använda API: t för att ladda upp en CSV-fil eller hantera din mål grupp direkt (utan att använda en CSV-fil). I allmänhet behöver du bara hämta ditt erbjudande, uppdatera `restrictedAudience`-objektet och sedan skicka tillbaka ändringarna till ditt erbjudande för att lägga till eller ta bort mål grupps medlemmar.
 
 Så här uppdaterar du din mål grupps lista program mässigt:
 
@@ -126,7 +127,7 @@ Så här uppdaterar du din mål grupps lista program mässigt:
 
     För varje begränsat mål grupps objekt:
 
-    a. Ladda ned innehållet i `restrictedAudience.uploadedCsvUri`. Innehållet är bara en CSV-fil med huvuden. Exempel:
+    a. Ladda ned innehållet i `restrictedAudience.uploadedCsvUri`. Innehållet är bara en CSV-fil med huvuden. Till exempel:
 
         type,id,description
         subscriptionId,541a269f-3df2-486e-8fe3-c8f9dcf28205,sub1
@@ -136,7 +137,7 @@ Så här uppdaterar du din mål grupps lista program mässigt:
 
     c. Ladda upp den uppdaterade CSV-filen till en plats, till exempel [Azure Blob Storage](../../storage/blobs/storage-blobs-overview.md) eller [OneDrive](https://onedrive.live.com), och skapa en skrivskyddad länk till filen. Det här är din nya *SasUrl*.
 
-    d. Uppdatera nyckeln med din nya *SasUrl.* `restrictedAudience.uploadedCsvUri`
+    d. Uppdatera `restrictedAudience.uploadedCsvUri`-nyckeln med din nya *SasUrl*.
 
     **Om du har angett den ursprungliga listan med prenumerationer manuellt för ditt privata erbjudande från Cloud Partner Portal:**
 
@@ -156,7 +157,7 @@ Så här uppdaterar du din mål grupps lista program mässigt:
         ]}
     ```
 
-    a. Lägg till eller ta bort poster i `restrictedAudience.manualEntries` listan efter behov för varje begränsat mål grupps objekt.
+    a. För varje begränsat mål grupps objekt lägger du till eller tar bort poster i listan `restrictedAudience.manualEntries` efter behov.
 
 4. När du har uppdaterat alla *restrictedAudience* -objekt för varje SKU för ditt privata erbjudande [uppdaterar du erbjudandet](cloud-partner-portal-api-creating-offer.md):
 

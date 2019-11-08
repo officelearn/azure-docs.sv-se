@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: barclayn
-ms.openlocfilehash: fc72c59721a6f244806bf229ebded1e66341a04d
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 7558ad2e5a4404db140daff89171af92c6072ef6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177691"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805983"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Säkerhetsmetodtips för IaaS-arbetsbelastningar i Azure
 Den här artikeln beskriver rekommenderade säkerhets metoder för virtuella datorer och operativ system.
@@ -68,7 +68,7 @@ Om den virtuella datorn kör kritiska program som behöver hög tillgänglighet 
 En tillgänglighets uppsättning är en logisk gruppering som du kan använda i Azure för att se till att de VM-resurser som du placerar i den är isolerade från varandra när de distribueras i ett Azure-datacenter. Azure säkerställer att de virtuella datorerna som du placerar i en tillgänglighets uppsättning körs över flera fysiska servrar, beräknings rack, lagrings enheter och nätverks växlar. Om ett maskinvaru-eller Azure-program fel uppstår påverkas endast en del av de virtuella datorerna och det övergripande programmet fortsätter att vara tillgängligt för dina kunder. Tillgänglighets uppsättningar är en viktig funktion när du vill bygga pålitliga moln lösningar.
 
 ## <a name="protect-against-malware"></a>Skydda mot skadlig kod
-Du bör installera skydd mot skadlig kod för att hjälpa till att identifiera och ta bort virus, spionprogram och annan skadlig program vara. Du kan installera [Microsoft Antimalware](antimalware.md) eller en Microsoft-partners slut punkts skydds lösning ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/en-us/search?q=Windows+defender+endpoint+protection&rtc=1)och [System Center Endpoint Protection](https://www.microsoft.com/en-us/search?q=System+Center+endpoint+protection&rtc=1)).
+Du bör installera skydd mot skadlig kod för att hjälpa till att identifiera och ta bort virus, spionprogram och annan skadlig program vara. Du kan installera [Microsoft Antimalware](antimalware.md) eller en Microsoft-partners slut punkts skydds lösning ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security)och [System Center Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
 
 Microsoft Antimalware innehåller funktioner som real tids skydd, schemalagd genomsökning, reparation av skadlig kod, signaturkrav, uppdatering av motor, exempel rapportering och insamling av undantags händelser. För miljöer som är separat från produktions miljön kan du använda ett tillägg för program mot skadlig kod för att skydda dina virtuella datorer och moln tjänster.
 

@@ -4,15 +4,16 @@ description: Så här går du till Business Applications ISV Connect-programmet.
 services: Azure Marketplace, Cloud Partner Portal
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 7/12/2019
 ms.author: evansma
-ms.openlocfilehash: 349998b53378d00b6524f94578aa11642321d691
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 4a47886176b704cc3bc36cc9fa85d1d3faee4c58
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182553"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819155"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Microsoft Business Applications oberoende program varu leverantör (ISV) anslutnings program onboarding-guide
 
@@ -69,7 +70,7 @@ Konfigurera sedan fakturerings informationen för Business Applications ISV Conn
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard).
 
-2. Välj inställnings ikonen (kugg hjul) och välj **Inställningar för utvecklare**.
+2. Välj *inställnings* ikonen (kugg hjul) och välj **Inställningar för utvecklare**.
 
 3. Under *konton*väljer du **fakturerings profil**.
 
@@ -77,9 +78,9 @@ Konfigurera sedan fakturerings informationen för Business Applications ISV Conn
 
 5. Ange skatte-ID/inställningar för moms-ID, om tillämpligt.
 
-6. Välj **spara** att spara dina ändringar.
+6. Spara ändringarna genom att välja **Spara** .
 
-Du kan när som helst uppdatera din fakturerings profil, men *företagets namn* och fakturerings adress kan inte ändras senare.
+Du kan när som helst uppdatera din fakturerings profil, men *företagets namn* och fakturerings adress *kan* inte ändras senare.
 
 ## <a name="recertify-your-application"></a>Certifiera ditt program
 

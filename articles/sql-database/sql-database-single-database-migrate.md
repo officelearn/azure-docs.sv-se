@@ -1,5 +1,5 @@
 ---
-title: SQL Server migrering av databasen till en databas i samma databas i Azure SQL Database
+title: SQL Server migrering av databasen till en databas med enkel/pool
 description: Lär dig mer om migrering av SQL Server Database till en enskild databas eller en elastisk pool i Azure SQL Database.
 keywords: databasmigrering, sql server-databasmigrering, databasmigreringsverktyg, migrera databas, migrera sql-databas
 services: sql-database
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: 67030d14670ccc51c89a04863f8b39ab6a9bb183
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: df1ef21da43bc74809bd9fd71b5dde3906cdb343
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687184"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820980"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>SQL Server migrering av databasen till Azure SQL Database
 

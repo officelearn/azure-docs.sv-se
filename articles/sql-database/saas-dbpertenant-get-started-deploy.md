@@ -1,5 +1,5 @@
 ---
-title: Självstudie för databas per klient SaaS – Azure SQL Database
+title: Själv studie kurs för databas per klient SaaS
 description: Distribuera och utforska Wingtip Ticket SaaS-program för flera innehavare som demonstrerar mönstret för databas per klient och andra SaaS-mönster med hjälp av Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: b271c4bbf942bee70c4995ee04ec370591d4f67d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 31f712f80ee2492e4bbaec99bd093d46f9d04e6d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692182"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824000"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Distribuera och utforska en SaaS-app med flera innehavare som använder mönstret för databas per klient organisation med SQL Database
 
@@ -180,7 +180,7 @@ Om du vill kontrol lera och övervaka bakgrunds jobben använder du följande cm
 
     - Som standard körs bakgrunds jobben i 120 minuter.
     - Varje jobb orsakar en CPU-baserad belastning på en klient databas genom att köra *sp_CpuLoadGenerator*. Belastningens intensitet och varaktighet varierar beroende på `$DemoScenario`.
-    - *sp_CpuLoadGenerator* loopar runt en SQL SELECT-instruktion som orsakar hög CPU-belastning. Tidsintervallet mellan problem med SELECT varierar enligt parameter värden för att skapa en kontrollerbar CPU-belastning. Belastnings nivåer och intervall är slumpmässiga för att simulera mer realistiska belastningar.
+    - *sp_CpuLoadGenerator* slingor runt en SQL SELECT-instruktion som orsakar hög CPU-belastning. Tidsintervallet mellan problem med SELECT varierar enligt parameter värden för att skapa en kontrollerbar CPU-belastning. Belastnings nivåer och intervall är slumpmässiga för att simulera mer realistiska belastningar.
     - Den här. SQL-filen lagras under *WingtipTenantDB\\dbo\\StoredProcedures\\* .
 
 4. Om `$OneTime = $false` startar belastnings generatorn bakgrunds jobben och fortsätter sedan att köra. Var tionde sekund övervakar den för alla nya klienter som är etablerade. Om du anger `$OneTime = $true` startar LoadGenerator bakgrunds jobben och slutar sedan att köra i förgrunden. Lämna `$OneTime = $false` för den här självstudien.

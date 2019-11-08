@@ -6,20 +6,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: tisande
-ms.openlocfilehash: d92e24836a0eb5757de9bbdb516be290456deb7f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: e41e81457421bfe27e3c0313fc06e39e6df4cdce
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333266"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819110"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>GROUP BY-sats i Azure Cosmos DB
 
 GROUP BY-satsen delar in frågans resultat enligt värdena för en eller flera angivna egenskaper.
 
 > [!NOTE]
-> Azure Cosmos DB stöder för närvarande GROUP BY i [.NET SDK 3,3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.3.0) eller senare.
-> Stöd för andra språk-SDK: er och Azure Portal är för närvarande inte tillgängligt, men det är planerat.
+> Azure Cosmos DB stöder för närvarande GROUP BY i .NET SDK 3,3 och senare samt Java Script SDK 3,4 och senare.
+> Stöd för andra språk-SDK: er är inte tillgängligt för tillfället, men det är planerat.
 
 ## <a name="syntax"></a>Syntax
 

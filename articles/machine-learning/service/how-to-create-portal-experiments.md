@@ -1,5 +1,5 @@
 ---
-title: Använd Azures automatiserade ML-gränssnitt för att träna & distribuera modeller
+title: Bygg & distribuera automatiserade ML-modeller
 titleSuffix: Azure Machine Learning
 description: Skapa, hantera och distribuera automatiserade maskin inlärnings experiment i Azure Machine Learning Studio.
 services: machine-learning
@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: e1bb84c142fb24086cf6c11a7b1070bdd29ae3f2
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 25e775cf7bfd415768144b28ab2ca6989f360edd
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581295"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818495"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Skapa, utforska och distribuera automatiserade maskin inlärnings experiment med Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -215,7 +215,7 @@ Med automatisk ML får du hjälp med att distribuera modellen utan att skriva ko
     >[!Important]
     > Fil namn måste vara under 32 tecken och måste börja och sluta med alfanumeriska tecken. Får innehålla bindestreck, under streck, punkter och alfanumeriska tecken mellan. Blank steg är inte tillåtna.
 
-    På *Avancerat* -menyn finns funktioner för standard distribution, t. ex. inställningar för data insamling och resursutnyttjande. Om du vill åsidosätta dessa standardinställningar gör du det på den här menyn.
+    Menyn *Avancerat* erbjuder standard distributions funktioner, till exempel inställningar för [data insamling](how-to-enable-app-insights.md) och resursutnyttjande. Om du vill åsidosätta dessa standardinställningar gör du det på den här menyn.
 
 1. Välj **Distribuera**. Distributionen kan ta ungefär 20 minuter att slutföra.
 

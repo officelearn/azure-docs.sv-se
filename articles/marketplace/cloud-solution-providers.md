@@ -1,64 +1,65 @@
 ---
-title: Cloud Solution Providers | Azure Marketplace
-description: Utgivare kan nu sälja sina erbjudanden via Microsoft CSP partner kanal
+title: Leverantörer av moln lösningar | Azure Marketplace
+description: Utgivare kan nu sälja sina erbjudanden via Microsoft CSP partner Channel
 services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 0b47e5af0b0656cac4962c1007e999508f58a9e5
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 80f871301bbb67def3635b8beb3705ac99b88bda
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150952"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826054"
 ---
 # <a name="cloud-solution-providers"></a>Leverantörer av molnlösningar
 
-Programvara erbjudanden kan nå miljontals kvalificerade Microsoft-kunder som hanteras av partner i programmet Cloud Solution Provider (CSP), förutom allmän tillgänglighet av erbjudanden via [Microsofts web butiker](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
+Program varu erbjudanden kan komma åt miljon tals kvalificerade Microsoft-kunder som erbjuds av partners i Cloud Solution Provider (CSP)-programmet, utöver offentlig tillgänglighet för erbjudanden via [Microsofts webb butiker](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
 
-Utgivare konfigurera erbjudanden för tillgänglighet i CSP-programmet på grundval av valbar (standard är exkluderad) för ett nytt erbjudande eller en befintlig för partner att sälja dina produkter och skapa paketeras lösningar för kunder.
+Utgivare konfigurerar erbjudanden för tillgänglighet i CSP-programmet på en valbar basis (standard ingår inte), för ett nytt erbjudande eller ett befintligt erbjudande, så att partner kan sälja dina produkter och skapa sammanställda lösningar för kunder.
 
-Utgivare har ansvaret för att tillhandahålla avbrottssupport till slutkunder och för att tillhandahålla en mekanism för CSP-partner och/eller kunder att kontakta dig för support. Det är bästa praxis för att ange CSP-partner med användardokumentation, utbildning, och tjänsten health/avbrottsmeddelanden (som tillämpligt) så att CSP-partner är lämpade att hantera nivå 1 supportärenden från våra kunder.
+Utgivare ansvarar för att ge support för att ge support för att ge slutanvändarna möjlighet att tillhandahålla en mekanism för CSP-partner och/eller kunder att kontakta dig för support. Det är bästa praxis att tillhandahålla CSP-partner med användar dokumentation, utbildning och tjänst hälso-/avbrotts meddelanden (i förekommande fall) så att CSP-partner är utrustade för att hantera support förfrågningar från kunder på nivå 1.
 
-I följande tabell visar typer av erbjudanden och prismodellerna som kan anmäla sig till CSP-programmet:
+I följande tabell visas de typer av erbjudanden och pris modeller som kan användas för att välja CSP-programmet:
 
-| **Erbjudandetyp**    | **BYOL**  |  **Kostnadsfri** | **PAYG**   |
+| **Erbjudande typ**    | **BYOL**  |  **Kostnadsfri** | **PAYG**   |
 | :---------------- | :---------|:----------|:-----------|
 | Virtuella datorer  | Ja | Ja | Ja |
-| Containrar | Gäller inte | Ja | Gäller inte |
-| Lösningsmallar | Gäller inte | Ja | Gäller inte |
-| Managed Applications | Gäller inte | Ja | Ja |
-| Software-as-a-Service (SaaS) | Gäller inte | Ja | Ja |
+| Containrar | Saknas | Ja | Saknas |
+| Solution-mallar | Saknas | Ja | Saknas |
+| Managed Applications | Saknas | Ja | Ja |
+| Software-as-a-Service (SaaS) | Saknas | Ja | Ja |
 |   |   |   |
 
 ## <a name="how-to-configure-an-offering"></a>Så här konfigurerar du ett erbjudande
 
-CSP-programmet delta i inställningen konfigureras i den Partner Center eller Cloud Partner Portal erbjudandet upplevelsen när du skapar. ([Lär dig mer om föränderliga publisher-upplevelse. ](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293))
+Inställningen för att välja CSP-program konfigureras i Partner Center eller i Cloud Partner Portal skapa ett erbjudande. ([Läs mer om den ändrade utgivarens upplevelse.](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293))
 
-I Cloud Partner Portal är den inställd på fliken Marketplace eller butik. Partner Center är den inställd på erbjudandet inställningsfliken under installationen information.
+I Cloud Partner Portal anges den på fliken Marketplace eller butik. I Partner Center anges den på fliken erbjudande konfiguration under konfigurations information.
 
-![CSP anmälan upplevelse i CPP](media/marketplace-publishers-guide/csp-opt-in.png)
+![Upplevelse för att välja CSP i CPP](media/marketplace-publishers-guide/csp-opt-in.png)
 
-Enligt nedan, Partner Center utgivare kan välja för att göra sina erbjudanden tillgängliga i CSP-programmet genom att markera rutan **tillgängliggöra min erbjudandet i CSP-programmet**.
+Som visas nedan, i Partner Center, kan utgivare välja att göra sina erbjudanden tillgängliga i CSP-programmet genom att markera kryss rutan, **göra mitt erbjudande tillgängligt i CSP-programmet**.
 
-![CSP anmälan upplevelse i Partnercenter](media/marketplace-publishers-guide/pc-csp-opt-in.png)
+![Användning av CSP i Partner Center](media/marketplace-publishers-guide/pc-csp-opt-in.png)
 
-## <a name="sharing-sales-and-support-materials-with-csp-partners"></a>Dela försäljning och supportmaterial med CSP-partner
+## <a name="sharing-sales-and-support-materials-with-csp-partners"></a>Dela försäljnings-och support material med CSP-partner
 
-Att aktivera partners i Cloud Solution Provider-programmet för att effektivt representera ditt erbjudande och interagera med din organisation, skicka in försäljning och stöd för material som är tillgängliga till återförsäljare. De här resurserna kommer inte exponeras för kunder i molnmarknadsplatsen.
+Om du vill göra det möjligt för partner i Cloud Solution Provider-programmet att representera ditt erbjudande och engagera med din organisation, skicka försäljnings-och support material som är tillgängliga för åter försäljarna. De här resurserna kommer inte att exponeras för kunder i Marketplace-butiker.
 
-Som visas nedan, i partnerportalen i molnet, kan utgivare ange en URL som är värd för relevanta marknadsföringsmaterial och kanal kontaktinformation till CSP-kanal:
+Som visas nedan, i Cloud Partner Portal, kan utgivare ange en URL som är värd för relevant marknadsförings material och kanal kontakt information till CSP-kanalen:
 
-![Parallell CSP-information](media/marketplace-publishers-guide/cpp-csp-information.png)
+![Information om CSP-säkerhet](media/marketplace-publishers-guide/cpp-csp-information.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Gå till den [Azure Marketplace och AppSource Publiceringsguiden](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) sidan.
+Besök [Azure Marketplace-och AppSource Publisher-guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) sidan.
 
-Om du vill veta mer om marketplace GTM services kan du gå till [Go-to-market services](https://partner.microsoft.com/reach-customers/gtm).
+Om du vill veta mer om Marketplace GTM-tjänster går du till [Go-to-Marketing-tjänster](https://partner.microsoft.com/reach-customers/gtm).
 
-Logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com/), eller [Partnercenter](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) för SaaS-erbjudanden kan du skapa och konfigurera ditt erbjudande.
+Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/)eller [partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) för SaaS-erbjudanden för att skapa och konfigurera ditt erbjudande.
 
 ---

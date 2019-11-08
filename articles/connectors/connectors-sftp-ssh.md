@@ -10,16 +10,16 @@ ms.reviewer: divswa, klam, LADocs
 ms.topic: article
 ms.date: 06/18/2019
 tags: connectors
-ms.openlocfilehash: 33c6007ebc429bb0d95d702ae9b90f9ac411a88c
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: a48ba0d2d691314a1ca7c91ac7ae27b62fbb379b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695198"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825244"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Övervaka, skapa och hantera SFTP-filer med hjälp av SSH och Azure Logic Apps
 
-Om du vill automatisera aktiviteter som övervakar, skapar, skickar och tar emot filer på en [säker File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) -server med hjälp av SSH-protokollet [(Secure Shell)](https://www.ssh.com/ssh/protocol/) kan du skapa och automatisera integrerings arbets flöden med hjälp av Azure Logic Apps och SFTP-SSH kurva. SFTP är ett nätverks protokoll som ger fil åtkomst, fil överföring och fil hantering över tillförlitliga data strömmar. Här följer några exempel på uppgifter som du kan automatisera:
+Om du vill automatisera aktiviteter som övervakar, skapar, skickar och tar emot filer på en [säker File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) -server med hjälp av SSH-protokollet [(Secure Shell)](https://www.ssh.com/ssh/protocol/) kan du skapa och automatisera integrerings arbets flöden med hjälp av Azure Logic Apps och SFTP-SSH kurva. SFTP är ett nätverksprotokoll som ger filåtkomst, filöverföring och filhantering via valfri betrodd dataström. Här följer några exempel på uppgifter som du kan automatisera:
 
 * Övervaka när filer läggs till eller ändras.
 * Hämta, skapa, kopiera, byta namn på, uppdatera, lista och ta bort filer.
@@ -49,7 +49,7 @@ Här följer några andra viktiga skillnader mellan SFTP-SSH-anslutningen och SF
 
 * Använder [SSH.net-biblioteket](https://github.com/sshnet/SSH.NET), som är ett SSH-bibliotek med öppen källkod som stöder .net.
 
-* Som standard kan SFTP och SSH-åtgärder läsa eller skriva filer som är *1 GB eller mindre* , men bara i *15 MB* -segment i taget. För att hantera filer som är större än 15 MB kan SFTP-SSH-åtgärder använda [meddelande segment](../logic-apps/logic-apps-handle-large-messages.md). Åtgärden Kopiera fil stöder dock endast 15 MB filer eftersom den åtgärden inte stöder meddelande segment. SFTP – SSH-utlösare stöder inte segment.
+* Som standard kan SFTP och SSH-åtgärder läsa eller skriva filer som är *1 GB eller mindre* , men bara i *15 MB* -segment i taget. För att hantera filer som är större än 15 MB kan SFTP-SSH-åtgärder använda [meddelande segment](../logic-apps/logic-apps-handle-large-messages.md). Om du vill överföra stora filer behöver du också både Läs-och Skriv behörighet. Åtgärden Kopiera fil stöder dock endast 15 MB filer eftersom den åtgärden inte stöder meddelande segment. SFTP – SSH-utlösare stöder inte segment.
 
 * Tillhandahåller åtgärden **Skapa mapp** , som skapar en mapp på den angivna sökvägen på SFTP-servern.
 
@@ -57,19 +57,19 @@ Här följer några andra viktiga skillnader mellan SFTP-SSH-anslutningen och SF
 
 * Cachelagrar anslutningen till SFTP-servern *i upp till 1 timme*, vilket förbättrar prestandan och minskar antalet försök att ansluta till servern. Om du vill ställa in varaktigheten för den här funktionen för cachelagring redigerar du egenskapen [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) i SSH-konfigurationen på din SFTP-server.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-* Dina SFTP-server-och kontoautentiseringsuppgifter som låter din Logic app komma åt ditt SFTP-konto. Du måste också ha åtkomst till en privat SSH-nyckel och lösen ordet för den privata SSH-nyckeln.
+* Dina SFTP-server-och kontoautentiseringsuppgifter som låter din Logic app komma åt ditt SFTP-konto. Du måste också ha åtkomst till en privat SSH-nyckel och lösen ordet för den privata SSH-nyckeln. Om du vill använda segment vid överföring av stora filer behöver du både Läs-och Skriv behörighet.
 
   > [!IMPORTANT]
   >
   > SFTP-SSH-anslutaren stöder *endast* dessa format för privata nycklar, algoritmer och finger avtryck:
   >
-  > * **Privata nyckel format**: RSA-nycklar (Rivest Shamir Adleman) och DSA (Digital Signature Algorithm) i både OpenSSH-och ssh.com-format. Om din privata nyckel är i fil formatet SparaTillFil (. PPK), måste [du först konvertera nyckeln till fil formatet openssh (. pem)](#convert-to-openssh).
+  > * **Privata nyckel format**: RSA (Rivest Shamir Adleman) och DSA-nycklar (Digital Signature Algorithm) i både OpenSSH-och SSH.com-format. Om din privata nyckel är i fil formatet SparaTillFil (. PPK), måste [du först konvertera nyckeln till fil formatet openssh (. pem)](#convert-to-openssh).
   >
-  > * **Krypteringsalgoritmer**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC och AES-256-CBC
+  > * **Krypteringsalgoritmer**: des-EDE3-CBC, des-EDE3-CFB, des-CBC, AES-128-CBC, AES-192-CBC och aes-256-CBC
   >
   > * **Finger avtryck**: MD5
   >
@@ -84,10 +84,10 @@ Här följer några andra viktiga skillnader mellan SFTP-SSH-anslutningen och SF
 
 SFTP – SSH-utlösare fungerar genom att avsöka SFTP-filsystemet och leta efter en fil som har ändrats sedan den senaste avsökningen. Med vissa verktyg kan du bevara tidsstämpeln när filerna ändras. I dessa fall måste du inaktivera den här funktionen så att utlösaren kan fungera. Här följer några vanliga inställningar:
 
-| SFTP-klient | Action |
+| SFTP-klient | Åtgärd |
 |-------------|--------|
-| WinSCP | Gå till **alternativen** > **Inställningar** > **överföring** > **redigera** > **bevara tidsstämpel** > **inaktivera** |
-| FileZilla | Gå till **överföring** > **bevara tidsstämplar för överförda filer** > **inaktivera** |
+| WinSCP | Gå till **alternativen** > **inställningar** > **överföra** > **Redigera** > **bevara tidsstämpel** > **inaktivera** |
+| FileZilla | Gå till **överför** > **bevara tidsstämplar för överförda filer** > **inaktivera** |
 |||
 
 När en utlösare hittar en ny fil, kontrollerar utlösaren att den nya filen är fullständig och inte delvis skriven. En fil kan till exempel ha ändringar som pågår när utlösaren kontrollerar fil servern. För att undvika att returnera en delvis skriven fil, noterar utlösaren tidsstämpeln för filen som har nyligen gjorda ändringar, men returnerar inte omedelbart den filen. Utlösaren returnerar filen endast när servern avsöks igen. Ibland kan det här problemet orsaka en fördröjning som är upp till två gånger utlösaren för avsöknings intervall.
@@ -108,7 +108,7 @@ Om den privata nyckeln är i formatet SparaTillFil, som använder fil namns till
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   Exempel:
+   Till exempel:
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 
@@ -156,7 +156,7 @@ Om den privata nyckeln är i formatet SparaTillFil, som använder fil namns till
 
    1. I **redigerings** menyn i Anteckningar väljer du **Markera alla**.
 
-   1. Välj **redigera** > **kopia**.
+   1. Välj **redigera** > **Kopiera**.
 
    1. I SFTP-SSH-utlösare eller åtgärd som du har lagt till klistrar du in den *fullständiga* nyckeln som du kopierade i egenskapen **SSH Private Key** , som stöder flera rader.  ***Se till att klistra in*** nyckeln. ***Ange eller redigera inte nyckeln manuellt***.
 
@@ -168,15 +168,15 @@ Om den privata nyckeln är i formatet SparaTillFil, som använder fil namns till
 
 <a name="file-added-modified"></a>
 
-### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>SFTP – SSH-utlösare: När en fil läggs till eller ändras
+### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>SFTP – SSH-utlösare: när en fil läggs till eller ändras
 
 Den här utlösaren startar ett Logic app-arbetsflöde när en fil läggs till eller ändras på en SFTP-server. Du kan till exempel lägga till ett villkor som kontrollerar filens innehåll och hämtar innehållet baserat på om innehållet uppfyller ett angivet villkor. Du kan sedan lägga till en åtgärd som hämtar filens innehåll och placerar innehållet i en mapp på SFTP-servern.
 
-**Enterprise-exempel**: Du kan använda den här utlösaren för att övervaka en SFTP-mapp för nya filer som representerar kund order. Du kan sedan använda en SFTP-åtgärd, till exempel **Hämta fil innehåll** , så att du kan hämta Beställningens innehåll för ytterligare bearbetning och lagra den i en order databas.
+**Enterprise-exempel**: du kan använda den här utlösaren för att övervaka en SFTP-mapp för nya filer som representerar kund order. Du kan sedan använda en SFTP-åtgärd, till exempel **Hämta fil innehåll** , så att du kan hämta Beställningens innehåll för ytterligare bearbetning och lagra den i en order databas.
 
 <a name="get-content"></a>
 
-### <a name="sftp---ssh-action-get-content-using-path"></a>SFTP – SSH-åtgärd: Hämta innehåll med hjälp av sökväg
+### <a name="sftp---ssh-action-get-content-using-path"></a>SFTP – SSH-åtgärd: hämta innehåll med hjälp av sökväg
 
 Den här åtgärden hämtar innehållet från en fil på en SFTP-server. Du kan till exempel lägga till utlösaren från föregående exempel och ett villkor som filens innehåll måste uppfylla. Om villkoret är sant kan åtgärden som hämtar innehållet köras.
 

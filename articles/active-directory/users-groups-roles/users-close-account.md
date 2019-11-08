@@ -1,5 +1,5 @@
 ---
-title: Stäng ditt arbets-eller skol konto i en ohanterad katalog – Azure Active Directory | Microsoft Docs
+title: Stäng arbets-eller skol konto i en ohanterad Azure AD-katalog
 description: Hur du stänger ditt arbets-eller skol konto i en ohanterad Azure Active Directory.
 services: active-directory
 author: rolyon
@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0da4c6b1c1434dae564ab4876a3ab3f341a87097
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 3c101c0ef7932151e675c5c514ac558e6e0f94b2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891959"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815724"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-directory"></a>Stäng ditt arbets-eller skol konto i en ohanterad katalog
 
@@ -39,7 +39,7 @@ Innan du kan avsluta ditt konto bör du bekräfta följande objekt:
 > [!WARNING]
 > Om du stänger ditt konto går det inte att ångra. När du stänger ditt konto tas all personlig information bort. Du kommer inte längre att ha åtkomst till ditt konto och dina data som är kopplade till ditt konto.
 
-## <a name="close-your-account"></a>Avsluta ditt konto
+## <a name="close-your-account"></a>Stäng ditt konto
 
 Följ dessa steg om du vill stänga ett ohanterat arbets-eller skol konto:
 

@@ -1,5 +1,5 @@
 ---
-title: Utföra en åtkomst granskning från portalen Mina appar – Azure Active Directory | Microsoft Docs
+title: Utföra en åtkomst granskning från mina apps-portalen – Azure AD
 description: Lär dig hur du visar och hanterar säkerhets åtkomst för din organisations appar och grupper.
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6681720fc7c0fe04c99bf7957be14865c663dd67
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: bf803027aac7c62ea500d1af104ae3234fadf8b5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383161"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73804049"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Utföra en åtkomst granskning från portalen Mina appar
 
@@ -40,7 +40,7 @@ Om din administratör har gett dig behörighet att utföra dina egna åtkomst gr
 
 1. Logga in på ditt arbets-eller skol konto.
 
-2. Öppna webbläsaren och gå till https://myapps.microsoft.com eller Använd den länk som tillhandahålls av din organisation. Du kan till exempel dirigeras till en anpassad sida för din organisation, till https://myapps.microsoft.com/contoso.com exempel.
+2. Öppna webbläsaren och gå till https://myapps.microsoft.com, eller Använd länken som tillhandahålls av din organisation. Du kan till exempel dirigeras till en anpassad sida för din organisation, till exempel https://myapps.microsoft.com/contoso.com.
 
     Sidan **appar** visas och visar alla molnbaserade appar som ägs av din organisation och som du kan använda.
 
@@ -65,7 +65,7 @@ Om din administratör har gett dig behörighet att utföra dina egna åtkomst gr
 
     ![Sidan åtkomst granskning, som visar rutan orsak med exempel text](media/my-apps-portal/my-apps-portal-perform-access-reviews-reason-box.png)
 
-7. Välj **skicka**.
+7. Välj **Skicka**.
 
     Åtkomst granskningen är klar och du kommer tillbaka till portalen för **Mina appar** .
 

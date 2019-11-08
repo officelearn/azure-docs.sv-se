@@ -4,15 +4,15 @@ description: Azure-delegerad resurs hantering möjliggör hantering av flera inn
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 10/24/2019
+ms.date: 11/7/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: eb4ec10755b7ca2227623ba0842d2b1175635594
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 182970cc39d200c37264a93d5e1b70c8839e5ef7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901816"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825823"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
@@ -47,6 +47,11 @@ Vi tillhandahåller också API: er för att utföra Azure delegerade resurs hant
 
 De flesta uppgifter och tjänster kan utföras på delegerade resurser över hanterade klienter. Nedan visas några viktiga scenarier där hantering av flera innehavare kan vara effektiv.
 
+[Azure-båge för servrar (för hands version)](https://docs.microsoft.com/azure/azure-arc/servers/overview):
+
+- [Anslut Windows Server-eller Linux-datorer utanför Azure](https://docs.microsoft.com/azure/azure-arc/servers/quickstart-onboard-portal) till delegerade prenumerationer och/eller resurs grupper i Azure
+- Hantera anslutna datorer med hjälp av Azure-konstruktioner, till exempel Azure Policy och taggning
+
 [Azure Automation](https://docs.microsoft.com/azure/automation/):
 
 - Använd Automation-konton för att komma åt och arbeta med delegerade kund resurser
@@ -74,7 +79,7 @@ De flesta uppgifter och tjänster kan utföras på delegerade resurser över han
 - Kunder ser principer som skapats av tjänst leverantören tillsammans med eventuella principer som de har skapat själva
 - Kan [åtgärda deployIfNotExists eller ändra tilldelningar inom kund innehavaren](../how-to/deploy-policy-remediation.md)
 
-[Azure-resurs diagram](https://docs.microsoft.com/azure/governance/resource-graph/):
+[Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/):
 
 - Innehåller nu klient-ID: t i returnerade frågeresultat, så att du kan identifiera om en prenumeration tillhör kunden eller tjänst leverantörens klient organisation
 

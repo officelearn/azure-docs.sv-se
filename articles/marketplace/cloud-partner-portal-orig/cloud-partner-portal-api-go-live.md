@@ -1,23 +1,24 @@
 ---
-title: Driftsätt | Azure Marketplace
-description: 'Gå Live API: et initierar erbjudandet live lista processen.'
+title: Go Live | Azure Marketplace
+description: 'Go Live API: t initierar bearbetnings processen för Live-erbjudandet.'
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: ac56f86bad132f3e00a4b5c2507d65c0722c628c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 30500e9dfae9411563fc727290d0569998ba3550
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935491"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819685"
 ---
-<a name="go-live"></a>Go Live
+<a name="go-live"></a>Gå live
 =======
 
-Detta API startar processen för att pusha en app till produktion. Den här åtgärden vanligtvis tidskrävande. Det här anropet använder e-postmeddelandelista från den [publicera](./cloud-partner-portal-api-publish-offer.md) API-åtgärden.
+Detta API startar processen för att skicka en app till produktion. Den här åtgärden körs vanligt vis längre. Det här anropet använder e-postlistan för meddelanden från [publicerings](./cloud-partner-portal-api-publish-offer.md) -API-åtgärden.
 
  `POST  https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/golive?api-version=2017-10-31` 
 
@@ -26,9 +27,9 @@ Detta API startar processen för att pusha en app till produktion. Den här åtg
 
 |  **Namn**      |   **Beskrivning**                                                           | **Datatyp** |
 |  --------      |   ---------------                                                           | ------------- |
-| publisherId    | Identifierare för utgivare till erbjudandet ska hämtas, till exempel `contoso`       |  String       |
-| offerId        | Erbjud identifierare för erbjudandet att hämta                                   |  String       |
-| API-versionen    | Senaste versionen av API: et                                                   |  Date         |
+| publisherId    | Utgivarens identifierare för erbjudandet att hämta, till exempel `contoso`       |  Sträng       |
+| OfferId        | Erbjudande-ID för erbjudandet som ska hämtas                                   |  Sträng       |
+| API-version    | Senaste versionen av API: et                                                   |  Date         |
 |  |  |  |
 
 
@@ -42,7 +43,7 @@ Detta API startar processen för att pusha en app till produktion. Den här åtg
 |  |  |
 
 
-<a name="body-example"></a>Brödtext exempel
+<a name="body-example"></a>Body-exempel
 ------------
 
 ### <a name="response"></a>Svar
@@ -54,15 +55,15 @@ Detta API startar processen för att pusha en app till produktion. Den här åtg
 
 |  **Namn**             |      **Värde**                                                            |
 |  --------             |      ----------                                                           |
-| Operation-Location    |  URL till fråga för att fastställa den aktuella statusen för åtgärden            |
+| Åtgärds plats    |  URL att fråga för att fastställa aktuell status för åtgärden            |
 |  |  |
 
 
-### <a name="response-status-codes"></a>Svarsstatuskoder
+### <a name="response-status-codes"></a>Svars status koder
 
-| **Kod** |  **Beskrivning**                                                                        |
+| **Rikt** |  **Beskrivning**                                                                        |
 | -------- |  ----------------                                                                        |
-|  202     | `Accepted` -Begäran har accepterats. Svaret innehåller en plats för att spåra Åtgärdsstatus. |
-|  400     | `Bad/Malformed request` – Ytterligare felinformation hittar du i svarstexten. |
-|  404     |  `Not found` -Den angivna entiteten finns inte.                                       |
+|  202     | `Accepted`-begäran har godkänts. Svaret innehåller en plats för att spåra åtgärdens status. |
+|  400     | `Bad/Malformed request` – ytterligare fel information finns i svars texten. |
+|  404     |  `Not found`-den angivna entiteten finns inte.                                       |
 |  |  |

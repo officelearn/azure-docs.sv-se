@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23ba9b06c9a3e6025d7227493713fe9187fba233
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 9603cdf11373891aaa3541330cb7f65c09352496
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514908"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818895"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrera från Federation till hash-synkronisering för lösen ord för Azure Active Directory
 
@@ -161,7 +161,7 @@ Mer information om **plats** villkor i villkorlig åtkomst finns i [Active Direc
 
 När du ansluter en enhet till Azure AD kan du skapa regler för villkorlig åtkomst som tvingar enheterna att uppfylla dina åtkomst standarder för säkerhet och efterlevnad. Användare kan också logga in på en enhet genom att använda ett organisations arbets-eller skol konto i stället för ett personligt konto. När du använder hybrid Azure AD-anslutna enheter kan du ansluta dina Active Directory domänanslutna enheter till Azure AD. Den federerade miljön kan ha kon figurer ATS för att använda den här funktionen.
 
-För att säkerställa att hybrid anslutning fortsätter att fungera för alla enheter som är anslutna till domänen efter att domänerna har konverterats till hash-synkronisering för lösen ord, för Windows 10-klienter, måste du använda Azure AD Connect enhets alternativ för att fylla i SCP och sedan synkronisera Active Katalog dator konton till Azure AD. 
+För att säkerställa att hybrid anslutning fortsätter att fungera för alla enheter som är anslutna till domänen efter att domänerna har konverterats till hash-synkronisering för lösen ord, för Windows 10-klienter, måste du använda Azure AD Connect enhets alternativ för att synkronisera Active Directory dator konton till Azure AD. 
 
 För Windows 8-och Windows 7-dator konton använder hybrid anslutning sömlös SSO för att registrera datorn i Azure AD. Du behöver inte synkronisera Windows 8-och Windows 7-dator konton som du gör för Windows 10-enheter. Du måste dock distribuera en uppdaterad workplacejoin. exe-fil (via en MSI-fil) till Windows 8-och Windows 7-klienter så att de kan registrera sig med sömlös SSO. [Ladda ned MSI-filen](https://www.microsoft.com/download/details.aspx?id=53554).
 
@@ -263,7 +263,7 @@ Information om fel sökning finns i [Felsöka Password-hash-synkronisering med A
 
 För att enheterna ska kunna använda sömlös SSO måste du lägga till en Azure AD-URL till användarnas intranät zons inställningar med hjälp av en grup princip i Active Directory.
 
-Som standard beräknar webbläsare automatiskt rätt zon, antingen Internet eller intranät, från en URL. Till exempel **http: \/ \/contoso/** mappas till zonen Intranät och **http: \/ \/intranet. contoso.com** mappar till zonen Internet (eftersom URL: en innehåller en punkt). Webbläsare skickar Kerberos-biljetter till en moln slut punkt, t. ex. Azure AD-URL, endast om du lägger till URL: en i webbläsarens intranät zon.
+Som standard beräknar webbläsare automatiskt rätt zon, antingen Internet eller intranät, från en URL. Till exempel **http:\/\/contoso/** Maps till zonen Intranät och **http:\/\/intranet.contoso.com** mappar till zonen Internet (eftersom URL: en innehåller en punkt). Webbläsare skickar Kerberos-biljetter till en moln slut punkt, t. ex. Azure AD-URL, endast om du lägger till URL: en i webbläsarens intranät zon.
 
 Slutför stegen för att [distribuera](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start) de nödvändiga ändringarna på enheterna.
 
@@ -313,7 +313,7 @@ Använd den här metoden om du ursprungligen konfigurerade AD FS miljön med Azu
    > [!IMPORTANT]
    > I det här läget kommer alla federerade domäner att ändras till hanterad autentisering. Hash-synkronisering av lösen ord är den nya autentiseringsmetoden.
 
-7. I Azure AD-portalen väljer du **Azure Active Directory**  > **Azure AD Connect**.
+7. I Azure AD-portalen väljer du **Azure Active Directory** > **Azure AD Connect**.
 8. Verifiera följande inställningar:
    * **Federationen** är inställd på **inaktive rad**.
    * **Sömlös enkel inloggning** har angetts till **aktive rad**.
@@ -335,9 +335,9 @@ Använd det här alternativet om du inte ursprungligen konfigurerade de federera
 3. På sidan **Anslut till Azure AD** anger du användar namn och lösen ord för ett globalt administratörs konto.
 4. På sidan **användar inloggning** väljer du knappen **lösen ords-hash-synkronisering** . Välj **aktivera enkel inloggning**och välj sedan **Nästa**.
 
-   Innan du aktiverar hash-synkronisering av lösen ord: ![Screenshot som visar alternativet Konfigurera inte på användarens inloggnings sida ](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image12.png)<br />
+   Innan du aktiverar hash-synkronisering av lösen ord: ![skärm bild som visar alternativet Konfigurera inte på användarens inloggnings sida](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image12.png)<br />
 
-   När du har aktiverat hash-synkronisering av lösen ord: ![Screenshot som visar nya alternativ på inloggnings sidan för användare ](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
+   När du har aktiverat hash-synkronisering av lösen ord: ![skärm bild som visar nya alternativ på inloggnings sidan för användare](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
    
    > [!NOTE]
    > Från och med Azure AD Connect version 1.1.880.0 är kryss rutan **sömlös enkel inloggning** markerad som standard.
@@ -353,7 +353,7 @@ Använd det här alternativet om du inte ursprungligen konfigurerade de federera
 
 6. På sidan **klar att konfigurera** kontrollerar du att kryss rutan **starta synkroniseringen När konfigurationen är klar** är markerad. Välj sedan **Konfigurera**.
 
-   ![Screenshot som visar knappen Konfigurera på sidan redo att konfigureras ](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image15.png)<br />
+   ![skärm bild som visar knappen Konfigurera på sidan redo att konfigurera](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image15.png)<br />
    När du väljer knappen **Konfigurera konfigureras** sömlös SSO som anges i föregående steg. Konfigurationen av Password hash-synkroniseringen har inte ändrats eftersom den var aktive rad tidigare.
 
    > [!IMPORTANT]
@@ -382,7 +382,7 @@ Slutför konverteringen med hjälp av Azure AD PowerShell-modulen:
    Set-MsolDomainAuthentication -Authentication Managed -DomainName <domain name>
    ```
 
-3. I Azure AD-portalen väljer du **Azure Active Directory**  > **Azure AD Connect**.
+3. I Azure AD-portalen väljer du **Azure Active Directory** > **Azure AD Connect**.
 4. Kontrol lera att domänen har konverterats till hanterad genom att köra följande kommando:
 
    ``` PowerShell
@@ -400,7 +400,7 @@ När din klient använder federerade identiteter omdirigerades användarna från
 Testa hash-synkronisering av lösen ord:
 
 1. Öppna Internet Explorer i InPrivate-läge så att sömlös inloggning inte loggar in automatiskt.
-2. Gå till Office 365-inloggnings sidan ([ https://portal.office.com](https://portal.office.com/)).
+2. Gå till Office 365-inloggnings sidan ([https://portal.office.com](https://portal.office.com/)).
 3. Ange ett UPN för användare och välj sedan **Nästa**. Se till att du anger UPN för en hybrid användare som har synkroniserats från din lokala Active Directory-instans och som tidigare använde federerad autentisering. En sida där du anger användar namn och lösen ord visas:
 
    ![Skärm bild som visar inloggnings sidan där du anger ett användar namn](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image18.png)
@@ -417,8 +417,8 @@ Testa hash-synkronisering av lösen ord:
 1. Logga in på en domänansluten dator som är ansluten till företags nätverket.
 2. I Internet Explorer eller Chrome går du till någon av följande URL: er (Ersätt "contoso" med din domän):
 
-   * https: \/ \/myapps. microsoft.com/contoso.com
-   * https: \/ \/myapps. microsoft.com/contoso.onmicrosoft.com
+   * https:\/\/myapps.microsoft.com/contoso.com
+   * https:\/\/myapps.microsoft.com/contoso.onmicrosoft.com
 
    Användaren omdirigeras en kort stund till inloggnings sidan för Azure AD, som visar meddelandet "försöker logga in dig". Användaren behöver inte ange något användar namn eller lösen ord.<br />
 
@@ -455,7 +455,7 @@ Tidigare blockeras uppdateringar av **userPrincipalName** -attributet, som anvä
 
 Information om hur du kontrollerar eller aktiverar den här funktionen finns i [Synkronisera userPrincipalName-uppdateringar](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsyncservice-features).
 
-### <a name="troubleshooting"></a>Felsöka
+### <a name="troubleshooting"></a>Felsökning
 
 Support teamet bör förstå hur man felsöker autentiseringsproblem som uppstår under eller efter ändringen från federationen till hanterad. Använd följande fel söknings dokumentation för att hjälpa Support teamet att bekanta sig med de vanliga fel söknings stegen och lämpliga åtgärder som kan hjälpa till att isolera och lösa problemet.
 

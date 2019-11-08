@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d70812779d392cc4555c91599fad37c2d2c68ba5
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d5d621ec9eccca56c4e4e9075b6e9cca75c05c98
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793568"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818569"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Tjänst begränsningar i Azure Kognitiv sökning
 
@@ -49,15 +49,17 @@ De maximala gränserna för lagring, arbets belastningar och kvantiteter av inde
 | Resurs | Kostnadsfri | Basic-&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | Maximalt antal index |3 |5 eller 15 |50 |200 |200 |1 000 per partition eller 3 000 per tjänst |10 |10 |
-| Maximalt antal enkla fält per index |1 000 |100 |1 000 |1 000 |1 000 |1 000 |1 000 |1 000 |
+| Maximalt antal enkla fält per index |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
 | Maximalt antal komplexa samlings fält per index |40 |40 |40 |40 |40 |40 |40 |40 |
-| Maximalt antal element i alla komplexa samlingar per dokument |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
+| Maximalt antal element i alla komplexa samlingar per dokument&nbsp;<sup>2</sup> |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
 | Maximalt djup för komplexa fält |10 |10 |10 |10 |10 |10 |10 |10 |
 | Maximalt antal [förslag](https://docs.microsoft.com/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |1 |1 |
 | Maximala [bedömnings profiler](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |100 |100 |
 | Maximalt antal funktioner per profil |8 |8 |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> Basic-tjänster som skapats före december 2017 har lägre gränser (5 i stället för 15) för index. Basic-nivån är den enda SKU: n med en lägre gräns på 100 fält per index.
+
+<sup>2</sup> det finns ett mycket stort antal element i komplexa samlingar per dokument som för närvarande orsakar hög lagrings användning. Detta är ett känt problem. Under tiden är en gräns på 3000 en säker övre gräns för alla tjänst nivåer. Den här gränsen tillämpas endast för indexerings åtgärder som använder den tidigaste allmänt tillgängliga API-versionen (GA) som stöder komplexa typ fält (`2019-05-06`) och senare. Om du inte vill avbryta klienter som använder tidigare för hands versions-API-versioner (som stöder komplexa typ fält) kommer vi inte att genomdriva den här gränsen för indexerings åtgärder som använder dessa för hands versions API-versioner. Observera att för hands versions-API-versioner inte är avsedda att användas för produktions scenarier och vi rekommenderar att kunderna flyttar till den senaste GA API-versionen.
 
 <a name="document-limits"></a>
 
@@ -75,17 +77,17 @@ För att avgöra om din tjänst har dokument gränser, se användnings panelen p
 
 Om portalen anger en dokument gräns skapades tjänsten antingen före den senaste 2017, eller så skapades den i ett Data Center med hjälp av lägre kapacitets kluster för att vara värd för Azure Kognitiv sökning Services:
 
-+ Australien, östra
-+ Asien, östra
++ Östra Australien
++ Östasien
 + Indien, centrala
-+ Japan, västra
-+ USA, västra centrala
++ Västra Japan
++ Västra centrala USA
 
 För tjänster som omfattas av dokument gränser gäller följande gräns värden:
 
 |  Kostnadsfri | Basic | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
-|  10 000 |1 @ no__t_0_ miljoner |15 miljoner per partition eller 180 miljoner per tjänst |60 miljoner per partition eller 720 miljoner per tjänst |120 miljoner per partition eller 1,4 miljarder per tjänst |1 miljon per index eller 200 miljoner per partition |
+|  10 000 |1&nbsp;miljon |15 miljoner per partition eller 180 miljoner per tjänst |60 miljoner per partition eller 720 miljoner per tjänst |120 miljoner per partition eller 1,4 miljarder per tjänst |1 miljon per index eller 200 miljoner per partition |
 
 Om tjänsten har gränser som blockerar dig skapar du en ny tjänst och publicerar sedan om allt innehåll till den tjänsten. Det finns ingen mekanism för att sömlöst etablera tjänsten på ny maskin vara i bakgrunden.
 
@@ -108,15 +110,15 @@ Maximal körnings tid finns för att ge balans och stabilitet till tjänsten som
 
 | Resurs | Kostnads fri&nbsp;<sup>1</sup> | Grundläggande&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
-| Maximalt antal indexerare |3 |5 eller 15|50 |200 |200 |Gäller inte |10 |10 |
-| Maximalt antal datakällor |3 |5 eller 15 |50 |200 |200 |Gäller inte |10 |10 |
-| Maximalt färdighetsuppsättningar <sup>4</sup> |3 |5 eller 15 |50 |200 |200 |Gäller inte |10 |10 |
-| Maximal indexerings belastning per anrop |10 000 dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Gäller inte |Obegränsat |Obegränsat |
+| Maximalt antal indexerare |3 |5 eller 15|50 |200 |200 |Saknas |10 |10 |
+| Maximalt antal datakällor |3 |5 eller 15 |50 |200 |200 |Saknas |10 |10 |
+| Maximalt färdighetsuppsättningar <sup>4</sup> |3 |5 eller 15 |50 |200 |200 |Saknas |10 |10 |
+| Maximal indexerings belastning per anrop |10 000 dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Saknas |Obegränsad |Obegränsad |
 | Lägsta schema | 5 minuter |5 minuter |5 minuter |5 minuter |5 minuter |5 minuter |5 minuter | 5 minuter |
-| Maximal kör tid <sup>5</sup> | 1-3 minuter |24 timmar |24 timmar |24 timmar |24 timmar |Gäller inte  |24 timmar |24 timmar |
-| Maximal kör tid för kognitiv sökning färdighetsuppsättningar eller BLOB-indexering med bild analys <sup>5</sup> | 3-10 minuter |2 timmar |2 timmar |2 timmar |2 timmar |Gäller inte  |2 timmar |2 timmar |
-| BLOB-indexerare: maximal BLOB-storlek, MB |16 |16 |128 |256 |256 |Gäller inte  |256 |256 |
-| BLOB-indexerare: maximalt antal tecken för innehåll som extraherats från en BLOB |32 000 |64 000 |4 @ no__t_0_ miljoner |4 @ no__t_0_ miljoner |4 @ no__t_0_ miljoner |Gäller inte |4 @ no__t_0_ miljoner |4 @ no__t_0_ miljoner |
+| Maximal kör tid <sup>5</sup> | 1-3 minuter |24 timmar |24 timmar |24 timmar |24 timmar |Saknas  |24 timmar |24 timmar |
+| Maximal kör tid för kognitiv sökning färdighetsuppsättningar eller BLOB-indexering med bild analys <sup>5</sup> | 3-10 minuter |2 timmar |2 timmar |2 timmar |2 timmar |Saknas  |2 timmar |2 timmar |
+| BLOB-indexerare: maximal BLOB-storlek, MB |16 |16 |128 |256 |256 |Saknas  |256 |256 |
+| BLOB-indexerare: maximalt antal tecken för innehåll som extraherats från en BLOB |32 000 |64 000 |4&nbsp;miljon |4&nbsp;miljon |4&nbsp;miljon |Saknas |4&nbsp;miljon |4&nbsp;miljon |
 
 <sup>1</sup> kostnads fria tjänster har indexeraren maximal körnings tid på 3 minuter för BLOB-källor och 1 minut för alla andra data källor. För AI-indexering som anropar Cognitive Services är kostnads fria tjänster begränsade till 20 kostnads fria transaktioner per dag, där en transaktion definieras som ett dokument som passerar genom anriknings pipelinen.
 
@@ -127,6 +129,9 @@ Maximal körnings tid finns för att ge balans och stabilitet till tjänsten som
 <sup>4</sup> maximalt 30 kunskaper per färdigheter.
 
 <sup>5</sup> kognitiv sökning arbets belastningar och bild analys i Azure Blob-indexering har kortare körnings tider än vanlig text indexering. Bild analys och naturlig språk bearbetning är i beräknings intensiva och använder oproportionerliga mängder tillgängliga processor kraft. Körnings tiden sänktes för att ge andra jobb i kön en möjlighet att köra.  
+
+> [!NOTE]
+> Som det anges i [index gränser](#index-limits), upprätthåller indexerarna också den övre gränsen på 3000 element i alla komplexa samlingar per dokument som börjar med den senaste ga API-versionen som stöder komplexa typer (`2019-05-06`) och senare. Det innebär att om du har skapat din indexerare med en tidigare API-version kommer du inte att omfattas av den här gränsen. För att bevara maximal kompatibilitet kommer en indexerare som har skapats med en tidigare API-version och sedan uppdaterats med en API-version `2019-05-06` eller senare fortfarande att **undantas** från gränserna. Kunderna bör vara medvetna om den negativa effekten av att ha mycket stora komplexa samlingar (som tidigare nämnts) och vi rekommenderar starkt att du skapar alla nya indexerare med den senaste GA API-versionen.
 
 ## <a name="synonym-limits"></a>Synonym gränser
 

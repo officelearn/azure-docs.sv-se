@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory villkorlig åtkomst vanliga frågor och svar | Microsoft Docs
+title: Azure Active Directory vanliga frågor och svar om villkorlig åtkomst | Microsoft Docs
 description: Få svar på vanliga frågor om villkorlig åtkomst i Azure Active Directory.
 services: active-directory
 ms.service: active-directory
@@ -11,51 +11,51 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad0494868c494b488a238a81e504c58552813907
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: b2cc562f155fe3b84e5d28b2e0e22d50238d480c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508985"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816218"
 ---
-# <a name="azure-active-directory-conditional-access-faqs"></a>Villkorlig åtkomst vanliga frågor och svar för Azure Active Directory
+# <a name="azure-active-directory-conditional-access-faqs"></a>Vanliga frågor om villkorlig åtkomst för Azure Active Directory
 
 ## <a name="which-applications-work-with-conditional-access-policies"></a>Vilka program fungerar med principer för villkorlig åtkomst?
 
-Information om program som fungerar med principer för villkorlig åtkomst finns i [program och webbläsare som använder regler för villkorlig åtkomst i Azure Active Directory](technical-reference.md).
+Information om program som fungerar med principer för villkorlig åtkomst finns i [program och webbläsare som använder villkorliga åtkomst regler i Azure Active Directory](technical-reference.md).
 
-## <a name="are-conditional-access-policies-enforced-for-b2b-collaboration-and-guest-users"></a>Upprätthålls principer för villkorlig åtkomst för B2B-samarbete och gästanvändare?
+## <a name="are-conditional-access-policies-enforced-for-b2b-collaboration-and-guest-users"></a>Tillämpas principer för villkorlig åtkomst för B2B-samarbete och gäst användare?
 
-Principer tillämpas för business-to-business (B2B) samarbete användare. Men i vissa fall kan kanske en användare inte uppfyller principkraven. En gästanvändare organisation kan till exempel inte stöd för multifaktorautentisering. 
+Principer tillämpas för samarbets användare för företag till företag (B2B). Men i vissa fall kanske en användare inte kan uppfylla princip kraven. Till exempel kanske en gäst användares organisation inte stöder Multi-Factor Authentication. 
 
-## <a name="does-a-sharepoint-online-policy-also-apply-to-onedrive-for-business"></a>Gäller en princip för SharePoint Online också för OneDrive för företag?
+## <a name="does-a-sharepoint-online-policy-also-apply-to-onedrive-for-business"></a>Gäller även en SharePoint Online-princip för OneDrive för företag?
 
-Ja. En SharePoint Online-principen gäller även för OneDrive för företag.
+Ja. En SharePoint Online-princip gäller även för OneDrive för företag.
 
-## <a name="why-cant-i-set-a-policy-on-client-apps-like-word-or-outlook"></a>Varför kan jag ange principer för klientappar som Word och Outlook?
+## <a name="why-cant-i-set-a-policy-directly-on-client-apps-like-word-or-outlook"></a>Varför kan jag inte ange en princip direkt på klient program, som Word eller Outlook?
 
-En villkorlig åtkomstprincip anger krav för åtkomst till en tjänst. Den ska tillämpas när sker autentiseringen till den tjänsten. Principen har inte angetts direkt på ett klientprogram. I stället tillämpas när en klient anropar en tjänst. En princip som angetts SharePoint gäller exempelvis för klienter som anropar SharePoint. En princip som angetts Exchange gäller för Outlook.
+En princip för villkorlig åtkomst anger krav för åtkomst till en tjänst. Den används när autentiseringen till den tjänsten sker. Principen har inte ställts in direkt på ett klient program. I stället tillämpas den när en klient anropar en tjänst. En princip uppsättning i SharePoint gäller till exempel klienter som anropar SharePoint. En princip som har angetts för Exchange gäller för Outlook.
 
-## <a name="does-a-conditional-access-policy-apply-to-service-accounts"></a>Gäller principer för villkorlig åtkomst för tjänstkonton?
+## <a name="does-a-conditional-access-policy-apply-to-service-accounts"></a>Gäller en princip för villkorlig åtkomst för tjänst konton?
 
-Principer för villkorlig åtkomst gäller för alla användarkonton. Detta innefattar användarkonton som används som tjänstkonton. Ofta inte kan ett tjänstkonto som kör obevakad uppfylla kraven i en princip för villkorlig åtkomst. Till exempel kan multifaktorautentisering krävas. Service-konton kan uteslutas från en princip med hjälp av villkorlig åtkomst principinställningarna för hantering. 
+Principer för villkorlig åtkomst gäller för alla användar konton. Detta inkluderar användar konton som används som tjänst konton. Ett tjänst konto som körs obevakat kan ofta inte uppfylla kraven för en princip för villkorlig åtkomst. Till exempel kan Multi-Factor Authentication krävas. Tjänst konton kan uteslutas från en princip med hjälp av princip hanterings inställningar för villkorlig åtkomst. 
 
 ## <a name="are-graph-apis-available-for-configuring-conditional-access-policies"></a>Är Graph API: er tillgängliga för att konfigurera principer för villkorlig åtkomst?
 
-Inte för närvarande. 
+För närvarande, nej. 
 
-## <a name="what-is-the-default-exclusion-policy-for-unsupported-device-platforms"></a>Vad är standard undantagsprincipen för plattformar som inte stöds enheter?
+## <a name="what-is-the-default-exclusion-policy-for-unsupported-device-platforms"></a>Vad är standard principen för undantag för enhets plattformar som inte stöds?
 
-För närvarande kan tillämpas selektivt principer för villkorlig åtkomst för användare av iOS- och Android-enheter. Program på andra plattformar för enheter, som standard inte påverkas av principen för villkorlig åtkomst för iOS och Android-enheter. Klientorganisationens administratör kan välja att åsidosätta den globala principen att neka åtkomst till användare på plattformar som inte stöds.
+Principer för villkorlig åtkomst tillämpas för närvarande selektivt på användare av iOS-och Android-enheter. Program på andra plattformar är som standard inte påverkade av principen för villkorlig åtkomst för iOS-och Android-enheter. En klient administratör kan välja att åsidosätta den globala principen för att neka åtkomst till användare på plattformar som inte stöds.
 
 ## <a name="how-do-conditional-access-policies-work-for-microsoft-teams"></a>Hur fungerar principer för villkorlig åtkomst för Microsoft Teams?
 
-Microsoft Teams förlitar sig kraftigt på Exchange Online och SharePoint Online för core produktivitet lösningar, till exempel möten, kalendrar och fildelning. Principer för villkorlig åtkomst som har angetts för de här molnapparna gäller för Microsoft Teams när en användare loggar direkt i Microsoft Teams.
+Microsoft Teams är mycket beroende av Exchange Online och SharePoint Online för grundläggande produktivitets scenarier, som möten, kalendrar och fildelning. Principer för villkorlig åtkomst som anges för dessa molnappar gäller för Microsoft Teams när en användare loggar in direkt i Microsoft Teams.
 
-Microsoft Teams kan också användas separat som en cloud-app i Azure Active Directory villkorliga åtkomstprinciper. Principer för villkorlig åtkomst som har angetts för en molnapp gäller för Microsoft Teams när en användare loggar in. Men utan rätt principer på andra appar som Exchange Online och SharePoint Online kan användare fortfarande att kunna komma åt dessa resurser direkt.
+Microsoft Teams stöds också separat som en molnbaserad app i Azure Active Directory principer för villkorlig åtkomst. Principer för villkorlig åtkomst som anges för en molnbaserad app gäller för Microsoft Teams när en användare loggar in. Men utan rätt principer för andra appar som Exchange Online-och SharePoint Online-användare kan fortfarande komma åt resurserna direkt.
 
-Microsoft Teams stationära klienter för Windows och Mac stöd för modern autentisering. Modern autentisering skapar stöd för inloggning baserat på de Azure Active Directory Authentication Library (ADAL) till Microsoft Office-program mellan plattformar.
+Microsoft team Desktop-klienter för Windows och Mac stöder modern autentisering. Modern autentisering ger inloggning baserat på Azure Active Directory Authentication Library (ADAL) för att Microsoft Office klient program på olika plattformar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- För att konfigurera principer för villkorlig åtkomst för din miljö, se den [bästa praxis för villkorlig åtkomst i Azure Active Directory](best-practices.md). 
+- Information om hur du konfigurerar principer för villkorlig åtkomst för din miljö finns i [metod tips för villkorlig åtkomst i Azure Active Directory](best-practices.md). 

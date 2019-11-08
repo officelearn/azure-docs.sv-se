@@ -4,15 +4,16 @@ description: Översikt över hur du spårar kund användning för Azure Marketpl
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 9/23/2019
 ms.author: pabutler
-ms.openlocfilehash: c077b93b887482dda5ae127bb3dbaec71b2ea11b
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: c84f5538d2f553a713b52aa795a10acddac9aff8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260088"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819893"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Spårning av kundanvändning för Azure-partner
 
@@ -22,9 +23,9 @@ Nu erbjuder Microsoft en metod för att hjälpa våra partner att bättre spåra
 
 Som Microsoft-partner kan du associera Azure-användning med alla Azure-resurser som du etablerar för en kunds räkning. Du kan skapa kopplingen via Azure Marketplace, snabb starts databasen, privata GitHub-lagringsplatser och en-till-ett-kund engagemang. Kund användnings behörighet stöder tre distributions alternativ:
 
-- Azure Resource Manager mallar: Partner kan använda Resource Manager-mallar för att distribuera Azure-tjänster för att köra partnerns program vara. Partner kan skapa en Resource Manager-mall för att definiera infrastrukturen och konfigurationen för deras Azure-lösning. Med en Resource Manager-mall kan du och dina kunder distribuera din lösning under hela livs cykeln. Du kan vara säker på att dina resurser distribueras i ett konsekvent tillstånd.
-- Azure Resource Manager-API: er: Partner kan anropa Resource Manager-API: erna direkt för att distribuera en Resource Manager-mall eller generera API-anrop för att direkt etablera Azure-tjänster.
-- Terraform Partner kan använda Cloud Orchestrator, till exempel terraform, för att distribuera en Resource Manager-mall eller Distribuera Azure-tjänster direkt.
+- Azure Resource Manager mallar: partner kan använda Resource Manager-mallar för att distribuera Azure-tjänster för att köra partnerns program vara. Partner kan skapa en Resource Manager-mall för att definiera infrastrukturen och konfigurationen för deras Azure-lösning. Med en Resource Manager-mall kan du och dina kunder distribuera din lösning under hela livs cykeln. Du kan vara säker på att dina resurser distribueras i ett konsekvent tillstånd.
+- Azure Resource Manager API: er kan anropa Resource Manager-API: er direkt för att distribuera en Resource Manager-mall eller generera API-anrop för att direkt etablera Azure-tjänster.
+- Terraform: partner kan använda Cloud Orchestrator, till exempel terraform, för att distribuera en Resource Manager-mall eller Distribuera Azure-tjänster direkt.
 
 Kund användnings behörighet är för ny distribution och stöder inte taggning av befintliga resurser som redan har distribuerats.
 
@@ -33,14 +34,14 @@ Kund användnings behörighet krävs på [Azure Application](https://docs.micros
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="use-resource-manager-templates"></a>Använda Resource Manager-mallar
+## <a name="use-resource-manager-templates"></a>Använd mallar för resurshanteraren
 Många partner lösningar distribueras på en kunds prenumeration med hjälp av Resource Manager-mallar. Om du har en Resource Manager-mall som är tillgänglig på Azure Marketplace, på GitHub eller som en snabb start, ska processen för att ändra din mall för att aktivera kund användnings behörighet vara rak framåt.
 
 Mer information om hur du skapar och publicerar Solution-mallar finns i
 
 * [Skapa och distribuera din första Resource Manager-mall](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 * [Azure Application erbjudande](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer).
-* Video: [Skapa Solution-mallar och hanterade program för Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
+* Video: [skapa Solution-mallar och hanterade program för Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
 
 ## <a name="add-a-guid-to-your-template"></a>Lägg till ett GUID i mallen
@@ -99,7 +100,7 @@ Om du vill aktivera kund användnings behörighet ska du inkludera ett GUID i an
 > [!Note]
 > Strängens format är viktigt. Om **PID-** prefixet inte ingår är det inte möjligt att fråga efter data. Olika SDK: er spårar på olika sätt. Om du vill implementera den här metoden granskar du support-och spårnings metoden för din önskade Azure SDK.
 
-#### <a name="example-the-python-sdk"></a>Exempel: Python SDK
+#### <a name="example-the-python-sdk"></a>Exempel: python SDK
 
 För python använder du **config** -attributet. Du kan bara lägga till attributet i en UserAgent. Här är ett exempel:
 
@@ -118,7 +119,7 @@ Om du distribuerar resurser via Azure PowerShell lägger du till ditt GUID med h
 
 #### <a name="tag-a-deployment-by-using-the-azure-cli"></a>Tagga en distribution med hjälp av Azure CLI
 
-När du använder Azure CLI för att lägga till ditt GUID, ställer du in miljövariabeln **AZURE_HTTP_USER_AGENT** . Du kan ange den här variabeln inom omfånget för ett skript. Du kan också ställa in variabeln globalt för Shell-omfång:
+När du använder Azure CLI för att lägga till ditt GUID, anger du **AZURE_HTTP_USER_AGENT** -miljövariabeln. Du kan ange den här variabeln inom omfånget för ett skript. Du kan också ställa in variabeln globalt för Shell-omfång:
 
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
@@ -129,7 +130,7 @@ Mer information finns i [Azure SDK för go](https://docs.microsoft.com/azure/go/
 
 Support för terraform är tillgängligt via Azure providers 1.21.0-utgåva: [https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019).  Detta stöd gäller alla partner som distribuerar sin lösning via terraform, och alla resurser som distribueras och mäts av Azure-providern (version 1.21.0 eller senare).
 
-Azure-providern för terraform har lagt till ett nytt valfritt fält med namnet [*partner_id*](https://www.terraform.io/docs/providers/azurerm/#partner_id) , där du kan ange det spårnings-GUID som du använder för din lösning. Värdet för det här fältet kan också hämtas från miljövariabeln *ARM_PARTNER_ID* .
+Azure-providern för terraform har lagt till ett nytt valfritt fält med namnet [*partner_id*](https://www.terraform.io/docs/providers/azurerm/#partner_id) vilket är där du anger det spårnings-GUID som du använder för din lösning. Värdet för det här fältet kan också hämtas från *ARM_PARTNER_ID* -miljövariabeln.
 
 ```
 provider "azurerm" {
@@ -137,7 +138,7 @@ provider "azurerm" {
           client_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
           ……
           # new stuff for ISV attribution
-          partner_id = “xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}
+          partner_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}
 ```
 Partner som vill få sin distribution via terraform som spåras av kund användnings behörighet måste göra följande:
 
@@ -240,21 +241,21 @@ Välj spårad mall i list rutan över partner associerings typ för att visa rap
 
 ## <a name="notify-your-customers"></a>Meddela kunderna
 
-Partner bör informera sina kunder om distributioner som använder sig av kund användnings behörighet. Microsoft rapporterar Azure-användningen som är kopplad till dessa distributioner till partnern. Följande exempel innehåller innehåll som du kan använda för att meddela dina kunder om dessa distributioner. I exemplen ersätter \<du partner > med ditt företags namn. Partner bör se till att meddelandet överensstämmer med sina principer för data sekretess och insamling, inklusive alternativ för kunder som ska undantas från spårning.
+Partner bör informera sina kunder om distributioner som använder sig av kund användnings behörighet. Microsoft rapporterar Azure-användningen som är kopplad till dessa distributioner till partnern. Följande exempel innehåller innehåll som du kan använda för att meddela dina kunder om dessa distributioner. I exemplen ersätter du \<PARTNER > med företagets namn. Partner bör se till att meddelandet överensstämmer med sina principer för data sekretess och insamling, inklusive alternativ för kunder som ska undantas från spårning.
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Meddelande för distributioner av Resource Manager-mallar
 
-När du distribuerar den här mallen kan Microsoft identifiera installationen av \<partner > program vara med de Azure-resurser som distribueras. Microsoft kan korrelera de Azure-resurser som används för att stödja program varan. Microsoft samlar in den här informationen för att ge bästa möjliga upplevelse av sina produkter och för att driva verksamheten. Data samlas in och regleras av Microsofts sekretess principer, som du hittar på https://www.microsoft.com/trustcenter.
+När du distribuerar den här mallen kan Microsoft identifiera installationen av \<PARTNER > program vara med de Azure-resurser som distribueras. Microsoft kan korrelera de Azure-resurser som används för att stödja program varan. Microsoft samlar in den här informationen för att ge bästa möjliga upplevelse av sina produkter och för att driva verksamheten. Data samlas in och regleras av Microsofts sekretess principer, som du hittar på https://www.microsoft.com/trustcenter.
 
 ### <a name="notification-for-sdk-or-api-deployments"></a>Meddelande om SDK-eller API-distributioner
 
-När du distribuerar \<partner >-programvara kan Microsoft identifiera installationen av \<partner > program vara med de Azure-resurser som distribueras. Microsoft kan korrelera de Azure-resurser som används för att stödja program varan. Microsoft samlar in den här informationen för att ge bästa möjliga upplevelse av sina produkter och för att driva verksamheten. Data samlas in och regleras av Microsofts sekretess principer, som du hittar på https://www.microsoft.com/trustcenter.
+När du distribuerar \<PARTNER > program vara kan Microsoft identifiera installationen av \<PARTNER > program vara med de Azure-resurser som distribueras. Microsoft kan korrelera de Azure-resurser som används för att stödja program varan. Microsoft samlar in den här informationen för att ge bästa möjliga upplevelse av sina produkter och för att driva verksamheten. Data samlas in och regleras av Microsofts sekretess principer, som du hittar på https://www.microsoft.com/trustcenter.
 
 ## <a name="get-support"></a>Få support
 
 Det finns två Support kanaler beroende på de problem som du är riktad mot.
 
-Om du stöter på problem i partner centret, t. ex. genom att se rapport om kund användning eller logga in, kan du skapa en support förfrågan med support teamet för partner Center här:[https://partner.microsoft.com/support](https://partner.microsoft.com/support)
+Om du stöter på problem i partner centret, t. ex. genom att se rapport om kund användning eller logga in, kan du skapa en support förfrågan med support teamet för partner Center här: [https://partner.microsoft.com/support](https://partner.microsoft.com/support)
 
 ![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
@@ -262,7 +263,7 @@ Om du behöver hjälp med att registrera dig för Marketplace och/eller kund anv
 
 1. Gå till [support Sidan](https://go.microsoft.com/fwlink/?linkid=844975).
 
-1. Välj **Marketplace**-onboarding under **problem typ**.
+1. Välj **Marketplace-onboarding**under **problem typ**.
 
 1. Välj **kategori** för ditt problem:
 
@@ -297,9 +298,9 @@ Du kan också få teknisk vägledning från en Microsoft-partner teknisk konsult
     * Ange en rubrik och en beskrivning av problemet (ange så mycket information som möjligt).
 1. Klicka på Skicka
 
-Visa steg-för-steg-instruktioner med skärm [https://aka.ms/TechConsultInstructions](https://aka.ms/TechConsultInstructions)dum par på.
+Visa steg-för-steg-instruktioner med skärm dum par på [https://aka.ms/TechConsultInstructions](https://aka.ms/TechConsultInstructions).
 
-### <a name="whats-next"></a>Vad händer härnäst?
+### <a name="whats-next"></a>Nästa steg
 
 Du kommer att kontaktas av en teknisk konsult från Microsoft-partner för att skapa ett samtal för att tillgodose dina behov.
 
@@ -331,7 +332,7 @@ Azure Storages formulär för GUID-Generator garanterar att ett GUID för det be
 
 **Kan jag använda en privat, anpassad VHD för en lösnings mal len-erbjudande på Azure Marketplace?**
 
-Nej, du kan inte. Avbildningen av den virtuella datorn måste komma från Azure Marketplace, se [https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines):.
+Nej, du kan inte. Avbildningen av den virtuella datorn måste komma från Azure Marketplace, se: [https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines).
 
 Du kan skapa ett virtuellt dator erbjudande i Marketplace med din anpassade virtuella hård disk och markera det som privat så att ingen kan se den. Referera till den här virtuella datorn i din lösnings mall.
 

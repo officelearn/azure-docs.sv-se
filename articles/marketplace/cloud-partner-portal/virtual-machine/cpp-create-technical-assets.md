@@ -4,22 +4,23 @@ description: Förklarar hur du skapar tekniska till gångar för ett erbjudande 
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: pabutler
-ms.openlocfilehash: c1ef00f846dfad76629b0603ab79fba17249417c
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 45d0ff5b7b3fea1566b13b61bd01cc17da61e4b3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "71224527"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824518"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Skapa tekniska till gångar för ett erbjudande för virtuell dator
 
 Det här avsnittet beskriver hur du skapar och konfigurerar tekniska till gångar för ett erbjudande för virtuella datorer (VM) för Azure Marketplace.  En virtuell dator innehåller två komponenter: den virtuella hård disken för lösningen (VHD) och valfria associerade data diskar.  
 
 - *Virtuella hård diskar (VHD: er)* , som innehåller operativ systemet och din lösning, som du ska distribuera med ditt Azure Marketplace-erbjudande. Processen för att förbereda den virtuella hård disken varierar beroende på om det är en Linux-baserad, Windows-baserad eller en anpassad virtuell dator.
-- *Data diskar* representerar dedikerad, beständig lagring för en virtuell dator. Använd *inte* den virtuella hård disk lösningen (till exempel `C:` enheten) för att lagra beständig information.
+- *Data diskar* representerar dedikerad, beständig lagring för en virtuell dator. Använd *inte* den virtuella hård disk lösningen (till exempel den `C:` enheten) för att lagra beständig information.
 
 En avbildning av en virtuell dator innehåller en operativ system disk och noll eller flera data diskar. En virtuell hård disk krävs per disk. Även tomma data diskar kräver att en virtuell hård disk skapas.
 Du måste konfigurera VM-OS, storleken på den virtuella datorn, portar som ska öppnas och upp till 15 anslutna data diskar.
@@ -52,9 +53,9 @@ Dessutom rekommenderar vi att du lägger till följande verktyg i utvecklings mi
 
 -   [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 -   [Visual Studio Code](https://code.visualstudio.com/)
-    *   Utöka [Azure Resource Manager verktyg](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
-    *   Utöka [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
-    *   Utöka [Prettify-JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
+    *   Tillägg: [Azure Resource Manager verktyg](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+    *   Tillägg: [beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
+    *   Tillägg: [PRETTIFY JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
 Vi rekommenderar också att du går igenom de tillgängliga verktygen på [Azure utvecklarverktyg](https://azure.microsoft.com/tools/) -sidan och, om du använder Visual Studio, [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 

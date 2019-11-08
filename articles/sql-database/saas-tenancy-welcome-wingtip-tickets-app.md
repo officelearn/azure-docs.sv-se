@@ -1,5 +1,5 @@
 ---
-title: 'Välkommen till wingtips app-Azure SQL Database '
+title: Välkommen till wingtips-appen
 description: Lär dig mer om databasernas innehavande modeller, och om exempel på wingtips SaaS-program, för Azure SQL Database i moln miljön.
 keywords: sql database tutorial
 services: sql-database
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 01/25/2019
-ms.openlocfilehash: 6b8cb9bed2f5fdd0b246e73c84731081d0f2e41e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4e0b3afe51ac7c7a6b9213fcee79af57cbbd8197
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691834"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818322"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Wingtip Ticket SaaS-program
 

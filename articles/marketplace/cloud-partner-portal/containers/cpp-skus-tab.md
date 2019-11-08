@@ -1,76 +1,77 @@
 ---
-title: 'SKU: er för en avbildning i Azure-behållare | Azure Marketplace'
+title: 'SKU: er för en Azure Container-avbildning | Azure Marketplace'
 description: 'Konfigurera SKU: er för en Azure-behållare.'
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
-ms.openlocfilehash: 6953329bfabe99fc4bb28f2494cb412ba9cbbba0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5b69eea8ad7fd4c62925b50434b653118890e280
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942918"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823152"
 ---
-# <a name="container-skus-tab"></a>Fliken för behållaren SKU: er
+# <a name="container-skus-tab"></a>Fliken container-SKU: er
 
-Den **SKU: er** fliken den **nytt erbjudande** sidan kan du skapa en eller flera SKU: er och koppla dem till din nya erbjudandet.  Du kan använda olika SKU: er för att skilja mellan en lösning av funktioner, faktureringsmodellerna eller andra egenskaper.
+På fliken **SKU: er** på sidan **ny erbjudande** kan du skapa en eller flera SKU: er och koppla dem till ditt nya erbjudande.  Du kan använda olika SKU: er för att särskilja en lösning med hjälp av funktions uppsättningar, fakturerings modeller eller andra egenskaper.
 
 ## <a name="sku-settings"></a>SKU-inställningar
 
-När du börjar skapa ett nytt erbjudande, det är inte alla SKU: er som är kopplad till erbjudandet. Följ dessa steg om du vill skapa en ny SKU:
+När du börjar skapa ett nytt erbjudande finns det inga SKU: er kopplade till erbjudandet. Följ dessa steg om du vill skapa en ny SKU:
 
-1. Välj fliken SKU: er **nya SKU: N**
+1. På fliken SKU: er väljer du **ny SKU**
 
-   ![Nya SKU-fråga](./media/containers-sku-settings.png)
+   ![Ny SKU-prompt](./media/containers-sku-settings.png)
 
-2. Ange nödvändig information för SKU: N och behållare. Varje SKU motsvarar en behållaravbildning. Det finns två delar till en SKU:
+2. Ange nödvändig SKU och behållar information. Varje SKU motsvarar en behållar avbildning. Det finns två delar i en SKU:
 
     -   SKU-metadata
-    -   Behållare för metadata
+    -   Metadata för behållare
 
 
 ### <a name="sku-metadata"></a>SKU-metadata
 
-SKU-metadata innehåller storefront visningsinformation container-lista.
+SKU-metadata innehåller butik visar information om behållar listan.
 
 ![SKU-metadata](./media/containers-sku-details.png)
 
 
-### <a name="container-metadata"></a>Behållare för metadata
+### <a name="container-metadata"></a>Metadata för behållare
 
-Behållare-metadata innehåller referensinformation om din lagringsplats avbildningsinformation i Azure Container Registry (ACR). Azure Marketplace kopierar den här avbildningen till ett Marketplace-specifika, offentliga register och sedan gör avbildningen tillgängliga för kunder efter certifiering. Från Marketplace-offentligt register, inte ACR hanteras alla förfrågningar från Azure-användare att använda en behållaravbildning för Azure Marketplace.
+Behållar-metadata innehåller referensinformation om avbildnings lagrings informationen i Azure Container Registry (ACR). Azure Marketplace kopierar avbildningen till ett Marketplace-särskilt offentligt register och gör avbildningen tillgänglig för kunder efter certifiering. Alla förfrågningar från Azure-användaren att använda en behållar avbildning för Azure Marketplace hanteras från Marketplace: s offentliga register, inte ACR.
 
-![Behållare för metadata](./media/containers-image-repository.png)
+![Metadata för behållare](./media/containers-image-repository.png)
     
-Den **Avbildningsdetaljerna som databasen** i den föregående skärmbilden avbildning innehåller följande fält.  Required fields are indicted by an asterisk (*).
+**Avbildnings lagrings informationen** i föregående skärm bild innehåller följande fält.  Obligatoriska fält förutsägs av en asterisk (*).
 
--   **Prenumerations-ID\***  -prenumerations-ID för Azure där i ACR förekommer.
--   **Resursgruppens namn\***  -resursgruppens namn för ACR.
--   **Registernamn\***  -namnet på ACR.
--   **Namnet på lagringsplatsen\***  -namnet på lagringsplatsen. Det här värdet kan inte ändras när du har angett det här namnet. Använd ett unikt namn för att undvika en konflikt med andra erbjudanden i ditt konto.
--   **Användarnamn\***  -användarnamn (administratörsanvändarnamn) kopplade till ACR-avbildningen.
--   **Lösenordet\***  -lösenordet som associeras med ACR-avbildning.
+-   **Prenumerations-id\*** -det ID för Azure-prenumeration där ACR finns.
+-   **Resurs grupp namn\*** – resurs gruppens namn för ACR.
+-   **Register namn\*** -ACR namn.
+-   **Namn på databas\*** – lagrings platsens namn. Det här värdet kan inte ändras när det här namnet har angetts. Använd ett unikt namn för att undvika konflikter med andra erbjudanden i ditt konto.
+-   **Användar namn\*** -det användar namn (admin-användarnamn) som är associerat med ACR-avbildningen.
+-   **Lösen ord\*** – lösen ordet som är kopplat till ACR-avbildningen.
 
     >[!NOTE]
-    >Det användarnamn och lösenord krävs för att se till att partner har åtkomst till ACR som nämns i publiceringsprocessen.
+    >Användar namn och lösen ord krävs för att säkerställa att partners har åtkomst till de ACR som anges i publicerings processen.
 
 
 ### <a name="image-version"></a>Bildversion
 
-När du publicerar en behållaravbildning, du kan ange en eller flera taggar och SHA Överför sammanfattningar.
+När du publicerar en behållar avbildning kan du ange en eller flera avbildnings Taggar och SHA-sammandrag.
 
-**Bild-taggen\* eller sammanfattad**
+**Bildtagg\* eller sammandrag**
  
-- Den här tagg- eller måste innehålla en `latest` tagg och en tagg för version (till exempel att starta med `xx.xx.xx-` där xx är ett tal). De ska vara [manifest taggar](https://github.com/estesp/manifest-tool) till når flera plattformar. Alla taggar som refereras till av en manifest tagg måste också läggas till så att vi kan ladda upp dem. 
-- Du kan lägga till flera versioner av behållaren med hjälp av taggar. Alla manifest taggar (utom `latest`) måste börja med antingen `X.Y-` eller `X.Y.Z-` där X, Y, Z är heltal. <br/> Till exempel om en `latest` tagga pekar `1.0.1-linux-x64`, `1.0.1-linux-arm32`, och `1.0.1-windows-arm32`, dessa taggar måste läggas till här.
+- Den här taggen eller sammanfattningen måste innehålla en `latest`-tagg och en versions tagg (till exempel från och med `xx.xx.xx-` där xx är ett tal). De bör vara [manifest-Taggar](https://github.com/estesp/manifest-tool) för att rikta in sig på flera plattformar. Alla Taggar som en manifest tag refererar till måste också läggas till så att vi kan ladda upp dem. 
+- Du kan lägga till flera versioner av behållare med hjälp av taggar. Alla manifest Taggar (utom `latest`) måste börja med antingen `X.Y-` eller `X.Y.Z-` där X, Y, Z är heltal. <br/> Om en `latest` tag till exempel pekar på `1.0.1-linux-x64`, `1.0.1-linux-arm32`och `1.0.1-windows-arm32`, måste dessa taggar läggas till här.
 
 >[!NOTE]
->Kom ihåg att lägga till en **testtagg** i avbildningen så att du kan identifiera avbildningen under testningen.
+>Kom ihåg att lägga till en **test-tagg** till din avbildning så att du kan identifiera avbildningen under testningen.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd den [Marketplace fliken](./cpp-marketplace-tab.md) att skapa en marketplace-beskrivning av erbjudandet. 
+Använd [fliken Marketplace](./cpp-marketplace-tab.md) för att skapa en Marketplace-beskrivning för ditt erbjudande. 

@@ -1,5 +1,5 @@
 ---
-title: Utökade händelser i SQL Database
+title: Utökade händelser
 description: Beskriver utökade händelser (XEvents) i Azure SQL Database och hur Event-sessioner skiljer sig något från Event-sessioner i Microsoft SQL Server.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: 64cfcd9451416a6eb35301268b285bd00cf0cad4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: cab5b5baf318eb9eadc398ce525e0de716d0df2d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686775"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822303"
 ---
 # <a name="extended-events-in-sql-database"></a>Utökade händelser i SQL Database
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -74,7 +74,7 @@ Relaterade ämnen innehåller två kod exempel:
 - **On Database** -satsen gäller även Transact-SQL-kommandon för att [ändra HÄNDELSESESSIONEN](https://msdn.microsoft.com/library/bb630368.aspx) och [släppa Event session](https://msdn.microsoft.com/library/bb630257.aspx) .
 
 
-- Ett bra tips är att inkludera alternativet **STARTUP_STATE = on** i sessionen för att skapa en **HÄNDELSESESSIONEN** eller **ändra Event-session** .
+- Ett bra tips är att inkludera alternativet för händelsesessionen för **STARTUP_STATE = på** i sessionen för att **skapa en händelse** eller **ändra Event-session** .
     - Värdet **= on** har stöd för automatisk omstart efter en omkonfiguration av den logiska databasen på grund av en redundansväxling.
 
 ## <a name="new-catalog-views"></a>Nya katalogvyer
@@ -97,23 +97,23 @@ Azure SQL Database har [dynamiska Management views (DMV: er)](https://msdn.micro
 
 | Namn på DMV | Beskrivning |
 |:--- |:--- |
-| **sys. DM-_xe_database_session_event_actions** |Returnerar information om Event session-åtgärder. |
-| **sys. DM-_xe_database_session_events** |Returnerar information om sessions händelser. |
-| **sys. DM-_xe_database_session_object_columns** |Visar konfigurations värden för objekt som är kopplade till en session. |
-| **sys. DM-_xe_database_session_targets** |Returnerar information om mål för sessioner. |
-| **sys. DM-_xe_database_sessions** |Returnerar en rad för varje händelsesessionen som är begränsad till den aktuella databasen. |
+| **sys. dm_xe_database_session_event_actions** |Returnerar information om Event session-åtgärder. |
+| **sys. dm_xe_database_session_events** |Returnerar information om sessions händelser. |
+| **sys. dm_xe_database_session_object_columns** |Visar konfigurations värden för objekt som är kopplade till en session. |
+| **sys. dm_xe_database_session_targets** |Returnerar information om mål för sessioner. |
+| **sys. dm_xe_database_sessions** |Returnerar en rad för varje händelsesessionen som är begränsad till den aktuella databasen. |
 
 I Microsoft SQL Server får liknande katalogfiler namn utan *\_databas* delen av namnet, t. ex.:
 
-- **sys. DM _xe_sessions**, i stället för namn<br/>**sys. DM _xe_database_sessions**.
+- **sys. dm_xe_sessions**, i stället för namn<br/>**sys. dm_xe_database_sessions**.
 
 ### <a name="dmvs-common-to-both"></a>DMV: er gemensamt för båda
 För utökade händelser finns det ytterligare DMV: er som är gemensamma för både Azure SQL Database och Microsoft SQL Server:
 
-- **sys. DM-_xe_map_values**
-- **sys. DM-_xe_object_columns**
-- **sys. DM-_xe_objects**
-- **sys. DM-_xe_packages**
+- **sys. dm_xe_map_values**
+- **sys. dm_xe_object_columns**
+- **sys. dm_xe_objects**
+- **sys. dm_xe_packages**
 
   <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
 
@@ -186,7 +186,7 @@ Om du får ett fel meddelande om att högsta mängd minne har verkställts kan d
 
 Målet för **händelse filen** kan påverka nätverks fördröjningen eller-felen och samtidigt spara data för att Azure Storage blobbar. Andra händelser i SQL Database kan bli fördröjda medan de väntar på att nätverkskommunikation ska slutföras. Den här fördröjningen kan sakta ner din arbets belastning.
 
-- Undvik den här prestanda risken genom att inte ange alternativet **EVENT_RETENTION_MODE** till **NO_EVENT_LOSS** i definitionerna för Event session.
+- Undvik den här prestanda risken genom att undvika att ange alternativet **EVENT_RETENTION_MODE** för att **NO_EVENT_LOSS** i Event session-definitionerna.
 
 ## <a name="related-links"></a>Relaterade länkar
 

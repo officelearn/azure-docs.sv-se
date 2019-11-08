@@ -1,5 +1,5 @@
 ---
-title: Intelligent Insights prestanda-diagnostik-logg Azure SQL Database
+title: Intelligent Insights prestandadiagnostik
 description: Intelligent Insights innehåller en diagnostisk logg med Azure SQL Database prestanda problem
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 86381f5670f09b5e6a215793dc1ea4eab7ecbb8e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9ed2cc8bfb10d916218417a7dd27010638d2a927
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689694"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810274"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Använd loggen Intelligent Insights Azure SQL Database prestanda diagnostik
 
@@ -38,9 +38,9 @@ Loggens rubrik är gemensam och består av den tidsstämpel (TimeGenerated) som 
 
 ## <a name="issue-id-and-database-affected"></a>Problem-ID och databas som påverkas
 
-Egenskapen Issue Identification (issueId_d) gör det möjligt att spåra prestanda problem på ett unikt sätt tills det är löst. Flera händelse poster i logg rapporterings statusen för samma problem kommer att dela samma problem-ID.
+Egenskapen identifiering av problem (issueId_d) ger ett sätt att på ett unikt sätt spåra prestanda problemen tills de är lösta. Flera händelse poster i logg rapporterings statusen för samma problem kommer att dela samma problem-ID.
 
-Tillsammans med ärende-ID: t rapporterar Diagnostic-loggen start-(intervalStartTime_t) och slut (intervalEndTme_t) tidsstämplar för den specifika händelsen som är relaterad till ett problem som rapporteras i Diagnostic-loggen.
+Tillsammans med ärende-ID: t rapporterar Diagnostic-loggen start (intervalStartTime_t) och slutdatum (intervalEndTme_t) för den specifika händelsen som är relaterad till ett problem som rapporteras i Diagnostic-loggen.
 
 Egenskapen elastisk pool (elasticPoolName_s) anger vilken elastisk pool databasen med ett problem tillhör. Om databasen inte är en del av en elastisk pool har den här egenskapen inget värde. Databasen där ett problem upptäcktes visas i egenskapen databas namn (databaseName_s).
 
@@ -126,7 +126,7 @@ Egenskapen DurationIncreaseSeconds tillhandahåller mått enheten i sekunder. M�
 
 ## <a name="root-cause-analysis-and-improvement-recommendations"></a>Rotor Saks analys och förbättringar av rekommendationer
 
-Den sista delen av Intelligent Insights prestanda loggen avser den automatiserade rotor Saks analysen av det identifierade problemet för prestanda försämring. Informationen visas i human-vänliga verbiage i rootCauseAnalysis_s-egenskapen (rotor Saks Analysis). Förbättrings rekommendationer ingår i loggen där det är möjligt.
+Den sista delen av Intelligent Insights prestanda loggen avser den automatiserade rotor Saks analysen av det identifierade problemet för prestanda försämring. Informationen visas i human-vänliga verbiage i egenskapen rotor Saks analys (rootCauseAnalysis_s). Förbättrings rekommendationer ingår i loggen där det är möjligt.
 
 ```json
 // example of reported root cause analysis of the detected performance issue, in a human-readable format

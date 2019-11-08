@@ -1,6 +1,6 @@
 ---
-title: Anslutna fabrikslösningen vanliga frågor och svar – Azure | Microsoft Docs
-description: Vanliga frågor om lösningsaccelerator ansluten fabrik
+title: Vanliga frågor och svar om lösningen för ansluten fabrik – Azure | Microsoft Docs
+description: I den här artikeln besvaras vanliga frågor om den anslutna fabriks lösnings acceleratorn. Den innehåller länkar till GitHub-lagringsplatsen.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,75 +8,75 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: ed429d923cad2c715621990c146d4cf3a23e7bca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c84452ff71fa34a65b2e56ec753b68bf551c7e35
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447938"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826279"
 ---
-# <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Vanliga frågor om ansluten fabrik lösningsaccelerator
+# <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Vanliga frågor och svar om ansluten fabriks lösnings Accelerator
 
-Se även allmänna [vanliga frågor och svar](iot-accelerators-faq.md) för IoT-Lösningsacceleratorer.
+Se även [vanliga frågor och svar](iot-accelerators-faq.md) för IoT Solution-acceleratorer.
 
-### <a name="where-can-i-find-the-source-code-for-the-solution-accelerator"></a>Var hittar jag källkoden för solution accelerator
+### <a name="where-can-i-find-the-source-code-for-the-solution-accelerator"></a>Var hittar jag käll koden för Solution Accelerator?
 
-Källkoden lagras i följande GitHub-lagringsplatsen:
+Käll koden lagras i följande GitHub-lagringsplats:
 
-* [Ansluten fabrik lösningsaccelerator](https://github.com/Azure/azure-iot-connected-factory)
+* [Lösningsaccelerator för ansluten fabrik](https://github.com/Azure/azure-iot-connected-factory)
 
 ### <a name="what-is-opc-ua"></a>Vad är OPC UA?
 
-OPC Unified arkitektur (UA), ut i 2008, är en plattformsoberoende, tjänst-orienterade samverkan som standard. OPC UA används av olika industriella system och enheter, till exempel bransch datorer, PLCs och sensorer. OPC UA integrerar funktionerna i de klassiska till OPC specifikationerna ett utökningsbart ramverk med inbyggd säkerhet. Det är en standard som drivs av OPC Foundation. Den [OPC Foundation](https://opcfoundation.org/) är en icke-vinstdrivande organisation med fler än 440 medlemmar. Syftet med organisationen är att använda OPC-specifikationer för att underlätta flera leverantörer, flera plattformar, säker och tillförlitlig samverkan via:
+OPC Unified Architecture (UA), som lanserades i 2008, är en plattforms oberoende, service-orienterad interoperabilitet. OPC UA används av olika industriella system och enheter som bransch datorer, PLCs och sensorer. OPC UA integrerar funktionerna i de klassiska OPC-specifikationerna i ett utöknings Bart ramverk med inbyggd säkerhet. Det är en standard som drivs av OPC Foundation. [OPC Foundation](https://opcfoundation.org/) är en ideell organisation med fler än 440 medlemmar. Målet med organisationen är att använda OPC-specifikationer för att under lätta för flera leverantörer, multi-platform, säkra och tillförlitliga interoperabilitet genom:
 
 * Infrastruktur
 * Specifikationer
 * Teknologi
 * Processer
 
-### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-solution-accelerator"></a>Varför Microsoft valde OPC UA för ansluten fabrik lösningsaccelerator?
+### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-solution-accelerator"></a>Varför valde Microsoft OPC UA för den anslutna fabriks lösnings acceleratorn?
 
-Microsoft har valt OPC UA eftersom det är en öppen plattform, icke-exklusiva, oberoende känns igen av branschen och beprövade standard. Det är ett krav för att säkerställa interoperabilitet mellan en bred uppsättning tillverkningsprocesser och utrustning Industrie 4.0 (RAMI4.0) referens arkitektur lösningar. Microsoft uppmärksammat ökat behov hos sina kunder att skapa lösningar för industri 4.0. Stöd för OPC UA hjälper dig att minska hinder för kunder att uppnå sina mål och ger omedelbar affärsvärde till dem.
+Microsoft valde OPC UA eftersom det är en öppen, icke-patentskyddad, plattforms oberoende, bransch erkänd och beprövad standard. Det är ett krav för industri 4,0 (RAMI 4.0)-referens arkitektur lösningar som garanterar samverkan mellan en bred uppsättning tillverknings processer och utrustning. Microsoft ser efter frågan från sina kunder att bygga industri 4,0-lösningar. Stöd för OPC UA bidrar till att minska barriären för kunderna att uppnå sina mål och ger dem omedelbara affärs värden.
 
-### <a name="how-do-i-add-a-public-ip-address-to-the-simulation-vm"></a>Hur lägger jag till en offentlig IP-adress i simuleringen VM?
+### <a name="how-do-i-add-a-public-ip-address-to-the-simulation-vm"></a>Hur gör jag för att lägger du till en offentlig IP-adress till den virtuella simulerings datorn?
 
-Du har två alternativ för att lägga till IP-adress:
+Det finns två alternativ för att lägga till IP-adressen:
 
-* Använd PowerShell-skript `Simulation/Factory/Add-SimulationPublicIp.ps1` i den [databasen](https://github.com/Azure/azure-iot-connected-factory). Skicka in ditt namn som en parameter. En lokal distribution, använda `<your username>ConnFactoryLocal`. Skriptet skriver ut IP-adressen för den virtuella datorn.
+* Använd PowerShell-skriptet `Simulation/Factory/Add-SimulationPublicIp.ps1` i [lagrings platsen](https://github.com/Azure/azure-iot-connected-factory). Skicka in distributions namnet som en parameter. Använd `<your username>ConnFactoryLocal`för en lokal distribution. Skriptet skriver ut IP-adressen för den virtuella datorn.
 
-* Leta upp resursgruppen för din distribution i Azure-portalen. Förutom en lokal distribution har resursgruppen namn som du angav som lösning eller distribution. För en lokal distribution med build-skriptet, namnet på resursgruppen är `<your username>ConnFactoryLocal`. Lägg nu till en ny **offentliga IP-adressen** resursen till resursgruppen.
+* Leta upp resurs gruppen för din distribution i Azure Portal. Förutom för en lokal distribution har resurs gruppen det namn som du har angett som lösning eller distributions namn. För en lokal distribution med build-skriptet, är namnet på resurs gruppen `<your username>ConnFactoryLocal`. Lägg nu till en ny **offentlig IP-** adressresurs i resurs gruppen.
 
 > [!NOTE]
-> Kontrollera i vilket fall måste du installera de senaste uppdateringarna genom att följa anvisningarna i den [Ubuntu webbplats](https://wiki.ubuntu.com/Security/Upgrades). Kontinuerligt installationen för så länge som den virtuella datorn kan nås via en offentlig IP-adress.
+> I båda fallen bör du se till att du installerar de senaste korrigeringarna genom att följa anvisningarna på [Ubuntu-webbplatsen](https://wiki.ubuntu.com/Security/Upgrades). Håll installationen uppdaterad så länge den virtuella datorn är tillgänglig via en offentlig IP-adress.
 
-### <a name="how-do-i-remove-the-public-ip-address-to-the-simulation-vm"></a>Hur tar jag bort simuleringen VM offentliga IP-adressen?
+### <a name="how-do-i-remove-the-public-ip-address-to-the-simulation-vm"></a>Hur gör jag för att bort den offentliga IP-adressen till den virtuella simulerings datorn?
 
-Du har två alternativ för att ta bort IP-adress:
+Det finns två alternativ för att ta bort IP-adressen:
 
-* Använd PowerShell script Simulation/Factory/Remove-SimulationPublicIp.ps1 av den [databasen](https://github.com/Azure/azure-iot-connected-factory). Skicka in ditt namn som en parameter. En lokal distribution, använda `<your username>ConnFactoryLocal`. Skriptet skriver ut IP-adressen för den virtuella datorn.
+* Använd PowerShell-skriptet för skript simulering/Factory/Remove-SimulationPublicIp. ps1 i [lagrings platsen](https://github.com/Azure/azure-iot-connected-factory). Skicka in distributions namnet som en parameter. Använd `<your username>ConnFactoryLocal`för en lokal distribution. Skriptet skriver ut IP-adressen för den virtuella datorn.
 
-* Leta upp resursgruppen för din distribution i Azure-portalen. Förutom en lokal distribution har resursgruppen namn som du angav som lösning eller distribution. För en lokal distribution med build-skriptet, namnet på resursgruppen är `<your username>ConnFactoryLocal`. Nu ta bort den **offentliga IP-adressen** resurs från resursgruppen.
+* Leta upp resurs gruppen för din distribution i Azure Portal. Förutom för en lokal distribution har resurs gruppen det namn som du har angett som lösning eller distributions namn. För en lokal distribution med build-skriptet, är namnet på resurs gruppen `<your username>ConnFactoryLocal`. Ta nu bort den **offentliga IP** -adressresursen från resurs gruppen.
 
-### <a name="how-do-i-sign-in-to-the-simulation-vm"></a>Hur loggar jag in till simuleringen VM?
+### <a name="how-do-i-sign-in-to-the-simulation-vm"></a>Hur gör jag för att loggar du in på den virtuella simuleringen?
 
-Logga in på simuleringen VM stöds endast om du har distribuerat din lösning med hjälp av PowerShell-skriptet `build.ps1` i den [databasen](https://github.com/Azure/azure-iot-connected-factory).
+Det finns bara stöd för att logga in på den virtuella dator simuleringen om du har distribuerat din lösning med PowerShell-skriptet `build.ps1` i [lagrings platsen](https://github.com/Azure/azure-iot-connected-factory).
 
-Om du har distribuerat en lösning från www.azureiotsolutions.com kan logga du inte in till den virtuella datorn. Du kan inte logga in, eftersom lösenordet genereras slumpmässigt och du kan inte återställa den.
+Om du har distribuerat lösningen från www.azureiotsolutions.com kan du inte logga in på den virtuella datorn. Du kan inte logga in eftersom lösen ordet genereras slumpmässigt och du inte kan återställa det.
 
-1. Lägg till en offentlig IP-adress till den virtuella datorn. Se [hur lägger jag till en offentlig IP-adress i simuleringen VM?](#how-do-i-remove-the-public-ip-address-to-the-simulation-vm)
-1. Skapa en SSH-session till den virtuella datorn med IP-adressen för den virtuella datorn.
-1. Användarnamnet som ska användas är: `docker`.
-1. Lösenordet som ska användas beror på vilken version som du använde för att distribuera:
-    * För lösningar som distribuerats med hjälp av build.ps1 skript före den 1 juni 2017, lösenordet är: `Passw0rd`.
-    * För lösningar som distribuerats med hjälp av build.ps1 skriptet efter den 1 juni 2017, kan du hitta lösenordet i den `<name of your deployment>.config.user` filen. Lösenordet lagras i den **VmAdminPassword** inställningen. Lösenordet genereras slumpmässigt vid tidpunkten för distribution om du inte anger den med hjälp av den `build.ps1` skript parametern `-VmAdminPassword`
+1. Lägg till en offentlig IP-adress till den virtuella datorn. Se [Hur gör jag för att lägga till en offentlig IP-adress till den virtuella simulerings datorn?](#how-do-i-remove-the-public-ip-address-to-the-simulation-vm)
+1. Skapa en SSH-session med den virtuella datorn med hjälp av IP-adressen för den virtuella datorn.
+1. Användar namnet som ska användas är: `docker`.
+1. Vilket lösen ord som ska användas beror på vilken version du använde för att distribuera:
+    * För lösningar som distribueras med hjälp av skriptet build. ps1 före 1 juni 2017 är lösen ordet: `Passw0rd`.
+    * För lösningar som distribueras med hjälp av skriptet build. ps1 efter 1 juni 2017 kan du hitta lösen ordet i `<name of your deployment>.config.user`-filen. Lösen ordet lagras i **VmAdminPassword** -inställningen. Lösen ordet genereras slumpmässigt vid distributions tiden om du inte anger det med hjälp av `build.ps1` skript parameter `-VmAdminPassword`
 
-### <a name="how-do-i-stop-and-start-all-docker-processes-in-the-simulation-vm"></a>Hur jag för att stoppa och starta alla docker-processer i simuleringen VM?
+### <a name="how-do-i-stop-and-start-all-docker-processes-in-the-simulation-vm"></a>Hur gör jag för att stoppa och starta alla Docker-processer i den virtuella simuleringen av simuleringen?
 
-1. Logga in på simuleringen VM. Se [hur loggar jag in till simuleringen VM?](#how-do-i-sign-in-to-the-simulation-vm)
-1. Om du vill kontrollera vilka behållare som är aktiva, kör: `docker ps`.
-1. Om du vill stoppa alla simulering av behållare, kör: `./stopsimulation`.
-1. Starta alla simulering behållare:
-    * Exportera en gränssnittsvariabel med namnet **IOTHUB_CONNECTIONSTRING**. Använd värdet för den **IotHubOwnerConnectionString** i den `<name of your deployment>.config.user` filen. Exempel:
+1. Logga in på den virtuella simulerings datorn. Finns [Hur gör jag för att logga in på den virtuella simulerings datorn?](#how-do-i-sign-in-to-the-simulation-vm)
+1. Om du vill kontrol lera vilka behållare som är aktiva kör du: `docker ps`.
+1. Stoppa alla simulerings behållare genom att köra: `./stopsimulation`.
+1. Starta alla behållare för simulering:
+    * Exportera en Shell-variabel med namnet **IOTHUB_CONNECTIONSTRING**. Använd värdet för inställningen **IotHubOwnerConnectionString** i `<name of your deployment>.config.user`-filen. Till exempel:
 
         ```sh
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
@@ -84,93 +84,93 @@ Om du har distribuerat en lösning från www.azureiotsolutions.com kan logga du 
 
     * Kör `./startsimulation`.
 
-### <a name="how-do-i-update-the-simulation-in-the-vm"></a>Hur uppdaterar jag simulering i den virtuella datorn?
+### <a name="how-do-i-update-the-simulation-in-the-vm"></a>Hur gör jag för att uppdaterar du simuleringen på den virtuella datorn?
 
-Om du har gjort några ändringar i simuleringen, kan du använda PowerShell-skriptet `build.ps1` i den [databasen](https://github.com/Azure/azure-iot-connected-factory) med hjälp av den `updatedimulation` kommando. Det här skriptet skapar alla simuleringskomponenter, stoppas simuleringen i den virtuella datorn, laddar upp, installerar och startar dem.
+Om du har gjort ändringar i simuleringen kan du använda PowerShell-skriptet `build.ps1` i [lagrings platsen](https://github.com/Azure/azure-iot-connected-factory) med kommandot `updatedimulation`. Det här skriptet skapar alla simulerings komponenter, stoppar simuleringen på den virtuella datorn, laddar upp, installerar och startar dem.
 
-### <a name="how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution"></a>Hur tar jag reda på anslutningssträngen för IoT hub som används av min lösning?
+### <a name="how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution"></a>Hur gör jag för att ta reda på anslutnings strängen för IoT Hub som används av min lösning?
 
-Om du har distribuerat din lösning med den `build.ps1` skript i den [databasen](https://github.com/Azure/azure-iot-connected-factory), anslutningssträngen är värdet för **IotHubOwnerConnectionString** i den `<name of your deployment>.config.user` filen.
+Om du har distribuerat lösningen med `build.ps1`-skriptet i [lagrings platsen](https://github.com/Azure/azure-iot-connected-factory), är anslutnings strängen värdet för **IotHubOwnerConnectionString** i `<name of your deployment>.config.user`-filen.
 
-Du kan också hitta anslutningssträngen med hjälp av Azure portal. Leta upp inställningarna för anslutningssträngen i IoT Hub-resurs i resursgruppen för din distribution.
+Du kan också hitta anslutnings strängen med hjälp av Azure Portal. Leta upp inställningarna för anslutnings strängen i den IoT Hub resursen i resurs gruppen för din distribution.
 
-### <a name="which-iot-hub-devices-does-the-connected-factory-simulation-use"></a>Vilka IoT Hub-enheter använder ansluten fabrik simuleringen?
+### <a name="which-iot-hub-devices-does-the-connected-factory-simulation-use"></a>Vilka IoT Hub enheter använder den anslutna fabriks simuleringen?
 
-Simuleringen själv registrerar följande enheter:
+Simuleringen registrerar följande enheter:
 
-* proxy.beijing.corp.contoso
-* proxy.capetown.corp.contoso
-* proxy.mumbai.corp.contoso
-* proxy.munich0.corp.contoso
-* proxy.rio.corp.contoso
-* proxy.seattle.corp.contoso
-* publisher.beijing.corp.contoso
-* publisher.capetown.corp.contoso
-* publisher.mumbai.corp.contoso
-* publisher.munich0.corp.contoso
-* publisher.rio.corp.contoso
-* publisher.seattle.corp.contoso
+* proxy. Beijing. Corp. contoso
+* proxy. Capetown. Corp. contoso
+* proxy. Mumbai. Corp. contoso
+* proxy. munich0. Corp. contoso
+* proxy. Rio. Corp. contoso
+* proxy. Seattle. Corp. contoso
+* Publisher. Beijing. Corp. contoso
+* Publisher. Capetown. Corp. contoso
+* Publisher. Mumbai. Corp. contoso
+* Publisher. munich0. Corp. contoso
+* Publisher. Rio. Corp. contoso
+* Publisher. Seattle. Corp. contoso
 
-Med hjälp av den [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) eller [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension) verktyg, du kan kontrollera vilka enheter som är registrerade med IoT hub med hjälp av din lösning. Om du vill använda enhetsutforskare, behöver du anslutningssträngen för IoT-hubben i distributionen. För att använda IoT-tillägget för Azure CLI, behöver du namnet på din IoT-hubb.
+Med hjälp av [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) eller [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension) -verktyget kan du kontrol lera vilka enheter som är registrerade med IoT Hub som din lösning använder. Om du vill använda Device Explorer behöver du anslutnings strängen för IoT-hubben i distributionen. Om du vill använda IoT-tillägget för Azure CLI behöver du ditt IoT Hub namn.
 
-### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>Hur får jag loggdata från simuleringskomponenter?
+### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>Hur kan jag hämta logg data från simulerings komponenterna?
 
-Alla komponenter i simuleringen logga information in loggfiler. Dessa filer kan hittas i den virtuella datorn i mappen `home/docker/Logs`. Du kan använda PowerShell-skript för att hämta loggarna `Simulation/Factory/Get-SimulationLogs.ps1` i den [databasen](https://github.com/Azure/azure-iot-connected-factory).
+Alla komponenter i simulerings logg information i loggfiler. De här filerna finns i den virtuella datorn i mappen `home/docker/Logs`. Du kan hämta loggarna genom att använda PowerShell-skriptet `Simulation/Factory/Get-SimulationLogs.ps1` i [lagrings platsen](https://github.com/Azure/azure-iot-connected-factory).
 
-Det här skriptet måste logga in på den virtuella datorn. Du kan behöva ange autentiseringsuppgifter för inloggningen. Se [hur loggar jag in till simuleringen VM?](#how-do-i-sign-in-to-the-simulation-vm) att hitta autentiseringsuppgifterna.
+Det här skriptet måste logga in på den virtuella datorn. Du kan behöva ange autentiseringsuppgifter för inloggningen. Finns [Hur gör jag för att logga in på den virtuella simulerings datorn?](#how-do-i-sign-in-to-the-simulation-vm) för att hitta autentiseringsuppgifterna.
 
-Skriptet lägger till/tar bort en offentlig IP-adress till den virtuella datorn om den ännu inte har någon och tar bort den. Skriptet placerar alla loggfiler i ett Arkiv och hämtar arkivet till utvecklingsdatorn.
+Skriptet lägger till/tar bort en offentlig IP-adress till den virtuella datorn, om den inte redan har en och tar bort den. Skriptet placerar alla loggfiler i ett arkiv och laddar ned arkivet till din utvecklings arbets Station.
 
-Du kan också logga in på den virtuella datorn via SSH och granska loggfilerna vid körning.
+Du kan också logga in på den virtuella datorn via SSH och kontrol lera loggfilerna vid körning.
 
-### <a name="how-can-i-check-if-the-simulation-is-sending-data-to-the-cloud"></a>Hur kan jag kontrollera om simuleringen skickar data till molnet?
+### <a name="how-can-i-check-if-the-simulation-is-sending-data-to-the-cloud"></a>Hur kan jag kontrol lera om simuleringen skickar data till molnet?
 
-Med den [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) eller [Azure IoT CLI-tillägg övervaka-händelser](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-monitor-events) kommandot, du kan granska de data som skickas till IoT Hub från vissa enheter. Om du vill använda de här verktygen behöver du anslutningssträngen för IoT-hubb i din distribution. Se [hur tar jag reda på anslutningssträngen för IoT hub som används av min lösning?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
+Med kommandot [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) eller [Azure IoT CLI-tillägget övervakare](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-monitor-events) , kan du granska data som skickas till IoT Hub från vissa enheter. Om du vill använda dessa verktyg måste du känna till anslutnings strängen för IoT-hubben i distributionen. Se [Hur gör jag för att ta reda på anslutnings strängen för IoT Hub som används av min lösning?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
 
-Granska de data som skickas av en av enheterna som utgivare:
+Granska data som skickats av en av utgivar enheterna:
 
-* publisher.beijing.corp.contoso
-* publisher.capetown.corp.contoso
-* publisher.mumbai.corp.contoso
-* publisher.munich0.corp.contoso
-* publisher.rio.corp.contoso
-* publisher.seattle.corp.contoso
+* Publisher. Beijing. Corp. contoso
+* Publisher. Capetown. Corp. contoso
+* Publisher. Mumbai. Corp. contoso
+* Publisher. munich0. Corp. contoso
+* Publisher. Rio. Corp. contoso
+* Publisher. Seattle. Corp. contoso
 
-Om du ser inga data skickas till IoT Hub är ett problem med simuleringen. Som ett första steg för analys bör du analysera loggfiler simulering komponenter. Se [hur får jag loggdata från simuleringskomponenter?](#how-can-i-get-log-data-from-the-simulation-components) Prova sedan att stoppa och starta simuleringen och om det fortfarande finns inga data skickas, uppdatera simuleringen helt. Se [hur uppdaterar jag simulering i den virtuella datorn?](#how-do-i-update-the-simulation-in-the-vm)
+Om du inte ser några data som skickats till IoT Hub, är det ett problem med simuleringen. Som ett första analys steg bör du analysera loggfilerna för simulerings komponenterna. Se [Hur kan jag hämta logg data från simulerings komponenterna?](#how-can-i-get-log-data-from-the-simulation-components) Försök sedan att stoppa och starta simuleringen och om det fortfarande inte finns några data som skickas uppdaterar du simuleringen helt. Se [Hur gör jag för att uppdatera simuleringen på den virtuella datorn?](#how-do-i-update-the-simulation-in-the-vm)
 
-### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Hur aktiverar jag en interaktiv karta i lösningen för ansluten fabrik?
+### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Hur gör jag för att aktivera en interaktiv karta i min anslutna fabriks lösning?
 
-Du måste ha ett Azure Maps-konto om du vill aktivera en interaktiv karta i lösningen för ansluten fabrik.
+Om du vill aktivera en interaktiv karta i din anslutna fabriks lösning måste du ha ett Azure Maps-konto.
 
-När du distribuerar från [www.azureiotsolutions.com](https://www.azureiotsolutions.com), distributionsprocessen lägger till ett Azure Maps-konto i resursgruppen som innehåller solution accelerator-tjänster.
+När du distribuerar från [www.azureiotsolutions.com](https://www.azureiotsolutions.com)lägger distributions processen till ett Azure Maps-konto i resurs gruppen som innehåller Solution Accelerator-tjänsterna.
 
-När du distribuerar med hjälp av den `build.ps1` skript i ansluten fabrik GitHub-lagringsplatsen uppsättningen miljövariabeln `$env:MapApiQueryKey` i fönstret bygga den [nyckeln för ditt Azure Maps-konto](../azure-maps/how-to-manage-account-keys.md). Den interaktiva kartan aktiveras sedan automatiskt.
+När du distribuerar med hjälp av `build.ps1`-skriptet i den anslutna fabriken GitHub-lagringsplatsen anger du miljövariabeln `$env:MapApiQueryKey` i build-fönstret till [nyckeln för ditt Azure Maps-konto](../azure-maps/how-to-manage-account-keys.md). Den interaktiva kartan aktive ras sedan automatiskt.
 
-Du kan också lägga till en Azure Maps-kontonyckel utvecklingsacceleratorn efter distributionen. Gå till Azure-portalen och åtkomst till App Service-resursen i distributionen ansluten fabrik. Gå till **programinställningar**, hittar du ett avsnitt **programinställningar**. Ange den **MapApiQueryKey** till den [nyckeln för ditt Azure Maps-konto](../azure-maps/how-to-manage-account-keys.md). Spara inställningarna och gå sedan till **översikt** och starta om App Service.
+Du kan också lägga till en Azure Maps konto nyckel till din lösnings Accelerator efter distributionen. Navigera till Azure Portal och få åtkomst till App Service resursen i din anslutna fabriks distribution. Navigera till **program inställningar**, där du hittar ett avsnitts **program inställningar**. Ange **MapApiQueryKey** till [nyckeln för ditt Azure Maps-konto](../azure-maps/how-to-manage-account-keys.md). Spara inställningarna och gå sedan till **Översikt** och starta om App Service.
 
-### <a name="how-do-i-create-an-azure-maps-account"></a>Hur skapar jag ett Azure Maps-konto?
+### <a name="how-do-i-create-an-azure-maps-account"></a>Hur gör jag för att skapar du ett Azure Maps konto?
 
-Se, [så här hanterar du ditt Azure Maps-konto och dina nycklar](../azure-maps/how-to-manage-account-keys.md).
+Se [hur du hanterar ditt Azure Maps konto och nycklar](../azure-maps/how-to-manage-account-keys.md).
 
-### <a name="how-to-obtain-your-azure-maps-account-key"></a>Hur du hämtar din nyckel för Azure Maps-konto
+### <a name="how-to-obtain-your-azure-maps-account-key"></a>Så här hämtar du din Azure Maps konto nyckel
 
-Se, [så här hanterar du ditt Azure Maps-konto och dina nycklar](../azure-maps/how-to-manage-account-keys.md).
+Se [hur du hanterar ditt Azure Maps konto och nycklar](../azure-maps/how-to-manage-account-keys.md).
 
-### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>Hur aktiverar den interaktiva kartan när du felsöker lokalt?
+### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>Hur aktiverar den interaktiva kartan vid fel sökning lokalt?
 
-Om du vill aktivera den interaktiva kartan när du felsöker lokalt, ange värdet för inställningen `MapApiQueryKey` i filerna `local.user.config` och `<yourdeploymentname>.user.config` i roten för din distribution till värdet för den **QueryKey** du kopierade tidigare.
+Om du vill aktivera den interaktiva kartan medan du felsöker lokalt, ställer du in värdet för inställningen `MapApiQueryKey` i filerna `local.user.config` och `<yourdeploymentname>.user.config` i roten för distributionen till värdet för **QueryKey** som du kopierade tidigare.
 
-### <a name="how-do-i-use-a-different-image-at-the-home-page-of-my-dashboard"></a>Hur kan jag använda en annan avbildning på startsidan för instrumentpanelen?
+### <a name="how-do-i-use-a-different-image-at-the-home-page-of-my-dashboard"></a>Hur gör jag för att använda en annan bild på Start sidan för min instrument panel?
 
-Ändra statisk avbildningen visas i/o öppnas startsidan för instrumentpanelen, ersätta den `WebApp\Content\img\world.jpg`. Sedan återskapa och distribuera om Webbappen.
+Om du vill ändra den statiska avbildningen som visas i/o start sidan på instrument panelen ersätter du avbildningen `WebApp\Content\img\world.jpg`. Bygg sedan om och distribuera om WebApp.
 
-### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>Hur kan jag använda icke OPC UA-enheter med ansluten fabrik?
+### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>Hur gör jag för att använda icke-OPC UA-enheter med ansluten fabrik?
 
-Skicka telemetridata från icke OPC UA enheter till ansluten fabrik:
+Skicka telemetridata från icke-OPC UA-enheter till ansluten fabrik:
 
-1. [Konfigurera en ny station i topologin av ansluten fabrik](iot-accelerators-connected-factory-configure.md) i den `ContosoTopologyDescription.json` filen.
+1. [Konfigurera en ny station i den anslutna fabriks miljön](iot-accelerators-connected-factory-configure.md) i `ContosoTopologyDescription.json`s filen.
 
-1. Mata in telemetridata i ansluten fabrik kompatibla JSON-format:
+1. Mata in telemetridata i Connected Factory-kompatibelt JSON-format:
 
     ```json
     [
@@ -188,12 +188,12 @@ Skicka telemetridata från icke OPC UA enheter till ansluten fabrik:
 
 1. Formatet för `<timestamp>` är: `2017-12-08T19:24:51.886753Z`
 
-1. Starta om App Service-ansluten fabrik.
+1. Starta om den anslutna fabriken App Service.
 
 ### <a name="next-steps"></a>Nästa steg
 
 Du kan även utforska andra funktioner och möjligheter i IoT-lösningsacceleratorerna:
 
 * [Översikt över lösningsaccelerator för förutsägande underhåll](iot-accelerators-predictive-overview.md)
-* [Distribuera lösningsaccelerator för ansluten fabrik](quickstart-connected-factory-deploy.md)
+* [Distribuera lösnings Accelerator för ansluten fabrik](quickstart-connected-factory-deploy.md)
 * [IoT-säkerhet från grunden](/azure/iot-fundamentals/iot-security-ground-up)

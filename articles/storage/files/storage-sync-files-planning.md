@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 698702e24f1f6dfc6b94b75de77c08156832e566
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e1f7aeb5615c1a22c1970f118c24c996ac936870
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177854"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826828"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -143,7 +143,7 @@ Så här visar du resultatet i CSV:
 |-|-|
 | Desktop. ini | Filinformation till system |
 | ethumbs. db $ | Temporär fil för miniatyrer |
-| ~$ \*. \* | Tillfällig Office-fil |
+| ~$\*.\* | Tillfällig Office-fil |
 | \*. tmp | Temporär fil |
 | \*. LACCDB | Lås fil för åtkomst databasen|
 | 635D02A9D91C401B97884B82B3BCDAEA.* | Intern Sync-fil|
@@ -158,7 +158,7 @@ Windows Server-redundanskluster stöds av Azure File Sync för distributions alt
 > Azure File Sync agenten måste installeras på varje nod i ett redundanskluster för att synkroniseringen ska fungera korrekt.
 
 ### <a name="data-deduplication"></a>Datadeduplicering
-**Agent version 5.0.2.0 eller nyare**   
+**Windows server 2016 och Windows server 2019**   
 Datadeduplicering stöds på volymer med moln skiktning aktiverat på Windows Server 2016. Genom att aktivera datadeduplicering på en volym med aktive rad moln nivå kan du cachelagra fler filer lokalt utan att tillhandahålla mer lagrings utrymme. 
 
 När datadeduplicering har Aktiver ATS på en volym med aktive rad moln nivå, kommer deduplicering av optimerade filer på serverns slut punkt att på samma sätt som en normal fil baserat på princip inställningarna för moln skiktet. När de deduplicerade filerna har flyttats, körs skräp insamlings jobbet för datadeduplicering automatiskt för att frigöra disk utrymme genom att ta bort onödiga segment som inte längre refereras till av andra filer på volymen.
@@ -168,8 +168,8 @@ Observera att volym besparingarna gäller endast för servern. dina data i Azure
 > [!Note]  
 > Datadeduplicering och moln nivåer stöds inte för närvarande på samma volym på Server 2019 på grund av ett fel som åtgärdas i en framtida uppdatering.
 
-**Versioner av Windows Server 2012 R2 eller äldre agent**  
-För volymer som inte har aktiverat moln nivåer är Azure File Sync stöd för Windows Server-datadeduplicering som aktive ras på volymen.
+**Windows Server 2012 R2**  
+Azure File Sync stöder inte datadeduplicering och moln nivåer på samma volym. Om datadeduplicering har Aktiver ATS på en volym måste moln nivån vara inaktive rad. 
 
 **Anteckningar**
 - Om datadeduplicering installeras innan du installerar Azure File Sync agent krävs en omstart för att stödja datadeduplicering och moln nivåer på samma volym.
@@ -211,7 +211,7 @@ Att använda Sysprep på en server som har installerat Azure File Sync-agenten s
 Om moln skiktning är aktiverat på en server slut punkt hoppas filer som skiktas över och inte indexeras av Windows Search. Filer som inte är på en nivå indexeras korrekt.
 
 ### <a name="antivirus-solutions"></a>Antivirus lösningar
-Eftersom antivirus programmet fungerar genom att söka igenom filer efter känd skadlig kod kan ett antivirus program orsaka återkallande av nivåbaserade filer. I version 4,0 och senare av Azure File Sync agenten har filer med dataFILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS angetts för attributet säker Windows. Vi rekommenderar att du rådfrågar din program varu leverantör för att lära dig hur du konfigurerar lösningen för att hoppa över att läsa filer med den här attributuppsättningen (många gör det automatiskt). 
+Eftersom antivirus programmet fungerar genom att söka igenom filer efter känd skadlig kod kan ett antivirus program orsaka återkallande av nivåbaserade filer. I version 4,0 och senare av Azure File Sync agenten har filer på nivån säker Windows FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS angett. Vi rekommenderar att du rådfrågar din program varu leverantör för att lära dig hur du konfigurerar lösningen för att hoppa över att läsa filer med den här attributuppsättningen (många gör det automatiskt). 
 
 Microsofts interna antivirus lösningar, Windows Defender och System Center Endpoint Protection (SCEP), hoppar båda automatiskt över att läsa filer som har det här attributet angivet. Vi har testat dem och identifierat ett mindre problem: när du lägger till en server i en befintlig Sync-grupp, anropas filer som är mindre än 800 byte (nedladdade) på den nya servern. De här filerna kommer att finnas kvar på den nya servern och kommer inte att skiktas eftersom de inte uppfyller storleks kravet för skikt (> 64 KB).
 
@@ -244,45 +244,45 @@ I allmänhet bör Azure File Sync stödja samverkan med krypterings lösningar s
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Andra HSM-lösningar (hierarkisk lagrings hantering)
 Inga andra HSM-lösningar ska användas med Azure File Sync.
 
-## <a name="region-availability"></a>Tillgänglighet för regioner
+## <a name="region-availability"></a>Regional tillgänglighet
 Azure File Sync är endast tillgängligt i följande regioner:
 
 | Region | Data Center plats |
 |--------|---------------------|
-| Australien, östra | New South Wales |
-| Australien, sydöstra | Victoria |
-| Brasilien, södra | Sao Paulo (delstat) |
-| Kanada, centrala | Toronto |
-| Kanada, östra | Quebec City |
+| Östra Australien | New South Wales |
+| Sydöstra Australien | Victoria |
+| Södra Brasilien | Sao Paulo (delstat) |
+| Centrala Kanada | Toronto |
+| Östra Kanada | Quebec City |
 | Indien, centrala | Pune |
-| USA, centrala | Iowa |
-| Asien, östra | Hong Kong SAR |
-| USA, östra | Virginia |
+| Centrala USA | Iowa |
+| Östasien | Hong Kong SAR |
+| Östra USA | Virginia |
 | USA, östra 2 | Virginia |
 | Frankrike, centrala | Paris |
 | Frankrike, södra * | Marseille |
 | Sydkorea, centrala | Seoul |
 | Sydkorea, södra | Busan |
-| Japan, östra | Tokyo, Saitama |
-| Japan, västra | Osaka |
-| USA, norra centrala | Illinois |
-| Europa, norra | Irland |
+| Östra Japan | Tokyo, Saitama |
+| Västra Japan | Osaka |
+| Norra centrala USA | Illinois |
+| Norra Europa | Irland |
 | Sydafrika, norra | Johannesburg |
 | Södra Afrika, västra * | Kapstaden |
-| USA, södra centrala | Texas |
-| Indien, södra | Chennai |
-| Asien, sydöstra | Singapore |
+| Södra centrala USA | Texas |
+| Södra Indien | Chennai |
+| Sydostasien | Singapore |
 | Storbritannien, södra | London |
 | Storbritannien, västra | Cardiff |
 | Arizona (USA-förvaltad region) | Arizona |
 | Texas (USA-förvaltad region) | Texas |
-| USA Gov Virginia | Virginia |
+| Virginia (USA-förvaltad region) | Virginia |
 | Förenade Arabemiraten, norra | Dubai |
 | Förenade Arabemiraten Central * | Abu Dhabi |
-| Europa, västra | Nederländerna |
-| USA, västra centrala | Wyoming |
-| USA, västra | Kalifornien |
-| USA, västra 2 | Washington |
+| Västra Europa | Nederländerna |
+| Västra centrala USA | Wyoming |
+| Västra USA | Kalifornien |
+| Västra USA 2 | Washington |
 
 Azure File Sync stöder endast synkronisering med en Azure-filresurs som är i samma region som tjänsten för synkronisering av lagring.
 
@@ -298,38 +298,38 @@ För att stödja redundansväxlingen mellan Geo-redundant lagring och Azure File
 
 | Primär region      | Länkad region      |
 |---------------------|--------------------|
-| Australien, östra      | Australien, sydöstra|
-| Australien, sydöstra | Australien, östra     |
-| Brasilien, södra        | USA, södra centrala   |
-| Kanada, centrala      | Kanada, östra        |
-| Kanada, östra         | Kanada, centrala     |
-| Indien, centrala       | Indien, södra        |
-| USA, centrala          | USA, östra 2          |
-| Asien, östra           | Asien, sydöstra     |
-| USA, östra             | USA, västra            |
-| USA, östra 2           | USA, centrala         |
+| Östra Australien      | Sydöstra Australien|
+| Sydöstra Australien | Östra Australien     |
+| Södra Brasilien        | Södra centrala USA   |
+| Centrala Kanada      | Östra Kanada        |
+| Östra Kanada         | Centrala Kanada     |
+| Indien, centrala       | Södra Indien        |
+| Centrala USA          | USA, östra 2          |
+| Östasien           | Sydostasien     |
+| Östra USA             | Västra USA            |
+| USA, östra 2           | Centrala USA         |
 | Frankrike, centrala      | Frankrike, södra       |
 | Frankrike, södra        | Frankrike, centrala     |
-| Japan, östra          | Japan, västra         |
-| Japan, västra          | Japan, östra         |
+| Östra Japan          | Västra Japan         |
+| Västra Japan          | Östra Japan         |
 | Sydkorea, centrala       | Sydkorea, södra        |
 | Sydkorea, södra         | Sydkorea, centrala      |
-| Europa, norra        | Europa, västra        |
-| USA, norra centrala    | USA, södra centrala   |
+| Norra Europa        | Västra Europa        |
+| Norra centrala USA    | Södra centrala USA   |
 | Sydafrika, norra  | Sydafrika, västra  |
 | Sydafrika, västra   | Sydafrika, norra |
-| USA, södra centrala    | USA, norra centrala   |
-| Indien, södra         | Indien, centrala      |
-| Asien, sydöstra      | Asien, östra          |
+| Södra centrala USA    | Norra centrala USA   |
+| Södra Indien         | Indien, centrala      |
+| Sydostasien      | Östasien          |
 | Storbritannien, södra            | Storbritannien, västra            |
 | Storbritannien, västra             | Storbritannien, södra           |
 | Arizona (USA-förvaltad region)      | Texas (USA-förvaltad region)       |
-| US Gov, Iowa         | USA Gov Virginia    |
-| USA Gov Virginia      | Texas (USA-förvaltad region)       |
-| Europa, västra         | Europa, norra       |
-| USA, västra centrala     | USA, västra 2          |
-| USA, västra             | USA, östra            |
-| USA, västra 2           | USA, västra centrala    |
+| US Gov, Iowa         | Virginia (USA-förvaltad region)    |
+| Virginia (USA-förvaltad region)      | Texas (USA-förvaltad region)       |
+| Västra Europa         | Norra Europa       |
+| Västra centrala USA     | Västra USA 2          |
+| Västra USA             | Östra USA            |
+| Västra USA 2           | Västra centrala USA    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Uppdateringsprincip för Azure File Sync-agenten
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

@@ -1,6 +1,6 @@
 ---
-title: Översikt om att lägga till konton i Microsoft Authenticator-appen – Azure Active Directory | Microsoft Docs
-description: Översikt om hur du lägger till arbetskonton och personliga konton till Microsoft Authenticator-appen för tvåfaktorsverifiering.
+title: Översikt om att lägga till konton i en Authenticator-app – Azure AD
+description: Länkar till innehåll om hur du lägger till dina arbets-och personliga konton i Microsoft Authenticator-appen för tvåstegsverifiering.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d16699729e62953cb2369f39ecfe759aab663caf
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 16244be7dee9faaa15105f9dc0ac6c074230d243
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382649"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820282"
 ---
 # <a name="overview-about-adding-accounts-to-the-microsoft-authenticator-app"></a>Översikt om att lägga till konton i Microsoft Authenticator-appen
 
@@ -43,7 +43,7 @@ Du kan aktivera tvåfaktorsverifiering för många konton som du använder varje
 | Arbets- eller skolkonton | Det konto som du fick av arbets- eller skolorganisationen, till exempel alain@contoso.com. |
 | Personliga konton | Microsoft-konton och icke-Microsoft-konton som du själv har skapat, till exempel Outlook.com, Xbox LIVE, Google, Facebook med mera. |
 
-## <a name="in-this-section"></a>I det här avsnittet
+## <a name="articles-about-how-to-add-different-accounts"></a>Artiklar om hur du lägger till olika konton
 
 | Artikel |Beskrivning |
 | ------|------------|

@@ -4,15 +4,16 @@ description: Konfigurera ledar hantering för Dynamics 365 för kund engagemang.
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: evansma
-ms.openlocfilehash: 181a3f3a8d3cabb2fdf6caf79cef16201fab0c68
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 37cf613b6e0bd2ec9910dd3e7431c0feaa02431c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177812"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812296"
 ---
 # <a name="configure-lead-management-for-dynamics-365-for-customer-engagement"></a>Konfigurera ledar hantering för Dynamics 365 för kund engagemang
 
@@ -21,7 +22,7 @@ Den här artikeln beskriver hur du konfigurerar Dynamics 365 för kund engageman
 >[!Note]
 >Dessa instruktioner är specifika för Microsoft Hosted Cloud Dynamics 365 för kund engagemang miljö. Det finns för närvarande inte stöd för att ansluta direkt till en Dynamics lokal-miljö, men det finns andra alternativ för att ta emot leads, till exempel konfigurera en [https-slutpunkt](./commercial-marketplace-lead-management-instructions-https.md) eller en [Azure-tabell](./commercial-marketplace-lead-management-instructions-azure-table.md) för att ta emot leads.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande användar behörigheter krävs för att slutföra stegen i den här artikeln:
 

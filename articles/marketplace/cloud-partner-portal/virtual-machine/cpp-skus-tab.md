@@ -4,15 +4,16 @@ description: 'Beskriver fliken SKU: er som används för att skapa ett erbjudand
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
-ms.openlocfilehash: dceb82af73061b91676ffb7061c7495995e76667
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 101f928e296d0b48b4e077676393772829aa76ab
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868706"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73808975"
 ---
 # <a name="virtual-machine-skus-tab"></a>Fliken SKU: er för virtuell dator
 
@@ -42,11 +43,11 @@ I följande tabell beskrivs syftet, innehållet och formateringen för dessa fä
 |  *SKU-inställningar*   |    |
 | **SKU-ID\***       | Identifierare för denna SKU.  Namnet får innehålla högst 50 tecken, bestående av gemena alfanumeriska tecken eller bindestreck (-), men får inte sluta med ett bindestreck.  Den kan inte ändras efter att erbjudandet har publicerats.  |
 |  *SKU-information*   |  |
-| **Avdelning\***        | Eget namn på erbjudandet för visning i Marketplace. Maximal längd på 50 tecken. |
-| **Drag\***      | Kortfattad beskrivning av erbjudandet för visning i Marketplace. Maximal längd på 100 tecken. |
-| **Beteckning\***  | Beskrivnings text som ger en mer detaljerad förklaring av erbjudandet.  <!-- TD: max len/guidance? 3k characters -->  |
-| **Dölj denna SKU\*** | Anger om SKU: n ska vara synlig i marknads platsen för kunder.  Du kanske vill dölja SKU: n om du bara vill att den endast är tillgänglig via Solution-mallar och inte för att köpa en och en.  Det kan också vara användbart för inledande testning eller för tillfälliga eller säsongs erbjudanden. |
-| **Moln tillgänglighet\*** | Anger vilka moln som SKU: n ska vara tillgänglig för.  Standardvärdet är den offentliga versionen av Azure.  Microsoft Azure Government är ett moln i en community med kontrollerad åtkomst till amerikanska federala, statliga, lokala eller stambaserad myndigheter och deras certifierade partner.  Mer information om myndighets moln finns i [Välkommen till Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome). |
+| **Rubrik\***        | Eget namn på erbjudandet för visning i Marketplace. Maximal längd på 50 tecken. |
+| **Sammanfattning\***      | Kortfattad beskrivning av erbjudandet för visning i Marketplace. Maximal längd på 100 tecken. |
+| **Beskrivning\***  | Beskrivnings text som ger en mer detaljerad förklaring av erbjudandet.  <!-- TD: max len/guidance? 3k characters -->  |
+| **Dölj den här SKU-\*** | Anger om SKU: n ska vara synlig i marknads platsen för kunder.  Du kanske vill dölja SKU: n om du bara vill att den endast är tillgänglig via Solution-mallar och inte för att köpa en och en.  Det kan också vara användbart för inledande testning eller för tillfälliga eller säsongs erbjudanden. |
+| **Moln tillgänglighets\*** | Anger vilka moln som SKU: n ska vara tillgänglig för.  Standardvärdet är den offentliga versionen av Azure.  Microsoft Azure Government är ett moln i en community med kontrollerad åtkomst till amerikanska federala, statliga, lokala eller stambaserad myndigheter och deras certifierade partner.  Mer information om myndighets moln finns i [Välkommen till Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome). |
 | **Är detta en privat SKU?\*** | Anger om SKU: n är privat eller offentlig. Standardvärdet är **no** (public).  Mer information finns i [offentliga och privata SKU: er](../../cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md). |
 | **Tillgänglighet för land/region\*** | Fastställer vilka länder eller regioner som din SKU ska vara tillgänglig för köp. Välj minst en region/ett land. <!-- TD: Is this parameter an AMP visibility control or a contractual one, or both? --> |  
 |  *Prissättning*   |  |
@@ -55,9 +56,9 @@ I följande tabell beskrivs syftet, innehållet och formateringen för dessa fä
 | **Operativ system familj\*** | Anger om den virtuella lösningen är Windows-eller Linux-baserad. |
 | **Välj typ av operativ system** | Specifik leverantör eller version av det angivna operativ systemet. |
 | **Eget namn på operativ system\*** | Namn på operativ system som ska visas för kunderna.  |
-| **Rekommenderade VM-storlekar\*** | Aktiverar val av upp till sex rekommenderade VM-storlekar från en standardiserad lista.  Den här listan skickas vidare till Azure Portal och Microsoft Marketplace.  Den första storleken på den virtuella datorn i listan som är giltig (för kund prenumeration, region, zon osv.) anges som standard för den potentiella kunden.  Användaren kan ändra den här storleken till valfri kompatibel med lösnings avbildningen. | 
-| **Öppna portar**| Portar som ska öppnas och protokoll som stöds för SKU: n.  Dessa konfigurationer måste matcha det virtuella nätverk som du har konfigurerat för nätverket för den virtuella lösningen. De här inställningarna träder i vägen under distributionen av virtuella datorer. Port inställningarna kan dock ändras när du har publicerat en SKU. Mer information finns i [så här öppnar du portar till en virtuell dator med Azure Portal](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal). <br/>Följande standard nätverks mappningar läggs till i alla virtuella datorer. &emsp;Aktivitets 3389-> 3389 TCP, 5986-> 5986 TCP; &emsp; Linux: 22 -> 22, TCP (SSH). |
-| **Disk version**  | Associerad virtuell lösning VM, anges av diskens versions nummer och disk-URL. Disk versionen måste vara i [semantiskt versions](https://semver.org/) format `<major>.<minor>.<patch>`:.  URL: en är URL: en för signaturen för delad åtkomst som skapats för operativ systemets virtuella hård disk.  Även om du kan lägga till upp till åtta disk versioner per SKU visas bara det högsta disk versions numret för en SKU i Azure Marketplace. De andra versionerna visas bara via API: er.  <!--TD: Add more specific link to API --> <br/> I avsnittet **ny datadisk** -spel kan du ansluta upp till 15 data diskar till den virtuella datorn.  Den här konfigurationen kan inte ändras när du har publicerat en SKU med en specifik VM-version och tillhör ande data diskar.  Om ytterligare VM-versioner läggs till i SKU: n måste de också ha stöd för samma antal data diskar. <br/> Om du inte har skapat dina Azure-baserade VM-avbildningar kan du lägga till uppdateringar i det här fältet senare.  Information om hur du skapar den associerade VM-resursen finns i avsnittet [skapa tekniska till gångar för virtuella datorer](./cpp-create-technical-assets.md).  
+| **Rekommenderade storlekar för virtuella datorer\*** | Aktiverar val av upp till sex rekommenderade VM-storlekar från en standardiserad lista.  Den här listan skickas vidare till Azure Portal och Microsoft Marketplace.  Den första storleken på den virtuella datorn i listan som är giltig (för kund prenumeration, region, zon osv.) anges som standard för den potentiella kunden.  Användaren kan ändra den här storleken till valfri kompatibel med lösnings avbildningen. | 
+| **Öppna portar**| Portar som ska öppnas och protokoll som stöds för SKU: n.  Dessa konfigurationer måste matcha det virtuella nätverk som du har konfigurerat för nätverket för den virtuella lösningen. De här inställningarna träder i vägen under distributionen av virtuella datorer. Port inställningarna kan dock ändras när du har publicerat en SKU. Mer information finns i [så här öppnar du portar till en virtuell dator med Azure Portal](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal). <br/>Följande standard nätverks mappningar läggs till i alla virtuella datorer. &emsp; Windows: 3389-> 3389 TCP, 5986-> 5986 TCP; &emsp; Linux: 22-> 22, TCP (SSH). |
+| **Disk version**  | Associerad virtuell lösning VM, anges av diskens versions nummer och disk-URL. Disk versionen måste vara i [semantiskt versions](https://semver.org/) format: `<major>.<minor>.<patch>`.  URL: en är URL: en för signaturen för delad åtkomst som skapats för operativ systemets virtuella hård disk.  Även om du kan lägga till upp till åtta disk versioner per SKU visas bara det högsta disk versions numret för en SKU i Azure Marketplace. De andra versionerna visas bara via API: er.  <!--TD: Add more specific link to API --> <br/> I avsnittet **ny datadisk** -spel kan du ansluta upp till 15 data diskar till den virtuella datorn.  Den här konfigurationen kan inte ändras när du har publicerat en SKU med en specifik VM-version och tillhör ande data diskar.  Om ytterligare VM-versioner läggs till i SKU: n måste de också ha stöd för samma antal data diskar. <br/> Om du inte har skapat dina Azure-baserade VM-avbildningar kan du lägga till uppdateringar i det här fältet senare.  Information om hur du skapar den associerade VM-resursen finns i avsnittet [skapa tekniska till gångar för virtuella datorer](./cpp-create-technical-assets.md).  
 |  |  |
 
 <!-- TD: The CPP UX warning msg indicates that underscores are also supported in these SKU IDs. I suspect this might be true for other identifiers. --> 
@@ -76,7 +77,7 @@ VM-utgivaren meddelades den 2 juli 2019 om tillägg av nya priser för nya storl
 
 ### <a name="simplified-currency-pricing"></a>Pris för förenklad valuta
 
-Från och med den 1 2018 september kommer ett nytt avsnitt med namnet förenklad **valuta prissättning** att läggas till i portalen. Microsoft effektiviserar Azure Marketplace-verksamheten genom att möjliggöra mer förutsägbara priser och samlingar från dina kunder över hela världen. Den här effektiviserat omfattar att minska antalet valutor som vi fakturerar kunderna i.  Mer information finns i [Uppdatera ett befintligt VM-erbjudande på Azure Marketplace](./cpp-update-existing-offer.md).
+Från och med den 1 2018 september kommer ett nytt avsnitt med namnet **förenklad valuta prissättning** att läggas till i portalen. Microsoft effektiviserar Azure Marketplace-verksamheten genom att möjliggöra mer förutsägbara priser och samlingar från dina kunder över hela världen. Den här effektiviserat omfattar att minska antalet valutor som vi fakturerar kunderna i.  Mer information finns i [Uppdatera ett befintligt VM-erbjudande på Azure Marketplace](./cpp-update-existing-offer.md).
 
 
 ### <a name="additional-information-on-taxes-and-prices"></a>Ytterligare information om skatter och priser

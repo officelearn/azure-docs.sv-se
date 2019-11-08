@@ -1,5 +1,5 @@
 ---
-title: Skala enkla databas resurser – Azure SQL Database
+title: Skala enkla databas resurser
 description: Den här artikeln beskriver hur du skalar beräknings-och lagrings resurserna som är tillgängliga för en enskild databas i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: 7f3e0c6a5f2d3594e8a03ed4034248b1fd43c73d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 2a16735e65201314328d2315479ccc467b9d555e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687173"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820986"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Skala enkla databas resurser i Azure SQL Database
 

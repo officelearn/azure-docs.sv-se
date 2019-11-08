@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 3b1fa6ab046845e2fd95e8d4b5611ca2f5d12562
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 83d24d45d7628a2e02068c8757fa6568d6d3fc37
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690100"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823481"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Använda klient biblioteket för Elastic Database med dapper
 Det här dokumentet är för utvecklare som är beroende av dapper för att skapa program, men som även vill använda [elastiska databas verktyg](sql-database-elastic-scale-introduction.md) för att skapa program som implementerar horisontell partitionering för att skala ut data nivån.  Det här dokumentet illustrerar ändringarna i dapper-baserade program som behövs för att integrera med Elastic Database-verktyg. Vårt fokus är att skapa en elastisk databas Shard hantering och data beroende routning med dapper. 

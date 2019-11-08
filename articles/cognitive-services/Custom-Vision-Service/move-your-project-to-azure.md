@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: anroth
-ms.openlocfilehash: 5c583270428a459f500ae0e220592805fd1bf454
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 0a2b48a6c046150f6e685ecda0c0d765342e0194
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718909"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818957"
 ---
 # <a name="how-to-move-your-limited-trial-project-to-azure"></a>Så här flyttar du ditt begränsade utvärderings projekt till Azure
 
@@ -46,7 +46,7 @@ Flera projekt kan associeras med en enda resurs. Mer information om [priser och 
 
 ## <a name="find-your-limited-trial-project-information"></a>Hitta din begränsade utvärderings projekt information
 
-Om du vill flytta projektet behöver du _projekt-ID_ och _utbildnings nyckel_ för projektet som du försöker migrera. Om du inte har den här informationen kan du gå till [https://limitedtrial.customvision.ai/projects](https://limitedtrial.customvision.ai/projects) för att hämta ID och nyckel för varje projekt. 
+Om du vill flytta projektet behöver du _projekt-ID_ och _utbildnings nyckel_ för projektet som du försöker migrera. Om du inte har den här informationen kan du gå till [https://www.customvision.ai/projects](https://www.customvision.ai/projects) för att hämta ID och nyckel för varje projekt. 
 
 ## <a name="use-the-python-sample-code-to-copy-your-project-to-azure"></a>Använd python-exempel koden för att kopiera projektet till Azure
 

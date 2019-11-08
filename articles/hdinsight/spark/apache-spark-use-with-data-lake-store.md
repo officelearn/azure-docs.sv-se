@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 7c60fdfd4d8e579c24da3c43501e4437806becc6
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: f7a6ab954aff1bcc2e3dae3fc035db4b136ccbbe
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241714"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818170"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>Använd HDInsight Spark-kluster för att analysera data i Data Lake Storage Gen1
 
 I den här artikeln använder du [Jupyter Notebook](https://jupyter.org/) som är tillgängliga med HDInsight Spark-kluster för att köra ett jobb som läser data från ett data Lake Storage-konto.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Azure Data Lake Storage Gen1 konto. Följ anvisningarna i [Kom igång med Azure Data Lake Storage gen1 med hjälp av Azure Portal](../../data-lake-store/data-lake-store-get-started-portal.md).
 
@@ -30,7 +30,7 @@ I den här artikeln använder du [Jupyter Notebook](https://jupyter.org/) som ä
 > [!NOTE]  
 > Du behöver inte utföra det här steget om du har skapat HDInsight-klustret med Data Lake Storage som standard lagring. Processen för att skapa kluster lägger till exempel data i det Data Lake Storage konto som du anger när du skapar klustret. Hoppa till avsnittet Använd HDInsight Spark-kluster med Data Lake Storage.
 
-Om du har skapat ett HDInsight-kluster med Data Lake Storage som ytterligare lagrings utrymme och Azure Storage Blob som standard lagring, bör du först kopiera några exempel data till Data Lake Storage-kontot. Du kan använda exempel data från Azure Storage Blob som är associerade med HDInsight-klustret. Du kan använda [verktyget ADLCopy](https://aka.ms/downloadadlcopy) för att göra det. Hämta och installera verktyget från länken.
+Om du har skapat ett HDInsight-kluster med Data Lake Storage som ytterligare lagrings utrymme och Azure Storage Blob som standard lagring, bör du först kopiera några exempel data till Data Lake Storage-kontot. Du kan använda exempel data från Azure Storage Blob som är associerade med HDInsight-klustret. Du kan använda [verktyget ADLCopy](https://www.microsoft.com/download/details.aspx?id=50358) för att göra det. Hämta och installera verktyget från länken.
 
 1. Öppna en kommando tolk och navigera till den katalog där AdlCopy är installerat, vanligt vis `%HOMEPATH%\Documents\adlcopy`.
 

@@ -1,42 +1,43 @@
 ---
-title: Krav för Azure IoT Edge-modulen | Azure Marketplace
-description: Förutsättningar för att publicera en IoT Edge-modul.
+title: Förutsättningar för Azure IoT Edge-modulen | Azure Marketplace
+description: Krav för att publicera en IoT Edge-modul.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: a5d1d6fdaf07f8b27820021d4d2ac45ec67c9915
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 610f9bc8d87ac75e2868e247fe1332574480b498
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942112"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813866"
 ---
-# <a name="iot-edge-module-publishing-prerequisites"></a>IoT Edge-modulen publishing krav
+# <a name="iot-edge-module-publishing-prerequisites"></a>Förutsättningar för att publicera IoT Edge modul
 
-Den här artikeln beskrivs kraven för att publicera ett erbjudande för IoT Edge-modulen.  Om du inte redan har gjort det, kan du granska den [IoT Edge-moduler publicerar guiden](../..//iot-edge-module.md).
+I den här artikeln beskrivs kraven för att publicera ett IoT Edge-modul erbjudande.  Om du inte redan har gjort det går du igenom [publicerings guiden för IoT Edge-moduler](../..//iot-edge-module.md).
 
 
-## <a name="publishing-prerequisites"></a>Krav för publicering
+## <a name="publishing-prerequisites"></a>Publicerings krav
 
-Om du vill publicera en IoT Edge-modul i Azure Marketplace, som du behöver uppfylla följande krav:
+Om du vill publicera en IoT Edge-modul på Azure Marketplace måste du uppfylla följande krav:
 
 <!-- P2: It would be great to point to the terms of use of CPP here. This can often be a blocker for big companies and these terms of use are not anonymously visible yet.-->
-- Åtkomst till den [Cloud Partner Portal](https://cloudpartner.azure.com/). Mer information finns i [publiceringsguide för Azure Marketplace och AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
-- Avtal för den [villkor för Azure Marketplace](https://azure.microsoft.com/support/legal/marketplace-terms/)
-- Vara värd för din IoT Edge-modulen teknisk tillgång i ett Azure Container Registry.  Mer information finns i [hur du förbereder din IoT-Edge modulen teknisk tillgång](./cpp-create-technical-assets.md)
-- Har metadata redo att använda din IoT Edge-modulen. Till exempel förbereda följande resurser:
+- Åtkomst till [Cloud Partner Portal](https://cloudpartner.azure.com/). Mer information finns i [publicerings guiden för Azure Marketplace och AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
+- Avtal till [Azure Marketplace-villkoren](https://azure.microsoft.com/support/legal/marketplace-terms/)
+- Vara värd för din IoT Edge-modulens tekniska till gång i en Azure Container Registry.  Mer information finns i [så här förbereder du din tekniska till gång till IoT Edge-modul](./cpp-create-technical-assets.md)
+- Ha din IoT Edge modul metadata redo att användas. Förbered till exempel följande till gångar:
     - En rubrik
     - En beskrivning (i HTML-format)
-    - En logotyp (PNG-format och fast bildstorleken inklusive 40x40px, 90x90px, 115x115px, 255x115px)
-    - En period om och sekretesspolicyn princip
-    - En standardkonfiguration för modulen som innehåller: vägar, twin önskade egenskaper, createOptions och miljövariabler.
+    - En logo typ bild (PNG-format och fasta bild storlekar, inklusive 40x40px, 90x90px, 115x115px, 255x115px)
+    - Ett användnings villkor och en sekretess policy
+    - En standardmoduls konfiguration som innehåller: vägar, dubbla önskade egenskaper, createOptions och miljövariabler.
     - Modul-dokumentation
-    - Supportkontakter
+    - Support kontakter
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har [förberett din IoT Edge-modulen teknisk tillgång](./cpp-create-technical-assets.md), kommer du vara redo att [skapa erbjudandet IoT Edge-modulen](./cpp-create-offer.md). 
+När du har för [berett din IoT Edge-modul teknisk till gång](./cpp-create-technical-assets.md), är du redo att [skapa ditt IoT Edge-modul erbjudande](./cpp-create-offer.md). 

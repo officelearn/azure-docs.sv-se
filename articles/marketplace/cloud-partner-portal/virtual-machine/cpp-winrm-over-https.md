@@ -1,41 +1,42 @@
 ---
 title: Windows Remote Management via HTTPS för Azure | Azure Marketplace
-description: Beskriver hur du konfigurerar en Azure-värdbaserade, Windows-baserad virtuell dator så att den kan hanteras via en fjärranslutning med PowerShell.
+description: Förklarar hur du konfigurerar en Windows-baserad virtuell dator med Azure som värd, så att den kan fjärrhanteras med PowerShell.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: pabutler
-ms.openlocfilehash: fb661a2705d437d1f40ceebcad7e759c2a78540f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e159bd9b57b26c99afd590d6a9f2153dba2a205
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938227"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73808431"
 ---
 # <a name="windows-remote-management-over-https"></a>Windows Remote Management via HTTPS
 
-Det här avsnittet beskrivs hur du konfigurerar en Azure-värdbaserade, Windows-baserad virtuell dator så att den kan hanteras och distribueras via en fjärranslutning med PowerShell.  Om du vill aktivera PowerShell-fjärrkommunikation, måste den Virtuella måldatorn exponera en Windows Remote Management (WinRM) HTTPS-slutpunkt.  Mer information om PowerShell-fjärrkommunikation finns i [köra fjärrkommandon](https://docs.microsoft.com/powershell/scripting/core-powershell/running-remote-commands?view=powershell-6).  Läs mer om WinRM [Windows Remote Management](https://docs.microsoft.com/windows/desktop/WinRM/portal).
+I det här avsnittet beskrivs hur du konfigurerar en Windows-baserad virtuell dator med Azure som värd, så att den kan hanteras och distribueras via fjärr anslutning med PowerShell.  Om du vill aktivera PowerShell-fjärrkommunikation måste den virtuella mål datorn exponera en HTTPS-slutpunkt för Windows Remote Management (WinRM).  Mer information om PowerShell-fjärrkommunikation finns i [köra fjärrkommandon](https://docs.microsoft.com/powershell/scripting/core-powershell/running-remote-commands?view=powershell-6).  Mer information om WinRM finns i [Windows Remote Management](https://docs.microsoft.com/windows/desktop/WinRM/portal).
 
-Om du har skapat en virtuell dator med någon av ”klassiska” Azure metoder – Azure Service Manager-portalen eller den inaktuella [Azure Service Management API](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100))– och sedan konfigureras automatiskt med en WinRM-slutpunkt.  Men om du skapar en virtuell dator med hjälp av någon av följande ”modern” Azure närmar sig sedan den virtuella datorn kommer *inte* konfigureras för WinRM via HTTPS.  
+Om du har skapat en virtuell dator med någon av de klassiska Azure-metoderna, antingen Azure Service Manager-portalen eller det inaktuella [Azure-Service Management-API](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100)), konfigureras den automatiskt med en WinRM-slutpunkt.  Men om du skapar en virtuell dator med någon av följande "moderna" Azure-metoder kommer din virtuella dator *inte* att konfigureras för WINRM över https.  
 
-- Med hjälp av den [Azure-portalen](https://portal.azure.com/), vanligtvis från en godkänd basen som beskrivs i avsnittet [skapa en Azure-kompatibel VHD](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd)
-- [Med hjälp av Azure Resource Manager-mallar](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
-- Med hjälp av Azure PowerShell eller Azure CLI-kommandogränssnittet.  Exempel finns i [snabbstarten: Skapa en Windows-dator i Azure med PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell) och [snabbstarten: Skapa en Linux-dator med Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli).
+- Använd [Azure Portal](https://portal.azure.com/), vanligt vis från en godkänd bas, enligt beskrivningen i avsnittet [skapa en Azure-kompatibel virtuell hård disk](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd)
+- [Använda Azure Resource Manager mallar](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
+- Använd antingen Azure PowerShell-eller Azure CLI-kommando tolken.  Exempel finns i [snabb start: skapa en virtuell Windows-dator i Azure med PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell) och [snabb start: skapa en virtuell Linux-dator med Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli).
 
-Den här slutpunkten för WinRM är också krävs för att köra Certifieringspaket för verktyget för onboarding av den virtuella datorn, enligt beskrivningen i [certifiera din avbildning](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-certify-vm).
+Den här WinRM-slutpunkten krävs också för att köra Certificate Tool Kit för att registrera den virtuella datorn, enligt beskrivningen i [certifiera din virtuella dator avbildning](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-certify-vm).
 
-Däremot vanligtvis virtuella Linux-datorer via fjärranslutning hanteras med hjälp av antingen [Azure CLI](https://docs.microsoft.com/cli/azure) eller Linux-kommandon från en SSH-konsolen.  Azure tillhandahåller också flera alternativa metoder för att [köra skript i din Linux-VM](https://docs.microsoft.com/azure/virtual-machines/linux/run-scripts-in-vm).  För mer komplicerade scenarier kan finns det ett antal lösningar för automatisering och integrering för Windows - eller Linux-baserade virtuella datorer.
+Vanligt vis fjärrhanteras virtuella Linux-datorer via antingen [Azure CLI](https://docs.microsoft.com/cli/azure) -eller Linux-kommandon från en SSH-konsol.  Azure innehåller också flera alternativa metoder för att [köra skript i din virtuella Linux-dator](https://docs.microsoft.com/azure/virtual-machines/linux/run-scripts-in-vm).  För mer komplexa scenarier finns det ett antal Automation-och integrations lösningar som är tillgängliga för Windows-eller Linux-baserade virtuella datorer.
 
 
 ## <a name="configure-and-deploy-with-winrm"></a>Konfigurera och distribuera med WinRM
 
-WinRM-slutpunkten för en windows-baserad virtuell dator kan konfigureras under två olika faser av dess utveckling:
+WinRM-slutpunkten för en Windows-baserad virtuell dator kan konfigureras under två olika steg i utvecklingen:
 
-- När du skapar - under distributionen av en virtuell dator till en befintlig virtuell Hårddisk.  Det här är den bästa lösningen för nya erbjudanden.  Den här metoden kräver att skapa ett Azure-certifikat, med hjälp av angivna Azure Resource Manager-mallar och köra anpassade PowerShell-skript. 
-- Efter distributionen – på en befintlig virtuell dator på Azure.  Använd den här metoden om du redan har en VM-lösningen distribueras på Azure och måste du aktivera fjärrhantering i fönstret för den.  Den här metoden kräver manuella ändringar i Azure-portalen och körningen av ett skript på den Virtuella måldatorn. 
+- Under skapandet – under distributionen av en virtuell dator till en befintlig virtuell hård disk.  Detta är det bästa sättet för nya erbjudanden.  Den här metoden kräver att ett Azure-certifikat skapas, med hjälp av angivna Azure Resource Manager mallar och att du kör anpassade PowerShell-skript. 
+- Efter distributionen – på en befintlig virtuell dator som finns på Azure.  Använd den här metoden om du redan har distribuerat en VM-lösning på Azure och behöver aktivera fjärrhantering av fönster för den.  Den här metoden kräver manuella ändringar i Azure Portal och körning av ett skript på den virtuella mål datorn. 
 
 
 ## <a name="next-steps"></a>Nästa steg
-Om du skapar en ny virtuell dator, kan du aktivera WinRM under [distribution av en virtuell dator från dess virtuella hårddiskar](./cpp-deploy-vm-vhd.md).  I annat fall kan WinRM aktiveras i en befintlig virtuell dator  
+Om du skapar en ny virtuell dator kan du aktivera WinRM under [distributionen av den virtuella datorn från dess virtuella hård diskar](./cpp-deploy-vm-vhd.md).  Annars kan WinRM aktive ras i en befintlig virtuell dator  

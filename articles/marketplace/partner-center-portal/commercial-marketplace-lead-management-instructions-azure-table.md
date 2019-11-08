@@ -4,15 +4,16 @@ description: Konfigurera lead-hantering för Azure-tabell.
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: evansma
-ms.openlocfilehash: 7151be3ac9f55825fd2e9dde35c9afda6a30726a
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 9b24e6eb714c531b49ba08591bf4ed33d0f10101
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69902642"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812344"
 ---
 # <a name="configure-lead-management-using-an-azure-table"></a>Konfigurera ledar hantering med hjälp av en Azure-tabell
 
@@ -78,7 +79,7 @@ Använd det här exemplet som en guide för att skapa ett enkelt flöde som auto
 
    ![Välj en åtgärd.](./media/commercial-marketplace-lead-management-instructions-azure-table/choose-an-action.png)
 
-8. I fönstret **Hämta tidigare tid** anger du **intervallet** till 1. Välj **timme**från List rutan tidsenhet.
+8. I fönstret **Hämta tidigare tid** anger du **intervallet** till 1. Välj **timme**från List rutan **tidsenhet** .
 
     >[!Important]
     >Kontrol lera att intervallet och tidsenheten matchar intervallet och frekvensen som du konfigurerade för upprepning i steg 5.
@@ -102,11 +103,11 @@ I nästa uppsättning steg ansluter du till Azure-tabellen och konfigurerar bear
 
     När du klickar på Skapa visas ett fönster för att *Hämta entiteter* . Välj **Visa avancerade alternativ** och ange information för följande fält:
 
-       * *Tabell* – Välj namnet på din azure-Table Storage (från steg 6 av instruktioner om hur du konfigurerar en Azure-tabell). I nästa skärm bild visas prompten när tabellen "marketplaceleads" är markerad för det här exemplet.
+       * *Tabell* – Välj namnet på din Azure-Table Storage (från steg 6 av instruktioner om hur du konfigurerar en Azure-tabell). I nästa skärm bild visas prompten när tabellen "marketplaceleads" är markerad för det här exemplet.
 
             ![Azure Table Hämta entiteter.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
-        * *Filter fråga* – Välj det här fältet och klistra in funktionen i fältet:`Timestamp gt datetime'@{body('Get_past_time')}'`
+        * *Filter fråga* – Välj det här fältet och klistra in funktionen i fältet: `Timestamp gt datetime'@{body('Get_past_time')}'`
 
             ![Azure Table get entities – filter Querry.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
 
@@ -118,7 +119,7 @@ I nästa uppsättning steg ansluter du till Azure-tabellen och konfigurerar bear
 
 14. I fönstret **villkor** väljer du fältet **Välj ett värde** och väljer sedan **uttryck** i popup-fönstret.
 
-15. Klistra `length(body('Get_entities')?['value'])` in i fältet ***FX*** . Välj **OK** för att lägga till den här funktionen. 
+15. Klistra in `length(body('Get_entities')?['value'])` i fältet ***FX*** . Välj **OK** för att lägga till den här funktionen. 
 
 16. Så här slutför du konfigurationen av villkoret:
     1. Välj "är större än" i list rutan.
@@ -144,9 +145,9 @@ I följande steg ska du ställa in vilken åtgärd som ska vidtas baserat på re
 
 19. Ange information för följande fält i **Office 365 Outlook** -fönstret:
 
-    1. Ange en e-postadress för alla som får det här meddelandet.
-    1. **Subject** – ange ett ämne för e-postmeddelandet. Exempel: Nya leads!
-    1. **Brödtext** – Lägg till den text som du vill inkludera i varje e-postmeddelande (valfritt) och klistra in brödtext `body('Get_entities')?['value']`.
+    1. Ange en **e-postadress** för alla som får det här meddelandet.
+    1. **Subject** – ange ett ämne för e-postmeddelandet. Till exempel: nya leads!
+    1. **Brödtext** – Lägg till den text som du vill inkludera i varje e-postmeddelande (valfritt) och klistra in i brödtext `body('Get_entities')?['value']`.
 
     >[!Note]
     >Du kan infoga ytterligare statiska eller dynamiska data punkter i bröd texten i det här e-postmeddelandet.

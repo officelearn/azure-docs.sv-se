@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: 254a1fd8644015de33855e13f78ab122d28f1e35
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: d9349391ad9af1a4ec1c84b586f825f3f7632ff8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817124"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815753"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Snabb start: lägga till inloggning med Microsoft i en python-webbapp
 
@@ -32,7 +32,7 @@ När du har slutfört guiden kommer ditt program att godkänna inloggningar med 
 
 ![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-python-webapp/python-quickstart.svg)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill köra det här exemplet behöver du:
 
@@ -53,9 +53,9 @@ Om du vill köra det här exemplet behöver du:
 > 1. Ange ett namn för programmet och välj **Registrera**.
 > 1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet manuellt
 >
-> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera din app
+> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
 >
 > Du registrerar programmet och lägger till appens registreringsinformationen i lösningen manuellt med hjälp av följande steg:
 >
@@ -74,6 +74,13 @@ Om du vill köra det här exemplet behöver du:
 >      - Välj en nyckel varaktighet på om **1 år**.
 >      - När du klickar på **Lägg till**visas nyckelvärdet.
 >      - Kopiera värdet för nyckeln. Du behöver den senare.
+> 1. Välj avsnittet **API-behörigheter**
+>
+>      - Klicka på knappen **Lägg till en behörighet** och sedan
+>      - Se till att fliken **Microsoft API: er** är vald
+>      - I avsnittet *vanliga API: er för Microsoft* klickar du på **Microsoft Graph**
+>      - I avsnittet **delegerade behörigheter** kontrollerar du att rätt behörigheter är markerade: **User. ReadBasic. all**. Använd Sök fältet om det behövs.
+>      - Välj knappen **Lägg till behörigheter**
 >
 > [!div class="sxs-lookup" renderon="portal"]
 >
@@ -83,11 +90,12 @@ Om du vill köra det här exemplet behöver du:
 >
 > 1. Lägg till en svars-URL som `http://localhost:5000/getAToken`.
 > 1. Skapa en klient hemlighet.
+> 1. Lägg till Microsoft Graph API: s User. ReadBasic. all delegerad behörighet.
 >
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Gör den här ändringen åt mig]()
+> > [Gör ändringarna åt mig]()
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerad](media/quickstart-v2-aspnet-webapp/green-check.png) appen konfigureras med det här attributet
+> > ![Redan konfigurerad](media/quickstart-v2-aspnet-webapp/green-check.png) Appen har konfigurerats med det här attributet
 
 #### <a name="step-2-download-your-project"></a>Steg 2: Ladda ned ditt projekt
 
@@ -106,7 +114,7 @@ AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
 ```
 
 > [!div renderon="docs"]
-> Var:
+> Där:
 >
 > - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
 > - `Enter_the_Client_Secret_Here` – är den **klient hemlighet** som du skapade i **certifikat & hemligheter** för det program som du har registrerat.
@@ -126,24 +134,24 @@ AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
    python app.py
    ```
    > [!IMPORTANT]
-   > Det här snabbstartsprogrammet använder en klienthemlighet för att identifiera sig som en konfidentiell klient. Eftersom klienthemligheten läggs till som oformaterad text till dina projektfiler rekommenderar vi att du av säkerhetsskäl använder ett certifikat i stället för en klienthemlighet innan programmet används som produktionsprogram. Mer information om hur du använder ett certifikat finns i [följande instruktioner](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-certificate-credentials).
+   > Det här snabbstartsprogrammet använder en klienthemlighet för att identifiera sig som en konfidentiell klient. Eftersom klienthemligheten läggs till som oformaterad text till dina projektfiler rekommenderar vi att du av säkerhetsskäl använder ett certifikat i stället för en klienthemlighet innan programmet används som produktionsprogram. Mer information om hur du använder ett certifikat finns i [följande instruktioner](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
 
-   ## <a name="more-information"></a>Mer information
+## <a name="more-information"></a>Mer information
 
-   ### <a name="getting-msal"></a>Hämtar MSAL
-   MSAL är det bibliotek som används för att logga in användare och begära token som används för att få åtkomst till ett API som skyddas av Microsoft Identity Platform.
-   Du kan lägga till MSAL python i ditt program med hjälp av pip.
+### <a name="getting-msal"></a>Hämtar MSAL
+MSAL är det bibliotek som används för att logga in användare och begära token som används för att få åtkomst till ett API som skyddas av Microsoft Identity Platform.
+Du kan lägga till MSAL python i ditt program med hjälp av pip.
 
-   ```Shell
-   pip install msal
-   ```
+```Shell
+pip install msal
+```
 
-   ### <a name="msal-initialization"></a>MSAL-initiering
-   Du kan lägga till referensen i MSAL python genom att lägga till följande kod överst i filen där du kommer att använda MSAL:
+### <a name="msal-initialization"></a>MSAL-initiering
+Du kan lägga till referensen i MSAL python genom att lägga till följande kod överst i filen där du kommer att använda MSAL:
 
-   ```Python
-   import msal
-   ```
+```Python
+import msal
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

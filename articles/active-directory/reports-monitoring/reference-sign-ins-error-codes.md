@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 931f2fbe5798966c41378d9b401dcd59cafc5cca
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 9bb7114611ce5c7eabb8124ad11db64d50e12946
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820869"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73809826"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Felkoder för inloggnings aktivitet 
 
@@ -127,6 +127,7 @@ Du kan också program mässigt komma åt inloggnings data med hjälp av [rapport
 |50177|Extern utmaning stöds inte för passthrough-användare.|
 |50178|Session Control stöds inte för passthrough-användare.|
 |50180|Windows-integrerad autentisering behövs. Aktivera klientorganisationen för sömlös SSO.|
+|50181|Det gick inte att logga in på eng ång slö sen ord. |
 |50201|Detta meddelande visas vid inloggning när ytterligare information ska ges till användaren.|
 |51001|Domän tipset finns inte med lokal säkerhets identifierare – lokalt UPN.|
 |51004|Användarkontot finns inte i katalogen.|
@@ -187,7 +188,7 @@ Du kan också program mässigt komma åt inloggnings data med hjälp av [rapport
 |530032|Blockerad av säkerhets princip.| 
 |700016|Det gick inte att hitta programmet med identifieraren {appIdentifier} i katalogen {tenantName}. Detta kan inträffa om programmet inte har installerats av administratören för klienten eller om någon användare i klient organisationen har godkänt detta. Du kan ha skickat din autentiseringsbegäran till fel klient.|
 |900432|Konfidentiell klient stöds inte i en begäran mellan moln.|
-|7000218|Begär ande texten måste innehålla följande parameter: ' client_assertion ' eller ' client_secret '.|
+|7000218|Begär ande texten måste innehålla följande parameter: client_assertion eller client_secret.|
 
 
 ## <a name="next-steps"></a>Nästa steg

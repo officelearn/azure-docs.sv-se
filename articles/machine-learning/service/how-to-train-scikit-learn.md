@@ -1,5 +1,5 @@
 ---
-title: Träna maskin inlärnings modeller med scikit – lära
+title: Utbilda scikit – lär dig Machine Learning-modeller
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du kör dina scikit-utbildnings skript i företags skala med hjälp av Azure Machine Learning SKlearn-uppskattnings klass. Exempel skripten klassificerar Iris blomma-bilder för att bygga en maskin inlärnings modell baserad på scikit-data uppsättning.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: ed93eff6c137e125c2bc1707de441dc9971d6f3f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ea466486509c4b5dadc48ef830c9f05ec42ab5b3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584466"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73814846"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Bygg scikit – lär dig modeller i stor skala med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -87,13 +87,13 @@ exp = Experiment(workspace=ws, name='sklearn-iris')
 
 ### <a name="prepare-training-script"></a>Förbered utbildnings skript
 
-I den här självstudien har utbildnings skriptet **train_iris. py** redan angetts. I praktiken bör du kunna ta med ett anpassat tränings skript som är och köra det med Azure ML utan att behöva ändra koden.
+I den här självstudien har utbildnings skriptet **train_iris. py** redan angetts för dig. I praktiken bör du kunna ta med ett anpassat tränings skript som är och köra det med Azure ML utan att behöva ändra koden.
 
-Om du vill använda Azure MLs spårnings-och mått funktioner lägger du till en liten del av Azure ML-koden i utbildnings skriptet.  I övnings skriptet **train_iris. py** visas hur du loggar vissa mått i Azure ml-körningen med hjälp av `Run`-objektet i skriptet.
+Om du vill använda Azure MLs spårnings-och mått funktioner lägger du till en liten del av Azure ML-koden i utbildnings skriptet.  Övnings skriptet **train_iris. py** visar hur du loggar vissa mått i Azure ml-körningen med hjälp av `Run`-objektet i skriptet.
 
 Det tillhandahållna utbildnings skriptet använder exempel data från funktionen `iris = datasets.load_iris()`.  För dina egna data kan du behöva använda steg som att [Ladda upp data uppsättning och skript](how-to-train-keras.md#data-upload) för att göra data tillgängliga under utbildningen.
 
-Kopiera övnings skriptet **train_iris. py** till projekt katalogen.
+Kopiera övnings skriptet **train_iris. py** i projekt katalogen.
 
 ```
 import shutil
@@ -169,7 +169,7 @@ När körningen körs går den igenom följande steg:
 
 När du har tränat modellen kan du spara och registrera den på din arbets yta. Med modell registreringen kan du lagra och version av dina modeller i din arbets yta för att förenkla [modell hantering och distribution](concept-model-management-and-deployment.md).
 
-Lägg till följande kod i utbildnings skriptet, train_iris. py, för att spara modellen. 
+Lägg till följande kod i utbildnings skriptet train_iris. py för att spara modellen. 
 
 ``` Python
 import joblib

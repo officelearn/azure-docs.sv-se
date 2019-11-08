@@ -1,5 +1,5 @@
 ---
-title: Hantera flera SQL-databaser med elastiska pooler – Azure
+title: Hantera flera databaser med elastiska pooler
 description: Hantera och skala flera SQL-databaser – hundratals och tusentals användning av elastiska pooler. Ett pris för resurser som du kan distribuera vid behov.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
-ms.openlocfilehash: 68bb68b47ca240d6c20153af3ed4b0eb42475282
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1b3ee75d1b24cab8211337cf1cdbd053327e16b8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690453"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823835"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastiska pooler hjälper dig att hantera och skala flera Azure SQL-databaser
 

@@ -1,43 +1,44 @@
 ---
 title: Konfigurera stöd för Azure-program | Azure Marketplace
-description: Konfigurera Azure-programstöd för ett erbjudande på Azure Marketplace.
+description: Konfigurera stöd för Azure-program för ett erbjudande på Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 37c6a36afaad1e10d5075a207b35920531d6ace2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6616f4caed3483af9e23c7d5d1326478213f6f0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943263"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818190"
 ---
-# <a name="azure-application-support-tab"></a>Fliken för stöd av Azure-program
+# <a name="azure-application-support-tab"></a>Fliken Azure-program support
 
-Använd fliken stöd för att tillhandahålla teknik- och supportinformation.
+Använd fliken Support för att tillhandahålla teknisk information och kund support.
  
 ## <a name="identify-contacts-and-websites"></a>Identifiera kontakter och webbplatser
 
-Använd nästa skärmdumpen som en vägledning för att ange nödvändig information. Alla fältnamn läggas till med en röd asterisk (*) måste utföras.
+Använd nästa skärm bild som en guide för att ange den information som krävs. Alla fält namn som läggs till med en röd asterisk (*) måste fyllas i.
 
-  ![Stödformulär för erbjudande](./media/azureapp-support-tab.png)
+  ![Support formulär för erbjudandet](./media/azureapp-support-tab.png)
 
-1. Under **Engineering Contact**, ange information för följande fält:
+1. Under **teknisk kontakt**anger du information för följande fält:
 
-   - **Namnet\***  – ange namnet på den tekniska kontakten för din app. Den här kontakten kommer få teknisk information från Microsoft.
-   - **E-post\***  – ange den e-postadressen för den tekniska kontakten.
-   - **Phone\***  -Ange telefonnummer för den tekniska kontakten.
+   - **Namn\*** – ange namnet på teknisk kontakt för din app. Den här kontakten får teknisk kommunikation från Microsoft.
+   - **E-\*** – ange teknisk kontaktens e-postadress.
+   - **Telefon\*** – ange telefonnumret till den tekniska kontakten.
   
-2. Under **Supportkontakt**, ange information för följande fält:
+2. Under **support kontakt**anger du information för följande fält:
 
-   - **Namnet\***  – ange namnet på supportkontakten för din app. Den här kontakten får support-relaterade kommunikation från Microsoft.
-   - **E-post\***  – ange den e-postadressen för Supportkontakt för din app.
-   - **Phone\***  -Ange telefonnummer för supportkontakten.
+   - **Namn\*** – ange namnet på support kontakten för din app. Den här kontakten får support-relaterad kommunikation från Microsoft.
+   - **E-\*** – ange e-postadressen till support kontakten för din app.
+   - **Telefon\*** – ange telefonnumret till support kontakten.
  
-3. Under **stöd för URL: er**, ge stöd för lämpliga URL: er som Microsoft använder när kunderna öppna supportärenden. Dessa URL: er ska vara antingen offentliga Azure eller Azure Government-molnet.
-4. Välj **spara** när du är klar.
+3. Under **support webb adresser**anger du lämpliga Support-URL: er som Microsoft använder när kunderna öppnar support biljetter. Dessa URL: er gäller för antingen offentliga Azure-eller Azure Government molnet.
+4. Välj **Spara** när du är klar.
 
 ## <a name="next-steps"></a>Nästa steg
 

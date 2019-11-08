@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 11/06/2019
-ms.openlocfilehash: adb89c04a83bbfbd5bddd5c23b0fa88019a88991
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 11/08/2019
+ms.openlocfilehash: da68cfe504332ed6641c52322f0df0d2efd95997
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721385"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820674"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Åtkomst till Azure Virtual Network-resurser från Azure Logic Apps med hjälp av integrerings tjänst miljöer (ISEs)
 
@@ -108,8 +108,8 @@ För lokala system som är anslutna till ett virtuellt Azure-nätverk kan du inj
 
 * ISE – märkt koppling för systemet
 
-  > [!IMPORTANT]
-  > Om du vill använda Windows-autentisering med SQL Server-anslutningen måste du använda den [lokala datagatewayen](../logic-apps/logic-apps-gateway-install.md). SQL Server Connector stöder inte Windows-autentisering för en Logic app i en ISE.
+  > [!NOTE]
+  > Om du vill använda Windows-autentisering med SQL Server-anslutaren i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)använder du anslutningens icke-ISE-version med den [lokala datagatewayen](../logic-apps/logic-apps-gateway-install.md). ISE-märkta versioner stöder inte Windows-autentisering.
 
 * Anpassad anslutning
 

@@ -1,5 +1,5 @@
 ---
-title: Skydda en enskild databas eller en databas i Azure SQL Database
+title: Skydda en enkel databas eller en pooldatabas
 description: En själv studie kurs som lär dig om tekniker och funktioner för att skydda en databas med en eller flera databaser i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 44fd49c391f4c6cddf24e3fddd7fa85a0d5ea4f2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 05ea21f7b3221425e5b052797d79e629fdfe3ba5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687430"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818025"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Självstudie: skydda en enskild databas eller en databas i en pool
 

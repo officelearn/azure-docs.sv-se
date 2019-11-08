@@ -1,5 +1,5 @@
 ---
-title: 'Övervaka prestanda Azure SQL Database med DMV: er'
+title: 'Övervaka prestanda med DMV: er'
 description: Lär dig hur du identifierar och diagnostiserar vanliga prestanda problem med hjälp av dynamiska hanterings vyer för att övervaka Microsoft Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: c7eed3fc8e9d0328a3e793e1ff4b3652ab86e2bc
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: bea6a572e55f1a79515c385fd7b79881c54ae65e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687749"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802920"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Övervaka prestanda Azure SQL Database med hjälp av vyer för dynamisk hantering
 
@@ -116,7 +116,7 @@ När du identifierar i/o-prestanda problem är de viktigaste vänte typerna som 
 
 ### <a name="if-the-io-issue-is-occurring-right-now"></a>Om IO-problemet inträffar just nu
 
-Använd [sys. DM _exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) eller [sys. DM _os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) för att se `wait_type` och `wait_time`.
+Använd [sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) eller [sys. dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) för att se `wait_type` och `wait_time`.
 
 #### <a name="identify-data-and-log-io-usage"></a>Identifiera data-och logg-i/o-användning
 
@@ -237,7 +237,7 @@ GO
 
 ## <a name="identify-tempdb-performance-issues"></a>Identifiera problem med `tempdb` prestanda
 
-När du identifierar i/o-prestanda problem är de vanligaste vänte typerna som är kopplade till `tempdb` problem `PAGELATCH_*` (inte `PAGEIOLATCH_*`). `PAGELATCH_*` väntar dock inte alltid att du har `tempdb` konkurrens.  Detta kan betyda att du har innehålls sidan för användar objekts data på grund av samtidiga begär Anden som riktar sig mot samma data sida. Om du vill bekräfta `tempdb`-konkurrens ytterligare använder du [sys. DM _exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) för att bekräfta att wait_resource-värdet börjar med `2:x:y` där 2 är `tempdb` är databas-id, `x` är fil-id och `y` är sid-ID.  
+När du identifierar i/o-prestanda problem är de vanligaste vänte typerna som är kopplade till `tempdb` problem `PAGELATCH_*` (inte `PAGEIOLATCH_*`). `PAGELATCH_*` väntar dock inte alltid att du har `tempdb` konkurrens.  Detta kan betyda att du har innehålls sidan för användar objekts data på grund av samtidiga begär Anden som riktar sig mot samma data sida. Om du vill bekräfta `tempdb`-konkurrens ytterligare använder du [sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) för att bekräfta att wait_resource svärdet börjar med `2:x:y` där 2 är `tempdb` är databas-id, `x` är fil-id och `y` är sid-ID.  
 
 För tempdb-konkurrens är en vanlig metod att minska eller omskriva program kod som förlitar sig på `tempdb`.  Vanliga `tempdb` användnings områden är:
 
@@ -484,7 +484,7 @@ GO
 
 ## <a name="monitoring-connections"></a>Övervaka anslutningar
 
-Du kan använda vyn [sys. DM _exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) för att hämta information om de anslutningar som upprättats till en bestämd Azure SQL Database-Server och information om varje anslutning. Dessutom är vyn [sys. DM _exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) användbar när du hämtar information om alla aktiva användar anslutningar och interna uppgifter.
+Du kan använda vyn [sys. dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) för att hämta information om de anslutningar som upprättats till en bestämd Azure SQL Database-Server och information om varje anslutning. Dessutom är [sys. dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) -vyn användbart när du hämtar information om alla aktiva användar anslutningar och interna uppgifter.
 Följande fråga hämtar information om den aktuella anslutningen:
 
 ```sql
@@ -501,7 +501,7 @@ WHERE c.session_id = @@SPID;
 ```
 
 > [!NOTE]
-> När du kör vyerna **sys. DM _exec_requests** och **sys. DM _exec_sessions**, om du har behörigheten **Visa databas tillstånd** för databasen, ser du alla pågående sessioner på databasen. annars visas bara den aktuella sessionen.
+> När du kör vyerna **sys. dm_exec_requests** och **sys. dm_exec_sessions**, om du har behörigheten **Visa databas tillstånd** för databasen, ser du alla pågående sessioner på databasen. annars visas bara den aktuella sessionen.
 
 ## <a name="monitor-resource-use"></a>Övervaka resursanvändning
 
@@ -509,14 +509,14 @@ Du kan övervaka resursanvändningen med hjälp av [SQL Database Query Performan
 
 Du kan också övervaka användningen med följande två vyer:
 
-- [sys. DM-_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
+- [sys. dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 - [sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
-### <a name="sysdm_db_resource_stats"></a>sys. DM-_db_resource_stats
+### <a name="sysdm_db_resource_stats"></a>sys. dm_db_resource_stats
 
-Du kan använda [sys. DM _db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) -vyn i varje SQL-databas. I vyn **sys. DM _db_resource_stats** visas senaste resurs användnings data i förhållande till tjänst nivån. Genomsnitts procent andelen för CPU, data-IO, logg skrivningar och minne registreras var 15: e sekund och bevaras i 1 timme.
+Du kan använda [sys. dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) -vyn i varje SQL-databas. I vyn **sys. dm_db_resource_stats** visas senaste resurs användnings data i förhållande till tjänst nivån. Genomsnitts procent andelen för CPU, data-IO, logg skrivningar och minne registreras var 15: e sekund och bevaras i 1 timme.
 
-Eftersom den här vyn ger en mer detaljerad titt på resursanvändningen använder du **sys. DM _db_resource_stats** först för all analys av aktuella tillstånd eller fel sökning. Den här frågan visar till exempel den genomsnittliga och högsta resursanvändning som används för den aktuella databasen under den senaste timmen:
+Eftersom den här vyn ger en mer detaljerad titt på resursanvändningen använder du **sys. dm_db_resource_stats** först för all analys av aktuella tillstånd eller fel sökning. Den här frågan visar till exempel den genomsnittliga och högsta resursanvändning som används för den aktuella databasen under den senaste timmen:
 
 ```sql
 SELECT  
@@ -531,7 +531,7 @@ SELECT
 FROM sys.dm_db_resource_stats;  
 ```
 
-För andra frågor, se exemplen i [sys. DM _db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
+För andra frågor, se exemplen i [sys. dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
 ### <a name="sysresource_stats"></a>sys. resource_stats
 
@@ -545,7 +545,7 @@ Den här databasen har för närvarande en hög processor belastning på bara ö
 
 Andra program typer kan tolka samma graf på olika sätt. Om ett program till exempel försöker bearbeta löne data varje dag och har samma diagram, kan den här typen av "batch job"-modell fungera i en beräknings storlek på P1. Beräknings storleken P1 har 100 DTU: er jämfört med 200 DTU: er vid P2 Compute-storlek. Beräknings storleken P1 ger hälften av prestandan för P2 Compute-storlek. Därför är 50 procent av CPU-användningen i P2 lika med 100 procent CPU-användning i P1. Om programmet inte har några tids gränser kanske det inte spelar någon roll om ett jobb tar 2 timmar eller 2,5 timmar att slutföras, om det blir klart idag. Ett program i den här kategorin kan förmodligen använda en beräknings storlek i P1. Du kan dra nytta av det faktum att det finns tids perioder under dagen då resurs användningen är lägre, så att alla "stora toppar" kan spilla i en av troughs senare under dagen. Beräknings storleken P1 kan vara lämplig för den typen av program (och spara pengar), så länge som jobben kan slutföras i tid varje dag.
 
-Azure SQL Database visar förbrukad resursinformation för varje aktiv databas i vyn **sys. resource_stats** i **huvud** databasen på varje server. Data i tabellen sammanställs i intervall om 5 minuter. På tjänst nivåerna Basic, standard och Premium kan data ta mer än 5 minuter visas i tabellen, så dessa data är mer användbara för historiska analyser i stället för i nära real tids analys. Fråga **sys. resource_stats** -vyn om du vill se den senaste historiken för en databas och kontrol lera om den reservation du valde har levererat den prestanda du önskar när du behöver.
+Azure SQL Database visar förbrukad resursinformation för varje aktiv databas i vyn **sys. resource_stats** i **huvud** databasen på varje server. Data i tabellen sammanställs i intervall om 5 minuter. På tjänst nivåerna Basic, standard och Premium kan data ta mer än 5 minuter visas i tabellen, så dessa data är mer användbara för historiska analyser i stället för i nära real tids analys. Fråga **sys. resource_stats** -vyn om du vill visa den senaste historiken för en databas och kontrol lera om den reservation du valde har levererat den prestanda du önskar när du behöver.
 
 > [!NOTE]
 > Du måste vara ansluten till **huvud** databasen på SQL Databases servern för att fråga **sys. resource_stats** i följande exempel.
@@ -559,9 +559,9 @@ WHERE database_name = 'resource1'
 ORDER BY start_time DESC
 ```
 
-![Vyn sys. resource_stats-katalog](./media/sql-database-performance-guidance/sys_resource_stats.png)
+![Vyn sys. resource_stats Catalog](./media/sql-database-performance-guidance/sys_resource_stats.png)
 
-I nästa exempel visas olika sätt som du kan använda i vyn **sys. resource_stats** för att få information om hur din SQL-databas använder resurser:
+I nästa exempel visas olika sätt som du kan använda i vyn **sys. resource_stats** Catalog för att få information om hur din SQL-databas använder resurser:
 
 1. Om du vill titta på den senaste vecko resurs användningen för databasen userdb1 kan du köra den här frågan:
 
@@ -573,7 +573,7 @@ I nästa exempel visas olika sätt som du kan använda i vyn **sys. resource_sta
     ORDER BY start_time DESC;
     ```
 
-2. Om du vill utvärdera hur bra arbets belastningen passar för beräknings storleken måste du öka detalj nivån för varje aspekt av resurs måtten: CPU, läsningar, skrivningar, antal arbetare och antal sessioner. Här är en uppdaterad fråga med hjälp av **sys. resource_stats** för att rapportera genomsnitts-och max värden för dessa resurs mått:
+2. Om du vill utvärdera hur bra arbets belastningen passar för beräknings storleken måste du öka detalj nivån för varje aspekt av resurs måtten: CPU, läsningar, skrivningar, antal arbetare och antal sessioner. Här är en reviderad fråga med hjälp av **sys. resource_stats** för att rapportera genomsnitts-och max värden för dessa resurs mått:
 
     ```sql
     SELECT
@@ -591,7 +591,7 @@ I nästa exempel visas olika sätt som du kan använda i vyn **sys. resource_sta
     WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
-3. Med den här informationen om medelvärdet och Max värdet för varje resurs mått kan du utvärdera hur bra arbets belastningen passar in i den beräknade storlek du väljer. Vanligt vis ger genomsnitts värden från **sys. resource_stats** en lämplig bas linje som du kan använda mot mål storleken. Det bör vara ditt primära Mät märke. Till exempel kanske du använder standard tjänst nivån med S2-beräknings storlek. Genomsnittlig användning i procent för CPU-och IO-läsningar och skrivningar är under 40 procent, det genomsnittliga antalet arbetare är lägre än 50 och det genomsnittliga antalet sessioner under 200. Din arbets belastning kan få plats i S1-Compute-storlek. Det är enkelt att se om din databas passar för arbets-och sessionsgränser. Om du vill se om en databas passar i en lägre beräknings storlek med avseende på CPU, läsning och skrivning, dividerar du DTU-numret för den lägre beräknings storleken med DTU-numret för din aktuella beräknings storlek och multiplicerar sedan resultatet med 100:
+3. Med den här informationen om medelvärdet och Max värdet för varje resurs mått kan du utvärdera hur bra arbets belastningen passar in i den beräknade storlek du väljer. Vanligt vis ger genomsnitts värden från **sys. resource_stats** en lämplig bas linje att använda mot mål storleken. Det bör vara ditt primära Mät märke. Till exempel kanske du använder standard tjänst nivån med S2-beräknings storlek. Genomsnittlig användning i procent för CPU-och IO-läsningar och skrivningar är under 40 procent, det genomsnittliga antalet arbetare är lägre än 50 och det genomsnittliga antalet sessioner under 200. Din arbets belastning kan få plats i S1-Compute-storlek. Det är enkelt att se om din databas passar för arbets-och sessionsgränser. Om du vill se om en databas passar i en lägre beräknings storlek med avseende på CPU, läsning och skrivning, dividerar du DTU-numret för den lägre beräknings storleken med DTU-numret för din aktuella beräknings storlek och multiplicerar sedan resultatet med 100:
 
     ```S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40```
 
@@ -677,7 +677,7 @@ Om du analyserar en lokal SQL Server arbets belastning ändrar du frågan så at
 
 De här frågorna returnerar ett antal tidpunkter. Om du samlar flera prover över tid har du den bästa förståelsen av din sessions användning.
 
-För SQL Database analys kan du hämta historisk statistik för sessioner genom att fråga [sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) -vyn och granska kolumnen **active_session_count** .
+För SQL Database analys kan du hämta historisk statistik för sessioner genom att skicka frågor till [sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) Visa och granska **active_session_count** kolumn.
 
 ## <a name="monitoring-query-performance"></a>Övervaknings frågans prestanda
 
@@ -706,11 +706,11 @@ I följande exempel returneras information om de fem främsta frågorna som rang
 
 ### <a name="monitoring-blocked-queries"></a>Övervaka blockerade frågor
 
-Långsamma eller långvariga frågor kan bidra till överdriven resurs förbrukning och vara en följd av blockerade frågor. Orsaken till blockeringen kan vara dåligt program design, dåliga fråge planer, avsaknad av användbara index och så vidare. Du kan använda vyn sys. DM _tran_locks för att hämta information om den aktuella låsnings aktiviteten i din Azure SQL Database. Exempel kod finns i [sys. DM _tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) i SQL Server Books Online.
+Långsamma eller långvariga frågor kan bidra till överdriven resurs förbrukning och vara en följd av blockerade frågor. Orsaken till blockeringen kan vara dåligt program design, dåliga fråge planer, avsaknad av användbara index och så vidare. Du kan använda vyn sys. dm_tran_locks för att hämta information om den aktuella lås aktiviteten i Azure SQL Database. Exempel kod finns i [sys. dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) i SQL Server Books Online.
 
 ### <a name="monitoring-query-plans"></a>Övervaknings fråge planer
 
-En ineffektiv frågeplan kan också öka CPU-förbrukningen. I följande exempel används [sys. DM _exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) -vyn för att avgöra vilken fråga som använder den mest kumulativa processorn.
+En ineffektiv frågeplan kan också öka CPU-förbrukningen. I följande exempel används [sys. dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) -vyn för att avgöra vilken fråga som använder den mest kumulativa processorn.
 
     ```sql
     SELECT

@@ -1,22 +1,22 @@
 ---
-title: 'Kör Analytics-frågor mot klient databaser med Azure SQL Data Warehouse '
+title: Köra Analytics-frågor mot klient databaser
 description: Analys frågor över flera klienter med data som extraherats från Azure SQL Database, SQL Data Warehouse, Azure Data Factory eller Power BI.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: f4a89029d7ed90f1a2406dcf0f8046a1c651353f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4791cd3a6b6f72c5d9ee4ca828d66b0d361f356c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691874"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816768"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Utforska SaaS Analytics med Azure SQL Database, SQL Data Warehouse, Data Factory och Power BI
 
@@ -103,8 +103,8 @@ I Object Explorer:
 1. Expandera noden databaser och se listan över klient databaser.
 1. Expandera&gt;Server för *katalog-DPT-&lt;* .
 1. Kontrol lera att Analytics Store innehåller följande objekt:
-    1. Tabellerna **raw_Tickets**, **raw_Customers**, **raw_Events** och **raw_Venues** innehåller råa extraherade data från klient databaserna.
-    1. Stjärn schema tabellerna är **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**och **dim_Dates**.
+    1. Tabeller **raw_Tickets**, **raw_Customers**, **raw_Events** och **raw_Venues** lagra rå data från klient databaserna.
+    1. De stjärn schema tabellerna är **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**och **dim_Dates**.
     1. Den lagrade proceduren **sp_transformExtractedData** används för att transformera data och läsa in dem i stjärn schema tabeller.
 
 ![DWtables](media/saas-tenancy-tenant-analytics/DWtables.JPG)
@@ -129,7 +129,7 @@ Det här avsnittet utforskar data fabriken som skapats. Följ stegen nedan för 
 2. Klicka på Redigera panelen för **& övervakare** för att starta Data Factory designer på en separat flik. 
 
 ## <a name="extract-load-and-transform-data"></a>Extrahera, läsa in och transformera data
-Azure Data Factory används för att dirigera extrahering, inläsning och transformering av data. I den här självstudien extraherar du data från fyra olika SQL-vyer från var och en av klient databaserna: **rawTickets**, **rawCustomers**, **rawEvents**och **rawVenues**. Dessa vyer innehåller plats-ID så att du kan diskriminera data från varje plats i data lagret. Data läses in i motsvarande mellanlagrings tabeller i data lagret: **raw_Tickets**, **raw_customers**, **raw_Events** och **raw_Venue**. En lagrad procedur transformerar rå data och fyller i stjärn schema tabeller: **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**och **dim_Dates**.
+Azure Data Factory används för att dirigera extrahering, inläsning och transformering av data. I den här självstudien extraherar du data från fyra olika SQL-vyer från var och en av klient databaserna: **rawTickets**, **rawCustomers**, **rawEvents**och **rawVenues**. Dessa vyer innehåller plats-ID så att du kan diskriminera data från varje plats i data lagret. Data läses in i motsvarande mellanlagrings tabeller i data lagret: **raw_Tickets** **raw_customers** **raw_Events** och **raw_Venue**. En lagrad procedur transformerar rå data och fyller i stjärn schema tabeller: **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**och **dim_Dates**.
 
 I föregående avsnitt har du distribuerat och initierat nödvändiga Azure-resurser, inklusive Data Factory. Den distribuerade data fabriken innehåller pipelines, data uppsättningar, länkade tjänster osv., som krävs för att extrahera, läsa in och transformera klient data. Låt oss utforska dessa objekt ytterligare och Utlös sedan pipelinen för att flytta data från klient databaser till data lagret.
 
@@ -143,7 +143,7 @@ På sidan Översikt växlar du till fliken **författare** i den vänstra panele
 
 De tre kapslade pipelinen är: SQLDBToDW, DBCopy och TableCopy.
 
-**Pipeline 1-SQLDBToDW** letar upp namnen på de klient databaser som lagras i katalog databasen (tabell namn: [__ShardManagement]. [ ShardsGlobal]) och för varje klient databas körs pipelinen **DBCopy** . Vid slutförandet utförs det tillhandahållna **sp_TransformExtractedData** -lagrade procedur schemat. Den här lagrade proceduren omvandlar inlästa data i mellanlagrings tabeller och fyller i stjärn schema tabeller.
+**Pipeline 1-SQLDBToDW** letar upp namnen på de klient databaser som lagras i katalog databasen (tabell namn: [__ShardManagement]. [ ShardsGlobal]) och för varje klient databas körs pipelinen **DBCopy** . Vid slutförandet utförs det angivna schemat för **sp_TransformExtractedData** lagrade proceduren. Den här lagrade proceduren omvandlar inlästa data i mellanlagrings tabeller och fyller i stjärn schema tabeller.
 
 **Pipeline 2 – DBCopy** letar upp namnen på käll tabellerna och kolumnerna från en konfigurations fil som lagras i Blob Storage.  **TableCopy** -pipeline körs sedan för var och en av de fyra tabellerna: TicketFacts, CustomerFacts, EventFacts och VenueFacts. **[Förgrunds](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** aktiviteten körs parallellt för alla 20 databaser. ADF tillåter att maximalt 20 upprepnings iterationer körs parallellt. Överväg att skapa flera pipelines för fler databaser.    
 
@@ -158,7 +158,7 @@ Det finns tre data uppsättningar som motsvarar de tre länkade tjänsterna och 
 ### <a name="data-warehouse-pattern-overview"></a>Översikt över informations lager mönster
 SQL Data Warehouse används som Analytics Store för att utföra agg regering på klientens data. I det här exemplet används PolyBase för att läsa in data i SQL Data Warehouse. Rå data läses in i tillfälliga tabeller som har en identitets kolumn för att hålla reda på rader som har omvandlats till stjärn schema tabeller. Följande bild visar inläsnings mönstret: ![loadingpattern](media/saas-tenancy-tenant-analytics/loadingpattern.JPG)
 
-SCD-typ 1-dimensions tabeller (långsamt ändring av dimension) används i det här exemplet. Varje dimension har en surrogat nyckel definierad med en identitets kolumn. Som bästa praxis är datum dimensions tabellen i förväg ifylld för att spara tid. För de andra dimensions tabellerna visas en CREATE TABLE som Välj... (CTAS)-instruktionen används för att skapa en temporär tabell som innehåller befintliga ändrade och icke-ändrade rader, tillsammans med surrogat nycklar. Detta görs med IDENTITY_INSERT = ON. Nya rader infogas sedan i tabellen med IDENTITY_INSERT = OFF. För enkel återställning ändras namnet på den befintliga dimensions tabellen och den temporära tabellen byter namn till den nya dimensions tabellen. Innan varje körning tas den gamla dimensions tabellen bort.
+SCD-typ 1-dimensions tabeller (långsamt ändring av dimension) används i det här exemplet. Varje dimension har en surrogat nyckel definierad med en identitets kolumn. Som bästa praxis är datum dimensions tabellen i förväg ifylld för att spara tid. För de andra dimensions tabellerna visas en CREATE TABLE som Välj... (CTAS)-instruktionen används för att skapa en temporär tabell som innehåller befintliga ändrade och icke-ändrade rader, tillsammans med surrogat nycklar. Detta görs med IDENTITY_INSERT = på. Nya rader infogas sedan i tabellen med IDENTITY_INSERT = OFF. För enkel återställning ändras namnet på den befintliga dimensions tabellen och den temporära tabellen byter namn till den nya dimensions tabellen. Innan varje körning tas den gamla dimensions tabellen bort.
 
 Dimensions tabeller läses in före fakta tabellen. Den här ordningsföljden säkerställer att alla refererade dimensioner redan finns för varje tillkommande faktum. När fakta läses in matchas affärs nyckeln för varje motsvarande dimension och motsvarande surrogat nycklar läggs till i varje faktum.
 

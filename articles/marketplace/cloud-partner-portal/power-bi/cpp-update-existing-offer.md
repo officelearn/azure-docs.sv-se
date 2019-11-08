@@ -1,67 +1,68 @@
 ---
-title: Uppdatera ett erbjudande med Power BI-appen | Azure Marketplace
-description: Uppdatera ett erbjudande med Power BI-appen när den har publicerats på Microsoft AppSource Marketplace.
+title: Uppdatera ett erbjudande för Power BI app | Azure Marketplace
+description: Uppdatera ett Power BI app-erbjudande efter att det har publicerats på Microsoft AppSource Marketplace.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: pabutler
-ms.openlocfilehash: aaeb347c5b8ba6cd992054cd6ab5464f44b3a08c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e535b89ad370e42857a466aa772c1e13eeff11b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942032"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818718"
 ---
-# <a name="update-a-power-bi-app-offer"></a>Uppdatera ett erbjudande med Power BI-appen
+# <a name="update-a-power-bi-app-offer"></a>Uppdatera ett erbjudande för Power BI app
 
-Den här artikeln visar hur du uppdaterar ditt erbjudande för Microsoft Power BI-appen i den [Cloud Partner Portal](https://cloudpartner.azure.com/) och för att publicera erbjudandet. Här följer några vanliga orsaker till att uppdatera ett erbjudande:
+Den här artikeln visar hur du uppdaterar ditt Microsoft Power BI app-erbjudande i [Cloud Partner Portal](https://cloudpartner.azure.com/) och sedan publicerar om erbjudandet. Här följer några vanliga orsaker till att uppdatera ett erbjudande:
 
-- Uppdatera appens innehåll i Power BI och hämta en URL för installation från nyligen paketerad app
-- Uppdatera erbjudandets Azure Marketplace-metadata (försäljning, marknadsföring, eller supportinformation och tillgångar)
+- Uppdatera appens innehåll i Power BI och hämta en installations-URL från den nyligen paketerade appen
+- Så här uppdaterar du erbjudandet för Azure Marketplace-metadata (försäljning, marknadsföring eller supportinformation och till gångar)
  
-Använda portalens **jämför** och **historik** vilka funktioner du vill hålla koll på ändringar som dessa.
+Använd portalens **Jämför** -och **Historik** funktioner för att hålla reda på ändringar som dessa.
 
-## <a name="common-update-operations"></a>Vanliga åtgärder för uppdatering
+## <a name="common-update-operations"></a>Vanliga uppdaterings åtgärder
 
-Vissa attribut för ett erbjudande för Power BI-appen kan inte ändras när erbjudandet har publicerats i AppSource. Otillåtna ändringar inkluderar **erbjudande-ID** och **Publicerings-ID**. Men du kan ändra en mängd olika egenskaper. Här följer några vanliga ändringar.
+Vissa attribut för en Power BI app-erbjudande kan inte ändras efter att erbjudandet har publicerats i AppSource. Otillåtna ändringar inkluderar **erbjudande-ID** och **utgivar-ID**. Men du kan fortfarande ändra en mängd olika egenskaper. Här är några vanliga ändringar.
 
-### <a name="update-app-content-in-power-bi"></a>Uppdatera appinnehåll i Power BI
+### <a name="update-app-content-in-power-bi"></a>Uppdatera app-innehåll i Power BI
 
-Power BI-appar uppdateras ofta regelbundet med nytt innehåll, säkerhetsuppdateringar, funktioner och så vidare. När en app ändras kan du uppdatera URL: en installation genom att följa dessa steg:
+Power BI appar uppdateras ofta regelbundet med nytt innehåll, säkerhets korrigeringar, funktioner och så vidare. När en app ändras uppdaterar du dess installations-URL genom att följa dessa steg:
 
-1.  Logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com/).
-2.  Under **alla erbjudanden**, erbjudandet som du vill uppdatera.
-3.  På den **teknisk information** ange en ny installation-URL.
-4.  Välj **publicera** att starta arbetsflödet för att publicera den nya versionen av appen i AppSource.
-
-
-### <a name="update-the-offers-marketplace-metadata"></a>Uppdatera erbjudandets Marketplace metadata
-
-Ditt erbjudande Marketplace metadata innehåller företagets namn, logotyper och annan information. Följ dessa steg för att uppdatera metadata:
-
-1.  Logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com/).
-2.  Under **alla erbjudanden**, erbjudandet som du vill uppdatera.
-3.  På den **Storefront information** fliken, ändrar metadata genom att följa anvisningarna i artikeln [fliken för Power BI-app-butik information](./cpp-storefront-details-tab.md).
-4.  Välj **publicera** att starta arbetsflödet för att publicera dina ändringar.
+1.  Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/).
+2.  Under **alla erbjudanden**hittar du det erbjudande du vill uppdatera.
+3.  På fliken **teknisk information** anger du en ny installations-URL.
+4.  Välj **publicera** för att starta arbets flödet för att publicera den nya program versionen till AppSource.
 
 
-## <a name="the-compare-feature"></a>Jämförelsefunktionen
+### <a name="update-the-offers-marketplace-metadata"></a>Uppdatera erbjudandets Marketplace-metadata
 
-När du uppdaterar ett publicerade erbjudande kan du kontrollera de ändringar du har gjort. Du använder den **jämför** funktionen:
+Ditt erbjudandes Marketplace-metadata innehåller företagets namn, logo typer och annan information. Följ dessa steg om du vill uppdatera metadata:
 
-1.  Välj erbjudandets när som helst i redigeringsprocessen **jämför** knappen.
+1.  Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/).
+2.  Under **alla erbjudanden**hittar du det erbjudande du vill uppdatera.
+3.  På fliken **information om butik** ändrar du metadata genom att följa anvisningarna i artikeln [Power BI information om app butik](./cpp-storefront-details-tab.md).
+4.  Klicka på **publicera** för att starta arbets flödet för att publicera ändringarna.
 
-    ![Jämför knappen](./media/compare-feature-button.png)
 
-2.  Visa sida-vid-sida-versioner av marknadsföring tillgångar och metadata.
+## <a name="the-compare-feature"></a>Jämförelse funktionen
+
+När du uppdaterar ett publicerat erbjudande kan du kontrol lera de ändringar du har gjort. Så här använder du funktionen **compare** :
+
+1.  När som helst i redigerings processen väljer du knappen **Jämför** .
+
+    ![Knappen Jämför](./media/compare-feature-button.png)
+
+2.  Visa sida-vid-sida-versioner av marknadsförings till gångar och metadata.
 
 
-## <a name="history-of-publishing-actions"></a>Historik för publiceringen av åtgärder
+## <a name="history-of-publishing-actions"></a>Historik för publicerings åtgärder
 
-Visa ditt erbjudande publicera historik på vänster sida av Cloud Partner Portal, öppnar du den **historik** fliken. Här ser du en historik över tidsstämpel åtgärder på dina AppSource erbjuder.
+Om du vill visa publicerings historiken för ditt erbjudande öppnar du fliken **Historik** på vänster sida av Cloud Partner Portal. Här ser du en historik över tidsstämplade åtgärder på dina AppSource-erbjudanden.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I Cloud Partner Portal regelbundet använder [försäljning Insights](../../cloud-partner-portal-orig/si-getting-started.md) att hitta användbar information om din Marketplace för kunder och användning.  
+I Cloud Partner Portal kan du regelbundet använda [säljare insikter](../../cloud-partner-portal-orig/si-getting-started.md) för att hitta värdefull information om dina Marketplace-kunder och-användning.  

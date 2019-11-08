@@ -1,5 +1,5 @@
 ---
-title: Etablera i SaaS för flera innehavare Azure
+title: Etablera i SaaS multi-Tenant
 description: Lär dig hur du etablerar och katalogiserar nya klienter i en Azure SQL Database SaaS-app för flera innehavare
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 ms.date: 09/24/2018
-ms.openlocfilehash: f829c0d734838de42a82343876cefa007dcca04d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: cae0b2730a9426b183dc330a18a76122ac87cc66
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692008"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73817930"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Etablera och katalogisera nya klienter i ett SaaS-program med en shardade-Azure SQL-databas med flera innehavare
 

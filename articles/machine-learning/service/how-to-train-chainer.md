@@ -1,5 +1,5 @@
 ---
-title: Träna djup inlärning neurala nätverk med kedjer
+title: Utbilda modeller för djup inlärnings kedja
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du kör dina PyTorch-utbildnings skript i företags skala med hjälp av Azure Machine Learnings uppskattare-klass.  Exempel skriptet klassificerar handskrivna siffer bilder för att bygga ett djup inlärnings neurala nätverk med hjälp av kedje-och python-biblioteket som körs ovanpå numpy.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: 8427bd8532895e95de82a6ed577052971f15a25d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: bfe44e552618dfbee13e8c85ef424f52d4b7ae5f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584514"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73814997"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>Träna och registrera kedje modeller i skala med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -81,13 +81,13 @@ os.makedirs(project_folder, exist_ok=True)
 
 ### <a name="prepare-training-script"></a>Förbered utbildnings skript
 
-I den här självstudien har utbildnings skriptet **chainer_mnist. py** redan angetts. I praktiken bör du kunna ta med ett anpassat tränings skript som är och köra det med Azure ML utan att behöva ändra koden.
+I den här självstudien har utbildnings skriptet **chainer_mnist. py** redan angetts för dig. I praktiken bör du kunna ta med ett anpassat tränings skript som är och köra det med Azure ML utan att behöva ändra koden.
 
-Om du vill använda Azure MLs spårnings-och mått funktioner lägger du till en liten del av Azure ML-koden i utbildnings skriptet.  I övnings skriptet **chainer_mnist. py** visas hur du loggar vissa mått i Azure ml-körningen med hjälp av `Run`-objektet i skriptet.
+Om du vill använda Azure MLs spårnings-och mått funktioner lägger du till en liten del av Azure ML-koden i utbildnings skriptet.  Övnings skriptet **chainer_mnist. py** visar hur du loggar vissa mått i Azure ml-körningen med hjälp av `Run`-objektet i skriptet.
 
 Det tillhandahållna utbildnings skriptet använder exempel data från kedje `datasets.mnist.get_mnist`s funktionen.  För dina egna data kan du behöva använda steg som att [Ladda upp data uppsättning och skript](how-to-train-keras.md#data-upload) för att göra data tillgängliga under utbildningen.
 
-Kopiera övnings skriptet **chainer_mnist. py** till projekt katalogen.
+Kopiera övnings skriptet **chainer_mnist. py** i projekt katalogen.
 
 ```
 import shutil

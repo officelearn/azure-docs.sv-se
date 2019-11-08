@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 998513c942cf1b6ceae861160abfe3dc6dac7792
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d5983d25685242a696300f293231bbf987e8442d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690332"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823721"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Fråga över moln databaser med olika scheman (förhands granskning)
 
@@ -171,8 +171,8 @@ Elastiska frågor introducerar också en lagrad procedur som ger direkt åtkomst
 
 * Data källans namn (nvarchar): namnet på den externa data källan av typen RDBMS. 
 * Fråga (nvarchar): T-SQL-frågan som ska köras på fjärrdatabasen. 
-* Parameter deklaration (nvarchar) – valfritt: sträng med data typs definitioner för de parametrar som används i Frågeparametern (t. ex. sp_executesql). 
-* Parameter värde List – valfritt: kommaavgränsad lista över parameter värden (t. ex. sp_executesql).
+* Parameter deklaration (nvarchar) – valfritt: sträng med data typs definitioner för de parametrar som används i Frågeparametern (till exempel sp_executesql). 
+* Parameter värde List – valfritt: kommaavgränsad lista över parameter värden (till exempel sp_executesql).
 
 Tjänsten SP\_köra\_använder den externa data källan som tillhandahölls i anrops parametrarna för att köra angivet T-SQL-uttryck på fjärrdatabasen. Den externa data källans autentiseringsuppgifter används för att ansluta till fjärrdatabasen.  
 

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Hanterad instans säkerhet med hjälp av Azure AD server-huvudobjekt (inloggningar)
+title: Hanterad instans säkerhet med Azure AD server-Huvudkonton (inloggningar)
 description: Lär dig olika tekniker och funktioner för att skydda en hanterad instans i Azure SQL Database och använda Azure AD-serverhuvudkonton (inloggningar)
 services: sql-database
 ms.service: sql-database
@@ -9,12 +9,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 4816b59c56f10a20f74777ad1badc11b59a599d1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: bd65a21c2aa21643c76966410931949db7d17ad6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689471"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822793"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Självstudie: hanterad instans säkerhet i Azure SQL Database med hjälp av Azure AD server-huvudobjekt (inloggningar)
 

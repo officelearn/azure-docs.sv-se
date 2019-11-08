@@ -4,15 +4,16 @@ description: Svar på vanliga frågor om Azure Marketplace och Microsoft AppSour
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/4/2019
 ms.author: ellacroi
-ms.openlocfilehash: c24f956a7aeb68fe6b0325705a9e7dab8e70b063
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 300f1783c1c514a6cc49d700c2741be85e69c3e8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330247"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822988"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>Vanliga frågor och svar om Microsoft Marketplace
 
@@ -35,9 +36,9 @@ Azure Marketplace är utformat för IT-proffs och moln utvecklare som är intres
 Azure Marketplace erbjuder tekniska lösningar och tjänster från Microsoft och Microsofts partner som skapats för att förbättra Azure-produkter och -tjänster. Lösnings katalogen omfattar flera kategorier, inklusive:
 
 * bas operativ system
-* databases
-* säkerhet
-* identitet
+* databaser
+* security
+* identity
 * nätverk
 * Blockchain
 * utvecklarverktyg
@@ -46,7 +47,7 @@ Azure Marketplace erbjuder tekniska lösningar och tjänster från Microsoft och
 
 **Hur gör jag för att kom igång på Azure Marketplace?**
 
-Du hittar ett brett utbud av företags program och lösningar som är certifierade och optimerade för att köras på Azure, genom att besöka [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps). Azure Marketplace kan också nås via [Azure-portalen] när du [**skapar en resurs**](https://portal.azure.com/#create/hub).
+Du hittar ett brett utbud av företags program och lösningar som är certifierade och optimerade för att köras på Azure, genom att besöka [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps). Azure Marketplace kan också nås via [Azure Portal] när du [**skapar en resurs**](https://portal.azure.com/#create/hub).
 
 **Vilka är de viktigaste fördelarna med Azure Marketplace?**
 
@@ -57,7 +58,7 @@ Med Azure Marketplace kan kunderna identifiera tekniska program som skapats för
 Azure Marketplace-erbjudanden kan köpas via:
 
 * [Den webbaserade butik](https://azuremarketplace.microsoft.com/marketplace/apps)
-* [azure-portalen][azure-portalen]
+* [Azure Portal][Azure Portal]
 * [Kommando rads gränssnittet för Azure (CLI)](/cli/azure/?view=azure-cli-latest)
 
 >[!Note]
@@ -117,7 +118,7 @@ Azure-prenumeration ingår i utgivarens priser för oberoende program varu lever
 
 *Kost*
 
-+ *Kostnads fri:* Kostnads fri SKU. Inga avgifter tillämpas för licens avgifter för program vara eller användningen av erbjudandet.
++ *Kostnadsfri:* Kostnadsfri SKU. Inga avgifter tillämpas för licens avgifter för program vara eller användningen av erbjudandet.
 
 + *Kostnads fri utvärdering av program vara:* Ett erbjudande som är kostnads fritt under en begränsad period. Det kostar ingen avgift för utgivarens program varu licens avgifter för användning under utvärderings perioden. Vid förfallo datum omvandlas det automatiskt till ett betalt erbjudande baserat på de standard priser som utfärdats av utgivaren.
 
@@ -127,7 +128,7 @@ Azure-prenumeration ingår i utgivarens priser för oberoende program varu lever
 
 + *Per användare:* SaaS-prenumerationer kan vara pris per användare som faktureras per månad eller per år. 
 
-Erbjud pris information finns på lösnings informations sidan på [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) eller inom [Azure-portalen].
+Erbjud pris information finns på lösnings informations sidan på [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) eller i [Azure Portal].
 
 > [!Note]
 > Med undantag för månads avgifter gäller Azures användnings kostnader för alla pris modeller om inget annat anges.
@@ -180,9 +181,9 @@ Nej. Utgivaren som äger lösningar på Azure Marketplace kan ange priser.  Micr
 
 **Var kan jag se information om min Azure Marketplace-prenumeration och fakturerings information?**
 
-MOSP – kunder som [prenumererar på Microsoft Online](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (Web Direct) kan visa inköps information för Marketplace på fliken fakturor i avsnittet Cost Management + fakturering i [Azure-portalen].
+MOSP – kunder som [prenumererar på Microsoft Online](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (Web Direct) kan visa inköps information för Marketplace på fliken fakturor i avsnittet Cost Management + fakturering i [Azure Portal].
 
-Enterprise-avtal-kunder (EA) kan visa inköps information för Marketplace på fliken fakturor i avsnittet Cost Management + fakturering i [Azure-portalen].
+Enterprise-avtal-kunder (EA) kan visa inköps information för Marketplace på fliken fakturor i avsnittet Cost Management + fakturering i [Azure Portal].
 
 Leverantörer av moln lösningar (CSP) kan visa inköps information för Marketplace för varje kund i Partner Center på fliken order historik när du har valt ett företag i vyn kunder.
 
@@ -208,7 +209,7 @@ Om du vill migrera andra tjänster som köpts från Azure Marketplace till en EA
 
 **Hur gör jag för att ta reda på hur mycket av mitt Azure Marketplace-köp jag har använt?**
 
-Du hittar en uppskattad användnings information i [Azure-portalen]. Sådan uppskattad användnings information får inte innehålla senaste aktiviteter och kan baseras på projektioner som härletts från tidigare konsumtion. Under den offentliga för hands versionen kanske den här funktionen inte är tillgänglig för alla köp och kan variera beroende på produkt typ.
+Du hittar en uppskattad användnings information i [Azure Portal]. Sådan uppskattad användnings information får inte innehålla senaste aktiviteter och kan baseras på projektioner som härletts från tidigare konsumtion. Under den offentliga för hands versionen kanske den här funktionen inte är tillgänglig för alla köp och kan variera beroende på produkt typ.
 
 ### <a name="customer-support"></a>Kundsupport
 
@@ -224,7 +225,7 @@ Kontakta utgivar leverantören för all teknisk produkt support. Information om 
 
 **Vem kontaktar jag för fakturerings support/frågor om en lösning från tredje part som köpts från Marketplace?**
 
-Kontakta Microsoft Support på [Azure-supporten](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953).
+Kontakta Microsoft Support via [supporten för Azure](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953).
 
 **Vem kontaktar jag om jag har frågor om priser eller villkor för partner lösningar som säljs på Azure Marketplace?**
 
@@ -267,7 +268,7 @@ Nej, affärs principerna är konsekventa i Azure Marketplace och Microsoft AppSo
 
 **Vad är Azure Marketplace?**
 
-[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) är en Marketplace för program och tjänster online. Kunder (det mesta av IT-proffs och utvecklare) kan upptäcka och köpa moln program varu lösningar som skapats med eller för Azure. Dess katalog har över 8 000 listor, till exempel Azure-byggblock som Virtual Machines (VM), API: er, Solution templates, SaaS-program och konsult tjänst erbjudanden.
+[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) är en marknadsplats på nätet för program och tjänster. Kunder (det mesta av IT-proffs och utvecklare) kan upptäcka och köpa moln program varu lösningar som skapats med eller för Azure. Dess katalog har över 8 000 listor, till exempel Azure-byggblock som Virtual Machines (VM), API: er, Solution templates, SaaS-program och konsult tjänst erbjudanden.
 
 Azure Marketplace är start punkten för alla gemensamma Microsoft go-to-Marketing-aktiviteter.  Vi fokuserar på att hjälpa partners att komma åt fler kunder. Du kan publicera nya listor och även använda Azure Marketplace för att utföra kampanjer och skapa kampanjer på begäran, utföra gemensamma försäljnings-och marknadsförings aktiviteter med Microsoft.
 
@@ -392,7 +393,7 @@ Besök [Microsoft GTM Services](https://partner.microsoft.com/reach-customers/gt
 
 **Var marknadsförs Azure Marketplace-lösningar i Microsofts webb egenskaper?**
 
-Azure Marketplace-lösningar finns på webbplatsen Microsoft [Azure-portalen]och [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/). Moln utvecklare och IT-proffs som använder Azure har exponering för partner lösningar varje gång de loggar in. En del av partner lösningarna visas också och roteras på sidan för [Start sidan för Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) och [Azure-lösningar](https://azure.microsoft.com/solutions/).
+Azure Marketplace-lösningar finns på webbplatsen Microsoft [Azure Portal]och [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/). Moln utvecklare och IT-proffs som använder Azure har exponering för partner lösningar varje gång de loggar in. En del av partner lösningarna visas också och roteras på sidan för [Start sidan för Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) och [Azure-lösningar](https://azure.microsoft.com/solutions/).
 
 ### <a name="billing-and-payments"></a>Fakturering och betalningar
 
@@ -432,7 +433,7 @@ Besök [Azure Marketplace Publisher-guiden](marketplace-publishers-guide.md) fö
 
     ![Välj regioner](media/marketplace-publishers-guide/FAQ-choose-geo.png)
 
-1.  En lista visas med alla tillgängliga länder/regioner att sälja till.  Klicka på kryss rutan bredvid varje land/region som du vill göra den här SKU: n tillgänglig för. Klicka på **OK**
+1.  En lista visas med alla tillgängliga länder/regioner att sälja till.  Klicka på kryss rutan bredvid varje land/region som du vill göra den här SKU: n tillgänglig för. Klicka på **OK**.
 
     ![Välj lista över länder/regioner](media/marketplace-publishers-guide/FAQ-select-countries.png)
 
@@ -476,4 +477,4 @@ Ja, på begäran via support ärende, kommer Microsoft att bearbeta krediter til
 Besök [Azure Marketplace-och AppSource Publisher-guide](/azure/marketplace/marketplace-publishers-guide) sidan.
 
 
-[Azure-portalen]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

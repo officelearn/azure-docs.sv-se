@@ -1,52 +1,53 @@
 ---
-title: Erbjudande om Azure-program-hanterat program publicera Guide
-description: Den här artikeln beskrivs kraven för att publicera ett hanterat program på Marketplace
+title: Publicerings guide för hantering av Azure-program
+description: I den här artikeln beskrivs kraven för att publicera ett hanterat program i Marketplace
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 manager: evansma
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: v-qiwe
-ms.openlocfilehash: 29546b0969751a43959a55860fc22e9f3c3e225b
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: bdb2a54748c734d7b44dfa0b1f106d37e817f80e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154937"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822922"
 ---
-# <a name="azure-applications-managed-application-offer-publishing-guide"></a>Azure-program: Erbjudande om hanterat program publicera Guide
+# <a name="azure-applications-managed-application-offer-publishing-guide"></a>Azure-program: publicerings guiden för hanterade program erbjudanden
 
-Ett hanterat program är en av huvudmetoderna för att publicera en lösning i Marketplace. Använd den här guiden för att förstå kraven för det här erbjudandet. 
+Ett hanterat program är ett av de största sätten att publicera en lösning på Marketplace. Använd den här guiden för att förstå kraven för det här erbjudandet. 
 
-Det här är transaktionen erbjudanden som distribueras och faktureras via Marketplace. Anropet till åtgärden som en användare ser är ”Hämta nu”.
+Detta är transaktions erbjudanden som distribueras och faktureras via Marketplace. Anropet till åtgärden som en användare ser är "Hämta nu".
 
-Använda Azure-appen: hanterade erbjudande apptyp när följande villkor krävs:
-- Du distribuerar antingen en prenumeration-baserad lösning för din kund som använder en virtuell dator eller en hel IaaS-baserad lösning.
-- Du eller dina kunder kräver att lösningen hanteras av en partner.
+Använd Azure app: den hanterade appens erbjudande typ när följande villkor är uppfyllda:
+- Du distribuerar antingen en prenumeration baserad lösning för din kund med antingen en virtuell dator eller en hel IaaS lösning.
+- Du eller din kund kräver att lösningen hanteras av en partner.
 
 >[!NOTE]
->En partner kan exempelvis vara en SI eller leverantör av hanterade tjänster (MSP).  
+>En partner kan till exempel vara en SI-eller Managed Service Provider (MSP).  
 
-## <a name="managed-application-offer"></a>Hanterade program erbjudande
+## <a name="managed-application-offer"></a>Erbjudande för hanterat program
 
 |Krav |Information  |
 |---------|---------|
-|Distribueras till en kunds Azure-prenumeration | Hanterade appar måste distribueras i kundens prenumeration och kan hanteras av en tredje part. | 
-|Fakturering och mätning    |  Resurserna som ska etableras i kundens Azure-prenumeration. Betala per användning (betalning per användning) virtuella datorer ska ingå i en transaktion med kunden via Microsoft, faktureras via kundens Azure-prenumeration (betalning per användning). <br> När det gäller bring-your-own-license, medan Microsoft att debitera infrastrukturkostnader som tillkommer i kundens prenumeration, kommer du transact dina programvarulicenser avgifter för kunden direkt.        |
-|Azure-kompatibel virtuell hårddisk (VHD)    |   Virtuella datorer måste vara baserade på Windows eller Linux.<ul> <ul> <li>Mer information om hur du skapar en Linux-VHD finns [Linux-distributioner på Azure-godkända](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Läs mer om hur du skapar en virtuell Windows-Hårddisk [skapa en Azure-kompatibel VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |
+|Distribuerad till en kunds Azure-prenumeration | Hanterade appar måste distribueras i kundens prenumeration och kan hanteras av en tredje part. | 
+|Fakturering och mätning    |  Resurserna kommer att tillhandahållas i kundens Azure-prenumeration. De virtuella datorerna betala per användning (PAYGO) kommer att meddelas med kunden via Microsoft, debiteras via kundens Azure-prenumeration (PAYGO). <br> Om du använder en egen licens, medan Microsoft fakturerar infrastruktur kostnader i kund prenumerationen, kommer du att använda licens avgifterna för din kund direkt.        |
+|Azure-kompatibel virtuell hård disk (VHD)    |   Virtuella datorer måste byggas på Windows eller Linux.<ul> <ul> <li>Mer information om hur du skapar en Linux-VHD finns i [Linux-distributioner](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)som har godkänts på Azure.</li> <li>Mer information om hur du skapar en virtuell Windows-hårddisk finns i [skapa en Azure-kompatibel virtuell hård disk](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |
 
 >[!NOTE]
-> Hanterade appar måste vara distribuerbar via Marketplace. Om kunden kommunikation är ett problem kan bör sedan du kontakta intresserade kunder när du har aktiverat dela leads.  
+> Hanterade appar måste kunna distribueras via Marketplace. Om kund kommunikationen är en risk bör du kontakta intresserade kunder när du har aktiverat delning av lead.  
 
 >[!Note]
->Cloud Solution Providers (CSP) partner channel anmälan är nu tillgänglig.  Se [Cloud Solution Providers](./cloud-solution-providers.md) mer information om marknadsföring av ditt erbjudande via Microsoft CSP partner kanaler.
+>Partner kanal för Cloud solution providers (CSP) är nu tillgängligt.  Se [leverantörer av moln lösningar](./cloud-solution-providers.md) för mer information om marknadsföring av ditt erbjudande via Microsoft CSP partner-kanaler.
 
 ## <a name="next-steps"></a>Nästa steg
-Om du inte redan gjort det, 
+Om du inte redan har gjort det, 
 
-- [Registrera](https://azuremarketplace.microsoft.com/sell) i marketplace.
+- [Registrera dig](https://azuremarketplace.microsoft.com/sell) på Marketplace.
 
-Om du är registrerad och skapar ett nytt erbjudande eller arbetar på en befintlig
+Om du har registrerat och skapar ett nytt erbjudande eller arbetar på ett befintligt,
 
-- [Logga in på Cloud Partner Portal](https://cloudpartner.azure.com) att skapa eller slutföra ditt erbjudande.
+- [Logga in på Cloud Partner Portal](https://cloudpartner.azure.com) för att skapa eller slutföra ditt erbjudande.

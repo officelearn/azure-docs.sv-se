@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database fil utrymmes hantering för enskilda/pooler-databaser | Microsoft Docs
+title: Fil utrymmes hantering med enkel/pool-databaser
 description: Den här sidan beskriver hur du hanterar fil utrymme med enkla databaser i Azure SQL Database och innehåller kod exempel för hur du avgör om du behöver krympa en enskild databas eller en databas i poolen samt hur du utför en databas krympnings åtgärd.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: c92ffb6aa6db9c77a859661115d54ff63ea02401
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a8fe58313bce6e9a21b07aa095672ec35ce572d2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568204"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803061"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Hantera fil utrymme för enskilda databaser och databaser i Azure SQL Database
 
@@ -44,7 +44,7 @@ I följande scenarier kan det vara nödvändigt att övervaka användningen av f
 De flesta mått för lagrings utrymme som visas i Azure Portal och följande API: er mäter endast storleken på data sidor som används:
 
 - API: er för Azure Resource Manager baserade mått, inklusive PowerShell [Get-Metrics](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetric)
-- T-SQL: [sys. DM _db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
+- T-SQL: [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 Följande API: er mäter dock också storleken på utrymmet som allokerats för databaser och elastiska pooler:
 
@@ -62,7 +62,7 @@ SQL Database tjänsten krymper inte automatiskt datafiler för att frigöra oanv
 
 Det är viktigt att förstå följande lagrings utrymmes mängder för att hantera fil utrymmet för en databas.
 
-|Databas antal|Definition|Kommentar|
+|Databas antal|Definition|Kommentarer|
 |---|---|---|
 |**Använt data utrymme**|Mängden utrymme som används för att lagra databas data på 8 KB-sidor.|Normalt ökar utrymmet som används (minskar) vid infogningar (rader). I vissa fall ändras inte utrymmet som används vid infogningar eller borttagningar beroende på mängden och mönstret för data som ingår i åtgärden och eventuell fragmentering. Att till exempel ta bort en rad från alla data sidor minskar inte nödvändigt vis det utrymme som används.|
 |**Allokerat data utrymme**|Mängden formaterat fil utrymme som är tillgängligt för lagring av databas data.|Mängden utrymme som allokeras växer automatiskt, men minskar aldrig efter borttagningarna. Det här beteendet säkerställer att framtida infogningar är snabbare eftersom utrymmet inte behöver formateras om.|
@@ -119,7 +119,7 @@ SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 
 Det är viktigt att förstå följande lagrings utrymmes mängder för att hantera fil utrymmet för en elastisk pool.
 
-|Kvantitet för elastisk pool|Definition|Kommentar|
+|Kvantitet för elastisk pool|Definition|Kommentarer|
 |---|---|---|
 |**Använt data utrymme**|En summering av data utrymmet som används av alla databaser i den elastiska poolen.||
 |**Allokerat data utrymme**|En summering av det data utrymme som allokerats av alla databaser i den elastiska poolen.||
@@ -234,7 +234,7 @@ Mer information om det här kommandot finns i [SHRINKDATABASE](https://docs.micr
 
 ### <a name="auto-shrink"></a>Automatisk krympning
 
-Du kan också aktivera automatisk krympning för en databas.  Automatisk krympning minskar fil hanterings komplexiteten och är mindre påverkan på databas prestanda `SHRINKDATABASE` än `SHRINKFILE`eller.  Automatisk krympning kan vara särskilt användbart för att hantera elastiska pooler med många databaser.  Den automatiska krympningen kan dock vara mindre effektiv när du frigör fil utrymme än `SHRINKDATABASE` och `SHRINKFILE`.
+Du kan också aktivera automatisk krympning för en databas.  Automatisk krympning minskar fil hanterings komplexiteten och är mindre påverkan på databas prestanda än `SHRINKDATABASE` eller `SHRINKFILE`.  Automatisk krympning kan vara särskilt användbart för att hantera elastiska pooler med många databaser.  Den automatiska krympningen kan dock vara mindre effektiv när du frigör fil utrymme än `SHRINKDATABASE` och `SHRINKFILE`.
 Om du vill aktivera automatisk krympning ändrar du namnet på databasen i följande kommando.
 
 
@@ -256,5 +256,5 @@ När datafilerna i databasen krymps kan index bli fragmenterade och förlora pre
   - [Resurs gränser för enskilda databaser som använder den DTU-baserade inköps modellen](sql-database-dtu-resource-limits-single-databases.md)
   - [Azure SQL Database vCore-baserade inköps modell gränser för elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md)
   - [Resurs begränsningar för elastiska pooler med hjälp av den DTU-baserade inköps modellen](sql-database-dtu-resource-limits-elastic-pools.md)
-- Mer information om `SHRINKDATABASE` kommandot finns i [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
+- Mer information om kommandot `SHRINKDATABASE` finns i [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 - Mer information om fragmentering och återuppbyggnad av index finns i [omorganisera och återskapa index](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).

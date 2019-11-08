@@ -1,5 +1,5 @@
 ---
-title: Konfigurera Azure Active Directory autentisering-SQL
+title: Konfigurera Azure Active Directory-autentisering
 description: Lär dig hur du ansluter till SQL Database, hanterad instans och SQL Data Warehouse med hjälp av Azure Active Directory autentisering – när du har konfigurerat Azure AD.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 11/06/2019
-ms.openlocfilehash: d23fcb781f5eddd71d5ddce9344d988d2e323611
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 48334d8ce266ddcc92e4d2b27634db3d8c9f1bc9
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691383"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816786"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Konfigurera och hantera Azure Active Directory autentisering med SQL
 
@@ -46,7 +46,7 @@ Mer information finns i [Integrera dina lokala identiteter med Azure Active Dire
 
 ## <a name="create-an-azure-ad-administrator-for-azure-sql-server"></a>Skapa en Azure AD-administratör för Azure SQL Server
 
-Varje Azure SQL Server (som är värd för en SQL Database eller SQL Data Warehouse) börjar med ett enda server administratörs konto som är administratör för hela Azure SQL-servern. En andra SQL Server-administratör måste skapas, det vill säga ett Azure AD-konto. Den här huvud gruppen skapas som en innesluten databas användare i huvud databasen. Som administratörer är Server administratörs kontona medlemmar i rollen **db_owner** i varje användar databas och ange varje användar databas som **dbo** -användare. Mer information om Server administratörs konton finns i [Hantera databaser och inloggningar i Azure SQL Database](sql-database-manage-logins.md).
+Varje Azure SQL Server (som är värd för en SQL Database eller SQL Data Warehouse) börjar med ett enda server administratörs konto som är administratör för hela Azure SQL-servern. En andra SQL Server-administratör måste skapas, det vill säga ett Azure AD-konto. Den här huvud gruppen skapas som en innesluten databas användare i huvud databasen. Som administratörer är Server administratörs konton medlemmar i rollen **db_owner** i varje användar databas och ange varje användar databas som **dbo** -användare. Mer information om Server administratörs konton finns i [Hantera databaser och inloggningar i Azure SQL Database](sql-database-manage-logins.md).
 
 När du använder Azure Active Directory med geo-replikering måste Azure Active Directorys administratören konfigureras för både den primära och sekundära servern. Om en server inte har en Azure Active Directory administratör kan Azure Active Directory inloggningar och användare ta emot fel meddelandet "det går inte att ansluta till servern".
 
@@ -279,7 +279,7 @@ Använd PowerShell-kommandot Get-Help för att se mer information om vart och et
 
 ### <a name="powershell-examples-for-azure-sql-database-and-azure-sql-data-warehouse"></a>PowerShell-exempel för Azure SQL Database och Azure SQL Data Warehouse
 
-Följande skript etablerar en Azure AD-administratörs grupp med namnet **DBA_Group** (objekt-ID `40b79501-b343-44ed-9ce7-da4c8cc7353f`) för **demo_server** -servern i en resurs grupp med namnet **Group-23**:
+Följande skript etablerar en Azure AD-administratörs grupp med namnet **DBA_Group** (objekt-ID `40b79501-b343-44ed-9ce7-da4c8cc7353f`) för **demo_server** -servern i en resurs grupp med namnet **grupp-23**:
 
 ```powershell
 Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
@@ -361,7 +361,7 @@ Om du vill skapa en Azure AD-baserad databas användare (förutom Server adminis
 CREATE USER <Azure_AD_principal_name> FROM EXTERNAL PROVIDER;
 ```
 
-*Azure_AD_principal_name* kan vara User Principal Name av en Azure AD-användare eller visnings namnet för en Azure AD-grupp.
+*Azure_AD_principal_name* kan vara User Principal Name för en Azure AD-användare eller visnings namnet för en Azure AD-grupp.
 
 **Exempel:** Så här skapar du en innesluten databas användare som representerar en federerad eller hanterad domän användare i Azure AD:
 

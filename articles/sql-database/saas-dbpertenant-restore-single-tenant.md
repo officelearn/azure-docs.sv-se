@@ -1,22 +1,22 @@
 ---
-title: Återställa en Azure SQL-databas i en SaaS-app med flera innehavare
+title: Återställa en databas i en SaaS-app med flera innehavare
 description: Lär dig hur du återställer en enskild klients SQL Database efter att ha tagit bort data av misstag
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 12/04/2018
-ms.openlocfilehash: 0719fc5482e583218d42e808a4d94045a497f33c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a54e8e5629f6f8ad688b6fe11bbf50fc038095bf
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692100"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818533"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Återställa en enskild klient med ett SaaS-program för databas per klient
 

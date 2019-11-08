@@ -48,16 +48,6 @@
       href: front-door-url-rewrite.md
     - name: URL-omdirigering
       href: front-door-url-redirect.md
-    - name: Brandvägg för webbaserade program
-      items:
-        - name: Översikt
-          href: waf-overview.md
-        - name: Anpassade regler
-          href: waf-front-door-custom-rules.md
-        - name: Principinställningar
-          href: waf-front-door-policy-settings.md
-        - name: Övervakning och loggning
-          href: waf-front-door-monitor.md
 - name: Instruktionsguider
   items:
     - name: Omdirigera trafik
@@ -74,26 +64,10 @@
           href: front-door-troubleshoot-routing.md
         - name: Tillåtna certifikatutfärdare
           href: front-door-troubleshoot-allowed-ca.md
-    - name: Konfigurera brandvägg för webbaserade program
-      items:
-        - name: Konfigurera WAF-princip – portalen
-          href: waf-front-door-create-portal.md
-        - name: Konfigurera WAF princip – Azure PowerShell
-          href: waf-front-door-custom-rules-powershell.md
-        - name: Konfigurera botskydd
-          href: waf-front-door-policy-configure-bot-protection.md
-        - name: Konfigurera anpassad svarskod
-          href: waf-front-door-configure-custom-response-code.md
-        - name: Konfigurera IP-begränsningar
-          href: waf-front-door-configure-ip-restriction.md
-        - name: Konfigurera hastighetsbegränsning – Azure PowerShell
-          href: waf-front-door-rate-limit-powershell.md
 - name: VANLIGA FRÅGOR OCH SVAR
   items:
     - name: Vanliga frågor och svar om Front Door
       href: front-door-faq.md
-    - name: Vanliga frågor och svar om WAF
-      href: waf-faq.md
 - name: Referens
   items:
     - name: Azure CLI

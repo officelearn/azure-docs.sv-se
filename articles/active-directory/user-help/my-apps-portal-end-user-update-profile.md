@@ -1,5 +1,5 @@
 ---
-title: Uppdatera din profil och konto information från portalen Mina appar – Azure Active Directory | Microsoft Docs
+title: Uppdatera din profil och ditt konto på portalen för Mina appar – Azure AD
 description: Lär dig hur du uppdaterar din profil och din arbets-eller skol konto information, inklusive hur du ändrar ditt lösen ord, aktiverar lösen ords återställning, uppdaterar dina säkerhets verifierings metoder, visar din organisations användnings villkor och loggar ut från var du har loggat in med ditt arbets-eller skol konto.
 services: active-directory
 author: eross-msft
@@ -13,14 +13,14 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40cf8e16e08db67c36009435758db36797518d96
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 4416b35d2e2204cec2a9ffe2f50e92983d6204c0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160763"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820387"
 ---
-# <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>Uppdatera din profil och konto information från portalen Mina appar
+# <a name="update-your-profile-and-account-info-on-the-my-apps-portal"></a>Uppdatera din profil och konto information på portalen Mina appar
 
 Du kan använda ditt arbets-eller skol konto med den webbaserade **min Apps** -portalen för att visa och starta många av organisationens molnbaserade appar för att uppdatera viss profil-och konto information, för att se din **grupp** information och utföra  **åtkomst granskningar** för dina appar och grupper. Om du inte har åtkomst till portalen för **Mina appar** måste du kontakta supportavdelningen för att få behörighet.
 

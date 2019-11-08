@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dfe5b886ff389cf2d0f01d402990929c0ef5628
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 247dee2cfbb00b185e941fde05c2198459a05e20
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72033993"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815745"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identifiera och lösa licens tilldelnings problem för en grupp i Azure Active Directory
 
@@ -29,6 +29,11 @@ Gruppbaserad licensiering i Azure Active Directory (Azure AD) introducerar begre
 När du tilldelar licenser direkt till enskilda användare, utan att använda gruppbaserad licensiering, kan det hända att tilldelnings åtgärden Miss känner. När du till exempel kör PowerShell-cmdleten `Set-MsolUserLicense` på ett användar system kan cmdleten inte köras av många orsaker som är relaterade till affärs logik. Det kan till exempel finnas ett otillräckligt antal licenser eller en konflikt mellan två tjänst planer som inte kan tilldelas samtidigt. Problemet rapporteras omedelbart tillbaka till dig.
 
 När du använder gruppbaserad licensiering kan samma fel inträffa, men de inträffar i bakgrunden medan Azure AD-tjänsten tilldelar licenser. Därför kan felen inte kommunicera direkt med dig. De registreras i stället på användarobjektet och rapporteras sedan via administrations portalen. Det ursprungliga syftet med att licensiera användaren går aldrig förlorat, men det registreras i ett fel tillstånd för framtida undersökning och lösning.
+
+## <a name="licenseassignmentattributeconcurrencyexception-in-audit-logs"></a>LicenseAssignmentAttributeConcurrencyException i gransknings loggar
+
+**Problem:** Användaren har LicenseAssignmentAttributeConcurrencyException för licens tilldelning i gransknings loggar.
+När gruppbaserad licensiering försöker bearbeta samtidig licens tilldelning av samma licens till en användare, registreras detta undantag på användaren. Detta inträffar vanligt vis när en användare är medlem i mer än en grupp med samma tilldelade licens. AZure AD försöker att bearbeta användar licensen igen och kommer att lösa problemet. Kunden behöver inte vidta några åtgärder för att åtgärda problemet.
 
 ## <a name="find-license-assignment-errors"></a>Hitta fel vid licens tilldelning
 
@@ -60,7 +65,7 @@ Om du vill se hur många licenser som är tillgängliga går du till **Azure Act
 
 Om du vill se vilka användare och grupper som använder licenser väljer du en produkt. Under **licensierade användare**visas en lista över alla användare som har haft licenser som tilldelats direkt eller via en eller flera grupper. Under **licensierade grupper**visas alla grupper som har tilldelats dessa produkter.
 
-**PowerShell** PowerShell-cmdlets rapporterar felet som _CountViolation_.
+**PowerShell:** PowerShell-cmdlets rapporterar felet som _CountViolation_.
 
 ## <a name="conflicting-service-plans"></a>Tjänst planer som står i konflikt
 
@@ -75,7 +80,7 @@ För att lösa den här konflikten måste du inaktivera två av planerna. Du kan
 
 Beslutet om hur du löser konflikter mellan produkt licenser tillhör alltid-administratören. Azure AD löser inte automatiskt licens konflikter.
 
-**PowerShell** PowerShell-cmdlets rapporterar felet som _MutuallyExclusiveViolation_.
+**PowerShell:** PowerShell-cmdlets rapporterar felet som _MutuallyExclusiveViolation_.
 
 ## <a name="other-products-depend-on-this-license"></a>Andra produkter är beroende av den här licensen
 
@@ -83,17 +88,17 @@ Beslutet om hur du löser konflikter mellan produkt licenser tillhör alltid-adm
 
 För att lösa det här problemet måste du kontrol lera att den nödvändiga planen fortfarande är tilldelad till användarna via någon annan metod eller att de beroende tjänsterna är inaktiverade för dessa användare. När du har gjort det kan du ta bort grupp licensen på rätt sätt från dessa användare.
 
-**PowerShell** PowerShell-cmdlets rapporterar felet som _DependencyViolation_.
+**PowerShell:** PowerShell-cmdlets rapporterar felet som _DependencyViolation_.
 
 ## <a name="usage-location-isnt-allowed"></a>Användnings platsen är inte tillåten
 
-**Problem:** Vissa Microsoft-tjänster är inte tillgängliga på alla platser på grund av lokala lagar och föreskrifter. Innan du kan tilldela en licens till en användare måste du ange egenskapen **användnings plats** för användaren. Du kan ange platsen under avsnittet **användar** > **profil**@no__t **-3 i** Azure Portal.
+**Problem:** Vissa Microsoft-tjänster är inte tillgängliga på alla platser på grund av lokala lagar och föreskrifter. Innan du kan tilldela en licens till en användare måste du ange egenskapen **användnings plats** för användaren. Du kan ange platsen under avsnittet **användar** > **profil** > **Inställningar** i Azure Portal.
 
 När Azure AD försöker tilldela en grupp licens till en användare vars användnings plats inte stöds, Miss lyckas den och registrerar ett fel för användaren.
 
 Lös problemet genom att ta bort användare från platser som inte stöds från den licensierade gruppen. Alternativt, om värdena för den aktuella användnings platsen inte representerar den faktiska användar platsen, kan du ändra dem så att licenserna tilldelas korrekt nästa tid (om den nya platsen stöds).
 
-**PowerShell** PowerShell-cmdlets rapporterar felet som _ProhibitedInUsageLocationViolation_.
+**PowerShell:** PowerShell-cmdlets rapporterar felet som _ProhibitedInUsageLocationViolation_.
 
 > [!NOTE]
 > När Azure AD tilldelar grupp licenser, ärver alla användare som saknar angiven användnings plats platsen för katalogen. Vi rekommenderar att administratörer anger rätt värden för användnings platsen för användarna innan de använder gruppbaserad licensiering för att följa lokala lagar och föreskrifter.
@@ -175,6 +180,6 @@ Mer information om andra scenarier för licens hantering genom grupper finns i f
 * [Vad är gruppbaserad licensiering i Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
 * [Tilldela licenser till en grupp i Azure Active Directory](licensing-groups-assign.md)
 * [Migrera enskilda licensierade användare till gruppbaserad licensiering i Azure Active Directory](licensing-groups-migrate-users.md)
-* [Så här migrerar du användare mellan produktlicenser med gruppbaserad licensiering i Azure Active Directory](licensing-groups-change-licenses.md)
+* [Så här migrerar du användare mellan produkt licenser med gruppbaserad licensiering i Azure Active Directory](licensing-groups-change-licenses.md)
 * [Fler scenarier med gruppbaserad licensiering i Azure Active Directory](licensing-group-advanced.md)
 * [PowerShell-exempel för gruppbaserad licensiering i Azure Active Directory](licensing-ps-examples.md)

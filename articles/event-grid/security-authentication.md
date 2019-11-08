@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: b9e471928940094b29bdffeb73ea42fe852492cb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8fe85685a41e05b5132157453a6dcbc81c2399af
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665579"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825770"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid säkerhet och autentisering 
 
@@ -204,7 +204,7 @@ Event Grid innehåller två inbyggda roller för att hantera händelse prenumera
 
 Du kan [tilldela dessa roller till en användare eller grupp](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
-**EventGrid EventSubscription Contributor (för hands version)** : hantera Event Grid prenumerations åtgärder
+**EventGrid EventSubscription-deltagare**: hantera Event Grid prenumerations åtgärder
 
 ```json
 [
@@ -212,7 +212,7 @@ Du kan [tilldela dessa roller till en användare eller grupp](../role-based-acce
     "Description": "Lets you manage EventGrid event subscription operations.",
     "IsBuiltIn": true,
     "Id": "428e0ff05e574d9ca2212c70d0e0a443",
-    "Name": "EventGrid EventSubscription Contributor (Preview)",
+    "Name": "EventGrid EventSubscription Contributor",
     "IsServiceRole": false,
     "Permissions": [
       {
@@ -240,7 +240,7 @@ Du kan [tilldela dessa roller till en användare eller grupp](../role-based-acce
 ]
 ```
 
-**EventGrid EventSubscription Reader (för hands version)** : Läs Event Grid prenumerationer
+**EventGrid EventSubscription-läsare**: läsa Event Grid prenumerationer
 
 ```json
 [
@@ -248,7 +248,7 @@ Du kan [tilldela dessa roller till en användare eller grupp](../role-based-acce
     "Description": "Lets you read EventGrid event subscriptions.",
     "IsBuiltIn": true,
     "Id": "2414bbcf64974faf8c65045460748405",
-    "Name": "EventGrid EventSubscription Reader (Preview)",
+    "Name": "EventGrid EventSubscription Reader",
     "IsServiceRole": false,
     "Permissions": [
       {

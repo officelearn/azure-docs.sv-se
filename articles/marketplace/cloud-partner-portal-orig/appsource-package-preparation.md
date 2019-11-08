@@ -1,42 +1,43 @@
 ---
-title: Förberedelse av paketet i AppSource | Azure Marketplace
-description: Explanaion i hur du förbereder och skapa AppSource-paket.
+title: Förberedelse av AppSource-paket | Azure Marketplace
+description: Explanaion för att förbereda och skapa AppSource-paket.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Ricardo.Villalobos
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: ff822e87bfec5daa161172c0d47975eb06cc2808
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c6b78e62afb43562910c872d31e2c9f564040da
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935635"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73806105"
 ---
 # <a name="appsource-package-preparation"></a>Förberedelse av AppSource-paket
 
-Förutom en solution.zip-fil, måste en **AppSource paketet**. Det här är en .zip-fil som innehåller alla de resurser som behövs för att automatisera processen för att distribuera din lösning till kundernas CRM-miljö. Den **AppSource paketet** har följande komponenter
+Förutom en lösning. zip-fil behöver du ett **AppSource-paket**. Detta är en. zip-fil som innehåller alla till gångar som behövs för att automatisera processen för att distribuera din lösning till kundernas CRM-miljö. **AppSource-paketet** innehåller följande komponenter
 
-* Paket för Package Deployer
-* **Content_Types.XML** fil med de resurser som du använder
-* XML-fil med dina appspecifika-data
-* 32 x 32 logotyp som visas med din registrering i administrationscentret
-* Licensvillkoren sekretesspolicy
+* Paket för paket distributionen
+* **Content_Types. XML-** fil med de till gångar som du använder
+* XML-fil med dina AppData
+* 32 x 32-logotyp som visas med din lista i administrations centret
+* Licens villkor, sekretess policy
 
-Stegen nedan hjälper dig att skapa din AppSource-paket.
+Stegen nedan hjälper dig att skapa ditt AppSource-paket.
 
-## <a name="a-create-a-package-for-the-package-deployer"></a>a. Skapa ett paket för Package Deployer
+## <a name="a-create-a-package-for-the-package-deployer"></a>a. Skapa ett paket för paket distributionen
 
-Paket för Package Deployer är en del av AppSource-paketet.
+Paketet för paket distributionen är en del av AppSource-paketet.
 
-Använd följande instruktioner för att skapa ett paket för Package Deployer: [ https://msdn.microsoft.com/library/dn688182.aspx ](https://msdn.microsoft.com/library/dn688182.aspx). När du är klar kommer ditt paket bestå av tillgångar nedan:
+Använd följande instruktioner om du vill skapa ett paket för paket distributionen: [https://msdn.microsoft.com/library/dn688182.aspx](https://msdn.microsoft.com/library/dn688182.aspx). När det är klart kommer ditt paket att bestå av till gångarna nedan:
 
-1. Paketmappen: innehåller alla lösningar, konfigurationsdata, flata filer och innehåll för ditt paket. _Obs! I följande exempel förutsätter vi att paketmappen kallas ”PkgFolder”_
-2. DLL-filen: Sammansättningen innehåller anpassad kod för ditt paket. _Obs! I följande exempel förutsätter vi att den här filen kallas ”MicrosoftSample.dll”._
+1. Paketera mapp: innehåller alla lösningar, konfigurations data, flata filer och innehållet för paketet. _Obs! i exemplet nedan kommer vi att anta att Package-mappen kallas "PkgFolder"._
+2. DLL: sammansättningen innehåller den anpassade koden för ditt paket. _Obs! i exemplet nedan kommer vi att anta att filen heter "MicrosoftSample. dll"._
 
-Nu kan du behöva skapa en fil med namnet ”**Content_Types.xml**” den här filen visar en lista över alla tillgångar-tillägg som ingår i paketet. Här är exempelkod för filen.
+Nu måste du skapa en fil med namnet "**Content_Types. XML**" den här filen visar alla till gångs tillägg som ingår i paketet. Här är exempel koden för filen.
 
     <?xml version="1.0" encoding="utf-8"?>
         <Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">
@@ -53,36 +54,36 @@ Nu kan du behöva skapa en fil med namnet ”**Content_Types.xml**” den här f
         <Default Extension="css" ContentType="application/octet-stream" />
     </Types>
 
-Det sista steget är att zip-följande till en fil. Anropa den **package.zip**. Den innehåller
+Det sista steget är att zippa in följande i en enda fil. Anropa IT **Package. zip**. Den kommer att innehålla
 
-1. PkgFolder (inklusive allt inuti mappen)
-2. DLL-filen
-3. **Content_Types.xml**
+1. PkgFolder (inklusive allt i mappen)
+2. DLL
+3. **Content_Types. XML**
 
-Steg för att skapa package.zip:
+Steg för att skapa Package. zip:
 
-1. Placera din paketmappen **Content_Types.xml** fil- och PackageName.dll i en katalog.
+1. Lägg till din Package-mapp, **Content_Types. XML-** fil och PackageName. dll i en katalog.
 
 ![CRMScreenShot2](media/CRMScreenShot2.png)
 
-1. Markera alla objekt i mappen, högerklicka och välj Skicka till komprimerade (zip) mappen
+1. Markera alla objekt i mappen, högerklicka och välj Skicka till komprimerad mapp (zip)
 
 ![CRMScreenShot3](media/CRMScreenShot3.png)
 
-1. Ändra namnet till package.zip
+1. Ändra namnet till Package. zip
 
 ![CRMScreenShot4](media/CRMScreenShot4.png)
 
-## <a name="b-create-an-appsource-package"></a>b. Skapa ett paket med AppSource
+## <a name="b-create-an-appsource-package"></a>b. Skapa ett AppSource-paket
 
-AppSource-paketet kräver några ytterligare filer.
+AppSource-paketet kräver ytterligare filer.
 
-1. JPG (32 x 32 upplösning)
+1. jpg (32 x 32-lösning)
 2. HTML (HTML-formaterad fil)
-3. **Content_Types.XML** (samma som ovan)
+3. **Content_Types. XML** (samma som ovan)
 4. xml
 
-Här är exempelkod för Input.XML är. Se definitioner i den tabellen nedan.
+Här är exempel koden för indata. xml. Se definitioner i tabellen nedan.
 
     <PvsPackageData>
         <ProviderName>Microsoft</ProviderName>
@@ -102,35 +103,35 @@ Här är exempelkod för Input.XML är. Se definitioner i den tabellen nedan.
         </Locales>
     </PvsPackageData>
  
-**Där:**
+**Vilken**
 
 |Fält|Information|
 |---|---|
-|ProviderName|Vem är den lösning som kommer från. Om ett Microsoft-team, bör detta vara Microsoft.|
-|PackageFile |Paketera Deployer tillgångar zippade tillsammans med en innehåll\_types.xml fil. Den här zipfilen ska innehålla package deployer sammansättning och mappen med package deployer tillgångar. Det vill säga package.zip|
-|SolutionAnchorName |Namnet på lösningen zip-filen i package deployer som används för namn och beskrivning av lösning tillgångar.|
-| Startdatum| Det här är det datum då lösningspaketet blir tillgängliga. Formatet är åååå-MM-DD|
-|endDate|Detta är det datum att lösningspaketet stoppar som det är tillgängligt. Formatet är åååå-MM-DD |
-|SupportedCountries |Det här är en kommaavgränsad lista över länder/regioner som bör se det här paketet. Kontakta online services för en lista över alla aktuella landskoder. Då detta skrivs var listan: AE, AL, AM, AO, AR AT, AUSTRALIEN, AZ, BA, BB, BD, VARA, BG, BH, BM, BN, BO, BR AV CA: N, CH, CI, CL, CM, CO, CR, KA, CW, CY, CZ, DE, DK, GÖR, DZ, EG, EE, T.EX., ES, FI, FR, GB, GE, HÖ, GR, GT, HK , HN, HR, HU, ID, INTERNET EXPLORER, IL, IN-, IQ, ÄR DET, JM, JO, JP, KE, KG, KN, KOREA, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MA, MC, MD, MIG, MK, MN, MÅNAD, MT, MU, MX, MIN, NG, NI, NL, NEJ, NZ, OM, PA, PE, PH , PK, PL, PULL-BEGÄRAN, PS, PT, PY, QA, RO, RS, RU, RW-SKIVOR, SA, SE, SG, SI, SK, SN, SA, TH, TM, TN, TR, TT, TW, UA, USA, UY, UZ, STÖTT, VI, VN, ZA, ZW |
-|LearnMoreLink | URL till informationslagersidan för mer för det här paketet. |
-|Nationella inställningar|En instans av den här noden för varje UX-språk som du vill stödja i prioriterade lösningen UX. Den här noden innehåller underordnade som beskriver de nationella inställningar, logotyp och villkoren för varje språk|
-|Nationella inställningar: PackageLocale.Code|LCID för de för den här noden. Exempel: Amerikansk engelska är 1033|
-|Nationella inställningar: PackageLocale.IsDefault|Anger att det här är standardspråket. Detta används som höst tillbaka språk om det valda kunden UX-språket inte är tillgänglig.|
-|Nationella inställningar: Logotyp|Detta om logotypen som du vill använda för det här paketet. Ikonen storleken är 32 x 32. Format som tillåts är PNG och JPG|
-|Nationella inställningar: termer: PackageTerm.File|Det här är namnet på HTML-dokument som innehåller dina licensvillkor.|
+|ProviderName|Vilken lösning kommer från. Om du har ett Microsoft-team bör det vara Microsoft.|
+|PackageFile |Paket distributions till gångar zippas samman med en innehålls\_types. XML-fil. Den här zip-filen ska innehålla paketets distributions paket och mappen med paket distributions resurserna. Det vill säga Package. zip|
+|SolutionAnchorName |Namnet på zip-filen för lösningen i paket distributionen som används som visnings namn och beskrivning av lösnings till gångar.|
+| /SD| Detta är det datum då lösnings paketet blir tillgängligt. Formatet är MM/DD/ÅÅÅÅ|
+|EndDate|Detta är det datum då lösnings paketet upphör att vara tillgängligt. Formatet är MM/DD/ÅÅÅÅ |
+|SupportedCountries |Det här är en kommaavgränsad lista över länder/regioner som ska se det här paketet. Kontakta onlinetjänster om du vill visa en lista över alla aktuella lands koder. Vid tiden var listan över: AE, AL, AM, AO, P.A., AT, AU, AZ, BA, BB, BD,, BG, BH, BM, BN, BO, BR, av, CA, CH, CI, CL, CM, CO, CR, ka, FV, CY, CZ, L', DK, DZ, EC, EE , ES, FI, FR, GB, GE, HA, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, SWEETIQ, ÄR, IT, JM, EVA, JP, KE, KG, KN, KR, KW, KY, KZ, LB, LK,, LY, MA, MC, MD, MN, MO, MT, MU, MX, MY , NG, NI, NL, NEJ, NZ, OM, PA, PE, PH, PK, PL, PR, PS, PT, PY, FRÅGOR OCH SVAR, E, RS, RU, RW, SA, SE, TG, SI, SK, SN, SA, TH, TM, TN, TR, TT, TW, UA, US, UY, UZ, VE, VN, ZA, ZW |
+|LearnMoreLink | URL till sidan mer information för det här paketet. |
+|Språk|En instans av den här noden för varje UX-språk som du vill stödja i den primära lösningens UX. Den här noden innehåller underordnade som beskriver språk, logo typ och villkor för varje språk|
+|Språk: PackageLocale. Code|LCID för språket för den här noden. Exempel: US English är 1033|
+|Språk: PackageLocale. IsDefault|Anger att detta är standard språket. Detta används som fortsättnings språk om det UX-språk som valts av kunden inte är tillgängligt.|
+|Språk: Logo typ|Detta om den logo typ som du vill använda för det här paketet. Ikonens storlek är 32 x 32. Tillåtna format är PNG och JPG|
+|Språk: villkor: PackageTerm. File|Detta är fil namnet på HTML-dokumentet som innehåller dina licens villkor.|
 
-Här är där logotypen visas:
+Här visas logo typen:
 
 ![CRMScreenShot5](media/CRMScreenShot5.png)
 
-Det sista steget är att zip-följande till en fil.
+Det sista steget är att zippa in följande i en enda fil.
 
-1. ZIP (som skapats tidigare)
-2. **Content_Types.xml**
+1. zip (skapat tidigare)
+2. **Content_Types. XML**
 3. xml
-4. PNG
+4. källfil
 5. html
 
 ![CRMScreenShot6](media/CRMScreenShot6.png)
 
-Byt namn på filen till något som är lämplig för din app. Vi föredrar att du inkluderar företagets namn och namn. Till exempel: **_Microsoft_SamplePackage.zip**.
+Byt namn på filen till något lämpligt för din app. Vi rekommenderar att du inkluderar ditt företags namn och ditt namn på appen. Exempel: **_Microsoft_SamplePackage. zip**.

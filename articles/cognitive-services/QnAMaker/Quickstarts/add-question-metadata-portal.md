@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Lägg till frågor och svar i QnA Maker Portal'
+title: 'Snabb start: Lägg till frågor och svar i QnA Maker Portal'
 titleSuffix: Azure Cognitive Services
 description: ''
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: ed50e6adbcca7cbb4935400c7850c37dc2ed389f
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 92735d8982fb1364d5ebfe0494f5ee51f4302469
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803536"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794010"
 ---
-# <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Snabbstart: Lägg till frågor och svar med QnA Maker Portal
+# <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Snabb start: Lägg till frågor och svar med QnA Maker Portal
 
 När en kunskaps bas har skapats lägger du till frågor och svars uppsättningar med metadata så att användarna kan hitta rätt svar på sina frågor.
 
@@ -28,10 +28,10 @@ Frågorna i följande tabell är till exempel om begränsningar för Azure-tjän
 <a name="qna-table"></a>
 
 
-|Uppsättning|Frågor|Svar|Metadata|
+|Ange|Frågor|Svar|Metadata|
 |--|--|--|--|
 |Nr 1|`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`|`service=qna_maker`<br>`link_in_answer=true`|
-|Nr 2|`How many knowledge bases can I have for my QnA Maker service?`<br><br>`I selected a Azure Search tier that holds 15 knowledge bases, but I can only create 14 - what is going on?`<br><br>`What is the connection between the number of knowledge bases in my QnA Maker service and the Azure Search service size?` |`Each knowledge base uses 1 index, and all the knowledge bases share a test index. You can have N-1 knowledge bases where N is the number of indexes your Azure Search tier supports.`|`service=search`<br>`link_in_answer=false`|
+|Nr 2|`How many knowledge bases can I have for my QnA Maker service?`<br><br>`I selected a Azure Cognitive Search tier that holds 15 knowledge bases, but I can only create 14 - what is going on?`<br><br>`What is the connection between the number of knowledge bases in my QnA Maker service and the Azure Cognitive Search service size?` |`Each knowledge base uses 1 index, and all the knowledge bases share a test index. You can have N-1 knowledge bases where N is the number of indexes your Azure Cognitive Search tier supports.`|`service=search`<br>`link_in_answer=false`|
 
 När metadata har lagts till i en fråga-och-svars uppsättning kan klient programmet:
 
@@ -40,7 +40,7 @@ När metadata har lagts till i en fråga-och-svars uppsättning kan klient progr
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En QnA Maker tjänst
 * En kunskaps bas som skapats i QnA Maker tjänsten
@@ -92,9 +92,9 @@ Genom att lägga till metadata till en fråga och en svars uppsättning kan klie
 
 1. Välj **visnings alternativ**och välj sedan **Visa metadata**. 
 
-1. För frågan och svars uppsättningen som du nyss lade till väljer du **Lägg till metadata-Taggar**och lägger till namnet på `service` och värdet för `search`, `service:search`.
+1. För frågan och svars uppsättningen som du nyss lade till väljer du **Lägg till metadata-Taggar**och lägger till namnet på `service` och värdet för `search``service:search`.
 
-1. Lägg till ytterligare metadata-Taggar med namnet `link_in_answer` och värdet för `false`, `link_in_answer:false`.
+1. Lägg till ytterligare metadata-Taggar med namnet på `link_in_answer` och värdet för `false``link_in_answer:false`.
 
 1. Sök efter det första svaret i tabellen `How large a knowledge base can I create?`. 
 1. Lägg till metadata-par för samma två metadata-Taggar:
@@ -121,7 +121,7 @@ Genom att lägga till metadata till en fråga och en svars uppsättning kan klie
     curl -X POST https://your-resource-name.azurewebsites.net/qnamaker/knowledgebases/your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey your-endpoint-key" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
     ```
 
-    Observera att frågan bara är ett enda ord, `size`, som kan returnera antingen frågor och svars uppsättningar. Matrisen `strictFilters` visar svaret för att minska till bara @no__t 1-svar. 
+    Observera att frågan bara är ett enda ord, `size`, som kan returnera antingen frågor och svars uppsättningar. `strictFilters` matrisen visar svaret för att minska till bara `qna_maker` svar. 
 
     [!INCLUDE [Tip for debug property to JSON request](../includes/tip-debug-json.md)]
 

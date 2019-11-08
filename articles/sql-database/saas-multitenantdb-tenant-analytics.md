@@ -1,5 +1,5 @@
 ---
-title: 'Köra Analytics-frågor mot Azure SQL-databaser '
+title: Köra analys frågor
 description: Analys frågor mellan klienter med data som extraherats från flera Azure SQL Database databaser i en app med flera klienter.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 ms.date: 09/19/2018
-ms.openlocfilehash: 2044e72697526a1c757fa13aeffb85260a9b821e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 067afd09f942b8062825553a3cf90f715e8d3938
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691997"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822152"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Analys av flera klienter med extraherade data-multi-Apps-appen
  
@@ -107,8 +107,8 @@ Utför följande steg i Object Explorer:
 Se följande databas objekt i SSMS-Object Explorer genom att expandera noden analys Arkiv:
 
 - Tabellerna **TicketsRawData** och **EventsRawData** innehåller råa extraherade data från klient databaserna.
-- Stjärn schema tabellerna är **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**och **dim_Dates**.
-- Den lagrade proceduren **sp_ShredRawExtractedData** används för att fylla i stjärn schema tabeller från rå data tabeller.
+- De stjärn schema tabellerna är **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**och **dim_Dates**.
+- Den **sp_ShredRawExtractedData** lagrade proceduren används för att fylla i stjärn schema tabeller från rå data tabeller.
 
 ![tenantAnalytics](media/saas-multitenantdb-tenant-analytics/tenantAnalytics.png)
 
@@ -154,9 +154,9 @@ I det här avsnittet av självstudien definierar och kör du ett jobb som samman
 
 1. I SSMS ansluter du till **jobaccount** -databasen i katalogen – mt-\<användar\>.
 2. I SSMS öppnar du *. ..\Learning Modules\Operational Analytics\Tenant Analytics\ShredRawExtractedData.SQL*.
-3. Tryck på **F5** för att köra skriptet för att definiera ett jobb som anropar den lagrade proceduren sp_ShredRawExtractedData i Analytics Store.
+3. Tryck på **F5** för att köra skriptet för att definiera ett jobb som anropar sp_ShredRawExtractedData lagrade proceduren i Analytics Store.
 4. Tillåt tillräckligt med tid för att jobbet ska kunna köras.
-    - Kontrol lera **livs cykel** kolumnen för jobb. jobs_execution-tabellen för jobb status. Kontrol lera att jobbet **har slutförts** innan du fortsätter. En lyckad körning visar data som liknar följande diagram:
+    - Kontrol lera **livs cykel** kolumnen för jobb. jobs_execution tabell för jobb status. Kontrol lera att jobbet **har slutförts** innan du fortsätter. En lyckad körning visar data som liknar följande diagram:
 
 ![shreddingJob](media/saas-multitenantdb-tenant-analytics/shreddingJob.PNG)
 
@@ -179,7 +179,7 @@ Använd följande steg för att ansluta till Power BI och för att importera de 
 
     ![DatabaseSignIn](media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 
-6. I **navigerings** fönstret, under Analytics-databasen, väljer du stjärn schema tabeller: Fact_Tickets, Dim_Events, Dim_Venues, Dim_Customers och dim_Dates. Välj sedan **load**. 
+6. I **navigerings** fönstret, under Analytics-databasen, väljer du stjärn schema tabeller: fact_Tickets, dim_Events, dim_Venues, dim_Customers och dim_Dates. Välj sedan **load**. 
 
 Grattis! Du har läst in data i Power BI. Nu kan du börja utforska intressanta visualiseringar för att få insikter om dina klienter. Härnäst går du igenom hur analyser kan ge dig möjlighet att tillhandahålla data drivna rekommendationer till affärs teamet för Wingtip-biljetter. Rekommendationerna kan hjälpa till att optimera affärs modellen och kund upplevelsen.
 

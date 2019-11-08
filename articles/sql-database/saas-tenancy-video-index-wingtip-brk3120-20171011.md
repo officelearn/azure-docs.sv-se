@@ -1,5 +1,5 @@
 ---
-title: 'Video Indexed, Azure SaaS SQL-app '
+title: SaaS för SQL-app
 description: Den här artikeln indexerar olika tidpunkter i 81 minuter-videon om SaaS DB-appens design, från antändnings konferensen den 11 oktober 2017. Du kan gå vidare till den del som intresserar dig. Minst tre mönster beskrivs. Azure-funktioner som fören klar utveckling och hantering beskrivs.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 3d9b9c5af1994e2d0b3fd8f720def06489f3669d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0194d99a10eb34ecd8ad10fa0a1509baf8436381
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691910"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818482"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Video Indexed och kommenterad för SaaS-appen för flera innehavare med hjälp av Azure SQL Database
 

@@ -1,49 +1,50 @@
 ---
-title: Behållare erbjuder publicera Guide för Azure Marketplace
-description: Den här artikeln beskrivs kraven för att publicera behållare i Marketplace
+title: Containers erbjuder publicerings guide för Azure Marketplace
+description: I den här artikeln beskrivs kraven för att publicera behållare i Marketplace
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: ellacroi
 manager: nunoc
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 41a09be36262ff09c383b8ccb64a94230a11d3f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ffdc6b22209c1d334ac7b75c7079e755a7405154
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937920"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823001"
 ---
-# <a name="containers-offer-publishing-guide"></a>Behållare erbjuder publicera Guide
+# <a name="containers-offer-publishing-guide"></a>Publicerings guide för behållare
 
-Behållare erbjuder dig publicera behållaravbildningen till Azure Marketplace. Använd den här guiden för att förstå kraven för det här erbjudandet. 
+Med container får du hjälp att publicera behållar avbildningen på Azure Marketplace. Använd den här guiden för att förstå kraven för det här erbjudandet. 
 
-Det här är transaktionen erbjudanden som distribueras och faktureras via Marketplace. Anropet till åtgärden som en användare ser är ”Hämta nu”.
+Detta är transaktions erbjudanden som distribueras och faktureras via Marketplace. Anropet till åtgärden som en användare ser är "Hämta nu".
 
-Använd typ av erbjudande behållaren när din lösning är en Docker-behållaravbildning som tillhandahålls som en Kubernetes-baserade Azure-behållartjänst.
+Använd containerns erbjudande typ när din lösning är en Docker-behållar avbildning som tillhandahålls som en Kubernetes-baserad Azure Container Service.
 
 >[!NOTE]
->Till exempel en Kubernetes-baserade Azure-behållartjänst som Azure Kubernetes Service eller Azure Container Instances, valet av Azure-kunder för ett Kubernetes-baserad behållare för körning.  
+>Till exempel en Kubernetes-baserad Azure Container Service som Azure Kubernetes service eller Azure Container Instances, valet av Azure-kunder för en Kubernetes-baserad container Runtime.  
 
-Microsoft stöder för närvarande kostnadsfria och bring-your-own-license (BYOL) licensieringsmodellerna.
+Microsoft har för närvarande stöd för kostnads fria och BYOL-licensierings modeller.
 
-## <a name="containers-offer"></a>Behållare-erbjudande
+## <a name="containers-offer"></a>Container erbjudande
 
 | Krav | Information |  
 |:--- |:--- |  
-| Fakturering och mätning | Stöd för antingen den kostnadsfria eller BYOL faktureringsmodell. |  
-| Avbildning som byggts från Dockerfile | Behållaravbildningar måste baseras på Docker-avbildning-specifikationen och måste skapas från en Dockerfile.<ul> <li>Mer information om hur du skapar docker-avbildningar finns i avsnittet användning finns på [docs.docker.com/engine/reference/builder/#usage](https://docs.docker.com/engine/reference/builder/#usage).</li> </ul> |  
-| Värd för i ACR | Behållaravbildningar måste finnas i en lagringsplats i Azure Container Registry (ACR).<ul> <li>Mer information om hur du arbetar med ACR finns i snabbstarten: Skapa ett behållarregister med hjälp av Azure portal sidan finns på [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).</li> </ul> |  
-| Bild-märkning | Behållaravbildningar måste innehålla minst 1 taggen (högsta taggar: 16).<ul> <li>Mer information om en bild-märkning finns på sidan docker-tagg finns på [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag).</li> </ul> |  
+| Fakturering och mätning | Stöder antingen den kostnads fria eller BYOL fakturerings modellen. |  
+| Avbildning skapad från Dockerfile | Behållar avbildningar måste baseras på Docker-avbildnings specifikationen och måste skapas från en Dockerfile.<ul> <li>Mer information om hur du skapar Docker-avbildningar finns i avsnittet användning på [docs.docker.com/engine/reference/builder/#usage](https://docs.docker.com/engine/reference/builder/#usage).</li> </ul> |  
+| Värd i ACR | Behållar avbildningar måste finnas i en Azure Container Registry-databas (ACR).<ul> <li>Mer information om hur du arbetar med ACR finns i snabb start: skapa ett behållar register med hjälp av Azure Portal sidan som finns på [docs.Microsoft.com/Azure/Container-Registry/container-Registry-get-started-Portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).</li> </ul> |  
+| Bild taggning | Behållar avbildningar måste innehålla minst en tagg (maximalt antal Taggar: 16).<ul> <li>Om du vill ha mer information om att tagga en bild kan du gå till Docker-taggnings sidan som finns på [docs.Docker.com/Engine/Reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag).</li> </ul> |  
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte redan gjort det, 
+Om du inte redan har gjort det, 
 
-- [Registrera](https://azuremarketplace.microsoft.com/sell) i marketplace.
+- [Registrera dig](https://azuremarketplace.microsoft.com/sell) på Marketplace.
 
-Om du är registrerad och skapar ett nytt erbjudande eller arbetar på en befintlig
+Om du har registrerat och skapar ett nytt erbjudande eller arbetar på ett befintligt,
 
-- [Logga in på partnerportalen i molnet](https://cloudpartner.azure.com) att skapa eller slutföra ditt erbjudande.
+- [Logga in på Cloud Partner Portal](https://cloudpartner.azure.com) för att skapa eller slutföra ditt erbjudande.
 - Se [behållare](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) för mer information.

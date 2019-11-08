@@ -1,23 +1,24 @@
 ---
-title: Hämta erbjuder API | Azure Marketplace
-description: 'API: et hämtar en sammanfattad lista över erbjudanden i ett namnområde för utgivare.'
+title: 'Hämta API: er för erbjudandet | Azure Marketplace'
+description: API hämtar en sammanfattande lista med erbjudanden under ett utgivar namn område.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 67109c3605ea96123ff41cb88d5ac328a09991e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c94c03a63936be2b086085a1e52064dedf214b0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935335"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819630"
 ---
 <a name="retrieve-offers"></a>Hämta erbjudanden
 ===============
 
-Hämtar en sammanfattad lista över erbjudanden i ett namnområde för utgivare.
+Hämtar en summerad lista med erbjudanden under ett utgivar namn område.
 
  `GET https://cloudpartner.azure.com/api/publishers/<publisherId>/offers?api-version=2017-10-31`
 
@@ -27,8 +28,8 @@ Hämtar en sammanfattad lista över erbjudanden i ett namnområde för utgivare.
 
 | **Namn**         |  **Beskrivning**                         |  **Datatyp** |
 | -------------    |  ------------------------------------    |  -----------   |
-|  publisherId     | Identifierare för utgivare, till exempel `contoso` |   String    |
-|  API-versionen     | Senaste versionen av API                    |    Date        |
+|  publisherId     | Utgivar-ID, till exempel `contoso` |   Sträng    |
+|  API-version     | Senaste versionen av API                    |    Date        |
 |  |  |
 
 
@@ -42,7 +43,7 @@ Hämtar en sammanfattad lista över erbjudanden i ett namnområde för utgivare.
 |  |  |
 
 
-<a name="body-example"></a>Brödtext exempel
+<a name="body-example"></a>Body-exempel
 ------------
 
 ### <a name="response"></a>Svar
@@ -64,40 +65,40 @@ Hämtar en sammanfattad lista över erbjudanden i ett namnområde för utgivare.
   ]
 ```
 
-### <a name="response-body-properties"></a>Egenskaper för rapportinnehåll i svaret
+### <a name="response-body-properties"></a>Egenskaper för svars text
 
 |  **Namn**       |       **Beskrivning**                                                                                                  |
 |  -------------  |      --------------------------------------------------------------------------------------------------------------    |
-|  offerTypeId    | Identifierar typ av erbjudande                                                                                           |
-|  publisherId    | Identifieraren som unikt identifierar utgivaren                                                                      |
-|  status         | Status för erbjudandet. Listan över möjliga värden, se [erbjuder status](#offer-status) nedan.                         |
-|  id             | GUID som unikt identifierar erbjudandet i publisher-namnområdet.                                                    |
-|  version        | Aktuell version av erbjudandet. Att går inte ändra versionsegenskapen av klienten. Det ökar stegvis när varje publicering. |
-|  definition     | Innehåller en sammanfattande vy över den faktiska definitionen av arbetsbelastningen. För att få en detaljerad definition kan använda den [hämta specifikt erbjudande](./cloud-partner-portal-api-retrieve-specific-offer.md) API. |
-|  changedTime    | UTC-tid då erbjudandet senast ändrades                                                                              |
+|  offerTypeId    | Identifierar typen av erbjudande                                                                                           |
+|  publisherId    | Identifierare som unikt identifierar utgivaren                                                                      |
+|  status         | Status för erbjudandet. En lista över möjliga värden finns i [erbjudande status](#offer-status) nedan.                         |
+|  id             | GUID som unikt identifierar erbjudandet i utgivarens namnrymd.                                                    |
+|  version        | Aktuell version av erbjudandet. Det går inte att ändra versions egenskapen av klienten. Den ökar efter varje publicering. |
+|  Definition     | Innehåller en summerad vy av den faktiska definitionen av arbets belastningen. Om du vill ha en detaljerad definition använder du API: et [Hämta särskilda erbjudande](./cloud-partner-portal-api-retrieve-specific-offer.md) . |
+|  changedTime    | UTC-tid när erbjudandet senast ändrades                                                                              |
 |  |  |
 
 
-### <a name="response-status-codes"></a>Svarsstatuskoder
+### <a name="response-status-codes"></a>Svars status koder
 
-| **Kod**  |  **Beskrivning**                                                                                                   |
+| **Rikt**  |  **Beskrivning**                                                                                                   |
 | -------   |  ----------------------------------------------------------------------------------------------------------------- |
-|  200      | `OK` -Begäran har bearbetats och alla erbjudanden under utgivaren har returnerats till klienten.  |
-|  400      | `Bad/Malformed request` -Fel svarstexten kan innehålla mer information.                                    |
-|  403      | `Forbidden` -Klienten har inte åtkomst till det angivna namnområdet.                                          |
-|  404      | `Not found` -Den angivna entiteten finns inte.                                                                 |
+|  200      | `OK`-begäran har bearbetats och alla erbjudanden under utgivaren returnerades till klienten.  |
+|  400      | `Bad/Malformed request` – fel svars texten kan innehålla mer information.                                    |
+|  403      | `Forbidden`-klienten har inte åtkomst till den angivna namn rymden.                                          |
+|  404      | `Not found`-den angivna entiteten finns inte.                                                                 |
 |  |  |
 
 
-### <a name="offer-status"></a>Status för erbjudande
+### <a name="offer-status"></a>Erbjudande status
 
 |  **Namn**                    | **Beskrivning**                                  |
 |  ------------------------    | -----------------------------------------------  |
-|  NeverPublished              | Erbjudandet har inte publicerats.                  |
-|  Ej startad                  | Erbjudandet är nytt, men har startats inte.                 |
-|  WaitingForPublisherReview   | Erbjudande väntar på godkännande av utgivaren.         |
-|  Körs                     | Erbjud bidrag bearbetas.             |
-|  Lyckades                   | Erbjudandet bidrag har bearbetat.       |
-|  Avbrutna                    | Erbjudandet överföringen avbröts.                   |
-|  Misslyckad                      | Det gick inte att skicka för erbjudandet.                         |
+|  NeverPublished              | Erbjudandet har aldrig publicerats.                  |
+|  NotStarted                  | Erbjudandet är nytt men har inte startats.                 |
+|  WaitingForPublisherReview   | Erbjudandet väntar på godkännande av utgivare.         |
+|  Körs                     | Överföring av erbjudande bearbetas.             |
+|  Lyckades                   | Bearbetningen av erbjudandet har slutförts.       |
+|  Avbrutna                    | Överföring av erbjudande avbröts.                   |
+|  Misslyckad                      | Det gick inte att skicka erbjudandet.                         |
 |  |  |

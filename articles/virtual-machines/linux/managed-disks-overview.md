@@ -1,18 +1,18 @@
 ---
 title: Översikt över Azure-disklagring Managed disks för virtuella Linux-datorer | Microsoft Docs
-description: Översikt över Azure Managed disks som hanterar lagrings konton åt dig när du använder virtuella Linux-datorer
+description: Översikt över Azure Managed disks, som hanterar lagrings konton åt dig när du använder virtuella Linux-datorer
 author: roygara
 ms.service: virtual-machines-linux
 ms.topic: overview
-ms.date: 08/15/2019
+ms.date: 11/06/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 3ba797088eb23262c583906d7023f20fb7d408ba
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: de6ac88d5619266d049f0dc5bd4b54d674f00df7
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516147"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796266"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introduktion till Azure Managed disks
 

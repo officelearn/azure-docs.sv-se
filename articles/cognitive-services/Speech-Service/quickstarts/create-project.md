@@ -1,26 +1,26 @@
 ---
 title: 'Snabb start: skapa ett projekt'
 titleSuffix: Azure Cognitive Services
-description: TBD
+description: I den här snabb starten skapar du ett tomt projekt för det programmeringsspråk som du använder för att slutföra en snabb start eller skapa ett program.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 10/28/2019
+ms.date: 11/04/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-three
-ms.openlocfilehash: 25d6e8f7642db05663082414f013b2b11bff46da
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 276dbcdfe3f40122b6a7a14e78aeee4d6ab2fbe9
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504048"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721006"
 ---
-# <a name="quickstart-create-an-empty-project"></a>Snabb start: skapa ett tomt projekt.
+# <a name="quickstart-create-a-project"></a>Snabb start: skapa ett projekt
 
-Den här guiden visar hur du skapar ett tomt projekt för användning i andra snabb starter.
+I den här snabb starten skapar du ett tomt projekt för det programmeringsspråk som du använder för att slutföra en snabb start eller skapa ett program.
 
 ::: zone pivot="programming-language-csharp"
 **Välj mål miljö**
@@ -54,6 +54,9 @@ För det här exemplet ska vi kompilera med g + +, så allt du behöver för ett
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+
+För python-baserade snabb starter behöver du bara skapa en fil med namnet `helloworld.py` med din favorit text redigerare eller IDE.
+
 ::: zone-end
 
 ## <a name="next-steps"></a>Nästa steg
@@ -63,4 +66,3 @@ För det här exemplet ska vi kompilera med g + +, så allt du behöver för ett
 - [Snabb start: Översätt tal till text](translate-speech-to-text.md)
 - [Snabb start: syntetisera tal till text](text-to-speech.md)
 - [Snabb start: identifiera avsikter](intent-recognition.md)
-

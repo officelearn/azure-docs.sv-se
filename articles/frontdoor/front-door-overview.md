@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/08/2019
+ms.date: 11/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 20cfcea4a8b58c1c01a7c710163b7320ff96d65c
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 96dae96e16ce033ce15a8f1e9386e5252562654a
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330823"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796230"
 ---
 # <a name="what-is-azure-front-door-service"></a>Vad är Azure Front Door Service?
 Med Azure Front Door Service kan du definiera, hantera och övervaka global routning av din webbtrafik, genom att optimera för bästa prestanda och omedelbar global redundans för hög tillgänglighet. Med Front Door kan du transformera dina globala (för flera regioner) konsument- och företagsprogram till robusta, högpresterande och anpassade moderna program, API:er och innehåll som når en global publik med Azure.
@@ -57,16 +57,16 @@ När du använder Front Door för att leverera innehåll behövs en anpassad dom
 Front Door har också stöd för HTTPS för anpassade domännamn. Använd denna funktion genom att antingen välja hanterade Front Door-certifikat för din trafik, eller ladda upp ditt egna anpassade SSL-certifikat.
 
 ## <a name="application-layer-security"></a>Säkerhet för programskikt
-Med Azure Front Door kan du skapa anpassade regler för brandväggen för webbaserade program (WAF) vid åtkomstkontroll, för att skydda din HTTP/HTTPS-arbetsbelastning från utnyttjande som baseras på klienternas IP-adresser, landskod och HTTP-parametrar. Dessutom kan du med Front Door också skapa begränsningsregler för att bekämpa skadlig robottrafik. 
+Med Azures front dörr kan du skapa anpassade regler för brand vägg för webbaserade program (WAF) för åtkomst kontroll för att skydda din HTTP/HTTPS-arbetsbelastning utifrån klientens IP-adresser, landskod och http-parametrar. Dessutom kan du med Front Door också skapa begränsningsregler för att bekämpa skadlig robottrafik. Mer information om brand vägg för webbaserade program finns i [Vad är Azure Web Application-brandvägg?](../web-application-firewall/overview.md)
 
 Själva Front Door-plattformen är skyddad av [Azure DDoS Protection](../virtual-network/ddos-protection-overview.md) Basic. Om du behöver mer skydd kan Azure DDoS Protection Standard aktiveras på dina virtuella nätverk och skydda resurser från nätverkslagerattacker (TCP/UDP) med hjälp av automatiska justeringar och åtgärder. Front Door är en omvänd proxy för Layer 7 där webbtrafik kan passera serverdelarna och andra typer av trafik blockeras som standard.
 
 ## <a name="url-redirection"></a>URL-omdirigering
-Med stark bransch push på stöder endast säker kommunikation, förväntas webbprogram automatiskt omdirigera all HTTP-trafik till HTTPS. Detta säkerställer att all kommunikation mellan användare och programmet sker över en krypterad sökväg. 
+Med den kraftfulla branschens push-teknik som endast stöder säker kommunikation förväntas webb program automatiskt omdirigera all HTTP-trafik till HTTPS. Detta säkerställer att all kommunikation mellan användare och program sker över en krypterad sökväg. 
 
-Traditionellt har har programägare behandlas det här kravet genom att skapa en dedikerad tjänst vars syfte var att omdirigera begäranden som tas emot på HTTP till HTTPS. Azure ytterdörren-tjänsten stöder möjligheten att omdirigera trafik från HTTP till HTTPS. Detta förenklar programkonfigurationen, optimerar resursanvändningen och stöder nya omdirigeringsscenarier, inklusive global och sökvägsbaserade omdirigering. URL-omdirigering från Azure ytterdörren-tjänsten är inte begränsad till HTTP till HTTPS-omdirigering enbart, men också att omdirigera till ett annat värdnamn omdirigering till en annan sökväg eller även omdirigering till en ny frågesträngen i Webbadressen.
+Program ägare har traditionellt sett detta krav genom att skapa en dedikerad tjänst, vars enda syfte var att omdirigera begär Anden som tas emot på HTTP till HTTPS. Azure-tjänsten för front dörr stöder möjligheten att omdirigera trafik från HTTP till HTTPS. Detta förenklar programkonfigurationen, optimerar resursanvändningen och stöder nya omdirigeringsscenarier, inklusive global och sökvägsbaserade omdirigering. URL-omdirigering från Azures frontend-tjänst är inte begränsad till enbart HTTP till HTTPS-omdirigering, utan även för att omdirigera till ett annat värdnamn, omdirigera till en annan sökväg eller till och med omdirigera till en ny frågesträng i URL: en.
 
-Mer information finns i [omdirigerar trafik](front-door-url-redirect.md) med Azure ytterdörren Service.
+Mer information finns i [omdirigera trafik](front-door-url-redirect.md) med Azure-tjänsten för front dörr.
 
 ## <a name="url-rewrite"></a>URL-omskrivning
 Front Door har stöd för [URL-omskrivning](front-door-url-rewrite.md), vilket innebär att du kan konfigurera en valfri anpassad sökväg för vidarebefordran. Den används när en begäran skapas som ska vidarebefordras till serverdelen. Med Front Door kan du dessutom konfigurera det värdhuvud som ska skickas när du vidarebefordrar begärandet till din serverdel.
@@ -76,7 +76,7 @@ Azure Front Door har inbyggt stöd för IPv6-anslutningar för slutpunkt till sl
 
 HTTP/2-protokollet ger full duplex-kommunikation mellan programserverdelar och en klient över en långvarig TCP-anslutning. HTTP/2 ger en mer interaktiv kommunikation mellan serverdelen och klienten, som kan vara dubbelriktad utan att behöva den avsökning som krävs i HTTP-baserade implementeringar. HTTP/2-protokoll har låga omkostnader, till skillnad från HTTP, och kan återanvända samma TCP-anslutning för flera begäranden eller svar, vilket resulterar i ett mer effektivt utnyttjande av resurser. Läs mer om [HTTP/2-stöd i Azure Front Door Service](front-door-http2.md).
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 Information om priser finns i [Prissättning för Front Door](https://azure.microsoft.com/pricing/details/frontdoor/).
 

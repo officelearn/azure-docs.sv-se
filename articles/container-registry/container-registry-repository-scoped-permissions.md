@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: danlep
-ms.openlocfilehash: dbfadea9bc05614108333ef5a046e11b5280cc68
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
-ms.translationtype: HT
+ms.openlocfilehash: 7b9d220ac7e507513458eab6b55276b3aa434739
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73588439"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73742759"
 ---
 # <a name="repository-scoped-permissions-in-azure-container-registry"></a>Databas – begränsade behörigheter i Azure Container Registry 
 
@@ -28,9 +28,8 @@ Mer information finns i [om behörigheter för databas omfång](#about-repositor
 
 ## <a name="preview-limitations"></a>Begränsningar för förhandsversion
 
-* Den här funktionen är endast tillgänglig i ett **Premium** container Registry. Information om register tjänst nivåer finns i [Azure Container Registry SKU: er](container-registry-skus.md).
+* Den här funktionen är endast tillgänglig i ett **Premium** container Registry. Information om nivåer och gränser för register tjänster finns i [Azure Container Registry SKU: er](container-registry-skus.md).
 * Du kan för närvarande inte tilldela databasens begränsade behörigheter till ett Azure Active Directory-objekt, till exempel ett tjänst huvud namn eller en hanterad identitet.
-* Ett register tillåter högst 20 000 omfångs kartor och 20 000-token.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 

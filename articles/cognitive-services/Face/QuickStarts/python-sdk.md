@@ -1,6 +1,6 @@
 ---
 title: 'Snabb start: ansikts klient bibliotek för python | Microsoft Docs'
-description: Kom igång med ansikts klient biblioteket för python...
+description: Den här artikeln hjälper dig att komma igång med ansikts klient biblioteket för python för att identifiera, hitta liknande, identifiera, verifiera och mycket annat.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: pafarley
-ms.openlocfilehash: b265ec68039f03c09d45c9605965de8ce0baba99
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9728ff86de8561c463886847494ecc4c1c007851
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935880"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73743192"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Snabb start: ansikts klient bibliotek för python
 
@@ -29,9 +29,9 @@ Använd ansikts klient biblioteket för python för att:
 * Verifiera ansikten
 * Ta en ögonblicks bild för datamigrering
 
-[Referens dokumentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | -[paket (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [exempel](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
+[Referens dokumentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [Library Source Code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [Package (PiPy) | -](https://pypi.org/project/azure-cognitiveservices-vision-face/) [exempel](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -147,7 +147,7 @@ Följande kod skapar en **PersonGroup** med tre olika **person** objekt. Den ass
 
 För att gå igenom det här scenariot måste du spara följande avbildningar i rot katalogen i projektet: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
 
-Den här gruppen med bilder innehåller tre uppsättningar ansikts bilder som motsvarar tre olika personer. Koden definierar tre **person** objekt och associerar dem med bildfiler som börjar med `woman`, `man` och `child`.
+Den här gruppen med bilder innehåller tre uppsättningar ansikts bilder som motsvarar tre olika personer. Koden definierar tre **person** objekt och associerar dem med bildfiler som börjar med `woman`, `man`och `child`.
 
 När du har konfigurerat dina avbildningar definierar du en etikett överst i skriptet för **PersonGroup** -objektet som du skapar.
 
@@ -246,7 +246,7 @@ Resten av ögonblicks bild åtgärderna sker i en asynkron funktion.
 
     [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_wait)]
 
-    Den här koden använder funktionen `wait_for_operation` som du bör definiera separat:
+    Den här koden använder funktionen `wait_for_operation`, som du bör definiera separat:
 
     [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_waitforop)]
 
@@ -272,7 +272,7 @@ python quickstart-file.py
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portalen](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
+* [Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
 * [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
 
 Om du har skapat en **PersonGroup** i den här snabb starten och du vill ta bort den kör du följande kod i skriptet:

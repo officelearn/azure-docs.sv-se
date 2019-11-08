@@ -1,7 +1,7 @@
 ---
-title: 'Exempel: Använd funktionen för storskalig skalning-Ansikts-API'
+title: 'Exempel: Använd storskalig funktion – Ansikts-API'
 titleSuffix: Azure Cognitive Services
-description: Använda den storskaliga funktionen i Ansikts-API.
+description: Den här guiden är en artikel om hur du skalar upp från befintliga PersonGroup-och FaceList-objekt till LargePersonGroup-och LargeFaceList-objekt.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
-ms.openlocfilehash: d8ecfb53b78277e4b0e4a85d60fb6712d0bc2292
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 976baaef11251715218ecea71986f08ec5f72996
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114837"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73743721"
 ---
-# <a name="example-use-the-large-scale-feature"></a>Exempel: Använda den storskaliga funktionen
+# <a name="example-use-the-large-scale-feature"></a>Exempel: Använd funktionen för storskalig skalning
 
 Den här guiden är en avancerad artikel om hur du skalar upp från befintliga PersonGroup-och FaceList-objekt till LargePersonGroup respektive LargeFaceList-objekten. Den här guiden visar migreringsprocessen. Det förutsätter grundläggande kunskaper om PersonGroup-och FaceList-objekt, [träna](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4) -operationen och ansikts igenkännings funktionerna. Mer information om de här ämnena finns i rikt linjer för [ansikts igenkänning](../concepts/face-recognition.md) .
 
@@ -28,9 +28,9 @@ Exemplen skrivs i C# med klient biblioteket Azure Cognitive Services ansikts-API
 > [!NOTE]
 > Om du vill aktivera ansikts öknings prestanda för identifiering och FindSimilar i stor skala, introducerar du en åtgärd för att Förbearbeta LargeFaceList och LargePersonGroup. Inlärnings tiden varierar från sekunder till cirka en timme baserat på den faktiska kapaciteten. Under utbildnings perioden är det möjligt att utföra identifierings-och FindSimilar om en lyckad utbildning skedde innan. Nack delen är att nya personer och ansikten inte visas i resultatet förrän en ny post-migrering till storskalig utbildning har slutförts.
 
-## <a name="step-1-initialize-the-client-object"></a>Steg 1: Initiera klientobjektet
+## <a name="step-1-initialize-the-client-object"></a>Steg 1: initiera klient objekt
 
-När du använder klient biblioteket för Ansikts-API skickas prenumerations nyckeln och prenumerations slut punkten in genom konstruktorn i klassen FaceClient. Exempel:
+När du använder klient biblioteket för Ansikts-API skickas prenumerations nyckeln och prenumerations slut punkten in genom konstruktorn i klassen FaceClient. Till exempel:
 
 ```csharp
 string SubscriptionKey = "<Subscription Key>";
@@ -45,7 +45,7 @@ faceClient.Endpoint = SubscriptionEndpoint
 Om du vill hämta prenumerations nyckeln med motsvarande slut punkt går du till Azure Marketplace från Azure Portal.
 Mer information finns i [prenumerationer](https://azure.microsoft.com/services/cognitive-services/directory/vision/).
 
-## <a name="step-2-code-migration"></a>Steg 2: Kod migrering
+## <a name="step-2-code-migration"></a>Steg 2: kod migrering
 
 Det här avsnittet fokuserar på hur du migrerar PersonGroup-eller FaceList-implementering till LargePersonGroup eller LargeFaceList. Även om LargePersonGroup eller LargeFaceList skiljer sig från PersonGroup eller FaceList i design och intern implementering, är API-gränssnitten liknande för bakåtkompatibilitet.
 
@@ -66,8 +66,8 @@ Lägg till alla ansikten och personer från PersonGroup till den nya LargePerson
 | Skapa | Skapa |
 | Ta bort | Ta bort |
 | Hämta | Hämta |
-| List | List |
-| Uppdatera | Uppdatera |
+| Visa lista | Visa lista |
+| Uppdatering | Uppdatering |
 | - | Träna |
 | - | Hämta träningsstatus |
 
@@ -193,7 +193,7 @@ using (Stream stream = File.OpenRead(QueryImagePath))
 
 Som tidigare visas är data hantering och FindSimilar delen i stort sett desamma. Det enda undantaget är att en ny för bearbetning tränar-åtgärd måste slutföras i LargeFaceList innan FindSimilar fungerar.
 
-## <a name="step-3-train-suggestions"></a>Steg 3: Träna förslag
+## <a name="step-3-train-suggestions"></a>Steg 3: träna förslag
 
 Även om tåg åtgärden påskyndar [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) och [identifieringen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), är inlärnings tiden lidande, särskilt när den kommer till stor skala. Den uppskattade inlärnings tiden i olika skalor visas i följande tabell.
 
@@ -201,16 +201,16 @@ Som tidigare visas är data hantering och FindSimilar delen i stort sett desamma
 |:---:|:---:|
 | 1,000 | 1-2 SEK |
 | 10 000 | 5-10 SEK |
-| 100,000 | 1-2 min |
+| 100 000 | 1-2 min |
 | 1,000,000 | 10-30 min |
 
 För att bättre kunna använda funktionen för storskalig skalning rekommenderar vi följande strategier.
 
-### <a name="step-31-customize-time-interval"></a>Steg 3.1: Anpassa tidsintervall
+### <a name="step-31-customize-time-interval"></a>Steg 3,1: anpassa tidsintervall
 
-Som det visas i `TrainLargeFaceList()`, finns det ett tidsintervall i millisekunder för att försena den oändliga status kontroll processen. För LargeFaceList med flera ansikten, minskar anropsantalet och -kostnaden med hjälp av ett större intervall. Anpassa tidsintervallet enligt förväntad kapacitet för LargeFaceList.
+Som det visas i `TrainLargeFaceList()`finns det ett tidsintervall i millisekunder för att försena den oändliga inlärnings status kontrollen. För LargeFaceList med flera ansikten, minskar anropsantalet och -kostnaden med hjälp av ett större intervall. Anpassa tidsintervallet enligt förväntad kapacitet för LargeFaceList.
 
-Samma strategi gäller även för LargePersonGroup. När du till exempel tränar en LargePersonGroup med 1 000 000 personer `timeIntervalInMilliseconds` kan det vara 60 000, vilket är ett intervall på 1 minut.
+Samma strategi gäller även för LargePersonGroup. Om du till exempel tränar en LargePersonGroup med 1 000 000 personer kan `timeIntervalInMilliseconds` vara 60 000, vilket är ett intervall på 1 minut.
 
 ### <a name="step-32-small-scale-buffer"></a>Steg 3,2: Small-Scale buffer
 
@@ -227,11 +227,11 @@ Ett exempelarbetsflöde:
 1. När buffertens samlings storlek ökar till ett tröskelvärde eller när systemet är inaktivt skapar du en ny buffert-samling. Utlös tåg åtgärden i huvud samlingen.
 1. Ta bort den gamla bufferten när åtgärden har slutförts i huvud samlingen.
 
-### <a name="step-33-standalone-training"></a>Steg 3,3: Fristående utbildning
+### <a name="step-33-standalone-training"></a>Steg 3,3: fristående utbildning
 
 Om en relativt lång latens är acceptabel, är det inte nödvändigt att utlösa åtgärds åtgärden direkt när du har lagt till nya data. Istället kan träningsåtgärden delas upp från den huvudsakliga logiken och utlösas regelbundet. Den här strategin är lämplig för dynamiska scenarier med acceptabel svars tid. Det kan användas för statiska scenarier för att ytterligare minska tåg frekvensen.
 
-Anta att det finns `TrainLargePersonGroup` en funktion som `TrainLargeFaceList`liknar. En typisk implementering av den fristående utbildningen på en LargePersonGroup genom att anropa [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) klassen i `System.Timers` är:
+Anta att det finns en `TrainLargePersonGroup`-funktion som liknar `TrainLargeFaceList`. En typisk implementering av den fristående utbildningen på en LargePersonGroup genom att anropa klassen [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) i `System.Timers` är:
 
 ```csharp
 private static void Main()

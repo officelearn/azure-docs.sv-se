@@ -1,6 +1,7 @@
 ---
-title: 'Snabb start: Content Moderator klient bibliotek för Java | Microsoft Docs'
-description: Kom igång med Content Moderator klient bibliotek för Java.
+title: 'Snabb start: Content Moderator klient bibliotek för Java'
+titleSuffix: Azure Cognitive Services
+description: Lär dig hur du kommer igång med Azure Cognitive Services Content Moderator-klient biblioteket för Java.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 9f31d54314c6d6bd7a7f9ae2d134c1281bfe9294
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: edc51be93ba209a1c60970e6fa1b47fca75048c6
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044079"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744450"
 ---
 # <a name="quickstart-content-moderator-client-library-for-java"></a>Snabb start: Content Moderator klient bibliotek för Java
 
@@ -26,7 +27,7 @@ Använd Content Moderator klient bibliotek för Java för att:
 
 [Referens dokumentation](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable) | [artefakt (maven)](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-contentmoderator) | [exempel](https://docs.microsoft.com/samples/browse/?products=azure&term=content-moderator)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Den aktuella versionen av [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -193,7 +194,7 @@ Navigera sedan till filen *src/main/Resources/ModerationOutput. JSON* och visa r
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portalen](../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg

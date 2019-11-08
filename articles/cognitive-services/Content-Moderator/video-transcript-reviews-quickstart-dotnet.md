@@ -1,7 +1,7 @@
 ---
 title: Skapa video avskrifts granskningar med hjälp av .NET-Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Skapa video avskrifts granskningar med hjälp av Content Moderator SDK för .NET
+description: Lär dig hur du skapar en video avskrifts granskning med Azure Cognitive Services Content Moderator SDK för .NET.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: ea1b8af69402aade370725f3a4dfdee4b5595ce6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b2d763454b86570b57a16fb9ae2107a2a2bcd23d
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931659"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744387"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Skapa video avskrifts granskningar med hjälp av .NET
 
@@ -25,7 +25,7 @@ Den här artikeln innehåller information och kod exempel som hjälper dig att s
 - Lägg till en kontrollerad avskrift i granskningen
 - Publicera granskningen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Logga in eller skapa ett konto på webbplatsen för Content Moderator [Granska verktyg](https://contentmoderator.cognitive.microsoft.com/) om du inte redan har gjort det.
 - Den här artikeln förutsätter att du har förstorat [videon](video-moderation-api.md) och [skapat video granskningen](video-reviews-quickstart-dotnet.md) i gransknings verktyget för mänsklig besluts fattande. Nu vill du lägga till kontrollerade video avskrifter i gransknings verktyget.
@@ -144,7 +144,7 @@ Skapa en video granskning med **ContentModeratorClient. Reviews. CreateVideoRevi
 **CreateVideoReviews** har följande obligatoriska parametrar:
 1. En sträng som innehåller en MIME-typ, vilket ska vara "Application/JSON." 
 1. Namnet på din Content Moderator-grupp.
-1. Ett **IList \<CreateVideoReviewsBodyItem >** -objekt. Varje **CreateVideoReviewsBodyItem** -objekt representerar en video granskning. Den här snabb starten skapar en granskning i taget.
+1. Ett **IList\<CreateVideoReviewsBodyItem >** -objekt. Varje **CreateVideoReviewsBodyItem** -objekt representerar en video granskning. Den här snabb starten skapar en granskning i taget.
 
 **CreateVideoReviewsBodyItem** har flera egenskaper. Du kan minst ange följande egenskaper:
 - **Innehåll**. URL till den video som ska granskas.
@@ -152,7 +152,7 @@ Skapa en video granskning med **ContentModeratorClient. Reviews. CreateVideoRevi
 - **Status**. Ställ in värdet på "unpublished". Om du inte anger det används som standard "väntar", vilket innebär att video granskningen publiceras och väntar på mänsklig granskning. När en video granskning har publicerats kan du inte längre lägga till video bild rutor, en avskrift eller ett avskrifts redigerings resultat.
 
 > [!NOTE]
-> **CreateVideoReviews** returnerar en IList \<string >. Var och en av de här strängarna innehåller ett ID för en video granskning. Dessa ID: n är GUID och är inte samma som värdet för egenskapen **ContentId** .
+> **CreateVideoReviews** returnerar en ilist\<sträng >. Var och en av de här strängarna innehåller ett ID för en video granskning. Dessa ID: n är GUID och är inte samma som värdet för egenskapen **ContentId** .
 
 Lägg till följande metod definition i namn området VideoReviews, klass program.
 
@@ -192,7 +192,7 @@ private static string CreateReview(ContentModeratorClient client, string id, str
 > [!NOTE]
 > Din tjänstnyckel för Content Moderator har en hastighetsgräns för begäranden per sekund (RPS). Om du överskrider gränsen utlöser SDK:n ett undantag med felkoden 429.
 >
-> En nyckel på den kostnadsfria nivån har en hastighetsgräns på en RPS.
+> En nyckel på den kostnadsfria nivån har en gräns på en RPS.
 
 ## <a name="add-transcript-to-video-review"></a>Lägg till avskrift till video granskning
 
@@ -234,15 +234,15 @@ Förutom att lägga till en avskrift till en video granskning lägger du också 
 1. En sträng som innehåller en MIME-typ, vilket ska vara "Application/JSON." 
 1. Namnet på din Content Moderator-grupp.
 1. Video gransknings-ID: t som returnerades av **CreateVideoReviews**.
-1. En IList \<TranscriptModerationBodyItem >. En **TranscriptModerationBodyItem** har följande egenskaper:
-1. **Villkor**. En IList \<TranscriptModerationBodyItemTermsItem >. En **TranscriptModerationBodyItemTermsItem** har följande egenskaper:
+1. En IList\<TranscriptModerationBodyItem >. En **TranscriptModerationBodyItem** har följande egenskaper:
+1. **Villkor**. En IList\<TranscriptModerationBodyItemTermsItem >. En **TranscriptModerationBodyItemTermsItem** har följande egenskaper:
 1. **Index**. Det nollbaserade indexet för termen.
 1. **Term**. En sträng som innehåller termen.
 1. **Tidsstämpel**. En sträng som innehåller, i sekunder, den tid i avskriften där villkoren påträffades.
 
 Avskriften måste vara i WebVTT-formatet. Mer information finns i [webvtt: webb videons text spår format](https://www.w3.org/TR/webvtt1/).
 
-Lägg till följande metod definition i namn området VideoTranscriptReviews, klass program. Den här metoden skickar en avskrift till metoden **ContentModeratorClient. TextModeration. ScreenText** . Det översätter också resultatet till en IList-\<TranscriptModerationBodyItem > och skickas till **AddVideoTranscriptModerationResult**.
+Lägg till följande metod definition i namn området VideoTranscriptReviews, klass program. Den här metoden skickar en avskrift till metoden **ContentModeratorClient. TextModeration. ScreenText** . Det översätter också resultatet till en IList\<TranscriptModerationBodyItem > och skickas till **AddVideoTranscriptModerationResult**.
 
 ```csharp
 /// <summary>
@@ -366,7 +366,7 @@ Press any key to close the application.
 
 ## <a name="navigate-to-your-video-transcript-review"></a>Navigera till din video avskrifts granskning
 
-Gå till granskningen av video avskriften i Content Moderator gransknings verktyget på skärmen **granska**>**video**>-**avskrift** .
+Gå till granskningen av video avskriften i Content Moderator gransknings verktyget på skärmen **granska**>**video**>**avskrift** .
 
 Följande funktioner visas:
 - De två avskrifts raderna som du har lagt till

@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: Content Moderator klient bibliotek för python | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
-description: Kom igång med Content Moderator klient biblioteket för python.
+description: Lär dig hur du kommer igång med Azure Cognitive Services Content Moderator-klient biblioteket för python.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 28c70e7d226e8f4b2458234e1f14754cdbb1825c
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 3978b4ec302bf4dd2390f2390c967ca6e12e67d5
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044034"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744405"
 ---
 # <a name="quickstart-content-moderator-client-library-for-python"></a>Snabb start: Content Moderator klient bibliotek för python
 
@@ -29,9 +29,9 @@ Använd Content Moderator klient bibliotek för python för att:
 * [Använd en anpassad avbildnings lista](#use-a-custom-image-list)
 * [Skapa en granskning](#create-a-review)
 
-[Referens dokumentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python) | [biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-contentmoderator) | -[paket (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/) | [exempel](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+[Referens dokumentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python) | [Library Source Code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-contentmoderator) | [Package (PiPy) | -](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/) [exempel](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -345,7 +345,7 @@ python quickstart-file.py
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portalen](../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg

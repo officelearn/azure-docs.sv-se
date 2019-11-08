@@ -1,7 +1,7 @@
 ---
-title: Exempelscenarier för användaren för API för textanalys
+title: Exempel på användar scenarier för API för textanalys
 titleSuffix: Azure Cognitive Services
-description: Använd den här artikeln om du vill se några vanliga scenarier för att integrera API för textanalys i dina tjänster och processer.
+description: Använd den här artikeln för att se några vanliga scenarier för att integrera API för textanalys i dina tjänster och processer.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,42 +10,42 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 04/04/2019
 ms.author: aahi
-ms.openlocfilehash: d8d2aed16b5af60c44501e6d72332783a164ff91
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 19421788eea59ea250efbaa656266da49dc3b42f
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478397"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73742726"
 ---
-# <a name="example-user-scenarios-for-the-text-analytics-api"></a>Exempelscenarier för användaren för API för textanalys
+# <a name="example-user-scenarios-for-the-text-analytics-api"></a>Exempel på användar scenarier för API för textanalys
 
-API för textanalys är en molnbaserad tjänst som tillhandahåller avancerad språkbearbetning text. Den här artikeln beskrivs några exempel på användningsområden för att integrera API: et i dina lösningar och processer. 
+API för textanalys är en molnbaserad tjänst som tillhandahåller avancerad bearbetning av naturligt språk över text. I den här artikeln beskrivs några exempel på användnings fall för integrering av API i dina affärs lösningar och processer. 
 
-## <a name="analyze-survey-results"></a>Analysera undersökningsresultatet
+## <a name="analyze-survey-results"></a>Analysera undersöknings resultat
 
-Hämta insikter från kundernas och medarbetarnas undersökningsresultatet genom att bearbeta rå text-svar med Attitydanalys. Aggregera resultat för analys, följa upp och driver engagemang.
+Skapa insikter från resultat från kund-och personal undersökningar genom att bearbeta de obehandlade text svaren med Attitydanalys. Sammanställ resultaten för analys, uppföljning och drivande engagemang.
 
-![En bild som beskriver hur du utför attitydanalys på kundernas och medarbetarnas undersökningar.](media/use-cases/survey-results.svg)
+![En bild som beskriver hur du utför sentiment analys av enkäter för kunder och anställda.](media/use-cases/survey-results.svg)
 
-## <a name="analyze-recorded-inbound-customer-calls"></a>Analysera kundsamtal för inspelade inkommande
+## <a name="analyze-recorded-inbound-customer-calls"></a>Analysera registrerade inkommande kund samtal
 
-Lyfta ut kunskaper från tjänster kundsamtal med Text till tal, Attitydanalys och nyckeln diskussionsämne. Visa resultatet i Power BI-instrumentpanel eller en portal för att bättre förstå kunder, markera customer servicetrender och enhet för kundengagemang. Skicka API-begäranden som en batch för rapportering eller i realtid för åtgärder. Se [exempelkoden](https://github.com/rlagh2/callcenteranalytics).
+Extrahera insikter från kund tjänst samtal med Text till tal, Attitydanalys och Extrahering av diskussionsämne. Visa resultaten på Power BI instrument panel eller på en portal för att bättre förstå kunder, markera kund tjänst trender och driva kund engagemang. Skicka API-begäranden som en batch för rapportering eller i real tid för ingripande. Se [exempel kod](https://github.com/rlagh2/callcenteranalytics).
 
-![En bild som beskriver hur du automatiserar få information från tjänsten kundsamtal med attitydanalys](media/use-cases/azure-inbound.svg)
+![En bild som beskriver hur du automatiserar insikter från kund service samtal med sentiment-analys](media/use-cases/azure-inbound.svg)
 
-## <a name="process-and-categorize-support-incidents"></a>Bearbeta och kategorisera supportärenden
+## <a name="process-and-categorize-support-incidents"></a>Bearbeta och kategorisera support ärenden
 
-Använda nyckeln diskussionsämne och Entitetsidentifiering för att bearbeta supportförfrågningar som registreras i Ostrukturerade textformat. Använd extraherade fraser och entiteter för att kategorisera begäranden för planering och trend resursanalysen.
+Använd Extrahering av diskussionsämne och enhets igenkänning för att bearbeta support förfrågningar som skickats i ostrukturerat text format. Använd de extraherade fraserna och entiteterna för att kategorisera förfrågningarna för resurs planering och trend analys.
 
-![En bild som beskriver hur du använder diskussionsämne extrahering och entitet för att kategorisera incidentrapporter och trender](media/use-cases/support-incidents.svg)
+![En bild som beskriver hur du använder extrahering av nyckel fraser och enhets igenkänning för att kategorisera incident rapporter och trender](media/use-cases/support-incidents.svg)
 
-## <a name="monitor-your-products-social-media-feeds"></a>Övervaka din produkt sociala medier
+## <a name="monitor-your-products-social-media-feeds"></a>Övervaka din produkts sociala media-flöden
 
-Övervaka användare produktfeedback på din produkt twitter eller Facebook-sida. Använda data för att analysera kundsentiment mot nya produkter startar, extrahera nyckelfraser om funktioner och funktionsförfrågningar eller adress klagomål när de visar.
+Övervaka feedback från användarnas produkter på din produkts Twitter-eller Facebook-sida. Använd data för att analysera kund sentiment mot nya produkter, extrahera viktiga fraser om funktioner och funktions förfrågningar, eller ta itu med kund klagomål när de sker.
 
-![En bild som beskriver hur du övervakar din produkt och företagets feedback på sociala medier med extrahering av diskussionsämne](media/use-cases/social-feed.svg)
+![En bild som beskriver hur du övervakar din produkt och företagets feedback på sociala medier med extrahering av nyckel fraser](media/use-cases/social-feed.svg)
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Vad är API för textanalys?](overview.md)
-* [Skicka en begäran till med API för textanalysC#](quickstarts/csharp.md)
+* [Skicka en begäran till API för textanalys med hjälp av klient biblioteket](quickstarts/text-analytics-sdk.md)

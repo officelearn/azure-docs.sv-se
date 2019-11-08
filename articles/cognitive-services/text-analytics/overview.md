@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 08/26/2019
 ms.author: aahi
-ms.openlocfilehash: 8c5df8461c74d48c0712ab1947e29813e7e1ea3f
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
-ms.translationtype: MT
+ms.openlocfilehash: 3b616ac76d2b7fca0d83db2b17b0978bbb249e45
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032683"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73742718"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Vad är API för textanalys?
 
@@ -25,7 +25,7 @@ API:et är en del av [Azure Cognitive Services](https://docs.microsoft.com/azure
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
 
-Text analyser kan betyda olika saker, men i Cognitive Services tillhandahåller API för textanalys fyra typer av analys enligt beskrivningen nedan. Du kan använda dessa funktioner med [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/)eller ett klient bibliotek för [.net](quickstarts/csharp.md), [python](quickstarts/python-sdk.md), [Node. js](quickstarts/nodejs-sdk.md), [Go](quickstarts/go-sdk.md)eller [ruby](quickstarts/ruby-sdk.md).
+Text analyser kan betyda olika saker, men i Cognitive Services tillhandahåller API för textanalys fyra typer av analys enligt beskrivningen nedan. Du kan använda dessa funktioner med [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/)eller [klient biblioteket](quickstarts/text-analytics-sdk.md).
 
 ## <a name="sentiment-analysis"></a>Attitydanalys
 Använd [sentiment analys](how-tos/text-analytics-how-to-sentiment-analysis.md) för att ta reda på vad kunderna tycker om ditt varumärke eller ditt ämne genom att analysera rå text för LED trådar om positiv eller negativ sentiment. Detta API returnerar attitydpoäng mellan 0 och 1 för varje dokument, där 1 är det mest positiva.<br /> Analysmodellen tränas i förväg med hjälp av en omfattande textmängd och tekniker för naturligt språk från Microsoft. För [utvalda språk](text-analytics-supported-languages.md) kan API:et analysera och poängsätta råtext som du anger, och direkt returnera resultat till det anropande programmet.
@@ -83,7 +83,7 @@ Det här avsnittet har flyttats till en separat artikel för bättre synlighet. 
 
 Alla av slutpunkterna för API för textanalys accepterar råtextdata. Den aktuella gränsen är 5 120 tecken för varje dokument. Om du behöver analysera större dokument kan du dela upp dem i mindre bitar.
 
-| Gräns | Value |
+| Gräns | Värde |
 |------------------------|---------------|
 | Maximal storlek på ett enskilt dokument | 5 120 tecken enligt [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | Maximal storlek på hela begäran | 1 MB |
@@ -110,10 +110,10 @@ API för textanalys använder Unicode-kodning för textrepresentation och beräk
 
 + [Skapa en Azure-resurs](../cognitive-services-apis-create-account.md) för textanalys för att få en nyckel och slut punkt för dina program.
 
-+ [Snabbstart](quickstarts/csharp.md) är en genomgång av REST API-anropen skrivna i C#. Lär dig hur du skickar text, väljer en analys och visar resultat med minimal kod. Om du vill kan du starta med python- [snabb](quickstarts/python.md) starten i stället.
++ [Snabbstart](quickstarts/text-analytics-sdk.md) är en genomgång av REST API-anropen skrivna i C#. Lär dig hur du skickar text, väljer en analys och visar resultat med minimal kod. Om du vill kan du starta med python- [snabb](quickstarts/python.md) starten i stället.
 
 + Se [vad som är nytt i API för textanalys](whats-new.md) för information om nya versioner och funktioner.
 
-+ Lär dig mer om den här självstudien om [sentiment analys](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services) med hjälp av Azure Databricks.
++ Lär dig mer om den här [självstudien om sentiment analys](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services) med hjälp av Azure Databricks.
 
 + Kolla in vår lista med blogg inlägg och fler videor om hur du använder API för textanalys med andra verktyg och tekniker på sidan för den [externa & community-innehåll](text-analytics-resource-external-community.md).

@@ -58,11 +58,13 @@
       href: tutorial-train-deploy-model-cli.md
 - name: Exempel
   items:
-    - name: Notebooks
+    - name: Jupyter Notebook
       displayName: 'example, examples, server, jupyter, azure notebooks, python, notebook, github'
       href: samples-notebooks.md
     - name: Azure Open Datasets
       href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
+    - name: MLOps-exempel från slutpunkt till slutpunkt
+      href: 'https://github.com/microsoft/MLOps'
 - name: Begrepp
   items:
     - name: Arbetsyta
@@ -109,14 +111,11 @@
               href: how-to-change-storage-access-key.md
         - name: Övervaka Azure Machine Learning
           href: monitor-azure-machine-learning.md
+        - name: Event Grid-integrering
+          href: concept-event-grid-integration.md
     - name: Deep learning
       displayName: 'deep learning vs machine learning, deep learning, vs, versus'
       href: concept-deep-learning-vs-machine-learning.md
-    - name: Event Grid-integrering
-      href: concept-event-grid-integration.md
-    - name: Git-integrering
-      displayName: git github gitlab
-      href: concept-train-model-git-integration.md
 - name: Instruktionsguider
   items:
     - name: Skapa och hantera arbetsytor
@@ -145,6 +144,9 @@
         - name: Använda VS Code-tillägg
           displayName: 'Visual Studio Code, VSCode, tools, ai, vs'
           href: how-to-vscode-tools.md
+        - name: Git-integrering
+          displayName: github gitlab
+          href: concept-train-model-git-integration.md
     - name: Arbeta med data
       items:
         - name: Hämta data från ett datalager
@@ -330,21 +332,17 @@
       href: how-to-use-event-grid.md
 - name: Referens
   items:
-    - name: ML SDK (Python)
+    - name: Python SDK
       displayName: 'api, core, package, python, class'
       href: 'https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py'
-    - name: ML SDK (R)
+    - name: R SDK
       displayName: 'api, core, package, R, class'
       href: 'https://azure.github.io/azureml-sdk-for-r/reference/index.html'
-    - name: Maskininlärning CLI
+    - name: CLI
       displayName: 'extension, command line, command-line, az, ci/cd, automate, automated'
       href: reference-azure-machine-learning-cli.md
     - name: REST-API
       href: 'https://docs.microsoft.com/rest/api/azureml/'
-    - name: Övervaka datareferens
-      href: monitor-resource-reference.md
-    - name: YAML-referens för maskininlärningspipeline
-      href: reference-pipeline-yaml.md
     - name: Designermoduler
       displayName: 'module, reference, algorithm, studio'
       items:
@@ -478,6 +476,12 @@
               href: ../algorithm-module-reference/summarize-data.md
         - name: Felmeddelanden och koder
           href: ../algorithm-module-reference/machine-learning-module-error-codes.md
+    - name: ML i skala
+      href: /azure/architecture/data-guide/big-data/machine-learning-at-scale
+    - name: Övervaka datareferens
+      href: monitor-resource-reference.md
+    - name: YAML-referens för maskininlärningspipeline
+      href: reference-pipeline-yaml.md
 - name: Resurser
   items:
     - name: Viktig information

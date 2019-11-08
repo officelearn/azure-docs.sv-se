@@ -1,0 +1,40 @@
+- name: Översikt
+  items:
+    - name: Vad är FarmBeats?
+      href: overview.md
+- name: Självstudier
+  expanded: true
+  items:
+    - name: Generera karta över jordfuktighet
+      href: generate-soil-moisture-map.md
+    - name: Mata in historiska telemetridata
+      href: ingest-historical-telemetry-data.md
+- name: Begrepp
+  items:
+    - name: Integreringsmönster
+      href: integration-patterns.md
+    - name: Sensorpartnerintegration
+      href: sensor-partner-integration.md
+    - name: Bildpartnerintegration
+      href: imagery-partner-integration.md
+- name: Instruktionsguider
+  items:
+    - name: Distribuera FarmBeats
+      href: prepare-for-deployment.md
+    - name: Hantera lantbruk
+      href: manage-farms.md
+    - name: Hämta sensordata
+      href: get-sensor-data-from-sensor-partner.md
+    - name: Generera kartor
+      href: generate-maps.md
+    - name: Konfigurera regler och hantera aviseringar
+      href: configure-rules-alerts.md
+    - name: Hämta drönarbilder
+      href: get-drone-imagery.md
+- name: Felsöka
+  items:
+    - name: Felsöka FarmBeats
+      href: troubleshoot-project-farmbeats.md
+- name: Referens
+  items: null
+  href: references-for-farmbeats.md

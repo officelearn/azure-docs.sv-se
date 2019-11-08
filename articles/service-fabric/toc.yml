@@ -487,6 +487,8 @@
                   href: service-fabric-application-secret-management-windows.md
                 - name: Konfigurera ett krypteringscertifikat och kryptera hemligheter på Linux
                   href: service-fabric-application-secret-management-linux.md
+                - name: Lagra hemligheter på ett säkert sätt med KeyVaultReference (förhandsversion)
+                  href: service-fabric-keyvault-references.md
             - name: Konfigurera omvänd proxy för säker kommunikation
               href: service-fabric-reverseproxy-configure-secure-communication.md
             - name: Köra skript för start av tjänster som ett lokalt konto för användaren eller systemet

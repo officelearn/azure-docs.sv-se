@@ -1,0 +1,53 @@
+### YamlMime:Hub
+title: Dokumentation om Industry for Azure
+summary: Lär dig hur du använder Azure för att skapa lösningar för vanliga industrianvändningsfall.
+brand: azure
+metadata:
+  title: Dokumentation om Industry for Azure
+  description: Lär dig hur du använder Azure för att skapa lösningar för vanliga industrianvändningsfall.
+  ms.service: azure-industry
+  ms.topic: hub-page
+  ms.collection: collection
+  author: DCtheGeek
+  ms.author: dacoulte
+  ms.date: 11/04/2019
+  ms.openlocfilehash: 2777093db7486f17cf19b45db08bbd0168a4e2a8
+  ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 11/07/2019
+  ms.locfileid: "73797082"
+highlightedContent:
+  items:
+  - title: Azure FarmBeats
+    itemType: overview
+    url: ./agriculture/overview.md
+  - title: Community-forum
+    itemType: concept
+    url: https://aka.ms/FarmBeatsMSDN
+  - title: UserVoice (Feedback)
+    itemType: get-started
+    url: https://aka.ms/FarmBeatsForum
+productDirectory:
+  title: Branschlösningsområden
+  items:
+  - title: Azure FarmBeats
+    imageSrc: ../media/index/industry-agriculture-farmbeats.svg
+    summary: Skapar snabbt digitala jordbrukslösningar i molnet.
+    url: ./agriculture/overview.md
+  - title: Ekonomiska tjänster
+    imageSrc: ../media/index/industry-financial.png
+    summary: Lösningar och användningsfall för finansbranschen.
+    url: /azure/industry-marketing/financial/
+  - title: Sjukvårdstjänster
+    imageSrc: ../media/index/industry-health.png
+    summary: Lösningar och användningsfall för sjukvårdsbranschen.
+    url: /azure/industry-marketing/health/
+  - title: Tillverkning
+    imageSrc: ../media/index/industry-manufacturing.png
+    summary: Lösningar och användningsfall för tillverkningsindustrin.
+    url: /azure/industry-marketing/manufacturing/
+  - title: Detaljhandeln
+    imageSrc: ../media/index/industry-retail.png
+    summary: Lösningar och användningsfall för detaljhandelsindustrin.
+    url: /azure/industry-marketing/retail/

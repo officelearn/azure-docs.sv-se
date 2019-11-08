@@ -119,7 +119,7 @@
           href: search-security-trimming-for-azure-search.md
         - name: Filtrera efter identiteter i AAD
           href: search-security-trimming-for-azure-search-with-aad.md
-        - name: Hantera krypteringsnycklar (förhandsversion)
+        - name: Hantera krypteringsnycklar
           href: search-security-manage-encryption-keys.md
     - name: Utveckling
       items:
@@ -253,7 +253,7 @@
           href: cognitive-search-concept-troubleshooting.md
         - name: Dokumentationslänkar
           href: cognitive-search-resources-documentation.md
-        - name: Knowledge Store (förhandsversion)
+        - name: Knowledge Store
           items:
             - name: Skapa med hjälp av REST och Postman
               href: knowledge-store-create-rest.md
@@ -277,7 +277,7 @@
           href: query-simple-syntax.md
         - name: Fullständigt Lucene-frågesyntax
           href: query-lucene-syntax.md
-        - name: moreLikeThis (förhandsversion)
+        - name: moreLikeThis-frågeparameter
           href: search-more-like-this.md
     - name: Använda filter
       items:

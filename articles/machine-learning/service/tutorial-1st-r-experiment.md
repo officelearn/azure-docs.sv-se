@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 11/04/2019
-ms.openlocfilehash: bcd1fff61e1612cc3361548527e5ed13affa3ba5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: MT
+ms.openlocfilehash: 9073893ebfcfea1a7f4e2a00bf82babcb8841122
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501374"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838522"
 ---
 # <a name="tutorial-train-and-deploy-your-first-model-in-r-with-azure-machine-learning"></a>Självstudie: träna och distribuera din första modell i R med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -167,7 +167,7 @@ I den här självstudien får du anpassa en logistik Regressions modell på dina
 Ett utbildnings skript som heter `accidents.R` har angetts för dig i samma katalog som den här självstudien. Observera följande information **i övnings skriptet** som har utförts för att utnyttja Azure ml-tjänsten för utbildning:
 
 * Övnings skriptet tar ett argument `-d` för att hitta den katalog som innehåller tränings data. När du definierar och skickar jobbet senare pekar du på data lagret för det här argumentet. Azure ML kommer att montera lagringsmappen till fjärrklusteret för utbildnings jobbet.
-* Övnings skriptet loggar den slutliga noggrannheten som ett Mät värde för körnings posten i Azure ML med hjälp av `log_metric_to_run()`. Azure ML SDK innehåller en uppsättning loggnings-API: er för att logga olika mått under inlärnings körningar. Dessa mått registreras och behålls i experiment körnings posten. Måtten kan sedan nås när som helst eller visas på sidan körnings information i [Azure Machine Learning Studio](http://ml.azure.com). Se [referensen](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) för en fullständig uppsättning loggnings metoder `log_*()`.
+* Övnings skriptet loggar den slutliga noggrannheten som ett Mät värde för körnings posten i Azure ML med hjälp av `log_metric_to_run()`. Azure ML SDK innehåller en uppsättning loggnings-API: er för att logga olika mått under inlärnings körningar. Dessa mått registreras och behålls i experiment körnings posten. Måtten kan sedan nås när som helst eller visas på sidan körnings information i [Azure Machine Learning Studio](https://ml.azure.com). Se [referensen](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) för en fullständig uppsättning loggnings metoder `log_*()`.
 * Övnings skriptet sparar din modell i en katalog med namnet **outputs**. `./outputs`-mappen får särskild behandling av Azure ML. Under utbildningen överförs filer som skrivs till `./outputs` automatiskt till din körnings post av Azure ML och behålls som artefakter. Genom att spara den tränade modellen till `./outputs`kommer du att kunna komma åt och hämta modell filen även när körningen är över och du inte längre har åtkomst till din fjärran sluten miljö.
 
 ### <a name="create-an-estimator"></a>Skapa ett beräkningsobjekt

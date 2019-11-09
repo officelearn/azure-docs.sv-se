@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: c010b1acbf1b8f0a05ffda05bddfd8a9145dee8d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6b0ac017704c599e96543ed36a13ff5d3ddef9fc
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825431"
+ms.locfileid: "73838577"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Självstudie: Bygg ett program med hög tillgänglighet med Blob Storage
 
@@ -34,7 +34,7 @@ I en del av serien får du lära dig hur du:
 > * Ange anslutningssträngen
 > * Kör konsolprogrammet
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du:
 
@@ -58,7 +58,7 @@ För att slutföra den här självstudien behöver du:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
@@ -74,13 +74,13 @@ Följ dessa steg om du vill skapa ett RA-GRS-lagringskonto:
    | Inställning       | Föreslaget värde | Beskrivning |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Namn** | mystorageaccount | Ett unikt värde för lagringskontot |
-   | **Distributionsmodell** | Resource Manager  | Resource Manager innehåller de senaste funktionerna.|
+   | **Distributionsmodell** | Resurshanterare  | Resource Manager innehåller de senaste funktionerna.|
    | **Typ av konto** | StorageV2 | Mer information om kontotyper finns i [typer av lagringskonton](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Prestanda** | Standard | Standard är tillräckligt för exempelscenariot. |
    | **Replikering**| Geo-redundant lagring med läsbehörighet (RA-GRS) | Detta krävs för att exemplet ska fungera. |
    |**Prenumeration** | din prenumeration |Mer information om dina prenumerationer finns i [Prenumerationer](https://account.azure.com/Subscriptions). |
-   |**ResourceGroup** | myResourceGroup |Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). |
-   |**Plats** | Östra USA | Välj en plats. |
+   |**ResourceGroup** | myResourceGroup |Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
+   |**Plats** | USA, östra | Välj en plats. |
 
 ![skapa lagringskonto](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 

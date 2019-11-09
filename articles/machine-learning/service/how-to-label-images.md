@@ -7,23 +7,23 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: af12361ed11d0a16e5a5d0cfe5989bb3918ce154
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 9cbebb905ba39dabaf905be2fa741702bd1a0088
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73586399"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838947"
 ---
 # <a name="how-to-tag-images-in-a-labeling-project"></a>Tagga bilder i ett etikett projekt
 
-När projekt administratören har skapat ett etikett projekt i Azure Machine Learning Studio kan du använda etikett verktyget för att snabbt förbereda data för ett Machine Learning-projekt. 
+När projekt administratören har skapat ett etikett projekt i Azure Machine Learning kan du använda etikett verktyget för att snabbt förbereda data för ett Machine Learning-projekt. 
 
 > [!div class="checklist"]
 > * Få åtkomst till dina etikett projekt
 > * Etikett verktyg
 > * Så här använder du verktygen för vissa etikett uppgifter
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Etikettens portal-URL för ett projekt som kör en data etikett
 * Ett [Microsoft-konto](https://account.microsoft.com/account) eller

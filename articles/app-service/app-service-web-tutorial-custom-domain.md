@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 52394eb150a4206b7fb31cdf4b801762511e1a8c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fa8acbab8179eea752607c4410851d74ae4e9444
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471360"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835862"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Självstudie: mappa ett befintligt anpassat DNS-namn till Azure App Service
 
@@ -330,7 +330,7 @@ Längst ned på sidan pekar den virtuella rotkatalogen `/` till `site\wwwroot` s
 
 ![Anpassa virtuell katalog](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-När åtgärden har slutförts ska din app returnera rätt sida på rotsökvägen (till exempel http://contoso.com)).
+När åtgärden har slutförts ska din app returnera rätt sida på rot Sök vägen (till exempel `http://contoso.com`).
 
 ## <a name="automate-with-scripts"></a>Automatisera med skript
 

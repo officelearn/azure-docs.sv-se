@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
-ms.openlocfilehash: 97e603e6daa64bb70edefe06b52a7c45f90787f3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: d3fecd54e36c8a3dd43c88f5aa4e4233057c3f91
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818309"
+ms.locfileid: "73838580"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Självstudie: utforma en Relations databas i en enda databas inom Azure SQL Database med SSMS
 
@@ -35,7 +35,7 @@ Azure SQL Database är en relationsdatabas-som-tjänst (DBaaS) som bygger på Mi
 > [!NOTE]
 > I den här självstudien använder vi enkel databas. Du skulle även kunna använda en pooldatabas i en elastisk pool eller en instansdatabas i en hanterad instans. För anslutning till en hanterad instans, se följande snabb starter för hanterade instanser: [snabb start: Konfigurera virtuell Azure-dator för att ansluta till en Azure SQL Database Hanterad instans](sql-database-managed-instance-configure-vm.md) och [snabb start: Konfigurera en punkt-till-plats-anslutning till en Azure SQL Database Hanterad instans från lokal plats](sql-database-managed-instance-configure-p2s.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa de här självstudierna ska du kontrollera att du har installerat:
 
@@ -44,7 +44,7 @@ För att kunna följa de här självstudierna ska du kontrollera att du har inst
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-blank-single-database"></a>Skapa en enda tom databas
 
@@ -63,14 +63,14 @@ Följ dessa steg för att skapa en enskild tom databas.
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Databasnamn** | *yourDatabase* | För giltiga databasnamn, se [databasidentifierare](/sql/relational-databases/databases/database-identifiers). |
     | **Prenumeration** | *yourSubscription*  | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
-    | **Resursgrupp** | *yourResourceGroup* | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/naming-conventions). |
+    | **Resursgrupp** | *yourResourceGroup* | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
     | **Välj källa** | Tom databas | Anger att en tom databas ska skapas. |
 
 4. Klicka på **Server** för att använda en befintlig databasserver eller skapa och konfigurera en ny databasserver. Välj antingen en befintlig server eller klicka på **Skapa en ny server** och fyll i följande information i formuläret **Ny server**:
 
     | Inställning       | Föreslaget värde | Beskrivning |
     | ------------ | ------------------ | ------------------------------------------------- |
-    | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/naming-conventions). |
+    | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
     | **Inloggning för serveradministratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](/sql/relational-databases/databases/database-identifiers). |
     | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
     | **Plats** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |

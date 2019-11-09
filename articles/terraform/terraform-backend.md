@@ -5,13 +5,13 @@ ms.service: terraform
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/26/2019
-ms.openlocfilehash: f024fd7886ec6f192c440cca6951e3aeb66ad22d
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.date: 11/07/2019
+ms.openlocfilehash: cb85897e0a7d281eca4ad3f42e8ef28c9e3fdb7b
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177805"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833533"
 ---
 # <a name="tutorial-store-terraform-state-in-azure-storage"></a>Självstudie: lagra terraform-tillstånd i Azure Storage
 
@@ -57,8 +57,8 @@ Anteckna lagrings kontots namn, behållar namnet och lagrings åtkomst nyckeln. 
 
 Den terraform tillstånds Server delen konfigureras när du kör kommandot `terraform init`. följande data krävs för att konfigurera tillstånds Server delen:
 
-- storage_account_name – namnet på Azure Storage kontot.
-- container_name – namnet på BLOB-behållaren.
+- storage_account_name-namnet på det Azure Storage kontot.
+- container_name-namnet på BLOB-behållaren.
 - Key – namnet på den tillstånds lager fil som ska skapas.
 - access_key – lagrings åtkomst nyckeln.
 
@@ -125,4 +125,4 @@ Mer information om Azure Storage kryptering finns i [Azure Storage tjänst krypt
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"] 
-> [Terraform på Azure](/azure/ansible/)
+> [Lär dig mer om hur du använder terraform i Azure](/azure/terraform)

@@ -5,13 +5,13 @@ ms.service: terraform
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/26/2019
-ms.openlocfilehash: b815776b8ff6dddf74c8aaa31a489b56751c0c73
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.date: 11/07/2019
+ms.openlocfilehash: 1bfeef729bdb3f07fe2cc64cee4fd4f27c49ef67
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162391"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833609"
 ---
 # <a name="tutorial-create-a-kubernetes-cluster-with-azure-kubernetes-service-using-terraform"></a>Självstudie: skapa ett Kubernetes-kluster med Azure Kubernetes service med terraform
 
@@ -24,7 +24,7 @@ I den här självstudien får du lära dig hur du utför följande uppgifter:
 > * Använda Terraform och AKS för att skapa ett Kubernetes-kluster
 > * Använda verktyget kubectl för att testa tillgängligheten för ett Kubernetes-kluster
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
@@ -171,7 +171,7 @@ Skapa Terraform-konfigurationsfilen som deklarerar resurserna för Kubernetes-kl
 
     Med `linux_profile`-posten kan du konfigurera de inställningar som gör det möjligt att logga in på arbetsnoder med SSH.
 
-    Med AKS betalar du bara för arbetarnoderna. `agent_pool_profile` posten konfigurerar information för dessa arbetsnoder. `agent_pool_profile record` innehåller antalet arbetsnoder som ska skapas och typen av arbetsnoder. Om du behöver skala upp eller ned klustret i framtiden ändrar du värdet `count` i den här posten.
+    Med AKS betalar du bara för arbetarnoderna. `agent_pool_profile` posten konfigurerar information för dessa arbetsnoder. `agent_pool_profile record` innehåller antalet arbetsnoder som ska skapas och typen av arbetsnoder. Om du behöver skala upp eller ned klustret i framtiden ändrar du `count` värde i den här posten.
 
 1. Spara filen ( **&lt;Ctrl > S**) och avsluta redigeraren ( **&lt;Ctrl > Q**).
 
@@ -398,4 +398,4 @@ När AKS-klustret skapades aktiverades övervakning för att registrera hälsom�
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"] 
-> [Terraform på Azure](/azure/ansible/)
+> [Lär dig mer om hur du använder terraform i Azure](/azure/terraform)

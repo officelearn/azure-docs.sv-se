@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 4f49220da5d996615c9f8ef7cad2b6c6793866b7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b4e479405a9606a8353785828d0c9c94ef8c32ed
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466269"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73850500"
 ---
 ### <a name="regions"></a>Vilka regioner är tillgängliga?
 
@@ -50,3 +50,8 @@ Mer information finns på sidan med [priser](https://aka.ms/BastionHostPricing).
 ### <a name="session"></a>Varför visas ett fel meddelande om att sessionen har upphört att gälla innan skydds-sessionen startar?
 
 En session ska endast initieras från Azure Portal. Logga in på Azure Portal och påbörja sessionen igen. Om du går till URL: en direkt från en annan webbläsarsession eller TABB förväntas det här felet. Det hjälper till att säkerställa att sessionen är säkrare och att sessionen bara kan nås via Azure Portal.
+
+### <a name="keyboard"></a>Vilka tangentbordslayouter stöds under skydds-fjärrsessionen?
+
+Azure skydds stöder för närvarande en-US-QWERTY-tangentbordslayout inuti den virtuella datorn.  Stöd för andra språk för tangentbordslayout är pågående.
+

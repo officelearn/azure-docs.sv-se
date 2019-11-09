@@ -11,12 +11,12 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: 9724e54b03e5de065b8b39cb57c6a9880cf37cc6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e9ef939d46a02b8aa6b0b7f481fec9e30edf53fc
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827195"
+ms.locfileid: "73839192"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Skapa en elastisk jobbagent med PowerShell
 
@@ -34,7 +34,7 @@ I den här självstudien får du lära dig de steg som krävs för att köra en 
 > * Starta körningen av ett jobb
 > * Övervaka ett jobb
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Den uppgraderade versionen av Elastic Database-jobb har en ny uppsättning PowerShell-cmdlets som kan användas under migreringen. Dessa nya cmdletar överför alla befintliga autentiseringsuppgifter för jobb, mål (inklusive databaser, servrar, anpassade samlingar), jobb utlösare, jobb scheman, jobb innehåll och jobb till en ny elastisk jobb agent.
 
@@ -72,7 +72,7 @@ För att skapa elastiska jobbagenter krävs en databas (S0 eller högre) som kan
 
 *Skriptet nedan skapar en ny resurs grupp, server och databas som ska användas som jobb databas. Skriptet nedan skapar också en andra server med två tomma databaser för att köra jobb mot.*
 
-Elastiska jobb har inga särskilda krav för namngivningskonventioner, så du kan använda vilken namnkonvention du vill, förutsatt att de uppfyller något av [kraven för Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+Elastiska jobb har inga särskilda krav för namngivningskonventioner, så du kan använda vilken namnkonvention du vill, förutsatt att de uppfyller något av [kraven för Azure](/azure/architecture/best-practices/resource-naming).
 
 ```powershell
 # Sign in to your Azure account

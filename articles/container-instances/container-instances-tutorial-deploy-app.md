@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e14a3ba50d75161afa3325b3b7bcbfe96ea24cc3
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f2890948dd15fa972104e4ef11001e83a2abd4f8
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325636"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73846583"
 ---
-# <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Självstudie: Distribuera ett containerprogram till Azure Container Instances
+# <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Självstudie: Distribuera ett behållar program till Azure Container Instances
 
 Det här är den sista självstudien i en serie med tre delar. Tidigare i serien [skapades en behållaravbildning](container-instances-tutorial-prepare-app.md) som sedan [push-överfördes till Azure Container Registry](container-instances-tutorial-prepare-acr.md). I den här artikeln slutför vi serien genom att distribuera behållaren till Azure Container Instances.
 
@@ -37,7 +37,9 @@ I det här avsnittet använder du Azure CLI för att distribuera den avbildning 
 
 ### <a name="get-registry-credentials"></a>Hämta autentiseringsuppgifter för registret
 
-När du distribuerar en bild som finns i ett privat containerregister likt det som du skapade i den [andra självstudien](container-instances-tutorial-prepare-acr.md), måste du ange autentiseringsuppgifter för att få åtkomst till registret. Enligt [Autentisera med Azure Container Registry från Azure Container Instances](../container-registry/container-registry-auth-aci.md) är den bästa metoden i många scenarier att skapa och konfigurera ett huvudnamn för Azure Active Directory-tjänsten med *hämtnings*behörighet till registret. Se exempelskript i artikeln om hur du skapar tjänstens huvudnamn med de behörigheter som krävs. Anteckna ID:t och lösenordet för tjänstens huvudnamn. Du kommer att använda dessa autentiseringsuppgifter när du distribuerar containern.
+När du distribuerar en avbildning som finns i ett privat Azure Container Registry som den som skapades i den [andra själv studie kursen](container-instances-tutorial-prepare-acr.md)måste du ange autentiseringsuppgifter för att få åtkomst till registret. 
+
+En bästa praxis för många scenarier är att skapa och konfigurera ett Azure Active Directory tjänstens huvud namn med *pull* -behörighet till registret. Se [autentisera med Azure Container Registry från Azure Container instances](../container-registry/container-registry-auth-aci.md) för exempel skript för att skapa ett huvud namn för tjänsten med de behörigheter som krävs. Anteckna *tjänstens huvud namn* och *lösen ord för tjänstens huvud namn*. Du använder dessa autentiseringsuppgifter för att komma åt registret när du distribuerar behållaren.
 
 Du behöver också det fullständiga namnet på containerregistrets inloggningsserver (ersätt `<acrName>` med namnet på ditt register):
 

@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 8/13/2018
 ms.author: victorh
-ms.openlocfilehash: 6e85bd6ec51cff27fed6d0b2d9e73f94325e4d4f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df7897e5b0941f1763f1a10e51d49827bd2ca63d
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60194192"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839265"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>Skapa en testmiljö för Azure Firewall
 
@@ -21,7 +21,7 @@ Det här Skriptexemplet skapar en brandvägg och en testmiljö för nätverket. 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Brandväggen ligger i AzureFirewallSubnet och är konfigurerad med en programregelsamling som har en enda regel för att tillåta åtkomst till www.microsoft.com.
+Brand väggen finns i AzureFirewallSubnet och konfigureras med en regel samling för program med en enda regel som ger åtkomst till `www.microsoft.com`.
 
 Dessutom skapas en användardefinierad väg som skickar nätverkstrafik från ServersSubnet via brandväggen där brandväggsreglerna tillämpas.
 

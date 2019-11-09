@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 8916cb0438f0005d3ff9f720cf1b5a5653eeac77
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9a226c17dd72d0dcd6403277054cf264f0094e65
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504034"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73850510"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -44,7 +44,7 @@ Innan du kan initiera ett `IntentRecognizer`-objekt måste du skapa en konfigura
 Det här exemplet skapar `SpeechConfig`-objektet med hjälp av nyckel och region i LUIS. En fullständig lista över tillgängliga metoder finns i [SpeechConfig-klass](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig).
 
 > [!NOTE]
-> Det är viktigt att använda slut punkts nyckeln LUIS och inte start-eller Authroing-nycklarna eftersom endast slut punkts nyckeln är giltig för tal till avsikts igenkänning. Mer information om hur du hämtar rätt nyckel finns i [skapa ett Luis-program och hämta en slut punkts nyckel](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md) .
+> Det är viktigt att använda slut punkts nyckeln LUIS och inte start-eller redigerings nycklarna eftersom endast slut punkts nyckeln är giltig för tal till avsikts igenkänning. Mer information om hur du hämtar rätt nyckel finns i [skapa ett Luis-program och hämta en slut punkts nyckel](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md) .
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=12)]
 

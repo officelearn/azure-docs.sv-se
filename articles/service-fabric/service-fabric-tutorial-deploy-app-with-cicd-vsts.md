@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 184c57c0d9160cedef4be417f16c52c8635a1eb4
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 13411e813e96a1548b912c024f75404dd856fee1
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68385288"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838954"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Självstudie: Distribuera ett program med CI/CD till ett Service Fabric-kluster
 
@@ -40,13 +40,13 @@ I den här självstudieserien får du lära du dig att:
 > * [Distribuera programmet till ett fjärrkluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Lägga till en HTTPS-slutpunkt i en klienttjänst i ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 > * Konfigurera CI/CD med hjälp av Azure Pipelines
-> * [konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
+> * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar den här självstudien:
 
-* om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Installera Visual Studio 2019](https://www.visualstudio.com/) och installera arbets belastningarna **Azure Development** och **ASP.net och webb utveckling** .
 * [Installera Service Fabric SDK](service-fabric-get-started.md)
 * Skapa ett Windows Service Fabric-kluster i Azure, till exempel genom att [följa den här självstudiekursen](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
@@ -108,13 +108,13 @@ I **Välj en mall** väljer du mallen **Azure Service Fabric-program** och klick
 
 I **Uppgifter** anger du ”Hosted VS2017” som **agentpool**.
 
-![Välj aktiviteter][save-and-queue]
+![Välj uppgifter][save-and-queue]
 
 Under **Utlösare** aktiverar du kontinuerlig integrering genom att markera **Aktivera kontinuerlig integrering**. I **Branch filters** (Grenfilter) får **Branch specification** (Grenspecifikation) standardvärdet **master**. Välj alternativet för att **spara och köa** för att manuellt starta en version.
 
 ![Välj utlösare][save-and-queue2]
 
-Byggen utlöser också vid push och incheckning. Om du vill kontrollera förloppet för bygget växlar du till fliken **Builds** (Byggen).  När du har kontrollerat att bygget körs rätt måste du definiera en versionspipeline som distribuerar programmet till ett kluster.
+Byggen utlöser också vid push och incheckning. Om du vill kontrol lera Bygg förloppet växlar du till fliken **versioner** .  När du har kontrollerat att genereringen körs korrekt definierar du en versions pipeline som distribuerar ditt program till ett kluster.
 
 ### <a name="create-a-release-pipeline"></a>Skapa en versionspipeline
 
@@ -144,7 +144,7 @@ Aktivera en kontinuerlig distributionsutlösare så att versionen automatiskt sk
 
 Välj **+Release** -> **Create a Release**  -> **Create** (+Version, Skapa en version, Skapa) för att manuellt skapa en version. Du kan övervaka versionsförloppet på fliken **Releases** (Versioner).
 
-Kontrollera att distributionen har slutförts och programmet körs i klustret.  Öppna en webbläsare och navigera till [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Observera programversionen. I det här exemplet är den 1.0.0.20170616.3.
+Kontrollera att distributionen har slutförts och programmet körs i klustret.  Öppna en webbläsare och gå till `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Observera programversionen. I det här exemplet är den 1.0.0.20170616.3.
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Genomför och push-överföring av ändringar utlöser en släppning
 
@@ -164,7 +164,7 @@ När du skickar ändringar till Azure Pipelines via push-överföring utlöses e
 
 Om du vill kontrollera förloppet för bygget kan du byta till fliken **Builds** (Byggen) i **Team Explorer** i Visual Studio.  När du har kontrollerat att bygget körs rätt måste du definiera en versionspipeline som distribuerar programmet till ett kluster.
 
-Kontrollera att distributionen har slutförts och programmet körs i klustret.  Öppna en webbläsare och navigera till [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Observera programversionen. I det här exemplet är den 1.0.0.20170815.3.
+Kontrollera att distributionen har slutförts och programmet körs i klustret.  Öppna en webbläsare och gå till `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Observera programversionen. I det här exemplet är den 1.0.0.20170815.3.
 
 ![Service Fabric Explorer][sfx1]
 
@@ -192,7 +192,7 @@ I den här självstudiekursen lärde du dig att:
 
 Gå vidare till nästa kurs:
 > [!div class="nextstepaction"]
-> [konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
+> [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
 
 <!-- Image References -->
 [publish-app-profile]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfile.png

@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 08/29/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: b686ceace3679d1541e8f1a74bca7e99b81ba932
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: a2dc6aeb7dc2a62c543a58c322c23c9661c6940a
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68598893"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832746"
 ---
-# <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Självstudier: Distribuera ett containerprogram med CI/CD till ett Service Fabric-kluster
+# <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Självstudie: Distribuera ett containerprogram med CI/CD till ett Service Fabric-kluster
 
 Den här självstudiekursen är del två i en serie. Du får lära dig hur du konfigurerar kontinuerlig integrering och distribution för ett Azure Service Fabric-containerprogram med hjälp av Visual Studio och Azure DevOps.  Ett befintligt Service Fabric-program krävs. Det som skapas i [Distribuera ett .NET-program i en Windows-container till Azure Service Fabric](service-fabric-host-app-in-a-container.md) används som exempel.
 
@@ -34,12 +34,12 @@ I del två i serien lär du dig hur du:
 > * Skapa en versionsdefinition i Visual Studio Team Explorer
 > * distribuera och uppgradera ett program automatiskt.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar den här självstudien:
 
 * ha ett kluster i Azure, eller [skapa ett via den här självstudiekursen](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-* [Distribuera ett program i containrar till det](service-fabric-host-app-in-a-container.md).
+* [Distribuera ett program i en container till det](service-fabric-host-app-in-a-container.md).
 
 ## <a name="prepare-a-publish-profile"></a>Förbered publiceringsprofil
 
@@ -110,7 +110,7 @@ I **dialogrutan för att spara bygg-pipeline och kö** klickar du på **Save & q
 
 ![Välj utlösare][save-and-queue]
 
-Byggen utlöser också vid push och incheckning. Om du vill kontrollera förloppet för bygget växlar du till fliken **Builds** (Byggen).  När du har kontrollerat att bygget körs rätt kan du definiera en versionsdefinition som distribuerar programmet till ett kluster.
+Byggen utlöser också vid push och incheckning. Om du vill kontrol lera Bygg förloppet växlar du till fliken **versioner** .  När du har kontrollerat att genereringen körs korrekt definierar du en versions definition som distribuerar ditt program till ett kluster.
 
 ### <a name="create-a-release-definition"></a>Skapa en versionsdefinition
 
@@ -147,7 +147,7 @@ Aktivera en kontinuerlig distributionsutlösare så att versionen automatiskt sk
 
 Välj **+Release** -> **Create a Release**  -> **Create** (+Version, Skapa en version, Skapa) för att manuellt skapa en version. Du kan övervaka versionsförloppet på fliken **Releases** (Versioner).
 
-Kontrollera att distributionen har slutförts och programmet körs i klustret.  Öppna en webbläsare och navigera till [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Observera programversionen. I det här exemplet är den 1.0.0.20170616.3.
+Kontrollera att distributionen har slutförts och programmet körs i klustret.  Öppna en webbläsare och gå till `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Observera programversionen. I det här exemplet är den 1.0.0.20170616.3.
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Genomför och push-överföring av ändringar utlöser en släppning
 
@@ -167,7 +167,7 @@ När du skickar ändringar till Azure DevOps via push-överföring utlöses ett 
 
 Om du vill kontrollera förloppet för bygget kan du byta till fliken **Builds** (Byggen) i **Team Explorer** i Visual Studio.  När du har kontrollerat att bygget körs rätt kan du definiera en versionsdefinition som distribuerar programmet till ett kluster.
 
-Kontrollera att distributionen har slutförts och programmet körs i klustret.  Öppna en webbläsare och navigera till [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Observera programversionen. I det här exemplet är den 1.0.0.20170815.3.
+Kontrollera att distributionen har slutförts och programmet körs i klustret.  Öppna en webbläsare och gå till `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Observera programversionen. I det här exemplet är den 1.0.0.20170815.3.
 
 ![Service Fabric Explorer][sfx1]
 

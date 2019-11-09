@@ -5,13 +5,13 @@ ms.service: terraform
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/26/2019
-ms.openlocfilehash: ac89930d55901e20759dc582d9835e99d26aac7c
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.date: 11/07/2019
+ms.openlocfilehash: 080fda3077a10d0605f061aca5226783457348f9
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969440"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837526"
 ---
 # <a name="tutorial-create-azure-virtual-machine-scale-set-from-a-packer-custom-image-using-terraform"></a>Självstudie: skapa en skalnings uppsättning för virtuella Azure-datorer från en anpassad Packer-avbildning med terraform
 
@@ -20,7 +20,7 @@ I den här självstudien använder du [Terraform](https://www.terraform.io/) fö
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * konfigurera din Terraform-distribution
+> * Konfigurera din Terraform-distribution
 > * Använda variabler och utdata för Terraform-distribution 
 > * Skapa och distribuera en nätverksinfrastruktur
 > * Skapa en anpassad avbildning av virtuell dator med Packer
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Terraform**: [Installera terraform och konfigurera åtkomst till Azure](/azure/virtual-machines/linux/terraform-install-configure)
 - **SSH-nyckel par**: [skapa ett SSH](/azure/virtual-machines/linux/mac-create-ssh-keys)-nyckelpar.
@@ -455,4 +455,4 @@ Skriv `yes` när du ombes bekräfta borttagningen av resurserna. Destruktionspro
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"] 
-> [Terraform på Azure](/azure/ansible/)
+> [Lär dig mer om hur du använder terraform i Azure](/azure/terraform)

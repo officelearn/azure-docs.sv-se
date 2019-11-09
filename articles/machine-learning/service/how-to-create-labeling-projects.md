@@ -7,18 +7,18 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 76f995901814c90ff9fd78585c98d56b3478e8b4
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: ca3486610d6cf71ba315e407b58a2a2551ad6ee1
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73612758"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837487"
 ---
 # <a name="get-labels-for-data"></a>Hämta etiketter för data
 
 Att märka stora mängder data har ofta varit ett problem i Machine Learning-projekt. ML-projekt med en dator vision, till exempel bild klassificering eller objekt identifiering, kräver vanligt vis tusentals avbildningar och motsvarande etiketter. 
  
-Azure Machine Learning Studio ger dig en central plats för att skapa, hantera och övervaka projekt med etiketter. Genom att namnge projekt kan du koordinera data, etiketter och grupp medlemmar, så att du effektivt kan hantera etikett uppgifter. Aktiviteter som stöds för närvarande är bild klassificering, antingen flera etiketter eller flera klasser och objekt identifiering med hjälp av gränser rutor.
+Azure Machine Learning ger dig en central plats för att skapa, hantera och övervaka projekt med etiketter. Genom att namnge projekt kan du koordinera data, etiketter och grupp medlemmar, så att du effektivt kan hantera etikett uppgifter. Aktiviteter som stöds för närvarande är bild klassificering, antingen flera etiketter eller flera klasser och objekt identifiering med hjälp av gränser rutor.
 
 Azure spårar förlopp och underhåller kön med ofullständiga etikett uppgifter. Etiketter kräver inget Azure-konto för att delta. När de har autentiserats med sitt Microsoft-konto (MSA) eller [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)kan de göra så mycket eller bara små etiketter som de tillåter. De kan tilldela och ändra etiketter med kortkommandon. 
 
@@ -33,7 +33,7 @@ I den här artikeln får du lära dig att:
 > * Köra och övervaka projektet
 > * Exportera etiketterna 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * De data som du vill märka, antingen i lokala filer eller redan i Azure Storage
 * Den uppsättning etiketter som du vill använda
@@ -43,7 +43,7 @@ I den här artikeln får du lära dig att:
 
 ## <a name="create-a-labeling-project"></a>Skapa ett etikett projekt
 
-Att märka projekt administreras från [Azure Machine Learning Studio](https://ml.azure.com/). På sidan **Märk projekt** kan du hantera dina projekt, team och personer. Ett projekt har ett eller flera team tilldelade till sig, och ett lag har tilldelats en eller flera personer. 
+Att märka projekt administreras från [Azure Machine Learning](https://ml.azure.com/). På sidan **Märk projekt** kan du hantera dina projekt, team och personer. Ett projekt har ett eller flera team tilldelade till sig, och ett lag har tilldelats en eller flera personer. 
 
 Om dina data redan är lagrade i Azure Blob Storage bör du göra dem tillgängliga som ett data lager innan du skapar ditt etikett-projekt. Mer information finns i [skapa och registrera data lager](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data#create-and-register-datastores). 
 
@@ -149,7 +149,7 @@ Du kan märka data direkt från sidan **projekt information** genom att välja *
 
 Du kan när som helst exportera etikett data för Machine Learning-experimentering. Bild etiketter kan exporteras i [Coco-format](http://cocodataset.org/#format-data) eller som en Azure ml-datauppsättning. Du hittar knappen **Exportera** på sidan **projekt information** i ditt projekt med etiketter.
 
-COCO-filen skapas i standard-BLOB-arkivet för Azure ML-arbetsytan i en mapp i **export-/Coco**. Du kan komma åt den exporterade Azure ML-datauppsättningen under avsnittet **data uppsättningar** i Studio. Information om data uppsättnings sidan innehåller också exempel kod för att komma åt dina etiketter från python.
+COCO-filen skapas i standard-BLOB-arkivet för Azure ML-arbetsytan i en mapp i **export-/Coco**. Du kan komma åt den exporterade Azure ML-datauppsättningen under avsnittet **data uppsättningar** i Azure Machine Learning. Information om data uppsättnings sidan innehåller också exempel kod för att komma åt dina etiketter från python.
 
 ![Exporterad data uppsättning](media/how-to-create-labeling-projects/exported-dataset.png)
 

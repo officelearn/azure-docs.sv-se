@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie 2: träna kredit risk modeller'
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: En detaljerad självstudie som visar hur du skapar en förutsägelse analys lösning för kredit riskbedömning i den klassiska versionen av Azure Machine Learning Studio. Den här självstudien är del två i en självstudieserie i tre delar. Den visar hur du tränar och utvärderar modeller.
 keywords: kreditrisk, lösning för förutsägelseanalys, riskbedömning
 author: sdgilley
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 375fdf9b64afcce2d521008d353949e650f9df5e
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: b3f0ebe2cad68759e7feeb7a7cc3dadbbd03ee7e
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622081"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838662"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Självstudie 2: träna kredit risk modeller – Azure Machine Learning Studio (klassisk)
 
@@ -38,7 +38,7 @@ I den här delen av självstudien ska du:
 
 I [del tre av självstudien](tutorial-part3-credit-risk-deploy.md) ska du distribuera modellen som en webbtjänst.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför [del ett av självstudien](tutorial-part1-credit-risk.md).
 

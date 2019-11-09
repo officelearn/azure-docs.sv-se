@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: df2f22f91cbed17035485d25369965d3284dbaf7
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 0d478b56d7be4ae0c7f2403f9960e5eed59e2b4d
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622396"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888642"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuera modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -88,7 +88,7 @@ Kodfragmenten i det här avsnittet visar hur du registrerar en modell från en u
     print(model.name, model.id, model.version, sep='\t')
     ```
 
-    Parametern `model_path` refererar till modellens moln plats. I det här exemplet används sökvägen till en enskild fil. Om du vill inkludera flera filer i modell registreringen anger du `model_path` till sökvägen till en mapp som innehåller filerna. Mer information finns i dokumentationen för [Run. register_model](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none----kwargs-) .
+    Parametern `model_path` refererar till modellens moln plats. I det här exemplet används sökvägen till en enskild fil. Om du vill inkludera flera filer i modell registreringen anger du `model_path` till sökvägen till en mapp som innehåller filerna. Mer information finns i dokumentationen för [Kör. register_model](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none----kwargs-) .
 
   + Registrera en modell från ett `azureml.train.automl.run.AutoMLRun`-objekt:
 
@@ -228,7 +228,7 @@ model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model/1/sklea
 
 ##### <a name="get_model_path"></a>get_model_path
 
-När du registrerar en modell anger du ett modell namn som används för att hantera modellen i registret. Du använder det här namnet med metoden [Model. get _model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) för att hämta sökvägen till modell filen eller filerna i det lokala fil systemet. Om du registrerar en mapp eller en samling filer, returnerar detta API sökvägen till katalogen som innehåller filerna.
+När du registrerar en modell anger du ett modell namn som används för att hantera modellen i registret. Du använder det här namnet med metoden [Model. get_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) för att hämta sökvägen till modell filen eller filerna i det lokala fil systemet. Om du registrerar en mapp eller en samling filer, returnerar detta API sökvägen till katalogen som innehåller filerna.
 
 När du registrerar en modell ger du den ett namn. Namnet motsvarar var modellen placeras, antingen lokalt eller under tjänst distributionen.
 
@@ -858,6 +858,78 @@ CLI
 az ml model download --model-id mymodel:1 --target-dir model_folder
 ```
 
+## <a name="preview-no-code-model-deployment"></a>Förhandsgranskningsvyn Distribution utan kod modell
+
+Ingen kod modell distribution är för närvarande en för hands version och stöder följande ramverk för Machine Learning:
+
+### <a name="tensorflow-savedmodel-format"></a>Tensorflow SavedModel-format
+
+```python
+from azureml.core import Model
+
+model = Model.register(workspace=ws,
+                       model_name='flowers',                        # Name of the registered model in your workspace.
+                       model_path='./flowers_model',                # Local Tensorflow SavedModel folder to upload and register as a model.
+                       model_framework=Model.Framework.TENSORFLOW,  # Framework used to create the model.
+                       model_framework_version='1.14.0',            # Version of Tensorflow used to create the model.
+                       description='Flowers model')
+
+service_name = 'tensorflow-flower-service'
+service = Model.deploy(ws, service_name, [model])
+```
+
+### <a name="onnx-models"></a>ONNX-modeller
+
+ONNX-modell registrering och-distribution stöds för ett ONNX-diagram för härledning. Det finns för närvarande inte stöd för preprocess-och postprocess-stegen.
+
+Här är ett exempel på hur du registrerar och distribuerar en MNIST ONNX-modell:
+
+```python
+from azureml.core import Model
+
+model = Model.register(workspace=ws,
+                       model_name='mnist-sample',                  # Name of the registered model in your workspace.
+                       model_path='mnist-model.onnx',              # Local ONNX model to upload and register as a model.
+                       model_framework=Model.Framework.ONNX ,      # Framework used to create the model.
+                       model_framework_version='1.3',              # Version of ONNX used to create the model.
+                       description='Onnx MNIST model')
+
+service_name = 'onnx-mnist-service'
+service = Model.deploy(ws, service_name, [model])
+```
+
+### <a name="scikit-learn-models"></a>Scikit – lär dig modeller
+
+Ingen distribution av kod modeller stöds för alla inbyggda scikit – lär dig modell typer.
+
+Här är ett exempel på hur du registrerar och distribuerar en sklearn-modell utan extra kod:
+
+```python
+from azureml.core import Model
+from azureml.core.resource_configuration import ResourceConfiguration
+
+model = Model.register(workspace=ws,
+                       model_name='my-sklearn-model',                # Name of the registered model in your workspace.
+                       model_path='./sklearn_regression_model.pkl',  # Local file to upload and register as a model.
+                       model_framework=Model.Framework.SCIKITLEARN,  # Framework used to create the model.
+                       model_framework_version='0.19.1',             # Version of scikit-learn used to create the model.
+                       resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5),
+                       description='Ridge regression model to predict diabetes progression.',
+                       tags={'area': 'diabetes', 'type': 'regression'})
+                       
+service_name = 'my-sklearn-service'
+service = Model.deploy(ws, service_name, [model])
+```
+
+Obs! de här beroendena ingår i den förskapade sklearn-härlednings containern:
+
+```yaml
+    - azureml-defaults
+    - inference-schema[numpy-support]
+    - scikit-learn
+    - numpy
+```
+
 ## <a name="package-models"></a>Paket modeller
 
 I vissa fall kanske du vill skapa en Docker-avbildning utan att distribuera modellen (om du till exempel planerar att [distribuera till Azure App Service](how-to-deploy-app-service.md)). Eller så kanske du vill ladda ned avbildningen och köra den på en lokal Docker-installation. Du kanske till och med vill ladda ned filerna som används för att bygga avbildningen, inspektera dem, ändra dem och bygga avbildningen manuellt.
@@ -997,78 +1069,6 @@ Om du vill ta bort en distribuerad webb tjänst använder du `service.delete()`.
 Använd `model.delete()`om du vill ta bort en registrerad modell.
 
 Mer information finns i dokumentationen för [WebService. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) och [Model. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
-
-## <a name="preview-no-code-model-deployment"></a>Förhandsgranskningsvyn Distribution utan kod modell
-
-Ingen kod modell distribution är för närvarande en för hands version och stöder följande ramverk för Machine Learning:
-
-### <a name="tensorflow-savedmodel-format"></a>Tensorflow SavedModel-format
-
-```python
-from azureml.core import Model
-
-model = Model.register(workspace=ws,
-                       model_name='flowers',                        # Name of the registered model in your workspace.
-                       model_path='./flowers_model',                # Local Tensorflow SavedModel folder to upload and register as a model.
-                       model_framework=Model.Framework.TENSORFLOW,  # Framework used to create the model.
-                       model_framework_version='1.14.0',            # Version of Tensorflow used to create the model.
-                       description='Flowers model')
-
-service_name = 'tensorflow-flower-service'
-service = Model.deploy(ws, service_name, [model])
-```
-
-### <a name="onnx-models"></a>ONNX-modeller
-
-ONNX-modell registrering och-distribution stöds för ett ONNX-diagram för härledning. Det finns för närvarande inte stöd för preprocess-och postprocess-stegen.
-
-Här är ett exempel på hur du registrerar och distribuerar en MNIST ONNX-modell:
-
-```python
-from azureml.core import Model
-
-model = Model.register(workspace=ws,
-                       model_name='mnist-sample',                  # Name of the registered model in your workspace.
-                       model_path='mnist-model.onnx',              # Local ONNX model to upload and register as a model.
-                       model_framework=Model.Framework.ONNX ,      # Framework used to create the model.
-                       model_framework_version='1.3',              # Version of ONNX used to create the model.
-                       description='Onnx MNIST model')
-
-service_name = 'onnx-mnist-service'
-service = Model.deploy(ws, service_name, [model])
-```
-
-### <a name="scikit-learn-models"></a>Scikit – lär dig modeller
-
-Ingen distribution av kod modeller stöds för alla inbyggda scikit – lär dig modell typer.
-
-Här är ett exempel på hur du registrerar och distribuerar en sklearn-modell utan extra kod:
-
-```python
-from azureml.core import Model
-from azureml.core.resource_configuration import ResourceConfiguration
-
-model = Model.register(workspace=ws,
-                       model_name='my-sklearn-model',                # Name of the registered model in your workspace.
-                       model_path='./sklearn_regression_model.pkl',  # Local file to upload and register as a model.
-                       model_framework=Model.Framework.SCIKITLEARN,  # Framework used to create the model.
-                       model_framework_version='0.19.1',             # Version of scikit-learn used to create the model.
-                       resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5),
-                       description='Ridge regression model to predict diabetes progression.',
-                       tags={'area': 'diabetes', 'type': 'regression'})
-                       
-service_name = 'my-sklearn-service'
-service = Model.deploy(ws, service_name, [model])
-```
-
-Obs! de här beroendena ingår i den förskapade sklearn-härlednings containern:
-
-```yaml
-    - azureml-defaults
-    - inference-schema[numpy-support]
-    - scikit-learn
-    - numpy
-```
 
 ## <a name="next-steps"></a>Nästa steg
 

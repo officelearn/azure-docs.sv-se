@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: cf4274931d83b51afb4a8ada7d1c9040ccce3c14
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7003e5b8574d2caa05bfe66e500b93db0c1cdcfa
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606840"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891640"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix-profilcontainrar och Azure-filer
 
@@ -78,7 +78,7 @@ Eftersom förvärvs tjänsten ersatte befintliga användar profil lösningar, t.
 
 ## <a name="azure-files-integration-with-azure-active-directory-domain-service"></a>Azure Files integrering med Azure Active Directory Domain Service
 
-FSLogix profil behållares prestanda och funktioner utnyttjar molnet. Den 7 augusti 2019 Microsoft Azure filer som är allmänt tillgängliga för [Azure Files autentisering med Azure Active Directory Domain Service (AD DS)](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-overview). Genom att adressera både kostnads-och administrations kostnader är Azure Files med Azure AD DS-autentisering en Premium-lösning för användar profiler i Windows Virtual Desktop-tjänsten.
+FSLogix profil behållares prestanda och funktioner utnyttjar molnet. Den 7 augusti 2019 Microsoft Azure filer som är allmänt tillgängliga för [Azure Files autentisering med Azure Active Directory Domain Service (AD DS)](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview). Genom att adressera både kostnads-och administrations kostnader är Azure Files med Azure AD DS-autentisering en Premium-lösning för användar profiler i Windows Virtual Desktop-tjänsten.
 
 ## <a name="best-practices-for-windows-virtual-desktop"></a>Metod tips för virtuella Windows-datorer
 

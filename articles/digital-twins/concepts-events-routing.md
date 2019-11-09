@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/17/2019
-ms.openlocfilehash: 217a1d94a4a5235fc5886f34986ffcb3aef60873
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/07/2019
+ms.openlocfilehash: f2479d9f3e278d23d62275b667f78d1fd70dd151
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949253"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889693"
 ---
 # <a name="routing-events-and-messages"></a>Routningshändelser och meddelanden
 
@@ -23,15 +23,17 @@ IoT-lösningar enhets ofta flera kraftfulla tjänster som omfattar lagring, anal
 
 Azure Digital-dubbla finns på två sätt för att ansluta IoT-händelser med andra Azure-tjänster eller affärs program:
 
-* **Routning av Azure Digitals dubbla händelser**: Ett objekt i den spatialdata som ändrar, telemetridata som tas emot eller en användardefinierad funktion som skapar ett meddelande baserat på fördefinierade villkor kan utlösa Azure Digitals dubbla händelser. Användare kan skicka dessa händelser till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure Service Bus ämnen](https://azure.microsoft.com/services/service-bus/)eller [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) för ytterligare bearbetning.
+* **Routning av Azure Digitals dubbla nätverks händelser**: ett objekt i den spatialdata som ändrar, telemetridata som tas emot eller en användardefinierad funktion som skapar ett meddelande baserat på fördefinierade villkor kan utlösa Azure Digitals dubbla händelser. Användare kan skicka dessa händelser till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure Service Bus ämnen](https://azure.microsoft.com/services/service-bus/)eller [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) för ytterligare bearbetning.
 
-* **Telemetri för routning av enhet**: Förutom att dirigera händelser kan Azure Digitals-enheter även dirigera meddelanden om meddelanden från enheten till Event Hubs för ytterligare insikter och analyser. Dessa typer av meddelanden bearbetas inte av digitala Azure-dubbla. Och de vidarebefordras endast till händelsehubben.
+* **Telemetri för routning av enhet**: förutom att dirigera händelser kan även Azure Digitals-enheter dirigera meddelanden om telemetri för enheter till Event Hubs för ytterligare insikter och analyser. Dessa typer av meddelanden bearbetas inte av digitala Azure-dubbla. Och de vidarebefordras endast till händelsehubben.
 
 Användare kan ange en eller flera utgående slut punkter för att skicka händelser eller vidarebefordra meddelanden. Händelser och meddelanden kommer att skickas till slut punkterna enligt dessa fördefinierade inställningar för routning. Med andra ord kan användarna ange en viss slut punkt för att ta emot diagram åtgärds händelser, en annan för att ta emot telemetri-händelser och så vidare.
 
-[![Azure digitala dubbla händelser routning](media/concepts/digital-twins-events-routing.png)](media/concepts/digital-twins-events-routing.png#lightbox)
+[![routning av Azure Digitals sammanflätade händelser](media/concepts/digital-twins-events-routing.png)](media/concepts/digital-twins-events-routing.png#lightbox)
 
-Routning till Event Hubs upprätthåller i vilken ordning telemetri-meddelanden ska skickas. De kommer då till slut punkten i samma ordning som de ursprungligen togs emot. Event Grid och Service Bus garanterar inte att slut punkterna tar emot händelser i samma ordning som de har inträffat. Händelse schemat innehåller dock en tidsstämpel som kan användas för att identifiera ordningen när händelserna kommer till slut punkten.
+Routning till Event Hubs upprätthåller i vilken ordning telemetri-meddelanden ska skickas. De kommer då till slut punkten i samma ordning som de ursprungligen togs emot. 
+
+Event Grid och Service Bus garanterar inte att slut punkterna tar emot händelser i samma ordning som de har inträffat. Händelse schemat innehåller dock en tidsstämpel som kan användas för att identifiera ordningen när händelserna kommer till slut punkten.
 
 ## <a name="route-implementation"></a>Väg implementering
 

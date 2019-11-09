@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c739e827589a9fd6adeb10255f869acef29a4f16
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 9c8219dd9ec971303fb62cf828da91ee877f4ca9
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562219"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73882923"
 ---
-# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Anvisningar: Planera implementeringen av Azure AD-anslutningen
+# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Gör så här: planera din Azure AD Join-implementering
 
 Med Azure AD Join kan du ansluta enheter direkt till Azure AD utan att behöva ansluta till lokala Active Directory samtidigt som användarna är produktiva och säkra. Azure AD Join är företags klart för både storskaliga och omfångs distributioner.   
 
 Den här artikeln innehåller den information du behöver för att planera din Azure AD Join-implementering.
  
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här artikeln förutsätter att du är bekant med [introduktionen till enhets hantering i Azure Active Directory](../device-management-introduction.md).
 
@@ -34,13 +34,13 @@ För att planera implementeringen av Azure AD Join bör du bekanta dig med:
 
 |   |   |
 |---|---|
-|![Kontrollera][1]|Granska dina scenarier|
-|![Kontrollera][1]|Granska din identitets infrastruktur|
-|![Kontrollera][1]|Utvärdera din enhets hantering|
-|![Kontrollera][1]|Förstå överväganden för program och resurser|
-|![Kontrollera][1]|Förstå dina etablerings alternativ|
-|![Kontrollera][1]|Konfigurera roaming för företags tillstånd|
-|![Kontrollera][1]|Konfigurera villkorlig åtkomst|
+|![Markera][1]|Granska dina scenarier|
+|![Markera][1]|Granska din identitets infrastruktur|
+|![Markera][1]|Utvärdera din enhets hantering|
+|![Markera][1]|Förstå överväganden för program och resurser|
+|![Markera][1]|Förstå dina etablerings alternativ|
+|![Markera][1]|Konfigurera roaming för företags tillstånd|
+|![Markera][1]|Konfigurera villkorlig åtkomst|
 
 ## <a name="review-your-scenarios"></a>Granska dina scenarier 
 
@@ -70,7 +70,7 @@ En federerad miljö bör ha en identitets leverantör som stöder både WS-Trust
 - **WS-utfodras:** Det här protokollet krävs för att ansluta en enhet till Azure AD.
 - **WS-förtroende:** Det här protokollet krävs för att logga in på en Azure AD-ansluten enhet.
 
-När du använder AD FS måste du aktivera följande WS-Trust-slutpunkter:`/adfs/services/trust/2005/usernamemixed`
+När du använder AD FS måste du aktivera följande WS-Trust-slutpunkter: `/adfs/services/trust/2005/usernamemixed`
  `/adfs/services/trust/13/usernamemixed`
  `/adfs/services/trust/2005/certificatemixed`
  `/adfs/services/trust/13/certificatemixed`
@@ -78,14 +78,14 @@ När du använder AD FS måste du aktivera följande WS-Trust-slutpunkter:`/adfs
 Om din identitetsprovider inte stöder dessa protokoll fungerar inte Azure AD Join. Från och med Windows 10 1809 kan användarna logga in på en Azure AD-ansluten enhet med en SAML-baserad identitets leverantör via [webb inloggning i Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). För närvarande är webb inloggning en förhands gransknings funktion och rekommenderas inte för produktions distributioner.
 
 >[!NOTE]
-> Azure AD Join fungerar för närvarande inte med [AD FS 2019 som kon figurer ATS med externa autentiseringsproviders som primär autentiseringsmetod](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). Azure AD Join-standardvärden för lösenordsautentisering som den primära metoden, vilket resulterar i autentiseringsfel i det här scenariot
+> Azure AD Join fungerar för närvarande inte med [AD FS 2019 som kon figurer ATS med externa autentiseringsproviders som primär autentiseringsmetod](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). Azure AD Join-standardvärden för lösenordsautentisering som den primära metoden, vilket resulterar i autentiseringsfel i det här scenariot
 
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>Smartkort och certifikatbaserad autentisering
 
 Du kan inte använda smartkort eller certifikatbaserad autentisering för att ansluta enheter till Azure AD. Smartkort kan dock användas för att logga in på Azure AD-anslutna enheter om du har AD FS konfigurerat.
 
-**Rekommenderade** Implementera Windows Hello för företag för stark, lösen ords lös autentisering för Windows 10-enheter.
+**Rekommendation:** Implementera Windows Hello för företag för stark, lösen ords lös autentisering för Windows 10-enheter.
 
 ### <a name="user-configuration"></a>Användar konfiguration
 
@@ -106,7 +106,7 @@ Azure AD-anslutning:
 - Gäller inte tidigare versioner av Windows eller andra operativ system. Om du har Windows 7/8.1-enheter måste du uppgradera till Windows 10 för att distribuera Azure AD Join.
 - Stöds inte på enheter med TPM i FIPS-läge.
  
-**Rekommenderade** Använd alltid den senaste versionen av Windows 10 för att dra nytta av uppdaterade funktioner.
+**Rekommendation:** Använd alltid den senaste versionen av Windows 10 för att dra nytta av uppdaterade funktioner.
 
 ### <a name="management-platform"></a>Hanterings plattform
 
@@ -131,7 +131,7 @@ Om MDM-lösningen inte är tillgänglig via Azure AD App-galleriet kan du lägga
 
 Genom samhantering kan du använda SCCM för att hantera vissa aspekter av dina enheter medan principer levereras via din MDM-plattform. Microsoft Intune möjliggör samhantering med SCCM. Mer information finns i [Co-Management för Windows 10-enheter](https://docs.microsoft.com/sccm/core/clients/manage/co-management-overview). Om du använder en annan MDM-produkt än Intune bör du kontrol lera med MDM-providern om tillämpliga samhanterings scenarier.
 
-**Rekommenderade** Överväg endast MDM-hantering för Azure AD-anslutna enheter.
+**Rekommendation:** Överväg endast MDM-hantering för Azure AD-anslutna enheter.
 
 ## <a name="understand-considerations-for-applications-and-resources"></a>Förstå överväganden för program och resurser
 
@@ -157,13 +157,13 @@ Om dina appar är anpassade och/eller värdbaserade lokalt, måste du lägga til
 
 Om du använder AD FS, se [Verifiera och hantera enkel inloggning med AD FS](https://docs.microsoft.com/previous-versions/azure/azure-services/jj151809(v%3dazure.100)). 
 
-**Rekommenderade** Överväg att vara värd i molnet (till exempel Azure) och integrera med Azure AD för att få en bättre upplevelse.
+**Rekommendation:** Överväg att vara värd i molnet (till exempel Azure) och integrera med Azure AD för att få en bättre upplevelse.
 
 ### <a name="on-premises-applications-relying-on-legacy-protocols"></a>Lokala program som förlitar sig på äldre protokoll
 
 Användare får SSO från Azure AD-anslutna enheter om enheten har åtkomst till en domänkontrollant. 
 
-**Rekommenderade** Distribuera [Azure AD App proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) för att aktivera säker åtkomst för dessa program.
+**Rekommendation:** Distribuera [Azure AD App proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) för att aktivera säker åtkomst för dessa program.
 
 ### <a name="on-premises-network-shares"></a>Lokala nätverks resurser
 
@@ -179,7 +179,7 @@ För skrivare måste du distribuera [hybrid moln utskrift](https://docs.microsof
 
 Azure AD-anslutna enheter stöder inte lokala program som förlitar sig på datorautentisering. 
 
-**Rekommenderade** Överväg att dra tillbaka de här programmen och flytta till de moderna alternativen.
+**Rekommendation:** Överväg att dra tillbaka de här programmen och flytta till de moderna alternativen.
 
 ### <a name="remote-desktop-services"></a>Fjärrskrivbordstjänster
 
@@ -202,7 +202,7 @@ Här är en jämförelse av dessa tre metoder
 | Tillämpliga flöden | Inställningar för OOBE-& | Endast OOBE | Endast OOBE |
 | Lokal administratörs behörighet till primär användare | Ja, som standard | Konfigurerbara | Nej |
 | Kräv enhets-OEM-support | Nej | Ja | Nej |
-| Versioner som stöds | 1511+ | 1709+ | 1703 + |
+| Versioner som stöds | 1511 + | 1709 + | 1703 + |
  
 Välj distributions metod eller-metoder genom att granska tabellen ovan och granska följande överväganden för att införa någon av metoderna:  
 
@@ -217,7 +217,7 @@ Välj distributions metod eller-metoder genom att granska tabellen ovan och gran
 
 ## <a name="configure-your-device-settings"></a>Konfigurera enhets inställningar
 
-Med Azure Portal kan du styra distributionen av Azure AD-anslutna enheter i din organisation. Om du vill konfigurera de relaterade inställningarna väljer `Devices > Device settings`du på **sidan Azure Active Directory**.
+Med Azure Portal kan du styra distributionen av Azure AD-anslutna enheter i din organisation. Om du vill konfigurera de relaterade inställningarna väljer du `Devices > Device settings`på **sidan Azure Active Directory**.
 
 ### <a name="users-may-join-devices-to-azure-ad"></a>Användare kan ansluta enheter till Azure AD
 
@@ -243,34 +243,34 @@ Innan du kan konfigurera dina mobilitets inställningar kan du behöva lägga ti
 
 **Så här lägger du till en MDM-Provider**:
 
-1. På **sidan Azure Active Directory**går du till avsnittet **Hantera** och klickar på `Mobility (MDM and MAM)`. 
+1. Klicka på `Mobility (MDM and MAM)`i avsnittet **Hantera** på **sidan Azure Active Directory**. 
 1. Klicka på **Lägg till program**.
 1. Välj MDM-providern i listan.
 
-   ![Lägg till ett program](./media/azureadjoin-plan/04.png)
+   ![Lägga till ett program](./media/azureadjoin-plan/04.png)
 
 Välj MDM-providern för att konfigurera de relaterade inställningarna. 
 
-### <a name="mdm-user-scope"></a>MDM-användaromfattning
+### <a name="mdm-user-scope"></a>Användar omfång för MDM
 
 Välj **en** eller **flera** baserat på distributionens omfattning. 
 
-![MDM-användaromfattning](./media/azureadjoin-plan/05.png)
+![Användar omfång för MDM](./media/azureadjoin-plan/05.png)
 
 Beroende på ditt omfång händer något av följande: 
 
-- **Användaren är i MDM-omfattning**: Om du har en Azure AD Premium prenumeration automatiseras MDM-registreringen tillsammans med Azure AD Join. Alla omfångs användare måste ha en lämplig licens för din MDM. Om MDM-registreringen Miss lyckas i det här scenariot kommer Azure AD Join också att återställas.
-- **Användaren är inte i MDM-området**: Om användarna inte är i MDM-omfattningen slutförs Azure AD Join utan MDM-registrering. Detta resulterar i en ohanterad enhet.
+- **Användaren är i MDM-omfattning**: om du har en Azure AD Premium prenumeration automatiseras MDM-registreringen tillsammans med Azure AD Join. Alla omfångs användare måste ha en lämplig licens för din MDM. Om MDM-registreringen Miss lyckas i det här scenariot kommer Azure AD Join också att återställas.
+- **Användaren är inte i MDM-omfattning**: om användarna inte är i MDM-omfattningen slutförs Azure AD Join utan någon MDM-registrering. Detta resulterar i en ohanterad enhet.
 
 ### <a name="mdm-urls"></a>MDM-URL: er
 
 Det finns tre URL: er som är relaterade till din MDM-konfiguration:
 
-- MDM-användningsvillkors-URL
-- Webbadress till MDM-identifiering 
-- MDM-kompatibilitets-URL
+- URL för MDM-användning
+- URL för MDM-identifiering 
+- URL för MDM-kompatibilitet
 
-![Lägg till ett program](./media/azureadjoin-plan/06.png)
+![Lägga till ett program](./media/azureadjoin-plan/06.png)
 
 Varje URL har ett fördefinierat standardvärde. Om dessa fält är tomma kontaktar du MDM-providern för mer information.
 

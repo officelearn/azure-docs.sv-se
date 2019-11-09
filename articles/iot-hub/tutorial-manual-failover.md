@@ -1,6 +1,6 @@
 ---
 title: Manuell redundans för Azure IoT-hubb | Microsoft Docs
-description: Visar hur du utför en manuell redundans för en Azure IoT-hubb
+description: Lär dig hur du utför en manuell redundansväxling av IoT-hubben till en annan region och bekräftar att den fungerar, och sedan återgår till den ursprungliga regionen och markerar den igen.
 author: robinsh
 manager: timlt
 ms.service: iot-hub
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 07/24/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 308e452f33ded9be3b88ff370ed34326de54895c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 42785e3ee636f24ca185f57a11d4ee1091db3e98
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876926"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890418"
 ---
-# <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Självstudier: Utföra manuell redundans för en IoT-hubb
+# <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Självstudie: utföra manuell redundans för en IoT-hubb
 
 Manuell redundans är en funktion i IoT Hub-tjänsten som gör att kunder kan utföra [redundans](https://en.wikipedia.org/wiki/Failover) för hubbens åtgärder från en primär region till motsvarande geoparade Azure-region. Manuell redundans kan utföras i händelse av ett regionalt haveri eller ett längre tjänstavbrott. Du kan även utföra en planerad redundans för att testa din haveriberedskap, men vi rekommenderar att du använder en IoT-testhubb i stället för en som körs i produktion. Funktionen för manuell redundans erbjuds till kunder utan extra kostnad.
 
@@ -29,7 +29,7 @@ I den här självstudien utför du följande åtgärder:
 > * Utför en återställning efter fel för att återställa IoT-hubbens åtgärder till den primära platsen. 
 > * Bekräfta att hubben körs korrekt på rätt plats.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -41,7 +41,7 @@ I den här självstudien utför du följande åtgärder:
 
    ![Skärmbild som visar skapande av en IoT-hubb](./media/tutorial-manual-failover/create-hub-01.png)
 
-3. Välj fliken **Basics** (Grunder). Fyll i följande fält.
+3. Välj fliken **grundläggande** . Fyll i följande fält.
 
     **Prenumeration**: Välj den Azure-prenumeration som du vill använda.
 
@@ -69,7 +69,7 @@ Observera att det finns en gräns på två redundanser och två återställninga
 
    ![Skärmbild som visar fönsterrutan med egenskaper för IoT Hub](./media/tutorial-manual-failover/trigger-failover-01.png)
 
-1. I fönstret manuell redundans visas den **aktuella platsen** och **platsen för redundans**. Den aktuella platsen anger alltid den plats där hubben är aktiv för närvarande. Platsen för redundans är den standardiserade [Azure geo-kopplade regionen](../best-practices-availability-paired-regions.md) som är länkad till den aktuella platsen. Du kan inte ändra platsvärdena. För den här självstudien är `West US 2` den aktuella platsen och `West Central US`platsen för redundans.
+1. I fönstret manuell redundans visas den **aktuella platsen** och **platsen för redundans**. Den aktuella platsen anger alltid den plats där hubben är aktiv för närvarande. Platsen för redundans är den standardiserade [Azure geo-kopplade regionen](../best-practices-availability-paired-regions.md) som är länkad till den aktuella platsen. Du kan inte ändra platsvärdena. I den här självstudien är den aktuella platsen `West US 2` och platsen för redundans är `West Central US`.
 
    ![Skärmbild som visar fönsterrutan för manuell redundans](./media/tutorial-manual-failover/trigger-failover-02.png)
 
@@ -93,7 +93,7 @@ Observera att det finns en gräns på två redundanser och två återställninga
 
    ![Skärmbild som visar att redundansen är klar](./media/tutorial-manual-failover/trigger-failover-06-finished.png)
 
-   På sidan Översikt visas också en banderoll som anger att redundansväxlingen är klar och IoT Hub körs i `West Central US`.
+   Översikts sidan visar också en banderoll som visar att redundansväxlingen är klar och att IoT Hub körs i `West Central US`.
 
    ![Skärm bild som visar att redundansväxlingen är klar på översikts Sidan](./media/tutorial-manual-failover/trigger-failover-06-finished-overview.png)
 
@@ -114,7 +114,7 @@ En återställning efter fel utförs precis som en manuell redundans. Det här �
 
    ![Skärmbild på manuell begäran om återställning efter fel](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
-   Banderollerna visas enligt beskrivning i avsnittet utföra en redundans. När återställningen är klar visas `West US 2` den igen som den aktuella platsen och `West Central US` som platsen för redundans enligt inställningen ursprungligen.
+   Banderollerna visas enligt beskrivning i avsnittet utföra en redundans. När återställningen har slutförts visas den igen `West US 2` som den aktuella platsen och `West Central US` som platsen för redundans, enligt inställningen ursprungligen.
 
 ## <a name="clean-up-resources"></a>Rensa resurser 
 

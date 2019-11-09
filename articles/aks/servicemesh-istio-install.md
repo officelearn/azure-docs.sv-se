@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 9c9dcd567b8632626bf4b1f0bf2ef6b5e69b8a9d
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 245ac3b1fd88b8d2430e9ddefef3562efd16e6d1
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530451"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885387"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Installera och använda Istio i Azure Kubernetes service (AKS)
 
@@ -21,7 +21,7 @@ ms.locfileid: "72530451"
 Den här artikeln visar hur du installerar Istio. Istio-`istioctl`-klientens binärfil installeras på klient datorn och Istio-komponenterna installeras i ett Kubernetes-kluster på AKS.
 
 > [!NOTE]
-> De här anvisningarna hänvisar till Istio version `1.3.2` och använder minst Helm version `2.14.2`.
+> De här anvisningarna hänvisar till Istio version `1.3.2`och använder minst Helm version `2.14.2`.
 >
 > Istio `1.3.x`-versioner har testats av Istio-teamet mot Kubernetes-versioner `1.13`, `1.14`, `1.15`. Du hittar fler Istio-versioner på [GitHub-Istio-][istio-github-releases]versioner, information om var och en av versionerna på [Istio nyheter][istio-release-notes] och Kubernetes-versioner som stöds på [Istio allmänna vanliga frågor och svar][istio-faq].
 
@@ -180,7 +180,7 @@ Nu när vi har skapat Grafana-och Kiali-hemligheterna i vårt AKS-kluster är de
 
 ::: zone-end
 
-@No__t_0 Helm-diagrammet distribuerar ett stort antal objekt. Du kan se listan från utdata från kommandot `helm install` ovan. Distributionen av Istio-komponenterna bör ta under 2 minuter att slutföra, beroende på kluster miljön.
+`istio` Helm-diagrammet distribuerar ett stort antal objekt. Du kan se listan från utdata från kommandot `helm install` ovan. Distributionen av Istio-komponenterna bör ta under 2 minuter att slutföra, beroende på kluster miljön.
 
 Nu har du distribuerat Istio till ditt AKS-kluster. För att säkerställa att vi har en lyckad distribution av Istio kan vi gå vidare till nästa avsnitt för att [validera Istio-installationen](#validate-the-istio-installation).
 
@@ -195,12 +195,12 @@ kubectl get svc --namespace istio-system --output wide
 Följande exempel på utdata visar de tjänster som nu ska köras:
 
 - `istio-*` tjänster
-- spårnings tjänster för `jaeger-*`, `tracing` och `zipkin`-tillägg
+- spårnings tjänster för `jaeger-*`, `tracing`och `zipkin`-tillägg
 - `prometheus` mått tjänst för tillägg
 - instrument panels tjänsten för analys och övervakning av `grafana`
 - service instrument panel för `kiali` tillägg för service nät
 
-Om `istio-ingressgateway` visar en extern IP-adress för `<pending>` väntar du några minuter tills en IP-adress har tilldelats av Azure-nätverk.
+Om `istio-ingressgateway` visar en extern IP-adress för `<pending>`väntar du några minuter tills en IP-adress har tilldelats av Azure-nätverk.
 
 ```console
 NAME                     TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)                                                                                                                                      AGE   SELECTOR
@@ -309,7 +309,7 @@ istioctl dashboard envoy <pod-name>.<namespace>
 
 ### <a name="remove-istio-components-and-namespace"></a>Ta bort Istio-komponenter och namn område
 
-Använd följande kommandon för att ta bort Istio från ditt AKS-kluster. @No__t_0-kommandona tar bort `istio` och `istio-init` diagram och `kubectl delete namespace` kommandot tar bort `istio-system`-namnområdet.
+Använd följande kommandon för att ta bort Istio från ditt AKS-kluster. `helm delete`-kommandona tar bort `istio` och `istio-init` diagram och `kubectl delete namespace` kommandot tar bort `istio-system`-namnområdet.
 
 ```azurecli
 helm delete --purge istio
@@ -383,7 +383,7 @@ Information om hur du övervakar ditt AKS-program med hjälp av Application Insi
 [kubernetes-crd]: https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions
 [kubernetes-jobs]: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
 [kubernetes-secrets]: https://kubernetes.io/docs/concepts/configuration/secret/
-[kubernetes-node-selectors]: https://docs.microsoft.com/en-us/azure/aks/concepts-clusters-workloads#node-selectors
+[kubernetes-node-selectors]: https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#node-selectors
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-port-forward]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#port-forward

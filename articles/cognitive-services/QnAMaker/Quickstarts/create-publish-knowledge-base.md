@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 8ce35156cd772487c4787f2f5fb99feb1225826f
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: bc64196969b23f0aad77ff4d4495e4bb3e569c32
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73794192"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888241"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Snabb start: skapa, träna och publicera QnA Maker kunskaps bas
 
@@ -46,7 +46,7 @@ Ta med en användare av en CHI2TEST för att göra din kunskap mer engagerande m
 
 1. Lägg till ett Word-exempel dokument som en URL: 
 
-    `https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/troubleshooting`
+    `https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`
 
 1. Välj `+ Add URL`.
 

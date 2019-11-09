@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Distribuera Node. js-appar som drivs av Azure Cosmos DB med Azure DevOps Projects'
+title: 'Självstudie: Distribuera Node. js-appar som drivs av Azure Cosmos DB med Azure DevOps Projects'
 description: Azure DevOps Projects gör det enkelt att komma igång med Azure. Med DevOps Projects kan du distribuera Node. js-appen som drivs av Azure Cosmos DB till Windows Web App med några få enkla steg.
 ms.author: mlearned
 ms.manager: gwallace
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 1c16368990148406fbacdde2981c10fab0b2d405
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 229b4b9f53ea3866dce1169645f6d6da20827271
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969666"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888893"
 ---
 # <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-projects"></a>Distribuera Node. js-appar som drivs av Azure Cosmos DB med DevOps Projects
 
@@ -37,7 +37,7 @@ I den här kursen ska du:
 > * Genomför ändringarna i git och distribuera dem automatiskt till Azure
 > * Rensa resurserna
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver en Azure-prenumeration, som du kan få via [Visual Studio dev Essentials](https://visualstudio.microsoft.com/dev-essentials/) kostnads fritt.
 
@@ -105,7 +105,7 @@ DevOps Projects konfigurerar automatiskt en Azure CI/CD-pipeline i Azure DevOps-
 
 1. Välj **Redigera**. I den här fönsterrutan kan du granska de olika uppgifterna för bygg-pipelinen. Versionen utför olika uppgifter, till exempel hämtning av källkod från git-lagrings platsen, skapande av program, körning av enhets test och publicering av utdata som används för distributioner.
 
-1. Välj **Utlösare**. DevOps Projects skapar automatiskt en CI-utlösare, och varje incheckning till lagringsplatsen startar en ny version. Du kan välja att ta med eller undanta grenar från CI-processen.
+1. Välj **utlösare**. DevOps Projects skapar automatiskt en CI-utlösare, och varje incheckning till lagringsplatsen startar en ny version. Du kan välja att ta med eller undanta grenar från CI-processen.
 
 1. Välj **Kvarhållning**. Beroende på ditt scenario kan du ange principer för att behålla eller ta bort ett visst antal versioner.
 
@@ -117,7 +117,7 @@ DevOps Projects konfigurerar automatiskt en Azure CI/CD-pipeline i Azure DevOps-
 
 ## <a name="examine-the-cd-release-pipeline"></a>Granska CD-versionspipelinen
 
-DevOps-projekt skapar och konfigurerar de nödvändiga stegen för att automatiskt distribuera från din Azure DevOps-organisation till din Azure-prenumeration. De här stegen innefattar att konfigurera en Azure-tjänstanslutning för att autentisera Azure DevOps till din Azure-prenumeration. Automationen skapar även en versionspipeline som tillhandahåller CD:n till Azure. Om du vill veta mer om versionspipelinen kan du göra följande:
+DevOps-projekt skapar och konfigurerar automatiskt de steg som är nödvändiga för att distribuera från din Azure DevOps-organisation till din Azure-prenumeration. De här stegen innefattar att konfigurera en Azure-tjänstanslutning för att autentisera Azure DevOps till din Azure-prenumeration. Automationen skapar även en versionspipeline som tillhandahåller CD:n till Azure. Om du vill veta mer om versionspipelinen kan du göra följande:
 
 1. Gå till **pipeliner** och välj **versioner**.
 
@@ -169,6 +169,6 @@ Du kan ändra dessa bygg- och versionspipelines för att tillgodose ditt teams b
 > * Genomföra ändringar i Git och distribuera dem automatiskt till Azure
 > * Rensa resurser
 
-Mer information och nästa steg finns i [definiera en pipeline för kontinuerlig distribution i flera steg (CD)](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) .
+Mer information och nästa steg finns i [definiera en pipeline för kontinuerlig distribution i flera steg (CD)](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) .
 
 

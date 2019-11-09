@@ -16,12 +16,12 @@ ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 704e217cd7ddea988b6a9812627aba8c8468fb73
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: e3ad689fb57c51d0deb698a723b93e6175bdbb5c
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71955502"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73882883"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Program etablering i karantän status
 
@@ -33,7 +33,7 @@ I karantän sänks frekvensen för stegvisa cykler gradvis till en gång per dag
 
 Det finns tre sätt att kontrol lera om ett program finns i karantän:
   
-- I Azure Portal navigerar du till **Azure Active Directory** > **företags program** >  @ no__t-4*program namn*&gt; @ no__t-7-**etablering** och bläddra till förlopps indikatorn längst ned.  
+- I Azure Portal navigerar du till **Azure Active Directory** > **företags program** > &lt;*program namn*&gt;- **etablering** och bläddra till förlopps indikatorn längst ned. >   
 
   ![Status fältet för etablering visar karantän status](media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
 
@@ -63,12 +63,12 @@ Först löser du problemet som gjorde att programmet placerades i karantän.
 
 - Kontrol lera programmets etablerings inställningar för att kontrol lera att du har [angett giltiga autentiseringsuppgifter för admin](configure-automatic-user-provisioning-portal.md#configuring-automatic-user-account-provisioning). Azure AD måste kunna upprätta ett förtroende med mål programmet. Kontrol lera att du har angett giltiga autentiseringsuppgifter och att ditt konto har de behörigheter som krävs.
 
-- Granska [etablerings loggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) för att ytterligare undersöka vilka fel som orsakar karantän och åtgärda felet. Få åtkomst till etablerings loggarna i Azure Portal genom att gå till **Azure Active Directory** &gt; **Enterprise Apps** &gt; **etablerings loggar (för hands version)** i avsnittet **aktivitet** .
+- Granska [etablerings loggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) för att ytterligare undersöka vilka fel som orsakar karantän och åtgärda felet. Få åtkomst till etablerings loggarna i Azure Portal genom att gå till **Azure Active Directory** &gt; **Enterprise-appar** &gt; **etablerings loggar (för hands version)** i avsnittet **aktivitet** .
 
 När du har löst problemet startar du om etablerings jobbet. Vissa ändringar av programmets etablerings inställningar, till exempel attribut mappningar eller omfångs filter, startar automatiskt om etablering. Förlopps indikatorn på programmets **etablerings** sida anger när etableringen senast startades. Om du behöver starta om etablerings jobbet manuellt kan du använda någon av följande metoder:  
 
 - Använd Azure Portal för att starta om etablerings jobbet. På programmets **etablerings** sida under **Inställningar**väljer du **Rensa tillstånd och startar om synkronisering** och ställer in **etablerings status** på **på**. Den här åtgärden startar om etablerings tjänsten helt, vilket kan ta lite tid. En fullständig första cykel körs igen, vilket rensar escrows, tar bort appen från karantänen och tar bort alla vattenstämplar.
 
-- Använd Microsoft Graph för att [starta om etablerings jobbet](https://docs.microsoft.com/en-us/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Du har fullständig kontroll över vad du vill starta om. Du kan välja att rensa escrows (om du vill starta om depositions-räknaren som påförs i karantäns status), rensa karantän (för att ta bort programmet från karantän) eller rensa vattenstämplar. Använd följande begäran:
+- Använd Microsoft Graph för att [starta om etablerings jobbet](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Du har fullständig kontroll över vad du vill starta om. Du kan välja att rensa escrows (om du vill starta om depositions-räknaren som påförs i karantäns status), rensa karantän (för att ta bort programmet från karantän) eller rensa vattenstämplar. Använd följande begäran:
  
        `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`

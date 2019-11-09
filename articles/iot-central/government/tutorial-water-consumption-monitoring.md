@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 59dae65d32f1b816e59ee883cb4529c6f1fd212c
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: d79c4585d9764e2cc5cebd679372a97946479396
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73026553"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889156"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-in-iot-central"></a>Självstudie: skapa ett program för övervakning av vatten förbrukning i IoT Central
 
@@ -32,7 +32,7 @@ I självstudien får du lära dig att:
 > * Konfigurera jobb
 > * Anpassa din program anpassning med adresser
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här självstudien behöver du:
 -  En Azure-prenumeration rekommenderas. Om du inte har någon Azure-prenumeration kan du skapa en på [sidan för Azure-registrering](https://aka.ms/createazuresubscription).
@@ -60,7 +60,7 @@ Så här skapar du ett nytt program för övervakning av Azure IoT Central vatte
     * **URL**: IoT Central genererar automatiskt en URL åt dig baserat på programmets namn. Du kan välja att uppdatera URL: en till dina önskemål. Du kan ändra URL: en senare. 
     * Om du har en Azure-prenumeration anger du din *katalog, din Azure-prenumeration och region*. Om du inte har någon prenumeration kan du aktivera den **kostnads fria utvärderings versionen på 7 dagar** och slutföra den kontakt information som krävs.  
 
-    Mer information om kataloger och prenumerationer finns i [snabbstarten om att skapa ett program](../core/quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+    Mer information om kataloger och prenumerationer finns i [snabbstarten om att skapa ett program](../preview/quick-deploy-iot-central.md).
 
 5. Klicka på knappen **skapa** längst ned på sidan. 
 
@@ -68,7 +68,7 @@ Så här skapar du ett nytt program för övervakning av Azure IoT Central vatte
 
 6. Nu har du skapat en app för övervakning av dricks-appar med hjälp av mallen Azure IoT Central **vattenförbruknings övervakning** .
 
-Gratulerar! Du är klar med att skapa ett program för övervakning av vatten kvalitet, som medföljer förkonfigurerat:
+Grattis! Du är klar med att skapa ett program för övervakning av vatten kvalitet, som medföljer förkonfigurerat:
 * Exempel instrument panels instrument paneler
 * Exempel på fördefinierade vatten flöden och ventiler för ventilbaserade enheter
 * Simulerade vatten flöden och smarta ventil enheter

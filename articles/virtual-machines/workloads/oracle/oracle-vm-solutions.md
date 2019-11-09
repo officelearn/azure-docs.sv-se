@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: 4480819a08ef9a7a4ad7257f75a94c5d10a3d312
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 23e638b1d678e6ecf19c23220828185eb0e25a00
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858575"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891443"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>VIRTUELLA Oracle-avbildningar och deras distribution på Microsoft Azure
 
@@ -79,7 +79,7 @@ Dessa funktioner är möjliga eftersom Azure NetApp Files baseras på NetApp® O
 
 ## <a name="licensing-oracle-database--software-on-azure"></a>Licensierings Oracle Database & program vara på Azure
 Microsoft Azure är en godkänd moln miljö för att köra Oracle Database. Tabellen för Oracle Core Factor kan inte användas när du licensierar Oracle-databaser i molnet. När du använder virtuella datorer med Hyper-Threading-teknik som är aktive rad för Enterprise Edition-databaser, kan du i stället räkna två virtuella processorer som likvärdiga med en Oracle processor licens om hyperthreading är aktiverat (enligt vad som anges i princip dokumentet). Du hittar information om principen [här](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
-Oracle-databaser kräver vanligt vis mer minne och IO. Därför rekommenderas [Minnesoptimerade virtuella datorer](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-memory) för dessa arbets belastningar. För att optimera dina arbets belastningar rekommenderas [begränsade kärn virtuella processorer](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/constrained-vcpu) för Oracle DB arbets belastningar som kräver hög minnes-, lagrings-och I/O-bandbredd, men inte med ett högt antal kärnor.
+Oracle-databaser kräver vanligt vis mer minne och IO. Därför rekommenderas [Minnesoptimerade virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory) för dessa arbets belastningar. För att optimera dina arbets belastningar rekommenderas [begränsade kärn virtuella processorer](https://docs.microsoft.com/azure/virtual-machines/linux/constrained-vcpu) för Oracle DB arbets belastningar som kräver hög minnes-, lagrings-och I/O-bandbredd, men inte med ett högt antal kärnor.
 
 När du migrerar Oracle-programvara och arbets belastningar från en lokal plats till Microsoft Azure tillhandahåller Oracle License Mobility såsom anges i [vanliga frågor och svar om Oracle på Azure](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)
 
@@ -90,7 +90,7 @@ Oracle RAC är utformat för att minimera fel i en enskild nod i en lokal kluste
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>Överväganden för hög tillgänglighet och haveri beredskap
 När du använder Oracle-databaser i Azure ansvarar du för att implementera en lösning för hög tillgänglighet och haveri beredskap för att undvika avbrott. 
 
-Hög tillgänglighet och haveri beredskap för Oracle Database Enterprise Edition (utan att förlita dig på Oracle RAC) kan uppnås på Azure med hjälp av [data Guard, Active data Guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html)eller [Oracle GoldenGate](https://www.oracle.com/technetwork/middleware/goldengate), med två databaser på två separata virtuella faxar. Båda de virtuella datorerna bör finnas i samma [virtuella nätverk](https://azure.microsoft.com/documentation/services/virtual-network/) för att säkerställa att de kan komma åt varandra via den privata, BEständiga IP-adressen.  Dessutom rekommenderar vi att du placerar de virtuella datorerna i samma tillgänglighets uppsättning för att tillåta Azure att placera dem i separata fel domäner och uppgraderings domäner. Vill du ha GEO-redundans ställer du in de två databaserna för replikering mellan två olika regioner och ansluter de två instanserna med en VPN Gateway.
+Hög tillgänglighet och haveri beredskap för Oracle Database Enterprise Edition (utan att lita på Oracle RAC) kan uppnås på Azure med hjälp av [data Guard, Active data Guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html)eller [Oracle GoldenGate](https://www.oracle.com/technetwork/middleware/goldengate), med två databaser på två separata virtuella datorer. Båda de virtuella datorerna bör finnas i samma [virtuella nätverk](https://azure.microsoft.com/documentation/services/virtual-network/) för att säkerställa att de kan komma åt varandra via den privata, BEständiga IP-adressen.  Dessutom rekommenderar vi att du placerar de virtuella datorerna i samma tillgänglighets uppsättning för att tillåta Azure att placera dem i separata fel domäner och uppgraderings domäner. Vill du ha GEO-redundans ställer du in de två databaserna för replikering mellan två olika regioner och ansluter de två instanserna med en VPN Gateway.
 
 I självstudien [implementera Oracle data Guard i Azure](configure-oracle-dataguard.md) får du stegvisa anvisningar genom den grundläggande installations proceduren i Azure.  
 

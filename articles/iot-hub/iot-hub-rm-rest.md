@@ -1,26 +1,25 @@
 ---
-title: Skapa en Azure IoT hub med REST API för resursprovider | Microsoft Docs
-description: Hur du använder REST API för resursprovider för att skapa en IoT Hub.
+title: Skapa en Azure IoT Hub med hjälp av resurs leverantören REST API | Microsoft Docs
+description: Lär dig hur du använder Resource providern C# REST API för att skapa och hantera en IoT Hub program mässigt.
 author: robinsh
-manager: philmea
 ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 6d91f5e61dfd7c3cb4d1869edf0c6cb8c2c85190
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d5e38e2ecfa2406ff0f58f73d828aa45d84c512
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65827521"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890488"
 ---
-# <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Skapa en IoT hub med resource provider REST API (.NET)
+# <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Skapa en IoT-hubb med hjälp av Resource Provider REST API (.NET)
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-Du kan använda den [IoT Hub REST API för resursprovider](https://docs.microsoft.com/rest/api/iothub/iothubresource) att skapa och hantera Azure-IoT-hubbar programmässigt. Den här självstudien visar hur du använder IoT Hub resource provider REST API för att skapa en IoT hub från ett C#-program.
+Du kan använda [IoT Hub Resource provider REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource) för att skapa och hantera Azure IoT Hub program mässigt. Den här självstudien visar hur du använder IoT Hub Resource Provider REST API för att skapa en IoT- C# hubb från ett program.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -28,23 +27,23 @@ För att kunna genomföra den här kursen behöver du följande:
 
 * Visual Studio.
 
-* Ett aktivt Azure-konto. Om du inte har ett konto kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.
+* Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.
 
-* [Azure PowerShell 1.0](https://docs.microsoft.com/powershell/azure/install-Az-ps) eller senare.
+* [Azure PowerShell 1,0](https://docs.microsoft.com/powershell/azure/install-Az-ps) eller senare.
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
 ## <a name="prepare-your-visual-studio-project"></a>Förbered ditt Visual Studio-projekt
 
-1. I Visual Studio skapar ett Visual C# Windows Classic Desktop-projekt med den **Konsolapp (.NET Framework)** projektmall. Ge projektet namnet **CreateIoTHubREST**.
+1. I Visual Studio skapar du ett visuellt C# Windows klassiska Desktop-projekt med hjälp av projekt mal len **konsol program (.NET Framework)** . Ge projektet namnet **CreateIoTHubREST**.
 
-2. Högerklicka på projektet i Solution Explorer och klicka sedan på **hantera NuGet-paket**.
+2. I Solution Explorer högerklickar du på projektet och klickar sedan på **Hantera NuGet-paket**.
 
-3. I NuGet-Pakethanteraren, kontrollera **inkludera förhandsversion**, och på den **Bläddra** sidan Sök efter **Microsoft.Azure.Management.ResourceManager**. Välj paketet, klicka på **installera**i **granska ändringar** klickar du på **OK**, klicka sedan på **jag accepterar** att acceptera licenser.
+3. I NuGet Package Manager markerar du **Inkludera för hands version**och på sidan **Bläddra** i Sök efter **Microsoft. Azure. Management. ResourceManager**. Välj paketet, klicka på **Installera**, klicka på **OK**i **Granska ändringar** och klicka sedan på **Jag accepterar** för att acceptera licenserna.
 
-4. I NuGet-Pakethanteraren, Sök efter **Microsoft.IdentityModel.Clients.ActiveDirectory**.  Klicka på **installera**i **granska ändringar** klickar du på **OK**, klicka sedan på **jag accepterar** att acceptera licensen.
+4. Sök efter **Microsoft. IdentityModel. clients. ActiveDirectory**i NuGet Package Manager.  Klicka på **Installera**, klicka på **OK**i **Granska ändringar** och klicka sedan på **Jag accepterar** för att acceptera licensen.
 
-5. I Program.cs, ersätter den befintliga **med** instruktioner med följande kod:
+5. I Program.cs ersätter du de befintliga **using** -satserna med följande kod:
 
     ```csharp
     using System;
@@ -60,7 +59,7 @@ För att kunna genomföra den här kursen behöver du följande:
     using System.Threading;
     ```
 
-6. Lägg till följande statiska variabler ersätta platshållarvärdena i Program.cs. Du antecknade **ApplicationId**, **SubscriptionId**, **TenantId**, och **lösenord** tidigare i den här självstudien. **Resursgruppens namn** är namnet på resursgruppen som du använder när du skapar IoT-hubben. Du kan använda en befintlig eller ny resursgrupp. **IoT-hubbnamn** är namnet på IoT-hubben som du skapar, till exempel **MyIoTHub**. Namnet på din IoT hub måste vara globalt unikt. **Distributionsnamn** är ett namn för distributionen, till exempel **Deployment_01**.
+6. I Program.cs lägger du till följande statiska variabler som ersätter plats hållar värden. Du har gjort en anteckning om **ApplicationId**, **SubscriptionId**, **TenantId**och **lösen ord** tidigare i den här självstudien. **Resurs gruppens namn** är namnet på den resurs grupp som du använder när du skapar IoT-hubben. Du kan använda en befintlig eller en ny resurs grupp. **IoT Hub namn** är namnet på det IoT Hub som du skapar, till exempel **MyIoTHub**. Namnet på din IoT Hub måste vara globalt unikt. **Distributions namnet** är ett namn för distributionen, t. ex. **Deployment_01**.
 
     ```csharp
     static string applicationId = "{Your ApplicationId}";
@@ -76,9 +75,9 @@ För att kunna genomföra den här kursen behöver du följande:
 
 [!INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
 
-## <a name="use-the-resource-provider-rest-api-to-create-an-iot-hub"></a>Använda REST API för resursprovider för att skapa en IoT-hubb
+## <a name="use-the-resource-provider-rest-api-to-create-an-iot-hub"></a>Använd resurs leverantörs REST API för att skapa en IoT-hubb
 
-Använd den [IoT Hub REST API för resursprovider](https://docs.microsoft.com/rest/api/iothub/iothubresource) att skapa en IoT-hubb i din resursgrupp. Du kan också använda REST API för resursprovider för att göra ändringar i en befintlig IoT-hubb.
+Använd [IoT Hub Resource provider REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource) för att skapa en IoT-hubb i din resurs grupp. Du kan också använda resurs leverantörs REST API för att göra ändringar i en befintlig IoT-hubb.
 
 1. Lägg till följande metod i Program.cs:
 
@@ -89,14 +88,14 @@ Använd den [IoT Hub REST API för resursprovider](https://docs.microsoft.com/re
     }
     ```
 
-2. Lägg till följande kod till den **CreateIoTHub** metod. Den här koden skapar en **HttpClient** objekt med autentiseringstoken i sidhuvud:
+2. Lägg till följande kod i **CreateIoTHub** -metoden. Den här koden skapar ett **httpclient** -objekt med autentiseringstoken i huvudena:
 
     ```csharp
     HttpClient client = new HttpClient();
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
     ```
 
-3. Lägg till följande kod till den **CreateIoTHub** metod. Den här koden beskriver IoT-hubben som du skapar och genererar en JSON-representation. Den aktuella listan över platser som har stöd för IoT Hub finns [Azure-Status](https://azure.microsoft.com/status/):
+3. Lägg till följande kod i **CreateIoTHub** -metoden. Den här koden beskriver IoT Hub för att skapa och generera en JSON-representation. För den aktuella listan över platser som stöder IoT Hub se [Azure-status](https://azure.microsoft.com/status/):
 
     ```csharp
     var description = new
@@ -114,7 +113,7 @@ Använd den [IoT Hub REST API för resursprovider](https://docs.microsoft.com/re
     var json = JsonConvert.SerializeObject(description, Formatting.Indented);
     ```
 
-4. Lägg till följande kod till den **CreateIoTHub** metod. Den här koden skickar REST-begäran till Azure. Koden sedan kontrollerar svaret och hämtar en URL som du kan använda för att övervaka status för distributionen uppgiften:
+4. Lägg till följande kod i **CreateIoTHub** -metoden. Den här koden skickar REST-begäran till Azure. Koden kontrollerar sedan svaret och hämtar URL: en som du kan använda för att övervaka distributions aktivitetens status:
 
     ```csharp
     var content = new StringContent(JsonConvert.SerializeObject(description), Encoding.UTF8, "application/json");
@@ -130,7 +129,7 @@ Använd den [IoT Hub REST API för resursprovider](https://docs.microsoft.com/re
     var asyncStatusUri = result.Headers.GetValues("Azure-AsyncOperation").First();
     ```
 
-5. Lägg till följande kod i slutet av den **CreateIoTHub** metod. Den här koden använder den **asyncStatusUri** adress som du hämtade i föregående steg för att vänta tills distributionen har slutförts:
+5. Lägg till följande kod i slutet av **CreateIoTHub** -metoden. I den här koden används **asyncStatusUri** -adressen som hämtades i föregående steg för att vänta tills distributionen har slutförts:
 
     ```csharp
     string body;
@@ -142,7 +141,7 @@ Använd den [IoT Hub REST API för resursprovider](https://docs.microsoft.com/re
     } while (body == "{\"status\":\"Running\"}");
     ```
 
-6. Lägg till följande kod i slutet av den **CreateIoTHub** metod. Den här koden hämtar nycklarna för IoT-hubben som du skapade och skriver dem till konsolen:
+6. Lägg till följande kod i slutet av **CreateIoTHub** -metoden. Den här koden hämtar nycklarna i IoT-hubben som du skapade och skriver ut dem i-konsolen:
 
     ```csharp
     var listKeysUri = string.Format("https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Devices/IotHubs/{2}/IoTHubKeys/listkeys?api-version=2016-02-03", subscriptionId, rgName, iotHubName);
@@ -151,33 +150,33 @@ Använd den [IoT Hub REST API för resursprovider](https://docs.microsoft.com/re
     Console.WriteLine("Keys: {0}", keysresults.Content.ReadAsStringAsync().Result);
     ```
 
-## <a name="complete-and-run-the-application"></a>Slutför och köra programmet
+## <a name="complete-and-run-the-application"></a>Slutför och kör programmet
 
-Du kan nu slutföra programmet genom att anropa den **CreateIoTHub** metoden innan du skapar och kör den.
+Du kan nu slutföra programmet genom att anropa metoden **CreateIoTHub** innan du skapar och kör det.
 
-1. Lägg till följande kod i slutet av den **Main** metoden:
+1. Lägg till följande kod i slutet av **main** -metoden:
 
     ```csharp
     CreateIoTHub(token.AccessToken);
     Console.ReadLine();
     ```
 
-2. Klicka på **skapa** och sedan **bygg lösning**. Korrigera eventuella fel.
+2. Klicka på **build** och **bygg sedan lösning**. Korrigera eventuella fel.
 
-3. Klicka på **felsöka** och sedan **Starta felsökning** att köra programmet. Det kan ta flera minuter för att distributionen ska köra.
+3. Klicka på **Felsök** och **starta sedan fel sökning** för att köra programmet. Det kan ta flera minuter innan distributionen körs.
 
-4. Kontrollera att ditt program till den nya IoT-hubben genom att gå till den [Azure-portalen](https://portal.azure.com/) och visa din lista över resurser. Du kan också använda den **Get-AzResource** PowerShell-cmdlet.
+4. Du kan kontrol lera att programmet har lagt till den nya IoT-hubben genom att gå till [Azure Portal](https://portal.azure.com/) och visa din lista över resurser. Du kan också använda PowerShell-cmdleten **Get-AzResource** .
 
 > [!NOTE]
-> Det här exempelprogrammet lägger till en S1 Standard IoT-hubb som du faktureras. När du är klar tar du bort IoT-hubben via den [Azure-portalen](https://portal.azure.com/) eller genom att använda den **Remove-AzResource** PowerShell-cmdlet när du är klar.
+> Det här exempel programmet lägger till en S1-standardIoT Hub som du faktureras för. När du är klar kan du ta bort IoT-hubben via [Azure Portal](https://portal.azure.com/) eller genom att använda PowerShell-cmdleten **Remove-AzResource** när du är klar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu du har distribuerat en IoT hub med REST API för resursprovider, kanske du vill utforska ytterligare:
+Nu när du har distribuerat en IoT-hubb med hjälp av Resource Provider REST API kanske du vill utforska ytterligare:
 
-* Läs mer om funktionerna i den [IoT Hub REST API för resursprovider](https://docs.microsoft.com/rest/api/iothub/iothubresource).
+* Läs om funktionerna i [IoT Hub Resource provider REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource).
 
-* Läs [översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) att lära dig mer om funktionerna för Azure Resource Manager.
+* Läs [Azure Resource Manager översikt](../azure-resource-manager/resource-group-overview.md) för att lära dig mer om funktionerna i Azure Resource Manager.
 
 Mer information om hur du utvecklar för IoT Hub finns i följande artiklar:
 
@@ -185,6 +184,6 @@ Mer information om hur du utvecklar för IoT Hub finns i följande artiklar:
 
 * [SDK:er för Azure IoT](iot-hub-devguide-sdks.md)
 
-Om du vill fortsätta för att utforska funktionerna för IoT Hub, se:
+För att ytterligare utforska funktionerna i IoT Hub, se:
 
-* [Distribuera AI till gränsenheter med Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Distribuera AI till gräns enheter med Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

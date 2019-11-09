@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: overview
 ms.date: 08/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: f8ec833a469e3c3a9b4c88343a48e109fc5c9728
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 525271fdc94e0fd1b2cafe4a5a222ce9100156ef
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338214"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888481"
 ---
 # <a name="azure-resource-manager-overview"></a>Översikt över Azure Resource Manager
 
@@ -87,7 +87,7 @@ Det finns några viktiga faktorer att tänka på när du definierar en resursgru
 
 När du skapar en resursgrupp måste du ange en plats för denna resursgrupp. Du kanske undrar, "varför behöver en resursgrupp en plats? Och om resurserna kan ha andra platser än resursgruppen, varför spelar platsen för gruppresursen alls någon roll?" Resursgruppen lagrar metadata om resurserna. När du anger en plats för resurs gruppen anger du var metadata lagras. På grund av regelefterlevnadsskäl kan du behöva säkerställa att din data lagras inom en viss region.
 
-Om resurs gruppens region är tillfälligt otillgänglig, kan du inte uppdatera resurser i resurs gruppen eftersom metadata inte är tillgängliga. Resurserna i andra regioner fungerar fortfarande som förväntat, men du kan inte uppdatera dem. Mer information om hur du skapar pålitliga program finns i [utforma pålitliga Azure-program](/azure/architecture/reliability/).
+Om resurs gruppens region är tillfälligt otillgänglig, kan du inte uppdatera resurser i resurs gruppen eftersom metadata inte är tillgängliga. Resurserna i andra regioner fungerar fortfarande som förväntat, men du kan inte uppdatera dem. Mer information om hur du skapar pålitliga program finns i [utforma pålitliga Azure-program](/azure/architecture/checklist/resiliency-per-service).
 
 ## <a name="resiliency-of-azure-resource-manager"></a>Azure Resource Managers återhämtning
 

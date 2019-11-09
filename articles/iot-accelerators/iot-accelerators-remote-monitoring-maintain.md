@@ -1,5 +1,5 @@
 ---
-title: Självstudie om att använda aviseringar och åtgärda enhetsproblem i fjärrövervakningslösningen – Azure | Microsoft Docs
+title: Använd aviseringar i lösningen för fjärrövervakning – Azure | Microsoft Docs
 description: Den här självstudiekursen visar hur du använder aviseringar till att identifiera och åtgärda problem med enheter anslutna till acceleratorn Fjärrövervakningslösning.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 1cd1eb9a0bd4b8457ea82303a747acb2553ab707
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 853fa2b80e04dd8d9225d023db8030fed044ed7f
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61452695"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890926"
 ---
-# <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Självstudier: Felsök och åtgärda enhetsproblem
+# <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Självstudie: Felsök och åtgärda enhetsproblem
 
 I den här självstudien använder du självstudiekursen använder du acceleratorn Fjärrövervakningslösning till att identifiera och åtgärda problem med dina anslutna IoT-enheter. Du använder aviseringar i lösningsacceleratorns instrumentpanel till att identifiera problem och kör sedan fjärrjobb för att åtgärda dessa problem.
 

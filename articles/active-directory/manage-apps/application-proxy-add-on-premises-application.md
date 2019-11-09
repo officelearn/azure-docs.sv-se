@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8d6297a32cd0f85cf354a93bfdac72cbad9603d
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 72678a67b1bc9845eae2bca658f35a05c9bcf659
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062833"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73883979"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Självstudie: Lägg till ett lokalt program för fjärråtkomst via Application Proxy i Azure Active Directory
 
@@ -45,6 +45,12 @@ Om du vill lägga till ett lokalt program i Azure AD behöver du:
 Om du vill använda programproxy behöver du en Windows-server som kör Windows Server 2012 R2 eller senare. Du installerar anslutningsappen för programproxy på servern. Anslutningsservern måste ansluta till programproxytjänsten i Azure och de lokala programmen som du har för avsikt att publicera.
 
 Vi rekommenderar att du har mer än en Windows-server för att säkra hög tillgänglighet i produktionsmiljön. I den här självstudien räcker det med en Windows-server.
+
+> [!IMPORTANT]
+> Om du installerar anslutningen på Windows Server 2019 finns det en HTTP2 begränsning. För att kunna använda anslutningen för den här versionen lägger du till följande register nyckel och startar om servern:
+    ```
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+    ```
 
 #### <a name="recommendations-for-the-connector-server"></a>Rekommendationer för anslutnings servern
 

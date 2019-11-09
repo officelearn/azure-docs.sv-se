@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fdd1aeea20160bb1a9f91de934bd9268a179648a
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: c098b67ab2782fa3cf29b5b19aa198f899ba69c0
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529223"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890620"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Självstudie: utveckla en C IoT Edge-modul för Windows-enheter
 
@@ -38,11 +38,11 @@ Den här självstudien visar hur du utvecklar en modul i **C** med **Visual Stud
 
 Använd följande tabell för att förstå alternativen för att utveckla och distribuera C-moduler till Windows-enheter: 
 
-| C | Visual Studio-kod | Visual Studio 2017/2019 | 
+| C | Visual Studio-koden | Visual Studio 2017/2019 | 
 | -- | ------------------ | ------------------ |
 | **Windows AMD64** |  | ![Utveckla C-moduler för WinAMD64 i Visual Studio](./media/tutorial-c-module/green-check.png) |
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du påbörjar den här självstudien bör du ha gått igenom den föregående själv studie kursen för att konfigurera utvecklings miljön för utveckling av Windows-behållare: [utveckla IoT Edge moduler för Windows-enheter](tutorial-develop-for-windows.md). När du har slutfört den här självstudien bör du ha följande krav på plats: 
 
@@ -74,7 +74,7 @@ Skapa en C-lösningsmall som du kan anpassa med din egen kod.
 
 1. Starta Visual Studio 2019 och välj **Skapa nytt projekt**.
 
-2. I fönstret nytt projekt söker du **IoT Edge** projekt och väljer **Azure IoT Edge (Windows amd64)-** projektet. Klicka på **Next**. 
+2. I fönstret nytt projekt söker du **IoT Edge** projekt och väljer **Azure IoT Edge (Windows amd64)-** projektet. Klicka på **Nästa**. 
 
    ![Skapa ett nytt Azure IoT Edge-projekt](./media/tutorial-c-module-windows/new-project.png)
 
@@ -134,11 +134,11 @@ Koden för standardmodulen tar emot meddelanden i en indatakö och skickar dem v
       )
       ```
 
-   3. Lägg till **my_parson** i listan över bibliotek i avsnittet **Target_link_libraries** i filen CMakeLists. txt.
+   3. Lägg till `my_parson` i listan över bibliotek i avsnittet **target_link_libraries** i filen CMakeLists. txt.
 
    4. Spara filen **CMakeLists.txt**.
 
-   5. Öppna **CModule**  > **main. c**. Lägg till en ny i slutet av listan över include-instruktioner för att ta med `parson.h` för JSON-stöd:
+   5. Öppna **CModule** > **main. c**. Lägg till en ny i slutet av listan över include-instruktioner för att ta med `parson.h` för JSON-stöd:
 
       ```c
       #include "parson.h"
@@ -174,6 +174,14 @@ Koden för standardmodulen tar emot meddelanden i en indatakö och skickar dem v
 4. Hitta `InputQueue1Callback` funktionen och ersätt hela-funktionen med följande kod. Den här funktionen implementerar själva meddelandefiltret. När ett meddelande tas emot kontrollerar det om den rapporterade temperaturen överskrider tröskelvärdet. Om ja, vidarebefordrar det meddelandet via kön för utdata. Annars ignorerar den meddelandet. 
 
     ```c
+    static unsigned char *bytearray_to_str(const unsigned char *buffer, size_t len)
+    {
+        unsigned char *ret = (unsigned char *)malloc(len + 1);
+        memcpy(ret, buffer, len);
+        ret[len] = '\0';
+        return ret;
+    }
+
     static IOTHUBMESSAGE_DISPOSITION_RESULT InputQueue1Callback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
     {
         IOTHUBMESSAGE_DISPOSITION_RESULT result;
@@ -183,7 +191,10 @@ Koden för standardmodulen tar emot meddelanden i en indatakö och skickar dem v
         unsigned const char* messageBody;
         size_t contentSize;
 
-        if (IoTHubMessage_GetByteArray(message, &messageBody, &contentSize) != IOTHUB_MESSAGE_OK)
+        if (IoTHubMessage_GetByteArray(message, &messageBody, &contentSize) == IOTHUB_MESSAGE_OK)
+        {
+            messageBody = bytearray_to_str(messageBody, contentSize);
+        } else
         {
             messageBody = "<null>";
         }
@@ -315,7 +326,7 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lagt till kod i **CMo
 
 3. Välj **build-och push-IoT Edge moduler**. 
 
-   Kommandot build och push startar tre åtgärder. Först skapar den en ny mapp i lösningen som heter **config** som innehåller det fullständiga distributions manifestet, som bygger ut information i distributions mal len och andra lösningsfiler. För det andra körs `docker build` för att bygga behållar avbildningen baserat på lämpliga Dockerfile för din mål arkitektur. Sedan körs `docker push` för att push-överföra avbildnings lagrings platsen till behållar registret. 
+   Kommandot build och push startar tre åtgärder. Först skapar den en ny mapp i lösningen som heter **config** som innehåller det fullständiga distributions manifestet, som bygger ut information i distributions mal len och andra lösningsfiler. För det andra kör den `docker build` för att bygga behållar avbildningen baserat på lämpliga Dockerfile för din mål arkitektur. Sedan körs `docker push` för att push-överföra avbildnings lagrings platsen till behållar registret. 
 
 ## <a name="deploy-modules-to-device"></a>Distribuera moduler till enhet
 
@@ -378,4 +389,4 @@ I den här självstudien skapade du en IoT Edge-modul med kod för att filtrera 
 > [Functions](tutorial-deploy-function.md)
 > [Stream Analytics](tutorial-deploy-stream-analytics.md)
 > [Machine Learning](tutorial-deploy-machine-learning.md)
-> [Custom vision service](tutorial-deploy-custom-vision.md)
+> [Custom Vision Service](tutorial-deploy-custom-vision.md)

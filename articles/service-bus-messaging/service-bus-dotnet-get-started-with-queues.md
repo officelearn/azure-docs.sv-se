@@ -12,29 +12,30 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/10/2019
+ms.date: 11/04/2019
 ms.author: aschhab
-ms.openlocfilehash: abef7815effcf420c8a0065ed46ce3c16c19ebe0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cecd37c16d34c0cd6cf7a4d98732762d16073864
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991772"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73884124"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Komma igång med Service Bus-köer
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-I den här självstudien skapar du .NET Core-konsolprogram för att skicka meddelanden till och ta emot meddelanden från en Service Bus-kö. 
+I den här självstudien skapar du .NET Core-konsolprogram för att skicka meddelanden till och ta emot meddelanden från en Service Bus kö.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) eller senare.
-2. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 eller senare.
-2. En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera din [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för en [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-3. Om du inte har en kö för att arbeta med, Följ stegen i den [Använd Azure portal för att skapa en Service Bus-kö](service-bus-quickstart-portal.md) artikeln om du vill skapa en kö.
-    1. Läsa snabbstartsidan **översikt** i Service Bus **köer**. 
-    2. Skapa ett Service Bus **namnområde**. 
-    3. Hämta den **anslutningssträngen**. 
-    4. Skapa ett Service Bus **kö**. 
+- [Visual Studio 2019](https://www.visualstudio.com/vs).
+- [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 eller senare.
+- En Azure-prenumeration. Du behöver ett Azure-konto för att genomföra kursen. Du kan aktivera dina [förmåner för MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Om du inte har en kö att arbeta med följer du stegen i artikeln [använd Azure Portal för att Service Bus skapa](service-bus-quickstart-portal.md) en kö.
+
+  - Läs snabb översikten över Service Bus köer.
+  - Skapa ett Service Bus-namnområde.
+  - Hämta anslutnings strängen.
+  - Skapa en Service Bus kö.
 
 ## <a name="send-messages-to-the-queue"></a>Skicka meddelanden till kön
 
@@ -42,19 +43,20 @@ Skriv ett C#-konsolprogram med Visual Studio för att skicka meddelanden till k�
 
 ### <a name="create-a-console-application"></a>Skapa ett konsolprogram
 
-Starta Visual Studio och skapa ett nytt projekt: **Konsolprogram (.NET Core)** .
+Starta Visual Studio och skapa ett nytt **konsol program (.net Core)-** projekt C#för. I det här exemplet namnges appens *CoreSenderApp*.
 
 ### <a name="add-the-service-bus-nuget-package"></a>Lägga till Service Bus-NuGet-paketet
 
 1. Högerklicka på det nyskapade projektet och välj **Hantera Nuget-paket**.
-2. Klicka på fliken **Bläddra**, sök efter **[Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)** och markera posten **Microsoft.Azure.ServiceBus**. Klicka på **Installera** för att slutföra installationen och stäng sedan den här dialogrutan.
-   
+1. Välj **Bläddra**. Sök efter och välj **[Microsoft. Azure. Service Bus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)** .
+1. Välj **Installera** för att slutföra installationen och stäng sedan NuGet Package Manager.
+
     ![Välj ett NuGet-paket][nuget-pkg]
 
 ### <a name="write-code-to-send-messages-to-the-queue"></a>Skriva kod för att skicka meddelanden till kön
 
-1. I Program.cs lägger du till följande `using`-instruktioner överst i definitionen för namnområdet, före klassdeklarationen:
-   
+1. I *program.cs*lägger du till följande `using`-instruktioner överst i namn områdes definitionen, före klass deklarationen:
+
     ```csharp
     using System.Text;
     using System.Threading;
@@ -62,21 +64,23 @@ Starta Visual Studio och skapa ett nytt projekt: **Konsolprogram (.NET Core)** .
     using Microsoft.Azure.ServiceBus;
     ```
 
-2. I `Program`-klassen deklarerar du följande variabler. Ställ in variabeln `ServiceBusConnectionString` på den anslutningssträng du fick när du skapade namnområdet, och ställ in `QueueName` på namnet du använde när du skapade kön:
-   
+1. Deklarera följande variabler i `Program`-klassen:
+
     ```csharp
     const string ServiceBusConnectionString = "<your_connection_string>";
     const string QueueName = "<your_queue_name>";
     static IQueueClient queueClient;
-    ``` 
+    ```
 
-3. Ersätt standardinnehållet i `Main()` med följande rad med kod:
+    Ange anslutnings strängen för namn området som `ServiceBusConnectionString` variabeln. Ange namnet på kön.
+
+1. Ersätt standardinnehållet i `Main()` med följande rad med kod:
 
     ```csharp
     MainAsync().GetAwaiter().GetResult();
     ```
 
-4. Direkt efter `Main()` lägger du till följande asynkrona `MainAsync()`-metod som anropar metoden för att skicka meddelanden:
+1. Direkt efter `Main()` lägger du till följande asynkrona `MainAsync()`-metod som anropar metoden för att skicka meddelanden:
 
     ```csharp
     static async Task MainAsync()
@@ -97,7 +101,7 @@ Starta Visual Studio och skapa ett nytt projekt: **Konsolprogram (.NET Core)** .
     }
     ```
 
-5. Direkt efter `MainAsync()`-metoden lägger du till följande `SendMessagesAsync()`-metod som utför uppgiften att skicka det antal meddelanden som anges av `numberOfMessagesToSend` (för närvarande inställd på 10):
+1. Direkt efter `MainAsync()`-metoden lägger du till följande `SendMessagesAsync()`-metod som utför arbetet med att skicka antalet meddelanden som anges av `numberOfMessagesToSend` (för närvarande till 10):
 
     ```csharp
     static async Task SendMessagesAsync(int numberOfMessagesToSend)
@@ -123,86 +127,94 @@ Starta Visual Studio och skapa ett nytt projekt: **Konsolprogram (.NET Core)** .
         }
     }
     ```
-   
-6. Så här bör filen Program.cs se ut:
-   
-    ```csharp
-    namespace CoreSenderApp
+
+Så här bör din *program.cs* -fil se ut.
+
+```csharp
+namespace CoreSenderApp
+{
+    using System;
+    using System.Text;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Microsoft.Azure.ServiceBus;
+
+    class Program
     {
-        using System;
-        using System.Text;
-        using System.Threading;
-        using System.Threading.Tasks;
-        using Microsoft.Azure.ServiceBus;
+        // Connection String for the namespace can be obtained from the Azure portal under the 
+        // 'Shared Access policies' section.
+        const string ServiceBusConnectionString = "<your_connection_string>";
+        const string QueueName = "<your_queue_name>";
+        static IQueueClient queueClient;
 
-        class Program
+        static void Main(string[] args)
         {
-            // Connection String for the namespace can be obtained from the Azure portal under the 
-            // 'Shared Access policies' section.
-            const string ServiceBusConnectionString = "<your_connection_string>";
-            const string QueueName = "<your_queue_name>";
-            static IQueueClient queueClient;
+            MainAsync().GetAwaiter().GetResult();
+        }
 
-            static void Main(string[] args)
+        static async Task MainAsync()
+        {
+            const int numberOfMessages = 10;
+            queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
+
+            Console.WriteLine("======================================================");
+            Console.WriteLine("Press ENTER key to exit after sending all the messages.");
+            Console.WriteLine("======================================================");
+
+            // Send Messages
+            await SendMessagesAsync(numberOfMessages);
+
+            Console.ReadKey();
+
+            await queueClient.CloseAsync();
+        }
+
+        static async Task SendMessagesAsync(int numberOfMessagesToSend)
+        {
+            try
             {
-                MainAsync().GetAwaiter().GetResult();
-            }
-
-            static async Task MainAsync()
-            {
-                const int numberOfMessages = 10;
-                queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
-
-                Console.WriteLine("======================================================");
-                Console.WriteLine("Press ENTER key to exit after sending all the messages.");
-                Console.WriteLine("======================================================");
-
-                // Send Messages
-                await SendMessagesAsync(numberOfMessages);
-                        
-                Console.ReadKey();
-
-                await queueClient.CloseAsync();
-            }
-
-            static async Task SendMessagesAsync(int numberOfMessagesToSend)
-            {
-                try
+                for (var i = 0; i < numberOfMessagesToSend; i++)
                 {
-                    for (var i = 0; i < numberOfMessagesToSend; i++)
-                    {
-                        // Create a new message to send to the queue
-                        string messageBody = $"Message {i}";
-                        var message = new Message(Encoding.UTF8.GetBytes(messageBody));
+                    // Create a new message to send to the queue
+                    string messageBody = $"Message {i}";
+                    var message = new Message(Encoding.UTF8.GetBytes(messageBody));
 
-                        // Write the body of the message to the console
-                        Console.WriteLine($"Sending message: {messageBody}");
+                    // Write the body of the message to the console
+                    Console.WriteLine($"Sending message: {messageBody}");
 
-                        // Send the message to the queue
-                        await queueClient.SendAsync(message);
-                    }
+                    // Send the message to the queue
+                    await queueClient.SendAsync(message);
                 }
-                catch (Exception exception)
-                {
-                    Console.WriteLine($"{DateTime.Now} :: Exception: {exception.Message}");
-                }
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine($"{DateTime.Now} :: Exception: {exception.Message}");
             }
         }
     }
-    ```
+}
+```
 
-7. Kör programmet och kontrollera Azure Portal: klicka på köns namn på fönstret **Översikt** för namnområdet. Skärmen **Grundläggande** för kön visas. Observera att **Antal aktiva meddelanden** för kön nu är **10**. Varje gång du kör sändningsprogrammet utan att hämta meddelanden (beskrivs i nästa avsnitt) ökar detta värde med 10. Observera också att köns aktuella storlek ökar värdet **Aktuell** i fönstret **Grundläggande** varje gång programmet lägger till meddelanden i kön.
-   
-      ![Meddelandestorlek][queue-message]
+Kör programmet och kontrol lera Azure Portal.
+
+Välj namnet på din kö i **översikts** fönstret för namn området för att visa **grundläggande**information om kön.
+
+![Mottagna meddelanden med antal och storlek][queue-message]
+
+Värdet för **Antal aktiva meddelanden** för kön är nu **10**. Varje gången du kör den här avsändar appen utan att hämta meddelandena ökar värdet med 10.
+
+Köns aktuella storlek ökar det **aktuella** värdet i **grunderna** varje gången appen lägger till meddelanden i kön.
+
+I nästa avsnitt beskrivs hur du hämtar dessa meddelanden.
 
 ## <a name="receive-messages-from-the-queue"></a>Ta emot meddelanden från kön
 
-Skapa en annan .NET Core-konsolprogram för att ta emot meddelanden som du har skickat och installera den **Microsoft.Azure.ServiceBus** NuGet-paketet, ungefär som i det tidigare sändningsprogrammet.
+Om du vill ta emot de meddelanden som du har skickat skapar du ett annat **konsol program (.net Core)** . Installera **Microsoft. Azure. Service Bus** NuGet-paketet som du gjorde för avsändar programmet.
 
 ### <a name="write-code-to-receive-messages-from-the-queue"></a>Skriva kod för att ta emot meddelanden från kön
 
-1. I Program.cs lägger du till följande `using`-instruktioner överst i definitionen för namnområdet, före klassdeklarationen:
-   
+1. I *program.cs*lägger du till följande `using`-instruktioner överst i namn områdes definitionen, före klass deklarationen:
+
     ```csharp
     using System.Text;
     using System.Threading;
@@ -210,21 +222,23 @@ Skapa en annan .NET Core-konsolprogram för att ta emot meddelanden som du har s
     using Microsoft.Azure.ServiceBus;
     ```
 
-2. I `Program`-klassen deklarerar du följande variabler. Ställ in variabeln `ServiceBusConnectionString` på den anslutningssträng du fick när du skapade namnområdet, och ställ in `QueueName` på namnet du använde när du skapade kön:
-   
+1. Deklarera följande variabler i `Program`-klassen:
+
     ```csharp
     const string ServiceBusConnectionString = "<your_connection_string>";
     const string QueueName = "<your_queue_name>";
     static IQueueClient queueClient;
     ```
 
-3. Ersätt standardinnehållet i `Main()` med följande rad med kod:
+    Ange anslutnings strängen för namn området som `ServiceBusConnectionString` variabeln. Ange namnet på kön.
+
+1. Ersätt standardinnehållet i `Main()` med följande rad med kod:
 
     ```csharp
     MainAsync().GetAwaiter().GetResult();
     ```
 
-4. Direkt efter `Main()` lägger du till följande asynkrona `MainAsync()`-metod som anropar metoden `RegisterOnMessageHandlerAndReceiveMessages()`:
+1. Direkt efter `Main()` lägger du till följande asynkrona `MainAsync()`-metod som anropar metoden `RegisterOnMessageHandlerAndReceiveMessages()`:
 
     ```csharp
     static async Task MainAsync()
@@ -244,7 +258,7 @@ Skapa en annan .NET Core-konsolprogram för att ta emot meddelanden som du har s
     }
     ```
 
-5. Direkt efter `MainAsync()`-metoden lägger du till följande metod som registrerar meddelandehanteraren och tar emot meddelanden som skickas av sändningsprogrammet:
+1. Direkt efter `MainAsync()`-metoden lägger du till följande metod, som registrerar meddelande hanteraren och tar emot meddelanden som skickas av avsändar programmet:
 
     ```csharp
     static void RegisterOnMessageHandlerAndReceiveMessages()
@@ -266,8 +280,8 @@ Skapa en annan .NET Core-konsolprogram för att ta emot meddelanden som du har s
     }
     ```
 
-6. Direkt efter den föregående metoden lägger du till följande `ProcessMessagesAsync()`-metod för att bearbeta de mottagna meddelandena:
- 
+1. Direkt efter den föregående metoden lägger du till följande `ProcessMessagesAsync()`-metod för att bearbeta de mottagna meddelandena:
+
     ```csharp
     static async Task ProcessMessagesAsync(Message message, CancellationToken token)
     {
@@ -284,8 +298,8 @@ Skapa en annan .NET Core-konsolprogram för att ta emot meddelanden som du har s
     }
     ```
 
-7. Slutligen lägger du till följande metod för att hantera alla undantag som kan uppstå:
- 
+1. Slutligen lägger du till följande metod för att hantera alla undantag som kan uppstå:
+
     ```csharp
     // Use this handler to examine the exceptions received on the message pump.
     static Task ExceptionReceivedHandler(ExceptionReceivedEventArgs exceptionReceivedEventArgs)
@@ -297,102 +311,103 @@ Skapa en annan .NET Core-konsolprogram för att ta emot meddelanden som du har s
         Console.WriteLine($"- Entity Path: {context.EntityPath}");
         Console.WriteLine($"- Executing Action: {context.Action}");
         return Task.CompletedTask;
-    }    
-    ```    
-   
-8. Så här bör din Program.cs-fil se ut:
-   
-    ```csharp
-    namespace CoreReceiverApp
-    {
-        using System;
-        using System.Text;
-        using System.Threading;
-        using System.Threading.Tasks;
-        using Microsoft.Azure.ServiceBus;
-
-        class Program
-        {
-            // Connection String for the namespace can be obtained from the Azure portal under the 
-            // 'Shared Access policies' section.
-            const string ServiceBusConnectionString = "<your_connection_string>";
-            const string QueueName = "<your_queue_name>";
-            static IQueueClient queueClient;
-
-            static void Main(string[] args)
-            {
-                MainAsync().GetAwaiter().GetResult();
-            }
-
-            static async Task MainAsync()
-            {
-                queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
-
-                Console.WriteLine("======================================================");
-                Console.WriteLine("Press ENTER key to exit after receiving all the messages.");
-                Console.WriteLine("======================================================");
-
-                // Register QueueClient's MessageHandler and receive messages in a loop
-                RegisterOnMessageHandlerAndReceiveMessages();
-                    
-                Console.ReadKey();
-
-                await queueClient.CloseAsync();
-            }
-
-            static void RegisterOnMessageHandlerAndReceiveMessages()
-            {
-                // Configure the MessageHandler Options in terms of exception handling, number of concurrent messages to deliver etc.
-                var messageHandlerOptions = new MessageHandlerOptions(ExceptionReceivedHandler)
-                {
-                    // Maximum number of Concurrent calls to the callback `ProcessMessagesAsync`, set to 1 for simplicity.
-                    // Set it according to how many messages the application wants to process in parallel.
-                    MaxConcurrentCalls = 1,
-
-                    // Indicates whether MessagePump should automatically complete the messages after returning from User Callback.
-                    // False below indicates the Complete will be handled by the User Callback as in `ProcessMessagesAsync` below.
-                    AutoComplete = false
-                };
-
-                // Register the function that will process messages
-                queueClient.RegisterMessageHandler(ProcessMessagesAsync, messageHandlerOptions);
-            }
-
-            static async Task ProcessMessagesAsync(Message message, CancellationToken token)
-            {
-                // Process the message
-                Console.WriteLine($"Received message: SequenceNumber:{message.SystemProperties.SequenceNumber} Body:{Encoding.UTF8.GetString(message.Body)}");
-
-                // Complete the message so that it is not received again.
-                // This can be done only if the queueClient is created in ReceiveMode.PeekLock mode (which is default).
-                await queueClient.CompleteAsync(message.SystemProperties.LockToken);
-
-                // Note: Use the cancellationToken passed as necessary to determine if the queueClient has already been closed.
-                // If queueClient has already been Closed, you may chose to not call CompleteAsync() or AbandonAsync() etc. calls 
-               // to avoid unnecessary exceptions.
-            }
-
-            static Task ExceptionReceivedHandler(ExceptionReceivedEventArgs exceptionReceivedEventArgs)
-            {
-                Console.WriteLine($"Message handler encountered an exception {exceptionReceivedEventArgs.Exception}.");
-                var context = exceptionReceivedEventArgs.ExceptionReceivedContext;
-                Console.WriteLine("Exception context for troubleshooting:");
-                Console.WriteLine($"- Endpoint: {context.Endpoint}");
-                Console.WriteLine($"- Entity Path: {context.EntityPath}");
-                Console.WriteLine($"- Executing Action: {context.Action}");
-                return Task.CompletedTask;
-            }
-        }
     }
     ```
-4. Kör programmet och kontrollera portalen igen. Observera att värdena för **Antal aktiva meddelanden** och **Aktuell** nu är **0**.
-   
-    ![Kölängd][queue-message-receive]
 
-Grattis! Nu har du skapat en kö, skickat en uppsättning meddelanden till kön och tagit emot meddelandena från samma kö.
+Så här bör din *program.cs* -fil se ut:
+
+```csharp
+namespace CoreReceiverApp
+{
+    using System;
+    using System.Text;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Microsoft.Azure.ServiceBus;
+
+    class Program
+    {
+        // Connection String for the namespace can be obtained from the Azure portal under the 
+        // 'Shared Access policies' section.
+        const string ServiceBusConnectionString = "<your_connection_string>";
+        const string QueueName = "<your_queue_name>";
+        static IQueueClient queueClient;
+
+        static void Main(string[] args)
+        {
+            MainAsync().GetAwaiter().GetResult();
+        }
+
+        static async Task MainAsync()
+        {
+            queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
+
+            Console.WriteLine("======================================================");
+            Console.WriteLine("Press ENTER key to exit after receiving all the messages.");
+            Console.WriteLine("======================================================");
+
+            // Register QueueClient's MessageHandler and receive messages in a loop
+            RegisterOnMessageHandlerAndReceiveMessages();
+ 
+            Console.ReadKey();
+
+            await queueClient.CloseAsync();
+        }
+
+        static void RegisterOnMessageHandlerAndReceiveMessages()
+        {
+            // Configure the MessageHandler Options in terms of exception handling, number of concurrent messages to deliver etc.
+            var messageHandlerOptions = new MessageHandlerOptions(ExceptionReceivedHandler)
+            {
+                // Maximum number of Concurrent calls to the callback `ProcessMessagesAsync`, set to 1 for simplicity.
+                // Set it according to how many messages the application wants to process in parallel.
+                MaxConcurrentCalls = 1,
+
+                // Indicates whether MessagePump should automatically complete the messages after returning from User Callback.
+                // False below indicates the Complete will be handled by the User Callback as in `ProcessMessagesAsync` below.
+                AutoComplete = false
+            };
+
+            // Register the function that will process messages
+            queueClient.RegisterMessageHandler(ProcessMessagesAsync, messageHandlerOptions);
+        }
+
+        static async Task ProcessMessagesAsync(Message message, CancellationToken token)
+        {
+            // Process the message
+            Console.WriteLine($"Received message: SequenceNumber:{message.SystemProperties.SequenceNumber} Body:{Encoding.UTF8.GetString(message.Body)}");
+
+            // Complete the message so that it is not received again.
+            // This can be done only if the queueClient is created in ReceiveMode.PeekLock mode (which is default).
+            await queueClient.CompleteAsync(message.SystemProperties.LockToken);
+
+            // Note: Use the cancellationToken passed as necessary to determine if the queueClient has already been closed.
+            // If queueClient has already been Closed, you may chose to not call CompleteAsync() or AbandonAsync() etc. calls 
+            // to avoid unnecessary exceptions.
+        }
+
+        static Task ExceptionReceivedHandler(ExceptionReceivedEventArgs exceptionReceivedEventArgs)
+        {
+            Console.WriteLine($"Message handler encountered an exception {exceptionReceivedEventArgs.Exception}.");
+            var context = exceptionReceivedEventArgs.ExceptionReceivedContext;
+            Console.WriteLine("Exception context for troubleshooting:");
+            Console.WriteLine($"- Endpoint: {context.Endpoint}");
+            Console.WriteLine($"- Entity Path: {context.EntityPath}");
+            Console.WriteLine($"- Executing Action: {context.Action}");
+            return Task.CompletedTask;
+        }
+    }
+}
+```
+
+Kör programmet och kontrollera portalen igen. **Antalet aktiva meddelanden** och **aktuella** värden är nu **0**.
+
+![Kö efter att meddelanden har tagits emot][queue-message-receive]
+
+Grattis! Nu har du skapat en kö, skickat en uppsättning meddelanden till kön och tagit emot dessa meddelanden från samma kö.
 
 > [!NOTE]
-> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer tillåter användare att ansluta till ett Service Bus-namnområde och administrera meddelandeentiteter på ett enkelt sätt. Verktyget tillhandahåller avancerade funktioner som import/export-funktionalitet eller möjligheten att testa ämne, köer, prenumerationer, relätjänster, meddelandehubbar och händelser hubs. 
+> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer gör det möjligt för användare att enkelt ansluta till en Service Bus namnrymd och administrera meddelande enheter. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjlighet att testa ämnen, köer, prenumerationer, relä tjänster, Notification Hub och Event Hub.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -401,6 +416,6 @@ Kolla in våra [GitHub-databaser med exempel](https://github.com/Azure/azure-ser
 <!--Image references-->
 
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
-[queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
-[queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
+[queue-message]: ./media/service-bus-dotnet-get-started-with-queues/messages-sent-to-essentials.png
+[queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive-in-essentials.png
 

@@ -1,30 +1,27 @@
 ---
-title: Azure PowerShell-skriptexempel – belastningsutjämna flera webbplatser med Azure PowerShell | Microsoft Docs
-description: Azure PowerShell-skriptexempel – belastningsutjämna flera webbplatser till samma virtuella dator
+title: Azure PowerShell skript exempel – belastningsutjämna flera webbplatser med Azure PowerShell | Microsoft Docs
+description: Azure PowerShell skript exempel – belastningsutjämna flera webbplatser till samma virtuella dator
 services: load-balancer
 documentationcenter: load-balancer
-author: georgewallace
-manager: timlt
-editor: tysonn
-tags: ''
-ms.assetid: ''
+author: asudbring
+manager: KumudD
 ms.service: load-balancer
 ms.devlang: powershell
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/16/2017
-ms.author: gwallace
-ms.openlocfilehash: 145b5a686b2707b6e60a481c08f187164d788580
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 0b266f5fcad0ef709e29a125f1b9b5ddba7fec90
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66121241"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890296"
 ---
 # <a name="load-balance-multiple-websites"></a>Belastningsutjämning för flera webbplatser
 
-Det här Skriptexemplet skapar ett virtuellt nätverk med två virtuella datorer (VM) som är medlemmar i en tillgänglighetsuppsättning. En lastbalanserare dirigerar trafik för två olika IP-adresser till de två virtuella datorerna. När du har kört skriptet kan du distribuera webbserverprogramvara för virtuella datorer och vara värd för flera webbplatser, var och en med egen IP-adress.
+Det här skript exemplet skapar ett virtuellt nätverk med två virtuella datorer (VM) som är medlemmar i en tillgänglighets uppsättning. En lastbalanserare dirigerar trafik för två olika IP-adresser till de två virtuella datorerna. När du har kört skriptet kan du distribuera webbserverprogramvara för virtuella datorer och vara värd för flera webbplatser, var och en med egen IP-adress.
 
 Om det behövs installerar du Azure PowerShell med hjälp av instruktionerna i [Azure PowerShell-guiden](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) och kör sedan `Connect-AzAccount` för att skapa en anslutning till Azure.
 

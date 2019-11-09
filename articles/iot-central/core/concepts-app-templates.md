@@ -7,16 +7,16 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: eb7319d665f228c552423a60a3b1529dc9b1143f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 3389744c44f7eb4f11a1c9a53ea9e370b83dd79b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583214"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890831"
 ---
 # <a name="what-are-application-templates"></a>Vad är programmallar?
 
-Programmallar i Azure IoT Central är ett verktyg som hjälper lösnings utvecklare att kickstart sin IoT-lösning. Du kan använda app-mallar för allt från att få en känsla för vad som är möjligt, för att helt anpassa och vita etikettera ditt program för åter försäljning till dina kunder.
+Programmallar i Azure IoT Central är ett verktyg som hjälper lösnings utvecklare att kickstart sin IoT-lösning. Du kan använda app-mallar för allt från att få en känsla för vad som är möjligt, för att helt anpassa och ditt program för åter försäljning till dina kunder.
 
 Programmallar består av:
 
@@ -26,7 +26,32 @@ Programmallar består av:
 - Förkonfigurerade regler och jobb
 - Omfattande dokumentation inklusive själv studie kurser och instruktioner
 
-## <a name="industry-focused-app-templates"></a>Appar som fokuserar på bransch
+## <a name="preview-templates"></a>Förhandsgranska mallar
+
+Valet av program mal len avgör om programmet använder IoT Central för hands versions funktioner som Plug and Play för enheter.
+
+För närvarande är Programmallarna som använder _allmänt tillgängliga_ funktioner:
+
+- Anpassad app > anpassat program
+- Anpassad app > exempel contoso
+- Anpassad app > Devkits-exempel
+
+För närvarande är Programmallarna som använder _offentliga för hands versions_ funktioner:
+
+- Anpassad app > för hands versions program
+- Återförsäljar > ansluten logistik
+- Retail > Digital Distribution Center
+- Detalj handels > i butiken Analytics – villkors övervakning
+- Detalj handel > in-Store-analys – utcheckning
+- Retail > Smart Inventory Management
+- Övervakning av energi > smart mätare
+- Övervakning av energi > sol panel
+- Myndigheter > ansluten avfalls hantering
+- Övervakning av myndigheter > vatten förbrukning
+- Övervakning av myndigheter > vatten kvalitet
+- Sjukvård > kontinuerlig övervakning av patienter
+
+## <a name="industry-focused-templates"></a>Bransch fokuserade mallar
 
 Azure IoT Central är en plattform för oberoende-program. Programmallar är bransch fokuserade exempel som är tillgängliga för dessa branscher idag, med mer att komma i framtiden:
 
@@ -48,4 +73,4 @@ Azure IoT Central är en plattform för oberoende-program. Programmallar är bra
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du vet vad IoT Central programmallar är, kom igång genom att [skapa ett IoT Central program](quick-deploy-iot-central-pnp.md).
+Nu när du vet vad IoT Central programmallar är, kom igång genom att [skapa ett IoT Central program](quick-deploy-iot-central.md).

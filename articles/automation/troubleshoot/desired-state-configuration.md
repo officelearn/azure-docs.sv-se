@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b9d2dda589cc59be24b73ce16dcdcbbe79b31aef
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 7be5e814d8092b523fa69fdd84f0e1476736fda2
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259164"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887717"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Felsök önskad tillstånds konfiguration (DSC)
 
@@ -24,7 +24,7 @@ Den här artikeln innehåller information om fel sökning av problem med önskad
 
 När du har problem med att kompilera eller distribuera konfigurationer i Azure-tillstånds konfiguration så är det några steg som hjälper dig att diagnostisera problemet.
 
-1. **Se till att konfigurationen kompileras korrekt på den lokala datorn:**  Azure State Configuration bygger på PowerShell DSC. Du hittar dokumentationen för DSC-språket och syntaxen i [POWERSHELL DSC-dokumenten](https://docs.microsoft.com/en-us/powershell/scripting/overview).
+1. **Se till att konfigurationen kompileras korrekt på den lokala datorn:**  Azure State Configuration bygger på PowerShell DSC. Du hittar dokumentationen för DSC-språket och syntaxen i [POWERSHELL DSC-dokumenten](https://docs.microsoft.com/powershell/scripting/overview).
 
    Genom att kompilera DSC-konfigurationen på den lokala datorn kan du identifiera och lösa vanliga fel, till exempel:
 
@@ -45,7 +45,7 @@ När du har problem med att kompilera eller distribuera konfigurationer i Azure-
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Vanliga fel när du arbetar med önskad tillstånds konfiguration (DSC)
 
-### <a name="unsupported-characters"></a>Situationen Det går inte att ta bort en konfiguration med specialtecken från portalen
+### <a name="unsupported-characters"></a>Scenario: en konfiguration med specialtecken kan inte tas bort från portalen
 
 #### <a name="issue"></a>Problem
 
@@ -65,7 +65,7 @@ Det här felet är ett tillfälligt problem som planeras att lösas.
 * Dokumentationen för den här cmdleten har ännu inte uppdaterats.  Tills dess kan du läsa dokumentationen för AzureRM-modulen.
   * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
 
-### <a name="failed-to-register-agent"></a>Situationen Det gick inte att registrera DSC-agenten
+### <a name="failed-to-register-agent"></a>Scenario: det gick inte att registrera DSC-agenten
 
 #### <a name="issue"></a>Problem
 
@@ -90,7 +90,7 @@ Det här felet orsakas normalt av en brand vägg, datorn är bakom en proxyserve
 
 Kontrol lera att datorn har åtkomst till rätt slut punkter för Azure Automation DSC och försök igen. En lista över portar och adresser som behövs finns i [nätverks planering](../automation-dsc-overview.md#network-planning)
 
-### <a name="failed-not-found"></a>Situationen Noden har statusen misslyckades med felet "hittades inte"
+### <a name="failed-not-found"></a>Scenario: noden har statusen misslyckades med fel meddelandet "hittades inte"
 
 #### <a name="issue"></a>Problem
 
@@ -112,7 +112,7 @@ Det här felet uppstår vanligt vis när noden tilldelas ett konfigurations namn
   * Om du vill tilldela en nods konfiguration till en nod med hjälp av Azure Portal öppnar du sidan **DSC-noder** och väljer sedan en nod och klickar på **tilldela konfigurations** knapp för nod.
   * Om du vill tilldela en nods konfiguration till en nod med PowerShell-cmdlet använder du **set-AzureRmAutomationDscNode-** cmdleten
 
-### <a name="no-mof-files"></a>Situationen Inga nodkonfigurationer (MOF-filer) skapades när en konfiguration kompilerades
+### <a name="no-mof-files"></a>Scenario: inga nodkonfigurationer (MOF-filer) skapas när en konfiguration kompileras
 
 #### <a name="issue"></a>Problem
 
@@ -124,7 +124,7 @@ Compilation completed successfully, but no node configuration.mofs were generate
 
 #### <a name="cause"></a>Orsak
 
-När uttrycket efter **nodens** nyckelord i DSC-konfigurationen utvärderas till `$null`, skapas inga nodkonfigurationer.
+När uttrycket efter **nodens** nyckelord i DSC-konfigurationen utvärderas till `$null`skapas inga nodkonfigurationer.
 
 #### <a name="resolution"></a>Lösning
 
@@ -133,7 +133,7 @@ Någon av följande lösningar löser problemet:
 * Se till att uttrycket bredvid nyckelordet **Node** i konfigurations definitionen inte utvärderas till $null.
 * Om du skickar ConfigurationData när du kompilerar konfigurationen kontrollerar du att du skickar de förväntade värdena som krävs av konfigurationen från [ConfigurationData](../automation-dsc-compile.md).
 
-### <a name="dsc-in-progress"></a>Situationen DSC-nodens rapport har fastnat i status
+### <a name="dsc-in-progress"></a>Scenario: DSC-nodens rapport blir fast i status
 
 #### <a name="issue"></a>Problem
 
@@ -151,7 +151,7 @@ Du har uppgraderat din WMF-version och har skadat WMI.
 
 Åtgärda problemet genom att följa anvisningarna i artikeln om [kända problem och begränsningar i DSC](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc) .
 
-### <a name="issue-using-credential"></a>Situationen Det går inte att använda autentiseringsuppgifter i en DSC-konfiguration
+### <a name="issue-using-credential"></a>Scenario: det går inte att använda autentiseringsuppgifter i en DSC-konfiguration
 
 #### <a name="issue"></a>Problem
 
@@ -169,7 +169,7 @@ Du har använt en autentiseringsuppgift i en konfiguration men angav inte rätt 
 
 * Se till att skicka in rätt **ConfigurationData** för att ange **PSDscAllowPlainTextPassword** till true för varje nods konfiguration som nämns i konfigurationen. Mer information finns i [till gångar i Azure Automation DSC](../automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation).
 
-### <a name="failure-processing-extension"></a>Situationen Onboarding från DSC-tillägg, fel vid bearbetning av fel bearbetning
+### <a name="failure-processing-extension"></a>Scenario: onboarding från DSC-tillägg, fel bearbetnings tillägg
 
 #### <a name="issue"></a>Problem
 
@@ -188,7 +188,7 @@ Det här felet uppstår vanligt vis när noden tilldelas ett konfigurations namn
 * Kontrol lera att du har tilldelats noden med ett konfigurations namn för noden som exakt matchar namnet i tjänsten.
 * Du kan välja att inte inkludera konfigurations namnet för noden, vilket leder till att du registrerar noden men inte tilldelar en nods konfiguration
 
-### <a name="failure-linux-temp-noexec"></a>Situationen Att tillämpa en konfiguration i Linux uppstår ett fel med ett allmänt fel
+### <a name="failure-linux-temp-noexec"></a>Scenario: att tillämpa en konfiguration i Linux uppstår ett fel med ett allmänt fel
 
 #### <a name="issue"></a>Problem
 
@@ -200,13 +200,13 @@ This event indicates that failure happens when LCM is processing the configurati
 
 #### <a name="cause"></a>Orsak
 
-Kunder har identifierat att om `/tmp` platsen är inställd på `noexec`kommer den aktuella versionen av DSC inte att tillämpa konfigurationer.
+Kunder har identifierat att om `/tmp`s platsen är inställd på `noexec`kommer den aktuella versionen av DSC inte att tillämpa konfigurationer.
 
 #### <a name="resolution"></a>Lösning
 
-* Ta bort `/tmp` alternativet från platsen. `noexec`
+* Ta bort alternativet `noexec` från `/tmp`s platsen.
 
-### <a name="compilation-node-name-overlap"></a>Situationen Konfigurations namn för noder som överlappar kan resultera i dåliga versioner
+### <a name="compilation-node-name-overlap"></a>Scenario: konfigurations namn för noder som överlappar kan resultera i dålig version
 
 #### <a name="issue"></a>Problem
 

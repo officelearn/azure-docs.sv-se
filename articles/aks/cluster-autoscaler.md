@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: f27b910910ca21aa36582506e6c7b2d1d39da88a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8ce5d2965d0127eec01620c702d7d83bd0b39416
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472860"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885797"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Skala automatiskt ett kluster så att det uppfyller program kraven i Azure Kubernetes service (AKS)
 
@@ -122,6 +122,35 @@ Du kan skala klustret manuellt när du har inaktiverat kluster autoskalning med 
 ## <a name="re-enable-a-disabled-cluster-autoscaler"></a>Återaktivera en inaktive rad kluster autoskalning
 
 Om du vill återaktivera klustrets autoskalning i ett befintligt kluster kan du återaktivera det med kommandot [AZ AKS Update][az-aks-update] och ange parametern *--Enable-Cluster-autoscaler*, *--minimum-Count*och *--Max-Count* .
+
+## <a name="retrieve-cluster-autoscaler-logs-and-status"></a>Hämta loggar och status för kluster för autoskalning
+
+För att diagnostisera och felsöka autoskalning-händelser kan loggar och status hämtas från autoskalning-tillägget.
+
+AKS hanterar klustrets automatiska skalning åt dig och kör det i det hanterade kontroll planet. Huvud nod loggar måste konfigureras för att kunna visas som ett resultat.
+
+Följ dessa steg om du vill konfigurera loggar som ska överföras från klustrets autoskalning till Log Analytics.
+
+1. Konfigurera en regel för diagnostiska loggar för att push-överföra kluster – automatiska skalnings loggar till Log Analytics. [Instruktioner beskrivs här](https://docs.microsoft.com/azure/aks/view-master-logs#enable-diagnostics-logs), se till att du markerar kryss rutan för `cluster-autoscaler` när du väljer alternativ för "loggar".
+1. Klicka på avsnittet "loggar" i klustret via Azure Portal.
+1. Mata in följande exempel fråga i Log Analytics:
+
+```
+AzureDiagnostics
+| where Category == "cluster-autoscaler"
+```
+
+Du bör se loggar som liknar följande returnerade så länge som det finns loggar att hämta.
+
+![Log Analytics loggar](media/autoscaler/autoscaler-logs.png)
+
+Klustrets autoskalning kommer också att skriva ut hälso status till en configmap med namnet `cluster-autoscaler-status`. Kör följande `kubectl`-kommando för att hämta dessa loggar. En hälso status rapporteras för varje noduppsättning som kon figurer ATS med klustrets autoskalning.
+
+```
+kubectl get configmap -n kube-system cluster-autoscaler-status -o yaml
+```
+
+Om du vill veta mer om vad som loggas från autoskalning läser du vanliga frågor och svar om [Kubernetes/autoskalning GitHub-projektet](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#ca-doesnt-work-but-it-used-to-work-yesterday-why).
 
 ## <a name="use-the-cluster-autoscaler-with-multiple-node-pools-enabled"></a>Använd kluster autoskalning med flera noder aktiverade
 

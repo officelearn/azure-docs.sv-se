@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 540dbc3605cfddc9b8d83eceeae8407848f1a91e
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 66d8e13a4e042146ef2b99728e41e14f1dcb3435
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175994"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885360"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-g-suite"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med G Suite
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar G Suite med Azure A
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att komma igång behöver du följande objekt:
 
@@ -154,7 +154,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Ditt G Suite-program förväntar sig att SAML-intygen är i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i SAML-tokenattributkonfigurationen. Följande skärmbild visar ett exempel på detta. Standardvärdet för **Unik användaridentifierare** är **user.userprincipalname**, men G Suite förväntar sig att detta mappas med användarens e-postadress. Till det kan du använda **user.mail**-attributet från listan eller rätt attributvärde baserat på organisationens konfiguration.
 
-    ![mallar](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 1. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg:
 
@@ -164,9 +164,9 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    ![mallar](common/new-save-attribute.png)
+    ![image](common/new-save-attribute.png)
 
-    ![mallar](common/new-attribute-details.png)
+    ![image](common/new-attribute-details.png)
 
     b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
@@ -178,7 +178,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     f. Klicka på **Ok**
 
-    g. Klicka på **Save** (Spara).
+    g. Klicka på **Spara**.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
@@ -224,7 +224,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2. Klicka på **Säkerhet**. Om du inte ser länken, kan den vara dold under menyn **Fler kontroller** längst ned på skärmen.
 
-    ![Klicka på Security.][10]
+    ![Klicka på Säkerhet.][10]
 
 3. På sidan **Säkerhet** klickar du på **Konfigurera enkel inloggning (SSO).**
 
@@ -252,7 +252,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 Syftet med det här avsnittet är att [skapa en användare i G Suite](https://support.google.com/a/answer/33310?hl=en) som kallas B. Simon. När användaren har skapats manuellt i G Suite kommer användaren nu att kunna logga in med sina inloggnings uppgifter för Office 365.
 
-G Suite har även stöd för automatisk användar etablering. Om du vill konfigurera automatisk användar etablering måste du först [Konfigurera G Suite för automatisk användar etablering](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/google-apps-provisioning-tutorial).
+G Suite har även stöd för automatisk användar etablering. Om du vill konfigurera automatisk användar etablering måste du först [Konfigurera G Suite för automatisk användar etablering](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial).
 
 > [!NOTE]
 > Kontrollera att användaren redan finns i G Suite om etablering i Azure AD inte har aktiverats innan du testar enkel inloggning.
@@ -264,7 +264,7 @@ G Suite har även stöd för automatisk användar etablering. Om du vill konfigu
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på G Suite-panelen i åtkomstpanelen så borde du automatiskt loggas in på den G Suite som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på G Suite-panelen i åtkomstpanelen så borde du automatiskt loggas in på den G Suite som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

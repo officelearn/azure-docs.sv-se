@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 8e8e4524034f0a296045691309b065f8547bdaa0
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 057037807a75e50eb2305bfab19d1fcff7fe77ce
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797704"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889594"
 ---
 # <a name="references"></a>Referenser
 
@@ -85,7 +85,7 @@ URL-adressen till API-tjänsten är din datahubbs-URL https://\<yourdatahub-Site
 
 Nedanstående exempel förfrågan är att hämta listan över enheter:
 
-```
+```azurepowershell-interactive
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>”
 ```
 
@@ -108,7 +108,6 @@ När du till exempel frågar listan över enheter (GET Call på/Device) kan du a
 
 Azure FarmBeats data Hub API returnerar HTTP-standardfel. De vanligaste fel koderna är följande:
 
-
  |Felkod             | Beskrivning |
  |---                    | --- |
  |200                    | Lyckades |
@@ -121,29 +120,29 @@ Azure FarmBeats data Hub API returnerar HTTP-standardfel. De vanligaste fel kode
 
 Förutom vanliga HTTP-fel returnerar Azure FarmBeats data Hub-API: er även interna fel i formatet nedan:
 
-```
-{
-  "message": "<More information on the error>",
-  "status": "<error code>”,
-  "code": "<InternalErrorCode>",
-  "moreInfo": "<Details of the error>"
-}
-```
+    ```
+    {
+      "message": "<More information on the error>",
+      "status": "<error code>”,
+      "code": "<InternalErrorCode>",
+      "moreInfo": "<Details of the error>"
+    }
+    ```
 
 Exempel: när du skapar en Server grupp angavs inte det obligatoriska fältet "namn" i nytto lasten. Det resulterande fel meddelandet skulle vara:
 
-```
-{
-  "message": "Model validation failed",
-  "status": 400,
-  "code": "ModelValidationFailed",
-  "moreInfo": "[\"The Name field is required.\"]"
-}
-```
+    ```json
+    {
+      "message": "Model validation failed",
+      "status": 400,
+      "code": "ModelValidationFailed",
+      "moreInfo": "[\"The Name field is required.\"]"
+    }
+    ```
 
 ## <a name="adding-users-or-app-registrations-to-azure-active-directory"></a>Lägga till användare eller program registreringar i Azure Active Directory
 
- Azure FarmBeats-API: er kan nås av en användare eller en app-registrering i Azure Active Directory. Gör så här om du vill skapa en app-registrering på Azure Active Directory:  
+Azure FarmBeats-API: er kan nås av en användare eller en app-registrering i Azure Active Directory. Gör så här om du vill skapa en app-registrering på Azure Active Directory:  
 
 1. Gå till [Azure Portal](https://portal.azure.com) **Azure Active Directory, Appregistreringar**, > **ny registrering**. Du kan också använda ett befintligt konto.
 2. För ett nytt konto, se till att slutföra följande:

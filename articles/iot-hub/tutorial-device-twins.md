@@ -1,24 +1,20 @@
 ---
 title: Synkronisera enhetens tillstånd från Azure IoT Hub | Microsoft Docs
-description: Använd enhetspar för att synkronisera tillstånd mellan dina enheter och din IoT-hubb
+description: Lär dig hur du använder enhets dubbla för att konfigurera dina enheter från molnet och ta emot status-och efterlevnadsprinciper från dina enheter.
 services: iot-hub
-documentationcenter: ''
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/21/2019
 ms.custom: mvc
-ms.openlocfilehash: 4ad3013f6914abbf4c75676e7423848dff9d5e9a
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 647182389ec0ad4cb2b80a0676812961cb9be770
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330361"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890436"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -43,7 +39,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-De två exempelprogram som du kör i den här snabbstarten skrivs med Node.js. Du behöver Node.js v10.x.x eller senare på utvecklingsdatorn.
+De två exempelprogram som du kör i den här snabbstarten skrivs med Node.js. Du behöver Node. js v10. x. x eller senare på din utvecklings dator.
 
 Du kan ladda ned Node.js för flera plattformar från [nodejs.org](https://nodejs.org).
 
@@ -59,7 +55,7 @@ Ladda ned exempelprojektet för Node.js från https://github.com/Azure-Samples/a
 
 För att slutföra den här kursen måste din Azure-prenumeration innehålla en IoT-hubb med en enhet som har lagts till i enhetsidentitetsregistret. Posten i enhetsidentitetsregistret gör att den simulerade enheten som du kör i den här kursen kan ansluta till din hubb.
 
-Om du inte redan har en IoT-hubb som angetts i din prenumeration kan konfigurera du en med följande CLI-skript. Det här skriptet använder namnet **tutorial-iot-hub** för IoT-hubben. Du bör ersätta det här namnet med ditt eget unika namn när du kör det. Skriptet skapar resursgruppen och hubben i regionen **centrala USA**, vilket du kan ändra till en region som ligger närmare till dig. Skriptet hämtar din anslutningssträng för IoT-hubbtjänsten, som du använder i serverdelexemplet för att ansluta till din IoT-hubb:
+Om du inte redan har en IoT-hubb konfigurerad i din prenumeration kan du konfigurera en med följande CLI-skript. Det här skriptet använder namnet **tutorial-iot-hub** för IoT-hubben. Du bör ersätta det här namnet med ditt eget unika namn när du kör det. Skriptet skapar resursgruppen och hubben i regionen **centrala USA**, vilket du kan ändra till en region som ligger närmare till dig. Skriptet hämtar din anslutningssträng för IoT-hubbtjänsten, som du använder i serverdelexemplet för att ansluta till din IoT-hubb:
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub
@@ -240,7 +236,7 @@ Följande skärmbild visar utdata från det simulerade enhetsprogrammet och visa
 
 ![Simulerad enhet](./media/tutorial-device-twins/SimulatedDevice2.png)
 
-Följande skärmbild visas utdata från backend-programmet och visar hur den tar emot och bearbetar en rapporterad Egenskapsuppdatering från en enhet:
+Följande skärm bild visar utdata från Server dels programmet och visar hur den tar emot och bearbetar en rapporterad egenskaps uppdatering från en enhet:
 
 ![Serverdelsprogram](./media/tutorial-device-twins/BackEnd2.png)
 

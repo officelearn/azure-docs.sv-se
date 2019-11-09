@@ -1,30 +1,27 @@
 ---
-title: Azure CLI-skriptexempel – belastningsutjämna flera webbplatser med Azure CLI | Microsoft Docs
-description: Azure CLI-skriptexempel – belastningsutjämna flera webbplatser till samma virtuella dator
+title: Skript exempel för Azure CLI – belastningsutjämna flera webbplatser med Azure CLI | Microsoft Docs
+description: Skript exempel för Azure CLI – belastningsutjämna flera webbplatser till samma virtuella dator
 services: load-balancer
 documentationcenter: load-balancer
-author: KumudD
-manager: timlt
-editor: tysonn
-tags: ''
-ms.assetid: ''
+author: asudbring
+manager: KumudD
 ms.service: load-balancer
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
-ms.author: kumud
-ms.openlocfilehash: e3dc9476d188382db31b03b37b2a23affc61aed3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 568934d6b5ecc2fbb3b6fc6588ecfd48c8306490
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60564892"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889459"
 ---
 # <a name="load-balance-multiple-websites"></a>Belastningsutjämning för flera webbplatser
 
-Det här Skriptexemplet skapar ett virtuellt nätverk med två virtuella datorer (VM) som är medlemmar i en tillgänglighetsuppsättning. En lastbalanserare dirigerar trafik för två olika IP-adresser till de två virtuella datorerna. När du har kört skriptet kan du distribuera webbserverprogramvara för virtuella datorer och vara värd för flera webbplatser, var och en med egen IP-adress.
+Det här skript exemplet skapar ett virtuellt nätverk med två virtuella datorer (VM) som är medlemmar i en tillgänglighets uppsättning. En lastbalanserare dirigerar trafik för två olika IP-adresser till de två virtuella datorerna. När du har kört skriptet kan du distribuera webbserverprogramvara för virtuella datorer och vara värd för flera webbplatser, var och en med egen IP-adress.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -60,7 +57,7 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 | [az network nic create](https://docs.microsoft.com/cli/azure/network/nic) | Skapar ett virtuellt nätverkskort och ansluter det till det virtuella nätverket och undernätet. |
 | [az vm availability-set create](https://docs.microsoft.com/cli/azure/network/lb/rule) | Skapar en tillgänglighetsuppsättning. Tillgänglighetsuppsättningar garanterar programmets drifttid genom att fördela virtuella datorer mellan fysiska resurser så att hela uppsättningen inte berörs om något fel inträffar. |
 | [az network nic ip-config create](https://docs.microsoft.com/cli/azure/network/nic/ip-config) | Skapar en IP-konfiguration. Du måste ha funktionen Microsoft.Network/AllowMultipleIpConfigurationsPerNic aktiverad för din prenumeration. Bara en konfiguration kan utses som den primära IP-konfigurationen per NIC, med hjälp av flaggan --make-primary. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Kommandot specificerar även vilken avbildning av virtuell dator som ska användas samt administrativa autentiseringsuppgifter.  |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Kommandot specificerar även avbildningen av den virtuella dator som ska användas samt administrativa autentiseringsuppgifter.  |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg

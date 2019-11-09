@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 11e2a02277a47e070f91e8f057f0d8493235c5ce
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 183b85ad8a61c76942981ebb764512b8a090b0a8
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821350"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890446"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Kommunicera med IoT-hubben med MQTT-protokollet
 
@@ -132,7 +132,7 @@ Den här lagrings platsen innehåller:
 
 • DeviceTwinMQTTWin32: innehåller kod för att fråga och prenumerera på enhetens dubbla händelser på en enhet i Azure IoT Hub på en Windows-dator.
 
-• PnPMQTTWin32: innehåller kod för att skicka ett telemetri-meddelande med IoT Plug & Play-funktioner för för hands version till en Azure IoT-hubb som skapats och körs på en Windows-dator. Mer på IoT-plugin & spela [här](https://docs.microsoft.com/en-us/azure/iot-pnp/overview-iot-plug-and-play)
+• PnPMQTTWin32: innehåller kod för att skicka ett telemetri-meddelande med IoT Plug & Play-funktioner för för hands version till en Azure IoT-hubb som skapats och körs på en Windows-dator. Mer på IoT-plugin & spela [här](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
 
 **För Linux:**
 
@@ -142,11 +142,11 @@ Den här lagrings platsen innehåller:
 
 **För mosquito_pub:**
 
-• Den här mappen innehåller två exempel kommandon som används med verktyget mosquitto_pub som tillhandahålls av Mosquitto.org.
+• Den här mappen innehåller två exempel kommandon som används med mosquitto_pub verktygs verktyget från Mosquitto.org.
 
 Mosquitto_sendmessage: för att skicka ett enkelt textmeddelande till en Azure IoT-hubb som fungerar som en enhet.
 
-Mosquitto_subscribe: för att se händelser som inträffar i en Azure IoT Hub.
+Mosquitto_subscribe: om du vill se händelser som inträffar i en Azure IoT Hub.
 
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>Använda MQTT-protokollet direkt (som en modul)
@@ -181,7 +181,7 @@ pip install paho-mqtt
 
 Implementera sedan klienten i ett Python-skript. Ersätt plats hållarna enligt följande:
 
-* `<local path to digicert.cer>` är sökvägen till en lokal fil som innehåller rot certifikatet för DigiCert-Baltimore. Du kan skapa den här filen genom att kopiera certifikat informationen från [certifikaten. c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) i Azure IoT SDK för c. ta med raderna `-----BEGIN CERTIFICATE-----` och `-----END CERTIFICATE-----`, ta bort `"` märken i början och slutet av varje rad och ta bort `\r\n` tecknen i slutet av e-postadressen Mycket linje.
+* `<local path to digicert.cer>` är sökvägen till en lokal fil som innehåller rot certifikatet för DigiCert-Baltimore. Du kan skapa den här filen genom att kopiera certifikat informationen från [certifikaten. c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) i Azure IoT SDK för c. ta med raderna `-----BEGIN CERTIFICATE-----` och `-----END CERTIFICATE-----`, ta bort `"` märken i början och slutet av varje rad och ta bort `\r\n` tecknen i slutet av varje rad.
 
 * `<device id from device registry>` är ID: t för en enhet som du har lagt till i din IoT Hub.
 
@@ -256,7 +256,7 @@ client.connect(iot_hub_name+".azure-devices.net", port=8883)
 
 ## <a name="sending-device-to-cloud-messages"></a>Skicka meddelanden från enhet till moln
 
-När anslutningen har upprättats kan en enhet skicka meddelanden till IoT Hub med hjälp av `devices/{device_id}/messages/events/` eller `devices/{device_id}/messages/events/{property_bag}` som **ämnes namn**. Med `{property_bag}`-elementet kan enheten skicka meddelanden med ytterligare egenskaper i ett URL-kodat format. Exempel:
+När anslutningen har upprättats kan en enhet skicka meddelanden till IoT Hub med hjälp av `devices/{device_id}/messages/events/` eller `devices/{device_id}/messages/events/{property_bag}` som **ämnes namn**. Med `{property_bag}`-elementet kan enheten skicka meddelanden med ytterligare egenskaper i ett URL-kodat format. Till exempel:
 
 ```text
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -287,7 +287,7 @@ När en enhets app prenumererar på ett ämne med **QoS 2**, tilldelar IoT Hub h
 
 ## <a name="retrieving-a-device-twins-properties"></a>Hämta en enhets dubbla egenskaper
 
-Först prenumererar en enhet på `$iothub/twin/res/#` för att ta emot åtgärdens svar. Sedan skickar den ett tomt meddelande till ämnet `$iothub/twin/GET/?$rid={request id}`, med ett fyllt värde för **begärande-ID**. Tjänsten skickar sedan ett svarsmeddelande som innehåller enhetens dubbla data på avsnittet `$iothub/twin/res/{status}/?$rid={request id}`, med samma ID för **begäran** som begäran.
+Först prenumererar en enhet på `$iothub/twin/res/#`för att ta emot åtgärdens svar. Sedan skickar den ett tomt meddelande till ämnet `$iothub/twin/GET/?$rid={request id}`, med ett fyllt värde för **begärande-ID**. Tjänsten skickar sedan ett svarsmeddelande som innehåller enhetens dubbla data på avsnittet `$iothub/twin/res/{status}/?$rid={request id}`, med samma ID för **begäran** som begäran.
 
 Begärande-ID kan vara ett giltigt värde för ett meddelande egenskaps värde, enligt [IoT Hub meddelande guidens guide](iot-hub-devguide-messaging.md)och status är verifierad som ett heltal.
 
@@ -329,7 +329,7 @@ I följande sekvens beskrivs hur en enhet uppdaterar de rapporter som rapportera
 
 3. Tjänsten skickar sedan ett svarsmeddelande som innehåller det nya ETag-värdet för den rapporterade egenskaps samlingen i avsnittet `$iothub/twin/res/{status}/?$rid={request id}`. Det här svarsmeddelandet använder samma **ID för begäran** som begäran.
 
-Meddelande texten innehåller ett JSON-dokument som innehåller nya värden för rapporterade egenskaper. Varje medlem i JSON-dokumentet uppdaterar eller lägger till motsvarande medlem i enhetens dubbla dokument. En medlems uppsättning som `null`, tar bort medlemmen från objektet som innehåller. Exempel:
+Meddelande texten innehåller ett JSON-dokument som innehåller nya värden för rapporterade egenskaper. Varje medlem i JSON-dokumentet uppdaterar eller lägger till motsvarande medlem i enhetens dubbla dokument. En medlems uppsättning som `null`, tar bort medlemmen från objektet som innehåller. Till exempel:
 
 ```json
 {
@@ -361,13 +361,13 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" +
                rid, twin_reported_property_patch, qos=0)
 ```
 
-När du har lyckats med uppdaterings åtgärden för dubbla rapporterade egenskaper ovan, kommer meddelandet från IoT Hub att ha följande avsnitt: `$iothub/twin/res/204/?$rid=1&$version=6`, där `204` är status koden som visar att det lyckades `$rid=1` motsvarar det begär ande-ID som anges av enheten i Code och `$version` motsvarar den version av avsnittet rapporterade egenskaper på enheten är dubbla efter uppdateringen.
+Efter att ha lyckats med uppdaterings åtgärden för dubbla rapporter ovan, kommer meddelandet från IoT Hub att ha följande avsnitt: `$iothub/twin/res/204/?$rid=1&$version=6`, där `204` är status koden som visar att det lyckades `$rid=1` motsvarar det begär ande-ID som anges av enheten i koden, och `$version` motsvarar den version av avsnittet med rapporterade egenskaper i enheten.
 
 Mer information finns i [enhets guide för utvecklare](iot-hub-devguide-device-twins.md).
 
 ## <a name="receiving-desired-properties-update-notifications"></a>Tar emot önskade egenskaper uppdatera meddelanden
 
-När en enhet är ansluten skickar IoT Hub meddelanden till avsnittet `$iothub/twin/PATCH/properties/desired/?$version={new version}`, som innehåller innehållet i uppdateringen som utförs av lösningens Server del. Exempel:
+När en enhet är ansluten skickar IoT Hub meddelanden till avsnittet `$iothub/twin/PATCH/properties/desired/?$version={new version}`, som innehåller innehållet i uppdateringen som utförs av lösningens Server del. Till exempel:
 
 ```json
 {

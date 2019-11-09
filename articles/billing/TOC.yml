@@ -5,8 +5,6 @@
   items:
     - name: Förstå fakturan
       href: billing-understand-your-bill.md
-    - name: Förstå EA-fakturan
-      href: billing-understand-your-bill-ea.md
     - name: Förstå din faktura – Microsofts kundavtal
       href: billing-mca-understand-your-bill.md
     - name: Förstå din faktura – Microsofts partneravtal
@@ -159,6 +157,8 @@
       items:
         - name: Kom igång i Azure EA-portalen
           href: billing-ea-portal-get-started.md
+        - name: Förstå EA-fakturan
+          href: billing-understand-your-bill-ea.md
         - name: EA-roller i Azure
           href: billing-understand-ea-roles.md
         - name: Azure EA-portaladministration

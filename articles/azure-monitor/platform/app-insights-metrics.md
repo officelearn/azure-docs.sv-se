@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: 903fd2309949036b62fb4975596fb645c021d06d
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 847c56faae61483813286c46190764327e287783
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535031"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887259"
 ---
 # <a name="application-insights-log-based-metrics"></a>Application Insights log-baserade mått
 
@@ -30,13 +30,13 @@ Den här artikeln innehåller mått med agg regeringar och dimensioner som stöd
 
 När du ritar samma mått i [Metrics Explorer](metrics-getting-started.md)finns det inga standardvärden – frågan justeras dynamiskt baserat på diagrammets inställningar:
 
-- Det valda tidsintervallet översätts till en ytterligare *WHERE-timestamp...* -sats för att endast välja händelser från det valda tidsintervallet. Till exempel, ett diagram som visar data för de senaste 24 timmarna, inkluderar frågan *| där tidsstämpeln > sedan (24 h)* .
+- Det valda **tidsintervallet** översätts till en ytterligare *WHERE-timestamp...* -sats för att endast välja händelser från det valda tidsintervallet. Till exempel, ett diagram som visar data för de senaste 24 timmarna, inkluderar frågan *| där tidsstämpeln > sedan (24 h)* .
 
 - Den valda **tids kornig het** placeras i den slutliga *sammanfattningen... per bin-sats (timestamp, [Time kornig])* .
 
 - Alla valda **filter** dimensioner översätts till ytterligare *WHERE* -satser.
 
-- Den markerade dimensionen för **delad diagram** översätts till en extra sammanfattnings egenskap. Om du till exempel delar diagrammet efter *plats*och ritar med en tids kornig het på 5 minuter sammanfattas sammanfattnings satsen *... per Bing (tidsstämpel, 5 m), plats*.
+- Den markerade dimensionen för **delad diagram** översätts till en extra sammanfattnings egenskap. Om du till exempel delar diagrammet efter *plats*och ritar med en tids kornig het på 5 minuter sammanfattas *sammanfattnings* satsen *... per Bing (tidsstämpel, 5 m), plats*.
 
 > [!NOTE]
 > Om du är nybörjare på Kusto-frågespråket börjar du med att kopiera och klistra in Kusto-uttryck i rutan Log Analytics fråga utan att göra några ändringar. Klicka på **Kör** för att visa det grundläggande diagrammet. När du börjar förstå syntaxen för frågespråket kan du börja göra små ändringar och se hur ändringen påverkar. Att utforska dina egna data är ett bra sätt att börja realisera den fulla kraften hos [Log Analytics](../../azure-monitor/log-query/get-started-portal.md) och [Azure Monitor](../../azure-monitor/overview.md).
@@ -50,7 +50,7 @@ Mått i kategorin tillgänglighet gör att du kan se hälso tillståndet för di
 
 |Måttenhet|Agg regeringar som stöds|Dimensioner som stöds|
 |---|---|---|---|---|---|
-|Procent|Average|Körnings plats, test namn|
+|Procent|Medel|Körnings plats, test namn|
 
 ```Kusto
 availabilityResults 
@@ -60,7 +60,7 @@ availabilityResults
 
 ### <a name="availability-test-duration-availabilityresultsduration"></a>Tillgänglighets testets varaktighet (availabilityResults/duration)
 
-Måttet för *tillgänglighets testets varaktighet* visar hur lång tid det tog för webb testet att köras. För webbtester [med flera steg](../../azure-monitor/app/availability-multistep.md)återspeglar måttet den totala körnings tiden för alla steg.
+Måttet för *tillgänglighets testets varaktighet* visar hur lång tid det tog för webb testet att köras. För [webbtester med flera steg](../../azure-monitor/app/availability-multistep.md)återspeglar måttet den totala körnings tiden för alla steg.
 
 |Måttenhet|Agg regeringar som stöds|Dimensioner som stöds|
 |---|---|---|---|---|---|
@@ -80,7 +80,7 @@ Måttet *tillgänglighets test* visar antalet webbtester som körs av Azure Moni
 
 |Måttenhet|Agg regeringar som stöds|Dimensioner som stöds|
 |---|---|---|---|---|---|
-|Count|Count|Körnings plats, test namn, test resultat|
+|Antal|Antal|Körnings plats, test namn, test resultat|
 
 ```Kusto
 availabilityResults
@@ -99,7 +99,7 @@ Webb läsar mått samlas in av Application Insights JavaScript SDK från verklig
 
 |Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|
 |---|---|---|
-|Millisekunder|Genomsnitt, min, max|Inga|
+|Millisekunder|Genomsnitt, min, max|Ingen|
 
 ```Kusto
 browserTimings
@@ -115,7 +115,7 @@ browserTimings
 
 |Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|
 |---|---|---|
-|Millisekunder|Genomsnitt, min, max|Inga|
+|Millisekunder|Genomsnitt, min, max|Ingen|
 
 ```Kusto
 browserTimings
@@ -131,7 +131,7 @@ browserTimings
 
 |Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|
 |---|---|---|
-|Millisekunder|Genomsnitt, min, max|Inga|
+|Millisekunder|Genomsnitt, min, max|Ingen|
 
 ```Kusto
 browserTimings
@@ -147,7 +147,7 @@ browserTimings
 
 |Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|
 |---|---|---|
-|Millisekunder|Genomsnitt, min, max|Inga|
+|Millisekunder|Genomsnitt, min, max|Ingen|
 
 ```Kusto
 browserTimings
@@ -163,7 +163,7 @@ browserTimings
 
 |Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|
 |---|---|---|
-|Millisekunder|Genomsnitt, min, max|Inga|
+|Millisekunder|Genomsnitt, min, max|Ingen|
 
 ```Kusto
 browserTimings
@@ -185,7 +185,7 @@ Det här måttet visar antalet utlösta undantag från din program kod som körs
 
 |Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Anteckningar|
 |---|---|---|---|
-|Count|Count|Inga|Log-baserad version använder **Summa** agg regering|
+|Antal|Antal|Ingen|Log-baserad version använder **Summa** agg regering|
 
 ```Kusto
 exceptions
@@ -200,7 +200,7 @@ Antalet misslyckade beroende anrop.
 
 |Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Anteckningar|
 |---|---|---|---|
-|Count|Count|Inga|Log-baserad version använder **Summa** agg regering|
+|Antal|Antal|Ingen|Log-baserad version använder **Summa** agg regering|
 
 ```Kusto
 dependencies
@@ -215,7 +215,7 @@ Varje gång du loggar ett undantag till Application Insights finns det ett anrop
 
 |Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Anteckningar|
 |---|---|---|---|
-|Count|Count|Moln roll namn, moln roll instans, enhets typ|Log-baserad version använder **Summa** agg regering|
+|Antal|Antal|Moln roll namn, moln roll instans, enhets typ|Log-baserad version använder **Summa** agg regering|
 
 ```Kusto
 exceptions
@@ -225,11 +225,11 @@ exceptions
 
 ### <a name="failed-requests-requestsfailed"></a>Misslyckade förfrågningar (begär Anden/misslyckade)
 
-Antalet spårade server begär Anden som marker ATS som *misslyckade*. Som standard märker Application Insights SDK automatiskt varje serverbegäran som returnerade HTTP-svarskod 5xx eller 4xx som en misslyckad begäran. Du kan anpassa den här logiken genom att ändra egenskapen *lyckades* för objektet begär telemetri i en [anpassad telemetri](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer)-initierare.
+Antalet spårade server begär Anden som marker ATS som *misslyckade*. Som standard märker Application Insights SDK automatiskt varje serverbegäran som returnerade HTTP-svarskod 5xx eller 4xx som en misslyckad begäran. Du kan anpassa den här logiken genom att ändra egenskapen *lyckades* för objektet begär telemetri i en [anpassad telemetri-initierare](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
 |Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Anteckningar|
 |---|---|---|---|
-|Count|Count|Moln roll instans, moln roll namn, verklig eller syntetisk trafik, prestanda för begäran, svarskod|Log-baserad version använder **Summa** agg regering|
+|Antal|Antal|Moln roll instans, moln roll namn, verklig eller syntetisk trafik, prestanda för begäran, svarskod|Log-baserad version använder **Summa** agg regering|
 
 ```Kusto
 requests
@@ -244,7 +244,7 @@ Det här måttet visar antalet Server undantag.
 
 |Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Anteckningar|
 |---|---|---|---|
-|Count|Count|Moln roll namn, moln roll instans|Log-baserad version använder **Summa** agg regering|
+|Antal|Antal|Moln roll namn, moln roll instans|Log-baserad version använder **Summa** agg regering|
 
 ```Kusto
 exceptions
@@ -313,7 +313,7 @@ Måttet visar hur mycket av den totala processor kapaciteten som förbrukas av p
 
 |Måttenhet|Agg regeringar som stöds|Dimensioner som stöds|
 |---|---|---|
-|Procent|Genomsnitt, min, max|Instans av molntjänstroll (klassisk)
+|Procent|Genomsnitt, min, max|Moln roll instans
 
 ```Kusto
 performanceCounters
@@ -327,7 +327,7 @@ performanceCounters
 
 |Måttenhet|Agg regeringar som stöds|Dimensioner som stöds|
 |---|---|---|
-|Byte per sekund|Genomsnitt, min, max|Instans av molntjänstroll (klassisk)
+|Byte per sekund|Genomsnitt, min, max|Moln roll instans
 
 ```Kusto
 performanceCounters
@@ -343,7 +343,7 @@ Mängden icke-delat minne som den övervakade processen har allokerat för sina 
 
 |Måttenhet|Agg regeringar som stöds|Dimensioner som stöds|
 |---|---|---|
-|Byte|Genomsnitt, min, max|Instans av molntjänstroll (klassisk)
+|Skickade|Genomsnitt, min, max|Moln roll instans
 
 ```Kusto
 performanceCounters
@@ -359,7 +359,7 @@ PROCESSOR förbrukning för *alla* processer som körs på den övervakade Serve
 
 |Måttenhet|Agg regeringar som stöds|Dimensioner som stöds|
 |---|---|---|
-|Procent|Genomsnitt, min, max|Instans av molntjänstroll (klassisk)
+|Procent|Genomsnitt, min, max|Moln roll instans
 
 >[!NOTE]
 > Måttet för processor tiden är inte tillgängligt för de program som finns i Azure App Services. Använd [process processor](#process-cpu-performancecountersprocesscpupercentage) måttet för att spåra processor användningen för de webb program som finns i app Services.

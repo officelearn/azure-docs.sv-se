@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: aahi
-ms.openlocfilehash: 8ca994b0b4abb27eef284eedf5a76571fe19699d
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: d715252f16a34f2261c108ebd3ff5d1f6f3424d8
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595323"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887915"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Skapa en Cognitive Services resurs med hjälp av kommando rads gränssnittet för Azure (CLI)
 
@@ -25,7 +25,7 @@ I den här snabb starten får du lära dig hur du registrerar dig för Azure Cog
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En giltig Azure-prenumeration – [skapa en](https://azure.microsoft.com/free/) kostnads fri.
 * [Kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -91,25 +91,25 @@ När du skapar en ny resurs behöver du veta vilken typ av tjänst du vill anvä
 | Visuellt innehåll            | `ComputerVision`          |
 | Custom Vision förutsägelse | `CustomVision.Prediction` |
 | Custom Vision-utbildning   | `CustomVision.Training`   |
-| API för ansiktsigenkänning                   | `Face`                    |
+| Ansikts-API                   | `Face`                    |
 | Formigenkänning            | `FormRecognizer`          |
 | Handskriftsigenkänning             | `InkRecognizer`           |
 
-### <a name="search"></a>Sök
+### <a name="search"></a>Search
 
 | Tjänst            | metod                  |
 |--------------------|-----------------------|
 | Automatiska förslag i Bing   | `Bing.Autosuggest.v7` |
-| Bing Custom Search | `Bing.CustomSearch`   |
+| Anpassad sökning i Bing | `Bing.CustomSearch`   |
 | Entitetssökning i Bing | `Bing.EntitySearch`   |
-| Bing-sökning        | `Bing.Search.v7`      |
+| Bing Search        | `Bing.Search.v7`      |
 | Stavningskontroll i Bing   | `Bing.SpellCheck.v7`  |
 
 ### <a name="speech"></a>Tal
 
 | Tjänst            | metod                 |
 |--------------------|----------------------|
-| Taltjänster    | `SpeechServices`     |
+| Speech Services    | `SpeechServices`     |
 | Taligenkänning | `SpeakerRecognition` |
 
 ### <a name="language"></a>Språk
@@ -179,7 +179,7 @@ Pris nivåerna (och den mängd du debiteras) baseras på antalet transaktioner s
 
 ## <a name="get-current-quota-usage-for-your-resource"></a>Hämta aktuell kvot användning för din resurs
 
-Använd kommandot [AZ cognitiveservices Account List-Usage](https://docs.microsoft.com/en-us/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) för att få användningen av din kognitiva tjänst resurs.
+Använd kommandot [AZ cognitiveservices Account List-Usage](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) för att få användningen av din kognitiva tjänst resurs.
 
 ```azurecli-interactive
 az cognitiveservices account list-usage \
@@ -198,7 +198,7 @@ Om du vill ta bort resurs gruppen och dess associerade resurser använder du kom
 az group delete --name storage-resource-group
 ```
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [Autentisera begär anden till Azure Cognitive Services](authentication.md)
 * [Vad är Azure Cognitive Services?](Welcome.md)

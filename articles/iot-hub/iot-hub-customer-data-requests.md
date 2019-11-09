@@ -1,53 +1,52 @@
 ---
-title: Kundens datafunktioner
-description: Sammanfattning av kundens datafunktioner
+title: Kund data begär Anden för Azure IoT Hub-enheter
+description: De flesta av de enheter som hanteras i Azure IoT Hub är inte personliga, men vissa är. Den här artikeln talar om för administratörer som kan exportera eller ta bort personliga data från en enhet.
 author: robinsh
-manager: philmea
 ms.author: robinsh
 ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 1519637eddf909040131a1efac5738fc7cc8e565
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29b3ed46ffe7f2236fc63d65ed49385b29b1a08a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60845808"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889470"
 ---
-# <a name="summary-of-customer-data-request-features"></a>Sammanfattning av kundens datafunktioner
+# <a name="summary-of-customer-data-request-features"></a>Översikt över funktioner för begäran om kund information
 
-Azure IoT Hub är en REST API-baserad molntjänst riktad mot företagskunder som möjliggör säker, dubbelriktad kommunikation mellan miljontals enheter och en partitionerad Azure-tjänst.
+Azure IoT Hub är en REST API-baserad moln tjänst som är riktad till företags kunder och möjliggör säker dubbelriktad kommunikation mellan miljon tals enheter och en partitionerad Azure-tjänst.
 
 [!INCLUDE [gdpr-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-Enskilda enheter tilldelas en enhets-ID (enhets-ID) som en Innehavaradministratör. Enhetsdata baseras på tilldelade enhets-ID. Microsoft har ingen information och har ingen åtkomst till data som skulle låta enhets-ID för användaren korrelation.
+Enskilda enheter tilldelas ett enhets-ID (enhets-ID) av en klient administratör. Enhets data baseras på det tilldelade enhets-ID: t. Microsoft har ingen information och har ingen åtkomst till data som skulle tillåta användar korrelation i enhets-ID.
 
-Många av de enheter som hanteras i Azure IoT Hub är inte personliga enheter, till exempel en office termostat eller factory robot. Kunder kan dock tänka på vissa enheter är personligt identifierbar och deras godtycke kan underhålla sina egna tillgång eller inventeringssamling metoder som koppla enheter till enskilda användare. Azure IoT Hub hanterar och lagrar alla data kopplade till enheter som om det vore personliga data.
+Många av de enheter som hanteras i Azure IoT Hub är inte personliga enheter, till exempel en Office-termostat eller en fabriks robot. Kunder kan dock överväga att vissa enheter ska vara personligt identifierbara och att de kan behålla sina egna till gångar eller inventerings spårnings metoder som knyter enheter till individer. Azure IoT Hub hanterar och lagrar alla data som är kopplade till enheter som om de vore personliga data.
 
-Innehavaradministratörer kan använda Azure portal eller tjänstens REST API: er för att utföra information begäranden genom att exportera eller ta bort data som är associerade med ett enhets-ID.
+Klient organisations administratörer kan använda antingen Azure Portal eller tjänstens REST-API: er för att uppfylla informations förfrågningar genom att exportera eller ta bort data som är associerade med ett enhets-ID.
 
-Om du använder funktionen routning i Azure IoT Hub-tjänsten för att vidarebefordra meddelanden från enhet till andra tjänster kan måste sedan databegäranden utföras av administratör för varje routning slutpunkt för att kunna slutföra en fullständig begäran för en given enhet. Mer information finns i referensdokumentationen för varje slutpunkt. Mer information om slutpunkter som stöds finns i [referens – IoT Hub-slutpunkter](iot-hub-devguide-endpoints.md).
+Om du använder funktionen routning i Azure IoT Hub-tjänsten för att vidarebefordra enhets meddelanden till andra tjänster, måste data begär Anden utföras av klient administratören för varje Dirigerings slut punkt för att slutföra en fullständig begäran om en specifik enhet. Mer information finns i referens dokumentationen för varje slut punkt. Mer information om slut punkter som stöds finns i [referens-IoT Hub slut punkter](iot-hub-devguide-endpoints.md).
 
-Om du använder funktionen Azure Event Grid-integration i Azure IoT Hub-tjänsten måste sedan databegäranden utföras av administratör för varje prenumerant av dessa händelser. Mer information finns i [reagera på IoT Hub-händelser med hjälp av Event Grid](iot-hub-event-grid.md).
+Om du använder funktionen Azure Event Grid integrering i Azure IoT Hub-tjänsten måste data begär Anden utföras av klient organisations administratören för varje prenumerant av dessa händelser. Mer information finns i [reagera på IoT Hub händelser med event Grid](iot-hub-event-grid.md).
 
-Om du använder funktionen Azure Monitor-integrering i Azure IoT Hub-tjänsten för att skapa diagnostikloggar, måste databegäranden utföras av administratör mot lagrade loggarna. Mer information finns i [övervaka hälsotillståndet för Azure IoT Hub](iot-hub-monitor-resource-health.md).
+Om du använder Azure Monitor integrerings funktionen i Azure IoT Hub-tjänsten för att skapa diagnostikloggar måste data begär Anden utföras av klient administratören mot de lagrade loggarna. Mer information finns i [övervaka hälsan för Azure IoT Hub](iot-hub-monitor-resource-health.md).
 
-## <a name="deleting-customer-data"></a>Tar bort kunddata
+## <a name="deleting-customer-data"></a>Tar bort kund information
 
-Innehavaradministratörer kan använda bladet IoT-enheter i Azure IoT Hub-tillägget i Azure-portalen för att ta bort en enhet, vilket tar bort data som hör till enheten.
+Klient organisations administratörer kan använda bladet IoT-enheter i Azure IoT Hub-tillägget i Azure Portal för att ta bort en enhet som tar bort de data som är associerade med enheten.
 
-Det är också möjligt att utföra delete-åtgärder för enheter med hjälp av REST API: er. Mer information finns i [Service – ta bort enheten](/rest/api/iothub/service/deletedevice).
+Du kan också utföra borttagnings åtgärder för enheter med hjälp av REST-API: er. Mer information finns i [tjänst-ta bort enhet](/rest/api/iothub/service/deletedevice).
 
-## <a name="exporting-customer-data"></a>Exportera kunddata
+## <a name="exporting-customer-data"></a>Exportera kund information
 
-Innehavaradministratörer kan använda kopiera och klistra in inom bladet IoT-enheter i Azure IoT Hub-tillägget i Azure portal för att exportera data som hör till en enhet.
+Klient organisations administratörer kan använda kopiera och klistra in i fönstret IoT-enheter i Azure IoT Hub-tillägget i Azure Portal för att exportera data som är associerade med en enhet.
 
-Det är också möjligt att utföra exportåtgärder för enheter med hjälp av REST API: er. Mer information finns i [Service – få enheten](/rest/api/iothub/service/getdevice).
+Det går också att utföra export åtgärder för enheter som använder REST-API: er. Mer information finns i [tjänst-Hämta enhet](/rest/api/iothub/service/getdevice).
 
 > [!NOTE]
-> När du använder Microsoft enterprise services genererar Microsoft viss information som kallas systemgenererade loggar. Vissa Azure IoT Hub systemgenererade loggar är inte tillgänglig eller exportera av innehavaradministratörer. Dessa loggar utgör faktiska åtgärder i tjänsten och diagnostiska data som är relaterade till enskilda enheter.
+> När du använder Microsofts företags tjänster genererar Microsoft viss information, som kallas system genererade loggar. Vissa Azure IoT Hub system-genererade loggar kan inte nås eller exporteras av klient administratörer. Dessa loggar utgör faktiska åtgärder som utförs i tjänsten och diagnostikdata som är relaterade till enskilda enheter.
 
 ## <a name="links-to-additional-documentation"></a>Länkar till ytterligare dokumentation
 
-Fullständig dokumentation för Azure IoT Hub Service API: er finns i [IoT Hub Service API: er](https://docs.microsoft.com/rest/api/iothub/service).
+Fullständig dokumentation för Azure IoT Hub service-API: er finns i [IoT Hub service-API: er](https://docs.microsoft.com/rest/api/iothub/service).

@@ -17,17 +17,17 @@ ms.date: 07/12/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d34204b936a608158a0ca3e8af2264059ffc6aa
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: dd1d4f86b6223abd3de8fab618e5975ebd33f892
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70136557"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885284"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Azure AD PowerShell-cmdletar för rapportering
 
 > [!NOTE] 
-> Dessa PowerShell-cmdletar fungerar för närvarande bara med [Azure AD Preview](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing) -modulen. Observera att för hands versions modulen inte föreslås för produktions användning. 
+> Dessa PowerShell-cmdletar fungerar för närvarande bara med [Azure AD Preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing) -modulen. Observera att för hands versions modulen inte föreslås för produktions användning. 
 
 Med Azure Active Directory (Azure AD)-rapporter kan du få information om aktiviteter kring alla Skriv åtgärder i din riktning (gransknings loggar) och autentiserings data (inloggnings loggar). Även om informationen är tillgänglig med hjälp av MS-Graph API kan du hämta samma data med hjälp av Azure AD PowerShell-cmdlets för rapportering.
 
@@ -43,7 +43,7 @@ Du får åtkomst till gransknings loggarna med hjälp av cmdleten Get-AzureADAud
 | Scenario                      | PowerShell-kommando |
 | :--                           | :--                |
 | Programmets visnings namn      | Get-AzureADAuditDirectoryLogs-filter "initiatedBy/app/displayName EQ" Azure AD-molnbaserad synkronisering "" |
-| Category                      | Get-AzureADAuditDirectoryLogs – filter "Category EQ" program hantering " |
+| Kategori                      | Get-AzureADAuditDirectoryLogs – filter "Category EQ" program hantering " |
 | Datum/tid för aktivitet            | Get-AzureADAuditDirectoryLogs-filter "activityDateTime gt 2019-04-18" |
 | Alla ovanstående              | Get-AzureADAuditDirectoryLogs-filter "initiatedBy/app/displayName EQ" Azure AD Cloud Sync "och Category EQ" Application Management "och activityDateTime gt 2019-04-18"|
 
@@ -63,9 +63,9 @@ Du får åtkomst till inloggnings loggarna med hjälp av cmdleten Get-AzureADAud
 
 | Scenario                      | PowerShell-kommando |
 | :--                           | :--                |
-| Användarens visningsnamn             | Get-AzureADAuditSignInLogs-filter "userDisplayName EQ" Timothy Perkins "" |
+| Användarens visnings namn             | Get-AzureADAuditSignInLogs-filter "userDisplayName EQ" Timothy Perkins "" |
 | Skapa datum och tid              | Get-AzureADAuditSignInLogs-filter "createdDateTime gt 2019-04-18T17:30:00.0 Z" (allting sedan 5:30 PM på 4/18) |
-| State                        | Get-AzureADAuditSignInLogs-filter "status/errorCode EQ 50105" |
+| Status                        | Get-AzureADAuditSignInLogs-filter "status/errorCode EQ 50105" |
 | Programmets visnings namn      | Get-AzureADAuditSignInLogs-filter "appDisplayName EQ" StoreFrontStudio [wsfed Enabled] " |
 | Alla ovanstående              | Get-AzureADAuditSignInLogs-filter "userDisplayName EQ" Timothy Perkins "och status/errorCode Ne 0 och appDisplayName EQ StoreFrontStudio [wsfed Enabled]" |
 

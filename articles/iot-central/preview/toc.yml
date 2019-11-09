@@ -1,0 +1,155 @@
+- name: Dokumentation om Azure IoT Central (förhandsgranskningsfunktioner)
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Vad är Azure IoT Central?
+      href: overview-iot-central.md
+    - name: IoT-lösningsalternativ
+      href: ../core/overview-iot-options.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+    - name: Genomgång av användargränssnittet
+      href: overview-iot-central-tour.md
+    - name: Kom igång med anslutningen
+      href: overview-iot-central-get-connected.md
+    - name: Fortsätt vara uppkopplad
+      href: overview-iot-central-stay-connected.md
+    - name: Transformering
+      href: overview-iot-central-transform.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: 1. Skapa ett nytt program
+      href: quick-deploy-iot-central.md
+    - name: 2. Lägga till en simulerad enhet
+      href: quick-create-pnp-device.md
+    - name: 3. Konfigurera regler och åtgärder
+      href: quick-configure-rules.md
+    - name: 4. Övervaka dina enheter
+      href: quick-monitor-devices.md
+- name: Självstudier
+  items:
+    - name: Kom igång med anslutningen
+      items:
+        - name: Skapa och hantera mallar för IoT-enheter
+          href: tutorial-define-iot-device-type.md
+        - name: Ansluta en enhet
+          href: tutorial-connect-pnp-device.md
+        - name: Skapa och hantera en mall för IoT Edge-enheter
+          href: tutorial-define-edge-device-type.md
+        - name: Ansluta en IoT Edge-enhet
+          href: tutorial-add-edge-as-leaf-device.md
+    - name: Fortsätt vara uppkopplad
+      items:
+        - name: Skapa en enhetsgrupp.
+          href: tutorial-use-device-groups.md
+    - name: Transformering
+      items:
+        - name: Skapa en regel
+          href: tutorial-create-telemetry-rules.md
+        - name: Använd REST API
+          href: 'https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/'
+- name: Begrepp
+  items:
+    - name: Arkitektur
+      href: concepts-architecture.md
+    - name: Vad är programmallar?
+      href: ../core/concepts-app-templates.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+- name: Instruktionsguider
+  items:
+    - name: Kom igång med anslutningen
+      items:
+        - name: Förbereda och ansluta MXChip IoT DevKit
+          href: howto-connect-devkit.md
+        - name: Förbereda och ansluta en RuuviTag-enhet
+          href: howto-connect-ruuvi.md
+        - name: Förbereda och ansluta en Rigado Cascade 500
+          href: howto-connect-rigado-cascade-500.md
+    - name: Fortsätt vara uppkopplad
+      items:
+        - name: Övervaka enhetsanslutningar med Azure CLI
+          href: howto-monitor-devices-azure-cli.md
+        - name: Version av enhetsmall
+          href: howto-version-device-template.md
+        - name: Hantera dina enheter
+          href: howto-manage-devices.md
+        - name: Analysera dina enhetsdata
+          href: howto-create-analytics.md
+        - name: Lägga till paneler på din instrumentpanel
+          href: ../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+        - name: Skapa personliga instrumentpaneler i Azure IoT Central
+          href: ../core/howto-create-personal-dashboards.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+        - name: Köra ett jobb
+          href: ../core/howto-run-a-job.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+        - name: Version av enhetsmall
+          href: howto-version-device-template.md
+    - name: Transformering
+      items:
+        - name: Konfigurera kontinuerlig dataexport
+          href: howto-export-data.md
+        - name: Skapa webhooks med regler
+          href: howto-create-webhooks.md
+        - name: Anslut Azure Monitor åtgärdsgrupper för regler
+          href: howto-use-action-groups.md
+        - name: Skapa anpassade roller
+          href: howto-create-custom-rules.md
+        - name: Skapa anpassad analys med Databricks
+          href: howto-create-custom-analytics.md
+    - name: Administration
+      items:
+        - name: Hantera ditt program
+          items:
+            - name: Ändra tillämpningsinställningar
+              href: howto-administer.md
+            - name: Hantera användare och roller
+              href: howto-manage-users-roles.md
+            - name: Hantera din faktura
+              href: howto-view-bill.md
+            - name: Anpassa användargränssnitt i program
+              href: howto-customize-ui.md
+            - name: Exportera ditt program
+              href: howto-use-app-templates.md
+        - name: Hantera från andra platser
+          items:
+            - name: Hantera från Azure-portalen
+              href: ../core/howto-manage-iot-central-from-portal.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+            - name: Hantera från Azure CLI
+              href: ../core/howto-manage-iot-central-from-cli.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+            - name: Hantera från Azure PowerShell
+              href: ../core/howto-manage-iot-central-from-powershell.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+            - name: Hantera från CSP-portalen
+              href: ../core/howto-create-and-manage-applications-csp.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+        - name: Anpassa program
+          items:
+            - name: Hantera dina personliga inställningar
+              href: ../core/howto-manage-preferences.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+            - name: Växla livechatt
+              href: ../core/howto-show-hide-chat.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+- name: Relaterat
+  items:
+    - name: Plattformstjänster
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Plug and Play
+          href: /azure/iot-pnp
+        - name: IoT Hub Device Provisioning Service
+          href: /azure/iot-dps
+        - name: Platsbaserade tjänster
+          href: /azure/location-based-services
+        - name: 'Tjänst-SDK:er'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: IoT Edge
+      items:
+        - name: Azure IoT Edge
+          href: /azure/iot-edge
+        - name: 'SDK:er för IoT-enheter'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+- name: Resurser
+  items:
+    - name: REST-API
+      href: 'https://docs.microsoft.com/rest/api/iotcentral/'
+    - name: Kunddataförfrågningar
+      href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+    - name: Webbläsare som stöds
+      href: ../core/iot-central-supported-browsers.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json

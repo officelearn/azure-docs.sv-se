@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/07/2019
-ms.openlocfilehash: dc572d29b4e6d95525959becad0ed8069735e33c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: ed297a1005f67a14db1da15aba2c47c98e83df9c
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606008"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885012"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Använda program ändrings analys (för hands version) i Azure Monitor
 
@@ -31,11 +31,15 @@ Följande diagram illustrerar arkitekturen för ändrings analys:
 
 ![Arkitektur diagram över hur ändrings analys får ändra data och ger den till klient verktyg](./media/change-analysis/overview.png)
 
-För närvarande är ändrings analys integrerad i lösningen för att **diagnostisera och lösa problem** i App Service-webbappen. Om du vill aktivera ändrings identifiering och Visa ändringar i webbappen läser du avsnittet *om ändrings analyser för Web Apps funktion* längre fram i den här artikeln.
+För närvarande är ändrings analys integrerad i lösningen för att **diagnostisera och lösa problem** i App Service webbapp, samt vara tillgängligt som ett fristående blad i Azure Portal.
+Se avsnittet *Visa ändringar för alla resurser i Azure* för att få åtkomst till ändrings analys bladet och *ändrings analysen för avsnittet Web Apps funktion* för att använda den i Web App-portalen senare i den här artikeln.
 
-### <a name="azure-resource-manager-deployment-changes"></a>Azure Resource Manager distributions ändringar
+### <a name="azure-resource-manager-tracked-properties-changes"></a>Ändringar i Azure Resource Manager spårade egenskaper
 
-Med hjälp av [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview)får du en historisk förteckning över hur Azure-resurser som är värdar för ditt program har ändrats över tid. Ändrings analys kan identifiera exempelvis ändringar i IP-konfigurationsinställningar, hanterade identiteter och SSL-inställningar. Så om en tagg läggs till i en webbapp, visar ändrings analysen ändringen. Den här informationen är tillgänglig så länge `Microsoft.ChangeAnalysis` Resource Provider är aktive rad i Azure-prenumerationen.
+Med hjälp av [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview)får du en historisk förteckning över hur Azure-resurser som är värdar för ditt program har ändrats över tid. Spårade inställningar, till exempel hanterade identiteter, plattforms-OS-uppgradering och värdnamn kan identifieras.
+
+### <a name="azure-resource-manager-proxied-setting-changes"></a>Inställnings ändringar för Azure Resource Manager-proxy
+Inställningar som IP-konfigurationsinformation, SSL-inställningar och tilläggs versioner är ännu inte tillgängliga i ARG, så ändra analys frågor och beräkna dessa ändringar på ett säkert sätt för att ge mer information om vad som har ändrats i appen. Informationen är inte tillgänglig ännu i Azure Resource Graph men kommer snart att vara tillgänglig.
 
 ### <a name="changes-in-web-app-deployment-and-configuration-in-guest-changes"></a>Ändringar i distribution och konfiguration av webbappar (ändringar i gästen)
 
@@ -50,6 +54,10 @@ För närvarande stöds följande beroenden:
 - Web Apps
 - Azure Storage
 - Azure SQL
+
+### <a name="enablement"></a>Aktivering
+Resurs leverantören Microsoft. ChangeAnalysis måste registreras med en prenumeration för Azure Resource Manager spårade egenskaper och proxy-inställningar ändra att data ska vara tillgängliga. När du anger webbappen diagnostiserar och löser problem eller hämtar det fristående ändrings analys bladet registreras denna resurs leverantör automatiskt. Det finns inga prestanda-och kostnads implementeringar för din prenumeration.
+För att webbappen ska ändras i gästen krävs separat aktivering för att genomsöka filer i en webbapp. Se *Aktivera ändrings analys i avsnittet diagnosticera och lösa problem* i den här artikeln längre fram i den här artikeln för mer information.
 
 ## <a name="viewing-changes-for-all-resources-in-azure"></a>Visa ändringar för alla resurser i Azure
 I Azure Monitor finns det ett fristående blad för ändrings analys för att visa alla ändringar med insikter och resurser för program beroenden.
@@ -70,7 +78,7 @@ Resurser som stöds för närvarande är:
 - Nätverks resurser för Azure
 - Webbapp med ändringar i gäst fil spårning och miljövariabler
 
-Använd knappen Skicka feedback i bladet eller e-postchangeanalysisteam@microsoft.comför all feedback. 
+Använd knappen Skicka feedback i bladet eller e-postchangeanalysisteam@microsoft.comför all feedback.
 
 ![Skärm bild av knappen feedback i bladet ändra analys](./media/change-analysis/change-analysis-feedback.png)
 
@@ -94,12 +102,12 @@ I Azure Monitor är även ändrings analys inbyggd i självbetjänings **diagnos
 
    ![Skärm bild av alternativen för "program krascher"](./media/change-analysis/enable-changeanalysis.png)
 
-1. Aktivera **ändrings analys** och välj **Spara**.
+1. Aktivera **ändrings analys** och välj **Spara**. Verktyget visar alla webbappar under ett App Services abonnemang. Du kan använda plan nivå växeln för att aktivera ändrings analyser för alla webbappar under en plan.
 
     ![Skärm bild av användar gränssnittet "Aktivera ändrings analys"](./media/change-analysis/change-analysis-on.png)
 
 
-1. Om du vill komma åt ändrings analyser väljer du **diagnostisera och löser problem** > **tillgänglighet och prestanda** > **program krascher**. Du ser en graf som sammanfattar typen av ändringar över tid tillsammans med information om ändringarna:
+1. Om du vill komma åt ändrings analyser väljer du **diagnostisera och löser problem** > **tillgänglighet och prestanda** > **program krascher**. Du ser en graf som sammanfattar typen av ändringar över tid tillsammans med information om dessa ändringar. Som standard visas ändringar under de senaste 24 timmarna för att hjälpa till med omedelbara problem.
 
      ![Skärm bild av vyn ändra diff](./media/change-analysis/change-view.png)
 

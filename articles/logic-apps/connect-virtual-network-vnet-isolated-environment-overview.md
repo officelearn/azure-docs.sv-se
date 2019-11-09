@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/08/2019
-ms.openlocfilehash: da68cfe504332ed6641c52322f0df0d2efd95997
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e06ac0c0647d9a9a6b5adee289b497f2fe94b222
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820674"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889372"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Åtkomst till Azure Virtual Network-resurser från Azure Logic Apps med hjälp av integrerings tjänst miljöer (ISEs)
 
@@ -50,7 +50,7 @@ Logic Apps i en ISE ger samma användar upplevelse och liknande funktioner som d
 
 * Azure Blob Storage, File Storage och Table Storage
 * Azure-köer, Azure Service Bus, Azure Event Hubs och IBM MQ
-* FTP och SFTP – SSH
+* Fil system, FTP och SFTP – SSH
 * SQL Server Azure SQL Data Warehouse Azure Cosmos DB
 * AS2, X12 och EDIFACT
 

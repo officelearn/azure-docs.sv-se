@@ -9,18 +9,18 @@ ms.author: robreed
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 83c185a6ba8f1c5e6edf095db5baf575f750fa3b
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 9c7084954fe58351a6f9af40552714faa34685ad
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176467"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887052"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Köra Runbooks på en Hybrid Runbook Worker
 
 Det finns ingen skillnad i strukturen för Runbooks som körs i Azure Automation och Runbooks som körs på en Hybrid Runbook Worker. Runbooks som du använder med de mest sannolika kan variera avsevärt. Den här skillnaden beror på att Runbooks som riktar sig till en Hybrid Runbook Worker vanligt vis hanterar resurser på den lokala datorn eller mot resurser i den lokala miljön där den distribueras. Runbooks i Azure Automation hanterar vanligt vis resurser i Azure-molnet.
 
-När du skapar runbooks som ska köras på en Hybrid Runbook Worker bör du redigera och testa Runbooks i datorn som är värd för Hybrid Worker. Värddatorn har alla PowerShell-moduler och nätverks åtkomst som du behöver för att hantera och komma åt lokala resurser. När en Runbook har testats på Hybrid Worker-datorn kan du sedan ladda upp den till Azure Automation-miljön där den är tillgänglig för körning i hybrid Worker. Det är viktigt att veta att jobb som körs under det lokala system kontot för Windows eller ett särskilt användar konto `nxautomation` på Linux. I Linux innebär det att du måste se till att kontot `nxautomation` har åtkomst till den plats där du lagrar dina moduler. När du använder cmdleten [install-module](/powershell/module/powershellget/install-module) anger du **AllUsers** till parametern `-Scope` för att bekräfta att `nxautomation` kontot har åtkomst.
+När du skapar runbooks som ska köras på en Hybrid Runbook Worker bör du redigera och testa Runbooks i datorn som är värd för Hybrid Worker. Värddatorn har alla PowerShell-moduler och nätverks åtkomst som du behöver för att hantera och komma åt lokala resurser. När en Runbook har testats på Hybrid Worker-datorn kan du sedan ladda upp den till Azure Automation-miljön där den är tillgänglig för körning i hybrid Worker. Det är viktigt att veta att jobb som körs under det lokala system kontot för Windows eller ett särskilt användar konto `nxautomation` på Linux. I Linux innebär det att du måste se till att `nxautomation`-kontot har åtkomst till den plats där du lagrar dina moduler. När du använder cmdleten [install-module](/powershell/module/powershellget/install-module) anger du **AllUsers** till parametern `-Scope` för att bekräfta att `nxautomation` kontot har åtkomst.
 
 Mer information om PowerShell på Linux finns i [kända problem för PowerShell på andra plattformar än Windows-plattformar](https://docs.microsoft.com/powershell/scripting/whats-new/known-issues-ps6?view=powershell-6#known-issues-for-powershell-on-non-windows-platforms).
 
@@ -103,7 +103,7 @@ Get-AzureRmVm | Select Name
 ```
 
 > [!NOTE]
-> `Connect-AzureRMAccount -Identity` fungerar för en Hybrid Runbook Worker som använder en tilldelad identitet och en enskild användare som tilldelats identiteten. Om du behöver använda flera användare som tilldelats identiteter på HRW måste du ange parametern `-AccountId` för att välja den tilldelade användaren.
+> `Connect-AzureRMAccount -Identity` fungerar för en Hybrid Runbook Worker som använder en tilldelad identitet och en enskild användare som tilldelats identiteten. Om du behöver använda flera användare som tilldelats identiteter på HRW, måste du ange parametern `-AccountId` för att välja den tilldelade användaren.
 
 ### <a name="runas-script"></a>Kör som-konto för Automation
 
@@ -184,7 +184,7 @@ Get-AzureRmAutomationAccount | Select-Object AutomationAccountName
 > [!IMPORTANT]
 > **Add-AzureRmAccount** är nu ett alias för **Connect-AzureRmAccount**. Om du inte ser **Connect-AzureRMAccount**när du söker i biblioteks objekt kan du använda **Add-AzureRMAccount**, eller så kan du uppdatera dina moduler i ditt Automation-konto.
 
-Spara *export-RunAsCertificateToHybridWorker* -runbooken till datorn med ett tillägg i `.ps1`. Importera den till ditt Automation-konto och redigera runbooken och ändra värdet för variabeln `$Password` med ditt eget lösen ord. Publicera och kör sedan runbooken. Rikta den Hybrid Worker grupp som ska köra och autentisera Runbooks med hjälp av kör som-kontot. Jobb strömmen rapporterar försöket att importera certifikatet till den lokala datorns Arkiv och följer med flera rader. Detta beteende beror på hur många Automation-konton du definierar i din prenumeration och om autentiseringen lyckas.
+Spara *export-RunAsCertificateToHybridWorker-* runbooken till datorn med ett `.ps1`-tillägg. Importera den till ditt Automation-konto och redigera runbooken och ändra värdet för variabeln `$Password` med ditt eget lösen ord. Publicera och kör sedan runbooken. Rikta den Hybrid Worker grupp som ska köra och autentisera Runbooks med hjälp av kör som-kontot. Jobb strömmen rapporterar försöket att importera certifikatet till den lokala datorns Arkiv och följer med flera rader. Detta beteende beror på hur många Automation-konton du definierar i din prenumeration och om autentiseringen lyckas.
 
 ## <a name="job-behavior"></a>Jobb beteende
 
@@ -258,15 +258,15 @@ För att signera Runbooks på en Linux-Hybrid Runbook Worker måste Hybrid Runbo
 
 #### <a name="create-a-gpg-keyring-and-keypair"></a>Skapa en GPG-nyckelring och nyckel par
 
-Om du vill skapa nyckel ringen och nyckel paret måste du använda Hybrid Runbook Worker konto `nxautomation`.
+Om du vill skapa en nyckel Ring och nyckel par måste du använda Hybrid Runbook Worker konto `nxautomation`.
 
-Använd `sudo` för att logga in som `nxautomation`-konto.
+Använd `sudo` för att logga in som `nxautomation`s konto.
 
 ```bash
 sudo su – nxautomation
 ```
 
-När du använder `nxautomation`-kontot genererar du GPG-nyckelpar.
+När du har använt `nxautomation`-kontot genererar du GPG-nyckelpar.
 
 ```bash
 sudo gpg --generate-key
@@ -292,7 +292,7 @@ gpg_public_keyring_path = /var/opt/microsoft/omsagent/run/.gnupg/pubring.kbx
 
 #### <a name="verify-signature-validation-is-on"></a>Verifiera att verifieringen av signaturen är på
 
-Om verifiering av signatur har inaktiverats på datorn måste du aktivera den. Kör följande kommando för att aktivera verifiering av signatur. Ersätter `<LogAnalyticsworkspaceId>` med ditt arbetsyte-ID.
+Om verifiering av signatur har inaktiverats på datorn måste du aktivera den. Kör följande kommando för att aktivera verifiering av signatur. Ersätta `<LogAnalyticsworkspaceId>` med ditt arbetsyte-ID.
 
 ```bash
 sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --true <LogAnalyticsworkspaceId>
@@ -315,4 +315,4 @@ Den signerade runbooken kan nu överföras till Azure Automation och kan köras 
 * Mer information om de olika metoder som kan användas för att starta en Runbook finns [i starta en Runbook i Azure Automation](automation-starting-a-runbook.md).
 * För att förstå de olika sätten att arbeta med PowerShell-Runbooks i Azure Automation använda text redigeraren, se [Redigera en Runbook i Azure Automation](automation-edit-textual-runbook.md)
 * Om Runbooks inte slutförs kan du läsa fel söknings guiden om [fel i Runbook-körningen](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
-* Mer information om PowerShell, inklusive språk referens-och inlärnings moduler finns i [PowerShell-dokumenten](https://docs.microsoft.com/en-us/powershell/scripting/overview).
+* Mer information om PowerShell, inklusive språk referens-och inlärnings moduler finns i [PowerShell-dokumenten](https://docs.microsoft.com/powershell/scripting/overview).

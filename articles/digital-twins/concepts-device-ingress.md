@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/17/2019
-ms.openlocfilehash: 6c61bc6075b3f0713dd790f1b3aa1a47af9d8e6c
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/07/2019
+ms.openlocfilehash: 723fe14db9089e1127f39eae3ed7b10bbddf70bf
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950026"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889717"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Enhetsanslutning och inkommande telemetri
 
@@ -39,7 +39,7 @@ I följande avsnitt får du lära dig hur du hämtar den IoT Hub enhets anslutni
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-Gör ett anrop på enhets-API: et med en `includes=ConnectionString`-parameter för att hämta anslutnings strängen för IoT Hub enheten. Filtrera efter enhetens GUID eller maskinvaru-ID för att hitta den aktuella enheten.
+Hämta enhets-API: et med en `includes=ConnectionString` parameter för att hämta anslutnings strängen för IoT Hub enheten. Filtrera efter enhetens GUID eller maskinvaru-ID för att hitta den aktuella enheten.
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_GUID?includes=ConnectionString
@@ -65,11 +65,11 @@ Du kan anpassa enhetens meddelande format och nytto Last så att den passar din 
 
 ### <a name="telemetry-properties"></a>Egenskaper för telemetri
 
- Nytto Last innehållet i ett **meddelande** kan vara godtyckligt data upp till 256 kB. Det finns några krav som kan förväntas för egenskaper av typen [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) . Tabellen visar de obligatoriska och valfria egenskaper som stöds av systemet.
+ Nytto Last innehållet i ett **meddelande** kan vara godtyckligt data upp till 256 kB. Det finns några krav som kan förväntas för [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) typens egenskaper. Tabellen visar de obligatoriska och valfria egenskaper som stöds av systemet.
 
-| Egenskapsnamn | Value | Obligatorisk | Beskrivning |
+| Egenskapsnamn | Värde | Krävs | Beskrivning |
 |---|---|---|---|
-| **DigitalTwins-Telemetry** | 1.0 | Ja | Ett konstant värde som identifierar ett meddelande i systemet. |
+| **DigitalTwins – telemetri** | 1.0 | Ja | Ett konstant värde som identifierar ett meddelande i systemet. |
 | **DigitalTwins-SensorHardwareId** | `string(72)` | Ja | En unik identifierare för sensorn som skickar **meddelandet**. Värdet måste matcha ett objekts **HardwareId** -egenskap för att systemet ska kunna bearbeta det. Till exempel `00FF0643BE88-CO2`. |
 | **CreationTimeUtc** | `string` | Nej | En [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) -formaterad datum sträng som identifierar nytto lastens samplings tid. Till exempel `2018-09-20T07:35:00.8587882-07:00`. |
 | **CorrelationId** | `string` | Nej | Ett UUID som används för att spåra händelser i systemet. Till exempel `cec16751-ab27-405d-8fe6-c68e1412ce1f`.

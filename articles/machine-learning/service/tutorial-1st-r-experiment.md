@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 11/04/2019
-ms.openlocfilehash: 9073893ebfcfea1a7f4e2a00bf82babcb8841122
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
-ms.translationtype: HT
+ms.openlocfilehash: 690df14e4e09b4a35589446029468a7d757d2732
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838522"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888618"
 ---
 # <a name="tutorial-train-and-deploy-your-first-model-in-r-with-azure-machine-learning"></a>Självstudie: träna och distribuera din första modell i R med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,7 +35,7 @@ I den här självstudien kommer du att lära dig följande:
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 1. Följ [installations anvisningarna](https://azure.github.io/azureml-sdk-for-r/articles/installation.html) för att:
     + Installera Anaconda
@@ -269,7 +269,7 @@ as.numeric(predict(accident_model,newdata, type="response")*100)
 
 ## <a name="deploy-as-a-web-service"></a>Distribuera som en webbtjänst
 
-Med din modell kan du förutsäga risken för dödsfall från en kollision. Använd Azure ML för att distribuera din modell som en förutsägelse tjänst. I den här självstudien ska du distribuera-webb tjänsten i [Azure Container instances](https://docs.microsoft.com/en-us/azure/container-instances/) (ACI).
+Med din modell kan du förutsäga risken för dödsfall från en kollision. Använd Azure ML för att distribuera din modell som en förutsägelse tjänst. I den här självstudien ska du distribuera-webb tjänsten i [Azure Container instances](https://docs.microsoft.com/azure/container-instances/) (ACI).
 
 ### <a name="register-the-model"></a>Registrera modellen
 

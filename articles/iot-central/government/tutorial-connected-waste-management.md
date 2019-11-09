@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a0bf3b555334b67659975c150711eab02b957c6e
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: fa2ea8cdf5148d27b025c62fbeec512ceac0943e
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73026601"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890814"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Självstudie: skapa ett anslutet hanterings program för skräp hantering i IoT Central
 
@@ -31,7 +31,7 @@ I självstudien får du lära dig att:
 > * Konfigurera jobb
 > * Anpassa din program anpassning med adresser
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här självstudien behöver du:
 -  En Azure-prenumeration rekommenderas. Du kan välja att använda en kostnads fri 7-dagars utvärderings version. Om du inte har någon Azure-prenumeration kan du skapa en på [sidan för Azure-registrering](https://aka.ms/createazuresubscription).
@@ -59,7 +59,7 @@ Så här skapar du ett nytt Azure IoT Central-anslutet hanterings program för s
     * **URL** – du kan också välja att ange önskad URL. Du kan ändra URL: en senare. 
     * Om du har en Azure-prenumeration anger du din *katalog, din Azure-prenumeration och region*. Om du inte har någon prenumeration kan du aktivera den **kostnads fria utvärderings versionen på 7 dagar** och slutföra den kontakt information som krävs.  
 
-    Mer information om kataloger och prenumerationer finns i [snabbstarten om att skapa ett program](../core/quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+    Mer information om kataloger och prenumerationer finns i [snabbstarten om att skapa ett program](../preview/quick-deploy-iot-central.md).
 
 5. Klicka på knappen **skapa** längst ned på sidan. 
 
@@ -67,7 +67,7 @@ Så här skapar du ett nytt Azure IoT Central-anslutet hanterings program för s
 
 6. Nu har du skapat en ansluten app för avfalls hantering med hjälp av **mallen Azure IoT Central ansluten avfalls hantering**. 
 
-Gratulerar! Det nyligen skapade programmet levereras med förkonfigurerade:
+Grattis! Det nyligen skapade programmet levereras med förkonfigurerade:
 * Exempel instrument panels instrument paneler
 * Exempel på fördefinierad enhet med fördefinierat antal anslutna avfalls platser
 * Simulerade anslutna avfalls lager enheter

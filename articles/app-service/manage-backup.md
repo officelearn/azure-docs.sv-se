@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 10/16/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bbfab41c3324bc16874463d2fc0201f99ee9284b
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: a56abbcb72afc1f45683259d3bd3bf13309cda07
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516969"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886071"
 ---
 # <a name="back-up-your-app-in-azure"></a>Säkerhetskopiera din app i Azure
 Med säkerhets kopierings-och återställnings funktionen i [Azure App Service](overview.md) kan du enkelt skapa säkerhets kopior av appar manuellt eller enligt ett schema. Du kan konfigurera säkerhets kopiorna så att de behålls på obestämd tid. Du kan återställa appen till en ögonblicks bild av ett tidigare tillstånd genom att skriva över den befintliga appen eller återställa till en annan app.
@@ -39,7 +39,7 @@ Följande databas lösningar stöds med funktionen säkerhets kopiering:
 - [SQL Database](https://azure.microsoft.com/services/sql-database/)
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql)
-- [MySQL in-app](https://azure.microsoft.com/en-us/blog/mysql-in-app-preview-app-service/)
+- [MySQL in-app](https://azure.microsoft.com/blog/mysql-in-app-preview-app-service/)
  
 
 > [!NOTE]
@@ -68,7 +68,7 @@ Följande databas lösningar stöds med funktionen säkerhets kopiering:
     > [!NOTE]
     > Om du ser följande meddelande klickar du på det för att uppgradera ditt App Service plan innan du kan fortsätta med säkerhets kopieringar.
     > Mer information finns i [skala upp en app i Azure](manage-scale-up.md).
-    > ![Choose lagrings konto ](./media/manage-backup/upgrade-plan.png)
+    > ![välja lagrings konto](./media/manage-backup/upgrade-plan.png)
     > 
     > 
 
@@ -156,7 +156,7 @@ Kör säkerhets kopieringar på samma sätt som vanligt, [manuellt](#create-a-ma
 <a name="aboutbackups"></a>
 
 ## <a name="how-backups-are-stored"></a>Så här lagras säkerhets kopior
-När du har gjort en eller flera säkerhets kopior för din app visas säkerhets kopiorna på sidan **behållare** för ditt lagrings konto och din app. I lagrings kontot består varje säkerhets kopiering av en `.zip`-fil som innehåller säkerhets kopierings data och en `.xml`-fil som innehåller ett manifest av `.zip` fil innehållet. Du kan packa upp och bläddra igenom dessa filer om du vill komma åt dina säkerhets kopior utan att faktiskt utföra en återställning av appen.
+När du har gjort en eller flera säkerhets kopior för din app visas säkerhets kopiorna på sidan **behållare** för ditt lagrings konto och din app. I lagrings kontot består varje säkerhets kopiering av en`.zip`-fil som innehåller säkerhets kopierings data och en `.xml`-fil som innehåller ett manifest av `.zip` fil innehållet. Du kan packa upp och bläddra igenom dessa filer om du vill komma åt dina säkerhets kopior utan att faktiskt utföra en återställning av appen.
 
 Säkerhets kopieringen av databasen för appen lagras i roten i zip-filen. För en SQL-databas är detta en BACPAC-fil (inget fil namns tillägg) och kan importeras. Om du vill skapa en SQL-databas baserad på BACPAC-exporten kan du läsa [Importera en BACPAC-fil för att skapa en ny användar databas](https://technet.microsoft.com/library/hh710052.aspx).
 

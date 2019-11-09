@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 1c48e758e9ee69085034f714652632151912f8d4
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: d5d0a575c3fb662df034b66a48135ac33393f95c
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530633"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885393"
 ---
 # <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Installera och använda konsulär i Azure Kubernetes service (AKS)
 
@@ -21,7 +21,7 @@ ms.locfileid: "72530633"
 Den här artikeln visar hur du installerar konsulär. Konsulära komponenter installeras i ett Kubernetes-kluster på AKS.
 
 > [!NOTE]
-> Dessa instruktioner refererar till konsulär version `1.6.0` och använder minst Helm version `2.14.2`.
+> Dessa instruktioner refererar till konsulär version `1.6.0`och använder minst Helm version `2.14.2`.
 >
 > Konsulär `1.6.x`-versioner kan köras mot Kubernetes-versioner `1.13+`. Du hittar ytterligare konsulära versioner på [GitHub-uppdateringar][consul-github-releases] och information om var och en av de versioner som finns i [konsulära versions anteckningar][consul-release-notes].
 
@@ -95,7 +95,7 @@ Använd Helm och det nedladdade `consul-helm`-diagrammet för att installera kon
 
 ::: zone-end
 
-@No__t_0 Helm-diagrammet distribuerar ett antal objekt. Du kan se listan från utdata från kommandot `helm install` ovan. Det kan ta ungefär tre minuter att slutföra distributionen av konsulära komponenter, beroende på din kluster miljö.
+`Consul` Helm-diagrammet distribuerar ett antal objekt. Du kan se listan från utdata från kommandot `helm install` ovan. Det kan ta ungefär tre minuter att slutföra distributionen av konsulära komponenter, beroende på din kluster miljö.
 
 Nu har du distribuerat konsulär till ditt AKS-kluster. För att säkerställa att vi har en lyckad distribution av konsulär kan vi gå vidare till nästa avsnitt för att verifiera den konsulära installationen.
 
@@ -150,7 +150,7 @@ Nu kan du öppna en webbläsare och peka den på `http://localhost:8080/ui` för
 
 ### <a name="remove-consul-components-and-namespace"></a>Ta bort konsulära komponenter och namnrymd
 
-Om du vill ta bort konsulär från AKS-klustret använder du följande kommandon. @No__t_0-kommandon tar bort `consul`-diagrammet och `kubectl delete namespace` kommandot tar bort `consul` namn området.
+Om du vill ta bort konsulär från AKS-klustret använder du följande kommandon. `helm delete`-kommandon tar bort `consul`-diagrammet och `kubectl delete namespace` kommandot tar bort `consul` namn området.
 
 ```azurecli
 helm delete --purge consul
@@ -186,7 +186,7 @@ Du kan också följa ytterligare scenarier som använder:
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-port-forward]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#port-forward
-[kubernetes-node-selectors]: https://docs.microsoft.com/en-us/azure/aks/concepts-clusters-workloads#node-selectors
+[kubernetes-node-selectors]: https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#node-selectors
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md

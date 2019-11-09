@@ -9,16 +9,16 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: af68f232c893259747e6ed106eced70fd8b89351
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: c7578b84fe1d23d2b4d97aa263cac576305db240
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792235"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889921"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Så här modellerar du komplexa data typer i Azure Kognitiv sökning
 
-Externa data uppsättningar som används för att fylla ett Azure Kognitiv sökning-index kan komma i många former. Ibland innehåller de hierarkiska eller kapslade under strukturer. Exempel kan innehålla flera adresser för en enskild kund, flera färger och storlekar för en enda SKU, flera författare till en enda bok och så vidare. I modell villkor kan du se dessa strukturer som kallas *komplexa*, *sammansatta*, *sammansatta*eller *aggregerade* data typer. Termen Azure Kognitiv sökning används för det här konceptet är en **komplex typ**. I Azure kognitivt Kognitiv sökning modelleras komplexa typer med **komplexa fält**. Ett komplext fält är ett fält som innehåller underordnade (under fält) som kan vara av valfri datatyp, inklusive andra komplexa typer. Detta fungerar på samma sätt som strukturerade data typer i ett programmeringsspråk.
+Externa data uppsättningar som används för att fylla ett Azure Kognitiv sökning-index kan komma i många former. Ibland innehåller de hierarkiska eller kapslade under strukturer. Exempel kan innehålla flera adresser för en enskild kund, flera färger och storlekar för en enda SKU, flera författare till en enda bok och så vidare. I modell villkor kan du se dessa strukturer som kallas *komplexa*, *sammansatta*, *sammansatta*eller *aggregerade* data typer. Termen Azure Kognitiv sökning används för det här konceptet är en **komplex typ**. I Azure Kognitiv sökning modelleras komplexa typer med hjälp av **komplexa fält**. Ett komplext fält är ett fält som innehåller underordnade (under fält) som kan vara av valfri datatyp, inklusive andra komplexa typer. Detta fungerar på samma sätt som strukturerade data typer i ett programmeringsspråk.
 
 Komplexa fält representerar antingen ett enda objekt i dokumentet eller en matris med objekt, beroende på data typen. Fält av typen `Edm.ComplexType` representerar enstaka objekt, medan fält av typen `Collection(Edm.ComplexType)` representerar matriser med objekt.
 

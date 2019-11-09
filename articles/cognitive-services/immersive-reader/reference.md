@@ -10,18 +10,18 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 1908ed916d61c7a65b1f0061c0fe8d8a08b5e41c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: ed9bd6f5932fdcb2d9124a000115a6f68cf21613
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388098"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889315"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>Referens guide för avancerad läsare SDK
 
 SDK för avancerad läsare är ett JavaScript-bibliotek som gör att du kan integrera den fördjupade läsaren i ditt webb program.
 
-# <a name="functions"></a>Functions
+## <a name="functions"></a>Functions
 
 SDK: n visar funktionerna:
 
@@ -33,7 +33,7 @@ SDK: n visar funktionerna:
 
 ## <a name="launchasync"></a>launchAsync
 
-Startar den fördjupade läsaren inom en `iframe` i ditt webb program.
+Startar den fördjupade läsaren i en `iframe` i ditt webb program.
 
 ```typescript
 launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<HTMLDivElement>;
@@ -50,17 +50,17 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 ### <a name="returns"></a>Avkastning
 
-Returnerar en `Promise<HTMLDivElement>`, som löses när den fördjupade läsaren läses in. @No__t-0 matchar ett `div`-element vars enda underordnade är ett `iframe`-element som innehåller den fördjupade läsar sidan.
+Returnerar ett `Promise<HTMLDivElement>`som löses när den fördjupade läsaren läses in. `Promise` matchar ett `div`-element vars enda underordnade är ett `iframe`-element som innehåller fördjupad läsar sidan.
 
 ### <a name="exceptions"></a>Undantag
 
-Den returnerade `Promise` avvisas med ett [`Error`-](#error) objekt om den fördjupade läsaren inte kan läsas in. Mer information finns i [fel koderna](#error-codes).
+Den returnerade `Promise` avvisas med ett [`Error`](#error) -objekt om den fördjupade läsaren inte kan läsas in. Mer information finns i [fel koderna](#error-codes).
 
 ## <a name="close"></a>stäng
 
 Stänger den fördjupade läsaren.
 
-Ett exempel på användnings fall är om knappen Avsluta är dold genom att ange ```hideExitButton: true``` i [alternativ](#options). Sedan kan en annan knapp (till exempel ett mobil huvuds bakre pil) anropa den här ```close```-funktionen när den klickas.
+Ett exempel på användnings fall är om knappen Avsluta är dold genom att ange ```hideExitButton: true``` i [alternativ](#options). Sedan kan en annan knapp (till exempel ett mobil huvuds bakre pil) anropa den här ```close``` funktionen när den klickas.
 
 ```typescript
 close(): void;
@@ -68,7 +68,7 @@ close(): void;
 
 ## <a name="renderbuttons"></a>renderButtons
 
-Den här funktionen formaterar och uppdaterar dokumentets fördjupade läsa knapp element. Om ```options.elements``` anges, kommer den här funktionen att återge knappar i ```options.elements```. Annars återges knapparna i dokumentets element som har klassen ```immersive-reader-button```.
+Den här funktionen formaterar och uppdaterar dokumentets fördjupade läsa knapp element. Om ```options.elements``` anges återger den här funktionen knappar i ```options.elements```. Annars återges knapparna i dokumentets element som har klassen ```immersive-reader-button```.
 
 Den här funktionen anropas automatiskt av SDK: n när fönstret läses in.
 
@@ -168,16 +168,16 @@ Innehåller information om felet.
 
 #### <a name="error-codes"></a>Felkoder
 
-| Programmera | Beskrivning |
+| Kod | Beskrivning |
 | ---- | ----------- |
 | BadArgument | Det angivna argumentet är ogiltigt, se `message` för mer information. |
-| standardvärde | Det gick inte att läsa in den fördjupade läsaren inom den angivna tids gränsen. |
+| Standardvärde | Det gick inte att läsa in den fördjupade läsaren inom den angivna tids gränsen. |
 | TokenExpired | Angiven token har upphört att gälla. |
 | Begränsas | Anrops frekvens gränsen har överskridits. |
 
 ## <a name="launching-the-immersive-reader"></a>Starta den fördjupade läsaren
 
-SDK tillhandahåller standard formatet för knappen för att starta den fördjupade läsaren. Använd attributet `immersive-reader-button`-klass för att aktivera den här formateringen.
+SDK tillhandahåller standard formatet för knappen för att starta den fördjupade läsaren. Använd attributet `immersive-reader-button` Class för att aktivera den här formateringen.
 
 ```html
 <div class='immersive-reader-button'></div>
@@ -189,7 +189,7 @@ Använd följande attribut för att konfigurera utseendet och utseendet på knap
 
 | Attribut | Beskrivning |
 | --------- | ----------- |
-| `data-button-style` | Anger formatet för knappen. Kan vara `icon`, `text` eller `iconAndText`. Standardvärdet är `icon`. |
+| `data-button-style` | Anger formatet för knappen. Kan vara `icon`, `text`eller `iconAndText`. Standardvärdet är `icon`. |
 | `data-locale` | Anger språkvarianten. Exempel: `en-US` eller `fr-FR`. Standardvärdet är engelska `en`. |
 | `data-icon-px-size` | Anger storleken på ikonen i bild punkter. Standardvärdet är 20px. |
 

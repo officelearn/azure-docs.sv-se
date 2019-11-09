@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 4dd4831d6437b7026459dc358455335dd0fa221b
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: f27a6df86ebbe2b07b73016f304ac364e88664bb
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063105"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891040"
 ---
-# <a name="expressroute-faq"></a>Vanliga frågor och svar om ExpressRoute
+# <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
 ## <a name="what-is-expressroute"></a>Vad är ExpressRoute?
 
@@ -101,7 +101,7 @@ Om du ser meddelandet "validering krävs" samlar du in dokumenten som visar att 
 Dynamics 365-och Common Data Service-miljöer (CD) är värdbaserade på Azure och därför drar kunderna nytta av det underliggande ExpressRoute-stödet för Azure-resurser. Du kan ansluta till dess tjänst slut punkter om ditt router-filter innehåller Azure-regionerna som dina Dynamics 365/CD-miljöer finns i.
 
 > [!NOTE]
-> [ExpressRoute Premium](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-faqs#expressroute-premium) krävs **inte** för Dynamics 365-anslutning via Azure ExpressRoute.
+> [ExpressRoute Premium](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium) krävs **inte** för Dynamics 365-anslutning via Azure ExpressRoute.
 
 ## <a name="data-and-connections"></a>Data och anslutningar
 

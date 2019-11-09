@@ -17,12 +17,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8cc02831fa00a3974da1b74b07daf581f50dd22
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: eb562caf2dfc83841762748f37d1a7ee325de10b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569616"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73882632"
 ---
 # <a name="protected-web-api-code-configuration"></a>Skyddat webb-API: kod konfiguration
 
@@ -158,6 +158,10 @@ Verifierarna beskrivs i den här tabellen:
 | `ValidateTokenReplay` | Säkerställer att token inte spelas upp. (Specialfall för vissa Databasmigrering använder protokoll.) |
 
 Verifierarna är associerade med egenskaperna för `TokenValidationParameters`-klassen, som i sin tur initieras från ASP.NET/ASP.NET Core-konfigurationen. I de flesta fall behöver du inte ändra parametrarna. Det finns ett undantag för appar som inte är enskilda klienter. (Det vill säga webbappar som godkänner användare från vilken organisation som helst eller från personliga Microsoft-konton.) I det här fallet måste utfärdaren verifieras.
+
+## <a name="token-validation-in-azure-functions"></a>Verifiering av token i Azure Functions
+
+Det är också möjligt att verifiera inkommande åtkomsttoken i Azure Functions. Du hittar exempel på att validera token i Azure Functions i [dotNet](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions), [NodeJS](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions)och [python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions).
 
 ## <a name="next-steps"></a>Nästa steg
 

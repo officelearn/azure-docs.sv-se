@@ -9,15 +9,15 @@ ms.workload: cloud-services
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
-ms.openlocfilehash: 269bb59210e24623a16b27d21d7276c084e4cca7
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: a014c3d5ada2024609e9262d8943090ac7b205c6
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359669"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888331"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Vad du gör om ett avbrott uppstår i Azure-tjänsten som påverkar Azure Cloud Services
-På Microsoft är arbetar vi hårt för att se till att våra tjänster alltid är tillgängliga för dig när du behöver dem. Det kommer inte längre att påverka vår kontroll på sätt som orsakar oplanerade avbrott i tjänsten.
+På Microsoft arbetar vi hårt för att se till att våra tjänster alltid är tillgängliga när du behöver dem. Det kommer inte längre att påverka vår kontroll på sätt som orsakar oplanerade avbrott i tjänsten.
 
 Microsoft tillhandahåller en Serviceavtal (SLA) för sina tjänster som ett åtagande för drift tid och anslutning. Service avtalet för enskilda Azure-tjänster finns på [Azure Service nivå avtal](https://azure.microsoft.com/support/legal/sla/).
 
@@ -31,7 +31,7 @@ Den här artikeln beskriver ett verkligt haveri återställnings scenario, när 
 >
 
 
-## <a name="option-1-use-a-backup-deployment-through-azure-traffic-manager"></a>Alternativ 1: Använda en säkerhets kopierings distribution via Azure Traffic Manager
+## <a name="option-1-use-a-backup-deployment-through-azure-traffic-manager"></a>Alternativ 1: Använd en distribution av säkerhets kopiering via Azure Traffic Manager
 Den mest robusta katastrof återställnings lösningen omfattar att underhålla flera distributioner av programmet i olika regioner och sedan använda [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) för att dirigera trafik mellan dem. Azure Traffic Manager tillhandahåller flera [routningsmetoder](../traffic-manager/traffic-manager-routing-methods.md), så du kan välja om du vill hantera distributioner med en primär/säkerhets kopierings modell eller dela trafik mellan dem.
 
 ![Balansera Azure Cloud Services över flera regioner med Azure Traffic Manager](./media/cloud-services-disaster-recovery-guidance/using-azure-traffic-manager.png)
@@ -46,13 +46,13 @@ Mer information om hur du skapar och distribuerar ett moln tjänst program finns
 Beroende på dina program data källor kan du behöva kontrol lera återställnings procedurerna för program data källan.
 
 * Azure Storage data källor finns i [Azure Storage replikering](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) för att kontrol lera vilka alternativ som är tillgängliga baserat på den valda replikerings modellen för ditt program.
-* För SQL Database källor, Läs [översikt: Drifts beredskap för affärs kontinuitet och databaser i](../sql-database/sql-database-business-continuity.md) molnet med SQL Database för att kontrol lera vilka alternativ som är tillgängliga baserat på den valda replikerings modellen för ditt program.
+* För SQL Database källor, Läs [Översikt: Cloud affärs kontinuitet och databas haveri beredskap med SQL Database](../sql-database/sql-database-business-continuity.md) för att kontrol lera vilka alternativ som är tillgängliga baserat på den valda replikerings modellen för ditt program.
 
 
-## <a name="option-3-wait-for-recovery"></a>Alternativ 3: Vänta på återställning
+## <a name="option-3-wait-for-recovery"></a>Alternativ 3: vänta på återställning
 I det här fallet krävs ingen åtgärd på din del, men tjänsten blir otillgänglig tills regionen har återställts. Du kan se aktuell status för tjänsten på [Azure Service Health instrument panelen](https://azure.microsoft.com/status/).
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om hur du implementerar en strategi för haveri beredskap och hög tillgänglighet finns i [haveri beredskap och hög tillgänglighet för Azure-program](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
-Information om hur du utvecklar en detaljerad teknisk förståelse av moln plattformens funktioner finns i [teknisk vägledning för Azure-återhämtning](../resiliency/resiliency-technical-guidance.md).
+Information om hur du utvecklar en detaljerad teknisk förståelse av moln plattformens funktioner finns i [teknisk vägledning för Azure-återhämtning](/azure/architecture/checklist/resiliency-per-service).

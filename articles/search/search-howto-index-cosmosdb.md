@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 41da5b59c7d9429a068ecd483aa96edb1141b727
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 0657d3d5aec414b867e85b627fcf77174c8ce789
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719962"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889895"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Så här indexerar du Cosmos DB data med hjälp av en indexerare i Azure Kognitiv sökning 
 
@@ -78,17 +78,11 @@ På sidan **data källa** måste källan vara **Cosmos DB**, med följande speci
 
    ![Cosmos DB definition av data Källa](media/search-howto-index-cosmosdb/cosmosdb-datasource.png "Cosmos DB definition av data Källa")
 
-### <a name="4---skip-the-add-cognitive-search-page-in-the-wizard"></a>4 – hoppa över sidan Lägg till kognitiv sökning i guiden
+### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4 – hoppa över sidan "utöka innehåll" i guiden
 
-Det är inte nödvändigt att lägga till kognitiva kunskaper för dokument import. Om du inte har ett speciellt behov av att [lägga till AI-berikning](cognitive-search-concept-intro.md) till din indexerings pipeline, bör du hoppa över det här steget.
+Att lägga till kognitiva färdigheter (eller anrikning) är inte ett import krav. Om du inte har ett speciellt behov av att [lägga till AI-berikning](cognitive-search-concept-intro.md) till din indexerings pipeline, bör du hoppa över det här steget.
 
-Om du vill hoppa över steget går du först till nästa sida.
-
-   ![Knappen nästa sida för att lägga till kunskaper](media/search-get-started-portal/next-button-add-cog-search.png)
-
-Från den sidan kan du gå vidare till index anpassning.
-
-   ![Hoppa över steget Kognitiva kunskaper](media/search-get-started-portal/skip-cog-skill-step.png)
+Om du vill hoppa över steget klickar du på blå knappar längst ned på sidan för "Nästa" och "hoppa över".
 
 ### <a name="5---set-index-attributes"></a>5-Ange indexattribut
 

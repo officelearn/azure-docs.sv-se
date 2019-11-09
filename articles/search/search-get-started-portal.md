@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 366986f989fdd8d76b1707451c2a7cca2aa554cf
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: ee4e9bd5487382ebb6f57996aac5d3de1ff6162a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719972"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890053"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Azure Portal
 > [!div class="op_single_selector"]
@@ -68,9 +68,7 @@ I den här självstudien använder vi en inbyggd exempel data uppsättning som k
 
 3. Fortsätt till nästa sida.
 
-   ![Knappen Nästa sida för kognitiv sökning](media/search-get-started-portal/next-button-add-cog-search.png)
-
-### <a name="step-2---skip-cognitive-skills"></a>Steg 2 – Hoppa över Kognitiva kunskaper
+### <a name="step-2---skip-the-enrich-content-page"></a>Steg 2 – hoppa över sidan "utöka innehåll"
 
 Guiden stöder skapandet av en pipeline för [AI-anrikning](cognitive-search-concept-intro.md) för att införliva Cognitive Services AI-algoritmer i indexering. 
 
@@ -104,7 +102,6 @@ Som standard söker guiden igenom datakällan för att hitta unika identifierare
 
 2. Fortsätt till nästa sida.
 
-   ![Nästa sida skapa indexeraren](media/search-get-started-portal/next-button-create-indexer.png)
 
 ### <a name="step-4---configure-indexer"></a>Steg 4 – Konfigurera indexeraren
 
@@ -127,6 +124,8 @@ Det kan ta några minuter för portalen att uppdatera sidan men du borde se den 
 ## <a name="view-the-index"></a>Visa indexet
 
 Huvud tjänst sidan innehåller länkar till de resurser som skapats i Azure Kognitiv sökning-tjänsten.  Om du vill visa det index som du precis skapat klickar du på **Index** i listan över länkar. 
+
+Vänta tills Portal sidan har uppdaterats. Efter några minuter bör du se indexet med ett antal dokument och lagrings storlek.
 
    ![Indexlista på instrumentpanelen för tjänster](media/search-get-started-portal/indexes-list.png)
 
@@ -154,7 +153,7 @@ Nu bör du ha ett sökindex som du kan börja köra frågor mot med hjälp av de
 
    ![Kommandot Sökutforskaren](media/search-get-started-portal/search-explorer-cmd.png)
 
-2. I list rutan **index** väljer du *hotell-exempel*. Klicka på list rutan **API-version** för att se vilka REST-API: er som är tillgängliga. Använd den allmänt tillgängliga versionen (2019-05-06) för frågorna nedan.
+2. I list rutan **index** väljer du *hotell-Sample-index*. Klicka på list rutan **API-version** för att se vilka REST-API: er som är tillgängliga. Använd den allmänt tillgängliga versionen (2019-05-06) för frågorna nedan.
 
    ![Index- och API-kommandon](media/search-get-started-portal/search-explorer-changeindex.png)
 

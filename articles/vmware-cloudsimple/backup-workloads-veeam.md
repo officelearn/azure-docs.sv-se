@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 880b31702cf1c0a92ab7ee536cd88e8e6957f6f8
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 3414cc54e5023bdeebb2d5536c1408f981e68f19
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430847"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891402"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Säkerhetskopiera virtuella arbets belastnings datorer på CloudSimple privata moln med Veeam B & R
 
@@ -54,7 +54,7 @@ För miljöer med mindre än 30 TB som ska säkerhets kopie ras rekommenderar Cl
 
 * Veeam backup server och proxy server installerad på samma virtuella dator i det privata molnet.
 * En Linux-baserad primär säkerhets kopierings databas i Azure som är konfigurerad som mål för säkerhets kopierings jobb.
-* `azcopy` används för att kopiera data från den primära säkerhets kopie databasen till en Azure Blob-behållare som replikeras till en annan region.
+* `azcopy` som används för att kopiera data från den primära säkerhets kopie databasen till en Azure Blob-behållare som replikeras till en annan region.
 
 ![Grundläggande distributions scenarier](media/veeam-basicdeployment.png)
 
@@ -65,7 +65,7 @@ För miljöer med mer än 30 TB som ska säkerhets kopie ras rekommenderar Cloud
 * En proxyserver per nod i virtuellt San-klustret, som rekommenderas av Veeam.
 * Windows-baserad primär säkerhets kopierings lagring i det privata molnet för att cachelagra fem dagars data för snabb återställning.
 * Linux backup-lagringsplats i Azure som mål för säkerhets kopierings jobb för längre varaktighets kvarhållning. Den här lagrings platsen ska konfigureras som en lagrings plats för säkerhets kopiering.
-* `azcopy` används för att kopiera data från den primära säkerhets kopie databasen till en Azure Blob-behållare som replikeras till en annan region.
+* `azcopy` som används för att kopiera data från den primära säkerhets kopie databasen till en Azure Blob-behållare som replikeras till en annan region.
 
 ![Grundläggande distributions scenarier](media/veeam-advanceddeployment.png)
 
@@ -194,9 +194,9 @@ Anslut ditt virtuella nätverk till det privata molnet genom att följa anvisnin
 
 ### <a name="configure-azure-blob-storage-for-long-term-data-retention"></a>Konfigurera Azure Blob Storage för långsiktig data kvarhållning
 
-1. Skapa ett allmänt lagrings konto (GPv2) av standard typ och en BLOB-behållare enligt beskrivningen i Microsoft video [komma igång med Azure Storage](https://azure.microsoft.com/en-gb/resources/videos/get-started-with-azure-storage).
+1. Skapa ett allmänt lagrings konto (GPv2) av standard typ och en BLOB-behållare enligt beskrivningen i Microsoft video [komma igång med Azure Storage](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage).
 2. Skapa en Azure Storage-behållare enligt beskrivningen i referensen för att [skapa behållare](https://docs.microsoft.com/rest/api/storageservices/create-container) .
-2. Hämta kommando rads verktyget `azcopy` för Linux från Microsoft. Du kan använda följande kommandon i bash-gränssnittet i CentOS 7,5.
+2. Hämta `azcopy` kommando rads verktyg för Linux från Microsoft. Du kan använda följande kommandon i bash-gränssnittet i CentOS 7,5.
 
     ```
     wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinux64
@@ -206,7 +206,7 @@ Anslut ditt virtuella nätverk till det privata molnet genom att följa anvisnin
     sudo yum -y install icu
     ```
 
-3. Använd kommandot `azcopy` för att kopiera säkerhetskopierade filer till och från BLOB-behållaren.  Mer information finns i [överföra data med AZCopy i Linux](../storage/common/storage-use-azcopy-linux.md) för detaljerade kommandon.
+3. Använd `azcopy`-kommandot för att kopiera säkerhetskopierade filer till och från BLOB-behållaren.  Mer information finns i [överföra data med AZCopy i Linux](../storage/common/storage-use-azcopy-linux.md) för detaljerade kommandon.
 
 ### <a name="vcenter-console-of-private-cloud-install-veeam-br"></a>vCenter-konsol för privat moln: installera Veeam B & R
 
@@ -290,7 +290,7 @@ För att ta bort privilegier, se [aveskalerade privilegier](escalate-private-clo
 * [Ansluta ett VNet till en krets-annan prenumeration](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#connect-a-vnet-to-a-circuit---different-subscription)
 * [Skapa en virtuell Linux-dator i Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 * [Så här ansluter du en hanterad datadisk till en virtuell Windows-dator i Azure Portal](../virtual-machines/windows/attach-managed-disk-portal.md)
-* [Komma igång med Azure Storage-video](https://azure.microsoft.com/en-gb/resources/videos/get-started-with-azure-storage)
+* [Komma igång med Azure Storage-video](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage)
 * [Skapa behållare](https://docs.microsoft.com/rest/api/storageservices/create-container)
 * [Överföra data med AzCopy i Linux](../storage/common/storage-use-azcopy-linux.md)
 

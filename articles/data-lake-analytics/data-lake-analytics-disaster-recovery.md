@@ -1,6 +1,6 @@
 ---
-title: Vägledning om haveriberedskap för Azure Data Lake Analytics
-description: Lär dig hur du planerar katastrofåterställning för dina Azure Data Lake Analytics-konton.
+title: Vägledning om haveri beredskap för Azure Data Lake Analytics
+description: Lär dig hur du planerar haveri beredskap för dina Azure Data Lake Analytics-konton.
 services: data-lake-analytics
 author: MikeRys
 ms.author: mrys
@@ -8,41 +8,41 @@ ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: ea1d4020aa9be23b4839690ae0b386d35bce8a23
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9b22e6b806f76189134ec63c83d48f48bf95587
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66498896"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889767"
 ---
-# <a name="disaster-recovery-guidance-for-azure-data-lake-analytics"></a>Vägledning om haveriberedskap för Azure Data Lake Analytics
+# <a name="disaster-recovery-guidance-for-azure-data-lake-analytics"></a>Vägledning om haveri beredskap för Azure Data Lake Analytics
 
-Azure Data Lake Analytics är en tjänst på begäran som gör det enklare att analysera stordata. I stället för att distribuera, konfigurera och justera maskinvara, kan du skriva frågor genom vilka du kan omvandla dina data och extrahera värdefulla insikter. Med Analytics-tjänsten kan du hantera jobb av alla skalor direkt bara genom att ange hur mycket kraft du behöver. Du betalar endast för jobbet när tjänsten körs vilket gör den kostnadseffektiv. Den här artikeln innehåller råd om hur du skyddar dina jobb från ovanligt regionomfattande avbrott eller oavsiktliga borttagningar.
+Azure Data Lake Analytics är en tjänst på begäran som gör det enklare att analysera stordata. I stället för att distribuera, konfigurera och justera maskinvara, kan du skriva frågor genom vilka du kan omvandla dina data och extrahera värdefulla insikter. Med Analytics-tjänsten kan du hantera jobb av alla skalor direkt bara genom att ange hur mycket kraft du behöver. Du betalar endast för jobbet när tjänsten körs vilket gör den kostnadseffektiv. Den här artikeln innehåller vägledning om hur du skyddar dina jobb från ovanliga avbrott i regioner eller oavsiktliga borttagningar.
 
 ## <a name="disaster-recovery-guidance"></a>Vägledning om haveriberedskap
 
-När du använder Azure Data Lake Analytics, är det viktigt för dig att förbereda en egen plan för katastrofåterställning. Den här artikeln hjälper dig för att skapa en plan för haveriberedskap. Det finns ytterligare resurser som hjälper dig att skapa ett eget schema:
+När du använder Azure Data Lake Analytics är det viktigt att du förbereder din egen katastrof återställnings plan. Den här artikeln hjälper dig att skapa en katastrof återställnings plan. Det finns ytterligare resurser som kan hjälpa dig att skapa en egen plan:
 - [Fel- och haveriberedskap för Azure-program](/azure/architecture/reliability/disaster-recovery)
-- [Azure-återhämtning, tekniska riktlinjer](/azure/architecture/reliability)
+- [Azure-återhämtning, tekniska riktlinjer](/azure/architecture/checklist/resiliency-per-service)
 
-## <a name="best-practices-and-scenario-guidance"></a>Metodtips och riktlinjer för scenario
+## <a name="best-practices-and-scenario-guidance"></a>Bästa praxis och scenario vägledning
 
-Du kan köra ett återkommande U-SQL-jobb i ett ADLA-konto i en region som läser och skriver U-SQL-tabeller samt Ostrukturerade data.  Förbereda för en katastrof genom att göra följande:
+Du kan köra ett återkommande U-SQL-jobb i ett ADLA-konto i en region som läser och skriver U-SQL-tabeller samt ostrukturerade data.  Förbered för en katastrof genom att utföra följande steg:
 
-1. Skapa ADLA och ADLS-konton i den sekundära regionen som ska användas under ett avbrott.
-
-   > [!NOTE]
-   > Använda en konsekvent namngivningsschema som anger vilket konto som är sekundär eftersom kontonamn är globalt unikt.
-
-2. För Ostrukturerade data, referera till [vägledning om Haveriberedskap för data i Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-disaster-recovery-guidance.md)
-
-3. Skapa kopior av för metadataartefakter som databaser, tabeller, tabellvärdesfunktioner och sammansättningar för strukturerade data som lagras i ADLA-tabeller och databaser. Du måste synkronisera med jämna mellanrum om dessa artefakter när ändringar sker i produktion. Till exempel har nyligen infogad data replikeras till den sekundära regionen genom att kopiera data och infoga i tabellen sekundär.
+1. Skapa ADLA-och ADLS-konton i den sekundära regionen som ska användas under ett avbrott.
 
    > [!NOTE]
-   > Dessa objektnamn är begränsade till det sekundära kontot och är inte globalt unikt, så att de kan ha samma namn som det primära produktionskontot.
+   > Eftersom konto namn är globalt unika använder du ett konsekvent namngivnings schema som visar vilket konto som är sekundärt.
 
-Under ett avbrott måste du uppdatera skripten så indatasökvägarna pekar på den sekundära slutpunkten. Användarna skicka sina jobb till ADLA-konto i den sekundära regionen. Utdata från jobbet skrivs sedan till ADLA och ADLS-konto i den sekundära regionen.
+2. För ostrukturerade data, referens [vägledning för katastrof återställning för data i Azure Data Lake Storage gen1](../data-lake-store/data-lake-store-disaster-recovery-guidance.md)
+
+3. För strukturerade data som lagras i ADLA-tabeller och databaser skapar du kopior av metadata-artefakter, till exempel databaser, tabeller, tabell värdes funktioner och sammansättningar. Du måste regelbundet synkronisera om dessa artefakter när ändringar sker i produktionen. Till exempel måste nyligen infogade data replikeras till den sekundära regionen genom att kopiera data och infoga dem i den sekundära tabellen.
+
+   > [!NOTE]
+   > Dessa objekt namn är begränsade till det sekundära kontot och är inte globalt unika, så de kan ha samma namn som i det primära produktions kontot.
+
+Under ett avbrott måste du uppdatera skripten så att de angivna Sök vägarna pekar på den sekundära slut punkten. Användarna skickar sedan sina jobb till ADLA-kontot i den sekundära regionen. Utdata från jobbet kommer sedan att skrivas till ADLA-och ADLS-kontot i den sekundära regionen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Vägledning om haveriberedskap för data i Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-disaster-recovery-guidance.md)
+[Vägledning om haveri beredskap för data i Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-disaster-recovery-guidance.md)

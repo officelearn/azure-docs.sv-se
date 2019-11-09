@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/16/2019
 ms.author: stevelas
-ms.openlocfilehash: c0de5f958c6dcbf935de4eec9557cf64620abbcf
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: f6d1987012cb401d7167896d9352ba7eae821a04
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208015"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887990"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geo-replikering i Azure Container Registry
 
@@ -60,7 +60,7 @@ Användning av funktionen för geo-replikering i Azure Container Registry ger f�
 
 * Hantera ett enskilt register i alla regioner: `contoso.azurecr.io`
 * Hantera en enskild konfiguration av avbildningsdistributioner eftersom alla regioner använder samma avbildnings-URL: `contoso.azurecr.io/public/products/web:1.2`
-* Push-överför till ett enda register medan ACR hanterar geo-replikeringen. Du kan konfigurera regionala [](container-registry-webhook.md) webhookar för att meddela dig om händelser i vissa repliker.
+* Push-överför till ett enda register medan ACR hanterar geo-replikeringen. Du kan konfigurera regionala [webhookar](container-registry-webhook.md) för att meddela dig om händelser i vissa repliker.
 
 ## <a name="configure-geo-replication"></a>Konfigurera geo-replikering
 
@@ -97,7 +97,7 @@ ACR börjar synkronisera avbildningar mellan de konfigurerade replikerna. När d
 * Varje region i ett geo-replikerat register är oberoende när den har kon figurer ATS. Azure Container Registry service avtal gäller för varje geo-replikerad region.
 * När du push-överför eller hämtar bilder från ett geo-replikerat register skickar Azure Traffic Manager i bakgrunden begäran till registret i den region som är närmast dig.
 * När du har push-överfört en avbildning eller tagga till den närmaste regionen tar det lite tid för Azure Container Registry att replikera manifest och lager till de återstående regioner som du har valt. Större bilder tar längre tid att replikera än de mindre. Bilder och taggar synkroniseras i de replikerade regionerna med en eventuell konsekvens modell.
-* Om du vill hantera arbets flöden som är beroende av push-uppdateringar till en geo-replikerad, [](container-registry-webhook.md) rekommenderar vi att du konfigurerar Webhooks så att de svarar på push-händelserna. Du kan ställa in regionala webhookar i ett geo-replikerat register för att spåra push-händelser när de är klara i de geo-replikerade regionerna.
+* Om du vill hantera arbets flöden som är beroende av push-uppdateringar till en geo-replikerad, rekommenderar vi att du konfigurerar [Webhooks](container-registry-webhook.md) så att de svarar på push-händelserna. Du kan ställa in regionala webhookar i ett geo-replikerat register för att spåra push-händelser när de är klara i de geo-replikerade regionerna.
 
 ## <a name="delete-a-replica"></a>Ta bort en replik
 
@@ -105,7 +105,7 @@ När du har konfigurerat en replik för registret kan du när som helst ta bort 
 
 Så här tar du bort en replik i Azure Portal:
 
-1. Navigera till Azure Container Registry och välj replikeringar.
+1. Navigera till Azure Container Registry och välj **replikeringar**.
 1. Välj namnet på en replik och välj **ta bort**. Bekräfta att du vill ta bort repliken.
 
 > [!NOTE]
@@ -121,7 +121,7 @@ I föregående exempel konsoliderade Contoso två register till ett och lade til
  
 En Docker-klient som skickar en avbildning till ett geo-replikerat register får inte skicka alla avbildnings lager och dess manifest till en enda replikerad region. Detta kan inträffa eftersom Azure Traffic Manager dirigerar register begär anden till det nätverks närmast replikerade registret. Om registret har två *närliggande* replikerade regioner kan bild lager och manifestet distribueras till de två platserna och push-åtgärden Miss lyckas när manifestet verifieras. Det här problemet beror på hur DNS-namnet på registret matchas på vissa Linux-värdar. Det här problemet uppstår inte i Windows, som tillhandahåller en DNS-cache på klient sidan.
  
-Om det här problemet uppstår är en lösning att tillämpa en DNS-cache `dnsmasq` på klient sidan, till exempel på Linux-värden. Detta säkerställer att register namnet matchas konsekvent. Om du använder en virtuell Linux-dator i Azure för att skicka till ett register, se alternativ i alternativ [för DNS-namnmatchning för virtuella Linux-datorer i Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/azure-dns).
+Om det här problemet uppstår är en lösning att tillämpa en DNS-cache på klient sidan, till exempel `dnsmasq` på Linux-värden. Detta säkerställer att register namnet matchas konsekvent. Om du använder en virtuell Linux-dator i Azure för att skicka till ett register, se alternativ i alternativ [för DNS-namnmatchning för virtuella Linux-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/linux/azure-dns).
 
 Om du vill optimera DNS-matchningen till den närmaste repliken när du skickar avbildningar konfigurerar du ett geo-replikerat register i samma Azure-regioner som källan till push-åtgärderna eller den närmaste regionen när du arbetar utanför Azure.
 

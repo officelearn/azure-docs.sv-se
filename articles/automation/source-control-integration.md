@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 52fcd0d928ecbce5c617ff6a27175fccb8fd96f6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 44ab9688471a87e6db3712cc61b8abb194d54ac3
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990246"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886518"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Källkontrollintegrering i Azure Automation
 
@@ -30,7 +30,7 @@ Azure Automation stöder tre typer av käll kontroll:
 
 * Ett lagrings lager för käll kontroll (GitHub eller Azure databaser)
 * Ett [Kör som-konto](manage-runas-account.md)
-* Se till att du har de [senaste Azure](automation-update-azure-modules.md) -modulerna i ditt Automation-konto
+* Se till att du har de [senaste Azure-modulerna](automation-update-azure-modules.md) i ditt Automation-konto
 
 > [!NOTE]
 > Synkroniseringsjobb för käll kontroll körs under användarnas Automation-konto och debiteras enligt samma taxa som andra Automation-jobb.
@@ -49,8 +49,8 @@ Fyll i informationen på sidan **Översikt över käll kontroll** och klicka på
 |---------|---------|
 |Namn på käll kontroll     | Ett eget namn för käll kontrollen. *Namnet får bara innehålla bokstäver och siffror.*        |
 |Typ av käll kontroll     | Käll kontroll källans typ. De tillgängliga alternativen är:</br> GitHub</br>Azure-databaser (git)</br> Azure-databaser (TFVC)        |
-|Lagringsplats     | Namnet på databasen eller projektet. De första 200-databaserna returneras. Om du vill söka efter en lagrings plats skriver du namnet i fältet och klickar på **Sök på GitHub**.|
-|Gren     | Grenen att hämta källfilerna från. Förgrenings inriktning är inte tillgängligt för käll kontroll typen TFVC.          |
+|Lagrings platsen     | Namnet på databasen eller projektet. De första 200-databaserna returneras. Om du vill söka efter en lagrings plats skriver du namnet i fältet och klickar på **Sök på GitHub**.|
+|Branch     | Grenen att hämta källfilerna från. Förgrenings inriktning är inte tillgängligt för käll kontroll typen TFVC.          |
 |Mappsökväg     | Den mapp som innehåller Runbooks som ska synkroniseras. Exempel:/Runbooks </br>*Endast Runbooks i den angivna mappen synkroniseras. Rekursion stöds inte.*        |
 |Automatisk synkronisering<sup>1</sup>     | Aktiverar eller inaktiverar automatisk synkronisering när ett genomförande görs i käll kontrollens lagrings plats         |
 |Publicera Runbook     | Om värdet är **på på**, efter att Runbooks har synkroniserats från käll kontroll, publiceras de automatiskt.         |
@@ -99,11 +99,11 @@ Mer information om hur du skapar en personlig åtkomsttoken i GitHub finns i [sk
 |lagrings platsen: status     | Status för åtkomst genomförande         |
 |repo_deployment      | Åtkomst distributions status         |
 |public_repo     | Åtkomst till offentliga databaser         |
-|**admin:repo_hook**     |         |
+|**administratör: repo_hook**     |         |
 |Skriv: repo_hook     | Skriv databas-hookar         |
 |Läs: repo_hook|Läsa databas-hookar|
 
-#### <a name="azure-repos"></a>Azure-lagringsplatser
+#### <a name="azure-repos"></a>Azure Repos
 
 Mer information om hur du skapar en personlig åtkomsttoken i Azure databaser finns i [autentisera åtkomst med personliga](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate)åtkomsttoken.
 
@@ -118,7 +118,7 @@ Mer information om hur du skapar en personlig åtkomsttoken i Azure databaser fi
 
 <sup>1</sup> behörigheten tjänst anslutningar krävs endast om du har aktiverat automatisk synkronisering.
 
-## <a name="syncing"></a>Synkroniserar
+## <a name="syncing"></a>Synkronisering
 
 Välj källan från tabellen på **käll kontroll** sidan. Starta synkroniseringsprocessen genom att klicka på **Starta synkronisering** .
 
@@ -177,7 +177,7 @@ Om flera personer redigerar Runbooks i lagrings platsen för käll kontroll med 
 
 Det finns för närvarande inget sätt att uppdatera åtkomsttoken i käll kontrollen från portalen. När din personliga åtkomsttoken har upphört att gälla eller återkallats, kan du uppdatera käll kontrollen med en ny åtkomsttoken på följande sätt:
 
-* Via [REST-API: et](https://docs.microsoft.com/en-us/rest/api/automation/sourcecontrol/update).
+* Via [REST-API: et](https://docs.microsoft.com/rest/api/automation/sourcecontrol/update).
 * Med hjälp av cmdleten [Update-AzAutomationSourceControl](/powershell/module/az.automation/update-azautomationsourcecontrol) .
 
 ## <a name="next-steps"></a>Nästa steg

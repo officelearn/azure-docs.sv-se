@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: dacurwin
-ms.openlocfilehash: 24e90ebd2994c5fffc1252167c06783421f2ac33
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: e072923c2c8b1d8e5bb281a5bcff992b25289b4d
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035245"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888488"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup arkitektur och komponenter
 
@@ -48,8 +48,8 @@ Recovery Services-valv har följande funktioner:
 - Du kan övervaka säkerhetskopierade objekt i ett valv, inklusive virtuella datorer i Azure och lokala datorer.
 - Du kan hantera valv åtkomst med [rollbaserad åtkomst kontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)med Azure.
 - Du anger hur data i valvet replikeras för redundans:
-  - **Lokalt Redundant lagring (LRS)** : Du kan använda LRS för att skydda mot problem i ett Data Center. LRS replikerar data till en lagrings skalnings enhet. [Läs mer](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
-  - **Geo-redundant lagring (GRS)** : Du kan använda GRS för att skydda mot drift avbrott i regioner. GRS replikerar dina data till en sekundär region. [Läs mer](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+  - **Lokalt Redundant lagring (LRS)** : för att skydda mot problem i ett Data Center kan du använda LRS. LRS replikerar data till en lagrings skalnings enhet. [Läs mer](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
+  - **Geo-redundant lagring (GRS)** : för att skydda mot hela verksamhets avbrott kan du använda GRS. GRS replikerar dina data till en sekundär region. [Läs mer](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
   - Som standard använder Recovery Services-valv GRS.
 
 ## <a name="backup-agents"></a>Säkerhets kopierings agenter
@@ -106,7 +106,7 @@ Säkerhetskopiera deduplicerade diskar | | | ![Delvis][yellow]<br/><br/> Endast 
 
 ![Tabell nyckel](./media/backup-architecture/table-key.png)
 
-## <a name="architecture-direct-backup-of-azure-vms"></a>Arkitektur: Direkt säkerhets kopiering av virtuella Azure-datorer
+## <a name="architecture-direct-backup-of-azure-vms"></a>Arkitektur: direkt säkerhets kopiering av virtuella Azure-datorer
 
 1. När du aktiverar säkerhets kopiering för en virtuell Azure-dator körs en säkerhets kopiering enligt det schema du anger.
 1. Under den första säkerhets kopieringen installeras ett säkerhets kopierings tillägg på den virtuella datorn om den virtuella datorn körs.
@@ -120,13 +120,13 @@ Säkerhetskopiera deduplicerade diskar | | | ![Delvis][yellow]<br/><br/> Endast 
     - Endast data block som har ändrats sedan den senaste säkerhets kopieringen kopierades.
     - Data är inte krypterade. Azure Backup kan säkerhetskopiera virtuella Azure-datorer som har krypterats med Azure Disk Encryption.
     - Ögonblicks bild data kan inte kopieras direkt till valvet. Vid hög belastnings tider kan säkerhets kopieringen ta några timmar. Den totala säkerhets kopierings tiden för en virtuell dator kommer att vara mindre än 24 timmar för dagliga säkerhets kopierings principer.
-1. När data har skickats till valvet skapas en återställnings punkt. Som standard behålls ögonblicks bilder i två dagar innan de tas bort. Den här funktionen tillåter återställnings åtgärder från dessa ögonblicks bilder, vilket minskar återställnings tiderna. Det minskar den tid som krävs för att transformera och kopiera data tillbaka från valvet. Se [Azure Backup omedelbar återställnings funktion](https://docs.microsoft.com/en-us/azure/backup/backup-instant-restore-capability).
+1. När data har skickats till valvet skapas en återställnings punkt. Som standard behålls ögonblicks bilder i två dagar innan de tas bort. Den här funktionen tillåter återställnings åtgärder från dessa ögonblicks bilder, vilket minskar återställnings tiderna. Det minskar den tid som krävs för att transformera och kopiera data tillbaka från valvet. Se [Azure Backup omedelbar återställnings funktion](https://docs.microsoft.com/azure/backup/backup-instant-restore-capability).
 
 Virtuella Azure-datorer behöver Internet åtkomst för kontroll kommandon. Om du säkerhetskopierar arbets belastningar i den virtuella datorn (t. ex. SQL Server databas säkerhets kopior) behöver backend-data även Internet åtkomst.
 
 ![Säkerhets kopiering av virtuella Azure-datorer](./media/backup-architecture/architecture-azure-vm.png)
 
-## <a name="architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders"></a>Arkitektur: Direkt säkerhets kopiering av lokala Windows Server-datorer eller Azure VM-filer eller-mappar
+## <a name="architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders"></a>Arkitektur: direkt säkerhets kopiering av lokala Windows Server-datorer eller Azure VM-filer eller-mappar
 
 1. Om du vill konfigurera scenariot laddar du ned och installerar MARS-agenten på datorn. Sedan väljer du vad som ska säkerhets kopie ras, när säkerhets kopieringarna ska köras och hur länge de ska sparas i Azure.
 1. Den första säkerhets kopieringen körs enligt inställningarna för säkerhets kopiering.
@@ -140,7 +140,7 @@ Virtuella Azure-datorer behöver Internet åtkomst för kontroll kommandon. Om d
 
 ![Säkerhets kopiering av lokala Windows Server-datorer med MARS-agent](./media/backup-architecture/architecture-on-premises-mars.png)
 
-## <a name="architecture-back-up-to-dpmmabs"></a>Arkitektur: Säkerhetskopiera till DPM/MABS
+## <a name="architecture-back-up-to-dpmmabs"></a>Arkitektur: säkerhetskopiera till DPM/MABS
 
 1. Du installerar DPM-eller MABS-skyddsagenten på datorer som du vill skydda. Sedan lägger du till datorerna i en DPM-skyddsagenten.
     - För att skydda lokala datorer måste DPM-eller MABS-servern finnas lokalt.

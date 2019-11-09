@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
-ms.openlocfilehash: d8fed68d9b830df359f8129d55f1b9911f69e8f1
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 71caa6730e3a00f3aa80329d6b87d2531fdd8049
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802248"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891466"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Översikt över Oracle-program och Azure-lösningar på Azure
 
@@ -54,9 +54,9 @@ Kör företags program i Azure på Oracle-operativsystem som stöds. Följande a
 
 ## <a name="backup-oracle-workloads"></a>Säkerhetskopiera Oracle-arbetsbelastningar
 
-* Säkerhetskopiera dina virtuella Oracle-datorer med [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-overview)
+* Säkerhetskopiera dina virtuella Oracle-datorer med [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview)
 
-* Säkerhetskopiera dina Oracle Database med Oracle-RMAN och alternativt använda [Azure Blob-säkring](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-mount-container-linux) för att montera ett [Azure-Blob Storage-konto med hög redudant](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy) och skriv dina rman-säkerhetskopieringar till det för extra återhämtning.
+* Säkerhetskopiera dina Oracle Database med Oracle-RMAN och alternativt använda [Azure Blob-säkring](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux) för att montera ett [Azure-Blob Storage-konto med hög redudant](https://docs.microsoft.com/azure/storage/common/storage-redundancy) och skriv dina rman-säkerhetskopieringar till det för extra återhämtning.
 
 ## <a name="integration-of-azure-with-oci-preview"></a>Integrering av Azure med OCI (för hands version)
 
@@ -70,7 +70,7 @@ Köra Oracle-program i Azure-infrastrukturen, anslutna till backend-databaser i 
 Använd terraform-mallar för att ställa in Azure-infrastrukturen och installera Oracle-program som verifierats och stöds för att köras i konfigurationen mellan molnet:
 
 * E-Business Suite
-* JD Edwards EnterpriseOne
+* JD Edwards-EnterpriseOne
 * PeopleSoft
 * Oracle återförsäljarversion-program
 * Ekonomisk hantering för Oracle Hyperion
@@ -82,7 +82,7 @@ Distribuera även anpassade program i Azure som ansluter till OCI och andra Azur
 Använd Oracle Database Cloud Services (autonom databas, RAC, Exadata, DBaaS, enskild nod) tillsammans med Oracle-program som körs i Azure. Läs mer om [OCI-databas alternativ](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm). 
  
 
-## <a name="licensing"></a>Licenser
+## <a name="licensing"></a>Licensiering
 
 Distribution av Oracle-program i Azure baseras på en "ta med din egen licens"-modell. Vi förutsätter att du är korrekt licensierad till att använda Oracle-programvara och att du har ett aktuellt support avtal på plats med Oracle. Oracle har garanterat licens mobilitet från lokal plats till Azure. Se [vanliga frågor och svar om](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)Oracle – Azure.
 

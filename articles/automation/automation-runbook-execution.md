@@ -9,16 +9,16 @@ ms.author: robreed
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 01a321503a2c55bfc28720675932e6813cdab320
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2f8fa4c378ed394930a4018c58b99ed919cbc2c2
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850593"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886972"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Runbook-körning i Azure Automation
 
-När du startar en Runbook i Azure Automation skapas ett jobb. Ett jobb innebär ett utförande av en runbookinstans. En Azure Automation arbetare tilldelas för att köra varje jobb. Medan arbets tagarna delas av många Azure-konton, är jobb från olika Automation-konton isolerade från varandra. Du har inte kontroll över vilka Worker-tjänster som begär ditt jobb. En enda Runbook kan ha många jobb på samma gång. Körnings miljön för jobb från samma Automation-konto kan återanvändas. Fler jobb som du kör samtidigt, desto oftare kan de skickas till samma sandbox. Jobb som körs i samma sand Box process kan påverka varandra, ett exempel är att `Disconnect-AzureRMAccount` köra cmdleten. Om du kör denna cmdlet kopplas varje Runbook-jobb bort i den delade sand Box processen. När du visar listan över Runbooks i Azure Portal visas status för alla jobb som har startats för varje Runbook. Du kan visa listan över jobb för varje Runbook för att spåra status för varje. Jobb loggar lagras i högst 30 dagar. En beskrivning av [jobb](#job-statuses)status för olika jobb.
+När du startar en Runbook i Azure Automation skapas ett jobb. Ett jobb är en enskild körnings instans av en Runbook. En Azure Automation arbetare tilldelas för att köra varje jobb. Medan arbets tagarna delas av många Azure-konton, är jobb från olika Automation-konton isolerade från varandra. Du har inte kontroll över vilka Worker-tjänster som begär ditt jobb. En enda Runbook kan ha många jobb på samma gång. Körnings miljön för jobb från samma Automation-konto kan återanvändas. Fler jobb som du kör samtidigt, desto oftare kan de skickas till samma sandbox. Jobb som körs i samma sand Box process kan påverka varandra, ett exempel är att köra cmdleten `Disconnect-AzureRMAccount`. Om du kör denna cmdlet kopplas varje Runbook-jobb bort i den delade sand Box processen. När du visar listan över Runbooks i Azure Portal visas status för alla jobb som har startats för varje Runbook. Du kan visa listan över jobb för varje Runbook för att spåra status för varje. Jobb loggar lagras i högst 30 dagar. En beskrivning av [jobb](#job-statuses)status för olika jobb.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -32,7 +32,7 @@ Dina jobb har åtkomst till dina Azure-resurser genom att ansluta till din Azure
 
 Runbooks i Azure Automation kan köras antingen i ett begränsat läge i Azure eller ett [hybrid Runbook Worker](automation-hybrid-runbook-worker.md). En sandbox är en delad miljö i Azure som kan användas av flera jobb. Jobb som använder samma Sandbox är begränsade till resurs begränsningarna i sand boxen. Hybrid Runbook Worker kan köra Runbooks direkt på datorn som är värd för rollen och mot resurser i miljön för att hantera de lokala resurserna. Runbooks lagras och hanteras i Azure Automation och levereras sedan till en eller flera tilldelade datorer. De flesta Runbooks kan enkelt köras i sand boxen Azure. Det finns vissa scenarier där du kan välja en hybrid Runbook i ett Azure-sandbox för att köra din Runbook. I följande tabell finns en lista över några exempel scenarier:
 
-|Uppgift|Bästa valet|Anteckningar|
+|Aktivitet|Bästa valet|Anteckningar|
 |---|---|---|
 |Integrera med Azure-resurser|Sand box för Azure|Azure är värd för Azure och det är enklare att autentisera. Om du använder en Hybrid Runbook Worker på en virtuell Azure-dator kan du använda [hanterade identiteter för Azure-resurser](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)|
 |Optimala prestanda för att hantera Azure-resurser|Sand box för Azure|Skriptet körs i samma miljö, vilket i sin tur har mindre latens|
@@ -45,14 +45,14 @@ Runbooks i Azure Automation kan köras antingen i ett begränsat läge i Azure e
 |Använda moduler med särskilda krav| Hybrid Runbook Worker|Några exempel är:</br> **WinSCP** – beroende av WinSCP. exe </br> **Administrationsmodul** – kräver att IIS aktive ras|
 |Installations modul som kräver installations program|Hybrid Runbook Worker|Moduler för sandbox måste vara copiable|
 |Använda Runbooks eller moduler som kräver .NET Framework skiljer sig från 4.7.2|Hybrid Runbook Worker|Automation-sandboxs har .NET Framework 4.7.2 och det finns inget sätt att uppgradera det|
-|Skript som kräver höjning|Hybrid Runbook Worker|Sand boxen tillåter inte utökade privilegier. Lös detta genom att använda en hybrid Runbook Worker och du kan stänga av UAC och använda `Invoke-Command` när du kör kommandot som kräver utökade privilegier|
+|Skript som kräver höjning|Hybrid Runbook Worker|Sand boxen tillåter inte utökade privilegier. Lös detta genom att använda en Hybrid Runbook Worker och du kan stänga av UAC och använda `Invoke-Command` när du kör kommandot som kräver utökade privilegier|
 |Skript som kräver åtkomst till WMI|Hybrid Runbook Worker|Jobb som körs i begränsade lägen i molnet [har inte åtkomst till WMI](#device-and-application-characteristics)|
 
 ## <a name="runbook-behavior"></a>Runbook-beteende
 
 Runbooks körs baserat på den logik som definieras i dem. Om en Runbook avbryts startar runbooken om i början. Det här beteendet kräver att Runbooks skrivs på ett sätt där de har stöd för omstart om det finns tillfälliga problem.
 
-PowerShell-jobb som startats från en Runbook kördes i en Azure-sandbox kanske inte körs i det fullständiga språk läget. Mer information om PowerShell-språklägen finns i [PowerShell](/powershell/module/microsoft.powershell.core/about/about_language_modes)-språklägen. Mer information om hur du interagerar med jobb i Azure Automation finns i [Hämta jobb status med PowerShell](#retrieving-job-status-using-powershell)
+PowerShell-jobb som startats från en Runbook kördes i en Azure-sandbox kanske inte körs i det fullständiga språk läget. Mer information om PowerShell-språklägen finns i [PowerShell-språklägen](/powershell/module/microsoft.powershell.core/about/about_language_modes). Mer information om hur du interagerar med jobb i Azure Automation finns i [Hämta jobb status med PowerShell](#retrieving-job-status-using-powershell)
 
 ### <a name="creating-resources"></a>Skapa resurser
 
@@ -118,7 +118,7 @@ If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Stat
 
 ### <a name="working-with-multiple-subscriptions"></a>Arbeta med flera prenumerationer
 
-När du redigerar Runbooks som hanterar flera prenumerationer måste din Runbook använda cmdleten [disable-AzureRmContextAutosave](/powershell/module/azurerm.profile/disable-azurermcontextautosave) för att säkerställa att din autentisering inte hämtas från en annan Runbook som kan köras i samma sandbox. Du måste sedan använda `-AzureRmContext` parametern på dina `AzureRM` cmdlets och skicka den till rätt kontext.
+När du redigerar Runbooks som hanterar flera prenumerationer måste din Runbook använda cmdleten [disable-AzureRmContextAutosave](/powershell/module/azurerm.profile/disable-azurermcontextautosave) för att säkerställa att din autentisering inte hämtas från en annan Runbook som kan köras i samma sandbox. Du måste sedan använda parametern `-AzureRmContext` i `AzureRM`-cmdletar och skicka den till rätt kontext.
 
 ```powershell
 # Ensures you do not inherit an AzureRMContext in your runbook
@@ -149,7 +149,7 @@ När du redigerar skript är det viktigt att kunna hantera undantag och potentie
 
 #### <a name="erroractionpreference"></a>$ErrorActionPreference
 
-Variabeln [$ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) inställning avgör hur PowerShell svarar på ett icke-avslutande fel. Avslutande fel påverkas inte av `$ErrorActionPreference`, de avslutas alltid. Genom att `$ErrorActionPreference`använda kan ett vanligt icke-avslutande fel som `PathNotFound` från `Get-ChildItem` cmdleten stoppa Runbook från att slutföras. Följande exempel visar hur du `$ErrorActionPreference`använder. Den sista `Write-Output` raden körs aldrig när skriptet stoppas.
+Variabeln [$ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) inställning avgör hur PowerShell svarar på ett icke-avslutande fel. Avslutande fel påverkas inte av `$ErrorActionPreference`, de avslutas alltid. Genom att använda `$ErrorActionPreference`stoppas vanligt vis icke-avslutande fel som `PathNotFound` från `Get-ChildItem`-cmdleten från att slutföras. I följande exempel visas hur du använder `$ErrorActionPreference`. Den slutgiltiga `Write-Output` raden körs aldrig när skriptet stoppas.
 
 ```powershell-interactive
 $ErrorActionPreference = 'Stop'
@@ -159,7 +159,7 @@ Write-Output "This message will not show"
 
 #### <a name="try-catch-finally"></a>Prova att fånga finally
 
-[Försök att fånga](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) används i PowerShell-skript för att hjälpa dig att hantera fel. Genom att använda try-catch kan du fånga upp vissa undantag eller allmänna undantag. Catch-instruktionen ska användas för att spåra fel eller som används för att försöka hantera felet. I följande exempel försöker hämta en fil som inte finns. Det fångar `System.Net.WebException` undantaget, om det fanns ett annat undantag returneras det sista värdet.
+[Försök att fånga](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) används i PowerShell-skript för att hjälpa dig att hantera fel. Genom att använda try-catch kan du fånga upp vissa undantag eller allmänna undantag. Catch-instruktionen ska användas för att spåra fel eller som används för att försöka hantera felet. I följande exempel försöker hämta en fil som inte finns. Den fångar `System.Net.WebException` undantaget, om det fanns ett annat undantag returneras det sista värdet.
 
 ```powershell-interactive
 try
@@ -179,7 +179,7 @@ catch
 
 #### <a name="throw"></a>Genereras
 
-[Throw](/powershell/module/microsoft.powershell.core/about/about_throw) kan användas för att generera ett avslutande fel. Detta kan vara användbart när du definierar din egen logik i en Runbook. Om ett visst villkor uppfylls som stoppar skriptet kan du använda `throw` för att stoppa skriptet. I följande exempel visas en funktions parameter för Machine som krävs `throw`med hjälp av.
+[Throw](/powershell/module/microsoft.powershell.core/about/about_throw) kan användas för att generera ett avslutande fel. Detta kan vara användbart när du definierar din egen logik i en Runbook. Om ett visst villkor uppfylls som stoppar skriptet kan du använda `throw` för att stoppa skriptet. I följande exempel visas en funktions parameter för Machine som krävs med hjälp av `throw`.
 
 ```powershell-interactive
 function Get-ContosoFiles
@@ -199,22 +199,22 @@ Runbook-jobb som körs i Azure-sandbox har inte åtkomst till några enhets-elle
 
 ## <a name="job-statuses"></a>Jobb status
 
-Följande tabell beskriver de olika statuslägen som är möjliga för ett jobb. PowerShell har två typer av fel, avslutande och icke-avslutande fel. Om du avbryter fel anges Runbook- statusen till misslyckad om de inträffar. Icke-avslutande fel tillåter att skriptet fortsätter även efter att det har inträffat. Ett exempel på ett icke-avslutande fel är att `Get-ChildItem` använda cmdleten med en sökväg som inte finns. PowerShell ser att sökvägen inte finns, genererar ett fel och fortsätter till nästa mapp. Det här felet skulle **inte** ange Runbook-statusen Misslyckad och kan markeras som **slutförd**. Om du vill tvinga en Runbook att stoppa vid ett icke-avslutande fel, kan du `-ErrorAction Stop` använda på-cmdleten.
+I följande tabell beskrivs olika status värden som är möjliga för ett jobb. PowerShell har två typer av fel, avslutande och icke-avslutande fel. Om du avbryter fel anges Runbook-statusen till **misslyckad** om de inträffar. Icke-avslutande fel tillåter att skriptet fortsätter även efter att det har inträffat. Ett exempel på ett icke-avslutande fel är att använda `Get-ChildItem`-cmdlet med en sökväg som inte finns. PowerShell ser att sökvägen inte finns, genererar ett fel och fortsätter till nästa mapp. Det här felet skulle inte ange Runbook-statusen **misslyckad** och kan markeras som **slutförd**. Om du vill tvinga en Runbook att stoppa vid ett icke-avslutande fel, kan du använda `-ErrorAction Stop` på cmdleten.
 
 | Status | Beskrivning |
 |:--- |:--- |
 | Slutfört |Jobbet har slutförts. |
 | Misslyckad |Runbook kunde inte kompileras för [grafiska och PowerShell-arbetsflöden](automation-runbook-types.md). För [PowerShell-skript Runbooks](automation-runbook-types.md)kunde Runbook inte starta eller så innehöll jobbet ett undantag. |
 | Misslyckades, väntar på resurser |Jobbet misslyckades eftersom det nådde den [verkliga delnings](#fair-share) gränsen tre gånger och startade från samma kontroll punkt eller från början av runbooken varje gång. |
-| I kö |Jobbet väntar på att resurser från en Automation arbetare blir tillgängliga så det kan starta. |
+| I kö |Jobbet väntar på att resurser i en automatiserings arbets uppgift ska vara tillgängliga så att de kan startas. |
 | Startar |Jobbet har tilldelats en anställd och systemet startas. |
 | Återupptar |Systemet återupptar jobbet när det har pausats. |
-| Körs |Jobbet körs |
+| Körs |Jobbet körs. |
 | Körs, väntar på resurser |Jobbet har inaktiverats på grund av att gränsen nåddes för den [verkliga delningen](#fair-share) . Den återupptas strax från den senaste kontroll punkten. |
 | Stoppad |Jobbet stoppades av användaren innan det slutfördes. |
-| Stoppar |Jobbet stoppas av systemet. |
-| Uppehåll |Jobbet pausades av användaren, av systemet, eller av ett kommando i runbook. Om en Runbook inte har en kontroll punkt börjar den från början av runbooken. Om den har en kontroll punkt kan den startas igen och återupptas från den senaste kontroll punkten. Runbooken pausas bara av systemet när ett undantag inträffar. Som standard är Erroractionpreference satt inställd på att **fortsätta**, vilket innebär att jobbet fortsätter att köras vid ett fel. Om den här preferens variabeln är inställd på **Avbryt**pausas jobbet vid ett fel. Gäller endast för [grafiska och PowerShell Workflow-Runbooks](automation-runbook-types.md) . |
-| Pausar |Systemet försöker pausa jobbet på användarens begäran. Runbooken måste komma fram till nästa kontroll punkt innan den kan pausas. Om den redan har passerat den senaste kontroll punkten slutförs den innan den kan pausas. Gäller endast för [grafiska och PowerShell Workflow-Runbooks](automation-runbook-types.md) . |
+| Stoppas |Jobbet stoppas av systemet. |
+| Avstängd |Jobbet pausades av användaren, av systemet, eller av ett kommando i Runbook. Om en Runbook inte har en kontroll punkt börjar den från början av runbooken. Om den har en kontroll punkt kan den startas igen och återupptas från den senaste kontroll punkten. Runbooken pausas bara av systemet när ett undantag inträffar. Som standard är Erroractionpreference satt inställd på att **fortsätta**, vilket innebär att jobbet fortsätter att köras vid ett fel. Om den här preferens variabeln är inställd på **Avbryt**pausas jobbet vid ett fel. Gäller endast för [grafiska och PowerShell Workflow-Runbooks](automation-runbook-types.md) . |
+| Pausa |Systemet försöker pausa jobbet på användarens begäran. Runbooken måste komma fram till nästa kontroll punkt innan den kan pausas. Om den redan har passerat den senaste kontroll punkten slutförs den innan den kan pausas. Gäller endast för [grafiska och PowerShell Workflow-Runbooks](automation-runbook-types.md) . |
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Visa jobb status från Azure Portal
 
@@ -242,9 +242,9 @@ Du kan också Visa jobb sammanfattnings information för en angiven Runbook geno
 
 ### <a name="job-summary"></a>Jobbsammanfattning
 
-Du kan visa en lista över alla jobb som har skapats för en viss Runbook och deras senaste status. Du kan filtrera listan efter jobb status och datum intervallet för den senaste ändringen i jobbet. Om du vill visa detaljerad information och utdata klickar du på namnet på ett jobb. Jobbets detaljvy inkluderar värden för runbookparametrar som gavs av det jobbet.
+Du kan visa en lista över alla jobb som har skapats för en viss Runbook och deras senaste status. Du kan filtrera listan efter jobb status och datum intervallet för den senaste ändringen i jobbet. Om du vill visa detaljerad information och utdata klickar du på namnet på ett jobb. I den detaljerade vyn av jobbet ingår värdena för de Runbook-parametrar som tillhandahölls för jobbet.
 
-Du kan använda följande steg för att se jobb för en runbook.
+Du kan använda följande steg för att visa jobb för en Runbook.
 
 1. I Azure Portal väljer du **Automation** och väljer sedan namnet på ett Automation-konto.
 2. Från hubben väljer du **Runbooks** och på sidan **Runbooks** väljer du sedan en Runbook i listan.
@@ -322,9 +322,9 @@ Om du vill dela resurser mellan alla Runbooks i molnet Azure Automation du tillf
 
 För tids krävande uppgifter rekommenderar vi att du använder en [hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Worker begränsas inte av en rättvis resurs och har ingen begränsning för hur länge en Runbook kan köras. De andra jobb [gränserna](../azure-subscription-service-limits.md#automation-limits) gäller för både Azure-Sandbox och hybrid Runbook Worker. Även om hybrid Runbook Worker inte begränsas av den högsta gränsen på 3 timmar, bör Runbooks som körs på dem utvecklas för att stödja omstarts beteenden från oväntade problem med lokal infrastruktur.
 
-Ett annat alternativ är att optimera runbooken genom att använda underordnade Runbooks. Om din Runbook upprepas genom samma funktion på flera resurser, till exempel en databas åtgärd på flera databaser, kan du flytta den funktionen till en underordnad [Runbook](automation-child-runbooks.md) och anropa den med cmdleten [Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) . Var och en av dessa underordnade Runbooks körs parallellt i separata processer. Det här beteendet minskar den totala tiden som den överordnade runbooken slutförs. Du kan använda cmdleten [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) i din Runbook för att kontrol lera jobb status för varje underordnat objekt om det finns åtgärder som utförs när den underordnade Runbook-flödet har slutförts.
+Ett annat alternativ är att optimera runbooken genom att använda underordnade Runbooks. Om din Runbook upprepas genom samma funktion på flera resurser, till exempel en databas åtgärd på flera databaser, kan du flytta den funktionen till en [underordnad Runbook](automation-child-runbooks.md) och anropa den med cmdleten [Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) . Var och en av dessa underordnade Runbooks körs parallellt i separata processer. Det här beteendet minskar den totala tiden som den överordnade runbooken slutförs. Du kan använda cmdleten [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) i din Runbook för att kontrol lera jobb status för varje underordnat objekt om det finns åtgärder som utförs när den underordnade Runbook-flödet har slutförts.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Mer information om de olika metoder som kan användas för att starta en Runbook i Azure Automation finns i [starta en Runbook i Azure Automation](automation-starting-a-runbook.md)
-* Mer information om PowerShell, inklusive språk referens-och inlärnings moduler finns i [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview)-dokumenten.
+* Mer information om PowerShell, inklusive språk referens-och inlärnings moduler finns i [PowerShell-dokumenten](https://docs.microsoft.com/powershell/scripting/overview).

@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 21f55805e0486d987922a1aa160f2938f3a50155
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5acfb60395f39d17e640e389ae2a28e220ccfae6
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792439"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73884282"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Snabb start: skapa en Azure Kognitiv sökning-tjänst i portalen
 
 Azure Kognitiv sökning är en fristående resurs som används för att koppla in en Sök funktion i anpassade appar. Även om Azure Kognitiv sökning enkelt integreras med andra Azure-tjänster, kan du också använda den som en fristående komponent eller integrera den med appar på nätverks servrar eller med program vara som körs på andra moln plattformar.
 
-I den här artikeln får du lära dig hur du skapar en Azure Kognitiv sökning-resurs i [Azure Portal](https://portal.azure.com/).
+I den här artikeln får du lära dig hur du skapar en resurs i [Azure Portal](https://portal.azure.com/).
 
 [![Animerad GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
@@ -33,28 +33,30 @@ Du kan också [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/
 
 ## <a name="find-azure-cognitive-search"></a>Hitta Azure-Kognitiv sökning
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Klicka på plustecknet (”+ Skapa resurs”) i det övre vänstra hörnet.
 3. Använd Sök fältet för att hitta "Azure Kognitiv sökning" eller navigera till resursen via **webb** > Azure- **kognitiv sökning**.
 
-![Navigera till en Azure Kognitiv sökning-resurs](./media/search-create-service-portal/find-search3.png "Navigerings Sök väg till Azure Kognitiv sökning")
+![Skapa en resurs i portalen](./media/search-create-service-portal/find-search3.png "Skapa en resurs i portalen")
 
-## <a name="select-a-subscription"></a>Välj en prenumeration
+## <a name="choose-a-subscription"></a>Välj en prenumeration
 
-Om du har mer än en prenumeration väljer du en som även har data- eller fillagringstjänster. Azure Kognitiv sökning kan automatiskt identifiera Azure Table-och Blob Storage, SQL Database och Azure Cosmos DB för indexering via [*indexerare*](search-indexer-overview.md), men endast för tjänster under samma prenumeration.
+Det första steget är att ange prenumerations-ID och resurs grupp. Om du har mer än en prenumeration väljer du en som även har data- eller fillagringstjänster. Azure Kognitiv sökning kan automatiskt identifiera Azure Table-och Blob Storage, SQL Database och Azure Cosmos DB för indexering via [*indexerare*](search-indexer-overview.md), men endast för tjänster under samma prenumeration.
 
 ## <a name="set-a-resource-group"></a>Ange en resurs grupp
 
-En resurs grupp krävs och är användbar för att hantera alla resurser, inklusive kostnads hantering. En resurs grupp kan bestå av en tjänst eller flera tjänster som används tillsammans. Om du till exempel använder Azure Kognitiv sökning för att indexera en Azure Cosmos DB databas kan du göra båda tjänsterna i samma resurs grupp i hanterings syfte. 
+En resurs grupp krävs och är användbar för att hantera alla resurser, inklusive kostnader. En resurs grupp kan bestå av en tjänst eller flera tjänster som används tillsammans. Om du till exempel använder Azure Kognitiv sökning för att indexera en Azure Cosmos DB databas kan du göra båda tjänsterna i samma resurs grupp i hanterings syfte. 
 
 Om du inte kombinerar resurser till en enda grupp, eller om befintliga resurs grupper är fyllda med resurser som används i orelaterade lösningar, skapar du en ny resurs grupp för din Azure Kognitiv sökning-resurs. 
 
-När du använder tjänsten kan du spåra aktuella och projekterade kostnader alla (se skärm bilden) eller rulla nedåt för att Visa avgifter för enskilda resurser.
+![Skapa en ny resurs grupp](./media/search-create-service-portal/new-resource-group.png "Skapa en ny resursgrupp")
+
+Med tiden kan du spåra aktuella och projekterade kostnader alla (se skärm bilden) eller rulla nedåt för att Visa avgifter för enskilda resurser. Följande skärm bild visar vilken typ av kostnads information som du kan förväntar dig att se när du kombinerar flera resurser i en grupp.
 
 ![Hantera kostnader på resurs grupps nivå](./media/search-create-service-portal/resource-group-cost-management.png "Hantera kostnader på resurs grupps nivå")
 
 > [!TIP]
-> Om du tar bort en resursgrupp tar du också bort tjänsterna i gruppen. Om du har ett prototypprojekt som använder flera tjänster kan du placera dem i samma resursgrupp. Då är det lättare att rensa upp när projektet är slutfört.
+> Resurs grupper fören klar rensningen eftersom borttagning av en grupp också tar bort tjänsterna i den. Om du har ett prototypprojekt som använder flera tjänster kan du placera dem i samma resursgrupp. Då är det lättare att rensa upp när projektet är slutfört.
 
 ## <a name="name-the-service"></a>Namnge tjänsten
 
@@ -77,7 +79,7 @@ Som Azure-tjänst kan Azure Kognitiv sökning ligga i Data Center över hela vä
 
 Du kan minimera eller undvika bandbredds avgifter genom att välja samma plats för flera tjänster. Om du till exempel indexerar data som tillhandahålls av en annan Azure-tjänst (Azure Storage, Azure Cosmos DB Azure SQL Database) och skapar din Azure Kognitiv sökning-tjänst i samma region, undviks bandbredds avgifter (inga avgifter för utgående data när tjänsterna finns i samma region).
 
-Om du använder kognitiva Sökai-berikare kan du dessutom skapa din tjänst i samma region som din Cognitive Services-resurs. *Samplacering av Azure kognitiv sökning och Cognitive Services i samma region är ett krav för AI-berikning*.
+Om du använder AI-anrikning skapar du dessutom din tjänst i samma region som Cognitive Services. *Samplacering av Azure kognitiv sökning och Cognitive Services i samma region är ett krav för AI-berikning*.
 
 > [!Note]
 > Centrala Indien är för närvarande inte tillgängligt för nya tjänster. För tjänster som redan finns i Central Indien kan du skala upp utan begränsningar och tjänsten stöds fullt ut i den regionen. Begränsningen i den här regionen är temporär och begränsad till endast nya tjänster. Vi tar bort den här anteckningen när begränsningen inte längre gäller.
@@ -104,9 +106,9 @@ Tjänsten distribueras inom några minuter, som du kan övervaka via Azure-medde
 
 Om du inte använder portalen kräver program mässig åtkomst till din nya tjänst att du anger URL-slutpunkten och en API-nyckel för autentisering.
 
-1. På översiktssidan för tjänsten letar du upp och kopierar URL-slutpunkten till höger på sidan.
+1. På sidan **Översikt** letar du upp och kopierar URL-slutpunkten på höger sida av sidan.
 
-2. I det vänstra navigeringsfönstret väljer du **Nycklar** och kopierar sedan någon av administratörsnycklarna (de är likvärdiga). API-administratörsnycklarna krävs för att skapa, uppdatera och ta bort objekt i tjänsten.
+2. På sidan **nycklar** kopierar du antingen en av administratörs nycklarna (de är likvärdiga). API-administratörsnycklarna krävs för att skapa, uppdatera och ta bort objekt i tjänsten. Som kontrast ger frågeinställningar Läs åtkomst till index innehåll.
 
    ![Översikts sida för tjänsten med URL-slutpunkt](./media/search-create-service-portal/get-url-key.png "URL-slutpunkt och annan tjänst information")
 
@@ -151,7 +153,7 @@ Det behövs ingen andra tjänst för hög tillgänglighet. Hög tillgänglighet 
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har skapat en Azure Kognitiv sökning-tjänst kan du fortsätta i portalen för att skapa ditt första index.
+När du har slutfört en tjänst kan du fortsätta i portalen för att skapa ditt första index.
 
 > [!div class="nextstepaction"]
 > [Snabb start: skapa ett Azure Kognitiv sökning-index i portalen](search-get-started-portal.md)

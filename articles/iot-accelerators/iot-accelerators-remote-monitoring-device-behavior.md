@@ -1,6 +1,6 @@
 ---
-title: Simulerad enhetsbeteende i fjärrövervakningslösningen – Azure | Microsoft Docs
-description: Den här artikeln beskriver hur du kan använda JavaScript för att definiera beteendet för en simulerad enhet i fjärrövervakningslösningen.
+title: Simulerad enhet i fjärr styrnings lösning – Azure | Microsoft Docs
+description: Den här artikeln beskriver hur du använder Java Script för att definiera beteendet för en simulerad enhet i lösningen för fjärrövervakning.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -8,38 +8,38 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 04d2ad2f0e86ee977600af86a2ffd1e9d7680375
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c39ca0a018bd22844cf7e5350e6d3586319aac16
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65823424"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890851"
 ---
-# <a name="implement-the-device-model-behavior"></a>Implementera beteendet för enhetsmodellen
+# <a name="implement-the-device-model-behavior"></a>Implementera beteendet för enhets modellen
 
-Artikeln [förstå schemat för enhetsmodellen](iot-accelerators-remote-monitoring-device-schema.md) beskrivs det schema som definierar en simulerad enhet-modell. Den här artikeln avses två typer av JavaScript-fil som implementerar beteendet för en simulerad enhet:
+I artikeln [förstås enhets modell schemat](iot-accelerators-remote-monitoring-device-schema.md) som beskrivits det schema som definierar en simulerad enhets modell. Den artikeln hänvisade till två typer av JavaScript-filer som implementerar beteendet för en simulerad enhet:
 
-- **Tillstånd** JavaScript-filer som körs med jämna tidsintervall att uppdatera det interna tillståndet för enheten.
-- **Metoden** JavaScript-filer som körs när lösningen anropar en metod på enheten.
+- **Tillstånd** JavaScript-filer som körs med fasta intervall för att uppdatera enhetens interna status.
+- **Metod** JavaScript-filer som körs när lösningen anropar en metod på enheten.
 
 > [!NOTE]
-> Modellen enhetsbeteenden är endast för simulerade enheter i device simulering-tjänsten. Om du vill skapa en riktig enhet Se [ansluta enheten till lösningsacceleratorn för fjärrövervakning](iot-accelerators-connecting-devices.md).
+> Enhets modell beteenden är bara för simulerade enheter som finns i enhets simulerings tjänsten. Om du vill skapa en riktig enhet kan du läsa [Anslut din enhet till-acceleratorn för fjärr styrning](iot-accelerators-connecting-devices.md).
 
 I den här artikeln kan du se hur du:
 
 >[!div class="checklist"]
-> * Kontrollera tillståndet för en simulerad enhet
-> * Definiera hur en simulerad enhet svarar på ett metodanrop från lösningen för fjärrövervakning
-> * Felsök ditt skript
+> * Kontrol lera statusen för en simulerad enhet
+> * Definiera hur en simulerad enhet svarar på ett metod anrop från lösningen för fjärrövervakning
+> * Felsöka skript
 
-## <a name="state-behavior"></a>Statliga beteende
+## <a name="state-behavior"></a>Tillstånds beteende
 
-Den [simulering](../../articles/iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md#simulation) delen av schemat för enhetsmodellen definierar det interna tillståndet för en simulerad enhet:
+[Simulerings](../../articles/iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md#simulation) avsnittet i enhets modellens schema definierar det interna läget för en simulerad enhet:
 
-- `InitialState` definierar ursprungliga värden för alla egenskaper för enhetsobjekt för tillstånd.
-- `Script` identifierar en JavaScript-fil som körs på ett schema för att uppdatera enhetens tillstånd.
+- `InitialState` definierar start värden för alla egenskaper för objektet enhets tillstånd.
+- `Script` identifierar en JavaScript-fil som körs enligt ett schema för att uppdatera enhetens tillstånd.
 
-Exemplet nedan visar definitionen av enhetsobjekt för tillstånd för en simulerad kylaggregat enhet:
+I följande exempel visas definitionen av objektet enhets tillstånd för en simulerad kylnings enhet:
 
 ```json
 "Simulation": {
@@ -61,9 +61,9 @@ Exemplet nedan visar definitionen av enhetsobjekt för tillstånd för en simule
 }
 ```
 
-Tillståndet för den simulerade enheten, enligt definitionen i den `InitialState` avsnittet, lagras i minnet av tjänsten simulering. Tillståndsinformationen skickas som indata till den `main` funktion som definierats i **kylaggregat-01-state.js**. I det här exemplet tjänsten simuleringen körs den **kylaggregat-01-state.js** fil var femte sekund. Skriptet kan ändra tillståndet för den simulerade enheten.
+Statusen för den simulerade enheten, som definieras i avsnittet `InitialState`, lagras i minnet av simulerings tjänsten. Tillståndsinformationen skickas som indata till funktionen `main` som definieras i **Chiller-01-State. js**. I det här exemplet kör simulerings tjänsten filen **Chiller-01-State. js** var femte sekund. Skriptet kan ändra statusen för den simulerade enheten.
 
-Följande visar konturerna för en typisk `main` funktionen:
+Nedan visas en översikt över en typisk `main` funktion:
 
 ```javascript
 function main(context, previousState, previousProperties) {
@@ -76,15 +76,15 @@ function main(context, previousState, previousProperties) {
 }
 ```
 
-Den `context` parametern har följande egenskaper:
+Parametern `context` har följande egenskaper:
 
 - `currentTime` som en sträng med formatet `yyyy-MM-dd'T'HH:mm:sszzz`
 - `deviceId`, till exempel `Simulated.Chiller.123`
 - `deviceModel`, till exempel `Chiller`
 
-Den `state` parametern innehåller tillståndet för enheten som hanteras av tjänsten enhet simulering. Det här värdet är den `state` objektet som returneras av det föregående anropet till `main`.
+Parametern `state` innehåller enhetens status som underhålls av enhets simulerings tjänsten. Det här värdet är `state`-objektet som returnerades av det föregående anropet till `main`.
 
-I följande exempel visas en typisk implementering av den `main` metod för att hantera enhetens tillstånd som underhålls av tjänsten simulering:
+I följande exempel visas en typisk implementering av metoden `main` som hanterar enhets statusen som underhålls av simulerings tjänsten:
 
 ```javascript
 // Default state
@@ -118,7 +118,7 @@ function main(context, previousState, previousProperties) {
 }
 ```
 
-I följande exempel visas hur `main` metoden kan simulera telemetrivärden som varierar över tid:
+I följande exempel visas hur `main`-metoden kan simulera telemetri-värden som varierar över tid:
 
 ```javascript
 /**
@@ -156,13 +156,13 @@ function main(context, previousState, previousProperties) {
 }
 ```
 
-Du kan visa den fullständiga [kylaggregat-01-state.js](https://github.com/Azure/device-simulation-dotnet/blob/master/Services/data/devicemodels/scripts/chiller-01-state.js) på GitHub.
+Du kan visa hela [Chiller-01-State. js](https://github.com/Azure/device-simulation-dotnet/blob/master/Services/data/devicemodels/scripts/chiller-01-state.js) på GitHub.
 
-## <a name="method-behavior"></a>Metoden beteende
+## <a name="method-behavior"></a>Metod beteende
 
-Den [CloudToDeviceMethods](../../articles/iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md#cloudtodevicemethods) delen av schemat för enhetsmodellen definierar de metoder som en simulerad enhet svarar på.
+Avsnittet [CloudToDeviceMethods](../../articles/iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md#cloudtodevicemethods) i enhets modellens schema definierar de metoder som en simulerad enhet svarar på.
 
-I följande exempel visas listan över metoder som stöds av en simulerad kylaggregat enhet:
+I följande exempel visas en lista över de metoder som stöds av en simulerad kyl enhet:
 
 ```json
 "CloudToDeviceMethods": {
@@ -187,9 +187,9 @@ I följande exempel visas listan över metoder som stöds av en simulerad kylagg
 
 Varje metod har en associerad JavaScript-fil som implementerar metodens beteende.
 
-Tillståndet för den simulerade enheten, enligt definitionen i den `InitialState` avsnittet av schema, hålls kvar i minnet av tjänsten simulering. Tillståndsinformationen skickas som indata till den `main` funktion som definierats i JavaScript-fil när metoden anropas. Skriptet kan ändra tillståndet för den simulerade enheten.
+Statusen för den simulerade enheten, som definieras i `InitialState`-avsnittet i schemat, lagras i minnet av simulerings tjänsten. Tillståndsinformationen skickas som indata till funktionen `main` som definierats i JavaScript-filen när metoden anropas. Skriptet kan ändra statusen för den simulerade enheten.
 
-Följande visar konturerna för en typisk `main` funktionen:
+Nedan visas en översikt över en typisk `main` funktion:
 
 ```javascript
 function main(context, previousState, previousProperties) {
@@ -197,23 +197,23 @@ function main(context, previousState, previousProperties) {
 }
 ```
 
-Den `context` parametern har följande egenskaper:
+Parametern `context` har följande egenskaper:
 
 - `currentTime` som en sträng med formatet `yyyy-MM-dd'T'HH:mm:sszzz`
 - `deviceId`, till exempel `Simulated.Chiller.123`
 - `deviceModel`, till exempel `Chiller`
 
-Den `state` parametern innehåller tillståndet för enheten som hanteras av tjänsten enhet simulering.
+Parametern `state` innehåller enhetens status som underhålls av enhets simulerings tjänsten.
 
-Den `properties` parametern innehåller egenskaperna för enheten som har skrivits som rapporterade egenskaper till enhetstvillingen i IoT Hub.
+Parametern `properties` innehåller egenskaperna för enheten som skrivs som rapporterade egenskaper till den IoT Hub enheten.
 
-Det finns tre globala funktioner som du kan använda för att implementera metodens beteende:
+Det finns tre globala funktioner som du kan använda för att implementera beteendet för-metoden:
 
-- `updateState` att uppdatera tjänsten simulering tillstånd.
-- `updateProperty` att uppdatera en enskild enhetsegenskap.
-- `sleep` att pausa körning för att simulera en tidskrävande uppgift.
+- `updateState` att uppdatera det tillstånd som innehas av simulerings tjänsten.
+- `updateProperty` att uppdatera en enskild enhets egenskap.
+- `sleep` att pausa körningen för att simulera en tids krävande aktivitet.
 
-I följande exempel visas en förkortad version av den **IncreasePressure method.js** skript som används av de simulerade kylaggregat-enheterna:
+I följande exempel visas en förkortad version av **IncreasePressure-Method. js** -skriptet som används av de simulerade kyl enheterna:
 
 ```javascript
 function main(context, previousState, previousProperties) {
@@ -248,27 +248,27 @@ function main(context, previousState, previousProperties) {
 }
 ```
 
-## <a name="debugging-script-files"></a>Felsökning skriptfiler
+## <a name="debugging-script-files"></a>Felsöka skriptfiler
 
-Det går inte att koppla en felsökare till Javascript-tolk som används av enheten simulering tjänsten kör tillstånd och metoden skript. Du kan dock logga information i loggen för tjänsten. Inbyggt `log()` funktionen kan du spara information för att spåra och felsöka körning av funktion.
+Det går inte att koppla en fel sökare till JavaScript-tolken som används av enhets simulerings tjänsten för att köra tillstånds-och metod skript. Du kan dock Logga information i tjänst loggen. Med den inbyggda `log()` funktionen kan du spara information och spåra och felsöka funktions körning.
 
-Om det finns ett syntaxfel vilken tolk som misslyckas och skriver en `Jint.Runtime.JavaScriptException` post in i tjänsten.
+Om det finns ett syntaxfel Miss lyckas tolken och skriver en `Jint.Runtime.JavaScriptException` post till tjänst loggen.
 
-Den [som kör tjänsten lokalt](https://github.com/Azure/device-simulation-dotnet#running-the-service-locally-eg-for-development-tasks) artikeln på GitHub visar hur du kör tjänsten enheten simuleringen lokalt. Kör tjänsten lokalt gör det enklare att felsöka dina simulerade enheter innan du distribuerar dem till molnet.
+I artikeln om att [köra tjänsten lokalt](https://github.com/Azure/device-simulation-dotnet#running-the-service-locally-eg-for-development-tasks) på GitHub visas hur du kör enhets simulerings tjänsten lokalt. Genom att köra tjänsten lokalt blir det enklare att felsöka dina simulerade enheter innan du distribuerar dem till molnet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln beskrivs hur du definierar beteendet för dina egna anpassade simulerade enhetsmodell. Den här artikeln visar dig hur du:
+I den här artikeln beskrivs hur du definierar beteendet för en egen anpassad simulerad enhets modell. I den här artikeln har du visat hur du:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]
-> * Kontrollera tillståndet för en simulerad enhet
-> * Definiera hur en simulerad enhet svarar på ett metodanrop från lösningen för fjärrövervakning
-> * Felsök ditt skript
+> * Kontrol lera statusen för en simulerad enhet
+> * Definiera hur en simulerad enhet svarar på ett metod anrop från lösningen för fjärrövervakning
+> * Felsöka skript
 
-Nu när du har lärt dig hur du anger beteendet för en simulerad enhet, föreslagna nästa steg är att lära dig hur du [skapar en simulerad enhet](iot-accelerators-remote-monitoring-create-simulated-device.md).
+Nu när du har lärt dig hur du anger beteendet för en simulerad enhet är det föreslagna nästa steg att lära dig hur du [skapar en simulerad enhet](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
-Mer information för utvecklare om lösningen för fjärrövervakning, finns:
+Mer information om utvecklings lösningen finns i:
 
 * [Referensguide för utvecklare](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 * [Felsökningsguide för utvecklare](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)

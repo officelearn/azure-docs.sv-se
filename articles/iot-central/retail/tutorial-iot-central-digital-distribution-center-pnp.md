@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 1965cc17f3d58932321c3ff14c99a962830d07b4
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 879e1911c715688c2fed4044e23f437b3bbef7b2
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615243"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890660"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Självstudie: Distribuera och gå igenom en app-mall för digital distributions Center
 
@@ -113,4 +113,4 @@ Om du inte kommer att fortsätta att använda det här programmet tar du bort pr
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om digital distributions Center lösnings arkitektur för [digital distributions Center](./architecture-digital-distribution-center-pnp.md)
 * Läs mer om andra [IoT Central mallar för butik](./overview-iot-central-retail-pnp.md)
-* Läs mer om IoT Central referera till [IoT Central översikt](../core/overview-iot-central-pnp.md)
+* Läs mer om IoT Central referera till [IoT Central översikt](../preview/overview-iot-central.md)

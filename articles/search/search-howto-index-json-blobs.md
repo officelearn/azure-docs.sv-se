@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f8ddec95b92121c8dad4a39cf0c7b3f1798ec8ad
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 81e652b90831af0e1e20e716842b4e79f5606d05
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789509"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889885"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Så här indexerar du JSON-blobbar med en BLOB-indexerare i Azure Kognitiv sökning
 
@@ -65,17 +65,11 @@ På sidan **data källa** måste källan vara **Azure Blob Storage**, med följa
 
    ![Definition av BLOB-datakälla](media/search-howto-index-json/import-wizard-json-data-source.png)
 
-### <a name="4---skip-the-add-cognitive-search-page-in-the-wizard"></a>4 – hoppa över sidan Lägg till kognitiv sökning i guiden
+### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4 – hoppa över sidan "utöka innehåll" i guiden
 
-Det krävs inte att lägga till kognitiva kunskaper för import av JSON-dokument. Om du inte har ett speciellt behov av att [lägga till AI-berikning](cognitive-search-concept-intro.md) till din indexerings pipeline, bör du hoppa över det här steget.
+Att lägga till kognitiva färdigheter (eller anrikning) är inte ett import krav. Om du inte har ett speciellt behov av att [lägga till AI-berikning](cognitive-search-concept-intro.md) till din indexerings pipeline, bör du hoppa över det här steget.
 
-Om du vill hoppa över steget går du först till nästa sida.
-
-   ![Knappen Nästa sida för kognitiv sökning](media/search-get-started-portal/next-button-add-cog-search.png)
-
-Från den sidan kan du gå vidare till index anpassning.
-
-   ![Hoppa över steget Kognitiva kunskaper](media/search-get-started-portal/skip-cog-skill-step.png)
+Om du vill hoppa över steget klickar du på blå knappar längst ned på sidan för "Nästa" och "hoppa över".
 
 ### <a name="5---set-index-attributes"></a>5-Ange indexattribut
 
@@ -273,7 +267,7 @@ Att skapa indexeraren på Azure Kognitiv sökning utlöser data import. Den kör
 
 <a name="json-indexer-dotnet"></a>
 
-## <a name="use-net-sdk"></a>Använd .NET SDK
+## <a name="use-net-sdk"></a>Använda .NET SDK
 
 .NET SDK har fullständig paritet med REST API. Vi rekommenderar att du läser avsnittet tidigare REST API för att lära dig begrepp, arbets flöden och krav. Du kan sedan se följande dokumentation om .NET API-referens för att implementera en JSON-indexerare i förvaltad kod.
 
@@ -411,7 +405,7 @@ Gå till vårt exempel JSON-dokument:
         }
     }
 
-Antag ett Sök index med följande fält: `text` av typen `Edm.String`, `date` av typen `Edm.DateTimeOffset` och `tags` av typen `Collection(Edm.String)`. Observera skillnaden mellan "datePublished" i fältet källa och `date` i indexet. Använd följande fält mappningar för att mappa JSON till önskad form:
+Antag ett Sök index med följande fält: `text` av typen `Edm.String`, `date` av typen `Edm.DateTimeOffset`och `tags` av typen `Collection(Edm.String)`. Observera skillnaden mellan "datePublished" i fältet källa och `date` i indexet. Använd följande fält mappningar för att mappa JSON till önskad form:
 
     "fieldMappings" : [
         { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },
@@ -430,7 +424,7 @@ Du kan också referera till enskilda mat ris element genom att använda ett noll
 >
 >
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 + [Indexerare i Azure Kognitiv sökning](search-indexer-overview.md)
 + [Indexera Azure Blob Storage med Azure Kognitiv sökning](search-howto-index-json-blobs.md)

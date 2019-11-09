@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 34759077bd7223d17fea70d32bda63fd1b2595eb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4e55932d47389e09b135d571d0e000b9795e6edc
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73668129"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73884954"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions nätverks alternativ
 
@@ -86,7 +86,7 @@ Oavsett vilken version som används ger integrering av virtuella nätverk din ap
 Funktionen för integrering av virtuella nätverk:
 
 * Kräver en standard-, Premium-eller PremiumV2-App Service plan
-* stöder TCP och UDP
+* Stöder TCP och UDP
 * Fungerar med App Service appar och Functions-appar
 
 Det finns vissa saker som Virtual Network-integration inte stöder, inklusive:
@@ -116,6 +116,12 @@ För att ge en högre säkerhets nivå kan du begränsa ett antal Azure-tjänste
 När du skapar en Function-app måste du skapa eller länka till ett allmänt Azure Storage konto som har stöd för BLOB-, Queue-och table-lagring. Du kan för närvarande inte använda några begränsningar för virtuella nätverk för det här kontot. Om du konfigurerar en tjänst slut punkt för virtuellt nätverk på det lagrings konto som du använder för din Function-app, kommer din app att brytas.
 
 [Läs mer om krav för lagrings konton.](./functions-create-function-app-portal.md#storage-account-requirements)
+
+### <a name="using-key-vault-references"></a>Använda Key Vault referenser 
+
+Med Key Vault referenser kan du använda hemligheter från Azure Key Vault i Azure Functions program utan att behöva göra några kod ändringar. Azure Key Vault är en tjänst som tillhandahåller centraliserad hemligheter-hantering med fullständig kontroll över åtkomst principer och gransknings historik.
+
+För närvarande fungerar inte [Key Vault referenser](../app-service/app-service-key-vault-references.md) om Key Vault skyddas av tjänst slut punkter. Om du vill ansluta till en Key Vault med hjälp av Virtual Network-integrering måste du anropa Key Vault i program koden.
 
 ## <a name="virtual-network-triggers-non-http"></a>Virtuella nätverks utlösare (icke-HTTP)
 

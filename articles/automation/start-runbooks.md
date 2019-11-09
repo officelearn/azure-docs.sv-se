@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a42ba0a385b73032e3d4045094bc88613016b849
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 8200052e14161d91b7daef6a0acd9c851518d9c2
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850348"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886494"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Starta en Runbook i Azure Automation
 
@@ -119,7 +119,7 @@ Joe
 Smith
 ```
 
-### <a name="arrays"></a>Lagringsmatriser
+### <a name="arrays"></a>lagringsmatriser
 
 Om parametern är en matris som t. ex. [array] eller [string []], kan du använda följande JSON-format för att skicka en lista med värden: *[värde1, värde2, Value3]* . Dessa värden måste vara enkla typer.
 
@@ -187,4 +187,4 @@ jsmith
 
 * Runbook-arkitekturen i den aktuella artikeln innehåller en översikt över Runbooks som hanterar resurser i Azure och lokalt med Hybrid Runbook Worker. Information om hur du kör Automation-runbooks i ditt data Center finns i [hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
 * Mer information om hur du skapar modulära Runbooks som ska användas av andra Runbooks för vissa eller vanliga funktioner finns i [underordnade Runbooks](automation-child-runbooks.md).
-* Mer information om PowerShell, inklusive språk referens-och inlärnings moduler finns i [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview)-dokumenten.
+* Mer information om PowerShell, inklusive språk referens-och inlärnings moduler finns i [PowerShell-dokumenten](https://docs.microsoft.com/powershell/scripting/overview).

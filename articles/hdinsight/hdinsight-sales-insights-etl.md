@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: hrasheed
-ms.openlocfilehash: b9bcaf4b7497e8beba377eb7e47a44a6eb061299
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: d662ad59722658ed888aa732c1f45afdf48f850c
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72178012"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889211"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights"></a>Självstudie: skapa en pipeline från slut punkt till slut punkt för att härleda Sälj insikter
 
@@ -23,7 +23,7 @@ Den här datapipelinen kombinerar data från olika butiker, tar bort alla oönsk
 
 ![ETL-arkitektur](./media/hdinsight-sales-insights-etl/architecture.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -33,7 +33,7 @@ Hämta [Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=453
 
 ### <a name="clone-the-repository-with-scripts-and-data"></a>Klona lagrings platsen med skript och data
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Öppna Azure Cloud Shell från den översta meny raden. Välj din prenumeration för att skapa en fil resurs om Cloud Shell uppmanas till det.
 
    ![Öppna Azure Cloud Shell](./media/hdinsight-sales-insights-etl/hdinsight-sales-insights-etl-click-cloud-shell.png)
@@ -89,7 +89,7 @@ az group deployment create --name ResourcesDeployment \
     --parameters "@resourceparameters.json"
 ```
 
-@No__t-0-skriptet överför också försäljnings data. csv-filer till det nya Blob Storage-kontot med hjälp av det här kommandot:
+`resources.sh` skriptet överför också försäljnings data. csv-filer till det nya Blob Storage-kontot med hjälp av det här kommandot:
 
 ```
 az storage blob upload-batch -d rawdata \
@@ -124,7 +124,7 @@ Standard lösen ordet för SSH-åtkomst till klustren är `Thisisapassword1`. Om
 
 ### <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-Azure Data Factory är ett verktyg som hjälper dig att automatisera Azure-pipeliner. Det är inte det enda sättet att utföra dessa uppgifter, men det är ett bra sätt att automatisera processerna. Mer information om Azure Data Factory finns i Azure Data Factory- [dokumentationen](https://azure.microsoft.com/en-us/services/data-factory/). 
+Azure Data Factory är ett verktyg som hjälper dig att automatisera Azure-pipeliner. Det är inte det enda sättet att utföra dessa uppgifter, men det är ett bra sätt att automatisera processerna. Mer information om Azure Data Factory finns i Azure Data Factory- [dokumentationen](https://azure.microsoft.com/services/data-factory/). 
 
 Den här data fabriken kommer att ha en pipeline med två aktiviteter: 
 

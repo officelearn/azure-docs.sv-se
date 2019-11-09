@@ -1,6 +1,6 @@
 ---
 title: Konfigurera meddelanderoutning för Azure IoT Hub med hjälp av Azure CLI | Microsoft Docs
-description: Konfigurera meddelanderoutning för Azure IoT Hub med Azure CLI
+description: Konfigurera meddelanderoutning för Azure IoT Hub med Azure CLI. Beroende på egenskaperna i meddelandet dirigerar du antingen till ett lagrings konto eller en Service Bus kö.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 1748ec5ada9488487cd29ffb563226749b29f9f4
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 844ed44a588bfd789e7e2dcf2b9fecda3d51329b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808835"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890370"
 ---
 # <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>Självstudie: Använd Azure CLI för att konfigurera IoT Hub meddelanderoutning
 

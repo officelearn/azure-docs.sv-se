@@ -1,5 +1,5 @@
 ---
-title: Distribuera fjärr styrnings lösningen lokalt (via IntelliJ IDE) – Azure | Microsoft Docs
+title: Distribuera fjärr styrnings lösningen lokalt – IntelliJ IDE – Azure | Microsoft Docs
 description: Den här instruktions guiden visar hur du distribuerar lösnings acceleratorn för fjärrövervakning till din lokala dator med hjälp av IntelliJ för testning och utveckling.
 author: v-krghan
 manager: dominicbetts
@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2f3c11763bb2f406caf9d33275fc29b0d140da9a
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 779ee1e057d74b11c5e0ba58dc2fd32b803f1e0e
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "70743287"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888814"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Distribuera lösnings acceleratorn för fjärr styrning lokalt – IntelliJ
 
@@ -23,7 +23,7 @@ Den här artikeln visar hur du distribuerar lösnings acceleratorn för fjärrö
 
 Om du vill köra lösnings acceleratorn för fjärrövervakning i Docker på den lokala datorn läser [du distribuera lösnings Accelerator för fjärrövervakning lokalt Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill distribuera de Azure-tjänster som används av lösningen för fjärrövervakning, behöver du en aktiv Azure-prenumeration.
 
@@ -36,7 +36,7 @@ För att slutföra den lokala distributionen behöver du följande verktyg insta
 * [Git](https://git-scm.com/)
 * [Docker](https://www.docker.com)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* [IntelliJ Community Edition](https://www.jetbrains.com/idea/download/)
+* [IntelliJ community-utgåva](https://www.jetbrains.com/idea/download/)
 * [IntelliJ Scala-plugin](https://plugins.jetbrains.com/plugin/1347-scala)
 * [IntelliJ SBT-plugin](https://plugins.jetbrains.com/plugin/5007-sbt)
 * [IntelliJ SBT utförar-plugin](https://plugins.jetbrains.com/plugin/7247-sbt-executor)
@@ -98,18 +98,18 @@ Om du ännu inte har skapat de nödvändiga Azure-resurserna följer du dessa st
    Skriptet lägger också till en uppsättning miljövariabler på den lokala datorn. Varje variabel namn har prefixet **PCs**. De här miljövariablerna innehåller information som tillåter fjärr styrning att läsa konfigurations värden från en Azure Key Vault resurs.
 
    > [!TIP]
-   > När skriptet har slutförts sparas miljövariablerna i en fil som heter  **\<\\din arbetsmapp\>. PC\\\<-lösningens\>namn. kuvert**. Du kan använda dem för framtida distributioner av lösnings Accelerator. Observera att alla miljövariabler som angetts på den lokala datorn åsidosätter värdena i **den\\lokala\\\\. kuvert** filen för Services-skript när du kör **Docker-sammanställning**.
+   > När skriptet har slutförts sparas miljövariablerna i en fil med namnet **\<din startmapp\>\\. pc\\\<lösnings namn\>. kuvert**. Du kan använda dem för framtida distributioner av lösnings Accelerator. Observera att alla miljövariabler som angetts på den lokala datorn åsidosätter värdena i **tjänsterna\\skript\\lokal\\. miljö** när du kör **Docker-sammanställning**.
 
 1. Stäng kommando rads miljön.
 
 ### <a name="use-existing-azure-resources"></a>Använd befintliga Azure-resurser
 
 Om du redan har skapat de nödvändiga Azure-resurserna ställer du in motsvarande miljövariabler på den lokala datorn:
-* **PCS_KEYVAULT_NAME**: Namnet på den Key Vault resursen.
-* **PCS_AAD_APPID**: Program-ID för Azure Active Directory (Azure AD).
+* **PCS_KEYVAULT_NAME**: namnet på den Key Vault resursen.
+* **PCS_AAD_APPID**: Azure Active Directory (Azure AD) program-ID.
 * **PCS_AAD_APPSECRET**: Azure AD Application Secret.
 
-Konfigurations värden kommer att läsas från den här Key Vault resursen. Dessa miljövariabler kan sparas i  **\<\\din arbetsmapp\>. PC\\\<-lösningens namn\>. miljö** fil från distributionen. Observera att miljövariabler som har angetts på den lokala datorn åsidosätter värden i den **lokala\\\\. kuvert filen för Services-skript\\** när du kör **Docker-sammanställning**.
+Konfigurations värden kommer att läsas från den här Key Vault resursen. De här miljövariablerna kan sparas i **\<din startmapp\>\\. pc\\\<lösnings namn\>. miljö** fil från distributionen. Observera att miljövariabler som angetts på den lokala datorn åsidosätter värden i **tjänsterna\\skript\\lokal\\. miljö** när du kör **Docker-sammanställning**.
 
 En del av konfigurationen som krävs av mikrotjänsten lagras i en instans av Key Vault som skapades vid den första distributionen. Motsvarande variabler i nyckel valvet bör ändras efter behov.
 
@@ -159,7 +159,7 @@ Följande steg visar hur du kör mikrotjänster för fjärr styrning i IntelliJ.
 
 #### <a name="create-run-configurations"></a>Skapa körnings konfigurationer
 
-1. Välj **Kör** > **Redigera konfigurationer**.
+1. Välj **kör** > **Redigera konfigurationer**.
 1. Välj **Lägg till ny konfiguration** > **SBT uppgift**.
 1. Ange **namn**och ange sedan **aktiviteter** som **Kör**.
 1. Välj **arbets katalog** baserat på den tjänst som du vill köra.
@@ -172,7 +172,7 @@ Följande steg visar hur du kör mikrotjänster för fjärr styrning i IntelliJ.
 
 I följande bild visas ett exempel på hur du lägger till en konfiguration för en tjänst:
 
-[![Skärm bild av fönstret IntelliJ IDE Run/debug Configurations, som visar alternativet storageAdapter markerat i listan SBT tasks i den vänstra rutan och poster i rutorna namn, uppgifter, arbets katalog och VM-parametrar i den högra rutan.](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
+[![skärm bild av fönstret IntelliJ IDE Run/debug Configurations, som visar alternativet storageAdapter markerat i listan SBT tasks i den vänstra rutan och poster i rutorna namn, uppgifter, arbets katalog och VM-parametrar i den högra rutan.](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
 
 #### <a name="create-a-compound-configuration"></a>Skapa en sammansatt konfiguration
 
@@ -182,7 +182,7 @@ I följande bild visas ett exempel på hur du lägger till en konfiguration för
 
 I följande bild visas ett exempel på hur du lägger till alla SBT-aktiviteter i en enda konfiguration:
 
-[![Skärm bild av fönstret IntelliJ IDE Run/debug Configurations, som visar alternativet AllServices markerat i den sammanslagna listan i det vänstra fönstret och alternativet SBT Task deviceTelemetry är markerat i den högra rutan.](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
+[![skärm bild av fönstret IntelliJ IDE Run/debug Configurations, som visar alternativet AllServices markerat i den sammanslagna listan i det vänstra fönstret och alternativet SBT Task "deviceTelemetry" markerat i den högra rutan.](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
 
 Välj **Kör** för att skapa och köra webb tjänsterna på den lokala datorn.
 
@@ -190,10 +190,10 @@ Varje webb tjänst öppnar ett kommando tolks fönster och webbläsarfönster. I
 
 Gå till följande URL: er för att få åtkomst till tjänsternas status:
 
-* IoT-Hub Manager:[http://localhost:9002/v1/status](http://localhost:9002/v1/status)
-* Telemetri för enhet:[http://localhost:9004/v1/status](http://localhost:9004/v1/status)
-* konfigurationsfil[http://localhost:9005/v1/status](http://localhost:9005/v1/status)
-* lagrings kort:[http://localhost:9022/v1/status](http://localhost:9022/v1/status)
+* IoT-Hub Manager: [http://localhost:9002/v1/status](http://localhost:9002/v1/status)
+* Telemetri för enhet: [http://localhost:9004/v1/status](http://localhost:9004/v1/status)
+* konfiguration: [http://localhost:9005/v1/status](http://localhost:9005/v1/status)
+* Storage-adapter: [http://localhost:9022/v1/status](http://localhost:9022/v1/status)
 
 ### <a name="start-the-stream-analytics-job"></a>Starta Stream Analytics jobbet
 
@@ -213,7 +213,7 @@ npm install
 npm start
 ```
 
-När **Start** kommandot har slutförts visas sidan på adressen [http://localhost:3000/dashboard](http://localhost:3000/dashboard)i webbläsaren. Felen på den här sidan förväntas. Om du vill visa programmet utan fel utför du följande steg.
+När **Start** kommandot har slutförts visar webbläsaren sidan på adressen [http://localhost:3000/dashboard](http://localhost:3000/dashboard). Felen på den här sidan förväntas. Om du vill visa programmet utan fel utför du följande steg.
 
 ### <a name="configure-and-run-nginx"></a>Konfigurera och kör nginx
 

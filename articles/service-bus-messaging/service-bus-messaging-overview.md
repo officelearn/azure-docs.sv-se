@@ -8,38 +8,40 @@ manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: overview
-ms.date: 09/22/2018
+ms.date: 11/04/2019
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: 0f3995e8904396dbb0bcbeeea1f993913d68587e
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: e2460ab760811a3db39058eac74d519ca09046c6
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013127"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889814"
 ---
 # <a name="what-is-azure-service-bus"></a>Vad är Azure Service Bus?
 
-Microsoft Azure Service Bus är en fullständigt hanterad [integrations](https://azure.com/integration)meddelandekoordinator för företag. Service Bus används oftast att frikoppla program och tjänster från varandra och är en tillförlitlig och säker plattform för asynkrona data och överföring av tillstånd. Data överförs mellan olika program och tjänster med *meddelanden*. Meddelanden är i binärt format som kan innehålla JSON, XML eller endast text. 
+Microsoft Azure Service Bus är en helt hanterad integrerad meddelandekoordinator för företag. Service Bus kan frikoppla program och tjänster. Service Bus erbjuder en tillförlitlig och säker plattform för asynkron data och tillstånds överföring.
+
+Data överförs mellan olika program och tjänster med *meddelanden*. Ett meddelande är i binärformat och kan innehålla JSON, XML eller bara text. Mer information finns i [integrerings tjänster](https://azure.com/integration).
 
 Några vanliga scenarier för meddelanden är:
 
-* Meddelanden: Överför affärsdata, till exempel försäljning eller inköpsordrar, journaler eller ändringar i inventarier.
-* Frikoppla program: förbättra tillförlitligheten och skalbarheten för program och tjänster (klienten tjänsten behöver inte vara online samtidigt).
-* Ämnen och prenumerationer: aktivera 1:*n* relationer mellan utgivare och prenumeranter.
-* Meddelandesessioner: Implementera arbetsflöden som kräver meddelandebeställning eller uppskjutning av meddelanden.
+* *Meddelandetjänster*. Överför affärs data, till exempel försäljnings-eller inköps order, journaler eller lager förflyttningar.
+* Frikopplade *program*. Förbättra tillförlitligheten och skalbarheten för program och tjänster. Klienten och tjänsten behöver inte vara online samtidigt.
+* *Ämnen och prenumerationer*. Aktivera 1:*n* relationer mellan utgivare och prenumeranter.
+* *Message-sessioner*. Implementera arbets flöden som kräver meddelande ordning eller meddelande avstängning.
 
 ## <a name="namespaces"></a>Namnområden
 
-Ett namnområde är en omfångscontainer för alla meddelandekomponenter. Flera köer och ämnen kan finnas i ett enda namnområde och namnområden fungerar ofta som programcontainer.
+Ett namn område är en behållare för alla meddelande komponenter. Flera köer och ämnen kan finnas i ett enda namn område och namn områden fungerar ofta som program behållare.
 
 ## <a name="queues"></a>Köer
 
-Meddelanden skickas till och tas emot från *köer*. Med köer kan du lagra meddelanden tills det mottagande programmet kan ta emot och bearbeta dem.
+Meddelanden skickas till och tas emot från *köer*. Köer lagrar meddelanden tills det mottagande programmet är tillgängligt för att ta emot och bearbeta dem.
 
 ![Kö](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-Meddelanden i köer ordnas och tidsstämplas vid ankomsten. När de har godkänts lagras meddelanden på ett säkert sätt i redundant lagring. Meddelanden levereras i *pull* -läge, vilket levererar meddelanden på begäran.
+Meddelanden i köer ordnas och tidsstämplas vid ankomsten. När de har godkänts lagras meddelanden på ett säkert sätt i redundant lagring. Meddelanden levereras i *pull* -läge och levererar bara meddelanden när de begärs.
 
 ## <a name="topics"></a>Ämnen
 
@@ -47,61 +49,62 @@ Du kan också använda *ämnen* för att skicka och ta emot meddelanden. Medan e
 
 ![Avsnitt](./media/service-bus-messaging-overview/about-service-bus-topic.png)
 
-Ämnen kan ha flera oberoende prenumerationer. En prenumerant på ett ämne får en kopia av varje meddelande. Prenumerationer är namngivna enheter som skapas varaktigt men kan eventuellt utgå eller tas bort automatiskt.
+Ämnen kan ha flera oberoende prenumerationer. En prenumerant på ett ämne får en kopia av varje meddelande. Prenumerationer kallas entiteter. Prenumerationerna är kvar, men kan förfalla eller autota bort.
 
-I vissa fall vill du kanske inte att individuella prenumerationer ska ta emot alla ämnen som skickas till ett ämne. Om så är fallet bör du använda [regler och filter](topic-filters.md) för att definiera villkor som utlöser valfria [åtgärder](topic-filters.md#actions), filtrera angivna meddelanden och ange eller ändra egenskaperna för meddelanden.
+Du kanske inte vill att enskilda prenumerationer ska ta emot alla meddelanden som skickas till ett ämne. I så fall kan du använda *regler* och *filter* för att definiera villkor som utlöser valfria *åtgärder*. Du kan filtrera angivna meddelanden och ange eller ändra meddelande egenskaper. Mer information finns i [avsnittet filter och åtgärder](topic-filters.md).
 
 ## <a name="advanced-features"></a>Avancerade funktioner
 
-Service Bus har också avancerade funktioner som hjälper dig att lösa problem med mer komplexa meddelanden. I följande avsnitt beskrivs dessa nyckelfunktioner:
+Service Bus innehåller avancerade funktioner som gör att du kan lösa mer komplexa meddelande problem. I följande avsnitt beskrivs flera av de här funktionerna.
 
 ### <a name="message-sessions"></a>Meddelandesessioner
 
-Använda sessioner för att använda en först in-, först ut-garanti (FIFO) i Service Bus. [Meddelandesessioner](message-sessions.md) aktiverar gemensamma och organiserad hantering av frigjorda sekvenser av relaterade meddelanden. 
+Om du vill skapa en första in-och utgångs-(FIFO) garanti i Service Bus använder du sessioner. Message-sessioner möjliggör gemensam och ordnad hantering av icke-bundna sekvenser av relaterade meddelanden. Mer information finns i [meddelande sessioner: först in, först ut (FIFO)](message-sessions.md).
 
-### <a name="auto-forwarding"></a>Automatisk vidarebefordring
+### <a name="autoforwarding"></a>Vidarebefordrar
 
-Med funktionen [automatisk vidarebefordring](service-bus-auto-forwarding.md) kan du koppla en kö eller en prenumeration på en annan kö eller ett ämne som ingår i samma namnområde. När automatisk vidarebefordring är aktiverat tar Service Bus automatiskt bort meddelanden som har placerats i den första kön eller prenumerationen (källan) och placerar dem i den andra kön eller ämnet (målet).
+Funktionen vidarebefordran länkar en kö eller en prenumeration till en annan kö eller ämne. De måste ingå i samma namnrymd. Med automatisk vidarebefordran tar Service Bus automatiskt bort meddelanden från en kö eller prenumeration och placerar dem i en annan kö eller ett annat ämne. Mer information finns i [länkning Service Bus entiteter med vidarebefordran](service-bus-auto-forwarding.md).
 
-### <a name="dead-lettering"></a>Olevererade brev
+### <a name="dead-letter-queue"></a>Kö för obeställbara meddelanden
 
-Service Bus stöder en [kö med olevererade brev](service-bus-dead-letter-queues.md) (DQL) för meddelanden som inte kan levereras till alla mottagare eller meddelanden som inte kan bearbetas. Du kan ta bort meddelanden från DQL och inspektera dem.
+Service Bus stöder en kö för obeställbara meddelanden (DLQ). En DLQ innehåller meddelanden som inte kan levereras till någon mottagare. Den innehåller meddelanden som inte kan bearbetas. Med Service Bus kan du ta bort meddelanden från DLQ och granska dem. Mer information finns i [Översikt över Service Bus köer för obeställbara meddelanden](service-bus-dead-letter-queues.md).
 
 ### <a name="scheduled-delivery"></a>Schemalagd leverans
 
-Du kan skicka meddelanden till en kö eller ett ämne [för fördröjd bearbetning](message-sequencing.md#scheduled-messages), till exempel för att schemalägga ett jobb som ska bli tillgänglig för bearbetning av ett system vid en viss tidpunkt.
+Du kan skicka meddelanden till en kö eller ett ämne för fördröjd bearbetning. Du kan schemalägga att ett jobb ska bli tillgängligt för bearbetning av ett system vid en viss tidpunkt. Mer information finns i [schemalagda meddelanden](message-sequencing.md#scheduled-messages).
 
 ### <a name="message-deferral"></a>Skjut upp meddelanden
 
-När en kö- eller prenumerationsklient tar emot ett meddelande som den är villig att bearbeta men det för tillfället inte är möjligt på grund av särskilda omständigheter i programmet, kan enheten [skjuta upp hämtningen av meddelandet ](message-deferral.md) till ett senare tillfälle. Meddelandet finns kvar i kön eller prenumerationen, men det ställs åt sidan.
+En kö-eller prenumerations klient kan skjuta upp hämtningen av ett meddelande till ett senare tillfälle. Detta kan bero på särskilda omständigheter i programmet. Meddelandet finns kvar i kön eller prenumerationen, men det har tagits bort. Mer information finns i [meddelande avstängning](message-deferral.md).
 
 ### <a name="batching"></a>Batchbearbetning
 
-Med [klientsidans batchbearbetning](service-bus-performance-improvements.md#client-side-batching) förhindras en kö- eller ämnesklient från att skicka ett meddelande under en viss tidsperiod. Om klienten skickar ytterligare meddelanden under den här tiden överförs dessa meddelanden i en enskild batch. 
+Med batching på klient sidan kan en kö-eller ämnes klient fördröja att skicka ett meddelande under en viss tids period. Om klienten skickar ytterligare meddelanden under den här tiden överförs dessa meddelanden i en enskild batch. Mer information finns i [batching av klient sidan](service-bus-performance-improvements.md#client-side-batching).
 
 ### <a name="transactions"></a>Transaktioner
 
-En [transaktion](service-bus-transactions.md) grupperar två eller flera åtgärder tillsammans i en körning. Service Bus stöder grupperingsåtgärder mot en enskild meddelandeenhet (kö, ämne, prenumeration) inom en transaktion.
+En transaktion grupper två eller flera åtgärder tillsammans i ett *körnings område*. Service Bus stöder gruppering av åtgärder mot en enskild meddelande enhet inom omfånget för en enskild transaktion. En Message-entitet kan vara en kö, ett ämne eller en prenumeration. Mer information finns i [Översikt över Service Bus transaktions bearbetning](service-bus-transactions.md).
 
 ### <a name="filtering-and-actions"></a>Filtrering och åtgärder
 
-Prenumeranter kan definiera vilka meddelanden som de vill ta emot från ett ämne. Dessa meddelanden anges i form av en eller flera [namngivna prenumerationsregler](topic-filters.md). Prenumerationen skapar en kopia av meddelandet som får kommenteras på olika sätt för varje matchande regel för varje matchande regelvillkor.
+Prenumeranter kan definiera vilka meddelanden som de vill ta emot från ett ämne. Dessa meddelanden anges i form av en eller flera namngivna prenumerations regler. För varje matchande regel villkor skapar prenumerationen en kopia av meddelandet, som kan vara olika kommenterade för varje matchande regel. Mer information finns i [avsnittet filter och åtgärder](topic-filters.md).
 
-### <a name="auto-delete-on-idle"></a>Automatisk borttagning vid inaktivitet
+### <a name="autodelete-on-idle"></a>Ta bort vid inaktivitet
 
-Med [automatisk borttagning vid inaktivitet](/dotnet/api/microsoft.servicebus.messaging.queuedescription.autodeleteonidle) kan du ange ett intervall för inaktivitet varefter kön tas bort automatiskt. Minimilängden är 5 minuter.
+Vid borttagning vid inaktivitet kan du ange ett inaktivt intervall efter vilket en kö tas bort automatiskt. Minimilängden är 5 minuter. Mer information finns i [egenskapen QueueDescription. AutoDeleteOnIdle](/dotnet/api/microsoft.servicebus.messaging.queuedescription.autodeleteonidle).
 
 ### <a name="duplicate-detection"></a>Dubblettidentifiering
 
-Om ett fel som leder till att klienten är osäker på resultatet av en sändningsåtgärd kan [dubblettidentifiering](duplicate-detection.md) eliminera osäkerheten genom att låta avsändaren skicka om samma meddelande. Kön eller ämnet tar bort eventuella dubbletter.
+Ett fel kan orsaka att klienten tvekar om resultatet av en skicka-åtgärd. Dubblettidentifiering gör att avsändaren kan skicka samma meddelande igen. Ett annat alternativ är för kön eller ämnet att ignorera dubbletter av kopior. Mer information finns i [dubblettidentifiering](duplicate-detection.md).
 
-### <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>SAS, RBAC och hanterade identiteter för Azure-resurser
+### <a name="security-protocols"></a>Säkerhets protokoll
+<a name="sas-rbac-and-managed-identities-for-azure-resources"></a>
 
 Service Bus stöder säkerhetsprotokoll som [signaturer för delad åtkomst](service-bus-sas.md) (SAS), [rollbaserad åtkomstkontroll](authenticate-application.md) (RBAC) och [hanterade identiteter för Azure-resurser](service-bus-managed-service-identity.md).
 
 ### <a name="geo-disaster-recovery"></a>Geohaveriberedskap
 
-När Azure-regioner eller datacenter drabbas av driftstopp låter [geohaveriberedskap](service-bus-geo-dr.md) databearbetningen fortsätta i en annan region eller datacenter.
+När Azure-regioner eller data Center upplever drift stopp gör geo-katastrof återställning att data bearbetningen fortsätter att fungera i en annan region eller data Center. Mer information finns i [Azure Service Bus geo-Disaster Recovery](service-bus-geo-dr.md).
 
 ### <a name="security"></a>Säkerhet
 
@@ -109,24 +112,24 @@ Service Bus stöder standardprotokoll [AMQP 1.0](service-bus-amqp-overview.md) o
 
 ## <a name="client-libraries"></a>Klientbibliotek
 
-Service Bus stöder klientbibliotek för [.NET](https://github.com/Azure/azure-service-bus-dotnet/tree/master), [Java](https://github.com/Azure/azure-service-bus-java/tree/master), [JMS](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client).
+Service Bus stöder klient bibliotek för [.net](https://github.com/Azure/azure-service-bus-dotnet/tree/master), [Java](https://github.com/Azure/azure-service-bus-java/tree/master)och [JMS](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client).
 
 ## <a name="integration"></a>Integrering
 
 Service Bus är helt integrerad med följande Azure-tjänster:
 
-- [Event Grid](https://azure.microsoft.com/services/event-grid/) 
-- [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
-- [Funktioner](https://azure.microsoft.com/services/functions/) 
-- [Dynamics 365](https://dynamics.microsoft.com)
-- [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
- 
+* [Event Grid](https://azure.microsoft.com/services/event-grid/)
+* [Logic Apps](https://azure.microsoft.com/services/logic-apps/)
+* [Azure Functions](https://azure.microsoft.com/services/functions/)
+* [Dynamics 365](https://dynamics.microsoft.com)
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
+
 ## <a name="next-steps"></a>Nästa steg
 
 Om du vill komma igång med Service Bus-meddelanden, kan du läsa följande artiklar:
 
-* [Jämföra Azure-meddelandetjänster](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json)
-* Lär dig mer om Azure Service Bus [Standard och Premium](https://azure.microsoft.com/pricing/details/service-bus/)-nivåer och deras prisnivå
-* [Prestanda och fördröjning av Azure Service Bus Premium-nivån](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722)
-* Prova snabbstart i [.NET](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md) eller [JMS](service-bus-java-how-to-use-jms-api-amqp.md)
-* [Hantera Service Bus-resurser med Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
+* Information om hur du jämför Azure Messaging-tjänster finns i [jämförelse av tjänster](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json).
+* Försök att använda snabb starterna för [.net](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md)eller [JMS](service-bus-java-how-to-use-jms-api-amqp.md).
+* Information om hur du hanterar Service Bus-resurser finns i [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases).
+* Mer information om standard-och Premium nivåerna och deras priser finns i [Service Bus priser](https://azure.microsoft.com/pricing/details/service-bus/).
+* Läs mer om prestanda och svars tider för Premium-nivån i [Premium-meddelanden](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722).

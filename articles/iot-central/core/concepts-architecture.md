@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 9206bf07a36cc5724b173790eb94037cb86add9c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 25b0ec1b86a59b944cdb895bd536da32a1f8595b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952087"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73884478"
 ---
 # <a name="azure-iot-central-architecture"></a>Azure IoT Central-arkitektur
 
@@ -57,7 +57,7 @@ Azure IoT Central lagrar program data i molnet. Program data som lagras innehål
 
 Azure IoT Central använder ett tids serie lager för Mät data som skickas från dina enheter. Tids serie data från enheter som används av Analytics-tjänsten.
 
-## <a name="analytics"></a>Analyser
+## <a name="analytics"></a>Analys
 
 Analytics-tjänsten ansvarar för att skapa anpassade rapporterings data som visas i programmet. En operatör kan [Anpassa den analys](howto-create-analytics.md) som visas i programmet. Analytics-tjänsten bygger på [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) och bearbetar Mät data som skickas från dina enheter.
 
@@ -83,7 +83,7 @@ Ett program kan ha en eller flera simulerade och riktiga enheter som baseras på
 
 ## <a name="data-export"></a>Data export
 
-I ett Azure IoT Central-program kan du [kontinuerligt exportera dina data](howto-export-data-event-hubs-service-bus.md) till dina egna Azure-Event Hubs och Azure Service Bus instanser. Du kan också regelbundet exportera dina data till ditt Azure Blob Storage-konto. IoT Central kan exportera mått, enheter och mallar för enheter.
+I ett Azure IoT Central-program kan du [kontinuerligt exportera dina data](howto-export-data-event-hubs-service-bus.md) till dina egna Azure Event Hubs-, Azure Service Bus-och Azure Blob Storage-instanser. IoT Central kan exportera mått, enheter och mallar för enheter.
 
 ## <a name="batch-device-updates"></a>Uppdateringar av batch-enhet
 

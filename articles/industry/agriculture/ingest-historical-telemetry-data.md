@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 6fc70b55b3e672ecc67eb1145bb751de33d998a1
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: e6bd9b5c09e1af5ec587e1f0e52ab25d21d2293b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847442"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889619"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Mata in historiska telemetridata
 
@@ -50,11 +50,14 @@ Generera följande genom att följa stegen nedan:
 
     ![Taktslag i projekt grupp](./media/for-tutorials/power-shell-two-1.png)
 
-5. Gå till den katalog där filerna laddades upp (som standard överförs den till arbets katalogen/Home/username/.
+5. Gå till den katalog där filerna laddades upp
+
+   >[!NOTE]
+   > Som standard laddas filen upp till arbets katalogen/Home/username/.
 6. Kör skriptet med hjälp av kommandot:  
 
     ```azurepowershell-interactive
-    PS> ./generateCredentials.ps1
+    ./generateCredentials.ps1
     ```
 
 7. Följ anvisningarna på skärmen för att slutföra proceduren.
@@ -127,7 +130,9 @@ FarmBeats-datahubben använder Bearer-autentisering, som behöver följande aute
 
 Med hjälp av ovanstående autentiseringsuppgifter kan anroparen begära en åtkomsttoken som måste skickas i efterföljande API-begäranden i rubrik avsnittet enligt följande:
 
-headers = *{"auktorisering": "Bearer" + access_token,...}*
+```
+headers = *{"Authorization": "Bearer " + access_token, …}*
+```
 
 **Rubriker för http-begäran**:
 
@@ -161,8 +166,10 @@ Här är de vanligaste begärandehuvuden som måste anges när du gör ett API-a
     "additionalProp3": {}
   }
 }
+```
 
-Device
+Enhet
+
 ```json
 {
   "deviceModelId": "string",
@@ -242,7 +249,7 @@ Mäta
 ```
 Nedanstående exempel förfrågan är att skapa en enhet (detta har en indataport som nytto last med begär ande texten).  
 
-```
+```azurepowershell-interactive
 curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
 "accept: application/json" -H  "Content-Type: application/json" -H
 "Authorization: Bearer <Access-Token>" -d "
@@ -266,6 +273,7 @@ Du måste skicka telemetri till Azure Event Hub för bearbetning. Azure EventHub
 
 När du har upprättat en anslutning som en EventHub-klient kan du skicka meddelanden till EventHub som en JSON.  
 Konvertera det historiska sensor data formatet till ett kanoniskt format som Azure-FarmBeats förstår. Det kanoniska meddelande formatet är som följer:  
+
 
 
  ```

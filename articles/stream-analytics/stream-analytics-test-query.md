@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9c67d511f6c94c8b9af034835e149875304e2235
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: d68c1ee084efc146d69d8404aadb8acbb4cc33d1
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918972"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891758"
 ---
 # <a name="test-an-azure-stream-analytics-job-with-sample-data"></a>Testa ett Azure Stream Analytics jobb med exempel data
 
-I Azure Stream Analytics kan du testa din fråga utan att starta eller stoppa jobbet. Du kan testa frågor på inkommande data från din inkommande mottagare eller ladda upp exempel data från en lokal fil på Azure Portal. Du kan också testa frågor lokalt från dina lokala exempel data eller real tids data i [Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-live-data-local-testing) och [Visual Studio Code](https://docs.microsoft.com/en-us/azure/stream-analytics/vscode-local-run). 
+I Azure Stream Analytics kan du testa din fråga utan att starta eller stoppa jobbet. Du kan testa frågor på inkommande data från din inkommande mottagare eller ladda upp exempel data från en lokal fil på Azure Portal. Du kan också testa frågor lokalt från dina lokala exempel data eller real tids data i [Visual Studio](stream-analytics-live-data-local-testing.md) och [Visual Studio Code](vscode-local-run.md). 
 
 ## <a name="sample-incoming-data-from-input"></a>Exempel på inkommande data från indata
 
@@ -74,7 +74,7 @@ I stället för att använda real tids data kan du använda exempel data från e
 
 1. Logga in på Azure Portal.
    
-2. Leta upp ditt befintliga Stream Analytics-jobb och markera den.
+2. Leta upp ditt befintliga Stream Analytics-jobb och markera det.
 
 3. På sidan Stream Analytics jobb går du till rubriken **jobb Topology** och väljer **fråga** för att öppna fönstret Frågeredigeraren.
 

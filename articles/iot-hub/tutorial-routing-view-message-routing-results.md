@@ -1,6 +1,6 @@
 ---
 title: Visa resultat från routning av Azure IoT Hub-meddelanden (.NET) | Microsoft Docs
-description: Visa resultat från routning av Azure IoT Hub-meddelanden
+description: När du har konfigurerat alla resurser med hjälp av del 1 av självstudien lägger du till möjligheten att dirigera meddelanden till Azure Stream Analytics och visa resultaten i PowerBI.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 6d40f7d81faa77a48a32aadefdf44ed89e184efb
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: bfee4e64070e5f37eaa3d63280409f00c0ed8672
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900790"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890392"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Självstudie: del 2 – Visa dirigerade meddelanden
 
@@ -34,7 +34,7 @@ Reglerna för meddelanderoutning, dessa konfigurerades i del 1 av den här själ
 
 Nu skapar du de resurser som meddelandena ska dirigeras till, kör en app för att skicka meddelanden till hubben och se hur routningen fungerar.
 
-## <a name="create-a-logic-app"></a>Skapa en logisk app  
+## <a name="create-a-logic-app"></a>Skapa en logikapp  
 
 Service Bus-kön ska användas för att ta emot meddelanden som har angetts som kritiska. Konfigurera en logikapp som ska övervaka Service Bus-kön och som skickar e-post när ett meddelande läggs till i Service Bus-kön.
 
@@ -152,7 +152,7 @@ Om du vill se data i Power BI-visualiseringen konfigurerar du först ett Stream 
 
    **Tabellnamn**: Namnet på tabellen som ska användas i Power BI. I självstudien används **contosotable**.
 
-   Acceptera standardvärdena för resten av fälten.
+   För resten av fälten accepterar du standardvärdena.
 
 3. Välj **auktorisera**och logga in på ditt Power BI-konto. (Det kan ta mer än ett try).
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 description: Granska och testa ändringar från en pull-begäran direkt i Azure Kubernetes-tjänsten med hjälp av GitHub-åtgärder och Azure dev Spaces.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, GitHub Actions, Helm, service nät, service mask-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: 590d49f4c189ff48f20369d18b17e0f6e4a46fa2
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 09dc9440628ac5d808f90d086bd88e4f90765c28
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571597"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889740"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>GitHub-åtgärder & Azure Kubernetes service (för hands version)
 
@@ -96,7 +96,7 @@ Navigera till din förgrenade lagrings plats och klicka på *Inställningar*. Kl
 1. *RESOURCE_GROUP*: resurs gruppen för ditt AKS-kluster, som i det här exemplet är *MyResourceGroup*.
 1. *CLUSTER_NAME*: namnet på ditt AKS-kluster, som i det här exemplet är *MyAKS*.
 1. *CONTAINER_REGISTRY*: *namnet* för ACR.
-1. *Värd*: värden för ditt dev Space, som tar formuläret *< MASTER_SPACE >. < APP_NAME >. < HOST_SUFFIX >* , som i det här exemplet är *dev.bikesharingweb.fedcab0987.EUs.azds.io*.
+1. *Värd*: värden för ditt dev Space, som tar formuläret *< MASTER_SPACE >. < APP_NAME >. <* HOST_SUFFIX >, som i det här exemplet är *dev.bikesharingweb.fedcab0987.EUs.azds.io*.
 1. *HOST_SUFFIX*: värd suffixet för ditt dev Space, som i det här exemplet är *fedcab0987.EUs.azds.io*.
 1. *IMAGE_PULL_SECRET*: namnet på hemligheten som du vill använda, till exempel *demo-Secret*.
 1. *MASTER_SPACE*: namnet på det överordnade dev-utrymmet, som i det här exemplet är *dev*.
@@ -145,7 +145,7 @@ Använd `git push` för att skicka din nya gren till din förgrenade lagrings pl
 git push origin bike-images
 ```
 
-När push-åtgärden är klar navigerar du till din förgrenade lagrings plats på GitHub för att skapa en pull-begäran med *dev* i din förgrenade lagrings plats som bas gren jämfört med *cykeln cykel bilder* .
+När push-åtgärden är klar navigerar du till din förgrenade lagrings plats på GitHub för att skapa en pull-begäran med *huvud* grenen i din förgrenade lagrings plats som bas gren jämfört med grenen *cykel-images* .
 
 När din pull-begäran har öppnats navigerar du till fliken *åtgärder* . kontrol lera att en ny åtgärd har startats och att tjänsten *Bikes* skapas.
 
@@ -158,7 +158,7 @@ När åtgärden har slutförts visas en kommentar med en URL till ditt nya under
 
 Navigera till *bikesharingweb* -tjänsten genom att öppna URL: en från kommentaren. Välj *Aurelia Briggs (kund)* som användare och välj sedan en cykel att hyra. Kontrol lera att du inte längre ser platshållarbilden för cykeln.
 
-Om du sammanfogar dina ändringar till *dev* -grenen kommer en annan åtgärd att köras för att återskapa och köra hela programmet i det överordnade dev-utrymmet. I det här exemplet är det överordnade utrymmet *dev*. Den här åtgärden har kon figurer ATS i [. GitHub/Workflows/bikesharing. yml][github-action-bikesharing-yaml].
+Om du sammanfogar dina ändringar i *huvud* grenen i din förgrening, kommer en annan åtgärd att köras för att återskapa och köra hela programmet i det överordnade dev-utrymmet. I det här exemplet är det överordnade utrymmet *dev*. Den här åtgärden har kon figurer ATS i [. GitHub/Workflows/bikesharing. yml][github-action-bikesharing-yaml].
 
 ## <a name="clean-up-your-azure-resources"></a>Rensa dina Azure-resurser
 

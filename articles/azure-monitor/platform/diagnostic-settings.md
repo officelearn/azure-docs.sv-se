@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: ec1842d534dcb1e9ddef149d3ae879677b29e715
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: c1b7f81c62217d9e113f3293a8f351d908a6a576
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262523"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887274"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Skapa en diagnostisk inställning för att samla in plattforms loggar och mått i Azure
 [Plattforms loggar](resource-logs-overview.md) i Azure ger detaljerad diagnostik och gransknings information för Azure-resurser och Azure-plattformen som de är beroende av. Den här artikeln innehåller information om hur du skapar och konfigurerar diagnostikinställningar för att samla in plattforms loggar till olika mål.
@@ -32,10 +32,10 @@ En enda diagnostisk inställning kan definiera en av vart och ett av målen. Om 
 > [!NOTE]
 > [Plattforms mått](metrics-supported.md) samlas in automatiskt för att [Azure Monitor mått](data-platform-metrics.md). Diagnostiska inställningar kan användas för att samla in mått för vissa Azure-tjänster i Azure Monitor loggar för analys med andra övervaknings data med hjälp av [logg frågor](../log-query/log-query-overview.md).
 
-## <a name="destinations"></a>Mål 
+## <a name="destinations"></a>Bestämmelser 
 Plattforms loggar kan skickas till målen i följande tabell. Konfigurationen för varje mål utförs med samma process för att skapa diagnostiska inställningar som beskrivs i den här artikeln. Följ varje länk i följande tabell om du vill ha mer information om hur du skickar data till det målet.
 
-| Destination | Beskrivning |
+| Mål | Beskrivning |
 |:---|:---|
 | [Log Analytics-arbetsyta](resource-logs-collect-workspace.md) | Genom att samla in loggar i en Log Analytics arbets yta kan du analysera dem med andra övervaknings data som samlas in av Azure Monitor med hjälp av kraftfulla logg frågor och även använda andra Azure Monitor funktioner, till exempel aviseringar och visualiseringar. |
 | [Event Hub](resource-logs-stream-event-hubs.md) | Genom att skicka loggar till Event Hubs kan du strömma data till externa system som Siem i tredje part och andra Log Analytics-lösningar. |
@@ -55,26 +55,26 @@ Du kan konfigurera diagnostikinställningar i Azure Portal antingen från Azure 
 
     ![Diagnostikinställningar](media/diagnostic-settings/menu-resource.png)
 
-2. Om inga inställningar finns på resursen har du valt, uppmanas du för att skapa en inställning. Klicka på **Slå på diagnostik**.
+2. Om det inte finns några inställningar på den resurs du har valt uppmanas du att skapa en inställning. Klicka på **Slå på diagnostik**.
 
-   ![Lägg till diagnostikinställning - inga befintliga inställningar](media/diagnostic-settings/add-setting.png)
+   ![Lägg till diagnostisk inställning-inga befintliga inställningar](media/diagnostic-settings/add-setting.png)
 
    Om det finns befintliga inställningar på resursen visas en lista över inställningar som redan har kon figurer ATS. Klicka antingen på **Lägg till diagnostisk inställning** för att lägga till en ny inställning eller **Redigera inställning** för att redigera en befintlig. Varje inställning får inte ha fler än en av varje mål typ.
 
-   ![Lägg till diagnostikinställning - befintliga inställningar](media/diagnostic-settings/edit-setting.png)
+   ![Lägg till diagnostisk inställning – befintliga inställningar](media/diagnostic-settings/edit-setting.png)
 
 3. Ange ett namn för inställningen om det inte redan har en.
 4. Markera kryss rutan för varje mål för att skicka loggarna. Klicka på **Konfigurera** för att ange inställningarna enligt beskrivningen i följande tabell.
 
     | Inställning | Beskrivning |
     |:---|:---|
-    | Log Analytics-arbetsyta | Namn på arbets yta. |
+    | Log Analytics arbets yta | Namn på arbets yta. |
     | Lagringskonto | Namn på lagrings konto. |
-    | Namnrymd för händelshubb | Namn området där Event Hub skapas (om det här är din första gången strömnings loggar) eller strömmas till (om det redan finns resurser som är strömmande till den här namn rymden).
+    | Namnområde för händelsehubb | Namn området där Event Hub skapas (om det här är din första gången strömnings loggar) eller strömmas till (om det redan finns resurser som är strömmande till den här namn rymden).
     | Namn på händelsehubb | Du kan också ange ett namn på händelsehubben för att skicka alla data i inställningen. Om du inte anger ett namn skapas en Event Hub för varje logg kategori. Om du skickar flera kategorier kanske du vill ange ett namn för att begränsa antalet Event Hub som skapats. Mer information finns i [Azure Event Hubs kvoter och begränsningar](../../event-hubs/event-hubs-quotas.md) . |
-    | Principnamn för Event hub | Definierar de behörigheter som den strömmande mekanismen har. |
+    | Princip namn för Event Hub | Definierar de behörigheter som den strömmande mekanismen har. |
 
-    ![Lägg till diagnostikinställning - befintliga inställningar](media/diagnostic-settings/setting-details.png)
+    ![Lägg till diagnostisk inställning – befintliga inställningar](media/diagnostic-settings/setting-details.png)
 
 5. Markera kryss rutan för var och en av de data kategorier som ska skickas till de angivna målen. Om du har valt alternativet att **arkivera till ett lagrings konto**måste du också ange [kvarhållningsperioden](resource-logs-collect-storage.md#data-retention).
 
@@ -83,7 +83,7 @@ Du kan konfigurera diagnostikinställningar i Azure Portal antingen från Azure 
 > [!NOTE]
 > Det går för närvarande inte att skicka flerdimensionella mätvärden via diagnostikinställningar. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.
 >
-> *Till exempel*: Måttet för inkommande meddelanden i en händelsehubb kan utforskas och visas för varje enskild kö. När måttet exporteras via diagnostikinställningar visas det dock som alla inkommande meddelanden i alla köer i händelsehubben.
+> *Till exempel*: Måttet för inkommande meddelanden i en händelsehubb kan utforskas och läggas till på per-kö-nivå. När måttet exporteras via diagnostikinställningar visas det dock som alla inkommande meddelanden i alla köer i händelsehubben.
 
 4. Klicka på **Spara**.
 
@@ -92,7 +92,7 @@ Efter en liten stund visas den nya inställningen i listan med inställningar f�
 
 
 ## <a name="create-diagnostic-settings-using-powershell"></a>Skapa diagnostikinställningar med PowerShell
-Använd cmdleten [set-AzDiagnosticSetting](https://docs.microsoft.com/en-us/powershell/module/az.monitor/set-azdiagnosticsetting) för att skapa en diagnostisk inställning med [Azure PowerShell](powershell-quickstart-samples.md). I dokumentationen för den här cmdleten finns beskrivningar av parametrarna.
+Använd cmdleten [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) för att skapa en diagnostisk inställning med [Azure PowerShell](powershell-quickstart-samples.md). I dokumentationen för den här cmdleten finns beskrivningar av parametrarna.
 
 Följande är ett exempel på en PowerShell-cmdlet för att skapa en diagnostisk inställning med alla tre mål.
 

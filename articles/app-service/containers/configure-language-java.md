@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: fa3cd84978119a5858e63712b4d22c2ea89ea528
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8f6fb9737d3d8dad93a95f31d566f7cc4706ded3
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470914"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886047"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Konfigurera en Linux Java-app för Azure App Service
 
@@ -86,7 +86,7 @@ Under det 30 andra intervallet kan du verifiera att inspelningen sker genom att 
 
 #### <a name="continuous-recording"></a>Kontinuerlig inspelning
 
-Du kan använda Zulu Flight-brännare för att kontinuerligt profilera ditt Java-program med minimal påverkan på körnings prestanda ([källa](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf)). Det gör du genom att köra följande Azure CLI-kommando för att skapa en app-inställning med namnet JAVA_OPTS med den nödvändiga konfigurationen. Innehållet i JAVA_OPTS-appen skickas till kommandot `java` när appen startas.
+Du kan använda Zulu Flight-brännare för att kontinuerligt profilera ditt Java-program med minimal påverkan på körnings prestanda ([källa](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf)). Det gör du genom att köra följande Azure CLI-kommando för att skapa en app-inställning med namnet JAVA_OPTS med den nödvändiga konfigurationen. Innehållet i inställningen JAVA_OPTS app skickas till kommandot `java` när appen startas.
 
 ```azurecli
 az webapp config appsettings set -g <your_resource_group> -n <your_app_name> --settings JAVA_OPTS=-XX:StartFlightRecording=disk=true,name=continuous_recording,dumponexit=true,maxsize=1024m,maxage=1d
@@ -238,6 +238,24 @@ Azure-nyckels [valvet](../../key-vault/key-vault-overview.md) tillhandahåller c
 Börja med att följa anvisningarna för [att ge appen åtkomst till Key Vault](../app-service-key-vault-references.md#granting-your-app-access-to-key-vault) och [skapa en nyckel valv referens till din hemlighet i en program inställning](../app-service-key-vault-references.md#reference-syntax). Du kan kontrol lera att referensen matchar hemligheten genom att skriva ut miljövariabeln och fjärrans luta till App Service terminalen.
 
 Om du vill mata in de här hemligheterna i din våren-eller Tomcat-konfigurationsfil använder du syntaxen för miljö variabel insprutning (`${MY_ENV_VAR}`). För våren-konfigurationsfiler läser du den här dokumentationen om de [externa konfigurationerna](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
+
+## <a name="using-the-java-key-store"></a>Använda Java-nyckel arkivet
+
+Som standard kommer alla offentliga eller privata certifikat som [laddats upp till App Service Linux](../configure-ssl-certificate.md) att läsas in i Java-nyckel arkivet när behållaren startar. Det innebär att dina uppladdade certifikat är tillgängliga i anslutnings kontexten när du gör utgående TLS-anslutningar.
+
+Du kan interagera eller felsöka Java-nyckel verktyget genom att [öppna en SSH-anslutning](app-service-linux-ssh-support.md) till app service och köra kommandot `keytool`. En lista över kommandon finns i [dokumentationen för nyckel verktyget](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) . Certifikaten lagras i Javas standard plats för nyckel lagring, `$JAVA_HOME/jre/lib/security/cacerts`.
+
+Ytterligare konfiguration kan vara nödvändig för att kryptera JDBC-anslutningen. Se dokumentationen för din valda JDBC-drivrutin.
+
+- [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
+- [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
+- [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
+
+### <a name="manually-initialize-and-load-the-key-store"></a>Initiera och Läs in nyckel lagret manuellt
+
+Du kan initiera nyckel lagringen och lägga till certifikat manuellt. Skapa en app-inställning, `SKIP_JAVA_KEYSTORE_LOAD`, med värdet `1` för att inaktivera App Service från att läsa in certifikaten i nyckel arkivet automatiskt. Alla offentliga certifikat som laddats upp till App Service via Azure-portalen lagras under `/var/ssl/certs/`. Privata certifikat lagras under `/var/ssl/private/`.
+
+Mer information om API: t för nyckel Arkiv finns i [den officiella dokumentationen](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html).
 
 ## <a name="configure-apm-platforms"></a>Konfigurera APM-plattformar
 
@@ -595,7 +613,7 @@ I följande steg förklaras kraven för att ansluta befintliga App Service och d
             DATABASE_CONNECTION_URL=jdbc:sqlserver://<database server name>:1433;database=<database name>;user=<admin name>;password=<admin password>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
     ```
 
-    DATABASE_CONNECTION_URL-värdena är olika för varje databas server och skiljer sig från värdena på Azure Portal. URL-formaten som visas här (och i kodfragmenten ovan) krävs för användning av WildFly:
+    DATABASE_CONNECTION_URL värden skiljer sig åt för varje databas server och skiljer sig från värdena på Azure Portal. URL-formaten som visas här (och i kodfragmenten ovan) krävs för användning av WildFly:
 
     * **Postgresql:** `jdbc:postgresql://<database server name>:5432/<database name>?ssl=true`
     * **Mysql:** `jdbc:mysql://<database server name>:3306/<database name>?ssl=true\&useLegacyDatetimeCode=false\&serverTimezone=GMT`

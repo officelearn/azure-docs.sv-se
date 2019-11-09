@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 457154a797a4b6d9853b1effe0d8121053653a99
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: cd16ee87b213c2bfa4c541c4d3c453a4499855d0
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174767"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887737"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Mappnings format som stöds Azure Maps
 Azure Maps stöder flera olika inbyggda kart format enligt beskrivningen nedan.
@@ -31,7 +31,7 @@ En **väg** karta är en standard karta som visar vägar, naturliga och artifici
 
 ## <a name="blank-and-blank_accessible"></a>Tom och blank_accessible
 
-Kart formaten **blank** och **blank_accessible** är en tom arbets yta där du kan visualisera data på. **Blank_accessible** -formatet kommer fortsätta att tillhandahålla skärm läsar uppdateringar med plats information om var kartan finns, även om bas kartan inte visas.
+De **tomma** och **blank_accessible** kart formaten innehåller en tom arbets yta där du kan visualisera data på. **Blank_accessible** formatet fortsätter att tillhandahålla skärm läsar uppdateringar med plats information om var kartan finns, även om bas kartan inte visas.
 
 > [!Note]
 > I webb-SDK kan du ändra bakgrunds färgen för kartan genom att ange CSS-`background-color`-formatet för elementet Map DIV.
@@ -103,4 +103,4 @@ en **nedtonad** avlastning är ett Azure Maps huvud format som har slutförts me
 Lär dig mer om hur du anger ett kart format i Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Välj en kart stil](https://docs.microsoft.com/en-us/azure/azure-maps/choose-map-style)
+> [Välj en kart stil](https://docs.microsoft.com/azure/azure-maps/choose-map-style)

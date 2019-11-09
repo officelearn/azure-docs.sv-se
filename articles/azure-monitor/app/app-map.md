@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 65a257cc4613fb9e4dece09a2544de2e78779ab4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 305de556cc6e50af21cb38aa1b8073b420efbf43
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577067"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887757"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Program karta: prioritering distribuerade program
 
@@ -234,7 +234,7 @@ En **moln roll instans** kan till exempel vara användbart för scenarier där *
 
 Ett scenario där du kanske vill åsidosätta värdet för moln roll instansen kan vara om din app körs i en behållare miljö där det inte finns tillräckligt med information för att hitta ett visst problem.
 
-Mer information om hur du åsidosätter egenskapen namn för moln roll med telemetri initierare finns i [Lägg till egenskaper: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
+Mer information om hur du åsidosätter egenskapen namn för moln roll med telemetri initierare finns i [Lägg till egenskaper: ITelemetryInitializer](api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
 ## <a name="troubleshooting"></a>Felsökning
 

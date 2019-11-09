@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 6cdebb8f6abea2b50dd8aad58ccc9fb5e680cba9
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 635431fb87e5f164f92ab4b7a1027ee96e9d801a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73798484"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891005"
 ---
 # <a name="generate-maps"></a>Generera kartor
 
@@ -170,7 +170,7 @@ Jord fukt är det vatten som hålls i utrymmet mellan jord partiklar. Jord-fuk
 Se till att följande innan du försöker generera en jord-fukt termisk karta:
 
 - Minst tre jord fuktighets sensorer måste distribueras. Microsoft rekommenderar att du inte försöker skapa en jord fuktighets karta innan sensorer distribueras och är kopplade till Server gruppen.  
-- Minst en indikator för kostnads fri indikator för molnet måste vara tillgänglig under de senaste 120 dagarna, från den dag då jord fuktighets kartan begärdes.
+- Att generera jord fukt termisk karta påverkas av kontroll Sök väg, moln täckning och moln skugga. Minst en indikator för kostnads fri indikator för molnet måste vara tillgänglig under de senaste 120 dagarna, från den dag då jord fuktighets kartan begärdes.
 - Minst hälften av de sensorer som distribueras i Server gruppen måste vara online och ha data strömning till data hubben.
 - Termisk karta ska genereras med sensor mått från samma provider.
 
@@ -220,6 +220,6 @@ Använd följande steg:
 4. Välj **sorterings** ikonen bredvid tabell rubrikerna för att sortera efter Server grupp, datum, skapad, jobb-ID och Jobbtyp.
 5. Bläddra igenom listan över Maps som är tillgängliga med hjälp av navigerings knapparna i slutet av sidan.
 6. Välj den karta som du vill visa. Ett popup-fönster visar förhands granskningen för den valda kartan.
-7. Välj **hämtnings List rutan** för att välja nedladdnings formatet och kartan laddas ned och lagras i den lokala mappen på datorn.
+7. Välj **hämtnings List rutan** för att välja nedladdnings format och kartan laddas ned och lagras i den angivna mappen.
 
     ![Taktslag i projekt grupp](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map-1.png)

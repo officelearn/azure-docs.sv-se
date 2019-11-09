@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8d73a2dcd0aab3b972a3e0a9237e53d05d4a9a53
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 8b99e919c396ebc3ef72c046fbe3fef1261050ad
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750031"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891577"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Tillägg och funktioner för virtuella datorer för Windows
 
@@ -54,18 +54,18 @@ Information om operativ system som stöds och Installationsinstruktioner finns i
 
 #### <a name="supported-agent-versions"></a>Agent versioner som stöds
 
-För att kunna tillhandahålla bästa möjliga upplevelse finns det minimala versioner av agenten. Mer information finns i [den här artikeln](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
+För att kunna tillhandahålla bästa möjliga upplevelse finns det minimala versioner av agenten. Mer information finns i [den här artikeln](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 #### <a name="supported-oses"></a>Operativ system som stöds
 
-Windows gästa Gent körs på flera operativ system, men tillägg ramverket har en gräns för operativ system som tillägg. Mer information finns i [den här artikeln](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
+Windows gästa Gent körs på flera operativ system, men tillägg ramverket har en gräns för operativ system som tillägg. Mer information finns i [den här artikeln](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems
 ).
 
 Vissa tillägg stöds inte för alla operativ system och genererar *felkod 51, OS som inte stöds*. Kontrol lera den enskilda tilläggs dokumentationen för support.
 
 #### <a name="network-access"></a>Nätverksåtkomst
 
-Tilläggs paket laddas ned från Azure Storage förlängnings lagrings plats, och överförings status för tillägg skickas till Azure Storage. Om du använder en version som [stöds](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) av agenterna behöver du inte tillåta åtkomst till Azure Storage i VM-regionen, som kan använda agenten för att omdirigera kommunikationen till Azure Fabric Controller för agent kommunikation (HostGAPlugin-funktionen via privilegie rad kanal för privat IP- [168.63.129.16](https://docs.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16)). Om du har en version som inte stöds av agenten måste du tillåta utgående åtkomst till Azure Storage i den regionen från den virtuella datorn.
+Tilläggs paket laddas ned från Azure Storage förlängnings lagrings plats, och överförings status för tillägg skickas till Azure Storage. Om du använder en version som [stöds](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) av agenterna behöver du inte tillåta åtkomst till Azure Storage i VM-regionen, som kan använda agenten för att omdirigera kommunikationen till Azure Fabric Controller för agent kommunikation (HostGAPlugin-funktionen via privilegie rad kanal för privat IP- [168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)). Om du har en version som inte stöds av agenten måste du tillåta utgående åtkomst till Azure Storage i den regionen från den virtuella datorn.
 
 > [!IMPORTANT]
 > Om du har blockerat åtkomst till *168.63.129.16* med hjälp av gäst brand väggen eller med en proxy, kommer tilläggen att fungera oberoende av ovanstående. Portarna 80, 443 och 32526 krävs.

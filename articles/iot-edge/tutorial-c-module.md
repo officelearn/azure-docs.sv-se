@@ -5,18 +5,18 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 08/23/2019
+ms.date: 11/07/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 581d2e03474eb7e740f9d0468022269bdb20b663
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: f610ad50daadf5bef1f43f3991792869c7dae6af
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813811"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890575"
 ---
-# <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Självstudier: Utveckla en C IoT Edge-modul för Linux-enheter
+# <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Självstudie: utveckla en C IoT Edge-modul för Linux-enheter
 
 Använd Visual Studio Code för att utveckla C-kod och distribuera den till en Linux-enhet som kör Azure IoT Edge. 
 
@@ -41,11 +41,11 @@ Använd följande tabell för att förstå alternativen för att utveckla och di
 | C | Visual Studio-koden | Visual Studio | 
 | - | ------------------ | ------------- |
 | **Linux AMD64** | ![Använda VS Code för C-moduler på Linux AMD64](./media/tutorial-c-module/green-check.png) | ![Använda VS for C-moduler på Linux AMD64](./media/tutorial-c-module/green-check.png) |
-| **Linux ARM32** | ![Använda VS Code för C-moduler på Linux ARM32](./media/tutorial-c-module/green-check.png) | ![Använda VS for C-moduler på Linux-ARM32](./media/tutorial-c-module/green-check.png) |
+| **Linux-ARM32** | ![Använda VS Code för C-moduler på Linux ARM32](./media/tutorial-c-module/green-check.png) | ![Använda VS for C-moduler på Linux-ARM32](./media/tutorial-c-module/green-check.png) |
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Innan du påbörjar den här självstudien bör du ha gått igenom den föregående kursen för att konfigurera utvecklings miljön för utveckling av Linux-behållare: [Utveckla IoT Edge moduler för Linux-enheter](tutorial-develop-for-linux.md). När du har slutfört den här självstudien bör du ha följande krav på plats: 
+Innan du påbörjar den här självstudien bör du ha gått igenom den föregående kursen för att konfigurera din utvecklings miljö för att utveckla Linux-behållare: [utveckla IoT Edge moduler för Linux-enheter](tutorial-develop-for-linux.md). När du har slutfört den här självstudien bör du ha följande krav på plats: 
 
 * En [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) på kostnadsfri nivå eller standardnivå i Azure.
 * En [Linux-enhet som kör Azure IoT Edge](quickstart-linux.md)
@@ -67,9 +67,9 @@ Skapa en C-lösningsmall som du kan anpassa med din egen kod.
 
 1. Välj **Visa** > **Kommandopalett** för att öppna kommandopaletten i VS Code.
 
-2. I kommandopaletten skriver du och kör kommandot **Azure: Logga in** och följer anvisningarna för att logga in på ditt Azure-konto. Om du redan har loggat in kan du hoppa över det här steget.
+2. Ange och kör kommandot **Azure: Logga in** i kommandopaletten och följ anvisningarna för att logga in med ditt Azure-konto. Om du redan har loggat in kan du hoppa över det här steget.
 
-3. I kommandopaletten skriver och kör du kommandot **Azure IoT Edge: Ny IoT Edge-lösning**. Skapa lösningen genom att följ anvisningarna på kommandopaletten.
+3. Skriv och kör kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning) i kommandopaletten. Skapa lösningen genom att följ anvisningarna på kommandopaletten.
 
    | Fält | Värde |
    | ----- | ----- |
@@ -93,7 +93,7 @@ Miljöfilen lagrar autentiseringsuppgifterna för containerregistret och delar d
 
 För närvarande kan Visual Studio Code utveckla C-moduler för Linux AMD64-och Linux ARM32v7-enheter. Du måste välja vilken arkitektur du vill använda för varje lösning, eftersom behållaren har skapats och körs på olika sätt för varje arkitektur typ. Standardvärdet är Linux AMD64. 
 
-1. Öppna kommando paletten och Sök efter **Azure IoT Edge: Ange standard plattform för Edge-lösning**eller Välj gen vägs ikonen i sido fältet längst ned i fönstret. 
+1. Öppna paletten kommando och Sök efter **Azure IoT Edge: Ange standard plattform för Edge-lösning**eller Välj gen vägs ikonen i sido fältet längst ned i fönstret. 
 
 2. I paletten kommando väljer du mål arkitekturen i listan med alternativ. I den här självstudien använder vi en virtuell Ubuntu-dator som IoT Edge enhet, så behåller standard- **amd64**. 
 
@@ -114,11 +114,11 @@ Koden för standardmodulen tar emot meddelanden i en indatakö och skickar dem v
       )
       ```
 
-   3. Lägg till **my_parson** i listan över bibliotek i funktionen **target_link_libraries** i CMakeLists.txt.
+   3. Lägg till `my_parson` i listan över bibliotek i **target_link_libraries** funktionen i CMakeLists. txt.
 
    4. Spara filen **CMakeLists.txt**.
 
-   5. Öppna **modules** > **CModule** > **main.c**. Lägg till en ny som ska inkluderas `parson.h` för JSON-stöd längst ned i listan över include-instruktioner:
+   5. Öppna **modules** > **CModule** > **main.c**. Lägg till en ny i slutet av listan över include-instruktioner för att ta med `parson.h` för JSON-stöd:
 
       ```c
       #include "parson.h"
@@ -130,7 +130,7 @@ Koden för standardmodulen tar emot meddelanden i en indatakö och skickar dem v
     static double temperatureThreshold = 25;
     ```
 
-1. `CreateMessageInstance` Hitta funktionen i Main. c. Ersätt den inre if-else-instruktionen med följande kod som lägger till några rader med funktioner: 
+1. Hitta `CreateMessageInstance`-funktionen i Main. c. Ersätt den inre if-else-instruktionen med följande kod som lägger till några rader med funktioner: 
 
    ```c
        if ((messageInstance->messageHandle = IoTHubMessage_Clone(message)) == NULL)
@@ -154,6 +154,14 @@ Koden för standardmodulen tar emot meddelanden i en indatakö och skickar dem v
 1. Ersätt hela funktionen `InputQueue1Callback` med följande kod. Den här funktionen implementerar själva meddelandefiltret. När ett meddelande tas emot kontrollerar det om den rapporterade temperaturen överskrider tröskelvärdet. Om ja, vidarebefordrar det meddelandet via kön för utdata. Annars ignorerar den meddelandet. 
 
     ```c
+    static unsigned char *bytearray_to_str(const unsigned char *buffer, size_t len)
+    {
+        unsigned char *ret = (unsigned char *)malloc(len + 1);
+        memcpy(ret, buffer, len);
+        ret[len] = '\0';
+        return ret;
+    }
+
     static IOTHUBMESSAGE_DISPOSITION_RESULT InputQueue1Callback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
     {
         IOTHUBMESSAGE_DISPOSITION_RESULT result;
@@ -163,7 +171,10 @@ Koden för standardmodulen tar emot meddelanden i en indatakö och skickar dem v
         unsigned const char* messageBody;
         size_t contentSize;
 
-        if (IoTHubMessage_GetByteArray(message, &messageBody, &contentSize) != IOTHUB_MESSAGE_OK)
+        if (IoTHubMessage_GetByteArray(message, &messageBody, &contentSize) == IOTHUB_MESSAGE_OK)
+        {
+            messageBody = bytearray_to_str(messageBody, contentSize);
+        } else
         {
             messageBody = "<null>";
         }
@@ -232,7 +243,7 @@ Koden för standardmodulen tar emot meddelanden i en indatakö och skickar dem v
     }
     ```
 
-1. `SetupCallbacksForModule` Hitta funktionen. Ersätt funktionen med följande kod som lägger till en **Else If** -instruktion för att kontrol lera om modulen har uppdaterats.
+1. Hitta `SetupCallbacksForModule` funktionen. Ersätt funktionen med följande kod som lägger till en **Else If** -instruktion för att kontrol lera om modulen har uppdaterats.
 
    ```c
    static int SetupCallbacksForModule(IOTHUB_MODULE_CLIENT_LL_HANDLE iotHubModuleClientHandle)
@@ -278,9 +289,9 @@ Koden för standardmodulen tar emot meddelanden i en indatakö och skickar dem v
 
 ## <a name="build-and-push-your-module"></a>Bygga och pusha din modul
 
-I föregående avsnitt skapade du en IoT Edge-lösning och lagt till kod i CModule som filtrerar bort meddelanden där den rapporterade datorns temperatur ligger inom de acceptabla gränserna. Nu behöver du skapa lösningen som en containeravbildning och push-överföra den till ditt containerregister.
+I föregående avsnitt skapade du en IoT Edge-lösning och lagt till kod i CModule som filtrerar bort meddelanden där den rapporterade datorns temperatur ligger inom de acceptabla gränserna. Nu behöver du bygga lösningen som en containeravbildning och push-överföra den till ditt containerregister.
 
-1. Öppna vs Code-terminalen genom att välja **Visa** > **Terminal**.
+1. Öppna VS Code-terminalen genom att välja **visa** > **Terminal**.
 
 1. Logga in på Docker genom att ange följande kommando i terminalen. Logga in med användar namnet, lösen ordet och inloggnings servern från Azure Container Registry. Du kan hämta dessa värden från avsnittet **åtkomst nycklar** i registret i Azure Portal.
      
@@ -290,9 +301,9 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lagt till kod i CModu
 
    Du kan få en säkerhets varning som rekommenderar att du använder `--password-stdin`. Det bästa tillvägagångs sättet rekommenderas för produktions scenarier, men det ligger utanför omfånget för den här självstudien. Mer information finns i [inloggnings referens för Docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) .
 
-2. I VS Code-utforskaren högerklickar du på filen **deployment.template.json** och väljer **Build and Push IoT Edge solution** (Skapa och skicka IoT Edge-lösning).
+2. Högerklicka på filen **deployment.template.json** och välj **Build and Push IoT Edge solution** (Skapa och skicka IoT Edge-lösning) i VS Code-utforskaren.
 
-   Kommandot build och push startar tre åtgärder. Först skapar den en ny mapp i lösningen som heter **config** och som innehåller det fullständiga distributions manifestet, och bygger ut information i distributions mal len och andra filer i lösningen. Sedan körs `docker build` den för att bygga behållar avbildningen baserat på lämpliga Dockerfile för din mål arkitektur. Sedan körs `docker push` den för att skicka avbildnings lagrings platsen till behållar registret.
+   Kommandot build och push startar tre åtgärder. Först skapar den en ny mapp i lösningen som heter **config** och som innehåller det fullständiga distributions manifestet, och bygger ut information i distributions mal len och andra filer i lösningen. För det andra kör den `docker build` för att bygga behållar avbildningen baserat på lämpliga Dockerfile för din mål arkitektur. Sedan körs `docker push` för att push-överföra avbildnings lagrings platsen till behållar registret.
 
 ## <a name="deploy-modules-to-device"></a>Distribuera moduler till enhet
 
@@ -338,7 +349,7 @@ Vi använde CModule-modulen dubbla i distributions manifestet för att ange temp
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du planerar att fortsätta med nästa rekommenderade artikel kan du behålla de resurser och konfigurationer som du skapat och använda dem igen. Du kan även fortsätta att använda samma IoT Edge-enhet som en testenhet.
+Om du tänker fortsätta till nästa rekommenderade artikel kan du behålla de resurser och konfigurationer du har skapat och använda dem igen. Du kan även fortsätta att använda samma IoT Edge-enhet som en testenhet.
 
 Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som du använde i den här artikeln för att undvika avgifter.
 

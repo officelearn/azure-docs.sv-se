@@ -11,12 +11,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.openlocfilehash: 7581831e846e6de835c261d3430a88f1dcee9eb4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0b1d9fad2992397a3a6768d0f5e7ff26a400a2b3
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73673686"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889330"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Skapa en utlösare som kör en pipeline som svar på en händelse
 
@@ -38,35 +38,37 @@ I det här avsnittet visas hur du skapar en händelse utlösare i Azure Data Fac
 
 1. Gå till **redigerings arbets ytan**
 
-2. I det nedre vänstra hörnet klickar du på knappen **utlösare**
+1. I det nedre vänstra hörnet klickar du på knappen **utlösare**
 
-3. Klicka på **+ ny** för att öppna sidan Skapa utlösare i navigerings fönstret
+1. Klicka på **+ ny** för att öppna sidan Skapa utlösare i navigerings fönstret
 
-4. Välj **händelse** för Utlös ande typ
+1. Välj **händelse** för Utlös ande typ
 
-![Skapa ny händelse utlösare](media/how-to-create-event-trigger/event-based-trigger-image1.png)
+    ![Skapa ny händelse utlösare](media/how-to-create-event-trigger/event-based-trigger-image1.png)
 
-5. Välj ditt lagrings konto i list rutan för Azure-prenumeration eller manuellt med resurs-ID för lagrings kontot. Välj den behållare som du vill att händelserna ska inträffa på. Val av behållare är valfritt, men mindful att välja alla behållare kan leda till ett stort antal händelser.
+1. Välj ditt lagrings konto i list rutan för Azure-prenumeration eller manuellt med resurs-ID för lagrings kontot. Välj den behållare som du vill att händelserna ska inträffa på. Val av behållare är valfritt, men mindful att välja alla behållare kan leda till ett stort antal händelser.
 
    > [!NOTE]
    > Händelse utlösaren stöder för närvarande endast Azure Data Lake Storage Gen2 och generella version 2-lagrings konton. På grund av en Azure Event Grid begränsning har Azure Data Factory bara stöd för högst 500 händelse utlösare per lagrings konto.
 
-6. I **BLOB-sökvägen börjar med** och **BLOB-sökvägen slutar med** egenskaper kan du ange de behållare, mappar och blob-namn som du vill ta emot händelser för. För händelse utlösaren krävs att minst en av de här egenskaperna definieras. Du kan använda olika mönster för båda **BLOB-sökvägen börjar med** och **BLOB-sökvägen slutar med** egenskaper, som du ser i exemplen senare i den här artikeln.
+1. I **BLOB-sökvägen börjar med** och **BLOB-sökvägen slutar med** egenskaper kan du ange de behållare, mappar och blob-namn som du vill ta emot händelser för. För händelse utlösaren krävs att minst en av de här egenskaperna definieras. Du kan använda olika mönster för båda **BLOB-sökvägen börjar med** och **BLOB-sökvägen slutar med** egenskaper, som du ser i exemplen senare i den här artikeln.
 
     * **BLOB-sökvägen börjar med:** Blobb Sök vägen måste börja med en mappsökväg. Giltiga värden är `2018/` och `2018/april/shoes.csv`. Det går inte att välja det här fältet om ingen behållare är markerad.
     * **BLOB-sökvägen slutar med:** BLOB-sökvägen måste sluta med ett fil namn eller fil namns tillägg. Giltiga värden är `shoes.csv` och `.csv`. Behållare och mappnamn är valfria, men om de anges måste de avgränsas med ett `/blobs/` segment. Till exempel kan en behållare med namnet "Orders" ha värdet `/orders/blobs/2018/april/shoes.csv`. Om du vill ange en mapp i en behållare utelämnar du det inledande "/"-tecken. `april/shoes.csv` utlöser till exempel en händelse på en fil med namnet `shoes.csv` i mapp a som kallas april i alla behållare. 
 
-7. Välj om utlösaren ska svara på en **blob som skapats** , en **BLOB borttagen** händelse eller både och. På den angivna lagrings platsen utlöser varje händelse de Data Factory pipelines som är associerade med utlösaren.
+1. Välj om utlösaren ska svara på en **blob som skapats** , en **BLOB borttagen** händelse eller både och. På den angivna lagrings platsen utlöser varje händelse de Data Factory pipelines som är associerade med utlösaren.
 
     ![Konfigurera händelse utlösaren](media/how-to-create-event-trigger/event-based-trigger-image2.png)
 
-8. När du har konfigurerat du utlösaren klickar du på **Nästa: Förhandsgranska data**. Den här skärmen visar de befintliga blobbar som matchas av din händelse utlösars konfiguration. Kontrol lera att du har specialfilter. Att konfigurera filter som är för breda kan matcha ett stort antal filer som skapas/raderas och kan påverka din kostnad avsevärt. När filter villkoren har verifierats klickar du på **Slutför**.
+1. Välj om utlösaren ska ignorera blobbar med noll byte.
+
+1. När du har konfigurerat du utlösaren klickar du på **Nästa: Förhandsgranska data**. Den här skärmen visar de befintliga blobbar som matchas av din händelse utlösars konfiguration. Kontrol lera att du har specialfilter. Att konfigurera filter som är för breda kan matcha ett stort antal filer som skapas/raderas och kan påverka din kostnad avsevärt. När filter villkoren har verifierats klickar du på **Slutför**.
 
     ![Förhands granskning av händelse utlösare](media/how-to-create-event-trigger/event-based-trigger-image3.png)
 
-9. Om du vill koppla en pipeline till den här utlösaren går du till pipeline-arbetsytan och klickar på **Lägg till utlösare** och väljer **ny/redigera**. När sido navigerings fältet visas, klickar du på list rutan **Välj utlösare...** och väljer den utlösare som du skapade. Klicka på **Nästa: Förhandsgranska data** för att bekräfta att konfigurationen är korrekt och klicka sedan på **Nästa** för att verifiera att förhands granskningen är korrekt.
+1. Om du vill koppla en pipeline till den här utlösaren går du till pipeline-arbetsytan och klickar på **Lägg till utlösare** och väljer **ny/redigera**. När sido navigerings fältet visas, klickar du på list rutan **Välj utlösare...** och väljer den utlösare som du skapade. Klicka på **Nästa: Förhandsgranska data** för att bekräfta att konfigurationen är korrekt och klicka sedan på **Nästa** för att verifiera att förhands granskningen är korrekt.
 
-10. Om din pipeline har parametrar, kan du ange dem i utlösaren kör parameter sidans navigerings fält. Händelse utlösaren fångar in mappsökvägen och fil namnet för blobben i egenskaperna `@triggerBody().folderPath` och `@triggerBody().fileName`. Om du vill använda värdena för dessa egenskaper i en pipeline måste du mappa egenskaperna till pipeline-parametrar. När du har mappat egenskaperna till parametrar kan du komma åt de värden som samlas in av utlösaren genom `@pipeline().parameters.parameterName`-uttrycket i hela pipelinen. Klicka på **Slutför** när du är klar.
+1. Om din pipeline har parametrar, kan du ange dem i utlösaren kör parameter sidans navigerings fält. Händelse utlösaren fångar in mappsökvägen och fil namnet för blobben i egenskaperna `@triggerBody().folderPath` och `@triggerBody().fileName`. Om du vill använda värdena för dessa egenskaper i en pipeline måste du mappa egenskaperna till pipeline-parametrar. När du har mappat egenskaperna till parametrar kan du komma åt de värden som samlas in av utlösaren genom `@pipeline().parameters.parameterName`-uttrycket i hela pipelinen. Klicka på **Slutför** när du är klar.
 
     ![Mappa egenskaper till pipeline-parametrar](media/how-to-create-event-trigger/event-based-trigger-image4.png)
 
@@ -82,6 +84,7 @@ Följande tabell innehåller en översikt över de schema element som är relate
 | **planering** | Den typ av händelser som orsakar utlösaren att utlösa. | Matris    | Microsoft. Storage. BlobCreated, Microsoft. Storage. BlobDeleted | Ja, valfri kombination av dessa värden. |
 | **blobPathBeginsWith** | BLOB-sökvägen måste börja med det mönster som tillhandahölls för utlösaren för att starta. `/records/blobs/december/` Utlös t. ex. endast utlösaren för blobbar i mappen `december` under behållaren `records`. | Sträng   | | Du måste ange ett värde för minst en av följande egenskaper: `blobPathBeginsWith` eller `blobPathEndsWith`. |
 | **blobPathEndsWith** | BLOB-sökvägen måste sluta med det mönster som tillhandahölls för utlösaren för att starta. `december/boxes.csv` utlöser till exempel bara utlösaren för blobbar som heter `boxes` i en `december`-mapp. | Sträng   | | Du måste ange ett värde för minst en av följande egenskaper: `blobPathBeginsWith` eller `blobPathEndsWith`. |
+| **ignoreEmptyBlobs** | Om blobar med noll byte ska utlösa en pipeline-körning. Som standard är detta inställt på sant. | Boolesk | Sant eller falskt | Nej |
 
 ## <a name="examples-of-event-based-triggers"></a>Exempel på händelsebaserade utlösare
 

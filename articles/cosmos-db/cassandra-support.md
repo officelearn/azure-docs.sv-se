@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 12df79696033e69abbf48f053c1a594be9409cda
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c0a47e922ae8cdca3c70cb53f9fa2f7dafe191c6
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721103"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889214"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Apache Cassandra-funktioner som stöds av Azure Cosmos DB Cassandra-API 
 
@@ -110,7 +110,7 @@ Kommando rads verktyget CQLSH levereras med Apache Cassandra 3.1.1 och fungerar 
 
 **Windows:**
 
-Om du använder Windows rekommenderar vi att du aktiverar [Windows-fil systemet för Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). Du kan sedan följa Linux-kommandona nedan.
+Om du använder Windows rekommenderar vi att du aktiverar [Windows-fil systemet för Linux](https://docs.microsoft.com/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). Du kan sedan följa Linux-kommandona nedan.
 
 **Unix/Linux/Mac:**
 
@@ -181,8 +181,8 @@ Azure Cosmos DB stöder rollbaserad åtkomst kontroll (RBAC) för etablering, ro
 
 Alternativen för region namn, klass, replication_factor och data Center i kommandot "skapa inloggnings utrymme" ignoreras för närvarande. Systemet använder den underliggande Azure Cosmos DBens [globala distributions](global-dist-under-the-hood.md) Metod för att lägga till regionerna. Om du behöver data över flera regioner kan du aktivera det på konto nivå med PowerShell, CLI eller portal, och läsa mer i artikeln [så här lägger](how-to-manage-database-account.md#addremove-regions-from-your-database-account) du till regioner. Durable_writes kan inte inaktive ras eftersom Azure Cosmos DB säkerställer att varje skrivning är varaktig. I varje region replikerar Azure Cosmos DB data över replik uppsättningen som består av fyra repliker och den här replik uppsättnings [konfigurationen](global-dist-under-the-hood.md) kan inte ändras.
  
-Alla alternativ ignoreras när tabellen skapas, förutom gc_grace_seconds, som ska vara inställd på noll.
-Det finns ett extra alternativ med namnet "cosmosdb_provisioned_throughput" med det minsta värdet på 400 RU/s. Genom strömningen med hjälp av det här flödet kan du dela data flöde över flera tabeller och det är användbart för scenarier när alla tabeller inte använder det etablerade data flödet. Alter Table-kommandot tillåter ändring av det etablerade data flödet i regionerna. 
+Alla alternativ ignoreras när tabellen skapas, förutom gc_grace_seconds, vilket ska vara inställt på noll.
+Tecken området och tabellen har ett extra alternativ med namnet "cosmosdb_provisioned_throughput" med ett minimivärde på 400 RU/s. Genom strömningen med hjälp av det här flödet kan du dela data flöde över flera tabeller och det är användbart för scenarier när alla tabeller inte använder det etablerade data flödet. Alter Table-kommandot tillåter ändring av det etablerade data flödet i regionerna. 
 
 ```
 CREATE  KEYSPACE  sampleks WITH REPLICATION = {  'class' : 'SimpleStrategy'}   AND cosmosdb_provisioned_throughput=2000;  

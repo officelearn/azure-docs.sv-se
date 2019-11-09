@@ -1,7 +1,7 @@
 ---
 title: Translator Text API V 3.0-referens
 titleSuffix: Azure Cognitive Services
-description: Referens dokumentation för Translator Text API V 3.0.
+description: Referens dokumentation för Translator Text API V 3.0. Version 3 av Translator Text API tillhandahåller ett modernt JSON-baserat webb-API.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: a441ca83230a1c715aadda79683964aaab6d6213
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: c07673e7b170170de4723a1232d2e7281feaaf99
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72252969"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888080"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v 3.0
 
-## <a name="whats-new"></a>Vilka är de senaste nyheterna?
+## <a name="whats-new"></a>Nyheter
 
 Version 3 av Translator Text API tillhandahåller ett modernt JSON-baserat webb-API. Det förbättrar användbarhet och prestanda genom att konsolidera befintliga funktioner i färre operationer och den innehåller nya funktioner.
 
@@ -57,14 +57,14 @@ Det finns tre huvuden som du kan använda för att autentisera din prenumeration
 |Rubriker|Beskrivning|
 |:----|:----|
 |OCP-APIM-Subscription-Key|*Använd med Cognitive Services prenumeration om du skickar den hemliga nyckeln*.<br/>Värdet är Azures hemliga nyckel för din prenumeration till Translator Text API.|
-|Autentisering|*Använd med Cognitive Services prenumeration om du skickar en autentiseringstoken.*<br/>Värdet är Bearer-token: `Bearer <token>`.|
+|Auktorisering|*Använd med Cognitive Services prenumeration om du skickar en autentiseringstoken.*<br/>Värdet är Bearer-token: `Bearer <token>`.|
 |OCP-APIM-Subscription-region|*Använd med Cognitive Services multi-service-prenumeration om du skickar en hemlig nyckel för flera tjänster.*<br/>Värdet är regionen för multi-service-prenumerationen. Det här värdet är valfritt när du inte använder en prenumeration med flera tjänster.|
 
 ###  <a name="secret-key"></a>Hemlig nyckel
-Det första alternativet är att autentisera med hjälp av `Ocp-Apim-Subscription-Key`-huvudet. Lägg till rubriken `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` i din begäran.
+Det första alternativet är att autentisera med hjälp av `Ocp-Apim-Subscription-Key`-huvudet. Lägg till `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` sidhuvudet i din begäran.
 
 ### <a name="authorization-token"></a>Autentiseringstoken
-Alternativt kan du byta hemlig nyckel för en åtkomsttoken. Denna token ingår i varje begäran som `Authorization`-huvudet. Om du vill hämta en autentiseringstoken gör du en `POST`-begäran till följande URL:
+Alternativt kan du byta hemlig nyckel för en åtkomsttoken. Denna token ingår i varje begäran som `Authorization` huvud. Om du vill hämta en autentiseringstoken gör du en `POST` begäran till följande URL:
 
 | Miljö     | URL för autentiseringstjänst                                |
 |-----------------|-----------------------------------------------------------|
@@ -98,9 +98,9 @@ När du använder en hemlig nyckel för flera tjänster måste du inkludera två
 
 Region krävs för multi-service text API-prenumerationen. Den region du väljer är den enda region som du kan använda för text översättning när du använder prenumerations nyckeln för flera tjänster och måste vara samma region som du valde när du registrerade dig för din prenumeration på flera tjänster via Azure Portal.
 
-Tillgängliga regioner är `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centralus`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `francecentral`, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, @no__ t-21 och 2.
+Tillgängliga regioner är `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centralus`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `francecentral`, `japaneast`, `japanwest`, `koreacentral`, `northcentralus`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, `westus2`och `southafricanorth`.
 
-Om du skickar den hemliga nyckeln i frågesträngen med parametern `Subscription-Key` måste du ange region med Frågeparametern `Subscription-Region`.
+Om du skickar den hemliga nyckeln i frågesträngen med parametern `Subscription-Key`måste du ange region med Frågeparametern `Subscription-Region`.
 
 Om du använder en Bearer-token måste du hämta token från regionens slut punkt: `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
 
@@ -109,7 +109,7 @@ Om du använder en Bearer-token måste du hämta token från regionens slut punk
 
 Ett standard fel svar är ett JSON-objekt med namn/värde-paret med namnet `error`. Värdet är också ett JSON-objekt med egenskaper:
 
-  * `code`: en server definierad felkod.
+  * `code`: en felkod som definierats av servern.
   * `message`: en sträng som ger en läslig representation av felet.
 
 Till exempel skulle en kund med en kostnads fri utvärderings prenumeration få följande fel när den kostnads fria kvoten har uppnåtts:
@@ -124,7 +124,7 @@ Till exempel skulle en kund med en kostnads fri utvärderings prenumeration få 
 ```
 Felkoden är ett 6-siffrigt tal som kombinerar den tresiffriga HTTP-statuskoden följt av ett 3-siffrigt nummer för att ytterligare kategorisera felet. Vanliga fel koder är:
 
-| Programmera | Beskrivning |
+| Kod | Beskrivning |
 |:----|:-----|
 | 400000| En av begärda indata är inte giltiga.|
 | 400001| Parametern "scope" är ogiltig.|

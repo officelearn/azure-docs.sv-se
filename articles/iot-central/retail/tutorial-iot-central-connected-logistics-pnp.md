@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 9d55eca3df8897650f78a6bd85b649349c806e95
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 17d429444b81746a5c5082b8310c5208bc35f3d2
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615255"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889027"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-connected-logistics-application-template"></a>Självstudie: Distribuera och gå igenom en ansluten logistik-Programmall
 
@@ -109,4 +109,4 @@ Om du inte kommer att fortsätta att använda det här programmet tar du bort pr
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om den [anslutna logistik konceptet](./architecture-connected-logistics-pnp.md)
 * Läs mer om andra [IoT Central mallar för butik](./overview-iot-central-retail-pnp.md)
-* Läs mer om [IoT Central översikt](../core/overview-iot-central-pnp.md)
+* Läs mer om [IoT Central översikt](../preview/overview-iot-central.md)

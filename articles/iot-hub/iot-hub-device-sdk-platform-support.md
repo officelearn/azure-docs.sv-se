@@ -1,18 +1,18 @@
 ---
 title: 'Plattforms stöd för Azure IoT Device SDK: er | Microsoft Docs'
-description: 'Begrepp – lista över plattformar som stöds av SDK: er för Azure IoT-enheter'
+description: 'Enhets-SDK: er med öppen källkod finns tillgängliga på GitHub iC#C, .net (), Java, Node. js och python för att ansluta enheter till Azure IoT Hub och Device Provisioning-tjänsten (DPS).'
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: ac5817675d3cfc97a8732ee2e10ec7b9246b12a5
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: d39fd95f8704650db16c1dc1553efaba2f727052
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693322"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889434"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Plattforms stöd för Azure IoT Device SDK: er
 
@@ -44,19 +44,19 @@ För var och en av de listade SDK: erna, Microsoft:
 
 [Azure IoT Hub C Device SDK](https://github.com/Azure/azure-iot-sdk-c) testas med och stöder följande konfigurationer.
 
-| OS                  | TLS-bibliotek                  | Ytterligare krav                                                                     |
+| Operativsystem                  | TLS-bibliotek                  | Ytterligare krav                                                                     |
 |---------------------|------------------------------|---------------------------------------------------------------------------------------------|
 | Linux               | OpenSSL, WolfSSL eller BearSSL | Berkeley Sockets</br></br>POSIX (Portable Opera ting System Interface)                       |
 | iOS 12,2            | OpenSSL eller ursprunglig OSX        | XCode som emuleras i OSX 10.13.4                                                               |
 | Windows 10-serien   | SChannel                     |                                                                                             |
 | Mbed OS 5,4         | Mbed TLS 2                   | [MXChip IoT dev-paket](https://microsoft.github.io/azure-iot-developer-kit/)                  |
-| Azure Sphere OS     | WolfSSL                      | [Azure Sphere MT3620](https://azure.microsoft.com/en-us/services/azure-sphere/get-started/) |
+| Azure Sphere OS     | WolfSSL                      | [Azure Sphere MT3620](https://azure.microsoft.com/services/azure-sphere/get-started/) |
 
 ### <a name="python-sdk"></a>Python SDK
 
 [Azure IoT Hub python-enhetens SDK](https://github.com/Azure/azure-iot-sdk-python) testas med och stöder följande konfigurationer.
 
-| OS                  | Kompilatorn                          |
+| Operativsystem                  | Kompilatorn                          |
 |---------------------|-----------------------------------|
 | Linux               | Python 2,7 *, 3,4*, 3,5 *, 3,6, 3,7 |
 | MacOS, hög Sierra   | Python 2,7 *, 3,4*, 3,5 *, 3,6, 3,7 |
@@ -68,18 +68,18 @@ För var och en av de listade SDK: erna, Microsoft:
 
 [Azure IoT Hub .net (C#)-enhets-SDK: n](https://github.com/Azure/azure-iot-sdk-csharp) testas med och stöder följande konfigurationer.
 
-| OS                                   | Standard                                                   |
+| Operativsystem                                   | Standard                                                   |
 |--------------------------------------|------------------------------------------------------------|
 | Linux                                | .NET Core 2.1                                              |
 | Windows 10 Desktop-och Server-SKU: er   | .NET Core 2,1, .NET Framework 4.5.1 eller .NET Framework 4,7 |
 
 .NET SDK kan också användas med Windows IoT Core med [Azure Device agent](https://github.com/ms-iot/azure-client-tools/blob/master/docs/device-agent/device-agent.md) eller [en anpassad NTService som kan använda RPC för att kommunicera med UWP-program](https://docs.microsoft.com/samples/microsoft/windows-iotcore-samples/ntservice-rpc/).
 
-### <a name="nodejs-sdk"></a>SDK för Node.js
+### <a name="nodejs-sdk"></a>Node.js SDK
 
 [Azure IoT Hub Node. js-enhetens SDK](https://github.com/Azure/azure-iot-sdk-node) testas med och stöder följande konfigurationer.
 
-| OS                  | Node-version    |
+| Operativsystem                  | Node-version    |
 |---------------------|-----------------|
 | Linux               | LTS och aktuell |
 | Windows 10-serien   | LTS och aktuell |
@@ -88,7 +88,7 @@ För var och en av de listade SDK: erna, Microsoft:
 
 [Azure IoT Hub Java Device SDK](https://github.com/Azure/azure-iot-sdk-java) testas med och stöder följande konfigurationer.
 
-| OS                     | Java-version |
+| Operativsystem                     | Java-version |
 |------------------------|--------------|
 | Android API 28         | Java 8       |
 | Linux x64             | Java 8       |
@@ -115,11 +115,11 @@ Microsoft arbetar med ett antal partner för att kontinuerligt expandera Azure I
 
 * Information om hur du bläddrar i Azure IoT Certified-enheter finns [Microsoft Azure Certified for IoT enhets katalog](https://catalog.azureiotsolutions.com/).
 
-* Om du vill veta mer om Microsoft-betrodda partner eller om du vill lära dig mer om hur du blir Microsoft-betrodd partner kan du läsa [Microsoft Azure Certified Sakernas Internet betrodda partner](https://azure.microsoft.com/en-us/marketplace/certified-iot-partners/).
+* Om du vill veta mer om Microsoft-betrodda partner eller om du vill lära dig mer om hur du blir Microsoft-betrodd partner kan du läsa [Microsoft Azure Certified Sakernas Internet betrodda partner](https://azure.microsoft.com/marketplace/certified-iot-partners/).
 
 ## <a name="connecting-to-iot-hub-without-an-sdk"></a>Ansluta till IoT Hub utan SDK
 
-Om du inte kan använda någon av IoT Hub enhets-SDK: er kan du ansluta direkt till IoT Hub med hjälp av [IoT Hub REST-API: er](https://docs.microsoft.com/en-us/rest/api/iothub/) från alla program som kan skicka och ta emot https-förfrågningar och svar.
+Om du inte kan använda någon av IoT Hub enhets-SDK: er kan du ansluta direkt till IoT Hub med hjälp av [IoT Hub REST-API: er](https://docs.microsoft.com/rest/api/iothub/) från alla program som kan skicka och ta emot https-förfrågningar och svar.
 
 ## <a name="support-and-other-resources"></a>Support och andra resurser
 

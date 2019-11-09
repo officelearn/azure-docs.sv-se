@@ -13,12 +13,12 @@ ms.date: 10/25/2019
 ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 12b8d6dff571c074d1f1422f75e33a8b12761bd9
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4f0c8078a502d0332b02d95c0c46d9dbcc53a884
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572158"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886867"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Lägg till ett SSL-certifikat i Azure App Service
 
@@ -325,7 +325,7 @@ När förnyelse åtgärden är klar klickar du på **Synkronisera**. Synkroniser
 
 ### <a name="export-certificate"></a>Exportera certifikatet
 
-Eftersom App Service certifikat är en [Key Vault hemlighet](../key-vault/about-keys-secrets-and-certificates.md#key-vault-secrets), kan du exportera en PFX-kopia av den och använda den för andra Azure-tjänster eller utanför Azure.
+Eftersom en App Service Certificate är en [Key Vault hemlighet](../key-vault/about-keys-secrets-and-certificates.md#key-vault-secrets), kan du exportera en PFX-kopia av den och använda den för andra Azure-tjänster eller utanför Azure.
 
 Om du vill exportera App Service Certificate som en PFX-fil kör du följande kommandon i [Cloud Shell](https://shell.azure.com). Du kan också köra det lokalt om du har [installerat Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Ersätt plats hållarna med de namn som du använde när du [skapade App Service-certifikatet](#start-certificate-order).
 
@@ -344,7 +344,7 @@ az keyvault secret download \
     --encoding base64
 ```
 
-Den hämtade *appservicecertificate. pfx* -filen är en RAW PKCS12-fil som innehåller både offentliga och privata certifikat. När du uppmanas att göra det är både import lösen ordet och PEM pass-frasen den tomma strängen.
+Den hämtade *appservicecertificate. pfx* -filen är en RAW PKCS12-fil som innehåller både offentliga och privata certifikat. I varje prompt använder du en tom sträng för import lösen ordet och PEM-pass frasen.
 
 ### <a name="delete-certificate"></a>Ta bort certifikat 
 

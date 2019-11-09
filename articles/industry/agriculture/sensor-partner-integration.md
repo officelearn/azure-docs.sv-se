@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 7a85ed93d9ee01255d809cce84ebe24e6c3f71d1
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: e90284ce2f8ea37eb9249822e38cef04e1356f59
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847399"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889586"
 ---
 # <a name="sensor-partner-integration"></a>Integrering av sensor partner
 
@@ -79,7 +79,7 @@ FarmBeats-datahubben använder Bearer-autentisering, som behöver följande aute
 
 Med hjälp av ovanstående autentiseringsuppgifter kan anroparen begära en åtkomsttoken som måste skickas i efterföljande API-begäranden i rubrik avsnittet enligt följande:
 
-```
+```json
 headers = {"Authorization": "Bearer " + access_token, …} 
 ```
 
@@ -124,14 +124,14 @@ Alternativt kan du inkludera frågeparametrar på GET-anrop för att filtrera, b
 
 Nedanstående exempel förfrågan är att hämta listan över enheter:
 
-```
+```azurepowershell-interactive
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>”
 ```
 De flesta GET-, POST-och parkera-anrop kräver en text för JSON-begäran.
 
 Nedanstående exempel förfrågan är att skapa en enhet (det här exemplet har en indatakälla för indatamängden med begär ande texten).
 
-```
+```azurepowershell-interactive
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept: application/json" -H  "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  \"reportingInterval\": 900,  \"name\": \"Device123\",  \"description\": \"Test Device 123\",}"
 ```
 
@@ -241,7 +241,7 @@ write_client.stop()
 
 Det kanoniska meddelande formatet är som följer:
 
-```
+```json
 {
 “deviceid”: “<id of the Device created>”,
  "timestamp": "<timestamp in ISO 8601 format>",
@@ -269,7 +269,7 @@ Alla nyckel namn i JSON-modulen för telemetri bör vara gemener, t. ex. DeviceI
 Till exempel telemetri-meddelande:
 
 
-```
+```json
 {
   "deviceid": "7f9b4b92-ba45-4a1d-a6ae-c6eda3a5bd12",
   "timestamp": "2019-06-22T06:55:02.7279559Z",

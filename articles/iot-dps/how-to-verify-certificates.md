@@ -1,79 +1,78 @@
 ---
-title: Hur du gör bevis tillgång för X.509 CA-certifikat med Azure IoT Hub Device Provisioning-tjänsten | Microsoft Docs
-description: Så här verifierar du X.509 CA-certifikat med Device Provisioning-tjänsten
+title: Så här gör du ett certifikat för X. 509 CA-certifikat med Azure IoT Hub Device Provisioning Service
+description: Så här gör du ett certifikat för X. 509 CA-certifikat med Azure IoT Hub Device Provisioning Service
 author: wesmc7777
 ms.author: wesmc
 ms.date: 02/26/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: afa4b3861e9fb7f91fd9f5d540353c5fad23efe0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e762a1ab307bdc5ca9369c3f2e424cf6fd35f163
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "54913622"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890636"
 ---
-# <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Hur du gör bevis tillgång för X.509 CA-certifikat med Device Provisioning-tjänsten
+# <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Så här gör du ett certifikat för X. 509 CA-certifikat med enhets etablerings tjänsten
 
-En verifierad X.509 certifikatutfärdaren (CA) certifikatet är ett CA-certifikat som har laddats upp och registrerad på din etablering tjänst och har gått igenom bevis tillgång med tjänsten. 
+Ett verifierat X. 509 certifikat från certifikat utfärdare (CA) är ett CA-certifikat som har laddats upp och registrerats för etablerings tjänsten och som har genomgått tjänsten. 
 
-Bevis på tillgång omfattar följande steg:
-1. Få en unik verifieringskoden som genereras av etableringstjänsten för ditt X.509 CA-certifikat. Du kan göra detta från Azure-portalen.
-2. Skapa ett X.509-certifikat för verifiering med verifieringskoden som dess ämne och registrera certifikatet med den privata nyckeln som är associerade med X.509 CA-certifikat.
-3. Ladda upp signerad verifieringscertifikatet till tjänsten. Tjänsten verifierar verifieringscertifikatet med hjälp av den offentliga delen av CA-certifikatet verifieras, alltså bekräfta att du är tillgång CA-certifikatets privata nyckel.
+Du måste utföra följande steg:
+1. Hämta en unik verifierings kod som genereras av etablerings tjänsten för ditt X. 509 CA-certifikat. Du kan göra detta från Azure Portal.
+2. Skapa ett verifierings certifikat för X. 509 med verifierings koden som ämne och signera certifikatet med den privata nyckel som är kopplad till ditt X. 509 CA-certifikat.
+3. Ladda upp det signerade verifierings certifikatet till tjänsten. Tjänsten verifierar verifierings certifikatet med hjälp av den offentliga delen av CA-certifikatet som ska verifieras, vilket styrker att du har till gång till certifikat utfärdarens privata nyckel.
 
-Verifierat certifikat spelar en viktig roll när med registreringsgrupper. Verifiera att du äger certifikat ger ett extra säkerhetslager genom att se till att överföring för certifikatet har tillgång av certifikatets privata nyckel. Verifieringen förhindrar en skadliga aktörer kontroll trafiken från Extrahera ett mellanliggande certifikat och använda certifikatet för att skapa en grupp för registrering i sina egna etableringstjänsten effektivt kapar dina enheter. Genom att bevisa ägarskapet för roten eller ett mellanliggande certifikat i en certifikatkedja, du bevisar att du har behörighet att skapa lövmedlemmar certifikat för de enheter som ska registreras som en del av den gruppen för registrering. För därför, rot- eller mellanliggande certifikat som konfigurerats i en grupp för registrering måste vara ett verifierat certifikat eller måste presenterar samlar upp till ett verifierat certifikat i certifikatkedjan en enhet när den autentiserar med tjänsten. Läs mer om registrering av grupper i [X.509-certifikat](concepts-security.md#x509-certificates) och [Kontrollera Enhetsåtkomst till etableringstjänsten med X.509-certifikat](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+Verifierade certifikat spelar en viktig roll när du använder registrerings grupper. Verifierar att certifikat ägarskapet ger ett extra säkerhets lager genom att se till att omladdningen av certifikatet är i besittning av certifikatets privata nyckel. Verifiering hindrar en skadlig aktör att identifiera din trafik från att extrahera ett mellanliggande certifikat och använda certifikatet för att skapa en registrerings grupp i sin egen etablerings tjänst, vilket skapar en effektiv kapning av dina enheter. Genom att bevisa ägande rätt till roten eller ett mellanliggande certifikat i en certifikat kedja, bevisa du att du har behörighet att generera löv certifikat för de enheter som ska registreras som en del av den registrerings gruppen. Därför måste rot-eller mellanliggande certifikat som kon figurer ATS i en registrerings grupp antingen vara ett verifierat certifikat eller måste sammanställas till ett verifierat certifikat i certifikat kedjan som en enhet presenterar när den autentiserar med tjänsten. Läs mer om registrerings grupper i [X. 509-certifikat](concepts-security.md#x509-certificates) och [kontrol lera enhets åtkomst till etablerings tjänsten med X. 509-certifikat](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
-## <a name="register-the-public-part-of-an-x509-certificate-and-get-a-verification-code"></a>Registrera den offentliga delen av ett X.509-certifikat och hämta en Verifieringskod
+## <a name="register-the-public-part-of-an-x509-certificate-and-get-a-verification-code"></a>Registrera den offentliga delen av ett X. 509-certifikat och få en verifierings kod
 
-Följ dessa steg för att registrera ett CA-certifikat till din etableringstjänst och få en Verifieringskod som du kan använda under bevis på tillgång. 
+Följ dessa steg om du vill registrera ett CA-certifikat med din etablerings tjänst och få en verifierings kod som du kan använda. 
 
-1. Navigera till etableringstjänsten i Azure-portalen och öppna **certifikat** på den vänstra menyn. 
-2. Klicka på **Lägg till** att lägga till ett nytt certifikat.
-3. Ange ett eget namn för certifikatet. Bläddra till CER- eller .pem-fil som representerar den offentliga delen av X.509-certifikat. Klicka på **Överför**.
-4. När du får ett meddelande om att ditt certifikat har laddats upp, klickar du på **spara**.
+1. I Azure Portal navigerar du till etablerings tjänsten och öppnar **certifikat** från den vänstra menyn. 
+2. Klicka på **Lägg** till för att lägga till ett nytt certifikat.
+3. Ange ett eget visnings namn för ditt certifikat. Bläddra till CER-eller PEM-filen som representerar den offentliga delen av ditt X. 509-certifikat. Klicka på **Överför**.
+4. När du får ett meddelande om att certifikatet har laddats upp klickar du på **Spara**.
 
     ![Överför certifikat](./media/how-to-verify-certificates/add-new-cert.png)  
 
-   Ditt certifikat visas i den **Certifikatutforskare** lista. Observera att den **STATUS** av det här certifikatet är *inte verifierad*.
+   Ditt certifikat visas i listan **certifikat Utforskaren** . Observera att **status** för det här certifikatet inte är *verifierad*.
 
 5. Klicka på det certifikat som du lade till i föregående steg.
 
-6. I **certifikatinformation**, klickar du på **generera Verifieringskod**.
+6. I **certifikat information**klickar du på **generera verifierings kod**.
 
-7. Etableringstjänsten skapar en **Verifieringskod** som du kan använda för att verifiera ägarskapet för certifikatet. Kopiera koden till Urklipp. 
+7. Etablerings tjänsten skapar en **verifierings kod** som du kan använda för att validera certifikatets ägarskap. Kopiera koden till Urklipp. 
 
    ![Verifiera certifikat](./media/how-to-verify-certificates/verify-cert.png)  
 
-## <a name="digitally-sign-the-verification-code-to-create-a-verification-certificate"></a>Signera verifieringskoden som du skapar ett verifieringscertifikat
+## <a name="digitally-sign-the-verification-code-to-create-a-verification-certificate"></a>Signera verifierings koden digitalt för att skapa ett verifierings certifikat
 
-Nu kan du behöva logga in på *Verifieringskod* med den privata nyckeln som är associerade med X.509 CA-certifikat, vilket genererar en signatur. Detta kallas [bevis på tillgång](https://tools.ietf.org/html/rfc5280#section-3.1) och resultat i en signerad verifieringscertifikatet.
+Nu måste du signera *verifierings koden* med den privata nyckeln som är kopplad till ditt X. 509-CA-certifikat, vilket genererar en signatur. Detta är känt som [bevis på innehavet](https://tools.ietf.org/html/rfc5280#section-3.1) och resulterar i ett signerat verifierings certifikat.
 
-Microsoft tillhandahåller verktyg och exempel som kan hjälpa dig att skapa ett signerat verifieringscertifikat: 
+Microsoft tillhandahåller verktyg och exempel som kan hjälpa dig att skapa ett signerat verifierings certifikat: 
 
-- Den **Azure IoT Hub C SDK** innehåller PowerShell (Windows) och Bash (Linux)-skript för att skapa certifikat för Certifikatutfärdaren och löv för utveckling och utföra med en Verifieringskod proof-för-tillgång. Du kan ladda ned den [filer](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) i systemet till en arbetsmapp och följ instruktionerna i den [hantera CA-certifikat readme](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) att utföra bevis på tillgång på ett CA-certifikat. 
-- Den **Azure IoT Hub C# SDK** innehåller den [exemplet för verifiering av certifikat i grupp](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample), som du kan använda för att göra bevis av tillgång.
+- **Azure IoT Hub C SDK** innehåller PowerShell-skript (Windows) och bash (Linux) som hjälper dig att skapa ca-och löv certifikat för utveckling och för att utföra sitt eget skydd med hjälp av en verifierings kod. Du kan ladda ned de [filer](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) som är relevanta för ditt system till en arbetsmapp och följa instruktionerna i Readme-filen för certifikat [utfärdare](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) för att utföra ett ca-certifikats äkthets bevis. 
+- **Azure C# IoT Hub SDK** innehåller exemplet på [verifiering av grupp certifikat](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample), som du kan använda för att göra en egen användning.
  
 > [!IMPORTANT]
-> Förutom att utföra bevis på tillgång, kan PowerShell och Bash-skript som åberopade tidigare också du skapa rotcertifikat och mellanliggande certifikat löv-certifikat som kan användas för att autentisera och etablera enheter. Dessa certifikat ska användas för endast utveckling. De bör aldrig användas i en produktionsmiljö. 
+> Förutom att du behöver göra det kan du använda PowerShell-och bash-skripten tidigare, så att du även kan skapa rot certifikat, mellanliggande certifikat och löv certifikat som kan användas för att autentisera och etablera enheter. Dessa certifikat bör endast användas för utveckling. De bör aldrig användas i en produktions miljö. 
 
-PowerShell och Bash-skript som finns i dokumentationen och SDK: er som förlitar sig på [OpenSSL](https://www.openssl.org/). Du kan också använda OpenSSL eller andra verktyg från tredje part som hjälper dig bevis av tillgång. Mer information om verktyg som medföljer SDK: erna finns i [hur du använder verktygen i SDK: erna](how-to-use-sdk-tools.md). 
+PowerShell-och bash-skripten som anges i dokumentationen och SDK: er förlitar sig på [openssl](https://www.openssl.org/). Du kan också använda OpenSSL eller andra verktyg från tredje part för att hjälpa dig att göra ditt eget bruk. Mer information om verktyg som medföljer SDK: er finns i [använda verktyg som finns i SDK: erna](how-to-use-sdk-tools.md). 
 
 
-## <a name="upload-the-signed-verification-certificate"></a>Överför det signerade verifieringscertifikatet
+## <a name="upload-the-signed-verification-certificate"></a>Ladda upp det signerade verifierings certifikatet
 
-1. Ladda upp den resulterande signaturen som ett verifieringscertifikat till etableringstjänsten i portalen. I **certifikatinformation** på Azure-portalen använder du den _Utforskaren_ ikonen bredvid den **verifieringscertifikatet .pem eller .cer-fil** fält som du vill ladda upp den signerade verifieringscertifikat från datorn.
+1. Överför den resulterande signaturen som ett verifierings certifikat till etablerings tjänsten i portalen. I **certifikat information** på Azure Portal använder du ikonen för _Utforskaren_ bredvid fältet **verifierings certifikat. pem eller CER-fil** för att överföra det signerade verifierings certifikatet från systemet.
 
-2. När certifikatet har laddats upp, klickar du på **Kontrollera**. Den **STATUS** av ändringarna certifikat **_verifierad_** i den **Certifikatutforskare** lista. Klicka på **uppdatera** om det inte uppdateras automatiskt.
+2. När certifikatet har laddats upp klickar du på **Verifiera**. **Status** för ditt certifikat ändras till **_verifierat_** i listan **certifikat Utforskaren** . Klicka på **Uppdatera** om den inte uppdateras automatiskt.
 
-   ![Ladda upp certifikatverifiering](./media/how-to-verify-certificates/upload-cert-verification.png)  
+   ![Ladda upp certifikat verifiering](./media/how-to-verify-certificates/upload-cert-verification.png)  
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs om hur du använder portalen för att skapa en grupp för registrering i [hantera enhetsregistreringar med Azure-portalen](how-to-manage-enrollments.md).
-- Läs om hur du använder SDK: er för tjänsten för att skapa en grupp för registrering i [hantera enhetsregistreringar med tjänst-SDK: er](how-to-manage-enrollments-sdks.md).
+- Information om hur du använder portalen för att skapa en registrerings grupp finns i [Hantera enhets registreringar med Azure Portal](how-to-manage-enrollments.md).
+- Information om hur du använder tjänst-SDK: er för att skapa en registrerings grupp finns i [Hantera enhets registreringar med service SDK](how-to-manage-enrollments-sdks.md): er.
 
 
 

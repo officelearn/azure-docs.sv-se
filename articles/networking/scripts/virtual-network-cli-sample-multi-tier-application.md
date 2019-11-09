@@ -3,24 +3,21 @@ title: Azure CLI-skriptexempel – Skapa ett nätverk för flernivåprogram | Mi
 description: Azure CLI-skriptexempel – Skapa ett virtuellt nätverk för flernivåprogram.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: timlt
-editor: tysonn
-tags: ''
-ms.assetid: ''
+author: KumudD
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
-ms.author: timlt
-ms.openlocfilehash: 1cdc10157fb324ac9167860b9786f4902b1b8b81
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.author: kumud
+ms.openlocfilehash: c211a476c31e386c9c74fcb0139fc61dad0a8eb8
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295561"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889394"
 ---
 # <a name="create-a-network-for-multi-tier-applications"></a>Skapa ett nätverk för program på flera nivåer
 
@@ -64,4 +61,4 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 
 Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
-Ytterligare Network CLI-skript exempel finns i översikts [dokumentationen för Azure-nätverk](../cli-samples.md)
+Ytterligare Network CLI-skript exempel finns i [översikts dokumentationen för Azure-nätverk](../cli-samples.md)

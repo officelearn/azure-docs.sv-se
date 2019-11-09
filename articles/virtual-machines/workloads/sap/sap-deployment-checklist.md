@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/15/2019
+ms.date: 11/08/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a77c0e38db06698e714c3d0c3df0d9a5f028787b
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 097429e9c761d447a7164c813a6c84d3f07f0ab6
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71672940"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891409"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>SAP-arbetsbelastningar på Azure: planering och distribution check lista
 
@@ -128,7 +128,7 @@ Vi rekommenderar att du ställer in och validerar en fullständig HADR-lösning 
             - Oracle Linux 7,5. Om du använder RHCKL-kärnan krävs version 3.10.0-862.13.1. el7. Om du använder Oracle UEK-kärnan krävs version 5.
         - Testa och utvärdera nätverks fördröjningen mellan SAP-programskiktets virtuella datorer och DBMS-VM: ar enligt SAP support Notes [#500235](https://launchpad.support.sap.com/#/notes/500235) och [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Utvärdera resultatet mot rikt linjerna för nätverks fördröjning i [SAP support note #1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Nätverks fördröjningen ska vara i det måttliga eller bästa intervallet. Undantag gäller trafik mellan virtuella datorer och HANA stora instans enheter, enligt beskrivningen i [den här artikeln](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance).
         - Se till att ILB-distributioner har kon figurer ATS för att använda direkt Server RETUR. Den här inställningen minskar svars tiden när Azure-ILB används för konfigurationer med hög tillgänglighet i DBMS-skiktet.
-        - Om du använder Azure Load Balancer tillsammans med Linux-gäst operativ system, kontrollerar du att parametern för Linux-nätverket **net. IPv4. TCP _timestamps** har värdet **0**. Den här rekommendationen står i konflikt med rekommendationer i äldre versioner av [SAP note #2382421](https://launchpad.support.sap.com/#/notes/2382421). SAP-anteckningen har nu uppdaterats för att ange att den här parametern måste ställas in på **0** för att fungera med Azure Load Balancer.
+        - Om du använder Azure Load Balancer tillsammans med Linux-gäst operativ system, kontrollerar du att parametern för Linux-nätverket **net. IPv4. tcp_timestamps** har angetts till **0**. Den här rekommendationen står i konflikt med rekommendationer i äldre versioner av [SAP note #2382421](https://launchpad.support.sap.com/#/notes/2382421). SAP-anteckningen har nu uppdaterats för att ange att den här parametern måste ställas in på **0** för att fungera med Azure Load Balancer.
         - Överväg att använda [Azure närhets placerings grupper](https://docs.microsoft.com/azure/virtual-machines/linux/co-location) för att få optimal nätverks fördröjning. Mer information finns i [placerings grupper för Azure närhet för optimal nätverks fördröjning med SAP-program](sap-proximity-placement-scenarios.md).
    4. Distributioner av hög tillgänglighet och haveri beredskap.
         - Om du distribuerar SAP-programlagret utan att definiera en specifik Azure-tillgänglighets zon, se till att alla virtuella datorer som kör SAP-dialogrutor eller mellan-instanser av ett enda SAP-system distribueras i en [tillgänglighets uppsättning](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability).
@@ -160,7 +160,7 @@ Vi rekommenderar att du ställer in och validerar en fullständig HADR-lösning 
    1.  Kontrol lera att [nätverks säkerhets gruppen och ASC](https://docs.microsoft.com/azure/virtual-network/security-overview) -reglerna fungerar som förväntat och kontrol lera de skyddade resurserna.
    1.  Kontrol lera att alla resurser som behöver krypteras är krypterade. Definiera och implementera processer för att säkerhetskopiera certifikat, lagra och komma åt dessa certifikat och återställa de krypterade entiteterna.
    1.  Använd [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq) för OS-diskar där det är möjligt från en OS-support punkt i vyn.
-   1.  Se till att du inte använder för många lager kryptering. I vissa fall är det bra att använda Azure Disk Encryption tillsammans med en av DBMS-transparent datakryptering metoder.
+   1.  Se till att du inte använder för många lager kryptering. I vissa fall kan det vara bra att använda Azure Disk Encryption tillsammans med en av DBMS-transparent datakryptering metoder för att skydda olika diskar eller komponenter på samma server.  Till exempel på en SAP DBMS-Server, kan Azure Disk Encryption (ADE) vara aktive rad på operativ systemets start disk (om operativ systemet har stöd för ADE) och de data diskar som inte används av DBMS-datapersistens filer.  Ett exempel är att använda ADE på disken som innehåller krypterings nycklarna för DBMS-TDE.
 1. Prestandatest. I SAP, baserat på SAP-spårning och mått, gör du följande jämförelser:
    - Jämför i tillämpliga fall de 10 främsta rapporterna med den aktuella implementeringen.
    - Jämför i tillämpliga fall de 10 främsta batch-jobben med den aktuella implementeringen.

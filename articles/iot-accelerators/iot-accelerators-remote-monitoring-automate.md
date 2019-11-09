@@ -1,5 +1,5 @@
 ---
-title: Självstudie om att identifiera enhetsproblem i en fjärrövervakningslösning – Azure | Microsoft Docs
+title: Använd lösningen för fjärrövervakning för att identifiera enhets problem – Azure | Microsoft Docs
 description: I den här självstudien får du lära dig att använda regler och åtgärder till att automatiskt identifiera problem med tröskelvärden i fjärrövervakningslösningen.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 91ee5087e5f41cda3648c2ecadcfcf16fd32a249
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61448380"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888877"
 ---
-# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Självstudier: Identifiera problem med enheter som är anslutna till din övervakningslösning
+# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Självstudie: Identifiera problem med enheter som är anslutna till din övervakningslösning
 
 I den här självstudien konfigurerar du självstudiekursen använder du acceleratorn Fjärrövervakningslösning till att identifiera problem med dina anslutna IoT-enheter. Du kan identifiera problem med dina enheter genom att lägga till regler som genererar aviseringar på instrumentpanelen för lösningen.
 

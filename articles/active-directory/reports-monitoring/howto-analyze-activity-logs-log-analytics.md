@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52ab1bd445f8af0bf58dcb6b1176904aa073877a
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 04d9bb8bca64292b73bc14f02d126d384da33780
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820960"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885270"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analysera Azure AD-aktivitets loggar med Azure Monitor loggar
 
@@ -32,13 +32,13 @@ I den här artikeln får du lära dig hur du analyserar Azure AD-aktivitets logg
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Nödvändiga komponenter 
 
 För att följa med måste du:
 
 * En Log Analytics arbets yta i din Azure-prenumeration. Lär dig hur du [skapar en arbets yta för Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 * Slutför först stegen för att [dirigera Azure AD-aktivitets loggarna till din Log Analytics-arbetsyta](howto-integrate-activity-logs-with-log-analytics.md).
-*  [Åtkomst](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) till Log Analytics-arbetsytan
+*  [Åtkomst](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) till Log Analytics-arbetsytan
 * Följande roller i Azure Active Directory (om du får åtkomst till Log Analytics via Azure Active Directory Portal)
     - Säkerhetsadministratör
     - Säkerhets läsare
@@ -47,7 +47,7 @@ För att följa med måste du:
     
 ## <a name="navigate-to-the-log-analytics-workspace"></a>Navigera till arbets ytan Log Analytics
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). 
+1. Logga in på [Azure Portal](https://portal.azure.com). 
 
 2. Välj **Azure Active Directory**och välj sedan **loggar** i avsnittet **övervakning** för att öppna arbets ytan Log Analytics. Arbets ytan öppnas med en standard fråga.
 
@@ -104,7 +104,7 @@ Du kan också ställa in aviseringar på din fråga. Om du till exempel vill kon
 
 Du kan också hämta de förinställda vyerna i Log Analytics för Azure AD-aktivitets loggar. Vyerna innehåller flera rapporter relaterade till vanliga scenarier som rör gransknings-och inloggnings händelser. Du kan också varna för någon av de data som anges i rapporterna med hjälp av stegen som beskrivs i föregående avsnitt.
 
-* **Azure AD-konto etablerings händelser**: i den här vyn visas rapporter om etablerings aktiviteter, till exempel antalet nya användare som har skapats och etablerings felen, antalet användare som har uppdaterats och uppdaterings felen och antalet användare de har etablerats och motsvarande felen.    
+* **Azure AD-kontots etablerings händelser**: i den här vyn visas rapporter om etablerings aktiviteter, till exempel antalet nya användare som har skapats och etablerings felen, antalet användare som har uppdaterats och uppdaterings felen och antalet användare som har upprättat och motsvarande problem.    
 * **Inloggnings händelser**: i den här vyn visas de mest relevanta rapporterna om övervakning av inloggnings aktivitet, till exempel inloggningar av program, användare, enhet, samt en sammanfattningsvy som spårar antalet inloggningar över tid.
 * **Användare som utför medgivande**: i den här vyn visas rapporter om användar medgivande, t. ex. medgivande som beviljats av användare, inloggningar av användare som har beviljat medgivande samt inloggningar efter program för alla medgivandebaserade program. 
 

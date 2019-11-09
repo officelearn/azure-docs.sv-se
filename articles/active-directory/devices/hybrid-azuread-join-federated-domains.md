@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4335b8251e31f151e3d965481bead01303ab7420
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 14565c7e499b04b9c41184111d6ddcc88fffac80
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562255"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73882997"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Självstudier: Konfigurera Azure Active Directory-hybridanslutningar för federerade domäner
+# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Självstudier: Konfigurera Hybrid Azure Active Directory-anslutningar för federerade domäner
 
 Som en användare i din organisation är en enhet en kärn identitet som du vill skydda. Du kan använda en enhets identitet för att skydda dina resurser när du vill och var som helst. Du kan uppnå det här målet genom att ta med enhets identiteter och hantera dem i Azure Active Directory (Azure AD) med hjälp av någon av följande metoder:
 
@@ -32,7 +32,7 @@ En federerad miljö bör ha en identitetsprovider som uppfyller följande krav. 
 
 - **WIAORMULTIAUTHN-anspråk:** Detta anspråk krävs för att göra en hybrid Azure AD-anslutning för Windows-enheter på hög nivå.
 - **WS-Trust-protokoll:** Det här protokollet krävs för att autentisera Windows aktuella hybrid Azure AD-anslutna enheter med Azure AD.
-  När du använder AD FS måste du aktivera följande WS-Trust-slutpunkter:`/adfs/services/trust/2005/windowstransport`
+  När du använder AD FS måste du aktivera följande WS-Trust-slutpunkter: `/adfs/services/trust/2005/windowstransport`
    `/adfs/services/trust/13/windowstransport`
    `/adfs/services/trust/2005/usernamemixed`
    `/adfs/services/trust/13/usernamemixed`
@@ -40,7 +40,7 @@ En federerad miljö bör ha en identitetsprovider som uppfyller följande krav. 
    `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> Både **ADFS/tjänster/Trust/2005/windowstransport** eller **adfs/services/trust/13/windowstransport** ska aktive ras som enbart intranät riktade slut punkter och får inte visas som extra näts slut punkter via webbprogramproxy. Läs mer om hur du inaktiverar Windows-slutpunkter för WS-Trust i [inaktivera WS-Trust Windows-slutpunkter på proxyn](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Du kan se vilka slutpunkter som är aktiverade via AD FS-hanteringskonsolen under **Tjänst** > **Slutpunkter**.
+> Både **ADFS/tjänster/Trust/2005/windowstransport** eller **adfs/services/trust/13/windowstransport** ska aktive ras som enbart intranät riktade slut punkter och får inte visas som extra näts slut punkter via webbprogramproxy. Läs mer om hur du inaktiverar Windows-slutpunkter för WS-Trust i [inaktivera WS-Trust Windows-slutpunkter på proxyn](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Du kan se vilka slutpunkter som är aktiverade via AD FS-hanteringskonsolen under **Tjänst** > **Slutpunkter**.
 
 I den här självstudien får du lära dig hur du konfigurerar hybrid Azure AD-anslutning för Active Directory domänanslutna datorer enheter i en federerad miljö med hjälp av AD FS.
 
@@ -52,7 +52,7 @@ Lär dig att:
 > * Verifiera registreringen
 > * Felsöka
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här självstudien förutsätter att you'e bekant med de här artiklarna:
 
@@ -79,7 +79,7 @@ Hybrid Azure AD-anslutning kräver att enheter har åtkomst till följande Micro
 - `https://login.microsoftonline.com`
 - `https://device.login.microsoftonline.com`
 - Din organisations säkerhetstokentjänst (STS) (för federerade domäner)
-- `https://autologon.microsoftazuread-sso.com`(Om du använder eller planerar att använda sömlös enkel inloggning)
+- `https://autologon.microsoftazuread-sso.com` (om du använder eller planerar att använda sömlös SSO)
 
 Från och med Windows 10 1803 förlitar vi sig på Azure AD Connect för att synkronisera datorobjektet i Azure AD som sedan används för att slutföra enhets registreringen för Hybrid Azure i Azure AD AD FS. AD-anslutning. Kontrol lera att Azure AD Connect har synkroniserat dator objekt för de enheter som du vill ska vara hybrid Azure AD-anslutna till Azure AD. Om datorns objekt tillhör vissa organisationsenheter (OU) måste du även konfigurera organisationsenheterna för synkronisering i Azure AD Connect. Mer information om hur du synkroniserar dator objekt med hjälp av Azure AD Connect finns i [Konfigurera filtrering med hjälp av Azure AD Connect](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
 
@@ -126,7 +126,7 @@ Om du vill konfigurera en hybrid Azure AD-anslutning med hjälp av Azure AD Conn
 
 1. Utför följande steg på sidan **SCP** och välj sedan **Nästa**:
 
-   ![Tjänstanslutningspunkt](./media/hybrid-azuread-join-federated-domains/16.png)
+   ![SCP](./media/hybrid-azuread-join-federated-domains/16.png)
 
    1. Välj skogen.
    1. Välj autentiseringstjänst. Du måste välja **AD FS server** om inte din organisation har enbart Windows 10-klienter och du har konfigurerat synkronisering av dator/enhet eller om din organisation använder sömlös SSO.
@@ -161,7 +161,7 @@ För att slutföra en fullständig Azure AD-anslutning av dina Windows-enheter m
 
 - `https://device.login.microsoftonline.com`
 - Din organisations STS (för federerade domäner)
-- `https://autologon.microsoftazuread-sso.com`(För sömlös enkel inloggning)
+- `https://autologon.microsoftazuread-sso.com` (för sömlös enkel inloggning)
 
 Du måste också aktivera **Tillåt uppdateringar av statusfältet via skript** i användarens lokala intranät zon.
 
@@ -169,7 +169,7 @@ Du måste också aktivera **Tillåt uppdateringar av statusfältet via skript** 
 
 För att registrera Windows-enheter som är äldre måste organisationer installera [Microsoft Workplace Join för icke-Windows 10-datorer](https://www.microsoft.com/download/details.aspx?id=53554). Microsoft Workplace Join för datorer som inte är Windows 10-datorer finns i Microsoft Download Center.
 
-Du kan distribuera paketet med hjälp av ett program distributions system som [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager). Paketet stöder vanliga obevakade installations alternativ med `quiet` parametern. Den aktuella grenen av Configuration Manager erbjuder förmåner jämfört med tidigare versioner, t. ex. möjligheten att spåra slutförda registreringar.
+Du kan distribuera paketet med hjälp av ett program distributions system som [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager). Paketet stöder vanliga obevakade installations alternativ med parametern `quiet`. Den aktuella grenen av Configuration Manager erbjuder förmåner jämfört med tidigare versioner, t. ex. möjligheten att spåra slutförda registreringar.
 
 Installations programmet skapar en schemalagd aktivitet på det system som körs i användar kontexten. Aktiviteten utlöses när användaren loggar in i Windows. Uppgiften ansluter tyst till enheten med Azure AD med hjälp av användarautentiseringsuppgifterna när den har autentiserats med Azure AD.
 
@@ -181,7 +181,7 @@ När du använder cmdleten **Get-MSolDevice** för att kontrol lera tjänst info
 
 - Det måste finnas ett objekt med det **enhets-ID** som matchar ID: t för Windows-klienten.
 - Värdet för **DeviceTrustType** måste vara **Domänansluten**. Den här inställningen motsvarar **hybrid Azure AD-anslutna** tillstånd under **enheter** i Azure AD-portalen.
-- För enheter som används i villkorlig åtkomst måste värdet för Enabled vara **True** och **DeviceTrustLevel** måste **hanteras**.
+- För enheter som används i villkorlig åtkomst måste värdet för **Enabled** vara **True** och **DeviceTrustLevel** måste **hanteras**.
 
 **Så här kontrollerar du tjänst informationen**:
 

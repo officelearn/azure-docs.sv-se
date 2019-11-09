@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: b-juche
-ms.openlocfilehash: 290fc279a7d2ff2369758c170b3fb64635ee01af
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: fba762a53ec562bdbd52468716ce6e44eb717aaa
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72532285"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887194"
 ---
 # <a name="azure-netapp-files-sdks-and-cli-tools"></a>SDK:er och CLI-verktyg för Azure NetApp Files
 
@@ -53,7 +53,7 @@ I tabellen nedan visas kod exempel för din referens.
 
 |    Språk/verktyg    |    Kod exempel dokumentation    |
 |------------------|--------------------------------------------|
-|    .NET   |    [Azure NetApp Files SDK-exempel för. NETCore](https://docs.microsoft.com/en-us/samples/azure-samples/netappfiles-dotnetcore-sdk-sample/azure-netappfiles-sdk-sample-for-net-core/) |    
+|    .NET   |    [Azure NetApp Files SDK-exempel för. NETCore](https://docs.microsoft.com/samples/azure-samples/netappfiles-dotnetcore-sdk-sample/azure-netappfiles-sdk-sample-for-net-core/) |    
 |    Python    |    [Azure NetApp Files SDK-exempel för python](https://docs.microsoft.com/samples/azure-samples/netappfiles-python-sdk-sample/azure-netappfiles-sdk-sample-for-python/)    |
 
 ## <a name="next-steps"></a>Nästa steg   

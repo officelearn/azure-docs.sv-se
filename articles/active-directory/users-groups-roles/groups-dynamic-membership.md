@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a8823a9b354ca4ae9ecab0eeac265b486116bec
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 050bc3cf6b81b9467d9947a4f611477e2fcbcd9a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808963"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885867"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -88,7 +88,7 @@ Följande är de användar egenskaper som du kan använda för att skapa ett end
 
 | Egenskaper | Tillåtna värden | Användning |
 | --- | --- | --- |
-| AccountEnabled |Sant falskt |User. accountEnabled-EQ sant |
+| accountEnabled |Sant falskt |User. accountEnabled-EQ sant |
 | dirSyncEnabled |Sant falskt |User. dirSyncEnabled-EQ sant |
 
 ### <a name="properties-of-type-string"></a>Egenskaper av typen sträng
@@ -96,13 +96,13 @@ Följande är de användar egenskaper som du kan använda för att skapa ett end
 | Egenskaper | Tillåtna värden | Användning |
 | --- | --- | --- |
 | city |Valfritt sträng värde eller *Null* |(User. City-EQ "värde") |
-| Ursprungslandet |Valfritt sträng värde eller *Null* |(User. Country-EQ "värde") |
-| CompanyName | Valfritt sträng värde eller *Null* | (User. företags namn – EQ "värde") |
+| ursprungslandet |Valfritt sträng värde eller *Null* |(User. Country-EQ "värde") |
+| companyName | Valfritt sträng värde eller *Null* | (User. företags namn – EQ "värde") |
 | avdelning |Valfritt sträng värde eller *Null* |(User. Department-EQ "värde") |
 | displayName |Valfritt sträng värde |(User. displayName-EQ "value") |
 | Anställnings |Valfritt sträng värde |(User. Anställningsnr-EQ "value")<br>(User. Anställningsnr-Ne *Null*) |
 | facsimileTelephoneNumber |Valfritt sträng värde eller *Null* |(User. facsimileTelephoneNumber-EQ "value") |
-| GivenName |Valfritt sträng värde eller *Null* |(User. givenName-EQ "value") |
+| givenName |Valfritt sträng värde eller *Null* |(User. givenName-EQ "value") |
 | Befattning |Valfritt sträng värde eller *Null* |(User. befattning-EQ "value") |
 | e-post |Valfritt sträng värde eller *Null* (SMTP-adress för användaren) |(User. mail-EQ "värde") |
 | mailNickName |Valfritt sträng värde (e-postalias för användaren) |(User. smek namn-EQ "värde") |
@@ -117,7 +117,7 @@ Följande är de användar egenskaper som du kan använda för att skapa ett end
 | state |Valfritt sträng värde eller *Null* |(User. State-EQ "värde") |
 | streetAddress |Valfritt sträng värde eller *Null* |(User. streetAddress-EQ "value") |
 | surname |Valfritt sträng värde eller *Null* |(User. efter namn – EQ "värde") |
-| TelephoneNumber |Valfritt sträng värde eller *Null* |(User. telephoneNumber-EQ "value") |
+| telephoneNumber |Valfritt sträng värde eller *Null* |(User. telephoneNumber-EQ "value") |
 | usageLocation |Två bokstäver för bokstavs kod |(User. usageLocation-EQ "US") |
 | userPrincipalName |Valfritt sträng värde |(User. userPrincipalName-EQ "alias@domain") |
 | userType |medlems gäster *Null* |(User. userType-EQ "medlem") |
@@ -357,7 +357,10 @@ Du hittar namnet på den anpassade egenskapen i katalogen genom att fråga en an
 
 ## <a name="rules-for-devices"></a>Regler för enheter
 
-Du kan också skapa en regel som väljer enhets objekt för medlemskap i en grupp. Du kan inte ha både användare och enheter som grupp medlemmar. Attributet **organizationalUnit** visas inte längre och ska inte användas. Den här strängen anges av Intune i vissa fall, men känns inte igen av Azure AD, så inga enheter läggs till i grupper baserat på det här attributet.
+Du kan också skapa en regel som väljer enhets objekt för medlemskap i en grupp. Du kan inte ha både användare och enheter som grupp medlemmar. 
+
+> [!NOTE]
+> Attributet **organizationalUnit** visas inte längre och ska inte användas. Den här strängen anges av Intune i vissa fall, men känns inte igen av Azure AD, så inga enheter läggs till i grupper baserat på det här attributet.
 
 > [!NOTE]
 > systemlabels är ett skrivskyddat attribut som inte kan anges med Intune.
@@ -368,7 +371,7 @@ Följande enhets egenskaper kan användas.
 
  Enhets attribut  | Värden | Exempel
  ----- | ----- | ----------------
- AccountEnabled | Sant falskt | (Device. accountEnabled-EQ true)
+ accountEnabled | Sant falskt | (Device. accountEnabled-EQ true)
  displayName | Valfritt sträng värde |(Device. displayName-EQ "Anders iPhone")
  deviceOSType | Valfritt sträng värde | (Device. deviceOSType-EQ "iPad")-eller (Device. deviceOSType-EQ "iPhone")<br>(Device. deviceOSType-innehåller "AndroidEnterprise")<br>(Device. deviceOSType-EQ "AndroidForWork")
  deviceOSVersion | Valfritt sträng värde | (Device. deviceOSVersion-EQ "9,1")
@@ -379,9 +382,8 @@ Följande enhets egenskaper kan användas.
  enrollmentProfileName | Registrerings profil för Apples enhet, enhets registrering-identifierare för företags enheter (Android-kiosk) eller Windows autopilot-profil namn | (Device. enrollmentProfileName-EQ "DEP iPhone")
  isRooted | Sant falskt | (Device. isRooted-EQ true)
  managementType | MDM (för mobila enheter)<br>PC (för datorer som hanteras av Intune PC-agenten) | (Device. managementType-EQ "MDM")
- organizationalUnit | en giltig lokal organisationsenhet (OU) | (Device. organizationalUnit-innehåller "bärbar dator")
  deviceId | ett giltigt ID för Azure AD-enhet | (Device. deviceId-EQ "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
- objectId | ett giltigt objekt-ID för Azure AD |  (Device. objectId-EQ 76ad43c9-32c5-45e8-A272-7b58b58f596d ")
+ objectId | ett giltigt objekt-ID för Azure AD |  (Device. objectId-EQ "76ad43c9-32c5-45e8-A272-7b58b58f596d")
  devicePhysicalIds | ett sträng värde som används av autopilot, till exempel alla autopilot-enheter, Ordernr eller PurchaseOrderID  | (Device. devicePhysicalIDs-any _-contains "[ZTDId]") (Device. devicePhysicalIds-any _-EQ "[Ordernr]: 179887111881") (Device. devicePhysicalIds-any _-EQ "[PurchaseOrderId]: 76222342342")
  systemLabels | valfri sträng som matchar enhets egenskapen i Intune för att tagga moderna arbets plats enheter | (Device. systemLabels-innehåller "M365Managed")
 

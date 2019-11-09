@@ -1,29 +1,28 @@
 ---
-title: Skapa en Azure IoT Hub med hjälp av en PowerShell-cmdlet | Microsoft Docs
-description: Hur du använder en PowerShell-cmdlet för att skapa en IoT hub.
+title: Skapa en Azure-IoT Hub med hjälp av en PowerShell-cmdlet | Microsoft Docs
+description: Lär dig hur du använder PowerShell-cmdletar för att skapa en resurs grupp och sedan skapa en IoT-hubb i resurs gruppen. Lär dig också hur du tar bort hubben.
 author: robinsh
-manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: robinsh
-ms.openlocfilehash: fd376728a1ebdf769c7f2ae76d61a60703e13711
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9c49f7ac744ee516aefc1571d50264132035ba8a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66146610"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890591"
 ---
-# <a name="create-an-iot-hub-using-the-new-aziothub-cmdlet"></a>Skapa en IoT hub med hjälp av cmdleten New-AzIotHub
+# <a name="create-an-iot-hub-using-the-new-aziothub-cmdlet"></a>Skapa en IoT-hubb med cmdleten New-AzIotHub
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## <a name="introduction"></a>Introduktion
 
-Du kan använda Azure PowerShell-cmdletar för att skapa och hantera Azure-IoT-hubbar. Den här självstudien visar hur du skapar en IoT hub med PowerShell.
+Du kan använda Azure PowerShell-cmdletar för att skapa och hantera Azure IoT-hubbar. Den här självstudien visar hur du skapar en IoT Hub med PowerShell.
 
-För att slutföra den här anvisningen, behöver du en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+För att slutföra den här instruktionen behöver du en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -31,7 +30,7 @@ För att slutföra den här anvisningen, behöver du en Azure-prenumeration. Om 
 
 ## <a name="connect-to-your-azure-subscription"></a>Ansluta till din Azure-prenumeration
 
-Om du använder Cloud Shell är du redan inloggad till din prenumeration. Om du kör PowerShell lokalt i stället, anger du följande kommando för att logga in på Azure-prenumerationen:
+Om du använder Cloud Shell är du redan inloggad i din prenumeration. Om du kör PowerShell lokalt i stället anger du följande kommando för att logga in på din Azure-prenumeration:
 
 ```powershell
 # Log into Azure account.
@@ -40,9 +39,9 @@ Login-AzAccount
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Du behöver en resursgrupp att distribuera en IoT-hubb. Du kan använda en befintlig resursgrupp eller skapa en ny.
+Du behöver en resurs grupp för att distribuera en IoT-hubb. Du kan använda en befintlig resurs grupp eller skapa en ny.
 
-Du kan skapa en resursgrupp för din IoT-hubb med den [New AzResourceGroup](https://docs.microsoft.com/powershell/module/az.Resources/New-azResourceGroup) kommando. Det här exemplet skapas en resursgrupp med namnet **MyIoTRG1** i den **USA, östra** region:
+Om du vill skapa en resurs grupp för din IoT-hubb använder du kommandot [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.Resources/New-azResourceGroup) . I det här exemplet skapas en resurs grupp med namnet **MyIoTRG1** i regionen **USA, östra** :
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name MyIoTRG1 -Location "East US"
@@ -50,7 +49,7 @@ New-AzResourceGroup -Name MyIoTRG1 -Location "East US"
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
-Du kan skapa en IoT-hubb i resursgruppen du skapade i föregående steg med den [New AzIotHub](https://docs.microsoft.com/powershell/module/az.IotHub/New-azIotHub) kommando. Det här exemplet skapar en **S1** hub kallas **MyTestIoTHub** i den **USA, östra** region:
+Om du vill skapa en IoT-hubb i resurs gruppen som du skapade i föregående steg, använder du kommandot [New-AzIotHub](https://docs.microsoft.com/powershell/module/az.IotHub/New-azIotHub) . I det här exemplet skapas en **S1** -hubb med namnet **MYTESTIOTHUB** i regionen **USA, östra** :
 
 ```azurepowershell-interactive
 New-AzIotHub `
@@ -64,15 +63,15 @@ Namnet på IoT-hubben måste vara globalt unikt.
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
-Du kan lista alla IoT-hubbar i din prenumeration med hjälp av den [Get-AzIotHub](https://docs.microsoft.com/powershell/module/az.IotHub/Get-azIotHub) kommando:
+Du kan lista alla IoT-hubbar i din prenumeration med kommandot [Get-AzIotHub](https://docs.microsoft.com/powershell/module/az.IotHub/Get-azIotHub) :
 
 ```azurepowershell-interactive
 Get-AzIotHub
 ```
 
-Det här exemplet visar S1 Standard IoT-hubben som du skapade i föregående steg.
+I det här exemplet visas S1-standardIoT Hub som du skapade i föregående steg.
 
-Du kan ta bort en IoT hub med hjälp av den [Remove-AzIotHub](https://docs.microsoft.com/powershell/module/az.iothub/remove-aziothub) kommando:
+Du kan ta bort IoT-hubben med kommandot [Remove-AzIotHub](https://docs.microsoft.com/powershell/module/az.iothub/remove-aziothub) :
 
 ```azurepowershell-interactive
 Remove-AzIotHub `
@@ -80,7 +79,7 @@ Remove-AzIotHub `
     -Name MyTestIoTHub
 ```
 
-Alternativt kan du ta bort en resursgrupp och alla resurser den innehåller med hjälp av den [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.Resources/Remove-azResourceGroup) kommando:
+Du kan också ta bort en resurs grupp och alla resurser som den innehåller med kommandot [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.Resources/Remove-azResourceGroup) :
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyIoTRG1
@@ -88,11 +87,11 @@ Remove-AzResourceGroup -Name MyIoTRG1
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu har du distribuerat en IoT hub med en PowerShell-cmdlet om du vill utforska ytterligare, ta en titt i följande artiklar:
+Nu har du distribuerat en IoT-hubb med en PowerShell-cmdlet, om du vill utforska ytterligare, kan du läsa följande artiklar:
 
-* [PowerShell-cmdletar för att arbeta med din IoT-hubb](https://docs.microsoft.com/powershell/module/az.iothub/).
+* [PowerShell-cmdletar för att arbeta med din IoT Hub](https://docs.microsoft.com/powershell/module/az.iothub/).
 
-* [IoT Hub REST API för resursprovider](https://docs.microsoft.com/rest/api/iothub/iothubresource).
+* [IoT Hub Resource provider REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource).
 
 Mer information om hur du utvecklar för IoT Hub finns i följande artiklar:
 
@@ -100,6 +99,6 @@ Mer information om hur du utvecklar för IoT Hub finns i följande artiklar:
 
 * [SDK:er för Azure IoT](iot-hub-devguide-sdks.md)
 
-Om du vill fortsätta för att utforska funktionerna för IoT Hub, se:
+För att ytterligare utforska funktionerna i IoT Hub, se:
 
-* [Distribuera AI till gränsenheter med Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Distribuera AI till gräns enheter med Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

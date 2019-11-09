@@ -9,12 +9,12 @@ ms.date: 11/04/2019
 ms.topic: conceptual
 description: Lär dig hur du ansluter din utvecklings dator till ett AKS-kluster med Azure dev Spaces
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
-ms.openlocfilehash: 0adaa4266978cf9c9ef42359c0cf4f81c5c5f056
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 15e46fba19d92e08a9c87a63f6f01ec6b0836910
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571720"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888914"
 ---
 # <a name="connect-your-development-machine-to-an-aks-cluster-preview"></a>Ansluta din utvecklings dator till ett AKS-kluster (för hands version)
 
@@ -96,7 +96,7 @@ När du har valt anslutnings läge uppmanas du att ange den TCP-port som det lok
 När du har valt appens TCP-port upprättar Azure dev-utrymmen en anslutning till AKS-klustret. Azure dev Spaces infogar en agent i AKS-klustret för att omdirigera trafik mellan AKS-klustret och din utvecklings dator. Det kan ta några minuter att upprätta anslutningen. Azure dev Spaces kommer också att begära administratörs åtkomst för att ändra *värd* filen på din utvecklings dator.
 
 > [!IMPORTANT]
-> När Azure dev Spaces upprättar en anslutning till ditt AKS-kluster kanske de andra tjänsterna i ditt AKS-kluster inte fungerar korrekt förrän du startar tjänsten på utvecklings datorn. Om din tjänst har ett beroende som inte är tillgängligt på utvecklings datorn kan du behöva ändra ditt program eller ange [ytterligare konfiguration](#additional-configuration)
+> När Azure dev Spaces upprättar en anslutning till ditt AKS-kluster, fungerar inte de andra tjänsterna i ditt AKS-kluster förrän du startar tjänsten på utvecklings datorn om du väljer *Ersätt* anslutnings läge. Du kan välja *klonings* anslutnings läge i stället för att skapa ett underordnat dev utrymme för omdirigeringen och undvika eventuella avbrott i det överordnade utrymmet. Om din tjänst har ett beroende som inte är tillgängligt på utvecklings datorn kan du behöva ändra ditt program eller ange [ytterligare konfiguration](#additional-configuration)
 
 Azure dev Spaces öppnar ett terminalfönster med titeln *AZDS Connect-Bikes* när den upprättar en anslutning till ditt AKS-kluster. Det här terminalfönstret innehåller alla miljövariabler och DNS-poster som kon figurer ATS från ditt AKS-kluster. All kod som du kör i det här terminalfönstret eller med Visual Studio Code debugger är ansluten till AKS-klustret.
 

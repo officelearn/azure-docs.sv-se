@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 09/24/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ab6d213e83c2d7eba95c6c9a6dca5edc1f0f2215
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 4973a5215d93a1ce9d0a80f83264dd8c1fbe0888
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996517"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887224"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Min första PowerShell Workflow-runbook
 
@@ -27,7 +27,7 @@ ms.locfileid: "71996517"
 
 Den här självstudien beskriver steg för steg hur du skapar en [PowerShell Workflow-runbook](automation-runbook-types.md#powershell-workflow-runbooks) i Azure Automation. Du börjar med en enkel Runbook som du testar och publicerar samtidigt som du förklarar hur du spårar statusen för Runbook-jobbet. Sedan ändrar du runbook-jobbet så att det hanterar Azure-resurser. I det här exemplet ska det starta en virtuell dator i Azure. Slutligen gör du runbooken mer robust genom att lägga till Runbook-parametrar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att kunna genomföra den här kursen behöver du följande:
 
@@ -174,7 +174,7 @@ Nu när din Runbook autentiseras till din Azure-prenumeration kan du hantera res
    ```
 
 1. Spara runbooken och klicka sedan på **test fönster** så att du kan testa den.
-1. Starta testet genom att klicka på **Starta**. När testet är klart kontrollerar du att den virtuella datorn har startat.
+1. Starta testet genom att klicka på **Starta**. När det är klart kontrollerar du att den virtuella datorn har startat.
 
 ## <a name="step-7---add-an-input-parameter-to-the-runbook"></a>Steg 7 – Lägga till en indataparameter i runbooken
 
@@ -210,7 +210,7 @@ din Runbook startar för närvarande den virtuella datorn som du hårdkodad i ru
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om PowerShell, inklusive språk referens-och inlärnings moduler finns i [PowerShell-dokumenten](https://docs.microsoft.com/en-us/powershell/scripting/overview).
+* Mer information om PowerShell, inklusive språk referens-och inlärnings moduler finns i [PowerShell-dokumenten](https://docs.microsoft.com/powershell/scripting/overview).
 * Information om hur du kommer igång med grafiska runbooks finns i [Min första grafisk runbook](automation-first-runbook-graphical.md)
 * Se hur du kommer igång med PowerShell-runbooks i [Min första PowerShell-runbook](automation-first-runbook-textual-powershell.md)
 * Mer information om typer av runbooks, och om deras fördelar och begränsningar, finns i [Typer av Azure Automation-runbooks](automation-runbook-types.md)

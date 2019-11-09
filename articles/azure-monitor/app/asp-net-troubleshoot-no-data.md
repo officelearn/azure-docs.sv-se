@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/23/2018
-ms.openlocfilehash: 0bb32486ea3fcfd37337b18b02f4f432effa8f75
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 857188ebb5ddc3c24f6a225819c47fc1643417e6
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678332"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887523"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Felsökning utan data, Application Insights för .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>En del av min telemetri saknas
@@ -113,7 +113,7 @@ Instrumentation-nyckeln i ApplicationInsights. config styr var Telemetrin skicka
 
 Löser
 
-* I Solution Explorer högerklickar du på projektet och väljer Application Insights, konfigurerar Application Insights. I dialog rutan kan du antingen välja att skicka telemetri till en befintlig resurs eller skapa en ny. eller
+* I Solution Explorer högerklickar du på projektet och väljer Application Insights, konfigurerar Application Insights. I dialog rutan kan du antingen välja att skicka telemetri till en befintlig resurs eller skapa en ny. Eller
 * Öppna resursen direkt. Logga in på [Azure Portal](https://portal.azure.com), klicka på Application Insights i det vänstra navigerings fältet och välj sedan din app.
 
 ## <a name="where-do-i-find-my-telemetry"></a>Var hittar jag min telemetri?
@@ -174,7 +174,7 @@ Du kan inaktivera det, men det rekommenderas inte. Sampling är utformad så att
 Den 5 2018 februari meddelade vi att vi tog bort en loggning av klientens IP-adress. Detta påverkar inte geo-platsen.
 
 > [!NOTE]
-> Om du behöver de tre första oktetterna i IP-adressen kan du använda en [telemetri-initierare](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer) för att lägga till ett anpassat attribut.
+> Om du behöver de tre första oktetterna i IP-adressen kan du använda en [telemetri-initierare](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#addmodify-properties-itelemetryinitializer) för att lägga till ett anpassat attribut.
 > Detta påverkar inte data som samlats in före den 5 februari 2018.
 
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>Fel geografisk data i telemetri för användare

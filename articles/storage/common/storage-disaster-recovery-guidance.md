@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3717199d2fa342fff5996d97bc5cdaf6da6e9880
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: b265ff8831275a9f4b84f7dac28b82ae75630f8b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595192"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889775"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Haveri beredskap och lagrings konto redundans (för hands version) i Azure Storage
 
@@ -47,8 +47,8 @@ Andra Azure Storage alternativ för redundans inkluderar zoner-redundant lagring
 
 Det är viktigt att utforma ditt program för hög tillgänglighet från start. Se dessa Azure-resurser för att få hjälp med att utforma ditt program och planera för haveri beredskap:
 
-* [Utforma elastiska program för Azure](https://docs.microsoft.com/azure/architecture/resiliency/): en översikt över viktiga begrepp för att utforma program med hög tillgänglighet i Azure.
-* [Tillgänglighets check lista](https://docs.microsoft.com/azure/architecture/checklist/availability): en check lista för att kontrol lera att ditt program implementerar bästa design praxis för hög tillgänglighet.
+* [Utforma elastiska program för Azure](/azure/architecture/checklist/resiliency-per-service): en översikt över viktiga begrepp för att utforma program med hög tillgänglighet i Azure.
+* [Tillgänglighets check lista](/azure/architecture/checklist/resiliency-per-service): en check lista för att kontrol lera att ditt program implementerar bästa design praxis för hög tillgänglighet.
 * [Utforma hög tillgängliga program med hjälp av RA-GRS](storage-designing-ha-apps-with-ragrs.md): design rikt linjer för att skapa program för att dra nytta av RA-GRS.
 * [Självstudie: skapa ett program med hög tillgänglighet med Blob Storage](../blobs/storage-create-geo-redundant-storage.md): en själv studie kurs som visar hur du skapar ett program med hög tillgänglighet som automatiskt växlar mellan slut punkter som fel och återställningar simuleras. 
 
@@ -121,8 +121,8 @@ Det finns ett konto för redundans för alla kunder som använder GRS eller RA-G
 
 - Asien, östra
 - Sydostasien
-- Australien, östra
-- Australien, sydöstra
+- Östra Australien
+- Sydöstra Australien
 - USA, centrala
 - USA, östra 2
 - USA, västra centrala
@@ -149,7 +149,7 @@ Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace
 
 Granska ytterligare överväganden som beskrivs i det här avsnittet för att förstå hur dina program och tjänster kan påverkas när du tvingar fram en redundansväxling under för hands versions perioden.
 
-#### <a name="azure-virtual-machines"></a>Azure Virtual Machines
+#### <a name="azure-virtual-machines"></a>Virtuella Azure-datorer
 
 Virtuella Azure-datorer (VM) växlar inte över som en del av en redundansväxling av kontot. Om den primära regionen blir otillgänglig och du växlar över till den sekundära regionen måste du återskapa alla virtuella datorer efter redundansväxlingen. 
 
@@ -180,13 +180,13 @@ Följande funktioner och tjänster stöds inte för för hands versionen av kont
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Kopiera data som ett alternativ till redundans
 
-Om ditt lagrings konto har kon figurer ATS för RA-GRS har du Läs behörighet till dina data med hjälp av den sekundära slut punkten. Om du föredrar att inte redundansväxla vid ett avbrott i den primära regionen kan du använda verktyg som [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md)eller [Azure Data flyttnings bibliotek](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) för att kopiera data från ditt lagrings konto i den sekundära regionen till ett annat lagrings konto i en region som inte påverkas. Du kan sedan peka dina program till det lagrings kontot för både Läs-och skriv tillgänglighet.
+Om ditt lagrings konto har kon figurer ATS för RA-GRS har du Läs behörighet till dina data med hjälp av den sekundära slut punkten. Om du föredrar att inte redundansväxla vid ett avbrott i den primära regionen kan du använda verktyg som [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md)eller [Azure Data flyttnings bibliotek](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) för att kopiera data från ditt lagrings konto i den sekundära regionen till ett annat lagrings konto i en ej påverkad region. Du kan sedan peka dina program till det lagrings kontot för både Läs-och skriv tillgänglighet.
 
 ## <a name="microsoft-managed-failover"></a>Microsoft-hanterad redundans
 
 I extrema fall där en region försvinner på grund av en betydande katastrof kan Microsoft initiera en regional redundansväxling. I det här fallet krävs ingen åtgärd på din del. Du har inte skriv åtkomst till ditt lagrings konto förrän den Microsoft-hanterade redundansväxlingen har slutförts. Dina program kan läsa från den sekundära regionen om ditt lagrings konto har kon figurer ATS för RA-GRS. 
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [Initiera en konto redundansväxling (för hands version)](storage-initiate-account-failover.md)
 * [Utforma högtillgängliga program med hjälp av RA GRS](storage-designing-ha-apps-with-ragrs.md)

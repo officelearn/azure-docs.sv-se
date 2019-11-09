@@ -1,23 +1,24 @@
 ---
 title: Felsöka problem med inloggning för Azure-prenumeration
 description: Hjälper till att lösa de problem som gör att du inte kan logga in på Azure-portalen eller Azure-kontocentret.
+services: azure
 author: v-miegge
-manager: na
+manager: dcscontentpm
 editor: na
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2019
 ms.author: v-miegge
-ms.openlocfilehash: ca641813e8b01a39d31a56e3730424b0fa1d6436
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: e2cbaa5cf226eaf9835c1a63d21fae54c7093117
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "69657052"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795421"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Felsöka problem med inloggning för Azure-prenumeration
 
@@ -56,9 +57,9 @@ Så här åtgärdar du problemet:
 
 **Scenario 2:** Felmeddelande visas i [Azure-kontocentret](https://account.windowsazure.com/Subscriptions)
 
-Kontrollera om det konto som du använde är kontoadministratören. Följ dessa steg för att kontrollera vem som är kontoadministratör:
+Kontrollera om det konto som du använde är kontoadministratören. Så här kontrollerar du vem som är kontoadministratör:
 
-1. Logga in på [prenumerationsvyn i Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Logga in i [vyn Prenumerationer i Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
 2. Välj den prenumeration du vill kontrollera och gå till **Inställningar**.
 

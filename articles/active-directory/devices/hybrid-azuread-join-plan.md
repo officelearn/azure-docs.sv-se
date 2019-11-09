@@ -1,6 +1,6 @@
 ---
 title: Planera hybrid Azure Active Directory Join-implementering i Azure Active Directory (Azure AD) | Microsoft Docs
-description: Lär dig att konfigurera anslutna Azure Active Directory-hybridenheter.
+description: Lär dig att konfigurera Hybrid Azure Active Directory-anslutningsenheter.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66e583a75f7103a7cccf560d537e440ba47cae5a
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: c016ce349acdfff6145286d9fc07e08db4ed9516
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596341"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73882820"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Gör så här: planera din hybrid Azure Active Directory delta-implementering
 
@@ -30,7 +30,7 @@ När du börjar använda dina enheter med Azure Active Directory maximerar du an
 
 Om du har en lokal Active Directory (AD)-miljö och vill ansluta till dina AD-domänanslutna datorer till Azure AD kan du göra detta genom att göra en hybrid Azure AD-anslutning. Den här artikeln innehåller relaterade steg för att implementera en hybrid Azure AD-anslutning i din miljö. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här artikeln förutsätter att du är bekant med [introduktionen till enhets identitets hantering i Azure Active Directory](../device-management-introduction.md).
 
@@ -75,7 +75,7 @@ Som första planerings steg bör du granska din miljö och avgöra om du behöve
 
 Hybrid Azure AD Join stöds inte för närvarande om din miljö består av en enda AD-skog som synkroniserar identitets data till mer än en Azure AD-klient.
 
-Om din miljö använder VDI (Virtual Desktop Infrastructure), se [enhets identitet och skriv bords virtualisering](https://docs.microsoft.com/en-us/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
+Om din miljö använder VDI (Virtual Desktop Infrastructure), se [enhets identitet och skriv bords virtualisering](https://docs.microsoft.com/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
 
 Hybrid Azure AD-anslutning stöds för FIPS-kompatibla TPM 2,0 och stöds inte för TPM 1,2. Om dina enheter har FIPS-kompatibel TPM 1,2 måste du inaktivera dem innan du fortsätter med hybrid Azure AD-anslutning. Microsoft tillhandahåller inga verktyg för att inaktivera FIPS-läge för TPM eftersom det är beroende av TPM-tillverkaren. Kontakta maskin varans OEM om du vill ha hjälp. Från och med WIndows 10 1903-versionen används inte TPM 1,2 för Hybrid Azure AD-anslutning och enheter med de här TPM: erna kommer att anses som om de inte har någon TPM.
 
@@ -124,7 +124,7 @@ En federerad miljö bör ha en identitetsprovider som uppfyller följande krav. 
   `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> Både **ADFS/tjänster/Trust/2005/windowstransport** eller **adfs/services/trust/13/windowstransport** ska aktive ras som enbart intranät riktade slut punkter och får inte visas som extra näts slut punkter via webbprogramproxy. Läs mer om hur du inaktiverar Windows-slutpunkter för WS-Trust i [inaktivera WS-Trust Windows-slutpunkter på proxyn](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Du kan se vilka slutpunkter som är aktiverade via AD FS-hanteringskonsolen under **Tjänst** > **Slutpunkter**.
+> Både **ADFS/tjänster/Trust/2005/windowstransport** eller **adfs/services/trust/13/windowstransport** ska aktive ras som enbart intranät riktade slut punkter och får inte visas som extra näts slut punkter via webbprogramproxy. Läs mer om hur du inaktiverar Windows-slutpunkter för WS-Trust i [inaktivera WS-Trust Windows-slutpunkter på proxyn](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Du kan se vilka slutpunkter som är aktiverade via AD FS-hanteringskonsolen under **Tjänst** > **Slutpunkter**.
 
 > [!NOTE]
 > Azure AD har inte stöd för smartkort eller certifikat i hanterade domäner.

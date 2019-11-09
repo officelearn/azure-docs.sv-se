@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75f0669a474c24647e71eae8b5e0e0830b7c0bef
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: b46ac34db21576c7e2de2271a468e3e782ff6aa9
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533095"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885357"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-cloudguard-dome9-arc"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med Check Point CloudGuard Dome9 båge
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar Check Point CloudGu
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att komma igång behöver du följande objekt:
 
@@ -87,18 +87,18 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I textrutan **Identifierare** skriver du in en URL: `https://secure.dome9.com/`
 
-    b. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://secure.dome9.com/sso/saml/<yourcompanyname>`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://secure.dome9.com/sso/saml/<yourcompanyname>`
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://secure.dome9.com/sso/saml/<yourcompanyname>`
+    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://secure.dome9.com/sso/saml/<yourcompanyname>`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska svars-URL:en och inloggnings-URL:en. Du får `<company name>`-värdet från avsnittet **Konfigurera Check Point CloudGuard Dome9 Arc SSO** , som beskrivs senare i självstudien. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska svars-URL:en och inloggnings-URL:en. Du får `<company name>`-värdet från avsnittet **Konfigurera Check Point CloudGuard Dome9 Arc SSO** , som beskrivs senare i självstudien. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. Check Point CloudGuard Dome9 Arc-appen förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar till dina SAML token-konfiguration av attribut. I följande skärmbild visas listan över standardattribut.
 
-    ![mallar](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 1. Utöver ovan förväntar sig CloudGuard Dome9 ARC-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem efter behov.
     
@@ -107,7 +107,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     | memberof | user.assignedroles |
 
     >[!NOTE]
-    >Klicka [här](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/apptio-tutorial) om du vill veta hur du skapar roller i Azure AD.
+    >Klicka [här](https://docs.microsoft.com/azure/active-directory/saas-apps/apptio-tutorial) om du vill veta hur du skapar roller i Azure AD.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
@@ -179,7 +179,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     d. Öppna ditt Base64-kodade certifikat i Anteckningar, kopiera innehållet till Urklipp och klistra sedan in det i textrutan **X.509 certificate** (X.509-certifikat).
 
-    e. Klicka på **Save** (Spara).
+    e. Klicka på **Spara**.
 
 ### <a name="create-check-point-cloudguard-dome9-arc-test-user"></a>Skapa Check Point CloudGuard Dome9 Arc test User
 
@@ -218,7 +218,7 @@ Om du vill att Azure AD-användare ska kunna logga in till Check Point CloudGuar
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på ikonen för kontroll punktens CloudGuard Dome9 båge på åtkomst panelen, bör du loggas in automatiskt på den Check Point CloudGuard Dome9-båge som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på ikonen för kontroll punktens CloudGuard Dome9 båge på åtkomst panelen, bör du loggas in automatiskt på den Check Point CloudGuard Dome9-båge som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

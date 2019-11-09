@@ -1,7 +1,7 @@
 ---
 title: Instrument panel – Language Understanding-LUIS
 titleSuffix: Azure Cognitive Services
-description: Åtgärda avsikter med analys instrument panelen, ett visuellt rapporterings verktyg.
+description: Åtgärda avsikter och entiteter med din tränade Apps instrument panel. På instrument panelen visas övergripande AppData med högdagrar av avsikter som bör åtgärdas.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 11/08/2019
 ms.author: diberry
-ms.openlocfilehash: 22e187bba3782e485685354c203a6273d5bcc618
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: d9ae126753f55349f9bf3eefd20bc4d222866af1
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735057"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888206"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Hur du använder instrument panelen för att förbättra din app
 
@@ -100,7 +100,7 @@ Lägg inte till yttranden i ingen avsikt om den inte föreslås på instrument p
 
 > [!Tip]
 > Använd det tredje avsnittet på sidan, **yttranden per avsikt** med inställningen **yttranden (tal)** som en snabb visuell guide över vilka avsikter som behöver fler yttranden.  
-    ![Använd "yttranden (Number)" för att hitta avsikter med data obalans.](./media/luis-how-to-use-dashboard/predictions-per-intent-number-of-utterances.png)
+    ![använder "yttranden (Number)" för att hitta avsikter med data obalans.](./media/luis-how-to-use-dashboard/predictions-per-intent-number-of-utterances.png)
 
 ### <a name="review-incorrect-predictions"></a>Granska felaktiga förutsägelser
 
@@ -157,7 +157,7 @@ Med filtret kan du hitta avsikter med ett speciellt problem:
 |Filter|Föreslagen procent|Syfte|
 |--|--|--|
 |De flesta problematiska avsikter|-|**Börja här** – åtgärda yttranden i det här syftet är att förbättra appen mer än andra korrigeringar.|
-|Korrigera förutsägelser nedan|60%|Detta är den procentuella andelen yttranden i vald avsikt som är korrekt men har en förtroende poäng under tröskelvärdet. |
+|Korrigera förutsägelser nedan|60 %|Detta är den procentuella andelen yttranden i vald avsikt som är korrekt men har en förtroende poäng under tröskelvärdet. |
 |Ta bort förutsägelser ovan|15 %|Detta är procent andelen yttranden i den valda avsikten som förväxlas med närmaste rival-avsikt.|
 |Felaktigt förutsägelser över|15 %|Detta är den procentuella andelen yttranden i den valda avsikten som är felaktigt förväntad. |
 

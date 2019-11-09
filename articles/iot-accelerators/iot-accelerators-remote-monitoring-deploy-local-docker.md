@@ -1,6 +1,6 @@
 ---
-title: Distribuera lösningen för fjärrövervakning lokalt - Docker – Azure | Microsoft Docs
-description: Den här guiden visar hur du distribuerar den lösningsacceleratorn för fjärrövervakningen till den lokala datorn med Docker för utveckling och testning.
+title: Distribuera fjärr styrnings lösningen lokalt – Docker – Azure | Microsoft Docs
+description: Den här instruktions guiden visar hur du distribuerar lösnings acceleratorn för fjärrövervakning till din lokala dator med Docker för testning och utveckling.
 author: avneet723
 manager: hegate
 ms.author: avneets
@@ -8,74 +8,74 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: db934725fe91a142c43ba66701919e9d5a70a4b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 32b47d9d6d45ff471961f55f8159dbe85eae2dce
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967536"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888825"
 ---
-# <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Distribuera lösningsacceleratorn för fjärrövervakning lokalt - Docker
+# <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Distribuera lösnings acceleratorn för fjärrövervakning lokalt
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-Den här artikeln visar hur du distribuerar lösningsacceleratorn för fjärrövervakning till din lokala dator för utveckling och testning. Du lär dig hur du distribuerar mikrotjänsterna till lokala Docker-behållare. En lokal mikrotjänster distribution använder följande molntjänster: IoT Hub, Cosmos DB, Azure Streaming Analytics och Azure Time Series Insights-tjänster i molnet.
+Den här artikeln visar hur du distribuerar lösnings acceleratorn för fjärrövervakning till din lokala dator för testning och utveckling. Du lär dig hur du distribuerar mikrotjänster till lokala Docker-behållare. En lokal distribution av mikrotjänster använder följande moln tjänster: IoT Hub, Cosmos DB, Azure streaming Analytics och Azure Time Series Insights tjänster i molnet.
 
-Om du vill köra lösningsacceleratorn för fjärrövervakning i IDE på din lokala dator, se [och distribuera lösningsacceleratorn för fjärrövervakning lokalt – Visual Studio](iot-accelerators-remote-monitoring-deploy-local.md).
+Om du vill köra lösnings acceleratorn för fjärrövervakning i en IDE på din lokala dator läser [du distribuera lösnings acceleratorn för fjärrövervakning lokalt – Visual Studio](iot-accelerators-remote-monitoring-deploy-local.md).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att distribuera Azure-tjänsterna används av lösningsacceleratorn för fjärrövervakning, behöver du en aktiv Azure-prenumeration.
+Om du vill distribuera de Azure-tjänster som används av lösningen för fjärrövervakning, behöver du en aktiv Azure-prenumeration.
 
 Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-### <a name="machine-setup"></a>Dator-installationen
+### <a name="machine-setup"></a>Dator konfiguration
 
-För att slutföra lokal distribution, behöver du följande verktygen som installeras på din lokala utvecklingsdator:
+För att slutföra den lokala distributionen behöver du följande verktyg installerade på den lokala utvecklings datorn:
 
 * [Git](https://git-scm.com/)
 * [Docker](https://www.docker.com)
-* [Visual Studio](https://visualstudio.microsoft.com/) – om du planerar att göra ändringar i mikrotjänster.
-* [Node.js v8](https://nodejs.org/) -programvaran är en förutsättning för PCS CLI som skript som använder för att skapa Azure-resurser. Använd inte Node.js v10.
+* [Visual Studio](https://visualstudio.microsoft.com/) – om du planerar att göra ändringar i mikrotjänsterna.
+* [Node. js-V8](https://nodejs.org/) – den här program varan är nödvändig för de PC-CLI som skripten använder för att skapa Azure-resurser. Använd inte Node. js-v10.
 
 > [!NOTE]
-> Dessa verktyg är tillgängliga på flera olika plattformar, inklusive Windows, Linux och iOS.
+> Dessa verktyg är tillgängliga på många plattformar, inklusive Windows, Linux och iOS.
 
 [!INCLUDE [iot-accelerators-local-setup](../../includes/iot-accelerators-local-setup.md)]
 
 ## <a name="run-the-microservices-in-docker"></a>Kör mikrotjänster i Docker
 
-Öppna en ny kommandotolk att ha åtkomst till miljövariabler som anges av den **start.cmd** skript. På Windows, kan du verifiera miljövariablerna anges genom att köra följande kommando:
+Öppna en ny kommando tolk för att se till att ha åtkomst till de miljövariabler som anges av skriptet **Start. cmd** . I Windows kan du kontrol lera att miljövariablerna är inställda genom att köra följande kommando:
 
 ```cmd
 set PCS
 ```
 
-Kommandot visar de miljövariabler som anges av den **start.cmd** skript.
+Kommandot visar alla miljövariabler som anges av skriptet **Start. cmd** .
 
 Se till att Docker körs på den lokala datorn.
 > [!NOTE]
-> Docker måste köras [Linux-behållare](https://docs.docker.com/docker-for-windows/) om den körs på Windows.
+> Docker måste köra [Linux-behållare](https://docs.docker.com/docker-for-windows/) om den körs i Windows.
 
-Mikrotjänster som körs i lokala Docker-behållare behöver åtkomst till Azure-molntjänster. Du kan testa internet-anslutning av din Docker-miljö med följande kommando för att pinga en internet-adress i en behållare:
+Mikrotjänster som körs i de lokala Docker-behållare måste ha åtkomst till Azure Cloud Services. Du kan testa din Docker-Miljös Internet anslutning genom att använda följande kommando för att pinga en Internet adress inifrån en behållare:
 
 ```cmd/sh
 docker run --rm -ti library/alpine ping google.com
 ```
 
-Om du vill köra solution accelerator, navigera till den **services\\skript\\lokala** mapp i din kommandoradsmiljö och kör sedan följande kommando:
+Om du vill köra Solution Accelerator går du till **tjänsterna\\skript\\lokal** mapp i din kommando rads miljö och kör följande kommando:
 
 ```cmd/sh
 docker-compose up
 ```
 
 > [!NOTE] 
-> Se till att du [dela en lokal enhet](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/issues/115) med Docker innan du kör `docker-compose up`.
+> Se till att du [delar en lokal enhet](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/issues/115) med Docker innan du kör `docker-compose up`.
 
-Första gången du kör det här kommandot hämtar Docker mikrotjänst-avbildningar från Docker hub att skapa behållare lokalt. På följande körningar kör Docker behållarna omedelbart.
+Första gången du kör det här kommandot hämtar Dockaren mikroservice-avbildningarna från Docker Hub för att skapa behållare lokalt. Vid följande körningar kör Docker dock behållare omedelbart.
 
 > [!TIP]
-> Microsoft publicerar ofta nya Docker-avbildningar med nya funktioner. Du kan använda följande uppsättning kommandon för att rensa dina lokala Docker-behållare och motsvarande bilder innan du hämtar de senaste:
+> Microsoft publicerar ofta nya Docker-avbildningar med nya funktioner. Du kan använda följande uppsättning kommandon för att rensa dina lokala Docker-behållare och motsvarande avbildningar innan du hämtar de senaste versionerna:
 
 ```cmd/sh
 docker list
@@ -83,27 +83,27 @@ docker rm <list_of_containers>
 docker rmi <list_of_images>
 ```
 
-Du kan använda ett separat gränssnitt för att visa loggar från behållaren. Hitta först ID behållaren med den `docker ps` kommando. Använd sedan `docker logs {container-id} --tail 1000` att visa de senaste 1 000 posterna för den angivna behållaren.
+Du kan använda ett separat gränssnitt för att visa loggarna från behållaren. Först ska du hitta container-ID: t med kommandot `docker ps`. Använd sedan `docker logs {container-id} --tail 1000` för att visa de senaste 1000 posterna för den angivna behållaren.
 
-### <a name="start-the-stream-analytics-job"></a>Starta Stream Analytics-jobbet
+### <a name="start-the-stream-analytics-job"></a>Starta Stream Analytics jobbet
 
-Följ stegen nedan för att starta Stream Analytics-jobbet:
+Följ de här stegen för att starta Stream Analytics jobbet:
 
 1. Navigera till [Azure-portalen](https://portal.azure.com).
-1. Navigera till den **resursgrupp** skapats för din lösning. Namnet på resursgruppen är det namn du valde för din lösning när du körde den **start.cmd** skript.
-1. Klicka på den **Stream Analytics-jobbet** i listan över resurser.
-1. På Stream Analytics-jobbet **översikt** klickar du på den **starta** knappen. Klicka sedan på **starta** att starta jobbet nu.
+1. Navigera till **resurs gruppen** som har skapats för din lösning. Namnet på resurs gruppen är det namn som du valde för lösningen när du körde skriptet **Start. cmd** .
+1. Klicka på **Stream Analytics jobb** i listan över resurser.
+1. På sidan Stream Analytics jobb **Översikt** klickar du på knappen **Starta** . Klicka sedan på **Starta** för att starta jobbet nu.
 
-### <a name="connect-to-the-dashboard"></a>Ansluta till instrumentpanelen
+### <a name="connect-to-the-dashboard"></a>Ansluta till instrument panelen
 
-För att komma åt instrumentpanelen för fjärrövervakning lösningen går du till `http://localhost:8080` i din webbläsare. Du kan nu använda Webbgränssnittet och lokala mikrotjänster.
+Öppna instrument panelen för fjärrövervakning genom att gå till `http://localhost:8080` i webbläsaren. Nu kan du använda webb gränssnittet och de lokala mikrotjänsterna.
 
 ## <a name="clean-up"></a>Rensa
 
-Ta bort molntjänsterna från din Azure-prenumeration för att undvika onödiga avgifter när du är klar med testet. Om du vill ta bort tjänsterna, navigera till den [Azure-portalen](https://ms.portal.azure.com) och ta bort resursen som den **start.cmd** skriptet som du skapade.
+För att undvika onödiga kostnader när du har utfört testet tar du bort moln tjänsterna från din Azure-prenumeration. Om du vill ta bort tjänsterna navigerar du till [Azure Portal](https://ms.portal.azure.com) och tar bort resurs gruppen som skriptet **starta. cmd** skapade.
 
-Använd den `docker-compose down --rmi all` kommando för att ta bort Docker-avbildningar och frigör utrymme på den lokala datorn. Du kan också ta bort den lokala kopian av databasen fjärrövervakning skapas när du har klonat källkoden från GitHub.
+Använd kommandot `docker-compose down --rmi all` för att ta bort Docker-avbildningarna och frigöra utrymme på den lokala datorn. Du kan också ta bort den lokala kopian av lagrings platsen för fjärrövervakning som skapats när du klonade käll koden från GitHub.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har distribuerat av lösningen för fjärrövervakning, nästa steg är att [utforska funktionerna i lösningens instrumentpanel](quickstart-remote-monitoring-deploy.md).
+Nu när du har distribuerat lösningen för fjärrövervakning är nästa steg att [utforska funktionerna i lösningens instrument panel](quickstart-remote-monitoring-deploy.md).

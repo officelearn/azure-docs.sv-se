@@ -1,6 +1,6 @@
 ---
-title: Distribuera lösningen för fjärrövervakning lokalt (via Visual i Studio IDE) – Azure | Microsoft Docs
-description: Den här guiden visar hur du distribuerar den lösningsacceleratorn för fjärrövervakningen till den lokala datorn med hjälp av Visual Studio för utveckling och testning.
+title: Distribuera fjärr styrnings lösningen lokalt – VS IDE-Azure | Microsoft Docs
+description: Den här instruktions guiden visar hur du distribuerar lösnings acceleratorn för fjärrövervakning till din lokala dator med Visual Studio för testning och utveckling.
 author: avneet723
 manager: hegate
 ms.author: avneets
@@ -8,36 +8,36 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1adf59feca7db4c5903b04c59e1bd23290c1855e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a1eba1fceb959bd475d205176c2c53f6409fdc77
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967502"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890894"
 ---
-# <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Distribuera lösningsacceleratorn för fjärrövervakning lokalt – Visual Studio
+# <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Distribuera lösnings acceleratorn för fjärrövervakning lokalt – Visual Studio
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-Den här artikeln visar hur du distribuerar lösningsacceleratorn för fjärrövervakning till din lokala dator för utveckling och testning. Du lär dig hur du kör mikrotjänster i Visual Studio. En lokal mikrotjänster distribution använder följande molntjänster: IoT Hub, Cosmos DB, Azure Streaming Analytics och Azure Time Series Insights-tjänster i molnet.
+Den här artikeln visar hur du distribuerar lösnings acceleratorn för fjärrövervakning till din lokala dator för testning och utveckling. Du lär dig hur du kör mikrotjänster i Visual Studio. En lokal distribution av mikrotjänster använder följande moln tjänster: IoT Hub, Cosmos DB, Azure streaming Analytics och Azure Time Series Insights tjänster i molnet.
 
-Om du vill köra lösningsacceleratorn för fjärrövervakning i Docker på din lokala dator, se [och distribuera lösningsacceleratorn för fjärrövervakning lokalt - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md).
+Om du vill köra lösnings acceleratorn för fjärrövervakning i Docker på den lokala datorn läser [du distribuera lösnings Accelerator för fjärrövervakning lokalt Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att distribuera Azure-tjänsterna används av lösningsacceleratorn för fjärrövervakning, behöver du en aktiv Azure-prenumeration.
+Om du vill distribuera de Azure-tjänster som används av lösningen för fjärrövervakning, behöver du en aktiv Azure-prenumeration.
 
 Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-### <a name="machine-setup"></a>Dator-installationen
+### <a name="machine-setup"></a>Dator konfiguration
 
-För att slutföra lokal distribution, behöver du följande verktygen som installeras på din lokala utvecklingsdator:
+För att slutföra den lokala distributionen behöver du följande verktyg installerade på den lokala utvecklings datorn:
 
 * [Git](https://git-scm.com/)
 * [Docker](https://www.docker.com)
 * [Visual Studio](https://visualstudio.microsoft.com/)
 * [Nginx](https://nginx.org/en/download.html)
-* [Node.js v8](https://nodejs.org/) -programvaran är en förutsättning för PCS CLI som skript som använder för att skapa Azure-resurser. Använd inte Node.js v10.
+* [Node. js-V8](https://nodejs.org/) – den här program varan är nödvändig för de PC-CLI som skripten använder för att skapa Azure-resurser. Använd inte Node. js-v10.
 
 > [!NOTE]
 > Visual Studio är tillgängligt för Windows och Mac.
@@ -46,77 +46,77 @@ För att slutföra lokal distribution, behöver du följande verktygen som insta
 
 ## <a name="run-the-microservices"></a>Kör mikrotjänster
 
-I det här avsnittet ska köra du mikrotjänster för fjärrövervakning. Du kör webbgränssnittet internt, tjänsten Enhetssimulering i Docker och mikrotjänster i Visual Studio.
+I det här avsnittet ska du köra mikrotjänster för fjärr övervakning. Du kör webb gränssnittet internt, enhets simulerings tjänsten i Docker och mikrotjänsterna i Visual Studio.
 
-### <a name="run-the-device-simulation-service"></a>Köra tjänsten enheten simulering
+### <a name="run-the-device-simulation-service"></a>Kör enhets simulerings tjänsten
 
-Öppna ett nytt kommandofönster för att se till att du har åtkomst till miljövariabler som anges av den **start.cmd** skriptet i föregående avsnitt.
+Öppna ett nytt kommando tolks fönster för att se till att du har åtkomst till de miljövariabler som anges av skriptet **Start. cmd** i föregående avsnitt.
 
-Kör följande kommando för att starta Docker-behållare för device simulering-tjänsten. Tjänsten simulerar enheter för lösningen för fjärrövervakning.
+Kör följande kommando för att starta Docker-behållaren för enhets simulerings tjänsten. Tjänsten simulerar enheter för fjärr styrnings lösningen.
 
 ```cmd
 <path_to_cloned_repository>\services\device-simulation\scripts\docker\run.cmd
 ```
 
-### <a name="deploy-all-other-microservices-on-local-machine"></a>Distribuera alla mikrotjänster på den lokala datorn
+### <a name="deploy-all-other-microservices-on-local-machine"></a>Distribuera alla andra mikrotjänster på den lokala datorn
 
-Följande steg visar hur du kör fjärrövervakning-mikrotjänster i Visual Studio:
+Följande steg visar hur du kör mikrotjänster för fjärr styrning i Visual Studio:
 
 1. Starta Visual Studio.
-1. Öppna den **remote monitoring.sln** lösning i den **services** mapp i den lokala kopian av databasen.
-1. I **Solution Explorer**, högerklicka på lösningen och klicka på **egenskaper**.
-1. Välj **gemensamma egenskaper > Startprojekt**.
-1. Välj **flera Startprojekt** och ange **åtgärd** till **starta** för följande projekt:
-    * Webbtjänsten (asa-manager\WebService)
-    * Webbtjänsten (auth\WebService)
-    * Webbtjänsten (config\WebService)
-    * Webbtjänsten (enheten telemetry\WebService)
-    * Webbtjänsten (iothub-manager\WebService)
-    * Webbtjänsten (lagring-adapter\WebService)
-1. Klicka på **OK** att spara dina val.
-1. Klicka på **Felsök > Starta felsökning** att skapa och köra webbtjänsterna på den lokala datorn.
+1. Öppna lösningen **Remote-Monitoring. SLN** i mappen **tjänster** i din lokala kopia av lagrings platsen.
+1. I **Solution Explorer**högerklickar du på lösningen och klickar på **Egenskaper**.
+1. Välj **gemensamma egenskaper > start projekt**.
+1. Välj **flera start projekt** och ange **åtgärd** att **Starta** för följande projekt:
+    * Webbtjänst (asa-manager\WebService)
+    * Webbtjänst (auth\WebService)
+    * Webbtjänst (config\WebService)
+    * Webbtjänst (device-telemetry\WebService)
+    * Webbtjänst (iothub-manager\WebService)
+    * Webbtjänst (storage-adapter\WebService)
+1. Spara dina val genom att klicka på **OK** .
+1. Klicka på **felsök > starta fel sökning** för att skapa och köra webb tjänsterna på den lokala datorn.
 
-Varje webbtjänst öppnas en kommandotolk och web webbläsarfönster. Du ser utdata från tjänsten som körs vid kommandotolken och webbläsarfönstret kan du övervaka status. Stäng inte kommandotolkar eller webbsidor, den här åtgärden stoppar webbtjänsten.
+Varje webb tjänst öppnar en kommando tolk och ett webbläsarfönster. I kommando tolken visas utdata från den aktiva tjänsten och webbläsarfönstret gör att du kan övervaka statusen. Stäng inte kommando tolken eller webb sidor. den här åtgärden stoppar webb tjänsten.
 
-### <a name="start-the-stream-analytics-job"></a>Starta Stream Analytics-jobbet
+### <a name="start-the-stream-analytics-job"></a>Starta Stream Analytics jobbet
 
-Följ stegen nedan för att starta Stream Analytics-jobbet:
+Följ de här stegen för att starta Stream Analytics jobbet:
 
 1. Navigera till [Azure-portalen](https://portal.azure.com).
-1. Navigera till den **resursgrupp** skapats för din lösning. Namnet på resursgruppen är det namn du valde för din lösning när du körde den **start.cmd** skript.
-1. Klicka på den **Stream Analytics-jobbet** i listan över resurser.
-1. På Stream Analytics-jobbet **översikt** klickar du på den **starta** knappen. Klicka sedan på **starta** att starta jobbet nu.
+1. Navigera till **resurs gruppen** som har skapats för din lösning. Namnet på resurs gruppen är det namn som du valde för lösningen när du körde skriptet **Start. cmd** .
+1. Klicka på **Stream Analytics jobb** i listan över resurser.
+1. På sidan Stream Analytics jobb **Översikt** klickar du på knappen **Starta** . Klicka sedan på **Starta** för att starta jobbet nu.
 
-### <a name="run-the-web-ui"></a>Kör webbgränssnittet
+### <a name="run-the-web-ui"></a>Kör webb gränssnittet
 
-I det här steget ska starta du webbgränssnittet. Öppna ett nytt kommandofönster för att se till att du har åtkomst till miljövariabler som anges av den **start.cmd** skript. Navigera till den **webbgränssnittet** mappen i din lokala kopia av databasen och kör följande kommandon:
+I det här steget startar du webb gränssnittet. Öppna ett nytt kommando tolks fönster för att se till att du har åtkomst till de miljövariabler som anges av skriptet **Start. cmd** . Navigera till mappen **webui** i din lokala kopia av lagrings platsen och kör följande kommandon:
 
 ```cmd
 npm install
 npm start
 ```
 
-När början är klar visas sidan i webbläsaren **http:\//localhost:3000 / instrumentpanel**. Fel på den här sidan förväntas. Följ anvisningarna nedan om du vill visa programmet utan fel.
+När starten är klar visar webbläsaren sidan **http:\//localhost: 3000/instrument panel**. Felen på den här sidan förväntas. Om du vill visa programmet utan fel slutför du följande steg.
 
-### <a name="configure-and-run-nginx"></a>Konfigurera och köra NGINX
+### <a name="configure-and-run-nginx"></a>Konfigurera och kör NGINX
 
-Ställa in en omvänd proxy-server för att länka webbprogram och mikrotjänster som körs på den lokala datorn:
+Konfigurera en omvänd proxyserver för att länka webb programmet och mikrotjänster som körs på den lokala datorn:
 
-* Kopiera den **nginx.conf** fil från den **webui\scripts\localhost** mapp i din lokala kopia av lagringsplatsen till den **nginx\conf** installationskatalog.
+* Kopiera filen **nginx. conf** från mappen **webui\scripts\localhost** i din lokala kopia av lagrings platsen till **nginx\conf** installations katalog.
 * Kör **nginx**.
 
-Mer information om att köra **nginx**, se [nginx för Windows](https://nginx.org/en/docs/windows.html).
+Mer information om hur du kör **nginx**finns i [nginx för Windows](https://nginx.org/en/docs/windows.html).
 
-### <a name="connect-to-the-dashboard"></a>Ansluta till instrumentpanelen
+### <a name="connect-to-the-dashboard"></a>Ansluta till instrument panelen
 
-Om du vill komma åt instrumentpanelen för fjärrövervakning lösningen måste gå till http:\//localhost:9000 i webbläsaren.
+Öppna instrument panelen för fjärrövervakning genom att gå till http:\//localhost: 9000 i webbläsaren.
 
 ## <a name="clean-up"></a>Rensa
 
-Ta bort molntjänsterna från din Azure-prenumeration för att undvika onödiga avgifter när du är klar med testet. Om du vill ta bort tjänsterna, navigera till den [Azure-portalen](https://ms.portal.azure.com) och ta bort resursen som den **start.cmd** skriptet som du skapade.
+För att undvika onödiga kostnader när du har utfört testet tar du bort moln tjänsterna från din Azure-prenumeration. Om du vill ta bort tjänsterna navigerar du till [Azure Portal](https://ms.portal.azure.com) och tar bort resurs gruppen som skriptet **starta. cmd** skapade.
 
-Du kan också ta bort den lokala kopian av databasen fjärrövervakning skapas när du har klonat källkoden från GitHub.
+Du kan också ta bort den lokala kopian av lagrings platsen för fjärrövervakning som skapats när du klonade käll koden från GitHub.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har distribuerat av lösningen för fjärrövervakning, nästa steg är att [utforska funktionerna i lösningens instrumentpanel](quickstart-remote-monitoring-deploy.md).
+Nu när du har distribuerat lösningen för fjärrövervakning är nästa steg att [utforska funktionerna i lösningens instrument panel](quickstart-remote-monitoring-deploy.md).

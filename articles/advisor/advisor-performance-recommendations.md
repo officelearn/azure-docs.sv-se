@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: c8647e316cc77e7e1eed5108fafccd6d70d181cf
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 1fec8a10a6699dc1360494cc7ac66e13f5d37ff0
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898185"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885740"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Förbättra prestanda för Azure-program med Azure Advisor
 
@@ -73,7 +73,7 @@ Advisor identifierar tabeller som inte är replikerade tabeller, men som drar ny
 Migrera lagrings kontots distributions modell till Azure Resource Manager (Resource Manager) för att dra nytta av mallar distributioner, ytterligare säkerhets alternativ och möjligheten att uppgradera till ett GPv2-konto för användning av Azure Storages senaste funktioner. Advisor identifierar alla fristående lagrings konton som använder den klassiska distributions modellen och rekommenderar att du migrerar till distributions modellen för Resource Manager.
 
 > [!NOTE]
-> Klassiska aviseringar i Azure Monitor har dragits tillbaka i augusti 2019. Vi rekommenderar att du uppgraderar det klassiska lagrings kontot så att du kan använda Resource Manager för att behålla aviserings funktionen med den nya plattformen. Mer information finns i [indragningen av klassiska aviseringar](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/monitoring-classic-retirement#retirement-of-classic-monitoring-and-alerting-platform).
+> Klassiska aviseringar i Azure Monitor har dragits tillbaka i augusti 2019. Vi rekommenderar att du uppgraderar det klassiska lagrings kontot så att du kan använda Resource Manager för att behålla aviserings funktionen med den nya plattformen. Mer information finns i [indragningen av klassiska aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement#retirement-of-classic-monitoring-and-alerting-platform).
 
 ## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>Utforma dina lagrings konton för att förhindra att den maximala prenumerations gränsen överskrids
 

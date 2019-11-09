@@ -41,8 +41,8 @@
 - name: Resurser
   items:
     - name: Testa Cognitive Services
-      href: 'https://azure.microsoft.com/en-us/try/cognitive-services/?api=bing-web-search-api'
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api'
     - name: Prisinformation
-      href: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/'
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/'
     - name: Efterlevnad
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

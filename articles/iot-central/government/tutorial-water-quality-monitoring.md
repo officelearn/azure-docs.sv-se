@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 94e8695e01ca5e5c456ce230c4cc84b41685fd9c
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 51c84410de39516312d2058eeda575023dbe32ab
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73026529"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890772"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-iot-central"></a>Självstudie: skapa ett program för övervakning av vatten kvalitet i IoT Central
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig att:
 > * Anpassa din program anpassning med adresser
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här självstudien behöver du:
 -  En Azure-prenumeration rekommenderas. Om du inte har någon Azure-prenumeration kan du skapa en på [sidan för Azure-registrering](https://aka.ms/createazuresubscription).
@@ -64,7 +64,7 @@ Skapa ett nytt program för övervakning av Azure IoT Central vatten kvalitet:
     * **URL** – du kan också välja att ange önskad URL. Du kan ändra URL: en senare. 
     * Om du har en Azure-prenumeration anger du din *katalog, din Azure-prenumeration och region*. Om du inte har någon prenumeration kan du aktivera den **kostnads fria utvärderings versionen på 7 dagar** och slutföra den kontakt information som krävs.  
 
-    Mer information om kataloger och prenumerationer finns i [snabbstarten om att skapa ett program](../core/quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+    Mer information om kataloger och prenumerationer finns i [snabbstarten om att skapa ett program](../preview/quick-deploy-iot-central.md).
 
 5. Klicka på knappen **skapa** längst ned på sidan. 
 

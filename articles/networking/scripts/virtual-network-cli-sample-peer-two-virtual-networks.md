@@ -1,13 +1,10 @@
 ---
-title: Skriptexempel för Azure CLI – Peering i två virtuella nätverk | Microsoft Docs
-description: Skriptexempel för Azure CLI – Peering i två virtuella nätverk
+title: Skript exempel för Azure CLI – peer två virtuella nätverk | Microsoft Docs
+description: Skript exempel för Azure CLI – peer två virtuella nätverk
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: timlt
-editor: tysonn
-tags: ''
-ms.assetid: ''
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: article
@@ -15,16 +12,16 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
-ms.openlocfilehash: 072d62f925d4f4024aa17d648a56dc6f37de00f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0e5aaf07b49546aca9f44dcb9a43a79127c82341
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60848477"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890246"
 ---
-# <a name="peer-two-virtual-networks"></a>Peerkoppla två virtuella nätverk
+# <a name="peer-two-virtual-networks"></a>Peer-två virtuella nätverk
 
-Det här skriptet skapar och ansluter två virtuella nätverk i samma region via Azures nätverk. När du har kört skriptet har du en peering mellan två virtuella nätverk.
+Det här skriptet skapar och ansluter två virtuella nätverk i samma region via Azure-nätverket. När du har kört skriptet har du en peering mellan två virtuella nätverk.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 

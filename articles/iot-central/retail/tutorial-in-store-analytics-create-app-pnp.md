@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 10/03/2019
-ms.openlocfilehash: a662201823808c9e2e34e9210096cb081e1b9430
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: b0d2617983a7ee1702e8871a2c6bfc5f0511656f
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615312"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890684"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Självstudie: skapa ett in-Store Analytics-program i Azure IoT Central
 
@@ -75,7 +75,7 @@ Så här skapar du ett nytt program för BA-utcheckning i butiken som använder 
 
 1. Om du har en Azure-prenumeration anger du din *katalog, din Azure-prenumeration och region*. Om du inte har någon prenumeration kan du aktivera den **kostnads fria utvärderings versionen på 7 dagar** och slutföra den kontakt information som krävs.  
 
-    Mer information om kataloger och prenumerationer finns i [snabbstarten om att skapa ett program](../core/quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+    Mer information om kataloger och prenumerationer finns i [snabbstarten om att skapa ett program](../preview/quick-deploy-iot-central.md).
 
 1. Välj **Skapa**.
 
@@ -160,7 +160,7 @@ Sedan kan du anpassa dina enhets mallar genom att lägga till moln egenskaper. M
 
 Börja med att anpassa mallar för enheter genom att skapa anpassade vyer. Vyer ger operatörer möjlighet att visualisera telemetri och metadata för dina enheter, till exempel enhets mått och hälso tillstånd.
 
-Här använder du de första två metoderna för att anpassa enhets mal len för dina RuuviTag-sensorer. Information om hur du skapar vyer för sensorer finns i snabb starten för att [lägga till en simulerad enhet i IoT Central programmet](../core/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) .
+Här använder du de första två metoderna för att anpassa enhets mal len för dina RuuviTag-sensorer. Information om hur du skapar vyer för sensorer finns i snabb starten för att [lägga till en simulerad enhet i IoT Central programmet](../preview/quick-create-pnp-device.md) .
 
 Så här anpassar du de inbyggda gränssnitten för enhets mal len RuuviTag:
 
@@ -227,8 +227,8 @@ I den här självstudien använder du följande uppsättning verkliga och simule
 
 Slutför stegen i följande två artiklar för att ansluta en riktig Rigado-gateway och RuuviTag-sensorer. När du är färdig kan du gå tillbaka till den här självstudien. Eftersom du redan har skapat enhetsspecifika mallar i den här självstudien behöver du inte skapa dem igen i följande riktnings uppsättningar.
 
-- Information om hur du ansluter en Rigado-Gateway finns i [ansluta en Rigado kaskad 500 till ditt Azure IoT Central-program](../core/howto-connect-rigado-cascade-500-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json).
-- Information om hur du ansluter RuuviTag-sensorer finns i [ansluta en RuuviTag-sensor till ditt Azure IoT Central-program](../core/howto-connect-ruuvi-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json). Du kan också använda de här anvisningarna för att skapa två simulerade sensorer, om det behövs.
+- Information om hur du ansluter en Rigado-Gateway finns i [ansluta en Rigado kaskad 500 till ditt Azure IoT Central-program](../preview/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json).
+- Information om hur du ansluter RuuviTag-sensorer finns i [ansluta en RuuviTag-sensor till ditt Azure IoT Central-program](../preview/howto-connect-ruuvi.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json). Du kan också använda de här anvisningarna för att skapa två simulerade sensorer, om det behövs.
 
 ## <a name="add-rules-and-actions"></a>Lägg till regler och åtgärder
 Som en del av att använda sensorer i ditt Azure IoT Central-program för att övervaka villkor, kan du skapa regler för att köra åtgärder när vissa villkor är uppfyllda. En regel är kopplad till en enhets mall och en eller flera enheter och innehåller villkor som måste uppfyllas utifrån enhetens telemetri eller händelser. En regel har också en eller flera associerade åtgärder. Åtgärderna kan omfatta att skicka e-postmeddelanden eller utlösa en webhook-åtgärd för att skicka data till andra tjänster. Program mal len **BA-utcheckning i butiken** innehåller några fördefinierade regler för enheterna i programmet.

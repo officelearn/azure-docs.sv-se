@@ -1,23 +1,20 @@
 ---
 title: Uppdatera enhetens inbyggda programvara via Azure IoT Hub | Microsoft Docs
-description: Implementera en uppdateringsprocess för enhetens inbyggda programvara med jobb och enhetstvillingar.
+description: Lär dig hur du implementerar en uppdatering av enhetens inbyggda program vara som kan utlösas från ett Server dels program som är anslutet till din IoT-hubb.
 services: iot-hub
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/28/2019
 ms.custom: mvc
-ms.openlocfilehash: be1b23991a8dc4d8f29e961e33ba97153d8c5355
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 0665a20bfd8253b28936044abe515862b32f1b43
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755824"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888745"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Självstudie: Implementera en uppdateringsprocess för enhetens inbyggda programvara
 
@@ -39,7 +36,7 @@ I den här självstudien slutför du följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 De två exempelprogram som du kör i den här snabbstarten skrivs med Node.js. Du behöver Node. js v10. x. x eller senare på din utvecklings dator.
 

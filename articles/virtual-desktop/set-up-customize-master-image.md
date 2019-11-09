@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: 622b4e53be68025ad9553ce604041d14885bb2b2
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 7a0cce6b72240b95943fbece08cfbf61eaee3524
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330830"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891710"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Förbereda och anpassa en VHD-huvudavbildning
 
@@ -70,7 +70,7 @@ Om dina användare behöver åtkomst till vissa LOB-program rekommenderar vi att
 
 ### <a name="set-up-user-profile-container-fslogix"></a>Konfigurera användar profil behållare (FSLogix)
 
-Om du vill inkludera FSLogix-behållaren som en del av avbildningen följer du anvisningarna i [skapa en profil behållare för en adresspool med hjälp av en fil resurs](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Du kan testa funktionerna i FSLogix-behållaren med [den här snabb](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial)starten.
+Om du vill inkludera FSLogix-behållaren som en del av avbildningen följer du anvisningarna i [skapa en profil behållare för en adresspool med hjälp av en fil resurs](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Du kan testa funktionerna i FSLogix-behållaren med [den här snabb](https://docs.microsoft.com/fslogix/configure-cloud-cache-tutorial)starten.
 
 ### <a name="configure-windows-defender"></a>Konfigurera Windows Defender
 
@@ -86,7 +86,7 @@ Mer information om hur du konfigurerar Windows Defender för att undanta vissa f
 
 Så här inaktiverar du automatiska uppdateringar via lokal grupprincip:
 
-1. Öppna **Redigerare för lokalt grupprincipobjekt @ no__t-1Administrative templates @ no__t-2Windows Components @ no__t-3Windows Update**.
+1. Öppna **redigerare för lokalt grupprincipobjekt\\Administrativa mallar\\Windows-komponenter\\Windows Update**.
 2. Högerklicka på **Konfigurera automatisk uppdatering** och Ställ in den på **inaktive rad**.
 
 Du kan också köra följande kommando i en kommando tolk för att inaktivera automatiska uppdateringar.
@@ -109,7 +109,7 @@ Fjärråtkomstprinciper kan aktive ras på grupprincip nivå eftersom alla virtu
 
 Så här konfigurerar du fjärråtkomstprinciper:
 
-1. Gå till **Administrativa mallar** > **Windows-komponenter**@no__t-**3 Fjärrskrivbordstjänster** > **värd**för fjärrskrivbordssession  > **tids gränser för session**.
+1. Gå till **Administrativa mallar** > **Windows-komponenter** > **Fjärrskrivbordstjänster** > **värd för värd** för fjärrskrivbordssession > **tids gränser**för fjärrskrivbordssession.
 2. I panelen till höger väljer du den **angivna tids gränsen för aktiva men inaktiva principer för Fjärrskrivbordstjänster sessioner** .
 3. När det modala fönstret visas ändrar du princip alternativet från **inte konfigurerad** till **aktive rad** för att aktivera principen.
 4. I den nedrullningsbara menyn under alternativet princip anger du hur lång tid som ska vara **3 timmar**.
@@ -134,7 +134,7 @@ Omdirigera tids zoner:
 1. Öppna **konsolen Grupprinciphantering**på Active Directory-servern.
 2. Expandera din domän och grupprincip objekt.
 3. Högerklicka på grupprincip- **objektet** som du skapade för grup princip inställningarna och välj **Redigera**.
-4. I **redigeraren Grupprinciphantering**navigerar du till **dator konfiguration** > **principer** > **Administrativa mallar** > **Windows-komponenter** > **Fjärrskrivbordstjänster**@no__ t-10**värd**för fjärrskrivbordssession 2**enhets-och omdirigering av resurser**.
+4. I **redigeraren Grupprinciphantering**navigerar du till **dator konfiguration** > **principer** > **Administrativa mallar** > **Windows-komponenter** > **Fjärrskrivbordstjänster** > **värd** för fjärrskrivbordssession > **enhet och omdirigering av resurser**.
 5. Aktivera inställningen **Tillåt omdirigering** av tidszon.
 
 Du kan också köra det här kommandot på huvud avbildningen för att omdirigera tids zoner:

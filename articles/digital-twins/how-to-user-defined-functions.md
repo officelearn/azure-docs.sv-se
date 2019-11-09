@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 11/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 24b7f05bc59f3eb951897f5e36030b531d8f3aa9
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 5271b14ec008579d18a152a229b9768339927bb7
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959101"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888850"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Så här skapar du användardefinierade funktioner i Azure Digitals dubbla
 
@@ -44,7 +44,7 @@ Motsvarigheter är graf-objekt som avgör vilka användardefinierade funktioner 
   - `SensorDevice`
   - `SensorSpace`
 
-Följande exempel matchning utvärderar till sant för valfri sensor för telemetri-telemetri med `"Temperature"` som värde för data typen. Du kan skapa flera motsvarigheter i en användardefinierad funktion genom att göra en autentiserad HTTP POST-begäran till:
+Följande exempel matchning utvärderar till sant för valfri sensor för telemetri-telemetri med `"Temperature"` som datatyp värde. Du kan skapa flera motsvarigheter i en användardefinierad funktion genom att göra en autentiserad HTTP POST-begäran till:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/matchers
@@ -54,20 +54,22 @@ Med JSON-brödtext:
 
 ```JSON
 {
-  "Name": "Temperature Matcher",
-  "Conditions": [
+  "id": "3626464-f39b-46c0-d9b0c-436aysj55",
+  "name": "Temperature Matcher",
+  "spaceId": "YOUR_SPACE_IDENTIFIER",
+  "conditions": [
     {
+      "id": "ag7gq35cfu3-e15a-4e9c-6437-sj6w68sy44s",
       "target": "Sensor",
       "path": "$.dataType",
       "value": "\"Temperature\"",
       "comparison": "Equals"
     }
-  ],
-  "SpaceId": "YOUR_SPACE_IDENTIFIER"
+  ]
 }
 ```
 
-| Value | Ersätt med |
+| Värde | Ersätt med |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | Den serverregion som instansen finns i |
 
@@ -107,7 +109,7 @@ function process(telemetry, executionContext) {
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Value | Ersätt med |
+| Värde | Ersätt med |
 | --- | --- |
 | USER_DEFINED_BOUNDARY | Namn på en flerdelade innehålls gränser |
 | YOUR_SPACE_IDENTIFIER | Utrymmes identifieraren  |
@@ -119,12 +121,12 @@ function process(telemetry, executionContext) {
    - Den första delen innehåller de användardefinierade metadata som krävs av användaren.
    - Den andra delen innehåller beräknings logiken för Java Script.
 
-1. I avsnittet **USER_DEFINED_BOUNDARY** ersätter du värdena **spaceId** (`YOUR_SPACE_IDENTIFIER`) och **matchers** (`YOUR_MATCHER_IDENTIFIER`).
+1. I avsnittet **USER_DEFINED_BOUNDARY** ersätter du värdena **spaceId** (`YOUR_SPACE_IDENTIFIER`) och **motsvarigheter** (`YOUR_MATCHER_IDENTIFIER`).
 1. Kontrol lera att den användardefinierade JavaScript-funktionen anges som `Content-Type: text/javascript`.
 
 ### <a name="example-functions"></a>Exempel funktioner
 
-Ange sensor telemetri för att läsa direkt för sensorn med data typen **temperatur**, som är `sensor.DataType`:
+Ange att sensor telemetri ska läsas direkt för sensorn med data typen **temperatur**, som är `sensor.DataType`:
 
 ```JavaScript
 function process(telemetry, executionContext) {
@@ -212,11 +214,11 @@ Skapa en roll tilldelning för den användardefinierade funktionen som ska köra
     YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
-    | Value | Ersätt med |
+    | Värde | Ersätt med |
     | --- | --- |
     | YOUR_SPACE_NAME | Namnet på det utrymme som du vill använda |
 
-1. Klistra in det returnerade `spacePaths`-värdet i **sökvägen** för att skapa en användardefinierad funktions roll tilldelning genom att göra en AUTENTISERAD http post-begäran till:
+1. Klistra in det returnerade `spacePaths` svärdet i **sökvägen** för att skapa en användardefinierad funktions roll tilldelning genom att göra en autentiserad HTTP POST-begäran till:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/roleassignments
@@ -232,7 +234,7 @@ Skapa en roll tilldelning för den användardefinierade funktionen som ska köra
     }
     ```
 
-    | Value | Ersätt med |
+    | Värde | Ersätt med |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | Identifieraren för den önskade rollen |
     | YOUR_USER_DEFINED_FUNCTION_ID | ID för den användardefinierade funktion som du vill använda |

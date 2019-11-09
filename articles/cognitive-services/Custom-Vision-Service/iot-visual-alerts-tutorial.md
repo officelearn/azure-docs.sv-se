@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: pafarley
-ms.openlocfilehash: b19f5a4f4f61285bc7b1a30073ea7d33d95420e0
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: d146c264ebc2d36f0842f464f4547520546fd363
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "73519438"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888280"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Självstudie: använda Custom Vision med en IoT-enhet för att rapportera visuella tillstånd
 
@@ -33,7 +33,7 @@ De här självstudierna visar hur du:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * [!INCLUDE [create-resources](includes/create-resources.md)]
     > [!IMPORTANT]

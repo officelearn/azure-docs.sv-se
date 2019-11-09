@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac1b75536e092203490a390860a1cead7ac333b7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0398ff7eb8931acc400b326ff92deaf75f0aa97e
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73817982"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73882829"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementera hash-synkronisering av lösen ord med Azure AD Connect Sync
 Den här artikeln innehåller information som du behöver för att synkronisera dina användar lösen ord från en lokal Active Directory-instans till en molnbaserad Azure Active Directory-instans (Azure AD).
@@ -32,7 +32,7 @@ För att synkronisera ditt lösen ord extraherar Azure AD Connect sync din löse
 
 Det faktiska data flödet för processen för synkronisering av lösen ords-hash liknar synkroniseringen av användar data. Lösen ord synkroniseras dock oftare än standard fönstret för katalog synkronisering för andra attribut. Processen för synkronisering av lösen ord för hash körs var 2: e minut. Du kan inte ändra frekvensen för den här processen. När du synkroniserar ett lösen ord skriver det över det befintliga moln lösen ordet.
 
-Första gången du aktiverar funktionen för hash-synkronisering av lösen ord utför den en inledande synkronisering av lösen orden för alla användare i omfånget. Du kan inte uttryckligen definiera en delmängd av användar lösen ord som du vill synkronisera. Men om det finns flera kopplingar är det möjligt att inaktivera hash-synkronisering av lösen ord för vissa anslutningar, men inte andra som använder cmdleten [set-ADSyncAADPasswordSyncConfiguration](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant) .
+Första gången du aktiverar funktionen för hash-synkronisering av lösen ord utför den en inledande synkronisering av lösen orden för alla användare i omfånget. Du kan inte uttryckligen definiera en delmängd av användar lösen ord som du vill synkronisera. Men om det finns flera kopplingar är det möjligt att inaktivera hash-synkronisering av lösen ord för vissa anslutningar, men inte andra som använder cmdleten [set-ADSyncAADPasswordSyncConfiguration](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant) .
 
 När du ändrar ett lokalt lösen ord, synkroniseras det uppdaterade lösen ordet, oftast på bara några minuter.
 Funktionen för synkronisering av lösen ord för hash-meddelanden misslyckade försök att synkronisera automatiskt. Om ett fel inträffar under ett försök att synkronisera ett lösen ord loggas ett fel i logg boken.

@@ -27,45 +27,45 @@
     - name: Ansluta enheter
       items:
         - name: Förbereda och ansluta MXChip IoT DevKit
-          href: ../core/howto-connect-devkit-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
+          href: ../preview/howto-connect-devkit.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Förbereda och ansluta en Rigado Cascade 500
-          href: ../core/howto-connect-rigado-cascade-500-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
+          href: ../preview/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Övervaka enhetsanslutningar med Azure CLI
-          href: ../core/howto-monitor-devices-azure-cli-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
+          href: ../preview/howto-monitor-devices-azure-cli.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
     - name: Hantera enheter
       items:
         - name: Hantera dina enheter
-          href: ../core/howto-manage-devices-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
+          href: ../preview/howto-manage-devices.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Köra ett jobb
           href: ../core/howto-run-a-job.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Version av enhetsmall
-          href: ../core/howto-version-device-template-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
+          href: ../preview/howto-version-device-template.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
     - name: Övervakning och analys
       items:
         - name: Analysera dina enhetsdata
-          href: ../core/howto-create-analytics-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
+          href: ../preview/howto-create-analytics.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Skapa webhooks med regler
-          href: ../core/howto-create-webhooks-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
+          href: ../preview/howto-create-webhooks.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
     - name: Åtgärder och utökningsbarhet
       items:
         - name: Konfigurera kontinuerlig dataexport
-          href: ../core/howto-export-data-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
+          href: ../preview/howto-export-data.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Skapa anpassade roller
-          href: ../core/howto-create-custom-rules-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
+          href: ../preview/howto-create-custom-rules.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Skapa anpassad analys med Databricks
-          href: ../core/howto-create-custom-analytics-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
+          href: ../preview/howto-create-custom-analytics.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
     - name: Administration
       items:
         - name: Ändra tillämpningsinställningar
-          href: ../core/howto-administer-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
+          href: ../preview/howto-administer.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Exportera ditt program
-          href: ../core/howto-use-app-templates-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
+          href: ../preview/howto-use-app-templates.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Hantera användare och roller
-          href: ../core/howto-manage-users-roles-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
+          href: ../preview/howto-manage-users-roles.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Hantera din faktura
-          href: ../core/howto-view-bill-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
+          href: ../preview/howto-view-bill.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Anpassa användargränssnitt i program
-          href: ../core/howto-customize-ui-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
+          href: ../preview/howto-customize-ui.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Lägga till paneler på din instrumentpanel
           href: ../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Hantera från Azure-portalen

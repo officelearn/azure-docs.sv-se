@@ -6,14 +6,14 @@ author: bandersmsft
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/01/2019
 ms.author: banders
-ms.openlocfilehash: d211334ad2aa760cd63b98c6827fb2512811a1d3
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: b1cc034b4d397f170b57e873cb9a5d74c91f83f4
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70806953"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73746456"
 ---
 # <a name="purchase-reservations-with-monthly-payments"></a>Betala för reservationer via månadsbetalningar
 
@@ -24,6 +24,7 @@ Beloppet du betalar per månad kan variera beroende på den aktuella månadens v
 Månadsbetalningar är tillgängliga för:
 
 - Virtuella datorer
+- Azure Storage
 - SQL Database
 - SQL Data Warehouse
 - Cosmos DB
@@ -60,20 +61,6 @@ När du byter ut en reservation som du betalar för månadsvis måste den totala
 Om du avbryter en reservation som betalas per månad kan Microsoft ta ut en uppsägningsavgift för de framtida betalningar som ställs in. Återstående åtagna betalningar räknas av mot återbetalningsgränsen på 50 000 USD.
 
 Du kan läsa mer om byten och återbetalningar i [Självservice vid byten och återbetalningar för Azure-reservationer](billing-azure-reservations-self-service-exchange-and-refund.md).
-
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
-
-F. Erbjuder Azure några ”delvis i förväg betalda reservationer”?<br>
-A. Nej. Eftersom kostnaderna för reservationer som betalas i förväg och per månad är identiska erbjuder inte Microsoft några delbetalningar i förväg.
-
-F. Är månatliga betalningar tillgängliga för Microsofts CSP-program (Cloud Solution Provider)?<br>
-A. Ja, partnerföretag kan köpa reservationer för sina CSP-kunder i Azure-portalen. Det går inte att köpa reservationer med månatlig betalning i partnercentret.
-
-F. Jag är Azure Government-kund i USA, kan jag betala för reservationer per månad?<br>
-A. Inte för tillfället.
-
-F. När jag kan byta eller få återbetalning för en reservation på egen hand istället för att skapa en supportbegäran?<br>
-A. Inte för tillfället. Förfrågningar om att byta och återbetala reservationer som betalas månatligen hanteras av Azures support.
 
 ## <a name="next-steps"></a>Nästa steg
 

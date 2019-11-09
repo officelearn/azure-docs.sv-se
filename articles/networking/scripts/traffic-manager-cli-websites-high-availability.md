@@ -1,30 +1,27 @@
 ---
-title: Azure CLI-skriptexempel – dirigera trafik för hög tillgänglighet för program | Microsoft Docs
-description: Azure CLI-skriptexempel – dirigera trafik för hög tillgänglighet för program
+title: Skript exempel för Azure CLI – väg trafik för hög tillgänglighet för program | Microsoft Docs
+description: Skript exempel för Azure CLI – väg trafik för hög tillgänglighet för program
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
-manager: timlt
-editor: tysonn
-tags: azure-infrastructure
-ms.assetid: ''
+author: asudbring
+manager: KumudD
 ms.service: traffic-manager
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 06/26/2018
-ms.author: kumud
-ms.openlocfilehash: 3922eb76fa0954b9c02cc86f98acb142cc1d1fee
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: fdd54039cd3e039439c70e02b962e56d72efa715
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60565317"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890267"
 ---
 # <a name="route-traffic-for-high-availability-of-applications"></a>Dirigera trafik för hög tillgänglighet för program
 
-Det här skriptet skapar en resursgrupp, två apptjänstplaner, två webbappar, en traffic manager-profil och två traffic manager-slutpunkter. Traffic Manager dirigerar trafik till program i en region som den primära regionen och till den sekundära regionen när programmet i den primära regionen är inte tillgänglig. Innan du kör skriptet måste du ändra värdena för MyWebApp, MyWebAppL1 och MyWebAppL2 till unika värden i Azure. När skriptet har körts kan komma du åt appen i den primära regionen med URL-mywebapp.trafficmanager.net.
+Det här skriptet skapar en resurs grupp, två App Service-planer, två webb program, en Traffic Manager-profil och två Traffic Manager-slutpunkter. Traffic Manager dirigerar trafik till programmet i en region som den primära regionen och till den sekundära regionen när programmet i den primära regionen inte är tillgängligt. Innan du kör skriptet måste du ändra värdena för MyWebAppL1 och MyWebAppL2 till unika värden i Azure. När du har kört skriptet kan du komma åt appen i den primära regionen med URL-mywebapp.trafficmanager.net.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -37,7 +34,7 @@ Det här skriptet skapar en resursgrupp, två apptjänstplaner, två webbappar, 
 
 ## <a name="clean-up-deployment"></a>Rensa distribution 
 
-När exempelskriptet har körts kan följande kommando kan användas för att ta bort resursgruppen, App Service-app och alla relaterade resurser.
+När skript exemplet har körts kan du använda kommandot Följ för att ta bort resurs gruppen, App Service app och alla relaterade resurser.
 
 ```azurecli
 az group delete --name myResourceGroup1 --yes
@@ -51,13 +48,13 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 | Kommando | Anteckningar |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan) | Skapar en App Service-plan. Detta fungerar som en servergrupp för Azure-webbappen. |
-| [az webapp create](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Skapar en Azure-webbapp i App Service-planen. |
-| [Skapa AZ network traffic-manager-profil](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile) | Skapar en Azure Traffic Manager-profil. |
-| [Skapa AZ network traffic-manager endpoint](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint) | Lägger till en slutpunkt i en Azure Traffic Manager-profil. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan) | Skapar en App Service-plan. Detta är som en Server grupp för din Azure-webbapp. |
+| [az webapp create](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Skapar en Azure-webbapp i App Service plan. |
+| [AZ Network Traffic-Manager profil Create](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile) | Skapar en Azure Traffic Manager-profil. |
+| [AZ Network Traffic-Manager Endpoint Create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint) | Lägger till en slutpunkt i en Azure Traffic Manager-profil. |
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
 
-Ytterligare App Service CLI-skriptexempel finns i den [Azure Networking dokumentation](../cli-samples.md).
+Ytterligare App Service CLI-skript exempel finns i dokumentationen för [Azure-nätverk](../cli-samples.md).

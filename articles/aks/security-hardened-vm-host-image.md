@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/11/2019
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 5c2ecd5a53bb77193469ba1135c46d9b5fa65b2c
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 8b7e50fdc02ab47c50cecb95073f1b51393db898
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202972"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885635"
 ---
 # <a name="security-hardening-in-aks-virtual-machine-hosts"></a>Säkerhets härdning i AKS virtuella dator värdar 
 
@@ -30,7 +30,7 @@ Målet för den säkerhetsbegränsade värd operativ systemet är att minska ang
 
 * AKS tillhandahåller ett säkerhetsoptimerat värd-OS som standard. Det finns inget aktuellt alternativ för att välja ett alternativt operativ system. 
 
-* Azure använder dagliga korrigeringar (inklusive säkerhets korrigeringar) för att AKS virtuella dator värdar. Vissa av de här korrigeringarna kräver en omstart, medan andra inte kommer. Du ansvarar för schemaläggning av AKS VM Host-omstarter efter behov. Vägledning om hur du automatiserar AKS korrigering finns i [korrigera AKS-noder](https://docs.microsoft.com/en-us/azure/aks/node-updates-kured).
+* Azure använder dagliga korrigeringar (inklusive säkerhets korrigeringar) för att AKS virtuella dator värdar. Vissa av de här korrigeringarna kräver en omstart, medan andra inte kommer. Du ansvarar för schemaläggning av AKS VM Host-omstarter efter behov. Vägledning om hur du automatiserar AKS korrigering finns i [korrigera AKS-noder](https://docs.microsoft.com/azure/aks/node-updates-kured).
 
 Nedan visas en sammanfattning av bild härdnings arbetet som implementeras i AKS-Engine för att skapa säkerhetsoptimerade värd-OS. Arbetet implementerades [i det här GitHub-projektet](https://github.com/Azure/aks-engine/projects/7).  
 
@@ -75,9 +75,9 @@ AKS-Engine befordrar eller följer inte någon speciell säkerhets standard för
 |5.4.1.1 |Se till att lösen ordets giltighets tid är 90 dagar eller mindre |
 |5.4.1.4 |Se till att det inaktiva lösen ords låset är 30 dagar eller mindre |
 |5.4.4 |Se till att standard användaren umask är 027 eller mer restriktiv |
-|5.6 |Se till att åtkomsten till Su-kommandot är begränsad|
+|5,6 |Se till att åtkomsten till Su-kommandot är begränsad|
 
-## <a name="additional-notes"></a>Ytterligare meddelanden
+## <a name="additional-notes"></a>Ytterligare information
  
 * Vissa onödiga driv rutiner för kernel-moduler har inaktiverats i operativ systemet för att ytterligare minska risken för attack ytan. 
 

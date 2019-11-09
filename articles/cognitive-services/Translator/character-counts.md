@@ -1,7 +1,7 @@
 ---
 title: Antal bokstäver – Translator Text API
 titleSuffix: Azure Cognitive Services
-description: Hur Translator Text API räknar tecken.
+description: I den här artikeln förklaras hur Azure Cognitive Services Translator Text API räknar tecken, så att du kan förstå hur det matas in på innehållet.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: e3a16d9272e75f9a94f5381c1681c036d177e0f6
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cb70b8624ac0d909511032622948f14f8764b153
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595982"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888147"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>Hur Translator Text API räknar tecken
 
@@ -24,11 +24,11 @@ Translator Text API räknar varje Unicode-kodtyp för inmatad text som ett tecke
 Antalet är:
 
 * Text som skickats till Translator Text API i bröd texten i begäran
-   * `Text`När du använder Sök metoderna Översätt, translittererad och ord lista
-   * `Text`och `Translation` när du använder exempel metoden för ord listan
-* Alla markeringar: HTML-taggar, och så vidare i textfältet i begär ande texten. JSON-notation som används för att bygga begäran (för instans "text:") räknas inte.
+   * `Text` när du använder Sök metoderna Översätt, translittererad och ord lista
+   * `Text` och `Translation` när du använder exempel metoden för ord listan
+* All markering: HTML, XML-taggar osv. inom textfältet i begär ande texten. JSON-notation som används för att bygga begäran (för instans "text:") räknas inte.
 * En enskild bokstav
-* Skiljetecken
+* skiljetecken
 * Ett blank steg, en tabb, ett pålägg och en typ av blank stegs tecken
 * Varje kod punkt som definierats i Unicode
 * En upprepad översättning, även om du har översatt samma text tidigare

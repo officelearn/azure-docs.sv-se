@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8a783581394de05fff9f0060e124e8dc59c96b60
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 8fa20608f09b4e3006dad685d2fc52bcc9207b5a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790172"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890150"
 ---
 # <a name="working-with-skillsets-in-azure-cognitive-search"></a>Arbeta med färdighetsuppsättningar i Azure Kognitiv sökning
 
@@ -32,7 +32,7 @@ En färdigheter har tre egenskaper:
 
 
 
-Färdighetsuppsättningar har skapats i JSON. Du kan bygga komplexa färdighetsuppsättningar med slingor och [förgreningar](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-conditional) med hjälp av [uttrycks språket](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional). Uttrycks språkets sökvägar använder [JSON-pekaren](https://tools.ietf.org/html/rfc6901) med några ändringar för att identifiera noder i ett berikande träd. En ```"/"``` passerar en nivå lägre i trädet och ```"*"``` fungerar som en för-varje operator i kontexten. Dessa begrepp beskrivs bäst med ett exempel. För att illustrera några av begreppen och funktionerna går vi igenom exempel färdigheter för [hotell granskning](knowledge-store-connect-powerbi.md) . Om du vill visa färdigheter när du har följt arbets flödet för att importera data, måste du använda en REST API-klient för att [Hämta färdigheter](https://docs.microsoft.com/en-us/rest/api/searchservice/get-skillset).
+Färdighetsuppsättningar har skapats i JSON. Du kan bygga komplexa färdighetsuppsättningar med slingor och [förgreningar](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional) med hjälp av [uttrycks språket](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional). Uttrycks språkets sökvägar använder [JSON-pekaren](https://tools.ietf.org/html/rfc6901) med några ändringar för att identifiera noder i ett berikande träd. En ```"/"``` passerar en nivå lägre i trädet och ```"*"``` fungerar som en för-varje operator i kontexten. Dessa begrepp beskrivs bäst med ett exempel. För att illustrera några av begreppen och funktionerna går vi igenom exempel färdigheter för [hotell granskning](knowledge-store-connect-powerbi.md) . Om du vill visa färdigheter när du har följt arbets flödet för att importera data, måste du använda en REST API-klient för att [Hämta färdigheter](https://docs.microsoft.com/rest/api/searchservice/get-skillset).
 
 ### <a name="enrichment-tree"></a>Anriknings träd
 
@@ -43,14 +43,14 @@ När ett dokument har berikats pipelinen visas det som ett träd med innehåll o
 
 |Data Source\Parsing läge|Standard|JSON, JSON-linjer & CSV|
 |---|---|---|
-|Blob-lagring|/document/content<br>/document/normalized_images/*<br>...|/document/{key1}<br>/document/{key2}<br>...|
-|SQL|/document/{column1}<br>/document/{column2}<br>...|Gäller inte |
-|Cosmos DB|/document/{key1}<br>/document/{key2}<br>...|Gäller inte|
+|Blob Storage|/document/content<br>/Document/normalized_images/*<br>...|/document/{key1}<br>/document/{key2}<br>...|
+|SQL|/document/{column1}<br>/document/{column2}<br>...|Saknas |
+|Cosmos DB|/document/{key1}<br>/document/{key2}<br>...|Saknas|
 
  När färdigheter körs lägger de till nya noder i det berikande trädet. Dessa nya noder kan sedan användas som indata för underordnade kunskaper, projicera till kunskaps lagret eller mappa till index fält. Berikningar är inte föränderligt: när de har skapats går det inte att redigera noder. När din färdighetsuppsättningar får mer komplexa, så kommer ditt anriknings träd, men inte alla noder i anriknings trädet behöver göra det till indexet eller kunskaps lagret. Du kan selektivt bevara endast en delmängd av anrikningerna i indexet eller kunskaps lagret.
 
 Du kan selektivt bevara endast en delmängd av anrikningerna i indexet eller kunskaps lagret.
-För resten av det här dokumentet kommer vi att anta att vi arbetar med [hotell gransknings exempel](https://docs.microsoft.com/en-us/azure/search/knowledge-store-connect-powerbi), men samma koncept gäller för att ge dokument från alla andra data källor.
+För resten av det här dokumentet kommer vi att anta att vi arbetar med [hotell gransknings exempel](https://docs.microsoft.com/azure/search/knowledge-store-connect-powerbi), men samma koncept gäller för att ge dokument från alla andra data källor.
 
 ### <a name="context"></a>Kontext
 Varje färdighet kräver en kontext. En kontext fastställer:

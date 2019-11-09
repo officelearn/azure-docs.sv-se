@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: 7ecc76a8b1f57d4e397746c28dc4cd56b90c3599
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 06ebe8ed22453289fa02c238d9b2e6ef13191f2a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834713"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888550"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Snabb start: Konfigurera Azure NetApp Files och skapa en NFS-volym 
 
@@ -110,7 +110,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
     ``` 
 
     > [!NOTE]
-    > En lista över regioner som stöds finns i avsnittet [produkter som är tillgängliga efter region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=netapp&regions=all) .
+    > En lista över regioner som stöds finns i avsnittet [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all) .
     > Använd `Get-AzLocation | select Location` för att hämta regions namnet som stöds av våra kommando rads verktyg.
     >
 
@@ -137,7 +137,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
     ``` 
 
     > [!NOTE]
-    > En lista över regioner som stöds finns i avsnittet [produkter som är tillgängliga efter region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=netapp&regions=all) .
+    > En lista över regioner som stöds finns i avsnittet [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all) .
     > Använd `az account list-locations -query "[].{Region:name}" --out table` för att hämta regions namnet som stöds av våra kommando rads verktyg.
     >
 

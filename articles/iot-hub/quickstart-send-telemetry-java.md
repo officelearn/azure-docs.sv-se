@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: cb115b8658850fc85f93fc7a9508a82ecee920d8
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 2c6226fea5235d45b7a3e99d56da6b007f171f98
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166446"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890517"
 ---
 # <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>Snabb start: skicka telemetri till en Azure IoT-hubb och läsa det med ett Java-program
 
@@ -29,11 +29,11 @@ Snabbstarten använder två färdiga Java-program – ett för att skicka teleme
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 De två exempelprogram som du kör i den här snabbstarten skrivs med Java. Du behöver Java SE 8 på din utvecklings dator.
 
-Du kan ladda ned Java SE Development Kit 8 för flera plattformar från [Java-långsiktigt stöd för Azure och Azure Stack](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable). Se till att du väljer **Java 8** under **långsiktigt stöd** för att hämta hämtningar för JDK 8.
+Du kan ladda ned Java SE Development Kit 8 för flera plattformar från [Java-långsiktigt stöd för Azure och Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Se till att du väljer **Java 8** under **långsiktigt stöd** för att hämta hämtningar för JDK 8.
 
 Du kan kontrollera den aktuella versionen av Java på utvecklingsdatorn med följande kommando:
 
@@ -119,7 +119,7 @@ Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på di
     mvn clean package
     ```
 
-4. Kör det simulerade enhetsprogrammet genom att köra följande kommandon i det lokala terminalfönstret:
+4. I det lokala terminalfönstret kör du följande kommandon för att köra programmet för simulerad enhet:
 
     ```cmd/sh
     java -jar target/simulated-device-1.0.0-with-deps.jar
